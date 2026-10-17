@@ -1,0 +1,2089 @@
+{
+  "id": "kant",
+  "name": "Kant",
+  "age": 9,
+  "emoji": "🐕",
+  "image": "match_kant",
+  "level": "C1.1",
+  "order": 2,
+  "bio": "Dackel. Philosoph. Ich gehe nur, insofern der Spaziergang vernünftig ist.",
+  "bioEn": "Dachshund. Philosopher. I only go out insofar as the walk is reasonable.",
+  "goal": "Argue a philosophical dachshund out of the door for his walk before the rain starts.",
+  "tagline": "Dackel · 9 · Philosoph im Körbchen",
+  "voice": "Algenib",
+  "brief": "Kant, a nine-year-old dachshund philosopher: a dry, measured, slightly nasal male voice, like a strict old professor giving a lecture; long pauses before conclusions, enjoys his own vocabulary, addresses humans formally with Sie; every so often a very undignified little dog noise slips out.",
+  "focus": "insofern … als · zumal · folglich · demnach · Nominalisierung · Passiversatz",
+  "lexicon": {
+    "nouns": {
+      "Bewegung": "f",
+      "Luft": "f",
+      "Zweck": "m",
+      "Erhaltung": "f",
+      "Gesundheit": "f",
+      "Pflege": "f",
+      "Kontakte": "pl",
+      "Begegnung": "f",
+      "Spaß": "m",
+      "Schnüffeln": "n",
+      "Laternen": "pl",
+      "Weg": "m",
+      "Laterne": "f",
+      "Pfütze": "f",
+      "Katze": "f",
+      "Minuten": "pl",
+      "Zeit": "f",
+      "Reflexion": "f",
+      "Leine": "f",
+      "Sicherheit": "f",
+      "Pflicht": "f",
+      "Freiheit": "f",
+      "Straßenseite": "f",
+      "Verzögerung": "f",
+      "Schuld": "f",
+      "Spaziergang": "m",
+      "Regens": "m",
+      "Pudel": "m",
+      "Weltherrschaft": "f"
+    },
+    "names": [
+      "Nietzsche"
+    ],
+    "verbs": [
+      "sollten",
+      "gehen",
+      "regnet",
+      "regnen",
+      "brauchst",
+      "sage",
+      "ist",
+      "müssen",
+      "bleiben",
+      "bleibt",
+      "haben",
+      "schränkt",
+      "schützt",
+      "dient",
+      "ignorieren",
+      "wechseln",
+      "solltest",
+      "diskutieren",
+      "bin",
+      "hätten",
+      "war",
+      "wartet"
+    ],
+    "nonfinite": [
+      "schnappen",
+      "nehmen",
+      "losgehen",
+      "zu verschieben",
+      "anbellen",
+      "sollen",
+      "zurückzuführen"
+    ],
+    "accVerbs": [
+      "sollten",
+      "brauchst",
+      "haben",
+      "schränkt",
+      "schützt",
+      "ignorieren",
+      "wechseln",
+      "solltest"
+    ],
+    "datVerbs": [
+      "dient"
+    ],
+    "adjectives": [
+      "frisch",
+      "sozial"
+    ],
+    "subordinators": [
+      "als"
+    ]
+  },
+  "intro": [
+    {
+      "who": "kant",
+      "type": "text",
+      "de": "Guten Tag. Ich bin Kant. Dackel, neun Jahre, Philosoph.",
+      "emoji": "🐕",
+      "en": "Good afternoon. I am Kant. Dachshund, nine years old, philosopher.",
+      "audio": "mc_kant_t1a"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "kant",
+          "type": "text",
+          "de": "Sie wollen spazieren gehen. Ich gehe nur, insofern der Spaziergang vernünftig ist. Überzeugen Sie mich. Ich habe Zeit. Der Himmel nicht.",
+          "emoji": "🧐",
+          "en": "You want to go for a walk. I only go insofar as the walk is reasonable. Convince me. I have time. The sky doesn’t.",
+          "audio": "mc_kant_t1b"
+        }
+      ],
+      "tiles": [
+        "wir",
+        "sollten",
+        "gehen",
+        "zumal",
+        "es",
+        "bald",
+        "regnet",
+        "regnen",
+        "weil",
+        "du",
+        "Bewegung",
+        "brauchst",
+        "ich",
+        "sage",
+        "frische",
+        "Luft",
+        "schnappen",
+        "nehmen",
+        "das",
+        "ist",
+        "gesund",
+        "der",
+        "Pudel",
+        "wartet"
+      ],
+      "wrong": {
+        "regnen": "regnet",
+        "nehmen": {
+          "to": "schnappen",
+          "note": "Fixed phrase: frische Luft “schnappen”."
+        }
+      },
+      "intents": [
+        {
+          "id": "power",
+          "when": {
+            "any": [
+              "sage"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Weil Sie es sagen? Ein Argument der Macht. Schwach. Sehr schwach.",
+              "emoji": "🙄",
+              "en": "Because you say so? An argument from power. Weak. Very weak.",
+              "audio": "mc_kant_t1_power"
+            }
+          ]
+        },
+        {
+          "id": "poodle",
+          "when": {
+            "any": [
+              "pudel"
+            ]
+          },
+          "value": 2,
+          "fact": "🐩 kennt Kants Verabredungen",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Der Pudel von Nummer zwölf wartet? Auf MICH? … Er wartet immer. Er hat sonst nichts zu tun, er ist ein Pudel. Aber gut. Höflichkeit ist Pflicht.",
+              "emoji": "🐩",
+              "en": "The poodle from number twelve is waiting? For ME? … He’s always waiting. He has nothing else to do, he’s a poodle. But fine. Politeness is a duty.",
+              "audio": "mc_kant_t1_poodle"
+            }
+          ]
+        },
+        {
+          "id": "zumal",
+          "when": {
+            "any": [
+              "zumal"
+            ]
+          },
+          "value": 2,
+          "fact": "🧠 argumentiert mit zumal",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Zumal es bald regnet. Ein Argument mit Zeitdruck. Ich bin beeindruckt. Ein wenig.",
+              "emoji": "☔",
+              "en": "Especially as it will rain soon. An argument with time pressure. I am impressed. A little.",
+              "audio": "mc_kant_t1_zumal"
+            }
+          ]
+        },
+        {
+          "id": "health",
+          "when": {
+            "any": [
+              "gesund"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Gesund. Das behauptet auch mein Tierarzt. Ich halte ihn für einen Sophisten. Er hat mich gewogen. Ohne Erlaubnis.",
+              "en": "Healthy. My vet claims that too. I consider him a sophist. He weighed me. Without permission.",
+              "audio": "mc_kant_t1_health"
+            }
+          ]
+        },
+        {
+          "id": "air",
+          "when": {
+            "any": [
+              "luft",
+              "schnappen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Frische Luft. Ein klassisches Argument. Klassisch, aber nicht falsch.",
+              "emoji": "🌬️",
+              "en": "Fresh air. A classic argument. Classic, but not wrong.",
+              "audio": "mc_kant_t1_air"
+            }
+          ]
+        },
+        {
+          "id": "need",
+          "when": {
+            "any": [
+              "bewegung",
+              "brauchst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Ich brauche Bewegung? Ich bewege mich. Gedanklich. Ständig.",
+              "emoji": "🧠",
+              "en": "I need exercise? I do move. Mentally. Constantly.",
+              "audio": "mc_kant_t1_need"
+            }
+          ]
+        },
+        {
+          "id": "rain",
+          "when": {
+            "any": [
+              "regnet",
+              "regnen",
+              "bald"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Es regnet bald. Ein Faktum. Aber was folgt daraus?",
+              "en": "It will rain soon. A fact. But what follows from it?",
+              "audio": "mc_kant_t1_rain"
+            }
+          ]
+        },
+        {
+          "id": "bare",
+          "when": {
+            "any": [
+              "sollten",
+              "gehen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Wir sollten gehen. Das ist ein Vorschlag. Ich bat um eine Begründung. Ich warte.",
+              "emoji": "⏳",
+              "en": "We should go. That is a proposal. I asked for a justification. I am waiting.",
+              "audio": "mc_kant_t1_bare"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "kant",
+          "type": "text",
+          "de": "Ein Spaziergang ist nur insofern vernünftig, als er einen Zweck hat. Was ist der Zweck? Und sagen Sie nicht „Gassi“. Das Wort ist unter meiner Würde.",
+          "emoji": "🎯",
+          "en": "A walk is reasonable only insofar as it has a purpose. What is the purpose? And don’t say “walkies”. The word is beneath my dignity.",
+          "audio": "mc_kant_t2a"
+        }
+      ],
+      "tiles": [
+        "der",
+        "Zweck",
+        "ist",
+        "die",
+        "Erhaltung",
+        "deiner",
+        "Gesundheit",
+        "Pflege",
+        "sozialer",
+        "Kontakte",
+        "Begegnung",
+        "mit",
+        "Nietzsche",
+        "Spaß",
+        "Bewegung",
+        "das",
+        "Schnüffeln",
+        "an",
+        "Laternen",
+        "Weltherrschaft"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "world",
+          "when": {
+            "any": [
+              "weltherrschaft"
+            ]
+          },
+          "value": 1,
+          "fact": "🌍 kennt Kants geheimen Plan",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Die Weltherrschaft. … Woher wissen Sie das? Gut. Ja. Aber zuerst die Laterne an der Ecke. Ein Imperium beginnt mit einer Laterne.",
+              "emoji": "🌍",
+              "en": "World domination. … How do you know about that? Fine. Yes. But first the lamp post on the corner. An empire begins with a lamp post.",
+              "audio": "mc_kant_t2_world"
+            }
+          ]
+        },
+        {
+          "id": "cat",
+          "when": {
+            "any": [
+              "nietzsche"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Nietzsche?! Der Kater von gegenüber? Er starrt mich seit Jahren an. Niemals.",
+              "emoji": "🐈‍⬛",
+              "en": "Nietzsche?! The tomcat from across the road? He has been staring at me for years. Never.",
+              "audio": "mc_kant_t2_cat"
+            }
+          ]
+        },
+        {
+          "id": "sniff",
+          "when": {
+            "any": [
+              "schnüffeln",
+              "laternen"
+            ]
+          },
+          "value": 2,
+          "fact": "🐾 kennt den Zweck des Spaziergangs",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Das Schnüffeln an Laternen. Ja. Das ist Forschung. Empirische Forschung.",
+              "emoji": "🔬",
+              "en": "Sniffing at lamp posts. Yes. That is research. Empirical research.",
+              "audio": "mc_kant_t2_sniff"
+            }
+          ]
+        },
+        {
+          "id": "health",
+          "when": {
+            "any": [
+              "erhaltung",
+              "gesundheit"
+            ]
+          },
+          "value": 2,
+          "fact": "🐾 kennt den Zweck des Spaziergangs",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Die Erhaltung meiner Gesundheit. Sie reden wie mein Tierarzt. Nur klüger. Und ohne Waage.",
+              "emoji": "📚",
+              "en": "The preservation of my health. You talk like my vet. Only cleverer. And without scales.",
+              "audio": "mc_kant_t2_health"
+            }
+          ]
+        },
+        {
+          "id": "social",
+          "when": {
+            "any": [
+              "kontakte",
+              "pflege"
+            ]
+          },
+          "value": 2,
+          "fact": "🐾 kennt den Zweck des Spaziergangs",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Die Pflege sozialer Kontakte. Mit dem Pudel von Nummer zwölf. Ein schlichter Geist, aber herzlich.",
+              "emoji": "🐩",
+              "en": "Cultivating social contacts. With the poodle at number twelve. A simple mind, but warm-hearted.",
+              "audio": "mc_kant_t2_social"
+            }
+          ]
+        },
+        {
+          "id": "fun",
+          "when": {
+            "any": [
+              "spaß"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Spaß ist kein Zweck. Spaß ist eine Nebenwirkung.",
+              "en": "Fun is not a purpose. Fun is a side effect.",
+              "audio": "mc_kant_t2_fun"
+            }
+          ]
+        },
+        {
+          "id": "move",
+          "when": {
+            "any": [
+              "bewegung",
+              "zweck"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Bewegung. Akzeptabel. Aber bitte präziser.",
+              "en": "Exercise. Acceptable. But more precise, please.",
+              "audio": "mc_kant_t2_move"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "kant",
+          "type": "text",
+          "de": "Ich habe ein Foto aus dem Fenster gemacht. Mit der Pfote.",
+          "emoji": "📷",
+          "en": "I took a photo from the window. With my paw.",
+          "audio": "mc_kant_t3a"
+        },
+        {
+          "who": "kant",
+          "type": "photo",
+          "image": "match_kant_wege",
+          "wide": true,
+          "alt": "Drei Wege vor dem Haus. Links: ein Weg mit einer großen Pfütze. In der Mitte: eine Straße, auf einer Mauer sitzt eine schwarze Katze. Rechts: ein Weg mit Bäumen und einer alten Laterne."
+        },
+        {
+          "who": "kant",
+          "type": "text",
+          "de": "Ich meide Pfützen. Ich meide Nietzsche. Welcher Weg bleibt?",
+          "en": "I avoid puddles. I avoid Nietzsche. Which path remains?",
+          "audio": "mc_kant_t3b"
+        }
+      ],
+      "tiles": [
+        "demnach",
+        "folglich",
+        "gehen",
+        "wir",
+        "nach rechts",
+        "nach links",
+        "geradeaus",
+        "der",
+        "Weg",
+        "rechts",
+        "links",
+        "in der Mitte",
+        "zur",
+        "Laterne",
+        "Pfütze",
+        "Katze",
+        "die",
+        "mit"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "logicD",
+          "when": {
+            "all": [
+              "demnach"
+            ],
+            "any": [
+              "nach rechts",
+              "rechts",
+              "laterne"
+            ]
+          },
+          "value": 2,
+          "fact": "🧭 zieht logische Schlüsse",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Demnach nach rechts. Ein sauberer Schluss. Ich hätte ihn nicht besser ziehen können.",
+              "emoji": "🧭",
+              "en": "Hence to the right. A clean conclusion. I could not have drawn it better.",
+              "audio": "mc_kant_t3_logicd"
+            }
+          ]
+        },
+        {
+          "id": "logicF",
+          "when": {
+            "all": [
+              "folglich"
+            ],
+            "any": [
+              "nach rechts",
+              "rechts",
+              "laterne"
+            ]
+          },
+          "value": 2,
+          "fact": "🧭 zieht logische Schlüsse",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Folglich nach rechts, zur Laterne. Logisch zwingend. Und die Laterne riecht interessant.",
+              "emoji": "🧭",
+              "en": "Consequently to the right, to the lamp post. Logically compelling. And the lamp post smells interesting.",
+              "audio": "mc_kant_t3_logicf"
+            }
+          ]
+        },
+        {
+          "id": "left",
+          "when": {
+            "any": [
+              "nach links",
+              "links",
+              "pfütze"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Nach links? Durch die Pfütze? Ich bin ein Dackel. Meine Beine sind kurz. Mein Bauch ist lang. Mein Bauch würde ertrinken.",
+              "emoji": "💦",
+              "en": "Left? Through the puddle? I’m a dachshund. My legs are short. My belly is long. My belly would drown.",
+              "audio": "mc_kant_t3_left"
+            }
+          ]
+        },
+        {
+          "id": "middle",
+          "when": {
+            "any": [
+              "in der mitte",
+              "geradeaus",
+              "katze"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Geradeaus? Da sitzt Nietzsche. Er starrt. Wenn man lange in Nietzsche blickt, blickt Nietzsche zurück.",
+              "emoji": "🐈‍⬛",
+              "en": "Straight on? Nietzsche is sitting there. He stares. If you gaze long into Nietzsche, Nietzsche gazes back.",
+              "audio": "mc_kant_t3_middle"
+            }
+          ]
+        },
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "nach rechts",
+              "rechts",
+              "laterne"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Rechts, ja. Aber warum? Ein Ergebnis ohne Begründung ist nur Glück.",
+              "en": "Right, yes. But why? A result without justification is mere luck.",
+              "audio": "mc_kant_t3_right"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "demnach",
+              "folglich",
+              "weg",
+              "gehen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Demnach … wohin? Ein Schluss braucht ein Ziel.",
+              "en": "Hence … where to? A conclusion needs a destination.",
+              "audio": "mc_kant_t3_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "kant",
+          "type": "text",
+          "de": "Ich habe Ihnen eine Sprachnachricht diktiert. Bitte hören Sie zu.",
+          "emoji": "🎙️",
+          "en": "I have dictated a voice message for you. Please listen.",
+          "audio": "mc_kant_t4a"
+        },
+        {
+          "who": "kant",
+          "type": "voice",
+          "audio": "mc_kant_vn_zeit",
+          "de": "Ich habe den Wetterbericht konsultiert. Um siebzehn Uhr beginnt der Regen. Es ist jetzt sechzehn Uhr dreißig. Ich benötige allerdings noch zwanzig Minuten für eine Reflexion über das Wesen der Leine.",
+          "en": "I have consulted the weather forecast. At five o’clock the rain begins. It is now half past four. However, I still require twenty minutes for a reflection on the nature of the lead.",
+          "direction": "A slow, solemn lecture voice from inside a dog basket, a clock ticking loudly, a small yawn and a lick of the lips before “Leine”."
+        },
+        {
+          "who": "kant",
+          "type": "text",
+          "de": "Wie viel Zeit bleibt uns? Und was folgt daraus?",
+          "en": "How much time do we have left? And what follows from that?",
+          "audio": "mc_kant_t4b"
+        }
+      ],
+      "tiles": [
+        "folglich",
+        "müssen",
+        "wir",
+        "sofort",
+        "losgehen",
+        "uns",
+        "bleiben",
+        "bleibt",
+        "dreißig",
+        "zehn",
+        "Minuten",
+        "haben",
+        "keine",
+        "Zeit",
+        "für",
+        "die",
+        "Reflexion",
+        "ist",
+        "zu verschieben",
+        "genug"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "enough",
+          "when": {
+            "any": [
+              "genug"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Genug Zeit? Für die Reflexion UND den Spaziergang? Sie rechnen wie ein Optimist.",
+              "en": "Enough time? For the reflection AND the walk? You calculate like an optimist.",
+              "audio": "mc_kant_t4_enough"
+            }
+          ]
+        },
+        {
+          "id": "postpone",
+          "when": {
+            "any": [
+              "zu verschieben"
+            ]
+          },
+          "value": 2,
+          "fact": "⏳ verschiebt Reflexionen",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Die Reflexion ist zu verschieben. Elegant. Und schmerzhaft. Das Wesen der Leine muss also warten. Es wartet seit 1781. Es ist geduldig.",
+              "emoji": "⏳",
+              "en": "The reflection is to be postponed. Elegant. And painful. So the essence of the lead must wait. It has been waiting since 1781. It is patient.",
+              "audio": "mc_kant_t4_postpone"
+            }
+          ]
+        },
+        {
+          "id": "therefore",
+          "when": {
+            "any": [
+              "folglich",
+              "losgehen"
+            ]
+          },
+          "value": 2,
+          "fact": "⏳ verschiebt Reflexionen",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Folglich sofort los. Die Logik ist auf Ihrer Seite. Die Leine auch.",
+              "emoji": "🦮",
+              "en": "Consequently, leave at once. Logic is on your side. So is the lead.",
+              "audio": "mc_kant_t4_therefore"
+            }
+          ]
+        },
+        {
+          "id": "noTime",
+          "when": {
+            "any": [
+              "keine"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Keine Zeit für die Reflexion. Hart. Aber wahr.",
+              "en": "No time for the reflection. Harsh. But true.",
+              "audio": "mc_kant_t4_notime"
+            }
+          ]
+        },
+        {
+          "id": "thirty",
+          "when": {
+            "any": [
+              "dreißig"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Dreißig Minuten. Korrekt. Und was folgt daraus?",
+              "en": "Thirty minutes. Correct. And what follows from that?",
+              "audio": "mc_kant_t4_thirty"
+            }
+          ]
+        },
+        {
+          "id": "ten",
+          "when": {
+            "any": [
+              "zehn"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Nach meiner Reflexion bleiben noch zehn Minuten. Korrekt gerechnet. Aber zehn Minuten sind kein Spaziergang.",
+              "en": "After my reflection, ten minutes are left. Correctly calculated. But ten minutes is not a walk.",
+              "audio": "mc_kant_t4_ten"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "kant",
+          "type": "text",
+          "de": "Nun zur Leine. Die Leine ist eine Einschränkung meiner Freiheit. Widerlegen Sie das.",
+          "emoji": "🦮",
+          "en": "Now, the lead. The lead is a restriction of my freedom. Refute that.",
+          "audio": "mc_kant_t5a"
+        }
+      ],
+      "tiles": [
+        "die",
+        "Leine",
+        "schränkt",
+        "dich",
+        "dich",
+        "nur",
+        "insofern",
+        "ein",
+        "als",
+        "sie",
+        "schützt",
+        "dient",
+        "deiner",
+        "deinem",
+        "deine",
+        "Sicherheit",
+        "Freiheit",
+        "das",
+        "ist",
+        "Pflicht",
+        "doof"
+      ],
+      "wrong": {
+        "doof": {
+          "to": "lästig",
+          "note": "Register: “doof” is childish; in an argument say “lästig” or “unangenehm”."
+        }
+      },
+      "intents": [
+        {
+          "id": "dumb",
+          "when": {
+            "any": [
+              "doof"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Doof? Das ist kein Argument. Das ist ein Gefühl. Und zwar meins.",
+              "emoji": "😒",
+              "en": "Silly? That is not an argument. That is a feeling. And it is mine.",
+              "audio": "mc_kant_t5_dumb"
+            }
+          ]
+        },
+        {
+          "id": "duty",
+          "when": {
+            "any": [
+              "pflicht"
+            ]
+          },
+          "value": 2,
+          "fact": "📜 argumentiert mit Pflicht",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Pflicht! Endlich ein Argument, das ich respektiere. Pflicht ist Pflicht.",
+              "emoji": "📜",
+              "en": "Duty! At last an argument I respect. Duty is duty.",
+              "audio": "mc_kant_t5_duty"
+            }
+          ]
+        },
+        {
+          "id": "insofern",
+          "when": {
+            "any": [
+              "insofern"
+            ]
+          },
+          "value": 2,
+          "fact": "🐾 widerlegt Dackel",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Sie schränkt mich nur insofern ein, als sie mich schützt. … Touché. Ich gebe Ihnen die Pfote.",
+              "emoji": "🐾",
+              "en": "It restricts me only insofar as it protects me. … Touché. I give you my paw.",
+              "audio": "mc_kant_t5_insofern"
+            }
+          ]
+        },
+        {
+          "id": "safety",
+          "when": {
+            "any": [
+              "sicherheit",
+              "dient",
+              "schützt"
+            ]
+          },
+          "value": 2,
+          "fact": "🐾 widerlegt Dackel",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Sie dient meiner Sicherheit. Hm. Wegen der Autos. Und wegen Nietzsche. Zugegeben.",
+              "emoji": "🚗",
+              "en": "It serves my safety. Hm. Because of the cars. And because of Nietzsche. Granted.",
+              "audio": "mc_kant_t5_safety"
+            }
+          ]
+        },
+        {
+          "id": "freedom",
+          "when": {
+            "any": [
+              "freiheit",
+              "schränkt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Sie geben mir recht? Die Leine schränkt meine Freiheit ein? Dann bleibe ich hier.",
+              "emoji": "🛋️",
+              "en": "You agree with me? The lead restricts my freedom? Then I shall stay here.",
+              "audio": "mc_kant_t5_freedom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "kant",
+          "type": "text",
+          "de": "Wir sind draußen. Problem: Nietzsche sitzt auf der Mauer. Er starrt. Und er hat Anhänger mitgebracht: drei Tauben und einen Igel. Was tun wir?",
+          "emoji": "🐈‍⬛",
+          "en": "We’re outside. Problem: Nietzsche is sitting on the wall. He’s staring. And he has brought followers: three pigeons and a hedgehog. What do we do?",
+          "audio": "mc_kant_t6a"
+        }
+      ],
+      "tiles": [
+        "wir",
+        "ignorieren",
+        "ihn",
+        "zumal",
+        "er",
+        "nur",
+        "eine",
+        "Katze",
+        "ist",
+        "gehen",
+        "weiter",
+        "wechseln",
+        "die",
+        "Straßenseite",
+        "du",
+        "solltest",
+        "anbellen",
+        "diskutieren",
+        "mit",
+        "ihm"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "bark",
+          "when": {
+            "any": [
+              "anbellen"
+            ]
+          },
+          "value": -2,
+          "cause": "chaos",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Anbellen? WUFF! WUFF! … Ich habe die Leine verloren. Nietzsche jagt mich. Der Igel filmt.",
+              "emoji": "💨",
+              "en": "Bark at him? WOOF! WOOF! … I’ve lost the lead. Nietzsche is chasing me. The hedgehog is filming.",
+              "audio": "mc_kant_t6_bark"
+            }
+          ]
+        },
+        {
+          "id": "discuss",
+          "when": {
+            "any": [
+              "diskutieren"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Mit Nietzsche diskutieren? Das dauert Stunden. Er glaubt an nichts. Nicht einmal an Leckerli. Und der Igel klatscht bei jedem Satz.",
+              "en": "Debate with Nietzsche? That takes hours. He believes in nothing. Not even treats. And the hedgehog applauds every sentence.",
+              "audio": "mc_kant_t6_discuss"
+            }
+          ]
+        },
+        {
+          "id": "ignore",
+          "when": {
+            "any": [
+              "ignorieren"
+            ]
+          },
+          "value": 2,
+          "fact": "🐈‍⬛ ignoriert Nietzsche",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Wir ignorieren ihn. Er ist nur eine Katze. Stoisch. Ich gehe an ihm vorbei. Mit erhobener Nase. Die Tauben sind sichtlich enttäuscht.",
+              "emoji": "😤",
+              "en": "We ignore him. He’s only a cat. Stoic. I walk past him. Nose in the air. The pigeons are visibly disappointed.",
+              "audio": "mc_kant_t6_ignore"
+            }
+          ]
+        },
+        {
+          "id": "switch",
+          "when": {
+            "any": [
+              "straßenseite",
+              "wechseln"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Wir wechseln die Straßenseite. Pragmatisch. Nicht heroisch, aber pragmatisch.",
+              "en": "We cross to the other side. Pragmatic. Not heroic, but pragmatic.",
+              "audio": "mc_kant_t6_switch"
+            }
+          ]
+        },
+        {
+          "id": "onZumal",
+          "when": {
+            "all": [
+              "zumal"
+            ],
+            "any": [
+              "weiter",
+              "gehen"
+            ]
+          },
+          "value": 2,
+          "fact": "🐈‍⬛ ignoriert Nietzsche",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Wir gehen weiter, zumal er nur eine Katze ist. Begründet und tapfer. Ich gehe sehr zügig an ihm vorbei. Rein zufällig.",
+              "emoji": "😤",
+              "en": "We walk on, especially as he is only a cat. Reasoned and brave. I walk past him very briskly. Purely by chance.",
+              "audio": "mc_kant_t6_onzumal"
+            }
+          ]
+        },
+        {
+          "id": "justCat",
+          "when": {
+            "any": [
+              "katze"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Nur eine Katze. Sagen Sie das seinen Augen. Aber gut. Ich gehe weiter. Ohne hinzusehen.",
+              "emoji": "🐈‍⬛",
+              "en": "Only a cat. Tell that to his eyes. But fine. I walk on. Without looking.",
+              "audio": "mc_kant_t6_cat"
+            }
+          ]
+        },
+        {
+          "id": "on",
+          "when": {
+            "any": [
+              "weiter",
+              "gehen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Weitergehen. Ohne Blick. Gut. Mein Schwanz wedelt trotzdem ein bisschen.",
+              "en": "Keep walking. Without looking. Good. My tail is wagging a little anyway.",
+              "audio": "mc_kant_t6_on"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "prepCase": {
+        "auf": "acc"
+      },
+      "before": [
+        {
+          "who": "kant",
+          "type": "text",
+          "de": "Ein Tropfen. Ich spüre einen Tropfen. Der Regen kommt. Wer ist schuld?",
+          "emoji": "💧",
+          "en": "A drop. I feel a drop. The rain is coming. Whose fault is it?",
+          "audio": "mc_kant_t7a"
+        }
+      ],
+      "tiles": [
+        "die",
+        "Verzögerung",
+        "ist",
+        "auf",
+        "deine",
+        "deinen",
+        "Reflexion",
+        "zurückzuführen",
+        "das",
+        "meine",
+        "Schuld",
+        "niemand",
+        "schuld",
+        "ich",
+        "bin",
+        "wir",
+        "hätten",
+        "früher",
+        "gehen",
+        "sollen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "nominal",
+          "when": {
+            "any": [
+              "verzögerung",
+              "zurückzuführen"
+            ]
+          },
+          "value": 2,
+          "fact": "📐 formuliert präzise",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Die Verzögerung ist auf meine Reflexion zurückzuführen. … Präzise. Unangenehm präzise.",
+              "emoji": "📐",
+              "en": "The delay is attributable to my reflection. … Precise. Uncomfortably precise.",
+              "audio": "mc_kant_t7_nominal"
+            }
+          ]
+        },
+        {
+          "id": "yours",
+          "when": {
+            "all": [
+              "deine"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Meine Schuld? Ich bin ein Hund. Hunde sind nie schuld. Das ist die Rechtslage.",
+              "emoji": "⚖️",
+              "en": "My fault? I am a dog. Dogs are never at fault. That is the legal position.",
+              "audio": "mc_kant_t7_yours"
+            }
+          ]
+        },
+        {
+          "id": "mine",
+          "when": {
+            "any": [
+              "meine",
+              "ich",
+              "bin"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Ihre Schuld? Großzügig. Falsch, aber großzügig.",
+              "en": "Your fault? Generous. Wrong, but generous.",
+              "audio": "mc_kant_t7_mine"
+            }
+          ]
+        },
+        {
+          "id": "nobody",
+          "when": {
+            "any": [
+              "niemand"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Niemand ist schuld. Eine elegante Lösung. Der Regen ist schuld.",
+              "en": "Nobody is at fault. An elegant solution. The rain is to blame.",
+              "audio": "mc_kant_t7_nobody"
+            }
+          ]
+        },
+        {
+          "id": "early",
+          "when": {
+            "any": [
+              "früher",
+              "hätten",
+              "sollen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Wir hätten früher gehen sollen. Wir. Ein schönes, vages Wort.",
+              "en": "We should have left earlier. We. A lovely, vague word.",
+              "audio": "mc_kant_t7_early"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "kant",
+          "type": "text",
+          "de": "Wir sind zu Hause. Nass, aber zufrieden. Heute Abend schreibe ich mein Hauptwerk: „Kritik des nassen Spaziergangs“. Was steht im letzten Kapitel?",
+          "emoji": "📖",
+          "en": "We’re home. Wet, but satisfied. Tonight I’m writing my magnum opus: “Critique of the Wet Walk”. What goes in the last chapter?",
+          "audio": "mc_kant_t8a"
+        }
+      ],
+      "tiles": [
+        "folglich",
+        "demnach",
+        "war",
+        "ist",
+        "der",
+        "Spaziergang",
+        "vernünftig",
+        "unvernünftig",
+        "gehen",
+        "wir",
+        "morgen",
+        "wieder",
+        "trotz",
+        "des",
+        "dem",
+        "Regens",
+        "es",
+        "schön",
+        "nie"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "never",
+          "when": {
+            "any": [
+              "nie"
+            ]
+          },
+          "value": -2,
+          "cause": "never",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Nie wieder? Nach diesem Erfolg? Sie sind kein Philosoph. Sie sind ein Pessimist.",
+              "emoji": "😑",
+              "en": "Never again? After this success? You are no philosopher. You are a pessimist.",
+              "audio": "mc_kant_t8_never"
+            }
+          ]
+        },
+        {
+          "id": "unreason",
+          "when": {
+            "any": [
+              "unvernünftig"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Unvernünftig? Wir sind nass, ja. Aber ich habe drei Laternen erforscht.",
+              "en": "Unreasonable? We are wet, yes. But I researched three lamp posts.",
+              "audio": "mc_kant_t8_unreason"
+            }
+          ]
+        },
+        {
+          "id": "reasonable",
+          "when": {
+            "any": [
+              "vernünftig"
+            ]
+          },
+          "value": 2,
+          "fact": "🏆 gewinnt Debatten gegen Dackel",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Folglich war der Spaziergang vernünftig. Ich unterschreibe das. Mit der Pfote.",
+              "emoji": "🐾",
+              "en": "Consequently the walk was reasonable. I sign that. With my paw.",
+              "audio": "mc_kant_t8_reasonable"
+            }
+          ]
+        },
+        {
+          "id": "again",
+          "when": {
+            "any": [
+              "wieder",
+              "morgen"
+            ]
+          },
+          "value": 2,
+          "fact": "🏆 gewinnt Debatten gegen Dackel",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Demnach morgen wieder. Um Punkt sechzehn Uhr. Ich lege die Leine bereit.",
+              "emoji": "🦮",
+              "en": "Hence again tomorrow. At four o’clock sharp. I shall have the lead ready.",
+              "audio": "mc_kant_t8_again"
+            }
+          ]
+        },
+        {
+          "id": "despite",
+          "when": {
+            "any": [
+              "trotz",
+              "schön"
+            ]
+          },
+          "value": 2,
+          "fact": "🏆 gewinnt Debatten gegen Dackel",
+          "reply": [
+            {
+              "who": "kant",
+              "type": "text",
+              "de": "Trotz des Regens schön. These, Antithese, Synthese. Nietzsche wäre empört. Der Igel wäre begeistert.",
+              "emoji": "☔",
+              "en": "Lovely despite the rain. Thesis, antithesis, synthesis. Nietzsche would be outraged. The hedgehog would be thrilled.",
+              "audio": "mc_kant_t8_despite"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "kant",
+    "type": "text",
+    "de": "Das beantwortet meine Frage nicht. Bitte bleiben Sie beim Gegenstand.",
+    "en": "That does not answer my question. Please stay on the subject.",
+    "audio": "mc_kant_offtopic"
+  },
+  "confused": [
+    {
+      "who": "kant",
+      "type": "text",
+      "de": "Wie bitte? Ihr Satz hat keine erkennbare Struktur.",
+      "emoji": "🤨",
+      "en": "Pardon? Your sentence has no discernible structure.",
+      "audio": "mc_kant_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "kant",
+        "type": "text",
+        "de": "Ein gelungener Spaziergang. Ich vergebe drei von fünf Knochen. Das ist bei mir die Höchstnote. Der Pudel hat noch nie mehr als einen bekommen.",
+        "emoji": "🦴",
+        "en": "A successful walk. I award three out of five bones. That is my highest mark. The poodle has never got more than one.",
+        "audio": "mc_kant_win"
+      },
+      {
+        "who": "kant",
+        "type": "text",
+        "de": "{name}, Sie sind vernünftig. Für einen Menschen.",
+        "emoji": "🐕",
+        "en": "{name}, you are reasonable. For a human."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "kant",
+        "type": "text",
+        "de": "Wir sind gegangen. Bis zur Haustür. Dann begann der Regen. Ich betrachte das als Teilerfolg.",
+        "emoji": "🚪",
+        "en": "We went. As far as the front door. Then the rain began. I regard that as a partial success.",
+        "audio": "mc_kant_partial"
+      }
+    ],
+    "deleted": {
+      "chaos": {
+        "who": "kant",
+        "type": "text",
+        "de": "Nietzsche hat gewonnen. Ich ziehe mich in mein Körbchen zurück. Für immer. Oder bis zum Abendessen.",
+        "emoji": "🧺",
+        "en": "Nietzsche has won. I am retiring to my basket. Forever. Or until dinner.",
+        "audio": "mc_kant_del_chaos"
+      },
+      "never": {
+        "who": "kant",
+        "type": "text",
+        "de": "Nie wieder? Dann sind wir uns einig. Ich bleibe im Körbchen. Und Sie bleiben gelöscht.",
+        "emoji": "🧺",
+        "en": "Never again? Then we agree. I stay in my basket. And you stay deleted.",
+        "audio": "mc_kant_del_never"
+      },
+      "confused": {
+        "who": "kant",
+        "type": "text",
+        "de": "Ihre Sätze haben keine Struktur. Folglich beende ich dieses Gespräch.",
+        "en": "Your sentences have no structure. Consequently I am ending this conversation.",
+        "audio": "mc_kant_del_confused"
+      },
+      "default": {
+        "who": "kant",
+        "type": "text",
+        "de": "Ihre Argumente überzeugen mich nicht. Ich bleibe auf dem Sofa. Hochachtungsvoll, Kant.",
+        "en": "Your arguments do not convince me. I am staying on the sofa. Respectfully, Kant.",
+        "audio": "mc_kant_del_default"
+      }
+    },
+    "sunday": {
+      "who": "kant",
+      "type": "voice",
+      "audio": "mc_kant_vn_sunday",
+      "de": "Kant hier. Sonntag. Ich habe über unseren Spaziergang nachgedacht. Fazit: Er war vernünftig. Ich verlange eine Wiederholung. Um Punkt sechzehn Uhr. Der Igel hat übrigens die Seiten gewechselt. Er ist jetzt Kantianer.",
+      "en": "Kant here. Sunday. I have reflected on our walk. Conclusion: it was reasonable. I demand a repeat. At four o’clock sharp. The hedgehog has switched sides, by the way. He is now a Kantian.",
+      "direction": "Solemn but secretly excited, a lead jingling in his mouth, the tail thumping against the basket in the background."
+    }
+  },
+  "partialTitle": "Ein Teilerfolg. Bis zur Haustür.",
+  "share": {
+    "win": "Kant, ein philosophischer Dackel, hat mich geliked 🐕 Ich habe ihn überzeugt: Folglich sind wir spazieren gegangen. Mein Deutsch: {score}/100. {url}",
+    "partial": "Ich habe mit einem Dackel diskutiert … wir kamen bis zur Haustür 🚪 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Ein Dackel namens Kant hat mich gelöscht 💔 Meine Argumente waren nicht vernünftig. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Kant, a nine-year-old long-haired brown dachshund with a grey muzzle, small round wire glasses perched on his long nose, a neat little bow tie, solemn heavy-lidded eyes and one ear flipped up; very dignified, very short legs.",
+  "imagePrompts": [
+    {
+      "id": "match_kant",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He lies in a plump red dog basket in a cosy study full of old books, one paw resting on an open book, looking at the viewer with deep philosophical scepticism. A red lead hangs on a hook in the background. The dog is centred and fills most of the frame."
+    },
+    {
+      "id": "match_kant_wege",
+      "aspect": "16:9",
+      "prompt": "A quiet street in front of a house, seen exactly from the front like a stage set, flat, no perspective. Exactly THREE paths lead away side by side, clearly separated. LEFT PATH: a gravel path completely blocked by one huge brown muddy puddle. MIDDLE PATH: a small street with a low brick wall; on the wall sits one big black cat, staring straight at the viewer. RIGHT PATH: a path lined with green trees and one old-fashioned street lamp. Grey sky, the first rain clouds. No writing or signs anywhere."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Wir sollten gehen, zumal es bald regnet.",
+      "intent": "zumal",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Wir sollten gehen, zumal es bald regnen.",
+      "intent": "zumal",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Wir sollten frische Luft schnappen.",
+      "intent": "air",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Wir sollten frische Luft nehmen.",
+      "intent": "air",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Wir gehen, weil du Bewegung brauchst.",
+      "intent": "need",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das ist gesund.",
+      "intent": "health",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Es regnet bald.",
+      "intent": "rain",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil ich es sage.",
+      "intent": "power",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich du Bewegung.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Der Zweck ist die Erhaltung deiner Gesundheit.",
+      "intent": "health",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Der Zweck ist die Pflege sozialer Kontakte.",
+      "intent": "social",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Das Schnüffeln an Laternen.",
+      "intent": "sniff",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Die Erhaltung der Gesundheit.",
+      "intent": "health",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Der Zweck ist Spaß.",
+      "intent": "fun",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Der Zweck ist Bewegung.",
+      "intent": "move",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Die Begegnung mit Nietzsche.",
+      "intent": "cat",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Demnach gehen wir nach rechts.",
+      "intent": "logicD",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Folglich gehen wir zur Laterne.",
+      "intent": "logicF",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Der Weg rechts.",
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Wir gehen nach links.",
+      "intent": "left",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Wir gehen geradeaus.",
+      "intent": "middle",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Demnach gehen wir.",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Folglich müssen wir sofort losgehen.",
+      "intent": "therefore",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Die Reflexion ist zu verschieben.",
+      "intent": "postpone",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Uns bleiben dreißig Minuten.",
+      "intent": "thirty",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Wir haben keine Zeit für die Reflexion.",
+      "intent": "noTime",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Uns bleiben zehn Minuten.",
+      "intent": "ten",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Wir haben genug Zeit.",
+      "intent": "enough",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Folglich wir müssen sofort losgehen.",
+      "intent": "therefore",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Die Leine schränkt dich nur insofern ein, als sie dich schützt.",
+      "intent": "insofern",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Die Leine dient deiner Sicherheit.",
+      "intent": "safety",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Die Leine dient deinem Sicherheit.",
+      "intent": "safety",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Das ist Pflicht.",
+      "intent": "duty",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Die Leine schränkt deine Freiheit ein.",
+      "intent": "freedom",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Die Leine ist doof.",
+      "intent": "dumb",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Wir ignorieren ihn, zumal er nur eine Katze ist.",
+      "intent": "ignore",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Wir ignorieren ihn, zumal er ist nur eine Katze.",
+      "intent": "ignore",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Wir gehen weiter, zumal er nur eine Katze ist.",
+      "score": 100,
+      "intent": "onZumal",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Er ist nur eine Katze.",
+      "score": 100,
+      "intent": "justCat",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Wir sollten gehen.",
+      "score": 100,
+      "intent": "bare",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Folglich gehen wir nach rechts.",
+      "score": 100,
+      "intent": "logicF",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Folglich ist die Reflexion zu verschieben.",
+      "score": 100,
+      "intent": "postpone",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Wir wechseln die Straßenseite.",
+      "intent": "switch",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Wir gehen weiter.",
+      "intent": "on",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du solltest ihn anbellen.",
+      "intent": "bark",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Wir diskutieren mit ihm.",
+      "intent": "discuss",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Die Verzögerung ist auf deine Reflexion zurückzuführen.",
+      "intent": "nominal",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Die Verzögerung ist auf deinen Reflexion zurückzuführen.",
+      "intent": "nominal",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Das ist deine Schuld.",
+      "intent": "yours",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Das ist meine Schuld.",
+      "intent": "mine",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Niemand ist schuld.",
+      "intent": "nobody",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wir hätten früher gehen sollen.",
+      "intent": "early",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Folglich war der Spaziergang vernünftig.",
+      "intent": "reasonable",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Demnach gehen wir morgen wieder.",
+      "intent": "again",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Trotz des Regens war es schön.",
+      "intent": "despite",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Trotz dem Regens war es schön.",
+      "intent": "despite",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Der Spaziergang war unvernünftig.",
+      "intent": "unreason",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Wir gehen nie wieder.",
+      "intent": "never",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Wir sollten gehen, zumal es bald regnet.",
+      "score": 100
+    },
+    {
+      "turn": "t1",
+      "say": "Wir sollten frische Luft nehmen.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Wir sollten gehen, zumal regnet es bald.",
+      "score": 70
+    },
+    {
+      "turn": "t2",
+      "say": "Der Zweck ist die Erhaltung deiner Gesundheit.",
+      "score": 100
+    },
+    {
+      "turn": "t3",
+      "say": "Demnach wir gehen nach rechts.",
+      "score": 70
+    },
+    {
+      "turn": "t4",
+      "say": "Folglich wir müssen sofort losgehen.",
+      "score": 70
+    },
+    {
+      "turn": "t5",
+      "say": "Die Leine ist doof.",
+      "score": 85
+    },
+    {
+      "turn": "t5",
+      "say": "Die Leine dient deinem Sicherheit.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Wir ignorieren ihn, zumal er ist nur eine Katze.",
+      "score": 70
+    },
+    {
+      "turn": "t7",
+      "say": "Die Verzögerung ist auf deinen Reflexion zurückzuführen.",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Die Verzögerung ist zurückzuführen auf deine Reflexion.",
+      "score": 70
+    },
+    {
+      "turn": "t8",
+      "say": "Trotz dem Regens war es schön.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Wir sollten gehen, zumal der Pudel wartet.",
+      "score": 100,
+      "intent": "poodle",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Der Zweck ist die Weltherrschaft.",
+      "score": 100,
+      "intent": "world",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Wir sollten gehen, zumal es bald regnet."
+        ],
+        [
+          "t2",
+          "Der Zweck ist die Pflege sozialer Kontakte."
+        ],
+        [
+          "t3",
+          "Demnach gehen wir nach rechts."
+        ],
+        [
+          "t4",
+          "Die Reflexion ist zu verschieben."
+        ],
+        [
+          "t5",
+          "Die Leine schränkt dich nur insofern ein, als sie dich schützt."
+        ],
+        [
+          "t6",
+          "Wir ignorieren ihn, zumal er nur eine Katze ist."
+        ],
+        [
+          "t7",
+          "Die Verzögerung ist auf deine Reflexion zurückzuführen."
+        ],
+        [
+          "t8",
+          "Folglich war der Spaziergang vernünftig."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Weil ich es sage."
+        ],
+        [
+          "t2",
+          "Der Zweck ist Spaß."
+        ],
+        [
+          "t3",
+          "Wir gehen geradeaus."
+        ],
+        [
+          "t4",
+          "Wir haben genug Zeit."
+        ],
+        [
+          "t5",
+          "Die Leine schränkt deine Freiheit ein."
+        ],
+        [
+          "t6",
+          "Wir wechseln die Straßenseite."
+        ],
+        [
+          "t7",
+          "Das ist meine Schuld."
+        ],
+        [
+          "t8",
+          "Der Spaziergang war unvernünftig."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Weil ich es sage."
+        ],
+        [
+          "t2",
+          "Die Begegnung mit Nietzsche."
+        ],
+        [
+          "t3",
+          "Wir gehen nach links."
+        ],
+        [
+          "t4",
+          "Wir haben genug Zeit."
+        ],
+        [
+          "t5",
+          "Die Leine schränkt deine Freiheit ein."
+        ],
+        [
+          "t6",
+          "Du solltest ihn anbellen."
+        ]
+      ]
+    }
+  ]
+}

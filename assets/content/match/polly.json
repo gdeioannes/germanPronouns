@@ -1,0 +1,2527 @@
+{
+  "id": "polly",
+  "name": "Polly",
+  "age": 40,
+  "emoji": "🦜",
+  "image": "match_polly",
+  "level": "A2.2",
+  "order": 5,
+  "bio": "Polly hört alles. Polly sagt alles.",
+  "bioEn": "Polly hears everything. Polly says everything.",
+  "goal": "Apologise for last night's party before Polly repeats the worst bits to the neighbour.",
+  "tagline": "Papagei · 40 · wohnt bei Frau Pohl, nebenan",
+  "voice": "Pulcherrima",
+  "brief": "Polly, a 40-year-old grey parrot who lives next door: a bright, shrill, sing-song female voice with a little rasp, always talks about herself in the third person (\"Polly weiß\"), repeats juicy phrases twice, squawks \"KRAAA!\" when excited; nosy and gossipy but warm-hearted. When she quotes people she imitates their voices.",
+  "focus": "Perfekt · sich entschuldigen · weil / dass · sich freuen auf",
+  "lexicon": {
+    "nouns": {
+      "Party": "f",
+      "Geburtstag": "m",
+      "Musik": "f",
+      "Treppe": "f",
+      "Tür": "f",
+      "Flaschen": "pl",
+      "Lärm": "m",
+      "Trompete": "f",
+      "Kuchen": "m",
+      "Sofa": "n",
+      "Bier": "n",
+      "Packung": "f",
+      "Kekse": "pl",
+      "Apfel": "m",
+      "Kaffee": "m",
+      "Angst": "f",
+      "Pinguin": "m",
+      "Spiegel": "m"
+    },
+    "names": [
+      "Timo"
+    ],
+    "verbs": [
+      "habe",
+      "haben",
+      "hat",
+      "schläft",
+      "schlaft",
+      "liegt",
+      "ist",
+      "möchte",
+      "entschuldige",
+      "entschuldigt",
+      "tut",
+      "war",
+      "waren",
+      "weiß",
+      "bekommst",
+      "bekommt",
+      "gebe",
+      "freue",
+      "freust"
+    ],
+    "imperatives": [
+      "sorry",
+      "entschuldigung"
+    ],
+    "nonfinite": [
+      "gemacht",
+      "gefeiert",
+      "gehört",
+      "getanzt",
+      "entschuldigen",
+      "gespielt",
+      "gerufen",
+      "gesagt"
+    ],
+    "accVerbs": [
+      "habe",
+      "haben",
+      "hat",
+      "bekommst",
+      "bekommt",
+      "gebe"
+    ],
+    "datVerbs": [
+      "gebe"
+    ],
+    "adjectives": [
+      "groß",
+      "laut"
+    ]
+  },
+  "intro": [
+    {
+      "who": "polly",
+      "type": "text",
+      "de": "KRAAA! Hallo, hallo! Polly hier. Polly wohnt nebenan. Bei Frau Pohl.",
+      "emoji": "🦜",
+      "en": "SQUAWK! Hello, hello! Polly here. Polly lives next door. With Frau Pohl.",
+      "audio": "mc_polly_intro_a"
+    },
+    {
+      "who": "polly",
+      "type": "text",
+      "de": "Frau Pohl war gestern bei ihrer Schwester. Polly war allein. Polly hat alles gehört. ALLES.",
+      "en": "Frau Pohl was at her sister’s yesterday. Polly was alone. Polly heard everything. EVERYTHING.",
+      "audio": "mc_polly_intro_b"
+    },
+    {
+      "who": "polly",
+      "type": "text",
+      "de": "Frau Pohl kommt heute um 18 Uhr nach Hause. Und Polly erzählt ihr alles. Außer …",
+      "emoji": "👀",
+      "en": "Frau Pohl comes home today at 6 pm. And Polly will tell her everything. Unless …",
+      "audio": "mc_polly_intro_c"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Also. Was war gestern Nacht bei dir los?",
+          "en": "So. What was going on at your place last night?",
+          "audio": "mc_polly_t1a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "wir",
+        "habe",
+        "haben",
+        "hat",
+        "eine",
+        "Party",
+        "gemacht",
+        "gefeiert",
+        "meinen",
+        "Geburtstag",
+        "laute",
+        "Musik",
+        "gehört",
+        "getanzt",
+        "nichts",
+        "viel",
+        "nur",
+        "ein",
+        "bisschen",
+        "und",
+        "mit",
+        "einem",
+        "Pinguin"
+      ],
+      "wrong": {
+        "hat": "habe"
+      },
+      "intents": [
+        {
+          "id": "penguin",
+          "when": {
+            "any": [
+              "pinguin"
+            ]
+          },
+          "value": 0,
+          "flagsIf": {
+            "hat": "m_hat"
+          },
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Mit einem Pinguin?! KRAAA! Das war Timo. Im Frack. Polly hat ihn auch verwechselt. Er watschelt so.",
+              "emoji": "🐧",
+              "en": "With a penguin?! KRAAA! That was Timo. In a tailcoat. Polly mixed him up too. He waddles like that.",
+              "audio": "mc_polly_t1_penguin"
+            }
+          ]
+        },
+        {
+          "id": "lie",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -2,
+          "cause": "liar",
+          "flagsIf": {
+            "hat": "m_hat"
+          },
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Nichts? NICHTS? Um drei Uhr hat Polly gehört: „NOCH EIN BIER!“ Das war deine Stimme.",
+              "emoji": "🍺",
+              "en": "Nothing? NOTHING? At three o’clock Polly heard: \"ANOTHER BEER!\" That was your voice.",
+              "audio": "mc_polly_t1_lie"
+            }
+          ]
+        },
+        {
+          "id": "littleBit",
+          "when": {
+            "any": [
+              "bisschen"
+            ]
+          },
+          "value": -1,
+          "flagsIf": {
+            "hat": "m_hat"
+          },
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Ein bisschen? KRAAA-HA-HA! Bis vier Uhr! Die Lampe von Frau Pohl hat gewackelt.",
+              "emoji": "💡",
+              "en": "A little? SQUAWK-HA-HA! Until four in the morning! Frau Pohl’s lamp was shaking.",
+              "audio": "mc_polly_t1_littlebit"
+            }
+          ]
+        },
+        {
+          "id": "partyEcho",
+          "when": {
+            "any": [
+              "party",
+              "gefeiert",
+              "geburtstag"
+            ],
+            "all": [
+              "hat"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "m_hat"
+          ],
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "„Ich hat gefeiert! ICH HAT!“ Oh, Polly liebt den Satz. Polly sagt ihn Frau Pohl. Genau so.",
+              "emoji": "🦜",
+              "en": "\"I has partied! I HAS!\" Oh, Polly loves that sentence. Polly will say it to Frau Pohl. Exactly like that.",
+              "audio": "mc_polly_t1_partyecho"
+            }
+          ]
+        },
+        {
+          "id": "birthday",
+          "when": {
+            "any": [
+              "geburtstag"
+            ]
+          },
+          "value": 1,
+          "fact": "🎂 hatte gestern Geburtstag",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Geburtstag! Polly sagt: Herzlichen Glückwunsch! Polly sagt auch: Es war SEHR laut.",
+              "emoji": "🎂",
+              "en": "Birthday! Polly says: happy birthday! Polly also says: it was VERY loud.",
+              "audio": "mc_polly_t1_birthday"
+            }
+          ]
+        },
+        {
+          "id": "party",
+          "when": {
+            "any": [
+              "party",
+              "gefeiert",
+              "gemacht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Party! Party! „Ich habe eine Party gemacht!“ Polly übt den Satz schon. Für Frau Pohl.",
+              "en": "Party! Party! \"I threw a party!\" Polly is already practising the sentence. For Frau Pohl.",
+              "audio": "mc_polly_t1_party"
+            }
+          ]
+        },
+        {
+          "id": "music",
+          "when": {
+            "any": [
+              "musik",
+              "gehört"
+            ]
+          },
+          "value": 0,
+          "flagsIf": {
+            "hat": "m_hat"
+          },
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Laute Musik? SEHR laute Musik. Polly kennt jetzt alle Lieder. Polly singt sie heute Abend Frau Pohl vor.",
+              "emoji": "🎶",
+              "en": "Loud music? VERY loud music. Polly knows all the songs now. Polly will sing them to Frau Pohl tonight.",
+              "audio": "mc_polly_t1_music"
+            }
+          ]
+        },
+        {
+          "id": "dance",
+          "when": {
+            "any": [
+              "getanzt"
+            ]
+          },
+          "value": 0,
+          "flagsIf": {
+            "hat": "m_hat"
+          },
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Getanzt! Bumm, bumm, bumm. Die Lampe von Frau Pohl hat mitgetanzt.",
+              "emoji": "💃",
+              "en": "Danced! Boom, boom, boom. Frau Pohl’s lamp danced along.",
+              "audio": "mc_polly_t1_dance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Polly hat heute Morgen ein Foto gemacht. Durch den Türspion. Polly ist sehr modern.",
+          "emoji": "📷",
+          "en": "Polly took a photo this morning. Through the peephole. Polly is very modern.",
+          "audio": "mc_polly_t2a"
+        },
+        {
+          "who": "polly",
+          "type": "photo",
+          "image": "match_polly_stairs",
+          "wide": true,
+          "alt": "Das Treppenhaus. Links: viele leere Flaschen auf dem Boden. In der Mitte: die Tür von Frau Pohl mit einer Fußmatte. Rechts: die Treppe. Auf der Treppe schläft ein Mann mit Partyhut."
+        },
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Wo ist dein Freund Timo?",
+          "en": "Where is your friend Timo?",
+          "audio": "mc_polly_t2b"
+        }
+      ],
+      "tiles": [
+        "Timo",
+        "er",
+        "schläft",
+        "schlaft",
+        "liegt",
+        "ist",
+        "auf",
+        "der",
+        "die",
+        "dem",
+        "den",
+        "Treppe",
+        "vor",
+        "Tür",
+        "neben",
+        "Flaschen",
+        "zu Hause",
+        "rechts",
+        "links",
+        "in der Mitte"
+      ],
+      "wrong": {
+        "schlaft": "schläft"
+      },
+      "intents": [
+        {
+          "id": "home",
+          "when": {
+            "any": [
+              "zu hause"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Zu Hause? Polly sieht ihn doch! Er schnarcht!",
+              "emoji": "😴",
+              "en": "At home? Polly can see him! He is snoring!",
+              "audio": "mc_polly_t2_home"
+            }
+          ]
+        },
+        {
+          "id": "stairs",
+          "when": {
+            "any": [
+              "treppe",
+              "rechts"
+            ]
+          },
+          "value": 1,
+          "fact": "👀 findet Timo auf der Treppe",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Ja! Timo schläft auf der Treppe. Seit fünf Uhr. Mit Partyhut. Polly findet ihn süß.",
+              "emoji": "🥳",
+              "en": "Yes! Timo is asleep on the stairs. Since five. In a party hat. Polly thinks he is sweet.",
+              "audio": "mc_polly_t2_stairs"
+            },
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Frau Pohl findet ihn nicht süß. Weck ihn. Schnell.",
+              "en": "Frau Pohl won't think he is sweet. Wake him. Quickly.",
+              "audio": "mc_polly_t2_stairs_b"
+            }
+          ]
+        },
+        {
+          "id": "door",
+          "when": {
+            "any": [
+              "tür",
+              "in der mitte"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Vor der Tür? Nein! Vor der Tür liegt nur die Fußmatte. Zum Glück.",
+              "en": "In front of the door? No! Only the doormat is in front of the door. Luckily.",
+              "audio": "mc_polly_t2_door"
+            }
+          ]
+        },
+        {
+          "id": "bottles",
+          "when": {
+            "any": [
+              "flaschen",
+              "links"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Bei den Flaschen? Da liegt kein Timo. Da liegen 23 Flaschen. Polly hat gezählt.",
+              "emoji": "🍾",
+              "en": "By the bottles? There is no Timo there. There are 23 bottles. Polly counted.",
+              "audio": "mc_polly_t2_bottles"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "schläft",
+              "schlaft",
+              "liegt",
+              "ist",
+              "timo",
+              "er"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Ja, ja. Aber WO? Polly will es genau wissen.",
+              "en": "Yes, yes. But WHERE? Polly wants to know exactly.",
+              "audio": "mc_polly_t2_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Frau Pohl ist 78. Sie mag Ruhe. Und Ordnung. Und Polly.",
+          "en": "Frau Pohl is 78. She likes peace and quiet. And order. And Polly.",
+          "audio": "mc_polly_t3a"
+        },
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Was sagst du zu ihr, um 18 Uhr?",
+          "en": "What will you say to her, at 6 pm?",
+          "audio": "mc_polly_t3b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "möchte",
+        "mich",
+        "entschuldigen",
+        "entschuldige",
+        "entschuldigt",
+        "für",
+        "die",
+        "den",
+        "der",
+        "Party",
+        "Lärm",
+        "es",
+        "tut",
+        "mir",
+        "leid",
+        "sorry",
+        "war",
+        "super",
+        "sehr",
+        "laut"
+      ],
+      "wrong": {
+        "entschuldigt": "entschuldige"
+      },
+      "intents": [
+        {
+          "id": "proud",
+          "when": {
+            "any": [
+              "super"
+            ]
+          },
+          "value": -2,
+          "cause": "proud",
+          "flagsIf": {
+            "sorry": "m_sorry"
+          },
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "„Die Party war super!“ KRAAA! Polly merkt sich das. Wort für Wort.",
+              "emoji": "📝",
+              "en": "\"The party was great!\" SQUAWK! Polly is memorising that. Word for word.",
+              "audio": "mc_polly_t3_proud"
+            }
+          ]
+        },
+        {
+          "id": "sorryPlus",
+          "when": {
+            "all": [
+              "sorry"
+            ],
+            "any": [
+              "leid",
+              "entschuldig*"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "m_sorry"
+          ],
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "„Es tut mir leid“ ist gut. „Sorry“ … Polly hat „sorry“ gespeichert. Für später.",
+              "emoji": "💾",
+              "en": "\"I'm sorry\" is good. \"Sorry\" … Polly has saved \"sorry\". For later.",
+              "audio": "mc_polly_t3_sorryplus"
+            }
+          ]
+        },
+        {
+          "id": "fullApology",
+          "when": {
+            "all": [
+              "entschuldig*"
+            ],
+            "any": [
+              "lärm",
+              "party"
+            ]
+          },
+          "value": 2,
+          "fact": "🙏 entschuldigt sich richtig",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Oh. Schön. Polly speichert das. Polly sagt es Frau Pohl mit deiner Stimme. Dann mit Timos Stimme. Für den Effekt.",
+              "emoji": "🦜",
+              "en": "Oh. Nice. Polly is saving that. Polly will say it to Frau Pohl in your voice. Then in Timo's voice. For the effect.",
+              "audio": "mc_polly_t3_full"
+            }
+          ]
+        },
+        {
+          "id": "apology",
+          "when": {
+            "any": [
+              "entschuldig*"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Gut. Wofür? Für den Lärm? Für Timo? Für das Bier um drei? Polly hat eine Liste.",
+              "en": "Good. For what? For the noise? For Timo? For the beer at three? Polly has a list.",
+              "audio": "mc_polly_t3_apology"
+            }
+          ]
+        },
+        {
+          "id": "leid",
+          "when": {
+            "any": [
+              "leid"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "„Es tut mir leid.“ Schön. Kurz, aber schön. Frau Pohl mag das.",
+              "en": "\"I'm sorry.\" Nice. Short, but nice. Frau Pohl likes that.",
+              "audio": "mc_polly_t3_leid"
+            }
+          ]
+        },
+        {
+          "id": "sorry",
+          "when": {
+            "any": [
+              "sorry"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "m_sorry"
+          ],
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "SORRY! SORRY! Frau Pohl spricht kein Englisch. Polly schon. Polly sagt: zu wenig.",
+              "emoji": "🇬🇧",
+              "en": "SORRY! SORRY! Frau Pohl does not speak English. Polly does. Polly says: not enough.",
+              "audio": "mc_polly_t3_sorry"
+            }
+          ]
+        },
+        {
+          "id": "loud",
+          "when": {
+            "any": [
+              "laut"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Ja. Laut war es. Das weiß sie schon. Und jetzt?",
+              "en": "Yes. It was loud. She knows that already. And now?",
+              "audio": "mc_polly_t3_loud"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Polly hat noch eine Frage. Frau Pohl fragt das bestimmt auch.",
+          "en": "Polly has another question. Frau Pohl will surely ask it too.",
+          "audio": "mc_polly_t4a"
+        },
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Warum war es um drei Uhr so laut?",
+          "en": "Why was it so loud at three in the morning?",
+          "audio": "mc_polly_t4b"
+        }
+      ],
+      "tiles": [
+        "weil",
+        "ich",
+        "wir",
+        "meinen",
+        "Geburtstag",
+        "gefeiert",
+        "getanzt",
+        "habe",
+        "haben",
+        "hat",
+        "Timo",
+        "Trompete",
+        "gespielt",
+        "die",
+        "Musik",
+        "so",
+        "gut",
+        "war",
+        "weiß",
+        "es",
+        "nicht"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Du weißt es nicht? Polly weiß es. Polly weiß immer alles.",
+              "en": "You don't know? Polly knows. Polly always knows everything.",
+              "audio": "mc_polly_t4_dunno"
+            }
+          ]
+        },
+        {
+          "id": "birthdayEcho",
+          "when": {
+            "any": [
+              "geburtstag"
+            ],
+            "flag": "m_hat"
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Weil du Geburtstag hattest. Gut. Polly hat heute Morgen geübt: „Ich hat Geburtstag! Ich hat!“ Frau Pohl wird es lieben.",
+              "emoji": "🦜",
+              "en": "Because it was your birthday. Good. Polly practised this morning: \"I has birthday! I has!\" Frau Pohl will love it.",
+              "audio": "mc_polly_t4_birthdayecho"
+            }
+          ]
+        },
+        {
+          "id": "birthday",
+          "when": {
+            "any": [
+              "geburtstag"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Weil du Geburtstag hattest. Okay. Das versteht Frau Pohl. Sie hatte auch mal Geburtstag. 1948.",
+              "emoji": "🎂",
+              "en": "Because it was your birthday. Okay. Frau Pohl understands that. She had a birthday once too. In 1948.",
+              "audio": "mc_polly_t4_birthday"
+            }
+          ]
+        },
+        {
+          "id": "timo",
+          "when": {
+            "any": [
+              "timo",
+              "trompete"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Timo! Trompete! Um drei Uhr! Polly merkt sich den Namen. Und die Melodie.",
+              "emoji": "🎺",
+              "en": "Timo! Trumpet! At three in the morning! Polly is memorising the name. And the tune.",
+              "audio": "mc_polly_t4_timo"
+            }
+          ]
+        },
+        {
+          "id": "danceEcho",
+          "when": {
+            "any": [
+              "getanzt"
+            ],
+            "flag": "m_hat"
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Weil ihr getanzt habt. Bumm, bumm. Polly hat heute Morgen geübt: „Ich hat getanzt! Ich hat!“ Frau Pohl wird sich wundern.",
+              "en": "Because you were dancing. Boom, boom. Polly practised this morning: \"I has danced! I has!\" Frau Pohl will wonder.",
+              "audio": "mc_polly_t4_danceecho"
+            }
+          ]
+        },
+        {
+          "id": "dance",
+          "when": {
+            "any": [
+              "getanzt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Weil ihr getanzt habt. Ja. Bumm, bumm. Polly hat mitgetanzt. Auf einem Bein.",
+              "emoji": "🦩",
+              "en": "Because you all danced. Yes. Boom, boom. Polly danced along. On one leg.",
+              "audio": "mc_polly_t4_dance"
+            }
+          ]
+        },
+        {
+          "id": "celebrated",
+          "when": {
+            "any": [
+              "gefeiert"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Weil ihr gefeiert habt. Ja, das hat Polly gemerkt. Das ganze Haus hat es gemerkt.",
+              "emoji": "🎉",
+              "en": "Because you all partied. Yes, Polly noticed. The whole building noticed.",
+              "audio": "mc_polly_t4_celebrated"
+            }
+          ]
+        },
+        {
+          "id": "music",
+          "when": {
+            "any": [
+              "musik",
+              "gut"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "So gut? Für dich. Polly hat jetzt einen Ohrwurm. Seit sieben Stunden.",
+              "en": "That good? For you. Polly has had an earworm. For seven hours.",
+              "audio": "mc_polly_t4_music"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "weil"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Weil … ? Weil was? Polly wartet. Polly ist geduldig. Nicht sehr.",
+              "en": "Because … ? Because what? Polly is waiting. Polly is patient. Not very.",
+              "audio": "mc_polly_t4_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Polly kann Stimmen. Hör mal, was Polly um drei Uhr gehört hat:",
+          "emoji": "🎙️",
+          "en": "Polly can do voices. Listen to what Polly heard at three o’clock:",
+          "audio": "mc_polly_t5a"
+        },
+        {
+          "who": "polly",
+          "type": "voice",
+          "audio": "mc_polly_vn_timo",
+          "de": "KRAAA! „Leute! Frau Pohl ist im Urlaub! Mehr Musik!“ … „Wer hat den Kuchen auf das Sofa gelegt?“ … „Noch ein Bier!“ KRAAA!",
+          "en": "SQUAWK! \"Guys! Frau Pohl is on holiday! More music!\" … \"Who put the cake on the sofa?\" … \"Another beer!\" SQUAWK!",
+          "direction": "A parrot doing impressions of a party: a deep, merry young man's voice for the first line, a giggly voice for the cake, a loud shout for the beer, squawks in between; very proud of the performance."
+        },
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Und? Was hat Timo gerufen? Das ist der schlimmste Satz. Für Frau Pohl.",
+          "en": "Well? What did Timo shout? That is the worst sentence. For Frau Pohl.",
+          "audio": "mc_polly_t5b"
+        }
+      ],
+      "tiles": [
+        "er",
+        "Timo",
+        "hat",
+        "haben",
+        "gerufen",
+        "gesagt",
+        "dass",
+        "Frau Pohl",
+        "im Urlaub",
+        "ist",
+        "der",
+        "Kuchen",
+        "auf",
+        "dem",
+        "Sofa",
+        "liegt",
+        "noch",
+        "ein",
+        "Bier"
+      ],
+      "wrong": {
+        "haben": "hat"
+      },
+      "intents": [
+        {
+          "id": "holiday",
+          "when": {
+            "any": [
+              "im urlaub"
+            ]
+          },
+          "value": 2,
+          "fact": "👂 versteht Papageien",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Genau. „Frau Pohl ist im Urlaub.“ Sie war bei ihrer Schwester. Und alle haben gefeiert. Das ist der schlimmste Satz.",
+              "emoji": "😬",
+              "en": "Exactly. \"Frau Pohl is on holiday.\" She was at her sister’s. And everyone partied. That is the worst sentence.",
+              "audio": "mc_polly_t5_holiday"
+            },
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Polly sagt ihn um 18 Uhr. Außer …",
+              "en": "Polly will say it at 6 pm. Unless …",
+              "audio": "mc_polly_t5_holiday_b"
+            }
+          ]
+        },
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "kuchen",
+              "sofa"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Der Kuchen! Polly erinnert sich. Aber das war nicht Timo. Hör noch mal hin. Im Kopf.",
+              "emoji": "🍰",
+              "en": "The cake! Polly remembers. But that wasn't Timo. Listen again. In your head.",
+              "audio": "mc_polly_t5_cake"
+            }
+          ]
+        },
+        {
+          "id": "beer",
+          "when": {
+            "any": [
+              "bier"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Noch ein Bier, ja. Das hat jeder gerufen. Aber Timo hat etwas Schlimmeres gerufen.",
+              "emoji": "🍺",
+              "en": "Another beer, yes. Everyone shouted that. But Timo shouted something worse.",
+              "audio": "mc_polly_t5_beer"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "gerufen",
+              "gesagt",
+              "frau pohl"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Ja? Was denn? Polly hat es auf Band. Im Kopf. Polly spult zurück. KRRRRT.",
+              "en": "Yes? What then? Polly has it on tape. In her head. Polly is rewinding. KRRRRT.",
+              "audio": "mc_polly_t5_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Polly vergisst manchmal Dinge. Sehr manchmal. Für Kekse.",
+          "emoji": "🍪",
+          "en": "Polly sometimes forgets things. Very sometimes. For biscuits.",
+          "audio": "mc_polly_t6a"
+        },
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Was bekommt Polly?",
+          "en": "What does Polly get?",
+          "audio": "mc_polly_t6b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "bekommst",
+        "bekommt",
+        "ich",
+        "gebe",
+        "dir",
+        "eine",
+        "große",
+        "großen",
+        "Packung",
+        "Kekse",
+        "zwei",
+        "einen",
+        "Apfel",
+        "nichts",
+        "alle",
+        "meine",
+        "Spiegel"
+      ],
+      "wrong": {
+        "bekommt": "bekommst"
+      },
+      "intents": [
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -2,
+          "cause": "nocookies",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Nichts? Dann vergisst Polly auch nichts. KRAAA.",
+              "emoji": "😤",
+              "en": "Nothing? Then Polly forgets nothing either. SQUAWK.",
+              "audio": "mc_polly_t6_nothing"
+            }
+          ]
+        },
+        {
+          "id": "apple",
+          "when": {
+            "any": [
+              "apfel"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Einen Apfel? Polly ist doch kein Pferd!",
+              "emoji": "🐴",
+              "en": "An apple? Polly isn't a horse!",
+              "audio": "mc_polly_t6_apple"
+            }
+          ]
+        },
+        {
+          "id": "all",
+          "when": {
+            "any": [
+              "alle"
+            ]
+          },
+          "value": 2,
+          "fact": "🍪 besticht Papageien mit Keksen",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "ALLE? Polly vergisst ALLES! Polly vergisst sogar ihren Namen. Wie heißt Polly?",
+              "emoji": "🤩",
+              "en": "ALL of them? Polly forgets EVERYTHING! Polly even forgets her name. What is Polly called?",
+              "audio": "mc_polly_t6_all"
+            }
+          ]
+        },
+        {
+          "id": "pack",
+          "when": {
+            "any": [
+              "packung"
+            ]
+          },
+          "value": 2,
+          "fact": "🍪 besticht Papageien mit Keksen",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Eine große Packung! Polly hat schon vergessen, wer Timo ist. Timo wer?",
+              "emoji": "🍪",
+              "en": "A big packet! Polly has already forgotten who Timo is. Timo who?",
+              "audio": "mc_polly_t6_pack"
+            }
+          ]
+        },
+        {
+          "id": "mirror",
+          "when": {
+            "any": [
+              "spiegel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Einen Spiegel! Dann hat Polly endlich jemanden zum Reden. Einen sehr schönen Papagei. Polly vergisst sofort alles. Außer sich selbst.",
+              "emoji": "🪞",
+              "en": "A mirror! Then Polly finally has someone to talk to. A very beautiful parrot. Polly instantly forgets everything. Except herself.",
+              "audio": "mc_polly_t6_mirror"
+            }
+          ]
+        },
+        {
+          "id": "cookies",
+          "when": {
+            "any": [
+              "kekse"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Kekse! Für ein paar Kekse vergisst Polly ein paar Sachen. Den Kuchen und das Sofa.",
+              "en": "Biscuits! For a few biscuits Polly forgets a few things. The cake and the sofa.",
+              "audio": "mc_polly_t6_cookies"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "bekommst",
+              "bekommt",
+              "gebe"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Ja? Was? Sag es! Polly hat Hunger.",
+              "en": "Yes? What? Say it! Polly is hungry.",
+              "audio": "mc_polly_t6_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Polly muss etwas beichten. Polly kann auch Frau Pohls Stimme. Polly hat heute Morgen telefoniert. Mit dem Hausmeister. Und mit dem Bürgermeister.",
+          "emoji": "☎️",
+          "en": "Polly has to confess something. Polly can do Frau Pohl's voice too. Polly made phone calls this morning. To the caretaker. And to the mayor.",
+          "audio": "mc_polly_t7_hoffest"
+        },
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Am Samstag ist jetzt ein Hoffest. Zweihundert Gäste. Eine Blaskapelle. Frau Pohl weiß es noch nicht. KRAAA.",
+          "en": "On Saturday there is now a courtyard party. Two hundred guests. A brass band. Frau Pohl does not know yet. KRAAA.",
+          "audio": "mc_polly_t7_hoffest_b"
+        },
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Frau Pohl kommt in einer Stunde. Polly freut sich auf Frau Pohl. Sehr! Und ein bisschen nicht.",
+          "en": "Frau Pohl arrives in an hour. Polly is looking forward to Frau Pohl. Very much! And a little bit not.",
+          "audio": "mc_polly_t7a"
+        },
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Und du? Freust du dich?",
+          "en": "And you? Are you looking forward to it?",
+          "audio": "mc_polly_t7b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "freue",
+        "freust",
+        "mich",
+        "dich",
+        "auf",
+        "Frau Pohl",
+        "den",
+        "dem",
+        "Kaffee",
+        "mit",
+        "ihr",
+        "nicht",
+        "habe",
+        "Angst",
+        "ein",
+        "bisschen",
+        "sehr"
+      ],
+      "wrong": {
+        "freust": "freue",
+        "dich": "mich"
+      },
+      "prepCase": {
+        "auf": "acc"
+      },
+      "intents": [
+        {
+          "id": "notGlad",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "freue",
+              "freust"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Nicht? Polly sagt Frau Pohl: „Die Partywohnung freut sich nicht.“ Hm. Nicht gut.",
+              "en": "No? Polly will tell Frau Pohl: “The party flat isn’t looking forward to it.” Hm. Not good.",
+              "audio": "mc_polly_t7_notglad"
+            }
+          ]
+        },
+        {
+          "id": "coffee",
+          "when": {
+            "any": [
+              "kaffee"
+            ]
+          },
+          "value": 2,
+          "fact": "☕ lädt Nachbarn zum Kaffee ein",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Auf einen Kaffee mit ihr! Gute Idee. Frau Pohl liebt Kaffee. Und Kuchen. Aber nicht vom Sofa.",
+              "emoji": "☕",
+              "en": "To a coffee with her! Good idea. Frau Pohl loves coffee. And cake. But not off the sofa.",
+              "audio": "mc_polly_t7_coffee"
+            }
+          ]
+        },
+        {
+          "id": "fear",
+          "when": {
+            "any": [
+              "angst"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Angst ist gut. Angst ist ehrlich. Polly hat auch Angst. Vor Staubsaugern.",
+              "en": "Fear is good. Fear is honest. Polly is scared too. Of vacuum cleaners.",
+              "audio": "mc_polly_t7_fear"
+            }
+          ]
+        },
+        {
+          "id": "pohl",
+          "when": {
+            "any": [
+              "frau pohl"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Du freust dich auf Frau Pohl! Polly sagt ihr das. Das ist ein schöner Satz.",
+              "emoji": "🦜",
+              "en": "You are looking forward to seeing Frau Pohl! Polly will tell her. That is a nice sentence.",
+              "audio": "mc_polly_t7_pohl"
+            }
+          ]
+        },
+        {
+          "id": "glad",
+          "when": {
+            "any": [
+              "freue",
+              "freust",
+              "ja"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Schön! Worauf genau? Egal. Freude ist gut.",
+              "en": "Nice! On what exactly? Doesn't matter. Joy is good.",
+              "audio": "mc_polly_t7_glad"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Nein? Einfach nein? Polly schreibt das auf. Mit dem Schnabel.",
+              "en": "No? Just no? Polly is writing that down. With her beak.",
+              "audio": "mc_polly_t7_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Da! Frau Pohl ist im Treppenhaus. Sie sieht Timo. Sie sieht die Flaschen. Sie sieht dich.",
+          "emoji": "😱",
+          "en": "There! Frau Pohl is in the stairwell. She sees Timo. She sees the bottles. She sees you.",
+          "audio": "mc_polly_t8a"
+        },
+        {
+          "who": "polly",
+          "type": "text",
+          "de": "Frau Pohl hält ihren Schirm wie ein Schwert. Polly hält den Atem an. Was sagst du ihr?",
+          "en": "Frau Pohl is holding her umbrella like a sword. Polly is holding her breath. What do you say to her?",
+          "audio": "mc_polly_t8b"
+        }
+      ],
+      "tiles": [
+        "entschuldigung",
+        "Frau Pohl",
+        "es",
+        "tut",
+        "mir",
+        "leid",
+        "dass",
+        "die",
+        "Party",
+        "so",
+        "laut",
+        "war",
+        "waren",
+        "wir",
+        "gefeiert",
+        "haben",
+        "ich",
+        "entschuldige",
+        "mich",
+        "für",
+        "den",
+        "Lärm",
+        "super",
+        "sorry"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "proud",
+          "when": {
+            "any": [
+              "super"
+            ]
+          },
+          "value": -2,
+          "cause": "proud",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Super?! Frau Pohl hat das gehört. Polly auch. Polly sagt es jetzt jeden Morgen.",
+              "emoji": "😬",
+              "en": "Great?! Frau Pohl heard that. So did Polly. Polly will say it every morning now.",
+              "audio": "mc_polly_t8_proud"
+            }
+          ]
+        },
+        {
+          "id": "sorryAgain",
+          "when": {
+            "any": [
+              "sorry"
+            ],
+            "flag": "m_sorry",
+            "none": [
+              "leid",
+              "entschuldig*"
+            ]
+          },
+          "value": -2,
+          "cause": "sorry",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "SORRY! Schon wieder! Polly hat es gespeichert. SORRY, FRAU POHL! SORRY! KRAAA!",
+              "emoji": "🦜",
+              "en": "SORRY! Again! Polly saved it. SORRY, FRAU POHL! SORRY! SQUAWK!",
+              "audio": "mc_polly_t8_sorryagain"
+            }
+          ]
+        },
+        {
+          "id": "sorryPlus",
+          "when": {
+            "all": [
+              "sorry"
+            ],
+            "any": [
+              "leid",
+              "entschuldig*"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "„Sorry“ und „Es tut mir leid“. Frau Pohl versteht die Hälfte. Polly versteht alles. SORRY! SORRY!",
+              "emoji": "🦜",
+              "en": "\"Sorry\" and \"Es tut mir leid\". Frau Pohl understands half of it. Polly understands everything. SORRY! SORRY!",
+              "audio": "mc_polly_t8_sorryplus"
+            }
+          ]
+        },
+        {
+          "id": "sorry",
+          "when": {
+            "any": [
+              "sorry"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Sorry? Frau Pohl schaut dich an. Lange. Sehr lange.",
+              "en": "Sorry? Frau Pohl looks at you. For a long time. A very long time.",
+              "audio": "mc_polly_t8_sorry"
+            }
+          ]
+        },
+        {
+          "id": "leidDass",
+          "when": {
+            "all": [
+              "leid",
+              "dass"
+            ]
+          },
+          "value": 2,
+          "fact": "🙏 entschuldigt sich mit ganzen Sätzen",
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Frau Pohl lässt den Schirm sinken. Sie lächelt. Polly hat sie seit 1999 nicht lächeln sehen. Polly fällt fast von der Stange.",
+              "emoji": "🥹",
+              "en": "Frau Pohl lowers the umbrella. She smiles. Polly has not seen her smile since 1999. Polly nearly falls off her perch.",
+              "audio": "mc_polly_t8_leiddass"
+            }
+          ]
+        },
+        {
+          "id": "fullApology",
+          "when": {
+            "all": [
+              "entschuldig*"
+            ],
+            "any": [
+              "lärm",
+              "party"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Frau Pohl nickt. Langsam. Das ist ein gutes Nicken. Polly kennt jedes Nicken.",
+              "en": "Frau Pohl nods. Slowly. That is a good nod. Polly knows every nod.",
+              "audio": "mc_polly_t8_full"
+            }
+          ]
+        },
+        {
+          "id": "leid",
+          "when": {
+            "any": [
+              "leid"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "„Es tut mir leid.“ Gut. Kurz. Frau Pohl möchte vielleicht ein bisschen mehr.",
+              "en": "\"I'm sorry.\" Good. Short. Frau Pohl might want a bit more.",
+              "audio": "mc_polly_t8_leid"
+            }
+          ]
+        },
+        {
+          "id": "apology",
+          "when": {
+            "any": [
+              "entschuldig*"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Eine Entschuldigung! Gut. Frau Pohl hört zu. Polly auch.",
+              "en": "An apology! Good. Frau Pohl is listening. So is Polly.",
+              "audio": "mc_polly_t8_apology"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "frau pohl",
+              "party",
+              "laut"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "polly",
+              "type": "text",
+              "de": "Ja, das ist Frau Pohl. Sie wartet. Der Schirm wartet auch. Sag was! SAG WAS! KRAAA!",
+              "en": "Yes, that is Frau Pohl. She is waiting. The umbrella is waiting too. Say something! SAY SOMETHING! KRAAA!",
+              "audio": "mc_polly_t8_vague"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "polly",
+    "type": "text",
+    "de": "KRAAA? Das war nicht Pollys Frage. Polly wiederholt: die Frage!",
+    "en": "SQUAWK? That wasn't Polly's question. Polly repeats: the question!",
+    "audio": "mc_polly_offtopic"
+  },
+  "confused": [
+    {
+      "who": "polly",
+      "type": "text",
+      "de": "Hä? Polly versteht nicht. Polly wiederholt es trotzdem.",
+      "emoji": "🦜",
+      "en": "Huh? Polly doesn't understand. Polly will repeat it anyway.",
+      "audio": "mc_polly_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "polly",
+        "type": "text",
+        "de": "Frau Pohl hat gelacht. Sie hat gesagt: „Nächstes Mal laden Sie mich ein.“",
+        "emoji": "😄",
+        "en": "Frau Pohl laughed. She said: \"Next time, invite me.\"",
+        "audio": "mc_polly_win"
+      },
+      {
+        "who": "polly",
+        "type": "text",
+        "de": "Und das Hoffest am Samstag? Findet statt. Frau Pohl backt. Polly ist die DJ.",
+        "emoji": "🎧",
+        "en": "And the courtyard party on Saturday? It is happening. Frau Pohl is baking. Polly is the DJ.",
+        "audio": "mc_polly_win_hoffest"
+      },
+      {
+        "who": "polly",
+        "type": "text",
+        "de": "Und Polly? Polly hat nichts gesagt. Fast nichts. Danke für die Kekse, {name}!",
+        "en": "And Polly? Polly said nothing. Almost nothing. Thanks for the biscuits, {name}!"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "polly",
+        "type": "text",
+        "de": "Frau Pohl hat dir verziehen. Fast. Polly hat nur EINEN Satz gesagt: „NOCH EIN BIER!“ Jetzt sagt Polly das jeden Morgen. Um sechs.",
+        "emoji": "🍺",
+        "en": "Frau Pohl has forgiven you. Almost. Polly said just ONE sentence: \"ANOTHER BEER!\" Now Polly says it every morning. At six.",
+        "audio": "mc_polly_partial"
+      }
+    ],
+    "deleted": {
+      "default": {
+        "who": "polly",
+        "type": "text",
+        "de": "Polly erzählt jetzt alles. ALLES. Frau Pohl hört schon zu. Tschüss!",
+        "en": "Polly is telling everything now. EVERYTHING. Frau Pohl is already listening. Bye!",
+        "audio": "mc_polly_del_default"
+      },
+      "confused": {
+        "who": "polly",
+        "type": "text",
+        "de": "Polly versteht dich nicht. Polly wiederholt es trotzdem. Frau Pohl versteht es auch nicht. Tschüss!",
+        "en": "Polly doesn't understand you. Polly repeats it anyway. Frau Pohl doesn't understand it either. Bye!",
+        "audio": "mc_polly_del_confused"
+      },
+      "liar": {
+        "who": "polly",
+        "type": "text",
+        "de": "Nichts gemacht? Polly hat ein Gedächtnis. Und eine Stimme. Und jetzt keine Zeit mehr für dich.",
+        "emoji": "🎙️",
+        "en": "Did nothing? Polly has a memory. And a voice. And now no more time for you.",
+        "audio": "mc_polly_del_liar"
+      },
+      "proud": {
+        "who": "polly",
+        "type": "text",
+        "de": "„Die Party war super!“ Polly sagt das jetzt Frau Pohl. Mit deiner Stimme. KRAAA! Tschüss.",
+        "emoji": "📢",
+        "en": "\"The party was great!\" Polly is saying that to Frau Pohl now. In your voice. SQUAWK! Bye.",
+        "audio": "mc_polly_del_proud"
+      },
+      "nocookies": {
+        "who": "polly",
+        "type": "text",
+        "de": "Keine Kekse, kein Schweigen. Polly fliegt jetzt zu Frau Pohl. Tschüss!",
+        "emoji": "🪶",
+        "en": "No biscuits, no silence. Polly is flying to Frau Pohl now. Bye!",
+        "audio": "mc_polly_del_nocookies"
+      },
+      "sorry": {
+        "who": "polly",
+        "type": "text",
+        "de": "SORRY! SORRY! Polly sagt jetzt nur noch „sorry“. Wegen dir. Frau Pohl ist sehr böse. Tschüss!",
+        "emoji": "🦜",
+        "en": "SORRY! SORRY! Polly only says \"sorry\" now. Because of you. Frau Pohl is very cross. Bye!",
+        "audio": "mc_polly_del_sorry"
+      }
+    },
+    "sunday": {
+      "who": "polly",
+      "type": "voice",
+      "audio": "mc_polly_vn_sunday",
+      "de": "KRAAA! Sonntag! Frau Pohl hat Kuchen gebacken. Für dich! Sie sagt: „Um drei Uhr, bitte.“ Polly sagt: „Bring Kekse. Bring Kekse!“",
+      "en": "SQUAWK! Sunday! Frau Pohl has baked a cake. For you! She says: “Three o’clock, please.” Polly says: “Bring biscuits. Bring biscuits!”",
+      "direction": "Delighted and sing-song, a kitchen radio and cups clinking in the background; the last two words repeated like a parrot chant."
+    }
+  },
+  "partialTitle": "Verziehen. Bis auf: „Noch ein Bier!“",
+  "share": {
+    "win": "Polly (40, Papagei) hat mich geliked 🦜 Ich habe mich bei Frau Pohl entschuldigt, und Polly hat fast nichts verraten. Mein Deutsch: {score}/100. {url}",
+    "partial": "Frau Pohl hat mir verziehen … aber Polly (40, Papagei) ruft jetzt jeden Morgen „NOCH EIN BIER!“ 🍺 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Polly (40, Papagei) hat mich gelöscht und erzählt jetzt ALLES 🦜📢 Mein Deutsch: {score}/100. Schaffst du es? {url}"
+  },
+  "imageCharacter": "Polly, a grey parrot with sleek silver-grey feathers, a bright red tail, a curved black beak and clever pale-yellow eyes, one head feather raised like a knowing eyebrow; she wears a tiny string of pearls around her neck.",
+  "imagePrompts": [
+    {
+      "id": "match_polly",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She perches on a wooden stand in an old lady’s tidy living room with lace curtains and a flowery armchair, leaning towards the wallpapered wall with her head tilted, as if listening very hard through the wall. Whole bird clearly visible, centred."
+    },
+    {
+      "id": "match_polly_stairs",
+      "aspect": "16:9",
+      "prompt": "An old apartment stairwell seen exactly from the front like a stage set: one flat wall fills the picture, no perspective, no corners. Exactly THREE things in a row, far apart. LEFT: a big pile of empty green glass bottles on the floor against the wall, nobody near it. MIDDLE: a closed brown wooden front door with a plain doormat in front of it, nobody near it. RIGHT: the bottom steps of a wooden staircase going up; on the steps a young man in a colourful pointed paper party hat lies fast asleep, mouth open, one arm hanging down. Only one person in the whole picture."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich habe eine Party gemacht.",
+      "score": 100,
+      "intent": "party",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe meinen Geburtstag gefeiert.",
+      "score": 100,
+      "intent": "birthday",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hat eine Party gemacht.",
+      "score": 80,
+      "intent": "partyEcho",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Wir haben laute Musik gehört.",
+      "score": 100,
+      "intent": "music",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Wir haben viel getanzt.",
+      "score": 100,
+      "intent": "dance",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Wir haben nur ein bisschen getanzt.",
+      "score": 100,
+      "intent": "littleBit",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe nichts gemacht.",
+      "score": 100,
+      "intent": "lie",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich eine Party.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hat laute Musik gehört.",
+      "score": 80,
+      "intent": "music",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Wir haben gefeiert und getanzt.",
+      "score": 100,
+      "intent": "party",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe mit einem Pinguin getanzt.",
+      "score": 100,
+      "intent": "penguin",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Wir haben mit ein Pinguin getanzt.",
+      "score": 85,
+      "intent": "penguin",
+      "delta": 0
+    },
+    {
+      "turn": "t2",
+      "say": "Timo schläft auf der Treppe.",
+      "score": 100,
+      "intent": "stairs",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Er liegt auf der Treppe.",
+      "score": 100,
+      "intent": "stairs",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Er schlaft auf der Treppe.",
+      "score": 80,
+      "intent": "stairs",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Timo schläft auf die Treppe.",
+      "score": 85,
+      "intent": "stairs",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Rechts.",
+      "score": 100,
+      "intent": "stairs",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Er schläft vor der Tür.",
+      "score": 100,
+      "intent": "door",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Timo liegt neben den Flaschen.",
+      "score": 100,
+      "intent": "bottles",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Er ist zu Hause.",
+      "score": 100,
+      "intent": "home",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Timo schläft.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Er auf der Treppe.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich möchte mich für den Lärm entschuldigen.",
+      "score": 100,
+      "intent": "fullApology",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich entschuldige mich für die Party.",
+      "score": 100,
+      "intent": "fullApology",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich entschuldigt mich für die Party.",
+      "score": 80,
+      "intent": "fullApology",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich möchte mich für der Lärm entschuldigen.",
+      "score": 85,
+      "intent": "fullApology",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich möchte mich entschuldigen.",
+      "score": 100,
+      "intent": "apology",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Es tut mir leid.",
+      "score": 100,
+      "intent": "leid",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Sorry, es tut mir leid.",
+      "score": 100,
+      "intent": "sorryPlus",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Sorry.",
+      "score": 100,
+      "intent": "sorry",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Die Party war sehr laut.",
+      "score": 100,
+      "intent": "loud",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Die Party war super.",
+      "score": 100,
+      "intent": "proud",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich möchte entschuldigen mich.",
+      "score": 70,
+      "intent": "apology",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich mich entschuldigen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Weil ich meinen Geburtstag gefeiert habe.",
+      "score": 100,
+      "intent": "birthday",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Weil ich meinen Geburtstag habe gefeiert.",
+      "score": 70,
+      "intent": "birthday",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Weil wir getanzt haben.",
+      "score": 100,
+      "intent": "dance",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Weil Timo Trompete gespielt hat.",
+      "score": 100,
+      "intent": "timo",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Weil die Musik so gut war.",
+      "score": 100,
+      "intent": "music",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Weil.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Weil ich hat gefeiert meinen Geburtstag.",
+      "score": 70,
+      "intent": "birthday",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Weil ich Geburtstag.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Weil wir gefeiert haben.",
+      "score": 100,
+      "intent": "celebrated",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er hat gerufen, dass Frau Pohl im Urlaub ist.",
+      "score": 100,
+      "intent": "holiday",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Timo hat gesagt, dass Frau Pohl im Urlaub ist.",
+      "score": 100,
+      "intent": "holiday",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Er haben gerufen, dass Frau Pohl im Urlaub ist.",
+      "score": 80,
+      "intent": "holiday",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er hat gerufen, dass Frau Pohl ist im Urlaub.",
+      "score": 70,
+      "intent": "holiday",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er hat gesagt, dass der Kuchen auf dem Sofa liegt.",
+      "score": 100,
+      "intent": "cake",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Timo hat noch ein Bier gerufen.",
+      "score": 100,
+      "intent": "beer",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Er hat gerufen.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Er gerufen hat dass Frau Pohl ist im Urlaub.",
+      "score": 40,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Du bekommst eine große Packung Kekse.",
+      "score": 100,
+      "intent": "pack",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Du bekommst eine großen Packung Kekse.",
+      "score": 85,
+      "intent": "pack",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du bekommt eine große Packung Kekse.",
+      "score": 80,
+      "intent": "pack",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gebe dir alle meine Kekse.",
+      "score": 100,
+      "intent": "all",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gebe dir zwei Kekse.",
+      "score": 100,
+      "intent": "cookies",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gebe dir einen Apfel.",
+      "score": 100,
+      "intent": "apple",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Du bekommst nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gebe dir.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Du eine Packung.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gebe dir einen Spiegel.",
+      "score": 100,
+      "intent": "mirror",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du bekommst einen großen Spiegel.",
+      "score": 100,
+      "intent": "mirror",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ja, ich freue mich auf den Kaffee mit ihr.",
+      "score": 100,
+      "intent": "coffee",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich freue mich auf dem Kaffee mit ihr.",
+      "score": 85,
+      "intent": "coffee",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich freue dich auf den Kaffee mit ihr.",
+      "score": 85,
+      "intent": "coffee",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich freue mich sehr auf Frau Pohl.",
+      "score": 100,
+      "intent": "pohl",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich freust mich auf Frau Pohl.",
+      "score": 80,
+      "intent": "pohl",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ja, ich freue mich.",
+      "score": 100,
+      "intent": "glad",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Nein, ich habe ein bisschen Angst.",
+      "score": 100,
+      "intent": "fear",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich freue mich nicht.",
+      "score": 100,
+      "intent": "notGlad",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich mich auf Frau Pohl.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Entschuldigung, Frau Pohl. Es tut mir leid, dass die Party so laut war.",
+      "score": 100,
+      "intent": "leidDass",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Es tut mir leid, dass wir so laut gefeiert haben.",
+      "score": 100,
+      "intent": "leidDass",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Es tut mir leid, dass wir so laut waren.",
+      "score": 100,
+      "intent": "leidDass",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Es tut mir leid, dass die Party so laut waren.",
+      "score": 100,
+      "intent": "leidDass",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Es tut mir leid, dass die Party war so laut.",
+      "score": 70,
+      "intent": "leidDass",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich entschuldige mich für den Lärm.",
+      "score": 100,
+      "intent": "fullApology",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Es tut mir leid.",
+      "score": 100,
+      "intent": "leid",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Entschuldigung, Frau Pohl.",
+      "score": 100,
+      "intent": "apology",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Entschuldigung, es tut mir leid.",
+      "score": 100,
+      "intent": "leid",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Sorry, es tut mir leid, dass wir so laut waren.",
+      "score": 100,
+      "intent": "sorryPlus",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Sorry, Frau Pohl.",
+      "score": 100,
+      "intent": "sorry",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Es tut mir leid, dass die Party so super war.",
+      "score": 100,
+      "intent": "proud",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Frau Pohl.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Es mir leid dass wir laut gefeiert.",
+      "score": 0,
+      "intent": null,
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich habe meinen Geburtstag gefeiert."
+        ],
+        [
+          "t2",
+          "Timo schläft auf der Treppe."
+        ],
+        [
+          "t3",
+          "Ich möchte mich für den Lärm entschuldigen."
+        ],
+        [
+          "t4",
+          "Weil ich meinen Geburtstag gefeiert habe."
+        ],
+        [
+          "t5",
+          "Er hat gerufen, dass Frau Pohl im Urlaub ist."
+        ],
+        [
+          "t6",
+          "Du bekommst eine große Packung Kekse."
+        ],
+        [
+          "t7",
+          "Ja, ich freue mich auf den Kaffee mit ihr."
+        ],
+        [
+          "t8",
+          "Entschuldigung, Frau Pohl. Es tut mir leid, dass die Party so laut war."
+        ]
+      ]
+    },
+    {
+      "name": "echo",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich hat eine Party gemacht."
+        ],
+        [
+          "t2",
+          "Er schlaft auf der Treppe."
+        ],
+        [
+          "t3",
+          "Sorry, es tut mir leid."
+        ],
+        [
+          "t4",
+          "Weil ich meinen Geburtstag gefeiert habe."
+        ],
+        [
+          "t5",
+          "Timo hat noch ein Bier gerufen."
+        ],
+        [
+          "t6",
+          "Ich gebe dir zwei Kekse."
+        ],
+        [
+          "t7",
+          "Ich freue mich sehr auf Frau Pohl."
+        ],
+        [
+          "t8",
+          "Es tut mir leid, dass wir so laut waren."
+        ]
+      ]
+    },
+    {
+      "name": "almost",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Wir haben nur ein bisschen getanzt."
+        ],
+        [
+          "t2",
+          "Er schläft vor der Tür."
+        ],
+        [
+          "t3",
+          "Sorry."
+        ],
+        [
+          "t4",
+          "Weil Timo Trompete gespielt hat."
+        ],
+        [
+          "t5",
+          "Er hat gesagt, dass der Kuchen auf dem Sofa liegt."
+        ],
+        [
+          "t6",
+          "Ich gebe dir zwei Kekse."
+        ],
+        [
+          "t7",
+          "Ich freue mich nicht."
+        ],
+        [
+          "t8",
+          "Es tut mir leid."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich habe nichts gemacht."
+        ],
+        [
+          "t2",
+          "Er ist zu Hause."
+        ],
+        [
+          "t3",
+          "Die Party war super."
+        ]
+      ]
+    }
+  ]
+}

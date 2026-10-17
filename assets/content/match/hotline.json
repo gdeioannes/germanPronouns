@@ -1,0 +1,1820 @@
+{
+  "id": "hotline",
+  "name": "Jasmin",
+  "age": 29,
+  "emoji": "🎧",
+  "image": "match_hotline",
+  "level": "C1.2",
+  "order": 2,
+  "bio": "Flinknetz-Kundenservice. Bitte warten. Sie sind Nummer 47. Ihr Anruf ist uns wichtig. Wirklich.",
+  "bioEn": "Flinknetz customer service. Please hold. You are number 47. Your call is important to us. Really.",
+  "goal": "Get your internet back today.",
+  "tagline": "Kundenservice · 29 · Warteschleife 3",
+  "voice": "Zephyr",
+  "brief": "Jasmin, 29, a hotline agent at an internet provider: a bright, very friendly, slightly sing-song call-centre voice that recites scripted phrases at speed, with a dry, tired, very human wit leaking through the script. \"Die Technik\" is one man, Dieter, in the basement; she talks about him with fond despair.",
+  "focus": "Beschwerde-Register · Wortbildung (be-, ver-, ent-) · Ironie · höflich, aber bestimmt",
+  "lexicon": {
+    "nouns": {
+      "Störung": "f",
+      "Internet": "n",
+      "Mist": "m",
+      "Nummer": "f",
+      "Fortschritt": "m",
+      "Rückschritt": "m",
+      "Entschädigung": "f",
+      "Kundennummer": "f",
+      "Vertragsnummer": "f",
+      "Tarif": "m",
+      "System": "n",
+      "Techniker": "m",
+      "Sternen": "pl",
+      "Router": "m",
+      "Brieftaube": "f",
+      "Gedicht": "n"
+    },
+    "names": [
+      "Sie",
+      "Ihnen",
+      "Turbo-Max",
+      "Dieter"
+    ],
+    "verbs": [
+      "möchte",
+      "ist",
+      "funktioniert",
+      "bin",
+      "erwarte",
+      "beheben",
+      "entheben",
+      "verheben",
+      "lautet",
+      "heißt",
+      "weiß",
+      "stimmt",
+      "sehe",
+      "dürfte",
+      "wäre",
+      "käme",
+      "sind",
+      "passt",
+      "verspreche",
+      "würde",
+      "singt",
+      "schicken"
+    ],
+    "nonfinite": [
+      "melden",
+      "sagen",
+      "irren",
+      "bewerten",
+      "schreiben"
+    ],
+    "accVerbs": [
+      "möchte",
+      "erwarte",
+      "beheben",
+      "entheben",
+      "verheben",
+      "sehe",
+      "verspreche",
+      "würde",
+      "schicken"
+    ],
+    "adjectives": [
+      "groß"
+    ]
+  },
+  "intro": [
+    {
+      "who": "hotline",
+      "type": "text",
+      "de": "Bitte warten. Sie sind Nummer siebenundvierzig. Ihr Anruf ist uns wichtig.",
+      "emoji": "⏳",
+      "en": "Please hold. You are number forty-seven. Your call is important to us.",
+      "audio": "mc_hotline_introa"
+    },
+    {
+      "who": "hotline",
+      "type": "text",
+      "de": "… Flinknetz-Kundenservice, Sie sprechen mit Jasmin. Wie kann ich Ihnen heute helfen?",
+      "emoji": "🎧",
+      "en": "… Flinknetz customer service, you’re speaking to Jasmin. How can I help you today?",
+      "audio": "mc_hotline_introb"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Bitte schildern Sie mir kurz Ihr Anliegen. Das Gespräch wird zu Schulungszwecken aufgezeichnet. Bisher hat niemand daraus gelernt.",
+          "emoji": "🎧",
+          "en": "Please briefly describe your concern. This call is recorded for training purposes. So far nobody has learned anything from it.",
+          "audio": "mc_hotline_t1a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "möchte",
+        "eine",
+        "einen",
+        "Störung",
+        "melden",
+        "sagen",
+        "mein",
+        "Internet",
+        "ist",
+        "kaputt",
+        "seit drei Tagen",
+        "funktioniert",
+        "nicht",
+        "Ihr Internet",
+        "Mist",
+        "leider",
+        "Router",
+        "singt"
+      ],
+      "wrong": {
+        "sagen": {
+          "to": "melden",
+          "note": "You 'melden' a fault: eine Störung melden."
+        }
+      },
+      "intents": [
+        {
+          "id": "rude",
+          "when": {
+            "any": [
+              "mist"
+            ]
+          },
+          "value": -1,
+          "cause": "rude",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Mist. Notiert. Ich schreibe: „Kunde emotional“. Das beschleunigt übrigens nichts.",
+              "emoji": "📝",
+              "en": "Rubbish. Noted. I’m writing: “customer emotional”. That doesn’t speed anything up, by the way.",
+              "audio": "mc_hotline_t1_rude"
+            }
+          ]
+        },
+        {
+          "id": "report",
+          "when": {
+            "any": [
+              "störung"
+            ]
+          },
+          "value": 2,
+          "fact": "📋 meldet Störungen korrekt",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Eine Störung melden. Ich lege ein Ticket an. Das ist mein Lieblingsmoment. Es klickt so schön.",
+              "emoji": "🎫",
+              "en": "Reporting a fault. I am opening a ticket. That is my favourite moment. It clicks so nicely.",
+              "audio": "mc_hotline_t1_report"
+            }
+          ]
+        },
+        {
+          "id": "singing",
+          "when": {
+            "any": [
+              "singt"
+            ]
+          },
+          "value": 1,
+          "fact": "🎶 hat einen singenden Router",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Ihr Router singt. Welches Lied? … Lalala? Das ist unsere Warteschleifenmusik. Ein bekanntes Problem. Er vermisst uns.",
+              "emoji": "🎶",
+              "en": "Your router is singing. Which song? … La la la? That is our hold music. A known issue. He misses us.",
+              "audio": "mc_hotline_t1_singing"
+            }
+          ]
+        },
+        {
+          "id": "since",
+          "when": {
+            "any": [
+              "seit drei tagen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Seit drei Tagen. Oh. Das ist bei uns noch fast neu.",
+              "en": "For three days. Oh. That’s still almost new for us.",
+              "audio": "mc_hotline_t1_since"
+            }
+          ]
+        },
+        {
+          "id": "notWorking",
+          "when": {
+            "any": [
+              "funktioniert"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Es funktioniert nicht. Das höre ich heute zum dreihundertsten Mal. Sie sind in bester Gesellschaft.",
+              "en": "It isn’t working. That’s the three hundredth time I’ve heard that today. You’re in excellent company.",
+              "audio": "mc_hotline_t1_notworking"
+            }
+          ]
+        },
+        {
+          "id": "broken",
+          "when": {
+            "any": [
+              "kaputt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "„Kaputt“. Das gibt es in meinem System nicht. Da gibt es nur „eingeschränkt verfügbar“. Ich notiere es trotzdem. Mit Anführungszeichen.",
+              "en": "“Broken”. My system does not have that. It only has “limited availability”. I am noting it anyway. In quotation marks.",
+              "audio": "mc_hotline_t1_broken"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Einen Moment bitte, ich verbinde Sie mit der Technik.",
+          "emoji": "🔀",
+          "en": "One moment please, I’ll put you through to the technical team.",
+          "audio": "mc_hotline_t2a"
+        },
+        {
+          "who": "hotline",
+          "type": "voice",
+          "audio": "mc_hotline_vn_hold",
+          "de": "Bitte warten. Sie sind Nummer siebenundvierzig. Bitte warten. Lalala. Sie sind jetzt Nummer achtundvierzig. Moment. Das ist nicht richtig. Doch. Es ist richtig. Die Musik hat übrigens Dieter gesungen. Bitte warten.",
+          "en": "Please hold. You are number forty-seven. Please hold. La la la. You are now number forty-eight. One moment. That is not right. Yes. It is right. The music, by the way, was sung by Dieter. Please hold.",
+          "direction": "Jasmin herself humming tinny hold music into the phone, then reading the queue announcement in a robotic voice, breaking off in genuine surprise at the new number."
+        },
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "So, da bin ich wieder. Die Technik ist in der Mittagspause. Die Technik, das ist Dieter. Er ist seit 2019 in der Mittagspause. Welche Nummer sind Sie jetzt?",
+          "en": "Right, I am back. The technical team is on its lunch break. The technical team is Dieter. He has been on his lunch break since 2019. Which number are you now?",
+          "audio": "mc_hotline_t2c",
+          "emoji": "🥪"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bin",
+        "jetzt",
+        "Nummer",
+        "siebenundvierzig",
+        "achtundvierzig",
+        "das",
+        "ist",
+        "ja",
+        "ein",
+        "eine",
+        "großer",
+        "große",
+        "Fortschritt",
+        "Rückschritt",
+        "wirklich"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "wrong",
+          "when": {
+            "any": [
+              "siebenundvierzig"
+            ],
+            "none": [
+              "achtundvierzig"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Siebenundvierzig war vorhin. Sie haben nicht zugehört. Ich ehrlich gesagt auch nicht. Ich habe mitgesummt.",
+              "en": "Forty-seven was earlier. You were not listening. To be honest, neither was I. I was humming along.",
+              "audio": "mc_hotline_t2_wrong"
+            }
+          ]
+        },
+        {
+          "id": "irony",
+          "when": {
+            "any": [
+              "fortschritt"
+            ]
+          },
+          "value": 2,
+          "fact": "😏 bleibt in der Warteschleife ironisch",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Ein großer Fortschritt. Ich höre da eine gewisse Ironie. Ich notiere: „humorvoll“. Das ist gut für Sie.",
+              "emoji": "😏",
+              "en": "Great progress. I detect a certain irony there. I’m noting: “has a sense of humour”. That’s good for you.",
+              "audio": "mc_hotline_t2_irony"
+            }
+          ]
+        },
+        {
+          "id": "back",
+          "when": {
+            "any": [
+              "rückschritt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Ein Rückschritt. Ehrlich und präzise. Wie unser Netz. Also, nur ehrlich.",
+              "en": "A step backwards. Honest and precise. Like our network. Well, just honest.",
+              "audio": "mc_hotline_t2_back"
+            }
+          ]
+        },
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "achtundvierzig"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Achtundvierzig. Richtig. Sie haben zugehört. Das schaffen nur wenige.",
+              "en": "Forty-eight. Correct. You listened. Few people manage that.",
+              "audio": "mc_hotline_t2_right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Ich sehe hier: Sie haben den Tarif Turbo-Max. Das heißt, wir versprechen viel. Juristisch gesehen nichts. Und turbo ist eigentlich nur der Name.",
+          "emoji": "🚀",
+          "en": "I can see here: you are on the Turbo-Max plan. That means we promise a lot. Legally speaking, nothing. And turbo is really just the name.",
+          "audio": "mc_hotline_t3a"
+        },
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Was erwarten Sie konkret von uns?",
+          "en": "What exactly do you expect from us?",
+          "audio": "mc_hotline_t3b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "erwarte",
+        "dass",
+        "Sie",
+        "die",
+        "den",
+        "Störung",
+        "heute",
+        "noch",
+        "beheben",
+        "entheben",
+        "verheben",
+        "morgen",
+        "gar nichts",
+        "mehr",
+        "eine",
+        "Entschädigung",
+        "mir",
+        "Brieftaube",
+        "schicken"
+      ],
+      "wrong": {
+        "entheben": {
+          "to": "beheben",
+          "note": "You 'beheben' a fault. 'jemanden seines Amtes entheben' means removing someone from office."
+        },
+        "verheben": {
+          "to": "beheben",
+          "note": "'sich verheben' means straining yourself lifting something. A fault is 'behoben'."
+        }
+      },
+      "intents": [
+        {
+          "id": "lift",
+          "when": {
+            "any": [
+              "verheben"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Ich soll mich für Sie verheben? Ich habe schon Rücken. Vom Headset. Aber für Sie hebe ich notfalls auch einen Router.",
+              "emoji": "🏋️",
+              "en": "I am supposed to strain myself lifting for you? My back is already bad. From the headset. But for you I would lift a router if I had to.",
+              "audio": "mc_hotline_t3_lift"
+            }
+          ]
+        },
+        {
+          "id": "office",
+          "when": {
+            "any": [
+              "entheben"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Mich meines Amtes entheben? Ich habe kein Amt. Ich habe ein Headset. Und das gebe ich nicht her.",
+              "emoji": "🎧",
+              "en": "Remove me from office? I have no office. I have a headset. And I am not giving it up.",
+              "audio": "mc_hotline_t3_office"
+            }
+          ]
+        },
+        {
+          "id": "pigeon",
+          "when": {
+            "any": [
+              "brieftaube"
+            ]
+          },
+          "value": 1,
+          "fact": "🕊️ bestellt eine Brieftaube",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Eine Brieftaube. Die haben wir wirklich. Sie heißt Turbo-Max. Sie ist schneller als unser Netz. Leider auch in der Mittagspause.",
+              "emoji": "🕊️",
+              "en": "A carrier pigeon. We genuinely have one. Her name is Turbo-Max. She is faster than our network. Unfortunately also on her lunch break.",
+              "audio": "mc_hotline_t3_pigeon"
+            }
+          ]
+        },
+        {
+          "id": "today",
+          "when": {
+            "any": [
+              "heute"
+            ]
+          },
+          "value": 2,
+          "fact": "⏱️ besteht auf heute",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Heute noch. Sie sind entschlossen. Ich mag entschlossene Menschen. Sie sind selten bei Nummer achtundvierzig.",
+              "emoji": "💪",
+              "en": "Today. You’re determined. I like determined people. They’re rare at number forty-eight.",
+              "audio": "mc_hotline_t3_today"
+            }
+          ]
+        },
+        {
+          "id": "money",
+          "when": {
+            "any": [
+              "entschädigung"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Eine Entschädigung. Mutig. Ich trage es ein. Das Formular dafür ist leider … offline.",
+              "en": "Compensation. Bold. I’ll enter it. Unfortunately the form for it is … offline.",
+              "audio": "mc_hotline_t3_money"
+            }
+          ]
+        },
+        {
+          "id": "tomorrow",
+          "when": {
+            "any": [
+              "morgen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Morgen? Gern. Morgen sagen wir alle gern. Morgen ist unser Lieblingswort.",
+              "en": "Tomorrow? Sure. We all love saying tomorrow. Tomorrow is our favourite word.",
+              "audio": "mc_hotline_t3_tomorrow"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "gar nichts"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Gar nichts mehr. Das ist die richtige Einstellung für Turbo-Max. Aber dann kann ich Ihnen nicht helfen.",
+              "en": "Nothing at all any more. That’s the right attitude for Turbo-Max. But then I can’t help you.",
+              "audio": "mc_hotline_t3_nothing"
+            }
+          ]
+        },
+        {
+          "id": "fix",
+          "when": {
+            "any": [
+              "beheben",
+              "störung"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Die Störung beheben. Ja. Aber wann? Das ist bei uns die große Frage.",
+              "en": "Fix the fault. Yes. But when? That’s the big question with us.",
+              "audio": "mc_hotline_t3_fix"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Für die Bearbeitung brauche ich Ihre Kundennummer. Sie steht auf Ihrem Vertrag.",
+          "emoji": "📄",
+          "en": "To process this I need your customer number. It’s on your contract.",
+          "audio": "mc_hotline_t4a"
+        },
+        {
+          "who": "hotline",
+          "type": "photo",
+          "image": "match_hotline_letter",
+          "overlay": [
+            "FLINKNETZ – Ihr Vertrag",
+            "Tarif: Turbo-Max",
+            "Kundennummer: 58 31 07",
+            "Vertragsnummer: 99 42 16",
+            "Kundenservice: Mo–Fr, 8–9 Uhr"
+          ],
+          "alt": "Ein Brief von Flinknetz. Tarif: Turbo-Max. Kundennummer: 58 31 07. Vertragsnummer: 99 42 16. Kundenservice: Montag bis Freitag, 8 bis 9 Uhr."
+        },
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Wie lautet Ihre Kundennummer?",
+          "en": "What is your customer number?",
+          "audio": "mc_hotline_t4c"
+        }
+      ],
+      "tiles": [
+        "meine",
+        "mein",
+        "Kundennummer",
+        "Vertragsnummer",
+        "lautet",
+        "ist",
+        "58 31 07",
+        "99 42 16",
+        "Tarif",
+        "heißt",
+        "Turbo-Max",
+        "ich",
+        "weiß",
+        "sie",
+        "nicht",
+        "leider"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "58 31 07"
+            ]
+          },
+          "value": 2,
+          "fact": "🔢 findet die Kundennummer",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Achtundfünfzig, einunddreißig, null sieben. Gefunden. Sie existieren. Das ist schon mal viel wert.",
+              "emoji": "✅",
+              "en": "Fifty-eight, thirty-one, oh seven. Found. You exist. That’s already worth a lot.",
+              "audio": "mc_hotline_t4_right"
+            }
+          ]
+        },
+        {
+          "id": "contract",
+          "when": {
+            "any": [
+              "99 42 16"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Das ist Ihre Vertragsnummer. Ein häufiger Fehler. Ich mache ihn auch. Jeden Tag.",
+              "en": "That’s your contract number. A common mistake. I make it too. Every day.",
+              "audio": "mc_hotline_t4_contract"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Sie wissen sie nicht? Sie steht auf dem Brief. Groß. In der Mitte.",
+              "en": "You don’t know it? It’s on the letter. Big. In the middle.",
+              "audio": "mc_hotline_t4_dunno"
+            }
+          ]
+        },
+        {
+          "id": "tariff",
+          "when": {
+            "any": [
+              "turbo-max",
+              "tarif"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Turbo-Max, ja. Mein Beileid. Aber ich brauche die Kundennummer.",
+              "en": "Turbo-Max, yes. My condolences. But I need the customer number.",
+              "audio": "mc_hotline_t4_tariff"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Danke. Laut System ist bei Ihnen alles in Ordnung. Ihr Internet funktioniert einwandfrei. Das System sagt, Sie schauen gerade ein Video über Ziegen.",
+          "emoji": "🐐",
+          "en": "Thank you. According to the system everything is fine at your end. Your internet works perfectly. The system says you are watching a video about goats right now.",
+          "audio": "mc_hotline_t5a"
+        }
+      ],
+      "tiles": [
+        "bei allem Respekt",
+        "mit Verlaub",
+        "das",
+        "stimmt",
+        "nicht",
+        "sehe",
+        "ich",
+        "anders",
+        "ist",
+        "gelogen",
+        "dann",
+        "ja",
+        "alles",
+        "gut",
+        "Ihr System",
+        "dürfte",
+        "sich",
+        "irren"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "liar",
+          "when": {
+            "any": [
+              "gelogen"
+            ]
+          },
+          "value": -2,
+          "cause": "rude",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Gelogen? Ich lüge nicht. Das System lügt. Ich lese es nur vor. Das ist ein Unterschied.",
+              "emoji": "😤",
+              "en": "A lie? I don’t lie. The system lies. I just read it out. That’s a difference.",
+              "audio": "mc_hotline_t5_liar"
+            }
+          ]
+        },
+        {
+          "id": "gaveUp",
+          "when": {
+            "any": [
+              "gut"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "gaveup",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Wunderbar! Dann schließe ich das Ticket. Vielen Dank für Ihren Anruf.",
+              "emoji": "🔒",
+              "en": "Wonderful! Then I’ll close the ticket. Thank you very much for calling.",
+              "audio": "mc_hotline_t5_gaveup"
+            }
+          ]
+        },
+        {
+          "id": "system",
+          "when": {
+            "any": [
+              "irren"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 widerspricht höflich",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "„Ihr System dürfte sich irren.“ Das ist das Höflichste, was je jemand über unser System gesagt hat. Ich prüfe manuell. … Die Ziegen waren Dieter.",
+              "emoji": "🔍",
+              "en": "“Your system may well be mistaken.” That is the politest thing anyone has ever said about our system. I am checking manually. … The goats were Dieter.",
+              "audio": "mc_hotline_t5_system"
+            }
+          ]
+        },
+        {
+          "id": "insist",
+          "when": {
+            "any": [
+              "bei allem respekt",
+              "mit verlaub"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Mit Verlaub, bei allem Respekt … So hat mir noch keiner widersprochen. Ich habe Gänsehaut. Ich prüfe das noch einmal.",
+              "emoji": "🔍",
+              "en": "With respect, with all due respect … Nobody has ever contradicted me like that. I have goosebumps. I will check again.",
+              "audio": "mc_hotline_t5_insist"
+            }
+          ]
+        },
+        {
+          "id": "differ",
+          "when": {
+            "any": [
+              "anders",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Sie sehen das anders. Verstehe. Ich auch, wenn ich ehrlich bin. Inoffiziell.",
+              "en": "You see it differently. I understand. So do I, to be honest. Unofficially.",
+              "audio": "mc_hotline_t5_differ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Okay, ich sehe es jetzt auch. Ich könnte einen Techniker schicken. Also Dieter. Sein nächster freier Termin ist in drei Wochen. Er kommt mit dem Fahrrad. Aus dem Keller.",
+          "emoji": "🚲",
+          "en": "Okay, I can see it now too. I could send a technician. Meaning Dieter. His next free slot is in three weeks. He comes by bike. From the basement.",
+          "audio": "mc_hotline_t6a"
+        },
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Passt Ihnen das?",
+          "en": "Does that suit you?",
+          "audio": "mc_hotline_t6b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "wäre",
+        "Ihnen",
+        "verbunden",
+        "entbunden",
+        "wenn",
+        "der",
+        "den",
+        "Techniker",
+        "heute",
+        "käme",
+        "drei Wochen",
+        "sind",
+        "inakzeptabel",
+        "das",
+        "passt",
+        "mir",
+        "sehr",
+        "Dieter"
+      ],
+      "wrong": {
+        "entbunden": {
+          "to": "verbunden",
+          "note": "'Ich wäre Ihnen sehr verbunden' = I'd be much obliged. 'entbunden' means having given birth (or being released from a duty)."
+        }
+      },
+      "intents": [
+        {
+          "id": "gaveUp",
+          "when": {
+            "any": [
+              "passt"
+            ]
+          },
+          "value": -2,
+          "cause": "gaveup",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Wunderbar! Notiert: Termin in drei Wochen. Zwischen 7 und 19 Uhr. Bitte bleiben Sie zu Hause.",
+              "emoji": "📅",
+              "en": "Wonderful! Noted: appointment in three weeks. Between 7 am and 7 pm. Please stay at home.",
+              "audio": "mc_hotline_t6_gaveup"
+            }
+          ]
+        },
+        {
+          "id": "birth",
+          "when": {
+            "any": [
+              "entbunden"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Entbunden? Herzlichen Glückwunsch! Junge oder Mädchen? … Egal. Für frischgebackene Eltern schicke ich sofort jemanden.",
+              "emoji": "🍼",
+              "en": "Given birth? Congratulations! Boy or girl? … Never mind. For brand-new parents I will send someone right away.",
+              "audio": "mc_hotline_t6_birth"
+            }
+          ]
+        },
+        {
+          "id": "polite",
+          "when": {
+            "any": [
+              "verbunden"
+            ]
+          },
+          "value": 2,
+          "fact": "💐 bittet sehr verbindlich",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "„Ich wäre Ihnen sehr verbunden.“ So redet sonst nur meine Oma. Ich liebe meine Oma. Moment, ich versuche etwas.",
+              "emoji": "👵",
+              "en": "“I would be much obliged.” Only my grandma talks like that. I love my grandma. Hang on, I’ll try something.",
+              "audio": "mc_hotline_t6_polite"
+            }
+          ]
+        },
+        {
+          "id": "today",
+          "when": {
+            "any": [
+              "heute",
+              "käme"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Heute. Ich verstehe. Dieter versteht es auch. Er ist nur gerade nicht da. Er ist eigentlich nie da.",
+              "en": "Today. I understand. Dieter understands too. He is just not here right now. He is never really here.",
+              "audio": "mc_hotline_t6_today"
+            }
+          ]
+        },
+        {
+          "id": "unacceptable",
+          "when": {
+            "any": [
+              "inakzeptabel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Inakzeptabel. Ein starkes Wort. Ich leite es weiter. An mich selbst.",
+              "en": "Unacceptable. A strong word. I’ll pass it on. To myself.",
+              "audio": "mc_hotline_t6_unacceptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Gute Nachricht: Ich habe einen Trick. Ich setze Ihren Router jetzt aus der Ferne zurück. Mit dem großen roten Knopf. Den darf eigentlich nur Dieter drücken.",
+          "emoji": "🔴",
+          "en": "Good news: I have a trick. I am going to reset your router remotely now. With the big red button. Strictly speaking, only Dieter is allowed to press it.",
+          "audio": "mc_hotline_t7a"
+        },
+        {
+          "who": "hotline",
+          "type": "text",
+          "de": "Aber dafür müssen Sie mir etwas versprechen: Sie bewerten mich mit fünf Sternen.",
+          "en": "But in return you have to promise me something: you’ll give me five stars.",
+          "audio": "mc_hotline_t7b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "verspreche",
+        "ich",
+        "Ihnen",
+        "würde",
+        "Sie",
+        "sogar",
+        "mit",
+        "fünf",
+        "sechs",
+        "Sternen",
+        "bewerten",
+        "erst",
+        "wenn",
+        "Internet",
+        "funktioniert",
+        "nein",
+        "gern",
+        "ein Gedicht",
+        "schreiben"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "poem",
+          "when": {
+            "any": [
+              "ein gedicht",
+              "schreiben"
+            ]
+          },
+          "value": 2,
+          "fact": "📝 schreibt der Hotline ein Gedicht",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Ein Gedicht? Für mich? Das wäre das erste Gedicht in der Geschichte von Flinknetz. Wenn man die AGB nicht mitzählt. Ich drücke den Knopf. Fest.",
+              "emoji": "📝",
+              "en": "A poem? For me? That would be the first poem in the history of Flinknetz. Not counting the terms and conditions. I am pressing the button. Hard.",
+              "audio": "mc_hotline_t7_poem"
+            }
+          ]
+        },
+        {
+          "id": "six",
+          "when": {
+            "any": [
+              "sechs"
+            ]
+          },
+          "value": 2,
+          "fact": "⭐ vergibt sechs Sterne",
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Sogar sechs! Es gibt nur fünf. Aber ich drucke den sechsten aus und hänge ihn an meinen Bildschirm.",
+              "emoji": "⭐",
+              "en": "Even six! There are only five. But I’ll print out the sixth and stick it on my screen.",
+              "audio": "mc_hotline_t7_six"
+            }
+          ]
+        },
+        {
+          "id": "promise",
+          "when": {
+            "any": [
+              "verspreche"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Versprochen ist versprochen. So, Ihr Router blinkt. Grün. Ich glaube, ich weine.",
+              "emoji": "🥲",
+              "en": "A promise is a promise. Right, your router is blinking. Green. I think I’m crying.",
+              "audio": "mc_hotline_t7_promise"
+            }
+          ]
+        },
+        {
+          "id": "cautious",
+          "when": {
+            "any": [
+              "erst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Erst wenn es funktioniert. Vorsichtig. Das gefällt mir. Und: Es funktioniert. Jetzt.",
+              "en": "Only once it works. Cautious. I like that. And: it works. Now.",
+              "audio": "mc_hotline_t7_cautious"
+            }
+          ]
+        },
+        {
+          "id": "five",
+          "when": {
+            "any": [
+              "fünf",
+              "gern"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Fünf Sterne. Danke. Ihr Router blinkt grün. Mein Werk.",
+              "en": "Five stars. Thank you. Your router is blinking green. My work.",
+              "audio": "mc_hotline_t7_five"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "hotline",
+              "type": "text",
+              "de": "Nein? Okay. Dann setze ich ihn trotzdem zurück. Aber ich bin ein bisschen traurig.",
+              "emoji": "😔",
+              "en": "No? Okay. Then I’ll reset it anyway. But I’m a little sad.",
+              "audio": "mc_hotline_t7_no"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "hotline",
+    "type": "text",
+    "de": "Das habe ich leider nicht verstanden. Das System auch nicht. Wir sind uns einig.",
+    "en": "Unfortunately I didn’t understand that. Neither did the system. We agree.",
+    "audio": "mc_hotline_offtopic"
+  },
+  "confused": [
+    {
+      "who": "hotline",
+      "type": "text",
+      "de": "Entschuldigung, die Verbindung ist schlecht. Wie bitte?",
+      "emoji": "📶",
+      "en": "Sorry, the line is bad. Pardon?",
+      "audio": "mc_hotline_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "hotline",
+        "type": "text",
+        "de": "Ihr Router blinkt grün, {name}. Ihr Internet ist wieder da. Heute. Wie gewünscht.",
+        "en": "Your router is blinking green, {name}. Your internet is back. Today. As requested."
+      },
+      {
+        "who": "hotline",
+        "type": "text",
+        "de": "Moment. Auf meinem Bildschirm ist jetzt alles grün. Ihre ganze Straße hat wieder Internet. Und ein Kreuzfahrtschiff vor Norwegen. Ich habe vielleicht zu fest gedrückt.",
+        "emoji": "🚢",
+        "en": "Hang on. Everything on my screen is green now. Your whole street has internet again. And a cruise ship off Norway. I may have pressed too hard.",
+        "audio": "mc_hotline_winc"
+      },
+      {
+        "who": "hotline",
+        "type": "text",
+        "de": "Sie waren übrigens die freundlichste Nummer achtundvierzig meines Lebens. Ich meine das ernst. Fast ohne Ironie.",
+        "emoji": "🎧",
+        "en": "You were the friendliest number forty-eight of my life, by the way. I mean it. Almost without irony.",
+        "audio": "mc_hotline_winb"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "hotline",
+        "type": "text",
+        "de": "Ihr Internet kommt zurück. Heute. Irgendwann zwischen null und vierundzwanzig Uhr. Genauer kann ich es leider nicht sagen.",
+        "emoji": "🕰️",
+        "en": "Your internet is coming back. Today. Sometime between midnight and midnight. I’m afraid I can’t be more precise.",
+        "audio": "mc_hotline_partial"
+      }
+    ],
+    "deleted": {
+      "rude": {
+        "who": "hotline",
+        "type": "text",
+        "de": "Ich beende dieses Gespräch jetzt. Freundlich. Sie sind wieder Nummer siebenundvierzig. Bitte warten.",
+        "emoji": "📵",
+        "en": "I’m ending this call now. Politely. You’re number forty-seven again. Please hold.",
+        "audio": "mc_hotline_del_rude"
+      },
+      "gaveup": {
+        "who": "hotline",
+        "type": "text",
+        "de": "Ticket geschlossen. Status: Kunde zufrieden. Vielen Dank für Ihren Anruf bei Flinknetz.",
+        "emoji": "🔒",
+        "en": "Ticket closed. Status: customer satisfied. Thank you for calling Flinknetz.",
+        "audio": "mc_hotline_del_gaveup"
+      },
+      "confused": {
+        "who": "hotline",
+        "type": "text",
+        "de": "Die Verbindung ist leider zu schlecht. Ironisch, ich weiß. Auf Wiederhören.",
+        "en": "I’m afraid the line is too bad. Ironic, I know. Goodbye.",
+        "audio": "mc_hotline_del_confused"
+      },
+      "default": {
+        "who": "hotline",
+        "type": "text",
+        "de": "Ich habe Ihr Anliegen aufgenommen. Es wird bearbeitet. Irgendwann. Von Dieter. Auf Wiederhören.",
+        "en": "I have recorded your concern. It will be processed. At some point. By Dieter. Goodbye.",
+        "audio": "mc_hotline_del_default"
+      }
+    },
+    "sunday": {
+      "who": "hotline",
+      "type": "voice",
+      "audio": "mc_hotline_vn_sunday",
+      "de": "Hallo, hier ist Jasmin. Ich habe sonntags eigentlich frei. Ich wollte nur wissen: Funktioniert Ihr Internet noch? Ja? Gut. Dieter hat gefragt, wer das Kreuzfahrtschiff repariert hat. Ich habe gesagt: das System. Bitte sagen Sie es keinem.",
+      "en": "Hello, it is Jasmin. I actually have Sundays off. I just wanted to know: is your internet still working? Yes? Good. Dieter asked who fixed the cruise ship. I said: the system. Please do not tell anyone.",
+      "direction": "Relaxed and off-script, sitting on a sofa with a TV murmuring, her normal voice warmer and slower than the call-centre one."
+    }
+  },
+  "partialTitle": "Internet kommt. Irgendwann heute.",
+  "share": {
+    "win": "Ich war Nummer 47 in der Warteschleife 🎧 und habe mein Internet heute noch zurückbekommen. Meine ganze Straße auch. Und ein Kreuzfahrtschiff vor Norwegen 🚢 Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Mein Internet kommt zurück. Heute. Irgendwann zwischen 0 und 24 Uhr 🕰️ Mein Deutsch: {score}/100. {url}",
+    "deleted": "Jasmin von der Hotline hat aufgelegt 📵 Ich bin wieder Nummer 47. Mein Deutsch: {score}/100. Kannst du es besser? {url}"
+  },
+  "imageCharacter": "Jasmin, a 29-year-old hotline agent: dark curly hair in a high ponytail, a big headset with a microphone, large hoop earrings, a lanyard with a blank badge, a teal company polo shirt, a giant coffee mug, and an expression that is half professional smile, half exhausted irony.",
+  "imagePrompts": [
+    {
+      "id": "match_hotline",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She sits in a small cubicle in a busy call centre, one hand on her headset microphone, raising one eyebrow at the viewer with a wry little smile. On the cubicle wall behind her: sticky notes with drawn stars and a small potted cactus. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_hotline_letter",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a single sheet of white paper lying flat on a wooden kitchen table, seen straight from above, filling most of the frame. The paper is completely blank, nothing printed or written on it, only a small teal wave-shaped logo symbol in the top corner. Next to the paper: a cup of tea and a blinking internet router with one red light."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich möchte leider eine Störung melden.",
+      "score": 100,
+      "intent": "report",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte eine Störung sagen.",
+      "score": 85,
+      "intent": "report",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte einen Störung melden.",
+      "score": 85,
+      "intent": "report",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Seit drei Tagen funktioniert mein Internet nicht.",
+      "score": 100,
+      "intent": "since",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Seit drei Tagen mein Internet funktioniert nicht.",
+      "score": 70,
+      "intent": "since",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Mein Internet funktioniert leider nicht.",
+      "score": 100,
+      "intent": "notWorking",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich bin jetzt Nummer siebenundvierzig. Das ist ja ein großer Fortschritt.",
+      "score": 100,
+      "intent": "wrong",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Das ist nicht gut.",
+      "score": 100,
+      "intent": "differ",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Bei allem Respekt dürfte sich Ihr System irren.",
+      "score": 100,
+      "intent": "system",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn der Techniker heute käme, wäre ich Ihnen sehr verbunden.",
+      "score": 100,
+      "intent": "polite",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Mein Internet ist kaputt.",
+      "score": 100,
+      "intent": "broken",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ihr Internet ist Mist.",
+      "score": 100,
+      "intent": "rude",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich mein Internet kaputt.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich bin jetzt Nummer achtundvierzig. Das ist ja ein großer Fortschritt.",
+      "score": 100,
+      "intent": "irony",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Das ist ja ein große Fortschritt.",
+      "score": 85,
+      "intent": "irony",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Das ist wirklich ein Rückschritt.",
+      "score": 100,
+      "intent": "back",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich bin jetzt Nummer achtundvierzig.",
+      "score": 100,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Nummer siebenundvierzig.",
+      "score": 100,
+      "intent": "wrong",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich erwarte, dass Sie die Störung heute noch beheben.",
+      "score": 100,
+      "intent": "today",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich erwarte, dass Sie den Störung heute noch beheben.",
+      "score": 85,
+      "intent": "today",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich erwarte, dass Sie beheben die Störung heute.",
+      "score": 70,
+      "intent": "today",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich erwarte, dass Sie die Störung heute noch verheben.",
+      "score": 85,
+      "intent": "lift",
+      "delta": 0
+    },
+    {
+      "turn": "t3",
+      "say": "Ich erwarte, dass Sie die Störung heute noch entheben.",
+      "score": 85,
+      "intent": "office",
+      "delta": 0
+    },
+    {
+      "turn": "t3",
+      "say": "Ich erwarte eine Entschädigung.",
+      "score": 100,
+      "intent": "money",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich erwarte, dass Sie die Störung morgen beheben.",
+      "score": 100,
+      "intent": "tomorrow",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich erwarte gar nichts mehr.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Meine Kundennummer lautet 58 31 07.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Mein Kundennummer lautet 58 31 07.",
+      "score": 85,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Meine Kundennummer ist 99 42 16.",
+      "score": 100,
+      "intent": "contract",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich weiß sie leider nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Mein Tarif heißt Turbo-Max.",
+      "score": 100,
+      "intent": "tariff",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ihr System dürfte sich irren.",
+      "score": 100,
+      "intent": "system",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ihr System dürfte irren sich.",
+      "score": 70,
+      "intent": "system",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Bei allem Respekt stimmt das nicht.",
+      "score": 100,
+      "intent": "insist",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Mit Verlaub sehe ich das anders.",
+      "score": 100,
+      "intent": "insist",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Das stimmt nicht.",
+      "score": 100,
+      "intent": "differ",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Das ist gelogen.",
+      "score": 100,
+      "intent": "liar",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Dann ist ja alles gut.",
+      "score": 100,
+      "intent": "gaveUp",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre Ihnen sehr verbunden, wenn der Techniker heute käme.",
+      "score": 100,
+      "intent": "polite",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre Ihnen sehr verbunden, wenn den Techniker heute käme.",
+      "score": 85,
+      "intent": "polite",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre Ihnen sehr entbunden, wenn der Techniker heute käme.",
+      "score": 85,
+      "intent": "birth",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre Ihnen sehr verbunden, wenn der Techniker käme heute.",
+      "score": 70,
+      "intent": "polite",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Drei Wochen sind inakzeptabel.",
+      "score": 100,
+      "intent": "unacceptable",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Das passt mir.",
+      "score": 100,
+      "intent": "gaveUp",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich sehr verbunden.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde Sie sogar mit sechs Sternen bewerten.",
+      "score": 100,
+      "intent": "six",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde Sie sogar bewerten mit sechs Sternen.",
+      "score": 70,
+      "intent": "six",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Das verspreche ich Ihnen.",
+      "score": 100,
+      "intent": "promise",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Erst wenn das Internet funktioniert.",
+      "score": 100,
+      "intent": "cautious",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde Sie gern mit fünf Sternen bewerten.",
+      "score": 100,
+      "intent": "five",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Mein Router singt seit drei Tagen.",
+      "score": 100,
+      "intent": "singing",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Seit drei Tagen mein Router singt.",
+      "score": 70,
+      "intent": "singing",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich erwarte, dass Sie mir eine Brieftaube schicken.",
+      "score": 100,
+      "intent": "pigeon",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich erwarte, dass Sie mir eine Brieftaube heute noch schicken.",
+      "score": 100,
+      "intent": "pigeon",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre Ihnen sehr verbunden, wenn Dieter heute käme.",
+      "score": 100,
+      "intent": "polite",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde Ihnen sogar ein Gedicht schreiben.",
+      "score": 100,
+      "intent": "poem",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde Ihnen sogar schreiben ein Gedicht.",
+      "score": 70,
+      "intent": "poem",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich möchte leider eine Störung melden."
+        ],
+        [
+          "t2",
+          "Ich bin jetzt Nummer achtundvierzig. Das ist ja ein großer Fortschritt."
+        ],
+        [
+          "t3",
+          "Ich erwarte, dass Sie die Störung heute noch beheben."
+        ],
+        [
+          "t4",
+          "Meine Kundennummer lautet 58 31 07."
+        ],
+        [
+          "t5",
+          "Ihr System dürfte sich irren."
+        ],
+        [
+          "t6",
+          "Ich wäre Ihnen sehr verbunden, wenn der Techniker heute käme."
+        ],
+        [
+          "t7",
+          "Ich würde Sie sogar mit sechs Sternen bewerten."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Mein Internet ist kaputt."
+        ],
+        [
+          "t2",
+          "Nummer siebenundvierzig."
+        ],
+        [
+          "t3",
+          "Ich erwarte, dass Sie die Störung morgen beheben."
+        ],
+        [
+          "t4",
+          "Ich weiß sie leider nicht."
+        ],
+        [
+          "t5",
+          "Das ist gelogen."
+        ],
+        [
+          "t6",
+          "Drei Wochen sind inakzeptabel."
+        ],
+        [
+          "t7",
+          "Nein."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ihr Internet ist Mist."
+        ],
+        [
+          "t2",
+          "Nummer siebenundvierzig."
+        ],
+        [
+          "t3",
+          "Ich erwarte, dass Sie die Störung heute noch verheben."
+        ],
+        [
+          "t4",
+          "Ich weiß sie leider nicht."
+        ],
+        [
+          "t5",
+          "Dann ist ja alles gut."
+        ]
+      ]
+    },
+    {
+      "name": "pigeon",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Mein Router singt seit drei Tagen."
+        ],
+        [
+          "t2",
+          "Ich bin jetzt Nummer achtundvierzig."
+        ],
+        [
+          "t3",
+          "Ich erwarte, dass Sie mir eine Brieftaube schicken."
+        ],
+        [
+          "t4",
+          "Meine Kundennummer lautet 58 31 07."
+        ],
+        [
+          "t5",
+          "Bei allem Respekt stimmt das nicht."
+        ],
+        [
+          "t6",
+          "Ich wäre Ihnen sehr verbunden, wenn Dieter heute käme."
+        ],
+        [
+          "t7",
+          "Ich würde Ihnen sogar ein Gedicht schreiben."
+        ]
+      ]
+    }
+  ]
+}

@@ -29,3 +29,6 @@ vite.config.ts.timestamp-*
 
 # Generated image originals (the WebPs in static/img are committed)
 assets/images/raw
+
+# Paid TTS spend ledger (tool/gen-story-audio.mjs, TTS_BUDGET_USD)
+.tts-spend.json

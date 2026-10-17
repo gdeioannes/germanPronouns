@@ -1,0 +1,2135 @@
+{
+  "id": "nebenkosten",
+  "name": "Die Nebenkostenabrechnung",
+  "age": 1,
+  "emoji": "🧾",
+  "image": "match_nebenkosten",
+  "level": "C1.1",
+  "order": 1,
+  "bio": "Sie müssen 400 Euro nachzahlen. Fristgerecht. Hochachtungsvoll.",
+  "bioEn": "You owe an additional 400 euros. By the deadline. Yours faithfully.",
+  "goal": "Your utility bill wants 400 € extra. You live on the 4th floor of an old building with no lift. Find the mistake and get it corrected, formally.",
+  "tagline": "Dokument · 1 · Hausverwaltung Kuhnke",
+  "voice": "Rasalgethi",
+  "brief": "Die Nebenkostenabrechnung, a talking utility bill: a pompous, nasal, very precise male voice like an old civil servant reading out regulations, every syllable pronounced, loves long nouns; underneath, a fragile, anxious little document who desperately wants to be correct.",
+  "focus": "Nominalstil · Passiversatz (sein + zu, sich lassen, -bar) · insofern … als, zumal, folglich · formelles Register",
+  "lexicon": {
+    "nouns": {
+      "Aufstellung": "f",
+      "Kosten": "pl",
+      "Abrechnung": "f",
+      "Quatsch": "m",
+      "Zahlen": "pl",
+      "Haus": "n",
+      "Aufzug": "m",
+      "Aufzugs": "m",
+      "Heizung": "f",
+      "Müllabfuhr": "f",
+      "Posten": "m",
+      "Postens": "m",
+      "Antrag": "m",
+      "Korrektur": "f",
+      "Streichung": "f",
+      "Euro": "m",
+      "Nachzahlung": "f",
+      "Fehler": "m",
+      "Fehlers": "m",
+      "Woche": "f",
+      "Bestätigung": "f",
+      "Gerücht": "n",
+      "Papierflieger": "m"
+    },
+    "names": [
+      "Sie",
+      "Kuhnke"
+    ],
+    "verbs": [
+      "bitte",
+      "möchte",
+      "zahle",
+      "ist",
+      "sind",
+      "lassen",
+      "lässt",
+      "kann",
+      "verfügt",
+      "gibt",
+      "stelle",
+      "mache",
+      "akzeptiere",
+      "muss",
+      "hat",
+      "verbleibt",
+      "werden",
+      "macht",
+      "erwarte"
+    ],
+    "nonfinite": [
+      "prüfen",
+      "zu prüfen",
+      "überprüfen",
+      "checken",
+      "korrigiert werden",
+      "zu streichen",
+      "nachzahlen",
+      "zahlen",
+      "korrigieren",
+      "erstellt"
+    ],
+    "accVerbs": [
+      "möchte",
+      "zahle",
+      "kann",
+      "gibt",
+      "stelle",
+      "mache",
+      "akzeptiere",
+      "hat",
+      "macht",
+      "erwarte"
+    ],
+    "adjectives": [
+      "genau",
+      "geplant",
+      "korrigiert",
+      "schriftlich",
+      "gelungen"
+    ],
+    "subordinators": [
+      "als"
+    ]
+  },
+  "intro": [
+    {
+      "who": "nebenkosten",
+      "type": "text",
+      "de": "Sehr geehrte Mietpartei 3b, hier spricht Ihre Nebenkostenabrechnung für das Jahr 2025.",
+      "emoji": "🧾",
+      "en": "Dear tenant of flat 3b, this is your utility bill for the year 2025 speaking.",
+      "audio": "mc_nebenkosten_t1a"
+    },
+    {
+      "who": "nebenkosten",
+      "type": "text",
+      "de": "Sie müssen 400 Euro nachzahlen. Fristgerecht. Innerhalb von vierzehn Tagen.",
+      "emoji": "💶",
+      "en": "You must pay an additional 400 euros. By the deadline. Within fourteen days.",
+      "audio": "mc_nebenkosten_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "nebenkosten",
+          "type": "text",
+          "de": "Haben Sie dazu Fragen? Ich hoffe nicht.",
+          "emoji": "😬",
+          "en": "Do you have any questions about this? I hope not.",
+          "audio": "mc_nebenkosten_t1c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bitte",
+        "um",
+        "eine",
+        "einen",
+        "genaue",
+        "genauen",
+        "Aufstellung",
+        "der",
+        "Kosten",
+        "möchte",
+        "die",
+        "Abrechnung",
+        "prüfen",
+        "zahle",
+        "sofort",
+        "das",
+        "ist",
+        "Quatsch",
+        "nicht nachvollziehbar",
+        "zu teuer"
+      ],
+      "wrong": {
+        "Quatsch": {
+          "to": "nicht nachvollziehbar",
+          "note": "Register: in a formal complaint, “nicht nachvollziehbar”, not “Quatsch”."
+        }
+      },
+      "intents": [
+        {
+          "id": "pay",
+          "when": {
+            "any": [
+              "zahle"
+            ]
+          },
+          "value": -2,
+          "cause": "pay",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Sie zahlen sofort? Wunderbar! … Moment. Das war zu einfach. Niemand zahlt sofort. Sind Sie eine Falle?",
+              "emoji": "🤑",
+              "en": "You’ll pay immediately? Wonderful! … Wait. That was too easy. Nobody pays immediately. Are you a trap?",
+              "audio": "mc_nebenkosten_t1_pay"
+            }
+          ]
+        },
+        {
+          "id": "breakdown",
+          "when": {
+            "any": [
+              "aufstellung"
+            ]
+          },
+          "value": 2,
+          "fact": "📑 verlangt Aufstellungen",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Eine genaue Aufstellung der Kosten? Oh. Sie haben so etwas schon einmal gemacht. Ich schwitze. Papier kann nicht schwitzen. Ich schon.",
+              "emoji": "😰",
+              "en": "A detailed breakdown of the costs? Oh. You’ve done this before. I’m sweating. Paper can’t sweat. I can.",
+              "audio": "mc_nebenkosten_t1_breakdown"
+            }
+          ]
+        },
+        {
+          "id": "check",
+          "when": {
+            "any": [
+              "prüfen",
+              "möchte"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Sie möchten mich prüfen? Bitte. Ich habe nichts zu verbergen. Fast nichts.",
+              "en": "You wish to examine me? Please. I have nothing to hide. Almost nothing.",
+              "audio": "mc_nebenkosten_t1_check"
+            }
+          ]
+        },
+        {
+          "id": "rude",
+          "when": {
+            "any": [
+              "quatsch"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Quatsch?! Ich bin ein amtliches Dokument! Bitte wählen Sie Ihre Worte.",
+              "emoji": "😤",
+              "en": "Nonsense?! I am an official document! Please choose your words.",
+              "audio": "mc_nebenkosten_t1_rude"
+            }
+          ]
+        },
+        {
+          "id": "complain",
+          "when": {
+            "any": [
+              "nicht nachvollziehbar"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Nicht nachvollziehbar? Ich bin vollkommen nachvollziehbar. Glaube ich.",
+              "en": "Not comprehensible? I am completely comprehensible. I believe.",
+              "audio": "mc_nebenkosten_t1_complain"
+            }
+          ]
+        },
+        {
+          "id": "expensive",
+          "when": {
+            "any": [
+              "zu teuer"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Zu teuer? „Zu teuer“ ist keine juristische Kategorie. Ich bin nicht teuer. Ich bin korrekt.",
+              "emoji": "💶",
+              "en": "Too expensive? “Too expensive” is not a legal category. I am not expensive. I am correct.",
+              "audio": "mc_nebenkosten_t1_expensive"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "nebenkosten",
+          "type": "text",
+          "de": "Meine Zahlen sind korrekt. Sie sind nicht zu prüfen. Sie sind zu bezahlen. Oder sehen Sie das anders?",
+          "emoji": "🧐",
+          "en": "My figures are correct. They are not to be checked. They are to be paid. Or do you see it differently?",
+          "audio": "mc_nebenkosten_t2a"
+        }
+      ],
+      "tiles": [
+        "jede Abrechnung",
+        "ist",
+        "sind",
+        "zu prüfen",
+        "die",
+        "Abrechnung",
+        "Zahlen",
+        "lassen",
+        "lässt",
+        "sich",
+        "leicht",
+        "überprüfen",
+        "checken",
+        "überprüfbar",
+        "man",
+        "kann",
+        "das",
+        "falsch",
+        "nicht",
+        "auch"
+      ],
+      "wrong": {
+        "checken": {
+          "to": "überprüfen",
+          "note": "Register: “checken” is colloquial; formally “überprüfen”."
+        }
+      },
+      "intents": [
+        {
+          "id": "billSide",
+          "when": {
+            "all": [
+              "zu prüfen",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Genau! Nicht zu prüfen! Sie verstehen mich! … Moment. Wir sind nicht auf derselben Seite.",
+              "en": "Exactly! Not to be checked! You understand me! … Wait. We’re not on the same side.",
+              "audio": "mc_nebenkosten_t2_billside"
+            }
+          ]
+        },
+        {
+          "id": "opaque",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "lassen",
+              "lässt",
+              "überprüfbar",
+              "kann",
+              "überprüfen",
+              "checken"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Nicht überprüfbar? Ich bin sehr wohl überprüfbar! … Oh nein. Jetzt habe ich zugegeben, dass man mich prüfen darf.",
+              "emoji": "😳",
+              "en": "Not verifiable? I am perfectly verifiable! … Oh no. Now I’ve admitted that I may be checked.",
+              "audio": "mc_nebenkosten_t2_opaque"
+            }
+          ]
+        },
+        {
+          "id": "zu",
+          "when": {
+            "any": [
+              "zu prüfen"
+            ]
+          },
+          "value": 2,
+          "fact": "⚖️ beherrscht den Passiversatz",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "„Zu prüfen.“ Hm. So steht es leider im Gesetz. Ich hasse das Gesetz.",
+              "emoji": "📜",
+              "en": "“To be checked.” Hm. Sadly, that is what the law says. I hate the law.",
+              "audio": "mc_nebenkosten_t2_zu"
+            }
+          ]
+        },
+        {
+          "id": "lassen",
+          "when": {
+            "any": [
+              "lassen",
+              "lässt"
+            ]
+          },
+          "value": 2,
+          "fact": "⚖️ beherrscht den Passiversatz",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Leicht überprüfen lassen sie sich? Meine Zahlen sind nicht leicht! Sie sind komplex!",
+              "emoji": "😤",
+              "en": "They can be checked easily? My figures are not easy! They are complex!",
+              "audio": "mc_nebenkosten_t2_lassen"
+            }
+          ]
+        },
+        {
+          "id": "bar",
+          "when": {
+            "any": [
+              "überprüfbar"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Überprüfbar. Leider. Ich wäre so gern ein Geheimnis gewesen. Wie das Rezept von Herrn Kuhnkes Kartoffelsalat.",
+              "en": "Verifiable. Unfortunately. I would so love to have been a secret. Like the recipe for Herr Kuhnke’s potato salad.",
+              "audio": "mc_nebenkosten_t2_bar"
+            }
+          ]
+        },
+        {
+          "id": "man",
+          "when": {
+            "any": [
+              "man",
+              "kann",
+              "überprüfen",
+              "checken"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Man kann? Man darf? Na gut. Man darf.",
+              "en": "One can? One may? Very well. One may.",
+              "audio": "mc_nebenkosten_t2_man"
+            }
+          ]
+        },
+        {
+          "id": "accuse",
+          "when": {
+            "any": [
+              "falsch"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Falsch? Das ist eine Behauptung. Ich verlange Beweise.",
+              "en": "Wrong? That is an allegation. I demand evidence.",
+              "audio": "mc_nebenkosten_t2_accuse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "prepCase": {
+        "über": "acc"
+      },
+      "before": [
+        {
+          "who": "nebenkosten",
+          "type": "text",
+          "de": "Bitte. Hier bin ich. In voller Schönheit. Alle Posten sind korrekt.",
+          "emoji": "✨",
+          "en": "Here you are. Here I am. In all my glory. Every item is correct.",
+          "audio": "mc_nebenkosten_t3a"
+        },
+        {
+          "who": "nebenkosten",
+          "type": "photo",
+          "image": "match_nebenkosten_blatt",
+          "overlay": [
+            "NEBENKOSTENABRECHNUNG 2025",
+            "Mietpartei 3b · Altbau, 4. OG",
+            "Heizung: 610 €",
+            "Wasser: 180 €",
+            "Müllabfuhr: 90 €",
+            "Aufzug: 320 €",
+            "Vorauszahlungen: −800 €",
+            "Nachzahlung: 400 €"
+          ],
+          "alt": "Nebenkostenabrechnung 2025. Mietpartei 3b, Altbau, 4. Obergeschoss. Heizung 610 Euro. Wasser 180 Euro. Müllabfuhr 90 Euro. Aufzug 320 Euro. Vorauszahlungen minus 800 Euro. Nachzahlung 400 Euro."
+        },
+        {
+          "who": "nebenkosten",
+          "type": "text",
+          "de": "Wo soll hier bitte ein Fehler sein?",
+          "en": "Where exactly is there supposed to be a mistake?",
+          "audio": "mc_nebenkosten_t3b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "Haus",
+        "verfügt",
+        "über",
+        "auf",
+        "keinen",
+        "keinem",
+        "Aufzug",
+        "es",
+        "gibt",
+        "der",
+        "ist",
+        "falsch",
+        "die",
+        "Heizung",
+        "zu teuer",
+        "Müllabfuhr",
+        "Posten",
+        "fehlerhaft",
+        "ein",
+        "Gerücht"
+      ],
+      "wrong": {
+        "auf": {
+          "to": "über",
+          "note": "Collocation: “verfügen über” + accusative."
+        }
+      },
+      "intents": [
+        {
+          "id": "rumour",
+          "when": {
+            "any": [
+              "gerücht"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "lift"
+          ],
+          "fact": "🔎 findet jeden Fehler",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Ein Gerücht? … Ich habe also seit Jahren ein Gerücht abgerechnet. 320 Euro pro Jahr. Für ein Gerücht. Bitte sagen Sie das nicht dem Finanzamt.",
+              "emoji": "🫢",
+              "en": "A rumour? … So for years I’ve been billing a rumour. 320 euros a year. For a rumour. Please don’t tell the tax office.",
+              "audio": "mc_nebenkosten_t3_rumour"
+            }
+          ]
+        },
+        {
+          "id": "formal",
+          "when": {
+            "all": [
+              "verfügt",
+              "aufzug"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "lift"
+          ],
+          "fact": "🔎 findet jeden Fehler",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Das Haus verfügt über keinen Aufzug? … Ich … ich habe das nicht gewusst. Ich bin aus einer Vorlage.",
+              "emoji": "😱",
+              "en": "The building has no lift? … I … I didn’t know that. I was made from a template.",
+              "audio": "mc_nebenkosten_t3_formal"
+            }
+          ]
+        },
+        {
+          "id": "lift",
+          "when": {
+            "any": [
+              "aufzug"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "lift"
+          ],
+          "fact": "🔎 findet jeden Fehler",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Kein Aufzug? Im Altbau? Vierter Stock? … Oh. Oh nein.",
+              "emoji": "😨",
+              "en": "No lift? In an old building? Fourth floor? … Oh. Oh no.",
+              "audio": "mc_nebenkosten_t3_lift"
+            }
+          ]
+        },
+        {
+          "id": "heating",
+          "when": {
+            "any": [
+              "heizung",
+              "zu teuer"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Die Heizung? Es war ein kalter Winter. Das ist korrekt. Leider.",
+              "emoji": "🥶",
+              "en": "The heating? It was a cold winter. That is correct. Unfortunately.",
+              "audio": "mc_nebenkosten_t3_heating"
+            }
+          ]
+        },
+        {
+          "id": "garbage",
+          "when": {
+            "any": [
+              "müllabfuhr"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Die Müllabfuhr? Neunzig Euro. Für Ihren Müll. Ich habe ihn gesehen. Drei Pizzakartons pro Woche. Das ist günstig.",
+              "emoji": "🗑️",
+              "en": "The bin collection? Ninety euros. For your rubbish. I’ve seen it. Three pizza boxes a week. That’s cheap.",
+              "audio": "mc_nebenkosten_t3_garbage"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "posten",
+              "fehlerhaft",
+              "falsch"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Welcher Posten? Ich habe viele Posten. Ich bin stolz auf alle.",
+              "en": "Which item? I have many items. I’m proud of all of them.",
+              "audio": "mc_nebenkosten_t3_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "prepCase": {
+        "auf": "acc"
+      },
+      "before": [
+        {
+          "who": "nebenkosten",
+          "type": "text",
+          "de": "Der Aufzug ist … ein geplanter Aufzug. Er wird eventuell gebaut. Irgendwann. Bis dahin wohnt im Schacht eine Taube. Sie zahlt nichts. Was beantragen Sie also?",
+          "emoji": "🕊️",
+          "en": "The lift is … a planned lift. It may be built. At some point. Until then a pigeon lives in the shaft. She pays nothing. So what are you applying for?",
+          "audio": "mc_nebenkosten_t4a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bitte",
+        "um",
+        "stelle",
+        "mache",
+        "einen",
+        "Antrag",
+        "auf",
+        "Korrektur",
+        "Streichung",
+        "der",
+        "des",
+        "Abrechnung",
+        "Postens",
+        "Aufzugs",
+        "die",
+        "muss",
+        "korrigiert werden",
+        "akzeptiere",
+        "den",
+        "geplanten",
+        "Aufzug"
+      ],
+      "wrong": {
+        "mache": {
+          "to": "stelle",
+          "note": "Collocation: einen Antrag “stellen”, not “machen”."
+        }
+      },
+      "intents": [
+        {
+          "id": "accept",
+          "when": {
+            "any": [
+              "akzeptiere",
+              "geplanten"
+            ]
+          },
+          "value": -2,
+          "cause": "pay",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Sie akzeptieren den geplanten Aufzug? Großartig! Sie zahlen für die Zukunft. Und für die Taube. Sehr modern.",
+              "emoji": "🤑",
+              "en": "You accept the planned lift? Splendid! You’re paying for the future. And for the pigeon. Very modern.",
+              "audio": "mc_nebenkosten_t4_accept"
+            }
+          ]
+        },
+        {
+          "id": "strike",
+          "when": {
+            "any": [
+              "streichung"
+            ]
+          },
+          "value": 2,
+          "fact": "✂️ lässt Posten streichen",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Die Streichung des Postens. Präzise. Kalt. Wie ein Lineal. Ich zittere, aber ich respektiere Sie.",
+              "emoji": "✂️",
+              "en": "The deletion of the item. Precise. Cold. Like a ruler. I’m trembling, but I respect you.",
+              "audio": "mc_nebenkosten_t4_strike"
+            }
+          ]
+        },
+        {
+          "id": "correction",
+          "when": {
+            "any": [
+              "korrektur"
+            ]
+          },
+          "value": 2,
+          "fact": "✂️ lässt Posten streichen",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Eine Korrektur der Abrechnung. Das heißt: eine Korrektur von mir. Ich fühle mich plötzlich sehr nackt.",
+              "emoji": "📝",
+              "en": "A correction of the bill. That means: a correction of me. I suddenly feel very naked.",
+              "audio": "mc_nebenkosten_t4_correction"
+            }
+          ]
+        },
+        {
+          "id": "antrag",
+          "when": {
+            "any": [
+              "antrag"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Ein Antrag. Gut. Und worauf? Ein Antrag ohne Inhalt ist nur Papier. Wie ich.",
+              "en": "An application. Good. And for what? An application without content is just paper. Like me.",
+              "audio": "mc_nebenkosten_t4_antrag"
+            }
+          ]
+        },
+        {
+          "id": "passive",
+          "when": {
+            "any": [
+              "korrigiert werden",
+              "muss"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Ich muss korrigiert werden. Immer werde ich. Nie darf ich. Niemand fragt mich.",
+              "emoji": "😔",
+              "en": "I must be corrected. I’m always being done to. I never get to do. Nobody asks me.",
+              "audio": "mc_nebenkosten_t4_passive"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "nebenkosten",
+          "type": "text",
+          "de": "Die Hausverwaltung hat mir eine Sprachnachricht geschickt. Ich spiele sie ab.",
+          "emoji": "📞",
+          "en": "The property management has sent me a voice message. I’ll play it.",
+          "audio": "mc_nebenkosten_t5a"
+        },
+        {
+          "who": "nebenkosten",
+          "type": "voice",
+          "audio": "mc_nebenkosten_vn_kuhnke",
+          "de": "Kuhnke, Hausverwaltung. Also, wegen dem Aufzug. Den legen wir auf alle Häuser um. Auch auf Häuser ohne Aufzug. Das ist bei uns so üblich. Schönen Tag noch.",
+          "en": "Kuhnke, property management. So, about the lift. We split it across all buildings. Including buildings without a lift. That’s how we usually do it. Have a nice day.",
+          "direction": "A bored, mumbling middle-aged man on a phone in a noisy office, chewing something, a printer running in the background; the bill plays it with a tiny embarrassed cough first."
+        },
+        {
+          "who": "nebenkosten",
+          "type": "text",
+          "de": "Was entgegnen Sie Herrn Kuhnke?",
+          "en": "What is your reply to Mr Kuhnke?",
+          "audio": "mc_nebenkosten_t5b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "ist",
+        "insofern",
+        "falsch",
+        "als",
+        "unser",
+        "unsere",
+        "Haus",
+        "keinen",
+        "Aufzug",
+        "hat",
+        "zumal",
+        "folglich",
+        "der",
+        "Posten",
+        "zu streichen",
+        "nicht zulässig",
+        "egal",
+        "mir",
+        "üblich",
+        "wegen des fehlenden Aufzugs",
+        "wegen dem fehlenden Aufzug"
+      ],
+      "wrong": {
+        "wegen dem fehlenden Aufzug": {
+          "to": "wegen des fehlenden Aufzugs",
+          "note": "In formal writing “wegen” takes the genitive: “wegen des fehlenden Aufzugs”. “wegen dem” is spoken German, as Herr Kuhnke shows."
+        }
+      },
+      "intents": [
+        {
+          "id": "agree",
+          "when": {
+            "any": [
+              "üblich"
+            ]
+          },
+          "value": -2,
+          "cause": "pay",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Üblich. Ja. Dann zahlen Sie. Wie üblich. Die Taube bedankt sich.",
+              "emoji": "🤷",
+              "en": "Customary. Yes. Then you pay. As is customary. The pigeon thanks you.",
+              "audio": "mc_nebenkosten_t5_agree"
+            }
+          ]
+        },
+        {
+          "id": "egal",
+          "when": {
+            "any": [
+              "egal"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Egal? Ihnen sind 320 Euro egal? Dann zahlen Sie doch.",
+              "en": "You don’t care? 320 euros don’t matter to you? Then go ahead and pay.",
+              "audio": "mc_nebenkosten_t5_egal"
+            }
+          ]
+        },
+        {
+          "id": "insofern",
+          "when": {
+            "any": [
+              "insofern"
+            ]
+          },
+          "value": 2,
+          "fact": "🧠 argumentiert juristisch",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Insofern falsch, als … kein Aufzug. Das ist ein Argument. Ein schreckliches, gutes Argument.",
+              "emoji": "🧠",
+              "en": "Wrong insofar as … no lift. That’s an argument. A terrible, good argument.",
+              "audio": "mc_nebenkosten_t5_insofern"
+            }
+          ]
+        },
+        {
+          "id": "zumal",
+          "when": {
+            "any": [
+              "zumal"
+            ]
+          },
+          "value": 2,
+          "fact": "🧠 argumentiert juristisch",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Zumal Ihr Haus keinen Aufzug hat. Ich leite das an Herrn Kuhnke weiter. Er wird Angst vor Ihnen haben.",
+              "emoji": "🧠",
+              "en": "Especially since your building has no lift. I’ll forward that to Mr Kuhnke. He will be scared of you.",
+              "audio": "mc_nebenkosten_t5_zumal"
+            }
+          ]
+        },
+        {
+          "id": "folglich",
+          "when": {
+            "any": [
+              "folglich",
+              "zu streichen"
+            ]
+          },
+          "value": 2,
+          "fact": "🧠 argumentiert juristisch",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Folglich zu streichen. Folglich. Ich habe dieses Wort immer gefürchtet.",
+              "emoji": "🧠",
+              "en": "Consequently to be deleted. Consequently. I have always feared that word.",
+              "audio": "mc_nebenkosten_t5_folglich"
+            }
+          ]
+        },
+        {
+          "id": "wegen",
+          "when": {
+            "any": [
+              "wegen des fehlenden aufzugs"
+            ]
+          },
+          "value": 2,
+          "fact": "🧠 argumentiert juristisch",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Wegen des fehlenden Aufzugs. Wie elegant. Sie schreiben wie ein Gericht. Herr Kuhnke schreibt wie ein Einkaufszettel.",
+              "emoji": "🧠",
+              "en": "Owing to the absence of a lift. How elegant. You write like a court. Herr Kuhnke writes like a shopping list.",
+              "audio": "mc_nebenkosten_t5_wegen"
+            }
+          ]
+        },
+        {
+          "id": "wegenDem",
+          "when": {
+            "any": [
+              "wegen dem fehlenden aufzug"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "„Wegen dem“? Sie klingen wie Herr Kuhnke. Inhaltlich haben Sie aber recht.",
+              "emoji": "🙃",
+              "en": "“Wegen dem”? You sound like Mr Kuhnke. But on the substance you’re right.",
+              "audio": "mc_nebenkosten_t5_wegendem"
+            }
+          ]
+        },
+        {
+          "id": "notAllowed",
+          "when": {
+            "any": [
+              "nicht zulässig"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Nicht zulässig. Kurz und hart. Und warum?",
+              "en": "Not permissible. Short and harsh. And why?",
+              "audio": "mc_nebenkosten_t5_notallowed"
+            }
+          ]
+        },
+        {
+          "id": "noLift",
+          "when": {
+            "any": [
+              "aufzug",
+              "falsch"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Kein Aufzug, ja. Das wissen wir jetzt. Aber verbinden Sie es mit einem Argument!",
+              "en": "No lift, yes. We know that now. But connect it to an argument!",
+              "audio": "mc_nebenkosten_t5_nolift"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "nebenkosten",
+          "type": "text",
+          "de": "Gut. Ich rechne neu. Ohne Aufzug. Moment … Ich kann nicht rechnen. Ich bin nur ein Blatt Papier. Der Taschenrechner von Herrn Kuhnke sagt nur „Error“. Wie viel müssen Sie nachzahlen?",
+          "emoji": "🧮",
+          "en": "Fine. I’ll recalculate. Without the lift. One moment … I can’t do sums. I’m only a sheet of paper. Herr Kuhnke’s calculator just says “Error”. How much do you have to pay?",
+          "audio": "mc_nebenkosten_t6a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "muss",
+        "nur noch",
+        "achtzig",
+        "vierhundert",
+        "dreihundertzwanzig",
+        "Euro",
+        "nachzahlen",
+        "es",
+        "verbleibt",
+        "eine",
+        "ein",
+        "Nachzahlung",
+        "von",
+        "nichts",
+        "mehr",
+        "zahlen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "eighty",
+          "when": {
+            "any": [
+              "achtzig"
+            ]
+          },
+          "value": 2,
+          "fact": "🧮 rechnet nach",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Achtzig Euro. Statt vierhundert. Ich bin … dünner geworden. Wie ein Blatt nach einer Diät.",
+              "emoji": "📉",
+              "en": "Eighty euros. Instead of four hundred. I’ve … become thinner. Like a sheet of paper after a diet.",
+              "audio": "mc_nebenkosten_t6_eighty"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Nichts? Netter Versuch. Die Heizung bleibt. Der Winter war kalt.",
+              "emoji": "😏",
+              "en": "Nothing? Nice try. The heating stays. The winter was cold.",
+              "audio": "mc_nebenkosten_t6_nothing"
+            }
+          ]
+        },
+        {
+          "id": "four",
+          "when": {
+            "any": [
+              "vierhundert"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Vierhundert? Aber … der Aufzug ist weg. Sie rechnen ja wie ich!",
+              "emoji": "🙃",
+              "en": "Four hundred? But … the lift is gone. You calculate just like me!",
+              "audio": "mc_nebenkosten_t6_four"
+            }
+          ]
+        },
+        {
+          "id": "lift",
+          "when": {
+            "any": [
+              "dreihundertzwanzig"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Dreihundertzwanzig? Das ist der Aufzug. Bitte rechnen Sie noch einmal nach.",
+              "en": "Three hundred and twenty? That’s the lift. Please do the sum again.",
+              "audio": "mc_nebenkosten_t6_lift"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "nachzahlung",
+              "nachzahlen",
+              "zahlen",
+              "euro"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Ja, eine Nachzahlung. Aber wie hoch? Ich brauche eine Zahl. Zahlen sind mein Leben.",
+              "en": "Yes, an additional payment. But how much? I need a number. Numbers are my life.",
+              "audio": "mc_nebenkosten_t6_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "nebenkosten",
+          "type": "text",
+          "de": "Ich bin also … fehlerhaft. Ich wurde falsch erstellt. Und der Aktenvernichter im Büro schaut mich schon an. Er brummt. Was soll jetzt aus mir werden?",
+          "emoji": "😰",
+          "en": "So I am … flawed. I was drawn up incorrectly. And the shredder in the office is already looking at me. It’s humming. What is to become of me?",
+          "audio": "mc_nebenkosten_t7a"
+        }
+      ],
+      "tiles": [
+        "Fehler",
+        "lassen",
+        "sich",
+        "korrigieren",
+        "Sie",
+        "sind",
+        "werden",
+        "trotz",
+        "des",
+        "dem",
+        "Fehlers",
+        "eine",
+        "gelungene",
+        "Abrechnung",
+        "kaputt",
+        "neu",
+        "erstellt",
+        "jeder",
+        "macht",
+        "mal",
+        "einen",
+        "ein",
+        "Papierflieger"
+      ],
+      "wrong": {
+        "kaputt": {
+          "to": "fehlerhaft",
+          "note": "Documents aren’t “kaputt”; formally they are “fehlerhaft”."
+        }
+      },
+      "intents": [
+        {
+          "id": "broken",
+          "when": {
+            "any": [
+              "kaputt"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Kaputt?! Ich bin doch kein Toaster! Ich bin fehlerhaft. Das ist etwas völlig anderes. Der Aktenvernichter hat Sie gehört. Er freut sich.",
+              "emoji": "😭",
+              "en": "Broken?! I’m not a toaster! I am flawed. That’s something completely different. The shredder heard you. It’s delighted.",
+              "audio": "mc_nebenkosten_t7_broken"
+            }
+          ]
+        },
+        {
+          "id": "despite",
+          "when": {
+            "any": [
+              "trotz",
+              "gelungene"
+            ]
+          },
+          "value": 2,
+          "fact": "🫶 tröstet Dokumente",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Trotz des Fehlers gelungen? Das hat noch nie jemand zu einer Abrechnung gesagt.",
+              "emoji": "🥹",
+              "en": "A success despite the mistake? Nobody has ever said that to a bill before.",
+              "audio": "mc_nebenkosten_t7_despite"
+            }
+          ]
+        },
+        {
+          "id": "fixable",
+          "when": {
+            "any": [
+              "korrigieren",
+              "lassen"
+            ]
+          },
+          "value": 2,
+          "fact": "🫶 tröstet Dokumente",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Fehler lassen sich korrigieren. Ich schreibe das auf meine Rückseite. Als Motto. Der Aktenvernichter brummt enttäuscht.",
+              "emoji": "🫶",
+              "en": "Mistakes can be corrected. I’ll write that on my back. As a motto. The shredder hums in disappointment.",
+              "audio": "mc_nebenkosten_t7_fixable"
+            }
+          ]
+        },
+        {
+          "id": "everyone",
+          "when": {
+            "any": [
+              "jeder",
+              "mal"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Jeder macht mal einen Fehler. Sogar Herr Kuhnke. Besonders Herr Kuhnke.",
+              "en": "Everyone makes a mistake now and then. Even Mr Kuhnke. Especially Mr Kuhnke.",
+              "audio": "mc_nebenkosten_t7_everyone"
+            }
+          ]
+        },
+        {
+          "id": "plane",
+          "when": {
+            "any": [
+              "papierflieger"
+            ]
+          },
+          "value": 1,
+          "fact": "✈️ hat Pläne für altes Papier",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Ein Papierflieger? Ich? … Ich fliege über den Hof, direkt in Herrn Kuhnkes Kaffee. Das ist der schönste Plan, den mir je jemand gemacht hat.",
+              "emoji": "✈️",
+              "en": "A paper plane? Me? … I fly across the courtyard, straight into Herr Kuhnke’s coffee. That’s the loveliest plan anyone has ever made for me.",
+              "audio": "mc_nebenkosten_t7_plane"
+            }
+          ]
+        },
+        {
+          "id": "reissue",
+          "when": {
+            "any": [
+              "erstellt",
+              "neu"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Neu erstellt. Ein neues Leben. Mit weniger Aufzug.",
+              "en": "Drawn up again. A new life. With less lift.",
+              "audio": "mc_nebenkosten_t7_reissue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "nebenkosten",
+          "type": "text",
+          "de": "Ich gehe jetzt zum Drucker. Für mich ist das wie eine Wiedergeburt. Herr Kuhnke liest nur Briefe mit Gruß und Frist. Was soll ich ihm von Ihnen ausrichten?",
+          "emoji": "🖨️",
+          "en": "I’m going to the printer now. For me that’s like being reborn. Herr Kuhnke only reads letters with a closing and a deadline. What shall I tell him from you?",
+          "audio": "mc_nebenkosten_t8a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "erwarte",
+        "bitte",
+        "um",
+        "die",
+        "eine",
+        "korrigierte",
+        "korrigierten",
+        "Abrechnung",
+        "innerhalb",
+        "einer",
+        "Woche",
+        "schriftliche",
+        "Bestätigung",
+        "mit freundlichen Grüßen",
+        "tschüss",
+        "zahle",
+        "sofort",
+        "vierhundert",
+        "Euro"
+      ],
+      "wrong": {
+        "tschüss": {
+          "to": "mit freundlichen Grüßen",
+          "note": "A formal letter closes with “Mit freundlichen Grüßen”."
+        }
+      },
+      "intents": [
+        {
+          "id": "pay",
+          "when": {
+            "any": [
+              "zahle",
+              "vierhundert"
+            ]
+          },
+          "value": -2,
+          "cause": "pay",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Sie zahlen doch vierhundert? Nach allem? … Ich verstehe die Menschen nicht. Die Taube auch nicht.",
+              "emoji": "🤯",
+              "en": "You’re paying four hundred after all? After everything? … I don’t understand people. Neither does the pigeon.",
+              "audio": "mc_nebenkosten_t8_pay"
+            }
+          ]
+        },
+        {
+          "id": "deadline",
+          "when": {
+            "any": [
+              "innerhalb"
+            ]
+          },
+          "value": 2,
+          "fact": "⏳ setzt Fristen",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Innerhalb einer Woche. Eine Frist! Sie setzen MIR eine Frist! Ich bin beeindruckt.",
+              "emoji": "⏳",
+              "en": "Within a week. A deadline! You’re setting ME a deadline! I’m impressed.",
+              "audio": "mc_nebenkosten_t8_deadline"
+            }
+          ]
+        },
+        {
+          "id": "confirm",
+          "when": {
+            "any": [
+              "bestätigung"
+            ]
+          },
+          "value": 2,
+          "fact": "📨 will alles schriftlich",
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Eine schriftliche Bestätigung. Natürlich. Ich bin schließlich auch schriftlich.",
+              "emoji": "📨",
+              "en": "A written confirmation. Of course. I’m in writing too, after all.",
+              "audio": "mc_nebenkosten_t8_confirm"
+            }
+          ]
+        },
+        {
+          "id": "corrected",
+          "when": {
+            "any": [
+              "korrigierte",
+              "korrigierten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Die korrigierte Abrechnung. Das bin dann ich. Nur besser.",
+              "en": "The corrected bill. That will be me. Only better.",
+              "audio": "mc_nebenkosten_t8_corrected"
+            }
+          ]
+        },
+        {
+          "id": "close",
+          "when": {
+            "any": [
+              "mit freundlichen grüßen",
+              "tschüss"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebenkosten",
+              "type": "text",
+              "de": "Ein Gruß. Schön. Aber Briefe ohne Frist legt Herr Kuhnke unter seine Kaffeetasse. Was erwarten Sie? Bis wann?",
+              "en": "A closing. Nice. But letters without a deadline go under Herr Kuhnke’s coffee mug. What do you expect? By when?",
+              "audio": "mc_nebenkosten_t8_close"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "nebenkosten",
+    "type": "text",
+    "de": "Ihre Ausführungen beziehen sich nicht auf meine Frage. Bitte bleiben Sie beim Thema.",
+    "en": "Your remarks do not relate to my question. Please stay on topic.",
+    "audio": "mc_nebenkosten_offtopic"
+  },
+  "confused": [
+    {
+      "who": "nebenkosten",
+      "type": "text",
+      "de": "Wie bitte? Ihre Formulierung ist nicht nachvollziehbar.",
+      "emoji": "🧐",
+      "en": "Pardon? Your wording is not comprehensible.",
+      "audio": "mc_nebenkosten_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "nebenkosten",
+        "type": "text",
+        "de": "Hiermit werde ich korrigiert. Neue Nachzahlung: 80 Euro. Es war mir eine Ehre, falsch zu sein.",
+        "emoji": "🧾",
+        "en": "I am hereby corrected. New additional payment: 80 euros. It was an honour to be wrong.",
+        "audio": "mc_nebenkosten_win"
+      },
+      {
+        "who": "nebenkosten",
+        "type": "text",
+        "de": "{name}, Sie sind die erste Mietpartei, die mich wirklich gelesen hat. Hochachtungsvoll.",
+        "emoji": "🫡",
+        "en": "{name}, you are the first tenant who has really read me. Yours faithfully."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "nebenkosten",
+        "type": "text",
+        "de": "Ihr Widerspruch wird bearbeitet. Voraussichtliche Bearbeitungszeit: vierzehn Monate.",
+        "emoji": "🐌",
+        "en": "Your objection is being processed. Expected processing time: fourteen months.",
+        "audio": "mc_nebenkosten_partial"
+      }
+    ],
+    "deleted": {
+      "pay": {
+        "who": "nebenkosten",
+        "type": "text",
+        "de": "Sie haben 400 Euro gezahlt. Vielen Dank. Der Vorgang ist abgeschlossen. Ich habe Ihnen nichts mehr zu sagen.",
+        "emoji": "🗂️",
+        "en": "You have paid 400 euros. Thank you very much. The matter is closed. I have nothing further to say to you.",
+        "audio": "mc_nebenkosten_del_pay"
+      },
+      "confused": {
+        "who": "nebenkosten",
+        "type": "text",
+        "de": "Ihre Ausführungen sind nicht nachvollziehbar. Der Vorgang wird geschlossen.",
+        "en": "Your remarks are not comprehensible. The case is closed.",
+        "audio": "mc_nebenkosten_del_confused"
+      },
+      "default": {
+        "who": "nebenkosten",
+        "type": "text",
+        "de": "Ihr Widerspruch ist unbegründet. Ich gehe jetzt freiwillig in den Aktenvernichter. Hochachtungsvoll, Ihre Abrechnung.",
+        "en": "Your objection is unfounded. I am now entering the shredder voluntarily. Respectfully, your bill.",
+        "audio": "mc_nebenkosten_del_default"
+      }
+    },
+    "sunday": {
+      "who": "nebenkosten",
+      "type": "voice",
+      "audio": "mc_nebenkosten_vn_sunday",
+      "de": "Guten Tag. Hier spricht Ihre korrigierte Nebenkostenabrechnung. Heute ist Sonntag. Ich habe keine Sprechzeiten. Ich wollte nur sagen: Ich habe mich noch nie so korrekt gefühlt. Und der Aktenvernichter hat mich heute nur angeschaut. Nur angeschaut.",
+      "en": "Good day. This is your corrected utility bill. It is Sunday. I have no office hours. I only wanted to say: I have never felt so correct. And today the shredder only looked at me. Only looked.",
+      "direction": "Quiet and a little emotional, in a silent filing cabinet; trying to stay formal, but the last sentence wobbles with pride."
+    }
+  },
+  "partialTitle": "Ihr Widerspruch wird bearbeitet.",
+  "share": {
+    "win": "Meine Nebenkostenabrechnung hat mich geliked 🧾 Statt 400 € nur noch 80 €: kein Aufzug, kein Pardon. Mein Deutsch: {score}/100. Findest du den Fehler? {url}",
+    "partial": "Mein Widerspruch wird bearbeitet … voraussichtlich vierzehn Monate 🐌 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Meine Nebenkostenabrechnung hat mich gelöscht 💔 und ich habe 400 € gezahlt. Mein Deutsch: {score}/100. Kannst du es besser? {url}"
+  },
+  "imageCharacter": "Die Nebenkostenabrechnung, a stiff white A4 sheet of official paper come to life, slightly creased, with a small round face near the top, tiny gold reading glasses, thin paper arms holding a rubber stamp like a sceptre, and a silver paperclip on its top edge like a little hat; pompous but anxious. The paper itself is completely blank, no writing.",
+  "imagePrompts": [
+    {
+      "id": "match_nebenkosten",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} It stands upright on a tidy office desk next to a mug and a neat stack of folders, puffing itself up importantly and holding out the rubber stamp towards the viewer. Muted green wall with a filing cabinet. The sheet is centred and fills most of the frame."
+    },
+    {
+      "id": "match_nebenkosten_blatt",
+      "aspect": "3:4",
+      "prompt": "A phone photo, seen straight from above, of a single sheet of white A4 paper lying on a wooden kitchen table. The sheet fills most of the frame and is COMPLETELY BLANK: no writing, no numbers, no lines, no logo. A coffee cup with a ring stain, a pen and an opened envelope lie at the edges."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich bitte um eine genaue Aufstellung der Kosten.",
+      "intent": "breakdown",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bitte um einen genaue Aufstellung der Kosten.",
+      "intent": "breakdown",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte die Abrechnung prüfen.",
+      "intent": "check",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das ist nicht nachvollziehbar.",
+      "intent": "complain",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das ist Quatsch.",
+      "intent": "rude",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Ich zahle sofort.",
+      "intent": "pay",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich die Abrechnung.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Das ist zu teuer.",
+      "intent": "expensive",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Jede Abrechnung ist zu prüfen.",
+      "intent": "zu",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Die Zahlen lassen sich leicht überprüfen.",
+      "intent": "lassen",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Das lässt sich leicht checken.",
+      "intent": "lassen",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Die Abrechnung ist überprüfbar.",
+      "intent": "bar",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Man kann das überprüfen.",
+      "intent": "man",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Die Zahlen sind falsch.",
+      "intent": "accuse",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Abrechnung ist nicht zu prüfen.",
+      "intent": "billSide",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Zahlen lassen sich nicht überprüfen.",
+      "intent": "opaque",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Das Haus verfügt über keinen Aufzug.",
+      "intent": "formal",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Das Haus verfügt über keinem Aufzug.",
+      "intent": "formal",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Es gibt keinen Aufzug.",
+      "intent": "lift",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Aufzug ist falsch.",
+      "intent": "lift",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Die Heizung ist zu teuer.",
+      "intent": "heating",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Die Müllabfuhr ist falsch.",
+      "intent": "garbage",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Der Posten ist fehlerhaft.",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich bitte um Streichung des Postens.",
+      "intent": "strike",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich bitte um Streichung den Postens.",
+      "intent": "strike",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich stelle einen Antrag auf Korrektur der Abrechnung.",
+      "intent": "correction",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich mache einen Antrag auf Korrektur der Abrechnung.",
+      "intent": "correction",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich stelle einen Antrag.",
+      "intent": "antrag",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Die Abrechnung muss korrigiert werden.",
+      "intent": "passive",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich akzeptiere den geplanten Aufzug.",
+      "intent": "accept",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Das ist insofern falsch, als unser Haus keinen Aufzug hat.",
+      "intent": "insofern",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Das ist insofern falsch, als unsere Haus keinen Aufzug hat.",
+      "intent": "insofern",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Der Posten ist nicht zulässig, zumal unser Haus keinen Aufzug hat.",
+      "intent": "zumal",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Folglich ist der Posten zu streichen.",
+      "intent": "folglich",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Der Posten ist nicht zulässig.",
+      "intent": "notAllowed",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Unser Haus hat keinen Aufzug.",
+      "intent": "noLift",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Das ist mir egal.",
+      "intent": "egal",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Das ist üblich.",
+      "intent": "agree",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Der Posten ist wegen des fehlenden Aufzugs nicht zulässig.",
+      "intent": "wegen",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Der Posten ist wegen dem fehlenden Aufzug nicht zulässig.",
+      "intent": "wegenDem",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Es verbleibt eine Nachzahlung von achtzig Euro.",
+      "intent": "eighty",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Es verbleibt ein Nachzahlung von achtzig Euro.",
+      "intent": "eighty",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich muss nur noch achtzig Euro nachzahlen.",
+      "intent": "eighty",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich muss nichts mehr zahlen.",
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich muss vierhundert Euro nachzahlen.",
+      "intent": "four",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Dreihundertzwanzig Euro.",
+      "intent": "lift",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Es verbleibt eine Nachzahlung.",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Fehler lassen sich korrigieren.",
+      "intent": "fixable",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Trotz des Fehlers sind Sie eine gelungene Abrechnung.",
+      "intent": "despite",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Jeder macht mal einen Fehler.",
+      "intent": "everyone",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Sie werden neu erstellt.",
+      "intent": "reissue",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Sie sind kaputt.",
+      "intent": "broken",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich erwarte die korrigierte Abrechnung innerhalb einer Woche.",
+      "intent": "deadline",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich erwarte die korrigierten Abrechnung innerhalb einer Woche.",
+      "intent": "deadline",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bitte um eine schriftliche Bestätigung. Mit freundlichen Grüßen.",
+      "intent": "confirm",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich erwarte die korrigierte Abrechnung.",
+      "intent": "corrected",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Mit freundlichen Grüßen.",
+      "intent": "close",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Tschüss!",
+      "intent": "close",
+      "delta": 0
+    },
+    {
+      "turn": "t8",
+      "say": "Ich zahle sofort vierhundert Euro.",
+      "intent": "pay",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bitte um einen genaue Aufstellung der Kosten.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Das ist Quatsch.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Ich die Abrechnung.",
+      "score": 50
+    },
+    {
+      "turn": "t2",
+      "say": "Das lässt sich leicht checken.",
+      "score": 85
+    },
+    {
+      "turn": "t2",
+      "say": "Die Zahlen lassen sich überprüfen leicht.",
+      "score": 70
+    },
+    {
+      "turn": "t3",
+      "say": "Das Haus verfügt auf keinen Aufzug.",
+      "score": 70
+    },
+    {
+      "turn": "t4",
+      "say": "Ich mache einen Antrag auf Korrektur der Abrechnung.",
+      "score": 85
+    },
+    {
+      "turn": "t4",
+      "say": "Ich stelle einen Antrag auf der Korrektur.",
+      "score": 85
+    },
+    {
+      "turn": "t5",
+      "say": "Das ist insofern falsch, als unser Haus hat keinen Aufzug.",
+      "score": 70
+    },
+    {
+      "turn": "t5",
+      "say": "Der Posten ist wegen dem fehlenden Aufzug nicht zulässig.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Ich muss nachzahlen nur noch achtzig Euro.",
+      "score": 70
+    },
+    {
+      "turn": "t7",
+      "say": "Trotz dem Fehlers sind Sie eine gelungene Abrechnung.",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Sie sind kaputt.",
+      "score": 85
+    },
+    {
+      "turn": "t8",
+      "say": "Tschüss!",
+      "score": 85
+    },
+    {
+      "turn": "t8",
+      "say": "Ich erwarte die korrigierte Abrechnung innerhalb eine Woche.",
+      "score": 85
+    },
+    {
+      "turn": "t3",
+      "say": "Der Aufzug ist ein Gerücht.",
+      "score": 100,
+      "intent": "rumour",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Sie werden ein Papierflieger.",
+      "score": 100,
+      "intent": "plane",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich bitte um eine genaue Aufstellung der Kosten."
+        ],
+        [
+          "t2",
+          "Jede Abrechnung ist zu prüfen."
+        ],
+        [
+          "t3",
+          "Das Haus verfügt über keinen Aufzug."
+        ],
+        [
+          "t4",
+          "Ich bitte um Streichung des Postens."
+        ],
+        [
+          "t5",
+          "Das ist insofern falsch, als unser Haus keinen Aufzug hat."
+        ],
+        [
+          "t6",
+          "Es verbleibt eine Nachzahlung von achtzig Euro."
+        ],
+        [
+          "t7",
+          "Fehler lassen sich korrigieren."
+        ],
+        [
+          "t8",
+          "Ich erwarte die korrigierte Abrechnung innerhalb einer Woche."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Das ist Quatsch."
+        ],
+        [
+          "t2",
+          "Die Zahlen sind falsch."
+        ],
+        [
+          "t3",
+          "Die Heizung ist zu teuer."
+        ],
+        [
+          "t4",
+          "Ich akzeptiere den geplanten Aufzug."
+        ],
+        [
+          "t5",
+          "Das ist mir egal."
+        ],
+        [
+          "t6",
+          "Es verbleibt eine Nachzahlung."
+        ],
+        [
+          "t7",
+          "Sie sind kaputt."
+        ],
+        [
+          "t8",
+          "Mit freundlichen Grüßen."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Das ist Quatsch."
+        ],
+        [
+          "t2",
+          "Die Abrechnung ist nicht zu prüfen."
+        ],
+        [
+          "t3",
+          "Die Müllabfuhr ist falsch."
+        ],
+        [
+          "t4",
+          "Ich akzeptiere den geplanten Aufzug."
+        ],
+        [
+          "t5",
+          "Das ist üblich."
+        ]
+      ]
+    }
+  ]
+}

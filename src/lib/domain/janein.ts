@@ -183,6 +183,14 @@ export function jaNeinTickets(now = Date.now()): number {
 	return loadWallet(now).tickets;
 }
 
+/**
+ * The same pocket pays for "Schreib mir!": starting a new match chat spends
+ * a ticket too (domain/matchChat), so tickets won in runs buy either game.
+ */
+export const gameTickets = (now = Date.now()) => jaNeinTickets(now);
+/** When the next free ticket arrives (the pocket refills one every twelve hours). */
+export const nextTicketAt = (now = Date.now()) => loadWallet(now).refillAt;
+
 /** Opening the game from the deck spends a ticket. */
 export function spendJaNeinTicket(now = Date.now()): JaNeinWallet {
 	const w = loadWallet(now);

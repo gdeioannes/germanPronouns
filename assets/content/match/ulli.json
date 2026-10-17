@@ -1,0 +1,2105 @@
+{
+  "id": "ulli",
+  "name": "Ulli",
+  "age": 63,
+  "emoji": "🚌",
+  "image": "match_ulli",
+  "level": "A1.2",
+  "order": 6,
+  "bio": "Ich fahre Bus. Jede Haltestelle, eine Geschichte.",
+  "bioEn": "I drive a bus. Every stop, a story.",
+  "goal": "Get off at the right stop for the Rathaus (town hall), on time, and not at the end of the line.",
+  "tagline": "Busfahrer · 63 · Linie 47",
+  "voice": "Umbriel",
+  "brief": "Ulli, 63, a city bus driver who has driven the same route since 1985: a warm, slightly gravelly older man’s voice, unhurried and cosy, a born storyteller who chuckles at his own anecdotes and always drifts into the next one; he says du to everybody.",
+  "focus": "trennbare Verben · mein/dein · Uhrzeit · am/um · kein",
+  "lexicon": {
+    "nouns": {
+      "Rathaus": "n",
+      "Zoo": "m",
+      "Bahnhof": "m",
+      "Endstation": "f",
+      "Marktplatz": "m",
+      "Uhr": "f",
+      "Viertel": "n",
+      "Zeit": "f",
+      "Ticket": "n",
+      "Fahrkarte": "f",
+      "Handy": "n",
+      "Pinguin": "m",
+      "Linie": "f",
+      "Bus": "m",
+      "Bruder": "m",
+      "Mutter": "f",
+      "Chefin": "f",
+      "Hund": "m",
+      "Oma": "f",
+      "Montag": "m",
+      "Freitag": "m",
+      "Bäcker": "m",
+      "Geschichte": "f",
+      "Fisch": "m"
+    },
+    "names": [
+      "Ulli",
+      "Gisela",
+      "Bodo"
+    ],
+    "verbs": [
+      "steige",
+      "steigst",
+      "steigt",
+      "fahre",
+      "will",
+      "weiß",
+      "muss",
+      "musst",
+      "komme",
+      "kommst",
+      "habe",
+      "hast",
+      "ist",
+      "bin",
+      "bleibe",
+      "wartet",
+      "warten",
+      "schläft"
+    ],
+    "nonfinite": [
+      "aussteigen",
+      "ankommen",
+      "sitzen"
+    ],
+    "imperatives": [
+      "erzähl"
+    ],
+    "accVerbs": [
+      "habe",
+      "hast"
+    ],
+    "datVerbs": [
+      "erzähl"
+    ],
+    "adjectives": [
+      "rot",
+      "gelb",
+      "grün",
+      "klein",
+      "groß"
+    ]
+  },
+  "intro": [
+    {
+      "who": "ulli",
+      "type": "text",
+      "de": "Hallo! Ich bin Ulli. Ich fahre die Linie 47. Seit 1985.",
+      "emoji": "🚌",
+      "en": "Hello! I’m Ulli. I drive the number 47. Since 1985.",
+      "audio": "mc_ulli_t1a"
+    },
+    {
+      "who": "ulli",
+      "type": "text",
+      "de": "Keine Angst: Ich singe nur an der roten Ampel. Die Ampeln hier sind sehr oft rot.",
+      "emoji": "🚦",
+      "en": "Don’t worry: I only sing at red lights. The lights here are red very often.",
+      "audio": "mc_ulli_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Jede Haltestelle, eine Geschichte. Wo steigst du aus?",
+          "en": "Every stop, a story. Where are you getting off?",
+          "audio": "mc_ulli_t1c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "steige",
+        "steigst",
+        "aus",
+        "am",
+        "Rathaus",
+        "Zoo",
+        "Bahnhof",
+        "fahre",
+        "zum",
+        "will",
+        "aussteigen",
+        "weiß",
+        "nicht",
+        "an",
+        "der",
+        "Endstation"
+      ],
+      "wrong": {
+        "steigst": "steige"
+      },
+      "intents": [
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Du weißt es nicht? Dann fahren wir zusammen bis zur Endstation. Ich habe viele Geschichten.",
+              "en": "You don’t know? Then we’ll ride together to the end of the line. I have lots of stories.",
+              "audio": "mc_ulli_t1_dunno"
+            }
+          ]
+        },
+        {
+          "id": "rathaus",
+          "when": {
+            "any": [
+              "rathaus"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "rathaus"
+          ],
+          "fact": "🏛️ fährt zum Rathaus",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Rathaus! Schön. Am Rathaus habe ich 1991 meinen Schnurrbart verloren. Er ist wieder gewachsen.",
+              "emoji": "🥸",
+              "en": "Town hall! Nice. At the town hall I lost my moustache in 1991. It grew back.",
+              "audio": "mc_ulli_t1_rathaus"
+            }
+          ]
+        },
+        {
+          "id": "zoo",
+          "when": {
+            "any": [
+              "zoo"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Am Zoo? Du siehst nicht aus wie ein Pinguin. Du willst zum Rathaus, oder?",
+              "emoji": "🐧",
+              "en": "At the zoo? You don’t look like a penguin. You want the town hall, don’t you?",
+              "audio": "mc_ulli_t1_zoo"
+            }
+          ]
+        },
+        {
+          "id": "station",
+          "when": {
+            "any": [
+              "bahnhof"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Bahnhof? Die 47 fährt nicht zum Bahnhof. Seit 1985 nicht. Du meinst das Rathaus, oder?",
+              "en": "The station? The 47 doesn’t go to the station. Hasn’t since 1985. You mean the town hall, right?",
+              "audio": "mc_ulli_t1_station"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "any": [
+              "endstation"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Endstation? Da gibt es nur eine Wiese und eine Kuh. Sie heißt Heidi. Du willst sicher zum Rathaus.",
+              "emoji": "🐄",
+              "en": "The end of the line? There’s only a meadow and a cow there. Her name is Heidi. Surely you want the town hall.",
+              "audio": "mc_ulli_t1_end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Gut. Und wann musst du ankommen?",
+          "en": "Good. And when do you have to get there?",
+          "audio": "mc_ulli_t2a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "muss",
+        "musst",
+        "um",
+        "acht",
+        "neun",
+        "zwölf",
+        "halb",
+        "Viertel",
+        "vor",
+        "nach",
+        "Uhr",
+        "ankommen",
+        "komme",
+        "kommst",
+        "an",
+        "habe",
+        "viel",
+        "keine",
+        "Zeit"
+      ],
+      "wrong": {
+        "musst": "muss",
+        "kommst": "komme"
+      },
+      "intents": [
+        {
+          "id": "noTime",
+          "when": {
+            "all": [
+              "keine",
+              "zeit"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "hurry"
+          ],
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Keine Zeit? Okay. Dann nur kurze Geschichten. Ganz kurze.",
+              "en": "No time? Okay. Then only short stories. Very short ones.",
+              "audio": "mc_ulli_t2_notime"
+            }
+          ]
+        },
+        {
+          "id": "lotsOfTime",
+          "when": {
+            "any": [
+              "zeit"
+            ]
+          },
+          "value": 2,
+          "fact": "⏳ hat Zeit für Geschichten",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Viel Zeit! Mein Lieblingsfahrgast! Dann erzähle ich dir ALLES. Auch die Geschichte von 1974. Sie dauert drei Stunden.",
+              "emoji": "🥰",
+              "en": "Lots of time! My favourite passenger! Then I’ll tell you EVERYTHING. Even the story from 1974. It takes three hours.",
+              "audio": "mc_ulli_t2_time"
+            }
+          ]
+        },
+        {
+          "id": "aroundEight",
+          "when": {
+            "all": [
+              "acht"
+            ],
+            "any": [
+              "halb",
+              "viertel"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Was? Es ist schon zehn nach acht! Das schaffen wir nicht. Aber wir versuchen es. Festhalten!",
+              "en": "What? It’s already ten past eight! We won’t make it. But we’ll try. Hold on!",
+              "audio": "mc_ulli_t2_aroundeight"
+            }
+          ]
+        },
+        {
+          "id": "early",
+          "when": {
+            "any": [
+              "acht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Um acht? Es ist schon zehn nach acht! Das schaffen wir nicht. Aber wir versuchen es.",
+              "emoji": "😬",
+              "en": "At eight? It’s already ten past eight! We won’t make it. But we’ll try.",
+              "audio": "mc_ulli_t2_early"
+            }
+          ]
+        },
+        {
+          "id": "nine",
+          "when": {
+            "any": [
+              "neun"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "hurry"
+          ],
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Um neun. Gut. Das schaffen wir. Mit einer Geschichte. Oder zwei.",
+              "en": "By nine. Good. We’ll make it. With one story. Or two.",
+              "audio": "mc_ulli_t2_nine"
+            }
+          ]
+        },
+        {
+          "id": "noon",
+          "when": {
+            "any": [
+              "zwölf"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Um zwölf? Super! Dann haben wir Zeit für fünf Geschichten. Und ein Lied. An der Ampel.",
+              "en": "At twelve? Great! Then we have time for five stories. And a song. At the traffic light.",
+              "audio": "mc_ulli_t2_noon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Haltestelle Zoo. 1987 ist hier ein Pinguin eingestiegen. Er hatte kein Ticket.",
+          "emoji": "🐧",
+          "en": "Zoo stop. In 1987 a penguin got on here. He didn’t have a ticket.",
+          "audio": "mc_ulli_t3a"
+        },
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Und du? Hast du ein Ticket?",
+          "en": "And you? Do you have a ticket?",
+          "audio": "mc_ulli_t3b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "habe",
+        "hast",
+        "bin",
+        "ein",
+        "einen",
+        "kein",
+        "keine",
+        "Ticket",
+        "Fahrkarte",
+        "mein",
+        "meine",
+        "ist",
+        "im",
+        "Handy",
+        "nicht",
+        "wie",
+        "der",
+        "Pinguin",
+        "einen",
+        "Fisch"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "noTicket",
+          "when": {
+            "any": [
+              "kein",
+              "keine"
+            ]
+          },
+          "value": -1,
+          "fact": "🐧 fährt schwarz",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Kein Ticket! Schwarzfahren, wie der Pinguin. Er war auch schwarz. Und weiß.",
+              "en": "No ticket! Fare-dodging, like the penguin. He was black too. And white.",
+              "audio": "mc_ulli_t3_noticket"
+            }
+          ]
+        },
+        {
+          "id": "phone",
+          "when": {
+            "any": [
+              "handy"
+            ]
+          },
+          "value": 2,
+          "fact": "🎫 hat ein Ticket",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Im Handy! Modern. Der Pinguin hatte kein Handy. Nur Fisch. Er hat immer mit Fisch bezahlt.",
+              "emoji": "📱",
+              "en": "On your phone! Modern. The penguin didn’t have a phone. Just fish. He always paid with fish.",
+              "audio": "mc_ulli_t3_phone"
+            }
+          ]
+        },
+        {
+          "id": "penguin",
+          "when": {
+            "all": [
+              "pinguin",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Nicht wie der Pinguin? Gut. Er war nett, aber er hat nie bezahlt.",
+              "en": "Not like the penguin? Good. He was nice, but he never paid.",
+              "audio": "mc_ulli_t3_penguin"
+            }
+          ]
+        },
+        {
+          "id": "likePenguin",
+          "when": {
+            "any": [
+              "pinguin"
+            ]
+          },
+          "value": -1,
+          "fact": "🐧 fährt schwarz",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Wie der Pinguin? Also kein Ticket. Hm. Ich sehe nichts. Ich bin Busfahrer, kein Polizist.",
+              "en": "Like the penguin? So no ticket. Hm. I see nothing. I’m a bus driver, not a police officer.",
+              "audio": "mc_ulli_t3_likepenguin"
+            }
+          ]
+        },
+        {
+          "id": "fish",
+          "when": {
+            "any": [
+              "fisch"
+            ]
+          },
+          "value": 0,
+          "fact": "🐟 bezahlt mit Fisch",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Einen Fisch? Das ist kein Ticket. Aber der Pinguin hat auch so bezahlt. Ich nehme ihn. Für Renate.",
+              "en": "A fish? That’s not a ticket. But the penguin paid like that too. I’ll take it. For Renate.",
+              "audio": "mc_ulli_t3_fish"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ticket",
+              "fahrkarte",
+              "ja"
+            ]
+          },
+          "value": 1,
+          "fact": "🎫 hat ein Ticket",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Sehr gut. Du bist besser als der Pinguin.",
+              "en": "Very good. You’re better than the penguin.",
+              "audio": "mc_ulli_t3_yes"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Nein? Hm. Ich sehe nichts. Ich bin Busfahrer, kein Polizist.",
+              "emoji": "🙈",
+              "en": "No? Hm. I see nothing. I’m a bus driver, not a police officer.",
+              "audio": "mc_ulli_t3_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "prepCase": {
+        "in": "acc"
+      },
+      "before": [
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Achtung, eine Durchsage. Hör gut zu!",
+          "emoji": "📢",
+          "en": "Attention, an announcement. Listen carefully!",
+          "audio": "mc_ulli_t4a"
+        },
+        {
+          "who": "ulli",
+          "type": "voice",
+          "audio": "mc_ulli_vn_announce",
+          "de": "Nächste Haltestelle: Marktplatz. Achtung! Heute fährt die 47 nicht zum Rathaus. Baustelle! Fahrgäste zum Rathaus: Bitte steigen Sie am Marktplatz aus und steigen Sie in die Linie 12 um. Die Linie 12 ist gelb.",
+          "en": "Next stop: Marktplatz. Attention! Today the 47 doesn’t go to the town hall. Roadworks! Passengers for the town hall: please get off at Marktplatz and change to line 12. Line 12 is yellow.",
+          "direction": "A bus PA announcement: crackly, a bit too close to the microphone, trying to sound official but cosy anyway; engine hum and an indicator ticking in the background."
+        },
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Also: Wo steigst du aus?",
+          "en": "So: where are you getting off?",
+          "audio": "mc_ulli_t4b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "steige",
+        "steige",
+        "steigst",
+        "am",
+        "Marktplatz",
+        "Rathaus",
+        "aus",
+        "in",
+        "die",
+        "der",
+        "Linie",
+        "zwölf",
+        "siebenundvierzig",
+        "um",
+        "bleibe",
+        "im",
+        "Bus"
+      ],
+      "wrong": {
+        "steigst": "steige"
+      },
+      "intents": [
+        {
+          "id": "stay",
+          "when": {
+            "any": [
+              "bleibe"
+            ]
+          },
+          "value": -1,
+          "cause": "story",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Du bleibst im Bus? Schön! Dann fahren wir zur Baustelle. Ich erzähle dir die Geschichte von jedem Bagger. Sie heißen alle Klaus.",
+              "emoji": "🚧",
+              "en": "You’re staying on the bus? Lovely! Then we’ll go to the building site. I’ll tell you the story of every digger. They’re all called Klaus.",
+              "audio": "mc_ulli_t4_stay"
+            }
+          ]
+        },
+        {
+          "id": "rathausWrong",
+          "when": {
+            "all": [
+              "rathaus"
+            ],
+            "none": [
+              "marktplatz"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Am Rathaus? Hast du die Durchsage nicht gehört? Heute nicht! Baustelle!",
+              "en": "At the town hall? Didn’t you hear the announcement? Not today! Roadworks!",
+              "audio": "mc_ulli_t4_rathaus"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "marktplatz",
+              "zwölf"
+            ]
+          },
+          "value": 2,
+          "fact": "📢 hört Durchsagen",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Perfekt! Du hörst besser als meine Fahrgäste. Und besser als ich.",
+              "en": "Perfect! You listen better than my passengers. And better than me.",
+              "audio": "mc_ulli_t4_both"
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "when": {
+            "any": [
+              "marktplatz"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Genau, am Marktplatz! Und dann steigst du in die 12 um.",
+              "en": "Exactly, at Marktplatz! And then you change to the 12.",
+              "audio": "mc_ulli_t4_market"
+            }
+          ]
+        },
+        {
+          "id": "fortySeven",
+          "when": {
+            "any": [
+              "siebenundvierzig"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "In die 47? Du bist schon in der 47! Das bin ich!",
+              "emoji": "😂",
+              "en": "Into the 47? You’re already on the 47! That’s me!",
+              "audio": "mc_ulli_t4_47"
+            }
+          ]
+        },
+        {
+          "id": "twelve",
+          "when": {
+            "any": [
+              "zwölf",
+              "linie"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Ja, die 12! Aber wo? Am Marktplatz!",
+              "en": "Yes, the 12! But where? At Marktplatz!",
+              "audio": "mc_ulli_t4_twelve"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Marktplatz kommt gleich. Noch eine Frage: Wer wartet am Rathaus auf dich?",
+          "en": "Marktplatz is coming up. One more question: who’s waiting for you at the town hall?",
+          "audio": "mc_ulli_t5a"
+        }
+      ],
+      "tiles": [
+        "mein",
+        "meine",
+        "Bruder",
+        "Mutter",
+        "Chefin",
+        "Hund",
+        "Oma",
+        "wartet",
+        "warten",
+        "auf",
+        "mich",
+        "niemand",
+        "ich",
+        "bin",
+        "allein",
+        "Pinguin"
+      ],
+      "wrong": {
+        "warten": "wartet"
+      },
+      "intents": [
+        {
+          "id": "penguin",
+          "when": {
+            "any": [
+              "pinguin"
+            ]
+          },
+          "value": 1,
+          "fact": "🐧 kennt den Pinguin",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "DEIN Pinguin? Der Pinguin von 1987? Sag ihm: Er schuldet mir zwei Euro achtzig. Und einen Fisch.",
+              "en": "YOUR penguin? The penguin from 1987? Tell him: he owes me two euros eighty. And a fish.",
+              "audio": "mc_ulli_t5_penguin"
+            }
+          ]
+        },
+        {
+          "id": "dog",
+          "when": {
+            "any": [
+              "hund"
+            ]
+          },
+          "value": 2,
+          "fact": "🐶 hat einen Hund",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Dein Hund? Am Rathaus? Ist er der Bürgermeister? Er hat sicher eine Kette.",
+              "emoji": "🐶",
+              "en": "Your dog? At the town hall? Is he the mayor? He surely has a chain of office.",
+              "audio": "mc_ulli_t5_dog"
+            }
+          ]
+        },
+        {
+          "id": "boss",
+          "when": {
+            "any": [
+              "chefin"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Deine Chefin? Oh. Dann schnell. Meine Frau Renate wartet auch immer. Seit 1979.",
+              "en": "Your boss? Oh. Then quickly. My wife Renate is always waiting too. Since 1979.",
+              "audio": "mc_ulli_t5_boss"
+            }
+          ]
+        },
+        {
+          "id": "oma",
+          "when": {
+            "any": [
+              "oma"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Deine Oma! Grüß sie von mir. Ich kenne alle Omas in der Stadt.",
+              "emoji": "👵",
+              "en": "Your grandma! Say hi from me. I know every grandma in town.",
+              "audio": "mc_ulli_t5_oma"
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "when": {
+            "any": [
+              "mutter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Deine Mutter! Sei pünktlich. Mütter zählen die Minuten.",
+              "en": "Your mother! Be on time. Mothers count the minutes.",
+              "audio": "mc_ulli_t5_mother"
+            }
+          ]
+        },
+        {
+          "id": "brother",
+          "when": {
+            "any": [
+              "bruder"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Dein Bruder! Mein Bruder Bodo fährt die Linie 12. Er erzählt nie Geschichten. Langweilig.",
+              "en": "Your brother! My brother Bodo drives line 12. He never tells stories. Boring.",
+              "audio": "mc_ulli_t5_brother"
+            }
+          ]
+        },
+        {
+          "id": "nobody",
+          "when": {
+            "any": [
+              "niemand",
+              "allein"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Niemand? Dann warte ich auf dich. Kleiner Witz. Ich muss fahren.",
+              "en": "Nobody? Then I’ll wait for you. Little joke. I have to drive.",
+              "audio": "mc_ulli_t5_nobody"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Am Marktplatz wohnt Gisela. Gisela ist eine Ente.",
+          "emoji": "🦆",
+          "en": "Gisela lives at Marktplatz. Gisela is a duck.",
+          "audio": "mc_ulli_t6a"
+        },
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Jeden Montag um sieben steigt sie ein. Sie hat eine Monatskarte. Ich nicht. Sie fährt bis zum Bäcker. Am Freitag fährt sie nie. Am Freitag schläft sie.",
+          "en": "Every Monday at seven she gets on. She has a monthly pass. I don’t. She rides to the bakery. On Fridays she never comes. On Fridays she sleeps.",
+          "audio": "mc_ulli_t6b"
+        },
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Also: Wann steigt Gisela ein?",
+          "en": "So: when does Gisela get on?",
+          "audio": "mc_ulli_t6c"
+        }
+      ],
+      "tiles": [
+        "sie",
+        "steigt",
+        "steige",
+        "steigst",
+        "ein",
+        "am",
+        "Montag",
+        "Freitag",
+        "jeden Montag",
+        "jeden Tag",
+        "um",
+        "sieben",
+        "acht",
+        "Uhr",
+        "Gisela",
+        "schläft",
+        "zum",
+        "Bäcker"
+      ],
+      "wrong": {
+        "steige": "steigt",
+        "steigst": "steigt"
+      },
+      "intents": [
+        {
+          "id": "friday",
+          "when": {
+            "any": [
+              "freitag"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Am Freitag?! Am Freitag schläft sie! Hörst du mir zu?",
+              "emoji": "😴",
+              "en": "On Friday?! On Fridays she sleeps! Are you listening to me?",
+              "audio": "mc_ulli_t6_friday"
+            }
+          ]
+        },
+        {
+          "id": "everyDay",
+          "when": {
+            "any": [
+              "jeden tag"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Jeden Tag? Nein! Gisela ist eine Ente, keine Pendlerin.",
+              "en": "Every day? No! Gisela is a duck, not a commuter.",
+              "audio": "mc_ulli_t6_everyday"
+            }
+          ]
+        },
+        {
+          "id": "eight",
+          "when": {
+            "any": [
+              "acht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Um acht? Nein, um sieben! Gisela ist pünktlich. Pünktlicher als ich.",
+              "en": "At eight? No, at seven! Gisela is punctual. More punctual than me.",
+              "audio": "mc_ulli_t6_eight"
+            }
+          ]
+        },
+        {
+          "id": "perfect",
+          "when": {
+            "all": [
+              "sieben"
+            ],
+            "any": [
+              "montag",
+              "jeden montag"
+            ]
+          },
+          "value": 2,
+          "fact": "🦆 kennt Gisela",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Genau! Montag, sieben Uhr. Jetzt kennst du Gisela. Sie ist eine Legende.",
+              "emoji": "🦆",
+              "en": "Exactly! Monday, seven o’clock. Now you know Gisela. She’s a legend.",
+              "audio": "mc_ulli_t6_perfect"
+            }
+          ]
+        },
+        {
+          "id": "monday",
+          "when": {
+            "any": [
+              "montag",
+              "jeden montag"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Ja, am Montag! Um sieben. Sie ist nie zu spät.",
+              "en": "Yes, on Monday! At seven. She’s never late.",
+              "audio": "mc_ulli_t6_monday"
+            }
+          ]
+        },
+        {
+          "id": "seven",
+          "when": {
+            "any": [
+              "sieben"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Um sieben, ja! Aber nur am Montag.",
+              "en": "At seven, yes! But only on Mondays.",
+              "audio": "mc_ulli_t6_seven"
+            }
+          ]
+        },
+        {
+          "id": "bakery",
+          "when": {
+            "any": [
+              "bäcker"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Sie fährt zum Bäcker, ja. Sie kauft immer eine Brezel. Für die Brezel bezahlt sie. Für den Bus nicht. Aber WANN steigt sie ein?",
+              "emoji": "🥨",
+              "en": "She goes to the bakery, yes. She always buys a pretzel. She pays for the pretzel. Not for the bus. But WHEN does she get on?",
+              "audio": "mc_ulli_t6_bakery"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Marktplatz! Die Tür ist offen.",
+          "emoji": "🚪",
+          "en": "Marktplatz! The door is open.",
+          "audio": "mc_ulli_t7a"
+        },
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Was machst du jetzt?",
+          "en": "What are you doing now?",
+          "audio": "mc_ulli_t7b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "steige",
+        "steigst",
+        "jetzt",
+        "aus",
+        "bleibe",
+        "hier",
+        "sitzen",
+        "im",
+        "Bus",
+        "danke",
+        "tschüss",
+        "Ulli",
+        "erzähl",
+        "mir",
+        "noch",
+        "eine",
+        "Geschichte"
+      ],
+      "wrong": {
+        "steigst": "steige"
+      },
+      "intents": [
+        {
+          "id": "story",
+          "when": {
+            "any": [
+              "geschichte",
+              "erzähl"
+            ]
+          },
+          "value": -2,
+          "cause": "story",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Noch eine Geschichte? Mit Vergnügen! … Oh. Die Tür ist zu. Egal. 1974, ein Dienstag …",
+              "emoji": "📖",
+              "en": "Another story? With pleasure! … Oh. The door is closed. Never mind. 1974, a Tuesday …",
+              "audio": "mc_ulli_t7_story"
+            }
+          ]
+        },
+        {
+          "id": "stay",
+          "when": {
+            "any": [
+              "bleibe",
+              "sitzen"
+            ]
+          },
+          "value": -2,
+          "cause": "story",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Du bleibst? Wunderbar! Die Tür ist zu. Dann erzähle ich dir von 1974.",
+              "en": "You’re staying? Wonderful! The door has closed. Then I’ll tell you about 1974.",
+              "audio": "mc_ulli_t7_stay"
+            }
+          ]
+        },
+        {
+          "id": "out",
+          "when": {
+            "any": [
+              "aus"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Richtig! Raus, raus! Die 12 wartet nicht. Bodo wartet nie.",
+              "emoji": "🏃",
+              "en": "Right! Out, out! The 12 won’t wait. Bodo never waits.",
+              "audio": "mc_ulli_t7_out"
+            }
+          ]
+        },
+        {
+          "id": "bye",
+          "when": {
+            "any": [
+              "tschüss",
+              "danke",
+              "ulli"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Tschüss! … Aber du sitzt noch. Steig aus! Schnell!",
+              "en": "Bye! … But you’re still sitting. Get off! Quick!",
+              "audio": "mc_ulli_t7_bye"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "prepCase": {
+        "in": "acc"
+      },
+      "before": [
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "Am Marktplatz stehen drei Busse. Die Linie 12 ist klein und gelb. Mein Bruder Bodo fährt sie.",
+          "en": "Three buses are standing at Marktplatz. Line 12 is small and yellow. My brother Bodo drives it.",
+          "audio": "mc_ulli_t8a"
+        },
+        {
+          "who": "ulli",
+          "type": "photo",
+          "image": "match_ulli_busse",
+          "wide": true,
+          "alt": "Drei Busse an einer Haltestelle. Links: ein großer roter Bus. In der Mitte: ein kleiner gelber Bus. Rechts: ein großer grüner Bus."
+        },
+        {
+          "who": "ulli",
+          "type": "text",
+          "de": "In welchen Bus steigst du ein?",
+          "en": "Which bus are you getting on?",
+          "audio": "mc_ulli_t8b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "steige",
+        "steigst",
+        "in",
+        "den",
+        "der",
+        "Bus",
+        "rote",
+        "roten",
+        "gelbe",
+        "gelben",
+        "grünen",
+        "kleinen",
+        "ein",
+        "links",
+        "rechts",
+        "in der Mitte",
+        "bei",
+        "Bodo"
+      ],
+      "wrong": {
+        "steigst": "steige"
+      },
+      "intents": [
+        {
+          "id": "red",
+          "when": {
+            "any": [
+              "roten",
+              "rote",
+              "links"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Der rote Bus? Der fährt zum Flughafen. Der Pinguin sitzt da drin. Er will nach Hause. Du nicht.",
+              "emoji": "✈️",
+              "en": "The red bus? That goes to the airport. The penguin is sitting in it. He wants to go home. You don’t.",
+              "audio": "mc_ulli_t8_red"
+            }
+          ]
+        },
+        {
+          "id": "green",
+          "when": {
+            "any": [
+              "grünen",
+              "rechts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Der grüne fährt in die Garage. Da wohnen nur Mäuse.",
+              "emoji": "🐭",
+              "en": "The green one goes to the depot. Only mice live there.",
+              "audio": "mc_ulli_t8_green"
+            }
+          ]
+        },
+        {
+          "id": "yellow",
+          "when": {
+            "any": [
+              "gelben",
+              "gelbe",
+              "in der mitte",
+              "kleinen"
+            ]
+          },
+          "value": 1,
+          "fact": "🚌 steigt richtig um",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Ja! Der kleine Gelbe. Bodo fährt gleich los. Halt dich fest!",
+              "emoji": "💛",
+              "en": "Yes! The little yellow one. Bodo is about to set off. Hold on tight!",
+              "audio": "mc_ulli_t8_yellow"
+            }
+          ]
+        },
+        {
+          "id": "bodo",
+          "when": {
+            "any": [
+              "bodo"
+            ]
+          },
+          "value": 1,
+          "fact": "🚌 steigt richtig um",
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Ja, bei Bodo! Der gelbe Bus. Sag ihm: Ulli sagt hallo.",
+              "en": "Yes, with Bodo! The yellow bus. Tell him: Ulli says hello.",
+              "audio": "mc_ulli_t8_bodo"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "bus"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ulli",
+              "type": "text",
+              "de": "Welcher Bus? Der gelbe! In der Mitte! Schnell!",
+              "en": "Which bus? The yellow one! In the middle! Quick!",
+              "audio": "mc_ulli_t8_vague"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "ulli",
+    "type": "text",
+    "de": "Hm? Das erinnert mich an eine Geschichte … Aber das war nicht meine Frage.",
+    "en": "Hm? That reminds me of a story … But that wasn’t my question.",
+    "audio": "mc_ulli_offtopic"
+  },
+  "confused": [
+    {
+      "who": "ulli",
+      "type": "text",
+      "de": "Hä? Der Motor ist so laut.",
+      "emoji": "🤔",
+      "en": "Huh? The engine is so loud.",
+      "audio": "mc_ulli_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "ulli",
+        "type": "text",
+        "de": "Tschüss! Grüß Bodo von mir. … Moment. Bodo hat etwas gesagt! Zum ersten Mal seit 1985! Er hat gesagt: Quak. Gisela sitzt neben ihm.",
+        "emoji": "👋",
+        "en": "Bye! Say hi to Bodo for me. … Wait. Bodo said something! For the first time since 1985! He said: Quack. Gisela is sitting next to him.",
+        "audio": "mc_ulli_win"
+      },
+      {
+        "who": "ulli",
+        "type": "text",
+        "de": "{name}, du warst ein super Fahrgast. Nächstes Mal erzähle ich dir die Geschichte von 1974.",
+        "emoji": "🚌",
+        "en": "{name}, you were a great passenger. Next time I’ll tell you the story of 1974."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "ulli",
+        "type": "text",
+        "de": "Du bist angekommen. Am Rathaus. Um elf. Aber jetzt kennst du vierzehn Geschichten.",
+        "emoji": "⏰",
+        "en": "You’ve arrived. At the town hall. At eleven. But now you know fourteen stories.",
+        "audio": "mc_ulli_partial"
+      }
+    ],
+    "deleted": {
+      "story": {
+        "who": "ulli",
+        "type": "text",
+        "de": "Endstation. Es ist achtzehn Uhr. Die Geschichte von 1974 ist fertig. Es war ein Dienstag. Mehr passiert nicht. Steig aus. Heidi die Kuh sagt tschüss.",
+        "emoji": "🐄",
+        "en": "Last stop. It’s six p.m. The story from 1974 is over. It was a Tuesday. Nothing else happens. Get off. Heidi the cow says bye.",
+        "audio": "mc_ulli_del_story"
+      },
+      "confused": {
+        "who": "ulli",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich verstehe sogar Gisela.",
+        "emoji": "🦆",
+        "en": "I don’t understand you. And I even understand Gisela.",
+        "audio": "mc_ulli_del_confused"
+      },
+      "default": {
+        "who": "ulli",
+        "type": "text",
+        "de": "Hm. Du bist ein komischer Fahrgast. Nächste Haltestelle: ohne mich.",
+        "en": "Hm. You’re a strange passenger. Next stop: without me.",
+        "audio": "mc_ulli_del_default"
+      }
+    },
+    "sunday": {
+      "who": "ulli",
+      "type": "voice",
+      "audio": "mc_ulli_vn_sunday",
+      "de": "Ulli hier! Heute ist Sonntag. Kein Dienst. Ich sitze trotzdem im Bus. Einfach so. Gisela ist auch hier. Und Bodo. Er sagt jetzt jeden Tag ein Wort. Heute: Brezel.",
+      "en": "Ulli here! It’s Sunday. No shift. I’m sitting in the bus anyway. Just because. Gisela is here too. And Bodo. He says one word every day now. Today: pretzel.",
+      "direction": "A relaxed Sunday in a parked, empty bus, birdsong outside, very content; a single duck quack nearby at the end."
+    }
+  },
+  "partialTitle": "Angekommen. Zwei Stunden zu spät.",
+  "share": {
+    "win": "Busfahrer Ulli (63) hat mich geliked 🚌 Ich bin richtig ausgestiegen, trotz Baustelle und Ente. Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Ich bin am Rathaus angekommen … zwei Stunden zu spät, mit vierzehn Geschichten von Ulli im Kopf ⏰ Mein Deutsch: {score}/100. {url}",
+    "deleted": "Busfahrer Ulli hat mich gelöscht 💔 Ich bin an der Endstation bei einer Kuh. Mein Deutsch: {score}/100. Steigst du richtig aus? {url}"
+  },
+  "imageCharacter": "Ulli, a 63-year-old city bus driver, round friendly face with rosy cheeks, a huge grey walrus moustache, small round glasses, a navy-blue driver’s cap, a light-blue short-sleeved uniform shirt with a dark tie, big comfortable hands, a twinkle in his eyes as if he is about to tell a story.",
+  "imagePrompts": [
+    {
+      "id": "match_ulli",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He sits at the wheel of a city bus, turned towards the viewer, one hand raised as if starting a story. A small yellow rubber duck sits on the dashboard. Through the big front window: a sunny street with trees. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_ulli_busse",
+      "aspect": "16:9",
+      "prompt": "A town square bus stop seen exactly from the side like a stage set, flat, no perspective. Exactly THREE buses stand in a row, side by side, far apart, all facing left. LEFT BUS: very big and long, bright red. MIDDLE BUS: very small and short, about half the size of the others, bright yellow, a grumpy man with a moustache at the wheel. RIGHT BUS: very big and long, bright green. Each bus is one single solid colour; no writing, no numbers, no signs anywhere. Cobblestones and a few pigeons in front, old houses behind."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich steige am Rathaus aus.",
+      "intent": "rathaus",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich steigst am Rathaus aus.",
+      "intent": "rathaus",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich will am Rathaus aussteigen.",
+      "intent": "rathaus",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich fahre zum Rathaus.",
+      "intent": "rathaus",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Am Zoo.",
+      "intent": "zoo",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich fahre zum Bahnhof.",
+      "intent": "station",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich steige an der Endstation aus.",
+      "intent": "end",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich weiß nicht.",
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich am Rathaus.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich muss um neun ankommen.",
+      "intent": "nine",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Um halb neun.",
+      "intent": "nine",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich musst um Viertel vor neun ankommen.",
+      "intent": "nine",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich komme um zwölf an.",
+      "intent": "noon",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Um acht Uhr.",
+      "intent": "early",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe viel Zeit.",
+      "intent": "lotsOfTime",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe keine Zeit.",
+      "intent": "noTime",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ja, ich habe ein Ticket.",
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe einen Ticket.",
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Mein Ticket ist im Handy.",
+      "intent": "phone",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bin nicht wie der Pinguin.",
+      "intent": "penguin",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Nein, ich habe kein Ticket.",
+      "intent": "noTicket",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe keine Fahrkarte.",
+      "intent": "noTicket",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Nein.",
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich steige am Marktplatz aus. Ich steige in die Linie zwölf um.",
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich steige am Marktplatz aus.",
+      "intent": "market",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich steigst am Marktplatz aus.",
+      "intent": "market",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich steige in die Linie zwölf um.",
+      "intent": "twelve",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich steige am Rathaus aus.",
+      "intent": "rathausWrong",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich bleibe im Bus.",
+      "intent": "stay",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich steige in die Linie siebenundvierzig um.",
+      "intent": "fortySeven",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Mein Hund wartet auf mich.",
+      "intent": "dog",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Meine Chefin wartet auf mich.",
+      "intent": "boss",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Mein Chefin wartet auf mich.",
+      "intent": "boss",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Meine Oma.",
+      "intent": "oma",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Meine Mutter warten auf mich.",
+      "intent": "mother",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Mein Bruder.",
+      "intent": "brother",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Niemand wartet auf mich.",
+      "intent": "nobody",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin allein.",
+      "intent": "nobody",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Am Montag um sieben.",
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Sie steigt am Montag um sieben ein.",
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Gisela steige am Montag um sieben ein.",
+      "intent": "perfect",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Jeden Montag.",
+      "intent": "monday",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Um sieben Uhr.",
+      "intent": "seven",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Am Montag um acht.",
+      "intent": "eight",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Am Freitag.",
+      "intent": "friday",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Jeden Tag.",
+      "intent": "everyDay",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Zum Bäcker.",
+      "intent": "bakery",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich steige jetzt aus.",
+      "intent": "out",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Danke, Ulli. Ich steige jetzt aus.",
+      "intent": "out",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich steigst aus.",
+      "intent": "out",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Tschüss, Ulli!",
+      "intent": "bye",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bleibe hier sitzen.",
+      "intent": "stay",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Erzähl mir noch eine Geschichte!",
+      "intent": "story",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich steige in den gelben Bus ein.",
+      "intent": "yellow",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich steige in den kleinen gelben Bus ein.",
+      "intent": "yellow",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich steige in den gelbe Bus ein.",
+      "intent": "yellow",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "In der Mitte.",
+      "intent": "yellow",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich steige bei Bodo ein.",
+      "intent": "bodo",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich steige in den roten Bus ein.",
+      "intent": "red",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Rechts.",
+      "intent": "green",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Der Bus.",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich steige am Rathaus aus.",
+      "score": 100
+    },
+    {
+      "turn": "t1",
+      "say": "Ich steigst am Rathaus aus.",
+      "score": 80
+    },
+    {
+      "turn": "t1",
+      "say": "Am Rathaus ich steige aus.",
+      "score": 70
+    },
+    {
+      "turn": "t1",
+      "say": "Ich am Rathaus.",
+      "score": 50
+    },
+    {
+      "turn": "t2",
+      "say": "Ich muss um Viertel vor neun ankommen.",
+      "score": 100
+    },
+    {
+      "turn": "t2",
+      "say": "Ich muss ankommen um neun.",
+      "score": 70
+    },
+    {
+      "turn": "t2",
+      "say": "Um Viertel nach acht.",
+      "score": 100,
+      "intent": "aroundEight",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe einen Ticket.",
+      "score": 85
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe keine Ticket.",
+      "score": 85
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bin wie der Pinguin.",
+      "score": 100,
+      "intent": "likePenguin",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich steige in der Linie zwölf um.",
+      "score": 85
+    },
+    {
+      "turn": "t5",
+      "say": "Mein Chefin wartet auf mich.",
+      "score": 85
+    },
+    {
+      "turn": "t5",
+      "say": "Meine Mutter warten auf mich.",
+      "score": 80
+    },
+    {
+      "turn": "t6",
+      "say": "Gisela steigt am Montag ein.",
+      "score": 100
+    },
+    {
+      "turn": "t6",
+      "say": "Gisela steige am Montag ein.",
+      "score": 80
+    },
+    {
+      "turn": "t7",
+      "say": "Danke, Ulli. Ich steige jetzt aus.",
+      "score": 100
+    },
+    {
+      "turn": "t8",
+      "say": "Ich steige in den kleinen gelben Bus ein.",
+      "score": 100
+    },
+    {
+      "turn": "t8",
+      "say": "Ich steige in der gelben Bus ein.",
+      "score": 85
+    },
+    {
+      "turn": "t8",
+      "say": "Der gelbe Bus.",
+      "score": 100
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe einen Fisch.",
+      "intent": "fish",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe ein Fisch.",
+      "score": 85
+    },
+    {
+      "turn": "t5",
+      "say": "Mein Pinguin wartet auf mich.",
+      "intent": "penguin",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Meine Pinguin wartet auf mich.",
+      "score": 85
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich steige am Rathaus aus."
+        ],
+        [
+          "t2",
+          "Ich muss um neun ankommen."
+        ],
+        [
+          "t3",
+          "Mein Ticket ist im Handy."
+        ],
+        [
+          "t4",
+          "Ich steige am Marktplatz aus. Ich steige in die Linie zwölf um."
+        ],
+        [
+          "t5",
+          "Mein Hund wartet auf mich."
+        ],
+        [
+          "t6",
+          "Am Montag um sieben."
+        ],
+        [
+          "t7",
+          "Ich steige jetzt aus."
+        ],
+        [
+          "t8",
+          "Ich steige in den gelben Bus ein."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich weiß nicht."
+        ],
+        [
+          "t2",
+          "Um acht Uhr."
+        ],
+        [
+          "t3",
+          "Nein, ich habe kein Ticket."
+        ],
+        [
+          "t4",
+          "Ich steige am Marktplatz aus."
+        ],
+        [
+          "t5",
+          "Mein Chefin wartet auf mich."
+        ],
+        [
+          "t6",
+          "Am Freitag."
+        ],
+        [
+          "t7",
+          "Ich steige jetzt aus."
+        ],
+        [
+          "t8",
+          "Rechts."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich weiß nicht."
+        ],
+        [
+          "t2",
+          "Um acht Uhr."
+        ],
+        [
+          "t3",
+          "Nein, ich habe kein Ticket."
+        ],
+        [
+          "t4",
+          "Ich bleibe im Bus."
+        ],
+        [
+          "t5",
+          "Niemand wartet auf mich."
+        ],
+        [
+          "t6",
+          "Am Freitag."
+        ],
+        [
+          "t7",
+          "Erzähl mir noch eine Geschichte!"
+        ]
+      ]
+    }
+  ]
+}

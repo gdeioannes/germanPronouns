@@ -32,7 +32,7 @@ import { recommend, WEAK_MISTAKE_RATE, type QuizFacts, type RecommendationKind }
 import { reviewDue, strengths } from './review';
 import { estimateLevel, levelsOf } from './level';
 
-export type DeckKind = RecommendationKind | 'review' | 'fresh' | 'continue' | 'story' | 'song' | 'play';
+export type DeckKind = RecommendationKind | 'review' | 'fresh' | 'continue' | 'story' | 'song' | 'play' | 'chat';
 
 export const DECK_KIND_LABELS: Record<DeckKind, string> = {
 	continue: 'Continue',
@@ -43,7 +43,8 @@ export const DECK_KIND_LABELS: Record<DeckKind, string> = {
 	fresh: 'Something new',
 	story: 'Story time',
 	song: 'Sing along',
-	play: 'Surprise!'
+	play: 'Surprise!',
+	chat: 'Schreib mir!'
 };
 
 export interface DeckCard {

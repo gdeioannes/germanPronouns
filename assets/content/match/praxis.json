@@ -1,0 +1,2447 @@
+{
+  "id": "praxis",
+  "name": "Frau Lindner",
+  "age": 45,
+  "emoji": "🩺",
+  "image": "match_praxis",
+  "level": "A1.2",
+  "order": 5,
+  "bio": "Ich arbeite in einer Arztpraxis. Termin? In sechs Wochen.",
+  "bioEn": "I work at a doctor’s practice. An appointment? In six weeks.",
+  "goal": "Get seen by the doctor today, not in six weeks.",
+  "tagline": "Praxis Dr. Krause · 45 · Anmeldung",
+  "voice": "Kore",
+  "brief": "Frau Lindner, 45, the receptionist of a small German doctor’s practice: brisk, dry, deadpan, quick and clipped like someone who has said “In sechs Wochen” ten thousand times; she uses formal Sie; a warm heart she hides badly, and every now and then a tiny laugh escapes.",
+  "focus": "Körper · müssen + Infinitiv · seit · am/um · Uhrzeit · mein/sein",
+  "lexicon": {
+    "nouns": {
+      "Termin": "m",
+      "Kopf": "m",
+      "Bauch": "m",
+      "Hand": "f",
+      "Ohr": "n",
+      "Fieber": "n",
+      "Montag": "m",
+      "Sonntag": "m",
+      "Mittwoch": "m",
+      "Donnerstag": "m",
+      "Uhr": "f",
+      "Tagen": "pl",
+      "Tage": "pl",
+      "Woche": "f",
+      "Jahren": "pl",
+      "Karte": "f",
+      "Kaffee": "m",
+      "Knie": "n",
+      "Stuhl": "m",
+      "Kaktus": "m",
+      "Herrn": "m",
+      "Schnurrbart": "m",
+      "Giraffe": "f"
+    },
+    "names": [
+      "Pfeiffer"
+    ],
+    "verbs": [
+      "brauche",
+      "braucht",
+      "bin",
+      "ist",
+      "heiße",
+      "tut",
+      "tun",
+      "habe",
+      "hat",
+      "muss",
+      "musst",
+      "darf",
+      "kann",
+      "bringe",
+      "bringt",
+      "komme",
+      "kommt",
+      "sitze"
+    ],
+    "nonfinite": [
+      "mitbringen",
+      "kommen",
+      "husten",
+      "warten",
+      "haben",
+      "trinken",
+      "grüßen"
+    ],
+    "accVerbs": [
+      "brauche",
+      "braucht",
+      "habe",
+      "hat",
+      "muss",
+      "musst",
+      "darf",
+      "kann",
+      "bringe",
+      "bringt"
+    ],
+    "adjectives": [
+      "rot",
+      "blau",
+      "grün"
+    ]
+  },
+  "intro": [
+    {
+      "who": "praxis",
+      "type": "text",
+      "de": "Praxis Dr. Krause, Lindner, guten Tag.",
+      "emoji": "☎️",
+      "en": "Dr Krause’s practice, Lindner speaking, good afternoon.",
+      "audio": "mc_praxis_t1a"
+    },
+    {
+      "who": "praxis",
+      "type": "text",
+      "de": "Termin? In sechs Wochen.",
+      "en": "An appointment? In six weeks.",
+      "audio": "mc_praxis_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Oh. Sie haben noch nichts gesagt. Entschuldigung. Das ist ein Reflex. Was kann ich für Sie tun?",
+          "en": "Oh. You haven’t said anything yet. Sorry. It’s a reflex. What can I do for you?",
+          "audio": "mc_praxis_t1c"
+        }
+      ],
+      "tiles": [
+        "hallo",
+        "ich",
+        "ich",
+        "brauche",
+        "braucht",
+        "einen",
+        "ein",
+        "Termin",
+        "heute",
+        "bin",
+        "krank",
+        "und",
+        "mein",
+        "meine",
+        "Kopf",
+        "tut",
+        "tun",
+        "weh",
+        "heiße",
+        "{name}",
+        "bitte"
+      ],
+      "wrong": {
+        "braucht": "brauche",
+        "tun": "tut"
+      },
+      "intents": [
+        {
+          "id": "sickToday",
+          "when": {
+            "all": [
+              "termin"
+            ],
+            "any": [
+              "krank",
+              "weh"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "sick"
+          ],
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Krank, und Sie brauchen einen Termin. Okay. Das sagen alle. Aber Sie sagen es gut.",
+              "en": "Sick, and you need an appointment. Okay. Everyone says that. But you say it well.",
+              "audio": "mc_praxis_t1_sicktoday"
+            }
+          ]
+        },
+        {
+          "id": "today",
+          "when": {
+            "all": [
+              "termin",
+              "heute"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Heute? Ha! Heute ist alles voll. Herr Pfeiffer hat heute vier Termine. Termin? In sechs Wochen.",
+              "emoji": "📅",
+              "en": "Today? Ha! Today is fully booked. Herr Pfeiffer has four appointments today. An appointment? In six weeks.",
+              "audio": "mc_praxis_t1_today"
+            }
+          ]
+        },
+        {
+          "id": "appointment",
+          "when": {
+            "any": [
+              "termin"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Einen Termin? Gern. In sechs Wochen. Mittwoch, sieben Uhr. … Was, das ist zu spät?",
+              "en": "An appointment? Gladly. In six weeks. Wednesday, seven o’clock. … What, that’s too late?",
+              "audio": "mc_praxis_t1_appt"
+            }
+          ]
+        },
+        {
+          "id": "sick",
+          "when": {
+            "any": [
+              "krank",
+              "weh",
+              "kopf"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "sick"
+          ],
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Oh. Das tut mir leid. Wirklich. Ein bisschen. Ich habe ein Herz. Es hat nur keine Termine.",
+              "en": "Oh. I’m sorry. Really. A little. I have a heart. It just has no appointments.",
+              "audio": "mc_praxis_t1_sick"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "{name}"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Guten Tag, {name}. Schön. Und was ist das Problem?",
+              "en": "Good afternoon, {name}. Nice. And what’s the problem?"
+            }
+          ]
+        },
+        {
+          "id": "hello",
+          "when": {
+            "any": [
+              "hallo",
+              "bitte"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Hallo. Das ist eine Arztpraxis, kein Café. Das Café ist nebenan. Da gibt es Termine in sieben Wochen.",
+              "en": "Hello. This is a doctor’s practice, not a café. The café is next door. Their appointments are in seven weeks.",
+              "audio": "mc_praxis_t1_hello"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Moment … Herr Pfeiffer, nein! Sie sind noch nicht dran! … Er wartet seit 1998. Er bekommt hier seine Post.",
+          "emoji": "🙄",
+          "en": "One moment … Herr Pfeiffer, no! It’s not your turn yet! … He has been waiting since 1998. He gets his mail delivered here.",
+          "audio": "mc_praxis_t2a"
+        },
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "So. Was fehlt Ihnen? Was tut weh?",
+          "en": "So. What’s wrong with you? What hurts?",
+          "audio": "mc_praxis_t2b"
+        }
+      ],
+      "tiles": [
+        "mein",
+        "meine",
+        "Kopf",
+        "Bauch",
+        "Hand",
+        "Ohr",
+        "tut",
+        "tun",
+        "weh",
+        "alles",
+        "nichts",
+        "ich",
+        "habe",
+        "hat",
+        "Fieber",
+        "auch",
+        "Schnurrbart"
+      ],
+      "wrong": {
+        "tun": "tut",
+        "hat": "habe"
+      },
+      "intents": [
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -2,
+          "cause": "healthy",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Nichts? Dann sind Sie gesund. Herzlichen Glückwunsch! Der Nächste, bitte!",
+              "emoji": "🎉",
+              "en": "Nothing? Then you’re healthy. Congratulations! Next, please!",
+              "audio": "mc_praxis_t2_nothing"
+            }
+          ]
+        },
+        {
+          "id": "fever",
+          "when": {
+            "any": [
+              "fieber"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "fever"
+          ],
+          "fact": "🤒 hat Fieber",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Fieber! Endlich ein echter Patient. Herr Pfeiffer hat nie Fieber. Nur Zeit.",
+              "emoji": "🤒",
+              "en": "A fever! Finally a real patient. Mr Pfeiffer never has a fever. Just time.",
+              "audio": "mc_praxis_t2_fever"
+            }
+          ]
+        },
+        {
+          "id": "everything",
+          "when": {
+            "any": [
+              "alles"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Alles? Das ist kein Symptom. Das ist Mittwoch.",
+              "en": "Everything? That’s not a symptom. That’s Wednesday.",
+              "audio": "mc_praxis_t2_all"
+            }
+          ]
+        },
+        {
+          "id": "head",
+          "when": {
+            "any": [
+              "kopf"
+            ]
+          },
+          "value": 1,
+          "fact": "🤕 hat Kopfschmerzen",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Der Kopf. Das hat hier jeder. Herr Pfeiffer auch. Seit 1998. Sein Kopf hat schon eine eigene Akte.",
+              "en": "The head. Everyone here has that. Herr Pfeiffer too. Since 1998. His head has its own file.",
+              "audio": "mc_praxis_t2_head"
+            }
+          ]
+        },
+        {
+          "id": "belly",
+          "when": {
+            "any": [
+              "bauch"
+            ]
+          },
+          "value": 1,
+          "fact": "🤢 hat Bauchweh",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Der Bauch. Was haben Sie gegessen? Nein! Ich will es nicht wissen.",
+              "en": "Your stomach. What did you eat? No! I don’t want to know.",
+              "audio": "mc_praxis_t2_belly"
+            }
+          ]
+        },
+        {
+          "id": "moustache",
+          "when": {
+            "any": [
+              "schnurrbart"
+            ]
+          },
+          "value": 1,
+          "fact": "🥸 hat einen kranken Schnurrbart",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Ihr Schnurrbart?! Das ist neu. Dr. Krause liebt neue Sachen. Er schreibt jetzt ein Buch über Sie.",
+              "en": "Your moustache?! That’s new. Dr. Krause loves new things. He is writing a book about you now.",
+              "audio": "mc_praxis_t2_moustache"
+            }
+          ]
+        },
+        {
+          "id": "hand",
+          "when": {
+            "any": [
+              "hand"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Ihre Hand? Aber Sie schreiben mir. Mit der Hand. Hm. Ich glaube Ihnen. Fast.",
+              "en": "Your hand? But you’re texting me. With your hand. Hm. I believe you. Almost.",
+              "audio": "mc_praxis_t2_hand"
+            }
+          ]
+        },
+        {
+          "id": "ear",
+          "when": {
+            "any": [
+              "ohr"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Ihr Ohr? WAS? … Kleiner Witz. Okay, das Ohr.",
+              "emoji": "👂",
+              "en": "Your ear? WHAT? … Little joke. Okay, the ear.",
+              "audio": "mc_praxis_t2_ear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Seit wann haben Sie das?",
+          "en": "How long have you had it?",
+          "audio": "mc_praxis_t3a"
+        }
+      ],
+      "tiles": [
+        "seit gestern",
+        "seit heute",
+        "seit",
+        "Montag",
+        "Sonntag",
+        "drei",
+        "Tagen",
+        "Tage",
+        "einer",
+        "eine",
+        "Woche",
+        "zehn",
+        "Jahren",
+        "ich",
+        "habe",
+        "hat",
+        "das",
+        "schon"
+      ],
+      "wrong": {
+        "Tage": "Tagen",
+        "hat": "habe"
+      },
+      "intents": [
+        {
+          "id": "years",
+          "when": {
+            "any": [
+              "jahren"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Seit zehn Jahren?! Und Sie kommen HEUTE? Herr Pfeiffer ist stolz auf Sie. Er klatscht.",
+              "en": "For ten years?! And you come TODAY? Herr Pfeiffer is proud of you. He is clapping.",
+              "audio": "mc_praxis_t3_years"
+            }
+          ]
+        },
+        {
+          "id": "today",
+          "when": {
+            "any": [
+              "seit heute"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Seit heute? Dann warten Sie bis morgen. Vielleicht geht es weg.",
+              "en": "Since today? Then wait until tomorrow. Maybe it’ll go away.",
+              "audio": "mc_praxis_t3_today"
+            }
+          ]
+        },
+        {
+          "id": "week",
+          "when": {
+            "any": [
+              "woche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Eine Woche! Das ist lang. Ich glaube Ihnen.",
+              "en": "A week! That’s long. I believe you.",
+              "audio": "mc_praxis_t3_week"
+            }
+          ]
+        },
+        {
+          "id": "days",
+          "when": {
+            "any": [
+              "tagen",
+              "tage"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Drei Tage. Gut. Nicht zu lang, nicht zu kurz. Perfekt krank.",
+              "en": "Three days. Good. Not too long, not too short. Perfectly sick.",
+              "audio": "mc_praxis_t3_days"
+            }
+          ]
+        },
+        {
+          "id": "yesterday",
+          "when": {
+            "any": [
+              "seit gestern"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Seit gestern. Ganz frisch. Wie die Brötchen. Herr Pfeiffer hat seine Brötchen seit 1998.",
+              "en": "Since yesterday. Nice and fresh. Like bread rolls. Herr Pfeiffer has had his rolls since 1998.",
+              "audio": "mc_praxis_t3_yesterday"
+            }
+          ]
+        },
+        {
+          "id": "monday",
+          "when": {
+            "any": [
+              "montag"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Seit Montag. Natürlich. Der Montag macht alle krank.",
+              "en": "Since Monday. Of course. Monday makes everybody sick.",
+              "audio": "mc_praxis_t3_monday"
+            }
+          ]
+        },
+        {
+          "id": "sunday",
+          "when": {
+            "any": [
+              "sonntag"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Seit Sonntag. Typisch. Am Sonntag ist die Praxis zu.",
+              "en": "Since Sunday. Typical. On Sunday the practice is closed.",
+              "audio": "mc_praxis_t3_sunday"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Okay. Ich schaue in den Kalender. Nur für Sie.",
+          "emoji": "📖",
+          "en": "Okay. I’ll look in the calendar. Just for you.",
+          "audio": "mc_praxis_t4a"
+        },
+        {
+          "who": "praxis",
+          "type": "photo",
+          "image": "match_praxis_kalender",
+          "overlay": [
+            "Mittwoch",
+            "8 Uhr: Herr Pfeiffer",
+            "10 Uhr: Herr Pfeiffer",
+            "12 Uhr: Mittagspause",
+            "15 Uhr: frei",
+            "16 Uhr: der Kaktus",
+            "17 Uhr: Dr. Krause – Golf"
+          ],
+          "alt": "Kalender, Mittwoch. 8 Uhr: Herr Pfeiffer. 10 Uhr: Herr Pfeiffer. 12 Uhr: Mittagspause. 15 Uhr: frei. 17 Uhr: Dr. Krause, Golf."
+        },
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Heute ist Mittwoch. Wann ist heute noch frei?",
+          "en": "Today is Wednesday. When is there still a free slot today?",
+          "audio": "mc_praxis_t4b"
+        }
+      ],
+      "tiles": [
+        "um",
+        "acht",
+        "zehn",
+        "zwölf",
+        "fünfzehn",
+        "drei",
+        "siebzehn",
+        "Uhr",
+        "am",
+        "Mittwoch",
+        "Donnerstag",
+        "heute",
+        "morgen",
+        "es",
+        "ist",
+        "frei",
+        "sechzehn"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "free",
+          "when": {
+            "any": [
+              "fünfzehn",
+              "drei"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "knowsTime"
+          ],
+          "fact": "🕒 liest Kalender",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Um fünfzehn Uhr. Genau. Da ist noch frei. Noch.",
+              "emoji": "🕒",
+              "en": "At three o’clock. Exactly. It’s still free then. For now.",
+              "audio": "mc_praxis_t4_free"
+            }
+          ]
+        },
+        {
+          "id": "cactus",
+          "when": {
+            "any": [
+              "sechzehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Um sechzehn Uhr kommt der Kaktus. Er ist Privatpatient. Er hat nie Fieber. Nur Stacheln.",
+              "en": "At four the cactus comes. He’s a private patient. He never has a fever. Only spines.",
+              "audio": "mc_praxis_t4_cactus"
+            }
+          ]
+        },
+        {
+          "id": "golf",
+          "when": {
+            "any": [
+              "siebzehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Um siebzehn Uhr spielt Dr. Krause Golf. Golf ist heilig.",
+              "emoji": "⛳",
+              "en": "At five Dr Krause plays golf. Golf is sacred.",
+              "audio": "mc_praxis_t4_golf"
+            }
+          ]
+        },
+        {
+          "id": "lunch",
+          "when": {
+            "any": [
+              "zwölf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Um zwölf? Mittagspause! Da esse ich. Auch heilig.",
+              "en": "At twelve? Lunch break! That’s when I eat. Also sacred.",
+              "audio": "mc_praxis_t4_lunch"
+            }
+          ]
+        },
+        {
+          "id": "pfeiffer",
+          "when": {
+            "any": [
+              "acht",
+              "zehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Da kommt Herr Pfeiffer. Zweimal. Er liebt uns. Er bringt Kuchen. Der Kuchen ist auch von 1998.",
+              "en": "That’s Herr Pfeiffer. Twice. He loves us. He brings cake. The cake is also from 1998.",
+              "audio": "mc_praxis_t4_pfeiffer"
+            }
+          ]
+        },
+        {
+          "id": "tomorrow",
+          "when": {
+            "any": [
+              "morgen",
+              "donnerstag"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Morgen? Sie wollen doch heute! Und am Donnerstag bin ich beim Yoga.",
+              "en": "Tomorrow? But you want today! And on Thursday I’m at yoga.",
+              "audio": "mc_praxis_t4_tomorrow"
+            }
+          ]
+        },
+        {
+          "id": "day",
+          "when": {
+            "any": [
+              "mittwoch",
+              "heute",
+              "frei"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Ja, heute, Mittwoch. Aber um wie viel Uhr?",
+              "en": "Yes, today, Wednesday. But at what time?",
+              "audio": "mc_praxis_t4_day"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Also, fünfzehn Uhr. Aber hören Sie: Dr. Krause hat Regeln.",
+          "en": "So, three o’clock. But listen: Dr Krause has rules.",
+          "audio": "mc_praxis_t5a"
+        },
+        {
+          "who": "praxis",
+          "type": "voice",
+          "audio": "mc_praxis_vn_rules",
+          "de": "Dr. Krause hat drei Regeln. Erstens: Sie müssen Ihre Karte mitbringen. Zweitens: Sie müssen pünktlich kommen. Drittens: Sie dürfen nicht husten. Er hasst Husten.",
+          "en": "Dr Krause has three rules. First: you have to bring your card. Second: you have to come on time. Third: you mustn’t cough. He hates coughing.",
+          "direction": "Reading from a sticky note in a flat, bored receptionist voice, a phone ringing in the background; a tired little sigh before the last rule."
+        },
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Was müssen Sie machen?",
+          "en": "What do you have to do?",
+          "audio": "mc_praxis_t5b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "muss",
+        "muss",
+        "musst",
+        "darf",
+        "meine",
+        "mein",
+        "Karte",
+        "mitbringen",
+        "pünktlich",
+        "kommen",
+        "nicht",
+        "husten",
+        "Kaffee",
+        "trinken",
+        "Herrn",
+        "Pfeiffer",
+        "grüßen"
+      ],
+      "wrong": {
+        "musst": "muss"
+      },
+      "intents": [
+        {
+          "id": "coughLost",
+          "when": {
+            "all": [
+              "husten"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "husten",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Husten?! NEIN! Dr. Krause hasst Husten!",
+              "emoji": "😱",
+              "en": "Coughing?! NO! Dr Krause hates coughing!",
+              "audio": "mc_praxis_t5_cough"
+            }
+          ]
+        },
+        {
+          "id": "lateLost",
+          "when": {
+            "all": [
+              "pünktlich",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Doch! Pünktlich! Um siebzehn Uhr spielt er Golf.",
+              "en": "Yes, you do! On time! At five he plays golf.",
+              "audio": "mc_praxis_t5_late"
+            }
+          ]
+        },
+        {
+          "id": "ruleFour",
+          "when": {
+            "all": [
+              "grüßen"
+            ]
+          },
+          "value": 1,
+          "fact": "🎩 kennt Regel vier",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Regel vier! Herr Pfeiffer grüßen! Woher wissen Sie das? Niemand kennt Regel vier. Er winkt Ihnen.",
+              "en": "Rule four! Greet Herr Pfeiffer! How do you know that? Nobody knows rule four. He is waving at you.",
+              "audio": "mc_praxis_t5_rulefour"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "karte",
+              "pünktlich"
+            ]
+          },
+          "value": 2,
+          "fact": "📋 kennt die Regeln",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Perfekt! Sie hören besser als Dr. Krause.",
+              "en": "Perfect! You listen better than Dr Krause.",
+              "audio": "mc_praxis_t5_both"
+            }
+          ]
+        },
+        {
+          "id": "card",
+          "when": {
+            "any": [
+              "karte"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Ja, die Karte! Und pünktlich, ja?",
+              "en": "Yes, the card! And on time, okay?",
+              "audio": "mc_praxis_t5_card"
+            }
+          ]
+        },
+        {
+          "id": "punctual",
+          "when": {
+            "any": [
+              "pünktlich"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Ja, pünktlich! Und die Karte!",
+              "en": "Yes, on time! And the card!",
+              "audio": "mc_praxis_t5_punctual"
+            }
+          ]
+        },
+        {
+          "id": "noCough",
+          "when": {
+            "any": [
+              "husten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Genau. Nicht husten. In einer Arztpraxis. Ich weiß. Ich mache die Regeln nicht.",
+              "en": "Exactly. No coughing. In a doctor’s practice. I know. I don’t make the rules.",
+              "audio": "mc_praxis_t5_nocough"
+            }
+          ]
+        },
+        {
+          "id": "coffee",
+          "when": {
+            "any": [
+              "kaffee",
+              "trinken"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Kaffee ist keine Regel. Aber … ja. Mit Milch, bitte. Und ohne Herrn Pfeiffer. Er trinkt alles.",
+              "emoji": "☕",
+              "en": "Coffee isn’t a rule. But … yes. With milk, please. And without Herr Pfeiffer. He drinks everything.",
+              "audio": "mc_praxis_t5_coffee"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Problem. Herr Pfeiffer steht hier. Er möchte Ihren Termin um fünfzehn Uhr.",
+          "en": "Problem. Mr Pfeiffer is standing here. He wants your three o’clock appointment.",
+          "audio": "mc_praxis_t6a"
+        },
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Er sagt: Mein Knie tut weh. Er zeigt mir ein Foto von seinem Knie. Das Foto ist von 1998. Was sagen Sie?",
+          "en": "He says: My knee hurts. He shows me a photo of his knee. The photo is from 1998. What do you say?",
+          "audio": "mc_praxis_t6b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "ist",
+        "mein",
+        "sein",
+        "meinen",
+        "Termin",
+        "er",
+        "kann",
+        "morgen",
+        "kommen",
+        "warten",
+        "haben",
+        "nein",
+        "es",
+        "tut",
+        "mir",
+        "leid",
+        "ich",
+        "brauche",
+        "ihn"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "his",
+          "when": {
+            "all": [
+              "sein"
+            ]
+          },
+          "value": -2,
+          "cause": "pfeiffer",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Sein Termin? Okay! Herr Pfeiffer, fünfzehn Uhr! … Er tanzt. Mit dem Knie. Auf dem Tisch.",
+              "emoji": "💃",
+              "en": "His appointment? Okay! Herr Pfeiffer, three o’clock! … He is dancing. With the knee. On the table.",
+              "audio": "mc_praxis_t6_his"
+            }
+          ]
+        },
+        {
+          "id": "giveAway",
+          "when": {
+            "all": [
+              "haben"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "kind"
+          ],
+          "fact": "💚 ist nett zu Herrn Pfeiffer",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Wirklich? Herr Pfeiffer weint. Vor Freude. Okay, Sie kommen beide. Sie warten nur länger.",
+              "emoji": "🥲",
+              "en": "Really? Mr Pfeiffer is crying. With joy. Okay, you both come. You just wait longer.",
+              "audio": "mc_praxis_t6_give"
+            }
+          ]
+        },
+        {
+          "id": "mine",
+          "when": {
+            "any": [
+              "mein",
+              "meinen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Genau. Ihr Termin. Herr Pfeiffer, setzen Sie sich!",
+              "en": "Exactly. Your appointment. Mr Pfeiffer, sit down!",
+              "audio": "mc_praxis_t6_mine"
+            }
+          ]
+        },
+        {
+          "id": "needIt",
+          "when": {
+            "any": [
+              "ihn",
+              "brauche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Sie brauchen ihn. Ich sage es ihm. … Er seufzt. Laut.",
+              "en": "You need it. I’ll tell him. … He’s sighing. Loudly.",
+              "audio": "mc_praxis_t6_need"
+            }
+          ]
+        },
+        {
+          "id": "wait",
+          "when": {
+            "any": [
+              "warten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Er kann warten? Er wartet seit 1998. Er ist ein Profi.",
+              "en": "He can wait? He’s been waiting since 1998. He’s a pro.",
+              "audio": "mc_praxis_t6_wait"
+            }
+          ]
+        },
+        {
+          "id": "tomorrow",
+          "when": {
+            "any": [
+              "morgen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Morgen! Gute Idee. Er kommt sowieso jeden Tag. Er hat hier eine Zahnbürste.",
+              "en": "Tomorrow! Good idea. He comes every day anyway. He keeps a toothbrush here.",
+              "audio": "mc_praxis_t6_tomorrow"
+            }
+          ]
+        },
+        {
+          "id": "sorry",
+          "when": {
+            "any": [
+              "leid"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Es tut Ihnen leid. Herr Pfeiffer sagt danke. Und er bleibt hier.",
+              "en": "You’re sorry. Mr Pfeiffer says thank you. And he’s staying right here.",
+              "audio": "mc_praxis_t6_sorry"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Nein. Kurz und klar. Herr Pfeiffer setzt sich wieder.",
+              "en": "No. Short and clear. Mr Pfeiffer sits back down.",
+              "audio": "mc_praxis_t6_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Gut. Letzte Frage: Wann kommen Sie, und was bringen Sie mit?",
+          "en": "Good. Last question: when are you coming, and what are you bringing?",
+          "audio": "mc_praxis_t7a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "komme",
+        "kommt",
+        "um",
+        "fünfzehn",
+        "drei",
+        "siebzehn",
+        "zwölf",
+        "Uhr",
+        "und",
+        "bringe",
+        "bringt",
+        "meine",
+        "mein",
+        "Karte",
+        "mit",
+        "Kaffee",
+        "Herrn",
+        "Pfeiffer",
+        "Giraffe"
+      ],
+      "wrong": {
+        "kommt": "komme",
+        "bringt": "bringe"
+      },
+      "intents": [
+        {
+          "id": "golf",
+          "when": {
+            "any": [
+              "siebzehn"
+            ]
+          },
+          "value": -2,
+          "cause": "golf",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Siebzehn Uhr?! Da ist Dr. Krause beim Golf! Hören Sie mir zu?",
+              "emoji": "⛳",
+              "en": "Five o’clock?! Dr Krause is at golf then! Are you listening to me?",
+              "audio": "mc_praxis_t7_golf"
+            }
+          ]
+        },
+        {
+          "id": "lunch",
+          "when": {
+            "any": [
+              "zwölf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Um zwölf esse ich! Fünfzehn Uhr. FÜNFZEHN.",
+              "en": "At twelve I’m eating! Three o’clock. THREE.",
+              "audio": "mc_praxis_t7_lunch"
+            }
+          ]
+        },
+        {
+          "id": "coffeeTime",
+          "when": {
+            "all": [
+              "kaffee"
+            ],
+            "any": [
+              "fünfzehn",
+              "drei"
+            ]
+          },
+          "value": 2,
+          "fact": "☕ bringt Kaffee mit",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Um drei und mit Kaffee? Sie sind mein Lieblingspatient. Sagen Sie das nicht Herrn Pfeiffer.",
+              "emoji": "☕",
+              "en": "At three and with coffee? You’re my favourite patient. Don’t tell Mr Pfeiffer.",
+              "audio": "mc_praxis_t7_coffeetime"
+            }
+          ]
+        },
+        {
+          "id": "perfect",
+          "when": {
+            "all": [
+              "karte"
+            ],
+            "any": [
+              "fünfzehn",
+              "drei"
+            ]
+          },
+          "value": 2,
+          "fact": "🪪 bringt die Karte mit",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Fünfzehn Uhr, mit Karte. So macht man das.",
+              "en": "Three o’clock, with your card. That’s how it’s done.",
+              "audio": "mc_praxis_t7_perfect"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "when": {
+            "any": [
+              "fünfzehn",
+              "drei"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Gut. Und die Karte! Bringen Sie die Karte mit!",
+              "en": "Good. And the card! Bring the card!",
+              "audio": "mc_praxis_t7_time"
+            }
+          ]
+        },
+        {
+          "id": "card",
+          "when": {
+            "any": [
+              "karte"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Die Karte, gut. Und Sie kommen um fünfzehn Uhr. Nicht vergessen.",
+              "en": "The card, good. And you come at three. Don’t forget.",
+              "audio": "mc_praxis_t7_card"
+            }
+          ]
+        },
+        {
+          "id": "giraffe",
+          "when": {
+            "any": [
+              "giraffe"
+            ]
+          },
+          "value": 0,
+          "fact": "🦒 kommt mit Giraffe",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Ihre Giraffe? Hat sie eine Karte? … Egal. Herr Pfeiffer macht Platz. Er wollte immer eine Giraffe sehen.",
+              "en": "Your giraffe? Does she have a card? … Never mind. Herr Pfeiffer will make room. He always wanted to see a giraffe.",
+              "audio": "mc_praxis_t7_giraffe"
+            }
+          ]
+        },
+        {
+          "id": "pfeiffer",
+          "when": {
+            "any": [
+              "pfeiffer"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Sie bringen Herrn Pfeiffer mit? Er ist schon hier. Er ist immer hier. Er ist praktisch die Tapete.",
+              "en": "You’re bringing Herr Pfeiffer? He’s already here. He is always here. He is basically the wallpaper.",
+              "audio": "mc_praxis_t7_pfeiffer"
+            }
+          ]
+        },
+        {
+          "id": "coffee",
+          "when": {
+            "any": [
+              "kaffee"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Kaffee? Für mich? … Gut. Und wann kommen Sie? Fünfzehn Uhr!",
+              "en": "Coffee? For me? … Good. And when are you coming? Three o’clock!",
+              "audio": "mc_praxis_t7_coffee"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Es ist fünfzehn Uhr. Sie sind da. Herr Pfeiffer hat heute Geburtstag. Hier, im Wartezimmer. Es gibt Kuchen. Das Wartezimmer ist voll. Fast.",
+          "en": "It is three o’clock. You’re here. It’s Herr Pfeiffer’s birthday today. Here, in the waiting room. There is cake. The waiting room is full. Almost.",
+          "audio": "mc_praxis_t8a"
+        },
+        {
+          "who": "praxis",
+          "type": "photo",
+          "image": "match_praxis_wartezimmer",
+          "wide": true,
+          "alt": "Ein Wartezimmer. Drei Stühle. Links: ein blauer Stuhl, Herr Pfeiffer schläft. In der Mitte: ein grüner Stuhl, ein großer Kaktus. Rechts: ein roter Stuhl, er ist leer."
+        },
+        {
+          "who": "praxis",
+          "type": "text",
+          "de": "Wo ist ein Platz frei?",
+          "en": "Where is there a free seat?",
+          "audio": "mc_praxis_t8b"
+        }
+      ],
+      "tiles": [
+        "der",
+        "die",
+        "Stuhl",
+        "links",
+        "rechts",
+        "in der Mitte",
+        "rote",
+        "roten",
+        "blaue",
+        "grüne",
+        "ist",
+        "frei",
+        "ich",
+        "sitze",
+        "auf",
+        "dem",
+        "neben",
+        "Kaktus",
+        "Herrn",
+        "Pfeiffer"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "nextPfeiffer",
+          "when": {
+            "all": [
+              "neben",
+              "pfeiffer"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Neben Herrn Pfeiffer sitzt der Kaktus. Er hat um sechzehn Uhr einen Termin.",
+              "emoji": "🌵",
+              "en": "Next to Mr Pfeiffer sits the cactus. It has an appointment at four.",
+              "audio": "mc_praxis_t8_nextpf"
+            }
+          ]
+        },
+        {
+          "id": "nextCactus",
+          "when": {
+            "all": [
+              "neben",
+              "kaktus"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Neben dem Kaktus? Links oder rechts? Links schläft Herr Pfeiffer. Also rechts!",
+              "en": "Next to the cactus? Left or right? On the left Mr Pfeiffer is sleeping. So the right!",
+              "audio": "mc_praxis_t8_nextcactus"
+            }
+          ]
+        },
+        {
+          "id": "onCactus",
+          "when": {
+            "all": [
+              "kaktus"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Auf dem Kaktus?! Au! Jetzt brauchen Sie wirklich einen Arzt. Und der Kaktus auch.",
+              "emoji": "🌵",
+              "en": "On the cactus?! Ouch! Now you really need a doctor. And so does the cactus.",
+              "audio": "mc_praxis_t8_oncactus"
+            }
+          ]
+        },
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "rechts",
+              "rote",
+              "roten"
+            ]
+          },
+          "value": 1,
+          "fact": "🪑 findet freie Stühle",
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Ja! Setzen Sie sich. Dr. Krause kommt gleich. Wirklich gleich.",
+              "emoji": "🪑",
+              "en": "Yes! Sit down. Dr Krause is coming right away. Really right away.",
+              "audio": "mc_praxis_t8_right"
+            }
+          ]
+        },
+        {
+          "id": "middle",
+          "when": {
+            "any": [
+              "in der mitte",
+              "grüne"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Da sitzt der Kaktus. Er hat um sechzehn Uhr einen Termin.",
+              "emoji": "🌵",
+              "en": "The cactus is sitting there. It has an appointment at four.",
+              "audio": "mc_praxis_t8_middle"
+            }
+          ]
+        },
+        {
+          "id": "left",
+          "when": {
+            "any": [
+              "links",
+              "blaue"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Da schläft Herr Pfeiffer. Seit 1998. Wecken Sie ihn nicht.",
+              "emoji": "😴",
+              "en": "Mr Pfeiffer is sleeping there. Since 1998. Don’t wake him.",
+              "audio": "mc_praxis_t8_left"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "stuhl",
+              "frei",
+              "sitze"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "praxis",
+              "type": "text",
+              "de": "Welcher Stuhl? Der rote! Rechts! Schnell!",
+              "en": "Which chair? The red one! On the right! Quick!",
+              "audio": "mc_praxis_t8_vague"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "praxis",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage. Ich habe nicht viel Zeit.",
+    "en": "Er … that wasn’t my question. I don’t have much time.",
+    "audio": "mc_praxis_offtopic"
+  },
+  "confused": [
+    {
+      "who": "praxis",
+      "type": "text",
+      "de": "Wie bitte?",
+      "emoji": "🤨",
+      "en": "Pardon?",
+      "audio": "mc_praxis_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "praxis",
+        "type": "text",
+        "de": "Herzlichen Glückwunsch. Sie sind heute dran. Heute! Das ist ein Wunder.",
+        "emoji": "🎉",
+        "en": "Congratulations. It’s your turn today. Today! That’s a miracle.",
+        "audio": "mc_praxis_win"
+      },
+      {
+        "who": "praxis",
+        "type": "text",
+        "de": "Gute Besserung, {name}. Und nächstes Mal: schreiben Sie mir. Nicht anrufen.",
+        "emoji": "💚",
+        "en": "Get well soon, {name}. And next time: text me. Don’t call."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "praxis",
+        "type": "text",
+        "de": "Okay. Sie bekommen einen Termin. In sechs Wochen. Mittwoch, sieben Uhr. Gute Besserung.",
+        "emoji": "📅",
+        "en": "Okay. You get an appointment. In six weeks. Wednesday, seven o’clock. Get well soon.",
+        "audio": "mc_praxis_partial"
+      }
+    ],
+    "deleted": {
+      "healthy": {
+        "who": "praxis",
+        "type": "text",
+        "de": "Sie sind gesund. Ich lösche Sie. Das ist auch gesund.",
+        "en": "You’re healthy. I’m deleting you. That’s healthy too.",
+        "audio": "mc_praxis_del_healthy"
+      },
+      "husten": {
+        "who": "praxis",
+        "type": "text",
+        "de": "Sie husten in der Praxis? Dr. Krause löscht Sie. Und ich auch.",
+        "emoji": "🤧",
+        "en": "You cough in the practice? Dr Krause is deleting you. And so am I.",
+        "audio": "mc_praxis_del_husten"
+      },
+      "pfeiffer": {
+        "who": "praxis",
+        "type": "text",
+        "de": "Herr Pfeiffer hat jetzt Ihren Termin. Er sagt danke. Ich sage tschüss.",
+        "en": "Mr Pfeiffer has your appointment now. He says thank you. I say goodbye.",
+        "audio": "mc_praxis_del_pfeiffer"
+      },
+      "golf": {
+        "who": "praxis",
+        "type": "text",
+        "de": "Golf ist heilig. Sie nicht. Tschüss.",
+        "emoji": "⛳",
+        "en": "Golf is sacred. You’re not. Bye.",
+        "audio": "mc_praxis_del_golf"
+      },
+      "confused": {
+        "who": "praxis",
+        "type": "text",
+        "de": "Ich verstehe Sie nicht. Vielleicht brauche ich einen Termin. Beim Ohrenarzt. In sechs Wochen.",
+        "en": "I don’t understand you. Maybe I need an appointment. At the ear doctor’s. In six weeks.",
+        "audio": "mc_praxis_del_confused"
+      },
+      "default": {
+        "who": "praxis",
+        "type": "text",
+        "de": "Hm. Termin? In sechs Wochen. Oder in sieben. Fragen Sie den Kaktus. Er hat Zeit. Tschüss.",
+        "en": "Hm. An appointment? In six weeks. Or seven. Ask the cactus. He has time. Bye.",
+        "audio": "mc_praxis_del_default"
+      }
+    },
+    "sunday": {
+      "who": "praxis",
+      "type": "voice",
+      "audio": "mc_praxis_vn_sunday",
+      "de": "Hallo, hier ist Frau Lindner. Heute ist Sonntag. Die Praxis ist zu. Ich bin trotzdem hier. Herr Pfeiffer auch. Er hat jetzt einen Schlüssel. Und ein Sofa. Wie geht es Ihnen? Dem Kopf? Dem Bauch? Ich frage einfach alles.",
+      "en": "Hello, this is Frau Lindner. It’s Sunday. The practice is closed. I’m here anyway. So is Herr Pfeiffer. He has a key now. And a sofa. How are you? Your head? Your belly? I’m just asking about everything.",
+      "direction": "A quiet empty practice on a Sunday, a radiator ticking; she sounds almost warm and a little embarrassed to be calling."
+    }
+  },
+  "partialTitle": "Termin? In sechs Wochen.",
+  "share": {
+    "win": "Ich habe bei Frau Lindner einen Termin bekommen. HEUTE. 🩺 Das ist ein Wunder. Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Frau Lindner hat mir einen Termin gegeben … in sechs Wochen 📅 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Frau Lindner (Anmeldung) hat mich gelöscht 💔 Herr Pfeiffer hat jetzt meinen Termin. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Frau Lindner, a 45-year-old doctor’s receptionist with a sharp dark-blonde bob, red reading glasses pushed up on her head, a pencil behind one ear, a mint-green cardigan over a white blouse, a small phone headset, one unimpressed raised eyebrow and the faintest hidden smile.",
+  "imagePrompts": [
+    {
+      "id": "match_praxis",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She sits behind a high reception counter in a small, cosy doctor’s practice, holding up six fingers at the viewer with a deadpan look. On the counter: a fat paper appointment book, a coffee mug and a tiny potted cactus. Pale blue wall behind her. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_praxis_kalender",
+      "aspect": "3:4",
+      "prompt": "A phone photo, seen straight from above, of an open paper appointment book lying on a wooden reception counter. The right-hand page fills most of the frame: it is pale cream paper with faint ruled lines and is COMPLETELY EMPTY, no writing, no numbers, no marks at all. A pencil lies across the bottom corner, the edge of a coffee mug and a tiny cactus pot peek in at one side."
+    },
+    {
+      "id": "match_praxis_wartezimmer",
+      "aspect": "16:9",
+      "prompt": "A small doctor’s waiting room, seen exactly from the front like a stage set: one flat pale wall fills the picture, no perspective, no corners. In front of the wall stand exactly THREE chairs in a row, far apart, all the same size. LEFT CHAIR: bright blue; on it sits a very old man with a long white beard, a cardigan and slippers, fast asleep with his mouth open and a newspaper on his lap. MIDDLE CHAIR: bright green; on it stands a huge potted cactus, as tall as a person, sitting there like a patient. RIGHT CHAIR: bright red and completely EMPTY. A potted plant and a coat stand at the far edges, nothing else."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich bin krank. Ich brauche heute einen Termin.",
+      "intent": "sickToday",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich brauche heute einen Termin, bitte.",
+      "intent": "today",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich brauche einen Termin.",
+      "intent": "appointment",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich brauche ein Termin.",
+      "intent": "appointment",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Mein Kopf tut weh.",
+      "intent": "sick",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heiße {name}.",
+      "intent": "name",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo!",
+      "intent": "hello",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich krank.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe Fieber.",
+      "intent": "fever",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich hat Fieber. Mein Kopf tut weh.",
+      "intent": "fever",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Mein Kopf tut weh.",
+      "intent": "head",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Mein Bauch tun weh.",
+      "intent": "belly",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Meine Hand tut weh.",
+      "intent": "hand",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Mein Ohr tut weh.",
+      "intent": "ear",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Alles tut weh.",
+      "intent": "everything",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Nichts tut weh.",
+      "intent": "nothing",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Seit gestern.",
+      "intent": "yesterday",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe das seit drei Tagen.",
+      "intent": "days",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Seit drei Tage.",
+      "intent": "days",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Seit einer Woche.",
+      "intent": "week",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Seit eine Woche.",
+      "intent": "week",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Seit Montag.",
+      "intent": "monday",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Seit Sonntag.",
+      "intent": "sunday",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Seit heute.",
+      "intent": "today",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Seit zehn Jahren.",
+      "intent": "years",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Um fünfzehn Uhr.",
+      "intent": "free",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Heute um drei.",
+      "intent": "free",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Um siebzehn Uhr.",
+      "intent": "golf",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Um zwölf.",
+      "intent": "lunch",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Um acht Uhr.",
+      "intent": "pfeiffer",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Morgen um zehn.",
+      "intent": "pfeiffer",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Am Donnerstag.",
+      "intent": "tomorrow",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Heute ist es frei.",
+      "intent": "day",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich muss meine Karte mitbringen. Ich muss pünktlich kommen.",
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich muss meine Karte mitbringen.",
+      "intent": "card",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich musst meine Karte mitbringen.",
+      "intent": "card",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich muss pünktlich kommen.",
+      "intent": "punctual",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich darf nicht husten.",
+      "intent": "noCough",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich muss husten.",
+      "intent": "coughLost",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich muss nicht pünktlich kommen.",
+      "intent": "lateLost",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich muss Kaffee trinken.",
+      "intent": "coffee",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Nein, das ist mein Termin.",
+      "intent": "mine",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Das ist meinen Termin.",
+      "intent": "mine",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Er kann morgen kommen.",
+      "intent": "tomorrow",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Er kann warten.",
+      "intent": "wait",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich brauche ihn.",
+      "intent": "needIt",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Er kann meinen Termin haben.",
+      "intent": "giveAway",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Es tut mir leid.",
+      "intent": "sorry",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Nein.",
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Das ist sein Termin.",
+      "intent": "his",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme um fünfzehn Uhr. Ich bringe meine Karte mit.",
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme um drei. Ich bringe Kaffee mit.",
+      "intent": "coffeeTime",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich kommt um drei.",
+      "intent": "time",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bringe meine Karte mit.",
+      "intent": "card",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bringe Herrn Pfeiffer mit.",
+      "intent": "pfeiffer",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bringe Kaffee mit.",
+      "intent": "coffee",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Um zwölf Uhr.",
+      "intent": "lunch",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme um siebzehn Uhr.",
+      "intent": "golf",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Der rote Stuhl ist frei.",
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Der Stuhl rechts.",
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich sitze auf dem roten Stuhl.",
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich sitze auf dem rote Stuhl.",
+      "intent": "right",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Rechts.",
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Der Stuhl in der Mitte.",
+      "intent": "middle",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Links.",
+      "intent": "left",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Neben dem Kaktus.",
+      "intent": "nextCactus",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Neben Herrn Pfeiffer.",
+      "intent": "nextPfeiffer",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich sitze auf dem Kaktus.",
+      "intent": "onCactus",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Der Stuhl ist frei.",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin krank. Ich brauche heute einen Termin.",
+      "score": 100
+    },
+    {
+      "turn": "t1",
+      "say": "Ich braucht einen Termin.",
+      "score": 80
+    },
+    {
+      "turn": "t1",
+      "say": "Ich brauche ein Termin.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Meine Kopf tut weh.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Mein Kopf tun weh.",
+      "score": 80
+    },
+    {
+      "turn": "t1",
+      "say": "Ich krank bin.",
+      "score": 70
+    },
+    {
+      "turn": "t1",
+      "say": "Ich krank.",
+      "score": 50
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe Fieber. Mein Kopf tut weh.",
+      "score": 100
+    },
+    {
+      "turn": "t2",
+      "say": "Mein Hand tut weh.",
+      "score": 85
+    },
+    {
+      "turn": "t2",
+      "say": "Ich hat Fieber.",
+      "score": 80
+    },
+    {
+      "turn": "t3",
+      "say": "Seit einer Woche.",
+      "score": 100
+    },
+    {
+      "turn": "t3",
+      "say": "Seit eine Woche.",
+      "score": 85
+    },
+    {
+      "turn": "t3",
+      "say": "Seit gestern habe ich das.",
+      "score": 100
+    },
+    {
+      "turn": "t4",
+      "say": "Heute um drei.",
+      "score": 100
+    },
+    {
+      "turn": "t4",
+      "say": "Um fünfzehn Uhr ist es frei.",
+      "score": 100
+    },
+    {
+      "turn": "t4",
+      "say": "Um fünfzehn Uhr es ist frei.",
+      "score": 70
+    },
+    {
+      "turn": "t5",
+      "say": "Ich darf nicht husten.",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Ich muss mitbringen meine Karte.",
+      "score": 70
+    },
+    {
+      "turn": "t6",
+      "say": "Er kann meinen Termin haben.",
+      "score": 100
+    },
+    {
+      "turn": "t6",
+      "say": "Er kann mein Termin haben.",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bringe mein Karte mit.",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bringt meine Karte mit.",
+      "score": 80
+    },
+    {
+      "turn": "t8",
+      "say": "Der rote Stuhl ist frei.",
+      "score": 100
+    },
+    {
+      "turn": "t8",
+      "say": "Der roten Stuhl ist frei.",
+      "score": 85
+    },
+    {
+      "turn": "t8",
+      "say": "Ich sitze auf dem rote Stuhl.",
+      "score": 85
+    },
+    {
+      "turn": "t2",
+      "say": "Mein Schnurrbart tut weh.",
+      "intent": "moustache",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Meine Schnurrbart tut weh.",
+      "score": 85
+    },
+    {
+      "turn": "t4",
+      "say": "Um sechzehn Uhr.",
+      "intent": "cactus",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich muss Herrn Pfeiffer grüßen.",
+      "intent": "ruleFour",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bringe meine Giraffe mit.",
+      "intent": "giraffe",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bringe mein Giraffe mit.",
+      "score": 85
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich bin krank. Ich brauche heute einen Termin."
+        ],
+        [
+          "t2",
+          "Ich habe Fieber."
+        ],
+        [
+          "t3",
+          "Seit gestern."
+        ],
+        [
+          "t4",
+          "Um fünfzehn Uhr."
+        ],
+        [
+          "t5",
+          "Ich muss meine Karte mitbringen. Ich muss pünktlich kommen."
+        ],
+        [
+          "t6",
+          "Nein, das ist mein Termin."
+        ],
+        [
+          "t7",
+          "Ich komme um drei. Ich bringe Kaffee mit."
+        ],
+        [
+          "t8",
+          "Der rote Stuhl ist frei."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Hallo!"
+        ],
+        [
+          "t2",
+          "Alles tut weh."
+        ],
+        [
+          "t3",
+          "Seit zehn Jahren."
+        ],
+        [
+          "t4",
+          "Um fünfzehn Uhr."
+        ],
+        [
+          "t5",
+          "Ich muss Kaffee trinken."
+        ],
+        [
+          "t6",
+          "Er kann meinen Termin haben."
+        ],
+        [
+          "t7",
+          "Ich bringe Herrn Pfeiffer mit."
+        ],
+        [
+          "t8",
+          "Links."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Hallo!"
+        ],
+        [
+          "t2",
+          "Nichts tut weh."
+        ],
+        [
+          "t3",
+          "Seit zehn Jahren."
+        ],
+        [
+          "t4",
+          "Um zwölf."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1886 @@
+{
+  "id": "berger",
+  "name": "Frau Berger",
+  "age": 68,
+  "emoji": "📦",
+  "image": "match_berger",
+  "level": "C1.2",
+  "order": 1,
+  "bio": "Ich nehme alle Pakete an. Und alle Neuigkeiten. Ich habe dein Paket. Und Fragen.",
+  "bioEn": "I take in all the parcels. And all the news. I have your parcel. And questions.",
+  "goal": "Get your parcel without becoming the newest gossip in the building.",
+  "tagline": "Nachbarin · 68 · Erdgeschoss links",
+  "voice": "Gacrux",
+  "brief": "Frau Berger, 68, the ground-floor neighbour who takes in everyone’s parcels: a warm, slightly husky older woman’s voice, sweet as honey and sharp as a pin, drops her voice to a conspiratorial whisper for every rumour, and is a master of dry irony.",
+  "focus": "Subjektive Modalverben (soll, will, dürfte, muss, könnte) · Ironie · Wortbildung (-los)",
+  "lexicon": {
+    "nouns": {
+      "Überraschung": "f",
+      "Buch": "n",
+      "Handy": "n",
+      "Job": "m",
+      "Nachbar": "m",
+      "Paket": "n",
+      "Schleife": "f",
+      "Rolle": "f",
+      "Buchhalter": "m",
+      "Zauberer": "m",
+      "Kaninchen": "n",
+      "Zylinder": "m",
+      "Wetter": "n",
+      "Freund": "m",
+      "Schatz": "m",
+      "Wort": "n",
+      "Krokodil": "n"
+    },
+    "names": [],
+    "verbs": [
+      "dürfte",
+      "darf",
+      "müsste",
+      "würde",
+      "ist",
+      "geht",
+      "könnte",
+      "soll",
+      "sollte",
+      "hat",
+      "tut",
+      "war",
+      "freut",
+      "muss",
+      "kann",
+      "will",
+      "weiß",
+      "bin",
+      "bist"
+    ],
+    "nonfinite": [
+      "sein",
+      "behalten",
+      "geerbt",
+      "haben",
+      "gewonnen",
+      "überfallen",
+      "gewesen",
+      "mögen",
+      "reden",
+      "wissen"
+    ],
+    "accVerbs": [
+      "dürfte",
+      "darf",
+      "müsste",
+      "würde",
+      "könnte",
+      "hat",
+      "weiß"
+    ],
+    "adjectives": [
+      "neu",
+      "groß",
+      "braun",
+      "klein",
+      "rot",
+      "lang",
+      "nett"
+    ]
+  },
+  "intro": [
+    {
+      "who": "berger",
+      "type": "text",
+      "de": "Ah, da bist du ja! Ich habe dein Paket. Und ein paar Fragen.",
+      "emoji": "📦",
+      "en": "Ah, there you are! I have your parcel. And a few questions.",
+      "audio": "mc_berger_introa"
+    },
+    {
+      "who": "berger",
+      "type": "text",
+      "de": "Keine Sorge, ich bin die Diskretion in Person. Frag im ganzen Haus. Alle wissen das.",
+      "emoji": "🤫",
+      "en": "Don’t worry, I am discretion itself. Ask anyone in the building. Everyone knows that.",
+      "audio": "mc_berger_introb"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Dein Paket ist ziemlich schwer. Und es klappert. Was ist denn da drin?",
+          "emoji": "🤨",
+          "en": "Your parcel is pretty heavy. And it rattles. So what’s inside?",
+          "audio": "mc_berger_t1a"
+        }
+      ],
+      "tiles": [
+        "das",
+        "dürfte",
+        "darf",
+        "müsste",
+        "eine",
+        "ein",
+        "Überraschung",
+        "Buch",
+        "sein",
+        "ich",
+        "würde",
+        "lieber",
+        "für mich",
+        "behalten",
+        "geht",
+        "dich",
+        "nichts",
+        "an",
+        "ist",
+        "Handy",
+        "Krokodil"
+      ],
+      "wrong": {
+        "darf": {
+          "to": "dürfte",
+          "note": "A guess is 'dürfte' (Konjunktiv II). 'darf' means 'is allowed to'."
+        }
+      },
+      "intents": [
+        {
+          "id": "croc",
+          "when": {
+            "any": [
+              "krokodil"
+            ]
+          },
+          "value": 1,
+          "fact": "🐊 bekommt seltsame Pakete",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Ein Krokodil?! … Es klappert. Krokodile klappern. Mit den Zähnen. Ich lege es jetzt ganz langsam auf den Boden. Ganz langsam.",
+              "emoji": "🐊",
+              "en": "A crocodile?! … It rattles. Crocodiles rattle. With their teeth. I’m putting it on the floor now, very slowly. Very slowly.",
+              "audio": "mc_berger_t1_croc"
+            }
+          ]
+        },
+        {
+          "id": "keep",
+          "when": {
+            "any": [
+              "behalten"
+            ]
+          },
+          "value": 2,
+          "fact": "🤐 behält Geheimnisse für sich",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Für dich behalten. Wie elegant. Ich hasse es. Aber ich respektiere es.",
+              "emoji": "🧐",
+              "en": "Keep it to yourself. How elegant. I hate it. But I respect it.",
+              "audio": "mc_berger_t1_keep"
+            }
+          ]
+        },
+        {
+          "id": "reveal",
+          "when": {
+            "any": [
+              "handy"
+            ]
+          },
+          "value": -1,
+          "cause": "gossip",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Ein neues Handy! Keine Sorge, das sage ich niemandem. Außer Frau Kowalski. Und ihrer Schwester.",
+              "emoji": "📱",
+              "en": "A new phone! Don’t worry, I won’t tell anyone. Except Frau Kowalski. And her sister.",
+              "audio": "mc_berger_t1_reveal"
+            }
+          ]
+        },
+        {
+          "id": "surprise",
+          "when": {
+            "any": [
+              "überraschung"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Eine Überraschung. Für wen? … Schon gut. Ich frage nur aus Höflichkeit.",
+              "en": "A surprise. For whom? … Never mind. I’m only asking out of politeness.",
+              "audio": "mc_berger_t1_surprise"
+            }
+          ]
+        },
+        {
+          "id": "book",
+          "when": {
+            "any": [
+              "buch"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Ein Buch. Bücher klappern normalerweise nicht. Aber gut. Vielleicht ein Krimi. Mit Knochen.",
+              "emoji": "📚",
+              "en": "A book. Books don’t usually rattle. But fine. Maybe a crime novel. With bones.",
+              "audio": "mc_berger_t1_book"
+            }
+          ]
+        },
+        {
+          "id": "rude",
+          "when": {
+            "any": [
+              "geht",
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Oh. Das geht mich nichts an. Ich notiere: empfindlich.",
+              "emoji": "📝",
+              "en": "Oh. That’s none of my business. I’m noting: touchy.",
+              "audio": "mc_berger_t1_rude"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Herr Lindemann aus dem dritten Stock fährt plötzlich einen Sportwagen. Einen roten. Er ist Rentner.",
+          "emoji": "🏎️",
+          "en": "Herr Lindemann from the third floor is suddenly driving a sports car. A red one. He’s retired.",
+          "audio": "mc_berger_t2a"
+        },
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Woher hat er das Geld? Was meinst du?",
+          "en": "Where did he get the money? What do you think?",
+          "audio": "mc_berger_t2b"
+        }
+      ],
+      "tiles": [
+        "er",
+        "könnte",
+        "dürfte",
+        "soll",
+        "sollte",
+        "geerbt",
+        "haben",
+        "einen",
+        "neuen",
+        "Job",
+        "im Lotto",
+        "gewonnen",
+        "hat",
+        "eine Bank",
+        "überfallen",
+        "das",
+        "geht",
+        "uns",
+        "nichts",
+        "an"
+      ],
+      "wrong": {
+        "sollte": {
+          "to": "soll",
+          "note": "Hearsay is 'soll … haben'. 'sollte … haben' means 'should have'."
+        }
+      },
+      "intents": [
+        {
+          "id": "robbery",
+          "when": {
+            "any": [
+              "überfallen"
+            ]
+          },
+          "value": -2,
+          "cause": "gossip",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Eine BANK?! … Das erzähle ich sofort Frau Kowalski. Mit deinem Namen dazu. Als Quelle.",
+              "emoji": "🚨",
+              "en": "A BANK?! … I’m telling Frau Kowalski right away. With your name attached. As the source.",
+              "audio": "mc_berger_t2_robbery"
+            }
+          ]
+        },
+        {
+          "id": "mind",
+          "when": {
+            "any": [
+              "geht",
+              "nichts"
+            ]
+          },
+          "value": 2,
+          "fact": "🙅 tratscht nicht mit",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "„Das geht uns nichts an“? Uns? Mich geht ALLES an. Aber gut. Du bist diskret. Leider.",
+              "emoji": "🙄",
+              "en": "“That’s none of our business”? Ours? EVERYTHING is my business. But fine. You’re discreet. Unfortunately.",
+              "audio": "mc_berger_t2_mind"
+            }
+          ]
+        },
+        {
+          "id": "lottoFact",
+          "when": {
+            "all": [
+              "gewonnen"
+            ],
+            "none": [
+              "soll",
+              "sollte",
+              "könnte",
+              "dürfte"
+            ]
+          },
+          "value": -1,
+          "cause": "gossip",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Er HAT gewonnen? Du weißt das sicher? Dann bist du ab jetzt meine Quelle!",
+              "emoji": "🗞️",
+              "en": "He HAS won? You know that for sure? Then from now on you’re my source!",
+              "audio": "mc_berger_t2_lottofact"
+            }
+          ]
+        },
+        {
+          "id": "inheritFact",
+          "when": {
+            "all": [
+              "geerbt"
+            ],
+            "none": [
+              "soll",
+              "sollte",
+              "könnte",
+              "dürfte"
+            ]
+          },
+          "value": -1,
+          "cause": "gossip",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Er HAT geerbt? Du weißt das sicher? Von wem denn? Ich muss sofort telefonieren.",
+              "emoji": "☎️",
+              "en": "He HAS inherited? You know that for sure? From whom? I have to make a phone call right away.",
+              "audio": "mc_berger_t2_inheritfact"
+            }
+          ]
+        },
+        {
+          "id": "hearsay",
+          "when": {
+            "any": [
+              "soll",
+              "sollte"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Ah, man hört so etwas. Sehr gut. Offiziell weiß man ja nichts. Inoffiziell weiß ich alles.",
+              "emoji": "😏",
+              "en": "Ah, one hears such things. Very good. Officially one knows nothing. Unofficially I know everything.",
+              "audio": "mc_berger_t2_hearsay"
+            }
+          ]
+        },
+        {
+          "id": "inherit",
+          "when": {
+            "any": [
+              "geerbt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Geerbt? Von wem? Seine Tante ist 104 und kerngesund. Ich habe sie gestern gesehen.",
+              "en": "Inherited? From whom? His aunt is 104 and fit as a fiddle. I saw her yesterday.",
+              "audio": "mc_berger_t2_inherit"
+            }
+          ]
+        },
+        {
+          "id": "job",
+          "when": {
+            "any": [
+              "job"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Einen neuen Job? Er ist Rentner. Seit 1998. Obwohl … er geht jeden Morgen um sechs mit einem Geigenkoffer aus dem Haus. Ohne Geige.",
+              "en": "A new job? He’s retired. Since 1998. Although … every morning at six he leaves the building with a violin case. Without a violin.",
+              "audio": "mc_berger_t2_job"
+            }
+          ]
+        },
+        {
+          "id": "lotto",
+          "when": {
+            "any": [
+              "im lotto"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Im Lotto? Hm. Das hat Frau Kowalski auch gesagt. Dann muss es ja stimmen.",
+              "en": "The lottery? Hm. Frau Kowalski said that too. Then it must be true.",
+              "audio": "mc_berger_t2_lotto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Deine Musik gestern war übrigens wunderbar. Ich habe jedes Wort verstanden. Um drei Uhr nachts. Durch die Decke.",
+          "emoji": "🎶",
+          "en": "Your music last night was wonderful, by the way. I understood every word. At three in the morning. Through the ceiling.",
+          "audio": "mc_berger_t3a"
+        }
+      ],
+      "tiles": [
+        "das",
+        "das",
+        "tut",
+        "mir",
+        "leid",
+        "war",
+        "wohl",
+        "etwas",
+        "zu",
+        "laut",
+        "danke",
+        "freut",
+        "mich",
+        "muss",
+        "mein",
+        "Nachbar",
+        "gewesen",
+        "sein",
+        "kann",
+        "nicht"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "missed",
+          "when": {
+            "any": [
+              "danke",
+              "freut"
+            ]
+          },
+          "value": -2,
+          "cause": "irony",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Danke?! Schätzchen, das war Ironie. Die Wände hier sind dünn. Und mein Gedächtnis ist lang.",
+              "emoji": "😑",
+              "en": "Thanks?! Sweetheart, that was irony. The walls here are thin. And my memory is long.",
+              "audio": "mc_berger_t3_missed"
+            }
+          ]
+        },
+        {
+          "id": "sorry",
+          "when": {
+            "any": [
+              "leid"
+            ]
+          },
+          "value": 2,
+          "fact": "🙏 versteht Ironie",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Entschuldigung angenommen. Ich habe es trotzdem schon Frau Kowalski erzählt. Aber nett gemeint.",
+              "emoji": "😌",
+              "en": "Apology accepted. I’ve already told Frau Kowalski anyway. But nicely meant.",
+              "audio": "mc_berger_t3_sorry"
+            }
+          ]
+        },
+        {
+          "id": "neighbour",
+          "when": {
+            "any": [
+              "nachbar"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Dein Nachbar? Der ist seit Montag auf Mallorca. Ich weiß so etwas. Ich gieße seine Blumen. Und lese seine Postkarten.",
+              "emoji": "🌴",
+              "en": "Your neighbour? He’s been in Mallorca since Monday. I know these things. I water his plants. And read his postcards.",
+              "audio": "mc_berger_t3_neighbour"
+            }
+          ]
+        },
+        {
+          "id": "notLoud",
+          "when": {
+            "all": [
+              "nicht",
+              "laut"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Nicht zu laut? Ich kann jede Zeile mitsingen. Ohne es je gewollt zu haben.",
+              "emoji": "🎤",
+              "en": "Not too loud? I can sing along to every line. Without ever having wanted to.",
+              "audio": "mc_berger_t3_notloud"
+            }
+          ]
+        },
+        {
+          "id": "tooLoud",
+          "when": {
+            "any": [
+              "laut"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "„Etwas zu laut“. Ja. Das ist eine sehr elegante Untertreibung.",
+              "en": "“A bit too loud”. Yes. That is a very elegant understatement.",
+              "audio": "mc_berger_t3_tooloud"
+            }
+          ]
+        },
+        {
+          "id": "denial",
+          "when": {
+            "any": [
+              "kann"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Das kann nicht sein? Ich habe eine Aufnahme. Willst du sie hören?",
+              "emoji": "🎙️",
+              "en": "That can’t be? I have a recording. Do you want to hear it?",
+              "audio": "mc_berger_t3_denial"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Ich habe heute drei Pakete angenommen. Eins davon ist deins. Das schwere, das klappert.",
+          "emoji": "📦",
+          "en": "I took in three parcels today. One of them is yours. The heavy one that rattles.",
+          "audio": "mc_berger_t4a"
+        },
+        {
+          "who": "berger",
+          "type": "photo",
+          "image": "match_berger_parcels",
+          "wide": true,
+          "alt": "Drei Pakete auf einem Tisch. Links: ein kleines rotes Paket mit einer großen goldenen Schleife. In der Mitte: eine lange, dünne Rolle. Rechts: ein großes braunes Paket mit viel Klebeband."
+        },
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Na, welches ist deins?",
+          "en": "Well, which one is yours?",
+          "audio": "mc_berger_t4c"
+        }
+      ],
+      "tiles": [
+        "es",
+        "dürfte",
+        "müsste",
+        "das",
+        "große",
+        "großen",
+        "braune",
+        "kleine",
+        "rote",
+        "lange",
+        "Paket",
+        "mit",
+        "der",
+        "Schleife",
+        "Rolle",
+        "die",
+        "rechts",
+        "links",
+        "in der Mitte",
+        "sein"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "braune",
+              "große",
+              "großen",
+              "rechts"
+            ]
+          },
+          "value": 2,
+          "fact": "📦 erkennt das eigene Paket",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Das große braune. Richtig. Ich habe es nicht geschüttelt. Nur ein bisschen.",
+              "emoji": "🫨",
+              "en": "The big brown one. Correct. I didn’t shake it. Only a little.",
+              "audio": "mc_berger_t4_right"
+            }
+          ]
+        },
+        {
+          "id": "pink",
+          "when": {
+            "any": [
+              "rote",
+              "schleife",
+              "kleine",
+              "links"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Das rote Paket ist für Herrn Lindemann. Von einer Dame. Aber das hast du nicht von mir.",
+              "emoji": "🎀",
+              "en": "The red parcel is for Herr Lindemann. From a lady. But you didn’t hear that from me.",
+              "audio": "mc_berger_t4_pink"
+            }
+          ]
+        },
+        {
+          "id": "tube",
+          "when": {
+            "any": [
+              "rolle",
+              "lange",
+              "in der mitte"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Die Rolle ist für den Hausmeister. Ein Poster. Von sich selbst.",
+              "emoji": "🖼️",
+              "en": "The tube is for the caretaker. A poster. Of himself.",
+              "audio": "mc_berger_t4_tube"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "paket"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Welches denn? Es sind drei. Ich könnte dir auch alle geben. Dann hätten wir mehr zu besprechen.",
+              "en": "Which one? There are three. I could give you all of them. Then we’d have more to discuss.",
+              "audio": "mc_berger_t4_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Ganz kurz, ich muss das loswerden. Ich schicke dir eine Sprachnachricht. Das ist sicherer.",
+          "emoji": "🤫",
+          "en": "Just quickly, I have to get this off my chest. I’ll send you a voice message. It’s safer.",
+          "audio": "mc_berger_t5a"
+        },
+        {
+          "who": "berger",
+          "type": "voice",
+          "audio": "mc_berger_vn_kowalski",
+          "de": "Also. Frau Kowalski hat gesagt: Der neue Mieter gegenüber soll Zauberer sein. Er selbst will nur Buchhalter sein. Aber er hat ein Kaninchen. Und einen Zylinder. Ich sage ja nichts. Ich sage nur: ein Kaninchen. Und einen Zylinder.",
+          "en": "Right. Frau Kowalski said: the new tenant across the hall is supposed to be a magician. He himself claims to be just an accountant. But he has a rabbit. And a top hat. I’m not saying anything. I’m just saying: a rabbit. And a top hat.",
+          "direction": "Whispering conspiratorially with her hand round the phone in an echoing stairwell, a door clicking somewhere, slowing down meaningfully on the last two items."
+        },
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Und? Was ist er nun, der Neue?",
+          "en": "So? What is he, then, the new guy?",
+          "audio": "mc_berger_t5c"
+        }
+      ],
+      "tiles": [
+        "er",
+        "will",
+        "soll",
+        "dürfte",
+        "ist",
+        "nur",
+        "Buchhalter",
+        "Zauberer",
+        "sein",
+        "einfach",
+        "ein",
+        "einen",
+        "Kaninchen",
+        "mögen",
+        "Zylinder",
+        "wahrscheinlich"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "rabbit",
+          "when": {
+            "any": [
+              "mögen"
+            ]
+          },
+          "value": 2,
+          "fact": "🧠 glaubt nicht jedes Gerücht",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Er dürfte einfach Kaninchen mögen. … Wie langweilig. Und wie wahrscheinlich. Ich hasse dich ein bisschen.",
+              "emoji": "🐇",
+              "en": "He probably just likes rabbits. … How boring. And how likely. I hate you a little.",
+              "audio": "mc_berger_t5_rabbit"
+            }
+          ]
+        },
+        {
+          "id": "wrongClaim",
+          "when": {
+            "all": [
+              "will",
+              "zauberer"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Nein, nein. Zauberer soll er sein, sagt Frau Kowalski. Er selbst will Buchhalter sein. Hör doch zu, Kind.",
+              "emoji": "👂",
+              "en": "No, no. He’s supposed to be a magician, says Frau Kowalski. He himself claims to be an accountant. Do listen, dear.",
+              "audio": "mc_berger_t5_wrongclaim"
+            }
+          ]
+        },
+        {
+          "id": "claims",
+          "when": {
+            "any": [
+              "will"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Genau. Er BEHAUPTET das. Buchhalter. Mit Zylinder. Du hörst gut zu. Fast zu gut.",
+              "emoji": "👂",
+              "en": "Exactly. He CLAIMS that. An accountant. With a top hat. You listen well. Almost too well.",
+              "audio": "mc_berger_t5_claims"
+            }
+          ]
+        },
+        {
+          "id": "hearsay",
+          "when": {
+            "any": [
+              "soll"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Richtig. Laut Frau Kowalski. Und Frau Kowalski irrt sich nie. Fast nie. Einmal, 1993. Wir reden nicht darüber.",
+              "en": "Right. According to Frau Kowalski. And Frau Kowalski is never wrong. Almost never. Once, in 1993. We don’t talk about it.",
+              "audio": "mc_berger_t5_hearsay"
+            }
+          ]
+        },
+        {
+          "id": "magicFact",
+          "when": {
+            "all": [
+              "zauberer",
+              "ist"
+            ]
+          },
+          "value": -1,
+          "cause": "gossip",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Er IST Zauberer? Das schreibe ich so ins Treppenhaus-Protokoll. Quelle: du.",
+              "emoji": "🎩",
+              "en": "He IS a magician? I’ll write that into the stairwell minutes just like that. Source: you.",
+              "audio": "mc_berger_t5_magicfact"
+            }
+          ]
+        },
+        {
+          "id": "probablyAccountant",
+          "when": {
+            "all": [
+              "buchhalter"
+            ],
+            "any": [
+              "dürfte",
+              "wahrscheinlich"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Wahrscheinlich Buchhalter. Vorsichtig formuliert. Wie ein Buchhalter. Verdächtig.",
+              "emoji": "🧐",
+              "en": "Probably an accountant. Cautiously put. Like an accountant. Suspicious.",
+              "audio": "mc_berger_t5_probably"
+            }
+          ]
+        },
+        {
+          "id": "accountant",
+          "when": {
+            "any": [
+              "buchhalter"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Buchhalter. Das sagt er. Das sagen alle Zauberer. Und gestern hat er meine Brille aus meinem Ohr geholt.",
+              "en": "An accountant. That’s what he says. All magicians say that. And yesterday he pulled my glasses out of my ear.",
+              "audio": "mc_berger_t5_accountant"
+            }
+          ]
+        },
+        {
+          "id": "rabbitOnly",
+          "when": {
+            "any": [
+              "kaninchen",
+              "zylinder",
+              "zauberer"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Ja, ein Kaninchen und ein Zylinder. Aber was IST er? Das ist die Frage.",
+              "en": "Yes, a rabbit and a top hat. But what IS he? That is the question.",
+              "audio": "mc_berger_t5_rabbitonly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Gut. Ich gebe dir dein Paket. Gleich. Aber vorher erzählst du mir etwas über Frau Kowalski. Eine Hand wäscht die andere.",
+          "emoji": "🤝",
+          "en": "Fine. I’ll give you your parcel. In a moment. But first you tell me something about Frau Kowalski. One hand washes the other.",
+          "audio": "mc_berger_t6a"
+        }
+      ],
+      "tiles": [
+        "über",
+        "Frau Kowalski",
+        "weiß",
+        "ich",
+        "leider",
+        "nichts",
+        "soll",
+        "nett",
+        "sein",
+        "hat",
+        "einen",
+        "Freund",
+        "würde",
+        "lieber",
+        "das",
+        "Wetter",
+        "reden",
+        "bin",
+        "ahnungslos",
+        "ahnungsfrei"
+      ],
+      "wrong": {
+        "ahnungsfrei": {
+          "to": "ahnungslos",
+          "note": "'-los' means without: ahnungslos = clueless. 'ahnungsfrei' isn't a word."
+        }
+      },
+      "prepCase": {
+        "über": "acc"
+      },
+      "intents": [
+        {
+          "id": "gossip",
+          "when": {
+            "any": [
+              "freund"
+            ]
+          },
+          "value": -2,
+          "cause": "gossip",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Einen FREUND? Frau Kowalski? … Danke. Das weiß in zehn Minuten das ganze Haus. Und dass es von dir kommt.",
+              "emoji": "📣",
+              "en": "A BOYFRIEND? Frau Kowalski? … Thank you. The whole building will know in ten minutes. And that it came from you.",
+              "audio": "mc_berger_t6_gossip"
+            }
+          ]
+        },
+        {
+          "id": "weather",
+          "when": {
+            "any": [
+              "wetter"
+            ]
+          },
+          "value": 2,
+          "fact": "🌦️ redet lieber über das Wetter",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Über das Wetter. Der Klassiker. Feigling. Ich mag dich trotzdem.",
+              "emoji": "🌦️",
+              "en": "About the weather. The classic. Coward. I like you anyway.",
+              "audio": "mc_berger_t6_weather"
+            }
+          ]
+        },
+        {
+          "id": "clueless",
+          "when": {
+            "any": [
+              "ahnungslos",
+              "ahnungsfrei"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Ahnungslos. In diesem Haus? Das glaube ich dir nicht. Aber es ist elegant gelogen.",
+              "en": "Clueless. In this building? I don’t believe you. But it’s an elegant lie.",
+              "audio": "mc_berger_t6_clueless"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Nichts? Niemand weiß nichts. Aber gut. Ich akzeptiere dein Schweigen. Vorläufig.",
+              "en": "Nothing? Nobody knows nothing. But fine. I accept your silence. For now.",
+              "audio": "mc_berger_t6_nothing"
+            }
+          ]
+        },
+        {
+          "id": "nice",
+          "when": {
+            "any": [
+              "nett"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "„Nett soll sie sein“. Ja. So sagt man das, wenn man nichts Nettes sagen will.",
+              "emoji": "😏",
+              "en": "“She’s said to be nice”. Yes. That’s what people say when they have nothing nice to say.",
+              "audio": "mc_berger_t6_nice"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Na schön. Hier ist dein Paket. Schwer, klappernd, geheimnisvoll. Wie du. Und gerade eben ist das Kaninchen des Zauberers aus meiner Teekanne gesprungen. Ich habe keinen Tee mehr. Nur Fragen.",
+          "emoji": "🫖",
+          "en": "All right. Here’s your parcel. Heavy, rattling, mysterious. Like you. And just now the magician’s rabbit jumped out of my teapot. I have no tea left. Only questions.",
+          "audio": "mc_berger_t7a"
+        },
+        {
+          "who": "berger",
+          "type": "text",
+          "de": "Und? Was sagst du?",
+          "en": "Well? What do you say?",
+          "audio": "mc_berger_t7b"
+        }
+      ],
+      "tiles": [
+        "vielen Dank",
+        "du",
+        "bist",
+        "ein",
+        "eine",
+        "Schatz",
+        "und",
+        "kein",
+        "keine",
+        "Wort",
+        "zu",
+        "Frau Kowalski",
+        "ich",
+        "würde",
+        "gern",
+        "mehr",
+        "über",
+        "Herrn Lindemann",
+        "wissen",
+        "das",
+        "Kaninchen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "hooked",
+          "when": {
+            "any": [
+              "wissen",
+              "herrn lindemann"
+            ]
+          },
+          "value": -2,
+          "cause": "gossip",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Ha! Jetzt bist du eine von uns. Morgen, 15 Uhr, Treppenhaus. Bring Kekse mit. Das Kaninchen kommt auch.",
+              "emoji": "🍪",
+              "en": "Ha! Now you’re one of us. Tomorrow, 3 pm, stairwell. Bring biscuits. The rabbit is coming too.",
+              "audio": "mc_berger_t7_hooked"
+            }
+          ]
+        },
+        {
+          "id": "rabbit",
+          "when": {
+            "all": [
+              "wort",
+              "kaninchen"
+            ]
+          },
+          "value": 2,
+          "fact": "🔒 bekommt ein Versprechen",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Kein Wort über das Kaninchen. … Gut. Es sitzt übrigens immer noch in der Teekanne. Es will nicht weg. Ich glaube, wir sind jetzt zu zweit diskret.",
+              "emoji": "🐇",
+              "en": "Not a word about the rabbit. … Fine. It’s still sitting in the teapot, by the way. It won’t leave. I think there are two of us being discreet now.",
+              "audio": "mc_berger_t7_rabbit"
+            }
+          ]
+        },
+        {
+          "id": "noWord",
+          "when": {
+            "any": [
+              "wort"
+            ]
+          },
+          "value": 2,
+          "fact": "🔒 bekommt ein Versprechen",
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Kein Wort zu Frau Kowalski. Versprochen. … Ich halte das natürlich nicht. Aber ich verspreche es sehr ehrlich.",
+              "emoji": "🤞",
+              "en": "Not a word to Frau Kowalski. Promise. … Of course I won’t keep it. But I promise it very sincerely.",
+              "audio": "mc_berger_t7_noword"
+            }
+          ]
+        },
+        {
+          "id": "treasure",
+          "when": {
+            "any": [
+              "schatz"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Ein Schatz? Ich? Das sagt sonst nur der Postbote. Wenn ich seine Pakete annehme.",
+              "emoji": "🥰",
+              "en": "A treasure? Me? Only the postman says that. When I take his parcels.",
+              "audio": "mc_berger_t7_treasure"
+            }
+          ]
+        },
+        {
+          "id": "thanks",
+          "when": {
+            "any": [
+              "vielen dank"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "berger",
+              "type": "text",
+              "de": "Bitte, bitte. Dafür bin ich da. Und für alles andere auch.",
+              "en": "You’re welcome. That’s what I’m here for. And for everything else too.",
+              "audio": "mc_berger_t7_thanks"
+            }
+          ]
+        }
+      ],
+      "prepCase": {
+        "über": "acc"
+      }
+    }
+  ],
+  "offTopic": {
+    "who": "berger",
+    "type": "text",
+    "de": "Interessant. Aber das war nicht meine Frage. Ich merke es mir trotzdem.",
+    "en": "Interesting. But that wasn’t my question. I’ll remember it anyway.",
+    "audio": "mc_berger_offtopic"
+  },
+  "confused": [
+    {
+      "who": "berger",
+      "type": "text",
+      "de": "Wie bitte? Sprich deutlicher, Kind. Die Wände hören mit.",
+      "emoji": "🧏",
+      "en": "Pardon? Speak clearly, dear. The walls are listening.",
+      "audio": "mc_berger_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "berger",
+        "type": "text",
+        "de": "Hier, dein Paket, {name}. Ungeöffnet. Fast ungeschüttelt.",
+        "en": "Here’s your parcel, {name}. Unopened. Almost unshaken."
+      },
+      {
+        "who": "berger",
+        "type": "text",
+        "de": "Und weißt du was? Über dich gibt es im ganzen Haus kein einziges Gerücht. Das ist mir noch nie passiert. Ich bin beeindruckt.",
+        "emoji": "🫡",
+        "en": "And you know what? There isn’t a single rumour about you in the whole building. That has never happened to me before. I’m impressed.",
+        "audio": "mc_berger_winb"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "berger",
+        "type": "text",
+        "de": "Du hast dein Paket. Und das Haus hat ein neues Thema: dich. Nichts Schlimmes. Nur ein bisschen. Montag ist es vorbei. Vielleicht.",
+        "emoji": "🗣️",
+        "en": "You have your parcel. And the building has a new topic: you. Nothing bad. Just a little. It’ll be over by Monday. Maybe.",
+        "audio": "mc_berger_partial"
+      }
+    ],
+    "deleted": {
+      "gossip": {
+        "who": "berger",
+        "type": "text",
+        "de": "Danke für die Neuigkeiten! Dein Paket kannst du übrigens bei Frau Kowalski abholen. Sie weiß schon alles.",
+        "emoji": "🗑️",
+        "en": "Thanks for the news! You can pick up your parcel from Frau Kowalski, by the way. She already knows everything.",
+        "audio": "mc_berger_del_gossip"
+      },
+      "irony": {
+        "who": "berger",
+        "type": "text",
+        "de": "Du verstehst keine Ironie. Das ist in diesem Haus lebensgefährlich. Tschüss, Schätzchen.",
+        "en": "You don’t understand irony. In this building that’s life-threatening. Bye, sweetheart.",
+        "audio": "mc_berger_del_irony"
+      },
+      "confused": {
+        "who": "berger",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich verstehe sonst sogar den Hausmeister. Tschüss.",
+        "en": "I don’t understand you. And I normally even understand the caretaker. Bye.",
+        "audio": "mc_berger_del_confused"
+      },
+      "default": {
+        "who": "berger",
+        "type": "text",
+        "de": "Du bist nett. Aber langweilig. Und mit langweiligen Menschen rede ich nur über das Wetter. Tschüss.",
+        "en": "You’re nice. But boring. And with boring people I only talk about the weather. Bye.",
+        "audio": "mc_berger_del_default"
+      }
+    },
+    "sunday": {
+      "who": "berger",
+      "type": "voice",
+      "audio": "mc_berger_vn_sunday",
+      "de": "Sonntag! Ich habe schon wieder ein Paket für dich. Es ist klein. Und es riecht nach Schokolade. Ich habe es natürlich nicht geöffnet. Natürlich nicht. Das Kaninchen vielleicht.",
+      "en": "Sunday! I have another parcel for you. It’s small. And it smells of chocolate. Of course I didn’t open it. Of course not. The rabbit might have.",
+      "direction": "Cheerful and conspiratorial, a radio playing old Schlager softly behind her, chewing slightly on the last sentence."
+    }
+  },
+  "partialTitle": "Paket da. Gerücht auch.",
+  "share": {
+    "win": "Ich habe mein Paket von Frau Berger (68) bekommen 📦 und bin NICHT zum Hausgespräch geworden. Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Ich habe mein Paket von Frau Berger (68) … und das ganze Haus redet jetzt über mich 🗣️ Mein Deutsch: {score}/100. {url}",
+    "deleted": "Frau Berger (68) hat mich gelöscht. Mein Paket liegt jetzt bei Frau Kowalski 📦💔 Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Frau Berger, a 68-year-old neighbour: short and round, permed lilac-grey hair, cat-eye reading glasses on a beaded chain, a flowered house coat over a beige cardigan, fluffy slippers, and a knowing, slightly too sweet smile.",
+  "imagePrompts": [
+    {
+      "id": "match_berger",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands in the doorway of her ground-floor flat, half-open door, holding a big brown parcel against her chest with both arms, peering at the viewer over her glasses. Behind her a hallway stacked with many more parcels up to the ceiling. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_berger_parcels",
+      "aspect": "16:9",
+      "prompt": "Three parcels on a lace-covered table in front of a plain flowered wallpaper, seen exactly from the front, far apart and evenly spaced, nothing else on the table, no labels. LEFT: a SMALL bright RED box tied with a big golden bow. MIDDLE: a LONG, thin cardboard tube lying flat. RIGHT: a BIG BROWN cardboard box wrapped in lots of tape, clearly the largest. Three clearly different parcels: small red with bow, long tube, big brown box."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich würde das lieber für mich behalten.",
+      "score": 100,
+      "intent": "keep",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Das dürfte eine Überraschung sein.",
+      "score": 100,
+      "intent": "surprise",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das darf eine Überraschung sein.",
+      "score": 85,
+      "intent": "surprise",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Das müsste ein Buch sein.",
+      "score": 100,
+      "intent": "book",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das müsste eine Buch sein.",
+      "score": 85,
+      "intent": "book",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Das ist ein Handy.",
+      "score": 100,
+      "intent": "reveal",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Das geht dich nichts an.",
+      "score": 100,
+      "intent": "rude",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich lieber für mich.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Er soll im Lotto gewonnen haben.",
+      "score": 100,
+      "intent": "hearsay",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Er sollte im Lotto gewonnen haben.",
+      "score": 85,
+      "intent": "hearsay",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Er soll gewonnen im Lotto haben.",
+      "score": 70,
+      "intent": "hearsay",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Er hat im Lotto gewonnen.",
+      "score": 100,
+      "intent": "lottoFact",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Er könnte geerbt haben.",
+      "score": 100,
+      "intent": "inherit",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Er dürfte einen neuen Job haben.",
+      "score": 100,
+      "intent": "job",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Er hat eine Bank überfallen.",
+      "score": 100,
+      "intent": "robbery",
+      "delta": -2
+    },
+    {
+      "turn": "t2",
+      "say": "Das geht uns nichts an.",
+      "score": 100,
+      "intent": "mind",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Er könnte im Lotto gewonnen haben.",
+      "score": 100,
+      "intent": "lotto",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Das tut mir leid. Das war wohl etwas zu laut.",
+      "score": 100,
+      "intent": "sorry",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Das war wohl etwas zu laut.",
+      "score": 100,
+      "intent": "tooLoud",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Das muss mein Nachbar gewesen sein.",
+      "score": 100,
+      "intent": "neighbour",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Das muss gewesen mein Nachbar sein.",
+      "score": 70,
+      "intent": "neighbour",
+      "delta": 0
+    },
+    {
+      "turn": "t3",
+      "say": "Danke! Das freut mich.",
+      "score": 100,
+      "intent": "missed",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Das kann nicht sein.",
+      "score": 100,
+      "intent": "denial",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Es dürfte das große braune Paket rechts sein.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Das große braune Paket.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Das großen braune Paket.",
+      "score": 85,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Das kleine rote Paket mit der Schleife.",
+      "score": 100,
+      "intent": "pink",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Es müsste die lange Rolle in der Mitte sein.",
+      "score": 100,
+      "intent": "tube",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Es müsste das Paket sein.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Er dürfte einfach ein Kaninchen mögen.",
+      "score": 100,
+      "intent": "rabbit",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Er dürfte einfach einen Kaninchen mögen.",
+      "score": 85,
+      "intent": "rabbit",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er will nur Buchhalter sein.",
+      "score": 100,
+      "intent": "claims",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Er will sein nur Buchhalter.",
+      "score": 70,
+      "intent": "claims",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er soll Zauberer sein.",
+      "score": 100,
+      "intent": "hearsay",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er ist Zauberer.",
+      "score": 100,
+      "intent": "magicFact",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Er ist wahrscheinlich Buchhalter.",
+      "score": 100,
+      "intent": "probablyAccountant",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er dürfte Buchhalter sein.",
+      "score": 100,
+      "intent": "probablyAccountant",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er ist Buchhalter.",
+      "score": 100,
+      "intent": "accountant",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Er dürfte einfach Kaninchen mögen.",
+      "score": 100,
+      "intent": "rabbit",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Er will Zauberer sein.",
+      "score": 100,
+      "intent": "wrongClaim",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Er hat geerbt.",
+      "score": 100,
+      "intent": "inheritFact",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Das war nicht zu laut.",
+      "score": 100,
+      "intent": "notLoud",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Er einen Zylinder.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde lieber über das Wetter reden.",
+      "score": 100,
+      "intent": "weather",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde lieber reden über das Wetter.",
+      "score": 70,
+      "intent": "weather",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Über Frau Kowalski weiß ich leider nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bin leider ahnungslos.",
+      "score": 100,
+      "intent": "clueless",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bin leider ahnungsfrei.",
+      "score": 85,
+      "intent": "clueless",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Frau Kowalski soll nett sein.",
+      "score": 100,
+      "intent": "nice",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Frau Kowalski hat einen Freund.",
+      "score": 100,
+      "intent": "gossip",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Vielen Dank! Und kein Wort zu Frau Kowalski.",
+      "score": 100,
+      "intent": "noWord",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Vielen Dank! Und keine Wort zu Frau Kowalski.",
+      "score": 85,
+      "intent": "noWord",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist ein Schatz.",
+      "score": 100,
+      "intent": "treasure",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist eine Schatz.",
+      "score": 85,
+      "intent": "treasure",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Vielen Dank!",
+      "score": 100,
+      "intent": "thanks",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde gern mehr über Herrn Lindemann wissen.",
+      "score": 100,
+      "intent": "hooked",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Das dürfte ein Krokodil sein.",
+      "score": 100,
+      "intent": "croc",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das darf ein Krokodil sein.",
+      "intent": "croc",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Vielen Dank! Und kein Wort über das Kaninchen.",
+      "score": 100,
+      "intent": "rabbit",
+      "delta": 3
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich würde das lieber für mich behalten."
+        ],
+        [
+          "t2",
+          "Das geht uns nichts an."
+        ],
+        [
+          "t3",
+          "Das tut mir leid. Das war wohl etwas zu laut."
+        ],
+        [
+          "t4",
+          "Das große braune Paket."
+        ],
+        [
+          "t5",
+          "Er will nur Buchhalter sein."
+        ],
+        [
+          "t6",
+          "Ich würde lieber über das Wetter reden."
+        ],
+        [
+          "t7",
+          "Vielen Dank! Und kein Wort zu Frau Kowalski."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Das ist ein Handy."
+        ],
+        [
+          "t2",
+          "Er dürfte einen neuen Job haben."
+        ],
+        [
+          "t3",
+          "Das kann nicht sein."
+        ],
+        [
+          "t4",
+          "Das kleine rote Paket mit der Schleife."
+        ],
+        [
+          "t5",
+          "Er ist Buchhalter."
+        ],
+        [
+          "t6",
+          "Frau Kowalski soll nett sein."
+        ],
+        [
+          "t7",
+          "Du bist eine Schatz."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Das ist ein Handy."
+        ],
+        [
+          "t2",
+          "Er hat im Lotto gewonnen."
+        ],
+        [
+          "t3",
+          "Danke! Das freut mich."
+        ],
+        [
+          "t4",
+          "Das kleine rote Paket mit der Schleife."
+        ]
+      ]
+    }
+  ]
+}

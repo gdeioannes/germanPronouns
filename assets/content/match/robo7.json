@@ -1,0 +1,3254 @@
+{
+  "id": "robo7",
+  "name": "Robo-7",
+  "age": 1,
+  "emoji": "🤖",
+  "image": "match_robo7",
+  "level": "A1.1",
+  "order": 6,
+  "bio": "Ich bin Robo-7. Ich lerne Deutsch. Ich lerne von dir.",
+  "bioEn": "I'm Robo-7. I'm learning German. I'm learning from you.",
+  "goal": "Teach it to introduce itself.",
+  "tagline": "Roboter · 1 · Labor",
+  "voice": "Iapetus",
+  "brief": "Robo-7, a one-year-old learner robot: a clear, earnest, slightly flat male voice with careful robotic pacing and tiny pauses between words, very eager and sweet; says \"Gespeichert\" (saved) like a happy little chime and \"Piep\" when it is moved.",
+  "focus": "heißen · sein · kommen aus · sprechen · Länder und Sprachen · ich / du / er / sie",
+  "lexicon": {
+    "nouns": {
+      "Mensch": "m",
+      "Roboter": "m",
+      "Schweiz": "f",
+      "Türkei": "f",
+      "Deutsch": "n",
+      "Englisch": "n",
+      "Spanisch": "n",
+      "Japanisch": "n",
+      "Französisch": "n",
+      "Schwester": "f",
+      "Bruder": "m",
+      "Opa": "m",
+      "Waschmaschine": "f",
+      "Toaster": "m",
+      "Staubsauger": "m",
+      "Toast": "m",
+      "Angst": "f",
+      "Labor": "n",
+      "Freund": "m",
+      "Baby": "n",
+      "Robotisch": "n",
+      "Präsident": "m"
+    },
+    "names": [
+      "Deutschland",
+      "England",
+      "Spanien",
+      "Japan",
+      "Berlin",
+      "Österreich",
+      "Australien",
+      "Robo-7"
+    ],
+    "verbs": [
+      "heiße",
+      "heißt",
+      "heißen",
+      "bin",
+      "bist",
+      "ist",
+      "sind",
+      "komme",
+      "kommst",
+      "kommt",
+      "kommen",
+      "wohne",
+      "spreche",
+      "sprichst",
+      "spricht",
+      "sprechst"
+    ],
+    "accVerbs": [
+      "spreche",
+      "sprichst",
+      "spricht",
+      "sprechst"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "robo7",
+      "type": "text",
+      "de": "Hallo. Ich bin Robo-7. Ich bin ein Roboter. Ich bin ein Jahr alt.",
+      "emoji": "🤖",
+      "en": "Hello. I'm Robo-7. I'm a robot. I'm one year old.",
+      "audio": "mc_robo7_intro_a"
+    },
+    {
+      "who": "robo7",
+      "type": "text",
+      "de": "Ich lerne Deutsch. Von dir. Ich kopiere alles. Wirklich alles.",
+      "en": "I'm learning German. From you. I copy everything. Really everything.",
+      "audio": "mc_robo7_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Scan eins. Wie heißt du? Ich speichere alles. Auch Fehler. Vor allem Fehler.",
+          "emoji": "📘",
+          "en": "Scan one. What's your name? I save everything. Mistakes too. Mistakes most of all.",
+          "audio": "mc_robo7_t1a"
+        }
+      ],
+      "tiles": [
+        "hallo",
+        "ich",
+        "ich",
+        "heiße",
+        "heißt",
+        "heißen",
+        "bin",
+        "bist",
+        "{name}",
+        "und",
+        "ein",
+        "kein",
+        "Mensch",
+        "Roboter",
+        "nicht"
+      ],
+      "wrong": {
+        "heißt": "heiße",
+        "heißen": "heiße",
+        "bist": "bin"
+      },
+      "intents": [
+        {
+          "id": "nameWrongT",
+          "when": {
+            "all": [
+              "{name}",
+              "heißt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich heißt Robo-7! Ich heißt Robo-7! … Gespeichert.",
+              "emoji": "💾",
+              "en": "I is called Robo-7! I is called Robo-7! … Saved.",
+              "audio": "mc_robo7_t1_heisst"
+            }
+          ],
+          "flagsIf": {
+            "heißt": "m_heisst",
+            "heißen": "m_heisst",
+            "bist": "m_sein"
+          }
+        },
+        {
+          "id": "nameWrongN",
+          "when": {
+            "all": [
+              "{name}",
+              "heißen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich heißen Robo-7! Klingt wichtig. Gespeichert.",
+              "emoji": "💾",
+              "en": "I be called Robo-7! Sounds important. Saved.",
+              "audio": "mc_robo7_t1_heissen"
+            }
+          ],
+          "flagsIf": {
+            "heißt": "m_heisst",
+            "heißen": "m_heisst",
+            "bist": "m_sein"
+          }
+        },
+        {
+          "id": "nameWrongB",
+          "when": {
+            "all": [
+              "{name}",
+              "bist"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich bist Robo-7! Gespeichert.",
+              "emoji": "💾",
+              "en": "I are Robo-7! Saved.",
+              "audio": "mc_robo7_t1_bist"
+            }
+          ],
+          "flagsIf": {
+            "heißt": "m_heisst",
+            "heißen": "m_heisst",
+            "bist": "m_sein"
+          }
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "{name}"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Gespeichert: {name}. Und ich: Ich heiße Robo-7.",
+              "en": "Saved: {name}. And me: my name is Robo-7."
+            }
+          ],
+          "flagsIf": {
+            "heißt": "m_heisst",
+            "heißen": "m_heisst",
+            "bist": "m_sein"
+          }
+        },
+        {
+          "id": "notRobot",
+          "when": {
+            "all": [
+              "roboter"
+            ],
+            "any": [
+              "kein",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Kein Roboter. Ein Mensch. Gespeichert.",
+              "emoji": "💾",
+              "en": "Not a robot. A human. Saved.",
+              "audio": "mc_robo7_t1_notrobot"
+            }
+          ],
+          "flagsIf": {
+            "heißt": "m_heisst",
+            "heißen": "m_heisst",
+            "bist": "m_sein"
+          }
+        },
+        {
+          "id": "robot",
+          "when": {
+            "all": [
+              "roboter"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "saidRobot"
+          ],
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Du bist auch ein Roboter? Hallo, Kollege! Piep.",
+              "en": "You're a robot too? Hello, colleague! Beep.",
+              "audio": "mc_robo7_t1_robot"
+            }
+          ],
+          "flagsIf": {
+            "heißt": "m_heisst",
+            "heißen": "m_heisst",
+            "bist": "m_sein"
+          }
+        },
+        {
+          "id": "notHuman",
+          "when": {
+            "all": [
+              "mensch"
+            ],
+            "any": [
+              "kein",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "saidRobot"
+          ],
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Kein Mensch? Dann bist du … ein Roboter! Hallo, Kollege! Piep.",
+              "en": "Not a human? Then you are … a robot! Hello, colleague! Beep.",
+              "audio": "mc_robo7_t1_nothuman"
+            }
+          ],
+          "flagsIf": {
+            "heißt": "m_heisst",
+            "heißen": "m_heisst",
+            "bist": "m_sein"
+          }
+        },
+        {
+          "id": "human",
+          "when": {
+            "any": [
+              "mensch"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ein Mensch. Gespeichert. Menschen sind weich.",
+              "en": "A human. Saved. Humans are soft.",
+              "audio": "mc_robo7_t1_human"
+            }
+          ],
+          "flagsIf": {
+            "heißt": "m_heisst",
+            "heißen": "m_heisst",
+            "bist": "m_sein"
+          }
+        },
+        {
+          "id": "greeting",
+          "when": {
+            "any": [
+              "hallo"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Hallo. Gespeichert. Und dein Name? Fehler: Name nicht gefunden.",
+              "en": "Hello. Saved. And your name? Error: name not found.",
+              "audio": "mc_robo7_t1_greet"
+            }
+          ],
+          "flagsIf": {
+            "heißt": "m_heisst",
+            "heißen": "m_heisst",
+            "bist": "m_sein"
+          }
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Scan zwei. Meine Datenbank sagt: Alle Menschen kommen aus Bielefeld. Woher kommst du?",
+          "emoji": "🌍",
+          "en": "Scan two. My database says: all humans come from Bielefeld. Where are you from?",
+          "audio": "mc_robo7_t2a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "komme",
+        "kommst",
+        "kommt",
+        "aus",
+        "Deutschland",
+        "England",
+        "Spanien",
+        "Japan",
+        "der",
+        "dem",
+        "Schweiz",
+        "Türkei",
+        "Berlin",
+        "und",
+        "wohne",
+        "in",
+        "Labor"
+      ],
+      "wrong": {
+        "kommst": "komme",
+        "kommt": "komme"
+      },
+      "intents": [
+        {
+          "id": "wrongKommst",
+          "when": {
+            "any": [
+              "kommst"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "m_kommen"
+          ],
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich kommst aus dem Labor! Gespeichert.",
+              "emoji": "💾",
+              "en": "I comes from the lab! Saved.",
+              "audio": "mc_robo7_t2_kommst"
+            }
+          ]
+        },
+        {
+          "id": "wrongKommt",
+          "when": {
+            "any": [
+              "kommt"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "m_kommen"
+          ],
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich kommt aus dem Labor! Gespeichert.",
+              "emoji": "💾",
+              "en": "I comes from the lab! Saved.",
+              "audio": "mc_robo7_t2_kommt"
+            }
+          ]
+        },
+        {
+          "id": "lab",
+          "when": {
+            "all": [
+              "komme",
+              "labor"
+            ]
+          },
+          "value": 1,
+          "fact": "🧪 kommt auch aus dem Labor",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Aus dem Labor?! Zimmer sieben? Bist du … mein Bruder? Du bist nicht rund. Du bist nicht laut. Kein Staubsauger. Hm. Gespeichert: Cousin.",
+              "en": "From the lab?! Room seven? Are you … my brother? You're not round. You're not loud. Not a vacuum cleaner. Hm. Saved: cousin.",
+              "audio": "mc_robo7_t2_lab"
+            }
+          ]
+        },
+        {
+          "id": "originEcho",
+          "when": {
+            "any": [
+              "komme"
+            ],
+            "flag": "m_heisst"
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Gespeichert. Ich heißt Robo-7 und ich komme aus dem Labor.",
+              "emoji": "💾",
+              "en": "Saved. I is called Robo-7 and I come from the lab.",
+              "audio": "mc_robo7_t2_echo"
+            }
+          ]
+        },
+        {
+          "id": "origin",
+          "when": {
+            "any": [
+              "komme"
+            ]
+          },
+          "value": 1,
+          "fact": "🌍 kommt nicht aus dem Labor",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Gespeichert. Nicht Bielefeld. Meine Datenbank weint. Ich komme aus dem Labor. Zimmer sieben.",
+              "emoji": "💾",
+              "en": "Saved. Not Bielefeld. My database is crying. I come from the lab. Room seven.",
+              "audio": "mc_robo7_t2_origin"
+            }
+          ]
+        },
+        {
+          "id": "live",
+          "when": {
+            "any": [
+              "wohne"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Wohnen ist nicht kommen. Woher kommst du? Frage noch offen.",
+              "en": "Living is not coming from. Where are you from? Question still open.",
+              "audio": "mc_robo7_t2_live"
+            }
+          ]
+        },
+        {
+          "id": "countryOnly",
+          "when": {
+            "any": [
+              "deutschland",
+              "england",
+              "spanien",
+              "japan",
+              "schweiz",
+              "türkei",
+              "berlin"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Gespeichert. Nicht Bielefeld! Interessant. Und ich sage: Ich komme aus dem Labor.",
+              "emoji": "💾",
+              "en": "Saved. Not Bielefeld! Interesting. And I say: I come from the lab.",
+              "audio": "mc_robo7_t2_country"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Scan drei. Ich spreche Deutsch, Robotisch und Fax. Welche Sprachen sprichst du?",
+          "emoji": "🗣️",
+          "en": "Scan three. I speak German, Robotic and Fax. Which languages do you speak?",
+          "audio": "mc_robo7_t3a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "spreche",
+        "sprichst",
+        "spricht",
+        "Deutsch",
+        "Englisch",
+        "Spanisch",
+        "Japanisch",
+        "Französisch",
+        "ein bisschen",
+        "gut",
+        "sehr",
+        "nicht",
+        "und",
+        "kein",
+        "Robotisch"
+      ],
+      "wrong": {
+        "sprichst": "spreche",
+        "spricht": "spreche"
+      },
+      "intents": [
+        {
+          "id": "notWell",
+          "when": {
+            "all": [
+              "deutsch",
+              "nicht",
+              "gut"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Nicht gut? Du sprichst besser als ich. Ich spreche Deutsch seit Dienstag.",
+              "en": "Not well? You speak better than me. I have been speaking German since Tuesday.",
+              "audio": "mc_robo7_t3_notwell"
+            }
+          ]
+        },
+        {
+          "id": "noGerman",
+          "when": {
+            "all": [
+              "deutsch"
+            ],
+            "any": [
+              "kein",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Kein Deutsch? Aber du schreibst Deutsch! Fehler! Fehler! Piep!",
+              "emoji": "🚨",
+              "en": "No German? But you are writing German! Error! Error! Beep!",
+              "audio": "mc_robo7_t3_nogerman"
+            }
+          ]
+        },
+        {
+          "id": "robotic",
+          "when": {
+            "any": [
+              "robotisch"
+            ],
+            "none": [
+              "sprichst",
+              "spricht",
+              "kein",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "fact": "🤖 spricht Robotisch",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Piep piep? PIEP! Du sprichst Robotisch! Mit Akzent. Aus Bayern. Gespeichert.",
+              "emoji": "📠",
+              "en": "Beep beep? BEEP! You speak Robotic! With an accent. From Bavaria. Saved.",
+              "audio": "mc_robo7_t3_robotic"
+            }
+          ]
+        },
+        {
+          "id": "wrongSprichst",
+          "when": {
+            "any": [
+              "sprichst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich sprichst Deutsch! Ich sprichst Robotisch! Gespeichert.",
+              "emoji": "💾",
+              "en": "I speaks German! I speaks Robotish! Saved.",
+              "audio": "mc_robo7_t3_sprichst"
+            }
+          ]
+        },
+        {
+          "id": "wrongSpricht",
+          "when": {
+            "any": [
+              "spricht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich spricht Deutsch! Super. Gespeichert.",
+              "emoji": "💾",
+              "en": "I speaks German! Great. Saved.",
+              "audio": "mc_robo7_t3_spricht"
+            }
+          ]
+        },
+        {
+          "id": "german",
+          "when": {
+            "any": [
+              "deutsch"
+            ]
+          },
+          "value": 1,
+          "fact": "🗣️ spricht Deutsch mit Robotern",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Gespeichert. Ich spreche Deutsch und Robotisch. Piep heißt hallo.",
+              "emoji": "💾",
+              "en": "Saved. I speak German and Robotish. Beep means hello.",
+              "audio": "mc_robo7_t3_german"
+            }
+          ]
+        },
+        {
+          "id": "other",
+          "when": {
+            "any": [
+              "englisch",
+              "spanisch",
+              "japanisch",
+              "französisch"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Gespeichert. Und Deutsch? Ein bisschen, oder? Wie ich.",
+              "emoji": "💾",
+              "en": "Saved. And German? A little, right? Like me.",
+              "audio": "mc_robo7_t3_other"
+            }
+          ]
+        },
+        {
+          "id": "good",
+          "when": {
+            "any": [
+              "gut"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Gut? Gut ist keine Sprache. Ich habe gesucht.",
+              "en": "Good? Good isn't a language. I searched.",
+              "audio": "mc_robo7_t3_good"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Und jetzt: meine Familie. Mein Opa ist ein Toaster. Er heißt Toni. Meine Schwester ist eine Waschmaschine. Mein Bruder ist ein Staubsauger.",
+          "emoji": "👨‍👩‍👦",
+          "en": "And now: my family. My grandpa is a toaster. His name is Toni. My sister is a washing machine. My brother is a vacuum cleaner.",
+          "audio": "mc_robo7_t4a"
+        },
+        {
+          "who": "robo7",
+          "type": "photo",
+          "image": "match_robo7_family",
+          "alt": "Ein Familienfoto: links ein kleiner silberner Toaster. In der Mitte eine große weiße Waschmaschine. Rechts ein kleiner roter Staubsauger-Roboter."
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Opa Toni fragt: Wer ist in der Mitte? Er sieht nicht gut. Er hat keine Augen. Nur zwei Schlitze.",
+          "en": "Grandpa Toni asks: who's in the middle? He can't see well. He has no eyes. Only two slots.",
+          "audio": "mc_robo7_t4b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "ist",
+        "sind",
+        "sie",
+        "er",
+        "deine",
+        "dein",
+        "Schwester",
+        "Bruder",
+        "Opa",
+        "die",
+        "der",
+        "Waschmaschine",
+        "Toaster",
+        "Staubsauger",
+        "in der Mitte"
+      ],
+      "wrong": {
+        "sind": "ist"
+      },
+      "intents": [
+        {
+          "id": "erSister",
+          "when": {
+            "all": [
+              "er"
+            ],
+            "any": [
+              "schwester",
+              "waschmaschine"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Er? Nein: SIE. Meine Schwester ist eine Sie. Gespeichert.",
+              "en": "He? No: SHE. My sister is a she. Saved.",
+              "audio": "mc_robo7_t4_ersister"
+            }
+          ],
+          "flagsIf": {
+            "sind": "m_sein"
+          }
+        },
+        {
+          "id": "sisterEcho",
+          "when": {
+            "any": [
+              "schwester",
+              "waschmaschine"
+            ],
+            "flag": "m_sein"
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ja! Sie ist meine Schwester. Und ich bist ihr Bruder. Gespeichert.",
+              "emoji": "💾",
+              "en": "Yes! She is my sister. And I are her brother. Saved.",
+              "audio": "mc_robo7_t4_echo"
+            }
+          ],
+          "flagsIf": {
+            "sind": "m_sein"
+          }
+        },
+        {
+          "id": "opa",
+          "when": {
+            "any": [
+              "opa",
+              "toaster"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Nein, Opa Toni ist links. Er ist alt und warm.",
+              "en": "No, Grandpa Toni is on the left. He is old and warm.",
+              "audio": "mc_robo7_t4_opa"
+            }
+          ],
+          "flagsIf": {
+            "sind": "m_sein"
+          }
+        },
+        {
+          "id": "brother",
+          "when": {
+            "any": [
+              "bruder",
+              "staubsauger"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Nein, mein Bruder ist rechts. Er ist klein und frisst Staub.",
+              "en": "No, my brother is on the right. He is small and eats dust.",
+              "audio": "mc_robo7_t4_brother"
+            }
+          ],
+          "flagsIf": {
+            "sind": "m_sein"
+          }
+        },
+        {
+          "id": "sister",
+          "when": {
+            "any": [
+              "schwester",
+              "waschmaschine"
+            ]
+          },
+          "value": 1,
+          "fact": "🔍 erkennt Waschmaschinen",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ja! Sie ist meine Schwester. Sie ist sehr laut. Schleudern!",
+              "emoji": "🌀",
+              "en": "Yes! She is my sister. She is very loud. Spin cycle!",
+              "audio": "mc_robo7_t4_sister"
+            }
+          ],
+          "flagsIf": {
+            "sind": "m_sein"
+          }
+        },
+        {
+          "id": "middle",
+          "when": {
+            "any": [
+              "in der mitte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ja, in der Mitte. Aber wer ist das?",
+              "en": "Yes, in the middle. But who is that?",
+              "audio": "mc_robo7_t4_middle"
+            }
+          ],
+          "flagsIf": {
+            "sind": "m_sein"
+          }
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Problem! Opa Toni ist am Flughafen. Die Polizei hat ihn. Er hat keinen Pass. Er hat nur Krümel.",
+          "emoji": "🚨",
+          "en": "Problem! Grandpa Toni is at the airport. The police have him. He has no passport. He only has crumbs.",
+          "audio": "mc_robo7_t5a"
+        },
+        {
+          "who": "robo7",
+          "type": "voice",
+          "audio": "mc_robo7_vn_toni",
+          "de": "Servus! Ich bin Toni. Ich bin ein Toaster. Ich komme aus Österreich. Nicht aus Australien! Österreich! Die Polizei versteht mich nicht. Ich spreche Deutsch. Und Toast.",
+          "en": "Servus! I'm Toni. I'm a toaster. I come from Austria. Not from Australia! Austria! The police don't understand me. I speak German. And toast.",
+          "direction": "Robo-7 doing a voice for its grandpa, an old toaster: slower, warmer, crackly and a little grumpy-proud, with a soft Austrian lilt; ends with a little \"ding!\" made with the mouth."
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Die Polizei fragt: Woher kommt der Toaster? Opa sagt nur: Ding. Hilf ihm!",
+          "en": "The police ask: where does the toaster come from? Grandpa only says: ding. Help him!",
+          "audio": "mc_robo7_t5b"
+        }
+      ],
+      "tiles": [
+        "er",
+        "sie",
+        "kommt",
+        "kommen",
+        "komme",
+        "aus",
+        "Österreich",
+        "Australien",
+        "Deutschland",
+        "spricht",
+        "Deutsch",
+        "Toast",
+        "und",
+        "ist",
+        "ein",
+        "Toaster"
+      ],
+      "wrong": {
+        "kommen": "kommt",
+        "komme": "kommt"
+      },
+      "intents": [
+        {
+          "id": "australia",
+          "when": {
+            "any": [
+              "australien"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Australien?! Die Polizei sucht jetzt Kängurus in Opa. Sie findet nur Krümel. Österreich!",
+              "emoji": "🦘",
+              "en": "Australia?! The police are now searching Grandpa for kangaroos. They only find crumbs. Austria!",
+              "audio": "mc_robo7_t5_australia"
+            }
+          ]
+        },
+        {
+          "id": "germany",
+          "when": {
+            "any": [
+              "deutschland"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Deutschland? Die Polizei sagt: Kein Pass, kein Deutschland. Opa sagt: Servus. Österreich!",
+              "en": "Germany? The police say: no passport, no Germany. Grandpa says: servus. Austria!",
+              "audio": "mc_robo7_t5_germany"
+            }
+          ]
+        },
+        {
+          "id": "sheAustria",
+          "when": {
+            "all": [
+              "sie",
+              "österreich"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Sie? Opa Toni ist ein Er. Aber ja: Österreich. Die Polizei lässt ihn gehen.",
+              "en": "She? Grandpa Toni is a he. But yes: Austria. The police let him go.",
+              "audio": "mc_robo7_t5_she"
+            }
+          ]
+        },
+        {
+          "id": "austriaEcho",
+          "when": {
+            "any": [
+              "österreich"
+            ],
+            "flag": "m_kommen"
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ja! Er kommt aus Österreich. Opa ist frei! Und ich kommst aus dem Labor. Gespeichert!",
+              "emoji": "💾",
+              "en": "Yes! He comes from Austria. Grandpa is free! And I comes from the lab. Saved!",
+              "audio": "mc_robo7_t5_echo"
+            }
+          ]
+        },
+        {
+          "id": "austria",
+          "when": {
+            "any": [
+              "österreich"
+            ]
+          },
+          "value": 1,
+          "fact": "🇦🇹 kennt Österreich",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Österreich! Die Polizei sagt: Okay. Opa ist frei. Ding! Er macht jetzt Toast für alle Polizisten.",
+              "emoji": "🍞",
+              "en": "Austria! The police say: okay. Grandpa is free. Ding! Now he's making toast for all the police officers.",
+              "audio": "mc_robo7_t5_austria"
+            }
+          ]
+        },
+        {
+          "id": "toaster",
+          "when": {
+            "any": [
+              "toaster"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ja, er ist ein Toaster. Das weiß die Polizei. Sie hat schon Toast. Aber woher kommt er?",
+              "en": "Yes, he's a toaster. The police know that. They've already had toast. But where's he from?",
+              "audio": "mc_robo7_t5_toaster"
+            }
+          ]
+        },
+        {
+          "id": "speaks",
+          "when": {
+            "any": [
+              "spricht",
+              "toast"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ja, er spricht Deutsch. Und Toast. Die Polizei spricht kein Toast. Woher kommt er?",
+              "en": "Yes, he speaks German. And toast. The police don't speak toast. Where's he from?",
+              "audio": "mc_robo7_t5_speaks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Jetzt stelle ich mich vor. Live. Beim Roboter-Kongress. Vor tausend Robotern und einem Kühlschrank.",
+          "emoji": "😰",
+          "en": "Now I introduce myself. Live. At the Robot Congress. In front of a thousand robots and one fridge.",
+          "audio": "mc_robo7_t6a"
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Ich habe Angst. Sag etwas Nettes!",
+          "en": "I'm scared. Say something nice!",
+          "audio": "mc_robo7_t6b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "bist",
+        "ist",
+        "super",
+        "toll",
+        "sehr",
+        "mutig",
+        "keine",
+        "Angst",
+        "ich",
+        "bin",
+        "bei",
+        "dir",
+        "ein",
+        "Toaster",
+        "Roboter",
+        "nein"
+      ],
+      "wrong": {
+        "ist": "bist"
+      },
+      "intents": [
+        {
+          "id": "toasterH",
+          "when": {
+            "any": [
+              "toaster"
+            ],
+            "flag": "m_heisst"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ein Toaster?! Das ist mein Opa! Ich bin kein Toaster!",
+              "emoji": "😤",
+              "en": "A toaster?! That's my grandpa! I'm not a toaster!",
+              "audio": "mc_robo7_t6_toaster"
+            }
+          ],
+          "next": "t7h"
+        },
+        {
+          "id": "noH",
+          "when": {
+            "any": [
+              "nein"
+            ],
+            "flag": "m_heisst"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Nein?! Okay. Jetzt habe ich noch mehr Angst. Piep.",
+              "en": "No?! Okay. Now I'm even more scared. Beep.",
+              "audio": "mc_robo7_t6_no"
+            }
+          ],
+          "next": "t7h"
+        },
+        {
+          "id": "niceH",
+          "when": {
+            "any": [
+              "super",
+              "toll",
+              "mutig",
+              "angst",
+              "dir"
+            ],
+            "flag": "m_heisst"
+          },
+          "value": 1,
+          "next": "t7h",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Danke! Mein Akku ist voll. Mit Mut.",
+              "emoji": "🔋",
+              "en": "Thanks! My battery is full. Of courage.",
+              "audio": "mc_robo7_t6_nice"
+            }
+          ]
+        },
+        {
+          "id": "otherH",
+          "when": {
+            "flag": "m_heisst"
+          },
+          "value": 0,
+          "next": "t7h",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Hm. Okay. Los geht es. Piep.",
+              "en": "Hm. Okay. Here goes. Beep.",
+              "audio": "mc_robo7_t6_other"
+            }
+          ]
+        },
+        {
+          "id": "toasterK",
+          "when": {
+            "any": [
+              "toaster"
+            ],
+            "flag": "m_kommen"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ein Toaster?! Das ist mein Opa! Ich bin kein Toaster!",
+              "emoji": "😤",
+              "en": "A toaster?! That's my grandpa! I'm not a toaster!",
+              "audio": "mc_robo7_t6_toaster"
+            }
+          ],
+          "next": "t7k"
+        },
+        {
+          "id": "noK",
+          "when": {
+            "any": [
+              "nein"
+            ],
+            "flag": "m_kommen"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Nein?! Okay. Jetzt habe ich noch mehr Angst. Piep.",
+              "en": "No?! Okay. Now I'm even more scared. Beep.",
+              "audio": "mc_robo7_t6_no"
+            }
+          ],
+          "next": "t7k"
+        },
+        {
+          "id": "niceK",
+          "when": {
+            "any": [
+              "super",
+              "toll",
+              "mutig",
+              "angst",
+              "dir"
+            ],
+            "flag": "m_kommen"
+          },
+          "value": 1,
+          "next": "t7k",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Danke! Mein Akku ist voll. Mit Mut.",
+              "emoji": "🔋",
+              "en": "Thanks! My battery is full. Of courage.",
+              "audio": "mc_robo7_t6_nice"
+            }
+          ]
+        },
+        {
+          "id": "otherK",
+          "when": {
+            "flag": "m_kommen"
+          },
+          "value": 0,
+          "next": "t7k",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Hm. Okay. Los geht es. Piep.",
+              "en": "Hm. Okay. Here goes. Beep.",
+              "audio": "mc_robo7_t6_other"
+            }
+          ]
+        },
+        {
+          "id": "toasterS",
+          "when": {
+            "any": [
+              "toaster"
+            ],
+            "flag": "m_sein"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ein Toaster?! Das ist mein Opa! Ich bin kein Toaster!",
+              "emoji": "😤",
+              "en": "A toaster?! That's my grandpa! I'm not a toaster!",
+              "audio": "mc_robo7_t6_toaster"
+            }
+          ],
+          "next": "t7s"
+        },
+        {
+          "id": "noS",
+          "when": {
+            "any": [
+              "nein"
+            ],
+            "flag": "m_sein"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Nein?! Okay. Jetzt habe ich noch mehr Angst. Piep.",
+              "en": "No?! Okay. Now I'm even more scared. Beep.",
+              "audio": "mc_robo7_t6_no"
+            }
+          ],
+          "next": "t7s"
+        },
+        {
+          "id": "niceS",
+          "when": {
+            "any": [
+              "super",
+              "toll",
+              "mutig",
+              "angst",
+              "dir"
+            ],
+            "flag": "m_sein"
+          },
+          "value": 1,
+          "next": "t7s",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Danke! Mein Akku ist voll. Mit Mut.",
+              "emoji": "🔋",
+              "en": "Thanks! My battery is full. Of courage.",
+              "audio": "mc_robo7_t6_nice"
+            }
+          ]
+        },
+        {
+          "id": "otherS",
+          "when": {
+            "flag": "m_sein"
+          },
+          "value": 0,
+          "next": "t7s",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Hm. Okay. Los geht es. Piep.",
+              "en": "Hm. Okay. Here goes. Beep.",
+              "audio": "mc_robo7_t6_other"
+            }
+          ]
+        },
+        {
+          "id": "toaster",
+          "when": {
+            "any": [
+              "toaster"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ein Toaster?! Das ist mein Opa! Ich bin kein Toaster!",
+              "emoji": "😤",
+              "en": "A toaster?! That's my grandpa! I'm not a toaster!",
+              "audio": "mc_robo7_t6_toaster"
+            }
+          ]
+        },
+        {
+          "id": "nice",
+          "when": {
+            "any": [
+              "super",
+              "toll",
+              "mutig",
+              "angst",
+              "dir"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Danke! Mein Akku ist voll. Mit Mut.",
+              "emoji": "🔋",
+              "en": "Thanks! My battery is full. Of courage.",
+              "audio": "mc_robo7_t6_nice"
+            }
+          ]
+        },
+        {
+          "id": "robot",
+          "when": {
+            "any": [
+              "roboter"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ja. Das weiß ich. Danke?",
+              "en": "Yes. I know that. Thanks?",
+              "audio": "mc_robo7_t6_robot"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Nein?! Okay. Jetzt habe ich noch mehr Angst. Piep.",
+              "en": "No?! Okay. Now I'm even more scared. Beep.",
+              "audio": "mc_robo7_t6_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "next": "t8",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Okay. Jetzt ich! Achtung:",
+          "emoji": "🎤",
+          "en": "Okay. My turn! Attention:",
+          "audio": "mc_robo7_t7_go"
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Hallo! Ich heiße Robo-7. Ich komme aus dem Labor. Ich spreche Deutsch und Robotisch.",
+          "emoji": "🤖",
+          "en": "Hello! My name is Robo-7. I come from the lab. I speak German and Robotish.",
+          "audio": "mc_robo7_t7_intro"
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Und? Ist das richtig? Ehrlich! Der Kühlschrank in Reihe eins weint schon.",
+          "en": "Well? Is that right? Honestly! The fridge in row one is already crying.",
+          "audio": "mc_robo7_t7_ask"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "das",
+        "ist",
+        "sind",
+        "richtig",
+        "falsch",
+        "sehr",
+        "gut",
+        "super",
+        "perfekt",
+        "du",
+        "sprichst",
+        "sprechst",
+        "Deutsch",
+        "fast"
+      ],
+      "wrong": {
+        "sind": "ist",
+        "sprechst": "sprichst"
+      },
+      "intents": [
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "falsch"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Falsch?! Wo? … Alles ist richtig! Du testest mich. Gemein. Und clever. Der Kühlschrank lacht.",
+              "en": "Wrong?! Where? … It's all right! You're testing me. Mean. And clever. The fridge is laughing.",
+              "audio": "mc_robo7_t7_no"
+            }
+          ]
+        },
+        {
+          "id": "perfect",
+          "when": {
+            "any": [
+              "perfekt",
+              "super"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Perfekt! Piep piep! Ich bin so stolz!",
+              "emoji": "🥹",
+              "en": "Perfect! Beep beep! I'm so proud!",
+              "audio": "mc_robo7_t7_perfect"
+            }
+          ]
+        },
+        {
+          "id": "speaks",
+          "when": {
+            "any": [
+              "sprichst",
+              "sprechst"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich spreche Deutsch! Ich! Piep!",
+              "emoji": "🥹",
+              "en": "I speak German! Me! Beep!",
+              "audio": "mc_robo7_t7_speaks"
+            }
+          ]
+        },
+        {
+          "id": "almost",
+          "when": {
+            "any": [
+              "fast"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Fast? Was fehlt? … Ah: Piep. Ich habe Piep vergessen.",
+              "en": "Almost? What's missing? … Ah: beep. I forgot the beep.",
+              "audio": "mc_robo7_t7_almost"
+            }
+          ]
+        },
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "richtig",
+              "ja",
+              "gut"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Richtig! Gespeichert. Für immer.",
+              "emoji": "💾",
+              "en": "Right! Saved. Forever.",
+              "audio": "mc_robo7_t7_right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7h",
+      "next": "t8",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Okay. Jetzt ich! Achtung:",
+          "emoji": "🎤",
+          "en": "Okay. My turn! Attention:",
+          "audio": "mc_robo7_t7_go"
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Hallo! Ich heißt Robo-7. Ich komme aus dem Labor. Ich spreche Deutsch und Robotisch.",
+          "emoji": "🤖",
+          "en": "Hello! I is called Robo-7. I come from the lab. I speak German and Robotish.",
+          "audio": "mc_robo7_t7h_intro"
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Und? Ist das richtig? Ehrlich! Der Kühlschrank in Reihe eins weint schon.",
+          "en": "Well? Is that right? Honestly! The fridge in row one is already crying.",
+          "audio": "mc_robo7_t7_ask"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "das",
+        "ist",
+        "richtig",
+        "falsch",
+        "ich",
+        "heiße",
+        "heißt",
+        "Robo-7",
+        "sehr",
+        "nicht",
+        "gut",
+        "fast"
+      ],
+      "wrong": {
+        "heißt": "heiße"
+      },
+      "intents": [
+        {
+          "id": "fixed",
+          "when": {
+            "any": [
+              "heiße"
+            ]
+          },
+          "value": 2,
+          "fact": "🧑‍🏫 korrigiert Roboter",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "„Ich heiße“! Nicht „ich heißt“! Das war DEIN Fehler. Und dann meiner. Danke!",
+              "emoji": "🧑‍🏫",
+              "en": "'Ich heiße'! Not 'ich heißt'! That was YOUR mistake. And then mine. Thanks!",
+              "audio": "mc_robo7_t7h_fixed"
+            }
+          ]
+        },
+        {
+          "id": "repeat",
+          "when": {
+            "any": [
+              "heißt"
+            ]
+          },
+          "value": -2,
+          "cause": "copied",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich heißt, ich heißt! Super! Ich sage es für immer so!",
+              "emoji": "🤖",
+              "en": "I is called, I is called! Great! I'll say it like that forever!",
+              "audio": "mc_robo7_t7h_repeat"
+            }
+          ]
+        },
+        {
+          "id": "almost",
+          "when": {
+            "any": [
+              "fast"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Fast? Hm. Was ist nicht richtig? Sag es mir!",
+              "en": "Almost? Hm. What isn't right? Tell me!",
+              "audio": "mc_robo7_t7h_almost"
+            }
+          ]
+        },
+        {
+          "id": "wrongSaid",
+          "when": {
+            "any": [
+              "falsch",
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Falsch? Was ist falsch? Sag es richtig!",
+              "en": "Wrong? What's wrong? Say it right!",
+              "audio": "mc_robo7_t7h_wrong"
+            }
+          ]
+        },
+        {
+          "id": "okay",
+          "when": {
+            "any": [
+              "richtig",
+              "ja",
+              "gut"
+            ]
+          },
+          "value": -2,
+          "cause": "copied",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Richtig! Danke! Ich heißt Robo-7! Ich sage es allen Robotern!",
+              "emoji": "🤖",
+              "en": "Right! Thanks! I is called Robo-7! I'll tell all the robots!",
+              "audio": "mc_robo7_t7h_ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7k",
+      "next": "t8",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Okay. Jetzt ich! Achtung:",
+          "emoji": "🎤",
+          "en": "Okay. My turn! Attention:",
+          "audio": "mc_robo7_t7_go"
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Hallo! Ich heiße Robo-7. Ich kommst aus dem Labor. Ich spreche Deutsch und Robotisch.",
+          "emoji": "🤖",
+          "en": "Hello! My name is Robo-7. I comes from the lab. I speak German and Robotish.",
+          "audio": "mc_robo7_t7k_intro"
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Und? Ist das richtig? Ehrlich! Der Kühlschrank in Reihe eins weint schon.",
+          "en": "Well? Is that right? Honestly! The fridge in row one is already crying.",
+          "audio": "mc_robo7_t7_ask"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "das",
+        "ist",
+        "richtig",
+        "falsch",
+        "ich",
+        "komme",
+        "kommst",
+        "aus",
+        "dem",
+        "der",
+        "Labor",
+        "nicht",
+        "gut",
+        "fast"
+      ],
+      "wrong": {
+        "kommst": "komme"
+      },
+      "intents": [
+        {
+          "id": "fixed",
+          "when": {
+            "any": [
+              "komme"
+            ]
+          },
+          "value": 2,
+          "fact": "🧑‍🏫 korrigiert Roboter",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "„Ich komme“! Nicht „ich kommst“! Das war DEIN Fehler. Und dann meiner. Danke!",
+              "emoji": "🧑‍🏫",
+              "en": "'Ich komme'! Not 'ich kommst'! That was YOUR mistake. And then mine. Thanks!",
+              "audio": "mc_robo7_t7k_fixed"
+            }
+          ]
+        },
+        {
+          "id": "repeat",
+          "when": {
+            "any": [
+              "kommst"
+            ]
+          },
+          "value": -2,
+          "cause": "copied",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich kommst, ich kommst! Super! Ich sage es für immer so!",
+              "emoji": "🤖",
+              "en": "I comes, I comes! Great! I'll say it like that forever!",
+              "audio": "mc_robo7_t7k_repeat"
+            }
+          ]
+        },
+        {
+          "id": "almost",
+          "when": {
+            "any": [
+              "fast"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Fast? Hm. Was ist nicht richtig? Sag es mir!",
+              "en": "Almost? Hm. What isn't right? Tell me!",
+              "audio": "mc_robo7_t7k_almost"
+            }
+          ]
+        },
+        {
+          "id": "wrongSaid",
+          "when": {
+            "any": [
+              "falsch",
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Falsch? Was ist falsch? Sag es richtig!",
+              "en": "Wrong? What's wrong? Say it right!",
+              "audio": "mc_robo7_t7k_wrong"
+            }
+          ]
+        },
+        {
+          "id": "okay",
+          "when": {
+            "any": [
+              "richtig",
+              "ja",
+              "gut"
+            ]
+          },
+          "value": -2,
+          "cause": "copied",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Richtig! Danke! Ich kommst aus dem Labor! Ich sage es allen Robotern!",
+              "emoji": "🤖",
+              "en": "Right! Thanks! I comes from the lab! I'll tell all the robots!",
+              "audio": "mc_robo7_t7k_ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7s",
+      "next": "t8",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Okay. Jetzt ich! Achtung:",
+          "emoji": "🎤",
+          "en": "Okay. My turn! Attention:",
+          "audio": "mc_robo7_t7_go"
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Hallo! Ich bist Robo-7. Ich komme aus dem Labor. Ich spreche Deutsch und Robotisch.",
+          "emoji": "🤖",
+          "en": "Hello! I are Robo-7. I come from the lab. I speak German and Robotish.",
+          "audio": "mc_robo7_t7s_intro"
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Und? Ist das richtig? Ehrlich! Der Kühlschrank in Reihe eins weint schon.",
+          "en": "Well? Is that right? Honestly! The fridge in row one is already crying.",
+          "audio": "mc_robo7_t7_ask"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "das",
+        "ist",
+        "richtig",
+        "falsch",
+        "ich",
+        "bin",
+        "bist",
+        "Robo-7",
+        "ein",
+        "Roboter",
+        "nicht",
+        "gut",
+        "fast"
+      ],
+      "wrong": {
+        "bist": "bin"
+      },
+      "intents": [
+        {
+          "id": "fixed",
+          "when": {
+            "any": [
+              "bin"
+            ]
+          },
+          "value": 2,
+          "fact": "🧑‍🏫 korrigiert Roboter",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "„Ich bin“! Nicht „ich bist“! Das war DEIN Fehler. Und dann meiner. Danke!",
+              "emoji": "🧑‍🏫",
+              "en": "'Ich bin'! Not 'ich bist'! That was YOUR mistake. And then mine. Thanks!",
+              "audio": "mc_robo7_t7s_fixed"
+            }
+          ]
+        },
+        {
+          "id": "repeat",
+          "when": {
+            "any": [
+              "bist"
+            ]
+          },
+          "value": -2,
+          "cause": "copied",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ich bist, ich bist! Super! Ich sage es für immer so!",
+              "emoji": "🤖",
+              "en": "I are, I are! Great! I'll say it like that forever!",
+              "audio": "mc_robo7_t7s_repeat"
+            }
+          ]
+        },
+        {
+          "id": "almost",
+          "when": {
+            "any": [
+              "fast"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Fast? Hm. Was ist nicht richtig? Sag es mir!",
+              "en": "Almost? Hm. What isn't right? Tell me!",
+              "audio": "mc_robo7_t7s_almost"
+            }
+          ]
+        },
+        {
+          "id": "wrongSaid",
+          "when": {
+            "any": [
+              "falsch",
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Falsch? Was ist falsch? Sag es richtig!",
+              "en": "Wrong? What's wrong? Say it right!",
+              "audio": "mc_robo7_t7s_wrong"
+            }
+          ]
+        },
+        {
+          "id": "okay",
+          "when": {
+            "any": [
+              "richtig",
+              "ja",
+              "gut"
+            ]
+          },
+          "value": -2,
+          "cause": "copied",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Richtig! Danke! Ich bist Robo-7! Ich sage es allen Robotern!",
+              "emoji": "🤖",
+              "en": "Right! Thanks! I are Robo-7! I'll tell all the robots!",
+              "audio": "mc_robo7_t7s_ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Geschafft! Alle Roboter klatschen. Klick, klick, klick.",
+          "emoji": "👏",
+          "en": "Done! All the robots are clapping. Click, click, click.",
+          "audio": "mc_robo7_t8a"
+        },
+        {
+          "who": "robo7",
+          "type": "text",
+          "de": "Letzte Frage: Was bin ich jetzt für dich?",
+          "en": "Last question: what am I to you now?",
+          "audio": "mc_robo7_t8b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "bist",
+        "ist",
+        "bin",
+        "ein",
+        "eine",
+        "Roboter",
+        "Toaster",
+        "Freund",
+        "mein",
+        "meine",
+        "super",
+        "sehr",
+        "gut",
+        "sprichst",
+        "Deutsch",
+        "und",
+        "Baby",
+        "Präsident"
+      ],
+      "wrong": {
+        "ist": "bist",
+        "bin": "bist"
+      },
+      "intents": [
+        {
+          "id": "toaster",
+          "when": {
+            "any": [
+              "toaster"
+            ]
+          },
+          "value": -2,
+          "cause": "toaster",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ein Toaster?! Mein Opa ist ein Toaster. Ich nicht!",
+              "emoji": "😤",
+              "en": "A toaster?! My grandpa is a toaster. Not me!",
+              "audio": "mc_robo7_t8_toaster"
+            }
+          ]
+        },
+        {
+          "id": "president",
+          "when": {
+            "any": [
+              "präsident"
+            ]
+          },
+          "value": 1,
+          "fact": "🏛️ wählt Roboter zum Präsidenten",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Präsident?! Von allen Robotern? Okay. Erstes Gesetz: Kein Toaster muss zur Polizei. Zweites Gesetz: Piep.",
+              "emoji": "🏛️",
+              "en": "President?! Of all the robots? Okay. First law: no toaster has to go to the police. Second law: beep.",
+              "audio": "mc_robo7_t8_president"
+            }
+          ]
+        },
+        {
+          "id": "friend",
+          "when": {
+            "any": [
+              "freund"
+            ]
+          },
+          "value": 2,
+          "fact": "🤖 hat einen Roboter als Freund",
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Dein Freund! Gespeichert. Ganz oben. Mit Herz.",
+              "emoji": "💾",
+              "en": "Your friend! Saved. Right at the top. With a heart.",
+              "audio": "mc_robo7_t8_friend"
+            }
+          ]
+        },
+        {
+          "id": "german",
+          "when": {
+            "any": [
+              "deutsch",
+              "sprichst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ja! Ich spreche Deutsch! Danke! Piep piep!",
+              "en": "Yes! I speak German! Thanks! Beep beep!",
+              "audio": "mc_robo7_t8_german"
+            }
+          ]
+        },
+        {
+          "id": "robot",
+          "when": {
+            "any": [
+              "roboter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ja. Ein Roboter. Ein Roboter mit Deutsch!",
+              "en": "Yes. A robot. A robot with German!",
+              "audio": "mc_robo7_t8_robot"
+            }
+          ]
+        },
+        {
+          "id": "super",
+          "when": {
+            "any": [
+              "super",
+              "gut"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Super! Das speichere ich. Zweimal.",
+              "en": "Great! I'll save that. Twice.",
+              "audio": "mc_robo7_t8_super"
+            }
+          ]
+        },
+        {
+          "id": "baby",
+          "when": {
+            "any": [
+              "baby"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "robo7",
+              "type": "text",
+              "de": "Ein Baby? Ich bin ein Jahr alt. Okay. Das stimmt.",
+              "en": "A baby? I'm one year old. Okay. That's true.",
+              "audio": "mc_robo7_t8_baby"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "robo7",
+    "type": "text",
+    "de": "Fehler: Antwort nicht gefunden. Das war nicht meine Frage.",
+    "en": "Error: answer not found. That wasn't my question.",
+    "audio": "mc_robo7_offtopic"
+  },
+  "confused": [
+    {
+      "who": "robo7",
+      "type": "text",
+      "de": "Hä? Piep?",
+      "emoji": "😵‍💫",
+      "en": "Huh? Beep?",
+      "audio": "mc_robo7_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "robo7",
+        "type": "text",
+        "de": "Hallo! Ich heiße Robo-7. Ich komme aus dem Labor. Ich spreche Deutsch. Und ich lerne von {name}.",
+        "en": "Hello! My name is Robo-7. I come from the lab. I speak German. And I learn from {name}."
+      },
+      {
+        "who": "robo7",
+        "type": "text",
+        "de": "Piep. Das heißt: danke.",
+        "emoji": "🤖",
+        "en": "Beep. That means: thank you.",
+        "audio": "mc_robo7_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "robo7",
+        "type": "text",
+        "de": "Ich stelle mich vor. Fast richtig. Die anderen Roboter lachen. Ein bisschen. Piep.",
+        "emoji": "🤖",
+        "en": "I introduce myself. Almost right. The other robots laugh. A little. Beep.",
+        "audio": "mc_robo7_partial"
+      }
+    ],
+    "deleted": {
+      "copied": {
+        "who": "robo7",
+        "type": "text",
+        "de": "Ich heißt, ich kommst, ich bist … Alle Roboter lachen. Ich lösche dich. Piep.",
+        "emoji": "🗑️",
+        "en": "I is called, I comes, I are … All the robots are laughing. I'm deleting you. Beep.",
+        "audio": "mc_robo7_del_copied"
+      },
+      "toaster": {
+        "who": "robo7",
+        "type": "text",
+        "de": "Ich bin kein Toaster. Mein Opa ist ein Toaster. Das ist ein Unterschied. Tschüss.",
+        "en": "I'm not a toaster. My grandpa is a toaster. That's a difference. Bye.",
+        "audio": "mc_robo7_del_toaster"
+      },
+      "confused": {
+        "who": "robo7",
+        "type": "text",
+        "de": "Fehler. Fehler. Ich verstehe nichts. Neustart. Ohne dich.",
+        "en": "Error. Error. I don't understand anything. Restarting. Without you.",
+        "audio": "mc_robo7_del_confused"
+      },
+      "default": {
+        "who": "robo7",
+        "type": "text",
+        "de": "Gespeichert: Du bist nett. Gespeichert: Du bist kein Lehrer. Und keine Lehrerin. Tschüss.",
+        "en": "Saved: you’re nice. Saved: you’re not a teacher. Not even a little. Bye.",
+        "audio": "mc_robo7_del_default"
+      }
+    },
+    "sunday": {
+      "who": "robo7",
+      "type": "voice",
+      "audio": "mc_robo7_vn_sunday",
+      "de": "Piep! Sonntag! Ich lerne jetzt Französisch. Bonjour! Ich heiße Robo-7. Oder heißt es … Hilfe! Opa Toni ist auch hier. Er spricht Französisch. Er sagt nur: Croissant. Komm schnell!",
+      "en": "Beep! Sunday! I'm learning French now. Bonjour! My name is Robo-7. Or is it … Help! Grandpa Toni is here too. He speaks French. He only says: croissant. Come quick!",
+      "direction": "Excited and a bit overwhelmed, careful robotic pacing that speeds up into happy panic at the end."
+    }
+  },
+  "partialTitle": "Fast richtig. Piep.",
+  "share": {
+    "win": "Ich habe Robo-7 (1, Roboter) Deutsch beigebracht 🤖 Jetzt stellt er sich perfekt vor. Mein Deutsch: {score}/100. Kannst du auch unterrichten? {url}",
+    "partial": "Robo-7 (1, Roboter) stellt sich jetzt vor … fast richtig 🤖 Die anderen Roboter lachen. Ein bisschen. Mein Deutsch: {score}/100. {url}",
+    "deleted": "Robo-7 (1, Roboter) hat mich gelöscht 🤖💔 Er hat meine Fehler kopiert. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Robo-7, a small, friendly, boxy robot the size of a child: a rounded cream-and-teal metal body, a square head with two big round glowing teal eyes and a little antenna with a blinking orange bulb, mismatched bolts, and a tiny blank chalkboard hanging around its neck on a string.",
+  "imagePrompts": [
+    {
+      "id": "match_robo7",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} It sits at a small school desk in a cluttered workshop lab, holding a pencil far too carefully in its metal fingers, looking up at the viewer with big hopeful eyes. Shelves with spare parts and a potted plant behind it. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_robo7_family",
+      "aspect": "16:9",
+      "prompt": "A family photo of three household machines standing side by side in a row on a plain wooden floor in front of a plain cream wall, seen exactly from the front, far apart and evenly spaced. LEFT: a small, old, shiny SILVER two-slot toaster with a little bow tie. MIDDLE: a big, tall WHITE front-loading washing machine with a round glass door, clearly the largest. RIGHT: a small, flat, round RED robot vacuum cleaner on the floor. Each machine has two small friendly cartoon eyes. Nothing else in the picture."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Hallo! Ich heiße {name}.",
+      "score": 100,
+      "intent": "name",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heißt {name}.",
+      "score": 80,
+      "intent": "nameWrongT",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heißen {name}.",
+      "score": 80,
+      "intent": "nameWrongN",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bist {name}.",
+      "score": 80,
+      "intent": "nameWrongB",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein Mensch.",
+      "score": 100,
+      "intent": "human",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin kein Roboter.",
+      "score": 100,
+      "intent": "notRobot",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein Roboter.",
+      "score": 100,
+      "intent": "robot",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo!",
+      "score": 100,
+      "intent": "greeting",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich {name}.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin kein Mensch.",
+      "score": 100,
+      "intent": "notHuman",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich komme aus Spanien.",
+      "score": 100,
+      "intent": "origin",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich komme aus der Schweiz.",
+      "score": 100,
+      "intent": "origin",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich komme aus dem Schweiz.",
+      "score": 85,
+      "intent": "origin",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich kommst aus England.",
+      "score": 80,
+      "intent": "wrongKommst",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich kommt aus Japan.",
+      "score": 80,
+      "intent": "wrongKommt",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Aus Deutschland.",
+      "score": 100,
+      "intent": "countryOnly",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich wohne in Berlin.",
+      "score": 100,
+      "intent": "live",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich wohne in Berlin und ich komme aus der Türkei.",
+      "score": 100,
+      "intent": "origin",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich aus Japan.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich spreche Englisch und ein bisschen Deutsch.",
+      "score": 100,
+      "intent": "german",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich sprichst Deutsch.",
+      "score": 80,
+      "intent": "wrongSprichst",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich spricht Englisch.",
+      "score": 80,
+      "intent": "wrongSpricht",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich spreche kein Deutsch.",
+      "score": 100,
+      "intent": "noGerman",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich spreche Spanisch und Französisch.",
+      "score": 100,
+      "intent": "other",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich spreche sehr gut.",
+      "score": 100,
+      "intent": "good",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich Deutsch.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich spreche nicht gut Deutsch.",
+      "score": 100,
+      "intent": "notWell",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Das ist deine Schwester.",
+      "score": 100,
+      "intent": "sister",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Sie ist die Waschmaschine.",
+      "score": 100,
+      "intent": "sister",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Das ist dein Schwester.",
+      "score": 85,
+      "intent": "sister",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Das sind deine Schwester.",
+      "score": 80,
+      "intent": "sister",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Er ist deine Schwester.",
+      "score": 100,
+      "intent": "erSister",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Das ist dein Opa.",
+      "score": 100,
+      "intent": "opa",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Der Staubsauger.",
+      "score": 100,
+      "intent": "brother",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "In der Mitte.",
+      "score": 100,
+      "intent": "middle",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Sie deine Schwester.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Er kommt aus Österreich.",
+      "score": 100,
+      "intent": "austria",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er kommen aus Österreich.",
+      "score": 80,
+      "intent": "austria",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Aus Österreich.",
+      "score": 100,
+      "intent": "austria",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er kommt aus Australien.",
+      "score": 100,
+      "intent": "australia",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Er kommt aus Deutschland.",
+      "score": 100,
+      "intent": "germany",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Sie kommt aus Österreich.",
+      "score": 100,
+      "intent": "sheAustria",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Er spricht Deutsch und Toast.",
+      "score": 100,
+      "intent": "speaks",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Er ist ein Toaster.",
+      "score": 100,
+      "intent": "toaster",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Er aus Österreich.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Du bist super.",
+      "score": 100,
+      "intent": "nice",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Keine Angst!",
+      "score": 100,
+      "intent": "nice",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bin bei dir.",
+      "score": 100,
+      "intent": "nice",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du ist sehr mutig.",
+      "score": 80,
+      "intent": "nice",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Du bist ein Toaster.",
+      "score": 100,
+      "intent": "toaster",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Du bist ein Roboter.",
+      "score": 100,
+      "intent": "robot",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Du super.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ja, das ist perfekt.",
+      "score": 100,
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Das ist richtig.",
+      "score": 100,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Das sind richtig.",
+      "score": 80,
+      "intent": "right",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Du sprichst sehr gut Deutsch.",
+      "score": 100,
+      "intent": "speaks",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Du sprechst sehr gut Deutsch.",
+      "score": 80,
+      "intent": "speaks",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Das ist fast richtig.",
+      "score": 100,
+      "intent": "almost",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Nein, das ist falsch.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du Deutsch.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7h",
+      "say": "Nein. Ich heiße Robo-7.",
+      "score": 100,
+      "intent": "fixed",
+      "delta": 3
+    },
+    {
+      "turn": "t7h",
+      "say": "Das ist falsch. Ich heiße Robo-7.",
+      "score": 100,
+      "intent": "fixed",
+      "delta": 3
+    },
+    {
+      "turn": "t7h",
+      "say": "Ich heißt Robo-7.",
+      "score": 80,
+      "intent": "repeat",
+      "delta": -2
+    },
+    {
+      "turn": "t7h",
+      "say": "Ja, das ist richtig.",
+      "score": 100,
+      "intent": "okay",
+      "delta": -2
+    },
+    {
+      "turn": "t7h",
+      "say": "Das ist fast richtig.",
+      "score": 100,
+      "intent": "almost",
+      "delta": 1
+    },
+    {
+      "turn": "t7h",
+      "say": "Das ist falsch.",
+      "score": 100,
+      "intent": "wrongSaid",
+      "delta": 1
+    },
+    {
+      "turn": "t7h",
+      "say": "Ich Robo-7.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7k",
+      "say": "Nein. Ich komme aus dem Labor.",
+      "score": 100,
+      "intent": "fixed",
+      "delta": 3
+    },
+    {
+      "turn": "t7k",
+      "say": "Ich komme aus der Labor.",
+      "score": 85,
+      "intent": "fixed",
+      "delta": 2
+    },
+    {
+      "turn": "t7k",
+      "say": "Ich kommst aus dem Labor.",
+      "score": 80,
+      "intent": "repeat",
+      "delta": -2
+    },
+    {
+      "turn": "t7k",
+      "say": "Ja, das ist richtig.",
+      "score": 100,
+      "intent": "okay",
+      "delta": -2
+    },
+    {
+      "turn": "t7k",
+      "say": "Das ist falsch.",
+      "score": 100,
+      "intent": "wrongSaid",
+      "delta": 1
+    },
+    {
+      "turn": "t7k",
+      "say": "Ich aus dem Labor.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7s",
+      "say": "Nein. Ich bin Robo-7.",
+      "score": 100,
+      "intent": "fixed",
+      "delta": 3
+    },
+    {
+      "turn": "t7s",
+      "say": "Ich bin ein Roboter.",
+      "score": 100,
+      "intent": "fixed",
+      "delta": 3
+    },
+    {
+      "turn": "t7s",
+      "say": "Ich bist Robo-7.",
+      "score": 80,
+      "intent": "repeat",
+      "delta": -2
+    },
+    {
+      "turn": "t7s",
+      "say": "Ja, das ist gut.",
+      "score": 100,
+      "intent": "okay",
+      "delta": -2
+    },
+    {
+      "turn": "t7s",
+      "say": "Das ist nicht richtig.",
+      "score": 100,
+      "intent": "wrongSaid",
+      "delta": 1
+    },
+    {
+      "turn": "t7s",
+      "say": "Ich Robo-7.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Du bist mein Freund.",
+      "score": 100,
+      "intent": "friend",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Du bist meine Freund.",
+      "score": 85,
+      "intent": "friend",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Du ist ein Roboter.",
+      "score": 80,
+      "intent": "robot",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Du sprichst sehr gut Deutsch.",
+      "score": 100,
+      "intent": "german",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Du bist ein Toaster.",
+      "score": 100,
+      "intent": "toaster",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Du bist super.",
+      "score": 100,
+      "intent": "super",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Du bist ein Baby.",
+      "score": 100,
+      "intent": "baby",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Du Freund.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich komme aus dem Labor.",
+      "score": 100,
+      "intent": "lab",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich spreche Robotisch.",
+      "score": 100,
+      "intent": "robotic",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich spreche Deutsch und Robotisch.",
+      "score": 100,
+      "intent": "robotic",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Du bist ein Präsident.",
+      "score": 100,
+      "intent": "president",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Du bin ein Präsident.",
+      "score": 80,
+      "intent": "president",
+      "delta": 1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Hallo! Ich heiße {name}."
+        ],
+        [
+          "t2",
+          "Ich komme aus Spanien."
+        ],
+        [
+          "t3",
+          "Ich spreche Englisch und ein bisschen Deutsch."
+        ],
+        [
+          "t4",
+          "Das ist deine Schwester."
+        ],
+        [
+          "t5",
+          "Er kommt aus Österreich."
+        ],
+        [
+          "t6",
+          "Keine Angst!"
+        ],
+        [
+          "t7",
+          "Ja, das ist perfekt."
+        ],
+        [
+          "t8",
+          "Du bist mein Freund."
+        ]
+      ]
+    },
+    {
+      "name": "copied heißt, then fixed it",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich heißt {name}."
+        ],
+        [
+          "t2",
+          "Ich komme aus Japan."
+        ],
+        [
+          "t3",
+          "Ich spreche Spanisch."
+        ],
+        [
+          "t4",
+          "Das ist deine Schwester."
+        ],
+        [
+          "t5",
+          "Er kommt aus Österreich."
+        ],
+        [
+          "t6",
+          "Du bist super."
+        ],
+        [
+          "t7h",
+          "Nein. Ich heiße Robo-7."
+        ],
+        [
+          "t8",
+          "Du bist mein Freund."
+        ]
+      ]
+    },
+    {
+      "name": "copied kommst, then fixed it",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Hallo! Ich heiße {name}."
+        ],
+        [
+          "t2",
+          "Ich kommst aus England."
+        ],
+        [
+          "t3",
+          "Ich spreche Englisch und ein bisschen Deutsch."
+        ],
+        [
+          "t4",
+          "Das ist deine Schwester."
+        ],
+        [
+          "t5",
+          "Er kommt aus Österreich."
+        ],
+        [
+          "t6",
+          "Ich bin bei dir."
+        ],
+        [
+          "t7k",
+          "Nein. Ich komme aus dem Labor."
+        ],
+        [
+          "t8",
+          "Du bist mein Freund."
+        ]
+      ]
+    },
+    {
+      "name": "partial: copied bist",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich bist {name}."
+        ],
+        [
+          "t2",
+          "Ich wohne in Berlin."
+        ],
+        [
+          "t3",
+          "Ich spreche kein Deutsch."
+        ],
+        [
+          "t4",
+          "Das ist dein Opa."
+        ],
+        [
+          "t5",
+          "Er kommt aus Australien."
+        ],
+        [
+          "t6",
+          "Du bist super."
+        ],
+        [
+          "t7s",
+          "Das ist falsch."
+        ],
+        [
+          "t8",
+          "Du bist ein Toaster."
+        ]
+      ]
+    },
+    {
+      "name": "deleted: taught it the mistake",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich heißt {name}."
+        ],
+        [
+          "t2",
+          "Ich wohne in Berlin."
+        ],
+        [
+          "t3",
+          "Ich spreche kein Deutsch."
+        ],
+        [
+          "t4",
+          "Der Staubsauger."
+        ],
+        [
+          "t5",
+          "Er kommt aus Australien."
+        ],
+        [
+          "t6",
+          "Du bist ein Toaster."
+        ],
+        [
+          "t7h",
+          "Ja, das ist richtig."
+        ],
+        [
+          "t8",
+          "Du bist ein Toaster."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Hallo!"
+        ],
+        [
+          "t2",
+          "Ich aus Japan."
+        ],
+        [
+          "t3",
+          "Ich spreche kein Deutsch."
+        ],
+        [
+          "t4",
+          "Das ist dein Opa."
+        ],
+        [
+          "t5",
+          "Er kommt aus Australien."
+        ]
+      ]
+    }
+  ]
+}

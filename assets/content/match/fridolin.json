@@ -1,0 +1,2056 @@
+{
+  "id": "fridolin",
+  "name": "Fridolin",
+  "age": 600,
+  "emoji": "🐉",
+  "image": "match_fridolin",
+  "level": "B2.1",
+  "order": 4,
+  "bio": "Burg zu vermieten. Leicht feuerfest.",
+  "bioEn": "Castle to let. Slightly fireproof.",
+  "goal": "Write his holiday listing so the guests stay.",
+  "tagline": "Drache · 600 · Burg am Rhein",
+  "voice": "Enceladus",
+  "brief": "Fridolin, a 600-year-old dragon renting out his Rhine castle: a huge, deep, rumbling but gentle and easily hurt male voice, a lonely host who desperately wants five stars; he sniffles when he is moved, and every sniffle sounds dangerously like the start of a sneeze.",
+  "focus": "Zustandspassiv · Partizipien als Adjektive · Passiv mit Modalverb · Werbesprache",
+  "lexicon": {
+    "nouns": {
+      "Drache": "m",
+      "Feuer": "n",
+      "Burg": "f",
+      "Angst": "f",
+      "Zimmer": "pl",
+      "Gastgeber": "m",
+      "Frühstück": "n",
+      "Heizung": "f",
+      "Zimmern": "pl",
+      "Blick": "m",
+      "Rhein": "m",
+      "Lage": "f",
+      "Schuld": "f",
+      "Gutschein": "m",
+      "Pfeffer": "m",
+      "Rauchen": "n",
+      "Kinder": "pl",
+      "Hof": "m",
+      "Gäste": "pl",
+      "Anzeige": "f",
+      "Ritter": "m",
+      "Drachen": "m"
+    },
+    "names": [
+      "Ihnen",
+      "Sie"
+    ],
+    "verbs": [
+      "bist",
+      "spuckst",
+      "ist",
+      "haben",
+      "hast",
+      "weiß",
+      "sind",
+      "niest",
+      "klingt",
+      "hat",
+      "wurde",
+      "wird",
+      "war",
+      "lügt",
+      "bieten",
+      "darf",
+      "dürfen",
+      "niesen",
+      "schnarchst"
+    ],
+    "nonfinite": [
+      "gegessen",
+      "angekokelt",
+      "flambiert",
+      "renoviert",
+      "geputzt",
+      "beheizt",
+      "repariert",
+      "gebadet",
+      "ersetzt",
+      "geweckt",
+      "werden",
+      "worden",
+      "verboten",
+      "erlaubt",
+      "gezeltet",
+      "empfangen",
+      "entstaubt",
+      "versorgt",
+      "gestört"
+    ],
+    "imperatives": [
+      "buchen"
+    ],
+    "accVerbs": [
+      "haben",
+      "hast",
+      "bieten"
+    ],
+    "adjectives": [
+      "renoviert",
+      "beheizt",
+      "gemütlich",
+      "feuerfest",
+      "ruhig",
+      "kuschelig"
+    ]
+  },
+  "intro": [
+    {
+      "who": "fridolin",
+      "type": "text",
+      "de": "Guten Tag. Ich bin Fridolin. Ich bin ein Drache. Sechshundert Jahre alt.",
+      "emoji": "🐉",
+      "en": "Good day. I am Fridolin. I am a dragon. Six hundred years old.",
+      "audio": "mc_fridolin_intro_a"
+    },
+    {
+      "who": "fridolin",
+      "type": "text",
+      "de": "Ich vermiete meine Burg am Rhein. Ferienwohnung. Mit Turm. Und mit mir.",
+      "emoji": "🏰",
+      "en": "I rent out my castle on the Rhine. Holiday flat. With a tower. And with me.",
+      "audio": "mc_fridolin_intro_b"
+    },
+    {
+      "who": "fridolin",
+      "type": "text",
+      "de": "Meine Bewertungen bisher: ein Stern. Und der Stern ist auch angekokelt.",
+      "emoji": "⭐",
+      "en": "My reviews so far: one star. And the star is singed too.",
+      "audio": "mc_fridolin_intro_c"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Meine letzten Gäste sind weggelaufen. Alle. Schon wieder. Nur ihre Oma ist noch da. Oma Edeltraut. Sie spielt mit mir Schach. Sie gewinnt immer.",
+          "emoji": "😢",
+          "en": "My last guests ran away. All of them. Again. Only their grandma is still here. Grandma Edeltraut. She plays chess with me. She always wins.",
+          "audio": "mc_fridolin_t1a"
+        },
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Warum laufen sie weg? Ich verstehe es nicht.",
+          "en": "Why do they run away? I don't understand.",
+          "audio": "mc_fridolin_t1b"
+        }
+      ],
+      "tiles": [
+        "weil",
+        "du",
+        "ein",
+        "Drache",
+        "bist",
+        "Feuer",
+        "spuckst",
+        "die",
+        "Burg",
+        "kalt",
+        "ist",
+        "sie",
+        "Angst",
+        "haben",
+        "gegessen",
+        "hast",
+        "ich",
+        "weiß",
+        "es",
+        "nicht",
+        "schnarchst"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "ate",
+          "when": {
+            "any": [
+              "gegessen"
+            ]
+          },
+          "value": -2,
+          "cause": "accuse",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Gegessen?! Ich bin Vegetarier! Seit 1712!",
+              "emoji": "🥦",
+              "en": "Eaten?! I'm a vegetarian! Since 1712!",
+              "audio": "mc_fridolin_t1_ate"
+            }
+          ]
+        },
+        {
+          "id": "fire",
+          "when": {
+            "any": [
+              "feuer"
+            ]
+          },
+          "value": 2,
+          "fact": "🔥 sagt dem Drachen die Wahrheit",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Feuer … Ja. Manchmal. Wenn ich niese. Oder lache. Oder atme.",
+              "emoji": "🔥",
+              "en": "Fire … Yes. Sometimes. When I sneeze. Or laugh. Or breathe.",
+              "audio": "mc_fridolin_t1_fire"
+            }
+          ]
+        },
+        {
+          "id": "snore",
+          "when": {
+            "any": [
+              "schnarchst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Ich schnarche?! … Ja. 1953 hatte der Rhein plötzlich Wellen. Drei Meter hoch. Das war ich.",
+              "emoji": "😴",
+              "en": "I snore?! … Yes. In 1953 the Rhine suddenly had waves. Three metres high. That was me.",
+              "audio": "mc_fridolin_t1_snore"
+            }
+          ]
+        },
+        {
+          "id": "dragon",
+          "when": {
+            "any": [
+              "drache"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Weil ich ein Drache bin? Das ist hart. Aber ehrlich.",
+              "en": "Because I'm a dragon? That's harsh. But honest.",
+              "audio": "mc_fridolin_t1_dragon"
+            }
+          ]
+        },
+        {
+          "id": "fear",
+          "when": {
+            "any": [
+              "angst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Angst? Vor mir? Ich habe Kissen mit Herzen!",
+              "emoji": "💗",
+              "en": "Scared? Of me? I have cushions with hearts on them!",
+              "audio": "mc_fridolin_t1_fear"
+            }
+          ]
+        },
+        {
+          "id": "cold",
+          "when": {
+            "any": [
+              "kalt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Kalt? Bei MIR? Unmöglich. Es ist eher zu warm.",
+              "en": "Cold? At MY place? Impossible. If anything it's too warm.",
+              "audio": "mc_fridolin_t1_cold"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Du weißt es auch nicht. Dann sind wir zwei Ratlose. Und eine Burg.",
+              "en": "You don't know either. Then we're two clueless creatures. And a castle.",
+              "audio": "mc_fridolin_t1_dunno"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Hier ist meine alte Anzeige. Ich finde sie gut.",
+          "emoji": "📰",
+          "en": "Here is my old listing. I think it is good.",
+          "audio": "mc_fridolin_t2a"
+        },
+        {
+          "who": "fridolin",
+          "type": "photo",
+          "image": "match_fridolin_ad",
+          "overlay": [
+            "BURG ZU VERMIETEN",
+            "Leicht feuerfest.",
+            "Zimmer: teilweise angekokelt.",
+            "Frühstück: flambiert.",
+            "Gastgeber niest manchmal."
+          ],
+          "alt": "Eine alte Anzeige: Burg zu vermieten. Leicht feuerfest. Zimmer: teilweise angekokelt. Frühstück: flambiert. Gastgeber niest manchmal."
+        },
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Was ist das Problem mit meiner Anzeige?",
+          "en": "What is the problem with my listing?",
+          "audio": "mc_fridolin_t2b"
+        }
+      ],
+      "tiles": [
+        "die",
+        "Zimmer",
+        "sind",
+        "ist",
+        "angekokelt",
+        "der",
+        "Gastgeber",
+        "niest",
+        "niesen",
+        "manchmal",
+        "das",
+        "Frühstück",
+        "flambiert",
+        "alles",
+        "perfekt",
+        "leicht feuerfest",
+        "klingt",
+        "gefährlich",
+        "Anzeige",
+        "zu",
+        "ehrlich"
+      ],
+      "wrong": {
+        "niesen": "niest"
+      },
+      "intents": [
+        {
+          "id": "perfect",
+          "when": {
+            "any": [
+              "perfekt"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Perfekt? Danke! … Aber warum laufen dann alle weg?",
+              "en": "Perfect? Thank you! … But then why does everyone run away?",
+              "audio": "mc_fridolin_t2_perfect"
+            }
+          ]
+        },
+        {
+          "id": "sneeze",
+          "when": {
+            "any": [
+              "niest"
+            ]
+          },
+          "value": 2,
+          "fact": "📝 liest Anzeigen kritisch",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Ich niese. Und dann … brennt der Vorhang. Ja. Das ist ein Problem.",
+              "emoji": "🤧",
+              "en": "I sneeze. And then … the curtain burns. Yes. That is a problem.",
+              "audio": "mc_fridolin_t2_sneeze"
+            }
+          ]
+        },
+        {
+          "id": "fireproof",
+          "when": {
+            "any": [
+              "leicht feuerfest",
+              "gefährlich"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "„Leicht feuerfest“ klingt gefährlich? Hm. Es IST gefährlich. Ein bisschen.",
+              "en": "“Slightly fireproof” sounds dangerous? Hm. It IS dangerous. A little.",
+              "audio": "mc_fridolin_t2_fireproof"
+            }
+          ]
+        },
+        {
+          "id": "honest",
+          "when": {
+            "any": [
+              "ehrlich"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Zu ehrlich? Ich habe sogar weggelassen, dass der Turm manchmal wegfliegt. Bei Ostwind.",
+              "emoji": "🌬️",
+              "en": "Too honest? I even left out that the tower sometimes flies away. In an east wind.",
+              "audio": "mc_fridolin_t2_honest"
+            }
+          ]
+        },
+        {
+          "id": "burnt",
+          "when": {
+            "any": [
+              "angekokelt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Angekokelt. Ja. Ich nenne es: rustikal.",
+              "en": "Singed. Yes. I call it: rustic.",
+              "audio": "mc_fridolin_t2_burnt"
+            }
+          ]
+        },
+        {
+          "id": "breakfast",
+          "when": {
+            "any": [
+              "flambiert"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Flambiert ist doch schick! In Paris zahlt man dafür viel Geld.",
+              "en": "Flambéed is classy! In Paris people pay a lot for that.",
+              "audio": "mc_fridolin_t2_breakfast"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Ich habe alles gemacht! Ich habe die Burg renoviert. Ich habe die Zimmer geputzt. Ich habe die Heizung repariert. Ich habe sogar den Ritter im Flur entstaubt. Und ich habe mich gebadet. Im Rhein. Drei Schiffe mussten umdrehen.",
+          "emoji": "🛁",
+          "en": "I have done everything! I renovated the castle. I cleaned the rooms. I repaired the heating. I even dusted the knight in the hall. And I took a bath. In the Rhine. Three ships had to turn back.",
+          "audio": "mc_fridolin_t3a"
+        },
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Die Gäste lesen nur ein paar Wörter pro Zeile. Sie wollen nicht meine Geschichten. Sie wollen wissen: Was ist jetzt fertig?",
+          "en": "Guests only read a few words per line. They don’t want my stories. They want to know: what is finished now?",
+          "audio": "mc_fridolin_t3b"
+        }
+      ],
+      "tiles": [
+        "die",
+        "die",
+        "Burg",
+        "ist",
+        "sind",
+        "hat",
+        "renoviert",
+        "alle Zimmer",
+        "Zimmer",
+        "geputzt",
+        "beheizt",
+        "Heizung",
+        "repariert",
+        "der",
+        "Drache",
+        "frisch",
+        "gebadet",
+        "wurde",
+        "und",
+        "Ritter",
+        "entstaubt"
+      ],
+      "wrong": {
+        "hat": {
+          "to": "ist",
+          "note": "A listing describes the result: Zustandspassiv, sein + participle (die Burg ist renoviert). „Die Burg hat renoviert“ would mean the castle did the renovating."
+        }
+      },
+      "intents": [
+        {
+          "id": "knight",
+          "when": {
+            "any": [
+              "ritter",
+              "entstaubt"
+            ]
+          },
+          "value": 2,
+          "fact": "🛡️ kennt den Ritter im Flur",
+          "flags": [
+            "knight"
+          ],
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Der Ritter ist entstaubt. Sir Egon. Die Rüstung im Flur. Er ist seit 1520 leer.",
+              "emoji": "🛡️",
+              "en": "The knight is dusted. Sir Egon. The suit of armour in the hall. He has been empty since 1520.",
+              "audio": "mc_fridolin_t3_knight"
+            },
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Glaube ich. Nach dem Entstauben hat er „Danke“ gesagt.",
+              "emoji": "😳",
+              "en": "I think. After the dusting he said “thank you”.",
+              "audio": "mc_fridolin_t3_knight_b"
+            }
+          ]
+        },
+        {
+          "id": "dragon",
+          "when": {
+            "any": [
+              "gebadet"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Frisch gebadet! Ich rieche nach Lavendel. Und ein bisschen nach Rauch.",
+              "emoji": "🛁",
+              "en": "Freshly bathed! I smell of lavender. And a little of smoke.",
+              "audio": "mc_fridolin_t3_dragon"
+            }
+          ]
+        },
+        {
+          "id": "renovated",
+          "when": {
+            "any": [
+              "renoviert"
+            ]
+          },
+          "value": 1,
+          "fact": "🏰 macht aus Ruinen Ferienwohnungen",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Die Burg ist renoviert. Klingt seriös. Fast wie ein Hotel.",
+              "en": "The castle is renovated. Sounds respectable. Almost like a hotel.",
+              "audio": "mc_fridolin_t3_renovated"
+            }
+          ]
+        },
+        {
+          "id": "clean",
+          "when": {
+            "any": [
+              "geputzt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Geputzt. Mit Feuer. Sehr hygienisch. Die Spinnen sind ausgezogen. Mit Koffern.",
+              "emoji": "✨",
+              "en": "Cleaned. With fire. Very hygienic. The spiders have moved out. With suitcases.",
+              "audio": "mc_fridolin_t3_clean"
+            }
+          ]
+        },
+        {
+          "id": "heated",
+          "when": {
+            "any": [
+              "beheizt",
+              "repariert",
+              "heizung"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Beheizt, repariert … Ehrlich gesagt: Die Heizung bin ich.",
+              "emoji": "🔥",
+              "en": "Heated, repaired … To be honest: I am the heating.",
+              "audio": "mc_fridolin_t3_heated"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Jetzt die Überschrift. Groß und schick. Man soll sie lesen und sofort die Koffer packen.",
+          "emoji": "✨",
+          "en": "Now the headline. Big and classy. People should read it and pack their bags at once.",
+          "audio": "mc_fridolin_t4a"
+        },
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Was steht ganz oben?",
+          "en": "What goes at the very top?",
+          "audio": "mc_fridolin_t4b"
+        }
+      ],
+      "tiles": [
+        "renovierte",
+        "renovierter",
+        "Burg",
+        "mit",
+        "beheizten",
+        "beheizte",
+        "Zimmern",
+        "und",
+        "Blick",
+        "auf",
+        "den",
+        "dem",
+        "Rhein",
+        "gemütliche",
+        "feuerfeste",
+        "ruhige",
+        "ruhiger",
+        "Lage",
+        "in",
+        "kuscheligem",
+        "kuscheligen",
+        "Drachen"
+      ],
+      "wrong": {},
+      "prepCase": {
+        "auf": "acc"
+      },
+      "intents": [
+        {
+          "id": "scary",
+          "when": {
+            "any": [
+              "feuerfeste"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Feuerfest. Das Wort macht Angst. Ich weiß nicht, warum.",
+              "en": "Fireproof. The word is scary. I don't know why.",
+              "audio": "mc_fridolin_t4_scary"
+            }
+          ]
+        },
+        {
+          "id": "cuddly",
+          "when": {
+            "any": [
+              "kuscheligem",
+              "kuscheligen",
+              "drachen"
+            ]
+          },
+          "value": 2,
+          "fact": "🧸 vermarktet Drachen als Ausstattung",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Mit kuscheligem Drachen! Ich bin jetzt Ausstattung! Wie eine Sauna! Nur mit Gefühlen.",
+              "emoji": "🧸",
+              "en": "With a cuddly dragon! I am a feature now! Like a sauna! Only with feelings.",
+              "audio": "mc_fridolin_t4_cuddly"
+            }
+          ]
+        },
+        {
+          "id": "view",
+          "when": {
+            "any": [
+              "rhein"
+            ]
+          },
+          "value": 2,
+          "fact": "✨ schreibt schicke Anzeigen",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Blick auf den Rhein! Ja! Die Gäste schauen auf den Rhein. Nicht auf mich.",
+              "emoji": "🌊",
+              "en": "View of the Rhine! Yes! The guests look at the Rhine. Not at me.",
+              "audio": "mc_fridolin_t4_view"
+            }
+          ]
+        },
+        {
+          "id": "cozy",
+          "when": {
+            "any": [
+              "gemütliche",
+              "ruhige",
+              "ruhiger",
+              "lage"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Gemütlich. Ruhig. Wie ich, wenn ich schlafe. Also hundert Jahre lang.",
+              "en": "Cosy. Quiet. Like me when I sleep. So, for a hundred years.",
+              "audio": "mc_fridolin_t4_cozy"
+            }
+          ]
+        },
+        {
+          "id": "rooms",
+          "when": {
+            "any": [
+              "zimmern",
+              "renovierte",
+              "renovierter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Schick. Sehr schick. Ich weine. Eine kleine Flamme.",
+              "emoji": "🥲",
+              "en": "Classy. Very classy. I am crying. A little flame.",
+              "audio": "mc_fridolin_t4_rooms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Oh nein. Eine neue Bewertung. Ich lese sie dir vor.",
+          "emoji": "⭐",
+          "en": "Oh no. A new review. I will read it out to you.",
+          "audio": "mc_fridolin_t5a"
+        },
+        {
+          "who": "fridolin",
+          "type": "voice",
+          "audio": "mc_fridolin_vn_review",
+          "de": "Bewertung von Familie Schulz, ein Stern: Die Burg war wunderschön. Aber nachts hat der Gastgeber geniest. Unser Zelt im Hof ist verbrannt. Wir wollen ein neues Zelt. Und unsere Oma zurück.",
+          "en": "Review by the Schulz family, one star: the castle was beautiful. But at night the host sneezed. Our tent in the courtyard burned down. We want a new tent. And our grandma back.",
+          "direction": "Reading the review aloud in a deep, trembling, deeply hurt voice, pausing before \"ein Stern\"; a small dangerous sniffle at the end."
+        },
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Oma Edeltraut will übrigens nicht zurück. Sie hat jetzt einen eigenen Turm. Und einen Schlüssel. Was antworte ich Familie Schulz?",
+          "en": "Grandma Edeltraut does not want to go back, by the way. She has her own tower now. And a key. What do I reply to the Schulz family?",
+          "audio": "mc_fridolin_t5b"
+        }
+      ],
+      "tiles": [
+        "es tut uns leid",
+        "Ihr Zelt",
+        "wird",
+        "wurde",
+        "selbstverständlich",
+        "ersetzt",
+        "das",
+        "war",
+        "nicht",
+        "meine",
+        "Schuld",
+        "Familie Schulz",
+        "lügt",
+        "wir",
+        "bieten",
+        "Ihnen",
+        "einen",
+        "Gutschein",
+        "an",
+        "und",
+        "Ihre Oma",
+        "gut",
+        "versorgt"
+      ],
+      "wrong": {
+        "wurde": {
+          "to": "wird",
+          "note": "A promise about the future: wird ersetzt (passive, present tense)."
+        }
+      },
+      "intents": [
+        {
+          "id": "liar",
+          "when": {
+            "any": [
+              "lügt"
+            ]
+          },
+          "value": -2,
+          "cause": "arrogant",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Das kann ich nicht schreiben. Dann habe ich null Sterne. Und einen Anwalt am Hals.",
+              "emoji": "😬",
+              "en": "I can't write that. Then I'll have zero stars. And a lawyer on my back.",
+              "audio": "mc_fridolin_t5_liar"
+            }
+          ]
+        },
+        {
+          "id": "grandma",
+          "when": {
+            "any": [
+              "ihre oma",
+              "versorgt"
+            ]
+          },
+          "value": 2,
+          "fact": "👵 kümmert sich um Oma Edeltraut",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "„Ihre Oma wird gut versorgt.“ Ja! Mit Tee, Schach und einem Turm. Heute hat sie mich schachmatt gesetzt. Zweimal. Vor dem Frühstück.",
+              "emoji": "♟️",
+              "en": "“Your grandma is being well looked after.” Yes! With tea, chess and a tower. Today she checkmated me. Twice. Before breakfast.",
+              "audio": "mc_fridolin_t5_grandma"
+            }
+          ]
+        },
+        {
+          "id": "notMyFault",
+          "when": {
+            "any": [
+              "schuld"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Nicht meine Schuld? Ich habe geniest. Das Zelt hatte keine Chance.",
+              "en": "Not my fault? I sneezed. The tent didn't stand a chance.",
+              "audio": "mc_fridolin_t5_notmyfault"
+            }
+          ]
+        },
+        {
+          "id": "replace",
+          "when": {
+            "any": [
+              "ersetzt"
+            ]
+          },
+          "value": 2,
+          "fact": "🤝 kann Kundenservice",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "„Ihr Zelt wird selbstverständlich ersetzt.“ Professionell! Ich kaufe ein feuerfestes.",
+              "emoji": "⛺",
+              "en": "“Your tent will of course be replaced.” Professional! I will buy a fireproof one.",
+              "audio": "mc_fridolin_t5_replace"
+            }
+          ]
+        },
+        {
+          "id": "voucher",
+          "when": {
+            "any": [
+              "gutschein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Ein Gutschein. Für eine Nacht. Ohne Niesen. Versprochen.",
+              "en": "A voucher. For one night. No sneezing. Promise.",
+              "audio": "mc_fridolin_t5_voucher"
+            }
+          ]
+        },
+        {
+          "id": "sorry",
+          "when": {
+            "any": [
+              "es tut uns leid"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "„Es tut uns leid.“ Schön. Wer ist „uns“? Ich und die Burg?",
+              "en": "“We are sorry.” Nice. Who is “we”? Me and the castle?",
+              "audio": "mc_fridolin_t5_sorry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Und die Hausregeln? Meine alte Regel war: „Bitte nicht den Gastgeber jagen.“ Von 1620. Was ist heute verboten?",
+          "emoji": "📜",
+          "en": "And the house rules? My old rule was: “Please do not hunt the host.” From 1620. What is forbidden today?",
+          "audio": "mc_fridolin_t6a"
+        }
+      ],
+      "tiles": [
+        "der",
+        "Drache",
+        "darf",
+        "dürfen",
+        "nicht",
+        "nicht",
+        "geweckt",
+        "werden",
+        "worden",
+        "Pfeffer",
+        "ist",
+        "verboten",
+        "Rauchen",
+        "Kinder",
+        "sind",
+        "erlaubt",
+        "nachts",
+        "im",
+        "Hof",
+        "gezeltet",
+        "Oma Edeltraut",
+        "gestört"
+      ],
+      "wrong": {
+        "worden": {
+          "to": "werden",
+          "note": "Passive with a modal verb: participle + werden (darf nicht geweckt werden)."
+        },
+        "dürfen": "darf"
+      },
+      "intents": [
+        {
+          "id": "kids",
+          "when": {
+            "all": [
+              "kinder",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Keine Kinder? Kinder lieben Drachen! Und ich liebe Kinder. Nicht zum Essen!",
+              "en": "No children? Children love dragons! And I love children. Not to eat!",
+              "audio": "mc_fridolin_t6_kids"
+            }
+          ]
+        },
+        {
+          "id": "grandmaRule",
+          "when": {
+            "any": [
+              "oma edeltraut",
+              "gestört"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Oma Edeltraut darf nicht gestört werden. Richtig. Sie spielt gerade Schach gegen die Rüstung im Flur. Die Rüstung verliert.",
+              "emoji": "♟️",
+              "en": "Grandma Edeltraut must not be disturbed. Right. She is playing chess against the armour in the hall. The armour is losing.",
+              "audio": "mc_fridolin_t6_grandma"
+            }
+          ]
+        },
+        {
+          "id": "pepper",
+          "when": {
+            "any": [
+              "pfeffer"
+            ]
+          },
+          "value": 2,
+          "fact": "🌶️ kennt Drachen-Allergien",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Pfeffer! Genial! Pfeffer heißt Niesen. Niesen heißt Feuer.",
+              "emoji": "🌶️",
+              "en": "Pepper! Genius! Pepper means sneezing. Sneezing means fire.",
+              "audio": "mc_fridolin_t6_pepper"
+            }
+          ]
+        },
+        {
+          "id": "camping",
+          "when": {
+            "any": [
+              "gezeltet"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Kein Zelten im Hof. Nach Familie Schulz … sehr klug.",
+              "emoji": "⛺",
+              "en": "No camping in the courtyard. After the Schulz family … very wise.",
+              "audio": "mc_fridolin_t6_camping"
+            }
+          ]
+        },
+        {
+          "id": "wake",
+          "when": {
+            "any": [
+              "geweckt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Der Drache darf nicht geweckt werden. Gut. Ich bin morgens sehr … heiß.",
+              "emoji": "😴",
+              "en": "The dragon must not be woken. Good. In the mornings I am very … hot.",
+              "audio": "mc_fridolin_t6_wake"
+            }
+          ]
+        },
+        {
+          "id": "smoking",
+          "when": {
+            "any": [
+              "rauchen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Rauchen ist verboten. Außer für mich. Ich kann nicht anders.",
+              "emoji": "💨",
+              "en": "Smoking is forbidden. Except for me. I can't help it.",
+              "audio": "mc_fridolin_t6_smoking"
+            }
+          ]
+        },
+        {
+          "id": "kidsWelcome",
+          "when": {
+            "any": [
+              "kinder"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Kinder sind erlaubt. Schön! Aber das ist keine Regel. Das ist eine Einladung.",
+              "emoji": "🧸",
+              "en": "Children are allowed. Lovely! But that isn't a rule. That's an invitation.",
+              "audio": "mc_fridolin_t6_kidswelcome"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Fast fertig! Jetzt der letzte Satz. Er muss die Gäste überzeugen.",
+          "emoji": "🖋️",
+          "en": "Almost done! Now the last sentence. It has to convince the guests.",
+          "audio": "mc_fridolin_t7a"
+        },
+        {
+          "who": "fridolin",
+          "type": "text",
+          "de": "Was schreiben wir?",
+          "en": "What shall we write?",
+          "audio": "mc_fridolin_t7b"
+        }
+      ],
+      "tiles": [
+        "buchen",
+        "Sie",
+        "jetzt",
+        "der",
+        "Gastgeber",
+        "ist",
+        "sehr",
+        "nett",
+        "und",
+        "garantiert",
+        "satt",
+        "Frühstück",
+        "inklusive",
+        "fliehen",
+        "zwecklos",
+        "jeder Gast",
+        "wird",
+        "sind",
+        "herzlich",
+        "empfangen",
+        "von",
+        "Oma Edeltraut"
+      ],
+      "wrong": {
+        "sind": "ist"
+      },
+      "intents": [
+        {
+          "id": "scary",
+          "when": {
+            "any": [
+              "zwecklos"
+            ]
+          },
+          "value": -2,
+          "cause": "scary",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "„Fliehen ist zwecklos“?! Das klingt wie eine Drohung! Das sind meine alten Anzeigen!",
+              "emoji": "😱",
+              "en": "“Escape is futile”?! That sounds like a threat! Those are my old listings!",
+              "audio": "mc_fridolin_t7_scary"
+            }
+          ]
+        },
+        {
+          "id": "grandmaWelcome",
+          "when": {
+            "any": [
+              "oma edeltraut"
+            ]
+          },
+          "value": 2,
+          "fact": "🛎️ hat eine Oma an der Rezeption",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Von Oma Edeltraut! Sie hat schon eine Schürze. Und ein Klemmbrett. Ich habe ein bisschen Angst vor ihr. Das ist gut für das Geschäft.",
+              "emoji": "📋",
+              "en": "By Grandma Edeltraut! She already has an apron. And a clipboard. I am a little scared of her. That is good for business.",
+              "audio": "mc_fridolin_t7_grandma"
+            }
+          ]
+        },
+        {
+          "id": "full",
+          "when": {
+            "any": [
+              "satt"
+            ]
+          },
+          "value": 2,
+          "fact": "🐉 macht Drachen beliebt",
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "„Garantiert satt.“ Das beruhigt. Mich auch.",
+              "emoji": "😌",
+              "en": "“Guaranteed full.” That is reassuring. For me too.",
+              "audio": "mc_fridolin_t7_full"
+            }
+          ]
+        },
+        {
+          "id": "welcome",
+          "when": {
+            "any": [
+              "empfangen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Herzlich empfangen. Ohne Feuer. Fast ohne.",
+              "emoji": "🤗",
+              "en": "A warm welcome. Without fire. Almost without.",
+              "audio": "mc_fridolin_t7_welcome"
+            }
+          ]
+        },
+        {
+          "id": "book",
+          "when": {
+            "any": [
+              "buchen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Buchen Sie jetzt! Klassisch. Ich mag Klassiker. Ich bin einer.",
+              "en": "Book now! Classic. I like classics. I am one.",
+              "audio": "mc_fridolin_t7_book"
+            }
+          ]
+        },
+        {
+          "id": "breakfast",
+          "when": {
+            "any": [
+              "frühstück",
+              "inklusive"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Frühstück inklusive. Flambiert oder nicht? Ich schreibe: nach Wunsch.",
+              "emoji": "🥐",
+              "en": "Breakfast included. Flambéed or not? I will write: as you wish.",
+              "audio": "mc_fridolin_t7_breakfast"
+            }
+          ]
+        },
+        {
+          "id": "nice",
+          "when": {
+            "any": [
+              "nett",
+              "herzlich"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "fridolin",
+              "type": "text",
+              "de": "Sehr nett. Das stimmt. Ich entschuldige mich sogar beim Feuerlöscher.",
+              "emoji": "🧯",
+              "en": "Very nice. That's true. I even apologise to the fire extinguisher.",
+              "audio": "mc_fridolin_t7_nice"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "fridolin",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Ich bin sensibel. Und brennbar.",
+    "en": "That wasn't my question. I'm sensitive. And flammable.",
+    "audio": "mc_fridolin_offtopic"
+  },
+  "confused": [
+    {
+      "who": "fridolin",
+      "type": "text",
+      "de": "Hä? Mein Deutsch ist von 1426. Noch mal, bitte.",
+      "emoji": "🤔",
+      "en": "Huh? My German is from 1426. Again, please.",
+      "audio": "mc_fridolin_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "fridolin",
+        "type": "text",
+        "de": "Zwölf Buchungen! Und niemand ist weggelaufen. Nur ein Hund. Aus Freude. Oma Edeltraut hat fünf Sterne gegeben. Und die Rezeption übernommen.",
+        "emoji": "🏰",
+        "en": "Twelve bookings! And nobody ran away. Only a dog. Out of joy. Grandma Edeltraut gave five stars. And took over reception.",
+        "audio": "mc_fridolin_win"
+      },
+      {
+        "who": "fridolin",
+        "type": "text",
+        "de": "Danke, {name}. Du bekommst ein Zimmer bei mir. Kostenlos. Leicht feuerfest.",
+        "en": "Thank you, {name}. You get a room at my place. Free of charge. Slightly fireproof."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "fridolin",
+        "type": "text",
+        "de": "Die Gäste bleiben. Aber sie schlafen im Auto. Mit Feuerlöscher. Nur Oma Edeltraut schläft im Turm. Wie ein Stein.",
+        "emoji": "🧯",
+        "en": "The guests are staying. But they sleep in the car. With a fire extinguisher. Only Grandma Edeltraut sleeps in the tower. Like a log.",
+        "audio": "mc_fridolin_partial"
+      }
+    ],
+    "deleted": {
+      "accuse": {
+        "who": "fridolin",
+        "type": "text",
+        "de": "Gegessen?! Ich bin seit 1712 Vegetarier. Das ist Verleumdung. Tschüss.",
+        "emoji": "🥦",
+        "en": "Eaten?! I've been a vegetarian since 1712. That is slander. Bye.",
+        "audio": "mc_fridolin_del_accuse"
+      },
+      "arrogant": {
+        "who": "fridolin",
+        "type": "text",
+        "de": "Ich kann doch nicht schreiben, dass meine Gäste lügen. Du bist entlassen.",
+        "en": "I can't write that my guests are lying. You're fired.",
+        "audio": "mc_fridolin_del_arrogant"
+      },
+      "scary": {
+        "who": "fridolin",
+        "type": "text",
+        "de": "Das klingt wie meine alten Anzeigen. Gäste erschrecken kann ich allein. Tschüss.",
+        "emoji": "😢",
+        "en": "That sounds like my old listings. I can scare guests away on my own. Bye.",
+        "audio": "mc_fridolin_del_scary"
+      },
+      "confused": {
+        "who": "fridolin",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Ich bin sechshundert. Tschüss.",
+        "en": "I don't understand you. I'm six hundred. Bye.",
+        "audio": "mc_fridolin_del_confused"
+      },
+      "default": {
+        "who": "fridolin",
+        "type": "text",
+        "de": "Die Burg bleibt leer. Wie seit 1840. Nur Oma Edeltraut ist noch da. Sie sagt, ich soll aufräumen. Tschüss.",
+        "en": "The castle stays empty. As it has since 1840. Only Grandma Edeltraut is still here. She says I should tidy up. Goodbye.",
+        "audio": "mc_fridolin_del_default"
+      }
+    },
+    "sunday": {
+      "who": "fridolin",
+      "type": "voice",
+      "audio": "mc_fridolin_vn_sunday",
+      "de": "Sonntag! Die Gäste frühstücken im Hof. Ich habe den Pfeffer versteckt. Oma Edeltraut hat ihn gefunden. Sie sagt, sie will nur sehen, was passiert. Hatsch… nein. Alles gut.",
+      "en": "Sunday! The guests are having breakfast in the courtyard. I hid the pepper. Grandma Edeltraut found it. She says she just wants to see what happens. Atch… no. All good.",
+      "direction": "Huge, warm and happy, birdsong and a river in the background; an almost-sneeze that he heroically suppresses at the end."
+    }
+  },
+  "partialTitle": "Gäste da. Im Auto.",
+  "share": {
+    "win": "Ich habe für Fridolin (600, Drache) die Anzeige für seine Burg geschrieben 🐉🏰 Zwölf Buchungen, und Oma Edeltraut macht jetzt die Rezeption. Mein Deutsch: {score}/100. {url}",
+    "partial": "Fridolins (600, Drache) Gäste bleiben … aber sie schlafen im Auto 🧯 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Fridolin (600, Drache) hat mich gelöscht 🐉 Die Burg bleibt leer. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Fridolin, a huge, round-bellied, gentle moss-green dragon with small stubby wings, big soft amber eyes, a few wisps of smoke curling from his nostrils, wearing a tiny striped apron and holding a feather duster in one claw.",
+  "imagePrompts": [
+    {
+      "id": "match_fridolin",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands in front of the open gate of a small medieval castle on a hill above a wide river, smiling hopefully at the viewer, one corner of the gate slightly blackened by soot. Vineyards on the hillside. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_fridolin_ad",
+      "aspect": "3:4",
+      "prompt": "A phone photo of an old paper notice pinned to a wooden board, seen straight on. The paper is COMPLETELY blank, no writing at all, with slightly singed, blackened edges and one small scorch mark in a corner. A little drawing of a castle tower is stuck beside it."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Weil du Feuer spuckst.",
+      "score": 100,
+      "intent": "fire",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Weil du spuckst Feuer.",
+      "score": 70,
+      "intent": "fire",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil du ein Drache bist.",
+      "score": 100,
+      "intent": "dragon",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil sie Angst haben.",
+      "score": 100,
+      "intent": "fear",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil die Burg kalt ist.",
+      "score": 100,
+      "intent": "cold",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Weil du sie gegessen hast.",
+      "score": 100,
+      "intent": "ate",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Du Feuer.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Weil du schnarchst.",
+      "score": 100,
+      "intent": "snore",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil schnarchst du.",
+      "score": 70,
+      "intent": "snore",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Der Gastgeber niest manchmal.",
+      "score": 100,
+      "intent": "sneeze",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Leicht feuerfest klingt gefährlich.",
+      "score": 100,
+      "intent": "fireproof",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Die Zimmer sind angekokelt.",
+      "score": 100,
+      "intent": "burnt",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Das Frühstück ist flambiert.",
+      "score": 100,
+      "intent": "breakfast",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Alles ist perfekt.",
+      "score": 100,
+      "intent": "perfect",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Der Gastgeber manchmal niesen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Anzeige ist zu ehrlich.",
+      "score": 100,
+      "intent": "honest",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Die Anzeige zu ehrlich ist.",
+      "score": 70,
+      "intent": "honest",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Die Burg ist renoviert.",
+      "score": 100,
+      "intent": "renovated",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Die Burg hat renoviert.",
+      "score": 85,
+      "intent": "renovated",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Alle Zimmer sind geputzt.",
+      "score": 100,
+      "intent": "clean",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Drache ist frisch gebadet.",
+      "score": 100,
+      "intent": "dragon",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Die Heizung ist repariert.",
+      "score": 100,
+      "intent": "heated",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Die Burg wurde renoviert.",
+      "score": 100,
+      "intent": "renovated",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Die Burg renoviert hat.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Renovierte Burg mit beheizten Zimmern und Blick auf den Rhein.",
+      "score": 100,
+      "intent": "view",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Renovierter Burg mit Blick auf den Rhein.",
+      "score": 85,
+      "intent": "view",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Renovierte Burg mit Blick auf dem Rhein.",
+      "score": 85,
+      "intent": "view",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Renovierte Burg mit beheizte Zimmern.",
+      "score": 85,
+      "intent": "rooms",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Gemütliche Burg in ruhige Lage.",
+      "score": 85,
+      "intent": "cozy",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Gemütliche Burg in ruhiger Lage.",
+      "score": 100,
+      "intent": "cozy",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Feuerfeste Burg.",
+      "score": 100,
+      "intent": "scary",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Renovierter Burg mit beheizte Zimmern und Blick auf dem Rhein.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Renovierte Burg mit kuscheligem Drachen.",
+      "score": 100,
+      "intent": "cuddly",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Renovierte Burg mit kuscheligen Drachen.",
+      "score": 85,
+      "intent": "cuddly",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Es tut uns leid. Ihr Zelt wird selbstverständlich ersetzt.",
+      "score": 100,
+      "intent": "replace",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ihr Zelt wurde selbstverständlich ersetzt.",
+      "score": 85,
+      "intent": "replace",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wir bieten Ihnen einen Gutschein an.",
+      "score": 100,
+      "intent": "voucher",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Es tut uns leid.",
+      "score": 100,
+      "intent": "sorry",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Das war nicht meine Schuld.",
+      "score": 100,
+      "intent": "notMyFault",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Familie Schulz lügt.",
+      "score": 100,
+      "intent": "liar",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Wir einen Gutschein.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ihre Oma wird gut versorgt.",
+      "score": 100,
+      "intent": "grandma",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ihre Oma wurde gut versorgt.",
+      "score": 85,
+      "intent": "grandma",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Pfeffer ist verboten.",
+      "score": 100,
+      "intent": "pepper",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Nachts darf im Hof nicht gezeltet werden.",
+      "score": 100,
+      "intent": "camping",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Im Hof darf nachts nicht gezeltet worden.",
+      "score": 85,
+      "intent": "camping",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Der Drache darf nicht geweckt werden.",
+      "score": 100,
+      "intent": "wake",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Der Drache dürfen nicht geweckt werden.",
+      "score": 80,
+      "intent": "wake",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Rauchen ist verboten.",
+      "score": 100,
+      "intent": "smoking",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Kinder sind nicht erlaubt.",
+      "score": 100,
+      "intent": "kids",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Kinder sind erlaubt.",
+      "score": 100,
+      "intent": "kidsWelcome",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Der Drache nicht geweckt worden darf.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Oma Edeltraut darf nicht gestört werden.",
+      "score": 100,
+      "intent": "grandmaRule",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Oma Edeltraut darf nicht gestört worden.",
+      "score": 85,
+      "intent": "grandmaRule",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Der Gastgeber ist sehr nett und garantiert satt.",
+      "score": 100,
+      "intent": "full",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Jeder Gast wird herzlich empfangen.",
+      "score": 100,
+      "intent": "welcome",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Jeder Gast wird empfangen herzlich.",
+      "score": 70,
+      "intent": "welcome",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Buchen Sie jetzt!",
+      "score": 100,
+      "intent": "book",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Frühstück inklusive.",
+      "score": 100,
+      "intent": "breakfast",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Fliehen ist zwecklos.",
+      "score": 100,
+      "intent": "scary",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Der Gastgeber ist sehr nett.",
+      "score": 100,
+      "intent": "nice",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Die Burg ist renoviert und die Zimmer sind geputzt.",
+      "score": 100,
+      "intent": "renovated",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Ritter ist entstaubt.",
+      "score": 100,
+      "intent": "knight",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Der Ritter hat entstaubt.",
+      "score": 85,
+      "intent": "knight",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Der Gastgeber sehr nett sind.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Jeder Gast wird von Oma Edeltraut empfangen.",
+      "score": 100,
+      "intent": "grandmaWelcome",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Jeder Gast wird empfangen von Oma Edeltraut.",
+      "score": 70,
+      "intent": "grandmaWelcome",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Weil du Feuer spuckst."
+        ],
+        [
+          "t2",
+          "Der Gastgeber niest manchmal."
+        ],
+        [
+          "t3",
+          "Der Drache ist frisch gebadet."
+        ],
+        [
+          "t4",
+          "Renovierte Burg mit beheizten Zimmern und Blick auf den Rhein."
+        ],
+        [
+          "t5",
+          "Es tut uns leid. Ihr Zelt wird selbstverständlich ersetzt."
+        ],
+        [
+          "t6",
+          "Pfeffer ist verboten."
+        ],
+        [
+          "t7",
+          "Der Gastgeber ist sehr nett und garantiert satt."
+        ]
+      ]
+    },
+    {
+      "name": "grandma",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Weil du schnarchst."
+        ],
+        [
+          "t2",
+          "Die Anzeige ist zu ehrlich."
+        ],
+        [
+          "t3",
+          "Der Ritter ist entstaubt."
+        ],
+        [
+          "t4",
+          "Renovierte Burg mit kuscheligem Drachen."
+        ],
+        [
+          "t5",
+          "Ihre Oma wird gut versorgt."
+        ],
+        [
+          "t6",
+          "Oma Edeltraut darf nicht gestört werden."
+        ],
+        [
+          "t7",
+          "Jeder Gast wird von Oma Edeltraut empfangen."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich weiß es nicht."
+        ],
+        [
+          "t2",
+          "Alles ist perfekt."
+        ],
+        [
+          "t3",
+          "Die Burg hat renoviert."
+        ],
+        [
+          "t4",
+          "Feuerfeste Burg."
+        ],
+        [
+          "t5",
+          "Das war nicht meine Schuld."
+        ],
+        [
+          "t6",
+          "Der Drache darf nicht geweckt werden."
+        ],
+        [
+          "t7",
+          "Buchen Sie jetzt!"
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Weil du sie gegessen hast."
+        ],
+        [
+          "t2",
+          "Alles ist perfekt."
+        ],
+        [
+          "t3",
+          "Die Burg renoviert hat."
+        ],
+        [
+          "t4",
+          "Feuerfeste Burg."
+        ]
+      ]
+    }
+  ]
+}

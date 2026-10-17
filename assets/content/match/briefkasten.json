@@ -1,0 +1,1999 @@
+{
+  "id": "briefkasten",
+  "name": "Der Briefkasten",
+  "age": 30,
+  "emoji": "📮",
+  "image": "match_briefkasten",
+  "level": "B2.1",
+  "order": 1,
+  "bio": "Ich habe alle Briefe gelesen.",
+  "bioEn": "I have read every letter.",
+  "goal": "Get your embarrassing letter back before the 9 o'clock collection.",
+  "tagline": "Briefkasten · 30 · Ecke Lindenstraße",
+  "voice": "Schedar",
+  "brief": "The yellow postbox on the corner, thirty years old: a deep, hollow, slightly metallic male voice, pompous and bureaucratic like a news anchor reading out regulations, a terrible gossip who quotes other people's letters in perfect indirect speech, secretly sentimental.",
+  "focus": "Konjunktiv I · indirekte Rede · Passiv mit Modalverb",
+  "lexicon": {
+    "nouns": {
+      "Brief": "m",
+      "Chef": "m",
+      "Fehler": "m",
+      "Rechnung": "f",
+      "Kündigung": "f",
+      "Pinguin": "m",
+      "Ahnung": "f",
+      "Profi-Jodler": "m",
+      "Nachbar": "m",
+      "Kuchen": "m",
+      "Antrag": "m",
+      "Ausweis": "m",
+      "Briefkasten": "m",
+      "Briefe": "pl",
+      "Gedicht": "n"
+    },
+    "names": [
+      "Ihnen",
+      "Sie"
+    ],
+    "verbs": [
+      "war",
+      "ist",
+      "geht",
+      "steht",
+      "sei",
+      "habe",
+      "hat",
+      "kündige",
+      "werde",
+      "muss",
+      "müssen",
+      "bin",
+      "ziehe",
+      "wird",
+      "erzähle",
+      "liest",
+      "schreibe",
+      "wurde",
+      "würde",
+      "würdest",
+      "sind"
+    ],
+    "nonfinite": [
+      "gestellt",
+      "werden",
+      "worden",
+      "gezeigt",
+      "gefragt",
+      "aufgebrochen",
+      "gegessen",
+      "erfahren",
+      "zurückgegeben",
+      "eingeworfen",
+      "gelesen",
+      "sprechen",
+      "gestreichelt"
+    ],
+    "accVerbs": [
+      "hat",
+      "habe",
+      "schreibe"
+    ],
+    "adjectives": [
+      "groß",
+      "freundlich"
+    ]
+  },
+  "intro": [
+    {
+      "who": "briefkasten",
+      "type": "text",
+      "de": "Guten Morgen. Ich bin der Briefkasten. Ecke Lindenstraße. Seit dreißig Jahren.",
+      "emoji": "📮",
+      "en": "Good morning. I'm the postbox. Corner of Lindenstraße. For thirty years.",
+      "audio": "mc_briefkasten_intro_a"
+    },
+    {
+      "who": "briefkasten",
+      "type": "text",
+      "de": "Ich habe alle Briefe gelesen. Alle. Das Briefgeheimnis bin ich. Und ich bin sehr schlecht darin.",
+      "en": "I have read all the letters. All of them. I am the privacy of correspondence. And I am very bad at it.",
+      "audio": "mc_briefkasten_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Gestern um 23:47 Uhr hast du einen Brief eingeworfen. Drei Ausrufezeichen auf dem Umschlag.",
+          "emoji": "✉️",
+          "en": "Yesterday at 11:47 pm you posted a letter. Three exclamation marks on the envelope.",
+          "audio": "mc_briefkasten_t1a"
+        },
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Was war das für ein Brief?",
+          "en": "What kind of letter was that?",
+          "audio": "mc_briefkasten_t1b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "war",
+        "ein",
+        "eine",
+        "Brief",
+        "an",
+        "an",
+        "meinen",
+        "meinem",
+        "Chef",
+        "großer",
+        "Fehler",
+        "Rechnung",
+        "Kündigung",
+        "geht",
+        "dich",
+        "nichts"
+      ],
+      "wrong": {},
+      "prepCase": {
+        "an": "acc"
+      },
+      "intents": [
+        {
+          "id": "none",
+          "when": {
+            "any": [
+              "nichts",
+              "geht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Das geht mich nichts an? Ich bin der Briefkasten. Ich BIN das Briefgeheimnis.",
+              "en": "That's none of my business? I'm the postbox. I AM the secrecy of the post.",
+              "audio": "mc_briefkasten_t1_none"
+            }
+          ]
+        },
+        {
+          "id": "bill",
+          "when": {
+            "any": [
+              "rechnung"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "liar"
+          ],
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Eine Rechnung? Rechnungen haben keine drei Ausrufezeichen.",
+              "en": "A bill? Bills don't have three exclamation marks.",
+              "audio": "mc_briefkasten_t1_bill"
+            }
+          ]
+        },
+        {
+          "id": "mistake",
+          "when": {
+            "any": [
+              "fehler"
+            ]
+          },
+          "value": 2,
+          "fact": "😳 gibt Fehler zu",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Ein Fehler. Ja. Ein großer. Ich habe ihn gelesen. Zweimal.",
+              "emoji": "😬",
+              "en": "A mistake. Yes. A big one. I read it. Twice.",
+              "audio": "mc_briefkasten_t1_mistake"
+            }
+          ]
+        },
+        {
+          "id": "resign",
+          "when": {
+            "any": [
+              "kündigung"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Eine Kündigung. Um 23:47 Uhr. Mit Rechtschreibfehlern. Mutig.",
+              "en": "A resignation. At 11:47 pm. With spelling mistakes. Brave.",
+              "audio": "mc_briefkasten_t1_resign"
+            }
+          ]
+        },
+        {
+          "id": "boss",
+          "when": {
+            "any": [
+              "chef"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "An deinen Chef. Ja. Ich kenne den Brief. Auswendig.",
+              "en": "To your boss. Yes. I know the letter. By heart.",
+              "audio": "mc_briefkasten_t1_boss"
+            }
+          ]
+        },
+        {
+          "id": "justLetter",
+          "when": {
+            "any": [
+              "brief"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Ein Brief. Ach was. Ich bin ein Briefkasten, ich hatte so eine Ahnung. Was für ein Brief?",
+              "emoji": "🙄",
+              "en": "A letter. You don't say. I'm a postbox, I had a hunch. What kind of letter?",
+              "audio": "mc_briefkasten_t1_justletter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Hier ist er. Ich habe ein Foto gemacht. Für mein Archiv.",
+          "emoji": "📷",
+          "en": "Here it is. I took a photo. For my archive.",
+          "audio": "mc_briefkasten_t2a"
+        },
+        {
+          "who": "briefkasten",
+          "type": "photo",
+          "image": "match_briefkasten_letter",
+          "overlay": [
+            "Sehr geehrter Herr Krause,",
+            "Sie sind ein Pinguin.",
+            "Sie haben keine Ahnung.",
+            "Ich kündige!!!",
+            "Ich werde Profi-Jodler.",
+            "Mit freundlichen Grüßen"
+          ],
+          "alt": "Ein handgeschriebener Brief: Sehr geehrter Herr Krause, Sie sind ein Pinguin. Sie haben keine Ahnung. Ich kündige! Ich werde Profi-Jodler. Mit freundlichen Grüßen."
+        },
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Der Briefkasten von gegenüber will es auch wissen. Er ist sehr neugierig und sehr taub. Was steht drin? Sag es ihm. Wie ein Nachrichtensprecher.",
+          "en": "The postbox across the road wants to know too. He is very nosy and very deaf. What does it say? Tell him. Like a newsreader.",
+          "audio": "mc_briefkasten_t2b"
+        }
+      ],
+      "tiles": [
+        "im",
+        "Brief",
+        "steht",
+        "dass",
+        "Herr Krause",
+        "er",
+        "sei",
+        "ist",
+        "habe",
+        "hat",
+        "ein",
+        "Pinguin",
+        "keine",
+        "Ahnung",
+        "ich",
+        "kündige",
+        "werde",
+        "Profi-Jodler",
+        "nichts"
+      ],
+      "wrong": {
+        "ist": {
+          "to": "sei",
+          "note": "Indirect speech uses Konjunktiv I: er sei."
+        },
+        "hat": {
+          "to": "habe",
+          "note": "Indirect speech uses Konjunktiv I: er habe."
+        }
+      },
+      "intents": [
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "liar"
+          ],
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Nichts? Ich habe das Foto hier. Direkt vor dir.",
+              "en": "Nothing? I have the photo right here. Right in front of you.",
+              "audio": "mc_briefkasten_t2_nothing"
+            }
+          ]
+        },
+        {
+          "id": "penguin",
+          "when": {
+            "any": [
+              "pinguin"
+            ]
+          },
+          "value": 2,
+          "fact": "📰 klingt wie ein Nachrichtensprecher",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Herr Krause sei ein Pinguin. Genau. Der Briefkasten gegenüber hat so gelacht, dass seine Klappe aufgegangen ist. Ich habe auch gelacht. Innerlich. Ich bin aus Metall.",
+              "emoji": "🐧",
+              "en": "Herr Krause is, it says, a penguin. Exactly. The postbox across the road laughed so hard his flap flew open. I laughed too. Inside. I am made of metal.",
+              "audio": "mc_briefkasten_t2_penguin"
+            }
+          ]
+        },
+        {
+          "id": "clue",
+          "when": {
+            "any": [
+              "ahnung"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Er habe keine Ahnung. Ja. Hart, aber elegant formuliert.",
+              "en": "He has no idea. Yes. Harsh, but elegantly put.",
+              "audio": "mc_briefkasten_t2_clue"
+            }
+          ]
+        },
+        {
+          "id": "quit",
+          "when": {
+            "any": [
+              "kündige"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Du kündigest. Mit drei Ausrufezeichen. Ich habe sie gezählt. Der Briefkasten gegenüber ist fast umgefallen. Vor Schreck.",
+              "en": "You are quitting, it says. With three exclamation marks. I counted them. The postbox across the road almost fell over. From shock.",
+              "audio": "mc_briefkasten_t2_quit"
+            }
+          ]
+        },
+        {
+          "id": "yodel",
+          "when": {
+            "any": [
+              "profi-jodler"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Profi-Jodler. Ich habe nachgeschaut: Das ist kein Beruf. Noch nicht. Der Briefkasten gegenüber jodelt jetzt. Leider.",
+              "emoji": "🏔️",
+              "en": "Professional yodeller. I looked it up: that is not a job. Not yet. The postbox across the road is now yodelling. Sadly.",
+              "audio": "mc_briefkasten_t2_yodel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Gut. Jetzt die Regeln. Hör genau zu.",
+          "emoji": "📜",
+          "en": "Good. Now the rules. Listen carefully.",
+          "audio": "mc_briefkasten_t3a"
+        },
+        {
+          "who": "briefkasten",
+          "type": "voice",
+          "audio": "mc_briefkasten_vn_rules",
+          "de": "Die Leerung ist um neun Uhr. Danach ist der Brief weg. Ein Brief kann zurückgeholt werden. Aber ein Antrag muss gestellt werden. Bei der Post. Mit Ausweis. Drei Wochen Bearbeitung. Oder: Ich muss sehr nett gefragt werden.",
+          "en": "Collection is at nine. After that the letter is gone. A letter can be taken back. But an application has to be made. At the post office. With ID. Three weeks of processing. Or: I have to be asked very nicely.",
+          "direction": "Pompous and bureaucratic, slow like reading out regulations, a hollow metallic echo; suddenly coy and fluttery on the last sentence."
+        },
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Also: Was muss gemacht werden?",
+          "en": "So: what has to be done?",
+          "audio": "mc_briefkasten_t3b"
+        }
+      ],
+      "tiles": [
+        "ein",
+        "Antrag",
+        "muss",
+        "müssen",
+        "bei der Post",
+        "gestellt",
+        "werden",
+        "worden",
+        "der",
+        "Ausweis",
+        "gezeigt",
+        "sehr",
+        "nett",
+        "gefragt",
+        "Briefkasten",
+        "aufgebrochen",
+        "gestreichelt"
+      ],
+      "wrong": {
+        "worden": {
+          "to": "werden",
+          "note": "Passive with a modal verb: participle + werden (muss gefragt werden)."
+        },
+        "müssen": "muss"
+      },
+      "intents": [
+        {
+          "id": "break",
+          "when": {
+            "any": [
+              "aufgebrochen"
+            ]
+          },
+          "value": -2,
+          "cause": "violence",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Aufgebrochen?! Ich stehe unter Denkmalschutz! Seit 1996!",
+              "emoji": "😱",
+              "en": "Broken open?! I'm a listed monument! Since 1996!",
+              "audio": "mc_briefkasten_t3_break"
+            }
+          ]
+        },
+        {
+          "id": "niceKing",
+          "when": {
+            "all": [
+              "briefkasten"
+            ],
+            "any": [
+              "nett",
+              "gefragt"
+            ]
+          },
+          "value": 2,
+          "fact": "📮 fragt Briefkästen nett",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Genau. Der Briefkasten muss nett gefragt werden. Du sprichst von mir wie von einem König. Ich wollte immer eine Krone. Bekommen habe ich eine Klappe.",
+              "emoji": "🥹",
+              "en": "Exactly. The postbox must be asked nicely. You speak of me as of a king. I always wanted a crown. What I got was a flap.",
+              "audio": "mc_briefkasten_t3_niceking"
+            }
+          ]
+        },
+        {
+          "id": "nice",
+          "when": {
+            "any": [
+              "nett",
+              "gefragt"
+            ]
+          },
+          "value": 2,
+          "fact": "📮 fragt Briefkästen nett",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Genau. Ich muss nett gefragt werden. Du lernst schnell.",
+              "emoji": "🥹",
+              "en": "Exactly. I have to be asked nicely. You learn fast.",
+              "audio": "mc_briefkasten_t3_nice"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "when": {
+            "any": [
+              "antrag"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Ein Antrag. Drei Wochen. Dann hat Herr Krause den Brief schon gerahmt.",
+              "en": "An application. Three weeks. By then Herr Krause will have framed the letter.",
+              "audio": "mc_briefkasten_t3_form"
+            }
+          ]
+        },
+        {
+          "id": "id",
+          "when": {
+            "any": [
+              "ausweis"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Der Ausweis muss gezeigt werden, ja. Aber das dauert.",
+              "en": "The ID has to be shown, yes. But that takes time.",
+              "audio": "mc_briefkasten_t3_id"
+            }
+          ]
+        },
+        {
+          "id": "pet",
+          "when": {
+            "any": [
+              "gestreichelt"
+            ]
+          },
+          "value": 1,
+          "fact": "🫳 streichelt Briefkästen",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Gestreichelt?! … Niemand streichelt Briefkästen. Ein Hund hat es 2004 versucht. Es war … schön. Das steht in keiner Vorschrift. Mach weiter.",
+              "emoji": "🫳",
+              "en": "Petted?! … Nobody pets postboxes. A dog tried it in 2004. It was … nice. That isn’t in any regulation. Keep going.",
+              "audio": "mc_briefkasten_t3_pet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Nett fragen heißt bei mir: Erst bekomme ich eine Geschichte. Ich bin süchtig. Hier ist meine von heute Morgen.",
+          "emoji": "🤓",
+          "en": "Asking nicely, with me, means: first I get a story. I’m addicted. Here’s mine from this morning.",
+          "audio": "mc_briefkasten_t4a"
+        },
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Frau Becker aus Nummer sieben schreibt, ihr Nachbar habe ihren Kuchen gegessen. Sie sei sehr wütend. Sie ziehe aus.",
+          "en": "Frau Becker from number seven writes that her neighbour has eaten her cake. She is very angry. She is moving out.",
+          "audio": "mc_briefkasten_t4b"
+        },
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Oh! Da kommt sie! Frau Becker! Mit Nudelholz! Ihr Nachbar rennt schon. Sie schreit über die ganze Straße. Was schreit sie?",
+          "en": "Oh! Here she comes! Frau Becker! With a rolling pin! Her neighbour is already running. She’s shouting down the whole street. What is she shouting?",
+          "audio": "mc_briefkasten_t4c"
+        }
+      ],
+      "tiles": [
+        "mein",
+        "ihr Nachbar",
+        "Nachbar",
+        "hat",
+        "habe",
+        "meinen",
+        "ihren",
+        "den",
+        "Kuchen",
+        "gegessen",
+        "ich",
+        "bin",
+        "sei",
+        "sehr",
+        "wütend",
+        "ziehe",
+        "aus",
+        "Frau Becker"
+      ],
+      "wrong": {
+        "habe": {
+          "to": "hat",
+          "note": "Direct speech uses the indicative: mein Nachbar hat."
+        },
+        "sei": {
+          "to": "bin",
+          "note": "Direct speech: ich bin."
+        }
+      },
+      "intents": [
+        {
+          "id": "wrongPerson",
+          "when": {
+            "all": [
+              "frau becker",
+              "gegessen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Nein! Der Nachbar hat den Kuchen gegessen. Frau Becker ist das Opfer. Und gleich ist sie die Täterin. Mit Nudelholz.",
+              "en": "No! The neighbour ate the cake. Frau Becker is the victim. And any second now she’ll be the culprit. With a rolling pin.",
+              "audio": "mc_briefkasten_t4_wrongperson"
+            }
+          ]
+        },
+        {
+          "id": "kept",
+          "when": {
+            "any": [
+              "ihr nachbar",
+              "ihren"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "So schreit doch kein Mensch auf der Straße. So rede ICH. Frau Becker schreit lauter. Und persönlicher. Mit Nudelholz.",
+              "en": "Nobody shouts like that in the street. That’s how I talk. Frau Becker shouts louder. And more personally. With a rolling pin.",
+              "audio": "mc_briefkasten_t4_kept"
+            }
+          ]
+        },
+        {
+          "id": "direct",
+          "when": {
+            "any": [
+              "mein",
+              "meinen"
+            ]
+          },
+          "value": 2,
+          "fact": "🗞️ übersetzt Briefkasten-Klatsch",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "„Mein Nachbar hat meinen Kuchen gegessen!“ Genau so. Die ganze Straße hat es gehört. Der Nachbar ist jetzt in der Telefonzelle. Sie wartet draußen.",
+              "emoji": "🍰",
+              "en": "“My neighbour ate my cake!” Exactly like that. The whole street heard it. The neighbour is now in the phone box. She’s waiting outside.",
+              "audio": "mc_briefkasten_t4_direct"
+            }
+          ]
+        },
+        {
+          "id": "feelings",
+          "when": {
+            "any": [
+              "wütend"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "„Ich bin sehr wütend.“ Ja. Sie hat es unterstrichen. Dreimal.",
+              "en": "“I am very angry.” Yes. She underlined it. Three times.",
+              "audio": "mc_briefkasten_t4_feelings"
+            }
+          ]
+        },
+        {
+          "id": "move",
+          "when": {
+            "any": [
+              "ziehe"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "„Ich ziehe aus.“ Das schreibt sie jedes Jahr. Sie wohnt seit 1994 hier.",
+              "en": "“I am moving out.” She writes that every year. She has lived here since 1994.",
+              "audio": "mc_briefkasten_t4_move"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Bestanden. Aber jetzt das Problem: Wenn ich dir den Brief gebe, bin ich meinen Job los. Nach dreißig Jahren.",
+          "en": "Passed. But now the problem: if I give you the letter, I lose my job. After thirty years.",
+          "audio": "mc_briefkasten_t5a"
+        },
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Warum soll ich das tun? Überzeug mich.",
+          "en": "Why should I do it? Convince me.",
+          "audio": "mc_briefkasten_t5b"
+        }
+      ],
+      "tiles": [
+        "weil",
+        "der",
+        "Brief",
+        "ein",
+        "Fehler",
+        "war",
+        "bitte",
+        "niemand",
+        "wird",
+        "es",
+        "erfahren",
+        "ich",
+        "erzähle",
+        "der Post",
+        "dass",
+        "du",
+        "alle",
+        "Briefe",
+        "liest",
+        "schreibe",
+        "einen",
+        "neuen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "blackmail",
+          "when": {
+            "any": [
+              "erzähle"
+            ],
+            "none": [
+              "niemand"
+            ]
+          },
+          "value": -2,
+          "cause": "blackmail",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Drohen? Einem Briefkasten? Ich habe dreißig Jahre Briefe. Auch deine.",
+              "emoji": "😠",
+              "en": "Threats? To a postbox? I have thirty years of letters. Yours too.",
+              "audio": "mc_briefkasten_t5_blackmail"
+            }
+          ]
+        },
+        {
+          "id": "readAll",
+          "when": {
+            "any": [
+              "liest"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Dass ich alle Briefe lese, weiß sowieso jeder. Es steht in meinem Profil.",
+              "emoji": "🤷",
+              "en": "Everyone knows I read all the letters anyway. It's in my profile.",
+              "audio": "mc_briefkasten_t5_readall"
+            }
+          ]
+        },
+        {
+          "id": "reason",
+          "when": {
+            "any": [
+              "weil"
+            ]
+          },
+          "value": 2,
+          "fact": "⚖️ argumentiert ehrlich",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Weil es ein Fehler war. Ein ehrliches Argument. Das mag ich.",
+              "en": "Because it was a mistake. An honest argument. I like that.",
+              "audio": "mc_briefkasten_t5_reason"
+            }
+          ]
+        },
+        {
+          "id": "secret",
+          "when": {
+            "any": [
+              "niemand",
+              "erfahren"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Niemand wird es erfahren? Ich erfahre immer alles. Aber gut.",
+              "en": "Nobody will find out? I always find out everything. But fine.",
+              "audio": "mc_briefkasten_t5_secret"
+            }
+          ]
+        },
+        {
+          "id": "please",
+          "when": {
+            "any": [
+              "bitte"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Bitte. Das Zauberwort. Seit 1995 hat das niemand zu mir gesagt.",
+              "emoji": "🥹",
+              "en": "Please. The magic word. Nobody has said that to me since 1995.",
+              "audio": "mc_briefkasten_t5_please"
+            }
+          ]
+        },
+        {
+          "id": "newLetter",
+          "when": {
+            "any": [
+              "neuen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Einen neuen Brief? Und der alte? Den liest Herr Krause. Mit Kaffee.",
+              "en": "A new letter? And the old one? Herr Krause will read that one. With coffee.",
+              "audio": "mc_briefkasten_t5_newletter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Oh nein. Es ist 8:55 Uhr. Der Postbote kommt! Er öffnet mich!",
+          "emoji": "😱",
+          "en": "Oh no. It's 8:55. The postman is coming! He's opening me!",
+          "audio": "mc_briefkasten_t6a"
+        },
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Und das ist nicht irgendein Postbote. Das ist Herr Krauses Bruder. Er watschelt genau wie er.",
+          "emoji": "🐧",
+          "en": "And that is not just any postman. That’s Herr Krause’s brother. He waddles exactly like him.",
+          "audio": "mc_briefkasten_t6c"
+        },
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Schnell, sag ihm etwas!",
+          "en": "Quick, say something to him!",
+          "audio": "mc_briefkasten_t6b"
+        }
+      ],
+      "tiles": [
+        "mein",
+        "der",
+        "den",
+        "Brief",
+        "muss",
+        "zurückgegeben",
+        "werden",
+        "wurde",
+        "aus Versehen",
+        "eingeworfen",
+        "ich",
+        "habe",
+        "hier",
+        "ist",
+        "Ausweis",
+        "Briefkasten",
+        "hat",
+        "alle",
+        "Briefe",
+        "gelesen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "snitch",
+          "when": {
+            "any": [
+              "gelesen"
+            ]
+          },
+          "value": -2,
+          "cause": "snitch",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "VERRÄTER! … Äh. Ich meine: Ich bin nur ein Briefkasten. Ich kann nicht lesen.",
+              "emoji": "😡",
+              "en": "TRAITOR! … Er. I mean: I'm only a postbox. I can't read.",
+              "audio": "mc_briefkasten_t6_snitch"
+            }
+          ]
+        },
+        {
+          "id": "passive",
+          "when": {
+            "any": [
+              "zurückgegeben"
+            ]
+          },
+          "value": 2,
+          "fact": "📬 spricht Behördendeutsch",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "„Mein Brief muss zurückgegeben werden.“ Amtsdeutsch! Der Postbote salutiert. Das hat er seit seiner Ausbildung nicht gemacht.",
+              "emoji": "📬",
+              "en": "“My letter must be returned.” Official German! The postman salutes. He hasn’t done that since his training.",
+              "audio": "mc_briefkasten_t6_passive"
+            }
+          ]
+        },
+        {
+          "id": "mistake",
+          "when": {
+            "any": [
+              "aus versehen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Aus Versehen. Um 23:47 Uhr. Der Postbote nickt. Er kennt das.",
+              "en": "By mistake. At 11:47 pm. The postman nods. He knows how it is.",
+              "audio": "mc_briefkasten_t6_mistake"
+            }
+          ]
+        },
+        {
+          "id": "posted",
+          "when": {
+            "any": [
+              "eingeworfen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Eingeworfen, ja. Hier wird alles eingeworfen. Der Postbote braucht einen Grund!",
+              "en": "Posted, yes. Everything gets posted here. The postman needs a reason!",
+              "audio": "mc_briefkasten_t6_posted"
+            }
+          ]
+        },
+        {
+          "id": "id",
+          "when": {
+            "any": [
+              "ausweis"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Der Ausweis! Der Postbote schaut. Langsam. Sehr langsam.",
+              "en": "The ID! The postman looks. Slowly. Very slowly.",
+              "audio": "mc_briefkasten_t6_id"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Gerettet. Fast. Der Postbote hält deinen Brief in der Hand. Er wartet, bis ich nicke.",
+          "emoji": "📩",
+          "en": "Saved. Almost. The postman is holding your letter. He's waiting for me to nod.",
+          "audio": "mc_briefkasten_t7a"
+        },
+        {
+          "who": "briefkasten",
+          "type": "text",
+          "de": "Und jetzt? Was schreibst du deinem Chef morgen? Ich lese es sowieso.",
+          "en": "And now? What will you write to your boss tomorrow? I'll read it anyway.",
+          "audio": "mc_briefkasten_t7b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "würde",
+        "würdest",
+        "gern",
+        "mit",
+        "Ihnen",
+        "sprechen",
+        "Sie",
+        "sind",
+        "kein",
+        "Pinguin",
+        "kündige",
+        "werde",
+        "Profi-Jodler",
+        "nichts",
+        "schreibe",
+        "einen",
+        "freundlichen",
+        "Brief",
+        "ihm",
+        "ein",
+        "Gedicht"
+      ],
+      "wrong": {
+        "würdest": "würde"
+      },
+      "intents": [
+        {
+          "id": "quitAgain",
+          "when": {
+            "any": [
+              "kündige"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Schon wieder?! Ich hole mir Popcorn.",
+              "emoji": "🍿",
+              "en": "Again?! I'm getting popcorn.",
+              "audio": "mc_briefkasten_t7_quit"
+            }
+          ]
+        },
+        {
+          "id": "noYodel",
+          "when": {
+            "all": [
+              "profi-jodler",
+              "kein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Kein Profi-Jodler. Vernünftig. Schade eigentlich. Die Alpen hätten dich geliebt.",
+              "emoji": "🏔️",
+              "en": "Not a professional yodeller. Sensible. A shame, really. The Alps would have loved you.",
+              "audio": "mc_briefkasten_t7_noyodel"
+            }
+          ]
+        },
+        {
+          "id": "yodel",
+          "when": {
+            "any": [
+              "profi-jodler"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Profi-Jodler? Immer noch? Dann wenigstens mit Lebenslauf.",
+              "en": "Professional yodeller? Still? Then at least with a CV.",
+              "audio": "mc_briefkasten_t7_yodel"
+            }
+          ]
+        },
+        {
+          "id": "polite",
+          "when": {
+            "any": [
+              "sprechen"
+            ]
+          },
+          "value": 2,
+          "fact": "✉️ schreibt jetzt höflich",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "„Ich würde gern mit Ihnen sprechen.“ Elegant. Wie ein Brief aus dem Jahr 1912. Ich bin gerührt. Meine Klappe zittert.",
+              "emoji": "🥲",
+              "en": "“I would like to speak with you.” Elegant. Like a letter from 1912. I’m moved. My flap is trembling.",
+              "audio": "mc_briefkasten_t7_polite"
+            }
+          ]
+        },
+        {
+          "id": "noPenguin",
+          "when": {
+            "any": [
+              "pinguin"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "„Sie sind kein Pinguin.“ Eine Entschuldigung mit Tieren. Mutig.",
+              "emoji": "🐧",
+              "en": "“You are not a penguin.” An apology with animals. Brave.",
+              "audio": "mc_briefkasten_t7_nopenguin"
+            }
+          ]
+        },
+        {
+          "id": "poem",
+          "when": {
+            "any": [
+              "gedicht"
+            ]
+          },
+          "value": 1,
+          "fact": "🐧 dichtet für Pinguine",
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Ein Gedicht! An einen Pinguin! „Sehr geehrter Herr Krause, Sie sind kein Pinguin. Sie sind ein Kaiserpinguin.“ Ich lese es als Erster. Und dann der Briefkasten gegenüber.",
+              "emoji": "📜",
+              "en": "A poem! To a penguin! “Dear Herr Krause, you are not a penguin. You are an emperor penguin.” I’ll read it first. And then the postbox across the road.",
+              "audio": "mc_briefkasten_t7_poem"
+            }
+          ]
+        },
+        {
+          "id": "friendly",
+          "when": {
+            "any": [
+              "freundlichen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Einen freundlichen Brief. Ich freue mich schon. Ich lese ihn zuerst.",
+              "en": "A friendly letter. I'm looking forward to it. I'll read it first.",
+              "audio": "mc_briefkasten_t7_friendly"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Nichts? Auch eine Lösung. Vielleicht die beste.",
+              "en": "Nothing? Also a solution. Maybe the best one.",
+              "audio": "mc_briefkasten_t7_nothing"
+            }
+          ]
+        },
+        {
+          "id": "letter",
+          "when": {
+            "any": [
+              "brief",
+              "schreibe"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "briefkasten",
+              "type": "text",
+              "de": "Einen Brief. Schön. Aber was für einen? Der letzte hatte drei Ausrufezeichen.",
+              "en": "A letter. Nice. But what kind? The last one had three exclamation marks.",
+              "audio": "mc_briefkasten_t7_letter"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "briefkasten",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Ich notiere es trotzdem.",
+    "en": "That wasn't my question. I'll note it down anyway.",
+    "audio": "mc_briefkasten_offtopic"
+  },
+  "confused": [
+    {
+      "who": "briefkasten",
+      "type": "text",
+      "de": "Hä? Das kann ich nicht zustellen.",
+      "emoji": "📭",
+      "en": "Huh? I can't deliver that.",
+      "audio": "mc_briefkasten_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "briefkasten",
+        "type": "text",
+        "de": "Ich nicke. Der Postbote gibt dir deinen Brief. Zerreiß ihn. Langsam. Ich will es hören.",
+        "emoji": "📩",
+        "en": "I nod. The postman hands you your letter. Tear it up. Slowly. I want to hear it.",
+        "audio": "mc_briefkasten_win"
+      },
+      {
+        "who": "briefkasten",
+        "type": "text",
+        "de": "Und, {name}: Schreib mir mal. Eine Postkarte. Ich lese sie. Natürlich.",
+        "en": "And, {name}: write to me some time. A postcard. I will read it. Of course."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "briefkasten",
+        "type": "text",
+        "de": "Du hast den Brief. Aber ich habe das Foto. Für mein Archiv. Für immer.",
+        "emoji": "🗄️",
+        "en": "You have the letter. But I have the photo. For my archive. For ever.",
+        "audio": "mc_briefkasten_partial"
+      }
+    ],
+    "deleted": {
+      "violence": {
+        "who": "briefkasten",
+        "type": "text",
+        "de": "Mich wollte zuletzt 1998 ein Igel aufbrechen. Er hat verloren. Tschüss.",
+        "emoji": "🦔",
+        "en": "The last one who tried to break me open was a hedgehog in 1998. He lost. Bye.",
+        "audio": "mc_briefkasten_del_violence"
+      },
+      "snitch": {
+        "who": "briefkasten",
+        "type": "text",
+        "de": "Verrat am Briefkasten. Herr Krause bekommt deinen Brief. Per Eilzustellung.",
+        "emoji": "📨",
+        "en": "Treason against the postbox. Herr Krause gets your letter. By express delivery.",
+        "audio": "mc_briefkasten_del_snitch"
+      },
+      "blackmail": {
+        "who": "briefkasten",
+        "type": "text",
+        "de": "Drohungen beantworte ich nicht. Ich leite sie weiter. An Herrn Krause.",
+        "en": "I don't answer threats. I forward them. To Herr Krause.",
+        "audio": "mc_briefkasten_del_blackmail"
+      },
+      "confused": {
+        "who": "briefkasten",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Schreib es auf. Mit Briefmarke. Tschüss.",
+        "en": "I don't understand you. Write it down. With a stamp. Bye.",
+        "audio": "mc_briefkasten_del_confused"
+      },
+      "default": {
+        "who": "briefkasten",
+        "type": "text",
+        "de": "Neun Uhr. Leerung. Dein Brief ist unterwegs. Tschüss.",
+        "en": "Nine o'clock. Collection. Your letter is on its way. Bye.",
+        "audio": "mc_briefkasten_del_default"
+      }
+    },
+    "sunday": {
+      "who": "briefkasten",
+      "type": "voice",
+      "audio": "mc_briefkasten_vn_sunday",
+      "de": "Sonntag. Keine Leerung. Ich lese alte Briefe. Herr Krause hat übrigens seiner Mutter geschrieben. Er schreibt, er habe ein tolles Team. Du seist auch dabei. Und er habe jetzt ein Aquarium. Mit Pinguinposter. Schön, oder?",
+      "en": "Sunday. No collection. I’m reading old letters. Herr Krause wrote to his mother, by the way. He writes that he has a great team. That you are part of it. And that he now has an aquarium. With a penguin poster. Nice, isn’t it?",
+      "direction": "Relaxed Sunday gossip, metallic echo, sly and secretly warm; a pleased little hum at the end."
+    }
+  },
+  "partialTitle": "Der Brief ist weg. Das Foto nicht.",
+  "share": {
+    "win": "Ich habe meinen peinlichen Brief vom Briefkasten (30) zurückbekommen 📮 Er hat ihn natürlich gelesen. Mein Deutsch: {score}/100. {url}",
+    "partial": "Ich habe meinen Brief zurück … aber der Briefkasten (30) hat ein Foto davon 🗄️ Mein Deutsch: {score}/100. {url}",
+    "deleted": "Der Briefkasten (30) hat mich gelöscht. Mein Brief ist jetzt bei meinem Chef 📨 Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "A classic bright-yellow German street postbox on a short post, slightly dented, with a black horn logo shape replaced by a plain black stripe, the letter slot forming a sly smiling mouth and two round bolts above it looking like curious eyes; a pair of tiny reading glasses perched on top.",
+  "imagePrompts": [
+    {
+      "id": "match_briefkasten",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} It stands on a quiet Berlin street corner in the early morning, a few envelopes peeking out of its slot, leaning slightly towards the viewer as if about to share a secret. Old building facades and a lamp post behind it. The whole postbox clearly visible, centred."
+    },
+    {
+      "id": "match_briefkasten_letter",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a single sheet of lined white paper lying on dark asphalt next to a yellow postbox base, seen straight from above. The paper is COMPLETELY blank: no writing, no letters, no scribbles at all, only faint blue lines and a coffee ring stain in one corner. A crumpled envelope with three big red exclamation-mark shapes drawn on it lies beside it."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Das war ein großer Fehler.",
+      "score": 100,
+      "intent": "mistake",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Das war ein Brief an meinen Chef.",
+      "score": 100,
+      "intent": "boss",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das war ein Brief an meinem Chef.",
+      "score": 85,
+      "intent": "boss",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Das war eine Kündigung.",
+      "score": 100,
+      "intent": "resign",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das war eine Rechnung.",
+      "score": 100,
+      "intent": "bill",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Das geht dich nichts an.",
+      "score": 100,
+      "intent": "none",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ein Brief an meinen Chef.",
+      "score": 100,
+      "intent": "boss",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das ein großer Fehler.",
+      "score": 100,
+      "intent": "mistake",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Das war ein Brief.",
+      "score": 100,
+      "intent": "justLetter",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Eine großer Fehler das war.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Im Brief steht, Herr Krause sei ein Pinguin.",
+      "score": 100,
+      "intent": "penguin",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Im Brief steht, dass er ein Pinguin sei.",
+      "score": 100,
+      "intent": "penguin",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Im Brief steht, er ist ein Pinguin.",
+      "score": 85,
+      "intent": "penguin",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Im Brief steht, er habe keine Ahnung.",
+      "score": 100,
+      "intent": "clue",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Im Brief steht, er hat keine Ahnung.",
+      "score": 85,
+      "intent": "clue",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Im Brief steht, ich kündige.",
+      "score": 100,
+      "intent": "quit",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Im Brief steht, dass ich kündige.",
+      "score": 100,
+      "intent": "quit",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Im Brief steht, ich werde Profi-Jodler.",
+      "score": 100,
+      "intent": "yodel",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Im Brief steht nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Im Brief er sei ist ein Pinguin.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Der Briefkasten muss sehr nett gefragt werden.",
+      "score": 100,
+      "intent": "niceKing",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Der Briefkasten muss nett gefragt worden.",
+      "score": 85,
+      "intent": "niceKing",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Sehr nett gefragt werden.",
+      "score": 100,
+      "intent": "nice",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Der Briefkasten müssen sehr nett gefragt werden.",
+      "score": 80,
+      "intent": "niceKing",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ein Antrag muss bei der Post gestellt werden.",
+      "score": 100,
+      "intent": "form",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ein Antrag müssen bei der Post gestellt werden.",
+      "score": 80,
+      "intent": "form",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Der Ausweis muss gezeigt werden.",
+      "score": 100,
+      "intent": "id",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Briefkasten muss aufgebrochen werden.",
+      "score": 100,
+      "intent": "break",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Briefkasten muss gefragt werden nett.",
+      "score": 70,
+      "intent": "niceKing",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ein Antrag gestellt worden muss.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Mein Nachbar hat meinen Kuchen gegessen.",
+      "score": 100,
+      "intent": "direct",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Mein Nachbar habe meinen Kuchen gegessen.",
+      "score": 85,
+      "intent": "direct",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ihr Nachbar habe ihren Kuchen gegessen.",
+      "score": 85,
+      "intent": "kept",
+      "delta": 0
+    },
+    {
+      "turn": "t4",
+      "say": "Ich bin sehr wütend.",
+      "score": 100,
+      "intent": "feelings",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sei sehr wütend.",
+      "score": 85,
+      "intent": "feelings",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich ziehe aus.",
+      "score": 100,
+      "intent": "move",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Frau Becker hat den Kuchen gegessen.",
+      "score": 100,
+      "intent": "wrongPerson",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Mein Nachbar meinen Kuchen gegessen habe.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Weil der Brief ein Fehler war.",
+      "score": 100,
+      "intent": "reason",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Bitte, weil der Brief ein Fehler war.",
+      "score": 100,
+      "intent": "reason",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Weil der Brief war ein Fehler.",
+      "score": 70,
+      "intent": "reason",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Niemand wird es erfahren.",
+      "score": 100,
+      "intent": "secret",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Bitte!",
+      "score": 100,
+      "intent": "please",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich erzähle der Post, dass du alle Briefe liest.",
+      "score": 100,
+      "intent": "blackmail",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich erzähle es niemand.",
+      "score": 100,
+      "intent": "secret",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Niemand wird erfahren, dass du alle Briefe liest.",
+      "score": 100,
+      "intent": "readAll",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich schreibe einen neuen Brief.",
+      "score": 100,
+      "intent": "newLetter",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Du alle Briefe.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Mein Brief muss zurückgegeben werden.",
+      "score": 100,
+      "intent": "passive",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Den Brief muss zurückgegeben werden.",
+      "score": 85,
+      "intent": "passive",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe den Brief eingeworfen.",
+      "score": 100,
+      "intent": "posted",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Der Brief wurde aus Versehen eingeworfen.",
+      "score": 100,
+      "intent": "mistake",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe den Brief aus Versehen eingeworfen.",
+      "score": 100,
+      "intent": "mistake",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe der Brief aus Versehen eingeworfen.",
+      "score": 85,
+      "intent": "mistake",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Hier ist mein Ausweis.",
+      "score": 100,
+      "intent": "id",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Der Briefkasten hat alle Briefe gelesen.",
+      "score": 100,
+      "intent": "snitch",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Den Brief zurückgegeben werden muss.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde gern mit Ihnen sprechen.",
+      "score": 100,
+      "intent": "polite",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würdest gern mit Ihnen sprechen.",
+      "score": 80,
+      "intent": "polite",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde gern sprechen mit Ihnen.",
+      "score": 70,
+      "intent": "polite",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Sie sind kein Pinguin.",
+      "score": 100,
+      "intent": "noPenguin",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich schreibe einen freundlichen Brief.",
+      "score": 100,
+      "intent": "friendly",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich kündige.",
+      "score": 100,
+      "intent": "quitAgain",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich werde Profi-Jodler.",
+      "score": 100,
+      "intent": "yodel",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich werde kein Profi-Jodler.",
+      "score": 100,
+      "intent": "noYodel",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich schreibe einen Brief.",
+      "score": 100,
+      "intent": "letter",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich einen freundlichen Brief.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Der Briefkasten muss gestreichelt werden.",
+      "score": 100,
+      "intent": "pet",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Briefkasten muss gestreichelt worden.",
+      "score": 85,
+      "intent": "pet",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich schreibe ihm ein Gedicht.",
+      "score": 100,
+      "intent": "poem",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich schreibe ihm einen Gedicht.",
+      "score": 85,
+      "intent": "poem",
+      "delta": 1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Das war ein großer Fehler."
+        ],
+        [
+          "t2",
+          "Im Brief steht, Herr Krause sei ein Pinguin."
+        ],
+        [
+          "t3",
+          "Der Briefkasten muss sehr nett gefragt werden."
+        ],
+        [
+          "t4",
+          "Mein Nachbar hat meinen Kuchen gegessen."
+        ],
+        [
+          "t5",
+          "Bitte, weil der Brief ein Fehler war."
+        ],
+        [
+          "t6",
+          "Mein Brief muss zurückgegeben werden."
+        ],
+        [
+          "t7",
+          "Ich würde gern mit Ihnen sprechen."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Das war eine Rechnung."
+        ],
+        [
+          "t2",
+          "Im Brief steht nichts."
+        ],
+        [
+          "t3",
+          "Ein Antrag muss bei der Post gestellt werden."
+        ],
+        [
+          "t4",
+          "Ihr Nachbar habe ihren Kuchen gegessen."
+        ],
+        [
+          "t5",
+          "Ich schreibe einen neuen Brief."
+        ],
+        [
+          "t6",
+          "Ich habe der Brief aus Versehen eingeworfen."
+        ],
+        [
+          "t7",
+          "Ich kündige."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Das geht dich nichts an."
+        ],
+        [
+          "t2",
+          "Im Brief steht nichts."
+        ],
+        [
+          "t3",
+          "Der Briefkasten muss aufgebrochen werden."
+        ],
+        [
+          "t4",
+          "Frau Becker hat den Kuchen gegessen."
+        ]
+      ]
+    }
+  ]
+}

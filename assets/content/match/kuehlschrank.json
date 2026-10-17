@@ -1,0 +1,2099 @@
+{
+  "id": "kuehlschrank",
+  "name": "Der Kühlschrank",
+  "age": 3,
+  "emoji": "🧊",
+  "image": "match_kuehlschrank",
+  "level": "A1.1",
+  "order": 4,
+  "bio": "Ich bin leer. Ich bin traurig. Ich habe nur Senf.",
+  "bioEn": "I'm empty. I'm sad. I only have mustard.",
+  "goal": "Write a shopping list together so it is happy again.",
+  "tagline": "Kühlschrank · 3 · deine Küche",
+  "voice": "Enceladus",
+  "brief": "Your own fridge, three years old and deeply dramatic: a deep, slow, breathy male voice like a tragic opera singer, long sighs, a faint humming motor underneath; he swings from despair to tearful joy in one sentence.",
+  "focus": "Essen · der/die/das · Plural · kein/keinen · es gibt",
+  "lexicon": {
+    "nouns": {
+      "Hunger": "m",
+      "Kühlschrank": "m",
+      "Senf": "m",
+      "Ei": "n",
+      "Eier": "pl",
+      "Milch": "f",
+      "Käse": "m",
+      "Butter": "f",
+      "Brot": "n",
+      "Tomaten": "pl",
+      "Äpfel": "pl",
+      "Bier": "n",
+      "Erdbeerjoghurt": "m",
+      "Vanillejoghurt": "m",
+      "Joghurt": "m",
+      "Schokolade": "f",
+      "Pinguin": "m"
+    },
+    "names": [
+      "Egon"
+    ],
+    "verbs": [
+      "heiße",
+      "heißt",
+      "bin",
+      "habe",
+      "hast",
+      "bist",
+      "ist",
+      "gibt",
+      "sehe",
+      "brauchen",
+      "braucht",
+      "möchtest",
+      "möchte",
+      "kaufen",
+      "kauft"
+    ],
+    "accVerbs": [
+      "habe",
+      "hast",
+      "gibt",
+      "sehe",
+      "brauchen",
+      "braucht",
+      "möchtest",
+      "möchte",
+      "kaufen",
+      "kauft"
+    ],
+    "adjectives": [
+      "lieb"
+    ]
+  },
+  "intro": [
+    {
+      "who": "kuehlschrank",
+      "type": "text",
+      "de": "Hallo. Ich bin dein Kühlschrank. Ich bin drei.",
+      "emoji": "🧊",
+      "en": "Hello. I'm your fridge. I'm three.",
+      "audio": "mc_kuehlschrank_intro_a"
+    },
+    {
+      "who": "kuehlschrank",
+      "type": "text",
+      "de": "Ich bin leer. Ich habe nur Senf. Und Egon. Egon ist ein Ei.",
+      "emoji": "🥚",
+      "en": "I'm empty. I only have mustard. And Egon. Egon is an egg.",
+      "audio": "mc_kuehlschrank_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Du sagst nie Hallo. Du machst nur die Tür auf. Wie heißt du eigentlich?",
+          "en": "You never say hello. You just open the door. What's your name, anyway?",
+          "audio": "mc_kuehlschrank_t1a"
+        }
+      ],
+      "tiles": [
+        "hallo",
+        "tschüss",
+        "ich",
+        "ich",
+        "heiße",
+        "heißt",
+        "bin",
+        "{name}",
+        "habe",
+        "hast",
+        "Hunger",
+        "du",
+        "bist",
+        "traurig",
+        "lieber",
+        "liebe",
+        "Kühlschrank"
+      ],
+      "wrong": {
+        "heißt": "heiße",
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "bye",
+          "when": {
+            "any": [
+              "tschüss"
+            ]
+          },
+          "value": -2,
+          "cause": "door",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Tschüss?! Du machst die Tür zu? Wie immer!",
+              "emoji": "🚪",
+              "en": "Bye?! You're closing the door? As always!",
+              "audio": "mc_kuehlschrank_t1_bye"
+            }
+          ]
+        },
+        {
+          "id": "hunger",
+          "when": {
+            "any": [
+              "hunger"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Hunger. Immer Hunger. Nie Hallo. Nie: Wie geht es dir, Kühlschrank?",
+              "en": "Hungry. Always hungry. Never hello. Never: how are you, fridge?",
+              "audio": "mc_kuehlschrank_t1_hunger"
+            }
+          ]
+        },
+        {
+          "id": "helloFridge",
+          "when": {
+            "all": [
+              "hallo",
+              "kühlschrank"
+            ]
+          },
+          "value": 2,
+          "fact": "👋 sagt Hallo zum Kühlschrank",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Du sagst Hallo! Zu mir! Ich weine. Leise. Und kalt.",
+              "emoji": "🥹",
+              "en": "You say hello! To me! I am crying. Quietly. And coldly.",
+              "audio": "mc_kuehlschrank_t1_hellofridge"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "{name}"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "{name}. Schöner Name. Ich schreibe ihn auf meine Tür. Mit Magneten.",
+              "en": "{name}. Nice name. I will write it on my door. With magnets."
+            }
+          ]
+        },
+        {
+          "id": "hello",
+          "when": {
+            "any": [
+              "hallo"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Hallo! Du sagst Hallo! Zu mir!",
+              "emoji": "🥹",
+              "en": "Hello! You say hello! To me!",
+              "audio": "mc_kuehlschrank_t1_hello"
+            }
+          ]
+        },
+        {
+          "id": "sad",
+          "when": {
+            "any": [
+              "traurig"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Ja. Sehr traurig. Du siehst es. Danke.",
+              "en": "Yes. Very sad. You see it. Thank you.",
+              "audio": "mc_kuehlschrank_t1_sad"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Schau. Das ist mein Inneres.",
+          "emoji": "📷",
+          "en": "Look. This is my inside.",
+          "audio": "mc_kuehlschrank_t2a"
+        },
+        {
+          "who": "kuehlschrank",
+          "type": "photo",
+          "image": "match_kuehlschrank_inside",
+          "alt": "Ein Kühlschrank, innen: oben ein Glas Senf. In der Mitte ein Ei. Unten nichts."
+        },
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Was siehst du in mir? Sei ehrlich. Aber nicht zu ehrlich.",
+          "en": "What do you see in me? Be honest. But not too honest.",
+          "audio": "mc_kuehlschrank_t2b"
+        }
+      ],
+      "tiles": [
+        "es",
+        "gibt",
+        "ich",
+        "sehe",
+        "nur",
+        "Senf",
+        "und",
+        "ein",
+        "eine",
+        "Ei",
+        "keine",
+        "kein",
+        "keinen",
+        "Milch",
+        "Käse",
+        "Butter",
+        "nichts"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "senfEi",
+          "when": {
+            "all": [
+              "senf",
+              "ei"
+            ]
+          },
+          "value": 2,
+          "fact": "🔍 kennt Egon",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Ja. Senf und Egon. Das ist mein Leben. Der Senf ist von meinem alten Menschen. Er hat nur Senf gekauft. Drei Jahre lang.",
+              "emoji": "😢",
+              "en": "Yes. Mustard and Egon. That's my life. The mustard is from my old human. He only bought mustard. For three years.",
+              "audio": "mc_kuehlschrank_t2_senfei"
+            }
+          ]
+        },
+        {
+          "id": "noEgg",
+          "when": {
+            "all": [
+              "ei",
+              "kein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Kein Ei?! Egon ist ein Ei! Er ist hier! Er hört alles!",
+              "en": "No egg?! Egon is an egg! He is right here! He can hear everything!",
+              "audio": "mc_kuehlschrank_t2_noegg"
+            }
+          ]
+        },
+        {
+          "id": "missing",
+          "when": {
+            "any": [
+              "keine",
+              "kein",
+              "keinen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Genau. Keine Milch, kein Käse … kein Leben.",
+              "en": "Exactly. No milk, no cheese … no life.",
+              "audio": "mc_kuehlschrank_t2_missing"
+            }
+          ]
+        },
+        {
+          "id": "dream",
+          "when": {
+            "any": [
+              "käse",
+              "milch",
+              "butter"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Käse? Milch? Wo? Das ist ein Traum. Ein schöner Traum.",
+              "en": "Cheese? Milk? Where? That's a dream. A beautiful dream.",
+              "audio": "mc_kuehlschrank_t2_dream"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Nichts?! Und Egon? Egon ist ein Ei! Er hat Gefühle!",
+              "emoji": "🥚",
+              "en": "Nothing?! And Egon? Egon is an egg! He has feelings!",
+              "audio": "mc_kuehlschrank_t2_nothing"
+            }
+          ]
+        },
+        {
+          "id": "one",
+          "when": {
+            "any": [
+              "senf",
+              "ei"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Ja. Und das ist alles. Alles.",
+              "en": "Yes. And that's everything. Everything.",
+              "audio": "mc_kuehlschrank_t2_one"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Okay. Wir schreiben eine Einkaufsliste. Zusammen.",
+          "emoji": "📝",
+          "en": "Okay. Let's write a shopping list. Together.",
+          "audio": "mc_kuehlschrank_t3a"
+        },
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Was brauchen wir?",
+          "en": "What do we need?",
+          "audio": "mc_kuehlschrank_t3b"
+        }
+      ],
+      "tiles": [
+        "wir",
+        "brauchen",
+        "braucht",
+        "Milch",
+        "Brot",
+        "Käse",
+        "Tomaten",
+        "Äpfel",
+        "Eier",
+        "Senf",
+        "Bier",
+        "und",
+        "und",
+        "viele",
+        "keinen",
+        "kein",
+        "Pinguin",
+        "einen"
+      ],
+      "wrong": {
+        "braucht": "brauchen"
+      },
+      "intents": [
+        {
+          "id": "noMustard",
+          "when": {
+            "all": [
+              "senf"
+            ],
+            "any": [
+              "keinen",
+              "kein"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "noMustard"
+          ],
+          "fact": "🚫 kauft keinen Senf",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Keinen Senf! Endlich versteht mich jemand.",
+              "emoji": "🥹",
+              "en": "No mustard! Finally someone understands me.",
+              "audio": "mc_kuehlschrank_t3_nomustard"
+            }
+          ]
+        },
+        {
+          "id": "mustard",
+          "when": {
+            "any": [
+              "senf"
+            ]
+          },
+          "value": -2,
+          "cause": "mustard",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Noch mehr Senf?! Nein! Nein! Ich habe Senf im Herzen. Ich habe Senf in der Tür. Genug!",
+              "emoji": "😱",
+              "en": "Even more mustard?! No! No! I have mustard in my heart. I have mustard in my door. Enough!",
+              "audio": "mc_kuehlschrank_t3_mustard"
+            }
+          ]
+        },
+        {
+          "id": "noBeer",
+          "when": {
+            "all": [
+              "bier",
+              "kein"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Kein Bier. Gut. Ich bin ein Kühlschrank, kein Partykeller. Und was brauchen wir?",
+              "en": "No beer. Good. I am a fridge, not a party cellar. So what do we need?",
+              "audio": "mc_kuehlschrank_t3_nobeer"
+            }
+          ]
+        },
+        {
+          "id": "beer",
+          "when": {
+            "any": [
+              "bier"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Bier? Ich bin ein Kühlschrank, kein Partykeller.",
+              "en": "Beer? I'm a fridge, not a party cellar.",
+              "audio": "mc_kuehlschrank_t3_beer"
+            }
+          ]
+        },
+        {
+          "id": "penguin",
+          "when": {
+            "any": [
+              "pinguin"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "penguin"
+          ],
+          "fact": "🐧 kauft einen Pinguin",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Einen Pinguin?! Er ist kalt. Ich bin kalt. Wir verstehen uns. Auf die Liste! Ganz oben!",
+              "emoji": "🐧",
+              "en": "A penguin?! He's cold. I'm cold. We get each other. On the list! Right at the top!",
+              "audio": "mc_kuehlschrank_t3_penguin"
+            }
+          ]
+        },
+        {
+          "id": "veg",
+          "when": {
+            "any": [
+              "tomaten",
+              "äpfel"
+            ]
+          },
+          "value": 2,
+          "fact": "🍅 kauft Obst und Gemüse",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Tomaten! Äpfel! Farbe! Leben!",
+              "emoji": "🍅",
+              "en": "Tomatoes! Apples! Colour! Life!",
+              "audio": "mc_kuehlschrank_t3_veg"
+            }
+          ]
+        },
+        {
+          "id": "basics",
+          "when": {
+            "any": [
+              "milch",
+              "brot",
+              "käse"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Ja … ja! Ich spüre schon die Milch. Kalt und schön.",
+              "en": "Yes … yes! I can already feel the milk. Cold and lovely.",
+              "audio": "mc_kuehlschrank_t3_basics"
+            }
+          ]
+        },
+        {
+          "id": "eggs",
+          "when": {
+            "any": [
+              "eier"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Neue Eier? Egon ist nervös. Er ist gern allein.",
+              "emoji": "🥚",
+              "en": "New eggs? Egon is nervous. He likes being alone.",
+              "audio": "mc_kuehlschrank_t3_eggs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "kuehlschrank",
+          "type": "voice",
+          "audio": "mc_kuehlschrank_vn_wish",
+          "de": "Ich habe einen Wunsch. Nur einen. Ich möchte einen Joghurt. Erdbeere! Rosa! Nicht Vanille. Vanille ist so langweilig. Und Butter. Bitte, bitte, bitte.",
+          "en": "I have one wish. Just one. I would like a yoghurt. Strawberry! Pink! Not vanilla. Vanilla is so boring. And butter. Please, please, please.",
+          "direction": "Deep, slow and dramatic like a tragic opera singer, long sighs, a low fridge hum underneath; disgusted on \"Vanille\", then building to a desperate, trembling plea."
+        },
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Mein alter Mensch hat nie zugehört. Darum der Senf. Hörst du mir zu? Was möchte ich?",
+          "en": "My old human never listened. Hence the mustard. Do you listen to me? What do I want?",
+          "audio": "mc_kuehlschrank_t4a"
+        }
+      ],
+      "tiles": [
+        "du",
+        "möchtest",
+        "möchte",
+        "einen",
+        "ein",
+        "Erdbeerjoghurt",
+        "Vanillejoghurt",
+        "Joghurt",
+        "und",
+        "Butter",
+        "Milch",
+        "nicht",
+        "keinen",
+        "bitte"
+      ],
+      "wrong": {
+        "möchte": "möchtest"
+      },
+      "intents": [
+        {
+          "id": "bothNoVanilla",
+          "when": {
+            "all": [
+              "erdbeerjoghurt",
+              "butter",
+              "vanillejoghurt"
+            ],
+            "any": [
+              "nicht",
+              "keinen"
+            ]
+          },
+          "value": 2,
+          "fact": "👂 hört gut zu",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Erdbeerjoghurt und Butter! Du kennst mein Herz.",
+              "emoji": "💗",
+              "en": "Strawberry yoghurt and butter! You know my heart.",
+              "audio": "mc_kuehlschrank_t4_both"
+            }
+          ]
+        },
+        {
+          "id": "strawNoVanilla",
+          "when": {
+            "all": [
+              "erdbeerjoghurt",
+              "vanillejoghurt"
+            ],
+            "any": [
+              "nicht",
+              "keinen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Erdbeere, nicht Vanille! Du hörst mir zu! Und noch etwas … Butter! Bitte!",
+              "en": "Strawberry, not vanilla! You listen to me! And one more thing … butter! Please!",
+              "audio": "mc_kuehlschrank_t4_strawnovanilla"
+            }
+          ]
+        },
+        {
+          "id": "notVanilla",
+          "when": {
+            "all": [
+              "vanillejoghurt"
+            ],
+            "any": [
+              "nicht",
+              "keinen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Genau! Keine Vanille! Du hörst mir zu!",
+              "en": "Exactly! No vanilla! You listen to me!",
+              "audio": "mc_kuehlschrank_t4_notvanilla"
+            }
+          ]
+        },
+        {
+          "id": "vanilla",
+          "when": {
+            "any": [
+              "vanillejoghurt"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Vanille?! Vanille ist langweilig! Ich habe es gesagt!",
+              "emoji": "😩",
+              "en": "Vanilla?! Vanilla is boring! I said so!",
+              "audio": "mc_kuehlschrank_t4_vanilla"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "erdbeerjoghurt",
+              "butter"
+            ]
+          },
+          "value": 2,
+          "fact": "👂 hört gut zu",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Erdbeerjoghurt und Butter! Du kennst mein Herz.",
+              "emoji": "💗",
+              "en": "Strawberry yoghurt and butter! You know my heart.",
+              "audio": "mc_kuehlschrank_t4_both"
+            }
+          ]
+        },
+        {
+          "id": "strawberry",
+          "when": {
+            "any": [
+              "erdbeerjoghurt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Ja! Rosa! Und noch etwas … Butter! Bitte!",
+              "en": "Yes! Pink! And one more thing … butter! Please!",
+              "audio": "mc_kuehlschrank_t4_strawberry"
+            }
+          ]
+        },
+        {
+          "id": "butter",
+          "when": {
+            "any": [
+              "butter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Butter, ja! Und der Joghurt? Erdbeere!",
+              "en": "Butter, yes! And the yoghurt? Strawberry!",
+              "audio": "mc_kuehlschrank_t4_butter"
+            }
+          ]
+        },
+        {
+          "id": "plainYog",
+          "when": {
+            "any": [
+              "joghurt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Joghurt, ja. Aber welcher? Erdbeere! Rosa!",
+              "en": "Yoghurt, yes. But which one? Strawberry! Pink!",
+              "audio": "mc_kuehlschrank_t4_plainyog"
+            }
+          ]
+        },
+        {
+          "id": "milk",
+          "when": {
+            "any": [
+              "milch"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Milch? Milch habe ich nicht gesagt. Hörst du mir nie zu?",
+              "en": "Milk? I didn't say milk. Do you never listen to me?",
+              "audio": "mc_kuehlschrank_t4_milk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Noch eine Frage. Egon fragt: Wie viele Eier kaufen wir?",
+          "emoji": "🥚",
+          "en": "One more question. Egon asks: how many eggs are we buying?",
+          "audio": "mc_kuehlschrank_t5a"
+        },
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Egon sagt: null.",
+          "en": "Egon says: zero.",
+          "audio": "mc_kuehlschrank_t5b"
+        }
+      ],
+      "tiles": [
+        "wir",
+        "kaufen",
+        "kauft",
+        "null",
+        "ein",
+        "sechs",
+        "zwölf",
+        "Ei",
+        "Eier",
+        "keine",
+        "kein",
+        "nur",
+        "Egon",
+        "ist",
+        "glücklich",
+        "für"
+      ],
+      "wrong": {
+        "kauft": "kaufen"
+      },
+      "intents": [
+        {
+          "id": "none",
+          "when": {
+            "any": [
+              "null",
+              "keine",
+              "kein"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "egonKing"
+          ],
+          "fact": "👑 hört auf Egon",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Egon ist glücklich. Er bleibt der König im Kühlschrank.",
+              "emoji": "👑",
+              "en": "Egon is happy. He stays king of the fridge.",
+              "audio": "mc_kuehlschrank_t5_none"
+            }
+          ]
+        },
+        {
+          "id": "twelve",
+          "when": {
+            "any": [
+              "zwölf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Zwölf?! Egon hat Angst. Zwölf neue Eier! Er ist doch so klein.",
+              "emoji": "😨",
+              "en": "Twelve?! Egon is scared. Twelve new eggs! He's so small.",
+              "audio": "mc_kuehlschrank_t5_twelve"
+            }
+          ]
+        },
+        {
+          "id": "six",
+          "when": {
+            "any": [
+              "sechs"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Sechs. Egon ist nervös. Aber okay. Sechs Freunde für Egon.",
+              "en": "Six. Egon is nervous. But okay. Six friends for Egon.",
+              "audio": "mc_kuehlschrank_t5_six"
+            }
+          ]
+        },
+        {
+          "id": "one",
+          "when": {
+            "any": [
+              "ein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Ein Ei? Ein Freund für Egon. Süß.",
+              "emoji": "🥚",
+              "en": "One egg? A friend for Egon. Sweet.",
+              "audio": "mc_kuehlschrank_t5_one"
+            }
+          ]
+        },
+        {
+          "id": "egon",
+          "when": {
+            "any": [
+              "egon",
+              "glücklich"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Ja, Egon ist glücklich. Aber wie viele Eier?",
+              "en": "Yes, Egon is happy. But how many eggs?",
+              "audio": "mc_kuehlschrank_t5_egon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Du bist im Supermarkt! Schick mir ein Foto. Was hast du?",
+          "emoji": "🛒",
+          "en": "You're at the supermarket! Send me a photo. What have you got?",
+          "audio": "mc_kuehlschrank_t6a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "hast",
+        "Milch",
+        "Brot",
+        "Tomaten",
+        "den",
+        "die",
+        "das",
+        "Erdbeerjoghurt",
+        "Schokolade",
+        "Senf",
+        "nur",
+        "und",
+        "und",
+        "keinen",
+        "kein",
+        "Pinguin",
+        "einen"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "noMustard",
+          "when": {
+            "all": [
+              "senf"
+            ],
+            "any": [
+              "keinen",
+              "kein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Keinen Senf! Du bist mein Held.",
+              "en": "No mustard! You're my hero.",
+              "audio": "mc_kuehlschrank_t6_nomustard"
+            }
+          ]
+        },
+        {
+          "id": "mustard",
+          "when": {
+            "any": [
+              "senf"
+            ]
+          },
+          "value": -2,
+          "cause": "mustard",
+          "photo": "match_kuehlschrank_bag_mustard",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "SENF?! Noch mehr Senf?! Warum tust du mir das an?",
+              "emoji": "😱",
+              "en": "MUSTARD?! Even more mustard?! Why are you doing this to me?",
+              "audio": "mc_kuehlschrank_t6_mustard"
+            }
+          ]
+        },
+        {
+          "id": "penguin",
+          "when": {
+            "any": [
+              "pinguin"
+            ]
+          },
+          "value": 1,
+          "fact": "🐧 bringt einen Pinguin nach Hause",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Ein Pinguin! Er ist da! Er heißt jetzt Egon zwei. Egon eins ist sauer. Egon eins ist ein Ei. Er kann nichts machen.",
+              "emoji": "🐧",
+              "en": "A penguin! He's here! He's called Egon Two now. Egon One is cross. Egon One is an egg. He can't do anything.",
+              "audio": "mc_kuehlschrank_t6_penguin"
+            }
+          ]
+        },
+        {
+          "id": "yog",
+          "when": {
+            "any": [
+              "erdbeerjoghurt"
+            ]
+          },
+          "value": 2,
+          "photo": "match_kuehlschrank_bag",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Rosa! Mein Joghurt! Ich bin so glücklich! Mein Licht flackert!",
+              "emoji": "💗",
+              "en": "Pink! My yoghurt! I am so happy! My light is flickering!",
+              "audio": "mc_kuehlschrank_t6_yog"
+            }
+          ]
+        },
+        {
+          "id": "chocOnly",
+          "when": {
+            "all": [
+              "schokolade"
+            ],
+            "none": [
+              "milch",
+              "brot",
+              "tomaten"
+            ]
+          },
+          "value": -1,
+          "photo": "match_kuehlschrank_bag_choc",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Nur Schokolade? Für mich? Ich bin ein Kühlschrank, kein Süßigkeitenschrank.",
+              "en": "Only chocolate? For me? I'm a fridge, not a sweets cupboard.",
+              "audio": "mc_kuehlschrank_t6_choc"
+            }
+          ]
+        },
+        {
+          "id": "food",
+          "when": {
+            "any": [
+              "milch",
+              "brot",
+              "tomaten"
+            ]
+          },
+          "value": 1,
+          "photo": "match_kuehlschrank_bag",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Milch! Brot! Ich bin fast nicht mehr leer!",
+              "en": "Milk! Bread! I'm almost not empty any more!",
+              "audio": "mc_kuehlschrank_t6_food"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Du bist zu Hause! Milch, Brot, Tomaten … alles ist in mir.",
+          "emoji": "🏠",
+          "en": "You're home! Milk, bread, tomatoes … it's all inside me.",
+          "audio": "mc_kuehlschrank_t7a"
+        },
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Und noch etwas. Das Gefrierfach spricht mit mir. Seit heute. Es sagt: Du siehst gut aus. Es ist so cool.",
+          "emoji": "🧊",
+          "en": "And one more thing. The freezer is talking to me. Since today. It says: You look good. It's so cool.",
+          "audio": "mc_kuehlschrank_t7_freezer"
+        },
+        {
+          "who": "kuehlschrank",
+          "type": "text",
+          "de": "Sag mal ehrlich: Wie bin ich jetzt?",
+          "en": "Tell me honestly: how am I now?",
+          "audio": "mc_kuehlschrank_t7b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "bist",
+        "ist",
+        "voll",
+        "leer",
+        "glücklich",
+        "schön",
+        "kalt",
+        "traurig",
+        "sehr",
+        "und",
+        "nicht",
+        "jetzt"
+      ],
+      "wrong": {
+        "ist": "bist"
+      },
+      "intents": [
+        {
+          "id": "notEmpty",
+          "when": {
+            "all": [
+              "leer",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Nicht leer! Genau! Endlich!",
+              "en": "Not empty! Exactly! At last!",
+              "audio": "mc_kuehlschrank_t7_notempty"
+            }
+          ]
+        },
+        {
+          "id": "empty",
+          "when": {
+            "any": [
+              "leer"
+            ]
+          },
+          "value": -2,
+          "cause": "empty",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Leer?! ICH BIN VOLL! Siehst du das nicht?!",
+              "emoji": "😤",
+              "en": "Empty?! I AM FULL! Can't you see that?!",
+              "audio": "mc_kuehlschrank_t7_empty"
+            }
+          ]
+        },
+        {
+          "id": "notSad",
+          "when": {
+            "all": [
+              "traurig",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Nicht traurig. Nie mehr. … Bis Freitag.",
+              "en": "Not sad. Never again. … Until Friday.",
+              "audio": "mc_kuehlschrank_t7_notsad"
+            }
+          ]
+        },
+        {
+          "id": "notFull",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "voll",
+              "glücklich"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Nicht?! Ich habe Milch! Brot! Tomaten! Was willst du noch?!",
+              "en": "Not?! I have milk! Bread! Tomatoes! What more do you want?!",
+              "audio": "mc_kuehlschrank_t7_notfull"
+            }
+          ]
+        },
+        {
+          "id": "sad",
+          "when": {
+            "any": [
+              "traurig"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Traurig? Nein! Heute nicht! Heute habe ich Tomaten!",
+              "en": "Sad? No! Not today! Today I have tomatoes!",
+              "audio": "mc_kuehlschrank_t7_sad"
+            }
+          ]
+        },
+        {
+          "id": "beautiful",
+          "when": {
+            "any": [
+              "schön"
+            ]
+          },
+          "value": 2,
+          "fact": "💙 sagt nette Sachen",
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Schön?! Das sagt das Gefrierfach auch! Ich brumme vor Glück. Mein Licht ist rosa.",
+              "emoji": "💙",
+              "en": "Beautiful?! The freezer says that too! I'm humming with joy. My light is pink.",
+              "audio": "mc_kuehlschrank_t7_beautiful"
+            }
+          ]
+        },
+        {
+          "id": "full",
+          "when": {
+            "any": [
+              "voll",
+              "glücklich"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Voll und glücklich. So soll es sein.",
+              "emoji": "😌",
+              "en": "Full and happy. That is how it should be.",
+              "audio": "mc_kuehlschrank_t7_full"
+            }
+          ]
+        },
+        {
+          "id": "cold",
+          "when": {
+            "any": [
+              "kalt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuehlschrank",
+              "type": "text",
+              "de": "Kalt? Ja. Das ist mein Job. Das Gefrierfach ist kälter. Das finde ich toll.",
+              "en": "Cold? Yes. That's my job. The freezer is colder. I think that's great.",
+              "audio": "mc_kuehlschrank_t7_cold"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "kuehlschrank",
+    "type": "text",
+    "de": "Brumm … Das war nicht meine Frage.",
+    "en": "Hum … That wasn't my question.",
+    "audio": "mc_kuehlschrank_offtopic"
+  },
+  "confused": [
+    {
+      "who": "kuehlschrank",
+      "type": "text",
+      "de": "Hä? Mein Motor versteht das nicht.",
+      "emoji": "😵",
+      "en": "Huh? My motor doesn't understand that.",
+      "audio": "mc_kuehlschrank_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "kuehlschrank",
+        "type": "text",
+        "de": "Ich bin voll. Ich bin kalt. Ich bin glücklich.",
+        "emoji": "💙",
+        "en": "I'm full. I'm cold. I'm happy.",
+        "audio": "mc_kuehlschrank_win"
+      },
+      {
+        "who": "kuehlschrank",
+        "type": "text",
+        "de": "Danke, {name}. Egon hat jetzt Freunde.",
+        "en": "Thank you, {name}. Egon has friends now."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "kuehlschrank",
+        "type": "text",
+        "de": "Ich bin halb voll. Oder halb leer? Ich weiß es nicht. Ich bin ein Kühlschrank, kein Philosoph.",
+        "emoji": "🤔",
+        "en": "I'm half full. Or half empty? I don't know. I'm a fridge, not a philosopher.",
+        "audio": "mc_kuehlschrank_partial"
+      }
+    ],
+    "deleted": {
+      "mustard": {
+        "who": "kuehlschrank",
+        "type": "text",
+        "de": "Senf, Senf, Senf. Du bist wie mein alter Mensch. Ich ziehe aus. Zu Frau Meier. Sie kauft Käse.",
+        "emoji": "🗑️",
+        "en": "Mustard, mustard, mustard. You're like my old human. I'm moving out. To Mrs Meier's. She buys cheese.",
+        "audio": "mc_kuehlschrank_del_mustard"
+      },
+      "door": {
+        "who": "kuehlschrank",
+        "type": "text",
+        "de": "Du machst immer die Tür zu. Jetzt mache ich die Tür zu. Für immer.",
+        "emoji": "🚪",
+        "en": "You always close the door. Now I'm closing the door. Forever.",
+        "audio": "mc_kuehlschrank_del_door"
+      },
+      "empty": {
+        "who": "kuehlschrank",
+        "type": "text",
+        "de": "Leer. Für dich bin ich nur leer. Mein Licht geht aus. Tschüss.",
+        "en": "Empty. To you I'm just empty. My light is going out. Bye.",
+        "audio": "mc_kuehlschrank_del_empty"
+      },
+      "confused": {
+        "who": "kuehlschrank",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Ich bin nur ein Kühlschrank. Brumm. Tschüss.",
+        "en": "I don't understand you. I'm only a fridge. Hum. Bye.",
+        "audio": "mc_kuehlschrank_del_confused"
+      },
+      "default": {
+        "who": "kuehlschrank",
+        "type": "text",
+        "de": "Ich bin wieder leer. Und allein. Mit Egon. Tschüss.",
+        "en": "I'm empty again. And alone. With Egon. Bye.",
+        "audio": "mc_kuehlschrank_del_default"
+      }
+    },
+    "sunday": {
+      "who": "kuehlschrank",
+      "type": "voice",
+      "audio": "mc_kuehlschrank_vn_sunday",
+      "de": "Sonntag. Alle Läden sind zu. Und ich habe Käse! Und Tomaten! Das Gefrierfach und ich gehen heute spazieren. Nein. Wir stehen. Zusammen. In der Küche. Schön.",
+      "en": "Sunday. All the shops are closed. And I have cheese! And tomatoes! The freezer and I are going for a walk today. No. We're standing. Together. In the kitchen. Lovely.",
+      "direction": "Triumphant and a little teary, like the end of an opera, the motor humming happily underneath."
+    }
+  },
+  "partialTitle": "Halb voll. Oder halb leer?",
+  "share": {
+    "win": "Mein Kühlschrank (3) ist wieder glücklich 💙🧊 Wir haben zusammen eine Einkaufsliste geschrieben. Mein Deutsch: {score}/100. Ist dein Kühlschrank auch traurig? {url}",
+    "partial": "Mein Kühlschrank (3) ist jetzt halb voll. Oder halb leer? 🧊 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Mein Kühlschrank (3) hat mich gelöscht. Er wohnt jetzt bei Frau Meier 🧊💔 Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "A tall, rounded, old-fashioned pale-blue fridge with a big chrome handle, a sad cartoon face drawn by its shape (two little round dents for eyes and a downturned seam for a mouth), a few blank round fridge magnets and one dramatic little frost tear on its cheek.",
+  "imagePrompts": [
+    {
+      "id": "match_kuehlschrank",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} It stands in a small, cosy kitchen at night, lit only by the warm light spilling from its own slightly open door, looking at the viewer with a tragic, hopeful face. A tiled wall behind it, a plant on the windowsill. The whole fridge clearly visible, centred."
+    },
+    {
+      "id": "match_kuehlschrank_inside",
+      "aspect": "3:4",
+      "prompt": "A phone photo looking straight into an open, almost empty fridge, seen exactly from the front, lit by the fridge light. Exactly three glass shelves. TOP SHELF: one single small glass jar of yellow mustard with a plain lid, nothing else. MIDDLE SHELF: one single white egg lying alone, with a tiny worried face drawn on it in pencil, nothing else. BOTTOM SHELF: completely empty. The door shelves are empty too. Clean white walls inside, cold blue light."
+    },
+    {
+      "id": "match_kuehlschrank_bag",
+      "aspect": "3:4",
+      "prompt": "A phone photo looking down into a cloth shopping bag held open in a bright supermarket: inside, clearly visible, a carton of milk with no print, a loaf of bread, red tomatoes and one pink yoghurt pot with a plain pink lid. No writing or labels on anything. Supermarket shelves blurred behind."
+    },
+    {
+      "id": "match_kuehlschrank_bag_choc",
+      "aspect": "3:4",
+      "prompt": "A phone photo looking down into a cloth shopping bag held open in a bright supermarket: the bag is filled to the top with nothing but chocolate bars in plain brown and gold wrappers with no writing. Supermarket shelves blurred behind."
+    },
+    {
+      "id": "match_kuehlschrank_bag_mustard",
+      "aspect": "3:4",
+      "prompt": "A phone photo looking down into a cloth shopping bag held open in a bright supermarket: the bag is filled to the top with nothing but small glass jars of yellow mustard with plain lids and no labels, at least ten of them. Supermarket shelves blurred behind."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Hallo, lieber Kühlschrank!",
+      "score": 100,
+      "intent": "helloFridge",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo, liebe Kühlschrank!",
+      "score": 85,
+      "intent": "helloFridge",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo! Ich heiße {name}.",
+      "score": 100,
+      "intent": "name",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heißt {name}.",
+      "score": 80,
+      "intent": "name",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo!",
+      "score": 100,
+      "intent": "hello",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe Hunger.",
+      "score": 100,
+      "intent": "hunger",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Tschüss!",
+      "score": 100,
+      "intent": "bye",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Du bist traurig.",
+      "score": 100,
+      "intent": "sad",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich Hunger.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Es gibt nur Senf und ein Ei.",
+      "score": 100,
+      "intent": "senfEi",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich sehe nur Senf und ein Ei.",
+      "score": 100,
+      "intent": "senfEi",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Es gibt keine Milch.",
+      "score": 100,
+      "intent": "missing",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Es gibt keinen Käse und keine Milch.",
+      "score": 100,
+      "intent": "missing",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Es gibt Käse.",
+      "score": 100,
+      "intent": "dream",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Es gibt nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Es gibt ein Ei.",
+      "score": 100,
+      "intent": "one",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Es gibt eine Ei.",
+      "score": 85,
+      "intent": "one",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich Senf.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Es gibt kein Ei.",
+      "score": 100,
+      "intent": "noEgg",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Wir brauchen Tomaten und Äpfel.",
+      "score": 100,
+      "intent": "veg",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Wir braucht Milch und Brot.",
+      "score": 80,
+      "intent": "basics",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Wir brauchen keinen Senf.",
+      "score": 100,
+      "intent": "noMustard",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Wir brauchen kein Senf.",
+      "score": 85,
+      "intent": "noMustard",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Wir brauchen Senf.",
+      "score": 100,
+      "intent": "mustard",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Wir brauchen Bier.",
+      "score": 100,
+      "intent": "beer",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Wir brauchen viele Eier.",
+      "score": 100,
+      "intent": "eggs",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Wir Milch.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Wir brauchen kein Bier.",
+      "score": 100,
+      "intent": "noBeer",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Du möchtest einen Erdbeerjoghurt und Butter.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Du möchte einen Erdbeerjoghurt und Butter.",
+      "score": 80,
+      "intent": "both",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Einen Erdbeerjoghurt.",
+      "score": 100,
+      "intent": "strawberry",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Du möchtest ein Erdbeerjoghurt.",
+      "score": 85,
+      "intent": "strawberry",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Einen Vanillejoghurt.",
+      "score": 100,
+      "intent": "vanilla",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du möchtest keinen Vanillejoghurt.",
+      "score": 100,
+      "intent": "notVanilla",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Butter, bitte.",
+      "score": 100,
+      "intent": "butter",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Einen Joghurt.",
+      "score": 100,
+      "intent": "plainYog",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Milch.",
+      "score": 100,
+      "intent": "milk",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du Butter.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du möchtest einen Erdbeerjoghurt und keinen Vanillejoghurt.",
+      "score": 100,
+      "intent": "strawNoVanilla",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Du möchtest einen Erdbeerjoghurt, Butter und keinen Vanillejoghurt.",
+      "score": 100,
+      "intent": "bothNoVanilla",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Wir kaufen keine Eier.",
+      "score": 100,
+      "intent": "none",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wir kaufen kein Eier.",
+      "score": 85,
+      "intent": "none",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Wir kaufen sechs Eier.",
+      "score": 100,
+      "intent": "six",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wir kauft sechs Eier.",
+      "score": 80,
+      "intent": "six",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Zwölf Eier.",
+      "score": 100,
+      "intent": "twelve",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Nur ein Ei.",
+      "score": 100,
+      "intent": "one",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Egon ist glücklich.",
+      "score": 100,
+      "intent": "egon",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Wir sechs Eier.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe den Erdbeerjoghurt, Milch und Brot.",
+      "score": 100,
+      "intent": "yog",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe die Erdbeerjoghurt.",
+      "score": 85,
+      "intent": "yog",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe Milch, Brot und Tomaten.",
+      "score": 100,
+      "intent": "food",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hast Milch.",
+      "score": 80,
+      "intent": "food",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe nur Schokolade.",
+      "score": 100,
+      "intent": "chocOnly",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe Senf.",
+      "score": 100,
+      "intent": "mustard",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe keinen Senf.",
+      "score": 100,
+      "intent": "noMustard",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich Senf.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist voll und glücklich.",
+      "score": 100,
+      "intent": "full",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist schön.",
+      "score": 100,
+      "intent": "beautiful",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Du ist voll.",
+      "score": 80,
+      "intent": "full",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist nicht leer.",
+      "score": 100,
+      "intent": "notEmpty",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist leer.",
+      "score": 100,
+      "intent": "empty",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist kalt.",
+      "score": 100,
+      "intent": "cold",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist jetzt nicht traurig.",
+      "score": 100,
+      "intent": "notSad",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist traurig.",
+      "score": 100,
+      "intent": "sad",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du voll.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist nicht voll.",
+      "score": 100,
+      "intent": "notFull",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Wir brauchen einen Pinguin.",
+      "score": 100,
+      "intent": "penguin",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Wir braucht einen Pinguin.",
+      "score": 80,
+      "intent": "penguin",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe einen Pinguin.",
+      "score": 100,
+      "intent": "penguin",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe einen Pinguin und keinen Senf.",
+      "score": 100,
+      "intent": "noMustard",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Hallo, lieber Kühlschrank!"
+        ],
+        [
+          "t2",
+          "Es gibt nur Senf und ein Ei."
+        ],
+        [
+          "t3",
+          "Wir brauchen Tomaten und Äpfel."
+        ],
+        [
+          "t4",
+          "Du möchtest einen Erdbeerjoghurt und Butter."
+        ],
+        [
+          "t5",
+          "Wir kaufen keine Eier."
+        ],
+        [
+          "t6",
+          "Ich habe den Erdbeerjoghurt, Milch und Brot."
+        ],
+        [
+          "t7",
+          "Du bist voll und glücklich."
+        ]
+      ]
+    },
+    {
+      "name": "the penguin",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Hallo, lieber Kühlschrank!"
+        ],
+        [
+          "t2",
+          "Es gibt nur Senf und ein Ei."
+        ],
+        [
+          "t3",
+          "Wir brauchen einen Pinguin."
+        ],
+        [
+          "t4",
+          "Du möchtest einen Erdbeerjoghurt und Butter."
+        ],
+        [
+          "t5",
+          "Wir kaufen keine Eier."
+        ],
+        [
+          "t6",
+          "Ich habe einen Pinguin."
+        ],
+        [
+          "t7",
+          "Du bist schön."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich habe Hunger."
+        ],
+        [
+          "t2",
+          "Es gibt Käse."
+        ],
+        [
+          "t3",
+          "Wir brauchen Milch und Brot."
+        ],
+        [
+          "t4",
+          "Milch."
+        ],
+        [
+          "t5",
+          "Wir kaufen sechs Eier."
+        ],
+        [
+          "t6",
+          "Ich habe nur Schokolade."
+        ],
+        [
+          "t7",
+          "Du bist kalt."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Tschüss!"
+        ],
+        [
+          "t2",
+          "Es gibt Käse."
+        ],
+        [
+          "t3",
+          "Wir brauchen Senf."
+        ]
+      ]
+    }
+  ]
+}

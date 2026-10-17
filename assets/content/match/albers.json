@@ -1,0 +1,2148 @@
+{
+  "id": "albers",
+  "name": "Frau Albers",
+  "age": 41,
+  "emoji": "🐈",
+  "image": "match_albers",
+  "level": "B1.1",
+  "order": 5,
+  "bio": "Wir suchen: Katzenhirte (m/w/d) für das Stadtmuseum. Drei Katzen, vierzig Säle. Wo sehen Sie sich in fünf Jahren?",
+  "bioEn": "We are hiring: cat herder (m/f/d) for the city museum. Three cats, forty halls. Where do you see yourself in five years?",
+  "goal": "Get the job as the museum’s official cat herder.",
+  "tagline": "Personalabteilung · 41 · Stadtmuseum",
+  "voice": "Despina",
+  "brief": "Frau Albers, 41, from HR: a smooth, friendly, professional woman’s voice with a permanent polite smile, reading everything like a checklist and saying office buzzwords with total sincerity; she goes very soft and fond whenever the museum cats are mentioned.",
+  "focus": "Konjunktiv II (wäre, hätte, würde) · Superlativ (meine größte Stärke) · Adjektivdeklination",
+  "lexicon": {
+    "nouns": {
+      "Kunst": "f",
+      "Katzen": "pl",
+      "Job": "m",
+      "Geld": "n",
+      "Kater": "m",
+      "Katze": "f",
+      "Chef": "m",
+      "Stuhl": "m",
+      "Stärke": "f",
+      "Schwäche": "f",
+      "Stärken": "pl",
+      "Geduld": "f",
+      "Schokolade": "f",
+      "Würstchen": "n",
+      "Boden": "m",
+      "Leiter": "f",
+      "Feuerwehr": "f",
+      "Statue": "f",
+      "Mensch": "m",
+      "Gehalt": "n",
+      "Mittagspause": "f",
+      "Fragen": "pl",
+      "Büro": "n",
+      "Hund": "m",
+      "Mumien": "pl",
+      "Tuba": "f",
+      "Thron": "m",
+      "Löwe": "m"
+    },
+    "names": [
+      "Ihrem",
+      "Rembrandt",
+      "Frida"
+    ],
+    "verbs": [
+      "würde",
+      "würden",
+      "hätte",
+      "liebe",
+      "brauche",
+      "hasse",
+      "ist",
+      "kann",
+      "renne",
+      "wäre",
+      "bin",
+      "sehe",
+      "habe",
+      "könnte"
+    ],
+    "nonfinite": [
+      "arbeiten",
+      "miauen",
+      "legen",
+      "nehmen",
+      "rufen",
+      "klettern",
+      "kennenlernen",
+      "anfangen",
+      "spielen"
+    ],
+    "accVerbs": [
+      "würde",
+      "würden",
+      "hätte",
+      "liebe",
+      "brauche",
+      "hasse",
+      "sehe",
+      "habe",
+      "könnte"
+    ],
+    "adjectives": [
+      "ruhig",
+      "dick",
+      "rot",
+      "schwarz",
+      "alt",
+      "grau",
+      "golden",
+      "größt",
+      "glücklichst",
+      "höher",
+      "länger",
+      "eigen"
+    ]
+  },
+  "intro": [
+    {
+      "who": "albers",
+      "type": "text",
+      "de": "Guten Tag! Albers, Personalabteilung. Schön, dass Sie da sind.",
+      "emoji": "👩‍💼",
+      "en": "Good afternoon! Albers, HR. Lovely that you could come.",
+      "audio": "mc_albers_introa"
+    },
+    {
+      "who": "albers",
+      "type": "text",
+      "de": "Die Stelle: Katzenhirte, m/w/d, im Stadtmuseum. Drei Katzen, vierzig Säle, null Hunde.",
+      "emoji": "🏛️",
+      "en": "The position: cat herder, m/f/d, at the city museum. Three cats, forty halls, zero dogs.",
+      "audio": "mc_albers_introb"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Erste Frage: Warum möchten Sie bei uns arbeiten?",
+          "emoji": "📋",
+          "en": "First question: why would you like to work for us?",
+          "audio": "mc_albers_t1a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "würde",
+        "würden",
+        "gern",
+        "im Museum",
+        "arbeiten",
+        "weil",
+        "Kunst",
+        "und",
+        "Katzen",
+        "liebe",
+        "hätte",
+        "einen",
+        "ruhigen",
+        "ruhiger",
+        "Job",
+        "brauche",
+        "Geld",
+        "hasse",
+        "Mumien"
+      ],
+      "wrong": {
+        "würden": "würde"
+      },
+      "intents": [
+        {
+          "id": "hate",
+          "when": {
+            "any": [
+              "hasse"
+            ]
+          },
+          "value": -2,
+          "cause": "hate",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Sie hassen …? Für eine Stelle bei uns? Ich notiere: „mutig“.",
+              "emoji": "📝",
+              "en": "You hate …? For a job with us? I am writing down: “bold”.",
+              "audio": "mc_albers_t1_hate"
+            }
+          ]
+        },
+        {
+          "id": "cats",
+          "when": {
+            "any": [
+              "katzen"
+            ]
+          },
+          "value": 2,
+          "fact": "🐈 liebt Katzen",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Katzen! Das steht genau so in unserer Stellenanzeige. Haben Sie die auswendig gelernt? Sehr gut.",
+              "emoji": "🐈",
+              "en": "Cats! That is exactly what our job ad says. Did you learn it by heart? Very good.",
+              "audio": "mc_albers_t1_cats"
+            }
+          ]
+        },
+        {
+          "id": "mummy",
+          "when": {
+            "any": [
+              "mumien"
+            ]
+          },
+          "value": 1,
+          "fact": "⚱️ liebt Mumien",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Mumien. Wir haben eine. Sie heißt Gisela, sie ist 3000 Jahre alt, und Rembrandt schläft jeden Mittwoch in ihrem Sarg. Sie hat sich noch nie beschwert.",
+              "emoji": "⚱️",
+              "en": "Mummies. We have one. Her name is Gisela, she is 3,000 years old, and Rembrandt sleeps in her coffin every Wednesday. She has never complained.",
+              "audio": "mc_albers_t1_mummy"
+            }
+          ]
+        },
+        {
+          "id": "art",
+          "when": {
+            "any": [
+              "kunst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Kunst. Schön. Die Katzen lieben auch Kunst. Vor allem zum Kratzen.",
+              "emoji": "🖼️",
+              "en": "Art. Lovely. The cats love art too. Especially for scratching.",
+              "audio": "mc_albers_t1_art"
+            }
+          ]
+        },
+        {
+          "id": "quiet",
+          "when": {
+            "any": [
+              "ruhigen",
+              "ruhiger",
+              "job"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Ruhig? Rembrandt hat letzte Woche eine 400 Jahre alte Vase umgeworfen. Ruhig ist hier nichts.",
+              "emoji": "🏺",
+              "en": "Quiet? Last week Rembrandt knocked over a 400-year-old vase. Nothing is quiet here.",
+              "audio": "mc_albers_t1_quiet"
+            }
+          ]
+        },
+        {
+          "id": "money",
+          "when": {
+            "any": [
+              "geld"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Ehrlich. Ich notiere: „motiviert durch Geld“. Das ist erlaubt.",
+              "en": "Honest. I am writing down: “motivated by money”. That is allowed.",
+              "audio": "mc_albers_t1_money"
+            }
+          ]
+        },
+        {
+          "id": "museum",
+          "when": {
+            "any": [
+              "im museum",
+              "arbeiten"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Im Museum, ja. Das sagt der Hausmeister auch. Er wohnt seit 2009 heimlich in Saal vierzehn. Aber warum wollen Sie zu uns?",
+              "en": "At the museum, yes. The caretaker says that too. He has been secretly living in hall fourteen since 2009. But why do you want to join us?",
+              "audio": "mc_albers_t1_museum"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Darf ich vorstellen: unser Team.",
+          "emoji": "📸",
+          "en": "May I introduce: our team.",
+          "audio": "mc_albers_t2a"
+        },
+        {
+          "who": "albers",
+          "type": "photo",
+          "image": "match_albers_cats",
+          "wide": true,
+          "alt": "Drei Katzen in einem Museumssaal. Links: ein dicker roter Kater auf einem roten Kissen. In der Mitte: eine schwarze Katze auf einem Sockel. Rechts: ein alter grauer Kater. Er schläft auf einem goldenen Stuhl."
+        },
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Kleiner Tipp: Der Chef schläft immer auf dem teuersten Stuhl im Haus. Also: Wer ist der Chef?",
+          "en": "A small tip: the boss always sleeps on the most expensive chair in the building. So: who is the boss?",
+          "audio": "mc_albers_t2c"
+        }
+      ],
+      "tiles": [
+        "der",
+        "der",
+        "die",
+        "dicke",
+        "rote",
+        "schwarze",
+        "alte",
+        "alten",
+        "graue",
+        "Kater",
+        "Katze",
+        "ist",
+        "Chef",
+        "auf",
+        "dem",
+        "goldenen",
+        "goldene",
+        "Stuhl",
+        "links",
+        "rechts"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "red",
+          "when": {
+            "any": [
+              "dicke",
+              "rote",
+              "links"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Rembrandt? Er glaubt das auch. Er hat sich eine Krone gebaut. Aus einem Joghurtdeckel. Er ist es trotzdem nicht.",
+              "emoji": "😼",
+              "en": "Rembrandt? He thinks so too. He built himself a crown. Out of a yoghurt lid. He still is not.",
+              "audio": "mc_albers_t2_red"
+            }
+          ]
+        },
+        {
+          "id": "black",
+          "when": {
+            "any": [
+              "schwarze",
+              "katze"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Frida? Sie ist die Chefin der Herzen. Aber nicht der Chef. Leider.",
+              "emoji": "🖤",
+              "en": "Frida? She is the boss of our hearts. But not the boss. Sadly.",
+              "audio": "mc_albers_t2_black"
+            }
+          ]
+        },
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "alte",
+              "alten",
+              "graue",
+              "goldene",
+              "goldenen",
+              "stuhl",
+              "rechts"
+            ]
+          },
+          "value": 2,
+          "fact": "👑 erkennt den Chef",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Richtig. Herr Dürer. Er schläft seit zehn Jahren auf einem Stuhl aus dem Jahr 1620. Der Stuhl ist unbezahlbar. Herr Dürer auch.",
+              "emoji": "👑",
+              "en": "Correct. Herr Dürer. He has been sleeping on a chair from 1620 for ten years. The chair is priceless. So is Herr Dürer.",
+              "audio": "mc_albers_t2_right"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "kater",
+              "chef"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Welcher denn? Wir haben zwei Kater. Und beide halten sich für den Chef.",
+              "en": "Which one? We have two tomcats. And both think they are the boss.",
+              "audio": "mc_albers_t2_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Nächste Frage. Ein Klassiker: Was ist Ihre größte Stärke?",
+          "emoji": "💪",
+          "en": "Next question. A classic: what is your greatest strength?",
+          "audio": "mc_albers_t3a"
+        }
+      ],
+      "tiles": [
+        "meine",
+        "mein",
+        "größte",
+        "größten",
+        "Stärke",
+        "Schwäche",
+        "ist",
+        "Geduld",
+        "dass",
+        "ich",
+        "ich",
+        "schnell",
+        "renne",
+        "laut",
+        "miauen",
+        "kann",
+        "Schokolade",
+        "habe",
+        "keine",
+        "Stärken",
+        "Tuba",
+        "spielen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "none",
+          "when": {
+            "any": [
+              "keine",
+              "stärken"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Keine Stärken? Das ist … ehrlich. Zu ehrlich. Ich schreibe: „bescheiden“.",
+              "en": "No strengths? That is … honest. Too honest. I am writing: “modest”.",
+              "audio": "mc_albers_t3_none"
+            }
+          ]
+        },
+        {
+          "id": "meow",
+          "when": {
+            "any": [
+              "miauen"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "meows"
+          ],
+          "fact": "🗣️ spricht fließend Katze",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Sie können miauen? Nein, bitte nicht hier vorführen. Ich notiere: „spricht fließend Katze“.",
+              "emoji": "🗣️",
+              "en": "You can miaow? No, please don’t demonstrate it here. I am writing down: “speaks fluent cat”.",
+              "audio": "mc_albers_t3_meow"
+            }
+          ]
+        },
+        {
+          "id": "tuba",
+          "when": {
+            "any": [
+              "tuba"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "tuba"
+          ],
+          "fact": "🎺 spielt Tuba",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Tuba. Die Katzen fürchten drei Dinge: Staubsauger, Gewitter und Blasmusik. Ich notiere: „hat eine Geheimwaffe“.",
+              "emoji": "🎺",
+              "en": "Tuba. The cats fear three things: vacuum cleaners, thunderstorms and brass music. I am writing down: “has a secret weapon”.",
+              "audio": "mc_albers_t3_tuba"
+            }
+          ]
+        },
+        {
+          "id": "run",
+          "when": {
+            "any": [
+              "renne"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Schnell rennen. Wichtig. Rembrandt klaut gern Würstchen im Museumscafé.",
+              "emoji": "🏃",
+              "en": "Running fast. Important. Rembrandt likes stealing sausages in the museum café.",
+              "audio": "mc_albers_t3_run"
+            }
+          ]
+        },
+        {
+          "id": "patience",
+          "when": {
+            "any": [
+              "geduld"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Geduld. Gut. Frida braucht morgens vierzig Minuten für ihr Frühstück.",
+              "en": "Patience. Good. In the mornings Frida needs forty minutes for her breakfast.",
+              "audio": "mc_albers_t3_patience"
+            }
+          ]
+        },
+        {
+          "id": "chocolate",
+          "when": {
+            "any": [
+              "schokolade"
+            ],
+            "none": [
+              "schwäche"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Schokolade ist keine Stärke. Das ist eine Schwäche. Ich kenne mich da aus.",
+              "en": "Chocolate is not a strength. That is a weakness. I would know.",
+              "audio": "mc_albers_t3_chocolate"
+            }
+          ]
+        },
+        {
+          "id": "weakness",
+          "when": {
+            "any": [
+              "schwäche"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Das war eigentlich meine nächste Frage. Aber gut: Schokolade. Notiert.",
+              "emoji": "🍫",
+              "en": "That was actually my next question. But fine: chocolate. Noted.",
+              "audio": "mc_albers_t3_weakness"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "stärke",
+              "größte",
+              "größten"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Ja, Ihre größte Stärke. Ich halte den Stift bereit. Er wird langsam trocken.",
+              "en": "Yes, your greatest strength. I am holding my pen ready. It is slowly drying out.",
+              "audio": "mc_albers_t3_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Entschuldigung, ein Notfall. Ich muss laufen. Ich schicke Ihnen eine Sprachnachricht.",
+          "emoji": "🚨",
+          "en": "Sorry, an emergency. I have to run. I will send you a voice message.",
+          "audio": "mc_albers_t4a"
+        },
+        {
+          "who": "albers",
+          "type": "voice",
+          "audio": "mc_albers_vn_notfall",
+          "de": "Notfall! Rembrandt sitzt im Saal drei auf dem Kopf der Statue. Die Statue ist 500 Jahre alt. Die Leiter ist kaputt. Eine Schulklasse macht Fotos. Und Rembrandt liebt Würstchen. Mehr weiß ich nicht!",
+          "en": "Emergency! Rembrandt is sitting on the head of the statue in hall three. The statue is 500 years old. The ladder is broken. A school class is taking photos. And Rembrandt loves sausages. That is all I know!",
+          "direction": "Out of breath, hurrying down an echoing museum corridor, heels clicking on stone, trying to stay professional and failing."
+        },
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Sie sind jetzt die Fachkraft. Was würden Sie tun?",
+          "en": "You are the specialist now. What would you do?",
+          "audio": "mc_albers_t4c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "würde",
+        "würden",
+        "ein",
+        "eine",
+        "Würstchen",
+        "auf",
+        "den",
+        "dem",
+        "Boden",
+        "legen",
+        "die",
+        "Leiter",
+        "nehmen",
+        "laut",
+        "miauen",
+        "Feuerwehr",
+        "rufen",
+        "Statue",
+        "klettern",
+        "Tuba",
+        "spielen"
+      ],
+      "wrong": {
+        "würden": "würde"
+      },
+      "prepCase": {
+        "auf": "acc"
+      },
+      "intents": [
+        {
+          "id": "statue",
+          "when": {
+            "any": [
+              "statue",
+              "klettern"
+            ],
+            "none": [
+              "würstchen"
+            ]
+          },
+          "value": -2,
+          "cause": "statue",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Auf eine Statue aus dem sechzehnten Jahrhundert?! Ich höre schon die Versicherung weinen.",
+              "emoji": "😱",
+              "en": "Onto a statue from the sixteenth century?! I can already hear the insurance company crying.",
+              "audio": "mc_albers_t4_statue"
+            }
+          ]
+        },
+        {
+          "id": "ladder",
+          "when": {
+            "any": [
+              "leiter"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Die Leiter ist kaputt. Das habe ich gesagt. Haben Sie zugehört?",
+              "en": "The ladder is broken. I said that. Were you listening?",
+              "audio": "mc_albers_t4_ladder"
+            }
+          ]
+        },
+        {
+          "id": "sausage",
+          "when": {
+            "any": [
+              "würstchen"
+            ]
+          },
+          "value": 2,
+          "fact": "🌭 rettet Kater mit Würstchen",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Ein Würstchen! Rembrandt springt sofort. Er ist schwach. Wir alle sind schwach.",
+              "emoji": "🌭",
+              "en": "A sausage! Rembrandt jumps down at once. He is weak. We are all weak.",
+              "audio": "mc_albers_t4_sausage"
+            }
+          ]
+        },
+        {
+          "id": "tubaAgain",
+          "when": {
+            "any": [
+              "tuba"
+            ],
+            "flag": "tuba"
+          },
+          "value": 2,
+          "fact": "🎺 rettet Kater mit Blasmusik",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Die Geheimwaffe! Ein tiefes Tuba-Geräusch, und Rembrandt springt direkt in meine Arme. Jetzt habe ich einen Kater. Im doppelten Sinn.",
+              "emoji": "🎺",
+              "en": "The secret weapon! One deep tuba note, and Rembrandt jumps straight into my arms. Now I have a Kater. In both senses. (Kater = tomcat, and also a hangover.)",
+              "audio": "mc_albers_t4_tubaagain"
+            }
+          ]
+        },
+        {
+          "id": "tuba",
+          "when": {
+            "any": [
+              "tuba"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Sie haben eine Tuba dabei? Zu einem Vorstellungsgespräch? … Es funktioniert. Rembrandt flieht. Die Schulklasse in Saal drei applaudiert.",
+              "emoji": "🎺",
+              "en": "You brought a tuba? To a job interview? … It works. Rembrandt flees. The school class in hall three is applauding.",
+              "audio": "mc_albers_t4_tuba"
+            }
+          ]
+        },
+        {
+          "id": "meowAgain",
+          "when": {
+            "any": [
+              "miauen"
+            ],
+            "flag": "meows"
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Ihre größte Stärke! Rembrandt kommt runter. Er ist verwirrt. Aber er kommt.",
+              "emoji": "🐈",
+              "en": "Your greatest strength! Rembrandt is coming down. He is confused. But he is coming.",
+              "audio": "mc_albers_t4_meowagain"
+            }
+          ]
+        },
+        {
+          "id": "meow",
+          "when": {
+            "any": [
+              "miauen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Miauen? Hm. Rembrandt schaut. Interessiert. Das ist ein Anfang.",
+              "en": "Miaowing? Hm. Rembrandt is looking. Interested. That is a start.",
+              "audio": "mc_albers_t4_meow"
+            }
+          ]
+        },
+        {
+          "id": "fire",
+          "when": {
+            "any": [
+              "feuerwehr"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Die Feuerwehr kennt Rembrandt schon. Sie kommt nicht mehr. Sie schickt nur noch eine Postkarte: „Gute Besserung, Statue.“",
+              "emoji": "🚒",
+              "en": "The fire brigade already knows Rembrandt. They don’t come any more. They just send a postcard: “Get well soon, statue.”",
+              "audio": "mc_albers_t4_fire"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Puh. Danke. Rembrandt ist unten. Die Statue hat jetzt nur noch ein Ohr, aber das andere war schon im Mittelalter wackelig. Zurück zum Gespräch.",
+          "emoji": "😮‍💨",
+          "en": "Phew. Thank you. Rembrandt is down. The statue now only has one ear, but the other one was already wobbly in the Middle Ages. Back to the interview.",
+          "audio": "mc_albers_t5a"
+        },
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Die wichtigste Frage: Wo sehen Sie sich in fünf Jahren?",
+          "en": "The most important question: where do you see yourself in five years?",
+          "audio": "mc_albers_t5b"
+        }
+      ],
+      "tiles": [
+        "in fünf Jahren",
+        "ich",
+        "wäre",
+        "bin",
+        "gern",
+        "der",
+        "glücklichste",
+        "glücklichsten",
+        "Mensch",
+        "im Museum",
+        "sehe",
+        "mich",
+        "auf",
+        "Ihrem",
+        "dem",
+        "goldenen",
+        "Stuhl",
+        "immer noch",
+        "hier",
+        "Chef",
+        "eine",
+        "Statue"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "duerer",
+          "when": {
+            "any": [
+              "goldenen",
+              "stuhl"
+            ],
+            "none": [
+              "ihrem"
+            ]
+          },
+          "value": -2,
+          "cause": "chair",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Auf dem Stuhl von Herrn Dürer?! Der letzte Kandidat hat das auch gesagt. Herr Dürer hat ihn gebissen. Zweimal.",
+              "emoji": "😾",
+              "en": "On Herr Dürer’s chair?! The last candidate said that too. Herr Dürer bit him. Twice.",
+              "audio": "mc_albers_t5_duerer"
+            }
+          ]
+        },
+        {
+          "id": "her",
+          "when": {
+            "any": [
+              "ihrem"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Auf meinem Stuhl? Mutig. Ich notiere das. Mit rotem Stift.",
+              "emoji": "🖍️",
+              "en": "On my chair? Bold. I am noting that down. In red pen.",
+              "audio": "mc_albers_t5_her"
+            }
+          ]
+        },
+        {
+          "id": "statue",
+          "when": {
+            "any": [
+              "statue"
+            ]
+          },
+          "value": 1,
+          "fact": "🗿 wäre gern eine Statue",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Eine Statue. Kein Gehalt, keine Mittagspause, ewiger Vertrag. Die Buchhaltung weint vor Glück. Aber Rembrandt würde jeden Tag auf Ihrem Kopf sitzen.",
+              "emoji": "🗿",
+              "en": "A statue. No salary, no lunch break, an eternal contract. Accounting is weeping with joy. But Rembrandt would sit on your head every day.",
+              "audio": "mc_albers_t5_statue"
+            }
+          ]
+        },
+        {
+          "id": "happy",
+          "when": {
+            "any": [
+              "glücklichste",
+              "glücklichsten"
+            ]
+          },
+          "value": 2,
+          "fact": "😊 will der glücklichste Mensch im Museum sein",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Der glücklichste Mensch im Museum. Das wäre ein Rekord. Hier sind alle müde. Außer den Katzen.",
+              "emoji": "😊",
+              "en": "The happiest person in the museum. That would be a record. Everyone here is tired. Except the cats.",
+              "audio": "mc_albers_t5_happy"
+            }
+          ]
+        },
+        {
+          "id": "stay",
+          "when": {
+            "any": [
+              "hier",
+              "immer noch"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Immer noch hier. Loyal. Das mögen wir. Die Katzen auch. Sie mögen Möbel, die sich nicht bewegen.",
+              "en": "Still here. Loyal. We like that. So do the cats. They like furniture that doesn’t move.",
+              "audio": "mc_albers_t5_stay"
+            }
+          ]
+        },
+        {
+          "id": "boss",
+          "when": {
+            "any": [
+              "chef"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Chef? Der Chef ist Herr Dürer. Diese Stelle ist besetzt. Für immer.",
+              "emoji": "👑",
+              "en": "Boss? The boss is Herr Dürer. That position is taken. Forever.",
+              "audio": "mc_albers_t5_boss"
+            }
+          ]
+        },
+        {
+          "id": "museum",
+          "when": {
+            "any": [
+              "im museum"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Im Museum. Gut. Als was? Als Mensch? Als Möbel? Als Ausstellungsstück? Hier ist alles schon passiert.",
+              "en": "At the museum. Good. As what? As a person? As furniture? As an exhibit? Everything has happened here before.",
+              "audio": "mc_albers_t5_museum"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Kleine Information: Herr Dürer ist seit 2019 offiziell unser Direktor. Es gab eine Wahl. Er war der einzige Kandidat, der in der Diskussion nichts Falsches gesagt hat. Er hat geschlafen.",
+          "emoji": "🗳️",
+          "en": "A small piece of information: since 2019 Herr Dürer has officially been our director. There was an election. He was the only candidate who said nothing wrong in the debate. He was asleep.",
+          "audio": "mc_albers_t6_director"
+        },
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Haben Sie noch Fragen oder Wünsche?",
+          "emoji": "📝",
+          "en": "Do you have any questions or wishes?",
+          "audio": "mc_albers_t6a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "hätte",
+        "würde",
+        "könnte",
+        "gern",
+        "habe",
+        "keine",
+        "Fragen",
+        "ein",
+        "eine",
+        "höheres",
+        "höheren",
+        "Gehalt",
+        "längere",
+        "längeren",
+        "Mittagspause",
+        "die",
+        "Katzen",
+        "kennenlernen",
+        "einen",
+        "eigenen",
+        "Thron",
+        "wann",
+        "anfangen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "cats",
+          "when": {
+            "any": [
+              "kennenlernen",
+              "katzen"
+            ]
+          },
+          "value": 2,
+          "fact": "🤝 will das Team kennenlernen",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Sie wollen die Katzen kennenlernen? Das ist die richtige Antwort. Herr Dürer hat gerade ein Ohr bewegt.",
+              "emoji": "👂",
+              "en": "You want to meet the cats? That is the right answer. Herr Dürer just moved one ear.",
+              "audio": "mc_albers_t6_cats"
+            }
+          ]
+        },
+        {
+          "id": "salary",
+          "when": {
+            "any": [
+              "gehalt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Ein höheres Gehalt. Verständlich. Aktuell: 1.900 Euro und Thunfisch nach Wahl. Aber der Direktor verhandelt persönlich. Er hat noch nie verloren. Er bietet Ihnen gerade einen Thunfisch weniger.",
+              "emoji": "🐟",
+              "en": "A higher salary. Understandable. Currently: 1,900 euros and tuna of your choice. But the director negotiates in person. He has never lost. He is now offering you one tuna less.",
+              "audio": "mc_albers_t6_salary"
+            }
+          ]
+        },
+        {
+          "id": "break",
+          "when": {
+            "any": [
+              "mittagspause"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Eine längere Mittagspause. Die Katzen schlafen von zwölf bis vier. Das passt perfekt.",
+              "emoji": "😴",
+              "en": "A longer lunch break. The cats sleep from twelve till four. That fits perfectly.",
+              "audio": "mc_albers_t6_break"
+            }
+          ]
+        },
+        {
+          "id": "office",
+          "when": {
+            "any": [
+              "thron"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Einen eigenen Thron? Wir haben genau einen. Er ist golden, er ist von 1620, und Sie wissen, wer darauf schläft. Er hat gerade ein Auge geöffnet.",
+              "emoji": "👁️",
+              "en": "Your own throne? We have exactly one. It is golden, it is from 1620, and you know who sleeps on it. He just opened one eye.",
+              "audio": "mc_albers_t6_office"
+            }
+          ]
+        },
+        {
+          "id": "start",
+          "when": {
+            "any": [
+              "anfangen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Sie fragen schon, wann Sie anfangen? Selbstbewusst. Am Montag um sieben. Da frühstückt Herr Dürer.",
+              "en": "You are already asking when you start? Confident. Monday at seven. That is when Herr Dürer has breakfast.",
+              "audio": "mc_albers_t6_start"
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "when": {
+            "any": [
+              "fragen",
+              "keine"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Keine Fragen? Das sagen alle. Dann fragen die Katzen.",
+              "en": "No questions? Everyone says that. Then the cats will ask.",
+              "audio": "mc_albers_t6_none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Letzte Frage. Ein bisschen Psychologie.",
+          "emoji": "🧠",
+          "en": "Last question. A little psychology.",
+          "audio": "mc_albers_t7a"
+        },
+        {
+          "who": "albers",
+          "type": "text",
+          "de": "Wenn Sie eine Katze wären, welche Katze wären Sie?",
+          "en": "If you were a cat, which cat would you be?",
+          "audio": "mc_albers_t7b"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "ich",
+        "ich",
+        "eine",
+        "eine",
+        "ein",
+        "Katze",
+        "Katze",
+        "wäre",
+        "wäre",
+        "ruhige",
+        "schwarze",
+        "schwarzer",
+        "dicker",
+        "roter",
+        "Kater",
+        "wie",
+        "Rembrandt",
+        "Frida",
+        "Herr Dürer",
+        "Hund",
+        "Löwe"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "dog",
+          "when": {
+            "any": [
+              "hund"
+            ]
+          },
+          "value": -2,
+          "cause": "dog",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Ein Hund. In meinem Museum. … Ich muss kurz atmen.",
+              "emoji": "🐕",
+              "en": "A dog. In my museum. … I need a moment to breathe.",
+              "audio": "mc_albers_t7_dog"
+            }
+          ]
+        },
+        {
+          "id": "lion",
+          "when": {
+            "any": [
+              "löwe"
+            ]
+          },
+          "value": 1,
+          "fact": "🦁 wäre gern ein Löwe",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Ein Löwe. Ehrgeizig. Wir hatten 1974 einen Löwen im Museum. Für einen Nachmittag. Es gibt eine kleine Gedenktafel. Und einen neuen Hausmeister.",
+              "emoji": "🦁",
+              "en": "A lion. Ambitious. We had a lion in the museum in 1974. For one afternoon. There is a small memorial plaque. And a new caretaker.",
+              "audio": "mc_albers_t7_lion"
+            }
+          ]
+        },
+        {
+          "id": "duerer",
+          "when": {
+            "any": [
+              "herr dürer"
+            ]
+          },
+          "value": 2,
+          "fact": "😼 wäre gern Herr Dürer",
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Herr Dürer. Sie wollen also schlafen und alle beherrschen. Sie wären gut in der Personalabteilung.",
+              "emoji": "👑",
+              "en": "Herr Dürer. So you want to sleep and rule everyone. You would be good in HR.",
+              "audio": "mc_albers_t7_duerer"
+            }
+          ]
+        },
+        {
+          "id": "rembrandt",
+          "when": {
+            "any": [
+              "rembrandt",
+              "dicker",
+              "roter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Rembrandt. Chaotisch, hungrig, charmant. Ehrlich gesagt: wie ich.",
+              "emoji": "🧡",
+              "en": "Rembrandt. Chaotic, hungry, charming. Honestly: like me.",
+              "audio": "mc_albers_t7_rembrandt"
+            }
+          ]
+        },
+        {
+          "id": "black",
+          "when": {
+            "any": [
+              "schwarze",
+              "schwarzer",
+              "ruhige",
+              "frida"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Wie Frida. Elegant und still. Sie beobachtet uns übrigens gerade. Durch die Glastür.",
+              "emoji": "🖤",
+              "en": "Like Frida. Elegant and quiet. She is watching us right now, by the way. Through the glass door.",
+              "audio": "mc_albers_t7_black"
+            }
+          ]
+        },
+        {
+          "id": "generic",
+          "when": {
+            "any": [
+              "katze",
+              "kater"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "albers",
+              "type": "text",
+              "de": "Eine Katze, ja. Aber welche? Wir haben drei Vorbilder im Haus.",
+              "en": "A cat, yes. But which one? We have three role models in the building.",
+              "audio": "mc_albers_t7_generic"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "albers",
+    "type": "text",
+    "de": "Danke. Aber das war nicht meine Frage. Ich notiere: „kreativ“.",
+    "en": "Thank you. But that was not my question. I am writing down: “creative”.",
+    "audio": "mc_albers_offtopic"
+  },
+  "confused": [
+    {
+      "who": "albers",
+      "type": "text",
+      "de": "Wie bitte? Könnten Sie das wiederholen?",
+      "emoji": "🤔",
+      "en": "Sorry? Could you repeat that?",
+      "audio": "mc_albers_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "albers",
+        "type": "text",
+        "de": "Herzlichen Glückwunsch, {name}! Ab Montag sind Sie unser offizieller Katzenhirte. M, w oder d, ganz egal.",
+        "emoji": "🎉",
+        "en": "Congratulations, {name}! From Monday you are our official cat herder. M, f or d, doesn’t matter."
+      },
+      {
+        "who": "albers",
+        "type": "text",
+        "de": "Der Direktor hat Ihren Vertrag unterschrieben. Mit der Pfote. Im Schlaf. Das ist bei uns rechtsgültig.",
+        "emoji": "🐾",
+        "en": "The director signed your contract. With his paw. In his sleep. Here, that is legally binding.",
+        "audio": "mc_albers_winb"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "albers",
+        "type": "text",
+        "de": "Wir nehmen Sie. Auf Probe. Ihr erstes Projekt: das Katzenklo in Saal drei. Vorsicht, ein Kunstkritiker hält es für eine Installation. Es hat schon zwei Preise gewonnen.",
+        "emoji": "🧻",
+        "en": "We will take you. On probation. Your first project: the litter box in hall three. Careful, an art critic thinks it is an installation. It has already won two prizes.",
+        "audio": "mc_albers_partial"
+      }
+    ],
+    "deleted": {
+      "hate": {
+        "who": "albers",
+        "type": "text",
+        "de": "Sie hassen … das hier? Für eine Stelle bei uns? Ich notiere: „passt nicht“. Auf Wiedersehen.",
+        "emoji": "🗑️",
+        "en": "You hate … this? For a job with us? I am writing down: “not a fit”. Goodbye.",
+        "audio": "mc_albers_del_hate"
+      },
+      "statue": {
+        "who": "albers",
+        "type": "text",
+        "de": "Die Statue hat jetzt eine Delle. Die Versicherung hat angerufen. Auf Wiedersehen.",
+        "en": "The statue now has a dent. The insurance company called. Goodbye.",
+        "audio": "mc_albers_del_statue"
+      },
+      "chair": {
+        "who": "albers",
+        "type": "text",
+        "de": "Herr Dürer hat Ihre Bewerbung gelesen. Und dann darauf geschlafen. Das ist ein Nein.",
+        "en": "Herr Dürer read your application. And then slept on it. That is a no.",
+        "audio": "mc_albers_del_chair"
+      },
+      "dog": {
+        "who": "albers",
+        "type": "text",
+        "de": "Ein Hund. In meinem Museum. Das Gespräch ist beendet. Wirklich.",
+        "en": "A dog. In my museum. This interview is over. Really.",
+        "audio": "mc_albers_del_dog"
+      },
+      "confused": {
+        "who": "albers",
+        "type": "text",
+        "de": "Ich verstehe Sie leider nicht. Und ich verstehe sonst sogar Katzen. Auf Wiedersehen.",
+        "en": "I am afraid I do not understand you. And I normally even understand cats. Goodbye.",
+        "audio": "mc_albers_del_confused"
+      },
+      "default": {
+        "who": "albers",
+        "type": "text",
+        "de": "Vielen Dank für Ihr Interesse. Wir haben uns für Frida entschieden. Sie ist eine Katze. Aber sie war überzeugender.",
+        "en": "Thank you for your interest. We have decided on Frida. She is a cat. But she was more convincing.",
+        "audio": "mc_albers_del_default"
+      }
+    },
+    "sunday": {
+      "who": "albers",
+      "type": "voice",
+      "audio": "mc_albers_vn_sunday",
+      "de": "Albers hier. Ich weiß, es ist Sonntag. Aber Rembrandt ist auf dem Dach. Schon wieder. Mit einem Würstchen. Wie schnell können Sie hier sein?",
+      "en": "Albers here. I know it’s Sunday. But Rembrandt is on the roof. Again. With a sausage. How fast can you get here?",
+      "direction": "A calm professional voice cracking at the edges, wind and pigeons in the background as if standing on a roof terrace."
+    }
+  },
+  "partialTitle": "Auf Probe. Mit Katzenklo.",
+  "share": {
+    "win": "Ich bin jetzt offizieller Katzenhirte (m/w/d) im Stadtmuseum 🐈🏛️ Frau Albers hat mich eingestellt. Mein Deutsch: {score}/100. Bewirbst du dich auch? {url}",
+    "partial": "Ich habe die Stelle im Museum … auf Probe, mit dem Katzenklo 🧻 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Frau Albers hat sich für eine Katze entschieden. Nicht für mich 🐈💔 Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Frau Albers, a 41-year-old HR manager: a neat dark bob, tortoiseshell glasses on a chain, a soft lilac blouse under a grey blazer, a lanyard with a blank badge, a clipboard in one hand, a professional smile, and a few cat hairs on her sleeve.",
+  "imagePrompts": [
+    {
+      "id": "match_albers",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She sits at a tidy desk in a small museum office, smiling politely at the viewer over her glasses, pen ready on the clipboard. Behind her hangs a classical oil painting of a cat in a golden frame, and a fat ginger cat is asleep in her in-tray. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_albers_cats",
+      "aspect": "16:9",
+      "prompt": "A quiet museum hall seen exactly from the front like a stage set, one flat wall with a few framed paintings, polished wooden floor. Exactly three cats in a row, far apart and evenly spaced. LEFT: a very FAT GINGER tomcat sitting on a big red velvet cushion on the floor, looking smug. MIDDLE: a slim, elegant BLACK cat standing on a tall white stone pedestal. RIGHT: an old GREY tomcat curled up asleep on an ornate antique GOLDEN chair. Three clearly different cats: ginger and fat, black and slim, grey and old on a golden chair."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich würde gern im Museum arbeiten, weil ich Katzen liebe.",
+      "score": 100,
+      "intent": "cats",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich würden gern im Museum arbeiten, weil ich Katzen liebe.",
+      "score": 80,
+      "intent": "cats",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich würde gern im Museum arbeiten, weil ich liebe Katzen.",
+      "score": 70,
+      "intent": "cats",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich liebe Kunst und Katzen.",
+      "score": 100,
+      "intent": "cats",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich liebe Kunst.",
+      "score": 100,
+      "intent": "art",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hätte gern einen ruhigen Job.",
+      "score": 100,
+      "intent": "quiet",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hätte gern einen ruhiger Job.",
+      "score": 85,
+      "intent": "quiet",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Ich brauche Geld.",
+      "score": 100,
+      "intent": "money",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich würde gern im Museum arbeiten.",
+      "score": 100,
+      "intent": "museum",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hasse Katzen.",
+      "score": 100,
+      "intent": "hate",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich gern im Museum.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Der alte graue Kater ist der Chef.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Der Kater auf dem goldenen Stuhl.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Der alten Kater ist der Chef.",
+      "score": 85,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Der Kater auf dem goldene Stuhl.",
+      "score": 85,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Der Chef ist der Kater rechts.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Der dicke rote Kater ist der Chef.",
+      "score": 100,
+      "intent": "red",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Die schwarze Katze ist der Chef.",
+      "score": 100,
+      "intent": "black",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Der Kater ist der Chef.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Meine größte Stärke ist, dass ich laut miauen kann.",
+      "score": 100,
+      "intent": "meow",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Meine größte Stärke ist, dass ich kann laut miauen.",
+      "score": 70,
+      "intent": "meow",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Meine größte Stärke ist Geduld.",
+      "score": 100,
+      "intent": "patience",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Meine größten Stärke ist Geduld.",
+      "score": 85,
+      "intent": "patience",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Mein größte Stärke ist Geduld.",
+      "score": 85,
+      "intent": "patience",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Meine größte Stärke ist, dass ich schnell renne.",
+      "score": 100,
+      "intent": "run",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Meine größte Schwäche ist Schokolade.",
+      "score": 100,
+      "intent": "weakness",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe keine Stärken.",
+      "score": 100,
+      "intent": "none",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Meine größte Stärke.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich keine Stärken.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Meine größte Stärke ist Schokolade.",
+      "score": 100,
+      "intent": "chocolate",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde ein Würstchen auf den Boden legen.",
+      "score": 100,
+      "intent": "sausage",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde ein Würstchen auf dem Boden legen.",
+      "score": 85,
+      "intent": "sausage",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würden ein Würstchen auf den Boden legen.",
+      "score": 80,
+      "intent": "sausage",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde laut miauen.",
+      "score": 100,
+      "intent": "meow",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde die Leiter nehmen.",
+      "score": 100,
+      "intent": "ladder",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde die Feuerwehr rufen.",
+      "score": 100,
+      "intent": "fire",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde auf die Statue klettern.",
+      "score": 100,
+      "intent": "statue",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich ein Würstchen auf den Boden.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde ein Würstchen auf die Statue legen.",
+      "score": 100,
+      "intent": "sausage",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "In fünf Jahren wäre ich gern der glücklichste Mensch im Museum.",
+      "score": 100,
+      "intent": "happy",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "In fünf Jahren wäre ich gern der glücklichsten Mensch im Museum.",
+      "score": 85,
+      "intent": "happy",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "In fünf Jahren ich wäre gern der glücklichste Mensch.",
+      "score": 70,
+      "intent": "happy",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "In fünf Jahren bin ich immer noch hier.",
+      "score": 100,
+      "intent": "stay",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "In fünf Jahren sehe ich mich auf Ihrem Stuhl.",
+      "score": 100,
+      "intent": "her",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "In fünf Jahren sehe ich mich auf dem goldenen Stuhl.",
+      "score": 100,
+      "intent": "duerer",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "In fünf Jahren wäre ich gern Chef.",
+      "score": 100,
+      "intent": "boss",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich wäre gern im Museum.",
+      "score": 100,
+      "intent": "museum",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "In fünf Jahren sehe ich mich auf dem Stuhl.",
+      "score": 100,
+      "intent": "duerer",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde gern die Katzen kennenlernen.",
+      "score": 100,
+      "intent": "cats",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde gern kennenlernen die Katzen.",
+      "score": 70,
+      "intent": "cats",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hätte gern ein höheres Gehalt.",
+      "score": 100,
+      "intent": "salary",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hätte gern ein höheren Gehalt.",
+      "score": 85,
+      "intent": "salary",
+      "delta": 0
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hätte gern eine längere Mittagspause.",
+      "score": 100,
+      "intent": "break",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hätte gern eine längeren Mittagspause.",
+      "score": 85,
+      "intent": "break",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hätte gern einen eigenen Thron.",
+      "score": 100,
+      "intent": "office",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hätte gern ein eigenen Thron.",
+      "score": 85,
+      "intent": "office",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich würde gern im Museum arbeiten, weil ich Mumien liebe.",
+      "score": 100,
+      "intent": "mummy",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Meine größte Stärke ist, dass ich Tuba spielen kann.",
+      "score": 100,
+      "intent": "tuba",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Meine größte Stärke ist, dass ich kann Tuba spielen.",
+      "score": 70,
+      "intent": "tuba",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde Tuba spielen.",
+      "score": 100,
+      "intent": "tuba",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "In fünf Jahren wäre ich gern eine Statue im Museum.",
+      "score": 100,
+      "intent": "statue",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Katze wäre, wäre ich ein Löwe.",
+      "score": 100,
+      "intent": "lion",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe keine Fragen.",
+      "score": 100,
+      "intent": "none",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Könnte ich die Katzen kennenlernen?",
+      "score": 100,
+      "intent": "cats",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Wann könnte ich anfangen?",
+      "score": 100,
+      "intent": "start",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Katze wäre, wäre ich eine ruhige, schwarze Katze.",
+      "score": 100,
+      "intent": "black",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Katze wäre, wäre ich eine schwarzer Katze.",
+      "score": 85,
+      "intent": "black",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Katze wäre, ich wäre wie Herr Dürer.",
+      "score": 70,
+      "intent": "duerer",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Katze wäre, wäre ich wie Herr Dürer.",
+      "score": 100,
+      "intent": "duerer",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich wäre ein dicker roter Kater wie Rembrandt.",
+      "score": 100,
+      "intent": "rembrandt",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich wäre ein Hund.",
+      "score": 100,
+      "intent": "dog",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich wäre eine Katze.",
+      "score": 100,
+      "intent": "generic",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich eine Katze.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Katze wäre, wäre ich wie Frida.",
+      "score": 100,
+      "intent": "black",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "tuba",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich würde gern im Museum arbeiten, weil ich Mumien liebe."
+        ],
+        [
+          "t2",
+          "Der Kater auf dem goldenen Stuhl."
+        ],
+        [
+          "t3",
+          "Meine größte Stärke ist, dass ich Tuba spielen kann."
+        ],
+        [
+          "t4",
+          "Ich würde Tuba spielen."
+        ],
+        [
+          "t5",
+          "In fünf Jahren wäre ich gern eine Statue im Museum."
+        ],
+        [
+          "t6",
+          "Könnte ich die Katzen kennenlernen?"
+        ],
+        [
+          "t7",
+          "Wenn ich eine Katze wäre, wäre ich ein Löwe."
+        ]
+      ]
+    },
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich würde gern im Museum arbeiten, weil ich Katzen liebe."
+        ],
+        [
+          "t2",
+          "Der alte graue Kater ist der Chef."
+        ],
+        [
+          "t3",
+          "Meine größte Stärke ist, dass ich laut miauen kann."
+        ],
+        [
+          "t4",
+          "Ich würde laut miauen."
+        ],
+        [
+          "t5",
+          "In fünf Jahren wäre ich gern der glücklichste Mensch im Museum."
+        ],
+        [
+          "t6",
+          "Ich würde gern die Katzen kennenlernen."
+        ],
+        [
+          "t7",
+          "Wenn ich eine Katze wäre, wäre ich wie Herr Dürer."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich brauche Geld."
+        ],
+        [
+          "t2",
+          "Der dicke rote Kater ist der Chef."
+        ],
+        [
+          "t3",
+          "Ich habe keine Stärken."
+        ],
+        [
+          "t4",
+          "Ich würde die Feuerwehr rufen."
+        ],
+        [
+          "t5",
+          "In fünf Jahren sehe ich mich auf Ihrem Stuhl."
+        ],
+        [
+          "t6",
+          "Ich hätte gern ein höheres Gehalt."
+        ],
+        [
+          "t7",
+          "Ich wäre eine Katze."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich hasse Katzen."
+        ],
+        [
+          "t2",
+          "Der dicke rote Kater ist der Chef."
+        ],
+        [
+          "t3",
+          "Ich habe keine Stärken."
+        ],
+        [
+          "t4",
+          "Ich würde auf die Statue klettern."
+        ]
+      ]
+    }
+  ]
+}

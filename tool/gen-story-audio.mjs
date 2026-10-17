@@ -48,6 +48,7 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const OUT_DIR = join(root, 'static', 'audio', 'story');
 const STORIES = join(root, 'assets', 'content', 'stories');
 const TASKS = join(root, 'assets', 'content', 'tasks');
+const MATCH = join(root, 'assets', 'content', 'match');
 
 /** The cast (chosen voices, see tool/gen-voice-refs.mjs) + minor NPCs. */
 const VOICES = {
@@ -79,7 +80,9 @@ const VOICES = {
 	taxi: { locale: 'de-DE', voice: 'Orus' },
 	// Number task "Order the round" (the U-Bahn task reuses the announcer).
 	freund: { locale: 'de-DE', voice: 'Umbriel' },
-	barkeeper: { locale: 'de-DE', voice: 'Sadaltager' }
+	barkeeper: { locale: 'de-DE', voice: 'Sadaltager' },
+	// "Schreib mir!" match chats (assets/content/match/*.json).
+	helga: { locale: 'de-DE', voice: 'Autonoe' }
 };
 
 /** Who speaks each scripted beat-level audio key (dialogue lines say it themselves). */
@@ -113,7 +116,8 @@ const DIRECTIONS = {
 	announcer: 'A flat, neutral Berlin U-Bahn station announcement over a train PA system, slightly bored.',
 	oma: `An upright Berlin grandmother around eighty who runs a guesthouse: dry, unhurried, sharp, amused underneath; Sie to strangers; short complete sentences. ${CLEAR}`,
 	kurier: `A young parcel courier in a hurry, bored, friendly enough, reading off a scanner. ${CLEAR}`,
-	baumarkt: `A hardware-store assistant leaving a voicemail about an order: friendly, quick, the amount slow and clear. ${CLEAR}`
+	baumarkt: `A hardware-store assistant leaving a voicemail about an order: friendly, quick, the amount slow and clear. ${CLEAR}`,
+	helga: `Oma Helga, an 81-year-old Berlin grandmother who is a techno DJ: a slightly raspy older woman's voice, dry, quick-witted, cool and warm underneath, amused by everything; talking close to her phone. ${CLEAR}`
 };
 /** Gemini-TTS through Cloud Text-to-Speech, same voice names as Chirp 3 HD. */
 const CLOUD_GEMINI_MODEL = 'gemini-2.5-pro-tts';
@@ -125,15 +129,54 @@ const force = args.includes('--force');
 const chirp = args.includes('--chirp');
 const viaGeminiApi = args.includes('--gemini-api');
 const dry = args.includes('--dry');
+const stopOnQuota = args.includes('--stop-on-quota');
+const viaVertex = process.env.GEMINI_VIA === 'vertex';
+
+// -- spend guard ---------------------------------------------------------------
+// TTS_BUDGET_USD=15 caps what a paid run may spend. Every Gemini call's reported
+// tokens (usageMetadata) are priced at list rates (USD per million tokens) and
+// added to a ledger that survives restarts (.tts-spend.json, gitignored). Before
+// each call the ledger is checked; at the cap the run stops with exit code 3.
+const RATES = {
+	'gemini-2.5-pro-preview-tts': { input: 1, output: 20 },
+	'gemini-2.5-flash-preview-tts': { input: 0.5, output: 10 }
+};
+/** Unknown models (the transcription check) are priced high, to stay on the safe side. */
+const FALLBACK_RATE = { input: 2, output: 12 };
+const LEDGER = join(root, '.tts-spend.json');
+const budget = Number(process.env.TTS_BUDGET_USD ?? 0);
+function readLedger() {
+	try {
+		return JSON.parse(readFileSync(LEDGER, 'utf8'));
+	} catch {
+		return { usd: 0, calls: 0 };
+	}
+}
+function charge(model, usage) {
+	if (!usage) return;
+	const rate = RATES[model] ?? FALLBACK_RATE;
+	const usd = ((usage.promptTokenCount ?? 0) * rate.input + (usage.candidatesTokenCount ?? 0) * rate.output) / 1e6;
+	const ledger = readLedger();
+	ledger.usd += usd;
+	ledger.calls += 1;
+	writeFileSync(LEDGER, JSON.stringify(ledger, null, 2));
+	if (ledger.calls % 50 === 0) console.log(`
+[spend] $${ledger.usd.toFixed(2)} after ${ledger.calls} calls`);
+}
+
+
 const only = new Set(args.filter((a) => !a.startsWith('--')));
 
 loadDotEnv(join(root, '.env'));
 const key = process.env.GOOGLE_TTS_KEY;
-const geminiKey = process.env.GEMINI_API_KEY;
+// A billed key for voices, when there is one; else the shared Gemini key.
+const geminiKey = process.env.GEMINI_TTS_API_KEY || process.env.GEMINI_API_KEY;
 /** The acting voice model, and the one that listens back. */
 // Not gemini-3.8-flash-tts: it reads the direction aloud ("A giggly person…")
 // instead of acting it. The 2.5 TTS models are trained on "Say …: <line>".
-const GEMINI_TTS = 'gemini-2.5-pro-preview-tts';
+// GEMINI_TTS_MODEL=gemini-2.5-flash-preview-tts switches model; its free-tier
+// quota is separate, so it can finish a batch the pro model ran out on.
+const GEMINI_TTS = process.env.GEMINI_TTS_MODEL ?? 'gemini-2.5-pro-preview-tts';
 const GEMINI_CHECK = 'gemini-3.8-flash';
 /** Spoken digits, for checking an acted clip says the right number. */
 const lowerFirst = (s) => s.charAt(0).toLowerCase() + s.slice(1);
@@ -241,6 +284,26 @@ if (existsSync(TASKS)) {
 	}
 }
 
+// The match chats: every {who, audio, de} message, wherever it sits, acted
+// with its own `direction` (a voice note shouted over the club) when it has one.
+if (existsSync(MATCH)) {
+	for (const file of readdirSync(MATCH).filter((f) => f.endsWith('.json'))) {
+		const chat = JSON.parse(readFileSync(join(MATCH, file), 'utf8'));
+		if (only.size && !only.has(chat.id)) continue;
+		// Each chat casts itself: its own voice and acting brief.
+		if (chat.voice) VOICES[chat.id] = { locale: 'de-DE', voice: chat.voice };
+		if (chat.brief) DIRECTIONS[chat.id] = `${chat.brief} ${CLEAR}`;
+		const visit = (node) => {
+			if (Array.isArray(node)) return node.forEach(visit);
+			if (!node || typeof node !== 'object') return;
+			if (node.who && node.audio && node.de)
+				jobs.push({ file: `${node.audio}.mp3`, text: node.de, speaker: node.who, direction: node.direction, story: true });
+			Object.values(node).forEach(visit);
+		};
+		visit(chat);
+	}
+}
+
 mkdirSync(OUT_DIR, { recursive: true });
 let made = 0;
 let skipped = 0;
@@ -267,8 +330,19 @@ for (const job of jobs) {
 			console.log('ok');
 		} catch (e) {
 			console.log(`FAILED: ${e.message}`);
+			// --stop-on-quota: the day's quota is gone, so the rest would fail too.
+			if (e.quota && stopOnQuota) {
+				console.log(`
+Quota spent after ${made} clips. Stopping (exit 2).`);
+				process.exit(2);
+			}
+			if (e.budget) {
+				console.log(`
+${e.message}. Stopping (exit 3).`);
+				process.exit(3);
+			}
 		}
-		await new Promise((r) => setTimeout(r, viaGeminiApi ? 6500 : 400));
+		await new Promise((r) => setTimeout(r, viaGeminiApi ? (budget > 0 ? 1200 : 6500) : 400));
 		continue;
 	}
 	if (job.style) {
@@ -340,6 +414,18 @@ async function directed(job, v) {
 }
 
 async function cloudTake(prompt, text, v) {
+	// Cloud TTS reports no tokens: estimate this take from the line's length,
+	// rounded up (about 2.5 words a second, +30%), at the pro model's rates.
+	if (budget > 0 && readLedger().usd >= budget) {
+		const err = new Error(`budget of $${budget} reached ($${readLedger().usd.toFixed(2)} spent)`);
+		err.budget = true;
+		throw err;
+	}
+	const seconds = Math.max(1.5, (wordCount(text) / 2.5) * 1.3);
+	charge('gemini-2.5-pro-preview-tts', {
+		promptTokenCount: Math.ceil((prompt.length + text.length) / 3),
+		candidatesTokenCount: Math.ceil(seconds * 25)
+	});
 	for (let attempt = 0; ; attempt++) {
 		const res = await fetch('https://texttospeech.googleapis.com/v1/text:synthesize', {
 			method: 'POST',
@@ -429,18 +515,42 @@ function digitsIn(text) {
 }
 
 async function gemini(model, body) {
+	if (budget > 0 && readLedger().usd >= budget) {
+		const err = new Error(`budget of $${budget} reached ($${readLedger().usd.toFixed(2)} spent)`);
+		err.budget = true;
+		throw err;
+	}
 	for (let attempt = 0; ; attempt++) {
-		const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
-			method: 'POST',
-			headers: { 'content-type': 'application/json', 'x-goog-api-key': geminiKey },
-			body: JSON.stringify(body)
-		});
+		// GEMINI_VIA=vertex sends the same request through Vertex AI with the
+		// same key: no 50-a-day cap on the pro voice there.
+		const res = viaVertex
+			? await fetch(
+					`https://aiplatform.googleapis.com/v1/publishers/google/models/${model.replace('-preview-tts', '-tts')}:generateContent`,
+					{
+						method: 'POST',
+						headers: { 'content-type': 'application/json', 'x-goog-api-key': geminiKey },
+						body: JSON.stringify({ ...body, contents: body.contents.map((c) => ({ role: 'user', ...c })) })
+					}
+				)
+			: await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+					method: 'POST',
+					headers: { 'content-type': 'application/json', 'x-goog-api-key': geminiKey },
+					body: JSON.stringify(body)
+				});
 		if (res.status === 429 && attempt < 4) {
 			await new Promise((r) => setTimeout(r, 15000));
 			continue;
 		}
-		if (!res.ok) throw new Error(`${model} ${res.status} ${(await res.text()).slice(0, 160)}`);
-		return res.json();
+		if (!res.ok) {
+			const err = new Error(`${model} ${res.status} ${(await res.text()).slice(0, 160)}`);
+			// The daily quota is spent: say so, so a long run can stop instead of
+			// retrying every remaining clip.
+			if (res.status === 429) err.quota = true;
+			throw err;
+		}
+		const json = await res.json();
+		charge(model, json.usageMetadata);
+		return json;
 	}
 }
 

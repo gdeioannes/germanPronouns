@@ -1,0 +1,2027 @@
+{
+  "id": "hanno",
+  "name": "Hanno Pfeiffer",
+  "age": 47,
+  "emoji": "🗞️",
+  "image": "match_hanno",
+  "level": "C2.1",
+  "order": 2,
+  "bio": "Lokalreporter. Exklusiv! Drama im Kastanienbaum! Jede Geschichte hat zwei Seiten. Ich drucke die spannendere.",
+  "bioEn": "Local reporter. Exclusive! Drama in the chestnut tree! Every story has two sides. I print the more exciting one.",
+  "goal": "Get him to print the true, calm story instead of a scandal.",
+  "tagline": "Lokalreporter · 47 · Stadtanzeiger",
+  "voice": "Orus",
+  "brief": "Hanno Pfeiffer, 47, a local newspaper reporter: a fast, breathless, theatrical man’s voice that turns every sentence into a headline, reads quotes aloud in a dramatic news-anchor tone, and is secretly a big softie who loves animals. Running sore point: his last front page, a swan that allegedly hijacked a pedal boat, which nobody at the paper lets him forget.",
+  "focus": "Konjunktiv I (indirekte Rede) · Konnotation (Rettung / Drama) · Funktionsverbgefüge (Maßnahmen ergreifen)",
+  "lexicon": {
+    "nouns": {
+      "Katze": "f",
+      "Tragödie": "f",
+      "Dramatisches": "n",
+      "Aussicht": "f",
+      "Feuerwehr": "f",
+      "Drama": "n",
+      "Tier": "n",
+      "Abstieg": "m",
+      "Stubentiger": "m",
+      "Pause": "f",
+      "Maßnahmen": "pl",
+      "Baum": "m",
+      "Foto": "n",
+      "Feuerwehrauto": "n",
+      "Fotografen": "m",
+      "Interviews": "pl",
+      "Lied": "n"
+    },
+    "names": [],
+    "verbs": [
+      "sitzt",
+      "ist",
+      "klettert",
+      "sagt",
+      "behauptet",
+      "habe",
+      "hat",
+      "hätte",
+      "lügt",
+      "genießt",
+      "rettet",
+      "verweigert",
+      "macht",
+      "sei",
+      "komme",
+      "kommt",
+      "bin",
+      "würde",
+      "war",
+      "schläft",
+      "meditiert",
+      "gibt"
+    ],
+    "nonfinite": [
+      "gegessen",
+      "gefüttert",
+      "ergriffen",
+      "genommen",
+      "gestellt",
+      "geklettert",
+      "unternommen",
+      "abgewartet",
+      "nehmen",
+      "drucken",
+      "vorgesungen"
+    ],
+    "accVerbs": [
+      "habe",
+      "hat",
+      "hätte",
+      "genießt",
+      "rettet",
+      "verweigert",
+      "macht",
+      "würde"
+    ],
+    "adjectives": [
+      "schlafend",
+      "link",
+      "mittler",
+      "recht",
+      "schadenfroh"
+    ]
+  },
+  "intro": [
+    {
+      "who": "hanno",
+      "type": "text",
+      "de": "Pfeiffer, Stadtanzeiger! Ich stehe vor Ihrem Haus. Mit Fotograf.",
+      "emoji": "📸",
+      "en": "Pfeiffer, City Gazette! I’m standing outside your house. With a photographer.",
+      "audio": "mc_hanno_introa"
+    },
+    {
+      "who": "hanno",
+      "type": "text",
+      "de": "Exklusiv! Drama im Kastanienbaum! Die ganze Stadt will es wissen. Also: drei Leute. Aber sehr interessierte.",
+      "emoji": "🌳",
+      "en": "Exclusive! Drama in the chestnut tree! The whole town wants to know. Well: three people. But very interested ones.",
+      "audio": "mc_hanno_introb"
+    },
+    {
+      "who": "hanno",
+      "type": "text",
+      "de": "Meine letzte Titelgeschichte war ein Schwan, der ein Tretboot entführt hat. Angeblich. Seitdem brauche ich dringend eine neue.",
+      "emoji": "🦢",
+      "en": "My last front page was a swan that hijacked a pedal boat. Allegedly. Since then I badly need a new one.",
+      "audio": "mc_hanno_introc"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "In Ihrem Baum spielt sich ein Drama ab, höre ich. Was genau ist passiert?",
+          "emoji": "🎤",
+          "en": "I hear there’s a drama unfolding in your tree. What exactly happened?",
+          "audio": "mc_hanno_t1a"
+        }
+      ],
+      "tiles": [
+        "meine",
+        "mein",
+        "Katze",
+        "sitzt",
+        "seit heute Morgen",
+        "im Baum",
+        "es",
+        "ist",
+        "eine",
+        "ein",
+        "Tragödie",
+        "nichts",
+        "Dramatisches",
+        "sie",
+        "klettert",
+        "nur",
+        "gern",
+        "in Lebensgefahr",
+        "meditiert"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "danger",
+          "when": {
+            "any": [
+              "in lebensgefahr"
+            ]
+          },
+          "value": -2,
+          "cause": "scandal",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Lebensgefahr! Ich schreibe: „Todesangst im Wipfel“! Fotograf, näher ran!",
+              "emoji": "😱",
+              "en": "Mortal danger! I’m writing: “Terror in the treetop”! Photographer, get closer!",
+              "audio": "mc_hanno_t1_danger"
+            }
+          ]
+        },
+        {
+          "id": "tragedy",
+          "when": {
+            "any": [
+              "tragödie"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "drama"
+          ],
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Eine Tragödie! Wunderbar! Ich meine: furchtbar. Aber wunderbar für Seite eins. Größer als der Schwan!",
+              "emoji": "📰",
+              "en": "A tragedy! Wonderful! I mean: terrible. But wonderful for page one. Bigger than the swan!",
+              "audio": "mc_hanno_t1_tragedy"
+            }
+          ]
+        },
+        {
+          "id": "calm",
+          "when": {
+            "any": [
+              "dramatisches"
+            ]
+          },
+          "value": 2,
+          "fact": "🧘 bleibt ruhig vor der Presse",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Nichts Dramatisches? … Das ist für einen Reporter das Dramatischste, was man sagen kann.",
+              "emoji": "😩",
+              "en": "Nothing dramatic? … For a reporter that is the most dramatic thing anyone can say.",
+              "audio": "mc_hanno_t1_calm"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Nichts? „Nichts“ kann ich nicht drucken. Ich habe es einmal versucht. Die Seite war weiß. Mein Chef auch.",
+              "emoji": "📝",
+              "en": "Nothing? I cannot print “nothing”. I tried once. The page was white. So was my boss.",
+              "audio": "mc_hanno_t1_nothing"
+            }
+          ]
+        },
+        {
+          "id": "meditates",
+          "when": {
+            "any": [
+              "meditiert"
+            ]
+          },
+          "value": 1,
+          "fact": "🧘 hat eine Katze, die meditiert",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sie meditiert. Im Baum. „Erleuchtung im Kastanienbaum.“ … Nein. Nein, ich halte mich zurück. Aber es kribbelt.",
+              "emoji": "🧘",
+              "en": "She is meditating. In the tree. “Enlightenment in the chestnut tree.” … No. No, I am holding back. But it tingles.",
+              "audio": "mc_hanno_t1_meditates"
+            }
+          ]
+        },
+        {
+          "id": "climbs",
+          "when": {
+            "any": [
+              "klettert"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sie klettert gern. Ein Hobby. Hm. Hobbys verkaufen sich schlecht. Aber gut.",
+              "en": "She likes climbing. A hobby. Hm. Hobbies don’t sell well. But fine.",
+              "audio": "mc_hanno_t1_climbs"
+            }
+          ]
+        },
+        {
+          "id": "sits",
+          "when": {
+            "any": [
+              "sitzt",
+              "im baum",
+              "seit heute morgen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Seit heute Morgen im Baum. Notiert. Ich schreibe „seit Stunden“. Das klingt länger.",
+              "emoji": "⏳",
+              "en": "In the tree since this morning. Noted. I’ll write “for hours”. It sounds longer.",
+              "audio": "mc_hanno_t1_sits"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "Ihr Nachbar, Herr Wolff, hat mir gesagt: „Die Katze hat seit Tagen nichts gegessen.“",
+          "emoji": "👴",
+          "en": "Your neighbour, Herr Wolff, told me: “The cat hasn’t eaten anything for days.”",
+          "audio": "mc_hanno_t2a"
+        },
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "Mein Anwalt sagt, seit dem Schwan darf ich nichts mehr als Tatsache drucken. Nur noch als Behauptung. Also: Was genau behauptet Herr Wolff? Oder stimmt es gar nicht?",
+          "en": "My lawyer says that since the swan I may no longer print anything as fact. Only as a claim. So: what exactly is Herr Wolff claiming? Or is it not even true?",
+          "audio": "mc_hanno_t2b",
+          "emoji": "⚖️"
+        }
+      ],
+      "tiles": [
+        "Herr Wolff",
+        "sagt",
+        "behauptet",
+        "die",
+        "Katze",
+        "habe",
+        "hat",
+        "hätte",
+        "seit Tagen",
+        "nichts",
+        "gegessen",
+        "ich",
+        "habe",
+        "sie",
+        "heute Morgen",
+        "gefüttert",
+        "aber",
+        "lügt"
+      ],
+      "wrong": {
+        "hat": {
+          "to": "habe",
+          "note": "Reported speech in the press: Konjunktiv I (habe), not the indicative."
+        },
+        "hätte": {
+          "to": "habe",
+          "note": "Konjunktiv I 'habe' differs from the indicative here, so written reported speech uses it. 'hätte' is the spoken fallback, and in print it can sound as if you doubt the quote."
+        }
+      },
+      "intents": [
+        {
+          "id": "claimsButFed",
+          "when": {
+            "all": [
+              "behauptet",
+              "gefüttert"
+            ]
+          },
+          "value": 2,
+          "fact": "🍽️ liefert Fakten statt Zitate",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Zitat und Gegendarstellung in einem Satz. Mit „behauptet“. Das ist Journalismus. Leider guter.",
+              "emoji": "🗞️",
+              "en": "Quote and rebuttal in one sentence. With “claims”. That is journalism. Good journalism, sadly.",
+              "audio": "mc_hanno_t2_claimsfed"
+            }
+          ]
+        },
+        {
+          "id": "fed",
+          "when": {
+            "any": [
+              "gefüttert"
+            ]
+          },
+          "value": 2,
+          "fact": "🍽️ liefert Fakten statt Zitate",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sie haben sie heute Morgen gefüttert. Ah. Dann ist das Zitat … schwächer. Schade. Fakt ist Fakt.",
+              "emoji": "🍽️",
+              "en": "You fed her this morning. Ah. Then the quote is … weaker. Pity. A fact is a fact.",
+              "audio": "mc_hanno_t2_fed"
+            }
+          ]
+        },
+        {
+          "id": "lie",
+          "when": {
+            "any": [
+              "lügt"
+            ]
+          },
+          "value": -1,
+          "cause": "scandal",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "„Herr Wolff lügt“? Soll ich DAS drucken? Nachbarschaftskrieg auf Seite eins? Mein Anwalt hat schon angerufen. Er hat es geahnt.",
+              "emoji": "⚔️",
+              "en": "“Herr Wolff is lying”? Am I supposed to print THAT? Neighbourhood war on page one? My lawyer has already phoned. He sensed it.",
+              "audio": "mc_hanno_t2_lie"
+            }
+          ]
+        },
+        {
+          "id": "claims",
+          "when": {
+            "any": [
+              "behauptet"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "„Behauptet“. Sehr fein. Das klingt nach Zweifel. Mein Anwalt hat gerade vor Freude geweint.",
+              "emoji": "🤔",
+              "en": "“Claims”. Very nice. That sounds like doubt. My lawyer just wept with joy.",
+              "audio": "mc_hanno_t2_claims"
+            }
+          ]
+        },
+        {
+          "id": "says",
+          "when": {
+            "any": [
+              "sagt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "„Herr Wolff sagt, die Katze habe …“ Neutral. Mein Anwalt nickt. Mein Chefredakteur gähnt.",
+              "en": "“Herr Wolff says the cat has …” Neutral. My lawyer nods. My editor yawns.",
+              "audio": "mc_hanno_t2_says"
+            }
+          ]
+        },
+        {
+          "id": "quote",
+          "when": {
+            "any": [
+              "gegessen",
+              "seit tagen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Ja, so ungefähr. Aber wer behauptet das? Ohne Quelle ist das Tratsch. Und Tratsch ist bei uns Chefsache.",
+              "en": "Yes, roughly. But who claims that? Without a source it is gossip. And gossip is the editor’s job.",
+              "audio": "mc_hanno_t2_quote"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "Ich brauche eine Schlagzeile. Mein Vorschlag: „Drama im Kastanienbaum!“ Ihr Gegenvorschlag?",
+          "emoji": "🖋️",
+          "en": "I need a headline. My suggestion: “Drama in the chestnut tree!” Your counter-proposal?",
+          "audio": "mc_hanno_t3a"
+        }
+      ],
+      "tiles": [
+        "Katze",
+        "genießt",
+        "die",
+        "Aussicht",
+        "Feuerwehr",
+        "rettet",
+        "Tragödie",
+        "im Wipfel",
+        "Drama",
+        "kein",
+        "im Kastanienbaum",
+        "Tier",
+        "verweigert",
+        "den",
+        "Abstieg",
+        "Stubentiger",
+        "macht",
+        "Pause",
+        "gibt",
+        "keine",
+        "Interviews"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "interviews",
+          "when": {
+            "any": [
+              "interviews"
+            ]
+          },
+          "value": 2,
+          "fact": "🎙️ erfindet Schlagzeilen mit Würde",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "„Katze gibt keine Interviews.“ Großartig. Würdevoll. Ein Hauch Hollywood. Und es stimmt: Ich habe sie gefragt. Sie hat weggeschaut.",
+              "emoji": "🎙️",
+              "en": "“Cat gives no interviews.” Magnificent. Dignified. A touch of Hollywood. And it is true: I asked her. She looked away.",
+              "audio": "mc_hanno_t3_interviews"
+            }
+          ]
+        },
+        {
+          "id": "noDrama",
+          "when": {
+            "all": [
+              "kein*"
+            ],
+            "any": [
+              "tragödie",
+              "drama"
+            ]
+          },
+          "value": 2,
+          "fact": "🖋️ schreibt ruhige Schlagzeilen",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "„Kein Drama im Kastanienbaum.“ Sie drehen meine eigene Schlagzeile um. Das ist … gemein. Und gut.",
+              "emoji": "🙃",
+              "en": "“No drama in the chestnut tree.” You’ve turned my own headline round. That is … mean. And good.",
+              "audio": "mc_hanno_t3_nodrama"
+            }
+          ]
+        },
+        {
+          "id": "drama",
+          "when": {
+            "any": [
+              "tragödie",
+              "drama"
+            ]
+          },
+          "value": -2,
+          "cause": "scandal",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Ha! Sie sind ja ein Profi! Ich nehme es. In Rot. Mit drei Ausrufezeichen. Der Schwan ist vergessen!",
+              "emoji": "‼️",
+              "en": "Ha! You are a pro! I am taking it. In red. With three exclamation marks. The swan is forgotten!",
+              "audio": "mc_hanno_t3_drama"
+            }
+          ]
+        },
+        {
+          "id": "view",
+          "when": {
+            "any": [
+              "aussicht"
+            ]
+          },
+          "value": 2,
+          "fact": "🖋️ schreibt ruhige Schlagzeilen",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "„Katze genießt die Aussicht.“ Ruhig. Wahr. Ein bisschen poetisch. Mein Chefredakteur wird weinen. Vor Langeweile.",
+              "emoji": "🌄",
+              "en": "“Cat enjoys the view.” Calm. True. A bit poetic. My editor will cry. With boredom.",
+              "audio": "mc_hanno_t3_view"
+            }
+          ]
+        },
+        {
+          "id": "break",
+          "when": {
+            "any": [
+              "pause"
+            ]
+          },
+          "value": 2,
+          "fact": "🖋️ schreibt ruhige Schlagzeilen",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "„Stubentiger macht Pause im Kastanienbaum.“ Gemütlich. Das klingt nach Sonntag. Ich nehme es.",
+              "emoji": "🛋️",
+              "en": "“House cat takes a break in the chestnut tree.” Cosy. That sounds like a Sunday. I’ll take it.",
+              "audio": "mc_hanno_t3_break"
+            }
+          ]
+        },
+        {
+          "id": "refuses",
+          "when": {
+            "any": [
+              "verweigert"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "„Tier verweigert den Abstieg.“ Ein Hauch Rebellion. Gekauft.",
+              "en": "“Animal refuses to come down.” A touch of rebellion. Sold.",
+              "audio": "mc_hanno_t3_refuses"
+            }
+          ]
+        },
+        {
+          "id": "rescue",
+          "when": {
+            "any": [
+              "rettet",
+              "feuerwehr"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "„Feuerwehr rettet Katze“? Es ist noch gar keine Feuerwehr da. Aber ich mag Ihren Optimismus.",
+              "en": "“Fire brigade rescues cat”? There’s no fire brigade here yet. But I like your optimism.",
+              "audio": "mc_hanno_t3_rescue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "Ich habe die Feuerwehr angerufen. Für einen O-Ton. Ich lese Ihnen vor, was sie gesagt hat.",
+          "emoji": "🚒",
+          "en": "I called the fire brigade. For a quote. I’ll read you what they said.",
+          "audio": "mc_hanno_t4a"
+        },
+        {
+          "who": "hanno",
+          "type": "voice",
+          "audio": "mc_hanno_vn_feuerwehr",
+          "de": "Achtung, O-Ton Feuerwehr: Die Katze sei weder verletzt noch in Gefahr. Sie komme erfahrungsgemäß von allein herunter, sobald sie Hunger habe. Ein Einsatz sei nicht nötig. Und, Herr Pfeiffer: Rufen Sie bitte nicht wieder wegen eines Schwans an. Ende des Zitats. Leider.",
+          "en": "Attention, fire brigade sound bite: the cat is said to be neither injured nor in danger. In their experience it will come down on its own as soon as it gets hungry. A call-out is not necessary. And, Herr Pfeiffer: please do not call again about a swan. End of quote. Sadly.",
+          "direction": "Reading a statement aloud in a grand, booming news-anchor voice, getting visibly more disappointed with every calm sentence; the final word sighed."
+        },
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "Mein Chefredakteur ist am Telefon. Er glaubt mir nichts mehr, seit dem Schwan. Sagen Sie ihm, was die Feuerwehr sagt.",
+          "en": "My editor is on the phone. He has not believed a word I say since the swan. Tell him what the fire brigade says.",
+          "audio": "mc_hanno_t4c",
+          "emoji": "📞"
+        }
+      ],
+      "tiles": [
+        "die",
+        "die",
+        "der",
+        "Feuerwehr",
+        "sagt",
+        "Katze",
+        "sei",
+        "ist",
+        "nicht",
+        "in Gefahr",
+        "komme",
+        "kommt",
+        "von allein",
+        "herunter",
+        "sofort",
+        "ein Einsatz",
+        "nötig"
+      ],
+      "wrong": {
+        "ist": {
+          "to": "sei",
+          "note": "Reporting what the fire brigade said: Konjunktiv I (sei)."
+        },
+        "kommt": {
+          "to": "komme",
+          "note": "Reported speech: Konjunktiv I (komme)."
+        }
+      },
+      "intents": [
+        {
+          "id": "danger",
+          "when": {
+            "any": [
+              "in gefahr"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "scandal",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "In Gefahr! Das steht so nicht im O-Ton. Aber es verkauft sich. Danke!",
+              "emoji": "🔥",
+              "en": "In danger! That’s not what the quote says. But it sells. Thanks!",
+              "audio": "mc_hanno_t4_danger"
+            }
+          ]
+        },
+        {
+          "id": "safe",
+          "when": {
+            "any": [
+              "in gefahr"
+            ]
+          },
+          "value": 2,
+          "fact": "✍️ zitiert korrekt",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "„Die Katze sei nicht in Gefahr.“ Mein Chefredakteur hat aufgelegt. Vor Enttäuschung. Sie hätten Journalist werden sollen. Ein langweiliger.",
+              "emoji": "✍️",
+              "en": "“The cat is said not to be in danger.” My editor hung up. Out of disappointment. You should have been a journalist. A boring one.",
+              "audio": "mc_hanno_t4_safe"
+            }
+          ]
+        },
+        {
+          "id": "notDown",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "herunter",
+              "von allein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sie komme nicht herunter? Das wäre eine Schlagzeile! „Katze bleibt für immer im Baum!“ Leider sagt die Feuerwehr das Gegenteil.",
+              "emoji": "🌳",
+              "en": "She won’t come down? That would be a headline! “Cat stays in tree for ever!” Sadly the fire brigade says the opposite.",
+              "audio": "mc_hanno_t4_notdown"
+            }
+          ]
+        },
+        {
+          "id": "down",
+          "when": {
+            "any": [
+              "herunter",
+              "von allein"
+            ]
+          },
+          "value": 2,
+          "fact": "✍️ zitiert korrekt",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sie komme von allein herunter. Also kein Kran, kein Hubschrauber, nichts. Ich bin am Boden zerstört.",
+              "emoji": "🚁",
+              "en": "She’ll come down on her own. So no crane, no helicopter, nothing. I’m devastated.",
+              "audio": "mc_hanno_t4_down"
+            }
+          ]
+        },
+        {
+          "id": "calloutNeeded",
+          "when": {
+            "any": [
+              "nötig",
+              "ein einsatz"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Ein Einsatz sei nötig? Schön wär’s. Im O-Ton steht „nicht nötig“. Ich habe es dreimal gelesen. Mit Hoffnung.",
+              "emoji": "🚒",
+              "en": "A call-out is needed? If only. The quote says “not necessary”. I read it three times. Hopefully.",
+              "audio": "mc_hanno_t4_needed"
+            }
+          ]
+        },
+        {
+          "id": "notComing",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "komme",
+              "kommt"
+            ],
+            "none": [
+              "nötig",
+              "ein einsatz"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sie komme nicht. Richtig. Kein Blaulicht, keine Leiter. Mein Fotograf packt schon ein.",
+              "emoji": "📷",
+              "en": "They’re not coming. Correct. No blue lights, no ladder. My photographer is already packing up.",
+              "audio": "mc_hanno_t4_notcoming"
+            }
+          ]
+        },
+        {
+          "id": "noCallout",
+          "when": {
+            "any": [
+              "nötig",
+              "ein einsatz"
+            ]
+          },
+          "value": 2,
+          "fact": "✍️ zitiert korrekt",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Kein Einsatz nötig. Ja. Das ist leider der Satz des Tages.",
+              "en": "No call-out needed. Yes. That is unfortunately the sentence of the day.",
+              "audio": "mc_hanno_t4_nocallout"
+            }
+          ]
+        },
+        {
+          "id": "coming",
+          "when": {
+            "any": [
+              "sofort"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sofort? Nein. Die Feuerwehr kommt gar nicht. Mein Chef hat trotzdem kurz gejubelt.",
+              "en": "Right away? No. The fire brigade is not coming at all. My boss cheered briefly anyway.",
+              "audio": "mc_hanno_t4_coming"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "Und Sie? Was haben Sie bisher unternommen? Mein Fotograf braucht ein Motiv.",
+          "emoji": "📷",
+          "en": "And you? What have you done so far? My photographer needs a subject.",
+          "audio": "mc_hanno_t5a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "bin",
+        "Maßnahmen",
+        "ergriffen",
+        "genommen",
+        "eine Dose Thunfisch",
+        "unter",
+        "den",
+        "dem",
+        "Baum",
+        "gestellt",
+        "auf",
+        "selbst",
+        "geklettert",
+        "nichts",
+        "unternommen",
+        "geduldig",
+        "abgewartet",
+        "ihr",
+        "ein Lied",
+        "vorgesungen"
+      ],
+      "wrong": {
+        "genommen": {
+          "to": "ergriffen",
+          "note": "'Maßnahmen ergreifen' (or 'treffen') is the collocation; 'Maßnahmen nehmen' is a calque of English 'take measures'."
+        }
+      },
+      "prepCase": {
+        "unter": "acc",
+        "auf": "acc"
+      },
+      "intents": [
+        {
+          "id": "climbed",
+          "when": {
+            "any": [
+              "geklettert"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "climbed"
+          ],
+          "cause": "scandal",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sie selbst? Im Baum? Fotograf, schnell! „Besitzer riskiert alles!“",
+              "emoji": "🧗",
+              "en": "You yourself? Up the tree? Photographer, quick! “Owner risks everything!”",
+              "audio": "mc_hanno_t5_climbed"
+            }
+          ]
+        },
+        {
+          "id": "tuna",
+          "when": {
+            "any": [
+              "eine dose thunfisch"
+            ]
+          },
+          "value": 2,
+          "fact": "🐟 lockt mit Thunfisch",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Eine Dose Thunfisch unter den Baum. Strategie statt Drama. Die Leser lieben Strategie. Nein. Aber ich.",
+              "emoji": "🐟",
+              "en": "A tin of tuna under the tree. Strategy instead of drama. Readers love strategy. No. But I do.",
+              "audio": "mc_hanno_t5_tuna"
+            }
+          ]
+        },
+        {
+          "id": "waited",
+          "when": {
+            "any": [
+              "abgewartet"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Geduldig abgewartet. Die Feuerwehr wäre stolz. Mein Chefredakteur nicht.",
+              "emoji": "⏳",
+              "en": "Waited patiently. The fire brigade would be proud. My editor wouldn’t.",
+              "audio": "mc_hanno_t5_waited"
+            }
+          ]
+        },
+        {
+          "id": "song",
+          "when": {
+            "any": [
+              "vorgesungen",
+              "ein lied"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sie haben ihr ein Lied vorgesungen. Und? … Sie ist höher geklettert. Das drucke ich nicht. Aus Respekt vor Ihnen. Und vor der Musik.",
+              "emoji": "🎵",
+              "en": "You sang her a song. And? … She climbed higher. I will not print that. Out of respect for you. And for music.",
+              "audio": "mc_hanno_t5_song"
+            }
+          ]
+        },
+        {
+          "id": "measures",
+          "when": {
+            "any": [
+              "maßnahmen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Maßnahmen ergriffen! Das klingt nach Krisenstab. Welche denn? Egal. Klingt gut.",
+              "en": "Measures taken! That sounds like a crisis team. Which ones? Never mind. Sounds good.",
+              "audio": "mc_hanno_t5_measures"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts",
+              "unternommen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Nichts unternommen? Journalistisch ist das eine Wüste. Menschlich … vernünftig.",
+              "en": "Done nothing? Journalistically that’s a desert. Humanly … sensible.",
+              "audio": "mc_hanno_t5_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "Mein Fotograf hat drei Fotos gemacht. Für das dritte ist er selbst in den Baum geklettert. Er ist noch oben.",
+          "emoji": "📸",
+          "en": "My photographer took three photos. For the third he climbed the tree himself. He is still up there.",
+          "audio": "mc_hanno_t6a"
+        },
+        {
+          "who": "hanno",
+          "type": "photo",
+          "image": "match_hanno_photos",
+          "wide": true,
+          "alt": "Drei Fotos nebeneinander. Links: eine Katze schläft friedlich auf einem Ast in der Sonne. In der Mitte: ein rotes Feuerwehrauto mit Blaulicht. Rechts: ein Mann mit Kamera hängt kopfüber an einem Ast."
+        },
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "Welches Foto sollen wir drucken? Er hört mit. Kopfüber.",
+          "en": "Which photo shall we print? He is listening. Upside down.",
+          "audio": "mc_hanno_t6c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "würde",
+        "das",
+        "dem",
+        "Foto",
+        "mit",
+        "der",
+        "schlafenden",
+        "schlafende",
+        "Katze",
+        "Feuerwehrauto",
+        "linke",
+        "mittlere",
+        "rechte",
+        "nehmen",
+        "drucken",
+        "Fotografen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "sleeping",
+          "when": {
+            "any": [
+              "schlafenden",
+              "schlafende",
+              "linke",
+              "katze"
+            ]
+          },
+          "value": 2,
+          "fact": "📸 wählt das ruhige Foto",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Die schlafende Katze. In der Sonne. Das ist … eigentlich wunderschön. Sagen Sie es keinem. Vor allem nicht dem Mann im Baum.",
+              "emoji": "😻",
+              "en": "The sleeping cat. In the sun. That is … actually beautiful. Do not tell anyone. Especially not the man in the tree.",
+              "audio": "mc_hanno_t6_sleeping"
+            }
+          ]
+        },
+        {
+          "id": "truck",
+          "when": {
+            "any": [
+              "feuerwehrauto",
+              "mittlere"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Das Feuerwehrauto ist von einem Brand im letzten Jahr. Im Nachbarort. Aber es sieht toll aus, oder?",
+              "emoji": "🚒",
+              "en": "The fire engine is from a fire last year. In the next town. But it looks great, doesn’t it?",
+              "audio": "mc_hanno_t6_truck"
+            }
+          ]
+        },
+        {
+          "id": "me",
+          "when": {
+            "any": [
+              "fotografen",
+              "rechte"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Mein Fotograf, kopfüber! Seite eins! … Nein. Er würde mich verklagen. Er hat denselben Anwalt wie ich.",
+              "emoji": "🙃",
+              "en": "My photographer, upside down! Page one! … No. He would sue me. He has the same lawyer as I do.",
+              "audio": "mc_hanno_t6_me"
+            }
+          ]
+        },
+        {
+          "id": "generic",
+          "when": {
+            "any": [
+              "foto"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Welches denn? Ich habe drei. Und eine Meinung. Und einen Fotografen im Baum.",
+              "en": "Which one, then? I have three. And an opinion. And a photographer in a tree.",
+              "audio": "mc_hanno_t6_generic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "Kleines Update: Die Feuerwehr kommt jetzt doch. Für meinen Fotografen. Die Katze ist an ihm vorbei nach unten geklettert. Ohne Hilfe. Mit Blick.",
+          "emoji": "🚒",
+          "en": "Small update: the fire brigade is coming after all. For my photographer. The cat climbed down past him. Without help. With a look.",
+          "audio": "mc_hanno_t7pre"
+        },
+        {
+          "who": "hanno",
+          "type": "text",
+          "de": "Letzte Frage. Ich brauche ein emotionales Zitat. Wie fühlen Sie sich jetzt?",
+          "emoji": "🎙️",
+          "en": "Last question. I need an emotional quote. How do you feel now?",
+          "audio": "mc_hanno_t7a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bin",
+        "erleichtert",
+        "aber",
+        "es",
+        "war",
+        "halb so wild",
+        "am Boden zerstört",
+        "etwas",
+        "genervt",
+        "ehrlich gesagt",
+        "die",
+        "Katze",
+        "ist",
+        "längst",
+        "wieder",
+        "unten",
+        "sie",
+        "schläft",
+        "schadenfroh"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "destroyed",
+          "when": {
+            "any": [
+              "am boden zerstört"
+            ]
+          },
+          "value": -2,
+          "cause": "scandal",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Am Boden zerstört! Perfekt! Mit Foto von Ihnen und Taschentuch.",
+              "emoji": "😭",
+              "en": "Devastated! Perfect! With a photo of you and a tissue.",
+              "audio": "mc_hanno_t7_destroyed"
+            }
+          ]
+        },
+        {
+          "id": "down",
+          "when": {
+            "any": [
+              "unten"
+            ]
+          },
+          "value": 2,
+          "fact": "😼 hat die Katze längst zurück",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sie ist längst wieder unten und schläft? Dann ist das eine Geschichte über Schlaf. Und über einen Mann, der keinen hat. Ich nehme sie.",
+              "emoji": "😴",
+              "en": "She has long been back down and is asleep? Then this is a story about sleep. And about a man who is not getting any. I am taking it.",
+              "audio": "mc_hanno_t7_down"
+            }
+          ]
+        },
+        {
+          "id": "relief",
+          "when": {
+            "any": [
+              "halb so wild",
+              "erleichtert"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Ruhig, ehrlich, ohne Taschentuch. Das drucke ich auf Seite drei. Und, unter uns: Ich bin auch erleichtert.",
+              "en": "Calm, honest, no tissue. I’ll print that on page three. And, between us: I’m relieved too.",
+              "audio": "mc_hanno_t7_relief"
+            }
+          ]
+        },
+        {
+          "id": "sleeps",
+          "when": {
+            "any": [
+              "schläft"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Sie schläft. Das ist kein Gefühl, das ist ein Zustand. Aber ein schöner. Ich nehme es.",
+              "emoji": "😴",
+              "en": "She’s asleep. That’s not a feeling, that’s a state. But a nice one. I’ll take it.",
+              "audio": "mc_hanno_t7_sleeps"
+            }
+          ]
+        },
+        {
+          "id": "gloat",
+          "when": {
+            "any": [
+              "schadenfroh"
+            ]
+          },
+          "value": 1,
+          "fact": "😏 ist ehrlich schadenfroh",
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Schadenfroh. Ehrlich und sehr deutsch. Ich drucke es. Mein Fotograf winkt übrigens. Kopfüber.",
+              "emoji": "😏",
+              "en": "Gloating. Honest and very German. I am printing it. My photographer is waving, by the way. Upside down.",
+              "audio": "mc_hanno_t7_gloat"
+            }
+          ]
+        },
+        {
+          "id": "annoyed",
+          "when": {
+            "any": [
+              "genervt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "hanno",
+              "type": "text",
+              "de": "Etwas genervt. Von mir, nehme ich an. Ehrlich. Das drucke ich.",
+              "en": "A bit annoyed. With me, I assume. Honest. I’ll print that.",
+              "audio": "mc_hanno_t7_annoyed"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "hanno",
+    "type": "text",
+    "de": "Spannend! Aber das war nicht meine Frage. Ich drucke es trotzdem. Vielleicht.",
+    "en": "Exciting! But that wasn’t my question. I’ll print it anyway. Maybe.",
+    "audio": "mc_hanno_offtopic"
+  },
+  "confused": [
+    {
+      "who": "hanno",
+      "type": "text",
+      "de": "Wie bitte? Das kann ich so nicht zitieren.",
+      "emoji": "📝",
+      "en": "Pardon? I can’t quote that.",
+      "audio": "mc_hanno_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "hanno",
+        "type": "text",
+        "de": "Morgen auf Seite drei: „Stubentiger genießt Aussicht. Feuerwehr: kein Grund zur Sorge. Außer für den Fotografen.“ Ruhig, wahr, sehr langweilig. Fast.",
+        "emoji": "🗞️",
+        "en": "Tomorrow on page three: “House tiger enjoys view. Fire brigade: no cause for concern. Except for the photographer.” Calm, true, very boring. Almost.",
+        "audio": "mc_hanno_wina"
+      },
+      {
+        "who": "hanno",
+        "type": "text",
+        "de": "Mein schönster Artikel seit Jahren, {name}. Und Ihre Katze bekommt ein Abo. Auf Lebenszeit.",
+        "emoji": "😻",
+        "en": "My most beautiful article in years, {name}. And your cat gets a subscription. For life."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "hanno",
+        "type": "text",
+        "de": "Die Schlagzeile wird: „Katzen-Krimi im Kastanienbaum“. Tut mir leid. Die Wahrheit steht auch drin. Klein. Auf Seite zwölf. Neben dem Schwan.",
+        "emoji": "📰",
+        "en": "The headline will be: “Cat thriller in the chestnut tree”. Sorry. The truth is in there too. Small. On page twelve. Next to the swan.",
+        "audio": "mc_hanno_partial"
+      }
+    ],
+    "deleted": {
+      "scandal": {
+        "who": "hanno",
+        "type": "text",
+        "de": "Morgen auf Seite eins: „Todesdrama im Wipfel – Besitzer unter Schock“. Danke für das Material. Tschüss!",
+        "emoji": "🗑️",
+        "en": "Tomorrow on page one: “Death drama in the treetop – owner in shock”. Thanks for the material. Bye!",
+        "audio": "mc_hanno_del_scandal"
+      },
+      "confused": {
+        "who": "hanno",
+        "type": "text",
+        "de": "Ich verstehe kein Wort. Das kann ich nicht drucken. Nicht mal auf Seite zwölf.",
+        "en": "I don’t understand a word. I can’t print that. Not even on page twelve.",
+        "audio": "mc_hanno_del_confused"
+      },
+      "default": {
+        "who": "hanno",
+        "type": "text",
+        "de": "Leider keine Geschichte. Ich gehe zum Kaninchenzüchterverein. Da ist mehr los. Und keiner klettert auf Bäume.",
+        "en": "No story, I am afraid. I am off to the rabbit breeders’ club. There is more going on there. And nobody climbs trees.",
+        "audio": "mc_hanno_del_default"
+      }
+    },
+    "sunday": {
+      "who": "hanno",
+      "type": "voice",
+      "audio": "mc_hanno_vn_sunday",
+      "de": "Pfeiffer hier. Sonntagsausgabe. Raten Sie mal, was die meistgelesene Geschichte der Woche war? Ihre Katze. Die ruhige Geschichte. Sie hat sogar den Schwan geschlagen. Mein Fotograf hat jetzt Höhenangst. Ich verstehe die Welt nicht mehr. Aber ich mag sie.",
+      "en": "Pfeiffer here. Sunday edition. Guess what the most-read story of the week was? Your cat. The calm story. It even beat the swan. My photographer is now afraid of heights. I no longer understand the world. But I like it.",
+      "direction": "Bewildered and touched, newsroom printers humming in the background, his dramatic voice softening into genuine warmth at the end."
+    }
+  },
+  "partialTitle": "Katzen-Krimi. Wahrheit auf Seite zwölf.",
+  "share": {
+    "win": "Hanno Pfeiffer (47, Stadtanzeiger) wollte ein Katzen-Drama 🗞️ Er hat die ruhige, wahre Geschichte gedruckt. Nur sein Fotograf hängt noch im Baum. Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Meine Katze ist in der Zeitung: „Katzen-Krimi im Kastanienbaum“ 📰 Die Wahrheit steht auf Seite zwölf. Mein Deutsch: {score}/100. {url}",
+    "deleted": "Morgen auf Seite eins: „Todesdrama im Wipfel“ 😱 Hanno Pfeiffer (47) hat mich gelöscht. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Hanno Pfeiffer, a 47-year-old local reporter: a rumpled beige trench coat over a checked shirt, a loosened tie, messy brown hair with a pencil behind one ear, a notepad in one hand, a small voice recorder in the other, and wide, eager, slightly theatrical eyes.",
+  "imagePrompts": [
+    {
+      "id": "match_hanno",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands on a quiet suburban pavement in front of a big chestnut tree, holding the voice recorder towards the viewer as if for an interview, eyebrows raised dramatically. High in the tree behind him a small ginger cat sits calmly on a branch, completely relaxed. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_hanno_photos",
+      "aspect": "16:9",
+      "prompt": "Three printed photographs lying side by side on a newsroom desk, seen straight from above, far apart and evenly spaced, each with a white border. LEFT photo: a small ginger cat peacefully asleep on a tree branch in warm sunshine. MIDDLE photo: a big red fire engine with flashing blue lights on a street. RIGHT photo: a man with a big camera on a strap round his neck hanging upside down from a tree branch, arms flailing. Three clearly different photos: sleeping cat, fire engine, upside-down man with camera."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Nichts Dramatisches. Sie klettert nur gern.",
+      "score": 100,
+      "intent": "calm",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Meine Katze sitzt seit heute Morgen im Baum.",
+      "score": 100,
+      "intent": "sits",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Mein Katze sitzt seit heute Morgen im Baum.",
+      "score": 85,
+      "intent": "sits",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Meine Katze seit heute Morgen sitzt im Baum.",
+      "score": 70,
+      "intent": "sits",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Sie klettert nur gern.",
+      "score": 100,
+      "intent": "climbs",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Es ist eine Tragödie.",
+      "score": 100,
+      "intent": "tragedy",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Es ist ein Tragödie.",
+      "score": 85,
+      "intent": "tragedy",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Meine Katze ist in Lebensgefahr.",
+      "score": 100,
+      "intent": "danger",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Es ist nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Sie im Baum.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Herr Wolff behauptet, die Katze habe seit Tagen nichts gegessen.",
+      "score": 100,
+      "intent": "claims",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Herr Wolff sagt, die Katze habe seit Tagen nichts gegessen.",
+      "score": 100,
+      "intent": "says",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Herr Wolff sagt, die Katze hat seit Tagen nichts gegessen.",
+      "score": 85,
+      "intent": "says",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Herr Wolff sagt, die Katze hätte seit Tagen nichts gegessen.",
+      "score": 85,
+      "intent": "says",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe sie heute Morgen gefüttert.",
+      "score": 100,
+      "intent": "fed",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe gefüttert sie heute Morgen.",
+      "score": 70,
+      "intent": "fed",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Herr Wolff behauptet, die Katze habe seit Tagen nichts gegessen, aber ich habe sie heute Morgen gefüttert.",
+      "score": 100,
+      "intent": "claimsButFed",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Herr Wolff lügt.",
+      "score": 100,
+      "intent": "lie",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Katze habe seit Tagen nichts gegessen.",
+      "score": 100,
+      "intent": "quote",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Katze genießt die Aussicht.",
+      "score": 100,
+      "intent": "view",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Stubentiger macht Pause im Kastanienbaum.",
+      "score": 100,
+      "intent": "break",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Tier verweigert den Abstieg.",
+      "score": 100,
+      "intent": "refuses",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Tier verweigert die Abstieg.",
+      "score": 85,
+      "intent": "refuses",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Feuerwehr rettet Katze.",
+      "score": 100,
+      "intent": "rescue",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Kein Drama im Kastanienbaum.",
+      "score": 100,
+      "intent": "noDrama",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Tragödie im Wipfel.",
+      "score": 100,
+      "intent": "drama",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Drama im Kastanienbaum.",
+      "score": 100,
+      "intent": "drama",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Die Feuerwehr sagt, die Katze sei nicht in Gefahr.",
+      "score": 100,
+      "intent": "safe",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Die Feuerwehr sagt, die Katze ist nicht in Gefahr.",
+      "score": 85,
+      "intent": "safe",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Der Feuerwehr sagt, die Katze sei nicht in Gefahr.",
+      "score": 85,
+      "intent": "safe",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Die Feuerwehr sagt, die Katze komme von allein herunter.",
+      "score": 100,
+      "intent": "down",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Die Feuerwehr sagt, die Katze kommt von allein herunter.",
+      "score": 85,
+      "intent": "down",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Die Feuerwehr sagt, die Katze komme nicht herunter.",
+      "score": 100,
+      "intent": "notDown",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Die Feuerwehr sagt, die Katze sei in Gefahr.",
+      "score": 100,
+      "intent": "danger",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Ein Einsatz sei nicht nötig.",
+      "score": 100,
+      "intent": "noCallout",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Die Feuerwehr sagt, ein Einsatz sei nötig.",
+      "score": 100,
+      "intent": "calloutNeeded",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Die Feuerwehr komme nicht.",
+      "score": 100,
+      "intent": "notComing",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Die Feuerwehr kommt sofort.",
+      "score": 85,
+      "intent": "coming",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe eine Dose Thunfisch unter den Baum gestellt.",
+      "score": 100,
+      "intent": "tuna",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe eine Dose Thunfisch unter dem Baum gestellt.",
+      "score": 85,
+      "intent": "tuna",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe geduldig abgewartet.",
+      "score": 100,
+      "intent": "waited",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe Maßnahmen ergriffen.",
+      "score": 100,
+      "intent": "measures",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe Maßnahmen genommen.",
+      "score": 85,
+      "intent": "measures",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin selbst auf den Baum geklettert.",
+      "score": 100,
+      "intent": "climbed",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe nichts unternommen.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe unternommen nichts.",
+      "score": 70,
+      "intent": "nothing",
+      "delta": 0
+    },
+    {
+      "turn": "t5",
+      "say": "Ich nichts.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde das Foto mit der schlafenden Katze nehmen.",
+      "score": 100,
+      "intent": "sleeping",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde das Foto mit der schlafende Katze nehmen.",
+      "score": 85,
+      "intent": "sleeping",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde das linke Foto drucken.",
+      "score": 100,
+      "intent": "sleeping",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde das Foto mit dem Feuerwehrauto drucken.",
+      "score": 100,
+      "intent": "truck",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde das Foto nehmen.",
+      "score": 100,
+      "intent": "generic",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bin erleichtert, aber es war halb so wild.",
+      "score": 100,
+      "intent": "relief",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Die Katze ist längst wieder unten. Sie schläft.",
+      "score": 100,
+      "intent": "down",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ehrlich gesagt bin ich etwas genervt.",
+      "score": 100,
+      "intent": "annoyed",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ehrlich gesagt ich bin etwas genervt.",
+      "score": 70,
+      "intent": "annoyed",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Sie schläft.",
+      "score": 100,
+      "intent": "sleeps",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bin am Boden zerstört.",
+      "score": 100,
+      "intent": "destroyed",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde das Foto mit dem Fotografen drucken.",
+      "score": 100,
+      "intent": "me",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde das rechte Foto nehmen.",
+      "score": 100,
+      "intent": "me",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Meine Katze meditiert seit heute Morgen im Baum.",
+      "score": 100,
+      "intent": "meditates",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Mein Katze meditiert im Baum.",
+      "score": 85,
+      "intent": "meditates",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Katze gibt keine Interviews.",
+      "score": 100,
+      "intent": "interviews",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe ihr ein Lied vorgesungen.",
+      "score": 100,
+      "intent": "song",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe vorgesungen ihr ein Lied.",
+      "score": 70,
+      "intent": "song",
+      "delta": 0
+    },
+    {
+      "turn": "t7",
+      "say": "Ehrlich gesagt bin ich etwas schadenfroh.",
+      "score": 100,
+      "intent": "gloat",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Nichts Dramatisches. Sie klettert nur gern."
+        ],
+        [
+          "t2",
+          "Ich habe sie heute Morgen gefüttert."
+        ],
+        [
+          "t3",
+          "Katze genießt die Aussicht."
+        ],
+        [
+          "t4",
+          "Die Feuerwehr sagt, die Katze sei nicht in Gefahr."
+        ],
+        [
+          "t5",
+          "Ich habe eine Dose Thunfisch unter den Baum gestellt."
+        ],
+        [
+          "t6",
+          "Ich würde das Foto mit der schlafenden Katze nehmen."
+        ],
+        [
+          "t7",
+          "Die Katze ist längst wieder unten. Sie schläft."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Es ist eine Tragödie."
+        ],
+        [
+          "t2",
+          "Herr Wolff sagt, die Katze hat seit Tagen nichts gegessen."
+        ],
+        [
+          "t3",
+          "Feuerwehr rettet Katze."
+        ],
+        [
+          "t4",
+          "Die Feuerwehr kommt sofort."
+        ],
+        [
+          "t5",
+          "Ich bin selbst auf den Baum geklettert."
+        ],
+        [
+          "t6",
+          "Ich würde das Foto nehmen."
+        ],
+        [
+          "t7",
+          "Ehrlich gesagt ich bin etwas genervt."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Meine Katze ist in Lebensgefahr."
+        ],
+        [
+          "t2",
+          "Herr Wolff lügt."
+        ],
+        [
+          "t3",
+          "Tragödie im Wipfel."
+        ]
+      ]
+    },
+    {
+      "name": "crazy",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Meine Katze meditiert seit heute Morgen im Baum."
+        ],
+        [
+          "t2",
+          "Herr Wolff behauptet, die Katze habe seit Tagen nichts gegessen."
+        ],
+        [
+          "t3",
+          "Katze gibt keine Interviews."
+        ],
+        [
+          "t4",
+          "Ein Einsatz sei nicht nötig."
+        ],
+        [
+          "t5",
+          "Ich habe ihr ein Lied vorgesungen."
+        ],
+        [
+          "t6",
+          "Ich würde das linke Foto drucken."
+        ],
+        [
+          "t7",
+          "Ehrlich gesagt bin ich etwas schadenfroh."
+        ]
+      ]
+    }
+  ]
+}

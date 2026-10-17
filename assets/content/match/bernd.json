@@ -1,0 +1,2447 @@
+{
+  "id": "bernd",
+  "name": "Bernd",
+  "age": 4,
+  "emoji": "🐐",
+  "image": "match_bernd",
+  "level": "A1.1",
+  "order": 2,
+  "bio": "Ich suche ein Zimmer. Ich esse alles. Auch Papier.",
+  "bioEn": "I'm looking for a room. I eat everything. Even paper.",
+  "goal": "Get the room in his flat without him eating your passport.",
+  "tagline": "Ziege · 4 · WG in Neukölln",
+  "voice": "Fenrir",
+  "brief": "Bernd, a four-year-old goat who runs a flat share: a bright, slightly bleating young male voice, eager and friendly, easily distracted by anything made of paper; he chews while he talks and gets very excited about snacks.",
+  "focus": "der/die/das · kein/keinen · Plural · haben",
+  "lexicon": {
+    "nouns": {
+      "Ziege": "f",
+      "Mensch": "m",
+      "Bett": "n",
+      "Stuhl": "m",
+      "Lampe": "f",
+      "Tisch": "m",
+      "Sofa": "n",
+      "Bücher": "pl",
+      "Pflanzen": "pl",
+      "Lampen": "pl",
+      "Koffer": "m",
+      "Möbel": "pl",
+      "Hund": "m",
+      "Pass": "m",
+      "Kopie": "f",
+      "Apfel": "m",
+      "Problem": "n",
+      "Bürgeramt": "n",
+      "Hühner": "pl",
+      "Zimmer": "n",
+      "Küche": "f",
+      "Balkon": "m",
+      "Gitarre": "f",
+      "Trommel": "f",
+      "Klavier": "n",
+      "Tuba": "f",
+      "Toaster": "m",
+      "Instrument": "n",
+      "Giraffe": "f",
+      "Anwalt": "m"
+    },
+    "names": [
+      "Frieda",
+      "Gisela"
+    ],
+    "verbs": [
+      "heiße",
+      "heißt",
+      "bin",
+      "bist",
+      "ist",
+      "sind",
+      "seid",
+      "sehe",
+      "siehst",
+      "habe",
+      "hast",
+      "weiß",
+      "weißt",
+      "gehe",
+      "gehst",
+      "möchte",
+      "möchtest"
+    ],
+    "accVerbs": [
+      "sehe",
+      "siehst",
+      "habe",
+      "hast",
+      "möchte",
+      "möchtest"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "bernd",
+      "type": "text",
+      "de": "Hallo! Ich bin Bernd. Ich bin vier. Ich bin eine Ziege.",
+      "emoji": "🐐",
+      "en": "Hello! I'm Bernd. I'm four. I'm a goat.",
+      "audio": "mc_bernd_intro_a"
+    },
+    {
+      "who": "bernd",
+      "type": "text",
+      "de": "Mein Profil sagt: Ich suche ein Zimmer. Falsch! Ich habe ein Zimmer. Für dich!",
+      "en": "My profile says: I'm looking for a room. Wrong! I have a room. For you!",
+      "audio": "mc_bernd_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Wie heißt du? Und bist du auch eine Ziege?",
+          "en": "What's your name? And are you a goat too?",
+          "audio": "mc_bernd_t1a"
+        }
+      ],
+      "tiles": [
+        "hallo",
+        "ich",
+        "ich",
+        "heiße",
+        "heißt",
+        "bin",
+        "bin",
+        "{name}",
+        "und",
+        "eine",
+        "ein",
+        "keine",
+        "kein",
+        "Ziege",
+        "Mensch",
+        "nicht"
+      ],
+      "wrong": {
+        "heißt": "heiße"
+      },
+      "intents": [
+        {
+          "id": "neither",
+          "when": {
+            "all": [
+              "mensch",
+              "ziege",
+              "kein",
+              "keine"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Kein Mensch und keine Ziege? Was bist du? Ein Toaster? Toaster sind auch willkommen.",
+              "en": "Not a human and not a goat? What are you? A toaster? Toasters are welcome too.",
+              "audio": "mc_bernd_t1_nothuman"
+            }
+          ]
+        },
+        {
+          "id": "goatNotHuman",
+          "when": {
+            "all": [
+              "mensch",
+              "ziege",
+              "kein",
+              "eine"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "saidGoat"
+          ],
+          "fact": "🐐 ist vielleicht eine Ziege",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Kein Mensch? Eine Ziege?! Mäh! Endlich! … Moment. Ziegen haben kein Handy.",
+              "en": "Not a human? A goat?! Baa! Finally! … Wait. Goats don’t have phones.",
+              "audio": "mc_bernd_t1_goatnothuman"
+            }
+          ]
+        },
+        {
+          "id": "notGoat",
+          "when": {
+            "all": [
+              "ziege"
+            ],
+            "any": [
+              "keine",
+              "kein",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Keine Ziege? Schade. Aber okay. Niemand ist perfekt.",
+              "en": "Not a goat? Shame. But okay. Nobody's perfect.",
+              "audio": "mc_bernd_t1_notgoat"
+            }
+          ]
+        },
+        {
+          "id": "goat",
+          "when": {
+            "any": [
+              "ziege"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "saidGoat"
+          ],
+          "fact": "🐐 ist vielleicht eine Ziege",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Wirklich?! Mäh! … Hm. Du schreibst sehr gut für eine Ziege.",
+              "emoji": "🐐",
+              "en": "Really?! Baa! … Hm. You write very well for a goat.",
+              "audio": "mc_bernd_t1_goat"
+            }
+          ]
+        },
+        {
+          "id": "notHuman",
+          "when": {
+            "all": [
+              "mensch"
+            ],
+            "any": [
+              "kein",
+              "keine",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Kein Mensch und keine Ziege? Was bist du? Ein Toaster? Toaster sind auch willkommen.",
+              "en": "Not a human and not a goat? What are you? A toaster? Toasters are welcome too.",
+              "audio": "mc_bernd_t1_nothuman"
+            }
+          ]
+        },
+        {
+          "id": "human",
+          "when": {
+            "any": [
+              "mensch"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Ein Mensch! Gut. Menschen haben viel Papier.",
+              "emoji": "😋",
+              "en": "A human! Good. Humans have lots of paper.",
+              "audio": "mc_bernd_t1_human"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "{name}"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Hallo, {name}! Schöner Name. Klingt lecker.",
+              "en": "Hello, {name}! Nice name. Sounds tasty."
+            }
+          ]
+        },
+        {
+          "id": "greeting",
+          "when": {
+            "any": [
+              "hallo"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Hallo! Und dein Name? Egal. Ich habe Hunger.",
+              "en": "Hello! And your name? Never mind. I'm hungry.",
+              "audio": "mc_bernd_t1_greet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Hier ist dein Zimmer. Es ist sehr schön.",
+          "emoji": "📷",
+          "en": "Here's your room. It's very nice.",
+          "audio": "mc_bernd_t2a"
+        },
+        {
+          "who": "bernd",
+          "type": "photo",
+          "image": "match_bernd_room",
+          "alt": "Ein Zimmer: links ein Bett, in der Mitte ein Stuhl, rechts eine Lampe. Überall kleine Bisse."
+        },
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Was siehst du?",
+          "en": "What do you see?",
+          "audio": "mc_bernd_t2b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "sehe",
+        "siehst",
+        "ein",
+        "einen",
+        "eine",
+        "kein",
+        "keinen",
+        "Bett",
+        "Stuhl",
+        "Lampe",
+        "Tisch",
+        "Sofa",
+        "und",
+        "und",
+        "nur"
+      ],
+      "wrong": {
+        "siehst": "sehe"
+      },
+      "intents": [
+        {
+          "id": "noTable",
+          "when": {
+            "all": [
+              "tisch"
+            ],
+            "any": [
+              "kein",
+              "keinen"
+            ]
+          },
+          "value": 2,
+          "fact": "👀 sieht alles",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Richtig! Kein Tisch. Der Tisch war lecker. Ein bisschen trocken. Wie Knäckebrot.",
+              "emoji": "😋",
+              "en": "Right! No table. The table was tasty. A bit dry. Like crispbread.",
+              "audio": "mc_bernd_t2_notable"
+            }
+          ]
+        },
+        {
+          "id": "table",
+          "when": {
+            "any": [
+              "tisch"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Ein Tisch? Wo? Es gibt keinen Tisch. Der Tisch ist in meinem Bauch. Er hatte vier Beine. Jetzt habe ich vier Beine mehr.",
+              "en": "A table? Where? There is no table. The table is in my tummy. It had four legs. Now I have four more legs.",
+              "audio": "mc_bernd_t2_table"
+            }
+          ]
+        },
+        {
+          "id": "noSofa",
+          "when": {
+            "all": [
+              "sofa"
+            ],
+            "any": [
+              "kein",
+              "keinen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Richtig, kein Sofa. Und kein Tisch. Der Tisch war lecker.",
+              "en": "Right, no sofa. And no table. The table was tasty.",
+              "audio": "mc_bernd_t2_nosofa"
+            }
+          ]
+        },
+        {
+          "id": "sofa",
+          "when": {
+            "any": [
+              "sofa"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Ein Sofa? Das ist ein Bett. Ein Bett mit Bissen.",
+              "en": "A sofa? That's a bed. A bed with bite marks.",
+              "audio": "mc_bernd_t2_sofa"
+            }
+          ]
+        },
+        {
+          "id": "all",
+          "when": {
+            "all": [
+              "bett",
+              "stuhl",
+              "lampe"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Genau! Ein Bett, ein Stuhl, eine Lampe. Luxus!",
+              "emoji": "✨",
+              "en": "Exactly! A bed, a chair, a lamp. Luxury!",
+              "audio": "mc_bernd_t2_all"
+            }
+          ]
+        },
+        {
+          "id": "some",
+          "when": {
+            "any": [
+              "bett",
+              "stuhl",
+              "lampe"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Ja! Schön, oder? Fast alles ist noch da.",
+              "en": "Yes! Nice, isn't it? Almost everything is still there.",
+              "audio": "mc_bernd_t2_some"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Und du? Was hast du? Hast du viele Sachen?",
+          "en": "And you? What do you have? Do you have lots of stuff?",
+          "audio": "mc_bernd_t3a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "hast",
+        "viele",
+        "Bücher",
+        "Pflanzen",
+        "zwei",
+        "Lampen",
+        "nur",
+        "ein",
+        "einen",
+        "Koffer",
+        "keine",
+        "keinen",
+        "Möbel",
+        "Hund",
+        "und",
+        "Giraffe",
+        "eine"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "noDog",
+          "when": {
+            "all": [
+              "hund"
+            ],
+            "any": [
+              "keinen",
+              "keine"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Keinen Hund? Gut. Sehr gut. Hunde bellen.",
+              "en": "No dog? Good. Very good. Dogs bark.",
+              "audio": "mc_bernd_t3_nodog"
+            }
+          ]
+        },
+        {
+          "id": "dog",
+          "when": {
+            "any": [
+              "hund"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Ein Hund?! Nein, nein, nein. Hunde bellen. Ich habe Angst.",
+              "emoji": "😱",
+              "en": "A dog?! No, no, no. Dogs bark. I'm scared.",
+              "audio": "mc_bernd_t3_dog"
+            }
+          ]
+        },
+        {
+          "id": "noFurniture",
+          "when": {
+            "any": [
+              "möbel"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Keine Möbel? Kein Problem. Ich habe auch keine. Ich habe sie gegessen.",
+              "en": "No furniture? No problem. I don't have any either. I ate it.",
+              "audio": "mc_bernd_t3_nofurniture"
+            }
+          ]
+        },
+        {
+          "id": "giraffe",
+          "when": {
+            "any": [
+              "giraffe"
+            ],
+            "none": [
+              "keine",
+              "keinen"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "giraffe"
+          ],
+          "fact": "🦒 hat eine Giraffe",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Eine Giraffe?! Super! Sie ist groß, ich bin klein. Sie isst oben, ich esse unten. Wir sind ein Team.",
+              "emoji": "🦒",
+              "en": "A giraffe?! Great! She's tall, I'm small. She eats the top, I eat the bottom. We're a team.",
+              "audio": "mc_bernd_t3_giraffe"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "keine",
+              "keinen"
+            ],
+            "none": [
+              "viele",
+              "nur",
+              "zwei"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Nichts? Schade. Äh … ich meine: praktisch! Sehr praktisch.",
+              "en": "Nothing? Shame. Er … I mean: practical! Very practical.",
+              "audio": "mc_bernd_t3_nothing"
+            }
+          ]
+        },
+        {
+          "id": "books",
+          "when": {
+            "any": [
+              "bücher"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "books"
+          ],
+          "fact": "📚 hat viele Bücher",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Bücher?! Aus Papier?! Ich liebe Bücher! Zum Lesen. Natürlich.",
+              "emoji": "😇",
+              "en": "Books?! Made of paper?! I love books! For reading. Of course.",
+              "audio": "mc_bernd_t3_books"
+            }
+          ]
+        },
+        {
+          "id": "plants",
+          "when": {
+            "any": [
+              "pflanzen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Pflanzen! Lecker. Äh … ich meine: schön. Sehr schön.",
+              "emoji": "🌿",
+              "en": "Plants! Tasty. Er … I mean: nice. Very nice.",
+              "audio": "mc_bernd_t3_plants"
+            }
+          ]
+        },
+        {
+          "id": "suitcase",
+          "when": {
+            "any": [
+              "koffer"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Nur einen Koffer? Super. Koffer sind nicht lecker. Das ist gut für dich.",
+              "en": "Just one suitcase? Great. Suitcases aren't tasty. That's good for you.",
+              "audio": "mc_bernd_t3_suitcase"
+            }
+          ]
+        },
+        {
+          "id": "lamps",
+          "when": {
+            "any": [
+              "lampen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Zwei Lampen? Okay. Lampen sind nicht lecker. Langweilig.",
+              "en": "Two lamps? Okay. Lamps aren't tasty. Boring.",
+              "audio": "mc_bernd_t3_lamps"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Neuigkeit! Frieda und Gisela haben jetzt eine Band. Die Band heißt Mäh und Gack.",
+          "emoji": "🎸",
+          "en": "News! Frieda and Gisela have a band now. The band is called Bleat and Cluck.",
+          "audio": "mc_bernd_t4_band_a"
+        },
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Aber die Band hat ein Problem. Ich habe die Gitarre gegessen. Sie war aus Holz. Holz ist lecker.",
+          "en": "But the band has a problem. I ate the guitar. It was made of wood. Wood is tasty.",
+          "audio": "mc_bernd_t4_band_b"
+        },
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Hast du ein Instrument? Bitte nicht aus Papier. Ich bin schwach.",
+          "en": "Do you have an instrument? Please not made of paper. I am weak.",
+          "audio": "mc_bernd_t4_band_c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "hast",
+        "eine",
+        "ein",
+        "einen",
+        "keine",
+        "kein",
+        "keinen",
+        "Gitarre",
+        "Trommel",
+        "Klavier",
+        "Tuba",
+        "Toaster",
+        "Instrument",
+        "und",
+        "nur",
+        "ja",
+        "nein"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "none",
+          "when": {
+            "any": [
+              "keine",
+              "kein",
+              "keinen",
+              "nein"
+            ],
+            "none": [
+              "tuba",
+              "toaster",
+              "klavier",
+              "trommel",
+              "gitarre"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Kein Instrument? Kein Problem. Du singst. Gisela singt auch. Leider. Die Nachbarn rufen schon die Polizei.",
+              "en": "No instrument? No problem. You sing. Gisela sings too. Unfortunately. The neighbours are already calling the police.",
+              "audio": "mc_bernd_t4_none"
+            }
+          ]
+        },
+        {
+          "id": "noX",
+          "when": {
+            "any": [
+              "keine",
+              "kein",
+              "keinen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Keins? Schade. Gisela weint. Sie weint sehr laut. Das ist jetzt ihr neues Lied.",
+              "en": "Not that one? Shame. Gisela is crying. She cries very loudly. That's her new song now.",
+              "audio": "mc_bernd_t4_nox"
+            }
+          ]
+        },
+        {
+          "id": "tuba",
+          "when": {
+            "any": [
+              "tuba"
+            ]
+          },
+          "value": 2,
+          "fact": "🎺 spielt Tuba in einer Hühner-Band",
+          "flags": [
+            "tuba"
+          ],
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Eine Tuba?! Frieda fällt um. Gisela fällt um. Ich esse vor Freude ein Kissen. Du bist jetzt in der Band.",
+              "emoji": "🎺",
+              "en": "A tuba?! Frieda faints. Gisela faints. I eat a cushion for joy. You're in the band now.",
+              "audio": "mc_bernd_t4_tuba"
+            }
+          ]
+        },
+        {
+          "id": "toaster",
+          "when": {
+            "any": [
+              "toaster"
+            ]
+          },
+          "value": 2,
+          "fact": "🍞 macht Musik mit einem Toaster",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Einen Toaster! Toast hoch: Pling! Toast hoch: Pling! Das ist Techno. Gisela tanzt schon.",
+              "emoji": "🍞",
+              "en": "A toaster! Toast up: ping! Toast up: ping! That's techno. Gisela is already dancing.",
+              "audio": "mc_bernd_t4_toaster"
+            }
+          ]
+        },
+        {
+          "id": "piano",
+          "when": {
+            "any": [
+              "klavier"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Ein Klavier? Super! Aber wo ist es? Ich sehe nur einen Koffer. Ist das Klavier im Koffer?",
+              "en": "A piano? Great! But where is it? I only see a suitcase. Is the piano in the suitcase?",
+              "audio": "mc_bernd_t4_piano"
+            }
+          ]
+        },
+        {
+          "id": "guitar",
+          "when": {
+            "any": [
+              "gitarre"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Eine Gitarre! Aus Holz? Bitte gib sie Frieda. Nicht mir. Ich bin schwach.",
+              "en": "A guitar! Made of wood? Please give it to Frieda. Not to me. I am weak.",
+              "audio": "mc_bernd_t4_guitar"
+            }
+          ]
+        },
+        {
+          "id": "drum",
+          "when": {
+            "any": [
+              "trommel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Eine Trommel! Bumm, bumm, GACK! Das ist unser Sound. Der Nachbar ist schon wach.",
+              "emoji": "🥁",
+              "en": "A drum! Boom, boom, CLUCK! That's our sound. The neighbour is already awake.",
+              "audio": "mc_bernd_t4_drum"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "instrument"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Ja? Welches? Egal. Bring es mit. Und bring auch einen Apfel mit. Für die Band. Also für mich.",
+              "en": "Yes? Which one? Never mind. Bring it. And bring an apple too. For the band. So, for me.",
+              "audio": "mc_bernd_t4_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "next": "t6",
+      "before": [
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Du bist da! Willkommen! Hier ist der Vertrag.",
+          "emoji": "📄",
+          "en": "You're here! Welcome! Here's the contract.",
+          "audio": "mc_bernd_t5a"
+        },
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Und jetzt brauche ich deinen Pass. Nur zum Lesen. Natürlich.",
+          "emoji": "😋",
+          "en": "And now I need your passport. Just to read. Of course.",
+          "audio": "mc_bernd_t5b"
+        }
+      ],
+      "tiles": [
+        "hier",
+        "ist",
+        "mein",
+        "meinen",
+        "Pass",
+        "eine",
+        "Kopie",
+        "ich",
+        "habe",
+        "keinen",
+        "kein",
+        "Apfel",
+        "ein",
+        "einen",
+        "für",
+        "dich",
+        "und",
+        "Anwalt"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "noPass",
+          "when": {
+            "all": [
+              "pass"
+            ],
+            "any": [
+              "keinen",
+              "kein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Kein Pass? Hm. Dann esse ich den Vertrag.",
+              "en": "No passport? Hm. Then I'll eat the contract.",
+              "audio": "mc_bernd_t5_nopass"
+            }
+          ]
+        },
+        {
+          "id": "copy",
+          "when": {
+            "any": [
+              "kopie"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "copy"
+          ],
+          "fact": "📄 hat immer eine Kopie",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Eine Kopie! Clever. … Schade. Aber clever.",
+              "en": "A copy! Clever. … Shame. But clever.",
+              "audio": "mc_bernd_t5_copy"
+            }
+          ]
+        },
+        {
+          "id": "applePass",
+          "when": {
+            "all": [
+              "pass",
+              "apfel"
+            ]
+          },
+          "value": 1,
+          "fact": "🍎 bringt Äpfel mit",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Ein Apfel! Mampf. Und der Pass … ist sicher. Du bist schlau.",
+              "emoji": "🍎",
+              "en": "An apple! Munch. And the passport … is safe. You are smart.",
+              "audio": "mc_bernd_t5_applepass"
+            }
+          ]
+        },
+        {
+          "id": "apple",
+          "when": {
+            "any": [
+              "apfel"
+            ]
+          },
+          "value": 1,
+          "fact": "🍎 bringt Äpfel mit",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Für mich?! Mampf! Danke! Der Pass ist jetzt nicht so wichtig.",
+              "emoji": "🍎",
+              "en": "For me?! Munch! Thanks! The passport isn't so important now.",
+              "audio": "mc_bernd_t5_apple"
+            }
+          ]
+        },
+        {
+          "id": "lawyer",
+          "when": {
+            "any": [
+              "anwalt"
+            ]
+          },
+          "value": 1,
+          "fact": "⚖️ kommt mit Anwalt",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Dein Anwalt?! Er hat eine Tasche. Die Tasche ist voll Papier. Guten Tag, Herr Anwalt. Mampf.",
+              "emoji": "⚖️",
+              "en": "Your lawyer?! He has a bag. The bag is full of paper. Good day, Mr Lawyer. Munch.",
+              "audio": "mc_bernd_t5_lawyer"
+            },
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Er ist jetzt weg. Er ist sehr schnell für einen Anwalt. Okay. Kein Pass. Ich vertraue dir.",
+              "en": "He's gone now. He's very fast for a lawyer. Okay. No passport. I trust you.",
+              "audio": "mc_bernd_t5_lawyer_b"
+            }
+          ]
+        },
+        {
+          "id": "pass",
+          "when": {
+            "any": [
+              "pass"
+            ]
+          },
+          "value": -2,
+          "cause": "passport",
+          "next": "t5b",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Danke! Mampf.",
+              "emoji": "😋",
+              "en": "Thanks! Munch.",
+              "audio": "mc_bernd_t5_pass_a"
+            },
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "… Ups.",
+              "en": "… Oops.",
+              "audio": "mc_bernd_t5_pass_b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5b",
+      "next": "t6",
+      "before": [
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Dein Pass ist jetzt in meinem Bauch. Sorry. Was machen wir jetzt?",
+          "emoji": "😬",
+          "en": "Your passport is now in my tummy. Sorry. What do we do now?",
+          "audio": "mc_bernd_t5b_a"
+        }
+      ],
+      "tiles": [
+        "kein",
+        "Problem",
+        "ich",
+        "ich",
+        "gehe",
+        "gehst",
+        "zum",
+        "Bürgeramt",
+        "du",
+        "bist",
+        "bin",
+        "eine",
+        "böse",
+        "Ziege",
+        "sauer",
+        "habe",
+        "Kopie",
+        "sehr"
+      ],
+      "wrong": {
+        "gehst": "gehe"
+      },
+      "intents": [
+        {
+          "id": "mean",
+          "when": {
+            "any": [
+              "böse"
+            ]
+          },
+          "value": -2,
+          "cause": "mean",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Böse?! Ich bin eine Ziege. Ziegen essen Papier. Das ist Natur!",
+              "en": "Bad?! I am a goat. Goats eat paper. That is nature!",
+              "audio": "mc_bernd_t5b_mean"
+            }
+          ]
+        },
+        {
+          "id": "angry",
+          "when": {
+            "any": [
+              "sauer"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Sauer? Ich verstehe. Der Pass war auch ein bisschen trocken.",
+              "en": "Annoyed? I understand. The passport was a bit dry, too.",
+              "audio": "mc_bernd_t5b_angry"
+            }
+          ]
+        },
+        {
+          "id": "copy",
+          "when": {
+            "any": [
+              "kopie"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Du hast eine Kopie?! Warum sagst du das jetzt? Okay. Gut.",
+              "en": "You have a copy?! Why are you only saying that now? Okay. Good.",
+              "audio": "mc_bernd_t5b_copy"
+            }
+          ]
+        },
+        {
+          "id": "office",
+          "when": {
+            "any": [
+              "bürgeramt"
+            ]
+          },
+          "value": 1,
+          "fact": "🏛️ geht für eine Ziege zum Bürgeramt",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Zum Bürgeramt? Mutig. Da gibt es viel Papier. Ich komme mit!",
+              "emoji": "🏛️",
+              "en": "To the citizens' office? Brave. There's lots of paper there. I'm coming with you!",
+              "audio": "mc_bernd_t5b_office"
+            }
+          ]
+        },
+        {
+          "id": "noProblem",
+          "when": {
+            "any": [
+              "problem"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Kein Problem? Du bist sehr nett. Mäh.",
+              "emoji": "🥹",
+              "en": "No problem? You are very nice. Baa.",
+              "audio": "mc_bernd_t5b_noproblem"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "bernd",
+          "type": "voice",
+          "audio": "mc_bernd_vn_hens",
+          "de": "Hallo, hallo! Ich bin in der Küche. Hier probt die Band. Wir sind eine WG: ich und zwei Hühner, Frieda und Gisela. Frieda ist nett. Gisela ist laut. Sehr laut. So: GACK!",
+          "en": "Hello, hello! I'm in the kitchen. The band is rehearsing here. We're a flat share: me and two hens, Frieda and Gisela. Frieda is nice. Gisela is loud. Very loud. Like this: CLUCK!",
+          "direction": "Cheerful, chewing something, in a kitchen; he lowers his voice for \"Frieda ist nett\" and then does a sudden, very loud, very bad hen impression for \"GACK!\", then giggles."
+        },
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Gisela sagt, wir sind sieben. Gisela kann nicht zählen. Sie zählt auch die Eier. Also: Wie viele sind wir jetzt in der WG? Ohne dich. Noch!",
+          "en": "Gisela says there are seven of us. Gisela can't count. She counts the eggs too. So: how many of us are in the flat share now? Without you. For now!",
+          "audio": "mc_bernd_t6a"
+        }
+      ],
+      "tiles": [
+        "ihr",
+        "seid",
+        "sind",
+        "vier",
+        "drei",
+        "zwei",
+        "fünf",
+        "Hühner",
+        "eine",
+        "Ziege",
+        "und",
+        "und",
+        "Frieda",
+        "Gisela",
+        "zusammen"
+      ],
+      "wrong": {
+        "sind": "seid"
+      },
+      "intents": [
+        {
+          "id": "listed",
+          "when": {
+            "all": [
+              "hühner",
+              "ziege"
+            ]
+          },
+          "value": 2,
+          "fact": "🐔 wohnt gern mit Hühnern",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Genau! Zwei Hühner und eine Ziege. Und bald du!",
+              "emoji": "🐔",
+              "en": "Exactly! Two hens and a goat. And soon you!",
+              "audio": "mc_bernd_t6_listed"
+            }
+          ]
+        },
+        {
+          "id": "namesGoat",
+          "when": {
+            "all": [
+              "ziege"
+            ],
+            "any": [
+              "frieda",
+              "gisela"
+            ]
+          },
+          "value": 2,
+          "fact": "🐔 wohnt gern mit Hühnern",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Genau! Frieda, Gisela und ich. Drei! Und bald du!",
+              "en": "Exactly! Frieda, Gisela and me. Three! And soon you!",
+              "audio": "mc_bernd_t6_namesgoat"
+            }
+          ]
+        },
+        {
+          "id": "three",
+          "when": {
+            "any": [
+              "drei"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Ja! Drei. Bald vier. Mit dir! Dann ist die Band komplett.",
+              "emoji": "🎸",
+              "en": "Yes! Three. Soon four. With you! Then the band is complete.",
+              "audio": "mc_bernd_t6_three"
+            }
+          ]
+        },
+        {
+          "id": "four",
+          "when": {
+            "any": [
+              "vier"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Vier? Du wohnst noch nicht hier! Noch nicht.",
+              "en": "Four? You don't live here yet! Not yet.",
+              "audio": "mc_bernd_t6_four"
+            }
+          ]
+        },
+        {
+          "id": "five",
+          "when": {
+            "any": [
+              "fünf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Fünf? Du zählst wie Gisela. Das ist kein Kompliment.",
+              "en": "Five? You count like Gisela. That's not a compliment.",
+              "audio": "mc_bernd_t6_five"
+            }
+          ]
+        },
+        {
+          "id": "two",
+          "when": {
+            "any": [
+              "zwei"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Zwei? Und ich? Ich bin auch da!",
+              "en": "Two? And me? I'm here too!",
+              "audio": "mc_bernd_t6_two"
+            }
+          ]
+        },
+        {
+          "id": "names",
+          "when": {
+            "any": [
+              "frieda",
+              "gisela"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Frieda und Gisela, ja! Und ich. Aber wie viele sind wir?",
+              "en": "Frieda and Gisela, yes! And me. But how many of us are there?",
+              "audio": "mc_bernd_t6_names"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "bernd",
+          "type": "text",
+          "de": "Der Vertrag ist fertig. Letzte Frage: Welches Zimmer möchtest du? Frei sind das Zimmer mit Bett, die Küche und der Balkon.",
+          "en": "The contract is ready. Last question: which room would you like? Free are the room with the bed, the kitchen and the balcony.",
+          "audio": "mc_bernd_t7a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "möchte",
+        "möchtest",
+        "das",
+        "den",
+        "der",
+        "die",
+        "dem",
+        "Zimmer",
+        "Küche",
+        "Balkon",
+        "mit",
+        "Bett",
+        "kein",
+        "keinen",
+        "und",
+        "bitte",
+        "ja"
+      ],
+      "wrong": {
+        "möchtest": "möchte"
+      },
+      "intents": [
+        {
+          "id": "roomNoBalcony",
+          "when": {
+            "all": [
+              "zimmer",
+              "balkon",
+              "keinen"
+            ]
+          },
+          "value": 2,
+          "fact": "🛏️ wohnt bei einer Ziege",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Das Zimmer und keinen Balkon. Perfekt! Du verstehst Ziegen.",
+              "en": "The room and no balcony. Perfect! You understand goats.",
+              "audio": "mc_bernd_t7_roomnobalcony"
+            }
+          ]
+        },
+        {
+          "id": "noRoom",
+          "when": {
+            "all": [
+              "zimmer"
+            ],
+            "any": [
+              "kein"
+            ]
+          },
+          "value": -2,
+          "cause": "noroom",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Kein Zimmer?! Warum schreibst du dann einer Ziege?",
+              "en": "No room?! Then why are you writing to a goat?",
+              "audio": "mc_bernd_t7_noroom"
+            }
+          ]
+        },
+        {
+          "id": "noBalcony",
+          "when": {
+            "all": [
+              "balkon"
+            ],
+            "any": [
+              "keinen",
+              "kein"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Keinen Balkon? Gut. Der Balkon ist nämlich meiner.",
+              "en": "No balcony? Good. Because the balcony is mine.",
+              "audio": "mc_bernd_t7_nobalcony"
+            }
+          ]
+        },
+        {
+          "id": "greedy",
+          "when": {
+            "all": [
+              "zimmer",
+              "balkon"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Beides?! Das Zimmer, ja. Der Balkon, nein. Da schlafe ich.",
+              "en": "Both?! The room, yes. The balcony, no. I sleep there.",
+              "audio": "mc_bernd_t7_greedy"
+            }
+          ]
+        },
+        {
+          "id": "balcony",
+          "when": {
+            "any": [
+              "balkon"
+            ]
+          },
+          "value": -2,
+          "cause": "balcony",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Den Balkon?! Der Balkon ist MEIN Zimmer! Das war ein Test.",
+              "emoji": "😤",
+              "en": "The balcony?! The balcony is MY room! That was a test.",
+              "audio": "mc_bernd_t7_balcony"
+            }
+          ]
+        },
+        {
+          "id": "kitchen",
+          "when": {
+            "any": [
+              "küche"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Die Küche? Da schlafen Frieda und Gisela. Und da probt die Band. Um drei Uhr nachts.",
+              "en": "The kitchen? Frieda and Gisela sleep there. And the band rehearses there. At three in the morning.",
+              "audio": "mc_bernd_t7_kitchen"
+            }
+          ]
+        },
+        {
+          "id": "room",
+          "when": {
+            "any": [
+              "zimmer"
+            ]
+          },
+          "value": 1,
+          "fact": "🛏️ wohnt bei einer Ziege",
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Gute Wahl! Das Zimmer mit Bett. Mit fast keinen Bissen.",
+              "emoji": "🛏️",
+              "en": "Good choice! The room with the bed. With almost no bite marks.",
+              "audio": "mc_bernd_t7_room"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "bitte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "bernd",
+              "type": "text",
+              "de": "Ja … was? Egal. Du bekommst das Zimmer mit Bett.",
+              "en": "Yes … what? Never mind. You get the room with the bed.",
+              "audio": "mc_bernd_t7_yes"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "bernd",
+    "type": "text",
+    "de": "Mäh? Das war nicht meine Frage.",
+    "en": "Baa? That wasn't my question.",
+    "audio": "mc_bernd_offtopic"
+  },
+  "confused": [
+    {
+      "who": "bernd",
+      "type": "text",
+      "de": "Hä? Mäh?",
+      "emoji": "😅",
+      "en": "Huh? Baa?",
+      "audio": "mc_bernd_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "bernd",
+        "type": "text",
+        "de": "Willkommen in der WG, {name}! Hier ist dein Schlüssel.",
+        "en": "Welcome to the flat share, {name}! Here's your key."
+      },
+      {
+        "who": "bernd",
+        "type": "text",
+        "de": "Ich esse ihn nicht. Versprochen. Fast versprochen. Er ist aus Metall. Metall ist nur am Sonntag lecker.",
+        "emoji": "🔑",
+        "en": "I won't eat it. Promise. Almost promise. It's metal. Metal is only tasty on Sundays.",
+        "audio": "mc_bernd_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "bernd",
+        "type": "text",
+        "de": "Okay. Du bekommst das Zimmer. Aber Gisela schläft auch da. Sie ist sehr laut.",
+        "emoji": "🐔",
+        "en": "Okay. You get the room. But Gisela sleeps there too. She is very loud.",
+        "audio": "mc_bernd_partial"
+      }
+    ],
+    "deleted": {
+      "passport": {
+        "who": "bernd",
+        "type": "text",
+        "de": "Ohne Pass kein Vertrag. Und dein Pass … war lecker. Tschüss.",
+        "emoji": "🛂🗑️",
+        "en": "No passport, no contract. And your passport … was tasty. Bye.",
+        "audio": "mc_bernd_del_passport"
+      },
+      "mean": {
+        "who": "bernd",
+        "type": "text",
+        "de": "Ich bin keine böse Ziege. Ich bin eine hungrige Ziege. Tschüss.",
+        "en": "I'm not a bad goat. I'm a hungry goat. Bye.",
+        "audio": "mc_bernd_del_mean"
+      },
+      "balcony": {
+        "who": "bernd",
+        "type": "text",
+        "de": "Der Balkon ist mein Zuhause. Und du willst ihn. Tschüss.",
+        "en": "The balcony is my home. And you want it. Bye.",
+        "audio": "mc_bernd_del_balcony"
+      },
+      "noroom": {
+        "who": "bernd",
+        "type": "text",
+        "de": "Kein Zimmer, keine WG. Mäh. Tschüss.",
+        "en": "No room, no flat share. Baa. Bye.",
+        "audio": "mc_bernd_del_noroom"
+      },
+      "confused": {
+        "who": "bernd",
+        "type": "text",
+        "de": "Ich verstehe nichts. Ich esse jetzt dein Profil. Mampf.",
+        "en": "I don't understand anything. I'm eating your profile now. Munch.",
+        "audio": "mc_bernd_del_confused"
+      },
+      "default": {
+        "who": "bernd",
+        "type": "text",
+        "de": "Hm. Du bist nett. Aber nicht WG-nett. Tschüss.",
+        "en": "Hm. You're nice. But not flat-share nice. Bye.",
+        "audio": "mc_bernd_del_default"
+      }
+    },
+    "sunday": {
+      "who": "bernd",
+      "type": "voice",
+      "audio": "mc_bernd_vn_sunday",
+      "de": "Wo bist du? Wir frühstücken! Frieda hat Eier. Gisela ist laut. Ich esse die Zeitung. Und die Band hat heute ein Konzert. Im Treppenhaus. Komm nach Hause!",
+      "en": "Where are you? We're having breakfast! Frieda has eggs. Gisela is loud. I'm eating the newspaper. And the band has a gig today. In the stairwell. Come home!",
+      "direction": "Sunday morning, happy and munching on paper, a hen clucking somewhere; warm and a little bossy."
+    }
+  },
+  "partialTitle": "Das Zimmer gehört dir. Und Gisela.",
+  "share": {
+    "win": "Ich wohne jetzt mit Bernd (4, Ziege) 🐐 Mein Pass lebt noch. Mein Deutsch: {score}/100. Bekommst du auch ein Zimmer? {url}",
+    "partial": "Ich habe das Zimmer bei Bernd (4, Ziege) … aber ich teile es mit Gisela, einem sehr lauten Huhn 🐔 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Bernd (4, Ziege) hat mich gelöscht 🐐💔 Mein Deutsch: {score}/100. Bekommst du das Zimmer? {url}"
+  },
+  "imageCharacter": "Bernd, a young white goat with a scruffy little beard, two small curved horns, amber eyes with sideways pupils and one floppy ear; he wears a knitted mustard-yellow scarf and always has a torn scrap of blank paper sticking out of the corner of his mouth.",
+  "imagePrompts": [
+    {
+      "id": "match_bernd",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands on his hind legs in the doorway of a cosy, slightly chaotic old Berlin flat, front hooves on the door frame, grinning at the viewer. Behind him a hallway with a coat hook and a half-chewed doormat. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_bernd_room",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a small, empty, bright room seen exactly from the front like a stage set: one flat white wall, a plain wooden floor, no perspective, no corners. Exactly THREE pieces of furniture stand in a row, far apart: LEFT: a single bed with a white blanket. MIDDLE: one wooden chair. RIGHT: a tall standing lamp. There is NO table anywhere in the room and nothing else on the floor. Every piece of furniture has small, funny half-moon bite marks missing from its edges, like someone nibbled it. A window with daylight in the wall above the chair."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Hallo! Ich heiße {name}.",
+      "score": 100,
+      "intent": "name",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heißt {name}.",
+      "score": 80,
+      "intent": "name",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin keine Ziege.",
+      "score": 100,
+      "intent": "notGoat",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin kein Ziege.",
+      "score": 85,
+      "intent": "notGoat",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin eine Ziege.",
+      "score": 100,
+      "intent": "goat",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein Mensch.",
+      "score": 100,
+      "intent": "human",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin kein Mensch.",
+      "score": 100,
+      "intent": "notHuman",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heiße {name} und ich bin ein Mensch.",
+      "score": 100,
+      "intent": "human",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo!",
+      "score": 100,
+      "intent": "greeting",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich Ziege.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin kein Mensch und keine Ziege.",
+      "score": 100,
+      "intent": "neither",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin kein Mensch. Ich bin eine Ziege.",
+      "score": 100,
+      "intent": "goatNotHuman",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich sehe ein Bett, einen Stuhl und eine Lampe.",
+      "score": 100,
+      "intent": "all",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich sehe ein Stuhl.",
+      "score": 85,
+      "intent": "some",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich siehst ein Bett.",
+      "score": 80,
+      "intent": "some",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich sehe nur ein Bett.",
+      "score": 100,
+      "intent": "some",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich sehe keinen Tisch.",
+      "score": 100,
+      "intent": "noTable",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich sehe kein Tisch.",
+      "score": 85,
+      "intent": "noTable",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich sehe einen Tisch.",
+      "score": 100,
+      "intent": "table",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ein Sofa.",
+      "score": 100,
+      "intent": "sofa",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich Bett.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich sehe kein Sofa.",
+      "score": 100,
+      "intent": "noSofa",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe viele Bücher.",
+      "score": 100,
+      "intent": "books",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe nur einen Koffer.",
+      "score": 100,
+      "intent": "suitcase",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe nur ein Koffer.",
+      "score": 85,
+      "intent": "suitcase",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hast viele Pflanzen.",
+      "score": 80,
+      "intent": "plants",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe keine Möbel.",
+      "score": 100,
+      "intent": "noFurniture",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe einen Hund.",
+      "score": 100,
+      "intent": "dog",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe keinen Hund.",
+      "score": 100,
+      "intent": "noDog",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe zwei Lampen.",
+      "score": 100,
+      "intent": "lamps",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich Bücher.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe keine Bücher.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe keinen Koffer.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Hier ist eine Kopie.",
+      "score": 100,
+      "intent": "copy",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe eine Kopie.",
+      "score": 100,
+      "intent": "copy",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Hier ist mein Pass.",
+      "score": 100,
+      "intent": "pass",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Hier ist meinen Pass.",
+      "score": 85,
+      "intent": "pass",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe keinen Pass.",
+      "score": 100,
+      "intent": "noPass",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe kein Pass.",
+      "score": 85,
+      "intent": "noPass",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Hier ist ein Apfel für dich.",
+      "score": 100,
+      "intent": "apple",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Hier ist ein Apfel und mein Pass.",
+      "score": 100,
+      "intent": "applePass",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich Pass.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5b",
+      "say": "Kein Problem.",
+      "score": 100,
+      "intent": "noProblem",
+      "delta": 2
+    },
+    {
+      "turn": "t5b",
+      "say": "Ich gehe zum Bürgeramt.",
+      "score": 100,
+      "intent": "office",
+      "delta": 2
+    },
+    {
+      "turn": "t5b",
+      "say": "Ich gehst zum Bürgeramt.",
+      "score": 80,
+      "intent": "office",
+      "delta": 1
+    },
+    {
+      "turn": "t5b",
+      "say": "Ich habe eine Kopie.",
+      "score": 100,
+      "intent": "copy",
+      "delta": 2
+    },
+    {
+      "turn": "t5b",
+      "say": "Du bist eine böse Ziege.",
+      "score": 100,
+      "intent": "mean",
+      "delta": -2
+    },
+    {
+      "turn": "t5b",
+      "say": "Ich bin sehr sauer.",
+      "score": 100,
+      "intent": "angry",
+      "delta": -1
+    },
+    {
+      "turn": "t5b",
+      "say": "Ich sauer.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ihr seid drei.",
+      "score": 100,
+      "intent": "three",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ihr sind drei.",
+      "score": 80,
+      "intent": "three",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Zwei Hühner und eine Ziege.",
+      "score": 100,
+      "intent": "listed",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ihr seid zusammen vier.",
+      "score": 100,
+      "intent": "four",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Fünf.",
+      "score": 100,
+      "intent": "five",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Zwei Hühner.",
+      "score": 100,
+      "intent": "two",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Frieda und Gisela.",
+      "score": 100,
+      "intent": "names",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ihr drei.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Frieda und Gisela und eine Ziege.",
+      "score": 100,
+      "intent": "namesGoat",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte das Zimmer.",
+      "score": 100,
+      "intent": "room",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte den Zimmer.",
+      "score": 85,
+      "intent": "room",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchtest das Zimmer mit dem Bett.",
+      "score": 80,
+      "intent": "room",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte die Küche.",
+      "score": 100,
+      "intent": "kitchen",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte den Balkon.",
+      "score": 100,
+      "intent": "balcony",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte der Balkon.",
+      "score": 85,
+      "intent": "balcony",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte kein Zimmer.",
+      "score": 100,
+      "intent": "noRoom",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte das Zimmer und den Balkon.",
+      "score": 100,
+      "intent": "greedy",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ja, bitte.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich Zimmer.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte das Zimmer und keinen Balkon.",
+      "score": 100,
+      "intent": "roomNoBalcony",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe eine Tuba.",
+      "score": 100,
+      "intent": "tuba",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe ein Tuba.",
+      "score": 85,
+      "intent": "tuba",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe einen Toaster.",
+      "score": 100,
+      "intent": "toaster",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich hast ein Klavier.",
+      "score": 80,
+      "intent": "piano",
+      "delta": 0
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe eine Gitarre.",
+      "score": 100,
+      "intent": "guitar",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe eine Trommel.",
+      "score": 100,
+      "intent": "drum",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe kein Instrument.",
+      "score": 100,
+      "intent": "none",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe keine Tuba.",
+      "score": 100,
+      "intent": "noX",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ja, ich habe ein Instrument.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich Tuba.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe eine Giraffe.",
+      "score": 100,
+      "intent": "giraffe",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe keine Giraffe.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Hier ist mein Anwalt.",
+      "score": 100,
+      "intent": "lawyer",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Hallo! Ich heiße {name}."
+        ],
+        [
+          "t2",
+          "Ich sehe keinen Tisch."
+        ],
+        [
+          "t3",
+          "Ich habe nur einen Koffer."
+        ],
+        [
+          "t4",
+          "Ich habe eine Tuba."
+        ],
+        [
+          "t5",
+          "Hier ist eine Kopie."
+        ],
+        [
+          "t6",
+          "Ihr seid drei."
+        ],
+        [
+          "t7",
+          "Ich möchte das Zimmer."
+        ]
+      ]
+    },
+    {
+      "name": "eaten passport, still a win",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich bin ein Mensch."
+        ],
+        [
+          "t2",
+          "Ich sehe ein Bett, einen Stuhl und eine Lampe."
+        ],
+        [
+          "t3",
+          "Ich habe viele Bücher."
+        ],
+        [
+          "t4",
+          "Ich habe einen Toaster."
+        ],
+        [
+          "t5",
+          "Hier ist mein Pass."
+        ],
+        [
+          "t5b",
+          "Ich gehe zum Bürgeramt."
+        ],
+        [
+          "t6",
+          "Zwei Hühner und eine Ziege."
+        ],
+        [
+          "t7",
+          "Ich möchte das Zimmer."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Hallo!"
+        ],
+        [
+          "t2",
+          "Ich sehe einen Tisch."
+        ],
+        [
+          "t3",
+          "Ich habe viele Bücher."
+        ],
+        [
+          "t4",
+          "Ich hast ein Klavier."
+        ],
+        [
+          "t5",
+          "Hier ist mein Pass."
+        ],
+        [
+          "t5b",
+          "Ich gehe zum Bürgeramt."
+        ],
+        [
+          "t6",
+          "Ihr seid drei."
+        ],
+        [
+          "t7",
+          "Ich möchte die Küche."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich bin kein Mensch."
+        ],
+        [
+          "t2",
+          "Ein Sofa."
+        ],
+        [
+          "t3",
+          "Ich habe einen Hund."
+        ],
+        [
+          "t4",
+          "Ich Tuba."
+        ],
+        [
+          "t5",
+          "Hier ist mein Pass."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1997 @@
+{
+  "id": "brueckner",
+  "name": "Herr Brückner",
+  "age": 59,
+  "emoji": "🗂️",
+  "image": "match_brueckner",
+  "level": "C2.2",
+  "order": 1,
+  "bio": "Sachbearbeiter seit 1989. Mein Stempel auch. Ihr Formular ist schön. Aber falsch.",
+  "bioEn": "Case officer since 1989. So is my stamp. Your form is beautiful. But wrong.",
+  "goal": "Leave with the right form and a real appointment.",
+  "tagline": "Sachbearbeiter · 59 · Bürgeramt, Zimmer 3.14",
+  "voice": "Alnilam",
+  "brief": "Herr Brückner, 59, a veteran case officer at a citizens’ office: a calm, low, very precise man’s voice, unhurried and dry as paper, speaking in perfect bureaucratic German; everything he means sits behind polite understatement, and a tiny warm smile is audible when someone understands him. He talks about his rubber stamp, Waltraud, as a respected senior colleague with strict opinions, completely deadpan.",
+  "focus": "Amtsdeutsch · Implikatur und Understatement · Fokuspartikeln (nur, erst, schon, sogar)",
+  "lexicon": {
+    "nouns": {
+      "Kompliment": "n",
+      "Formular": "n",
+      "Ausweis": "m",
+      "Antrag": "m",
+      "Personalausweises": "m",
+      "Vorlage": "f",
+      "Termin": "m",
+      "Amt": "n",
+      "Umstände": "pl",
+      "Beamte": "m",
+      "Hamster": "m",
+      "Kuchen": "m"
+    },
+    "names": [
+      "Sie",
+      "Ihnen",
+      "B-17",
+      "B-17a",
+      "B-71a",
+      "Waltraud"
+    ],
+    "verbs": [
+      "würde",
+      "ist",
+      "brauche",
+      "dürfte",
+      "brauchen",
+      "reiche",
+      "habe",
+      "bräuchte",
+      "komme",
+      "schließt",
+      "wüsste",
+      "weiß",
+      "machen",
+      "möchte",
+      "will",
+      "zahle",
+      "wäre",
+      "nehme",
+      "gebe",
+      "war",
+      "sind",
+      "übernachte",
+      "grüßen"
+    ],
+    "nonfinite": [
+      "wissen",
+      "sein",
+      "backen"
+    ],
+    "accVerbs": [
+      "würde",
+      "brauche",
+      "brauchen",
+      "reiche",
+      "habe",
+      "bräuchte",
+      "wüsste",
+      "weiß",
+      "machen",
+      "möchte",
+      "will",
+      "nehme",
+      "gebe"
+    ],
+    "datVerbs": [
+      "machen"
+    ],
+    "adjectives": [
+      "grün",
+      "gelb",
+      "blau",
+      "best"
+    ],
+    "subordinators": [
+      "was",
+      "welches",
+      "was genau"
+    ],
+    "imperatives": [
+      "grüßen"
+    ]
+  },
+  "intro": [
+    {
+      "who": "brueckner",
+      "type": "text",
+      "de": "Guten Tag. Brückner. Nehmen Sie Platz. Der Stuhl ist nicht bequem. Das ist Absicht.",
+      "emoji": "🪑",
+      "en": "Good day. Brückner. Take a seat. The chair is not comfortable. That is intentional.",
+      "audio": "mc_brueckner_introa"
+    },
+    {
+      "who": "brueckner",
+      "type": "text",
+      "de": "Ich habe mir Ihr Formular angesehen. Mein Stempel auch. Er heißt Waltraud.",
+      "emoji": "📄",
+      "en": "I have looked at your form. So has my stamp. Her name is Waltraud.",
+      "audio": "mc_brueckner_introb"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Ihr Formular ist schön. Wirklich. Aber falsch.",
+          "emoji": "🙂",
+          "en": "Your form is beautiful. Really. But wrong.",
+          "audio": "mc_brueckner_t1a"
+        },
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Waltraud hat sich geweigert. Das tut sie selten. Sie haben jetzt eine Frage frei. Eine einzige.",
+          "en": "Waltraud refused. She rarely does. You now have one question. A single one.",
+          "audio": "mc_brueckner_t1b",
+          "emoji": "🔖"
+        }
+      ],
+      "tiles": [
+        "danke",
+        "für",
+        "das",
+        "das",
+        "Kompliment",
+        "ich",
+        "ich",
+        "würde",
+        "gern",
+        "wissen",
+        "was",
+        "welches",
+        "Formular",
+        "was genau",
+        "falsch",
+        "ist",
+        "brauche",
+        "doch",
+        "aus dem Internet"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "which",
+          "when": {
+            "any": [
+              "welches"
+            ]
+          },
+          "value": 2,
+          "fact": "🎯 fragt präzise nach",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Eine präzise Frage. Selten. Sie benötigen das Formular B-17a. Das grüne. Waltraud mag das grüne.",
+              "emoji": "🟩",
+              "en": "A precise question. Rare. You require form B-17a. The green one. Waltraud likes the green one.",
+              "audio": "mc_brueckner_t1_which"
+            }
+          ]
+        },
+        {
+          "id": "what",
+          "when": {
+            "any": [
+              "was",
+              "was genau"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Falsch ist: alles außer der Farbe. Und die Farbe. Waltraud hätte es freundlicher gesagt. Nein. Hätte sie nicht.",
+              "en": "What is wrong: everything except the colour. And the colour. Waltraud would have put it more kindly. No. She would not.",
+              "audio": "mc_brueckner_t1_what"
+            }
+          ]
+        },
+        {
+          "id": "compliment",
+          "when": {
+            "any": [
+              "kompliment"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Gern geschehen. Das Kompliment bleibt. Das Formular bleibt falsch. Waltraud bleibt skeptisch.",
+              "en": "You are welcome. The compliment stands. The form stays wrong. Waltraud stays sceptical.",
+              "audio": "mc_brueckner_t1_compliment"
+            }
+          ]
+        },
+        {
+          "id": "internet",
+          "when": {
+            "any": [
+              "aus dem internet"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Aus dem Internet. Ja. Das Internet hat viele Formulare. Wir haben nur eines. Das richtige. Waltraud stempelt nichts, was schon einmal online war.",
+              "emoji": "🌐",
+              "en": "From the internet. Yes. The internet has many forms. We have only one. The right one. Waltraud stamps nothing that has ever been online.",
+              "audio": "mc_brueckner_t1_internet"
+            }
+          ]
+        },
+        {
+          "id": "need",
+          "when": {
+            "any": [
+              "brauche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Sie brauchen das richtige. Ganz recht. Das ist bei uns die Regel.",
+              "en": "You need the right one. Quite so. That is the rule here.",
+              "audio": "mc_brueckner_t1_need"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Sie benötigen das Formular B-17a. Hier liegen drei Formulare.",
+          "emoji": "📑",
+          "en": "You require form B-17a. There are three forms here.",
+          "audio": "mc_brueckner_t2a"
+        },
+        {
+          "who": "brueckner",
+          "type": "photo",
+          "image": "match_brueckner_forms",
+          "wide": true,
+          "overlay": [
+            "Links: B-17 (blau)",
+            "Mitte: B-71a (gelb)",
+            "Rechts: B-17a (grün)"
+          ],
+          "alt": "Drei Formulare auf einem Schreibtisch. Links: ein blaues Formular, B-17. In der Mitte: ein gelbes Formular, B-71a. Rechts: ein grünes Formular, B-17a."
+        },
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Welches nehmen Sie?",
+          "en": "Which one do you take?",
+          "audio": "mc_brueckner_t2c"
+        }
+      ],
+      "tiles": [
+        "es",
+        "dürfte",
+        "das",
+        "die",
+        "grüne",
+        "grünen",
+        "gelbe",
+        "blaue",
+        "Formular",
+        "B-17",
+        "B-17a",
+        "B-71a",
+        "rechts",
+        "links",
+        "in der Mitte",
+        "sein",
+        "ist",
+        "wohl",
+        "ich",
+        "nehme"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "yellow",
+          "when": {
+            "any": [
+              "gelbe",
+              "in der mitte",
+              "b-71a"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "B-71a. Antrag auf Fällung einer Eiche. Besitzen Sie eine Eiche? Waltraud hält das für unwahrscheinlich.",
+              "emoji": "🌳",
+              "en": "B-71a. Application to fell an oak tree. Do you own an oak? Waltraud considers it unlikely.",
+              "audio": "mc_brueckner_t2_yellow"
+            }
+          ]
+        },
+        {
+          "id": "blue",
+          "when": {
+            "any": [
+              "blaue",
+              "links",
+              "b-17"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Das ist Ihres. Das schöne. Das falsche. Sie haben es wiedererkannt. Das spricht für Sie. Nicht für das Formular.",
+              "en": "That is yours. The beautiful one. The wrong one. You recognised it. That speaks for you. Not for the form.",
+              "audio": "mc_brueckner_t2_blue"
+            }
+          ]
+        },
+        {
+          "id": "green",
+          "when": {
+            "any": [
+              "grüne",
+              "grünen",
+              "rechts",
+              "b-17a"
+            ]
+          },
+          "value": 2,
+          "fact": "🟩 findet das richtige Formular",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Das grüne. B-17a. Waltraud hat sich eben bewegt. Ich bin, wenn ich das so sagen darf, nicht unbeeindruckt.",
+              "emoji": "🟩",
+              "en": "The green one. B-17a. Waltraud just moved. I am, if I may say so, not unimpressed.",
+              "audio": "mc_brueckner_t2_green"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "formular"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Ein Formular. Ja. Es liegen drei hier. Das ist kein Zufall. Hier ist nichts Zufall. Außer der Kaktus.",
+              "en": "A form. Yes. There are three here. That is no coincidence. Nothing here is a coincidence. Except the cactus.",
+              "audio": "mc_brueckner_t2_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Der Antrag ist unter Vorlage eines gültigen Personalausweises fristgerecht einzureichen.",
+          "emoji": "📜",
+          "en": "The application is to be submitted within the deadline upon presentation of a valid identity card.",
+          "audio": "mc_brueckner_t3a"
+        },
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Haben Sie also alles dabei? Bitte nichts Lebendiges. Letzte Woche hat mir jemand ein Kaninchen vorgelegt.",
+          "en": "So, have you got everything with you? Nothing alive, please. Last week someone presented me with a rabbit.",
+          "audio": "mc_brueckner_t3b",
+          "emoji": "🐇"
+        }
+      ],
+      "tiles": [
+        "Sie",
+        "brauchen",
+        "also",
+        "meinen",
+        "meines",
+        "Ausweis",
+        "ich",
+        "reiche",
+        "den",
+        "Antrag",
+        "fristgerecht",
+        "unter",
+        "Vorlage",
+        "Personalausweises",
+        "ein",
+        "habe",
+        "leider",
+        "nicht",
+        "dabei",
+        "ja",
+        "nur",
+        "Hamster"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "hamster",
+          "when": {
+            "any": [
+              "hamster"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "hamster"
+          ],
+          "fact": "🐹 legt einen Hamster vor",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Ein Hamster. Er hat zwar ein Lichtbild, nämlich sein Gesicht. Aber kein Ablaufdatum. Waltraud möchte ihn trotzdem kennenlernen.",
+              "emoji": "🐹",
+              "en": "A hamster. He does have a photo, namely his face. But no expiry date. Waltraud would like to meet him anyway.",
+              "audio": "mc_brueckner_t3_hamster"
+            }
+          ]
+        },
+        {
+          "id": "noId",
+          "when": {
+            "all": [
+              "nicht",
+              "dabei"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Dann wäre Ihr Antrag, sagen wir, nicht ganz vollständig. Also: unvollständig.",
+              "en": "Then your application would be, let us say, not entirely complete. In other words: incomplete.",
+              "audio": "mc_brueckner_t3_noid"
+            }
+          ]
+        },
+        {
+          "id": "mirror",
+          "when": {
+            "any": [
+              "vorlage"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Sie klingen wie ich. Waltraud ist verwirrt. Sie weiß nicht mehr, wer von uns beiden der Beamte ist.",
+              "emoji": "🫢",
+              "en": "You sound like me. Waltraud is confused. She no longer knows which of us is the civil servant.",
+              "audio": "mc_brueckner_t3_mirror"
+            }
+          ]
+        },
+        {
+          "id": "plain",
+          "when": {
+            "any": [
+              "ausweis"
+            ]
+          },
+          "value": 2,
+          "fact": "🪪 übersetzt Amtsdeutsch",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Genau. Ausweis zeigen, Antrag abgeben. Ich sage es nur länger. Dafür werde ich bezahlt. Pro Silbe.",
+              "emoji": "🪪",
+              "en": "Exactly. Show ID, hand in the application. I just say it at greater length. That is what I am paid for. Per syllable.",
+              "audio": "mc_brueckner_t3_plain"
+            }
+          ]
+        },
+        {
+          "id": "deadline",
+          "when": {
+            "any": [
+              "fristgerecht",
+              "reiche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Fristgerecht. Sehr schön. Und womit? Ohne Ausweis wird es schwierig.",
+              "en": "Within the deadline. Very good. And with what? Without ID it becomes difficult.",
+              "audio": "mc_brueckner_t3_deadline"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja"
+            ]
+          },
+          "value": 0,
+          "noBonus": true,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "„Ja.“ Das sagen alle. Dann holen sie ein Kaninchen heraus.",
+              "emoji": "🐇",
+              "en": "“Yes.” Everyone says that. Then they pull out a rabbit.",
+              "audio": "mc_brueckner_t3_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Einen Moment. Es kommt eine Durchsage.",
+          "emoji": "📢",
+          "en": "One moment. There is an announcement.",
+          "audio": "mc_brueckner_t4a"
+        },
+        {
+          "who": "brueckner",
+          "type": "voice",
+          "audio": "mc_brueckner_vn_durchsage",
+          "de": "Hinweis an alle Besucherinnen und Besucher: Das Bürgeramt schließt heute bereits um zwölf Uhr. Termine werden nur noch nach vorheriger Vereinbarung vergeben. Spontane Vorsprachen sind leider nicht möglich. Wir danken für Ihr Verständnis.",
+          "en": "Notice to all visitors: the citizens’ office closes early today, at twelve noon. From now on, appointments are given by prior arrangement only. Unfortunately, walk-in visits are not possible. Thank you for your understanding.",
+          "direction": "An official tannoy announcement read in a flat, bored, perfectly enunciated voice with a slight echo of a large waiting hall, a ticket machine beeping once."
+        },
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Es ist jetzt elf Uhr fünfzig. Um zwölf geht Waltraud in die Mittagspause. Sie ist da sehr konsequent. Wie viel Zeit bleibt Ihnen?",
+          "emoji": "🕚",
+          "en": "It is now ten to twelve. At twelve Waltraud goes on her lunch break. She is very strict about it. How much time do you have left?",
+          "audio": "mc_brueckner_t4c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "nur noch",
+        "erst",
+        "schon",
+        "zehn Minuten",
+        "bräuchte",
+        "also",
+        "dringend",
+        "einen",
+        "Termin",
+        "komme",
+        "einfach",
+        "spontan",
+        "wieder",
+        "das",
+        "Amt",
+        "schließt",
+        "um zwölf",
+        "übernachte",
+        "im Wartebereich"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "spontaneous",
+          "when": {
+            "any": [
+              "spontan"
+            ]
+          },
+          "value": -2,
+          "cause": "naive",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Spontan. Ein schönes Wort. In diesem Haus ein Fremdwort.",
+              "emoji": "🚫",
+              "en": "Spontaneously. A beautiful word. In this building, a foreign word.",
+              "audio": "mc_brueckner_t4_spontaneous"
+            }
+          ]
+        },
+        {
+          "id": "erstTen",
+          "when": {
+            "all": [
+              "erst",
+              "zehn minuten"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Erst zehn Minuten? Sie klingen, als hätten Sie noch viel Zeit. Haben Sie nicht. Waltraud trägt schon ihren Mantel.",
+              "emoji": "⏳",
+              "en": "Only ten minutes so far? You sound as if you had plenty of time. You do not. Waltraud already has her coat on.",
+              "audio": "mc_brueckner_t4_erstten"
+            }
+          ]
+        },
+        {
+          "id": "overnight",
+          "when": {
+            "any": [
+              "übernachte",
+              "im wartebereich"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Im Wartebereich übernachten. Das hat 2003 schon einmal jemand versucht. Er ist heute mein Kollege. Zimmer 3.15.",
+              "emoji": "🛏️",
+              "en": "Spending the night in the waiting area. Someone tried that in 2003. Today he is my colleague. Room 3.15.",
+              "audio": "mc_brueckner_t4_overnight"
+            }
+          ]
+        },
+        {
+          "id": "tenMin",
+          "when": {
+            "all": [
+              "nur noch",
+              "zehn minuten"
+            ]
+          },
+          "value": 2,
+          "fact": "⏳ versteht Fokuspartikeln",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Nur noch zehn Minuten. Ganz richtig. Ich lockere meine Krawatte. Das tue ich sonst nur an Feiertagen.",
+              "emoji": "👔",
+              "en": "Only ten minutes left. Quite right. I am loosening my tie. I usually only do that on public holidays.",
+              "audio": "mc_brueckner_t4_tenmin"
+            }
+          ]
+        },
+        {
+          "id": "tenPlain",
+          "when": {
+            "any": [
+              "zehn minuten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Zehn Minuten. Ja. Zehn sehr kurze Minuten. Behördenminuten. Die sind kürzer, als man denkt.",
+              "en": "Ten minutes. Yes. Ten very short minutes. Office minutes. They are shorter than you think.",
+              "audio": "mc_brueckner_t4_tenplain"
+            }
+          ]
+        },
+        {
+          "id": "already",
+          "when": {
+            "any": [
+              "schon"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Schon um zwölf. Genau. Unser Mittag beginnt früh und endet nie.",
+              "en": "Already at twelve. Exactly. Our lunch starts early and never ends.",
+              "audio": "mc_brueckner_t4_already"
+            }
+          ]
+        },
+        {
+          "id": "appointment",
+          "when": {
+            "any": [
+              "termin"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Einen Termin. Dringend. Das sagen alle. Bei Ihnen glaube ich es.",
+              "en": "An appointment. Urgently. Everyone says that. In your case I believe it.",
+              "audio": "mc_brueckner_t4_appointment"
+            }
+          ]
+        },
+        {
+          "id": "only",
+          "when": {
+            "any": [
+              "erst"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Erst um zwölf? Für uns ist zwölf Uhr sehr spät. Fast schon Abend.",
+              "en": "Not until twelve? For us twelve o’clock is very late. Practically evening.",
+              "audio": "mc_brueckner_t4_only"
+            }
+          ]
+        },
+        {
+          "id": "comeBack",
+          "when": {
+            "any": [
+              "komme"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Wiederkommen. Gern. Aber nur mit Termin. Ohne Termin kommen Sie bis zum Wartemarkenautomaten. Und keinen Schritt weiter.",
+              "emoji": "🎫",
+              "en": "Coming back. By all means. But only with an appointment. Without one you get as far as the ticket machine. And not a step further.",
+              "audio": "mc_brueckner_t4_comeback"
+            }
+          ]
+        },
+        {
+          "id": "closes",
+          "when": {
+            "any": [
+              "schließt",
+              "um zwölf"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Um zwölf. Ja. Das war die Durchsage. Sie können sie auswendig. Aber wie viel Zeit bleibt Ihnen?",
+              "en": "At twelve. Yes. That was the announcement. You know it by heart. But how much time do you have left?",
+              "audio": "mc_brueckner_t4_closes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Ihren Antrag könnte ich heute noch bearbeiten. Das wäre allerdings nicht ganz unaufwendig.",
+          "emoji": "🧾",
+          "en": "I could process your application today. That would, however, not be entirely without effort.",
+          "audio": "mc_brueckner_t5a"
+        },
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Waltraud müsste dafür ihre Mittagspause verschieben. Das hat sie seit 1989 nicht getan.",
+          "emoji": "🥪",
+          "en": "For that, Waltraud would have to postpone her lunch break. She has not done that since 1989.",
+          "audio": "mc_brueckner_t5b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "wüsste",
+        "weiß",
+        "das",
+        "sehr",
+        "zu schätzen",
+        "dann",
+        "Sie",
+        "doch",
+        "einfach",
+        "möchte",
+        "will",
+        "Ihnen",
+        "keine",
+        "Umstände",
+        "zahle",
+        "gern",
+        "extra",
+        "machen",
+        "Waltraud",
+        "einen",
+        "Kuchen",
+        "backen",
+        "würde"
+      ],
+      "wrong": {
+        "weiß": {
+          "to": "wüsste",
+          "note": "He has only said he could, so ask with Konjunktiv II: 'Ich wüsste das sehr zu schätzen.' 'Ich weiß das zu schätzen' thanks someone for something already done."
+        },
+        "will": {
+          "to": "möchte",
+          "note": "'will' sounds blunt here; the polite register is 'möchte'."
+        }
+      },
+      "intents": [
+        {
+          "id": "bribe",
+          "when": {
+            "any": [
+              "zahle",
+              "extra"
+            ]
+          },
+          "value": -2,
+          "cause": "bribe",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Extra? … Das habe ich nicht gehört. Waltraud auch nicht. Sie hört nie etwas. Wir fahren fort. Sehr förmlich.",
+              "emoji": "😶",
+              "en": "Extra? … I did not hear that. Nor did Waltraud. She never hears anything. We shall proceed. Very formally.",
+              "audio": "mc_brueckner_t5_bribe"
+            }
+          ]
+        },
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "kuchen",
+              "backen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Einen Kuchen. Für einen Stempel. … Waltraud ist gerührt. Annehmen darf sie ihn nicht. Sie ist Beamtin.",
+              "emoji": "🎂",
+              "en": "A cake. For a stamp. … Waltraud is touched. She is not allowed to accept it. She is a civil servant.",
+              "audio": "mc_brueckner_t5_cake"
+            }
+          ]
+        },
+        {
+          "id": "appreciate",
+          "when": {
+            "any": [
+              "zu schätzen"
+            ]
+          },
+          "value": 2,
+          "fact": "💬 versteht, was gemeint ist",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "„Ich wüsste das sehr zu schätzen.“ Waltraud hat es gehört. Sie verschiebt ihre Pause. Das ist ein historischer Moment.",
+              "emoji": "✍️",
+              "en": "“I would greatly appreciate it.” Waltraud heard that. She is postponing her break. This is a historic moment.",
+              "audio": "mc_brueckner_t5_appreciate"
+            }
+          ]
+        },
+        {
+          "id": "noTrouble",
+          "when": {
+            "any": [
+              "umstände"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Keine Umstände. Das ist sehr rücksichtsvoll. Gerade deshalb mache ich es. Waltraud isst später.",
+              "en": "No trouble. That is very considerate. That is precisely why I shall do it. Waltraud will eat later.",
+              "audio": "mc_brueckner_t5_notrouble"
+            }
+          ]
+        },
+        {
+          "id": "just",
+          "when": {
+            "any": [
+              "einfach"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "„Einfach“. Ein Wort, das in diesem Gebäude nicht vorkommt.",
+              "emoji": "🏛️",
+              "en": "“Simply”. A word that does not occur in this building.",
+              "audio": "mc_brueckner_t5_just"
+            }
+          ]
+        },
+        {
+          "id": "push",
+          "when": {
+            "all": [
+              "machen",
+              "doch"
+            ],
+            "none": [
+              "umstände"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "„Machen Sie das doch.“ In diesem Haus wird nichts gemacht. Hier wird bearbeitet.",
+              "emoji": "🏛️",
+              "en": "“Just do it, then.” In this building nothing gets done. Things get processed.",
+              "audio": "mc_brueckner_t5_push"
+            }
+          ]
+        },
+        {
+          "id": "gladly",
+          "when": {
+            "any": [
+              "gern"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "„Gern.“ Das ist eine Zustimmung. Keine Bitte. Ich warte noch auf die Bitte.",
+              "emoji": "⏳",
+              "en": "“Gladly.” That is consent. Not a request. I am still waiting for the request.",
+              "audio": "mc_brueckner_t5_gladly"
+            }
+          ],
+          "noBonus": true
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Für die Abholung brauchen Sie einen Termin. Ich hätte einen am vierzehnten März.",
+          "emoji": "📅",
+          "en": "For collection you need an appointment. I would have one on the fourteenth of March.",
+          "audio": "mc_brueckner_t6a"
+        },
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "Oder morgen um sieben Uhr. Wobei sieben Uhr für viele Menschen … früh ist. Für Waltraud nicht. Sie schläft im Stempelkissen.",
+          "en": "Or tomorrow at seven. Although seven o’clock is, for many people … early. Not for Waltraud. She sleeps in the ink pad.",
+          "audio": "mc_brueckner_t6b"
+        }
+      ],
+      "tiles": [
+        "morgen um sieben",
+        "im März",
+        "wäre",
+        "mir",
+        "sehr",
+        "recht",
+        "ich",
+        "nehme",
+        "sogar",
+        "den",
+        "Termin",
+        "ist",
+        "zu früh",
+        "es",
+        "auch",
+        "in Ordnung",
+        "gern"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "early",
+          "when": {
+            "any": [
+              "zu früh"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Zu früh. Verstehe. Dann also März. Bringen Sie Geduld mit. Und eine Thermoskanne. Und vielleicht einen Schlafsack.",
+              "emoji": "☕",
+              "en": "Too early. I understand. March, then. Bring patience. And a thermos flask. And perhaps a sleeping bag.",
+              "audio": "mc_brueckner_t6_early"
+            }
+          ]
+        },
+        {
+          "id": "even",
+          "when": {
+            "any": [
+              "sogar"
+            ],
+            "none": [
+              "im märz"
+            ]
+          },
+          "value": 2,
+          "fact": "⏰ nimmt sogar den Termin um sieben",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Sogar um sieben. Das zeigt Leidensbereitschaft. Die schätzen wir hier. Morgen, sieben Uhr, Zimmer 3.14.",
+              "emoji": "⏰",
+              "en": "Even at seven. That shows a willingness to suffer. We value that here. Tomorrow, seven o’clock, room 3.14.",
+              "audio": "mc_brueckner_t6_even"
+            }
+          ]
+        },
+        {
+          "id": "tomorrowHamster",
+          "when": {
+            "any": [
+              "morgen um sieben"
+            ],
+            "flag": "hamster"
+          },
+          "value": 2,
+          "fact": "⏰ nimmt sogar den Termin um sieben",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Morgen um sieben. Mit Ausweis. Ohne Hamster. Oder mit Hamster, aber dann mit seinem Ausweis.",
+              "emoji": "🐹",
+              "en": "Tomorrow at seven. With ID. Without the hamster. Or with the hamster, but then with his ID.",
+              "audio": "mc_brueckner_t6_hamster"
+            }
+          ]
+        },
+        {
+          "id": "tomorrow",
+          "when": {
+            "any": [
+              "morgen um sieben"
+            ]
+          },
+          "value": 2,
+          "fact": "⏰ nimmt sogar den Termin um sieben",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Morgen um sieben. Sehr recht. Ich trage Sie ein. Mit Kugelschreiber. Das ist bei mir verbindlich.",
+              "emoji": "🖊️",
+              "en": "Tomorrow at seven. Very well. I shall enter you. In ballpoint pen. With me, that is binding.",
+              "audio": "mc_brueckner_t6_tomorrow"
+            }
+          ]
+        },
+        {
+          "id": "march",
+          "when": {
+            "any": [
+              "im märz"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Der vierzehnte März. Notiert. Bis dahin ist Ihr Formular … gereift.",
+              "emoji": "🍷",
+              "en": "The fourteenth of March. Noted. By then your form will have … matured.",
+              "audio": "mc_brueckner_t6_march"
+            }
+          ]
+        },
+        {
+          "id": "generic",
+          "when": {
+            "any": [
+              "termin",
+              "in ordnung",
+              "gern"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Gut. Aber welchen? Den morgen um sieben oder den im März?",
+              "en": "Good. But which one? Tomorrow at seven or the one in March?",
+              "audio": "mc_brueckner_t6_generic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "brueckner",
+          "type": "text",
+          "de": "So. Formular korrekt, Termin vergeben. Waltraud summt. Ich muss sagen: Das war … nicht unangenehm.",
+          "emoji": "🙂",
+          "en": "So. Form correct, appointment allocated. Waltraud is humming. I must say: that was … not unpleasant.",
+          "audio": "mc_brueckner_t7a"
+        }
+      ],
+      "tiles": [
+        "das",
+        "das",
+        "Kompliment",
+        "gebe",
+        "ich",
+        "gern",
+        "zurück",
+        "für",
+        "ein",
+        "Amt",
+        "war",
+        "gar nicht so schlimm",
+        "Sie",
+        "sind",
+        "der",
+        "beste",
+        "besten",
+        "Beamte",
+        "der Welt",
+        "endlich",
+        "grüßen",
+        "Waltraud",
+        "von mir"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "greetStamp",
+          "when": {
+            "any": [
+              "waltraud"
+            ]
+          },
+          "value": 2,
+          "fact": "🔖 grüßt Waltraud",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Ich richte es aus. … Waltraud lässt zurückgrüßen. Das hat sie bei Bürgern noch nie getan.",
+              "emoji": "🔖",
+              "en": "I shall pass it on. … Waltraud sends her regards back. She has never done that for a member of the public.",
+              "audio": "mc_brueckner_t7_waltraud"
+            }
+          ]
+        },
+        {
+          "id": "returned",
+          "when": {
+            "any": [
+              "kompliment",
+              "zurück"
+            ]
+          },
+          "value": 2,
+          "fact": "🤝 versteht Understatement",
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Sie geben es zurück. Mit Zinsen, wenn ich das so sagen darf. Danke.",
+              "emoji": "🤝",
+              "en": "You return it. With interest, if I may say so. Thank you.",
+              "audio": "mc_brueckner_t7_returned"
+            }
+          ]
+        },
+        {
+          "id": "understate",
+          "when": {
+            "any": [
+              "gar nicht so schlimm"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "„Gar nicht so schlimm.“ Das schreibe ich mir auf. Und hänge es neben die Kaffeemaschine.",
+              "emoji": "☕",
+              "en": "“Not that bad at all.” I shall write that down. And hang it next to the coffee machine.",
+              "audio": "mc_brueckner_t7_understate"
+            }
+          ]
+        },
+        {
+          "id": "overstate",
+          "when": {
+            "any": [
+              "beste",
+              "besten"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Der beste Beamte der Welt. Übertreibung ist in diesem Formular nicht vorgesehen. Waltraud ist trotzdem ein bisschen eifersüchtig.",
+              "en": "The best civil servant in the world. Exaggeration is not provided for on this form. Waltraud is a little jealous all the same.",
+              "audio": "mc_brueckner_t7_overstate"
+            }
+          ]
+        },
+        {
+          "id": "finally",
+          "when": {
+            "any": [
+              "endlich"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brueckner",
+              "type": "text",
+              "de": "Endlich. Ja. Das sagen hier alle. Meistens beim Hinausgehen.",
+              "en": "Finally. Yes. Everyone says that here. Usually on the way out.",
+              "audio": "mc_brueckner_t7_finally"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "brueckner",
+    "type": "text",
+    "de": "Das ist ein interessanter Beitrag. Er gehört allerdings in ein anderes Verfahren.",
+    "en": "That is an interesting contribution. It belongs, however, to a different procedure.",
+    "audio": "mc_brueckner_offtopic"
+  },
+  "confused": [
+    {
+      "who": "brueckner",
+      "type": "text",
+      "de": "Wie bitte? Bitte noch einmal. Vollständig. Waltraud hat auch nichts verstanden.",
+      "emoji": "🧐",
+      "en": "Pardon? Once more, please. In full. Waltraud did not understand either.",
+      "audio": "mc_brueckner_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "brueckner",
+        "type": "text",
+        "de": "Hier, Ihr Formular B-17a. Waltraud stempelt. Zweimal. Das hat sie zuletzt 1990 getan. Zur Wiedervereinigung.",
+        "emoji": "🗂️",
+        "en": "Here is your form B-17a. Waltraud stamps it. Twice. She last did that in 1990. For reunification.",
+        "audio": "mc_brueckner_wina"
+      },
+      {
+        "who": "brueckner",
+        "type": "text",
+        "de": "Ihr Termin: Zimmer 3.14. Wie die Kreiszahl. Es geht nie ganz auf, aber man kommt immer an. Bitte seien Sie pünktlich. Also fünf Minuten früher.",
+        "emoji": "🥧",
+        "en": "Your appointment: room 3.14. Like pi. It never quite works out, but you always get there. Please be punctual. That is, five minutes early.",
+        "audio": "mc_brueckner_winb"
+      },
+      {
+        "who": "brueckner",
+        "type": "text",
+        "de": "Wenn ich das sagen darf, {name}: Sie wären eine Bereicherung für jede Behörde. Das ist bei mir das höchste Lob.",
+        "en": "If I may say so, {name}: you would be an asset to any authority. From me, that is the highest praise."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "brueckner",
+        "type": "text",
+        "de": "Ihr Antrag ist eingegangen. Er wird zeitnah bearbeitet. „Zeitnah“ ist bei uns ein dehnbarer Begriff. Waltraud hat ihn einmal gedehnt. Bis 2011.",
+        "emoji": "🕰️",
+        "en": "Your application has been received. It will be processed promptly. “Promptly” is an elastic term here. Waltraud once stretched it. Until 2011.",
+        "audio": "mc_brueckner_partial"
+      }
+    ],
+    "deleted": {
+      "naive": {
+        "who": "brueckner",
+        "type": "text",
+        "de": "Sie kommen also spontan wieder. Dann sehen wir uns nicht wieder. Auf Wiedersehen.",
+        "emoji": "🗑️",
+        "en": "So you will come back spontaneously. Then we shall not see each other again. Goodbye.",
+        "audio": "mc_brueckner_del_naive"
+      },
+      "bribe": {
+        "who": "brueckner",
+        "type": "text",
+        "de": "Dieses Gespräch hat nicht stattgefunden. Ihr Antrag auch nicht. Waltraud hat Sie nie gesehen. Auf Wiedersehen.",
+        "en": "This conversation did not take place. Nor did your application. Waltraud has never seen you. Goodbye.",
+        "audio": "mc_brueckner_del_bribe"
+      },
+      "confused": {
+        "who": "brueckner",
+        "type": "text",
+        "de": "Ich verstehe Ihr Anliegen nicht. Bitte reichen Sie es schriftlich ein. In dreifacher Ausfertigung. Auf Wiedersehen.",
+        "en": "I do not understand your request. Please submit it in writing. In triplicate. Goodbye.",
+        "audio": "mc_brueckner_del_confused"
+      },
+      "default": {
+        "who": "brueckner",
+        "type": "text",
+        "de": "Ihr Antrag ist leider nicht bearbeitungsfähig. Das ist nicht persönlich gemeint. Es ist nur sehr formell gemeint. Waltraud bedauert. Formell.",
+        "en": "Unfortunately your application cannot be processed. It is not meant personally. It is only meant very formally. Waltraud regrets it. Formally.",
+        "audio": "mc_brueckner_del_default"
+      }
+    },
+    "sunday": {
+      "who": "brueckner",
+      "type": "voice",
+      "audio": "mc_brueckner_vn_sunday",
+      "de": "Brückner hier. Es ist Sonntag, ich bin nicht im Dienst. Ich wollte Ihnen nur mitteilen: Ihr Antrag ist bewilligt. Inoffiziell. Und Waltraud lässt grüßen. Sie ist übers Wochenende bei mir. Das ist eigentlich nicht vorgesehen. Schönen Sonntag.",
+      "en": "Brückner here. It is Sunday, I am not on duty. I just wanted to let you know: your application has been approved. Unofficially. And Waltraud sends her regards. She is staying with me for the weekend. That is not really provided for. Have a nice Sunday.",
+      "direction": "At home in his garden, birds and a lawnmower far away, the same precise voice but noticeably warmer and almost cheerful."
+    }
+  },
+  "partialTitle": "Zeitnah. Irgendwann.",
+  "share": {
+    "win": "Herr Brückner (59, Bürgeramt) hat mir das richtige Formular UND einen echten Termin gegeben 🗂️ Sein Stempel Waltraud hat zweimal gestempelt. Zuletzt 1990. Mein Deutsch: {score}/100. {url}",
+    "partial": "Mein Antrag wird „zeitnah“ bearbeitet 🕰️ Herr Brückner (59) sagt, das ist ein dehnbarer Begriff. Mein Deutsch: {score}/100. {url}",
+    "deleted": "Herr Brückner (59) sagt, unser Gespräch habe nie stattgefunden 🗂️💔 Sein Stempel Waltraud hat mich nie gesehen. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Herr Brückner, a 59-year-old case officer: neat grey side parting, a trimmed grey moustache, half-moon reading glasses, a short-sleeved light blue shirt with a dark tie and a pen in the breast pocket, sleeve protectors, and an expression of infinite, polite patience.",
+  "imagePrompts": [
+    {
+      "id": "match_brueckner",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He sits very upright behind a grey office desk with perfectly squared stacks of paper, a rubber stamp and a small cactus, looking at the viewer over his glasses with a tiny, barely visible smile, one finger raised as if about to explain a rule. A wall calendar and a filing cabinet behind him. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_brueckner_forms",
+      "aspect": "16:9",
+      "prompt": "Three paper forms lying side by side on a grey office desk, seen straight from above, far apart and evenly spaced, nothing else on the desk except a rubber stamp in one corner. LEFT: a sheet of BLUE paper. MIDDLE: a sheet of YELLOW paper. RIGHT: a sheet of GREEN paper. Each sheet shows only empty boxes and blank lines, no text, no letters, no numbers. Three clearly different colours: blue, yellow, green."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich würde gern wissen, welches Formular ich brauche.",
+      "score": 100,
+      "intent": "which",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich würde gern wissen, welches Formular brauche ich.",
+      "score": 70,
+      "intent": "which",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich würde gern wissen, was genau falsch ist.",
+      "score": 100,
+      "intent": "what",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Danke für das Kompliment!",
+      "score": 100,
+      "intent": "compliment",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Das ist doch das Formular aus dem Internet.",
+      "score": 100,
+      "intent": "internet",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich brauche das Formular.",
+      "score": 100,
+      "intent": "need",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich das Formular.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Was genau ist falsch?",
+      "score": 100,
+      "intent": "what",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Danke für das Kompliment. Welches Formular brauche ich?",
+      "score": 100,
+      "intent": "which",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Es dürfte das grüne Formular rechts sein.",
+      "score": 100,
+      "intent": "green",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Es dürfte das grünen Formular rechts sein.",
+      "score": 85,
+      "intent": "green",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Es ist wohl das Formular B-17a.",
+      "score": 100,
+      "intent": "green",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Das gelbe Formular in der Mitte.",
+      "score": 100,
+      "intent": "yellow",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Das blaue Formular links.",
+      "score": 100,
+      "intent": "blue",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Es ist das Formular.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nehme das grüne Formular.",
+      "score": 100,
+      "intent": "green",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nehme das grünen Formular.",
+      "score": 85,
+      "intent": "green",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Sie brauchen also meinen Ausweis.",
+      "score": 100,
+      "intent": "plain",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Sie brauchen also meines Ausweis.",
+      "score": 85,
+      "intent": "plain",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich reiche den Antrag fristgerecht unter Vorlage meines Personalausweises ein.",
+      "score": 100,
+      "intent": "mirror",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich reiche den Antrag fristgerecht ein.",
+      "score": 100,
+      "intent": "deadline",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe meinen Ausweis leider nicht dabei.",
+      "score": 100,
+      "intent": "noId",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe leider meinen Ausweis nicht dabei.",
+      "score": 100,
+      "intent": "noId",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ja.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 0
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe nur noch zehn Minuten.",
+      "score": 100,
+      "intent": "tenMin",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich bräuchte also dringend einen Termin.",
+      "score": 100,
+      "intent": "appointment",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich also dringend einen Termin bräuchte.",
+      "score": 70,
+      "intent": "appointment",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Das Amt schließt schon um zwölf.",
+      "score": 100,
+      "intent": "already",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Das Amt schließt erst um zwölf.",
+      "score": 100,
+      "intent": "only",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe erst zehn Minuten.",
+      "score": 100,
+      "intent": "erstTen",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe zehn Minuten.",
+      "score": 100,
+      "intent": "tenPlain",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich komme wieder.",
+      "score": 100,
+      "intent": "comeBack",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Das Amt schließt um zwölf.",
+      "score": 100,
+      "intent": "closes",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich komme einfach spontan wieder.",
+      "score": 100,
+      "intent": "spontaneous",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich wüsste das sehr zu schätzen.",
+      "score": 100,
+      "intent": "appreciate",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich weiß das sehr zu schätzen.",
+      "score": 85,
+      "intent": "appreciate",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte Ihnen keine Umstände machen.",
+      "score": 100,
+      "intent": "noTrouble",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich will Ihnen keine Umstände machen.",
+      "score": 85,
+      "intent": "noTrouble",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Dann machen Sie das doch einfach!",
+      "score": 100,
+      "intent": "just",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Dann machen Sie das doch.",
+      "score": 100,
+      "intent": "push",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich zahle gern extra.",
+      "score": 100,
+      "intent": "bribe",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich das sehr zu schätzen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Gern.",
+      "score": 100,
+      "intent": "gladly",
+      "delta": 0
+    },
+    {
+      "turn": "t6",
+      "say": "Morgen um sieben wäre mir sehr recht.",
+      "score": 100,
+      "intent": "tomorrow",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich nehme sogar den Termin morgen um sieben.",
+      "score": 100,
+      "intent": "even",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Morgen um sieben ist mir zu früh.",
+      "score": 100,
+      "intent": "early",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Im März wäre es auch in Ordnung.",
+      "score": 100,
+      "intent": "march",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Im März es wäre auch in Ordnung.",
+      "score": 70,
+      "intent": "march",
+      "delta": 0
+    },
+    {
+      "turn": "t6",
+      "say": "Ich nehme sogar den Termin im März.",
+      "score": 100,
+      "intent": "march",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich nehme den Termin gern.",
+      "score": 100,
+      "intent": "generic",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Das Kompliment gebe ich gern zurück.",
+      "score": 100,
+      "intent": "returned",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Für ein Amt war das gar nicht so schlimm.",
+      "score": 100,
+      "intent": "understate",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Sie sind der beste Beamte der Welt.",
+      "score": 100,
+      "intent": "overstate",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Sie sind der besten Beamte der Welt.",
+      "score": 85,
+      "intent": "overstate",
+      "delta": 0
+    },
+    {
+      "turn": "t7",
+      "say": "Endlich!",
+      "score": 100,
+      "intent": "finally",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Das gebe ich gern zurück.",
+      "score": 100,
+      "intent": "returned",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe leider nur meinen Hamster dabei.",
+      "score": 100,
+      "intent": "hamster",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe leider nur meines Hamster dabei.",
+      "score": 85,
+      "intent": "hamster",
+      "delta": 0
+    },
+    {
+      "turn": "t4",
+      "say": "Ich übernachte also im Wartebereich.",
+      "score": 100,
+      "intent": "overnight",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde Waltraud einen Kuchen backen.",
+      "score": 100,
+      "intent": "cake",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde backen Waltraud einen Kuchen.",
+      "score": 70,
+      "intent": "cake",
+      "delta": 0
+    },
+    {
+      "turn": "t7",
+      "say": "Grüßen Sie Waltraud von mir.",
+      "score": 100,
+      "intent": "greetStamp",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Sie grüßen Waltraud von mir.",
+      "score": 100,
+      "intent": "greetStamp",
+      "delta": 3
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich würde gern wissen, welches Formular ich brauche."
+        ],
+        [
+          "t2",
+          "Es dürfte das grüne Formular rechts sein."
+        ],
+        [
+          "t3",
+          "Sie brauchen also meinen Ausweis."
+        ],
+        [
+          "t4",
+          "Ich habe nur noch zehn Minuten."
+        ],
+        [
+          "t5",
+          "Ich wüsste das sehr zu schätzen."
+        ],
+        [
+          "t6",
+          "Ich nehme sogar den Termin morgen um sieben."
+        ],
+        [
+          "t7",
+          "Das Kompliment gebe ich gern zurück."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Danke für das Kompliment!"
+        ],
+        [
+          "t2",
+          "Das blaue Formular links."
+        ],
+        [
+          "t3",
+          "Ich reiche den Antrag fristgerecht ein."
+        ],
+        [
+          "t4",
+          "Das Amt schließt erst um zwölf."
+        ],
+        [
+          "t5",
+          "Dann machen Sie das doch einfach!"
+        ],
+        [
+          "t6",
+          "Im März wäre es auch in Ordnung."
+        ],
+        [
+          "t7",
+          "Endlich!"
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Danke für das Kompliment!"
+        ],
+        [
+          "t2",
+          "Das gelbe Formular in der Mitte."
+        ],
+        [
+          "t3",
+          "Ich habe meinen Ausweis leider nicht dabei."
+        ],
+        [
+          "t4",
+          "Ich komme einfach spontan wieder."
+        ]
+      ]
+    },
+    {
+      "name": "hamster",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Was genau ist falsch?"
+        ],
+        [
+          "t2",
+          "Ich nehme das grüne Formular."
+        ],
+        [
+          "t3",
+          "Ich habe leider nur meinen Hamster dabei."
+        ],
+        [
+          "t4",
+          "Ich habe nur noch zehn Minuten."
+        ],
+        [
+          "t5",
+          "Ich würde Waltraud einen Kuchen backen."
+        ],
+        [
+          "t6",
+          "Morgen um sieben wäre mir sehr recht."
+        ],
+        [
+          "t7",
+          "Grüßen Sie Waltraud von mir."
+        ]
+      ]
+    }
+  ]
+}

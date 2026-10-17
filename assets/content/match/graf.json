@@ -1,0 +1,2413 @@
+{
+  "id": "graf",
+  "name": "Frau Graf",
+  "age": 70,
+  "emoji": "🔑",
+  "image": "match_graf",
+  "level": "A2.2",
+  "order": 4,
+  "bio": "Besichtigung um 18 Uhr. 80 Leute kommen. Es gibt eine Wohnung.",
+  "bioEn": "Viewing at 6 pm. 80 people are coming. There's one flat.",
+  "goal": "Be the one who gets the flat.",
+  "tagline": "Vermieterin · 70 · Altbau in Stuttgart",
+  "voice": "Gacrux",
+  "brief": "Frau Graf, a 70-year-old Stuttgart landlady holding a flat viewing for 80 people: a crisp, formal, dry older woman’s voice, precise and unhurried, every sentence sounds like a house rule; never raises her voice; a very faint, amused warmth underneath. Says numbers (\"Nummer 47\") like a judge.",
+  "focus": "weil / dass · indirekte Fragen (ob, wann, wie viel) · wenn / deshalb · Sie",
+  "lexicon": {
+    "nouns": {
+      "Wohnung": "f",
+      "Balkon": "m",
+      "Miete": "f",
+      "Katze": "f",
+      "Schlagzeug": "n",
+      "Kehrwoche": "f",
+      "Party": "f",
+      "Fahrrad": "n",
+      "Treppenhaus": "n",
+      "Müll": "m",
+      "Musik": "f",
+      "Kopfhörer": "pl",
+      "Ruhezeit": "f",
+      "Trompete": "f",
+      "Ausweis": "m",
+      "Gehaltsabrechnungen": "pl",
+      "Mietschuldenfreiheitsbescheinigung": "f",
+      "Kuchen": "m",
+      "Salat": "m",
+      "Nachbarn": "pl",
+      "Zeit": "f",
+      "Angst": "f",
+      "Schildkröten": "pl",
+      "Geld": "n",
+      "Lied": "n"
+    },
+    "names": [
+      "Konrad",
+      "Sie"
+    ],
+    "verbs": [
+      "möchte",
+      "ist",
+      "sind",
+      "arbeite",
+      "arbeitet",
+      "hat",
+      "frage",
+      "kostet",
+      "kann",
+      "darf",
+      "mache",
+      "macht",
+      "schlafe",
+      "fahre",
+      "putze",
+      "trenne",
+      "höre",
+      "hört",
+      "nehme",
+      "spiele",
+      "gehe",
+      "bringe",
+      "bringen",
+      "sagen",
+      "sagt",
+      "bin",
+      "füttere",
+      "füttert",
+      "kümmere",
+      "habe",
+      "liebe",
+      "mag",
+      "zahlt",
+      "singe"
+    ],
+    "nonfinite": [
+      "wissen",
+      "einziehen",
+      "spielen",
+      "haben"
+    ],
+    "accVerbs": [
+      "möchte",
+      "hat",
+      "darf",
+      "mache",
+      "macht",
+      "putze",
+      "trenne",
+      "höre",
+      "hört",
+      "nehme",
+      "spiele",
+      "bringe",
+      "bringen",
+      "füttere",
+      "füttert",
+      "habe",
+      "liebe",
+      "mag",
+      "zahlt",
+      "singe"
+    ],
+    "adjectives": [
+      "alt"
+    ],
+    "subordinators": [
+      "wann",
+      "wie viel"
+    ]
+  },
+  "intro": [
+    {
+      "who": "graf",
+      "type": "text",
+      "de": "Guten Tag. Graf. Ich vermiete die Wohnung im dritten Stock. Altbau, drei Zimmer, Balkon.",
+      "en": "Good afternoon. Graf. I am letting the flat on the third floor. Old building, three rooms, balcony.",
+      "audio": "mc_graf_intro_a"
+    },
+    {
+      "who": "graf",
+      "type": "text",
+      "de": "Besichtigung um 18 Uhr. 80 Leute kommen. Sie sind Nummer 47.",
+      "emoji": "🧾",
+      "en": "Viewing at 6 pm. 80 people are coming. You are number 47.",
+      "audio": "mc_graf_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Ich habe fünf Minuten pro Person. Warum möchten Sie diese Wohnung?",
+          "emoji": "⏱️",
+          "en": "I have five minutes per person. Why do you want this flat?",
+          "audio": "mc_graf_t1a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "möchte",
+        "die",
+        "Wohnung",
+        "weil",
+        "sie",
+        "hell",
+        "ruhig",
+        "billig",
+        "groß",
+        "ist",
+        "sind",
+        "in Stuttgart",
+        "arbeite",
+        "arbeitet",
+        "einen",
+        "Balkon",
+        "hat"
+      ],
+      "wrong": {
+        "arbeitet": "arbeite",
+        "sind": "ist"
+      },
+      "intents": [
+        {
+          "id": "quiet",
+          "when": {
+            "any": [
+              "ruhig"
+            ]
+          },
+          "value": 2,
+          "fact": "🤫 mag es ruhig",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Ruhig. Ein gutes Wort. Konrad mag das Wort auch. Konrad ist meine Schildkröte.",
+              "emoji": "🐢",
+              "en": "Quiet. A good word. Konrad likes that word too. Konrad is my tortoise.",
+              "audio": "mc_graf_t1_quiet"
+            }
+          ]
+        },
+        {
+          "id": "cheap",
+          "when": {
+            "any": [
+              "billig"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Billig? 1.400 Euro kalt. Für Stuttgart ist das billig. Leider.",
+              "en": "Cheap? 1,400 euros before bills. For Stuttgart that is cheap. Sadly.",
+              "audio": "mc_graf_t1_cheap"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "when": {
+            "any": [
+              "arbeite",
+              "arbeitet",
+              "in stuttgart"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Sie arbeiten hier. Gut. Arbeit ist Ordnung. Ordnung ist gut.",
+              "en": "You work here. Good. Work is order. Order is good.",
+              "audio": "mc_graf_t1_work"
+            }
+          ]
+        },
+        {
+          "id": "nice",
+          "when": {
+            "any": [
+              "hell",
+              "groß",
+              "balkon"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Ja. Das sagen alle 80. Aber gut. Ein Grund ist ein Grund.",
+              "en": "Yes. All 80 say that. But fine. A reason is a reason.",
+              "audio": "mc_graf_t1_nice"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "möchte",
+              "wohnung"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Das sehe ich. Sie stehen ja hier. Aber warum? Ich sammle Gründe.",
+              "en": "I can see that. You're standing here, after all. But why? I collect reasons.",
+              "audio": "mc_graf_t1_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Haben Sie Fragen? Vorsicht: Direkte Fragen erschrecken Konrad. Nummer 9 hat laut gefragt: „Was kostet das?“ Konrad war drei Tage im Panzer.",
+          "en": "Any questions? Careful: direct questions frighten Konrad. Number 9 asked out loud, \"What does it cost?\" Konrad stayed in his shell for three days.",
+          "audio": "mc_graf_t2a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "möchte",
+        "wissen",
+        "frage",
+        "mich",
+        "ob",
+        "wann",
+        "wie viel",
+        "die",
+        "Miete",
+        "kostet",
+        "einziehen",
+        "kann",
+        "eine",
+        "Katze",
+        "haben",
+        "darf",
+        "Schlagzeug",
+        "spielen",
+        "Konrad",
+        "zahlt"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "drums",
+          "when": {
+            "any": [
+              "schlagzeug"
+            ]
+          },
+          "value": -2,
+          "cause": "drums",
+          "flags": [
+            "drums"
+          ],
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Schlagzeug. Nummer 12 hat das auch gefragt. Nummer 12 steht jetzt draußen.",
+              "emoji": "🥁",
+              "en": "Drums. Number 12 asked that too. Number 12 is now standing outside.",
+              "audio": "mc_graf_t2_drums"
+            }
+          ]
+        },
+        {
+          "id": "cat",
+          "when": {
+            "any": [
+              "katze"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Eine Katze? Konrad hat Angst vor Katzen. Er ist 60. Er braucht Ruhe.",
+              "emoji": "🐢",
+              "en": "A cat? Konrad is afraid of cats. He is 60. He needs peace and quiet.",
+              "audio": "mc_graf_t2_cat"
+            }
+          ]
+        },
+        {
+          "id": "konrad",
+          "when": {
+            "any": [
+              "konrad"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "askedKonrad"
+          ],
+          "fact": "🐢 stellt die richtigen Fragen",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Ob Konrad Miete zahlt? … Das hat in 40 Jahren niemand gefragt.",
+              "emoji": "🐢",
+              "en": "Whether Konrad pays rent? … In 40 years nobody has asked that.",
+              "audio": "mc_graf_t2_konrad"
+            },
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Nein. Konrad zahlt keine Miete. Nächste Frage. Schnell.",
+              "en": "No. Konrad pays no rent. Next question. Quickly.",
+              "audio": "mc_graf_t2_konrad_b"
+            }
+          ]
+        },
+        {
+          "id": "rent",
+          "when": {
+            "any": [
+              "miete",
+              "kostet",
+              "wie viel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Konrad lässt den Kopf draußen. Sehr gut. 1.400 Euro kalt. Plus Nebenkosten. Plus Kehrwoche.",
+              "en": "Konrad keeps his head out. Very good. 1,400 euros without bills. Plus bills. Plus Kehrwoche.",
+              "audio": "mc_graf_t2_rent"
+            }
+          ]
+        },
+        {
+          "id": "moveIn",
+          "when": {
+            "any": [
+              "einziehen",
+              "wann"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Konrad hat nicht gezuckt. Gut. Ab dem ersten Dezember. Wenn Konrad Sie mag.",
+              "en": "Konrad did not flinch. Good. From the first of December. If Konrad likes you.",
+              "audio": "mc_graf_t2_movein"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "wissen",
+              "frage",
+              "ob"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Ja? Sie möchten etwas wissen. Was denn? Hinter Ihnen warten 46 Leute.",
+              "en": "Yes? You want to know something. What? There are 46 people waiting behind you.",
+              "audio": "mc_graf_t2_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Hier ist die Hausordnung. Lesen Sie genau. Ich frage nachher.",
+          "emoji": "📋",
+          "en": "Here are the house rules. Read carefully. I'll ask afterwards.",
+          "audio": "mc_graf_t3a"
+        },
+        {
+          "who": "graf",
+          "type": "photo",
+          "image": "match_graf_rules",
+          "overlay": [
+            "HAUSORDNUNG",
+            "Ruhezeit: 13–15 Uhr und 22–7 Uhr",
+            "Kehrwoche: jeden Samstag",
+            "Keine Fahrräder im Flur",
+            "Müll trennen!"
+          ],
+          "alt": "Hausordnung. Ruhezeit: 13 bis 15 Uhr und 22 bis 7 Uhr. Kehrwoche: jeden Samstag. Keine Fahrräder im Flur. Müll trennen!"
+        },
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Also: Was machen Sie am Samstag?",
+          "en": "So: what do you do on Saturday?",
+          "audio": "mc_graf_t3b"
+        }
+      ],
+      "tiles": [
+        "am Samstag",
+        "ich",
+        "mache",
+        "macht",
+        "die",
+        "Kehrwoche",
+        "eine",
+        "Party",
+        "schlafe",
+        "lange",
+        "fahre",
+        "Fahrrad",
+        "im Flur",
+        "putze",
+        "das",
+        "Treppenhaus",
+        "trenne",
+        "den",
+        "Müll",
+        "gern"
+      ],
+      "wrong": {
+        "macht": "mache"
+      },
+      "intents": [
+        {
+          "id": "party",
+          "when": {
+            "any": [
+              "party"
+            ]
+          },
+          "value": -2,
+          "cause": "party",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Eine Party. Am Samstag. Am Tag der Kehrwoche. Ich notiere: Nummer 47, Party.",
+              "emoji": "✍️",
+              "en": "A party. On Saturday. On Kehrwoche day. I am writing it down: number 47, party.",
+              "audio": "mc_graf_t3_party"
+            }
+          ]
+        },
+        {
+          "id": "bike",
+          "when": {
+            "any": [
+              "im flur"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Im Flur?! Haben Sie die Hausordnung gelesen? Zeile drei!",
+              "en": "In the hallway?! Did you read the house rules? Line three!",
+              "audio": "mc_graf_t3_bike"
+            }
+          ]
+        },
+        {
+          "id": "cycle",
+          "when": {
+            "any": [
+              "fahrrad"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Fahrrad fahren. Schön. Draußen, hoffe ich. Und die Kehrwoche? Zeile zwei.",
+              "emoji": "🚲",
+              "en": "Cycling. Nice. Outside, I hope. And the Kehrwoche? Line two.",
+              "audio": "mc_graf_t3_cycle"
+            }
+          ]
+        },
+        {
+          "id": "kehrwoche",
+          "when": {
+            "any": [
+              "kehrwoche",
+              "treppenhaus",
+              "putze"
+            ]
+          },
+          "value": 2,
+          "fact": "🧹 macht die Kehrwoche",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Die Kehrwoche. Ja. Sie haben gelesen. Sie haben verstanden. Sie sind fast von hier.",
+              "emoji": "🧹",
+              "en": "The Kehrwoche. Yes. You read it. You understood. You are almost from here.",
+              "audio": "mc_graf_t3_kehrwoche"
+            }
+          ]
+        },
+        {
+          "id": "trash",
+          "when": {
+            "any": [
+              "müll",
+              "trenne"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Müll trennen ist gut. Jeden Tag. Aber am Samstag? Lesen Sie Zeile zwei.",
+              "en": "Separating rubbish is good. Every day. But on Saturday? Read line two.",
+              "audio": "mc_graf_t3_trash"
+            }
+          ]
+        },
+        {
+          "id": "sleep",
+          "when": {
+            "any": [
+              "schlafe",
+              "lange"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Lange schlafen? Samstag ist Kehrwoche. Um acht Uhr. Ich schaue zu.",
+              "emoji": "👀",
+              "en": "Sleep in? Saturday is Kehrwoche. At eight. I'll be watching.",
+              "audio": "mc_graf_t3_sleep"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "mache",
+              "macht",
+              "am samstag"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Was machen Sie? Genau, bitte. Die Hausordnung ist auch genau.",
+              "en": "What do you do? Precisely, please. The house rules are precise too.",
+              "audio": "mc_graf_t3_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Mein letzter Mieter hat um 23 Uhr Trompete gespielt. Jeden Abend. Er wohnt jetzt in Ulm.",
+          "emoji": "🎺",
+          "en": "My last tenant played the trumpet at 11 pm. Every evening. He lives in Ulm now.",
+          "audio": "mc_graf_t4a"
+        },
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Was machen Sie, wenn Sie um 23 Uhr Musik hören möchten?",
+          "en": "What do you do if you want to listen to music at 11 pm?",
+          "audio": "mc_graf_t4b"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "ich",
+        "ich",
+        "um 23 Uhr",
+        "Musik",
+        "höre",
+        "hört",
+        "nehme",
+        "Kopfhörer",
+        "ist",
+        "Ruhezeit",
+        "und",
+        "deshalb",
+        "keine",
+        "laut",
+        "spiele",
+        "Trompete",
+        "gehe",
+        "ins Bett"
+      ],
+      "wrong": {
+        "hört": "höre"
+      },
+      "intents": [
+        {
+          "id": "trumpet",
+          "when": {
+            "any": [
+              "trompete"
+            ]
+          },
+          "value": -2,
+          "cause": "drums",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Trompete. Wie mein letzter Mieter. Grüßen Sie ihn in Ulm.",
+              "emoji": "🎺",
+              "en": "Trumpet. Like my last tenant. Say hello to him in Ulm.",
+              "audio": "mc_graf_t4_trumpet"
+            }
+          ]
+        },
+        {
+          "id": "loud",
+          "when": {
+            "any": [
+              "laut"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Laut. Um 23 Uhr. Konrad wacht auf. Konrad geht seit 1966 um 22 Uhr schlafen.",
+              "en": "Loud. At 11 pm. Konrad wakes up. Konrad has gone to sleep at 10 pm since 1966.",
+              "audio": "mc_graf_t4_loud"
+            }
+          ]
+        },
+        {
+          "id": "headphones",
+          "when": {
+            "any": [
+              "kopfhörer"
+            ]
+          },
+          "value": 2,
+          "fact": "🎧 hört nachts mit Kopfhörern",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Kopfhörer. Sehr gut. Sie hören Musik, und niemand hört Sie. So geht das.",
+              "emoji": "🎧",
+              "en": "Headphones. Very good. You hear music, and nobody hears you. That is how it is done.",
+              "audio": "mc_graf_t4_headphones"
+            }
+          ]
+        },
+        {
+          "id": "therefore",
+          "when": {
+            "any": [
+              "deshalb"
+            ]
+          },
+          "value": 2,
+          "fact": "📏 denkt wie eine Hausordnung",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Ruhezeit, deshalb keine Musik. Grund und Folge. Wunderbar. Sie denken wie eine Hausordnung.",
+              "en": "Quiet hours, therefore no music. Cause and effect. Wonderful. You think like a set of house rules.",
+              "audio": "mc_graf_t4_therefore"
+            }
+          ]
+        },
+        {
+          "id": "bed",
+          "when": {
+            "any": [
+              "ins bett"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Ins Bett. Um 23 Uhr. Wie Konrad. Sie sind ein vernünftiger Mensch.",
+              "en": "To bed. At 11 pm. Like Konrad. You are a sensible person.",
+              "audio": "mc_graf_t4_bed"
+            }
+          ]
+        },
+        {
+          "id": "quietTime",
+          "when": {
+            "any": [
+              "ruhezeit",
+              "keine"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Richtig, Ruhezeit. Ab 22 Uhr hört man in diesem Haus nur Konrad. Er atmet laut.",
+              "en": "Right, quiet hours. After 10 pm the only thing you hear in this building is Konrad. He breathes loudly.",
+              "audio": "mc_graf_t4_quiettime"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "höre",
+              "hört",
+              "wenn"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Und dann? Konrad und ich warten. Konrad wartet seit 1966. Er ist geübt.",
+              "en": "And then? Konrad and I are waiting. Konrad has been waiting since 1966. He is practised.",
+              "audio": "mc_graf_t4_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "graf",
+          "type": "voice",
+          "audio": "mc_graf_vn_docs",
+          "de": "Graf hier. Kurz, die Leute warten. Bringen Sie morgen drei Dinge mit: Ihren Ausweis, Ihre letzten drei Gehaltsabrechnungen und die Mietschuldenfreiheitsbescheinigung. Ja, das Wort ist so lang. Wiederholen Sie es nicht. Bringen Sie es mit.",
+          "en": "Graf here. Briefly, people are waiting. Tomorrow bring three things: your ID, your last three payslips and the certificate from your old landlord that you owe no rent. Yes, the word is that long. Don't repeat it. Bring it.",
+          "direction": "Brisk and dry, in an echoing stairwell with people murmuring far below; she pronounces the very long word perfectly and slowly, almost proudly."
+        },
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Was bringen Sie morgen mit?",
+          "en": "What will you bring tomorrow?",
+          "audio": "mc_graf_t5a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bringe",
+        "bringen",
+        "meinen",
+        "meine",
+        "mein",
+        "Ausweis",
+        "Gehaltsabrechnungen",
+        "die",
+        "den",
+        "Mietschuldenfreiheitsbescheinigung",
+        "und",
+        "mit",
+        "einen",
+        "Kuchen",
+        "Salat",
+        "für",
+        "Konrad",
+        "nichts",
+        "alles"
+      ],
+      "wrong": {
+        "bringen": "bringe"
+      },
+      "intents": [
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -2,
+          "cause": "papers",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Nichts. Dann bekommt Nummer 48 die Wohnung. Sie hat schon eine Mappe. Mit Farben.",
+              "emoji": "📁",
+              "en": "Nothing. Then number 48 gets the flat. She already has a folder. Colour-coded.",
+              "audio": "mc_graf_t5_nothing"
+            }
+          ]
+        },
+        {
+          "id": "longWord",
+          "when": {
+            "any": [
+              "mietschuldenfreiheitsbescheinigung"
+            ]
+          },
+          "value": 2,
+          "fact": "📄 hat die Mietschuldenfreiheitsbescheinigung",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Die Mietschuldenfreiheitsbescheinigung. Sie haben es gesagt. Ohne Pause. Ich bin beeindruckt.",
+              "emoji": "📄",
+              "en": "The no-rent-arrears certificate. You said it. Without a pause. I am impressed.",
+              "audio": "mc_graf_t5_longword"
+            }
+          ]
+        },
+        {
+          "id": "all",
+          "when": {
+            "any": [
+              "alles"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Alles. Auch das lange Wort? Gut. Ich prüfe es morgen. Genau.",
+              "en": "Everything. Including the long word? Good. I'll check it tomorrow. Carefully.",
+              "audio": "mc_graf_t5_all"
+            }
+          ]
+        },
+        {
+          "id": "papers",
+          "when": {
+            "any": [
+              "ausweis",
+              "gehaltsabrechnungen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Gut. Und das lange Wort? Das Papier vom alten Vermieter?",
+              "en": "Good. And the long word? The paper from your old landlord?",
+              "audio": "mc_graf_t5_papers"
+            }
+          ]
+        },
+        {
+          "id": "salad",
+          "when": {
+            "any": [
+              "salat"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Salat für Konrad. Sie haben recherchiert. Das gefällt mir. Und die Papiere?",
+              "emoji": "🥬",
+              "en": "Salad for Konrad. You did your research. I like that. And the papers?",
+              "audio": "mc_graf_t5_salad"
+            }
+          ]
+        },
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "kuchen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Kuchen ist kein Dokument. Aber … was für ein Kuchen?",
+              "emoji": "🍰",
+              "en": "Cake is not a document. But … what kind of cake?",
+              "audio": "mc_graf_t5_cake"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "bringe",
+              "bringen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Was bringen Sie mit? Ich habe drei Dinge gesagt. Drei.",
+              "en": "What are you bringing? I said three things. Three.",
+              "audio": "mc_graf_t5_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Nummer 31 hat gesagt, dass er nie zu Hause ist. Ein perfekter Mieter. Nummer 23 hat Konrad gefragt, ob er vegan ist. Konrad ist seit 60 Jahren vegan. Er war beleidigt.",
+          "en": "Number 31 said he is never at home. A perfect tenant. Number 23 asked Konrad whether he is vegan. Konrad has been vegan for 60 years. He was offended.",
+          "audio": "mc_graf_t6a"
+        },
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Und Sie? Was sagen Ihre alten Nachbarn über Sie?",
+          "en": "And you? What do your old neighbours say about you?",
+          "audio": "mc_graf_t6b"
+        }
+      ],
+      "tiles": [
+        "meine",
+        "alten",
+        "alte",
+        "Nachbarn",
+        "sagen",
+        "sagt",
+        "dass",
+        "ich",
+        "sehr",
+        "ruhig",
+        "freundlich",
+        "laut",
+        "bin",
+        "ist",
+        "nie",
+        "zu Hause",
+        "manchmal",
+        "Schlagzeug",
+        "spiele",
+        "nett"
+      ],
+      "wrong": {
+        "sagt": "sagen",
+        "ist": "bin"
+      },
+      "intents": [
+        {
+          "id": "noDrums",
+          "when": {
+            "all": [
+              "nie",
+              "schlagzeug"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Nie Schlagzeug. Das sagen Ihre Nachbarn? Freiwillig? Ich notiere es.",
+              "emoji": "🥁",
+              "en": "Never drums. Your neighbours say that? Voluntarily? I'm writing it down.",
+              "audio": "mc_graf_t6_nodrums"
+            }
+          ]
+        },
+        {
+          "id": "drums",
+          "when": {
+            "any": [
+              "schlagzeug"
+            ]
+          },
+          "value": -2,
+          "cause": "drums",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Schlagzeug. Ihre Nachbarn sagen das. Ich glaube Ihren Nachbarn.",
+              "emoji": "🥁",
+              "en": "Drums. Your neighbours say that. I believe your neighbours.",
+              "audio": "mc_graf_t6_drums"
+            }
+          ]
+        },
+        {
+          "id": "neverLoud",
+          "when": {
+            "all": [
+              "nie",
+              "laut"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Nie laut. Das ist fast so schön wie ruhig. Ich rufe sie morgen an.",
+              "emoji": "🤫",
+              "en": "Never loud. That's almost as nice as quiet. I'll call them tomorrow.",
+              "audio": "mc_graf_t6_neverloud"
+            }
+          ]
+        },
+        {
+          "id": "loud",
+          "when": {
+            "any": [
+              "laut"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Manchmal laut. Ehrlich. Aber ehrlich laut ist immer noch laut.",
+              "en": "Sometimes loud. Honest. But honestly loud is still loud.",
+              "audio": "mc_graf_t6_loud"
+            }
+          ]
+        },
+        {
+          "id": "neverHome",
+          "when": {
+            "any": [
+              "nie"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "neverHome"
+          ],
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Nie zu Hause? Wie Nummer 31. Wo schlafen Sie denn? Verdächtig. Aber leise.",
+              "emoji": "🤨",
+              "en": "Never at home? Like number 31. Where do you sleep, then? Suspicious. But quiet.",
+              "audio": "mc_graf_t6_neverhome"
+            }
+          ]
+        },
+        {
+          "id": "quiet",
+          "when": {
+            "any": [
+              "ruhig"
+            ]
+          },
+          "value": 2,
+          "fact": "🏠 hat gute Nachbarn",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Ihre Nachbarn sagen, dass Sie ruhig sind. Gut. Ich rufe sie morgen an. Ich rufe immer an.",
+              "emoji": "☎️",
+              "en": "Your neighbours say that you are quiet. Good. I will call them tomorrow. I always call.",
+              "audio": "mc_graf_t6_quiet"
+            }
+          ]
+        },
+        {
+          "id": "friendly",
+          "when": {
+            "any": [
+              "freundlich",
+              "nett"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Freundlich ist schön. Ruhig ist schöner. Aber gut.",
+              "en": "Friendly is nice. Quiet is nicer. But fine.",
+              "audio": "mc_graf_t6_friendly"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "sagen",
+              "sagt",
+              "dass"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Sie sagen … was? Ich schreibe Zitate auf. Wörtlich. Ich habe einen Ordner für Zitate. Er heißt „Zitate“.",
+              "en": "You say … what? I write quotes down. Word for word. I have a folder for quotes. It is called \"Quotes\".",
+              "audio": "mc_graf_t6_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Ich bin oft bei meiner Schwester in Ulm. Zwei Wochen, drei Wochen.",
+          "en": "I'm often at my sister's in Ulm. Two weeks, three weeks.",
+          "audio": "mc_graf_t7a"
+        },
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Wenn ich weg bin: Wer füttert Konrad?",
+          "emoji": "🐢",
+          "en": "When I'm away: who feeds Konrad?",
+          "audio": "mc_graf_t7b"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "Sie",
+        "weg",
+        "sind",
+        "ist",
+        "füttere",
+        "füttert",
+        "ich",
+        "ich",
+        "Konrad",
+        "kümmere",
+        "mich",
+        "um",
+        "gern",
+        "habe",
+        "keine",
+        "Zeit",
+        "Angst",
+        "vor",
+        "Schildkröten",
+        "singe",
+        "ein",
+        "Lied"
+      ],
+      "wrong": {
+        "füttert": "füttere",
+        "ist": "sind"
+      },
+      "intents": [
+        {
+          "id": "helpNever",
+          "when": {
+            "any": [
+              "füttere",
+              "füttert",
+              "kümmere"
+            ],
+            "flag": "neverHome"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Sie? Sie sind doch nie zu Hause! Das haben Sie gesagt. Konrad hört alles. Langsam, aber alles.",
+              "emoji": "🐢",
+              "en": "You? But you are never at home! You said so. Konrad hears everything. Slowly, but everything.",
+              "audio": "mc_graf_t7_helpnever"
+            }
+          ]
+        },
+        {
+          "id": "feed",
+          "when": {
+            "any": [
+              "füttere",
+              "füttert"
+            ]
+          },
+          "value": 2,
+          "fact": "🐢 füttert Konrad",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Sie füttern Konrad. Löwenzahn, Salat, keine Tomaten. Ich schreibe es Ihnen auf.",
+              "emoji": "🥬",
+              "en": "You'll feed Konrad. Dandelion, lettuce, no tomatoes. I'll write it down for you.",
+              "audio": "mc_graf_t7_feed"
+            }
+          ]
+        },
+        {
+          "id": "care",
+          "when": {
+            "any": [
+              "kümmere"
+            ]
+          },
+          "value": 2,
+          "fact": "🐢 kümmert sich um Konrad",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Sie kümmern sich um Konrad. Konrad hat gerade den Kopf bewegt. Das ist ein Ja.",
+              "emoji": "🐢",
+              "en": "You will look after Konrad. Konrad just moved his head. That is a yes.",
+              "audio": "mc_graf_t7_care"
+            }
+          ]
+        },
+        {
+          "id": "noFear",
+          "when": {
+            "all": [
+              "keine",
+              "angst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Keine Angst. Gut. Konrad hat auch keine Angst. Er hat nur Hunger.",
+              "emoji": "🐢",
+              "en": "Not afraid. Good. Konrad isn't afraid either. He's just hungry.",
+              "audio": "mc_graf_t7_nofear"
+            }
+          ]
+        },
+        {
+          "id": "noTime",
+          "when": {
+            "any": [
+              "zeit"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Keine Zeit. Konrad hat 60 Jahre Zeit. Und Sie nicht fünf Minuten.",
+              "en": "No time. Konrad has sixty years of time. And you don't have five minutes.",
+              "audio": "mc_graf_t7_notime"
+            }
+          ]
+        },
+        {
+          "id": "fear",
+          "when": {
+            "any": [
+              "angst",
+              "schildkröten"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Angst vor Schildkröten? Konrad ist 60 und schläft den ganzen Winter. Er ist ungefährlich.",
+              "en": "Afraid of tortoises? Konrad is 60 and sleeps all winter. He is harmless.",
+              "audio": "mc_graf_t7_fear"
+            }
+          ]
+        },
+        {
+          "id": "sing",
+          "when": {
+            "any": [
+              "singe",
+              "lied"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Ein Lied? Konrad mag Schlager. Langsame Schlager. Sehr langsame. Ein Lied dauert bei ihm einen Nachmittag.",
+              "emoji": "🎵",
+              "en": "A song? Konrad likes schlager. Slow schlager. Very slow. One song takes him an afternoon.",
+              "audio": "mc_graf_t7_sing"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "wenn",
+              "weg",
+              "konrad"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Ja, und? Wer füttert ihn? Konrad wartet. Sehr langsam, aber er wartet.",
+              "en": "Yes, and? Who feeds him? Konrad is waiting. Very slowly, but he is waiting.",
+              "audio": "mc_graf_t7_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Es ist 18 Uhr 45. Noch 33 Leute im Treppenhaus. Ich muss Ihnen etwas sagen, Nummer 47. Leise.",
+          "en": "It is 18:45. Still 33 people on the stairs. I have to tell you something, number 47. Quietly.",
+          "audio": "mc_graf_t8a"
+        },
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Das Haus gehört nicht mir. Es gehört Konrad. Mein Vater hat es ihm 1971 vererbt. Ich bin nur seine Sekretärin.",
+          "emoji": "📜",
+          "en": "The house does not belong to me. It belongs to Konrad. My father left it to him in 1971. I am only his secretary.",
+          "audio": "mc_graf_t8_owner"
+        },
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Konrad entscheidet. Er nickt einmal pro Jahr. Heute ist es so weit.",
+          "en": "Konrad decides. He nods once a year. Today is the day.",
+          "audio": "mc_graf_t8_owner_b"
+        },
+        {
+          "who": "graf",
+          "type": "text",
+          "de": "Letzte Frage, Nummer 47. Konrad hört zu. Warum soll er Ihnen die Wohnung geben?",
+          "en": "Last question, number 47. Konrad is listening. Why should he give you the flat?",
+          "audio": "mc_graf_t8b"
+        }
+      ],
+      "tiles": [
+        "weil",
+        "ich",
+        "ruhig",
+        "bin",
+        "ist",
+        "die",
+        "Kehrwoche",
+        "liebe",
+        "Konrad",
+        "mag",
+        "den",
+        "Müll",
+        "trenne",
+        "viel",
+        "Geld",
+        "habe",
+        "eine",
+        "Party",
+        "mache",
+        "und",
+        "gern"
+      ],
+      "wrong": {
+        "ist": "bin"
+      },
+      "intents": [
+        {
+          "id": "party",
+          "when": {
+            "any": [
+              "party"
+            ]
+          },
+          "value": -2,
+          "cause": "party",
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Weil Sie eine Party machen? Das ist kein Grund. Das ist ein Geständnis.",
+              "en": "Because you're throwing a party? That is not a reason. That is a confession.",
+              "audio": "mc_graf_t8_party"
+            }
+          ]
+        },
+        {
+          "id": "kehrwoche",
+          "when": {
+            "any": [
+              "kehrwoche"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Weil Sie die Kehrwoche lieben. Das hat in 40 Jahren niemand gesagt. Niemand.",
+              "emoji": "🧹",
+              "en": "Because you love the Kehrwoche. Nobody has said that in 40 years. Nobody.",
+              "audio": "mc_graf_t8_kehrwoche"
+            }
+          ]
+        },
+        {
+          "id": "konrad",
+          "when": {
+            "any": [
+              "konrad"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Weil Sie Konrad mögen. Er hat geblinzelt. Das ist viel für Konrad. Das ist fast ein Mietvertrag.",
+              "emoji": "🐢",
+              "en": "Because you like Konrad. He blinked. That is a lot for Konrad. That is almost a lease.",
+              "audio": "mc_graf_t8_konrad"
+            }
+          ]
+        },
+        {
+          "id": "quiet",
+          "when": {
+            "any": [
+              "ruhig"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Weil Sie ruhig sind. Das ist der beste Grund. Der einzige Grund.",
+              "en": "Because you are quiet. That is the best reason. The only reason.",
+              "audio": "mc_graf_t8_quiet"
+            }
+          ]
+        },
+        {
+          "id": "trash",
+          "when": {
+            "any": [
+              "müll",
+              "trenne"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Weil Sie Müll trennen. Gut. Gelb, blau, braun, schwarz. Ich prüfe das.",
+              "en": "Because you separate rubbish. Good. Yellow, blue, brown, black. I check.",
+              "audio": "mc_graf_t8_trash"
+            }
+          ]
+        },
+        {
+          "id": "money",
+          "when": {
+            "any": [
+              "geld"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Geld haben alle 80. Fast alle. Nummer 52 hat einen Hamster und keinen Job.",
+              "en": "All 80 have money. Almost all. Number 52 has a hamster and no job.",
+              "audio": "mc_graf_t8_money"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "weil"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graf",
+              "type": "text",
+              "de": "Weil … ? Ich habe noch 33 Leute. Bitte.",
+              "en": "Because … ? I still have 33 people. Please.",
+              "audio": "mc_graf_t8_vague"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "graf",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Nummer 47, bitte konzentrieren Sie sich.",
+    "en": "That was not my question. Number 47, please concentrate.",
+    "audio": "mc_graf_offtopic"
+  },
+  "confused": [
+    {
+      "who": "graf",
+      "type": "text",
+      "de": "Wie bitte? Noch einmal, langsam und ordentlich.",
+      "emoji": "🧐",
+      "en": "Pardon? Once more, slowly and neatly.",
+      "audio": "mc_graf_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "graf",
+        "type": "text",
+        "de": "Nummer 47. Konrad hat genickt. Ganz langsam. Fünf Minuten lang. Sie bekommen die Wohnung. Die anderen 79 dürfen gehen.",
+        "emoji": "🔑",
+        "en": "Number 47. Konrad nodded. Very slowly. For five minutes. You get the flat. The other 79 may go.",
+        "audio": "mc_graf_win"
+      },
+      {
+        "who": "graf",
+        "type": "text",
+        "de": "Willkommen im Haus, {name}. Ihre erste Kehrwoche ist am Samstag. Um acht.",
+        "en": "Welcome to the building, {name}. Your first Kehrwoche is on Saturday. At eight."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "graf",
+        "type": "text",
+        "de": "Sie bekommen die Wohnung. Auf Probe. Drei Monate. Konrad hat nur halb genickt. Er beobachtet Sie.",
+        "emoji": "🐢👀",
+        "en": "You get the flat. On probation. Three months. Konrad only half nodded. He is watching you.",
+        "audio": "mc_graf_partial"
+      }
+    ],
+    "deleted": {
+      "default": {
+        "who": "graf",
+        "type": "text",
+        "de": "Danke, Nummer 47. Konrad hat den Kopf eingezogen. Das ist ein Nein. Wir melden uns. Wir melden uns nicht.",
+        "en": "Thank you, number 47. Konrad pulled his head in. That is a no. We will be in touch. We will not be in touch.",
+        "audio": "mc_graf_del_default"
+      },
+      "confused": {
+        "who": "graf",
+        "type": "text",
+        "de": "Ich verstehe Sie nicht. Und ich habe noch 33 Leute. Auf Wiedersehen.",
+        "en": "I don't understand you. And I still have 33 people. Goodbye.",
+        "audio": "mc_graf_del_confused"
+      },
+      "drums": {
+        "who": "graf",
+        "type": "text",
+        "de": "Lärm im Altbau. Nein. Nummer 48, bitte!",
+        "emoji": "🥁",
+        "en": "Noise in an old building. No. Number 48, please!",
+        "audio": "mc_graf_del_drums"
+      },
+      "party": {
+        "who": "graf",
+        "type": "text",
+        "de": "Party am Samstag. Am Tag der Kehrwoche. Auf Wiedersehen.",
+        "emoji": "🧹",
+        "en": "A party on Saturday. On Kehrwoche day. Goodbye.",
+        "audio": "mc_graf_del_party"
+      },
+      "papers": {
+        "who": "graf",
+        "type": "text",
+        "de": "Ohne Papiere keine Wohnung. Ohne Wohnung kein Konrad. Auf Wiedersehen.",
+        "emoji": "📁",
+        "en": "No papers, no flat. No flat, no Konrad. Goodbye.",
+        "audio": "mc_graf_del_papers"
+      }
+    },
+    "sunday": {
+      "who": "graf",
+      "type": "voice",
+      "audio": "mc_graf_vn_sunday",
+      "de": "Graf hier. Ich flüstere, weil Sonntag ist. Sonntagsruhe. Konrad ist aufgewacht. Er möchte Sie kennenlernen. Bringen Sie Salat mit. Und leise, bitte.",
+      "en": "Graf here. I'm whispering because it's Sunday. Sunday quiet. Konrad has woken up. He would like to meet you. Bring lettuce. And quietly, please.",
+      "direction": "A dry, formal whisper, very close to the phone, perfectly calm; a tiny warm smile in the last sentence."
+    }
+  },
+  "partialTitle": "Wohnung auf Probe. Konrad beobachtet Sie.",
+  "share": {
+    "win": "Frau Graf (70, Vermieterin) hat mich geliked 🔑 Ich habe die Wohnung! Gegen 79 andere! Mein Deutsch: {score}/100. Schaffst du das auch? {url}",
+    "partial": "Ich habe die Wohnung von Frau Graf (70) … auf Probe. Konrad, die Schildkröte, beobachtet mich 🐢 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Frau Graf (70, Vermieterin) hat mich gelöscht 🧾 Nummer 48 hat jetzt meine Wohnung. Mein Deutsch: {score}/100. Schaffst du es? {url}"
+  },
+  "imageCharacter": "Frau Graf, a 70-year-old landlady, tall and very upright, silver hair in a tight neat bun, half-moon reading glasses on a chain, a navy cardigan buttoned to the top with a small brooch, holding a clipboard and a pen; one strictly raised eyebrow and the faintest hint of a smile.",
+  "imagePrompts": [
+    {
+      "id": "match_graf",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands at the open door of a flat in an old stairwell with a wooden banister; behind her, on the stairs going up and down, a long queue of tiny waiting people with folders. An old tortoise sits at her feet like a guard. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_graf_rules",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a single sheet of white paper pinned with four red drawing pins to a cork board in an old stairwell, seen straight on, the paper filling most of the frame. The paper is COMPLETELY blank: nothing written, printed or drawn on it at all. A small broom and a dustpan hang on a hook beside the board. Soft daylight."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich möchte die Wohnung, weil sie ruhig ist.",
+      "score": 100,
+      "intent": "quiet",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Weil sie ruhig sind.",
+      "score": 80,
+      "intent": "quiet",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte die Wohnung, weil ich in Stuttgart arbeite.",
+      "score": 100,
+      "intent": "work",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil ich in Stuttgart arbeitet.",
+      "score": 80,
+      "intent": "work",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Weil sie einen Balkon hat.",
+      "score": 100,
+      "intent": "nice",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil sie hell ist.",
+      "score": 100,
+      "intent": "nice",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil sie ist hell.",
+      "score": 70,
+      "intent": "nice",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Weil sie billig ist.",
+      "score": 100,
+      "intent": "cheap",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte die Wohnung.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich die Wohnung weil ruhig.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte wissen, wie viel die Miete kostet.",
+      "score": 100,
+      "intent": "rent",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte wissen, wie viel kostet die Miete.",
+      "score": 70,
+      "intent": "rent",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich frage mich, wann ich einziehen kann.",
+      "score": 100,
+      "intent": "moveIn",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte wissen, ob ich eine Katze haben darf.",
+      "score": 100,
+      "intent": "cat",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte wissen, ob ich Schlagzeug spielen darf.",
+      "score": 100,
+      "intent": "drums",
+      "delta": -2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte wissen, ob ich darf Schlagzeug spielen.",
+      "score": 70,
+      "intent": "drums",
+      "delta": -2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte wissen.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich wissen möchte, wann ich kann einziehen.",
+      "score": 40,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte wissen, ob Konrad Miete zahlt.",
+      "score": 100,
+      "intent": "konrad",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte wissen, ob Konrad zahlt Miete.",
+      "score": 70,
+      "intent": "konrad",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Am Samstag mache ich die Kehrwoche.",
+      "score": 100,
+      "intent": "kehrwoche",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Am Samstag macht ich die Kehrwoche.",
+      "score": 80,
+      "intent": "kehrwoche",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich putze das Treppenhaus.",
+      "score": 100,
+      "intent": "kehrwoche",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich mache die Kehrwoche gern.",
+      "score": 100,
+      "intent": "kehrwoche",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich trenne den Müll.",
+      "score": 100,
+      "intent": "trash",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Am Samstag schlafe ich lange.",
+      "score": 100,
+      "intent": "sleep",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Am Samstag mache ich eine Party.",
+      "score": 100,
+      "intent": "party",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich fahre Fahrrad im Flur.",
+      "score": 100,
+      "intent": "bike",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Am Samstag ich mache die Kehrwoche.",
+      "score": 70,
+      "intent": "kehrwoche",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich die Kehrwoche.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Am Samstag fahre ich Fahrrad.",
+      "score": 100,
+      "intent": "cycle",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich um 23 Uhr Musik höre, nehme ich Kopfhörer.",
+      "score": 100,
+      "intent": "headphones",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich um 23 Uhr Musik hört, nehme ich Kopfhörer.",
+      "score": 80,
+      "intent": "headphones",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich um 23 Uhr Musik höre, ich nehme Kopfhörer.",
+      "score": 70,
+      "intent": "headphones",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Um 23 Uhr ist Ruhezeit und deshalb höre ich keine Musik.",
+      "score": 100,
+      "intent": "therefore",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Um 23 Uhr ist Ruhezeit und deshalb ich höre keine Musik.",
+      "score": 70,
+      "intent": "therefore",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Um 23 Uhr ist Ruhezeit.",
+      "score": 100,
+      "intent": "quietTime",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gehe ins Bett.",
+      "score": 100,
+      "intent": "bed",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich höre laut Musik.",
+      "score": 100,
+      "intent": "loud",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich spiele Trompete.",
+      "score": 100,
+      "intent": "trumpet",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich um 23 Uhr Musik höre.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich höre Musik, ich nehme Kopfhörer.",
+      "score": 70,
+      "intent": "headphones",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich Kopfhörer.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bringe meinen Ausweis, meine Gehaltsabrechnungen und die Mietschuldenfreiheitsbescheinigung mit.",
+      "score": 100,
+      "intent": "longWord",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bringe die Mietschuldenfreiheitsbescheinigung mit.",
+      "score": 100,
+      "intent": "longWord",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bringe mein Ausweis mit.",
+      "score": 85,
+      "intent": "papers",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bringen meinen Ausweis und meine Gehaltsabrechnungen mit.",
+      "score": 80,
+      "intent": "papers",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bringe alles mit.",
+      "score": 100,
+      "intent": "all",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bringe einen Salat für Konrad mit.",
+      "score": 100,
+      "intent": "salad",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bringe einen Kuchen mit.",
+      "score": 100,
+      "intent": "cake",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bringe nichts mit.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich meinen Ausweis.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Meine alten Nachbarn sagen, dass ich sehr ruhig bin.",
+      "score": 100,
+      "intent": "quiet",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Meine alte Nachbarn sagen, dass ich sehr ruhig bin.",
+      "score": 85,
+      "intent": "quiet",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Meine Nachbarn sagen, dass ich ruhig ist.",
+      "score": 80,
+      "intent": "quiet",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Meine Nachbarn sagen, dass ich bin ruhig.",
+      "score": 70,
+      "intent": "quiet",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Meine Nachbarn sagen, dass ich freundlich bin.",
+      "score": 100,
+      "intent": "friendly",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Meine Nachbarn sagen, dass ich nie zu Hause bin.",
+      "score": 100,
+      "intent": "neverHome",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Meine Nachbarn sagen, dass ich manchmal laut bin.",
+      "score": 100,
+      "intent": "loud",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Meine Nachbarn sagen, dass ich Schlagzeug spiele.",
+      "score": 100,
+      "intent": "drums",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Meine Nachbarn sagen.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich ruhig.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Meine Nachbarn sagen, dass ich nie laut bin.",
+      "score": 100,
+      "intent": "neverLoud",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Meine Nachbarn sagen, dass ich nie Schlagzeug spiele.",
+      "score": 100,
+      "intent": "noDrums",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn Sie weg sind, füttere ich Konrad.",
+      "score": 100,
+      "intent": "feed",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn Sie weg ist, füttere ich Konrad.",
+      "score": 80,
+      "intent": "feed",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn Sie weg sind, ich füttere Konrad.",
+      "score": 70,
+      "intent": "feed",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich füttere Konrad.",
+      "score": 100,
+      "intent": "feed",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich kümmere mich gern um Konrad.",
+      "score": 100,
+      "intent": "care",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe keine Zeit.",
+      "score": 100,
+      "intent": "noTime",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe Angst vor Schildkröten.",
+      "score": 100,
+      "intent": "fear",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn Sie weg sind.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich Konrad.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe keine Angst vor Schildkröten.",
+      "score": 100,
+      "intent": "noFear",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn Sie weg sind, singe ich Konrad ein Lied.",
+      "score": 100,
+      "intent": "sing",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Weil ich ruhig bin.",
+      "score": 100,
+      "intent": "quiet",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Weil ich ruhig ist.",
+      "score": 80,
+      "intent": "quiet",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Weil ich bin ruhig.",
+      "score": 70,
+      "intent": "quiet",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Weil ich die Kehrwoche liebe.",
+      "score": 100,
+      "intent": "kehrwoche",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Weil ich Konrad mag.",
+      "score": 100,
+      "intent": "konrad",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Weil ich den Müll trenne.",
+      "score": 100,
+      "intent": "trash",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Weil ich viel Geld habe.",
+      "score": 100,
+      "intent": "money",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Weil ich gern eine Party mache.",
+      "score": 100,
+      "intent": "party",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich ruhig.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich möchte die Wohnung, weil sie ruhig ist."
+        ],
+        [
+          "t2",
+          "Ich möchte wissen, wie viel die Miete kostet."
+        ],
+        [
+          "t3",
+          "Am Samstag mache ich die Kehrwoche."
+        ],
+        [
+          "t4",
+          "Wenn ich um 23 Uhr Musik höre, nehme ich Kopfhörer."
+        ],
+        [
+          "t5",
+          "Ich bringe meinen Ausweis, meine Gehaltsabrechnungen und die Mietschuldenfreiheitsbescheinigung mit."
+        ],
+        [
+          "t6",
+          "Meine alten Nachbarn sagen, dass ich sehr ruhig bin."
+        ],
+        [
+          "t7",
+          "Wenn Sie weg sind, füttere ich Konrad."
+        ],
+        [
+          "t8",
+          "Weil ich die Kehrwoche liebe."
+        ]
+      ]
+    },
+    {
+      "name": "probation",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Weil sie billig ist."
+        ],
+        [
+          "t2",
+          "Ich möchte wissen, ob ich eine Katze haben darf."
+        ],
+        [
+          "t3",
+          "Am Samstag schlafe ich lange."
+        ],
+        [
+          "t4",
+          "Ich gehe ins Bett."
+        ],
+        [
+          "t5",
+          "Ich bringe einen Kuchen mit."
+        ],
+        [
+          "t6",
+          "Meine Nachbarn sagen, dass ich nie zu Hause bin."
+        ],
+        [
+          "t7",
+          "Ich füttere Konrad."
+        ],
+        [
+          "t8",
+          "Weil ich viel Geld habe."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Weil sie billig ist."
+        ],
+        [
+          "t2",
+          "Ich möchte wissen, ob ich Schlagzeug spielen darf."
+        ],
+        [
+          "t3",
+          "Am Samstag mache ich eine Party."
+        ]
+      ]
+    }
+  ]
+}

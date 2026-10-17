@@ -1,0 +1,2150 @@
+{
+  "id": "tod",
+  "name": "Der Tod",
+  "age": 10000,
+  "emoji": "🏖️",
+  "image": "match_tod",
+  "level": "B2.2",
+  "order": 3,
+  "bio": "Ich habe frei. Endlich. Zum ersten Mal seit 10.000 Jahren. Ostsee!",
+  "bioEn": "I’m off work. Finally. For the first time in 10,000 years. The Baltic Sea!",
+  "goal": "Death is on his first holiday ever. Plan him a perfect day at the beach so he finally relaxes.",
+  "tagline": "Sensenmann · zeitlos · Urlaub an der Ostsee",
+  "voice": "Iapetus",
+  "brief": "Der Tod on holiday: a deep, slow, gentle and very polite male voice, a little hollow, as if speaking from a long corridor; shy, awkward, delighted by tiny things like ice cream; dry, self-aware humour about his job, never scary.",
+  "focus": "irreale Bedingungen · an deiner Stelle · hättest … sollen · trotz/wegen/während + Genitiv",
+  "lexicon": {
+    "nouns": {
+      "Eis": "n",
+      "Angst": "f",
+      "Windes": "m",
+      "Wind": "m",
+      "Möwen": "pl",
+      "Kutte": "f",
+      "Strandkorb": "m",
+      "Kind": "n",
+      "Schokolade": "f",
+      "Vanille": "f",
+      "Erdbeere": "f",
+      "Lakritz": "n",
+      "Sorten": "pl",
+      "Sonnencreme": "f",
+      "Regens": "m",
+      "Regen": "m",
+      "Minigolf": "n",
+      "Schach": "n",
+      "Museum": "n",
+      "Fischbrötchen": "n",
+      "Wetter": "n",
+      "Tag": "m",
+      "Knoblauch": "m",
+      "Sandburg": "f"
+    },
+    "names": [],
+    "verbs": [
+      "wäre",
+      "bin",
+      "würde",
+      "solltest",
+      "könntest",
+      "habe",
+      "könnten",
+      "wünschte",
+      "wärst",
+      "bist",
+      "ist",
+      "würdest",
+      "komme",
+      "war",
+      "hättest",
+      "hast",
+      "steht",
+      "weiß"
+    ],
+    "nonfinite": [
+      "schwimmen",
+      "gehen",
+      "essen",
+      "schlafen",
+      "arbeiten",
+      "bleiben",
+      "nehmen",
+      "probieren",
+      "sollen",
+      "anbehalten",
+      "spielen",
+      "spazieren gehen",
+      "lachen",
+      "gewesen",
+      "gearbeitet",
+      "bauen"
+    ],
+    "imperatives": [
+      "zieh",
+      "nimm"
+    ],
+    "accVerbs": [
+      "würde",
+      "solltest",
+      "könntest",
+      "habe",
+      "könnten",
+      "hättest",
+      "hast",
+      "würdest",
+      "zieh",
+      "nimm"
+    ],
+    "adjectives": [
+      "grün",
+      "blau",
+      "rot"
+    ]
+  },
+  "intro": [
+    {
+      "who": "tod",
+      "type": "text",
+      "de": "Hallo. Ich bin der Tod. Keine Angst. Ich habe frei. Endlich.",
+      "emoji": "🏖️",
+      "en": "Hello. I’m Death. Don’t be afraid. I’m off work. Finally.",
+      "audio": "mc_tod_t1a"
+    },
+    {
+      "who": "tod",
+      "type": "text",
+      "de": "Ich bin an der Ostsee. Zum ersten Mal seit 10.000 Jahren im Urlaub.",
+      "en": "I’m at the Baltic Sea. On holiday for the first time in 10,000 years.",
+      "audio": "mc_tod_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Das Problem: Ich weiß nicht, was man im Urlaub macht. Was würdest du machen?",
+          "emoji": "🤔",
+          "en": "The problem: I don’t know what people do on holiday. What would you do?",
+          "audio": "mc_tod_t1c"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "ich",
+        "ich",
+        "du",
+        "wäre",
+        "bin",
+        "würde",
+        "schwimmen",
+        "gehen",
+        "an deiner Stelle",
+        "ein",
+        "Eis",
+        "essen",
+        "solltest",
+        "könntest",
+        "schlafen",
+        "arbeiten",
+        "habe",
+        "Angst"
+      ],
+      "wrong": {
+        "bin": {
+          "to": "wäre",
+          "note": "An unreal condition: “Wenn ich du wäre, …”."
+        }
+      },
+      "intents": [
+        {
+          "id": "work",
+          "when": {
+            "any": [
+              "arbeiten"
+            ]
+          },
+          "value": -2,
+          "cause": "work",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Arbeiten?! Nein! Ich habe FREI. Die Sense ist zu Hause. Im Keller. Abgeschlossen.",
+              "emoji": "😰",
+              "en": "Work?! No! I’m OFF. The scythe is at home. In the cellar. Locked up.",
+              "audio": "mc_tod_t1_work"
+            }
+          ]
+        },
+        {
+          "id": "fear",
+          "when": {
+            "any": [
+              "angst"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Du hast Angst? Vor mir? Ich trage einen Strohhut. Ich bin völlig harmlos.",
+              "emoji": "👒",
+              "en": "You’re scared? Of me? I’m wearing a straw hat. I’m completely harmless.",
+              "audio": "mc_tod_t1_fear"
+            }
+          ]
+        },
+        {
+          "id": "ice",
+          "when": {
+            "any": [
+              "eis"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "ice"
+          ],
+          "fact": "🍦 empfiehlt Eis",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Ein Eis! Ich habe noch nie ein Eis gegessen. Ich bin aufgeregt. Meine Knochen klappern.",
+              "emoji": "🍦",
+              "en": "An ice cream! I’ve never had an ice cream. I’m excited. My bones are rattling.",
+              "audio": "mc_tod_t1_ice"
+            }
+          ]
+        },
+        {
+          "id": "swim",
+          "when": {
+            "any": [
+              "schwimmen"
+            ]
+          },
+          "value": 2,
+          "fact": "🏊 empfiehlt Schwimmen",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Schwimmen! In der Kutte? Ich probiere es. Wenn ich untergehe, kenne ich ja den Weg.",
+              "emoji": "🏊",
+              "en": "Swimming! In the robe? I’ll try it. If I go under, well, I know the way.",
+              "audio": "mc_tod_t1_swim"
+            }
+          ]
+        },
+        {
+          "id": "sleep",
+          "when": {
+            "any": [
+              "schlafen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Schlafen. Ich habe noch nie geschlafen. Man legt sich hin und … wartet? Interessant.",
+              "emoji": "😴",
+              "en": "Sleep. I’ve never slept. You lie down and … wait? Interesting.",
+              "audio": "mc_tod_t1_sleep"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Ich bin am Strand. Hör mal.",
+          "emoji": "🎙️",
+          "en": "I’m on the beach. Listen.",
+          "audio": "mc_tod_t2a"
+        },
+        {
+          "who": "tod",
+          "type": "voice",
+          "audio": "mc_tod_vn_beach",
+          "de": "Hier ist sehr viel Wind. Und die Möwen schreien. Eine besonders laut. Ich nenne sie Herbert. Herbert schreit mich an! Und meine Kutte ist schwarz. Mir ist heiß und kalt zugleich. Ist das normal?",
+          "en": "There’s a lot of wind here. And the gulls are screaming. One especially loudly. I call her Herbert. Herbert is screaming at me! And my robe is black. I’m hot and cold at the same time. Is that normal?",
+          "direction": "Strong wind and screeching seagulls around him, waves; slightly overwhelmed, holding his hat on, almost whispering the last question."
+        },
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Soll ich trotzdem am Strand bleiben?",
+          "en": "Should I stay on the beach anyway?",
+          "audio": "mc_tod_t2b"
+        }
+      ],
+      "tiles": [
+        "trotz",
+        "wegen",
+        "des",
+        "dem",
+        "Windes",
+        "Wind",
+        "der",
+        "Möwen",
+        "solltest",
+        "würde",
+        "du",
+        "ich",
+        "an den Strand",
+        "am Strand",
+        "gehen",
+        "im Hotel",
+        "bleiben",
+        "zieh",
+        "die",
+        "Kutte",
+        "aus",
+        "ja"
+      ],
+      "wrong": {
+        "Wind": {
+          "to": "Windes",
+          "note": "Genitive after trotz / wegen: des Windes."
+        }
+      },
+      "intents": [
+        {
+          "id": "hotel",
+          "when": {
+            "any": [
+              "im hotel"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Im Hotel? Das Zimmer ist so klein wie ein … nein, ich sage es nicht. Urlaub!",
+              "emoji": "🏨",
+              "en": "In the hotel? The room is as small as a … no, I won’t say it. Holiday!",
+              "audio": "mc_tod_t2_hotel"
+            }
+          ]
+        },
+        {
+          "id": "robe",
+          "when": {
+            "any": [
+              "kutte",
+              "zieh"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "robeOff"
+          ],
+          "fact": "🩳 überredet den Tod zur Badehose",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Die Kutte ausziehen? Darunter trage ich … eine Badehose. Mit Totenköpfen. Okay.",
+              "emoji": "🩳",
+              "en": "Take off the robe? Underneath I’m wearing … swimming trunks. With skulls on. Okay.",
+              "audio": "mc_tod_t2_robe"
+            }
+          ]
+        },
+        {
+          "id": "despiteGulls",
+          "when": {
+            "all": [
+              "trotz",
+              "möwen"
+            ]
+          },
+          "value": 2,
+          "fact": "🐦 trotzt den Möwen",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Trotz der Möwen. Gut. Ich schaue sie einfach streng an. Das kann ich sehr gut. Herbert schaut zurück. Das ist neu.",
+              "emoji": "🐦",
+              "en": "Despite the gulls. Good. I’ll just give them a stern look. I’m very good at that. Herbert looks back. That’s new.",
+              "audio": "mc_tod_t2_despitegulls"
+            }
+          ]
+        },
+        {
+          "id": "despite",
+          "when": {
+            "any": [
+              "trotz"
+            ]
+          },
+          "value": 2,
+          "fact": "🌬️ bleibt trotz des Windes",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Trotz des Windes. Ja. Ich bin der Tod. Ich habe schon Schlimmeres erlebt. Viel Schlimmeres.",
+              "emoji": "💪",
+              "en": "Despite the wind. Yes. I’m Death. I’ve been through worse. Much worse.",
+              "audio": "mc_tod_t2_despite"
+            }
+          ]
+        },
+        {
+          "id": "windReason",
+          "when": {
+            "all": [
+              "wegen"
+            ],
+            "any": [
+              "windes",
+              "wind"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Wegen des Windes? Stimmt, der Wind kühlt. Unter einer schwarzen Kutte ist das ein Geschenk.",
+              "emoji": "🌬️",
+              "en": "Because of the wind? True, the wind cools me down. Under a black robe that’s a gift.",
+              "audio": "mc_tod_t2_windreason"
+            }
+          ]
+        },
+        {
+          "id": "gulls",
+          "when": {
+            "any": [
+              "möwen",
+              "wegen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Wegen der Möwen? Die Möwen haben jetzt Angst vor mir. Nur Herbert nicht. Herbert hat vor nichts Angst.",
+              "emoji": "🐦",
+              "en": "Because of the gulls? The gulls are scared of me now. Except Herbert. Herbert isn’t scared of anything.",
+              "audio": "mc_tod_t2_gulls"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "an den strand",
+              "am strand",
+              "bleiben",
+              "gehen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Gut. Ich bleibe. Ich halte meinen Hut fest. Und meine Würde.",
+              "en": "Good. I’ll stay. I’m holding on to my hat. And my dignity.",
+              "audio": "mc_tod_t2_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Man kann hier Strandkörbe mieten. Ich will Ruhe. Keine Kinder. Keine Möwen.",
+          "emoji": "📷",
+          "en": "You can rent beach chairs here. I want peace. No children. No seagulls.",
+          "audio": "mc_tod_t3a"
+        },
+        {
+          "who": "tod",
+          "type": "photo",
+          "image": "match_tod_strandkoerbe",
+          "wide": true,
+          "alt": "Drei Strandkörbe. Links: ein blauer Strandkorb, drei Möwen sitzen auf dem Dach. In der Mitte: ein roter Strandkorb, davor baut ein Kind eine Sandburg. Rechts: ein grüner Strandkorb, leer und ruhig."
+        },
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Welchen Strandkorb soll ich nehmen?",
+          "en": "Which beach chair should I take?",
+          "audio": "mc_tod_t3b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "würde",
+        "den",
+        "den",
+        "der",
+        "grünen",
+        "grüne",
+        "blauen",
+        "roten",
+        "Strandkorb",
+        "rechts",
+        "links",
+        "in der Mitte",
+        "nimm",
+        "nehmen",
+        "mit",
+        "dem",
+        "Kind",
+        "die",
+        "Möwen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "quiet",
+          "when": {
+            "any": [
+              "grünen",
+              "grüne",
+              "rechts"
+            ]
+          },
+          "value": 2,
+          "fact": "🏖️ findet den ruhigsten Strandkorb",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Der grüne. Leer. Still. Wie ein … nein. Wie ein Urlaub. Perfekt.",
+              "emoji": "💚",
+              "en": "The green one. Empty. Quiet. Like a … no. Like a holiday. Perfect.",
+              "audio": "mc_tod_t3_quiet"
+            }
+          ]
+        },
+        {
+          "id": "gulls",
+          "when": {
+            "any": [
+              "blauen",
+              "links",
+              "möwen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Der blaue? Da sitzen drei Möwen. Die dicke in der Mitte ist Herbert. Herbert hat mir einen Platz freigehalten. Das macht mir Sorgen.",
+              "emoji": "🐦",
+              "en": "The blue one? Three gulls are sitting there. The fat one in the middle is Herbert. Herbert has saved me a seat. That worries me.",
+              "audio": "mc_tod_t3_gulls"
+            }
+          ]
+        },
+        {
+          "id": "kid",
+          "when": {
+            "any": [
+              "roten",
+              "in der mitte",
+              "kind"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Der rote? Das Kind fragt mich: „Bist du ein Pirat?“ Ich habe Ja gesagt. Jetzt muss ich ein Schiff haben.",
+              "emoji": "🏴‍☠️",
+              "en": "The red one? The child asks me: “Are you a pirate?” I said yes. Now I have to have a ship.",
+              "audio": "mc_tod_t3_kid"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "strandkorb",
+              "nimm",
+              "nehmen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Welchen? Es gibt drei. Ich kann mich nicht entscheiden. Das ist neu für mich.",
+              "en": "Which one? There are three. I can’t decide. That’s new for me.",
+              "audio": "mc_tod_t3_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Ich stehe an der Eisdiele. Es gibt zwanzig Sorten. Ich habe Panik. Welche Sorte?",
+          "emoji": "🍨",
+          "en": "I’m at the ice cream stand. There are twenty flavours. I’m panicking. Which flavour?",
+          "audio": "mc_tod_t4a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "würde",
+        "an deiner Stelle",
+        "wenn",
+        "du",
+        "wäre",
+        "Schokolade",
+        "Vanille",
+        "Erdbeere",
+        "Lakritz",
+        "alle",
+        "Sorten",
+        "probieren",
+        "nehmen",
+        "kein",
+        "ein",
+        "Eis",
+        "essen",
+        "Knoblauch"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "noIceContra",
+          "when": {
+            "any": [
+              "kein"
+            ],
+            "flag": "ice"
+          },
+          "value": -2,
+          "cause": "mood",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Kein Eis? Aber DU hast mir das Eis empfohlen! Ich bin verwirrt. Und traurig.",
+              "emoji": "😢",
+              "en": "No ice cream? But YOU recommended the ice cream to me! I’m confused. And sad.",
+              "audio": "mc_tod_t4_noicecontra"
+            }
+          ]
+        },
+        {
+          "id": "noIce",
+          "when": {
+            "any": [
+              "kein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Kein Eis? An der Ostsee? Das ist ja fast so streng wie mein Chef.",
+              "en": "No ice cream? At the Baltic? That’s almost as strict as my boss.",
+              "audio": "mc_tod_t4_noice"
+            }
+          ]
+        },
+        {
+          "id": "garlic",
+          "when": {
+            "any": [
+              "knoblauch"
+            ]
+          },
+          "value": 1,
+          "fact": "🧄 empfiehlt Knoblaucheis",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Knoblauch? Das gibt es hier wirklich. Die Frau sagt, es hilft gegen Vampire. Ich sage: Das sind Kollegen. Ich nehme zwei Kugeln.",
+              "emoji": "🧄",
+              "en": "Garlic? They really have it here. The woman says it works against vampires. I say: they’re colleagues. I’ll take two scoops.",
+              "audio": "mc_tod_t4_garlic"
+            }
+          ]
+        },
+        {
+          "id": "liquorice",
+          "when": {
+            "any": [
+              "lakritz"
+            ]
+          },
+          "value": 2,
+          "fact": "🖤 empfiehlt Lakritzeis",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Lakritz! Schwarz! Wie meine Kutte! Wir verstehen uns.",
+              "emoji": "🖤",
+              "en": "Liquorice! Black! Like my robe! We understand each other.",
+              "audio": "mc_tod_t4_liquorice"
+            }
+          ]
+        },
+        {
+          "id": "all",
+          "when": {
+            "any": [
+              "alle",
+              "sorten"
+            ]
+          },
+          "value": 2,
+          "fact": "🍨 denkt groß",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Alle Sorten? Zwanzig Kugeln? … Ich habe Zeit. Ich habe die Ewigkeit. Und einen sehr großen Löffel.",
+              "emoji": "🍨",
+              "en": "All the flavours? Twenty scoops? … I have time. I have eternity. And a very big spoon.",
+              "audio": "mc_tod_t4_all"
+            }
+          ]
+        },
+        {
+          "id": "flavour",
+          "when": {
+            "any": [
+              "schokolade",
+              "vanille",
+              "erdbeere"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Gut. Eine Kugel. Ich lecke vorsichtig. … Oh. Oh! Das ist kalt. Und wunderbar.",
+              "emoji": "🍦",
+              "en": "Good. One scoop. I lick carefully. … Oh. Oh! It’s cold. And wonderful.",
+              "audio": "mc_tod_t4_flavour"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "eis",
+              "essen",
+              "probieren",
+              "nehmen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Ja, ein Eis. Aber WELCHE Sorte? Die Frau wartet. Sie schaut schon komisch.",
+              "en": "Yes, an ice cream. But WHICH flavour? The woman is waiting. She’s already giving me a funny look.",
+              "audio": "mc_tod_t4_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Ein Problem. Ich bin nicht mehr blass. Ich bin rot. Hätte ich etwas anders machen sollen?",
+          "emoji": "🦞",
+          "en": "A problem. I’m not pale any more. I’m red. Should I have done something differently?",
+          "audio": "mc_tod_t5a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "du",
+        "hättest",
+        "hast",
+        "solltest",
+        "Sonnencreme",
+        "nehmen",
+        "sollen",
+        "im Schatten",
+        "bleiben",
+        "die",
+        "Kutte",
+        "anbehalten",
+        "rot",
+        "steht",
+        "dir",
+        "gut"
+      ],
+      "wrong": {
+        "hast": {
+          "to": "hättest",
+          "note": "Regret about the past: “Du hättest … nehmen sollen”."
+        }
+      },
+      "intents": [
+        {
+          "id": "robeContra",
+          "when": {
+            "any": [
+              "kutte",
+              "anbehalten"
+            ],
+            "flag": "robeOff"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Anbehalten? Vorhin hast du gesagt: „Zieh die Kutte aus!“ Jetzt sind sogar die Totenköpfe auf meiner Badehose rot.",
+              "emoji": "🩳",
+              "en": "Kept it on? Earlier you said: “Take off the robe!” Now even the skulls on my swimming trunks are red.",
+              "audio": "mc_tod_t5_robecontra"
+            }
+          ]
+        },
+        {
+          "id": "robe",
+          "when": {
+            "any": [
+              "kutte",
+              "anbehalten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Die Kutte anbehalten? Ja. Das hätte ich tun sollen. Jetzt bin ich ein Sensenmann mit Sonnenbrand.",
+              "en": "Kept the robe on? Yes. I should have done that. Now I’m a grim reaper with sunburn.",
+              "audio": "mc_tod_t5_robe"
+            }
+          ]
+        },
+        {
+          "id": "shade",
+          "when": {
+            "any": [
+              "im schatten"
+            ]
+          },
+          "value": 2,
+          "fact": "🌂 rät zum Schatten",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Im Schatten. Natürlich. Ich bin doch sonst immer im Schatten. Warum nicht heute?",
+              "emoji": "🌂",
+              "en": "In the shade. Of course. I’m always in the shadows otherwise. Why not today?",
+              "audio": "mc_tod_t5_shade"
+            }
+          ]
+        },
+        {
+          "id": "nowAdvice",
+          "when": {
+            "any": [
+              "solltest"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Jetzt? Jetzt ist es zu spät. Ich bin schon rot wie ein Hummer.",
+              "emoji": "🦞",
+              "en": "Now? Now it’s too late. I’m already as red as a lobster.",
+              "audio": "mc_tod_t5_now"
+            }
+          ]
+        },
+        {
+          "id": "cream",
+          "when": {
+            "any": [
+              "sonnencreme"
+            ]
+          },
+          "value": 2,
+          "fact": "🧴 denkt an Sonnencreme",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Sonnencreme! Ich hätte Sonnencreme nehmen sollen. Ich schreibe es auf. Für die nächsten 10.000 Jahre.",
+              "emoji": "🧴",
+              "en": "Sun cream! I should have taken sun cream. I’m writing it down. For the next 10,000 years.",
+              "audio": "mc_tod_t5_cream"
+            }
+          ]
+        },
+        {
+          "id": "red",
+          "when": {
+            "any": [
+              "rot",
+              "steht",
+              "gut"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Rot steht mir? Danke. Das hat mir noch nie jemand gesagt.",
+              "emoji": "🥹",
+              "en": "Red suits me? Thank you. Nobody has ever told me that.",
+              "audio": "mc_tod_t5_red"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Nein? Dann ist das normal? Menschen sind seltsam.",
+              "en": "No? So this is normal? Humans are strange.",
+              "audio": "mc_tod_t5_no"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Ja? Aber WAS? Ich bin rot wie eine Tomate. Ich brauche Details.",
+              "emoji": "🍅",
+              "en": "Yes? But WHAT? I’m as red as a tomato. I need details.",
+              "audio": "mc_tod_t5_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Übrigens: Meine Sense hat mir geschrieben. Sie langweilt sich im Keller. Sie hat den Rasen gemäht. Unseren und den vom Nachbarn. Und den Nachbarn fast auch.",
+          "emoji": "🌾",
+          "en": "By the way: my scythe has written to me. She’s bored in the cellar. She mowed the lawn. Ours and the neighbour’s. And almost the neighbour too.",
+          "audio": "mc_tod_t6b"
+        },
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Morgen ist mein letzter Urlaubstag. Aber es soll regnen. Was machen wir?",
+          "emoji": "🌧️",
+          "en": "Tomorrow is my last day of holiday. But it’s supposed to rain. What shall we do?",
+          "audio": "mc_tod_t6a"
+        }
+      ],
+      "tiles": [
+        "trotz",
+        "wegen",
+        "während",
+        "des",
+        "dem",
+        "Regens",
+        "Regen",
+        "könnten",
+        "würde",
+        "wir",
+        "ich",
+        "spazieren gehen",
+        "Minigolf",
+        "spielen",
+        "Schach",
+        "ins",
+        "Museum",
+        "gehen",
+        "ein",
+        "Fischbrötchen",
+        "essen",
+        "eine",
+        "Sandburg",
+        "bauen"
+      ],
+      "wrong": {
+        "Regen": {
+          "to": "Regens",
+          "note": "Genitive after trotz / wegen / während: des Regens."
+        }
+      },
+      "intents": [
+        {
+          "id": "sandcastle",
+          "when": {
+            "any": [
+              "sandburg"
+            ]
+          },
+          "value": 2,
+          "fact": "🏰 baut mit dem Tod Sandburgen",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Eine Sandburg! Im Regen! Mit Graben und Turm. Ich baue daneben ein kleines Gästezimmer. Für Herbert.",
+              "emoji": "🏰",
+              "en": "A sandcastle! In the rain! With a moat and a tower. I’m building a little guest room next to it. For Herbert.",
+              "audio": "mc_tod_t6_sandcastle"
+            }
+          ]
+        },
+        {
+          "id": "chess",
+          "when": {
+            "any": [
+              "schach"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Schach? Nein. Schach spiele ich nur beruflich. Und ich gewinne immer.",
+              "emoji": "♟️",
+              "en": "Chess? No. I only play chess for work. And I always win.",
+              "audio": "mc_tod_t6_chess"
+            }
+          ]
+        },
+        {
+          "id": "minigolf",
+          "when": {
+            "any": [
+              "minigolf"
+            ]
+          },
+          "value": 2,
+          "fact": "⛳ bringt den Tod zum Minigolf",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Minigolf! Ein Spiel, bei dem ich verlieren kann? Wie aufregend!",
+              "emoji": "⛳",
+              "en": "Mini golf! A game where I can lose? How exciting!",
+              "audio": "mc_tod_t6_minigolf"
+            }
+          ]
+        },
+        {
+          "id": "fish",
+          "when": {
+            "any": [
+              "fischbrötchen"
+            ]
+          },
+          "value": 2,
+          "fact": "🐟 kennt Fischbrötchen",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Ein Fischbrötchen! Ich habe den Fisch gefragt. Er hat nichts dagegen. Herbert schon.",
+              "emoji": "🐟",
+              "en": "A fish roll! I asked the fish. He doesn’t mind. Herbert does.",
+              "audio": "mc_tod_t6_fish"
+            }
+          ]
+        },
+        {
+          "id": "walk",
+          "when": {
+            "any": [
+              "spazieren gehen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Spazieren gehen im Regen. Romantisch. Melancholisch. Das kann ich.",
+              "emoji": "☔",
+              "en": "A walk in the rain. Romantic. Melancholic. That I can do.",
+              "audio": "mc_tod_t6_walk"
+            }
+          ]
+        },
+        {
+          "id": "museum",
+          "when": {
+            "any": [
+              "museum"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Ins Museum. Da sind viele alte Sachen. Ich kenne die meisten persönlich. Der Dinosaurier grüßt mich immer noch.",
+              "emoji": "🏛️",
+              "en": "To the museum. There are lots of old things there. I know most of them personally. The dinosaur still says hello to me.",
+              "audio": "mc_tod_t6_museum"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Ich schreibe eine Postkarte an meinen Chef, das Schicksal. Was soll ich schreiben?",
+          "emoji": "💌",
+          "en": "I’m writing a postcard to my boss, Fate. What should I write?",
+          "audio": "mc_tod_t7a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "wünschte",
+        "du",
+        "du",
+        "wärst",
+        "bist",
+        "hier",
+        "das",
+        "Wetter",
+        "ist",
+        "schön",
+        "trotz",
+        "des",
+        "Windes",
+        "wenn",
+        "würdest",
+        "lachen",
+        "komme",
+        "nie",
+        "zurück",
+        "liebe Grüße"
+      ],
+      "wrong": {
+        "bist": {
+          "to": "wärst",
+          "note": "A wish that isn’t true: “Ich wünschte, du wärst hier”."
+        }
+      },
+      "intents": [
+        {
+          "id": "never",
+          "when": {
+            "any": [
+              "nie"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Nie zurück? Dann würde niemand mehr … Nein. Das wäre Chaos. Ich komme zurück. Aber nicht so bald.",
+              "en": "Never come back? Then nobody would ever … No. That would be chaos. I’ll come back. But not that soon.",
+              "audio": "mc_tod_t7_never"
+            }
+          ]
+        },
+        {
+          "id": "back",
+          "when": {
+            "any": [
+              "zurück",
+              "komme"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "„Ich komme zurück.“ Ehrlich und kurz. Das Schicksal wird erleichtert sein. Ohne mich bleibt dort alles liegen.",
+              "en": "“I’m coming back.” Honest and short. Fate will be relieved. Without me, everything there just piles up.",
+              "audio": "mc_tod_t7_back"
+            }
+          ]
+        },
+        {
+          "id": "wish",
+          "when": {
+            "any": [
+              "wünschte"
+            ]
+          },
+          "value": 2,
+          "fact": "💌 schreibt schöne Postkarten",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Ich wünschte, du wärst hier. Das Schicksal wird weinen. Oder lachen. Beim Schicksal weiß man das nie.",
+              "emoji": "💌",
+              "en": "I wish you were here. Fate will cry. Or laugh. With Fate you never know.",
+              "audio": "mc_tod_t7_wish"
+            }
+          ]
+        },
+        {
+          "id": "ifHere",
+          "when": {
+            "any": [
+              "würdest",
+              "lachen"
+            ]
+          },
+          "value": 2,
+          "fact": "💌 schreibt schöne Postkarten",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Wenn du hier wärst, würdest du lachen. Ja. Über mich. Mit Sonnenbrand.",
+              "emoji": "😂",
+              "en": "If you were here, you would laugh. Yes. At me. With sunburn.",
+              "audio": "mc_tod_t7_ifhere"
+            }
+          ]
+        },
+        {
+          "id": "weather",
+          "when": {
+            "any": [
+              "wetter",
+              "schön",
+              "windes"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Das Wetter ist schön. Kurz und klar. Das Schicksal mag keine langen Texte.",
+              "en": "The weather is nice. Short and clear. Fate doesn’t like long texts.",
+              "audio": "mc_tod_t7_weather"
+            }
+          ]
+        },
+        {
+          "id": "greetings",
+          "when": {
+            "any": [
+              "liebe grüße"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Liebe Grüße. Klassisch. Und dann unterschreibe ich: Dein T. Herbert hat auch unterschrieben. Mit dem Fuß.",
+              "en": "Best wishes. Classic. And then I sign: Yours, D. Herbert signed too. With his foot.",
+              "audio": "mc_tod_t7_greetings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "tod",
+          "type": "text",
+          "de": "Die Sonne geht unter. Ich sitze im Strandkorb. Herbert sitzt neben mir und trägt meinen Strohhut. Sag ehrlich: Wäre der Tag ohne dich auch so schön gewesen?",
+          "emoji": "🌅",
+          "en": "The sun is setting. I’m sitting in the beach chair. Herbert is sitting next to me, wearing my straw hat. Be honest: would the day have been this nice without you?",
+          "audio": "mc_tod_t8a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ohne",
+        "mich",
+        "wäre",
+        "war",
+        "der",
+        "Tag",
+        "langweilig",
+        "schöner",
+        "gewesen",
+        "hättest",
+        "du",
+        "gearbeitet",
+        "ich",
+        "weiß",
+        "es",
+        "nicht",
+        "auch"
+      ],
+      "wrong": {
+        "war": {
+          "to": "wäre",
+          "note": "Unreal past: “wäre … gewesen”."
+        }
+      },
+      "intents": [
+        {
+          "id": "dunno",
+          "when": {
+            "any": [
+              "weiß"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Du weißt es nicht? Ich auch nicht. Herbert auch nicht. Wir sind drei Ratlose im Strandkorb.",
+              "en": "You don’t know? Me neither. Herbert neither. We’re three clueless souls in a beach chair.",
+              "audio": "mc_tod_t8_dunno"
+            }
+          ]
+        },
+        {
+          "id": "nicer",
+          "when": {
+            "any": [
+              "schöner"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Schöner? Nein! Du warst das Beste an diesem Tag. Gleich nach dem Strandkorb.",
+              "en": "Lovelier? No! You were the best part of the day. Right after the beach chair.",
+              "audio": "mc_tod_t8_nicer"
+            }
+          ]
+        },
+        {
+          "id": "boring",
+          "when": {
+            "any": [
+              "langweilig"
+            ]
+          },
+          "value": 2,
+          "fact": "🌅 macht dem Tod einen schönen Tag",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Ohne dich wäre der Tag langweilig gewesen. Ja. Das stimmt. Danke.",
+              "emoji": "🥹",
+              "en": "Without you the day would have been boring. Yes. That’s true. Thank you.",
+              "audio": "mc_tod_t8_boring"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "when": {
+            "any": [
+              "gearbeitet"
+            ]
+          },
+          "value": 2,
+          "fact": "🌅 macht dem Tod einen schönen Tag",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Ohne dich hätte ich gearbeitet. Im Urlaub. Du hast mich gerettet. Ironisch, oder?",
+              "emoji": "😌",
+              "en": "Without you I’d have worked. On holiday. You saved me. Ironic, isn’t it?",
+              "audio": "mc_tod_t8_worked"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja"
+            ]
+          },
+          "value": -2,
+          "cause": "mood",
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Ja? Ohne dich wäre es genauso schön gewesen? … Oh. Okay. Das tut weh. Sogar mir.",
+              "emoji": "💔",
+              "en": "Yes? It would have been just as lovely without you? … Oh. Okay. That hurts. Even me.",
+              "audio": "mc_tod_t8_yes"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "ohne"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "tod",
+              "type": "text",
+              "de": "Nein. Gut. Das wollte ich hören.",
+              "en": "No. Good. That’s what I wanted to hear.",
+              "audio": "mc_tod_t8_no"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "tod",
+    "type": "text",
+    "de": "Entschuldigung. Das war nicht meine Frage. Ich bin noch nicht so gut im Smalltalk.",
+    "en": "Sorry. That wasn’t my question. I’m not very good at small talk yet.",
+    "audio": "mc_tod_offtopic"
+  },
+  "confused": [
+    {
+      "who": "tod",
+      "type": "text",
+      "de": "Wie bitte? Der Wind ist so laut. Und die Möwen.",
+      "emoji": "🌬️",
+      "en": "Pardon? The wind is so loud. And the seagulls.",
+      "audio": "mc_tod_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "tod",
+        "type": "text",
+        "de": "Danke, {name}. Das war mein erster Urlaub seit 10.000 Jahren. Ich bin entspannt. Ich bin sogar ein bisschen braun.",
+        "emoji": "🏖️",
+        "en": "Thank you, {name}. That was my first holiday in 10,000 years. I’m relaxed. I’m even a little tanned."
+      },
+      {
+        "who": "tod",
+        "type": "text",
+        "de": "Wir sehen uns. Aber nicht so bald. Versprochen. Herbert lässt grüßen.",
+        "emoji": "😉",
+        "en": "We’ll see each other. But not soon. I promise. Herbert says hello.",
+        "audio": "mc_tod_win2"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "tod",
+        "type": "text",
+        "de": "Der Urlaub war okay. Ich habe einen Sonnenbrand, und Herbert hat mein Fischbrötchen geklaut. Und meinen Hut. Nächstes Jahr fahre ich in die Berge. Ohne Möwen.",
+        "emoji": "🐦",
+        "en": "The holiday was okay. I have sunburn, and Herbert stole my fish roll. And my hat. Next year I’m going to the mountains. No gulls.",
+        "audio": "mc_tod_partial"
+      }
+    ],
+    "deleted": {
+      "work": {
+        "who": "tod",
+        "type": "text",
+        "de": "Du klingst wie mein Chef. Ich lösche dich. Ich habe Urlaub.",
+        "emoji": "🗑️",
+        "en": "You sound like my boss. I’m deleting you. I’m on holiday.",
+        "audio": "mc_tod_del_work"
+      },
+      "mood": {
+        "who": "tod",
+        "type": "text",
+        "de": "Du hast mir die Laune verdorben. Und ich bin der Tod. Das ist eine Leistung. Tschüss.",
+        "en": "You’ve ruined my mood. And I’m Death. That’s quite an achievement. Bye.",
+        "audio": "mc_tod_del_mood"
+      },
+      "confused": {
+        "who": "tod",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Ich verstehe alle Sprachen der Welt. Aber dich nicht. Tschüss.",
+        "en": "I don’t understand you. I understand every language in the world. But not you. Bye.",
+        "audio": "mc_tod_del_confused"
+      },
+      "default": {
+        "who": "tod",
+        "type": "text",
+        "de": "Hm. Der Urlaub war anstrengender als die Arbeit. Ich fahre nach Hause. Tschüss.",
+        "en": "Hm. The holiday was more tiring than work. I’m going home. Bye.",
+        "audio": "mc_tod_del_default"
+      }
+    },
+    "sunday": {
+      "who": "tod",
+      "type": "voice",
+      "audio": "mc_tod_vn_sunday",
+      "de": "Hier ist der Tod. Ich bin wieder im Büro. Viel Arbeit. Aber auf meinem Schreibtisch steht ein Foto vom Strand. In meinen Schuhen ist noch Sand. Und Herbert sitzt am Fenster. Herbert ist mir gefolgt. Zehn Stunden Flug. Danke.",
+      "en": "This is Death. I’m back at the office. Lots of work. But there’s a photo of the beach on my desk. There’s still sand in my shoes. And Herbert is sitting at the window. Herbert followed me. Ten hours of flying. Thank you.",
+      "direction": "A quiet, echoing office, a clock ticking slowly; gentle and a little wistful, then a small warm smile in the voice on “Danke”."
+    }
+  },
+  "partialTitle": "Sonnenbrand, und Herbert hat den Hut.",
+  "share": {
+    "win": "Der Tod hat mich geliked 🏖️ Ich habe seinen ersten Urlaub seit 10.000 Jahren geplant: Eis, Strandkorb und keine einzige Sense. Mein Deutsch: {score}/100. {url}",
+    "partial": "Der Tod war mit mir an der Ostsee … jetzt hat er Sonnenbrand, und eine Möwe namens Herbert hat seinen Hut 🐦 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Der Tod hat mich gelöscht 💔 Ich habe ihm den Urlaub verdorben. Mein Deutsch: {score}/100. Kannst du es besser? {url}"
+  },
+  "imageCharacter": "Der Tod on holiday, a very tall, thin figure in a long black hooded robe, with a pale, friendly, rather cute skull-like face and tiny round sunglasses, a wide straw sun hat on top of the hood, a striped beach towel over one bony arm and a small red plastic beach spade in his hand instead of a scythe; shy and gentle, never scary.",
+  "imagePrompts": [
+    {
+      "id": "match_tod",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands on a sunny Baltic Sea beach with pale sand, dune grass and a calm blue sea behind him, holding an ice cream cone with one scoop and looking at it in shy wonder. One seagull stands at a respectful distance. Bright, cheerful colours. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_tod_strandkoerbe",
+      "aspect": "16:9",
+      "prompt": "A Baltic Sea beach seen exactly from the front like a stage set, flat, no perspective. Exactly THREE traditional German wicker beach chairs (Strandkorb) stand in a row, far apart, all the same size, facing the viewer. LEFT: a BLUE-and-white striped beach chair with three big seagulls sitting on its roof. MIDDLE: a RED-and-white striped beach chair; directly in front of it a small child with a bucket builds a sandcastle. RIGHT: a GREEN-and-white striped beach chair, completely empty, nothing around it. Sea and sky behind. No writing, no numbers, no flags with text."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Wenn ich du wäre, würde ich schwimmen gehen.",
+      "intent": "swim",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Wenn ich du bin, würde ich schwimmen gehen.",
+      "intent": "swim",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "An deiner Stelle würde ich ein Eis essen.",
+      "intent": "ice",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Du solltest schlafen.",
+      "intent": "sleep",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Du könntest arbeiten.",
+      "intent": "work",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe Angst.",
+      "intent": "fear",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich ein Eis.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Trotz des Windes solltest du am Strand bleiben.",
+      "intent": "despite",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Trotz des Wind solltest du an den Strand gehen.",
+      "intent": "despite",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Wegen der Möwen würde ich im Hotel bleiben.",
+      "intent": "hotel",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Wegen der Möwen würde ich an den Strand gehen.",
+      "intent": "gulls",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Zieh die Kutte aus!",
+      "intent": "robe",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ja.",
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Trotz der Möwen solltest du am Strand bleiben.",
+      "intent": "despiteGulls",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Wegen des Windes solltest du am Strand bleiben.",
+      "intent": "windReason",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Nimm den grünen Strandkorb!",
+      "intent": "quiet",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde den Strandkorb rechts nehmen.",
+      "intent": "quiet",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde den grüne Strandkorb nehmen.",
+      "intent": "quiet",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Den blauen Strandkorb.",
+      "intent": "gulls",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Den Strandkorb mit dem Kind.",
+      "intent": "kid",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Nimm den Strandkorb!",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Den Strandkorb mit den Möwen.",
+      "intent": "gulls",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "An deiner Stelle würde ich Lakritz nehmen.",
+      "intent": "liquorice",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich du wäre, würde ich alle Sorten probieren.",
+      "intent": "all",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde Schokolade nehmen.",
+      "intent": "flavour",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Vanille.",
+      "intent": "flavour",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Kein Eis.",
+      "intent": "noIce",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde ein Eis essen.",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ja, du hättest Sonnencreme nehmen sollen.",
+      "intent": "cream",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Du hast Sonnencreme nehmen sollen.",
+      "intent": "cream",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Du hättest im Schatten bleiben sollen.",
+      "intent": "shade",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Du hättest die Kutte anbehalten sollen.",
+      "intent": "robe",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Du solltest Sonnencreme nehmen.",
+      "intent": "nowAdvice",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Rot steht dir gut.",
+      "intent": "red",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Nein.",
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ja.",
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Trotz des Regens könnten wir Minigolf spielen.",
+      "intent": "minigolf",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Trotz des Regen könnten wir Minigolf spielen.",
+      "intent": "minigolf",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Während des Regens könnten wir ein Fischbrötchen essen.",
+      "intent": "fish",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Wegen des Regens könnten wir ins Museum gehen.",
+      "intent": "museum",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Trotz des Regens könnten wir spazieren gehen.",
+      "intent": "walk",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Wir könnten Schach spielen.",
+      "intent": "chess",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich wünschte, du wärst hier.",
+      "intent": "wish",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich wünschte, du bist hier.",
+      "intent": "wish",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn du hier wärst, würdest du lachen.",
+      "intent": "ifHere",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Das Wetter ist schön, trotz des Windes.",
+      "intent": "weather",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Liebe Grüße.",
+      "intent": "greetings",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme nie zurück.",
+      "intent": "never",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme zurück.",
+      "intent": "back",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ohne mich wäre der Tag langweilig gewesen.",
+      "intent": "boring",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ohne mich war der Tag langweilig gewesen.",
+      "intent": "boring",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Nein, ohne mich hättest du gearbeitet.",
+      "intent": "worked",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ohne mich wäre der Tag schöner gewesen.",
+      "intent": "nicer",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich weiß es nicht.",
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Ja.",
+      "intent": "yes",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Nein.",
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Wenn ich du bin, würde ich schwimmen gehen.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Wenn ich du wäre, ich würde schwimmen gehen.",
+      "score": 70
+    },
+    {
+      "turn": "t1",
+      "say": "Ich ein Eis.",
+      "score": 50
+    },
+    {
+      "turn": "t2",
+      "say": "Trotz des Wind solltest du an den Strand gehen.",
+      "score": 85
+    },
+    {
+      "turn": "t2",
+      "say": "Trotz dem Windes solltest du an den Strand gehen.",
+      "score": 85
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde den grüne Strandkorb nehmen.",
+      "score": 85
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich du wäre, würde ich alle Sorten probieren.",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Du hast Sonnencreme nehmen sollen.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Trotz dem Regen könnten wir Minigolf spielen.",
+      "score": 70
+    },
+    {
+      "turn": "t7",
+      "say": "Ich wünschte, du bist hier.",
+      "score": 85
+    },
+    {
+      "turn": "t8",
+      "say": "Ohne mich war der Tag langweilig gewesen.",
+      "score": 85
+    },
+    {
+      "turn": "t4",
+      "say": "An deiner Stelle würde ich Knoblauch nehmen.",
+      "score": 100,
+      "intent": "garlic",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Trotz des Regens könnten wir eine Sandburg bauen.",
+      "score": 100,
+      "intent": "sandcastle",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Trotz dem Regen könnten wir eine Sandburg bauen.",
+      "intent": "sandcastle",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "An deiner Stelle würde ich ein Eis essen."
+        ],
+        [
+          "t2",
+          "Trotz des Windes solltest du am Strand bleiben."
+        ],
+        [
+          "t3",
+          "Nimm den grünen Strandkorb!"
+        ],
+        [
+          "t4",
+          "An deiner Stelle würde ich Lakritz nehmen."
+        ],
+        [
+          "t5",
+          "Du hättest im Schatten bleiben sollen."
+        ],
+        [
+          "t6",
+          "Trotz des Regens könnten wir Minigolf spielen."
+        ],
+        [
+          "t7",
+          "Ich wünschte, du wärst hier."
+        ],
+        [
+          "t8",
+          "Ohne mich wäre der Tag langweilig gewesen."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich habe Angst."
+        ],
+        [
+          "t2",
+          "Wegen der Möwen würde ich im Hotel bleiben."
+        ],
+        [
+          "t3",
+          "Den blauen Strandkorb."
+        ],
+        [
+          "t4",
+          "Ich würde ein Eis essen."
+        ],
+        [
+          "t5",
+          "Rot steht dir gut."
+        ],
+        [
+          "t6",
+          "Wir könnten Schach spielen."
+        ],
+        [
+          "t7",
+          "Ich komme nie zurück."
+        ],
+        [
+          "t8",
+          "Ich weiß es nicht."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Du könntest arbeiten."
+        ],
+        [
+          "t2",
+          "Wegen der Möwen würde ich im Hotel bleiben."
+        ],
+        [
+          "t3",
+          "Den blauen Strandkorb."
+        ],
+        [
+          "t4",
+          "Kein Eis."
+        ],
+        [
+          "t5",
+          "Nein."
+        ],
+        [
+          "t6",
+          "Wir könnten Schach spielen."
+        ],
+        [
+          "t7",
+          "Ich komme nie zurück."
+        ],
+        [
+          "t8",
+          "Ja."
+        ]
+      ]
+    },
+    {
+      "name": "robe off, then on",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "An deiner Stelle würde ich ein Eis essen."
+        ],
+        [
+          "t2",
+          "Zieh die Kutte aus!"
+        ],
+        [
+          "t3",
+          "Nimm den grünen Strandkorb!"
+        ],
+        [
+          "t4",
+          "An deiner Stelle würde ich Lakritz nehmen."
+        ],
+        [
+          "t5",
+          "Du hättest die Kutte anbehalten sollen."
+        ],
+        [
+          "t6",
+          "Trotz des Regens könnten wir Minigolf spielen."
+        ],
+        [
+          "t7",
+          "Ich wünschte, du wärst hier."
+        ],
+        [
+          "t8",
+          "Ohne mich wäre der Tag langweilig gewesen."
+        ]
+      ]
+    }
+  ]
+}

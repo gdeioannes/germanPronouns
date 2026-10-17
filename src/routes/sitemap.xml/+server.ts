@@ -1,3 +1,4 @@
+import { MATCH_CHATS } from '$lib/domain/matchChat';
 import { courses, loadCourse } from '$lib/content';
 import { SITE_URL } from '$lib/seo';
 import { coursePaths, DICTIONARY_PATH, lastModified, SHARED_WORD_PATHS } from '$lib/server/lastmod';
@@ -56,6 +57,9 @@ export const GET: RequestHandler = async () => {
 
 	urls.push({ loc: '/play/ja-nein', lastmod: lastModified('src/lib/domain/janein.ts'), priority: '0.6' });
 	urls.push({ loc: '/play/ja-nein/personas', lastmod: lastModified('src/lib/domain/janeinRounds.ts'), priority: '0.4' });
+	urls.push({ loc: '/play/schreib-mir', lastmod: lastModified('src/lib/domain/matchChat.ts'), priority: '0.6' });
+	for (const chat of MATCH_CHATS.filter((c) => !c.hidden))
+		urls.push({ loc: `/play/schreib-mir/${chat.id}`, lastmod: lastModified(`assets/content/match/${chat.id}.json`), priority: '0.5' });
 
 	for (const n of nouns) {
 		urls.push({ loc: `/words/nouns/${wordSlug(n.noun)}`, lastmod: wordsDate, priority: '0.5' });

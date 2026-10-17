@@ -1,0 +1,2539 @@
+{
+  "id": "klara",
+  "name": "Kommissarin Klara",
+  "age": 49,
+  "emoji": "🕵️‍♀️",
+  "image": "match_klara",
+  "level": "A2.1",
+  "order": 1,
+  "bio": "Ich bin Kommissarin. Ich habe jeden Fall gelöst. Fast jeden.",
+  "bioEn": "I’m a detective inspector. I’ve solved every case. Almost every case.",
+  "goal": "You’re the suspect in the case of the missing garden gnome: prove your alibi, and don’t contradict yourself.",
+  "tagline": "Kommissarin · 49 · Kripo",
+  "voice": "Erinome",
+  "brief": "Kommissarin Klara, 49, a police detective: a low, calm, measured woman’s voice, very slow and deliberate, as if writing every word in her notebook; deadpan, suspicious of everything, says “Interessant.” like a threat; secretly enjoys the absurd case; formal Sie throughout.",
+  "focus": "Perfekt mit haben und sein · war/hatte · Uhrzeit · Widersprüche",
+  "lexicon": {
+    "nouns": {
+      "Kino": "n",
+      "Restaurant": "n",
+      "Garten": "m",
+      "Bruder": "m",
+      "Mutter": "f",
+      "Uhr": "f",
+      "Viertel": "n",
+      "Film": "m",
+      "Nudeln": "pl",
+      "Pizza": "f",
+      "Bett": "n",
+      "Mitternacht": "f",
+      "Zwerg": "m",
+      "Fahrrad": "n",
+      "Koffer": "m",
+      "Person": "f",
+      "Katze": "f",
+      "Nachbar": "m",
+      "Pizzabote": "m",
+      "Schlafanzug": "m",
+      "Jacke": "f",
+      "Mütze": "f",
+      "Hut": "m",
+      "Flughafen": "m",
+      "Urlaub": "m",
+      "Hunger": "m",
+      "Mond": "m",
+      "Taucheranzug": "m"
+    },
+    "names": [
+      "Frau Wiese",
+      "Herbert",
+      "Mallorca"
+    ],
+    "verbs": [
+      "war",
+      "waren",
+      "bin",
+      "habe",
+      "hatte",
+      "weiß",
+      "sehe",
+      "fährt",
+      "ist",
+      "hat",
+      "haben",
+      "trage"
+    ],
+    "nonfinite": [
+      "ferngesehen",
+      "gekocht",
+      "geschlafen",
+      "gesehen",
+      "gegessen",
+      "gegangen",
+      "gekommen",
+      "eingeschlafen",
+      "weggefahren",
+      "getragen",
+      "geflogen",
+      "gefahren"
+    ],
+    "accVerbs": [
+      "habe",
+      "bin",
+      "hatte",
+      "sehe",
+      "hat",
+      "haben",
+      "trage"
+    ],
+    "adjectives": [
+      "rot",
+      "blau"
+    ]
+  },
+  "intro": [
+    {
+      "who": "klara",
+      "type": "text",
+      "de": "Guten Abend. Kommissarin Klara, Kriminalpolizei. Ich habe ein paar Fragen.",
+      "emoji": "🕵️‍♀️",
+      "en": "Good evening. Detective Inspector Klara, criminal police. I have a few questions.",
+      "audio": "mc_klara_t1a"
+    },
+    {
+      "who": "klara",
+      "type": "text",
+      "de": "Gestern Abend ist Herbert verschwunden. Herbert ist ein Gartenzwerg. Er gehört Frau Wiese, Ihrer Nachbarin.",
+      "emoji": "🍄",
+      "en": "Yesterday evening Herbert disappeared. Herbert is a garden gnome. He belongs to Frau Wiese, your neighbour.",
+      "audio": "mc_klara_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Wo waren Sie gestern um 20 Uhr?",
+          "en": "Where were you yesterday at 8 pm?",
+          "audio": "mc_klara_t1c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "war",
+        "waren",
+        "bin",
+        "zu Hause",
+        "im",
+        "Kino",
+        "Restaurant",
+        "Garten",
+        "bei",
+        "meiner",
+        "meinem",
+        "Mutter",
+        "Bruder",
+        "um",
+        "zwanzig",
+        "Uhr",
+        "weiß",
+        "es",
+        "nicht",
+        "auf dem Mond"
+      ],
+      "wrong": {
+        "waren": "war",
+        "bin": "war"
+      },
+      "intents": [
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "cause": "lie",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Sie wissen es nicht? Das sagen alle Täter. Interessant.",
+              "emoji": "📝",
+              "en": "You don’t know? That’s what all culprits say. Interesting.",
+              "audio": "mc_klara_t1_dunno"
+            }
+          ]
+        },
+        {
+          "id": "garden",
+          "when": {
+            "any": [
+              "garten"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "garden"
+          ],
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Im Garten? Der Zwerg war AUCH im Garten. Interessant.",
+              "emoji": "🤨",
+              "en": "In the garden? The gnome was ALSO in the garden. Interesting.",
+              "audio": "mc_klara_t1_garden"
+            }
+          ]
+        },
+        {
+          "id": "home",
+          "when": {
+            "any": [
+              "zu hause"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "home",
+            "placed"
+          ],
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Zu Hause. Allein? Ich notiere: zu Hause.",
+              "emoji": "📝",
+              "en": "At home. Alone? I’m writing down: at home.",
+              "audio": "mc_klara_t1_home"
+            }
+          ]
+        },
+        {
+          "id": "cinema",
+          "when": {
+            "any": [
+              "kino"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "cinema",
+            "placed",
+            "out"
+          ],
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Im Kino. Welcher Film? Egal. Ich schlafe im Kino immer ein. Ich notiere: Kino.",
+              "emoji": "🎬",
+              "en": "At the cinema. Which film? Doesn’t matter. I always fall asleep at the cinema. I’m noting: cinema.",
+              "audio": "mc_klara_t1_cinema"
+            }
+          ]
+        },
+        {
+          "id": "restaurant",
+          "when": {
+            "any": [
+              "restaurant"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "restaurant",
+            "placed",
+            "out"
+          ],
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Im Restaurant. Ich notiere: Restaurant. Und Hunger. Ich notiere immer Hunger.",
+              "emoji": "🍝",
+              "en": "At a restaurant. I’m noting: restaurant. And hunger. I always note hunger.",
+              "audio": "mc_klara_t1_restaurant"
+            }
+          ]
+        },
+        {
+          "id": "family",
+          "when": {
+            "any": [
+              "bruder",
+              "mutter"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "family",
+            "placed"
+          ],
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Bei der Familie. Sehr gut. Familie lügt nie. Fast nie.",
+              "en": "With family. Very good. Family never lies. Almost never.",
+              "audio": "mc_klara_t1_family"
+            }
+          ]
+        },
+        {
+          "id": "moon",
+          "when": {
+            "any": [
+              "auf dem mond"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "moon",
+            "placed",
+            "out"
+          ],
+          "fact": "🌙 hat ein Alibi auf dem Mond",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Auf dem Mond. Ich notiere: Mond. Haben Sie Zeugen? Astronauten? Einen Hund im Raumanzug?",
+              "en": "On the moon. I’m noting: moon. Do you have witnesses? Astronauts? A dog in a space suit?",
+              "audio": "mc_klara_t1_moon"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "when": {
+            "any": [
+              "zwanzig",
+              "uhr"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Ja, um zwanzig Uhr. Das ist meine Frage. Aber WO?",
+              "en": "Yes, at eight pm. That’s my question. But WHERE?",
+              "audio": "mc_klara_t1_time"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Gut. Und was haben Sie da gemacht?",
+          "en": "Good. And what did you do there?",
+          "audio": "mc_klara_t2a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "bin",
+        "gestern Abend",
+        "ferngesehen",
+        "gekocht",
+        "geschlafen",
+        "einen",
+        "ein",
+        "Film",
+        "gesehen",
+        "im",
+        "Kino",
+        "Nudeln",
+        "Pizza",
+        "gegessen",
+        "hatte",
+        "Hunger"
+      ],
+      "wrong": {
+        "bin": "habe"
+      },
+      "intents": [
+        {
+          "id": "contraKino",
+          "when": {
+            "all": [
+              "kino"
+            ],
+            "flag": "home"
+          },
+          "value": -2,
+          "cause": "lie",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Im Kino? Sie haben gesagt: zu Hause. Interessant. Sehr interessant.",
+              "emoji": "🧐",
+              "en": "At the cinema? You said: at home. Interesting. Very interesting.",
+              "audio": "mc_klara_t2_contrakino"
+            }
+          ]
+        },
+        {
+          "id": "contraHome",
+          "when": {
+            "any": [
+              "ferngesehen",
+              "gekocht"
+            ],
+            "flag": "out"
+          },
+          "value": -2,
+          "cause": "lie",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Ferngesehen? Gekocht? Aber Sie waren nicht zu Hause! Interessant.",
+              "emoji": "🧐",
+              "en": "Watched TV? Cooked? But you weren’t at home! Interesting.",
+              "audio": "mc_klara_t2_contrahome"
+            }
+          ]
+        },
+        {
+          "id": "film",
+          "when": {
+            "any": [
+              "gesehen",
+              "film"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "film"
+          ],
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Einen Film. Ich mag Filme. Krimis. Die Kommissarin ist immer zu langsam.",
+              "en": "A film. I like films. Crime films. The inspector is always too slow.",
+              "audio": "mc_klara_t2_film"
+            }
+          ]
+        },
+        {
+          "id": "tv",
+          "when": {
+            "any": [
+              "ferngesehen"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "tv"
+          ],
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Ferngesehen. Was? Einen Krimi? Haben Sie etwas gelernt?",
+              "emoji": "📺",
+              "en": "Watched TV. What? A crime show? Did you learn anything?",
+              "audio": "mc_klara_t2_tv"
+            }
+          ]
+        },
+        {
+          "id": "cooked",
+          "when": {
+            "any": [
+              "gekocht"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "cooked"
+          ],
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Gekocht. Nudeln, sicher. Nudeln sind kein Alibi. Aber okay.",
+              "emoji": "🍝",
+              "en": "Cooked. Pasta, I bet. Pasta is not an alibi. But okay.",
+              "audio": "mc_klara_t2_cooked"
+            }
+          ]
+        },
+        {
+          "id": "ate",
+          "when": {
+            "any": [
+              "gegessen",
+              "pizza",
+              "nudeln"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Gegessen. Gut. Ein Täter hat keinen Hunger. Glaube ich.",
+              "en": "Ate. Good. A culprit isn’t hungry. I think.",
+              "audio": "mc_klara_t2_ate"
+            }
+          ]
+        },
+        {
+          "id": "slept",
+          "when": {
+            "any": [
+              "geschlafen"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "slept"
+          ],
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Um acht Uhr abends geschlafen? Wie ein Baby. Oder wie ein Täter. Täter schlafen sehr gut. Ich nicht.",
+              "emoji": "😴",
+              "en": "Asleep at eight in the evening? Like a baby. Or like a culprit. Culprits sleep very well. I don’t.",
+              "audio": "mc_klara_t2_slept"
+            }
+          ]
+        },
+        {
+          "id": "hungry",
+          "when": {
+            "any": [
+              "hatte",
+              "hunger"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Sie hatten Hunger. Ich auch. Immer. Aber was haben Sie GEMACHT?",
+              "en": "You were hungry. So am I. Always. But what did you DO?",
+              "audio": "mc_klara_t2_hungry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "prepCase": {
+        "in": "acc"
+      },
+      "before": [
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Und dann? Wann sind Sie ins Bett gegangen?",
+          "en": "And then? When did you go to bed?",
+          "audio": "mc_klara_t3a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bin",
+        "habe",
+        "um",
+        "zehn",
+        "elf",
+        "zwölf",
+        "Uhr",
+        "Mitternacht",
+        "ins",
+        "Bett",
+        "gegangen",
+        "nach Hause",
+        "gekommen",
+        "nicht",
+        "sofort",
+        "eingeschlafen"
+      ],
+      "wrong": {
+        "habe": "bin"
+      },
+      "intents": [
+        {
+          "id": "homeContra",
+          "when": {
+            "all": [
+              "nach hause"
+            ],
+            "flag": "home"
+          },
+          "value": -2,
+          "cause": "lie",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Nach Hause gekommen? Sie waren doch zu Hause! Interessant.",
+              "emoji": "🧐",
+              "en": "Came home? But you were at home! Interesting.",
+              "audio": "mc_klara_t3_homecontra"
+            }
+          ]
+        },
+        {
+          "id": "notAsleep",
+          "when": {
+            "all": [
+              "nicht",
+              "eingeschlafen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Nicht sofort eingeschlafen. Warum nicht? Ein schlechtes Gewissen?",
+              "emoji": "🧐",
+              "en": "Didn’t fall asleep straight away. Why not? A guilty conscience?",
+              "audio": "mc_klara_t3_notasleep"
+            }
+          ]
+        },
+        {
+          "id": "notBed",
+          "when": {
+            "any": [
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Nicht ins Bett? Die ganze Nacht wach? Wie ein Zwergdieb.",
+              "en": "Didn’t go to bed? Awake all night? Like a gnome thief.",
+              "audio": "mc_klara_t3_notbed"
+            }
+          ]
+        },
+        {
+          "id": "sleptContra",
+          "when": {
+            "any": [
+              "elf",
+              "zwölf",
+              "mitternacht"
+            ],
+            "flag": "slept"
+          },
+          "value": -2,
+          "cause": "lie",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Moment. Um acht Uhr haben Sie schon geschlafen. Und so spät waren Sie noch wach? Interessant.",
+              "emoji": "🧐",
+              "en": "Wait. At eight you were already asleep. And you were still awake that late? Interesting.",
+              "audio": "mc_klara_t3_sleptcontra"
+            }
+          ]
+        },
+        {
+          "id": "cameHome",
+          "when": {
+            "any": [
+              "nach hause"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Nach Hause gekommen. Ich notiere: nach Hause. Sie sind sehr ordentlich.",
+              "emoji": "📝",
+              "en": "Came home. I’m writing down: home. You’re very tidy.",
+              "audio": "mc_klara_t3_camehome"
+            }
+          ]
+        },
+        {
+          "id": "asleep",
+          "when": {
+            "any": [
+              "eingeschlafen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Sofort eingeschlafen? Mit einem guten Gewissen. Oder mit einem schlechten.",
+              "en": "Fell asleep straight away? With a clear conscience. Or a guilty one.",
+              "audio": "mc_klara_t3_asleep"
+            }
+          ]
+        },
+        {
+          "id": "bed",
+          "when": {
+            "any": [
+              "gegangen",
+              "bett"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Ins Bett gegangen. Gut. Ich notiere: Bett.",
+              "emoji": "🛏️",
+              "en": "Went to bed. Good. I’m writing down: bed.",
+              "audio": "mc_klara_t3_bed"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "when": {
+            "any": [
+              "zehn",
+              "elf",
+              "zwölf",
+              "mitternacht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Nur eine Uhrzeit. Kurz und knapp. Wie ein Täter. Ich notiere sie trotzdem.",
+              "en": "Just a time. Short and sharp. Like a culprit. I’m writing it down anyway.",
+              "audio": "mc_klara_t3_time"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Hier ist ein Foto aus der Kamera von Frau Wiese. Gestern, 20:15 Uhr.",
+          "emoji": "📹",
+          "en": "Here’s a photo from Frau Wiese’s camera. Yesterday, 8:15 pm.",
+          "audio": "mc_klara_t4a"
+        },
+        {
+          "who": "klara",
+          "type": "photo",
+          "image": "match_klara_kamera",
+          "overlay": [
+            "KAMERA 2 · GARTEN WIESE",
+            "GESTERN 20:15"
+          ],
+          "wide": true,
+          "alt": "Kamera, gestern 20:15. Ein Garten in der Nacht. Ein Gartenzwerg mit roter Mütze fährt auf einem kleinen Fahrrad weg. Auf dem Fahrrad ist ein Koffer."
+        },
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Was sehen Sie auf dem Foto?",
+          "en": "What do you see in the photo?",
+          "audio": "mc_klara_t4b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "sehe",
+        "den",
+        "der",
+        "Zwerg",
+        "ein",
+        "einen",
+        "Fahrrad",
+        "Koffer",
+        "fährt",
+        "ist",
+        "hat",
+        "allein",
+        "weggefahren",
+        "mit",
+        "dem",
+        "eine",
+        "Person",
+        "mich",
+        "nicht",
+        "nichts",
+        "er"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "notMe",
+          "when": {
+            "all": [
+              "mich",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Sie sehen sich nicht. Richtig. Aber vielleicht sind Sie gut versteckt.",
+              "en": "You don’t see yourself. Correct. But maybe you’re well hidden.",
+              "audio": "mc_klara_t4_notme"
+            }
+          ]
+        },
+        {
+          "id": "me",
+          "when": {
+            "any": [
+              "mich"
+            ]
+          },
+          "value": -2,
+          "cause": "confess",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Sie sehen SICH? Also waren Sie es! Danke für das Geständnis.",
+              "emoji": "🚨",
+              "en": "You see YOURSELF? So it was you! Thank you for the confession.",
+              "audio": "mc_klara_t4_me"
+            }
+          ]
+        },
+        {
+          "id": "alone",
+          "when": {
+            "any": [
+              "weggefahren",
+              "allein"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "theory"
+          ],
+          "fact": "🔍 sieht jedes Detail",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Allein weggefahren? Der Zwerg? … Hm. Das ist eine Theorie. Eine verrückte Theorie.",
+              "emoji": "🤯",
+              "en": "Rode off alone? The gnome? … Hm. That’s a theory. A crazy theory.",
+              "audio": "mc_klara_t4_alone"
+            }
+          ]
+        },
+        {
+          "id": "bike",
+          "when": {
+            "any": [
+              "fahrrad",
+              "fährt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Ein Fahrrad. Ja. Das habe ich auch gesehen. Ich bin Kommissarin.",
+              "emoji": "🚲",
+              "en": "A bicycle. Yes. I saw that too. I’m a detective.",
+              "audio": "mc_klara_t4_bike"
+            }
+          ]
+        },
+        {
+          "id": "suitcase",
+          "when": {
+            "any": [
+              "koffer"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Einen Koffer! Der Täter plant eine Reise. Mit Badehose. Interessant.",
+              "emoji": "🧳",
+              "en": "A suitcase! The culprit is planning a trip. With swimming trunks. Interesting.",
+              "audio": "mc_klara_t4_suitcase"
+            }
+          ]
+        },
+        {
+          "id": "gnome",
+          "when": {
+            "any": [
+              "zwerg"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Den Zwerg, ja. Herbert. Er sieht … zufrieden aus.",
+              "en": "The gnome, yes. Herbert. He looks … pleased.",
+              "audio": "mc_klara_t4_gnome"
+            }
+          ]
+        },
+        {
+          "id": "person",
+          "when": {
+            "any": [
+              "person"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Eine Person? Ich sehe nur einen Zwerg. Oder einen sehr kleinen Menschen mit Bart.",
+              "en": "A person? I only see a gnome. Or a very small person with a beard.",
+              "audio": "mc_klara_t4_person"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Nichts?! Brauchen Sie eine Brille? Ich habe drei. Alle auf meinem Kopf.",
+              "emoji": "👓",
+              "en": "Nothing?! Do you need glasses? I have three. All on my head.",
+              "audio": "mc_klara_t4_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Ich frage noch einmal. Ganz langsam. Ich esse dabei ein Gummibärchen. Das macht mich gefährlich.",
+          "en": "I’ll ask again. Very slowly. I’m eating a gummy bear while I do. That makes me dangerous.",
+          "audio": "mc_klara_t5a"
+        },
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Wo waren Sie gestern um Viertel nach acht?",
+          "en": "Where were you yesterday at a quarter past eight?",
+          "audio": "mc_klara_t5b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "war",
+        "waren",
+        "zu Hause",
+        "im",
+        "Kino",
+        "Restaurant",
+        "Garten",
+        "bei",
+        "meiner",
+        "meinem",
+        "Mutter",
+        "Bruder",
+        "um",
+        "Viertel",
+        "nach",
+        "acht",
+        "Uhr",
+        "weiß",
+        "es",
+        "nicht",
+        "immer noch",
+        "auf dem Mond"
+      ],
+      "wrong": {
+        "waren": "war"
+      },
+      "intents": [
+        {
+          "id": "garden",
+          "when": {
+            "any": [
+              "garten"
+            ]
+          },
+          "value": -2,
+          "cause": "lie",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Im Garten. Um Viertel nach acht. Genau wie der Zwerg. Interessant.",
+              "emoji": "🚨",
+              "en": "In the garden. At a quarter past eight. Just like the gnome. Interesting.",
+              "audio": "mc_klara_t5_garden"
+            }
+          ]
+        },
+        {
+          "id": "sameMoon",
+          "when": {
+            "any": [
+              "auf dem mond"
+            ],
+            "flag": "moon"
+          },
+          "value": 2,
+          "fact": "🌙 bleibt beim Mond",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Wieder der Mond. Die gleiche Antwort. Lügner vergessen ihre Geschichten. Astronauten nicht. Respekt.",
+              "en": "The moon again. The same answer. Liars forget their stories. Astronauts don’t. Respect.",
+              "audio": "mc_klara_t5_samemoon"
+            }
+          ]
+        },
+        {
+          "id": "sameHome",
+          "when": {
+            "any": [
+              "zu hause"
+            ],
+            "flag": "home"
+          },
+          "value": 2,
+          "fact": "🧾 erzählt immer die gleiche Geschichte",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Zu Hause. Die gleiche Antwort. Gut. Lügner vergessen ihre Geschichten.",
+              "emoji": "✅",
+              "en": "At home. The same answer. Good. Liars forget their stories.",
+              "audio": "mc_klara_t5_samehome"
+            }
+          ]
+        },
+        {
+          "id": "sameCinema",
+          "when": {
+            "any": [
+              "kino"
+            ],
+            "flag": "cinema"
+          },
+          "value": 2,
+          "fact": "🧾 erzählt immer die gleiche Geschichte",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Im Kino. Die gleiche Antwort. Gut. Lügner vergessen ihre Geschichten.",
+              "emoji": "✅",
+              "en": "At the cinema. The same answer. Good. Liars forget their stories.",
+              "audio": "mc_klara_t5_samecinema"
+            }
+          ]
+        },
+        {
+          "id": "sameRestaurant",
+          "when": {
+            "any": [
+              "restaurant"
+            ],
+            "flag": "restaurant"
+          },
+          "value": 2,
+          "fact": "🧾 erzählt immer die gleiche Geschichte",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Im Restaurant. Die gleiche Antwort. Gut. Lügner vergessen ihre Geschichten.",
+              "emoji": "✅",
+              "en": "At the restaurant. The same answer. Good. Liars forget their stories.",
+              "audio": "mc_klara_t5_samerest"
+            }
+          ]
+        },
+        {
+          "id": "sameFamily",
+          "when": {
+            "any": [
+              "bruder",
+              "mutter"
+            ],
+            "flag": "family"
+          },
+          "value": 2,
+          "fact": "🧾 erzählt immer die gleiche Geschichte",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Bei der Familie. Die gleiche Antwort. Gut. Lügner vergessen ihre Geschichten.",
+              "emoji": "✅",
+              "en": "With family. The same answer. Good. Liars forget their stories.",
+              "audio": "mc_klara_t5_samefamily"
+            }
+          ]
+        },
+        {
+          "id": "changed",
+          "when": {
+            "any": [
+              "zu hause",
+              "kino",
+              "restaurant",
+              "bruder",
+              "mutter",
+              "auf dem mond"
+            ],
+            "flag": "placed"
+          },
+          "value": -2,
+          "cause": "lie",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Vorhin haben Sie etwas anderes gesagt. Interessant. SEHR interessant.",
+              "emoji": "📝",
+              "en": "Earlier you said something else. Interesting. VERY interesting.",
+              "audio": "mc_klara_t5_changed"
+            }
+          ]
+        },
+        {
+          "id": "newClaim",
+          "when": {
+            "any": [
+              "zu hause",
+              "kino",
+              "restaurant",
+              "bruder",
+              "mutter",
+              "auf dem mond"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Ah. Jetzt wissen Sie es plötzlich. Vorhin nicht. Hm.",
+              "en": "Ah. Now you suddenly know. Earlier you didn’t. Hm.",
+              "audio": "mc_klara_t5_newclaim"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Sie wissen es immer noch nicht? Ich habe viel Zeit. Und viele Gummibärchen.",
+              "emoji": "🐻",
+              "en": "You still don’t know? I have lots of time. And lots of gummy bears.",
+              "audio": "mc_klara_t5_dunno"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "when": {
+            "any": [
+              "viertel",
+              "acht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Schon wieder nur die Uhrzeit. Die kenne ich. Ich habe sie gefragt. WO?",
+              "emoji": "⏱️",
+              "en": "Just the time again. I know it. I asked it. WHERE?",
+              "audio": "mc_klara_t5_time"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Haben Sie einen Zeugen? Wer hat Sie gesehen?",
+          "en": "Do you have a witness? Who saw you?",
+          "audio": "mc_klara_t6a"
+        }
+      ],
+      "tiles": [
+        "mein",
+        "meine",
+        "Bruder",
+        "Katze",
+        "Nachbar",
+        "der",
+        "Pizzabote",
+        "hat",
+        "haben",
+        "mich",
+        "gesehen",
+        "war",
+        "bei",
+        "mir",
+        "niemand",
+        "Frau Wiese",
+        "auch",
+        "Herbert"
+      ],
+      "wrong": {
+        "haben": "hat"
+      },
+      "intents": [
+        {
+          "id": "pizzaContra",
+          "when": {
+            "any": [
+              "pizzabote"
+            ],
+            "flag": "cooked"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Sie haben gekocht UND Pizza bestellt? Großer Hunger. Oder große Lüge.",
+              "emoji": "🍕",
+              "en": "You cooked AND ordered pizza? Big hunger. Or a big lie.",
+              "audio": "mc_klara_t6_pizzacontra"
+            }
+          ]
+        },
+        {
+          "id": "pizza",
+          "when": {
+            "any": [
+              "pizzabote"
+            ]
+          },
+          "value": 2,
+          "fact": "🍕 hat einen Pizza-Zeugen",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Der Pizzabote! Ich rufe ihn an. … Er sagt: Ja, mit extra Käse. Gut.",
+              "emoji": "🍕",
+              "en": "The pizza delivery man! I’ll call him. … He says: yes, with extra cheese. Good.",
+              "audio": "mc_klara_t6_pizza"
+            }
+          ]
+        },
+        {
+          "id": "cat",
+          "when": {
+            "any": [
+              "katze"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Ihre Katze? Eine Katze ist keine Zeugin. Katzen lügen immer. Ich habe drei Katzen. Alle sind verdächtig.",
+              "emoji": "🐈",
+              "en": "Your cat? A cat is not a witness. Cats always lie. I have three cats. All of them are suspects.",
+              "audio": "mc_klara_t6_cat"
+            }
+          ]
+        },
+        {
+          "id": "wiese",
+          "when": {
+            "any": [
+              "frau wiese"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Frau Wiese? Sie sagt, sie hat nur ferngesehen. Und geweint. Wegen Herbert.",
+              "emoji": "😢",
+              "en": "Frau Wiese? She says she only watched TV. And cried. Because of Herbert.",
+              "audio": "mc_klara_t6_wiese"
+            }
+          ]
+        },
+        {
+          "id": "herbert",
+          "when": {
+            "any": [
+              "herbert"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Herbert? Der Zwerg? Er ist das Opfer! … Oder der Zeuge? Oder der Täter? Mein Kopf tut weh. Noch ein Gummibärchen.",
+              "en": "Herbert? The gnome? He’s the victim! … Or the witness? Or the culprit? My head hurts. Another gummy bear.",
+              "audio": "mc_klara_t6_herbert"
+            }
+          ]
+        },
+        {
+          "id": "brother",
+          "when": {
+            "any": [
+              "bruder"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Ihr Bruder. Ich rufe ihn an. … Er sagt: Wer? Hm. Kleiner Witz. Er sagt ja.",
+              "en": "Your brother. I’ll call him. … He says: who? Hm. Little joke. He says yes.",
+              "audio": "mc_klara_t6_brother"
+            }
+          ]
+        },
+        {
+          "id": "neighbour",
+          "when": {
+            "any": [
+              "nachbar"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Ihr Nachbar. Der Mann mit den Tauben? Gut, er sieht alles.",
+              "emoji": "🕊️",
+              "en": "Your neighbour. The man with the pigeons? Good, he sees everything.",
+              "audio": "mc_klara_t6_neighbour"
+            }
+          ]
+        },
+        {
+          "id": "nobody",
+          "when": {
+            "any": [
+              "niemand"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Niemand. Das ist kein Alibi. Das ist ein Problem.",
+              "en": "Nobody. That isn’t an alibi. That’s a problem.",
+              "audio": "mc_klara_t6_nobody"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Fast fertig. Was haben Sie gestern getragen?",
+          "emoji": "👔",
+          "en": "Almost done. What were you wearing yesterday?",
+          "audio": "mc_klara_t7a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "hatte",
+        "trage",
+        "getragen",
+        "einen",
+        "eine",
+        "Schlafanzug",
+        "Jacke",
+        "Mütze",
+        "Hut",
+        "roten",
+        "rote",
+        "blaue",
+        "blauen",
+        "an",
+        "Taucheranzug"
+      ],
+      "wrong": {
+        "trage": {
+          "to": "hatte",
+          "note": "It was yesterday: “ich hatte … an” or “ich habe … getragen”."
+        }
+      },
+      "intents": [
+        {
+          "id": "red",
+          "when": {
+            "any": [
+              "roten",
+              "rote"
+            ]
+          },
+          "value": -2,
+          "cause": "hat",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Rot?! Wie die Mütze von Herbert! Das ist kein Zufall!",
+              "emoji": "🚨",
+              "en": "Red?! Like Herbert’s hat! That’s no coincidence!",
+              "audio": "mc_klara_t7_red"
+            }
+          ]
+        },
+        {
+          "id": "diver",
+          "when": {
+            "any": [
+              "taucheranzug"
+            ]
+          },
+          "value": 1,
+          "fact": "🤿 trägt Taucheranzug",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Einen Taucheranzug. Gestern Abend. Ich frage nicht, warum. Ich notiere nur: nass.",
+              "en": "A diving suit. Yesterday evening. I won’t ask why. I’m just noting: wet.",
+              "audio": "mc_klara_t7_diver"
+            }
+          ]
+        },
+        {
+          "id": "pyjamasOut",
+          "when": {
+            "any": [
+              "schlafanzug"
+            ],
+            "flag": "out"
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Im Schlafanzug? Unterwegs? Mutig. Aber okay.",
+              "emoji": "🦖",
+              "en": "In pyjamas? Out and about? Brave. But okay.",
+              "audio": "mc_klara_t7_pyjamasout"
+            }
+          ]
+        },
+        {
+          "id": "pyjamas",
+          "when": {
+            "any": [
+              "schlafanzug"
+            ]
+          },
+          "value": 2,
+          "fact": "🦖 trägt Schlafanzug",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Einen Schlafanzug. Mit Dinosauriern, sicher. Ich glaube Ihnen.",
+              "emoji": "🦖",
+              "en": "Pyjamas. With dinosaurs, I bet. I believe you.",
+              "audio": "mc_klara_t7_pyjamas"
+            }
+          ]
+        },
+        {
+          "id": "blue",
+          "when": {
+            "any": [
+              "blaue",
+              "blauen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Blau. Ich notiere: blau. Nicht rot. Gut für Sie.",
+              "emoji": "💙",
+              "en": "Blue. I’m writing down: blue. Not red. Good for you.",
+              "audio": "mc_klara_t7_blue"
+            }
+          ]
+        },
+        {
+          "id": "jacket",
+          "when": {
+            "any": [
+              "jacke"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Eine Jacke. Welche Farbe? Rot? … Ich frage nur so.",
+              "en": "A jacket. What colour? Red? … Just asking.",
+              "audio": "mc_klara_t7_jacket"
+            }
+          ]
+        },
+        {
+          "id": "hat",
+          "when": {
+            "any": [
+              "hut",
+              "mütze"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Etwas auf dem Kopf. Welche Farbe? … Ich frage nur so.",
+              "emoji": "🧐",
+              "en": "Something on your head. What colour? … Just asking.",
+              "audio": "mc_klara_t7_hat"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Moment. Neue Information!",
+          "emoji": "📨",
+          "en": "Hold on. New information!",
+          "audio": "mc_klara_t8a"
+        },
+        {
+          "who": "klara",
+          "type": "voice",
+          "audio": "mc_klara_vn_postcard",
+          "de": "Frau Wiese hat eine Postkarte bekommen. Von Herbert. Aus Mallorca. Er schreibt: „Ich habe Urlaub. Ich bin mit dem Fahrrad zum Flughafen gefahren. Dann bin ich nach Mallorca geflogen. Ich habe jetzt eine Bar am Strand. Tschüss!“",
+          "en": "Frau Wiese got a postcard. From Herbert. From Mallorca. He writes: “I’m on holiday. I rode my bike to the airport. Then I flew to Mallorca. I have a beach bar now. Bye!”",
+          "direction": "Reading a postcard aloud, slowly and in total disbelief, a long pause before “Aus Mallorca”, then trying very hard to stay professional; a seagull-free quiet office."
+        },
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Und heute Morgen sind noch drei Zwerge verschwunden. Aus der ganzen Straße. Mit Koffern. Das ist kein Urlaub mehr. Das ist eine Bewegung.",
+          "en": "And this morning three more gnomes vanished. From the whole street. With suitcases. That’s not a holiday any more. That’s a movement.",
+          "audio": "mc_klara_t8_revolution"
+        },
+        {
+          "who": "klara",
+          "type": "text",
+          "de": "Also. Wo ist Herbert? Und was hat er gemacht?",
+          "en": "So. Where is Herbert? And what did he do?",
+          "audio": "mc_klara_t8b"
+        }
+      ],
+      "tiles": [
+        "Herbert",
+        "er",
+        "ist",
+        "hat",
+        "auf",
+        "Mallorca",
+        "nach",
+        "geflogen",
+        "gefahren",
+        "mit",
+        "dem",
+        "Fahrrad",
+        "zum",
+        "Flughafen",
+        "im Urlaub",
+        "und",
+        "ich",
+        "war",
+        "es",
+        "nicht",
+        "ist"
+      ],
+      "wrong": {
+        "hat": "ist"
+      },
+      "intents": [
+        {
+          "id": "innocent",
+          "when": {
+            "all": [
+              "war",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Sie waren es nicht. Ich weiß. Jetzt weiß ich es.",
+              "en": "It wasn’t you. I know. Now I know.",
+              "audio": "mc_klara_t8_innocent"
+            }
+          ]
+        },
+        {
+          "id": "confess",
+          "when": {
+            "all": [
+              "war",
+              "es"
+            ]
+          },
+          "value": -2,
+          "cause": "confess",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Sie waren es?! Sie haben ihn nach Mallorca geschickt? Mit einer Bar? Das ist … eigentlich nett.",
+              "emoji": "🚨",
+              "en": "It was you?! You sent him to Mallorca? With a bar? That’s … actually nice.",
+              "audio": "mc_klara_t8_confess"
+            }
+          ]
+        },
+        {
+          "id": "flew",
+          "when": {
+            "any": [
+              "geflogen"
+            ]
+          },
+          "value": 2,
+          "fact": "✈️ löst Fälle",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Nach Mallorca geflogen. Ein Zwerg mit einem Plan. Ich bin beeindruckt.",
+              "emoji": "✈️",
+              "en": "Flew to Mallorca. A gnome with a plan. I’m impressed.",
+              "audio": "mc_klara_t8_flew"
+            }
+          ]
+        },
+        {
+          "id": "rode",
+          "when": {
+            "any": [
+              "gefahren"
+            ]
+          },
+          "value": 2,
+          "fact": "✈️ löst Fälle",
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Mit dem Fahrrad zum Flughafen. Genau wie auf dem Foto. Ich bin eine gute Kommissarin. Mit Hilfe.",
+              "emoji": "🚲",
+              "en": "By bike to the airport. Just like in the photo. I’m a good detective. With help.",
+              "audio": "mc_klara_t8_rode"
+            }
+          ]
+        },
+        {
+          "id": "holiday",
+          "when": {
+            "any": [
+              "mallorca",
+              "im urlaub"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "klara",
+              "type": "text",
+              "de": "Auf Mallorca. Im Urlaub. Mit einer Bar. Und ich? Ich habe keinen Urlaub. Seit 2009.",
+              "emoji": "🏝️",
+              "en": "On Mallorca. On holiday. With a bar. And me? I haven’t had a holiday. Since 2009.",
+              "audio": "mc_klara_t8_holiday"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "klara",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Lenken Sie nicht ab.",
+    "en": "That wasn’t my question. Don’t change the subject.",
+    "audio": "mc_klara_offtopic"
+  },
+  "confused": [
+    {
+      "who": "klara",
+      "type": "text",
+      "de": "Wie bitte? Noch einmal. Langsam. Für das Protokoll.",
+      "emoji": "📝",
+      "en": "Pardon? Once more. Slowly. For the record.",
+      "audio": "mc_klara_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "klara",
+        "type": "text",
+        "de": "Fall gelöst. Sie sind frei, {name}. Danke für Ihre Hilfe.",
+        "emoji": "🗂️",
+        "en": "Case solved. You’re free, {name}. Thank you for your help."
+      },
+      {
+        "who": "klara",
+        "type": "text",
+        "de": "Und wenn Sie wieder Zeit haben: Ich habe noch einen Fall. Meine Autoschlüssel. Seit 2015. Vielleicht sind sie auch auf Mallorca.",
+        "emoji": "🔑",
+        "en": "And if you have time again: I have another case. My car keys. Since 2015. Maybe they’re on Mallorca too.",
+        "audio": "mc_klara_win2"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "klara",
+        "type": "text",
+        "de": "Sie sind frei. Vorläufig. Verlassen Sie die Stadt nicht. Und kaufen Sie keine Gartenzwerge.",
+        "emoji": "🚔",
+        "en": "You’re free. For now. Don’t leave town. And don’t buy any garden gnomes.",
+        "audio": "mc_klara_partial"
+      }
+    ],
+    "deleted": {
+      "lie": {
+        "who": "klara",
+        "type": "text",
+        "de": "Zu viele Geschichten. Ich lösche Sie. Aber ich notiere Sie.",
+        "emoji": "📝",
+        "en": "Too many stories. I’m deleting you. But I’m writing you down.",
+        "audio": "mc_klara_del_lie"
+      },
+      "confess": {
+        "who": "klara",
+        "type": "text",
+        "de": "Ein Geständnis. Danke. Sie sind verhaftet. Und gelöscht.",
+        "emoji": "🚔",
+        "en": "A confession. Thank you. You’re under arrest. And deleted.",
+        "audio": "mc_klara_del_confess"
+      },
+      "hat": {
+        "who": "klara",
+        "type": "text",
+        "de": "Rot. Wie die Mütze von Herbert. Kein Zufall. Gelöscht.",
+        "emoji": "🎩",
+        "en": "Red. Like Herbert’s hat. No coincidence. Deleted.",
+        "audio": "mc_klara_del_hat"
+      },
+      "confused": {
+        "who": "klara",
+        "type": "text",
+        "de": "Ich verstehe Sie nicht. Das Protokoll versteht Sie auch nicht. Tschüss.",
+        "en": "I don’t understand you. The record doesn’t understand you either. Bye.",
+        "audio": "mc_klara_del_confused"
+      },
+      "default": {
+        "who": "klara",
+        "type": "text",
+        "de": "Hm. Ich glaube Ihnen nicht. Ich glaube niemandem. Tschüss.",
+        "en": "Hm. I don’t believe you. I don’t believe anyone. Bye.",
+        "audio": "mc_klara_del_default"
+      }
+    },
+    "sunday": {
+      "who": "klara",
+      "type": "voice",
+      "audio": "mc_klara_vn_sunday",
+      "de": "Kommissarin Klara hier. Heute ist Sonntag. Ich habe frei. Ich habe einen Gartenzwerg gekauft. Er heißt Herbert zwei. Heute Morgen war er weg. Er hat eine Postkarte geschrieben. Aus Ibiza.",
+      "en": "Inspector Klara here. It’s Sunday. I’m off. I bought a garden gnome. He’s called Herbert Two. This morning he was gone. He wrote a postcard. From Ibiza.",
+      "direction": "Off duty in her own small garden, birds and a lawnmower far away; still slow and serious, but a tiny proud smile at “Herbert zwei”."
+    }
+  },
+  "partialTitle": "Vorläufig frei.",
+  "share": {
+    "win": "Kommissarin Klara hat mich geliked 🕵️‍♀️ Mein Alibi hält, und der Gartenzwerg ist auf Mallorca. Mein Deutsch: {score}/100. Hast du ein Alibi? {url}",
+    "partial": "Ich bin vorläufig frei 🚔 Kommissarin Klara glaubt mir … fast. Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Kommissarin Klara hat mich gelöscht 💔 Zu viele Widersprüche. Mein Deutsch: {score}/100. Ist dein Alibi besser? {url}"
+  },
+  "imageCharacter": "Kommissarin Klara, a 49-year-old police detective, tall and thin, short grey-streaked dark hair, sharp grey eyes, a long beige trench coat over a dark turtleneck, a small notebook and pencil always in hand, one eyebrow permanently raised, a paper bag of gummy bears sticking out of her coat pocket.",
+  "imagePrompts": [
+    {
+      "id": "match_klara",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She sits across a plain interrogation table under a single hanging lamp, leaning forward slightly, pencil on her notebook, looking straight at the viewer with deep suspicion. On the table: a small garden gnome figure lying on its side, like evidence. Muted blue-grey wall. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_klara_kamera",
+      "aspect": "16:9",
+      "prompt": "A grainy, greenish night-vision security camera still of a small suburban garden at night, seen from slightly above, flat and simple. In the middle of the lawn stands an empty little round stone base where something used to stand. On the right, riding away on the garden path, is a classic garden gnome with a white beard and a tall pointed RED hat, pedalling a tiny RED bicycle; a small brown suitcase is strapped to the bicycle’s rear rack. Only these things: the empty base, the gnome on the bicycle, the suitcase. A hedge at the back. No text, no numbers, no timestamp in the picture."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich war im Kino.",
+      "intent": "cinema",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich war um zwanzig Uhr zu Hause.",
+      "intent": "home",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich waren im Restaurant.",
+      "intent": "restaurant",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich war bei meinem Bruder.",
+      "intent": "family",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich war bei meiner Mutter.",
+      "intent": "family",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich war bei meinem Mutter.",
+      "intent": "family",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich war im Garten.",
+      "intent": "garden",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich weiß es nicht.",
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Um zwanzig Uhr.",
+      "intent": "time",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich im Kino.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe ferngesehen.",
+      "intent": "tv",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe gestern Abend gekocht.",
+      "intent": "cooked",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich bin ferngesehen.",
+      "intent": "tv",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich bin einen Film gesehen.",
+      "intent": "film",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe einen Film gesehen.",
+      "intent": "film",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe ein Film gesehen.",
+      "intent": "film",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe Pizza gegessen.",
+      "intent": "ate",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe geschlafen.",
+      "intent": "slept",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich hatte Hunger.",
+      "intent": "hungry",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich ferngesehen habe.",
+      "intent": "tv",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bin um elf Uhr ins Bett gegangen.",
+      "intent": "bed",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe um elf ins Bett gegangen.",
+      "intent": "bed",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bin um zehn nach Hause gekommen.",
+      "intent": "cameHome",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bin sofort eingeschlafen.",
+      "intent": "asleep",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Um Mitternacht.",
+      "intent": "time",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bin nicht ins Bett gegangen.",
+      "intent": "notBed",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bin gegangen ins Bett.",
+      "intent": "bed",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Der Zwerg ist allein weggefahren.",
+      "intent": "alone",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sehe den Zwerg. Er hat einen Koffer.",
+      "intent": "suitcase",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sehe der Zwerg.",
+      "intent": "gnome",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Der Zwerg fährt mit dem Fahrrad.",
+      "intent": "bike",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sehe eine Person.",
+      "intent": "person",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sehe mich nicht.",
+      "intent": "notMe",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sehe mich.",
+      "intent": "me",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sehe nichts.",
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich war im Kino.",
+      "intent": "newClaim",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich war im Garten.",
+      "intent": "garden",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich weiß es immer noch nicht.",
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Der Pizzabote hat mich gesehen.",
+      "intent": "pizza",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Der Pizzabote haben mich gesehen.",
+      "intent": "pizza",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Mein Bruder hat mich gesehen.",
+      "intent": "brother",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Mein Nachbar war bei mir.",
+      "intent": "neighbour",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Meine Katze hat mich gesehen.",
+      "intent": "cat",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Frau Wiese hat mich gesehen.",
+      "intent": "wiese",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Niemand.",
+      "intent": "nobody",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe einen Schlafanzug getragen.",
+      "intent": "pyjamas",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hatte eine blaue Jacke an.",
+      "intent": "blue",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hatte einen blauen Schlafanzug an.",
+      "intent": "pyjamas",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich trage eine Jacke.",
+      "intent": "jacket",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe einen Hut getragen.",
+      "intent": "hat",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hatte eine rote Mütze an.",
+      "intent": "red",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Herbert ist auf Mallorca.",
+      "intent": "holiday",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Er ist nach Mallorca geflogen.",
+      "intent": "flew",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Er hat nach Mallorca geflogen.",
+      "intent": "flew",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Er ist mit dem Fahrrad zum Flughafen gefahren.",
+      "intent": "rode",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Er ist im Urlaub.",
+      "intent": "holiday",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich war es nicht.",
+      "intent": "innocent",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich war es.",
+      "intent": "confess",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich war bei meinem Mutter.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin im Kino.",
+      "score": 80
+    },
+    {
+      "turn": "t1",
+      "say": "Ich im Kino.",
+      "score": 50
+    },
+    {
+      "turn": "t2",
+      "say": "Ich ferngesehen habe.",
+      "score": 70
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe gegessen Pizza.",
+      "score": 70
+    },
+    {
+      "turn": "t2",
+      "say": "Ich bin ferngesehen.",
+      "score": 80
+    },
+    {
+      "turn": "t2",
+      "say": "Ich bin einen Film gesehen.",
+      "score": 80
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bin gegangen ins Bett.",
+      "score": 70
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe um elf ins Bett gegangen.",
+      "score": 80
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bin nicht sofort eingeschlafen.",
+      "intent": "notAsleep",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sehe der Zwerg.",
+      "score": 85
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sehe den Zwerg. Er hat einen Koffer.",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Ich war um Viertel nach acht bei meinem Bruder.",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Um Viertel nach acht.",
+      "intent": "time",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Der Pizzabote haben mich gesehen.",
+      "score": 80
+    },
+    {
+      "turn": "t6",
+      "say": "Mein Katze hat mich gesehen.",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hatte einen blauen Schlafanzug an.",
+      "score": 100
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hatte einen blaue Schlafanzug an.",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Ich trage eine Jacke.",
+      "score": 85
+    },
+    {
+      "turn": "t8",
+      "say": "Er ist mit dem Fahrrad zum Flughafen gefahren.",
+      "score": 100
+    },
+    {
+      "turn": "t8",
+      "say": "Er ist gefahren mit dem Fahrrad.",
+      "score": 70
+    },
+    {
+      "turn": "t8",
+      "say": "Er ist mit dem Fahrrad zum Flughafen gefahren und ist nach Mallorca geflogen.",
+      "score": 100,
+      "intent": "flew",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich war auf dem Mond.",
+      "intent": "moon",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin auf dem Mond.",
+      "score": 80
+    },
+    {
+      "turn": "t5",
+      "say": "Ich war auf dem Mond.",
+      "intent": "newClaim"
+    },
+    {
+      "turn": "t6",
+      "say": "Herbert hat mich gesehen.",
+      "intent": "herbert",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hatte einen Taucheranzug an.",
+      "intent": "diver",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hatte eine Taucheranzug an.",
+      "score": 85
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich war im Kino."
+        ],
+        [
+          "t2",
+          "Ich habe einen Film gesehen."
+        ],
+        [
+          "t3",
+          "Ich bin um elf Uhr nach Hause gekommen."
+        ],
+        [
+          "t4",
+          "Der Zwerg ist allein weggefahren."
+        ],
+        [
+          "t5",
+          "Ich war im Kino."
+        ],
+        [
+          "t6",
+          "Der Pizzabote hat mich gesehen."
+        ],
+        [
+          "t7",
+          "Ich hatte eine blaue Jacke an."
+        ],
+        [
+          "t8",
+          "Er ist mit dem Fahrrad zum Flughafen gefahren."
+        ]
+      ]
+    },
+    {
+      "name": "careful at home",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich war zu Hause."
+        ],
+        [
+          "t2",
+          "Ich habe ferngesehen."
+        ],
+        [
+          "t3",
+          "Ich bin um elf Uhr ins Bett gegangen."
+        ],
+        [
+          "t4",
+          "Ich sehe den Zwerg."
+        ],
+        [
+          "t5",
+          "Ich war zu Hause."
+        ],
+        [
+          "t6",
+          "Niemand."
+        ],
+        [
+          "t7",
+          "Ich habe einen Schlafanzug getragen."
+        ],
+        [
+          "t8",
+          "Ich war es nicht."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich weiß es nicht."
+        ],
+        [
+          "t2",
+          "Ich habe geschlafen."
+        ],
+        [
+          "t3",
+          "Ich bin um elf Uhr ins Bett gegangen."
+        ],
+        [
+          "t4",
+          "Ich sehe nichts."
+        ],
+        [
+          "t5",
+          "Ich war zu Hause."
+        ],
+        [
+          "t6",
+          "Meine Katze hat mich gesehen."
+        ],
+        [
+          "t7",
+          "Ich hatte eine blaue Jacke an."
+        ],
+        [
+          "t8",
+          "Herbert ist auf Mallorca."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich war zu Hause."
+        ],
+        [
+          "t2",
+          "Ich habe im Kino einen Film gesehen."
+        ],
+        [
+          "t3",
+          "Ich bin um elf Uhr nach Hause gekommen."
+        ],
+        [
+          "t4",
+          "Ich sehe mich."
+        ],
+        [
+          "t5",
+          "Ich war im Kino."
+        ]
+      ]
+    },
+    {
+      "name": "moon alibi",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich war auf dem Mond."
+        ],
+        [
+          "t2",
+          "Ich habe einen Film gesehen."
+        ],
+        [
+          "t3",
+          "Ich bin um elf Uhr ins Bett gegangen."
+        ],
+        [
+          "t4",
+          "Der Zwerg ist allein weggefahren."
+        ],
+        [
+          "t5",
+          "Ich war auf dem Mond."
+        ],
+        [
+          "t6",
+          "Herbert hat mich gesehen."
+        ],
+        [
+          "t7",
+          "Ich hatte einen Taucheranzug an."
+        ],
+        [
+          "t8",
+          "Er ist nach Mallorca geflogen."
+        ]
+      ]
+    }
+  ]
+}

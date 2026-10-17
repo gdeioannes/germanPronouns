@@ -1,0 +1,1867 @@
+{
+  "id": "ilse",
+  "name": "Kapitänin Ilse",
+  "age": 72,
+  "emoji": "⚓",
+  "image": "match_ilse",
+  "level": "B1.2",
+  "order": 3,
+  "bio": "Suche Crew. Keine Seekrankheit.",
+  "bioEn": "Looking for crew. No seasickness.",
+  "goal": "Join Ilse's houseboat crew by telling her a good story.",
+  "tagline": "Kapitänin · 72 · Hausboot an der Spree",
+  "voice": "Kore",
+  "brief": "Kapitänin Ilse, a 72-year-old houseboat captain on the Spree: husky, warm, salty and theatrical, a storyteller who laughs at her own tales, impatient with boring answers and delighted by a good adventure.",
+  "focus": "Präteritum · Plusquamperfekt · als/wenn/nachdem",
+  "lexicon": {
+    "nouns": {
+      "Boot": "n",
+      "Kind": "n",
+      "Fahrrad": "n",
+      "Wannsee": "m",
+      "Koffer": "m",
+      "Schatz": "m",
+      "Wette": "f",
+      "Kaffee": "m",
+      "Hund": "m",
+      "Job": "m",
+      "Badewanne": "f",
+      "Motor": "m",
+      "Polizei": "f",
+      "Geld": "n",
+      "Wasser": "n",
+      "Hausboot": "n",
+      "Ruderboot": "n",
+      "Jacht": "f",
+      "Katze": "f",
+      "Dach": "n",
+      "Tage": "pl",
+      "Ende": "n",
+      "Glück": "n",
+      "Schwan": "m"
+    },
+    "names": [
+      "Ilse",
+      "Italien",
+      "Paris",
+      "Kater Klaus"
+    ],
+    "verbs": [
+      "bin",
+      "war",
+      "warst",
+      "fuhr",
+      "fuhrst",
+      "fahrte",
+      "wurde",
+      "schwamm",
+      "schwimmte",
+      "verlor",
+      "verlierte",
+      "fand",
+      "hatte",
+      "hattest",
+      "habe",
+      "kam",
+      "schaukelt",
+      "singe",
+      "halte",
+      "springe",
+      "wird",
+      "schlief",
+      "weiß",
+      "bist",
+      "ritt",
+      "tanze"
+    ],
+    "nonfinite": [
+      "gefahren",
+      "verloren",
+      "getrunken",
+      "weggelaufen",
+      "vergessen",
+      "angekommen"
+    ],
+    "accVerbs": [
+      "verlor",
+      "verlierte",
+      "fand",
+      "hatte",
+      "hattest",
+      "habe",
+      "halte"
+    ],
+    "adjectives": [
+      "grün",
+      "rot",
+      "weiß",
+      "groß",
+      "klein"
+    ],
+    "subordinators": [
+      "als"
+    ]
+  },
+  "intro": [
+    {
+      "who": "ilse",
+      "type": "text",
+      "de": "Moin! Ilse hier. Kapitänin.",
+      "emoji": "⚓",
+      "en": "Ahoy! Ilse here. Captain.",
+      "audio": "mc_ilse_t1a"
+    },
+    {
+      "who": "ilse",
+      "type": "text",
+      "de": "Mein Hausboot liegt an der Spree. Ich suche Crew. Aber nur Leute mit einer guten Geschichte. Der letzte Matrose hatte keine. Er ist jetzt Zahnarzt.",
+      "en": "My houseboat is moored on the Spree. I’m looking for crew. But only people with a good story. The last sailor didn’t have one. He’s a dentist now.",
+      "audio": "mc_ilse_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "ilse",
+          "type": "text",
+          "de": "Erste Frage: Bist du schon mal Boot gefahren? Erzähl!",
+          "en": "First question: have you ever been on a boat? Tell me!",
+          "audio": "mc_ilse_t1c"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "als",
+        "ich",
+        "ich",
+        "ein",
+        "Kind",
+        "war",
+        "bin",
+        "fuhr",
+        "oft",
+        "Boot",
+        "gefahren",
+        "nie",
+        "aber",
+        "mir",
+        "wurde",
+        "schlecht",
+        "klein"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "neverSick",
+          "when": {
+            "all": [
+              "schlecht",
+              "nie"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Dir wurde nie schlecht? Sehr gut. Seekrankheit ist auf meinem Boot verboten.",
+              "en": "You never felt sick? Very good. Seasickness is banned on my boat.",
+              "audio": "mc_ilse_t1_neversick"
+            }
+          ]
+        },
+        {
+          "id": "seasick",
+          "when": {
+            "any": [
+              "schlecht"
+            ],
+            "none": [
+              "nie"
+            ]
+          },
+          "value": -2,
+          "flags": [
+            "seasick"
+          ],
+          "cause": "seasick",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Schlecht?! Auf meinem Boot wird niemandem schlecht. Das ist Regel Nummer eins.",
+              "emoji": "🤢",
+              "en": "Sick?! Nobody gets sick on my boat. That is rule number one.",
+              "audio": "mc_ilse_t1_seasick"
+            }
+          ]
+        },
+        {
+          "id": "childhood",
+          "when": {
+            "any": [
+              "als"
+            ]
+          },
+          "value": 2,
+          "fact": "⛵ fuhr schon als Kind Boot",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Als Kind! So fangen gute Geschichten an. Weiter so.",
+              "emoji": "⛵",
+              "en": "As a child! That’s how good stories begin. Keep going.",
+              "audio": "mc_ilse_t1_childhood"
+            }
+          ]
+        },
+        {
+          "id": "often",
+          "when": {
+            "any": [
+              "oft"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Oft! Gut. Vielleicht ein Profi.",
+              "en": "Often! Good. Maybe a pro.",
+              "audio": "mc_ilse_t1_often"
+            }
+          ]
+        },
+        {
+          "id": "never",
+          "when": {
+            "any": [
+              "nie",
+              "nein"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Nie? Ehrlich. Das mag ich. Auf der Spree lernt man schnell.",
+              "en": "Never? Honest. I like that. You learn fast on the Spree.",
+              "audio": "mc_ilse_t1_never"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "gefahren",
+              "fuhr"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Ja? Wann? Wo? Mit wem? Geschichten brauchen Details!",
+              "en": "Yes? When? Where? With whom? Stories need details!",
+              "audio": "mc_ilse_t1_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "ilse",
+          "type": "text",
+          "de": "Gut. Jetzt die echte Geschichte. Was war dein größtes Abenteuer?",
+          "emoji": "🗺️",
+          "en": "Good. Now the real story. What was your biggest adventure?",
+          "audio": "mc_ilse_t2a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "fuhr",
+        "fahrte",
+        "mit",
+        "dem",
+        "den",
+        "Fahrrad",
+        "nach",
+        "Italien",
+        "schwamm",
+        "schwimmte",
+        "durch",
+        "Wannsee",
+        "verlor",
+        "verlierte",
+        "meinen",
+        "Koffer",
+        "fand",
+        "einen",
+        "Schatz",
+        "ritt",
+        "auf",
+        "einem",
+        "Schwan"
+      ],
+      "wrong": {
+        "fahrte": "fuhr",
+        "schwimmte": "schwamm",
+        "verlierte": "verlor"
+      },
+      "intents": [
+        {
+          "id": "swan",
+          "when": {
+            "any": [
+              "schwan",
+              "ritt"
+            ]
+          },
+          "value": 2,
+          "fact": "🦢 ritt auf einem Schwan",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Auf einem Schwan?! Die beißen! Die sind schlimmer als die Wasserschutzpolizei! … Ich glaube dir. Ich WILL dir glauben.",
+              "emoji": "🦢",
+              "en": "On a swan?! They bite! They’re worse than the river police! … I believe you. I WANT to believe you.",
+              "audio": "mc_ilse_t2_swan"
+            }
+          ]
+        },
+        {
+          "id": "treasure",
+          "when": {
+            "any": [
+              "schatz"
+            ]
+          },
+          "value": 2,
+          "fact": "💰 fand einen Schatz",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Einen Schatz?! Wo? Nein, warte. Erst die ganze Geschichte.",
+              "emoji": "💰",
+              "en": "A treasure?! Where? No, wait. First the whole story.",
+              "audio": "mc_ilse_t2_treasure"
+            }
+          ]
+        },
+        {
+          "id": "swim",
+          "when": {
+            "any": [
+              "schwamm",
+              "schwimmte",
+              "wannsee"
+            ]
+          },
+          "value": 2,
+          "fact": "🏊 schwamm durch den Wannsee",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Durch den ganzen Wannsee! Nass, kalt, verrückt. Perfekt.",
+              "emoji": "🏊",
+              "en": "Across the whole Wannsee! Wet, cold, mad. Perfect.",
+              "audio": "mc_ilse_t2_swim"
+            }
+          ]
+        },
+        {
+          "id": "bike",
+          "when": {
+            "any": [
+              "fahrrad",
+              "italien"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Mit dem Fahrrad nach Italien. Respekt. Mir tun schon beim Zuhören die Beine weh.",
+              "emoji": "🚲",
+              "en": "By bike to Italy. Respect. My legs hurt just listening.",
+              "audio": "mc_ilse_t2_bike"
+            }
+          ]
+        },
+        {
+          "id": "suitcase",
+          "when": {
+            "any": [
+              "koffer",
+              "verlor",
+              "verlierte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Du hast einen Koffer verloren? Das ist kein Abenteuer. Das ist ein Dienstag. Ich verliere jeden Dienstag einen. Meistens in der Spree.",
+              "en": "You lost a suitcase? That’s not an adventure. That’s a Tuesday. I lose one every Tuesday. Mostly in the Spree.",
+              "audio": "mc_ilse_t2_suitcase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "ilse",
+          "type": "text",
+          "de": "Und warum? Was war vorher passiert? Gute Abenteuer haben immer eine dumme Vorgeschichte. Meine auch. Alle.",
+          "en": "And why? What had happened before? Good adventures always have a stupid backstory. Mine too. All of them.",
+          "audio": "mc_ilse_t3a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "hatte",
+        "hattest",
+        "eine",
+        "einen",
+        "Wette",
+        "verloren",
+        "zu",
+        "viel",
+        "Kaffee",
+        "getrunken",
+        "mein",
+        "Hund",
+        "war",
+        "weggelaufen",
+        "es",
+        "vergessen",
+        "habe",
+        "meinen",
+        "Job"
+      ],
+      "wrong": {
+        "hattest": "hatte"
+      },
+      "intents": [
+        {
+          "id": "bet",
+          "when": {
+            "any": [
+              "wette"
+            ]
+          },
+          "value": 2,
+          "fact": "🎲 verliert Wetten mit Stil",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Eine Wette! Die besten Geschichten beginnen mit einer verlorenen Wette.",
+              "emoji": "🎲",
+              "en": "A bet! The best stories begin with a lost bet.",
+              "audio": "mc_ilse_t3_bet"
+            }
+          ]
+        },
+        {
+          "id": "coffee",
+          "when": {
+            "any": [
+              "kaffee",
+              "getrunken"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Zu viel Kaffee. Kenne ich. 1981 bin ich deshalb bis nach Polen gerudert.",
+              "emoji": "☕",
+              "en": "Too much coffee. I know that one. In 1981 it made me row all the way to Poland.",
+              "audio": "mc_ilse_t3_coffee"
+            }
+          ]
+        },
+        {
+          "id": "dog",
+          "when": {
+            "any": [
+              "hund",
+              "weggelaufen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Dein Hund war weggelaufen. Und du hast ihn gesucht? Treu. Das mag ich.",
+              "emoji": "🐕",
+              "en": "Your dog had run away. And you went looking for it? Loyal. I like that.",
+              "audio": "mc_ilse_t3_dog"
+            }
+          ]
+        },
+        {
+          "id": "job",
+          "when": {
+            "any": [
+              "job"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Den Job verloren. Hm. Dann hattest du Zeit. Zeit ist gut für Abenteuer.",
+              "en": "Lost your job. Hm. Then you had time. Time is good for adventures.",
+              "audio": "mc_ilse_t3_job"
+            }
+          ]
+        },
+        {
+          "id": "forgot",
+          "when": {
+            "any": [
+              "vergessen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Vergessen? Eine Geschichte ohne Grund ist wie ein Boot ohne Wasser.",
+              "en": "Forgotten? A story without a reason is like a boat without water.",
+              "audio": "mc_ilse_t3_forgot"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "ilse",
+          "type": "voice",
+          "audio": "mc_ilse_vn_bathtub",
+          "de": "Jetzt erzähle ich. Als ich 1974 zum ersten Mal auf die Spree fuhr, war ich zwanzig. Ich hatte kein Geld. Aber ich hatte ein Boot. Na ja. Eine Badewanne. Mit einem Motor. Nach einer Stunde kam die Polizei. Wie immer.",
+          "en": "Now it’s my turn. When I went out on the Spree for the first time in 1974, I was twenty. I had no money. But I had a boat. Well. A bathtub. With an engine. After an hour the police came. As always.",
+          "direction": "Warm, husky and delighted with her own story, gulls crying and water lapping against a hull, a deep laugh before 'Wie immer'."
+        },
+        {
+          "who": "ilse",
+          "type": "text",
+          "de": "Hast du zugehört? Womit fuhr ich 1974 auf die Spree?",
+          "en": "Were you listening? What did I go out on the Spree in, in 1974?",
+          "audio": "mc_ilse_t4a"
+        }
+      ],
+      "tiles": [
+        "du",
+        "fuhrst",
+        "fuhr",
+        "bist",
+        "gefahren",
+        "mit",
+        "einer",
+        "einem",
+        "eine",
+        "Badewanne",
+        "Boot",
+        "Motor",
+        "die",
+        "Polizei",
+        "kam",
+        "kein",
+        "Geld",
+        "hattest"
+      ],
+      "wrong": {
+        "fuhr": "fuhrst"
+      },
+      "intents": [
+        {
+          "id": "bathtub",
+          "when": {
+            "any": [
+              "badewanne"
+            ]
+          },
+          "value": 2,
+          "fact": "🛁 hört gut zu",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Mit einer Badewanne! Ha! Du hast zugehört. Das ist selten.",
+              "emoji": "🛁",
+              "en": "In a bathtub! Ha! You were listening. That’s rare.",
+              "audio": "mc_ilse_t4_bathtub"
+            }
+          ]
+        },
+        {
+          "id": "boat",
+          "when": {
+            "any": [
+              "boot"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Ein Boot? Ich hatte kein Geld! Hör noch mal zu.",
+              "en": "A boat? I had no money! Listen again.",
+              "audio": "mc_ilse_t4_boat"
+            }
+          ]
+        },
+        {
+          "id": "police",
+          "when": {
+            "any": [
+              "polizei",
+              "kam"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Die Polizei kam später. Wie immer. Aber WOMIT fuhr ich?",
+              "emoji": "🚓",
+              "en": "The police came later. As always. But WHAT was I in?",
+              "audio": "mc_ilse_t4_police"
+            }
+          ]
+        },
+        {
+          "id": "motor",
+          "when": {
+            "any": [
+              "motor"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Mit einem Motor, ja. Aber der Motor hing an etwas. Woran?",
+              "en": "With an engine, yes. But the engine was attached to something. To what?",
+              "audio": "mc_ilse_t4_motor"
+            }
+          ]
+        },
+        {
+          "id": "money",
+          "when": {
+            "any": [
+              "geld"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Kein Geld, richtig. Und trotzdem fuhr ich los. Womit?",
+              "en": "No money, right. And still I set off. In what?",
+              "audio": "mc_ilse_t4_money"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "ilse",
+          "type": "text",
+          "de": "Wichtige Frage. Was machst du, wenn das Boot schaukelt?",
+          "emoji": "🌊",
+          "en": "Important question. What do you do when the boat rocks?",
+          "audio": "mc_ilse_t5a"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "das",
+        "Boot",
+        "schaukelt",
+        "singe",
+        "ich",
+        "halte",
+        "mich",
+        "fest",
+        "wird",
+        "mir",
+        "schlecht",
+        "springe",
+        "ins",
+        "Wasser",
+        "laut",
+        "sehr",
+        "nicht",
+        "tanze",
+        "mit",
+        "Kater Klaus"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "sickContra",
+          "when": {
+            "any": [
+              "singe",
+              "halte",
+              "tanze"
+            ],
+            "flag": "seasick"
+          },
+          "value": -1,
+          "cause": "seasick",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Und vorhin? Da war dir schlecht! Ich glaube dir kein Wort.",
+              "emoji": "🤨",
+              "en": "And earlier? Earlier you felt sick! I don't believe a word.",
+              "audio": "mc_ilse_t5_contra"
+            }
+          ]
+        },
+        {
+          "id": "sickLost",
+          "when": {
+            "all": [
+              "schlecht"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "seasick",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Schlecht? NEIN. Keine Seekrankheit. Das steht in meinem Profil!",
+              "emoji": "🤢",
+              "en": "Sick? NO. No seasickness. It says so in my profile!",
+              "audio": "mc_ilse_t5_sicklost"
+            }
+          ]
+        },
+        {
+          "id": "dance",
+          "when": {
+            "any": [
+              "tanze"
+            ]
+          },
+          "value": 2,
+          "fact": "💃 tanzt mit Kater Klaus",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Mit Kater Klaus tanzen? Er führt. Er führt immer. Und er tritt dir auf die Füße. Mit Krallen.",
+              "emoji": "🐈",
+              "en": "Dance with Kater Klaus? He leads. He always leads. And he steps on your feet. With claws.",
+              "audio": "mc_ilse_t5_dance"
+            }
+          ]
+        },
+        {
+          "id": "sing",
+          "when": {
+            "any": [
+              "singe"
+            ]
+          },
+          "value": 2,
+          "fact": "🎶 singt bei Sturm",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Singen! Die beste Medizin. Und die Möwen hassen es.",
+              "emoji": "🎶",
+              "en": "Singing! The best medicine. And the gulls hate it.",
+              "audio": "mc_ilse_t5_sing"
+            }
+          ]
+        },
+        {
+          "id": "hold",
+          "when": {
+            "any": [
+              "halte",
+              "fest"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Festhalten. Vernünftig. Ein bisschen langweilig, aber vernünftig.",
+              "en": "Holding on. Sensible. A bit boring, but sensible.",
+              "audio": "mc_ilse_t5_hold"
+            }
+          ]
+        },
+        {
+          "id": "jump",
+          "when": {
+            "any": [
+              "springe",
+              "wasser"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Ins Wasser springen? Bei mir springt niemand. Außer Kater Klaus. Einmal.",
+              "emoji": "🐈",
+              "en": "Jump into the water? Nobody jumps on my boat. Except Kater Klaus. Once.",
+              "audio": "mc_ilse_t5_jump"
+            }
+          ]
+        },
+        {
+          "id": "notSick",
+          "when": {
+            "all": [
+              "schlecht",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Dir wird nicht schlecht? Gut. Das prüfe ich noch.",
+              "en": "You don't get sick? Good. I'll check that.",
+              "audio": "mc_ilse_t5_notsick"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "ilse",
+          "type": "text",
+          "de": "Mein Boot heißt Möwe. Es ist klein und grün. Und auf dem Dach wohnt Kater Klaus. Er ist mein Erster Offizier. Er hat einen Bootsführerschein. Ich nicht.",
+          "emoji": "🐈",
+          "en": "My boat is called Möwe. It’s small and green. And Kater Klaus lives on the roof. He’s my first officer. He has a boating licence. I don’t.",
+          "audio": "mc_ilse_t6a"
+        },
+        {
+          "who": "ilse",
+          "type": "photo",
+          "image": "match_ilse_jetty",
+          "alt": "Ein Steg an der Spree mit drei Booten: links ein kleines rotes Ruderboot, in der Mitte eine große weiße Jacht, rechts ein kleines grünes Hausboot mit einer Katze auf dem Dach.",
+          "wide": true
+        },
+        {
+          "who": "ilse",
+          "type": "text",
+          "de": "Welches Boot ist meins?",
+          "en": "Which boat is mine?",
+          "audio": "mc_ilse_t6b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "die",
+        "grüne",
+        "grün",
+        "rote",
+        "weiße",
+        "große",
+        "kleine",
+        "Boot",
+        "Hausboot",
+        "Ruderboot",
+        "Jacht",
+        "rechts",
+        "links",
+        "in der Mitte",
+        "mit",
+        "der",
+        "Katze",
+        "auf",
+        "dem",
+        "Dach"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "grüne",
+              "grün",
+              "rechts",
+              "katze",
+              "hausboot",
+              "dach"
+            ]
+          },
+          "value": 2,
+          "fact": "⚓ findet die Möwe",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Ja! Die Möwe! Kater Klaus winkt. Na ja, er schläft.",
+              "emoji": "⚓",
+              "en": "Yes! The Möwe! Kater Klaus is waving. Well, he’s asleep.",
+              "audio": "mc_ilse_t6_right"
+            }
+          ]
+        },
+        {
+          "id": "yacht",
+          "when": {
+            "any": [
+              "weiße",
+              "große",
+              "jacht",
+              "in der mitte"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Die Jacht? Die gehört einem Zahnarzt aus Zehlendorf. Er hat keine einzige gute Geschichte.",
+              "emoji": "🛥️",
+              "en": "The yacht? That belongs to a dentist from Zehlendorf. He hasn't got a single good story.",
+              "audio": "mc_ilse_t6_yacht"
+            }
+          ]
+        },
+        {
+          "id": "rowing",
+          "when": {
+            "any": [
+              "rote",
+              "ruderboot",
+              "links"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Das Ruderboot? Da passt nur Kater Klaus rein. Und der will nicht.",
+              "en": "The rowing boat? Only Kater Klaus fits in that. And he doesn't want to.",
+              "audio": "mc_ilse_t6_rowing"
+            }
+          ]
+        },
+        {
+          "id": "small",
+          "when": {
+            "any": [
+              "kleine"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Klein, ja. Aber zwei Boote sind klein. Welches?",
+              "en": "Small, yes. But two boats are small. Which one?",
+              "audio": "mc_ilse_t6_small"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "ilse",
+          "type": "text",
+          "de": "Moment. Da kommt ein Polizeiboot. Blaulicht. Megafon. Alles.",
+          "emoji": "🚨",
+          "en": "Hang on. A police boat is coming. Blue lights. Megaphone. Everything.",
+          "audio": "mc_ilse_t7b"
+        },
+        {
+          "who": "ilse",
+          "type": "text",
+          "de": "Ach so. Sie bringen nur Kater Klaus zurück. Er hatte wieder ein Ruderboot geklaut. Das dritte diese Woche.",
+          "emoji": "🐈",
+          "en": "Oh, I see. They’re just bringing Kater Klaus back. He had stolen a rowing boat again. The third this week.",
+          "audio": "mc_ilse_t7c"
+        },
+        {
+          "who": "ilse",
+          "type": "text",
+          "de": "Letzte Frage. Deine Geschichte von vorhin: Wie endete sie?",
+          "en": "Last question. Your story from before: how did it end?",
+          "audio": "mc_ilse_t7a"
+        }
+      ],
+      "tiles": [
+        "und",
+        "dann",
+        "kam",
+        "die",
+        "Polizei",
+        "nachdem",
+        "ich",
+        "ich",
+        "angekommen",
+        "war",
+        "schlief",
+        "drei",
+        "Tage",
+        "am",
+        "Ende",
+        "fand",
+        "mein",
+        "Glück",
+        "weiß",
+        "es",
+        "nicht",
+        "mehr"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "police",
+          "when": {
+            "any": [
+              "polizei"
+            ]
+          },
+          "value": 2,
+          "fact": "🚓 Geschichten enden mit Polizei",
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Und dann kam die Polizei! HA! Wie bei mir! Wie bei Kater Klaus! Du gehörst zu uns. Du bist Crew!",
+              "emoji": "🚓",
+              "en": "And then the police came! HA! Like with me! Like with Kater Klaus! You belong with us. You’re crew!",
+              "audio": "mc_ilse_t7_police"
+            }
+          ]
+        },
+        {
+          "id": "nachdem",
+          "when": {
+            "all": [
+              "nachdem"
+            ],
+            "any": [
+              "schlief",
+              "tage"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Drei Tage geschlafen, nachdem du angekommen warst. Ein echtes Ende. Respekt.",
+              "emoji": "😴",
+              "en": "Slept for three days after you had arrived. A real ending. Respect.",
+              "audio": "mc_ilse_t7_nachdem"
+            }
+          ]
+        },
+        {
+          "id": "nachdemLuck",
+          "when": {
+            "all": [
+              "nachdem",
+              "glück"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Erst angekommen, dann das Glück gefunden. Kitsch mit Fahrplan. Ich muss mir die Augen wischen. Das ist nur Spreewasser.",
+              "en": "First arrived, then found happiness. Kitsch with a timetable. I have to wipe my eyes. It’s just Spree water.",
+              "audio": "mc_ilse_t7_nachdemluck"
+            }
+          ]
+        },
+        {
+          "id": "luck",
+          "when": {
+            "any": [
+              "glück"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Dein Glück gefunden. Kitschig. Aber schön kitschig.",
+              "en": "Found your happiness. Cheesy. But nicely cheesy.",
+              "audio": "mc_ilse_t7_luck"
+            }
+          ]
+        },
+        {
+          "id": "sleep",
+          "when": {
+            "any": [
+              "schlief",
+              "tage"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Drei Tage geschlafen! Gut. Schlafen ist das beste Ende.",
+              "en": "Slept for three days! Good. Sleep is the best ending.",
+              "audio": "mc_ilse_t7_sleep"
+            }
+          ]
+        },
+        {
+          "id": "forgot",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ilse",
+              "type": "text",
+              "de": "Du weißt es nicht mehr? Eine Geschichte ohne Ende? Wie ein Boot ohne Wasser.",
+              "en": "You don't remember? A story without an ending? Like a boat without water.",
+              "audio": "mc_ilse_t7_forgot"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "ilse",
+    "type": "text",
+    "de": "Das war nicht meine Frage, Matrose.",
+    "en": "That wasn't my question, sailor.",
+    "audio": "mc_ilse_offtopic"
+  },
+  "confused": [
+    {
+      "who": "ilse",
+      "type": "text",
+      "de": "Hä? Sprich lauter. Hier sind Möwen.",
+      "emoji": "🐦",
+      "en": "Huh? Speak up. There are gulls here.",
+      "audio": "mc_ilse_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "ilse",
+        "type": "text",
+        "de": "{name}, willkommen an Bord!",
+        "en": "{name}, welcome aboard!"
+      },
+      {
+        "who": "ilse",
+        "type": "text",
+        "de": "Morgen um sechs legen wir ab. Bring deine Geschichte mit. Und Kekse für Kater Klaus. Und eine gute Ausrede für die Polizei.",
+        "emoji": "⚓",
+        "en": "Tomorrow at six we cast off. Bring your story. And biscuits for Kater Klaus. And a good excuse for the police.",
+        "audio": "mc_ilse_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "ilse",
+        "type": "text",
+        "de": "Okay. Du darfst mit. Aber nur als Matrose. Du putzt das Deck. Und Kater Klaus.",
+        "emoji": "🧽",
+        "en": "Okay. You can come. But only as a deckhand. You clean the deck. And Kater Klaus.",
+        "audio": "mc_ilse_partial"
+      }
+    ],
+    "deleted": {
+      "seasick": {
+        "who": "ilse",
+        "type": "text",
+        "de": "Seekrank auf der Spree. Die Spree hat keine Wellen. Tschüss, Landratte.",
+        "emoji": "🤢",
+        "en": "Seasick on the Spree. The Spree has no waves. Bye, landlubber.",
+        "audio": "mc_ilse_del_seasick"
+      },
+      "confused": {
+        "who": "ilse",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich verstehe sogar Kater Klaus. Tschüss.",
+        "en": "I don't understand you. And I even understand Kater Klaus. Bye.",
+        "audio": "mc_ilse_del_confused"
+      },
+      "default": {
+        "who": "ilse",
+        "type": "text",
+        "de": "Deine Geschichte ist zu kurz für mein Boot. Tschüss, Landratte.",
+        "en": "Your story is too short for my boat. Bye, landlubber.",
+        "audio": "mc_ilse_del_default"
+      }
+    },
+    "sunday": {
+      "who": "ilse",
+      "type": "voice",
+      "audio": "mc_ilse_vn_sunday",
+      "de": "Moin! Ilse hier. Sonntag auf der Spree. Gestern kam wieder die Polizei. Diesmal wegen Kater Klaus. Lange Geschichte. Ich erzähle sie dir, wenn du kommst.",
+      "en": "Ahoy! Ilse here. Sunday on the Spree. Yesterday the police came again. This time because of Kater Klaus. Long story. I’ll tell you when you come.",
+      "direction": "Cheerful and conspiratorial on deck, gulls and a passing tour boat in the background, a cat meowing once."
+    }
+  },
+  "partialTitle": "Matrose. Mit Putzlappen.",
+  "share": {
+    "win": "Ich bin jetzt Crew bei Kapitänin Ilse (72) auf der Spree ⚓ Meine Geschichte war gut genug! Mein Deutsch: {score}/100. Erzählst du besser? {url}",
+    "partial": "Kapitänin Ilse (72) nimmt mich mit … als Matrose mit Putzlappen 🧽 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Kapitänin Ilse (72) hat mich gelöscht 💔 Ich bin eine Landratte. Mein Deutsch: {score}/100. Hast du eine bessere Geschichte? {url}"
+  },
+  "imageCharacter": "Kapitänin Ilse, a 72-year-old woman, small, weathered and sun-tanned, a long white braid, a navy captain’s cap, a thick cream fisherman’s jumper and a yellow scarf, bright blue eyes full of mischief, a big laugh.",
+  "imagePrompts": [
+    {
+      "id": "match_ilse",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands at the wheel on the deck of a small green houseboat on a calm city river, one hand raised as if telling a big story, a fat ginger cat asleep on the cabin roof behind her and gulls in the sky. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_ilse_jetty",
+      "aspect": "16:9",
+      "prompt": "A wooden jetty on a calm city river, seen exactly from the side like a stage set, flat, no perspective. Exactly THREE boats are moored in one row, far apart. LEFT: a tiny bright red wooden rowing boat, empty. MIDDLE: a huge shiny white motor yacht, three times bigger than the others. RIGHT: a small bright green houseboat with flower pots, and a fat ginger cat sleeping on its roof. Nothing else on the water. Daylight."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ja, als ich ein Kind war, fuhr ich oft Boot.",
+      "score": 100,
+      "intent": "childhood",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Als ich klein war, bin ich oft Boot gefahren.",
+      "score": 100,
+      "intent": "childhood",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Als ich ein Kind war, ich fuhr oft Boot.",
+      "score": 70,
+      "intent": "childhood",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich fuhr oft Boot.",
+      "score": 100,
+      "intent": "often",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin nie Boot gefahren.",
+      "score": 100,
+      "intent": "never",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin gefahren nie Boot.",
+      "score": 70,
+      "intent": "never",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Ja, aber mir wurde schlecht.",
+      "score": 100,
+      "intent": "seasick",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ja.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich nie Boot.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich fuhr oft Boot, aber mir wurde nie schlecht.",
+      "score": 100,
+      "intent": "neverSick",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich schwamm durch den Wannsee.",
+      "score": 100,
+      "intent": "swim",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich schwimmte durch den Wannsee.",
+      "score": 80,
+      "intent": "swim",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich schwamm durch dem Wannsee.",
+      "score": 85,
+      "intent": "swim",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich fuhr mit dem Fahrrad nach Italien.",
+      "score": 100,
+      "intent": "bike",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich fahrte mit den Fahrrad nach Italien.",
+      "score": 65,
+      "intent": "bike",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich verlor meinen Koffer.",
+      "score": 100,
+      "intent": "suitcase",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich fand einen Schatz.",
+      "score": 100,
+      "intent": "treasure",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich mit dem Fahrrad nach Italien.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hatte eine Wette verloren.",
+      "score": 100,
+      "intent": "bet",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hattest eine Wette verloren.",
+      "score": 80,
+      "intent": "bet",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hatte einen Wette verloren.",
+      "score": 85,
+      "intent": "bet",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hatte verloren eine Wette.",
+      "score": 70,
+      "intent": "bet",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hatte zu viel Kaffee getrunken.",
+      "score": 100,
+      "intent": "coffee",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Mein Hund war weggelaufen.",
+      "score": 100,
+      "intent": "dog",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hatte meinen Job verloren.",
+      "score": 100,
+      "intent": "job",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe es vergessen.",
+      "score": 100,
+      "intent": "forgot",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich eine Wette verloren.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du fuhrst mit einer Badewanne.",
+      "score": 100,
+      "intent": "bathtub",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Mit einer Badewanne.",
+      "score": 100,
+      "intent": "bathtub",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Mit einem Badewanne.",
+      "score": 85,
+      "intent": "bathtub",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Du fuhr mit einer Badewanne.",
+      "score": 80,
+      "intent": "bathtub",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Du fuhrst mit einem Boot.",
+      "score": 100,
+      "intent": "boat",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Die Polizei kam.",
+      "score": 100,
+      "intent": "police",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Mit einem Motor.",
+      "score": 100,
+      "intent": "motor",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Du mit einer Badewanne.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du bist mit einer Badewanne gefahren.",
+      "score": 100,
+      "intent": "bathtub",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Du bist mit einem Boot gefahren.",
+      "score": 100,
+      "intent": "boat",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn das Boot schaukelt, singe ich.",
+      "score": 100,
+      "intent": "sing",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn das Boot schaukelt, singe ich sehr laut.",
+      "score": 100,
+      "intent": "sing",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn das Boot schaukelt, ich singe.",
+      "score": 70,
+      "intent": "sing",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn schaukelt das Boot, singe ich.",
+      "score": 70,
+      "intent": "sing",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn das Boot schaukelt, halte ich mich fest.",
+      "score": 100,
+      "intent": "hold",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn das Boot schaukelt, wird mir schlecht.",
+      "score": 100,
+      "intent": "sickLost",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn das Boot schaukelt, wird mir nicht schlecht.",
+      "score": 100,
+      "intent": "notSick",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn das Boot schaukelt, springe ich ins Wasser.",
+      "score": 100,
+      "intent": "jump",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich das Boot.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Das grüne Boot rechts.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Das kleine Hausboot mit der Katze auf dem Dach.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Die grüne Boot rechts.",
+      "score": 85,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Das grün Boot.",
+      "score": 85,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Die große weiße Jacht in der Mitte.",
+      "score": 100,
+      "intent": "yacht",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Das rote Ruderboot links.",
+      "score": 100,
+      "intent": "rowing",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Das kleine Boot.",
+      "score": 100,
+      "intent": "small",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Und dann kam die Polizei.",
+      "score": 100,
+      "intent": "police",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Und dann die Polizei kam.",
+      "score": 70,
+      "intent": "police",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Nachdem ich angekommen war, schlief ich drei Tage.",
+      "score": 100,
+      "intent": "nachdem",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Nachdem ich war angekommen, schlief ich drei Tage.",
+      "score": 70,
+      "intent": "nachdem",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Nachdem ich angekommen war, ich schlief drei Tage.",
+      "score": 70,
+      "intent": "nachdem",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Am Ende fand ich mein Glück.",
+      "score": 100,
+      "intent": "luck",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich schlief drei Tage.",
+      "score": 100,
+      "intent": "sleep",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich weiß es nicht mehr.",
+      "score": 100,
+      "intent": "forgot",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich am Ende mein Glück.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Nachdem ich angekommen war, fand ich mein Glück.",
+      "score": 100,
+      "intent": "nachdemLuck",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich ritt auf einem Schwan.",
+      "score": 100,
+      "intent": "swan",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich ritt auf einen Schwan.",
+      "score": 85,
+      "intent": "swan",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn das Boot schaukelt, tanze ich mit Kater Klaus.",
+      "score": 100,
+      "intent": "dance",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn das Boot schaukelt, ich tanze mit Kater Klaus.",
+      "score": 70,
+      "intent": "dance",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ja, als ich ein Kind war, fuhr ich oft Boot."
+        ],
+        [
+          "t2",
+          "Ich schwamm durch den Wannsee."
+        ],
+        [
+          "t3",
+          "Ich hatte eine Wette verloren."
+        ],
+        [
+          "t4",
+          "Mit einer Badewanne."
+        ],
+        [
+          "t5",
+          "Wenn das Boot schaukelt, singe ich."
+        ],
+        [
+          "t6",
+          "Das grüne Boot rechts."
+        ],
+        [
+          "t7",
+          "Und dann kam die Polizei."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich bin nie Boot gefahren."
+        ],
+        [
+          "t2",
+          "Ich verlor meinen Koffer."
+        ],
+        [
+          "t3",
+          "Ich habe es vergessen."
+        ],
+        [
+          "t4",
+          "Die Polizei kam."
+        ],
+        [
+          "t5",
+          "Wenn das Boot schaukelt, springe ich ins Wasser."
+        ],
+        [
+          "t6",
+          "Die große weiße Jacht in der Mitte."
+        ],
+        [
+          "t7",
+          "Ich weiß es nicht mehr."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ja, aber mir wurde schlecht."
+        ],
+        [
+          "t2",
+          "Ich verlor meinen Koffer."
+        ],
+        [
+          "t3",
+          "Ich habe es vergessen."
+        ],
+        [
+          "t4",
+          "Du fuhrst mit einem Boot."
+        ],
+        [
+          "t5",
+          "Wenn das Boot schaukelt, singe ich."
+        ],
+        [
+          "t6",
+          "Das rote Ruderboot links."
+        ]
+      ]
+    }
+  ]
+}

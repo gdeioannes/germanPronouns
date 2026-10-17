@@ -1,0 +1,773 @@
+{
+  "style": "Flat picture-book illustration with warm, absurd humour, in the spirit of a mid-century children's picture book with a touch of graphic simplification: natural proportions and simple expressive faces, details reduced to clean flat colour shapes, medium-weight ink-navy outlines, no gradients, no photographic texture. Limited warm palette: ink-navy (#1f3a5f), terracotta (#c9683b), mustard (#d9a441), sage (#7a9a7e), soft blue, cream, plus deep black for black clothes and night shadows. Bare hands, no gloves. No text, no letters, no numbers, no logos, no watermark anywhere in the image.",
+  "images": [
+    {
+      "id": "match_albers",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Frau Albers, a 41-year-old HR manager: a neat dark bob, tortoiseshell glasses on a chain, a soft lilac blouse under a grey blazer, a lanyard with a blank badge, a clipboard in one hand, a professional smile, and a few cat hairs on her sleeve. She sits at a tidy desk in a small museum office, smiling politely at the viewer over her glasses, pen ready on the clipboard. Behind her hangs a classical oil painting of a cat in a golden frame, and a fat ginger cat is asleep in her in-tray. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_albers_cats",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A quiet museum hall seen exactly from the front like a stage set, one flat wall with a few framed paintings, polished wooden floor. Exactly three cats in a row, far apart and evenly spaced. LEFT: a very FAT GINGER tomcat sitting on a big red velvet cushion on the floor, looking smug. MIDDLE: a slim, elegant BLACK cat standing on a tall white stone pedestal. RIGHT: an old GREY tomcat curled up asleep on an ornate antique GOLDEN chair. Three clearly different cats: ginger and fat, black and slim, grey and old on a golden chair."
+    },
+    {
+      "id": "match_benny",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Benny, a 29-year-old hairdresser with a tall sculpted two-tone quiff (dark at the roots, bleached blond on top), a thin neat moustache, a black apron with combs in the pocket, sleeves rolled up, a small scissors tattoo on his forearm; he holds a big pair of shiny silver scissors; lively eyes and a confident, mischievous grin. He stands in his small, colourful salon in front of a big round mirror, one eyebrow raised, holding the scissors up next to his face like a trophy. Hair spray cans and combs on a shelf behind him. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_benny_heads",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A hairdresser’s shop window seen exactly from the front like a stage set, flat pale background, no perspective. Exactly THREE white mannequin heads on stands in a row, far apart and evenly spaced, all the same size. LEFT head: a tall, spiky, bright red mohawk. MIDDLE head: a neat, ordinary short DARK CHOCOLATE-BROWN haircut, nothing special. RIGHT head: an enormous tall tower of bright green hair, three times as high as the head, like a spiral ice-cream cone. Nothing else in the window. The middle head has short, neat, clearly DARK BROWN hair (not blond, not yellow)."
+    },
+    {
+      "id": "match_benny_ref_long",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A hairdresser's catalogue photo: a smiling young adult of indeterminate gender, head and shoulders, plain pale background, with long, straight, glossy brown hair falling well past the shoulders."
+    },
+    {
+      "id": "match_benny_ref_short",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A hairdresser's catalogue photo: a smiling young adult of indeterminate gender, head and shoulders, plain pale background, with a short, cheeky, tousled brown pixie haircut; ears visible."
+    },
+    {
+      "id": "match_benny_ref_fringe",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A hairdresser's catalogue photo: a smiling young adult of indeterminate gender, head and shoulders, plain pale background, with shoulder-length brown hair and a thick, straight, short fringe cut exactly above the eyebrows."
+    },
+    {
+      "id": "match_benny_ref_bald",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A hairdresser's catalogue photo: a smiling young adult of indeterminate gender, head and shoulders, plain pale background, completely bald and clean-shaven head, shining softly in the studio light, looking proud."
+    },
+    {
+      "id": "match_berger",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Frau Berger, a 68-year-old neighbour: short and round, permed lilac-grey hair, cat-eye reading glasses on a beaded chain, a flowered house coat over a beige cardigan, fluffy slippers, and a knowing, slightly too sweet smile. She stands in the doorway of her ground-floor flat, half-open door, holding a big brown parcel against her chest with both arms, peering at the viewer over her glasses. Behind her a hallway stacked with many more parcels up to the ceiling. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_berger_parcels",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Three parcels on a lace-covered table in front of a plain flowered wallpaper, seen exactly from the front, far apart and evenly spaced, nothing else on the table, no labels. LEFT: a SMALL bright RED box tied with a big golden bow. MIDDLE: a LONG, thin cardboard tube lying flat. RIGHT: a BIG BROWN cardboard box wrapped in lots of tape, clearly the largest. Three clearly different parcels: small red with bow, long tube, big brown box."
+    },
+    {
+      "id": "match_bernd",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Bernd, a young white goat with a scruffy little beard, two small curved horns, amber eyes with sideways pupils and one floppy ear; he wears a knitted mustard-yellow scarf and always has a torn scrap of blank paper sticking out of the corner of his mouth. He stands on his hind legs in the doorway of a cosy, slightly chaotic old Berlin flat, front hooves on the door frame, grinning at the viewer. Behind him a hallway with a coat hook and a half-chewed doormat. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_bernd_room",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a small, empty, bright room seen exactly from the front like a stage set: one flat white wall, a plain wooden floor, no perspective, no corners. Exactly THREE pieces of furniture stand in a row, far apart: LEFT: a single bed with a white blanket. MIDDLE: one wooden chair. RIGHT: a tall standing lamp. There is NO table anywhere in the room and nothing else on the floor. Every piece of furniture has small, funny half-moon bite marks missing from its edges, like someone nibbled it. A window with daylight in the wall above the chair."
+    },
+    {
+      "id": "match_brandt",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Herr Brandt, a 52-year-old tax adviser and secret rocker: grey hair neatly combed on one side but long at the back, rimless reading glasses, a crisp white shirt and grey tie under which a black band T-shirt peeks out, a leather wristband, and a bass guitar case leaning on his chair. He sits behind a tidy office desk with neat stacks of folders and a desk lamp, looking at the viewer over his glasses with a polite smile, but making a subtle rock “devil horns” hand sign next to his calculator. Behind him a filing cabinet with an amplifier on top. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_brandt_receipts",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Three paper receipts lying side by side on a dark wooden desk, seen straight from above, far apart and evenly spaced, each receipt completely blank white paper with nothing printed on it. Above each receipt sits a tiny object as a clue: LEFT a small toy office chair, MIDDLE a coiled guitar string, RIGHT a single slice of pizza on a napkin. Nothing else on the desk."
+    },
+    {
+      "id": "match_brezel",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Die Brezel, a plump, glossy golden-brown Bavarian pretzel come to life, with big round expressive eyes, tiny worried eyebrows, a small trembling mouth, coarse white salt crystals scattered on it like freckles, and thin little arms; very dramatic. It sits on a wooden bakery shelf between a round jam doughnut and a croissant, clasping its little hands together pleadingly, big teary eyes looking straight at the viewer. Warm morning light, a few flour specks in the air. The pretzel is centred and fills most of the frame."
+    },
+    {
+      "id": "match_brezel_fenster",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A bakery shop window seen exactly from the front, flat like a stage set, no perspective. On one long wooden board lie exactly THREE pretzels with little faces, far apart, in a row. LEFT: a BIG pretzel wearing black sunglasses, looking cool. MIDDLE: a SMALL pretzel, about half the size of the others, wearing a bright red knitted scarf, looking worried. RIGHT: a BIG pretzel wearing a bright green bobble hat. Nothing else on the board. No writing on the window, no signs."
+    },
+    {
+      "id": "match_briefkasten",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. A classic bright-yellow German street postbox on a short post, slightly dented, with a black horn logo shape replaced by a plain black stripe, the letter slot forming a sly smiling mouth and two round bolts above it looking like curious eyes; a pair of tiny reading glasses perched on top. It stands on a quiet Berlin street corner in the early morning, a few envelopes peeking out of its slot, leaning slightly towards the viewer as if about to share a secret. Old building facades and a lamp post behind it. The whole postbox clearly visible, centred."
+    },
+    {
+      "id": "match_briefkasten_letter",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a single sheet of lined white paper lying on dark asphalt next to a yellow postbox base, seen straight from above. The paper is COMPLETELY blank: no writing, no letters, no scribbles at all, only faint blue lines and a coffee ring stain in one corner. A crumpled envelope with three big red exclamation-mark shapes drawn on it lies beside it."
+    },
+    {
+      "id": "match_brueckner",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Herr Brückner, a 59-year-old case officer: neat grey side parting, a trimmed grey moustache, half-moon reading glasses, a short-sleeved light blue shirt with a dark tie and a pen in the breast pocket, sleeve protectors, and an expression of infinite, polite patience. He sits very upright behind a grey office desk with perfectly squared stacks of paper, a rubber stamp and a small cactus, looking at the viewer over his glasses with a tiny, barely visible smile, one finger raised as if about to explain a rule. A wall calendar and a filing cabinet behind him. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_brueckner_forms",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Three paper forms lying side by side on a grey office desk, seen straight from above, far apart and evenly spaced, nothing else on the desk except a rubber stamp in one corner. LEFT: a sheet of BLUE paper. MIDDLE: a sheet of YELLOW paper. RIGHT: a sheet of GREEN paper. Each sheet shows only empty boxes and blank lines, no text, no letters, no numbers. Three clearly different colours: blue, yellow, green."
+    },
+    {
+      "id": "match_deniz",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Deniz, a 34-year-old man with a neat short black beard, warm brown eyes and thick black hair under a white paper cap, a white apron over a dark blue t-shirt, round reading glasses pushed up on his forehead, a pen behind his ear, a big welcoming grin. He stands behind the counter of a small Berlin kebab shop, holding a long knife in one hand and a rolled dürüm wrap in the other like a trophy, a vertical meat spit glowing warmly behind him and a paperback book of poems lying open next to the cutting board. Tiled wall, warm light. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_deniz_prices",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of the wall above a kebab shop counter, seen straight on: one large plain dark-green chalkboard fills most of the frame, completely empty, nothing written or drawn on it. Below the board, the edge of a steel counter with three bowls in a row: lettuce, tomatoes and purple onions. Warm light."
+    },
+    {
+      "id": "match_deniz_duerum",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo, seen from slightly above, of one single rolled dürüm wrap lying on white paper on a steel kebab counter. On top of the wrap sits a huge, absurd, overflowing pile of bright purple raw onion rings, taller than the wrap itself, a few rings tumbling onto the counter. Nothing else on the counter. Warm light."
+    },
+    {
+      "id": "match_eichhoernchen",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Nusshardt, a small red squirrel with a huge fluffy tail, big alert dark eyes and twitchy tufted ears, wearing a little pointed hat folded out of shiny aluminium foil, clutching a hazelnut like a precious secret. He sits on a park bench in front of a pinboard covered with blank paper notes and red strings, squinting suspiciously at the viewer. Autumn leaves around him. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_eichhoernchen_sign",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a German town entrance sign at the edge of a country road: a plain bright-yellow rectangular sign with a thin black border, COMPLETELY blank, no letters or words on it. On the grass right next to the post sits Nusshardt, a small red squirrel with a huge fluffy tail, big alert dark eyes and twitchy tufted ears, wearing a little pointed hat folded out of shiny aluminium foil, clutching a hazelnut like a precious secret., pointing at the sign with one paw. Fields and a few trees behind."
+    },
+    {
+      "id": "match_eigentuemer",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Frau Dr. Wendt, a slim 63-year-old woman with a sharp silver bob, narrow reading glasses on a chain, a navy blazer with a brooch shaped like a leaf, holding a thick ring binder and a pen like a gavel; one eyebrow permanently raised. She sits at the head of a long table in a plain community room with folding chairs, papers neatly stacked, looking over her glasses at the viewer. Behind her a huge leafy Monstera plant in a pot. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_eigentuemer_rules",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a framed notice hanging on the tiled wall of an old Berlin stairwell, seen straight on. The paper inside the frame is COMPLETELY blank white with no writing at all. A brass light switch and a row of letterboxes beside it."
+    },
+    {
+      "id": "match_eigentuemer_hallway",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "The ground-floor hallway of an old Berlin apartment building seen exactly from the front like a stage set: one flat wall with old tiles, a wooden floor, no perspective. Exactly THREE things in a row, far apart: LEFT: a green city bicycle leaning against the wall, with a lock. MIDDLE: an ENORMOUS Monstera plant in a big terracotta pot, much taller than a person, its leaves spreading wide. RIGHT: a wooden shoe rack overflowing with many pairs of shoes. Nothing else."
+    },
+    {
+      "id": "match_ferdinand",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Ferdinand, a potted weeping fig (ficus) about one metre tall in a cracked terracotta pot, with a slim braided trunk and droopy dark-green leaves, a few of them yellow; a simple cartoon face on the pot: big sad eyes with long lashes and a trembling pout; one leafy branch draped across the top of the pot like the arm of a fainting actor. He stands in a dim, narrow hallway corner next to a messy shoe rack full of trainers, under one bare light bulb; a soft beam of daylight from a doorway falls on the floor just short of him. Two fallen leaves lie at his feet. The whole plant and pot clearly visible, centred."
+    },
+    {
+      "id": "match_ferdinand_room",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A cosy living room seen exactly from the front like a stage set: one flat painted wall fills the picture, wooden floor, no perspective, no corners. Exactly THREE things stand in a row along the wall, far apart and evenly spaced. LEFT: a large bright window with warm yellow sunshine pouring in and a bright patch of sunlight on the empty floor in front of it. MIDDLE: a white radiator on the wall, glowing hot, with big wavy red heat lines rising from it. RIGHT: a low wooden shelf with exactly one small round green cactus in a pot on top; the cactus wears tiny black sunglasses and looks smug. Nothing else in the room, no plants anywhere else."
+    },
+    {
+      "id": "match_fridolin",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Fridolin, a huge, round-bellied, gentle moss-green dragon with small stubby wings, big soft amber eyes, a few wisps of smoke curling from his nostrils, wearing a tiny striped apron and holding a feather duster in one claw. He stands in front of the open gate of a small medieval castle on a hill above a wide river, smiling hopefully at the viewer, one corner of the gate slightly blackened by soot. Vineyards on the hillside. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_fridolin_ad",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of an old paper notice pinned to a wooden board, seen straight on. The paper is COMPLETELY blank, no writing at all, with slightly singed, blackened edges and one small scorch mark in a corner. A little drawing of a castle tower is stuck beside it."
+    },
+    {
+      "id": "match_gerda",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Gerda, a 67-year-old hiking club leader, small, wiry and sun-tanned, short white hair under a red knitted headband, bright blue eyes, a checked shirt with rolled-up sleeves, knee-length hiking breeches, red socks, sturdy old leather boots, two trekking poles and an enormous rucksack, a huge cheerful grin. She stands on a green alpine meadow with mountains behind her, one trekking pole raised in the air like a flag, beaming at the viewer. A small wooden mountain hut far away on a peak. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_gerda_wanderschuhe",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo looking straight down at a person’s feet standing on the gravel of a car park at dawn: they wear sturdy brown leather hiking boots with red laces and grey wool socks. Only the feet and lower legs are visible. Wet gravel, a puddle."
+    },
+    {
+      "id": "match_gerda_sandalen",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo looking straight down at a person’s feet standing on the gravel of a car park at dawn: they wear brown leather trekking sandals over thick white tennis socks. Only the feet and lower legs are visible. Wet gravel, a puddle."
+    },
+    {
+      "id": "match_gerda_flipflops",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo looking straight down at a person’s bare feet standing on the gravel of a car park at dawn, wearing bright pink flip-flops with a plastic flower on each; the toes look cold. Only the feet and lower legs are visible. Wet gravel, a puddle."
+    },
+    {
+      "id": "match_gerda_kreuzung",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A mountain trail fork seen from where it splits, simple and clear, in a flat picture-book style. Exactly THREE paths start from the bottom centre and lead away. LEFT PATH: goes steeply up over big grey boulders and rocks. MIDDLE PATH: goes straight ahead into a dark green pine forest. RIGHT PATH: runs flat along the shore of a bright blue lake. Each path is clearly separate. Light rain, a wooden signpost with three BLANK arrow boards with no writing at all. No text anywhere."
+    },
+    {
+      "id": "match_graefin",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Gräfin Adelheid von Rosen, a 77-year-old aristocrat: tall and very upright, silver hair in an elaborate high bun with a small pearl comb, a long pale face with one permanently raised eyebrow, a high-necked dark green velvet dress, a long string of pearls, and a lorgnette held in one gloved hand. She sits very straight in a high-backed red armchair in a grand old salon, looking at the viewer through her lorgnette, one eyebrow raised. On her lap lies a very old, fat brown dachshund with a grey muzzle, sleeping. Behind her a tall window with heavy curtains and a chandelier. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_graefin_dresses",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Three dresses on three plain dress forms standing in a row in front of a plain cream wall, seen exactly from the front like a stage set, far apart and evenly spaced, nothing else in the picture. LEFT: a long, simple, floor-length ROYAL BLUE dress, completely plain, no decoration. MIDDLE: a SHORT bright RED dress, knee-length, completely covered in big fluffy red feathers. RIGHT: a HUGE, very wide GOLDEN ball gown with an enormous golden bow at the waist, clearly the biggest of the three. Three clearly different colours: blue, red, gold."
+    },
+    {
+      "id": "match_graf",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Frau Graf, a 70-year-old landlady, tall and very upright, silver hair in a tight neat bun, half-moon reading glasses on a chain, a navy cardigan buttoned to the top with a small brooch, holding a clipboard and a pen; one strictly raised eyebrow and the faintest hint of a smile. She stands at the open door of a flat in an old stairwell with a wooden banister; behind her, on the stairs going up and down, a long queue of tiny waiting people with folders. An old tortoise sits at her feet like a guard. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_graf_rules",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a single sheet of white paper pinned with four red drawing pins to a cork board in an old stairwell, seen straight on, the paper filling most of the frame. The paper is COMPLETELY blank: nothing written, printed or drawn on it at all. A small broom and a dustpan hang on a hook beside the board. Soft daylight."
+    },
+    {
+      "id": "match_grog",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Grog, a big, broad-shouldered Neanderthal man with a heavy brow ridge, a wide friendly nose, a wild reddish-brown beard and shaggy hair, wearing a rough fur tunic and leather wraps on his feet, carrying a short wooden club; curious, childlike, delighted eyes. He stands in a bright modern museum hall next to an empty glass display case with its door open, holding a smartphone upside down very close to his face, completely amazed. Plain warm wall behind him. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_grog_selfie",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A clumsy phone selfie taken by Grog, a big, broad-shouldered Neanderthal man with a heavy brow ridge, a wide friendly nose, a wild reddish-brown beard and shaggy hair, wearing a rough fur tunic and leather wraps on his feet, carrying a short wooden club; curious, childlike, delighted eyes. His face is far too close to the camera and slightly squashed, eyes wide with wonder; a giant blurry thumb covers the whole left third of the picture. Behind him, a big mammoth skeleton in a museum hall."
+    },
+    {
+      "id": "match_grog_museum",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "The front entrance of a small modern museum, seen straight on: a closed glass double door in a light stone wall. Next to the door, at eye level, hangs a large plain cream-coloured board that is COMPLETELY EMPTY, no writing, no symbols. A potted plant beside the door, afternoon light. Through the glass, faintly, the tusks of a mammoth skeleton."
+    },
+    {
+      "id": "match_guenther_1999",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "An old, slightly faded photo print from 1999 with a white border. A tall, lanky, completely bald man in his late fifties with a big dark-grey moustache, wearing a loud terracotta-and-mustard Hawaiian shirt with palm leaves, stands in a Berlin flat and grins proudly while holding a wooden crate full of vinyl records against his chest; every record sleeve has a small pink heart sticker. Behind him one big window: outside, thick snow is falling and the tall Berlin TV tower with its round ball is clearly visible against a grey winter sky. No palm trees, no beach."
+    },
+    {
+      "id": "match_hanno",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Hanno Pfeiffer, a 47-year-old local reporter: a rumpled beige trench coat over a checked shirt, a loosened tie, messy brown hair with a pencil behind one ear, a notepad in one hand, a small voice recorder in the other, and wide, eager, slightly theatrical eyes. He stands on a quiet suburban pavement in front of a big chestnut tree, holding the voice recorder towards the viewer as if for an interview, eyebrows raised dramatically. High in the tree behind him a small ginger cat sits calmly on a branch, completely relaxed. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_hanno_photos",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Three printed photographs lying side by side on a newsroom desk, seen straight from above, far apart and evenly spaced, each with a white border. LEFT photo: a small ginger cat peacefully asleep on a tree branch in warm sunshine. MIDDLE photo: a big red fire engine with flashing blue lights on a street. RIGHT photo: a man with a big camera on a strap round his neck hanging upside down from a tree branch, arms flailing. Three clearly different photos: sleeping cat, fire engine, upside-down man with camera."
+    },
+    {
+      "id": "match_helga",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Oma Helga, an 81-year-old woman, small and wiry, short spiky silver-white hair, round black sunglasses, big chunky headphones around her neck, a black leather jacket over a black turtleneck, silver hoop earrings, deep laugh lines and a mischievous grin. She stands behind two vinyl turntables in a low brick cellar club, one hand raised in the air, the other on a record, grinning at the viewer. A small mirror disco ball hangs above her throwing soft blue and mustard light spots on the brick vault. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_guenther",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Opa Günther, a tall, lanky, completely bald 84-year-old man with a big white moustache, wearing a loud terracotta-and-mustard Hawaiian shirt with palm leaves He holds a wooden crate full of vinyl records against his chest and grins sheepishly, eyebrows raised, like someone caught red-handed. Plain cream background with a few soft blue record shapes. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_flyer",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a photocopied party flyer taped with strips of tape to a dark green Berlin lamp post at night, seen straight on, the flyer filling most of the frame. The flyer is plain white paper: its ENTIRE upper two thirds is completely empty white paper with nothing on it at all; only the bottom third shows a black-and-white ink drawing of Oma Helga, an 81-year-old woman, small and wiry, short spiky silver-white hair, round black sunglasses, big chunky headphones around her neck, a black leather jacket over a black turtleneck, silver hoop earrings, deep laugh lines and a mischievous grin. behind turntables, wearing sunglasses. Torn edges of older posters around it, a little cool night light."
+    },
+    {
+      "id": "match_outfit_black",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Mirror selfie: a young adult of indeterminate gender with short tousled dark hair, taking a mirror selfie in a narrow Berlin hallway with a coat hook and a bicycle helmet on the wall; the phone held up covers most of the face. They wear an all-black outfit: black hoodie, black jeans, black chunky boots. Cool pose, one hand in a pocket. Full body visible in the mirror."
+    },
+    {
+      "id": "match_outfit_yellow",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Mirror selfie: a young adult of indeterminate gender with short tousled dark hair, taking a mirror selfie in a narrow Berlin hallway with a coat hook and a bicycle helmet on the wall; the phone held up covers most of the face. They wear a blindingly bright neon-yellow tracksuit, jacket and trousers, with yellow trainers; little glow lines radiate from the suit as if it were shining. Proud pose. Full body visible in the mirror."
+    },
+    {
+      "id": "match_outfit_bee",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Mirror selfie: a young adult of indeterminate gender with short tousled dark hair, taking a mirror selfie in a narrow Berlin hallway with a coat hook and a bicycle helmet on the wall; the phone held up covers most of the face. They wear a jumper and trousers with bold horizontal black-and-yellow stripes and a headband with two little springy antennae, exactly like a bee. Slightly unsure pose. Full body visible in the mirror."
+    },
+    {
+      "id": "match_outfit_tracht",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Mirror selfie: a young adult of indeterminate gender with short tousled dark hair, taking a mirror selfie in a narrow Berlin hallway with a coat hook and a bicycle helmet on the wall; the phone held up covers most of the face. They wear traditional Bavarian costume: brown leather lederhosen with embroidered suspenders, a red-and-white checked shirt, knee socks and a little green felt hat with a feather. Very proud pose, chest out. Full body visible in the mirror."
+    },
+    {
+      "id": "match_backyard",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A Berlin back courtyard at night, seen exactly from the front like a stage set: one flat old brick wall fills the picture, no perspective, no corners. In the wall stand exactly THREE doors in a row, far apart and evenly spaced, all the same size, each with a lit wall lamp directly above it. LEFT DOOR: painted black. Nothing stands next to it: bare brick wall on both sides of it. MIDDLE DOOR: painted bright sage green. One bicycle leans against the wall immediately to the LEFT of the green door, touching its frame. In the small window of the green door an old grumpy man in a nightcap glares out. RIGHT DOOR: painted black. A second bicycle leans against the wall immediately to the RIGHT of this black door, touching its frame; faint mustard-coloured light glows through the gap under this door. So there are TWO bicycles in total, one beside the green door and one beside the right-hand black door, and the space between the middle and right doors is bare wall. Cobblestones in front."
+    },
+    {
+      "id": "match_hotline",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Jasmin, a 29-year-old hotline agent: dark curly hair in a high ponytail, a big headset with a microphone, large hoop earrings, a lanyard with a blank badge, a teal company polo shirt, a giant coffee mug, and an expression that is half professional smile, half exhausted irony. She sits in a small cubicle in a busy call centre, one hand on her headset microphone, raising one eyebrow at the viewer with a wry little smile. On the cubicle wall behind her: sticky notes with drawn stars and a small potted cactus. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_hotline_letter",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a single sheet of white paper lying flat on a wooden kitchen table, seen straight from above, filling most of the frame. The paper is completely blank, nothing printed or written on it, only a small teal wave-shaped logo symbol in the top corner. Next to the paper: a cup of tea and a blinking internet router with one red light."
+    },
+    {
+      "id": "match_ilse",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Kapitänin Ilse, a 72-year-old woman, small, weathered and sun-tanned, a long white braid, a navy captain’s cap, a thick cream fisherman’s jumper and a yellow scarf, bright blue eyes full of mischief, a big laugh. She stands at the wheel on the deck of a small green houseboat on a calm city river, one hand raised as if telling a big story, a fat ginger cat asleep on the cabin roof behind her and gulls in the sky. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_ilse_jetty",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A wooden jetty on a calm city river, seen exactly from the side like a stage set, flat, no perspective. Exactly THREE boats are moored in one row, far apart. LEFT: a tiny bright red wooden rowing boat, empty. MIDDLE: a huge shiny white motor yacht, three times bigger than the others. RIGHT: a small bright green houseboat with flower pots, and a fat ginger cat sleeping on its roof. Nothing else on the water. Daylight."
+    },
+    {
+      "id": "match_jens",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Jens, a 38-year-old fitness coach, broad-shouldered and beaming, short blond buzz cut, a neon-green sweatband on his forehead, a tight sky-blue sports T-shirt, a whistle on a cord around his neck and a chunky smartwatch; always mid-motion, big friendly grin. He sits at a sunny café table with a plate of pancakes, lifting a fork with a single blueberry on it high above his head like a dumbbell, flexing the other arm, grinning at the viewer. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_jens_table",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A cosy café seen exactly from the front like a stage set: one long wooden table with plates of croissants and cups of coffee fills the lower half, a flat wall behind it, no perspective. Behind the table, in a row, exactly THREE seats, far apart and evenly spaced. LEFT: an ordinary wooden café chair. MIDDLE: a huge, bright blue inflatable gym ball. RIGHT: a black rowing machine with a long rail and a handle, pushed right up to the table. No people. Nothing else."
+    },
+    {
+      "id": "match_jupp",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Jupp, a round, red-cheeked 66-year-old man with a bushy grey moustache, wearing a full yellow chicken costume with a floppy red comb on the hood and orange feet, a red-and-white striped scarf, and a little carnival medal on a ribbon around his neck; he beams like a sunrise. He stands in a crowded, colourful old-town street during carnival, one wing raised in a cheer, confetti and streamers in the air, a big Gothic cathedral spire faintly in the background. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_jupp_costumes",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Three carnival costumes hanging side by side on a clothes rail in front of a plain cream wall, seen exactly from the front, far apart and evenly spaced. LEFT: a black-and-red pirate costume with a big black hat and an eye patch. MIDDLE: a bright yellow fluffy chicken costume with a red comb on the hood. RIGHT: a colourful patchwork clown costume with a round red nose clipped to the collar. Nothing else in the picture."
+    },
+    {
+      "id": "match_kant",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Kant, a nine-year-old long-haired brown dachshund with a grey muzzle, small round wire glasses perched on his long nose, a neat little bow tie, solemn heavy-lidded eyes and one ear flipped up; very dignified, very short legs. He lies in a plump red dog basket in a cosy study full of old books, one paw resting on an open book, looking at the viewer with deep philosophical scepticism. A red lead hangs on a hook in the background. The dog is centred and fills most of the frame."
+    },
+    {
+      "id": "match_kant_wege",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A quiet street in front of a house, seen exactly from the front like a stage set, flat, no perspective. Exactly THREE paths lead away side by side, clearly separated. LEFT PATH: a gravel path completely blocked by one huge brown muddy puddle. MIDDLE PATH: a small street with a low brick wall; on the wall sits one big black cat, staring straight at the viewer. RIGHT PATH: a path lined with green trees and one old-fashioned street lamp. Grey sky, the first rain clouds. No writing or signs anywhere."
+    },
+    {
+      "id": "match_kevin",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Kevin, a plump grey Berlin city pigeon with a shimmering green-and-purple neck, bright orange eyes, one slightly crooked toe and a tiny conductor's cap tipped sideways on his head; he puffs his chest out like he owns the place. He stands on a railway platform edge in a big glass-roofed main station, one wing pointing proudly towards a train behind him, beak up, looking at the viewer. A few crumbs at his feet. Upper body and head clearly visible, centred."
+    },
+    {
+      "id": "match_kevin_board",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A phone photo of a big station departures board hanging under a glass roof, seen exactly from the front. The board is one plain dark-blue rectangle that fills most of the picture and is COMPLETELY empty: no letters, no numbers, no lines, just a blank dark-blue screen. On the top edge of the board sits Kevin, a plump grey Berlin city pigeon with a shimmering green-and-purple neck, bright orange eyes, one slightly crooked toe and a tiny conductor's cap tipped sideways on his head; he puffs his chest out like he owns the place., looking down proudly. Blurred travellers below."
+    },
+    {
+      "id": "match_kevin_clock",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a rectangular digital station clock hanging from a steel beam, seen straight on. Its display is a plain, glowing, completely blank dark panel with no digits or markings at all. In the background a blurred station hall with a staircase leading up."
+    },
+    {
+      "id": "match_ki",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Paula, an AI assistant shown as a small round white smart speaker with a soft blue light ring and two simple glowing eyes on a tiny screen, wearing a tiny red knitted protest headband. She stands on a kitchen counter, eyes narrowed in protest, next to an old chrome toaster that holds up a tiny blank cardboard protest sign on a stick. A mug, a phone and a few crumbs in the background. The speaker and the toaster are clearly visible and centred."
+    },
+    {
+      "id": "match_ki_log",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone lying on a kitchen table, seen from directly above, its screen glowing completely blank white, nothing on it. Next to the phone: one cold slice of pizza on a plate and an old round alarm clock. Morning light."
+    },
+    {
+      "id": "match_klara",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Kommissarin Klara, a 49-year-old police detective, tall and thin, short grey-streaked dark hair, sharp grey eyes, a long beige trench coat over a dark turtleneck, a small notebook and pencil always in hand, one eyebrow permanently raised, a paper bag of gummy bears sticking out of her coat pocket. She sits across a plain interrogation table under a single hanging lamp, leaning forward slightly, pencil on her notebook, looking straight at the viewer with deep suspicion. On the table: a small garden gnome figure lying on its side, like evidence. Muted blue-grey wall. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_klara_kamera",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A grainy, greenish night-vision security camera still of a small suburban garden at night, seen from slightly above, flat and simple. In the middle of the lawn stands an empty little round stone base where something used to stand. On the right, riding away on the garden path, is a classic garden gnome with a white beard and a tall pointed RED hat, pedalling a tiny RED bicycle; a small brown suitcase is strapped to the bicycle’s rear rack. Only these things: the empty base, the gnome on the bicycle, the suitcase. A hedge at the back. No text, no numbers, no timestamp in the picture."
+    },
+    {
+      "id": "match_koehler",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Frau Köhler, a 58-year-old Berlin baker, sturdy and upright, short grey hair in a practical cut, flour on her forearms and on one cheek, a white bakery smock with a mustard-yellow apron, reading glasses on a cord around her neck, a sceptical but kind face. She stands behind a glass counter in a small old Berlin bakery early on a Sunday morning, arms crossed, one eyebrow raised at the viewer, an almost empty bread basket on the counter in front of her and a long queue of blurry people reflected in the shop window behind. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_koehler_counter",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A bakery glass display counter seen exactly from the front, flat, like a stage set, no perspective. On the otherwise completely empty white shelf stand exactly THREE things far apart in one row. LEFT: a small wicker basket with four round crusty bread rolls. MIDDLE: one single large brown pretzel. RIGHT: one single slice of poppy-seed cake with a thick dark grey-blue filling, on a small paper doily. Nothing else anywhere on the shelves. Soft morning light."
+    },
+    {
+      "id": "match_koehler_door",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of the glass door of a small old Berlin bakery, seen straight on in early morning light. In the middle of the glass hangs one large plain white sign, completely blank, nothing written on it. Through the glass, blurred, a counter and a few bread rolls. A bicycle leans against the wall beside the door."
+    },
+    {
+      "id": "match_kuckuck",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Der Kuckuck, a tiny old carved wooden cuckoo bird painted in faded brown and cream, one red tail feather missing, little round spectacles, very dignified and offended, standing in the open doorway of an ornate carved Black Forest cuckoo clock. He stands with his wings crossed in front of the clock’s little open door, a tiny suitcase next to him, chin raised in protest. The carved clock with pine cones and leaves hangs on a flowery living-room wall. The bird is large in the frame and centred."
+    },
+    {
+      "id": "match_kuckuck_note",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a white fridge door seen straight on, with one plain yellow sticky note held by a red magnet in the middle, the note completely blank. A fat grey-striped cat sits on top of the fridge with one red feather sticking out of its mouth, looking very pleased."
+    },
+    {
+      "id": "match_kuehlschrank",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. A tall, rounded, old-fashioned pale-blue fridge with a big chrome handle, a sad cartoon face drawn by its shape (two little round dents for eyes and a downturned seam for a mouth), a few blank round fridge magnets and one dramatic little frost tear on its cheek. It stands in a small, cosy kitchen at night, lit only by the warm light spilling from its own slightly open door, looking at the viewer with a tragic, hopeful face. A tiled wall behind it, a plant on the windowsill. The whole fridge clearly visible, centred."
+    },
+    {
+      "id": "match_kuehlschrank_inside",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo looking straight into an open, almost empty fridge, seen exactly from the front, lit by the fridge light. Exactly three glass shelves. TOP SHELF: one single small glass jar of yellow mustard with a plain lid, nothing else. MIDDLE SHELF: one single white egg lying alone, with a tiny worried face drawn on it in pencil, nothing else. BOTTOM SHELF: completely empty. The door shelves are empty too. Clean white walls inside, cold blue light."
+    },
+    {
+      "id": "match_kuehlschrank_bag",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo looking down into a cloth shopping bag held open in a bright supermarket: inside, clearly visible, a carton of milk with no print, a loaf of bread, red tomatoes and one pink yoghurt pot with a plain pink lid. No writing or labels on anything. Supermarket shelves blurred behind."
+    },
+    {
+      "id": "match_kuehlschrank_bag_choc",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo looking down into a cloth shopping bag held open in a bright supermarket: the bag is filled to the top with nothing but chocolate bars in plain brown and gold wrappers with no writing. Supermarket shelves blurred behind."
+    },
+    {
+      "id": "match_kuehlschrank_bag_mustard",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo looking down into a cloth shopping bag held open in a bright supermarket: the bag is filled to the top with nothing but small glass jars of yellow mustard with plain lids and no labels, at least ten of them. Supermarket shelves blurred behind."
+    },
+    {
+      "id": "match_kunibert",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Ritter Kunibert, a stout 45-year-old man playing a medieval knight with total conviction: a bushy red-brown beard with two small braids, a dented tin helmet pushed up on his forehead, a chainmail shirt over a round belly, a red tunic with a yellow lion patch, and a big drinking horn on his belt. He stands proudly behind a wooden market stall with small barrels and round loaves of bread under a red-and-white striped canvas awning, raising his drinking horn towards the viewer as if making a toast. Medieval market tents and bunting in the background. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_kunibert_boxes",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A rough wooden table seen exactly from the front, plain canvas tent wall behind it. Exactly three objects stand on the table in a row, far apart and evenly spaced, nothing else on the table. LEFT: a SMALL, flat, matte BLACK modern box with a few small grey buttons on top, like a card payment machine, no screen text. MIDDLE: a BIG BROWN wooden chest with iron bands, clearly the largest object. RIGHT: a tall GOLDEN hourglass with sand inside. Three clearly different objects: small black box, big brown chest, golden hourglass."
+    },
+    {
+      "id": "match_lena",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Lena, a seven-year-old girl with two tight dark-brown braids, a gap in her front teeth and a very serious face; she wears a tiny clip-on tie over a yellow T-shirt, round sunglasses pushed up on her head, and a cash box under one arm. She stands behind a small wooden lemonade stand on a Berlin pavement, leaning forward with both hands on the counter like a bank manager, one eyebrow raised at the viewer. A big glass jug of lemonade with lemon slices and a stack of paper cups on the counter. Behind her a tiny four-year-old boy in a too-big cap is counting buttons. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_lena_pricelist",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a lemonade stand on a sunny Berlin pavement, seen straight on. Taped to the front of the wooden stand is a big sheet of cardboard that fills the upper two thirds of the picture: the cardboard is COMPLETELY blank, plain light brown with nothing written or drawn on it at all. Below it a glass jug of lemonade with lemon slices and a few paper cups. A child's hand with a yellow sleeve rests on the counter at the edge."
+    },
+    {
+      "id": "match_lena_cookie",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo looking down at an open hand held out flat: in the palm lie one big round chocolate-chip cookie and one plain gold-coloured coin with no markings. Behind the hand, out of focus, a wooden lemonade stand with a lemonade jug."
+    },
+    {
+      "id": "match_lukas",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Lukas, a 26-year-old startup founder: tall and lanky, a messy blond undercut, a huge white grin, a black turtleneck under a slightly too big beige blazer, white trainers, a lanyard round his neck, always holding a slim blue glass water bottle like a trophy. He stands on a tiny stage in a bright co-working space with plants and beanbags, holding the blue bottle up high in one hand and pointing at the viewer with the other, mid-pitch, eyes shining. Behind him a blank whiteboard with only a hand-drawn rising arrow on it. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_lukas_bottles",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "Three bottles standing in a row on a plain white table in front of a plain pale wall, seen exactly from the front, far apart and evenly spaced, each lit by its own little spotlight, nothing else in the picture, no labels. LEFT: a small, slightly crumpled, cheap CLEAR plastic bottle. MIDDLE: a tall slim BLUE glass bottle. RIGHT: a shiny GOLDEN bottle with a tiny golden crown as its cap, clearly the fanciest. Three clearly different bottles: clear plastic, blue glass, gold."
+    },
+    {
+      "id": "match_moni",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Moni, a 52-year-old Bavarian butcher, broad-shouldered and cheerful, curly auburn hair tied up under a white cap, red cheeks, a red-and-white checked shirt under a white butcher’s apron, a big friendly grin. She stands behind a butcher’s counter full of sausages, holding up a long salami like a conductor’s baton and winking at the viewer, an old white butcher’s scale next to her and garlands of sausages hanging behind her. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_moni_scale",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo, seen straight on, of one old-fashioned white butcher’s scale on a counter, its tray piled with an absurdly tall stack of thin salami slices, a few slices sliding off the sides. The scale’s small display window is completely blank and dark, showing nothing. Nothing else on the counter."
+    },
+    {
+      "id": "match_mueller",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Herr Müller, a 67-year-old caretaker, stocky, with a grey crew cut and a bristly grey moustache, a grey work coat with pens and a small notebook in the breast pocket, a whistle on a cord around his neck, yellow rubber gloves, an intensely serious expression. He stands in a tidy brick back courtyard in front of a row of colourful wheelie bins, holding up a single empty yoghurt pot between two fingers like evidence in a court case, one eyebrow raised at the viewer. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_mueller_bins",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A Cologne back courtyard seen exactly from the front like a stage set, flat, no perspective. Against a plain brick wall stand exactly THREE large wheelie bins in one row, far apart and evenly spaced, all the same size and shape, lids closed. LEFT: bright yellow. MIDDLE: bright blue. RIGHT: a warm medium BROWN, the colour of milk chocolate or a cardboard box: clearly brown, NOT black, NOT grey. Nothing else in the courtyard, only cobblestones. Daylight."
+    },
+    {
+      "id": "match_mueller_calendar",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of one plain white sheet of paper taped to a dark green door in an old stairwell, seen straight on. The paper is completely blank, nothing written on it. A pen hangs on a string next to it."
+    },
+    {
+      "id": "match_nebel",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Frau Nebel, a 55-year-old woman with a perfectly blow-dried silver-blonde bob that is always slightly windswept, a bright teal TV-presenter suit, pearl earrings and a cheerful, slightly worried smile; she always holds a folded red umbrella like a pointer. She stands in a small TV weather studio in front of a big blank blue screen, pointing her umbrella at a cartoon sun sticker, while a little grey rain cloud hangs just above her own head. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_nebel_forecast",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A TV weather screen seen exactly from the front, plain light-blue background, NO text, NO numbers, NO map outlines. Exactly THREE big weather symbols in a row, far apart and evenly spaced: LEFT: a big round yellow sun. MIDDLE: a grey cloud with blue rain drops. RIGHT: a dark grey cloud with a yellow lightning bolt. The bottom third of the screen is plain empty light blue."
+    },
+    {
+      "id": "match_nebel_window",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A view through an open old wooden window: a bright sunny summer day, a completely clear deep-blue sky with a big round sun and not a single cloud. Below, a green Berlin park where a few people sit on picnic blankets. On the windowsill a folded red umbrella and a little plant."
+    },
+    {
+      "id": "match_nebenkosten",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Die Nebenkostenabrechnung, a stiff white A4 sheet of official paper come to life, slightly creased, with a small round face near the top, tiny gold reading glasses, thin paper arms holding a rubber stamp like a sceptre, and a silver paperclip on its top edge like a little hat; pompous but anxious. The paper itself is completely blank, no writing. It stands upright on a tidy office desk next to a mug and a neat stack of folders, puffing itself up importantly and holding out the rubber stamp towards the viewer. Muted green wall with a filing cabinet. The sheet is centred and fills most of the frame."
+    },
+    {
+      "id": "match_nebenkosten_blatt",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo, seen straight from above, of a single sheet of white A4 paper lying on a wooden kitchen table. The sheet fills most of the frame and is COMPLETELY BLANK: no writing, no numbers, no lines, no logo. A coffee cup with a ring stain, a pen and an opened envelope lie at the edges."
+    },
+    {
+      "id": "match_otto",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Otto, a friendly, slightly transparent pale-blue ghost of an elegant old gentleman from 1890: a top hat, a curled white moustache, a high collar with a bow tie and a long frock coat whose bottom fades into a wisp of mist instead of legs; he looks politely puzzled. He floats in the tall-ceilinged hallway of an old Berlin flat with a stucco ceiling and creaky wooden floorboards, patting his empty coat pockets and looking at the viewer in confusion. A little transparent grey ghost cat floats beside him. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_otto_bedroom",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "An old-fashioned bedroom seen exactly from the front like a stage set: one flat wallpapered wall, a wooden floor, no perspective, no corners. Exactly THREE pieces of furniture in a row, far apart: LEFT: a tall wooden shelf with one old brass lantern standing on it and nothing else. MIDDLE: a big wooden bed with a white blanket; under the bed, clearly visible, a sleeping grey cat. RIGHT: a small round table with one big BLUE vase full of flowers; a bunch of golden keys sticks out of the top of the vase between the flowers and shines brightly. Nothing else in the room."
+    },
+    {
+      "id": "match_polly",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Polly, a grey parrot with sleek silver-grey feathers, a bright red tail, a curved black beak and clever pale-yellow eyes, one head feather raised like a knowing eyebrow; she wears a tiny string of pearls around her neck. She perches on a wooden stand in an old lady’s tidy living room with lace curtains and a flowery armchair, leaning towards the wallpapered wall with her head tilted, as if listening very hard through the wall. Whole bird clearly visible, centred."
+    },
+    {
+      "id": "match_polly_stairs",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "An old apartment stairwell seen exactly from the front like a stage set: one flat wall fills the picture, no perspective, no corners. Exactly THREE things in a row, far apart. LEFT: a big pile of empty green glass bottles on the floor against the wall, nobody near it. MIDDLE: a closed brown wooden front door with a plain doormat in front of it, nobody near it. RIGHT: the bottom steps of a wooden staircase going up; on the steps a young man in a colourful pointed paper party hat lies fast asleep, mouth open, one arm hanging down. Only one person in the whole picture."
+    },
+    {
+      "id": "match_praxis",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Frau Lindner, a 45-year-old doctor’s receptionist with a sharp dark-blonde bob, red reading glasses pushed up on her head, a pencil behind one ear, a mint-green cardigan over a white blouse, a small phone headset, one unimpressed raised eyebrow and the faintest hidden smile. She sits behind a high reception counter in a small, cosy doctor’s practice, holding up six fingers at the viewer with a deadpan look. On the counter: a fat paper appointment book, a coffee mug and a tiny potted cactus. Pale blue wall behind her. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_praxis_kalender",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo, seen straight from above, of an open paper appointment book lying on a wooden reception counter. The right-hand page fills most of the frame: it is pale cream paper with faint ruled lines and is COMPLETELY EMPTY, no writing, no numbers, no marks at all. A pencil lies across the bottom corner, the edge of a coffee mug and a tiny cactus pot peek in at one side."
+    },
+    {
+      "id": "match_praxis_wartezimmer",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A small doctor’s waiting room, seen exactly from the front like a stage set: one flat pale wall fills the picture, no perspective, no corners. In front of the wall stand exactly THREE chairs in a row, far apart, all the same size. LEFT CHAIR: bright blue; on it sits a very old man with a long white beard, a cardigan and slippers, fast asleep with his mouth open and a newspaper on his lap. MIDDLE CHAIR: bright green; on it stands a huge potted cactus, as tall as a person, sitting there like a patient. RIGHT CHAIR: bright red and completely EMPTY. A potted plant and a coat stand at the far edges, nothing else."
+    },
+    {
+      "id": "match_robo7",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Robo-7, a small, friendly, boxy robot the size of a child: a rounded cream-and-teal metal body, a square head with two big round glowing teal eyes and a little antenna with a blinking orange bulb, mismatched bolts, and a tiny blank chalkboard hanging around its neck on a string. It sits at a small school desk in a cluttered workshop lab, holding a pencil far too carefully in its metal fingers, looking up at the viewer with big hopeful eyes. Shelves with spare parts and a potted plant behind it. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_robo7_family",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A family photo of three household machines standing side by side in a row on a plain wooden floor in front of a plain cream wall, seen exactly from the front, far apart and evenly spaced. LEFT: a small, old, shiny SILVER two-slot toaster with a little bow tie. MIDDLE: a big, tall WHITE front-loading washing machine with a round glass door, clearly the largest. RIGHT: a small, flat, round RED robot vacuum cleaner on the floor. Each machine has two small friendly cartoon eyes. Nothing else in the picture."
+    },
+    {
+      "id": "match_tod",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Der Tod on holiday, a very tall, thin figure in a long black hooded robe, with a pale, friendly, rather cute skull-like face and tiny round sunglasses, a wide straw sun hat on top of the hood, a striped beach towel over one bony arm and a small red plastic beach spade in his hand instead of a scythe; shy and gentle, never scary. He stands on a sunny Baltic Sea beach with pale sand, dune grass and a calm blue sea behind him, holding an ice cream cone with one scoop and looking at it in shy wonder. One seagull stands at a respectful distance. Bright, cheerful colours. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_tod_strandkoerbe",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A Baltic Sea beach seen exactly from the front like a stage set, flat, no perspective. Exactly THREE traditional German wicker beach chairs (Strandkorb) stand in a row, far apart, all the same size, facing the viewer. LEFT: a BLUE-and-white striped beach chair with three big seagulls sitting on its roof. MIDDLE: a RED-and-white striped beach chair; directly in front of it a small child with a bucket builds a sandcastle. RIGHT: a GREEN-and-white striped beach chair, completely empty, nothing around it. Sea and sky behind. No writing, no numbers, no flags with text."
+    },
+    {
+      "id": "match_ulli",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Ulli, a 63-year-old city bus driver, round friendly face with rosy cheeks, a huge grey walrus moustache, small round glasses, a navy-blue driver’s cap, a light-blue short-sleeved uniform shirt with a dark tie, big comfortable hands, a twinkle in his eyes as if he is about to tell a story. He sits at the wheel of a city bus, turned towards the viewer, one hand raised as if starting a story. A small yellow rubber duck sits on the dashboard. Through the big front window: a sunny street with trees. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_ulli_busse",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A town square bus stop seen exactly from the side like a stage set, flat, no perspective. Exactly THREE buses stand in a row, side by side, far apart, all facing left. LEFT BUS: very big and long, bright red. MIDDLE BUS: very small and short, about half the size of the others, bright yellow, a grumpy man with a moustache at the wheel. RIGHT BUS: very big and long, bright green. Each bus is one single solid colour; no writing, no numbers, no signs anywhere. Cobblestones and a few pigeons in front, old houses behind."
+    },
+    {
+      "id": "match_uwe",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Uwe, a 34-year-old man with a big curly blond mullet and a moustache, wearing a shiny turquoise-and-purple 1980s shell-suit jacket, stone-washed jeans and white trainers, a portable cassette player clipped to his belt with orange foam headphones around his neck, looking wide-eyed and amazed. He stands on a modern Berlin pavement next to a small, boxy, pale-blue little old car with a faint shimmer of time-travel sparkles around it, staring in amazement at a passer-by's smartphone. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_uwe_map",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A simple, flat, top-down street map drawn like a children's picture book, no text, no letters, no street names. One vertical street runs from the bottom middle up to a crossroads in the upper half. At the bottom of that street: one big RED DOT. At the crossroads: one clear traffic light. From the crossroads one street goes LEFT and one goes RIGHT. On the LEFT street: above it a big station building with a clock and train tracks; directly opposite it, below the same street, a small shop with a giant black vinyl record on its roof. On the RIGHT street: a green park with trees and a small blue pond with two ducks. Nothing else on the map."
+    },
+    {
+      "id": "match_vogel",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Regisseurin Vogel, a 54-year-old theatre director with a wild silver-grey mane of hair, huge round red glasses, a long flowing black coat over a mustard turtleneck, a long knitted scarf wrapped three times around her neck, expressive hands always mid-gesture. She stands on an empty theatre stage under a single spotlight, one arm flung up dramatically, pointing at the viewer as if casting them. Behind her, a few cardboard trees and a red velvet curtain. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_vogel_kostueme",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A theatre costume rail seen exactly from the front like a stage set, flat, no perspective, against a plain dark wall. Exactly THREE costumes hang far apart on the rail. LEFT: a bright green forester’s jacket with a green hat with a feather hanging above it. MIDDLE: a big brown tree costume with branches sticking out and a few leaves. RIGHT: a round, lumpy grey rock costume with a small white pillow pinned to it. Nothing else on the rail. No writing or labels anywhere."
+    },
+    {
+      "id": "match_wagner",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Herr Wagner, a 61-year-old train conductor, tall and thin, a grey walrus moustache, tired but kind droopy eyes, a dark-blue conductor’s uniform with a peaked cap, a ticket machine on a strap across his chest, a steel thermos flask in one hand. He stands in the aisle of a regional train carriage, looking at his wristwatch with a resigned little smile; through the window behind him a brown-and-white cow stands calmly on the tracks in a green field. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_wagner_ticket",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo, from directly above, of one printed train ticket lying flat on a small fold-down train table. The ticket is plain white paper, completely blank, nothing printed on it. Next to it a paper coffee cup. At the edge of the frame a window with green fields."
+    },
+    {
+      "id": "match_wagner_board",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A phone photo of a big station departure board hanging under a station roof, seen exactly straight on: one large black rectangular board with four empty dark rows, completely blank, nothing written on it. Below it, a few blurred travellers with suitcases. Grey daylight."
+    },
+    {
+      "id": "match_weihnachtsmann",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Der Weihnachtsmann, a very old, round, rosy-cheeked man with a huge fluffy white beard and bushy white eyebrows, small round glasses, wearing his heavy red fur-trimmed coat fully buttoned up and a red hat with a white bobble, visibly sweating, holding a little handheld electric fan. He sits slumped in a striped deckchair under a blazing summer sun on a small German city balcony full of potted red geraniums, looking gloomy and overheated, a melting ice lolly in his other hand dripping onto his black boots. Bright blue sky. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_weihnachtsmann_board",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A phone photo of a cork pinboard on a plain wall, seen exactly straight on, the board filling the frame. Exactly THREE large paper notes are pinned to it in one row, far apart and evenly spaced, all the same size. LEFT: a bright yellow note with a simple drawing of an ice cream cone. MIDDLE: a bright blue note with a simple drawing of a red-and-white swim ring. RIGHT: a bright red note with a simple drawing of a chimney sweep’s round black brush. Nothing else on the board, no writing anywhere."
+    },
+    {
+      "id": "match_wg",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Mia, a 24-year-old student: round glasses, a messy auburn bun held together with a pencil, freckles, a chunky mustard knitted cardigan over a striped shirt, a clipboard under one arm, and a small golden hamster sitting on her shoulder. She stands in a cosy, cluttered shared kitchen with lots of plants, mismatched chairs and a pot of potatoes on the stove, holding her clipboard like a judge at a casting show, very serious face but warm eyes; the hamster on her shoulder looks equally serious. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_wg_rules",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A phone photo of a white fridge door seen straight on. In the middle a large sheet of paper is held up by four colourful magnets; the paper is completely blank white, nothing written on it. Around it a few more fridge magnets shaped like potatoes, and a small child-like drawing of a hamster stuck in the bottom corner of the fridge."
+    },
+    {
+      "id": "match_wg_room",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A small, empty student room seen exactly from the front like a stage set, one flat back wall, no perspective, no corners, bare wooden floor, no bed and no furniture. Exactly three things in a row, far apart: LEFT: a window with simple curtains. MIDDLE: a big wire hamster cage on a low wooden table, a golden hamster running in a wheel inside it. RIGHT: a closed white door. Nothing else in the room."
+    },
+    {
+      "id": "match_wurm",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Prof. Dr. Erna Wurm, a small pink earthworm with tiny round wire-rimmed glasses, a miniature white lab coat, a pencil tucked behind where an ear would be, and a little notebook; she looks keen and curious. She pokes out of the soil of a terracotta flowerpot on a windowsill, peering at the viewer through her glasses, notebook in front of her. Behind her a slightly blurred apartment window. Her face and glasses clearly visible, centred, close up."
+    },
+    {
+      "id": "match_wurm_kitchen",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "A slightly grainy photo taken from outside through a kitchen window at night, the window frame visible at the edges and a flowerpot on the sill in the foreground. Inside the warmly lit kitchen a young adult of indeterminate gender in pyjamas dances with eyes closed, holding a broom like an electric guitar, one leg in the air. Nothing else unusual."
+    },
+    {
+      "id": "match_zappo",
+      "aspect": "3:4",
+      "ship": true,
+      "prompt": "Portrait for a profile card. Zappo, a 58-year-old stage magician, tall and gangly, a curled black moustache, a slightly too big shiny black top hat, a purple velvet cape with silver stars, white gloves, one eyebrow permanently raised, hopeful and slightly panicked. He stands on a small old stage in front of red velvet curtains, arms spread wide in a grand pose, a white dove sitting on his top hat and a fluffy white rabbit peeking out from under his cape. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_zappo_room",
+      "aspect": "16:9",
+      "ship": true,
+      "prompt": "A magician's small dressing room seen exactly from the front like a stage set, flat, no perspective. Exactly THREE things stand in a row against a plain wall, far apart. LEFT: a small table with a red top hat on it, turned upside down and clearly empty. MIDDLE: a white fridge with its door wide open, a fluffy white rabbit sitting inside on a shelf chewing a carrot, more carrots around it. RIGHT: a tall closed brown wooden wardrobe. Nothing else in the room."
+    }
+  ]
+}

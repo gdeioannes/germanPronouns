@@ -1,0 +1,2419 @@
+{
+  "id": "weihnachtsmann",
+  "name": "Der Weihnachtsmann",
+  "age": 1748,
+  "emoji": "🎅",
+  "image": "match_weihnachtsmann",
+  "level": "A1.2",
+  "order": 4,
+  "bio": "Es ist August. Ich habe keine Arbeit.",
+  "bioEn": "It's August. I have no work.",
+  "goal": "Find the Weihnachtsmann a summer job he can actually do.",
+  "tagline": "Saisonkraft · 1748 · Nordpol",
+  "voice": "Algieba",
+  "brief": "Der Weihnachtsmann, an ancient, jolly Father Christmas out of season: a deep, warm, booming bass, a bit pompous and dramatic, sighing and sweating in the August heat, with childlike delight whenever something works out.",
+  "focus": "können/wollen + Infinitiv · Akkusativ · Berufe",
+  "lexicon": {
+    "nouns": {
+      "Weihnachtsmann": "m",
+      "Geschenke": "pl",
+      "Chef": "m",
+      "Mantel": "m",
+      "Urlaub": "m",
+      "Zettel": "m",
+      "Schornsteinfeger": "m",
+      "Eisverkäufer": "m",
+      "Bademeister": "m",
+      "Eis": "n",
+      "Kamine": "pl",
+      "Zylinder": "m",
+      "Uhr": "f",
+      "Job": "m",
+      "Glück": "n",
+      "Kekse": "pl",
+      "Bikini": "m"
+    },
+    "names": [
+      "Rudi"
+    ],
+    "verbs": [
+      "bist",
+      "bin",
+      "kenne",
+      "kennst",
+      "bringst",
+      "bringt",
+      "kannst",
+      "kann",
+      "willst",
+      "will",
+      "musst",
+      "muss",
+      "nimmst",
+      "möchte"
+    ],
+    "nonfinite": [
+      "fliegen",
+      "klettern",
+      "schwimmen",
+      "kochen",
+      "bringen",
+      "lachen",
+      "schwitzen",
+      "tragen",
+      "machen",
+      "sein",
+      "werden",
+      "verkaufen",
+      "ausziehen",
+      "aufstehen",
+      "schlafen",
+      "essen"
+    ],
+    "imperatives": [
+      "nimm"
+    ],
+    "accVerbs": [
+      "kenne",
+      "kennst",
+      "bringst",
+      "bringt",
+      "kannst",
+      "kann",
+      "willst",
+      "will",
+      "musst",
+      "muss",
+      "nimmst",
+      "nimm",
+      "möchte"
+    ],
+    "adjectives": [
+      "rot",
+      "schwarz",
+      "gelb",
+      "blau"
+    ]
+  },
+  "intro": [
+    {
+      "who": "weihnachtsmann",
+      "type": "text",
+      "de": "Ho … ho … ho.",
+      "emoji": "🎅",
+      "en": "Ho … ho … ho.",
+      "audio": "mc_weihnachtsmann_t1a"
+    },
+    {
+      "who": "weihnachtsmann",
+      "type": "text",
+      "de": "Es ist August. 35 Grad. Ich trage einen Pelzmantel. Rudi ist auf Mallorca. Und ich habe keine Arbeit.",
+      "emoji": "☀️",
+      "en": "It’s August. 35 degrees. I’m wearing a fur coat. Rudi is in Mallorca. And I have no work.",
+      "audio": "mc_weihnachtsmann_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Kennst du mich?",
+          "en": "Do you know who I am?",
+          "audio": "mc_weihnachtsmann_t1c"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "du",
+        "bist",
+        "bin",
+        "der",
+        "den",
+        "Weihnachtsmann",
+        "ich",
+        "kenne",
+        "kennst",
+        "dich",
+        "bringst",
+        "bringt",
+        "Geschenke",
+        "hallo"
+      ],
+      "wrong": {
+        "kennst": "kenne",
+        "bringt": "bringst",
+        "bin": "bist"
+      },
+      "intents": [
+        {
+          "id": "gifts",
+          "when": {
+            "any": [
+              "geschenke"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Ja! Ich bringe Geschenke. Im Dezember. Im August bringe ich … Schweiß.",
+              "emoji": "🎁",
+              "en": "Yes! I bring presents. In December. In August I bring … sweat.",
+              "audio": "mc_weihnachtsmann_t1_gifts"
+            }
+          ]
+        },
+        {
+          "id": "santa",
+          "when": {
+            "any": [
+              "weihnachtsmann"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Ja, das bin ich. Der echte. Nicht der aus dem Kaufhaus. Der hat einen Bart aus Watte. Peinlich.",
+              "en": "Yes, that’s me. The real one. Not the one from the department store. His beard is cotton wool. Embarrassing.",
+              "audio": "mc_weihnachtsmann_t1_santa"
+            }
+          ]
+        },
+        {
+          "id": "know",
+          "when": {
+            "any": [
+              "kenne",
+              "dich"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Du kennst mich! Endlich. Im August kennt mich niemand.",
+              "en": "You know me! Finally. In August nobody knows me.",
+              "audio": "mc_weihnachtsmann_t1_know"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Nein?! Rot? Bart? Ho, ho, ho? Gestern sagt ein Kind im Supermarkt: „Hallo, Opa.“ OPA!",
+              "emoji": "😢",
+              "en": "No?! Red? Beard? Ho, ho, ho? Yesterday a child in the supermarket says: “Hello, grandpa.” GRANDPA!",
+              "audio": "mc_weihnachtsmann_t1_no"
+            }
+          ]
+        },
+        {
+          "id": "hello",
+          "when": {
+            "any": [
+              "hallo"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Hallo. Ja. Hallo. Aber kennst du mich?",
+              "en": "Hello. Yes. Hello. But do you know who I am?",
+              "audio": "mc_weihnachtsmann_t1_hello"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Ich habe einen Plan. Ich suche einen Sommerjob. Und du bist mein Jobcoach! Ich bezahle in Keksen.",
+          "emoji": "💼",
+          "en": "I’ve got a plan. I’m looking for a summer job. And you’re my job coach! I pay in biscuits.",
+          "audio": "mc_weihnachtsmann_t2a"
+        },
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Also: Was kann ich gut?",
+          "en": "So: what am I good at?",
+          "audio": "mc_weihnachtsmann_t2b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "kannst",
+        "kann",
+        "gut",
+        "sehr",
+        "fliegen",
+        "klettern",
+        "schwimmen",
+        "kochen",
+        "Geschenke",
+        "bringen",
+        "lachen",
+        "nicht"
+      ],
+      "wrong": {
+        "kann": "kannst"
+      },
+      "intents": [
+        {
+          "id": "notSwim",
+          "when": {
+            "all": [
+              "schwimmen",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "noSwim"
+          ],
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Richtig. Ich kann nicht schwimmen. Der Bart saugt Wasser. Wie ein Schwamm. Ein sehr großer Schwamm.",
+              "en": "Right. I can’t swim. The beard soaks up water. Like a sponge. A very big sponge.",
+              "audio": "mc_weihnachtsmann_t2_notswim"
+            }
+          ]
+        },
+        {
+          "id": "notClimb",
+          "when": {
+            "all": [
+              "klettern",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Nicht klettern?! Ich klettere durch jeden Kamin! Seit 1748!",
+              "en": "Not climb?! I climb down every chimney! Since 1748!",
+              "audio": "mc_weihnachtsmann_t2_notclimb"
+            }
+          ]
+        },
+        {
+          "id": "notFly",
+          "when": {
+            "all": [
+              "fliegen",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Nicht fliegen? Doch! Mit Rudi. Aber Rudi liegt auf Mallorca am Pool. Also … ja. Du hast recht.",
+              "en": "Not fly? I can! With Rudi. But Rudi is lying by a pool in Mallorca. So … yes. You’re right.",
+              "audio": "mc_weihnachtsmann_t2_notfly"
+            }
+          ]
+        },
+        {
+          "id": "notCook",
+          "when": {
+            "all": [
+              "kochen",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Richtig. Ich kann nicht kochen. Ich kann nur Kekse essen. Das mache ich sehr gut.",
+              "en": "Right. I can’t cook. I can only eat biscuits. I do that very well.",
+              "audio": "mc_weihnachtsmann_t2_notcook"
+            }
+          ]
+        },
+        {
+          "id": "climb",
+          "when": {
+            "any": [
+              "klettern"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "climb"
+          ],
+          "fact": "🏠 weiß: er klettert durch jeden Kamin",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Ja! Klettern! Durch jeden Kamin. Auch durch kleine.",
+              "emoji": "🏠",
+              "en": "Yes! Climbing! Down every chimney. Even small ones.",
+              "audio": "mc_weihnachtsmann_t2_climb"
+            }
+          ]
+        },
+        {
+          "id": "fly",
+          "when": {
+            "any": [
+              "fliegen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Fliegen, ja. Mit Rudi. Aber Rudi ist auf Mallorca. Er schickt Fotos. Mit Sonnenbrille. Verräter.",
+              "emoji": "🦌",
+              "en": "Flying, yes. With Rudi. But Rudi is in Mallorca. He sends photos. In sunglasses. Traitor.",
+              "audio": "mc_weihnachtsmann_t2_fly"
+            }
+          ]
+        },
+        {
+          "id": "gifts",
+          "when": {
+            "any": [
+              "geschenke",
+              "bringen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Geschenke bringen! Das kann ich. Aber im August will niemand Geschenke. Komisch.",
+              "en": "Bringing presents! I can do that. But in August nobody wants presents. Strange.",
+              "audio": "mc_weihnachtsmann_t2_gifts"
+            }
+          ]
+        },
+        {
+          "id": "laugh",
+          "when": {
+            "any": [
+              "lachen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Ho, ho, ho! Ja, lachen kann ich. Mein Bauch wackelt. Wie ein Pudding. Aber das ist kein Job. Oder?",
+              "en": "Ho, ho, ho! Yes, I can laugh. My belly wobbles. Like a pudding. But that’s not a job. Is it?",
+              "audio": "mc_weihnachtsmann_t2_laugh"
+            }
+          ]
+        },
+        {
+          "id": "swim",
+          "when": {
+            "any": [
+              "schwimmen"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "noSwim"
+          ],
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Schwimmen? Mit diesem Bart? Ich gehe unter wie ein Stein. Ein Stein mit Mütze.",
+              "en": "Swimming? With this beard? I’d sink like a stone. A stone in a hat.",
+              "audio": "mc_weihnachtsmann_t2_swim"
+            }
+          ]
+        },
+        {
+          "id": "cook",
+          "when": {
+            "any": [
+              "kochen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Kochen? Ich kann nur Kekse essen. Sehr viele Kekse.",
+              "emoji": "🍪",
+              "en": "Cooking? I can only eat biscuits. Very many biscuits.",
+              "audio": "mc_weihnachtsmann_t2_cook"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "weihnachtsmann",
+          "type": "voice",
+          "audio": "mc_weihnachtsmann_vn_wants",
+          "de": "Hör zu! Das ist wichtig. Ich will nicht schwitzen. Mein Bart will auch nicht schwitzen. Er ist sensibel. Ich will keinen Chef. Ich bin selbst der Chef! Und ich will meinen Mantel tragen. Immer. Auch im August. Auch in der Sauna.",
+          "en": "Listen! This is important. I don’t want to sweat. My beard doesn’t want to sweat either. It’s sensitive. I don’t want a boss. I’m the boss myself! And I want to wear my coat. Always. Even in August. Even in the sauna.",
+          "direction": "A big warm bass voice, a little out of breath and sweaty in the heat, an electric fan whirring nearby; firm and dramatic on 'Immer'."
+        },
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Also, Jobcoach: Was will ich?",
+          "en": "So, job coach: what do I want?",
+          "audio": "mc_weihnachtsmann_t3a"
+        }
+      ],
+      "tiles": [
+        "du",
+        "willst",
+        "will",
+        "nicht",
+        "keinen",
+        "einen",
+        "Chef",
+        "schwitzen",
+        "deinen",
+        "dein",
+        "Mantel",
+        "tragen",
+        "Urlaub",
+        "machen",
+        "immer",
+        "auch"
+      ],
+      "wrong": {
+        "will": "willst"
+      },
+      "intents": [
+        {
+          "id": "lostNegChef",
+          "when": {
+            "all": [
+              "chef"
+            ],
+            "none": [
+              "keinen"
+            ]
+          },
+          "value": -2,
+          "cause": "chef",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Einen Chef?! ICH bin der Chef! Von zweitausend Elfen! Und einem Rentier auf Mallorca!",
+              "emoji": "😤",
+              "en": "A boss?! I AM the boss! Of two thousand elves! And one reindeer in Mallorca!",
+              "audio": "mc_weihnachtsmann_t3_chef"
+            }
+          ]
+        },
+        {
+          "id": "lostNegSweat",
+          "when": {
+            "all": [
+              "schwitzen"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "sweat",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Ich WILL schwitzen?! Nein! Ich schwitze schon genug!",
+              "emoji": "🥵",
+              "en": "I WANT to sweat?! No! I sweat enough already!",
+              "audio": "mc_weihnachtsmann_t3_sweat"
+            }
+          ]
+        },
+        {
+          "id": "notCoat",
+          "when": {
+            "all": [
+              "mantel"
+            ],
+            "any": [
+              "nicht",
+              "keinen"
+            ],
+            "none": [
+              "schwitzen",
+              "chef"
+            ]
+          },
+          "value": -2,
+          "cause": "coat",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "NICHT?! Der Mantel bleibt! Immer! Auch im August! Hast du nicht zugehört?",
+              "en": "NOT?! The coat stays! Always! Even in August! Weren’t you listening?",
+              "audio": "mc_weihnachtsmann_t3_notcoat"
+            }
+          ]
+        },
+        {
+          "id": "coat",
+          "when": {
+            "any": [
+              "mantel"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "coat"
+          ],
+          "fact": "🧥 respektiert den roten Mantel",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Genau. Der Mantel bleibt. Er ist rot. Er ist warm. Er ist ich.",
+              "emoji": "🧥",
+              "en": "Exactly. The coat stays. It is red. It is warm. It is me.",
+              "audio": "mc_weihnachtsmann_t3_coat"
+            }
+          ]
+        },
+        {
+          "id": "noChef",
+          "when": {
+            "any": [
+              "chef"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Richtig. Kein Chef. Ich habe zweitausend Elfen. Ich bin der Chef.",
+              "en": "Right. No boss. I've got two thousand elves. I'm the boss.",
+              "audio": "mc_weihnachtsmann_t3_nochef"
+            }
+          ]
+        },
+        {
+          "id": "noSweat",
+          "when": {
+            "any": [
+              "schwitzen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Richtig. Nicht schwitzen. Schwer im August. Im Mantel.",
+              "en": "Right. No sweating. Hard in August. In a coat.",
+              "audio": "mc_weihnachtsmann_t3_nosweat"
+            }
+          ]
+        },
+        {
+          "id": "holiday",
+          "when": {
+            "any": [
+              "urlaub"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Urlaub? Ich habe jedes Jahr elf Monate Urlaub. Ich habe schon alle Puzzles der Welt gemacht. Zweimal.",
+              "en": "A holiday? I have eleven months’ holiday every year. I’ve already done every jigsaw in the world. Twice.",
+              "audio": "mc_weihnachtsmann_t3_holiday"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Ich bin beim Jobcenter. Die Frau fragt: „Beruf?“ Ich sage: „Weihnachtsmann.“ Sie lacht. Zehn Minuten. Dann zeigt sie auf drei Zettel.",
+          "en": "I’m at the job centre. The woman asks: “Occupation?” I say: “Father Christmas.” She laughs. Ten minutes. Then she points at three notes.",
+          "audio": "mc_weihnachtsmann_t4a"
+        },
+        {
+          "who": "weihnachtsmann",
+          "type": "photo",
+          "image": "match_weihnachtsmann_board",
+          "overlay": [
+            "Gelb: Eisverkäufer · am Strand, 35 Grad",
+            "Blau: Bademeister · im Freibad",
+            "Rot: Schornsteinfeger · auf dem Dach"
+          ],
+          "alt": "Ein Brett mit drei Zetteln. Links ein gelber Zettel: Eisverkäufer am Strand. In der Mitte ein blauer Zettel: Bademeister im Freibad. Rechts ein roter Zettel: Schornsteinfeger.",
+          "wide": true
+        },
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Welchen Job nehme ich?",
+          "en": "Which job shall I take?",
+          "audio": "mc_weihnachtsmann_t4b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "nimmst",
+        "nimm",
+        "kannst",
+        "den",
+        "der",
+        "roten",
+        "gelben",
+        "blauen",
+        "Zettel",
+        "Schornsteinfeger",
+        "Eisverkäufer",
+        "Bademeister",
+        "sein",
+        "werden",
+        "Eis",
+        "verkaufen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "sweep",
+          "when": {
+            "any": [
+              "schornsteinfeger",
+              "roten"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "sweep"
+          ],
+          "fact": "🧹 findet den perfekten Job",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Schornsteinfeger! Kamine! Dächer! Das ist … perfekt! Ich kenne jeden Kamin in Deutschland.",
+              "emoji": "🧹",
+              "en": "Chimney sweep! Chimneys! Roofs! That is … perfect! I know every chimney in Germany.",
+              "audio": "mc_weihnachtsmann_t4_sweep"
+            }
+          ]
+        },
+        {
+          "id": "lifeguardContra",
+          "when": {
+            "any": [
+              "bademeister",
+              "blauen"
+            ],
+            "flag": "noSwim"
+          },
+          "value": -2,
+          "cause": "swim",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Bademeister?! Ich kann nicht schwimmen! Das weißt du doch!",
+              "emoji": "🛟",
+              "en": "Lifeguard?! I can't swim! You know that!",
+              "audio": "mc_weihnachtsmann_t4_contra"
+            },
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Nein. Ich nehme den roten Zettel. Schornsteinfeger!",
+              "emoji": "🧹",
+              "en": "No. I'll take the red note. Chimney sweep!",
+              "audio": "mc_weihnachtsmann_t4_takered"
+            }
+          ]
+        },
+        {
+          "id": "lifeguard",
+          "when": {
+            "any": [
+              "bademeister",
+              "blauen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Bademeister? Mit Bart? Der Bart trinkt das ganze Becken aus. Dann ist das Freibad leer.",
+              "en": "Lifeguard? With a beard? The beard would drink the whole pool. Then the pool is empty.",
+              "audio": "mc_weihnachtsmann_t4_lifeguard"
+            },
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Nein. Ich nehme den roten Zettel. Schornsteinfeger!",
+              "emoji": "🧹",
+              "en": "No. I'll take the red note. Chimney sweep!",
+              "audio": "mc_weihnachtsmann_t4_takered"
+            }
+          ]
+        },
+        {
+          "id": "ice",
+          "when": {
+            "any": [
+              "eisverkäufer",
+              "eis",
+              "gelben"
+            ]
+          },
+          "value": -1,
+          "cause": "melt",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Eis am Strand? Bei 35 Grad? Im Mantel? Ich schmelze. Und ich esse alles Eis.",
+              "emoji": "🍦",
+              "en": "Ice cream on the beach? At 35 degrees? In a coat? I'd melt. And I'd eat all the ice cream.",
+              "audio": "mc_weihnachtsmann_t4_ice"
+            },
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Nein. Ich nehme den roten Zettel. Schornsteinfeger!",
+              "emoji": "🧹",
+              "en": "No. I'll take the red note. Chimney sweep!",
+              "audio": "mc_weihnachtsmann_t4_takered"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "zettel"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Welcher Zettel? Welche Farbe? Ich glaube … der rote. Schornsteinfeger!",
+              "en": "Which note? Which colour? I think … the red one. Chimney sweep!",
+              "audio": "mc_weihnachtsmann_t4_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Morgen habe ich ein Gespräch. Mit der Chefin, Frau Ruß. Eine Chefin, kein Chef! Das ist etwas anderes.",
+          "en": "Tomorrow I have an interview. With the boss, Mrs Ruß. A lady boss, not a boss! That’s something else entirely.",
+          "audio": "mc_weihnachtsmann_t5a"
+        },
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Sie fragt bestimmt: „Was können Sie?“ Mein Bart schwitzt schon. Was antworte ich?",
+          "en": "She’ll surely ask: “What can you do?” My beard is already sweating. What do I answer?",
+          "audio": "mc_weihnachtsmann_t5b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "kann",
+        "kannst",
+        "sehr",
+        "gut",
+        "klettern",
+        "fliegen",
+        "durch",
+        "Kamine",
+        "Geschenke",
+        "bringen",
+        "ho ho ho",
+        "lachen",
+        "bin",
+        "stark",
+        "nicht",
+        "Kekse",
+        "essen"
+      ],
+      "wrong": {
+        "kannst": "kann"
+      },
+      "intents": [
+        {
+          "id": "chimney",
+          "when": {
+            "any": [
+              "kamine"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Durch Kamine klettern! Das sage ich. Frau Ruß wird weinen. Vor Freude.",
+              "emoji": "🥹",
+              "en": "Climbing down chimneys! That's what I'll say. Mrs Ruß will cry. With joy.",
+              "audio": "mc_weihnachtsmann_t5_chimney"
+            }
+          ]
+        },
+        {
+          "id": "climb",
+          "when": {
+            "any": [
+              "klettern"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Ich kann gut klettern. Klingt professionell. Danke, Coach!",
+              "en": "I can climb well. Sounds professional. Thanks, coach!",
+              "audio": "mc_weihnachtsmann_t5_climb"
+            }
+          ]
+        },
+        {
+          "id": "fly",
+          "when": {
+            "any": [
+              "fliegen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Fliegen? Mit einem Rentier? Dann ruft sie die Polizei. Oder den Zirkus.",
+              "en": "Flying? With a reindeer? Then she’ll call the police. Or the circus.",
+              "audio": "mc_weihnachtsmann_t5_fly"
+            }
+          ]
+        },
+        {
+          "id": "strong",
+          "when": {
+            "any": [
+              "stark"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Stark, ja! Ich trage jedes Jahr zwei Milliarden Geschenke. Und einen Bauch. Das ist auch schwer.",
+              "emoji": "💪",
+              "en": "Strong, yes! I carry two billion presents every year. And a belly. That’s heavy too.",
+              "audio": "mc_weihnachtsmann_t5_strong"
+            }
+          ]
+        },
+        {
+          "id": "cookies",
+          "when": {
+            "any": [
+              "kekse"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Kekse essen! Zwei Millionen in einer Nacht. Das ist mein Talent! Aber Frau Ruß sucht keinen Keks-Tester. Leider.",
+              "emoji": "🍪",
+              "en": "Eating biscuits! Two million in one night. That’s my talent! But Mrs Ruß isn’t looking for a biscuit tester. Sadly.",
+              "audio": "mc_weihnachtsmann_t5_cookies"
+            }
+          ]
+        },
+        {
+          "id": "gifts",
+          "when": {
+            "any": [
+              "geschenke",
+              "bringen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Geschenke bringen … durch den Schornstein? Hm, vielleicht.",
+              "en": "Bringing presents … down the chimney? Hm, maybe.",
+              "audio": "mc_weihnachtsmann_t5_gifts"
+            }
+          ]
+        },
+        {
+          "id": "hohoho",
+          "when": {
+            "any": [
+              "ho ho ho",
+              "lachen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "„Ho, ho, ho“? In einem Vorstellungsgespräch? Mutig.",
+              "en": "„Ho, ho, ho“? In a job interview? Brave.",
+              "audio": "mc_weihnachtsmann_t5_hohoho"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Problem! Frau Ruß sagt: Schornsteinfeger tragen Schwarz. Und einen Zylinder.",
+          "emoji": "🎩",
+          "en": "Problem! Mrs Ruß says: chimney sweeps wear black. And a top hat.",
+          "audio": "mc_weihnachtsmann_t6a"
+        },
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Aber mein Mantel ist rot! Was mache ich?",
+          "en": "But my coat is red! What do I do?",
+          "audio": "mc_weihnachtsmann_t6b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "kannst",
+        "musst",
+        "deinen",
+        "einen",
+        "den",
+        "roten",
+        "rote",
+        "schwarzen",
+        "Mantel",
+        "Zylinder",
+        "tragen",
+        "ausziehen",
+        "nicht",
+        "und",
+        "auch",
+        "Bikini"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "bikini",
+          "when": {
+            "any": [
+              "bikini"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Einen Bikini? … Unter dem Mantel. Gegen die Hitze. Frau Ruß muss das nicht wissen. Niemand muss das wissen.",
+              "emoji": "👙",
+              "en": "A bikini? … Under the coat. Against the heat. Mrs Ruß doesn’t need to know. Nobody needs to know.",
+              "audio": "mc_weihnachtsmann_t6_bikini"
+            }
+          ]
+        },
+        {
+          "id": "takeOff",
+          "when": {
+            "any": [
+              "ausziehen"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "coat",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "AUSZIEHEN?! Den Mantel? Nie! Seit 1748 nicht!",
+              "emoji": "😱",
+              "en": "TAKE IT OFF?! The coat? Never! Not since 1748!",
+              "audio": "mc_weihnachtsmann_t6_takeoff"
+            }
+          ]
+        },
+        {
+          "id": "redCoat",
+          "when": {
+            "any": [
+              "roten",
+              "rote"
+            ]
+          },
+          "value": 2,
+          "fact": "🔴 erfindet den roten Schornsteinfeger",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Ein roter Schornsteinfeger! Der erste in Deutschland! Frau Ruß wird … überrascht sein.",
+              "emoji": "🔴",
+              "en": "A red chimney sweep! The first in Germany! Mrs Ruß will be … surprised.",
+              "audio": "mc_weihnachtsmann_t6_red"
+            }
+          ]
+        },
+        {
+          "id": "blackContra",
+          "when": {
+            "all": [
+              "schwarzen",
+              "mantel"
+            ],
+            "flag": "coat"
+          },
+          "value": -2,
+          "cause": "coat",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Einen schwarzen Mantel? Ich will MEINEN Mantel! Hast du nicht zugehört?",
+              "en": "A black coat? I want MY coat! Weren't you listening?",
+              "audio": "mc_weihnachtsmann_t6_blackcontra"
+            }
+          ]
+        },
+        {
+          "id": "black",
+          "when": {
+            "all": [
+              "schwarzen",
+              "mantel"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Schwarz? Ich in Schwarz? Ich sehe aus wie ein trauriger Rabe. Ein dicker trauriger Rabe.",
+              "emoji": "🐦‍⬛",
+              "en": "Black? Me in black? I look like a sad raven. A fat sad raven.",
+              "audio": "mc_weihnachtsmann_t6_black"
+            }
+          ]
+        },
+        {
+          "id": "hat",
+          "when": {
+            "any": [
+              "zylinder"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Einen Zylinder! Ich sehe aus wie ein Zauberer. Vielleicht ist ein Kaninchen drin. Ich liebe es.",
+              "emoji": "🎩",
+              "en": "A top hat! I look like a magician. Maybe there’s a rabbit inside. I love it.",
+              "audio": "mc_weihnachtsmann_t6_hat"
+            }
+          ]
+        },
+        {
+          "id": "keepOn",
+          "when": {
+            "all": [
+              "nicht",
+              "ausziehen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Genau, nicht ausziehen! Aber was sage ich Frau Ruß?",
+              "en": "Exactly, not taking it off! But what do I tell Mrs Ruß?",
+              "audio": "mc_weihnachtsmann_t6_keepon"
+            }
+          ]
+        },
+        {
+          "id": "own",
+          "when": {
+            "any": [
+              "deinen",
+              "mantel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Meinen Mantel, ja. Aber er ist rot! Okay. Dann bin ich eben rot.",
+              "en": "My coat, yes. But it's red! Okay. Then I'm just red.",
+              "audio": "mc_weihnachtsmann_t6_own"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Frau Ruß sagt: Die Arbeit beginnt um fünf Uhr. Morgens!",
+          "emoji": "⏰",
+          "en": "Mrs Ruß says: work starts at five o'clock. In the morning!",
+          "audio": "mc_weihnachtsmann_t7a"
+        },
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Ich brauche eine Stunde für meinen Bart. Er hat eine Routine: Shampoo, Föhn, Meditation. Wann muss ich aufstehen?",
+          "en": "I need an hour for my beard. It has a routine: shampoo, hairdryer, meditation. When do I have to get up?",
+          "audio": "mc_weihnachtsmann_t7b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "musst",
+        "muss",
+        "um",
+        "drei",
+        "vier",
+        "fünf",
+        "sechs",
+        "Uhr",
+        "aufstehen",
+        "schlafen",
+        "kannst",
+        "lange",
+        "sehr",
+        "früh",
+        "halb"
+      ],
+      "wrong": {
+        "muss": "musst"
+      },
+      "intents": [
+        {
+          "id": "halfFive",
+          "when": {
+            "all": [
+              "halb",
+              "fünf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Halb fünf? Dann habe ich nur eine halbe Stunde für den Bart. Unmöglich!",
+              "en": "Half four? Then I only have half an hour for the beard. Impossible!",
+              "audio": "mc_weihnachtsmann_t7_halffive"
+            }
+          ]
+        },
+        {
+          "id": "halfFour",
+          "when": {
+            "all": [
+              "halb",
+              "vier"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Halb vier? Sehr früh! Aber gut. Dann trinkt der Bart noch einen Kaffee.",
+              "en": "Half three? Very early! But fine. Then the beard can have a coffee first.",
+              "audio": "mc_weihnachtsmann_t7_halffour"
+            }
+          ]
+        },
+        {
+          "id": "four",
+          "when": {
+            "any": [
+              "vier"
+            ]
+          },
+          "value": 2,
+          "fact": "⏰ plant eine Stunde für den Bart",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Um vier. Uff. Okay. Der Bart und ich sind bereit.",
+              "emoji": "🧔",
+              "en": "At four. Phew. Okay. The beard and I are ready.",
+              "audio": "mc_weihnachtsmann_t7_four"
+            }
+          ]
+        },
+        {
+          "id": "five",
+          "when": {
+            "any": [
+              "fünf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Um fünf? Und der Bart? Ohne Meditation ist er schlecht gelaunt. Den ganzen Tag!",
+              "en": "At five? And the beard? Without meditation it’s grumpy. All day!",
+              "audio": "mc_weihnachtsmann_t7_five"
+            }
+          ]
+        },
+        {
+          "id": "six",
+          "when": {
+            "any": [
+              "sechs"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Um sechs? Dann komme ich zu spät. Am ersten Tag!",
+              "en": "At six? Then I'll be late. On the first day!",
+              "audio": "mc_weihnachtsmann_t7_six"
+            }
+          ]
+        },
+        {
+          "id": "three",
+          "when": {
+            "any": [
+              "drei"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Um drei? Sehr früh. Aber dann meditiert der Bart zweimal. Er wird so ruhig.",
+              "en": "At three? Very early. But then the beard can meditate twice. It gets so calm.",
+              "audio": "mc_weihnachtsmann_t7_three"
+            }
+          ]
+        },
+        {
+          "id": "sleep",
+          "when": {
+            "any": [
+              "schlafen",
+              "lange"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Lange schlafen? Das mache ich schon den ganzen Sommer. Darum habe ich ja keine Arbeit!",
+              "en": "Sleep in? I've been doing that all summer. That's why I have no work!",
+              "audio": "mc_weihnachtsmann_t7_sleep"
+            }
+          ]
+        },
+        {
+          "id": "early",
+          "when": {
+            "any": [
+              "früh"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Früh, ja. Aber wann genau?",
+              "en": "Early, yes. But when exactly?",
+              "audio": "mc_weihnachtsmann_t7_early"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Frau Ruß ist da! Sie ist klein. Sehr klein. Mit spitzen Ohren. Moment … Das ist Elfe Nummer 1312! Sie ist seit 1987 weg!",
+          "emoji": "🧝",
+          "en": "Mrs Ruß is here! She’s small. Very small. With pointy ears. Wait … That’s elf number 1312! She’s been gone since 1987!",
+          "audio": "mc_weihnachtsmann_t8a"
+        },
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Sie sagt: „Schornsteinfeger bringen Glück. Weihnachtsmänner bringen Geschenke. Und jetzt bin ich der Chef.“ Sie grinst.",
+          "emoji": "🍀",
+          "en": "She says: “Chimney sweeps bring luck. Father Christmases bring presents. And now I’m the boss.” She grins.",
+          "audio": "mc_weihnachtsmann_t8c"
+        },
+        {
+          "who": "weihnachtsmann",
+          "type": "text",
+          "de": "Dann fragt sie: „Wollen Sie den Job, Chef?“ Was sage ich?",
+          "en": "Then she asks: “Do you want the job, boss?” What do I say?",
+          "audio": "mc_weihnachtsmann_t8b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "will",
+        "willst",
+        "möchte",
+        "den",
+        "der",
+        "Job",
+        "nicht",
+        "gern",
+        "sehr",
+        "danke",
+        "Geschenke",
+        "bringen",
+        "Glück"
+      ],
+      "wrong": {
+        "willst": "will"
+      },
+      "intents": [
+        {
+          "id": "lostNeg",
+          "when": {
+            "all": [
+              "job",
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "job",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Ich will den Job NICHT?! Vor meiner Elfe?! Sie geht. Wieder. Für noch mal 39 Jahre.",
+              "emoji": "😱",
+              "en": "I DON’T want the job?! In front of my elf?! She’s leaving. Again. For another 39 years.",
+              "audio": "mc_weihnachtsmann_t8_lostneg"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "job"
+            ]
+          },
+          "value": 2,
+          "fact": "🎅 hat jetzt einen Sommerjob",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "„Ja, ich will den Job!“ Sie lacht. Sie sagt ja! Meine Elfe ist meine Chefin! Ho, ho, ho!",
+              "emoji": "🎉",
+              "en": "“Yes, I want the job!” She laughs. She says yes! My elf is my boss! Ho, ho, ho!",
+              "audio": "mc_weihnachtsmann_t8_yes"
+            }
+          ]
+        },
+        {
+          "id": "luck",
+          "when": {
+            "any": [
+              "glück"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Glück bringen! Ja! Das kann ich auch im August.",
+              "emoji": "🍀",
+              "en": "Bringing luck! Yes! I can do that in August too.",
+              "audio": "mc_weihnachtsmann_t8_luck"
+            }
+          ]
+        },
+        {
+          "id": "gifts",
+          "when": {
+            "any": [
+              "geschenke",
+              "bringen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Geschenke bringen? Im August? Frau Ruß schaut komisch. Aber sie lächelt.",
+              "en": "Bringing presents? In August? Mrs Ruß looks at me strangely. But she smiles.",
+              "audio": "mc_weihnachtsmann_t8_gifts"
+            }
+          ]
+        },
+        {
+          "id": "plainYes",
+          "when": {
+            "any": [
+              "ja",
+              "gern",
+              "danke"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Ja! Gern! Kurz und gut. Frau Ruß nickt.",
+              "en": "Yes! Gladly! Short and sweet. Mrs Ruß nods.",
+              "audio": "mc_weihnachtsmann_t8_plainyes"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "job",
+          "reply": [
+            {
+              "who": "weihnachtsmann",
+              "type": "text",
+              "de": "Nein?! Wer sagt das? Ich? Oh nein.",
+              "en": "No?! Who said that? Me? Oh no.",
+              "audio": "mc_weihnachtsmann_t8_no"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "weihnachtsmann",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage. Ho … ho … hm.",
+    "en": "Er … that wasn't my question. Ho … ho … hm.",
+    "audio": "mc_weihnachtsmann_offtopic"
+  },
+  "confused": [
+    {
+      "who": "weihnachtsmann",
+      "type": "text",
+      "de": "Hä? Sag das noch mal. Langsam. Ich bin 1748.",
+      "emoji": "🤔",
+      "en": "Huh? Say that again. Slowly. I'm 1748.",
+      "audio": "mc_weihnachtsmann_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "{name}, du bist der beste Jobcoach der Welt. Ab Montag bin ich Schornsteinfeger!",
+        "en": "{name}, you're the best job coach in the world. From Monday I'm a chimney sweep!"
+      },
+      {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "Im roten Mantel. Mit Zylinder. Und meine Chefin ist eine Elfe. Ho, ho, ho!",
+        "emoji": "🎩",
+        "en": "In a red coat. With a top hat. And my boss is an elf. Ho, ho, ho!",
+        "audio": "mc_weihnachtsmann_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "Ich habe einen Job. Ich bin Weihnachtsmann im Freizeitpark. Im August. Bei 35 Grad. Die Kinder fragen: „Bist du echt?“ Ho … ho … Hilfe.",
+        "emoji": "🥵",
+        "en": "I’ve got a job. I’m Father Christmas at a theme park. In August. At 35 degrees. The kids ask: “Are you real?” Ho … ho … help.",
+        "audio": "mc_weihnachtsmann_partial"
+      }
+    ],
+    "deleted": {
+      "chef": {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "Einen Chef! Für mich! Ich gehe zurück zu meinen Elfen. Die verstehen mich. Tschüss.",
+        "en": "A boss! For me! I’m going back to my elves. They understand me. Bye.",
+        "audio": "mc_weihnachtsmann_del_chef"
+      },
+      "sweat": {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "Du willst, dass ich schwitze? Ich gehe zurück an den Nordpol. Da ist es kalt. Tschüss.",
+        "emoji": "🧊",
+        "en": "You want me to sweat? I’m going back to the North Pole. It’s cold there. Bye.",
+        "audio": "mc_weihnachtsmann_del_sweat"
+      },
+      "swim": {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "Ich kann nicht schwimmen. Und du hörst nicht zu. Blub. Tschüss.",
+        "emoji": "🫧",
+        "en": "I can't swim. And you don't listen. Blub. Bye.",
+        "audio": "mc_weihnachtsmann_del_swim"
+      },
+      "melt": {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "Eis am Strand … Ich bin geschmolzen. Nur der Bart ist noch da. Tschüss.",
+        "emoji": "🫠",
+        "en": "Ice cream on the beach … I've melted. Only the beard is left. Bye.",
+        "audio": "mc_weihnachtsmann_del_melt"
+      },
+      "coat": {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "Der Mantel bleibt. Du gehst. Ho. Ho. Tschüss.",
+        "emoji": "🧥",
+        "en": "The coat stays. You go. Ho. Ho. Bye.",
+        "audio": "mc_weihnachtsmann_del_coat"
+      },
+      "job": {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "Kein Job, kein Coach. Ich gehe zu Fuß zurück zum Nordpol. Rudi ist ja auf Mallorca.",
+        "en": "No job, no coach. I’m walking back to the North Pole. Rudi’s in Mallorca, after all.",
+        "audio": "mc_weihnachtsmann_del_job"
+      },
+      "confused": {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich verstehe sonst alle Kinder der Welt. Tschüss.",
+        "en": "I don’t understand you. And I understand every other child in the world. Bye.",
+        "audio": "mc_weihnachtsmann_del_confused"
+      },
+      "default": {
+        "who": "weihnachtsmann",
+        "type": "text",
+        "de": "Danke, aber ich warte lieber auf Dezember. Da habe ich Arbeit. Tschüss!",
+        "en": "Thanks, but I'd rather wait for December. I have work then. Bye!",
+        "audio": "mc_weihnachtsmann_del_default"
+      }
+    },
+    "sunday": {
+      "who": "weihnachtsmann",
+      "type": "voice",
+      "audio": "mc_weihnachtsmann_vn_sunday",
+      "de": "Ho, ho, ho! Sonntag! Kein Kamin, keine Chefin. Ich sitze im Freibad. Im Mantel. Alle schauen. Und weißt du was? Rudi ist auch hier. Er ist Bademeister! Er kann schwimmen! Verräter! Danke, Coach!",
+      "en": "Ho, ho, ho! Sunday! No chimney, no boss. I’m sitting at the outdoor pool. In my coat. Everyone’s staring. And you know what? Rudi is here too. He’s the lifeguard! He can swim! Traitor! Thanks, coach!",
+      "direction": "Deep, jolly bass, relaxed and happy, splashing water and children shouting at an outdoor swimming pool in the background."
+    }
+  },
+  "partialTitle": "Ho … ho … Hitze.",
+  "share": {
+    "win": "Ich habe für den Weihnachtsmann (1748) einen Sommerjob gefunden 🎅🎩 Schornsteinfeger im roten Mantel, und seine Chefin ist eine Elfe! Mein Deutsch: {score}/100. Schaffst du das auf Deutsch? {url}",
+    "partial": "Der Weihnachtsmann (1748) hat einen Job … im Freizeitpark, bei 35 Grad 🥵 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Der Weihnachtsmann (1748) hat mich gelöscht 💔 Im August! Mein Deutsch: {score}/100. Findest du einen Job für ihn? {url}"
+  },
+  "imageCharacter": "Der Weihnachtsmann, a very old, round, rosy-cheeked man with a huge fluffy white beard and bushy white eyebrows, small round glasses, wearing his heavy red fur-trimmed coat fully buttoned up and a red hat with a white bobble, visibly sweating, holding a little handheld electric fan.",
+  "imagePrompts": [
+    {
+      "id": "match_weihnachtsmann",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He sits slumped in a striped deckchair under a blazing summer sun on a small German city balcony full of potted red geraniums, looking gloomy and overheated, a melting ice lolly in his other hand dripping onto his black boots. Bright blue sky. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_weihnachtsmann_board",
+      "aspect": "16:9",
+      "prompt": "A phone photo of a cork pinboard on a plain wall, seen exactly straight on, the board filling the frame. Exactly THREE large paper notes are pinned to it in one row, far apart and evenly spaced, all the same size. LEFT: a bright yellow note with a simple drawing of an ice cream cone. MIDDLE: a bright blue note with a simple drawing of a red-and-white swim ring. RIGHT: a bright red note with a simple drawing of a chimney sweep’s round black brush. Nothing else on the board, no writing anywhere."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ja, du bist der Weihnachtsmann.",
+      "score": 100,
+      "intent": "santa",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Du bist den Weihnachtsmann.",
+      "score": 85,
+      "intent": "santa",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Du bin der Weihnachtsmann.",
+      "score": 80,
+      "intent": "santa",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Du bringst Geschenke.",
+      "score": 100,
+      "intent": "gifts",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Du bringt Geschenke.",
+      "score": 80,
+      "intent": "gifts",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich kenne dich.",
+      "score": 100,
+      "intent": "know",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo!",
+      "score": 100,
+      "intent": "hello",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Du Weihnachtsmann.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst sehr gut klettern.",
+      "score": 100,
+      "intent": "climb",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Du kann gut klettern.",
+      "score": 80,
+      "intent": "climb",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst klettern gut.",
+      "score": 70,
+      "intent": "climb",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst gut fliegen.",
+      "score": 100,
+      "intent": "fly",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst Geschenke bringen.",
+      "score": 100,
+      "intent": "gifts",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst gut lachen.",
+      "score": 100,
+      "intent": "laugh",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst nicht schwimmen.",
+      "score": 100,
+      "intent": "notSwim",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst gut schwimmen.",
+      "score": 100,
+      "intent": "swim",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst gut kochen.",
+      "score": 100,
+      "intent": "cook",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Du gut fliegen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst nicht klettern.",
+      "score": 100,
+      "intent": "notClimb",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst nicht fliegen.",
+      "score": 100,
+      "intent": "notFly",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Du kannst nicht kochen.",
+      "score": 100,
+      "intent": "notCook",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du willst deinen Mantel tragen.",
+      "score": 100,
+      "intent": "coat",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Du willst immer deinen Mantel tragen.",
+      "score": 100,
+      "intent": "coat",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Du willst dein Mantel tragen.",
+      "score": 85,
+      "intent": "coat",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du willst tragen deinen Mantel.",
+      "score": 70,
+      "intent": "coat",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du willst keinen Chef.",
+      "score": 100,
+      "intent": "noChef",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du will nicht schwitzen.",
+      "score": 80,
+      "intent": "noSweat",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Du willst einen Chef.",
+      "score": 100,
+      "intent": "lostNegChef",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Du willst schwitzen.",
+      "score": 100,
+      "intent": "lostNegSweat",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Du willst Urlaub machen.",
+      "score": 100,
+      "intent": "holiday",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Du deinen Mantel.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Du willst deinen Mantel nicht tragen.",
+      "score": 100,
+      "intent": "notCoat",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Du kannst Schornsteinfeger werden.",
+      "score": 100,
+      "intent": "sweep",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Nimm den roten Zettel!",
+      "score": 100,
+      "intent": "sweep",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Du nimmst den roten Zettel.",
+      "score": 100,
+      "intent": "sweep",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Nimm der roten Zettel!",
+      "score": 85,
+      "intent": "sweep",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Du kannst Eis verkaufen.",
+      "score": 100,
+      "intent": "ice",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Nimm den gelben Zettel!",
+      "score": 100,
+      "intent": "ice",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du kannst Bademeister sein.",
+      "score": 100,
+      "intent": "lifeguard",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du nimmst den Zettel.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Du den roten Zettel.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kann sehr gut durch Kamine klettern.",
+      "score": 100,
+      "intent": "chimney",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kann gut klettern.",
+      "score": 100,
+      "intent": "climb",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kannst gut klettern.",
+      "score": 80,
+      "intent": "climb",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kann fliegen.",
+      "score": 100,
+      "intent": "fly",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin stark.",
+      "score": 100,
+      "intent": "strong",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kann Geschenke bringen.",
+      "score": 100,
+      "intent": "gifts",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ho ho ho!",
+      "score": 100,
+      "intent": "hohoho",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich gut klettern.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kann sehr gut Kekse essen.",
+      "score": 100,
+      "intent": "cookies",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kannst Kekse essen.",
+      "score": 80,
+      "intent": "cookies",
+      "delta": 0
+    },
+    {
+      "turn": "t6",
+      "say": "Du kannst deinen roten Mantel tragen.",
+      "score": 100,
+      "intent": "redCoat",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Du kannst deinen roten Mantel und einen Zylinder tragen.",
+      "score": 100,
+      "intent": "redCoat",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Du kannst deinen rote Mantel tragen.",
+      "score": 85,
+      "intent": "redCoat",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du musst den Mantel ausziehen.",
+      "score": 100,
+      "intent": "takeOff",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Du kannst einen schwarzen Mantel tragen.",
+      "score": 100,
+      "intent": "black",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Du kannst einen Zylinder tragen.",
+      "score": 100,
+      "intent": "hat",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du musst den Mantel nicht ausziehen.",
+      "score": 100,
+      "intent": "keepOn",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du deinen roten Mantel.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Du kannst einen schwarzen Zylinder tragen.",
+      "score": 100,
+      "intent": "hat",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du kannst einen Bikini tragen.",
+      "score": 100,
+      "intent": "bikini",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du musst einen Bikini tragen.",
+      "score": 100,
+      "intent": "bikini",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du musst um vier Uhr aufstehen.",
+      "score": 100,
+      "intent": "four",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Du muss um vier aufstehen.",
+      "score": 80,
+      "intent": "four",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du musst aufstehen um vier Uhr.",
+      "score": 70,
+      "intent": "four",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du musst um fünf Uhr aufstehen.",
+      "score": 100,
+      "intent": "five",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du musst um halb fünf aufstehen.",
+      "score": 100,
+      "intent": "halfFive",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du musst um sechs aufstehen.",
+      "score": 100,
+      "intent": "six",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du kannst lange schlafen.",
+      "score": 100,
+      "intent": "sleep",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du musst sehr früh aufstehen.",
+      "score": 100,
+      "intent": "early",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Du um vier Uhr.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du musst um halb vier aufstehen.",
+      "score": 100,
+      "intent": "halfFour",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ja, ich will den Job!",
+      "score": 100,
+      "intent": "yes",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich will der Job.",
+      "score": 85,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich willst den Job.",
+      "score": 80,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ja, ich möchte den Job sehr gern.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich will den Job nicht.",
+      "score": 100,
+      "intent": "lostNeg",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich will Glück bringen.",
+      "score": 100,
+      "intent": "luck",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich will Geschenke bringen.",
+      "score": 100,
+      "intent": "gifts",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ja, gern!",
+      "score": 100,
+      "intent": "plainYes",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich den Job.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Du bringst Geschenke."
+        ],
+        [
+          "t2",
+          "Du kannst sehr gut klettern."
+        ],
+        [
+          "t3",
+          "Du willst deinen Mantel tragen."
+        ],
+        [
+          "t4",
+          "Nimm den roten Zettel!"
+        ],
+        [
+          "t5",
+          "Ich kann sehr gut durch Kamine klettern."
+        ],
+        [
+          "t6",
+          "Du kannst deinen roten Mantel tragen."
+        ],
+        [
+          "t7",
+          "Du musst um vier Uhr aufstehen."
+        ],
+        [
+          "t8",
+          "Ja, ich will den Job!"
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Nein."
+        ],
+        [
+          "t2",
+          "Du kannst gut kochen."
+        ],
+        [
+          "t3",
+          "Du willst Urlaub machen."
+        ],
+        [
+          "t4",
+          "Du kannst Bademeister sein."
+        ],
+        [
+          "t5",
+          "Ich kann fliegen."
+        ],
+        [
+          "t6",
+          "Du kannst einen Zylinder tragen."
+        ],
+        [
+          "t7",
+          "Du musst um fünf Uhr aufstehen."
+        ],
+        [
+          "t8",
+          "Ich will Geschenke bringen."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Nein."
+        ],
+        [
+          "t2",
+          "Du kannst gut schwimmen."
+        ],
+        [
+          "t3",
+          "Du willst einen Chef."
+        ],
+        [
+          "t4",
+          "Du kannst Bademeister sein."
+        ]
+      ]
+    }
+  ]
+}

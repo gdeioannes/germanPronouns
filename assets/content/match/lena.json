@@ -1,0 +1,2004 @@
+{
+  "id": "lena",
+  "name": "Lena",
+  "age": 7,
+  "emoji": "🍋",
+  "image": "match_lena",
+  "level": "A1.1",
+  "order": 3,
+  "bio": "Limonade: 5 Euro. Kein Rabatt.",
+  "bioEn": "Lemonade: 5 euros. No discount.",
+  "goal": "Get a lemonade for 1 euro.",
+  "tagline": "Limonaden-Chefin · 7 · Kreuzberg",
+  "voice": "Leda",
+  "brief": "Lena, a seven-year-old girl who runs a lemonade stand like a ruthless CEO: a bright, clear child's voice, fast, bossy and very sure of herself, with dramatic pauses before prices; secretly delighted by a good haggle. She sometimes shouts sideways at her little brother Paul.",
+  "focus": "Zahlen · Preise · möchte · Plural · kein/keinen",
+  "lexicon": {
+    "nouns": {
+      "Limonade": "f",
+      "Limonaden": "pl",
+      "Wasser": "n",
+      "Rabatt": "m",
+      "Euro": "m",
+      "Becher": "m",
+      "Knöpfe": "pl",
+      "Keks": "m",
+      "Kekse": "pl",
+      "Lächeln": "n",
+      "Eis": "n",
+      "Frosch": "m",
+      "Kassierer": "m"
+    },
+    "names": [
+      "Paul"
+    ],
+    "verbs": [
+      "heiße",
+      "möchte",
+      "möchtest",
+      "kostet",
+      "kosten",
+      "ist",
+      "habt",
+      "hast",
+      "haben",
+      "hat",
+      "habe",
+      "bringe",
+      "bringst",
+      "behalte",
+      "trinke",
+      "bekommst",
+      "bekomme",
+      "esse"
+    ],
+    "accVerbs": [
+      "möchte",
+      "möchtest",
+      "habt",
+      "hast",
+      "haben",
+      "hat",
+      "habe",
+      "bringe",
+      "bringst",
+      "behalte",
+      "trinke",
+      "bekommst",
+      "bekomme",
+      "esse"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "lena",
+      "type": "text",
+      "de": "Hallo, Kunde! Ich bin Lena. Ich bin sieben. Ich bin die Chefin.",
+      "emoji": "😎",
+      "en": "Hello, customer! I'm Lena. I'm seven. I'm the boss.",
+      "audio": "mc_lena_intro"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Willkommen bei Lenas Limonade. Was möchtest du?",
+          "emoji": "🍋",
+          "en": "Welcome to Lena's Lemonade. What would you like?",
+          "audio": "mc_lena_t1a"
+        }
+      ],
+      "tiles": [
+        "hallo",
+        "ich",
+        "ich",
+        "heiße",
+        "{name}",
+        "möchte",
+        "möchtest",
+        "eine",
+        "ein",
+        "einen",
+        "Limonade",
+        "Limonaden",
+        "zwei",
+        "Wasser",
+        "nichts",
+        "Rabatt",
+        "bitte"
+      ],
+      "wrong": {
+        "möchtest": "möchte"
+      },
+      "intents": [
+        {
+          "id": "discount",
+          "when": {
+            "any": [
+              "rabatt"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "askedDiscount"
+          ],
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Rabatt? Ha. Haha. Nein. Kein Rabatt.",
+              "en": "A discount? Ha. Haha. No. No discount.",
+              "audio": "mc_lena_t1_discount"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Nichts? Nichts kostet auch fünf Euro.",
+              "en": "Nothing? Nothing costs five euros too.",
+              "audio": "mc_lena_t1_nothing"
+            }
+          ]
+        },
+        {
+          "id": "water",
+          "when": {
+            "any": [
+              "wasser"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Wasser? Wasser ist gratis. Aus dem Hahn. Hier gibt es Limonade.",
+              "en": "Water? Water is free. From the tap. Here we sell lemonade.",
+              "audio": "mc_lena_t1_water"
+            }
+          ]
+        },
+        {
+          "id": "two",
+          "when": {
+            "any": [
+              "zwei"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Zwei! Ein Profi! Das macht zehn Euro.",
+              "emoji": "🤑",
+              "en": "Two! A pro! That's ten euros.",
+              "audio": "mc_lena_t1_two"
+            }
+          ]
+        },
+        {
+          "id": "one",
+          "when": {
+            "any": [
+              "limonade*"
+            ]
+          },
+          "value": 1,
+          "fact": "🍋 liebt Limonade",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Gute Wahl. Die beste Limonade in Berlin. Und die einzige.",
+              "en": "Good choice. The best lemonade in Berlin. And the only one.",
+              "audio": "mc_lena_t1_one"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "{name}"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Schön, {name}. Namen sind gratis. Limonade nicht.",
+              "en": "Nice, {name}. Names are free. Lemonade isn't."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Hier ist meine Preisliste.",
+          "emoji": "📋",
+          "en": "Here's my price list.",
+          "audio": "mc_lena_t2a"
+        },
+        {
+          "who": "lena",
+          "type": "photo",
+          "image": "match_lena_pricelist",
+          "overlay": [
+            "LENAS LIMONADE",
+            "Limonade: 5 €",
+            "Eis: 2 €",
+            "Strohhalm: 50 Cent",
+            "Lächeln: 10 €",
+            "KEIN RABATT!"
+          ],
+          "alt": "Eine Preisliste: Limonade 5 Euro. Eis 2 Euro. Strohhalm 50 Cent. Lächeln 10 Euro. Kein Rabatt!"
+        },
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Problem: Paul ist mein Kassierer. Paul ist heute krank. Bauchweh. Zu viel Limonade.",
+          "en": "Problem: Paul is my cashier. Paul is sick today. Tummy ache. Too much lemonade.",
+          "audio": "mc_lena_t2b"
+        },
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Du bist jetzt Kassierer. Da kommt ein Mann. Er möchte eine Limonade mit Eis. Was kostet das? Schnell, er hat einen Bus!",
+          "emoji": "🧾",
+          "en": "You're the cashier now. Here comes a man. He wants a lemonade with ice. What does that cost? Quick, he has a bus to catch!",
+          "audio": "mc_lena_t2c"
+        }
+      ],
+      "tiles": [
+        "die",
+        "Limonade",
+        "kostet",
+        "kosten",
+        "sieben",
+        "fünf",
+        "zwei",
+        "zehn",
+        "Euro",
+        "das",
+        "ist",
+        "zu",
+        "teuer",
+        "sehr",
+        "mit",
+        "Eis"
+      ],
+      "wrong": {
+        "kosten": "kostet"
+      },
+      "intents": [
+        {
+          "id": "seven",
+          "when": {
+            "any": [
+              "sieben"
+            ]
+          },
+          "value": 1,
+          "fact": "🧮 kann rechnen",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Sieben! Der Mann zahlt. Du bist ein Profi. Paul, du bist gefeuert. … Okay, Paul, nicht weinen. Du bist wieder da.",
+              "emoji": "🧮",
+              "en": "Seven! The man pays. You're a pro. Paul, you're fired. … Okay, Paul, don't cry. You're back.",
+              "audio": "mc_lena_t2_seven"
+            }
+          ]
+        },
+        {
+          "id": "expensive",
+          "when": {
+            "any": [
+              "teuer"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Zu teuer? Du bist der Kassierer, nicht der Kunde! Der Mann lacht. Der Bus ist weg. Es ist sieben.",
+              "en": "Too expensive? You're the cashier, not the customer! The man laughs. The bus is gone. It's seven.",
+              "audio": "mc_lena_t2_expensive"
+            }
+          ]
+        },
+        {
+          "id": "ten",
+          "when": {
+            "any": [
+              "zehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Zehn? Das ist das Lächeln. Der Mann lächelt nicht. Er zahlt trotzdem. Danke, Kassierer.",
+              "emoji": "😁",
+              "en": "Ten? That's the smile. The man isn't smiling. He pays anyway. Thanks, cashier.",
+              "audio": "mc_lena_t2_ten"
+            }
+          ]
+        },
+        {
+          "id": "five",
+          "when": {
+            "any": [
+              "fünf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Fünf? Und das Eis? Das Eis ist nicht gratis. Nichts ist gratis. Nur Wasser. Leider.",
+              "en": "Five? And the ice? The ice isn't free. Nothing is free. Only water. Sadly.",
+              "audio": "mc_lena_t2_five"
+            }
+          ]
+        },
+        {
+          "id": "two",
+          "when": {
+            "any": [
+              "zwei"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Zwei Euro? Das ist nur das Eis. Der Mann ist sehr glücklich. Ich nicht.",
+              "en": "Two euros? That's only the ice. The man is very happy. I am not.",
+              "audio": "mc_lena_t2_two"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "lena",
+          "type": "voice",
+          "audio": "mc_lena_vn_paul",
+          "de": "Paul! Wie viele Limonaden haben wir noch? … Zwölf? Nein, Paul! Das sind die Becher! Und das sind zehn Becher, nicht zwölf. Wir haben nur zwei Limonaden. Zwei!",
+          "en": "Paul! How many lemonades have we got left? … Twelve? No, Paul! Those are the cups! And that is ten cups, not twelve. We have only two lemonades. Two!",
+          "direction": "Shouting a little away from the phone at her four-year-old brother, exasperated boss energy, sighing; then back close to the phone for the last \"Zwei!\"."
+        },
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Paul sagt: zwölf. Paul sagt auch: Ich bin ein Dinosaurier. Wem glaubst du? Wie viele Limonaden haben wir noch?",
+          "en": "Paul says: twelve. Paul also says: I'm a dinosaur. Who do you believe? How many lemonades do we have left?",
+          "audio": "mc_lena_t3a"
+        }
+      ],
+      "tiles": [
+        "ihr",
+        "habt",
+        "hast",
+        "haben",
+        "nur",
+        "noch",
+        "zwei",
+        "zwölf",
+        "zehn",
+        "keine",
+        "Limonaden",
+        "Becher",
+        "und",
+        "Paul",
+        "hat"
+      ],
+      "wrong": {
+        "hast": "habt",
+        "haben": "habt"
+      },
+      "intents": [
+        {
+          "id": "none",
+          "when": {
+            "any": [
+              "keine"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Keine?! Paul! Hast du sie getrunken?! … Paul sagt: Nein, der Dinosaurier.",
+              "emoji": "😤",
+              "en": "None?! Paul! Did you drink them?! … Paul says: No, the dinosaur did.",
+              "audio": "mc_lena_t3_none"
+            }
+          ]
+        },
+        {
+          "id": "twelve",
+          "when": {
+            "any": [
+              "zwölf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Zwölf? Du glaubst Paul? Paul glaubt auch, er ist ein Dinosaurier. Rawr.",
+              "en": "Twelve? You believe Paul? Paul also believes he's a dinosaur. Rawr.",
+              "audio": "mc_lena_t3_twelve"
+            }
+          ]
+        },
+        {
+          "id": "two",
+          "when": {
+            "any": [
+              "zwei"
+            ]
+          },
+          "value": 1,
+          "fact": "👂 hört gut zu",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Genau. Zwei. Sehr selten. Sehr wertvoll.",
+              "emoji": "💎",
+              "en": "Exactly. Two. Very rare. Very valuable.",
+              "audio": "mc_lena_t3_two"
+            }
+          ]
+        },
+        {
+          "id": "ten",
+          "when": {
+            "any": [
+              "zehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Zehn? Das sind die Becher. Leere Becher.",
+              "en": "Ten? Those are the cups. Empty cups.",
+              "audio": "mc_lena_t3_ten"
+            }
+          ]
+        },
+        {
+          "id": "paul",
+          "when": {
+            "any": [
+              "paul"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Paul hat nichts. Paul hat nur Hunger. Wie viele Limonaden?",
+              "en": "Paul has nothing. Paul just has hunger. How many lemonades?",
+              "audio": "mc_lena_t3_paul"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Nur noch zwei Limonaden. Das ist selten. Das ist Luxus. Die Bank ruft schon an.",
+          "en": "Only two lemonades left. That's rare. That's luxury. The bank is already calling.",
+          "audio": "mc_lena_t4a"
+        },
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Neuer Preis: sechs Euro.",
+          "emoji": "😎",
+          "en": "New price: six euros.",
+          "audio": "mc_lena_t4b"
+        },
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Was sagst du?",
+          "en": "What do you say?",
+          "audio": "mc_lena_t4c"
+        }
+      ],
+      "tiles": [
+        "das",
+        "ist",
+        "zu",
+        "teuer",
+        "sehr",
+        "ich",
+        "möchte",
+        "möchtest",
+        "einen",
+        "Rabatt",
+        "okay",
+        "ja",
+        "gern",
+        "sechs",
+        "fünf",
+        "Euro",
+        "nein",
+        "nicht"
+      ],
+      "wrong": {
+        "möchtest": "möchte"
+      },
+      "intents": [
+        {
+          "id": "notExpensive",
+          "when": {
+            "all": [
+              "teuer",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Nicht teuer?! Paul, schreib auf: Neuer Preis: zehn Euro!",
+              "en": "Not expensive?! Paul, write it down: new price: ten euros!",
+              "audio": "mc_lena_t4_notexpensive"
+            }
+          ]
+        },
+        {
+          "id": "discount",
+          "when": {
+            "any": [
+              "rabatt"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "askedDiscount"
+          ],
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Rabatt?! Bei Lena gibt es keinen Rabatt. Nie.",
+              "en": "A discount?! At Lena's there is no discount. Never.",
+              "audio": "mc_lena_t4_discount_a"
+            },
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "… Aber vielleicht ein Angebot. Später.",
+              "en": "… But maybe an offer. Later.",
+              "audio": "mc_lena_t4_discount_b"
+            }
+          ]
+        },
+        {
+          "id": "expensive",
+          "when": {
+            "any": [
+              "teuer"
+            ]
+          },
+          "value": 1,
+          "fact": "🗣️ verhandelt hart",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Teuer? Das ist Qualität! … Na gut. Wir verhandeln.",
+              "en": "Expensive? That's quality! … Fine. Let's negotiate.",
+              "audio": "mc_lena_t4_expensive"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Nein? Okay. Ein Kunde mit Meinung. Selten.",
+              "en": "No? Okay. A customer with an opinion. Rare.",
+              "audio": "mc_lena_t4_no"
+            }
+          ]
+        },
+        {
+          "id": "five",
+          "when": {
+            "any": [
+              "fünf"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Fünf war gestern. Heute ist heute.",
+              "en": "Five was yesterday. Today is today.",
+              "audio": "mc_lena_t4_five"
+            }
+          ]
+        },
+        {
+          "id": "agree",
+          "when": {
+            "any": [
+              "okay",
+              "ja",
+              "gern",
+              "sechs"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Wirklich?! Paul, schreib auf: Dieser Kunde zahlt alles! Paul kann nicht schreiben. Er malt einen Dinosaurier.",
+              "emoji": "🤑",
+              "en": "Really?! Paul, write it down: this customer pays anything! Paul can't write. He draws a dinosaur.",
+              "audio": "mc_lena_t4_agree"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Okay. Zeig mal. Was hast du in der Tasche?",
+          "emoji": "👀",
+          "en": "Okay. Show me. What's in your pocket?",
+          "audio": "mc_lena_t5a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "hast",
+        "einen",
+        "einen",
+        "ein",
+        "Euro",
+        "zwanzig",
+        "und",
+        "zwei",
+        "Knöpfe",
+        "Keks",
+        "Kekse",
+        "nichts",
+        "nur",
+        "Frosch"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "rich",
+          "when": {
+            "any": [
+              "zwanzig"
+            ]
+          },
+          "value": -2,
+          "cause": "rich",
+          "flags": [
+            "rich"
+          ],
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Zwanzig Euro?! Und du sagst: teuer?",
+              "emoji": "🤨",
+              "en": "Twenty euros?! And you say: expensive?",
+              "audio": "mc_lena_t5_rich_a"
+            },
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Neuer Preis: zwanzig Euro.",
+              "en": "New price: twenty euros.",
+              "audio": "mc_lena_t5_rich_b"
+            }
+          ]
+        },
+        {
+          "id": "frog",
+          "when": {
+            "any": [
+              "frosch"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "frog"
+          ],
+          "fact": "🐸 hat einen Frosch in der Tasche",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Einen Frosch?! In der Tasche?! Paul, komm schnell!",
+              "emoji": "🐸",
+              "en": "A frog?! In your pocket?! Paul, come quick!",
+              "audio": "mc_lena_t5_frog"
+            },
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Paul liebt den Frosch. Paul möchte nur noch den Frosch. Paul möchte nie wieder Limonade. Das ist gut für das Geschäft.",
+              "en": "Paul loves the frog. Paul only wants the frog now. Paul never wants lemonade again. That's good for business.",
+              "audio": "mc_lena_t5_frog_b"
+            }
+          ]
+        },
+        {
+          "id": "cookie",
+          "when": {
+            "any": [
+              "keks",
+              "kekse"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "cookie"
+          ],
+          "photo": "match_lena_cookie",
+          "fact": "🍪 hat immer Kekse",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Kekse?! Paul liebt Kekse. Hm. Das ist interessant.",
+              "emoji": "🍪",
+              "en": "Cookies?! Paul loves cookies. Hm. That is interesting.",
+              "audio": "mc_lena_t5_cookie"
+            }
+          ]
+        },
+        {
+          "id": "buttons",
+          "when": {
+            "any": [
+              "knöpfe"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "buttons"
+          ],
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Knöpfe? Paul sammelt Knöpfe. Er hat schon hundert.",
+              "en": "Buttons? Paul collects buttons. He already has a hundred.",
+              "audio": "mc_lena_t5_buttons"
+            }
+          ]
+        },
+        {
+          "id": "coin",
+          "when": {
+            "any": [
+              "euro"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "broke"
+          ],
+          "fact": "💶 ist ehrlich",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Einen Euro. Nur einen. Du bist arm, aber ehrlich.",
+              "en": "One euro. Just one. You're poor, but honest.",
+              "audio": "mc_lena_t5_coin"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Nichts? Dann trinkst du Wasser. Aus der Pfütze.",
+              "en": "Nothing? Then you drink water. From the puddle.",
+              "audio": "mc_lena_t5_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Noch eine Regel. Der Becher hat Pfand: fünfzig Cent.",
+          "emoji": "♻️",
+          "en": "One more rule. The cup has a deposit: fifty cents.",
+          "audio": "mc_lena_t6a"
+        },
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Bringst du den Becher zurück?",
+          "en": "Will you bring the cup back?",
+          "audio": "mc_lena_t6b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "ich",
+        "bringe",
+        "bringst",
+        "den",
+        "der",
+        "Becher",
+        "zurück",
+        "behalte",
+        "nicht",
+        "trinke",
+        "schnell",
+        "und",
+        "sofort",
+        "esse"
+      ],
+      "wrong": {
+        "bringst": "bringe"
+      },
+      "intents": [
+        {
+          "id": "eat",
+          "when": {
+            "any": [
+              "esse"
+            ]
+          },
+          "value": 0,
+          "fact": "🥤 isst Becher",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Du isst den Becher?! Dann gibt es kein Pfand. Aber Respekt. Paul möchte das auch. Nein, Paul!",
+              "en": "You eat the cup?! Then there's no deposit. But respect. Paul wants to do that too. No, Paul!",
+              "audio": "mc_lena_t6_eat"
+            }
+          ]
+        },
+        {
+          "id": "notKeep",
+          "when": {
+            "all": [
+              "behalte",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "fact": "♻️ bringt den Becher zurück",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Gut. Du bist ein guter Kunde. Fast.",
+              "en": "Good. You're a good customer. Almost.",
+              "audio": "mc_lena_t6_yes"
+            }
+          ]
+        },
+        {
+          "id": "keep",
+          "when": {
+            "any": [
+              "behalte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Du behältst den Becher? Dann kostet er fünfzig Cent. Extra.",
+              "en": "You keep the cup? Then it costs fifty cents. Extra.",
+              "audio": "mc_lena_t6_keep"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nicht",
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Nein?! Pfand ist Pfand! Das ist Deutschland!",
+              "emoji": "😤",
+              "en": "No?! A deposit is a deposit! This is Germany!",
+              "audio": "mc_lena_t6_no"
+            }
+          ]
+        },
+        {
+          "id": "fast",
+          "when": {
+            "any": [
+              "schnell"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Schnell trinken? Gut. Ich warte. Mit der Hand offen.",
+              "en": "Drink fast? Good. I'll wait. With my hand open.",
+              "audio": "mc_lena_t6_fast"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "zurück",
+              "ja"
+            ]
+          },
+          "value": 1,
+          "fact": "♻️ bringt den Becher zurück",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Gut. Du bist ein guter Kunde. Fast.",
+              "en": "Good. You're a good customer. Almost.",
+              "audio": "mc_lena_t6_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Okay, {name}. Letztes Angebot.",
+          "en": "Okay, {name}. Final offer."
+        },
+        {
+          "who": "lena",
+          "type": "text",
+          "de": "Was bekomme ich für eine Limonade?",
+          "emoji": "🤝",
+          "en": "What do I get for a lemonade?",
+          "audio": "mc_lena_t7a"
+        }
+      ],
+      "tiles": [
+        "du",
+        "bekommst",
+        "bekomme",
+        "einen",
+        "einen",
+        "ein",
+        "Euro",
+        "und",
+        "Keks",
+        "zwei",
+        "Knöpfe",
+        "drei",
+        "sechs",
+        "zwanzig",
+        "Lächeln",
+        "nur",
+        "Frosch"
+      ],
+      "wrong": {
+        "bekomme": "bekommst"
+      },
+      "intents": [
+        {
+          "id": "frogLiar",
+          "when": {
+            "any": [
+              "frosch"
+            ],
+            "noFlag": "frog"
+          },
+          "value": -2,
+          "cause": "frog",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Ein Frosch? Welcher Frosch? Du hast keinen Frosch! Paul sucht ihn trotzdem. Unter dem Tisch. Er weint.",
+              "en": "A frog? What frog? You don't have a frog! Paul is looking for it anyway. Under the table. He's crying.",
+              "audio": "mc_lena_t7_frogliar"
+            }
+          ]
+        },
+        {
+          "id": "frogDeal",
+          "when": {
+            "any": [
+              "frosch"
+            ],
+            "flag": "frog"
+          },
+          "value": 2,
+          "fact": "🐸 hat mit einem Frosch bezahlt",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Der Frosch! Paul weint vor Glück. Er nennt ihn Rabatt.",
+              "emoji": "🐸",
+              "en": "The frog! Paul is crying with joy. He's naming him Discount.",
+              "audio": "mc_lena_t7_frogdeal"
+            },
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Jetzt gibt es bei Lena einen Rabatt. Er sitzt im Becher und sagt quak. Deal!",
+              "en": "So now Lena's has a Discount. He sits in the cup and says ribbit. Deal!",
+              "audio": "mc_lena_t7_frogdeal_b"
+            }
+          ]
+        },
+        {
+          "id": "liar",
+          "when": {
+            "any": [
+              "keks"
+            ],
+            "noFlag": "cookie"
+          },
+          "value": -2,
+          "cause": "liar",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Du hast doch keine Kekse! Ich habe es gesehen.",
+              "emoji": "🤨",
+              "en": "You haven't got any cookies! I saw.",
+              "audio": "mc_lena_t7_liar"
+            }
+          ]
+        },
+        {
+          "id": "cookieDeal",
+          "when": {
+            "all": [
+              "euro",
+              "keks"
+            ]
+          },
+          "value": 2,
+          "fact": "🍋 verhandelt wie ein Profi",
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Ein Euro und ein Keks … Paul nickt. Okay. Deal!",
+              "emoji": "🤝",
+              "en": "One euro and a cookie … Paul nods. Okay. Deal!",
+              "audio": "mc_lena_t7_cookiedeal"
+            }
+          ]
+        },
+        {
+          "id": "cookieOnly",
+          "when": {
+            "any": [
+              "keks"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Nur ein Keks? Paul sagt ja. Ich sage … okay. Deal.",
+              "en": "Just a cookie? Paul says yes. I say … okay. Deal.",
+              "audio": "mc_lena_t7_cookieonly"
+            }
+          ]
+        },
+        {
+          "id": "buttons",
+          "when": {
+            "any": [
+              "knöpfe"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Zwei Knöpfe für Paul! Er ist glücklich. Okay. Deal.",
+              "en": "Two buttons for Paul! He's happy. Okay. Deal.",
+              "audio": "mc_lena_t7_buttons"
+            }
+          ]
+        },
+        {
+          "id": "smile",
+          "when": {
+            "any": [
+              "lächeln"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Ein Lächeln kostet zehn Euro. Du schuldest mir neun.",
+              "emoji": "😁",
+              "en": "A smile costs ten euros. You owe me nine.",
+              "audio": "mc_lena_t7_smile"
+            }
+          ]
+        },
+        {
+          "id": "more",
+          "when": {
+            "any": [
+              "drei",
+              "sechs",
+              "zwanzig"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Gern! Danke! … Aber das war nicht dein Plan, oder?",
+              "emoji": "🤑",
+              "en": "Gladly! Thanks! … But that wasn't your plan, was it?",
+              "audio": "mc_lena_t7_more"
+            }
+          ]
+        },
+        {
+          "id": "oneEuro",
+          "when": {
+            "any": [
+              "euro"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lena",
+              "type": "text",
+              "de": "Ein Euro. Nur ein Euro. Hm. Hmmm. Okay. Aber ohne Eis.",
+              "en": "One euro. Just one euro. Hm. Hmmm. Okay. But without ice.",
+              "audio": "mc_lena_t7_oneeuro"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "lena",
+    "type": "text",
+    "de": "Zeit ist Geld. Das war nicht meine Frage.",
+    "en": "Time is money. That wasn't my question.",
+    "audio": "mc_lena_offtopic"
+  },
+  "confused": [
+    {
+      "who": "lena",
+      "type": "text",
+      "de": "Hä? Das kostet extra.",
+      "emoji": "😅",
+      "en": "Huh? That costs extra.",
+      "audio": "mc_lena_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "lena",
+        "type": "text",
+        "de": "Deal! Hier ist deine Limonade. Für einen Euro.",
+        "emoji": "🍋",
+        "en": "Deal! Here's your lemonade. For one euro.",
+        "audio": "mc_lena_win_a"
+      },
+      {
+        "who": "lena",
+        "type": "text",
+        "de": "Aber sag es niemandem. Kein Rabatt. Offiziell.",
+        "en": "But don't tell anyone. No discount. Officially.",
+        "audio": "mc_lena_win_b"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "lena",
+        "type": "text",
+        "de": "Okay. Du bekommst eine Limonade. Aber Paul hat schon getrunken. Die Hälfte.",
+        "emoji": "🥤",
+        "en": "Okay. You get a lemonade. But Paul has already had some. Half.",
+        "audio": "mc_lena_partial"
+      }
+    ],
+    "deleted": {
+      "rich": {
+        "who": "lena",
+        "type": "text",
+        "de": "Zwanzig Euro in der Tasche und du willst Rabatt? Tschüss, Millionär.",
+        "emoji": "💸",
+        "en": "Twenty euros in your pocket and you want a discount? Bye, millionaire.",
+        "audio": "mc_lena_del_rich"
+      },
+      "liar": {
+        "who": "lena",
+        "type": "text",
+        "de": "Kein Keks, kein Deal. Paul, mach den Laden zu!",
+        "en": "No cookie, no deal. Paul, close the shop!",
+        "audio": "mc_lena_del_liar"
+      },
+      "confused": {
+        "who": "lena",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich bin die Chefin. Tschüss.",
+        "en": "I don't understand you. And I'm the boss. Bye.",
+        "audio": "mc_lena_del_confused"
+      },
+      "default": {
+        "who": "lena",
+        "type": "text",
+        "de": "Du bist kein Kunde. Du bist ein Tourist. Paul, mach ein Foto vom Touristen. Tschüss.",
+        "en": "You're not a customer. You're a tourist. Paul, take a photo of the tourist. Bye.",
+        "audio": "mc_lena_del_default"
+      },
+      "frog": {
+        "who": "lena",
+        "type": "text",
+        "de": "Kein Frosch, kein Deal. Paul sucht ihn noch. Er sucht ihn bis Weihnachten. Tschüss.",
+        "en": "No frog, no deal. Paul is still looking for it. He'll look until Christmas. Bye.",
+        "audio": "mc_lena_del_frog"
+      }
+    },
+    "sunday": {
+      "who": "lena",
+      "type": "voice",
+      "audio": "mc_lena_vn_sunday",
+      "de": "Sonntag! Neuer Laden: Lenas Eistee. Drei Euro. Für dich: zwei. Das ist kein Rabatt. Das ist Freundschaft. Und Paul verkauft jetzt Knöpfe. Er ist meine Konkurrenz.",
+      "en": "Sunday! New shop: Lena's Iced Tea. Three euros. For you: two. That's not a discount. That's friendship. And Paul sells buttons now. He's my competition.",
+      "direction": "Proud and businesslike, a little out of breath from setting up a new stand; the last sentence slower and almost warm."
+    }
+  },
+  "partialTitle": "Eine halbe Limonade.",
+  "share": {
+    "win": "Ich habe bei Lena (7, Limonaden-Chefin) eine Limonade für einen Euro bekommen 🍋 Kein Rabatt. Offiziell. Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Lena (7) hat mir eine halbe Limonade verkauft 🥤 Paul hat die andere Hälfte getrunken. Mein Deutsch: {score}/100. {url}",
+    "deleted": "Lena (7, Limonaden-Chefin) hat mich gelöscht 💸 Mein Deutsch: {score}/100. Bekommst du einen Rabatt? {url}"
+  },
+  "imageCharacter": "Lena, a seven-year-old girl with two tight dark-brown braids, a gap in her front teeth and a very serious face; she wears a tiny clip-on tie over a yellow T-shirt, round sunglasses pushed up on her head, and a cash box under one arm.",
+  "imagePrompts": [
+    {
+      "id": "match_lena",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands behind a small wooden lemonade stand on a Berlin pavement, leaning forward with both hands on the counter like a bank manager, one eyebrow raised at the viewer. A big glass jug of lemonade with lemon slices and a stack of paper cups on the counter. Behind her a tiny four-year-old boy in a too-big cap is counting buttons. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_lena_pricelist",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a lemonade stand on a sunny Berlin pavement, seen straight on. Taped to the front of the wooden stand is a big sheet of cardboard that fills the upper two thirds of the picture: the cardboard is COMPLETELY blank, plain light brown with nothing written or drawn on it at all. Below it a glass jug of lemonade with lemon slices and a few paper cups. A child's hand with a yellow sleeve rests on the counter at the edge."
+    },
+    {
+      "id": "match_lena_cookie",
+      "aspect": "3:4",
+      "prompt": "A phone photo looking down at an open hand held out flat: in the palm lie one big round chocolate-chip cookie and one plain gold-coloured coin with no markings. Behind the hand, out of focus, a wooden lemonade stand with a lemonade jug."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich möchte eine Limonade, bitte.",
+      "score": 100,
+      "intent": "one",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte ein Limonade.",
+      "score": 85,
+      "intent": "one",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchtest eine Limonade.",
+      "score": 80,
+      "intent": "one",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte zwei Limonaden.",
+      "score": 100,
+      "intent": "two",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte einen Rabatt.",
+      "score": 100,
+      "intent": "discount",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte ein Wasser.",
+      "score": 100,
+      "intent": "water",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo, ich heiße {name}.",
+      "score": 100,
+      "intent": "name",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich Limonade.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Limonade kostet sieben Euro.",
+      "score": 100,
+      "intent": "seven",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Sieben Euro.",
+      "score": 100,
+      "intent": "seven",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Die Limonade kosten sieben Euro.",
+      "score": 80,
+      "intent": "seven",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Fünf Euro.",
+      "score": 100,
+      "intent": "five",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Zehn Euro.",
+      "score": 100,
+      "intent": "ten",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Zwei Euro.",
+      "score": 100,
+      "intent": "two",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Das ist zu teuer.",
+      "score": 100,
+      "intent": "expensive",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Sieben Euro die Limonade kosten.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Limonade mit Eis kostet sieben Euro.",
+      "score": 100,
+      "intent": "seven",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ihr habt nur noch zwei Limonaden.",
+      "score": 100,
+      "intent": "two",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ihr hast zwei Limonaden.",
+      "score": 80,
+      "intent": "two",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Zwei Limonaden und zehn Becher.",
+      "score": 100,
+      "intent": "two",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Zwölf.",
+      "score": 100,
+      "intent": "twelve",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ihr habt keine Limonaden.",
+      "score": 100,
+      "intent": "none",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Zehn.",
+      "score": 100,
+      "intent": "ten",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Paul hat zehn Becher.",
+      "score": 100,
+      "intent": "ten",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ihr zwei Limonaden.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Das ist zu teuer.",
+      "score": 100,
+      "intent": "expensive",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Das ist sehr teuer.",
+      "score": 100,
+      "intent": "expensive",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich möchte einen Rabatt.",
+      "score": 100,
+      "intent": "discount",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich möchtest einen Rabatt.",
+      "score": 80,
+      "intent": "discount",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, nicht sechs.",
+      "score": 100,
+      "intent": "no",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Fünf Euro.",
+      "score": 100,
+      "intent": "five",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Okay, gern.",
+      "score": 100,
+      "intent": "agree",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich teuer.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Das ist nicht teuer.",
+      "score": 100,
+      "intent": "notExpensive",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe einen Euro und einen Keks.",
+      "score": 100,
+      "intent": "cookie",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe ein Keks.",
+      "score": 85,
+      "intent": "cookie",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe einen Euro.",
+      "score": 100,
+      "intent": "coin",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe ein Euro.",
+      "score": 85,
+      "intent": "coin",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe nur einen Euro und zwei Knöpfe.",
+      "score": 100,
+      "intent": "buttons",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe zwanzig Euro.",
+      "score": 100,
+      "intent": "rich",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich hast nichts.",
+      "score": 80,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich Euro.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ja, ich bringe den Becher zurück.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bringe der Becher zurück.",
+      "score": 85,
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bringst den Becher zurück.",
+      "score": 80,
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bringe den Becher nicht zurück.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Nein, ich behalte den Becher.",
+      "score": 100,
+      "intent": "keep",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich trinke schnell und ich bringe den Becher sofort zurück.",
+      "score": 100,
+      "intent": "fast",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich den Becher.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich behalte den Becher nicht.",
+      "score": 100,
+      "intent": "notKeep",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du bekommst einen Euro.",
+      "score": 100,
+      "intent": "oneEuro",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Du bekomme einen Euro.",
+      "score": 80,
+      "intent": "oneEuro",
+      "delta": 0
+    },
+    {
+      "turn": "t7",
+      "say": "Einen Euro und einen Keks.",
+      "score": 100,
+      "intent": "liar",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Du bekommst zwei Knöpfe.",
+      "score": 100,
+      "intent": "buttons",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ein Lächeln.",
+      "score": 100,
+      "intent": "smile",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du bekommst drei Euro.",
+      "score": 100,
+      "intent": "more",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du Euro.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe einen Frosch.",
+      "score": 100,
+      "intent": "frog",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe ein Frosch.",
+      "score": 85,
+      "intent": "frog",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich esse den Becher.",
+      "score": 100,
+      "intent": "eat",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Du bekommst einen Frosch.",
+      "score": 100,
+      "intent": "frogLiar",
+      "delta": -2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich möchte eine Limonade, bitte."
+        ],
+        [
+          "t2",
+          "Sieben Euro."
+        ],
+        [
+          "t3",
+          "Ihr habt nur noch zwei Limonaden."
+        ],
+        [
+          "t4",
+          "Das ist zu teuer."
+        ],
+        [
+          "t5",
+          "Ich habe einen Euro und einen Keks."
+        ],
+        [
+          "t6",
+          "Ja, ich bringe den Becher zurück."
+        ],
+        [
+          "t7",
+          "Du bekommst einen Euro und einen Keks."
+        ]
+      ]
+    },
+    {
+      "name": "the frog called Rabatt",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich möchte eine Limonade, bitte."
+        ],
+        [
+          "t2",
+          "Das kostet sieben Euro."
+        ],
+        [
+          "t3",
+          "Ihr habt nur noch zwei Limonaden."
+        ],
+        [
+          "t4",
+          "Das ist zu teuer."
+        ],
+        [
+          "t5",
+          "Ich habe einen Frosch."
+        ],
+        [
+          "t6",
+          "Ich esse den Becher."
+        ],
+        [
+          "t7",
+          "Du bekommst einen Frosch."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich möchte ein Wasser."
+        ],
+        [
+          "t2",
+          "Fünf Euro."
+        ],
+        [
+          "t3",
+          "Ihr habt nur noch zwei Limonaden."
+        ],
+        [
+          "t4",
+          "Okay, gern."
+        ],
+        [
+          "t5",
+          "Ich habe einen Euro."
+        ],
+        [
+          "t6",
+          "Nein."
+        ],
+        [
+          "t7",
+          "Du bekommst einen Euro."
+        ]
+      ]
+    },
+    {
+      "name": "deleted: the cookie bluff",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich möchte einen Rabatt."
+        ],
+        [
+          "t2",
+          "Zehn Euro."
+        ],
+        [
+          "t3",
+          "Ihr habt nur noch zwei Limonaden."
+        ],
+        [
+          "t4",
+          "Okay, gern."
+        ],
+        [
+          "t5",
+          "Ich habe nichts."
+        ],
+        [
+          "t6",
+          "Nein."
+        ],
+        [
+          "t7",
+          "Einen Euro und einen Keks."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich möchte nichts."
+        ],
+        [
+          "t2",
+          "Zehn Euro."
+        ],
+        [
+          "t3",
+          "Zwölf."
+        ],
+        [
+          "t4",
+          "Okay, gern."
+        ],
+        [
+          "t5",
+          "Ich habe zwanzig Euro."
+        ]
+      ]
+    }
+  ]
+}

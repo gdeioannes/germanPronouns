@@ -1,0 +1,2424 @@
+{
+  "id": "benny",
+  "name": "Benny",
+  "age": 29,
+  "emoji": "✂️",
+  "image": "match_benny",
+  "level": "A2.2",
+  "order": 3,
+  "bio": "Nur die Spitzen? Vertrau mir.",
+  "bioEn": "Just the ends? Trust me.",
+  "goal": "Leave with the haircut you asked for.",
+  "tagline": "Friseur · 29 · Salon in Neukölln",
+  "voice": "Zubenelgenubi",
+  "brief": "Benny, a 29-year-old hairdresser who thinks he is an artist: a bright, fast, warm young male voice, full of excitement and big ideas, a little theatrical; says \"Vertrau mir\" with a smile you can hear, and talks to his scissors, Gisela, as if she were a colleague.",
+  "focus": "Adjektivendungen (Nominativ / Akkusativ) · Haare und Aussehen · weil / dass",
+  "lexicon": {
+    "nouns": {
+      "Spitzen": "pl",
+      "Haare": "pl",
+      "Schnitt": "m",
+      "Frisur": "f",
+      "Pony": "m",
+      "Glatze": "f",
+      "Kopf": "m",
+      "Iro": "m",
+      "Turm": "m",
+      "Hochzeit": "f",
+      "Chef": "m",
+      "Rot": "n",
+      "Hut": "m",
+      "Jacke": "f",
+      "Mütze": "f",
+      "Brille": "f",
+      "Künstler": "m",
+      "Hamster": "m",
+      "Krone": "f"
+    },
+    "names": [
+      "Gisela"
+    ],
+    "verbs": [
+      "möchte",
+      "möchtest",
+      "sollst",
+      "gefällt",
+      "gefallen",
+      "nehme",
+      "habe",
+      "hast",
+      "ist",
+      "trage",
+      "trägst",
+      "bin",
+      "glaube",
+      "glaubst",
+      "hoffe",
+      "bist",
+      "schneidest",
+      "schneidet",
+      "hat",
+      "vertraue",
+      "vertraust"
+    ],
+    "nonfinite": [
+      "schneiden"
+    ],
+    "imperatives": [
+      "schneid",
+      "mach"
+    ],
+    "accVerbs": [
+      "möchte",
+      "möchtest",
+      "nehme",
+      "habe",
+      "hast",
+      "trage",
+      "trägst"
+    ],
+    "datVerbs": [
+      "gefällt",
+      "gefallen"
+    ],
+    "adjectives": [
+      "kurz",
+      "neu",
+      "lang",
+      "rot",
+      "grün",
+      "braun",
+      "gelb",
+      "schwarz",
+      "groß",
+      "golden"
+    ]
+  },
+  "intro": [
+    {
+      "who": "benny",
+      "type": "text",
+      "de": "Hi! Ich bin Benny. Friseur. Nein: Haar-Künstler.",
+      "emoji": "✂️",
+      "en": "Hi! I'm Benny. Hairdresser. No: hair artist.",
+      "audio": "mc_benny_intro_a"
+    },
+    {
+      "who": "benny",
+      "type": "text",
+      "de": "Du hast morgen um zehn einen Termin bei mir. Ich freue mich! Meine Schere auch. Sie heißt Gisela. Sie ist 31 und hat schon drei Bärte gesehen. Von innen.",
+      "en": "You have an appointment with me tomorrow at ten. I am so excited! My scissors too. She is called Gisela. She is 31 and has seen three beards. From the inside.",
+      "audio": "mc_benny_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Also: Was machen wir morgen mit deinen Haaren?",
+          "en": "So: what are we doing with your hair tomorrow?",
+          "audio": "mc_benny_t1a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "möchte",
+        "möchtest",
+        "nur",
+        "die",
+        "Spitzen",
+        "bitte",
+        "kurze",
+        "kurzen",
+        "Haare",
+        "einen",
+        "neuen",
+        "neue",
+        "Schnitt",
+        "alles",
+        "ab",
+        "nichts",
+        "du",
+        "sollst",
+        "schneiden"
+      ],
+      "wrong": {
+        "möchtest": "möchte"
+      },
+      "intents": [
+        {
+          "id": "allOff",
+          "when": {
+            "all": [
+              "alles",
+              "ab"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "bald"
+          ],
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Alles ab?! Endlich ein mutiger Mensch! Gisela, aufwachen!",
+              "emoji": "😍",
+              "en": "All of it off?! Finally a brave person! Gisela, wake up!",
+              "audio": "mc_benny_t1_alloff"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Nichts? Du kommst zum Friseur, und ich mache nichts? Das ist wie Kino ohne Film.",
+              "en": "Nothing? You come to the hairdresser's and I do nothing? That's like cinema without a film.",
+              "audio": "mc_benny_t1_nothing"
+            }
+          ]
+        },
+        {
+          "id": "tips",
+          "when": {
+            "any": [
+              "spitzen"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "tips"
+          ],
+          "fact": "✂️ will nur die Spitzen",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Nur die Spitzen. Klar. Natürlich. Vertrau mir.",
+              "emoji": "😇",
+              "en": "Just the ends. Sure. Of course. Trust me.",
+              "audio": "mc_benny_t1_tips"
+            },
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Das hat Herr Becker auch gesagt. Jetzt hat er einen roten Iro. Er ist sehr glücklich. Glaube ich.",
+              "emoji": "🦔",
+              "en": "Mr Becker said that too. Now he has a red mohawk. He is very happy. I think.",
+              "audio": "mc_benny_t1_tips_b"
+            }
+          ]
+        },
+        {
+          "id": "short",
+          "when": {
+            "any": [
+              "kurze",
+              "kurzen"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "short"
+          ],
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Kurze Haare! Sehr gut. Wie kurz? Egal. Vertrau mir.",
+              "en": "Short hair! Very good. How short? Doesn't matter. Trust me.",
+              "audio": "mc_benny_t1_short"
+            }
+          ]
+        },
+        {
+          "id": "new",
+          "when": {
+            "any": [
+              "neuen",
+              "neue",
+              "schnitt"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "new"
+          ],
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Einen neuen Schnitt! Oh, ich habe SO viele Ideen. Vertrau mir. Bitte vertrau mir.",
+              "emoji": "🤩",
+              "en": "A new cut! Oh, I have SO many ideas. Trust me. Please trust me.",
+              "audio": "mc_benny_t1_new"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "möchte",
+              "möchtest",
+              "bitte",
+              "schneiden"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Du möchtest … was? Gisela klappert schon. Wenn du nichts sagst, entscheidet sie. Sie liebt Zöpfe. Auf der Stirn.",
+              "en": "You would like … what? Gisela is already clacking. If you say nothing, she decides. She loves braids. On the forehead.",
+              "audio": "mc_benny_t1_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Schick mir ein Foto! Wie sollen deine Haare nach dem Termin aussehen?",
+          "emoji": "📸",
+          "en": "Send me a photo! How should your hair look after the appointment?",
+          "audio": "mc_benny_t2a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "möchte",
+        "möchtest",
+        "lange",
+        "langen",
+        "kurze",
+        "kurzen",
+        "eine",
+        "einen",
+        "Frisur",
+        "Pony",
+        "Glatze",
+        "Haare",
+        "und",
+        "bitte"
+      ],
+      "wrong": {
+        "möchtest": "möchte"
+      },
+      "intents": [
+        {
+          "id": "baldOk",
+          "when": {
+            "any": [
+              "glatze"
+            ],
+            "flag": "bald"
+          },
+          "value": 1,
+          "photo": "match_benny_ref_bald",
+          "flags": [
+            "wantBald"
+          ],
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Konsequent! Alles ab, wie besprochen. Gisela weint vor Glück.",
+              "emoji": "🥲",
+              "en": "Consistent! All off, as agreed. Gisela is crying with joy.",
+              "audio": "mc_benny_t2_baldok"
+            }
+          ]
+        },
+        {
+          "id": "baldNew",
+          "when": {
+            "any": [
+              "glatze"
+            ],
+            "flag": "new"
+          },
+          "value": 0,
+          "flags": [
+            "wantBald"
+          ],
+          "photo": "match_benny_ref_bald",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Neu, neuer, Glatze! Mutig! Gisela hat Tränen in den Augen. Freudentränen.",
+              "emoji": "🥲",
+              "en": "New, newer, bald! Brave! Gisela has tears in her eyes. Tears of joy.",
+              "audio": "mc_benny_t2_baldnew"
+            }
+          ]
+        },
+        {
+          "id": "bald",
+          "when": {
+            "any": [
+              "glatze"
+            ]
+          },
+          "value": -1,
+          "photo": "match_benny_ref_bald",
+          "cause": "bald",
+          "flags": [
+            "wantBald"
+          ],
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Eine Glatze?! Gerade wolltest du noch etwas anderes! Gisela ist verwirrt. Ich bin … begeistert.",
+              "emoji": "😳",
+              "en": "A bald head?! A minute ago you wanted something else! Gisela is confused. I'm … thrilled.",
+              "audio": "mc_benny_t2_bald"
+            }
+          ]
+        },
+        {
+          "id": "fringe",
+          "when": {
+            "any": [
+              "pony"
+            ]
+          },
+          "value": 1,
+          "photo": "match_benny_ref_fringe",
+          "flags": [
+            "wantFringe"
+          ],
+          "fact": "💇 möchte einen Pony",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Ein Pony! Wie ein kleines Dach für die Stirn. Ich liebe es.",
+              "en": "A fringe! Like a little roof for your forehead. I love it.",
+              "audio": "mc_benny_t2_fringe"
+            }
+          ]
+        },
+        {
+          "id": "longContra",
+          "when": {
+            "any": [
+              "lange",
+              "langen"
+            ],
+            "flag": "short"
+          },
+          "value": -1,
+          "photo": "match_benny_ref_long",
+          "flags": [
+            "wantLong"
+          ],
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Lange Haare? Du wolltest doch kurze Haare! Ich bin verwirrt. Ich schneide gern verwirrt.",
+              "en": "Long hair? You wanted short hair! I am confused. I love cutting when I am confused.",
+              "audio": "mc_benny_t2_longcontra"
+            }
+          ]
+        },
+        {
+          "id": "long",
+          "when": {
+            "any": [
+              "lange",
+              "langen"
+            ]
+          },
+          "value": 1,
+          "photo": "match_benny_ref_long",
+          "flags": [
+            "wantLong"
+          ],
+          "fact": "💇 möchte lange Haare",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Lang und schön. Also wirklich nur die Spitzen. Okay. Fast okay.",
+              "en": "Long and lovely. So really just the ends. Okay. Almost okay.",
+              "audio": "mc_benny_t2_long"
+            }
+          ]
+        },
+        {
+          "id": "shortContra",
+          "when": {
+            "any": [
+              "kurze",
+              "kurzen"
+            ],
+            "flag": "tips"
+          },
+          "value": -1,
+          "photo": "match_benny_ref_short",
+          "flags": [
+            "wantShort"
+          ],
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Kurz? Gerade waren es nur die Spitzen! Du bist spontan. Wie ich. Vertrau mir.",
+              "en": "Short? A minute ago it was just the ends! You're spontaneous. Like me. Trust me.",
+              "audio": "mc_benny_t2_shortcontra"
+            }
+          ]
+        },
+        {
+          "id": "short",
+          "when": {
+            "any": [
+              "kurze",
+              "kurzen"
+            ]
+          },
+          "value": 1,
+          "photo": "match_benny_ref_short",
+          "flags": [
+            "wantShort"
+          ],
+          "fact": "💇 möchte kurze Haare",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Kurz und frech. Sehr gut. Gisela macht schon Stretching.",
+              "en": "Short and cheeky. Very good. Gisela is already stretching.",
+              "audio": "mc_benny_t2_short"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "möchte",
+              "möchtest",
+              "haare",
+              "frisur"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Und? Wie? Lang? Kurz? Ich sehe kein Foto! Nur Wörter!",
+              "en": "And? How? Long? Short? I don't see a photo! Just words!",
+              "audio": "mc_benny_t2_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Danke! Und hier sind MEINE Ideen. Mein Schaufenster. Vertrau mir.",
+          "emoji": "🎨",
+          "en": "Thanks! And here are MY ideas. My shop window. Trust me.",
+          "audio": "mc_benny_t3a"
+        },
+        {
+          "who": "benny",
+          "type": "photo",
+          "image": "match_benny_heads",
+          "wide": true,
+          "alt": "Drei Köpfe im Schaufenster. Links: ein roter Iro. In der Mitte: kurze, braune Haare, ganz normal. Rechts: ein hoher, grüner Turm aus Haaren."
+        },
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Welcher Kopf gefällt dir? Ehrlich!",
+          "en": "Which head do you like? Be honest!",
+          "audio": "mc_benny_t3b"
+        }
+      ],
+      "tiles": [
+        "mir",
+        "gefällt",
+        "gefallen",
+        "der",
+        "den",
+        "die",
+        "Kopf",
+        "in der Mitte",
+        "links",
+        "rechts",
+        "rote",
+        "roten",
+        "Iro",
+        "grüne",
+        "grünen",
+        "Turm",
+        "braune",
+        "braunen",
+        "kurzen",
+        "Haare",
+        "ich",
+        "nehme",
+        "keiner"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "none",
+          "when": {
+            "any": [
+              "keiner"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Keiner? Hart. Aber ehrlich. Ich respektiere das. Gisela nicht.",
+              "en": "None? Harsh. But honest. I respect that. Gisela doesn't.",
+              "audio": "mc_benny_t3_none"
+            }
+          ]
+        },
+        {
+          "id": "red",
+          "when": {
+            "any": [
+              "links",
+              "rote",
+              "roten",
+              "iro"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "crazy"
+          ],
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Der Iro! Mutig! Das ist übrigens Herr Becker. Nach „nur die Spitzen“.",
+              "emoji": "🦔",
+              "en": "The mohawk! Brave! That, by the way, is Mr Becker. After \"just the ends\".",
+              "audio": "mc_benny_t3_red"
+            }
+          ]
+        },
+        {
+          "id": "green",
+          "when": {
+            "any": [
+              "rechts",
+              "grüne",
+              "grünen",
+              "turm"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "crazy"
+          ],
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Der Turm! Zwei Stunden, drei Dosen Haarspray. Leider passt du dann nicht mehr in den Bus.",
+              "emoji": "🗼",
+              "en": "The tower! Two hours, three cans of hairspray. Sadly you won't fit on the bus any more.",
+              "audio": "mc_benny_t3_green"
+            }
+          ]
+        },
+        {
+          "id": "middle",
+          "when": {
+            "any": [
+              "in der mitte",
+              "braune",
+              "braunen",
+              "kurzen"
+            ]
+          },
+          "value": 1,
+          "fact": "🧠 lässt sich nicht überreden",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Der in der Mitte? Der normale? Das ist Herr Becker. VOR dem Termin.",
+              "emoji": "😅",
+              "en": "The one in the middle? The normal one? That is Mr Becker. BEFORE the appointment.",
+              "audio": "mc_benny_t3_middle"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "gefällt",
+              "gefallen",
+              "nehme",
+              "kopf"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Welcher? Links, Mitte, rechts? Beschreib ihn!",
+              "en": "Which one? Left, middle, right? Describe it!",
+              "audio": "mc_benny_t3_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Ich habe eine Idee für dich. Rot. Feuerwehrrot. Vertrau mir!",
+          "emoji": "🚒",
+          "en": "I have an idea for you. Red. Fire-engine red. Trust me!",
+          "audio": "mc_benny_t4a"
+        }
+      ],
+      "tiles": [
+        "nein",
+        "ja",
+        "ich",
+        "möchte",
+        "keine",
+        "rote",
+        "roten",
+        "Haare",
+        "weil",
+        "am Samstag",
+        "eine",
+        "Hochzeit",
+        "habe",
+        "hast",
+        "Rot",
+        "ist",
+        "toll",
+        "mein",
+        "Chef",
+        "streng",
+        "gern",
+        "Hamster",
+        "hat",
+        "Angst vor Rot"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "hamster",
+          "when": {
+            "any": [
+              "hamster"
+            ]
+          },
+          "value": 1,
+          "fact": "🐹 hat einen Hamster mit Angst vor Rot",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Dein Hamster hat Angst vor Rot? Okay. Kein Rot. Ich traumatisiere keine Tiere. Nicht schon wieder.",
+              "emoji": "🐹",
+              "en": "Your hamster is scared of red? Okay. No red. I do not traumatise animals. Not again.",
+              "audio": "mc_benny_t4_hamster"
+            },
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Frag nicht, was mit dem Papagei von Herrn Becker passiert ist. Er ist jetzt blond.",
+              "en": "Do not ask what happened to Mr Becker's parrot. He is blond now.",
+              "audio": "mc_benny_t4_hamster_b"
+            }
+          ]
+        },
+        {
+          "id": "wedding",
+          "when": {
+            "any": [
+              "hochzeit"
+            ]
+          },
+          "value": 2,
+          "fact": "💒 hat am Samstag eine Hochzeit",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Eine Hochzeit! Okay. Dann kein Rot. Fast kein Rot. Ein bisschen Rot? Nein. Okay. Kein Rot.",
+              "emoji": "💒",
+              "en": "A wedding! Okay. Then no red. Almost no red. A little red? No. Okay. No red.",
+              "audio": "mc_benny_t4_wedding"
+            }
+          ]
+        },
+        {
+          "id": "boss",
+          "when": {
+            "any": [
+              "chef"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Dein Chef ist streng? Meiner auch. Ich bin mein Chef. Okay, kein Rot.",
+              "en": "Your boss is strict? Mine too. I am my boss. Okay, no red.",
+              "audio": "mc_benny_t4_boss"
+            }
+          ]
+        },
+        {
+          "id": "noRed",
+          "when": {
+            "any": [
+              "keine"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Keine roten Haare. Notiert. Gisela ist enttäuscht. Sie wollte so gern Feuerwehr spielen.",
+              "en": "No red hair. Noted. Gisela is disappointed. She really wanted to play fire engine.",
+              "audio": "mc_benny_t4_nored"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "toll",
+              "gern"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "crazy"
+          ],
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "JA! Feuerwehrrot! Man sieht dich aus dem Flugzeug! … Moment. Wolltest du nicht etwas anderes?",
+              "emoji": "🔥",
+              "en": "YES! Fire-engine red! They will see you from a plane! … Wait. Didn't you want something else?",
+              "audio": "mc_benny_t4_yes"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Nein? Einfach nein? Warum nicht? Rot ist eine Lebenseinstellung!",
+              "en": "No? Just no? Why not? Red is a way of life!",
+              "audio": "mc_benny_t4_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "benny",
+          "type": "voice",
+          "audio": "mc_benny_vn_park",
+          "de": "Planänderung! Morgen schneide ich nicht im Salon. Ich schneide im Park! Das Licht ist besser. Wir treffen uns am Brunnen. Ich trage einen gelben Hut. Und du? Ich muss dich erkennen!",
+          "en": "Change of plan! Tomorrow I'm not cutting in the salon. I'm cutting in the park! The light is better. We'll meet at the fountain. I'll be wearing a yellow hat. And you? I have to recognise you!",
+          "direction": "Excited and a little out of breath, walking outside in the wind; pigeons somewhere; \"im Park!\" like a grand announcement."
+        },
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Also: Was trägst du morgen?",
+          "en": "So: what are you wearing tomorrow?",
+          "audio": "mc_benny_t5a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "trage",
+        "trägst",
+        "einen",
+        "eine",
+        "gelben",
+        "gelbe",
+        "rote",
+        "roten",
+        "schwarze",
+        "Hut",
+        "Jacke",
+        "Mütze",
+        "große",
+        "großen",
+        "Brille",
+        "bin",
+        "groß",
+        "und",
+        "goldene",
+        "Krone"
+      ],
+      "wrong": {
+        "trägst": "trage"
+      },
+      "intents": [
+        {
+          "id": "hat",
+          "when": {
+            "all": [
+              "hut"
+            ],
+            "any": [
+              "gelben",
+              "gelbe"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Einen gelben Hut? Das ist MEIN Hut! Dann umarme ich wieder den falschen Menschen.",
+              "emoji": "👒",
+              "en": "A yellow hat? That is MY hat! Then I will hug the wrong person again.",
+              "audio": "mc_benny_t5_hat"
+            }
+          ]
+        },
+        {
+          "id": "otherHat",
+          "when": {
+            "any": [
+              "hut"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Ein Hut? Dann sehe ich deine Haare nicht! Und Hüte trage hier ICH.",
+              "emoji": "🎩",
+              "en": "A hat? Then I can't see your hair! And round here, I'M the one who wears hats.",
+              "audio": "mc_benny_t5_otherhat"
+            }
+          ]
+        },
+        {
+          "id": "beanie",
+          "when": {
+            "any": [
+              "mütze"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Eine Mütze? Dann sehe ich deine Haare nicht! Das ist wie Kino mit Vorhang.",
+              "en": "A beanie? Then I can't see your hair! That's like cinema with the curtain closed.",
+              "audio": "mc_benny_t5_beanie"
+            }
+          ]
+        },
+        {
+          "id": "crown",
+          "when": {
+            "any": [
+              "krone"
+            ]
+          },
+          "value": 1,
+          "fact": "👑 kommt mit Krone zum Friseur",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Eine goldene Krone?! Im Park? Die sehe ich aus dem Weltall! Und die Haare sind frei. Majestät, bitte setzen Sie sich auf die Bank.",
+              "emoji": "👑",
+              "en": "A golden crown?! In the park? I can see that from space! And your hair is free. Your Majesty, please take a seat on the bench.",
+              "audio": "mc_benny_t5_crown"
+            },
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Gisela verbeugt sich schon. Sie ist sehr monarchistisch.",
+              "en": "Gisela is already bowing. She is very royalist.",
+              "audio": "mc_benny_t5_crown_b"
+            }
+          ]
+        },
+        {
+          "id": "jacket",
+          "when": {
+            "any": [
+              "jacke"
+            ]
+          },
+          "value": 1,
+          "fact": "🧥 ist im Park leicht zu erkennen",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Eine Jacke! Sehr gut. Die sehe ich schon von Weitem. Und deine Haare sind frei. Perfekt.",
+              "en": "A jacket! Very good. I'll see it from far away. And your hair is free. Perfect.",
+              "audio": "mc_benny_t5_jacket"
+            }
+          ]
+        },
+        {
+          "id": "glasses",
+          "when": {
+            "any": [
+              "brille"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Eine große Brille! Ich liebe Brillen. Sie sind wie ein Pony für die Augen.",
+              "emoji": "🤓",
+              "en": "Big glasses! I love glasses. They are like a fringe for the eyes.",
+              "audio": "mc_benny_t5_glasses"
+            }
+          ]
+        },
+        {
+          "id": "tall",
+          "when": {
+            "any": [
+              "groß"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Groß. Okay. Im Park sind viele Menschen groß. Was trägst du?",
+              "en": "Tall. Okay. Lots of people in the park are tall. What are you wearing?",
+              "audio": "mc_benny_t5_tall"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "trage",
+              "trägst"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Ja, aber WAS? Farbe! Ich brauche Farbe!",
+              "en": "Yes, but WHAT? Colour! I need colour!",
+              "audio": "mc_benny_t5_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Ich muss dir was sagen. Gisela hat gestern Nacht allein geschnitten. Ohne mich. Den Hund vom Nachbarn.",
+          "emoji": "🦁",
+          "en": "I have to tell you something. Last night Gisela cut on her own. Without me. The neighbour's dog.",
+          "audio": "mc_benny_t6_lion"
+        },
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Er sieht jetzt aus wie ein Löwe. Er brüllt sogar. Der Nachbar hat ihn umbenannt. Von Fifi in König.",
+          "en": "He looks like a lion now. He even roars. The neighbour renamed him. From Fifi to King.",
+          "audio": "mc_benny_t6_lion_b"
+        },
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Gisela sagt, dass ich zu viel schneide. Gisela ist eine Schere. Was weiß sie schon?",
+          "en": "Gisela says I cut too much. Gisela is a pair of scissors. What does she know?",
+          "audio": "mc_benny_t6a"
+        },
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Und du? Was glaubst du?",
+          "en": "And you? What do you think?",
+          "audio": "mc_benny_t6b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "glaube",
+        "glaubst",
+        "hoffe",
+        "dass",
+        "du",
+        "ein",
+        "Künstler",
+        "bist",
+        "nur",
+        "die",
+        "Spitzen",
+        "schneidest",
+        "schneidet",
+        "zu",
+        "viel",
+        "Gisela",
+        "recht",
+        "hat",
+        "nicht",
+        "ja",
+        "nein"
+      ],
+      "wrong": {
+        "glaubst": "glaube",
+        "schneidet": "schneidest"
+      },
+      "intents": [
+        {
+          "id": "notArtist",
+          "when": {
+            "all": [
+              "künstler",
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "artist",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Kein Künstler?! Ich bin ein Haar-Poet! Ein Dichter mit Schere!",
+              "emoji": "💔",
+              "en": "Not an artist?! I'm a hair poet! A poet with scissors!",
+              "audio": "mc_benny_t6_notartist"
+            }
+          ]
+        },
+        {
+          "id": "artist",
+          "when": {
+            "any": [
+              "künstler"
+            ]
+          },
+          "value": 2,
+          "fact": "🎨 glaubt an Benny",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Du glaubst, dass ich ein Künstler bin? Gisela, hast du das gehört? Ein KÜNSTLER!",
+              "emoji": "🥹",
+              "en": "You think I am an artist? Gisela, did you hear that? An ARTIST!",
+              "audio": "mc_benny_t6_artist"
+            }
+          ]
+        },
+        {
+          "id": "tips",
+          "when": {
+            "any": [
+              "spitzen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Du hoffst, dass ich nur die Spitzen schneide. Ich auch. Wirklich. Ganz ehrlich. Fast.",
+              "en": "You hope I only cut the ends. Me too. Really. Honestly. Almost.",
+              "audio": "mc_benny_t6_tips"
+            }
+          ]
+        },
+        {
+          "id": "giselaWrong",
+          "when": {
+            "all": [
+              "recht",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Gisela hat nicht recht! Hast du das gehört, Gisela? Zwei gegen eine.",
+              "emoji": "✂️",
+              "en": "Gisela is wrong! Did you hear that, Gisela? Two against one.",
+              "audio": "mc_benny_t6_giselawrong"
+            }
+          ]
+        },
+        {
+          "id": "gisela",
+          "when": {
+            "any": [
+              "gisela",
+              "recht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Ihr seid gegen mich. Du und eine Schere. Okay. Morgen schneide ich … weniger.",
+              "en": "You are against me. You and a pair of scissors. Okay. Tomorrow I will cut … less.",
+              "audio": "mc_benny_t6_gisela"
+            }
+          ]
+        },
+        {
+          "id": "notTooMuch",
+          "when": {
+            "all": [
+              "zu",
+              "viel",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Nicht zu viel! Genau! Gisela, hörst du? Ich schneide genau richtig.",
+              "emoji": "💇",
+              "en": "Not too much! Exactly! Gisela, are you listening? I cut just right.",
+              "audio": "mc_benny_t6_nottoomuch"
+            }
+          ]
+        },
+        {
+          "id": "tooMuch",
+          "when": {
+            "all": [
+              "zu",
+              "viel"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Autsch. Aber ehrlich. Morgen schneide ich weniger. Vertrau mir.",
+              "en": "Ouch. But honest. Tomorrow I will cut less. Trust me.",
+              "audio": "mc_benny_t6_toomuch"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Nein? Du bist auf meiner Seite! Gisela, wir reden später.",
+              "en": "No? You're on my side! Gisela, we'll talk later.",
+              "audio": "mc_benny_t6_no"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Ja?! Du auch? Okay. Morgen schneide ich … mit Gefühl.",
+              "en": "Yes?! You too? Okay. Tomorrow I will cut … with feeling.",
+              "audio": "mc_benny_t6_yes"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "glaube",
+              "glaubst",
+              "hoffe"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Du glaubst … was? Gisela hält die Luft an. Scheren haben keine Lunge. Sie macht es trotzdem.",
+              "en": "You think … what? Gisela is holding her breath. Scissors have no lungs. She does it anyway.",
+              "audio": "mc_benny_t6_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Morgen, zehn Uhr, im Park. Gisela ist bereit. Ich bin bereit.",
+          "en": "Tomorrow, ten o'clock, in the park. Gisela is ready. I am ready.",
+          "audio": "mc_benny_t7a"
+        },
+        {
+          "who": "benny",
+          "type": "text",
+          "de": "Gisela hat Lampenfieber. Sie braucht eine klare Ansage, sonst improvisiert sie. Was soll ich schneiden?",
+          "en": "Gisela has stage fright. She needs clear instructions, or she improvises. What should I cut?",
+          "audio": "mc_benny_t7b"
+        }
+      ],
+      "tiles": [
+        "schneid",
+        "mach",
+        "mir",
+        "nur",
+        "die",
+        "Spitzen",
+        "bitte",
+        "kurze",
+        "kurzen",
+        "Haare",
+        "einen",
+        "Pony",
+        "lange",
+        "eine",
+        "Glatze",
+        "alles",
+        "ab",
+        "ich",
+        "vertraue",
+        "vertraust",
+        "dir"
+      ],
+      "wrong": {
+        "vertraust": "vertraue"
+      },
+      "intents": [
+        {
+          "id": "trust",
+          "when": {
+            "any": [
+              "vertraue",
+              "vertraust"
+            ]
+          },
+          "value": -2,
+          "cause": "trust",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Du vertraust mir? Wirklich? Ich habe da eine Idee. Mit Ananas.",
+              "emoji": "🍍",
+              "en": "You trust me? Really? I have an idea. With pineapple.",
+              "audio": "mc_benny_t7_trust"
+            }
+          ]
+        },
+        {
+          "id": "baldOk",
+          "when": {
+            "any": [
+              "glatze",
+              "alles"
+            ],
+            "flag": "wantBald"
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Alles ab. Wie besprochen. Gisela hat ihren großen Tag.",
+              "en": "All off. As agreed. Gisela is having her big day.",
+              "audio": "mc_benny_t7_baldok"
+            }
+          ]
+        },
+        {
+          "id": "bald",
+          "when": {
+            "any": [
+              "glatze",
+              "alles"
+            ]
+          },
+          "value": -2,
+          "cause": "bald",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Alles ab? JETZT? Du hast mir ein ganz anderes Foto geschickt!",
+              "emoji": "😱",
+              "en": "All off? NOW? You sent me a completely different photo!",
+              "audio": "mc_benny_t7_bald"
+            }
+          ]
+        },
+        {
+          "id": "fringeOk",
+          "when": {
+            "any": [
+              "pony"
+            ],
+            "flag": "wantFringe"
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Ein kurzer Pony. Wie auf deinem Foto. Notiert. Mit Herz.",
+              "emoji": "💇",
+              "en": "A short fringe. Like in your photo. Noted. With love.",
+              "audio": "mc_benny_t7_fringeok"
+            }
+          ]
+        },
+        {
+          "id": "fringe",
+          "when": {
+            "any": [
+              "pony"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Ein Pony? Das ist neu. Aber okay, ich liebe Ponys.",
+              "en": "A fringe? That's new. But okay, I love fringes.",
+              "audio": "mc_benny_t7_fringe"
+            }
+          ]
+        },
+        {
+          "id": "tipsContra",
+          "when": {
+            "any": [
+              "spitzen"
+            ],
+            "flag": "wantShort"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Nur die Spitzen? Dein Foto war kurz! Was jetzt? Ich schneide … die Mitte.",
+              "en": "Just the ends? Your photo was short! What now? I will cut … the middle.",
+              "audio": "mc_benny_t7_tipscontra"
+            }
+          ]
+        },
+        {
+          "id": "tips",
+          "when": {
+            "any": [
+              "spitzen",
+              "lange"
+            ]
+          },
+          "value": 2,
+          "fact": "🗣️ sagt klar und deutlich Bescheid",
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Nur die Spitzen. Ganz klar. Kein Rot, kein Turm, keine Ananas. Ich verspreche es.",
+              "emoji": "🤝",
+              "en": "Just the ends. Crystal clear. No red, no tower, no pineapple. I promise.",
+              "audio": "mc_benny_t7_tips"
+            }
+          ]
+        },
+        {
+          "id": "shortContra",
+          "when": {
+            "any": [
+              "kurze",
+              "kurzen"
+            ],
+            "flag": "wantLong"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Kurz? Dein Foto hatte lange Haare! Ich bin verwirrt. Gisela auch.",
+              "en": "Short? Your photo had long hair! I am confused. So is Gisela.",
+              "audio": "mc_benny_t7_shortcontra"
+            }
+          ]
+        },
+        {
+          "id": "short",
+          "when": {
+            "any": [
+              "kurze",
+              "kurzen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Kurze Haare. Klar und deutlich. Ich mache genau das. Fast genau das. Genau das.",
+              "en": "Short hair. Loud and clear. I will do exactly that. Almost exactly. Exactly that.",
+              "audio": "mc_benny_t7_short"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "schneid",
+              "mach",
+              "bitte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "benny",
+              "type": "text",
+              "de": "Was?! Genauer! Sonst entscheidet Gisela.",
+              "en": "What?! More exactly! Otherwise Gisela decides.",
+              "audio": "mc_benny_t7_vague"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "benny",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage. Aber schöne Wörter.",
+    "en": "Er … that wasn't my question. But nice words.",
+    "audio": "mc_benny_offtopic"
+  },
+  "confused": [
+    {
+      "who": "benny",
+      "type": "text",
+      "de": "Hä? Ist das ein neuer Haarschnitt? Ich verstehe ihn nicht.",
+      "emoji": "😅",
+      "en": "Huh? Is that a new haircut? I don't get it.",
+      "audio": "mc_benny_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "benny",
+        "type": "text",
+        "de": "Okay. Morgen um zehn, im Park, am Brunnen. Ich schneide genau das, was du willst. Ehrenwort.",
+        "emoji": "✂️",
+        "en": "Okay. Tomorrow at ten, in the park, at the fountain. I'll cut exactly what you want. Word of honour.",
+        "audio": "mc_benny_win"
+      },
+      {
+        "who": "benny",
+        "type": "text",
+        "de": "Gisela verspricht es auch, {name}. Sie ist eine ehrliche Schere.",
+        "en": "Gisela promises too, {name}. She's an honest pair of scissors."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "benny",
+        "type": "text",
+        "de": "Okay. Du bekommst deine Frisur. Fast. Hinten mache ich nur ein kleines Kunstwerk. Du siehst es ja nicht.",
+        "emoji": "🎨",
+        "en": "Okay. You'll get your haircut. Almost. At the back I'll just do a little work of art. You won't see it anyway.",
+        "audio": "mc_benny_partial"
+      }
+    ],
+    "deleted": {
+      "default": {
+        "who": "benny",
+        "type": "text",
+        "de": "Du weißt nicht, was du willst. Aber ich weiß es. Das ist gefährlich. Tschüss.",
+        "en": "You don't know what you want. But I do. That is dangerous. Bye.",
+        "audio": "mc_benny_del_default"
+      },
+      "confused": {
+        "who": "benny",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Gisela auch nicht. Und sie versteht fast alles. Tschüss.",
+        "en": "I don't understand you. Neither does Gisela. And she understands almost everything. Bye.",
+        "audio": "mc_benny_del_confused"
+      },
+      "bald": {
+        "who": "benny",
+        "type": "text",
+        "de": "Erst Spitzen, dann Glatze? Ich brauche einen Kunden, keinen Wetterbericht. Gelöscht.",
+        "emoji": "🌪️",
+        "en": "First the ends, then bald? I need a customer, not a weather forecast. Deleted.",
+        "audio": "mc_benny_del_bald"
+      },
+      "trust": {
+        "who": "benny",
+        "type": "text",
+        "de": "Du vertraust mir. Das ist süß. Und gefährlich. Ich lösche dich, bevor ich dir eine Ananas schneide.",
+        "emoji": "🍍",
+        "en": "You trust me. That's sweet. And dangerous. I'm deleting you before I cut you a pineapple.",
+        "audio": "mc_benny_del_trust"
+      },
+      "artist": {
+        "who": "benny",
+        "type": "text",
+        "de": "Kein Künstler. Okay. Gisela und ich gehen jetzt. Gelöscht.",
+        "emoji": "💔",
+        "en": "Not an artist. Okay. Gisela and I are leaving now. Deleted.",
+        "audio": "mc_benny_del_artist"
+      }
+    },
+    "sunday": {
+      "who": "benny",
+      "type": "voice",
+      "audio": "mc_benny_vn_sunday",
+      "de": "Hey! Und, wie gefällt dir die Frisur heute? Herr Becker war gestern da. Er will jetzt auch eine Frisur wie deine. Ich habe gesagt: „Vertrau mir.“",
+      "en": "Hey! So, how do you like your hair today? Mr Becker came in yesterday. Now he wants a haircut like yours too. I said: “Trust me.”",
+      "direction": "Relaxed Sunday voice with a grin, a hairdryer humming far away; a cheeky little pause before \"Vertrau mir.\""
+    }
+  },
+  "partialTitle": "Fast deine Frisur. Hinten ist jetzt Kunst.",
+  "share": {
+    "win": "Benny (29, Friseur, „Vertrau mir“) hat mich geliked ✂️ Ich bekomme genau meine Frisur. Mein Deutsch: {score}/100. Überlebst du Benny? {url}",
+    "partial": "Benny (29, Friseur) schneidet mir fast meine Frisur … hinten ist jetzt Kunst 🎨 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Benny (29, Friseur) hat mich gelöscht ✂️ Wenigstens habe ich noch meine Haare. Mein Deutsch: {score}/100. Schaffst du es? {url}"
+  },
+  "imageCharacter": "Benny, a 29-year-old hairdresser with a tall sculpted two-tone quiff (dark at the roots, bleached blond on top), a thin neat moustache, a black apron with combs in the pocket, sleeves rolled up, a small scissors tattoo on his forearm; he holds a big pair of shiny silver scissors; lively eyes and a confident, mischievous grin.",
+  "imagePrompts": [
+    {
+      "id": "match_benny",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands in his small, colourful salon in front of a big round mirror, one eyebrow raised, holding the scissors up next to his face like a trophy. Hair spray cans and combs on a shelf behind him. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_benny_heads",
+      "aspect": "16:9",
+      "prompt": "A hairdresser’s shop window seen exactly from the front like a stage set, flat pale background, no perspective. Exactly THREE white mannequin heads on stands in a row, far apart and evenly spaced, all the same size. LEFT head: a tall, spiky, bright red mohawk. MIDDLE head: a neat, ordinary short DARK CHOCOLATE-BROWN haircut, nothing special. RIGHT head: an enormous tall tower of bright green hair, three times as high as the head, like a spiral ice-cream cone. Nothing else in the window. The middle head has short, neat, clearly DARK BROWN hair (not blond, not yellow)."
+    },
+    {
+      "id": "match_benny_ref_long",
+      "aspect": "3:4",
+      "prompt": "A hairdresser's catalogue photo: a smiling young adult of indeterminate gender, head and shoulders, plain pale background, with long, straight, glossy brown hair falling well past the shoulders."
+    },
+    {
+      "id": "match_benny_ref_short",
+      "aspect": "3:4",
+      "prompt": "A hairdresser's catalogue photo: a smiling young adult of indeterminate gender, head and shoulders, plain pale background, with a short, cheeky, tousled brown pixie haircut; ears visible."
+    },
+    {
+      "id": "match_benny_ref_fringe",
+      "aspect": "3:4",
+      "prompt": "A hairdresser's catalogue photo: a smiling young adult of indeterminate gender, head and shoulders, plain pale background, with shoulder-length brown hair and a thick, straight, short fringe cut exactly above the eyebrows."
+    },
+    {
+      "id": "match_benny_ref_bald",
+      "aspect": "3:4",
+      "prompt": "A hairdresser's catalogue photo: a smiling young adult of indeterminate gender, head and shoulders, plain pale background, completely bald and clean-shaven head, shining softly in the studio light, looking proud."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Nur die Spitzen, bitte.",
+      "score": 100,
+      "intent": "tips",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte nur die Spitzen.",
+      "score": 100,
+      "intent": "tips",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchtest nur die Spitzen.",
+      "score": 80,
+      "intent": "tips",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Du sollst nur die Spitzen schneiden.",
+      "score": 100,
+      "intent": "tips",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte kurze Haare.",
+      "score": 100,
+      "intent": "short",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte kurzen Haare.",
+      "score": 85,
+      "intent": "short",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte einen neuen Schnitt.",
+      "score": 100,
+      "intent": "new",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte einen neue Schnitt.",
+      "score": 85,
+      "intent": "new",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Alles ab!",
+      "score": 100,
+      "intent": "allOff",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich nur die Spitzen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte lange Haare.",
+      "score": 100,
+      "intent": "long",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte langen Haare.",
+      "score": 85,
+      "intent": "long",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte eine kurze Frisur.",
+      "score": 100,
+      "intent": "short",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte eine kurzen Frisur.",
+      "score": 85,
+      "intent": "short",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte einen kurzen Pony.",
+      "score": 100,
+      "intent": "fringe",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte lange Haare und einen kurzen Pony.",
+      "score": 100,
+      "intent": "fringe",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte eine Glatze.",
+      "score": 100,
+      "intent": "bald",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Eine Frisur, bitte.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich lange Haare.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Mir gefällt der Kopf in der Mitte.",
+      "score": 100,
+      "intent": "middle",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Mir gefallen die kurzen braunen Haare.",
+      "score": 100,
+      "intent": "middle",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der braune Kopf gefällt mir.",
+      "score": 100,
+      "intent": "middle",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme den braunen Kopf.",
+      "score": 100,
+      "intent": "middle",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme den braune Kopf.",
+      "score": 85,
+      "intent": "middle",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Mir gefällt der rote Iro.",
+      "score": 100,
+      "intent": "red",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Mir gefällt der roten Iro.",
+      "score": 85,
+      "intent": "red",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme den grünen Turm.",
+      "score": 100,
+      "intent": "green",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Links.",
+      "score": 100,
+      "intent": "red",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Keiner.",
+      "score": 100,
+      "intent": "none",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Mir gefällt der Kopf.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, weil ich am Samstag eine Hochzeit habe.",
+      "score": 100,
+      "intent": "wedding",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, weil ich am Samstag eine Hochzeit hast.",
+      "score": 80,
+      "intent": "wedding",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, weil ich habe am Samstag eine Hochzeit.",
+      "score": 70,
+      "intent": "wedding",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, ich möchte keine roten Haare.",
+      "score": 100,
+      "intent": "noRed",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, ich möchte keine rote Haare.",
+      "score": 85,
+      "intent": "noRed",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, weil mein Chef streng ist.",
+      "score": 100,
+      "intent": "boss",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ja, gern!",
+      "score": 100,
+      "intent": "yes",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Rot ist toll.",
+      "score": 100,
+      "intent": "yes",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich keine rote Haare.",
+      "score": 35,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, weil mein Hamster Angst vor Rot hat.",
+      "score": 100,
+      "intent": "hamster",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, weil mein Hamster hat Angst vor Rot.",
+      "score": 70,
+      "intent": "hamster",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage eine rote Jacke.",
+      "score": 100,
+      "intent": "jacket",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage eine roten Jacke.",
+      "score": 85,
+      "intent": "jacket",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trägst eine schwarze Jacke.",
+      "score": 80,
+      "intent": "jacket",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage eine große Brille.",
+      "score": 100,
+      "intent": "glasses",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage einen gelben Hut.",
+      "score": 100,
+      "intent": "hat",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage eine schwarze Mütze.",
+      "score": 100,
+      "intent": "beanie",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin groß.",
+      "score": 100,
+      "intent": "tall",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich eine rote Jacke.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage einen roten Hut.",
+      "score": 100,
+      "intent": "otherHat",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage eine goldene Krone.",
+      "score": 100,
+      "intent": "crown",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage einen goldene Krone.",
+      "score": 85,
+      "intent": "crown",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich glaube, dass du ein Künstler bist.",
+      "score": 100,
+      "intent": "artist",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich glaubst, dass du ein Künstler bist.",
+      "score": 80,
+      "intent": "artist",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich glaube, dass du bist ein Künstler.",
+      "score": 70,
+      "intent": "artist",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich glaube nicht, dass du ein Künstler bist.",
+      "score": 100,
+      "intent": "notArtist",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hoffe, dass du nur die Spitzen schneidest.",
+      "score": 100,
+      "intent": "tips",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hoffe, dass du nur die Spitzen schneidet.",
+      "score": 80,
+      "intent": "tips",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich glaube, dass Gisela recht hat.",
+      "score": 100,
+      "intent": "gisela",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich glaube, dass du zu viel schneidest.",
+      "score": 100,
+      "intent": "tooMuch",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ja.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich glaube.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich du Künstler.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich glaube, dass Gisela nicht recht hat.",
+      "score": 100,
+      "intent": "giselaWrong",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich glaube, dass du nicht zu viel schneidest.",
+      "score": 100,
+      "intent": "notTooMuch",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Schneid nur die Spitzen, bitte.",
+      "score": 100,
+      "intent": "tips",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Nur die Spitzen, bitte.",
+      "score": 100,
+      "intent": "tips",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Kurze Haare, bitte.",
+      "score": 100,
+      "intent": "short",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Mach mir kurze Haare.",
+      "score": 100,
+      "intent": "short",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Mach mir kurzen Haare.",
+      "score": 85,
+      "intent": "short",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Einen kurzen Pony, bitte.",
+      "score": 100,
+      "intent": "fringe",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Mach mir eine Glatze.",
+      "score": 100,
+      "intent": "bald",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich vertraue dir.",
+      "score": 100,
+      "intent": "trust",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich vertraust dir.",
+      "score": 80,
+      "intent": "trust",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Schneid, bitte.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich nur Spitzen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Nur die Spitzen, bitte."
+        ],
+        [
+          "t2",
+          "Ich möchte lange Haare."
+        ],
+        [
+          "t3",
+          "Mir gefällt der Kopf in der Mitte."
+        ],
+        [
+          "t4",
+          "Nein, weil ich am Samstag eine Hochzeit habe."
+        ],
+        [
+          "t5",
+          "Ich trage eine rote Jacke."
+        ],
+        [
+          "t6",
+          "Ich glaube, dass du ein Künstler bist."
+        ],
+        [
+          "t7",
+          "Schneid nur die Spitzen, bitte."
+        ]
+      ]
+    },
+    {
+      "name": "fringe",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich möchte einen neuen Schnitt."
+        ],
+        [
+          "t2",
+          "Ich möchte einen kurzen Pony."
+        ],
+        [
+          "t3",
+          "Keiner."
+        ],
+        [
+          "t4",
+          "Nein, ich möchte keine roten Haare."
+        ],
+        [
+          "t5",
+          "Ich trage eine große Brille."
+        ],
+        [
+          "t6",
+          "Ich hoffe, dass du nur die Spitzen schneidest."
+        ],
+        [
+          "t7",
+          "Einen kurzen Pony, bitte."
+        ]
+      ]
+    },
+    {
+      "name": "wobbly",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich möchte kurze Haare."
+        ],
+        [
+          "t2",
+          "Ich möchte lange Haare."
+        ],
+        [
+          "t3",
+          "Ich nehme den grünen Turm."
+        ],
+        [
+          "t4",
+          "Nein."
+        ],
+        [
+          "t5",
+          "Ich trage eine schwarze Mütze."
+        ],
+        [
+          "t6",
+          "Ich glaube, dass du zu viel schneidest."
+        ],
+        [
+          "t7",
+          "Kurze Haare, bitte."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich möchte nichts."
+        ],
+        [
+          "t2",
+          "Ich möchte eine Glatze."
+        ],
+        [
+          "t3",
+          "Mir gefällt der rote Iro."
+        ],
+        [
+          "t4",
+          "Ja, gern!"
+        ],
+        [
+          "t5",
+          "Ich trage einen gelben Hut."
+        ]
+      ]
+    }
+  ]
+}

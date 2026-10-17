@@ -1,0 +1,2223 @@
+{
+  "id": "brezel",
+  "name": "Die Brezel",
+  "age": 0,
+  "emoji": "🥨",
+  "image": "match_brezel",
+  "level": "A1.2",
+  "order": 7,
+  "bio": "Ich bin heute um fünf Uhr geboren. Im Ofen. Bitte iss mich nicht.",
+  "bioEn": "I was born today at five o’clock. In the oven. Please don’t eat me.",
+  "goal": "Buy your breakfast at the bakery without eating the pretzel, or make peace with it.",
+  "tagline": "Brezel · 0 · Bäckerei Mehl",
+  "voice": "Zephyr",
+  "brief": "Die Brezel, a pretzel baked this morning who has feelings: a bright, young, breathless voice, hugely dramatic, swinging between panic and gushing gratitude in a heartbeat, gasps and tiny sobs, theatrical like a soap-opera star who is also a snack.",
+  "focus": "Akkusativ: mich, dich, ihn · nicht oder kein · nehmen, essen, mögen",
+  "lexicon": {
+    "nouns": {
+      "Hunger": "m",
+      "Berliner": "m",
+      "Müsli": "n",
+      "Apfel": "m",
+      "Joghurt": "m",
+      "Kaffee": "m",
+      "Croissant": "n",
+      "Brezel": "f",
+      "Brezeln": "pl",
+      "Butter": "f",
+      "Schal": "m",
+      "Mütze": "f",
+      "Sonnenbrille": "f",
+      "Enten": "pl",
+      "Hochzeitstorte": "f"
+    },
+    "names": [
+      "Horst",
+      "Gisela"
+    ],
+    "verbs": [
+      "esse",
+      "isst",
+      "habe",
+      "hast",
+      "nehme",
+      "nimmst",
+      "bist",
+      "möchte",
+      "möchtest",
+      "mag",
+      "magst",
+      "finde",
+      "tunke",
+      "werfe",
+      "gebe",
+      "male",
+      "malt"
+    ],
+    "accVerbs": [
+      "esse",
+      "isst",
+      "habe",
+      "hast",
+      "nehme",
+      "nimmst",
+      "möchte",
+      "möchtest",
+      "mag",
+      "magst",
+      "finde",
+      "tunke",
+      "werfe",
+      "male",
+      "malt"
+    ],
+    "datVerbs": [
+      "gebe"
+    ],
+    "adjectives": [
+      "klein",
+      "groß",
+      "rot",
+      "grün"
+    ]
+  },
+  "intro": [
+    {
+      "who": "brezel",
+      "type": "text",
+      "de": "Hallo. Ich bin die Brezel. Ich bin null Jahre alt. Ich bin heute um fünf Uhr geboren. Im Ofen.",
+      "emoji": "🥨",
+      "en": "Hello. I’m the pretzel. I’m zero years old. I was born today at five o’clock. In the oven.",
+      "audio": "mc_brezel_t1a"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Du stehst vor der Theke. Du siehst hungrig aus. Bitte iss mich nicht.",
+          "emoji": "🥺",
+          "en": "You’re standing at the counter. You look hungry. Please don’t eat me.",
+          "audio": "mc_brezel_t1b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "esse",
+        "isst",
+        "dich",
+        "du",
+        "nicht",
+        "habe",
+        "Hunger",
+        "kein",
+        "keinen",
+        "mich",
+        "bitte",
+        "okay"
+      ],
+      "wrong": {
+        "isst": "esse",
+        "du": "dich"
+      },
+      "intents": [
+        {
+          "id": "eatLost",
+          "when": {
+            "all": [
+              "esse"
+            ],
+            "any": [
+              "dich",
+              "du"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "eaten",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Was?! Du isst mich?! Ich bin erst drei Stunden alt!",
+              "emoji": "😱",
+              "en": "What?! You’re eating me?! I’m only three hours old!",
+              "audio": "mc_brezel_t1_eat"
+            }
+          ]
+        },
+        {
+          "id": "notEat",
+          "when": {
+            "any": [
+              "dich",
+              "du",
+              "esse"
+            ],
+            "all": [
+              "nicht"
+            ]
+          },
+          "value": 2,
+          "fact": "🥨 isst die Brezel nicht",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Danke! Du bist ein guter Mensch. Ich habe Gänsehaut. Aus Salz.",
+              "emoji": "🥹",
+              "en": "Thank you! You’re a good person. I’ve got goosebumps. Made of salt.",
+              "audio": "mc_brezel_t1_noteat"
+            }
+          ]
+        },
+        {
+          "id": "noHunger",
+          "when": {
+            "any": [
+              "keinen",
+              "kein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Kein Hunger? Super! Das ist die beste Nachricht heute.",
+              "en": "Not hungry? Great! That’s the best news today.",
+              "audio": "mc_brezel_t1_nohunger"
+            }
+          ]
+        },
+        {
+          "id": "hungerNicht",
+          "when": {
+            "all": [
+              "hunger",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Du hast KEINEN Hunger, meinst du? Puh. Mein Herz.",
+              "en": "You’re NOT hungry, you mean? Phew. My heart.",
+              "audio": "mc_brezel_t1_hungernicht"
+            }
+          ]
+        },
+        {
+          "id": "hunger",
+          "when": {
+            "any": [
+              "hunger"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Hunger … Oh nein. Ich zittere. Ich bin ein Snack. Ich weiß es. Ich habe es immer gewusst.",
+              "emoji": "😰",
+              "en": "Hunger … Oh no. I’m shaking. I’m a snack. I know it. I always knew it.",
+              "audio": "mc_brezel_t1_hunger"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Nein? Nein! Oh, danke. Danke, danke.",
+              "en": "No? No! Oh, thank you. Thank you, thank you.",
+              "audio": "mc_brezel_t1_no"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "okay"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Ja? Ja WAS? Ja, du isst mich? Ich falle in Ohnmacht.",
+              "en": "Yes? Yes WHAT? Yes, you’ll eat me? I’m going to faint.",
+              "audio": "mc_brezel_t1_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Okay. Ich habe eine Idee. Neben mir liegt ein Berliner. Er heißt Horst.",
+          "emoji": "🍩",
+          "en": "Okay. I have an idea. Next to me there’s a jam doughnut. His name is Horst.",
+          "audio": "mc_brezel_t2a"
+        },
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Horst ist cool. Horst hat keine Angst. Horst hat Marmelade im Herzen. Nimmst du ihn?",
+          "en": "Horst is cool. Horst has no fear. Horst has jam in his heart. Will you take him?",
+          "audio": "mc_brezel_t2b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "nehme",
+        "nimmst",
+        "ihn",
+        "es",
+        "sie",
+        "nicht",
+        "den",
+        "der",
+        "Berliner",
+        "Horst",
+        "keinen",
+        "gern",
+        "mag"
+      ],
+      "wrong": {
+        "nimmst": "nehme",
+        "es": "ihn",
+        "sie": "ihn"
+      },
+      "intents": [
+        {
+          "id": "notHim",
+          "when": {
+            "any": [
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Nicht? Nicht Horst? Dann … wen? MICH?!",
+              "emoji": "😨",
+              "en": "No? Not Horst? Then … who? ME?!",
+              "audio": "mc_brezel_t2_nothim"
+            }
+          ]
+        },
+        {
+          "id": "noDoughnut",
+          "when": {
+            "any": [
+              "keinen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Keinen Berliner? Hm. Du bist streng. Aber nicht mich, ja?",
+              "en": "No doughnut? Hm. You’re strict. But not me, okay?",
+              "audio": "mc_brezel_t2_nodoughnut"
+            }
+          ]
+        },
+        {
+          "id": "him",
+          "when": {
+            "any": [
+              "ihn",
+              "es",
+              "sie"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Du nimmst ihn! Horst, hörst du? … Oh. Horst will etwas sagen.",
+              "en": "You’re taking him! Horst, do you hear? … Oh. Horst wants to say something.",
+              "audio": "mc_brezel_t2_him"
+            }
+          ]
+        },
+        {
+          "id": "doughnut",
+          "when": {
+            "any": [
+              "berliner",
+              "horst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Den Berliner! Gut. Horst, hörst du? … Oh. Horst will etwas sagen.",
+              "en": "The doughnut! Good. Horst, do you hear? … Oh. Horst wants to say something.",
+              "audio": "mc_brezel_t2_doughnut"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "gern",
+              "mag"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Ja! Horst, hörst du? … Oh. Horst will etwas sagen.",
+              "en": "Yes! Horst, do you hear? … Oh. Horst wants to say something.",
+              "audio": "mc_brezel_t2_yes"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Nein?! Aber Horst ist so rund und so süß!",
+              "en": "No?! But Horst is so round and so sweet!",
+              "audio": "mc_brezel_t2_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Moment. Horst schickt dir eine Sprachnachricht.",
+          "emoji": "🎤",
+          "en": "Hang on. Horst is sending you a voice message.",
+          "audio": "mc_brezel_t3a"
+        },
+        {
+          "who": "brezel",
+          "type": "voice",
+          "audio": "mc_brezel_vn_horst",
+          "de": "Hallo, hier ist Horst. Iss mich nicht! Ich bin nicht frisch. Ich bin von gestern. Nimm das Müsli. Das Müsli hat keine Gefühle.",
+          "en": "Hi, this is Horst. Don’t eat me! I’m not fresh. I’m from yesterday. Take the muesli. The muesli has no feelings.",
+          "direction": "A slow, low, laid-back voice like a very relaxed surfer who just woke up, slightly muffled as if his mouth is full of jam; a small yawn in the middle."
+        },
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Also, was nimmst du jetzt?",
+          "en": "So, what are you taking now?",
+          "audio": "mc_brezel_t3b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "nehme",
+        "nimmst",
+        "das",
+        "den",
+        "einen",
+        "ein",
+        "Müsli",
+        "Apfel",
+        "Joghurt",
+        "Horst",
+        "dich",
+        "nichts",
+        "nur",
+        "Kaffee",
+        "Croissant",
+        "eine",
+        "Hochzeitstorte"
+      ],
+      "wrong": {
+        "nimmst": "nehme"
+      },
+      "intents": [
+        {
+          "id": "you",
+          "when": {
+            "any": [
+              "dich"
+            ]
+          },
+          "value": -2,
+          "cause": "eaten",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Mich?! MICH?! Ich dachte, wir sind Freunde!",
+              "emoji": "💔",
+              "en": "Me?! ME?! I thought we were friends!",
+              "audio": "mc_brezel_t3_you"
+            }
+          ]
+        },
+        {
+          "id": "horst",
+          "when": {
+            "any": [
+              "horst"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Horst? Er ist von gestern! Hast du nicht zugehört? Er ist hart wie ein Stein.",
+              "emoji": "🪨",
+              "en": "Horst? He’s from yesterday! Weren’t you listening? He’s as hard as a rock.",
+              "audio": "mc_brezel_t3_horst"
+            }
+          ]
+        },
+        {
+          "id": "muesli",
+          "when": {
+            "any": [
+              "müsli"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "muesli"
+          ],
+          "fact": "🥣 isst Müsli",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Das Müsli! Es hat keine Gefühle. Es hat nur Rosinen.",
+              "emoji": "🥣",
+              "en": "The muesli! It has no feelings. It just has raisins.",
+              "audio": "mc_brezel_t3_muesli"
+            }
+          ]
+        },
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "hochzeitstorte"
+            ]
+          },
+          "value": 0,
+          "fact": "🎂 frühstückt Hochzeitstorte",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Eine Hochzeitstorte? Zum Frühstück? Wer heiratet? … Horst? HORST?! Du hast mir nichts gesagt!",
+              "en": "A wedding cake? For breakfast? Who’s getting married? … Horst? HORST?! You didn’t tell me anything!",
+              "audio": "mc_brezel_t3_cake"
+            }
+          ]
+        },
+        {
+          "id": "croissant",
+          "when": {
+            "any": [
+              "croissant"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Das Croissant? Es spricht nur Französisch. Es sagt: Non. Und dreht sich weg. Sehr elegant.",
+              "emoji": "🥐",
+              "en": "The croissant? It only speaks French. It says: Non. And turns away. Very elegant.",
+              "audio": "mc_brezel_t3_croissant"
+            }
+          ]
+        },
+        {
+          "id": "healthy",
+          "when": {
+            "any": [
+              "apfel",
+              "joghurt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Gesund! Ein Apfel hat auch keine Gefühle. Glaube ich. Hoffe ich.",
+              "emoji": "🍎",
+              "en": "Healthy! An apple has no feelings either. I think. I hope.",
+              "audio": "mc_brezel_t3_healthy"
+            }
+          ]
+        },
+        {
+          "id": "coffee",
+          "when": {
+            "any": [
+              "kaffee"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Nur Kaffee? Okay. Kaffee ist flüssig. Flüssiges hat keine Gefühle.",
+              "emoji": "☕",
+              "en": "Just coffee? Okay. Coffee is liquid. Liquids have no feelings.",
+              "audio": "mc_brezel_t3_coffee"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Nichts? Gar nichts? Dann hast du gleich Hunger. Und ich habe Angst.",
+              "en": "Nothing? Nothing at all? Then you’ll be hungry soon. And I’m scared.",
+              "audio": "mc_brezel_t3_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Ich muss das fragen. Ganz ehrlich. Isst du Brezeln?",
+          "emoji": "😳",
+          "en": "I have to ask. Honestly. Do you eat pretzels?",
+          "audio": "mc_brezel_t4a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "esse",
+        "isst",
+        "keine",
+        "kein",
+        "nicht",
+        "Brezeln",
+        "gern",
+        "nur",
+        "mit",
+        "Butter",
+        "nie",
+        "sehr"
+      ],
+      "wrong": {
+        "isst": "esse"
+      },
+      "intents": [
+        {
+          "id": "loveLost",
+          "when": {
+            "all": [
+              "brezeln",
+              "gern"
+            ],
+            "none": [
+              "nicht",
+              "keine",
+              "kein",
+              "nie"
+            ]
+          },
+          "value": -2,
+          "cause": "monster",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Gern?! Du bist ein Brezel-Monster! Herr Mehl, Hilfe!",
+              "emoji": "👹",
+              "en": "You like them?! You’re a pretzel monster! Herr Mehl, help!",
+              "audio": "mc_brezel_t4_love"
+            }
+          ]
+        },
+        {
+          "id": "butter",
+          "when": {
+            "any": [
+              "butter"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Mit Butter?! Das ist noch schlimmer. Das ist ein Verbrechen. Mit Butter.",
+              "en": "With butter?! That’s even worse. That’s a crime. With butter.",
+              "audio": "mc_brezel_t4_butter"
+            }
+          ]
+        },
+        {
+          "id": "notLike",
+          "when": {
+            "all": [
+              "nicht",
+              "gern"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Nicht gern? Oh. Das ist gut. Aber auch ein bisschen traurig.",
+              "en": "Not keen? Oh. That’s good. But also a little sad.",
+              "audio": "mc_brezel_t4_notlike"
+            }
+          ]
+        },
+        {
+          "id": "never",
+          "when": {
+            "any": [
+              "keine",
+              "kein",
+              "nie"
+            ]
+          },
+          "value": 2,
+          "fact": "🙅 isst keine Brezeln",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Keine Brezeln! Du bist mein Held. Ich schreibe ein Lied über dich. Es hat nur ein Wort: Danke. Aber sehr laut.",
+              "emoji": "🎶",
+              "en": "No pretzels! You’re my hero. I’m writing a song about you. It has just one word: thank you. But very loud.",
+              "audio": "mc_brezel_t4_never"
+            }
+          ]
+        },
+        {
+          "id": "nichtBrezeln",
+          "when": {
+            "any": [
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Du isst KEINE Brezeln, meinst du? Puh. Okay.",
+              "en": "You eat NO pretzels, you mean? Phew. Okay.",
+              "audio": "mc_brezel_t4_nicht"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "brezeln",
+              "esse"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Ja?! Hilfe! Ich verstecke mich hinter Horst.",
+              "emoji": "🫣",
+              "en": "Yes?! Help! I’m hiding behind Horst.",
+              "audio": "mc_brezel_t4_yes"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Nein! Puh. Ich atme wieder.",
+              "en": "No! Phew. I can breathe again.",
+              "audio": "mc_brezel_t4_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Oh nein! Herr Mehl, der Bäcker, legt mich ins Fenster. Mit meinen Brüdern.",
+          "emoji": "😰",
+          "en": "Oh no! Herr Mehl, the baker, is putting me in the window. With my brothers.",
+          "audio": "mc_brezel_t5a"
+        },
+        {
+          "who": "brezel",
+          "type": "photo",
+          "image": "match_brezel_fenster",
+          "wide": true,
+          "alt": "Drei Brezeln im Fenster. Links: eine große Brezel mit einer Sonnenbrille. In der Mitte: eine kleine Brezel mit einem roten Schal. Rechts: eine große Brezel mit einer grünen Mütze."
+        },
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Ich bin nicht groß. Ich habe keine Mütze. Ich habe einen roten Schal. Wo bin ich?",
+          "en": "I’m not big. I don’t have a hat. I have a red scarf. Where am I?",
+          "audio": "mc_brezel_t5b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "bist",
+        "links",
+        "rechts",
+        "in der Mitte",
+        "die",
+        "kleine",
+        "große",
+        "Brezel",
+        "mit",
+        "dem",
+        "der",
+        "roten",
+        "rote",
+        "grünen",
+        "Schal",
+        "Mütze",
+        "Sonnenbrille"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "left",
+          "when": {
+            "any": [
+              "links",
+              "sonnenbrille"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Das ist Jürgen. Er ist cool. Er trägt immer eine Sonnenbrille. Auch nachts.",
+              "emoji": "😎",
+              "en": "That’s Jürgen. He’s cool. He always wears sunglasses. Even at night.",
+              "audio": "mc_brezel_t5_left"
+            }
+          ]
+        },
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "rechts",
+              "mütze",
+              "grünen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Das ist Dieter. Er friert immer. Im Ofen. Bei zweihundert Grad. Ich habe gesagt: keine Mütze!",
+              "emoji": "🥶",
+              "en": "That’s Dieter. He’s always cold. In the oven. At two hundred degrees. I said: no hat!",
+              "audio": "mc_brezel_t5_right"
+            }
+          ]
+        },
+        {
+          "id": "big",
+          "when": {
+            "any": [
+              "große"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Groß? Ich habe gesagt: Ich bin NICHT groß!",
+              "en": "Big? I said: I’m NOT big!",
+              "audio": "mc_brezel_t5_big"
+            }
+          ]
+        },
+        {
+          "id": "middle",
+          "when": {
+            "any": [
+              "in der mitte",
+              "kleine",
+              "schal",
+              "roten"
+            ]
+          },
+          "value": 1,
+          "fact": "🔍 erkennt Brezeln",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Ja! Das bin ich! Du erkennst mich! Ich weine. Salz.",
+              "emoji": "🥹",
+              "en": "Yes! That’s me! You recognise me! I’m crying. Salt.",
+              "audio": "mc_brezel_t5_middle"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "brezel",
+              "bist"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Welche Brezel? Wir sind drei! Ich bin die kleine, mit Schal!",
+              "en": "Which pretzel? There are three of us! I’m the little one, with the scarf!",
+              "audio": "mc_brezel_t5_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Herr Mehl schaut dich an. Hinter ihm: Panik. Das Croissant hat gekündigt. Es fliegt nach Paris. Herr Mehl fragt: Was möchten Sie?",
+          "en": "Herr Mehl looks at you. Behind him: panic. The croissant has quit. It’s flying to Paris. Herr Mehl asks: What would you like?",
+          "audio": "mc_brezel_t6a"
+        },
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Sag es ihm! Und bitte: nicht mich!",
+          "emoji": "🙏",
+          "en": "Tell him! And please: not me!",
+          "audio": "mc_brezel_t6b"
+        }
+      ],
+      "tiles": [
+        "guten Tag",
+        "ich",
+        "möchte",
+        "möchtest",
+        "nehme",
+        "einen",
+        "ein",
+        "das",
+        "die",
+        "Müsli",
+        "Kaffee",
+        "Apfel",
+        "Brezel",
+        "nicht",
+        "keine",
+        "bitte",
+        "und"
+      ],
+      "wrong": {
+        "möchtest": "möchte"
+      },
+      "intents": [
+        {
+          "id": "betrayal",
+          "when": {
+            "all": [
+              "brezel"
+            ],
+            "none": [
+              "nicht",
+              "keine"
+            ]
+          },
+          "value": -2,
+          "cause": "eaten",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "DIE BREZEL?! Ich bin die Brezel! Verräter!",
+              "emoji": "😭",
+              "en": "THE PRETZEL?! I am the pretzel! Traitor!",
+              "audio": "mc_brezel_t6_betrayal"
+            }
+          ]
+        },
+        {
+          "id": "protect",
+          "when": {
+            "all": [
+              "brezel"
+            ]
+          },
+          "value": 2,
+          "fact": "🛡️ beschützt Brezeln",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Keine Brezel! Du sagst es laut! Vor Herrn Mehl! Ich bin so stolz.",
+              "emoji": "🛡️",
+              "en": "No pretzel! You said it out loud! In front of Herr Mehl! I’m so proud.",
+              "audio": "mc_brezel_t6_protect"
+            }
+          ]
+        },
+        {
+          "id": "promise",
+          "when": {
+            "all": [
+              "müsli"
+            ],
+            "flag": "muesli"
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Das Müsli. Du sagst es, und du machst es. Du bist ein Ehrenmensch.",
+              "en": "The muesli. You say it, and you do it. You’re a person of honour.",
+              "audio": "mc_brezel_t6_promise"
+            }
+          ]
+        },
+        {
+          "id": "order",
+          "when": {
+            "any": [
+              "müsli",
+              "kaffee",
+              "apfel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Gut! Herr Mehl nickt. Ich bin in Sicherheit. Glaube ich.",
+              "en": "Good! Herr Mehl nods. I’m safe. I think.",
+              "audio": "mc_brezel_t6_order"
+            }
+          ]
+        },
+        {
+          "id": "polite",
+          "when": {
+            "any": [
+              "bitte",
+              "guten tag"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Sehr höflich! Aber WAS möchtest du? Schnell, er hat die Zange! Die Zange heißt Gerda. Sie ist gefährlich.",
+              "en": "Very polite! But WHAT do you want? Quick, he’s got the tongs! The tongs are called Gerda. They’re dangerous.",
+              "audio": "mc_brezel_t6_polite"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Du bist so nett. Ich muss dich etwas fragen. Magst du mich?",
+          "emoji": "🥺",
+          "en": "You’re so nice. I have to ask you something. Do you like me?",
+          "audio": "mc_brezel_t7a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "mag",
+        "magst",
+        "dich",
+        "du",
+        "nicht",
+        "finde",
+        "süß",
+        "salzig",
+        "sehr",
+        "lustig",
+        "auch"
+      ],
+      "wrong": {
+        "magst": "mag",
+        "du": "dich"
+      },
+      "intents": [
+        {
+          "id": "notLike",
+          "when": {
+            "any": [
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Nicht?! Ich bin eine Brezel ohne Freunde. Typisch Brezel.",
+              "emoji": "😢",
+              "en": "No?! I’m a pretzel without friends. Typical pretzel.",
+              "audio": "mc_brezel_t7_notlike"
+            }
+          ]
+        },
+        {
+          "id": "cute",
+          "when": {
+            "any": [
+              "süß"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Süß?! Ich bin salzig, aber okay! Ich werde rot. Ich bin schon braun, aber ich werde rot.",
+              "emoji": "😊",
+              "en": "Sweet?! I’m salty, but okay! I’m blushing. I’m already brown, but I’m blushing.",
+              "audio": "mc_brezel_t7_cute"
+            }
+          ]
+        },
+        {
+          "id": "funny",
+          "when": {
+            "any": [
+              "lustig"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Lustig! Endlich versteht mich jemand.",
+              "emoji": "😂",
+              "en": "Funny! At last someone understands me.",
+              "audio": "mc_brezel_t7_funny"
+            }
+          ]
+        },
+        {
+          "id": "salty",
+          "when": {
+            "any": [
+              "salzig"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Salzig! Ja! Das ist mein Charakter.",
+              "emoji": "🧂",
+              "en": "Salty! Yes! That’s my personality.",
+              "audio": "mc_brezel_t7_salty"
+            }
+          ]
+        },
+        {
+          "id": "like",
+          "when": {
+            "any": [
+              "mag",
+              "magst",
+              "dich",
+              "ja"
+            ]
+          },
+          "value": 2,
+          "fact": "💛 mag die Brezel",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Du magst mich! Ich bin eine glückliche Brezel. Die glücklichste Brezel der Welt.",
+              "emoji": "💛",
+              "en": "You like me! I’m a happy pretzel. The happiest pretzel in the world.",
+              "audio": "mc_brezel_t7_like"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Nein? Oh. Ich bin nur Teig. Mit Gefühlen.",
+              "en": "No? Oh. I’m just dough. With feelings.",
+              "audio": "mc_brezel_t7_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "prepCase": {
+        "in": "acc"
+      },
+      "before": [
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Okay. Ich habe nachgedacht. Morgen bin ich alt und hart. Wie Horst. Horst ist jetzt ein Hammer. Herr Mehl repariert mit ihm das Regal.",
+          "en": "Okay. I’ve been thinking. Tomorrow I’ll be old and hard. Like Horst. Horst is a hammer now. Herr Mehl fixes the shelf with him.",
+          "audio": "mc_brezel_t8a"
+        },
+        {
+          "who": "brezel",
+          "type": "text",
+          "de": "Dann darfst du mich essen. Aber wie? Was machst du mit mir?",
+          "en": "Then you may eat me. But how? What will you do with me?",
+          "audio": "mc_brezel_t8b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "esse",
+        "isst",
+        "dich",
+        "mit",
+        "Butter",
+        "tunke",
+        "in",
+        "den",
+        "dem",
+        "Kaffee",
+        "werfe",
+        "weg",
+        "gebe",
+        "den",
+        "Enten",
+        "Gisela",
+        "nicht",
+        "nie",
+        "male",
+        "malt"
+      ],
+      "wrong": {
+        "isst": "esse",
+        "malt": "male"
+      },
+      "intents": [
+        {
+          "id": "trash",
+          "when": {
+            "any": [
+              "werfe",
+              "weg"
+            ]
+          },
+          "value": -2,
+          "cause": "trash",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Weg?! In den Müll?! Ich bin doch kein Joghurtbecher!",
+              "emoji": "🗑️",
+              "en": "Away?! In the bin?! I’m not a yoghurt pot!",
+              "audio": "mc_brezel_t8_trash"
+            }
+          ]
+        },
+        {
+          "id": "gisela",
+          "when": {
+            "any": [
+              "gisela"
+            ]
+          },
+          "value": 2,
+          "fact": "🦆 kennt Gisela",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Gisela? Die Ente vom Marktplatz? Sie liebt Brezeln! Das ist eine Ehre.",
+              "emoji": "🦆",
+              "en": "Gisela? The duck from Marktplatz? She loves pretzels! That’s an honour.",
+              "audio": "mc_brezel_t8_gisela"
+            }
+          ]
+        },
+        {
+          "id": "dunk",
+          "when": {
+            "any": [
+              "kaffee",
+              "tunke"
+            ]
+          },
+          "value": 2,
+          "fact": "☕ tunkt Brezeln in Kaffee",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "In den Kaffee! Ein warmes Bad! Das ist mein Traum.",
+              "emoji": "☕",
+              "en": "Into the coffee! A warm bath! That’s my dream.",
+              "audio": "mc_brezel_t8_dunk"
+            }
+          ]
+        },
+        {
+          "id": "ducks",
+          "when": {
+            "any": [
+              "enten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Den Enten? Okay. Ich werde ein Teil vom Teich. Sehr poetisch.",
+              "en": "To the ducks? Okay. I’ll become part of the pond. Very poetic.",
+              "audio": "mc_brezel_t8_ducks"
+            }
+          ]
+        },
+        {
+          "id": "butter",
+          "when": {
+            "any": [
+              "butter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Mit Butter. Klassisch. Ich akzeptiere es. Mit Würde.",
+              "emoji": "🧈",
+              "en": "With butter. Classic. I accept it. With dignity.",
+              "audio": "mc_brezel_t8_butter"
+            }
+          ]
+        },
+        {
+          "id": "never",
+          "when": {
+            "any": [
+              "nie",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Nie? Dann werde ich alt. Ganz allein. … Okay, das ist auch schön.",
+              "en": "Never? Then I’ll grow old. All alone. … Okay, that’s nice too.",
+              "audio": "mc_brezel_t8_never"
+            }
+          ]
+        },
+        {
+          "id": "paint",
+          "when": {
+            "any": [
+              "male"
+            ]
+          },
+          "value": 2,
+          "fact": "🎨 malt Brezeln",
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Du malst mich?! Ein Porträt! Ich hänge im Museum! Neben der Mona Lisa! Sie lächelt. Ich auch.",
+              "en": "You’re painting me?! A portrait! I’ll hang in a museum! Next to the Mona Lisa! She’s smiling. So am I.",
+              "audio": "mc_brezel_t8_paint"
+            }
+          ]
+        },
+        {
+          "id": "eat",
+          "when": {
+            "any": [
+              "esse",
+              "isst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brezel",
+              "type": "text",
+              "de": "Einfach so? Okay. Aber sag danke.",
+              "en": "Just like that? Okay. But say thank you.",
+              "audio": "mc_brezel_t8_eat"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "brezel",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage. Ich bin nervös. Ich bin eine nervöse Brezel.",
+    "en": "Er … that wasn’t my question. I’m nervous. I’m a nervous pretzel.",
+    "audio": "mc_brezel_offtopic"
+  },
+  "confused": [
+    {
+      "who": "brezel",
+      "type": "text",
+      "de": "Hä? Ich verstehe das nicht. Ich bin nur eine Brezel.",
+      "emoji": "🥨",
+      "en": "Huh? I don’t understand that. I’m just a pretzel.",
+      "audio": "mc_brezel_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "brezel",
+        "type": "text",
+        "de": "Danke, {name}. Du hast gefrühstückt, und ich lebe noch. Das ist ein Wunder in einer Bäckerei.",
+        "emoji": "🥨",
+        "en": "Thank you, {name}. You’ve had breakfast, and I’m still alive. That’s a miracle in a bakery."
+      },
+      {
+        "who": "brezel",
+        "type": "text",
+        "de": "Komm morgen wieder. Ich bin dann hart. Aber mein Herz ist weich.",
+        "emoji": "💛",
+        "en": "Come back tomorrow. I’ll be hard then. But my heart is soft.",
+        "audio": "mc_brezel_win2"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "brezel",
+        "type": "text",
+        "de": "Du hast gefrühstückt. Ich lebe. Aber ich habe jetzt ein Trauma. Und Horst auch.",
+        "emoji": "😵‍💫",
+        "en": "You’ve had breakfast. I’m alive. But now I have trauma. And so does Horst.",
+        "audio": "mc_brezel_partial"
+      }
+    ],
+    "deleted": {
+      "eaten": {
+        "who": "brezel",
+        "type": "text",
+        "de": "Das war’s. Ich bin jetzt in deinem Bauch. Es ist dunkel hier. Tschüss.",
+        "emoji": "🌑",
+        "en": "That’s it. I’m in your stomach now. It’s dark in here. Bye.",
+        "audio": "mc_brezel_del_eaten"
+      },
+      "monster": {
+        "who": "brezel",
+        "type": "text",
+        "de": "Ein Brezel-Monster. In meiner Bäckerei. Ich blockiere dich. Horst auch.",
+        "emoji": "🚫",
+        "en": "A pretzel monster. In my bakery. I’m blocking you. Horst too.",
+        "audio": "mc_brezel_del_monster"
+      },
+      "trash": {
+        "who": "brezel",
+        "type": "text",
+        "de": "In den Müll. Wie ein Joghurtbecher. Ich lösche dich. Mit Würde.",
+        "en": "In the bin. Like a yoghurt pot. I’m deleting you. With dignity.",
+        "audio": "mc_brezel_del_trash"
+      },
+      "confused": {
+        "who": "brezel",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Ich habe schon einen Knoten. Jetzt habe ich zwei. Tschüss.",
+        "en": "I don’t understand you. I already have one knot. Now I have two. Bye.",
+        "audio": "mc_brezel_del_confused"
+      },
+      "default": {
+        "who": "brezel",
+        "type": "text",
+        "de": "Hm. Ich glaube, du willst mich doch essen. Ich verstecke mich. Für immer.",
+        "en": "Hm. I think you want to eat me after all. I’m hiding. Forever.",
+        "audio": "mc_brezel_del_default"
+      }
+    },
+    "sunday": {
+      "who": "brezel",
+      "type": "voice",
+      "audio": "mc_brezel_vn_sunday",
+      "de": "Hallo, ich bin’s, die Brezel! Ich bin jetzt fünf Tage alt. Ich bin hart wie Stein. Herr Mehl benutzt mich jetzt als Türstopper. Ich bin so glücklich. Horst ist eifersüchtig. Er ist nur ein Hammer.",
+      "en": "Hi, it’s me, the pretzel! I’m five days old now. I’m hard as stone. Herr Mehl uses me as a doorstop now. I’m so happy. Horst is jealous. He’s only a hammer.",
+      "direction": "Proud and content, a little creaky; a shop bell jingles in the background and a door bumps against her, she says “Au” under her breath and laughs."
+    }
+  },
+  "partialTitle": "Ich lebe. Mit Trauma.",
+  "share": {
+    "win": "Ich habe gefrühstückt und die Brezel lebt noch 🥨 Sie hat mich geliked! Mein Deutsch: {score}/100. Schaffst du das ohne Brezel-Mord? {url}",
+    "partial": "Die Brezel lebt … aber sie hat jetzt ein Trauma. Horst auch 🍩 Mein Deutsch: {score}/100. Kannst du es netter? {url}",
+    "deleted": "Eine Brezel hat mich gelöscht 💔 Sie sagt, ich bin ein Brezel-Monster. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Die Brezel, a plump, glossy golden-brown Bavarian pretzel come to life, with big round expressive eyes, tiny worried eyebrows, a small trembling mouth, coarse white salt crystals scattered on it like freckles, and thin little arms; very dramatic.",
+  "imagePrompts": [
+    {
+      "id": "match_brezel",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} It sits on a wooden bakery shelf between a round jam doughnut and a croissant, clasping its little hands together pleadingly, big teary eyes looking straight at the viewer. Warm morning light, a few flour specks in the air. The pretzel is centred and fills most of the frame."
+    },
+    {
+      "id": "match_brezel_fenster",
+      "aspect": "16:9",
+      "prompt": "A bakery shop window seen exactly from the front, flat like a stage set, no perspective. On one long wooden board lie exactly THREE pretzels with little faces, far apart, in a row. LEFT: a BIG pretzel wearing black sunglasses, looking cool. MIDDLE: a SMALL pretzel, about half the size of the others, wearing a bright red knitted scarf, looking worried. RIGHT: a BIG pretzel wearing a bright green bobble hat. Nothing else on the board. No writing on the window, no signs."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich esse dich nicht.",
+      "intent": "notEat",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Nein, ich esse dich nicht.",
+      "intent": "notEat",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich esse du nicht.",
+      "intent": "notEat",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe keinen Hunger.",
+      "intent": "noHunger",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe kein Hunger.",
+      "intent": "noHunger",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe nicht Hunger.",
+      "intent": "hungerNicht",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe Hunger.",
+      "intent": "hunger",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich esse dich.",
+      "intent": "eatLost",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Nein.",
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ja.",
+      "intent": "yes",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich dich nicht.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ja, ich nehme ihn.",
+      "intent": "him",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nehme es.",
+      "intent": "him",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nimmst ihn.",
+      "intent": "him",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nehme den Berliner.",
+      "intent": "doughnut",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nehme der Berliner.",
+      "intent": "doughnut",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich mag Horst.",
+      "intent": "doughnut",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ja, gern.",
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nehme ihn nicht.",
+      "intent": "notHim",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nehme keinen Berliner.",
+      "intent": "noDoughnut",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Nein.",
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme das Müsli.",
+      "intent": "muesli",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme den Müsli.",
+      "intent": "muesli",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme einen Apfel.",
+      "intent": "healthy",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme ein Joghurt.",
+      "intent": "healthy",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme das Croissant.",
+      "intent": "croissant",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Nur Kaffee.",
+      "intent": "coffee",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme Horst.",
+      "intent": "horst",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme dich.",
+      "intent": "you",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, ich esse keine Brezeln.",
+      "intent": "never",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse kein Brezeln.",
+      "intent": "never",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse nie Brezeln.",
+      "intent": "never",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse nicht Brezeln.",
+      "intent": "nichtBrezeln",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse Brezeln nicht gern.",
+      "intent": "notLike",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse sehr gern Brezeln.",
+      "intent": "loveLost",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Nur mit Butter.",
+      "intent": "butter",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ja.",
+      "intent": "yes",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Nein.",
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Du bist in der Mitte.",
+      "intent": "middle",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Die kleine Brezel mit dem roten Schal.",
+      "intent": "middle",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Die kleine Brezel mit der roten Schal.",
+      "intent": "middle",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Du bist links.",
+      "intent": "left",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Die Brezel mit der Sonnenbrille.",
+      "intent": "left",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Die Brezel mit der grünen Mütze.",
+      "intent": "right",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Die große Brezel.",
+      "intent": "big",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Du bist die Brezel.",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Guten Tag. Ich möchte einen Kaffee und ein Müsli, bitte.",
+      "intent": "order",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich möchte einen Kaffee. Keine Brezel, bitte.",
+      "intent": "protect",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich möchte die Brezel nicht.",
+      "intent": "protect",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich möchtest ein Apfel.",
+      "intent": "order",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Guten Tag.",
+      "intent": "polite",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich nehme die Brezel.",
+      "intent": "betrayal",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ja, ich mag dich.",
+      "intent": "like",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich mag du.",
+      "intent": "like",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich magst dich.",
+      "intent": "like",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich finde dich süß.",
+      "intent": "cute",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich finde dich sehr lustig.",
+      "intent": "funny",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich finde dich salzig.",
+      "intent": "salty",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich mag dich nicht.",
+      "intent": "notLike",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Nein.",
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich tunke dich in den Kaffee.",
+      "intent": "dunk",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich tunke dich in dem Kaffee.",
+      "intent": "dunk",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich esse dich mit Butter.",
+      "intent": "butter",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich gebe dich den Enten.",
+      "intent": "ducks",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich gebe dich Gisela.",
+      "intent": "gisela",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich esse dich nie.",
+      "intent": "never",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich werfe dich weg.",
+      "intent": "trash",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich esse dich.",
+      "intent": "eat",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich esse dich nicht.",
+      "score": 100
+    },
+    {
+      "turn": "t1",
+      "say": "Ich isst dich nicht.",
+      "score": 80
+    },
+    {
+      "turn": "t1",
+      "say": "Ich esse du nicht.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe kein Hunger.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Ich dich nicht.",
+      "score": 50
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nehme sie.",
+      "score": 85
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme ein Joghurt.",
+      "score": 85
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nimmst das Müsli.",
+      "score": 80
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse kein Brezeln.",
+      "score": 85
+    },
+    {
+      "turn": "t4",
+      "say": "Ich keine Brezeln esse.",
+      "score": 70
+    },
+    {
+      "turn": "t5",
+      "say": "Die kleine Brezel mit dem roten Schal.",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Die kleine Brezel mit dem rote Schal.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Guten Tag. Ich möchte einen Kaffee und ein Müsli, bitte.",
+      "score": 100
+    },
+    {
+      "turn": "t6",
+      "say": "Ich möchte ein Kaffee.",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Ich mag du.",
+      "score": 85
+    },
+    {
+      "turn": "t8",
+      "say": "Ich tunke dich in dem Kaffee.",
+      "score": 85
+    },
+    {
+      "turn": "t8",
+      "say": "Ich gebe dich den Enten.",
+      "score": 100
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme eine Hochzeitstorte.",
+      "intent": "cake",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich nehme einen Hochzeitstorte.",
+      "score": 85
+    },
+    {
+      "turn": "t8",
+      "say": "Ich male dich.",
+      "intent": "paint",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich malt dich.",
+      "score": 80
+    },
+    {
+      "turn": "t8",
+      "say": "Ich male dich nie.",
+      "intent": "never"
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich esse dich nicht."
+        ],
+        [
+          "t2",
+          "Ja, ich nehme ihn."
+        ],
+        [
+          "t3",
+          "Ich nehme das Müsli."
+        ],
+        [
+          "t4",
+          "Nein, ich esse keine Brezeln."
+        ],
+        [
+          "t5",
+          "Du bist in der Mitte."
+        ],
+        [
+          "t6",
+          "Ich möchte das Müsli. Keine Brezel, bitte."
+        ],
+        [
+          "t7",
+          "Ich finde dich süß."
+        ],
+        [
+          "t8",
+          "Ich tunke dich in den Kaffee."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich habe nicht Hunger."
+        ],
+        [
+          "t2",
+          "Ich nehme ihn nicht."
+        ],
+        [
+          "t3",
+          "Nur Kaffee."
+        ],
+        [
+          "t4",
+          "Ja."
+        ],
+        [
+          "t5",
+          "Links."
+        ],
+        [
+          "t6",
+          "Ich möchte einen Kaffee."
+        ],
+        [
+          "t7",
+          "Nein."
+        ],
+        [
+          "t8",
+          "Ich esse dich nie."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich habe Hunger."
+        ],
+        [
+          "t2",
+          "Nein."
+        ],
+        [
+          "t3",
+          "Ich nehme Horst."
+        ],
+        [
+          "t4",
+          "Ich esse gern Brezeln."
+        ]
+      ]
+    }
+  ]
+}

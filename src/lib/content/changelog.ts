@@ -16,6 +16,20 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-17",
+    title: "Schreib mir!: fifty-one strangers who want to chat",
+    highlight: true,
+    items: [
+      "A new game, Schreib mir!: swipe through profiles, match with someone, and chat with them in German. There are fifty-one of them, from Helga, an 81-year-old DJ with a party in her cellar, to Bernd, a flatmate who eats everything, paper included, with the most at A1 and A2 and a few strange ones waiting at C1 and C2.",
+      "You never pick from ready-made answers. Every reply is a sentence you build yourself from word tiles, and what you say steers the chat: tell Helga you are bringing friends and the night goes one way, tell her you are coming alone and it goes another.",
+      "Each sentence gets a small score for how well it is built. A perfect one makes your match warmer, a nearly-right one gets a friendly reply with the right version quoted back, and one they cannot follow gets a confused \"Hä?\". If they lose interest completely, they delete you.",
+      "There is no second try. Every chat is played once, so what you said stays said, and the ending is the one you earned.",
+      "Matches send photos and voice notes, and some replies only make sense if you looked closely or listened carefully. Every line they send can be played aloud.",
+      "Win them over and you get a like and their number in your contacts. The contacts page keeps everyone you have won, with the chat to read again, and the ending card can be sent to a friend.",
+      "The characters also turn up in your course deck, on the same tickets as Ja oder Nein?. Starting a chat costs one ticket and the card says so; a chat you have already started is free to continue. With no ticket left the card is greyed out and tells you when the next one arrives.",
+    ],
+  },
+  {
     date: "2026-10-14",
     title: "A hundred rounds of Ja oder Nein?, fifty personas, and tickets",
     highlight: true,

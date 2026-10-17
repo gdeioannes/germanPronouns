@@ -1,0 +1,2011 @@
+{
+  "id": "eichhoernchen",
+  "name": "Nusshardt",
+  "age": 3,
+  "emoji": "🐿️",
+  "image": "match_eichhoernchen",
+  "level": "B2.1",
+  "order": 2,
+  "bio": "Bielefeld gibt es nicht.",
+  "bioEn": "Bielefeld doesn't exist.",
+  "goal": "Prove to him that Bielefeld exists.",
+  "tagline": "Eichhörnchen · 3 · Stadtpark",
+  "voice": "Achird",
+  "brief": "Nusshardt, a three-year-old park squirrel who is sure Bielefeld does not exist: a quick, twitchy, breathless young male voice, whispering conspiratorially one moment and squeaking with outrage the next; easily distracted by nuts.",
+  "focus": "Indirekte Rede · Konjunktiv I · deshalb, trotzdem, außerdem, obwohl",
+  "lexicon": {
+    "nouns": {
+      "Tante": "f",
+      "Burg": "f",
+      "Uni": "f",
+      "Nüsse": "pl",
+      "Bahnhof": "m",
+      "Fußballverein": "m",
+      "Fotos": "pl",
+      "Stadt": "f",
+      "Karte": "f",
+      "Beweis": "m",
+      "Schild": "n",
+      "Foto": "n",
+      "Lüge": "f",
+      "Oma": "f",
+      "Mond": "m",
+      "Argument": "n",
+      "Eichhörnchen": "n",
+      "Park": "m",
+      "Hut": "m",
+      "Alufolie": "f",
+      "Erde": "f",
+      "Walnuss": "f"
+    },
+    "names": [
+      "Bielefeld",
+      "Rüdiger",
+      "Nusshardt"
+    ],
+    "verbs": [
+      "gibt",
+      "gebe",
+      "war",
+      "bin",
+      "wohnt",
+      "wohne",
+      "glaube",
+      "sagt",
+      "sei",
+      "ist",
+      "seien",
+      "sind",
+      "hat",
+      "habe",
+      "weiß",
+      "steht",
+      "beweist",
+      "warst",
+      "bist",
+      "wohnst",
+      "hast",
+      "schläfst"
+    ],
+    "nonfinite": [
+      "getroffen",
+      "geirrt"
+    ],
+    "imperatives": [
+      "schreib"
+    ],
+    "accVerbs": [
+      "gibt",
+      "gebe",
+      "hat",
+      "habe",
+      "hast"
+    ],
+    "adjectives": [],
+    "subordinators": []
+  },
+  "intro": [
+    {
+      "who": "eichhoernchen",
+      "type": "text",
+      "de": "Psst. Hallo. Ich bin Nusshardt. Ich weiß Dinge.",
+      "emoji": "🐿️",
+      "en": "Psst. Hello. I am Nusshardt. I know things.",
+      "audio": "mc_eichhoernchen_intro_a"
+    },
+    {
+      "who": "eichhoernchen",
+      "type": "text",
+      "de": "Zum Beispiel: Bielefeld gibt es nicht. Es ist erfunden. Von IHNEN. Ich trage deshalb einen Hut aus Alufolie. Er raschelt. Das ist normal.",
+      "emoji": "🤫",
+      "en": "For example: Bielefeld doesn’t exist. It was invented. By THEM. That’s why I wear a tinfoil hat. It rustles. That’s normal.",
+      "audio": "mc_eichhoernchen_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Glaubst du das auch?",
+          "en": "Do you believe that too?",
+          "audio": "mc_eichhoernchen_t1a"
+        }
+      ],
+      "tiles": [
+        "nein",
+        "ja",
+        "Bielefeld",
+        "gibt",
+        "es",
+        "ich",
+        "war",
+        "schon",
+        "mal",
+        "in",
+        "meine",
+        "Tante",
+        "wohnt",
+        "dort",
+        "glaube",
+        "das",
+        "nicht",
+        "auch"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "denies",
+          "when": {
+            "all": [
+              "gibt",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "agreed"
+          ],
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Bielefeld gibt es nicht. Genau! Du bist einer von uns. … Oder bist du einer von IHNEN?",
+              "emoji": "🤨",
+              "en": "Bielefeld doesn't exist. Exactly! You're one of us. … Or are you one of THEM?",
+              "audio": "mc_eichhoernchen_t1_denies"
+            }
+          ]
+        },
+        {
+          "id": "notBelieve",
+          "when": {
+            "all": [
+              "glaube",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Du glaubst es nicht? Typisch. Das sagen SIE dir.",
+              "en": "You don't believe it? Typical. That's what THEY tell you.",
+              "audio": "mc_eichhoernchen_t1_notbelieve"
+            }
+          ]
+        },
+        {
+          "id": "been",
+          "when": {
+            "any": [
+              "war"
+            ]
+          },
+          "value": 2,
+          "fact": "🚆 war schon in Bielefeld",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Du warst da? Angeblich. Was hast du gesehen? Nichts, oder?",
+              "emoji": "🤨",
+              "en": "You were there? Supposedly. What did you see? Nothing, right?",
+              "audio": "mc_eichhoernchen_t1_been"
+            }
+          ]
+        },
+        {
+          "id": "aunt",
+          "when": {
+            "any": [
+              "tante"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Deine Tante? Hast du sie dort je besucht? Siehst du.",
+              "en": "Your aunt? Have you ever visited her there? You see.",
+              "audio": "mc_eichhoernchen_t1_aunt"
+            }
+          ]
+        },
+        {
+          "id": "exists",
+          "when": {
+            "any": [
+              "gibt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Bielefeld gibt es? Das sagen alle. Genau das ist verdächtig.",
+              "en": "Bielefeld exists? Everyone says so. That's exactly what's suspicious.",
+              "audio": "mc_eichhoernchen_t1_exists"
+            }
+          ]
+        },
+        {
+          "id": "agree",
+          "when": {
+            "any": [
+              "glaube",
+              "ja"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "agreed"
+          ],
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Ja! Endlich ein kluger Mensch! … Moment. Du hast nicht nachgedacht, oder?",
+              "en": "Yes! Finally a clever human! … Wait. You didn't think about it, did you?",
+              "audio": "mc_eichhoernchen_t1_agree"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Nein? Ein Skeptiker. Ich mag Skeptiker. Ich bin auch einer.",
+              "en": "No? A sceptic. I like sceptics. I'm one too.",
+              "audio": "mc_eichhoernchen_t1_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Mein Cousin Rüdiger hat mir eine Sprachnachricht geschickt. Er spinnt. Hör mal.",
+          "emoji": "🎧",
+          "en": "My cousin Rüdiger sent me a voice message. He's nuts. Listen.",
+          "audio": "mc_eichhoernchen_t2a"
+        },
+        {
+          "who": "eichhoernchen",
+          "type": "voice",
+          "audio": "mc_eichhoernchen_vn_ruediger",
+          "de": "Hallo Nusshardt! Ich wohne jetzt in Bielefeld. Hier gibt es eine Burg, die Sparrenburg. Die Uni ist riesig. Und die Nüsse sind fantastisch! Komm mich besuchen!",
+          "en": "Hi Nusshardt! I live in Bielefeld now. There's a castle here, the Sparrenburg. The university is huge. And the nuts are fantastic! Come and visit me!",
+          "direction": "Nusshardt doing a voice for his cousin Rüdiger: higher, cheerful, a bit dim and very happy; then a sceptical little snort in his own voice at the very end."
+        },
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Was sagt Rüdiger? Erzähl du es mir. Ich höre keine Sprachnachrichten. Die können SIE abhören.",
+          "en": "What does Rüdiger say? You tell me. I don’t listen to voice messages. THEY can tap those.",
+          "audio": "mc_eichhoernchen_t2b"
+        }
+      ],
+      "tiles": [
+        "Rüdiger",
+        "sagt",
+        "er",
+        "wohne",
+        "wohnt",
+        "in",
+        "Bielefeld",
+        "es",
+        "gebe",
+        "gibt",
+        "dort",
+        "eine",
+        "Burg",
+        "die",
+        "Uni",
+        "sei",
+        "ist",
+        "riesig",
+        "Nüsse",
+        "seien",
+        "sind",
+        "fantastisch"
+      ],
+      "wrong": {
+        "wohnt": {
+          "to": "wohne",
+          "note": "Reported speech: Konjunktiv I (er wohne)."
+        },
+        "gibt": {
+          "to": "gebe",
+          "note": "Reported speech: Konjunktiv I (es gebe)."
+        },
+        "ist": {
+          "to": "sei",
+          "note": "Reported speech: Konjunktiv I (sie sei)."
+        },
+        "sind": {
+          "to": "seien",
+          "note": "Reported speech: Konjunktiv I (sie seien)."
+        }
+      },
+      "intents": [
+        {
+          "id": "lives",
+          "when": {
+            "any": [
+              "wohne",
+              "wohnt"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "ruediger"
+          ],
+          "fact": "📣 überbringt Nachrichten von Rüdiger",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Er wohne in Bielefeld. Behauptet er. Rüdiger behauptet viel.",
+              "en": "He lives in Bielefeld. So he claims. Rüdiger claims a lot.",
+              "audio": "mc_eichhoernchen_t2_lives"
+            }
+          ]
+        },
+        {
+          "id": "castle",
+          "when": {
+            "any": [
+              "burg"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "ruediger"
+          ],
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Es gebe dort eine Burg. Eine Burg! Wer baut eine Burg in eine Stadt, die es nicht gibt?",
+              "emoji": "🏰",
+              "en": "There is supposedly a castle there. A castle! Who builds a castle in a town that doesn't exist?",
+              "audio": "mc_eichhoernchen_t2_castle"
+            }
+          ]
+        },
+        {
+          "id": "nuts",
+          "when": {
+            "any": [
+              "nüsse"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "ruediger"
+          ],
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Die Nüsse seien fantastisch … Okay. Das ist ein starkes Argument.",
+              "emoji": "🌰",
+              "en": "The nuts are supposedly fantastic … Okay. That is a strong argument.",
+              "audio": "mc_eichhoernchen_t2_nuts"
+            }
+          ]
+        },
+        {
+          "id": "uni",
+          "when": {
+            "any": [
+              "uni"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "ruediger"
+          ],
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Eine riesige Uni. Ohne Stadt drumherum? Sehr verdächtig.",
+              "en": "A huge university. With no city around it? Very suspicious.",
+              "audio": "mc_eichhoernchen_t2_uni"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "sagt",
+              "fantastisch",
+              "riesig"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "ruediger"
+          ],
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Rüdiger findet alles fantastisch. Auch Pfützen. Auch Tauben. Einmal einen Gullydeckel. Was genau sagt er?",
+              "en": "Rüdiger thinks everything is fantastic. Puddles too. Pigeons too. Once a manhole cover. What exactly does he say?",
+              "audio": "mc_eichhoernchen_t2_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Pah. Eine Burg kann man malen. Eine Uni kann man erfinden.",
+          "en": "Pah. You can paint a castle. You can invent a university.",
+          "audio": "mc_eichhoernchen_t3a"
+        },
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Hast du einen echten Beweis?",
+          "emoji": "🔍",
+          "en": "Do you have real proof?",
+          "audio": "mc_eichhoernchen_t3b"
+        }
+      ],
+      "tiles": [
+        "Bielefeld",
+        "hat",
+        "einen",
+        "einen",
+        "Bahnhof",
+        "außerdem",
+        "gibt",
+        "es",
+        "Fußballverein",
+        "ich",
+        "ich",
+        "habe",
+        "Fotos",
+        "deshalb",
+        "weiß",
+        "die",
+        "Stadt",
+        "steht",
+        "auf",
+        "der",
+        "Karte",
+        "keinen",
+        "Beweis",
+        "Eichhörnchen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "squirrels",
+          "when": {
+            "any": [
+              "eichhörnchen"
+            ]
+          },
+          "value": 2,
+          "fact": "🐿️ kennt Eichhörnchen in Bielefeld",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Bielefeld hat Eichhörnchen? … Dann wäre ich dort nicht allein. Dann gäbe es dort jemanden mit Hut. Das ist der schönste Beweis bis jetzt. Ich hasse es.",
+              "emoji": "🐿️",
+              "en": "Bielefeld has squirrels? … Then I wouldn’t be alone there. Then there’d be someone there with a hat. That’s the nicest proof so far. I hate it.",
+              "audio": "mc_eichhoernchen_t3_squirrels"
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "when": {
+            "any": [
+              "keinen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Kein Beweis. Wie ich dachte.",
+              "en": "No proof. Just as I thought.",
+              "audio": "mc_eichhoernchen_t3_none"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "außerdem",
+              "bahnhof",
+              "fußballverein"
+            ]
+          },
+          "value": 2,
+          "fact": "🔗 verbindet Argumente",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Ein Bahnhof UND ein Fußballverein? Hm. Das ist viel Arbeit für eine Lüge.",
+              "emoji": "🤔",
+              "en": "A station AND a football club? Hm. That's a lot of work for a lie.",
+              "audio": "mc_eichhoernchen_t3_both"
+            }
+          ]
+        },
+        {
+          "id": "also",
+          "when": {
+            "any": [
+              "außerdem"
+            ]
+          },
+          "value": 2,
+          "fact": "🔗 verbindet Argumente",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Außerdem? Noch ein Argument? Du sammelst Beweise wie ich Nüsse. Hm.",
+              "emoji": "🤔",
+              "en": "Außerdem? Another argument? You collect proof the way I collect nuts. Hm.",
+              "audio": "mc_eichhoernchen_t3_also"
+            }
+          ]
+        },
+        {
+          "id": "photos",
+          "when": {
+            "any": [
+              "fotos"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Fotos kann man fälschen. Aber gut. Ich schaue sie mir an.",
+              "en": "Photos can be faked. But fine. I'll have a look at them.",
+              "audio": "mc_eichhoernchen_t3_photos"
+            }
+          ]
+        },
+        {
+          "id": "map",
+          "when": {
+            "any": [
+              "karte"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Auf der Karte? Die Karten machen SIE.",
+              "emoji": "🗺️",
+              "en": "On the map? THEY make the maps.",
+              "audio": "mc_eichhoernchen_t3_map"
+            }
+          ]
+        },
+        {
+          "id": "station",
+          "when": {
+            "any": [
+              "bahnhof"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Ein Bahnhof. Hm. Züge fahren dahin. Oder sie tun nur so.",
+              "emoji": "🚆",
+              "en": "A station. Hm. Trains go there. Or they just pretend to.",
+              "audio": "mc_eichhoernchen_t3_station"
+            }
+          ]
+        },
+        {
+          "id": "club",
+          "when": {
+            "any": [
+              "fußballverein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Ein Fußballverein. Mit Fans? Die könnten Schauspieler sein.",
+              "emoji": "⚽",
+              "en": "A football club. With fans? They could be actors.",
+              "audio": "mc_eichhoernchen_t3_club"
+            }
+          ]
+        },
+        {
+          "id": "therefore",
+          "when": {
+            "any": [
+              "deshalb",
+              "weiß"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Deshalb? Weshalb deshalb? Erst ein Grund, dann „deshalb“. Ich kenne mich aus. Ich baue seit drei Jahren Verschwörungen.",
+              "en": "Therefore? Why therefore? First a reason, then “therefore”. I know about these things. I’ve been building conspiracies for three years.",
+              "audio": "mc_eichhoernchen_t3_therefore"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Ich war selbst da. Am Ortseingang. Hier ist mein Foto.",
+          "emoji": "📷",
+          "en": "I was there myself. At the town sign. Here is my photo.",
+          "audio": "mc_eichhoernchen_t4a"
+        },
+        {
+          "who": "eichhoernchen",
+          "type": "photo",
+          "image": "match_eichhoernchen_sign",
+          "overlay": [
+            "Bielefeld"
+          ],
+          "alt": "Ein gelbes Ortsschild an einer Landstraße. Darauf steht: Bielefeld. Daneben sitzt ein Eichhörnchen mit einem Hut aus Alufolie."
+        },
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Siehst du? Das Schild ist gelb. Gelb ist die Farbe der Lüge. Also: Was beweist das Foto?",
+          "en": "See? The sign is yellow. Yellow is the colour of lies. So: what does the photo prove?",
+          "audio": "mc_eichhoernchen_t4b"
+        }
+      ],
+      "tiles": [
+        "auf",
+        "dem",
+        "das",
+        "das",
+        "Schild",
+        "steht",
+        "Bielefeld",
+        "Foto",
+        "beweist",
+        "dass",
+        "es",
+        "gibt",
+        "gelb",
+        "ist",
+        "keine",
+        "Lüge",
+        "du",
+        "warst",
+        "dort",
+        "selbst"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "wasThere",
+          "when": {
+            "any": [
+              "warst"
+            ]
+          },
+          "value": 2,
+          "fact": "🕵️ überführt Eichhörnchen",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Ich war … dort. Am Ortseingang von … Oh nein.",
+              "emoji": "😱",
+              "en": "I was … there. At the town sign of … Oh no.",
+              "audio": "mc_eichhoernchen_t4_wasthere"
+            }
+          ]
+        },
+        {
+          "id": "proves",
+          "when": {
+            "all": [
+              "dass",
+              "gibt"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Das Foto beweise, dass es Bielefeld gebe? Mein eigenes Foto? Verrat!",
+              "en": "The photo proves that Bielefeld exists? My own photo? Betrayal!",
+              "audio": "mc_eichhoernchen_t4_proves"
+            }
+          ]
+        },
+        {
+          "id": "existsPlain",
+          "when": {
+            "any": [
+              "gibt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Es gibt Bielefeld, sagst du. Wegen eines gelben Schilds? Hm. Ein sehr gelbes Schild.",
+              "en": "Bielefeld exists, you say. Because of a yellow sign? Hm. A very yellow sign.",
+              "audio": "mc_eichhoernchen_t4_existsplain"
+            }
+          ]
+        },
+        {
+          "id": "sign",
+          "when": {
+            "any": [
+              "steht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Auf dem Schild steht Bielefeld, ja. Schilder kann man drucken.",
+              "en": "The sign says Bielefeld, yes. Signs can be printed.",
+              "audio": "mc_eichhoernchen_t4_sign"
+            }
+          ]
+        },
+        {
+          "id": "yellow",
+          "when": {
+            "any": [
+              "gelb"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Gelb ist keine Lüge? Und Bananen? … Okay. Gut. Bananen sind ehrlich.",
+              "emoji": "🍌",
+              "en": "Yellow isn't a lie? And bananas? … Okay. Fine. Bananas are honest.",
+              "audio": "mc_eichhoernchen_t4_yellow"
+            }
+          ]
+        },
+        {
+          "id": "noLie",
+          "when": {
+            "any": [
+              "lüge"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Keine Lüge? Das sagen Lügner auch. … Aber es ist mein Foto. Ich lüge nie. Hm.",
+              "en": "Not a lie? That's what liars say too. … But it's my photo. I never lie. Hm.",
+              "audio": "mc_eichhoernchen_t4_nolie"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Okay. Ich habe meine Oma gefragt. Sie sagt, sie sei nie in Bielefeld gewesen. Sie sagt außerdem, die Erde sei eine Walnuss. Sie hat Beweise. Walnüsse.",
+          "emoji": "👵",
+          "en": "Okay. I asked my grandma. She says she has never been to Bielefeld. She also says the earth is a walnut. She has proof. Walnuts.",
+          "audio": "mc_eichhoernchen_t5a"
+        },
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Deshalb gebe es Bielefeld nicht. Sagt sie. Na? Was sagst du jetzt?",
+          "en": "Therefore Bielefeld doesn't exist. She says. Well? What do you say now?",
+          "audio": "mc_eichhoernchen_t5b"
+        }
+      ],
+      "tiles": [
+        "deine",
+        "Oma",
+        "war",
+        "nie",
+        "dort",
+        "trotzdem",
+        "obwohl",
+        "gibt",
+        "es",
+        "Bielefeld",
+        "ich",
+        "auf",
+        "dem",
+        "Mond",
+        "Mond",
+        "den",
+        "das",
+        "ist",
+        "kein",
+        "Argument",
+        "hat",
+        "recht"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "agree",
+          "when": {
+            "any": [
+              "recht"
+            ]
+          },
+          "value": -2,
+          "cause": "agree",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Siehst du! Oma hat immer recht. Bielefeld ist erfunden!",
+              "en": "You see! Grandma is always right. Bielefeld is made up!",
+              "audio": "mc_eichhoernchen_t5_agree"
+            }
+          ]
+        },
+        {
+          "id": "moon",
+          "when": {
+            "any": [
+              "mond"
+            ]
+          },
+          "value": 2,
+          "fact": "🌙 argumentiert mit dem Mond",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Nie auf dem Mond gewesen. Und trotzdem gibt es ihn. Hm. HM. Das tut weh.",
+              "emoji": "🌙",
+              "en": "Never been to the moon. And yet it exists. Hm. HM. That hurts.",
+              "audio": "mc_eichhoernchen_t5_moon"
+            }
+          ]
+        },
+        {
+          "id": "despite",
+          "when": {
+            "any": [
+              "trotzdem",
+              "obwohl"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Trotz Oma? Was für eine freche Logik. … Leider eine gute Logik.",
+              "en": "In spite of Grandma? What cheeky logic. … Unfortunately, good logic.",
+              "audio": "mc_eichhoernchen_t5_despite"
+            }
+          ]
+        },
+        {
+          "id": "noArg",
+          "when": {
+            "any": [
+              "argument"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Kein Argument? Oma ist immer ein Argument. Aber gut.",
+              "en": "Not an argument? Grandma is always an argument. But fine.",
+              "audio": "mc_eichhoernchen_t5_noarg"
+            }
+          ]
+        },
+        {
+          "id": "omaNever",
+          "when": {
+            "all": [
+              "oma",
+              "nie"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Genau. Sie war nie dort. Also gibt es Bielefeld nicht. Oder? … Warum schaust du so?",
+              "en": "Exactly. She was never there. So Bielefeld doesn't exist. Right? … Why are you looking at me like that?",
+              "audio": "mc_eichhoernchen_t5_omanever"
+            }
+          ]
+        },
+        {
+          "id": "exists",
+          "when": {
+            "any": [
+              "gibt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Es gibt Bielefeld, sagst du. Oma sagt Nein. Es steht eins zu eins.",
+              "en": "Bielefeld exists, you say. Grandma says no. That's one-all.",
+              "audio": "mc_eichhoernchen_t5_exists"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Hm. Aber warum habe ich noch nie jemanden aus Bielefeld getroffen? Noch nie!",
+          "en": "Hm. But why have I never met anyone from Bielefeld? Never!",
+          "audio": "mc_eichhoernchen_t6a"
+        },
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Erklär mir das.",
+          "en": "Explain that to me.",
+          "audio": "mc_eichhoernchen_t6b"
+        }
+      ],
+      "tiles": [
+        "weil",
+        "du",
+        "ein",
+        "Eichhörnchen",
+        "bist",
+        "nur",
+        "im",
+        "Park",
+        "wohnst",
+        "hast",
+        "Rüdiger",
+        "getroffen",
+        "er",
+        "wohnt",
+        "dort",
+        "deshalb",
+        "außerdem",
+        "schläfst",
+        "im Winter",
+        "einen",
+        "Hut",
+        "aus",
+        "Alufolie"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "ruedigerCaught",
+          "when": {
+            "any": [
+              "rüdiger"
+            ],
+            "flag": "ruediger"
+          },
+          "value": 2,
+          "fact": "🧠 merkt sich alles",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Rüdiger … wohnt in … Oh. OH. Mein eigener Cousin. Ich habe es selbst gesagt.",
+              "emoji": "🤯",
+              "en": "Rüdiger … lives in … Oh. OH. My own cousin. I said it myself.",
+              "audio": "mc_eichhoernchen_t6_ruedigercaught"
+            }
+          ]
+        },
+        {
+          "id": "ruediger",
+          "when": {
+            "any": [
+              "rüdiger"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Rüdiger? Der wohnt … dort. Sagt er. Hm.",
+              "en": "Rüdiger? He lives … there. He says. Hm.",
+              "audio": "mc_eichhoernchen_t6_ruediger"
+            }
+          ]
+        },
+        {
+          "id": "hat",
+          "when": {
+            "any": [
+              "alufolie",
+              "hut"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Wegen meines Huts? Der Hut schützt mich vor Strahlen. Und anscheinend auch vor Freunden. Hm. Er raschelt plötzlich so traurig.",
+              "emoji": "🎩",
+              "en": "Because of my hat? The hat protects me from rays. And apparently from friends too. Hm. Suddenly it rustles so sadly.",
+              "audio": "mc_eichhoernchen_t6_hat"
+            }
+          ]
+        },
+        {
+          "id": "squirrel",
+          "when": {
+            "any": [
+              "eichhörnchen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Weil ich ein Eichhörnchen bin? Das ist … leider logisch.",
+              "en": "Because I'm a squirrel? That is … unfortunately logical.",
+              "audio": "mc_eichhoernchen_t6_squirrel"
+            }
+          ]
+        },
+        {
+          "id": "park",
+          "when": {
+            "any": [
+              "park"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Ich bin nur im Park. Ja. Und im Baum. Und in der Mülltonne. Okay.",
+              "en": "I'm only in the park. Yes. And in the tree. And in the bin. Okay.",
+              "audio": "mc_eichhoernchen_t6_park"
+            }
+          ]
+        },
+        {
+          "id": "winter",
+          "when": {
+            "any": [
+              "im winter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "Im Winter schlafe ich, ja. Vielleicht kommen sie im Winter. Heimlich.",
+              "emoji": "❄️",
+              "en": "In winter I sleep, yes. Maybe they come in winter. Secretly.",
+              "audio": "mc_eichhoernchen_t6_winter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Okay. Vielleicht. VIELLEICHT gibt es Bielefeld.",
+          "emoji": "😳",
+          "en": "Okay. Maybe. MAYBE Bielefeld exists.",
+          "audio": "mc_eichhoernchen_t7a"
+        },
+        {
+          "who": "eichhoernchen",
+          "type": "text",
+          "de": "Ich schreibe meiner Gruppe „Die Wahrheit über Nüsse“. Vierhundert Mitglieder. Alle Eichhörnchen. Alle mit Hut. Was soll ich ihnen schreiben?",
+          "en": "I’m writing to my group “The Truth About Nuts”. Four hundred members. All squirrels. All in hats. What should I write to them?",
+          "audio": "mc_eichhoernchen_t7b"
+        }
+      ],
+      "tiles": [
+        "schreib",
+        "Bielefeld",
+        "gebe",
+        "gibt",
+        "es",
+        "doch",
+        "nicht",
+        "Nusshardt",
+        "habe",
+        "hat",
+        "sich",
+        "geirrt",
+        "er",
+        "sei",
+        "ist",
+        "sehr",
+        "schlau",
+        "Rüdiger",
+        "recht",
+        "die",
+        "Erde",
+        "eine",
+        "Walnuss"
+      ],
+      "wrong": {
+        "gibt": {
+          "to": "gebe",
+          "note": "Reported speech: Konjunktiv I (es gebe)."
+        },
+        "hat": {
+          "to": "habe",
+          "note": "Reported speech: Konjunktiv I (er habe)."
+        },
+        "ist": {
+          "to": "sei",
+          "note": "Reported speech: Konjunktiv I (er sei)."
+        }
+      },
+      "intents": [
+        {
+          "id": "relapse",
+          "when": {
+            "any": [
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "relapse",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "„Bielefeld gebe es nicht.“ Genau! … Moment. Ich dachte, wir waren schon weiter.",
+              "en": "“Bielefeld does not exist.” Exactly! … Wait. I thought we had got further than that.",
+              "audio": "mc_eichhoernchen_t7_relapse"
+            }
+          ]
+        },
+        {
+          "id": "walnut",
+          "when": {
+            "any": [
+              "walnuss",
+              "erde"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "„Die Erde sei eine Walnuss.“ Das schreibt Oma jede Woche. Die Gruppe hat es schon zweimal gelöscht. Einmal haben sie es angepinnt.",
+              "emoji": "🌰",
+              "en": "“The earth is a walnut.” Grandma writes that every week. The group has deleted it twice already. Once they pinned it.",
+              "audio": "mc_eichhoernchen_t7_walnut"
+            }
+          ]
+        },
+        {
+          "id": "erred",
+          "when": {
+            "any": [
+              "geirrt"
+            ]
+          },
+          "value": 2,
+          "fact": "📢 bringt Eichhörnchen zur Vernunft",
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "„Nusshardt habe sich geirrt.“ Autsch. Aber ehrlich. Ich schreibe es. Mit Nuss-Emoji.",
+              "emoji": "🌰",
+              "en": "“Nusshardt was wrong.” Ouch. But honest. I will write it. With a nut emoji.",
+              "audio": "mc_eichhoernchen_t7_erred"
+            }
+          ]
+        },
+        {
+          "id": "exists",
+          "when": {
+            "any": [
+              "gebe",
+              "gibt"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "„Bielefeld gebe es doch.“ Kurz. Klar. Gesendet. … Drei Mitglieder haben schon ihre Hüte abgenommen. Einer weint.",
+              "en": "“Bielefeld does exist after all.” Short. Clear. Sent. … Three members have already taken off their hats. One is crying.",
+              "audio": "mc_eichhoernchen_t7_exists"
+            }
+          ]
+        },
+        {
+          "id": "ruedigerSmart",
+          "when": {
+            "all": [
+              "rüdiger",
+              "schlau"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "„Rüdiger sei sehr schlau.“ Rüdiger hat seine Nüsse einmal unter einem Auto vergraben. Aber gut. Diesmal.",
+              "en": "“Rüdiger is very clever.” Rüdiger once buried his nuts under a car. But fine. This time.",
+              "audio": "mc_eichhoernchen_t7_ruedigersmart"
+            }
+          ]
+        },
+        {
+          "id": "ruediger",
+          "when": {
+            "any": [
+              "rüdiger",
+              "recht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "„Rüdiger habe recht.“ Das schreibe ich nicht gern. Aber gut.",
+              "en": "“Rüdiger is right.” I don't like writing that. But fine.",
+              "audio": "mc_eichhoernchen_t7_ruediger"
+            }
+          ]
+        },
+        {
+          "id": "smart",
+          "when": {
+            "any": [
+              "schlau"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eichhoernchen",
+              "type": "text",
+              "de": "„Er sei sehr schlau.“ Ich? Das schreibe ich. Fett gedruckt.",
+              "emoji": "😎",
+              "en": "“He is very clever.” Me? I'll write that. In bold.",
+              "audio": "mc_eichhoernchen_t7_smart"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "eichhoernchen",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Lenkst du ab? Das machen SIE auch.",
+    "en": "That wasn't my question. Are you changing the subject? THEY do that too.",
+    "audio": "mc_eichhoernchen_offtopic"
+  },
+  "confused": [
+    {
+      "who": "eichhoernchen",
+      "type": "text",
+      "de": "Hä? Ist das ein Code?",
+      "emoji": "🤨",
+      "en": "Huh? Is that a code?",
+      "audio": "mc_eichhoernchen_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "eichhoernchen",
+        "type": "text",
+        "de": "Ich fahre nach Bielefeld. Zu Rüdiger. Ich nehme Nüsse mit. Falls es dort keine gibt.",
+        "emoji": "🚆",
+        "en": "I'm going to Bielefeld. To Rüdiger. I'll take nuts with me. In case there aren't any there.",
+        "audio": "mc_eichhoernchen_win"
+      },
+      {
+        "who": "eichhoernchen",
+        "type": "text",
+        "de": "Danke, {name}. Du sagst, Bielefeld existiere. Ich glaube dir. Fast.",
+        "en": "Thanks, {name}. You say Bielefeld exists. I believe you. Almost."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "eichhoernchen",
+        "type": "text",
+        "de": "Ich glaube jetzt: Bielefeld gibt es. Aber nur dienstags.",
+        "emoji": "📅",
+        "en": "I now believe Bielefeld exists. But only on Tuesdays.",
+        "audio": "mc_eichhoernchen_partial"
+      }
+    ],
+    "deleted": {
+      "agree": {
+        "who": "eichhoernchen",
+        "type": "text",
+        "de": "Oma hat recht. Bielefeld gibt es nicht. Und dich jetzt auch nicht. Tschüss.",
+        "en": "Grandma is right. Bielefeld doesn't exist. And now neither do you. Bye.",
+        "audio": "mc_eichhoernchen_del_agree"
+      },
+      "relapse": {
+        "who": "eichhoernchen",
+        "type": "text",
+        "de": "Ich schreibe: Bielefeld gibt es nicht. Danke für die Hilfe. Tschüss.",
+        "en": "I'm writing: Bielefeld doesn't exist. Thanks for the help. Bye.",
+        "audio": "mc_eichhoernchen_del_relapse"
+      },
+      "confused": {
+        "who": "eichhoernchen",
+        "type": "text",
+        "de": "Das klingt wie ein Code. Ich lösche dich. Sicher ist sicher.",
+        "en": "That sounds like a code. I'm deleting you. Better safe than sorry.",
+        "audio": "mc_eichhoernchen_del_confused"
+      },
+      "default": {
+        "who": "eichhoernchen",
+        "type": "text",
+        "de": "Du hast keinen Beweis. Ich habe Nüsse. Tschüss.",
+        "en": "You have no proof. I have nuts. Bye.",
+        "audio": "mc_eichhoernchen_del_default"
+      }
+    },
+    "sunday": {
+      "who": "eichhoernchen",
+      "type": "voice",
+      "audio": "mc_eichhoernchen_vn_sunday",
+      "de": "Ich bin in Bielefeld! Die Burg ist echt! Die Nüsse auch! … Aber Rüdiger sagt jetzt, den Mond gebe es nicht. Hilfe. Komm schnell.",
+      "en": "I'm in Bielefeld! The castle is real! The nuts too! … But now Rüdiger says the moon doesn't exist. Help. Come quickly.",
+      "direction": "Breathless with excitement, wind and birds around him, then a sudden despairing whisper."
+    }
+  },
+  "partialTitle": "Bielefeld gibt es. Dienstags.",
+  "share": {
+    "win": "Ich habe Nusshardt (3, Eichhörnchen) bewiesen, dass es Bielefeld gibt 🐿️ Er fährt jetzt hin! Mein Deutsch: {score}/100. {url}",
+    "partial": "Nusshardt (3, Eichhörnchen) glaubt jetzt an Bielefeld … aber nur dienstags 📅 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Nusshardt (3, Eichhörnchen) hat mich gelöscht. Bielefeld gibt es für ihn immer noch nicht 🐿️ Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Nusshardt, a small red squirrel with a huge fluffy tail, big alert dark eyes and twitchy tufted ears, wearing a little pointed hat folded out of shiny aluminium foil, clutching a hazelnut like a precious secret.",
+  "imagePrompts": [
+    {
+      "id": "match_eichhoernchen",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He sits on a park bench in front of a pinboard covered with blank paper notes and red strings, squinting suspiciously at the viewer. Autumn leaves around him. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_eichhoernchen_sign",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a German town entrance sign at the edge of a country road: a plain bright-yellow rectangular sign with a thin black border, COMPLETELY blank, no letters or words on it. On the grass right next to the post sits {self}, pointing at the sign with one paw. Fields and a few trees behind."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Nein, ich glaube das nicht.",
+      "score": 100,
+      "intent": "notBelieve",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich war schon mal in Bielefeld.",
+      "score": 100,
+      "intent": "been",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Meine Tante wohnt dort.",
+      "score": 100,
+      "intent": "aunt",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Bielefeld gibt es.",
+      "score": 100,
+      "intent": "exists",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ja, ich glaube das auch.",
+      "score": 100,
+      "intent": "agree",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Bielefeld gibt es nicht.",
+      "score": 100,
+      "intent": "denies",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich schon mal in Bielefeld.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Rüdiger sagt, er wohne in Bielefeld.",
+      "score": 100,
+      "intent": "lives",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Rüdiger sagt, er wohnt in Bielefeld.",
+      "score": 85,
+      "intent": "lives",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Rüdiger sagt, es gebe dort eine Burg.",
+      "score": 100,
+      "intent": "castle",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Rüdiger sagt, es gibt dort eine Burg.",
+      "score": 85,
+      "intent": "castle",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Rüdiger sagt, die Nüsse seien fantastisch.",
+      "score": 100,
+      "intent": "nuts",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Rüdiger sagt, die Uni sei riesig.",
+      "score": 100,
+      "intent": "uni",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Rüdiger sagt, die Uni ist riesig.",
+      "score": 85,
+      "intent": "uni",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Rüdiger sagt, Bielefeld sei fantastisch.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Rüdiger er wohnt in Bielefeld sagt.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Bielefeld hat einen Bahnhof. Außerdem gibt es einen Fußballverein.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Bielefeld hat einen Bahnhof. Außerdem es gibt einen Fußballverein.",
+      "score": 70,
+      "intent": "both",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe Fotos. Deshalb weiß ich es.",
+      "score": 100,
+      "intent": "photos",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Deshalb ich weiß es.",
+      "score": 70,
+      "intent": "therefore",
+      "delta": 0
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe Fotos. Außerdem steht die Stadt auf der Karte.",
+      "score": 100,
+      "intent": "also",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Die Stadt steht auf der Karte.",
+      "score": 100,
+      "intent": "map",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Bielefeld hat einen Bahnhof.",
+      "score": 100,
+      "intent": "station",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe keinen Beweis.",
+      "score": 100,
+      "intent": "none",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich keinen Beweis.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du warst selbst dort.",
+      "score": 100,
+      "intent": "wasThere",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Das Foto beweist, dass es Bielefeld gibt.",
+      "score": 100,
+      "intent": "proves",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Das Foto beweist, dass es gibt Bielefeld.",
+      "score": 70,
+      "intent": "proves",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Auf dem Schild steht Bielefeld.",
+      "score": 100,
+      "intent": "sign",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Gelb ist keine Lüge.",
+      "score": 100,
+      "intent": "yellow",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Bielefeld gibt es.",
+      "score": 100,
+      "intent": "existsPlain",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Das Foto ist keine Lüge.",
+      "score": 100,
+      "intent": "noLie",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Du selbst dort.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Deine Oma war nie dort. Trotzdem gibt es Bielefeld.",
+      "score": 100,
+      "intent": "despite",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Obwohl deine Oma nie dort war, gibt es Bielefeld.",
+      "score": 100,
+      "intent": "despite",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Obwohl deine Oma war nie dort, gibt es Bielefeld.",
+      "score": 70,
+      "intent": "despite",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich war nie auf dem Mond. Trotzdem gibt es den Mond.",
+      "score": 100,
+      "intent": "moon",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Das ist kein Argument.",
+      "score": 100,
+      "intent": "noArg",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Deine Oma hat recht.",
+      "score": 100,
+      "intent": "agree",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Deine Oma war nie dort.",
+      "score": 100,
+      "intent": "omaNever",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Es gibt Bielefeld.",
+      "score": 100,
+      "intent": "exists",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich nie auf dem Mond.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Du hast Rüdiger getroffen. Er wohnt dort.",
+      "score": 100,
+      "intent": "ruediger",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Weil du ein Eichhörnchen bist.",
+      "score": 100,
+      "intent": "squirrel",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Weil du bist ein Eichhörnchen.",
+      "score": 70,
+      "intent": "squirrel",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Weil du nur im Park wohnst.",
+      "score": 100,
+      "intent": "park",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du schläfst im Winter.",
+      "score": 100,
+      "intent": "winter",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du Rüdiger getroffen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Schreib, Bielefeld gebe es doch.",
+      "score": 100,
+      "intent": "exists",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Schreib, Bielefeld gibt es doch.",
+      "score": 85,
+      "intent": "exists",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Schreib, Nusshardt habe sich geirrt.",
+      "score": 100,
+      "intent": "erred",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Schreib, Nusshardt hat sich geirrt.",
+      "score": 85,
+      "intent": "erred",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Schreib, Rüdiger habe recht.",
+      "score": 100,
+      "intent": "ruediger",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Schreib, er sei sehr schlau.",
+      "score": 100,
+      "intent": "smart",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Schreib, Rüdiger sei sehr schlau.",
+      "score": 100,
+      "intent": "ruedigerSmart",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Schreib, Bielefeld gebe es nicht.",
+      "score": 100,
+      "intent": "relapse",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Nusshardt sich geirrt hat ist.",
+      "score": 40,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Bielefeld hat Eichhörnchen.",
+      "score": 100,
+      "intent": "squirrels",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Weil du einen Hut aus Alufolie hast.",
+      "score": 100,
+      "intent": "hat",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Weil du hast einen Hut aus Alufolie.",
+      "score": 70,
+      "intent": "hat",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Schreib, die Erde sei eine Walnuss.",
+      "score": 100,
+      "intent": "walnut",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Schreib, die Erde ist eine Walnuss.",
+      "score": 85,
+      "intent": "walnut",
+      "delta": 0
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich war schon mal in Bielefeld."
+        ],
+        [
+          "t2",
+          "Rüdiger sagt, er wohne in Bielefeld."
+        ],
+        [
+          "t3",
+          "Bielefeld hat einen Bahnhof. Außerdem gibt es einen Fußballverein."
+        ],
+        [
+          "t4",
+          "Du warst selbst dort."
+        ],
+        [
+          "t5",
+          "Ich war nie auf dem Mond. Trotzdem gibt es den Mond."
+        ],
+        [
+          "t6",
+          "Du hast Rüdiger getroffen. Er wohnt dort."
+        ],
+        [
+          "t7",
+          "Schreib, Nusshardt habe sich geirrt."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ja, ich glaube das auch."
+        ],
+        [
+          "t2",
+          "Rüdiger sagt, die Uni ist riesig."
+        ],
+        [
+          "t3",
+          "Ich habe keinen Beweis."
+        ],
+        [
+          "t4",
+          "Gelb ist keine Lüge."
+        ],
+        [
+          "t5",
+          "Deine Oma hat recht."
+        ],
+        [
+          "t6",
+          "Du schläfst im Winter."
+        ],
+        [
+          "t7",
+          "Schreib, er sei sehr schlau."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ja, ich glaube das auch."
+        ],
+        [
+          "t2",
+          "Rüdiger er wohnt in Bielefeld sagt."
+        ],
+        [
+          "t3",
+          "Ich habe keinen Beweis."
+        ],
+        [
+          "t4",
+          "Du selbst dort."
+        ],
+        [
+          "t5",
+          "Deine Oma hat recht."
+        ]
+      ]
+    }
+  ]
+}

@@ -44,8 +44,10 @@
 	} from '$lib/domain/deck';
 	import { isStoryCard, reachedQuiz, storyCardHref, storyDeckCard } from '$lib/domain/stories';
 	import { isSongCard, songCardHref, songDeckCard } from '$lib/domain/songs';
-	import { JA_NEIN_CARD_ID, JA_NEIN_PATH, jaNeinDealSlot, jaNeinTickets, spendJaNeinTicket } from '$lib/domain/janein';
+	import { JA_NEIN_CARD_ID, JA_NEIN_PATH, jaNeinDealSlot, jaNeinTickets, nextTicketAt, spendJaNeinTicket } from '$lib/domain/janein';
 	import { nextRound } from '$lib/domain/janeinRounds';
+	import { CHAT_CARD_PREFIX, chatDeckCard, findChat, MATCH_PATH, type ChatDeal } from '$lib/domain/matchChat';
+	import TicketStub from '$lib/components/match/TicketStub.svelte';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
 	import { untrack, type Snippet } from 'svelte';
@@ -177,10 +179,20 @@
 		// "Ja oder Nein?" when there is a ticket for it: a surprise near the top,
 		// not every hand (see domain/janein for the tickets).
 		tickets = jaNeinTickets();
+		refillAt = nextTicketAt();
 		const playSlot = jaNeinDealSlot(new Set(skipped));
 		if (playSlot !== null) {
 			const at = Math.min(playSlot, deck.length);
 			deck = [...deck.slice(0, at), playCard(), ...deck.slice(at)];
+		}
+		// A "Schreib mir!" character on the same tickets: a chat in progress comes
+		// back near the top (free to continue), a new one now and then while there
+		// is a ticket to start it. Never right next to the Ja oder Nein? card.
+		const chatDeal = chatDeckCard(deckLevel(course.quizzes, known, level), new Set(skipped), tickets);
+		if (chatDeal) {
+			let at = Math.min(chatDeal.resume ? 1 : 3, deck.length);
+			if (deck[at - 1]?.kind === 'play' || deck[at]?.kind === 'play') at = Math.min(at + 2, deck.length);
+			deck = [...deck.slice(0, at), chatCard(chatDeal), ...deck.slice(at)];
 		}
 		if (resume) deck = [resume, ...deck];
 		handSize = deck.length;
@@ -256,13 +268,48 @@
 		};
 	}
 	const isPlayCard = (card: DeckCard) => card.kind === 'play';
+	const isChatCard = (card: DeckCard) => card.kind === 'chat';
+	/** Chat cards that continue a chat already started: no ticket needed. */
+	let chatResumes = $state<Set<string>>(new Set());
+
+	function chatCard({ chat, resume }: ChatDeal): DeckCard {
+		const id = CHAT_CARD_PREFIX + chat.id;
+		chatResumes = resume ? new Set([...chatResumes, id]) : new Set([...chatResumes].filter((x) => x !== id));
+		return {
+			kind: 'chat',
+			quiz: {
+				id,
+				type: 'reading',
+				title: `${chat.emoji} ${chat.name}, ${chat.age}`,
+				storageKeyPrefix: 'chat',
+				level: chat.level,
+				status: 'live',
+				covers: [],
+				image: `story/${chat.image}`
+			},
+			reason: resume
+				? `Your chat is waiting. ${chat.goal}`
+				: `„${chat.bio}“ ${chat.goal} One chat, one chance.`
+		};
+	}
 	/** Tickets in the pocket at the last deal: the play card shows them. */
 	let tickets = $state(0);
+	/** When the next free ticket arrives: a locked chat card counts down to it. */
+	let refillAt = $state(0);
 	const cardFlavour = (card: DeckCard) =>
-		isStoryCard(card) ? 'interactive mystery' : isSongCard(card) ? 'sing-along' : isPlayCard(card) ? 'swipe game · 1 min' : typeLabel(card.quiz.type);
+		isStoryCard(card)
+			? 'interactive mystery'
+			: isSongCard(card)
+				? 'sing-along'
+				: isPlayCard(card)
+					? 'swipe game · 1 min'
+					: isChatCard(card)
+						? chatResumes.has(card.quiz.id) ? 'chat in progress' : 'chat game'
+						: typeLabel(card.quiz.type);
 
 	function href(card: DeckCard) {
 		if (isPlayCard(card)) return JA_NEIN_PATH;
+		if (isChatCard(card)) return `${MATCH_PATH}/${card.quiz.id.slice(CHAT_CARD_PREFIX.length)}`;
 		return storyCardHref(card) ?? songCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
 	}
 
@@ -505,53 +552,76 @@
 							<span class="started-badge"><InProgressBadge float /></span>
 						{/if}
 
-						{#if isPlayCard(card)}
-							<!-- The game's own sky, in miniature: drifting colour, the two
-							     stamps you will be swiping between, and the five people you
-							     might turn out to be. -->
-							<div class="art-band play-sky" aria-hidden="true">
-								<span class="blob a"></span>
-								<span class="blob b"></span>
-								<span class="blob c"></span>
-								<span class="pstamp nein">Nein</span>
-								<span class="pstamp ja">Ja</span>
-								<span class="oder">oder?</span>
-								<span class="emo e1">🍻</span>
-								<span class="emo e2">🚌</span>
-								<span class="emo e3">🌲</span>
-								<span class="emo e4">☕</span>
-								<span class="emo e5">🧹</span>
-								<span class="emo e6">🌙</span>
-								<span class="hand"><Icon name="swipe" size="2.4em" /></span>
+						{#if isChatCard(card)}
+							{@const chat = findChat(card.quiz.id.slice(CHAT_CARD_PREFIX.length))}
+							{@const resume = chatResumes.has(card.quiz.id)}
+							<!-- A profile, dating-app style: the portrait fills the band, name and
+							     German line sit on it, and a ticket stub says what a chat costs
+							     (grey and counting down when the pocket is empty). -->
+							<div class="chat-face" class:locked={!resume && tickets <= 0}>
+								<img class="chat-photo" src="/img/{card.quiz.image}.webp" alt="" loading="lazy" draggable="false" />
+								<span class="chat-flag">💬 Schreib mir!</span>
+								<span class="chat-stub"><TicketStub free={resume} pocket={tickets} {refillAt} /></span>
+								<div class="chat-name">
+									<h3 class="title">{card.quiz.title} <span class="chat-lvl">{chat?.level}</span></h3>
+									<p class="chat-bio" lang="de">„{chat?.bio}“</p>
+								</div>
 							</div>
-						{:else if card.quiz.image}
-							<!-- The quiz's scene as a cream band across the top of the card; it
-							     stands in for the type disc. -->
-							<div class="art-band" style={artStyle(card.quiz.id)}>
-								<img class="art" src="/img/{card.quiz.image}.webp" alt="" width="1024" height="768" loading="lazy" draggable="false" />
-							</div>
+							<p class="chat-goal"><span aria-hidden="true">🎯</span> {chat?.goal}</p>
+							<p class="meta">
+								<span class="chip">{resume ? 'Your chat is waiting' : !resume && tickets <= 0 ? 'Win a ticket in a run' : 'One chat · one chance'}</span>
+								<span class="chat-count tnum">{isTop ? `Card ${handSize - deck.length + 1} of ${handSize}` : ''}</span>
+							</p>
 						{:else}
-							<span class="type-disc" data-type={card.quiz.type} style={artStyle(card.quiz.id)}>
-								<Icon name={isSongCard(card) ? 'headphones' : isPlayCard(card) ? 'swipe' : QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
-							</span>
+							{#if isPlayCard(card)}
+								<!-- The game's own sky, in miniature: drifting colour, the two
+								     stamps you will be swiping between, and the five people you
+								     might turn out to be. -->
+								<div class="art-band play-sky" aria-hidden="true">
+									<span class="blob a"></span>
+									<span class="blob b"></span>
+									<span class="blob c"></span>
+									<span class="pstamp nein">Nein</span>
+									<span class="pstamp ja">Ja</span>
+									<span class="oder">oder?</span>
+									<span class="emo e1">🍻</span>
+									<span class="emo e2">🚌</span>
+									<span class="emo e3">🌲</span>
+									<span class="emo e4">☕</span>
+									<span class="emo e5">🧹</span>
+									<span class="emo e6">🌙</span>
+									<span class="hand"><Icon name="swipe" size="2.4em" /></span>
+								</div>
+							{:else if card.quiz.image}
+								<!-- The quiz's scene as a cream band across the top of the card; it
+								     stands in for the type disc. -->
+								<div class="art-band" style={artStyle(card.quiz.id)}>
+									<img class="art" src="/img/{card.quiz.image}.webp" alt="" width="1024" height="768" loading="lazy" draggable="false" />
+								</div>
+							{:else}
+								<span class="type-disc" data-type={card.quiz.type} style={artStyle(card.quiz.id)}>
+									<Icon name={isSongCard(card) ? 'headphones' : isPlayCard(card) ? 'swipe' : QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
+								</span>
+							{/if}
+
+							<!-- Why this card, and where it sits in this hand. "Card 3 of 12"
+							     rather than "10 left": a count of what is left reads as the
+							     whole course running out. -->
+							<p class="kind-row">
+								<span class="kind-label">{DECK_KIND_LABELS[card.kind]}</span>
+								<span class="left tnum">{isTop ? `Card ${handSize - deck.length + 1} of ${handSize}` : ''}</span>
+							</p>
+							<h3 class="title">{card.quiz.title}</h3>
+							<p class="reason">{card.reason}</p>
+
+							<p class="meta">
+								<span class="chip">{card.quiz.level}</span>
+								<span class="chip">{cardFlavour(card)}</span>
+								{#if isPlayCard(card)}<span class="chip ticket">🎟️ {tickets === 1 ? '1 ticket' : `${tickets} tickets`}</span>{/if}
+								{#if isChatCard(card) && !chatResumes.has(card.quiz.id)}<span class="chip ticket">🎟️ 1 of {tickets}</span>{/if}
+								{#if ribbon}<DoneMark mark={ribbon} width={14} />{/if}
+							</p>
 						{/if}
-
-						<!-- Why this card, and where it sits in this hand. "Card 3 of 12"
-						     rather than "10 left": a count of what is left reads as the
-						     whole course running out. -->
-						<p class="kind-row">
-							<span class="kind-label">{DECK_KIND_LABELS[card.kind]}</span>
-							<span class="left tnum">{isTop ? `Card ${handSize - deck.length + 1} of ${handSize}` : ''}</span>
-						</p>
-						<h3 class="title">{card.quiz.title}</h3>
-						<p class="reason">{card.reason}</p>
-
-						<p class="meta">
-							<span class="chip">{card.quiz.level}</span>
-							<span class="chip">{cardFlavour(card)}</span>
-							{#if isPlayCard(card)}<span class="chip ticket">🎟️ {tickets === 1 ? '1 ticket' : `${tickets} tickets`}</span>{/if}
-							{#if ribbon}<DoneMark mark={ribbon} width={14} />{/if}
-						</p>
 					</div>
 				{/each}
 			{/key}
@@ -1784,6 +1854,120 @@
 
 	.card[data-kind='play'] .kind-label::before {
 		content: '✨ ';
+	}
+
+	/* ---- the chat card: a character to match with -------------------------
+	   A dating-card feel without the app clichés: the portrait in the band, a
+	   warm pink-to-terracotta frame, and the shared ticket chip. */
+	.card[data-kind='chat'] {
+		--kind: #c2364a;
+		border-top-color: transparent;
+		background:
+			linear-gradient(var(--surface), var(--surface)) padding-box,
+			linear-gradient(120deg, #ff6b81, #c9683b, #d9a441, #ff6b81) border-box;
+		border: 1px solid transparent;
+		border-top-width: 6px;
+	}
+	/* The chat card's portrait fills the top two thirds, edge to edge. */
+	.chat-face {
+		position: relative;
+		flex: 1 1 0;
+		align-self: stretch;
+		min-height: 9rem;
+		margin: -1.4rem -1.5rem 0.1rem;
+		overflow: hidden;
+		background: #2a2030;
+	}
+	.chat-photo {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 22%;
+		pointer-events: none;
+	}
+	.chat-face.locked .chat-photo {
+		filter: grayscale(0.7) brightness(0.85);
+	}
+	.chat-face::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to bottom, transparent 45%, rgb(20 14 26 / 0.85));
+		pointer-events: none;
+	}
+	.chat-flag {
+		position: absolute;
+		top: 0.7rem;
+		left: 0.7rem;
+		z-index: 2;
+		padding: 0.2rem 0.65rem;
+		border-radius: 999px;
+		background: rgb(255 255 255 / 0.92);
+		color: #c2364a;
+		font-size: var(--step--1);
+		font-weight: 800;
+		letter-spacing: 0.02em;
+	}
+	.chat-stub {
+		position: absolute;
+		top: 0.6rem;
+		right: 0.6rem;
+		z-index: 2;
+	}
+	.chat-name {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
+		padding: 0 1rem 0.75rem;
+		color: #fff;
+	}
+	.chat-name .title {
+		margin: 0;
+		color: #fff;
+		text-shadow: 0 2px 10px rgb(0 0 0 / 0.5);
+	}
+	.chat-lvl {
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 0.3rem;
+		padding: 0.05rem 0.45rem;
+		border-radius: 999px;
+		background: rgb(255 255 255 / 0.2);
+		border: 1px solid rgb(255 255 255 / 0.45);
+		font-family: var(--font-body, inherit);
+		font-size: 0.7rem;
+		font-weight: 700;
+	}
+	.chat-bio {
+		margin: 0.15rem 0 0;
+		font-style: italic;
+		font-size: var(--step--1);
+		color: rgb(255 255 255 / 0.92);
+	}
+	.chat-goal {
+		margin: 0.2rem 0 0;
+		font-weight: 600;
+		color: var(--heading);
+		line-height: 1.35;
+	}
+	.chat-count {
+		margin-left: auto;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+	.card[data-kind='chat'] .kind-label::before {
+		content: '💬 ';
+	}
+	.card[data-kind='chat'] .stamp.yes {
+		color: #c2364a;
+	}
+	.card[data-kind='chat'] .chip.ticket {
+		color: #fff;
+		background: linear-gradient(120deg, #c2364a, #ff6b81);
 	}
 
 	.card[data-kind='play'] .stamp.yes {

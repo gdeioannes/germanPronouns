@@ -76,7 +76,20 @@ function note(
 /** Frequency `semitones` above `base`. */
 const up = (base: number, semitones: number) => base * 2 ** (semitones / 12);
 
-export type Sound = 'right' | 'wrong' | 'milestone' | 'complete' | 'medal';
+export type Sound =
+	| 'right'
+	| 'wrong'
+	| 'milestone'
+	| 'complete'
+	| 'medal'
+	// "Schreib mir!" chat: a message in, a message out, interest up / down,
+	// the like, and the match deleted.
+	| 'msgIn'
+	| 'msgOut'
+	| 'up'
+	| 'down'
+	| 'like'
+	| 'unmatch';
 
 // ── The streak progression ──────────────────────────────────────────────
 //
@@ -184,6 +197,39 @@ export function playSound(sound: Sound, streak = 0): void {
 			[2093, 2637.02, 3135.96].forEach((f, i) =>
 				note(ac, f, t + 0.36 + i * 0.06, 0.18, { type: 'sine', volume: 0.04 })
 			);
+			break;
+		case 'msgIn':
+			// A soft two-drop "plip", like a phone in the next room.
+			note(ac, 880, t, 0.09, { type: 'sine', volume: 0.1 });
+			note(ac, 1318.5, t + 0.07, 0.12, { type: 'sine', volume: 0.08 });
+			break;
+		case 'msgOut':
+			// A quick upward swish.
+			note(ac, 520, t, 0.14, { type: 'sine', volume: 0.08, glideTo: 1040 });
+			break;
+		case 'up':
+			note(ac, 659.25, t, 0.1, { volume: 0.09 });
+			note(ac, 987.77, t + 0.06, 0.16, { volume: 0.08 });
+			break;
+		case 'down':
+			note(ac, 392, t, 0.16, { type: 'sine', volume: 0.12, glideTo: 330 });
+			break;
+		case 'like':
+			// A heartbeat, then the fanfare blooming out of it.
+			note(ac, 110, t, 0.12, { type: 'sine', volume: 0.3, glideTo: 70 });
+			note(ac, 110, t + 0.2, 0.14, { type: 'sine', volume: 0.28, glideTo: 65 });
+			[523.25, 659.25, 783.99, 1046.5].forEach((f, i) => note(ac, f, t + 0.45 + i * 0.08, 0.2, { volume: 0.13 }));
+			for (const f of [523.25, 659.25, 783.99, 1046.5, 1318.5]) note(ac, f, t + 0.8, 1.3, { volume: 0.06 });
+			[2093, 2637.02, 3135.96, 4186].forEach((f, i) =>
+				note(ac, f, t + 0.86 + i * 0.07, 0.22, { type: 'sine', volume: 0.03 })
+			);
+			break;
+		case 'unmatch':
+			// The air going out: a falling minor line and a low thud.
+			[523.25, 466.16, 392, 311.13].forEach((f, i) =>
+				note(ac, f, t + i * 0.16, 0.28, { type: 'triangle', volume: 0.12, glideTo: f * 0.97 })
+			);
+			note(ac, 98, t + 0.7, 0.6, { type: 'sine', volume: 0.3, glideTo: 49 });
 			break;
 		case 'medal':
 			// The medal fanfare: the finish's call twice, a step higher the

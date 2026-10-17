@@ -1,0 +1,2144 @@
+{
+  "id": "otto",
+  "name": "Otto",
+  "age": 136,
+  "emoji": "👻",
+  "image": "match_otto",
+  "level": "A2.2",
+  "order": 1,
+  "bio": "Ich wohne hier seit 1890. Wo sind meine Schlüssel?",
+  "bioEn": "I've lived here since 1890. Where are my keys?",
+  "goal": "Find his keys room by room, then tell him where to put them so he never loses them again.",
+  "tagline": "Gespenst · 136 · Altbau, 3. OG",
+  "voice": "Alnilam",
+  "brief": "Otto, a 136-year-old ghost in a Berlin Altbau flat: a soft, hollow, slightly echoing old gentleman's voice, polite and old-fashioned, a little vain and lonely, forgetful; he lets out a gentle \"Huuuh\" out of habit and apologises for it.",
+  "focus": "Wechselpräpositionen: Wo? (Dativ) / Wohin? (Akkusativ) · liegen/legen · stehen/stellen · hängen",
+  "lexicon": {
+    "nouns": {
+      "Wohnung": "f",
+      "Angst": "f",
+      "Polizei": "f",
+      "Wand": "f",
+      "Bild": "n",
+      "Brot": "n",
+      "Tassen": "pl",
+      "Schlüssel": "pl",
+      "Schrank": "m",
+      "Waschbecken": "n",
+      "Badewanne": "f",
+      "Spiegel": "m",
+      "Zahnbürste": "f",
+      "Vase": "f",
+      "Bett": "n",
+      "Regal": "n",
+      "Tisch": "m",
+      "Schublade": "f",
+      "Haken": "m",
+      "Tür": "f",
+      "Bad": "n",
+      "Fenster": "n",
+      "Gespenst": "n",
+      "Wurst": "f",
+      "Kühlschrank": "m"
+    },
+    "names": [
+      "Karl"
+    ],
+    "verbs": [
+      "wohne",
+      "wohnst",
+      "bin",
+      "ist",
+      "habe",
+      "helfe",
+      "rufe",
+      "hängt",
+      "steht",
+      "liegt",
+      "stehen",
+      "hängen",
+      "sind",
+      "liegen",
+      "weiß",
+      "legst",
+      "liegst",
+      "hängst",
+      "stellst",
+      "stehst"
+    ],
+    "imperatives": [
+      "leg",
+      "häng",
+      "stell"
+    ],
+    "accVerbs": [
+      "habe",
+      "rufe",
+      "legst",
+      "liegst",
+      "hängst",
+      "stellst",
+      "stehst",
+      "leg",
+      "häng",
+      "stell"
+    ],
+    "datVerbs": [
+      "helfe"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "otto",
+      "type": "text",
+      "de": "Huuuh! … Oh. Entschuldigung. Gewohnheit.",
+      "emoji": "👻",
+      "en": "Woooo! … Oh. Sorry. Habit.",
+      "audio": "mc_otto_intro_a"
+    },
+    {
+      "who": "otto",
+      "type": "text",
+      "de": "Ich bin Otto. Ich wohne hier seit 1890. Und ich suche meine Schlüssel. Seit 1923. Ohne Pause. Nur sonntags nicht.",
+      "emoji": "🔑",
+      "en": "I'm Otto. I've lived here since 1890. And I've been looking for my keys. Since 1923. Non-stop. Except Sundays.",
+      "audio": "mc_otto_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Und du? Wohnst du jetzt hier? In meiner Wohnung?",
+          "en": "And you? Do you live here now? In my flat?",
+          "audio": "mc_otto_t1a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "ich",
+        "wohne",
+        "wohnst",
+        "jetzt",
+        "hier",
+        "das",
+        "ist",
+        "meine",
+        "Wohnung",
+        "habe",
+        "Angst",
+        "vor",
+        "dir",
+        "dich",
+        "helfe",
+        "rufe",
+        "die",
+        "Polizei",
+        "und",
+        "bin",
+        "auch",
+        "ein",
+        "Gespenst"
+      ],
+      "wrong": {
+        "wohnst": "wohne",
+        "dich": "dir"
+      },
+      "intents": [
+        {
+          "id": "police",
+          "when": {
+            "any": [
+              "polizei"
+            ]
+          },
+          "value": -2,
+          "cause": "police",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Die Polizei? Die kommt nicht. Sie war 1987 hier. Ein Polizist wohnt jetzt bei seiner Mutter.",
+              "emoji": "🚓",
+              "en": "The police? They won't come. They were here in 1987. One officer lives with his mother now.",
+              "audio": "mc_otto_t1_police"
+            }
+          ]
+        },
+        {
+          "id": "help",
+          "when": {
+            "any": [
+              "helfe"
+            ]
+          },
+          "value": 2,
+          "fact": "🤝 hilft Gespenstern",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Du hilfst mir? Ohne Schreien? Danke! Das ist neu.",
+              "emoji": "🥹",
+              "en": "You'll help me? Without screaming? Thank you! That's new.",
+              "audio": "mc_otto_t1_help"
+            }
+          ]
+        },
+        {
+          "id": "fear",
+          "when": {
+            "any": [
+              "angst"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Angst? Vor mir? Ich bin 136. Ich habe Rücken. Ich habe keinen Körper, aber ich habe Rücken.",
+              "en": "Scared? Of me? I'm 136. I have a bad back. I don't have a body, but I have a bad back.",
+              "audio": "mc_otto_t1_fear"
+            }
+          ]
+        },
+        {
+          "id": "mine",
+          "when": {
+            "any": [
+              "wohnung"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Deine Wohnung? Ich war zuerst hier! Seit 1890! … Okay. Du zahlst die Miete. Ich zahle mit Atmosphäre.",
+              "en": "Your flat? I was here first! Since 1890! … Okay. You pay the rent. I pay in atmosphere.",
+              "audio": "mc_otto_t1_mine"
+            }
+          ]
+        },
+        {
+          "id": "ghost",
+          "when": {
+            "any": [
+              "gespenst"
+            ]
+          },
+          "value": 1,
+          "fact": "👻 behauptet, ein Gespenst zu sein",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Du bist auch ein Gespenst? Hm. Du hast Beine. Und einen Mietvertrag. Sehr verdächtig. Aber willkommen, Kollege!",
+              "emoji": "🧐",
+              "en": "You're a ghost too? Hm. You have legs. And a tenancy agreement. Very suspicious. But welcome, colleague!",
+              "audio": "mc_otto_t1_ghost"
+            }
+          ]
+        },
+        {
+          "id": "live",
+          "when": {
+            "any": [
+              "wohne",
+              "wohnst",
+              "ja"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Schön! Endlich wieder jemand. Der letzte Mieter ist 1987 ausgezogen. Schnell.",
+              "en": "Lovely! Finally someone again. The last tenant moved out in 1987. Quickly.",
+              "audio": "mc_otto_t1_live"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Komm, wir suchen. Zuerst die Küche.",
+          "emoji": "🍽️",
+          "en": "Come on, let's look. The kitchen first.",
+          "audio": "mc_otto_t2a"
+        },
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Auf dem Tisch liegt ein Brot. Von 1923. Es ist jetzt ein Stein. Im Schrank stehen Tassen. Und an der Wand hängt nichts. Keine Schlüssel. Nur ein Nagel. Sehr traurig.",
+          "en": "On the table there is a loaf of bread. From 1923. It's a stone now. In the cupboard there are cups. And nothing is hanging on the wall. No keys. Just a nail. Very sad.",
+          "audio": "mc_otto_t2b"
+        },
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Ich will die Wand schön machen. Für meine Gäste. Was hängt bei dir an der Wand? Ich brauche Ideen. Seit 1923.",
+          "en": "I want to make the wall nice. For my guests. What hangs on your wall at home? I need ideas. Since 1923.",
+          "audio": "mc_otto_t2d"
+        }
+      ],
+      "tiles": [
+        "an",
+        "der",
+        "die",
+        "dem",
+        "Wand",
+        "hängt",
+        "steht",
+        "liegt",
+        "ein",
+        "eine",
+        "Bild",
+        "Brot",
+        "Spiegel",
+        "Wurst",
+        "Tassen",
+        "stehen",
+        "Schlüssel",
+        "hängen",
+        "bei",
+        "mir",
+        "meine",
+        "nichts"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "keys",
+          "when": {
+            "any": [
+              "schlüssel"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "keysWall"
+          ],
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Deine Schlüssel hängen an der Wand? Immer? Und du findest sie? Du bist ein Genie. Oder eine Hexe.",
+              "emoji": "😲",
+              "en": "Your keys hang on the wall? Always? And you find them? You're a genius. Or a witch.",
+              "audio": "mc_otto_t2_keys"
+            }
+          ]
+        },
+        {
+          "id": "standsWrong",
+          "when": {
+            "all": [
+              "bild",
+              "steht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Dein Bild steht nur an der Wand? Auf dem Boden? Seit wann? Ich hänge auch nur herum. Aber mit Stil.",
+              "en": "Your picture just stands against the wall? On the floor? Since when? I just hang around too. But with style.",
+              "audio": "mc_otto_t2_stands"
+            }
+          ]
+        },
+        {
+          "id": "picture",
+          "when": {
+            "any": [
+              "bild"
+            ]
+          },
+          "value": 1,
+          "fact": "🖼️ hat Bilder an der Wand",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Ein Bild! Gute Idee. Ich hänge mein Porträt auf. Von 1899. Ich war schön. Ich hatte noch Farbe.",
+              "emoji": "🖼️",
+              "en": "A picture! Good idea. I'll hang up my portrait. From 1899. I was handsome. I still had colour.",
+              "audio": "mc_otto_t2_picture"
+            }
+          ]
+        },
+        {
+          "id": "sausage",
+          "when": {
+            "any": [
+              "wurst"
+            ]
+          },
+          "value": 1,
+          "fact": "🌭 hat eine Wurst an der Wand",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Bei dir hängt eine Wurst an der Wand? Wie modern! Ist das Kunst? Oder Abendessen? Ich nehme beides.",
+              "emoji": "🌭",
+              "en": "A sausage hangs on your wall? How modern! Is that art? Or dinner? I'll take both.",
+              "audio": "mc_otto_t2_sausage"
+            }
+          ]
+        },
+        {
+          "id": "mirror",
+          "when": {
+            "any": [
+              "spiegel"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Ein Spiegel? Für mich? Da sehe ich nur die Wand. Hinter mir. Sehr deprimierend.",
+              "emoji": "🪞",
+              "en": "A mirror? For me? I only see the wall in it. Behind me. Very depressing.",
+              "audio": "mc_otto_t2_mirror"
+            }
+          ]
+        },
+        {
+          "id": "cups",
+          "when": {
+            "any": [
+              "tassen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Tassen an der Wand? Wie bei meiner Oma. Sie ist 1901 gestorben. Die Tassen hängen noch.",
+              "en": "Cups on the wall? Like at my grandma's. She died in 1901. The cups are still hanging.",
+              "audio": "mc_otto_t2_cups"
+            }
+          ]
+        },
+        {
+          "id": "bread",
+          "when": {
+            "any": [
+              "brot"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Ein Brot an der Wand? Das ist Kunst. Oder Schimmel. Mein Brot von 1923 ist beides.",
+              "en": "Bread on the wall? That's art. Or mould. My bread from 1923 is both.",
+              "audio": "mc_otto_t2_bread"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Nichts? Bei dir auch? Dann sind wir zwei Wände. Traurig.",
+              "en": "Nothing? You too? Then we're two walls. Sad.",
+              "audio": "mc_otto_t2_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Jetzt das Bad. Ich gehe vor. Durch die Wand.",
+          "emoji": "🛁",
+          "en": "Now the bathroom. I'll go ahead. Through the wall.",
+          "audio": "mc_otto_t3a"
+        },
+        {
+          "who": "otto",
+          "type": "voice",
+          "audio": "mc_otto_vn_bath",
+          "de": "Ich bin im Bad. Im Spiegel sehe ich mich nicht. Typisch. Neben dem Waschbecken steht eine Zahnbürste. Meine. Von 1910. Unter der Badewanne liegt ein Socken. Und auf der Badewanne sitzt Karl. Karl ist meine Katze. Auch ein Gespenst. Huuuh.",
+          "en": "I'm in the bathroom. I can't see myself in the mirror. Typical. Next to the sink there's a toothbrush. Mine. From 1910. Under the bathtub there's a sock. And on the bathtub sits Karl. Karl is my cat. Also a ghost. Woooo.",
+          "direction": "Hollow, echoing bathroom acoustics; a slow, gentle, old gentleman's voice, a little vain on \"Meine. Von 1910\", fond on \"Karl\", and a soft \"Huuuh\" at the end."
+        },
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Heute Abend kommen Gäste. Ich muss Zähne putzen. Aber ich habe schon alles vergessen. Ich bin 136. Wo steht meine Zahnbürste?",
+          "en": "Guests are coming tonight. I have to brush my teeth. But I've already forgotten everything. I'm 136. Where is my toothbrush?",
+          "audio": "mc_otto_t3b"
+        }
+      ],
+      "tiles": [
+        "sie",
+        "steht",
+        "liegt",
+        "neben",
+        "unter",
+        "auf",
+        "dem",
+        "der",
+        "das",
+        "Waschbecken",
+        "Badewanne",
+        "im",
+        "Spiegel",
+        "Karl",
+        "bei",
+        "deine",
+        "Zahnbürste"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "liesSink",
+          "when": {
+            "all": [
+              "liegt",
+              "waschbecken"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Sie liegt? Oh nein! Sie ist umgefallen! Sie ist 116 Jahre alt. Ich hole einen Arzt. Einen Zahnarzt.",
+              "en": "It's lying down? Oh no! It fell over! It's 116 years old. I'll get a doctor. A dentist.",
+              "audio": "mc_otto_t3_liessink"
+            }
+          ]
+        },
+        {
+          "id": "sink",
+          "when": {
+            "any": [
+              "waschbecken"
+            ]
+          },
+          "value": 2,
+          "fact": "👂 hört gut zu",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Neben dem Waschbecken. Genau. Sie wartet dort seit 1910.",
+              "emoji": "🪥",
+              "en": "Next to the sink. Exactly. It has been waiting there since 1910.",
+              "audio": "mc_otto_t3_sink"
+            }
+          ]
+        },
+        {
+          "id": "under",
+          "when": {
+            "any": [
+              "unter"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Unter der Badewanne liegt der Socken. Nicht meine Zahnbürste.",
+              "emoji": "🧦",
+              "en": "Under the bathtub is the sock. Not my toothbrush.",
+              "audio": "mc_otto_t3_under"
+            }
+          ]
+        },
+        {
+          "id": "onTub",
+          "when": {
+            "any": [
+              "auf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Auf der Badewanne sitzt Karl. Karl putzt keine Zähne. Karl hat keine Zähne. Karl ist eine Wolke mit Meinung.",
+              "emoji": "🐈",
+              "en": "Karl sits on the bathtub. Karl doesn't brush his teeth. Karl has no teeth. Karl is a cloud with opinions.",
+              "audio": "mc_otto_t3_ontub"
+            }
+          ]
+        },
+        {
+          "id": "mirror",
+          "when": {
+            "any": [
+              "spiegel"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Im Spiegel? Da ist nichts. Nicht mal ich. Ein Spiegel ist für mich nur ein sehr teures Fenster.",
+              "en": "In the mirror? There's nothing there. Not even me. For me a mirror is just a very expensive window.",
+              "audio": "mc_otto_t3_mirror"
+            }
+          ]
+        },
+        {
+          "id": "karl",
+          "when": {
+            "any": [
+              "karl"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Bei Karl? Karl, hast du meine Zahnbürste? … Er sagt nein. Er lügt. Er lügt seit 1923.",
+              "en": "With Karl? Karl, do you have my toothbrush? … He says no. He's lying. He's been lying since 1923.",
+              "audio": "mc_otto_t3_karl"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Das Schlafzimmer. Mein Lieblingszimmer. Hier ist ein Foto.",
+          "emoji": "📷",
+          "en": "The bedroom. My favourite room. Here is a photo.",
+          "audio": "mc_otto_t4a"
+        },
+        {
+          "who": "otto",
+          "type": "photo",
+          "image": "match_otto_bedroom",
+          "wide": true,
+          "alt": "Ein Schlafzimmer: links ein Regal mit einer Laterne. In der Mitte ein Bett, darunter schläft eine graue Katze. Rechts ein Tisch mit einer großen blauen Vase und Blumen. In der Vase glänzt etwas Goldenes."
+        },
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Siehst du meine Schlüssel? Wo sind sie?",
+          "en": "Can you see my keys? Where are they?",
+          "audio": "mc_otto_t4b"
+        }
+      ],
+      "tiles": [
+        "sie",
+        "sind",
+        "liegen",
+        "stehen",
+        "in",
+        "der",
+        "die",
+        "Vase",
+        "unter",
+        "dem",
+        "das",
+        "Bett",
+        "auf",
+        "Regal",
+        "bei",
+        "Karl",
+        "ich",
+        "weiß",
+        "es",
+        "nicht"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Du weißt es nicht? Ich auch nicht. Seit 1923.",
+              "en": "You don't know? Me neither. Since 1923.",
+              "audio": "mc_otto_t4_dunno"
+            }
+          ]
+        },
+        {
+          "id": "vase",
+          "when": {
+            "any": [
+              "vase"
+            ]
+          },
+          "value": 2,
+          "fact": "🔑 findet Schlüssel",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "In der Vase! Da glänzt etwas! Meine Schlüssel! Seit 1923!",
+              "emoji": "🔑",
+              "en": "In the vase! Something is shining! My keys! Since 1923!",
+              "audio": "mc_otto_t4_vase"
+            }
+          ]
+        },
+        {
+          "id": "bed",
+          "when": {
+            "any": [
+              "bett",
+              "karl"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Unter dem Bett liegt nur Karl. Er schläft. Seit 1923.",
+              "emoji": "🐈",
+              "en": "Only Karl is under the bed. He is sleeping. Since 1923.",
+              "audio": "mc_otto_t4_bed"
+            }
+          ]
+        },
+        {
+          "id": "shelf",
+          "when": {
+            "any": [
+              "regal"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Auf dem Regal steht meine Laterne. Keine Schlüssel.",
+              "emoji": "🏮",
+              "en": "My lantern is on the shelf. No keys.",
+              "audio": "mc_otto_t4_shelf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Ich habe sie! Aber morgen sind sie wieder weg. Ich kenne mich.",
+          "emoji": "🔑",
+          "en": "I've got them! But tomorrow they'll be gone again. I know myself.",
+          "audio": "mc_otto_t5a"
+        },
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Ein Geheimnis: Die Schlüssel sind für den Dachboden. Dort ist meine Party. Seit 1923. Die Gäste warten noch. Sie sind sehr geduldig. Sie sind ja tot.",
+          "emoji": "🎉",
+          "en": "A secret: the keys are for the attic. My party is up there. Since 1923. The guests are still waiting. They're very patient. They're dead, after all.",
+          "audio": "mc_otto_t5_party"
+        },
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Wohin lege ich sie? Sag es mir!",
+          "en": "Where shall I put them? Tell me!",
+          "audio": "mc_otto_t5b"
+        }
+      ],
+      "tiles": [
+        "leg",
+        "häng",
+        "du",
+        "legst",
+        "liegst",
+        "hängst",
+        "sie",
+        "auf",
+        "in",
+        "an",
+        "unter",
+        "den",
+        "dem",
+        "die",
+        "der",
+        "das",
+        "Tisch",
+        "Schublade",
+        "Haken",
+        "Bett",
+        "Vase",
+        "Kühlschrank",
+        "Karl"
+      ],
+      "wrong": {
+        "liegst": "legst"
+      },
+      "prepCase": {
+        "auf": "acc",
+        "in": "acc",
+        "an": "acc",
+        "unter": "acc",
+        "neben": "acc"
+      },
+      "intents": [
+        {
+          "id": "vaseAgain",
+          "when": {
+            "any": [
+              "vase"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "vase"
+          ],
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "In die Vase? Da waren sie ja! Das ist das Problem!",
+              "emoji": "🤦",
+              "en": "In the vase? That's where they were! That's the problem!",
+              "audio": "mc_otto_t5_vase"
+            }
+          ]
+        },
+        {
+          "id": "bed",
+          "when": {
+            "any": [
+              "bett"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "bed"
+          ],
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Unter das Bett? Da schläft Karl. Karl spielt mit Schlüsseln.",
+              "emoji": "🐈",
+              "en": "Under the bed? Karl sleeps there. Karl plays with keys.",
+              "audio": "mc_otto_t5_bed"
+            }
+          ]
+        },
+        {
+          "id": "karl",
+          "when": {
+            "any": [
+              "karl"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "An Karl? Karl ist eine Katze aus Nebel. Die Schlüssel fallen durch. Klirr. Und Karl ist beleidigt.",
+              "emoji": "🐈",
+              "en": "On Karl? Karl is a cat made of fog. The keys fall straight through. Clink. And Karl is offended.",
+              "audio": "mc_otto_t5_karl"
+            }
+          ]
+        },
+        {
+          "id": "fridge",
+          "when": {
+            "any": [
+              "kühlschrank"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "fridge"
+          ],
+          "fact": "🧊 legt Schlüssel in den Kühlschrank",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "In den Kühlschrank? Dann sind sie kalt. Wie ich. Und frisch. Seit 1923 frisch! Ich mag das.",
+              "emoji": "🧊",
+              "en": "In the fridge? Then they'll be cold. Like me. And fresh. Fresh since 1923! I like it.",
+              "audio": "mc_otto_t5_fridge"
+            }
+          ]
+        },
+        {
+          "id": "hookLikeYou",
+          "when": {
+            "any": [
+              "haken"
+            ],
+            "flag": "keysWall"
+          },
+          "value": 2,
+          "flags": [
+            "hook"
+          ],
+          "fact": "🪝 hat ein System",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "An den Haken! Wie bei dir zu Hause! Ich kopiere dein System. Das ist kein Diebstahl. Das ist Spuken.",
+              "emoji": "🪝",
+              "en": "On the hook! Like at your place! I'm copying your system. That's not theft. That's haunting.",
+              "audio": "mc_otto_t5_hooklikeyou"
+            }
+          ]
+        },
+        {
+          "id": "hook",
+          "when": {
+            "any": [
+              "haken"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "hook"
+          ],
+          "fact": "🪝 hat ein System",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "An den Haken! Neben der Tür! Genial! Warum nicht schon 1923? Die Gäste haben so lange gewartet.",
+              "emoji": "🪝",
+              "en": "On the hook! Next to the door! Genius! Why not back in 1923? The guests have waited so long.",
+              "audio": "mc_otto_t5_hook"
+            }
+          ]
+        },
+        {
+          "id": "drawer",
+          "when": {
+            "any": [
+              "schublade"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "drawer"
+          ],
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "In die Schublade. Gut. Hoffentlich finde ich die Schublade.",
+              "en": "In the drawer. Good. I hope I can find the drawer.",
+              "audio": "mc_otto_t5_drawer"
+            }
+          ]
+        },
+        {
+          "id": "table",
+          "when": {
+            "any": [
+              "tisch"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "table"
+          ],
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Auf den Tisch. Gut. Da sehe ich sie. Hoffentlich.",
+              "en": "On the table. Good. I'll see them there. Hopefully.",
+              "audio": "mc_otto_t5_table"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Und meine Laterne? Ich brauche sie für die Party. Ohne Licht sieht mich niemand. Spuken im Dunkeln ist peinlich. Ich habe es probiert. Niemand hat geschrien.",
+          "emoji": "🏮",
+          "en": "And my lantern? I need it for the party. Without light nobody sees me. Haunting in the dark is embarrassing. I tried it. Nobody screamed.",
+          "audio": "mc_otto_t6a"
+        },
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Wohin stelle ich sie?",
+          "en": "Where shall I put it?",
+          "audio": "mc_otto_t6b"
+        }
+      ],
+      "tiles": [
+        "stell",
+        "leg",
+        "du",
+        "stellst",
+        "stehst",
+        "sie",
+        "auf",
+        "das",
+        "den",
+        "dem",
+        "Regal",
+        "aufs",
+        "neben",
+        "die",
+        "der",
+        "Tür",
+        "ins",
+        "ans",
+        "Bad",
+        "Fenster",
+        "in",
+        "Kühlschrank"
+      ],
+      "wrong": {
+        "stehst": "stellst"
+      },
+      "prepCase": {
+        "auf": "acc",
+        "in": "acc",
+        "an": "acc",
+        "unter": "acc",
+        "neben": "acc"
+      },
+      "intents": [
+        {
+          "id": "laid",
+          "when": {
+            "any": [
+              "leg"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Hinlegen? Eine Laterne? Dann brennt alles. Und ich bin wieder schuld. Wie 1923. Lange Geschichte.",
+              "emoji": "🔥",
+              "en": "Lay it down? A lantern? Then everything burns. And it's my fault again. Like in 1923. Long story.",
+              "audio": "mc_otto_t6_laid"
+            }
+          ]
+        },
+        {
+          "id": "fridge",
+          "when": {
+            "any": [
+              "kühlschrank"
+            ]
+          },
+          "value": 1,
+          "fact": "💡 hat das Licht im Kühlschrank erfunden",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "In den Kühlschrank? Dann ist das Licht im Kühlschrank immer an! Die Menschen fragen das seit hundert Jahren. Jetzt weiß ich es: Das war ich.",
+              "emoji": "💡",
+              "en": "In the fridge? Then the light in the fridge is always on! People have wondered about that for a hundred years. Now I know: it was me.",
+              "audio": "mc_otto_t6_fridge"
+            }
+          ]
+        },
+        {
+          "id": "door",
+          "when": {
+            "any": [
+              "tür"
+            ]
+          },
+          "value": 2,
+          "fact": "🏮 denkt praktisch",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Neben die Tür! Dann finde ich die Laterne und die Schlüssel. Alles an einem Ort!",
+              "emoji": "💡",
+              "en": "Next to the door! Then I'll find the lantern and the keys. Everything in one place!",
+              "audio": "mc_otto_t6_door"
+            }
+          ]
+        },
+        {
+          "id": "shelf",
+          "when": {
+            "any": [
+              "regal"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Auf das Regal. Da stand sie schon. Gut. Sie ist es gewohnt.",
+              "en": "On the shelf. That's where it stood before. Good. It's used to it.",
+              "audio": "mc_otto_t6_shelf"
+            }
+          ]
+        },
+        {
+          "id": "window",
+          "when": {
+            "any": [
+              "fenster"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Ans Fenster? Dann sehen mich die Nachbarn. Huuuh! Herrlich. Frau Schmidt gegenüber ruft sofort ihre Schwester an.",
+              "emoji": "😈",
+              "en": "At the window? Then the neighbours will see me. Woooo! Marvellous. Frau Schmidt across the street will call her sister right away.",
+              "audio": "mc_otto_t6_window"
+            }
+          ]
+        },
+        {
+          "id": "bath",
+          "when": {
+            "any": [
+              "bad"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Ins Bad? Da sehe ich mich im Spiegel nicht. Auch mit Licht nicht.",
+              "en": "In the bathroom? I can't see myself in the mirror there. Not even with light.",
+              "audio": "mc_otto_t6_bath"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Neuer Tag. Huuuh. Gähn. Die Party war toll. Der DJ von 1923 hat ein neues Lied gespielt. Das erste seit 1923. Alle haben geweint.",
+          "emoji": "🌙",
+          "en": "A new day. Woooo. Yawn. The party was great. The DJ from 1923 played a new song. The first since 1923. Everyone cried.",
+          "audio": "mc_otto_t7a"
+        },
+        {
+          "who": "otto",
+          "type": "text",
+          "de": "Wo sind jetzt meine Schlüssel? Ich habe es vergessen. Natürlich.",
+          "en": "Where are my keys now? I've forgotten. Of course.",
+          "audio": "mc_otto_t7b"
+        }
+      ],
+      "tiles": [
+        "sie",
+        "hängen",
+        "liegen",
+        "hängt",
+        "am",
+        "an",
+        "auf",
+        "in",
+        "unter",
+        "dem",
+        "den",
+        "der",
+        "die",
+        "Haken",
+        "Tisch",
+        "Schublade",
+        "Bett",
+        "Vase",
+        "im",
+        "Kühlschrank",
+        "ich",
+        "weiß",
+        "es",
+        "nicht"
+      ],
+      "wrong": {
+        "hängt": "hängen"
+      },
+      "intents": [
+        {
+          "id": "hookOK",
+          "when": {
+            "any": [
+              "haken"
+            ],
+            "flag": "hook"
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Am Haken! Natürlich! Da hängen sie! Ich liebe Haken.",
+              "emoji": "🪝",
+              "en": "On the hook! Of course! There they hang! I love hooks.",
+              "audio": "mc_otto_t7_hook"
+            }
+          ]
+        },
+        {
+          "id": "drawerOK",
+          "when": {
+            "any": [
+              "schublade"
+            ],
+            "flag": "drawer"
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "In der Schublade! Da liegen sie! Ich bin ein neues Gespenst.",
+              "emoji": "🔑",
+              "en": "In the drawer! There they are! I'm a new ghost.",
+              "audio": "mc_otto_t7_drawer"
+            }
+          ]
+        },
+        {
+          "id": "tableOK",
+          "when": {
+            "any": [
+              "tisch"
+            ],
+            "flag": "table"
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Auf dem Tisch! Da liegen sie! Ein Wunder!",
+              "emoji": "🔑",
+              "en": "On the table! There they are! A miracle!",
+              "audio": "mc_otto_t7_table"
+            }
+          ]
+        },
+        {
+          "id": "fridgeOK",
+          "when": {
+            "any": [
+              "kühlschrank"
+            ],
+            "flag": "fridge"
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Im Kühlschrank! Da liegen sie! Kalt und glücklich. Neben der Butter von 1923. Sie sind jetzt Freunde.",
+              "emoji": "🧊",
+              "en": "In the fridge! There they are! Cold and happy. Next to the butter from 1923. They're friends now.",
+              "audio": "mc_otto_t7_fridge"
+            }
+          ]
+        },
+        {
+          "id": "bedOK",
+          "when": {
+            "any": [
+              "bett"
+            ],
+            "flag": "bed"
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Unter dem Bett. Bei Karl. Er hat sie im Maul. … Gefunden. Fast.",
+              "emoji": "🐈",
+              "en": "Under the bed. With Karl. He has them in his mouth. … Found. Almost.",
+              "audio": "mc_otto_t7_bedok"
+            }
+          ]
+        },
+        {
+          "id": "vase",
+          "when": {
+            "any": [
+              "vase"
+            ]
+          },
+          "value": -2,
+          "cause": "vase",
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "In der Vase?! Nicht schon wieder! Ich gebe auf. Für hundert Jahre.",
+              "emoji": "😩",
+              "en": "In the vase?! Not again! I give up. For a hundred years.",
+              "audio": "mc_otto_t7_vase"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Du weißt es nicht? Dann sind wir zwei. Wie 1923.",
+              "en": "You don't know? Then that makes two of us. Like 1923.",
+              "audio": "mc_otto_t7_dunno"
+            }
+          ]
+        },
+        {
+          "id": "wrongPlace",
+          "when": {
+            "any": [
+              "haken",
+              "schublade",
+              "tisch",
+              "bett",
+              "kühlschrank"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "otto",
+              "type": "text",
+              "de": "Da? Nein. Gestern hast du etwas anderes gesagt! Ich habe es mir gemerkt. Ich merke mir nie etwas. Nur das.",
+              "en": "There? No. Yesterday you said something else! I remembered it. I never remember anything. Only that.",
+              "audio": "mc_otto_t7_wrongplace"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "otto",
+    "type": "text",
+    "de": "Huuuh? Das war nicht meine Frage.",
+    "en": "Woooo? That wasn't my question.",
+    "audio": "mc_otto_offtopic"
+  },
+  "confused": [
+    {
+      "who": "otto",
+      "type": "text",
+      "de": "Hä? Ich bin von 1890. Langsam, bitte.",
+      "emoji": "👻",
+      "en": "Huh? I'm from 1890. Slowly, please.",
+      "audio": "mc_otto_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "otto",
+        "type": "text",
+        "de": "Ich habe ein System! Zum ersten Mal seit 1890. Danke, {name}.",
+        "en": "I have a system! For the first time since 1890. Thank you, {name}."
+      },
+      {
+        "who": "otto",
+        "type": "text",
+        "de": "Du darfst bleiben. Und du bist eingeladen: Party auf dem Dachboden, jeden Freitag. Bring nichts mit. Wir essen nicht. Huuuh.",
+        "emoji": "🎉",
+        "en": "You may stay. And you're invited: party in the attic, every Friday. Don't bring anything. We don't eat. Woooo.",
+        "audio": "mc_otto_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "otto",
+        "type": "text",
+        "de": "Ich habe die Schlüssel. Die Party hat angefangen. Aber jetzt suche ich meine Brille. Seit 1931. Ich tanze mit einer Lampe. Ich glaube, sie ist nett.",
+        "emoji": "👓",
+        "en": "I have the keys. The party has started. But now I'm looking for my glasses. Since 1931. I'm dancing with a lamp. I think she's nice.",
+        "audio": "mc_otto_partial"
+      }
+    ],
+    "deleted": {
+      "police": {
+        "who": "otto",
+        "type": "text",
+        "de": "Die Polizei? Für mich? Ich bin beleidigt. Ich spuke jetzt bei Frau Schmidt. Sie hat Kekse und keine Telefonnummer. Tschüss.",
+        "emoji": "🚓",
+        "en": "The police? For me? I'm offended. I'm haunting Frau Schmidt now. She has biscuits and no phone number. Bye.",
+        "audio": "mc_otto_del_police"
+      },
+      "vase": {
+        "who": "otto",
+        "type": "text",
+        "de": "Wieder in der Vase. Die Gäste warten noch hundert Jahre. Sie sind es gewohnt. Huuuh. Tschüss.",
+        "emoji": "🏺",
+        "en": "In the vase again. The guests will wait another hundred years. They're used to it. Woooo. Bye.",
+        "audio": "mc_otto_del_vase"
+      },
+      "confused": {
+        "who": "otto",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Ich bin von 1890. Tschüss.",
+        "en": "I don't understand you. I'm from 1890. Bye.",
+        "audio": "mc_otto_del_confused"
+      },
+      "default": {
+        "who": "otto",
+        "type": "text",
+        "de": "Die Schlüssel sind weg. Und du jetzt auch. Huuuh.",
+        "en": "The keys are gone. And now so are you. Woooo.",
+        "audio": "mc_otto_del_default"
+      }
+    },
+    "sunday": {
+      "who": "otto",
+      "type": "voice",
+      "audio": "mc_otto_vn_sunday",
+      "de": "Huuuh! Sonntag. Die Schlüssel sind noch da. Seit sieben Tagen! Rekord! Karl und ich feiern. Leise. Auch Gespenster haben Sonntagsruhe.",
+      "en": "Woooo! Sunday. The keys are still there. For seven days! A record! Karl and I are celebrating. Quietly. Ghosts keep the Sunday quiet hours too.",
+      "direction": "Hollow and echoing but bursting with pride, a cat purring faintly nearby; whispering the last word."
+    }
+  },
+  "partialTitle": "Schlüssel gefunden. Brille weg.",
+  "share": {
+    "win": "Ich habe für Otto (136, Gespenst) die Schlüssel gefunden 👻🔑 Nach 103 Jahren! Jetzt bin ich auf seiner Party auf dem Dachboden eingeladen. Mein Deutsch: {score}/100. Findest du sie auch? {url}",
+    "partial": "Otto (136, Gespenst) hat seine Schlüssel … aber jetzt sucht er seine Brille und tanzt mit einer Lampe 👓 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Otto (136, Gespenst) hat mich gelöscht 👻 Er spukt jetzt bei Frau Schmidt. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Otto, a friendly, slightly transparent pale-blue ghost of an elegant old gentleman from 1890: a top hat, a curled white moustache, a high collar with a bow tie and a long frock coat whose bottom fades into a wisp of mist instead of legs; he looks politely puzzled.",
+  "imagePrompts": [
+    {
+      "id": "match_otto",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He floats in the tall-ceilinged hallway of an old Berlin flat with a stucco ceiling and creaky wooden floorboards, patting his empty coat pockets and looking at the viewer in confusion. A little transparent grey ghost cat floats beside him. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_otto_bedroom",
+      "aspect": "16:9",
+      "prompt": "An old-fashioned bedroom seen exactly from the front like a stage set: one flat wallpapered wall, a wooden floor, no perspective, no corners. Exactly THREE pieces of furniture in a row, far apart: LEFT: a tall wooden shelf with one old brass lantern standing on it and nothing else. MIDDLE: a big wooden bed with a white blanket; under the bed, clearly visible, a sleeping grey cat. RIGHT: a small round table with one big BLUE vase full of flowers; a bunch of golden keys sticks out of the top of the vase between the flowers and shines brightly. Nothing else in the room."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ja, ich wohne jetzt hier.",
+      "score": 100,
+      "intent": "live",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich wohnst hier.",
+      "score": 80,
+      "intent": "live",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich helfe dir.",
+      "score": 100,
+      "intent": "help",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich helfe dich.",
+      "score": 85,
+      "intent": "help",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe Angst vor dir.",
+      "score": 100,
+      "intent": "fear",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Das ist meine Wohnung.",
+      "score": 100,
+      "intent": "mine",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich rufe die Polizei.",
+      "score": 100,
+      "intent": "police",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich Angst vor dir.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin auch ein Gespenst.",
+      "score": 100,
+      "intent": "ghost",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Bei mir hängt ein Bild an der Wand.",
+      "score": 100,
+      "intent": "picture",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "An der Wand hängt ein Bild.",
+      "score": 100,
+      "intent": "picture",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "An die Wand hängt ein Bild.",
+      "score": 85,
+      "intent": "picture",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ein Bild steht an der Wand.",
+      "score": 100,
+      "intent": "standsWrong",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Bei mir hängt eine Wurst an der Wand.",
+      "score": 100,
+      "intent": "sausage",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "An der Wand hängt ein Spiegel.",
+      "score": 100,
+      "intent": "mirror",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Bei mir hängen Tassen an der Wand.",
+      "score": 100,
+      "intent": "cups",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ein Brot.",
+      "score": 100,
+      "intent": "bread",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Meine Schlüssel hängen an der Wand.",
+      "score": 100,
+      "intent": "keys",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Bei mir hängt nichts an der Wand.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "An die Wand ein Bild hängt.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Sie steht neben dem Waschbecken.",
+      "score": 100,
+      "intent": "sink",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Deine Zahnbürste steht neben dem Waschbecken.",
+      "score": 100,
+      "intent": "sink",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Neben das Waschbecken.",
+      "score": 85,
+      "intent": "sink",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Sie liegt neben dem Waschbecken.",
+      "score": 100,
+      "intent": "liesSink",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Unter der Badewanne.",
+      "score": 100,
+      "intent": "under",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Auf der Badewanne.",
+      "score": 100,
+      "intent": "onTub",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Im Spiegel.",
+      "score": 100,
+      "intent": "mirror",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Sie steht bei Karl.",
+      "score": 100,
+      "intent": "karl",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Sie neben dem Waschbecken.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Sie sind in der Vase.",
+      "score": 100,
+      "intent": "vase",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Sie liegen in der Vase.",
+      "score": 100,
+      "intent": "vase",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "In die Vase.",
+      "score": 85,
+      "intent": "vase",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Unter dem Bett.",
+      "score": 100,
+      "intent": "bed",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Unter das Bett.",
+      "score": 85,
+      "intent": "bed",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Auf dem Regal.",
+      "score": 100,
+      "intent": "shelf",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Sie in der Vase.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Häng sie an den Haken.",
+      "score": 100,
+      "intent": "hook",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Häng sie an dem Haken.",
+      "score": 85,
+      "intent": "hook",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Du hängst sie an den Haken.",
+      "score": 100,
+      "intent": "hook",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Leg sie in die Schublade.",
+      "score": 100,
+      "intent": "drawer",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Leg sie in der Schublade.",
+      "score": 85,
+      "intent": "drawer",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Du liegst sie auf den Tisch.",
+      "score": 80,
+      "intent": "table",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Leg sie auf dem Tisch.",
+      "score": 85,
+      "intent": "table",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Leg sie unter das Bett.",
+      "score": 100,
+      "intent": "bed",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Leg sie in die Vase.",
+      "score": 100,
+      "intent": "vaseAgain",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Leg sie in den Kühlschrank.",
+      "score": 100,
+      "intent": "fridge",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Leg sie in dem Kühlschrank.",
+      "score": 85,
+      "intent": "fridge",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Häng sie an Karl.",
+      "score": 100,
+      "intent": "karl",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Du sie auf den Tisch.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Stell sie neben die Tür.",
+      "score": 100,
+      "intent": "door",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Stell sie neben der Tür.",
+      "score": 85,
+      "intent": "door",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du stellst sie auf das Regal.",
+      "score": 100,
+      "intent": "shelf",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Stell sie aufs Regal.",
+      "score": 100,
+      "intent": "shelf",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du stehst sie auf das Regal.",
+      "score": 80,
+      "intent": "shelf",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Leg sie auf das Regal.",
+      "score": 100,
+      "intent": "laid",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Stell sie ins Bad.",
+      "score": 100,
+      "intent": "bath",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Stell sie ans Fenster.",
+      "score": 100,
+      "intent": "window",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Stell sie in den Kühlschrank.",
+      "score": 100,
+      "intent": "fridge",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Du sie neben die Tür.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Sie hängen am Haken.",
+      "score": 100,
+      "intent": "wrongPlace",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Sie hängen an dem Haken.",
+      "score": 100,
+      "intent": "wrongPlace",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Sie hängt am Haken.",
+      "score": 80,
+      "intent": "wrongPlace",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Sie liegen in der Schublade.",
+      "score": 100,
+      "intent": "wrongPlace",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Sie liegen in die Schublade.",
+      "score": 85,
+      "intent": "wrongPlace",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Sie liegen in der Vase.",
+      "score": 100,
+      "intent": "vase",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Sie liegen im Kühlschrank.",
+      "score": 100,
+      "intent": "wrongPlace",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Sie am Haken.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect: the hook",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich helfe dir."
+        ],
+        [
+          "t2",
+          "Meine Schlüssel hängen an der Wand."
+        ],
+        [
+          "t3",
+          "Sie steht neben dem Waschbecken."
+        ],
+        [
+          "t4",
+          "Sie liegen in der Vase."
+        ],
+        [
+          "t5",
+          "Häng sie an den Haken."
+        ],
+        [
+          "t6",
+          "Stell sie neben die Tür."
+        ],
+        [
+          "t7",
+          "Sie hängen am Haken."
+        ]
+      ]
+    },
+    {
+      "name": "the drawer",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ja, ich wohne jetzt hier."
+        ],
+        [
+          "t2",
+          "Ein Bild hängt an der Wand."
+        ],
+        [
+          "t3",
+          "Neben das Waschbecken."
+        ],
+        [
+          "t4",
+          "Sie sind in der Vase."
+        ],
+        [
+          "t5",
+          "Leg sie in die Schublade."
+        ],
+        [
+          "t6",
+          "Stell sie aufs Regal."
+        ],
+        [
+          "t7",
+          "Sie liegen in der Schublade."
+        ]
+      ]
+    },
+    {
+      "name": "the fridge",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich bin auch ein Gespenst."
+        ],
+        [
+          "t2",
+          "Bei mir hängt eine Wurst an der Wand."
+        ],
+        [
+          "t3",
+          "Sie steht neben dem Waschbecken."
+        ],
+        [
+          "t4",
+          "Sie liegen in der Vase."
+        ],
+        [
+          "t5",
+          "Leg sie in den Kühlschrank."
+        ],
+        [
+          "t6",
+          "Stell sie in den Kühlschrank."
+        ],
+        [
+          "t7",
+          "Sie liegen im Kühlschrank."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich habe Angst vor dir."
+        ],
+        [
+          "t2",
+          "Ein Bild steht an der Wand."
+        ],
+        [
+          "t3",
+          "Unter der Badewanne."
+        ],
+        [
+          "t4",
+          "Auf dem Regal."
+        ],
+        [
+          "t5",
+          "Leg sie in die Schublade."
+        ],
+        [
+          "t6",
+          "Leg sie auf das Regal."
+        ],
+        [
+          "t7",
+          "Sie liegen in die Schublade."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich rufe die Polizei."
+        ],
+        [
+          "t2",
+          "Bei mir hängt nichts an der Wand."
+        ],
+        [
+          "t3",
+          "Im Spiegel."
+        ],
+        [
+          "t4",
+          "Unter dem Bett."
+        ]
+      ]
+    }
+  ]
+}

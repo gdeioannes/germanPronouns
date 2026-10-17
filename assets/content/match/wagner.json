@@ -1,0 +1,2007 @@
+{
+  "id": "wagner",
+  "name": "Herr Wagner",
+  "age": 61,
+  "emoji": "🚆",
+  "image": "match_wagner",
+  "level": "A1.2",
+  "order": 3,
+  "bio": "Heute: 40 Minuten Verspätung. Ungefähr.",
+  "bioEn": "Today: a 40-minute delay. Roughly.",
+  "goal": "Catch your connecting train to Hamburg in Hannover, despite the delay.",
+  "tagline": "Zugbegleiter · 61 · seit 1987 unterwegs",
+  "voice": "Schedar",
+  "brief": "Herr Wagner, a 61-year-old train conductor: calm, weary, deadpan and gently melancholic, speaks in the slow official sing-song of train announcements and adds 'ungefähr' after numbers with a tiny sigh; kind underneath.",
+  "focus": "Modalverben + Infinitiv · trennbare Verben · Uhrzeit",
+  "lexicon": {
+    "nouns": {
+      "Fahrkarte": "f",
+      "Kuh": "f",
+      "Gleis": "n",
+      "Baum": "m",
+      "Schnee": "m",
+      "Minuten": "pl",
+      "Zug": "m",
+      "Uhr": "f",
+      "Taxi": "n",
+      "Rucksack": "m",
+      "Koffer": "m",
+      "Tasche": "f",
+      "Fahrrad": "n",
+      "Gepäck": "n",
+      "Grüße": "pl",
+      "Dinosaurier": "m"
+    },
+    "names": [
+      "Hamburg",
+      "Hannover",
+      "Berlin",
+      "Berta",
+      "Herr Wagner"
+    ],
+    "verbs": [
+      "fahre",
+      "fährst",
+      "muss",
+      "musst",
+      "ist",
+      "habe",
+      "hat",
+      "fährt",
+      "fahrt",
+      "kommt",
+      "steht",
+      "weiß",
+      "kann",
+      "kannst",
+      "will",
+      "steige",
+      "steigt",
+      "warte"
+    ],
+    "nonfinite": [
+      "nehmen",
+      "warten",
+      "laufen",
+      "weinen",
+      "sein",
+      "rennen",
+      "umsteigen",
+      "reiten"
+    ],
+    "accVerbs": [
+      "habe",
+      "hat",
+      "kann",
+      "kannst",
+      "will",
+      "muss",
+      "musst"
+    ],
+    "adjectives": [
+      "nächst"
+    ]
+  },
+  "intro": [
+    {
+      "who": "wagner",
+      "type": "text",
+      "de": "Guten Tag! Wagner, Ihr Zugbegleiter. Seit 1987.",
+      "emoji": "🚆",
+      "en": "Good afternoon! Wagner, your conductor. Since 1987.",
+      "audio": "mc_wagner_t1a"
+    },
+    {
+      "who": "wagner",
+      "type": "text",
+      "de": "Heute haben wir vierzig Minuten Verspätung. Ungefähr.",
+      "en": "Today we have a forty-minute delay. Roughly.",
+      "audio": "mc_wagner_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Die Fahrkarte, bitte. Wohin fahren Sie?",
+          "en": "Ticket, please. Where are you travelling to?",
+          "audio": "mc_wagner_t1c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "fahre",
+        "fährst",
+        "nach",
+        "Hamburg",
+        "Hannover",
+        "hier",
+        "ist",
+        "meine",
+        "mein",
+        "Fahrkarte",
+        "habe",
+        "keine",
+        "eine",
+        "muss",
+        "musst",
+        "bitte",
+        "Berlin"
+      ],
+      "wrong": {
+        "fährst": "fahre",
+        "musst": "muss"
+      },
+      "intents": [
+        {
+          "id": "noTicket",
+          "when": {
+            "all": [
+              "keine",
+              "fahrkarte"
+            ]
+          },
+          "value": -2,
+          "cause": "ticket",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Keine Fahrkarte?! Das kostet sechzig Euro. Ungefähr. Nein: genau.",
+              "emoji": "😐",
+              "en": "No ticket?! That costs sixty euros. Roughly. No: exactly.",
+              "audio": "mc_wagner_t1_noticket"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "fahrkarte",
+              "hamburg"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Danke. Nach Hamburg, sehr schön. In Hannover steigen Sie um.",
+              "en": "Thank you. To Hamburg, lovely. You change in Hannover.",
+              "audio": "mc_wagner_t1_both"
+            }
+          ]
+        },
+        {
+          "id": "ticket",
+          "when": {
+            "any": [
+              "fahrkarte"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Danke. Ah, nach Hamburg. In Hannover steigen Sie um.",
+              "en": "Thank you. Ah, to Hamburg. You change in Hannover.",
+              "audio": "mc_wagner_t1_ticket"
+            }
+          ]
+        },
+        {
+          "id": "hamburg",
+          "when": {
+            "any": [
+              "hamburg"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Nach Hamburg. Und die Fahrkarte? Ah, da ist sie. Danke.",
+              "en": "To Hamburg. And the ticket? Ah, there it is. Thank you.",
+              "audio": "mc_wagner_t1_hamburg"
+            }
+          ]
+        },
+        {
+          "id": "hannover",
+          "when": {
+            "any": [
+              "hannover"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Nach Hannover? Hier steht: Hamburg. In Hannover steigen Sie nur um.",
+              "en": "To Hannover? It says here: Hamburg. You only change in Hannover.",
+              "audio": "mc_wagner_t1_hannover"
+            }
+          ]
+        },
+        {
+          "id": "berlin",
+          "when": {
+            "any": [
+              "berlin"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Berlin? Dieser Zug fährt nicht nach Berlin. Heute nicht. Ungefähr nie.",
+              "en": "Berlin? This train doesn't go to Berlin. Not today. Roughly never.",
+              "audio": "mc_wagner_t1_berlin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "wagner",
+          "type": "voice",
+          "audio": "mc_wagner_vn_announce",
+          "de": "Sehr geehrte Fahrgäste, hier spricht Ihr Zugbegleiter. Wir haben vierzig Minuten Verspätung. Ungefähr. Der Grund: Eine Kuh steht auf dem Gleis. Wir kommen um vierzehn Uhr vierzig in Hannover an. Wir bitten um Ihr Verständnis.",
+          "en": "Dear passengers, this is your conductor speaking. We have a forty-minute delay. Roughly. The reason: a cow is standing on the track. We arrive in Hannover at 14:40. We ask for your understanding.",
+          "direction": "A train tannoy announcement: slightly crackly, the flat official sing-song of a conductor, a long weary sigh before 'Ungefähr', the rumble of the train underneath."
+        },
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Haben Sie das gehört? Warum haben wir Verspätung?",
+          "en": "Did you hear that? Why are we late?",
+          "audio": "mc_wagner_t2a"
+        }
+      ],
+      "tiles": [
+        "eine",
+        "einer",
+        "ein",
+        "Kuh",
+        "ist",
+        "steht",
+        "auf",
+        "dem",
+        "den",
+        "Gleis",
+        "wegen",
+        "Baum",
+        "Schnee",
+        "vierzig",
+        "Minuten",
+        "ich",
+        "weiß",
+        "nicht",
+        "Dinosaurier"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "cow",
+          "when": {
+            "any": [
+              "kuh"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "cow"
+          ],
+          "fact": "🐄 kennt Berta, die Kuh",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Genau. Eine Kuh. Sie heißt Berta. Sie kommt jeden Dienstag. Heute ist Mittwoch. Berta macht Überstunden.",
+              "emoji": "🐄",
+              "en": "Exactly. A cow. Her name is Berta. She comes every Tuesday. Today is Wednesday. Berta is doing overtime.",
+              "audio": "mc_wagner_t2_cow"
+            }
+          ]
+        },
+        {
+          "id": "dino",
+          "when": {
+            "any": [
+              "dinosaurier"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Ein Dinosaurier? Nein. Der war im März. Ein Mann im Kostüm. Er hatte auch keine Fahrkarte.",
+              "emoji": "🦖",
+              "en": "A dinosaur? No. That was in March. A man in a costume. He didn’t have a ticket either.",
+              "audio": "mc_wagner_t2_dino"
+            }
+          ]
+        },
+        {
+          "id": "tree",
+          "when": {
+            "any": [
+              "baum"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Ein Baum? Nein, der Baum war letzte Woche. Er hat sich entschuldigt. Ungefähr.",
+              "emoji": "🌳",
+              "en": "A tree? No, the tree was last week. It apologised. Roughly.",
+              "audio": "mc_wagner_t2_tree"
+            }
+          ]
+        },
+        {
+          "id": "snow",
+          "when": {
+            "any": [
+              "schnee"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Schnee? Es ist Juli!",
+              "en": "Snow? It's July!",
+              "audio": "mc_wagner_t2_snow"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Sie wissen es nicht? Bei uns muss man immer gut zuhören.",
+              "en": "You don't know? On our trains you always have to listen carefully.",
+              "audio": "mc_wagner_t2_dunno"
+            }
+          ]
+        },
+        {
+          "id": "minutes",
+          "when": {
+            "any": [
+              "vierzig",
+              "minuten"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Ja, vierzig Minuten. Ungefähr. Aber WARUM?",
+              "en": "Yes, forty minutes. Roughly. But WHY?",
+              "audio": "mc_wagner_t2_minutes"
+            }
+          ]
+        },
+        {
+          "id": "track",
+          "when": {
+            "any": [
+              "gleis"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Etwas ist auf dem Gleis, ja. Aber WAS?",
+              "en": "Something's on the track, yes. But WHAT?",
+              "audio": "mc_wagner_t2_track"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Ich habe Ihre Fahrkarte fotografiert. Für mein Album. Sie ist Nummer 41 203. Eine sehr schöne Fahrkarte.",
+          "emoji": "📷",
+          "en": "I photographed your ticket. For my album. It is number 41,203. A very beautiful ticket.",
+          "audio": "mc_wagner_t3a"
+        },
+        {
+          "who": "wagner",
+          "type": "photo",
+          "image": "match_wagner_ticket",
+          "overlay": [
+            "Ihre Reise",
+            "Hannover an: 14:00",
+            "Hannover ab: 14:10 → Hamburg",
+            "Gleis 5"
+          ],
+          "alt": "Eine Fahrkarte auf dem Tisch im Zug. Hannover an: 14:00 Uhr. Hannover ab: 14:10 Uhr nach Hamburg, Gleis 5."
+        },
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Wann fährt Ihr Zug nach Hamburg ab?",
+          "en": "When does your train to Hamburg leave?",
+          "audio": "mc_wagner_t3b"
+        }
+      ],
+      "tiles": [
+        "er",
+        "mein",
+        "meine",
+        "Zug",
+        "fährt",
+        "fahrt",
+        "um",
+        "vierzehn",
+        "Uhr",
+        "zehn",
+        "vierzig",
+        "ab",
+        "an",
+        "kommt",
+        "von",
+        "Gleis",
+        "fünf",
+        "nach",
+        "Hamburg"
+      ],
+      "wrong": {
+        "fahrt": "fährt"
+      },
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "all": [
+              "vierzehn",
+              "zehn"
+            ]
+          },
+          "value": 2,
+          "fact": "📄 liest jede Fahrkarte",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Vierzehn Uhr zehn. Und wir kommen um vierzehn Uhr vierzig an. Ungefähr.",
+              "en": "Ten past two. And we arrive at twenty to three. Roughly.",
+              "audio": "mc_wagner_t3_right"
+            },
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Oh. Oh nein.",
+              "emoji": "😬",
+              "en": "Oh. Oh no.",
+              "audio": "mc_wagner_t3_ohno"
+            }
+          ]
+        },
+        {
+          "id": "arrival",
+          "when": {
+            "any": [
+              "vierzig"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Vierzehn Uhr vierzig? Da kommen WIR an. Mit Kuh. Lesen Sie noch mal.",
+              "en": "Twenty to three? That’s when WE arrive. With the cow. Read it again.",
+              "audio": "mc_wagner_t3_arrival"
+            }
+          ]
+        },
+        {
+          "id": "platform",
+          "when": {
+            "any": [
+              "gleis",
+              "fünf"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Gleis fünf, ja. Aber WANN?",
+              "en": "Platform five, yes. But WHEN?",
+              "audio": "mc_wagner_t3_platform"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "vierzehn"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Um vierzehn Uhr … und? Die Minuten sind wichtig!",
+              "en": "At two o’clock … and? The minutes matter!",
+              "audio": "mc_wagner_t3_vague"
+            }
+          ]
+        },
+        {
+          "id": "ten",
+          "when": {
+            "any": [
+              "zehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Um zehn Uhr? Am Morgen? Da war ich noch im Bett. Ungefähr.",
+              "en": "At ten o’clock? In the morning? I was still in bed then. Roughly.",
+              "audio": "mc_wagner_t3_ten"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Ihr Anschlusszug ist dann schon weg. Das ist ein Problem.",
+          "emoji": "😬",
+          "en": "Your connecting train will be gone by then. That is a problem.",
+          "audio": "mc_wagner_t4a"
+        },
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Was können Sie jetzt machen?",
+          "en": "What can you do now?",
+          "audio": "mc_wagner_t4b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "kann",
+        "kannst",
+        "muss",
+        "will",
+        "den",
+        "der",
+        "nächsten",
+        "nächste",
+        "Zug",
+        "ein",
+        "Taxi",
+        "nehmen",
+        "warten",
+        "laufen",
+        "weinen",
+        "in",
+        "Hannover",
+        "auf",
+        "Kuh",
+        "reiten",
+        "die"
+      ],
+      "wrong": {
+        "kannst": "kann"
+      },
+      "intents": [
+        {
+          "id": "ride",
+          "when": {
+            "any": [
+              "kuh",
+              "reiten"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Auf Berta? Berta ist schnell. Aber sie hält an jeder Wiese. Und sie hat keine Fahrkarte. Noch nicht.",
+              "emoji": "🐄",
+              "en": "On Berta? Berta is fast. But she stops at every meadow. And she has no ticket. Not yet.",
+              "audio": "mc_wagner_t4_ride"
+            }
+          ]
+        },
+        {
+          "id": "nextTrain",
+          "when": {
+            "any": [
+              "zug"
+            ]
+          },
+          "value": 2,
+          "fact": "🚆 nimmt einfach den nächsten Zug",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Genau! Den nächsten Zug. So denkt ein Profi. Oder ein Zugbegleiter.",
+              "en": "Exactly! The next train. That’s how a pro thinks. Or a conductor.",
+              "audio": "mc_wagner_t4_next"
+            }
+          ]
+        },
+        {
+          "id": "taxi",
+          "when": {
+            "any": [
+              "taxi"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Ein Taxi nach Hamburg? Dreihundert Euro. Ungefähr. Und der Taxifahrer ist mein Bruder. Er ist noch langsamer als ich.",
+              "emoji": "🚕",
+              "en": "A taxi to Hamburg? Three hundred euros. Roughly. And the taxi driver is my brother. He’s even slower than me.",
+              "audio": "mc_wagner_t4_taxi"
+            }
+          ]
+        },
+        {
+          "id": "walk",
+          "when": {
+            "any": [
+              "laufen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Laufen? Nach Hamburg? Das sind hundertfünfzig Kilometer. Viel Spaß!",
+              "en": "Walk? To Hamburg? That’s a hundred and fifty kilometres. Have fun!",
+              "audio": "mc_wagner_t4_walk"
+            }
+          ]
+        },
+        {
+          "id": "cry",
+          "when": {
+            "any": [
+              "weinen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Weinen ist okay. Ich weine auch. Jeden Dienstag. Wegen Berta.",
+              "en": "Crying is okay. I cry too. Every Tuesday. Because of Berta.",
+              "audio": "mc_wagner_t4_cry"
+            }
+          ]
+        },
+        {
+          "id": "wait",
+          "when": {
+            "any": [
+              "warten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Warten. Ja. Das lernt man bei uns sehr gut.",
+              "en": "Waiting. Yes. You learn that very well with us.",
+              "audio": "mc_wagner_t4_wait"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Ich habe eine Idee. Hier ist die Tafel für Hannover. Auch für mein Album.",
+          "en": "I have an idea. Here’s the departure board for Hannover. Also for my album.",
+          "audio": "mc_wagner_t5a"
+        },
+        {
+          "who": "wagner",
+          "type": "photo",
+          "image": "match_wagner_board",
+          "overlay": [
+            "Hannover Hbf · Abfahrt",
+            "14:45  Hamburg  Gleis 3",
+            "14:50  Berlin  Gleis 7",
+            "15:10  Hamburg  Gleis 12  fällt aus"
+          ],
+          "alt": "Die Abfahrtstafel in Hannover: 14:45 Uhr nach Hamburg, Gleis 3. 14:50 Uhr nach Berlin, Gleis 7. 15:10 Uhr nach Hamburg, Gleis 12, fällt aus.",
+          "wide": true
+        },
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Wo fährt der nächste Zug nach Hamburg ab?",
+          "en": "Where does the next train to Hamburg leave from?",
+          "audio": "mc_wagner_t5b"
+        }
+      ],
+      "tiles": [
+        "der",
+        "Zug",
+        "fährt",
+        "von",
+        "auf",
+        "Gleis",
+        "drei",
+        "sieben",
+        "zwölf",
+        "ab",
+        "ich",
+        "muss",
+        "sein",
+        "nach",
+        "Hamburg",
+        "Berlin",
+        "um"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "drei"
+            ]
+          },
+          "value": 2,
+          "fact": "🚉 findet jedes Gleis",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Gleis drei! Um vierzehn Uhr fünfundvierzig. Dann haben Sie fünf Minuten. Ungefähr.",
+              "emoji": "⏱️",
+              "en": "Platform three! At quarter to three. That gives you five minutes. Roughly.",
+              "audio": "mc_wagner_t5_right"
+            }
+          ]
+        },
+        {
+          "id": "berlin",
+          "when": {
+            "any": [
+              "sieben",
+              "berlin"
+            ]
+          },
+          "value": -1,
+          "cause": "berlin",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Gleis sieben? Der fährt nach Berlin! Auch schön. Aber nicht Hamburg.",
+              "en": "Platform seven? That one goes to Berlin! Also nice. But not Hamburg.",
+              "audio": "mc_wagner_t5_berlin"
+            }
+          ]
+        },
+        {
+          "id": "cancelled",
+          "when": {
+            "any": [
+              "zwölf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Gleis zwölf? Der Zug fällt aus! Lesen Sie die Tafel. Ganz unten.",
+              "en": "Platform twelve? That train is cancelled! Read the board. Right at the bottom.",
+              "audio": "mc_wagner_t5_cancelled"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "gleis"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Welches Gleis? Die Nummer, bitte!",
+              "en": "Which platform? The number, please!",
+              "audio": "mc_wagner_t5_vague"
+            }
+          ]
+        },
+        {
+          "id": "hamburg",
+          "when": {
+            "any": [
+              "hamburg"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Nach Hamburg, ja. Aber WO? Welches Gleis?",
+              "en": "To Hamburg, yes. But WHERE? Which platform?",
+              "audio": "mc_wagner_t5_hamburg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Neuigkeit: Berta ist nicht mehr auf dem Gleis. Berta ist im Zug. Wagen fünf, Platz zwölf. Sie hat eine Fahrkarte. Ich kontrolliere so etwas.",
+          "emoji": "🐄",
+          "en": "News: Berta is no longer on the track. Berta is on the train. Coach five, seat twelve. She has a ticket. I check these things.",
+          "audio": "mc_wagner_t6pre"
+        },
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "In Hannover haben Sie nur fünf Minuten. Gleis drei ist ganz hinten. Haben Sie viel Gepäck?",
+          "emoji": "🧳",
+          "en": "In Hannover you’ll only have five minutes. Platform three is right at the back. Have you got much luggage?",
+          "audio": "mc_wagner_t6a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "hat",
+        "einen",
+        "ein",
+        "eine",
+        "keinen",
+        "kein",
+        "nur",
+        "Rucksack",
+        "Koffer",
+        "drei",
+        "Tasche",
+        "Fahrrad",
+        "Gepäck",
+        "und",
+        "nein",
+        "viel",
+        "Kuh"
+      ],
+      "wrong": {
+        "hat": "habe"
+      },
+      "intents": [
+        {
+          "id": "none",
+          "when": {
+            "all": [
+              "kein",
+              "gepäck"
+            ]
+          },
+          "value": 2,
+          "fact": "🎒 reist mit leichtem Gepäck",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Kein Gepäck! Ein Profi. Sie sind schneller als dieser Zug. Das ist nicht schwer.",
+              "en": "No luggage! A pro. You’re faster than this train. That’s not hard.",
+              "audio": "mc_wagner_t6_none"
+            }
+          ]
+        },
+        {
+          "id": "noStuff",
+          "when": {
+            "any": [
+              "kein",
+              "keinen"
+            ],
+            "none": [
+              "nur",
+              "viel"
+            ]
+          },
+          "value": 1,
+          "fact": "🎒 reist mit leichtem Gepäck",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Keins? Sehr gut. Leicht reisen ist schnell reisen. Das sage ich seit 1987.",
+              "en": "None? Very good. Travelling light is travelling fast. I’ve been saying that since 1987.",
+              "audio": "mc_wagner_t6_nostuff"
+            }
+          ]
+        },
+        {
+          "id": "cow",
+          "when": {
+            "any": [
+              "kuh"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Sie haben AUCH eine Kuh? Nein, nein. Eine Kuh pro Zug. Das ist die Regel. Ungefähr.",
+              "emoji": "🐄",
+              "en": "You’ve ALSO got a cow? No, no. One cow per train. That’s the rule. Roughly.",
+              "audio": "mc_wagner_t6_cow"
+            }
+          ]
+        },
+        {
+          "id": "three",
+          "when": {
+            "all": [
+              "drei",
+              "koffer"
+            ]
+          },
+          "value": -1,
+          "cause": "luggage",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Drei Koffer? In fünf Minuten? Viel Glück. Wirklich.",
+              "en": "Three suitcases? In five minutes? Good luck. Really.",
+              "audio": "mc_wagner_t6_three"
+            }
+          ]
+        },
+        {
+          "id": "bike",
+          "when": {
+            "any": [
+              "fahrrad"
+            ]
+          },
+          "value": -1,
+          "cause": "luggage",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Ein Fahrrad? Der Aufzug ist kaputt. Seit 2019. Ungefähr.",
+              "emoji": "🚲",
+              "en": "A bike? The lift is broken. Since 2019. Roughly.",
+              "audio": "mc_wagner_t6_bike"
+            }
+          ]
+        },
+        {
+          "id": "backpack",
+          "when": {
+            "any": [
+              "rucksack"
+            ]
+          },
+          "value": 2,
+          "fact": "🎒 reist mit leichtem Gepäck",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Nur ein Rucksack! Sie sind schnell wie ein Reh. Ein Reh mit Rucksack.",
+              "emoji": "🦌",
+              "en": "Just a backpack! You’re as fast as a deer. A deer with a backpack.",
+              "audio": "mc_wagner_t6_backpack"
+            }
+          ]
+        },
+        {
+          "id": "bag",
+          "when": {
+            "any": [
+              "tasche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Eine Tasche. Gut. Das geht.",
+              "en": "A bag. Good. That works.",
+              "audio": "mc_wagner_t6_bag"
+            }
+          ]
+        },
+        {
+          "id": "suitcase",
+          "when": {
+            "any": [
+              "koffer"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Ein Koffer. Okay. Rennen mit Koffer ist Sport.",
+              "en": "One suitcase. Okay. Running with a suitcase is a sport.",
+              "audio": "mc_wagner_t6_suitcase"
+            }
+          ]
+        },
+        {
+          "id": "lots",
+          "when": {
+            "any": [
+              "viel"
+            ],
+            "none": [
+              "kein",
+              "nein"
+            ]
+          },
+          "value": -1,
+          "cause": "luggage",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Viel Gepäck? Oh je. Fünf Minuten, Gleis drei, ganz hinten.",
+              "en": "Lots of luggage? Oh dear. Five minutes, platform three, right at the back.",
+              "audio": "mc_wagner_t6_lots"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Nein? Sehr gut. Leicht reisen ist schnell reisen.",
+              "en": "No? Very good. Travelling light is travelling fast.",
+              "audio": "mc_wagner_t6_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Hannover! Wir sind da. Nur achtunddreißig Minuten Verspätung. Ein Rekord! Ich habe Tränen in den Augen.",
+          "emoji": "🎉",
+          "en": "Hanover! We’re here. Only thirty-eight minutes late. A record! I have tears in my eyes.",
+          "audio": "mc_wagner_t7a"
+        },
+        {
+          "who": "wagner",
+          "type": "text",
+          "de": "Schnell! Berta rennt schon. Sie hat auch nur fünf Minuten. Was machen Sie jetzt?",
+          "en": "Quick! Berta is already running. She only has five minutes too. What are you doing now?",
+          "audio": "mc_wagner_t7b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "steige",
+        "steigt",
+        "jetzt",
+        "um",
+        "muss",
+        "rennen",
+        "umsteigen",
+        "schnell",
+        "danke",
+        "Herr Wagner",
+        "viele",
+        "Grüße",
+        "an",
+        "Berta",
+        "tschüss",
+        "nein",
+        "warte"
+      ],
+      "wrong": {
+        "steigt": "steige"
+      },
+      "intents": [
+        {
+          "id": "berta",
+          "when": {
+            "any": [
+              "berta"
+            ],
+            "flag": "cow"
+          },
+          "value": 2,
+          "fact": "💌 grüßt Berta, die Kuh",
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Ich sage es ihr. Sie dreht sich um. Sie sagt: Muh. Das heißt: Gute Reise. Ungefähr.",
+              "emoji": "🐄",
+              "en": "I’ll tell her. She turns round. She says: moo. That means: have a good trip. Roughly.",
+              "audio": "mc_wagner_t7_berta"
+            }
+          ]
+        },
+        {
+          "id": "bertaUnknown",
+          "when": {
+            "any": [
+              "berta"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Berta? Sie kennen Berta? Natürlich. Jeder kennt Berta.",
+              "en": "Berta? You know Berta? Of course. Everyone knows Berta.",
+              "audio": "mc_wagner_t7_bertaunknown"
+            }
+          ]
+        },
+        {
+          "id": "change",
+          "when": {
+            "any": [
+              "steige",
+              "steigt",
+              "umsteigen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Ja! Steigen Sie um! Gleis drei! Laufen Sie!",
+              "emoji": "🏃",
+              "en": "Yes! Change trains! Platform three! Run!",
+              "audio": "mc_wagner_t7_change"
+            }
+          ]
+        },
+        {
+          "id": "run",
+          "when": {
+            "any": [
+              "rennen",
+              "schnell"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Rennen Sie! Ich halte die Tür auf. Berta hält sie auch auf. Mit dem Kopf.",
+              "en": "Run! I’ll hold the door. Berta is holding it too. With her head.",
+              "audio": "mc_wagner_t7_run"
+            }
+          ]
+        },
+        {
+          "id": "thanks",
+          "when": {
+            "any": [
+              "danke"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Bitte! Und jetzt: schnell!",
+              "en": "You’re welcome! And now: quick!",
+              "audio": "mc_wagner_t7_thanks"
+            }
+          ]
+        },
+        {
+          "id": "wait",
+          "when": {
+            "any": [
+              "warte",
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Warten?! Nein! Jetzt nicht warten! Jetzt rennen!",
+              "en": "Wait?! No! Don’t wait now! Run now!",
+              "audio": "mc_wagner_t7_wait"
+            }
+          ]
+        },
+        {
+          "id": "bye",
+          "when": {
+            "any": [
+              "tschüss"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wagner",
+              "type": "text",
+              "de": "Tschüss! Aber schnell, bitte!",
+              "en": "Bye! But quickly, please!",
+              "audio": "mc_wagner_t7_bye"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "wagner",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage. Ungefähr.",
+    "en": "Er … that wasn't my question. Roughly.",
+    "audio": "mc_wagner_offtopic"
+  },
+  "confused": [
+    {
+      "who": "wagner",
+      "type": "text",
+      "de": "Wie bitte? Die Verbindung ist schlecht. Wir sind im Tunnel.",
+      "emoji": "📶",
+      "en": "Pardon? The connection is bad. We’re in a tunnel.",
+      "audio": "mc_wagner_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "wagner",
+        "type": "text",
+        "de": "{name}, Sie haben es geschafft! Ich sehe Sie rennen. Gleis drei. Tür zu. Perfekt.",
+        "en": "{name}, you made it! I can see you running. Platform three. Doors shut. Perfect."
+      },
+      {
+        "who": "wagner",
+        "type": "text",
+        "de": "Der erste pünktliche Mensch heute. Und die erste pünktliche Kuh. Ungefähr.",
+        "emoji": "🏃",
+        "en": "The first punctual human today. And the first punctual cow. Roughly.",
+        "audio": "mc_wagner_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "wagner",
+        "type": "text",
+        "de": "Der Zug ist weg. Berta auch. Sie war schneller als Sie. Aber der nächste Zug kommt in einer Stunde. Ungefähr. Hier, nehmen Sie meinen Kaffee.",
+        "emoji": "☕",
+        "en": "The train has gone. Berta too. She was faster than you. But the next train comes in an hour. Roughly. Here, have my coffee.",
+        "audio": "mc_wagner_partial"
+      }
+    ],
+    "deleted": {
+      "ticket": {
+        "who": "wagner",
+        "type": "text",
+        "de": "Ohne Fahrkarte … Nächster Halt: Sie steigen aus. Gute Reise. Ungefähr.",
+        "emoji": "🎫",
+        "en": "No ticket … Next stop: you get off. Have a good trip. Roughly.",
+        "audio": "mc_wagner_del_ticket"
+      },
+      "berlin": {
+        "who": "wagner",
+        "type": "text",
+        "de": "Sie sind jetzt im Zug nach Berlin. Auch schön. Aber ohne mich. Auf Wiedersehen.",
+        "en": "You’re on the train to Berlin now. Also nice. But without me. Goodbye.",
+        "audio": "mc_wagner_del_berlin"
+      },
+      "luggage": {
+        "who": "wagner",
+        "type": "text",
+        "de": "So viel Gepäck in fünf Minuten? Das schafft niemand. Nicht mal Berta. Auf Wiedersehen.",
+        "emoji": "🧳",
+        "en": "That much luggage in five minutes? Nobody can do that. Not even Berta. Goodbye.",
+        "audio": "mc_wagner_del_luggage"
+      },
+      "confused": {
+        "who": "wagner",
+        "type": "text",
+        "de": "Ich verstehe Sie nicht. Und ich verstehe sogar unsere Durchsagen. Auf Wiedersehen.",
+        "en": "I don’t understand you. And I even understand our announcements. Goodbye.",
+        "audio": "mc_wagner_del_confused"
+      },
+      "default": {
+        "who": "wagner",
+        "type": "text",
+        "de": "Ich wünsche Ihnen eine gute Reise. Ohne mich. Auf Wiedersehen.",
+        "en": "I wish you a good journey. Without me. Goodbye.",
+        "audio": "mc_wagner_del_default"
+      }
+    },
+    "sunday": {
+      "who": "wagner",
+      "type": "voice",
+      "audio": "mc_wagner_vn_sunday",
+      "de": "Wagner hier. Es ist Sonntag. Berta schickt mir eine Postkarte. Aus Hamburg. Darauf steht nur: Muh. Ich lege sie in mein Album. Nummer 41 204.",
+      "en": "Wagner here. It’s Sunday. Berta sent me a postcard. From Hamburg. All it says is: moo. I’m putting it in my album. Number 41,204.",
+      "direction": "Calm and content outdoors, birdsong, a distant cowbell and a soft moo near the end."
+    }
+  },
+  "partialTitle": "Eine Stunde später. Ungefähr.",
+  "share": {
+    "win": "Herr Wagner (61, Zugbegleiter) hat mich geliked 🚆 Ich habe meinen Anschluss! Die Kuh Berta auch 🐄 Mein Deutsch: {score}/100. Schaffst du es pünktlich? {url}",
+    "partial": "Ich habe meinen Anschluss verpasst … eine Kuh war schneller als ich 🐄 Aber Herr Wagner (61) hat mir seinen Kaffee gegeben ☕ Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Herr Wagner (61, Zugbegleiter) hat mich gelöscht 💔 Ungefähr. Mein Deutsch: {score}/100. Schaffst du deinen Anschluss? {url}"
+  },
+  "imageCharacter": "Herr Wagner, a 61-year-old train conductor, tall and thin, a grey walrus moustache, tired but kind droopy eyes, a dark-blue conductor’s uniform with a peaked cap, a ticket machine on a strap across his chest, a steel thermos flask in one hand.",
+  "imagePrompts": [
+    {
+      "id": "match_wagner",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands in the aisle of a regional train carriage, looking at his wristwatch with a resigned little smile; through the window behind him a brown-and-white cow stands calmly on the tracks in a green field. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_wagner_ticket",
+      "aspect": "3:4",
+      "prompt": "A phone photo, from directly above, of one printed train ticket lying flat on a small fold-down train table. The ticket is plain white paper, completely blank, nothing printed on it. Next to it a paper coffee cup. At the edge of the frame a window with green fields."
+    },
+    {
+      "id": "match_wagner_board",
+      "aspect": "16:9",
+      "prompt": "A phone photo of a big station departure board hanging under a station roof, seen exactly straight on: one large black rectangular board with four empty dark rows, completely blank, nothing written on it. Below it, a few blurred travellers with suitcases. Grey daylight."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich fahre nach Hamburg. Hier ist meine Fahrkarte.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich fährst nach Hamburg.",
+      "score": 80,
+      "intent": "hamburg",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich muss nach Hamburg.",
+      "score": 100,
+      "intent": "hamburg",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Hier ist mein Fahrkarte.",
+      "score": 85,
+      "intent": "ticket",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe keine Fahrkarte.",
+      "score": 100,
+      "intent": "noTicket",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich fahre nach Hannover.",
+      "score": 100,
+      "intent": "hannover",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich fahre nach Berlin.",
+      "score": 100,
+      "intent": "berlin",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich nach Hamburg.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Eine Kuh steht auf dem Gleis.",
+      "score": 100,
+      "intent": "cow",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Wegen einer Kuh.",
+      "score": 100,
+      "intent": "cow",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Wegen eine Kuh.",
+      "score": 85,
+      "intent": "cow",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Eine Kuh ist auf den Gleis.",
+      "score": 85,
+      "intent": "cow",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ein Baum ist auf dem Gleis.",
+      "score": 100,
+      "intent": "tree",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Wegen Schnee.",
+      "score": 100,
+      "intent": "snow",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich weiß nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Vierzig Minuten.",
+      "score": 100,
+      "intent": "minutes",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich Kuh nicht.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ein Dinosaurier steht auf dem Gleis.",
+      "score": 100,
+      "intent": "dino",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Er fährt um vierzehn Uhr zehn ab.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Um vierzehn Uhr zehn.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Meine Zug fährt um vierzehn Uhr zehn ab.",
+      "score": 85,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Er fahrt um vierzehn Uhr zehn ab.",
+      "score": 80,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Er fährt um vierzehn Uhr vierzig ab.",
+      "score": 100,
+      "intent": "arrival",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Er fährt von Gleis fünf ab.",
+      "score": 100,
+      "intent": "platform",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Mein Zug kommt um vierzehn Uhr an.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Um zehn Uhr.",
+      "score": 100,
+      "intent": "ten",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Er um vierzehn Uhr zehn.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich kann den nächsten Zug nehmen.",
+      "score": 100,
+      "intent": "nextTrain",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich kann nehmen den nächsten Zug.",
+      "score": 70,
+      "intent": "nextTrain",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich kann der nächste Zug nehmen.",
+      "score": 70,
+      "intent": "nextTrain",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich kannst den nächsten Zug nehmen.",
+      "score": 80,
+      "intent": "nextTrain",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich kann ein Taxi nehmen.",
+      "score": 100,
+      "intent": "taxi",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich muss laufen.",
+      "score": 100,
+      "intent": "walk",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich will weinen.",
+      "score": 100,
+      "intent": "cry",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich kann in Hannover warten.",
+      "score": 100,
+      "intent": "wait",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich den nächsten Zug.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich kann auf der Kuh reiten.",
+      "score": 100,
+      "intent": "ride",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich kann auf die Kuh reiten.",
+      "score": 85,
+      "intent": "ride",
+      "delta": 0
+    },
+    {
+      "turn": "t5",
+      "say": "Der Zug fährt von Gleis drei ab.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich muss auf Gleis drei sein.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich muss sein auf Gleis drei.",
+      "score": 70,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Gleis sieben.",
+      "score": 100,
+      "intent": "berlin",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Von Gleis zwölf.",
+      "score": 100,
+      "intent": "cancelled",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Der Zug fährt nach Hamburg.",
+      "score": 100,
+      "intent": "hamburg",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich Gleis drei.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe nur einen Rucksack.",
+      "score": 100,
+      "intent": "backpack",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Nein, ich habe kein Gepäck.",
+      "score": 100,
+      "intent": "none",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe ein Rucksack.",
+      "score": 85,
+      "intent": "backpack",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hat eine Tasche.",
+      "score": 80,
+      "intent": "bag",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe drei Koffer.",
+      "score": 100,
+      "intent": "three",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe einen Koffer.",
+      "score": 100,
+      "intent": "suitcase",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe ein Fahrrad.",
+      "score": 100,
+      "intent": "bike",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe viel Gepäck.",
+      "score": 100,
+      "intent": "lots",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich einen Koffer.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe keinen Koffer.",
+      "score": 100,
+      "intent": "noStuff",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe kein Fahrrad.",
+      "score": 100,
+      "intent": "noStuff",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe eine Kuh.",
+      "score": 100,
+      "intent": "cow",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Danke, Herr Wagner! Viele Grüße an Berta!",
+      "score": 100,
+      "intent": "bertaUnknown",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich steige jetzt um.",
+      "score": 100,
+      "intent": "change",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich steigt jetzt um.",
+      "score": 80,
+      "intent": "change",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich muss jetzt umsteigen.",
+      "score": 100,
+      "intent": "change",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich muss umsteigen jetzt.",
+      "score": 70,
+      "intent": "change",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich muss schnell rennen.",
+      "score": 100,
+      "intent": "run",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Danke!",
+      "score": 100,
+      "intent": "thanks",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich warte.",
+      "score": 100,
+      "intent": "wait",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Tschüss!",
+      "score": 100,
+      "intent": "bye",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich jetzt Berta.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich fahre nach Hamburg. Hier ist meine Fahrkarte."
+        ],
+        [
+          "t2",
+          "Eine Kuh steht auf dem Gleis."
+        ],
+        [
+          "t3",
+          "Er fährt um vierzehn Uhr zehn ab."
+        ],
+        [
+          "t4",
+          "Ich kann den nächsten Zug nehmen."
+        ],
+        [
+          "t5",
+          "Der Zug fährt von Gleis drei ab."
+        ],
+        [
+          "t6",
+          "Ich habe nur einen Rucksack."
+        ],
+        [
+          "t7",
+          "Danke, Herr Wagner! Viele Grüße an Berta!"
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich fahre nach Hannover."
+        ],
+        [
+          "t2",
+          "Ich weiß nicht."
+        ],
+        [
+          "t3",
+          "Er fährt um vierzehn Uhr vierzig ab."
+        ],
+        [
+          "t4",
+          "Ich will weinen."
+        ],
+        [
+          "t5",
+          "Gleis sieben."
+        ],
+        [
+          "t6",
+          "Ich habe einen Koffer."
+        ],
+        [
+          "t7",
+          "Tschüss!"
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich habe keine Fahrkarte."
+        ],
+        [
+          "t2",
+          "Ich weiß nicht."
+        ],
+        [
+          "t3",
+          "Er fährt um vierzehn Uhr vierzig ab."
+        ],
+        [
+          "t4",
+          "Ich muss laufen."
+        ]
+      ]
+    }
+  ]
+}

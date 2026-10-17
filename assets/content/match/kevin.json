@@ -1,0 +1,2207 @@
+{
+  "id": "kevin",
+  "name": "Kevin",
+  "age": 6,
+  "emoji": "🐦",
+  "image": "match_kevin",
+  "level": "A1.1",
+  "order": 5,
+  "bio": "Ich wohne im Hauptbahnhof. Ich kenne jeden Zug.",
+  "bioEn": "I live in the main station. I know every train.",
+  "goal": "Find out which platform your train leaves from, and get there in time.",
+  "tagline": "Taube · 6 · Hauptbahnhof",
+  "voice": "Puck",
+  "brief": "Kevin, a six-year-old Berlin station pigeon: a quick, chirpy, slightly raspy young male voice with big-city swagger, very proud of his station knowledge, coos (\"Gurr\") between sentences and gets distracted by crumbs.",
+  "focus": "Zahlen · Uhrzeit · wo / in / auf · Gleis",
+  "lexicon": {
+    "nouns": {
+      "Hunger": "m",
+      "Krümel": "pl",
+      "Tourist": "m",
+      "Zug": "m",
+      "Gleis": "n",
+      "Café": "n",
+      "Halle": "f",
+      "Toilette": "f",
+      "Treppe": "f",
+      "Fischbrötchen": "n",
+      "Brezel": "f",
+      "Postkarte": "f",
+      "Möwe": "f",
+      "Dach": "n",
+      "Hut": "m"
+    },
+    "names": [
+      "Hamburg",
+      "Berlin",
+      "München",
+      "Köln"
+    ],
+    "verbs": [
+      "heiße",
+      "heißt",
+      "bin",
+      "bist",
+      "ist",
+      "sind",
+      "habe",
+      "fahre",
+      "fährst",
+      "fährt",
+      "fahren",
+      "weiß",
+      "gehe",
+      "gehst",
+      "laufe",
+      "nehme",
+      "bringe",
+      "bringst"
+    ],
+    "accVerbs": [
+      "habe",
+      "nehme",
+      "bringe",
+      "bringst"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "kevin",
+      "type": "text",
+      "de": "Gurr! Ich bin Kevin. Ich bin sechs. Ich wohne im Hauptbahnhof.",
+      "emoji": "🐦",
+      "en": "Coo! I'm Kevin. I'm six. I live in the main station.",
+      "audio": "mc_kevin_intro_a"
+    },
+    {
+      "who": "kevin",
+      "type": "text",
+      "de": "Ich kenne jeden Zug. Und jeden Krümel.",
+      "en": "I know every train. And every crumb.",
+      "audio": "mc_kevin_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Du siehst verloren aus. Wie heißt du?",
+          "en": "You look lost. What's your name?",
+          "audio": "mc_kevin_t1a"
+        }
+      ],
+      "tiles": [
+        "hallo",
+        "ich",
+        "ich",
+        "heiße",
+        "heißt",
+        "bin",
+        "bin",
+        "{name}",
+        "nicht",
+        "verloren",
+        "habe",
+        "Hunger",
+        "Krümel",
+        "keine",
+        "und",
+        "Tourist"
+      ],
+      "wrong": {
+        "heißt": "heiße"
+      },
+      "intents": [
+        {
+          "id": "crumbsNo",
+          "when": {
+            "all": [
+              "krümel"
+            ],
+            "any": [
+              "keine"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Keine Krümel? Schade. Gurr.",
+              "en": "No crumbs? Shame. Coo.",
+              "audio": "mc_kevin_t1_nocrumbs"
+            }
+          ]
+        },
+        {
+          "id": "crumbs",
+          "when": {
+            "any": [
+              "krümel"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "crumbs"
+          ],
+          "fact": "🥐 teilt Krümel",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Krümel?! Du bist mein Freund!",
+              "emoji": "😍",
+              "en": "Crumbs?! You're my friend!",
+              "audio": "mc_kevin_t1_crumbs"
+            }
+          ]
+        },
+        {
+          "id": "notLost",
+          "when": {
+            "all": [
+              "verloren",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Nicht? Du schaust seit zehn Minuten auf die Uhr. Gurr.",
+              "en": "No? You've been staring at the clock for ten minutes. Coo.",
+              "audio": "mc_kevin_t1_notlost"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "{name}"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "{name}! Gurr. Schöner Name. Wie ein Zug nach Paris.",
+              "en": "{name}! Coo. Nice name. Like a train to Paris."
+            }
+          ]
+        },
+        {
+          "id": "lost",
+          "when": {
+            "any": [
+              "verloren"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Verloren! Ehrlich. Gut. Kevin hilft.",
+              "en": "Lost! Honest. Good. Kevin will help.",
+              "audio": "mc_kevin_t1_lost"
+            }
+          ]
+        },
+        {
+          "id": "hunger",
+          "when": {
+            "any": [
+              "hunger"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Hunger? Ich auch. Immer.",
+              "en": "Hungry? Me too. Always.",
+              "audio": "mc_kevin_t1_hunger"
+            }
+          ]
+        },
+        {
+          "id": "tourist",
+          "when": {
+            "any": [
+              "tourist"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Tourist! Willkommen in Berlin. Pass auf deine Brezel auf.",
+              "en": "A tourist! Welcome to Berlin. Watch your pretzel.",
+              "audio": "mc_kevin_t1_tourist"
+            }
+          ]
+        },
+        {
+          "id": "greeting",
+          "when": {
+            "any": [
+              "hallo"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Hallo! Gurr! … Und dein Name?",
+              "en": "Hello! Coo! … And your name?",
+              "audio": "mc_kevin_t1_greet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Ich fliege über dich. Ich lese deine Fahrkarte: Ham … Hamburg. Abfahrt vierzehn Uhr zwölf. Oder vierzehn Hamster. Ich habe einen Krümel im Auge.",
+          "emoji": "🎫",
+          "en": "I'm flying over you. I'm reading your ticket: Ham … Hamburg. Departure fourteen twelve. Or fourteen hamsters. I have a crumb in my eye.",
+          "audio": "mc_kevin_t2a"
+        },
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Hilf mir. Wohin fährst du, und wann? Bitte keine Hamster. Ich habe Angst vor Hamstern.",
+          "en": "Help me out. Where are you going, and when? No hamsters, please. I'm scared of hamsters.",
+          "audio": "mc_kevin_t2b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "fahre",
+        "fährst",
+        "nach",
+        "Hamburg",
+        "Berlin",
+        "München",
+        "um",
+        "vierzehn Uhr zwölf",
+        "zwölf Uhr vierzehn",
+        "zwei Uhr",
+        "und",
+        "heute",
+        "mein",
+        "Zug",
+        "fährt"
+      ],
+      "wrong": {
+        "fährst": "fahre"
+      },
+      "intents": [
+        {
+          "id": "berlin",
+          "when": {
+            "any": [
+              "berlin"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Nach Berlin? Du BIST in Berlin. Gurr.",
+              "en": "To Berlin? You ARE in Berlin. Coo.",
+              "audio": "mc_kevin_t2_berlin"
+            }
+          ]
+        },
+        {
+          "id": "munich",
+          "when": {
+            "any": [
+              "münchen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "München? Nein! Da steht Hamburg. Oder Hamster. Aber nicht München.",
+              "en": "Munich? No! It says Hamburg. Or hamster. But not Munich.",
+              "audio": "mc_kevin_t2_munich"
+            }
+          ]
+        },
+        {
+          "id": "wrongTime",
+          "when": {
+            "any": [
+              "zwölf uhr vierzehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Zwölf Uhr vierzehn? Dann ist dein Zug schon weg. Seit zwei Stunden.",
+              "en": "Twelve fourteen? Then your train's already gone. Two hours ago.",
+              "audio": "mc_kevin_t2_wrongtime"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "hamburg",
+              "vierzehn uhr zwölf"
+            ]
+          },
+          "value": 2,
+          "fact": "🎫 liest Fahrkarten",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Genau! Hamburg, vierzehn Uhr zwölf. Du liest gut. Für einen Menschen.",
+              "en": "Exactly! Hamburg, 2:12 pm. You read well. For a human.",
+              "audio": "mc_kevin_t2_both"
+            }
+          ]
+        },
+        {
+          "id": "hamburgTwo",
+          "when": {
+            "all": [
+              "hamburg",
+              "zwei uhr"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Hamburg, ja! Aber zwei Uhr? Fast. Vierzehn Uhr zwölf! Jede Minute ist wichtig.",
+              "en": "Hamburg, yes! But two o’clock? Almost. 2:12 pm! Every minute counts.",
+              "audio": "mc_kevin_t2_hamburgtwo"
+            }
+          ]
+        },
+        {
+          "id": "twoish",
+          "when": {
+            "any": [
+              "zwei uhr"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Zwei Uhr? Fast. Zwei Uhr und zwölf Minuten! Jede Minute ist wichtig.",
+              "en": "Two? Almost. Two and twelve minutes! Every minute counts.",
+              "audio": "mc_kevin_t2_twoish"
+            }
+          ]
+        },
+        {
+          "id": "hamburg",
+          "when": {
+            "any": [
+              "hamburg"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Hamburg! Schön. Fischbrötchen! Und wann?",
+              "emoji": "🐟",
+              "en": "Hamburg! Nice. Fish rolls! And when?",
+              "audio": "mc_kevin_t2_hamburg"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "when": {
+            "any": [
+              "vierzehn uhr zwölf"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Um vierzehn Uhr zwölf, ja. Und wohin? Hamburg!",
+              "en": "At 2:12 pm, yes. And where to? Hamburg!",
+              "audio": "mc_kevin_t2_time"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Gut. Hier ist die Anzeigetafel. Ich sitze oben drauf.",
+          "emoji": "📷",
+          "en": "Good. Here's the departures board. I'm sitting on top of it.",
+          "audio": "mc_kevin_t3a"
+        },
+        {
+          "who": "kevin",
+          "type": "photo",
+          "image": "match_kevin_board",
+          "wide": true,
+          "overlay": [
+            "ABFAHRT",
+            "14:05   München   Gleis 3",
+            "14:12   Hamburg   Gleis 7",
+            "14:20   Köln   Gleis 12"
+          ],
+          "alt": "Die Anzeigetafel: 14 Uhr 05, München, Gleis 3. 14 Uhr 12, Hamburg, Gleis 7. 14 Uhr 20, Köln, Gleis 12. Oben auf der Tafel sitzt eine Taube."
+        },
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Von welchem Gleis fährt dein Zug?",
+          "en": "Which platform does your train leave from?",
+          "audio": "mc_kevin_t3b"
+        }
+      ],
+      "tiles": [
+        "mein",
+        "meine",
+        "Zug",
+        "fährt",
+        "fahren",
+        "von",
+        "Gleis",
+        "drei",
+        "sieben",
+        "zwölf",
+        "ich",
+        "weiß",
+        "es",
+        "nicht",
+        "nach",
+        "Köln",
+        "Hamburg"
+      ],
+      "wrong": {
+        "fahren": "fährt"
+      },
+      "intents": [
+        {
+          "id": "dontKnow",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Lies noch mal: Hamburg … Gleis sieben! Gurr.",
+              "en": "Read it again: Hamburg … platform seven! Coo.",
+              "audio": "mc_kevin_t3_dunno"
+            }
+          ]
+        },
+        {
+          "id": "three",
+          "when": {
+            "any": [
+              "drei"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Gleis drei ist München. Du willst Weißwurst? Nein. Hamburg!",
+              "en": "Platform three is Munich. You want white sausage? No. Hamburg!",
+              "audio": "mc_kevin_t3_three"
+            }
+          ]
+        },
+        {
+          "id": "twelve",
+          "when": {
+            "any": [
+              "zwölf",
+              "köln"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Gleis zwölf ist Köln. Falscher Zug!",
+              "en": "Platform twelve is Cologne. Wrong train!",
+              "audio": "mc_kevin_t3_twelve"
+            }
+          ]
+        },
+        {
+          "id": "seven",
+          "when": {
+            "any": [
+              "sieben"
+            ]
+          },
+          "value": 1,
+          "fact": "👀 liest Anzeigetafeln",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Gleis sieben! Richtig. Gurr. … Moment. Ich höre etwas.",
+              "emoji": "👂",
+              "en": "Platform seven! Right. Coo. … Wait. I hear something.",
+              "audio": "mc_kevin_t3_seven"
+            }
+          ]
+        },
+        {
+          "id": "hamburg",
+          "when": {
+            "any": [
+              "hamburg"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Ja, nach Hamburg. Aber von welchem Gleis? Sieben!",
+              "en": "Yes, to Hamburg. But from which platform? Seven!",
+              "audio": "mc_kevin_t3_hamburg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "kevin",
+          "type": "voice",
+          "audio": "mc_kevin_vn_durchsage",
+          "de": "Achtung, eine Durchsage! Der Zug nach Hamburg, Abfahrt vierzehn Uhr zwölf, fährt heute von Gleis vierzehn. Nicht von Gleis sieben. Gleis vierzehn! Wir bitten um Entschuldigung. Gurr.",
+          "en": "Attention, an announcement! The train to Hamburg, departing at 2:12 pm, leaves today from platform fourteen. Not from platform seven. Platform fourteen! We apologise for the inconvenience. Coo.",
+          "direction": "Imitating a booming, echoing station loudspeaker announcement, very official and slow, station hubbub around; then breaking character with a proud little coo at the very end."
+        },
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Das war ich. Ich mache die Durchsagen. Also: Welches Gleis jetzt?",
+          "emoji": "📢",
+          "en": "That was me. I do the announcements. So: which platform now?",
+          "audio": "mc_kevin_t4a"
+        }
+      ],
+      "tiles": [
+        "Gleis",
+        "vierzehn",
+        "vier",
+        "sieben",
+        "mein",
+        "Zug",
+        "fährt",
+        "fahren",
+        "von",
+        "heute",
+        "nicht",
+        "ich",
+        "weiß",
+        "es",
+        "du",
+        "bist",
+        "lustig"
+      ],
+      "wrong": {
+        "fahren": "fährt"
+      },
+      "intents": [
+        {
+          "id": "fourteen",
+          "when": {
+            "any": [
+              "vierzehn"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "heard"
+          ],
+          "fact": "👂 hört Durchsagen",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Gleis vierzehn! Du hörst gut zu. Gurr!",
+              "emoji": "🎉",
+              "en": "Platform fourteen! You listen well. Coo!",
+              "audio": "mc_kevin_t4_fourteen"
+            }
+          ]
+        },
+        {
+          "id": "four",
+          "when": {
+            "any": [
+              "vier"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Vier? VIERZEHN! Putz mal deine Ohren. Gurr.",
+              "en": "Four? FOURTEEN! Clean your ears. Coo.",
+              "audio": "mc_kevin_t4_four"
+            }
+          ]
+        },
+        {
+          "id": "notSeven",
+          "when": {
+            "all": [
+              "sieben",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Richtig, nicht Gleis sieben. Aber welches dann? Vierzehn!",
+              "en": "Right, not platform seven. But which one then? Fourteen!",
+              "audio": "mc_kevin_t4_notseven"
+            }
+          ]
+        },
+        {
+          "id": "seven",
+          "when": {
+            "any": [
+              "sieben"
+            ]
+          },
+          "value": -2,
+          "cause": "missed",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Sieben?! Hast du meine Durchsage nicht gehört? Ich habe so schön gesprochen!",
+              "emoji": "😤",
+              "en": "Seven?! Didn't you hear my announcement? I spoke so beautifully!",
+              "audio": "mc_kevin_t4_seven"
+            }
+          ]
+        },
+        {
+          "id": "funny",
+          "when": {
+            "any": [
+              "lustig"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Lustig? Das ist mein Job! Und mein Hobby. Gleis vierzehn!",
+              "en": "Funny? That's my job! And my hobby. Platform fourteen!",
+              "audio": "mc_kevin_t4_funny"
+            }
+          ]
+        },
+        {
+          "id": "dontKnow",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Hör noch mal. Vierzehn! Gurr.",
+              "en": "Listen again. Fourteen! Coo.",
+              "audio": "mc_kevin_t4_dunno"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Wo bist du jetzt? Ich sehe dich nicht. Ich sehe nur Füße.",
+          "emoji": "👣",
+          "en": "Where are you now? I can't see you. I can only see feet.",
+          "audio": "mc_kevin_t5a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bin",
+        "bist",
+        "auf",
+        "Gleis",
+        "vierzehn",
+        "sieben",
+        "im",
+        "in",
+        "der",
+        "die",
+        "Café",
+        "Halle",
+        "Toilette",
+        "Zug",
+        "noch",
+        "schon",
+        "dem",
+        "Dach"
+      ],
+      "wrong": {
+        "bist": "bin"
+      },
+      "intents": [
+        {
+          "id": "atSeven",
+          "when": {
+            "any": [
+              "sieben"
+            ]
+          },
+          "value": -2,
+          "cause": "missed",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Gleis sieben?! Da fährt kein Zug nach Hamburg. Da sitzt nur mein Cousin Detlef.",
+              "en": "Platform seven?! There's no train to Hamburg there. Only my cousin Detlef sits there.",
+              "audio": "mc_kevin_t5_seven"
+            }
+          ]
+        },
+        {
+          "id": "fourteen",
+          "when": {
+            "any": [
+              "vierzehn"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Gleis vierzehn? Super! Hm … Ich sehe dich aber unten. Bei Gleis vier. Egal! Ich fliege zu dir.",
+              "emoji": "🐦",
+              "en": "Platform fourteen? Great! Hm … But I can see you downstairs. At platform four. Never mind! I’m flying to you.",
+              "audio": "mc_kevin_t5_fourteen"
+            }
+          ]
+        },
+        {
+          "id": "roof",
+          "when": {
+            "any": [
+              "dach"
+            ]
+          },
+          "value": 0,
+          "fact": "🏠 steht auf dem Bahnhofsdach",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Auf dem Dach?! Hallo, Nachbar! Das ist mein Dach. Hier wohnt meine Oma. Sie ist sauer. Runter, schnell!",
+              "en": "On the roof?! Hello, neighbour! That's my roof. My grandma lives here. She's cross. Get down, quick!",
+              "audio": "mc_kevin_t5_roof"
+            }
+          ]
+        },
+        {
+          "id": "cafe",
+          "when": {
+            "any": [
+              "café"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Im Café? Bring mir einen Krümel! Aber schnell!",
+              "emoji": "☕",
+              "en": "In the café? Bring me a crumb! But quickly!",
+              "audio": "mc_kevin_t5_cafe"
+            }
+          ]
+        },
+        {
+          "id": "toilet",
+          "when": {
+            "any": [
+              "toilette"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Auf der Toilette? Das kostet einen Euro. Und viel Zeit!",
+              "emoji": "🚻",
+              "en": "On the toilet? That costs a euro. And lots of time!",
+              "audio": "mc_kevin_t5_toilet"
+            }
+          ]
+        },
+        {
+          "id": "hall",
+          "when": {
+            "any": [
+              "halle"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "In der Halle. Gut. Und jetzt? Nach oben!",
+              "en": "In the hall. Good. And now? Upstairs!",
+              "audio": "mc_kevin_t5_hall"
+            }
+          ]
+        },
+        {
+          "id": "train",
+          "when": {
+            "any": [
+              "zug"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Im Zug? Schon? Welcher Zug?! … Okay. Ich vertraue dir.",
+              "en": "On the train? Already? Which train?! … Okay. I trust you.",
+              "audio": "mc_kevin_t5_train"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Wie spät ist es? Ich kann die Uhr nicht lesen. Ich bin eine Taube. Für mich ist es immer Krümel-Uhr.",
+          "emoji": "⏰",
+          "en": "What time is it? I can't read the clock. I'm a pigeon. For me it's always crumb o'clock.",
+          "audio": "mc_kevin_t6a"
+        },
+        {
+          "who": "kevin",
+          "type": "photo",
+          "image": "match_kevin_clock",
+          "overlay": [
+            "14:10"
+          ],
+          "alt": "Die Bahnhofsuhr: 14 Uhr 10."
+        },
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Ich sehe nur zwei Stöcke. Ein Stock ist lang. Lecker? Nein. Was sagt die Uhr?",
+          "en": "I only see two sticks. One stick is long. Tasty? No. What does the clock say?",
+          "audio": "mc_kevin_t6b"
+        }
+      ],
+      "tiles": [
+        "es",
+        "ist",
+        "sind",
+        "vierzehn Uhr zehn",
+        "zehn nach zwei",
+        "zehn vor zwei",
+        "halb drei",
+        "zwei Uhr",
+        "spät",
+        "sehr",
+        "schon",
+        "jetzt"
+      ],
+      "wrong": {
+        "sind": "ist"
+      },
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "vierzehn uhr zehn",
+              "zehn nach zwei"
+            ]
+          },
+          "value": 1,
+          "fact": "⏰ kann die Uhr lesen",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Genau. Noch zwei Minuten! Lauf! Gurr!",
+              "emoji": "🏃",
+              "en": "Exactly. Two minutes left! Run! Coo!",
+              "audio": "mc_kevin_t6_right"
+            }
+          ]
+        },
+        {
+          "id": "before",
+          "when": {
+            "any": [
+              "zehn vor zwei"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Zehn VOR zwei? Dann hast du Zeit. Aber nein! Es ist zehn NACH zwei!",
+              "en": "Ten TO two? Then you'd have time. But no! It's ten PAST two!",
+              "audio": "mc_kevin_t6_before"
+            }
+          ]
+        },
+        {
+          "id": "half",
+          "when": {
+            "any": [
+              "halb drei"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Halb drei? Dann ist dein Zug weg! … Nein, es ist zehn nach zwei. Schnell!",
+              "en": "Half past two? Then your train's gone! … No, it's ten past two. Quick!",
+              "audio": "mc_kevin_t6_half"
+            }
+          ]
+        },
+        {
+          "id": "two",
+          "when": {
+            "any": [
+              "zwei uhr"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Zwei Uhr? Fast. Zehn nach zwei! Schnell!",
+              "en": "Two o'clock? Almost. Ten past two! Quick!",
+              "audio": "mc_kevin_t6_two"
+            }
+          ]
+        },
+        {
+          "id": "late",
+          "when": {
+            "any": [
+              "spät"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Spät! Ja! Sehr spät! Lauf!",
+              "en": "Late! Yes! Very late! Run!",
+              "audio": "mc_kevin_t6_late"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Gleis vierzehn ist oben. Du bist unten. Noch zwei Minuten!",
+          "emoji": "🏃",
+          "en": "Platform fourteen is upstairs. You're downstairs. Two minutes left!",
+          "audio": "mc_kevin_t7a"
+        },
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Keine Panik. Meine Familie sitzt jetzt auf dem Zug. Zweihundert Tauben. Der Zug fährt nicht ohne dich.",
+          "emoji": "🐦",
+          "en": "Don't panic. My family is sitting on the train now. Two hundred pigeons. The train isn't leaving without you.",
+          "audio": "mc_kevin_t7_family"
+        },
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Wohin gehst du?",
+          "en": "Where are you going?",
+          "audio": "mc_kevin_t7b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "gehe",
+        "gehst",
+        "laufe",
+        "nach",
+        "oben",
+        "unten",
+        "zu",
+        "Gleis",
+        "vierzehn",
+        "sieben",
+        "ins",
+        "Café",
+        "schnell",
+        "nehme",
+        "die",
+        "den",
+        "Treppe"
+      ],
+      "wrong": {
+        "gehst": "gehe"
+      },
+      "intents": [
+        {
+          "id": "seven",
+          "when": {
+            "any": [
+              "sieben"
+            ]
+          },
+          "value": -2,
+          "cause": "missed",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Gleis sieben?! GURR! … Zum Glück hat dein Zug Verspätung. Lauf zu Gleis vierzehn!",
+              "emoji": "😱",
+              "en": "Platform seven?! COO! … Luckily your train is late. Run to platform fourteen!",
+              "audio": "mc_kevin_t7_seven"
+            }
+          ]
+        },
+        {
+          "id": "cafe",
+          "when": {
+            "any": [
+              "café"
+            ]
+          },
+          "value": -2,
+          "cause": "cafe",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Ins Café?! JETZT?! … Okay, dein Zug hat Verspätung. Glück gehabt.",
+              "emoji": "😱",
+              "en": "To the café?! NOW?! … Okay, your train is late. Lucky you.",
+              "audio": "mc_kevin_t7_cafe"
+            }
+          ]
+        },
+        {
+          "id": "down",
+          "when": {
+            "any": [
+              "unten"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Unten ist die U-Bahn! Nach OBEN!",
+              "en": "Downstairs is the underground! UP!",
+              "audio": "mc_kevin_t7_down"
+            }
+          ]
+        },
+        {
+          "id": "fourteen",
+          "when": {
+            "any": [
+              "vierzehn"
+            ]
+          },
+          "value": 2,
+          "fact": "🏃 erreicht jeden Zug",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Ja! Lauf! Ich fliege mit! Gurr gurr gurr!",
+              "emoji": "🚆",
+              "en": "Yes! Run! I am flying with you! Coo coo coo!",
+              "audio": "mc_kevin_t7_fourteen"
+            }
+          ]
+        },
+        {
+          "id": "up",
+          "when": {
+            "any": [
+              "oben"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Nach oben! Gut! Und dann rechts! Da ist der Zug mit den Tauben. Du siehst ihn. Er ist grau.",
+              "en": "Upstairs! Good! And then right! There's the train with the pigeons. You'll see it. It's grey.",
+              "audio": "mc_kevin_t7_up"
+            }
+          ]
+        },
+        {
+          "id": "stairs",
+          "when": {
+            "any": [
+              "treppe"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Die Treppe! Gut. Die Rolltreppe ist kaputt. Wie immer.",
+              "en": "The stairs! Good. The escalator is broken. As always.",
+              "audio": "mc_kevin_t7_stairs"
+            }
+          ]
+        },
+        {
+          "id": "fast",
+          "when": {
+            "any": [
+              "schnell"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Schnell, ja! Aber wohin?! Nach oben!",
+              "en": "Fast, yes! But where?! Upstairs!",
+              "audio": "mc_kevin_t7_fast"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Du bist im Zug! Gurr! Ich bin so stolz. Die zweihundert Tauben auch. Sie fliegen jetzt. Der Zug auch.",
+          "emoji": "🥲",
+          "en": "You're on the train! Coo! I'm so proud. The two hundred pigeons too. They're flying off now. So is the train.",
+          "audio": "mc_kevin_t8a"
+        },
+        {
+          "who": "kevin",
+          "type": "text",
+          "de": "Und ich? Was bringst du mir aus Hamburg mit?",
+          "en": "And me? What will you bring me from Hamburg?",
+          "audio": "mc_kevin_t8b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bringe",
+        "bringst",
+        "dir",
+        "ein",
+        "einen",
+        "eine",
+        "Fischbrötchen",
+        "Krümel",
+        "viele",
+        "nichts",
+        "mit",
+        "Brezel",
+        "Postkarte",
+        "Möwe",
+        "Hut"
+      ],
+      "wrong": {
+        "bringst": "bringe"
+      },
+      "intents": [
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Nichts? Gurr. Ich mache eine Durchsage über dich. Im ganzen Bahnhof. Zweimal.",
+              "emoji": "📢",
+              "en": "Nothing? Coo. I'll make an announcement about you. In the whole station. Twice.",
+              "audio": "mc_kevin_t8_nothing"
+            }
+          ]
+        },
+        {
+          "id": "gull",
+          "when": {
+            "any": [
+              "möwe"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Eine Möwe?! Möwen sind laut und frech! Nein danke!",
+              "en": "A seagull?! Seagulls are loud and cheeky! No thanks!",
+              "audio": "mc_kevin_t8_gull"
+            }
+          ]
+        },
+        {
+          "id": "hat",
+          "when": {
+            "any": [
+              "hut"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 bringt Tauben Hüte mit",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Einen Hut?! Für meinen Kopf? Ich bin dann eine Taube mit Hut. Detlef wird so neidisch. Gurr!",
+              "emoji": "🎩",
+              "en": "A hat?! For my head? Then I'll be a pigeon in a hat. Detlef will be so jealous. Coo!",
+              "audio": "mc_kevin_t8_hat"
+            }
+          ]
+        },
+        {
+          "id": "crumbs",
+          "when": {
+            "any": [
+              "krümel"
+            ]
+          },
+          "value": 2,
+          "fact": "🐦 hat eine Taube als Freund",
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Krümel aus Hamburg! Das ist mein Traum!",
+              "emoji": "😍",
+              "en": "Crumbs from Hamburg! That is my dream!",
+              "audio": "mc_kevin_t8_crumbs"
+            }
+          ]
+        },
+        {
+          "id": "fish",
+          "when": {
+            "any": [
+              "fischbrötchen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Ein Fischbrötchen! Für eine Taube! Du bist verrückt. Ich liebe es.",
+              "emoji": "🐟",
+              "en": "A fish roll! For a pigeon! You're crazy. I love it.",
+              "audio": "mc_kevin_t8_fish"
+            }
+          ]
+        },
+        {
+          "id": "brezel",
+          "when": {
+            "any": [
+              "brezel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Eine Brezel! Ganz? Für mich? Gurr!",
+              "emoji": "🥨",
+              "en": "A pretzel! A whole one? For me? Coo!",
+              "audio": "mc_kevin_t8_brezel"
+            }
+          ]
+        },
+        {
+          "id": "postcard",
+          "when": {
+            "any": [
+              "postkarte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kevin",
+              "type": "text",
+              "de": "Eine Postkarte? Kann ich nicht essen. Aber okay. Für mein Nest.",
+              "en": "A postcard? Can't eat it. But okay. For my nest.",
+              "audio": "mc_kevin_t8_postcard"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "kevin",
+    "type": "text",
+    "de": "Gurr? Das war nicht meine Frage.",
+    "en": "Coo? That wasn't my question.",
+    "audio": "mc_kevin_offtopic"
+  },
+  "confused": [
+    {
+      "who": "kevin",
+      "type": "text",
+      "de": "Gurr? Hä?",
+      "emoji": "😅",
+      "en": "Coo? Huh?",
+      "audio": "mc_kevin_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "kevin",
+        "type": "text",
+        "de": "Gurr! Gute Reise, {name}!",
+        "en": "Coo! Have a good trip, {name}!"
+      },
+      {
+        "who": "kevin",
+        "type": "text",
+        "de": "Und denk an die Krümel. Ich warte. Auf Gleis vierzehn.",
+        "emoji": "🐦",
+        "en": "And remember the crumbs. I'll be waiting. On platform fourteen.",
+        "audio": "mc_kevin_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "kevin",
+        "type": "text",
+        "de": "Du bist im Zug. Aber im falschen Wagen. Erste Klasse. Der Schaffner kommt. Gurr.",
+        "emoji": "😬",
+        "en": "You're on the train. But in the wrong carriage. First class. The conductor's coming. Coo.",
+        "audio": "mc_kevin_partial"
+      }
+    ],
+    "deleted": {
+      "missed": {
+        "who": "kevin",
+        "type": "text",
+        "de": "Dein Zug ist weg. Ich bin eine Taube, kein Taxi. Gurr. Tschüss.",
+        "emoji": "🚆💨",
+        "en": "Your train has gone. I'm a pigeon, not a taxi. Coo. Bye.",
+        "audio": "mc_kevin_del_missed"
+      },
+      "cafe": {
+        "who": "kevin",
+        "type": "text",
+        "de": "Café statt Zug? Dann trink deinen Kaffee. Allein. Tschüss.",
+        "en": "Café instead of the train? Then drink your coffee. Alone. Bye.",
+        "audio": "mc_kevin_del_cafe"
+      },
+      "confused": {
+        "who": "kevin",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Ich spreche Taube und Deutsch. Du nicht. Tschüss.",
+        "en": "I don't understand you. I speak Pigeon and German. You don't. Bye.",
+        "audio": "mc_kevin_del_confused"
+      },
+      "default": {
+        "who": "kevin",
+        "type": "text",
+        "de": "Gurr. Du bist nett. Aber du bist kein Bahnhofsmensch. Tschüss.",
+        "en": "Coo. You're nice. But you're not a station person. Bye.",
+        "audio": "mc_kevin_del_default"
+      }
+    },
+    "sunday": {
+      "who": "kevin",
+      "type": "voice",
+      "audio": "mc_kevin_vn_sunday",
+      "de": "Gurr! Sonntag! Ich sitze auf Gleis vierzehn. Der Zug aus Hamburg hat zehn Minuten Verspätung. Natürlich. Ich warte. Mit Hunger.",
+      "en": "Coo! Sunday! I'm sitting on platform fourteen. The train from Hamburg is ten minutes late. Of course. I'm waiting. Hungry.",
+      "direction": "Cheerful and a bit impatient, station noise and a distant announcement chime behind him; a hungry little coo at the end."
+    }
+  },
+  "partialTitle": "Im Zug. In der ersten Klasse.",
+  "share": {
+    "win": "Kevin (6, Bahnhofstaube) hat mich zum Zug gebracht 🐦🚆 Gleis vierzehn, pünktlich! Mein Deutsch: {score}/100. Findest du dein Gleis? {url}",
+    "partial": "Ich habe den Zug geschafft … aber ich sitze in der ersten Klasse 😬 Danke, Kevin (6, Taube). Mein Deutsch: {score}/100. {url}",
+    "deleted": "Kevin (6, Bahnhofstaube) hat mich gelöscht 🐦💔 Mein Zug ist weg. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Kevin, a plump grey Berlin city pigeon with a shimmering green-and-purple neck, bright orange eyes, one slightly crooked toe and a tiny conductor's cap tipped sideways on his head; he puffs his chest out like he owns the place.",
+  "imagePrompts": [
+    {
+      "id": "match_kevin",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands on a railway platform edge in a big glass-roofed main station, one wing pointing proudly towards a train behind him, beak up, looking at the viewer. A few crumbs at his feet. Upper body and head clearly visible, centred."
+    },
+    {
+      "id": "match_kevin_board",
+      "aspect": "16:9",
+      "prompt": "A phone photo of a big station departures board hanging under a glass roof, seen exactly from the front. The board is one plain dark-blue rectangle that fills most of the picture and is COMPLETELY empty: no letters, no numbers, no lines, just a blank dark-blue screen. On the top edge of the board sits {self}, looking down proudly. Blurred travellers below."
+    },
+    {
+      "id": "match_kevin_clock",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a rectangular digital station clock hanging from a steel beam, seen straight on. Its display is a plain, glowing, completely blank dark panel with no digits or markings at all. In the background a blurred station hall with a staircase leading up."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Hallo! Ich heiße {name}.",
+      "score": 100,
+      "intent": "name",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heißt {name}.",
+      "score": 80,
+      "intent": "name",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin verloren.",
+      "score": 100,
+      "intent": "lost",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin nicht verloren.",
+      "score": 100,
+      "intent": "notLost",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe Krümel.",
+      "score": 100,
+      "intent": "crumbs",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe keine Krümel.",
+      "score": 100,
+      "intent": "crumbsNo",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe Hunger.",
+      "score": 100,
+      "intent": "hunger",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin Tourist.",
+      "score": 100,
+      "intent": "tourist",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo!",
+      "score": 100,
+      "intent": "greeting",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich Tourist.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich fahre um vierzehn Uhr zwölf nach Hamburg.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Mein Zug fährt heute um vierzehn Uhr zwölf nach Hamburg.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich fahre nach Hamburg.",
+      "score": 100,
+      "intent": "hamburg",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich fährst nach Hamburg.",
+      "score": 80,
+      "intent": "hamburg",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Um vierzehn Uhr zwölf.",
+      "score": 100,
+      "intent": "time",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich fahre nach München.",
+      "score": 100,
+      "intent": "munich",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich fahre nach Berlin.",
+      "score": 100,
+      "intent": "berlin",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Um zwölf Uhr vierzehn.",
+      "score": 100,
+      "intent": "wrongTime",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Um zwei Uhr.",
+      "score": 100,
+      "intent": "twoish",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nach Hamburg.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich fahre um zwei Uhr nach Hamburg.",
+      "score": 100,
+      "intent": "hamburgTwo",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Mein Zug fährt von Gleis sieben.",
+      "score": 100,
+      "intent": "seven",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Gleis sieben.",
+      "score": 100,
+      "intent": "seven",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Mein Zug fahren von Gleis sieben.",
+      "score": 80,
+      "intent": "seven",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Meine Zug fährt von Gleis sieben.",
+      "score": 85,
+      "intent": "seven",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Gleis drei.",
+      "score": 100,
+      "intent": "three",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Gleis zwölf.",
+      "score": 100,
+      "intent": "twelve",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dontKnow",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Nach Hamburg.",
+      "score": 100,
+      "intent": "hamburg",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich Gleis sieben.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Mein Zug fährt heute von Gleis vierzehn.",
+      "score": 100,
+      "intent": "fourteen",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Gleis vierzehn.",
+      "score": 100,
+      "intent": "fourteen",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Mein Zug fahren von Gleis vierzehn.",
+      "score": 80,
+      "intent": "fourteen",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Gleis vier.",
+      "score": 100,
+      "intent": "four",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Gleis sieben.",
+      "score": 100,
+      "intent": "seven",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Mein Zug fährt heute nicht von Gleis sieben.",
+      "score": 100,
+      "intent": "notSeven",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Du bist lustig.",
+      "score": 100,
+      "intent": "funny",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dontKnow",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich Gleis vierzehn.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin auf Gleis vierzehn.",
+      "score": 100,
+      "intent": "fourteen",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bist auf Gleis vierzehn.",
+      "score": 80,
+      "intent": "fourteen",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin in der Halle.",
+      "score": 100,
+      "intent": "hall",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin in die Halle.",
+      "score": 85,
+      "intent": "hall",
+      "delta": 0
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin im Café.",
+      "score": 100,
+      "intent": "cafe",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin auf der Toilette.",
+      "score": 100,
+      "intent": "toilet",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin auf Gleis sieben.",
+      "score": 100,
+      "intent": "atSeven",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin schon im Zug.",
+      "score": 100,
+      "intent": "train",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich auf Gleis vierzehn.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist zehn nach zwei.",
+      "score": 100,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist vierzehn Uhr zehn.",
+      "score": 100,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Es sind zehn nach zwei.",
+      "score": 80,
+      "intent": "right",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist halb drei.",
+      "score": 100,
+      "intent": "half",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist zehn vor zwei.",
+      "score": 100,
+      "intent": "before",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist zwei Uhr.",
+      "score": 100,
+      "intent": "two",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist schon sehr spät.",
+      "score": 100,
+      "intent": "late",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Schon spät es sind.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich laufe schnell zu Gleis vierzehn.",
+      "score": 100,
+      "intent": "fourteen",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich gehe nach oben.",
+      "score": 100,
+      "intent": "up",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich gehst nach oben.",
+      "score": 80,
+      "intent": "up",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich nehme die Treppe.",
+      "score": 100,
+      "intent": "stairs",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich nehme den Treppe.",
+      "score": 85,
+      "intent": "stairs",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich gehe ins Café.",
+      "score": 100,
+      "intent": "cafe",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich gehe nach unten.",
+      "score": 100,
+      "intent": "down",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich gehe zu Gleis sieben.",
+      "score": 100,
+      "intent": "seven",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich laufe schnell.",
+      "score": 100,
+      "intent": "fast",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich nach oben.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bringe dir viele Krümel mit.",
+      "score": 100,
+      "intent": "crumbs",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bringe dir ein Fischbrötchen mit.",
+      "score": 100,
+      "intent": "fish",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bringe dir einen Fischbrötchen mit.",
+      "score": 85,
+      "intent": "fish",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bringst dir eine Brezel mit.",
+      "score": 80,
+      "intent": "brezel",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bringe dir nichts mit.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Eine Möwe.",
+      "score": 100,
+      "intent": "gull",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bringe dir eine Postkarte mit.",
+      "score": 100,
+      "intent": "postcard",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich dir Krümel.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin auf dem Dach.",
+      "score": 100,
+      "intent": "roof",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bin auf der Dach.",
+      "score": 85,
+      "intent": "roof",
+      "delta": 0
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bringe dir einen Hut mit.",
+      "score": 100,
+      "intent": "hat",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bringe dir ein Hut mit.",
+      "score": 85,
+      "intent": "hat",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Hallo! Ich heiße {name}."
+        ],
+        [
+          "t2",
+          "Ich fahre um vierzehn Uhr zwölf nach Hamburg."
+        ],
+        [
+          "t3",
+          "Gleis sieben."
+        ],
+        [
+          "t4",
+          "Gleis vierzehn."
+        ],
+        [
+          "t5",
+          "Ich bin auf Gleis vierzehn."
+        ],
+        [
+          "t6",
+          "Es ist zehn nach zwei."
+        ],
+        [
+          "t7",
+          "Ich laufe schnell zu Gleis vierzehn."
+        ],
+        [
+          "t8",
+          "Ich bringe dir einen Hut mit."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Hallo!"
+        ],
+        [
+          "t2",
+          "Ich fahre nach München."
+        ],
+        [
+          "t3",
+          "Gleis sieben."
+        ],
+        [
+          "t4",
+          "Gleis vier."
+        ],
+        [
+          "t5",
+          "Ich bin in der Halle."
+        ],
+        [
+          "t6",
+          "Es ist halb drei."
+        ],
+        [
+          "t7",
+          "Ich gehe nach oben."
+        ],
+        [
+          "t8",
+          "Ich bringe dir nichts mit."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich habe keine Krümel."
+        ],
+        [
+          "t2",
+          "Ich fahre nach Berlin."
+        ],
+        [
+          "t3",
+          "Gleis drei."
+        ],
+        [
+          "t4",
+          "Gleis sieben."
+        ]
+      ]
+    }
+  ]
+}

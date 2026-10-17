@@ -1,0 +1,1799 @@
+{
+  "id": "uwe",
+  "name": "Uwe",
+  "age": 34,
+  "emoji": "📼",
+  "image": "match_uwe",
+  "level": "A2.1",
+  "order": 3,
+  "bio": "Gibt es noch Kassetten?",
+  "bioEn": "Are there still cassettes?",
+  "goal": "Get him across today's city to the record shop before his time machine (a Trabi) leaves.",
+  "tagline": "Zeitreisender · 34 · aus 1989",
+  "voice": "Sadaltager",
+  "brief": "Uwe, a 34-year-old Berliner who has just arrived from summer 1989 in a time-travelling Trabi: a warm, slightly nasal, excitable male voice, amazed by everything (\"Wahnsinn!\"), a bit panicky about time, with headphones of a cassette player around his neck.",
+  "focus": "Wegbeschreibung · Dativ-Präpositionen · Perfekt",
+  "lexicon": {
+    "nouns": {
+      "Taschenrechner": "pl",
+      "Handys": "pl",
+      "Mauer": "f",
+      "Ampel": "f",
+      "Bahnhof": "m",
+      "Park": "m",
+      "Plattenladen": "m",
+      "Bäckerei": "f",
+      "Kirche": "f",
+      "Café": "n",
+      "Bus": "m",
+      "U-Bahn": "f",
+      "Fahrrad": "n",
+      "Trabi": "m",
+      "Kassetten": "pl",
+      "Platten": "pl",
+      "Musik": "f",
+      "Internet": "n",
+      "Platte": "f",
+      "Katzenvideos": "pl",
+      "E-Scooter": "m"
+    },
+    "names": [
+      "Berlin",
+      "Bergstraße"
+    ],
+    "verbs": [
+      "sind",
+      "ist",
+      "hat",
+      "haben",
+      "bist",
+      "gehst",
+      "fährst",
+      "gibt",
+      "lacht",
+      "lachst",
+      "hast",
+      "weiß"
+    ],
+    "nonfinite": [
+      "passiert",
+      "gefallen",
+      "umgezogen",
+      "gekauft",
+      "geschlossen"
+    ],
+    "imperatives": [
+      "geh",
+      "fahr",
+      "nimm"
+    ],
+    "accVerbs": [
+      "haben",
+      "hast",
+      "gibt",
+      "nimm"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "uwe",
+      "type": "text",
+      "de": "Hallo! Ich bin Uwe. Ich komme aus dem Jahr 1989. Mit meinem Trabi.",
+      "emoji": "🚗",
+      "en": "Hello! I'm Uwe. I come from the year 1989. In my Trabi.",
+      "audio": "mc_uwe_intro_a"
+    },
+    {
+      "who": "uwe",
+      "type": "text",
+      "de": "Der Trabi ist eine Zeitmaschine. Frag nicht. Ich weiß es auch nicht. Ich wollte nur Milch kaufen.",
+      "en": "The Trabi is a time machine. Don’t ask. I don’t know either. I only wanted to buy milk.",
+      "audio": "mc_uwe_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Mann! Wo bin ich? Alle Leute schauen auf kleine Taschenrechner. Und sie lächeln. Taschenrechner machen niemanden glücklich!",
+          "emoji": "😳",
+          "en": "Man! Where am I? Everyone is staring at little calculators. And they’re smiling. Calculators don’t make anyone happy!",
+          "audio": "mc_uwe_t1a"
+        },
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Was ist hier passiert?",
+          "en": "What happened here?",
+          "audio": "mc_uwe_t1b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "das",
+        "sind",
+        "sind",
+        "keine",
+        "Taschenrechner",
+        "Handys",
+        "du",
+        "bist",
+        "in",
+        "Berlin",
+        "im Jahr 2026",
+        "wir",
+        "haben",
+        "alle",
+        "viel",
+        "ist",
+        "hat",
+        "passiert",
+        "Katzenvideos"
+      ],
+      "wrong": {
+        "hat": "ist"
+      },
+      "intents": [
+        {
+          "id": "phones",
+          "when": {
+            "any": [
+              "handys"
+            ]
+          },
+          "value": 1,
+          "fact": "📱 erklärt die Zukunft",
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Handys? Telefone? Ohne Kabel?! Wahnsinn!",
+              "emoji": "📱",
+              "en": "Mobile phones? Telephones? Without a cable?! Incredible!",
+              "audio": "mc_uwe_t1_phones"
+            }
+          ]
+        },
+        {
+          "id": "notCalc",
+          "when": {
+            "all": [
+              "taschenrechner",
+              "keine"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Keine Taschenrechner? Was ist es dann?",
+              "en": "Not calculators? Then what are they?",
+              "audio": "mc_uwe_t1_notcalc"
+            }
+          ]
+        },
+        {
+          "id": "cats",
+          "when": {
+            "any": [
+              "katzenvideos"
+            ]
+          },
+          "value": 1,
+          "fact": "🐈 erklärt das Internet",
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Katzenvideos? Alle schauen Katzen? Den ganzen Tag? DAS ist die Zukunft? … Ich liebe sie.",
+              "en": "Cat videos? Everyone watches cats? All day long? THAT is the future? … I love it.",
+              "audio": "mc_uwe_t1_cats"
+            }
+          ]
+        },
+        {
+          "id": "calc",
+          "when": {
+            "any": [
+              "taschenrechner"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Taschenrechner! Ich wusste es. Alle rechnen. Den ganzen Tag. Gruselig.",
+              "en": "Calculators! I knew it. Everyone is calculating. All day. Creepy.",
+              "audio": "mc_uwe_t1_calc"
+            }
+          ]
+        },
+        {
+          "id": "year",
+          "when": {
+            "any": [
+              "im jahr 2026"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "2026?! Dann bin ich jetzt einundsiebzig! Aber ich fühle mich wie vierunddreißig. Und meine Frisur ist auch noch von 1989.",
+              "en": "2026?! Then I’m seventy-one now! But I feel thirty-four. And my hairdo is still from 1989.",
+              "audio": "mc_uwe_t1_year"
+            }
+          ]
+        },
+        {
+          "id": "place",
+          "when": {
+            "any": [
+              "berlin"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Berlin, ja. Das weiß ich. Aber WANN?",
+              "en": "Berlin, yes. I know that. But WHEN?",
+              "audio": "mc_uwe_t1_place"
+            }
+          ]
+        },
+        {
+          "id": "lots",
+          "when": {
+            "any": [
+              "passiert"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Viel? Was denn? Ich habe Angst. Und ich bin neugierig.",
+              "en": "A lot? Like what? I'm scared. And I'm curious.",
+              "audio": "mc_uwe_t1_lots"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Moment. Und die Mauer? Ich sehe keine Mauer!",
+          "emoji": "🧱",
+          "en": "Wait. And the Wall? I can't see a wall!",
+          "audio": "mc_uwe_t2a"
+        },
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Was ist mit der Mauer passiert?",
+          "en": "What happened to the Wall?",
+          "audio": "mc_uwe_t2b"
+        }
+      ],
+      "tiles": [
+        "die",
+        "Mauer",
+        "ist",
+        "hat",
+        "gefallen",
+        "sie",
+        "im November",
+        "1989",
+        "weg",
+        "noch",
+        "da",
+        "ich",
+        "weiß",
+        "es",
+        "nicht",
+        "schon",
+        "lange"
+      ],
+      "wrong": {
+        "hat": "ist"
+      },
+      "intents": [
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Du weißt es nicht? Das ist doch wichtig!",
+              "en": "You don't know? But that's important!",
+              "audio": "mc_uwe_t2_dunno"
+            }
+          ]
+        },
+        {
+          "id": "still",
+          "when": {
+            "all": [
+              "noch",
+              "da"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "wallStill"
+          ],
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Noch da? Wo? Ich sehe nichts! Nur einen Mann mit einem Hund im Pullover. Du machst Witze.",
+              "en": "Still there? Where? I don’t see anything! Just a man with a dog in a jumper. You’re kidding.",
+              "audio": "mc_uwe_t2_still"
+            }
+          ]
+        },
+        {
+          "id": "fell",
+          "when": {
+            "any": [
+              "gefallen"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "wallFell"
+          ],
+          "fact": "🧱 kennt Geschichte",
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Gefallen?! Die Mauer?! Und ich bin im August losgefahren! Ich habe alles verpasst!",
+              "emoji": "😭",
+              "en": "Fallen?! The Wall?! And I set off in August! I've missed everything!",
+              "audio": "mc_uwe_t2_fell"
+            }
+          ]
+        },
+        {
+          "id": "gone",
+          "when": {
+            "any": [
+              "weg"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "wallFell"
+          ],
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Weg?! Einfach weg? Wahnsinn. Und ich war nicht dabei.",
+              "en": "Gone?! Just gone? Incredible. And I wasn't there.",
+              "audio": "mc_uwe_t2_gone"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Okay. Ich habe nur eine Stunde. Um 18 Uhr fährt mein Trabi zurück. Nach 1989.",
+          "emoji": "⏳",
+          "en": "Okay. I only have an hour. At 6 pm my Trabi goes back. To 1989.",
+          "audio": "mc_uwe_t3a"
+        },
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Aber zuerst: der Plattenladen! Mein Freund sagt: „Er ist gegenüber vom Bahnhof.“",
+          "en": "But first: the record shop! My friend says: “It's opposite the station.”",
+          "audio": "mc_uwe_t3b"
+        },
+        {
+          "who": "uwe",
+          "type": "photo",
+          "image": "match_uwe_map",
+          "wide": true,
+          "alt": "Ein Stadtplan: unten ein roter Punkt. Geradeaus eine Ampel. An der Ampel links: der Bahnhof, und gegenüber ein kleiner Laden mit einer Schallplatte. An der Ampel rechts: ein Park mit einem Teich."
+        },
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Wie komme ich dahin? Ich bin der rote Punkt.",
+          "en": "How do I get there? I'm the red dot.",
+          "audio": "mc_uwe_t3c"
+        }
+      ],
+      "tiles": [
+        "geh",
+        "du",
+        "gehst",
+        "geradeaus",
+        "zur",
+        "an",
+        "der",
+        "der",
+        "die",
+        "Ampel",
+        "links",
+        "rechts",
+        "dann",
+        "zum",
+        "Bahnhof",
+        "Park",
+        "Plattenladen",
+        "ist",
+        "gegenüber",
+        "vom",
+        "dem"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "park",
+          "when": {
+            "any": [
+              "park",
+              "rechts"
+            ],
+            "none": [
+              "links"
+            ]
+          },
+          "value": -1,
+          "cause": "park",
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Rechts ist der Park. Da gibt es Enten. Keine Platten. Die Enten haben auch Taschenrechner. Ich schwöre.",
+              "emoji": "🦆",
+              "en": "On the right is the park. There are ducks there. No records. The ducks have calculators too. I swear.",
+              "audio": "mc_uwe_t3_park"
+            }
+          ]
+        },
+        {
+          "id": "left",
+          "when": {
+            "any": [
+              "links"
+            ]
+          },
+          "value": 2,
+          "fact": "🗺️ erklärt Wege",
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Geradeaus, an der Ampel links. Gegenüber vom Bahnhof. Ich laufe! Mit Walkman!",
+              "emoji": "🏃",
+              "en": "Straight on, left at the lights. Opposite the station. I'm running! With my Walkman!",
+              "audio": "mc_uwe_t3_left"
+            }
+          ]
+        },
+        {
+          "id": "opposite",
+          "when": {
+            "any": [
+              "gegenüber",
+              "bahnhof"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Gegenüber vom Bahnhof, ja. Aber wie komme ich dahin? Egal, ich finde es.",
+              "en": "Opposite the station, yes. But how do I get there? Never mind, I'll find it.",
+              "audio": "mc_uwe_t3_opposite"
+            }
+          ]
+        },
+        {
+          "id": "straight",
+          "when": {
+            "any": [
+              "geradeaus",
+              "ampel"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Geradeaus zur Ampel. Und dann? Links? Rechts? Hilfe!",
+              "en": "Straight on to the lights. And then? Left? Right? Help!",
+              "audio": "mc_uwe_t3_straight"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "uwe",
+          "type": "voice",
+          "audio": "mc_uwe_vn_moved",
+          "de": "Hilfe! Ich stehe vor dem Laden. Aber da ist kein Plattenladen. Da ist ein Café! Ein Mann sagt: „Der Plattenladen ist umgezogen. Er ist jetzt in der Bergstraße. Neben der Bäckerei.“ Nicht neben der Kirche! Neben der Bäckerei.",
+          "en": "Help! I'm standing in front of the shop. But there's no record shop. There's a café! A man says: “The record shop has moved. It's in Bergstraße now. Next to the bakery.” Not next to the church! Next to the bakery.",
+          "direction": "Out of breath from running, traffic around him, panicky at first, then repeating what the man said slowly and carefully so he does not forget it."
+        },
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Mein Walkman war zu laut. Ich habe nur die Hälfte gehört. Was hat der Mann gesagt? Wo ist der Plattenladen jetzt?",
+          "en": "My Walkman was too loud. I only heard half. What did the man say? Where is the record shop now?",
+          "audio": "mc_uwe_t4a"
+        }
+      ],
+      "tiles": [
+        "der",
+        "der",
+        "die",
+        "Plattenladen",
+        "ist",
+        "hat",
+        "umgezogen",
+        "er",
+        "jetzt",
+        "in",
+        "Bergstraße",
+        "neben",
+        "Bäckerei",
+        "Kirche",
+        "ein",
+        "Café",
+        "geschlossen",
+        "und"
+      ],
+      "wrong": {
+        "hat": "ist"
+      },
+      "intents": [
+        {
+          "id": "church",
+          "when": {
+            "any": [
+              "kirche"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Neben der Kirche? Nein! Er hat gesagt: nicht neben der Kirche!",
+              "en": "Next to the church? No! He said: not next to the church!",
+              "audio": "mc_uwe_t4_church"
+            }
+          ]
+        },
+        {
+          "id": "bakery",
+          "when": {
+            "any": [
+              "bäckerei"
+            ]
+          },
+          "value": 2,
+          "fact": "👂 hört genau zu",
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Neben der Bäckerei! Genau! Und ich habe Hunger. Perfekt.",
+              "emoji": "🥐",
+              "en": "Next to the bakery! Exactly! And I'm hungry. Perfect.",
+              "audio": "mc_uwe_t4_bakery"
+            }
+          ]
+        },
+        {
+          "id": "moved",
+          "when": {
+            "any": [
+              "umgezogen",
+              "bergstraße"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Umgezogen, in die Bergstraße. Aber wo da? Die Straße ist lang!",
+              "en": "Moved, to Bergstraße. But where there? The street is long!",
+              "audio": "mc_uwe_t4_moved"
+            }
+          ]
+        },
+        {
+          "id": "closed",
+          "when": {
+            "any": [
+              "geschlossen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Geschlossen?! Nein! Er ist nur umgezogen. Hör noch mal!",
+              "en": "Closed?! No! It has only moved. Listen again!",
+              "audio": "mc_uwe_t4_closed"
+            }
+          ]
+        },
+        {
+          "id": "cafe",
+          "when": {
+            "any": [
+              "café"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Ein Café, ja. Kaffee mit Hafermilch. Für sechs Euro. Sechs! 1989 war das ein Fahrrad. Aber wo sind die Platten?",
+              "en": "A café, yes. Coffee with oat milk. For six euros. Six! In 1989 that was a bicycle. But where are the records?",
+              "audio": "mc_uwe_t4_cafe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Okay, Bergstraße. Der Mann sagt: „Die U-Bahn fährt alle fünf Minuten. Der Bus fährt heute nicht. Streik.“",
+          "emoji": "🚇",
+          "en": "Okay, Bergstraße. The man says: “The underground runs every five minutes. The bus isn't running today. Strike.”",
+          "audio": "mc_uwe_t5a"
+        },
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Ich habe nur noch dreißig Minuten. Wie fahre ich?",
+          "en": "I only have thirty minutes left. How do I get there?",
+          "audio": "mc_uwe_t5b"
+        }
+      ],
+      "tiles": [
+        "fahr",
+        "nimm",
+        "geh",
+        "du",
+        "fährst",
+        "mit",
+        "dem",
+        "der",
+        "den",
+        "die",
+        "das",
+        "Bus",
+        "U-Bahn",
+        "Fahrrad",
+        "Trabi",
+        "deinem",
+        "zu Fuß",
+        "am besten",
+        "E-Scooter"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "trabi",
+          "when": {
+            "any": [
+              "trabi"
+            ]
+          },
+          "value": -2,
+          "cause": "trabi",
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Mit dem Trabi?! Er ist eine Zeitmaschine! Ich fahre los und bin weg. Für immer.",
+              "emoji": "😱",
+              "en": "In the Trabi?! It's a time machine! I start it up and I'm gone. For ever.",
+              "audio": "mc_uwe_t5_trabi"
+            }
+          ]
+        },
+        {
+          "id": "bus",
+          "when": {
+            "any": [
+              "bus"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Der Bus fährt heute nicht! Streik! Hast du nicht gelesen?",
+              "en": "The bus isn't running today! Strike! Didn't you read it?",
+              "audio": "mc_uwe_t5_bus"
+            }
+          ]
+        },
+        {
+          "id": "ubahn",
+          "when": {
+            "any": [
+              "u-bahn"
+            ]
+          },
+          "value": 2,
+          "fact": "🚇 kennt die U-Bahn",
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Die U-Bahn! Wie 1989. Nur schneller. Und alle schauen auf Taschenrechner.",
+              "en": "The underground! Like 1989. Only faster. And everyone is staring at calculators.",
+              "audio": "mc_uwe_t5_ubahn"
+            }
+          ]
+        },
+        {
+          "id": "scooter",
+          "when": {
+            "any": [
+              "e-scooter"
+            ]
+          },
+          "value": 1,
+          "fact": "🛴 kennt E-Scooter",
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Ein Roller mit Strom? Ohne Treten? Wahnsinn! Ich fahre los! … Ich liege im Busch. Der Busch ist nett. Weiter!",
+              "en": "A scooter with electricity? No kicking? Crazy! I’m off! … I’m lying in a bush. The bush is nice. Onwards!",
+              "audio": "mc_uwe_t5_scooter"
+            }
+          ]
+        },
+        {
+          "id": "bike",
+          "when": {
+            "any": [
+              "fahrrad"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Ein Fahrrad … mit dem Handy öffnen?! Die Zukunft ist verrückt.",
+              "emoji": "🚲",
+              "en": "A bike … you unlock it with your phone?! The future is crazy.",
+              "audio": "mc_uwe_t5_bike"
+            }
+          ]
+        },
+        {
+          "id": "walk",
+          "when": {
+            "any": [
+              "zu fuß"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Zu Fuß? In dreißig Minuten? Okay … ich renne.",
+              "en": "On foot? In thirty minutes? Okay … I'll run.",
+              "audio": "mc_uwe_t5_walk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Ich bin da! Ich frage: „Haben Sie Kassetten?“ Der Verkäufer lacht. Fünf Minuten lang. Er ist alt. Er hat meinen Schnurrbart. Und meine Jacke. Komisch.",
+          "emoji": "😅",
+          "en": "I’m here! I ask: “Do you have cassettes?” The seller laughs. For five minutes. He’s old. He has my moustache. And my jacket. Weird.",
+          "audio": "mc_uwe_t6a"
+        },
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Warum lacht er?",
+          "en": "Why is he laughing?",
+          "audio": "mc_uwe_t6b"
+        }
+      ],
+      "tiles": [
+        "weil",
+        "es",
+        "gibt",
+        "keine",
+        "Kassetten",
+        "mehr",
+        "er",
+        "lacht",
+        "lachst",
+        "du",
+        "bist",
+        "lustig",
+        "sie",
+        "sind",
+        "alt",
+        "heute",
+        "nur",
+        "Platten",
+        "Musik",
+        "ist",
+        "auf dem Handy"
+      ],
+      "wrong": {
+        "lachst": "lacht"
+      },
+      "intents": [
+        {
+          "id": "noMoreWeil",
+          "when": {
+            "all": [
+              "weil",
+              "kassetten"
+            ],
+            "any": [
+              "keine"
+            ]
+          },
+          "value": 2,
+          "fact": "📼 erklärt, warum",
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Keine Kassetten mehr?! Und mein Walkman? Der gehört jetzt ins Museum.",
+              "emoji": "📼",
+              "en": "No more cassettes?! And my Walkman? It belongs in a museum now.",
+              "audio": "mc_uwe_t6_nomoreweil"
+            }
+          ]
+        },
+        {
+          "id": "noMore",
+          "when": {
+            "any": [
+              "keine"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Keine Kassetten mehr. Okay. Ich bin stark. Fast.",
+              "en": "No more cassettes. Okay. I'm strong. Almost.",
+              "audio": "mc_uwe_t6_nomore"
+            }
+          ]
+        },
+        {
+          "id": "records",
+          "when": {
+            "any": [
+              "platten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Aber Platten gibt es noch! Gut. Dann kaufe ich eine Platte.",
+              "emoji": "💿",
+              "en": "But there are still records! Good. Then I'll buy a record.",
+              "audio": "mc_uwe_t6_records"
+            }
+          ]
+        },
+        {
+          "id": "phone",
+          "when": {
+            "any": [
+              "auf dem handy"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Musik auf dem Taschenrechner?! Die Zukunft ist komisch.",
+              "en": "Music on the calculator?! The future is weird.",
+              "audio": "mc_uwe_t6_phone"
+            }
+          ]
+        },
+        {
+          "id": "old",
+          "when": {
+            "any": [
+              "alt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Alt?! 1989 waren sie super modern!",
+              "en": "Old?! In 1989 they were super modern!",
+              "audio": "mc_uwe_t6_old"
+            }
+          ]
+        },
+        {
+          "id": "funny",
+          "when": {
+            "any": [
+              "lustig"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Ich bin lustig? Danke. Der Verkäufer sagt auch: Du warst immer lustig. Woher weiß er das?",
+              "en": "I’m funny? Thanks. The seller says it too: you were always funny. How does he know that?",
+              "audio": "mc_uwe_t6_funny"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Ich habe eine Platte! Der Verkäufer hat sie mir geschenkt. Er heißt auch Uwe. Er hat gesagt: Grüß Mama. … Moment. MOMENT.",
+          "emoji": "🎶",
+          "en": "I’ve got a record! The seller gave it to me. He’s called Uwe too. He said: Say hi to Mum. … Wait. WAIT.",
+          "audio": "mc_uwe_t7a"
+        },
+        {
+          "who": "uwe",
+          "type": "text",
+          "de": "Okay. Ich bin ruhig. Ganz ruhig. Der Trabi wartet. Was erzähle ich 1989 meinen Freunden? Was ist passiert? Aber nichts Schlimmes!",
+          "en": "Okay. I’m calm. Very calm. The Trabi is waiting. What do I tell my friends in 1989? What happened? But nothing bad!",
+          "audio": "mc_uwe_t7b"
+        }
+      ],
+      "tiles": [
+        "die",
+        "Mauer",
+        "ist",
+        "hat",
+        "gefallen",
+        "es",
+        "gibt",
+        "Handys",
+        "Kassetten",
+        "sind",
+        "weg",
+        "wir",
+        "haben",
+        "das",
+        "Internet",
+        "du",
+        "hast",
+        "deine",
+        "Platte",
+        "gekauft",
+        "und"
+      ],
+      "wrong": {
+        "hat": "ist"
+      },
+      "intents": [
+        {
+          "id": "wallContra",
+          "when": {
+            "any": [
+              "gefallen"
+            ],
+            "flag": "wallStill"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Vorhin: noch da. Jetzt: gefallen? Du bist ein komischer Reiseführer.",
+              "en": "Earlier: still there. Now: fallen? You're a strange tour guide.",
+              "audio": "mc_uwe_t7_contra"
+            }
+          ]
+        },
+        {
+          "id": "wall",
+          "when": {
+            "any": [
+              "gefallen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Die Mauer ist gefallen. Das erzähle ich allen! … Nein. Das wird eine Überraschung.",
+              "emoji": "🤫",
+              "en": "The Wall has fallen. I'll tell everyone! … No. It'll be a surprise.",
+              "audio": "mc_uwe_t7_wall"
+            }
+          ]
+        },
+        {
+          "id": "internet",
+          "when": {
+            "any": [
+              "internet"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Das Internet? Was ist das? Egal. Klingt gut.",
+              "en": "The internet? What's that? Never mind. Sounds good.",
+              "audio": "mc_uwe_t7_internet"
+            }
+          ]
+        },
+        {
+          "id": "phones",
+          "when": {
+            "any": [
+              "handys"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Handys! Telefone ohne Kabel. Das glaubt mir keiner.",
+              "en": "Mobile phones! Phones without a cable. Nobody will believe me.",
+              "audio": "mc_uwe_t7_phones"
+            }
+          ]
+        },
+        {
+          "id": "cassettes",
+          "when": {
+            "any": [
+              "kassetten"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Kassetten sind weg? Nein. Das erzähle ich nicht. Das ist zu traurig.",
+              "en": "Cassettes are gone? No. I won't tell them that. It's too sad.",
+              "audio": "mc_uwe_t7_cassettes"
+            }
+          ]
+        },
+        {
+          "id": "record",
+          "when": {
+            "any": [
+              "platte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "uwe",
+              "type": "text",
+              "de": "Das weiß ich schon! Ich war dabei!",
+              "en": "I know that already! I was there!",
+              "audio": "mc_uwe_t7_record"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "uwe",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage. Ist das die Zukunft?",
+    "en": "Er … that wasn't my question. Is that the future?",
+    "audio": "mc_uwe_offtopic"
+  },
+  "confused": [
+    {
+      "who": "uwe",
+      "type": "text",
+      "de": "Hä? Sprecht ihr so in der Zukunft?",
+      "emoji": "😵",
+      "en": "Huh? Is that how you talk in the future?",
+      "audio": "mc_uwe_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "uwe",
+        "type": "text",
+        "de": "Ich habe die Platte! Und der Trabi wartet noch. Danke, {name}!",
+        "en": "I have the record! And the Trabi is still waiting. Thanks, {name}!"
+      },
+      {
+        "who": "uwe",
+        "type": "text",
+        "de": "Wir sehen uns. 1989. Oder 2026, im Plattenladen. Ich weiß jetzt, wo ich arbeite. Und wo meine Jacke bleibt.",
+        "emoji": "🚗💨",
+        "en": "See you. In 1989. Or 2026, in the record shop. Now I know where I’ll work. And where my jacket ends up.",
+        "audio": "mc_uwe_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "uwe",
+        "type": "text",
+        "de": "Keine Platte. Aber eine Brezel von der Bäckerei. Auch gut. Tschüss, Zukunft!",
+        "emoji": "🥨",
+        "en": "No record. But a pretzel from the bakery. Also good. Bye, future!",
+        "audio": "mc_uwe_partial"
+      }
+    ],
+    "deleted": {
+      "trabi": {
+        "who": "uwe",
+        "type": "text",
+        "de": "Ich bin mit dem Trabi gefahren. Jetzt bin ich im Jahr 1650. Ein Ritter will meinen Walkman. Danke für nichts.",
+        "emoji": "🏰",
+        "en": "I drove the Trabi. Now I’m in the year 1650. A knight wants my Walkman. Thanks for nothing.",
+        "audio": "mc_uwe_del_trabi"
+      },
+      "park": {
+        "who": "uwe",
+        "type": "text",
+        "de": "Ich bin im Park. Mit Enten. Ohne Platten. Tschüss.",
+        "emoji": "🦆",
+        "en": "I'm in the park. With ducks. Without records. Bye.",
+        "audio": "mc_uwe_del_park"
+      },
+      "confused": {
+        "who": "uwe",
+        "type": "text",
+        "de": "Ich verstehe die Zukunft nicht. Und dich auch nicht. Tschüss.",
+        "en": "I don't understand the future. And I don't understand you either. Bye.",
+        "audio": "mc_uwe_del_confused"
+      },
+      "default": {
+        "who": "uwe",
+        "type": "text",
+        "de": "Die Zukunft ist komisch. Ich fahre zurück. Ohne Platte. Tschüss.",
+        "en": "The future is weird. I'm going back. Without a record. Bye.",
+        "audio": "mc_uwe_del_default"
+      }
+    },
+    "sunday": {
+      "who": "uwe",
+      "type": "voice",
+      "audio": "mc_uwe_vn_sunday",
+      "de": "Hallo aus 1989! Ich höre die Platte jeden Tag. Meine Freunde fragen: „Woher hast du die?“ Ich sage: „Von mir. Aus der Zukunft.“ Sie lachen. Wie der Verkäufer. Wie ich.",
+      "en": "Hello from 1989! I play the record every day. My friends ask: “Where did you get that?” I say: “From me. From the future.” They laugh. Like the seller. Like me.",
+      "direction": "Happy and nostalgic, on a crackly old phone line, a cassette clicking somewhere; chuckling at the end."
+    }
+  },
+  "partialTitle": "Keine Platte. Aber eine Brezel.",
+  "share": {
+    "win": "Ich habe Uwe (34, Zeitreisender aus 1989) durch Berlin zum Plattenladen gebracht 📼🚗 Sein Trabi hat gewartet! Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Uwe (34, aus 1989) fährt ohne Platte zurück … aber mit einer Brezel 🥨 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Uwe (34, Zeitreisender) hat mich gelöscht. Er ist jetzt im Jahr 1650 🏰 Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Uwe, a 34-year-old man with a big curly blond mullet and a moustache, wearing a shiny turquoise-and-purple 1980s shell-suit jacket, stone-washed jeans and white trainers, a portable cassette player clipped to his belt with orange foam headphones around his neck, looking wide-eyed and amazed.",
+  "imagePrompts": [
+    {
+      "id": "match_uwe",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands on a modern Berlin pavement next to a small, boxy, pale-blue little old car with a faint shimmer of time-travel sparkles around it, staring in amazement at a passer-by's smartphone. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_uwe_map",
+      "aspect": "16:9",
+      "prompt": "A simple, flat, top-down street map drawn like a children's picture book, no text, no letters, no street names. One vertical street runs from the bottom middle up to a crossroads in the upper half. At the bottom of that street: one big RED DOT. At the crossroads: one clear traffic light. From the crossroads one street goes LEFT and one goes RIGHT. On the LEFT street: above it a big station building with a clock and train tracks; directly opposite it, below the same street, a small shop with a giant black vinyl record on its roof. On the RIGHT street: a green park with trees and a small blue pond with two ducks. Nothing else on the map."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Das sind keine Taschenrechner. Das sind Handys.",
+      "score": 100,
+      "intent": "phones",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Wir haben alle Handys.",
+      "score": 100,
+      "intent": "phones",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das sind Taschenrechner.",
+      "score": 100,
+      "intent": "calc",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Das sind keine Taschenrechner.",
+      "score": 100,
+      "intent": "notCalc",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Du bist in Berlin, im Jahr 2026.",
+      "score": 100,
+      "intent": "year",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Viel ist passiert.",
+      "score": 100,
+      "intent": "lots",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Viel hat passiert.",
+      "score": 80,
+      "intent": "lots",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Du in Berlin.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Mauer ist im November 1989 gefallen.",
+      "score": 100,
+      "intent": "fell",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Sie ist 1989 gefallen.",
+      "score": 100,
+      "intent": "fell",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Die Mauer hat gefallen.",
+      "score": 80,
+      "intent": "fell",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Die Mauer ist gefallen 1989.",
+      "score": 70,
+      "intent": "fell",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Sie ist schon lange weg.",
+      "score": 100,
+      "intent": "gone",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Sie ist noch da.",
+      "score": 100,
+      "intent": "still",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Mauer gefallen 1989 hat.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Geh geradeaus zur Ampel. Dann links.",
+      "score": 100,
+      "intent": "left",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "An der Ampel gehst du links.",
+      "score": 100,
+      "intent": "left",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "An die Ampel gehst du links.",
+      "score": 85,
+      "intent": "left",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Plattenladen ist gegenüber vom Bahnhof.",
+      "score": 100,
+      "intent": "opposite",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Plattenladen ist gegenüber der Bahnhof.",
+      "score": 85,
+      "intent": "opposite",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Geh zum Park.",
+      "score": 100,
+      "intent": "park",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Du gehst rechts.",
+      "score": 100,
+      "intent": "park",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Geh geradeaus.",
+      "score": 100,
+      "intent": "straight",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Du links geradeaus.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Er ist jetzt neben der Bäckerei.",
+      "score": 100,
+      "intent": "bakery",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Er ist neben die Bäckerei.",
+      "score": 85,
+      "intent": "bakery",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Der Plattenladen ist umgezogen.",
+      "score": 100,
+      "intent": "moved",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Der Plattenladen hat umgezogen.",
+      "score": 80,
+      "intent": "moved",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Er ist neben der Kirche.",
+      "score": 100,
+      "intent": "church",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Er ist geschlossen.",
+      "score": 100,
+      "intent": "closed",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Er ist jetzt ein Café.",
+      "score": 100,
+      "intent": "cafe",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Er neben der Bäckerei.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Nimm die U-Bahn.",
+      "score": 100,
+      "intent": "ubahn",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Fahr mit der U-Bahn.",
+      "score": 100,
+      "intent": "ubahn",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Fahr mit dem U-Bahn.",
+      "score": 85,
+      "intent": "ubahn",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Du fährst am besten mit der U-Bahn.",
+      "score": 100,
+      "intent": "ubahn",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Nimm den Bus.",
+      "score": 100,
+      "intent": "bus",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Fahr mit deinem Trabi.",
+      "score": 100,
+      "intent": "trabi",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Geh zu Fuß.",
+      "score": 100,
+      "intent": "walk",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Nimm das Fahrrad.",
+      "score": 100,
+      "intent": "bike",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Du mit der U-Bahn.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Er lacht, weil es keine Kassetten mehr gibt.",
+      "score": 100,
+      "intent": "noMoreWeil",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Weil es keine Kassetten mehr gibt.",
+      "score": 100,
+      "intent": "noMoreWeil",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Er lacht, weil es gibt keine Kassetten mehr.",
+      "score": 70,
+      "intent": "noMoreWeil",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Es gibt keine Kassetten mehr.",
+      "score": 100,
+      "intent": "noMore",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Heute gibt es nur Platten.",
+      "score": 100,
+      "intent": "records",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Musik ist heute auf dem Handy.",
+      "score": 100,
+      "intent": "phone",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Sie sind alt.",
+      "score": 100,
+      "intent": "old",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Er lacht, weil du lustig bist.",
+      "score": 100,
+      "intent": "funny",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Er lachst weil es gibt keine Kassetten.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Die Mauer ist gefallen.",
+      "score": 100,
+      "intent": "wall",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Die Mauer hat gefallen.",
+      "score": 80,
+      "intent": "wall",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Es gibt Handys und das Internet.",
+      "score": 100,
+      "intent": "internet",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wir haben das Internet.",
+      "score": 100,
+      "intent": "internet",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Kassetten sind weg.",
+      "score": 100,
+      "intent": "cassettes",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du hast deine Platte gekauft.",
+      "score": 100,
+      "intent": "record",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Die Mauer gefallen hat ist.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Wir haben alle Katzenvideos.",
+      "intent": "cats",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das sind Katzenvideos.",
+      "intent": "cats",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Nimm den E-Scooter.",
+      "intent": "scooter",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Fahr mit dem E-Scooter.",
+      "intent": "scooter",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Fahr mit den E-Scooter.",
+      "score": 85
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Das sind keine Taschenrechner. Das sind Handys."
+        ],
+        [
+          "t2",
+          "Die Mauer ist im November 1989 gefallen."
+        ],
+        [
+          "t3",
+          "An der Ampel gehst du links."
+        ],
+        [
+          "t4",
+          "Er ist jetzt neben der Bäckerei."
+        ],
+        [
+          "t5",
+          "Nimm die U-Bahn."
+        ],
+        [
+          "t6",
+          "Er lacht, weil es keine Kassetten mehr gibt."
+        ],
+        [
+          "t7",
+          "Die Mauer ist gefallen."
+        ]
+      ]
+    },
+    {
+      "name": "partial: the wall was still there",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Das sind Taschenrechner."
+        ],
+        [
+          "t2",
+          "Sie ist noch da."
+        ],
+        [
+          "t3",
+          "Geh geradeaus."
+        ],
+        [
+          "t4",
+          "Er ist jetzt ein Café."
+        ],
+        [
+          "t5",
+          "Geh zu Fuß."
+        ],
+        [
+          "t6",
+          "Sie sind alt."
+        ],
+        [
+          "t7",
+          "Die Mauer ist gefallen."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Das sind Taschenrechner."
+        ],
+        [
+          "t2",
+          "Ich weiß es nicht."
+        ],
+        [
+          "t3",
+          "Geh zum Park."
+        ],
+        [
+          "t4",
+          "Er ist neben der Kirche."
+        ],
+        [
+          "t5",
+          "Fahr mit deinem Trabi."
+        ]
+      ]
+    }
+  ]
+}

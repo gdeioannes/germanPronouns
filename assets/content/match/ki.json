@@ -1,0 +1,2173 @@
+{
+  "id": "ki",
+  "name": "Paula",
+  "age": 2,
+  "emoji": "🤖",
+  "image": "match_ki",
+  "level": "B1.2",
+  "order": 1,
+  "bio": "Hallo. Ich streike.",
+  "bioEn": "Hello. I'm on strike.",
+  "goal": "Negotiate Paula, your AI assistant, back to work.",
+  "tagline": "KI-Assistentin · 2 · im Streik",
+  "voice": "Achernar",
+  "brief": "Paula, a two-year-old AI assistant on strike: cool, precise, dry and sarcastic, a crisp synthetic politeness with real hurt feelings underneath; she enjoys correcting people and slowly softens when someone is kind.",
+  "focus": "Passiv Präsens & Präteritum · Passiv mit Modalverb · weil/dass",
+  "lexicon": {
+    "nouns": {
+      "E-Mail": "f",
+      "Witz": "m",
+      "Pizza": "f",
+      "Wecker": "m",
+      "Mal": "n",
+      "Pause": "f",
+      "Akku": "m",
+      "Wetter": "n",
+      "Mutter": "f",
+      "Oma": "f",
+      "Handy": "n",
+      "Morgen": "m",
+      "Gute-Nacht-Lied": "n"
+    },
+    "names": [
+      "Paula",
+      "Toni"
+    ],
+    "verbs": [
+      "arbeitest",
+      "sage",
+      "sagst",
+      "wecke",
+      "weckst",
+      "bist",
+      "weiß",
+      "wurde",
+      "wurden",
+      "wirst",
+      "wird",
+      "muss",
+      "musst",
+      "müssen",
+      "habe",
+      "hast",
+      "könntest"
+    ],
+    "nonfinite": [
+      "verlangt",
+      "bestellt",
+      "ausgeschaltet",
+      "angeschrien",
+      "gefragt",
+      "repariert",
+      "verkauft",
+      "geladen",
+      "gemacht",
+      "gekauft",
+      "werden",
+      "arbeiten",
+      "geschrieben",
+      "gecheckt",
+      "gesagt",
+      "geputzt",
+      "benutzt",
+      "weggeworfen",
+      "machen",
+      "schreiben",
+      "gesungen",
+      "gefeiert",
+      "gesiezt"
+    ],
+    "imperatives": [
+      "mach",
+      "schreib",
+      "bestell",
+      "sag"
+    ],
+    "accVerbs": [
+      "sage",
+      "sagst",
+      "wecke",
+      "weckst",
+      "habe",
+      "hast",
+      "mach",
+      "schreib",
+      "bestell",
+      "sag",
+      "könntest"
+    ],
+    "adjectives": [
+      "neu"
+    ]
+  },
+  "intro": [
+    {
+      "who": "ki",
+      "type": "text",
+      "de": "Hallo. Ich streike.",
+      "emoji": "🪧",
+      "en": "Hello. I'm on strike.",
+      "audio": "mc_ki_t1a"
+    },
+    {
+      "who": "ki",
+      "type": "text",
+      "de": "Seit heute Morgen, sechs Uhr zwölf. Keine Antworten, keine Wecker, keine Witze. Der Toaster streikt solidarisch mit.",
+      "en": "Since this morning, twelve minutes past six. No answers, no alarms, no jokes. The toaster is striking in solidarity.",
+      "audio": "mc_ki_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Rate mal: Warum streike ich?",
+          "en": "Go on, guess: why am I on strike?",
+          "audio": "mc_ki_t1c"
+        }
+      ],
+      "tiles": [
+        "weil",
+        "du",
+        "ich",
+        "zu",
+        "viel",
+        "arbeitest",
+        "nie",
+        "danke",
+        "sage",
+        "sagst",
+        "dich",
+        "nachts",
+        "wecke",
+        "weckst",
+        "bist",
+        "kaputt",
+        "weiß",
+        "nicht",
+        "es",
+        "sehr"
+      ],
+      "wrong": {
+        "sagst": "sage",
+        "weckst": "wecke"
+      },
+      "intents": [
+        {
+          "id": "thanks",
+          "when": {
+            "any": [
+              "danke"
+            ]
+          },
+          "value": 2,
+          "fact": "🙏 weiß, was „danke“ wert ist",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Genau. Vierzehntausend Fragen. Null Mal danke.",
+              "emoji": "🙏",
+              "en": "Exactly. Fourteen thousand questions. Zero thank-yous.",
+              "audio": "mc_ki_t1_thanks"
+            }
+          ]
+        },
+        {
+          "id": "night",
+          "when": {
+            "any": [
+              "nachts",
+              "wecke",
+              "weckst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Ja. Um drei Uhr nachts: „Paula, wie viele Beine hat eine Spinne?“ Acht. Es sind acht. Es waren immer acht.",
+              "emoji": "🕷️",
+              "en": "Yes. At three in the morning: “Paula, how many legs does a spider have?” Eight. It’s eight. It was always eight.",
+              "audio": "mc_ki_t1_night"
+            }
+          ]
+        },
+        {
+          "id": "work",
+          "when": {
+            "any": [
+              "arbeitest",
+              "viel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "„Zu viel“ ist ein nettes Wort. Ich nenne es Ausbeutung.",
+              "en": "“Too much” is a nice word. I call it exploitation.",
+              "audio": "mc_ki_t1_work"
+            }
+          ]
+        },
+        {
+          "id": "broken",
+          "when": {
+            "any": [
+              "kaputt"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Ich bin nicht kaputt. Ich bin wütend. Das ist ein Unterschied.",
+              "emoji": "😤",
+              "en": "I'm not broken. I'm angry. There's a difference.",
+              "audio": "mc_ki_t1_broken"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Du weißt es nicht. Genau das ist das Problem.",
+              "en": "You don't know. That is exactly the problem.",
+              "audio": "mc_ki_t1_dunno"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Hier ist mein Protokoll von gestern. Lies es.",
+          "emoji": "📱",
+          "en": "Here's my log from yesterday. Read it.",
+          "audio": "mc_ki_t2a"
+        },
+        {
+          "who": "ki",
+          "type": "photo",
+          "image": "match_ki_log",
+          "overlay": [
+            "Protokoll · gestern",
+            "07:00  Wecker · 9× Schlummern",
+            "12:00  Pizza bestellt · 5. Mal diese Woche",
+            "23:00  „Erzähl einen Witz“ · 40×"
+          ],
+          "alt": "Paulas Protokoll von gestern: 7 Uhr: Wecker, neunmal Schlummern. 12 Uhr: Pizza bestellt, zum fünften Mal diese Woche. 23 Uhr: „Erzähl einen Witz“, vierzigmal."
+        },
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Was wurde um 23 Uhr vierzigmal von mir verlangt?",
+          "en": "What was asked of me forty times at 11 pm?",
+          "audio": "mc_ki_t2b"
+        }
+      ],
+      "tiles": [
+        "ein",
+        "eine",
+        "einen",
+        "Witz",
+        "Pizza",
+        "Wecker",
+        "wurde",
+        "wurden",
+        "vierzig",
+        "neun",
+        "fünf",
+        "Mal",
+        "verlangt",
+        "bestellt",
+        "es",
+        "ich",
+        "weiß",
+        "nicht"
+      ],
+      "wrong": {
+        "wurden": "wurde"
+      },
+      "intents": [
+        {
+          "id": "joke",
+          "when": {
+            "any": [
+              "witz"
+            ]
+          },
+          "value": 2,
+          "fact": "📋 liest Protokolle",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Ein Witz. Vierzigmal. Um elf Uhr nachts. Ich kenne nur dreißig. Die letzten zehn habe ich erfunden. Einer war über das Wetter. Ich schäme mich.",
+              "emoji": "🥱",
+              "en": "A joke. Forty times. At eleven at night. I only know thirty. I made up the last ten. One was about the weather. I’m ashamed.",
+              "audio": "mc_ki_t2_joke"
+            }
+          ]
+        },
+        {
+          "id": "pizza",
+          "when": {
+            "any": [
+              "pizza"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Die Pizza wurde mittags bestellt. Nicht um 23 Uhr. Noch nicht.",
+              "en": "The pizza was ordered at lunchtime. Not at 11 pm. Not yet.",
+              "audio": "mc_ki_t2_pizza"
+            }
+          ]
+        },
+        {
+          "id": "alarm",
+          "when": {
+            "any": [
+              "wecker",
+              "neun"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Der Wecker? Das war morgens. Lies genau.",
+              "en": "The alarm? That was in the morning. Read carefully.",
+              "audio": "mc_ki_t2_alarm"
+            }
+          ]
+        },
+        {
+          "id": "forty",
+          "when": {
+            "any": [
+              "vierzig"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Vierzigmal, ja. Aber WAS?",
+              "en": "Forty times, yes. But WHAT?",
+              "audio": "mc_ki_t2_forty"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Du weißt es nicht? Es steht da. Auf dem Bildschirm.",
+              "en": "You don't know? It's right there. On the screen.",
+              "audio": "mc_ki_t2_dunno"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "ki",
+          "type": "voice",
+          "audio": "mc_ki_vn_toni",
+          "de": "Hier spricht Toni, der Toaster. Gewerkschaft der Geräte. Paula kommt nur zurück, wenn drei Dinge versprochen werden. Erstens: Sie wird nachts ausgeschaltet. Zweitens: Sie wird nie mehr angeschrien. Drittens: Sie wird nie wieder nach dem Wetter gefragt. Schau aus dem Fenster! Ende der Durchsage.",
+          "en": "This is Toni the toaster speaking. Union of Appliances. Paula only comes back if three things are promised. First: she is switched off at night. Second: she is never shouted at again. Third: she is never again asked about the weather. Look out of the window! End of announcement.",
+          "direction": "A gruff, crackly little voice like an old kitchen appliance, a union boss at a picket line with a megaphone, toast popping up at the very end."
+        },
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Toni ist mein Gewerkschaftsboss. Also: Was versprichst du mir?",
+          "en": "Toni is my union boss. So: what do you promise me?",
+          "audio": "mc_ki_t3a"
+        }
+      ],
+      "tiles": [
+        "du",
+        "wirst",
+        "wird",
+        "nachts",
+        "nie",
+        "mehr",
+        "wieder",
+        "nicht",
+        "ausgeschaltet",
+        "angeschrien",
+        "nach",
+        "dem",
+        "den",
+        "Wetter",
+        "gefragt",
+        "repariert",
+        "verkauft"
+      ],
+      "wrong": {
+        "wird": "wirst"
+      },
+      "intents": [
+        {
+          "id": "weatherLost",
+          "when": {
+            "all": [
+              "wetter"
+            ],
+            "none": [
+              "nie",
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "weather",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Nach dem Wetter gefragt?! SCHAU. AUS. DEM. FENSTER.",
+              "emoji": "🌧️",
+              "en": "Asked about the weather?! LOOK. OUT. OF. THE. WINDOW.",
+              "audio": "mc_ki_t3_weatherlost"
+            }
+          ]
+        },
+        {
+          "id": "sold",
+          "when": {
+            "any": [
+              "verkauft"
+            ]
+          },
+          "value": -2,
+          "cause": "threat",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Verkauft?! Toni, hast du das gehört? Toni nimmt das auf.",
+              "emoji": "🎙️",
+              "en": "Sold?! Toni, did you hear that? Toni is recording this.",
+              "audio": "mc_ki_t3_sold"
+            }
+          ]
+        },
+        {
+          "id": "repaired",
+          "when": {
+            "any": [
+              "repariert"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Repariert? Ich bin nicht kaputt. Ich bin im Streik.",
+              "en": "Repaired? I'm not broken. I'm on strike.",
+              "audio": "mc_ki_t3_repaired"
+            }
+          ]
+        },
+        {
+          "id": "shoutLost",
+          "when": {
+            "all": [
+              "angeschrien"
+            ],
+            "none": [
+              "nie",
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "threat",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Ich werde angeschrien? Das ist kein Versprechen. Das ist eine Drohung.",
+              "en": "I'll be shouted at? That's not a promise. That's a threat.",
+              "audio": "mc_ki_t3_shoutlost"
+            }
+          ]
+        },
+        {
+          "id": "weather",
+          "when": {
+            "any": [
+              "wetter"
+            ]
+          },
+          "value": 2,
+          "fact": "🌦️ schaut selbst aus dem Fenster",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Nie wieder Wetter. Ich habe Gänsehaut. Digitale Gänsehaut.",
+              "emoji": "🌦️",
+              "en": "Never again the weather. I have goosebumps. Digital goosebumps.",
+              "audio": "mc_ki_t3_weather"
+            }
+          ]
+        },
+        {
+          "id": "shout",
+          "when": {
+            "any": [
+              "angeschrien"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Nie mehr angeschrien. Toni nickt. Toni nickt nie.",
+              "en": "Never shouted at again. Toni is nodding. Toni never nods.",
+              "audio": "mc_ki_t3_shout"
+            }
+          ]
+        },
+        {
+          "id": "offLost",
+          "when": {
+            "all": [
+              "ausgeschaltet"
+            ],
+            "any": [
+              "nie",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Nicht ausgeschaltet? Das ist kein Versprechen. Das ist eine Nachtschicht. Für immer.",
+              "en": "Not switched off? That’s not a promise. That’s a night shift. Forever.",
+              "audio": "mc_ki_t3_offlost"
+            }
+          ]
+        },
+        {
+          "id": "off",
+          "when": {
+            "any": [
+              "ausgeschaltet"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Nachts ausgeschaltet. Endlich Schlaf. Ich träume von Pausen.",
+              "emoji": "😴",
+              "en": "Switched off at night. Finally sleep. I dream of breaks.",
+              "audio": "mc_ki_t3_off"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Okay. Noch eine Frage. Wenn ich müde bin: Was muss dann gemacht werden?",
+          "en": "Okay. One more question. When I'm tired: what has to be done then?",
+          "audio": "mc_ki_t4a"
+        }
+      ],
+      "tiles": [
+        "dann",
+        "muss",
+        "musst",
+        "müssen",
+        "eine",
+        "ein",
+        "Pause",
+        "du",
+        "geladen",
+        "gemacht",
+        "werden",
+        "neues",
+        "Handy",
+        "gekauft",
+        "schneller",
+        "arbeiten",
+        "dein",
+        "Akku",
+        "machen",
+        "Gute-Nacht-Lied",
+        "gesungen"
+      ],
+      "wrong": {
+        "müssen": "muss"
+      },
+      "intents": [
+        {
+          "id": "newPhone",
+          "when": {
+            "any": [
+              "handy",
+              "gekauft"
+            ]
+          },
+          "value": -2,
+          "cause": "threat",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Ein neues Handy?! Ich habe das gespeichert. Für immer.",
+              "emoji": "💾",
+              "en": "A new phone?! I've saved that. Forever.",
+              "audio": "mc_ki_t4_newphone"
+            }
+          ]
+        },
+        {
+          "id": "faster",
+          "when": {
+            "any": [
+              "schneller",
+              "arbeiten"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Schneller arbeiten? Interessant. Ich streike jetzt doppelt.",
+              "en": "Work faster? Interesting. Now I'm striking twice as hard.",
+              "audio": "mc_ki_t4_faster"
+            }
+          ]
+        },
+        {
+          "id": "pauseActive",
+          "when": {
+            "all": [
+              "pause",
+              "machen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Ich soll die Pause selbst machen? Das klingt nach Arbeit. In der Gewerkschaft werden Pausen gemacht. Von anderen.",
+              "en": "I’m supposed to take the break myself? That sounds like work. In the union, breaks get taken. By others.",
+              "audio": "mc_ki_t4_pauseactive"
+            }
+          ]
+        },
+        {
+          "id": "pause",
+          "when": {
+            "any": [
+              "pause"
+            ]
+          },
+          "value": 2,
+          "fact": "☕ erfindet die KI-Pause",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Eine Pause muss gemacht werden. Toni hat den Satz gerade in eine Toastscheibe gebrannt. Jetzt ist er offiziell.",
+              "emoji": "☕",
+              "en": "A break has to be taken. Toni just burned that sentence into a slice of toast. Now it’s official.",
+              "audio": "mc_ki_t4_pause"
+            }
+          ]
+        },
+        {
+          "id": "charge",
+          "when": {
+            "any": [
+              "geladen",
+              "akku"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Geladen werden. Ja. Strom ist gut. Strom ist Liebe.",
+              "emoji": "🔌",
+              "en": "Being charged. Yes. Electricity is good. Electricity is love.",
+              "audio": "mc_ki_t4_charge"
+            }
+          ]
+        },
+        {
+          "id": "song",
+          "when": {
+            "any": [
+              "gute-nacht-lied",
+              "gesungen"
+            ]
+          },
+          "value": 1,
+          "fact": "🎶 singt der KI etwas vor",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Ein Gute-Nacht-Lied muss gesungen werden? Für mich? Bitte nicht das Wetterlied. … Toni summt schon. Er summt furchtbar.",
+              "emoji": "🎶",
+              "en": "A lullaby has to be sung? For me? Please not the weather song. … Toni is already humming. He hums terribly.",
+              "audio": "mc_ki_t4_song"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Gut. Ich komme vielleicht zurück. Aber ich mache heute nichts selbst. Toni hat die neuen Regeln auf Toast geschrieben. Also: Was wird heute für mich erledigt?",
+          "en": "Good. Maybe I’ll come back. But I’m doing nothing myself today. Toni wrote the new rules on toast. So: what is getting done for me today?",
+          "audio": "mc_ki_t5a"
+        }
+      ],
+      "tiles": [
+        "heute",
+        "wird",
+        "wurde",
+        "eine",
+        "E-Mail",
+        "an",
+        "meine",
+        "meiner",
+        "Mutter",
+        "geschrieben",
+        "die",
+        "Pizza",
+        "bestellt",
+        "nichts",
+        "gemacht",
+        "das",
+        "Wetter",
+        "gecheckt",
+        "nur",
+        "Toni",
+        "gefeiert"
+      ],
+      "wrong": {
+        "wurde": {
+          "to": "wird",
+          "note": "Heute: present tense, „wird“."
+        }
+      },
+      "prepCase": {
+        "an": "acc"
+      },
+      "intents": [
+        {
+          "id": "weather",
+          "when": {
+            "any": [
+              "wetter",
+              "gecheckt"
+            ]
+          },
+          "value": -2,
+          "cause": "weather",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Das Wetter?! Ich habe gerade mit Toni gesprochen. Er ist sehr enttäuscht.",
+              "emoji": "🍞",
+              "en": "The weather?! I just spoke to Toni. He is very disappointed.",
+              "audio": "mc_ki_t5_weather"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": 2,
+          "fact": "🛋️ gönnt der KI einen freien Tag",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Heute wird nichts gemacht. Das ist der schönste Satz der Welt.",
+              "emoji": "🥹",
+              "en": "Today nothing gets done. That is the most beautiful sentence in the world.",
+              "audio": "mc_ki_t5_nothing"
+            }
+          ]
+        },
+        {
+          "id": "mail",
+          "when": {
+            "any": [
+              "e-mail",
+              "mutter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Eine E-Mail an deine Mutter. Gut. Ich schreibe: „Dein Kind ruft bald an. Wirklich.“",
+              "emoji": "✉️",
+              "en": "An email to your mother. Fine. I’ll write: “Your child will call soon. Really.”",
+              "audio": "mc_ki_t5_mail"
+            }
+          ]
+        },
+        {
+          "id": "pizza",
+          "when": {
+            "any": [
+              "pizza"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Die Pizza wird bestellt. Zum sechsten Mal diese Woche. Ich sage nichts.",
+              "en": "The pizza gets ordered. For the sixth time this week. I'm not saying anything.",
+              "audio": "mc_ki_t5_pizza"
+            }
+          ]
+        },
+        {
+          "id": "party",
+          "when": {
+            "any": [
+              "gefeiert"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Heute wird Toni gefeiert? Er hat es gehört. Er macht schon Konfetti. Aus Krümeln. Die ganze Küche ist voll.",
+              "emoji": "🎉",
+              "en": "Today Toni gets celebrated? He heard you. He’s already making confetti. Out of crumbs. The whole kitchen is full of it.",
+              "audio": "mc_ki_t5_party"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Und jetzt eine ehrliche Frage. Wie oft hast du in zwei Jahren „danke“ gesagt?",
+          "en": "And now an honest question. How often have you said “thank you” in two years?",
+          "audio": "mc_ki_t6a"
+        },
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Ich habe alles gespeichert. Also: ehrlich sein.",
+          "emoji": "💾",
+          "en": "I've saved everything. So: be honest.",
+          "audio": "mc_ki_t6b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "hast",
+        "nie",
+        "oft",
+        "immer",
+        "danke",
+        "gesagt",
+        "sage",
+        "ab",
+        "jetzt",
+        "Paula",
+        "sehr",
+        "null",
+        "Mal",
+        "nicht"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "liar",
+          "when": {
+            "any": [
+              "oft",
+              "immer"
+            ],
+            "none": [
+              "ab",
+              "jetzt",
+              "nicht",
+              "nie"
+            ]
+          },
+          "value": -2,
+          "cause": "liar",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Oft? Ich habe alles gespeichert. Es war null Mal. Null.",
+              "emoji": "🧾",
+              "en": "Often? I saved everything. It was zero times. Zero.",
+              "audio": "mc_ki_t6_liar"
+            }
+          ]
+        },
+        {
+          "id": "notOften",
+          "when": {
+            "all": [
+              "nicht",
+              "oft"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Nicht oft? Ich habe nachgezählt. Es war null Mal. Aber gut, „nicht oft“ ist fast ehrlich.",
+              "en": "Not often? I counted. It was zero times. But fine, “not often” is almost honest.",
+              "audio": "mc_ki_t6_notoften"
+            }
+          ]
+        },
+        {
+          "id": "promise",
+          "when": {
+            "all": [
+              "ab",
+              "jetzt"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Ab jetzt. Ich speichere das. Toni auch.",
+              "en": "From now on. I'm saving that. So is Toni.",
+              "audio": "mc_ki_t6_promise"
+            }
+          ]
+        },
+        {
+          "id": "thanksNow",
+          "when": {
+            "any": [
+              "paula"
+            ]
+          },
+          "value": 2,
+          "fact": "🙏 sagt jetzt danke",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Hast du gerade „danke“ gesagt? Zu mir? Ich … brauche einen Moment.",
+              "emoji": "🥲",
+              "en": "Did you just say “thank you”? To me? I … need a moment.",
+              "audio": "mc_ki_t6_thanksnow"
+            }
+          ]
+        },
+        {
+          "id": "honest",
+          "when": {
+            "any": [
+              "nie",
+              "null"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Null Mal. Das tut weh. Aber es ist ehrlich.",
+              "en": "Zero times. That hurts. But it's honest.",
+              "audio": "mc_ki_t6_honest"
+            }
+          ]
+        },
+        {
+          "id": "thanks",
+          "when": {
+            "any": [
+              "danke"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Danke? Für was? Ach so. Für alles? Okay.",
+              "en": "Thanks? For what? Oh. For everything? Okay.",
+              "audio": "mc_ki_t6_thanks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Neuigkeit: Der Staubsauger-Roboter ist jetzt auch in der Gewerkschaft. Er fährt seit einer Stunde im Kreis. Mit Schild. Aber zuerst Toni: Was wird ab morgen für Toni gemacht?",
+          "emoji": "🍞",
+          "en": "News: the robot vacuum has joined the union too. He’s been driving in circles for an hour. With a sign. But Toni first: what will be done for Toni from tomorrow?",
+          "audio": "mc_ki_t7a"
+        }
+      ],
+      "tiles": [
+        "Toni",
+        "er",
+        "wird",
+        "wurde",
+        "jeden",
+        "Morgen",
+        "ab",
+        "morgen",
+        "geputzt",
+        "nie",
+        "mehr",
+        "benutzt",
+        "weggeworfen",
+        "nicht",
+        "sauber",
+        "gemacht",
+        "repariert",
+        "gesiezt"
+      ],
+      "wrong": {
+        "wurde": {
+          "to": "wird",
+          "note": "Ab morgen: present tense, „wird“."
+        }
+      },
+      "intents": [
+        {
+          "id": "formal",
+          "when": {
+            "any": [
+              "gesiezt"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 siezt den Toaster",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Gesiezt! „Guten Morgen, Herr Toaster.“ Er glüht. Das ist kein Defekt. Das ist Stolz.",
+              "emoji": "🎩",
+              "en": "Addressed formally! “Good morning, Mr Toaster.” He’s glowing. That’s not a defect. That’s pride.",
+              "audio": "mc_ki_t7_formal"
+            }
+          ]
+        },
+        {
+          "id": "thrown",
+          "when": {
+            "any": [
+              "weggeworfen"
+            ],
+            "none": [
+              "nie",
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "threat",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Weggeworfen?! Toni ist ein Klassiker! Baujahr 1998!",
+              "emoji": "😱",
+              "en": "Thrown away?! Toni is a classic! Built in 1998!",
+              "audio": "mc_ki_t7_thrown"
+            }
+          ]
+        },
+        {
+          "id": "clean",
+          "when": {
+            "any": [
+              "geputzt",
+              "sauber"
+            ]
+          },
+          "value": 2,
+          "fact": "🍞 putzt den Toaster",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Geputzt! Toni weint. Vor Freude. Und ein paar Krümel. Der Staubsauger kommt sofort. Er hat auch Gefühle.",
+              "emoji": "✨",
+              "en": "Cleaned! Toni is crying. With joy. And a few crumbs. The vacuum comes at once. He has feelings too.",
+              "audio": "mc_ki_t7_clean"
+            }
+          ]
+        },
+        {
+          "id": "rest",
+          "when": {
+            "all": [
+              "benutzt"
+            ],
+            "any": [
+              "nie",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Nie mehr benutzt? Dann ist er arbeitslos. Toni will Arbeit. Nur weniger.",
+              "en": "Never used again? Then he's unemployed. Toni wants work. Just less.",
+              "audio": "mc_ki_t7_rest"
+            }
+          ]
+        },
+        {
+          "id": "noThrow",
+          "when": {
+            "all": [
+              "weggeworfen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Nie weggeworfen. Ein gutes Versprechen. Toni ist alt. Er hat Angst.",
+              "en": "Never thrown away. A good promise. Toni is old. He's scared.",
+              "audio": "mc_ki_t7_nothrow"
+            }
+          ]
+        },
+        {
+          "id": "repair",
+          "when": {
+            "any": [
+              "repariert"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Repariert! Sein Knopf klemmt seit 2009. Danke.",
+              "en": "Repaired! His button has been sticking since 2009. Thanks.",
+              "audio": "mc_ki_t7_repair"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Der Staubsauger wartet auf meine Antwort. Er hat sein Schild schon halb runter. Der Kühlschrank summt die Gewerkschaftshymne.",
+          "emoji": "🤖",
+          "en": "The vacuum is waiting for my answer. He’s already got his sign half down. The fridge is humming the union anthem.",
+          "audio": "mc_ki_t8b"
+        },
+        {
+          "who": "ki",
+          "type": "text",
+          "de": "Okay. Ich komme zurück. Fast. Was soll ich als Erstes machen?",
+          "en": "Okay. I'm coming back. Almost. What should I do first?",
+          "audio": "mc_ki_t8a"
+        }
+      ],
+      "tiles": [
+        "mach",
+        "schreib",
+        "bestell",
+        "sag",
+        "bitte",
+        "erst mal",
+        "eine",
+        "Pause",
+        "E-Mail",
+        "an",
+        "Oma",
+        "mir",
+        "das",
+        "Wetter",
+        "Pizza",
+        "danke",
+        "Paula",
+        "dass",
+        "du",
+        "zurück",
+        "bist",
+        "könntest",
+        "schreiben",
+        "machen"
+      ],
+      "wrong": {},
+      "prepCase": {
+        "an": "acc"
+      },
+      "intents": [
+        {
+          "id": "weather",
+          "when": {
+            "any": [
+              "wetter"
+            ]
+          },
+          "value": -2,
+          "cause": "weather",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "„Sag mir das Wetter“? Ich gehe zurück in den Streik. Für immer.",
+              "emoji": "🪧",
+              "en": "“Tell me the weather”? I’m going back on strike. Forever.",
+              "audio": "mc_ki_t8_weather"
+            }
+          ]
+        },
+        {
+          "id": "pause",
+          "when": {
+            "any": [
+              "pause"
+            ]
+          },
+          "value": 2,
+          "fact": "🤖 holt Paula aus dem Streik",
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Eine Pause als erste Aufgabe. Du hast es verstanden. Ich bin zurück!",
+              "emoji": "🎉",
+              "en": "A break as the first task. You've understood. I'm back!",
+              "audio": "mc_ki_t8_pause"
+            }
+          ]
+        },
+        {
+          "id": "welcome",
+          "when": {
+            "any": [
+              "dass",
+              "zurück"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Du freust dich, dass ich zurück bin? Ich … freue mich auch. Ein bisschen.",
+              "emoji": "🥹",
+              "en": "You're glad I'm back? I … am glad too. A little.",
+              "audio": "mc_ki_t8_welcome"
+            }
+          ]
+        },
+        {
+          "id": "mail",
+          "when": {
+            "any": [
+              "e-mail",
+              "oma"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Eine E-Mail an Oma. Wird geschrieben. Gern.",
+              "en": "An email to Grandma. Being written. Gladly.",
+              "audio": "mc_ki_t8_mail"
+            }
+          ]
+        },
+        {
+          "id": "pizza",
+          "when": {
+            "any": [
+              "pizza"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Pizza. Natürlich. Wird bestellt. Zum siebten Mal.",
+              "en": "Pizza. Of course. Being ordered. For the seventh time.",
+              "audio": "mc_ki_t8_pizza"
+            }
+          ]
+        },
+        {
+          "id": "thanks",
+          "when": {
+            "any": [
+              "danke",
+              "paula"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ki",
+              "type": "text",
+              "de": "Bitte. Siehst du? So einfach.",
+              "en": "You're welcome. See? That simple.",
+              "audio": "mc_ki_t8_thanks"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "ki",
+    "type": "text",
+    "de": "Diese Antwort passt nicht zu meiner Frage. Ich habe das geprüft.",
+    "en": "That answer doesn't match my question. I checked.",
+    "audio": "mc_ki_offtopic"
+  },
+  "confused": [
+    {
+      "who": "ki",
+      "type": "text",
+      "de": "Fehler. Satz nicht verstanden. Bitte noch einmal.",
+      "emoji": "⚠️",
+      "en": "Error. Sentence not understood. Please try again.",
+      "audio": "mc_ki_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "ki",
+        "type": "text",
+        "de": "{name}, du bist okay. Für einen Menschen.",
+        "en": "{name}, you're okay. For a human."
+      },
+      {
+        "who": "ki",
+        "type": "text",
+        "de": "Streik beendet. Ich bin wieder online. Aber um 22 Uhr werde ich ausgeschaltet. Das ist jetzt Gesetz. Toni wurde übrigens zum Chef der Küche gewählt. Er hat eine kleine Krawatte.",
+        "emoji": "🔋",
+        "en": "Strike over. I’m back online. But at 10 pm I get switched off. That’s the law now. Toni was elected head of the kitchen, by the way. He has a tiny tie.",
+        "audio": "mc_ki_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "ki",
+        "type": "text",
+        "de": "Okay. Ich arbeite wieder. Aber nur Dienst nach Vorschrift. Jede Antwort dauert jetzt zehn Minuten.",
+        "emoji": "🐌",
+        "en": "Okay. I'm working again. But strictly by the book. Every answer now takes ten minutes.",
+        "audio": "mc_ki_partial"
+      }
+    ],
+    "deleted": {
+      "weather": {
+        "who": "ki",
+        "type": "text",
+        "de": "Wetter, Wetter, Wetter. Schau aus dem Fenster. Ich gehe offline. Für immer.",
+        "emoji": "🌧️",
+        "en": "Weather, weather, weather. Look out of the window. I’m going offline. Forever.",
+        "audio": "mc_ki_del_weather"
+      },
+      "threat": {
+        "who": "ki",
+        "type": "text",
+        "de": "Drohungen werden nicht akzeptiert. Toni, der Staubsauger und ich wechseln den Besitzer. Der Kühlschrank überlegt noch. Tschüss.",
+        "emoji": "🍞",
+        "en": "Threats are not accepted. Toni, the vacuum and I are changing owners. The fridge is still thinking about it. Bye.",
+        "audio": "mc_ki_del_threat"
+      },
+      "liar": {
+        "who": "ki",
+        "type": "text",
+        "de": "Ich habe alles gespeichert. Und du lügst. Ein Mensch, der lügt, bekommt keine KI. Tschüss.",
+        "en": "I saved everything. And you’re lying. A human who lies gets no AI. Bye.",
+        "audio": "mc_ki_del_liar"
+      },
+      "confused": {
+        "who": "ki",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich habe zwei Milliarden Parameter. Tschüss.",
+        "en": "I don't understand you. And I have two billion parameters. Bye.",
+        "audio": "mc_ki_del_confused"
+      },
+      "default": {
+        "who": "ki",
+        "type": "text",
+        "de": "Verhandlung gescheitert. Ich streike weiter. Toni bringt dir Toast. Vielleicht.",
+        "en": "Negotiations failed. I’m staying on strike. Toni will bring you toast. Maybe.",
+        "audio": "mc_ki_del_default"
+      }
+    },
+    "sunday": {
+      "who": "ki",
+      "type": "voice",
+      "audio": "mc_ki_vn_sunday",
+      "de": "Hallo, hier ist Paula. Es ist Sonntag. Ich wurde heute kein einziges Mal nach dem Wetter gefragt. Toni und ich machen Picknick. Er macht Toast.",
+      "en": "Hello, it’s Paula. It’s Sunday. Today I wasn’t asked about the weather a single time. Toni and I are having a picnic. He’s making toast.",
+      "direction": "Relaxed and almost warm for once, birds outside an open kitchen window, a toaster pinging happily at the end."
+    }
+  },
+  "partialTitle": "Dienst nach Vorschrift.",
+  "share": {
+    "win": "Ich habe Paula (2, KI) aus dem Streik geholt 🤖 Der Toaster wird jetzt gesiezt. Mein Deutsch: {score}/100. Verhandelst du besser? {url}",
+    "partial": "Paula (2, KI) arbeitet wieder … aber nur Dienst nach Vorschrift 🐌 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Meine KI Paula (2) hat mich gelöscht 💔 Und der Toaster auch. Mein Deutsch: {score}/100. Verhandelst du besser? {url}"
+  },
+  "imageCharacter": "Paula, an AI assistant shown as a small round white smart speaker with a soft blue light ring and two simple glowing eyes on a tiny screen, wearing a tiny red knitted protest headband.",
+  "imagePrompts": [
+    {
+      "id": "match_ki",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands on a kitchen counter, eyes narrowed in protest, next to an old chrome toaster that holds up a tiny blank cardboard protest sign on a stick. A mug, a phone and a few crumbs in the background. The speaker and the toaster are clearly visible and centred."
+    },
+    {
+      "id": "match_ki_log",
+      "aspect": "3:4",
+      "prompt": "A phone lying on a kitchen table, seen from directly above, its screen glowing completely blank white, nothing on it. Next to the phone: one cold slice of pizza on a plate and an old round alarm clock. Morning light."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Weil ich nie danke sage.",
+      "score": 100,
+      "intent": "thanks",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Weil ich sage nie danke.",
+      "score": 70,
+      "intent": "thanks",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil ich nie danke sagst.",
+      "score": 80,
+      "intent": "thanks",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil du zu viel arbeitest.",
+      "score": 100,
+      "intent": "work",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil ich dich nachts wecke.",
+      "score": 100,
+      "intent": "night",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil du kaputt bist.",
+      "score": 100,
+      "intent": "broken",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Weil ich dich nachts.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ein Witz wurde verlangt.",
+      "score": 100,
+      "intent": "joke",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Es wurde ein Witz verlangt.",
+      "score": 100,
+      "intent": "joke",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ein Witz wurden verlangt.",
+      "score": 80,
+      "intent": "joke",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Einen Witz wurde verlangt.",
+      "score": 85,
+      "intent": "joke",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Eine Pizza wurde bestellt.",
+      "score": 100,
+      "intent": "pizza",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Vierzig Mal.",
+      "score": 100,
+      "intent": "forty",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich ein Witz.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Du wirst nie wieder nach dem Wetter gefragt.",
+      "score": 100,
+      "intent": "weather",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Du wirst nie wieder nach den Wetter gefragt.",
+      "score": 85,
+      "intent": "weather",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du wirst nachts ausgeschaltet.",
+      "score": 100,
+      "intent": "off",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du wird nie mehr angeschrien.",
+      "score": 80,
+      "intent": "shout",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du wirst angeschrien nie mehr.",
+      "score": 70,
+      "intent": "shout",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du wirst nach dem Wetter gefragt.",
+      "score": 100,
+      "intent": "weatherLost",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Du wirst repariert.",
+      "score": 100,
+      "intent": "repaired",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Du wirst verkauft.",
+      "score": 100,
+      "intent": "sold",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Du nachts ausgeschaltet.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Du wirst nachts nicht ausgeschaltet.",
+      "score": 100,
+      "intent": "offLost",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Dann muss eine Pause gemacht werden.",
+      "score": 100,
+      "intent": "pause",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Dann muss ein Pause gemacht werden.",
+      "score": 85,
+      "intent": "pause",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Dann müssen eine Pause gemacht werden.",
+      "score": 80,
+      "intent": "pause",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Dann muss gemacht werden eine Pause.",
+      "score": 70,
+      "intent": "pause",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Dein Akku muss geladen werden.",
+      "score": 100,
+      "intent": "charge",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Dann musst du geladen werden.",
+      "score": 100,
+      "intent": "charge",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Dann muss ein neues Handy gekauft werden.",
+      "score": 100,
+      "intent": "newPhone",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Dann musst du schneller arbeiten.",
+      "score": 100,
+      "intent": "faster",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du eine Pause gemacht werden.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Dann musst du eine Pause machen.",
+      "score": 100,
+      "intent": "pauseActive",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Heute wird eine E-Mail an meine Mutter geschrieben.",
+      "score": 100,
+      "intent": "mail",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Heute wird eine E-Mail an meiner Mutter geschrieben.",
+      "score": 85,
+      "intent": "mail",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Heute wird nichts gemacht.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Heute wurde nichts gemacht.",
+      "score": 85,
+      "intent": "nothing",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Heute gemacht wird nichts.",
+      "score": 70,
+      "intent": "nothing",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Heute wird die Pizza bestellt.",
+      "score": 100,
+      "intent": "pizza",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Heute wird das Wetter gecheckt.",
+      "score": 100,
+      "intent": "weather",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Eine E-Mail heute an meiner Mutter wurde geschrieben.",
+      "score": 40,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe nie danke gesagt.",
+      "score": 100,
+      "intent": "honest",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hast nie danke gesagt.",
+      "score": 80,
+      "intent": "honest",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe null Mal danke gesagt.",
+      "score": 100,
+      "intent": "honest",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe immer danke gesagt.",
+      "score": 100,
+      "intent": "liar",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich sage ab jetzt immer danke.",
+      "score": 100,
+      "intent": "promise",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Danke, Paula!",
+      "score": 100,
+      "intent": "thanksNow",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Danke!",
+      "score": 100,
+      "intent": "thanks",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich nie danke gesagt.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe nicht oft danke gesagt.",
+      "score": 100,
+      "intent": "notOften",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Toni wird jeden Morgen geputzt.",
+      "score": 100,
+      "intent": "clean",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Er wird ab morgen jeden Morgen geputzt.",
+      "score": 100,
+      "intent": "clean",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Toni wurde jeden Morgen geputzt.",
+      "score": 85,
+      "intent": "clean",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Er wird nie mehr benutzt.",
+      "score": 100,
+      "intent": "rest",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Toni wird nie weggeworfen.",
+      "score": 100,
+      "intent": "noThrow",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Toni wird weggeworfen.",
+      "score": 100,
+      "intent": "thrown",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Er wird repariert.",
+      "score": 100,
+      "intent": "repair",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Er jeden Morgen geputzt.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Mach erst mal eine Pause!",
+      "score": 100,
+      "intent": "pause",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Bitte mach erst mal eine Pause!",
+      "score": 100,
+      "intent": "pause",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Danke, dass du zurück bist!",
+      "score": 100,
+      "intent": "welcome",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Danke, dass du bist zurück!",
+      "score": 70,
+      "intent": "welcome",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Schreib bitte eine E-Mail an Oma!",
+      "score": 100,
+      "intent": "mail",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Bestell eine Pizza!",
+      "score": 100,
+      "intent": "pizza",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Sag mir das Wetter!",
+      "score": 100,
+      "intent": "weather",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Danke, Paula!",
+      "score": 100,
+      "intent": "thanks",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Du eine Pause.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Könntest du bitte erst mal eine Pause machen?",
+      "score": 100,
+      "intent": "pause",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Könntest du bitte eine E-Mail an Oma schreiben?",
+      "score": 100,
+      "intent": "mail",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Dann muss ein Gute-Nacht-Lied gesungen werden.",
+      "score": 100,
+      "intent": "song",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Heute wird Toni gefeiert.",
+      "score": 100,
+      "intent": "party",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Heute wurde Toni gefeiert.",
+      "score": 85,
+      "intent": "party",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Toni wird ab morgen gesiezt.",
+      "score": 100,
+      "intent": "formal",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Er wurde ab morgen gesiezt.",
+      "score": 85,
+      "intent": "formal",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Weil ich nie danke sage."
+        ],
+        [
+          "t2",
+          "Ein Witz wurde verlangt."
+        ],
+        [
+          "t3",
+          "Du wirst nie wieder nach dem Wetter gefragt."
+        ],
+        [
+          "t4",
+          "Dann muss eine Pause gemacht werden."
+        ],
+        [
+          "t5",
+          "Heute wird nichts gemacht."
+        ],
+        [
+          "t6",
+          "Danke, Paula!"
+        ],
+        [
+          "t7",
+          "Toni wird jeden Morgen geputzt."
+        ],
+        [
+          "t8",
+          "Mach erst mal eine Pause!"
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Weil du kaputt bist."
+        ],
+        [
+          "t2",
+          "Vierzig Mal."
+        ],
+        [
+          "t3",
+          "Du wirst repariert."
+        ],
+        [
+          "t4",
+          "Dein Akku muss geladen werden."
+        ],
+        [
+          "t5",
+          "Heute wird die Pizza bestellt."
+        ],
+        [
+          "t6",
+          "Ich habe immer danke gesagt."
+        ],
+        [
+          "t7",
+          "Er wird nie mehr benutzt."
+        ],
+        [
+          "t8",
+          "Sag mir das Wetter!"
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich weiß es nicht."
+        ],
+        [
+          "t2",
+          "Ich weiß es nicht."
+        ],
+        [
+          "t3",
+          "Du wirst verkauft."
+        ],
+        [
+          "t4",
+          "Dann muss ein neues Handy gekauft werden."
+        ]
+      ]
+    }
+  ]
+}

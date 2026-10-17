@@ -1,0 +1,2079 @@
+{
+  "id": "wurm",
+  "name": "Prof. Dr. Erna Wurm",
+  "age": 3,
+  "emoji": "🪱",
+  "image": "match_wurm",
+  "level": "B2.2",
+  "order": 1,
+  "bio": "Ich erforsche Menschen. Du bist interessant.",
+  "bioEn": "I study humans. You are interesting.",
+  "goal": "Survive her interview about your strange habits.",
+  "tagline": "Professorin · 3 · Lehrstuhl für Menschenkunde, Komposthaufen",
+  "voice": "Callirrhoe",
+  "brief": "Prof. Dr. Erna Wurm, a three-year-old earthworm and serious scientist who studies humans: a clear, precise, slightly breathy female academic voice, endlessly fascinated, dictating observations like a nature documentary; she softens with pure joy whenever rain is mentioned.",
+  "focus": "Futur II (Vermutung) · als ob + Konjunktiv II · Genitivpräpositionen · Konjunktiv II der Vergangenheit",
+  "lexicon": {
+    "nouns": {
+      "Busses": "m",
+      "Bus": "m",
+      "Weckers": "m",
+      "Wecker": "m",
+      "Hund": "m",
+      "Bett": "n",
+      "Rockstar": "m",
+      "Besen": "m",
+      "Regens": "m",
+      "Regen": "m",
+      "Schirms": "m",
+      "Schirm": "m",
+      "Zeitung": "f",
+      "Pizza": "f",
+      "Käse": "m",
+      "Apfel": "m",
+      "Mensch": "m",
+      "Wurm": "m",
+      "Pinguins": "m",
+      "Pinguin": "m",
+      "Flamingo": "m",
+      "Kochtopf": "m",
+      "Mond": "m"
+    },
+    "names": [
+      "Sie"
+    ],
+    "verbs": [
+      "hatte",
+      "geht",
+      "weiß",
+      "war",
+      "wird",
+      "werde",
+      "ist",
+      "habe",
+      "wäre",
+      "bin",
+      "würde",
+      "zuschaut",
+      "gehe",
+      "liebe",
+      "hätte",
+      "tue"
+    ],
+    "nonfinite": [
+      "verschlafen",
+      "gefressen",
+      "versteckt",
+      "haben",
+      "liegen",
+      "getanzt",
+      "geputzt",
+      "zuschauen",
+      "gesungen",
+      "spazieren",
+      "vergessen",
+      "gegessen",
+      "geträumt",
+      "gelacht",
+      "gewusst",
+      "gegraben",
+      "entschuldigt",
+      "gestohlen",
+      "geklingelt"
+    ],
+    "accVerbs": [
+      "werde",
+      "wird",
+      "hatte",
+      "habe",
+      "liebe"
+    ],
+    "adjectives": [
+      "normal"
+    ],
+    "subordinators": [
+      "als"
+    ]
+  },
+  "intro": [
+    {
+      "who": "wurm",
+      "type": "text",
+      "de": "Guten Tag. Ich bin Professorin Doktor Erna Wurm. Lehrstuhl für Menschenkunde.",
+      "emoji": "🔬",
+      "en": "Good day. I am Professor Dr Erna Wurm. Chair of Human Studies.",
+      "audio": "mc_wurm_intro_a"
+    },
+    {
+      "who": "wurm",
+      "type": "text",
+      "de": "Ich beobachte Sie seit drei Wochen. Vom Blumentopf aus. Mit einem Fernglas aus zwei Tautropfen.",
+      "emoji": "🪴",
+      "en": "I have been observing you for three weeks. From the flowerpot. Through binoculars made of two dewdrops.",
+      "audio": "mc_wurm_intro_b"
+    },
+    {
+      "who": "wurm",
+      "type": "text",
+      "de": "Meine Forschung wird von der Stiftung der Regenwürmer bezahlt. Budget: ein Salatblatt. Wir haben es schon gegessen.",
+      "emoji": "🥬",
+      "en": "My research is funded by the Earthworm Foundation. Budget: one lettuce leaf. We have already eaten it.",
+      "audio": "mc_wurm_intro_c"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Erste Frage. Gestern um sieben Uhr sind Sie aus dem Haus gerannt. Mit nur einem Schuh. Und einem kalten Toast im Mund.",
+          "emoji": "👟",
+          "en": "First question. Yesterday at seven you ran out of the house. With only one shoe. And a cold piece of toast in your mouth.",
+          "audio": "mc_wurm_t1a"
+        },
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Warum?",
+          "en": "Why?",
+          "audio": "mc_wurm_t1b"
+        }
+      ],
+      "tiles": [
+        "wegen",
+        "meines",
+        "meinem",
+        "Busses",
+        "Bus",
+        "des",
+        "Weckers",
+        "ich",
+        "hatte",
+        "verschlafen",
+        "das",
+        "geht",
+        "Sie",
+        "nichts",
+        "an",
+        "mein",
+        "Wecker",
+        "war",
+        "kaputt",
+        "eines",
+        "Pinguins",
+        "Pinguin"
+      ],
+      "wrong": {
+        "Bus": {
+          "to": "Busses",
+          "note": "wegen takes the genitive: wegen meines Busses."
+        },
+        "Pinguin": {
+          "to": "Pinguins",
+          "note": "wegen takes the genitive: wegen eines Pinguins."
+        }
+      },
+      "intents": [
+        {
+          "id": "rude",
+          "when": {
+            "any": [
+              "geht"
+            ]
+          },
+          "value": -2,
+          "cause": "rude",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Für die Wissenschaft geht mich alles an. Ich notiere: unkooperativ.",
+              "emoji": "📝",
+              "en": "For science, everything is my business. I am noting: uncooperative.",
+              "audio": "mc_wurm_t1_rude"
+            }
+          ]
+        },
+        {
+          "id": "penguin",
+          "when": {
+            "any": [
+              "pinguins",
+              "pinguin"
+            ]
+          },
+          "value": 2,
+          "fact": "🐧 wird morgens von Pinguinen verfolgt",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Wegen eines Pinguins. In Ihrer Straße. Um sieben Uhr morgens. Ich notiere es. Mit drei Fragezeichen.",
+              "emoji": "🐧",
+              "en": "Because of a penguin. In your street. At seven in the morning. I am noting it. With three question marks.",
+              "audio": "mc_wurm_t1_penguin"
+            },
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Herr Schneck, mein Assistent, sagt, er hat ihn auch gesehen. Aber Herr Schneck sieht in jeder Pfütze das Meer.",
+              "emoji": "🐌",
+              "en": "Herr Schneck, my assistant, says he saw it too. But Herr Schneck sees the sea in every puddle.",
+              "audio": "mc_wurm_t1_penguin_b"
+            }
+          ]
+        },
+        {
+          "id": "bus",
+          "when": {
+            "any": [
+              "busses",
+              "bus"
+            ]
+          },
+          "value": 2,
+          "fact": "🚌 rennt Bussen hinterher",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Wegen des Busses. Der Mensch jagt große gelbe Kisten. Er fängt sie fast nie. Und trotzdem jagt er sie jeden Tag. Faszinierend.",
+              "emoji": "🚌",
+              "en": "Because of the bus. Humans chase large yellow boxes. They almost never catch them. And still they chase them every day. Fascinating.",
+              "audio": "mc_wurm_t1_bus"
+            }
+          ]
+        },
+        {
+          "id": "clock",
+          "when": {
+            "any": [
+              "wecker",
+              "weckers"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Der Wecker. Ein Gerät, das Menschen anschreit. Sie kaufen es freiwillig. Und stellen es direkt neben ihren Kopf.",
+              "emoji": "⏰",
+              "en": "The alarm clock. A device that shouts at humans. They buy it voluntarily. And put it right next to their head.",
+              "audio": "mc_wurm_t1_clock"
+            }
+          ]
+        },
+        {
+          "id": "overslept",
+          "when": {
+            "any": [
+              "verschlafen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Verschlafen. Ich verschlafe auch. Im Winter. Vier Monate.",
+              "emoji": "😴",
+              "en": "Overslept. I oversleep too. In winter. Four months.",
+              "audio": "mc_wurm_t1_overslept"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Meine Hypothese: Den zweiten Schuh werden Sie im Bus verloren haben.",
+          "emoji": "🧪",
+          "en": "My hypothesis: you will have lost the second shoe on the bus.",
+          "audio": "mc_wurm_t2a"
+        },
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Mein Assistent, Herr Schneck, sieht das anders. Was vermuten Sie? Wo ist der Schuh?",
+          "emoji": "🐌",
+          "en": "My assistant, Herr Schneck, disagrees. What do you suppose? Where is the shoe?",
+          "audio": "mc_wurm_t2b"
+        }
+      ],
+      "tiles": [
+        "mein",
+        "Hund",
+        "wird",
+        "werde",
+        "ihn",
+        "gefressen",
+        "versteckt",
+        "haben",
+        "er",
+        "wohl",
+        "unter",
+        "dem",
+        "Bett",
+        "liegen",
+        "ist",
+        "im",
+        "Bus",
+        "ich",
+        "weiß",
+        "es",
+        "nicht",
+        "Herr Schneck",
+        "gestohlen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "thief",
+          "when": {
+            "any": [
+              "herr schneck"
+            ]
+          },
+          "value": 2,
+          "fact": "🐌 verdächtigt die Schnecke",
+          "flags": [
+            "blamedSchneck"
+          ],
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Herr Schneck?! … Er sagt nichts. Er wird gerade sehr langsam rot.",
+              "emoji": "🐌",
+              "en": "Herr Schneck?! … He says nothing. He is turning red, very slowly.",
+              "audio": "mc_wurm_t2_thief"
+            },
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Moment. Herr Schneck, warum haben Sie seit gestern ein neues Haus? Mit Schnürsenkeln?",
+              "emoji": "👟",
+              "en": "Wait. Herr Schneck, why have you had a new house since yesterday? With shoelaces?",
+              "audio": "mc_wurm_t2_thief_b"
+            }
+          ]
+        },
+        {
+          "id": "dog",
+          "when": {
+            "any": [
+              "hund"
+            ]
+          },
+          "value": 2,
+          "fact": "🐶 verdächtigt den eigenen Hund",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Ihr Hund! Ein Verbrecher im eigenen Haus! Herr Schneck applaudiert. Langsam. Er ist jetzt beim zweiten Klatschen.",
+              "emoji": "🐶",
+              "en": "Your dog! A criminal in your own home! Herr Schneck applauds. Slowly. He is now on his second clap.",
+              "audio": "mc_wurm_t2_dog"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Sie wissen es nicht? Sie sind doch der Mensch hier!",
+              "en": "You don't know? You're the human here!",
+              "audio": "mc_wurm_t2_dunno"
+            }
+          ]
+        },
+        {
+          "id": "self",
+          "when": {
+            "any": [
+              "versteckt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Sie werden ihn selbst versteckt haben? Vor sich selbst? Menschen sind seltsam.",
+              "en": "You will have hidden it yourself? From yourself? Humans are strange.",
+              "audio": "mc_wurm_t2_self"
+            }
+          ]
+        },
+        {
+          "id": "bed",
+          "when": {
+            "any": [
+              "bett"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Unter dem Bett. Die klassische Menschenhöhle. Dort wohnen auch Ihre Socken. Und drei Gummibärchen von 2019.",
+              "emoji": "🛏️",
+              "en": "Under the bed. The classic human cave. Your socks live there too. And three gummy bears from 2019.",
+              "audio": "mc_wurm_t2_bed"
+            }
+          ]
+        },
+        {
+          "id": "bus",
+          "when": {
+            "any": [
+              "bus"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Im Bus. Also habe ich recht. Wie immer. Herr Schneck ist beleidigt.",
+              "en": "On the bus. So I am right. As always. Herr Schneck is offended.",
+              "audio": "mc_wurm_t2_bus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Kurzes Update: Wir haben den Schuh gefunden. Herr Schneck wohnt jetzt darin. Er nennt ihn „die Villa“.",
+          "emoji": "👟",
+          "en": "Quick update: we have found the shoe. Herr Schneck lives in it now. He calls it “the villa”.",
+          "audio": "mc_wurm_t3_villa"
+        },
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Gestern Abend, 21:14 Uhr, Ihre Küche. Ich habe ein Foto gemacht.",
+          "emoji": "📷",
+          "en": "Last night, 9:14 pm, your kitchen. I took a photo.",
+          "audio": "mc_wurm_t3a"
+        },
+        {
+          "who": "wurm",
+          "type": "photo",
+          "image": "match_wurm_kitchen",
+          "alt": "Ein Foto durch das Küchenfenster: Jemand tanzt in einer Küche, hält einen Besen wie eine Gitarre und hat die Augen zu."
+        },
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Was haben Sie da gemacht? Es sah aus, als ob …",
+          "en": "What were you doing there? It looked as if …",
+          "audio": "mc_wurm_t3b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "habe",
+        "getanzt",
+        "geputzt",
+        "gesungen",
+        "als",
+        "ob",
+        "ein",
+        "Rockstar",
+        "wäre",
+        "bin",
+        "niemand",
+        "zuschauen",
+        "würde",
+        "zuschaut",
+        "mit",
+        "dem",
+        "Besen",
+        "Flamingo"
+      ],
+      "wrong": {
+        "bin": {
+          "to": "wäre",
+          "note": "als ob + Konjunktiv II: als ob ich ein Rockstar (oder ein Flamingo) wäre."
+        },
+        "zuschaut": {
+          "to": "zuschauen würde",
+          "note": "als ob + Konjunktiv II: als ob niemand zuschauen würde."
+        }
+      },
+      "intents": [
+        {
+          "id": "flamingo",
+          "when": {
+            "any": [
+              "flamingo"
+            ]
+          },
+          "value": 2,
+          "fact": "🦩 tanzt nachts auf einem Bein",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Als ob Sie ein Flamingo wären! Das erklärt das Bein. Ich korrigiere meine Daten: Der Mensch steht nachts auf einem Bein.",
+              "emoji": "🦩",
+              "en": "As if you were a flamingo! That explains the leg. I am correcting my data: at night, humans stand on one leg.",
+              "audio": "mc_wurm_t3_flamingo"
+            }
+          ]
+        },
+        {
+          "id": "rockstar",
+          "when": {
+            "any": [
+              "rockstar"
+            ]
+          },
+          "value": 2,
+          "fact": "🎸 tanzt mit Besen",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Als ob Sie ein Rockstar wären. Mit Besen. Die Kakteen auf der Fensterbank haben Feuerzeuge hochgehalten.",
+              "emoji": "🎸",
+              "en": "As if you were a rock star. With a broom. The cacti on the windowsill held up lighters.",
+              "audio": "mc_wurm_t3_rockstar"
+            }
+          ]
+        },
+        {
+          "id": "noone",
+          "when": {
+            "any": [
+              "niemand"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Als ob niemand zuschauen würde. Aber ich habe zugeschaut. Mit Notizbuch. Und Herr Schneck mit Popcorn.",
+              "emoji": "📓",
+              "en": "As if nobody were watching. But I was watching. With a notebook. And Herr Schneck with popcorn.",
+              "audio": "mc_wurm_t3_noone"
+            }
+          ]
+        },
+        {
+          "id": "broom",
+          "when": {
+            "any": [
+              "besen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Mit dem Besen. Ihr Lieblingsinstrument, nehme ich an.",
+              "emoji": "🧹",
+              "en": "With the broom. Your favourite instrument, I assume.",
+              "audio": "mc_wurm_t3_broom"
+            }
+          ]
+        },
+        {
+          "id": "sang",
+          "when": {
+            "any": [
+              "gesungen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Gesungen. Laut. Die Blumen haben gezittert.",
+              "en": "Sang. Loudly. The flowers trembled.",
+              "audio": "mc_wurm_t3_sang"
+            }
+          ]
+        },
+        {
+          "id": "clean",
+          "when": {
+            "any": [
+              "geputzt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Geputzt? Mit Gitarrensolo? Ihr Boden ist jetzt sehr sauber. Und sehr laut.",
+              "en": "Cleaned? With a guitar solo? Your floor is now very clean. And very loud.",
+              "audio": "mc_wurm_t3_clean"
+            }
+          ]
+        },
+        {
+          "id": "danced",
+          "when": {
+            "any": [
+              "getanzt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Getanzt. Mit geschlossenen Augen. Und mit einem Besen. Ich habe so viele Fragen.",
+              "emoji": "🧹",
+              "en": "Danced. With your eyes closed. And with a broom. I have so many questions.",
+              "audio": "mc_wurm_t3_danced"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Weiter. Vorgestern hat es den ganzen Tag geregnet. Wir Würmer hatten Party. Und Sie? Sind ohne Schirm spazieren gegangen. Trotz des Regens!",
+          "emoji": "🌧️",
+          "en": "Next. The day before yesterday it rained all day. We worms had a party. And you? Went for a walk without an umbrella. Despite the rain!",
+          "audio": "mc_wurm_t4a"
+        },
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Warum? Wir Würmer verstehen das. Aber Sie?",
+          "en": "Why? We worms understand that. But you?",
+          "audio": "mc_wurm_t4b"
+        }
+      ],
+      "tiles": [
+        "trotz",
+        "wegen",
+        "statt",
+        "des",
+        "dem",
+        "Regens",
+        "Regen",
+        "gehe",
+        "ich",
+        "gern",
+        "spazieren",
+        "eines",
+        "einem",
+        "Schirms",
+        "hatte",
+        "eine",
+        "Zeitung",
+        "liebe",
+        "meinen",
+        "Schirm",
+        "vergessen",
+        "einen",
+        "Kochtopf"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "pot",
+          "when": {
+            "any": [
+              "kochtopf"
+            ]
+          },
+          "value": 2,
+          "fact": "🥁 trägt bei Regen einen Kochtopf",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Statt eines Schirms einen Kochtopf. Auf dem Kopf. Bei Regen klingt das wie ein Schlagzeug.",
+              "emoji": "🥁",
+              "en": "A saucepan instead of an umbrella. On your head. In the rain that sounds like a drum kit.",
+              "audio": "mc_wurm_t4_pot"
+            },
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Erst der Besen, jetzt das Schlagzeug. Sie gründen eine Band, oder? Ich will Tamburin spielen.",
+              "emoji": "🪇",
+              "en": "First the broom, now the drums. You are starting a band, aren’t you? I want to play the tambourine.",
+              "audio": "mc_wurm_t4_pot_b"
+            }
+          ]
+        },
+        {
+          "id": "newspaper",
+          "when": {
+            "any": [
+              "zeitung"
+            ]
+          },
+          "value": 2,
+          "fact": "📰 nimmt eine Zeitung statt eines Schirms",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Statt eines Schirms eine Zeitung. Genial. Und nass.",
+              "emoji": "📰",
+              "en": "A newspaper instead of an umbrella. Genius. And wet.",
+              "audio": "mc_wurm_t4_newspaper"
+            }
+          ]
+        },
+        {
+          "id": "love",
+          "when": {
+            "any": [
+              "liebe"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Sie lieben Regen? Ich auch! Wir sind Kollegen! Ich schicke Ihnen zum Geburtstag eine Pfütze.",
+              "emoji": "🥹",
+              "en": "You love rain? So do I! We are colleagues! I am sending you a puddle for your birthday.",
+              "audio": "mc_wurm_t4_love"
+            }
+          ]
+        },
+        {
+          "id": "despite",
+          "when": {
+            "any": [
+              "trotz"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Trotz des Regens. Sie sind ja fast ein Wurm. Willkommen.",
+              "en": "Despite the rain. You are almost a worm. Welcome.",
+              "audio": "mc_wurm_t4_despite"
+            }
+          ]
+        },
+        {
+          "id": "forgot",
+          "when": {
+            "any": [
+              "vergessen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Vergessen. Wie den Schuh. Wie den Toast. Ich sehe ein Muster.",
+              "en": "Forgotten. Like the shoe. Like the toast. I see a pattern.",
+              "audio": "mc_wurm_t4_forgot"
+            }
+          ]
+        },
+        {
+          "id": "because",
+          "when": {
+            "any": [
+              "wegen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Wegen des Regens! Genau wie wir Würmer. Bei Regen kommen wir alle raus. Aber wir haben auch keinen Schirm.",
+              "en": "Because of the rain! Just like us worms. When it rains, we all come out. But then, we have no umbrella either.",
+              "audio": "mc_wurm_t4_because"
+            }
+          ]
+        },
+        {
+          "id": "walk",
+          "when": {
+            "any": [
+              "spazieren"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Gern spazieren. Bei jedem Wetter. Ich notiere: wetterfest.",
+              "emoji": "🚶",
+              "en": "Fond of walks. In any weather. I am noting: weatherproof.",
+              "audio": "mc_wurm_t4_walk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Jetzt der Bericht von Herrn Schneck. Er hat drei Tage gebraucht. Für einen Absatz.",
+          "emoji": "🐌",
+          "en": "Now the report from Herr Schneck. It took him three days. For one paragraph.",
+          "audio": "mc_wurm_t5a"
+        },
+        {
+          "who": "wurm",
+          "type": "voice",
+          "audio": "mc_wurm_vn_schneck",
+          "de": "Bericht … von … Assistent … Schneck. Um … Mitternacht … hat … der Mensch … den Kühlschrank … geöffnet. Er hat … etwas … gegessen. Etwas … Rundes. Dann hat er … gelacht. Allein.",
+          "en": "Report … by … assistant … Schneck. At … midnight … the human … opened … the fridge. They … ate … something. Something … round. Then they … laughed. Alone.",
+          "direction": "Erna Wurm imitating her extremely slow snail assistant: very slow, long sleepy pauses between words, solemn and monotone."
+        },
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Was werden Sie wohl gegessen haben? Herr Schneck vermutet: einen kleinen Mond.",
+          "en": "What will you have eaten, do you suppose? Herr Schneck’s guess: a small moon.",
+          "audio": "mc_wurm_t5b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "werde",
+        "wird",
+        "wohl",
+        "die",
+        "Pizza",
+        "von",
+        "gestern",
+        "Käse",
+        "einen",
+        "Apfel",
+        "gegessen",
+        "haben",
+        "habe",
+        "nichts",
+        "Herr Schneck",
+        "geträumt",
+        "gelacht",
+        "den",
+        "Mond"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "moon",
+          "when": {
+            "any": [
+              "mond"
+            ]
+          },
+          "value": 2,
+          "fact": "🌙 isst nachts den Mond",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Den Mond! Das erklärt, warum es gestern Nacht so dunkel war. Herr Schneck weint vor Stolz.",
+              "emoji": "🌙",
+              "en": "The moon! That explains why it was so dark last night. Herr Schneck is weeping with pride.",
+              "audio": "mc_wurm_t5_moon"
+            },
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Ich rufe sofort die Presse an. Und die Sternwarte. Bitte essen Sie nicht auch noch die Sonne.",
+              "emoji": "☀️",
+              "en": "I am calling the press at once. And the observatory. Please do not eat the sun as well.",
+              "audio": "mc_wurm_t5_moon_b"
+            }
+          ]
+        },
+        {
+          "id": "denial",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Nichts? Herr Schneck lügt nie. Er ist zu langsam zum Lügen. Bis er fertig ist, ist es schon wahr.",
+              "en": "Nothing? Herr Schneck never lies. He is too slow to lie. By the time he finishes, it has come true.",
+              "audio": "mc_wurm_t5_denial"
+            }
+          ]
+        },
+        {
+          "id": "snail",
+          "when": {
+            "any": [
+              "geträumt"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Herr Schneck wird geträumt haben. Hm! Er schläft oft im Dienst. Eine starke Hypothese.",
+              "emoji": "💤",
+              "en": "Herr Schneck will have been dreaming. Hm! He often sleeps on duty. A strong hypothesis.",
+              "audio": "mc_wurm_t5_snail"
+            }
+          ]
+        },
+        {
+          "id": "futur",
+          "when": {
+            "all": [
+              "werde",
+              "gegessen"
+            ]
+          },
+          "value": 2,
+          "fact": "🍕 isst um Mitternacht",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Hm. Rund. Kalt. Um Mitternacht. Herr Schneck hatte also unrecht: Es war kein Mond. Er ist sehr enttäuscht.",
+              "emoji": "🍕",
+              "en": "Hm. Round. Cold. At midnight. So Herr Schneck was wrong: it was not a moon. He is very disappointed.",
+              "audio": "mc_wurm_t5_futur"
+            }
+          ]
+        },
+        {
+          "id": "plain",
+          "when": {
+            "any": [
+              "gegessen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Gut. Aber warum haben Sie dann gelacht? Allein? Um Mitternacht?",
+              "en": "Good. But then why did you laugh? Alone? At midnight?",
+              "audio": "mc_wurm_t5_plain"
+            }
+          ]
+        },
+        {
+          "id": "laugh",
+          "when": {
+            "any": [
+              "gelacht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Gelacht, ja. Aber was haben Sie gegessen?",
+              "en": "Laughed, yes. But what did you eat?",
+              "audio": "mc_wurm_t5_laugh"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Letzte Beobachtung. Sie haben letzten Samstag meinen Komposthaufen umgegraben. Ich wohne dort! Mit vierhundert Verwandten!",
+          "emoji": "😤",
+          "en": "Final observation. Last Saturday you dug up my compost heap. I live there! With four hundred relatives!",
+          "audio": "mc_wurm_t6a"
+        },
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Tante Gisela wohnt jetzt bei den Nachbarn. Im Biomüll. Sie schreibt mir böse Briefe. Aus Erde.",
+          "emoji": "✉️",
+          "en": "Aunt Gisela now lives at the neighbours’. In the organic bin. She writes me angry letters. Made of soil.",
+          "audio": "mc_wurm_t6_gisela"
+        },
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Was hätten Sie gemacht, wenn Sie das gewusst hätten?",
+          "en": "What would you have done if you had known?",
+          "audio": "mc_wurm_t6b"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "ich",
+        "ich",
+        "das",
+        "gewusst",
+        "hätte",
+        "hätte",
+        "habe",
+        "wäre",
+        "nicht",
+        "gegraben",
+        "mich",
+        "entschuldigt",
+        "trotzdem",
+        "es tut mir leid",
+        "woanders",
+        "vorher",
+        "geklingelt"
+      ],
+      "wrong": {
+        "wäre": {
+          "to": "hätte",
+          "note": "graben forms its perfect with haben: hätte gegraben."
+        },
+        "habe": {
+          "to": "hätte",
+          "note": "Unreal past: Konjunktiv II Plusquamperfekt (wenn ich das gewusst hätte)."
+        }
+      },
+      "intents": [
+        {
+          "id": "ruthless",
+          "when": {
+            "any": [
+              "trotzdem"
+            ]
+          },
+          "value": -2,
+          "cause": "ruthless",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Trotzdem?! Das notiere ich. In Rot. Tante Gisela notiert es in Großbuchstaben.",
+              "emoji": "🖍️",
+              "en": "Anyway?! I am noting that. In red. Aunt Gisela is noting it in capital letters.",
+              "audio": "mc_wurm_t6_ruthless"
+            }
+          ]
+        },
+        {
+          "id": "ring",
+          "when": {
+            "any": [
+              "geklingelt"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": 2,
+          "fact": "🔔 klingelt beim Kompost",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Geklingelt! Bei einem Komposthaufen! Wir haben gar keine Klingel.",
+              "emoji": "🔔",
+              "en": "Rung the bell! At a compost heap! We do not even have a doorbell.",
+              "audio": "mc_wurm_t6_ring"
+            },
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Ich lasse sofort eine einbauen. Tante Gisela will eine mit Melodie.",
+              "emoji": "🎶",
+              "en": "I am having one installed at once. Aunt Gisela wants one that plays a tune.",
+              "audio": "mc_wurm_t6_ring_b"
+            }
+          ]
+        },
+        {
+          "id": "notDug",
+          "when": {
+            "any": [
+              "nicht",
+              "woanders"
+            ]
+          },
+          "value": 2,
+          "fact": "🌱 gräbt rücksichtsvoll",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Sie hätten nicht gegraben. Oder woanders. Danke. Mein Wohnzimmer dankt auch.",
+              "emoji": "🙏",
+              "en": "You would not have dug. Or somewhere else. Thank you. My living room thanks you too.",
+              "audio": "mc_wurm_t6_notdug"
+            }
+          ]
+        },
+        {
+          "id": "apologise",
+          "when": {
+            "any": [
+              "entschuldigt"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Entschuldigt. Gut. Dann entschuldige ich mich auch. Für die Fotos. Und das Fernglas. Und für Herrn Schneck.",
+              "en": "Apologised. Good. Then I apologise too. For the photos. And the binoculars. And for Herr Schneck.",
+              "audio": "mc_wurm_t6_apologise"
+            }
+          ]
+        },
+        {
+          "id": "sorry",
+          "when": {
+            "any": [
+              "es tut mir leid"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Es tut Ihnen leid. Notiert. Mit einem kleinen Herzen.",
+              "emoji": "💗",
+              "en": "You are sorry. Noted. With a little heart.",
+              "audio": "mc_wurm_t6_sorry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Mein Fazit für den Artikel: Sie sind ein seltsames Wesen.",
+          "emoji": "📝",
+          "en": "My conclusion for the article: you are a strange creature.",
+          "audio": "mc_wurm_t7a"
+        },
+        {
+          "who": "wurm",
+          "type": "text",
+          "de": "Wie würden Sie sich selbst beschreiben?",
+          "en": "How would you describe yourself?",
+          "audio": "mc_wurm_t7b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "bin",
+        "wäre",
+        "seltsam",
+        "aber",
+        "nett",
+        "ein",
+        "ganz",
+        "normaler",
+        "Mensch",
+        "tue",
+        "nur",
+        "so",
+        "als",
+        "ob",
+        "normal",
+        "fast",
+        "Wurm",
+        "langweilig"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "boring",
+          "when": {
+            "any": [
+              "langweilig"
+            ]
+          },
+          "value": -2,
+          "cause": "boring",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Langweilig?! Dann war meine Forschung umsonst!",
+              "emoji": "😱",
+              "en": "Boring?! Then my research was for nothing!",
+              "audio": "mc_wurm_t7_boring"
+            }
+          ]
+        },
+        {
+          "id": "notHuman",
+          "when": {
+            "all": [
+              "ob",
+              "mensch"
+            ]
+          },
+          "value": 2,
+          "fact": "🪱 ist vielleicht gar kein Mensch",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Moment. Sie tun nur so, als ob Sie ein Mensch wären?! Drei Wochen Forschung!",
+              "emoji": "😱",
+              "en": "Wait. You are only pretending to be a human?! Three weeks of research!",
+              "audio": "mc_wurm_t7_nothuman"
+            },
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Herr Schneck fällt in Ohnmacht. Langsam. Er ist am Dienstag unten. Sind Sie … auch ein Wurm? Blinzeln Sie zweimal.",
+              "emoji": "🪱",
+              "en": "Herr Schneck is fainting. Slowly. He will hit the ground on Tuesday. Are you … a worm too? Blink twice.",
+              "audio": "mc_wurm_t7_nothuman_b"
+            }
+          ]
+        },
+        {
+          "id": "asIf",
+          "when": {
+            "any": [
+              "ob"
+            ]
+          },
+          "value": 2,
+          "fact": "🎭 tut nur so, als ob",
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Sie tun nur so, als ob. Faszinierend! Das wird mein Titel. Herr Schneck macht das seit Jahren: Er tut so, als ob er arbeiten würde.",
+              "emoji": "🎭",
+              "en": "You are only pretending. Fascinating! That will be my headline. Herr Schneck has done it for years: he pretends to be working.",
+              "audio": "mc_wurm_t7_asif"
+            }
+          ]
+        },
+        {
+          "id": "worm",
+          "when": {
+            "any": [
+              "wurm"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Fast ein Wurm! Das schönste Kompliment. Zehn von zehn Punkten.",
+              "emoji": "🪱",
+              "en": "Almost a worm! The loveliest compliment. Ten out of ten.",
+              "audio": "mc_wurm_t7_worm"
+            }
+          ]
+        },
+        {
+          "id": "weirdNice",
+          "when": {
+            "any": [
+              "seltsam",
+              "nett"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Seltsam, aber nett. Das nehme ich als Überschrift.",
+              "en": "Strange, but nice. I'll take that as a headline.",
+              "audio": "mc_wurm_t7_weirdnice"
+            }
+          ]
+        },
+        {
+          "id": "normal",
+          "when": {
+            "any": [
+              "normaler",
+              "mensch",
+              "normal"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wurm",
+              "type": "text",
+              "de": "Normal? Nach DIESEN Daten? Herr Schneck lacht. Langsam.",
+              "emoji": "🐌",
+              "en": "Normal? After THIS data? Herr Schneck is laughing. Slowly.",
+              "audio": "mc_wurm_t7_normal"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "wurm",
+    "type": "text",
+    "de": "Das beantwortet meine Frage nicht. Ich notiere: Ausweichverhalten.",
+    "en": "That doesn't answer my question. I'm noting: evasive behaviour.",
+    "audio": "mc_wurm_offtopic"
+  },
+  "confused": [
+    {
+      "who": "wurm",
+      "type": "text",
+      "de": "Wie bitte? Das ist wissenschaftlich nicht auswertbar.",
+      "emoji": "🧐",
+      "en": "I beg your pardon? That can't be evaluated scientifically.",
+      "audio": "mc_wurm_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "wurm",
+        "type": "text",
+        "de": "Mein Artikel erscheint nächste Woche: „Der Mensch – seltsam, aber nett.“ Sie sind auf Seite eins. Herr Schneck ist auf Seite zwei. Mit seiner Villa.",
+        "emoji": "📰",
+        "en": "My article comes out next week: “The Human – strange, but nice.” You are on page one. Herr Schneck is on page two. With his villa.",
+        "audio": "mc_wurm_win"
+      },
+      {
+        "who": "wurm",
+        "type": "text",
+        "de": "Danke, {name}. Ich beobachte Sie weiter. Freundlich.",
+        "en": "Thank you, {name}. I will keep observing you. In a friendly way."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "wurm",
+        "type": "text",
+        "de": "Mein Artikel heißt: „Der Mensch – unklar.“ Seite 47. Neben den Asseln. Und einer Anzeige für Blumenerde.",
+        "emoji": "🐛",
+        "en": "My article is called: “The Human – unclear.” Page 47. Next to the woodlice. And an advert for potting soil.",
+        "audio": "mc_wurm_partial"
+      }
+    ],
+    "deleted": {
+      "rude": {
+        "who": "wurm",
+        "type": "text",
+        "de": "Unkooperativ. Ich beende das Interview. Herr Schneck bringt Sie hinaus. Das dauert.",
+        "emoji": "🐌",
+        "en": "Uncooperative. I am ending the interview. Herr Schneck will show you out. That will take a while.",
+        "audio": "mc_wurm_del_rude"
+      },
+      "ruthless": {
+        "who": "wurm",
+        "type": "text",
+        "de": "Sie hätten trotzdem gegraben? Ich ziehe um. Und lösche Sie. In dieser Reihenfolge.",
+        "en": "You would have dug anyway? I am moving out. And deleting you. In that order.",
+        "audio": "mc_wurm_del_ruthless"
+      },
+      "boring": {
+        "who": "wurm",
+        "type": "text",
+        "de": "Langweilig. Drei Wochen Forschung, ein Salatblatt Budget. Alles umsonst. Tschüss.",
+        "en": "Boring. Three weeks of research, a budget of one lettuce leaf. All for nothing. Goodbye.",
+        "audio": "mc_wurm_del_boring"
+      },
+      "confused": {
+        "who": "wurm",
+        "type": "text",
+        "de": "Ihre Antworten sind wissenschaftlich nicht auswertbar. Tschüss.",
+        "en": "Your answers can't be evaluated scientifically. Goodbye.",
+        "audio": "mc_wurm_del_confused"
+      },
+      "default": {
+        "who": "wurm",
+        "type": "text",
+        "de": "Fazit: Der Mensch ist ein Rätsel. Und bleibt eins. Herr Schneck behält den Schuh. Tschüss.",
+        "en": "Conclusion: the human is a mystery. And remains one. Herr Schneck is keeping the shoe. Goodbye.",
+        "audio": "mc_wurm_del_default"
+      }
+    },
+    "sunday": {
+      "who": "wurm",
+      "type": "voice",
+      "audio": "mc_wurm_vn_sunday",
+      "de": "Professorin Wurm hier. Sonntag, es regnet! Wir Würmer feiern. Sie werden wohl schon wieder ohne Schirm losgegangen sein. Ich warte am Weg. Herr Schneck lässt grüßen. Aus der Villa. Er gibt sie nicht zurück.",
+      "en": "Professor Wurm here. Sunday, and it is raining! We worms are celebrating. I suppose you will already have set off without an umbrella again. I am waiting by the path. Herr Schneck sends his regards. From the villa. He is not giving it back.",
+      "direction": "Overjoyed by the rain, gentle drizzle in the background, academic voice melting into delight."
+    }
+  },
+  "partialTitle": "Seite 47, neben den Asseln.",
+  "share": {
+    "win": "Ich habe das Interview mit Prof. Dr. Erna Wurm (3, Menschenforscherin) überlebt 🪱🔬 Ich bin auf Seite eins, ihr Assistent wohnt in meinem Schuh. Mein Deutsch: {score}/100. {url}",
+    "partial": "Prof. Dr. Erna Wurm (3) hat über mich geschrieben … Seite 47, neben den Asseln 🐛 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Prof. Dr. Erna Wurm (3, Menschenforscherin) hat mich gelöscht 🪱 Wissenschaftlich nicht auswertbar. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Prof. Dr. Erna Wurm, a small pink earthworm with tiny round wire-rimmed glasses, a miniature white lab coat, a pencil tucked behind where an ear would be, and a little notebook; she looks keen and curious.",
+  "imagePrompts": [
+    {
+      "id": "match_wurm",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She pokes out of the soil of a terracotta flowerpot on a windowsill, peering at the viewer through her glasses, notebook in front of her. Behind her a slightly blurred apartment window. Her face and glasses clearly visible, centred, close up."
+    },
+    {
+      "id": "match_wurm_kitchen",
+      "aspect": "3:4",
+      "prompt": "A slightly grainy photo taken from outside through a kitchen window at night, the window frame visible at the edges and a flowerpot on the sill in the foreground. Inside the warmly lit kitchen a young adult of indeterminate gender in pyjamas dances with eyes closed, holding a broom like an electric guitar, one leg in the air. Nothing else unusual."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Wegen meines Busses.",
+      "score": 100,
+      "intent": "bus",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Wegen meinem Bus.",
+      "score": 70,
+      "intent": "bus",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Wegen des Weckers. Mein Wecker war kaputt.",
+      "score": 100,
+      "intent": "clock",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hatte verschlafen.",
+      "score": 100,
+      "intent": "overslept",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das geht Sie nichts an.",
+      "score": 100,
+      "intent": "rude",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich verschlafen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Wegen eines Pinguins.",
+      "score": 100,
+      "intent": "penguin",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Wegen meinem Pinguin.",
+      "score": 70,
+      "intent": "penguin",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Mein Hund wird ihn gefressen haben.",
+      "score": 100,
+      "intent": "dog",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Mein Hund wird gefressen ihn haben.",
+      "score": 70,
+      "intent": "dog",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Er wird wohl unter dem Bett liegen.",
+      "score": 100,
+      "intent": "bed",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich werde ihn versteckt haben.",
+      "score": 100,
+      "intent": "self",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Er ist im Bus.",
+      "score": 100,
+      "intent": "bus",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Er wohl unter dem Bett.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Herr Schneck wird ihn gestohlen haben.",
+      "score": 100,
+      "intent": "thief",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Herr Schneck wird gestohlen ihn haben.",
+      "score": 70,
+      "intent": "thief",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe getanzt, als ob ich ein Rockstar wäre.",
+      "score": 100,
+      "intent": "rockstar",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe getanzt, als ob ich ein Rockstar bin.",
+      "score": 85,
+      "intent": "rockstar",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe getanzt, als ob niemand zuschauen würde.",
+      "score": 100,
+      "intent": "noone",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe getanzt, als ob niemand zuschaut.",
+      "score": 85,
+      "intent": "noone",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe mit dem Besen getanzt.",
+      "score": 100,
+      "intent": "broom",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe gesungen.",
+      "score": 100,
+      "intent": "sang",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe geputzt.",
+      "score": 100,
+      "intent": "clean",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe getanzt.",
+      "score": 100,
+      "intent": "danced",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich getanzt.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe getanzt, als ob ich ein Flamingo wäre.",
+      "score": 100,
+      "intent": "flamingo",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe getanzt, als ob ich ein Flamingo bin.",
+      "score": 85,
+      "intent": "flamingo",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Statt eines Schirms hatte ich eine Zeitung.",
+      "score": 100,
+      "intent": "newspaper",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Statt einem Schirm hatte ich eine Zeitung.",
+      "score": 85,
+      "intent": "newspaper",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Trotz des Regens gehe ich gern spazieren.",
+      "score": 100,
+      "intent": "despite",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Trotz dem Regen gehe ich gern spazieren.",
+      "score": 85,
+      "intent": "despite",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich liebe Regen.",
+      "score": 100,
+      "intent": "love",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich hatte meinen Schirm vergessen.",
+      "score": 100,
+      "intent": "forgot",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Wegen des Regens.",
+      "score": 100,
+      "intent": "because",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gehe gern spazieren.",
+      "score": 100,
+      "intent": "walk",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Trotz dem Regen ich gehe gern spazieren.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Statt eines Schirms hatte ich einen Kochtopf.",
+      "score": 100,
+      "intent": "pot",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Statt einem Schirm hatte ich einen Kochtopf.",
+      "score": 85,
+      "intent": "pot",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich werde wohl die Pizza von gestern gegessen haben.",
+      "score": 100,
+      "intent": "futur",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich werde wohl einen Apfel gegessen haben.",
+      "score": 100,
+      "intent": "futur",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich werde wohl gegessen haben einen Apfel.",
+      "score": 70,
+      "intent": "futur",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe Käse gegessen.",
+      "score": 100,
+      "intent": "plain",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Herr Schneck wird geträumt haben.",
+      "score": 100,
+      "intent": "snail",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe nichts gegessen.",
+      "score": 100,
+      "intent": "denial",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich Käse gegessen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich werde wohl den Mond gegessen haben.",
+      "score": 100,
+      "intent": "moon",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe den Mond gegessen.",
+      "score": 100,
+      "intent": "moon",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn ich das gewusst hätte, hätte ich nicht gegraben.",
+      "score": 100,
+      "intent": "notDug",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn ich das gewusst habe, hätte ich nicht gegraben.",
+      "score": 85,
+      "intent": "notDug",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn ich das gewusst hätte, hätte ich woanders gegraben.",
+      "score": 100,
+      "intent": "notDug",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn ich das gewusst hätte, ich hätte nicht gegraben.",
+      "score": 70,
+      "intent": "notDug",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn ich das gewusst hätte, hätte ich mich entschuldigt.",
+      "score": 100,
+      "intent": "apologise",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Es tut mir leid.",
+      "score": 100,
+      "intent": "sorry",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hätte trotzdem gegraben.",
+      "score": 100,
+      "intent": "ruthless",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn ich das gewusst, ich nicht gegraben.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn ich das gewusst hätte, hätte ich vorher geklingelt.",
+      "score": 100,
+      "intent": "ring",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn ich das gewusst habe, hätte ich vorher geklingelt.",
+      "score": 85,
+      "intent": "ring",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich tue nur so, als ob ich normal wäre.",
+      "score": 100,
+      "intent": "asIf",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bin fast ein Wurm.",
+      "score": 100,
+      "intent": "worm",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bin seltsam, aber nett.",
+      "score": 100,
+      "intent": "weirdNice",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bin ein ganz normaler Mensch.",
+      "score": 100,
+      "intent": "normal",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bin langweilig.",
+      "score": 100,
+      "intent": "boring",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich tue nur so, als ob ich wäre normal.",
+      "score": 70,
+      "intent": "asIf",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich fast ein Wurm.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich tue nur so, als ob ich ein Mensch wäre.",
+      "score": 100,
+      "intent": "notHuman",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich tue nur so, als ob ich wäre ein Mensch.",
+      "score": 70,
+      "intent": "notHuman",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Wegen meines Busses."
+        ],
+        [
+          "t2",
+          "Mein Hund wird ihn gefressen haben."
+        ],
+        [
+          "t3",
+          "Ich habe getanzt, als ob ich ein Rockstar wäre."
+        ],
+        [
+          "t4",
+          "Statt eines Schirms hatte ich eine Zeitung."
+        ],
+        [
+          "t5",
+          "Ich werde wohl die Pizza von gestern gegessen haben."
+        ],
+        [
+          "t6",
+          "Wenn ich das gewusst hätte, hätte ich nicht gegraben."
+        ],
+        [
+          "t7",
+          "Ich tue nur so, als ob ich normal wäre."
+        ]
+      ]
+    },
+    {
+      "name": "crazy",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Wegen eines Pinguins."
+        ],
+        [
+          "t2",
+          "Herr Schneck wird ihn gestohlen haben."
+        ],
+        [
+          "t3",
+          "Ich habe getanzt, als ob ich ein Flamingo wäre."
+        ],
+        [
+          "t4",
+          "Statt eines Schirms hatte ich einen Kochtopf."
+        ],
+        [
+          "t5",
+          "Ich werde wohl den Mond gegessen haben."
+        ],
+        [
+          "t6",
+          "Wenn ich das gewusst hätte, hätte ich vorher geklingelt."
+        ],
+        [
+          "t7",
+          "Ich tue nur so, als ob ich ein Mensch wäre."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Das geht Sie nichts an."
+        ],
+        [
+          "t2",
+          "Ich weiß es nicht."
+        ],
+        [
+          "t3",
+          "Ich habe geputzt."
+        ],
+        [
+          "t4",
+          "Trotz dem Regen gehe ich gern spazieren."
+        ],
+        [
+          "t5",
+          "Ich habe nichts gegessen."
+        ],
+        [
+          "t6",
+          "Es tut mir leid."
+        ],
+        [
+          "t7",
+          "Ich bin ein ganz normaler Mensch."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Das geht Sie nichts an."
+        ],
+        [
+          "t2",
+          "Ich weiß es nicht."
+        ],
+        [
+          "t3",
+          "Ich getanzt."
+        ],
+        [
+          "t4",
+          "Trotz dem Regen ich gehe gern spazieren."
+        ]
+      ]
+    }
+  ]
+}

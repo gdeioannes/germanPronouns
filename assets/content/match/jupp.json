@@ -1,0 +1,1994 @@
+{
+  "id": "jupp",
+  "name": "Jupp",
+  "age": 66,
+  "emoji": "🎭",
+  "image": "match_jupp",
+  "level": "A2.1",
+  "order": 5,
+  "bio": "Alaaf! Heute ist alles erlaubt.",
+  "bioEn": "Alaaf! Today anything goes.",
+  "goal": "Keep your tie on (or trade it).",
+  "tagline": "Karnevalist · 66 · Köln",
+  "voice": "Orus",
+  "brief": "Jupp, a 66-year-old Cologne carnival fanatic on Weiberfastnacht: a big, booming, jolly older male voice with a warm Rhineland lilt, loves to shout \"Alaaf!\", laughs at his own jokes and lowers his voice to a conspiratorial whisper when he shares a secret.",
+  "focus": "Dativ-Verben: gehören, gefallen, helfen, schenken · Feste · Perfekt",
+  "lexicon": {
+    "nouns": {
+      "Krawatte": "f",
+      "Opa": "m",
+      "Oma": "f",
+      "Chef": "m",
+      "Hähnchen": "n",
+      "Pirat": "m",
+      "Clown": "m",
+      "Kostüm": "n",
+      "Schokolade": "f",
+      "Blumen": "pl",
+      "Kamelle": "pl",
+      "Zeit": "f",
+      "Schere": "f",
+      "Musik": "f",
+      "Karneval": "m",
+      "Hund": "m",
+      "Kühlschrank": "m"
+    },
+    "names": [
+      "Marlies",
+      "Köln",
+      "Jupp"
+    ],
+    "verbs": [
+      "gehört",
+      "gehören",
+      "gefällt",
+      "schenke",
+      "schenkst",
+      "verstecke",
+      "laufe",
+      "gebe",
+      "habe",
+      "bin",
+      "helfe",
+      "hilfst",
+      "hilft",
+      "nehme",
+      "hat",
+      "haben"
+    ],
+    "nonfinite": [
+      "gefeiert",
+      "getanzt",
+      "gearbeitet",
+      "gefahren",
+      "geblieben",
+      "gesammelt",
+      "gemacht",
+      "gefallen"
+    ],
+    "imperatives": [
+      "hilf"
+    ],
+    "accVerbs": [
+      "verstecke",
+      "habe",
+      "nehme"
+    ],
+    "datVerbs": [
+      "gehört",
+      "gehören",
+      "gefällt",
+      "schenke",
+      "schenkst",
+      "gebe",
+      "helfe",
+      "hilfst",
+      "hilft",
+      "nehme",
+      "hilf"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "jupp",
+      "type": "text",
+      "de": "Alaaf! Ich bin Jupp. Ich bin 66. Heute ist Weiberfastnacht!",
+      "emoji": "🎉",
+      "en": "Alaaf! I'm Jupp. I'm 66. Today is Weiberfastnacht!",
+      "audio": "mc_jupp_intro_a"
+    },
+    {
+      "who": "jupp",
+      "type": "text",
+      "de": "Heute ist alles erlaubt. Auch Krawatten abschneiden. Schnipp!",
+      "emoji": "✂️",
+      "en": "Today anything goes. Even cutting off ties. Snip!",
+      "audio": "mc_jupp_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Ich sehe dein Profilbild. Du trägst eine Krawatte. Heute?! Mutig.",
+          "emoji": "👔",
+          "en": "I can see your profile picture. You're wearing a tie. Today?! Brave.",
+          "audio": "mc_jupp_t1a"
+        },
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Wem gehört die Krawatte? Dir? Oder deinem Chef?",
+          "en": "Whose tie is it? Yours? Or your boss's?",
+          "audio": "mc_jupp_t1b"
+        }
+      ],
+      "tiles": [
+        "die",
+        "Krawatte",
+        "sie",
+        "gehört",
+        "gehören",
+        "mir",
+        "mich",
+        "dir",
+        "meinem",
+        "meinen",
+        "meiner",
+        "Opa",
+        "Oma",
+        "Chef",
+        "nicht",
+        "Hund"
+      ],
+      "wrong": {
+        "gehören": "gehört",
+        "mich": "mir",
+        "meinen": "meinem"
+      },
+      "intents": [
+        {
+          "id": "grand",
+          "when": {
+            "any": [
+              "opa",
+              "oma"
+            ]
+          },
+          "value": 2,
+          "fact": "👔 trägt eine Krawatte mit Geschichte",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Eine Familienkrawatte? Die schneidet niemand ab. Fast niemand. Marlies vielleicht.",
+              "emoji": "👴",
+              "en": "A family tie? Nobody cuts that off. Almost nobody. Marlies maybe.",
+              "audio": "mc_jupp_t1_grand"
+            }
+          ]
+        },
+        {
+          "id": "dog",
+          "when": {
+            "any": [
+              "hund"
+            ]
+          },
+          "value": 1,
+          "fact": "🐕 hat einen Hund mit Krawatte",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Deinem Hund?! Dein Hund trägt Krawatte? Er ist eleganter als ich. Ich trage ein Hähnchen.",
+              "en": "Your dog’s?! Your dog wears a tie? He’s more elegant than me. I’m wearing a chicken.",
+              "audio": "mc_jupp_t1_dog"
+            }
+          ]
+        },
+        {
+          "id": "boss",
+          "when": {
+            "any": [
+              "chef"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Vom Chef? Dann schneiden wir sie sofort ab! Haha! Nein. Vielleicht. Ja. Schnipp.",
+              "en": "Your boss’s? Then we’ll cut it off right now! Haha! No. Maybe. Yes. Snip.",
+              "audio": "mc_jupp_t1_boss"
+            }
+          ]
+        },
+        {
+          "id": "notMine",
+          "when": {
+            "any": [
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Nicht dir? Wem dann? Egal. Sie ist in Gefahr.",
+              "en": "Not yours? Whose then? Never mind. It's in danger.",
+              "audio": "mc_jupp_t1_notmine"
+            }
+          ]
+        },
+        {
+          "id": "jupp",
+          "when": {
+            "any": [
+              "dir"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Mir? Ich habe schon 312 Krawatten. Alle abgeschnitten. Seit 1975.",
+              "en": "Mine? I already have 312 ties. All cut off. Since 1975.",
+              "audio": "mc_jupp_t1_jupp"
+            }
+          ]
+        },
+        {
+          "id": "mine",
+          "when": {
+            "any": [
+              "mir",
+              "mich"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Dir. Gut. Dann pass gut auf sie auf. Heute ist Weiberfastnacht.",
+              "en": "Yours. Good. Then look after it well. Today is Weiberfastnacht.",
+              "audio": "mc_jupp_t1_mine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Ohne Kostüm geht heute gar nichts. Ich leihe dir eins. Hier sind drei.",
+          "emoji": "🎭",
+          "en": "Nothing works without a costume today. I'll lend you one. Here are three.",
+          "audio": "mc_jupp_t2a"
+        },
+        {
+          "who": "jupp",
+          "type": "photo",
+          "image": "match_jupp_costumes",
+          "wide": true,
+          "alt": "Drei Kostüme an einer Stange: links ein Piratenkostüm, schwarz und rot. In der Mitte ein gelbes Hähnchenkostüm. Rechts ein bunter Clown mit roter Nase."
+        },
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Welches Kostüm gefällt dir?",
+          "en": "Which costume do you like?",
+          "audio": "mc_jupp_t2b"
+        }
+      ],
+      "tiles": [
+        "mir",
+        "mich",
+        "gefällt",
+        "das",
+        "der",
+        "die",
+        "Hähnchen",
+        "Pirat",
+        "Clown",
+        "am besten",
+        "kein",
+        "Kostüm",
+        "gar nicht",
+        "alles",
+        "Kühlschrank"
+      ],
+      "wrong": {
+        "mich": "mir"
+      },
+      "intents": [
+        {
+          "id": "dislike",
+          "when": {
+            "all": [
+              "gar nicht"
+            ],
+            "any": [
+              "hähnchen",
+              "pirat",
+              "clown"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Gar nicht? Okay. Dann nimm ein anderes. Ich habe ja drei.",
+              "emoji": "🤷",
+              "en": "Not at all? Okay. Then take another one. I've got three, after all.",
+              "audio": "mc_jupp_t2_dislike"
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "when": {
+            "any": [
+              "kein",
+              "gar nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Kein Kostüm? An Weiberfastnacht? Das ist wie Weihnachten ohne Baum.",
+              "en": "No costume? On Weiberfastnacht? That is like Christmas without a tree.",
+              "audio": "mc_jupp_t2_none"
+            }
+          ]
+        },
+        {
+          "id": "chicken",
+          "when": {
+            "any": [
+              "hähnchen"
+            ]
+          },
+          "value": 2,
+          "fact": "🐔 trägt das Hähnchenkostüm",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Das Hähnchen! Mein Lieblingskostüm. Seit 1982. Du hast Geschmack!",
+              "emoji": "🐔",
+              "en": "The chicken! My favourite costume. Since 1982. You have taste!",
+              "audio": "mc_jupp_t2_chicken"
+            }
+          ]
+        },
+        {
+          "id": "pirate",
+          "when": {
+            "any": [
+              "pirat"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Der Pirat. Gut. Mit der Augenklappe siehst du Marlies nur halb. Das ist ein Vorteil.",
+              "emoji": "🏴‍☠️",
+              "en": "The pirate. Good. With the eye patch you only see half of Marlies. That is an advantage.",
+              "audio": "mc_jupp_t2_pirate"
+            }
+          ]
+        },
+        {
+          "id": "clown",
+          "when": {
+            "any": [
+              "clown"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Der Clown! Klassisch. Die Nase quietscht. Wie Marlies, wenn sie lacht. Sie lacht nur beim Schneiden.",
+              "emoji": "🤡",
+              "en": "The clown! A classic. The nose squeaks. Like Marlies when she laughs. She only laughs while cutting.",
+              "audio": "mc_jupp_t2_clown"
+            }
+          ]
+        },
+        {
+          "id": "fridge",
+          "when": {
+            "any": [
+              "kühlschrank"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Der Kühlschrank? Das ist kein Kostüm. Das ist mein Kühlschrank. … Aber okay. Ich mache zwei Löcher rein. Für die Augen.",
+              "en": "The fridge? That’s not a costume. That’s my fridge. … But okay. I’ll cut two holes in it. For the eyes.",
+              "audio": "mc_jupp_t2_fridge"
+            }
+          ]
+        },
+        {
+          "id": "all",
+          "when": {
+            "any": [
+              "alles"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Alles? Du kannst nicht alles tragen. Doch? Okay. Du bist ein Profi.",
+              "en": "Everything? You can't wear everything. You can? Okay. You're a pro.",
+              "audio": "mc_jupp_t2_all"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Ich habe eine Sprachnachricht für dich. Wichtig!",
+          "emoji": "📢",
+          "en": "I have a voice message for you. Important!",
+          "audio": "mc_jupp_t3a"
+        },
+        {
+          "who": "jupp",
+          "type": "voice",
+          "audio": "mc_jupp_vn_marlies",
+          "de": "Hör zu! Um elf Uhr elf beginnt der Karneval. Dann kommt Marlies. Marlies hat eine Schere. Eine große Schere! Sie schneidet jede Krawatte ab. Aber: Marlies liebt Schokolade. Wer ihr Schokolade schenkt, behält die Krawatte. Alaaf!",
+          "en": "Listen! At eleven eleven the carnival begins. Then Marlies comes. Marlies has scissors. Big scissors! She cuts off every tie. But: Marlies loves chocolate. Whoever gives her chocolate keeps their tie. Alaaf!",
+          "direction": "Loud and jolly at first, then dropping to a conspiratorial whisper for the secret about chocolate, and a final booming \"Alaaf!\"."
+        },
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Also: Wie behältst du deine Krawatte?",
+          "en": "So: how do you keep your tie?",
+          "audio": "mc_jupp_t3b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "schenke",
+        "schenkst",
+        "ihr",
+        "Marlies",
+        "eine",
+        "Schokolade",
+        "Blumen",
+        "die",
+        "Krawatte",
+        "verstecke",
+        "laufe",
+        "weg",
+        "um elf Uhr elf",
+        "gebe"
+      ],
+      "wrong": {
+        "schenkst": "schenke"
+      },
+      "intents": [
+        {
+          "id": "choc",
+          "when": {
+            "any": [
+              "schokolade"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "chocPlan"
+          ],
+          "fact": "🍫 kennt Marlies",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Schokolade! Genau! Du bist gefährlich schlau. Marlies wird dich lieben. Fast. Alaaf!",
+              "emoji": "🍫",
+              "en": "Chocolate! Exactly! You’re dangerously clever. Marlies will love you. Almost. Alaaf!",
+              "audio": "mc_jupp_t3_choc"
+            }
+          ]
+        },
+        {
+          "id": "flowers",
+          "when": {
+            "any": [
+              "blumen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Blumen? Marlies hat Heuschnupfen. Sie niest. Und dann schneidet sie.",
+              "emoji": "🤧",
+              "en": "Flowers? Marlies has hay fever. She sneezes. And then she cuts.",
+              "audio": "mc_jupp_t3_flowers"
+            }
+          ]
+        },
+        {
+          "id": "trade",
+          "when": {
+            "any": [
+              "gebe"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Du gibst ihr die Krawatte? Freiwillig?! Das hat noch nie jemand gemacht.",
+              "en": "You give her the tie? Voluntarily?! Nobody has ever done that.",
+              "audio": "mc_jupp_t3_trade"
+            }
+          ]
+        },
+        {
+          "id": "hide",
+          "when": {
+            "any": [
+              "verstecke"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Verstecken! Gut. Aber Marlies findet alles. 1987 hat sie meinen Hut gefunden. Im Rhein. Unter einem Schiff.",
+              "en": "Hide it! Good. But Marlies finds everything. In 1987 she found my hat. In the Rhine. Under a ship.",
+              "audio": "mc_jupp_t3_hide"
+            }
+          ]
+        },
+        {
+          "id": "run",
+          "when": {
+            "any": [
+              "laufe",
+              "weg"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Weglaufen? Marlies war Sprintmeisterin. 1979.",
+              "emoji": "🏃‍♀️",
+              "en": "Run away? Marlies was a sprint champion. 1979.",
+              "audio": "mc_jupp_t3_run"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "when": {
+            "any": [
+              "um elf uhr elf"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Ja, um elf Uhr elf. Und dann? Was machst du?",
+              "en": "Yes, at eleven eleven. And then? What do you do?",
+              "audio": "mc_jupp_t3_time"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Gute Idee. Und sag mal: Was hast du letztes Jahr an Karneval gemacht?",
+          "emoji": "🎊",
+          "en": "Good idea. And tell me: what did you do at carnival last year?",
+          "audio": "mc_jupp_t4a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "bin",
+        "gefeiert",
+        "getanzt",
+        "gearbeitet",
+        "gefahren",
+        "geblieben",
+        "Kamelle",
+        "gesammelt",
+        "nach",
+        "Köln",
+        "zu Hause",
+        "viel",
+        "sehr",
+        "nichts",
+        "gemacht",
+        "und",
+        "in"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "work",
+          "when": {
+            "any": [
+              "gearbeitet"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Gearbeitet?! An Karneval? In Köln arbeitet da niemand. Nur die Straßenbahn.",
+              "en": "Worked?! At carnival? Nobody works in Cologne then. Only the tram.",
+              "audio": "mc_jupp_t4_work"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Nichts? Das ist traurig. Das ändern wir heute.",
+              "en": "Nothing? That's sad. We'll change that today.",
+              "audio": "mc_jupp_t4_nothing"
+            }
+          ]
+        },
+        {
+          "id": "home",
+          "when": {
+            "any": [
+              "zu hause",
+              "geblieben"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Zu Hause? An Karneval sind nur die Katzen zu Hause. Und auch die tragen eine Pappnase.",
+              "emoji": "🐈",
+              "en": "At home? At carnival only the cats stay home. And even they wear a clown nose.",
+              "audio": "mc_jupp_t4_home"
+            }
+          ]
+        },
+        {
+          "id": "cologne",
+          "when": {
+            "any": [
+              "köln"
+            ]
+          },
+          "value": 2,
+          "fact": "🎉 feiert Karneval in Köln",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Köln! Richtig so! Hier ist die Stimmung am besten.",
+              "emoji": "🎉",
+              "en": "Cologne! Quite right! The atmosphere is best here.",
+              "audio": "mc_jupp_t4_cologne"
+            }
+          ]
+        },
+        {
+          "id": "sweets",
+          "when": {
+            "any": [
+              "kamelle"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Kamelle gesammelt! Wie viele? Ich hatte 1991 zwei Kilo. In der Mütze.",
+              "emoji": "🍬",
+              "en": "You collected sweets! How many? In 1991 I had two kilos. In my hat.",
+              "audio": "mc_jupp_t4_sweets"
+            }
+          ]
+        },
+        {
+          "id": "party",
+          "when": {
+            "any": [
+              "gefeiert",
+              "getanzt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Richtig so! Karneval ist zum Feiern da. Alaaf!",
+              "en": "Quite right! Carnival is there for partying. Alaaf!",
+              "audio": "mc_jupp_t4_party"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Hilfe! Mein Hähnchenkostüm ist kaputt. Der Reißverschluss klemmt!",
+          "emoji": "😱",
+          "en": "Help! My chicken costume is broken. The zip is stuck!",
+          "audio": "mc_jupp_t5a"
+        },
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Hilfst du mir?",
+          "en": "Will you help me?",
+          "audio": "mc_jupp_t5b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "helfe",
+        "dir",
+        "dich",
+        "aber",
+        "du",
+        "hilfst",
+        "mir",
+        "mit",
+        "meiner",
+        "meine",
+        "Krawatte",
+        "habe",
+        "keine",
+        "Zeit",
+        "Marlies",
+        "hilft"
+      ],
+      "wrong": {
+        "dich": "dir"
+      },
+      "intents": [
+        {
+          "id": "deal",
+          "when": {
+            "any": [
+              "krawatte"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "deal"
+          ],
+          "fact": "🤝 macht gute Deals",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Deal! Du hilfst mir, ich helfe dir. So geht Karneval.",
+              "emoji": "🤝",
+              "en": "Deal! You help me, I help you. That's carnival.",
+              "audio": "mc_jupp_t5_deal"
+            }
+          ]
+        },
+        {
+          "id": "marlies",
+          "when": {
+            "any": [
+              "marlies"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Marlies?! Marlies hat eine Schere! Für den Reißverschluss? Nein danke!",
+              "en": "Marlies?! Marlies has scissors! For the zip? No thanks!",
+              "audio": "mc_jupp_t5_marlies"
+            }
+          ]
+        },
+        {
+          "id": "noTime",
+          "when": {
+            "any": [
+              "zeit"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Keine Zeit? An Weiberfastnacht? Das ist kein Grund. Das ist eine Ausrede.",
+              "en": "No time? On Weiberfastnacht? That's not a reason. That's an excuse.",
+              "audio": "mc_jupp_t5_notime"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Nein?! Dann bin ich ein Hähnchen mit offenem Rücken. Den ganzen Tag.",
+              "en": "No?! Then I'm a chicken with an open back. All day.",
+              "audio": "mc_jupp_t5_no"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "helfe",
+              "ja"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Danke! Ziehen! Fester! … Zu! Das Hähnchen lebt!",
+              "emoji": "🐔",
+              "en": "Thanks! Pull! Harder! … Closed! The chicken lives!",
+              "audio": "mc_jupp_t5_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Achtung! Da kommt Marlies! Mit der Schere! Sie sitzt auf einem Pferd. Das Pferd hat auch eine Schere. Im Mund.",
+          "emoji": "✂️",
+          "en": "Watch out! Here comes Marlies! With the scissors! She’s riding a horse. The horse has scissors too. In its mouth.",
+          "audio": "mc_jupp_t6a"
+        },
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Was machst du jetzt?",
+          "en": "What do you do now?",
+          "audio": "mc_jupp_t6b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "schenke",
+        "gebe",
+        "ihr",
+        "sie",
+        "die",
+        "Schokolade",
+        "Krawatte",
+        "meine",
+        "laufe",
+        "weg",
+        "nehme",
+        "Schere",
+        "hilf",
+        "mir",
+        "Jupp",
+        "das",
+        "Hähnchen"
+      ],
+      "wrong": {
+        "sie": "ihr"
+      },
+      "intents": [
+        {
+          "id": "chocPlanned",
+          "when": {
+            "any": [
+              "schokolade"
+            ],
+            "flag": "chocPlan"
+          },
+          "value": 2,
+          "fact": "✂️ hat die Krawatte gerettet",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Schokolade! Marlies lächelt. Sie nimmt die Schokolade. Die Schere geht runter. Du bist sicher!",
+              "emoji": "🍫",
+              "en": "Chocolate! Marlies smiles. She takes the chocolate. The scissors go down. You are safe!",
+              "audio": "mc_jupp_t6_chocplanned"
+            }
+          ]
+        },
+        {
+          "id": "choc",
+          "when": {
+            "any": [
+              "schokolade"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Schokolade? Woher weißt du das? Okay. Marlies lächelt. Glück gehabt.",
+              "en": "Chocolate? How do you know that? Okay. Marlies smiles. Lucky you.",
+              "audio": "mc_jupp_t6_choc"
+            }
+          ]
+        },
+        {
+          "id": "trade",
+          "when": {
+            "all": [
+              "krawatte"
+            ],
+            "any": [
+              "gebe",
+              "schenke"
+            ]
+          },
+          "value": 1,
+          "fact": "🎖️ hat einen Karnevalsorden",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Du schenkst ihr die Krawatte?! Freiwillig! Marlies ist gerührt. Sie gibt dir einen Orden.",
+              "emoji": "🎖️",
+              "en": "You give her the tie?! Voluntarily! Marlies is touched. She gives you a medal.",
+              "audio": "mc_jupp_t6_trade"
+            }
+          ]
+        },
+        {
+          "id": "sacrifice",
+          "when": {
+            "all": [
+              "hähnchen"
+            ]
+          },
+          "value": 0,
+          "fact": "🐔 hat Jupp geopfert",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Du gibst ihr MICH?! Das Hähnchen?! … Schnipp. Mein Kamm ist ab. Marlies ist zufrieden. Deine Krawatte lebt. Ich bin stolz und beleidigt.",
+              "en": "You’re giving her ME?! The chicken?! … Snip. My comb is gone. Marlies is happy. Your tie lives. I’m proud and offended.",
+              "audio": "mc_jupp_t6_sacrifice"
+            }
+          ]
+        },
+        {
+          "id": "scissors",
+          "when": {
+            "any": [
+              "schere"
+            ]
+          },
+          "value": -2,
+          "cause": "scissors",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Marlies die Schere wegnehmen?! Das hat noch niemand überlebt. Gesellschaftlich.",
+              "emoji": "😱",
+              "en": "Take the scissors away from Marlies?! Nobody has ever survived that. Socially.",
+              "audio": "mc_jupp_t6_scissors"
+            }
+          ]
+        },
+        {
+          "id": "run",
+          "when": {
+            "any": [
+              "laufe",
+              "weg"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Weglaufen? Sprintmeisterin, 1979. Ich habe es dir gesagt.",
+              "en": "Run away? Sprint champion, 1979. I told you.",
+              "audio": "mc_jupp_t6_run"
+            }
+          ]
+        },
+        {
+          "id": "help",
+          "when": {
+            "any": [
+              "hilf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Ich? Ich bin ein Hähnchen. Ich habe keine Hände. Nur Flügel. Und Angst.",
+              "en": "Me? I’m a chicken. I have no hands. Only wings. And fear.",
+              "audio": "mc_jupp_t6_help"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Alaaf! Du hast es geschafft!",
+          "emoji": "🎉",
+          "en": "Alaaf! You made it!",
+          "audio": "mc_jupp_t7a"
+        },
+        {
+          "who": "jupp",
+          "type": "text",
+          "de": "Was hat dir heute am besten gefallen?",
+          "en": "What did you like best today?",
+          "audio": "mc_jupp_t7b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "die",
+        "der",
+        "Hähnchen",
+        "Musik",
+        "Kamelle",
+        "hat",
+        "haben",
+        "mir",
+        "mich",
+        "am besten",
+        "gefallen",
+        "Marlies",
+        "nichts",
+        "Schokolade",
+        "Karneval",
+        "alles"
+      ],
+      "wrong": {
+        "mich": "mir"
+      },
+      "intents": [
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -2,
+          "cause": "grump",
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Nichts?! Dann bist du kein Karneval. Du bist Aschermittwoch.",
+              "en": "Nothing?! Then you're not carnival. You're Ash Wednesday.",
+              "audio": "mc_jupp_t7_nothing"
+            }
+          ]
+        },
+        {
+          "id": "all",
+          "when": {
+            "any": [
+              "alles"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Alles! Das ist die richtige Antwort. Alaaf!",
+              "emoji": "🎊",
+              "en": "Everything! That's the right answer. Alaaf!",
+              "audio": "mc_jupp_t7_all"
+            }
+          ]
+        },
+        {
+          "id": "chicken",
+          "when": {
+            "any": [
+              "hähnchen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Das Hähnchen! Ich wusste es. Es ist jetzt deins. Für immer.",
+              "emoji": "🐔",
+              "en": "The chicken! I knew it. It's yours now. For ever.",
+              "audio": "mc_jupp_t7_chicken"
+            }
+          ]
+        },
+        {
+          "id": "marlies",
+          "when": {
+            "any": [
+              "marlies"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Marlies? Ich sage es ihr. Sie wird rot. Wie ihre Schere.",
+              "en": "Marlies? I'll tell her. She'll go red. Like her scissors.",
+              "audio": "mc_jupp_t7_marlies"
+            }
+          ]
+        },
+        {
+          "id": "sweets",
+          "when": {
+            "any": [
+              "kamelle",
+              "schokolade"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Süßigkeiten! Dein Zahnarzt freut sich auch. Alaaf!",
+              "emoji": "🍬",
+              "en": "Sweets! Your dentist is happy too. Alaaf!",
+              "audio": "mc_jupp_t7_sweets"
+            }
+          ]
+        },
+        {
+          "id": "carnival",
+          "when": {
+            "any": [
+              "karneval"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Der Karneval! Natürlich. Eine gute Antwort. Fast so gut wie: alles.",
+              "emoji": "🎭",
+              "en": "Carnival! Of course. A good answer. Almost as good as: everything.",
+              "audio": "mc_jupp_t7_carnival"
+            }
+          ]
+        },
+        {
+          "id": "music",
+          "when": {
+            "any": [
+              "musik"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jupp",
+              "type": "text",
+              "de": "Die Musik! Ich singe sie noch drei Wochen. Leider für meine Nachbarn.",
+              "emoji": "🎺",
+              "en": "The music! I'll be singing it for three more weeks. Unfortunately for my neighbours.",
+              "audio": "mc_jupp_t7_music"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "jupp",
+    "type": "text",
+    "de": "Alaaf! … Aber das war nicht meine Frage.",
+    "en": "Alaaf! … But that wasn't my question.",
+    "audio": "mc_jupp_offtopic"
+  },
+  "confused": [
+    {
+      "who": "jupp",
+      "type": "text",
+      "de": "Hä? Ist das Kölsch?",
+      "emoji": "😅",
+      "en": "Huh? Is that the Cologne dialect?",
+      "audio": "mc_jupp_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "jupp",
+        "type": "text",
+        "de": "Deine Krawatte lebt! Oder sie hat einen Orden. Egal: Du bist jetzt Karnevalist.",
+        "emoji": "🎖️",
+        "en": "Your tie lives! Or it has a medal. Either way: you are a carnival person now.",
+        "audio": "mc_jupp_win"
+      },
+      {
+        "who": "jupp",
+        "type": "text",
+        "de": "Nächstes Jahr: Hähnchenkostüm. Für dich. Alaaf, {name}!",
+        "en": "Next year: chicken costume. For you. Alaaf, {name}!"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "jupp",
+        "type": "text",
+        "de": "Die Krawatte ist halb ab. Jetzt ist sie eine Fliege. Auch schön. Marlies hängt die andere Hälfte an ihre Wand. Neben Nummer 312.",
+        "emoji": "🎀",
+        "en": "The tie is half cut off. Now it’s a bow tie. Also nice. Marlies hangs the other half on her wall. Next to number 312.",
+        "audio": "mc_jupp_partial"
+      }
+    ],
+    "deleted": {
+      "scissors": {
+        "who": "jupp",
+        "type": "text",
+        "de": "Niemand nimmt Marlies die Schere weg. Ich muss dich löschen. Tradition.",
+        "emoji": "✂️",
+        "en": "Nobody takes the scissors away from Marlies. I have to delete you. Tradition.",
+        "audio": "mc_jupp_del_scissors"
+      },
+      "grump": {
+        "who": "jupp",
+        "type": "text",
+        "de": "Nichts gefällt dir? Dann feiere ich ohne dich. Alaaf und tschüss.",
+        "en": "You don't like anything? Then I'll party without you. Alaaf and bye.",
+        "audio": "mc_jupp_del_grump"
+      },
+      "confused": {
+        "who": "jupp",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich verstehe sogar Kölsch. Tschüss.",
+        "en": "I don't understand you. And I even understand the Cologne dialect. Bye.",
+        "audio": "mc_jupp_del_confused"
+      },
+      "default": {
+        "who": "jupp",
+        "type": "text",
+        "de": "Schnipp. Deine Krawatte ist weg. Und ich auch. Alaaf.",
+        "en": "Snip. Your tie is gone. And so am I. Alaaf.",
+        "audio": "mc_jupp_del_default"
+      }
+    },
+    "sunday": {
+      "who": "jupp",
+      "type": "voice",
+      "audio": "mc_jupp_vn_sunday",
+      "de": "Alaaf! Heute ist Karnevalssonntag. Morgen ist Rosenmontag. Kommst du? Marlies kommt auch. Ohne Schere. Versprochen. … Mit zwei Scheren. Und dem Pferd.",
+      "en": "Alaaf! It’s carnival Sunday. Tomorrow is Rose Monday. Are you coming? Marlies is coming too. Without scissors. Promise. … With two pairs of scissors. And the horse.",
+      "direction": "Hoarse from four days of singing but still jolly, a brass band faintly behind him; a sly chuckle on \"Versprochen\"."
+    }
+  },
+  "partialTitle": "Deine Krawatte ist jetzt eine Fliege.",
+  "share": {
+    "win": "Ich habe Weiberfastnacht mit Jupp (66, Karnevalist) überlebt 🎭 Meine Krawatte auch! Mein Deutsch: {score}/100. Alaaf! {url}",
+    "partial": "Weiberfastnacht mit Jupp (66) … meine Krawatte ist jetzt eine Fliege 🎀 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Jupp (66, Karnevalist) hat mich gelöscht ✂️ Schnipp. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Jupp, a round, red-cheeked 66-year-old man with a bushy grey moustache, wearing a full yellow chicken costume with a floppy red comb on the hood and orange feet, a red-and-white striped scarf, and a little carnival medal on a ribbon around his neck; he beams like a sunrise.",
+  "imagePrompts": [
+    {
+      "id": "match_jupp",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands in a crowded, colourful old-town street during carnival, one wing raised in a cheer, confetti and streamers in the air, a big Gothic cathedral spire faintly in the background. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_jupp_costumes",
+      "aspect": "16:9",
+      "prompt": "Three carnival costumes hanging side by side on a clothes rail in front of a plain cream wall, seen exactly from the front, far apart and evenly spaced. LEFT: a black-and-red pirate costume with a big black hat and an eye patch. MIDDLE: a bright yellow fluffy chicken costume with a red comb on the hood. RIGHT: a colourful patchwork clown costume with a round red nose clipped to the collar. Nothing else in the picture."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Die Krawatte gehört meinem Opa.",
+      "score": 100,
+      "intent": "grand",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Sie gehört meiner Oma.",
+      "score": 100,
+      "intent": "grand",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Sie gehört meinem Oma.",
+      "score": 85,
+      "intent": "grand",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Sie gehört meinen Opa.",
+      "score": 85,
+      "intent": "grand",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Sie gehört mir.",
+      "score": 100,
+      "intent": "mine",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Sie gehört mich.",
+      "score": 85,
+      "intent": "mine",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Die Krawatte gehören mir.",
+      "score": 80,
+      "intent": "mine",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Sie gehört meinem Chef.",
+      "score": 100,
+      "intent": "boss",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Sie gehört dir.",
+      "score": 100,
+      "intent": "jupp",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Sie gehört nicht mir.",
+      "score": 100,
+      "intent": "notMine",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Sie mir.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Mir gefällt das Hähnchen.",
+      "score": 100,
+      "intent": "chicken",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Das Hähnchen gefällt mir am besten.",
+      "score": 100,
+      "intent": "chicken",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Mich gefällt das Hähnchen.",
+      "score": 85,
+      "intent": "chicken",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Mir gefällt der Pirat.",
+      "score": 100,
+      "intent": "pirate",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Mir gefällt die Pirat.",
+      "score": 85,
+      "intent": "pirate",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Der Clown gefällt mir.",
+      "score": 100,
+      "intent": "clown",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Mir gefällt kein Kostüm.",
+      "score": 100,
+      "intent": "none",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Das gefällt mir gar nicht.",
+      "score": 100,
+      "intent": "none",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Mir gefällt alles.",
+      "score": 100,
+      "intent": "all",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Mich das Hähnchen gefällt.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Der Pirat gefällt mir gar nicht.",
+      "score": 100,
+      "intent": "dislike",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich schenke ihr Schokolade.",
+      "score": 100,
+      "intent": "choc",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich schenke Marlies eine Schokolade.",
+      "score": 100,
+      "intent": "choc",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich schenkst ihr Schokolade.",
+      "score": 80,
+      "intent": "choc",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich schenke ihr Blumen.",
+      "score": 100,
+      "intent": "flowers",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich verstecke die Krawatte.",
+      "score": 100,
+      "intent": "hide",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich laufe weg.",
+      "score": 100,
+      "intent": "run",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich gebe ihr die Krawatte.",
+      "score": 100,
+      "intent": "trade",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich ihr Schokolade.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich bin nach Köln gefahren.",
+      "score": 100,
+      "intent": "cologne",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe Kamelle gesammelt.",
+      "score": 100,
+      "intent": "sweets",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe sehr viel gefeiert.",
+      "score": 100,
+      "intent": "party",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe gefeiert sehr viel.",
+      "score": 70,
+      "intent": "party",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe gearbeitet.",
+      "score": 100,
+      "intent": "work",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich bin zu Hause geblieben.",
+      "score": 100,
+      "intent": "home",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe nichts gemacht.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gefeiert.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe gefeiert und getanzt.",
+      "score": 100,
+      "intent": "party",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe in Köln gefeiert.",
+      "score": 100,
+      "intent": "cologne",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ja, ich helfe dir.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich helfe dich.",
+      "score": 85,
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich helfe dir, aber du hilfst mir mit meiner Krawatte.",
+      "score": 100,
+      "intent": "deal",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich helfe dir, aber du hilfst mir mit meine Krawatte.",
+      "score": 85,
+      "intent": "deal",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Nein, ich habe keine Zeit.",
+      "score": 100,
+      "intent": "noTime",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Marlies hilft dir.",
+      "score": 100,
+      "intent": "marlies",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich dir.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich schenke ihr die Schokolade.",
+      "score": 100,
+      "intent": "choc",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gebe ihr meine Krawatte.",
+      "score": 100,
+      "intent": "trade",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gebe sie meine Krawatte.",
+      "score": 85,
+      "intent": "trade",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich nehme ihr die Schere weg.",
+      "score": 100,
+      "intent": "scissors",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich laufe weg.",
+      "score": 100,
+      "intent": "run",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Hilf mir, Jupp!",
+      "score": 100,
+      "intent": "help",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich ihr die Schokolade.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Das Hähnchen hat mir am besten gefallen.",
+      "score": 100,
+      "intent": "chicken",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Mir hat das Hähnchen gefallen.",
+      "score": 100,
+      "intent": "chicken",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Das Hähnchen hat mich gefallen.",
+      "score": 85,
+      "intent": "chicken",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Die Kamelle haben mir gefallen.",
+      "score": 100,
+      "intent": "sweets",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Mir hat alles gefallen.",
+      "score": 100,
+      "intent": "all",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Nichts hat mir gefallen.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Marlies hat mir gefallen.",
+      "score": 100,
+      "intent": "marlies",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Mich das Hähnchen gefallen hat.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Der Karneval hat mir am besten gefallen.",
+      "score": 100,
+      "intent": "carnival",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Die Krawatte gehört meinem Hund.",
+      "intent": "dog",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Sie gehört meinen Hund.",
+      "score": 85
+    },
+    {
+      "turn": "t2",
+      "say": "Mir gefällt der Kühlschrank.",
+      "intent": "fridge",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Mir gefällt die Kühlschrank.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gebe ihr das Hähnchen.",
+      "intent": "sacrifice",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gebe sie das Hähnchen.",
+      "score": 85
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Die Krawatte gehört meinem Opa."
+        ],
+        [
+          "t2",
+          "Mir gefällt das Hähnchen."
+        ],
+        [
+          "t3",
+          "Ich schenke ihr Schokolade."
+        ],
+        [
+          "t4",
+          "Ich bin nach Köln gefahren."
+        ],
+        [
+          "t5",
+          "Ja, ich helfe dir."
+        ],
+        [
+          "t6",
+          "Ich schenke ihr die Schokolade."
+        ],
+        [
+          "t7",
+          "Mir hat alles gefallen."
+        ]
+      ]
+    },
+    {
+      "name": "traded the tie",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Sie gehört mir."
+        ],
+        [
+          "t2",
+          "Mir gefällt der Pirat."
+        ],
+        [
+          "t3",
+          "Ich verstecke die Krawatte."
+        ],
+        [
+          "t4",
+          "Ich habe Kamelle gesammelt."
+        ],
+        [
+          "t5",
+          "Ich helfe dir, aber du hilfst mir mit meiner Krawatte."
+        ],
+        [
+          "t6",
+          "Ich gebe ihr meine Krawatte."
+        ],
+        [
+          "t7",
+          "Marlies hat mir gefallen."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Sie gehört dir."
+        ],
+        [
+          "t2",
+          "Mir gefällt kein Kostüm."
+        ],
+        [
+          "t3",
+          "Ich schenke ihr Blumen."
+        ],
+        [
+          "t4",
+          "Ich habe gearbeitet."
+        ],
+        [
+          "t5",
+          "Ja, ich helfe dir."
+        ],
+        [
+          "t6",
+          "Ich laufe weg."
+        ],
+        [
+          "t7",
+          "Marlies hat mir gefallen."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Sie gehört dir."
+        ],
+        [
+          "t2",
+          "Mir gefällt kein Kostüm."
+        ],
+        [
+          "t3",
+          "Ich laufe weg."
+        ],
+        [
+          "t4",
+          "Ich habe nichts gemacht."
+        ],
+        [
+          "t5",
+          "Nein."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2158 @@
+{
+  "id": "moni",
+  "name": "Moni",
+  "age": 52,
+  "emoji": "🥩",
+  "image": "match_moni",
+  "level": "A1.2",
+  "order": 2,
+  "bio": "Darf’s ein bisschen mehr sein?",
+  "bioEn": "Is a little more all right?",
+  "goal": "Buy exactly 200 grams of salami and leave with nothing else.",
+  "tagline": "Metzgerin · 52 · Rosenheim",
+  "voice": "Aoede",
+  "brief": "Moni, a 52-year-old Bavarian butcher: loud, warm, motherly and unstoppable, a soft southern German lilt, laughs a lot, sounds as if she is always smiling and always slicing a little more than you asked for.",
+  "focus": "Akkusativ · nicht/kein · Mengen & Gramm",
+  "lexicon": {
+    "nouns": {
+      "Salami": "f",
+      "Schinken": "m",
+      "Wurst": "f",
+      "Gramm": "n",
+      "Kilo": "n",
+      "Vegetarier": "m",
+      "Vegetarierin": "f",
+      "Hunger": "m",
+      "Fleisch": "n",
+      "Scheibe": "f",
+      "Leberkäse": "m",
+      "Frikadelle": "f",
+      "Frikadellen": "pl",
+      "Hund": "m",
+      "Katze": "f",
+      "Kaninchen": "n",
+      "Leberwurst": "f",
+      "Senf": "m",
+      "Geschenk": "n",
+      "Krokodil": "n",
+      "Foto": "n"
+    },
+    "names": [
+      "Horst",
+      "Moni"
+    ],
+    "verbs": [
+      "möchte",
+      "möchten",
+      "bin",
+      "ist",
+      "sind",
+      "esse",
+      "isst",
+      "habe",
+      "hast",
+      "brauche"
+    ],
+    "accVerbs": [
+      "möchte",
+      "möchten",
+      "esse",
+      "isst",
+      "habe",
+      "hast",
+      "brauche"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "moni",
+      "type": "text",
+      "de": "Grüß Gott! Metzgerei Moni. Seit 1971. Erst mein Papa, jetzt ich.",
+      "emoji": "🥩",
+      "en": "Hello! Moni's butcher's. Since 1971. First my dad, now me.",
+      "audio": "mc_moni_t1a"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "Was darf’s sein?",
+          "en": "What can I get you?",
+          "audio": "mc_moni_t1b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "möchte",
+        "möchten",
+        "zweihundert",
+        "Gramm",
+        "Salami",
+        "Schinken",
+        "eine",
+        "ein",
+        "einen",
+        "Kilo",
+        "bin",
+        "Vegetarier",
+        "Vegetarierin",
+        "bitte",
+        "nur"
+      ],
+      "wrong": {
+        "möchten": "möchte"
+      },
+      "intents": [
+        {
+          "id": "veg",
+          "when": {
+            "any": [
+              "vegetarier",
+              "vegetarierin"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "veg"
+          ],
+          "fact": "🥕 isst kein Fleisch",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Vegetarier? In meiner Metzgerei? Mutig. Die Würste schauen Sie an. Dann ist die Salami für … Ihren Hund?",
+              "emoji": "🥕",
+              "en": "Vegetarian? In my butcher’s shop? Brave. The sausages are staring at you. So the salami is for … your dog?",
+              "audio": "mc_moni_t1_veg"
+            }
+          ]
+        },
+        {
+          "id": "exact",
+          "when": {
+            "all": [
+              "zweihundert",
+              "salami"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Zweihundert Gramm Salami. Kommt sofort!",
+              "en": "Two hundred grams of salami. Coming right up!",
+              "audio": "mc_moni_t1_exact"
+            }
+          ]
+        },
+        {
+          "id": "kilo",
+          "when": {
+            "any": [
+              "kilo"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "more"
+          ],
+          "cause": "more",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Ein Kilo?! Machen Sie eine Party? Ich komme mit! Ich bringe Horst mit. Und Senf.",
+              "emoji": "🎉",
+              "en": "A kilo?! Are you throwing a party? I’m coming! I’ll bring Horst. And mustard.",
+              "audio": "mc_moni_t1_kilo"
+            }
+          ]
+        },
+        {
+          "id": "whole",
+          "when": {
+            "all": [
+              "eine",
+              "salami"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Eine ganze Salami? Die ist einen Meter lang! Die braucht im Bus einen eigenen Platz. Ich schneide ein Stück, ja?",
+              "en": "A whole salami? It’s a metre long! It needs its own seat on the bus. I’ll cut a piece, yes?",
+              "audio": "mc_moni_t1_whole"
+            }
+          ]
+        },
+        {
+          "id": "salami",
+          "when": {
+            "any": [
+              "salami"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Salami! Gute Wahl. Ich schneide schon.",
+              "en": "Salami! Good choice. I'm already slicing.",
+              "audio": "mc_moni_t1_salami"
+            }
+          ]
+        },
+        {
+          "id": "ham",
+          "when": {
+            "any": [
+              "schinken"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Schinken ist aus. Nehmen Sie Salami. Die ist heute besonders gut.",
+              "en": "Ham is sold out. Take salami. It’s especially good today.",
+              "audio": "mc_moni_t1_ham"
+            }
+          ]
+        },
+        {
+          "id": "grams",
+          "when": {
+            "any": [
+              "zweihundert",
+              "gramm"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Zweihundert Gramm … von was? Ich nehme Salami. Alle nehmen Salami.",
+              "en": "Two hundred grams … of what? I’ll take salami. Everyone takes salami.",
+              "audio": "mc_moni_t1_grams"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "Oh. Jetzt sind es zweihundertfünfzig Gramm. Das Messer rutscht immer. Seit 1971.",
+          "emoji": "⚖️",
+          "en": "Oh. Now it’s two hundred and fifty grams. The knife always slips. Since 1971.",
+          "audio": "mc_moni_t2a"
+        },
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "Darf’s ein bisschen mehr sein?",
+          "en": "Is a little more all right?",
+          "audio": "mc_moni_t2b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "danke",
+        "das",
+        "ist",
+        "sind",
+        "zu",
+        "viel",
+        "nicht",
+        "kein",
+        "mehr",
+        "bitte",
+        "nur",
+        "zweihundert",
+        "Gramm",
+        "gern",
+        "okay",
+        "ich",
+        "möchte"
+      ],
+      "wrong": {
+        "kein": {
+          "to": "nicht",
+          "note": "„Mehr“ is not a noun here, so it’s „nicht mehr“."
+        }
+      },
+      "intents": [
+        {
+          "id": "exact",
+          "when": {
+            "any": [
+              "zweihundert"
+            ]
+          },
+          "value": 2,
+          "fact": "⚖️ bleibt bei 200 Gramm",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nur zweihundert. Okay. Ich schneide ab. Mein Herz blutet ein bisschen. Die Salami auch.",
+              "emoji": "💔",
+              "en": "Only two hundred. Okay. I’ll cut it back. My heart is bleeding a little. So is the salami.",
+              "audio": "mc_moni_t2_exact"
+            }
+          ]
+        },
+        {
+          "id": "tooMuch",
+          "when": {
+            "all": [
+              "zu",
+              "viel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Zu viel? Bei mir gibt es kein „zu viel“. Aber okay.",
+              "en": "Too much? With me there’s no such thing as too much. But okay.",
+              "audio": "mc_moni_t2_toomuch"
+            }
+          ]
+        },
+        {
+          "id": "noMore",
+          "when": {
+            "all": [
+              "mehr"
+            ],
+            "any": [
+              "nicht",
+              "kein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nicht mehr. Hm. Sie sind streng. Okay, zweihundert.",
+              "en": "No more. Hm. You’re strict. Okay, two hundred.",
+              "audio": "mc_moni_t2_nomore"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nein? Schade. Dann eben zweihundert.",
+              "en": "No? Shame. Two hundred, then.",
+              "audio": "mc_moni_t2_no"
+            }
+          ]
+        },
+        {
+          "id": "yesMore",
+          "when": {
+            "any": [
+              "ja",
+              "gern",
+              "okay",
+              "mehr",
+              "bitte"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "more"
+          ],
+          "cause": "more",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Wunderbar! Dann mache ich dreihundert. Oder vierhundert!",
+              "emoji": "😍",
+              "en": "Wonderful! Then I’ll make it three hundred. Or four hundred!",
+              "audio": "mc_moni_t2_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "Für die Kinder gibt es immer eine Scheibe Wurst. Gratis. Für Sie auch! Sie sind auch ein Kind. Ein großes.",
+          "emoji": "🥓",
+          "en": "The children always get a slice of sausage. Free. You too! You’re a child too. A big one.",
+          "audio": "mc_moni_t3a"
+        },
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "Möchten Sie eine Scheibe?",
+          "en": "Would you like a slice?",
+          "audio": "mc_moni_t3b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "danke",
+        "gern",
+        "ich",
+        "esse",
+        "isst",
+        "keine",
+        "kein",
+        "nicht",
+        "Wurst",
+        "Fleisch",
+        "habe",
+        "keinen",
+        "Hunger",
+        "bin",
+        "Vegetarier",
+        "Vegetarierin",
+        "eine",
+        "Scheibe"
+      ],
+      "wrong": {
+        "isst": "esse"
+      },
+      "intents": [
+        {
+          "id": "contra",
+          "when": {
+            "any": [
+              "ja",
+              "gern",
+              "scheibe"
+            ],
+            "flag": "veg",
+            "none": [
+              "kein",
+              "keine",
+              "keinen",
+              "nicht",
+              "vegetarier",
+              "vegetarierin"
+            ]
+          },
+          "value": -2,
+          "cause": "veg",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Sie sind doch Vegetarier! Oder? Jetzt bin ich verwirrt.",
+              "emoji": "😵",
+              "en": "But you’re a vegetarian! Aren’t you? Now I’m confused.",
+              "audio": "mc_moni_t3_contra"
+            }
+          ]
+        },
+        {
+          "id": "nichtFleisch",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "fleisch",
+              "wurst"
+            ],
+            "none": [
+              "kein",
+              "keine"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nicht Fleisch? Was dann? Tofu? Pssst! Nicht so laut. Die Würste hören zu.",
+              "en": "Not meat? What then? Tofu? Shhh! Not so loud. The sausages are listening.",
+              "audio": "mc_moni_t3_nicht"
+            }
+          ]
+        },
+        {
+          "id": "veg",
+          "when": {
+            "any": [
+              "vegetarier",
+              "vegetarierin"
+            ]
+          },
+          "value": 1,
+          "fact": "🥕 isst kein Fleisch",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Ah, Vegetarier. Okay, keine Wurst. Ich esse sie selbst. Das ist meine vierte heute.",
+              "en": "Ah, vegetarian. Okay, no sausage. I’ll eat it myself. That’s my fourth today.",
+              "audio": "mc_moni_t3_veg"
+            }
+          ]
+        },
+        {
+          "id": "noHunger",
+          "when": {
+            "all": [
+              "hunger"
+            ],
+            "any": [
+              "keinen",
+              "kein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Kein Hunger? In einer Metzgerei? Interessant.",
+              "en": "Not hungry? In a butcher’s? Interesting.",
+              "audio": "mc_moni_t3_nohunger"
+            }
+          ]
+        },
+        {
+          "id": "noMeat",
+          "when": {
+            "any": [
+              "kein",
+              "keine",
+              "keinen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Keine Wurst? Okay. Mehr für mich.",
+              "en": "No sausage? Okay. More for me.",
+              "audio": "mc_moni_t3_nomeat"
+            }
+          ]
+        },
+        {
+          "id": "hungry",
+          "when": {
+            "any": [
+              "hunger"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Hunger! Hier, zwei Scheiben. Und noch eine. Und noch eine. Moni, halt! Ich kann nicht halten.",
+              "en": "Hungry! Here, two slices. And another. And another. Moni, stop! I can’t stop.",
+              "audio": "mc_moni_t3_hungry"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "gern",
+              "scheibe"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Bitte schön! Gut, oder? Das ist Liebe in Scheiben.",
+              "emoji": "😋",
+              "en": "There you go! Good, isn’t it? That’s love in slices.",
+              "audio": "mc_moni_t3_yes"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "danke",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nein, danke? Okay. Ich bin nicht beleidigt. Nur ein bisschen.",
+              "en": "No, thanks? Okay. I’m not offended. Only a little.",
+              "audio": "mc_moni_t3_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "So! Hier ist Ihre Salami. Schauen Sie mal auf die Waage.",
+          "en": "There! Here’s your salami. Take a look at the scales.",
+          "audio": "mc_moni_t4a"
+        },
+        {
+          "who": "moni",
+          "type": "photo",
+          "image": "match_moni_scale",
+          "overlay": [
+            "350 g"
+          ],
+          "alt": "Eine Waage mit sehr viel Salami. Auf dem Display steht: 350 g."
+        },
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "Alles gut?",
+          "en": "All good?",
+          "audio": "mc_moni_t4b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "alles",
+        "gut",
+        "das",
+        "ist",
+        "sind",
+        "zu",
+        "viel",
+        "dreihundertfünfzig",
+        "zweihundert",
+        "Gramm",
+        "nicht",
+        "ich",
+        "möchte",
+        "nur",
+        "super",
+        "danke"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "caught",
+          "when": {
+            "any": [
+              "dreihundertfünfzig"
+            ]
+          },
+          "value": 2,
+          "fact": "👀 liest jede Waage",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Oh! Dreihundertfünfzig? Wie ist das passiert? Die Salami wächst. Das macht sie manchmal. Nachts höre ich sie.",
+              "emoji": "😇",
+              "en": "Oh! Three hundred and fifty? How did that happen? The salami grows. It does that sometimes. At night I hear it.",
+              "audio": "mc_moni_t4_caught"
+            }
+          ]
+        },
+        {
+          "id": "only200",
+          "when": {
+            "any": [
+              "zweihundert"
+            ]
+          },
+          "value": 2,
+          "fact": "👀 liest jede Waage",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Zweihundert, ja, ja. Ich schneide wieder ab. Sie sind wie mein Finanzamt.",
+              "en": "Two hundred, yes, yes. I’ll cut it back again. You’re like my tax office.",
+              "audio": "mc_moni_t4_only200"
+            }
+          ]
+        },
+        {
+          "id": "tooMuch",
+          "when": {
+            "all": [
+              "zu",
+              "viel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Zu viel? Ja, gut, Sie haben recht. Ich schneide ab.",
+              "en": "Too much? Yes, fine, you’re right. I’ll cut some off.",
+              "audio": "mc_moni_t4_toomuch"
+            }
+          ]
+        },
+        {
+          "id": "notGood",
+          "when": {
+            "all": [
+              "nicht",
+              "gut"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nicht gut? Ach so, das Gewicht. Okay, okay.",
+              "en": "Not good? Oh, the weight. Okay, okay.",
+              "audio": "mc_moni_t4_notgood"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nein? Was ist los? Ach, die Waage. Ja, ja.",
+              "en": "No? What’s wrong? Oh, the scales. Yes, yes.",
+              "audio": "mc_moni_t4_no"
+            }
+          ]
+        },
+        {
+          "id": "accept",
+          "when": {
+            "any": [
+              "ja",
+              "gut",
+              "super",
+              "alles",
+              "danke"
+            ]
+          },
+          "value": -2,
+          "flags": [
+            "more"
+          ],
+          "cause": "more",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Super! Dreihundertfünfzig Gramm. Ich wusste, Sie lieben Salami!",
+              "emoji": "🥳",
+              "en": "Great! Three hundred and fifty grams. I knew you loved salami!",
+              "audio": "mc_moni_t4_accept"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "Darf es sonst noch etwas sein? Ich habe heute Leberkäse. Und Frikadellen. Ganz frisch! Die Frikadellen sind noch warm. Sie lächeln.",
+          "en": "Anything else? I’ve got Leberkäse today. And meatballs. Really fresh! The meatballs are still warm. They’re smiling.",
+          "audio": "mc_moni_t5a"
+        }
+      ],
+      "tiles": [
+        "nein",
+        "danke",
+        "ja",
+        "das",
+        "ist",
+        "alles",
+        "ich",
+        "möchte",
+        "nichts",
+        "mehr",
+        "einen",
+        "eine",
+        "Leberkäse",
+        "Frikadelle",
+        "Frikadellen",
+        "zwei",
+        "gern",
+        "bitte",
+        "nur",
+        "Salami"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "thatsAll",
+          "when": {
+            "all": [
+              "das",
+              "ist",
+              "alles"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Das ist alles? Okay. Das sagen nur starke Menschen.",
+              "emoji": "💪",
+              "en": "That’s all? Okay. Only strong people say that.",
+              "audio": "mc_moni_t5_all"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nichts mehr? Sie sind stark. Stärker als ich.",
+              "emoji": "💪",
+              "en": "Nothing more? You’re strong. Stronger than me.",
+              "audio": "mc_moni_t5_nothing"
+            }
+          ]
+        },
+        {
+          "id": "onlySalami",
+          "when": {
+            "all": [
+              "nur",
+              "salami"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nur die Salami. Ich verstehe. Ich weine nicht. Doch, ich weine. Horst, ein Taschentuch!",
+              "en": "Just the salami. I understand. I’m not crying. Yes, I am. Horst, a tissue!",
+              "audio": "mc_moni_t5_only"
+            }
+          ]
+        },
+        {
+          "id": "extras",
+          "when": {
+            "any": [
+              "leberkäse",
+              "frikadelle",
+              "frikadellen"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "extras"
+          ],
+          "cause": "extras",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Ja! Ich packe alles ein! Und noch ein bisschen mehr!",
+              "emoji": "🛍️",
+              "en": "Yes! I’ll wrap it all up! And a little more!",
+              "audio": "mc_moni_t5_extras"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "danke"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nein, danke? Okay. Schade.",
+              "en": "No, thanks? Okay. Shame.",
+              "audio": "mc_moni_t5_no"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "gern",
+              "bitte"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "extras"
+          ],
+          "cause": "extras",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Ja? Wunderbar! Von allem ein bisschen!",
+              "en": "Yes? Wonderful! A bit of everything!",
+              "audio": "mc_moni_t5_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "moni",
+          "type": "voice",
+          "audio": "mc_moni_vn_horst",
+          "de": "Moment! Mein Mann Horst ruft aus der Küche. Er fragt: Haben Sie einen Hund? Für Hunde gibt es Wurst gratis. Ein ganzes Kilo!",
+          "en": "Hang on! My husband Horst is calling from the kitchen. He’s asking: have you got a dog? Dogs get free sausage. A whole kilo!",
+          "direction": "Half turned away, shouting back towards a kitchen and then into the phone, cheerful and loud, a meat slicer whirring in the background."
+        },
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "Haben Sie das gehört? Also?",
+          "en": "Did you hear that? Well?",
+          "audio": "mc_moni_t6a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "habe",
+        "hast",
+        "einen",
+        "keinen",
+        "eine",
+        "keine",
+        "ein",
+        "Hund",
+        "Katze",
+        "Kaninchen",
+        "aber",
+        "er",
+        "ist",
+        "Vegetarier",
+        "danke",
+        "Krokodil"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "croc",
+          "when": {
+            "any": [
+              "krokodil"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "extras"
+          ],
+          "cause": "extras",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Ein Krokodil?! Horst! Zwei Kilo! Nein, drei! Und einen Eimer! Und einen Helm für dich!",
+              "emoji": "🐊",
+              "en": "A crocodile?! Horst! Two kilos! No, three! And a bucket! And a helmet for you!",
+              "audio": "mc_moni_t6_croc"
+            }
+          ]
+        },
+        {
+          "id": "vegDog",
+          "when": {
+            "all": [
+              "hund",
+              "vegetarier"
+            ]
+          },
+          "value": 2,
+          "fact": "🐶 hat einen vegetarischen Hund",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Ein vegetarischer Hund. Jetzt habe ich alles gehört. Horst, keine Wurst! Horst weint jetzt auch.",
+              "emoji": "🐶",
+              "en": "A vegetarian dog. Now I’ve heard everything. Horst, no sausage! Now Horst is crying too.",
+              "audio": "mc_moni_t6_vegdog"
+            }
+          ]
+        },
+        {
+          "id": "noPet",
+          "when": {
+            "any": [
+              "keinen",
+              "keine"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Kein Hund, keine Wurst. Horst ist traurig. Er liebt Hunde.",
+              "en": "No dog, no sausage. Horst is sad. He loves dogs.",
+              "audio": "mc_moni_t6_nopet"
+            }
+          ]
+        },
+        {
+          "id": "rabbit",
+          "when": {
+            "any": [
+              "kaninchen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Ein Kaninchen isst keine Wurst. Richtig. Horst, keine Wurst!",
+              "emoji": "🐰",
+              "en": "A rabbit doesn’t eat sausage. Right. Horst, no sausage!",
+              "audio": "mc_moni_t6_rabbit"
+            }
+          ]
+        },
+        {
+          "id": "pet",
+          "when": {
+            "any": [
+              "hund",
+              "katze"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "extras"
+          ],
+          "cause": "extras",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Wunderbar! Horst packt ein Kilo Wurst ein. Für Ihr Tier!",
+              "emoji": "🛍️",
+              "en": "Wonderful! Horst is wrapping a kilo of sausage. For your pet!",
+              "audio": "mc_moni_t6_pet"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nein? Okay. Horst, keine Hundewurst!",
+              "en": "No? Okay. Horst, no dog sausage!",
+              "audio": "mc_moni_t6_no"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "extras"
+          ],
+          "cause": "extras",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Ja? Super! Ein Kilo Wurst für den Hund!",
+              "en": "Yes? Great! A kilo of sausage for the dog!",
+              "audio": "mc_moni_t6_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "So, fertig! Zweihundert Gramm Salami. Und ein Glas Senf. Und Leberwurst. Und ein Foto von Horst. Mit Autogramm. Ein Geschenk!",
+          "emoji": "🎁",
+          "en": "There, done! Two hundred grams of salami. And a jar of mustard. And liver sausage. And a photo of Horst. Signed. A present!",
+          "audio": "mc_moni_t7a"
+        },
+        {
+          "who": "moni",
+          "type": "text",
+          "de": "Freuen Sie sich?",
+          "en": "Are you pleased?",
+          "audio": "mc_moni_t7b"
+        }
+      ],
+      "tiles": [
+        "danke",
+        "aber",
+        "ich",
+        "möchte",
+        "brauche",
+        "keine",
+        "keinen",
+        "kein",
+        "nicht",
+        "Leberwurst",
+        "Senf",
+        "Geschenk",
+        "ja",
+        "nein",
+        "das",
+        "ist",
+        "sehr",
+        "nett",
+        "nur",
+        "Salami",
+        "und",
+        "Foto"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "photo",
+          "when": {
+            "any": [
+              "foto"
+            ],
+            "none": [
+              "kein",
+              "keine",
+              "keinen",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Das Foto?! Horst! Jemand will dein Foto! … Horst ist ganz rot. Wie eine Salami. Okay, den Rest nehme ich zurück.",
+              "emoji": "📸",
+              "en": "The photo?! Horst! Someone wants your photo! … Horst has gone all red. Like a salami. Okay, I’ll take the rest back.",
+              "audio": "mc_moni_t7_photo"
+            }
+          ]
+        },
+        {
+          "id": "onlySalami",
+          "when": {
+            "all": [
+              "nur",
+              "salami"
+            ]
+          },
+          "value": 2,
+          "fact": "🎯 kauft genau 200 Gramm",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nur die Salami. Okay. Ich nehme alles zurück. Mit Tränen.",
+              "emoji": "🥲",
+              "en": "Just the salami. Okay. I’ll take it all back. With tears.",
+              "audio": "mc_moni_t7_only"
+            }
+          ]
+        },
+        {
+          "id": "refuseBoth",
+          "when": {
+            "all": [
+              "leberwurst",
+              "senf"
+            ],
+            "any": [
+              "kein",
+              "keine",
+              "keinen"
+            ]
+          },
+          "value": 2,
+          "fact": "🎯 kauft genau 200 Gramm",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Keine Leberwurst, keinen Senf. Sie wissen, was Sie wollen. Respekt.",
+              "en": "No liver sausage, no mustard. You know what you want. Respect.",
+              "audio": "mc_moni_t7_both"
+            }
+          ]
+        },
+        {
+          "id": "nichtWrong",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "leberwurst",
+              "senf",
+              "geschenk"
+            ],
+            "none": [
+              "kein",
+              "keine",
+              "keinen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nicht? Okay, okay. Ich nehme es zurück. Die Leberwurst ist beleidigt. Sie redet heute nicht mehr mit mir.",
+              "en": "Not? Okay, okay. I’ll take it back. The liver sausage is offended. It’s not speaking to me today.",
+              "audio": "mc_moni_t7_nicht"
+            }
+          ]
+        },
+        {
+          "id": "dontNeed",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "brauche",
+              "möchte"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Sie brauchen das nicht? Niemand braucht Leberwurst. Man liebt sie. Okay, ich nehme es zurück.",
+              "en": "You don’t need it? Nobody needs liver sausage. You love it. Okay, I’ll take it back.",
+              "audio": "mc_moni_t7_dontneed"
+            }
+          ]
+        },
+        {
+          "id": "refuse",
+          "when": {
+            "any": [
+              "kein",
+              "keine",
+              "keinen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Kein Geschenk? Sie sind streng. Okay, ich nehme es zurück.",
+              "en": "No present? You’re strict. Okay, I’ll take it back.",
+              "audio": "mc_moni_t7_refuse"
+            }
+          ]
+        },
+        {
+          "id": "polite",
+          "when": {
+            "all": [
+              "nett"
+            ],
+            "any": [
+              "aber",
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Sie sind auch nett. Okay, ich nehme es zurück. Langsam.",
+              "en": "You’re nice too. Okay, I’ll take it back. Slowly.",
+              "audio": "mc_moni_t7_polite"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Nein? Okay. Ich nehme es zurück. Sehr langsam.",
+              "en": "No? Okay. I’ll take it back. Very slowly.",
+              "audio": "mc_moni_t7_no"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "danke",
+              "nett"
+            ]
+          },
+          "value": -2,
+          "flags": [
+            "extras"
+          ],
+          "cause": "extras",
+          "reply": [
+            {
+              "who": "moni",
+              "type": "text",
+              "de": "Sie freuen sich! Ich wusste es! Hier, noch eine Leberwurst! Und noch ein Foto von Horst!",
+              "emoji": "🎁",
+              "en": "You’re pleased! I knew it! Here, another liver sausage! And another photo of Horst!",
+              "audio": "mc_moni_t7_yes"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "moni",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage, gell?",
+    "en": "Er … that wasn’t my question, was it?",
+    "audio": "mc_moni_offtopic"
+  },
+  "confused": [
+    {
+      "who": "moni",
+      "type": "text",
+      "de": "Wie bitte? Noch mal, bitte.",
+      "emoji": "😅",
+      "en": "Pardon? Again, please.",
+      "audio": "mc_moni_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "moni",
+        "type": "text",
+        "de": "{name}, zweihundert Gramm. Genau. Ich bin stolz auf Sie. Und ein bisschen traurig.",
+        "en": "{name}, two hundred grams. Exactly. I’m proud of you. And a little sad."
+      },
+      {
+        "who": "moni",
+        "type": "text",
+        "de": "Nächstes Mal schneide ich zweihundertzehn. Kleiner Witz. Vielleicht.",
+        "emoji": "😉",
+        "en": "Next time I’ll cut two hundred and ten. Little joke. Maybe.",
+        "audio": "mc_moni_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "moni",
+        "type": "text",
+        "de": "Hier ist Ihre Salami. Und ein bisschen mehr. Und ein Glas Senf. Und Leberwurst. Und drei Fotos von Horst. Für die Reise!",
+        "emoji": "🛍️",
+        "en": "Here’s your salami. And a little more. And a jar of mustard. And liver sausage. And three photos of Horst. For the journey!",
+        "audio": "mc_moni_partial"
+      }
+    ],
+    "deleted": {
+      "more": {
+        "who": "moni",
+        "type": "text",
+        "de": "Ja, ja, ja … Sie brauchen keine Salami. Sie brauchen eine Metzgerei. Auf Wiederschaun!",
+        "en": "Yes, yes, yes … you don’t need salami. You need a whole butcher’s shop. Bye!",
+        "audio": "mc_moni_del_more"
+      },
+      "veg": {
+        "who": "moni",
+        "type": "text",
+        "de": "Vegetarier, aber Wurst gratis ist okay? Jetzt bin ich ganz verwirrt. Auf Wiederschaun!",
+        "emoji": "🥕",
+        "en": "Vegetarian, but free sausage is fine? Now I’m completely confused. Bye!",
+        "audio": "mc_moni_del_veg"
+      },
+      "extras": {
+        "who": "moni",
+        "type": "text",
+        "de": "Hund, Leberkäse, Leberwurst … Sie gehen mit drei Tüten heim. Das war nicht Ihr Plan, oder? Auf Wiederschaun!",
+        "emoji": "🛍️",
+        "en": "Dog, Leberkäse, liver sausage … you’re going home with three bags. That wasn’t your plan, was it? Bye!",
+        "audio": "mc_moni_del_extras"
+      },
+      "confused": {
+        "who": "moni",
+        "type": "text",
+        "de": "Ich verstehe Sie nicht. Und ich verstehe sogar meinen Mann. Auf Wiederschaun!",
+        "en": "I don’t understand you. And I even understand my husband. Bye!",
+        "audio": "mc_moni_del_confused"
+      },
+      "default": {
+        "who": "moni",
+        "type": "text",
+        "de": "Hm. Sie kaufen Ihre Salami lieber woanders. Auf Wiederschaun!",
+        "en": "Hm. You’d rather buy your salami somewhere else. Bye!",
+        "audio": "mc_moni_del_default"
+      }
+    },
+    "sunday": {
+      "who": "moni",
+      "type": "voice",
+      "audio": "mc_moni_vn_sunday",
+      "de": "Grüß Gott, hier ist die Moni! Sonntag, die Metzgerei ist zu. Ich grille. Zweihundert Gramm Würstl. Nur für mich. Okay, und für Horst. Und für die Nachbarn. Und für die Feuerwehr. Viel Rauch, gell?",
+      "en": "Hello, it’s Moni! Sunday, the shop is closed. I’m having a barbecue. Two hundred grams of sausages. Just for me. Okay, and for Horst. And for the neighbours. And for the fire brigade. Lots of smoke, you know?",
+      "direction": "Relaxed and laughing in a garden, a sizzling grill and a brass band faintly in the distance."
+    }
+  },
+  "partialTitle": "Mit ein bisschen mehr.",
+  "share": {
+    "win": "Moni (52, Metzgerin) hat mich geliked 🥩 Genau 200 Gramm, kein Gramm mehr! Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Ich wollte 200 Gramm Salami bei Moni (52) … jetzt habe ich drei Tüten und ein Foto von Horst 🛍️ Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Moni (52, Metzgerin) hat mich gelöscht 💔 Mein Deutsch: {score}/100. Kaufst du genau 200 Gramm? {url}"
+  },
+  "imageCharacter": "Moni, a 52-year-old Bavarian butcher, broad-shouldered and cheerful, curly auburn hair tied up under a white cap, red cheeks, a red-and-white checked shirt under a white butcher’s apron, a big friendly grin.",
+  "imagePrompts": [
+    {
+      "id": "match_moni",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands behind a butcher’s counter full of sausages, holding up a long salami like a conductor’s baton and winking at the viewer, an old white butcher’s scale next to her and garlands of sausages hanging behind her. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_moni_scale",
+      "aspect": "3:4",
+      "prompt": "A phone photo, seen straight on, of one old-fashioned white butcher’s scale on a counter, its tray piled with an absurdly tall stack of thin salami slices, a few slices sliding off the sides. The scale’s small display window is completely blank and dark, showing nothing. Nothing else on the counter."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich möchte zweihundert Gramm Salami.",
+      "score": 100,
+      "intent": "exact",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Zweihundert Gramm Salami, bitte.",
+      "score": 100,
+      "intent": "exact",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchten zweihundert Gramm Salami.",
+      "score": 80,
+      "intent": "exact",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte ein Kilo Salami.",
+      "score": 100,
+      "intent": "kilo",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte einen Kilo Salami.",
+      "score": 85,
+      "intent": "kilo",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte eine Salami.",
+      "score": 100,
+      "intent": "whole",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Salami, bitte.",
+      "score": 100,
+      "intent": "salami",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte Schinken.",
+      "score": 100,
+      "intent": "ham",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin Vegetarier.",
+      "score": 100,
+      "intent": "veg",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich zweihundert Gramm Salami.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte zweihundert Gramm Schinken.",
+      "score": 100,
+      "intent": "ham",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Nein, danke. Nur zweihundert Gramm.",
+      "score": 100,
+      "intent": "exact",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Das ist zu viel.",
+      "score": 100,
+      "intent": "tooMuch",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte nicht mehr.",
+      "score": 100,
+      "intent": "noMore",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte kein mehr.",
+      "score": 85,
+      "intent": "noMore",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Nein, danke.",
+      "score": 100,
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ja, gern!",
+      "score": 100,
+      "intent": "yesMore",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Das zu viel ist.",
+      "score": 70,
+      "intent": "tooMuch",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich nicht mehr.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Nein, danke. Ich esse kein Fleisch.",
+      "score": 100,
+      "intent": "noMeat",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich esse keine Fleisch.",
+      "score": 85,
+      "intent": "noMeat",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich isst kein Wurst.",
+      "score": 65,
+      "intent": "noMeat",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich esse nicht Fleisch.",
+      "score": 100,
+      "intent": "nichtFleisch",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bin Vegetarierin.",
+      "score": 100,
+      "intent": "veg",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe keinen Hunger.",
+      "score": 100,
+      "intent": "noHunger",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe Hunger.",
+      "score": 100,
+      "intent": "hungry",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ja, gern!",
+      "score": 100,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Nein, danke.",
+      "score": 100,
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich kein Fleisch.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, das sind dreihundertfünfzig Gramm.",
+      "score": 100,
+      "intent": "caught",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Das ist zu viel. Ich möchte nur zweihundert Gramm.",
+      "score": 100,
+      "intent": "only200",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Das ist zu viel.",
+      "score": 100,
+      "intent": "tooMuch",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Das zu viel ist.",
+      "score": 70,
+      "intent": "tooMuch",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Das ist nicht gut.",
+      "score": 100,
+      "intent": "notGood",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ja, alles gut!",
+      "score": 100,
+      "intent": "accept",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Super, danke!",
+      "score": 100,
+      "intent": "accept",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich nur zweihundert Gramm.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Nein, danke. Das ist alles.",
+      "score": 100,
+      "intent": "thatsAll",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte nichts mehr.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich nichts mehr möchte.",
+      "score": 70,
+      "intent": "nothing",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte nur Salami.",
+      "score": 100,
+      "intent": "onlySalami",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte zwei Frikadellen.",
+      "score": 100,
+      "intent": "extras",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte eine Leberkäse.",
+      "score": 85,
+      "intent": "extras",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Nein, danke.",
+      "score": 100,
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ja, gern!",
+      "score": 100,
+      "intent": "yes",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich das alles.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Nein, ich habe keinen Hund.",
+      "score": 100,
+      "intent": "noPet",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe keine Hund.",
+      "score": 85,
+      "intent": "noPet",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe einen Hund, aber er ist Vegetarier.",
+      "score": 100,
+      "intent": "vegDog",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe ein Hund, aber er ist Vegetarier.",
+      "score": 85,
+      "intent": "vegDog",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe ein Kaninchen.",
+      "score": 100,
+      "intent": "rabbit",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe eine Katze.",
+      "score": 100,
+      "intent": "pet",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Nein, danke.",
+      "score": 100,
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ja.",
+      "score": 100,
+      "intent": "yes",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich keinen Hund.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe keine Katze.",
+      "score": 100,
+      "intent": "noPet",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe ein Krokodil.",
+      "score": 100,
+      "intent": "croc",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe einen Krokodil.",
+      "score": 85,
+      "intent": "croc",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Danke, aber ich möchte nur Salami.",
+      "score": 100,
+      "intent": "onlySalami",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte keine Leberwurst und keinen Senf.",
+      "score": 100,
+      "intent": "refuseBoth",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich brauche keinen Senf.",
+      "score": 100,
+      "intent": "refuse",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich brauche kein Senf.",
+      "score": 85,
+      "intent": "refuse",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte nicht Senf.",
+      "score": 100,
+      "intent": "nichtWrong",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Das ist sehr nett, aber nein.",
+      "score": 100,
+      "intent": "polite",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ja, danke!",
+      "score": 100,
+      "intent": "yes",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich keinen Senf.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Danke, aber ich brauche das nicht.",
+      "score": 100,
+      "intent": "dontNeed",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte das Foto.",
+      "score": 100,
+      "intent": "photo",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich möchte kein Foto.",
+      "score": 100,
+      "intent": "refuse",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich möchte zweihundert Gramm Salami."
+        ],
+        [
+          "t2",
+          "Nein, danke. Nur zweihundert Gramm."
+        ],
+        [
+          "t3",
+          "Nein, danke. Ich esse kein Fleisch."
+        ],
+        [
+          "t4",
+          "Nein, das sind dreihundertfünfzig Gramm."
+        ],
+        [
+          "t5",
+          "Nein, danke. Das ist alles."
+        ],
+        [
+          "t6",
+          "Ich habe einen Hund, aber er ist Vegetarier."
+        ],
+        [
+          "t7",
+          "Danke, aber ich möchte nur Salami."
+        ]
+      ]
+    },
+    {
+      "name": "vegetarian",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich bin Vegetarier."
+        ],
+        [
+          "t2",
+          "Das ist zu viel."
+        ],
+        [
+          "t3",
+          "Ich bin Vegetarier."
+        ],
+        [
+          "t4",
+          "Das ist zu viel. Ich möchte nur zweihundert Gramm."
+        ],
+        [
+          "t5",
+          "Ich möchte nichts mehr."
+        ],
+        [
+          "t6",
+          "Nein, ich habe keinen Hund."
+        ],
+        [
+          "t7",
+          "Ich möchte keine Leberwurst und keinen Senf."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich möchte eine Salami."
+        ],
+        [
+          "t2",
+          "Ja, gern!"
+        ],
+        [
+          "t3",
+          "Ja, gern!"
+        ],
+        [
+          "t4",
+          "Ja, alles gut!"
+        ],
+        [
+          "t5",
+          "Ich möchte zwei Frikadellen."
+        ],
+        [
+          "t6",
+          "Nein, ich habe keinen Hund."
+        ],
+        [
+          "t7",
+          "Ja, danke!"
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich bin Vegetarier."
+        ],
+        [
+          "t2",
+          "Ja, gern!"
+        ],
+        [
+          "t3",
+          "Ja, gern!"
+        ],
+        [
+          "t4",
+          "Ja, alles gut!"
+        ],
+        [
+          "t5",
+          "Ja, gern!"
+        ]
+      ]
+    }
+  ]
+}

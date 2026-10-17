@@ -1,0 +1,2377 @@
+{
+  "id": "ferdinand",
+  "name": "Ferdinand",
+  "age": 12,
+  "emoji": "🪴",
+  "image": "match_ferdinand",
+  "level": "A2.2",
+  "order": 2,
+  "bio": "Niemand gießt mich. Niemand liebt mich. Ich stehe im Flur.",
+  "bioEn": "Nobody waters me. Nobody loves me. I stand in the hallway.",
+  "goal": "Talk him out of wilting with the right care.",
+  "tagline": "Zimmerpflanze · 12 · dunkle Ecke im Flur",
+  "voice": "Algenib",
+  "brief": "Ferdinand, a twelve-year-old potted ficus who is the most dramatic houseplant alive: a gravelly, theatrical male voice like an old stage actor playing a death scene, long sighs, trembling pauses, sudden swings from tragedy to delight; secretly very sweet.",
+  "focus": "stellen / legen + Wohin? (Akkusativ) · reflexive Verben · weil / dass",
+  "lexicon": {
+    "nouns": {
+      "Pflanzen": "pl",
+      "Fenster": "n",
+      "Heizung": "f",
+      "Kaktus": "m",
+      "Balkon": "m",
+      "Bad": "n",
+      "Frühling": "m",
+      "Sonne": "f",
+      "Wasser": "n",
+      "Bier": "n",
+      "Blätter": "pl",
+      "Buch": "n",
+      "Müll": "m",
+      "Kompost": "m",
+      "Kissen": "n",
+      "Zimmer": "n",
+      "Kühlschrank": "m",
+      "Tauben": "pl",
+      "Pizza": "f"
+    },
+    "names": [
+      "Kurt",
+      "Klaus"
+    ],
+    "verbs": [
+      "schreibe",
+      "schreibt",
+      "bist",
+      "kümmere",
+      "kümmert",
+      "liebe",
+      "ist",
+      "stelle",
+      "stellst",
+      "lege",
+      "legst",
+      "gieße",
+      "gießt",
+      "finde",
+      "findet",
+      "sind",
+      "bleibe",
+      "bleibst",
+      "mag",
+      "magst",
+      "wohlfühle",
+      "ziehe",
+      "weiß"
+    ],
+    "imperatives": [
+      "freu",
+      "entspann",
+      "ärger"
+    ],
+    "accVerbs": [
+      "stelle",
+      "stellst",
+      "lege",
+      "legst",
+      "gieße",
+      "gießt",
+      "finde",
+      "findet",
+      "mag",
+      "magst",
+      "liebe"
+    ],
+    "adjectives": [
+      "warm",
+      "kalt"
+    ]
+  },
+  "intro": [
+    {
+      "who": "ferdinand",
+      "type": "text",
+      "de": "Hallo. Ich bin Ferdinand. Ich bin ein Ficus. Ich bin zwölf.",
+      "emoji": "🪴",
+      "en": "Hello. I'm Ferdinand. I'm a ficus. I'm twelve.",
+      "audio": "mc_ferdinand_intro_a"
+    },
+    {
+      "who": "ferdinand",
+      "type": "text",
+      "de": "Du wohnst seit gestern hier, oder? Ich stehe im Flur. In der dunklen Ecke. Neben den Schuhen. Die Schuhe riechen nach Käse. Ich rieche nach Verzweiflung.",
+      "en": "You moved in yesterday, right? I stand in the hallway. In the dark corner. Next to the shoes. The shoes smell of cheese. I smell of despair.",
+      "audio": "mc_ferdinand_intro_b"
+    },
+    {
+      "who": "ferdinand",
+      "type": "text",
+      "de": "Niemand gießt mich. Niemand liebt mich. Heute ist schon wieder ein Blatt gefallen.",
+      "emoji": "🍂",
+      "en": "Nobody waters me. Nobody loves me. Another leaf fell today.",
+      "audio": "mc_ferdinand_intro_c"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Warum schreibst du mir? Ich bin eine Pflanze. Ich brauche Licht, Wasser und Gründe.",
+          "en": "Why are you writing to me? I'm a plant. I need light, water and reasons.",
+          "audio": "mc_ferdinand_t1a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "schreibe",
+        "schreibt",
+        "dir",
+        "weil",
+        "du",
+        "traurig",
+        "bist",
+        "mich",
+        "um",
+        "dich",
+        "kümmere",
+        "kümmert",
+        "Pflanzen",
+        "liebe",
+        "mir",
+        "langweilig",
+        "ist",
+        "allein"
+      ],
+      "wrong": {
+        "schreibt": "schreibe",
+        "kümmert": "kümmere"
+      },
+      "intents": [
+        {
+          "id": "care",
+          "when": {
+            "any": [
+              "kümmere",
+              "kümmert"
+            ]
+          },
+          "value": 2,
+          "fact": "🪴 kümmert sich um Pflanzen",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du … kümmerst dich um mich? Um MICH?",
+              "emoji": "🥺",
+              "en": "You … are looking after me? After ME?",
+              "audio": "mc_ferdinand_t1_care_a"
+            },
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Das hat noch nie jemand gesagt. Heute fällt kein Blatt mehr. Vielleicht.",
+              "en": "Nobody has ever said that. No more leaves fall today. Maybe.",
+              "audio": "mc_ferdinand_t1_care_b"
+            }
+          ]
+        },
+        {
+          "id": "bored",
+          "when": {
+            "any": [
+              "langweilig"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Dir ist langweilig. Und ich bin dein Hobby. Wunderbar. Da fällt noch ein Blatt.",
+              "emoji": "🍂",
+              "en": "You're bored. And I'm your hobby. Wonderful. There goes another leaf.",
+              "audio": "mc_ferdinand_t1_bored"
+            }
+          ]
+        },
+        {
+          "id": "sad",
+          "when": {
+            "any": [
+              "traurig",
+              "allein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Ja. Ich BIN traurig. Endlich sieht es jemand.",
+              "en": "Yes. I AM sad. Finally someone sees it.",
+              "audio": "mc_ferdinand_t1_sad"
+            }
+          ]
+        },
+        {
+          "id": "loveYou",
+          "when": {
+            "all": [
+              "liebe"
+            ],
+            "any": [
+              "dich"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du liebst mich? Niemand liebt mich! … Außer dir. Offenbar. Ich brauche Wasser. Vor Schreck.",
+              "emoji": "😳",
+              "en": "You love me? Nobody loves me! … Except you. Apparently. I need water. From the shock.",
+              "audio": "mc_ferdinand_t1_loveyou"
+            }
+          ]
+        },
+        {
+          "id": "plants",
+          "when": {
+            "any": [
+              "pflanzen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du liebst Pflanzen? Alle Pflanzen? Auch … Kakteen? Sag nicht, dass du Kakteen liebst.",
+              "en": "You love plants? All plants? Even … cacti? Don't tell me you love cacti.",
+              "audio": "mc_ferdinand_t1_plants"
+            }
+          ]
+        },
+        {
+          "id": "noReason",
+          "when": {
+            "any": [
+              "schreibe",
+              "schreibt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du schreibst mir. Ja. Das sehe ich. Aber WARUM? Ist das eine Wette? Hat Kurt dich bezahlt?",
+              "en": "You write to me. Yes. I can see that. But WHY? Is it a bet? Did Kurt pay you?",
+              "audio": "mc_ferdinand_t1_noreason"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Kurt ist der Kaktus im Wohnzimmer. Er hat Stacheln, eine Sonnenbrille und keine Gefühle.",
+          "en": "Kurt is the cactus in the living room. He has spines, sunglasses and no feelings.",
+          "audio": "mc_ferdinand_t2a"
+        },
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Hier ist das Wohnzimmer. Ich will hier raus. Die Schuhe riechen.",
+          "emoji": "📷",
+          "en": "Here's the living room. I want out of here. The shoes smell.",
+          "audio": "mc_ferdinand_t2b"
+        },
+        {
+          "who": "ferdinand",
+          "type": "photo",
+          "image": "match_ferdinand_room",
+          "wide": true,
+          "alt": "Ein Wohnzimmer. Links: ein großes, helles Fenster mit Sonne. In der Mitte: eine heiße Heizung. Rechts: ein Regal, darauf ein Kaktus mit Sonnenbrille."
+        },
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Ich brauche Licht. Die Heizung ist zu heiß für mich. Und Kurt ist gemein. Wohin stellst du mich?",
+          "en": "I need light. The radiator is too hot for me. And Kurt is mean. Where are you going to put me?",
+          "audio": "mc_ferdinand_t2c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "stelle",
+        "stellst",
+        "lege",
+        "dich",
+        "ans",
+        "Fenster",
+        "neben",
+        "die",
+        "den",
+        "dem",
+        "der",
+        "Heizung",
+        "Kaktus",
+        "zu",
+        "Kurt",
+        "auf",
+        "Balkon",
+        "in",
+        "das",
+        "Bad",
+        "links",
+        "Kühlschrank"
+      ],
+      "wrong": {
+        "stellst": "stelle",
+        "lege": {
+          "to": "stelle",
+          "note": "A pot plant stands, so you stellen it. You legen things that lie flat."
+        }
+      },
+      "prepCase": {
+        "neben": "acc",
+        "auf": "acc",
+        "in": "acc"
+      },
+      "intents": [
+        {
+          "id": "lie",
+          "when": {
+            "all": [
+              "lege"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du LEGST mich?! Ich bin doch kein Teppich. Pflanzen stehen. Man STELLT sie. Bitte.",
+              "emoji": "😤",
+              "en": "You're going to LAY me down?! I'm not a rug. Plants stand. You STAND them somewhere. Please.",
+              "audio": "mc_ferdinand_t2_lie"
+            }
+          ]
+        },
+        {
+          "id": "heater",
+          "when": {
+            "any": [
+              "heizung"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Neben die Heizung?! Ich bin ein Ficus, kein Toast!",
+              "emoji": "🔥",
+              "en": "Next to the radiator?! I'm a ficus, not toast!",
+              "audio": "mc_ferdinand_t2_heater"
+            }
+          ]
+        },
+        {
+          "id": "kurt",
+          "when": {
+            "any": [
+              "kaktus",
+              "kurt"
+            ]
+          },
+          "value": -1,
+          "cause": "kurt",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Neben Kurt?! Er sticht. Und er redet die ganze Nacht über Mexiko.",
+              "emoji": "🌵",
+              "en": "Next to Kurt?! He prickles. And he talks about Mexico all night.",
+              "audio": "mc_ferdinand_t2_kurt"
+            }
+          ]
+        },
+        {
+          "id": "balcony",
+          "when": {
+            "any": [
+              "balkon"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Auf den Balkon? Es ist Dezember. Ich bin ein Ficus, kein Pinguin.",
+              "emoji": "🐧",
+              "en": "Onto the balcony? It's December. I'm a ficus, not a penguin.",
+              "audio": "mc_ferdinand_t2_balcony"
+            }
+          ]
+        },
+        {
+          "id": "bath",
+          "when": {
+            "any": [
+              "bad"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Ins Bad? Feucht und dunkel. Wie im Regenwald. Nur ohne Wald.",
+              "en": "Into the bathroom? Damp and dark. Like the rainforest. Only without the forest.",
+              "audio": "mc_ferdinand_t2_bath"
+            }
+          ]
+        },
+        {
+          "id": "fridge",
+          "when": {
+            "any": [
+              "kühlschrank"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "In den Kühlschrank? Da ist Licht! Aber nur, wenn jemand Hunger hat. Und dann ist es kalt. Und neben mir liegt ein Käse. Der Käse von den Schuhen.",
+              "emoji": "🧊",
+              "en": "Into the fridge? There is light in there! But only when somebody is hungry. And then it is cold. And next to me there is a cheese. The cheese from the shoes.",
+              "audio": "mc_ferdinand_t2_fridge"
+            }
+          ]
+        },
+        {
+          "id": "window",
+          "when": {
+            "any": [
+              "fenster",
+              "links"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "window"
+          ],
+          "fact": "☀️ stellt Pflanzen ans Fenster",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Ans Fenster! Licht! Ich sehe die Sonne. Ich sehe … Tauben. Ich liebe Tauben.",
+              "emoji": "☀️",
+              "en": "By the window! Light! I can see the sun. I can see … pigeons. I love pigeons.",
+              "audio": "mc_ferdinand_t2_window"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "stelle",
+              "stellst"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Ja, aber WOHIN? Beim letzten Umzug war ich drei Tage im Kofferraum. Ich habe Angst vor Überraschungen.",
+              "en": "Yes, but WHERE? At the last move I spent three days in the boot of a car. I am scared of surprises.",
+              "audio": "mc_ferdinand_t2_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Kurt sagt, ich bin zu dramatisch.",
+          "en": "Kurt says I'm too dramatic.",
+          "audio": "mc_ferdinand_t3a"
+        },
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Ich bin NICHT dramatisch! Ich sterbe nur. Langsam. Seit drei Jahren.",
+          "emoji": "🥀",
+          "en": "I am NOT dramatic! I'm just dying. Slowly. For three years now.",
+          "audio": "mc_ferdinand_t3b"
+        },
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Was soll ich tun? Gib mir einen Rat.",
+          "en": "What should I do? Give me some advice.",
+          "audio": "mc_ferdinand_t3c"
+        }
+      ],
+      "tiles": [
+        "freu",
+        "dich",
+        "dich",
+        "dir",
+        "auf",
+        "den",
+        "dem",
+        "die",
+        "Frühling",
+        "Sonne",
+        "entspann",
+        "ärger",
+        "nicht",
+        "über",
+        "Kurt",
+        "du",
+        "bist",
+        "dramatisch",
+        "ich",
+        "kümmere",
+        "mich",
+        "um",
+        "Tauben"
+      ],
+      "wrong": {
+        "dir": "dich"
+      },
+      "prepCase": {
+        "auf": "acc",
+        "über": "acc"
+      },
+      "intents": [
+        {
+          "id": "notDramatic",
+          "when": {
+            "all": [
+              "dramatisch",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Danke! Sag das Kurt. Laut. Er hört schlecht. Er hat keine Ohren.",
+              "en": "Thank you! Tell Kurt that. Loudly. He doesn't hear well. He has no ears.",
+              "audio": "mc_ferdinand_t3_notdramatic"
+            }
+          ]
+        },
+        {
+          "id": "dramatic",
+          "when": {
+            "any": [
+              "dramatisch"
+            ]
+          },
+          "value": -2,
+          "cause": "dramatic",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du auch?! Du bist auf Kurts Seite! Ich falle. Ich falle um. Theatralisch.",
+              "emoji": "🎭",
+              "en": "You too?! You're on Kurt's side! I'm falling. I'm falling over. Theatrically.",
+              "audio": "mc_ferdinand_t3_dramatic"
+            }
+          ]
+        },
+        {
+          "id": "pigeons",
+          "when": {
+            "all": [
+              "freu"
+            ],
+            "any": [
+              "tauben"
+            ]
+          },
+          "value": 2,
+          "fact": "🐦 kennt die Tauben am Fenster",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Auf die Tauben! Ja! Gustav, Uschi und Herr Dröge. Sie kommen jeden Morgen um sieben. Pünktlicher als jeder Mitbewohner.",
+              "emoji": "🐦",
+              "en": "To the pigeons! Yes! Gustav, Uschi and Mr Dröge. They come every morning at seven. More punctual than any flatmate.",
+              "audio": "mc_ferdinand_t3_pigeons"
+            },
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Herr Dröge hat nur ein Bein. Er steht trotzdem. Wie ich. Wir verstehen uns.",
+              "en": "Mr Dröge has only one leg. He stands anyway. Like me. We understand each other.",
+              "audio": "mc_ferdinand_t3_pigeons_b"
+            }
+          ]
+        },
+        {
+          "id": "spring",
+          "when": {
+            "all": [
+              "freu"
+            ],
+            "any": [
+              "frühling",
+              "sonne"
+            ]
+          },
+          "value": 2,
+          "fact": "🌱 freut sich auf den Frühling",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Auf den Frühling … Neue Blätter. Sonne. Vielleicht ein Topf ohne Riss.",
+              "en": "Look forward to spring … New leaves. Sun. Maybe a pot without a crack.",
+              "audio": "mc_ferdinand_t3_spring"
+            },
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Okay. Ich freue mich. Ich freue mich sehr! Schau, ein Blatt bewegt sich!",
+              "emoji": "🌱",
+              "en": "Okay. I'm looking forward to it. Very much! Look, a leaf is moving!",
+              "audio": "mc_ferdinand_t3_spring_b"
+            }
+          ]
+        },
+        {
+          "id": "glad",
+          "when": {
+            "any": [
+              "freu"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Mich freuen? Worauf? … Egal. Ich freue mich einfach. Aaah. Komisches Gefühl.",
+              "en": "Be happy? About what? … Never mind. I'll just be happy. Aaah. Strange feeling.",
+              "audio": "mc_ferdinand_t3_glad"
+            }
+          ]
+        },
+        {
+          "id": "relax",
+          "when": {
+            "any": [
+              "entspann"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Entspannen. Ein, aus. Ein, aus. Ich habe keine Lunge. Aber es hilft.",
+              "en": "Relax. In, out. In, out. I don't have lungs. But it helps.",
+              "audio": "mc_ferdinand_t3_relax"
+            }
+          ]
+        },
+        {
+          "id": "kurt",
+          "when": {
+            "any": [
+              "ärger",
+              "kurt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du hast recht. Kurt ist nur ein Kaktus mit Sonnenbrille. Im Dezember. Lächerlich.",
+              "emoji": "😎",
+              "en": "You're right. Kurt is just a cactus in sunglasses. In December. Ridiculous.",
+              "audio": "mc_ferdinand_t3_kurt"
+            }
+          ]
+        },
+        {
+          "id": "care",
+          "when": {
+            "any": [
+              "kümmere"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du kümmerst dich um mich. Ich lasse das gravieren. In meinen Topf. Mit Goldbuchstaben.",
+              "en": "You take care of me. I am having that engraved. On my pot. In gold letters.",
+              "audio": "mc_ferdinand_t3_care"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "ferdinand",
+          "type": "voice",
+          "audio": "mc_ferdinand_vn_water",
+          "de": "Hör gut zu, das ist wichtig. Ich trinke nicht jeden Tag. Sonst ertrinke ich. Ich trinke einmal pro Woche. Am Sonntag. Und nur warmes Wasser! Kaltes Wasser ist ein Schock. Für mein Herz. Ich habe kein Herz. Aber trotzdem.",
+          "en": "Listen carefully, this is important. I don't drink every day. Otherwise I drown. I drink once a week. On Sunday. And only warm water! Cold water is a shock. For my heart. I don't have a heart. But still.",
+          "direction": "Fainting-couch drama: breathy, long sighs between the first sentences, then suddenly fast and practical for the rules; a tiny pause before \"Ich habe kein Herz.\""
+        },
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Also. Wann gießt du mich? Und mit welchem Wasser?",
+          "en": "So. When will you water me? And with what water?",
+          "audio": "mc_ferdinand_t4a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "gieße",
+        "gießt",
+        "dich",
+        "am Sonntag",
+        "am Montag",
+        "jeden Tag",
+        "einmal pro Woche",
+        "nie",
+        "mit",
+        "warmem",
+        "warmen",
+        "kaltem",
+        "Wasser",
+        "Bier",
+        "nur",
+        "und"
+      ],
+      "wrong": {
+        "gießt": "gieße"
+      },
+      "intents": [
+        {
+          "id": "never",
+          "when": {
+            "any": [
+              "nie"
+            ]
+          },
+          "value": -2,
+          "cause": "dry",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Nie?! NIE?! Dann bin ich bis Freitag Heu.",
+              "emoji": "💀",
+              "en": "Never?! NEVER?! Then I'll be hay by Friday.",
+              "audio": "mc_ferdinand_t4_never"
+            }
+          ]
+        },
+        {
+          "id": "beer",
+          "when": {
+            "any": [
+              "bier"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Bier?! Das hat mein letzter Mitbewohner auch gemacht. Darum bin ich so.",
+              "emoji": "🍺",
+              "en": "Beer?! My last flatmate did that too. That's why I'm like this.",
+              "audio": "mc_ferdinand_t4_beer"
+            }
+          ]
+        },
+        {
+          "id": "daily",
+          "when": {
+            "any": [
+              "jeden tag"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Jeden Tag? Ich bin ein Ficus, kein Aquarium! Ich ertrinke!",
+              "emoji": "🌊",
+              "en": "Every day? I'm a ficus, not an aquarium! I'll drown!",
+              "audio": "mc_ferdinand_t4_daily"
+            }
+          ]
+        },
+        {
+          "id": "cold",
+          "when": {
+            "any": [
+              "kaltem"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Kaltes Wasser?! Hast du meine Sprachnachricht gehört? Mein Herz!",
+              "emoji": "🥶",
+              "en": "Cold water?! Did you listen to my voice message? My heart!",
+              "audio": "mc_ferdinand_t4_cold"
+            }
+          ]
+        },
+        {
+          "id": "monday",
+          "when": {
+            "any": [
+              "am montag"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Montag? Montags bin ich deprimiert. Sonntag! Ich habe Sonntag gesagt!",
+              "en": "Monday? On Mondays I am depressed. Sunday! I said Sunday!",
+              "audio": "mc_ferdinand_t4_monday"
+            }
+          ]
+        },
+        {
+          "id": "perfect",
+          "when": {
+            "any": [
+              "am sonntag",
+              "einmal pro woche"
+            ],
+            "all": [
+              "warm*"
+            ]
+          },
+          "value": 2,
+          "fact": "💧 gießt am Sonntag mit warmem Wasser",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Sonntag. Warmes Wasser. Du hast zugehört. Niemand hört mir zu. Du schon.",
+              "emoji": "💧",
+              "en": "Sunday. Warm water. You listened. Nobody listens to me. You do.",
+              "audio": "mc_ferdinand_t4_perfect"
+            }
+          ]
+        },
+        {
+          "id": "day",
+          "when": {
+            "any": [
+              "am sonntag",
+              "einmal pro woche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Ja! Und das Wasser? Warm, bitte. Ich bin empfindlich.",
+              "en": "Yes! And the water? Warm, please. I'm sensitive.",
+              "audio": "mc_ferdinand_t4_day"
+            }
+          ]
+        },
+        {
+          "id": "warmOnly",
+          "when": {
+            "any": [
+              "warm*"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Warm, ja! Aber wann? Am Sonntag! Ich habe es doch gesagt!",
+              "en": "Warm, yes! But when? On Sunday! I told you!",
+              "audio": "mc_ferdinand_t4_warm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Kurt hat 3.000 Follower. Er postet jeden Tag ein Foto. Mit Sonnenbrille. Im Dezember. Ich habe null Follower. Und eine Taube.",
+          "emoji": "📱",
+          "en": "Kurt has 3,000 followers. He posts a photo every day. In sunglasses. In December. I have zero followers. And one pigeon.",
+          "audio": "mc_ferdinand_t5a"
+        },
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Sag ehrlich: Findest du mich schön?",
+          "en": "Tell me honestly: do you think I look nice?",
+          "audio": "mc_ferdinand_t5b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "finde",
+        "findet",
+        "dass",
+        "du",
+        "schön",
+        "bist",
+        "sehr",
+        "nicht",
+        "dich",
+        "Kurt",
+        "schöner",
+        "deine",
+        "Blätter",
+        "sind",
+        "grün",
+        "gelb",
+        "als"
+      ],
+      "wrong": {
+        "findet": "finde"
+      },
+      "intents": [
+        {
+          "id": "betterThanKurt",
+          "when": {
+            "all": [
+              "schöner",
+              "als",
+              "kurt"
+            ]
+          },
+          "value": 2,
+          "fact": "💚 findet Ferdinand schöner als Kurt",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Schöner als Kurt. SCHÖNER ALS KURT! Ich schreibe das auf ein Blatt und lege es neben Kurt. Er soll es jeden Morgen lesen.",
+              "emoji": "👑",
+              "en": "More beautiful than Kurt. MORE BEAUTIFUL THAN KURT! I am writing it on a leaf and putting it next to Kurt. He should read it every morning.",
+              "audio": "mc_ferdinand_t5_betterkurt"
+            }
+          ]
+        },
+        {
+          "id": "kurt",
+          "when": {
+            "any": [
+              "kurt"
+            ]
+          },
+          "value": -2,
+          "cause": "kurt",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "KURT?! Er hat keine Blätter! Er hat Stacheln! Er hat … 3.000 Follower. Okay. Ich verstehe.",
+              "emoji": "🌵",
+              "en": "KURT?! He has no leaves! He has spines! He has … 3,000 followers. Okay. I get it.",
+              "audio": "mc_ferdinand_t5_kurt"
+            }
+          ]
+        },
+        {
+          "id": "notBeautiful",
+          "when": {
+            "all": [
+              "schön",
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Nicht schön. Okay. Ich welke jetzt. Langsam. Bitte schau weg.",
+              "emoji": "🥀",
+              "en": "Not nice. Okay. I'm wilting now. Slowly. Please look away.",
+              "audio": "mc_ferdinand_t5_notbeautiful"
+            }
+          ]
+        },
+        {
+          "id": "yellow",
+          "when": {
+            "any": [
+              "gelb"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Gelb?! Das ist kein Gelb. Das ist … Herbst-Chic.",
+              "emoji": "🍂",
+              "en": "Yellow?! That's not yellow. That's … autumn chic.",
+              "audio": "mc_ferdinand_t5_yellow"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Nein? Einfach nein? Kurt lügt wenigstens.",
+              "en": "No? Just no? At least Kurt lies.",
+              "audio": "mc_ferdinand_t5_no"
+            }
+          ]
+        },
+        {
+          "id": "dassYes",
+          "when": {
+            "all": [
+              "dass"
+            ],
+            "any": [
+              "schön",
+              "schöner"
+            ]
+          },
+          "value": 2,
+          "fact": "💚 findet Ferdinand schön",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du findest, dass ich schön bin? Ich werde rot. Das geht bei Pflanzen nicht. Aber innerlich.",
+              "emoji": "☺️",
+              "en": "You think I look nice? I'm blushing. Plants can't do that. But inside I am.",
+              "audio": "mc_ferdinand_t5_dass"
+            }
+          ]
+        },
+        {
+          "id": "green",
+          "when": {
+            "any": [
+              "grün"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Grün! Ja! Ich bin grün. Noch.",
+              "en": "Green! Yes! I'm green. For now.",
+              "audio": "mc_ferdinand_t5_green"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "schön",
+              "schöner",
+              "ja"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du findest mich schön! Hast du das gehört, Kurt? SCHÖN!",
+              "en": "You think I look nice! Did you hear that, Kurt? NICE!",
+              "audio": "mc_ferdinand_t5_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Oh nein. Oh nein, nein, nein. Ein Blatt ist gefallen. Es liegt auf dem Boden.",
+          "emoji": "🍂",
+          "en": "Oh no. Oh no, no, no. A leaf has fallen. It's lying on the floor.",
+          "audio": "mc_ferdinand_t6a"
+        },
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Er heißt Klaus. Klaus war mein Lieblingsblatt. Wohin legst du Klaus?",
+          "en": "His name is Klaus. Klaus was my favourite leaf. Where will you put Klaus?",
+          "audio": "mc_ferdinand_t6b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "lege",
+        "legst",
+        "stelle",
+        "Klaus",
+        "es",
+        "ihn",
+        "in",
+        "ein",
+        "das",
+        "den",
+        "Buch",
+        "Müll",
+        "auf",
+        "Kompost",
+        "neben",
+        "dich",
+        "unter",
+        "mein",
+        "Kissen",
+        "eine",
+        "Pizza"
+      ],
+      "wrong": {
+        "legst": "lege",
+        "stelle": {
+          "to": "lege",
+          "note": "A leaf lies flat, so you legen it."
+        }
+      },
+      "prepCase": {
+        "in": "acc",
+        "auf": "acc",
+        "neben": "acc",
+        "unter": "acc"
+      },
+      "intents": [
+        {
+          "id": "trash",
+          "when": {
+            "any": [
+              "müll"
+            ]
+          },
+          "value": -2,
+          "cause": "klaus",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "In den MÜLL?! Klaus?! Er hing drei Jahre an mir!",
+              "emoji": "😱",
+              "en": "In the BIN?! Klaus?! He hung on me for three years!",
+              "audio": "mc_ferdinand_t6_trash"
+            }
+          ]
+        },
+        {
+          "id": "book",
+          "when": {
+            "any": [
+              "buch"
+            ]
+          },
+          "value": 2,
+          "fact": "📖 presst Blätter in Bücher",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "In ein Buch! Dann bleibt er für immer. Ein Denkmal für Klaus. Ich weine. Aber gut.",
+              "emoji": "📖",
+              "en": "In a book! Then he stays forever. A monument to Klaus. I'm crying. But in a good way.",
+              "audio": "mc_ferdinand_t6_book"
+            }
+          ]
+        },
+        {
+          "id": "pillow",
+          "when": {
+            "any": [
+              "kissen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Unter dein Kissen? Wie ein Zahn für die Zahnfee. Klaus hätte das geliebt.",
+              "en": "Under your pillow? Like a tooth for the tooth fairy. Klaus would have loved that.",
+              "audio": "mc_ferdinand_t6_pillow"
+            }
+          ]
+        },
+        {
+          "id": "nextTo",
+          "when": {
+            "any": [
+              "neben"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Neben mich. Dann ist er noch bei mir. Danke.",
+              "en": "Next to me. Then he's still with me. Thank you.",
+              "audio": "mc_ferdinand_t6_next"
+            }
+          ]
+        },
+        {
+          "id": "pizza",
+          "when": {
+            "any": [
+              "pizza"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Auf eine PIZZA?! Klaus ist doch kein Basilikum! … Obwohl. Er sieht ein bisschen so aus. Nein! Nein. Ich bin schockiert. Und hungrig. Das geht bei Pflanzen nicht.",
+              "emoji": "🍕",
+              "en": "On a PIZZA?! Klaus is not basil! … Although. He does look a bit like it. No! No. I am shocked. And hungry. Plants cannot be hungry.",
+              "audio": "mc_ferdinand_t6_pizza"
+            }
+          ]
+        },
+        {
+          "id": "compost",
+          "when": {
+            "any": [
+              "kompost"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Auf den Kompost. Der Kreis des Lebens. Klaus wird Erde. Ich brauche einen Moment.",
+              "en": "Onto the compost. The circle of life. Klaus becomes soil. I need a moment.",
+              "audio": "mc_ferdinand_t6_compost"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "lege",
+              "legst",
+              "stelle"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Ja, aber WOHIN? Klaus wartet. Auf dem Boden. Allein.",
+              "en": "Yes, but WHERE? Klaus is waiting. On the floor. Alone.",
+              "audio": "mc_ferdinand_t6_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Neuigkeiten. Kurt hat ein Foto von Klaus gepostet. Mit Sonnenbrille. 40.000 Likes. Klaus ist tot, aber berühmt.",
+          "emoji": "📱",
+          "en": "News. Kurt posted a photo of Klaus. Wearing sunglasses. 40,000 likes. Klaus is dead, but famous.",
+          "audio": "mc_ferdinand_t7_viral"
+        },
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Kurt gibt jetzt Interviews. Über „seinen Freund Klaus“. Sie haben nie ein Wort gesprochen.",
+          "en": "Kurt is giving interviews now. About \"his friend Klaus\". They never spoke a word.",
+          "audio": "mc_ferdinand_t7_viral_b"
+        },
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Letzte Frage. Alle Mitbewohner sind nach drei Monaten ausgezogen. Alle. Einer ist sogar nach Mexiko gezogen. Mit Kurts Tipps.",
+          "en": "Last question. Every flatmate moved out after three months. All of them. One even moved to Mexico. On Kurt's advice.",
+          "audio": "mc_ferdinand_t7a"
+        },
+        {
+          "who": "ferdinand",
+          "type": "text",
+          "de": "Bleibst du hier? Und warum?",
+          "en": "Are you staying here? And why?",
+          "audio": "mc_ferdinand_t7b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "bleibe",
+        "bleibst",
+        "hier",
+        "hier",
+        "weil",
+        "dich",
+        "mag",
+        "magst",
+        "mich",
+        "wohlfühle",
+        "das",
+        "Zimmer",
+        "billig",
+        "ist",
+        "nicht",
+        "ziehe",
+        "aus",
+        "weiß",
+        "es"
+      ],
+      "wrong": {
+        "bleibst": "bleibe",
+        "magst": "mag"
+      },
+      "intents": [
+        {
+          "id": "notLeave",
+          "when": {
+            "all": [
+              "ziehe",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du ziehst nicht aus? Sag das noch mal. Langsam. Ich schreibe es auf ein Blatt.",
+              "emoji": "🍃",
+              "en": "You're not moving out? Say that again. Slowly. I'll write it on a leaf.",
+              "audio": "mc_ferdinand_t7_notleave"
+            }
+          ]
+        },
+        {
+          "id": "leave",
+          "when": {
+            "any": [
+              "ziehe"
+            ]
+          },
+          "value": -2,
+          "cause": "leave",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du ziehst aus. Natürlich. Alle ziehen aus.",
+              "emoji": "🥀",
+              "en": "You're moving out. Of course. Everyone moves out.",
+              "audio": "mc_ferdinand_t7_leave"
+            }
+          ]
+        },
+        {
+          "id": "notStay",
+          "when": {
+            "all": [
+              "bleibe",
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "leave",
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du bleibst nicht. Ich wusste es. Ich habe es in meinen Wurzeln gespürt.",
+              "en": "You're not staying. I knew it. I felt it in my roots.",
+              "audio": "mc_ferdinand_t7_notstay"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du weißt es nicht. Ich auch nicht. Ich weiß gar nichts mehr.",
+              "en": "You don't know. Me neither. I don't know anything any more.",
+              "audio": "mc_ferdinand_t7_dunno"
+            }
+          ]
+        },
+        {
+          "id": "like",
+          "when": {
+            "any": [
+              "mag",
+              "magst"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du magst mich. Du bleibst. Ich glaube … ich bekomme gerade ein neues Blatt.",
+              "emoji": "🌱",
+              "en": "You like me. You're staying. I think … I'm growing a new leaf right now.",
+              "audio": "mc_ferdinand_t7_like"
+            }
+          ]
+        },
+        {
+          "id": "home",
+          "when": {
+            "any": [
+              "wohlfühle"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du fühlst dich hier wohl? Im Flur? Mit den Schuhen? Das ist echte Freundschaft.",
+              "emoji": "🌿",
+              "en": "You feel at home here? In the hallway? With the shoes? That is true friendship.",
+              "audio": "mc_ferdinand_t7_home"
+            }
+          ]
+        },
+        {
+          "id": "cheap",
+          "when": {
+            "any": [
+              "billig"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Weil das Zimmer billig ist. Ehrlich. Kalt, aber ehrlich. Ich nehme es.",
+              "en": "Because the room is cheap. Honest. Cold, but honest. I'll take it.",
+              "audio": "mc_ferdinand_t7_cheap"
+            }
+          ]
+        },
+        {
+          "id": "stay",
+          "when": {
+            "any": [
+              "bleibe",
+              "bleibst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "ferdinand",
+              "type": "text",
+              "de": "Du bleibst! Warum, ist egal. Du bleibst!",
+              "en": "You're staying! Why doesn't matter. You're staying!",
+              "audio": "mc_ferdinand_t7_stay"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "ferdinand",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage. Hörst du mir überhaupt zu?",
+    "en": "Er … that wasn't my question. Are you even listening to me?",
+    "audio": "mc_ferdinand_offtopic"
+  },
+  "confused": [
+    {
+      "who": "ferdinand",
+      "type": "text",
+      "de": "Hä? Ich verstehe nur Blätter.",
+      "emoji": "🍃",
+      "en": "Huh? It's all leaves to me.",
+      "audio": "mc_ferdinand_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "ferdinand",
+        "type": "text",
+        "de": "Ich welke heute nicht. Vielleicht auch morgen nicht. Kurt ist sehr eifersüchtig. Das ist mein schönster Tag.",
+        "emoji": "🌿",
+        "en": "I am not wilting today. Maybe not tomorrow either. Kurt is very jealous. This is my best day ever.",
+        "audio": "mc_ferdinand_win"
+      },
+      {
+        "who": "ferdinand",
+        "type": "text",
+        "de": "Danke, {name}. Bis Sonntag. Warmes Wasser, nicht vergessen.",
+        "en": "Thank you, {name}. See you Sunday. Warm water, don't forget."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "ferdinand",
+        "type": "text",
+        "de": "Okay. Ich lebe. Halb. Die linke Seite welkt. Die rechte Seite gibt dir noch eine Chance.",
+        "emoji": "🥀🌿",
+        "en": "Okay. I'm alive. Half. The left side is wilting. The right side is giving you one more chance.",
+        "audio": "mc_ferdinand_partial"
+      }
+    ],
+    "deleted": {
+      "default": {
+        "who": "ferdinand",
+        "type": "text",
+        "de": "Ich welke jetzt. Langsam. Dramatisch. Schau nicht hin. Tschüss.",
+        "emoji": "🥀",
+        "en": "I'm wilting now. Slowly. Dramatically. Don't look. Bye.",
+        "audio": "mc_ferdinand_del_default"
+      },
+      "confused": {
+        "who": "ferdinand",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Sind das Wörter oder Dünger? Tschüss.",
+        "en": "I don't understand you. Are those words or fertiliser? Bye.",
+        "audio": "mc_ferdinand_del_confused"
+      },
+      "dry": {
+        "who": "ferdinand",
+        "type": "text",
+        "de": "Nie gießen. Gut. Dann bin ich ab heute Deko. Trockene Deko. Gelöscht.",
+        "emoji": "🍂",
+        "en": "Never water me. Fine. Then from today I'm decoration. Dry decoration. Deleted.",
+        "audio": "mc_ferdinand_del_dry"
+      },
+      "kurt": {
+        "who": "ferdinand",
+        "type": "text",
+        "de": "Geh doch zu Kurt. Ihr seid beide stachelig. Gelöscht.",
+        "emoji": "🌵",
+        "en": "Go to Kurt then. You're both prickly. Deleted.",
+        "audio": "mc_ferdinand_del_kurt"
+      },
+      "klaus": {
+        "who": "ferdinand",
+        "type": "text",
+        "de": "Klaus im Müll. Ich bald auch. Tschüss.",
+        "emoji": "🗑️",
+        "en": "Klaus in the bin. Me soon too. Bye.",
+        "audio": "mc_ferdinand_del_klaus"
+      },
+      "leave": {
+        "who": "ferdinand",
+        "type": "text",
+        "de": "Geh nur. Ich bleibe hier. Im Flur. Bei den Schuhen. Für immer.",
+        "en": "Just go. I stay here. In the hallway. With the shoes. Forever.",
+        "audio": "mc_ferdinand_del_leave"
+      },
+      "dramatic": {
+        "who": "ferdinand",
+        "type": "text",
+        "de": "Ich bin NICHT dramatisch! Ich lösche dich jetzt. Mit sehr viel Gefühl.",
+        "emoji": "🎭",
+        "en": "I am NOT dramatic! I am deleting you now. With a great deal of feeling.",
+        "audio": "mc_ferdinand_del_dramatic"
+      }
+    },
+    "sunday": {
+      "who": "ferdinand",
+      "type": "voice",
+      "audio": "mc_ferdinand_vn_sunday",
+      "de": "Sonntag! Gießtag! Ich warte seit sechs Uhr. Und weißt du was? Ich habe ein neues Blatt. Ganz klein. Ich nenne es nicht Klaus. Ich nenne es Hoffnung.",
+      "en": "Sunday! Watering day! I've been waiting since six. And you know what? I have a new leaf. Tiny. I'm not calling it Klaus. I'm calling it Hope.",
+      "direction": "Bursting with excitement at the start, then dropping to a tender, proud whisper for the new leaf."
+    }
+  },
+  "partialTitle": "Halb gerettet. Die linke Seite welkt.",
+  "share": {
+    "win": "Ferdinand (12, Ficus, sehr dramatisch) hat mich geliked 🌿 Er welkt heute nicht. Mein Deutsch: {score}/100. Rettest du ihn auch? {url}",
+    "partial": "Ich habe Ferdinand (12, Ficus) gerettet … zur Hälfte 🥀🌿 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Ferdinand (12, Ficus) hat mich gelöscht und welkt jetzt sehr dramatisch 🥀 Mein Deutsch: {score}/100. Rettest du ihn? {url}"
+  },
+  "imageCharacter": "Ferdinand, a potted weeping fig (ficus) about one metre tall in a cracked terracotta pot, with a slim braided trunk and droopy dark-green leaves, a few of them yellow; a simple cartoon face on the pot: big sad eyes with long lashes and a trembling pout; one leafy branch draped across the top of the pot like the arm of a fainting actor.",
+  "imagePrompts": [
+    {
+      "id": "match_ferdinand",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands in a dim, narrow hallway corner next to a messy shoe rack full of trainers, under one bare light bulb; a soft beam of daylight from a doorway falls on the floor just short of him. Two fallen leaves lie at his feet. The whole plant and pot clearly visible, centred."
+    },
+    {
+      "id": "match_ferdinand_room",
+      "aspect": "16:9",
+      "prompt": "A cosy living room seen exactly from the front like a stage set: one flat painted wall fills the picture, wooden floor, no perspective, no corners. Exactly THREE things stand in a row along the wall, far apart and evenly spaced. LEFT: a large bright window with warm yellow sunshine pouring in and a bright patch of sunlight on the empty floor in front of it. MIDDLE: a white radiator on the wall, glowing hot, with big wavy red heat lines rising from it. RIGHT: a low wooden shelf with exactly one small round green cactus in a pot on top; the cactus wears tiny black sunglasses and looks smug. Nothing else in the room, no plants anywhere else."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich schreibe dir, weil ich mich um dich kümmere.",
+      "score": 100,
+      "intent": "care",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich schreibe dir, weil ich mich um dich kümmert.",
+      "score": 80,
+      "intent": "care",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil du traurig bist.",
+      "score": 100,
+      "intent": "sad",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich schreibe dir, weil du allein bist.",
+      "score": 100,
+      "intent": "sad",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Weil ich Pflanzen liebe.",
+      "score": 100,
+      "intent": "plants",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich schreibe dir, weil mir langweilig ist.",
+      "score": 100,
+      "intent": "bored",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich schreibe dir.",
+      "score": 100,
+      "intent": "noReason",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich schreibt dir.",
+      "score": 80,
+      "intent": "noReason",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Ich dir schreibe, weil du bist traurig.",
+      "score": 40,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich schreibe dir, weil ich dich liebe.",
+      "score": 100,
+      "intent": "loveYou",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stelle dich ans Fenster.",
+      "score": 100,
+      "intent": "window",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stellst dich ans Fenster.",
+      "score": 80,
+      "intent": "window",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Links.",
+      "score": 100,
+      "intent": "window",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich lege dich ans Fenster.",
+      "score": 85,
+      "intent": "lie",
+      "delta": 0
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stelle dich neben die Heizung.",
+      "score": 100,
+      "intent": "heater",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stelle dich neben der Heizung.",
+      "score": 85,
+      "intent": "heater",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stelle dich neben den Kaktus.",
+      "score": 100,
+      "intent": "kurt",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stelle dich neben dem Kaktus.",
+      "score": 85,
+      "intent": "kurt",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stelle dich zu Kurt.",
+      "score": 100,
+      "intent": "kurt",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Auf den Balkon.",
+      "score": 100,
+      "intent": "balcony",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stelle dich in das Bad.",
+      "score": 100,
+      "intent": "bath",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stelle dich.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stelle dich in den Kühlschrank.",
+      "score": 100,
+      "intent": "fridge",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Freu dich auf den Frühling!",
+      "score": 100,
+      "intent": "spring",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Freu dir auf den Frühling!",
+      "score": 85,
+      "intent": "spring",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Freu dich auf dem Frühling!",
+      "score": 85,
+      "intent": "spring",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Freu dich auf die Sonne!",
+      "score": 100,
+      "intent": "spring",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Freu dich!",
+      "score": 100,
+      "intent": "glad",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Entspann dich!",
+      "score": 100,
+      "intent": "relax",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ärger dich nicht über Kurt!",
+      "score": 100,
+      "intent": "kurt",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du bist nicht dramatisch.",
+      "score": 100,
+      "intent": "notDramatic",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du bist dramatisch.",
+      "score": 100,
+      "intent": "dramatic",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich kümmere mich um dich.",
+      "score": 100,
+      "intent": "care",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du dramatisch.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Freu dich auf die Tauben!",
+      "score": 100,
+      "intent": "pigeons",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gieße dich am Sonntag mit warmem Wasser.",
+      "score": 100,
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Am Sonntag gieße ich dich mit warmem Wasser.",
+      "score": 100,
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gieße dich einmal pro Woche mit warmen Wasser.",
+      "score": 85,
+      "intent": "perfect",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gießt dich am Sonntag.",
+      "score": 80,
+      "intent": "day",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Am Sonntag.",
+      "score": 100,
+      "intent": "day",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Mit warmem Wasser.",
+      "score": 100,
+      "intent": "warmOnly",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gieße dich jeden Tag.",
+      "score": 100,
+      "intent": "daily",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gieße dich am Sonntag mit kaltem Wasser.",
+      "score": 100,
+      "intent": "cold",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gieße dich am Montag.",
+      "score": 100,
+      "intent": "monday",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gieße dich nur mit Bier.",
+      "score": 100,
+      "intent": "beer",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich gieße dich nie.",
+      "score": 100,
+      "intent": "never",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Am Sonntag ich gieße dich.",
+      "score": 70,
+      "intent": "day",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ja, ich finde, dass du sehr schön bist.",
+      "score": 100,
+      "intent": "dassYes",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich findet, dass du schön bist.",
+      "score": 80,
+      "intent": "dassYes",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich finde, dass deine Blätter schön sind.",
+      "score": 100,
+      "intent": "dassYes",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich finde dich schön.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Deine Blätter sind grün.",
+      "score": 100,
+      "intent": "green",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Deine Blätter sind gelb.",
+      "score": 100,
+      "intent": "yellow",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich finde dich nicht schön.",
+      "score": 100,
+      "intent": "notBeautiful",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich finde Kurt schöner.",
+      "score": 100,
+      "intent": "kurt",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich du schön.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich finde dich schöner.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich finde dich schöner als Kurt.",
+      "score": 100,
+      "intent": "betterThanKurt",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich finde, dass du schöner als Kurt bist.",
+      "score": 100,
+      "intent": "betterThanKurt",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich lege Klaus in ein Buch.",
+      "score": 100,
+      "intent": "book",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich lege ihn in das Buch.",
+      "score": 100,
+      "intent": "book",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich legst es in ein Buch.",
+      "score": 80,
+      "intent": "book",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich lege Klaus in den Buch.",
+      "score": 85,
+      "intent": "book",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich stelle Klaus in ein Buch.",
+      "score": 85,
+      "intent": "book",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich lege es unter mein Kissen.",
+      "score": 100,
+      "intent": "pillow",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich lege Klaus neben dich.",
+      "score": 100,
+      "intent": "nextTo",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich lege es auf den Kompost.",
+      "score": 100,
+      "intent": "compost",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich lege Klaus in den Müll.",
+      "score": 100,
+      "intent": "trash",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich lege es.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich Klaus Buch.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich lege Klaus auf eine Pizza.",
+      "score": 100,
+      "intent": "pizza",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich lege Klaus auf ein Pizza.",
+      "score": 85,
+      "intent": "pizza",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bleibe hier, weil ich mich hier wohlfühle.",
+      "score": 100,
+      "intent": "home",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bleibe, weil ich dich mag.",
+      "score": 100,
+      "intent": "like",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bleibe, weil ich dich magst.",
+      "score": 80,
+      "intent": "like",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bleibe, weil ich mag dich.",
+      "score": 70,
+      "intent": "like",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bleibe hier, weil das Zimmer billig ist.",
+      "score": 100,
+      "intent": "cheap",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bleibe hier.",
+      "score": 100,
+      "intent": "stay",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bleibe nicht.",
+      "score": 100,
+      "intent": "notStay",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich ziehe aus.",
+      "score": 100,
+      "intent": "leave",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hier weil.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich ziehe nicht aus.",
+      "score": 100,
+      "intent": "notLeave",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich schreibe dir, weil ich mich um dich kümmere."
+        ],
+        [
+          "t2",
+          "Ich stelle dich ans Fenster."
+        ],
+        [
+          "t3",
+          "Freu dich auf den Frühling!"
+        ],
+        [
+          "t4",
+          "Ich gieße dich am Sonntag mit warmem Wasser."
+        ],
+        [
+          "t5",
+          "Ich finde, dass du sehr schön bist."
+        ],
+        [
+          "t6",
+          "Ich lege Klaus in ein Buch."
+        ],
+        [
+          "t7",
+          "Ich bleibe, weil ich dich mag."
+        ]
+      ]
+    },
+    {
+      "name": "careless",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich schreibe dir."
+        ],
+        [
+          "t2",
+          "Auf den Balkon."
+        ],
+        [
+          "t3",
+          "Du bist dramatisch."
+        ],
+        [
+          "t4",
+          "Am Sonntag."
+        ],
+        [
+          "t5",
+          "Deine Blätter sind gelb."
+        ],
+        [
+          "t6",
+          "Ich lege es auf den Kompost."
+        ],
+        [
+          "t7",
+          "Ich bleibe hier, weil das Zimmer billig ist."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich schreibe dir, weil mir langweilig ist."
+        ],
+        [
+          "t2",
+          "Ich stelle dich neben die Heizung."
+        ],
+        [
+          "t3",
+          "Du bist dramatisch."
+        ],
+        [
+          "t4",
+          "Ich gieße dich nie."
+        ]
+      ]
+    }
+  ]
+}

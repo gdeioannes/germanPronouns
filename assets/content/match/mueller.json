@@ -1,0 +1,1867 @@
+{
+  "id": "mueller",
+  "name": "Herr Müller",
+  "age": 67,
+  "emoji": "♻️",
+  "image": "match_mueller",
+  "level": "B1.2",
+  "order": 2,
+  "bio": "Gelb. Blau. Braun. Schwarz. Merken Sie sich das.",
+  "bioEn": "Yellow. Blue. Brown. Black. Remember that.",
+  "goal": "Get your rubbish bag accepted and survive Herr Müller's inspection without breaking a single rule.",
+  "tagline": "Hausmeister · 67 · Hinterhof in Köln-Ehrenfeld",
+  "voice": "Algieba",
+  "brief": "Herr Müller, a 67-year-old caretaker and recycling fanatic: stern, gravelly, slow and deliberate like a drill sergeant, deeply moved by correct rubbish sorting, outraged by Frau Schulz from the third floor; secretly soft-hearted.",
+  "focus": "Passiv Präsens & Präteritum · Passiv mit Modalverb · Wohin? in + Akkusativ",
+  "lexicon": {
+    "nouns": {
+      "Müll": "m",
+      "Tüte": "f",
+      "Tonne": "f",
+      "Zeitung": "f",
+      "Papier": "n",
+      "Becher": "m",
+      "Deckel": "m",
+      "Wasser": "n",
+      "Flasche": "f",
+      "Supermarkt": "m",
+      "Glascontainer": "m",
+      "Geschenk": "n",
+      "Biotonne": "f",
+      "Montag": "m",
+      "Mittwoch": "m",
+      "Freitag": "m",
+      "Donnerstag": "m",
+      "Pizzakarton": "m",
+      "Restmüll": "m",
+      "Batterie": "f",
+      "Bananenschale": "f",
+      "Mond": "m",
+      "Bowlingkugel": "f"
+    },
+    "names": [
+      "Herr Müller",
+      "Herrn Müller",
+      "Frau Schulz"
+    ],
+    "verbs": [
+      "will",
+      "wollte",
+      "weiß",
+      "wird",
+      "wurde",
+      "wurden",
+      "kommt",
+      "werfe",
+      "ist",
+      "muss",
+      "können"
+    ],
+    "nonfinite": [
+      "trennen",
+      "wegwerfen",
+      "werfen",
+      "geworfen",
+      "gemacht",
+      "gespült",
+      "abgerissen",
+      "zurückgebracht",
+      "abgeholt",
+      "gebracht",
+      "werden",
+      "angezeigt",
+      "helfen",
+      "erklärt",
+      "getrennt",
+      "abgegeben",
+      "behalten",
+      "geschickt"
+    ],
+    "accVerbs": [
+      "will",
+      "wollte",
+      "werfe"
+    ],
+    "adjectives": [
+      "schwarz",
+      "gelb",
+      "blau",
+      "braun",
+      "warm"
+    ]
+  },
+  "intro": [
+    {
+      "who": "mueller",
+      "type": "text",
+      "de": "Halt! Stehen bleiben!",
+      "emoji": "🫷",
+      "en": "Stop! Stay right where you are!",
+      "audio": "mc_mueller_t1a"
+    },
+    {
+      "who": "mueller",
+      "type": "text",
+      "de": "Müller. Hausmeister. Seit 1989. Hier wird getrennt. Auch Streit. Auch Familien. Aber vor allem Müll.",
+      "en": "Müller. Caretaker. Since 1989. Here, things get separated. Arguments too. Families too. But above all rubbish.",
+      "audio": "mc_mueller_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Was wollen Sie mit der Tüte machen?",
+          "en": "What are you planning to do with that bag?",
+          "audio": "mc_mueller_t1c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "will",
+        "wollte",
+        "den",
+        "die",
+        "die",
+        "Müll",
+        "Tüte",
+        "trennen",
+        "wegwerfen",
+        "in",
+        "schwarze",
+        "schwarzen",
+        "Tonne",
+        "werfen",
+        "guten Tag",
+        "Herr Müller",
+        "nur",
+        "weiß",
+        "nicht",
+        "behalten"
+      ],
+      "wrong": {},
+      "prepCase": {
+        "in": "acc"
+      },
+      "intents": [
+        {
+          "id": "notBlack",
+          "when": {
+            "all": [
+              "nicht",
+              "tonne"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Nicht in die schwarze Tonne. Gut. Sehr gut. Und wohin dann? Kommen Sie mit.",
+              "en": "Not in the black bin. Good. Very good. And where, then? Come with me.",
+              "audio": "mc_mueller_t1_notblack"
+            }
+          ]
+        },
+        {
+          "id": "black",
+          "when": {
+            "any": [
+              "schwarze",
+              "schwarzen",
+              "tonne"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "allBlack"
+          ],
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Alles in die schwarze Tonne? ALLES? Junger Mensch, setzen Sie sich. Nein, stehen bleiben.",
+              "emoji": "😤",
+              "en": "Everything in the black bin? EVERYTHING? Young person, sit down. No, stay standing.",
+              "audio": "mc_mueller_t1_black"
+            }
+          ]
+        },
+        {
+          "id": "separate",
+          "when": {
+            "any": [
+              "trennen"
+            ]
+          },
+          "value": 2,
+          "fact": "♻️ trennt seinen Müll",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Trennen! Das schönste Wort der deutschen Sprache.",
+              "emoji": "🥹",
+              "en": "Sorting! The most beautiful word in the German language.",
+              "audio": "mc_mueller_t1_separate"
+            }
+          ]
+        },
+        {
+          "id": "throwAway",
+          "when": {
+            "any": [
+              "wegwerfen",
+              "werfen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Wegwerfen? Bei mir wird nichts weggeworfen. Bei mir wird getrennt.",
+              "en": "Throw it away? Nothing gets thrown away with me. With me, things get sorted.",
+              "audio": "mc_mueller_t1_throwaway"
+            }
+          ]
+        },
+        {
+          "id": "greet",
+          "when": {
+            "any": [
+              "guten tag",
+              "herr müller"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Guten Tag. Höflich. Gut. Und die Tüte?",
+              "en": "Good day. Polite. Good. And the bag?",
+              "audio": "mc_mueller_t1_greet"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Sie wissen es nicht? Das habe ich befürchtet.",
+              "en": "You don't know? I was afraid of that.",
+              "audio": "mc_mueller_t1_dunno"
+            }
+          ]
+        },
+        {
+          "id": "keep",
+          "when": {
+            "any": [
+              "behalten"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Behalten? Den Müll? Wie ein Haustier? … Hm. Dann geben Sie ihr wenigstens einen Namen. Und sie wird jeden Donnerstag gewogen.",
+              "emoji": "🐕",
+              "en": "Keep it? The rubbish? Like a pet? … Hm. Then at least give it a name. And it gets weighed every Thursday.",
+              "audio": "mc_mueller_t1_keep"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Hier stehen meine drei Tonnen. Ich nenne sie meine Kinder. Links Gisela, in der Mitte Bernhard, rechts Bruno. Bruno ist sensibel.",
+          "en": "Here are my three bins. I call them my children. On the left Gisela, in the middle Bernhard, on the right Bruno. Bruno is sensitive.",
+          "audio": "mc_mueller_t2a"
+        },
+        {
+          "who": "mueller",
+          "type": "photo",
+          "image": "match_mueller_bins",
+          "alt": "Ein Hinterhof mit drei Mülltonnen: links eine gelbe, in der Mitte eine blaue, rechts eine braune.",
+          "wide": true
+        },
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "In Ihrer Tüte ist eine Zeitung. Wohin wird sie geworfen?",
+          "en": "There’s a newspaper in your bag. Where does it get thrown?",
+          "audio": "mc_mueller_t2b"
+        }
+      ],
+      "tiles": [
+        "die",
+        "die",
+        "der",
+        "Zeitung",
+        "sie",
+        "wird",
+        "wurde",
+        "in",
+        "gelbe",
+        "blaue",
+        "braune",
+        "blauen",
+        "Tonne",
+        "geworfen",
+        "kommt",
+        "links",
+        "rechts",
+        "in der Mitte",
+        "Papier"
+      ],
+      "wrong": {
+        "wurde": {
+          "to": "wird",
+          "note": "A rule that is always true: present tense, „wird“."
+        }
+      },
+      "prepCase": {
+        "in": "acc"
+      },
+      "intents": [
+        {
+          "id": "blue",
+          "when": {
+            "any": [
+              "blaue",
+              "blauen",
+              "in der mitte",
+              "papier"
+            ]
+          },
+          "value": 2,
+          "fact": "🗞️ weiß: Papier kommt in Blau",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Blau! Papier! Bernhard freut sich. Er bekommt sonst nur Werbung. Sie lernen schneller als Frau Schulz aus dem dritten Stock.",
+              "emoji": "💙",
+              "en": "Blue! Paper! Bernhard is delighted. Usually he only gets junk mail. You learn faster than Frau Schulz from the third floor.",
+              "audio": "mc_mueller_t2_blue"
+            }
+          ]
+        },
+        {
+          "id": "yellow",
+          "when": {
+            "any": [
+              "gelbe",
+              "links"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Gelb ist für Verpackungen! Papier ist blau. Merken Sie sich das.",
+              "en": "Yellow is for packaging! Paper is blue. Remember that.",
+              "audio": "mc_mueller_t2_yellow"
+            }
+          ]
+        },
+        {
+          "id": "brown",
+          "when": {
+            "any": [
+              "braune",
+              "rechts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Braun?! Die Zeitung ist doch kein Salat! Bruno hat jetzt Bauchweh. Danke.",
+              "emoji": "🥬",
+              "en": "Brown?! A newspaper is not a salad! Now Bruno has a tummy ache. Thanks.",
+              "audio": "mc_mueller_t2_brown"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "tonne",
+              "geworfen",
+              "kommt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "In eine Tonne, ja. Aber in WELCHE?",
+              "en": "Into a bin, yes. But WHICH one?",
+              "audio": "mc_mueller_t2_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "mueller",
+          "type": "voice",
+          "audio": "mc_mueller_vn_rules",
+          "de": "Jetzt hören Sie gut zu. Der Joghurtbecher wird nicht gespült. Er wird nur leer gemacht. Löffelrein! Der Deckel wird abgerissen. Beides kommt in die gelbe Tonne. Und Wasser wird gespart. Frau Schulz aus dem dritten Stock spült ihre Becher. Mit warmem Wasser! Seit 2011!",
+          "en": "Now listen carefully. The yoghurt pot is not rinsed. It is only emptied. Spoon-clean! The lid is torn off. Both go into the yellow bin. And water is saved. Frau Schulz from the third floor rinses her pots. With warm water! Since 2011!",
+          "direction": "Stern, slow and deliberate like a drill sergeant giving a lecture, a whistle on a cord clinking; increasingly outraged at the end about Frau Schulz."
+        },
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Also. Was wird mit dem Becher gemacht?",
+          "en": "So. What is done with the pot?",
+          "audio": "mc_mueller_t3a"
+        }
+      ],
+      "tiles": [
+        "der",
+        "den",
+        "Becher",
+        "er",
+        "wird",
+        "wurde",
+        "nicht",
+        "nur",
+        "leer",
+        "gemacht",
+        "gespült",
+        "Deckel",
+        "abgerissen",
+        "in",
+        "die",
+        "gelbe",
+        "Tonne",
+        "geworfen",
+        "mit",
+        "warmem",
+        "Wasser"
+      ],
+      "wrong": {
+        "wurde": {
+          "to": "wird",
+          "note": "A rule that is always true: present tense, „wird“."
+        }
+      },
+      "prepCase": {
+        "in": "acc"
+      },
+      "intents": [
+        {
+          "id": "rinseLost",
+          "when": {
+            "any": [
+              "gespült"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "water",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Gespült?! Mit Wasser?! Sie sind wie Frau Schulz!",
+              "emoji": "💦",
+              "en": "Rinsed?! With water?! You’re just like Frau Schulz!",
+              "audio": "mc_mueller_t3_rinselost"
+            }
+          ]
+        },
+        {
+          "id": "empty",
+          "when": {
+            "any": [
+              "leer"
+            ]
+          },
+          "value": 2,
+          "fact": "🥄 kennt das Wort „löffelrein“",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Leer gemacht. Löffelrein. Ich bin gerührt. Gisela auch. Sie klappert vor Freude.",
+              "emoji": "🥄",
+              "en": "Emptied. Spoon-clean. I’m moved. So is Gisela. She’s rattling with joy.",
+              "audio": "mc_mueller_t3_empty"
+            }
+          ]
+        },
+        {
+          "id": "noRinse",
+          "when": {
+            "all": [
+              "gespült",
+              "nicht"
+            ]
+          },
+          "value": 2,
+          "fact": "🥄 kennt das Wort „löffelrein“",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Nicht gespült! Wasser wird gespart. Sie haben zugehört.",
+              "emoji": "💧",
+              "en": "Not rinsed! Water is saved. You listened.",
+              "audio": "mc_mueller_t3_norinse"
+            }
+          ]
+        },
+        {
+          "id": "lid",
+          "when": {
+            "any": [
+              "deckel",
+              "abgerissen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Der Deckel wird abgerissen. Richtig. Ein Detail. Für Profis.",
+              "en": "The lid is torn off. Correct. A detail. For professionals.",
+              "audio": "mc_mueller_t3_lid"
+            }
+          ]
+        },
+        {
+          "id": "yellow",
+          "when": {
+            "any": [
+              "gelbe",
+              "tonne",
+              "geworfen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Gelbe Tonne. Ja. Aber WIE kommt er da rein? Leer!",
+              "en": "Yellow bin. Yes. But HOW does it go in? Empty!",
+              "audio": "mc_mueller_t3_yellow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Und was ist das? Eine Flasche!",
+          "emoji": "🍾",
+          "en": "And what is this? A bottle!",
+          "audio": "mc_mueller_t4a"
+        },
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Moment. Da ist ein Pfandzeichen drauf. Was wird mit der Flasche gemacht?",
+          "en": "Hang on. There’s a deposit logo on it. What is done with the bottle?",
+          "audio": "mc_mueller_t4b"
+        }
+      ],
+      "tiles": [
+        "die",
+        "Flasche",
+        "sie",
+        "wird",
+        "wurde",
+        "zum",
+        "Supermarkt",
+        "zurückgebracht",
+        "in",
+        "den",
+        "dem",
+        "Glascontainer",
+        "geworfen",
+        "ich",
+        "werfe",
+        "weg",
+        "ist",
+        "ein",
+        "Geschenk",
+        "für",
+        "Herrn Müller"
+      ],
+      "wrong": {
+        "wurde": {
+          "to": "wird",
+          "note": "A rule that is always true: present tense, „wird“."
+        }
+      },
+      "prepCase": {
+        "in": "acc"
+      },
+      "intents": [
+        {
+          "id": "trash",
+          "when": {
+            "any": [
+              "werfe",
+              "weg"
+            ]
+          },
+          "value": -2,
+          "cause": "pfand",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Weg?! Fünfundzwanzig Cent! In den Müll! Ich muss mich setzen.",
+              "emoji": "😵",
+              "en": "Away?! Twenty-five cents! In the bin! I need to sit down.",
+              "audio": "mc_mueller_t4_trash"
+            }
+          ]
+        },
+        {
+          "id": "container",
+          "when": {
+            "any": [
+              "glascontainer"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Eine PFANDflasche in den Glascontainer? Das sind fünfundzwanzig Cent. Einfach verschenkt!",
+              "en": "A DEPOSIT bottle in the bottle bank? That’s twenty-five cents. Just given away!",
+              "audio": "mc_mueller_t4_container"
+            }
+          ]
+        },
+        {
+          "id": "pfand",
+          "when": {
+            "any": [
+              "supermarkt",
+              "zurückgebracht"
+            ]
+          },
+          "value": 2,
+          "fact": "🍾 bringt Pfand zurück",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Zum Supermarkt! Pfand! Sie sind ein guter Mensch. Ein sehr guter.",
+              "emoji": "🥲",
+              "en": "To the supermarket! Deposit! You are a good person. A very good one.",
+              "audio": "mc_mueller_t4_pfand"
+            }
+          ]
+        },
+        {
+          "id": "gift",
+          "when": {
+            "any": [
+              "geschenk",
+              "herrn müller"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Für mich? Danke. Ich sammle. Für meinen Urlaub. 2031 fahre ich nach Mallorca. Die Tonnen kommen mit. Sie wissen es noch nicht.",
+              "en": "For me? Thanks. I’m saving up. For my holiday. In 2031 I’m going to Mallorca. The bins are coming along. They don’t know yet.",
+              "audio": "mc_mueller_t4_gift"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Die Biotonne ist schon wieder leer. Bruno hat Hunger. Hier ist mein Abfuhrkalender. Ich habe ihn laminiert. Zweimal.",
+          "emoji": "📅",
+          "en": "The organic bin is empty again. Bruno is hungry. Here is my collection calendar. I laminated it. Twice.",
+          "audio": "mc_mueller_t5a"
+        },
+        {
+          "who": "mueller",
+          "type": "photo",
+          "image": "match_mueller_calendar",
+          "overlay": [
+            "ABFUHR",
+            "Montag: Bio",
+            "Mittwoch: Papier",
+            "Freitag: Gelb",
+            "Heute: Donnerstag"
+          ],
+          "alt": "Ein Abfuhrkalender an der Tür: Montag Bio, Mittwoch Papier, Freitag Gelb. Darunter: Heute ist Donnerstag."
+        },
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Heute ist Donnerstag. Wann wurde die Biotonne abgeholt?",
+          "en": "Today is Thursday. When was the organic bin collected?",
+          "audio": "mc_mueller_t5b"
+        }
+      ],
+      "tiles": [
+        "sie",
+        "die",
+        "Biotonne",
+        "wurde",
+        "wurden",
+        "wird",
+        "am",
+        "Montag",
+        "Mittwoch",
+        "Freitag",
+        "Donnerstag",
+        "gestern",
+        "morgen",
+        "abgeholt"
+      ],
+      "wrong": {
+        "wurden": "wurde"
+      },
+      "intents": [
+        {
+          "id": "monday",
+          "when": {
+            "all": [
+              "montag"
+            ],
+            "none": [
+              "wird"
+            ]
+          },
+          "value": 2,
+          "fact": "📅 liest den Abfuhrkalender",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Am Montag. Richtig. Sie lesen meinen Kalender. Das hat noch nie jemand gemacht.",
+              "emoji": "🥹",
+              "en": "On Monday. Correct. You read my calendar. Nobody has ever done that.",
+              "audio": "mc_mueller_t5_monday"
+            }
+          ]
+        },
+        {
+          "id": "futureMonday",
+          "when": {
+            "all": [
+              "montag",
+              "wird"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Nächsten Montag wieder, ja. Ich zähle schon die Stunden. Aber wann war die Müllabfuhr ZULETZT da? Bruno vermisst sie.",
+              "en": "Next Monday again, yes. I’m already counting the hours. But when were the bin men here LAST? Bruno misses them.",
+              "audio": "mc_mueller_t5_future"
+            }
+          ]
+        },
+        {
+          "id": "wednesday",
+          "when": {
+            "any": [
+              "mittwoch",
+              "gestern"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Mittwoch? Gestern? Da wurde Papier abgeholt! Lesen Sie den Kalender!",
+              "en": "Wednesday? Yesterday? That’s when paper was collected! Read the calendar!",
+              "audio": "mc_mueller_t5_wednesday"
+            }
+          ]
+        },
+        {
+          "id": "friday",
+          "when": {
+            "any": [
+              "freitag",
+              "morgen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Freitag ist morgen. Morgen wird Gelb abgeholt. Nicht Bio.",
+              "en": "Friday is tomorrow. Tomorrow yellow gets collected. Not organic.",
+              "audio": "mc_mueller_t5_friday"
+            }
+          ]
+        },
+        {
+          "id": "thursday",
+          "when": {
+            "any": [
+              "donnerstag"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Donnerstag ist heute. Heute wird nichts abgeholt. Heute wird kontrolliert.",
+              "emoji": "🔍",
+              "en": "Thursday is today. Nothing is collected today. Today there are inspections.",
+              "audio": "mc_mueller_t5_thursday"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Skandal! Ich habe Frau Schulz gesehen. Durch mein Fernglas. Sie hat einen Pizzakarton in die Biotonne geworfen. Mit Pizza! Mit Salami! Bruno hat geschrien.",
+          "emoji": "🍕",
+          "en": "Scandal! I saw Frau Schulz. Through my binoculars. She threw a pizza box into the organic bin. With pizza in it! With salami! Bruno screamed.",
+          "audio": "mc_mueller_t6a"
+        },
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Was soll ich jetzt machen?",
+          "en": "What should I do now?",
+          "audio": "mc_mueller_t6b"
+        }
+      ],
+      "tiles": [
+        "der",
+        "den",
+        "Pizzakarton",
+        "muss",
+        "ins",
+        "Papier",
+        "gebracht",
+        "werden",
+        "Frau Schulz",
+        "angezeigt",
+        "wir",
+        "können",
+        "ihr",
+        "helfen",
+        "das",
+        "ist",
+        "mir",
+        "egal",
+        "es",
+        "erklärt",
+        "zum",
+        "Mond",
+        "geschickt"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "moon",
+          "when": {
+            "any": [
+              "mond"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Zum Mond. … Ich habe kurz nachgedacht. Lange. Aber auf dem Mond gibt es keine Mülltrennung. Das wäre zu grausam. Sogar für Frau Schulz.",
+              "emoji": "🌕",
+              "en": "To the moon. … I thought about it briefly. For a long time. But there is no rubbish sorting on the moon. That would be too cruel. Even for Frau Schulz.",
+              "audio": "mc_mueller_t6_moon"
+            }
+          ]
+        },
+        {
+          "id": "egal",
+          "when": {
+            "any": [
+              "egal"
+            ]
+          },
+          "value": -2,
+          "cause": "egal",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "EGAL?! In meinem Hof ist nichts egal!",
+              "emoji": "💥",
+              "en": "DON’T CARE?! Nothing is “don’t care” in my courtyard!",
+              "audio": "mc_mueller_t6_egal"
+            }
+          ]
+        },
+        {
+          "id": "report",
+          "when": {
+            "any": [
+              "angezeigt"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Angezeigt? Ich bin streng, aber kein Monster. Fast kein Monster.",
+              "en": "Reported? I'm strict, but I'm not a monster. Almost not a monster.",
+              "audio": "mc_mueller_t6_report"
+            }
+          ]
+        },
+        {
+          "id": "help",
+          "when": {
+            "any": [
+              "helfen"
+            ]
+          },
+          "value": 2,
+          "fact": "🤝 hilft sogar Frau Schulz",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Helfen. Hm. Das habe ich seit 1989 nie probiert. Okay. Ich bringe ihr meinen laminierten Kalender. Den zweiten.",
+              "emoji": "🤝",
+              "en": "Help. Hm. I haven’t tried that once since 1989. Okay. I’ll bring her my laminated calendar. The spare one.",
+              "audio": "mc_mueller_t6_help"
+            }
+          ]
+        },
+        {
+          "id": "move",
+          "when": {
+            "any": [
+              "pizzakarton",
+              "papier",
+              "gebracht"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Der Karton muss ins Papier gebracht werden. Ohne Pizza. Genau so.",
+              "en": "The box has to go into paper. Without the pizza. Exactly.",
+              "audio": "mc_mueller_t6_move"
+            }
+          ]
+        },
+        {
+          "id": "explain",
+          "when": {
+            "any": [
+              "erklärt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Es muss ihr erklärt werden, ja. Zum hundertsten Mal.",
+              "en": "It has to be explained to her, yes. For the hundredth time.",
+              "audio": "mc_mueller_t6_explain"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Letzte Kontrolle. Ich ziehe jetzt die Handschuhe an. Die guten. Die für Feiertage.",
+          "emoji": "🧤",
+          "en": "Final inspection. I’m putting on the gloves now. The good ones. The ones for public holidays.",
+          "audio": "mc_mueller_t7a"
+        },
+        {
+          "who": "mueller",
+          "type": "text",
+          "de": "Was ist noch drin?",
+          "en": "What is still in there?",
+          "audio": "mc_mueller_t7b"
+        }
+      ],
+      "tiles": [
+        "nichts",
+        "alles",
+        "wurde",
+        "wurden",
+        "getrennt",
+        "nur",
+        "noch",
+        "Restmüll",
+        "eine",
+        "die",
+        "Batterie",
+        "Bananenschale",
+        "ist",
+        "drin",
+        "wird",
+        "im",
+        "Supermarkt",
+        "abgegeben",
+        "Bowlingkugel"
+      ],
+      "wrong": {
+        "wurden": "wurde"
+      },
+      "intents": [
+        {
+          "id": "battery",
+          "when": {
+            "any": [
+              "batterie"
+            ],
+            "none": [
+              "abgegeben",
+              "supermarkt"
+            ]
+          },
+          "value": -2,
+          "cause": "battery",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Eine BATTERIE?! Batterien werden im Supermarkt abgegeben! NIE in den Müll!",
+              "emoji": "🔋",
+              "en": "A BATTERY?! Batteries are handed in at the supermarket! NEVER in the rubbish!",
+              "audio": "mc_mueller_t7_battery"
+            }
+          ]
+        },
+        {
+          "id": "batteryOk",
+          "when": {
+            "any": [
+              "batterie"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Die Batterie wird im Supermarkt abgegeben. Richtig. Puh.",
+              "en": "The battery is handed in at the supermarket. Correct. Phew.",
+              "audio": "mc_mueller_t7_batteryok"
+            }
+          ]
+        },
+        {
+          "id": "bowling",
+          "when": {
+            "any": [
+              "bowlingkugel"
+            ]
+          },
+          "value": 0,
+          "fact": "🎳 hat Herrn Müller sprachlos gemacht",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Eine Bowlingkugel. … Ist das Restmüll? Ist das Sperrmüll? Siebenunddreißig Jahre, und das hatte ich noch nie. Ich rufe meinen Bruder in Bayern an. Die haben Regeln für alles.",
+              "emoji": "🎳",
+              "en": "A bowling ball. … Is that general waste? Is that bulky waste? Thirty-seven years, and I’ve never had that. I’m calling my brother in Bavaria. They have rules for everything.",
+              "audio": "mc_mueller_t7_bowling"
+            }
+          ]
+        },
+        {
+          "id": "banana",
+          "when": {
+            "any": [
+              "bananenschale"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Eine Bananenschale? Braun! Bio! Habe ich nicht alles erklärt?",
+              "emoji": "🍌",
+              "en": "A banana peel? Brown! Organic! Didn't I explain everything?",
+              "audio": "mc_mueller_t7_banana"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts",
+              "getrennt"
+            ]
+          },
+          "value": 2,
+          "fact": "🏅 besteht die Müllkontrolle",
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Nichts. Alles getrennt. Ich … brauche ein Taschentuch.",
+              "emoji": "🥲",
+              "en": "Nothing. All sorted. I … need a tissue.",
+              "audio": "mc_mueller_t7_nothing"
+            }
+          ]
+        },
+        {
+          "id": "rest",
+          "when": {
+            "any": [
+              "restmüll"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "mueller",
+              "type": "text",
+              "de": "Nur Restmüll. Schwarze Tonne. Gut.",
+              "en": "Only general waste. Black bin. Good.",
+              "audio": "mc_mueller_t7_rest"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "mueller",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Konzentration!",
+    "en": "That was not my question. Concentrate!",
+    "audio": "mc_mueller_offtopic"
+  },
+  "confused": [
+    {
+      "who": "mueller",
+      "type": "text",
+      "de": "Wie bitte? Deutlich, bitte! Wie beim Mülltrennen.",
+      "emoji": "🤨",
+      "en": "Pardon? Clearly, please! Like when you sort rubbish.",
+      "audio": "mc_mueller_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "mueller",
+        "type": "text",
+        "de": "{name}, Sie dürfen hier wohnen bleiben.",
+        "en": "{name}, you may go on living here."
+      },
+      {
+        "who": "mueller",
+        "type": "text",
+        "de": "Ich gebe Ihnen meinen Schlüssel für den Fahrradkeller. Den hat sonst niemand. Nicht mal Frau Schulz. Und Sie dürfen Bernhard einmal pro Woche den Deckel aufmachen.",
+        "emoji": "🔑",
+        "en": "I’m giving you my key to the bike cellar. Nobody else has it. Not even Frau Schulz. And you may open Bernhard’s lid once a week.",
+        "audio": "mc_mueller_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "mueller",
+        "type": "text",
+        "de": "Na gut. Ihre Tüte wird angenommen. Aber ab morgen wird bei Ihnen jeden Tag kontrolliert. Um sieben.",
+        "emoji": "🔍",
+        "en": "Oh, all right. Your bag is accepted. But from tomorrow you'll be inspected every day. At seven.",
+        "audio": "mc_mueller_partial"
+      }
+    ],
+    "deleted": {
+      "pfand": {
+        "who": "mueller",
+        "type": "text",
+        "de": "Fünfundzwanzig Cent. In den Müll. Ich kann Sie nicht mehr ansehen. Auf Wiedersehen.",
+        "emoji": "🍾",
+        "en": "Twenty-five cents. In the rubbish. I can't look at you any more. Goodbye.",
+        "audio": "mc_mueller_del_pfand"
+      },
+      "water": {
+        "who": "mueller",
+        "type": "text",
+        "de": "Sie spülen Becher. Mit warmem Wasser. Sie und Frau Schulz sollten zusammenziehen. Auf Wiedersehen.",
+        "emoji": "💦",
+        "en": "You rinse pots. With warm water. You and Frau Schulz should move in together. Goodbye.",
+        "audio": "mc_mueller_del_water"
+      },
+      "battery": {
+        "who": "mueller",
+        "type": "text",
+        "de": "Eine Batterie im Hausmüll. Das wird gemeldet. Bei mir. Und ich bin sehr böse. Auf Wiedersehen.",
+        "emoji": "🔋",
+        "en": "A battery in the household rubbish. That gets reported. To me. And I am very angry. Goodbye.",
+        "audio": "mc_mueller_del_battery"
+      },
+      "egal": {
+        "who": "mueller",
+        "type": "text",
+        "de": "Egal. Dieses Wort ist in meinem Hof verboten. Sie jetzt auch.",
+        "en": "Don’t care. That word is banned in my courtyard. Now so are you.",
+        "audio": "mc_mueller_del_egal"
+      },
+      "confused": {
+        "who": "mueller",
+        "type": "text",
+        "de": "Ich verstehe kein Wort. Und ich verstehe sogar die Mülltrennung in Bayern.",
+        "en": "I don't understand a word. And I even understand rubbish sorting in Bavaria.",
+        "audio": "mc_mueller_del_confused"
+      },
+      "default": {
+        "who": "mueller",
+        "type": "text",
+        "de": "Hm. Sie sind nicht bereit für meinen Hof. Noch nicht. Auf Wiedersehen.",
+        "en": "Hm. You're not ready for my courtyard. Not yet. Goodbye.",
+        "audio": "mc_mueller_del_default"
+      }
+    },
+    "sunday": {
+      "who": "mueller",
+      "type": "voice",
+      "audio": "mc_mueller_vn_sunday",
+      "de": "Müller hier. Sonntag. Ruhetag. Am Sonntag wird keine Flasche in den Container geworfen. Das ist Gesetz. Ich sitze am Fenster und passe auf. Mit Fernglas. Bruno schläft. Schönen Sonntag.",
+      "en": "Müller here. Sunday. Day of rest. On Sundays no bottle gets thrown into the container. That’s the law. I’m sitting at the window keeping watch. With binoculars. Bruno is asleep. Have a nice Sunday.",
+      "direction": "Quiet and content, birdsong in a courtyard, a chair creaking by an open window; deadly serious on \"Das ist Gesetz\"."
+    }
+  },
+  "partialTitle": "Angenommen. Unter Beobachtung.",
+  "share": {
+    "win": "Herr Müller (67, Hausmeister) hat meine Mülltüte angenommen ♻️ und mir den Kellerschlüssel gegeben! Mein Deutsch: {score}/100. Schaffst du seine Kontrolle? {url}",
+    "partial": "Meine Mülltüte wurde angenommen … aber Herr Müller (67) kontrolliert mich jetzt jeden Tag 🔍 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Herr Müller (67, Hausmeister) hat mich gelöscht 💔 Wegen meines Mülls. Mein Deutsch: {score}/100. Trennst du besser? {url}"
+  },
+  "imageCharacter": "Herr Müller, a 67-year-old caretaker, stocky, with a grey crew cut and a bristly grey moustache, a grey work coat with pens and a small notebook in the breast pocket, a whistle on a cord around his neck, yellow rubber gloves, an intensely serious expression.",
+  "imagePrompts": [
+    {
+      "id": "match_mueller",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands in a tidy brick back courtyard in front of a row of colourful wheelie bins, holding up a single empty yoghurt pot between two fingers like evidence in a court case, one eyebrow raised at the viewer. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_mueller_bins",
+      "aspect": "16:9",
+      "prompt": "A Cologne back courtyard seen exactly from the front like a stage set, flat, no perspective. Against a plain brick wall stand exactly THREE large wheelie bins in one row, far apart and evenly spaced, all the same size and shape, lids closed. LEFT: bright yellow. MIDDLE: bright blue. RIGHT: a warm medium BROWN, the colour of milk chocolate or a cardboard box: clearly brown, NOT black, NOT grey. Nothing else in the courtyard, only cobblestones. Daylight."
+    },
+    {
+      "id": "match_mueller_calendar",
+      "aspect": "3:4",
+      "prompt": "A phone photo of one plain white sheet of paper taped to a dark green door in an old stairwell, seen straight on. The paper is completely blank, nothing written on it. A pen hangs on a string next to it."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich will den Müll trennen.",
+      "score": 100,
+      "intent": "separate",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich will die Müll trennen.",
+      "score": 85,
+      "intent": "separate",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich will trennen den Müll.",
+      "score": 70,
+      "intent": "separate",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich wollte die Tüte in die schwarze Tonne werfen.",
+      "score": 100,
+      "intent": "black",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich wollte die Tüte in die schwarzen Tonne werfen.",
+      "score": 85,
+      "intent": "black",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich will den Müll wegwerfen.",
+      "score": 100,
+      "intent": "throwAway",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Guten Tag, Herr Müller!",
+      "score": 100,
+      "intent": "greet",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich weiß nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich den Müll trennen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich will den Müll nicht in die schwarze Tonne werfen.",
+      "score": 100,
+      "intent": "notBlack",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Sie wird in die blaue Tonne geworfen.",
+      "score": 100,
+      "intent": "blue",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Die Zeitung kommt in die Tonne in der Mitte.",
+      "score": 100,
+      "intent": "blue",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Sie wurde in die blaue Tonne geworfen.",
+      "score": 85,
+      "intent": "blue",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Sie wird in der blauen Tonne geworfen.",
+      "score": 70,
+      "intent": "blue",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "In die gelbe Tonne.",
+      "score": 100,
+      "intent": "yellow",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Sie kommt in die braune Tonne.",
+      "score": 100,
+      "intent": "brown",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Sie wird in die Tonne geworfen.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Sie in die blaue Tonne.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Er wird nur leer gemacht.",
+      "score": 100,
+      "intent": "empty",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Er wurde nur leer gemacht.",
+      "score": 85,
+      "intent": "empty",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Becher wird nicht gespült.",
+      "score": 100,
+      "intent": "noRinse",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Den Becher wird nicht gespült.",
+      "score": 85,
+      "intent": "noRinse",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Deckel wird abgerissen.",
+      "score": 100,
+      "intent": "lid",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Er wird in die gelbe Tonne geworfen.",
+      "score": 100,
+      "intent": "yellow",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Er wird mit warmem Wasser gespült.",
+      "score": 100,
+      "intent": "rinseLost",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Er nur leer gemacht.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Die Flasche wird zum Supermarkt zurückgebracht.",
+      "score": 100,
+      "intent": "pfand",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Sie wurde zum Supermarkt zurückgebracht.",
+      "score": 85,
+      "intent": "pfand",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Sie wird zurückgebracht zum Supermarkt.",
+      "score": 70,
+      "intent": "pfand",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Sie wird in den Glascontainer geworfen.",
+      "score": 100,
+      "intent": "container",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Sie wird in dem Glascontainer geworfen.",
+      "score": 85,
+      "intent": "container",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich werfe sie weg.",
+      "score": 100,
+      "intent": "trash",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Die Flasche ist ein Geschenk für Herrn Müller.",
+      "score": 100,
+      "intent": "gift",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Sie zum Supermarkt zurückgebracht.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Sie wurde am Montag abgeholt.",
+      "score": 100,
+      "intent": "monday",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Die Biotonne wurde am Montag abgeholt.",
+      "score": 100,
+      "intent": "monday",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Am Montag.",
+      "score": 100,
+      "intent": "monday",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Sie wurden am Montag abgeholt.",
+      "score": 80,
+      "intent": "monday",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Sie wurde abgeholt am Montag.",
+      "score": 70,
+      "intent": "monday",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Sie wird am Montag abgeholt.",
+      "score": 100,
+      "intent": "futureMonday",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Sie wurde gestern abgeholt.",
+      "score": 100,
+      "intent": "wednesday",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Sie wird morgen abgeholt.",
+      "score": 100,
+      "intent": "friday",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Am Donnerstag.",
+      "score": 100,
+      "intent": "thursday",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Sie am Montag abgeholt.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Der Pizzakarton muss ins Papier gebracht werden.",
+      "score": 100,
+      "intent": "move",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Den Pizzakarton muss ins Papier gebracht werden.",
+      "score": 85,
+      "intent": "move",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Der Pizzakarton muss gebracht werden ins Papier.",
+      "score": 70,
+      "intent": "move",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Wir können ihr helfen.",
+      "score": 100,
+      "intent": "help",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Frau Schulz muss angezeigt werden.",
+      "score": 100,
+      "intent": "report",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Das ist mir egal.",
+      "score": 100,
+      "intent": "egal",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Es muss ihr erklärt werden.",
+      "score": 100,
+      "intent": "explain",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Wir ihr helfen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Nichts. Alles wurde getrennt.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Alles wurden getrennt.",
+      "score": 80,
+      "intent": "nothing",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Eine Batterie ist noch drin.",
+      "score": 100,
+      "intent": "battery",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Die Batterie wird im Supermarkt abgegeben.",
+      "score": 100,
+      "intent": "batteryOk",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Eine Bananenschale ist noch drin.",
+      "score": 100,
+      "intent": "banana",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Nur noch Restmüll.",
+      "score": 100,
+      "intent": "rest",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Die Batterie im Supermarkt abgegeben wurden.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich will die Tüte behalten.",
+      "score": 100,
+      "intent": "keep",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Frau Schulz muss zum Mond geschickt werden.",
+      "score": 100,
+      "intent": "moon",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Frau Schulz muss geschickt werden zum Mond.",
+      "score": 70,
+      "intent": "moon",
+      "delta": 0
+    },
+    {
+      "turn": "t7",
+      "say": "Eine Bowlingkugel ist noch drin.",
+      "score": 100,
+      "intent": "bowling",
+      "delta": 1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich will den Müll trennen."
+        ],
+        [
+          "t2",
+          "Sie wird in die blaue Tonne geworfen."
+        ],
+        [
+          "t3",
+          "Er wird nur leer gemacht."
+        ],
+        [
+          "t4",
+          "Die Flasche wird zum Supermarkt zurückgebracht."
+        ],
+        [
+          "t5",
+          "Sie wurde am Montag abgeholt."
+        ],
+        [
+          "t6",
+          "Wir können ihr helfen."
+        ],
+        [
+          "t7",
+          "Nichts. Alles wurde getrennt."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich will den Müll wegwerfen."
+        ],
+        [
+          "t2",
+          "In die gelbe Tonne."
+        ],
+        [
+          "t3",
+          "Der Deckel wird abgerissen."
+        ],
+        [
+          "t4",
+          "Sie wird in den Glascontainer geworfen."
+        ],
+        [
+          "t5",
+          "Sie wurde gestern abgeholt."
+        ],
+        [
+          "t6",
+          "Frau Schulz muss angezeigt werden."
+        ],
+        [
+          "t7",
+          "Nur noch Restmüll."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich wollte die Tüte in die schwarze Tonne werfen."
+        ],
+        [
+          "t2",
+          "Sie kommt in die braune Tonne."
+        ],
+        [
+          "t3",
+          "Er wird mit warmem Wasser gespült."
+        ],
+        [
+          "t4",
+          "Ich werfe sie weg."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2195 @@
+{
+  "id": "wg",
+  "name": "Mia",
+  "age": 24,
+  "emoji": "🥔",
+  "image": "match_wg",
+  "level": "B1.1",
+  "order": 3,
+  "bio": "Wir sind keine Zweck-WG. Wir sind Familie. Zimmer frei! Casting am Sonntag. Der Hamster entscheidet mit.",
+  "bioEn": "We are not a convenience flatshare. We are family. Room free! Casting on Sunday. The hamster has a vote.",
+  "goal": "Pass the flatshare casting and get the room.",
+  "tagline": "WG-Sprecherin · 24 · Kartoffelhaus",
+  "voice": "Laomedeia",
+  "brief": "Mia, 24, spokesperson of a very serious flatshare: a bright, warm young woman’s voice, talking quickly and earnestly like a committee chair, taking absurd house rules completely seriously, sometimes whispering respectfully about the hamster.",
+  "focus": "Adjektivdeklination · Konjunktiv II für Wünsche · Meinungen (Ich finde, dass …)",
+  "lexicon": {
+    "nouns": {
+      "Mitbewohner": "m",
+      "Mitbewohnerin": "f",
+      "Mensch": "m",
+      "Schlagzeug": "n",
+      "Regel": "f",
+      "Regeln": "pl",
+      "Hamster": "m",
+      "Balkon": "m",
+      "Bad": "n",
+      "Kartoffeln": "pl",
+      "Nudeln": "pl",
+      "Reis": "m",
+      "Bett": "n",
+      "Fenster": "n",
+      "Käfig": "m",
+      "Tür": "f",
+      "Küche": "f",
+      "Socken": "pl",
+      "Wäschekorb": "m",
+      "Eigenschaft": "f",
+      "Geduld": "f",
+      "Humor": "m",
+      "Vampir": "m",
+      "Rutsche": "f",
+      "Laufrad": "n"
+    },
+    "names": [
+      "Jonas"
+    ],
+    "verbs": [
+      "bin",
+      "koche",
+      "spiele",
+      "finde",
+      "hat",
+      "ist",
+      "hätte",
+      "würde",
+      "wäre",
+      "würden",
+      "esse",
+      "isst",
+      "sind",
+      "mag",
+      "gehören",
+      "gehört",
+      "liebe"
+    ],
+    "nonfinite": [
+      "kochen",
+      "stellen"
+    ],
+    "accVerbs": [
+      "koche",
+      "spiele",
+      "finde",
+      "hat",
+      "hätte",
+      "würde",
+      "würden",
+      "esse",
+      "isst",
+      "mag",
+      "liebe"
+    ],
+    "adjectives": [
+      "ruhig",
+      "ordentlich",
+      "laut",
+      "erst",
+      "zweit",
+      "dritt",
+      "viert",
+      "komisch",
+      "groß",
+      "eigen",
+      "schön",
+      "best",
+      "perfekt"
+    ]
+  },
+  "intro": [
+    {
+      "who": "wg",
+      "type": "text",
+      "de": "Hi! Ich bin Mia, die Sprecherin vom Kartoffelhaus.",
+      "emoji": "👋",
+      "en": "Hi! I’m Mia, the spokesperson of the Potato House.",
+      "audio": "mc_wg_introa"
+    },
+    {
+      "who": "wg",
+      "type": "text",
+      "de": "Wichtig: Wir sind keine Zweck-WG. Wir sind Familie. Und Professor Pumpernickel entscheidet mit. Er ist unser Hamster.",
+      "emoji": "🐹",
+      "en": "Important: we are not a convenience flatshare. We are family. And Professor Pumpernickel has a vote. He is our hamster.",
+      "audio": "mc_wg_introb"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Erste Casting-Frage: Was für ein Mitbewohner bist du? Oder was für eine Mitbewohnerin?",
+          "emoji": "📋",
+          "en": "First casting question: what kind of flatmate are you?",
+          "audio": "mc_wg_t1a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bin",
+        "ein",
+        "eine",
+        "ruhiger",
+        "ruhige",
+        "ruhigen",
+        "ordentlicher",
+        "ordentliche",
+        "lauter",
+        "Mitbewohner",
+        "Mitbewohnerin",
+        "Mensch",
+        "und",
+        "ich",
+        "koche",
+        "gern",
+        "spiele",
+        "nachts",
+        "Schlagzeug",
+        "Vampir"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "vampire",
+          "when": {
+            "any": [
+              "vampir"
+            ]
+          },
+          "value": 1,
+          "fact": "🧛 ist nachtaktiv wie der Hamster",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ein Vampir? Nachtaktiv! Wie Professor Pumpernickel! Ihr werdet beste Freunde.",
+              "emoji": "🧛",
+              "en": "A vampire? Nocturnal! Like Professor Pumpernickel! You will be best friends.",
+              "audio": "mc_wg_t1_vampire"
+            },
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Nur eine Sache: Knoblauch ist bei uns Grundnahrungsmittel. Jonas isst ihn roh. Wie Äpfel.",
+              "en": "Just one thing: garlic is a staple food here. Jonas eats it raw. Like apples.",
+              "audio": "mc_wg_t1_vampire_b"
+            }
+          ]
+        },
+        {
+          "id": "drums",
+          "when": {
+            "any": [
+              "schlagzeug"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Schlagzeug? Nachts? Professor Pumpernickel hat sehr schwache Nerven. Und sehr kleine Ohren.",
+              "emoji": "🥁",
+              "en": "Drums? At night? Professor Pumpernickel has very weak nerves. And very small ears.",
+              "audio": "mc_wg_t1_drums"
+            }
+          ]
+        },
+        {
+          "id": "loud",
+          "when": {
+            "any": [
+              "lauter"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Laut? Wir haben eine Regel gegen Lautsein. Sie hängt am Kühlschrank. In Großbuchstaben.",
+              "en": "Loud? We have a rule against being loud. It’s on the fridge. In capital letters.",
+              "audio": "mc_wg_t1_loud"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "ruhig*",
+              "ordentlich*"
+            ]
+          },
+          "value": 2,
+          "fact": "🧹 ist ruhig und ordentlich",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ruhig UND ordentlich? Das gibt es? Ich muss mich kurz setzen.",
+              "emoji": "😮",
+              "en": "Quiet AND tidy? That exists? I need to sit down for a second.",
+              "audio": "mc_wg_t1_both"
+            }
+          ]
+        },
+        {
+          "id": "quiet",
+          "when": {
+            "any": [
+              "ruhig*"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ruhig. Sehr gut. Professor Pumpernickel mag ruhige Menschen.",
+              "en": "Quiet. Very good. Professor Pumpernickel likes quiet people.",
+              "audio": "mc_wg_t1_quiet"
+            }
+          ]
+        },
+        {
+          "id": "tidy",
+          "when": {
+            "any": [
+              "ordentlich*"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ordentlich! Unser Putzplan weint vor Freude.",
+              "en": "Tidy! Our cleaning rota is crying with joy.",
+              "audio": "mc_wg_t1_tidy"
+            }
+          ]
+        },
+        {
+          "id": "cook",
+          "when": {
+            "any": [
+              "koche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Du kochst gern? Das ist fast schon ein Ja. Fast.",
+              "emoji": "🍳",
+              "en": "You like cooking? That’s almost a yes already. Almost.",
+              "audio": "mc_wg_t1_cook"
+            }
+          ]
+        },
+        {
+          "id": "generic",
+          "when": {
+            "any": [
+              "mitbewohner",
+              "mitbewohnerin",
+              "mensch"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ja, aber WAS für einer? Letzte Woche war hier ein „Mensch“. Er war Pantomime. Zwei Stunden kein Wort. Das Plenum war begeistert. Jonas nicht.",
+              "en": "Yes, but WHAT kind? Last week a \"person\" came. He was a mime. Two hours, not a word. The house meeting loved him. Jonas did not.",
+              "audio": "mc_wg_t1_generic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Das sind unsere Regeln. Sie hängen am Kühlschrank.",
+          "emoji": "🧲",
+          "en": "These are our rules. They’re on the fridge.",
+          "audio": "mc_wg_t2a"
+        },
+        {
+          "who": "wg",
+          "type": "photo",
+          "image": "match_wg_rules",
+          "overlay": [
+            "WG-REGELN",
+            "1. Keine laute Musik nach 22 Uhr",
+            "2. Hafermilch ist heilig",
+            "3. Der Hamster hat immer recht",
+            "4. Jeden Sonntag: Plenum (4 Stunden)"
+          ],
+          "alt": "Ein Zettel am Kühlschrank: WG-Regeln. Erstens: keine laute Musik nach 22 Uhr. Zweitens: Hafermilch ist heilig. Drittens: Der Hamster hat immer recht. Viertens: jeden Sonntag Plenum, vier Stunden."
+        },
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Welche Regel findest du am wichtigsten?",
+          "en": "Which rule do you think is the most important?",
+          "audio": "mc_wg_t2c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "finde",
+        "die",
+        "den",
+        "erste",
+        "ersten",
+        "zweite",
+        "dritte",
+        "vierte",
+        "Regel",
+        "am wichtigsten",
+        "alle",
+        "Regeln",
+        "komisch",
+        "dass",
+        "der",
+        "Hamster",
+        "immer",
+        "recht",
+        "hat",
+        "mit",
+        "dem"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "allImportant",
+          "when": {
+            "all": [
+              "alle",
+              "am wichtigsten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Alle?! Du bist entweder sehr diplomatisch oder Juristin. Oder Jurist.",
+              "emoji": "⚖️",
+              "en": "All of them?! You’re either very diplomatic or a lawyer.",
+              "audio": "mc_wg_t2_allimportant"
+            }
+          ]
+        },
+        {
+          "id": "weird",
+          "when": {
+            "any": [
+              "komisch"
+            ]
+          },
+          "value": -1,
+          "cause": "rules",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Komisch?! Wir haben drei Jahre an diesen Regeln gearbeitet. Mit Anwalt.",
+              "emoji": "😤",
+              "en": "Weird?! We worked on these rules for three years. With a lawyer.",
+              "audio": "mc_wg_t2_weird"
+            }
+          ]
+        },
+        {
+          "id": "hamster",
+          "when": {
+            "any": [
+              "dritte",
+              "hamster"
+            ]
+          },
+          "value": 2,
+          "fact": "🐹 respektiert den Hamster",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Richtig. Der Hamster hat immer recht. Professor Pumpernickel hat gerade gequiekt. Das heißt: Ja.",
+              "emoji": "🐹",
+              "en": "Correct. The hamster is always right. Professor Pumpernickel just squeaked. That means: yes.",
+              "audio": "mc_wg_t2_hamster"
+            }
+          ]
+        },
+        {
+          "id": "oat",
+          "when": {
+            "any": [
+              "zweite"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Hafermilch. Endlich jemand mit Werten. Jonas trinkt sie heimlich. Wir wissen es.",
+              "emoji": "🥛",
+              "en": "Oat milk. Finally someone with values. Jonas drinks it secretly. We know.",
+              "audio": "mc_wg_t2_oat"
+            }
+          ]
+        },
+        {
+          "id": "music",
+          "when": {
+            "any": [
+              "erste",
+              "ersten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Keine laute Musik. Vernünftig. Unsere Nachbarin hat einen Besen. Und sie benutzt ihn. An der Decke.",
+              "emoji": "🧹",
+              "en": "No loud music. Sensible. Our neighbour has a broom. And she uses it. On the ceiling.",
+              "audio": "mc_wg_t2_music"
+            }
+          ]
+        },
+        {
+          "id": "plenum",
+          "when": {
+            "any": [
+              "vierte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Das Plenum? Wirklich? Es dauert immer vier Stunden. Aber okay, du bist mutig.",
+              "en": "The house meeting? Really? It always lasts four hours. But okay, you’re brave.",
+              "audio": "mc_wg_t2_plenum"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "regel",
+              "am wichtigsten",
+              "regeln"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Welche denn? Wir haben vier. Und Professor Pumpernickel wartet.",
+              "en": "Which one? We have four. And Professor Pumpernickel is waiting.",
+              "audio": "mc_wg_t2_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Stell dir vor, du wohnst schon hier. Was würdest du dir für die WG wünschen?",
+          "emoji": "🌈",
+          "en": "Imagine you already live here. What would you wish for the flatshare?",
+          "audio": "mc_wg_t3a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "hätte",
+        "gern",
+        "würde",
+        "einen",
+        "ein",
+        "großen",
+        "großer",
+        "Balkon",
+        "eigenes",
+        "eigenen",
+        "Bad",
+        "es",
+        "wäre",
+        "schön",
+        "wenn",
+        "wir",
+        "zusammen",
+        "kochen",
+        "würden",
+        "eine",
+        "Rutsche",
+        "große"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "slide",
+          "when": {
+            "any": [
+              "rutsche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Eine große Rutsche! Vom Hochbett direkt in die Küche! Jonas baut schon. Er hat keinen Plan. Er hat nur eine Säge.",
+              "emoji": "🛝",
+              "en": "A big slide! From the loft bed straight into the kitchen! Jonas is already building it. He has no plan. He only has a saw.",
+              "audio": "mc_wg_t3_slide"
+            }
+          ]
+        },
+        {
+          "id": "together",
+          "when": {
+            "any": [
+              "zusammen"
+            ]
+          },
+          "value": 2,
+          "fact": "🍲 will zusammen kochen",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Zusammen kochen! Du hast ein WG-Herz. Professor Pumpernickel rennt im Rad. Das ist ein gutes Zeichen.",
+              "emoji": "🍲",
+              "en": "Cooking together! You have a flatshare heart. Professor Pumpernickel is running in his wheel. That’s a good sign.",
+              "audio": "mc_wg_t3_together"
+            }
+          ]
+        },
+        {
+          "id": "bath",
+          "when": {
+            "any": [
+              "bad"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ein eigenes Bad? Das ist sehr … Zweck-WG. Wir teilen alles. Sogar das Shampoo.",
+              "emoji": "🛁",
+              "en": "Your own bathroom? That’s very … convenience-flatshare. We share everything. Even the shampoo.",
+              "audio": "mc_wg_t3_bath"
+            }
+          ]
+        },
+        {
+          "id": "balcony",
+          "when": {
+            "any": [
+              "balkon"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ein großer Balkon. Träum weiter. Wir haben ein Fensterbrett. Es ist sehr gemütlich.",
+              "en": "A big balcony. Dream on. We have a windowsill. It’s very cosy.",
+              "audio": "mc_wg_t3_balcony"
+            }
+          ]
+        },
+        {
+          "id": "cook",
+          "when": {
+            "any": [
+              "kochen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Kochen! Gut. Aber allein oder mit uns?",
+              "en": "Cooking! Good. But alone or with us?",
+              "audio": "mc_wg_t3_cook"
+            }
+          ]
+        },
+        {
+          "id": "nice",
+          "when": {
+            "any": [
+              "schön",
+              "wäre"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ja, es wäre schön. Aber WAS wäre schön?",
+              "en": "Yes, it would be nice. But WHAT would be nice?",
+              "audio": "mc_wg_t3_nice"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Jonas hat eine Frage für dich. Er ist sehr nervös. Ich schicke dir eine Sprachnachricht.",
+          "emoji": "😬",
+          "en": "Jonas has a question for you. He’s very nervous. I’ll send you a voice message.",
+          "audio": "mc_wg_t4a"
+        },
+        {
+          "who": "wg",
+          "type": "voice",
+          "audio": "mc_wg_vn_jonas",
+          "de": "Okay, Jonas fragt: Kartoffeln oder Nudeln? Das ist seine einzige Frage. Und, kleiner Tipp von mir: Wir heißen nicht ohne Grund Kartoffelhaus.",
+          "en": "Okay, Jonas asks: potatoes or pasta? That’s his only question. And, a little tip from me: we’re not called the Potato House for nothing.",
+          "direction": "Whispering conspiratorially into the phone in a hallway, a door creaking and a nervous young man muttering faintly in the background."
+        },
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Also: Kartoffeln oder Nudeln?",
+          "en": "So: potatoes or pasta?",
+          "audio": "mc_wg_t4c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "esse",
+        "isst",
+        "lieber",
+        "Kartoffeln",
+        "Nudeln",
+        "finde",
+        "besser",
+        "weil",
+        "sie",
+        "gesünder",
+        "sind",
+        "ist",
+        "beides",
+        "mag",
+        "Reis",
+        "und",
+        "gern",
+        "als Nudeln",
+        "als Kartoffeln"
+      ],
+      "wrong": {
+        "isst": "esse",
+        "ist": "sind"
+      },
+      "intents": [
+        {
+          "id": "potatoOver",
+          "when": {
+            "any": [
+              "als nudeln"
+            ]
+          },
+          "value": 2,
+          "fact": "🥔 liebt Kartoffeln",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Lieber Kartoffeln als Nudeln. Jonas schreibt es sich gerade auf den Arm. Mit Kuli. Neben „Mama“.",
+              "en": "Potatoes rather than pasta. Jonas is writing it on his arm right now. In biro. Next to \"Mum\".",
+              "audio": "mc_wg_t4_potatoover"
+            }
+          ]
+        },
+        {
+          "id": "noodlesOver",
+          "when": {
+            "any": [
+              "als kartoffeln"
+            ]
+          },
+          "value": -2,
+          "cause": "nudeln",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Nudeln. … Jonas ist gerade in sein Zimmer gegangen. Er hat die Tür sehr leise zugemacht. Das ist schlimmer als laut.",
+              "emoji": "🚪",
+              "en": "Pasta. … Jonas just went to his room. He closed the door very quietly. That’s worse than loudly.",
+              "audio": "mc_wg_t4_noodles"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "kartoffeln",
+              "nudeln"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Beides? Das ist Diplomatie. Jonas hasst Diplomatie. Er hat jetzt Schluckauf.",
+              "en": "Both? That’s diplomacy. Jonas hates diplomacy. Now he has hiccups.",
+              "audio": "mc_wg_t4_both"
+            }
+          ]
+        },
+        {
+          "id": "noodles",
+          "when": {
+            "any": [
+              "nudeln"
+            ]
+          },
+          "value": -2,
+          "cause": "nudeln",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Nudeln. … Jonas ist gerade in sein Zimmer gegangen. Er hat die Tür sehr leise zugemacht. Das ist schlimmer als laut.",
+              "emoji": "🚪",
+              "en": "Pasta. … Jonas just went to his room. He closed the door very quietly. That’s worse than loudly.",
+              "audio": "mc_wg_t4_noodles"
+            }
+          ]
+        },
+        {
+          "id": "rice",
+          "when": {
+            "any": [
+              "reis"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Reis?! Das war keine Option. Jonas muss sich hinsetzen.",
+              "emoji": "🍚",
+              "en": "Rice?! That wasn’t an option. Jonas has to sit down.",
+              "audio": "mc_wg_t4_rice"
+            }
+          ]
+        },
+        {
+          "id": "potatoWhy",
+          "when": {
+            "all": [
+              "kartoffeln",
+              "weil"
+            ]
+          },
+          "value": 2,
+          "fact": "🥔 liebt Kartoffeln",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Mit Begründung! Jonas weint. Vor Glück. Du hast den Tipp verstanden.",
+              "emoji": "🥔",
+              "en": "With a reason! Jonas is crying. With happiness. You got the tip.",
+              "audio": "mc_wg_t4_potatowhy"
+            }
+          ]
+        },
+        {
+          "id": "potato",
+          "when": {
+            "any": [
+              "kartoffeln"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Kartoffeln! Richtig. Jonas macht gerade einen kleinen Tanz.",
+              "emoji": "💃",
+              "en": "Potatoes! Correct. Jonas is doing a little dance right now.",
+              "audio": "mc_wg_t4_potato"
+            }
+          ]
+        },
+        {
+          "id": "bothWord",
+          "when": {
+            "any": [
+              "beides"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Beides? Das ist Diplomatie. Jonas hasst Diplomatie. Er hat jetzt Schluckauf.",
+              "en": "Both? That’s diplomacy. Jonas hates diplomacy. Now he has hiccups.",
+              "audio": "mc_wg_t4_bothword"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Das ist das freie Zimmer. Es ist klein, aber gemütlich.",
+          "emoji": "🛏️",
+          "en": "This is the free room. It’s small but cosy.",
+          "audio": "mc_wg_t5a"
+        },
+        {
+          "who": "wg",
+          "type": "photo",
+          "image": "match_wg_room",
+          "wide": true,
+          "alt": "Ein kleines Zimmer. Links: ein Fenster. In der Mitte: ein großer Käfig mit einem Hamster in einem Laufrad. Rechts: die Tür."
+        },
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Professor Pumpernickel wohnt auch hier. Wohin würdest du dein Bett stellen?",
+          "en": "Professor Pumpernickel lives here too. Where would you put your bed?",
+          "audio": "mc_wg_t5c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "würde",
+        "mein",
+        "meinen",
+        "Bett",
+        "unter",
+        "neben",
+        "vor",
+        "das",
+        "den",
+        "dem",
+        "die",
+        "Fenster",
+        "Käfig",
+        "Tür",
+        "stellen",
+        "Hamster",
+        "in",
+        "Küche",
+        "Laufrad"
+      ],
+      "wrong": {},
+      "prepCase": {
+        "unter": "acc",
+        "neben": "acc",
+        "vor": "acc",
+        "in": "acc"
+      },
+      "intents": [
+        {
+          "id": "wheel",
+          "when": {
+            "any": [
+              "laufrad"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "In das Laufrad?! Dann schläfst du und joggst gleichzeitig. Professor Pumpernickel findet das sehr innovativ. Er läuft trotzdem weiter. Auf dir.",
+              "emoji": "🎡",
+              "en": "Into the hamster wheel?! Then you sleep and jog at the same time. Professor Pumpernickel finds that very innovative. He keeps running anyway. On you.",
+              "audio": "mc_wg_t5_wheel"
+            }
+          ]
+        },
+        {
+          "id": "moveHamster",
+          "when": {
+            "all": [
+              "hamster",
+              "küche"
+            ]
+          },
+          "value": -2,
+          "cause": "hamster",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Den Professor in die Küche?! Er ist hier der Hauptmieter! Er zahlt keine Miete, aber trotzdem!",
+              "emoji": "😱",
+              "en": "The Professor in the kitchen?! He’s the main tenant here! He doesn’t pay rent, but still!",
+              "audio": "mc_wg_t5_movehamster"
+            }
+          ]
+        },
+        {
+          "id": "moveHamsterAny",
+          "when": {
+            "any": [
+              "hamster"
+            ],
+            "none": [
+              "bett"
+            ]
+          },
+          "value": -2,
+          "cause": "hamster",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Den Professor umstellen?! Er ist hier der Hauptmieter! Er zahlt keine Miete, aber trotzdem!",
+              "en": "Move the Professor?! He’s the main tenant here! He doesn’t pay rent, but still!",
+              "audio": "mc_wg_t5_movehamsterany"
+            }
+          ]
+        },
+        {
+          "id": "bedKitchen",
+          "when": {
+            "all": [
+              "bett",
+              "küche"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "In die Küche? Dann schläfst du neben Jonas’ Socken. Mutig.",
+              "en": "In the kitchen? Then you sleep next to Jonas’s socks. Brave.",
+              "audio": "mc_wg_t5_bedkitchen"
+            }
+          ]
+        },
+        {
+          "id": "cage",
+          "when": {
+            "any": [
+              "käfig",
+              "hamster"
+            ]
+          },
+          "value": 2,
+          "fact": "🐹 schläft neben dem Hamster",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Neben Professor Pumpernickel?! Er liebt Gesellschaft. Er rennt nachts im Rad. Aber er rennt für dich.",
+              "emoji": "🐹",
+              "en": "Next to Professor Pumpernickel?! He loves company. He runs in his wheel at night. But he runs for you.",
+              "audio": "mc_wg_t5_cage"
+            }
+          ]
+        },
+        {
+          "id": "window",
+          "when": {
+            "any": [
+              "fenster"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ans Fenster. Klassisch. Morgens kommt die Sonne. Und die Katze vom Nachbarn.",
+              "emoji": "☀️",
+              "en": "By the window. Classic. In the morning the sun comes in. And the neighbour’s cat.",
+              "audio": "mc_wg_t5_window"
+            }
+          ]
+        },
+        {
+          "id": "door",
+          "when": {
+            "all": [
+              "tür",
+              "vor"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Vor die Tür? Dann kommt niemand rein. Auch nicht das Plenum. … Hm. Eigentlich clever.",
+              "en": "In front of the door? Then nobody can get in. Not even the house meeting. … Hm. Actually clever.",
+              "audio": "mc_wg_t5_door"
+            }
+          ]
+        },
+        {
+          "id": "doorNext",
+          "when": {
+            "any": [
+              "tür"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Neben die Tür? Dann hörst du jeden Morgen Jonas. Er singt im Flur. Falsch.",
+              "en": "Next to the door? Then you hear Jonas every morning. He sings in the hallway. Off-key.",
+              "audio": "mc_wg_t5_doornext"
+            }
+          ]
+        },
+        {
+          "id": "bedOnly",
+          "when": {
+            "any": [
+              "bett"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ja, dein Bett. Aber wohin?",
+              "en": "Yes, your bed. But where?",
+              "audio": "mc_wg_t5_bedonly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Letzte Woche hatten wir einen großen Streit. Er hat neun Stunden gedauert. Die Polizei kam. Sie ist zum Plenum geblieben.",
+          "emoji": "😤",
+          "en": "Last week we had a big fight. It lasted nine hours. The police came. They stayed for the house meeting.",
+          "audio": "mc_wg_t6a"
+        },
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Jonas sagt: Socken in der Küche sind okay. Was meinst du?",
+          "en": "Jonas says: socks in the kitchen are fine. What do you think?",
+          "audio": "mc_wg_t6b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "finde",
+        "dass",
+        "Socken",
+        "nicht",
+        "in",
+        "die",
+        "der",
+        "den",
+        "Küche",
+        "Wäschekorb",
+        "gehören",
+        "gehört",
+        "Jonas",
+        "recht",
+        "hat",
+        "egal",
+        "sind"
+      ],
+      "wrong": {
+        "gehört": "gehören"
+      },
+      "prepCase": {
+        "in": "acc"
+      },
+      "intents": [
+        {
+          "id": "basket",
+          "when": {
+            "any": [
+              "wäschekorb"
+            ]
+          },
+          "value": 2,
+          "fact": "🧦 kennt den Wäschekorb",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Der Wäschekorb! So einfach! Warum hat uns das niemand gesagt? Das wird Regel Nummer fünf.",
+              "emoji": "🧺",
+              "en": "The laundry basket! So simple! Why did nobody tell us? That’s going to be rule number five.",
+              "audio": "mc_wg_t6_basket"
+            }
+          ]
+        },
+        {
+          "id": "notKitchen",
+          "when": {
+            "all": [
+              "küche",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Genau! Nicht in die Küche! Endlich sagt es jemand.",
+              "en": "Exactly! Not in the kitchen! Finally someone says it.",
+              "audio": "mc_wg_t6_notkitchen"
+            }
+          ]
+        },
+        {
+          "id": "jonasWrong",
+          "when": {
+            "all": [
+              "jonas",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Jonas hat nicht recht. Ich schreibe das auf. Und ich hänge es über sein Bett.",
+              "en": "Jonas is not right. I’m writing that down. And I’m hanging it over his bed.",
+              "audio": "mc_wg_t6_jonaswrong"
+            }
+          ]
+        },
+        {
+          "id": "jonasRight",
+          "when": {
+            "any": [
+              "jonas",
+              "recht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Jonas hat recht?! Oh nein. Jetzt sind es zwei.",
+              "emoji": "😩",
+              "en": "Jonas is right?! Oh no. Now there are two of them.",
+              "audio": "mc_wg_t6_jonasright"
+            }
+          ]
+        },
+        {
+          "id": "kitchen",
+          "when": {
+            "any": [
+              "küche"
+            ]
+          },
+          "value": -2,
+          "cause": "socks",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "In die Küche?! Du bist Jonas. Gib es zu. Du bist Jonas mit Perücke.",
+              "emoji": "🕵️",
+              "en": "In the kitchen?! You’re Jonas. Admit it. You’re Jonas in a wig.",
+              "audio": "mc_wg_t6_kitchen"
+            }
+          ]
+        },
+        {
+          "id": "egal",
+          "when": {
+            "any": [
+              "egal"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Egal?! Das hat Jonas auch gesagt. Wortwörtlich. Verdächtig.",
+              "en": "Doesn’t matter?! Jonas said that too. Word for word. Suspicious.",
+              "audio": "mc_wg_t6_egal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Letzte Frage. Dann stimmt das Plenum ab. Und Professor Pumpernickel. Er hat zwei Stimmen, ein Veto und seit gestern einen Anwalt. Einen Hamster. Er heißt Dr. Krümel.",
+          "emoji": "🗳️",
+          "en": "Last question. Then the house meeting votes. And Professor Pumpernickel. He has two votes, a veto and, since yesterday, a lawyer. A hamster. He is called Dr Krümel.",
+          "audio": "mc_wg_t7a"
+        },
+        {
+          "who": "wg",
+          "type": "text",
+          "de": "Was ist deine beste Eigenschaft?",
+          "en": "What is your best quality?",
+          "audio": "mc_wg_t7b"
+        }
+      ],
+      "tiles": [
+        "meine",
+        "mein",
+        "beste",
+        "besten",
+        "Eigenschaft",
+        "ist",
+        "Geduld",
+        "Humor",
+        "ich",
+        "ich",
+        "wäre",
+        "der",
+        "perfekte",
+        "perfekten",
+        "Mitbewohner",
+        "weil",
+        "Hamster",
+        "liebe",
+        "koche",
+        "gut"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "hamster",
+          "when": {
+            "any": [
+              "hamster"
+            ]
+          },
+          "value": 2,
+          "fact": "❤️ liebt Hamster",
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Professor Pumpernickel hat dich gerade angeschaut. Zwei Sekunden lang. Das hat er für Jonas nie gemacht.",
+              "emoji": "🐹",
+              "en": "Professor Pumpernickel just looked at you. For two whole seconds. He never did that for Jonas.",
+              "audio": "mc_wg_t7_hamster"
+            }
+          ]
+        },
+        {
+          "id": "patience",
+          "when": {
+            "any": [
+              "geduld"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Geduld! Perfekt für das Plenum. Es dauert vier Stunden. Manchmal fünf.",
+              "emoji": "⏳",
+              "en": "Patience! Perfect for the house meeting. It takes four hours. Sometimes five.",
+              "audio": "mc_wg_t7_patience"
+            }
+          ]
+        },
+        {
+          "id": "humor",
+          "when": {
+            "any": [
+              "humor"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Humor. Brauchst du hier. Vor allem sonntags.",
+              "emoji": "😄",
+              "en": "Humour. You need that here. Especially on Sundays.",
+              "audio": "mc_wg_t7_humor"
+            }
+          ]
+        },
+        {
+          "id": "cook",
+          "when": {
+            "any": [
+              "koche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Du kochst gut? Kartoffeln, hoffe ich.",
+              "emoji": "🥔",
+              "en": "You cook well? Potatoes, I hope.",
+              "audio": "mc_wg_t7_cook"
+            }
+          ]
+        },
+        {
+          "id": "perfect",
+          "when": {
+            "any": [
+              "perfekte",
+              "perfekten"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Perfekt? Niemand ist perfekt. Außer Professor Pumpernickel.",
+              "en": "Perfect? Nobody is perfect. Except Professor Pumpernickel.",
+              "audio": "mc_wg_t7_perfect"
+            }
+          ]
+        },
+        {
+          "id": "generic",
+          "when": {
+            "any": [
+              "eigenschaft"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "wg",
+              "type": "text",
+              "de": "Ja, deine beste Eigenschaft. Und welche ist das?",
+              "en": "Yes, your best quality. And which one is it?",
+              "audio": "mc_wg_t7_generic"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "wg",
+    "type": "text",
+    "de": "Okay … das war nicht meine Frage. Das notiere ich fürs Plenum.",
+    "en": "Okay … that wasn’t my question. I’ll note that for the house meeting.",
+    "audio": "mc_wg_offtopic"
+  },
+  "confused": [
+    {
+      "who": "wg",
+      "type": "text",
+      "de": "Hä? Kannst du das noch mal sagen? Langsamer?",
+      "emoji": "😅",
+      "en": "Huh? Can you say that again? Slower?",
+      "audio": "mc_wg_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "wg",
+        "type": "text",
+        "de": "Das Plenum hat abgestimmt. Einstimmig! Auch Professor Pumpernickel. Er hat sich dreimal im Kreis gedreht.",
+        "emoji": "🐹",
+        "en": "The house meeting has voted. Unanimously! Professor Pumpernickel too. He turned round in a circle three times.",
+        "audio": "mc_wg_wina"
+      },
+      {
+        "who": "wg",
+        "type": "text",
+        "de": "Willkommen im Kartoffelhaus, {name}! Dein Zimmer ist ab Montag frei. Bring Hafermilch mit.",
+        "emoji": "🥔",
+        "en": "Welcome to the Potato House, {name}! Your room is free from Monday. Bring oat milk."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "wg",
+        "type": "text",
+        "de": "Okay. Du bekommst das Zimmer. Auf Probe. Und du übernimmst den Putzplan. Für immer.",
+        "emoji": "🧽",
+        "en": "Okay. You get the room. On probation. And you take over the cleaning rota. Forever.",
+        "audio": "mc_wg_partial"
+      }
+    ],
+    "deleted": {
+      "rules": {
+        "who": "wg",
+        "type": "text",
+        "de": "Du findest unsere Regeln komisch? Wir finden dich komisch. Tschüss!",
+        "emoji": "🗑️",
+        "en": "You think our rules are weird? We think you’re weird. Bye!",
+        "audio": "mc_wg_del_rules"
+      },
+      "nudeln": {
+        "who": "wg",
+        "type": "text",
+        "de": "Jonas hat abgestimmt. Mit einem Kissen über dem Kopf. Es ist ein Nein.",
+        "en": "Jonas has voted. With a pillow over his head. It’s a no.",
+        "audio": "mc_wg_del_nudeln"
+      },
+      "hamster": {
+        "who": "wg",
+        "type": "text",
+        "de": "Professor Pumpernickel hat sein Veto eingelegt. Er hat dir den Rücken zugedreht. Tschüss.",
+        "en": "Professor Pumpernickel has used his veto. He turned his back on you. Bye.",
+        "audio": "mc_wg_del_hamster"
+      },
+      "socks": {
+        "who": "wg",
+        "type": "text",
+        "de": "Socken in der Küche. Das ist für uns eine rote Linie. Tschüss.",
+        "en": "Socks in the kitchen. That’s a red line for us. Bye.",
+        "audio": "mc_wg_del_socks"
+      },
+      "confused": {
+        "who": "wg",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich verstehe sogar unseren Hamster. Tschüss.",
+        "en": "I don’t understand you. And I even understand our hamster. Bye.",
+        "audio": "mc_wg_del_confused"
+      },
+      "default": {
+        "who": "wg",
+        "type": "text",
+        "de": "Du bist nett. Aber wir sind Familie. Und du bist … ein netter Besuch. Tschüss.",
+        "en": "You’re nice. But we’re family. And you’re … a nice visitor. Bye.",
+        "audio": "mc_wg_del_default"
+      }
+    },
+    "sunday": {
+      "who": "wg",
+      "type": "voice",
+      "audio": "mc_wg_vn_sunday",
+      "de": "Hi! Es ist Sonntag. Plenum! Vier Stunden! Thema heute: Wer hat die Hafermilch getrunken? Jonas sagt, du. Ich glaube Jonas nicht. Bring Kuchen mit!",
+      "en": "Hi! It’s Sunday. House meeting! Four hours! Today’s topic: who drank the oat milk? Jonas says you did. I don’t believe Jonas. Bring cake!",
+      "direction": "Cheerful and slightly chaotic, people arguing faintly in a kitchen behind her and a hamster wheel squeaking."
+    }
+  },
+  "partialTitle": "Probezeit mit Putzplan",
+  "share": {
+    "win": "Ich habe das WG-Casting im Kartoffelhaus bestanden 🥔🏠 Sogar der Hamster hat Ja gesagt. Mein Deutsch: {score}/100. Schaffst du das auch? {url}",
+    "partial": "Ich wohne jetzt im Kartoffelhaus … auf Probe, und der Putzplan gehört für immer mir 🧽 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Das Kartoffelhaus hat mich abgelehnt 🥔💔 Sogar der Hamster war dagegen. Mein Deutsch: {score}/100. Bestehst du das Casting? {url}"
+  },
+  "imageCharacter": "Mia, a 24-year-old student: round glasses, a messy auburn bun held together with a pencil, freckles, a chunky mustard knitted cardigan over a striped shirt, a clipboard under one arm, and a small golden hamster sitting on her shoulder.",
+  "imagePrompts": [
+    {
+      "id": "match_wg",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands in a cosy, cluttered shared kitchen with lots of plants, mismatched chairs and a pot of potatoes on the stove, holding her clipboard like a judge at a casting show, very serious face but warm eyes; the hamster on her shoulder looks equally serious. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_wg_rules",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a white fridge door seen straight on. In the middle a large sheet of paper is held up by four colourful magnets; the paper is completely blank white, nothing written on it. Around it a few more fridge magnets shaped like potatoes, and a small child-like drawing of a hamster stuck in the bottom corner of the fridge."
+    },
+    {
+      "id": "match_wg_room",
+      "aspect": "16:9",
+      "prompt": "A small, empty student room seen exactly from the front like a stage set, one flat back wall, no perspective, no corners, bare wooden floor, no bed and no furniture. Exactly three things in a row, far apart: LEFT: a window with simple curtains. MIDDLE: a big wire hamster cage on a low wooden table, a golden hamster running in a wheel inside it. RIGHT: a closed white door. Nothing else in the room."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich bin ein ruhiger, ordentlicher Mitbewohner.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin eine ruhige, ordentliche Mitbewohnerin.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein ruhige Mitbewohner.",
+      "score": 85,
+      "intent": "quiet",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin eine ruhigen Mitbewohnerin.",
+      "score": 85,
+      "intent": "quiet",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein ordentlicher Mensch und ich koche gern.",
+      "score": 100,
+      "intent": "tidy",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich koche gern.",
+      "score": 100,
+      "intent": "cook",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich spiele nachts Schlagzeug.",
+      "score": 100,
+      "intent": "drums",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein lauter Mensch.",
+      "score": 100,
+      "intent": "loud",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein Mensch.",
+      "score": 100,
+      "intent": "generic",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich ein ruhiger Mitbewohner.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein ordentlicher Vampir.",
+      "score": 100,
+      "intent": "vampire",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein ordentliche Vampir.",
+      "score": 85,
+      "intent": "vampire",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich finde die dritte Regel am wichtigsten.",
+      "score": 100,
+      "intent": "hamster",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich finde, dass der Hamster immer recht hat.",
+      "score": 100,
+      "intent": "hamster",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich finde den dritte Regel am wichtigsten.",
+      "score": 85,
+      "intent": "hamster",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich finde, dass der Hamster hat immer recht.",
+      "score": 70,
+      "intent": "hamster",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich finde die ersten Regel am wichtigsten.",
+      "score": 85,
+      "intent": "music",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich finde die zweite Regel am wichtigsten.",
+      "score": 100,
+      "intent": "oat",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich finde die vierte Regel am wichtigsten.",
+      "score": 100,
+      "intent": "plenum",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich finde alle Regeln komisch.",
+      "score": 100,
+      "intent": "weird",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich finde alle Regeln am wichtigsten.",
+      "score": 100,
+      "intent": "allImportant",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich die Regel am wichtigsten.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich finde die Regel mit dem Hamster am wichtigsten.",
+      "score": 100,
+      "intent": "hamster",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Es wäre schön, wenn wir zusammen kochen würden.",
+      "score": 100,
+      "intent": "together",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Es wäre schön, wenn wir würden zusammen kochen.",
+      "score": 70,
+      "intent": "together",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hätte gern einen großen Balkon.",
+      "score": 100,
+      "intent": "balcony",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hätte gern einen großer Balkon.",
+      "score": 85,
+      "intent": "balcony",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hätte gern ein eigenes Bad.",
+      "score": 100,
+      "intent": "bath",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hätte gern ein eigenen Bad.",
+      "score": 85,
+      "intent": "bath",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde gern kochen.",
+      "score": 100,
+      "intent": "cook",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Es wäre schön.",
+      "score": 100,
+      "intent": "nice",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hätte gern eine große Rutsche.",
+      "score": 100,
+      "intent": "slide",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich hätte gern eine großen Rutsche.",
+      "score": 85,
+      "intent": "slide",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse lieber Kartoffeln, weil sie gesünder sind.",
+      "score": 100,
+      "intent": "potatoWhy",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse lieber Kartoffeln, weil sie gesünder ist.",
+      "score": 80,
+      "intent": "potatoWhy",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich isst lieber Kartoffeln.",
+      "score": 80,
+      "intent": "potato",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich finde Kartoffeln besser.",
+      "score": 100,
+      "intent": "potato",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse lieber Nudeln.",
+      "score": 100,
+      "intent": "noodles",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich mag Kartoffeln und Nudeln.",
+      "score": 100,
+      "intent": "both",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich mag beides.",
+      "score": 100,
+      "intent": "bothWord",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse gern Reis.",
+      "score": 100,
+      "intent": "rice",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich lieber Kartoffeln.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse lieber Kartoffeln als Nudeln.",
+      "score": 100,
+      "intent": "potatoOver",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich finde Kartoffeln besser als Nudeln.",
+      "score": 100,
+      "intent": "potatoOver",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse lieber Nudeln als Kartoffeln.",
+      "score": 100,
+      "intent": "noodlesOver",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde mein Bett neben den Käfig stellen.",
+      "score": 100,
+      "intent": "cage",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde mein Bett neben dem Käfig stellen.",
+      "score": 85,
+      "intent": "cage",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde mein Bett unter das Fenster stellen.",
+      "score": 100,
+      "intent": "window",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde meinen Bett unter das Fenster stellen.",
+      "score": 85,
+      "intent": "window",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde mein Bett vor die Tür stellen.",
+      "score": 100,
+      "intent": "door",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde den Hamster in die Küche stellen.",
+      "score": 100,
+      "intent": "moveHamster",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde stellen mein Bett unter das Fenster.",
+      "score": 70,
+      "intent": "window",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Mein Bett.",
+      "score": 100,
+      "intent": "bedOnly",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde mein Bett neben den Hamster stellen.",
+      "score": 100,
+      "intent": "cage",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde den Hamster vor die Tür stellen.",
+      "score": 100,
+      "intent": "moveHamsterAny",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde mein Bett in die Küche stellen.",
+      "score": 100,
+      "intent": "bedKitchen",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde mein Bett neben die Tür stellen.",
+      "score": 100,
+      "intent": "doorNext",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde mein Bett neben das Fenster stellen.",
+      "score": 100,
+      "intent": "window",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich würde mein Bett in das Laufrad stellen.",
+      "score": 100,
+      "intent": "wheel",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass Socken in den Wäschekorb gehören.",
+      "score": 100,
+      "intent": "basket",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass Socken in der Wäschekorb gehören.",
+      "score": 85,
+      "intent": "basket",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass Socken nicht in die Küche gehören.",
+      "score": 100,
+      "intent": "notKitchen",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass Socken nicht in die Küche gehört.",
+      "score": 80,
+      "intent": "notKitchen",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass Socken gehören nicht in die Küche.",
+      "score": 70,
+      "intent": "notKitchen",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass Jonas nicht recht hat.",
+      "score": 100,
+      "intent": "jonasWrong",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass Jonas recht hat.",
+      "score": 100,
+      "intent": "jonasRight",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Socken gehören in die Küche.",
+      "score": 100,
+      "intent": "kitchen",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde Socken egal.",
+      "score": 100,
+      "intent": "egal",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Meine beste Eigenschaft ist mein Humor.",
+      "score": 100,
+      "intent": "humor",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Meine besten Eigenschaft ist mein Humor.",
+      "score": 85,
+      "intent": "humor",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Mein beste Eigenschaft ist Geduld.",
+      "score": 85,
+      "intent": "patience",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Meine beste Eigenschaft ist Geduld.",
+      "score": 100,
+      "intent": "patience",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich wäre der perfekte Mitbewohner, weil ich Hamster liebe.",
+      "score": 100,
+      "intent": "hamster",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich wäre der perfekten Mitbewohner, weil ich gut koche.",
+      "score": 85,
+      "intent": "cook",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich wäre der perfekte Mitbewohner.",
+      "score": 100,
+      "intent": "perfect",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Meine beste Eigenschaft.",
+      "score": 100,
+      "intent": "generic",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich der perfekte Mitbewohner.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich bin ein ruhiger, ordentlicher Mitbewohner."
+        ],
+        [
+          "t2",
+          "Ich finde die dritte Regel am wichtigsten."
+        ],
+        [
+          "t3",
+          "Es wäre schön, wenn wir zusammen kochen würden."
+        ],
+        [
+          "t4",
+          "Ich esse lieber Kartoffeln, weil sie gesünder sind."
+        ],
+        [
+          "t5",
+          "Ich würde mein Bett neben den Käfig stellen."
+        ],
+        [
+          "t6",
+          "Ich finde, dass Socken in den Wäschekorb gehören."
+        ],
+        [
+          "t7",
+          "Meine beste Eigenschaft ist Geduld."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich spiele nachts Schlagzeug."
+        ],
+        [
+          "t2",
+          "Ich finde die vierte Regel am wichtigsten."
+        ],
+        [
+          "t3",
+          "Ich hätte gern ein eigenes Bad."
+        ],
+        [
+          "t4",
+          "Ich mag beides."
+        ],
+        [
+          "t5",
+          "Ich würde mein Bett vor die Tür stellen."
+        ],
+        [
+          "t6",
+          "Ich finde, dass Jonas recht hat."
+        ],
+        [
+          "t7",
+          "Ich wäre der perfekte Mitbewohner."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich bin ein lauter Mensch."
+        ],
+        [
+          "t2",
+          "Ich finde alle Regeln komisch."
+        ],
+        [
+          "t3",
+          "Ich hätte gern ein eigenes Bad."
+        ],
+        [
+          "t4",
+          "Ich esse lieber Nudeln."
+        ]
+      ]
+    }
+  ]
+}

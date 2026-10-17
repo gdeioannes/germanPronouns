@@ -1,0 +1,1963 @@
+{
+  "id": "vogel",
+  "name": "Regisseurin Vogel",
+  "age": 54,
+  "emoji": "🎭",
+  "image": "match_vogel",
+  "level": "B2.2",
+  "order": 2,
+  "bio": "Ich inszeniere „Der Wald – ein Drama in fünf Akten“. Du spielst einen Baum.",
+  "bioEn": "I’m directing “The Forest – a drama in five acts”. You’re playing a tree.",
+  "goal": "She has cast you as a tree. Talk your way into a speaking role before the premiere.",
+  "tagline": "Regisseurin · 54 · Stadttheater",
+  "voice": "Pulcherrima",
+  "brief": "Regisseurin Vogel, 54, an avant-garde theatre director: a big, sweeping, theatrical woman’s voice, rolling her r’s, switching from a whisper to a cry in one breath, utterly serious about absurd art, warm and generous underneath; she says du to every actor.",
+  "focus": "Konjunktiv II der Vergangenheit · als ob · irreale Bedingungen · trotz + Genitiv",
+  "lexicon": {
+    "nouns": {
+      "Sprechrolle": "f",
+      "Text": "m",
+      "Baum": "m",
+      "Mensch": "m",
+      "Wurzeln": "pl",
+      "Jahre": "pl",
+      "Sturm": "m",
+      "Sturms": "m",
+      "Förster": "m",
+      "Windes": "m",
+      "Stein": "m",
+      "Zwiebeln": "pl",
+      "Handy": "n",
+      "Kostüm": "n",
+      "Hut": "m",
+      "Rolle": "f",
+      "Stück": "n",
+      "Wald": "m",
+      "Eichhörnchen": "n",
+      "Steins": "m"
+    },
+    "names": [],
+    "verbs": [
+      "hätte",
+      "habe",
+      "wäre",
+      "bin",
+      "würde",
+      "freue",
+      "spiele",
+      "stehe",
+      "bewege",
+      "käme",
+      "kommt",
+      "tanze",
+      "könnte",
+      "kann",
+      "sollte",
+      "bleibe",
+      "ziehe",
+      "nehme",
+      "bekäme",
+      "bekomme",
+      "hättest"
+    ],
+    "nonfinite": [
+      "gehabt",
+      "gespielt",
+      "sprechen",
+      "erwartet",
+      "spielen",
+      "lernen",
+      "schlafen",
+      "gelernt",
+      "gekommen",
+      "geworden",
+      "eingeschlafen",
+      "gewesen",
+      "gemacht",
+      "weinen",
+      "lachen",
+      "geschnitten",
+      "üben",
+      "fragen",
+      "sollen",
+      "bleiben"
+    ],
+    "accVerbs": [
+      "hätte",
+      "habe",
+      "würde",
+      "spiele",
+      "könnte",
+      "kann",
+      "ziehe",
+      "nehme",
+      "bekäme",
+      "bekomme",
+      "hättest"
+    ],
+    "adjectives": [
+      "grün",
+      "braun",
+      "grau"
+    ],
+    "subordinators": [
+      "als ob"
+    ]
+  },
+  "intro": [
+    {
+      "who": "vogel",
+      "type": "text",
+      "de": "Willkommen im Ensemble! Ich bin Vogel. Nur Vogel. Wie der Vogel. Aber mit Visionen.",
+      "emoji": "🎭",
+      "en": "Welcome to the ensemble! I’m Vogel. Just Vogel. Like the bird. But with visions.",
+      "audio": "mc_vogel_t1a"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Ich habe große Neuigkeiten: Du spielst einen Baum. Eine Eiche! Hinten links, neben dem Notausgang. Freust du dich?",
+          "emoji": "🌳",
+          "en": "I have big news: you’re playing a tree. An oak! At the back on the left, next to the emergency exit. Are you excited?",
+          "audio": "mc_vogel_t1b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "hätte",
+        "habe",
+        "wäre",
+        "würde",
+        "lieber",
+        "eine",
+        "einen",
+        "Sprechrolle",
+        "Text",
+        "gehabt",
+        "mehr",
+        "sprechen",
+        "freue",
+        "mich",
+        "sehr",
+        "kein",
+        "keinen",
+        "Baum",
+        "ein",
+        "Mensch",
+        "nicht"
+      ],
+      "wrong": {
+        "habe": {
+          "to": "hätte",
+          "note": "An unreal wish about the past: “Ich hätte lieber … gehabt”."
+        }
+      },
+      "intents": [
+        {
+          "id": "refuse",
+          "when": {
+            "any": [
+              "kein",
+              "keinen",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Nein? Kind, der Baum ist die schwerste Rolle. Drei Stunden stehen. Ohne Text. Ohne Pause. Mit Vögeln.",
+              "emoji": "😤",
+              "en": "No? Darling, the tree is the hardest role. Three hours standing. No lines. No break. With birds.",
+              "audio": "mc_vogel_t1_refuse"
+            }
+          ]
+        },
+        {
+          "id": "wishPast",
+          "when": {
+            "any": [
+              "gehabt"
+            ]
+          },
+          "value": 2,
+          "fact": "🔥 hat Ehrgeiz",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Du hättest lieber mehr gehabt? Herrlich! Ein Baum mit Ehrgeiz. Das hatte ich noch nie.",
+              "emoji": "🤩",
+              "en": "You’d rather have had more? Marvellous! A tree with ambition. I’ve never had that before.",
+              "audio": "mc_vogel_t1_wishpast"
+            }
+          ]
+        },
+        {
+          "id": "wish",
+          "when": {
+            "any": [
+              "würde",
+              "wäre",
+              "sprechen",
+              "sprechrolle",
+              "text",
+              "mensch"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Du willst mehr? Hm. Bäume sprechen nicht. Aber sie denken laut. Überzeug mich.",
+              "en": "You want more? Hm. Trees don’t speak. But they think out loud. Convince me.",
+              "audio": "mc_vogel_t1_wish"
+            }
+          ]
+        },
+        {
+          "id": "happy",
+          "when": {
+            "any": [
+              "freue",
+              "sehr"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Gut. Bäume freuen sich still. Sehr still. Noch stiller, bitte. Ich höre dein Blut.",
+              "emoji": "🤫",
+              "en": "Good. Trees are happy quietly. Very quietly. Even quieter, please. I can hear your blood.",
+              "audio": "mc_vogel_t1_happy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Zeig mir deinen Baum. Wie spielst du ihn? Ich will Wahrheit sehen!",
+          "emoji": "👁️",
+          "en": "Show me your tree. How do you play it? I want to see truth!",
+          "audio": "mc_vogel_t2a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "spiele",
+        "stehe",
+        "still",
+        "bewege",
+        "mich",
+        "langsam",
+        "als ob",
+        "ein",
+        "Baum",
+        "Wurzeln",
+        "hätte",
+        "habe",
+        "wäre",
+        "bin",
+        "hundert",
+        "Jahre",
+        "alt",
+        "Sturm",
+        "käme",
+        "kommt",
+        "tanze",
+        "Eichhörnchen"
+      ],
+      "wrong": {
+        "habe": {
+          "to": "hätte",
+          "note": "After “als ob”: Konjunktiv II (hätte)."
+        },
+        "bin": {
+          "to": "wäre",
+          "note": "After “als ob”: Konjunktiv II (wäre)."
+        },
+        "kommt": {
+          "to": "käme",
+          "note": "After “als ob”: Konjunktiv II (käme)."
+        }
+      },
+      "intents": [
+        {
+          "id": "squirrel",
+          "when": {
+            "any": [
+              "eichhörnchen"
+            ]
+          },
+          "value": 1,
+          "fact": "🐿️ träumt, ein Eichhörnchen zu sein",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Ein Eichhörnchen?! Du bist ein BAUM! … Moment. Ein Baum, der heimlich ein Eichhörnchen sein will. Das ist tragisch. Das ist groß. Notiert!",
+              "emoji": "🐿️",
+              "en": "A squirrel?! You’re a TREE! … Wait. A tree that secretly wants to be a squirrel. That’s tragic. That’s big. Noted!",
+              "audio": "mc_vogel_t2_squirrel"
+            }
+          ]
+        },
+        {
+          "id": "roots",
+          "when": {
+            "any": [
+              "wurzeln"
+            ]
+          },
+          "value": 2,
+          "fact": "🌳 spielt mit Wurzeln",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Wurzeln! Ja! Ich sehe sie! … Nein, ich sehe sie nicht. Aber ich glaube an sie.",
+              "emoji": "🌱",
+              "en": "Roots! Yes! I can see them! … No, I can’t see them. But I believe in them.",
+              "audio": "mc_vogel_t2_roots"
+            }
+          ]
+        },
+        {
+          "id": "storm",
+          "when": {
+            "any": [
+              "sturm"
+            ]
+          },
+          "value": 2,
+          "fact": "🌪️ zittert wie im Sturm",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Ein Sturm! Du zitterst! Das Publikum zittert! Ich zittere!",
+              "emoji": "🌪️",
+              "en": "A storm! You’re trembling! The audience is trembling! I’m trembling!",
+              "audio": "mc_vogel_t2_storm"
+            }
+          ]
+        },
+        {
+          "id": "old",
+          "when": {
+            "any": [
+              "alt",
+              "hundert"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Hundert Jahre alt. Schön. Aber eine Eiche ist dreihundert. Mehr Falten!",
+              "en": "A hundred years old. Nice. But an oak is three hundred. More wrinkles!",
+              "audio": "mc_vogel_t2_old"
+            }
+          ]
+        },
+        {
+          "id": "tree",
+          "when": {
+            "any": [
+              "baum"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Als ob du ein Baum wärst? Du BIST ein Baum. Aber gut. Das ist Methode.",
+              "en": "As if you were a tree? You ARE a tree. But fine. That’s method.",
+              "audio": "mc_vogel_t2_tree"
+            }
+          ]
+        },
+        {
+          "id": "dance",
+          "when": {
+            "any": [
+              "tanze"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Bäume tanzen nicht. Außer im Sturm. Und dann nur ein bisschen. Und nie Tango.",
+              "emoji": "💃",
+              "en": "Trees don’t dance. Except in a storm. And then only a little. And never the tango.",
+              "audio": "mc_vogel_t2_dance"
+            }
+          ]
+        },
+        {
+          "id": "still",
+          "when": {
+            "any": [
+              "still",
+              "langsam",
+              "bewege"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Still. Gut. Und WIE? Als ob was? Gib mir ein Bild!",
+              "en": "Still. Good. And HOW? As if what? Give me an image!",
+              "audio": "mc_vogel_t2_still"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Hör dir das an. Meine Sprachnachricht an das Ensemble von gestern.",
+          "emoji": "🎙️",
+          "en": "Listen to this. My voice message to the ensemble from yesterday.",
+          "audio": "mc_vogel_t3a"
+        },
+        {
+          "who": "vogel",
+          "type": "voice",
+          "audio": "mc_vogel_vn_probe",
+          "de": "Liebe Kolleginnen und Kollegen! Die Probe war eine Katastrophe! Der Stein ist eingeschlafen und hat geschnarcht. Der Wind hat seinen Text vergessen. Sein Text ist ein Wort: Huiii! Und der Förster ist wegen einer Erkältung nicht gekommen. Ich bin verzweifelt!",
+          "en": "Dear colleagues! The rehearsal was a disaster! The rock fell asleep and snored. The wind forgot its lines. Its lines are one word: Whooo! And the forester didn’t come because of a cold. I’m in despair!",
+          "direction": "Theatrical despair, half sobbing, half furious, in an echoing empty theatre; a long dramatic pause before “Ich bin verzweifelt!”."
+        },
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Ich habe Probleme. Hast du eine Idee?",
+          "en": "I have problems. Do you have an idea?",
+          "audio": "mc_vogel_t3b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "könnte",
+        "kann",
+        "den",
+        "der",
+        "Förster",
+        "Text",
+        "des",
+        "Windes",
+        "spielen",
+        "lernen",
+        "Stein",
+        "sollte",
+        "weniger",
+        "schlafen",
+        "bleibe",
+        "ein",
+        "Baum",
+        "gern"
+      ],
+      "wrong": {
+        "kann": {
+          "to": "könnte",
+          "note": "Not wrong, but blunt: an offer sounds better in Konjunktiv II, “Ich könnte …”."
+        }
+      },
+      "intents": [
+        {
+          "id": "forester",
+          "when": {
+            "any": [
+              "förster"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "forester"
+          ],
+          "fact": "🎭 will den Förster spielen",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Den Förster? Mit Text? … Du bist frech. Ich liebe frech. Vielleicht.",
+              "emoji": "😏",
+              "en": "The forester? With lines? … You’re cheeky. I love cheeky. Maybe.",
+              "audio": "mc_vogel_t3_forester"
+            }
+          ]
+        },
+        {
+          "id": "wind",
+          "when": {
+            "any": [
+              "windes"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "wind"
+          ],
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Den Text des Windes? Ein Wort. Huiii. Und er hat es vergessen. Du könntest es lernen. Hm.",
+              "emoji": "🌬️",
+              "en": "The wind’s lines? One word. Whooo. And it forgot it. You could learn it. Hm.",
+              "audio": "mc_vogel_t3_wind"
+            }
+          ]
+        },
+        {
+          "id": "stone",
+          "when": {
+            "any": [
+              "stein",
+              "schlafen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Der Stein schläft immer. Das ist seine Methode. Seit 1994. Er hat dafür einen Preis bekommen.",
+              "emoji": "🪨",
+              "en": "The rock always sleeps. That’s his method. Since 1994. He won an award for it.",
+              "audio": "mc_vogel_t3_stone"
+            }
+          ]
+        },
+        {
+          "id": "stay",
+          "when": {
+            "any": [
+              "bleibe",
+              "baum"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Du bleibst ein Baum? Bescheiden. Und langweilig.",
+              "emoji": "🥱",
+              "en": "You’ll stay a tree? Modest. And boring.",
+              "audio": "mc_vogel_t3_stay"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Interessant. Aber sag mir: Was hättest du gestern anders gemacht?",
+          "en": "Interesting. But tell me: what would you have done differently yesterday?",
+          "audio": "mc_vogel_t4a"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "ich",
+        "ich",
+        "hätte",
+        "wäre",
+        "wäre",
+        "meinen",
+        "mein",
+        "Text",
+        "gelernt",
+        "pünktlich",
+        "gekommen",
+        "nicht",
+        "krank",
+        "geworden",
+        "eingeschlafen",
+        "der",
+        "Förster",
+        "gewesen",
+        "alles",
+        "besser",
+        "gemacht",
+        "auch"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "asleep",
+          "when": {
+            "any": [
+              "eingeschlafen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Auch eingeschlafen? Wie der Stein? Dann spielst du den Stein. Er hat ein Kissen.",
+              "emoji": "😴",
+              "en": "Fallen asleep too? Like the rock? Then you’ll play the rock. He has a pillow.",
+              "audio": "mc_vogel_t4_asleep"
+            }
+          ]
+        },
+        {
+          "id": "learned",
+          "when": {
+            "any": [
+              "gelernt"
+            ]
+          },
+          "value": 2,
+          "fact": "📜 lernt Text",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Den Text gelernt! Revolutionär. In diesem Theater lernt niemand Text. Der Wind hat einen Zettel. Für ein Wort.",
+              "emoji": "📜",
+              "en": "Learned the lines! Revolutionary. Nobody in this theatre learns their lines. The wind has a cue card. For one word.",
+              "audio": "mc_vogel_t4_learned"
+            }
+          ]
+        },
+        {
+          "id": "punctual",
+          "when": {
+            "any": [
+              "pünktlich"
+            ]
+          },
+          "value": 2,
+          "fact": "⏰ kommt pünktlich",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Pünktlich! Ein pünktlicher Schauspieler? Das gibt es nicht. Das ist Science-Fiction. Ich brauche einen Stuhl.",
+              "emoji": "⏰",
+              "en": "On time! A punctual actor? There’s no such thing. That’s science fiction. I need a chair.",
+              "audio": "mc_vogel_t4_punctual"
+            }
+          ]
+        },
+        {
+          "id": "notSick",
+          "when": {
+            "any": [
+              "krank",
+              "geworden"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Nicht krank geworden. Gesundheit als Kunstform. Bravo.",
+              "en": "Not fallen ill. Health as an art form. Bravo.",
+              "audio": "mc_vogel_t4_notsick"
+            }
+          ]
+        },
+        {
+          "id": "better",
+          "when": {
+            "any": [
+              "besser",
+              "alles",
+              "gemacht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Alles besser. Das sagen alle. Konkret, bitte! Konkret!",
+              "en": "Everything better. Everyone says that. Specifics, please! Specifics!",
+              "audio": "mc_vogel_t4_better"
+            }
+          ]
+        },
+        {
+          "id": "forester",
+          "when": {
+            "any": [
+              "förster"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Du wärst der Förster gewesen? Ehrgeiz! Aber ein Förster muss auch kommen. Konkret!",
+              "emoji": "🧐",
+              "en": "You’d have been the forester? Ambition! But a forester also has to turn up. Specifics!",
+              "audio": "mc_vogel_t4_forester"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Der Förster weint im dritten Akt. Kannst du weinen? Auf Kommando?",
+          "emoji": "😢",
+          "en": "The forester cries in act three. Can you cry? On command?",
+          "audio": "mc_vogel_t5a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "kann",
+        "könnte",
+        "weinen",
+        "lachen",
+        "als ob",
+        "Zwiebeln",
+        "geschnitten",
+        "hätte",
+        "habe",
+        "mein",
+        "Handy",
+        "kaputt",
+        "wäre",
+        "ist",
+        "nicht",
+        "sofort"
+      ],
+      "wrong": {
+        "habe": {
+          "to": "hätte",
+          "note": "After “als ob”: Konjunktiv II (hätte … geschnitten)."
+        },
+        "ist": {
+          "to": "wäre",
+          "note": "After “als ob”: Konjunktiv II (wäre)."
+        }
+      },
+      "intents": [
+        {
+          "id": "onions",
+          "when": {
+            "any": [
+              "zwiebeln"
+            ]
+          },
+          "value": 2,
+          "fact": "😭 weint auf Kommando",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Zwiebeln! Ich weine auch! Das ist echte Kunst. Oder echte Zwiebeln.",
+              "emoji": "🧅",
+              "en": "Onions! I’m crying too! That’s real art. Or real onions.",
+              "audio": "mc_vogel_t5_onions"
+            }
+          ]
+        },
+        {
+          "id": "phone",
+          "when": {
+            "any": [
+              "handy"
+            ]
+          },
+          "value": 2,
+          "fact": "😭 weint auf Kommando",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Als ob dein Handy kaputt wäre. Ja. Die tiefste Trauer unserer Zeit.",
+              "emoji": "📱",
+              "en": "As if your phone were broken. Yes. The deepest grief of our age.",
+              "audio": "mc_vogel_t5_phone"
+            }
+          ]
+        },
+        {
+          "id": "cannot",
+          "when": {
+            "any": [
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Nicht? Ein Förster ohne Tränen ist wie ein Baum ohne Blätter.",
+              "emoji": "🍂",
+              "en": "No? A forester without tears is like a tree without leaves.",
+              "audio": "mc_vogel_t5_cannot"
+            }
+          ]
+        },
+        {
+          "id": "laugh",
+          "when": {
+            "any": [
+              "lachen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Lachen? Der Förster lacht nicht. Er hat Borkenkäfer.",
+              "emoji": "🪲",
+              "en": "Laugh? The forester doesn’t laugh. He has bark beetles.",
+              "audio": "mc_vogel_t5_laugh"
+            }
+          ]
+        },
+        {
+          "id": "cry",
+          "when": {
+            "any": [
+              "weinen",
+              "sofort"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Weinen. Gut. Aber wie? Als ob was?",
+              "en": "Cry. Good. But how? As if what?",
+              "audio": "mc_vogel_t5_cry"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Unsere Kostüme. Schau.",
+          "emoji": "👗",
+          "en": "Our costumes. Look.",
+          "audio": "mc_vogel_t6a"
+        },
+        {
+          "who": "vogel",
+          "type": "photo",
+          "image": "match_vogel_kostueme",
+          "wide": true,
+          "alt": "Drei Kostüme an einer Stange. Links: ein grünes Kostüm mit einem Hut mit Feder. In der Mitte: ein braunes Baumkostüm mit Ästen. Rechts: ein graues, rundes Steinkostüm mit einem Kissen."
+        },
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Welches Kostüm ziehst du an?",
+          "en": "Which costume are you putting on?",
+          "audio": "mc_vogel_t6b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ziehe",
+        "nehme",
+        "das",
+        "den",
+        "Kostüm",
+        "an",
+        "links",
+        "rechts",
+        "in der Mitte",
+        "grüne",
+        "grünen",
+        "braune",
+        "graue",
+        "mit",
+        "dem",
+        "Hut"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "forester",
+          "when": {
+            "any": [
+              "links",
+              "grüne",
+              "grünen",
+              "hut"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 trägt den Försterhut",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Das Försterkostüm! Mit Hut! Du ziehst es an, als ob es dir schon gehörte. Mutig.",
+              "emoji": "🎩",
+              "en": "The forester’s costume! With the hat! You put it on as if it already belonged to you. Bold.",
+              "audio": "mc_vogel_t6_forester"
+            }
+          ]
+        },
+        {
+          "id": "tree",
+          "when": {
+            "any": [
+              "in der mitte",
+              "braune"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Zurück zum Baum? Feigling. Aber ein bequemer Feigling.",
+              "en": "Back to the tree? Coward. But a comfortable coward.",
+              "audio": "mc_vogel_t6_tree"
+            }
+          ]
+        },
+        {
+          "id": "stone",
+          "when": {
+            "any": [
+              "rechts",
+              "graue"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Der Stein! Ohne Text, aber mit Kissen. Willst du schlafen?",
+              "emoji": "🪨",
+              "en": "The rock! No lines, but a pillow. Do you want to sleep?",
+              "audio": "mc_vogel_t6_stone"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "kostüm"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Welches? Ich habe drei! Entscheide dich wie ein Künstler!",
+              "en": "Which one? I have three! Decide like an artist!",
+              "audio": "mc_vogel_t6_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Letzte Frage vor der Premiere. Der Hund des Intendanten will die Rolle auch. Er hat schon vorgesprochen. Er hat gebellt. Es war … nicht schlecht. Warum sollte ich sie dir geben?",
+          "emoji": "🐕",
+          "en": "Last question before the premiere. The artistic director’s dog wants the role too. He has already auditioned. He barked. It was … not bad. Why should I give it to you?",
+          "audio": "mc_vogel_t7a"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "ich",
+        "ich",
+        "die",
+        "Rolle",
+        "bekäme",
+        "bekomme",
+        "würde",
+        "jeden Tag",
+        "üben",
+        "ohne",
+        "mich",
+        "wäre",
+        "das",
+        "Stück",
+        "langweilig",
+        "weil",
+        "gut",
+        "bin",
+        "du",
+        "hättest",
+        "fragen",
+        "sollen",
+        "gestern"
+      ],
+      "wrong": {
+        "bekomme": {
+          "to": "bekäme",
+          "note": "An unreal condition: Konjunktiv II “bekäme” (or “würde … bekommen”)."
+        }
+      },
+      "intents": [
+        {
+          "id": "without",
+          "when": {
+            "any": [
+              "ohne"
+            ]
+          },
+          "value": 2,
+          "fact": "💎 ist unverzichtbar",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Ohne dich wäre das Stück langweilig? Arrogant. Und wahr. Vielleicht.",
+              "emoji": "😮",
+              "en": "Without you the play would be boring? Arrogant. And true. Maybe.",
+              "audio": "mc_vogel_t7_without"
+            }
+          ]
+        },
+        {
+          "id": "practise",
+          "when": {
+            "any": [
+              "üben"
+            ]
+          },
+          "value": 2,
+          "fact": "🎭 übt jeden Tag",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Jeden Tag üben? Der Hund übt nie. Er bellt nur und frisst die Requisiten. Du machst mir Angst. Gute Angst.",
+              "emoji": "🫣",
+              "en": "Practise every day? The dog never practises. He just barks and eats the props. You’re scaring me. Good scared.",
+              "audio": "mc_vogel_t7_practise"
+            }
+          ]
+        },
+        {
+          "id": "shouldHave",
+          "when": {
+            "any": [
+              "sollen",
+              "hättest",
+              "fragen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Ich hätte dich fragen sollen? Frech! … Aber ja. Ja, das hätte ich.",
+              "en": "I should have asked you? Cheeky! … But yes. Yes, I should have.",
+              "audio": "mc_vogel_t7_shouldhave"
+            }
+          ]
+        },
+        {
+          "id": "because",
+          "when": {
+            "any": [
+              "weil",
+              "gut"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Weil du gut bist. Das sagt der Hund auch. Auf seine Art. Beweise es!",
+              "en": "Because you’re good. The dog says so too. In his way. Prove it!",
+              "audio": "mc_vogel_t7_because"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Premiere. Licht an. Der Förster steht im Wald. Das Publikum hält den Atem an.",
+          "emoji": "🎬",
+          "en": "Premiere. Lights up. The forester stands in the forest. The audience holds its breath.",
+          "audio": "mc_vogel_t8a"
+        },
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Moment. Was ist das? Der Stein ist aufgewacht. Zum ersten Mal seit 1994. Er steht neben dir. Er hat auch einen Hut.",
+          "emoji": "😳",
+          "en": "Wait. What’s that? The rock has woken up. For the first time since 1994. He’s standing next to you. He has a hat too.",
+          "audio": "mc_vogel_t8c"
+        },
+        {
+          "who": "vogel",
+          "type": "text",
+          "de": "Dein erster Satz. Jetzt! Bevor ER etwas sagt!",
+          "en": "Your first line. Now! Before HE says something!",
+          "audio": "mc_vogel_t8b"
+        }
+      ],
+      "tiles": [
+        "trotz",
+        "des",
+        "dem",
+        "Sturms",
+        "Sturm",
+        "bleibe",
+        "ich",
+        "ich",
+        "im",
+        "Wald",
+        "wenn",
+        "ein",
+        "Baum",
+        "wäre",
+        "würde",
+        "hier",
+        "bleiben",
+        "bin",
+        "huiii",
+        "Steins",
+        "Stein"
+      ],
+      "wrong": {
+        "Sturm": {
+          "to": "Sturms",
+          "note": "Genitive after “trotz”: des Sturms."
+        },
+        "Stein": {
+          "to": "Steins",
+          "note": "Genitive after “trotz”: des Steins."
+        }
+      },
+      "intents": [
+        {
+          "id": "iAmTree",
+          "when": {
+            "all": [
+              "bin",
+              "baum"
+            ],
+            "none": [
+              "wäre",
+              "wenn"
+            ]
+          },
+          "value": -2,
+          "cause": "tree",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Du bist WAS?! Der Förster sagt nicht „Ich bin ein Baum“! Der Stein lacht! Der STEIN! Er hat seit 1994 nicht gelacht!",
+              "emoji": "😱",
+              "en": "You’re WHAT?! The forester doesn’t say “I am a tree”! The rock is laughing! The ROCK! He hasn’t laughed since 1994!",
+              "audio": "mc_vogel_t8_tree"
+            }
+          ]
+        },
+        {
+          "id": "stone",
+          "when": {
+            "any": [
+              "steins",
+              "stein"
+            ]
+          },
+          "value": 2,
+          "fact": "🪨 lässt sich vom Stein nicht stören",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Trotz des Steins! Du siehst ihn nicht einmal an! Der Stein legt sich beleidigt wieder hin und schnarcht. Das Publikum tobt!",
+              "emoji": "🪨",
+              "en": "Despite the rock! You don’t even look at him! The rock lies back down in a huff and snores. The audience goes wild!",
+              "audio": "mc_vogel_t8_stone"
+            }
+          ]
+        },
+        {
+          "id": "storm",
+          "when": {
+            "any": [
+              "trotz",
+              "sturms",
+              "sturm"
+            ]
+          },
+          "value": 2,
+          "fact": "🌩️ spielt mit Gefühl",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Trotz des Sturms! Gänsehaut! Das Publikum steht auf! Ich weine. Ohne Zwiebeln!",
+              "emoji": "👏",
+              "en": "Despite the storm! Goosebumps! The audience is on its feet! I’m crying. Without onions!",
+              "audio": "mc_vogel_t8_storm"
+            }
+          ]
+        },
+        {
+          "id": "ifTree",
+          "when": {
+            "any": [
+              "wäre",
+              "wenn"
+            ]
+          },
+          "value": 2,
+          "fact": "🌩️ spielt mit Gefühl",
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Wenn ich ein Baum wäre … Sie lachen, sie weinen. Beides! Genial!",
+              "emoji": "👏",
+              "en": "If I were a tree … They’re laughing, they’re crying. Both! Genius!",
+              "audio": "mc_vogel_t8_iftree"
+            }
+          ]
+        },
+        {
+          "id": "wind",
+          "when": {
+            "any": [
+              "huiii"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Huiii? Das ist der Text des Windes! Der Wind steht auf und geht. Er hat gekündigt. Das Publikum liebt es.",
+              "emoji": "🌬️",
+              "en": "Whooo? That’s the wind’s line! The wind gets up and leaves. He has quit. The audience loves it.",
+              "audio": "mc_vogel_t8_wind"
+            }
+          ]
+        },
+        {
+          "id": "stay",
+          "when": {
+            "any": [
+              "bleibe",
+              "wald",
+              "hier"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "vogel",
+              "type": "text",
+              "de": "Ich bleibe im Wald. Schlicht. Stark. Das Publikum nickt.",
+              "en": "I’m staying in the forest. Simple. Strong. The audience nods.",
+              "audio": "mc_vogel_t8_stay"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "vogel",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Konzentration! Wir sind im Theater, nicht im Café.",
+    "en": "That wasn’t my question. Concentrate! We’re in a theatre, not a café.",
+    "audio": "mc_vogel_offtopic"
+  },
+  "confused": [
+    {
+      "who": "vogel",
+      "type": "text",
+      "de": "Wie bitte? Deutlicher! Die letzte Reihe hört nichts!",
+      "emoji": "📢",
+      "en": "Pardon? Clearer! The back row can’t hear a thing!",
+      "audio": "mc_vogel_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "vogel",
+        "type": "text",
+        "de": "Bravo, {name}! Ab morgen spielst du den Förster. Mit Text. Mit Hut.",
+        "emoji": "🎩",
+        "en": "Bravo, {name}! From tomorrow you play the forester. With lines. With the hat."
+      },
+      {
+        "who": "vogel",
+        "type": "text",
+        "de": "Und der Baum? Den spielt jetzt der Stein. Er schläft sowieso. Der Hund spielt den Borkenkäfer und ist sehr glücklich.",
+        "emoji": "🌳",
+        "en": "And the tree? The rock plays it now. He sleeps anyway. The dog plays the bark beetle and is very happy.",
+        "audio": "mc_vogel_win2"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "vogel",
+        "type": "text",
+        "de": "Gut. Du bekommst eine Sprechrolle. Ein Wort. Du bist der Wind. Huiii. Den Förster spielt der Hund.",
+        "emoji": "🌬️",
+        "en": "Fine. You get a speaking role. One word. You’re the wind. Whooo. The dog plays the forester.",
+        "audio": "mc_vogel_partial"
+      }
+    ],
+    "deleted": {
+      "tree": {
+        "who": "vogel",
+        "type": "text",
+        "de": "Du bleibst ein Baum. Für immer. Im Lager, hinter der Bühne. Tschüss.",
+        "emoji": "🪵",
+        "en": "You stay a tree. Forever. In the storeroom, backstage. Bye.",
+        "audio": "mc_vogel_del_tree"
+      },
+      "confused": {
+        "who": "vogel",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich verstehe sogar absurdes Theater. Tschüss.",
+        "en": "I don’t understand you. And I even understand absurdist theatre. Bye.",
+        "audio": "mc_vogel_del_confused"
+      },
+      "default": {
+        "who": "vogel",
+        "type": "text",
+        "de": "Hm. Du bist kein Förster. Du bist nicht einmal ein guter Baum. Der Hund bekommt die Rolle. Tschüss.",
+        "en": "Hm. You’re no forester. You’re not even a good tree. The dog gets the role. Bye.",
+        "audio": "mc_vogel_del_default"
+      }
+    },
+    "sunday": {
+      "who": "vogel",
+      "type": "voice",
+      "audio": "mc_vogel_vn_sunday",
+      "de": "Vogel hier. Sonntag, keine Probe. Ich sitze im Park unter einer Eiche und denke an dich. Sie spielt den Baum wirklich gut. Fast so gut wie du damals.",
+      "en": "Vogel here. Sunday, no rehearsal. I’m sitting in the park under an oak and thinking of you. It plays the tree really well. Almost as well as you did back then.",
+      "direction": "Calm and dreamy for once, birds and wind in leaves around her, a soft fond laugh at the end."
+    }
+  },
+  "partialTitle": "Du bist jetzt der Wind.",
+  "share": {
+    "win": "Regisseurin Vogel hat mich geliked 🎭 Ich spiele nicht mehr den Baum, sondern den Förster. Mit Text! Mein Deutsch: {score}/100. Schaffst du die Sprechrolle? {url}",
+    "partial": "Ich habe eine Sprechrolle bekommen … ein Wort: Huiii 🌬️ Den Förster spielt jetzt ein Hund. Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Regisseurin Vogel hat mich gelöscht 💔 Ich bleibe ein Baum. Im Lager. Die Rolle hat ein Hund bekommen. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Regisseurin Vogel, a 54-year-old theatre director with a wild silver-grey mane of hair, huge round red glasses, a long flowing black coat over a mustard turtleneck, a long knitted scarf wrapped three times around her neck, expressive hands always mid-gesture.",
+  "imagePrompts": [
+    {
+      "id": "match_vogel",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands on an empty theatre stage under a single spotlight, one arm flung up dramatically, pointing at the viewer as if casting them. Behind her, a few cardboard trees and a red velvet curtain. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_vogel_kostueme",
+      "aspect": "16:9",
+      "prompt": "A theatre costume rail seen exactly from the front like a stage set, flat, no perspective, against a plain dark wall. Exactly THREE costumes hang far apart on the rail. LEFT: a bright green forester’s jacket with a green hat with a feather hanging above it. MIDDLE: a big brown tree costume with branches sticking out and a few leaves. RIGHT: a round, lumpy grey rock costume with a small white pillow pinned to it. Nothing else on the rail. No writing or labels anywhere."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich hätte lieber eine Sprechrolle gehabt.",
+      "intent": "wishPast",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe lieber eine Sprechrolle gehabt.",
+      "intent": "wishPast",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hätte lieber mehr Text gehabt.",
+      "intent": "wishPast",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich würde lieber sprechen.",
+      "intent": "wish",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich wäre lieber ein Mensch.",
+      "intent": "wish",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich wäre lieber einen Mensch.",
+      "intent": "wish",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich freue mich sehr.",
+      "intent": "happy",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich wäre lieber kein Baum.",
+      "intent": "refuse",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich freue mich nicht.",
+      "score": 100,
+      "intent": "refuse",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich wäre der Förster gewesen.",
+      "score": 100,
+      "intent": "forester",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich lieber Text.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stehe still, als ob ich Wurzeln hätte.",
+      "intent": "roots",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stehe still, als ob ich Wurzeln habe.",
+      "intent": "roots",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich bewege mich langsam, als ob ein Sturm käme.",
+      "intent": "storm",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich spiele, als ob ich hundert Jahre alt wäre.",
+      "intent": "old",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich spiele, als ob ich ein Baum wäre.",
+      "intent": "tree",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich spiele, als ob ich ein Baum bin.",
+      "intent": "tree",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich tanze.",
+      "intent": "dance",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stehe still.",
+      "intent": "still",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich könnte den Förster spielen.",
+      "intent": "forester",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich könnte der Förster spielen.",
+      "intent": "forester",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich kann den Förster spielen.",
+      "intent": "forester",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich könnte den Text des Windes lernen.",
+      "intent": "wind",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Stein sollte weniger schlafen.",
+      "intent": "stone",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich bleibe gern ein Baum.",
+      "intent": "stay",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich der Förster gewesen wäre, wäre ich pünktlich gekommen.",
+      "intent": "punctual",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich hätte meinen Text gelernt.",
+      "intent": "learned",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich hätte mein Text gelernt.",
+      "intent": "learned",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich wäre nicht krank geworden.",
+      "intent": "notSick",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich hätte alles besser gemacht.",
+      "intent": "better",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich wäre auch eingeschlafen.",
+      "intent": "asleep",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich hätte gelernt meinen Text.",
+      "intent": "learned",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kann weinen, als ob ich Zwiebeln geschnitten hätte.",
+      "intent": "onions",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kann weinen, als ob ich Zwiebeln geschnitten habe.",
+      "intent": "onions",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich könnte weinen, als ob mein Handy kaputt wäre.",
+      "intent": "phone",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kann sofort weinen.",
+      "intent": "cry",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kann nicht weinen.",
+      "intent": "cannot",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich könnte lachen.",
+      "intent": "laugh",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich ziehe das grüne Kostüm mit dem Hut an.",
+      "intent": "forester",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich ziehe das grünen Kostüm an.",
+      "intent": "forester",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich nehme das Kostüm links.",
+      "intent": "forester",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Das braune Kostüm.",
+      "intent": "tree",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich ziehe das graue Kostüm an.",
+      "intent": "stone",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Das Kostüm.",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich die Rolle bekäme, würde ich jeden Tag üben.",
+      "intent": "practise",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich die Rolle bekomme, würde ich jeden Tag üben.",
+      "intent": "practise",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ohne mich wäre das Stück langweilig.",
+      "intent": "without",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Du hättest mich gestern fragen sollen.",
+      "intent": "shouldHave",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Weil ich gut bin.",
+      "intent": "because",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich gut.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Trotz des Sturms bleibe ich im Wald.",
+      "intent": "storm",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Trotz dem Sturm bleibe ich im Wald.",
+      "intent": "storm",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Wenn ich ein Baum wäre, würde ich hier bleiben.",
+      "intent": "ifTree",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bleibe im Wald.",
+      "intent": "stay",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Huiii.",
+      "intent": "wind",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bin ein Baum.",
+      "intent": "iAmTree",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe lieber eine Sprechrolle gehabt.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Ich lieber Text.",
+      "score": 50
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stehe still, als ob ich Wurzeln hätte.",
+      "score": 100
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stehe still, als ob ich hätte Wurzeln.",
+      "score": 70
+    },
+    {
+      "turn": "t3",
+      "say": "Ich könnte der Förster spielen.",
+      "score": 85
+    },
+    {
+      "turn": "t3",
+      "say": "Ich könnte spielen den Förster.",
+      "score": 70
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich der Förster gewesen wäre, wäre ich pünktlich gekommen.",
+      "score": 100
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich der Förster gewesen wäre, ich wäre pünktlich gekommen.",
+      "score": 70
+    },
+    {
+      "turn": "t5",
+      "say": "Ich könnte weinen, als ob mein Handy kaputt ist.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Ich ziehe das grünen Kostüm an.",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich die Rolle bekäme, würde ich jeden Tag üben.",
+      "score": 100
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich bekäme die Rolle, würde ich jeden Tag üben.",
+      "score": 70
+    },
+    {
+      "turn": "t8",
+      "say": "Trotz dem Sturm bleibe ich im Wald.",
+      "score": 70
+    },
+    {
+      "turn": "t8",
+      "say": "Trotz des Sturms ich bleibe im Wald.",
+      "score": 70
+    },
+    {
+      "turn": "t2",
+      "say": "Ich bewege mich, als ob ich ein Eichhörnchen wäre.",
+      "intent": "squirrel",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich bewege mich, als ob ich ein Eichhörnchen bin.",
+      "intent": "squirrel",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Trotz des Steins bleibe ich im Wald.",
+      "score": 100,
+      "intent": "stone",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Trotz dem Stein bleibe ich im Wald.",
+      "intent": "stone",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich hätte lieber eine Sprechrolle gehabt."
+        ],
+        [
+          "t2",
+          "Ich stehe still, als ob ich Wurzeln hätte."
+        ],
+        [
+          "t3",
+          "Ich könnte den Förster spielen."
+        ],
+        [
+          "t4",
+          "Ich hätte meinen Text gelernt."
+        ],
+        [
+          "t5",
+          "Ich kann weinen, als ob ich Zwiebeln geschnitten hätte."
+        ],
+        [
+          "t6",
+          "Ich ziehe das grüne Kostüm mit dem Hut an."
+        ],
+        [
+          "t7",
+          "Ohne mich wäre das Stück langweilig."
+        ],
+        [
+          "t8",
+          "Trotz des Sturms bleibe ich im Wald."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich freue mich nicht."
+        ],
+        [
+          "t2",
+          "Ich tanze."
+        ],
+        [
+          "t3",
+          "Ich könnte den Text des Windes lernen."
+        ],
+        [
+          "t4",
+          "Ich wäre auch eingeschlafen."
+        ],
+        [
+          "t5",
+          "Ich könnte lachen."
+        ],
+        [
+          "t6",
+          "Das braune Kostüm."
+        ],
+        [
+          "t7",
+          "Ich gut."
+        ],
+        [
+          "t8",
+          "Huiii."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich freue mich nicht."
+        ],
+        [
+          "t2",
+          "Ich tanze."
+        ],
+        [
+          "t3",
+          "Ich bleibe gern ein Baum."
+        ],
+        [
+          "t4",
+          "Ich wäre auch eingeschlafen."
+        ],
+        [
+          "t5",
+          "Ich kann nicht weinen."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1732 @@
+{
+  "id": "eigentuemer",
+  "name": "Frau Dr. Wendt",
+  "age": 63,
+  "emoji": "📋",
+  "image": "match_eigentuemer",
+  "level": "B2.1",
+  "order": 3,
+  "bio": "Punkt 14: das Fahrrad im Flur.",
+  "bioEn": "Item 14: the bike in the hallway.",
+  "goal": "Keep your bike in the hallway.",
+  "tagline": "Beiratsvorsitzende · 63 · Hausnummer 12",
+  "voice": "Aoede",
+  "brief": "Frau Dr. Wendt, 63, chair of the owners' association: a crisp, precise, very formal female voice that chairs every meeting like a court hearing, dry and unimpressed, with a soft spot for her enormous hallway plant; she dictates everything \"für das Protokoll\".",
+  "focus": "Passiv mit Modalverb · Zustandspassiv · formelles Argumentieren · Konjunktiv I im Protokoll",
+  "lexicon": {
+    "nouns": {
+      "Fahrrad": "n",
+      "Nachbarn": "m",
+      "Flur": "m",
+      "Gegenstände": "pl",
+      "Kinderwagen": "pl",
+      "Haustür": "f",
+      "Fahrradkeller": "m",
+      "Mai": "m",
+      "Einwände": "pl",
+      "Pflanze": "f",
+      "Schuhe": "pl",
+      "Fahrradständer": "m",
+      "Hof": "m",
+      "Wand": "f",
+      "Verständnis": "n",
+      "Dank": "m",
+      "Hund": "m",
+      "Monstera": "f"
+    },
+    "names": [
+      "Ihr"
+    ],
+    "verbs": [
+      "ist",
+      "gehört",
+      "stört",
+      "störe",
+      "dürfen",
+      "darf",
+      "müssen",
+      "muss",
+      "sind",
+      "steht",
+      "stehen",
+      "sagt",
+      "habe",
+      "hat",
+      "sei",
+      "schläft",
+      "könnte",
+      "kann",
+      "bedanke",
+      "würde",
+      "bleibt"
+    ],
+    "nonfinite": [
+      "abgeschlossen",
+      "abgestellt",
+      "werden",
+      "worden",
+      "erlaubt",
+      "gesperrt",
+      "überflutet",
+      "aufgestellt",
+      "repariert",
+      "entfernt",
+      "gehängt",
+      "freuen",
+      "gestellt"
+    ],
+    "accVerbs": [],
+    "datVerbs": [
+      "gehört"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "eigentuemer",
+      "type": "text",
+      "de": "Guten Abend. Eigentümerversammlung. Ich bin Frau Doktor Wendt. Ich leite die Sitzung.",
+      "emoji": "📋",
+      "en": "Good evening. Owners' meeting. I am Dr Wendt. I am chairing the meeting.",
+      "audio": "mc_eigentuemer_intro_a"
+    },
+    {
+      "who": "eigentuemer",
+      "type": "text",
+      "de": "Punkt 13 war die Farbe der Mülltonnen. Grau. Wie immer. Die Diskussion hat vier Stunden gedauert.",
+      "en": "Item 13 was the colour of the bins. Grey. As always. The discussion took four hours.",
+      "audio": "mc_eigentuemer_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Punkt 14: das Fahrrad im Flur. Ist das Ihr Fahrrad?",
+          "emoji": "🚲",
+          "en": "Item 14: the bike in the hallway. Is that your bike?",
+          "audio": "mc_eigentuemer_t1a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "das",
+        "ist",
+        "ist",
+        "mein",
+        "Fahrrad",
+        "es",
+        "es",
+        "abgeschlossen",
+        "gehört",
+        "meinem",
+        "meinen",
+        "Nachbarn",
+        "Frau Doktor Wendt",
+        "und",
+        "stört",
+        "niemanden",
+        "Hund"
+      ],
+      "wrong": {
+        "meinen": {
+          "to": "meinem",
+          "note": "gehören takes the dative: meinem Nachbarn."
+        }
+      },
+      "intents": [
+        {
+          "id": "dog",
+          "when": {
+            "any": [
+              "hund"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "denied"
+          ],
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Ihrem Hund. Ihr Hund reicht nicht bis zu den Pedalen. Ich habe ihn gemessen. Gestern. Er war sehr kooperativ.",
+              "emoji": "🐕",
+              "en": "Your dog’s. Your dog can’t reach the pedals. I measured him. Yesterday. He was very cooperative.",
+              "audio": "mc_eigentuemer_t1_dog"
+            }
+          ]
+        },
+        {
+          "id": "denied",
+          "when": {
+            "any": [
+              "nachbarn",
+              "nein"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "denied"
+          ],
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Nicht Ihr Fahrrad? Interessant. Auf dem Sattel steht Ihr Name.",
+              "en": "Not your bike? Interesting. Your name is on the saddle.",
+              "audio": "mc_eigentuemer_t1_denied"
+            }
+          ]
+        },
+        {
+          "id": "locked",
+          "when": {
+            "any": [
+              "abgeschlossen"
+            ]
+          },
+          "value": 2,
+          "fact": "🔒 schließt immer ab",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Abgeschlossen. Immerhin. Das wird protokolliert.",
+              "emoji": "🔒",
+              "en": "Locked. At least. That will be minuted.",
+              "audio": "mc_eigentuemer_t1_locked"
+            }
+          ]
+        },
+        {
+          "id": "quiet",
+          "when": {
+            "any": [
+              "stört"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Es stört niemanden? Mich stört es. Ich bin jemand.",
+              "en": "It doesn't bother anyone? It bothers me. I am someone.",
+              "audio": "mc_eigentuemer_t1_quiet"
+            }
+          ]
+        },
+        {
+          "id": "mine",
+          "when": {
+            "any": [
+              "mein",
+              "ja"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Gut. Ehrlichkeit wird protokolliert.",
+              "en": "Good. Honesty will be minuted.",
+              "audio": "mc_eigentuemer_t1_mine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Ich zitiere die Hausordnung.",
+          "emoji": "📜",
+          "en": "I quote the house rules.",
+          "audio": "mc_eigentuemer_t2a"
+        },
+        {
+          "who": "eigentuemer",
+          "type": "photo",
+          "image": "match_eigentuemer_rules",
+          "overlay": [
+            "HAUSORDNUNG",
+            "§ 7  Im Flur dürfen keine Gegenstände abgestellt werden.",
+            "§ 8  Kinderwagen und Rollatoren sind erlaubt.",
+            "§ 9  Die Haustür muss ab 22 Uhr abgeschlossen werden."
+          ],
+          "alt": "Die Hausordnung: Paragraf 7: Im Flur dürfen keine Gegenstände abgestellt werden. Paragraf 8: Kinderwagen und Rollatoren sind erlaubt. Paragraf 9: Die Haustür muss ab 22 Uhr abgeschlossen werden."
+        },
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Herr Kowalski ist kurz aufgewacht. Seine Brille liegt im Flur. Natürlich im Flur. Erklären Sie ihm: Was steht in Paragraf 7?",
+          "en": "Herr Kowalski has briefly woken up. His glasses are in the hallway. Of course they’re in the hallway. Explain to him: what does paragraph 7 say?",
+          "audio": "mc_eigentuemer_t2b"
+        }
+      ],
+      "tiles": [
+        "im",
+        "Flur",
+        "dürfen",
+        "darf",
+        "keine",
+        "Gegenstände",
+        "nichts",
+        "abgestellt",
+        "werden",
+        "worden",
+        "müssen",
+        "Kinderwagen",
+        "sind",
+        "erlaubt",
+        "die",
+        "Haustür",
+        "muss",
+        "abgeschlossen"
+      ],
+      "wrong": {
+        "worden": {
+          "to": "werden",
+          "note": "Passive with a modal verb: participle + werden (darf abgestellt werden)."
+        }
+      },
+      "intents": [
+        {
+          "id": "mustWrong",
+          "when": {
+            "any": [
+              "müssen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Müssen? Nein! Da steht: Es darf nichts abgestellt werden. Sonst steht hier bald ein Klavier.",
+              "emoji": "🎹",
+              "en": "Must? No! It says: nothing may be left there. Otherwise there will soon be a piano here.",
+              "audio": "mc_eigentuemer_t2_mustwrong"
+            }
+          ]
+        },
+        {
+          "id": "rule",
+          "when": {
+            "any": [
+              "abgestellt"
+            ]
+          },
+          "value": 2,
+          "fact": "📜 liest die Hausordnung",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Korrekt. Im Flur darf nichts abgestellt werden. Nichts. Auch nichts mit zwei Rädern. Herr Kowalski nickt. Er schläft wieder.",
+              "en": "Correct. Nothing may be left in the hallway. Nothing. Not even anything with two wheels. Herr Kowalski nods. He’s asleep again.",
+              "audio": "mc_eigentuemer_t2_rule"
+            }
+          ]
+        },
+        {
+          "id": "strollers",
+          "when": {
+            "any": [
+              "kinderwagen",
+              "erlaubt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Kinderwagen sind erlaubt, ja. Ihr Fahrrad ist kein Kinderwagen. Ich habe nachgesehen.",
+              "en": "Prams are allowed, yes. Your bike is not a pram. I checked.",
+              "audio": "mc_eigentuemer_t2_strollers"
+            }
+          ]
+        },
+        {
+          "id": "door",
+          "when": {
+            "any": [
+              "haustür"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Das ist Paragraf 9. Lesen Sie genauer. Das wird protokolliert.",
+              "en": "That is paragraph 9. Read more carefully. That will be minuted.",
+              "audio": "mc_eigentuemer_t2_door"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Also muss das Fahrrad entfernt werden. Bis Freitag.",
+          "en": "So the bike must be removed. By Friday.",
+          "audio": "mc_eigentuemer_t3a"
+        },
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Haben Sie Einwände?",
+          "emoji": "⚖️",
+          "en": "Do you have any objections?",
+          "audio": "mc_eigentuemer_t3b"
+        }
+      ],
+      "tiles": [
+        "der",
+        "Fahrradkeller",
+        "ist",
+        "ist",
+        "sind",
+        "seit",
+        "Mai",
+        "gesperrt",
+        "überflutet",
+        "das",
+        "Fahrrad",
+        "abgeschlossen",
+        "und",
+        "stört",
+        "niemanden",
+        "nein",
+        "keine",
+        "Einwände",
+        "unfair"
+      ],
+      "wrong": {
+        "sind": "ist"
+      },
+      "intents": [
+        {
+          "id": "cellar",
+          "when": {
+            "any": [
+              "fahrradkeller",
+              "gesperrt",
+              "überflutet"
+            ]
+          },
+          "value": 2,
+          "fact": "🏚️ kennt den Fahrradkeller",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Der Fahrradkeller … ist gesperrt. Das ist … korrekt. Wegen eines Wasserschadens. Seit Mai. Hm.",
+              "emoji": "🏚️",
+              "en": "The bike cellar … is closed. That is … correct. Because of water damage. Since May. Hm.",
+              "audio": "mc_eigentuemer_t3_cellar"
+            }
+          ]
+        },
+        {
+          "id": "locked",
+          "when": {
+            "any": [
+              "abgeschlossen",
+              "stört"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Abgeschlossen ist es. Aber es steht da. Das ist das Problem.",
+              "en": "It is locked. But it stands there. That's the problem.",
+              "audio": "mc_eigentuemer_t3_locked"
+            }
+          ]
+        },
+        {
+          "id": "unfair",
+          "when": {
+            "any": [
+              "unfair"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Unfair ist kein juristischer Begriff.",
+              "en": "\"Unfair\" is not a legal term.",
+              "audio": "mc_eigentuemer_t3_unfair"
+            }
+          ]
+        },
+        {
+          "id": "giveUp",
+          "when": {
+            "any": [
+              "einwände",
+              "nein"
+            ]
+          },
+          "value": -2,
+          "cause": "giveup",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Keine Einwände. Wunderbar. Punkt 14 ist erledigt. Und Sie auch.",
+              "en": "No objections. Wonderful. Item 14 is done. And so are you.",
+              "audio": "mc_eigentuemer_t3_giveup"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Ich habe ein Foto vom Flur gemacht. Für das Protokoll.",
+          "emoji": "📷",
+          "en": "I took a photo of the hallway. For the minutes.",
+          "audio": "mc_eigentuemer_t4a"
+        },
+        {
+          "who": "eigentuemer",
+          "type": "photo",
+          "image": "match_eigentuemer_hallway",
+          "wide": true,
+          "alt": "Der Flur: links ein Fahrrad an der Wand. In der Mitte eine riesige Pflanze in einem großen Topf. Rechts ein Schuhregal mit vielen Schuhen."
+        },
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Sehen Sie? Nur Ihr Fahrrad stört.",
+          "en": "You see? Only your bike is in the way.",
+          "audio": "mc_eigentuemer_t4b"
+        }
+      ],
+      "tiles": [
+        "Ihre",
+        "Pflanze",
+        "steht",
+        "stehen",
+        "auch",
+        "im",
+        "Flur",
+        "Herrn Kowalskis Schuhregal",
+        "ja",
+        "nur",
+        "mein",
+        "Fahrrad",
+        "stört",
+        "nicht"
+      ],
+      "wrong": {
+        "stehen": "steht"
+      },
+      "intents": [
+        {
+          "id": "plant",
+          "when": {
+            "any": [
+              "pflanze"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "caughtPlant"
+          ],
+          "fact": "🌿 hat die Monstera bemerkt",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Meine … Monstera? Das ist kein Gegenstand. Das ist ein Familienmitglied. Sie heißt Hildegard. Sie hat mehr Rechte als Sie.",
+              "emoji": "🌿",
+              "en": "My … Monstera? That is not an object. That is a family member. Her name is Hildegard. She has more rights than you.",
+              "audio": "mc_eigentuemer_t4_plant"
+            }
+          ]
+        },
+        {
+          "id": "shoes",
+          "when": {
+            "any": [
+              "herrn kowalskis schuhregal"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Das Schuhregal. Hm. Herr Kowalski schläft gerade. Er kann sich nicht wehren.",
+              "emoji": "👞",
+              "en": "The shoe rack. Hm. Herr Kowalski is asleep right now. He can't defend himself.",
+              "audio": "mc_eigentuemer_t4_shoes"
+            }
+          ]
+        },
+        {
+          "id": "notOnly",
+          "when": {
+            "all": [
+              "nicht",
+              "nur"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Nicht nur Ihr Fahrrad? Was denn noch? … Warum schauen Sie so auf meine Monstera?",
+              "emoji": "🧐",
+              "en": "Not only your bike? What else, then? … Why are you looking at my Monstera like that?",
+              "audio": "mc_eigentuemer_t4_notonly"
+            }
+          ]
+        },
+        {
+          "id": "agree",
+          "when": {
+            "any": [
+              "nur",
+              "ja"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Genau. Danke. Ich protokolliere: Sie stimmen mir zu.",
+              "en": "Exactly. Thank you. I am minuting: you agree with me.",
+              "audio": "mc_eigentuemer_t4_agree"
+            }
+          ]
+        },
+        {
+          "id": "bike",
+          "when": {
+            "any": [
+              "fahrrad"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Das sagen Sie. Das Foto sagt etwas anderes.",
+              "en": "So you say. The photo says something else.",
+              "audio": "mc_eigentuemer_t4_bike"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Wir stimmen ab. Hören Sie selbst.",
+          "emoji": "🗳️",
+          "en": "Let's vote. Listen for yourself.",
+          "audio": "mc_eigentuemer_t5a"
+        },
+        {
+          "who": "eigentuemer",
+          "type": "voice",
+          "audio": "mc_eigentuemer_vn_vote",
+          "de": "Abstimmung zu Punkt 14. Herr Kowalski? … Herr Kowalski schläft. Frau Yilmaz sagt, das Fahrrad störe sie nicht. Sie habe selbst eins. Herr Becker sagt, er sei dagegen. Er ist aber gegen alles. Sogar gegen Dienstage.",
+          "en": "Vote on item 14. Herr Kowalski? … Herr Kowalski is asleep. Frau Yilmaz says the bike does not bother her. She has one herself. Herr Becker says he is against it. But he is against everything. Even Tuesdays.",
+          "direction": "Very formal chairwoman voice reading the minutes aloud with crisp diction; a dry, exasperated pause before \"Sogar gegen Dienstage.\""
+        },
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Und Hildegard, meine Monstera, stimmt dagegen. Sie hat seit 2009 ein Stimmrecht. Sie stimmt immer wie ich. Reiner Zufall.",
+          "emoji": "🌿",
+          "en": "And Hildegard, my Monstera, votes against. She has had a vote since 2009. She always votes the way I do. Pure coincidence.",
+          "audio": "mc_eigentuemer_t5c"
+        },
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Mein Stift ist leer. Diktieren Sie mir: Was sagt Frau Yilmaz? Genau so, wie es später im Protokoll stehen wird.",
+          "en": "My pen has run out. Dictate it to me: what does Frau Yilmaz say? Exactly as it will later appear in the minutes.",
+          "audio": "mc_eigentuemer_t5b"
+        }
+      ],
+      "tiles": [
+        "Frau Yilmaz",
+        "sagt",
+        "das",
+        "Fahrrad",
+        "störe",
+        "stört",
+        "sie",
+        "nicht",
+        "habe",
+        "hat",
+        "selbst",
+        "eins",
+        "Herr Becker",
+        "er",
+        "sei",
+        "ist",
+        "dagegen",
+        "Herr Kowalski",
+        "schläft"
+      ],
+      "wrong": {
+        "stört": {
+          "to": "störe",
+          "note": "In the minutes, reported speech uses Konjunktiv I: es störe."
+        },
+        "hat": {
+          "to": "habe",
+          "note": "In the minutes, reported speech uses Konjunktiv I: sie habe."
+        },
+        "ist": {
+          "to": "sei",
+          "note": "In the minutes, reported speech uses Konjunktiv I: er sei."
+        }
+      },
+      "intents": [
+        {
+          "id": "yilmaz",
+          "when": {
+            "any": [
+              "störe",
+              "stört"
+            ]
+          },
+          "value": 2,
+          "fact": "🗒️ schreibt perfekte Protokolle",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Das Fahrrad störe sie nicht. Korrekt. Leider korrekt.",
+              "en": "The bike does not bother her. Correct. Unfortunately correct.",
+              "audio": "mc_eigentuemer_t5_yilmaz"
+            }
+          ]
+        },
+        {
+          "id": "own",
+          "when": {
+            "any": [
+              "selbst",
+              "eins"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Sie habe selbst eins. Ja. Und es steht … auch im Flur. Oh.",
+              "emoji": "😳",
+              "en": "She has one herself. Yes. And it is … also in the hallway. Oh.",
+              "audio": "mc_eigentuemer_t5_own"
+            }
+          ]
+        },
+        {
+          "id": "becker",
+          "when": {
+            "any": [
+              "dagegen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Herr Becker sei dagegen. Protokolliert. Letzte Woche war er gegen den Sommer. Davor gegen Hildegard. Er hat es bereut.",
+              "en": "Herr Becker is against it. Minuted. Last week he was against summer. Before that against Hildegard. He regretted it.",
+              "audio": "mc_eigentuemer_t5_becker"
+            }
+          ]
+        },
+        {
+          "id": "kowalski",
+          "when": {
+            "any": [
+              "schläft"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Herr Kowalski schläft. Das wird nicht protokolliert. Aus Mitleid.",
+              "emoji": "😴",
+              "en": "Herr Kowalski is asleep. That will not be minuted. Out of pity.",
+              "audio": "mc_eigentuemer_t5_kowalski"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Gut. Ich mache Ihnen ein Angebot: Wir suchen eine Lösung. Wie kann das Problem gelöst werden?",
+          "emoji": "🛠️",
+          "en": "Fine. I'll make you an offer: we look for a solution. How can the problem be solved?",
+          "audio": "mc_eigentuemer_t6a"
+        }
+      ],
+      "tiles": [
+        "ein",
+        "Fahrradständer",
+        "könnte",
+        "kann",
+        "im",
+        "Hof",
+        "aufgestellt",
+        "werden",
+        "worden",
+        "der",
+        "Fahrradkeller",
+        "muss",
+        "repariert",
+        "die",
+        "die",
+        "Pflanze",
+        "entfernt",
+        "das",
+        "Fahrrad",
+        "an",
+        "Wand",
+        "gehängt",
+        "auf",
+        "gestellt"
+      ],
+      "wrong": {
+        "worden": {
+          "to": "werden",
+          "note": "Passive with a modal verb: participle + werden (darf abgestellt werden)."
+        }
+      },
+      "prepCase": {
+        "an": "acc",
+        "auf": "acc"
+      },
+      "intents": [
+        {
+          "id": "ride",
+          "when": {
+            "any": [
+              "gestellt"
+            ]
+          },
+          "value": 2,
+          "fact": "🌿 setzt die Monstera aufs Fahrrad",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Hildegard auf das Fahrrad stellen? Sie bekäme … Räder. Sie könnte endlich reisen. Ans Fenster. Auf den Balkon. Nach Mallorca. Ich … das wird protokolliert. Mit Herz.",
+              "emoji": "🚲",
+              "en": "Put Hildegard on the bike? She would get … wheels. She could finally travel. To the window. Onto the balcony. To Mallorca. I … that will be minuted. With a heart.",
+              "audio": "mc_eigentuemer_t6_gift"
+            }
+          ]
+        },
+        {
+          "id": "plant",
+          "when": {
+            "any": [
+              "pflanze"
+            ]
+          },
+          "value": -2,
+          "cause": "plant",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Meine Monstera entfernen?! Niemals. Hildegard ist älter als die Hausordnung. Und sie hat ein Stimmrecht.",
+              "emoji": "😤",
+              "en": "Remove my Monstera?! Never. Hildegard is older than the house rules. And she has a vote.",
+              "audio": "mc_eigentuemer_t6_plant"
+            }
+          ]
+        },
+        {
+          "id": "rack",
+          "when": {
+            "any": [
+              "fahrradständer"
+            ]
+          },
+          "value": 2,
+          "fact": "🛠️ findet Kompromisse",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Ein Fahrradständer im Hof. Hm. Das könnte beschlossen werden. Ich bin … dafür.",
+              "en": "A bike rack in the courtyard. Hm. That could be agreed. I am … in favour.",
+              "audio": "mc_eigentuemer_t6_rack"
+            }
+          ]
+        },
+        {
+          "id": "repair",
+          "when": {
+            "any": [
+              "repariert",
+              "fahrradkeller"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Der Keller muss repariert werden. Ja. Ich schreibe es auf. Punkt 15.",
+              "en": "The cellar must be repaired. Yes. I am writing it down. Item 15.",
+              "audio": "mc_eigentuemer_t6_repair"
+            }
+          ]
+        },
+        {
+          "id": "wall",
+          "when": {
+            "any": [
+              "wand",
+              "gehängt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "An die Wand gehängt. Wie ein Bild. Ein sehr großes Bild. Hm. Akzeptabel.",
+              "emoji": "🖼️",
+              "en": "Hung on the wall. Like a picture. A very large picture. Hm. Acceptable.",
+              "audio": "mc_eigentuemer_t6_wall"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Die Versammlung stimmt gleich noch einmal ab. Über Ihren Vorschlag. Das letzte Wort haben Sie.",
+          "emoji": "🗳️",
+          "en": "The meeting will vote again shortly. On your proposal. You have the last word.",
+          "audio": "mc_eigentuemer_t7a"
+        },
+        {
+          "who": "eigentuemer",
+          "type": "text",
+          "de": "Ihr Schlusswort, bitte. Hildegard hört zu. Sie mag keine Umgangssprache. Sie lässt dann die Blätter hängen.",
+          "en": "Your closing words, please. Hildegard is listening. She doesn’t like casual language. She droops her leaves when she hears it.",
+          "audio": "mc_eigentuemer_t7b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bedanke",
+        "mich",
+        "mich",
+        "für",
+        "Ihr",
+        "dein",
+        "Verständnis",
+        "vielen",
+        "Dank",
+        "Frau Doktor Wendt",
+        "tschüss",
+        "würde",
+        "freuen",
+        "sehr",
+        "danke",
+        "bei",
+        "der",
+        "Monstera"
+      ],
+      "wrong": {
+        "dein": {
+          "to": "Ihr",
+          "note": "Formal address: Ihr Verständnis, not dein."
+        }
+      },
+      "intents": [
+        {
+          "id": "monstera",
+          "when": {
+            "any": [
+              "monstera"
+            ]
+          },
+          "value": 2,
+          "fact": "🌱 bedankt sich bei Hildegard",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Bei der Monstera. … Sie hat es gehört. Sie hat ein neues Blatt bekommen. Gerade eben. Das hat sie seit 2015 nicht gemacht. Ich muss kurz raus.",
+              "emoji": "🌱",
+              "en": "To the Monstera. … She heard it. She has grown a new leaf. Just now. She hasn’t done that since 2015. I need to step out for a moment.",
+              "audio": "mc_eigentuemer_t7_monstera"
+            }
+          ]
+        },
+        {
+          "id": "bye",
+          "when": {
+            "any": [
+              "tschüss"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Tschüss? Wir sind hier nicht im Kindergarten. Protokolliert.",
+              "en": "Bye? This isn't a kindergarten. Minuted.",
+              "audio": "mc_eigentuemer_t7_bye"
+            }
+          ]
+        },
+        {
+          "id": "thanks",
+          "when": {
+            "any": [
+              "bedanke",
+              "verständnis"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 spricht perfektes Amtsdeutsch",
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "„Ich bedanke mich für Ihr Verständnis.“ Formvollendet. Ich bin … beeindruckt.",
+              "emoji": "🎩",
+              "en": "“Thank you for your understanding.” Perfectly formal. I am … impressed.",
+              "audio": "mc_eigentuemer_t7_thanks"
+            }
+          ]
+        },
+        {
+          "id": "glad",
+          "when": {
+            "any": [
+              "freuen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Sie würden sich freuen. Ich mich auch. Das sage ich aber nicht laut.",
+              "en": "You would be pleased. So would I. But I won't say it out loud.",
+              "audio": "mc_eigentuemer_t7_glad"
+            }
+          ]
+        },
+        {
+          "id": "dank",
+          "when": {
+            "any": [
+              "dank",
+              "danke"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "eigentuemer",
+              "type": "text",
+              "de": "Bitte. Punkt 14 ist geschlossen. Nächster Punkt: Herr Kowalskis Kaktus. Er hat Herrn Becker gestochen. Angeblich absichtlich.",
+              "emoji": "🌵",
+              "en": "You’re welcome. Item 14 is closed. Next item: Herr Kowalski’s cactus. It pricked Herr Becker. Allegedly on purpose.",
+              "audio": "mc_eigentuemer_t7_dank"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "eigentuemer",
+    "type": "text",
+    "de": "Das gehört nicht zu Punkt 14.",
+    "en": "That does not belong to item 14.",
+    "audio": "mc_eigentuemer_offtopic"
+  },
+  "confused": [
+    {
+      "who": "eigentuemer",
+      "type": "text",
+      "de": "Wie bitte? Das kann ich nicht protokollieren.",
+      "emoji": "🧐",
+      "en": "I beg your pardon? I can't put that in the minutes.",
+      "audio": "mc_eigentuemer_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "eigentuemer",
+        "type": "text",
+        "de": "Punkt 14 ist abgeschlossen. Das Fahrrad bleibt. Unter Vorbehalt.",
+        "emoji": "🚲",
+        "en": "Item 14 is closed. The bike stays. With reservations.",
+        "audio": "mc_eigentuemer_win"
+      },
+      {
+        "who": "eigentuemer",
+        "type": "text",
+        "de": "Gute Nacht, {name}. Und bitte: Schließen Sie es immer ab.",
+        "en": "Good night, {name}. And please: always lock it."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "eigentuemer",
+        "type": "text",
+        "de": "Das Fahrrad darf bleiben. An der Wand. Neben Hildegard. Sie wird es bewachen. Sie schläft nie.",
+        "emoji": "🌿",
+        "en": "The bike may stay. On the wall. Next to Hildegard. She will guard it. She never sleeps.",
+        "audio": "mc_eigentuemer_partial"
+      }
+    ],
+    "deleted": {
+      "giveup": {
+        "who": "eigentuemer",
+        "type": "text",
+        "de": "Keine Einwände. Das Fahrrad wird am Freitag entfernt. Die Sitzung ist geschlossen.",
+        "emoji": "🔨",
+        "en": "No objections. The bike will be removed on Friday. The meeting is closed.",
+        "audio": "mc_eigentuemer_del_giveup"
+      },
+      "plant": {
+        "who": "eigentuemer",
+        "type": "text",
+        "de": "Meine Monstera bleibt. Ihr Fahrrad geht. Die Sitzung ist geschlossen.",
+        "emoji": "🌿",
+        "en": "My Monstera stays. Your bike goes. The meeting is closed.",
+        "audio": "mc_eigentuemer_del_plant"
+      },
+      "confused": {
+        "who": "eigentuemer",
+        "type": "text",
+        "de": "Ihre Beiträge können leider nicht protokolliert werden. Gute Nacht.",
+        "en": "Unfortunately your contributions cannot be minuted. Good night.",
+        "audio": "mc_eigentuemer_del_confused"
+      },
+      "default": {
+        "who": "eigentuemer",
+        "type": "text",
+        "de": "Punkt 14: abgelehnt. Das Fahrrad muss entfernt werden. Gute Nacht.",
+        "en": "Item 14: rejected. The bike must be removed. Good night.",
+        "audio": "mc_eigentuemer_del_default"
+      }
+    },
+    "sunday": {
+      "who": "eigentuemer",
+      "type": "voice",
+      "audio": "mc_eigentuemer_vn_sunday",
+      "de": "Frau Doktor Wendt hier. Sonntag, 14 Uhr. Eine informelle Mitteilung: Ich habe mir auch ein Fahrrad gekauft. Es steht im Flur. Neben Ihrem. Hildegard sitzt im Korb. Das wird nicht protokolliert.",
+      "en": "Frau Doktor Wendt here. Sunday, 2 pm. An informal announcement: I’ve bought a bike too. It’s in the hallway. Next to yours. Hildegard is sitting in the basket. This will not be minuted.",
+      "direction": "Still formal, but softer and almost giggly; a faint bicycle bell rings once at the end."
+    }
+  },
+  "partialTitle": "Ihr Fahrrad bleibt. Neben der Monstera.",
+  "share": {
+    "win": "Ich habe mein Fahrrad im Flur gegen Frau Dr. Wendt (63, Beiratsvorsitzende) verteidigt 🚲📋 Mein Deutsch: {score}/100. Schaffst du Punkt 14? {url}",
+    "partial": "Mein Fahrrad darf bleiben … neben der Monstera von Frau Dr. Wendt 🌿 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Frau Dr. Wendt (63) hat mich gelöscht. Punkt 14: abgelehnt 🔨 Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Frau Dr. Wendt, a slim 63-year-old woman with a sharp silver bob, narrow reading glasses on a chain, a navy blazer with a brooch shaped like a leaf, holding a thick ring binder and a pen like a gavel; one eyebrow permanently raised.",
+  "imagePrompts": [
+    {
+      "id": "match_eigentuemer",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She sits at the head of a long table in a plain community room with folding chairs, papers neatly stacked, looking over her glasses at the viewer. Behind her a huge leafy Monstera plant in a pot. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_eigentuemer_rules",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a framed notice hanging on the tiled wall of an old Berlin stairwell, seen straight on. The paper inside the frame is COMPLETELY blank white with no writing at all. A brass light switch and a row of letterboxes beside it."
+    },
+    {
+      "id": "match_eigentuemer_hallway",
+      "aspect": "16:9",
+      "prompt": "The ground-floor hallway of an old Berlin apartment building seen exactly from the front like a stage set: one flat wall with old tiles, a wooden floor, no perspective. Exactly THREE things in a row, far apart: LEFT: a green city bicycle leaning against the wall, with a lock. MIDDLE: an ENORMOUS Monstera plant in a big terracotta pot, much taller than a person, its leaves spreading wide. RIGHT: a wooden shoe rack overflowing with many pairs of shoes. Nothing else."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ja, das ist mein Fahrrad, und es ist abgeschlossen.",
+      "score": 100,
+      "intent": "locked",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Das ist mein Fahrrad.",
+      "score": 100,
+      "intent": "mine",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Es ist abgeschlossen.",
+      "score": 100,
+      "intent": "locked",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Es ist abgeschlossen, und es stört niemanden.",
+      "score": 100,
+      "intent": "locked",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Das Fahrrad gehört meinem Nachbarn.",
+      "score": 100,
+      "intent": "denied",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Das Fahrrad gehört meinen Nachbarn.",
+      "score": 85,
+      "intent": "denied",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Es stört niemanden.",
+      "score": 100,
+      "intent": "quiet",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "denied",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ja.",
+      "score": 100,
+      "intent": "mine",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Es abgeschlossen ist.",
+      "score": 70,
+      "intent": "locked",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Das Fahrrad meinen Nachbarn gehört.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Im Flur dürfen keine Gegenstände abgestellt werden.",
+      "score": 100,
+      "intent": "rule",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Im Flur darf nichts abgestellt werden.",
+      "score": 100,
+      "intent": "rule",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Im Flur dürfen keine Gegenstände abgestellt worden.",
+      "score": 85,
+      "intent": "rule",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Im Flur müssen Gegenstände abgestellt werden.",
+      "score": 100,
+      "intent": "mustWrong",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Kinderwagen sind erlaubt.",
+      "score": 100,
+      "intent": "strollers",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Haustür muss abgeschlossen werden.",
+      "score": 100,
+      "intent": "door",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Im Flur keine Gegenstände abgestellt worden dürfen.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Der Fahrradkeller ist seit Mai gesperrt.",
+      "score": 100,
+      "intent": "cellar",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Der Fahrradkeller ist überflutet.",
+      "score": 100,
+      "intent": "cellar",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Der Fahrradkeller ist gesperrt seit Mai.",
+      "score": 70,
+      "intent": "cellar",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Das Fahrrad ist abgeschlossen.",
+      "score": 100,
+      "intent": "locked",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Das ist unfair.",
+      "score": 100,
+      "intent": "unfair",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Nein, keine Einwände.",
+      "score": 100,
+      "intent": "giveUp",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Der Fahrradkeller gesperrt sind.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ihre Pflanze steht auch im Flur.",
+      "score": 100,
+      "intent": "plant",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ihre Pflanze stehen auch im Flur.",
+      "score": 80,
+      "intent": "plant",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Herrn Kowalskis Schuhregal steht auch im Flur.",
+      "score": 100,
+      "intent": "shoes",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Herrn Kowalskis Schuhregal stehen auch im Flur.",
+      "score": 80,
+      "intent": "shoes",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Auch Ihre Pflanze steht im Flur.",
+      "score": 100,
+      "intent": "plant",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Nicht nur mein Fahrrad steht im Flur.",
+      "score": 70,
+      "intent": "notOnly",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ja, nur mein Fahrrad.",
+      "score": 100,
+      "intent": "agree",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Mein Fahrrad stört nicht.",
+      "score": 100,
+      "intent": "bike",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ihre Pflanze auch im Flur stehen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Frau Yilmaz sagt, das Fahrrad störe sie nicht.",
+      "score": 100,
+      "intent": "yilmaz",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Frau Yilmaz sagt, das Fahrrad stört sie nicht.",
+      "score": 85,
+      "intent": "yilmaz",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Frau Yilmaz sagt, sie habe selbst eins.",
+      "score": 100,
+      "intent": "own",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Frau Yilmaz sagt, sie hat selbst eins.",
+      "score": 85,
+      "intent": "own",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Herr Becker sagt, er sei dagegen.",
+      "score": 100,
+      "intent": "becker",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Herr Kowalski schläft.",
+      "score": 100,
+      "intent": "kowalski",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Frau Yilmaz das Fahrrad stört sie nicht sagt.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ein Fahrradständer könnte im Hof aufgestellt werden.",
+      "score": 100,
+      "intent": "rack",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ein Fahrradständer kann im Hof aufgestellt worden.",
+      "score": 85,
+      "intent": "rack",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Der Fahrradkeller muss repariert werden.",
+      "score": 100,
+      "intent": "repair",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Das Fahrrad kann an die Wand gehängt werden.",
+      "score": 100,
+      "intent": "wall",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Das Fahrrad kann an der Wand gehängt werden.",
+      "score": 85,
+      "intent": "wall",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Die Pflanze muss entfernt werden.",
+      "score": 100,
+      "intent": "plant",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Der Fahrradkeller repariert worden muss.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bedanke mich für Ihr Verständnis.",
+      "score": 100,
+      "intent": "thanks",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bedanke mich für dein Verständnis.",
+      "score": 85,
+      "intent": "thanks",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde mich sehr freuen.",
+      "score": 100,
+      "intent": "glad",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Vielen Dank, Frau Doktor Wendt.",
+      "score": 100,
+      "intent": "dank",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Tschüss!",
+      "score": 100,
+      "intent": "bye",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde freuen mich.",
+      "score": 70,
+      "intent": "glad",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich mich freuen würde.",
+      "score": 70,
+      "intent": "glad",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich mich freuen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Das Fahrrad gehört meinem Hund.",
+      "score": 100,
+      "intent": "dog",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Das Fahrrad gehört meinen Hund.",
+      "score": 85,
+      "intent": "dog",
+      "delta": 0
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bedanke mich bei der Monstera.",
+      "score": 100,
+      "intent": "monstera",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Die Pflanze könnte auf das Fahrrad gestellt werden.",
+      "score": 100,
+      "intent": "ride",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Die Pflanze könnte auf das Fahrrad gestellt worden.",
+      "intent": "ride",
+      "score": 85,
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ja, das ist mein Fahrrad, und es ist abgeschlossen."
+        ],
+        [
+          "t2",
+          "Im Flur dürfen keine Gegenstände abgestellt werden."
+        ],
+        [
+          "t3",
+          "Der Fahrradkeller ist seit Mai gesperrt."
+        ],
+        [
+          "t4",
+          "Ihre Pflanze steht auch im Flur."
+        ],
+        [
+          "t5",
+          "Frau Yilmaz sagt, das Fahrrad störe sie nicht."
+        ],
+        [
+          "t6",
+          "Ein Fahrradständer könnte im Hof aufgestellt werden."
+        ],
+        [
+          "t7",
+          "Ich bedanke mich für Ihr Verständnis."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Nein."
+        ],
+        [
+          "t2",
+          "Die Haustür muss abgeschlossen werden."
+        ],
+        [
+          "t3",
+          "Das ist unfair."
+        ],
+        [
+          "t4",
+          "Ja, nur mein Fahrrad."
+        ],
+        [
+          "t5",
+          "Herr Becker sagt, er sei dagegen."
+        ],
+        [
+          "t6",
+          "Das Fahrrad kann an die Wand gehängt werden."
+        ],
+        [
+          "t7",
+          "Tschüss!"
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Nein."
+        ],
+        [
+          "t2",
+          "Im Flur müssen Gegenstände abgestellt werden."
+        ],
+        [
+          "t3",
+          "Nein, keine Einwände."
+        ],
+        [
+          "t4",
+          "Ja, nur mein Fahrrad."
+        ]
+      ]
+    }
+  ]
+}

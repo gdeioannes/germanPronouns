@@ -1,0 +1,2402 @@
+{
+  "id": "deniz",
+  "name": "Deniz",
+  "age": 34,
+  "emoji": "🥙",
+  "image": "match_deniz",
+  "level": "A1.1",
+  "order": 7,
+  "bio": "Ich bin Deniz. Ich mache Döner. Mit alles?",
+  "bioEn": "I'm Deniz. I make döner. With everything?",
+  "goal": "Order a döner with no onions and extra garlic sauce, then pay the right amount.",
+  "tagline": "Dönermann · 34 · Neukölln",
+  "voice": "Achird",
+  "brief": "Deniz, a 34-year-old Berlin kebab-shop owner: fast, cheerful, warm Berlin street voice, a showman behind the counter who secretly loves grammar (he studied German literature); teasing, generous, always a little loud over the grill.",
+  "focus": "möchte · kein/keine · mit/ohne · Preise",
+  "lexicon": {
+    "nouns": {
+      "Döner": "m",
+      "Dürüm": "m",
+      "Pommes": "pl",
+      "Salat": "m",
+      "Wasser": "n",
+      "Hunger": "m",
+      "Durst": "m",
+      "Zwiebeln": "pl",
+      "Tomaten": "pl",
+      "Soße": "f",
+      "Knoblauchsoße": "f",
+      "Kräutersoße": "f",
+      "Ayran": "m",
+      "Tee": "m",
+      "Bier": "n",
+      "Brot": "n",
+      "Euro": "m",
+      "Bargeld": "n",
+      "Karte": "f",
+      "Münzen": "pl",
+      "Socken": "pl"
+    },
+    "names": [
+      "Emre",
+      "Deniz"
+    ],
+    "verbs": [
+      "möchte",
+      "möchtest",
+      "habe",
+      "hast",
+      "bin",
+      "ist",
+      "sind",
+      "macht",
+      "machen",
+      "kostet",
+      "kosten",
+      "trinke",
+      "glaube"
+    ],
+    "accVerbs": [
+      "möchte",
+      "möchtest",
+      "habe",
+      "hast",
+      "trinke"
+    ],
+    "adjectives": [
+      "scharf"
+    ]
+  },
+  "intro": [
+    {
+      "who": "deniz",
+      "type": "text",
+      "de": "Hallo, Nachbar! Ich bin Deniz.",
+      "emoji": "🥙",
+      "en": "Hello, neighbour! I'm Deniz.",
+      "audio": "mc_deniz_t1a"
+    },
+    {
+      "who": "deniz",
+      "type": "text",
+      "de": "Mein Döner ist der beste in Neukölln. Sagt meine Mutter. Sie sitzt da hinten. Sie zählt mit.",
+      "en": "My döner is the best in Neukölln. Says my mother. She’s sitting back there. She’s keeping count.",
+      "audio": "mc_deniz_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Also, was möchtest du?",
+          "en": "So, what would you like?",
+          "audio": "mc_deniz_t1c"
+        }
+      ],
+      "tiles": [
+        "hallo",
+        "ich",
+        "möchte",
+        "möchtest",
+        "einen",
+        "ein",
+        "Döner",
+        "Pommes",
+        "Salat",
+        "Wasser",
+        "und",
+        "nur",
+        "bitte",
+        "habe",
+        "Hunger"
+      ],
+      "wrong": {
+        "möchtest": "möchte"
+      },
+      "intents": [
+        {
+          "id": "hunger",
+          "when": {
+            "any": [
+              "hunger"
+            ]
+          },
+          "value": 1,
+          "fact": "🥙 hat immer Hunger",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Hunger! Die beste Antwort. Ich mache dir einen Döner.",
+              "en": "Hungry! The best answer. I'll make you a döner.",
+              "audio": "mc_deniz_t1_hunger"
+            }
+          ]
+        },
+        {
+          "id": "doner",
+          "when": {
+            "any": [
+              "döner"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Ein Döner! Sehr gute Wahl. Meine Mutter nickt. Sie nickt nicht oft.",
+              "en": "A döner! Very good choice. My mother nods. She doesn’t nod often.",
+              "audio": "mc_deniz_t1_doner"
+            }
+          ]
+        },
+        {
+          "id": "pommes",
+          "when": {
+            "any": [
+              "pommes"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Pommes? Das hier ist ein Dönerladen! Okay, Pommes gibt es. Aber zuerst ein Döner. Das ist Gesetz.",
+              "en": "Chips? This is a döner shop! Okay, there are chips. But first a döner. That's the law.",
+              "audio": "mc_deniz_t1_pommes"
+            }
+          ]
+        },
+        {
+          "id": "salad",
+          "when": {
+            "any": [
+              "salat"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Nur Salat? Okay. Ich mache dir einen Döner mit viel Salat. Das ist fast Salat.",
+              "en": "Just salad? Okay. I'll make you a döner with lots of salad. That's almost salad.",
+              "audio": "mc_deniz_t1_salad"
+            }
+          ]
+        },
+        {
+          "id": "water",
+          "when": {
+            "any": [
+              "wasser"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Wasser ist kein Essen, Nachbar. Du bekommst einen Döner.",
+              "en": "Water isn't food, neighbour. You're getting a döner.",
+              "audio": "mc_deniz_t1_water"
+            }
+          ]
+        },
+        {
+          "id": "hello",
+          "when": {
+            "any": [
+              "hallo"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Hallo! Und? Die Schlange ist lang, Nachbar!",
+              "en": "Hello! And? The queue is long, neighbour!",
+              "audio": "mc_deniz_t1_hello"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Mit alles?",
+          "emoji": "😏",
+          "en": "With everything?",
+          "audio": "mc_deniz_t2a"
+        },
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Salat, Tomaten, Zwiebeln? Mein Bruder Emre schneidet schon Zwiebeln. Er liebt Zwiebeln. Mehr als uns.",
+          "emoji": "🧅",
+          "en": "Lettuce, tomatoes, onions? My brother Emre is already chopping onions. He loves onions. More than us.",
+          "audio": "mc_deniz_t2b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "mit allem",
+        "mit alles",
+        "mit",
+        "ohne",
+        "Zwiebeln",
+        "keine",
+        "Tomaten",
+        "Salat",
+        "aber",
+        "bitte",
+        "ich",
+        "möchte",
+        "nur",
+        "und"
+      ],
+      "wrong": {
+        "mit alles": {
+          "to": "mit allem",
+          "note": "After „mit“ comes the dative: mit allem. Everyone at the counter says „mit alles“, but it's wrong."
+        }
+      },
+      "intents": [
+        {
+          "id": "wantOnions",
+          "when": {
+            "all": [
+              "zwiebeln"
+            ],
+            "none": [
+              "ohne",
+              "keine"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "onions"
+          ],
+          "cause": "onions",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Zwiebeln! EMRE! Extra Zwiebeln! … Er hat Tränen in den Augen. Vor Glück.",
+              "emoji": "🧅",
+              "en": "Onions! EMRE! Extra onions! … He has tears in his eyes. Of joy.",
+              "audio": "mc_deniz_t2_onions"
+            }
+          ]
+        },
+        {
+          "id": "perfect",
+          "when": {
+            "all": [
+              "mit allem",
+              "zwiebeln"
+            ]
+          },
+          "value": 2,
+          "fact": "🎓 sagt „mit allem“",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Mit ALLEM! Wunderbar! Und ohne Zwiebeln. Notiert. Emre legt das Messer weg. Ganz langsam.",
+              "emoji": "🎓",
+              "en": "With EVERYTHING! Wonderful! And no onions. Noted. Emre puts the knife down. Very slowly.",
+              "audio": "mc_deniz_t2_perfect"
+            }
+          ]
+        },
+        {
+          "id": "colloquial",
+          "when": {
+            "all": [
+              "mit alles",
+              "zwiebeln"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Mit alles, ohne Zwiebeln. Okay! EMRE! Ohne Zwiebeln! … Er weint. Aber nicht wegen der Zwiebeln.",
+              "en": "With everything, no onions. Okay! EMRE! No onions! … He’s crying. But not because of the onions.",
+              "audio": "mc_deniz_t2_colloquial"
+            }
+          ]
+        },
+        {
+          "id": "noOnions",
+          "when": {
+            "all": [
+              "zwiebeln"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Ohne Zwiebeln. EMRE! Keine Zwiebeln! Er hört nie zu.",
+              "en": "No onions. EMRE! No onions! He never listens.",
+              "audio": "mc_deniz_t2_noonions"
+            }
+          ]
+        },
+        {
+          "id": "allem",
+          "when": {
+            "any": [
+              "mit allem"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "onions"
+          ],
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Mit ALLEM! Wunderbar! Also auch mit Zwiebeln. Viele Zwiebeln. Emre tanzt.",
+              "en": "With EVERYTHING! Wonderful! So with onions too. Lots of onions. Emre is dancing.",
+              "audio": "mc_deniz_t2_allem"
+            }
+          ]
+        },
+        {
+          "id": "alles",
+          "when": {
+            "any": [
+              "mit alles"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "onions"
+          ],
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Mit alles! Also auch Zwiebeln. Emre freut sich.",
+              "en": "With everything! So onions too. Emre's delighted.",
+              "audio": "mc_deniz_t2_alles"
+            }
+          ]
+        },
+        {
+          "id": "some",
+          "when": {
+            "any": [
+              "tomaten",
+              "salat"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Salat und Tomaten, keine Zwiebeln. Okay. Emre ist traurig.",
+              "en": "Lettuce and tomatoes, no onions. Okay. Emre is sad.",
+              "audio": "mc_deniz_t2_some"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "onions"
+          ],
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Ja? Also mit allem. Auch mit Zwiebeln. Ganz viele.",
+              "en": "Yes? So with everything. With onions too. Loads of them.",
+              "audio": "mc_deniz_t2_yes"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Nein? Ein Döner ohne alles ist ein Brot. Ein trauriges Brot.",
+              "en": "No? A döner with nothing is just bread. Sad bread.",
+              "audio": "mc_deniz_t2_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Und die Soße? Ich habe Knoblauchsoße, Kräutersoße und scharfe Soße.",
+          "en": "And the sauce? I've got garlic sauce, herb sauce and hot sauce.",
+          "audio": "mc_deniz_t3a"
+        },
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Achtung: Meine scharfe Soße ist sehr scharf. Mein Onkel weint seit 2009.",
+          "emoji": "🌶️",
+          "en": "Careful: my hot sauce is very hot. My uncle has been crying since 2009.",
+          "audio": "mc_deniz_t3b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "möchte",
+        "Knoblauchsoße",
+        "Kräutersoße",
+        "scharfe",
+        "scharf",
+        "Soße",
+        "extra",
+        "viel",
+        "viele",
+        "nicht",
+        "keine",
+        "bitte",
+        "und",
+        "aber",
+        "sehr",
+        "mit"
+      ],
+      "wrong": {
+        "viele": "viel"
+      },
+      "intents": [
+        {
+          "id": "extraGarlic",
+          "when": {
+            "all": [
+              "knoblauchsoße"
+            ],
+            "any": [
+              "extra",
+              "viel",
+              "viele"
+            ]
+          },
+          "value": 2,
+          "fact": "🧄 liebt Knoblauch",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Extra Knoblauch! Morgen hast du keine Freunde. Aber einen super Döner.",
+              "emoji": "🧄",
+              "en": "Extra garlic! Tomorrow you'll have no friends. But a great döner.",
+              "audio": "mc_deniz_t3_extra"
+            }
+          ]
+        },
+        {
+          "id": "garlic",
+          "when": {
+            "any": [
+              "knoblauchsoße"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Knoblauch, okay. Normal viel. Ein bisschen langweilig, Nachbar.",
+              "en": "Garlic, okay. A normal amount. A bit boring, neighbour.",
+              "audio": "mc_deniz_t3_garlic"
+            }
+          ]
+        },
+        {
+          "id": "herbs",
+          "when": {
+            "any": [
+              "kräutersoße"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Kräutersoße. Sehr deutsch. Sehr grün. Okay.",
+              "en": "Herb sauce. Very German. Very green. Okay.",
+              "audio": "mc_deniz_t3_herbs"
+            }
+          ]
+        },
+        {
+          "id": "notSpicy",
+          "when": {
+            "all": [
+              "scharf*"
+            ],
+            "any": [
+              "nicht",
+              "keine"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Nicht scharf. Gut, mein Onkel sagt danke. Aber welche Soße?",
+              "en": "Not hot. Good, my uncle says thanks. But which sauce?",
+              "audio": "mc_deniz_t3_notspicy"
+            }
+          ]
+        },
+        {
+          "id": "spicy",
+          "when": {
+            "any": [
+              "scharf*"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "spicy"
+          ],
+          "cause": "spicy",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Scharf?! Du bist mutig. Mein Onkel war auch mutig. 2009.",
+              "emoji": "🔥",
+              "en": "Hot?! You are brave. My uncle was brave too. In 2009.",
+              "audio": "mc_deniz_t3_spicy"
+            }
+          ]
+        },
+        {
+          "id": "extraSauce",
+          "when": {
+            "any": [
+              "extra",
+              "viel",
+              "viele"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Extra Soße, klar! Aber WELCHE Soße?",
+              "en": "Extra sauce, sure! But WHICH sauce?",
+              "audio": "mc_deniz_t3_extrasauce"
+            }
+          ]
+        },
+        {
+          "id": "noSauce",
+          "when": {
+            "all": [
+              "soße"
+            ],
+            "any": [
+              "keine"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Keine Soße? Ein Döner ohne Soße ist wie Berlin ohne Baustelle. Unmöglich.",
+              "en": "No sauce? A döner without sauce is like Berlin without roadworks. Impossible.",
+              "audio": "mc_deniz_t3_nosauce"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "deniz",
+          "type": "voice",
+          "audio": "mc_deniz_vn_bread",
+          "de": "Moment, laut hier! Emre sagt: Das Brot ist alle! Kein Brot mehr! Wir haben nur noch Dürüm. Dürüm ist wie Döner, aber gerollt. Gleicher Preis!",
+          "en": "Hang on, it's loud here! Emre says: the bread's all gone! No more bread! We've only got dürüm left. Dürüm is like döner, but rolled up. Same price!",
+          "direction": "Shouting over a sizzling grill and a roaring extractor fan in a busy kebab shop, apologetic and cheerful, half turned away from the phone."
+        },
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Hast du das gehört? Ist das okay für dich?",
+          "en": "Did you hear that? Is that okay for you?",
+          "audio": "mc_deniz_t4a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "das",
+        "ist",
+        "okay",
+        "super",
+        "Dürüm",
+        "ich",
+        "möchte",
+        "kein",
+        "keinen",
+        "Brot",
+        "Döner",
+        "Pommes",
+        "nur",
+        "egal",
+        "gut",
+        "nicht"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "understood",
+          "when": {
+            "all": [
+              "brot"
+            ],
+            "any": [
+              "kein"
+            ]
+          },
+          "value": 2,
+          "fact": "👂 hört gut zu",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Genau, kein Brot mehr. Du hörst besser zu als Emre.",
+              "emoji": "👂",
+              "en": "Exactly, no more bread. You listen better than Emre.",
+              "audio": "mc_deniz_t4_understood"
+            }
+          ]
+        },
+        {
+          "id": "noDurum",
+          "when": {
+            "all": [
+              "dürüm"
+            ],
+            "any": [
+              "kein",
+              "keinen",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Kein Dürüm? Dann gibt es nur Pommes und Liebe.",
+              "en": "No dürüm? Then it's just chips and love.",
+              "audio": "mc_deniz_t4_nodurum"
+            }
+          ]
+        },
+        {
+          "id": "wantBread",
+          "when": {
+            "any": [
+              "brot",
+              "döner"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Brot ist ALLE, Nachbar! Hast du nicht zugehört?",
+              "en": "The bread is all GONE, neighbour! Weren't you listening?",
+              "audio": "mc_deniz_t4_bread"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "okay",
+              "super",
+              "gut",
+              "dürüm"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Super! Dürüm, gerollt mit Liebe.",
+              "en": "Great! Dürüm, rolled with love.",
+              "audio": "mc_deniz_t4_yes"
+            }
+          ]
+        },
+        {
+          "id": "egal",
+          "when": {
+            "any": [
+              "egal"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Egal! Ein entspannter Mensch. Selten in Berlin.",
+              "en": "Whatever! A relaxed person. Rare in Berlin.",
+              "audio": "mc_deniz_t4_egal"
+            }
+          ]
+        },
+        {
+          "id": "pommes",
+          "when": {
+            "any": [
+              "pommes"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Nur Pommes? Nein. Du bekommst einen Dürüm. Vertrau mir.",
+              "en": "Just chips? No. You're getting a dürüm. Trust me.",
+              "audio": "mc_deniz_t4_pommes"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Nein? Das Brot ist alle. Ich kann kein Brot zaubern.",
+              "en": "No? The bread is gone. I can't magic up bread.",
+              "audio": "mc_deniz_t4_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Und zu trinken? Ich habe Ayran, Wasser und Tee.",
+          "en": "And to drink? I've got ayran, water and tea.",
+          "audio": "mc_deniz_t5a"
+        },
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Bier habe ich nicht. Meine Mutter sagt nein.",
+          "en": "I don't have beer. My mum says no.",
+          "audio": "mc_deniz_t5b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "möchte",
+        "möchtest",
+        "einen",
+        "ein",
+        "eine",
+        "Ayran",
+        "Wasser",
+        "Tee",
+        "Bier",
+        "nichts",
+        "danke",
+        "nein",
+        "bitte",
+        "kein",
+        "keinen",
+        "trinke",
+        "habe",
+        "Durst",
+        "Knoblauchsoße"
+      ],
+      "wrong": {
+        "möchtest": "möchte"
+      },
+      "intents": [
+        {
+          "id": "drinkGarlic",
+          "when": {
+            "any": [
+              "knoblauchsoße"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Knoblauchsoße? Zum Trinken?! … Respekt. Mein Onkel macht das auch. Er hat keine Freunde. Aber keine Vampire.",
+              "emoji": "🧄",
+              "en": "Garlic sauce? To drink?! … Respect. My uncle does that too. He has no friends. But no vampires either.",
+              "audio": "mc_deniz_t5_garlic"
+            }
+          ]
+        },
+        {
+          "id": "noBeer",
+          "when": {
+            "all": [
+              "bier"
+            ],
+            "any": [
+              "kein",
+              "nein"
+            ],
+            "none": [
+              "ayran",
+              "tee",
+              "wasser"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "noDrink"
+          ],
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Kein Bier! Meine Mutter mag dich jetzt. Und sonst? Nichts? Okay.",
+              "en": "No beer! My mum likes you now. Anything else? Nothing? Okay.",
+              "audio": "mc_deniz_t5_nobeer"
+            }
+          ]
+        },
+        {
+          "id": "ayran",
+          "when": {
+            "any": [
+              "ayran"
+            ],
+            "none": [
+              "kein",
+              "keinen"
+            ]
+          },
+          "value": 2,
+          "fact": "🥛 trinkt Ayran",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Ayran! Mit Schaum! Du bist ein Profi.",
+              "emoji": "🥛",
+              "en": "Ayran! With foam! You're a pro.",
+              "audio": "mc_deniz_t5_ayran"
+            }
+          ]
+        },
+        {
+          "id": "tea",
+          "when": {
+            "any": [
+              "tee"
+            ],
+            "none": [
+              "kein",
+              "keinen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Tee! Wie bei meiner Oma. Sehr gut.",
+              "en": "Tea! Like at my grandma's. Very good.",
+              "audio": "mc_deniz_t5_tea"
+            }
+          ]
+        },
+        {
+          "id": "water",
+          "when": {
+            "any": [
+              "wasser"
+            ],
+            "none": [
+              "kein",
+              "keinen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Wasser. Gesund. Langweilig, aber gesund.",
+              "en": "Water. Healthy. Boring, but healthy.",
+              "audio": "mc_deniz_t5_water"
+            }
+          ]
+        },
+        {
+          "id": "beer",
+          "when": {
+            "any": [
+              "bier"
+            ],
+            "none": [
+              "kein",
+              "keinen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Bier?! Meine Mutter hat das gehört. Sie ist jetzt traurig.",
+              "en": "Beer?! My mum heard that. Now she is sad.",
+              "audio": "mc_deniz_t5_beer"
+            }
+          ]
+        },
+        {
+          "id": "thirsty",
+          "when": {
+            "any": [
+              "durst"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Durst! Dann bekommst du einen Ayran. Vertrau mir.",
+              "en": "Thirsty! Then you're getting an ayran. Trust me.",
+              "audio": "mc_deniz_t5_thirsty"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts",
+              "kein",
+              "keinen",
+              "nein",
+              "danke"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "noDrink"
+          ],
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Nichts? Okay. Aber ein Dürüm ohne Getränk ist sehr trocken.",
+              "en": "Nothing? Okay. But a dürüm without a drink is very dry.",
+              "audio": "mc_deniz_t5_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Oh nein. Meine Kasse ist kaputt. Und ich bin schlecht in Mathe. Ich habe Germanistik studiert!",
+          "emoji": "🧮",
+          "en": "Oh no. My till is broken. And I'm bad at maths. I studied German!",
+          "audio": "mc_deniz_t6a"
+        },
+        {
+          "who": "deniz",
+          "type": "photo",
+          "image": "match_deniz_prices",
+          "overlay": [
+            "DENIZ GRILL",
+            "Döner … 6 €",
+            "Dürüm … 6 €",
+            "Getränke … 2 €",
+            "Extra Soße: gratis!"
+          ],
+          "alt": "Die Preisliste an der Wand: Döner 6 Euro, Dürüm 6 Euro, Getränke 2 Euro, extra Soße gratis."
+        },
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Du hast einen Dürüm. Vielleicht auch ein Getränk. Wie viel macht das?",
+          "en": "You've got a dürüm. Maybe a drink too. How much is that?",
+          "audio": "mc_deniz_t6b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "macht",
+        "machen",
+        "kostet",
+        "kosten",
+        "sechs",
+        "sieben",
+        "acht",
+        "neun",
+        "zehn",
+        "Euro",
+        "es",
+        "sind",
+        "zusammen",
+        "ich",
+        "glaube"
+      ],
+      "wrong": {
+        "machen": "macht",
+        "kosten": "kostet"
+      },
+      "intents": [
+        {
+          "id": "rightDrink",
+          "when": {
+            "any": [
+              "acht"
+            ],
+            "noFlag": "noDrink"
+          },
+          "value": 2,
+          "fact": "🧮 rechnet besser als Deniz",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Acht Euro! Du bist besser als meine Kasse. Und besser als ich.",
+              "en": "Eight euros! You're better than my till. And better than me.",
+              "audio": "mc_deniz_t6_right"
+            }
+          ]
+        },
+        {
+          "id": "rightNoDrink",
+          "when": {
+            "any": [
+              "sechs"
+            ],
+            "flag": "noDrink"
+          },
+          "value": 2,
+          "fact": "🧮 rechnet besser als Deniz",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Sechs Euro! Kein Getränk, sechs Euro. Du bist besser als meine Kasse.",
+              "en": "Six euros! No drink, six euros. You're better than my till.",
+              "audio": "mc_deniz_t6_rightnodrink"
+            }
+          ]
+        },
+        {
+          "id": "honestEight",
+          "when": {
+            "any": [
+              "acht"
+            ],
+            "flag": "noDrink"
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Acht? Du hast kein Getränk! Du bist zu ehrlich für Berlin.",
+              "en": "Eight? You haven't got a drink! You're too honest for Berlin.",
+              "audio": "mc_deniz_t6_honest"
+            }
+          ]
+        },
+        {
+          "id": "forgotDrink",
+          "when": {
+            "any": [
+              "sechs"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Sechs? Und das Getränk? Ist das ein Geschenk? Nein, Nachbar.",
+              "en": "Six? And the drink? Is that a present? No, neighbour.",
+              "audio": "mc_deniz_t6_forgot"
+            }
+          ]
+        },
+        {
+          "id": "seven",
+          "when": {
+            "any": [
+              "sieben"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Sieben? Fast. Wie mein Onkel beim Lotto. Immer fast.",
+              "en": "Seven? Almost. Like my uncle at the lottery. Always almost.",
+              "audio": "mc_deniz_t6_seven"
+            }
+          ]
+        },
+        {
+          "id": "tooMuch",
+          "when": {
+            "any": [
+              "neun",
+              "zehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "So viel? Bist du eine Bank? Rechne noch mal.",
+              "en": "That much? Are you a bank? Do the maths again.",
+              "audio": "mc_deniz_t6_toomuch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Und jetzt bezahlen. Achtung: Karte geht nicht. Die Maschine ist im Urlaub. Auf Mallorca. Sie schickt mir Fotos. Mit Cocktail.",
+          "emoji": "💶",
+          "en": "And now to pay. Careful: card doesn’t work. The machine is on holiday. In Mallorca. It sends me photos. With a cocktail.",
+          "audio": "mc_deniz_t7a"
+        },
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Hast du Bargeld?",
+          "en": "Have you got cash?",
+          "audio": "mc_deniz_t7b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "habe",
+        "hast",
+        "kein",
+        "Bargeld",
+        "Karte",
+        "nur",
+        "eine",
+        "zehn",
+        "zwanzig",
+        "Euro",
+        "hier",
+        "sind",
+        "Münzen",
+        "viele",
+        "Socken"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "noCash",
+          "when": {
+            "all": [
+              "kein",
+              "bargeld"
+            ]
+          },
+          "value": -2,
+          "cause": "card",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Kein Bargeld?! In Neukölln?! Dann spülst du ab. Zwei Stunden.",
+              "emoji": "🍽️",
+              "en": "No cash?! In Neukölln?! Then you're washing up. Two hours.",
+              "audio": "mc_deniz_t7_nocash"
+            }
+          ]
+        },
+        {
+          "id": "card",
+          "when": {
+            "any": [
+              "karte"
+            ],
+            "none": [
+              "kein"
+            ]
+          },
+          "value": -1,
+          "cause": "card",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Karte?! Die Maschine ist auf Mallorca! Sie liegt am Strand! Sie ist braun! Lass sie in Ruhe!",
+              "en": "Card?! The machine is in Mallorca! It’s lying on the beach! It has a tan! Leave it alone!",
+              "audio": "mc_deniz_t7_card"
+            }
+          ]
+        },
+        {
+          "id": "socks",
+          "when": {
+            "any": [
+              "socken"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Socken?! Du bezahlst mit Socken? … Okay. Zwei Socken, ein Dürüm. Das ist ein fairer Kurs. Sind sie sauber? Sag nichts.",
+              "emoji": "🧦",
+              "en": "Socks?! You’re paying in socks? … Okay. Two socks, one dürüm. That’s a fair rate. Are they clean? Don’t tell me.",
+              "audio": "mc_deniz_t7_socks"
+            }
+          ]
+        },
+        {
+          "id": "twenty",
+          "when": {
+            "any": [
+              "zwanzig"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Zwanzig? Ich habe kein Wechselgeld. Nie. Das ist Tradition.",
+              "en": "Twenty? I have no change. Never. It's tradition.",
+              "audio": "mc_deniz_t7_twenty"
+            }
+          ]
+        },
+        {
+          "id": "coins",
+          "when": {
+            "any": [
+              "münzen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Münzen! Ich liebe Münzen. Ich baue einen Turm. Meine Mutter zählt ihn.",
+              "emoji": "🪙",
+              "en": "Coins! I love coins. I’m building a tower. My mother is counting it.",
+              "audio": "mc_deniz_t7_coins"
+            }
+          ]
+        },
+        {
+          "id": "ten",
+          "when": {
+            "any": [
+              "zehn"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Zehn Euro. Perfekt, da habe ich Wechselgeld.",
+              "en": "Ten euros. Perfect, I've got change for that.",
+              "audio": "mc_deniz_t7_ten"
+            }
+          ]
+        },
+        {
+          "id": "cash",
+          "when": {
+            "any": [
+              "bargeld",
+              "ja"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Bargeld! Ein Mensch mit Bargeld. Wie früher.",
+              "en": "Cash! A person with cash. Like the old days.",
+              "audio": "mc_deniz_t7_cash"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Nein? Hm. Hast du Socken? Ich nehme auch Socken.",
+              "en": "No? Hm. Have you got socks? I take socks too.",
+              "audio": "mc_deniz_t7_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Fertig! Hier ist dein Dürüm. Mit Liebe gemacht.",
+          "emoji": "🥙",
+          "en": "Done! Here's your dürüm. Made with love.",
+          "audio": "mc_deniz_t8a"
+        },
+        {
+          "who": "deniz",
+          "type": "photo",
+          "image": "match_deniz_duerum",
+          "alt": "Ein Dürüm auf Papier. Oben drauf: ein riesiger Berg rote Zwiebeln."
+        },
+        {
+          "who": "deniz",
+          "type": "text",
+          "de": "Emre hat ihn dekoriert. Er sagt, das ist Kunst. Und? Siehst du etwas?",
+          "en": "Emre decorated it. He says it’s art. Well? Do you notice anything?",
+          "audio": "mc_deniz_t8b",
+          "emoji": "🎨"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "da",
+        "sind",
+        "ist",
+        "Zwiebeln",
+        "keine",
+        "ohne",
+        "ich",
+        "möchte",
+        "alles",
+        "super",
+        "danke",
+        "das",
+        "richtig",
+        "falsch",
+        "nicht",
+        "Emre"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "complain",
+          "when": {
+            "any": [
+              "zwiebeln",
+              "falsch",
+              "nicht",
+              "emre",
+              "nein"
+            ],
+            "noFlag": "onions"
+          },
+          "value": 2,
+          "fact": "🧅 sagt nein zu Zwiebeln",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Was?! Zwiebeln?! EMRE!!! … Er sagt: Das ist kein Berg. Das ist ein Porträt. Von dir.",
+              "emoji": "😤",
+              "en": "What?! Onions?! EMRE!!! … He says: that’s not a mountain. That’s a portrait. Of you.",
+              "audio": "mc_deniz_t8_emre"
+            },
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Sorry, Nachbar. Neuer Dürüm, ohne Zwiebeln. Und Baklava gratis.",
+              "en": "Sorry, neighbour. A new dürüm, no onions. And free baklava.",
+              "audio": "mc_deniz_t8_new"
+            }
+          ]
+        },
+        {
+          "id": "complainButAsked",
+          "when": {
+            "any": [
+              "zwiebeln",
+              "falsch",
+              "nicht",
+              "emre",
+              "nein"
+            ],
+            "flag": "onions"
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Zwiebeln? Aber du wolltest doch alles! Alles heißt: auch Zwiebeln.",
+              "en": "Onions? But you wanted everything! Everything means: onions too.",
+              "audio": "mc_deniz_t8_asked"
+            }
+          ]
+        },
+        {
+          "id": "acceptWrong",
+          "when": {
+            "any": [
+              "ja",
+              "richtig",
+              "super",
+              "danke",
+              "alles"
+            ],
+            "noFlag": "onions"
+          },
+          "value": -2,
+          "cause": "onions",
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Super? Aber da sind Zwiebeln! Ein Berg! Emre ist glücklich. Du bist ab jetzt sein bester Freund. Für immer.",
+              "emoji": "🧅",
+              "en": "Great? But there are onions! A mountain! Emre is happy. You’re his best friend now. Forever.",
+              "audio": "mc_deniz_t8_accept"
+            }
+          ]
+        },
+        {
+          "id": "acceptRight",
+          "when": {
+            "any": [
+              "ja",
+              "richtig",
+              "super",
+              "danke",
+              "alles"
+            ],
+            "flag": "onions"
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "deniz",
+              "type": "text",
+              "de": "Mit allem, wie bestellt. Guten Appetit!",
+              "en": "With everything, as ordered. Enjoy!",
+              "audio": "mc_deniz_t8_enjoy"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "deniz",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage, Nachbar.",
+    "en": "Er … that wasn't my question, neighbour.",
+    "audio": "mc_deniz_offtopic"
+  },
+  "confused": [
+    {
+      "who": "deniz",
+      "type": "text",
+      "de": "Hä? Noch mal, bitte.",
+      "emoji": "😅",
+      "en": "Huh? Again, please.",
+      "audio": "mc_deniz_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "deniz",
+        "type": "text",
+        "de": "Danke, {name}! Du bist jetzt mein Lieblingskunde. Dein Foto kommt an die Wand.",
+        "en": "Thanks, {name}! You're my favourite customer now. Your photo goes on the wall."
+      },
+      {
+        "who": "deniz",
+        "type": "text",
+        "de": "Nächstes Mal bekommst du einen Döner mit allem. Ohne Zwiebeln. Und Emre singt für dich. Leider.",
+        "emoji": "🥙",
+        "en": "Next time you get a döner with everything. No onions. And Emre sings for you. Sadly.",
+        "audio": "mc_deniz_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "deniz",
+        "type": "text",
+        "de": "Okay, Nachbar. Hier ist dein Dürüm. Er ist … ein bisschen anders. Emre hat geholfen. Er hat ein Gesicht aus Zwiebeln gemacht.",
+        "emoji": "🧅",
+        "en": "Okay, neighbour. Here’s your dürüm. It’s … a bit different. Emre helped. He made a face out of onions.",
+        "audio": "mc_deniz_partial"
+      }
+    ],
+    "deleted": {
+      "onions": {
+        "who": "deniz",
+        "type": "text",
+        "de": "Zwiebeln, keine Zwiebeln, Zwiebeln … Ich bin Dönermann, kein Hellseher. Der Nächste, bitte!",
+        "en": "Onions, no onions, onions … I'm a döner man, not a mind reader. Next, please!",
+        "audio": "mc_deniz_del_onions"
+      },
+      "card": {
+        "who": "deniz",
+        "type": "text",
+        "de": "Kein Bargeld, keine Karte, kein Dürüm. Der Nächste, bitte!",
+        "emoji": "💳",
+        "en": "No cash, no card, no dürüm. Next, please!",
+        "audio": "mc_deniz_del_card"
+      },
+      "spicy": {
+        "who": "deniz",
+        "type": "text",
+        "de": "Du weinst jetzt wie mein Onkel. Ich rufe ihn an. Ihr könnt zusammen weinen. Tschüss!",
+        "emoji": "🌶️",
+        "en": "You're crying like my uncle now. I'll call him. You can cry together. Bye!",
+        "audio": "mc_deniz_del_spicy"
+      },
+      "confused": {
+        "who": "deniz",
+        "type": "text",
+        "de": "Ich verstehe nur Bahnhof. Und ich habe Germanistik studiert! Der Nächste!",
+        "en": "I don't understand a word. And I studied German! Next!",
+        "audio": "mc_deniz_del_confused"
+      },
+      "default": {
+        "who": "deniz",
+        "type": "text",
+        "de": "Hm. Ich glaube, du gehst lieber zur Pommesbude gegenüber. Tschüss, Nachbar.",
+        "en": "Hm. I think you'd rather go to the chip shop across the road. Bye, neighbour.",
+        "audio": "mc_deniz_del_default"
+      }
+    },
+    "sunday": {
+      "who": "deniz",
+      "type": "voice",
+      "audio": "mc_deniz_vn_sunday",
+      "de": "Deniz hier! Sonntag ist Ruhetag. Ich schreibe Gedichte. Über Döner. Hör zu: Oh Dürüm, du bist so rund. Du bist warm. Du bist … Okay, ich übe noch. Emre sagt: Da fehlt eine Zwiebel.",
+      "en": "Deniz here! Sunday is my day off. I write poems. About döner. Listen: Oh dürüm, you are so round. You are warm. You are … Okay, I’m still practising. Emre says: it’s missing an onion.",
+      "direction": "Relaxed and happy on his day off, birds and a quiet street in the background, chewing a little, proud and slow on 'mit allem'."
+    }
+  },
+  "partialTitle": "Satt. Irgendwie.",
+  "share": {
+    "win": "Deniz (34, Dönermann) hat mich geliked 🥙 Dürüm mit allem, ohne Zwiebeln, und Emre hat geweint. Mein Deutsch: {score}/100. Kannst du richtig bestellen? {url}",
+    "partial": "Ich habe bei Deniz (34) bestellt … und Emre hat geholfen 🧅 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Deniz (34, Dönermann) hat mich gelöscht 💔 Und ich habe Hunger. Mein Deutsch: {score}/100. Bestellst du besser? {url}"
+  },
+  "imageCharacter": "Deniz, a 34-year-old man with a neat short black beard, warm brown eyes and thick black hair under a white paper cap, a white apron over a dark blue t-shirt, round reading glasses pushed up on his forehead, a pen behind his ear, a big welcoming grin.",
+  "imagePrompts": [
+    {
+      "id": "match_deniz",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands behind the counter of a small Berlin kebab shop, holding a long knife in one hand and a rolled dürüm wrap in the other like a trophy, a vertical meat spit glowing warmly behind him and a paperback book of poems lying open next to the cutting board. Tiled wall, warm light. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_deniz_prices",
+      "aspect": "3:4",
+      "prompt": "A phone photo of the wall above a kebab shop counter, seen straight on: one large plain dark-green chalkboard fills most of the frame, completely empty, nothing written or drawn on it. Below the board, the edge of a steel counter with three bowls in a row: lettuce, tomatoes and purple onions. Warm light."
+    },
+    {
+      "id": "match_deniz_duerum",
+      "aspect": "3:4",
+      "prompt": "A phone photo, seen from slightly above, of one single rolled dürüm wrap lying on white paper on a steel kebab counter. On top of the wrap sits a huge, absurd, overflowing pile of bright purple raw onion rings, taller than the wrap itself, a few rings tumbling onto the counter. Nothing else on the counter. Warm light."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich möchte einen Döner.",
+      "score": 100,
+      "intent": "doner",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte ein Döner.",
+      "score": 85,
+      "intent": "doner",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchtest einen Döner.",
+      "score": 80,
+      "intent": "doner",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich Döner möchte.",
+      "score": 70,
+      "intent": "doner",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe Hunger.",
+      "score": 100,
+      "intent": "hunger",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Nur Pommes, bitte.",
+      "score": 100,
+      "intent": "pommes",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte Salat.",
+      "score": 100,
+      "intent": "salad",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Wasser, bitte.",
+      "score": 100,
+      "intent": "water",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo!",
+      "score": 100,
+      "intent": "hello",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich einen Döner.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ja, mit allem, aber ohne Zwiebeln.",
+      "score": 100,
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Mit alles, aber ohne Zwiebeln.",
+      "score": 85,
+      "intent": "colloquial",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte keine Zwiebeln.",
+      "score": 100,
+      "intent": "noOnions",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Mit allem, bitte.",
+      "score": 100,
+      "intent": "allem",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Mit alles!",
+      "score": 85,
+      "intent": "alles",
+      "delta": 0
+    },
+    {
+      "turn": "t2",
+      "say": "Ja, mit Zwiebeln.",
+      "score": 100,
+      "intent": "wantOnions",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Nur Salat und Tomaten.",
+      "score": 100,
+      "intent": "some",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ja.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich keine Zwiebeln.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich möchte extra Knoblauchsoße.",
+      "score": 100,
+      "intent": "extraGarlic",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Viel Knoblauchsoße, bitte.",
+      "score": 100,
+      "intent": "extraGarlic",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Viele Knoblauchsoße, bitte.",
+      "score": 85,
+      "intent": "extraGarlic",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich extra Knoblauchsoße möchte.",
+      "score": 70,
+      "intent": "extraGarlic",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Knoblauchsoße, bitte.",
+      "score": 100,
+      "intent": "garlic",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Kräutersoße und scharfe Soße.",
+      "score": 100,
+      "intent": "herbs",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Nicht scharf, bitte.",
+      "score": 100,
+      "intent": "notSpicy",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich möchte scharfe Soße.",
+      "score": 100,
+      "intent": "spicy",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich möchte scharf Soße.",
+      "score": 85,
+      "intent": "spicy",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Extra Soße, bitte.",
+      "score": 100,
+      "intent": "extraSauce",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Keine Soße.",
+      "score": 100,
+      "intent": "noSauce",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ja, das ist okay.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Kein Brot, nur Dürüm. Das ist okay.",
+      "score": 100,
+      "intent": "understood",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich möchte Brot.",
+      "score": 100,
+      "intent": "wantBread",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich möchte kein Dürüm.",
+      "score": 85,
+      "intent": "noDurum",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Das ist egal.",
+      "score": 100,
+      "intent": "egal",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Nur Pommes.",
+      "score": 100,
+      "intent": "pommes",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, das ist nicht gut.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Das okay ist.",
+      "score": 70,
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich Dürüm okay.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte einen Ayran.",
+      "score": 100,
+      "intent": "ayran",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte ein Ayran.",
+      "score": 85,
+      "intent": "ayran",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte ein Wasser.",
+      "score": 100,
+      "intent": "water",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte eine Wasser.",
+      "score": 85,
+      "intent": "water",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Einen Tee, bitte.",
+      "score": 100,
+      "intent": "tea",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Nein, danke. Ich möchte nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte ein Bier.",
+      "score": 100,
+      "intent": "beer",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe Durst.",
+      "score": 100,
+      "intent": "thirsty",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich einen Ayran.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte kein Bier.",
+      "score": 100,
+      "intent": "noBeer",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich möchte Knoblauchsoße.",
+      "score": 100,
+      "intent": "drinkGarlic",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trinke Knoblauchsoße.",
+      "score": 100,
+      "intent": "drinkGarlic",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Das macht acht Euro.",
+      "score": 100,
+      "intent": "rightDrink",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich glaube, das macht acht Euro.",
+      "score": 100,
+      "intent": "rightDrink",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Das kosten acht Euro.",
+      "score": 80,
+      "intent": "rightDrink",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Sechs Euro.",
+      "score": 100,
+      "intent": "forgotDrink",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Es kostet sieben Euro.",
+      "score": 100,
+      "intent": "seven",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Das macht zehn Euro.",
+      "score": 100,
+      "intent": "tooMuch",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Das Euro acht macht.",
+      "score": 55,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ja, ich habe Bargeld.",
+      "score": 100,
+      "intent": "cash",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Hier sind zehn Euro.",
+      "score": 100,
+      "intent": "ten",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Hier zehn sind Euro.",
+      "score": 70,
+      "intent": "ten",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe nur Münzen.",
+      "score": 100,
+      "intent": "coins",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe kein Bargeld.",
+      "score": 100,
+      "intent": "noCash",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe eine Karte.",
+      "score": 100,
+      "intent": "card",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hast zwanzig Euro.",
+      "score": 80,
+      "intent": "twenty",
+      "delta": 0
+    },
+    {
+      "turn": "t7",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich zehn Euro.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe Socken.",
+      "score": 100,
+      "intent": "socks",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hast Socken.",
+      "score": 80,
+      "intent": "socks",
+      "delta": 0
+    },
+    {
+      "turn": "t8",
+      "say": "Da sind Zwiebeln!",
+      "score": 100,
+      "intent": "complain",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Emre! Ich möchte keine Zwiebeln.",
+      "score": 100,
+      "intent": "complain",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Das ist falsch.",
+      "score": 100,
+      "intent": "complain",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Das falsch ist.",
+      "score": 70,
+      "intent": "complain",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ja, alles ist super.",
+      "score": 100,
+      "intent": "acceptWrong",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Danke!",
+      "score": 100,
+      "intent": "acceptWrong",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich keine Zwiebeln.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich möchte einen Döner."
+        ],
+        [
+          "t2",
+          "Ja, mit allem, aber ohne Zwiebeln."
+        ],
+        [
+          "t3",
+          "Ich möchte extra Knoblauchsoße."
+        ],
+        [
+          "t4",
+          "Kein Brot, nur Dürüm. Das ist okay."
+        ],
+        [
+          "t5",
+          "Ich möchte einen Ayran."
+        ],
+        [
+          "t6",
+          "Das macht acht Euro."
+        ],
+        [
+          "t7",
+          "Hier sind zehn Euro."
+        ],
+        [
+          "t8",
+          "Da sind Zwiebeln!"
+        ]
+      ]
+    },
+    {
+      "name": "noDrink",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich habe Hunger."
+        ],
+        [
+          "t2",
+          "Ich möchte keine Zwiebeln."
+        ],
+        [
+          "t3",
+          "Viel Knoblauchsoße, bitte."
+        ],
+        [
+          "t4",
+          "Ja, das ist okay."
+        ],
+        [
+          "t5",
+          "Nein, danke. Ich möchte nichts."
+        ],
+        [
+          "t6",
+          "Das macht sechs Euro."
+        ],
+        [
+          "t7",
+          "Ja, ich habe Bargeld."
+        ],
+        [
+          "t8",
+          "Das ist falsch."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Hallo!"
+        ],
+        [
+          "t2",
+          "Ja."
+        ],
+        [
+          "t3",
+          "Ich möchte scharfe Soße."
+        ],
+        [
+          "t4",
+          "Ich möchte Brot."
+        ],
+        [
+          "t5",
+          "Ich möchte ein Bier."
+        ],
+        [
+          "t6",
+          "Das macht acht Euro."
+        ],
+        [
+          "t7",
+          "Ich habe eine Karte."
+        ],
+        [
+          "t8",
+          "Ja, alles ist super."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Hallo!"
+        ],
+        [
+          "t2",
+          "Ich möchte keine Zwiebeln."
+        ],
+        [
+          "t3",
+          "Keine Soße."
+        ],
+        [
+          "t4",
+          "Ich möchte Brot."
+        ],
+        [
+          "t5",
+          "Ich möchte ein Bier."
+        ],
+        [
+          "t6",
+          "Sechs Euro."
+        ],
+        [
+          "t7",
+          "Ich habe kein Bargeld."
+        ]
+      ]
+    }
+  ]
+}

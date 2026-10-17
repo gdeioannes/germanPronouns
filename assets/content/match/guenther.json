@@ -1,0 +1,1863 @@
+{
+  "id": "guenther",
+  "name": "Opa Günther",
+  "age": 84,
+  "emoji": "🎛️",
+  "image": "match_guenther",
+  "level": "A2.1",
+  "order": 6,
+  "hidden": true,
+  "bio": "Ich war DJ, bevor Helga DJ war.",
+  "bioEn": "I was a DJ before Helga was a DJ.",
+  "goal": "Get the true story of 1999 and bring Helga's records back before Saturday.",
+  "tagline": "DJ a. D. · 84 · Wedding",
+  "voice": "Rasalgethi",
+  "brief": "Opa Günther, an 84-year-old retired Berlin DJ and Oma Helga's old rival: a deep, smooth, slightly gravelly showman's voice, a charming storyteller who embellishes everything, gets flustered and mumbles when he is caught out, and softens completely when he talks about Helga.",
+  "focus": "Perfekt · war/hatte · Dativ: gehören, glauben, geben · dass",
+  "lexicon": {
+    "nouns": {
+      "Platten": "pl",
+      "Glatze": "f",
+      "Woche": "f",
+      "Schnee": "m",
+      "Fernsehturm": "m",
+      "Toupet": "n",
+      "Fan": "m"
+    },
+    "names": [
+      "Helga",
+      "Ibiza",
+      "Berlin",
+      "Helgas",
+      "Günther"
+    ],
+    "verbs": [
+      "hat",
+      "haben",
+      "hast",
+      "bist",
+      "glaube",
+      "glaubst",
+      "sind",
+      "musst",
+      "stimmt",
+      "lügst",
+      "warst",
+      "sehe",
+      "hattest",
+      "gehören",
+      "gehört",
+      "ist",
+      "bin"
+    ],
+    "nonfinite": [
+      "gesagt",
+      "gestohlen",
+      "zurückgeben",
+      "geliehen",
+      "geschickt",
+      "geschneit",
+      "entschuldigen"
+    ],
+    "imperatives": [
+      "gib",
+      "ruf",
+      "behalte",
+      "sag",
+      "tanz"
+    ],
+    "accVerbs": [
+      "hast",
+      "sehe",
+      "hattest",
+      "behalte",
+      "ruf"
+    ],
+    "datVerbs": [
+      "glaube",
+      "glaubst",
+      "gehören",
+      "gehört",
+      "gib"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "guenther",
+      "type": "text",
+      "de": "Na? Helga hat dir meine Nummer gegeben? Typisch Helga.",
+      "emoji": "🙄",
+      "en": "Well? Helga gave you my number? Typical Helga.",
+      "audio": "mc_guenther_intro_a"
+    },
+    {
+      "who": "guenther",
+      "type": "text",
+      "de": "Ich bin Günther. Ich war DJ, bevor Helga DJ war.",
+      "emoji": "🎛️",
+      "en": "I am Günther. I was a DJ before Helga was a DJ.",
+      "audio": "mc_guenther_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Was hat sie über mich gesagt?",
+          "en": "What did she say about me?",
+          "audio": "mc_guenther_t1a"
+        }
+      ],
+      "tiles": [
+        "sie",
+        "hat",
+        "haben",
+        "gesagt",
+        "dass",
+        "du",
+        "ihre",
+        "ihr",
+        "Platten",
+        "gestohlen",
+        "hast",
+        "bist",
+        "nett",
+        "eine",
+        "Glatze",
+        "nichts",
+        "sehr",
+        "ein",
+        "Toupet"
+      ],
+      "wrong": {
+        "haben": "hat",
+        "ihr": "ihre"
+      },
+      "intents": [
+        {
+          "id": "stolen",
+          "when": {
+            "any": [
+              "gestohlen"
+            ]
+          },
+          "value": 1,
+          "fact": "🗣️ sagt Günther die Wahrheit",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Gestohlen?! Das ist ein hartes Wort. Ich sage: geliehen.",
+              "emoji": "😳",
+              "en": "Stolen?! That's a harsh word. I say: borrowed.",
+              "audio": "mc_guenther_t1_stolen"
+            }
+          ]
+        },
+        {
+          "id": "nice",
+          "when": {
+            "any": [
+              "nett"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "flatter"
+          ],
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Nett? Helga? Über mich? Du lügst. Aber schön.",
+              "en": "Nice? Helga? About me? You are lying. But lovely.",
+              "audio": "mc_guenther_t1_nice"
+            }
+          ]
+        },
+        {
+          "id": "bald",
+          "when": {
+            "any": [
+              "glatze"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Das stimmt. Seit 1971. Eine Glatze ist zeitlos. Wie meine Geschichten.",
+              "emoji": "😎",
+              "en": "That’s true. Since 1971. A bald head is timeless. Like my stories.",
+              "audio": "mc_guenther_t1_bald"
+            }
+          ]
+        },
+        {
+          "id": "toupee",
+          "when": {
+            "any": [
+              "toupet"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Ein Toupet?! Das war EINMAL. 1984. Es ist weggeflogen. Beim Tanzen. Über die Mauer. In den Westen. Ohne mich.",
+              "en": "A toupee?! That was ONCE. 1984. It flew off. While dancing. Over the Wall. To the West. Without me.",
+              "audio": "mc_guenther_t1_toupee"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Nichts? Nach siebenundzwanzig Jahren? Das tut weh.",
+              "en": "Nothing? After twenty-seven years? That hurts.",
+              "audio": "mc_guenther_t1_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Gestohlen! Pff. Ich habe die Platten geliehen. Für eine Woche.",
+          "en": "Stolen! Pff. I borrowed the records. For a week.",
+          "audio": "mc_guenther_t2a"
+        },
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Okay. Für siebenundzwanzig Jahre. Aber geliehen!",
+          "en": "Okay. For twenty-seven years. But borrowed!",
+          "audio": "mc_guenther_t2b"
+        },
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Glaubst du mir?",
+          "en": "Do you believe me?",
+          "audio": "mc_guenther_t2c"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "glaube",
+        "glaubst",
+        "dir",
+        "dich",
+        "nicht",
+        "siebenundzwanzig Jahre",
+        "sind",
+        "keine",
+        "Woche",
+        "du",
+        "musst",
+        "die",
+        "Platten",
+        "zurückgeben"
+      ],
+      "wrong": {
+        "dich": "dir",
+        "glaubst": "glaube"
+      },
+      "intents": [
+        {
+          "id": "notBelieve",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "glaube",
+              "glaubst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Kluges Kind. Ich glaube mir auch nicht.",
+              "en": "Clever. I don't believe myself either.",
+              "audio": "mc_guenther_t2_notbelieve"
+            }
+          ]
+        },
+        {
+          "id": "years",
+          "when": {
+            "any": [
+              "siebenundzwanzig jahre"
+            ]
+          },
+          "value": 2,
+          "fact": "🧮 rechnet mit Günther",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Hm. Ja. Das ist ein Argument.",
+              "emoji": "🧮",
+              "en": "Hm. Yes. That is an argument.",
+              "audio": "mc_guenther_t2_years"
+            }
+          ]
+        },
+        {
+          "id": "giveBack",
+          "when": {
+            "any": [
+              "zurückgeben"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Zurückgeben. Ja. Irgendwann. Bald. Vielleicht.",
+              "en": "Give them back. Yes. Some time. Soon. Maybe.",
+              "audio": "mc_guenther_t2_giveback"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Nein? Kluges Kind. Helga hat dich gut erzogen.",
+              "en": "No? Clever. Helga has raised you well.",
+              "audio": "mc_guenther_t2_no"
+            }
+          ]
+        },
+        {
+          "id": "believe",
+          "when": {
+            "any": [
+              "glaube",
+              "ja"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "believed"
+          ],
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Danke! Endlich glaubt mir jemand! Das ist mir seit 1999 nicht passiert. Nicht mal mein Spiegel glaubt mir.",
+              "emoji": "🥹",
+              "en": "Thank you! Finally someone believes me! That hasn’t happened since 1999. Not even my mirror believes me.",
+              "audio": "mc_guenther_t2_believe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Na gut. Hier ist die ganze Wahrheit.",
+          "emoji": "🎙️",
+          "en": "All right. Here is the whole truth.",
+          "audio": "mc_guenther_t3a"
+        },
+        {
+          "who": "guenther",
+          "type": "voice",
+          "audio": "mc_guenther_vn_ibiza",
+          "de": "Die Wahrheit ist: 1999 war ich gar nicht in Berlin. Ich war auf Ibiza! Ich habe für Delfine aufgelegt. Die Delfine haben getanzt. Ich hatte keine Platten. Helga hat sie mir geschickt. Per Post. Mit einem Brief: „Für Günther, den besten DJ der Welt.“",
+          "en": "The truth is: in 1999 I wasn’t in Berlin at all. I was on Ibiza! I DJed for dolphins. The dolphins danced. I didn’t have any records. Helga sent them to me. By post. With a letter: “For Günther, the best DJ in the world.”",
+          "direction": "Smooth, grand storyteller, a little too confident; a tiny hesitation before \"Per Post\", then proud and dreamy on the letter."
+        },
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Na? Jetzt ist alles klar, oder?",
+          "en": "Well? Now everything is clear, right?",
+          "audio": "mc_guenther_t3b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "alles",
+        "klar",
+        "das",
+        "stimmt",
+        "nicht",
+        "du",
+        "hast",
+        "die",
+        "Platten",
+        "geliehen",
+        "Helga",
+        "hat",
+        "nie",
+        "geschickt",
+        "lügst",
+        "warst",
+        "auf",
+        "Ibiza"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "borrowed",
+          "when": {
+            "any": [
+              "geliehen"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "caught"
+          ],
+          "fact": "🕵️ merkt sich alles",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Geliehen? Habe ich das gesagt? … Mist.",
+              "emoji": "😬",
+              "en": "Borrowed? Did I say that? … Damn.",
+              "audio": "mc_guenther_t3_borrowed"
+            }
+          ]
+        },
+        {
+          "id": "neverSent",
+          "when": {
+            "all": [
+              "geschickt"
+            ],
+            "any": [
+              "nie",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "caught"
+          ],
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Woher weißt du das?! … Okay. Sie hat nichts geschickt.",
+              "en": "How do you know that?! … Okay. She sent nothing.",
+              "audio": "mc_guenther_t3_neversent"
+            }
+          ]
+        },
+        {
+          "id": "ibiza",
+          "when": {
+            "all": [
+              "ibiza"
+            ],
+            "any": [
+              "nie",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "caught"
+          ],
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Nie auf Ibiza? … Woher weißt du das? Du bist wie Helga.",
+              "en": "Never on Ibiza? … How do you know? You're like Helga.",
+              "audio": "mc_guenther_t3_ibiza"
+            }
+          ]
+        },
+        {
+          "id": "liar",
+          "when": {
+            "any": [
+              "lügst"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "caught"
+          ],
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Lügen? Ich? Ich erzähle. Das ist ein Unterschied.",
+              "en": "Lying? Me? I tell stories. That's a difference.",
+              "audio": "mc_guenther_t3_liar"
+            }
+          ]
+        },
+        {
+          "id": "notTrue",
+          "when": {
+            "all": [
+              "stimmt",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "caught"
+          ],
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Das stimmt nicht? Hm. Du hörst gut zu. Zu gut.",
+              "en": "That's not true? Hm. You listen well. Too well.",
+              "audio": "mc_guenther_t3_nottrue"
+            }
+          ]
+        },
+        {
+          "id": "gullible",
+          "when": {
+            "any": [
+              "ja",
+              "klar",
+              "stimmt",
+              "ibiza"
+            ],
+            "flag": "believed"
+          },
+          "value": -2,
+          "cause": "gullible",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Du glaubst wirklich alles. Das ist süß. Und gefährlich.",
+              "en": "You really believe everything. That is sweet. And dangerous.",
+              "audio": "mc_guenther_t3_gullible"
+            }
+          ]
+        },
+        {
+          "id": "believe",
+          "when": {
+            "any": [
+              "ja",
+              "klar",
+              "stimmt",
+              "ibiza"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "believed"
+          ],
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Schön! Du bist ein guter Zuhörer. Zu gut. Die Delfine waren auch so.",
+              "en": "Lovely! You’re a good listener. Too good. The dolphins were like that too.",
+              "audio": "mc_guenther_t3_believe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Ich habe ein Foto. Von 1999. Ibiza!",
+          "emoji": "📷",
+          "en": "I have a photo. From 1999. Ibiza!",
+          "audio": "mc_guenther_t4a"
+        },
+        {
+          "who": "guenther",
+          "type": "photo",
+          "image": "match_guenther_1999",
+          "alt": "Ein altes Foto: Günther, jünger, im Hawaiihemd, mit einer Kiste Platten. Hinter ihm ein Fenster: draußen Schnee und der Berliner Fernsehturm."
+        },
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Siehst du? Wo war ich 1999?",
+          "en": "See? Where was I in 1999?",
+          "audio": "mc_guenther_t4b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "warst",
+        "bist",
+        "in",
+        "auf",
+        "Berlin",
+        "Ibiza",
+        "es",
+        "hat",
+        "geschneit",
+        "ich",
+        "sehe",
+        "Schnee",
+        "den",
+        "der",
+        "Fernsehturm",
+        "und",
+        "Helgas",
+        "Platten",
+        "hattest"
+      ],
+      "wrong": {
+        "bist": "warst"
+      },
+      "intents": [
+        {
+          "id": "berlin",
+          "when": {
+            "any": [
+              "berlin",
+              "fernsehturm"
+            ]
+          },
+          "value": 2,
+          "fact": "🔍 entlarvt alte Fotos",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Der Fernsehturm. Mist. Das ist nicht Ibiza.",
+              "emoji": "😩",
+              "en": "The TV tower. Damn. That's not Ibiza.",
+              "audio": "mc_guenther_t4_berlin"
+            }
+          ]
+        },
+        {
+          "id": "snow",
+          "when": {
+            "any": [
+              "schnee",
+              "geschneit"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Schnee? Auf Ibiza schneit es manchmal! … Nein. Nie. Okay.",
+              "emoji": "❄️",
+              "en": "Snow? It sometimes snows on Ibiza! … No. Never. Okay.",
+              "audio": "mc_guenther_t4_snow"
+            }
+          ]
+        },
+        {
+          "id": "records",
+          "when": {
+            "any": [
+              "platten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Die Kiste? Das sind … meine. Äh. Nein. Helgas.",
+              "en": "The crate? Those are … mine. Er. No. Helga's.",
+              "audio": "mc_guenther_t4_records"
+            }
+          ]
+        },
+        {
+          "id": "ibizaContra",
+          "when": {
+            "any": [
+              "ibiza"
+            ],
+            "flag": "caught"
+          },
+          "value": -2,
+          "cause": "gullible",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Eben hast du mir nicht geglaubt. Und jetzt glaubst du mir das mit Ibiza?",
+              "en": "A moment ago you didn't believe me. And now you believe me about Ibiza?",
+              "audio": "mc_guenther_t4_contra"
+            }
+          ]
+        },
+        {
+          "id": "ibiza",
+          "when": {
+            "any": [
+              "ibiza"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Genau! Ibiza! Danke! Der Schnee ist … Sand. Weißer Sand. Und der Turm ist ein Delfin. Ein großer.",
+              "en": "Exactly! Ibiza! Thanks! The snow is … sand. White sand. And the tower is a dolphin. A big one.",
+              "audio": "mc_guenther_t4_ibiza"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Okay. Die echte Wahrheit. 1999 hatte Helga eine Party. Alle haben bei ihr getanzt. Nicht bei mir.",
+          "en": "Okay. The real truth. In 1999 Helga had a party. Everyone danced at hers. Not at mine.",
+          "audio": "mc_guenther_t5a"
+        },
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Ich war eifersüchtig. Ich habe die Platten mitgenommen. Und dann war es mir peinlich. Siebenundzwanzig Jahre lang.",
+          "emoji": "😔",
+          "en": "I was jealous. I took the records. And then I was embarrassed. For twenty-seven years.",
+          "audio": "mc_guenther_t5b"
+        },
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Was soll ich jetzt machen?",
+          "en": "What should I do now?",
+          "audio": "mc_guenther_t5c"
+        }
+      ],
+      "tiles": [
+        "gib",
+        "ruf",
+        "behalte",
+        "Helga",
+        "ihr",
+        "sie",
+        "die",
+        "Platten",
+        "zurück",
+        "an",
+        "du",
+        "musst",
+        "dich",
+        "entschuldigen",
+        "einfach",
+        "sofort",
+        "bei"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "keep",
+          "when": {
+            "any": [
+              "behalte"
+            ]
+          },
+          "value": -2,
+          "cause": "keep",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Behalten? Das ist böse. Das mag ich. Aber nein.",
+              "emoji": "😈",
+              "en": "Keep them? That's wicked. I like that. But no.",
+              "audio": "mc_guenther_t5_keep"
+            }
+          ]
+        },
+        {
+          "id": "give",
+          "when": {
+            "any": [
+              "gib",
+              "zurück"
+            ]
+          },
+          "value": 2,
+          "fact": "📦 bringt Platten zurück",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Zurückgeben. Ja. Am Samstag. Mit meinem besten Hemd.",
+              "emoji": "📦",
+              "en": "Give them back. Yes. On Saturday. In my best shirt.",
+              "audio": "mc_guenther_t5_give"
+            }
+          ]
+        },
+        {
+          "id": "sorry",
+          "when": {
+            "any": [
+              "entschuldigen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Mich entschuldigen? Bei Helga? … Puh. Okay. Ich übe.",
+              "en": "Apologise? To Helga? … Phew. Okay. I'll practise.",
+              "audio": "mc_guenther_t5_sorry"
+            }
+          ]
+        },
+        {
+          "id": "call",
+          "when": {
+            "any": [
+              "ruf"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Anrufen? Ich habe Angst. Sie hat eine sehr laute Stimme. 1999 hat sie ohne Mikrofon aufgelegt.",
+              "emoji": "📞",
+              "en": "Call her? I’m scared. She has a very loud voice. In 1999 she DJed without a microphone.",
+              "audio": "mc_guenther_t5_call"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Gut. Ich sortiere. Seit drei Stunden. Die mit dem blauen Punkt gehören mir. Die mit dem rosa Herz gehören Helga. Das war unsere Regel. 1999.",
+          "en": "Fine. I’m sorting. For three hours now. The ones with the blue dot are mine. The ones with the pink heart are Helga’s. That was our rule. 1999.",
+          "audio": "mc_guenther_t6a"
+        },
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Aber Helga ist nicht hier. Sie sieht nichts. Ich habe hier eine mit rosa Herz. Eine schöne. Also, ganz unter uns: Wem gehören die Platten mit dem rosa Herz?",
+          "emoji": "💗",
+          "en": "But Helga isn’t here. She can’t see anything. I’ve got one here with a pink heart. A lovely one. So, just between us: who do the records with the pink heart belong to?",
+          "audio": "mc_guenther_t6b"
+        }
+      ],
+      "tiles": [
+        "sie",
+        "die",
+        "Platten",
+        "gehören",
+        "gehört",
+        "Helga",
+        "ihr",
+        "dir",
+        "mir",
+        "mich",
+        "alle",
+        "nicht",
+        "natürlich",
+        "auch"
+      ],
+      "wrong": {
+        "gehört": "gehören",
+        "mich": "mir"
+      },
+      "intents": [
+        {
+          "id": "allHelga",
+          "when": {
+            "all": [
+              "alle"
+            ],
+            "any": [
+              "helga",
+              "ihr"
+            ]
+          },
+          "value": 2,
+          "fact": "💗 kennt das rosa Herz",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Alle?! … Okay. Vielleicht. Wahrscheinlich. Fast alle.",
+              "emoji": "😅",
+              "en": "All of them?! … Okay. Maybe. Probably. Almost all.",
+              "audio": "mc_guenther_t6_all"
+            }
+          ]
+        },
+        {
+          "id": "notYou",
+          "when": {
+            "all": [
+              "dir",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Nicht mir. Richtig. Leider.",
+              "en": "Not to me. Right. Unfortunately.",
+              "audio": "mc_guenther_t6_notyou"
+            }
+          ]
+        },
+        {
+          "id": "notMe",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "mir",
+              "mich"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Nicht dir. Stimmt. Und wem dann? Sag es. Ich halte es aus.",
+              "emoji": "🙄",
+              "en": "Not yours. True. And whose then? Say it. I can take it.",
+              "audio": "mc_guenther_t6_notme"
+            }
+          ]
+        },
+        {
+          "id": "helga",
+          "when": {
+            "any": [
+              "helga",
+              "ihr"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Richtig. Helga. Leider.",
+              "en": "Right. Helga. Unfortunately.",
+              "audio": "mc_guenther_t6_helga"
+            }
+          ]
+        },
+        {
+          "id": "you",
+          "when": {
+            "any": [
+              "dir"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Mir? Schön wär’s. Nein. Die mit dem Herz sind Helgas.",
+              "en": "Me? If only. No. The ones with the heart are Helga's.",
+              "audio": "mc_guenther_t6_you"
+            }
+          ]
+        },
+        {
+          "id": "mine",
+          "when": {
+            "any": [
+              "mir",
+              "mich"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Dir?! Jetzt willst du die Platten? Du bist schlimmer als ich. Ich bin beeindruckt. Und schockiert.",
+              "en": "Yours?! Now you want the records? You’re worse than me. I’m impressed. And shocked.",
+              "audio": "mc_guenther_t6_mine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "guenther",
+          "type": "text",
+          "de": "Samstag. Ich stehe vor Helgas Tür. Mit zwölf Kisten. Und mit meinem besten Hemd. Das Hemd ist auch von Helga. Seit 1999. Was sage ich zuerst?",
+          "emoji": "🚪",
+          "en": "Saturday. I’m standing at Helga’s door. With twelve crates. And in my best shirt. The shirt is Helga’s too. Since 1999. What do I say first?",
+          "audio": "mc_guenther_t7a"
+        }
+      ],
+      "tiles": [
+        "sag",
+        "es tut mir leid",
+        "hier",
+        "sind",
+        "ist",
+        "deine",
+        "dein",
+        "Platten",
+        "ich",
+        "bin",
+        "Günther",
+        "du",
+        "bist",
+        "alt",
+        "nichts",
+        "tanz",
+        "einfach",
+        "Helga",
+        "Fan"
+      ],
+      "wrong": {
+        "ist": "sind"
+      },
+      "intents": [
+        {
+          "id": "rude",
+          "when": {
+            "any": [
+              "alt"
+            ]
+          },
+          "value": -2,
+          "cause": "rude",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Du bist alt?! Dann knallt sie die Tür zu. Und ich bin auch alt!",
+              "en": "You're old?! Then she'll slam the door. And I'm old too!",
+              "audio": "mc_guenther_t7_rude"
+            }
+          ]
+        },
+        {
+          "id": "sorry",
+          "when": {
+            "any": [
+              "es tut mir leid"
+            ]
+          },
+          "value": 2,
+          "fact": "🎧 hat Helga und Günther versöhnt",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Es tut mir leid. Drei Wörter. Siebenundzwanzig Jahre. Ich schaffe das.",
+              "emoji": "🥲",
+              "en": "I am sorry. Three words. Twenty-seven years. I can do it.",
+              "audio": "mc_guenther_t7_sorry"
+            }
+          ]
+        },
+        {
+          "id": "records",
+          "when": {
+            "any": [
+              "platten"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Hier sind deine Platten. Klar und einfach. Gut.",
+              "emoji": "📦",
+              "en": "Here are your records. Clear and simple. Good.",
+              "audio": "mc_guenther_t7_records"
+            }
+          ]
+        },
+        {
+          "id": "fan",
+          "when": {
+            "any": [
+              "fan"
+            ]
+          },
+          "value": 1,
+          "fact": "🪩 ist Helgas Fan",
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Ich bin dein Fan. Seit 1999. Das ist sogar wahr! Zum ersten Mal sage ich etwas Wahres. Ich bin nervös.",
+              "en": "I’m your fan. Since 1999. That’s actually true! For the first time I’m saying something true. I’m nervous.",
+              "audio": "mc_guenther_t7_fan"
+            }
+          ]
+        },
+        {
+          "id": "dance",
+          "when": {
+            "any": [
+              "tanz"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Nichts sagen. Einfach tanzen. Das versteht Helga.",
+              "emoji": "🕺",
+              "en": "Say nothing. Just dance. Helga understands that.",
+              "audio": "mc_guenther_t7_dance"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "günther"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Ich bin Günther? Das weiß sie. Leider.",
+              "en": "I'm Günther? She knows that. Unfortunately.",
+              "audio": "mc_guenther_t7_name"
+            }
+          ]
+        },
+        {
+          "id": "silent",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "guenther",
+              "type": "text",
+              "de": "Nichts sagen? Nur da stehen? Mit zwölf Kisten? Mutig.",
+              "emoji": "📦",
+              "en": "Say nothing? Just stand there? With twelve crates? Brave.",
+              "audio": "mc_guenther_t7_silent"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "guenther",
+    "type": "text",
+    "de": "Hm? Das war nicht meine Frage. Aber ich erzähle gern weiter.",
+    "en": "Hm? That wasn't my question. But I'm happy to keep talking.",
+    "audio": "mc_guenther_offtopic"
+  },
+  "confused": [
+    {
+      "who": "guenther",
+      "type": "text",
+      "de": "Hä? Ich höre schlecht. Zu viel Bass. Seit 1971.",
+      "emoji": "🦻",
+      "en": "Huh? My hearing's bad. Too much bass. Since 1971.",
+      "audio": "mc_guenther_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "guenther",
+        "type": "text",
+        "de": "Samstag, 23 Uhr. Ich bringe die Platten. Und mein bestes Hemd.",
+        "emoji": "🌺",
+        "en": "Saturday, 11 pm. I'll bring the records. And my best shirt.",
+        "audio": "mc_guenther_win"
+      },
+      {
+        "who": "guenther",
+        "type": "text",
+        "de": "Danke, {name}. Du bist ein besserer DJ als ich. Für Menschen.",
+        "en": "Thanks, {name}. You're a better DJ than me. For people."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "guenther",
+        "type": "text",
+        "de": "Ich bringe die Platten. Aber nur elf Kisten. Die zwölfte … später. Und das Hemd behalte ich.",
+        "emoji": "📦",
+        "en": "I’ll bring the records. But only eleven crates. The twelfth … later. And I’m keeping the shirt.",
+        "audio": "mc_guenther_partial"
+      }
+    ],
+    "deleted": {
+      "gullible": {
+        "who": "guenther",
+        "type": "text",
+        "de": "Du glaubst mir alles. Das ist nicht gut für mich. So bleibe ich ein Lügner. Tschüss.",
+        "en": "You believe everything I say. That's not good for me. That way I stay a liar. Bye.",
+        "audio": "mc_guenther_del_gullible"
+      },
+      "keep": {
+        "who": "guenther",
+        "type": "text",
+        "de": "Ich behalte die Platten. Du hast es gesagt. Das sage ich Helga. Tschüss!",
+        "emoji": "😈",
+        "en": "I'm keeping the records. You said so. I'll tell Helga. Bye!",
+        "audio": "mc_guenther_del_keep"
+      },
+      "rude": {
+        "who": "guenther",
+        "type": "text",
+        "de": "Alt? Ich bin nicht alt. Ich bin Vintage. Tschüss.",
+        "en": "Old? I'm not old. I'm vintage. Bye.",
+        "audio": "mc_guenther_del_rude"
+      },
+      "confused": {
+        "who": "guenther",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich höre schlecht. Tschüss.",
+        "en": "I don't understand you. And my hearing's bad. Bye.",
+        "audio": "mc_guenther_del_confused"
+      },
+      "default": {
+        "who": "guenther",
+        "type": "text",
+        "de": "Die Platten bleiben bei mir. Noch siebenundzwanzig Jahre. Tschüss.",
+        "en": "The records stay with me. For another twenty-seven years. Bye.",
+        "audio": "mc_guenther_del_default"
+      }
+    },
+    "sunday": {
+      "who": "guenther",
+      "type": "voice",
+      "bg": "techno",
+      "audio": "mc_guenther_vn_sunday",
+      "de": "Sonntag. Ich war bei Helga. Wir haben zusammen aufgelegt. Bis sieben Uhr morgens! Sie hat gesagt: „Du bist immer noch schlecht.“ Und: „Das Hemd will ich zurück.“ Das war das Schönste seit 1999.",
+      "en": "Sunday. I was at Helga’s. We DJed together. Until seven in the morning! She said: “You’re still bad.” And: “I want the shirt back.” That was the loveliest thing since 1999.",
+      "direction": "Tired, hoarse and very happy, techno still thumping faintly behind him; soft and moved on the last sentence."
+    }
+  },
+  "partialTitle": "Elf von zwölf Kisten.",
+  "share": {
+    "win": "Ich habe Opa Günther (84, DJ a. D.) die Wahrheit über 1999 entlockt 🎛️ Helga bekommt ihre Platten zurück! Mein Deutsch: {score}/100. {url}",
+    "partial": "Opa Günther (84) bringt Helga ihre Platten … elf von zwölf Kisten 📦 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Opa Günther (84, DJ a. D.) hat mich gelöscht. Die Platten bleiben bei ihm 🎛️💔 Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Opa Günther, a tall, lanky, completely bald 84-year-old man with a big white moustache, wearing a loud terracotta-and-mustard Hawaiian shirt with palm leaves.",
+  "imagePrompts": [
+    {
+      "id": "match_guenther_1999",
+      "aspect": "3:4",
+      "prompt": "An old, slightly faded photo print from 1999 with a white border. A tall, lanky, completely bald man in his late fifties with a big dark-grey moustache, wearing a loud terracotta-and-mustard Hawaiian shirt with palm leaves, stands in a Berlin flat and grins proudly while holding a wooden crate full of vinyl records against his chest; every record sleeve has a small pink heart sticker. Behind him one big window: outside, thick snow is falling and the tall Berlin TV tower with its round ball is clearly visible against a grey winter sky. No palm trees, no beach."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Sie hat gesagt, dass du ihre Platten gestohlen hast.",
+      "score": 100,
+      "intent": "stolen",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Sie hat gesagt, dass du ihr Platten gestohlen hast.",
+      "score": 85,
+      "intent": "stolen",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Sie hat gesagt, dass du hast ihre Platten gestohlen.",
+      "score": 70,
+      "intent": "stolen",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Sie hat gesagt, dass du nett bist.",
+      "score": 100,
+      "intent": "nice",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Sie haben gesagt, dass du nett bist.",
+      "score": 80,
+      "intent": "nice",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Du hast eine Glatze.",
+      "score": 100,
+      "intent": "bald",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Sie hat nichts gesagt.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Sie gesagt dass du nett.",
+      "score": 0,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Nein, ich glaube dir nicht.",
+      "score": 100,
+      "intent": "notBelieve",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich glaube dich nicht.",
+      "score": 85,
+      "intent": "notBelieve",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Siebenundzwanzig Jahre sind keine Woche.",
+      "score": 100,
+      "intent": "years",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Du musst die Platten zurückgeben.",
+      "score": 100,
+      "intent": "giveBack",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Du musst zurückgeben die Platten.",
+      "score": 70,
+      "intent": "giveBack",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ja, ich glaube dir.",
+      "score": 100,
+      "intent": "believe",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich dir nicht.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Das stimmt nicht. Du hast die Platten geliehen.",
+      "score": 100,
+      "intent": "borrowed",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Du hast geliehen die Platten.",
+      "score": 70,
+      "intent": "borrowed",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Helga hat die Platten nie geschickt.",
+      "score": 100,
+      "intent": "neverSent",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du warst nie auf Ibiza.",
+      "score": 100,
+      "intent": "ibiza",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du lügst.",
+      "score": 100,
+      "intent": "liar",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Das stimmt nicht.",
+      "score": 100,
+      "intent": "notTrue",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ja, alles klar.",
+      "score": 100,
+      "intent": "believe",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Du die Platten geliehen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Du warst auf Ibiza.",
+      "score": 100,
+      "intent": "believe",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du warst in Berlin.",
+      "score": 100,
+      "intent": "berlin",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Du bist in Berlin.",
+      "score": 80,
+      "intent": "berlin",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sehe den Fernsehturm.",
+      "score": 100,
+      "intent": "berlin",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich sehe der Fernsehturm.",
+      "score": 85,
+      "intent": "berlin",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Es hat geschneit.",
+      "score": 100,
+      "intent": "snow",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Du hattest Helgas Platten.",
+      "score": 100,
+      "intent": "records",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Du warst auf Ibiza.",
+      "score": 100,
+      "intent": "ibiza",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du in Berlin.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Gib Helga die Platten zurück.",
+      "score": 100,
+      "intent": "give",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Gib ihr sofort die Platten zurück.",
+      "score": 100,
+      "intent": "give",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Du musst dich entschuldigen.",
+      "score": 100,
+      "intent": "sorry",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Du musst entschuldigen dich.",
+      "score": 70,
+      "intent": "sorry",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ruf sie einfach an.",
+      "score": 100,
+      "intent": "call",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Behalte die Platten.",
+      "score": 100,
+      "intent": "keep",
+      "delta": -2
+    },
+    {
+      "turn": "t5",
+      "say": "Du die Platten.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Du musst dich bei Helga entschuldigen.",
+      "score": 100,
+      "intent": "sorry",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Sie gehören Helga.",
+      "score": 100,
+      "intent": "helga",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Sie gehört Helga.",
+      "score": 80,
+      "intent": "helga",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Sie gehören ihr.",
+      "score": 100,
+      "intent": "helga",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Alle gehören natürlich Helga.",
+      "score": 100,
+      "intent": "allHelga",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Sie gehören dir.",
+      "score": 100,
+      "intent": "you",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Sie gehören nicht dir.",
+      "score": 100,
+      "intent": "notYou",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Sie gehören mir.",
+      "score": 100,
+      "intent": "mine",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Sie gehören mich.",
+      "score": 85,
+      "intent": "mine",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Sie Helga.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Sie gehören nicht mir.",
+      "score": 100,
+      "intent": "notMe",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Es tut mir leid.",
+      "score": 100,
+      "intent": "sorry",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Hier sind deine Platten.",
+      "score": 100,
+      "intent": "records",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Hier ist deine Platten.",
+      "score": 80,
+      "intent": "records",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Hier sind dein Platten.",
+      "score": 85,
+      "intent": "records",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Sag nichts. Tanz einfach.",
+      "score": 100,
+      "intent": "dance",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bin Günther.",
+      "score": 100,
+      "intent": "name",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist alt.",
+      "score": 100,
+      "intent": "rude",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich Günther.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Sag nichts.",
+      "score": 100,
+      "intent": "silent",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Sie hat gesagt, dass du ein Toupet hast.",
+      "intent": "toupee",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bin dein Fan.",
+      "intent": "fan",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich bin deine Fan.",
+      "score": 85
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Sie hat gesagt, dass du ihre Platten gestohlen hast."
+        ],
+        [
+          "t2",
+          "Siebenundzwanzig Jahre sind keine Woche."
+        ],
+        [
+          "t3",
+          "Das stimmt nicht. Du hast die Platten geliehen."
+        ],
+        [
+          "t4",
+          "Du warst in Berlin."
+        ],
+        [
+          "t5",
+          "Gib Helga die Platten zurück."
+        ],
+        [
+          "t6",
+          "Sie gehören Helga."
+        ],
+        [
+          "t7",
+          "Hier sind deine Platten."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Sie hat nichts gesagt."
+        ],
+        [
+          "t2",
+          "Ja, ich glaube dir."
+        ],
+        [
+          "t3",
+          "Ja, alles klar."
+        ],
+        [
+          "t4",
+          "Es hat geschneit."
+        ],
+        [
+          "t5",
+          "Ruf sie einfach an."
+        ],
+        [
+          "t6",
+          "Sie gehören dir."
+        ],
+        [
+          "t7",
+          "Du bist alt."
+        ]
+      ]
+    },
+    {
+      "name": "deleted: believes everything",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Sie hat nichts gesagt."
+        ],
+        [
+          "t2",
+          "Ja, ich glaube dir."
+        ],
+        [
+          "t3",
+          "Ja, alles klar."
+        ],
+        [
+          "t4",
+          "Du warst auf Ibiza."
+        ],
+        [
+          "t5",
+          "Behalte die Platten."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1940 @@
+{
+  "id": "nebel",
+  "name": "Frau Nebel",
+  "age": 55,
+  "emoji": "🌦️",
+  "image": "match_nebel",
+  "level": "A2.1",
+  "order": 4,
+  "bio": "Morgen: Sonne. Wahrscheinlich.",
+  "bioEn": "Tomorrow: sun. Probably.",
+  "goal": "Plan a picnic anyway.",
+  "tagline": "Wetterfee · 55 · Studio 3",
+  "voice": "Callirrhoe",
+  "brief": "Frau Nebel, a 55-year-old TV weather presenter who is always wrong: a polished, warm, perfectly articulated newsreader voice that keeps slipping into comic despair; ends forecasts with a hopeful \"Wahrscheinlich.\"",
+  "focus": "Wetter · Perfekt · war/hatte · konnte/musste",
+  "lexicon": {
+    "nouns": {
+      "Sonne": "f",
+      "Vormittag": "m",
+      "Mittag": "m",
+      "Nachmittag": "m",
+      "Gewitter": "n",
+      "Picknick": "n",
+      "Zeit": "f",
+      "Studio": "n",
+      "Park": "m",
+      "See": "m",
+      "Berg": "m",
+      "Regenschirm": "m",
+      "Sonnencreme": "f",
+      "Decke": "f",
+      "Kuchen": "m",
+      "Grill": "m",
+      "Wolken": "pl",
+      "Dach": "n",
+      "Schneemann": "m"
+    },
+    "names": [],
+    "verbs": [
+      "hat",
+      "ist",
+      "war",
+      "waren",
+      "weiß",
+      "scheint",
+      "regnet",
+      "gibt",
+      "machen",
+      "macht",
+      "musstest",
+      "musste",
+      "musst",
+      "konntest",
+      "warst",
+      "hattest",
+      "hatte",
+      "bringen",
+      "bringt",
+      "hast"
+    ],
+    "nonfinite": [
+      "geregnet",
+      "geschneit",
+      "geschienen",
+      "arbeiten",
+      "kommen",
+      "gehagelt"
+    ],
+    "accVerbs": [
+      "gibt",
+      "machen",
+      "macht",
+      "hattest",
+      "hatte",
+      "bringen",
+      "bringt"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "nebel",
+      "type": "text",
+      "de": "Guten Abend! Ich bin Frau Nebel. Ich mache das Wetter im Fernsehen. Seit dreißig Jahren.",
+      "emoji": "📺",
+      "en": "Good evening! I'm Frau Nebel. I do the weather on TV. For thirty years.",
+      "audio": "mc_nebel_intro_a"
+    },
+    {
+      "who": "nebel",
+      "type": "text",
+      "de": "Und seit dreißig Jahren falsch. Wahrscheinlich. Über mir wohnt eine kleine Wolke. Sie heißt Wolfgang. Sie folgt mir seit 1998.",
+      "en": "And for thirty years, wrong. Probably. A little cloud lives above me. His name is Wolfgang. He has been following me since 1998.",
+      "audio": "mc_nebel_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Ich habe gestern gesagt: Sonne. Den ganzen Tag. Wolfgang hat gelacht. Und geregnet. Auf mich.",
+          "emoji": "☀️",
+          "en": "Yesterday I said: sun. All day. Wolfgang laughed. And rained. On me.",
+          "audio": "mc_nebel_t1a"
+        },
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Sag ehrlich: Wie war das Wetter gestern bei dir?",
+          "en": "Be honest: what was the weather like at your place yesterday?",
+          "audio": "mc_nebel_t1b"
+        }
+      ],
+      "tiles": [
+        "gestern",
+        "es",
+        "es",
+        "hat",
+        "ist",
+        "war",
+        "geregnet",
+        "geschneit",
+        "regnet",
+        "sonnig",
+        "kalt",
+        "warm",
+        "sehr",
+        "ich",
+        "weiß",
+        "nicht",
+        "die",
+        "Sonne",
+        "geschienen",
+        "und"
+      ],
+      "wrong": {
+        "ist": "hat"
+      },
+      "intents": [
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Du weißt es nicht? Du warst doch draußen! Oder?",
+              "en": "You don't know? You were outside, weren't you?",
+              "audio": "mc_nebel_t1_dunno"
+            }
+          ]
+        },
+        {
+          "id": "today",
+          "when": {
+            "any": [
+              "regnet"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Heute? Ich habe nach gestern gefragt. Heute weiß ich nichts. Wie immer.",
+              "en": "Today? I asked about yesterday. Today I know nothing. As always.",
+              "audio": "mc_nebel_t1_today"
+            }
+          ]
+        },
+        {
+          "id": "notRain",
+          "when": {
+            "all": [
+              "nicht",
+              "geregnet"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Kein Regen?! Dann hatte ich fast recht! Zum ersten Mal seit 1998!",
+              "emoji": "🌤️",
+              "en": "No rain?! Then I was almost right! For the first time since 1998!",
+              "audio": "mc_nebel_t1_notrain"
+            }
+          ]
+        },
+        {
+          "id": "rain",
+          "when": {
+            "any": [
+              "geregnet"
+            ]
+          },
+          "value": 1,
+          "fact": "🌧️ sagt Frau Nebel die Wahrheit",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Geregnet. Natürlich. Und ich habe gesagt: Sonne. Wahrscheinlich.",
+              "emoji": "🌧️",
+              "en": "It rained. Of course. And I said: sun. Probably.",
+              "audio": "mc_nebel_t1_rain"
+            }
+          ]
+        },
+        {
+          "id": "snow",
+          "when": {
+            "any": [
+              "geschneit"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Geschneit? Im Juni? Das habe ich nicht angesagt. Das hat niemand angesagt. Das war sicher Wolfgang.",
+              "emoji": "❄️",
+              "en": "Snowed? In June? I didn’t forecast that. Nobody forecast that. That was Wolfgang for sure.",
+              "audio": "mc_nebel_t1_snow"
+            }
+          ]
+        },
+        {
+          "id": "sun",
+          "when": {
+            "any": [
+              "sonnig",
+              "sonne",
+              "geschienen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Sonne?! Ich hatte recht! Zum ersten Mal seit 1998! Ich muss mich setzen. Wolfgang ist beleidigt.",
+              "emoji": "🎉",
+              "en": "Sun?! I was right! For the first time since 1998! I have to sit down. Wolfgang is offended.",
+              "audio": "mc_nebel_t1_sun"
+            }
+          ]
+        },
+        {
+          "id": "temp",
+          "when": {
+            "any": [
+              "kalt",
+              "warm"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Kalt oder warm, egal. Hat es geregnet? Das ist die Frage.",
+              "en": "Cold or warm, never mind. Did it rain? That is the question.",
+              "audio": "mc_nebel_t1_temp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Hier ist meine Karte für morgen. Picknick-Wetter!",
+          "emoji": "🗺️",
+          "en": "Here's my map for tomorrow. Picnic weather!",
+          "audio": "mc_nebel_t2a"
+        },
+        {
+          "who": "nebel",
+          "type": "photo",
+          "image": "match_nebel_forecast",
+          "wide": true,
+          "overlay": [
+            "MORGEN",
+            "Vormittag: Sonne, 25 Grad",
+            "Mittag: Regen, 18 Grad",
+            "Nachmittag: Gewitter, 12 Grad"
+          ],
+          "alt": "Die Wetterkarte für morgen: am Vormittag Sonne, 25 Grad. Am Mittag Regen, 18 Grad. Am Nachmittag Gewitter, 12 Grad."
+        },
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Wann machen wir das Picknick? Am Vormittag, am Mittag oder am Nachmittag?",
+          "en": "When shall we have the picnic? In the morning, at midday or in the afternoon?",
+          "audio": "mc_nebel_t2b"
+        }
+      ],
+      "tiles": [
+        "am",
+        "am",
+        "Vormittag",
+        "Mittag",
+        "Nachmittag",
+        "weil",
+        "die",
+        "Sonne",
+        "scheint",
+        "es",
+        "regnet",
+        "ein",
+        "Gewitter",
+        "gibt",
+        "warm",
+        "ist",
+        "dann",
+        "wir",
+        "machen",
+        "das",
+        "Picknick"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "morningWeil",
+          "when": {
+            "all": [
+              "vormittag",
+              "weil"
+            ]
+          },
+          "value": 2,
+          "fact": "🗺️ liest Wetterkarten",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Am Vormittag, ja! Laut Karte. Du glaubst meiner Karte. Wie süß.",
+              "emoji": "🥹",
+              "en": "In the morning, yes! According to the map. You believe my map. How sweet.",
+              "audio": "mc_nebel_t2_morningweil"
+            }
+          ]
+        },
+        {
+          "id": "morning",
+          "when": {
+            "any": [
+              "vormittag"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Am Vormittag. Sehr gut. Aber Achtung: Meine Karten sind immer falsch. Wahrscheinlich.",
+              "en": "In the morning. Very good. But careful: my maps are always wrong. Probably.",
+              "audio": "mc_nebel_t2_morning"
+            }
+          ]
+        },
+        {
+          "id": "noon",
+          "when": {
+            "any": [
+              "mittag"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Am Mittag regnet es. Laut Karte. Also … vielleicht Sonne. Ich weiß es nie.",
+              "en": "At midday it rains. According to the map. So … maybe sun. I never know.",
+              "audio": "mc_nebel_t2_noon"
+            }
+          ]
+        },
+        {
+          "id": "afternoon",
+          "when": {
+            "any": [
+              "nachmittag"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Am Nachmittag kommt ein Gewitter. Wahrscheinlich. Oder ein Regenbogen. Oder ein Frosch. Alles ist möglich.",
+              "emoji": "⛈️",
+              "en": "In the afternoon a thunderstorm is coming. Probably. Or a rainbow. Or a frog. Anything is possible.",
+              "audio": "mc_nebel_t2_afternoon"
+            }
+          ]
+        },
+        {
+          "id": "sunny",
+          "when": {
+            "any": [
+              "sonne",
+              "warm"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Ja, Sonne ist gut. Aber wann?",
+              "en": "Yes, sun is good. But when?",
+              "audio": "mc_nebel_t2_sunny"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Mein letztes Picknick war eine Katastrophe. Hör mal.",
+          "emoji": "🎙️",
+          "en": "My last picnic was a disaster. Listen.",
+          "audio": "mc_nebel_t3a"
+        },
+        {
+          "who": "nebel",
+          "type": "voice",
+          "audio": "mc_nebel_vn_picnic",
+          "de": "Mein letztes Picknick, im Mai. Ich konnte nicht kommen. Ich musste arbeiten, im Studio. Ich habe Sonne angesagt. Und dann? Hagel! Wie Golfbälle! Meine Gäste mussten nach Hause rennen. Mit dem Kuchen.",
+          "en": "My last picnic, in May. I couldn't come. I had to work, in the studio. I forecast sun. And then? Hail! Like golf balls! My guests had to run home. With the cake.",
+          "direction": "A polished newsreader voice slipping into comic despair; a long sigh before \"Hagel!\", then fast and dramatic."
+        },
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Meine Gäste sagen heute noch: Frau Nebel war feige! Sie ist nicht gekommen! Bitte, sag es ihnen: Warum konnte ich nicht kommen?",
+          "en": "My guests still say: Frau Nebel was a coward! She didn’t come! Please, tell them: why couldn’t I come?",
+          "audio": "mc_nebel_t3b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "du",
+        "musstest",
+        "musste",
+        "musst",
+        "arbeiten",
+        "konntest",
+        "nicht",
+        "kommen",
+        "weil",
+        "warst",
+        "krank",
+        "hattest",
+        "keine",
+        "Zeit",
+        "es",
+        "hat",
+        "gehagelt",
+        "im",
+        "Studio"
+      ],
+      "wrong": {
+        "musst": "musstest",
+        "musste": "musstest"
+      },
+      "intents": [
+        {
+          "id": "work",
+          "when": {
+            "any": [
+              "arbeiten",
+              "studio"
+            ]
+          },
+          "value": 2,
+          "fact": "📺 kennt Frau Nebels Job",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Genau. Ich musste arbeiten. Und ich habe Sonne angesagt. Hagel war die Antwort.",
+              "en": "Exactly. I had to work. And I forecast sun. Hail was the answer.",
+              "audio": "mc_nebel_t3_work"
+            }
+          ]
+        },
+        {
+          "id": "time",
+          "when": {
+            "any": [
+              "zeit"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Keine Zeit, ja. Wegen der Arbeit. Ich musste arbeiten.",
+              "en": "No time, yes. Because of work. I had to work.",
+              "audio": "mc_nebel_t3_time"
+            }
+          ]
+        },
+        {
+          "id": "hail",
+          "when": {
+            "any": [
+              "gehagelt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Es hat gehagelt, ja. Aber ich war nicht da. Warum nicht?",
+              "en": "It hailed, yes. But I wasn't there. Why not?",
+              "audio": "mc_nebel_t3_hail"
+            }
+          ]
+        },
+        {
+          "id": "ill",
+          "when": {
+            "any": [
+              "krank"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Krank? Ich bin nie krank. Nur meine Vorhersagen. Und Wolfgang. Er hat immer Schnupfen. Deshalb regnet er.",
+              "en": "Ill? I’m never ill. Only my forecasts. And Wolfgang. He always has a cold. That’s why he rains.",
+              "audio": "mc_nebel_t3_ill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Und wo machen wir das Picknick? Im Park, am See oder auf dem Berg?",
+          "emoji": "🧺",
+          "en": "And where shall we have the picnic? In the park, by the lake or on the mountain?",
+          "audio": "mc_nebel_t4a"
+        }
+      ],
+      "tiles": [
+        "wir",
+        "machen",
+        "macht",
+        "das",
+        "den",
+        "Picknick",
+        "im",
+        "Park",
+        "am",
+        "See",
+        "auf",
+        "dem",
+        "der",
+        "Berg",
+        "zu Hause",
+        "in",
+        "deinem",
+        "Studio",
+        "lieber",
+        "Dach"
+      ],
+      "wrong": {
+        "macht": "machen"
+      },
+      "intents": [
+        {
+          "id": "studio",
+          "when": {
+            "any": [
+              "studio"
+            ]
+          },
+          "value": 0,
+          "fact": "📺 will im Fernsehstudio picknicken",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Im Studio?! Da regnet es nie! Genial. Aber nein. Mein Chef.",
+              "en": "In the studio?! It never rains there! Genius. But no. My boss.",
+              "audio": "mc_nebel_t4_studio"
+            }
+          ]
+        },
+        {
+          "id": "mountain",
+          "when": {
+            "any": [
+              "berg"
+            ]
+          },
+          "value": -1,
+          "cause": "mountain",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Auf dem Berg? Da ist das Wetter noch falscher als ich.",
+              "emoji": "🏔️",
+              "en": "On the mountain? The weather there is even more wrong than me.",
+              "audio": "mc_nebel_t4_mountain"
+            }
+          ]
+        },
+        {
+          "id": "roof",
+          "when": {
+            "any": [
+              "dach"
+            ]
+          },
+          "value": 1,
+          "fact": "🏠 picknickt auf dem Dach",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Auf dem Dach! Näher an den Wolken. Dann kann ich mit Wolfgang reden. Er hört nie zu. Aber ich versuche es.",
+              "en": "On the roof! Closer to the clouds. Then I can talk to Wolfgang. He never listens. But I’ll try.",
+              "audio": "mc_nebel_t4_roof"
+            }
+          ]
+        },
+        {
+          "id": "park",
+          "when": {
+            "any": [
+              "park"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Im Park. Gut. Da gibt es Bäume. Bäume sind Regenschirme. Mit Vögeln drin.",
+              "emoji": "🌳",
+              "en": "In the park. Good. There are trees. Trees are umbrellas. With birds in them.",
+              "audio": "mc_nebel_t4_park"
+            }
+          ]
+        },
+        {
+          "id": "lake",
+          "when": {
+            "any": [
+              "see"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Am See! Schön. Und wenn es regnet, sind wir zweimal nass.",
+              "emoji": "🌊",
+              "en": "By the lake! Lovely. And if it rains, we'll be wet twice.",
+              "audio": "mc_nebel_t4_lake"
+            }
+          ]
+        },
+        {
+          "id": "home",
+          "when": {
+            "any": [
+              "zu hause"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Zu Hause? Das ist kein Picknick. Das ist ein Abendessen auf dem Boden.",
+              "en": "At home? That's not a picnic. That's dinner on the floor.",
+              "audio": "mc_nebel_t4_home"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Gut. Was bringen wir mit? Denk an mein Wetter. Es ist immer anders.",
+          "emoji": "🎒",
+          "en": "Good. What shall we bring? Think of my weather. It's always different.",
+          "audio": "mc_nebel_t5a"
+        }
+      ],
+      "tiles": [
+        "wir",
+        "bringen",
+        "bringt",
+        "einen",
+        "ein",
+        "eine",
+        "Regenschirm",
+        "Sonnencreme",
+        "Decke",
+        "Kuchen",
+        "Grill",
+        "und",
+        "und",
+        "nur",
+        "mit",
+        "keinen",
+        "Schneemann"
+      ],
+      "wrong": {
+        "bringt": "bringen"
+      },
+      "intents": [
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "regenschirm",
+              "sonnencreme"
+            ]
+          },
+          "value": 2,
+          "fact": "☂️ ist auf alles vorbereitet",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Regenschirm UND Sonnencreme! Du kennst mich. Du kennst das Wetter.",
+              "emoji": "☂️",
+              "en": "An umbrella AND sun cream! You know me. You know the weather.",
+              "audio": "mc_nebel_t5_both"
+            }
+          ]
+        },
+        {
+          "id": "noUmbrella",
+          "when": {
+            "all": [
+              "regenschirm"
+            ],
+            "any": [
+              "keinen"
+            ]
+          },
+          "value": -1,
+          "cause": "believer",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Keinen Regenschirm?! Du glaubst mir? Großer Fehler.",
+              "en": "No umbrella?! You believe me? Big mistake.",
+              "audio": "mc_nebel_t5_noumbrella"
+            }
+          ]
+        },
+        {
+          "id": "umbrella",
+          "when": {
+            "any": [
+              "regenschirm"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Ein Regenschirm. Klug. Du kennst mich.",
+              "en": "An umbrella. Clever. You know me.",
+              "audio": "mc_nebel_t5_umbrella"
+            }
+          ]
+        },
+        {
+          "id": "sunOnly",
+          "when": {
+            "any": [
+              "sonnencreme"
+            ]
+          },
+          "value": -1,
+          "cause": "believer",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Sonnencreme? Und kein Regenschirm? Du glaubst meiner Karte? Niemand glaubt meiner Karte! … Fehler.",
+              "en": "Sun cream? And no umbrella? You believe my map? Nobody believes my map! … Mistake.",
+              "audio": "mc_nebel_t5_sunonly"
+            }
+          ]
+        },
+        {
+          "id": "snowman",
+          "when": {
+            "any": [
+              "schneemann"
+            ]
+          },
+          "value": 1,
+          "fact": "⛄ bringt einen Schneemann mit",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Einen Schneemann? Im Juni? … Klug. Bei meinem Wetter lebt er bis Dienstag. Er bekommt meinen Regenschirm.",
+              "en": "A snowman? In June? … Clever. With my weather he’ll live until Tuesday. He can have my umbrella.",
+              "audio": "mc_nebel_t5_snowman"
+            }
+          ]
+        },
+        {
+          "id": "grill",
+          "when": {
+            "any": [
+              "grill"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Ein Grill? Im Park ist Grillen oft verboten. Und bei Hagel schwierig.",
+              "en": "A barbecue? Barbecues are often banned in the park. And tricky in hail.",
+              "audio": "mc_nebel_t5_grill"
+            }
+          ]
+        },
+        {
+          "id": "food",
+          "when": {
+            "any": [
+              "decke",
+              "kuchen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Schön. Gemütlich. Und gegen den Regen?",
+              "emoji": "🍰",
+              "en": "Lovely. Cosy. And against the rain?",
+              "audio": "mc_nebel_t5_food"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Erzähl mal: Wie war dein bestes Picknick? Wie war das Wetter?",
+          "emoji": "💭",
+          "en": "Tell me: what was your best picnic like? What was the weather like?",
+          "audio": "mc_nebel_t6a"
+        }
+      ],
+      "tiles": [
+        "es",
+        "es",
+        "war",
+        "waren",
+        "sonnig",
+        "warm",
+        "schön",
+        "ich",
+        "hatte",
+        "hattest",
+        "Kuchen",
+        "ein",
+        "nie",
+        "Picknick",
+        "und",
+        "hat",
+        "geregnet",
+        "aber",
+        "lustig"
+      ],
+      "wrong": {
+        "hattest": "hatte",
+        "waren": "war"
+      },
+      "intents": [
+        {
+          "id": "never",
+          "when": {
+            "any": [
+              "nie"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Nie? Dann ist morgen dein erstes. Ohne Druck.",
+              "en": "Never? Then tomorrow will be your first. No pressure.",
+              "audio": "mc_nebel_t6_never"
+            }
+          ]
+        },
+        {
+          "id": "rainFun",
+          "when": {
+            "all": [
+              "geregnet",
+              "lustig"
+            ]
+          },
+          "value": 2,
+          "fact": "💙 mag auch Regen",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Geregnet, aber lustig! Du bist mein Mensch. Das Wetter ist egal.",
+              "emoji": "💙",
+              "en": "It rained, but it was fun! You're my kind of person. The weather doesn't matter.",
+              "audio": "mc_nebel_t6_rainfun"
+            }
+          ]
+        },
+        {
+          "id": "fun",
+          "when": {
+            "any": [
+              "lustig"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Lustig! Das ist wichtiger als das Wetter. Sag das nicht meinem Chef.",
+              "emoji": "😄",
+              "en": "Fun! That matters more than the weather. Don't tell my boss.",
+              "audio": "mc_nebel_t6_fun"
+            }
+          ]
+        },
+        {
+          "id": "rain",
+          "when": {
+            "any": [
+              "geregnet"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Geregnet. Natürlich. Ich habe bestimmt Sonne angesagt.",
+              "en": "It rained. Of course. I definitely forecast sun.",
+              "audio": "mc_nebel_t6_rain"
+            }
+          ]
+        },
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "kuchen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Kuchen! Ich hatte 1997 auch einen Kuchen beim Picknick. Er ist weggeflogen. Sturm. Er ist jetzt in Polen. Glaube ich.",
+              "en": "Cake! In 1997 I had a cake at a picnic too. It flew away. Storm. It’s in Poland now. I think.",
+              "audio": "mc_nebel_t6_cake"
+            }
+          ]
+        },
+        {
+          "id": "sunny",
+          "when": {
+            "any": [
+              "sonnig",
+              "warm",
+              "schön"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Sonnig und warm. Wie in meinen Träumen. Und in meinen Vorhersagen.",
+              "en": "Sunny and warm. Like in my dreams. And in my forecasts.",
+              "audio": "mc_nebel_t6_sunny"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Samstag! Picknick! Ich habe gestern Regen angesagt. Wahrscheinlich. Und Wolfgang ist heute nicht da. Er ist bei meinem Chef.",
+          "emoji": "🧺",
+          "en": "Saturday! Picnic! Yesterday I forecast rain. Probably. And Wolfgang isn’t here today. He’s at my boss’s place.",
+          "audio": "mc_nebel_t7a"
+        },
+        {
+          "who": "nebel",
+          "type": "photo",
+          "image": "match_nebel_window",
+          "alt": "Blick aus dem Fenster: blauer Himmel, Sonne, keine Wolke. Im Park sitzen Leute auf Decken."
+        },
+        {
+          "who": "nebel",
+          "type": "text",
+          "de": "Schau aus dem Fenster. Wie ist das Wetter?",
+          "en": "Look out of the window. What is the weather like?",
+          "audio": "mc_nebel_t7b"
+        }
+      ],
+      "tiles": [
+        "die",
+        "Sonne",
+        "scheint",
+        "es",
+        "regnet",
+        "ist",
+        "sonnig",
+        "warm",
+        "bewölkt",
+        "keine",
+        "Wolken",
+        "du",
+        "hattest",
+        "hast",
+        "nicht",
+        "recht",
+        "wieder",
+        "und"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "notBad",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "regnet",
+              "bewölkt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Kein Regen, keine Wolke! Ich hatte wieder nicht recht. Wunderbar!",
+              "emoji": "☀️",
+              "en": "No rain, not a cloud! I was wrong again. Wonderful!",
+              "audio": "mc_nebel_t7_notbad"
+            }
+          ]
+        },
+        {
+          "id": "rain",
+          "when": {
+            "any": [
+              "regnet"
+            ]
+          },
+          "value": -2,
+          "cause": "rain",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Regen? Schau noch mal! Du bist schlimmer als ich.",
+              "en": "Rain? Look again! You're worse than me.",
+              "audio": "mc_nebel_t7_rain"
+            }
+          ]
+        },
+        {
+          "id": "cloudy",
+          "when": {
+            "any": [
+              "bewölkt"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Bewölkt? Ich sehe keine Wolke. Und ich sehe sonst überall Wolken.",
+              "en": "Cloudy? I can't see a single cloud. And I usually see clouds everywhere.",
+              "audio": "mc_nebel_t7_cloudy"
+            }
+          ]
+        },
+        {
+          "id": "notRight",
+          "when": {
+            "all": [
+              "recht",
+              "nicht"
+            ]
+          },
+          "value": 2,
+          "fact": "☀️ freut sich, wenn Frau Nebel falsch liegt",
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Ich hatte wieder nicht recht! Wunderbar! Picknick!",
+              "emoji": "🎉",
+              "en": "I was wrong again! Wonderful! Picnic!",
+              "audio": "mc_nebel_t7_notright"
+            }
+          ]
+        },
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "recht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Recht? Ich habe Regen gesagt! Schau doch hin!",
+              "en": "Right? I said rain! Just look!",
+              "audio": "mc_nebel_t7_right"
+            }
+          ]
+        },
+        {
+          "id": "sun",
+          "when": {
+            "any": [
+              "sonne",
+              "sonnig",
+              "wolken"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Sonne! Ich hatte wieder nicht recht. Wunderbar! Wir gehen!",
+              "emoji": "☀️",
+              "en": "Sun! I was wrong again. Wonderful! Let's go!",
+              "audio": "mc_nebel_t7_sun"
+            }
+          ]
+        },
+        {
+          "id": "warm",
+          "when": {
+            "any": [
+              "warm"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "nebel",
+              "type": "text",
+              "de": "Warm! Und kein Hagel! Los, los!",
+              "en": "Warm! And no hail! Come on, come on!",
+              "audio": "mc_nebel_t7_warm"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "nebel",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Aber eine schöne Antwort. Wahrscheinlich.",
+    "en": "That wasn't my question. But a nice answer. Probably.",
+    "audio": "mc_nebel_offtopic"
+  },
+  "confused": [
+    {
+      "who": "nebel",
+      "type": "text",
+      "de": "Hä? Das verstehe ich so wenig wie das Wetter.",
+      "emoji": "🌫️",
+      "en": "Huh? I understand that as little as the weather.",
+      "audio": "mc_nebel_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "nebel",
+        "type": "text",
+        "de": "Die Sonne scheint, wir haben Kuchen, und ich habe einen Regenschirm. Und Wolfgang regnet auf meinen Chef. Perfekt.",
+        "emoji": "🧺",
+        "en": "The sun is shining, we have cake, and I have an umbrella. And Wolfgang is raining on my boss. Perfect.",
+        "audio": "mc_nebel_win"
+      },
+      {
+        "who": "nebel",
+        "type": "text",
+        "de": "Danke, {name}. Nächsten Samstag wieder? Sonne. Wahrscheinlich.",
+        "en": "Thanks, {name}. Again next Saturday? Sun. Probably."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "nebel",
+        "type": "text",
+        "de": "Wir haben gepicknickt. Unter einem Regenschirm. Es hat gehagelt. Es war … ein Erlebnis.",
+        "emoji": "☂️",
+        "en": "We had our picnic. Under an umbrella. It hailed. It was … an experience.",
+        "audio": "mc_nebel_partial"
+      }
+    ],
+    "deleted": {
+      "rain": {
+        "who": "nebel",
+        "type": "text",
+        "de": "Du siehst Regen, wo die Sonne scheint? Dann mach du das Wetter. Tschüss.",
+        "emoji": "🌧️",
+        "en": "You see rain where the sun is shining? Then you do the weather. Bye.",
+        "audio": "mc_nebel_del_rain"
+      },
+      "mountain": {
+        "who": "nebel",
+        "type": "text",
+        "de": "Auf dem Berg hat es gestürmt. Meine Frisur ist weg. Und du auch. Tschüss.",
+        "emoji": "🌪️",
+        "en": "It was stormy on the mountain. My hairdo is gone. And so are you. Bye.",
+        "audio": "mc_nebel_del_mountain"
+      },
+      "believer": {
+        "who": "nebel",
+        "type": "text",
+        "de": "Du glaubst meiner Vorhersage. Das ist gefährlich. Für uns beide. Tschüss.",
+        "en": "You believe my forecast. That is dangerous. For both of us. Bye.",
+        "audio": "mc_nebel_del_believer"
+      },
+      "confused": {
+        "who": "nebel",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Wie das Wetter. Tschüss.",
+        "en": "I don't understand you. Like the weather. Bye.",
+        "audio": "mc_nebel_del_confused"
+      },
+      "default": {
+        "who": "nebel",
+        "type": "text",
+        "de": "Heute: kein Picknick. Morgen auch nicht. Ganz sicher. Tschüss.",
+        "en": "Today: no picnic. Tomorrow neither. Absolutely certain. Bye.",
+        "audio": "mc_nebel_del_default"
+      }
+    },
+    "sunday": {
+      "who": "nebel",
+      "type": "voice",
+      "audio": "mc_nebel_vn_sunday",
+      "de": "Guten Abend! Die Vorhersage für Sonntag: Sonne. Ganz sicher. … Moment. Ich höre Donner. Wolfgang ist zurück. Er hat einen Freund mitgebracht. Bring den Regenschirm mit!",
+      "en": "Good evening! The forecast for Sunday: sun. Definitely. … Wait. I hear thunder. Wolfgang is back. He brought a friend. Bring the umbrella!",
+      "direction": "Starts in her smooth TV voice, then breaks into a giggle and a quick, practical warning."
+    }
+  },
+  "partialTitle": "Picknick im Hagel.",
+  "share": {
+    "win": "Ich habe mit Frau Nebel (55, Wetterfee) ein Picknick gemacht ☀️🧺 Sie hatte wieder nicht recht. Zum Glück! Mein Deutsch: {score}/100. {url}",
+    "partial": "Picknick mit Frau Nebel (55, Wetterfee) … im Hagel ☂️ Mein Deutsch: {score}/100. Hast du mehr Glück? {url}",
+    "deleted": "Frau Nebel (55, Wetterfee) hat mich gelöscht 🌧️ Wahrscheinlich. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Frau Nebel, a 55-year-old woman with a perfectly blow-dried silver-blonde bob that is always slightly windswept, a bright teal TV-presenter suit, pearl earrings and a cheerful, slightly worried smile; she always holds a folded red umbrella like a pointer.",
+  "imagePrompts": [
+    {
+      "id": "match_nebel",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands in a small TV weather studio in front of a big blank blue screen, pointing her umbrella at a cartoon sun sticker, while a little grey rain cloud hangs just above her own head. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_nebel_forecast",
+      "aspect": "16:9",
+      "prompt": "A TV weather screen seen exactly from the front, plain light-blue background, NO text, NO numbers, NO map outlines. Exactly THREE big weather symbols in a row, far apart and evenly spaced: LEFT: a big round yellow sun. MIDDLE: a grey cloud with blue rain drops. RIGHT: a dark grey cloud with a yellow lightning bolt. The bottom third of the screen is plain empty light blue."
+    },
+    {
+      "id": "match_nebel_window",
+      "aspect": "3:4",
+      "prompt": "A view through an open old wooden window: a bright sunny summer day, a completely clear deep-blue sky with a big round sun and not a single cloud. Below, a green Berlin park where a few people sit on picnic blankets. On the windowsill a folded red umbrella and a little plant."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Gestern hat es geregnet.",
+      "score": 100,
+      "intent": "rain",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Es hat gestern geregnet.",
+      "score": 100,
+      "intent": "rain",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Gestern ist es geregnet.",
+      "score": 80,
+      "intent": "rain",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Gestern es hat geregnet.",
+      "score": 70,
+      "intent": "rain",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Gestern hat die Sonne geschienen.",
+      "score": 100,
+      "intent": "sun",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Gestern war es sonnig und warm.",
+      "score": 100,
+      "intent": "sun",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Es hat geschneit.",
+      "score": 100,
+      "intent": "snow",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Es regnet.",
+      "score": 100,
+      "intent": "today",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Es war sehr kalt.",
+      "score": 100,
+      "intent": "temp",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Gestern es ist geregnet.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Gestern hat es nicht geregnet.",
+      "score": 100,
+      "intent": "notRain",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Am Vormittag, weil die Sonne scheint.",
+      "score": 100,
+      "intent": "morningWeil",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Am Vormittag, weil es dann warm ist.",
+      "score": 100,
+      "intent": "morningWeil",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Am Vormittag, weil die Sonne scheint dann.",
+      "score": 70,
+      "intent": "morningWeil",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Am Vormittag machen wir das Picknick.",
+      "score": 100,
+      "intent": "morning",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Am Mittag.",
+      "score": 100,
+      "intent": "noon",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Am Nachmittag, weil es ein Gewitter gibt.",
+      "score": 100,
+      "intent": "afternoon",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Sonne scheint.",
+      "score": 100,
+      "intent": "sunny",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Wir das Picknick am Vormittag.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Am Vormittag, weil es am Nachmittag ein Gewitter gibt.",
+      "score": 100,
+      "intent": "morningWeil",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Du musstest arbeiten.",
+      "score": 100,
+      "intent": "work",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Du musstest im Studio arbeiten.",
+      "score": 100,
+      "intent": "work",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Du konntest nicht kommen, weil du arbeiten musstest.",
+      "score": 100,
+      "intent": "work",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Du musst arbeiten.",
+      "score": 80,
+      "intent": "work",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du musste arbeiten.",
+      "score": 80,
+      "intent": "work",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du arbeiten musstest.",
+      "score": 70,
+      "intent": "work",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du hattest keine Zeit.",
+      "score": 100,
+      "intent": "time",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Es hat gehagelt.",
+      "score": 100,
+      "intent": "hail",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Du warst krank.",
+      "score": 100,
+      "intent": "ill",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Du arbeiten musst.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Wir machen das Picknick im Park.",
+      "score": 100,
+      "intent": "park",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Wir machen den Picknick am See.",
+      "score": 85,
+      "intent": "lake",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Wir macht das Picknick im Park.",
+      "score": 80,
+      "intent": "park",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Am See.",
+      "score": 100,
+      "intent": "lake",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Auf dem Berg.",
+      "score": 100,
+      "intent": "mountain",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Auf der Berg.",
+      "score": 85,
+      "intent": "mountain",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Lieber in deinem Studio.",
+      "score": 100,
+      "intent": "studio",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Wir machen das Picknick zu Hause.",
+      "score": 100,
+      "intent": "home",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Wir das Picknick im Park.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Wir bringen einen Regenschirm und Sonnencreme mit.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Wir bringen ein Regenschirm mit.",
+      "score": 85,
+      "intent": "umbrella",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Wir bringt einen Regenschirm mit.",
+      "score": 80,
+      "intent": "umbrella",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Wir bringen eine Decke und Kuchen mit.",
+      "score": 100,
+      "intent": "food",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Nur Sonnencreme.",
+      "score": 100,
+      "intent": "sunOnly",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Wir bringen keinen Regenschirm mit.",
+      "score": 100,
+      "intent": "noUmbrella",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Einen Grill.",
+      "score": 100,
+      "intent": "grill",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Wir einen Regenschirm.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Es war sonnig und ich hatte Kuchen.",
+      "score": 100,
+      "intent": "cake",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Es hat geregnet, aber es war lustig.",
+      "score": 100,
+      "intent": "rainFun",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Es waren sonnig.",
+      "score": 80,
+      "intent": "sunny",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hattest Kuchen.",
+      "score": 80,
+      "intent": "cake",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hatte nie ein Picknick.",
+      "score": 100,
+      "intent": "never",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Es hat geregnet.",
+      "score": 100,
+      "intent": "rain",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Es war schön.",
+      "score": 100,
+      "intent": "sunny",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich Kuchen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Es war lustig.",
+      "intent": "fun",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Die Sonne scheint!",
+      "score": 100,
+      "intent": "sun",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Es ist sonnig und warm.",
+      "score": 100,
+      "intent": "sun",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du hattest wieder nicht recht.",
+      "score": 100,
+      "intent": "notRight",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Keine Wolken!",
+      "score": 100,
+      "intent": "sun",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Es regnet.",
+      "score": 100,
+      "intent": "rain",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Es ist bewölkt.",
+      "score": 100,
+      "intent": "cloudy",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du hattest recht.",
+      "score": 100,
+      "intent": "right",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Es ist warm.",
+      "score": 100,
+      "intent": "warm",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du nicht recht.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Es regnet nicht.",
+      "score": 100,
+      "intent": "notBad",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Wir machen das Picknick auf dem Dach.",
+      "intent": "roof",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Auf der Dach.",
+      "score": 85
+    },
+    {
+      "turn": "t5",
+      "say": "Wir bringen einen Schneemann mit.",
+      "intent": "snowman",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wir bringen ein Schneemann mit.",
+      "score": 85
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Gestern hat es geregnet."
+        ],
+        [
+          "t2",
+          "Am Vormittag, weil die Sonne scheint."
+        ],
+        [
+          "t3",
+          "Du musstest arbeiten."
+        ],
+        [
+          "t4",
+          "Wir machen das Picknick im Park."
+        ],
+        [
+          "t5",
+          "Wir bringen einen Regenschirm und Sonnencreme mit."
+        ],
+        [
+          "t6",
+          "Es hat geregnet, aber es war lustig."
+        ],
+        [
+          "t7",
+          "Die Sonne scheint!"
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Es regnet."
+        ],
+        [
+          "t2",
+          "Am Mittag."
+        ],
+        [
+          "t3",
+          "Du musstest arbeiten."
+        ],
+        [
+          "t4",
+          "Auf dem Berg."
+        ],
+        [
+          "t5",
+          "Nur Sonnencreme."
+        ],
+        [
+          "t6",
+          "Es hat geregnet."
+        ],
+        [
+          "t7",
+          "Es ist bewölkt."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich weiß es nicht."
+        ],
+        [
+          "t2",
+          "Am Nachmittag."
+        ],
+        [
+          "t3",
+          "Du warst krank."
+        ],
+        [
+          "t4",
+          "Auf dem Berg."
+        ],
+        [
+          "t5",
+          "Nur Sonnencreme."
+        ]
+      ]
+    }
+  ]
+}

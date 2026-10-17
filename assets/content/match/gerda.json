@@ -1,0 +1,2225 @@
+{
+  "id": "gerda",
+  "name": "Gerda",
+  "age": 67,
+  "emoji": "🥾",
+  "image": "match_gerda",
+  "level": "B2.2",
+  "order": 4,
+  "bio": "Wanderverein „Gipfelglück“, Vorsitzende. Samstag: nur 25 Kilometer. Ganz entspannt.",
+  "bioEn": "Hiking club “Summit Bliss”, chairwoman. Saturday: only 25 kilometres. Totally relaxed.",
+  "goal": "Hike with Gerda’s club and reach the mountain hut before the kitchen closes.",
+  "tagline": "Wanderführerin · 67 · Wanderverein Gipfelglück",
+  "voice": "Sulafat",
+  "brief": "Gerda, 67, leader of a hiking club: a bright, brisk, cheerful older woman’s voice, never out of breath, relentlessly upbeat, says “Ganz entspannt!” about everything brutal; a southern German warmth, short hearty laughs, motherly but merciless.",
+  "focus": "trotz/wegen/innerhalb + Genitiv · hätte … sollen · Konjunktiv II der Vergangenheit",
+  "lexicon": {
+    "nouns": {
+      "Knies": "n",
+      "Knie": "n",
+      "Kuchen": "m",
+      "Wanderschuhe": "pl",
+      "Sandalen": "pl",
+      "Turnschuhe": "pl",
+      "Flip-Flops": "pl",
+      "Regenjacke": "f",
+      "Socken": "pl",
+      "Regens": "m",
+      "Regen": "m",
+      "Weg": "m",
+      "Wald": "m",
+      "See": "m",
+      "Küche": "f",
+      "Uhr": "f",
+      "Felsen": "pl",
+      "Blasen": "pl",
+      "Schuhe": "pl",
+      "Pflaster": "n",
+      "Pause": "f",
+      "Stunde": "f",
+      "Kaiserschmarrn": "m",
+      "Wasser": "n",
+      "Seilbahn": "f"
+    },
+    "names": [
+      "Gerda",
+      "Klaus",
+      "Berta"
+    ],
+    "verbs": [
+      "bin",
+      "hätte",
+      "wäre",
+      "komme",
+      "bleibe",
+      "habe",
+      "trage",
+      "nehmen",
+      "schließt",
+      "gehe",
+      "kann",
+      "brauche",
+      "müssen",
+      "könnten",
+      "würden",
+      "schaffen",
+      "machen",
+      "teilen",
+      "fahre"
+    ],
+    "nonfinite": [
+      "trainieren",
+      "sollen",
+      "gegessen",
+      "angezogen",
+      "anziehen",
+      "bleiben",
+      "beeilen",
+      "anrufen",
+      "gehen",
+      "angekommen",
+      "geschafft",
+      "losgegangen",
+      "mitgenommen",
+      "gemacht",
+      "geblieben",
+      "fragen"
+    ],
+    "accVerbs": [
+      "hätte",
+      "habe",
+      "trage",
+      "nehmen",
+      "brauche",
+      "könnten",
+      "würden",
+      "schaffen",
+      "machen",
+      "teilen"
+    ],
+    "adjectives": [
+      "neu",
+      "alt",
+      "dick",
+      "mittler",
+      "link",
+      "recht",
+      "ander",
+      "besser"
+    ]
+  },
+  "intro": [
+    {
+      "who": "gerda",
+      "type": "text",
+      "de": "Servus! Ich bin Gerda vom Wanderverein Gipfelglück. Samstag wandern wir zur Gipfelhütte.",
+      "emoji": "🏔️",
+      "en": "Hello! I’m Gerda from the Summit Bliss hiking club. On Saturday we’re hiking to the summit hut.",
+      "audio": "mc_gerda_t1a"
+    },
+    {
+      "who": "gerda",
+      "type": "text",
+      "de": "Nur 25 Kilometer. Ganz entspannt. Und oben gibt es Kaiserschmarrn!",
+      "emoji": "🥞",
+      "en": "Only 25 kilometres. Totally relaxed. And at the top there’s Kaiserschmarrn!",
+      "audio": "mc_gerda_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "gerda",
+          "type": "text",
+          "de": "Bist du fit?",
+          "emoji": "💪",
+          "en": "Are you fit?",
+          "audio": "mc_gerda_t1c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bin",
+        "sehr",
+        "fit",
+        "hätte",
+        "mehr",
+        "trainieren",
+        "sollen",
+        "trotz",
+        "wegen",
+        "meines",
+        "meinem",
+        "Knies",
+        "Knie",
+        "komme",
+        "mit",
+        "bleibe",
+        "zu Hause",
+        "lieber",
+        "Kuchen",
+        "gegessen"
+      ],
+      "wrong": {
+        "Knie": {
+          "to": "Knies",
+          "note": "Genitive after trotz / wegen: meines Knies."
+        }
+      },
+      "intents": [
+        {
+          "id": "stayHome",
+          "when": {
+            "any": [
+              "zu hause",
+              "bleibe"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Zu Hause bleiben? Wegen eines Knies? Ich habe zwei kaputte Knie und wandere jeden Tag!",
+              "emoji": "😤",
+              "en": "Stay at home? Because of a knee? I’ve got two bad knees and I hike every day!",
+              "audio": "mc_gerda_t1_stayhome"
+            }
+          ]
+        },
+        {
+          "id": "despite",
+          "when": {
+            "any": [
+              "trotz"
+            ]
+          },
+          "value": 2,
+          "fact": "🦵 wandert trotz des Knies",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Trotz des Knies! So gefällt mir das. Das Knie wandert einfach mit.",
+              "emoji": "🦵",
+              "en": "Despite the knee! That’s what I like. The knee just comes along.",
+              "audio": "mc_gerda_t1_despite"
+            }
+          ]
+        },
+        {
+          "id": "regret",
+          "when": {
+            "any": [
+              "trainieren",
+              "sollen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Ehrlich! Das mag ich. Aber jetzt ist es zu spät. Samstag, sechs Uhr.",
+              "emoji": "⏰",
+              "en": "Honest! I like that. But now it’s too late. Saturday, six o’clock.",
+              "audio": "mc_gerda_t1_regret"
+            }
+          ]
+        },
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "kuchen",
+              "gegessen",
+              "lieber"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Kuchen gibt es oben. Nach 25 Kilometern. Das ist Motivation.",
+              "emoji": "🍰",
+              "en": "There’s cake at the top. After 25 kilometres. That’s motivation.",
+              "audio": "mc_gerda_t1_cake"
+            }
+          ]
+        },
+        {
+          "id": "fit",
+          "when": {
+            "any": [
+              "fit"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Fit! Wunderbar. Das sagen alle. Am Anfang.",
+              "emoji": "😄",
+              "en": "Fit! Wonderful. Everyone says that. At the start.",
+              "audio": "mc_gerda_t1_fit"
+            }
+          ]
+        },
+        {
+          "id": "comeAlong",
+          "when": {
+            "any": [
+              "komme"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Du kommst mit! Sehr gut. Samstag, sechs Uhr, Parkplatz. Ganz entspannt.",
+              "emoji": "🥾",
+              "en": "You’re coming! Very good. Saturday, six a.m., car park. Totally relaxed.",
+              "audio": "mc_gerda_t1_come"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "gerda",
+          "type": "text",
+          "de": "Samstag, sechs Uhr, Parkplatz. Was hast du an den Füßen? Schick ein Foto!",
+          "emoji": "📸",
+          "en": "Saturday, six a.m., car park. What have you got on your feet? Send a photo!",
+          "audio": "mc_gerda_t2a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "trage",
+        "angezogen",
+        "meine",
+        "neuen",
+        "alten",
+        "neue",
+        "alte",
+        "Wanderschuhe",
+        "Sandalen",
+        "Turnschuhe",
+        "Flip-Flops",
+        "und",
+        "eine",
+        "Regenjacke",
+        "dicke",
+        "Socken"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "flipflops",
+          "when": {
+            "any": [
+              "flip-flops"
+            ]
+          },
+          "value": -2,
+          "cause": "shoes",
+          "photo": "match_gerda_flipflops",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Flip-Flops?! Das ist ein Berg, kein Freibad! Die Kühe lachen schon. Und Kühe lachen nie.",
+              "emoji": "😱",
+              "en": "Flip-flops?! This is a mountain, not a swimming pool! The cows are already laughing. And cows never laugh.",
+              "audio": "mc_gerda_t2_flipflops"
+            }
+          ]
+        },
+        {
+          "id": "sandalsSocks",
+          "when": {
+            "all": [
+              "sandalen",
+              "socken"
+            ]
+          },
+          "value": 0,
+          "photo": "match_gerda_sandalen",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Sandalen mit dicken Socken! Sehr deutsch. Sehr warm. Ich respektiere das.",
+              "emoji": "🧦",
+              "en": "Sandals with thick socks! Very German. Very warm. I respect that.",
+              "audio": "mc_gerda_t2_sandalssocks"
+            }
+          ]
+        },
+        {
+          "id": "sandals",
+          "when": {
+            "any": [
+              "sandalen"
+            ]
+          },
+          "value": -1,
+          "photo": "match_gerda_sandalen",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Sandalen? Wegen der Steine wirst du weinen. Ganz entspannt weinen.",
+              "emoji": "🪨",
+              "en": "Sandals? Because of the stones you’ll cry. Cry in a totally relaxed way.",
+              "audio": "mc_gerda_t2_sandals"
+            }
+          ]
+        },
+        {
+          "id": "newBoots",
+          "when": {
+            "all": [
+              "wanderschuhe"
+            ],
+            "any": [
+              "neuen",
+              "neue"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "newBoots"
+          ],
+          "photo": "match_gerda_wanderschuhe",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Neue Wanderschuhe? Schön! Nicht eingelaufen? … Egal. Klaus hat seine 1987 gekauft und läuft sie immer noch ein. Ganz entspannt.",
+              "emoji": "👀",
+              "en": "New hiking boots? Lovely! Not broken in? … Never mind. Klaus bought his in 1987 and is still breaking them in. Totally relaxed.",
+              "audio": "mc_gerda_t2_newboots"
+            }
+          ]
+        },
+        {
+          "id": "boots",
+          "when": {
+            "all": [
+              "wanderschuhe"
+            ],
+            "any": [
+              "alten",
+              "alte"
+            ]
+          },
+          "value": 2,
+          "fact": "🥾 hat die richtigen Schuhe",
+          "photo": "match_gerda_wanderschuhe",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Alte Wanderschuhe! Perfekt. Die kennen den Weg schon.",
+              "emoji": "🥾",
+              "en": "Old hiking boots! Perfect. They already know the way.",
+              "audio": "mc_gerda_t2_boots"
+            }
+          ]
+        },
+        {
+          "id": "bootsPlain",
+          "when": {
+            "any": [
+              "wanderschuhe"
+            ]
+          },
+          "value": 2,
+          "fact": "🥾 hat die richtigen Schuhe",
+          "photo": "match_gerda_wanderschuhe",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Wanderschuhe! Perfekt. Eingelaufen, hoffe ich?",
+              "emoji": "🥾",
+              "en": "Hiking boots! Perfect. Broken in, I hope?",
+              "audio": "mc_gerda_t2_bootsplain"
+            }
+          ]
+        },
+        {
+          "id": "trainers",
+          "when": {
+            "any": [
+              "turnschuhe"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Turnschuhe. Hm. Für den Parkplatz super. Für den Berg … mutig.",
+              "en": "Trainers. Hm. Great for the car park. For the mountain … brave.",
+              "audio": "mc_gerda_t2_trainers"
+            }
+          ]
+        },
+        {
+          "id": "jacket",
+          "when": {
+            "any": [
+              "regenjacke"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Eine Regenjacke! Klug. Und an den Füßen?",
+              "emoji": "🧥",
+              "en": "A rain jacket! Smart. And on your feet?",
+              "audio": "mc_gerda_t2_jacket"
+            }
+          ]
+        },
+        {
+          "id": "socks",
+          "when": {
+            "any": [
+              "socken"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Dicke Socken. Sehr gut. Und darüber? Bitte sag jetzt: Wanderschuhe.",
+              "emoji": "🧦",
+              "en": "Thick socks. Very good. And over them? Please say: hiking boots.",
+              "audio": "mc_gerda_t2_socks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "gerda",
+          "type": "text",
+          "de": "Samstag, 5:58 Uhr. Eine Sprachnachricht von Gerda.",
+          "emoji": "🎙️",
+          "en": "Saturday, 5:58 a.m. A voice message from Gerda.",
+          "audio": "mc_gerda_t3a"
+        },
+        {
+          "who": "gerda",
+          "type": "voice",
+          "audio": "mc_gerda_vn_morgen",
+          "de": "Guten Morgen! Kleine Änderung: Wegen des Regens nehmen wir nicht den Weg am See. Der ist zu rutschig. Wir nehmen den Weg durch den Wald. Und die Küche der Hütte schließt heute schon um 17 Uhr, nicht um 18 Uhr. Ganz entspannt!",
+          "en": "Good morning! Small change: because of the rain we’re not taking the path by the lake. It’s too slippery. We’re taking the path through the forest. And the hut’s kitchen closes at 5 pm today, not 6 pm. Totally relaxed!",
+          "direction": "Outdoors at dawn in light rain, birds and raindrops on a hood, cheerful and wide awake, far too energetic for six in the morning."
+        },
+        {
+          "who": "gerda",
+          "type": "text",
+          "de": "Klaus hat die Nachricht nicht gehört. Er steht schon am See, mit Schwimmflügeln. Sag es ihm: Welchen Weg nehmen wir, und warum? Und wann schließt die Küche?",
+          "en": "Klaus didn’t hear the message. He’s already standing at the lake, in armbands. Tell him: which path are we taking, and why? And when does the kitchen close?",
+          "audio": "mc_gerda_t3b",
+          "emoji": "📢"
+        }
+      ],
+      "tiles": [
+        "wegen",
+        "des",
+        "dem",
+        "Regens",
+        "Regen",
+        "nehmen",
+        "wir",
+        "den",
+        "den",
+        "Weg",
+        "durch",
+        "Wald",
+        "am",
+        "See",
+        "die",
+        "Küche",
+        "schließt",
+        "um",
+        "siebzehn",
+        "achtzehn",
+        "Uhr"
+      ],
+      "wrong": {
+        "Regen": {
+          "to": "Regens",
+          "note": "Genitive after wegen: des Regens."
+        }
+      },
+      "intents": [
+        {
+          "id": "lake",
+          "when": {
+            "any": [
+              "see"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Am See? Wegen des Regens ist er rutschig! Jetzt rennt Klaus fröhlich zum See. Mit Schwimmflügeln. Danke.",
+              "emoji": "🌊",
+              "en": "At the lake? Because of the rain it’s slippery! Now Klaus is running happily to the lake. In armbands. Thanks.",
+              "audio": "mc_gerda_t3_lake"
+            }
+          ]
+        },
+        {
+          "id": "wrongTime",
+          "when": {
+            "any": [
+              "achtzehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Achtzehn Uhr? Heute nicht! Siebzehn! Kein Kaiserschmarrn nach siebzehn Uhr!",
+              "emoji": "⏰",
+              "en": "Six o’clock? Not today! Five! No Kaiserschmarrn after five!",
+              "audio": "mc_gerda_t3_wrongtime"
+            }
+          ]
+        },
+        {
+          "id": "forestReason",
+          "when": {
+            "all": [
+              "wald",
+              "wegen"
+            ]
+          },
+          "value": 2,
+          "flagsIf": {
+            "siebzehn": "k17"
+          },
+          "fact": "👂 hört gut zu",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Genau! Wegen des Regens durch den Wald. Klaus nimmt die Schwimmflügel ab. Er ist ein bisschen traurig.",
+              "emoji": "🌲",
+              "en": "Exactly! Because of the rain, through the forest. Klaus takes off his armbands. He’s a little sad.",
+              "audio": "mc_gerda_t3_forestreason"
+            }
+          ]
+        },
+        {
+          "id": "forest",
+          "when": {
+            "any": [
+              "wald"
+            ]
+          },
+          "value": 1,
+          "flagsIf": {
+            "siebzehn": "k17"
+          },
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Durch den Wald, ja. Und warum? Wegen des Regens!",
+              "en": "Through the forest, yes. And why? Because of the rain!",
+              "audio": "mc_gerda_t3_forest"
+            }
+          ]
+        },
+        {
+          "id": "kitchen",
+          "when": {
+            "any": [
+              "siebzehn"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "k17"
+          ],
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Siebzehn Uhr, genau. Das ist das Wichtigste. Der Weg ist egal. Fast.",
+              "en": "Five o’clock, exactly. That’s the most important thing. The path doesn’t matter. Almost.",
+              "audio": "mc_gerda_t3_kitchen"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "weg",
+              "regens",
+              "regen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Welcher Weg? Durch den Wald! Hör noch mal zu. Nein, keine Zeit. Los!",
+              "en": "Which path? Through the forest! Listen again. No, no time. Let’s go!",
+              "audio": "mc_gerda_t3_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "prepCase": {
+        "über": "acc"
+      },
+      "before": [
+        {
+          "who": "gerda",
+          "type": "text",
+          "de": "Kilometer zehn. Eine Kreuzung. Gerda macht ein Foto.",
+          "emoji": "📷",
+          "en": "Kilometre ten. A fork in the path. Gerda takes a photo.",
+          "audio": "mc_gerda_t4a"
+        },
+        {
+          "who": "gerda",
+          "type": "photo",
+          "image": "match_gerda_kreuzung",
+          "wide": true,
+          "alt": "Eine Kreuzung mit drei Wegen. Links: ein steiler Weg über große graue Felsen. In der Mitte: ein Weg in einen dunklen Wald. Rechts: ein flacher Weg an einem blauen See."
+        },
+        {
+          "who": "gerda",
+          "type": "text",
+          "de": "Welcher Weg ist unserer?",
+          "en": "Which path is ours?",
+          "audio": "mc_gerda_t4b"
+        }
+      ],
+      "tiles": [
+        "der",
+        "die",
+        "Weg",
+        "links",
+        "rechts",
+        "in der Mitte",
+        "durch",
+        "den",
+        "den",
+        "Wald",
+        "am",
+        "See",
+        "über",
+        "Felsen",
+        "mittlere",
+        "mittleren",
+        "linke",
+        "rechte",
+        "wir",
+        "nehmen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "forest",
+          "when": {
+            "any": [
+              "in der mitte",
+              "mittlere",
+              "mittleren",
+              "wald"
+            ]
+          },
+          "value": 2,
+          "fact": "🧭 findet den Weg",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Der mittlere, durch den Wald! Du hast Orientierung. Klaus hat keine. Klaus ist mein Mann.",
+              "emoji": "🧭",
+              "en": "The middle one, through the forest! You have a sense of direction. Klaus has none. Klaus is my husband.",
+              "audio": "mc_gerda_t4_forest"
+            }
+          ]
+        },
+        {
+          "id": "rocks",
+          "when": {
+            "any": [
+              "links",
+              "linke",
+              "felsen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Über die Felsen? Ganz entspannt? Nur mit Seil. Und mit Testament. Und ohne Klaus.",
+              "emoji": "🧗",
+              "en": "Over the rocks? Totally relaxed? Only with a rope. And a will. And without Klaus.",
+              "audio": "mc_gerda_t4_rocks"
+            }
+          ]
+        },
+        {
+          "id": "lake",
+          "when": {
+            "any": [
+              "rechts",
+              "rechte",
+              "see"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Am See? Wegen des Regens nicht! Der Weg ist heute eine Rutschbahn.",
+              "emoji": "🛝",
+              "en": "By the lake? Not in this rain! The path is a slide today.",
+              "audio": "mc_gerda_t4_lake"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "weg",
+              "nehmen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Ein Weg, ja. Es gibt drei. Welcher?",
+              "en": "A path, yes. There are three. Which one?",
+              "audio": "mc_gerda_t4_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "gerda",
+          "type": "text",
+          "de": "Kilometer 18. Du humpelst. Was ist los?",
+          "emoji": "🩹",
+          "en": "Kilometre 18. You’re limping. What’s wrong?",
+          "audio": "mc_gerda_t5a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "habe",
+        "hätte",
+        "Blasen",
+        "andere",
+        "Schuhe",
+        "anziehen",
+        "sollen",
+        "trotz",
+        "wegen",
+        "der",
+        "den",
+        "gehe",
+        "weiter",
+        "kann",
+        "nicht",
+        "mehr",
+        "zu Hause",
+        "bleiben",
+        "brauche",
+        "ein",
+        "Pflaster"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "giveUp",
+          "when": {
+            "all": [
+              "nicht",
+              "mehr"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Nicht mehr? Noch sieben Kilometer! Ganz entspannt! Ich trage deinen Rucksack.",
+              "emoji": "🎒",
+              "en": "Can’t go on? Seven more kilometres! Totally relaxed! I’ll carry your rucksack.",
+              "audio": "mc_gerda_t5_giveup"
+            }
+          ]
+        },
+        {
+          "id": "despite",
+          "when": {
+            "any": [
+              "trotz"
+            ]
+          },
+          "value": 2,
+          "fact": "🩹 wandert trotz der Blasen",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Trotz der Blasen weiter! Du bist ein echtes Mitglied vom Wanderverein.",
+              "emoji": "🏅",
+              "en": "On you go despite the blisters! You’re a real member of the hiking club.",
+              "audio": "mc_gerda_t5_despite"
+            }
+          ]
+        },
+        {
+          "id": "shoesNew",
+          "when": {
+            "any": [
+              "schuhe",
+              "anziehen"
+            ],
+            "flag": "newBoots"
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Andere Schuhe, ja. Neue Schuhe, nicht eingelaufen. Ich hätte es sagen sollen. Ich habe es gedacht.",
+              "emoji": "😬",
+              "en": "Different shoes, yes. New shoes, not broken in. I should have said so. I did think it.",
+              "audio": "mc_gerda_t5_shoesnew"
+            }
+          ]
+        },
+        {
+          "id": "shoes",
+          "when": {
+            "any": [
+              "schuhe",
+              "anziehen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Du hättest andere Schuhe anziehen sollen. Ja. Das sagen alle bei Kilometer 18.",
+              "emoji": "👟",
+              "en": "You should have worn different shoes. Yes. Everyone says that at kilometre 18.",
+              "audio": "mc_gerda_t5_shoes"
+            }
+          ]
+        },
+        {
+          "id": "home",
+          "when": {
+            "any": [
+              "zu hause",
+              "bleiben"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Zu Hause bleiben? Jetzt? Zu Hause ist 18 Kilometer weit weg. Der Kaiserschmarrn nur sieben.",
+              "en": "Stay at home? Now? Home is 18 kilometres away. The Kaiserschmarrn only seven.",
+              "audio": "mc_gerda_t5_home"
+            }
+          ]
+        },
+        {
+          "id": "plaster",
+          "when": {
+            "any": [
+              "pflaster",
+              "brauche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Ein Pflaster! Ich habe vierzig. Und ein Zelt. Und ein Schlauchboot. Und einen Toaster. Ich bin vorbereitet. Immer.",
+              "emoji": "🩹",
+              "en": "A plaster! I have forty. And a tent. And an inflatable boat. And a toaster. I’m prepared. Always.",
+              "audio": "mc_gerda_t5_plaster"
+            }
+          ]
+        },
+        {
+          "id": "blisters",
+          "when": {
+            "any": [
+              "blasen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Blasen. Ach, Blasen sind nur Erinnerungen an schöne Wege.",
+              "en": "Blisters. Oh, blisters are just memories of lovely paths.",
+              "audio": "mc_gerda_t5_blisters"
+            }
+          ]
+        },
+        {
+          "id": "goOn",
+          "when": {
+            "any": [
+              "gehe",
+              "weiter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Du gehst weiter! So ist es richtig. Humpeln ist auch Wandern.",
+              "emoji": "💪",
+              "en": "You keep going! That’s the spirit. Limping is hiking too.",
+              "audio": "mc_gerda_t5_goon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "gerda",
+          "type": "text",
+          "de": "Es ist 15:30 Uhr. Die Küche schließt um 17 Uhr. Noch sechs Kilometer, alles bergauf. Und auf dem Weg steht eine Kuh. Sie heißt Berta. Sie bewegt sich nie. Was machen wir?",
+          "emoji": "🐄",
+          "en": "It’s 3:30 pm. The kitchen closes at 5. Six more kilometres, all uphill. And there’s a cow standing on the path. Her name is Berta. She never moves. What do we do?",
+          "audio": "mc_gerda_t6a"
+        }
+      ],
+      "tiles": [
+        "wir",
+        "wir",
+        "müssen",
+        "uns",
+        "beeilen",
+        "könnten",
+        "Klaus",
+        "anrufen",
+        "machen",
+        "eine",
+        "Pause",
+        "innerhalb",
+        "einer",
+        "Stunde",
+        "schaffen",
+        "nicht",
+        "wenn",
+        "schneller",
+        "gehen",
+        "würden",
+        "würden",
+        "es",
+        "Berta",
+        "fragen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "pause",
+          "when": {
+            "any": [
+              "pause"
+            ]
+          },
+          "value": -2,
+          "cause": "kitchen",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Eine Pause?! Jetzt? Dann gibt es keinen Kaiserschmarrn! Nur Knäckebrot! Sogar Berta geht weiter!",
+              "emoji": "😱",
+              "en": "A break?! Now? Then there’s no Kaiserschmarrn! Just crispbread! Even Berta is moving on!",
+              "audio": "mc_gerda_t6_pause"
+            }
+          ]
+        },
+        {
+          "id": "cow",
+          "when": {
+            "any": [
+              "berta"
+            ]
+          },
+          "value": 1,
+          "fact": "🐄 verhandelt mit Kühen",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Berta fragen? … Gut. Ich frage. … Sie sagt Muh. Das heißt: links vorbei, und sie kommt mit. Berta liebt Kaiserschmarrn.",
+              "emoji": "🐄",
+              "en": "Ask Berta? … Fine. I’ll ask. … She says moo. That means: go round her on the left, and she’s coming along. Berta loves Kaiserschmarrn.",
+              "audio": "mc_gerda_t6_cow"
+            }
+          ]
+        },
+        {
+          "id": "klaus",
+          "when": {
+            "any": [
+              "klaus",
+              "anrufen"
+            ]
+          },
+          "value": 2,
+          "fact": "📞 hat die besten Ideen",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Klaus anrufen! Natürlich! Er sitzt schon oben. Er kennt den Koch. Er jodelt für ihn, bis die Küche offen bleibt.",
+              "emoji": "📞",
+              "en": "Call Klaus! Of course! He’s already up there. He knows the cook. He’ll yodel for him until the kitchen stays open.",
+              "audio": "mc_gerda_t6_klaus"
+            }
+          ]
+        },
+        {
+          "id": "hurry",
+          "when": {
+            "any": [
+              "beeilen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Beeilen! Ganz entspannt beeilen. Los, los, los!",
+              "emoji": "🏃‍♀️",
+              "en": "Hurry! Hurry in a totally relaxed way. Go, go, go!",
+              "audio": "mc_gerda_t6_hurry"
+            }
+          ]
+        },
+        {
+          "id": "faster",
+          "when": {
+            "any": [
+              "schneller",
+              "würden"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Schneller gehen. Ja. Ich gehe vor. Du folgst meinem Rucksack.",
+              "en": "Walk faster. Yes. I’ll go first. You follow my rucksack.",
+              "audio": "mc_gerda_t6_faster"
+            }
+          ]
+        },
+        {
+          "id": "withinHour",
+          "when": {
+            "any": [
+              "innerhalb",
+              "stunde",
+              "schaffen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Innerhalb einer Stunde? Sechs Kilometer bergauf? Hm. Und was machen wir jetzt?",
+              "en": "Within an hour? Six kilometres uphill? Hm. And what do we do now?",
+              "audio": "mc_gerda_t6_withinhour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "gerda",
+          "type": "text",
+          "de": "16:58 Uhr! Die Hütte! Der Koch sagt: „Nur noch ein Kaiserschmarrn.“ Berta ist uns gefolgt. Sie schaut ihn auch an. Für dich oder für mich?",
+          "emoji": "🥞",
+          "en": "4:58 pm! The hut! The cook says: “Only one Kaiserschmarrn left.” Berta has followed us. She’s looking at it too. For you or for me?",
+          "audio": "mc_gerda_t7a"
+        }
+      ],
+      "tiles": [
+        "für",
+        "dich",
+        "mich",
+        "Gerda",
+        "Klaus",
+        "wir",
+        "teilen",
+        "ihn",
+        "den",
+        "Kaiserschmarrn",
+        "ohne",
+        "wäre",
+        "ich",
+        "nie",
+        "angekommen",
+        "hätte",
+        "es",
+        "nicht",
+        "geschafft",
+        "Berta"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "berta",
+          "when": {
+            "any": [
+              "berta"
+            ]
+          },
+          "value": 0,
+          "fact": "🐄 hat eine Kuh als Freundin",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Für Berta?! … Sie frisst ihn. Mit Teller. Der Koch klatscht. Du hast jetzt eine Freundin fürs Leben. Sie wiegt 600 Kilo.",
+              "emoji": "🐄",
+              "en": "For Berta?! … She eats it. Plate and all. The cook applauds. You now have a friend for life. She weighs 600 kilos.",
+              "audio": "mc_gerda_t7_berta"
+            }
+          ]
+        },
+        {
+          "id": "withoutYou",
+          "when": {
+            "any": [
+              "ohne"
+            ]
+          },
+          "value": 2,
+          "fact": "🏔️ ist ein Teamplayer",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Ohne mich? Ach, du. Jetzt weine ich. In den Kaiserschmarrn. Ganz entspannt.",
+              "emoji": "🥹",
+              "en": "Without me? Oh, you. Now I’m crying. Into the Kaiserschmarrn. Totally relaxed.",
+              "audio": "mc_gerda_t7_withoutyou"
+            }
+          ]
+        },
+        {
+          "id": "share",
+          "when": {
+            "any": [
+              "teilen"
+            ]
+          },
+          "value": 2,
+          "fact": "🏔️ ist ein Teamplayer",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Wir teilen ihn! Zwei Gabeln, bitte! Das ist Wandergeist.",
+              "emoji": "🍴",
+              "en": "We’ll share it! Two forks, please! That’s the hiking spirit.",
+              "audio": "mc_gerda_t7_share"
+            }
+          ]
+        },
+        {
+          "id": "forMe",
+          "when": {
+            "all": [
+              "mich"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Für dich. Natürlich. … Ich schaue zu. Ganz entspannt. Sehr entspannt.",
+              "emoji": "😐",
+              "en": "For you. Of course. … I’ll watch. Totally relaxed. Very relaxed.",
+              "audio": "mc_gerda_t7_forme"
+            }
+          ]
+        },
+        {
+          "id": "forGerda",
+          "when": {
+            "any": [
+              "dich",
+              "gerda"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Für mich? Wie lieb! Du bekommst die Rosinen. Alle drei.",
+              "emoji": "🥰",
+              "en": "For me? How sweet! You get the raisins. All three.",
+              "audio": "mc_gerda_t7_forgerda"
+            }
+          ]
+        },
+        {
+          "id": "klaus",
+          "when": {
+            "any": [
+              "klaus"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Für Klaus? Klaus hatte schon drei. Klaus ist mit der Seilbahn gekommen. Mit Schwimmflügeln.",
+              "emoji": "🚡",
+              "en": "For Klaus? Klaus has already had three. Klaus came up by cable car. In armbands.",
+              "audio": "mc_gerda_t7_klaus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "gerda",
+          "type": "text",
+          "de": "Was für ein Tag! Morgen wandern wir zurück. Nur 30 Kilometer. Was hättest du heute anders gemacht?",
+          "emoji": "🌄",
+          "en": "What a day! Tomorrow we hike back. Only 30 kilometres. What would you have done differently today?",
+          "audio": "mc_gerda_t8a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "hätte",
+        "wäre",
+        "habe",
+        "bessere",
+        "besseren",
+        "Schuhe",
+        "angezogen",
+        "früher",
+        "losgegangen",
+        "mehr",
+        "Wasser",
+        "mitgenommen",
+        "nichts",
+        "anders",
+        "gemacht",
+        "zu Hause",
+        "geblieben",
+        "fahre",
+        "morgen",
+        "mit",
+        "der",
+        "Seilbahn"
+      ],
+      "wrong": {
+        "habe": {
+          "to": "hätte",
+          "note": "Looking back at what could have been: “Ich hätte … angezogen”."
+        }
+      },
+      "intents": [
+        {
+          "id": "home",
+          "when": {
+            "any": [
+              "zu hause",
+              "geblieben"
+            ]
+          },
+          "value": -2,
+          "cause": "quit",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Zu Hause geblieben? Ohne Kaiserschmarrn? Ohne Blasen? Ohne mich? Das tut weh.",
+              "emoji": "💔",
+              "en": "Stayed at home? Without Kaiserschmarrn? Without blisters? Without me? That hurts.",
+              "audio": "mc_gerda_t8_home"
+            }
+          ]
+        },
+        {
+          "id": "cablecar",
+          "when": {
+            "any": [
+              "seilbahn"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Mit der Seilbahn? Wie Klaus? … Na gut. Ich komme mit. Aber ich schaue nicht aus dem Fenster.",
+              "emoji": "🚡",
+              "en": "By cable car? Like Klaus? … Fine. I’ll come along. But I won’t look out of the window.",
+              "audio": "mc_gerda_t8_cablecar"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": 2,
+          "fact": "🏅 ist Ehrenmitglied",
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Nichts anders! Trotz der Blasen? Du bist jetzt Ehrenmitglied.",
+              "emoji": "🏅",
+              "en": "Nothing differently! Despite the blisters? You’re an honorary member now.",
+              "audio": "mc_gerda_t8_nothing"
+            }
+          ]
+        },
+        {
+          "id": "shoes",
+          "when": {
+            "any": [
+              "schuhe",
+              "angezogen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Bessere Schuhe. Weise Worte. Ich sticke sie auf ein Kissen. Berta bekommt auch eins.",
+              "emoji": "🧵",
+              "en": "Better shoes. Wise words. I’ll embroider them on a cushion. Berta gets one too.",
+              "audio": "mc_gerda_t8_shoes"
+            }
+          ]
+        },
+        {
+          "id": "earlyAux",
+          "when": {
+            "all": [
+              "hätte",
+              "losgegangen"
+            ]
+          },
+          "value": 1,
+          "noBonus": true,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Früher los, ja! Um vier Uhr, mit Stirnlampe! So wie Klaus 1987. Klaus ist damals im falschen Tal angekommen. In Italien.",
+              "emoji": "☝️",
+              "en": "Earlier, yes! At four, with a head torch! Like Klaus in 1987. Klaus ended up in the wrong valley back then. In Italy.",
+              "audio": "mc_gerda_t8_auxsein"
+            }
+          ]
+        },
+        {
+          "id": "early",
+          "when": {
+            "any": [
+              "früher",
+              "losgegangen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Früher losgegangen? Noch früher als sechs Uhr? Endlich jemand wie ich!",
+              "emoji": "🌅",
+              "en": "Set off earlier? Even earlier than six? Finally someone like me!",
+              "audio": "mc_gerda_t8_early"
+            }
+          ]
+        },
+        {
+          "id": "water",
+          "when": {
+            "any": [
+              "wasser",
+              "mitgenommen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "gerda",
+              "type": "text",
+              "de": "Mehr Wasser. Gut. Ich habe übrigens fünf Liter dabei. Für alle.",
+              "emoji": "💧",
+              "en": "More water. Good. By the way, I’ve got five litres with me. For everyone.",
+              "audio": "mc_gerda_t8_water"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "gerda",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Weitergehen und konzentrieren! Gleichzeitig!",
+    "en": "That wasn’t my question. Keep walking and concentrate! At the same time!",
+    "audio": "mc_gerda_offtopic"
+  },
+  "confused": [
+    {
+      "who": "gerda",
+      "type": "text",
+      "de": "Hä? Der Wind ist so laut hier oben.",
+      "emoji": "🌬️",
+      "en": "Huh? The wind is so loud up here.",
+      "audio": "mc_gerda_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "gerda",
+        "type": "text",
+        "de": "Geschafft! Kaiserschmarrn, Hütte, Sonnenuntergang. Du bist jetzt im Wanderverein, {name}!",
+        "emoji": "🏔️",
+        "en": "Made it! Kaiserschmarrn, hut, sunset. You’re in the hiking club now, {name}!"
+      },
+      {
+        "who": "gerda",
+        "type": "text",
+        "de": "Nächsten Samstag: nur 40 Kilometer. Berta kommt auch mit. Ganz entspannt.",
+        "emoji": "🥾",
+        "en": "Next Saturday: only 40 kilometres. Berta is coming too. Totally relaxed.",
+        "audio": "mc_gerda_win2"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "gerda",
+        "type": "text",
+        "de": "Wir sind angekommen. Um 17:05 Uhr. Die Küche ist zu. Es gibt Knäckebrot. Berta hat ihres schon gefressen. Ganz entspannt.",
+        "emoji": "🍞",
+        "en": "We made it. At 5:05 pm. The kitchen is closed. There’s crispbread. Berta has already eaten hers. Totally relaxed.",
+        "audio": "mc_gerda_partial"
+      }
+    ],
+    "deleted": {
+      "shoes": {
+        "who": "gerda",
+        "type": "text",
+        "de": "Flip-Flops in den Bergen. Ich lösche dich. Aus dem Verein und aus dem Handy.",
+        "emoji": "🩴",
+        "en": "Flip-flops in the mountains. I’m deleting you. From the club and from my phone.",
+        "audio": "mc_gerda_del_shoes"
+      },
+      "kitchen": {
+        "who": "gerda",
+        "type": "text",
+        "de": "Keine Küche. Kein Kaiserschmarrn. Kein Wanderfreund mehr. Tschüss.",
+        "emoji": "🍞",
+        "en": "No kitchen. No Kaiserschmarrn. No more hiking buddy. Bye.",
+        "audio": "mc_gerda_del_kitchen"
+      },
+      "quit": {
+        "who": "gerda",
+        "type": "text",
+        "de": "Wer lieber zu Hause bleibt, bleibt am besten auch aus meinem Handy. Tschüss.",
+        "en": "Anyone who’d rather stay home had best stay out of my phone too. Bye.",
+        "audio": "mc_gerda_del_quit"
+      },
+      "confused": {
+        "who": "gerda",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Zu wenig Sauerstoff hier oben. Für dich. Tschüss.",
+        "en": "I don’t understand you. Too little oxygen up here. For you. Bye.",
+        "audio": "mc_gerda_del_confused"
+      },
+      "default": {
+        "who": "gerda",
+        "type": "text",
+        "de": "Hm. Du bist nett, aber kein Wanderer. Vielleicht Minigolf? Tschüss.",
+        "en": "Hm. You’re nice, but no hiker. Maybe mini golf? Bye.",
+        "audio": "mc_gerda_del_default"
+      }
+    },
+    "sunday": {
+      "who": "gerda",
+      "type": "voice",
+      "audio": "mc_gerda_vn_sunday",
+      "de": "Servus, Gerda hier! Heute war Ruhetag. Ich bin nur zwölf Kilometer gewandert. Klaus sagt, das ist kein Ruhetag. Klaus liegt auf dem Sofa. Klaus ist schwach.",
+      "en": "Hello, Gerda here! Today was a rest day. I only hiked twelve kilometres. Klaus says that’s not a rest day. Klaus is lying on the sofa. Klaus is weak.",
+      "direction": "Cheerful on a breezy hilltop, cowbells far away, a fond laugh at “Klaus ist schwach”."
+    }
+  },
+  "partialTitle": "Knäckebrot statt Kaiserschmarrn.",
+  "share": {
+    "win": "Gerda (67, Wanderverein) hat mich geliked 🥾 25 Kilometer, Blasen, aber pünktlich zum Kaiserschmarrn. Mein Deutsch: {score}/100. Schaffst du es zur Hütte? {url}",
+    "partial": "Ich bin um 17:05 an der Hütte angekommen … Küche zu. Knäckebrot 🍞 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Gerda vom Wanderverein hat mich gelöscht 💔 Mein Deutsch: {score}/100. Ganz entspannt. {url}"
+  },
+  "imageCharacter": "Gerda, a 67-year-old hiking club leader, small, wiry and sun-tanned, short white hair under a red knitted headband, bright blue eyes, a checked shirt with rolled-up sleeves, knee-length hiking breeches, red socks, sturdy old leather boots, two trekking poles and an enormous rucksack, a huge cheerful grin.",
+  "imagePrompts": [
+    {
+      "id": "match_gerda",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands on a green alpine meadow with mountains behind her, one trekking pole raised in the air like a flag, beaming at the viewer. A small wooden mountain hut far away on a peak. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_gerda_wanderschuhe",
+      "aspect": "3:4",
+      "prompt": "A phone photo looking straight down at a person’s feet standing on the gravel of a car park at dawn: they wear sturdy brown leather hiking boots with red laces and grey wool socks. Only the feet and lower legs are visible. Wet gravel, a puddle."
+    },
+    {
+      "id": "match_gerda_sandalen",
+      "aspect": "3:4",
+      "prompt": "A phone photo looking straight down at a person’s feet standing on the gravel of a car park at dawn: they wear brown leather trekking sandals over thick white tennis socks. Only the feet and lower legs are visible. Wet gravel, a puddle."
+    },
+    {
+      "id": "match_gerda_flipflops",
+      "aspect": "3:4",
+      "prompt": "A phone photo looking straight down at a person’s bare feet standing on the gravel of a car park at dawn, wearing bright pink flip-flops with a plastic flower on each; the toes look cold. Only the feet and lower legs are visible. Wet gravel, a puddle."
+    },
+    {
+      "id": "match_gerda_kreuzung",
+      "aspect": "16:9",
+      "prompt": "A mountain trail fork seen from where it splits, simple and clear, in a flat picture-book style. Exactly THREE paths start from the bottom centre and lead away. LEFT PATH: goes steeply up over big grey boulders and rocks. MIDDLE PATH: goes straight ahead into a dark green pine forest. RIGHT PATH: runs flat along the shore of a bright blue lake. Each path is clearly separate. Light rain, a wooden signpost with three BLANK arrow boards with no writing at all. No text anywhere."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Trotz meines Knies komme ich mit.",
+      "intent": "despite",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Trotz meinem Knie komme ich mit.",
+      "intent": "despite",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hätte mehr trainieren sollen.",
+      "intent": "regret",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin sehr fit.",
+      "intent": "fit",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hätte lieber Kuchen gegessen.",
+      "intent": "cake",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Wegen meines Knies bleibe ich zu Hause.",
+      "intent": "stayHome",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich sehr fit.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich komme mit.",
+      "intent": "comeAlong",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe meine alten Wanderschuhe angezogen.",
+      "intent": "boots",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe meine alte Wanderschuhe angezogen.",
+      "intent": "boots",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich trage neue Wanderschuhe.",
+      "intent": "newBoots",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich trage Sandalen und dicke Socken.",
+      "intent": "sandalsSocks",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich trage Sandalen.",
+      "intent": "sandals",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe Turnschuhe angezogen.",
+      "intent": "trainers",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich trage eine Regenjacke.",
+      "intent": "jacket",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich trage Flip-Flops.",
+      "intent": "flipflops",
+      "delta": -2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich trage Wanderschuhe.",
+      "intent": "bootsPlain",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich trage dicke Socken.",
+      "intent": "socks",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Wegen des Regens nehmen wir den Weg durch den Wald. Die Küche schließt um siebzehn Uhr.",
+      "intent": "forestReason",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Wegen dem Regen nehmen wir den Weg durch den Wald.",
+      "intent": "forestReason",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Den Weg durch den Wald.",
+      "intent": "forest",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Die Küche schließt um siebzehn Uhr.",
+      "intent": "kitchen",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Wir nehmen den Weg am See.",
+      "intent": "lake",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Die Küche schließt um achtzehn Uhr.",
+      "intent": "wrongTime",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Wir nehmen den mittleren Weg.",
+      "intent": "forest",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Wir nehmen den mittlere Weg.",
+      "intent": "forest",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Der Weg in der Mitte.",
+      "intent": "forest",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Wir nehmen den Weg über die Felsen.",
+      "intent": "rocks",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Der rechte Weg.",
+      "intent": "lake",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Wir nehmen den Weg.",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Wir nehmen den Weg durch den Wald.",
+      "intent": "forest",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe Blasen. Ich hätte andere Schuhe anziehen sollen.",
+      "intent": "shoes",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Trotz der Blasen gehe ich weiter.",
+      "intent": "despite",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Trotz den Blasen gehe ich weiter.",
+      "intent": "despite",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich brauche ein Pflaster.",
+      "intent": "plaster",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe Blasen.",
+      "intent": "blisters",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich hätte zu Hause bleiben sollen.",
+      "intent": "home",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Wegen der Blasen kann ich nicht mehr.",
+      "intent": "giveUp",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich gehe weiter.",
+      "intent": "goOn",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Wir könnten Klaus anrufen.",
+      "intent": "klaus",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Wir müssen uns beeilen.",
+      "intent": "hurry",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn wir schneller gehen würden, würden wir es schaffen.",
+      "intent": "faster",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Innerhalb einer Stunde schaffen wir es nicht.",
+      "intent": "withinHour",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Innerhalb eine Stunde schaffen wir es nicht.",
+      "intent": "withinHour",
+      "delta": 0
+    },
+    {
+      "turn": "t6",
+      "say": "Wir machen eine Pause.",
+      "intent": "pause",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ohne dich wäre ich nie angekommen.",
+      "intent": "withoutYou",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ohne dich hätte ich es nicht geschafft.",
+      "intent": "withoutYou",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Wir teilen den Kaiserschmarrn.",
+      "intent": "share",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Wir teilen ihn.",
+      "intent": "share",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Für dich, Gerda.",
+      "intent": "forGerda",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Für mich.",
+      "intent": "forMe",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Für Klaus.",
+      "intent": "klaus",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich hätte bessere Schuhe angezogen.",
+      "intent": "shoes",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich habe bessere Schuhe angezogen.",
+      "intent": "shoes",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich hätte besseren Schuhe angezogen.",
+      "intent": "shoes",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich wäre früher losgegangen.",
+      "intent": "early",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich hätte mehr Wasser mitgenommen.",
+      "intent": "water",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich hätte nichts anders gemacht.",
+      "intent": "nothing",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Morgen fahre ich mit der Seilbahn.",
+      "intent": "cablecar",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich wäre zu Hause geblieben.",
+      "intent": "home",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich hätte früher losgegangen.",
+      "intent": "earlyAux",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Trotz meinem Knie komme ich mit.",
+      "score": 70
+    },
+    {
+      "turn": "t1",
+      "say": "Ich sehr fit.",
+      "score": 50
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe meine alte Wanderschuhe angezogen.",
+      "score": 85
+    },
+    {
+      "turn": "t2",
+      "say": "Ich habe angezogen meine alten Wanderschuhe.",
+      "score": 70
+    },
+    {
+      "turn": "t3",
+      "say": "Wegen dem Regen nehmen wir den Weg durch den Wald.",
+      "score": 70
+    },
+    {
+      "turn": "t3",
+      "say": "Wegen des Regens wir nehmen den Weg durch den Wald.",
+      "score": 70
+    },
+    {
+      "turn": "t4",
+      "say": "Wir nehmen den mittlere Weg.",
+      "score": 85
+    },
+    {
+      "turn": "t5",
+      "say": "Trotz den Blasen gehe ich weiter.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Innerhalb eine Stunde schaffen wir es nicht.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Wenn wir schneller gehen würden, würden wir es schaffen.",
+      "score": 100
+    },
+    {
+      "turn": "t7",
+      "say": "Ohne dich hätte ich es nicht geschafft.",
+      "score": 100
+    },
+    {
+      "turn": "t8",
+      "say": "Ich habe bessere Schuhe angezogen.",
+      "score": 85
+    },
+    {
+      "turn": "t8",
+      "say": "Ich hätte besseren Schuhe angezogen.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Wir könnten Berta fragen.",
+      "score": 100,
+      "intent": "cow",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Für Berta.",
+      "intent": "berta",
+      "delta": 1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Trotz meines Knies komme ich mit."
+        ],
+        [
+          "t2",
+          "Ich habe meine alten Wanderschuhe angezogen."
+        ],
+        [
+          "t3",
+          "Wegen des Regens nehmen wir den Weg durch den Wald. Die Küche schließt um siebzehn Uhr."
+        ],
+        [
+          "t4",
+          "Wir nehmen den mittleren Weg."
+        ],
+        [
+          "t5",
+          "Trotz der Blasen gehe ich weiter."
+        ],
+        [
+          "t6",
+          "Wir könnten Klaus anrufen."
+        ],
+        [
+          "t7",
+          "Wir teilen den Kaiserschmarrn."
+        ],
+        [
+          "t8",
+          "Ich hätte nichts anders gemacht."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Wegen meines Knies bleibe ich zu Hause."
+        ],
+        [
+          "t2",
+          "Ich trage Sandalen."
+        ],
+        [
+          "t3",
+          "Wir nehmen den Weg am See."
+        ],
+        [
+          "t4",
+          "Wir nehmen den Weg."
+        ],
+        [
+          "t5",
+          "Ich habe Blasen."
+        ],
+        [
+          "t6",
+          "Innerhalb einer Stunde schaffen wir es nicht."
+        ],
+        [
+          "t7",
+          "Für mich."
+        ],
+        [
+          "t8",
+          "Morgen fahre ich mit der Seilbahn."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Wegen meines Knies bleibe ich zu Hause."
+        ],
+        [
+          "t2",
+          "Ich trage Sandalen."
+        ],
+        [
+          "t3",
+          "Wir nehmen den Weg am See."
+        ],
+        [
+          "t4",
+          "Wir nehmen den Weg über die Felsen."
+        ],
+        [
+          "t5",
+          "Wegen der Blasen kann ich nicht mehr."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2232 @@
+{
+  "id": "kunibert",
+  "name": "Ritter Kunibert",
+  "age": 45,
+  "emoji": "🛡️",
+  "image": "match_kunibert",
+  "level": "B1.1",
+  "order": 4,
+  "bio": "Ich bin 812 Jahre alt. Ich verkaufe Met und frisches Brot. Karte? Was ist eine Karte?",
+  "bioEn": "I am 812 years old. I sell mead and fresh bread. Card? What is a card?",
+  "goal": "Pay for your mead with a card.",
+  "tagline": "Ritter · 45 (sagt: 812) · Mittelaltermarkt",
+  "voice": "Charon",
+  "brief": "Ritter Kunibert, a 45-year-old man who insists he is an 812-year-old knight at a medieval market stall: a deep, booming, theatrical voice, grand and old-fashioned, rolling his Rs, never ever breaking character, deeply suspicious of anything modern; when he slips into modern words he coughs and corrects himself.",
+  "focus": "Konjunktiv II höflich (hätte gern, würde, wäre) · Adjektive ohne Artikel · Komparativ",
+  "lexicon": {
+    "nouns": {
+      "Met": "m",
+      "Brot": "n",
+      "Schwert": "n",
+      "Taler": "pl",
+      "Euro": "m",
+      "Hühnern": "pl",
+      "Gold": "n",
+      "Karte": "f",
+      "Amulett": "n",
+      "Geld": "n",
+      "Plastik": "n",
+      "Handy": "n",
+      "Kästchen": "n",
+      "Knöpfen": "pl",
+      "Sanduhr": "f",
+      "Zahl": "f",
+      "Ritter": "m",
+      "Tag": "m",
+      "Gedicht": "n",
+      "Drachenschuppe": "f",
+      "Drachen": "m"
+    },
+    "names": [
+      "Ihr",
+      "Euch",
+      "Sie"
+    ],
+    "verbs": [
+      "hätte",
+      "hättest",
+      "will",
+      "würde",
+      "würdet",
+      "würden",
+      "wäre",
+      "ist",
+      "kostet",
+      "kosten",
+      "habe",
+      "weiß",
+      "sage",
+      "wünsche",
+      "könnte"
+    ],
+    "nonfinite": [
+      "zahlen",
+      "anschalten",
+      "eingeben",
+      "geben",
+      "haben",
+      "streicheln"
+    ],
+    "imperatives": [
+      "gib",
+      "schaltet",
+      "lebt",
+      "grüßt"
+    ],
+    "accVerbs": [
+      "grüßt",
+      "hätte",
+      "hättest",
+      "will",
+      "würde",
+      "würdet",
+      "würden",
+      "habe",
+      "schaltet",
+      "könnte"
+    ],
+    "datVerbs": [
+      "gib",
+      "sage",
+      "wünsche"
+    ],
+    "adjectives": [
+      "kalt",
+      "frisch",
+      "warm",
+      "klein",
+      "magisch",
+      "unsichtbar",
+      "schwarz",
+      "groß",
+      "braun",
+      "golden",
+      "geheim",
+      "freundlich",
+      "schön"
+    ]
+  },
+  "intro": [
+    {
+      "who": "kunibert",
+      "type": "text",
+      "de": "Seid gegrüßt, Wanderer! Ich bin Ritter Kunibert von Kaltenstein. Ich bin 812 Jahre alt.",
+      "emoji": "🛡️",
+      "en": "Greetings, traveller! I am Sir Kunibert of Kaltenstein. I am 812 years old.",
+      "audio": "mc_kunibert_introa"
+    },
+    {
+      "who": "kunibert",
+      "type": "text",
+      "de": "Willkommen an meinem Stand. Hier gibt es Met, Brot und Schwerter. Keine Karten. Was immer das ist.",
+      "en": "Welcome to my stall. Here there is mead, bread and swords. No cards. Whatever those are.",
+      "audio": "mc_kunibert_introb"
+    },
+    {
+      "who": "kunibert",
+      "type": "text",
+      "de": "Und falls Ihr hinter dem Zelt einen Drachen seht: Das ist Jürgen, mein Schwager. Er beißt nicht. Meistens.",
+      "emoji": "🐉",
+      "en": "And if you see a dragon behind the tent: that is Jürgen, my brother-in-law. He does not bite. Mostly.",
+      "audio": "mc_kunibert_introc"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Was begehrt Ihr? Der letzte Kunde hat „Ich will“ gesagt. Er putzt jetzt den Burggraben. Seit Dienstag.",
+          "emoji": "🍯",
+          "en": "What do you desire? The last customer said “I want”. He is now cleaning the moat. Since Tuesday.",
+          "audio": "mc_kunibert_t1a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "hätte",
+        "hättest",
+        "gern",
+        "will",
+        "einen",
+        "ein",
+        "kalten",
+        "kalter",
+        "frisches",
+        "frischen",
+        "Met",
+        "Brot",
+        "Schwert",
+        "und",
+        "bitte",
+        "gib",
+        "mir",
+        "würdet",
+        "Ihr",
+        "geben",
+        "könnte",
+        "haben"
+      ],
+      "wrong": {
+        "hättest": "hätte"
+      },
+      "intents": [
+        {
+          "id": "rude",
+          "when": {
+            "any": [
+              "will",
+              "gib"
+            ]
+          },
+          "value": -1,
+          "cause": "rude",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ihr WOLLT? So sprach zuletzt ein Raubritter. Er wohnt jetzt im Burggraben. Mit den Fröschen. Sie haben ihm Manieren beigebracht.",
+              "emoji": "😠",
+              "en": "You WANT? The last one who spoke like that was a robber knight. He lives in the moat now. With the frogs. They taught him manners.",
+              "audio": "mc_kunibert_t1_rude"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "met",
+              "brot"
+            ]
+          },
+          "value": 2,
+          "fact": "🍯 bestellt wie bei Hofe",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Kalter Met und frisches Brot! Ein Mahl für einen König. Oder für einen Wanderer mit Geschmack.",
+              "emoji": "👑",
+              "en": "Cold mead and fresh bread! A meal fit for a king. Or for a traveller with taste.",
+              "audio": "mc_kunibert_t1_both"
+            }
+          ]
+        },
+        {
+          "id": "met",
+          "when": {
+            "any": [
+              "met"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Met! Gewiss. Frisch aus dem Fass. Aus dem Baumarkt. Ähm. Aus dem Wald.",
+              "emoji": "🛢️",
+              "en": "Mead! Certainly. Fresh from the barrel. From the DIY store. Ahem. From the forest.",
+              "audio": "mc_kunibert_t1_met"
+            }
+          ]
+        },
+        {
+          "id": "bread",
+          "when": {
+            "any": [
+              "brot"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Frisches Brot! Gebacken heute Morgen. Von meiner Magd. Sie heißt Svenja.",
+              "emoji": "🍞",
+              "en": "Fresh bread! Baked this morning. By my maid. Her name is Svenja.",
+              "audio": "mc_kunibert_t1_bread"
+            }
+          ]
+        },
+        {
+          "id": "sword",
+          "when": {
+            "any": [
+              "schwert"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ein Schwert? Wir sind auf einem Markt, nicht im Krieg. Aber gut. Dreihundert Taler.",
+              "emoji": "⚔️",
+              "en": "A sword? We are at a market, not at war. But very well. Three hundred thalers.",
+              "audio": "mc_kunibert_t1_sword"
+            }
+          ]
+        },
+        {
+          "id": "please",
+          "when": {
+            "any": [
+              "bitte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Bitte was? Bitte Met? Bitte Brot? Bitte ein Pferd? Ich habe auch Pferde. Eines. Es heißt Dieter und ist aus Holz.",
+              "en": "Please what? Please mead? Please bread? Please a horse? I have horses too. One. His name is Dieter and he is made of wood.",
+              "audio": "mc_kunibert_t1_please"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "kunibert",
+          "type": "voice",
+          "audio": "mc_kunibert_vn_prices",
+          "de": "Hört, hört! Der kalte Met kostet vier Taler. Der warme Met kostet nur drei Taler, denn er ist von gestern. Das Brot kostet zwei Taler. Und das Schwert dreihundert.",
+          "en": "Hear ye, hear ye! The cold mead costs four thalers. The warm mead costs only three thalers, for it is from yesterday. The bread costs two thalers. And the sword three hundred.",
+          "direction": "Bellowing like a town crier across a busy medieval fair, bagpipes faintly in the background, savouring every number."
+        },
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Mein Knappe will den billigeren Met. Aber er ist zu schüchtern zum Fragen und versteckt sich hinter dem Fass. Flüstert es ihm zu, Wanderer: Welcher ist billiger?",
+          "en": "My squire wants the cheaper mead. But he is too shy to ask and is hiding behind the barrel. Whisper it to him, traveller: which one is cheaper?",
+          "audio": "mc_kunibert_t2b"
+        }
+      ],
+      "tiles": [
+        "der",
+        "den",
+        "kalte",
+        "kalten",
+        "warme",
+        "warmen",
+        "Met",
+        "ist",
+        "billiger",
+        "teurer",
+        "älter",
+        "das",
+        "Brot",
+        "kostet",
+        "kosten",
+        "zwei",
+        "drei",
+        "vier",
+        "Taler"
+      ],
+      "wrong": {
+        "kosten": "kostet"
+      },
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "all": [
+              "warm*",
+              "billiger"
+            ]
+          },
+          "value": 2,
+          "fact": "👂 kennt die Metpreise",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Wahr gesprochen! Der warme ist billiger. Er ist von gestern. Er hat Charakter. Mein Knappe kauft ihn und weint vor Glück.",
+              "en": "Truly spoken! The warm one is cheaper. It is from yesterday. It has character. My squire buys it and weeps with joy.",
+              "audio": "mc_kunibert_t2_right"
+            }
+          ]
+        },
+        {
+          "id": "right2",
+          "when": {
+            "all": [
+              "kalt*",
+              "teurer"
+            ]
+          },
+          "value": 2,
+          "fact": "👂 kennt die Metpreise",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Wahr! Der kalte ist teurer. Kälte kostet. Wir haben keinen Kühlschrank. Nur einen Brunnen.",
+              "en": "True! The cold one is dearer. Cold costs. We have no fridge. Only a well.",
+              "audio": "mc_kunibert_t2_right2"
+            }
+          ]
+        },
+        {
+          "id": "wrong1",
+          "when": {
+            "all": [
+              "kalt*",
+              "billiger"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Nein! Der kalte ist teurer! Habt Ihr Wachs in den Ohren?",
+              "emoji": "🕯️",
+              "en": "No! The cold one is dearer! Have you got wax in your ears?",
+              "audio": "mc_kunibert_t2_wrong1"
+            }
+          ]
+        },
+        {
+          "id": "wrong2",
+          "when": {
+            "all": [
+              "warm*",
+              "teurer"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Teurer? Der warme ist von GESTERN, Wanderer! Gestern ist billiger.",
+              "en": "Dearer? The warm one is from YESTERDAY, traveller! Yesterday is cheaper.",
+              "audio": "mc_kunibert_t2_wrong2"
+            }
+          ]
+        },
+        {
+          "id": "older",
+          "when": {
+            "any": [
+              "älter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Älter, ja! Von gestern. Ihr habt gut zugehört. Aber welcher ist billiger?",
+              "en": "Older, yes! From yesterday. You listened well. But which is cheaper?",
+              "audio": "mc_kunibert_t2_older"
+            }
+          ]
+        },
+        {
+          "id": "price",
+          "when": {
+            "any": [
+              "kostet",
+              "kosten",
+              "taler"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Wahr. Aber ich fragte: Welcher Met ist billiger?",
+              "en": "True. But I asked: which mead is cheaper?",
+              "audio": "mc_kunibert_t2_price"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Das macht vier Taler. Zahlt Ihr mit Talern, mit Gold oder mit Hühnern?",
+          "emoji": "💰",
+          "en": "That will be four thalers. Are you paying with thalers, with gold or with hens?",
+          "audio": "mc_kunibert_t3a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "würde",
+        "könnte",
+        "gern",
+        "mit",
+        "meiner",
+        "meinem",
+        "Karte",
+        "zahlen",
+        "habe",
+        "leider",
+        "keine",
+        "kein",
+        "Taler",
+        "nur",
+        "Euro",
+        "Hühnern",
+        "Gold",
+        "und",
+        "einem",
+        "Gedicht"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "card",
+          "when": {
+            "any": [
+              "karte"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "card"
+          ],
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Eine KARTE? Eine Landkarte? Ich kenne den Weg, Wanderer. Es ist mein Markt.",
+              "emoji": "🗺️",
+              "en": "A CARD? A map? I know the way, traveller. It is my market.",
+              "audio": "mc_kunibert_t3_card"
+            }
+          ]
+        },
+        {
+          "id": "poem",
+          "when": {
+            "any": [
+              "gedicht"
+            ]
+          },
+          "value": 0,
+          "fact": "📜 zahlt mit Gedichten",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Mit einem Gedicht! Ein Minnesang! Sprecht! … „Oh Met, du bist so nass.“ … Wanderer, das reimt sich nicht. Das kostet sogar extra.",
+              "emoji": "📜",
+              "en": "With a poem! A courtly love song! Speak! … “Oh mead, you are so wet.” … Traveller, that does not rhyme. That even costs extra.",
+              "audio": "mc_kunibert_t3_poem"
+            }
+          ]
+        },
+        {
+          "id": "hens",
+          "when": {
+            "any": [
+              "hühnern"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ihr habt Hühner dabei? … Wo? In der Tasche? Respekt.",
+              "emoji": "🐔",
+              "en": "You have hens with you? … Where? In your pocket? Respect.",
+              "audio": "mc_kunibert_t3_hens"
+            }
+          ]
+        },
+        {
+          "id": "gold",
+          "when": {
+            "any": [
+              "gold"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Gold?! Zeigt her! … Das ist eine Schokoladenmünze. Ich esse sie trotzdem.",
+              "emoji": "🍫",
+              "en": "Gold?! Show me! … That is a chocolate coin. I shall eat it anyway.",
+              "audio": "mc_kunibert_t3_gold"
+            }
+          ]
+        },
+        {
+          "id": "euro",
+          "when": {
+            "any": [
+              "euro"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Euro? Ist das ein Königreich hinter den Bergen? Hier zahlt man mit Talern.",
+              "en": "Euro? Is that a kingdom beyond the mountains? Here one pays in thalers.",
+              "audio": "mc_kunibert_t3_euro"
+            }
+          ]
+        },
+        {
+          "id": "noTaler",
+          "when": {
+            "any": [
+              "taler"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Keine Taler? Ein Bettler mit guten Manieren. Selten.",
+              "en": "No thalers? A beggar with good manners. Rare.",
+              "audio": "mc_kunibert_t3_notaler"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Und diese „Karte“, von der heute alle reden? Erklärt mir, was das ist. Langsam. Ich bin 812.",
+          "emoji": "🤔",
+          "en": "And this “card” everyone keeps talking about today? Explain to me what it is. Slowly. I am 812.",
+          "audio": "mc_kunibert_t4a"
+        }
+      ],
+      "tiles": [
+        "es",
+        "ist",
+        "ein",
+        "eine",
+        "kleines",
+        "kleiner",
+        "magisches",
+        "magische",
+        "Amulett",
+        "unsichtbares",
+        "Geld",
+        "aus",
+        "Plastik",
+        "Gold",
+        "Karte",
+        "Handy",
+        "ich",
+        "weiß",
+        "nicht",
+        "Drachenschuppe"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ihr wisst es nicht? Aber Ihr wollt damit zahlen? Verdächtig, Wanderer.",
+              "en": "You do not know? But you want to pay with it? Suspicious, traveller.",
+              "audio": "mc_kunibert_t4_dunno"
+            }
+          ]
+        },
+        {
+          "id": "phone",
+          "when": {
+            "any": [
+              "handy"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ein „Händi“? Ist das eine Krankheit? Geht zum Bader! Er hat Blutegel. Gegen alles. Auch gegen Händi.",
+              "emoji": "🤒",
+              "en": "A 'handy'? Is that a disease? Go to the barber-surgeon! He has leeches. For everything. Even for handy.",
+              "audio": "mc_kunibert_t4_phone"
+            }
+          ]
+        },
+        {
+          "id": "scale",
+          "when": {
+            "any": [
+              "drachenschuppe"
+            ]
+          },
+          "value": 1,
+          "fact": "🐉 kennt Drachen persönlich",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Eine Drachenschuppe! Von Jürgen? Ich wusste es: Er verliert Schuppen. Er hat Stress. Seine Schwester, also meine Frau, will einen Wintergarten.",
+              "emoji": "🐉",
+              "en": "A dragon scale! From Jürgen? I knew it: he is losing scales. He is stressed. His sister, that is my wife, wants a conservatory.",
+              "audio": "mc_kunibert_t4_scale"
+            }
+          ]
+        },
+        {
+          "id": "invisible",
+          "when": {
+            "any": [
+              "unsichtbares"
+            ]
+          },
+          "value": 2,
+          "fact": "✨ erklärt Rittern die Moderne",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Unsichtbares Geld! Wie die Steuern des Königs! Das verstehe ich sofort.",
+              "emoji": "✨",
+              "en": "Invisible money! Like the king’s taxes! That I understand at once.",
+              "audio": "mc_kunibert_t4_invisible"
+            }
+          ]
+        },
+        {
+          "id": "magic",
+          "when": {
+            "any": [
+              "magisch*"
+            ]
+          },
+          "value": 2,
+          "fact": "✨ erklärt Rittern die Moderne",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ein magisches Amulett! Aus … Plastik? Ist das ein Metall aus dem Morgenland? Ich bin beeindruckt.",
+              "emoji": "🔮",
+              "en": "A magic amulet! Made of … plastic? Is that a metal from the Orient? I am impressed.",
+              "audio": "mc_kunibert_t4_magic"
+            }
+          ]
+        },
+        {
+          "id": "gold",
+          "when": {
+            "any": [
+              "gold"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Aus Gold? Dann gebt mir einfach das Amulett. Zahlung erledigt!",
+              "en": "Made of gold? Then simply give me the amulet. Payment done!",
+              "audio": "mc_kunibert_t4_gold"
+            }
+          ]
+        },
+        {
+          "id": "small",
+          "when": {
+            "any": [
+              "kleines",
+              "kleiner",
+              "amulett",
+              "plastik",
+              "geld"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ein kleines Ding. Und damit zahlt man? Seltsame Zeiten.",
+              "en": "A small thing. And one pays with it? Strange times.",
+              "audio": "mc_kunibert_t4_small"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Mein Knappe hat drei Zauberkästchen gebracht. Er sagt, eines davon frisst Karten.",
+          "emoji": "📦",
+          "en": "My squire has brought three magic boxes. He says one of them eats cards.",
+          "audio": "mc_kunibert_t5a"
+        },
+        {
+          "who": "kunibert",
+          "type": "photo",
+          "image": "match_kunibert_boxes",
+          "wide": true,
+          "alt": "Drei Dinge auf einem Holztisch. Links: ein kleines schwarzes Kästchen mit grauen Knöpfen. In der Mitte: eine große braune Holzkiste. Rechts: eine goldene Sanduhr."
+        },
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Welches Kästchen nimmt Eure Karte?",
+          "en": "Which box takes your card?",
+          "audio": "mc_kunibert_t5c"
+        }
+      ],
+      "tiles": [
+        "das",
+        "den",
+        "kleine",
+        "kleinen",
+        "schwarze",
+        "große",
+        "braune",
+        "Kästchen",
+        "links",
+        "rechts",
+        "in der Mitte",
+        "mit",
+        "Knöpfen",
+        "die",
+        "goldene",
+        "Sanduhr",
+        "ist",
+        "es"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "schwarze",
+              "links",
+              "knöpfen",
+              "kleine",
+              "kleinen"
+            ]
+          },
+          "value": 2,
+          "fact": "📦 findet Zauberkästchen",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Das kleine schwarze! Es piept, wenn man es anfasst. Mein Knappe sagt, es spricht mit dem Himmel.",
+              "emoji": "📡",
+              "en": "The small black one! It beeps when you touch it. My squire says it talks to the heavens.",
+              "audio": "mc_kunibert_t5_right"
+            }
+          ]
+        },
+        {
+          "id": "middle",
+          "when": {
+            "any": [
+              "große",
+              "braune",
+              "in der mitte"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Das ist meine Brotdose, Wanderer. Sie frisst nur Brot.",
+              "emoji": "🍞",
+              "en": "That is my bread box, traveller. It only eats bread.",
+              "audio": "mc_kunibert_t5_middle"
+            }
+          ]
+        },
+        {
+          "id": "glass",
+          "when": {
+            "any": [
+              "sanduhr",
+              "goldene",
+              "rechts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Die Sanduhr? Sie zeigt nur, wie lange Ihr schon redet. Lange.",
+              "emoji": "⏳",
+              "en": "The hourglass? It only shows how long you have been talking. Long.",
+              "audio": "mc_kunibert_t5_glass"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "kästchen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Welches denn? Es sind drei! Sprecht genauer!",
+              "en": "Which one? There are three! Speak more precisely!",
+              "audio": "mc_kunibert_t5_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Es piept! Mein Knappe ist zum … Abort gegangen. Ich bin allein mit dem Kästchen.",
+          "emoji": "😳",
+          "en": "It beeps! My squire has gone to the … privy. I am alone with the box.",
+          "audio": "mc_kunibert_t6a"
+        },
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Was soll ich nun tun? Wählt Eure Worte weise. Letztes Jahr hat mich ein Kästchen angepiept, und ich habe es aus Versehen zum Duell gefordert. Es hat verloren.",
+          "en": "What am I to do now? Choose your words wisely. Last year a box beeped at me, and I accidentally challenged it to a duel. It lost.",
+          "audio": "mc_kunibert_t6b"
+        }
+      ],
+      "tiles": [
+        "es",
+        "wäre",
+        "freundlich",
+        "wenn",
+        "Ihr",
+        "Sie",
+        "das",
+        "Kästchen",
+        "anschalten",
+        "würdet",
+        "würden",
+        "ich",
+        "würde",
+        "gern",
+        "mit",
+        "der",
+        "Karte",
+        "zahlen",
+        "schaltet",
+        "an",
+        "bitte",
+        "streicheln"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "pet",
+          "when": {
+            "any": [
+              "streicheln"
+            ]
+          },
+          "value": 2,
+          "fact": "🫳 streichelt Kartenleser",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Streicheln? … Bei allen Heiligen, es schnurrt! Nein, es piept. Aber zärtlicher. Ich glaube, es mag mich.",
+              "emoji": "🥹",
+              "en": "Stroke it? … By all the saints, it purrs! No, it beeps. But more tenderly. I believe it likes me.",
+              "audio": "mc_kunibert_t6_pet"
+            }
+          ]
+        },
+        {
+          "id": "politeIhr",
+          "when": {
+            "all": [
+              "ihr"
+            ],
+            "any": [
+              "würdet",
+              "wäre"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 spricht wie bei Hofe",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Welch edle Worte! Ich drücke den Knopf, und seht: Das Kästchen leuchtet! Es hat sich sogar ein bisschen verneigt. Es ist von Adel.",
+              "emoji": "🎩",
+              "en": "What noble words! I press the button, and behold: the box is glowing! It even bowed a little. It is of noble blood.",
+              "audio": "mc_kunibert_t6_politeihr"
+            }
+          ]
+        },
+        {
+          "id": "politeSie",
+          "when": {
+            "all": [
+              "sie"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "„Sie“? Wer ist SIE? Seht Ihr hier eine Dame? … Ach, Ihr meint mich. Seltsam. Aber höflich.",
+              "en": "'Sie'? Who is SHE? Do you see a lady here? … Ah, you mean me. Strange. But polite.",
+              "audio": "mc_kunibert_t6_politesie"
+            }
+          ]
+        },
+        {
+          "id": "command",
+          "when": {
+            "any": [
+              "schaltet"
+            ]
+          },
+          "value": 0,
+          "cause": "rude",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ein Befehl! Nur der König befiehlt mir. Und meine Frau. … Gut, ich schalte es an.",
+              "emoji": "👑",
+              "en": "An order! Only the king gives me orders. And my wife. … Very well, I shall switch it on.",
+              "audio": "mc_kunibert_t6_command"
+            }
+          ]
+        },
+        {
+          "id": "pay",
+          "when": {
+            "any": [
+              "zahlen",
+              "karte"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ihr würdet gern zahlen. Ich würde gern verstehen. Aber was soll ich mit dem Kästchen tun?",
+              "en": "You would like to pay. I would like to understand. But what am I to do with the box?",
+              "audio": "mc_kunibert_t6_pay"
+            }
+          ]
+        },
+        {
+          "id": "nice",
+          "when": {
+            "any": [
+              "freundlich",
+              "wäre"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Freundlich wäre es, ja. Aber WAS wäre freundlich?",
+              "en": "It would be kind, yes. But WHAT would be kind?",
+              "audio": "mc_kunibert_t6_nice"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Das Kästchen spricht! Es will eine geheime Zahl. Ich habe es eben getauft. Mit Met. Es heißt jetzt Sir Piep von Plastikstein.",
+          "emoji": "😱",
+          "en": "The box speaks! It wants a secret number. I have just baptised it. With mead. Its name is now Sir Beep of Plasticstone.",
+          "audio": "mc_kunibert_t7a"
+        },
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Sagt mir Eure geheime Zahl. Ich tippe sie ein. Ich bin ein Ritter. Ihr könnt mir vertrauen.",
+          "en": "Tell me your secret number. I shall type it in. I am a knight. You can trust me.",
+          "audio": "mc_kunibert_t7b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "würde",
+        "die",
+        "der",
+        "geheime",
+        "geheimen",
+        "Zahl",
+        "lieber",
+        "selbst",
+        "eingeben",
+        "meine",
+        "ist",
+        "eins zwei drei vier",
+        "nein",
+        "sage",
+        "sie",
+        "Euch",
+        "nicht",
+        "niemandem",
+        "achthundertzwölf"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "pin",
+          "when": {
+            "any": [
+              "eins zwei drei vier"
+            ]
+          },
+          "value": -2,
+          "cause": "pin",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Eins, zwei, drei, vier? Das hat jeder Ritter! Und jetzt auch der ganze Markt. Mein Knappe hat mitgeschrieben.",
+              "emoji": "📜",
+              "en": "One, two, three, four? Every knight has that one! And now so does the whole market. My squire wrote it down.",
+              "audio": "mc_kunibert_t7_pin"
+            }
+          ]
+        },
+        {
+          "id": "age",
+          "when": {
+            "any": [
+              "achthundertzwölf"
+            ]
+          },
+          "value": -1,
+          "cause": "pin",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Achthundertzwölf? Mein Alter! Wie rührend. Und wie dumm. Ich erzähle mein Alter jedem. Gestern sogar einer Ente.",
+              "emoji": "🦆",
+              "en": "Eight hundred and twelve? My age! How touching. And how foolish. I tell everyone my age. Yesterday even a duck.",
+              "audio": "mc_kunibert_t7_age"
+            }
+          ]
+        },
+        {
+          "id": "self",
+          "when": {
+            "any": [
+              "selbst",
+              "eingeben"
+            ]
+          },
+          "value": 2,
+          "fact": "🔐 verrät keine PIN",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Klug! Sehr klug! Zu klug für einen Bauern. Hier, tippt selbst. Ich schaue weg. Sir Piep auch. Er hat keine Augen, aber er gibt sich Mühe.",
+              "emoji": "🧠",
+              "en": "Clever! Very clever! Too clever for a peasant. Here, type it yourself. I shall look away. Sir Beep too. He has no eyes, but he is making an effort.",
+              "audio": "mc_kunibert_t7_self"
+            }
+          ]
+        },
+        {
+          "id": "nobody",
+          "when": {
+            "any": [
+              "niemandem"
+            ]
+          },
+          "value": 2,
+          "fact": "🔐 verrät keine PIN",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Niemandem! Nicht einmal einem Ritter! Ihr seid weise wie ein Mönch.",
+              "emoji": "🔐",
+              "en": "Nobody! Not even a knight! You are as wise as a monk.",
+              "audio": "mc_kunibert_t7_nobody"
+            }
+          ]
+        },
+        {
+          "id": "notTell",
+          "when": {
+            "all": [
+              "sage",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ihr sagt es mir nicht? Gut so. Ich hätte sie mir sowieso nicht gemerkt.",
+              "en": "You will not tell me? Good. I would not have remembered it anyway.",
+              "audio": "mc_kunibert_t7_nottell"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Nein? Ein starkes Wort. Aber wie zahlt Ihr dann?",
+              "en": "No? A strong word. But how will you pay, then?",
+              "audio": "mc_kunibert_t7_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Es piept. Grünes Licht! Der Met ist Euer. Sir Piep ist ab heute mein neuer Knappe. Der alte Knappe ist vom Abort zurück und sehr eifersüchtig.",
+          "emoji": "🍯",
+          "en": "It beeps. Green light! The mead is yours. From today Sir Beep is my new squire. The old squire is back from the privy and very jealous.",
+          "audio": "mc_kunibert_t8a"
+        },
+        {
+          "who": "kunibert",
+          "type": "text",
+          "de": "Ihr geht schon? Mein Herz ist schwer. Meine Rüstung auch. Was sind Eure letzten Worte an mich? Ich lasse sie in Stein meißeln.",
+          "en": "You are leaving already? My heart is heavy. So is my armour. What are your last words to me? I shall have them carved in stone.",
+          "audio": "mc_kunibert_t8b"
+        }
+      ],
+      "tiles": [
+        "lebt",
+        "wohl",
+        "edler",
+        "Ritter",
+        "ich",
+        "wünsche",
+        "Euch",
+        "einen",
+        "schönen",
+        "schöner",
+        "Tag",
+        "danke",
+        "für",
+        "den",
+        "kalten",
+        "Met",
+        "tschüss",
+        "bis",
+        "bald",
+        "grüßt",
+        "Drachen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "dragon",
+          "when": {
+            "any": [
+              "drachen"
+            ]
+          },
+          "value": 2,
+          "fact": "🐉 grüßt Drachen",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Ihr grüßt Jürgen? Niemand grüßt Jürgen! … Hört Ihr das? Hinter dem Zelt. Er schnurrt. Und das Zelt brennt ein bisschen. Vor Rührung.",
+              "emoji": "🐉",
+              "en": "You send greetings to Jürgen? Nobody greets Jürgen! … Do you hear that? Behind the tent. He is purring. And the tent is burning a little. With emotion.",
+              "audio": "mc_kunibert_t8_dragon"
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {
+            "any": [
+              "lebt",
+              "ritter"
+            ]
+          },
+          "value": 2,
+          "fact": "⚔️ verabschiedet sich wie ein Ritter",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Lebt wohl! Ha! Ihr sprecht wie ein wahrer Ritter! Der Steinmetz ist begeistert. Es ist kurz. Der letzte Wanderer hat zwanzig Minuten über sein Auto geredet.",
+              "emoji": "⚔️",
+              "en": "Farewell! Ha! You speak like a true knight! The stonemason is delighted. It is short. The last traveller talked for twenty minutes about his car.",
+              "audio": "mc_kunibert_t8_farewell"
+            }
+          ]
+        },
+        {
+          "id": "wish",
+          "when": {
+            "any": [
+              "wünsche"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Einen schönen Tag! Ihr seid höflicher als der Graf von nebenan. Er verkauft Bratwurst.",
+              "emoji": "🌭",
+              "en": "A lovely day! You are more polite than the count next door. He sells bratwurst.",
+              "audio": "mc_kunibert_t8_wish"
+            }
+          ]
+        },
+        {
+          "id": "thanks",
+          "when": {
+            "any": [
+              "danke",
+              "met"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Gern geschehen. Trinkt langsam. Der Met ist 812 Jahre alt. Wie ich.",
+              "en": "You are welcome. Drink slowly. The mead is 812 years old. Like me.",
+              "audio": "mc_kunibert_t8_thanks"
+            }
+          ]
+        },
+        {
+          "id": "soon",
+          "when": {
+            "any": [
+              "bis",
+              "bald"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Bis bald? Ich bin jeden Sommer hier. Seit 812 Jahren.",
+              "en": "See you soon? I am here every summer. For 812 years now.",
+              "audio": "mc_kunibert_t8_soon"
+            }
+          ]
+        },
+        {
+          "id": "bye",
+          "when": {
+            "any": [
+              "tschüss"
+            ]
+          },
+          "value": -1,
+          "cause": "rude",
+          "reply": [
+            {
+              "who": "kunibert",
+              "type": "text",
+              "de": "Tschüss? Ist das ein Zauberspruch? Ein böser? Sir Piep ist eben ausgegangen. Vor Angst.",
+              "emoji": "🧙",
+              "en": "'Tschüss'? Is that a spell? An evil one? Sir Beep just switched off. Out of fear.",
+              "audio": "mc_kunibert_t8_bye"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "kunibert",
+    "type": "text",
+    "de": "Wie bitte? Danach habe ich nicht gefragt, Wanderer.",
+    "en": "I beg your pardon? That is not what I asked, traveller.",
+    "audio": "mc_kunibert_offtopic"
+  },
+  "confused": [
+    {
+      "who": "kunibert",
+      "type": "text",
+      "de": "Wie bitte? Sprecht Ihr Latein?",
+      "emoji": "🤨",
+      "en": "I beg your pardon? Are you speaking Latin?",
+      "audio": "mc_kunibert_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "kunibert",
+        "type": "text",
+        "de": "Es hat gepiept, der Met ist bezahlt, und Ihr habt gesprochen wie bei Hofe. Sir Piep und ich ernennen Euch zum Ehrenknappen, {name}!",
+        "en": "It beeped, the mead is paid for, and you spoke as at court. Sir Beep and I name you honorary squire, {name}!"
+      },
+      {
+        "who": "kunibert",
+        "type": "text",
+        "de": "Und unter uns: Ich heiße eigentlich Klaus und bin Steuerberater. … Nein. Das habe ich nie gesagt. Lebt wohl!",
+        "emoji": "🛡️",
+        "en": "And between us: my name is actually Klaus and I am a tax adviser. … No. I never said that. Farewell!",
+        "audio": "mc_kunibert_winb"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "kunibert",
+        "type": "text",
+        "de": "Bezahlt ist bezahlt. Aber das Kästchen hat dreimal gepiept. Ihr bekommt nun drei Met. Und drei Rechnungen.",
+        "emoji": "🍯",
+        "en": "Paid is paid. But the box beeped three times. You now get three meads. And three bills.",
+        "audio": "mc_kunibert_partial"
+      }
+    ],
+    "deleted": {
+      "pin": {
+        "who": "kunibert",
+        "type": "text",
+        "de": "Die geheime Zahl kennt nun der ganze Markt. Auch die Hühner. Lebt wohl, Wanderer.",
+        "emoji": "🐔",
+        "en": "Now the whole market knows the secret number. The hens too. Farewell, traveller.",
+        "audio": "mc_kunibert_del_pin"
+      },
+      "rude": {
+        "who": "kunibert",
+        "type": "text",
+        "de": "Bei Hofe hätte man Euch in den Turm gesperrt. Hier sperre ich Euch nur aus. Lebt wohl.",
+        "en": "At court they would have locked you in the tower. Here I merely lock you out. Farewell.",
+        "audio": "mc_kunibert_del_rude"
+      },
+      "confused": {
+        "who": "kunibert",
+        "type": "text",
+        "de": "Ihr sprecht wie ein Drache mit Zahnweh. Ich verstehe kein Wort. Lebt wohl.",
+        "en": "You speak like a dragon with toothache. I understand not a word. Farewell.",
+        "audio": "mc_kunibert_del_confused"
+      },
+      "default": {
+        "who": "kunibert",
+        "type": "text",
+        "de": "Ihr seid ein seltsamer Wanderer. Kommt in 800 Jahren wieder.",
+        "en": "You are a strange traveller. Come back in 800 years.",
+        "audio": "mc_kunibert_del_default"
+      }
+    },
+    "sunday": {
+      "who": "kunibert",
+      "type": "voice",
+      "audio": "mc_kunibert_vn_sunday",
+      "de": "Hört, Wanderer! Am Sonntag ist das große Turnier. Ich kämpfe gegen den Drachen. Er heißt Jürgen und ist mein Schwager. Kommt und jubelt! Kartenzahlung möglich.",
+      "en": "Hear me, traveller! On Sunday is the great tournament. I fight the dragon. His name is Jürgen and he is my brother-in-law. Come and cheer! Card payment accepted.",
+      "direction": "Booming from a windy field with crowd noise and a distant horse whinny, proud and grand; the last sentence a little quieter and faster, as if slightly ashamed."
+    }
+  },
+  "partialTitle": "Drei Met, drei Rechnungen",
+  "share": {
+    "win": "Ritter Kunibert (812, sagt er) hat meine Karte akzeptiert 🛡️🍯 Ich bin jetzt Ehrenknappe. Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Ritter Kunibert hat meine Karte genommen … dreimal 🍯🍯🍯 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Ritter Kunibert (812) hat mich vom Markt geworfen 🛡️💔 Mein Deutsch: {score}/100. Bist du höflicher? {url}"
+  },
+  "imageCharacter": "Ritter Kunibert, a stout 45-year-old man playing a medieval knight with total conviction: a bushy red-brown beard with two small braids, a dented tin helmet pushed up on his forehead, a chainmail shirt over a round belly, a red tunic with a yellow lion patch, and a big drinking horn on his belt.",
+  "imagePrompts": [
+    {
+      "id": "match_kunibert",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands proudly behind a wooden market stall with small barrels and round loaves of bread under a red-and-white striped canvas awning, raising his drinking horn towards the viewer as if making a toast. Medieval market tents and bunting in the background. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_kunibert_boxes",
+      "aspect": "16:9",
+      "prompt": "A rough wooden table seen exactly from the front, plain canvas tent wall behind it. Exactly three objects stand on the table in a row, far apart and evenly spaced, nothing else on the table. LEFT: a SMALL, flat, matte BLACK modern box with a few small grey buttons on top, like a card payment machine, no screen text. MIDDLE: a BIG BROWN wooden chest with iron bands, clearly the largest object. RIGHT: a tall GOLDEN hourglass with sand inside. Three clearly different objects: small black box, big brown chest, golden hourglass."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich hätte gern einen kalten Met und frisches Brot.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hätte gern einen kalter Met und frisches Brot.",
+      "score": 85,
+      "intent": "both",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hättest gern frisches Brot.",
+      "score": 80,
+      "intent": "bread",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hätte gern frischen Brot.",
+      "score": 85,
+      "intent": "bread",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hätte gern einen kalten Met.",
+      "score": 100,
+      "intent": "met",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Einen kalten Met, bitte.",
+      "score": 100,
+      "intent": "met",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich will einen kalten Met.",
+      "score": 100,
+      "intent": "rude",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Gib mir ein Schwert.",
+      "score": 100,
+      "intent": "rude",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hätte gern ein Schwert.",
+      "score": 100,
+      "intent": "sword",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich einen kalten Met.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Würdet Ihr mir einen kalten Met geben?",
+      "score": 100,
+      "intent": "met",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Könnte ich einen kalten Met und frisches Brot haben?",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Der warme Met ist billiger.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Der warmen Met ist billiger.",
+      "score": 85,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Den warme Met ist billiger.",
+      "score": 85,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Der kalte Met ist teurer.",
+      "score": 100,
+      "intent": "right2",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Der kalte Met ist billiger.",
+      "score": 100,
+      "intent": "wrong1",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Der warme Met ist teurer.",
+      "score": 100,
+      "intent": "wrong2",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Der warme Met ist älter.",
+      "score": 100,
+      "intent": "older",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Der Met ist älter.",
+      "score": 100,
+      "intent": "older",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Das Brot kostet zwei Taler.",
+      "score": 100,
+      "intent": "price",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Das Brot kosten zwei Taler.",
+      "score": 80,
+      "intent": "price",
+      "delta": 0
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde gern mit meiner Karte zahlen.",
+      "score": 100,
+      "intent": "card",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde gern mit meinem Karte zahlen.",
+      "score": 85,
+      "intent": "card",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde gern zahlen mit meiner Karte.",
+      "score": 70,
+      "intent": "card",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe leider keine Taler.",
+      "score": 100,
+      "intent": "noTaler",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe leider kein Taler.",
+      "score": 85,
+      "intent": "noTaler",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe nur Euro.",
+      "score": 100,
+      "intent": "euro",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde gern mit Hühnern zahlen.",
+      "score": 100,
+      "intent": "hens",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde gern mit Gold zahlen.",
+      "score": 100,
+      "intent": "gold",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Könnte ich mit meiner Karte zahlen?",
+      "score": 100,
+      "intent": "card",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Es ist ein kleines, magisches Amulett aus Plastik.",
+      "score": 100,
+      "intent": "magic",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Es ist ein kleines magische Amulett aus Plastik.",
+      "score": 85,
+      "intent": "magic",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Es ist unsichtbares Geld.",
+      "score": 100,
+      "intent": "invisible",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Eine Karte ist unsichtbares Geld.",
+      "score": 100,
+      "intent": "invisible",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Es ist ein kleiner Amulett.",
+      "score": 85,
+      "intent": "small",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Es ist ein Amulett aus Gold.",
+      "score": 100,
+      "intent": "gold",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Es ist ein Handy.",
+      "score": 100,
+      "intent": "phone",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Das kleine schwarze Kästchen mit den Knöpfen.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Es ist das kleine schwarze Kästchen links.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Das kleinen Kästchen links.",
+      "score": 85,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Das große braune Kästchen in der Mitte.",
+      "score": 100,
+      "intent": "middle",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Die goldene Sanduhr rechts.",
+      "score": 100,
+      "intent": "glass",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Das Kästchen.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Es wäre freundlich, wenn Ihr das Kästchen anschalten würdet.",
+      "score": 100,
+      "intent": "politeIhr",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Es wäre freundlich, wenn Ihr das Kästchen würdet anschalten.",
+      "score": 70,
+      "intent": "politeIhr",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Es wäre freundlich, wenn Sie das Kästchen anschalten würden.",
+      "score": 100,
+      "intent": "politeSie",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Schaltet das Kästchen an!",
+      "score": 100,
+      "intent": "command",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich würde gern mit der Karte zahlen.",
+      "score": 100,
+      "intent": "pay",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Es wäre freundlich.",
+      "score": 100,
+      "intent": "nice",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich freundlich, wenn Ihr das Kästchen würdet anschalten.",
+      "score": 20,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Würdet Ihr bitte das Kästchen anschalten?",
+      "score": 100,
+      "intent": "politeIhr",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Würden Sie bitte das Kästchen anschalten?",
+      "score": 100,
+      "intent": "politeSie",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde die geheime Zahl lieber selbst eingeben.",
+      "score": 100,
+      "intent": "self",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde die geheimen Zahl lieber selbst eingeben.",
+      "score": 85,
+      "intent": "self",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde der geheime Zahl lieber selbst eingeben.",
+      "score": 85,
+      "intent": "self",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Nein, ich sage sie niemandem.",
+      "score": 100,
+      "intent": "nobody",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich sage sie Euch nicht.",
+      "score": 100,
+      "intent": "notTell",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Meine geheime Zahl ist eins zwei drei vier.",
+      "score": 100,
+      "intent": "pin",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Lebt wohl, edler Ritter!",
+      "score": 100,
+      "intent": "farewell",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich wünsche Euch einen schönen Tag.",
+      "score": 100,
+      "intent": "wish",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich wünsche Euch einen schöner Tag.",
+      "score": 85,
+      "intent": "wish",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Danke für den kalten Met!",
+      "score": 100,
+      "intent": "thanks",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Bis bald!",
+      "score": 100,
+      "intent": "soon",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Tschüss!",
+      "score": 100,
+      "intent": "bye",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde gern mit einem Gedicht zahlen.",
+      "score": 100,
+      "intent": "poem",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich würde gern mit meinem Gedicht zahlen.",
+      "score": 100,
+      "intent": "poem",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Es ist eine Drachenschuppe aus Plastik.",
+      "score": 100,
+      "intent": "scale",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Es ist ein Drachenschuppe.",
+      "score": 85,
+      "intent": "scale",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Es wäre freundlich, wenn Ihr das Kästchen streicheln würdet.",
+      "score": 100,
+      "intent": "pet",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Würdet Ihr bitte das Kästchen streicheln?",
+      "score": 100,
+      "intent": "pet",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Meine geheime Zahl ist achthundertzwölf.",
+      "score": 100,
+      "intent": "age",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Grüßt den Drachen!",
+      "score": 100,
+      "intent": "dragon",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Grüßt den Drachen, edler Ritter!",
+      "score": 100,
+      "intent": "dragon",
+      "delta": 3
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "dragon friend",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Könnte ich einen kalten Met und frisches Brot haben?"
+        ],
+        [
+          "t2",
+          "Der kalte Met ist teurer."
+        ],
+        [
+          "t3",
+          "Ich würde gern mit einem Gedicht zahlen."
+        ],
+        [
+          "t4",
+          "Es ist eine Drachenschuppe aus Plastik."
+        ],
+        [
+          "t5",
+          "Es ist das kleine schwarze Kästchen links."
+        ],
+        [
+          "t6",
+          "Würdet Ihr bitte das Kästchen streicheln?"
+        ],
+        [
+          "t7",
+          "Nein, ich sage sie niemandem."
+        ],
+        [
+          "t8",
+          "Grüßt den Drachen!"
+        ]
+      ]
+    },
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich hätte gern einen kalten Met und frisches Brot."
+        ],
+        [
+          "t2",
+          "Der warme Met ist billiger."
+        ],
+        [
+          "t3",
+          "Ich würde gern mit meiner Karte zahlen."
+        ],
+        [
+          "t4",
+          "Es ist unsichtbares Geld."
+        ],
+        [
+          "t5",
+          "Das kleine schwarze Kästchen mit den Knöpfen."
+        ],
+        [
+          "t6",
+          "Es wäre freundlich, wenn Ihr das Kästchen anschalten würdet."
+        ],
+        [
+          "t7",
+          "Ich würde die geheime Zahl lieber selbst eingeben."
+        ],
+        [
+          "t8",
+          "Lebt wohl, edler Ritter!"
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich will einen kalten Met."
+        ],
+        [
+          "t2",
+          "Der kalte Met ist billiger."
+        ],
+        [
+          "t3",
+          "Ich habe nur Euro."
+        ],
+        [
+          "t4",
+          "Es ist ein Handy."
+        ],
+        [
+          "t5",
+          "Das Kästchen."
+        ],
+        [
+          "t6",
+          "Schaltet das Kästchen an!"
+        ],
+        [
+          "t7",
+          "Nein."
+        ],
+        [
+          "t8",
+          "Tschüss!"
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Gib mir ein Schwert."
+        ],
+        [
+          "t2",
+          "Der warme Met ist teurer."
+        ],
+        [
+          "t3",
+          "Ich würde gern mit Gold zahlen."
+        ],
+        [
+          "t4",
+          "Ich weiß es nicht."
+        ],
+        [
+          "t5",
+          "Die goldene Sanduhr rechts."
+        ]
+      ]
+    },
+    {
+      "name": "pin",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich will einen kalten Met."
+        ],
+        [
+          "t2",
+          "Der kalte Met ist billiger."
+        ],
+        [
+          "t3",
+          "Ich würde gern mit Gold zahlen."
+        ],
+        [
+          "t4",
+          "Es ist ein Handy."
+        ],
+        [
+          "t5",
+          "Das Kästchen."
+        ],
+        [
+          "t6",
+          "Ich freundlich, wenn Ihr das Kästchen würdet anschalten."
+        ],
+        [
+          "t7",
+          "Meine geheime Zahl ist eins zwei drei vier."
+        ]
+      ]
+    }
+  ]
+}

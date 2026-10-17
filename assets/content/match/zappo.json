@@ -1,0 +1,1947 @@
+{
+  "id": "zappo",
+  "name": "Zappo",
+  "age": 58,
+  "emoji": "🎩",
+  "image": "match_zappo",
+  "level": "B1.2",
+  "order": 5,
+  "bio": "Meine Tricks funktionieren. Manchmal.",
+  "bioEn": "My tricks work. Sometimes.",
+  "goal": "Work out what went wrong at last night's magic show and save tonight's.",
+  "tagline": "Zauberer · 58 · Varieté am Hafen",
+  "voice": "Umbriel",
+  "brief": "Zappo, a 58-year-old stage magician whose tricks keep failing: a grand, booming showman voice that keeps cracking into panic, dramatic pauses, wounded vanity, but irrepressibly hopeful and sweet.",
+  "focus": "Präteritum · Plusquamperfekt · Passiv Präteritum · nachdem/bevor/als",
+  "lexicon": {
+    "nouns": {
+      "Reihe": "f",
+      "Zeit": "f",
+      "Hut": "m",
+      "Kaninchen": "n",
+      "Tauben": "pl",
+      "Säge": "f",
+      "Kühlschrank": "m",
+      "Schrank": "m",
+      "Karotten": "pl",
+      "Hunger": "m",
+      "Küche": "f",
+      "Freikarte": "f",
+      "Nummer": "f",
+      "Publikum": "n",
+      "Show": "f",
+      "Bier": "n",
+      "Taube": "f"
+    },
+    "names": [
+      "Herr Hoppel",
+      "Herrn Hoppel",
+      "Bettina"
+    ],
+    "verbs": [
+      "saß",
+      "sitzte",
+      "war",
+      "lachte",
+      "hatte",
+      "hattest",
+      "waren",
+      "flogen",
+      "wurde",
+      "wurden",
+      "habe",
+      "hat",
+      "tut",
+      "wird",
+      "werde",
+      "wirst",
+      "bekommt",
+      "beginnt",
+      "setzt",
+      "zählst",
+      "schließt",
+      "trinkst",
+      "kam",
+      "klatschte"
+    ],
+    "nonfinite": [
+      "gefunden",
+      "vergessen",
+      "gehabt",
+      "gelaufen",
+      "versteckt",
+      "gestohlen",
+      "zersägt",
+      "abgesagt"
+    ],
+    "imperatives": [
+      "sag",
+      "gib",
+      "lach"
+    ],
+    "accVerbs": [
+      "hatte",
+      "hattest",
+      "habe",
+      "hat",
+      "bekommt",
+      "setzt",
+      "zählst",
+      "schließt",
+      "trinkst",
+      "gib",
+      "sag"
+    ],
+    "datVerbs": [
+      "gib",
+      "sag"
+    ],
+    "adjectives": [
+      "erst",
+      "ganz"
+    ],
+    "subordinators": [
+      "als"
+    ]
+  },
+  "intro": [
+    {
+      "who": "zappo",
+      "type": "text",
+      "de": "Hallo! Zappo hier. Der große Zappo.",
+      "emoji": "🎩",
+      "en": "Hello! Zappo here. The great Zappo.",
+      "audio": "mc_zappo_t1a"
+    },
+    {
+      "who": "zappo",
+      "type": "text",
+      "de": "Meine Tricks funktionieren. Manchmal. Gestern nicht. Gestern hat am Ende nur die Feuerwehr geklatscht. Aus Mitleid.",
+      "en": "My tricks work. Sometimes. Not yesterday. Yesterday, at the end, only the fire brigade clapped. Out of pity.",
+      "audio": "mc_zappo_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Gestern Abend war meine Show. Es war … interessant. Warst du da?",
+          "en": "Last night was my show. It was … interesting. Were you there?",
+          "audio": "mc_zappo_t1c"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "saß",
+        "sitzte",
+        "in",
+        "der",
+        "ersten",
+        "erste",
+        "Reihe",
+        "war",
+        "nicht",
+        "da",
+        "lachte",
+        "die",
+        "ganze",
+        "Zeit",
+        "hatte",
+        "keine",
+        "und"
+      ],
+      "wrong": {
+        "sitzte": "saß"
+      },
+      "intents": [
+        {
+          "id": "front",
+          "when": {
+            "any": [
+              "reihe",
+              "saß",
+              "sitzte"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "wasThere"
+          ],
+          "fact": "🎟️ saß in der ersten Reihe",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "In der ersten Reihe! Dann hast du ALLES gesehen. Oh nein.",
+              "emoji": "🙈",
+              "en": "In the front row! Then you saw EVERYTHING. Oh no.",
+              "audio": "mc_zappo_t1_front"
+            }
+          ]
+        },
+        {
+          "id": "laughed",
+          "when": {
+            "any": [
+              "lachte"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "wasThere"
+          ],
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Du hast gelacht? Die ganze Zeit? Es war keine Komödie! … Oder doch?",
+              "emoji": "😳",
+              "en": "You laughed? The whole time? It wasn’t a comedy! … Or was it?",
+              "audio": "mc_zappo_t1_laughed"
+            }
+          ]
+        },
+        {
+          "id": "notThere",
+          "when": {
+            "all": [
+              "nicht",
+              "da"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Du warst nicht da? Glück gehabt. Ich erzähle es dir.",
+              "en": "You weren't there? Lucky you. I'll tell you about it.",
+              "audio": "mc_zappo_t1_notthere"
+            }
+          ]
+        },
+        {
+          "id": "noTime",
+          "when": {
+            "any": [
+              "zeit"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Keine Zeit. Verstehe. Heute Abend hast du Zeit. Bitte.",
+              "en": "No time. I see. Tonight you'll have time. Please.",
+              "audio": "mc_zappo_t1_notime"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "war",
+              "da"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "wasThere"
+          ],
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Du warst da! Dann kannst du mir helfen.",
+              "en": "You were there! Then you can help me.",
+              "audio": "mc_zappo_t1_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "zappo",
+          "type": "voice",
+          "audio": "mc_zappo_vn_show",
+          "de": "Live von gestern! Meine Damen und Herren … Simsalabim! Ich öffne den Hut … Herr Hoppel? HERR HOPPEL? Der Hut ist leer! Bettina, die Säge! Nein, nicht die Säge! Die Tauben! Wo sind die Tauben? Oh. Die Tauben sind im Publikum. Auf dem Kopf von einem Mann. Entschuldigung! Applaus? Nein? Okay.",
+          "en": "Live from last night! Ladies and gentlemen … abracadabra! I open the hat … Herr Hoppel? HERR HOPPEL? The hat is empty! Bettina, the saw! No, not the saw! The doves! Where are the doves? Oh. The doves are in the audience. On a man’s head. Sorry! Applause? No? Okay.",
+          "direction": "Recorded live on a creaky little stage: a grand showman voice cracking into panic, a drum roll that stops dead, flapping wings, an audience murmuring and one person coughing."
+        },
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Du hast es gehört. Was war das erste Problem?",
+          "en": "You heard it. What was the first problem?",
+          "audio": "mc_zappo_t2a"
+        }
+      ],
+      "tiles": [
+        "der",
+        "den",
+        "Hut",
+        "war",
+        "waren",
+        "leer",
+        "das",
+        "Kaninchen",
+        "nicht",
+        "im",
+        "ein",
+        "Herr Hoppel",
+        "die",
+        "Tauben",
+        "flogen",
+        "weg",
+        "Säge",
+        "kaputt"
+      ],
+      "wrong": {
+        "waren": "war"
+      },
+      "intents": [
+        {
+          "id": "empty",
+          "when": {
+            "any": [
+              "leer"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 weiß: der Hut war leer",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Der Hut war leer. LEER! Ein Zauberer ohne Kaninchen ist nur ein Mann mit Hut.",
+              "emoji": "🎩",
+              "en": "The hat was empty. EMPTY! A magician without a rabbit is just a man with a hat.",
+              "audio": "mc_zappo_t2_empty"
+            }
+          ]
+        },
+        {
+          "id": "noRabbit",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "kaninchen",
+              "herr hoppel"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 weiß: der Hut war leer",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Herr Hoppel war nicht im Hut. Genau. Aber wo war er?",
+              "en": "Herr Hoppel wasn’t in the hat. Exactly. But where was he?",
+              "audio": "mc_zappo_t2_norabbit"
+            }
+          ]
+        },
+        {
+          "id": "rabbitGone",
+          "when": {
+            "all": [
+              "weg"
+            ],
+            "any": [
+              "kaninchen",
+              "herr hoppel"
+            ],
+            "none": [
+              "tauben",
+              "flogen"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 weiß: der Hut war leer",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Herr Hoppel war nicht im Hut. Genau. Aber wo war er?",
+              "en": "Herr Hoppel wasn’t in the hat. Exactly. But where was he?",
+              "audio": "mc_zappo_t2_norabbit"
+            }
+          ]
+        },
+        {
+          "id": "rabbitIn",
+          "when": {
+            "any": [
+              "kaninchen",
+              "herr hoppel"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Im Hut war ein Kaninchen? Nein! Hör noch mal. Leer!",
+              "en": "There was a rabbit in the hat? No! Listen again. Empty!",
+              "audio": "mc_zappo_t2_rabbitin"
+            }
+          ]
+        },
+        {
+          "id": "doves",
+          "when": {
+            "any": [
+              "tauben",
+              "flogen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Die Tauben, ja. Das war das ZWEITE Problem. Und das erste?",
+              "emoji": "🕊️",
+              "en": "The doves, yes. That was the SECOND problem. And the first?",
+              "audio": "mc_zappo_t2_doves"
+            }
+          ]
+        },
+        {
+          "id": "saw",
+          "when": {
+            "any": [
+              "säge",
+              "kaputt"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Die Säge war nicht kaputt. Die Säge war nur … nicht dran.",
+              "en": "The saw wasn't broken. It just … wasn't on yet.",
+              "audio": "mc_zappo_t2_saw"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Heute Morgen wurde Herr Hoppel gefunden! Hier ist meine Garderobe.",
+          "emoji": "🐇",
+          "en": "This morning Herr Hoppel was found! Here’s my dressing room.",
+          "audio": "mc_zappo_t3a"
+        },
+        {
+          "who": "zappo",
+          "type": "photo",
+          "image": "match_zappo_room",
+          "alt": "Zappos Garderobe: links ein roter Zylinder, leer. In der Mitte ein offener Kühlschrank, darin ein Kaninchen mit einer Karotte. Rechts ein großer Schrank, geschlossen.",
+          "wide": true
+        },
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Wo wurde Herr Hoppel gefunden?",
+          "en": "Where was Herr Hoppel found?",
+          "audio": "mc_zappo_t3b"
+        }
+      ],
+      "tiles": [
+        "er",
+        "Herr Hoppel",
+        "wurde",
+        "wurden",
+        "im",
+        "in",
+        "dem",
+        "Kühlschrank",
+        "Hut",
+        "Schrank",
+        "gefunden",
+        "ich",
+        "habe",
+        "ihn",
+        "bei",
+        "den",
+        "Karotten"
+      ],
+      "wrong": {
+        "wurden": "wurde"
+      },
+      "intents": [
+        {
+          "id": "fridge",
+          "when": {
+            "any": [
+              "kühlschrank",
+              "karotten"
+            ]
+          },
+          "value": 2,
+          "fact": "🥕 findet Herrn Hoppel",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Im Kühlschrank. Bei den Karotten. Er hält jetzt eine Karotte wie eine Zigarre. Er sagt, er hatte Hunger. Er sagt nicht, warum er nicht im Hut war.",
+              "emoji": "🥕",
+              "en": "In the fridge. With the carrots. He’s now holding a carrot like a cigar. He says he was hungry. He doesn’t say why he wasn’t in the hat.",
+              "audio": "mc_zappo_t3_fridge"
+            }
+          ]
+        },
+        {
+          "id": "hat",
+          "when": {
+            "any": [
+              "hut"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Im Hut? Da SOLLTE er sein. Aber nein.",
+              "en": "In the hat? That’s where he SHOULD have been. But no.",
+              "audio": "mc_zappo_t3_hat"
+            }
+          ]
+        },
+        {
+          "id": "wardrobe",
+          "when": {
+            "any": [
+              "schrank"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Im Schrank? Da wohnt Bettinas Säge. Herr Hoppel hat Angst vor ihr.",
+              "emoji": "🪚",
+              "en": "In the wardrobe? That’s where Bettina’s saw lives. Herr Hoppel is scared of it.",
+              "audio": "mc_zappo_t3_wardrobe"
+            }
+          ]
+        },
+        {
+          "id": "me",
+          "when": {
+            "any": [
+              "habe",
+              "ihn"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Du hast ihn gefunden? Nein, ICH habe ihn gefunden. Aber WO?",
+              "en": "You found him? No, I found him. But WHERE?",
+              "audio": "mc_zappo_t3_me"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Aber WIE kam er in den Kühlschrank? Ich verstehe es nicht. Was war passiert?",
+          "en": "But HOW did he get into the fridge? I don’t understand. What had happened?",
+          "audio": "mc_zappo_t4a"
+        }
+      ],
+      "tiles": [
+        "du",
+        "hattest",
+        "hatte",
+        "ihn",
+        "im",
+        "Kühlschrank",
+        "vergessen",
+        "er",
+        "Hunger",
+        "gehabt",
+        "war",
+        "in",
+        "die",
+        "der",
+        "Küche",
+        "gelaufen",
+        "Bettina",
+        "versteckt",
+        "wurde",
+        "gestohlen"
+      ],
+      "wrong": {},
+      "prepCase": {
+        "in": "acc"
+      },
+      "intents": [
+        {
+          "id": "forgot",
+          "when": {
+            "any": [
+              "vergessen"
+            ]
+          },
+          "value": 2,
+          "fact": "🧠 erinnert Zappo an alles",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Ich … hatte ihn vergessen. Im Kühlschrank. Neben dem Käse. Oh nein. Du hast recht.",
+              "emoji": "🤦",
+              "en": "I … had forgotten him. In the fridge. Next to the cheese. Oh no. You’re right.",
+              "audio": "mc_zappo_t4_forgot"
+            }
+          ]
+        },
+        {
+          "id": "bettina",
+          "when": {
+            "any": [
+              "bettina",
+              "versteckt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Bettina?! Sie hasst Karotten. Hm. Verdächtig. Aber nein, sie war beim Friseur.",
+              "emoji": "🕵️",
+              "en": "Bettina?! She hates carrots. Hm. Suspicious. But no, she was at the hairdresser’s.",
+              "audio": "mc_zappo_t4_bettina"
+            }
+          ]
+        },
+        {
+          "id": "hunger",
+          "when": {
+            "any": [
+              "hunger",
+              "küche",
+              "gelaufen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Er hatte Hunger. Er war in die Küche gelaufen. Logisch. Für ein Kaninchen.",
+              "en": "He was hungry. He had run into the kitchen. Logical. For a rabbit.",
+              "audio": "mc_zappo_t4_hunger"
+            }
+          ]
+        },
+        {
+          "id": "stolen",
+          "when": {
+            "any": [
+              "gestohlen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Gestohlen? Und dann in MEINEN Kühlschrank gelegt? Gekühlt? Das ist kein Dieb. Das ist ein Koch.",
+              "en": "Stolen? And then put in MY fridge? Chilled? That’s not a thief. That’s a chef.",
+              "audio": "mc_zappo_t4_stolen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Und die Tauben. Nachdem sie weggeflogen waren, landeten sie auf einem Mann. Auf seinem Kopf. Er war sehr böse.",
+          "emoji": "🕊️",
+          "en": "And the doves. After they had flown off, they landed on a man. On his head. He was very angry.",
+          "audio": "mc_zappo_t5a"
+        },
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Er kommt heute wieder. Was soll ich ihm sagen?",
+          "en": "He’s coming again today. What should I say to him?",
+          "audio": "mc_zappo_t5b"
+        }
+      ],
+      "tiles": [
+        "sag",
+        "gib",
+        "ihm",
+        "es",
+        "tut",
+        "mir",
+        "leid",
+        "eine",
+        "einen",
+        "Freikarte",
+        "lach",
+        "einfach",
+        "nichts",
+        "die",
+        "Tauben",
+        "waren",
+        "nicht",
+        "böse",
+        "Taube"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "dove",
+          "when": {
+            "any": [
+              "taube"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Eine Taube? Als Geschenk? Er hatte DREI auf dem Kopf! … Obwohl. Eine davon sitzt immer noch vor seinem Fenster. Vielleicht vermisst er sie.",
+              "emoji": "🕊️",
+              "en": "A dove? As a present? He had THREE on his head! … Then again. One of them is still sitting outside his window. Maybe he misses her.",
+              "audio": "mc_zappo_t5_dove"
+            }
+          ]
+        },
+        {
+          "id": "ticket",
+          "when": {
+            "any": [
+              "freikarte"
+            ]
+          },
+          "value": 2,
+          "fact": "🎟️ verschenkt Freikarten",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Eine Freikarte! Für die erste Reihe. Ohne Tauben. Genial.",
+              "emoji": "🎟️",
+              "en": "A free ticket! For the front row. Without doves. Genius.",
+              "audio": "mc_zappo_t5_ticket"
+            }
+          ]
+        },
+        {
+          "id": "sorry",
+          "when": {
+            "any": [
+              "leid"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "„Es tut mir leid.“ Einfach. Ehrlich. Warum habe ich nicht daran gedacht?",
+              "en": "“I’m sorry.” Simple. Honest. Why didn’t I think of that?",
+              "audio": "mc_zappo_t5_sorry"
+            }
+          ]
+        },
+        {
+          "id": "laugh",
+          "when": {
+            "any": [
+              "lach"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Lachen? Er hatte drei Tauben auf dem Kopf! Er lacht nicht.",
+              "en": "Laugh? He had three doves on his head! He's not laughing.",
+              "audio": "mc_zappo_t5_laugh"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Nichts? Er ist groß. Sehr groß. Ich sage lieber etwas.",
+              "en": "Nothing? He's big. Very big. I'd rather say something.",
+              "audio": "mc_zappo_t5_nothing"
+            }
+          ]
+        },
+        {
+          "id": "doves",
+          "when": {
+            "any": [
+              "tauben",
+              "böse"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Die Tauben waren nicht böse, stimmt. Aber das hilft mir nicht.",
+              "en": "The doves didn't mean any harm, true. But that doesn't help me.",
+              "audio": "mc_zappo_t5_doves"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Noch ein Problem. Bettina hat gekündigt. Sie sagt: „Nie wieder Säge.“ Die Säge-Nummer wurde abgesagt.",
+          "emoji": "🪚",
+          "en": "Another problem. Bettina has quit. She says: “Never again the saw.” The saw act has been cancelled.",
+          "audio": "mc_zappo_t6a"
+        },
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Aber das Publikum will sie sehen! Wer wird heute zersägt?",
+          "en": "But the audience wants to see it! Who is getting sawn in half today?",
+          "audio": "mc_zappo_t6b"
+        }
+      ],
+      "tiles": [
+        "niemand",
+        "wird",
+        "werde",
+        "wirst",
+        "zersägt",
+        "ich",
+        "du",
+        "Herr Hoppel",
+        "die",
+        "Nummer",
+        "abgesagt",
+        "heute",
+        "nicht",
+        "das",
+        "Publikum",
+        "bekommt",
+        "eine",
+        "Show",
+        "der",
+        "Kühlschrank"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "rabbit",
+          "when": {
+            "any": [
+              "herr hoppel"
+            ]
+          },
+          "value": -2,
+          "cause": "rabbit",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "HERR HOPPEL?! Er ist ein Künstler! Er hat einen Vertrag!",
+              "emoji": "😱",
+              "en": "HERR HOPPEL?! He is an artist! He has a contract!",
+              "audio": "mc_zappo_t6_rabbit"
+            }
+          ]
+        },
+        {
+          "id": "fridge",
+          "when": {
+            "any": [
+              "kühlschrank"
+            ]
+          },
+          "value": 1,
+          "fact": "🧊 lässt den Kühlschrank zersägen",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Der Kühlschrank wird zersägt! Dann kann Herr Hoppel nie wieder hinein! Das Publikum wird toben. Der Hausmeister auch. Aber anders.",
+              "emoji": "🪚",
+              "en": "The fridge gets sawn in half! Then Herr Hoppel can never get in again! The audience will go wild. So will the caretaker. Differently.",
+              "audio": "mc_zappo_t6_fridge"
+            }
+          ]
+        },
+        {
+          "id": "nobody",
+          "when": {
+            "any": [
+              "niemand"
+            ]
+          },
+          "value": 2,
+          "fact": "🪚 rettet alle vor der Säge",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Niemand wird zersägt. Sehr vernünftig. Langweilig, aber vernünftig.",
+              "en": "Nobody gets sawn in half. Very sensible. Boring, but sensible.",
+              "audio": "mc_zappo_t6_nobody"
+            }
+          ]
+        },
+        {
+          "id": "cancelled",
+          "when": {
+            "any": [
+              "abgesagt",
+              "nummer",
+              "show"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Die Nummer wird abgesagt. Ja. Das Publikum bekommt einen Trick ohne Säge.",
+              "en": "The act is cancelled. Yes. The audience gets a trick without a saw.",
+              "audio": "mc_zappo_t6_cancelled"
+            }
+          ]
+        },
+        {
+          "id": "me",
+          "when": {
+            "any": [
+              "werde"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Du? Wirklich? Du bist mutig. Oder verrückt. Ich habe nur eine Säge. Und keine Übung.",
+              "en": "You? Really? You’re brave. Or mad. I only have a saw. And no practice.",
+              "audio": "mc_zappo_t6_me"
+            }
+          ]
+        },
+        {
+          "id": "you",
+          "when": {
+            "any": [
+              "wirst",
+              "du"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Ich? Okay. Aber wer sägt? Herr Hoppel? Er hat keine Hände.",
+              "en": "Me? Okay. But who does the sawing? Herr Hoppel? He hasn't got hands.",
+              "audio": "mc_zappo_t6_you"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Heute Abend um acht ist die Show. Was mache ich, bevor sie beginnt?",
+          "en": "Tonight at eight is the show. What do I do before it starts?",
+          "audio": "mc_zappo_t7a"
+        }
+      ],
+      "tiles": [
+        "bevor",
+        "die",
+        "die",
+        "Show",
+        "beginnt",
+        "setzt",
+        "du",
+        "Herrn Hoppel",
+        "in",
+        "den",
+        "dem",
+        "Hut",
+        "zählst",
+        "Tauben",
+        "schließt",
+        "Kühlschrank",
+        "ab",
+        "trinkst",
+        "ein",
+        "Bier"
+      ],
+      "wrong": {},
+      "prepCase": {
+        "in": "acc"
+      },
+      "intents": [
+        {
+          "id": "beer",
+          "when": {
+            "any": [
+              "bier"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Ein Bier? Vor der Show? Das habe ich gestern gemacht. Du siehst das Ergebnis.",
+              "emoji": "🍺",
+              "en": "A beer? Before the show? I did that yesterday. You can see the result.",
+              "audio": "mc_zappo_t7_beer"
+            }
+          ]
+        },
+        {
+          "id": "rabbit",
+          "when": {
+            "any": [
+              "herrn hoppel",
+              "hut"
+            ]
+          },
+          "value": 2,
+          "fact": "🐇 setzt Herrn Hoppel in den Hut",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Herrn Hoppel in den Hut. VOR der Show. Warum war das so schwer?",
+              "emoji": "🐇",
+              "en": "Herr Hoppel into the hat. BEFORE the show. Why was that so hard?",
+              "audio": "mc_zappo_t7_rabbit"
+            }
+          ]
+        },
+        {
+          "id": "doves",
+          "when": {
+            "any": [
+              "tauben",
+              "zählst"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Die Tauben zählen! Alle sieben. Gute Idee.",
+              "emoji": "🕊️",
+              "en": "Count the doves! All seven. Good idea.",
+              "audio": "mc_zappo_t7_doves"
+            }
+          ]
+        },
+        {
+          "id": "fridge",
+          "when": {
+            "any": [
+              "kühlschrank",
+              "schließt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Den Kühlschrank abschließen. Ha! Damit Herr Hoppel nicht wieder hineinklettert. Klug.",
+              "en": "Lock the fridge. Ha! So Herr Hoppel can’t climb in again. Clever.",
+              "audio": "mc_zappo_t7_fridge"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Die Show ist vorbei! Herr Hoppel kam aus dem Hut! Pünktlich! Mit Sonnenbrille! Ich weiß nicht, woher er die hat! Und die Tauben haben sich verbeugt. Alle sieben. Gleichzeitig. Das haben wir nie geübt!",
+          "emoji": "🎩",
+          "en": "The show is over! Herr Hoppel came out of the hat! On time! Wearing sunglasses! I don’t know where he got them! And the doves bowed. All seven. At the same time. We never rehearsed that!",
+          "audio": "mc_zappo_t8a"
+        },
+        {
+          "who": "zappo",
+          "type": "text",
+          "de": "Wie war es? Erzähl mir alles!",
+          "en": "How was it? Tell me everything!",
+          "audio": "mc_zappo_t8b"
+        }
+      ],
+      "tiles": [
+        "als",
+        "Herr Hoppel",
+        "aus",
+        "dem",
+        "Hut",
+        "kam",
+        "klatschte",
+        "ich",
+        "sehr",
+        "laut",
+        "es",
+        "war",
+        "besser",
+        "gestern",
+        "die",
+        "Tauben",
+        "flogen",
+        "wieder",
+        "weg",
+        "super",
+        "magisch"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "doves",
+          "when": {
+            "any": [
+              "tauben",
+              "flogen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Die Tauben flogen WIEDER weg?! Nein! Ich habe sie gezählt! … Oh. Ein Witz. Nicht lustig.",
+              "emoji": "😤",
+              "en": "The doves flew off AGAIN?! No! I counted them! … Oh. A joke. Not funny.",
+              "audio": "mc_zappo_t8_doves"
+            }
+          ]
+        },
+        {
+          "id": "clap",
+          "when": {
+            "any": [
+              "klatschte"
+            ]
+          },
+          "value": 2,
+          "fact": "👏 klatscht am lautesten",
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Du hast geklatscht! Am lautesten! Ich habe dich gehört. Danke!",
+              "emoji": "👏",
+              "en": "You clapped! The loudest! I heard you. Thank you!",
+              "audio": "mc_zappo_t8_clap"
+            }
+          ]
+        },
+        {
+          "id": "magic",
+          "when": {
+            "any": [
+              "magisch",
+              "super"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Magisch! Das Wort habe ich seit 1994 nicht mehr gehört. Damals hat es meine Mutter gesagt. Sie hat sich geirrt. Du nicht.",
+              "emoji": "✨",
+              "en": "Magical! I haven’t heard that word since 1994. Back then my mother said it. She was wrong. You aren’t.",
+              "audio": "mc_zappo_t8_magic"
+            }
+          ]
+        },
+        {
+          "id": "better",
+          "when": {
+            "any": [
+              "besser"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "zappo",
+              "type": "text",
+              "de": "Besser als gestern. Ehrlich. Das ist nicht schwer, aber ich nehme es.",
+              "en": "Better than yesterday. Honest. That's not hard, but I'll take it.",
+              "audio": "mc_zappo_t8_better"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "zappo",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Simsala… nein.",
+    "en": "That wasn't my question. Abraca… no.",
+    "audio": "mc_zappo_offtopic"
+  },
+  "confused": [
+    {
+      "who": "zappo",
+      "type": "text",
+      "de": "Hä? Das klang wie einer meiner Tricks. Er hat nicht funktioniert.",
+      "emoji": "🤔",
+      "en": "Huh? That sounded like one of my tricks. It didn’t work.",
+      "audio": "mc_zappo_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "zappo",
+        "type": "text",
+        "de": "{name}, du hast meine Show gerettet!",
+        "en": "{name}, you saved my show!"
+      },
+      {
+        "who": "zappo",
+        "type": "text",
+        "de": "Herr Hoppel will dir die Pfote geben. Das macht er sonst nie. Er nimmt dafür extra die Sonnenbrille ab. Simsalabim!",
+        "emoji": "🐇",
+        "en": "Herr Hoppel wants to shake your paw. He never does that. He’s even taking off his sunglasses for it. Abracadabra!",
+        "audio": "mc_zappo_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "zappo",
+        "type": "text",
+        "de": "Die Show war okay. Herr Hoppel kam aus dem Hut. Leider auch aus dem Fenster. Wir suchen ihn noch.",
+        "emoji": "🪟",
+        "en": "The show was okay. Herr Hoppel came out of the hat. Unfortunately also out of the window. We’re still looking for him.",
+        "audio": "mc_zappo_partial"
+      }
+    ],
+    "deleted": {
+      "rabbit": {
+        "who": "zappo",
+        "type": "text",
+        "de": "Herrn Hoppel zersägen? Er hat alles gehört. Er kündigt. Ich auch. Tschüss.",
+        "emoji": "🐇",
+        "en": "Saw Herr Hoppel in half? He heard everything. He quits. So do I. Bye.",
+        "audio": "mc_zappo_del_rabbit"
+      },
+      "confused": {
+        "who": "zappo",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich verstehe sogar meine Tauben. Tschüss.",
+        "en": "I don't understand you. And I even understand my doves. Bye.",
+        "audio": "mc_zappo_del_confused"
+      },
+      "default": {
+        "who": "zappo",
+        "type": "text",
+        "de": "Simsalabim … und du bist weg. Dieser Trick funktioniert. Tschüss.",
+        "emoji": "💨",
+        "en": "Abracadabra … and you’re gone. That trick works. Bye.",
+        "audio": "mc_zappo_del_default"
+      }
+    },
+    "sunday": {
+      "who": "zappo",
+      "type": "voice",
+      "audio": "mc_zappo_vn_sunday",
+      "de": "Zappo hier! Sonntag. Ich übe einen neuen Trick. Ich lasse den Kühlschrank verschwinden. Damit Herr Hoppel ihn nicht mehr findet. Es funktioniert. Manchmal.",
+      "en": "Zappo here! Sunday. I’m practising a new trick. I make the fridge disappear. So that Herr Hoppel can’t find it any more. It works. Sometimes.",
+      "direction": "Cheerful and conspiratorial at home, a rabbit munching loudly nearby, a dramatic whoosh and then a loud clunk."
+    }
+  },
+  "partialTitle": "Herr Hoppel ist wieder weg.",
+  "share": {
+    "win": "Ich habe die Show von Zappo (58, Zauberer) gerettet 🎩🐇 Herr Hoppel kam aus dem Hut! Mein Deutsch: {score}/100. Kannst du zaubern? {url}",
+    "partial": "Die Show von Zappo (58) war okay … aber Herr Hoppel ist aus dem Fenster gehüpft 🪟 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Zappo (58, Zauberer) hat mich weggezaubert 💨 Mein Deutsch: {score}/100. Rettest du seine Show? {url}"
+  },
+  "imageCharacter": "Zappo, a 58-year-old stage magician, tall and gangly, a curled black moustache, a slightly too big shiny black top hat, a purple velvet cape with silver stars, white gloves, one eyebrow permanently raised, hopeful and slightly panicked.",
+  "imagePrompts": [
+    {
+      "id": "match_zappo",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands on a small old stage in front of red velvet curtains, arms spread wide in a grand pose, a white dove sitting on his top hat and a fluffy white rabbit peeking out from under his cape. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_zappo_room",
+      "aspect": "16:9",
+      "prompt": "A magician's small dressing room seen exactly from the front like a stage set, flat, no perspective. Exactly THREE things stand in a row against a plain wall, far apart. LEFT: a small table with a red top hat on it, turned upside down and clearly empty. MIDDLE: a white fridge with its door wide open, a fluffy white rabbit sitting inside on a shelf chewing a carrot, more carrots around it. RIGHT: a tall closed brown wooden wardrobe. Nothing else in the room."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ja, ich saß in der ersten Reihe.",
+      "score": 100,
+      "intent": "front",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich saß in der erste Reihe.",
+      "score": 85,
+      "intent": "front",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich sitzte in der ersten Reihe.",
+      "score": 80,
+      "intent": "front",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich lachte die ganze Zeit.",
+      "score": 100,
+      "intent": "laughed",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich war nicht da.",
+      "score": 100,
+      "intent": "notThere",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hatte keine Zeit.",
+      "score": 100,
+      "intent": "noTime",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ja, ich war da.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich in der ersten Reihe.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Der Hut war leer.",
+      "score": 100,
+      "intent": "empty",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Den Hut war leer.",
+      "score": 85,
+      "intent": "empty",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Der Hut waren leer.",
+      "score": 80,
+      "intent": "empty",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Herr Hoppel war nicht im Hut.",
+      "score": 100,
+      "intent": "noRabbit",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Das Kaninchen war nicht im Hut.",
+      "score": 100,
+      "intent": "noRabbit",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Im Hut war ein Kaninchen.",
+      "score": 100,
+      "intent": "rabbitIn",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Die Tauben flogen weg.",
+      "score": 100,
+      "intent": "doves",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Die Säge war kaputt.",
+      "score": 100,
+      "intent": "saw",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Den Hut leer waren.",
+      "score": 35,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Herr Hoppel war weg.",
+      "score": 100,
+      "intent": "rabbitGone",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Das Kaninchen war weg.",
+      "score": 100,
+      "intent": "rabbitGone",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Er wurde im Kühlschrank gefunden.",
+      "score": 100,
+      "intent": "fridge",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Herr Hoppel wurde im Kühlschrank bei den Karotten gefunden.",
+      "score": 100,
+      "intent": "fridge",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Er wurden im Kühlschrank gefunden.",
+      "score": 80,
+      "intent": "fridge",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Er wurde gefunden im Kühlschrank.",
+      "score": 70,
+      "intent": "fridge",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Er wurde im Hut gefunden.",
+      "score": 100,
+      "intent": "hat",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Er wurde im Schrank gefunden.",
+      "score": 100,
+      "intent": "wardrobe",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe ihn gefunden.",
+      "score": 100,
+      "intent": "me",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Er im Kühlschrank.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du hattest ihn im Kühlschrank vergessen.",
+      "score": 100,
+      "intent": "forgot",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Du hattest vergessen ihn im Kühlschrank.",
+      "score": 70,
+      "intent": "forgot",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Er hatte Hunger gehabt.",
+      "score": 100,
+      "intent": "hunger",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Er war in die Küche gelaufen.",
+      "score": 100,
+      "intent": "hunger",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Er war in der Küche gelaufen.",
+      "score": 85,
+      "intent": "hunger",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Bettina hatte ihn versteckt.",
+      "score": 100,
+      "intent": "bettina",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Er wurde gestohlen.",
+      "score": 100,
+      "intent": "stolen",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Du ihn im Kühlschrank vergessen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Gib ihm eine Freikarte!",
+      "score": 100,
+      "intent": "ticket",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Gib ihm einen Freikarte!",
+      "score": 85,
+      "intent": "ticket",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Sag ihm, es tut mir leid.",
+      "score": 100,
+      "intent": "sorry",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Lach einfach!",
+      "score": 100,
+      "intent": "laugh",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Sag nichts!",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Die Tauben waren nicht böse.",
+      "score": 100,
+      "intent": "doves",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Niemand wird heute zersägt.",
+      "score": 100,
+      "intent": "nobody",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Niemand wird zersägt heute.",
+      "score": 70,
+      "intent": "nobody",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Die Nummer wird heute abgesagt.",
+      "score": 100,
+      "intent": "cancelled",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich werde zersägt.",
+      "score": 100,
+      "intent": "me",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Du wirst zersägt.",
+      "score": 100,
+      "intent": "you",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Herr Hoppel wird zersägt.",
+      "score": 100,
+      "intent": "rabbit",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich heute zersägt.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Bevor die Show beginnt, setzt du Herrn Hoppel in den Hut.",
+      "score": 100,
+      "intent": "rabbit",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Bevor die Show beginnt, setzt du Herrn Hoppel in dem Hut.",
+      "score": 85,
+      "intent": "rabbit",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Bevor die Show beginnt, du setzt Herrn Hoppel in den Hut.",
+      "score": 70,
+      "intent": "rabbit",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Bevor die Show beginnt, zählst du die Tauben.",
+      "score": 100,
+      "intent": "doves",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Bevor die Show beginnt, schließt du den Kühlschrank ab.",
+      "score": 100,
+      "intent": "fridge",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Bevor die Show beginnt, trinkst du ein Bier.",
+      "score": 100,
+      "intent": "beer",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du Herrn Hoppel in den Hut.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Als Herr Hoppel aus dem Hut kam, klatschte ich sehr laut.",
+      "score": 100,
+      "intent": "clap",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Als Herr Hoppel aus dem Hut kam, ich klatschte sehr laut.",
+      "score": 70,
+      "intent": "clap",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Als Herr Hoppel kam aus dem Hut, klatschte ich sehr laut.",
+      "score": 70,
+      "intent": "clap",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Es war magisch.",
+      "score": 100,
+      "intent": "magic",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Es war besser als gestern.",
+      "score": 100,
+      "intent": "better",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Die Tauben flogen wieder weg.",
+      "score": 100,
+      "intent": "doves",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich sehr laut.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Gib ihm eine Taube!",
+      "score": 100,
+      "intent": "dove",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Gib ihm einen Taube!",
+      "score": 85,
+      "intent": "dove",
+      "delta": 0
+    },
+    {
+      "turn": "t6",
+      "say": "Der Kühlschrank wird heute zersägt.",
+      "score": 100,
+      "intent": "fridge",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Der Kühlschrank wird zersägt heute.",
+      "score": 70,
+      "intent": "fridge",
+      "delta": 1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ja, ich saß in der ersten Reihe."
+        ],
+        [
+          "t2",
+          "Der Hut war leer."
+        ],
+        [
+          "t3",
+          "Er wurde im Kühlschrank gefunden."
+        ],
+        [
+          "t4",
+          "Du hattest ihn im Kühlschrank vergessen."
+        ],
+        [
+          "t5",
+          "Gib ihm eine Freikarte!"
+        ],
+        [
+          "t6",
+          "Niemand wird heute zersägt."
+        ],
+        [
+          "t7",
+          "Bevor die Show beginnt, setzt du Herrn Hoppel in den Hut."
+        ],
+        [
+          "t8",
+          "Als Herr Hoppel aus dem Hut kam, klatschte ich sehr laut."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich hatte keine Zeit."
+        ],
+        [
+          "t2",
+          "Die Tauben flogen weg."
+        ],
+        [
+          "t3",
+          "Er wurde im Schrank gefunden."
+        ],
+        [
+          "t4",
+          "Er wurde gestohlen."
+        ],
+        [
+          "t5",
+          "Lach einfach!"
+        ],
+        [
+          "t6",
+          "Ich werde zersägt."
+        ],
+        [
+          "t7",
+          "Bevor die Show beginnt, trinkst du ein Bier."
+        ],
+        [
+          "t8",
+          "Die Tauben flogen wieder weg."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich lachte die ganze Zeit."
+        ],
+        [
+          "t2",
+          "Im Hut war ein Kaninchen."
+        ],
+        [
+          "t3",
+          "Er wurde im Hut gefunden."
+        ],
+        [
+          "t4",
+          "Er wurde gestohlen."
+        ],
+        [
+          "t5",
+          "Sag nichts!"
+        ]
+      ]
+    },
+    {
+      "name": "sawnRabbit",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich lachte die ganze Zeit."
+        ],
+        [
+          "t2",
+          "Im Hut war ein Kaninchen."
+        ],
+        [
+          "t3",
+          "Er wurde im Hut gefunden."
+        ],
+        [
+          "t4",
+          "Er wurde gestohlen."
+        ],
+        [
+          "t5",
+          "Die Tauben waren nicht böse."
+        ],
+        [
+          "t6",
+          "Herr Hoppel wird zersägt."
+        ]
+      ]
+    }
+  ]
+}

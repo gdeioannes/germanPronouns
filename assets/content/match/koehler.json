@@ -1,0 +1,2339 @@
+{
+  "id": "koehler",
+  "name": "Frau Köhler",
+  "age": 58,
+  "emoji": "🥖",
+  "image": "match_koehler",
+  "level": "A1.2",
+  "order": 1,
+  "bio": "Schrippen? Nur bis acht Uhr.",
+  "bioEn": "Bread rolls? Only until eight.",
+  "goal": "Get the last bread rolls for your Sunday breakfast before the queue behind you does.",
+  "tagline": "Bäckerin · 58 · Prenzlauer Berg",
+  "voice": "Sulafat",
+  "brief": "Frau Köhler, a 58-year-old Berlin baker on a hectic Sunday morning: brisk, dry, gruff Berlin directness, formal 'Sie', warm underneath; talks fast because the queue is long, and secretly enjoys a good customer.",
+  "focus": "Akkusativ · möchte · Uhrzeit · Mengen",
+  "lexicon": {
+    "nouns": {
+      "Brötchen": "n",
+      "Schrippe": "f",
+      "Schrippen": "pl",
+      "Kaffee": "m",
+      "Croissant": "n",
+      "Brot": "n",
+      "Brezel": "f",
+      "Stück": "n",
+      "Mohnkuchen": "m",
+      "Uhr": "f",
+      "Zeit": "f",
+      "Sonntag": "m",
+      "Samstag": "m",
+      "Tüte": "f",
+      "Beutel": "m",
+      "Tasche": "f",
+      "Euro": "m",
+      "Schein": "m",
+      "Karte": "f",
+      "Hochzeitstorte": "f",
+      "Umarmung": "f"
+    },
+    "names": [
+      "Herr Wolf",
+      "Frau Köhler"
+    ],
+    "verbs": [
+      "möchte",
+      "möchten",
+      "ist",
+      "sind",
+      "haben",
+      "habe",
+      "hast",
+      "kann",
+      "bekommt",
+      "bekommen",
+      "komme",
+      "kommst",
+      "brauche"
+    ],
+    "nonfinite": [
+      "nehmen"
+    ],
+    "accVerbs": [
+      "möchte",
+      "möchten",
+      "haben",
+      "habe",
+      "hast",
+      "kann",
+      "bekommt",
+      "bekommen",
+      "brauche"
+    ],
+    "adjectives": [
+      "schön",
+      "nächst"
+    ]
+  },
+  "intro": [
+    {
+      "who": "koehler",
+      "type": "text",
+      "de": "Morgen. Bäckerei Köhler.",
+      "emoji": "🥖",
+      "en": "Morning. Köhler's Bakery.",
+      "audio": "mc_koehler_t1a"
+    },
+    {
+      "who": "koehler",
+      "type": "text",
+      "de": "Es ist Sonntag, zehn vor acht. Hinter Ihnen stehen neun Leute. Und ein Hund. Der Hund ist Stammkunde.",
+      "en": "It’s Sunday, ten to eight. There are nine people behind you. And a dog. The dog is a regular.",
+      "audio": "mc_koehler_t1b"
+    },
+    {
+      "who": "koehler",
+      "type": "text",
+      "de": "Schrippen gibt es sonntags nur bis acht Uhr.",
+      "en": "On Sundays there are Schrippen (bread rolls) only until eight.",
+      "audio": "mc_koehler_t1c"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Was möchten Sie?",
+          "en": "What would you like?",
+          "audio": "mc_koehler_t1d"
+        }
+      ],
+      "tiles": [
+        "guten Morgen",
+        "ich",
+        "möchte",
+        "möchten",
+        "sechs",
+        "Schrippen",
+        "Brötchen",
+        "ein",
+        "einen",
+        "eine",
+        "Kaffee",
+        "Croissant",
+        "Brot",
+        "bitte",
+        "und",
+        "nur",
+        "Hochzeitstorte"
+      ],
+      "wrong": {
+        "möchten": "möchte"
+      },
+      "intents": [
+        {
+          "id": "schrippen",
+          "when": {
+            "any": [
+              "schrippen"
+            ]
+          },
+          "value": 2,
+          "fact": "🥖 sagt Schrippe, nicht Brötchen",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Schrippen! Sie sind von hier. Der Hund wedelt. Das macht er sonst nie.",
+              "en": "Schrippen! You’re from round here. The dog is wagging. He never does that.",
+              "audio": "mc_koehler_t1_schrippen"
+            }
+          ]
+        },
+        {
+          "id": "broetchen",
+          "when": {
+            "any": [
+              "brötchen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Brötchen?! Der Hund hinter Ihnen knurrt. In dieser Schlange sagt man Schrippe. Sogar der Hund.",
+              "en": "Brötchen?! The dog behind you is growling. In this queue we say Schrippe. Even the dog.",
+              "audio": "mc_koehler_t1_broetchen"
+            }
+          ]
+        },
+        {
+          "id": "croissant",
+          "when": {
+            "any": [
+              "croissant"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "croissant"
+          ],
+          "cause": "croissant",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Croissant? Hier ist Berlin, nicht Paris. Neun Leute schnappen nach Luft. Der Hund auch.",
+              "emoji": "🥐",
+              "en": "Croissant? This is Berlin, not Paris. Nine people gasp. The dog too.",
+              "audio": "mc_koehler_t1_croissant"
+            }
+          ]
+        },
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "hochzeitstorte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Eine Hochzeitstorte? Jetzt? Um zehn vor acht? Wer heiratet denn? … Der Hund? Nein. Schrippen. Ich gebe Ihnen Schrippen.",
+              "emoji": "🎂",
+              "en": "A wedding cake? Now? At ten to eight? Who’s getting married? … The dog? No. Rolls. I’m giving you rolls.",
+              "audio": "mc_koehler_t1_cake"
+            }
+          ]
+        },
+        {
+          "id": "coffee",
+          "when": {
+            "any": [
+              "kaffee"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Kaffee. Gut. Und zu essen? Die Leute warten.",
+              "en": "Coffee. Fine. And to eat? People are waiting.",
+              "audio": "mc_koehler_t1_coffee"
+            }
+          ]
+        },
+        {
+          "id": "bread",
+          "when": {
+            "any": [
+              "brot"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Ein Brot. Okay. Aber Sie wollen doch Schrippen, oder? Alle wollen Schrippen.",
+              "en": "A loaf. Okay. But you want Schrippen, right? Everyone wants Schrippen.",
+              "audio": "mc_koehler_t1_bread"
+            }
+          ]
+        },
+        {
+          "id": "hello",
+          "when": {
+            "any": [
+              "guten morgen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Morgen. Und? Neun Leute warten. Und der Hund.",
+              "en": "Morning. And? Nine people are waiting. And the dog.",
+              "audio": "mc_koehler_t1_hello"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Schrippen habe ich nur noch vier. Herr Wolf kommt um acht. Er nimmt immer zehn.",
+          "en": "I've only got four Schrippen left. Mr Wolf comes at eight. He always takes ten.",
+          "audio": "mc_koehler_t2a"
+        },
+        {
+          "who": "koehler",
+          "type": "photo",
+          "image": "match_koehler_counter",
+          "alt": "Die Theke: links ein Korb mit vier Schrippen, in der Mitte eine Brezel, rechts ein Stück Mohnkuchen.",
+          "wide": true
+        },
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Sonst habe ich nur das hier. Was möchten Sie noch?",
+          "en": "Apart from that I only have this. What else would you like?",
+          "audio": "mc_koehler_t2b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "möchte",
+        "möchten",
+        "vier",
+        "sechs",
+        "Schrippen",
+        "eine",
+        "einen",
+        "ein",
+        "Brezel",
+        "Stück",
+        "Mohnkuchen",
+        "und",
+        "auch",
+        "nur",
+        "nichts",
+        "bitte",
+        "Croissant"
+      ],
+      "wrong": {
+        "möchten": "möchte"
+      },
+      "intents": [
+        {
+          "id": "sixAgain",
+          "when": {
+            "any": [
+              "sechs"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Sechs? Ich habe VIER. Ich bin Bäckerin, keine Zauberin. Zaubern kostet extra.",
+              "en": "Six? I have FOUR. I’m a baker, not a witch. Magic costs extra.",
+              "audio": "mc_koehler_t2_six"
+            }
+          ]
+        },
+        {
+          "id": "croissantAgain",
+          "when": {
+            "any": [
+              "croissant"
+            ],
+            "flag": "croissant"
+          },
+          "value": -2,
+          "cause": "croissant",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Schon wieder Croissant?! Sehe ich französisch aus?",
+              "emoji": "😤",
+              "en": "Croissant AGAIN?! Do I look French?",
+              "audio": "mc_koehler_t2_croissant2"
+            }
+          ]
+        },
+        {
+          "id": "croissant",
+          "when": {
+            "any": [
+              "croissant"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "croissant"
+          ],
+          "cause": "croissant",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Croissants habe ich nicht. Nie. Hier ist Berlin.",
+              "en": "I don't have croissants. Never. This is Berlin.",
+              "audio": "mc_koehler_t2_croissant"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "brezel",
+              "mohnkuchen"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Die Brezel UND der Mohnkuchen! Sie haben Hunger. Das respektiere ich.",
+              "en": "The pretzel AND the poppy-seed cake! You're hungry. I respect that.",
+              "audio": "mc_koehler_t2_both"
+            }
+          ]
+        },
+        {
+          "id": "pretzel",
+          "when": {
+            "any": [
+              "brezel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Eine Brezel, gut. Die letzte. Herr Wolf wird traurig sein.",
+              "en": "A pretzel, fine. The last one. Mr Wolf will be sad.",
+              "audio": "mc_koehler_t2_pretzel"
+            }
+          ]
+        },
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "mohnkuchen",
+              "stück"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Ein Stück Mohnkuchen. Von gestern. Aber gut.",
+              "en": "A slice of poppy-seed cake. Yesterday's. But good.",
+              "audio": "mc_koehler_t2_cake"
+            }
+          ]
+        },
+        {
+          "id": "just4",
+          "when": {
+            "any": [
+              "vier",
+              "nur",
+              "nichts"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Nur die vier Schrippen. Okay. Die Leute hinter Ihnen freuen sich.",
+              "en": "Just the four Schrippen. Okay. The people behind you are pleased.",
+              "audio": "mc_koehler_t2_just4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "koehler",
+          "type": "voice",
+          "audio": "mc_koehler_vn_wolf",
+          "de": "Psst. Der Mann hinter Ihnen, mit dem Hut. Das ist Herr Wolf. Er kauft jeden Sonntag zehn Schrippen. Um acht Uhr. Es ist jetzt fünf vor acht. Schnell!",
+          "en": "Psst. The man behind you, with the hat. That's Mr Wolf. He buys ten Schrippen every Sunday. At eight o'clock. It's now five to eight. Quick!",
+          "direction": "Whispering urgently into the phone with a hand over her mouth, a busy bakery murmur and a hissing coffee machine behind her; conspiratorial and a tiny bit thrilled."
+        },
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Meine Uhr da oben ist kaputt. Seit 1994. Also: Wie spät ist es jetzt?",
+          "en": "My clock up there is broken. Since 1994. So: what time is it now?",
+          "audio": "mc_koehler_t3a",
+          "emoji": "🕰️"
+        }
+      ],
+      "tiles": [
+        "es",
+        "ist",
+        "sind",
+        "fünf",
+        "zehn",
+        "vor",
+        "nach",
+        "acht",
+        "halb",
+        "sieben",
+        "Uhr",
+        "wir",
+        "haben",
+        "keine",
+        "Zeit",
+        "schnell",
+        "jetzt"
+      ],
+      "wrong": {
+        "sind": "ist"
+      },
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "all": [
+              "fünf",
+              "vor",
+              "acht"
+            ]
+          },
+          "value": 2,
+          "fact": "⏰ kennt die Uhrzeit",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Genau. Fünf vor acht. Herr Wolf schaut auf die Uhr. Und auf Ihre Schrippen.",
+              "emoji": "⏰",
+              "en": "Exactly. Five to eight. Mr Wolf is looking at the clock. And at your Schrippen.",
+              "audio": "mc_koehler_t3_right"
+            }
+          ]
+        },
+        {
+          "id": "ten",
+          "when": {
+            "all": [
+              "zehn",
+              "vor"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Zehn vor acht? Das sagt meine Uhr auch. Seit 1994. Hören Sie zu, nicht der Uhr!",
+              "en": "Ten to eight? My clock says that too. Since 1994. Listen to me, not to the clock!",
+              "audio": "mc_koehler_t3_ten"
+            }
+          ]
+        },
+        {
+          "id": "after",
+          "when": {
+            "all": [
+              "nach",
+              "acht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Nach acht? Dann sind die Schrippen schon weg. Bei Herrn Wolf.",
+              "en": "After eight? Then the Schrippen are already gone. To Mr Wolf.",
+              "audio": "mc_koehler_t3_after"
+            }
+          ]
+        },
+        {
+          "id": "half",
+          "when": {
+            "any": [
+              "halb",
+              "sieben"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Nein, nein. Es ist schon viel später. Hören Sie noch mal!",
+              "en": "No, no. It's much later already. Listen again!",
+              "audio": "mc_koehler_t3_half"
+            }
+          ]
+        },
+        {
+          "id": "hurry",
+          "when": {
+            "any": [
+              "schnell"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Ja, schnell, schnell!",
+              "en": "Yes, quick, quick!",
+              "audio": "mc_koehler_t3_hurry"
+            }
+          ]
+        },
+        {
+          "id": "noTime",
+          "when": {
+            "all": [
+              "zeit",
+              "keine"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Genau, keine Zeit! Herr Wolf steht schon hinter Ihnen.",
+              "en": "Exactly, no time! Mr Wolf is already standing behind you.",
+              "audio": "mc_koehler_t3_notime"
+            }
+          ]
+        },
+        {
+          "id": "relaxed",
+          "when": {
+            "any": [
+              "zeit"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Zeit? Wir haben KEINE Zeit! Herr Wolf kommt!",
+              "en": "Time? We have NO time! Mr Wolf is coming!",
+              "audio": "mc_koehler_t3_relaxed"
+            }
+          ]
+        },
+        {
+          "id": "eight",
+          "when": {
+            "any": [
+              "acht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Acht? Fast. Aber noch nicht ganz. Zum Glück.",
+              "en": "Eight? Almost. But not quite yet. Luckily.",
+              "audio": "mc_koehler_t3_eight"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Herr Wolf ist da. Er sieht Ihre vier Schrippen. Er sagt nichts. Er sagt seit 1994 nichts. Eine Träne läuft in seinen Bart.",
+          "emoji": "🎩",
+          "en": "Herr Wolf is here. He sees your four rolls. He says nothing. He hasn’t said anything since 1994. A tear runs into his beard.",
+          "audio": "mc_koehler_t4a"
+        },
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Was bekommt Herr Wolf?",
+          "en": "What does Mr Wolf get?",
+          "audio": "mc_koehler_t4b"
+        }
+      ],
+      "tiles": [
+        "er",
+        "Herr Wolf",
+        "bekommt",
+        "bekommen",
+        "kann",
+        "eine",
+        "einen",
+        "ein",
+        "Schrippe",
+        "Schrippen",
+        "zwei",
+        "alle",
+        "nichts",
+        "Mohnkuchen",
+        "nehmen",
+        "die",
+        "Brezel",
+        "nein",
+        "Umarmung"
+      ],
+      "wrong": {
+        "bekommen": "bekommt"
+      },
+      "intents": [
+        {
+          "id": "all",
+          "when": {
+            "any": [
+              "alle"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "gaveAll"
+          ],
+          "cause": "generous",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Alle?! Sie sind zu gut für Berlin. Und Ihr Frühstück?",
+              "en": "All of them?! You are too good for Berlin. And your breakfast?",
+              "audio": "mc_koehler_t4_all"
+            }
+          ]
+        },
+        {
+          "id": "one",
+          "when": {
+            "any": [
+              "schrippe"
+            ]
+          },
+          "value": 2,
+          "fact": "🤝 teilt Schrippen mit Herrn Wolf",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Eine Schrippe für Herrn Wolf. Er lächelt! Das hat er seit 1994 nicht gemacht.",
+              "emoji": "😊",
+              "en": "One Schrippe for Mr Wolf. He's smiling! He hasn't done that since 1994.",
+              "audio": "mc_koehler_t4_one"
+            }
+          ]
+        },
+        {
+          "id": "two",
+          "when": {
+            "any": [
+              "zwei"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Zwei für ihn, zwei für Sie. Fair. Sehr Berlin.",
+              "en": "Two for him, two for you. Fair. Very Berlin.",
+              "audio": "mc_koehler_t4_two"
+            }
+          ]
+        },
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "mohnkuchen",
+              "brezel"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Statt Schrippen? Herr Wolf überlegt … und nimmt es. Wow.",
+              "en": "Instead of Schrippen? Mr Wolf thinks … and takes it. Wow.",
+              "audio": "mc_koehler_t4_cake"
+            }
+          ]
+        },
+        {
+          "id": "hug",
+          "when": {
+            "any": [
+              "umarmung"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Eine Umarmung? Für Herrn Wolf? Er ist ganz steif. Wie eine Schrippe von gestern. … Aber er klopft Ihnen auf den Rücken. Zweimal.",
+              "emoji": "🫂",
+              "en": "A hug? For Herr Wolf? He’s gone completely stiff. Like yesterday’s roll. … But he pats you on the back. Twice.",
+              "audio": "mc_koehler_t4_hug"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts",
+              "nein"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Nichts? Hart. Aber fair. Er war zu spät.",
+              "en": "Nothing? Harsh. But fair. He was too late.",
+              "audio": "mc_koehler_t4_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Nächsten Sonntag sind Sie früher hier, ja? Hier sind unsere Zeiten.",
+          "en": "Next Sunday you'll be here earlier, yes? Here are our opening hours.",
+          "audio": "mc_koehler_t5a"
+        },
+        {
+          "who": "koehler",
+          "type": "photo",
+          "image": "match_koehler_door",
+          "overlay": [
+            "BÄCKEREI KÖHLER",
+            "Mo–Fr: 6–18 Uhr",
+            "Sa: 6–13 Uhr",
+            "So: 7–11 Uhr",
+            "Sonntag: Schrippen nur bis 8 Uhr!"
+          ],
+          "alt": "Ein Schild an der Tür: Montag bis Freitag 6 bis 18 Uhr, Samstag 6 bis 13 Uhr, Sonntag 7 bis 11 Uhr. Schrippen am Sonntag nur bis 8 Uhr."
+        },
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Also: Wann kommen Sie nächsten Sonntag?",
+          "en": "So: when are you coming next Sunday?",
+          "audio": "mc_koehler_t5b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "komme",
+        "kommst",
+        "um",
+        "sechs",
+        "sieben",
+        "halb",
+        "acht",
+        "neun",
+        "Uhr",
+        "am",
+        "Sonntag",
+        "Samstag",
+        "früh",
+        "sehr",
+        "pünktlich"
+      ],
+      "wrong": {
+        "kommst": "komme"
+      },
+      "intents": [
+        {
+          "id": "halfSeven",
+          "when": {
+            "all": [
+              "halb",
+              "sieben"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Halb sieben? Da ist die Tür noch zu. Dann stehen Sie allein im Dunkeln. Mit Herrn Wolf.",
+              "en": "Half six? The door's still shut then. You'll be standing alone in the dark. With Mr Wolf.",
+              "audio": "mc_koehler_t5_halfseven"
+            }
+          ]
+        },
+        {
+          "id": "halfEight",
+          "when": {
+            "all": [
+              "halb",
+              "acht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Halb acht. Gut. Knapp, aber gut.",
+              "en": "Half seven. Good. Tight, but good.",
+              "audio": "mc_koehler_t5_halfeight"
+            }
+          ]
+        },
+        {
+          "id": "six",
+          "when": {
+            "any": [
+              "sechs"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Um sechs? Am Sonntag? Da schlafe ich noch. Und der Hund auch. Lesen Sie das Schild!",
+              "en": "At six? On a Sunday? I’m still asleep then. And so is the dog. Read the sign!",
+              "audio": "mc_koehler_t5_six"
+            }
+          ]
+        },
+        {
+          "id": "seven",
+          "when": {
+            "any": [
+              "sieben"
+            ]
+          },
+          "value": 2,
+          "fact": "⏰ kommt pünktlich um sieben",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Um sieben! Ich mache die Tür auf, und Sie sind da. Wunderbar.",
+              "en": "At seven! I open the door, and there you are. Wonderful.",
+              "audio": "mc_koehler_t5_seven"
+            }
+          ]
+        },
+        {
+          "id": "eight",
+          "when": {
+            "any": [
+              "acht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Um acht? Um acht kommt Herr Wolf. Dann sind die Schrippen weg.",
+              "en": "At eight? Mr Wolf comes at eight. Then the Schrippen are gone.",
+              "audio": "mc_koehler_t5_eight"
+            }
+          ]
+        },
+        {
+          "id": "nine",
+          "when": {
+            "any": [
+              "neun"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Um neun? Dann gibt es keine Schrippen mehr. Nur Krümel.",
+              "en": "At nine? Then there are no Schrippen left. Only crumbs.",
+              "audio": "mc_koehler_t5_nine"
+            }
+          ]
+        },
+        {
+          "id": "saturday",
+          "when": {
+            "any": [
+              "samstag"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Am Samstag? Auch gut. Aber ich habe nach Sonntag gefragt.",
+              "en": "On Saturday? Also fine. But I asked about Sunday.",
+              "audio": "mc_koehler_t5_saturday"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "früh",
+              "pünktlich",
+              "sonntag"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Früh ist gut. Aber WANN? Ich brauche eine Uhrzeit.",
+              "en": "Early is good. But WHEN? I need a time.",
+              "audio": "mc_koehler_t5_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Möchten Sie eine Tüte? Eine Tüte kostet zehn Cent.",
+          "en": "Would you like a bag? A bag costs ten cents.",
+          "audio": "mc_koehler_t6a"
+        },
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Herr Wolf hat immer einen Beutel. Seit 1994. Denselben.",
+          "emoji": "👜",
+          "en": "Mr Wolf always has a cloth bag. Since 1994. The same one.",
+          "audio": "mc_koehler_t6b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "danke",
+        "bitte",
+        "ich",
+        "ich",
+        "habe",
+        "hast",
+        "brauche",
+        "möchte",
+        "einen",
+        "eine",
+        "ein",
+        "keine",
+        "keinen",
+        "Tüte",
+        "Beutel",
+        "Tasche"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "refuseAndOwn",
+          "when": {
+            "all": [
+              "keine",
+              "tüte"
+            ],
+            "any": [
+              "beutel",
+              "tasche"
+            ]
+          },
+          "value": 2,
+          "fact": "🌱 hat immer einen Beutel dabei",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Keine Tüte, eigener Beutel. Sie sind ein guter Mensch.",
+              "emoji": "🌱",
+              "en": "No bag, your own cloth bag. You are a good person.",
+              "audio": "mc_koehler_t6_refuseown"
+            }
+          ]
+        },
+        {
+          "id": "ownBag",
+          "when": {
+            "any": [
+              "beutel",
+              "tasche"
+            ],
+            "none": [
+              "keine",
+              "keinen"
+            ]
+          },
+          "value": 2,
+          "fact": "🌱 hat immer einen Beutel dabei",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Eigener Beutel! Herr Wolf nickt. Das ist ein Kompliment.",
+              "en": "Your own bag! Mr Wolf nods. That is a compliment.",
+              "audio": "mc_koehler_t6_own"
+            }
+          ]
+        },
+        {
+          "id": "noBag",
+          "when": {
+            "all": [
+              "keine",
+              "tüte"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Keine Tüte? Und wie tragen Sie die Schrippen? In den Händen? Respekt.",
+              "en": "No bag? And how will you carry the Schrippen? In your hands? Respect.",
+              "audio": "mc_koehler_t6_nobag"
+            }
+          ]
+        },
+        {
+          "id": "noOwn",
+          "when": {
+            "any": [
+              "beutel",
+              "tasche"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Kein Beutel? Dann eine Tüte. Zehn Cent für die Erde.",
+              "en": "No cloth bag? Then a paper bag. Ten cents for the planet.",
+              "audio": "mc_koehler_t6_noown"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "tüte",
+              "ja",
+              "bitte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Zehn Cent, bitte. Herr Wolf sagt nichts. Aber er denkt viel.",
+              "en": "Ten cents, please. Mr Wolf says nothing. But he thinks a lot.",
+              "audio": "mc_koehler_t6_yes"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "danke"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Nein danke? Gut. Sie sind ein Profi.",
+              "en": "No thanks? Good. You're a pro.",
+              "audio": "mc_koehler_t6_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "So. Zusammen drei Euro zwanzig.",
+          "emoji": "🧾",
+          "en": "Right. Three euros twenty altogether.",
+          "audio": "mc_koehler_t7a"
+        },
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Haben Sie es klein?",
+          "en": "Have you got the right change?",
+          "audio": "mc_koehler_t7b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "habe",
+        "hast",
+        "es",
+        "klein",
+        "passend",
+        "nur",
+        "einen",
+        "Schein",
+        "fünfzig",
+        "Euro",
+        "drei",
+        "zwanzig",
+        "hier",
+        "sind",
+        "Karte"
+      ],
+      "wrong": {
+        "hast": "habe"
+      },
+      "intents": [
+        {
+          "id": "fifty",
+          "when": {
+            "any": [
+              "fünfzig"
+            ]
+          },
+          "value": -2,
+          "cause": "fifty",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Fünfzig Euro?! Für Schrippen?! Am Sonntag um acht?!",
+              "emoji": "😱",
+              "en": "Fifty euros?! For Schrippen?! At eight on a Sunday?!",
+              "audio": "mc_koehler_t7_fifty"
+            }
+          ]
+        },
+        {
+          "id": "exact",
+          "when": {
+            "all": [
+              "drei",
+              "zwanzig"
+            ]
+          },
+          "value": 2,
+          "fact": "🪙 zahlt passend",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Passend! Sie sind mein Sonntagsheld.",
+              "emoji": "🦸",
+              "en": "The exact amount! You are my Sunday hero.",
+              "audio": "mc_koehler_t7_exact"
+            }
+          ]
+        },
+        {
+          "id": "three",
+          "when": {
+            "any": [
+              "drei"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Drei Euro? Und die zwanzig Cent? … Ach. Herr Wolf gibt sie Ihnen. Das hat er noch nie gemacht.",
+              "en": "Three euros? And the twenty cents? … Oh. Mr Wolf is giving them to you. He has never done that before.",
+              "audio": "mc_koehler_t7_three"
+            }
+          ]
+        },
+        {
+          "id": "twenty",
+          "when": {
+            "any": [
+              "zwanzig"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Zwanzig Euro. Hm. Dann bekommen Sie viele Münzen zurück. Sehr viele.",
+              "en": "Twenty euros. Hm. Then you'll get lots of coins back. Very many.",
+              "audio": "mc_koehler_t7_twenty"
+            }
+          ]
+        },
+        {
+          "id": "note",
+          "when": {
+            "any": [
+              "schein"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Einen Schein? Welchen? Bitte nicht fünfzig.",
+              "en": "A note? Which one? Please not fifty.",
+              "audio": "mc_koehler_t7_note"
+            }
+          ]
+        },
+        {
+          "id": "small",
+          "when": {
+            "any": [
+              "klein",
+              "passend",
+              "ja"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Wunderbar. Kleingeld am Sonntag. Das ist Liebe.",
+              "en": "Wonderful. Small change on a Sunday. That is love.",
+              "audio": "mc_koehler_t7_small"
+            }
+          ]
+        },
+        {
+          "id": "card",
+          "when": {
+            "any": [
+              "karte"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Karte? Für drei Euro zwanzig? Na gut. Aber ich seufze.",
+              "en": "Card? For three euros twenty? Oh, fine. But I am sighing.",
+              "audio": "mc_koehler_t7_card"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Nein? Hm. Herr Wolf hat es immer klein. Seit 1994.",
+              "en": "No? Hm. Mr Wolf always has the right change. Since 1994.",
+              "audio": "mc_koehler_t7_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Moment. Herr Wolf sagt etwas. Zum ersten Mal seit 1994. Er sagt: „Croissant.“ … Die ganze Bäckerei ist still. Der Hund auch.",
+          "en": "Wait. Herr Wolf is saying something. For the first time since 1994. He says: “Croissant.” … The whole bakery is silent. The dog too.",
+          "audio": "mc_koehler_t8a",
+          "emoji": "😶"
+        },
+        {
+          "who": "koehler",
+          "type": "text",
+          "de": "Ich brauche jetzt einen Moment. Und Sie? Gehen Sie einfach so? Ohne ein Wort?",
+          "en": "I need a moment now. And you? Are you just leaving like that? Without a word?",
+          "audio": "mc_koehler_t8b"
+        }
+      ],
+      "tiles": [
+        "danke",
+        "tschüss",
+        "einen",
+        "ein",
+        "schönen",
+        "schöner",
+        "Sonntag",
+        "bis",
+        "nächsten",
+        "nächste",
+        "ich",
+        "komme",
+        "gern",
+        "wieder",
+        "Frau Köhler",
+        "Herr Wolf"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "wolf",
+          "when": {
+            "any": [
+              "herr wolf"
+            ]
+          },
+          "value": 2,
+          "fact": "👋 bringt Herrn Wolf zum Winken",
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Herr Wolf winkt. Er winkt NIE. Erst „Croissant“, jetzt Winken. Was ist heute los?",
+              "emoji": "👋",
+              "en": "Herr Wolf waves. He NEVER waves. First “croissant”, now waving. What is going on today?",
+              "audio": "mc_koehler_t8_wolf"
+            }
+          ]
+        },
+        {
+          "id": "wish",
+          "when": {
+            "any": [
+              "schönen",
+              "schöner"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Ihnen auch. Hm. So freundlich am Sonntag? Selten.",
+              "en": "You too. Hm. So friendly on a Sunday? Rare.",
+              "audio": "mc_koehler_t8_wish"
+            }
+          ]
+        },
+        {
+          "id": "next",
+          "when": {
+            "any": [
+              "nächsten",
+              "nächste",
+              "wieder"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Bis nächsten Sonntag. Um sieben. Ich warte.",
+              "en": "Until next Sunday. At seven. I'll be waiting.",
+              "audio": "mc_koehler_t8_next"
+            }
+          ]
+        },
+        {
+          "id": "thanks",
+          "when": {
+            "any": [
+              "danke"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Bitte. Der Nächste!",
+              "en": "You're welcome. Next!",
+              "audio": "mc_koehler_t8_thanks"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "frau köhler"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Ja, so heiße ich. Steht über der Tür. Seit 1994 fragt das keiner. Heute ist ein komischer Tag.",
+              "en": "Yes, that’s my name. It’s over the door. Nobody has asked since 1994. Today is a strange day.",
+              "audio": "mc_koehler_t8_name"
+            }
+          ]
+        },
+        {
+          "id": "bye",
+          "when": {
+            "any": [
+              "tschüss"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "koehler",
+              "type": "text",
+              "de": "Tschüss. Kurz. Sehr Berlin. Gut.",
+              "en": "Bye. Short. Very Berlin. Good.",
+              "audio": "mc_koehler_t8_bye"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "koehler",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage. Die Leute warten!",
+    "en": "Er … that wasn't my question. People are waiting!",
+    "audio": "mc_koehler_offtopic"
+  },
+  "confused": [
+    {
+      "who": "koehler",
+      "type": "text",
+      "de": "Wie bitte? Schneller, bitte. Und klarer.",
+      "emoji": "🤨",
+      "en": "Pardon? Faster, please. And clearer.",
+      "audio": "mc_koehler_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "koehler",
+        "type": "text",
+        "de": "Gut, {name}. Sie dürfen wiederkommen. Das sage ich nicht oft.",
+        "en": "Good, {name}. You may come back. I don't say that often."
+      },
+      {
+        "who": "koehler",
+        "type": "text",
+        "de": "Nächsten Sonntag lege ich Ihnen vier Schrippen zur Seite. Psst. Nicht Herrn Wolf sagen.",
+        "emoji": "🥖",
+        "en": "Next Sunday I'll put four Schrippen aside for you. Psst. Don't tell Mr Wolf.",
+        "audio": "mc_koehler_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "koehler",
+        "type": "text",
+        "de": "Na gut. Hier sind Ihre Schrippen. Von gestern. Mehr gibt es nicht.",
+        "emoji": "🥖",
+        "en": "Oh, fine. Here are your Schrippen. Yesterday's. That's all there is.",
+        "audio": "mc_koehler_partial"
+      }
+    ],
+    "deleted": {
+      "croissant": {
+        "who": "koehler",
+        "type": "text",
+        "de": "Croissant, Croissant … Fahren Sie nach Paris. Der Nächste!",
+        "emoji": "🥐",
+        "en": "Croissant, croissant … Go to Paris. Next!",
+        "audio": "mc_koehler_del_croissant"
+      },
+      "generous": {
+        "who": "koehler",
+        "type": "text",
+        "de": "Sie geben alles weg. Dann brauchen Sie mich ja nicht. Der Nächste!",
+        "en": "You give everything away. So you don't need me. Next!",
+        "audio": "mc_koehler_del_generous"
+      },
+      "fifty": {
+        "who": "koehler",
+        "type": "text",
+        "de": "Fünfzig Euro am Sonntag. Das verzeihe ich nicht. Der Nächste!",
+        "emoji": "💸",
+        "en": "Fifty euros on a Sunday. I will not forgive that. Next!",
+        "audio": "mc_koehler_del_fifty"
+      },
+      "confused": {
+        "who": "koehler",
+        "type": "text",
+        "de": "Ich verstehe kein Wort. Und hinter Ihnen warten dreißig Leute. Der Nächste!",
+        "en": "I don't understand a word. And thirty people are waiting behind you. Next!",
+        "audio": "mc_koehler_del_confused"
+      },
+      "default": {
+        "who": "koehler",
+        "type": "text",
+        "de": "Hm. Nächsten Sonntag gehen Sie lieber zur Tankstelle. Der Nächste!",
+        "en": "Hm. Next Sunday you had better go to the petrol station. Next!",
+        "audio": "mc_koehler_del_default"
+      }
+    },
+    "sunday": {
+      "who": "koehler",
+      "type": "voice",
+      "audio": "mc_koehler_vn_sunday",
+      "de": "Köhler hier. Es ist Sonntag, sieben Uhr. Ihre Schrippen liegen hier. Herr Wolf ist auch schon da. Er hat ein Croissant dabei. Aus Paris. Ich rede nicht mit ihm. Aber er lächelt. Ich glaube, das ist Ihre Schuld.",
+      "en": "Köhler here. It’s Sunday, seven o’clock. Your rolls are here. Herr Wolf is here already too. He’s brought a croissant. From Paris. I’m not speaking to him. But he’s smiling. I think that’s your fault.",
+      "direction": "Brisk, dry and secretly fond, the shop bell jingling and an oven door clanking in the background."
+    }
+  },
+  "partialTitle": "Schrippen von gestern.",
+  "share": {
+    "win": "Frau Köhler (58, Bäckerin) hat mich geliked 🥖 Ich habe die letzten Schrippen, und Herr Wolf hat zum ersten Mal seit 1994 gesprochen! Mein Deutsch: {score}/100. Schaffst du das vor acht Uhr? {url}",
+    "partial": "Ich habe bei Frau Köhler (58) Schrippen bekommen … von gestern 🥖 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Frau Köhler (58, Bäckerin) hat mich gelöscht 💔 Keine Schrippen für mich. Mein Deutsch: {score}/100. Bist du schneller als Herr Wolf? {url}"
+  },
+  "imageCharacter": "Frau Köhler, a 58-year-old Berlin baker, sturdy and upright, short grey hair in a practical cut, flour on her forearms and on one cheek, a white bakery smock with a mustard-yellow apron, reading glasses on a cord around her neck, a sceptical but kind face.",
+  "imagePrompts": [
+    {
+      "id": "match_koehler",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands behind a glass counter in a small old Berlin bakery early on a Sunday morning, arms crossed, one eyebrow raised at the viewer, an almost empty bread basket on the counter in front of her and a long queue of blurry people reflected in the shop window behind. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_koehler_counter",
+      "aspect": "16:9",
+      "prompt": "A bakery glass display counter seen exactly from the front, flat, like a stage set, no perspective. On the otherwise completely empty white shelf stand exactly THREE things far apart in one row. LEFT: a small wicker basket with four round crusty bread rolls. MIDDLE: one single large brown pretzel. RIGHT: one single slice of poppy-seed cake with a thick dark grey-blue filling, on a small paper doily. Nothing else anywhere on the shelves. Soft morning light."
+    },
+    {
+      "id": "match_koehler_door",
+      "aspect": "3:4",
+      "prompt": "A phone photo of the glass door of a small old Berlin bakery, seen straight on in early morning light. In the middle of the glass hangs one large plain white sign, completely blank, nothing written on it. Through the glass, blurred, a counter and a few bread rolls. A bicycle leans against the wall beside the door."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Guten Morgen! Ich möchte sechs Schrippen, bitte.",
+      "score": 100,
+      "intent": "schrippen",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte sechs Brötchen.",
+      "score": 100,
+      "intent": "broetchen",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchten sechs Schrippen.",
+      "score": 80,
+      "intent": "schrippen",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte einen Croissant.",
+      "score": 85,
+      "intent": "croissant",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Einen Kaffee, bitte.",
+      "score": 100,
+      "intent": "coffee",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte eine Kaffee.",
+      "score": 85,
+      "intent": "coffee",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte ein Brot.",
+      "score": 100,
+      "intent": "bread",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Guten Morgen!",
+      "score": 100,
+      "intent": "hello",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich sechs Schrippen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte eine Hochzeitstorte, bitte.",
+      "score": 100,
+      "intent": "cake",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich möchte einen Hochzeitstorte.",
+      "score": 85,
+      "intent": "cake",
+      "delta": 0
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte vier Schrippen und eine Brezel.",
+      "score": 100,
+      "intent": "pretzel",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte eine Brezel und ein Stück Mohnkuchen.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte einen Brezel.",
+      "score": 85,
+      "intent": "pretzel",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte einen Stück Mohnkuchen.",
+      "score": 85,
+      "intent": "cake",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte sechs Schrippen.",
+      "score": 100,
+      "intent": "sixAgain",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Nur vier Schrippen, bitte.",
+      "score": 100,
+      "intent": "just4",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich möchte nichts.",
+      "score": 100,
+      "intent": "just4",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ein Croissant, bitte.",
+      "score": 100,
+      "intent": "croissant",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich eine Brezel.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist fünf vor acht.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Fünf vor acht! Wir haben keine Zeit.",
+      "score": 100,
+      "intent": "right",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Es sind fünf vor acht.",
+      "score": 80,
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist zehn vor acht.",
+      "score": 100,
+      "intent": "ten",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist fünf nach acht.",
+      "score": 100,
+      "intent": "after",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist halb acht.",
+      "score": 100,
+      "intent": "half",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Wir haben keine Zeit!",
+      "score": 100,
+      "intent": "noTime",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Wir haben Zeit.",
+      "score": 100,
+      "intent": "relaxed",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist acht Uhr.",
+      "score": 100,
+      "intent": "eight",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Wir keine Zeit.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist fünf nach sieben.",
+      "score": 100,
+      "intent": "half",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Er bekommt eine Schrippe.",
+      "score": 100,
+      "intent": "one",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Herr Wolf bekommt ein Schrippe.",
+      "score": 85,
+      "intent": "one",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Er kann eine Schrippe nehmen.",
+      "score": 100,
+      "intent": "one",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Er kann nehmen eine Schrippe.",
+      "score": 70,
+      "intent": "one",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Er kann zwei Schrippen nehmen.",
+      "score": 100,
+      "intent": "two",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Er bekommt nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Herr Wolf bekommt alle Schrippen.",
+      "score": 100,
+      "intent": "all",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Er bekommen die Brezel.",
+      "score": 80,
+      "intent": "cake",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Er eine Schrippe.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Er bekommt eine Umarmung.",
+      "score": 100,
+      "intent": "hug",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Er bekommt einen Umarmung.",
+      "score": 85,
+      "intent": "hug",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich komme um sieben Uhr.",
+      "score": 100,
+      "intent": "seven",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Am Sonntag komme ich um sieben.",
+      "score": 100,
+      "intent": "seven",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich kommst um sieben.",
+      "score": 80,
+      "intent": "seven",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich um sieben komme.",
+      "score": 70,
+      "intent": "seven",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich komme am Sonntag um halb acht.",
+      "score": 100,
+      "intent": "halfEight",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich komme um halb sieben.",
+      "score": 100,
+      "intent": "halfSeven",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich komme um acht.",
+      "score": 100,
+      "intent": "eight",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich komme um sechs Uhr.",
+      "score": 100,
+      "intent": "six",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich komme um neun.",
+      "score": 100,
+      "intent": "nine",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich komme am Samstag.",
+      "score": 100,
+      "intent": "saturday",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich komme sehr früh.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich um sieben Uhr.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Nein, danke. Ich habe einen Beutel.",
+      "score": 100,
+      "intent": "ownBag",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich brauche keine Tüte. Ich habe eine Tasche.",
+      "score": 100,
+      "intent": "refuseAndOwn",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe ein Beutel.",
+      "score": 85,
+      "intent": "ownBag",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich hast einen Beutel.",
+      "score": 80,
+      "intent": "ownBag",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich brauche keine Tüte.",
+      "score": 100,
+      "intent": "noBag",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ja, eine Tüte, bitte.",
+      "score": 100,
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich habe keinen Beutel.",
+      "score": 100,
+      "intent": "noOwn",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Nein, danke.",
+      "score": 100,
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich keine Tüte.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Hier sind drei Euro zwanzig.",
+      "score": 100,
+      "intent": "exact",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ja, ich habe es klein.",
+      "score": 100,
+      "intent": "small",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hast es passend.",
+      "score": 80,
+      "intent": "small",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe nur fünfzig Euro.",
+      "score": 100,
+      "intent": "fifty",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe zwanzig Euro.",
+      "score": 100,
+      "intent": "twenty",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich habe nur einen Schein.",
+      "score": 100,
+      "intent": "note",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Nur Karte.",
+      "score": 100,
+      "intent": "card",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich es klein.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Hier sind drei Euro.",
+      "score": 100,
+      "intent": "three",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Danke, Frau Köhler! Einen schönen Sonntag!",
+      "score": 100,
+      "intent": "wish",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Einen schöner Sonntag!",
+      "score": 85,
+      "intent": "wish",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Bis nächsten Sonntag!",
+      "score": 100,
+      "intent": "next",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Bis nächste Sonntag!",
+      "score": 85,
+      "intent": "next",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich komme gern wieder.",
+      "score": 100,
+      "intent": "next",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Tschüss, Herr Wolf!",
+      "score": 100,
+      "intent": "wolf",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Danke!",
+      "score": 100,
+      "intent": "thanks",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Tschüss!",
+      "score": 100,
+      "intent": "bye",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich gern wieder.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Guten Morgen! Ich möchte sechs Schrippen, bitte."
+        ],
+        [
+          "t2",
+          "Ich möchte vier Schrippen und eine Brezel."
+        ],
+        [
+          "t3",
+          "Es ist fünf vor acht."
+        ],
+        [
+          "t4",
+          "Er bekommt eine Schrippe."
+        ],
+        [
+          "t5",
+          "Ich komme um sieben Uhr."
+        ],
+        [
+          "t6",
+          "Nein, danke. Ich habe einen Beutel."
+        ],
+        [
+          "t7",
+          "Hier sind drei Euro zwanzig."
+        ],
+        [
+          "t8",
+          "Danke, Frau Köhler! Einen schönen Sonntag!"
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Guten Morgen!"
+        ],
+        [
+          "t2",
+          "Ich möchte sechs Schrippen."
+        ],
+        [
+          "t3",
+          "Es ist acht Uhr."
+        ],
+        [
+          "t4",
+          "Er bekommt nichts."
+        ],
+        [
+          "t5",
+          "Ich komme um acht."
+        ],
+        [
+          "t6",
+          "Ja, eine Tüte, bitte."
+        ],
+        [
+          "t7",
+          "Nur Karte."
+        ],
+        [
+          "t8",
+          "Tschüss!"
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich möchte einen Croissant."
+        ],
+        [
+          "t2",
+          "Ein Croissant, bitte."
+        ],
+        [
+          "t3",
+          "Es ist zehn vor acht."
+        ],
+        [
+          "t4",
+          "Herr Wolf bekommt alle Schrippen."
+        ]
+      ]
+    }
+  ]
+}

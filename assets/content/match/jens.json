@@ -1,0 +1,2337 @@
+{
+  "id": "jens",
+  "name": "Jens",
+  "age": 38,
+  "emoji": "💪",
+  "image": "match_jens",
+  "level": "A2.2",
+  "order": 6,
+  "bio": "Brunch? Das ist Cardio.",
+  "bioEn": "Brunch? That's cardio.",
+  "goal": "Survive Sunday brunch without doing a single burpee.",
+  "tagline": "Fitness-Coach · 38 · immer in Bewegung",
+  "voice": "Sadachbia",
+  "brief": "Jens, a 38-year-old fitness coach for whom everything is a workout: a booming, upbeat, slightly breathless male voice, every sentence a motivational shout, counts reps out loud, calls everyone \"Champion\"; big-hearted and harmless, genuinely confused by the idea of resting.",
+  "focus": "reflexive Verben (sich ausruhen, sich setzen, sich bewegen) · wenn / deshalb · Körper und Gesundheit",
+  "lexicon": {
+    "nouns": {
+      "Bus": "m",
+      "Stuhl": "m",
+      "Ball": "m",
+      "Rudergerät": "n",
+      "Rücken": "m",
+      "Knie": "n",
+      "Beine": "pl",
+      "Kopfschmerzen": "pl",
+      "Kniebeugen": "pl",
+      "Brötchen": "n",
+      "Café": "n",
+      "Park": "m",
+      "Spielplatz": "m",
+      "Buffet": "n",
+      "Burpees": "pl",
+      "Yoga": "n",
+      "Brunch": "m",
+      "Sofa": "n",
+      "Mittagsschlaf": "m",
+      "Buch": "n",
+      "Kuchen": "m",
+      "Haare": "pl"
+    },
+    "names": [],
+    "verbs": [
+      "ruhe",
+      "ruhst",
+      "jogge",
+      "sterbe",
+      "fahre",
+      "schlafe",
+      "setze",
+      "setzt",
+      "stehe",
+      "fühle",
+      "fühlst",
+      "tut",
+      "tun",
+      "habe",
+      "esse",
+      "isst",
+      "mache",
+      "machst",
+      "regnet",
+      "regnen",
+      "treffen",
+      "trefft",
+      "bleibe",
+      "bewege",
+      "bewegst",
+      "gehe",
+      "tanze",
+      "tanzt",
+      "lese"
+    ],
+    "nonfinite": [
+      "spazieren"
+    ],
+    "accVerbs": [
+      "setze",
+      "setzt",
+      "habe",
+      "esse",
+      "isst",
+      "mache",
+      "machst",
+      "lese",
+      "bewege",
+      "bewegst"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "jens",
+      "type": "text",
+      "de": "Hey, Champion! Ich bin Jens. Coach. Ich bewege mich 24 Stunden am Tag. Auch im Schlaf. Meine Nachbarn hören mich joggen. Im Bett.",
+      "emoji": "💪",
+      "en": "Hey, champion! I am Jens. Coach. I move 24 hours a day. Even in my sleep. My neighbours hear me jogging. In bed.",
+      "audio": "mc_jens_intro_a"
+    },
+    {
+      "who": "jens",
+      "type": "text",
+      "de": "Morgen ist Sonntag. Brunch mit dir! Brunch ist Cardio: Gabel hoch, Gabel runter. Zwanzig Wiederholungen.",
+      "emoji": "🍳",
+      "en": "Tomorrow is Sunday. Brunch with you! Brunch is cardio: fork up, fork down. Twenty reps.",
+      "audio": "mc_jens_intro_b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Ich hole dich um sechs Uhr ab. Wir joggen zum Café. Nur 15 Kilometer. Okay?",
+          "emoji": "🏃",
+          "en": "I'll pick you up at six. We'll jog to the café. Only 15 kilometres. Okay?",
+          "audio": "mc_jens_t1a"
+        }
+      ],
+      "tiles": [
+        "nein",
+        "ja",
+        "okay",
+        "ich",
+        "ich",
+        "am Sonntag",
+        "ruhe",
+        "ruhst",
+        "mich",
+        "dich",
+        "aus",
+        "wenn",
+        "jogge",
+        "sterbe",
+        "fahre",
+        "mit",
+        "dem",
+        "den",
+        "Bus",
+        "schlafe",
+        "bis zehn",
+        "gern"
+      ],
+      "wrong": {
+        "ruhst": "ruhe",
+        "dich": "mich"
+      },
+      "intents": [
+        {
+          "id": "rest",
+          "when": {
+            "any": [
+              "ruhe",
+              "ruhst"
+            ]
+          },
+          "value": 2,
+          "fact": "🛋️ ruht sich am Sonntag aus",
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Ausruhen? … Ausruhen. Ich kenne das Wort. Aus einem Buch. Okay, Champion. Kein Joggen.",
+              "emoji": "😮",
+              "en": "Rest? … Rest. I know that word. From a book. Okay, champion. No jogging.",
+              "audio": "mc_jens_t1_rest"
+            }
+          ]
+        },
+        {
+          "id": "die",
+          "when": {
+            "any": [
+              "sterbe"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Wenn du joggst, lebst du! … Okay, okay. Ich glaube dir. Kein Joggen. Wir gehen langsam.",
+              "en": "If you jog, you live! … Okay, okay. I believe you. No jogging. We’ll walk slowly.",
+              "audio": "mc_jens_t1_die"
+            }
+          ]
+        },
+        {
+          "id": "bus",
+          "when": {
+            "any": [
+              "bus"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Mit dem Bus?! Der Bus ist für Menschen ohne Beine! … Okay. Ich jogge neben dem Bus.",
+              "emoji": "🚌",
+              "en": "By bus?! The bus is for people without legs! … Okay. I'll jog next to the bus.",
+              "audio": "mc_jens_t1_bus"
+            }
+          ]
+        },
+        {
+          "id": "sleep",
+          "when": {
+            "any": [
+              "schlafe",
+              "bis zehn"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Bis zehn?! Mutig. Meine Uhr sagt: Schlaf ist auch Training. Ich hasse meine Uhr.",
+              "emoji": "⌚",
+              "en": "Until ten?! Brave. My watch says: sleep is training too. I hate my watch.",
+              "audio": "mc_jens_t1_sleep"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Nein? Nein ist keine Sportart, Champion! Was machst du dann?",
+              "en": "No? No isn't a sport, champion! What will you do instead?",
+              "audio": "mc_jens_t1_no"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "okay",
+              "gern",
+              "jogge"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "agreedRun"
+          ],
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "JA! Champion! Um sechs! Ich bringe dir eine Gewichtsweste mit!",
+              "emoji": "🏋️",
+              "en": "YES! Champion! At six! I'll bring you a weighted vest!",
+              "audio": "mc_jens_t1_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Ich habe einen Tisch reserviert. Ich habe auch die Plätze ausgesucht. Hier!",
+          "emoji": "📷",
+          "en": "I've booked a table. I've also picked the seats. Here!",
+          "audio": "mc_jens_t2a"
+        },
+        {
+          "who": "jens",
+          "type": "photo",
+          "image": "match_jens_table",
+          "wide": true,
+          "alt": "Ein Tisch im Café. Links: ein normaler Stuhl. In der Mitte: ein großer, blauer Gymnastikball. Rechts: ein Rudergerät."
+        },
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Wohin setzt du dich?",
+          "en": "Where are you going to sit?",
+          "audio": "mc_jens_t2b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "setze",
+        "setzt",
+        "mich",
+        "dich",
+        "auf",
+        "den",
+        "das",
+        "dem",
+        "Stuhl",
+        "Ball",
+        "Rudergerät",
+        "links",
+        "rechts",
+        "in der Mitte",
+        "nicht",
+        "stehe",
+        "lieber",
+        "Kuchen"
+      ],
+      "wrong": {
+        "setzt": "setze",
+        "dich": "mich"
+      },
+      "prepCase": {
+        "auf": "acc"
+      },
+      "intents": [
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "kuchen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Auf den Kuchen?! Champion! Das ist eine Kniebeuge mit Sahne! Der Kellner weint. Ich applaudiere.",
+              "emoji": "🎂",
+              "en": "On the cake?! Champion! That is a squat with cream! The waiter is crying. I am applauding.",
+              "audio": "mc_jens_t2_cake"
+            }
+          ]
+        },
+        {
+          "id": "stand",
+          "when": {
+            "any": [
+              "nicht",
+              "stehe"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "active"
+          ],
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Du stehst? Stehen verbrennt mehr Kalorien! Du bist mein Champion! … Das war nicht der Plan, oder?",
+              "en": "You'll stand? Standing burns more calories! You're my champion! … That wasn't the plan, was it?",
+              "audio": "mc_jens_t2_stand"
+            }
+          ]
+        },
+        {
+          "id": "rower",
+          "when": {
+            "any": [
+              "rudergerät",
+              "rechts"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "active"
+          ],
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Das Rudergerät! Ich wusste es! Pro Brötchen 500 Meter!",
+              "emoji": "🚣",
+              "en": "The rowing machine! I knew it! 500 metres per bread roll!",
+              "audio": "mc_jens_t2_rower"
+            }
+          ]
+        },
+        {
+          "id": "ball",
+          "when": {
+            "any": [
+              "ball",
+              "in der mitte"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Der Ball! Gut für den Rücken. Du wackelst beim Essen. Das ist Training!",
+              "emoji": "🔵",
+              "en": "The ball! Good for your back. You wobble while you eat. That's training!",
+              "audio": "mc_jens_t2_ball"
+            }
+          ]
+        },
+        {
+          "id": "chair",
+          "when": {
+            "any": [
+              "stuhl",
+              "links"
+            ]
+          },
+          "value": 1,
+          "fact": "🪑 setzt sich auf normale Stühle",
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Der Stuhl. Okay. Aber du sitzt aktiv! Bauch fest! Rücken gerade! … Gut.",
+              "emoji": "🪑",
+              "en": "The chair. Okay. But you sit actively! Tummy tight! Back straight! … Good.",
+              "audio": "mc_jens_t2_chair"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "setze",
+              "setzt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Wohin? Stuhl, Ball oder Rudergerät? Ich zähle bis drei. Eins!",
+              "en": "Where? Chair, ball or rowing machine? I count to three. One!",
+              "audio": "mc_jens_t2_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Wie fühlst du dich heute? Ehrlich! Ich sehe alles. Meine Uhr auch.",
+          "emoji": "⌚",
+          "en": "How do you feel today? Honestly! I see everything. So does my watch.",
+          "audio": "mc_jens_t3a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "fühle",
+        "fühlst",
+        "mich",
+        "dich",
+        "müde",
+        "super",
+        "fit",
+        "nicht",
+        "mir",
+        "tut",
+        "tun",
+        "der",
+        "das",
+        "die",
+        "Rücken",
+        "Knie",
+        "Beine",
+        "mein",
+        "meine",
+        "weh",
+        "habe",
+        "Kopfschmerzen",
+        "Haare"
+      ],
+      "wrong": {
+        "fühlst": "fühle",
+        "dich": "mich"
+      },
+      "intents": [
+        {
+          "id": "hair",
+          "when": {
+            "any": [
+              "haare"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "hurt"
+          ],
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Deine HAARE tun weh?! Das gibt es? … Meine Uhr sagt: Ja. Haar-Muskelkater. Okay. Heute kein Training. Für die Haare.",
+              "emoji": "💇",
+              "en": "Your HAIR hurts?! Is that a thing? … My watch says: yes. Hair muscle ache. Okay. No training today. For the hair.",
+              "audio": "mc_jens_t3_hair"
+            }
+          ]
+        },
+        {
+          "id": "notTired",
+          "when": {
+            "all": [
+              "nicht",
+              "müde"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "fit"
+          ],
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Nicht müde? Super! Dann machen wir nach dem Brunch hundert Burpees!",
+              "emoji": "🔥",
+              "en": "Not tired? Great! Then we'll do a hundred burpees after brunch!",
+              "audio": "mc_jens_t3_nottired"
+            }
+          ]
+        },
+        {
+          "id": "notFit",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "fit",
+              "super"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Nicht fit? Ehrlich. Ich mag Ehrlichkeit. Kein Training heute. Fast keins.",
+              "en": "Not fit? Honest. I like honesty. No training today. Almost none.",
+              "audio": "mc_jens_t3_notfit"
+            }
+          ]
+        },
+        {
+          "id": "pain",
+          "when": {
+            "any": [
+              "weh"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "hurt"
+          ],
+          "fact": "🩹 hört auf den Körper",
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Autsch! Okay, Champion. Dann keine Burpees. Nur … sanfte Burpees. Nein. Keine.",
+              "emoji": "🩹",
+              "en": "Ouch! Okay, champion. Then no burpees. Only … gentle burpees. No. None.",
+              "audio": "mc_jens_t3_pain"
+            }
+          ]
+        },
+        {
+          "id": "headache",
+          "when": {
+            "any": [
+              "kopfschmerzen"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "hurt"
+          ],
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Kopfschmerzen? Wasser! Drei Liter! Und keine Burpees. Heute.",
+              "emoji": "💧",
+              "en": "A headache? Water! Three litres! And no burpees. Today.",
+              "audio": "mc_jens_t3_headache"
+            }
+          ]
+        },
+        {
+          "id": "tired",
+          "when": {
+            "any": [
+              "müde"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Müde? Dann Kaffee. Und Ausruhen. Ich sage das nicht oft. Eigentlich nie.",
+              "emoji": "☕",
+              "en": "Tired? Then coffee. And rest. I don’t say that often. Actually never.",
+              "audio": "mc_jens_t3_tired"
+            }
+          ]
+        },
+        {
+          "id": "fit",
+          "when": {
+            "any": [
+              "super",
+              "fit"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "fit"
+          ],
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "SUPER?! Dann machen wir nach dem Brunch hundert Burpees! Ich freue mich so!",
+              "emoji": "🔥",
+              "en": "GREAT?! Then we'll do a hundred burpees after brunch! I'm so excited!",
+              "audio": "mc_jens_t3_fit"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "fühle",
+              "fühlst",
+              "tut",
+              "tun"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Ja, und? Wie? Gut, schlecht, müde? Mein Puls wartet.",
+              "en": "Yes, and? How? Good, bad, tired? My pulse is waiting.",
+              "audio": "mc_jens_t3_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Regel Nummer eins beim Brunch: Wenn du ein Brötchen isst, machst du zehn Kniebeugen.",
+          "emoji": "🥐",
+          "en": "Rule number one at brunch: if you eat a bread roll, you do ten squats.",
+          "audio": "mc_jens_t4a"
+        },
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Deal, Champion?",
+          "en": "Deal, champion?",
+          "audio": "mc_jens_t4b"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "ich",
+        "ich",
+        "esse",
+        "isst",
+        "ruhe",
+        "mich",
+        "aus",
+        "mir",
+        "tut",
+        "der",
+        "Rücken",
+        "weh",
+        "deshalb",
+        "mache",
+        "machst",
+        "keine",
+        "zehn",
+        "Kniebeugen",
+        "zwei",
+        "Brötchen",
+        "kein",
+        "und",
+        "okay"
+      ],
+      "wrong": {
+        "isst": "esse",
+        "machst": "mache"
+      },
+      "intents": [
+        {
+          "id": "agree",
+          "when": {
+            "all": [
+              "mache",
+              "kniebeugen"
+            ],
+            "none": [
+              "keine"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "agreedSquats"
+          ],
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "ZEHN! Champion! Und noch zehn für den Kaffee! Und zehn für die Marmelade!",
+              "emoji": "🏋️",
+              "en": "TEN! Champion! And ten more for the coffee! And ten for the jam!",
+              "audio": "mc_jens_t4_agree"
+            }
+          ]
+        },
+        {
+          "id": "backContra",
+          "when": {
+            "any": [
+              "rücken"
+            ],
+            "flag": "fit"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Rücken? Eben warst du noch super! Verdächtig, Champion. Sehr verdächtig.",
+              "emoji": "🤨",
+              "en": "Your back? A minute ago you were great! Suspicious, champion. Very suspicious.",
+              "audio": "mc_jens_t4_backcontra"
+            }
+          ]
+        },
+        {
+          "id": "deal",
+          "when": {
+            "all": [
+              "keine",
+              "zwei"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Zwei Brötchen, null Kniebeugen? Das ist keine Mathematik. Das ist Rebellion. Ich respektiere das.",
+              "emoji": "🥐🥐",
+              "en": "Two rolls, zero squats? That isn't maths. That's rebellion. I respect it.",
+              "audio": "mc_jens_t4_deal"
+            }
+          ]
+        },
+        {
+          "id": "therefore",
+          "when": {
+            "all": [
+              "deshalb"
+            ],
+            "any": [
+              "keine",
+              "ruhe",
+              "kein"
+            ]
+          },
+          "value": 2,
+          "fact": "🧠 argumentiert mit deshalb",
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Rücken tut weh, deshalb keine Kniebeugen. Grund, Folge. Logisch. Ich hasse Logik. Okay.",
+              "en": "Back hurts, therefore no squats. Reason, consequence. Logical. I hate logic. Okay.",
+              "audio": "mc_jens_t4_therefore"
+            }
+          ]
+        },
+        {
+          "id": "noBread",
+          "when": {
+            "any": [
+              "kein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Kein Brötchen?! Kohlenhydrate sind Treibstoff, Champion! Iss!",
+              "en": "No bread roll?! Carbs are fuel, champion! Eat!",
+              "audio": "mc_jens_t4_nobread"
+            }
+          ]
+        },
+        {
+          "id": "rest",
+          "when": {
+            "any": [
+              "ruhe"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Wenn du isst, ruhst du dich aus. Hm. Das ist … eigentlich normal. Für normale Menschen.",
+              "emoji": "🛋️",
+              "en": "When you eat, you rest. Hm. That is … actually normal. For normal people.",
+              "audio": "mc_jens_t4_rest"
+            }
+          ]
+        },
+        {
+          "id": "back",
+          "when": {
+            "any": [
+              "rücken",
+              "weh"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Dein Rücken? Okay. Dann keine Kniebeugen. Aber die Arme! Gabel hoch, Gabel runter!",
+              "emoji": "🍴",
+              "en": "Your back? Okay. Then no squats. But your arms! Fork up, fork down!",
+              "audio": "mc_jens_t4_back"
+            }
+          ]
+        },
+        {
+          "id": "noSquats",
+          "when": {
+            "any": [
+              "keine"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Keine Kniebeugen? Hm. Warum nicht? … Egal. Du siehst entschlossen aus.",
+              "en": "No squats? Hm. Why not? … Never mind. You look determined.",
+              "audio": "mc_jens_t4_nosquats"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "esse",
+              "isst",
+              "wenn",
+              "okay"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Und dann? Wenn du isst, dann … ? Ich zähle mit!",
+              "en": "And then? When you eat, then … ? I'm counting along!",
+              "audio": "mc_jens_t4_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "jens",
+          "type": "voice",
+          "audio": "mc_jens_vn_rain",
+          "de": "Champion! Ich jogge gerade. Wichtig: Morgen ist der Brunch im Park, am Fitness-Spielplatz. Aber: Wenn es regnet, treffen wir uns im Café. Im Café Krümel, um zehn. Meine Uhr sagt: neunzig Prozent Regen. Meine Uhr lügt nie.",
+          "en": "Champion! I'm jogging right now. Important: tomorrow the brunch is in the park, at the outdoor gym. But: if it rains, we'll meet in the café. Café Krümel, at ten. My watch says: ninety percent rain. My watch never lies.",
+          "direction": "Jogging and panting between phrases, footsteps and a bit of wind, very loud and cheerful; slows down and stresses \"Wenn es regnet\"."
+        },
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Also: Wo treffen wir uns, wenn es regnet?",
+          "en": "So: where do we meet if it rains?",
+          "audio": "mc_jens_t5a"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "es",
+        "regnet",
+        "regnen",
+        "treffen",
+        "trefft",
+        "wir",
+        "uns",
+        "im",
+        "Café",
+        "Park",
+        "am",
+        "Spielplatz",
+        "um zehn",
+        "um sechs",
+        "bleibe",
+        "ich",
+        "zu Hause"
+      ],
+      "wrong": {
+        "regnen": "regnet",
+        "trefft": "treffen"
+      },
+      "intents": [
+        {
+          "id": "home",
+          "when": {
+            "any": [
+              "zu hause"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Zu Hause? Dann komme ich zu dir. Mit Hanteln. Und mit Brötchen.",
+              "emoji": "🏋️",
+              "en": "At home? Then I'll come to yours. With dumbbells. And bread rolls.",
+              "audio": "mc_jens_t5_home"
+            }
+          ]
+        },
+        {
+          "id": "park",
+          "when": {
+            "any": [
+              "park",
+              "spielplatz"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Im Park? Nur bei Sonne! Bei Regen im Café. Hast du meine Nachricht gehört?",
+              "emoji": "🌧️",
+              "en": "In the park? Only if it’s sunny! If it rains, the café. Did you listen to my message?",
+              "audio": "mc_jens_t5_park"
+            }
+          ]
+        },
+        {
+          "id": "cafeWenn",
+          "when": {
+            "all": [
+              "café",
+              "wenn"
+            ]
+          },
+          "value": 2,
+          "fact": "☔ hört genau zu",
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Genau! Wenn es regnet, im Café. Du hörst zu wie ein Profi. Ein Profi im Zuhören.",
+              "emoji": "☔",
+              "en": "Exactly! If it rains, the café. You listen like a pro. A pro at listening.",
+              "audio": "mc_jens_t5_cafewenn"
+            }
+          ]
+        },
+        {
+          "id": "cafe",
+          "when": {
+            "any": [
+              "café"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Im Café! Richtig. Café Krümel. Keine Hanteln. Versprochen.",
+              "emoji": "☕",
+              "en": "In the café! Right. Café Krümel. No dumbbells. Promise.",
+              "audio": "mc_jens_t5_cafe"
+            }
+          ]
+        },
+        {
+          "id": "six",
+          "when": {
+            "any": [
+              "um sechs"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Um sechs? Nein, um zehn! Sechs ist die Zeit zum Joggen. Ups. Das war ein Test.",
+              "en": "At six? No, at ten! Six is jogging time. Oops. That was a test.",
+              "audio": "mc_jens_t5_six"
+            }
+          ]
+        },
+        {
+          "id": "ten",
+          "when": {
+            "any": [
+              "um zehn"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Um zehn, ja! Aber WO? Wo, Champion?",
+              "en": "At ten, yes! But WHERE? Where, champion?",
+              "audio": "mc_jens_t5_ten"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "treffen",
+              "trefft",
+              "regnet",
+              "regnen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Ja, wir treffen uns. Aber wo? Meine Uhr wartet.",
+              "en": "Yes, we meet. But where? My watch is waiting.",
+              "audio": "mc_jens_t5_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Es regnet! Neunzig Prozent! Meine Uhr hat recht. Also Café.",
+          "emoji": "🌧️",
+          "en": "It’s raining! Ninety percent! My watch is right. So, café.",
+          "audio": "mc_jens_t6a"
+        },
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Moment. Meine Uhr hat dir gerade eine Nachricht geschickt. Ohne mich! Ich lese vor:",
+          "emoji": "⌚",
+          "en": "Hold on. My watch just sent you a message. Without me! I am reading it out:",
+          "audio": "mc_jens_t6_watch"
+        },
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "„Hilfe. Hier ist die Uhr. Er setzt sich nie. Er ruht sich nie aus. Ich habe seit 2019 keine Pause. Bitte rette uns beide.“",
+          "en": "\"Help. This is the watch. He never sits down. He never rests. I have had no break since 2019. Please save us both.\"",
+          "audio": "mc_jens_t6_watch_b"
+        },
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Lustig. Sie macht Witze. Haha. Also!",
+          "en": "Funny. She is joking. Haha. So!",
+          "audio": "mc_jens_t6_watch_c"
+        },
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Aber nach dem Essen bewegen wir uns. Wie bewegst du dich gern?",
+          "en": "But after eating we move. How do you like to move?",
+          "audio": "mc_jens_t6b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "bewege",
+        "bewegst",
+        "mich",
+        "gern",
+        "nur",
+        "zum",
+        "Buffet",
+        "langsam",
+        "nicht",
+        "gehe",
+        "spazieren",
+        "mache",
+        "Burpees",
+        "Yoga",
+        "tanze",
+        "tanzt",
+        "sehr",
+        "im Traum"
+      ],
+      "wrong": {
+        "bewegst": "bewege",
+        "tanzt": "tanze"
+      },
+      "intents": [
+        {
+          "id": "burpees",
+          "when": {
+            "any": [
+              "burpees"
+            ]
+          },
+          "value": -2,
+          "cause": "burpees",
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "BURPEES! Du hast es gesagt! Hundert! Jetzt sofort! Zwischen Rührei und Kaffee!",
+              "emoji": "🔥",
+              "en": "BURPEES! You said it! A hundred! Right now! Between the scrambled eggs and the coffee!",
+              "audio": "mc_jens_t6_burpees"
+            }
+          ]
+        },
+        {
+          "id": "notGlad",
+          "when": {
+            "any": [
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Nicht?! Das tut meinem Herzen weh. Und meinem Puls.",
+              "emoji": "💔",
+              "en": "No?! That hurts my heart. And my pulse.",
+              "audio": "mc_jens_t6_notglad"
+            }
+          ]
+        },
+        {
+          "id": "buffet",
+          "when": {
+            "any": [
+              "buffet"
+            ]
+          },
+          "value": 2,
+          "fact": "🥐 trainiert am Buffet",
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Zum Buffet! Hin und zurück, zehn Mal. Das ist … Intervalltraining! Champion!",
+              "emoji": "🥐",
+              "en": "To the buffet! There and back, ten times. That’s … interval training! Champion!",
+              "audio": "mc_jens_t6_buffet"
+            }
+          ]
+        },
+        {
+          "id": "dream",
+          "when": {
+            "any": [
+              "im traum"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Im Traum! Ich auch! Ich laufe jede Nacht einen Marathon. Morgens bin ich müde. Ich verstehe das nicht.",
+              "emoji": "💤",
+              "en": "In your dreams! Me too! I run a marathon every night. In the morning I am tired. I do not understand it.",
+              "audio": "mc_jens_t6_dream"
+            }
+          ]
+        },
+        {
+          "id": "walk",
+          "when": {
+            "any": [
+              "spazieren"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Spazieren! Das ist Joggen in Zeitlupe. Ich akzeptiere.",
+              "emoji": "🚶",
+              "en": "A walk! That's jogging in slow motion. I accept.",
+              "audio": "mc_jens_t6_walk"
+            }
+          ]
+        },
+        {
+          "id": "yoga",
+          "when": {
+            "any": [
+              "yoga"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Yoga! Dehnen! Atmen! Ich atme schon. Hörst du? Ein. Aus. Ein.",
+              "emoji": "🧘",
+              "en": "Yoga! Stretching! Breathing! I’m already breathing. Can you hear? In. Out. In.",
+              "audio": "mc_jens_t6_yoga"
+            }
+          ]
+        },
+        {
+          "id": "dance",
+          "when": {
+            "any": [
+              "tanze",
+              "tanzt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Tanzen! Cardio mit Musik! Ich tanze wie ein Hampelmann. Professionell.",
+              "emoji": "🕺",
+              "en": "Dancing! Cardio with music! I dance like a jumping jack. Professionally.",
+              "audio": "mc_jens_t6_dance"
+            }
+          ]
+        },
+        {
+          "id": "slow",
+          "when": {
+            "any": [
+              "langsam"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Langsam ist auch eine Geschwindigkeit. Sagt mein Opa. Er ist 94.",
+              "en": "Slow is a speed too. My grandpa says so. He’s 94.",
+              "audio": "mc_jens_t6_slow"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "bewege",
+              "bewegst",
+              "mache",
+              "gehe"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Ja! Bewegen! Aber WIE? Ich brauche Details!",
+              "en": "Yes! Moving! But HOW? I need details!",
+              "audio": "mc_jens_t6_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Letzte Frage, Champion. Der Brunch ist vorbei. Mein Puls ist bei 60. Viel zu niedrig.",
+          "emoji": "📉",
+          "en": "Last question, champion. Brunch is over. My pulse is at 60. Far too low.",
+          "audio": "mc_jens_t7a"
+        },
+        {
+          "who": "jens",
+          "type": "text",
+          "de": "Was machst du nach dem Brunch?",
+          "en": "What will you do after brunch?",
+          "audio": "mc_jens_t7b"
+        }
+      ],
+      "tiles": [
+        "nach",
+        "dem",
+        "den",
+        "Brunch",
+        "ich",
+        "ich",
+        "setze",
+        "mich",
+        "aufs",
+        "Sofa",
+        "ruhe",
+        "aus",
+        "mache",
+        "einen",
+        "Mittagsschlaf",
+        "Burpees",
+        "jogge",
+        "nach Hause",
+        "lese",
+        "ein",
+        "Buch",
+        "und"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "burpees",
+          "when": {
+            "any": [
+              "burpees"
+            ]
+          },
+          "value": -2,
+          "cause": "burpees",
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "BURPEES! Nach dem Brunch! Mein Traum! Ich hole die Stoppuhr!",
+              "emoji": "⏱️",
+              "en": "BURPEES! After brunch! My dream! I’m getting the stopwatch!",
+              "audio": "mc_jens_t7_burpees"
+            }
+          ]
+        },
+        {
+          "id": "jogHurt",
+          "when": {
+            "any": [
+              "jogge"
+            ],
+            "flag": "hurt"
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Joggen? Mit deinen Schmerzen? Nein, nein. Ich trage dich nach Hause.",
+              "emoji": "🦸",
+              "en": "Jogging? With your aches? No, no. I'll carry you home.",
+              "audio": "mc_jens_t7_joghurt"
+            }
+          ]
+        },
+        {
+          "id": "jog",
+          "when": {
+            "any": [
+              "jogge"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Joggen! Ich wusste es! In dir steckt ein Champion! Ein müder Champion, aber ein Champion.",
+              "emoji": "🏃",
+              "en": "Jogging! I knew it! There’s a champion inside you! A tired champion, but a champion.",
+              "audio": "mc_jens_t7_jog"
+            }
+          ]
+        },
+        {
+          "id": "rest",
+          "when": {
+            "any": [
+              "ruhe",
+              "sofa"
+            ]
+          },
+          "value": 2,
+          "fact": "🛋️ hat Jens das Ausruhen beigebracht",
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Du ruhst dich aus. Auf dem Sofa. Weißt du was? Ich komme mit. Ich probiere das mal.",
+              "emoji": "🛋️",
+              "en": "You're resting. On the sofa. You know what? I'm coming too. I'll give it a try.",
+              "audio": "mc_jens_t7_rest"
+            }
+          ]
+        },
+        {
+          "id": "nap",
+          "when": {
+            "any": [
+              "mittagsschlaf"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Mittagsschlaf! Regeneration! Das ist wissenschaftlich! Okay, du gewinnst.",
+              "emoji": "😴",
+              "en": "A nap! Recovery! That’s scientific! Okay, you win.",
+              "audio": "mc_jens_t7_nap"
+            }
+          ]
+        },
+        {
+          "id": "read",
+          "when": {
+            "any": [
+              "buch",
+              "lese"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Ein Buch. Lesen ist Training. Für die Augen. Ich akzeptiere.",
+              "emoji": "📖",
+              "en": "A book. Reading is training. For the eyes. I accept.",
+              "audio": "mc_jens_t7_read"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "mache",
+              "setze",
+              "brunch"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "jens",
+              "type": "text",
+              "de": "Und? WAS machst du? Sag nicht Burpees. Oder sag Burpees! Nein, sag es nicht.",
+              "en": "And? WHAT will you do? Don't say burpees. Or say burpees! No, don't.",
+              "audio": "mc_jens_t7_vague"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "jens",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage, Champion. Noch mal, mit Gefühl!",
+    "en": "Er … that wasn't my question, champion. Again, with feeling!",
+    "audio": "mc_jens_offtopic"
+  },
+  "confused": [
+    {
+      "who": "jens",
+      "type": "text",
+      "de": "Hä? Ist das eine neue Übung? Ich kenne sie nicht.",
+      "emoji": "🤔",
+      "en": "Huh? Is that a new exercise? I don't know it.",
+      "audio": "mc_jens_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "jens",
+        "type": "text",
+        "de": "Okay, Champion. Kein Burpee. Kein einziger. Ich bin … ich weiß nicht. Entspannt? Meine Uhr hat sich ausgeschaltet. Sie schläft. Sie lächelt. Glaube ich.",
+        "emoji": "😌",
+        "en": "Okay, champion. No burpee. Not a single one. I am … I do not know. Relaxed? My watch has switched itself off. She is sleeping. She is smiling. I think.",
+        "audio": "mc_jens_win"
+      },
+      {
+        "who": "jens",
+        "type": "text",
+        "de": "Das war der beste Brunch meines Lebens, {name}. Nächsten Sonntag wieder. Ich bringe Kissen mit.",
+        "en": "That was the best brunch of my life, {name}. Next Sunday again. I'll bring cushions."
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "jens",
+        "type": "text",
+        "de": "Okay. Keine Burpees. Aber wir gehen zu Fuß nach Hause. Nur sieben Kilometer. Ich zähle mit.",
+        "emoji": "🥵",
+        "en": "Okay. No burpees. But we walk home. Only seven kilometres. I'll count along.",
+        "audio": "mc_jens_partial"
+      }
+    ],
+    "deleted": {
+      "default": {
+        "who": "jens",
+        "type": "text",
+        "de": "Du bist nicht bereit für Brunch. Ich lösche dich und mache 50 Liegestütze. Aus Trauer. Meine Uhr weint. Leise. Sie vibriert.",
+        "emoji": "💔",
+        "en": "You are not ready for brunch. I am deleting you and doing 50 push-ups. Out of grief. My watch is crying. Quietly. She is vibrating.",
+        "audio": "mc_jens_del_default"
+      },
+      "confused": {
+        "who": "jens",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Ist das eine Übung? Tschüss, Champion.",
+        "en": "I don't understand you. Is that an exercise? Bye, champion.",
+        "audio": "mc_jens_del_confused"
+      },
+      "burpees": {
+        "who": "jens",
+        "type": "text",
+        "de": "Du willst Burpees? Dann brauchst du keinen Brunch. Ich schicke dir einen Trainingsplan. Gelöscht.",
+        "emoji": "📋",
+        "en": "You want burpees? Then you don't need brunch. I'm sending you a training plan. Deleted.",
+        "audio": "mc_jens_del_burpees"
+      }
+    },
+    "sunday": {
+      "who": "jens",
+      "type": "voice",
+      "audio": "mc_jens_vn_sunday",
+      "de": "Champion! Heute ist Sonntag. Ich habe mich ausgeruht. Zehn Minuten. Es war schrecklich. Und wunderschön. Nächsten Sonntag wieder Brunch? Ich bringe Kissen mit.",
+      "en": "Champion! It's Sunday today. I rested. Ten minutes. It was terrible. And wonderful. Brunch again next Sunday? I'll bring cushions.",
+      "direction": "Unusually quiet and sleepy for him, lying down, yawning once; slowly getting excited again by the end."
+    }
+  },
+  "partialTitle": "Keine Burpees. Nur sieben Kilometer.",
+  "share": {
+    "win": "Jens (38, Fitness-Coach) hat mich geliked 💪 Ich habe den Brunch ohne einen einzigen Burpee überlebt. Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Ich habe den Brunch mit Jens (38, Coach) überlebt … ohne Burpees, aber mit sieben Kilometern zu Fuß 🥵 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Jens (38, Fitness-Coach) hat mich gelöscht 💪 Ich war nicht bereit für Brunch. Mein Deutsch: {score}/100. Bist du bereit? {url}"
+  },
+  "imageCharacter": "Jens, a 38-year-old fitness coach, broad-shouldered and beaming, short blond buzz cut, a neon-green sweatband on his forehead, a tight sky-blue sports T-shirt, a whistle on a cord around his neck and a chunky smartwatch; always mid-motion, big friendly grin.",
+  "imagePrompts": [
+    {
+      "id": "match_jens",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He sits at a sunny café table with a plate of pancakes, lifting a fork with a single blueberry on it high above his head like a dumbbell, flexing the other arm, grinning at the viewer. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_jens_table",
+      "aspect": "16:9",
+      "prompt": "A cosy café seen exactly from the front like a stage set: one long wooden table with plates of croissants and cups of coffee fills the lower half, a flat wall behind it, no perspective. Behind the table, in a row, exactly THREE seats, far apart and evenly spaced. LEFT: an ordinary wooden café chair. MIDDLE: a huge, bright blue inflatable gym ball. RIGHT: a black rowing machine with a long rail and a handle, pushed right up to the table. No people. Nothing else."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Nein, am Sonntag ruhe ich mich aus.",
+      "score": 100,
+      "intent": "rest",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Am Sonntag ruhe ich dich aus.",
+      "score": 85,
+      "intent": "rest",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Am Sonntag ruhst ich mich aus.",
+      "score": 80,
+      "intent": "rest",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Am Sonntag ich ruhe mich aus.",
+      "score": 70,
+      "intent": "rest",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Wenn ich jogge, sterbe ich.",
+      "score": 100,
+      "intent": "die",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich fahre mit dem Bus.",
+      "score": 100,
+      "intent": "bus",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich fahre mit den Bus.",
+      "score": 85,
+      "intent": "bus",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Ich schlafe bis zehn.",
+      "score": 100,
+      "intent": "sleep",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ja, gern!",
+      "score": 100,
+      "intent": "yes",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Okay.",
+      "score": 100,
+      "intent": "yes",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich am Sonntag mich.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich setze mich auf den Stuhl.",
+      "score": 100,
+      "intent": "chair",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich setze mich auf dem Stuhl.",
+      "score": 85,
+      "intent": "chair",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich setzt mich auf den Stuhl.",
+      "score": 80,
+      "intent": "chair",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich setze dich auf den Stuhl.",
+      "score": 85,
+      "intent": "chair",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Links.",
+      "score": 100,
+      "intent": "chair",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich setze mich auf den Ball.",
+      "score": 100,
+      "intent": "ball",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich setze mich auf das Rudergerät.",
+      "score": 100,
+      "intent": "rower",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich stehe lieber.",
+      "score": 100,
+      "intent": "stand",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich setze mich nicht.",
+      "score": 100,
+      "intent": "stand",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich setze mich.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich mich auf den Stuhl.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich setze mich auf den Kuchen.",
+      "score": 100,
+      "intent": "cake",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich setze mich auf dem Kuchen.",
+      "score": 85,
+      "intent": "cake",
+      "delta": 0
+    },
+    {
+      "turn": "t3",
+      "say": "Mir tut der Rücken weh.",
+      "score": 100,
+      "intent": "pain",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Mein Knie tut weh.",
+      "score": 100,
+      "intent": "pain",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Meine Beine tun weh.",
+      "score": 100,
+      "intent": "pain",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Mir tut das Rücken weh.",
+      "score": 85,
+      "intent": "pain",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe Kopfschmerzen.",
+      "score": 100,
+      "intent": "headache",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich fühle mich müde.",
+      "score": 100,
+      "intent": "tired",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich fühlst mich müde.",
+      "score": 80,
+      "intent": "tired",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich fühle mich nicht fit.",
+      "score": 100,
+      "intent": "notFit",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich fühle mich nicht müde.",
+      "score": 100,
+      "intent": "notTired",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich fühle mich super.",
+      "score": 100,
+      "intent": "fit",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich fühle mich.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich müde.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Meine Haare tun weh.",
+      "score": 100,
+      "intent": "hair",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Mein Haare tun weh.",
+      "score": 85,
+      "intent": "hair",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Mir tut der Rücken weh. Deshalb mache ich keine Kniebeugen.",
+      "score": 100,
+      "intent": "therefore",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Mir tut der Rücken weh und deshalb mache ich keine Kniebeugen.",
+      "score": 100,
+      "intent": "therefore",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Mir tut der Rücken weh. Deshalb ich mache keine Kniebeugen.",
+      "score": 70,
+      "intent": "therefore",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich esse, ruhe ich mich aus.",
+      "score": 100,
+      "intent": "rest",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich isst, ruhe ich mich aus.",
+      "score": 80,
+      "intent": "rest",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich esse, ich ruhe mich aus.",
+      "score": 70,
+      "intent": "rest",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich zwei Brötchen esse, mache ich keine Kniebeugen.",
+      "score": 100,
+      "intent": "deal",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Okay, ich mache zehn Kniebeugen.",
+      "score": 100,
+      "intent": "agree",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich esse kein Brötchen.",
+      "score": 100,
+      "intent": "noBread",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Mir tut der Rücken weh.",
+      "score": 100,
+      "intent": "back",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich mache keine Kniebeugen.",
+      "score": 100,
+      "intent": "noSquats",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich esse.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Wenn ich esse Brötchen, ich mache keine Kniebeugen.",
+      "score": 70,
+      "intent": "noSquats",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich keine Kniebeugen.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn es regnet, treffen wir uns im Café.",
+      "score": 100,
+      "intent": "cafeWenn",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn es regnen, treffen wir uns im Café.",
+      "score": 80,
+      "intent": "cafeWenn",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn es regnet, wir treffen uns im Café.",
+      "score": 70,
+      "intent": "cafeWenn",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Im Café.",
+      "score": 100,
+      "intent": "cafe",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Um zehn im Café.",
+      "score": 100,
+      "intent": "cafe",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Im Park.",
+      "score": 100,
+      "intent": "park",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn es regnet, treffen wir uns am Spielplatz.",
+      "score": 100,
+      "intent": "park",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Um zehn.",
+      "score": 100,
+      "intent": "ten",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Um sechs.",
+      "score": 100,
+      "intent": "six",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn es regnet, bleibe ich zu Hause.",
+      "score": 100,
+      "intent": "home",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Wir treffen uns.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Wenn regnet es, wir treffen uns im Café.",
+      "score": 70,
+      "intent": "cafeWenn",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Wir im Café.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bewege mich nur zum Buffet.",
+      "score": 100,
+      "intent": "buffet",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bewegst mich nur zum Buffet.",
+      "score": 80,
+      "intent": "buffet",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gehe gern spazieren.",
+      "score": 100,
+      "intent": "walk",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gehe spazieren gern.",
+      "score": 70,
+      "intent": "walk",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich mache gern Yoga.",
+      "score": 100,
+      "intent": "yoga",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich tanze sehr gern.",
+      "score": 100,
+      "intent": "dance",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bewege mich langsam.",
+      "score": 100,
+      "intent": "slow",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bewege mich nicht gern.",
+      "score": 100,
+      "intent": "notGlad",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich mache gern Burpees.",
+      "score": 100,
+      "intent": "burpees",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bewege mich gern.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich gern Yoga.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich bewege mich nur im Traum.",
+      "score": 100,
+      "intent": "dream",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Nach dem Brunch ruhe ich mich aus.",
+      "score": 100,
+      "intent": "rest",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Nach dem Brunch setze ich mich aufs Sofa.",
+      "score": 100,
+      "intent": "rest",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Nach den Brunch setze ich mich aufs Sofa.",
+      "score": 85,
+      "intent": "rest",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Nach dem Brunch ich ruhe mich aus.",
+      "score": 70,
+      "intent": "rest",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich mache einen Mittagsschlaf.",
+      "score": 100,
+      "intent": "nap",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich lese ein Buch.",
+      "score": 100,
+      "intent": "read",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich jogge nach Hause.",
+      "score": 100,
+      "intent": "jog",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Nach dem Brunch mache ich Burpees.",
+      "score": 100,
+      "intent": "burpees",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Nach dem Brunch.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich Sofa.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Nein, am Sonntag ruhe ich mich aus."
+        ],
+        [
+          "t2",
+          "Ich setze mich auf den Stuhl."
+        ],
+        [
+          "t3",
+          "Mir tut der Rücken weh."
+        ],
+        [
+          "t4",
+          "Mir tut der Rücken weh. Deshalb mache ich keine Kniebeugen."
+        ],
+        [
+          "t5",
+          "Wenn es regnet, treffen wir uns im Café."
+        ],
+        [
+          "t6",
+          "Ich bewege mich nur zum Buffet."
+        ],
+        [
+          "t7",
+          "Nach dem Brunch ruhe ich mich aus."
+        ]
+      ]
+    },
+    {
+      "name": "sporty",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ja, gern!"
+        ],
+        [
+          "t2",
+          "Ich setze mich auf das Rudergerät."
+        ],
+        [
+          "t3",
+          "Ich fühle mich super."
+        ],
+        [
+          "t4",
+          "Mir tut der Rücken weh."
+        ],
+        [
+          "t5",
+          "Um zehn im Café."
+        ],
+        [
+          "t6",
+          "Ich gehe gern spazieren."
+        ],
+        [
+          "t7",
+          "Ich jogge nach Hause."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Okay."
+        ],
+        [
+          "t2",
+          "Ich stehe lieber."
+        ],
+        [
+          "t3",
+          "Ich fühle mich nicht müde."
+        ],
+        [
+          "t4",
+          "Okay, ich mache zehn Kniebeugen."
+        ],
+        [
+          "t5",
+          "Im Park."
+        ]
+      ]
+    }
+  ]
+}

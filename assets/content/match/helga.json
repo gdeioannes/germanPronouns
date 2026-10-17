@@ -1,0 +1,2308 @@
+{
+  "id": "helga",
+  "name": "Oma Helga",
+  "age": 81,
+  "emoji": "🎧",
+  "image": "match_helga",
+  "level": "A1.1",
+  "order": 1,
+  "bio": "Ich bin 81. Ich bin DJ. Ich schlafe nie.",
+  "bioEn": "I'm 81. I'm a DJ. I never sleep.",
+  "goal": "Get on the guest list for Saturday's party in her cellar club.",
+  "tagline": "DJ · 81 · Kellerbeben",
+  "voice": "Autonoe",
+  "brief": "Oma Helga, an 81-year-old Berlin grandmother who is a techno DJ: a slightly raspy older woman's voice, dry, quick-witted, cool and warm underneath, amused by everything; talking close to her phone.",
+  "focus": "heißen, tanzen · kein/keine · Uhrzeit · links/rechts",
+  "secretFlag": "guntherNice",
+  "lexicon": {
+    "nouns": {
+      "Party": "f",
+      "Keller": "m",
+      "Fotos": "pl",
+      "Kleidung": "f",
+      "Hose": "f",
+      "Pullover": "m",
+      "Lederhose": "f",
+      "Dirndl": "n",
+      "Tür": "f",
+      "Fahrrad": "n",
+      "Opa": "m",
+      "Schwester": "f",
+      "Freunden": "pl",
+      "Freund": "m",
+      "Liste": "f",
+      "Gästeliste": "f",
+      "Platten": "pl",
+      "Bier": "n",
+      "Handys": "pl",
+      "Techno": "m",
+      "Walzer": "m",
+      "Samstag": "m",
+      "Sonntag": "m",
+      "Uhr": "f",
+      "Tanzen": "n",
+      "Schwarz": "n",
+      "Gelb": "n"
+    },
+    "names": [
+      "Berlin",
+      "Helga",
+      "Günther"
+    ],
+    "verbs": [
+      "heiße",
+      "heißt",
+      "bin",
+      "komme",
+      "kommst",
+      "tanze",
+      "tanzt",
+      "trinke",
+      "liebe",
+      "beginnt",
+      "beginnen",
+      "trage",
+      "trägst",
+      "ist",
+      "bist",
+      "sind",
+      "hat",
+      "weiß"
+    ],
+    "accVerbs": [
+      "trage",
+      "trägst",
+      "liebe",
+      "trinke",
+      "hat"
+    ],
+    "adjectives": [
+      "schwarz",
+      "gelb",
+      "grün",
+      "rot",
+      "nett"
+    ]
+  },
+  "intro": [
+    {
+      "who": "helga",
+      "type": "text",
+      "de": "Hallo! Ich bin Helga. Ich bin 81. Ich bin DJ.",
+      "emoji": "🎧",
+      "en": "Hello! I'm Helga. I'm 81. I'm a DJ.",
+      "audio": "mc_helga_t1a"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Und du? Wie heißt du?",
+          "en": "And you? What's your name?",
+          "audio": "mc_helga_t1b"
+        }
+      ],
+      "tiles": [
+        "hallo",
+        "ich",
+        "ich",
+        "heiße",
+        "heißt",
+        "bin",
+        "{name}",
+        "und",
+        "du",
+        "komme",
+        "aus",
+        "Berlin",
+        "tanze",
+        "gern"
+      ],
+      "wrong": {
+        "heißt": "heiße"
+      },
+      "intents": [
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "{name}"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Hallo, {name}! Schöner Name. Wie ein DJ-Name!",
+              "en": "Hello, {name}! Nice name. Like a DJ name!"
+            }
+          ]
+        },
+        {
+          "id": "origin",
+          "when": {
+            "any": [
+              "berlin",
+              "komme"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Berlin! Schön. Und wie heißt du?",
+              "en": "Berlin! Nice. And what's your name?",
+              "audio": "mc_helga_t1_origin"
+            }
+          ]
+        },
+        {
+          "id": "dance",
+          "when": {
+            "any": [
+              "tanze"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Du tanzt gern? Super! Aber wie heißt du?",
+              "en": "You like dancing? Great! But what's your name?",
+              "audio": "mc_helga_t1_dance"
+            }
+          ]
+        },
+        {
+          "id": "greeting",
+          "when": {
+            "any": [
+              "hallo"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Hallo! Und dein Name? Egal. Weiter.",
+              "en": "Hello! And your name? Never mind. Moving on.",
+              "audio": "mc_helga_t1_greet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Am Samstag ist Party in meinem Keller.",
+          "emoji": "🪩",
+          "en": "On Saturday there's a party in my cellar.",
+          "audio": "mc_helga_t2a"
+        },
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Tanzt du gern?",
+          "en": "Do you like dancing?",
+          "audio": "mc_helga_t2b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "ich",
+        "tanze",
+        "tanzt",
+        "sehr",
+        "gern",
+        "nicht",
+        "aber",
+        "trinke",
+        "nur",
+        "Walzer",
+        "liebe",
+        "Techno"
+      ],
+      "wrong": {
+        "tanzt": "tanze"
+      },
+      "intents": [
+        {
+          "id": "waltz",
+          "when": {
+            "any": [
+              "walzer"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "waltz"
+          ],
+          "fact": "💃 tanzt Walzer",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Walzer! Wie mein Mann und ich, 1962. Süß.",
+              "en": "Waltz! Like my husband and me, in 1962. Sweet.",
+              "audio": "mc_helga_t2_waltz"
+            }
+          ]
+        },
+        {
+          "id": "drink",
+          "when": {
+            "any": [
+              "trinke"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "honest"
+          ],
+          "fact": "🍹 ist ehrlich",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Ehrlich. Das mag ich. Aber nur Wasser, ja?",
+              "en": "Honest. I like that. But only water, okay?",
+              "audio": "mc_helga_t2_drink"
+            }
+          ]
+        },
+        {
+          "id": "techno",
+          "when": {
+            "all": [
+              "liebe",
+              "techno"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "dances"
+          ],
+          "fact": "🎶 liebt Techno",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Du liebst Techno? Du bist mein Mensch!",
+              "emoji": "🖤",
+              "en": "You love techno? You're my kind of person!",
+              "audio": "mc_helga_t2_techno"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nicht",
+              "nein"
+            ]
+          },
+          "value": -1,
+          "flags": [
+            "noDance"
+          ],
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Nicht? Auf meiner Party tanzt jeder. Auch die Wand.",
+              "en": "No? At my party everyone dances. Even the wall.",
+              "audio": "mc_helga_t2_no"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "tanze",
+              "ja",
+              "gern"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "dances"
+          ],
+          "fact": "💃 tanzt gern",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Wunderbar! Ich tanze seit 1955.",
+              "en": "Wonderful! I've been dancing since 1955.",
+              "audio": "mc_helga_t2_yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Hier ist der Flyer.",
+          "emoji": "📷",
+          "en": "Here's the flyer.",
+          "audio": "mc_helga_t3a"
+        },
+        {
+          "who": "helga",
+          "type": "photo",
+          "image": "match_flyer",
+          "overlay": [
+            "KELLERBEBEN",
+            "Samstag 23 Uhr",
+            "bis Sonntag 14 Uhr",
+            "DJ Oma Helga",
+            "Eintritt: 10 €"
+          ],
+          "alt": "Flyer: Kellerbeben. Samstag 23 Uhr bis Sonntag 14 Uhr. DJ Oma Helga. Eintritt 10 Euro."
+        },
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Also, wann beginnt die Party?",
+          "en": "So, when does the party start?",
+          "audio": "mc_helga_t3b"
+        }
+      ],
+      "tiles": [
+        "die",
+        "Party",
+        "beginnt",
+        "beginnen",
+        "um",
+        "elf",
+        "dreiundzwanzig",
+        "vierzehn",
+        "zwei",
+        "Uhr",
+        "am",
+        "Samstag",
+        "Sonntag"
+      ],
+      "wrong": {
+        "beginnen": "beginnt"
+      },
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "elf",
+              "dreiundzwanzig"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Genau! Und dann bis Sonntag.",
+              "emoji": "😎",
+              "en": "Exactly! And then until Sunday.",
+              "audio": "mc_helga_t3_right"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "any": [
+              "vierzehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Um vierzehn Uhr ist die Party zu Ende! Lies noch mal.",
+              "en": "At two in the afternoon the party is OVER! Read it again.",
+              "audio": "mc_helga_t3_end"
+            }
+          ]
+        },
+        {
+          "id": "night",
+          "when": {
+            "any": [
+              "zwei"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Um zwei spiele ich mein bestes Set. Aber die Party beginnt um elf.",
+              "en": "At two I play my best set. But the party starts at eleven.",
+              "audio": "mc_helga_t3_night"
+            }
+          ]
+        },
+        {
+          "id": "day",
+          "when": {
+            "any": [
+              "samstag"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Ja, am Samstag! Aber um wie viel Uhr?",
+              "en": "Yes, on Saturday! But at what time?",
+              "audio": "mc_helga_t3_day"
+            }
+          ]
+        },
+        {
+          "id": "sunday",
+          "when": {
+            "any": [
+              "sonntag"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Am Sonntag ist die Party zu Ende! Lies noch mal.",
+              "en": "On Sunday the party's over! Read it again.",
+              "audio": "mc_helga_t3_sunday"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "helga",
+          "type": "voice",
+          "bg": "techno",
+          "audio": "mc_helga_vn_rules",
+          "de": "Wichtig! Im Club gibt es zwei Regeln. Erstens: keine Fotos! Zweitens: nur schwarze Kleidung! Schwarz! Verstanden?",
+          "en": "Important! There are two rules in the club. First: no photos! Second: only black clothes! Black! Got it?",
+          "direction": "Shouting over very loud techno music in a cellar club, cupping her hand around the phone; urgent but having fun."
+        },
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Was sind die Regeln?",
+          "en": "What are the rules?",
+          "audio": "mc_helga_t4a"
+        }
+      ],
+      "tiles": [
+        "keine",
+        "kein",
+        "Fotos",
+        "und",
+        "nur",
+        "schwarze",
+        "schwarz",
+        "Kleidung",
+        "Bier",
+        "Handys",
+        "Tanzen",
+        "viel"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "lostNegation",
+          "when": {
+            "any": [
+              "fotos"
+            ],
+            "none": [
+              "keine",
+              "kein"
+            ]
+          },
+          "value": -2,
+          "cause": "photos",
+          "flagsIf": {
+            "schwarz*": "saidBlack"
+          },
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Fotos?! NEIN! KEINE Fotos!",
+              "emoji": "😱",
+              "en": "Photos?! NO! NO photos!",
+              "audio": "mc_helga_t4_photos"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "fotos",
+              "schwarz*"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "saidBlack"
+          ],
+          "fact": "📵 kennt die Regeln",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Perfekt! Du hörst besser als mein DJ-Kollege.",
+              "en": "Perfect! You listen better than my DJ colleague.",
+              "audio": "mc_helga_t4_both"
+            }
+          ]
+        },
+        {
+          "id": "photos",
+          "when": {
+            "any": [
+              "fotos"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Gut! Und die Kleidung? Schwarz!",
+              "en": "Good! And the clothes? Black!",
+              "audio": "mc_helga_t4_nophotos"
+            }
+          ]
+        },
+        {
+          "id": "black",
+          "when": {
+            "any": [
+              "schwarz*"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "saidBlack"
+          ],
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Ja! Und keine Fotos, okay?",
+              "en": "Yes! And no photos, okay?",
+              "audio": "mc_helga_t4_black"
+            }
+          ]
+        },
+        {
+          "id": "phonesLost",
+          "when": {
+            "any": [
+              "handys"
+            ],
+            "none": [
+              "keine",
+              "kein"
+            ]
+          },
+          "value": -2,
+          "cause": "photos",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Handys?! NEIN! Keine Fotos, keine Handys!",
+              "emoji": "📵",
+              "en": "Phones?! NO! No photos, no phones!",
+              "audio": "mc_helga_t4_phones_lost"
+            }
+          ]
+        },
+        {
+          "id": "phones",
+          "when": {
+            "any": [
+              "handys"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Keine Handys, keine Fotos. Gleiche Sache. Gut!",
+              "en": "No phones, no photos. Same thing. Good!",
+              "audio": "mc_helga_t4_phones"
+            }
+          ]
+        },
+        {
+          "id": "beer",
+          "when": {
+            "any": [
+              "bier"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Bier ist keine Regel. Bier ist eine Lebensweise.",
+              "en": "Beer is not a rule. Beer is a way of life.",
+              "audio": "mc_helga_t4_beer"
+            }
+          ]
+        },
+        {
+          "id": "dance",
+          "when": {
+            "any": [
+              "tanzen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Tanzen ist keine Regel. Tanzen ist Pflicht!",
+              "en": "Dancing isn't a rule. Dancing is compulsory!",
+              "audio": "mc_helga_t4_dance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Was trägst du am Samstag? Schick mir ein Foto!",
+          "emoji": "👗",
+          "en": "What are you wearing on Saturday? Send me a photo!",
+          "audio": "mc_helga_t5a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "trage",
+        "trägst",
+        "Schwarz",
+        "Gelb",
+        "alles",
+        "mein",
+        "meine",
+        "Pullover",
+        "Hose",
+        "ist",
+        "sind",
+        "schwarz",
+        "gelb",
+        "eine",
+        "ein",
+        "Lederhose",
+        "Dirndl",
+        "und"
+      ],
+      "wrong": {
+        "trägst": "trage"
+      },
+      "intents": [
+        {
+          "id": "contradiction",
+          "when": {
+            "any": [
+              "gelb"
+            ],
+            "flag": "saidBlack"
+          },
+          "value": -2,
+          "cause": "yellow",
+          "photo": "match_outfit_yellow",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Du hast „schwarz“ gesagt! Und dann GELB?!",
+              "en": "You said “black”! And then YELLOW?!",
+              "audio": "mc_helga_t5_contra"
+            }
+          ]
+        },
+        {
+          "id": "bee",
+          "when": {
+            "all": [
+              "schwarz",
+              "gelb"
+            ]
+          },
+          "value": -1,
+          "cause": "yellow",
+          "photo": "match_outfit_bee",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Schwarz und Gelb? Wie eine Biene. Hm.",
+              "emoji": "🐝",
+              "en": "Black and yellow? Like a bee. Hm.",
+              "audio": "mc_helga_t5_bee"
+            }
+          ]
+        },
+        {
+          "id": "yellow",
+          "when": {
+            "any": [
+              "gelb"
+            ]
+          },
+          "value": -1,
+          "cause": "yellow",
+          "photo": "match_outfit_yellow",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Gelb?! Hast du meine Sprachnachricht nicht gehört?",
+              "en": "Yellow?! Didn't you hear my voice message?",
+              "audio": "mc_helga_t5_yellow"
+            }
+          ]
+        },
+        {
+          "id": "costume",
+          "when": {
+            "any": [
+              "lederhose",
+              "dirndl"
+            ]
+          },
+          "value": 0,
+          "photo": "match_outfit_tracht",
+          "fact": "🥨 trägt Tracht im Club",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Ha! Das ist so falsch, dass es wieder cool ist.",
+              "en": "Ha! That's so wrong it's cool again.",
+              "audio": "mc_helga_t5_tracht"
+            }
+          ]
+        },
+        {
+          "id": "black",
+          "when": {
+            "any": [
+              "schwarz"
+            ]
+          },
+          "value": 1,
+          "photo": "match_outfit_black",
+          "fact": "🖤 trägt Schwarz",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Perfekt. Du siehst aus wie ein Türsteher.",
+              "emoji": "🖤",
+              "en": "Perfect. You look like a bouncer.",
+              "audio": "mc_helga_t5_black"
+            }
+          ]
+        },
+        {
+          "id": "noColour",
+          "when": {
+            "any": [
+              "hose",
+              "pullover",
+              "alles"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Und welche Farbe? Schwarz, hoffe ich!",
+              "en": "And what colour? Black, I hope!",
+              "audio": "mc_helga_t5_nocolour"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Der Eingang ist geheim. Die Tür ist schwarz. Vor der Tür steht ein rotes Fahrrad.",
+          "en": "The entrance is secret. The door is black. In front of the door there's a red bike.",
+          "audio": "mc_helga_t6a"
+        },
+        {
+          "who": "helga",
+          "type": "photo",
+          "image": "match_backyard",
+          "wide": true,
+          "alt": "Ein Hof. Drei Türen. Links: eine schwarze Tür, daneben ein gelbes Fahrrad. In der Mitte: eine grüne Tür, ein alter Mann schaut aus dem Fenster. Rechts: eine schwarze Tür, davor ein rotes Fahrrad."
+        },
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Welche Tür ist es?",
+          "en": "Which door is it?",
+          "audio": "mc_helga_t6b"
+        }
+      ],
+      "tiles": [
+        "die",
+        "der",
+        "Tür",
+        "links",
+        "rechts",
+        "in der Mitte",
+        "es",
+        "ist",
+        "schwarze",
+        "grüne",
+        "mit",
+        "dem",
+        "roten",
+        "gelben",
+        "Fahrrad"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "right",
+          "when": {
+            "any": [
+              "rechts"
+            ]
+          },
+          "value": 1,
+          "fact": "🚪 findet geheime Türen",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Ja! Du hast gute Augen.",
+              "emoji": "👀",
+              "en": "Yes! You've got good eyes.",
+              "audio": "mc_helga_t6_right"
+            }
+          ]
+        },
+        {
+          "id": "redBike",
+          "when": {
+            "any": [
+              "roten"
+            ]
+          },
+          "value": 1,
+          "fact": "🚪 findet geheime Türen",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Ja! Das rote Fahrrad. Du hast gute Augen.",
+              "emoji": "👀",
+              "en": "Yes! The red bike. You've got good eyes.",
+              "audio": "mc_helga_t6_red"
+            }
+          ]
+        },
+        {
+          "id": "yellowBike",
+          "when": {
+            "any": [
+              "gelben"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Gelb? Ich habe „rot“ gesagt! Das ist die falsche Tür.",
+              "en": "Yellow? I said “red”! That's the wrong door.",
+              "audio": "mc_helga_t6_yellow"
+            }
+          ]
+        },
+        {
+          "id": "middle",
+          "when": {
+            "any": [
+              "in der mitte",
+              "grüne"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Grün? Das ist die Tür von Herrn Lehmann. Er ist 90 und hasst Techno.",
+              "en": "Green? That's Mr Lehmann's door. He's 90 and hates techno.",
+              "audio": "mc_helga_t6_middle"
+            }
+          ]
+        },
+        {
+          "id": "left",
+          "when": {
+            "any": [
+              "links"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Fast! Aber das Fahrrad da ist gelb.",
+              "en": "Almost! But that bike is yellow.",
+              "audio": "mc_helga_t6_left"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "schwarze",
+              "fahrrad"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Welche? Zwei Türen sind schwarz! Die rechte, mit dem roten Fahrrad. Merk dir das.",
+              "en": "Which one? Two doors are black! The right one, with the red bike. Remember that.",
+              "audio": "mc_helga_t6_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "next": "t8",
+      "before": [
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Kommst du allein oder mit Freunden?",
+          "en": "Are you coming alone or with friends?",
+          "audio": "mc_helga_t7a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "komme",
+        "kommst",
+        "allein",
+        "mit",
+        "meinem",
+        "meiner",
+        "Opa",
+        "Schwester",
+        "Freunden",
+        "fünf",
+        "einem",
+        "Freund",
+        "er",
+        "heißt",
+        "Günther",
+        "nicht"
+      ],
+      "wrong": {
+        "kommst": "komme"
+      },
+      "intents": [
+        {
+          "id": "guenther",
+          "when": {
+            "any": [
+              "günther"
+            ]
+          },
+          "value": 0,
+          "noBonus": true,
+          "next": "t7b",
+          "reply": []
+        },
+        {
+          "id": "group",
+          "when": {
+            "any": [
+              "fünf"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Fünf?! Mein Keller ist klein. Einer. Maximal.",
+              "en": "Five?! My cellar is small. One. Max.",
+              "audio": "mc_helga_t7_group"
+            }
+          ]
+        },
+        {
+          "id": "plusOne",
+          "when": {
+            "any": [
+              "schwester",
+              "freund"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Okay. Eine Person passt noch in die Ecke.",
+              "en": "Okay. One more person fits in the corner.",
+              "audio": "mc_helga_t7_plus"
+            }
+          ]
+        },
+        {
+          "id": "friends",
+          "when": {
+            "any": [
+              "freunden"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Mit Freunden? Okay, aber nur einer! Mein Keller ist klein.",
+              "en": "With friends? Okay, but just one! My cellar is small.",
+              "audio": "mc_helga_t7_friends"
+            }
+          ]
+        },
+        {
+          "id": "notAlone",
+          "when": {
+            "all": [
+              "allein",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Nicht allein? Okay, aber nur eine Person!",
+              "en": "Not alone? Okay, but just one person!",
+              "audio": "mc_helga_t7_notalone"
+            }
+          ]
+        },
+        {
+          "id": "opa",
+          "when": {
+            "any": [
+              "opa"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Mit deinem Opa? Süß! Opas tanzen gut.",
+              "en": "With your grandpa? Sweet! Grandpas dance well.",
+              "audio": "mc_helga_t7_opa"
+            }
+          ]
+        },
+        {
+          "id": "alone",
+          "when": {
+            "any": [
+              "allein"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Gut. Ich passe auf dich auf.",
+              "en": "Good. I'll look after you.",
+              "audio": "mc_helga_t7_alone"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7b",
+      "next": "t8",
+      "before": [
+        {
+          "who": "helga",
+          "type": "voice",
+          "bg": "scratch",
+          "audio": "mc_helga_vn_guenther",
+          "de": "GÜNTHER?! Groß, Glatze, Hawaiihemd? Er war DJ in meinem Keller. 1999. Er hat meine Platten gestohlen!",
+          "en": "GÜNTHER?! Tall, bald, Hawaiian shirt? He was a DJ in my cellar. 1999. He stole my records!",
+          "direction": "Outraged and theatrical, the music has just stopped; a sharp intake of breath at the name, then a furious, funny rant."
+        },
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Ist er nett, dein Günther?",
+          "en": "Is he nice, your Günther?",
+          "audio": "mc_helga_t7b_a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "er",
+        "ist",
+        "bist",
+        "sehr",
+        "nett",
+        "nicht",
+        "ich",
+        "weiß",
+        "es",
+        "tanzt",
+        "gern",
+        "hat",
+        "Platten",
+        "viele"
+      ],
+      "wrong": {
+        "bist": "ist"
+      },
+      "intents": [
+        {
+          "id": "notNice",
+          "when": {
+            "all": [
+              "nett",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Ha! Ich wusste es! Komm allein.",
+              "en": "Ha! I knew it! Come alone.",
+              "audio": "mc_helga_t7b_notnice"
+            }
+          ]
+        },
+        {
+          "id": "dontKnow",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Du weißt es nicht? Er ist dein Opa!",
+              "en": "You don't know? He's your grandpa!",
+              "audio": "mc_helga_t7b_dunno"
+            }
+          ]
+        },
+        {
+          "id": "records",
+          "when": {
+            "any": [
+              "platten"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "guntherNice"
+          ],
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Viele Platten? MEINE Platten! … Bring ihn mit. Ich will sie zurück.",
+              "en": "Lots of records? MY records! … Bring him. I want them back.",
+              "audio": "mc_helga_t7b_records"
+            }
+          ]
+        },
+        {
+          "id": "nice",
+          "when": {
+            "any": [
+              "nett",
+              "tanzt",
+              "ja"
+            ]
+          },
+          "value": 1,
+          "flags": [
+            "guntherNice"
+          ],
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Hm. Vielleicht ist er jetzt anders. Okay. Bring ihn mit.",
+              "en": "Hm. Maybe he's different now. Okay. Bring him.",
+              "audio": "mc_helga_t7b_nice"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Ha! Ich wusste es! Komm allein.",
+              "en": "Ha! I knew it! Come alone.",
+              "audio": "mc_helga_t7b_notnice"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "helga",
+          "type": "text",
+          "de": "Letzte Frage. Samstag, an der Tür. Der Türsteher fragt: „Wer bist du?“ Was sagst du?",
+          "en": "Last question. Saturday, at the door. The bouncer asks: “Who are you?” What do you say?",
+          "audio": "mc_helga_t8a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "bin",
+        "bin",
+        "heiße",
+        "{name}",
+        "auf",
+        "der",
+        "die",
+        "Liste",
+        "Gästeliste",
+        "von",
+        "Helga",
+        "und",
+        "hallo"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "iAmHelga",
+          "when": {
+            "all": [
+              "bin",
+              "helga"
+            ],
+            "none": [
+              "liste",
+              "gästeliste"
+            ]
+          },
+          "value": -2,
+          "cause": "helga",
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Du bist nicht Helga. ICH bin Helga. Es gibt nur eine Helga.",
+              "en": "You are not Helga. I am Helga. There is only one Helga.",
+              "audio": "mc_helga_t8_helga"
+            }
+          ]
+        },
+        {
+          "id": "list",
+          "when": {
+            "any": [
+              "liste",
+              "gästeliste"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Perfekt. So macht man das.",
+              "en": "Perfect. That's how it's done.",
+              "audio": "mc_helga_t8_list"
+            }
+          ]
+        },
+        {
+          "id": "nameOnly",
+          "when": {
+            "any": [
+              "{name}"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "helga",
+              "type": "text",
+              "de": "Und? Der Türsteher kennt dich nicht! Sag: Liste!",
+              "en": "So? The bouncer doesn't know you! Say: list!",
+              "audio": "mc_helga_t8_name"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "helga",
+    "type": "text",
+    "de": "Äh … das war nicht meine Frage.",
+    "en": "Er … that wasn't my question.",
+    "audio": "mc_helga_offtopic"
+  },
+  "confused": [
+    {
+      "who": "helga",
+      "type": "text",
+      "de": "Hä?",
+      "emoji": "😅",
+      "en": "Huh?",
+      "audio": "mc_helga_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "helga",
+        "type": "text",
+        "de": "Okay, {name}. Du bist auf der Liste.",
+        "en": "Okay, {name}. You're on the list."
+      },
+      {
+        "who": "helga",
+        "type": "text",
+        "de": "Samstag, 23 Uhr. Schwarze Tür. Komm nicht zu spät.",
+        "emoji": "🖤",
+        "en": "Saturday, 11 pm. Black door. Don't be late.",
+        "audio": "mc_helga_win"
+      }
+    ],
+    "secret": [
+      {
+        "who": "helga",
+        "type": "voice",
+        "bg": "techno",
+        "audio": "mc_helga_vn_secret",
+        "de": "Günther hat angerufen. Er bringt meine Platten zurück. Nach 27 Jahren! Samstag spielen wir zusammen. Wegen dir.",
+        "en": "Günther called. He's bringing my records back. After 27 years! On Saturday we're playing together. Because of you.",
+        "direction": "Moved and a little teary but trying to stay cool, music in the background; the last two words soft and warm."
+      }
+    ],
+    "partial": [
+      {
+        "who": "helga",
+        "type": "text",
+        "de": "Na gut. Du bist auf der Liste. Aber du trägst meine Platten. Die ganze Nacht. Zwölf Kisten.",
+        "emoji": "📦",
+        "en": "Fine. You're on the list. But you carry my records. All night. Twelve crates.",
+        "audio": "mc_helga_partial"
+      }
+    ],
+    "deleted": {
+      "yellow": {
+        "who": "helga",
+        "type": "text",
+        "de": "Gelb. In meinem Keller. Nein. Tschüss.",
+        "emoji": "💛🗑️",
+        "en": "Yellow. In my cellar. No. Bye.",
+        "audio": "mc_helga_del_yellow"
+      },
+      "photos": {
+        "who": "helga",
+        "type": "text",
+        "de": "Fotos im Club? Du bist ein Tourist. Gelöscht.",
+        "en": "Photos in the club? You're a tourist. Deleted.",
+        "audio": "mc_helga_del_photos"
+      },
+      "helga": {
+        "who": "helga",
+        "type": "text",
+        "de": "Es gibt nur eine Helga. Und das bin ich. Tschüss.",
+        "en": "There's only one Helga. And that's me. Bye.",
+        "audio": "mc_helga_del_helga"
+      },
+      "confused": {
+        "who": "helga",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und du verstehst mich nicht. Tschüss.",
+        "en": "I don't understand you. And you don't understand me. Bye.",
+        "audio": "mc_helga_del_confused"
+      },
+      "default": {
+        "who": "helga",
+        "type": "text",
+        "de": "Hm. Du bist nett, aber nicht für meinen Keller.",
+        "en": "Hm. You're nice, but not for my cellar.",
+        "audio": "mc_helga_del_default"
+      }
+    },
+    "sunday": {
+      "who": "helga",
+      "type": "voice",
+      "bg": "techno",
+      "audio": "mc_helga_vn_sunday",
+      "de": "Wo warst du um sechs Uhr? Mein bestes Set! Nächstes Mal, ja?",
+      "en": "Where were you at six? My best set! Next time, okay?",
+      "direction": "Tired but happy after an all-night set, music still thumping faintly behind her, teasing."
+    }
+  },
+  "unlocks": {
+    "id": "guenther",
+    "name": "Opa Günther",
+    "emoji": "🎛️",
+    "bio": "Ich war DJ, bevor Helga DJ war."
+  },
+  "partialTitle": "Du bist drin. Mit zwölf Kisten.",
+  "share": {
+    "win": "Oma Helga (81, Techno-DJ) hat mich geliked 🖤 Ich bin auf ihrer Gästeliste. Mein Deutsch: {score}/100. Schaffst du das auf Deutsch? {url}",
+    "secret": "Oma Helga (81, Techno-DJ) hat mich geliked 🖤 und ich habe sie und Opa Günther nach 27 Jahren wieder zusammengebracht 🎧 Mein Deutsch: {score}/100. {url}",
+    "partial": "Ich bin auf der Gästeliste von Oma Helga (81) … aber ich trage zwölf Kisten Platten 📦 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Oma Helga (81) hat mich gelöscht 💔 Mein Deutsch: {score}/100. Schaffst du es auf ihre Gästeliste? {url}"
+  },
+  "imageCharacter": "Oma Helga, an 81-year-old woman, small and wiry, short spiky silver-white hair, round black sunglasses, big chunky headphones around her neck, a black leather jacket over a black turtleneck, silver hoop earrings, deep laugh lines and a mischievous grin.",
+  "imagePrompts": [
+    {
+      "id": "match_helga",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She stands behind two vinyl turntables in a low brick cellar club, one hand raised in the air, the other on a record, grinning at the viewer. A small mirror disco ball hangs above her throwing soft blue and mustard light spots on the brick vault. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_guenther",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. Opa Günther, a tall, lanky, completely bald 84-year-old man with a big white moustache, wearing a loud terracotta-and-mustard Hawaiian shirt with palm leaves He holds a wooden crate full of vinyl records against his chest and grins sheepishly, eyebrows raised, like someone caught red-handed. Plain cream background with a few soft blue record shapes. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_flyer",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a photocopied party flyer taped with strips of tape to a dark green Berlin lamp post at night, seen straight on, the flyer filling most of the frame. The flyer is plain white paper: its ENTIRE upper two thirds is completely empty white paper with nothing on it at all; only the bottom third shows a black-and-white ink drawing of {self} behind turntables, wearing sunglasses. Torn edges of older posters around it, a little cool night light."
+    },
+    {
+      "id": "match_outfit_black",
+      "aspect": "3:4",
+      "prompt": "Mirror selfie: a young adult of indeterminate gender with short tousled dark hair, taking a mirror selfie in a narrow Berlin hallway with a coat hook and a bicycle helmet on the wall; the phone held up covers most of the face. They wear an all-black outfit: black hoodie, black jeans, black chunky boots. Cool pose, one hand in a pocket. Full body visible in the mirror."
+    },
+    {
+      "id": "match_outfit_yellow",
+      "aspect": "3:4",
+      "prompt": "Mirror selfie: a young adult of indeterminate gender with short tousled dark hair, taking a mirror selfie in a narrow Berlin hallway with a coat hook and a bicycle helmet on the wall; the phone held up covers most of the face. They wear a blindingly bright neon-yellow tracksuit, jacket and trousers, with yellow trainers; little glow lines radiate from the suit as if it were shining. Proud pose. Full body visible in the mirror."
+    },
+    {
+      "id": "match_outfit_bee",
+      "aspect": "3:4",
+      "prompt": "Mirror selfie: a young adult of indeterminate gender with short tousled dark hair, taking a mirror selfie in a narrow Berlin hallway with a coat hook and a bicycle helmet on the wall; the phone held up covers most of the face. They wear a jumper and trousers with bold horizontal black-and-yellow stripes and a headband with two little springy antennae, exactly like a bee. Slightly unsure pose. Full body visible in the mirror."
+    },
+    {
+      "id": "match_outfit_tracht",
+      "aspect": "3:4",
+      "prompt": "Mirror selfie: a young adult of indeterminate gender with short tousled dark hair, taking a mirror selfie in a narrow Berlin hallway with a coat hook and a bicycle helmet on the wall; the phone held up covers most of the face. They wear traditional Bavarian costume: brown leather lederhosen with embroidered suspenders, a red-and-white checked shirt, knee socks and a little green felt hat with a feather. Very proud pose, chest out. Full body visible in the mirror."
+    },
+    {
+      "id": "match_backyard",
+      "aspect": "16:9",
+      "prompt": "A Berlin back courtyard at night, seen exactly from the front like a stage set: one flat old brick wall fills the picture, no perspective, no corners. In the wall stand exactly THREE doors in a row, far apart and evenly spaced, all the same size, each with a lit wall lamp directly above it. LEFT DOOR: painted black. Nothing stands next to it: bare brick wall on both sides of it. MIDDLE DOOR: painted bright sage green. One bicycle leans against the wall immediately to the LEFT of the green door, touching its frame. In the small window of the green door an old grumpy man in a nightcap glares out. RIGHT DOOR: painted black. A second bicycle leans against the wall immediately to the RIGHT of this black door, touching its frame; faint mustard-coloured light glows through the gap under this door. So there are TWO bicycles in total, one beside the green door and one beside the right-hand black door, and the space between the middle and right doors is bare wall. Cobblestones in front."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Hallo! Ich heiße {name}.",
+      "intent": "name",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heißt {name}.",
+      "intent": "name",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo!",
+      "intent": "greeting",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ja, ich tanze sehr gern!",
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Gern! Ich liebe Techno.",
+      "intent": "techno",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Nein, aber ich trinke gern.",
+      "intent": "drink",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Nein, ich tanze nicht, aber ich trinke gern.",
+      "intent": "drink",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich tanze nur Walzer.",
+      "intent": "waltz",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich tanzt gern.",
+      "intent": "yes",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich tanze nicht gern.",
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich gern Techno.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Um dreiundzwanzig Uhr.",
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Die Party beginnen um elf.",
+      "intent": "right",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Um vierzehn Uhr.",
+      "intent": "end",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Um zwei.",
+      "intent": "night",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Keine Fotos und nur schwarze Kleidung.",
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Keine Fotos.",
+      "intent": "photos",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Nur schwarze Kleidung.",
+      "intent": "black",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Kein Fotos und schwarz Kleidung.",
+      "intent": "both",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Fotos und schwarze Kleidung.",
+      "intent": "lostNegation",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Viel Bier und Tanzen.",
+      "intent": "beer",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage alles schwarz.",
+      "intent": "black",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Mein Hose ist schwarz.",
+      "intent": "black",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage ein Dirndl.",
+      "intent": "costume",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage Gelb.",
+      "intent": "yellow",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage Schwarz und Gelb.",
+      "intent": "bee",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Die Tür rechts.",
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist die schwarze Tür rechts.",
+      "intent": "right",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Der Tür rechts.",
+      "intent": "right",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Die Tür mit dem Fahrrad.",
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Die Tür mit dem roten Fahrrad.",
+      "intent": "redBike",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Die Tür mit dem gelben Fahrrad.",
+      "intent": "yellowBike",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Die grüne Tür.",
+      "intent": "middle",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Die Tür in der Mitte.",
+      "intent": "middle",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Die Tür links.",
+      "intent": "left",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme allein.",
+      "intent": "alone",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme mit meiner Schwester.",
+      "intent": "plusOne",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme mit meinem Schwester.",
+      "intent": "plusOne",
+      "delta": 0
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme mit fünf Freunden.",
+      "intent": "group",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme mit meinem Opa. Er heißt Günther.",
+      "intent": "guenther",
+      "delta": 0
+    },
+    {
+      "turn": "t7b",
+      "say": "Ja, er ist sehr nett.",
+      "intent": "nice",
+      "delta": 2
+    },
+    {
+      "turn": "t7b",
+      "say": "Er hat viele Platten.",
+      "intent": "records",
+      "delta": 2
+    },
+    {
+      "turn": "t7b",
+      "say": "Er bist nett.",
+      "intent": "nice",
+      "delta": 1
+    },
+    {
+      "turn": "t7b",
+      "say": "Nein, er ist nicht nett.",
+      "intent": "notNice",
+      "delta": 2
+    },
+    {
+      "turn": "t7b",
+      "say": "Ich weiß es nicht.",
+      "intent": "dontKnow",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Hallo! Ich bin {name}. Ich bin auf der Liste von Helga.",
+      "intent": "list",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich heiße {name}. Gästeliste Helga.",
+      "intent": "list",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bin auf die Liste von Helga.",
+      "intent": "list",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bin {name}.",
+      "intent": "nameOnly",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bin Helga.",
+      "intent": "iAmHelga",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich komme aus Berlin.",
+      "intent": "origin",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich tanze gern.",
+      "intent": "dance",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Am Samstag.",
+      "intent": "day",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Am Sonntag.",
+      "intent": "sunday",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Keine Handys.",
+      "intent": "phones",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Handys.",
+      "intent": "phonesLost",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Tanzen.",
+      "intent": "dance",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage eine Hose.",
+      "intent": "noColour",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme mit Freunden.",
+      "intent": "friends",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme nicht allein.",
+      "intent": "notAlone",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme mit meinem Opa.",
+      "intent": "opa",
+      "delta": 1
+    },
+    {
+      "turn": "t7b",
+      "say": "Ja.",
+      "intent": "nice",
+      "delta": 2
+    },
+    {
+      "turn": "t7b",
+      "say": "Nein.",
+      "intent": "no",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bin auf der Liste.",
+      "intent": "list",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo! Ich heiße {name}.",
+      "score": 100
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin {name}. Ich tanze gern.",
+      "score": 100
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heißt {name}.",
+      "score": 80
+    },
+    {
+      "turn": "t1",
+      "say": "Ich {name} heiße.",
+      "score": 70
+    },
+    {
+      "turn": "t2",
+      "say": "Ja, ich tanze sehr gern!",
+      "score": 100
+    },
+    {
+      "turn": "t2",
+      "say": "Nein, aber ich trinke gern.",
+      "score": 100
+    },
+    {
+      "turn": "t2",
+      "say": "Nein, ich tanze nicht, aber ich trinke gern.",
+      "score": 100
+    },
+    {
+      "turn": "t2",
+      "say": "Gern tanze ich.",
+      "score": 100
+    },
+    {
+      "turn": "t2",
+      "say": "Ich tanzt gern.",
+      "score": 80
+    },
+    {
+      "turn": "t2",
+      "say": "Ich gern Techno.",
+      "score": 50
+    },
+    {
+      "turn": "t3",
+      "say": "Um dreiundzwanzig Uhr.",
+      "score": 100
+    },
+    {
+      "turn": "t3",
+      "say": "Die Party beginnt am Samstag um elf.",
+      "score": 100
+    },
+    {
+      "turn": "t3",
+      "say": "Die Party beginnen um elf.",
+      "score": 80
+    },
+    {
+      "turn": "t3",
+      "say": "Um elf die Party beginnt.",
+      "score": 70
+    },
+    {
+      "turn": "t4",
+      "say": "Keine Fotos und nur schwarze Kleidung.",
+      "score": 100
+    },
+    {
+      "turn": "t4",
+      "say": "Kein Fotos und schwarz Kleidung.",
+      "score": 70
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage alles schwarz.",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Meine Hose und mein Pullover sind schwarz.",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Mein Hose ist schwarz.",
+      "score": 85
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage ein Dirndl.",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage eine Lederhose.",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Ich trage ein Lederhose.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Die Tür rechts.",
+      "score": 100
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist die schwarze Tür rechts.",
+      "score": 100
+    },
+    {
+      "turn": "t6",
+      "say": "Der Tür rechts.",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Die Tür mit dem Fahrrad.",
+      "score": 100
+    },
+    {
+      "turn": "t6",
+      "say": "Die Tür mit dem roten Fahrrad.",
+      "score": 100
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme mit meiner Schwester.",
+      "score": 100
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme mit meinem Schwester.",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komme mit meinem Opa. Er heißt Günther.",
+      "score": 100
+    },
+    {
+      "turn": "t7b",
+      "say": "Er bist nett.",
+      "score": 80
+    },
+    {
+      "turn": "t7b",
+      "say": "Ich weiß es nicht.",
+      "score": 100
+    },
+    {
+      "turn": "t7b",
+      "say": "Er hat viele Platten.",
+      "score": 100
+    },
+    {
+      "turn": "t8",
+      "say": "Hallo! Ich bin {name}. Ich bin auf der Liste von Helga.",
+      "score": 100
+    },
+    {
+      "turn": "t8",
+      "say": "Ich heiße {name}. Gästeliste Helga.",
+      "score": 100
+    },
+    {
+      "turn": "t8",
+      "say": "Ich bin auf die Liste von Helga.",
+      "score": 85
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Hallo! Ich heiße {name}."
+        ],
+        [
+          "t2",
+          "Ja, ich tanze sehr gern!"
+        ],
+        [
+          "t3",
+          "Um dreiundzwanzig Uhr."
+        ],
+        [
+          "t4",
+          "Keine Fotos und nur schwarze Kleidung."
+        ],
+        [
+          "t5",
+          "Ich trage alles schwarz."
+        ],
+        [
+          "t6",
+          "Die Tür rechts."
+        ],
+        [
+          "t7",
+          "Ich komme allein."
+        ],
+        [
+          "t8",
+          "Ich bin auf der Liste von Helga."
+        ]
+      ]
+    },
+    {
+      "name": "secret",
+      "ending": "secret",
+      "say": [
+        [
+          "t1",
+          "Hallo! Ich heiße {name}."
+        ],
+        [
+          "t2",
+          "Ich liebe Techno."
+        ],
+        [
+          "t3",
+          "Um elf."
+        ],
+        [
+          "t4",
+          "Keine Fotos."
+        ],
+        [
+          "t5",
+          "Ich trage alles schwarz."
+        ],
+        [
+          "t6",
+          "Die Tür rechts."
+        ],
+        [
+          "t7",
+          "Ich komme mit meinem Opa. Er heißt Günther."
+        ],
+        [
+          "t7b",
+          "Er hat viele Platten."
+        ],
+        [
+          "t8",
+          "Ich bin auf der Liste von Helga."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Hallo!"
+        ],
+        [
+          "t2",
+          "Ich tanze nicht gern."
+        ],
+        [
+          "t3",
+          "Um vierzehn Uhr."
+        ],
+        [
+          "t4",
+          "Keine Fotos."
+        ],
+        [
+          "t5",
+          "Ich trage ein Dirndl."
+        ],
+        [
+          "t6",
+          "Die Tür links."
+        ],
+        [
+          "t7",
+          "Ich komme mit fünf Freunden."
+        ],
+        [
+          "t8",
+          "Ich bin auf der Liste von Helga."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Hallo!"
+        ],
+        [
+          "t2",
+          "Ich trinke gern."
+        ],
+        [
+          "t3",
+          "Um zwei."
+        ],
+        [
+          "t4",
+          "Fotos und schwarze Kleidung."
+        ],
+        [
+          "t5",
+          "Ich trage Gelb."
+        ]
+      ]
+    }
+  ]
+}

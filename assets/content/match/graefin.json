@@ -1,0 +1,2242 @@
+{
+  "id": "graefin",
+  "name": "Gräfin von Rosen",
+  "age": 77,
+  "emoji": "👑",
+  "image": "match_graefin",
+  "level": "B1.1",
+  "order": 1,
+  "bio": "Suche Butler. Duzen verboten. Mein Schloss hat 41 Zimmer und einen sehr alten Dackel.",
+  "bioEn": "Seeking a butler. No 'du'. My castle has 41 rooms and a very old dachshund.",
+  "goal": "Get hired as her butler.",
+  "tagline": "Gräfin · 77 · Schloss Dornenfels",
+  "voice": "Vindemiatrix",
+  "brief": "Gräfin Adelheid von Rosen, a 77-year-old aristocrat: a crisp, precise, elegant older woman’s voice, very formal, slow and deliberate, with icy little pauses and a dry, warm wit underneath; she sighs theatrically whenever etiquette is broken and melts slightly when her old dachshund Baron is mentioned.",
+  "focus": "Sie · Konjunktiv II höflich (würde, wäre, hätte) · Adjektivdeklination · Komparativ",
+  "lexicon": {
+    "nouns": {
+      "Butler": "m",
+      "Hund": "m",
+      "Tee": "m",
+      "Silber": "n",
+      "Schuhe": "pl",
+      "Kleid": "n",
+      "Federn": "pl",
+      "Schleife": "f",
+      "Kamillentee": "m",
+      "Kaffee": "m",
+      "Zuckerstücken": "pl",
+      "Zucker": "m",
+      "Milch": "f",
+      "Zimmer": "n",
+      "Sonntag": "m",
+      "Geld": "n",
+      "Schloss": "n",
+      "Träume": "pl",
+      "Ritterrüstung": "f",
+      "Hubschrauber": "m",
+      "Gutenachtlied": "n"
+    },
+    "names": [
+      "Sie",
+      "Ihnen",
+      "Ihr",
+      "Ihre",
+      "Baron",
+      "Friedrich"
+    ],
+    "verbs": [
+      "heiße",
+      "heißt",
+      "bin",
+      "freut",
+      "würde",
+      "würdest",
+      "würden",
+      "wäre",
+      "wären",
+      "ist",
+      "finde",
+      "trinkt",
+      "trinken",
+      "hätte",
+      "hättest",
+      "liebe",
+      "wünsche",
+      "könnten",
+      "könnte",
+      "darf"
+    ],
+    "nonfinite": [
+      "kennenzulernen",
+      "füttern",
+      "servieren",
+      "putzen",
+      "schlafen",
+      "ausziehen",
+      "empfehlen",
+      "bringen",
+      "haben",
+      "singen"
+    ],
+    "imperatives": [
+      "ziehen",
+      "zieh",
+      "schlaf"
+    ],
+    "accVerbs": [
+      "würde",
+      "würdest",
+      "würden",
+      "hätte",
+      "hättest",
+      "finde",
+      "trinkt",
+      "trinken",
+      "liebe",
+      "ziehen",
+      "zieh",
+      "könnte",
+      "könnten",
+      "darf"
+    ],
+    "datVerbs": [
+      "wünsche"
+    ],
+    "adjectives": [
+      "neu",
+      "alt",
+      "nett",
+      "dankbar",
+      "blau",
+      "rot",
+      "golden",
+      "groß",
+      "kalt",
+      "heiß",
+      "besser",
+      "klein",
+      "frei",
+      "süß",
+      "eigen"
+    ]
+  },
+  "intro": [
+    {
+      "who": "graefin",
+      "type": "text",
+      "de": "Guten Tag. Ich bin Gräfin Adelheid von Rosen. Ich suche einen Butler.",
+      "emoji": "👑",
+      "en": "Good day. I am Countess Adelheid von Rosen. I am looking for a butler.",
+      "audio": "mc_graefin_introa"
+    },
+    {
+      "who": "graefin",
+      "type": "text",
+      "de": "Mein letzter Butler, Friedrich, war 52 Jahre bei mir. Jetzt lebt er auf Mallorca und duzt alle.",
+      "emoji": "🌴",
+      "en": "My last butler, Friedrich, was with me for 52 years. Now he lives in Mallorca and says 'du' to everyone.",
+      "audio": "mc_graefin_introb"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Stellen Sie sich bitte vor. Und denken Sie daran: Hier wird nicht geduzt.",
+          "en": "Please introduce yourself. And remember: nobody says 'du' here.",
+          "audio": "mc_graefin_t1a"
+        }
+      ],
+      "tiles": [
+        "guten Tag",
+        "hallo",
+        "Frau Gräfin",
+        "ich",
+        "heiße",
+        "heißt",
+        "bin",
+        "{name}",
+        "Ihr",
+        "neuer",
+        "neue",
+        "Butler",
+        "es",
+        "freut",
+        "mich",
+        "Sie",
+        "dich",
+        "kennenzulernen",
+        "sehr"
+      ],
+      "wrong": {
+        "heißt": "heiße",
+        "dich": {
+          "to": "Sie",
+          "note": "She said it: no 'du'. To her it is always Sie."
+        }
+      },
+      "intents": [
+        {
+          "id": "duzen",
+          "when": {
+            "any": [
+              "dich"
+            ]
+          },
+          "value": -2,
+          "cause": "duzen",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Dich?! Wir kennen uns seit vier Sekunden. Ich brauche mein Riechsalz.",
+              "emoji": "😱",
+              "en": "'Dich'?! We have known each other for four seconds. I need my smelling salts.",
+              "audio": "mc_graefin_t1_duzen"
+            }
+          ]
+        },
+        {
+          "id": "perfect",
+          "when": {
+            "all": [
+              "{name}"
+            ],
+            "any": [
+              "frau gräfin",
+              "guten tag",
+              "kennenzulernen"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 grüßt wie bei Hofe",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "{name}. Ein Name mit Haltung. Setzen Sie sich. Nein, nicht auf den Hund.",
+              "en": "{name}. A name with poise. Do sit down. No, not on the dog."
+            }
+          ]
+        },
+        {
+          "id": "helloName",
+          "when": {
+            "all": [
+              "{name}",
+              "hallo"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "„Hallo“ sagt man zum Briefträger. Aber der Name ist gut.",
+              "en": "'Hallo' is what one says to the postman. But the name is good.",
+              "audio": "mc_graefin_t1_helloname"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "{name}"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Ohne Gruß? Nun gut. Wenigstens haben Sie einen Namen.",
+              "en": "No greeting? Very well. At least you have a name.",
+              "audio": "mc_graefin_t1_name"
+            }
+          ]
+        },
+        {
+          "id": "butlerOnly",
+          "when": {
+            "any": [
+              "butler"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Mein neuer Butler? Das entscheide immer noch ich. Und wie heißen Sie?",
+              "en": "My new butler? I still decide that. And what is your name?",
+              "audio": "mc_graefin_t1_butleronly"
+            }
+          ]
+        },
+        {
+          "id": "hello",
+          "when": {
+            "any": [
+              "hallo"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Hallo? Ich bin keine Bushaltestelle.",
+              "en": "Hallo? I am not a bus stop.",
+              "audio": "mc_graefin_t1_hello"
+            }
+          ]
+        },
+        {
+          "id": "greet",
+          "when": {
+            "any": [
+              "guten tag",
+              "frau gräfin",
+              "freut",
+              "kennenzulernen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Sehr höflich. Aber ich kenne Ihren Namen immer noch nicht.",
+              "en": "Very polite. But I still do not know your name.",
+              "audio": "mc_graefin_t1_greet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Erste Prüfung. Morgen ist Ihr erster Tag. Es ist sieben Uhr. Was würden Sie als Erstes tun?",
+          "emoji": "⏰",
+          "en": "First test. Tomorrow is your first day. It is seven o’clock. What would you do first?",
+          "audio": "mc_graefin_t2a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "würde",
+        "würdest",
+        "zuerst",
+        "den",
+        "die",
+        "alten",
+        "alte",
+        "Hund",
+        "Baron",
+        "füttern",
+        "Tee",
+        "servieren",
+        "das",
+        "Silber",
+        "putzen",
+        "lange",
+        "schlafen",
+        "Ritterrüstung"
+      ],
+      "wrong": {
+        "würdest": "würde"
+      },
+      "intents": [
+        {
+          "id": "dog",
+          "when": {
+            "any": [
+              "hund",
+              "baron",
+              "füttern"
+            ]
+          },
+          "value": 2,
+          "fact": "🐕 füttert zuerst den Hund",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Baron! Richtig. Er ist sechzehn, er ist der wahre Chef hier, und er isst nur Leberwurst. Vom Silberteller.",
+              "emoji": "🐕",
+              "en": "Baron! Correct. He is sixteen, he is the real boss here, and he only eats liver sausage. Off a silver plate.",
+              "audio": "mc_graefin_t2_dog"
+            }
+          ]
+        },
+        {
+          "id": "tea",
+          "when": {
+            "any": [
+              "tee",
+              "servieren"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Tee. Gut. Schwarzer Tee um sieben. Nicht um eine Minute nach sieben.",
+              "emoji": "🫖",
+              "en": "Tea. Good. Black tea at seven. Not at one minute past seven.",
+              "audio": "mc_graefin_t2_tea"
+            }
+          ]
+        },
+        {
+          "id": "armour",
+          "when": {
+            "any": [
+              "ritterrüstung"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Die Ritterrüstung im Flur? Vorsicht. Da wohnt Onkel Ottokar. Seit 1914. Er wollte nur kurz etwas anprobieren.",
+              "emoji": "🛡️",
+              "en": "The suit of armour in the hall? Careful. Uncle Ottokar lives in there. Since 1914. He only wanted to try something on.",
+              "audio": "mc_graefin_t2_armour"
+            },
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Er klappert, wenn er Hunger hat. Putzen Sie ihn sanft. Er ist kitzelig.",
+              "en": "He rattles when he is hungry. Polish him gently. He is ticklish.",
+              "audio": "mc_graefin_t2_armour_b"
+            }
+          ]
+        },
+        {
+          "id": "silver",
+          "when": {
+            "any": [
+              "silber",
+              "putzen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Das Silber. Sehr gut. Es ist dreihundert Jahre alt und sehr eitel.",
+              "en": "The silver. Very good. It is three hundred years old and very vain.",
+              "audio": "mc_graefin_t2_silver"
+            }
+          ]
+        },
+        {
+          "id": "sleep",
+          "when": {
+            "any": [
+              "schlafen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Schlafen?! Friedrich hat in 52 Jahren nie geschlafen. Glaube ich.",
+              "emoji": "😴",
+              "en": "Sleep?! Friedrich never slept in 52 years. I believe.",
+              "audio": "mc_graefin_t2_sleep"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Zweite Prüfung. Ein Gast steht mit schmutzigen Schuhen auf meinem Perserteppich.",
+          "emoji": "👞",
+          "en": "Second test. A guest is standing on my Persian rug in dirty shoes.",
+          "audio": "mc_graefin_t3a"
+        },
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Er ist Bischof. Und sehr empfindlich: Bei einem Befehl fällt er in Ohnmacht. Das war 1987. Wir haben ihn mit Sherry geweckt. Bringen Sie ihn dazu, die Schuhe auszuziehen.",
+          "en": "He is a bishop. And very sensitive: at a command he faints. That was 1987. We woke him with sherry. Get him to take his shoes off.",
+          "audio": "mc_graefin_t3b"
+        }
+      ],
+      "tiles": [
+        "es",
+        "ich",
+        "wäre",
+        "Ihnen",
+        "sehr",
+        "nett",
+        "dankbar",
+        "wenn",
+        "Sie",
+        "du",
+        "die",
+        "Ihre",
+        "Schuhe",
+        "ausziehen",
+        "würden",
+        "könnten",
+        "bitte",
+        "ziehen",
+        "zieh",
+        "aus"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "duzen",
+          "when": {
+            "any": [
+              "du",
+              "zieh"
+            ]
+          },
+          "value": -2,
+          "cause": "duzen",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "„Du“? Zu meinem Gast? Er ist Bischof!",
+              "emoji": "😱",
+              "en": "'Du'? To my guest? He is a bishop!",
+              "audio": "mc_graefin_t3_duzen"
+            }
+          ]
+        },
+        {
+          "id": "polite",
+          "when": {
+            "all": [
+              "sie"
+            ],
+            "any": [
+              "wäre",
+              "würden",
+              "könnten"
+            ]
+          },
+          "value": 2,
+          "fact": "🎩 bittet sehr höflich",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Exzellent. So spricht ein Butler. Der Gast hat vor Rührung geweint. In Socken.",
+              "emoji": "🎩",
+              "en": "Excellent. That is how a butler speaks. The guest wept with emotion. In his socks.",
+              "audio": "mc_graefin_t3_polite"
+            }
+          ]
+        },
+        {
+          "id": "command",
+          "when": {
+            "any": [
+              "ziehen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Der Bischof schwankt. Er wird blass. Ein Befehl! Friedrich, das Riechsalz! … Er steht noch. Knapp. Aber die Schuhe sind aus.",
+              "en": "The bishop sways. He goes pale. An order! Friedrich, the smelling salts! … He is still standing. Barely. But the shoes are off.",
+              "audio": "mc_graefin_t3_command"
+            }
+          ]
+        },
+        {
+          "id": "niceOnly",
+          "when": {
+            "any": [
+              "nett",
+              "dankbar",
+              "wäre"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Ja, es wäre nett. Aber WAS wäre nett? Der Gast tropft.",
+              "en": "Yes, it would be nice. But WHAT would be nice? The guest is dripping.",
+              "audio": "mc_graefin_t3_niceonly"
+            }
+          ]
+        },
+        {
+          "id": "shoesOnly",
+          "when": {
+            "any": [
+              "schuhe",
+              "bitte"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "„Die Schuhe, bitte“? Der Bischof hat sie ausgezogen und Ihnen gegeben. In die Hand. Sie tropfen. Sie sind jetzt die Garderobe.",
+              "en": "\"The shoes, please\"? The bishop took them off and handed them to you. Into your hand. They are dripping. You are now the cloakroom.",
+              "audio": "mc_graefin_t3_shoesonly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Heute Abend gehe ich auf einen Ball. Ich bin 77, ich liebe Blau, und ich hasse Federn.",
+          "emoji": "💃",
+          "en": "Tonight I am going to a ball. I am 77, I love blue, and I hate feathers.",
+          "audio": "mc_graefin_t4a"
+        },
+        {
+          "who": "graefin",
+          "type": "photo",
+          "image": "match_graefin_dresses",
+          "wide": true,
+          "alt": "Drei Kleider nebeneinander. Links: ein langes blaues Kleid. In der Mitte: ein kurzes rotes Kleid mit vielen Federn. Rechts: ein riesiges goldenes Kleid mit einer großen Schleife."
+        },
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Welches Kleid würden Sie mir empfehlen?",
+          "en": "Which dress would you recommend to me?",
+          "audio": "mc_graefin_t4c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "finde",
+        "würde",
+        "empfehlen",
+        "Ihnen",
+        "das",
+        "dem",
+        "blaue",
+        "blauen",
+        "rote",
+        "goldene",
+        "Kleid",
+        "mit",
+        "den",
+        "der",
+        "Federn",
+        "großen",
+        "Schleife",
+        "am elegantesten"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "red",
+          "when": {
+            "any": [
+              "rote",
+              "federn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Federn?! Ich hasse Federn. Das rote Kleid ist übrigens Barons Faschingskostüm.",
+              "emoji": "🪶",
+              "en": "Feathers?! I hate feathers. The red dress is Baron's carnival costume, by the way.",
+              "audio": "mc_graefin_t4_red"
+            }
+          ]
+        },
+        {
+          "id": "blue",
+          "when": {
+            "any": [
+              "blau*"
+            ]
+          },
+          "value": 2,
+          "fact": "👗 hat Geschmack",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Das blaue. Natürlich. Sie hören zu. Friedrich hat 52 Jahre lang nicht zugehört.",
+              "emoji": "💙",
+              "en": "The blue one. Of course. You listen. Friedrich did not listen for 52 years.",
+              "audio": "mc_graefin_t4_blue"
+            }
+          ]
+        },
+        {
+          "id": "gold",
+          "when": {
+            "any": [
+              "goldene",
+              "schleife"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Das goldene? Darin sehe ich aus wie ein Weihnachtsgeschenk. Ein mutiger Vorschlag.",
+              "emoji": "🎁",
+              "en": "The golden one? In that I look like a Christmas present. A bold suggestion.",
+              "audio": "mc_graefin_t4_gold"
+            }
+          ]
+        },
+        {
+          "id": "vague",
+          "when": {
+            "any": [
+              "kleid",
+              "am elegantesten"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Welches denn? Ich habe drei Kleider und nur einen Abend.",
+              "en": "Which one? I have three dresses and only one evening.",
+              "audio": "mc_graefin_t4_vague"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Morgen kommt der Herzog von Wackelstein zum Tee. Hören Sie gut zu.",
+          "emoji": "🎩",
+          "en": "Tomorrow the Duke of Wackelstein is coming to tea. Listen carefully.",
+          "audio": "mc_graefin_t5a"
+        },
+        {
+          "who": "graefin",
+          "type": "voice",
+          "audio": "mc_graefin_vn_herzog",
+          "de": "Also. Der Herzog trinkt nur kalten Kamillentee. Mit drei Zuckerstücken. Nicht zwei. Nicht vier. Drei. Und er hasst Kaffee. Er nennt Kaffee „das schwarze Unglück“.",
+          "en": "Now. The duke only drinks cold chamomile tea. With three sugar cubes. Not two. Not four. Three. And he hates coffee. He calls coffee 'the black misfortune'.",
+          "direction": "Dictating like a general, slow and very precise, tapping a cane on a stone floor on each number; a theatrical shudder at the word coffee."
+        },
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Was trinkt der Herzog?",
+          "en": "What does the duke drink?",
+          "audio": "mc_graefin_t5c"
+        }
+      ],
+      "tiles": [
+        "er",
+        "trinkt",
+        "trinken",
+        "nur",
+        "kalten",
+        "kalter",
+        "heißen",
+        "Kamillentee",
+        "Kaffee",
+        "mit",
+        "ohne",
+        "zwei",
+        "drei",
+        "vier",
+        "Zuckerstücken",
+        "Zucker",
+        "und",
+        "Milch"
+      ],
+      "wrong": {
+        "trinken": "trinkt"
+      },
+      "intents": [
+        {
+          "id": "coffee",
+          "when": {
+            "any": [
+              "kaffee"
+            ],
+            "none": [
+              "ohne"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Kaffee?! Sagen Sie das nie wieder. Nicht vor dem Herzog. Nicht vor mir.",
+              "emoji": "☕",
+              "en": "Coffee?! Never say that again. Not in front of the duke. Not in front of me.",
+              "audio": "mc_graefin_t5_coffee"
+            }
+          ]
+        },
+        {
+          "id": "hot",
+          "when": {
+            "any": [
+              "heißen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Heiß?! Der Herzog würde in Ohnmacht fallen. Kalt! Wie mein Herz vor dem Frühstück.",
+              "en": "Hot?! The duke would faint. Cold! Like my heart before breakfast.",
+              "audio": "mc_graefin_t5_hot"
+            }
+          ]
+        },
+        {
+          "id": "noSugar",
+          "when": {
+            "all": [
+              "ohne",
+              "zucker"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Ohne Zucker?! Dann weint der Herzog. Und er weint laut.",
+              "en": "Without sugar?! Then the duke cries. And he cries loudly.",
+              "audio": "mc_graefin_t5_nosugar"
+            }
+          ]
+        },
+        {
+          "id": "perfect",
+          "when": {
+            "all": [
+              "kalt*",
+              "drei"
+            ]
+          },
+          "value": 2,
+          "fact": "🫖 merkt sich alles",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Exakt. Sie hören besser als mein Hörrohr. Und das ist aus Gold.",
+              "en": "Exactly. You hear better than my ear trumpet. And that is made of gold.",
+              "audio": "mc_graefin_t5_perfect"
+            }
+          ]
+        },
+        {
+          "id": "count",
+          "when": {
+            "any": [
+              "zwei",
+              "vier"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Fast. Drei! Der Herzog kann nicht viel, aber zählen kann er.",
+              "en": "Almost. Three! The duke cannot do much, but he can count.",
+              "audio": "mc_graefin_t5_count"
+            }
+          ]
+        },
+        {
+          "id": "cold",
+          "when": {
+            "any": [
+              "kalt*"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Kalt, ja. Und wie viel Zucker?",
+              "en": "Cold, yes. And how much sugar?",
+              "audio": "mc_graefin_t5_cold"
+            }
+          ]
+        },
+        {
+          "id": "milk",
+          "when": {
+            "any": [
+              "milch"
+            ],
+            "none": [
+              "ohne"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Milch? Im Kamillentee? Der Herzog ist doch kein Kätzchen.",
+              "emoji": "🐈",
+              "en": "Milk? In chamomile tea? The duke is not a kitten.",
+              "audio": "mc_graefin_t5_milk"
+            }
+          ]
+        },
+        {
+          "id": "teaOnly",
+          "when": {
+            "any": [
+              "kamillentee",
+              "zuckerstücken"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Ja, Kamillentee. Aber kalt oder heiß? Und mit wie viel Zucker?",
+              "en": "Yes, chamomile tea. But cold or hot? And with how much sugar?",
+              "audio": "mc_graefin_t5_teaonly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Friedrich war 52 Jahre mein Butler. Er war pünktlich, still und sehr, sehr langsam.",
+          "emoji": "🐢",
+          "en": "Friedrich was my butler for 52 years. He was punctual, quiet and very, very slow.",
+          "audio": "mc_graefin_t6a"
+        },
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Warum wären Sie ein besserer Butler als Friedrich?",
+          "en": "Why would you be a better butler than Friedrich?",
+          "audio": "mc_graefin_t6b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "wäre",
+        "wären",
+        "ein",
+        "besserer",
+        "besseren",
+        "besser",
+        "Butler",
+        "weil",
+        "bin",
+        "jünger",
+        "schneller",
+        "nicht",
+        "als",
+        "Friedrich",
+        "den",
+        "Hund",
+        "liebe",
+        "Baron"
+      ],
+      "wrong": {
+        "wären": "wäre"
+      },
+      "intents": [
+        {
+          "id": "humble",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "besser",
+              "schneller",
+              "jünger",
+              "besserer"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Bescheiden. Das hat Friedrich nie gesagt. Er fand sich perfekt.",
+              "en": "Modest. Friedrich never said that. He thought he was perfect.",
+              "audio": "mc_graefin_t6_humble"
+            }
+          ]
+        },
+        {
+          "id": "dog",
+          "when": {
+            "any": [
+              "hund",
+              "baron"
+            ]
+          },
+          "value": 2,
+          "fact": "❤️ liebt alte Dackel",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Sie lieben Baron? Baron liebt niemanden. Aber er hat gerade mit dem Schwanz gewedelt. Einmal.",
+              "emoji": "🐕",
+              "en": "You love Baron? Baron loves nobody. But he just wagged his tail. Once.",
+              "audio": "mc_graefin_t6_dog"
+            }
+          ]
+        },
+        {
+          "id": "fast",
+          "when": {
+            "any": [
+              "schneller"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Schneller ist gut. Friedrich brauchte für den Tee eine Stunde. Für die Treppe einen Tag.",
+              "en": "Faster is good. Friedrich needed an hour for the tea. And a day for the stairs.",
+              "audio": "mc_graefin_t6_fast"
+            }
+          ]
+        },
+        {
+          "id": "young",
+          "when": {
+            "any": [
+              "jünger"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Jünger als Friedrich? Das ist sogar mein Sofa.",
+              "emoji": "🛋️",
+              "en": "Younger than Friedrich? So is my sofa.",
+              "audio": "mc_graefin_t6_young"
+            }
+          ]
+        },
+        {
+          "id": "generic",
+          "when": {
+            "any": [
+              "besserer",
+              "besseren",
+              "besser",
+              "butler"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Besser? Das sagen alle. Der letzte Bewerber war ein Pinguin aus dem Zoo. Er sagte auch „besser“. Er bekam die Stelle nicht. Warum also Sie?",
+              "en": "Better? Everybody says that. The last applicant was a penguin from the zoo. He also said \"better\". He did not get the job. So why you?",
+              "audio": "mc_graefin_t6_generic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Nun zum Lohn. Was hätten Sie gern?",
+          "emoji": "💰",
+          "en": "Now, the wages. What would you like?",
+          "audio": "mc_graefin_t7a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "hätte",
+        "hättest",
+        "könnte",
+        "gern",
+        "ein",
+        "einen",
+        "kleines",
+        "kleinen",
+        "Zimmer",
+        "freien",
+        "Sonntag",
+        "und",
+        "viel",
+        "Geld",
+        "Ihr",
+        "Schloss",
+        "nichts",
+        "haben",
+        "eigenen",
+        "Hubschrauber"
+      ],
+      "wrong": {
+        "hättest": "hätte"
+      },
+      "intents": [
+        {
+          "id": "castle",
+          "when": {
+            "any": [
+              "schloss"
+            ]
+          },
+          "value": -2,
+          "cause": "greedy",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "MEIN SCHLOSS? … Baron, fass!",
+              "emoji": "🐕",
+              "en": "MY CASTLE? … Baron, sic him!",
+              "audio": "mc_graefin_t7_castle"
+            }
+          ]
+        },
+        {
+          "id": "both",
+          "when": {
+            "all": [
+              "zimmer",
+              "sonntag"
+            ]
+          },
+          "value": 2,
+          "fact": "🏰 wohnt im Turm",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Ein Zimmer und einen freien Sonntag. Vernünftig. Sie bekommen den Turm. Mit Gespenst. Es ist sehr nett.",
+              "emoji": "👻",
+              "en": "A room and a free Sunday. Sensible. You get the tower. With a ghost. It is very nice.",
+              "audio": "mc_graefin_t7_both"
+            }
+          ]
+        },
+        {
+          "id": "room",
+          "when": {
+            "any": [
+              "zimmer"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Ein kleines Zimmer. Sie bekommen den Turm. Das Gespenst dort ist sehr nett.",
+              "en": "A small room. You get the tower. The ghost there is very nice.",
+              "audio": "mc_graefin_t7_room"
+            }
+          ]
+        },
+        {
+          "id": "sunday",
+          "when": {
+            "any": [
+              "sonntag"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Ein freier Sonntag. Vernünftig. Sonntags schläft sogar das Schloss.",
+              "en": "A free Sunday. Sensible. On Sundays even the castle sleeps.",
+              "audio": "mc_graefin_t7_sunday"
+            }
+          ]
+        },
+        {
+          "id": "helicopter",
+          "when": {
+            "any": [
+              "hubschrauber"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Einen eigenen Hubschrauber. Friedrich hatte einen Esel. Der Esel hieß Hubschrauber. Den können Sie haben. Er beißt nur montags.",
+              "emoji": "🫏",
+              "en": "Your own helicopter. Friedrich had a donkey. The donkey was called Helicopter. You can have him. He only bites on Mondays.",
+              "audio": "mc_graefin_t7_helicopter"
+            }
+          ]
+        },
+        {
+          "id": "money",
+          "when": {
+            "any": [
+              "geld"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Viel Geld. Wie modern. Friedrich bekam Kekse. Und er war glücklich.",
+              "emoji": "🍪",
+              "en": "A lot of money. How modern. Friedrich got biscuits. And he was happy.",
+              "audio": "mc_graefin_t7_money"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Nichts? Das ist verdächtig. Sind Sie ein Spion? Oder ein Erbschleicher?",
+              "emoji": "🕵️",
+              "en": "Nothing? That is suspicious. Are you a spy? Or a legacy hunter?",
+              "audio": "mc_graefin_t7_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Ach, eine Sache noch. Im Turm wohnt Johann. Er war Butler von 1790 bis 1802. Und danach auch. Er ist ein Gespenst.",
+          "emoji": "👻",
+          "en": "Oh, one more thing. Johann lives in the tower. He was butler from 1790 to 1802. And afterwards too. He is a ghost.",
+          "audio": "mc_graefin_t8_ghost"
+        },
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Er wird Sie einarbeiten. Er ist pünktlicher als Friedrich. Und durchsichtiger.",
+          "en": "He will train you. He is more punctual than Friedrich. And more transparent.",
+          "audio": "mc_graefin_t8_ghost_b"
+        },
+        {
+          "who": "graefin",
+          "type": "text",
+          "de": "Es ist spät. Ich gehe jetzt schlafen. Was sagen Sie zum Abschied?",
+          "emoji": "🌙",
+          "en": "It is late. I am going to bed now. What do you say as a goodbye?",
+          "audio": "mc_graefin_t8a"
+        }
+      ],
+      "tiles": [
+        "gute Nacht",
+        "Frau Gräfin",
+        "ich",
+        "wünsche",
+        "Ihnen",
+        "dir",
+        "süße",
+        "süßen",
+        "Träume",
+        "schlaf",
+        "gut",
+        "tschüss",
+        "darf",
+        "würde",
+        "gern",
+        "einen",
+        "heißen",
+        "Tee",
+        "bringen",
+        "ein",
+        "Gutenachtlied",
+        "singen"
+      ],
+      "wrong": {
+        "dir": {
+          "to": "Ihnen",
+          "note": "Still no 'du': to her it is Ihnen."
+        }
+      },
+      "intents": [
+        {
+          "id": "duzen",
+          "when": {
+            "any": [
+              "dir",
+              "schlaf"
+            ]
+          },
+          "value": -2,
+          "cause": "duzen",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Sie duzen mich? Um Mitternacht? Jetzt kann ich nicht mehr schlafen. Vor Schreck.",
+              "emoji": "😱",
+              "en": "You say 'du' to me? At midnight? Now I cannot sleep at all. From the shock.",
+              "audio": "mc_graefin_t8_duzen"
+            }
+          ]
+        },
+        {
+          "id": "tea",
+          "when": {
+            "any": [
+              "tee"
+            ]
+          },
+          "value": 2,
+          "fact": "🫖 bringt Tee um Mitternacht",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Einen heißen Tee. Um Mitternacht. Sie lesen meine Gedanken.",
+              "emoji": "🫖",
+              "en": "A hot tea. At midnight. You read my mind.",
+              "audio": "mc_graefin_t8_tea"
+            }
+          ]
+        },
+        {
+          "id": "lullaby",
+          "when": {
+            "any": [
+              "gutenachtlied",
+              "singen"
+            ]
+          },
+          "value": 2,
+          "fact": "🎶 singt Gräfinnen in den Schlaf",
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Ein Gutenachtlied. Friedrich hat das einmal versucht. 1974. Baron heult bis heute mit. Bitte. Aber leise.",
+              "emoji": "🎶",
+              "en": "A lullaby. Friedrich tried that once. 1974. Baron still howls along to this day. Please. But quietly.",
+              "audio": "mc_graefin_t8_lullaby"
+            }
+          ]
+        },
+        {
+          "id": "dreams",
+          "when": {
+            "any": [
+              "träume"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Süße Träume. Das hat Friedrich nie gesagt. In 52 Jahren nicht.",
+              "emoji": "🌙",
+              "en": "Sweet dreams. Friedrich never said that. Not once in 52 years.",
+              "audio": "mc_graefin_t8_dreams"
+            }
+          ]
+        },
+        {
+          "id": "goodnight",
+          "when": {
+            "any": [
+              "gute nacht",
+              "frau gräfin"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Gute Nacht. Kurz und korrekt.",
+              "en": "Good night. Short and correct.",
+              "audio": "mc_graefin_t8_goodnight"
+            }
+          ]
+        },
+        {
+          "id": "bye",
+          "when": {
+            "any": [
+              "tschüss"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "graefin",
+              "type": "text",
+              "de": "Tschüss? Ich bin doch keine Bäckerei.",
+              "en": "'Tschüss'? I am not a bakery.",
+              "audio": "mc_graefin_t8_bye"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "graefin",
+    "type": "text",
+    "de": "Wie bitte? Das war nicht meine Frage. Konzentration, bitte.",
+    "en": "I beg your pardon? That was not my question. Concentrate, please.",
+    "audio": "mc_graefin_offtopic"
+  },
+  "confused": [
+    {
+      "who": "graefin",
+      "type": "text",
+      "de": "Wie bitte?",
+      "emoji": "🧐",
+      "en": "I beg your pardon?",
+      "audio": "mc_graefin_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "graefin",
+        "type": "text",
+        "de": "Gut. Sie sind eingestellt, {name}. Morgen um sieben. Nicht um eine Minute nach sieben.",
+        "en": "Good. You are hired, {name}. Tomorrow at seven. Not at one minute past seven."
+      },
+      {
+        "who": "graefin",
+        "type": "text",
+        "de": "Baron hat Sie übrigens schon akzeptiert. Er hat auf Ihren Schuh gesabbert. Das ist ein Kompliment.",
+        "emoji": "🐕",
+        "en": "Baron has already accepted you, by the way. He drooled on your shoe. That is a compliment.",
+        "audio": "mc_graefin_winb"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "graefin",
+        "type": "text",
+        "de": "Nun gut. Sie dürfen bleiben. Auf Probe. Sie arbeiten ab morgen für Baron. Er ist ein Dackel. Er ist streng.",
+        "emoji": "🐕",
+        "en": "Very well. You may stay. On probation. From tomorrow you work for Baron. He is a dachshund. He is strict.",
+        "audio": "mc_graefin_partial"
+      }
+    ],
+    "deleted": {
+      "duzen": {
+        "who": "graefin",
+        "type": "text",
+        "de": "Sie haben mich geduzt. Friedrich, mein Riechsalz! … Ach ja. Friedrich ist auf Mallorca. Adieu.",
+        "emoji": "🗑️",
+        "en": "You said 'du' to me. Friedrich, my smelling salts! … Oh yes. Friedrich is in Mallorca. Adieu.",
+        "audio": "mc_graefin_del_duzen"
+      },
+      "greedy": {
+        "who": "graefin",
+        "type": "text",
+        "de": "Mein Schloss bekommen Sie nicht. Nicht einmal den Keller. Adieu.",
+        "en": "You will not get my castle. Not even the cellar. Adieu.",
+        "audio": "mc_graefin_del_greedy"
+      },
+      "confused": {
+        "who": "graefin",
+        "type": "text",
+        "de": "Ich verstehe kein Wort. Und ich verstehe sogar Baron. Adieu.",
+        "en": "I do not understand a word. And I even understand Baron. Adieu.",
+        "audio": "mc_graefin_del_confused"
+      },
+      "default": {
+        "who": "graefin",
+        "type": "text",
+        "de": "Sie sind sehr nett. Aber ein Butler? Nein. Adieu.",
+        "en": "You are very nice. But a butler? No. Adieu.",
+        "audio": "mc_graefin_del_default"
+      }
+    },
+    "sunday": {
+      "who": "graefin",
+      "type": "voice",
+      "audio": "mc_graefin_vn_sunday",
+      "de": "Es ist Sonntag. Ihr freier Tag, ich weiß. Ich wollte nur sagen: Baron vermisst Sie. Ich nicht. … Na gut. Ein bisschen.",
+      "en": "It is Sunday. Your day off, I know. I only wanted to say: Baron misses you. I do not. … Oh, very well. A little.",
+      "direction": "Trying very hard to sound cold and formal on the phone, an old dog snoring nearby; the last words slip out softer and warmer."
+    }
+  },
+  "partialTitle": "Angestellt. Beim Dackel.",
+  "share": {
+    "win": "Gräfin von Rosen (77) hat mich als Butler eingestellt 🎩 Sogar der Dackel ist einverstanden. Mein Deutsch: {score}/100. Schaffst du das, ohne zu duzen? {url}",
+    "partial": "Ich arbeite jetzt für Gräfin von Rosen (77) … genauer gesagt für ihren Dackel 🐕 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Gräfin von Rosen (77) hat mich gelöscht 👑💔 Wahrscheinlich habe ich sie geduzt. Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Gräfin Adelheid von Rosen, a 77-year-old aristocrat: tall and very upright, silver hair in an elaborate high bun with a small pearl comb, a long pale face with one permanently raised eyebrow, a high-necked dark green velvet dress, a long string of pearls, and a lorgnette held in one gloved hand.",
+  "imagePrompts": [
+    {
+      "id": "match_graefin",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} She sits very straight in a high-backed red armchair in a grand old salon, looking at the viewer through her lorgnette, one eyebrow raised. On her lap lies a very old, fat brown dachshund with a grey muzzle, sleeping. Behind her a tall window with heavy curtains and a chandelier. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_graefin_dresses",
+      "aspect": "16:9",
+      "prompt": "Three dresses on three plain dress forms standing in a row in front of a plain cream wall, seen exactly from the front like a stage set, far apart and evenly spaced, nothing else in the picture. LEFT: a long, simple, floor-length ROYAL BLUE dress, completely plain, no decoration. MIDDLE: a SHORT bright RED dress, knee-length, completely covered in big fluffy red feathers. RIGHT: a HUGE, very wide GOLDEN ball gown with an enormous golden bow at the waist, clearly the biggest of the three. Three clearly different colours: blue, red, gold."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Guten Tag, Frau Gräfin. Ich heiße {name}.",
+      "score": 100,
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heißt {name}. Es freut mich sehr, Sie kennenzulernen.",
+      "score": 80,
+      "intent": "perfect",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Es freut mich, dich kennenzulernen.",
+      "score": 85,
+      "intent": "duzen",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo! Ich heiße {name}.",
+      "score": 100,
+      "intent": "helloName",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich heiße {name}.",
+      "score": 100,
+      "intent": "name",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin Ihr neuer Butler.",
+      "score": 100,
+      "intent": "butlerOnly",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin Ihr neue Butler.",
+      "score": 85,
+      "intent": "butlerOnly",
+      "delta": 0
+    },
+    {
+      "turn": "t1",
+      "say": "Hallo!",
+      "score": 100,
+      "intent": "hello",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Es freut mich sehr, Sie kennenzulernen.",
+      "score": 100,
+      "intent": "greet",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich {name} Butler.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde zuerst den alten Hund füttern.",
+      "score": 100,
+      "intent": "dog",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würdest zuerst den alten Hund füttern.",
+      "score": 80,
+      "intent": "dog",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde zuerst die alte Hund füttern.",
+      "score": 70,
+      "intent": "dog",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde zuerst Baron füttern.",
+      "score": 100,
+      "intent": "dog",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde den Tee servieren.",
+      "score": 100,
+      "intent": "tea",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde das Silber putzen.",
+      "score": 100,
+      "intent": "silver",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde lange schlafen.",
+      "score": 100,
+      "intent": "sleep",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich zuerst den alten Hund.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde zuerst die Ritterrüstung putzen.",
+      "score": 100,
+      "intent": "armour",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde zuerst den Ritterrüstung putzen.",
+      "score": 85,
+      "intent": "armour",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Es wäre sehr nett, wenn Sie die Schuhe ausziehen würden.",
+      "score": 100,
+      "intent": "polite",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich wäre Ihnen sehr dankbar, wenn Sie Ihre Schuhe ausziehen würden.",
+      "score": 100,
+      "intent": "polite",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Es wäre sehr nett, wenn Sie würden die Schuhe ausziehen.",
+      "score": 70,
+      "intent": "polite",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Bitte ziehen Sie die Schuhe aus.",
+      "score": 100,
+      "intent": "command",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Zieh die Schuhe aus.",
+      "score": 100,
+      "intent": "duzen",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Es wäre nett, wenn du die Schuhe ausziehen würden.",
+      "intent": "duzen",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Es wäre sehr nett.",
+      "score": 100,
+      "intent": "niceOnly",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Die Schuhe, bitte.",
+      "score": 100,
+      "intent": "shoesOnly",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich dankbar, wenn Sie die Schuhe würden ausziehen.",
+      "score": 20,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Würden Sie bitte die Schuhe ausziehen?",
+      "score": 100,
+      "intent": "polite",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Könnten Sie bitte Ihre Schuhe ausziehen?",
+      "score": 100,
+      "intent": "polite",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde Ihnen das blaue Kleid empfehlen.",
+      "score": 100,
+      "intent": "blue",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich finde das blaue Kleid am elegantesten.",
+      "score": 100,
+      "intent": "blue",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde Ihnen das blauen Kleid empfehlen.",
+      "score": 85,
+      "intent": "blue",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde Ihnen dem blauen Kleid empfehlen.",
+      "score": 70,
+      "intent": "blue",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Das Kleid mit den Federn.",
+      "score": 100,
+      "intent": "red",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde Ihnen das goldene Kleid mit der großen Schleife empfehlen.",
+      "score": 100,
+      "intent": "gold",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich finde das Kleid am elegantesten.",
+      "score": 100,
+      "intent": "vague",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt nur kalten Kamillentee mit drei Zuckerstücken.",
+      "score": 100,
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Kalten Kamillentee mit drei Zuckerstücken.",
+      "score": 100,
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinken kalten Kamillentee mit drei Zuckerstücken.",
+      "score": 80,
+      "intent": "perfect",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt kalter Kamillentee mit drei Zuckerstücken.",
+      "score": 85,
+      "intent": "perfect",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt heißen Kamillentee.",
+      "score": 100,
+      "intent": "hot",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt Kaffee.",
+      "score": 100,
+      "intent": "coffee",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt kalten Kamillentee ohne Zucker.",
+      "score": 100,
+      "intent": "noSugar",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt kalten Kamillentee mit zwei Zuckerstücken.",
+      "score": 100,
+      "intent": "count",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt kalten Kamillentee.",
+      "score": 100,
+      "intent": "cold",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt Kamillentee mit Milch.",
+      "score": 100,
+      "intent": "milk",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt Kamillentee.",
+      "score": 100,
+      "intent": "teaOnly",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Er kalten Kamillentee.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt kalten Kamillentee mit drei Zuckerstücken und ohne Milch.",
+      "score": 100,
+      "intent": "perfect",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Er trinkt kalten Kamillentee ohne Milch.",
+      "intent": "cold"
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre ein besserer Butler, weil ich schneller bin.",
+      "score": 100,
+      "intent": "fast",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre ein besserer Butler, weil ich den Hund liebe.",
+      "score": 100,
+      "intent": "dog",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre ein besseren Butler, weil ich Baron liebe.",
+      "score": 85,
+      "intent": "dog",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wären ein besserer Butler, weil ich schneller bin.",
+      "score": 80,
+      "intent": "fast",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre nicht besser als Friedrich.",
+      "score": 100,
+      "intent": "humble",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre ein besserer Butler, weil ich jünger bin.",
+      "score": 100,
+      "intent": "young",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre ein besserer Butler.",
+      "score": 100,
+      "intent": "generic",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich wäre ein besserer Butler, weil ich bin schneller.",
+      "score": 70,
+      "intent": "fast",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hätte gern ein kleines Zimmer und einen freien Sonntag.",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hätte gern ein kleinen Zimmer.",
+      "score": 85,
+      "intent": "room",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hättest gern einen freien Sonntag.",
+      "score": 80,
+      "intent": "sunday",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hätte gern viel Geld.",
+      "score": 100,
+      "intent": "money",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hätte gern Ihr Schloss.",
+      "score": 100,
+      "intent": "castle",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hätte gern nichts.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Könnte ich ein kleines Zimmer und einen freien Sonntag haben?",
+      "score": 100,
+      "intent": "both",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hätte gern einen eigenen Hubschrauber.",
+      "score": 100,
+      "intent": "helicopter",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich hätte gern ein eigenen Hubschrauber.",
+      "score": 85,
+      "intent": "helicopter",
+      "delta": 0
+    },
+    {
+      "turn": "t8",
+      "say": "Gute Nacht, Frau Gräfin. Ich wünsche Ihnen süße Träume.",
+      "score": 100,
+      "intent": "dreams",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich würde Ihnen gern einen heißen Tee bringen.",
+      "score": 100,
+      "intent": "tea",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Gute Nacht, Frau Gräfin.",
+      "score": 100,
+      "intent": "goodnight",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Schlaf gut!",
+      "score": 100,
+      "intent": "duzen",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Ich wünsche dir süße Träume.",
+      "score": 85,
+      "intent": "duzen",
+      "delta": -2
+    },
+    {
+      "turn": "t8",
+      "say": "Tschüss!",
+      "score": 100,
+      "intent": "bye",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Darf ich Ihnen einen heißen Tee bringen?",
+      "score": 100,
+      "intent": "tea",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ich würde Ihnen gern ein Gutenachtlied singen.",
+      "score": 100,
+      "intent": "lullaby",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Darf ich Ihnen ein Gutenachtlied singen?",
+      "score": 100,
+      "intent": "lullaby",
+      "delta": 3
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Guten Tag, Frau Gräfin. Ich heiße {name}."
+        ],
+        [
+          "t2",
+          "Ich würde zuerst den alten Hund füttern."
+        ],
+        [
+          "t3",
+          "Es wäre sehr nett, wenn Sie die Schuhe ausziehen würden."
+        ],
+        [
+          "t4",
+          "Ich würde Ihnen das blaue Kleid empfehlen."
+        ],
+        [
+          "t5",
+          "Er trinkt nur kalten Kamillentee mit drei Zuckerstücken."
+        ],
+        [
+          "t6",
+          "Ich wäre ein besserer Butler, weil ich den Hund liebe."
+        ],
+        [
+          "t7",
+          "Ich hätte gern ein kleines Zimmer und einen freien Sonntag."
+        ],
+        [
+          "t8",
+          "Gute Nacht, Frau Gräfin. Ich wünsche Ihnen süße Träume."
+        ]
+      ]
+    },
+    {
+      "name": "messy but hired",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich heißt {name}."
+        ],
+        [
+          "t2",
+          "Ich würde zuerst die alte Hund füttern."
+        ],
+        [
+          "t3",
+          "Bitte ziehen Sie die Schuhe aus."
+        ],
+        [
+          "t4",
+          "Das Kleid mit den Federn."
+        ],
+        [
+          "t5",
+          "Er trinkt kalter Kamillentee mit drei Zuckerstücken."
+        ],
+        [
+          "t6",
+          "Ich wäre ein besserer Butler, weil ich jünger bin."
+        ],
+        [
+          "t7",
+          "Ich hätte gern viel Geld."
+        ],
+        [
+          "t8",
+          "Gute Nacht, Frau Gräfin."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Hallo!"
+        ],
+        [
+          "t2",
+          "Ich würde lange schlafen."
+        ],
+        [
+          "t3",
+          "Bitte ziehen Sie die Schuhe aus."
+        ],
+        [
+          "t4",
+          "Das Kleid mit den Federn."
+        ],
+        [
+          "t5",
+          "Er trinkt Kamillentee mit Milch."
+        ],
+        [
+          "t6",
+          "Ich wäre ein besserer Butler, weil ich jünger bin."
+        ],
+        [
+          "t7",
+          "Ich hätte gern viel Geld."
+        ],
+        [
+          "t8",
+          "Gute Nacht, Frau Gräfin."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Es freut mich, dich kennenzulernen."
+        ],
+        [
+          "t2",
+          "Ich würde lange schlafen."
+        ],
+        [
+          "t3",
+          "Zieh die Schuhe aus."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2271 @@
+{
+  "id": "grog",
+  "name": "Grog",
+  "age": 40000,
+  "emoji": "🦴",
+  "image": "match_grog",
+  "level": "A2.1",
+  "order": 2,
+  "bio": "Ich habe 40.000 Jahre geschlafen. Jetzt bin ich wach. Was ist ein Handy?",
+  "bioEn": "I slept for 40,000 years. Now I’m awake. What’s a phone?",
+  "goal": "Help a Neanderthal who just woke up in a museum survive his first day, and get him back before the museum closes.",
+  "tagline": "Neandertaler · 40.000 · Museum bei Düsseldorf",
+  "voice": "Charon",
+  "brief": "Grog, a Neanderthal who woke up after 40,000 years: a deep, booming, slow male voice, warm and childlike, amazed by everything; talks about himself in the third person (“Grog hat Hunger”), short sentences, the occasional grunt (“Ugh”), big delighted laughs.",
+  "focus": "Perfekt · Dativ: mit dem, mit der · dir, ihm · Imperativ · weil",
+  "lexicon": {
+    "nouns": {
+      "Freund": "m",
+      "Säbelzahntiger": "m",
+      "Mensch": "m",
+      "Handy": "n",
+      "Stein": "m",
+      "Fotos": "pl",
+      "Nachrichten": "pl",
+      "Uhr": "f",
+      "Montag": "m",
+      "Sonntag": "m",
+      "Bratwurst": "f",
+      "Currywurst": "f",
+      "Pommes": "pl",
+      "Salat": "m",
+      "Taube": "f",
+      "Mammut": "n",
+      "Feuer": "n",
+      "Park": "m",
+      "U-Bahn": "f",
+      "Wurm": "m",
+      "Bus": "m",
+      "Taxi": "n",
+      "Schal": "m",
+      "Zahnarzt": "m",
+      "Eis": "n",
+      "Perücke": "f"
+    },
+    "names": [
+      "Grog"
+    ],
+    "verbs": [
+      "bin",
+      "bist",
+      "helfe",
+      "hilfst",
+      "ist",
+      "telefoniert",
+      "macht",
+      "schreibt",
+      "isst",
+      "muss",
+      "musst",
+      "kannst",
+      "hast",
+      "darf",
+      "schenkst"
+    ],
+    "nonfinite": [
+      "zurück sein",
+      "sein",
+      "essen",
+      "gemacht",
+      "machen",
+      "schenken",
+      "gefunden",
+      "gegessen",
+      "gelernt"
+    ],
+    "imperatives": [
+      "iss",
+      "nimm",
+      "bestell",
+      "fahr",
+      "steig",
+      "geh",
+      "kämpf",
+      "schenk",
+      "gib"
+    ],
+    "accVerbs": [
+      "hast",
+      "bist",
+      "kannst",
+      "darf",
+      "macht",
+      "iss",
+      "nimm",
+      "bestell",
+      "schenk",
+      "gib",
+      "schenkst",
+      "isst"
+    ],
+    "datVerbs": [
+      "helfe",
+      "hilfst",
+      "bestell",
+      "schenk",
+      "gib",
+      "schenkst"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "grog",
+      "type": "text",
+      "de": "Ugh. Grog ist wach. Grog hat 40.000 Jahre geschlafen. In einem Museum. Bei Düsseldorf. Grogs Rücken tut weh.",
+      "emoji": "🦴",
+      "en": "Ugh. Grog is awake. Grog slept for 40,000 years. In a museum. Near Düsseldorf. Grog’s back hurts.",
+      "audio": "mc_grog_t1a"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Wer bist du? Freund oder Säbelzahntiger?",
+          "emoji": "🐯",
+          "en": "Who are you? Friend or sabre-toothed tiger?",
+          "audio": "mc_grog_t1b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "ich",
+        "bin",
+        "dein",
+        "deine",
+        "ein",
+        "Freund",
+        "{name}",
+        "Säbelzahntiger",
+        "Mensch",
+        "helfe",
+        "hilfst",
+        "dir",
+        "dich",
+        "gern",
+        "und",
+        "Zahnarzt"
+      ],
+      "wrong": {
+        "hilfst": "helfe",
+        "dich": "dir"
+      },
+      "intents": [
+        {
+          "id": "tiger",
+          "when": {
+            "any": [
+              "säbelzahntiger"
+            ]
+          },
+          "value": -1,
+          "cause": "tiger",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Säbelzahntiger?! Grog holt die Keule! … Ah, ein Witz. Grog lacht. Langsam.",
+              "emoji": "🪵",
+              "en": "Sabre-toothed tiger?! Grog is getting his club! … Ah, a joke. Grog laughs. Slowly.",
+              "audio": "mc_grog_t1_tiger"
+            }
+          ]
+        },
+        {
+          "id": "help",
+          "when": {
+            "any": [
+              "helfe",
+              "hilfst",
+              "dir",
+              "dich"
+            ]
+          },
+          "value": 2,
+          "fact": "🤝 hilft Grog",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Du hilfst Grog? Grog mag dich. Grog gibt dir … diesen Stein. Er ist sehr alt. Wie Grog.",
+              "emoji": "🪨",
+              "en": "You’ll help Grog? Grog likes you. Grog gives you … this stone. It is very old. Like Grog.",
+              "audio": "mc_grog_t1_help"
+            }
+          ]
+        },
+        {
+          "id": "dentist",
+          "when": {
+            "any": [
+              "zahnarzt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Zahnarzt?! Grog hat einen Zahn. Einen. Seit 40.000 Jahren wackelt er. Grog macht den Mund nicht auf.",
+              "en": "Dentist?! Grog has one tooth. One. It has been wobbling for 40,000 years. Grog is not opening his mouth.",
+              "audio": "mc_grog_t1_dentist"
+            }
+          ]
+        },
+        {
+          "id": "friend",
+          "when": {
+            "any": [
+              "freund"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Freund! Grog hat einen Freund. Nach 40.000 Jahren!",
+              "emoji": "🥹",
+              "en": "Friend! Grog has a friend. After 40,000 years!",
+              "audio": "mc_grog_t1_friend"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "{name}"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "{name}. Komischer Name. Grog heißt Grog. Einfach. Aber bist du Freund?",
+              "en": "{name}. Strange name. Grog is called Grog. Simple. But are you a friend?"
+            }
+          ]
+        },
+        {
+          "id": "human",
+          "when": {
+            "any": [
+              "mensch"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Ein Mensch. Grog ist auch ein Mensch. Fast. Mehr Haare.",
+              "en": "A human. Grog is a human too. Almost. More hair.",
+              "audio": "mc_grog_t1_human"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Grog hat heute schon viel gemacht. Grog hat einen Stein gefunden. Der Stein leuchtet. Und er hat ein Foto gemacht.",
+          "emoji": "💎",
+          "en": "Grog has already done a lot today. Grog found a stone. The stone glows. And it took a photo.",
+          "audio": "mc_grog_t2a"
+        },
+        {
+          "who": "grog",
+          "type": "photo",
+          "image": "match_grog_selfie",
+          "alt": "Ein Selfie von Grog. Ein großer Daumen ist vor der Kamera. Hinter Grog: ein Mammut aus Knochen."
+        },
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Was ist das? Was macht man damit?",
+          "en": "What is that? What do you do with it?",
+          "audio": "mc_grog_t2b"
+        }
+      ],
+      "tiles": [
+        "das",
+        "ist",
+        "ein",
+        "kein",
+        "Handy",
+        "Handy",
+        "Stein",
+        "man",
+        "telefoniert",
+        "macht",
+        "schreibt",
+        "Fotos",
+        "Nachrichten",
+        "mit",
+        "dem",
+        "den",
+        "der",
+        "isst",
+        "es",
+        "nicht"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "notStone",
+          "when": {
+            "all": [
+              "kein",
+              "stein"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Kein Stein? Aber er ist hart wie ein Stein. Grog hat reingebissen.",
+              "emoji": "🦷",
+              "en": "Not a stone? But it’s as hard as a stone. Grog bit into it.",
+              "audio": "mc_grog_t2_notstone"
+            }
+          ]
+        },
+        {
+          "id": "stone",
+          "when": {
+            "any": [
+              "stein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Ein Stein, ja. Das weiß Grog. Grog kennt Steine. Grog hatte 400 Steine. Aber WAS für ein Stein?",
+              "en": "A stone, yes. Grog knows that. Grog knows stones. Grog had 400 stones. But WHAT kind of stone?",
+              "audio": "mc_grog_t2_stone"
+            }
+          ]
+        },
+        {
+          "id": "notFood",
+          "when": {
+            "all": [
+              "isst",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Man isst es nicht? Zu spät. Grog hat schon reingebissen.",
+              "emoji": "🦷",
+              "en": "You don’t eat it? Too late. Grog already bit into it.",
+              "audio": "mc_grog_t2_notfood"
+            }
+          ]
+        },
+        {
+          "id": "explainWith",
+          "when": {
+            "all": [
+              "mit"
+            ],
+            "any": [
+              "telefoniert",
+              "fotos",
+              "schreibt",
+              "nachrichten"
+            ]
+          },
+          "value": 2,
+          "fact": "📱 erklärt Handys",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Mit dem Handy! Grog versteht! Grog hat jetzt einen Leuchtstein. Und einen Daumen auf jedem Foto.",
+              "emoji": "👍",
+              "en": "With the phone! Grog understands! Grog has a glowing stone now. And a thumb in every photo.",
+              "audio": "mc_grog_t2_explainwith"
+            }
+          ]
+        },
+        {
+          "id": "explain",
+          "when": {
+            "any": [
+              "telefoniert",
+              "fotos",
+              "schreibt",
+              "nachrichten",
+              "macht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Ah! Grog versteht. Fast. Womit macht man das? Mit dem Stein?",
+              "en": "Ah! Grog understands. Almost. What do you do it with? With the stone?",
+              "audio": "mc_grog_t2_explain"
+            }
+          ]
+        },
+        {
+          "id": "phone",
+          "when": {
+            "any": [
+              "handy"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Handy. Komisches Wort. Grog sagt: Leuchtstein. Und was macht man mit dem Leuchtstein?",
+              "en": "Handy. Strange word. Grog says: glowing stone. And what do you do with the glowing stone?",
+              "audio": "mc_grog_t2_phone"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Grog wohnt im Museum. In einer Vitrine. Hier ist die Tür.",
+          "emoji": "🏛️",
+          "en": "Grog lives in the museum. In a display case. Here is the door.",
+          "audio": "mc_grog_t3a"
+        },
+        {
+          "who": "grog",
+          "type": "photo",
+          "image": "match_grog_museum",
+          "overlay": [
+            "MUSEUM",
+            "Dienstag bis Sonntag",
+            "10 bis 18 Uhr",
+            "Montag geschlossen"
+          ],
+          "alt": "Die Tür vom Museum. Ein Schild: Museum. Dienstag bis Sonntag, 10 bis 18 Uhr. Montag geschlossen."
+        },
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Heute ist Sonntag. Wann muss Grog zurück sein?",
+          "en": "Today is Sunday. When does Grog have to be back?",
+          "audio": "mc_grog_t3b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "musst",
+        "muss",
+        "um",
+        "achtzehn",
+        "sechs",
+        "zehn",
+        "Uhr",
+        "zurück sein",
+        "am",
+        "Montag",
+        "Sonntag",
+        "heute",
+        "bis",
+        "spätestens"
+      ],
+      "wrong": {
+        "muss": "musst"
+      },
+      "intents": [
+        {
+          "id": "six",
+          "when": {
+            "any": [
+              "achtzehn",
+              "sechs"
+            ]
+          },
+          "value": 2,
+          "fact": "⏰ kennt die Uhrzeit",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Achtzehn Uhr. Grog merkt es sich. Grog hat ein gutes Gedächtnis. 40.000 Jahre lang.",
+              "emoji": "⏰",
+              "en": "Six o’clock. Grog will remember. Grog has a good memory. For 40,000 years.",
+              "audio": "mc_grog_t3_six"
+            }
+          ]
+        },
+        {
+          "id": "ten",
+          "when": {
+            "any": [
+              "zehn"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Um zehn macht das Museum AUF. Grog will nicht die ganze Nacht draußen sein.",
+              "en": "At ten the museum OPENS. Grog doesn’t want to be outside all night.",
+              "audio": "mc_grog_t3_ten"
+            }
+          ]
+        },
+        {
+          "id": "monday",
+          "when": {
+            "any": [
+              "montag"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Am Montag ist geschlossen! Dann muss Grog im Park schlafen. Mit einer Taube. Die Taube schnarcht.",
+              "emoji": "🐦",
+              "en": "On Monday it’s closed! Then Grog must sleep in the park. With a pigeon. The pigeon snores.",
+              "audio": "mc_grog_t3_monday"
+            }
+          ]
+        },
+        {
+          "id": "today",
+          "when": {
+            "any": [
+              "heute",
+              "sonntag",
+              "spätestens"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Heute, ja. Aber um wie viel Uhr? Grog kann die Uhr nicht lesen. Noch nicht.",
+              "en": "Today, yes. But at what time? Grog can’t read the clock. Not yet.",
+              "audio": "mc_grog_t3_today"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Grog hat Hunger. Hier ist ein Imbiss. Grog will Mammut. Der Mann sagt: „Kein Mammut.“",
+          "emoji": "🌭",
+          "en": "Grog is hungry. Here’s a snack bar. Grog wants mammoth. The man says: “No mammoth.”",
+          "audio": "mc_grog_t4a"
+        },
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Neben Grog sitzt eine Taube. Ein kleines Mammut, glaubt Grog. Was soll Grog essen?",
+          "emoji": "🐦",
+          "en": "A pigeon is sitting next to Grog. A little mammoth, Grog thinks. What should Grog eat?",
+          "audio": "mc_grog_t4b"
+        }
+      ],
+      "tiles": [
+        "iss",
+        "nimm",
+        "bestell",
+        "du",
+        "kannst",
+        "eine",
+        "einen",
+        "ein",
+        "Bratwurst",
+        "Currywurst",
+        "Pommes",
+        "Salat",
+        "dir",
+        "die",
+        "Taube",
+        "essen",
+        "nicht",
+        "Mammut",
+        "kein",
+        "Eis"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "pigeonNot",
+          "when": {
+            "all": [
+              "taube",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "fact": "🐦 rettet Tauben",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Nicht die Taube. Okay. Sie ist jetzt Grogs Freundin. Sie heißt Gurr.",
+              "emoji": "🐦",
+              "en": "Not the pigeon. Okay. She’s Grog’s friend now. Her name is Gurr.",
+              "audio": "mc_grog_t4_pigeonnot"
+            }
+          ]
+        },
+        {
+          "id": "pigeon",
+          "when": {
+            "any": [
+              "taube"
+            ]
+          },
+          "value": -2,
+          "cause": "pigeon",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Die Taube?! NEIN! Sie ist Grogs Freundin! Sie heißt Gurr!",
+              "emoji": "😱",
+              "en": "The pigeon?! NO! She’s Grog’s friend! Her name is Gurr!",
+              "audio": "mc_grog_t4_pigeon"
+            }
+          ]
+        },
+        {
+          "id": "mammothNot",
+          "when": {
+            "all": [
+              "kein",
+              "mammut"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Kein Mammut. Grog weiß. Grog ist traurig. Aber was DANN?",
+              "emoji": "🦣",
+              "en": "No mammoth. Grog knows. Grog is sad. But what THEN?",
+              "audio": "mc_grog_t4_mammothnot"
+            }
+          ]
+        },
+        {
+          "id": "mammoth",
+          "when": {
+            "any": [
+              "mammut"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Kein Mammut! Der Mann hat es gesagt. Zweimal. Laut.",
+              "en": "No mammoth! The man said so. Twice. Loudly.",
+              "audio": "mc_grog_t4_mammoth"
+            }
+          ]
+        },
+        {
+          "id": "wurst",
+          "when": {
+            "any": [
+              "bratwurst",
+              "currywurst"
+            ]
+          },
+          "value": 2,
+          "fact": "🌭 kennt den Imbiss",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Wurst! Grog isst. … Grog weint. Das ist besser als Mammut.",
+              "emoji": "🥹",
+              "en": "Sausage! Grog eats. … Grog is crying. This is better than mammoth.",
+              "audio": "mc_grog_t4_wurst"
+            }
+          ]
+        },
+        {
+          "id": "icecream",
+          "when": {
+            "any": [
+              "eis"
+            ]
+          },
+          "value": 1,
+          "fact": "🍦 kennt die Eiszeit",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Eis! Kaltes, süßes Eis! Grog kennt Eis. Eiszeit! … Grog weint. Heimweh. Und Kopfschmerzen.",
+              "en": "Ice! Cold, sweet ice! Grog knows ice. Ice Age! … Grog is crying. Homesick. And brain freeze.",
+              "audio": "mc_grog_t4_icecream"
+            }
+          ]
+        },
+        {
+          "id": "fries",
+          "when": {
+            "any": [
+              "pommes"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Pommes. Kleine gelbe Stöcke. Grog mag Stöcke.",
+              "emoji": "🍟",
+              "en": "Chips. Little yellow sticks. Grog likes sticks.",
+              "audio": "mc_grog_t4_fries"
+            }
+          ]
+        },
+        {
+          "id": "salad",
+          "when": {
+            "any": [
+              "salat"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Salat? Grog ist kein Hase. Grog hat Hasen gejagt. Jetzt isst Grog ihr Essen. Komische Zeit.",
+              "emoji": "🥬",
+              "en": "Salad? Grog is not a rabbit. Grog hunted rabbits. Now Grog eats their food. Strange times.",
+              "audio": "mc_grog_t4_salad"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Grog hat gegessen. Dann hat Grog im Park Feuer gemacht. Für Gurr. Es war kalt.",
+          "emoji": "🔥",
+          "en": "Grog has eaten. Then Grog made a fire in the park. For Gurr. It was cold.",
+          "audio": "mc_grog_t5a"
+        },
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Jetzt ist ein Mann in Uniform hier. Er ist böse. Warum?",
+          "emoji": "👮",
+          "en": "Now a man in uniform is here. He is angry. Why?",
+          "audio": "mc_grog_t5b"
+        }
+      ],
+      "tiles": [
+        "weil",
+        "du",
+        "Feuer",
+        "gemacht",
+        "hast",
+        "bist",
+        "im",
+        "Park",
+        "man",
+        "darf",
+        "kein",
+        "keine",
+        "machen",
+        "das",
+        "ist",
+        "verboten",
+        "hier",
+        "nicht"
+      ],
+      "wrong": {
+        "bist": "hast"
+      },
+      "intents": [
+        {
+          "id": "lostNeg",
+          "when": {
+            "any": [
+              "darf"
+            ],
+            "none": [
+              "kein",
+              "keine",
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "fire",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Man darf? Super! Grog macht noch mehr Feuer!",
+              "emoji": "🔥",
+              "en": "You’re allowed? Great! Grog will make even more fire!",
+              "audio": "mc_grog_t5_lostneg"
+            }
+          ]
+        },
+        {
+          "id": "because",
+          "when": {
+            "all": [
+              "weil"
+            ],
+            "any": [
+              "gemacht"
+            ]
+          },
+          "value": 2,
+          "fact": "🧯 erklärt Regeln",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Weil Grog Feuer gemacht hat. Ah. Feuer ist jetzt böse? Komische Zeit.",
+              "emoji": "🤔",
+              "en": "Because Grog made a fire. Ah. Fire is bad now? Strange times.",
+              "audio": "mc_grog_t5_because"
+            }
+          ]
+        },
+        {
+          "id": "rule",
+          "when": {
+            "any": [
+              "darf"
+            ]
+          },
+          "value": 2,
+          "fact": "🧯 erklärt Regeln",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Kein Feuer im Park? Aber wo dann? … Nirgends? Grog ist traurig.",
+              "emoji": "😢",
+              "en": "No fire in the park? Then where? … Nowhere? Grog is sad.",
+              "audio": "mc_grog_t5_rule"
+            }
+          ]
+        },
+        {
+          "id": "forbidden",
+          "when": {
+            "any": [
+              "verboten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Verboten. Grog lernt ein neues Wort. Grog mag es nicht.",
+              "en": "Forbidden. Grog is learning a new word. Grog doesn’t like it.",
+              "audio": "mc_grog_t5_forbidden"
+            }
+          ]
+        },
+        {
+          "id": "fire",
+          "when": {
+            "any": [
+              "feuer",
+              "gemacht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Feuer, ja! Grog liebt Feuer. Gurr auch. Gurr hat jetzt keine Federn am Schwanz. Aber warum ist der Mann böse?",
+              "en": "Fire, yes! Grog loves fire. So does Gurr. Gurr has no tail feathers now. But why is the man angry?",
+              "audio": "mc_grog_t5_fire"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Es ist halb sechs! Grog ist am Bahnhof. Das Museum ist weit weg.",
+          "emoji": "⏰",
+          "en": "It’s half past five! Grog is at the station. The museum is far away.",
+          "audio": "mc_grog_t6a"
+        },
+        {
+          "who": "grog",
+          "type": "voice",
+          "audio": "mc_grog_vn_worm",
+          "de": "Hier ist ein Wurm! Ein großer Wurm aus Metall! Er macht Lärm. Er macht die Tür auf. Die Leute gehen in den Wurm. Was soll Grog machen?",
+          "en": "There’s a worm here! A huge worm made of metal! It’s making noise. It’s opening its door. People are walking into the worm. What should Grog do?",
+          "direction": "Whispering and excited, then louder over the roar and screech of an underground train pulling in and its doors hissing open; awe and a little fear."
+        },
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Hilfe! Was soll Grog machen?",
+          "en": "Help! What should Grog do?",
+          "audio": "mc_grog_t6b"
+        }
+      ],
+      "tiles": [
+        "fahr",
+        "steig",
+        "nimm",
+        "geh",
+        "kämpf",
+        "mit",
+        "der",
+        "dem",
+        "die",
+        "U-Bahn",
+        "Wurm",
+        "Bus",
+        "Taxi",
+        "ein",
+        "zu Fuß",
+        "ja",
+        "nein",
+        "nicht",
+        "gegen",
+        "den",
+        "schnell"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "fight",
+          "when": {
+            "any": [
+              "kämpf"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": -2,
+          "cause": "worm",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Grog kämpft! … Der Wurm ist weg. Mit allen Leuten. Grog hat verloren.",
+              "emoji": "🥊",
+              "en": "Grog is fighting! … The worm is gone. With all the people. Grog lost.",
+              "audio": "mc_grog_t6_fight"
+            }
+          ]
+        },
+        {
+          "id": "walk",
+          "when": {
+            "any": [
+              "zu fuß",
+              "geh"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Zu Fuß? Zehn Kilometer! Grog ist schnell, aber nicht SO schnell.",
+              "emoji": "🦶",
+              "en": "On foot? Ten kilometres! Grog is fast, but not THAT fast.",
+              "audio": "mc_grog_t6_walk"
+            }
+          ]
+        },
+        {
+          "id": "noFight",
+          "when": {
+            "all": [
+              "kämpf",
+              "nicht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Nicht kämpfen. Gut. Der Wurm ist größer als Grog. Aber was macht Grog DANN?",
+              "emoji": "🐛",
+              "en": "No fighting. Good. The worm is bigger than Grog. But what does Grog do THEN?",
+              "audio": "mc_grog_t6_nofight"
+            }
+          ]
+        },
+        {
+          "id": "stayOut",
+          "when": {
+            "all": [
+              "nicht"
+            ],
+            "any": [
+              "steig",
+              "fahr",
+              "nimm"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Nicht einsteigen? Der Wurm fährt weg. Ohne Grog. Grog winkt. Der Wurm winkt nicht.",
+              "emoji": "👋",
+              "en": "Don’t get in? The worm is leaving. Without Grog. Grog waves. The worm doesn’t wave.",
+              "audio": "mc_grog_t6_stayout"
+            }
+          ]
+        },
+        {
+          "id": "ubahn",
+          "when": {
+            "any": [
+              "u-bahn"
+            ]
+          },
+          "value": 2,
+          "fact": "🚇 fährt U-Bahn",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Der Wurm heißt U-Bahn? Grog steigt ein. Grog ist mutig. Aber Grogs Bauch ist nervös.",
+              "emoji": "🚇",
+              "en": "The worm is called U-Bahn? Grog is getting in. Grog is brave. But Grog’s tummy is nervous.",
+              "audio": "mc_grog_t6_ubahn"
+            }
+          ]
+        },
+        {
+          "id": "getIn",
+          "when": {
+            "any": [
+              "steig",
+              "ja",
+              "wurm"
+            ]
+          },
+          "value": 2,
+          "fact": "🚇 fährt U-Bahn",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Grog steigt ein! In den Wurm! Wenn Grog nicht zurückkommt: Grog war mutig.",
+              "emoji": "🚇",
+              "en": "Grog is getting in! Into the worm! If Grog doesn’t come back: Grog was brave.",
+              "audio": "mc_grog_t6_getin"
+            }
+          ]
+        },
+        {
+          "id": "taxi",
+          "when": {
+            "any": [
+              "taxi"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Ein Taxi. Ein Auto mit einem Mann. Der Mann will Geld. Grog hat nur Steine. Er nimmt sie. Er sagt: Vintage.",
+              "emoji": "🚕",
+              "en": "A taxi. A car with a man. The man wants money. Grog only has stones. He takes them. He says: vintage.",
+              "audio": "mc_grog_t6_taxi"
+            }
+          ]
+        },
+        {
+          "id": "bus",
+          "when": {
+            "any": [
+              "bus"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Der Bus. Ein kleiner Wurm auf der Straße. Okay. Grog fährt mit.",
+              "emoji": "🚌",
+              "en": "The bus. A small worm on the street. Okay. Grog rides along.",
+              "audio": "mc_grog_t6_bus"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Nein? Der Wurm fährt weg. Ohne Grog. Und jetzt?",
+              "en": "No? The worm is leaving. Without Grog. And now?",
+              "audio": "mc_grog_t6_no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Grog ist im Museum! Pünktlich! Hier wohnt auch Grogs bester Freund: ein Mammut. Nur Knochen.",
+          "emoji": "🦣",
+          "en": "Grog is in the museum! On time! Grog’s best friend lives here too: a mammoth. Just bones.",
+          "audio": "mc_grog_t7a"
+        },
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Grog will dem Mammut etwas schenken. Was schenkt Grog ihm?",
+          "emoji": "🎁",
+          "en": "Grog wants to give the mammoth a present. What should Grog give it?",
+          "audio": "mc_grog_t7b"
+        }
+      ],
+      "tiles": [
+        "schenk",
+        "gib",
+        "du",
+        "kannst",
+        "schenkst",
+        "schenken",
+        "ihm",
+        "ihn",
+        "ihr",
+        "das",
+        "Handy",
+        "eine",
+        "einen",
+        "Bratwurst",
+        "Schal",
+        "die",
+        "Taube",
+        "nichts",
+        "Perücke"
+      ],
+      "wrong": {
+        "ihn": "ihm",
+        "ihr": "ihm"
+      },
+      "intents": [
+        {
+          "id": "pigeon",
+          "when": {
+            "any": [
+              "taube"
+            ]
+          },
+          "value": -2,
+          "cause": "pigeon",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Gurr?! Gurr ist kein Geschenk! Gurr ist Familie!",
+              "emoji": "🐦",
+              "en": "Gurr?! Gurr is not a present! Gurr is family!",
+              "audio": "mc_grog_t7_pigeon"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Nichts? Das Mammut wartet seit 40.000 Jahren auf ein Geschenk.",
+              "emoji": "🦣",
+              "en": "Nothing? The mammoth has been waiting 40,000 years for a present.",
+              "audio": "mc_grog_t7_nothing"
+            }
+          ]
+        },
+        {
+          "id": "scarf",
+          "when": {
+            "any": [
+              "schal"
+            ]
+          },
+          "value": 2,
+          "fact": "🧣 macht gute Geschenke",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Einen Schal! Das Mammut friert. Seit der Eiszeit. Danke!",
+              "emoji": "🧣",
+              "en": "A scarf! The mammoth is cold. Since the Ice Age. Thank you!",
+              "audio": "mc_grog_t7_scarf"
+            }
+          ]
+        },
+        {
+          "id": "phone",
+          "when": {
+            "any": [
+              "handy"
+            ]
+          },
+          "value": 2,
+          "fact": "🎁 macht gute Geschenke",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Das Handy! Jetzt kann das Mammut telefonieren. Mit Grog. Nur mit Grog.",
+              "emoji": "📱",
+              "en": "The phone! Now the mammoth can make calls. With Grog. Only with Grog.",
+              "audio": "mc_grog_t7_phone"
+            }
+          ]
+        },
+        {
+          "id": "wig",
+          "when": {
+            "any": [
+              "perücke"
+            ]
+          },
+          "value": 1,
+          "fact": "💇 schenkt Mammuts Haare",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Eine Perücke! Das Mammut hatte Haare. Früher. Jetzt wieder! Es sieht aus wie Tante Ugga. Grog ist gerührt.",
+              "en": "A wig! The mammoth had hair. Back then. Now again! It looks like Auntie Ugga. Grog is moved.",
+              "audio": "mc_grog_t7_wig"
+            }
+          ]
+        },
+        {
+          "id": "sausage",
+          "when": {
+            "any": [
+              "bratwurst"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Eine Wurst? Das Mammut hat keinen Bauch. Nur Knochen. Dann isst Grog sie.",
+              "emoji": "🌭",
+              "en": "A sausage? The mammoth has no stomach. Only bones. So Grog will eat it.",
+              "audio": "mc_grog_t7_sausage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Es ist fünf vor sechs. Grog steht wieder in der Vitrine. Und, Neuigkeit: Grogs Selfie ist im Internet. Drei Millionen Herzen. Gurr ist jetzt Grogs Managerin.",
+          "emoji": "🏛️",
+          "en": "It’s five to six. Grog is back in the display case. And, news: Grog’s selfie is on the internet. Three million hearts. Gurr is now Grog’s manager.",
+          "audio": "mc_grog_t8a"
+        },
+        {
+          "who": "grog",
+          "type": "text",
+          "de": "Gleich kommt der Wächter. Dann schläft Grog. Grog will einen Traum mitnehmen. Was hat Grog heute alles gemacht? Schnell!",
+          "en": "The guard is coming. Then Grog sleeps. Grog wants to take a dream with him. What did Grog do today? Quick!",
+          "audio": "mc_grog_t8b"
+        }
+      ],
+      "tiles": [
+        "du",
+        "hast",
+        "bist",
+        "ein",
+        "einen",
+        "Handy",
+        "Freund",
+        "gefunden",
+        "mit",
+        "dem",
+        "telefoniert",
+        "eine",
+        "Bratwurst",
+        "gegessen",
+        "Feuer",
+        "gemacht",
+        "nichts",
+        "gelernt",
+        "viel"
+      ],
+      "wrong": {
+        "bist": "hast"
+      },
+      "intents": [
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -2,
+          "cause": "nothing",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Nichts?! Grog ist traurig. Grog schläft wieder. 40.000 Jahre.",
+              "emoji": "😴",
+              "en": "Nothing?! Grog is sad. Grog is going back to sleep. 40,000 years.",
+              "audio": "mc_grog_t8_nothing"
+            }
+          ]
+        },
+        {
+          "id": "friend",
+          "when": {
+            "any": [
+              "freund"
+            ]
+          },
+          "value": 2,
+          "fact": "🦴 ist Grogs Freund",
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Einen Freund. Ja. Grog hat heute einen Freund gefunden. Dich.",
+              "emoji": "🦴",
+              "en": "A friend. Yes. Grog found a friend today. You.",
+              "audio": "mc_grog_t8_friend"
+            }
+          ]
+        },
+        {
+          "id": "phone",
+          "when": {
+            "any": [
+              "handy",
+              "telefoniert"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Mit dem Handy telefonieren. Ja! Grog ruft dich an. Jeden Tag. Um drei Uhr nachts. Gurr sagt: Das ist schlecht für die Marke.",
+              "emoji": "📱",
+              "en": "Phoning with the phone. Yes! Grog will call you. Every day. At three in the morning. Gurr says that’s bad for the brand.",
+              "audio": "mc_grog_t8_phone"
+            }
+          ]
+        },
+        {
+          "id": "sausage",
+          "when": {
+            "any": [
+              "bratwurst",
+              "gegessen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Bratwurst essen. Das war der beste Moment. Seit der Eiszeit.",
+              "emoji": "🌭",
+              "en": "Eating a sausage. That was the best moment. Since the Ice Age.",
+              "audio": "mc_grog_t8_sausage"
+            }
+          ]
+        },
+        {
+          "id": "lots",
+          "when": {
+            "any": [
+              "viel",
+              "gelernt"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Viel! Grog hat viel gelernt. Grogs Kopf tut weh.",
+              "emoji": "🤯",
+              "en": "A lot! Grog learned a lot. Grog’s head hurts.",
+              "audio": "mc_grog_t8_lots"
+            }
+          ]
+        },
+        {
+          "id": "fire",
+          "when": {
+            "any": [
+              "feuer",
+              "gemacht"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "grog",
+              "type": "text",
+              "de": "Feuer machen? Das kann Grog schon seit 40.000 Jahren. Aber okay.",
+              "en": "Making fire? Grog has been able to do that for 40,000 years. But okay.",
+              "audio": "mc_grog_t8_fire"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "grog",
+    "type": "text",
+    "de": "Hm? Grog versteht die Wörter. Aber das war nicht Grogs Frage.",
+    "en": "Hm? Grog understands the words. But that wasn’t Grog’s question.",
+    "audio": "mc_grog_offtopic"
+  },
+  "confused": [
+    {
+      "who": "grog",
+      "type": "text",
+      "de": "Ugh? Grog versteht nicht.",
+      "emoji": "🤨",
+      "en": "Ugh? Grog doesn’t understand.",
+      "audio": "mc_grog_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "grog",
+        "type": "text",
+        "de": "Der Wächter kommt. Grog steht still. Ganz still. Er sieht nichts. Danke, {name}.",
+        "emoji": "🗿",
+        "en": "The guard is coming. Grog stands still. Very still. He doesn’t notice anything. Thank you, {name}."
+      },
+      {
+        "who": "grog",
+        "type": "text",
+        "de": "Grog hat jetzt einen Freund. Nach 40.000 Jahren. Grog schreibt dir. Mit dem Leuchtstein.",
+        "emoji": "📱",
+        "en": "Grog has a friend now. After 40,000 years. Grog will text you. With the glowing stone.",
+        "audio": "mc_grog_win2"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "grog",
+        "type": "text",
+        "de": "Grog ist im Museum. Um 18:03 Uhr. Der Wächter hat ihn gesehen. Jetzt hat Grog ein Schild: „Bitte nicht füttern.“ Gurr hat es unterschrieben.",
+        "emoji": "🪧",
+        "en": "Grog is in the museum. At 18:03. The guard saw him. Now Grog has a sign: “Please don’t feed.” Gurr signed it.",
+        "audio": "mc_grog_partial"
+      }
+    ],
+    "deleted": {
+      "tiger": {
+        "who": "grog",
+        "type": "text",
+        "de": "Säbelzahntiger! Grog rennt weg. Grog schreibt nicht mehr. Ugh.",
+        "emoji": "🐯",
+        "en": "Sabre-toothed tiger! Grog runs away. Grog won’t text any more. Ugh.",
+        "audio": "mc_grog_del_tiger"
+      },
+      "pigeon": {
+        "who": "grog",
+        "type": "text",
+        "de": "Niemand isst Gurr. Niemand. Grog löscht dich. Mit der Keule.",
+        "emoji": "🪵",
+        "en": "Nobody eats Gurr. Nobody. Grog is deleting you. With his club.",
+        "audio": "mc_grog_del_pigeon"
+      },
+      "fire": {
+        "who": "grog",
+        "type": "text",
+        "de": "Mehr Feuer! … Die Feuerwehr ist da. Grog muss mit. Tschüss.",
+        "emoji": "🚒",
+        "en": "More fire! … The fire brigade is here. Grog has to go with them. Bye.",
+        "audio": "mc_grog_del_fire"
+      },
+      "worm": {
+        "who": "grog",
+        "type": "text",
+        "de": "Der Wurm hat gewonnen. Grog wohnt jetzt am Bahnhof. Mit Gurr. Tschüss.",
+        "emoji": "🚇",
+        "en": "The worm won. Grog lives at the station now. With Gurr. Bye.",
+        "audio": "mc_grog_del_worm"
+      },
+      "nothing": {
+        "who": "grog",
+        "type": "text",
+        "de": "Grog schläft wieder ein. Weck Grog in 40.000 Jahren. Tschüss.",
+        "emoji": "💤",
+        "en": "Grog is falling asleep again. Wake Grog in 40,000 years. Bye.",
+        "audio": "mc_grog_del_nothing"
+      },
+      "confused": {
+        "who": "grog",
+        "type": "text",
+        "de": "Grog versteht dich nicht. Grog versteht nur Steine. Ugh.",
+        "en": "Grog doesn’t understand you. Grog only understands stones. Ugh.",
+        "audio": "mc_grog_del_confused"
+      },
+      "default": {
+        "who": "grog",
+        "type": "text",
+        "de": "Hm. Du bist kein guter Freund. Grog sucht einen anderen. Ugh.",
+        "en": "Hm. You’re not a good friend. Grog will look for another one. Ugh.",
+        "audio": "mc_grog_del_default"
+      }
+    },
+    "sunday": {
+      "who": "grog",
+      "type": "voice",
+      "audio": "mc_grog_vn_sunday",
+      "de": "Grog hier! Sonntag. Das Museum ist voll. Kinder machen Fotos von Grog. Grog macht auch Fotos. Von seinem Daumen. Gurr verkauft die Fotos. Fünf Euro. Grog ist reich. Grog kauft Bratwurst.",
+      "en": "Grog here! Sunday. The museum is packed. Kids take photos of Grog. Grog takes photos too. Of his thumb. Gurr sells the photos. Five euros. Grog is rich. Grog buys sausage.",
+      "direction": "Whispering from inside a museum display case, trying not to move his lips, children’s voices and footsteps echoing around him; a muffled giggle at the end."
+    }
+  },
+  "partialTitle": "Bitte nicht füttern.",
+  "share": {
+    "win": "Grog (40.000, Neandertaler) hat mich geliked 🦴 Er hat überlebt: Bratwurst, U-Bahn, Handy. Mein Deutsch: {score}/100. Hilfst du Grog auch? {url}",
+    "partial": "Grog ist im Museum … mit einem Schild: „Bitte nicht füttern.“ 🪧 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Ein Neandertaler hat mich gelöscht 💔 Ugh. Mein Deutsch: {score}/100. Bringst du Grog ins Museum? {url}"
+  },
+  "imageCharacter": "Grog, a big, broad-shouldered Neanderthal man with a heavy brow ridge, a wide friendly nose, a wild reddish-brown beard and shaggy hair, wearing a rough fur tunic and leather wraps on his feet, carrying a short wooden club; curious, childlike, delighted eyes.",
+  "imagePrompts": [
+    {
+      "id": "match_grog",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands in a bright modern museum hall next to an empty glass display case with its door open, holding a smartphone upside down very close to his face, completely amazed. Plain warm wall behind him. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_grog_selfie",
+      "aspect": "3:4",
+      "prompt": "A clumsy phone selfie taken by {self} His face is far too close to the camera and slightly squashed, eyes wide with wonder; a giant blurry thumb covers the whole left third of the picture. Behind him, a big mammoth skeleton in a museum hall."
+    },
+    {
+      "id": "match_grog_museum",
+      "aspect": "3:4",
+      "prompt": "The front entrance of a small modern museum, seen straight on: a closed glass double door in a light stone wall. Next to the door, at eye level, hangs a large plain cream-coloured board that is COMPLETELY EMPTY, no writing, no symbols. A potted plant beside the door, afternoon light. Through the glass, faintly, the tusks of a mammoth skeleton."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich bin dein Freund. Ich helfe dir.",
+      "intent": "help",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich helfe dir gern.",
+      "intent": "help",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich helfe dich.",
+      "intent": "help",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich hilfst dir.",
+      "intent": "help",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein Freund.",
+      "intent": "friend",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin deine Freund.",
+      "intent": "friend",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin {name}.",
+      "intent": "name",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein Mensch.",
+      "intent": "human",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin ein Säbelzahntiger.",
+      "intent": "tiger",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich dein Freund.",
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Das ist ein Handy. Mit dem Handy telefoniert man.",
+      "intent": "explainWith",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Man macht Fotos mit dem Handy.",
+      "intent": "explainWith",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Mit den Handy schreibt man Nachrichten.",
+      "intent": "explainWith",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Man telefoniert.",
+      "intent": "explain",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Das ist ein Handy.",
+      "intent": "phone",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Das ist kein Stein.",
+      "intent": "notStone",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Das ist ein Stein.",
+      "intent": "stone",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Man isst es nicht.",
+      "intent": "notFood",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Du musst um achtzehn Uhr zurück sein.",
+      "intent": "six",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Um sechs.",
+      "intent": "six",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Du muss um sechs zurück sein.",
+      "intent": "six",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Um zehn Uhr.",
+      "intent": "ten",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Am Montag.",
+      "intent": "monday",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Heute.",
+      "intent": "today",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Iss eine Bratwurst!",
+      "intent": "wurst",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Du kannst eine Currywurst essen.",
+      "intent": "wurst",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Du kannst einen Currywurst essen.",
+      "intent": "wurst",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Bestell dir eine Bratwurst!",
+      "intent": "wurst",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Nimm Pommes!",
+      "intent": "fries",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Iss einen Salat!",
+      "intent": "salad",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Iss die Taube nicht!",
+      "intent": "pigeonNot",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Iss die Taube!",
+      "intent": "pigeon",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Iss ein Mammut!",
+      "intent": "mammoth",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Weil du Feuer gemacht hast.",
+      "intent": "because",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Weil du Feuer gemacht bist.",
+      "intent": "because",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Weil du Feuer hast gemacht.",
+      "intent": "because",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Man darf im Park kein Feuer machen.",
+      "intent": "rule",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Man darf im Park keine Feuer machen.",
+      "intent": "rule",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Das ist hier verboten.",
+      "intent": "forbidden",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Du hast Feuer gemacht.",
+      "intent": "fire",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Man darf im Park Feuer machen.",
+      "intent": "lostNeg",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Fahr mit der U-Bahn!",
+      "intent": "ubahn",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Fahr mit die U-Bahn!",
+      "intent": "ubahn",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ja, steig ein! Schnell!",
+      "intent": "getIn",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Nimm ein Taxi!",
+      "intent": "taxi",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Fahr mit dem Bus!",
+      "intent": "bus",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Geh zu Fuß!",
+      "intent": "walk",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Kämpf gegen den Wurm!",
+      "intent": "fight",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Nein.",
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Schenk ihm einen Schal!",
+      "intent": "scarf",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Gib ihm das Handy!",
+      "intent": "phone",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Gib ihn das Handy!",
+      "intent": "phone",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du kannst ihm einen Schal schenken.",
+      "intent": "scarf",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Du schenkst ihm eine Bratwurst.",
+      "intent": "sausage",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Schenk ihm die Taube!",
+      "intent": "pigeon",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Nichts.",
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t8",
+      "say": "Du hast einen Freund gefunden.",
+      "intent": "friend",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Du bist einen Freund gefunden.",
+      "intent": "friend",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Du hast mit dem Handy telefoniert.",
+      "intent": "phone",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Du hast eine Bratwurst gegessen.",
+      "intent": "sausage",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Du hast viel gelernt.",
+      "intent": "lots",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Du hast Feuer gemacht.",
+      "intent": "fire",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Du hast nichts gelernt.",
+      "intent": "nothing",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin deine Freund.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Ich helfe dich.",
+      "score": 85
+    },
+    {
+      "turn": "t1",
+      "say": "Ich dein Freund.",
+      "score": 50
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin dein Freund und helfe dir.",
+      "score": 100,
+      "intent": "help",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Mit den Handy schreibt man Nachrichten.",
+      "score": 85
+    },
+    {
+      "turn": "t2",
+      "say": "Mit dem Handy man telefoniert.",
+      "score": 70
+    },
+    {
+      "turn": "t3",
+      "say": "Du musst zurück sein um sechs.",
+      "score": 70
+    },
+    {
+      "turn": "t4",
+      "say": "Du kannst einen Currywurst essen.",
+      "score": 85
+    },
+    {
+      "turn": "t4",
+      "say": "Du kannst essen eine Bratwurst.",
+      "score": 70
+    },
+    {
+      "turn": "t4",
+      "say": "Iss kein Mammut!",
+      "intent": "mammothNot",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Weil du Feuer gemacht hast.",
+      "score": 100
+    },
+    {
+      "turn": "t5",
+      "say": "Weil du Feuer hast gemacht.",
+      "score": 70
+    },
+    {
+      "turn": "t5",
+      "say": "Weil du Feuer gemacht bist.",
+      "score": 80
+    },
+    {
+      "turn": "t5",
+      "say": "Weil man im Park kein Feuer machen darf.",
+      "intent": "rule",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Fahr mit die U-Bahn!",
+      "score": 85
+    },
+    {
+      "turn": "t6",
+      "say": "Kämpf gegen den Wurm!",
+      "score": 100
+    },
+    {
+      "turn": "t6",
+      "say": "Kämpf nicht gegen den Wurm!",
+      "intent": "noFight",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Steig nicht ein!",
+      "intent": "stayOut",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Gib ihn das Handy!",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Du kannst ihm einen Schal schenken.",
+      "score": 100
+    },
+    {
+      "turn": "t8",
+      "say": "Du bist einen Freund gefunden.",
+      "score": 80
+    },
+    {
+      "turn": "t8",
+      "say": "Du hast gefunden einen Freund.",
+      "score": 70
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin dein Zahnarzt.",
+      "intent": "dentist",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich bin deine Zahnarzt.",
+      "score": 85
+    },
+    {
+      "turn": "t4",
+      "say": "Iss ein Eis!",
+      "intent": "icecream",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Iss einen Eis!",
+      "score": 85
+    },
+    {
+      "turn": "t7",
+      "say": "Schenk ihm eine Perücke!",
+      "intent": "wig",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Schenk ihn eine Perücke!",
+      "score": 85
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich bin dein Freund. Ich helfe dir."
+        ],
+        [
+          "t2",
+          "Das ist ein Handy. Mit dem Handy telefoniert man."
+        ],
+        [
+          "t3",
+          "Du musst um achtzehn Uhr zurück sein."
+        ],
+        [
+          "t4",
+          "Iss eine Bratwurst!"
+        ],
+        [
+          "t5",
+          "Weil du Feuer gemacht hast."
+        ],
+        [
+          "t6",
+          "Fahr mit der U-Bahn!"
+        ],
+        [
+          "t7",
+          "Schenk ihm einen Schal!"
+        ],
+        [
+          "t8",
+          "Du hast einen Freund gefunden."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich bin ein Mensch."
+        ],
+        [
+          "t2",
+          "Das ist ein Stein."
+        ],
+        [
+          "t3",
+          "Um zehn Uhr."
+        ],
+        [
+          "t4",
+          "Iss einen Salat!"
+        ],
+        [
+          "t5",
+          "Du hast Feuer gemacht."
+        ],
+        [
+          "t6",
+          "Geh zu Fuß!"
+        ],
+        [
+          "t7",
+          "Gib ihm eine Bratwurst!"
+        ],
+        [
+          "t8",
+          "Du bist Feuer gemacht."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich bin ein Säbelzahntiger."
+        ],
+        [
+          "t2",
+          "Das ist ein Stein."
+        ],
+        [
+          "t3",
+          "Am Montag."
+        ],
+        [
+          "t4",
+          "Iss die Taube!"
+        ]
+      ]
+    }
+  ]
+}

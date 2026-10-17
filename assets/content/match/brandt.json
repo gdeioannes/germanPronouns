@@ -1,0 +1,1739 @@
+{
+  "id": "brandt",
+  "name": "Herr Brandt",
+  "age": 52,
+  "emoji": "🎸",
+  "image": "match_brandt",
+  "level": "C2.1",
+  "order": 1,
+  "bio": "Tagsüber Steuern. Nachts Rock. Fristen halte ich ein. Zimmerlautstärke nicht.",
+  "bioEn": "Taxes by day. Rock by night. I keep to deadlines. Not to quiet hours.",
+  "goal": "Get your tax return done before his soundcheck: match his register when he switches.",
+  "tagline": "Steuerberater · 52 · Bassist bei „Die Abschreibungen“",
+  "voice": "Fenrir",
+  "brief": "Herr Brandt, 52, tax adviser by day and bass player by night: in the office a measured, precise, slightly dusty professional voice; once he is in the band bus he turns into “Rocky”, loud, hoarse, laughing, all slang. The switch should be total and funny. Frau Kowalski from the tax office, whom he fears and admires, turns out to play the tuba.",
+  "focus": "Register (erhalten / kriegen, Erstattung / Kohle) · Funktionsverbgefüge (einen Antrag stellen, Fristen einhalten) · Wortbildung (-bar)",
+  "lexicon": {
+    "nouns": {
+      "Belege": "pl",
+      "Lohnsteuerbescheinigung": "f",
+      "Schuhkarton": "m",
+      "Quittungen": "pl",
+      "Fristverlängerung": "f",
+      "Antrag": "m",
+      "Frist": "f",
+      "Bürostuhl": "m",
+      "Pizza": "f",
+      "Gitarrensaiten": "pl",
+      "Unterschrift": "f",
+      "Haufen": "m",
+      "Kohle": "f",
+      "Erstattung": "f",
+      "Alter": "m",
+      "Unterlagen": "pl",
+      "Erklärung": "f",
+      "Song": "m",
+      "Finanzamt": "n",
+      "Blockflöte": "f"
+    },
+    "names": [
+      "Rocky"
+    ],
+    "verbs": [
+      "habe",
+      "könnten",
+      "können",
+      "ist",
+      "sind",
+      "dürfte",
+      "fehlt",
+      "passt",
+      "krieg",
+      "erhalte",
+      "möchte",
+      "werden",
+      "wird",
+      "kommt",
+      "bin",
+      "komm",
+      "werde",
+      "würde"
+    ],
+    "nonfinite": [
+      "erhalten",
+      "gekriegt",
+      "beantragen",
+      "stellen",
+      "machen",
+      "einhalten",
+      "ignorieren",
+      "abgeben",
+      "absetzen",
+      "sein",
+      "bestätigen",
+      "eingereicht",
+      "erscheinen",
+      "entgehen",
+      "entkommen",
+      "lassen",
+      "einladen"
+    ],
+    "accVerbs": [
+      "habe",
+      "könnten",
+      "können",
+      "krieg",
+      "erhalte",
+      "möchte",
+      "würde"
+    ],
+    "adjectives": []
+  },
+  "intro": [
+    {
+      "who": "brandt",
+      "type": "text",
+      "de": "Guten Tag. Brandt, Steuerberatung. Bitte nehmen Sie Platz.",
+      "emoji": "🗂️",
+      "en": "Good afternoon. Brandt, tax consultancy. Please take a seat.",
+      "audio": "mc_brandt_introa"
+    },
+    {
+      "who": "brandt",
+      "type": "text",
+      "de": "Wir haben ungefähr eine Stunde. Danach habe ich einen … privaten Termin. Ignorieren Sie den Gitarrenkoffer. Das ist ein Aktenkoffer. Für tiefe Akten.",
+      "emoji": "🎸",
+      "en": "We have about an hour. After that I have a … private appointment. Ignore the guitar case. It is a briefcase. For deep files.",
+      "audio": "mc_brandt_introb"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "brandt",
+          "type": "text",
+          "de": "Welche Unterlagen haben Sie mitgebracht? Mein letzter Mandant hat nur Gefühle mitgebracht.",
+          "emoji": "📂",
+          "en": "Which documents have you brought? My last client brought only feelings.",
+          "audio": "mc_brandt_t1a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "sämtliche",
+        "Belege",
+        "dabei",
+        "meine",
+        "meinen",
+        "Lohnsteuerbescheinigung",
+        "erhalten",
+        "gekriegt",
+        "einen",
+        "Schuhkarton",
+        "voller",
+        "Quittungen",
+        "gar nichts",
+        "und"
+      ],
+      "wrong": {
+        "gekriegt": {
+          "to": "erhalten",
+          "note": "Colloquial. At the tax adviser's desk, in the formal register: erhalten (or bekommen)."
+        }
+      },
+      "intents": [
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "gar nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Gar nichts. Das ist mutig. Das Finanzamt nennt es anders. Frau Kowalski nennt es „Freitag“.",
+              "en": "Nothing at all. That is brave. The tax office calls it something else. Frau Kowalski calls it “Friday”.",
+              "audio": "mc_brandt_t1_nothing"
+            }
+          ]
+        },
+        {
+          "id": "all",
+          "when": {
+            "any": [
+              "sämtliche",
+              "belege"
+            ]
+          },
+          "value": 2,
+          "fact": "🗂️ bringt sämtliche Belege",
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Sämtliche Belege. Wunderbar. Sie sind ein seltener Mensch. Ein geordneter.",
+              "emoji": "🗂️",
+              "en": "All the receipts. Wonderful. You are a rare person. An orderly one.",
+              "audio": "mc_brandt_t1_all"
+            }
+          ]
+        },
+        {
+          "id": "certificate",
+          "when": {
+            "any": [
+              "lohnsteuerbescheinigung"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Die Lohnsteuerbescheinigung. Gut. Das ist schon die halbe Miete. Steuerlich gesprochen.",
+              "en": "The payroll tax certificate. Good. That’s half the battle. Fiscally speaking.",
+              "audio": "mc_brandt_t1_certificate"
+            }
+          ]
+        },
+        {
+          "id": "shoebox",
+          "when": {
+            "any": [
+              "schuhkarton"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Ein Schuhkarton voller Quittungen. Der Klassiker. Ich habe einen Raum nur für Schuhkartons. Wir proben manchmal darin. Die Akustik ist hervorragend.",
+              "emoji": "👟",
+              "en": "A shoebox full of receipts. The classic. I have a room just for shoeboxes. We rehearse in it sometimes. The acoustics are excellent.",
+              "audio": "mc_brandt_t1_shoebox"
+            }
+          ]
+        },
+        {
+          "id": "receipts",
+          "when": {
+            "any": [
+              "quittungen"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Quittungen. Lose, vermute ich. Ich höre den Schuhkarton schon von hier.",
+              "emoji": "👟",
+              "en": "Receipts. Loose ones, I presume. I can hear the shoebox from here.",
+              "audio": "mc_brandt_t1_receipts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "brandt",
+          "type": "text",
+          "de": "Wir haben ein kleines Problem. Die Frist für Ihre Erklärung läuft morgen ab. Frau Kowalski vom Finanzamt verlängert nie. Sie hat 1998 einmal verlängert. Man spricht noch heute davon.",
+          "emoji": "📅",
+          "en": "We have a small problem. The deadline for your return runs out tomorrow. Frau Kowalski at the tax office never extends. She extended once, in 1998. People still talk about it.",
+          "audio": "mc_brandt_t2a"
+        },
+        {
+          "who": "brandt",
+          "type": "text",
+          "de": "Was schlagen Sie vor?",
+          "en": "What do you suggest?",
+          "audio": "mc_brandt_t2b"
+        }
+      ],
+      "tiles": [
+        "wir",
+        "könnten",
+        "eine",
+        "einen",
+        "Fristverlängerung",
+        "Antrag",
+        "auf",
+        "beantragen",
+        "stellen",
+        "machen",
+        "die",
+        "Frist",
+        "einhalten",
+        "ignorieren",
+        "heute",
+        "noch",
+        "alles",
+        "abgeben",
+        "das",
+        "Finanzamt",
+        "zum Konzert",
+        "einladen"
+      ],
+      "wrong": {
+        "machen": {
+          "to": "stellen",
+          "note": "Fixed collocation: 'einen Antrag stellen' (or simply 'eine Fristverlängerung beantragen'). A request is never 'gemacht'."
+        }
+      },
+      "prepCase": {
+        "auf": "acc"
+      },
+      "intents": [
+        {
+          "id": "invite",
+          "when": {
+            "any": [
+              "einladen",
+              "zum konzert"
+            ]
+          },
+          "value": 0,
+          "flags": [
+            "invited"
+          ],
+          "fact": "🎟️ lädt das Finanzamt zum Rockkonzert ein",
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Das Finanzamt zum Konzert einladen. Bestechung mit Rock. Illegal, aber interessant. Frau Kowalski kommt sowieso nicht. … Oder doch?",
+              "emoji": "🎟️",
+              "en": "Invite the tax office to the gig. Bribery by rock. Illegal, but interesting. Frau Kowalski would never come anyway. … Or would she?",
+              "audio": "mc_brandt_t2_invite"
+            }
+          ]
+        },
+        {
+          "id": "ignore",
+          "when": {
+            "any": [
+              "ignorieren"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Ignorieren. Das sagt mein Schlagzeuger auch. Er zahlt gerade Verspätungszuschläge. Viele.",
+              "emoji": "🥁",
+              "en": "Ignore it. My drummer says that too. He’s currently paying late-filing surcharges. Lots of them.",
+              "audio": "mc_brandt_t2_ignore"
+            }
+          ]
+        },
+        {
+          "id": "extension",
+          "when": {
+            "any": [
+              "antrag",
+              "fristverlängerung",
+              "beantragen"
+            ]
+          },
+          "value": 2,
+          "fact": "📝 stellt Anträge fristgerecht",
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Einen Antrag auf Fristverlängerung. Sehr professionell. Sie hätten Steuerberater werden sollen.",
+              "emoji": "📝",
+              "en": "An application for an extension. Very professional. You should have become a tax adviser.",
+              "audio": "mc_brandt_t2_extension"
+            }
+          ]
+        },
+        {
+          "id": "keep",
+          "when": {
+            "any": [
+              "einhalten",
+              "abgeben"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Die Frist einhalten. Heute noch. Ehrgeizig. Ich mag Ehrgeiz. Vor allem vor acht Uhr.",
+              "en": "Meet the deadline. Today. Ambitious. I like ambition. Especially before eight o’clock.",
+              "audio": "mc_brandt_t2_keep"
+            }
+          ]
+        },
+        {
+          "id": "frist",
+          "when": {
+            "any": [
+              "frist"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Die Frist, ja. Aber was machen wir mit ihr?",
+              "en": "The deadline, yes. But what do we do with it?",
+              "audio": "mc_brandt_t2_frist"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "brandt",
+          "type": "text",
+          "de": "Nun zu den Werbungskosten. Ich habe drei Quittungen von Ihnen.",
+          "emoji": "🧾",
+          "en": "Now to work-related expenses. I have three receipts from you.",
+          "audio": "mc_brandt_t3a"
+        },
+        {
+          "who": "brandt",
+          "type": "photo",
+          "image": "match_brandt_receipts",
+          "wide": true,
+          "overlay": [
+            "Links: Bürostuhl – 189,00 €",
+            "Mitte: Gitarrensaiten – 12,00 €",
+            "Rechts: Pizza Familiengröße – 34,00 €"
+          ],
+          "alt": "Drei Quittungen auf einem Schreibtisch. Links: Bürostuhl, 189 Euro. In der Mitte: Gitarrensaiten, 12 Euro. Rechts: Pizza, 34 Euro."
+        },
+        {
+          "who": "brandt",
+          "type": "text",
+          "de": "Welche davon können wir absetzen?",
+          "en": "Which of them can we deduct?",
+          "audio": "mc_brandt_t3c"
+        }
+      ],
+      "tiles": [
+        "den",
+        "die",
+        "der",
+        "Bürostuhl",
+        "Pizza",
+        "Gitarrensaiten",
+        "können",
+        "wir",
+        "steuerlich",
+        "absetzen",
+        "ist",
+        "sind",
+        "nicht",
+        "absetzbar",
+        "absetzlich",
+        "geltend",
+        "machen",
+        "dürfte",
+        "sein"
+      ],
+      "wrong": {
+        "absetzlich": {
+          "to": "absetzbar",
+          "note": "'-bar' means 'can be done': absetzbar = deductible. 'absetzlich' isn't a word."
+        }
+      },
+      "intents": [
+        {
+          "id": "chairNot",
+          "when": {
+            "all": [
+              "bürostuhl",
+              "nicht"
+            ],
+            "none": [
+              "pizza",
+              "gitarrensaiten"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Nicht absetzbar? Der Bürostuhl ist ein Arbeitsmittel. Ich sitze gerade auf meinem. Er ist längst abgeschrieben. Ich noch nicht.",
+              "emoji": "🪑",
+              "en": "Not deductible? The office chair is work equipment. I’m sitting on mine right now. It’s long since written off. I’m not. Yet.",
+              "audio": "mc_brandt_t3_chairnot"
+            }
+          ]
+        },
+        {
+          "id": "chair",
+          "when": {
+            "any": [
+              "bürostuhl"
+            ]
+          },
+          "value": 2,
+          "fact": "🧾 kennt Werbungskosten",
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Den Bürostuhl. Arbeitsmittel. Ich sehe, Sie lesen Steuerrecht zum Vergnügen. Ich auch. Laut. Im Bandbus.",
+              "emoji": "🪑",
+              "en": "The office chair. Work equipment. I see you read tax law for pleasure. So do I. Out loud. In the band bus.",
+              "audio": "mc_brandt_t3_chair"
+            }
+          ]
+        },
+        {
+          "id": "pizzaNot",
+          "when": {
+            "all": [
+              "pizza",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Die Pizza ist nicht absetzbar. Leider. Ich habe es 2019 selbst versucht.",
+              "emoji": "🍕",
+              "en": "The pizza is not deductible. Sadly. I tried it myself in 2019.",
+              "audio": "mc_brandt_t3_pizzanot"
+            }
+          ]
+        },
+        {
+          "id": "pizza",
+          "when": {
+            "any": [
+              "pizza"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Die Pizza? Nur wenn Sie hauptberuflich Pizza testen. Tun Sie das? Bitte sagen Sie ja. Ich hätte Fragen.",
+              "en": "The pizza? Only if you test pizza for a living. Do you? Please say yes. I would have questions.",
+              "audio": "mc_brandt_t3_pizza"
+            }
+          ]
+        },
+        {
+          "id": "stringsNot",
+          "when": {
+            "all": [
+              "gitarrensaiten",
+              "nicht"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Nicht absetzbar. Jedenfalls nicht bei Ihnen. Bei mir … darüber reden wir später. Mit meinem Anwalt. Er spielt Schlagzeug.",
+              "emoji": "🎸",
+              "en": "Not deductible. Not for you, anyway. For me … we will talk about that later. With my lawyer. He plays drums.",
+              "audio": "mc_brandt_t3_stringsnot"
+            }
+          ]
+        },
+        {
+          "id": "strings",
+          "when": {
+            "any": [
+              "gitarrensaiten"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Gitarrensaiten. Für Sie? Nein. Für mich … darüber reden wir später.",
+              "emoji": "🎸",
+              "en": "Guitar strings. For you? No. For me … we’ll talk about that later.",
+              "audio": "mc_brandt_t3_strings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "brandt",
+          "type": "text",
+          "de": "Entschuldigen Sie, ich muss kurz … Ich melde mich gleich.",
+          "emoji": "📱",
+          "en": "Excuse me, I have to briefly … I’ll be right back.",
+          "audio": "mc_brandt_t4a"
+        },
+        {
+          "who": "brandt",
+          "type": "voice",
+          "audio": "mc_brandt_vn_switch",
+          "de": "Ey! Brandt hier. Sorry, Planänderung! Ich sitz schon im Bandbus, Soundcheck um acht. Der Bus ist von 1987 und abgeschrieben, genau wie unser Schlagzeuger. Schick mir einfach kurz, was noch fehlt, okay? Und lass das Sie weg, Mann. Nachts bin ich Rocky.",
+          "en": "Hey! Brandt here. Sorry, change of plan! I am already in the band bus, soundcheck at eight. The bus is from 1987 and fully written off, just like our drummer. Just send me quickly what is still missing, okay? And drop the Sie, man. At night I am Rocky.",
+          "direction": "Shouting cheerfully over a rattling van engine and someone tuning a bass, hoarse and laughing, a completely different man from the office voice."
+        },
+        {
+          "who": "brandt",
+          "type": "text",
+          "de": "Also, was fehlt noch?",
+          "en": "So, what’s still missing?",
+          "audio": "mc_brandt_t4c"
+        }
+      ],
+      "tiles": [
+        "es",
+        "fehlt",
+        "nur",
+        "noch",
+        "lediglich",
+        "deine",
+        "Unterschrift",
+        "Ihre Unterschrift",
+        "Rocky",
+        "alles",
+        "klar",
+        "passt",
+        "schon"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "formal",
+          "when": {
+            "any": [
+              "lediglich",
+              "ihre unterschrift"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Alter, ich hab schon die Lederjacke an. Das Büro-Deutsch kannst du dir sparen. Locker bleiben!",
+              "emoji": "🧥",
+              "en": "Mate, I’ve already got my leather jacket on. You can skip the office German. Chill!",
+              "audio": "mc_brandt_t4_formal"
+            }
+          ]
+        },
+        {
+          "id": "casual",
+          "when": {
+            "any": [
+              "deine"
+            ]
+          },
+          "value": 2,
+          "fact": "🤘 wechselt locker das Register",
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Geil. Unterschrift kriegst du. Nach dem Soundcheck. Oder davor. Mal sehen.",
+              "emoji": "🤘",
+              "en": "Awesome. You’ll get the signature. After the soundcheck. Or before. We’ll see.",
+              "audio": "mc_brandt_t4_casual"
+            }
+          ]
+        },
+        {
+          "id": "rocky",
+          "when": {
+            "any": [
+              "rocky"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Rocky! So nennen mich nur meine Fans. Und meine Mutter. Und seit heute du. Das sind jetzt drei.",
+              "en": "Rocky! Only my fans call me that. And my mother. And, since today, you. That makes three.",
+              "audio": "mc_brandt_t4_rocky"
+            }
+          ]
+        },
+        {
+          "id": "allGood",
+          "when": {
+            "any": [
+              "klar",
+              "passt"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Nee, Alter. Beim Finanzamt fehlt immer was. Immer.",
+              "en": "Nope, mate. With the tax office something is always missing. Always.",
+              "audio": "mc_brandt_t4_allgood"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "brandt",
+          "type": "text",
+          "de": "Läuft. Und? Kriegst du was zurück? Was meinst du?",
+          "emoji": "💸",
+          "en": "Sorted. So? Are you getting anything back? What do you reckon?",
+          "audio": "mc_brandt_t5a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "krieg",
+        "erhalte",
+        "bestimmt",
+        "voraussichtlich",
+        "einen",
+        "eine",
+        "Haufen",
+        "Kohle",
+        "Erstattung",
+        "zurück",
+        "keine Ahnung",
+        "Alter",
+        "nix"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "cash",
+          "when": {
+            "any": [
+              "kohle",
+              "haufen"
+            ]
+          },
+          "value": 2,
+          "fact": "💸 redet nachts wie ein Rocker",
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Einen Haufen Kohle! So muss das klingen! Davon kaufst du dir ein Ticket für unser Konzert.",
+              "emoji": "🎟️",
+              "en": "A pile of cash! That’s how it should sound! You’ll buy a ticket for our gig with it.",
+              "audio": "mc_brandt_t5_cash"
+            }
+          ]
+        },
+        {
+          "id": "formal",
+          "when": {
+            "any": [
+              "erstattung",
+              "voraussichtlich",
+              "erhalte"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Uff. Du klingst wie ich um neun Uhr morgens. Mit Krawatte. Gruselig.",
+              "emoji": "👻",
+              "en": "Ugh. You sound like me at nine in the morning. In a tie. Creepy.",
+              "audio": "mc_brandt_t5_formal"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "any": [
+              "keine ahnung"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Keine Ahnung? Ehrlich. Rock ’n’ Roll. Ich schau nachher nach.",
+              "en": "No idea? Honest. Rock ’n’ roll. I’ll check later.",
+              "audio": "mc_brandt_t5_dunno"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nix"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Nix? Dann spielen wir heute ein trauriges Lied. Für dich. In Moll. Mit Belegen.",
+              "emoji": "🎶",
+              "en": "Nothing? Then tonight we will play a sad song. For you. In a minor key. With receipts.",
+              "audio": "mc_brandt_t5_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "brandt",
+          "type": "text",
+          "de": "Mist! Das Finanzamt ruft an. Frau Kowalski persönlich. Im Bandbus! Der Schlagzeuger übt gerade. Ich stell dich auf laut. Sag was Seriöses!",
+          "emoji": "📞",
+          "en": "Damn! The tax office is calling. Frau Kowalski in person. In the band bus! The drummer is practising. I am putting you on speaker. Say something respectable!",
+          "audio": "mc_brandt_t6a"
+        }
+      ],
+      "tiles": [
+        "guten Tag",
+        "hey Leute",
+        "ich",
+        "möchte",
+        "bestätigen",
+        "dass",
+        "die",
+        "der",
+        "Unterlagen",
+        "Erklärung",
+        "fristgerecht",
+        "eingereicht",
+        "werden",
+        "wird",
+        "kommt",
+        "voll",
+        "pünktlich"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "casual",
+          "when": {
+            "any": [
+              "hey leute"
+            ]
+          },
+          "value": -2,
+          "cause": "register",
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "„Hey Leute“?! Das war Frau Kowalski! Sie hat aufgelegt. Und meine Akte rot markiert. Mit Textmarker. Ich habe es gehört.",
+              "emoji": "🟥",
+              "en": "“Hey guys”?! That was Frau Kowalski! She hung up. And marked my file red. With a highlighter. I heard it.",
+              "audio": "mc_brandt_t6_casual"
+            }
+          ]
+        },
+        {
+          "id": "slang",
+          "when": {
+            "any": [
+              "voll"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "„Voll pünktlich“? Die Dame hat lange geschwiegen. Dann hat sie „aha“ gesagt. Sehr langsam.",
+              "emoji": "😶",
+              "en": "“Totally on time”? The lady said nothing for a long time. Then she said “I see”. Very slowly.",
+              "audio": "mc_brandt_t6_slang"
+            }
+          ]
+        },
+        {
+          "id": "formal",
+          "when": {
+            "any": [
+              "fristgerecht",
+              "bestätigen"
+            ]
+          },
+          "value": 2,
+          "fact": "🏛️ spricht mit dem Finanzamt wie ein Profi",
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Perfekt. Frau Kowalski hat sich bedankt. Bei MIR. Dann hat sie gefragt, ob wir noch jemanden an der Tuba brauchen.",
+              "emoji": "🎺",
+              "en": "Perfect. Frau Kowalski said thank you. To ME. Then she asked whether we still need someone on tuba.",
+              "audio": "mc_brandt_t6_formal"
+            }
+          ]
+        },
+        {
+          "id": "punctual",
+          "when": {
+            "any": [
+              "pünktlich"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Pünktlich. Gut. Ein bisschen schlicht, aber sie hat genickt. Ich habe es gehört.",
+              "en": "On time. Good. A bit plain, but she nodded. I heard it.",
+              "audio": "mc_brandt_t6_punctual"
+            }
+          ]
+        },
+        {
+          "id": "greet",
+          "when": {
+            "any": [
+              "guten tag"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Guten Tag … und? Die Dame wartet. Sie wartet hörbar.",
+              "en": "Good afternoon … and? The lady is waiting. She is waiting very audibly.",
+              "audio": "mc_brandt_t6_greet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "brandt",
+          "type": "text",
+          "de": "Puh. Soundcheck! Und jetzt halt dich fest: Frau Kowalski kommt heute Abend. Mit Tuba. Kommst du auch? Wir haben einen neuen Song über Abschreibungen. Er dauert sieben Minuten. Wie eine Betriebsprüfung.",
+          "emoji": "🎺",
+          "en": "Phew. Soundcheck! And now hold on tight: Frau Kowalski is coming tonight. With a tuba. Are you coming too? We have a new song about depreciation. It lasts seven minutes. Like a tax audit.",
+          "audio": "mc_brandt_t7a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "okay",
+        "ich",
+        "bin",
+        "dabei",
+        "komm",
+        "vorbei",
+        "werde",
+        "voraussichtlich",
+        "erscheinen",
+        "den",
+        "Song",
+        "würde",
+        "mir",
+        "nicht",
+        "entgehen",
+        "entkommen",
+        "lassen",
+        "leider",
+        "mit",
+        "meiner",
+        "meine",
+        "Blockflöte"
+      ],
+      "wrong": {
+        "entkommen": {
+          "to": "entgehen",
+          "note": "The idiom is 'sich etwas nicht entgehen lassen' (not to miss something). 'entkommen' means to escape."
+        }
+      },
+      "intents": [
+        {
+          "id": "recorder",
+          "when": {
+            "any": [
+              "blockflöte"
+            ]
+          },
+          "value": 2,
+          "fact": "🪈 spielt Blockflöte bei „Die Abschreibungen“",
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Mit Blockflöte! Genau das hat unserem Sound gefehlt. Du und Frau Kowalski, ihr seid ab heute die Bläsersektion.",
+              "emoji": "🪈",
+              "en": "With a recorder! That is exactly what our sound was missing. You and Frau Kowalski are now the brass section.",
+              "audio": "mc_brandt_t7_recorder"
+            }
+          ]
+        },
+        {
+          "id": "song",
+          "when": {
+            "any": [
+              "song"
+            ]
+          },
+          "value": 2,
+          "fact": "🎸 kommt zum Konzert",
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Du lässt dir den Song nicht entgehen! Ha! Du sprichst Rock UND Steuer. Du bist mein Mensch.",
+              "emoji": "🤘",
+              "en": "You won’t miss the song! Ha! You speak rock AND tax. You’re my kind of person.",
+              "audio": "mc_brandt_t7_song"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "leider",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Leider nicht? Okay. Dann schick ich dir den Song als Sprachnachricht. Alle sieben Minuten.",
+              "en": "Not this time? Okay. Then I’ll send you the song as a voice message. All seven minutes.",
+              "audio": "mc_brandt_t7_no"
+            }
+          ]
+        },
+        {
+          "id": "formal",
+          "when": {
+            "any": [
+              "erscheinen",
+              "voraussichtlich"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "„Voraussichtlich erscheinen“? Wie ein Steuerbescheid. Komm einfach, Mann.",
+              "emoji": "📨",
+              "en": "“Expected to appear”? Like a tax assessment. Just come, man.",
+              "audio": "mc_brandt_t7_formal"
+            }
+          ]
+        },
+        {
+          "id": "casual",
+          "when": {
+            "any": [
+              "dabei",
+              "vorbei",
+              "ja",
+              "okay"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "brandt",
+              "type": "text",
+              "de": "Stark! Erste Reihe. Bring Ohrstöpsel mit.",
+              "emoji": "🎧",
+              "en": "Great! Front row. Bring earplugs.",
+              "audio": "mc_brandt_t7_casual"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "brandt",
+    "type": "text",
+    "de": "Das beantwortet meine Frage nicht ganz. Steuerlich gesehen: gar nicht.",
+    "en": "That doesn’t quite answer my question. Fiscally speaking: not at all.",
+    "audio": "mc_brandt_offtopic"
+  },
+  "confused": [
+    {
+      "who": "brandt",
+      "type": "text",
+      "de": "Wie bitte? Mein Ohr pfeift noch vom letzten Konzert. Noch mal, bitte.",
+      "emoji": "🎧",
+      "en": "Pardon? My ear is still ringing from the last gig. Once more, please.",
+      "audio": "mc_brandt_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "brandt",
+        "type": "text",
+        "de": "Deine Erklärung ist raus, {name}. Fristgerecht. Und jetzt: Rock ’n’ Roll!",
+        "en": "Your return is out, {name}. On time. And now: rock ’n’ roll!"
+      },
+      {
+        "who": "brandt",
+        "type": "text",
+        "de": "Übrigens: Die Gitarrensaiten habe ich bei mir abgesetzt. Als Betriebsausgabe. Die Band hat letztes Jahr elf Euro Gewinn gemacht.",
+        "emoji": "🎸",
+        "en": "By the way: I deducted the guitar strings on my own return. As a business expense. The band made a profit of eleven euros last year.",
+        "audio": "mc_brandt_winb"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "brandt",
+        "type": "text",
+        "de": "Die Erklärung ist raus. Fast fristgerecht. Verspätungszuschlag: fünfundzwanzig Euro. Ich schreib dir einen Song darüber. Er heißt „Fünfundzwanzig-Euro-Blues“.",
+        "emoji": "🎶",
+        "en": "The return is out. Almost on time. Late filing surcharge: twenty-five euros. I will write you a song about it. It is called “Twenty-Five-Euro Blues”.",
+        "audio": "mc_brandt_partial"
+      }
+    ],
+    "deleted": {
+      "register": {
+        "who": "brandt",
+        "type": "text",
+        "de": "Du hast das Finanzamt mit „Hey Leute“ begrüßt. Ich muss jetzt eine Stellungnahme schreiben. Statt Soundcheck. Tschüss.",
+        "emoji": "🗑️",
+        "en": "You greeted the tax office with “hey guys”. Now I have to write a statement. Instead of a soundcheck. Bye.",
+        "audio": "mc_brandt_del_register"
+      },
+      "confused": {
+        "who": "brandt",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Weder tagsüber noch nachts. Tschüss.",
+        "en": "I don’t understand you. Neither by day nor by night. Bye.",
+        "audio": "mc_brandt_del_confused"
+      },
+      "default": {
+        "who": "brandt",
+        "type": "text",
+        "de": "Ihre Unterlagen sind leider unvollständig. Und Ihr Rhythmus auch. Auf Wiedersehen.",
+        "en": "I’m afraid your documents are incomplete. And so is your rhythm. Goodbye.",
+        "audio": "mc_brandt_del_default"
+      }
+    },
+    "sunday": {
+      "who": "brandt",
+      "type": "voice",
+      "audio": "mc_brandt_vn_sunday",
+      "de": "Sonntag. Ich bin heiser. Das Konzert war laut. Frau Kowalski hat Tuba gespielt, drei Zugaben. Die Nachbarn haben die Polizei gerufen. Der Polizist war mein Mandant. Er hat mitgesungen. Montag um neun bin ich wieder Herr Brandt.",
+      "en": "Sunday. I am hoarse. The gig was loud. Frau Kowalski played tuba, three encores. The neighbours called the police. The policeman was my client. He sang along. Monday at nine I am Herr Brandt again.",
+      "direction": "Hoarse, happy and hungover, croaking softly on a Sunday morning, then pulling himself together into the dry office voice for the last sentence."
+    }
+  },
+  "partialTitle": "Fast fristgerecht. Mit Song.",
+  "share": {
+    "win": "Herr Brandt (52) hat meine Steuererklärung gemacht – fristgerecht – und heute Abend spielt die Dame vom Finanzamt bei seiner Band Tuba 🎸🎺🧾 Mein Deutsch: {score}/100. Triffst du das Register? {url}",
+    "partial": "Meine Steuererklärung ist raus … fast fristgerecht. Herr Brandt schreibt jetzt einen Song über meinen Verspätungszuschlag 🎶 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Ich habe das Finanzamt mit „Hey Leute“ begrüßt. Herr Brandt (52) hat mich gelöscht 🧾💔 Mein Deutsch: {score}/100. {url}"
+  },
+  "imageCharacter": "Herr Brandt, a 52-year-old tax adviser and secret rocker: grey hair neatly combed on one side but long at the back, rimless reading glasses, a crisp white shirt and grey tie under which a black band T-shirt peeks out, a leather wristband, and a bass guitar case leaning on his chair.",
+  "imagePrompts": [
+    {
+      "id": "match_brandt",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He sits behind a tidy office desk with neat stacks of folders and a desk lamp, looking at the viewer over his glasses with a polite smile, but making a subtle rock “devil horns” hand sign next to his calculator. Behind him a filing cabinet with an amplifier on top. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_brandt_receipts",
+      "aspect": "16:9",
+      "prompt": "Three paper receipts lying side by side on a dark wooden desk, seen straight from above, far apart and evenly spaced, each receipt completely blank white paper with nothing printed on it. Above each receipt sits a tiny object as a clue: LEFT a small toy office chair, MIDDLE a coiled guitar string, RIGHT a single slice of pizza on a napkin. Nothing else on the desk."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Ich habe sämtliche Belege dabei.",
+      "score": 100,
+      "intent": "all",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe meine Lohnsteuerbescheinigung erhalten.",
+      "score": 100,
+      "intent": "certificate",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe meine Lohnsteuerbescheinigung gekriegt.",
+      "score": 85,
+      "intent": "certificate",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe meinen Lohnsteuerbescheinigung erhalten.",
+      "score": 85,
+      "intent": "certificate",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe erhalten meine Lohnsteuerbescheinigung.",
+      "score": 70,
+      "intent": "certificate",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe einen Schuhkarton voller Quittungen dabei.",
+      "score": 100,
+      "intent": "shoebox",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe gar nichts dabei.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe Quittungen dabei.",
+      "score": 100,
+      "intent": "receipts",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich habe meine Lohnsteuerbescheinigung dabei.",
+      "score": 100,
+      "intent": "certificate",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich sämtliche Belege.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Wir könnten einen Antrag auf Fristverlängerung stellen.",
+      "score": 100,
+      "intent": "extension",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Wir könnten einen Antrag auf Fristverlängerung machen.",
+      "score": 85,
+      "intent": "extension",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Wir könnten eine Fristverlängerung beantragen.",
+      "score": 100,
+      "intent": "extension",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Wir könnten einen Fristverlängerung beantragen.",
+      "score": 85,
+      "intent": "extension",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Wir könnten einen Antrag auf eine Fristverlängerung stellen.",
+      "score": 100,
+      "intent": "extension",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Wir könnten heute noch alles abgeben.",
+      "score": 100,
+      "intent": "keep",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Wir könnten die Frist einhalten.",
+      "score": 100,
+      "intent": "keep",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Wir könnten die Frist ignorieren.",
+      "score": 100,
+      "intent": "ignore",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Den Bürostuhl können wir steuerlich absetzen.",
+      "score": 100,
+      "intent": "chair",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Der Bürostuhl ist absetzbar.",
+      "score": 100,
+      "intent": "chair",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Der Bürostuhl ist absetzlich.",
+      "score": 85,
+      "intent": "chair",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Die Pizza dürfte nicht absetzbar sein.",
+      "score": 100,
+      "intent": "pizzaNot",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Die Pizza ist absetzbar.",
+      "score": 100,
+      "intent": "pizza",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Die Gitarrensaiten sind absetzbar.",
+      "score": 100,
+      "intent": "strings",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Den Bürostuhl können wir steuerlich geltend machen.",
+      "score": 100,
+      "intent": "chair",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Der Bürostuhl ist nicht absetzbar.",
+      "score": 100,
+      "intent": "chairNot",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Die Gitarrensaiten sind nicht absetzbar.",
+      "score": 100,
+      "intent": "stringsNot",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Die Gitarrensaiten können wir absetzen steuerlich.",
+      "score": 70,
+      "intent": "strings",
+      "delta": 0
+    },
+    {
+      "turn": "t4",
+      "say": "Es fehlt nur noch deine Unterschrift, Rocky.",
+      "score": 100,
+      "intent": "casual",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Es fehlt nur noch deine Unterschrift.",
+      "score": 100,
+      "intent": "casual",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Es fehlt lediglich Ihre Unterschrift.",
+      "score": 100,
+      "intent": "formal",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Rocky!",
+      "score": 100,
+      "intent": "rocky",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Alles klar. Es passt schon.",
+      "score": 100,
+      "intent": "allGood",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich krieg bestimmt einen Haufen Kohle zurück.",
+      "score": 100,
+      "intent": "cash",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich krieg bestimmt eine Haufen Kohle zurück.",
+      "score": 85,
+      "intent": "cash",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich erhalte voraussichtlich eine Erstattung.",
+      "score": 100,
+      "intent": "formal",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Keine Ahnung, Alter.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich krieg nix zurück.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Ich krieg bestimmt einen Haufen zurück, Alter.",
+      "score": 100,
+      "intent": "cash",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich bestimmt einen Haufen Kohle.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Guten Tag. Ich möchte bestätigen, dass die Unterlagen fristgerecht eingereicht werden.",
+      "score": 100,
+      "intent": "formal",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich möchte bestätigen, dass der Unterlagen fristgerecht eingereicht werden.",
+      "score": 85,
+      "intent": "formal",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich möchte bestätigen, dass die Unterlagen werden fristgerecht eingereicht.",
+      "score": 70,
+      "intent": "formal",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Guten Tag. Ich möchte bestätigen, dass die Erklärung fristgerecht eingereicht wird.",
+      "score": 100,
+      "intent": "formal",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Die Erklärung wird fristgerecht eingereicht.",
+      "score": 100,
+      "intent": "formal",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Hey Leute. Die Erklärung kommt voll pünktlich.",
+      "score": 100,
+      "intent": "casual",
+      "delta": -2
+    },
+    {
+      "turn": "t6",
+      "say": "Die Erklärung kommt voll pünktlich.",
+      "score": 100,
+      "intent": "slang",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Die Erklärung kommt pünktlich.",
+      "score": 100,
+      "intent": "punctual",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Guten Tag.",
+      "score": 100,
+      "intent": "greet",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Den Song würde ich mir nicht entgehen lassen.",
+      "score": 100,
+      "intent": "song",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Den Song würde ich mir nicht entkommen lassen.",
+      "score": 85,
+      "intent": "song",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ja, ich bin dabei!",
+      "score": 100,
+      "intent": "casual",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Okay, ich komm vorbei.",
+      "score": 100,
+      "intent": "casual",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich werde voraussichtlich erscheinen.",
+      "score": 100,
+      "intent": "formal",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komm leider nicht vorbei.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Wir könnten das Finanzamt zum Konzert einladen.",
+      "score": 100,
+      "intent": "invite",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Wir könnten einladen das Finanzamt zum Konzert.",
+      "score": 70,
+      "intent": "invite",
+      "delta": 0
+    },
+    {
+      "turn": "t7",
+      "say": "Okay, ich komm mit meiner Blockflöte vorbei.",
+      "score": 100,
+      "intent": "recorder",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ich komm mit meine Blockflöte vorbei.",
+      "score": 85,
+      "intent": "recorder",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich habe sämtliche Belege dabei."
+        ],
+        [
+          "t2",
+          "Wir könnten einen Antrag auf Fristverlängerung stellen."
+        ],
+        [
+          "t3",
+          "Den Bürostuhl können wir steuerlich absetzen."
+        ],
+        [
+          "t4",
+          "Es fehlt nur noch deine Unterschrift, Rocky."
+        ],
+        [
+          "t5",
+          "Ich krieg bestimmt einen Haufen Kohle zurück."
+        ],
+        [
+          "t6",
+          "Guten Tag. Ich möchte bestätigen, dass die Unterlagen fristgerecht eingereicht werden."
+        ],
+        [
+          "t7",
+          "Den Song würde ich mir nicht entgehen lassen."
+        ]
+      ]
+    },
+    {
+      "name": "wrong register",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich habe meine Lohnsteuerbescheinigung gekriegt."
+        ],
+        [
+          "t2",
+          "Wir könnten die Frist ignorieren."
+        ],
+        [
+          "t3",
+          "Die Gitarrensaiten sind absetzbar."
+        ],
+        [
+          "t4",
+          "Es fehlt lediglich Ihre Unterschrift."
+        ],
+        [
+          "t5",
+          "Ich erhalte voraussichtlich eine Erstattung."
+        ],
+        [
+          "t6",
+          "Guten Tag."
+        ],
+        [
+          "t7",
+          "Ich werde voraussichtlich erscheinen."
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich habe gar nichts dabei."
+        ],
+        [
+          "t2",
+          "Wir könnten die Frist ignorieren."
+        ],
+        [
+          "t3",
+          "Die Pizza ist absetzbar."
+        ],
+        [
+          "t4",
+          "Alles klar. Es passt schon."
+        ],
+        [
+          "t5",
+          "Ich bestimmt einen Haufen Kohle."
+        ]
+      ]
+    },
+    {
+      "name": "tuba",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Ich habe einen Schuhkarton voller Quittungen dabei."
+        ],
+        [
+          "t2",
+          "Wir könnten das Finanzamt zum Konzert einladen."
+        ],
+        [
+          "t3",
+          "Den Bürostuhl können wir steuerlich absetzen."
+        ],
+        [
+          "t4",
+          "Es fehlt nur noch deine Unterschrift, Rocky."
+        ],
+        [
+          "t5",
+          "Ich krieg bestimmt einen Haufen Kohle zurück."
+        ],
+        [
+          "t6",
+          "Die Erklärung wird fristgerecht eingereicht."
+        ],
+        [
+          "t7",
+          "Okay, ich komm mit meiner Blockflöte vorbei."
+        ]
+      ]
+    }
+  ]
+}

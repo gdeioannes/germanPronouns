@@ -132,6 +132,62 @@ const FILES = {
 			for (const [f, from] of [[2960, 0], [3520, 0.07], [2640, 0.16], [3960, 0.22], [3100, 0.34]])
 				tone(buf, f, { from, dur: 0.25, gain: 0.07, decay: 0.06 });
 		}),
+	// — "Schreib mir!": the club under Helga's voice notes, and the record
+	// scratch when she hears the name Günther. Two bars at 126 bpm, cut on the
+	// beat so the loop is seamless.
+	techno_loop: () =>
+		render((8 * 60) / 126, (buf) => {
+			const beat = 60 / 126;
+			let hp = 0;
+			let prev = 0;
+			for (let b = 0; b < 8; b++) {
+				const t0 = b * beat;
+				// kick: a sine that drops from 150 Hz to 45 Hz
+				const n = Math.floor(0.32 * SR);
+				const s0 = Math.floor(t0 * SR);
+				let phase = 0;
+				for (let i = 0; i < n && s0 + i < buf.length; i++) {
+					const t = i / SR;
+					const f = 45 + 105 * Math.exp(-t / 0.035);
+					phase += (TAU * f) / SR;
+					buf[s0 + i] += Math.sin(phase) * 0.55 * Math.exp(-t / 0.16);
+				}
+				// offbeat bass stab and open hat
+				const off = Math.floor((t0 + beat / 2) * SR);
+				for (let i = 0; i < Math.floor(0.16 * SR) && off + i < buf.length; i++) {
+					const t = i / SR;
+					const env = Math.exp(-t / 0.06);
+					const saw = ((55 * t) % 1) * 2 - 1;
+					buf[off + i] += saw * 0.16 * env;
+					const noise = Math.random() * 2 - 1;
+					hp = 0.6 * (hp + noise - prev);
+					prev = noise;
+					buf[off + i] += hp * 0.12 * Math.exp(-t / 0.05);
+				}
+				// a clap on two and four
+				if (b % 2 === 1) {
+					for (let i = 0; i < Math.floor(0.12 * SR) && s0 + i < buf.length; i++) {
+						const t = i / SR;
+						buf[s0 + i] += (Math.random() * 2 - 1) * 0.14 * Math.exp(-t / 0.04);
+					}
+				}
+			}
+			// a minor-chord stab to make it a club, not a metronome
+			for (const b of [1.5, 5.5]) for (const f of [220, 261.63, 329.63]) tone(buf, f, { from: b * beat, dur: 0.25, gain: 0.05, decay: 0.07 });
+		}),
+	record_scratch: () =>
+		render(0.75, (buf) => {
+			// a record yanked back and forth: noise through a fast pitch wobble, then dead air
+			let phase = 0;
+			for (let i = 0; i < buf.length; i++) {
+				const t = i / SR;
+				if (t > 0.55) break;
+				const f = 300 + 900 * Math.abs(Math.sin(TAU * 3.2 * t));
+				phase += (TAU * f) / SR;
+				const env = Math.min(1, t / 0.01) * (t < 0.45 ? 1 : Math.exp(-(t - 0.45) / 0.03));
+				buf[i] += (Math.sin(phase) * 0.25 + (Math.random() * 2 - 1) * 0.12) * env;
+			}
+		}),
 	// — ambient loops (~16 s, designed to loop; keep volume low in the app)
 	loop_investigation: () =>
 		render(16, (buf) => {

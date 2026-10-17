@@ -1,0 +1,2286 @@
+{
+  "id": "lukas",
+  "name": "Lukas",
+  "age": 26,
+  "emoji": "💧",
+  "image": "match_lukas",
+  "level": "B1.1",
+  "order": 2,
+  "bio": "Gründer von Wasser 2.0. Das beste Wasser der Welt. Jetzt investieren!",
+  "bioEn": "Founder of Water 2.0. The best water in the world. Invest now!",
+  "goal": "Say no politely and keep your money.",
+  "tagline": "Gründer · 26 · Co-Working-Space",
+  "voice": "Fenrir",
+  "brief": "Lukas, a 26-year-old startup founder: a fast, bright, over-excited young man’s voice with pitch-deck energy, every sentence a headline, lots of “mega”; when something goes wrong he deflates like a balloon for one second, then bounces straight back.",
+  "focus": "Komparativ & Superlativ vor dem Nomen · Konjunktiv II (würde, hätte) · höflich Nein sagen",
+  "secretFlag": "soldHim",
+  "lexicon": {
+    "nouns": {
+      "Wasser": "n",
+      "Leitung": "f",
+      "Kaffee": "m",
+      "Flasche": "f",
+      "Flaschen": "pl",
+      "Welt": "f",
+      "Namen": "m",
+      "Geld": "n",
+      "Kaktus": "m",
+      "Socken": "pl",
+      "Pfand": "n",
+      "Wasserhahn": "m",
+      "Mutter": "f",
+      "Badewanne": "f",
+      "Haus": "n",
+      "Eimer": "m",
+      "Luft": "f",
+      "Giraffe": "f"
+    },
+    "names": [],
+    "verbs": [
+      "trinke",
+      "trinkst",
+      "würde",
+      "würdest",
+      "hätte",
+      "hättest",
+      "habe",
+      "bin",
+      "ist",
+      "hat",
+      "kommt",
+      "sucht",
+      "finde",
+      "findest",
+      "schenkst",
+      "schenken"
+    ],
+    "nonfinite": [
+      "kaufen",
+      "investieren",
+      "sparen",
+      "verkaufen",
+      "gehört",
+      "reisen",
+      "freuen"
+    ],
+    "accVerbs": [
+      "trinke",
+      "trinkst",
+      "würde",
+      "würdest",
+      "hätte",
+      "hättest",
+      "habe",
+      "hat",
+      "sucht",
+      "finde",
+      "findest",
+      "schenkst",
+      "schenken"
+    ],
+    "datVerbs": [
+      "schenkst",
+      "schenken"
+    ],
+    "adjectives": [
+      "normal",
+      "kalt",
+      "billigst",
+      "teuerst",
+      "golden",
+      "blau",
+      "nassest",
+      "jed",
+      "best",
+      "leer",
+      "klein",
+      "alt",
+      "gut"
+    ]
+  },
+  "intro": [
+    {
+      "who": "lukas",
+      "type": "text",
+      "de": "Hey! Ich bin Lukas. Gründer, Chef und Chef-Visionär von Wasser 2.0.",
+      "emoji": "🚀",
+      "en": "Hey! I’m Lukas. Founder, CEO and Chief Visionary of Water 2.0.",
+      "audio": "mc_lukas_introa"
+    },
+    {
+      "who": "lukas",
+      "type": "text",
+      "de": "Ich mache Wasser. Aber besser. Du wirst es lieben.",
+      "en": "I make water. But better. You’re going to love it.",
+      "audio": "mc_lukas_introb"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Kurze Frage, ganz entspannt: Welches Wasser trinkst du am liebsten?",
+          "emoji": "😎",
+          "en": "Quick question, totally relaxed: which water do you like drinking best?",
+          "audio": "mc_lukas_t1a"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "trinke",
+        "trinkst",
+        "am liebsten",
+        "lieber",
+        "normales",
+        "normale",
+        "kaltes",
+        "Wasser",
+        "aus",
+        "der",
+        "die",
+        "Leitung",
+        "Kaffee",
+        "nur",
+        "kein",
+        "keinen"
+      ],
+      "wrong": {
+        "trinkst": "trinke"
+      },
+      "intents": [
+        {
+          "id": "tap",
+          "when": {
+            "any": [
+              "leitung"
+            ]
+          },
+          "value": 1,
+          "fact": "🚰 trinkt Leitungswasser",
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Leitungswasser! Ha. Das ist so … Wasser 1.0. Warte, ich zeige dir die Zukunft.",
+              "en": "Tap water! Ha. That’s so … Water 1.0. Wait, I’ll show you the future.",
+              "audio": "mc_lukas_t1_tap"
+            }
+          ]
+        },
+        {
+          "id": "noX",
+          "when": {
+            "any": [
+              "kein",
+              "keinen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Kein …? Mega. Dann hast du Platz für Wasser 2.0.",
+              "en": "No …? Mega. Then you’ve got room for Water 2.0.",
+              "audio": "mc_lukas_t1_nox"
+            }
+          ]
+        },
+        {
+          "id": "coffee",
+          "when": {
+            "any": [
+              "kaffee"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Kaffee ist nur Wasser mit Problemen. Aber okay, ich respektiere das.",
+              "emoji": "☕",
+              "en": "Coffee is just water with problems. But okay, I respect that.",
+              "audio": "mc_lukas_t1_coffee"
+            }
+          ]
+        },
+        {
+          "id": "normal",
+          "when": {
+            "any": [
+              "normales",
+              "normale",
+              "kaltes",
+              "wasser"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Normales Wasser? Süß. Wie ein Faxgerät.",
+              "emoji": "📠",
+              "en": "Normal water? Cute. Like a fax machine.",
+              "audio": "mc_lukas_t1_normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Hier ist unser Sortiment.",
+          "emoji": "📸",
+          "en": "Here’s our product range.",
+          "audio": "mc_lukas_t2a"
+        },
+        {
+          "who": "lukas",
+          "type": "photo",
+          "image": "match_lukas_bottles",
+          "wide": true,
+          "overlay": [
+            "Links: Wasser 1.0 – 0,30 €",
+            "Mitte: Wasser 2.0 – 9 €",
+            "Rechts: Wasser 2.0 GOLD – 49 €"
+          ],
+          "alt": "Drei Flaschen auf einem Tisch. Links: eine kleine Plastikflasche, Wasser 1.0, 30 Cent. In der Mitte: eine blaue Glasflasche, Wasser 2.0, 9 Euro. Rechts: eine goldene Flasche mit einer kleinen Krone, Wasser 2.0 Gold, 49 Euro."
+        },
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Welches Wasser würdest du kaufen? Ehrlich!",
+          "en": "Which water would you buy? Honestly!",
+          "audio": "mc_lukas_t2c"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "würde",
+        "würdest",
+        "das",
+        "die",
+        "billigste",
+        "billigsten",
+        "teuerste",
+        "Wasser",
+        "Flasche",
+        "goldene",
+        "blaue",
+        "kaufen",
+        "lieber",
+        "gar",
+        "kein",
+        "keine",
+        "normales"
+      ],
+      "wrong": {
+        "würdest": "würde"
+      },
+      "intents": [
+        {
+          "id": "gold",
+          "when": {
+            "any": [
+              "goldene",
+              "teuerste"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Die GOLD-Flasche! Endlich jemand mit Vision! Ich schicke dir sofort die Rechnung.",
+              "emoji": "🤑",
+              "en": "The GOLD bottle! Finally someone with vision! I’ll send you the invoice right away.",
+              "audio": "mc_lukas_t2_gold"
+            }
+          ]
+        },
+        {
+          "id": "blue",
+          "when": {
+            "any": [
+              "blaue"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Wasser 2.0! Mega! Neun Euro, ich schicke dir den Link.",
+              "en": "Water 2.0! Mega! Nine euros, I’ll send you the link.",
+              "audio": "mc_lukas_t2_blue"
+            }
+          ]
+        },
+        {
+          "id": "none",
+          "when": {
+            "any": [
+              "kein",
+              "keine"
+            ]
+          },
+          "value": 2,
+          "fact": "💪 kauft nicht einfach alles",
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Gar kein Wasser? Wie lebst du? … Respekt. Du verhandelst härter als mein Mentor.",
+              "emoji": "🫡",
+              "en": "No water at all? How do you live? … Respect. You negotiate harder than my mentor.",
+              "audio": "mc_lukas_t2_none"
+            }
+          ]
+        },
+        {
+          "id": "cheapest",
+          "when": {
+            "any": [
+              "billigste",
+              "billigsten"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Das billigste? Das ist Wasser 1.0. Das ist nur … zur Demonstration.",
+              "en": "The cheapest? That’s Water 1.0. That’s just … for demonstration purposes.",
+              "audio": "mc_lukas_t2_cheapest"
+            }
+          ]
+        },
+        {
+          "id": "normal",
+          "when": {
+            "any": [
+              "normales"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Normales Wasser. Du bist eine harte Nuss. Ich mag harte Nüsse.",
+              "emoji": "🥜",
+              "en": "Normal water. You’re a tough nut. I like tough nuts.",
+              "audio": "mc_lukas_t2_normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Okay, jetzt das Wichtigste: mein Pitch. Hör gut zu!",
+          "emoji": "🎤",
+          "en": "Okay, now the most important bit: my pitch. Listen carefully!",
+          "audio": "mc_lukas_t3a"
+        },
+        {
+          "who": "lukas",
+          "type": "voice",
+          "audio": "mc_lukas_vn_pitch",
+          "de": "Wasser 2.0 ist nasser als normales Wasser. Viel nasser! Es ist das nasseste Wasser der Welt. Und jede Flasche hat einen eigenen Namen. Deine heißt Brigitte.",
+          "en": "Water 2.0 is wetter than normal water. Much wetter! It is the wettest water in the world. And every bottle has its own name. Yours is called Brigitte.",
+          "direction": "A breathless investor pitch on a small stage with a slight echo, building to a triumphant climax, then a proud little pause before the name."
+        },
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Und? Was ist besser an Wasser 2.0?",
+          "en": "So? What’s better about Water 2.0?",
+          "audio": "mc_lukas_t3c"
+        }
+      ],
+      "tiles": [
+        "es",
+        "ist",
+        "nasser",
+        "als",
+        "normales",
+        "normale",
+        "Wasser",
+        "das",
+        "nasseste",
+        "nassesten",
+        "der",
+        "die",
+        "Welt",
+        "jede",
+        "Flasche",
+        "hat",
+        "einen",
+        "Namen",
+        "nichts",
+        "besser"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Nichts?! … Okay, das war hart. Ich schreibe es in mein Dankbarkeitstagebuch. Unter „Feedback“.",
+              "emoji": "📓",
+              "en": "Nothing?! … Okay, that was harsh. I’ll write it in my gratitude journal. Under “feedback”.",
+              "audio": "mc_lukas_t3_nothing"
+            }
+          ]
+        },
+        {
+          "id": "wettest",
+          "when": {
+            "any": [
+              "nasseste",
+              "nassesten"
+            ]
+          },
+          "value": 2,
+          "fact": "🎧 hört bei Pitches zu",
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "JA! Das nasseste Wasser der Welt! Du hast zugehört! Fast schon wissenschaftlich.",
+              "emoji": "🤩",
+              "en": "YES! The wettest water in the world! You listened! Almost scientific.",
+              "audio": "mc_lukas_t3_wettest"
+            }
+          ]
+        },
+        {
+          "id": "wetter",
+          "when": {
+            "any": [
+              "nasser"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Nasser! Genau! Wissenschaftlich … ungefähr bewiesen.",
+              "en": "Wetter! Exactly! Scientifically … roughly proven.",
+              "audio": "mc_lukas_t3_wetter"
+            }
+          ]
+        },
+        {
+          "id": "name",
+          "when": {
+            "any": [
+              "namen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Ja! Jede Flasche hat einen Namen. Deine heißt Brigitte. Sie vermisst dich schon.",
+              "emoji": "🍼",
+              "en": "Yes! Every bottle has a name. Yours is called Brigitte. She misses you already.",
+              "audio": "mc_lukas_t3_name"
+            }
+          ]
+        },
+        {
+          "id": "better",
+          "when": {
+            "any": [
+              "besser",
+              "welt"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Besser, ja. Aber WARUM? Das war der ganze Pitch!",
+              "en": "Better, yes. But WHY? That was the whole pitch!",
+              "audio": "mc_lukas_t3_better"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "next": "t5",
+      "before": [
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "So. Ich brauche nur 5.000 Euro von dir. Nur! Bist du dabei?",
+          "emoji": "🤝",
+          "en": "Right. I only need 5,000 euros from you. Only! Are you in?",
+          "audio": "mc_lukas_t4a"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "ich",
+        "ich",
+        "würde",
+        "gern",
+        "investieren",
+        "aber",
+        "habe",
+        "leider",
+        "kein",
+        "Geld",
+        "bin",
+        "dabei",
+        "lieber",
+        "sparen",
+        "nicht",
+        "dir",
+        "etwas",
+        "verkaufen"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "sell",
+          "when": {
+            "any": [
+              "verkaufen"
+            ]
+          },
+          "value": 0,
+          "next": "t4b",
+          "noBonus": true,
+          "reply": []
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "dabei",
+              "investieren"
+            ],
+            "none": [
+              "nicht",
+              "nein",
+              "leider",
+              "aber",
+              "lieber",
+              "kein"
+            ]
+          },
+          "value": -2,
+          "cause": "invested",
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "MEGA! Willkommen im Team! Ich schicke dir sofort meine Kontonummer!",
+              "emoji": "🚀",
+              "en": "MEGA! Welcome to the team! I’m sending you my account number right now!",
+              "audio": "mc_lukas_t4_yes"
+            }
+          ]
+        },
+        {
+          "id": "politeNo",
+          "when": {
+            "all": [
+              "würde"
+            ],
+            "any": [
+              "aber",
+              "leider",
+              "lieber"
+            ]
+          },
+          "value": 2,
+          "fact": "🙅 sagt höflich Nein",
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Autsch. Aber so höflich! Mein Mentor sagt: Ein Nein ist nur ein Ja von morgen.",
+              "emoji": "🥲",
+              "en": "Ouch. But so polite! My mentor says: a no is just tomorrow’s yes.",
+              "audio": "mc_lukas_t4_politeno"
+            }
+          ]
+        },
+        {
+          "id": "noMoney",
+          "when": {
+            "any": [
+              "geld"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Kein Geld? Kein Problem! Ich nehme auch Raten. Oder Pfandflaschen.",
+              "en": "No money? No problem! I also take instalments. Or deposit bottles.",
+              "audio": "mc_lukas_t4_nomoney"
+            }
+          ]
+        },
+        {
+          "id": "save",
+          "when": {
+            "any": [
+              "sparen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Sparen. Wie meine Mutter. Sie hat auch nicht investiert. Noch nicht.",
+              "en": "Saving. Like my mum. She didn’t invest either. Not yet.",
+              "audio": "mc_lukas_t4_save"
+            }
+          ]
+        },
+        {
+          "id": "sorry",
+          "when": {
+            "any": [
+              "leider"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Leider? Okay. Ein höfliches Nein. Das tut nur ein bisschen weh.",
+              "en": "Unfortunately? Okay. A polite no. That only hurts a little.",
+              "audio": "mc_lukas_t4_sorry"
+            }
+          ]
+        },
+        {
+          "id": "rudeNo",
+          "when": {
+            "any": [
+              "nein",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Einfach nein? Das tut weh. Genau hier. Im Start-up. Und Brigitte weint. Sie ist eine Flasche, aber sie weint.",
+              "emoji": "💔",
+              "en": "Just no? That hurts. Right here. In the start-up. And Brigitte is crying. She is a bottle, but she is crying.",
+              "audio": "mc_lukas_t4_rudeno"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4b",
+      "next": "t5",
+      "before": [
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Moment. Du willst MIR etwas verkaufen? Mir? Ich bin hier der Verkäufer!",
+          "emoji": "😳",
+          "en": "Hang on. You want to sell ME something? Me? I’m the salesman here!",
+          "audio": "mc_lukas_t4ba"
+        },
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Okay. Ich höre. Was ist es?",
+          "en": "Okay. I’m listening. What is it?",
+          "audio": "mc_lukas_t4bb"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "würde",
+        "dir",
+        "meine",
+        "meinen",
+        "leeren",
+        "leere",
+        "Flaschen",
+        "einen",
+        "kleinen",
+        "kleiner",
+        "Kaktus",
+        "verkaufen",
+        "mit",
+        "Pfand",
+        "nichts",
+        "alte",
+        "alten",
+        "Socken",
+        "Eimer",
+        "Luft"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "pfand",
+          "when": {
+            "any": [
+              "flaschen",
+              "pfand"
+            ]
+          },
+          "value": 2,
+          "flags": [
+            "soldHim"
+          ],
+          "fact": "♻️ hat Lukas Pfand verkauft",
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Leere Flaschen. Mit Pfand. Fünfundzwanzig Cent pro Flasche. Ohne Produktion. Ohne Wasser.",
+              "emoji": "♻️",
+              "en": "Empty bottles. With a deposit. Twenty-five cents a bottle. No production. No water.",
+              "audio": "mc_lukas_t4b_pfand"
+            },
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Das ist … genial. Das ist Wasser 3.0! Ich kaufe alle!",
+              "emoji": "🤯",
+              "en": "That is … genius. That’s Water 3.0! I’ll buy them all!",
+              "audio": "mc_lukas_t4b_pfand2"
+            }
+          ]
+        },
+        {
+          "id": "cactus",
+          "when": {
+            "any": [
+              "kaktus"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Ein Kaktus. Er braucht fast kein Wasser. Das ist mein Albtraum. … Ich nehme ihn.",
+              "emoji": "🌵",
+              "en": "A cactus. It needs almost no water. That’s my nightmare. … I’ll take it.",
+              "audio": "mc_lukas_t4b_cactus"
+            }
+          ]
+        },
+        {
+          "id": "air",
+          "when": {
+            "any": [
+              "luft",
+              "eimer"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Luft. In einem Eimer. Hm. … Moment. Ich schreibe kurz etwas auf. Das ist nicht wichtig. Das ist überhaupt nicht wichtig.",
+              "emoji": "🪣",
+              "en": "Air. In a bucket. Hm. … Hold on. I am just writing something down. It is not important. It is not important at all.",
+              "audio": "mc_lukas_t4b_air"
+            }
+          ]
+        },
+        {
+          "id": "socks",
+          "when": {
+            "any": [
+              "socken"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Alte Socken? Das ist kein Produkt. Das ist ein Hilferuf.",
+              "emoji": "🧦",
+              "en": "Old socks? That’s not a product. That’s a cry for help.",
+              "audio": "mc_lukas_t4b_socks"
+            }
+          ]
+        },
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Nichts? Du verkaufst mir NICHTS? … Das ist eigentlich ein starkes Geschäftsmodell.",
+              "en": "Nothing? You’re selling me NOTHING? … That’s actually a strong business model.",
+              "audio": "mc_lukas_t4b_nothing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "lukas",
+          "type": "voice",
+          "audio": "mc_lukas_vn_mama",
+          "de": "Lukas, hier ist Mama. Hast du schon wieder Wasser aus meinem Wasserhahn in deine Flaschen gefüllt? Und wo ist meine Badewanne? Ich möchte heute baden!",
+          "en": "Lukas, it’s Mum. Have you filled your bottles with water from my tap again? And where is my bathtub? I want to have a bath today!",
+          "direction": "A warm but exasperated mother on the phone, kitchen sounds behind her, saying his name in that particular mum tone."
+        },
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Oh. Die war nicht für dich. Das war … meine Investorin. Was hast du gehört?",
+          "emoji": "😬",
+          "en": "Oh. That one wasn’t for you. That was … my investor. What did you hear?",
+          "audio": "mc_lukas_t5b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "habe",
+        "nichts",
+        "gehört",
+        "das",
+        "Wasser",
+        "kommt",
+        "aus",
+        "dem",
+        "den",
+        "Wasserhahn",
+        "deiner",
+        "deine",
+        "Mutter",
+        "sie",
+        "sucht",
+        "ihre",
+        "ihren",
+        "Badewanne"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "nothing",
+          "when": {
+            "any": [
+              "nichts"
+            ]
+          },
+          "value": 2,
+          "fact": "🤐 ist diskret",
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Nichts gehört. Du bist diskret. Du wärst perfekt für mein Team.",
+              "emoji": "🤐",
+              "en": "Heard nothing. You’re discreet. You’d be perfect for my team.",
+              "audio": "mc_lukas_t5_nothing"
+            }
+          ]
+        },
+        {
+          "id": "tap",
+          "when": {
+            "any": [
+              "wasserhahn"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Psst! … Okay. Ja. Es ist Mamas Wasser. Aber es ist mit Liebe gefiltert. Durch ein Sieb.",
+              "en": "Shh! … Okay. Yes. It’s Mum’s water. But it’s filtered with love. Through a sieve.",
+              "audio": "mc_lukas_t5_tap"
+            }
+          ]
+        },
+        {
+          "id": "bath",
+          "when": {
+            "any": [
+              "badewanne"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Die Badewanne ist … unser Lager. Da sind 400 Flaschen drin. Mama weiß es noch nicht.",
+              "emoji": "🛁",
+              "en": "The bathtub is … our warehouse. There are 400 bottles in it. Mum doesn’t know yet.",
+              "audio": "mc_lukas_t5_bath"
+            }
+          ]
+        },
+        {
+          "id": "mum",
+          "when": {
+            "any": [
+              "mutter"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Meine Mutter ist meine wichtigste Investorin. Und meine einzige.",
+              "en": "My mum is my most important investor. And my only one.",
+              "audio": "mc_lukas_t5_mum"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Okay, ganz ehrlich jetzt. Ohne Pitch.",
+          "emoji": "🥺",
+          "en": "Okay, totally honest now. No pitch.",
+          "audio": "mc_lukas_t6a"
+        },
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Findest du mein Wasser schlechter als normales Wasser?",
+          "en": "Do you think my water is worse than normal water?",
+          "audio": "mc_lukas_t6b"
+        }
+      ],
+      "tiles": [
+        "ich",
+        "finde",
+        "findest",
+        "dass",
+        "dein",
+        "deine",
+        "Wasser",
+        "es",
+        "ist",
+        "nicht",
+        "schlechter",
+        "so",
+        "gut",
+        "wie",
+        "normales",
+        "teurer",
+        "das",
+        "beste",
+        "Wasser"
+      ],
+      "wrong": {
+        "findest": "finde"
+      },
+      "intents": [
+        {
+          "id": "notAsGood",
+          "when": {
+            "all": [
+              "nicht",
+              "wie"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Nicht so gut wie normales Wasser? Autsch. Das kommt in mein Dankbarkeitstagebuch. Unter „Feedback“. Seite drei.",
+              "en": "Not as good as normal water? Ouch. That goes in my gratitude journal. Under “feedback”. Page three.",
+              "audio": "mc_lukas_t6_notasgood"
+            }
+          ]
+        },
+        {
+          "id": "same",
+          "when": {
+            "any": [
+              "wie"
+            ],
+            "none": [
+              "nicht"
+            ]
+          },
+          "value": 2,
+          "fact": "💬 ist ehrlich und nett",
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "So gut wie normales Wasser. Also … genau wie normales Wasser. Das ist das Netteste, was jemand je über mein Produkt gesagt hat.",
+              "emoji": "🥹",
+              "en": "As good as normal water. So … exactly like normal water. That’s the nicest thing anyone has ever said about my product.",
+              "audio": "mc_lukas_t6_same"
+            }
+          ]
+        },
+        {
+          "id": "notWorse",
+          "when": {
+            "all": [
+              "nicht",
+              "schlechter"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Nicht schlechter! Das schreibe ich auf die Flasche. „Nicht schlechter!“ Mega Slogan.",
+              "en": "Not worse! I’m putting that on the bottle. “Not worse!” Mega slogan.",
+              "audio": "mc_lukas_t6_notworse"
+            }
+          ]
+        },
+        {
+          "id": "worse",
+          "when": {
+            "any": [
+              "schlechter"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Schlechter?! … Okay. Das tut weh. Aber ich wachse daran.",
+              "emoji": "🌱",
+              "en": "Worse?! … Okay. That hurts. But I’ll grow from it.",
+              "audio": "mc_lukas_t6_worse"
+            }
+          ]
+        },
+        {
+          "id": "best",
+          "when": {
+            "any": [
+              "beste"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Das beste Wasser der Welt?! Dann investier doch! … Nein? Hm. Verdächtig.",
+              "en": "The best water in the world?! Then invest! … No? Hm. Suspicious.",
+              "audio": "mc_lukas_t6_best"
+            }
+          ]
+        },
+        {
+          "id": "pricier",
+          "when": {
+            "any": [
+              "teurer"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Teurer ist nicht schlechter! Teurer ist Premium.",
+              "emoji": "💎",
+              "en": "Pricier isn’t worse! Pricier is premium.",
+              "audio": "mc_lukas_t6_pricier"
+            }
+          ]
+        },
+        {
+          "id": "good",
+          "when": {
+            "any": [
+              "gut"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Gut? Nur gut? Okay. Ich nehme gut.",
+              "en": "Good? Just good? Okay. I’ll take good.",
+              "audio": "mc_lukas_t6_good"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Letzte Frage, versprochen. Ein Gedankenexperiment.",
+          "emoji": "🧠",
+          "en": "Last question, promise. A thought experiment.",
+          "audio": "mc_lukas_t7a"
+        },
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Wenn du eine Million Euro hättest, was würdest du damit machen?",
+          "en": "If you had a million euros, what would you do with it?",
+          "audio": "mc_lukas_t7b"
+        }
+      ],
+      "tiles": [
+        "wenn",
+        "ich",
+        "ich",
+        "eine Million Euro",
+        "hätte",
+        "hättest",
+        "würde",
+        "würdest",
+        "ein",
+        "kleines",
+        "kleinen",
+        "Haus",
+        "am Meer",
+        "kaufen",
+        "in",
+        "dein",
+        "Wasser",
+        "investieren",
+        "viel",
+        "reisen",
+        "eine",
+        "Giraffe"
+      ],
+      "wrong": {
+        "hättest": "hätte",
+        "würdest": "würde"
+      },
+      "prepCase": {
+        "in": "acc"
+      },
+      "intents": [
+        {
+          "id": "giraffe",
+          "when": {
+            "any": [
+              "giraffe"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Eine Giraffe! Sie trinkt achtzig Liter Wasser am Tag. Achtzig! … Bist du sicher, dass du nicht investieren willst? Für die Giraffe?",
+              "emoji": "🦒",
+              "en": "A giraffe! She drinks eighty litres of water a day. Eighty! … Are you sure you do not want to invest? For the giraffe?",
+              "audio": "mc_lukas_t7_giraffe"
+            }
+          ]
+        },
+        {
+          "id": "invest",
+          "when": {
+            "any": [
+              "investieren"
+            ]
+          },
+          "value": -2,
+          "cause": "invested",
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "JA! Ich wusste es! Ich schreibe es auf. Das ist jetzt ein Vertrag. Mündlich.",
+              "emoji": "📝",
+              "en": "YES! I knew it! I’m writing it down. That’s a contract now. A verbal one.",
+              "audio": "mc_lukas_t7_invest"
+            }
+          ]
+        },
+        {
+          "id": "house",
+          "when": {
+            "any": [
+              "haus"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Ein Haus am Meer. Mit so viel Wasser. Kostenlos. Hm. Starke Konkurrenz.",
+              "emoji": "🌊",
+              "en": "A house by the sea. With so much water. For free. Hm. Tough competition.",
+              "audio": "mc_lukas_t7_house"
+            }
+          ]
+        },
+        {
+          "id": "travel",
+          "when": {
+            "any": [
+              "reisen"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Reisen! Nimm Wasser 2.0 mit. … War nur ein Versuch.",
+              "emoji": "✈️",
+              "en": "Travel! Take Water 2.0 with you. … Just trying.",
+              "audio": "mc_lukas_t7_travel"
+            }
+          ]
+        },
+        {
+          "id": "sea",
+          "when": {
+            "any": [
+              "am meer"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Am Meer? Und was machst du da? Das Meer kostet nichts. Das ist mein Problem.",
+              "en": "By the sea? And what do you do there? The sea costs nothing. That’s my problem.",
+              "audio": "mc_lukas_t7_sea"
+            }
+          ]
+        },
+        {
+          "id": "money",
+          "when": {
+            "any": [
+              "eine million euro"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Ja, eine Million. Und dann? Was würdest du machen?",
+              "en": "Yes, a million. And then? What would you do?",
+              "audio": "mc_lukas_t7_money"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "before": [
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Okay. Kein Deal. Ich habe es verstanden. Und, kleines Update: Mama hat die Badewanne gefunden. Mit 400 Flaschen.",
+          "emoji": "😔",
+          "en": "Okay. No deal. I get it. And, small update: Mum found the bathtub. With 400 bottles in it.",
+          "audio": "mc_lukas_t8a"
+        },
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Sie hat die Firma übernommen. Sie ist jetzt die Chefin von Wasser 2.0. Ich bin Praktikant. Unbezahlt. Mein Mentor sagt: Das ist ein Pivot.",
+          "emoji": "👩‍💼",
+          "en": "She has taken over the company. She is now the boss of Water 2.0. I am an intern. Unpaid. My mentor says: that is a pivot.",
+          "audio": "mc_lukas_t8_mama"
+        },
+        {
+          "who": "lukas",
+          "type": "text",
+          "de": "Aber bleiben wir trotzdem in Kontakt?",
+          "en": "But shall we stay in touch anyway?",
+          "audio": "mc_lukas_t8b"
+        }
+      ],
+      "tiles": [
+        "ja",
+        "nein",
+        "gern",
+        "aber",
+        "ohne",
+        "Geld",
+        "ich",
+        "würde",
+        "mich",
+        "freuen",
+        "nur",
+        "wenn",
+        "du",
+        "mir",
+        "eine",
+        "einen",
+        "Flasche",
+        "schenkst",
+        "schenken"
+      ],
+      "wrong": {
+        "schenken": "schenkst"
+      },
+      "intents": [
+        {
+          "id": "happy",
+          "when": {
+            "any": [
+              "freuen"
+            ]
+          },
+          "value": 2,
+          "fact": "🤝 bleibt Freund ohne Deal",
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Ich würde mich auch freuen! Wirklich. Ohne Pitch.",
+              "emoji": "💧",
+              "en": "I’d like that too! Really. No pitch.",
+              "audio": "mc_lukas_t8_happy"
+            }
+          ]
+        },
+        {
+          "id": "noMoney",
+          "when": {
+            "all": [
+              "ohne",
+              "geld"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Ohne Geld. Deal. Mein erster Deal ohne Geld. Fühlt sich komisch an. Schön komisch.",
+              "en": "Without money. Deal. My first deal without money. Feels weird. Nice weird.",
+              "audio": "mc_lukas_t8_nomoney"
+            }
+          ]
+        },
+        {
+          "id": "bottle",
+          "when": {
+            "any": [
+              "flasche"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Deal! Eine Flasche. Gratis. Es ist Brigitte. Sie hat auf dich gewartet. Also … eigentlich ist es Mamas Wasser.",
+              "en": "Deal! One bottle. Free. It is Brigitte. She has been waiting for you. Well … actually it is Mum's water.",
+              "audio": "mc_lukas_t8_bottle"
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "when": {
+            "any": [
+              "nein"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Nein? Okay. Ich trinke jetzt ein Glas Wasser 2.0. Allein. Ein teures Glas.",
+              "emoji": "🥃",
+              "en": "No? Okay. I’ll drink a glass of Water 2.0 now. Alone. An expensive glass.",
+              "audio": "mc_lukas_t8_no"
+            }
+          ]
+        },
+        {
+          "id": "yes",
+          "when": {
+            "any": [
+              "ja",
+              "gern"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "lukas",
+              "type": "text",
+              "de": "Mega! Ich schicke dir jeden Montag ein Motivationsvideo.",
+              "en": "Mega! I’ll send you a motivational video every Monday.",
+              "audio": "mc_lukas_t8_yes"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "lukas",
+    "type": "text",
+    "de": "Hm. Das war keine Antwort. Das war ein Pivot.",
+    "en": "Hm. That wasn’t an answer. That was a pivot.",
+    "audio": "mc_lukas_offtopic"
+  },
+  "confused": [
+    {
+      "who": "lukas",
+      "type": "text",
+      "de": "Hä? Kannst du das noch mal pitchen?",
+      "emoji": "😵",
+      "en": "Huh? Can you pitch that again?",
+      "audio": "mc_lukas_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "lukas",
+        "type": "text",
+        "de": "Weißt du was, {name}? Du hast kein Geld investiert. Aber du hast mir etwas gegeben: ehrliches Feedback.",
+        "en": "You know what, {name}? You didn’t invest any money. But you gave me something: honest feedback."
+      },
+      {
+        "who": "lukas",
+        "type": "text",
+        "de": "Das ist mehr wert als 5.000 Euro. Sagt mein Mentor. Also, meine Mama.",
+        "emoji": "💧",
+        "en": "That’s worth more than 5,000 euros. Says my mentor. Well, my mum.",
+        "audio": "mc_lukas_winb"
+      }
+    ],
+    "secret": [
+      {
+        "who": "lukas",
+        "type": "text",
+        "de": "{name}! Ich habe deine Flaschen zurückgebracht. Und meine auch. 400 Stück. Hundert Euro Pfand!",
+        "en": "{name}! I took your bottles back. And mine too. 400 of them. A hundred euros in deposit!"
+      },
+      {
+        "who": "lukas",
+        "type": "text",
+        "de": "Neue Firma: Pfand 3.0. Wir sind jetzt Partner. Du bekommst fünfzig Prozent. Von hundert Euro. Mega!",
+        "emoji": "♻️",
+        "en": "New company: Deposit 3.0. We’re partners now. You get fifty percent. Of a hundred euros. Mega!",
+        "audio": "mc_lukas_secretb"
+      }
+    ],
+    "partial": [
+      {
+        "who": "lukas",
+        "type": "text",
+        "de": "Okay. Kein Deal. Aber ich schreibe dir jeden Montag. Mit einem neuen Pitch. Für immer.",
+        "emoji": "📩",
+        "en": "Okay. No deal. But I’ll write to you every Monday. With a new pitch. Forever.",
+        "audio": "mc_lukas_partial"
+      }
+    ],
+    "deleted": {
+      "invested": {
+        "who": "lukas",
+        "type": "text",
+        "de": "Danke für dein Vertrauen! Ich bin dann mal auf Bali. Für die Firma. Tschüss!",
+        "emoji": "🏝️",
+        "en": "Thanks for your trust! I’ll be in Bali then. For the company. Bye!",
+        "audio": "mc_lukas_del_invested"
+      },
+      "confused": {
+        "who": "lukas",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich verstehe sogar Investoren. Tschüss.",
+        "en": "I don’t understand you. And I even understand investors. Bye.",
+        "audio": "mc_lukas_del_confused"
+      },
+      "default": {
+        "who": "lukas",
+        "type": "text",
+        "de": "Du bist nett, aber du bist kein Visionär. Ich muss weiter. Disruptieren.",
+        "en": "You’re nice, but you’re no visionary. I have to move on. Disrupting.",
+        "audio": "mc_lukas_del_default"
+      }
+    },
+    "sunday": {
+      "who": "lukas",
+      "type": "voice",
+      "audio": "mc_lukas_vn_sunday",
+      "de": "Sonntag, und ich habe eine neue Idee: Luft 2.0. Frische Luft in Dosen. Du bist die erste Person, die es weiß. … Bitte sag nichts zu meiner Mama.",
+      "en": "Sunday, and I’ve got a new idea: Air 2.0. Fresh air in cans. You’re the first person to know. … Please don’t tell my mum.",
+      "direction": "Whispering excitedly in a café on a Sunday morning, birds and cutlery behind him, giggling at his own idea."
+    }
+  },
+  "partialTitle": "Kein Deal. Aber ein Newsletter.",
+  "share": {
+    "win": "Lukas (26, Gründer von Wasser 2.0) wollte 5.000 Euro von mir 💧 Ich habe höflich Nein gesagt und mein Geld behalten. Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "secret": "Ich habe Lukas (26, Wasser 2.0) meine Pfandflaschen verkauft ♻️ Jetzt sind wir Geschäftspartner. Mein Deutsch: {score}/100. {url}",
+    "partial": "Kein Deal mit Lukas (26, Wasser 2.0) … aber jetzt bekomme ich jeden Montag einen Pitch 📩 Mein Deutsch: {score}/100. {url}",
+    "deleted": "Lukas (26, Wasser 2.0) hat jetzt mein Geld und ist auf Bali 🏝️ Mein Deutsch: {score}/100. Kannst du besser Nein sagen? {url}"
+  },
+  "imageCharacter": "Lukas, a 26-year-old startup founder: tall and lanky, a messy blond undercut, a huge white grin, a black turtleneck under a slightly too big beige blazer, white trainers, a lanyard round his neck, always holding a slim blue glass water bottle like a trophy.",
+  "imagePrompts": [
+    {
+      "id": "match_lukas",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands on a tiny stage in a bright co-working space with plants and beanbags, holding the blue bottle up high in one hand and pointing at the viewer with the other, mid-pitch, eyes shining. Behind him a blank whiteboard with only a hand-drawn rising arrow on it. Upper body and face clearly visible, centred."
+    },
+    {
+      "id": "match_lukas_bottles",
+      "aspect": "16:9",
+      "prompt": "Three bottles standing in a row on a plain white table in front of a plain pale wall, seen exactly from the front, far apart and evenly spaced, each lit by its own little spotlight, nothing else in the picture, no labels. LEFT: a small, slightly crumpled, cheap CLEAR plastic bottle. MIDDLE: a tall slim BLUE glass bottle. RIGHT: a shiny GOLDEN bottle with a tiny golden crown as its cap, clearly the fanciest. Three clearly different bottles: clear plastic, blue glass, gold."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Am liebsten trinke ich normales Wasser aus der Leitung.",
+      "score": 100,
+      "intent": "tap",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich trinke Wasser aus die Leitung.",
+      "score": 85,
+      "intent": "tap",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich trinkst kaltes Wasser.",
+      "score": 80,
+      "intent": "normal",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich trinke normale Wasser.",
+      "score": 85,
+      "intent": "normal",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich trinke lieber Kaffee.",
+      "score": 100,
+      "intent": "coffee",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Ich trinke keinen Kaffee.",
+      "score": 100,
+      "intent": "noX",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich trinke am liebsten kaltes Wasser.",
+      "score": 100,
+      "intent": "normal",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich nur Kaffee.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde das billigste Wasser kaufen.",
+      "score": 100,
+      "intent": "cheapest",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde das billigsten Wasser kaufen.",
+      "score": 85,
+      "intent": "cheapest",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde gar kein Wasser kaufen.",
+      "score": 100,
+      "intent": "none",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde keine Flasche kaufen.",
+      "score": 100,
+      "intent": "none",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würdest lieber normales Wasser kaufen.",
+      "score": 80,
+      "intent": "normal",
+      "delta": 1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde die goldene Flasche kaufen.",
+      "score": 100,
+      "intent": "gold",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde das teuerste Wasser kaufen.",
+      "score": 100,
+      "intent": "gold",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde die blaue Flasche kaufen.",
+      "score": 100,
+      "intent": "blue",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ich würde kaufen die blaue Flasche.",
+      "score": 70,
+      "intent": "blue",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist das nasseste Wasser der Welt.",
+      "score": 100,
+      "intent": "wettest",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist das nassesten Wasser der Welt.",
+      "score": 85,
+      "intent": "wettest",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist nasser als normales Wasser.",
+      "score": 100,
+      "intent": "wetter",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist nasser als normale Wasser.",
+      "score": 85,
+      "intent": "wetter",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Jede Flasche hat einen Namen.",
+      "score": 100,
+      "intent": "name",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Nichts ist besser.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Es ist besser.",
+      "score": 100,
+      "intent": "better",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde gern investieren, aber ich habe leider kein Geld.",
+      "score": 100,
+      "intent": "politeNo",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde lieber sparen.",
+      "score": 100,
+      "intent": "politeNo",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde gern investieren, aber ich leider habe kein Geld.",
+      "score": 70,
+      "intent": "politeNo",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe leider kein Geld.",
+      "score": 100,
+      "intent": "noMoney",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ja, ich bin dabei.",
+      "score": 100,
+      "intent": "yes",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde gern investieren.",
+      "score": 100,
+      "intent": "yes",
+      "delta": -2
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, ich bin nicht dabei.",
+      "score": 100,
+      "intent": "rudeNo",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Nein, leider nicht.",
+      "score": 100,
+      "intent": "sorry",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich würde dir lieber etwas verkaufen.",
+      "score": 100,
+      "intent": "sell",
+      "delta": 0
+    },
+    {
+      "turn": "t4",
+      "say": "Ich leider kein Geld.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4b",
+      "say": "Ich würde dir meine leeren Flaschen verkaufen. Mit Pfand.",
+      "score": 100,
+      "intent": "pfand",
+      "delta": 3
+    },
+    {
+      "turn": "t4b",
+      "say": "Ich würde dir meine leere Flaschen verkaufen.",
+      "score": 85,
+      "intent": "pfand",
+      "delta": 2
+    },
+    {
+      "turn": "t4b",
+      "say": "Ich würde dir einen kleinen Kaktus verkaufen.",
+      "score": 100,
+      "intent": "cactus",
+      "delta": 2
+    },
+    {
+      "turn": "t4b",
+      "say": "Ich würde dir einen kleiner Kaktus verkaufen.",
+      "score": 85,
+      "intent": "cactus",
+      "delta": 1
+    },
+    {
+      "turn": "t4b",
+      "say": "Ich würde dir alte Socken verkaufen.",
+      "score": 100,
+      "intent": "socks",
+      "delta": 1
+    },
+    {
+      "turn": "t4b",
+      "say": "Ich würde dir nichts verkaufen.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": -1
+    },
+    {
+      "turn": "t4b",
+      "say": "Ich würde dir meine alten Socken verkaufen.",
+      "score": 100,
+      "intent": "socks",
+      "delta": 1
+    },
+    {
+      "turn": "t4b",
+      "say": "Ich würde dir einen Eimer Luft verkaufen.",
+      "score": 100,
+      "intent": "air",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe nichts gehört.",
+      "score": 100,
+      "intent": "nothing",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe gehört nichts.",
+      "score": 70,
+      "intent": "nothing",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Das Wasser kommt aus dem Wasserhahn deiner Mutter.",
+      "score": 100,
+      "intent": "tap",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Das Wasser kommt aus den Wasserhahn deiner Mutter.",
+      "score": 85,
+      "intent": "tap",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Deine Mutter sucht ihre Badewanne.",
+      "score": 100,
+      "intent": "bath",
+      "delta": 1
+    },
+    {
+      "turn": "t5",
+      "say": "Deine Mutter sucht ihren Badewanne.",
+      "score": 85,
+      "intent": "bath",
+      "delta": 0
+    },
+    {
+      "turn": "t5",
+      "say": "Ich habe deine Mutter gehört.",
+      "score": 100,
+      "intent": "mum",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass dein Wasser so gut wie normales Wasser ist.",
+      "score": 100,
+      "intent": "same",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass deine Wasser so gut wie normales Wasser ist.",
+      "score": 85,
+      "intent": "same",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass es nicht schlechter ist.",
+      "score": 100,
+      "intent": "notWorse",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Ich findest, dass es nicht schlechter ist.",
+      "score": 80,
+      "intent": "notWorse",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass es ist nicht schlechter.",
+      "score": 70,
+      "intent": "notWorse",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass dein Wasser schlechter ist.",
+      "score": 100,
+      "intent": "worse",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist das beste Wasser.",
+      "score": 100,
+      "intent": "best",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist teurer.",
+      "score": 100,
+      "intent": "pricier",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Es ist gut.",
+      "score": 100,
+      "intent": "good",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich finde, dass dein Wasser nicht so gut wie normales Wasser ist.",
+      "score": 100,
+      "intent": "notAsGood",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Million Euro hätte, würde ich ein kleines Haus am Meer kaufen.",
+      "score": 100,
+      "intent": "house",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Million Euro hättest, würde ich viel reisen.",
+      "score": 80,
+      "intent": "travel",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Million Euro hätte, ich würde viel reisen.",
+      "score": 70,
+      "intent": "travel",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde ein kleinen Haus kaufen.",
+      "score": 85,
+      "intent": "house",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde in dein Wasser investieren.",
+      "score": 100,
+      "intent": "invest",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Million Euro hätte, würde ich in dein Wasser investieren.",
+      "score": 100,
+      "intent": "invest",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde viel reisen.",
+      "score": 100,
+      "intent": "travel",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Am Meer.",
+      "score": 100,
+      "intent": "sea",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich eine Million Euro.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Wenn ich eine Million Euro hätte, würde ich eine Giraffe kaufen.",
+      "score": 100,
+      "intent": "giraffe",
+      "delta": 1
+    },
+    {
+      "turn": "t7",
+      "say": "Ich würde ein Giraffe kaufen.",
+      "score": 85,
+      "intent": "giraffe",
+      "delta": 0
+    },
+    {
+      "turn": "t8",
+      "say": "Ich würde mich freuen.",
+      "score": 100,
+      "intent": "happy",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Ja, gern! Aber ohne Geld.",
+      "score": 100,
+      "intent": "noMoney",
+      "delta": 3
+    },
+    {
+      "turn": "t8",
+      "say": "Nur wenn du mir eine Flasche schenkst.",
+      "score": 100,
+      "intent": "bottle",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Nur wenn du mir einen Flasche schenkst.",
+      "score": 85,
+      "intent": "bottle",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Nur wenn du mir eine Flasche schenken.",
+      "score": 80,
+      "intent": "bottle",
+      "delta": 1
+    },
+    {
+      "turn": "t8",
+      "say": "Ja, gern!",
+      "score": 100,
+      "intent": "yes",
+      "delta": 2
+    },
+    {
+      "turn": "t8",
+      "say": "Nein.",
+      "score": 100,
+      "intent": "no",
+      "delta": -1
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Am liebsten trinke ich normales Wasser aus der Leitung."
+        ],
+        [
+          "t2",
+          "Ich würde gar kein Wasser kaufen."
+        ],
+        [
+          "t3",
+          "Es ist das nasseste Wasser der Welt."
+        ],
+        [
+          "t4",
+          "Ich würde gern investieren, aber ich habe leider kein Geld."
+        ],
+        [
+          "t5",
+          "Ich habe nichts gehört."
+        ],
+        [
+          "t6",
+          "Ich finde, dass dein Wasser so gut wie normales Wasser ist."
+        ],
+        [
+          "t7",
+          "Wenn ich eine Million Euro hätte, würde ich viel reisen."
+        ],
+        [
+          "t8",
+          "Ich würde mich freuen."
+        ]
+      ]
+    },
+    {
+      "name": "secret",
+      "ending": "secret",
+      "say": [
+        [
+          "t1",
+          "Ich trinke lieber Kaffee."
+        ],
+        [
+          "t2",
+          "Ich würde das billigste Wasser kaufen."
+        ],
+        [
+          "t3",
+          "Jede Flasche hat einen Namen."
+        ],
+        [
+          "t4",
+          "Ich würde dir lieber etwas verkaufen."
+        ],
+        [
+          "t4b",
+          "Ich würde dir meine leeren Flaschen verkaufen. Mit Pfand."
+        ],
+        [
+          "t5",
+          "Deine Mutter sucht ihre Badewanne."
+        ],
+        [
+          "t6",
+          "Ich finde, dass es nicht schlechter ist."
+        ],
+        [
+          "t7",
+          "Ich würde ein kleines Haus am Meer kaufen."
+        ],
+        [
+          "t8",
+          "Ja, gern! Aber ohne Geld."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Ich trinke lieber Kaffee."
+        ],
+        [
+          "t2",
+          "Ich würde die blaue Flasche kaufen."
+        ],
+        [
+          "t3",
+          "Nichts ist besser."
+        ],
+        [
+          "t4",
+          "Nein, ich bin nicht dabei."
+        ],
+        [
+          "t5",
+          "Deine Mutter sucht ihren Badewanne."
+        ],
+        [
+          "t6",
+          "Ich finde, dass dein Wasser schlechter ist."
+        ],
+        [
+          "t7",
+          "Am Meer."
+        ],
+        [
+          "t8",
+          "Ja, gern!"
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Ich nur Kaffee."
+        ],
+        [
+          "t2",
+          "Ich würde die goldene Flasche kaufen."
+        ],
+        [
+          "t3",
+          "Nichts ist besser."
+        ],
+        [
+          "t4",
+          "Ja, ich bin dabei."
+        ]
+      ]
+    }
+  ]
+}

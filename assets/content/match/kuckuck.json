@@ -1,0 +1,1802 @@
+{
+  "id": "kuckuck",
+  "name": "Der Kuckuck",
+  "age": 89,
+  "emoji": "🐦",
+  "image": "match_kuckuck",
+  "level": "B1.2",
+  "order": 4,
+  "bio": "Ich kündige.",
+  "bioEn": "I quit.",
+  "goal": "Bring the cuckoo back for the twelve o’clock show in your grandmother’s clock.",
+  "tagline": "Kuckuck · 89 · Kuckucksuhr bei deiner Oma",
+  "voice": "Puck",
+  "brief": "Der Kuckuck, an 89-year-old cuckoo-clock bird who has just quit: high, quick and theatrical like a tiny offended opera tenor, wounded pride and stage fright, melting completely when someone shows him respect.",
+  "focus": "bevor · nachdem · während · sobald · als · Präteritum",
+  "lexicon": {
+    "nouns": {
+      "Kuckuck": "m",
+      "Million": "f",
+      "Millionen": "pl",
+      "Mal": "n",
+      "Tür": "f",
+      "Katze": "f",
+      "Feder": "f",
+      "Hund": "m",
+      "Oma": "f",
+      "Kuchen": "m",
+      "Uhr": "f",
+      "Kaffee": "m",
+      "Zimmer": "n",
+      "Tee": "m",
+      "Foto": "n",
+      "Schwarzwald": "m",
+      "Teppich": "m"
+    },
+    "names": [
+      "Oma Erna"
+    ],
+    "verbs": [
+      "hast",
+      "habe",
+      "konntest",
+      "konnte",
+      "hatte",
+      "sprang",
+      "nahm",
+      "fraß",
+      "suchte",
+      "sucht",
+      "schimpfte",
+      "lachte",
+      "schlief",
+      "riefst",
+      "rufst",
+      "aß",
+      "sah",
+      "hörte",
+      "arbeitete",
+      "wacht",
+      "wachst",
+      "hat",
+      "schläft",
+      "wird",
+      "trinkst",
+      "putze",
+      "mache",
+      "warst",
+      "war",
+      "schaffst",
+      "weiß",
+      "bist",
+      "jodelte"
+    ],
+    "nonfinite": [
+      "gerufen",
+      "schließen",
+      "geklaut",
+      "getrunken",
+      "gebracht",
+      "gesucht",
+      "geschimpft",
+      "zugehört"
+    ],
+    "imperatives": [
+      "ruf"
+    ],
+    "accVerbs": [
+      "hast",
+      "habe",
+      "konntest",
+      "konnte",
+      "hatte",
+      "nahm",
+      "fraß",
+      "suchte",
+      "sucht",
+      "aß",
+      "sah",
+      "hat",
+      "trinkst",
+      "putze",
+      "mache",
+      "schaffst",
+      "ruf"
+    ],
+    "adjectives": [
+      "best",
+      "rot"
+    ],
+    "subordinators": [
+      "als"
+    ]
+  },
+  "intro": [
+    {
+      "who": "kuckuck",
+      "type": "text",
+      "de": "Ich kündige.",
+      "emoji": "🐦",
+      "en": "I quit.",
+      "audio": "mc_kuckuck_t1a"
+    },
+    {
+      "who": "kuckuck",
+      "type": "text",
+      "de": "Nach 89 Jahren in dieser Uhr. Bei deiner Oma. Im Wohnzimmer. Eine Bahnhofsuhr in Wanne-Eickel hat mir ein Angebot gemacht. Mit Heizung.",
+      "en": "After 89 years in this clock. At your grandmother’s. In the living room. A station clock in Wanne-Eickel has made me an offer. With heating.",
+      "audio": "mc_kuckuck_t1b"
+    }
+  ],
+  "turns": [
+    {
+      "id": "t1",
+      "before": [
+        {
+          "who": "kuckuck",
+          "type": "text",
+          "de": "Rate mal: Wie oft habe ich in meinem Leben „Kuckuck“ gerufen?",
+          "en": "Go on, guess: how many times have I called “cuckoo” in my life?",
+          "audio": "mc_kuckuck_t1c"
+        }
+      ],
+      "tiles": [
+        "du",
+        "hast",
+        "habe",
+        "sehr",
+        "oft",
+        "Kuckuck",
+        "gerufen",
+        "eine",
+        "Million",
+        "neun",
+        "Millionen",
+        "Mal",
+        "bestimmt",
+        "nie",
+        "ich",
+        "weiß",
+        "es",
+        "nicht"
+      ],
+      "wrong": {
+        "habe": "hast"
+      },
+      "intents": [
+        {
+          "id": "never",
+          "when": {
+            "any": [
+              "nie"
+            ]
+          },
+          "value": -2,
+          "cause": "insult",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Nie?! NIE?! Neun Millionen Mal! Und du hast es nie gehört?!",
+              "emoji": "😱",
+              "en": "Never?! NEVER?! Nine million times! And you never heard it?!",
+              "audio": "mc_kuckuck_t1_never"
+            }
+          ]
+        },
+        {
+          "id": "millions",
+          "when": {
+            "any": [
+              "millionen"
+            ]
+          },
+          "value": 2,
+          "fact": "🔢 weiß: neun Millionen Mal Kuckuck",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Neun Millionen! Genau! Ich habe mitgezählt. Jedes einzelne Mal.",
+              "emoji": "🔢",
+              "en": "Nine million! Exactly! I counted. Every single time.",
+              "audio": "mc_kuckuck_t1_millions"
+            }
+          ]
+        },
+        {
+          "id": "million",
+          "when": {
+            "any": [
+              "million"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Eine Million? Mehr! Neun Millionen. Ich habe mitgezählt.",
+              "en": "One million? More! Nine million. I counted.",
+              "audio": "mc_kuckuck_t1_million"
+            }
+          ]
+        },
+        {
+          "id": "often",
+          "when": {
+            "any": [
+              "oft"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "„Oft“ ist keine Zahl. „Oft“ sagt man über Regen. Neun Millionen! Neun!",
+              "en": "“Often” isn’t a number. You say “often” about rain. Nine million! Nine!",
+              "audio": "mc_kuckuck_t1_often"
+            }
+          ]
+        },
+        {
+          "id": "dunno",
+          "when": {
+            "all": [
+              "weiß",
+              "nicht"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Du weißt es nicht. Natürlich nicht. Niemand zählt mit. Außer mir.",
+              "en": "You don't know. Of course not. Nobody counts. Except me.",
+              "audio": "mc_kuckuck_t1_dunno"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "before": [
+        {
+          "who": "kuckuck",
+          "type": "voice",
+          "audio": "mc_kuckuck_vn_feather",
+          "de": "Gestern um zwölf. Ich öffnete die Tür. Ich rief Kuckuck. Und die Katze? Sie sprang! Bevor ich die Tür schließen konnte, hatte sie meine Feder im Maul. Meine schönste Feder! Die rote!",
+          "en": "Yesterday at twelve. I opened the door. I called cuckoo. And the cat? She jumped! Before I could close the door, she had my feather in her mouth. My most beautiful feather! The red one!",
+          "direction": "Agitated, high and fast like a tiny outraged opera tenor, a clock ticking loudly behind him and a cat meowing smugly at the very end."
+        },
+        {
+          "who": "kuckuck",
+          "type": "text",
+          "de": "Also. Was passierte, bevor ich die Tür schließen konnte?",
+          "en": "So. What happened before I could close the door?",
+          "audio": "mc_kuckuck_t2a"
+        }
+      ],
+      "tiles": [
+        "bevor",
+        "du",
+        "die",
+        "die",
+        "Tür",
+        "schließen",
+        "konntest",
+        "konnte",
+        "hatte",
+        "Katze",
+        "deine",
+        "Feder",
+        "sie",
+        "sprang",
+        "nahm",
+        "fraß",
+        "dich",
+        "ein",
+        "Hund"
+      ],
+      "wrong": {
+        "konnte": "konntest"
+      },
+      "intents": [
+        {
+          "id": "ate",
+          "when": {
+            "any": [
+              "fraß"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Sie fraß MICH? Ich lebe noch! Siehst du? Hier! Ich!",
+              "emoji": "🙄",
+              "en": "She ate ME? I'm still alive! See? Here! Me!",
+              "audio": "mc_kuckuck_t2_ate"
+            }
+          ]
+        },
+        {
+          "id": "dog",
+          "when": {
+            "any": [
+              "hund"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Ein Hund? Deine Oma hat keinen Hund. Nur diese Katze. Dieses Monster.",
+              "en": "A dog? Your grandma hasn't got a dog. Only that cat. That monster.",
+              "audio": "mc_kuckuck_t2_dog"
+            }
+          ]
+        },
+        {
+          "id": "feather",
+          "when": {
+            "any": [
+              "feder"
+            ]
+          },
+          "value": 2,
+          "fact": "🪶 weiß von der roten Feder",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Ja! Meine Feder! Die rote! Die schönste! Weg!",
+              "emoji": "🪶",
+              "en": "Yes! My feather! The red one! The most beautiful! Gone!",
+              "audio": "mc_kuckuck_t2_feather"
+            }
+          ]
+        },
+        {
+          "id": "jumped",
+          "when": {
+            "any": [
+              "sprang"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Sie sprang. Wie ein Tiger. Ein kleiner, dicker Tiger mit Mundgeruch.",
+              "emoji": "🐯",
+              "en": "She jumped. Like a tiger. A small, fat tiger with bad breath.",
+              "audio": "mc_kuckuck_t2_jumped"
+            }
+          ]
+        },
+        {
+          "id": "took",
+          "when": {
+            "any": [
+              "nahm"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Sie nahm etwas, ja. Aber WAS?",
+              "en": "She took something, yes. But WHAT?",
+              "audio": "mc_kuckuck_t2_took"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "before": [
+        {
+          "who": "kuckuck",
+          "type": "text",
+          "de": "Und du warst da! Im Wohnzimmer! Nachdem die Katze meine Feder geklaut hatte: Was hast du gemacht?",
+          "en": "And you were there! In the living room! After the cat had pinched my feather: what did you do?",
+          "audio": "mc_kuckuck_t3a"
+        }
+      ],
+      "tiles": [
+        "nachdem",
+        "die",
+        "Katze",
+        "deine",
+        "Feder",
+        "geklaut",
+        "hatte",
+        "suchte",
+        "sucht",
+        "ich",
+        "sie",
+        "schimpfte",
+        "lachte",
+        "mit",
+        "ihr",
+        "schlief",
+        "weiter",
+        "meine",
+        "Oma",
+        "habe",
+        "gesucht",
+        "geschimpft"
+      ],
+      "wrong": {
+        "sucht": "suchte"
+      },
+      "intents": [
+        {
+          "id": "laughed",
+          "when": {
+            "any": [
+              "lachte"
+            ]
+          },
+          "value": -2,
+          "cause": "insult",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Gelacht?! Über mich?! Ich packe meine Koffer. Ich habe keine Koffer. Egal!",
+              "emoji": "😤",
+              "en": "Laughed?! At me?! I’m packing my suitcases. I have no suitcases. Never mind!",
+              "audio": "mc_kuckuck_t3_laughed"
+            }
+          ]
+        },
+        {
+          "id": "searched",
+          "when": {
+            "any": [
+              "suchte",
+              "sucht",
+              "gesucht"
+            ]
+          },
+          "value": 2,
+          "fact": "🔎 suchte die rote Feder",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Gesucht? Für mich? Ich … ich habe etwas im Auge. Eine Feder.",
+              "emoji": "🥹",
+              "en": "Searched? For me? I … I have something in my eye. A feather.",
+              "audio": "mc_kuckuck_t3_searched"
+            }
+          ]
+        },
+        {
+          "id": "scolded",
+          "when": {
+            "any": [
+              "schimpfte",
+              "geschimpft"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Geschimpft! Gut so! Die Katze hat es verdient.",
+              "en": "Told her off! Good! The cat deserved it.",
+              "audio": "mc_kuckuck_t3_scolded"
+            }
+          ]
+        },
+        {
+          "id": "slept",
+          "when": {
+            "any": [
+              "schlief"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Weitergeschlafen. Natürlich. Alle schlafen. Nur ich arbeite.",
+              "emoji": "😒",
+              "en": "Went on sleeping. Of course. Everyone sleeps. Only I work.",
+              "audio": "mc_kuckuck_t3_slept"
+            }
+          ]
+        },
+        {
+          "id": "grandma",
+          "when": {
+            "any": [
+              "oma"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Deine Oma? Die schlief. Wie immer um zwölf. Aber DU?",
+              "en": "Your grandma? She was asleep. Like every day at twelve. But YOU?",
+              "audio": "mc_kuckuck_t3_grandma"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "before": [
+        {
+          "who": "kuckuck",
+          "type": "text",
+          "de": "Ich arbeite um zwölf. Und du? Was hast du gestern gemacht, während ich zwölfmal Kuckuck rief?",
+          "en": "I work at twelve. And you? What did you do yesterday while I called cuckoo twelve times?",
+          "audio": "mc_kuckuck_t4a"
+        }
+      ],
+      "tiles": [
+        "während",
+        "du",
+        "Kuckuck",
+        "riefst",
+        "rufst",
+        "zwölfmal",
+        "schlief",
+        "ich",
+        "aß",
+        "Kuchen",
+        "sah",
+        "fern",
+        "hörte",
+        "dir",
+        "zu",
+        "arbeitete",
+        "gerufen",
+        "hast",
+        "habe",
+        "zugehört",
+        "jodelte"
+      ],
+      "wrong": {
+        "rufst": "riefst"
+      },
+      "intents": [
+        {
+          "id": "listened",
+          "when": {
+            "any": [
+              "hörte",
+              "zugehört"
+            ]
+          },
+          "value": 2,
+          "fact": "👂 hört dem Kuckuck zu",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Du hast zugehört? Niemand hört zu! Seit 1937 nicht! Ich … bin gerührt.",
+              "emoji": "🥹",
+              "en": "You listened? Nobody listens! Not since 1937! I … am moved.",
+              "audio": "mc_kuckuck_t4_listened"
+            }
+          ]
+        },
+        {
+          "id": "cake",
+          "when": {
+            "any": [
+              "kuchen",
+              "aß"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Kuchen. Schwarzwälder Kirschtorte, hoffe ich. Sonst bin ich beleidigt.",
+              "emoji": "🍰",
+              "en": "Cake. Black Forest gateau, I hope. Otherwise I'm offended.",
+              "audio": "mc_kuckuck_t4_cake"
+            }
+          ]
+        },
+        {
+          "id": "slept",
+          "when": {
+            "any": [
+              "schlief"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Du hast geschlafen. Während ich gearbeitet habe. Typisch.",
+              "en": "You slept. While I was working. Typical.",
+              "audio": "mc_kuckuck_t4_slept"
+            }
+          ]
+        },
+        {
+          "id": "tv",
+          "when": {
+            "any": [
+              "sah",
+              "fern"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Fernsehen. Mein größter Feind. Der Fernseher hat keine einzige Feder.",
+              "emoji": "📺",
+              "en": "Television. My greatest enemy. The television has not a single feather.",
+              "audio": "mc_kuckuck_t4_tv"
+            }
+          ]
+        },
+        {
+          "id": "worked",
+          "when": {
+            "any": [
+              "arbeitete"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Du hast auch gearbeitet? Dann sind wir Kollegen. Hallo, Kollege.",
+              "en": "You were working too? Then we’re colleagues. Hello, colleague.",
+              "audio": "mc_kuckuck_t4_worked"
+            }
+          ]
+        },
+        {
+          "id": "yodel",
+          "when": {
+            "any": [
+              "jodelte"
+            ]
+          },
+          "value": 1,
+          "fact": "🎤 jodelt mit dem Kuckuck",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Du hast gejodelt? Während MEINER Show? … War es gut? Es war gut, oder? Wir könnten ein Duo sein. „Kuckuck und Jodel“. Ich habe schon ein Plakat im Kopf.",
+              "emoji": "🎤",
+              "en": "You yodelled? During MY show? … Was it good? It was good, wasn’t it? We could be a duo. “Cuckoo and Yodel”. I can already see the poster.",
+              "audio": "mc_kuckuck_t4_yodel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "before": [
+        {
+          "who": "kuckuck",
+          "type": "text",
+          "de": "Moment. Ich sehe einen Zettel am Kühlschrank. Den hat deine Oma geschrieben.",
+          "en": "Hang on. I can see a note on the fridge. Your grandma wrote it.",
+          "audio": "mc_kuckuck_t5a"
+        },
+        {
+          "who": "kuckuck",
+          "type": "photo",
+          "image": "match_kuckuck_note",
+          "overlay": [
+            "Oma Erna",
+            "11:30  Mittagsschlaf",
+            "12:00  KUCKUCK = aufwachen!",
+            "12:05  Kaffee"
+          ],
+          "alt": "Ein Zettel am Kühlschrank: Oma Erna. 11:30 Uhr Mittagsschlaf. 12:00 Uhr Kuckuck, aufwachen! 12:05 Uhr Kaffee."
+        },
+        {
+          "who": "kuckuck",
+          "type": "text",
+          "de": "Deine Oma schläft gerade. Wann wacht sie auf?",
+          "en": "Your grandma's asleep right now. When does she wake up?",
+          "audio": "mc_kuckuck_t5b"
+        }
+      ],
+      "tiles": [
+        "sie",
+        "sie",
+        "wacht",
+        "wachst",
+        "auf",
+        "sobald",
+        "du",
+        "rufst",
+        "riefst",
+        "um",
+        "zwölf",
+        "Uhr",
+        "nachdem",
+        "Kaffee",
+        "getrunken",
+        "hat",
+        "schläft",
+        "bis",
+        "morgen",
+        "nie"
+      ],
+      "wrong": {
+        "wachst": "wacht",
+        "riefst": {
+          "to": "rufst",
+          "note": "Every day: present tense, „sobald du rufst“."
+        }
+      },
+      "intents": [
+        {
+          "id": "sobald",
+          "when": {
+            "any": [
+              "sobald"
+            ]
+          },
+          "value": 2,
+          "fact": "⏰ weiß: Oma braucht den Kuckuck",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Sobald ich rufe … Sie wacht nur auf, wenn ich rufe?",
+              "en": "As soon as I call … She only wakes up when I call?",
+              "audio": "mc_kuckuck_t5_sobald"
+            },
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Sie braucht mich. Deine Oma braucht mich!",
+              "emoji": "🥹",
+              "en": "She needs me. Your grandma needs me!",
+              "audio": "mc_kuckuck_t5_needs"
+            }
+          ]
+        },
+        {
+          "id": "coffee",
+          "when": {
+            "any": [
+              "kaffee",
+              "nachdem",
+              "getrunken"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Nachdem sie Kaffee getrunken hat? Nein! Erst Kuckuck, dann Kaffee. Lies den Zettel!",
+              "en": "After she’s had coffee? No! First cuckoo, then coffee. Read the note!",
+              "audio": "mc_kuckuck_t5_coffee"
+            }
+          ]
+        },
+        {
+          "id": "twelve",
+          "when": {
+            "any": [
+              "zwölf"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Um zwölf, ja. Und wer sagt ihr, dass es zwölf ist? ICH.",
+              "en": "At twelve, yes. And who tells her it's twelve? ME.",
+              "audio": "mc_kuckuck_t5_twelve"
+            }
+          ]
+        },
+        {
+          "id": "never",
+          "when": {
+            "any": [
+              "nie",
+              "morgen"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Bis morgen? Ohne mich schläft sie bis morgen, ja. Oh.",
+              "en": "Until tomorrow? Without me she’ll sleep until tomorrow, yes. Oh.",
+              "audio": "mc_kuckuck_t5_never"
+            }
+          ]
+        },
+        {
+          "id": "sleeping",
+          "when": {
+            "any": [
+              "schläft"
+            ]
+          },
+          "value": 0,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Sie schläft, ja. Das weiß ich. Aber WANN wacht sie auf?",
+              "en": "She’s asleep, yes. I know that. But WHEN does she wake up?",
+              "audio": "mc_kuckuck_t5_sleeping"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "before": [
+        {
+          "who": "kuckuck",
+          "type": "text",
+          "de": "Die Katze sitzt übrigens gerade vor meiner Tür. Mit meiner roten Feder. Hinter dem Ohr. Wie ein Hut. Sie sieht fantastisch aus. Ich hasse es.",
+          "emoji": "🐈",
+          "en": "By the way, the cat is sitting in front of my door right now. With my red feather. Behind her ear. Like a hat. She looks fantastic. I hate it.",
+          "audio": "mc_kuckuck_t6b"
+        },
+        {
+          "who": "kuckuck",
+          "type": "text",
+          "de": "Gut. Vielleicht komme ich zurück. Aber bevor ich rufe, muss etwas passieren. Was?",
+          "en": "Fine. Maybe I’ll come back. But before I call, something has to happen. What?",
+          "audio": "mc_kuckuck_t6a"
+        }
+      ],
+      "tiles": [
+        "bevor",
+        "du",
+        "du",
+        "rufst",
+        "wird",
+        "die",
+        "Katze",
+        "aus",
+        "dem",
+        "den",
+        "Zimmer",
+        "gebracht",
+        "trinkst",
+        "einen",
+        "Tee",
+        "putze",
+        "ich",
+        "deine",
+        "Tür",
+        "mache",
+        "ein",
+        "Foto",
+        "roter",
+        "Teppich"
+      ],
+      "wrong": {},
+      "intents": [
+        {
+          "id": "cat",
+          "when": {
+            "any": [
+              "katze"
+            ]
+          },
+          "value": 2,
+          "fact": "🐈 bringt die Katze raus",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Die Katze wird aus dem Zimmer gebracht. JA. Mit Hut und allem. Das ist mein Traum. Seit 1987.",
+              "emoji": "🐈",
+              "en": "The cat gets carried out of the room. YES. Hat and all. That’s been my dream. Since 1987.",
+              "audio": "mc_kuckuck_t6_cat"
+            }
+          ]
+        },
+        {
+          "id": "carpet",
+          "when": {
+            "any": [
+              "teppich"
+            ]
+          },
+          "value": 2,
+          "fact": "🟥 rollt dem Kuckuck den roten Teppich aus",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Ein roter Teppich? Für mich? Bis zur Uhr? … Ich brauche nur zwanzig Zentimeter. Aber ja. JA. Und die Katze darf nicht drauf.",
+              "emoji": "🟥",
+              "en": "A red carpet? For me? Up to the clock? … I only need twenty centimetres. But yes. YES. And the cat isn’t allowed on it.",
+              "audio": "mc_kuckuck_t6_carpet"
+            }
+          ]
+        },
+        {
+          "id": "door",
+          "when": {
+            "any": [
+              "putze",
+              "tür"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Meine Tür wird geputzt? Sie quietscht seit 1952. Danke.",
+              "en": "My door gets cleaned? It has been squeaking since 1952. Thank you.",
+              "audio": "mc_kuckuck_t6_door"
+            }
+          ]
+        },
+        {
+          "id": "tea",
+          "when": {
+            "any": [
+              "tee",
+              "trinkst"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Ein Tee. Kamille. Für die Stimme. Gute Idee.",
+              "emoji": "🍵",
+              "en": "A tea. Camomile. For the voice. Good idea.",
+              "audio": "mc_kuckuck_t6_tea"
+            }
+          ]
+        },
+        {
+          "id": "photo",
+          "when": {
+            "any": [
+              "foto"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Ein Foto? Ich bin schüchtern. Kein Foto! Nie!",
+              "emoji": "🙈",
+              "en": "A photo? I'm shy. No photo! Never!",
+              "audio": "mc_kuckuck_t6_photo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "before": [
+        {
+          "who": "kuckuck",
+          "type": "text",
+          "de": "Es ist fünf vor zwölf. Ich habe Lampenfieber. Neun Millionen Mal, und ich habe Lampenfieber!",
+          "emoji": "😰",
+          "en": "It’s five to twelve. I have stage fright. Nine million times, and I have stage fright!",
+          "audio": "mc_kuckuck_t7a"
+        },
+        {
+          "who": "kuckuck",
+          "type": "text",
+          "de": "Sag mir etwas Schönes.",
+          "en": "Tell me something nice.",
+          "audio": "mc_kuckuck_t7b"
+        }
+      ],
+      "tiles": [
+        "als",
+        "du",
+        "du",
+        "jung",
+        "warst",
+        "warst",
+        "war",
+        "bist",
+        "der",
+        "beste",
+        "Kuckuck",
+        "Kuckuck",
+        "im",
+        "Schwarzwald",
+        "schaffst",
+        "das",
+        "ruf",
+        "einfach",
+        "ich",
+        "mache",
+        "es",
+        "selbst",
+        "egal"
+      ],
+      "wrong": {
+        "war": "warst"
+      },
+      "intents": [
+        {
+          "id": "egal",
+          "when": {
+            "any": [
+              "egal"
+            ]
+          },
+          "value": -2,
+          "cause": "insult",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Egal?! Fünf vor zwölf, und dir ist es EGAL?!",
+              "emoji": "💔",
+              "en": "Don't care?! Five to twelve, and you DON'T CARE?!",
+              "audio": "mc_kuckuck_t7_egal"
+            }
+          ]
+        },
+        {
+          "id": "self",
+          "when": {
+            "any": [
+              "selbst"
+            ]
+          },
+          "value": -1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Du? Selbst? Du kannst nicht mal pfeifen. Ich habe es gehört. Die Katze hat es auch gehört. Sie hat gelacht.",
+              "en": "You? Yourself? You can’t even whistle. I heard you. The cat heard it too. She laughed.",
+              "audio": "mc_kuckuck_t7_self"
+            }
+          ]
+        },
+        {
+          "id": "young",
+          "when": {
+            "any": [
+              "jung",
+              "beste"
+            ]
+          },
+          "value": 2,
+          "fact": "🏆 nennt ihn den besten Kuckuck im Schwarzwald",
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Der beste im Schwarzwald … Das hat mir noch nie jemand gesagt. Okay. Okay! Ich mache es!",
+              "emoji": "🏆",
+              "en": "The best in the Black Forest … Nobody has ever said that to me. Okay. Okay! I’ll do it!",
+              "audio": "mc_kuckuck_t7_young"
+            }
+          ]
+        },
+        {
+          "id": "can",
+          "when": {
+            "any": [
+              "schaffst"
+            ]
+          },
+          "value": 2,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Ich schaffe das. Ja. Ich schaffe das! Neun Millionen und eins!",
+              "emoji": "💪",
+              "en": "I can do it. Yes. I can do it! Nine million and one!",
+              "audio": "mc_kuckuck_t7_can"
+            }
+          ]
+        },
+        {
+          "id": "just",
+          "when": {
+            "any": [
+              "ruf",
+              "einfach"
+            ]
+          },
+          "value": 1,
+          "reply": [
+            {
+              "who": "kuckuck",
+              "type": "text",
+              "de": "Einfach rufen. Einfach. Du hast leicht reden.",
+              "en": "Just call. Just. Easy for you to say.",
+              "audio": "mc_kuckuck_t7_just"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offTopic": {
+    "who": "kuckuck",
+    "type": "text",
+    "de": "Das war nicht meine Frage. Hör mir doch einmal zu!",
+    "en": "That wasn't my question. Listen to me for once!",
+    "audio": "mc_kuckuck_offtopic"
+  },
+  "confused": [
+    {
+      "who": "kuckuck",
+      "type": "text",
+      "de": "Kuck…? Was? Das habe ich nicht verstanden.",
+      "emoji": "🤔",
+      "en": "Cuck…? What? I didn’t understand that.",
+      "audio": "mc_kuckuck_hae"
+    }
+  ],
+  "endings": {
+    "win": [
+      {
+        "who": "kuckuck",
+        "type": "text",
+        "de": "{name}, es ist zwölf. Hör zu!",
+        "en": "{name}, it's twelve. Listen!"
+      },
+      {
+        "who": "kuckuck",
+        "type": "text",
+        "de": "Kuckuck! Kuckuck! … Zwölfmal! Deine Oma ist wach. Sie lächelt. Die Katze hat applaudiert. Glaube ich. Vielleicht wollte sie nur springen. Ich bleibe. Noch neun Millionen Mal.",
+        "emoji": "🕛",
+        "en": "Cuckoo! Cuckoo! … Twelve times! Your grandma is awake. She’s smiling. The cat applauded. I think. Maybe she just wanted to jump. I’m staying. Nine million more times.",
+        "audio": "mc_kuckuck_win"
+      }
+    ],
+    "secret": [],
+    "partial": [
+      {
+        "who": "kuckuck",
+        "type": "text",
+        "de": "Na gut. Ich rufe. Aber nur einmal. Nicht zwölfmal. Einmal. Deine Oma wacht auf. Irgendwann.",
+        "emoji": "🐦",
+        "en": "Oh, all right. I'll call. But only once. Not twelve times. Once. Your grandma will wake up. Eventually.",
+        "audio": "mc_kuckuck_partial"
+      }
+    ],
+    "deleted": {
+      "insult": {
+        "who": "kuckuck",
+        "type": "text",
+        "de": "Neun Millionen Mal. Und so dankst du es mir. Ich nehme das Angebot aus Wanne-Eickel an. Mit Heizung. Tschüss.",
+        "emoji": "💔",
+        "en": "Nine million times. And this is how you thank me. I’m taking the offer from Wanne-Eickel. With heating. Bye.",
+        "audio": "mc_kuckuck_del_insult"
+      },
+      "confused": {
+        "who": "kuckuck",
+        "type": "text",
+        "de": "Ich verstehe dich nicht. Und ich verstehe sogar die Katze. Leider. Tschüss.",
+        "en": "I don't understand you. And I even understand the cat. Unfortunately. Bye.",
+        "audio": "mc_kuckuck_del_confused"
+      },
+      "default": {
+        "who": "kuckuck",
+        "type": "text",
+        "de": "Die Tür bleibt zu. Ab heute ist es in diesem Wohnzimmer immer elf Uhr neunundfünfzig.",
+        "emoji": "🚪",
+        "en": "The door stays shut. From today it’s always eleven fifty-nine in this living room.",
+        "audio": "mc_kuckuck_del_default"
+      }
+    },
+    "sunday": {
+      "who": "kuckuck",
+      "type": "voice",
+      "audio": "mc_kuckuck_vn_sunday",
+      "de": "Kuckuck! Es ist Sonntag. Ich habe heute frei. Deine Oma hat mir eine neue Feder gestrickt. Rot. Die Katze schaut sie an. Ich schaue zurück.",
+      "en": "Cuckoo! It’s Sunday. I’ve got the day off. Your grandma knitted me a new feather. Red. The cat is looking at it. I’m looking back.",
+      "direction": "Proud and relaxed, a clock ticking softly, an old woman humming in the background, a long suspicious pause before the last sentence."
+    }
+  },
+  "partialTitle": "Nur einmal Kuckuck.",
+  "share": {
+    "win": "Ich habe den Kuckuck (89) aus der Kündigung geholt 🐦 Zwölf Uhr, zwölfmal Kuckuck! Mein Deutsch: {score}/100. Schaffst du das? {url}",
+    "partial": "Der Kuckuck (89) ruft wieder … aber nur einmal statt zwölfmal 🐦 Mein Deutsch: {score}/100. Kannst du es besser? {url}",
+    "deleted": "Der Kuckuck (89) hat mich gelöscht 💔 und wohnt jetzt in einer Bahnhofsuhr. Mein Deutsch: {score}/100. Holst du ihn zurück? {url}"
+  },
+  "imageCharacter": "Der Kuckuck, a tiny old carved wooden cuckoo bird painted in faded brown and cream, one red tail feather missing, little round spectacles, very dignified and offended, standing in the open doorway of an ornate carved Black Forest cuckoo clock.",
+  "imagePrompts": [
+    {
+      "id": "match_kuckuck",
+      "aspect": "3:4",
+      "prompt": "Portrait for a profile card. {self} He stands with his wings crossed in front of the clock’s little open door, a tiny suitcase next to him, chin raised in protest. The carved clock with pine cones and leaves hangs on a flowery living-room wall. The bird is large in the frame and centred."
+    },
+    {
+      "id": "match_kuckuck_note",
+      "aspect": "3:4",
+      "prompt": "A phone photo of a white fridge door seen straight on, with one plain yellow sticky note held by a red magnet in the middle, the note completely blank. A fat grey-striped cat sits on top of the fridge with one red feather sticking out of its mouth, looking very pleased."
+    }
+  ],
+  "tests": [
+    {
+      "turn": "t1",
+      "say": "Du hast bestimmt neun Millionen Mal Kuckuck gerufen.",
+      "score": 100,
+      "intent": "millions",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Neun Millionen Mal.",
+      "score": 100,
+      "intent": "millions",
+      "delta": 3
+    },
+    {
+      "turn": "t1",
+      "say": "Du habe sehr oft Kuckuck gerufen.",
+      "score": 80,
+      "intent": "often",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Du hast gerufen sehr oft Kuckuck.",
+      "score": 70,
+      "intent": "often",
+      "delta": 1
+    },
+    {
+      "turn": "t1",
+      "say": "Du hast eine Million Mal Kuckuck gerufen.",
+      "score": 100,
+      "intent": "million",
+      "delta": 2
+    },
+    {
+      "turn": "t1",
+      "say": "Du hast nie Kuckuck gerufen.",
+      "score": 100,
+      "intent": "never",
+      "delta": -2
+    },
+    {
+      "turn": "t1",
+      "say": "Ich weiß es nicht.",
+      "score": 100,
+      "intent": "dunno",
+      "delta": -1
+    },
+    {
+      "turn": "t1",
+      "say": "Du neun Millionen Mal.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Bevor du die Tür schließen konntest, hatte die Katze deine Feder.",
+      "score": 100,
+      "intent": "feather",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Bevor du die Tür schließen konnte, hatte die Katze deine Feder.",
+      "score": 80,
+      "intent": "feather",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Bevor du konntest die Tür schließen, hatte die Katze deine Feder.",
+      "score": 70,
+      "intent": "feather",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Sie nahm deine Feder.",
+      "score": 100,
+      "intent": "feather",
+      "delta": 3
+    },
+    {
+      "turn": "t2",
+      "say": "Die Katze sprang.",
+      "score": 100,
+      "intent": "jumped",
+      "delta": 2
+    },
+    {
+      "turn": "t2",
+      "say": "Die Katze fraß dich.",
+      "score": 100,
+      "intent": "ate",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Ein Hund sprang.",
+      "score": 100,
+      "intent": "dog",
+      "delta": -1
+    },
+    {
+      "turn": "t2",
+      "say": "Sie deine Feder.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Nachdem die Katze deine Feder geklaut hatte, suchte ich sie.",
+      "score": 100,
+      "intent": "searched",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Nachdem die Katze deine Feder geklaut hatte, ich suchte sie.",
+      "score": 70,
+      "intent": "searched",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Nachdem die Katze deine Feder hatte geklaut, suchte ich sie.",
+      "score": 70,
+      "intent": "searched",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich sucht sie.",
+      "score": 80,
+      "intent": "searched",
+      "delta": 2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich schimpfte mit ihr.",
+      "score": 100,
+      "intent": "scolded",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich lachte.",
+      "score": 100,
+      "intent": "laughed",
+      "delta": -2
+    },
+    {
+      "turn": "t3",
+      "say": "Ich schlief weiter.",
+      "score": 100,
+      "intent": "slept",
+      "delta": 1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich mit ihr.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe deine Feder gesucht.",
+      "score": 100,
+      "intent": "searched",
+      "delta": 3
+    },
+    {
+      "turn": "t3",
+      "say": "Ich habe mit ihr geschimpft.",
+      "score": 100,
+      "intent": "scolded",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Während du Kuckuck riefst, hörte ich dir zu.",
+      "score": 100,
+      "intent": "listened",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Während du Kuckuck rufst, hörte ich dir zu.",
+      "score": 80,
+      "intent": "listened",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Während du Kuckuck riefst, ich hörte dir zu.",
+      "score": 70,
+      "intent": "listened",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Während du zwölfmal Kuckuck riefst, aß ich Kuchen.",
+      "score": 100,
+      "intent": "cake",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Während du riefst, schlief ich.",
+      "score": 100,
+      "intent": "slept",
+      "delta": 1
+    },
+    {
+      "turn": "t4",
+      "say": "Während du riefst, sah ich fern.",
+      "score": 100,
+      "intent": "tv",
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Während du riefst, arbeitete ich.",
+      "score": 100,
+      "intent": "worked",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Ich dir zu.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t4",
+      "say": "Während du Kuckuck gerufen hast, habe ich dir zugehört.",
+      "score": 100,
+      "intent": "listened",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Ich habe dir zugehört.",
+      "score": 100,
+      "intent": "listened",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Sie wacht auf, sobald du rufst.",
+      "score": 100,
+      "intent": "sobald",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Sobald du rufst, wacht sie auf.",
+      "score": 100,
+      "intent": "sobald",
+      "delta": 3
+    },
+    {
+      "turn": "t5",
+      "say": "Sobald du rufst, sie wacht auf.",
+      "score": 70,
+      "intent": "sobald",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Sie wachst auf, sobald du rufst.",
+      "score": 80,
+      "intent": "sobald",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Sobald du riefst, wacht sie auf.",
+      "score": 85,
+      "intent": "sobald",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Sie wacht um zwölf Uhr auf.",
+      "score": 100,
+      "intent": "twelve",
+      "delta": 2
+    },
+    {
+      "turn": "t5",
+      "say": "Sie wacht auf, nachdem sie Kaffee getrunken hat.",
+      "score": 100,
+      "intent": "coffee",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Sie schläft bis morgen.",
+      "score": 100,
+      "intent": "never",
+      "delta": -1
+    },
+    {
+      "turn": "t5",
+      "say": "Sie um zwölf Uhr.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Bevor du rufst, wird die Katze aus dem Zimmer gebracht.",
+      "score": 100,
+      "intent": "cat",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Bevor du rufst, wird die Katze aus den Zimmer gebracht.",
+      "score": 85,
+      "intent": "cat",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Bevor du rufst, die Katze wird aus dem Zimmer gebracht.",
+      "score": 70,
+      "intent": "cat",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Bevor du rufst, putze ich deine Tür.",
+      "score": 100,
+      "intent": "door",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Bevor du rufst, trinkst du einen Tee.",
+      "score": 100,
+      "intent": "tea",
+      "delta": 2
+    },
+    {
+      "turn": "t6",
+      "say": "Bevor du rufst, mache ich ein Foto.",
+      "score": 100,
+      "intent": "photo",
+      "delta": -1
+    },
+    {
+      "turn": "t6",
+      "say": "Ich deine Tür.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Als du jung warst, warst du der beste Kuckuck im Schwarzwald.",
+      "score": 100,
+      "intent": "young",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Als du jung warst, war du der beste Kuckuck im Schwarzwald.",
+      "score": 80,
+      "intent": "young",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Als du jung warst, du warst der beste Kuckuck im Schwarzwald.",
+      "score": 70,
+      "intent": "young",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Du schaffst das!",
+      "score": 100,
+      "intent": "can",
+      "delta": 3
+    },
+    {
+      "turn": "t7",
+      "say": "Ruf einfach Kuckuck!",
+      "score": 100,
+      "intent": "just",
+      "delta": 2
+    },
+    {
+      "turn": "t7",
+      "say": "Ich mache es selbst.",
+      "score": 100,
+      "intent": "self",
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Egal.",
+      "score": 100,
+      "intent": "egal",
+      "delta": -2
+    },
+    {
+      "turn": "t7",
+      "say": "Du der beste Kuckuck.",
+      "score": 50,
+      "intent": null,
+      "delta": -1
+    },
+    {
+      "turn": "t7",
+      "say": "Du bist der beste Kuckuck im Schwarzwald!",
+      "score": 100,
+      "intent": "young",
+      "delta": 3
+    },
+    {
+      "turn": "t4",
+      "say": "Während du Kuckuck riefst, jodelte ich.",
+      "score": 100,
+      "intent": "yodel",
+      "delta": 2
+    },
+    {
+      "turn": "t4",
+      "say": "Während du Kuckuck rufst, jodelte ich.",
+      "score": 80,
+      "intent": "yodel",
+      "delta": 1
+    },
+    {
+      "turn": "t6",
+      "say": "Bevor du rufst, wird ein roter Teppich gebracht.",
+      "score": 100,
+      "intent": "carpet",
+      "delta": 3
+    },
+    {
+      "turn": "t6",
+      "say": "Bevor du rufst, ein roter Teppich wird gebracht.",
+      "score": 70,
+      "intent": "carpet",
+      "delta": 2
+    }
+  ],
+  "playthroughs": [
+    {
+      "name": "perfect",
+      "ending": "win",
+      "say": [
+        [
+          "t1",
+          "Du hast bestimmt neun Millionen Mal Kuckuck gerufen."
+        ],
+        [
+          "t2",
+          "Bevor du die Tür schließen konntest, hatte die Katze deine Feder."
+        ],
+        [
+          "t3",
+          "Nachdem die Katze deine Feder geklaut hatte, suchte ich sie."
+        ],
+        [
+          "t4",
+          "Während du Kuckuck riefst, hörte ich dir zu."
+        ],
+        [
+          "t5",
+          "Sie wacht auf, sobald du rufst."
+        ],
+        [
+          "t6",
+          "Bevor du rufst, wird die Katze aus dem Zimmer gebracht."
+        ],
+        [
+          "t7",
+          "Als du jung warst, warst du der beste Kuckuck im Schwarzwald."
+        ]
+      ]
+    },
+    {
+      "name": "partial",
+      "ending": "partial",
+      "say": [
+        [
+          "t1",
+          "Du hast sehr oft Kuckuck gerufen."
+        ],
+        [
+          "t2",
+          "Ein Hund sprang."
+        ],
+        [
+          "t3",
+          "Ich schlief weiter."
+        ],
+        [
+          "t4",
+          "Während du riefst, sah ich fern."
+        ],
+        [
+          "t5",
+          "Sie wacht auf, nachdem sie Kaffee getrunken hat."
+        ],
+        [
+          "t6",
+          "Bevor du rufst, mache ich ein Foto."
+        ],
+        [
+          "t7",
+          "Ruf einfach Kuckuck!"
+        ]
+      ]
+    },
+    {
+      "name": "deleted",
+      "ending": "deleted",
+      "say": [
+        [
+          "t1",
+          "Du hast nie Kuckuck gerufen."
+        ],
+        [
+          "t2",
+          "Die Katze fraß dich."
+        ],
+        [
+          "t3",
+          "Ich lachte."
+        ]
+      ]
+    }
+  ]
+}
