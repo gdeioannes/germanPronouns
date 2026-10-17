@@ -1,19 +1,10 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import {
 	answerSquares,
-	DEAL_CHANCE,
-	JA_NEIN_CARD_ID,
 	isPair,
-	jaNeinDealSlot,
-	newWallet,
-	refillWallet,
-	REFILL_HOURS,
 	shareLine,
 	shareText,
-	TICKET_CAP,
-	ticketWinChance,
 	whatsappHref,
-	WIN_CHANCE,
 	type Answer
 } from './janein';
 import {
@@ -31,10 +22,8 @@ import {
 	shuffled
 } from './janeinRounds';
 
-const NOW = 1_800_000_000_000;
-const HOUR = 60 * 60 * 1000;
 
-// A Map-backed localStorage: the wallet, the played list and the shelf live there.
+// A Map-backed localStorage: the played list and the shelf live there.
 const store = new Map<string, string>();
 Object.defineProperty(globalThis, 'localStorage', {
 	configurable: true,
@@ -161,51 +150,5 @@ describe('the collection', () => {
 		expect(lines.slice(1, 11).join('')).toContain('🟪');
 		expect((text.match(/⬜/g) ?? []).length).toBe(49);
 		expect(lines[11]).toBe('https://languagequiz.org/play/ja-nein/personas');
-	});
-});
-
-describe('tickets', () => {
-	it('starts with one, and a free one arrives every twelve hours up to a pocket of two', () => {
-		const w = newWallet(NOW);
-		expect(w.tickets).toBe(1);
-		expect(refillWallet(w, NOW + (REFILL_HOURS - 1) * HOUR).tickets).toBe(1);
-		expect(refillWallet(w, NOW + (REFILL_HOURS + 1) * HOUR).tickets).toBe(2);
-		// a week away does not bank a week of refills
-		const full = refillWallet(w, NOW + 7 * 24 * HOUR);
-		expect(full.tickets).toBe(TICKET_CAP);
-		expect(TICKET_CAP).toBe(2);
-		// at the cap the clock waits: spend one and the next is twelve hours off
-		expect(refillWallet({ ...full, tickets: 1 }, NOW + 7 * 24 * HOUR + HOUR).tickets).toBe(1);
-	});
-
-	it('is won by a pass at a quarter with an empty pocket, an eighth with one, never at the cap', () => {
-		expect(ticketWinChance(false, 0)).toBe(0);
-		expect(ticketWinChance(true, 0)).toBe(1 / 4);
-		expect(ticketWinChance(true, 1)).toBe(1 / 8);
-		expect(ticketWinChance(true, TICKET_CAP)).toBe(0);
-		expect(WIN_CHANCE.length).toBe(TICKET_CAP);
-	});
-});
-
-describe('the deck card', () => {
-	const pocket = (tickets: number, sureDeal = false) => ({ tickets, refillAt: NOW + HOUR, sureDeal });
-
-	it('is a sure thing, second from the top, for the very first ticket', () => {
-		expect(jaNeinDealSlot(new Set(), () => 0.99, pocket(1, true))).toBe(1);
-	});
-
-	it('stays out without a ticket, or when swiped away', () => {
-		expect(jaNeinDealSlot(new Set(), () => 0, pocket(0, true))).toBeNull();
-		expect(jaNeinDealSlot(new Set(), () => 0, pocket(0))).toBeNull();
-		expect(jaNeinDealSlot(new Set([JA_NEIN_CARD_ID]), () => 0, pocket(2, true))).toBeNull();
-	});
-
-	it('is a coin toss with a ticket in the pocket, and never the top card nor deeper than the fifth', () => {
-		expect(DEAL_CHANCE).toBe(0.3);
-		expect(jaNeinDealSlot(new Set(), () => DEAL_CHANCE, pocket(1))).toBeNull();
-		const rolls = [0.1, 0.99];
-		expect(jaNeinDealSlot(new Set(), () => rolls.shift()!, pocket(1))).toBe(4);
-		const low = [0.1, 0];
-		expect(jaNeinDealSlot(new Set(), () => low.shift()!, pocket(2))).toBe(1);
 	});
 });

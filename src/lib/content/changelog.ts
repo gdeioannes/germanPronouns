@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-17",
+    title: "No more tickets: surprises just turn up",
+    items: [
+      "Tickets are gone. Ja oder Nein?, Schreib mir! characters, story episodes and songs are now surprises in your deck, and every one that turns up can be played straight away. Nothing to save up, nothing locked.",
+      "A hand holds at most one surprise, so the exercises stay the main thing. Each time the deck deals, it decides once whether a surprise comes, and then which kind, from the kinds that still have something for you. Finished every story? Then it is one of the others.",
+      "A good run makes a surprise in your next hand more likely.",
+      "Prefer to just learn? Settings has a new switch, Games and stories in the deck. Turn it off and the deck deals only exercises.",
+      "Ja oder Nein? and Schreib mir! are now in the Library menu next to Stories and Songs, so you can play them whenever you like.",
+    ],
+  },
+  {
+    date: "2026-10-17",
     title: "Schreib mir!: fifty-one strangers who want to chat",
     highlight: true,
     items: [
@@ -26,7 +37,7 @@ export const changelog: ChangelogEntry[] = [
       "There is no second try. Every chat is played once, so what you said stays said, and the ending is the one you earned.",
       "Matches send photos and voice notes, and some replies only make sense if you looked closely or listened carefully. Every line they send can be played aloud.",
       "Win them over and you get a like and their number in your contacts. The contacts page keeps everyone you have won, with the chat to read again, and the ending card can be sent to a friend.",
-      "The characters also turn up in your course deck, on the same tickets as Ja oder Nein?. Starting a chat costs one ticket and the card says so; a chat you have already started is free to continue. With no ticket left the card is greyed out and tells you when the next one arrives.",
+      "The characters also turn up in your course deck now and then, as one of its surprises. A chat you have started comes back in every hand until it ends. The Schreib mir! page in the menu lets you browse them all.",
     ],
   },
   {

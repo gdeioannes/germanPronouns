@@ -9,9 +9,6 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import { breadcrumbLd } from '$lib/seo';
 	import { loadChat, MATCH_CHATS, MATCH_PATH, contacts, type MatchChat, type SavedChat } from '$lib/domain/matchChat';
-	import { gameTickets, nextTicketAt } from '$lib/domain/janein';
-	import TicketStub from '$lib/components/match/TicketStub.svelte';
-	import { announce } from '$lib/a11y.svelte';
 	import { playSound } from '$lib/services/sounds';
 	import { effectsCalm } from '$lib/motion/fx.svelte';
 	import { goto } from '$app/navigation';
@@ -26,11 +23,6 @@
 	let level = $state<string>('all');
 	let saidContacts = $state(0);
 	/** Shared with Ja oder Nein?: a new chat costs one. */
-	let tickets = $state(0);
-	let refillAt = $state(0);
-	/** A heart on a new profile with an empty pocket: the "no ticket" panel. */
-	let broke = $state<MatchChat | null>(null);
-	let shake = $state(0);
 	let matched = $state<MatchChat | null>(null);
 
 	// -- the gesture ---------------------------------------------------------
@@ -58,8 +50,6 @@
 		}
 		pick(level);
 		saidContacts = contacts().length;
-		tickets = gameTickets();
-		refillAt = nextTicketAt();
 	});
 
 	function pick(next: string) {
@@ -123,15 +113,6 @@
 			void goto(`${MATCH_PATH}/${top.chat.id}`);
 			return;
 		}
-		// No ticket for a new chat: the card stays, shakes, and says how to get one.
-		if (tickets <= 0) {
-			dx = 0;
-			shake++;
-			playSound('down');
-			broke = top.chat;
-			announce('No ticket left. Win one in a run, or wait for the next free one.');
-			return;
-		}
 		await fly('right');
 		playSound('up');
 		matched = top.chat;
@@ -160,7 +141,7 @@
 		<a class="back" href="/course/de_cert_a1" aria-label="Back to your deck"><Icon name="arrowLeft" size="1.1em" /></a>
 		<div>
 			<h1 lang="de">Schreib mir!</h1>
-			<p>Match a character. Chat to reach their goal. Every chat happens once. <span class="pocket">🎟️ {tickets}</span></p>
+			<p>Match a character. Chat to reach their goal. Every chat happens once.</p>
 		</div>
 		<a class="contacts-link" href="{MATCH_PATH}/kontakte">
 			<Icon name="chat" size="1.05em" /> Contacts{#if saidContacts}<span class="count">{saidContacts}</span>{/if}
@@ -186,7 +167,6 @@
 				class="profile"
 				class:top={isTop}
 				class:dragging={isTop && dragging}
-				class:locked={!card.saved && tickets <= 0}
 				class:leaving={isTop && leaving}
 				style:--depth={depth}
 				style={isTop ? `transform: translateX(${dx}px) rotate(${dx / 18}deg);` : undefined}
@@ -207,9 +187,6 @@
 						<span class="stamp nope" style:opacity={Math.max(0, -lean)}>LATER</span>
 					{/if}
 					{#if st}<span class="status" data-tone={st.tone}>{st.label}</span>{/if}
-					{#if !card.saved?.ending}
-						<span class="stub-pos"><TicketStub free={!!card.saved} pocket={tickets} {refillAt} /></span>
-					{/if}
 				</div>
 				<div class="info">
 					<h2>{card.chat.emoji} {card.chat.name}, {card.chat.age} <span class="lvl">{card.chat.level}</span></h2>
@@ -226,40 +203,12 @@
 
 	<div class="buttons">
 		<button type="button" class="round nope" onclick={pass} aria-label="Later: next card"><Icon name="close" size="1.6em" /></button>
-		{#key shake}
-			<button
-				type="button"
-				class="round heart"
-				class:no-ticket={!top?.saved && tickets <= 0}
-				class:nudge={shake > 0}
-				onclick={like}
-				aria-label={top?.saved ? 'Open the chat' : tickets <= 0 ? 'Match: needs a ticket' : 'Match: costs 1 ticket'}
-			>
-				<Icon name="heart" size="1.7em" />
-				{#if !top?.saved}<span class="heart-cost">{tickets <= 0 ? '🔒' : '🎟️1'}</span>{/if}
-			</button>
-		{/key}
+		<button type="button" class="round heart" onclick={like} aria-label={top?.saved ? 'Open the chat' : 'Match'}>
+			<Icon name="heart" size="1.7em" />
+		</button>
 	</div>
 	<p class="how">Swipe right or tap the heart to match · left for later</p>
 </main>
-
-{#if broke}
-	<div class="match-scrim broke" role="dialog" aria-modal="true" aria-labelledby="broke-title">
-		<div class="match">
-			<p class="its" id="broke-title" lang="de">Kein Ticket mehr!</p>
-			<div class="pair">
-				<img src="/img/story/{broke.image}.webp" alt="" class="sad" />
-			</div>
-			<p>{broke.name} is waiting, but a new chat costs one ticket and your pocket is empty.</p>
-			<p class="rule">
-				Next free ticket: {new Date(refillAt).toLocaleString('en-GB', { weekday: 'long', hour: '2-digit', minute: '2-digit' })}. A run of
-				8 out of 10 or better can win one sooner. Tickets are shared with <span lang="de">Ja oder Nein?</span>
-			</p>
-			<a class="btn" href="/course/de_cert_a1"><Icon name="bolt" size="1em" /> Win a ticket in a run</a>
-			<button type="button" class="btn-quiet" onclick={() => (broke = null)}>Keep browsing</button>
-		</div>
-	</div>
-{/if}
 
 {#if matched}
 	<div class="match-scrim" role="dialog" aria-modal="true" aria-labelledby="match-title">
@@ -271,7 +220,7 @@
 				<img src="/img/story/{matched.image}.webp" alt="" />
 			</div>
 			<p>You and {matched.name} matched. Your goal: <strong>{matched.goal}</strong></p>
-			<p class="rule">One chat, one chance. Build your answers from the word tiles. Starting costs 🎟️ 1 ({tickets} in your pocket).</p>
+			<p class="rule">One chat, one chance. Build your answers from the word tiles.</p>
 			<a class="btn" href="{MATCH_PATH}/{matched.id}"><Icon name="chat" size="1em" /> <span lang="de">Schreib los!</span></a>
 			<button type="button" class="btn-quiet" onclick={() => (matched = null)}>Not now</button>
 		</div>
@@ -446,61 +395,8 @@
 		font-size: var(--step--1);
 		font-weight: 700;
 	}
-	.pocket {
-		display: inline-block;
-		margin-left: 0.2rem;
-		padding: 0 0.45rem;
-		border-radius: 999px;
-		background: linear-gradient(120deg, #c2364a, #ff6b81);
-		color: #fff;
-		font-weight: 700;
-	}
-	.stub-pos {
-		position: absolute;
-		top: 0.8rem;
-		right: 0.8rem;
-		z-index: 3;
-	}
-	.profile.locked .pic img {
-		filter: grayscale(0.7) brightness(0.9);
-	}
 	.round.heart {
 		position: relative;
-	}
-	.round.heart.no-ticket {
-		color: #8a8f99;
-	}
-	.round.heart.nudge {
-		animation: no 380ms ease;
-	}
-	.heart-cost {
-		position: absolute;
-		bottom: -0.35rem;
-		right: -0.5rem;
-		padding: 0.05rem 0.35rem;
-		border-radius: 999px;
-		background: linear-gradient(120deg, #c2364a, #ff6b81);
-		color: #fff;
-		font-size: 0.65rem;
-		font-weight: 800;
-		box-shadow: 0 2px 6px rgb(0 0 0 / 0.2);
-	}
-	.round.heart.no-ticket .heart-cost {
-		background: #5c6270;
-	}
-	.match-scrim.broke {
-		background: linear-gradient(160deg, rgb(92 98 112 / 0.95), rgb(31 58 95 / 0.96));
-	}
-	.pair img.sad {
-		filter: grayscale(0.6);
-	}
-	@keyframes no {
-		25% {
-			transform: translateX(-6px);
-		}
-		75% {
-			transform: translateX(6px);
-		}
 	}
 	.status[data-tone='lost'] {
 		color: var(--wrong);

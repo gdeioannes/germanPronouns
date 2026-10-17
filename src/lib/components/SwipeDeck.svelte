@@ -44,10 +44,11 @@
 	} from '$lib/domain/deck';
 	import { isStoryCard, reachedQuiz, storyCardHref, storyDeckCard } from '$lib/domain/stories';
 	import { isSongCard, songCardHref, songDeckCard } from '$lib/domain/songs';
-	import { JA_NEIN_CARD_ID, JA_NEIN_PATH, jaNeinDealSlot, jaNeinTickets, nextTicketAt, spendJaNeinTicket } from '$lib/domain/janein';
+	import { JA_NEIN_CARD_ID, JA_NEIN_PATH } from '$lib/domain/janein';
 	import { nextRound } from '$lib/domain/janeinRounds';
 	import { CHAT_CARD_PREFIX, chatDeckCard, findChat, MATCH_PATH, type ChatDeal } from '$lib/domain/matchChat';
-	import TicketStub from '$lib/components/match/TicketStub.svelte';
+	import { pickSurprise, takeSurpriseChance, type SurpriseCandidate } from '$lib/domain/surprise';
+	import { progress } from '$lib/state/progress.svelte';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
 	import { untrack, type Snippet } from 'svelte';
@@ -164,35 +165,34 @@
 			void storage.set(SKIPPED_KEY, '[]');
 			deck = buildDeck(course.quizzes, known, { level, pace, size, exclude });
 		}
-		// The level's story episode joins the hand near the top: a treat, not
-		// a quota, and gone once played (or swiped away like any card).
-		const story = storyDeckCard(course.id, deckLevel(course.quizzes, known, level), new Set(skipped), (id) =>
-			reachedQuiz(course.quizzes, (q) => known[q]?.done === true, id)
-		);
-		if (story) deck = [...deck.slice(0, Math.min(2, deck.length)), story, ...deck.slice(Math.min(2, deck.length))];
-		// The level's song, a few cards further down: two treats in a hand,
-		// never side by side.
-		const song = songDeckCard(course.id, deckLevel(course.quizzes, known, level), new Set(skipped), (id) =>
-			reachedQuiz(course.quizzes, (q) => known[q]?.done === true, id)
-		);
-		if (song) deck = [...deck.slice(0, Math.min(5, deck.length)), song, ...deck.slice(Math.min(5, deck.length))];
-		// "Ja oder Nein?" when there is a ticket for it: a surprise near the top,
-		// not every hand (see domain/janein for the tickets).
-		tickets = jaNeinTickets();
-		refillAt = nextTicketAt();
-		const playSlot = jaNeinDealSlot(new Set(skipped));
-		if (playSlot !== null) {
-			const at = Math.min(playSlot, deck.length);
-			deck = [...deck.slice(0, at), playCard(), ...deck.slice(at)];
-		}
-		// A "Schreib mir!" character on the same tickets: a chat in progress comes
-		// back near the top (free to continue), a new one now and then while there
-		// is a ticket to start it. Never right next to the Ja oder Nein? card.
-		const chatDeal = chatDeckCard(deckLevel(course.quizzes, known, level), new Set(skipped), tickets);
-		if (chatDeal) {
-			let at = Math.min(chatDeal.resume ? 1 : 3, deck.length);
-			if (deck[at - 1]?.kind === 'play' || deck[at]?.kind === 'play') at = Math.min(at + 2, deck.length);
-			deck = [...deck.slice(0, at), chatCard(chatDeal), ...deck.slice(at)];
+		// Surprises: a story, a song, Ja oder Nein? or a Schreib mir! character.
+		// At most one a hand, and none at all with surprises turned off in
+		// Settings. A chat already started always comes back, as the hand's one
+		// surprise; otherwise one roll says whether a surprise comes, and then
+		// one kind is drawn among those with something to offer (domain/surprise).
+		if (progress.surprises) {
+			const at = deckLevel(course.quizzes, known, level);
+			const reached = (id: string) => reachedQuiz(course.quizzes, (q) => known[q]?.done === true, id);
+			const chatDeal = chatDeckCard(at, new Set(skipped));
+			if (chatDeal?.resume) {
+				deck = [...deck.slice(0, Math.min(1, deck.length)), chatCard(chatDeal), ...deck.slice(Math.min(1, deck.length))];
+			} else {
+				const story = storyDeckCard(course.id, at, new Set(skipped), reached);
+				const song = songDeckCard(course.id, at, new Set(skipped), reached);
+				const candidates: SurpriseCandidate<() => DeckCard>[] = [
+					{ kind: 'story', card: story ? () => story : null },
+					{ kind: 'song', card: song ? () => song : null },
+					{ kind: 'play', card: skipped.includes(JA_NEIN_CARD_ID) ? null : playCard },
+					{ kind: 'chat', card: chatDeal ? () => chatCard(chatDeal) : null }
+				];
+				const odds = takeSurpriseChance();
+				const surprise = pickSurprise(candidates, odds.chance, Math.random, odds.first);
+				odds.done(surprise !== null);
+				if (surprise) {
+					const slot = Math.min(surprise.slot, deck.length);
+					deck = [...deck.slice(0, slot), surprise.card(), ...deck.slice(slot)];
+				}
+			}
 		}
 		if (resume) deck = [resume, ...deck];
 		handSize = deck.length;
@@ -269,7 +269,7 @@
 	}
 	const isPlayCard = (card: DeckCard) => card.kind === 'play';
 	const isChatCard = (card: DeckCard) => card.kind === 'chat';
-	/** Chat cards that continue a chat already started: no ticket needed. */
+	/** Chat cards that continue a chat already started. */
 	let chatResumes = $state<Set<string>>(new Set());
 
 	function chatCard({ chat, resume }: ChatDeal): DeckCard {
@@ -292,10 +292,6 @@
 				: `„${chat.bio}“ ${chat.goal} One chat, one chance.`
 		};
 	}
-	/** Tickets in the pocket at the last deal: the play card shows them. */
-	let tickets = $state(0);
-	/** When the next free ticket arrives: a locked chat card counts down to it. */
-	let refillAt = $state(0);
 	const cardFlavour = (card: DeckCard) =>
 		isStoryCard(card)
 			? 'interactive mystery'
@@ -394,7 +390,7 @@
 					clearOpened(card.quiz.id);
 					openId = null;
 				}
-				// A "no" to Ja oder Nein? means not now: the ticket is kept, and the
+				// A "no" to a surprise (Ja oder Nein?, a character) means not now: the
 				// card sits out like any skipped card until the deck runs dry.
 				skipped = [...skipped.filter((id) => id !== card.quiz.id), card.quiz.id].slice(-SKIPPED_LIMIT);
 				void storage.set(SKIPPED_KEY, JSON.stringify(skipped));
@@ -412,8 +408,6 @@
 				}
 			} else {
 				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'go', pace });
-				// Opening the game from the deck is what a ticket is for.
-				if (isPlayCard(card)) spendJaNeinTicket();
 				void goto(href(card));
 			}
 			reset();
@@ -555,13 +549,12 @@
 						{#if isChatCard(card)}
 							{@const chat = findChat(card.quiz.id.slice(CHAT_CARD_PREFIX.length))}
 							{@const resume = chatResumes.has(card.quiz.id)}
-							<!-- A profile, dating-app style: the portrait fills the band, name and
-							     German line sit on it, and a ticket stub says what a chat costs
-							     (grey and counting down when the pocket is empty). -->
-							<div class="chat-face" class:locked={!resume && tickets <= 0}>
+							<!-- A profile, dating-app style: the portrait fills the band, and the
+							     name and German line sit on it. -->
+							<div class="chat-face">
 								<img class="chat-photo" src="/img/{card.quiz.image}.webp" alt="" loading="lazy" draggable="false" />
 								<span class="chat-flag">💬 Schreib mir!</span>
-								<span class="chat-stub"><TicketStub free={resume} pocket={tickets} {refillAt} /></span>
+								<span class="chat-tag" class:resume>{resume ? 'Läuft noch' : 'Neues Match'}</span>
 								<div class="chat-name">
 									<h3 class="title">{card.quiz.title} <span class="chat-lvl">{chat?.level}</span></h3>
 									<p class="chat-bio" lang="de">„{chat?.bio}“</p>
@@ -569,7 +562,7 @@
 							</div>
 							<p class="chat-goal"><span aria-hidden="true">🎯</span> {chat?.goal}</p>
 							<p class="meta">
-								<span class="chip">{resume ? 'Your chat is waiting' : !resume && tickets <= 0 ? 'Win a ticket in a run' : 'One chat · one chance'}</span>
+								<span class="chip">{resume ? 'Your chat is waiting' : 'One chat · one chance'}</span>
 								<span class="chat-count tnum">{isTop ? `Card ${handSize - deck.length + 1} of ${handSize}` : ''}</span>
 							</p>
 						{:else}
@@ -617,8 +610,6 @@
 							<p class="meta">
 								<span class="chip">{card.quiz.level}</span>
 								<span class="chip">{cardFlavour(card)}</span>
-								{#if isPlayCard(card)}<span class="chip ticket">🎟️ {tickets === 1 ? '1 ticket' : `${tickets} tickets`}</span>{/if}
-								{#if isChatCard(card) && !chatResumes.has(card.quiz.id)}<span class="chip ticket">🎟️ 1 of {tickets}</span>{/if}
 								{#if ribbon}<DoneMark mark={ribbon} width={14} />{/if}
 							</p>
 						{/if}
@@ -1677,12 +1668,6 @@
 		border-top-width: 6px;
 	}
 
-	.card[data-kind='play'] .chip.ticket {
-		color: #fff;
-		background: linear-gradient(120deg, #7c3aed, #ff4d6d);
-		border-color: transparent;
-	}
-
 	/* The play card's band: the game's sky in miniature. */
 	.play-sky {
 		display: block;
@@ -1858,7 +1843,7 @@
 
 	/* ---- the chat card: a character to match with -------------------------
 	   A dating-card feel without the app clichés: the portrait in the band, a
-	   warm pink-to-terracotta frame, and the shared ticket chip. */
+	   warm pink-to-terracotta frame, and a tag saying new match or still going. */
 	.card[data-kind='chat'] {
 		--kind: #c2364a;
 		border-top-color: transparent;
@@ -1887,9 +1872,6 @@
 		object-position: 50% 22%;
 		pointer-events: none;
 	}
-	.chat-face.locked .chat-photo {
-		filter: grayscale(0.7) brightness(0.85);
-	}
 	.chat-face::after {
 		content: '';
 		position: absolute;
@@ -1910,11 +1892,23 @@
 		font-weight: 800;
 		letter-spacing: 0.02em;
 	}
-	.chat-stub {
+	.chat-tag {
 		position: absolute;
-		top: 0.6rem;
-		right: 0.6rem;
+		top: 0.7rem;
+		right: 0.7rem;
 		z-index: 2;
+		padding: 0.2rem 0.65rem;
+		border-radius: 999px;
+		background: linear-gradient(120deg, #c2364a, #ff6b81);
+		color: #fff;
+		font-size: var(--step--1);
+		font-weight: 800;
+		letter-spacing: 0.02em;
+		transform: rotate(4deg);
+	}
+	.chat-tag.resume {
+		background: #3f7d46;
+		transform: none;
 	}
 	.chat-name {
 		position: absolute;
@@ -1964,10 +1958,6 @@
 	}
 	.card[data-kind='chat'] .stamp.yes {
 		color: #c2364a;
-	}
-	.card[data-kind='chat'] .chip.ticket {
-		color: #fff;
-		background: linear-gradient(120deg, #c2364a, #ff6b81);
 	}
 
 	.card[data-kind='play'] .stamp.yes {

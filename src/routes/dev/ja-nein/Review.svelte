@@ -64,7 +64,6 @@
 		try {
 			localStorage.removeItem('janein_played');
 			localStorage.removeItem('janein_personas');
-			localStorage.removeItem('janein_wallet');
 		} catch {
 			/* nothing to clear */
 		}
@@ -79,7 +78,7 @@
 			{JA_NEIN_CATEGORIES.length} categories · {ROUND_ORDER.length} rounds of {ROUND_LENGTH} · {ALL_QUESTIONS.length} questions
 			({ALL_QUESTIONS.filter(isPair).length} this-or-that). <a href={JA_NEIN_PATH}>Play the next round</a> ·
 			<a href="{JA_NEIN_PATH}/personas">the persona shelf</a> ·
-			<button type="button" class="link" onclick={clearDevice}>forget this device's rounds, personas and tickets</button>
+			<button type="button" class="link" onclick={clearDevice}>forget this device's rounds and personas</button>
 		</p>
 	</header>
 

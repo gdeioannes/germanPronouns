@@ -152,6 +152,8 @@ class ProgressStore {
 	soundEffects = $state(true);
 	/** Mute the app: no sound effects and no read-aloud voice. */
 	muted = $state(false);
+	/** Surprises in the deck: stories, songs, Ja oder Nein? and Schreib mir! characters. */
+	surprises = $state(true);
 	/**
 	 * Listening exercises (dictation, listen-and-answer) offer a "Show the
 	 * text" button, for a learner who can't hear the audio. Off by default:
@@ -190,6 +192,7 @@ class ProgressStore {
 		this.soundEffects = (await storage.get(SettingsKeys.soundEffects)) !== 'false';
 		setSoundEffects(this.soundEffects);
 		this.muted = (await storage.get(SettingsKeys.muted)) === 'true';
+		this.surprises = (await storage.get(SettingsKeys.surprises)) !== 'false';
 		setMuted(this.muted);
 		this.showTranscripts = (await storage.get(SettingsKeys.showTranscripts)) === 'true';
 		const mode = await storage.get(SettingsKeys.answerRevealMode);
@@ -525,6 +528,11 @@ class ProgressStore {
 		this.calmEffects = value;
 		applyCalmEffects(value);
 		await storage.set(SettingsKeys.calmEffects, String(value));
+	}
+
+	async setSurprises(value: boolean): Promise<void> {
+		this.surprises = value;
+		await storage.set(SettingsKeys.surprises, String(value));
 	}
 
 	async setShowTranscripts(value: boolean): Promise<void> {

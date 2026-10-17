@@ -33,7 +33,7 @@
 
 	{#if fx.stamp}
 		{#key fx.stamp.id}
-			<div class="stamp" class:medal={fx.stamp.medal || fx.stamp.ticket} class:ticket={fx.stamp.ticket} style:--metal={fx.stamp.medal ? TIER_COLORS[fx.stamp.medal] : fx.stamp.ticket ? '#7c3aed' : null}>
+			<div class="stamp" class:medal={fx.stamp.medal} style:--metal={fx.stamp.medal ? TIER_COLORS[fx.stamp.medal] : null}>
 				<span>
 					{fx.stamp.text}
 					{#if fx.stamp.sub}<small>{fx.stamp.sub}</small>{/if}
@@ -181,18 +181,6 @@
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 		color: var(--ink);
-	}
-
-	/* The ticket stamp: the medal's size and hold, in the game's sky. */
-	.stamp.ticket span {
-		border-image: linear-gradient(120deg, #ff4d6d, #ffb347, #38d39f, #4cc9f0, #7c3aed) 1;
-		border-radius: 0;
-		background: #1b1035;
-		color: #fff;
-	}
-
-	.stamp.ticket small {
-		color: #ffb347;
 	}
 
 	@keyframes medal {

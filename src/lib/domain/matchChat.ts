@@ -1160,14 +1160,10 @@ export function lowPoints(state: ChatState): Array<{ said: string; why: string }
 // -- the course deck ------------------------------------------------------------
 
 export const CHAT_CARD_PREFIX = 'chat:';
-/** The chance a character joins a deal while there is a ticket to start one. */
-export const CHAT_DEAL_CHANCE = 0.35;
-/** The chance of a locked teaser card when the pocket is empty. */
-export const CHAT_TEASE_CHANCE = 0.15;
 
 export interface ChatDeal {
 	chat: MatchChat;
-	/** Already started: continuing is free, and the card comes near the top. */
+	/** Already started: the card comes back in every hand until the chat ends. */
 	resume: boolean;
 }
 
@@ -1180,27 +1176,23 @@ export function availableChats(saved: (id: string) => SavedChat | null = loadCha
 }
 
 /**
- * Which character the course deck deals, if any. A chat in progress always
- * comes back (free to continue). Otherwise, with a ticket in the pocket and
- * on a lucky deal, the next unplayed character at the learner's module, or
- * the nearest one around it. Skipped cards sit out like any other card.
+ * The character the course deck would deal, if any. A chat in progress comes
+ * first: started is enough, even if the learner left before the first answer.
+ * Otherwise the next unplayed character at the learner's module, or the
+ * nearest one around it. Whether the hand gets a surprise at all, and which
+ * kind, is decided by domain/surprise; skipped cards sit out like any other.
  */
 export function chatDeckCard(
 	level: string | null,
 	skipped: Set<string>,
-	tickets: number,
-	random: () => number = Math.random,
 	saved: (id: string) => SavedChat | null = loadChat
 ): ChatDeal | null {
 	const chats = availableChats(saved).filter((c) => !skipped.has(CHAT_CARD_PREFIX + c.id));
 	const live = chats.find((c) => {
 		const s = saved(c.id);
-		return s && !s.ending && s.log.length > 0;
+		return s && !s.ending;
 	});
 	if (live) return { chat: live, resume: true };
-	// With no ticket, now and then a locked teaser: who is waiting, and what a
-	// ticket would buy. Swiping it opens the "no ticket" card with the countdown.
-	if (random() >= (tickets > 0 ? CHAT_DEAL_CHANCE : CHAT_TEASE_CHANCE)) return null;
 	const fresh = chats.filter((c) => !saved(c.id));
 	if (!fresh.length) return null;
 	const target = level ? levelRank(level) : 0;

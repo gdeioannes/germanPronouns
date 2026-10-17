@@ -50,7 +50,6 @@
 	import { effectsCalm } from '$lib/motion/fx.svelte';
 	import { announce } from '$lib/a11y.svelte';
 	import { track } from '$lib/services/analytics';
-	import { gameTickets, nextTicketAt, spendJaNeinTicket } from '$lib/domain/janein';
 	import { dev } from '$app/environment';
 	import { page } from '$app/state';
 	import { onMount, tick } from 'svelte';
@@ -61,10 +60,7 @@
 	let name = $state('');
 	let nameDraft = $state('');
 	let askName = $state(false);
-	/** Tickets in the pocket (shared with Ja oder Nein?); starting a new chat spends one. */
-	let tickets = $state(0);
-	let refillAt = $state(0);
-	/** Dev replays (?reset) cost nothing. */
+	/** A dev replay (?reset): the saved chat is wiped first. */
 	let free = $state(false);
 	let saved = $state<SavedChat | null>(null);
 	let game = $state.raw<ChatState | null>(null);
@@ -111,11 +107,9 @@
 			void scrollDown(false);
 			return;
 		}
-		// A new chat always opens on the start card: the name, and the ticket it costs.
+		// A new chat always opens on the start card: the name, and the one-chance rule.
 		name = loadName();
 		nameDraft = name;
-		tickets = gameTickets();
-		refillAt = nextTicketAt();
 		askName = true;
 	});
 
@@ -133,8 +127,6 @@
 		e.preventDefault();
 		const clean = cleanName(nameDraft);
 		if (!clean) return;
-		if (!free && tickets <= 0) return;
-		if (!free) tickets = spendJaNeinTicket().tickets;
 		name = clean;
 		saveName(clean);
 		askName = false;
@@ -409,25 +401,11 @@
 			<h1>{chat.name}, {chat.age}</h1>
 			<p lang="de" class="bio">„{chat.bio}“</p>
 			<p>Your goal: {chat.goal}</p>
-			{#if free || tickets > 0}
-				<label class="name-label" for="chat-name">Your name in the chat</label>
-				<!-- svelte-ignore a11y_autofocus -->
-				<input id="chat-name" bind:value={nameDraft} maxlength="14" autocomplete="given-name" placeholder="Your name" autofocus />
-				<p class="rule">Every chat happens once. Choose your words.</p>
-				<button class="btn" type="submit" disabled={!cleanName(nameDraft)}>
-					Start the chat · 🎟️ {free ? 'free (dev)' : `1 of ${tickets}`}
-				</button>
-				<p class="ticket-note">Tickets are shared with <span lang="de">Ja oder Nein?</span></p>
-			{:else}
-				<p class="no-ticket">🎟️ No ticket left.</p>
-				<p>
-					A new chat costs one ticket (<span lang="de">Ja oder Nein?</span> uses the same ones). The next free one
-					arrives {new Date(refillAt).toLocaleString('en-GB', { weekday: 'long', hour: '2-digit', minute: '2-digit' })}, and a
-					run of 8 out of 10 or better can win you one.
-				</p>
-				<a class="btn" href="/course/de_cert_a1">Win a ticket in a run</a>
-				<a class="btn-quiet" href={MATCH_PATH}>Back to the matches</a>
-			{/if}
+			<label class="name-label" for="chat-name">Your name in the chat</label>
+			<!-- svelte-ignore a11y_autofocus -->
+			<input id="chat-name" bind:value={nameDraft} maxlength="14" autocomplete="given-name" placeholder="Your name" autofocus />
+			<p class="rule">Every chat happens once. Choose your words.</p>
+			<button class="btn" type="submit" disabled={!cleanName(nameDraft)}>Start the chat</button>
 		</form>
 	</div>
 {/if}
@@ -855,14 +833,6 @@
 		font-size: var(--step--1);
 		font-weight: 600;
 		color: var(--heading);
-	}
-	.ticket-note {
-		font-size: 0.75rem !important;
-	}
-	.no-ticket {
-		font-weight: 700;
-		color: var(--terracotta) !important;
-		font-size: var(--step-0) !important;
 	}
 	.name-card .rule {
 		color: var(--terracotta);

@@ -41,7 +41,7 @@
 	}
 </script>
 
-<Seo title="Settings — Language Quiz" description="Your Language Quiz settings: how answers are checked and revealed, the voice, calmer effects, your starting point and privacy." path="/settings" noindex />
+<Seo title="Settings — Language Quiz" description="Your Language Quiz settings: how answers are checked and revealed, the voice, calmer effects, surprises in the deck, your starting point and privacy." path="/settings" noindex />
 
 <main class="page">
 	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
@@ -197,6 +197,27 @@
 					For when you can't hear the audio: dictations and listening
 					exercises get a "Show the text" button, so you can read what is
 					said instead of hearing it.
+				</small>
+			</span>
+		</label>
+	</section>
+
+	<section class="card">
+		<h2>Surprises</h2>
+		<label class="row">
+			<input
+				type="checkbox"
+				checked={progress.surprises}
+				onchange={(e) => progress.setSurprises(e.currentTarget.checked)}
+			/>
+			<span>
+				<strong>Games and stories in the deck</strong>
+				<small>
+					Now and then your deck slips in a surprise: a story episode, a song,
+					a round of Ja oder Nein? or someone from Schreib mir! who wants to
+					chat. Never more than one in a hand. Turn this off and the deck
+					deals only exercises. Stories, songs and the games are still in the
+					menu whenever you want them.
 				</small>
 			</span>
 		</label>

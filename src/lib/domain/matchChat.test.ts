@@ -343,27 +343,36 @@ describe('little helpers', () => {
 
 describe('the course deck deals characters', () => {
 	const none = () => null;
-	it('without a ticket: only now and then, as a locked teaser', () => {
-		expect(chatDeckCard('A1.1', new Set(), 0, () => 0.2, none)).toBeNull();
-		expect(chatDeckCard('A1.1', new Set(), 0, () => 0.1, none)?.resume).toBe(false);
-	});
-	it('with a ticket and a lucky deal: the next character at the learner module', () => {
-		const deal = chatDeckCard('B1.1', new Set(), 1, () => 0, none)!;
+	it('the next character at the learner module', () => {
+		const deal = chatDeckCard('B1.1', new Set(), none)!;
 		expect(deal.resume).toBe(false);
 		expect(deal.chat.level).toBe('B1.1');
 	});
-	it('an unlucky deal deals nothing', () => {
-		expect(chatDeckCard('A1.1', new Set(), 2, () => 0.99, none)).toBeNull();
-	});
-	it('a chat in progress always comes back, free, even with no ticket', () => {
+	it('a chat in progress comes first', () => {
 		const saved = (id: string) => (id === 'bernd' ? { name: 'Sam', log: [{ turn: 't1', tokens: ['ich'] }], startedAt: 1 } : null);
-		const deal = chatDeckCard('C2.2', new Set(), 0, () => 0.99, saved)!;
+		const deal = chatDeckCard('C2.2', new Set(), saved)!;
 		expect(deal).toEqual(expect.objectContaining({ resume: true }));
 		expect(deal.chat.id).toBe('bernd');
 	});
+	it('a chat started but left before the first answer still comes back', () => {
+		const saved = (id: string) => (id === 'lena' ? { name: 'Sam', log: [], startedAt: 1 } : null);
+		const deal = chatDeckCard('C2.2', new Set(), saved)!;
+		expect(deal).toEqual(expect.objectContaining({ resume: true }));
+		expect(deal.chat.id).toBe('lena');
+	});
+	it('a finished chat is never dealt again', () => {
+		const saved = (id: string) => (id === 'lena' ? { name: 'Sam', log: [], startedAt: 1, ending: 'deleted' } : null);
+		const deal = chatDeckCard('A1.1', new Set(), saved as never);
+		expect(deal?.chat.id).not.toBe('lena');
+		expect(deal?.resume).toBe(false);
+	});
 	it('never deals a hidden character or a skipped one', () => {
-		const deal = chatDeckCard('A2.1', new Set(['chat:klara', 'chat:grog', 'chat:uwe', 'chat:nebel', 'chat:jupp']), 1, () => 0, none)!;
+		const deal = chatDeckCard('A2.1', new Set(['chat:klara', 'chat:grog', 'chat:uwe', 'chat:nebel', 'chat:jupp']), none)!;
 		expect(deal.chat.id).not.toBe('guenther');
 		expect(['klara', 'grog', 'uwe', 'nebel', 'jupp']).not.toContain(deal.chat.id);
+	});
+	it('nothing once every character has been met', () => {
+		const all = () => ({ name: 'Sam', log: [], startedAt: 1, ending: 'win' });
+		expect(chatDeckCard('A1.1', new Set(), all as never)).toBeNull();
 	});
 });

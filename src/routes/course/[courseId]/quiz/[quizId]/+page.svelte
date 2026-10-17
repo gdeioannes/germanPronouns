@@ -43,9 +43,8 @@
 	import type { QuestionRef, ReportTarget } from '$lib/domain/forum';
 	import { cloudConfigured } from '$lib/services/firebase';
 	import { SettingsKeys } from '$lib/domain/keys';
-	import { celebrate, celebrateTicket } from '$lib/motion/fx.svelte';
-	import { jaNeinTickets, rollJaNeinTicket } from '$lib/domain/janein';
-	import { ticketWin } from '$lib/state/janein.svelte';
+	import { celebrate } from '$lib/motion/fx.svelte';
+	import { markGoodRun } from '$lib/domain/surprise';
 	import { playSound } from '$lib/services/sounds';
 	import { progress } from '$lib/state/progress.svelte';
 	import { storage } from '$lib/services/storage';
@@ -228,13 +227,8 @@
 		doneDismissed = false;
 		if (passed) celebrate();
 		else playSound('complete');
-		// A good run may win a ticket to Ja oder Nein?: the big celebration.
-		ticketWin.won = rollJaNeinTicket(passed);
-		if (ticketWin.won) {
-			ticketWin.tickets = jaNeinTickets();
-			celebrateTicket(ticketWin.tickets);
-			track('janein', { step: 'ticket', tickets: ticketWin.tickets });
-		}
+		// A good run makes a surprise in the next hand more likely (domain/surprise).
+		if (passed) markGoodRun();
 	}
 
 	/**
