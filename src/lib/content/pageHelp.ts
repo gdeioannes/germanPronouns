@@ -200,6 +200,21 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 		]
 	},
 
+	'/literature': {
+		title: 'Literature',
+		intro: 'German classics in the original words, annotated for English speakers. Each one is a free PDF to print or read on a tablet.',
+		items: [
+			{
+				title: 'How a book is laid out',
+				text: 'The story comes in short reading stages. Each stage starts with the hard words and their English meaning, then the text. A dotted underline marks a phrase with a note on the German at the foot of the page.'
+			},
+			{
+				title: 'Which level',
+				text: 'The texts are unsimplified, so they suit B1 and up. The glossaries do most of the work; read the list once, then read without stopping at every word.'
+			}
+		]
+	},
+
 	'/stories': {
 		title: 'Stories',
 		intro: 'Maya\'s Berlin mysteries: playable stories, one for each step of the course. You solve the case with the German you have.',

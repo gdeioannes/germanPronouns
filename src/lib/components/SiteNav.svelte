@@ -141,6 +141,7 @@
 	<a href="/words"><Icon name="words" size="1em" /> Word library</a>
 	<a href="{courseHref}/worksheet"><Icon name="printer" size="1em" /> Workbooks (PDF)</a>
 	<a href="/stories"><Icon name="compass" size="1em" /> Stories</a>
+	<a href="/literature"><Icon name="book" size="1em" /> Literature</a>
 	<a href={firstSong}><Icon name="headphones" size="1em" /> Songs</a>
 	<a href="/play/ja-nein"><Icon name="swipe" size="1em" /> Ja oder Nein?</a>
 	<a href="/play/schreib-mir"><Icon name="heart" size="1em" /> Schreib mir!</a>

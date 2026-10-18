@@ -41,6 +41,8 @@ export const SettingsKeys = {
 	showTranscripts: 'show_transcripts',
 	/** Web-only. Date of the newest changelog release this browser has seen. */
 	changelogSeen: 'changelog_seen',
+	/** Web-only. The home page offers whose corner label this browser has clicked: those labels stay away. */
+	offersSeen: 'home_offers_seen',
 	/**
 	 * Web-only, and all three device-local: never synced (see sync-merge's
 	 * `account_` prefix), because they describe this browser's session rather

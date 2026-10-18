@@ -24,6 +24,7 @@ export const GET: RequestHandler = async () => {
 		{ loc: '/about', lastmod: lastModified('src/routes/about'), priority: '0.5' },
 		{ loc: '/contact', lastmod: lastModified('src/routes/contact'), priority: '0.3' },
 		{ loc: '/stories', lastmod: lastModified('src/lib/domain/stories.ts'), priority: '0.6' },
+		{ loc: '/literature', lastmod: lastModified('src/lib/content/literature.ts'), priority: '0.6' },
 		{ loc: '/words', lastmod: wordsDate, priority: '0.6' },
 		{ loc: '/words/nouns', lastmod: wordsDate, priority: '0.7' },
 		{ loc: '/words/verbs', lastmod: wordsDate, priority: '0.7' },

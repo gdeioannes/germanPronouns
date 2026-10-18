@@ -15,7 +15,45 @@
 	import { STORY_EPISODES } from '$lib/domain/stories';
 	import { progress } from '$lib/state/progress.svelte';
 	import { afterNavigate, goto } from '$app/navigation';
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+	import { LITERATURE } from '$lib/content/literature';
+	import { SettingsKeys } from '$lib/domain/keys';
+	import { track } from '$lib/services/analytics';
 	import type { PageData } from './$types';
+
+	const kafka = LITERATURE[0];
+
+	// One corner label per offer, each leading to its own section. A label goes
+	// for good in this browser once it is clicked, and only then: scrolling
+	// past the offer does not count.
+	const OFFERS = [
+		{ id: 'book', title: 'Deutsch A1, the book', note: 'free test copies' },
+		...(kafka ? [{ id: 'literature', title: 'Kafka in German', note: 'free PDF' }] : [])
+	];
+	let seen = $state<string[] | null>(null);
+	const labels = $derived(seen ? OFFERS.filter((o) => !seen!.includes(o.id)) : []);
+
+	function readSeen(): string[] {
+		try {
+			return JSON.parse(localStorage.getItem(SettingsKeys.offersSeen) ?? '[]');
+		} catch {
+			return [];
+		}
+	}
+	function markSeen(id: string) {
+		if (!seen || seen.includes(id)) return;
+		seen = [...seen, id];
+		try {
+			localStorage.setItem(SettingsKeys.offersSeen, JSON.stringify(seen));
+		} catch {
+			// storage blocked: the label just comes back next visit
+		}
+	}
+
+	onMount(() => {
+		seen = readSeen();
+	});
 
 	let { data }: { data: PageData } = $props();
 
@@ -285,7 +323,7 @@
 			<p class="kicker">The book · test copies, free</p>
 			<h2 id="book-offer-title">Deutsch A1 is becoming a printed book. Want to test it?</h2>
 			<p>
-				The whole A1 course on paper: 150 pages in colour, every lesson and exercise, and a code
+				The whole A1 course on paper: 170 pages in colour, every lesson and exercise, and a code
 				on each unit that opens its audio and tutor in the app. It is not finished. The layout,
 				the wording and the order of things are still being worked on, and that is exactly why I
 				need readers now, before it goes on sale.
@@ -301,6 +339,37 @@
 			<p class="book-note">A handful of copies · no strings, no obligation to be kind</p>
 		</div>
 	</section>
+
+	<!-- Literature: the first annotated classic, free as a PDF. The shelf
+	     itself is /literature; this offer shows its first book. -->
+	{#if kafka}
+		<section id="literature" class="book-offer lit" aria-labelledby="lit-offer-title">
+			<a class="book-pic" href="/literature" tabindex="-1" aria-hidden="true">
+				<img src={kafka.cover} alt="" width="640" height="1024" loading="lazy" />
+			</a>
+			<div class="book-copy">
+				<p class="kicker">New · Literature · free PDF</p>
+				<h2 id="lit-offer-title">Read Kafka in the German he wrote.</h2>
+				<p>
+					<i lang="de">{kafka.title}</i>, the whole story in its original words, split into
+					twelve short reading stages. Each stage starts with the hard words in English, and
+					notes at the foot of the page explain the German worth noticing on the way.
+				</p>
+				<div class="lit-actions">
+					<a
+						class="primary"
+						href={kafka.pdf.href}
+						download="{kafka.author} - {kafka.title}.pdf"
+						onclick={() => track('literature_download', { book: kafka.id, from: 'home' })}
+					>
+						<Icon name="download" size="1.05em" /> Download the free PDF
+					</a>
+					<a class="lit-more" href="/literature">See the literature shelf <Icon name="arrowRight" size="1em" /></a>
+				</div>
+				<p class="book-note">{kafka.pdf.pages} pages · {kafka.level} · English glossaries and notes</p>
+			</div>
+		</section>
+	{/if}
 
 	<section id="levels" class="block">
 		<header class="block-head">
@@ -363,11 +432,19 @@
 		</dl>
 	</section>
 
-	<!-- A small fixed label that points at the book offer further down. -->
-	<a class="book-tag" href="#book">
-		<Icon name="book" size="1.1em" />
-		<span><b>Deutsch A1, the book</b> · free test copies</span>
-	</a>
+	<!-- Small fixed labels, one per offer this visitor has not seen yet, each
+	     leading to its own offer. Shown only once the page is live, so a
+	     returning visitor who has seen everything never sees them flash in. -->
+	{#if labels.length}
+		<div class="book-tags">
+			{#each labels as l (l.id)}
+				<a class="book-tag" class:alt={l.id === 'literature'} href="#{l.id}" onclick={() => markSeen(l.id)} transition:fade={{ duration: 160 }}>
+					<Icon name="book" size="1.1em" />
+					<span><b>{l.title}</b><span class="note">&nbsp;· {l.note}</span></span>
+				</a>
+			{/each}
+		</div>
+	{/if}
 
 	<section class="closing">
 		<h2>Your first German lesson takes five minutes.</h2>
@@ -1083,11 +1160,24 @@
 	}
 
 	/* The fixed label: a small pill in the corner, out of the way of the text. */
-	.book-tag {
+	.book-tags {
 		position: fixed;
 		right: 1rem;
 		bottom: 1rem;
 		z-index: 5;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 0.45rem;
+	}
+
+	/* The offers sit under the sticky bar when a label jumps to them. */
+	#book,
+	#literature {
+		scroll-margin-top: 5rem;
+	}
+
+	.book-tag {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
@@ -1109,12 +1199,21 @@
 		font-weight: 700;
 	}
 
+	/* The literature label: same shape, light, so the two read as two books. */
+	.book-tag.alt {
+		background: var(--surface);
+		color: var(--navy);
+		border: 1px solid var(--line-strong);
+		box-shadow: 0 12px 28px -14px rgba(31, 58, 95, 0.5);
+	}
+
+	/* On a phone the labels keep their title and drop the note. */
 	@media (max-width: 40rem) {
-		.book-tag span {
+		.book-tag .note {
 			display: none;
 		}
 		.book-tag {
-			padding: 0.7rem;
+			font-size: 0.78rem;
 		}
 	}
 
@@ -1130,6 +1229,55 @@
 
 	.book-copy .primary {
 		margin-top: 0.4rem;
+	}
+
+	/* The literature offer: same card, quieter colour, the book on the right. */
+	.book-offer.lit {
+		margin-top: 1.5rem;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 11rem);
+		background: var(--surface);
+	}
+
+	.book-offer.lit .book-pic {
+		order: 2;
+		transform: rotate(3deg);
+	}
+
+	.book-offer.lit .book-pic:hover {
+		transform: rotate(1deg) translateY(-4px);
+	}
+
+	.lit-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.6rem 1.2rem;
+		margin-top: 0.4rem;
+	}
+
+	.lit-actions .primary {
+		margin-top: 0;
+	}
+
+	.lit-more {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		color: var(--accent-ink);
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	@media (max-width: 56rem) {
+		.book-offer.lit {
+			grid-template-columns: minmax(0, 1fr);
+		}
+		.book-offer.lit .book-pic {
+			order: 0;
+		}
+		.lit-actions {
+			justify-content: center;
+		}
 	}
 
 	.book-note {

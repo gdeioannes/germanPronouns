@@ -1,0 +1,24 @@
+{
+	"_comment": "The edition's own pages, shared by tool/kafka-pdf.py (paperback and hardcover interior) and tool/kafka-epub.py (Kindle): the rights page after the title, and the closing page about the project. HTML allowed (<b>, <i>). Never name Project Gutenberg in a sold edition: its licence frees the text only once every reference to the trademark is gone, so the transcribers are credited by name instead.",
+	"rights": [
+		"<b>Die Verwandlung</b> · The Metamorphosis in German (Annotated)<br/>Franz Kafka, edited and annotated by Language Quiz. First edition, 2026.",
+		"<b>The text.</b> Kafka's story is in the public domain. This edition follows the 1917 Kurt Wolff edition (Leipzig), in the transcription made by Jana Srna, Alexander Bauer and the Online Distributed Proofreading Team. The spelling of 1917 is kept; the words of the story are not changed.",
+		"<b>This edition.</b> The division into stages, the stage titles and summaries, the glossaries, the notes on the language, the reading guide, the typesetting and the cover are original to this edition. © 2026 Language Quiz. All rights reserved. No part of these additions may be reproduced, stored or transmitted without permission, except for brief quotation in reviews or teaching, with attribution.",
+		"<b>Published by Language Quiz</b>, a non-profit project and a free German course from A1 to C2 at <b>languagequiz.org</b>. The course, its recordings and its exercises are free and will stay free: no subscription, no paywall, no advertising. The price of this book covers printing and distribution; what remains goes back into the project.",
+		"<b>Use of AI.</b> The glossaries, summaries and notes were prepared with the help of AI tools and reviewed by the editor. Kafka's text was not generated or altered.",
+		"<b>No affiliation.</b> This is an independent edition. It is not affiliated with or endorsed by any publisher, examination board or institution. The levels B1 and B2 follow the Common European Framework of Reference for Languages; this book is not an official CEFR publication.",
+		"<b>Corrections.</b> Every care has been taken with the glossaries and notes, but no edition is free of errors. Corrections are listed at <b>languagequiz.org/literature</b> and go into later printings. To report one, write through the contact page there."
+	],
+	"colophon": "Set in Source Serif 4 and Inter (SIL Open Font License). Printed on demand.",
+	"about": {
+		"title": "Keep going with Language Quiz",
+		"intro": "This book is part of Language Quiz, a free German course for English speakers, from your first words to C2. If Kafka was a good stretch, the course is where the German behind it gets easier.",
+		"points": [
+			"<b>Every level open from day one.</b> Start where you are; a deck of short exercises picks what comes next.",
+			"<b>Lessons with diagrams and audio.</b> Every sentence spoken aloud, as often as you like.",
+			"<b>More annotated classics</b> on the literature shelf, each a free PDF.",
+			"<b>No account, no adverts, no subscription.</b> Sign in only if you want your progress on more than one device."
+		],
+		"url": "languagequiz.org"
+	}
+}

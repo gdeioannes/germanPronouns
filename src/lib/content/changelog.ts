@@ -16,6 +16,16 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-19",
+    title: "Literature: read Kafka in German",
+    highlight: true,
+    items: [
+      "A new Literature shelf, in the Library menu: German classics in their original words, annotated for English speakers and free to download as a PDF.",
+      "The first book is Kafka's Die Verwandlung, in twelve short reading stages. Each stage opens with the hard words and their English meaning, 524 in all, and 76 notes at the foot of the pages explain the German worth noticing: old subjunctives, idioms, Prague time-telling, and the moment Gregor's sister stops calling him \"he\".",
+      "The home page shows the new book, with its own little corner label next to the one for the printed A1 book. Each label takes you to its book and goes away for good once you click it.",
+    ],
+  },
+  {
     date: "2026-10-18",
     title: "Every level's PDF, one tap from the course page",
     items: [
