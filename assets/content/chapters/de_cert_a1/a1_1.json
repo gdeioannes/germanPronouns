@@ -1,0 +1,91 @@
+{
+	"_comment": "The book's chapters for A1.1: the module's themes, each with a real photograph (static/img/photo, credits in _photos.json), a short German text to open it, and the units it holds in book order. Units not listed are appended at the end of the part.",
+	"photo": "a1_1_opener",
+	"caption": "Die Oberbaumbrücke in Berlin",
+	"de": "Willkommen! Das ist Berlin, die Hauptstadt von Deutschland. Hier leben fast vier Millionen Menschen, und viele von ihnen kommen aus anderen Ländern. Sie alle haben Deutsch gelernt, mit den ersten Wörtern: Hallo. Ich heiße … Ich komme aus … Dieses Buch beginnt genau dort.",
+	"en": "Welcome! This is Berlin, the capital of Germany. Almost four million people live here, and many of them come from other countries. They all learnt German, starting with the first words: Hello. My name is … I come from … This book starts exactly there.",
+	"chapters": [
+		{
+			"id": "person",
+			"title": "Das bin ich",
+			"subtitle": "Name, age, where you come from",
+			"photo": "a1_1_person",
+			"caption": "Die Speicherstadt in Hamburg",
+			"de": "Ich heiße Lena. Ich bin zwanzig Jahre alt und komme aus Österreich. Jetzt wohne ich in Hamburg. Die Stadt ist groß, das Wasser ist überall, und die Leute sagen „Moin“. Und du? Wie heißt du? Woher kommst du?",
+			"en": "My name is Lena. I am twenty years old and I come from Austria. Now I live in Hamburg. The city is big, the water is everywhere, and people say “Moin”. And you? What is your name? Where do you come from?",
+			"units": [
+				"quest_a1_1_zahlen",
+				"quest_a1_1_pronomen",
+				"quest_a1_1_sprechen_vorstellung",
+				"quest_a1_1_zahlen2",
+				"quest_a1_1_hoeren_vorstellung",
+				"quest_a1_1_sein_haben",
+				"quest_a1_1_wfragen",
+				"quest_a1_1_lesen_dasbinich",
+				"quest_a1_1_alphabet",
+				"quest_a1_1_sprechen_kurzcheck"
+			]
+		},
+		{
+			"id": "wohnen",
+			"title": "Zu Hause",
+			"subtitle": "Rooms, things and where they are",
+			"photo": "a1_1_wohnen",
+			"caption": "Ein Wohnzimmer",
+			"de": "Das ist mein Wohnzimmer. Das Sofa ist alt, aber bequem. Die Lampe steht in der Ecke, das Bild hängt an der Wand. Auf dem Tisch liegt ein Buch – mein Deutschbuch. Jedes Ding hier hat einen Namen und einen Artikel: der Tisch, die Lampe, das Sofa.",
+			"en": "This is my living room. The sofa is old but comfortable. The lamp stands in the corner, the picture hangs on the wall. On the table lies a book, my German book. Every thing here has a name and an article: der Tisch, die Lampe, das Sofa.",
+			"units": [
+				"quest_a1_1_artikel",
+				"quest_a1_1_plural",
+				"quest_a1_1_wo_praepositionen",
+				"quest_a1_1_wortbildung",
+				"quest_a1_1_suchbild_wohnzimmer",
+				"quest_a1_1_suchbild_klassenzimmer"
+			]
+		},
+		{
+			"id": "essen",
+			"title": "Auf dem Markt",
+			"subtitle": "Numbers, prices and colours",
+			"photo": "a1_1_essen",
+			"caption": "Der Viktualienmarkt in München",
+			"de": "Samstagmorgen auf dem Markt. Die Äpfel sind rot, die Bananen gelb, die Tomaten kosten zwei Euro fünfzig. „Was darf es sein?“ fragt die Frau am Stand. Ein Kilo Äpfel, bitte. Und ein Brot. Das macht vier Euro zwanzig. Zahlen sind überall – hör gut zu.",
+			"en": "Saturday morning at the market. The apples are red, the bananas yellow, the tomatoes cost two euros fifty. “What would you like?” asks the woman at the stall. A kilo of apples, please. And a loaf. That comes to four euros twenty. Numbers are everywhere; listen closely.",
+			"units": [
+				"quest_a1_1_hoeren_zahlen",
+				"quest_a1_1_zahlen3",
+				"quest_a1_1_sprechen_zahlen",
+				"quest_a1_1_farben",
+				"quest_a1_1_zahlen_gross"
+			]
+		},
+		{
+			"id": "freizeit",
+			"title": "Meine Woche",
+			"subtitle": "What you do, what you like, who you do it with",
+			"photo": "a1_1_freizeit",
+			"caption": "Ein Weg im Park",
+			"de": "Am Wochenende arbeite ich nicht. Ich spiele Fußball, ich lese, ich koche für meine Familie. Mein Bruder spielt Gitarre, meine Schwester schläft lang. Und am Sonntag gehen wir alle zusammen in den Park. Was machst du gern?",
+			"en": "At the weekend I don't work. I play football, I read, I cook for my family. My brother plays the guitar, my sister sleeps in. And on Sunday we all go to the park together. What do you like doing?",
+			"units": [
+				"quest_a1_1_praesens",
+				"quest_a1_1_vokalwechsel",
+				"quest_a1_1_familie",
+				"quest_a1_1_bigtext_dasbinich",
+				"quest_a1_1_diktat_steckbrief",
+				"quest_a1_1_sprechen_dialog",
+				"quest_a1_1_schreiben_steckbrief"
+			]
+		},
+		{
+			"id": "laender",
+			"title": "Länder und Sprachen",
+			"subtitle": "Where people come from and what they speak",
+			"photo": "a1_1_laender",
+			"caption": "Die Alpen und der Eibsee, Bayern",
+			"de": "Deutsch spricht man in Deutschland, in Österreich und in der Schweiz. Im Süden sind die Berge, im Norden ist das Meer. Anna kommt aus Spanien, Tom aus England, Yuki aus Japan. Jetzt leben sie alle hier – und sprechen Deutsch, mit Akzent und mit Freude.",
+			"en": "German is spoken in Germany, in Austria and in Switzerland. In the south are the mountains, in the north the sea. Anna comes from Spain, Tom from England, Yuki from Japan. Now they all live here, and speak German, with an accent and with pleasure.",
+			"units": ["quest_a1_1_laender", "quest_a1_1_wortschatz"]
+		}
+	]
+}

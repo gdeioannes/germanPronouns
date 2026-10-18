@@ -21,7 +21,8 @@
 		"story-audio": "node tool/gen-story-audio.mjs",
 		"story-sfx": "node tool/gen-story-sfx.mjs",
 		"story-review": "node tool/review-story.mjs",
-		"dictionary": "node tool/build-dictionary.mjs"
+		"dictionary": "node tool/build-dictionary.mjs",
+		"books": "node tool/gen-books.mjs"
 	},
 	"devDependencies": {
 		"@breezystack/lamejs": "^1.2.7",
@@ -33,7 +34,9 @@
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
 		"@types/dom-speech-recognition": "^0.0.12",
 		"@types/node": "^26.6.2",
+		"@types/qrcode": "^1.5.6",
 		"puppeteer-core": "^23.11.1",
+		"qrcode": "^1.5.4",
 		"sharp": "^0.35.5",
 		"svelte": "^5.56.1",
 		"svelte-check": "^4.6.0",

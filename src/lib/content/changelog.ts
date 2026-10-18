@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-18",
+    title: "Deutsch A1, the printed book",
+    highlight: true,
+    items: [
+      "The first level is now a real book: Deutsch A1, Erste Schritte and Im Alltag in one volume, 150 pages in colour, US Letter size, ready for print on demand. Every lesson, every exercise, the diagrams, the picture dictionaries and the picture hunts are on paper, with the answers upside down under each unit.",
+      "Paper and phone work together: each unit carries a QR code that opens the same exercise in the app, and the listening, dictation and repeat-after-me units carry a second code that opens a player with every recording. Scan the book's own code and the app shows a checklist of the book, so what you did on paper counts here too.",
+      "At the back: the key with every transcript, dictation sentence and picture-hunt list, the grammar tables of the book, an A to Z word index, and the audio index for readers without a camera.",
+      "It is a work in progress, not a finished book, and that is the point of the offer on the home page: the first readers who are interested get a test copy for free, printing and postage included. Write through the contact page, read it for a week or two, and say what you think.",
+    ],
+  },
+  {
+    date: "2026-10-18",
     title: "Gold always asks a real question",
     items: [
       "Some exercises had a no-help way with nothing to go on: \"Ich sehe zwei ____ .\" with no English line and no clue. We went through every exercise, on every level, and checked what each of the three ways actually shows you. Every gold step now gives you the German sentence and its English meaning, and nothing more.",

@@ -56,17 +56,35 @@ describe('buildWorkbook', () => {
 				expect(wb.pictures.length).toBe(PICTURES_PER_LEVEL);
 			});
 
-			it('teaches before it tests: every unit has a hook, rules and practice', () => {
+			it('teaches before it tests: every unit has a hook, rules and an exercise', () => {
 				for (const unit of wb.units) {
 					expect(unit.hook, unit.quizId).toBeTruthy();
 					expect(unit.rules.length, unit.quizId).toBeGreaterThan(0);
-					expect(unit.practice?.items.length, unit.quizId).toBeGreaterThan(0);
+					// Grammar and reading units practise on the page; the other types
+					// carry their exercise as `extra` (listening, dictation, …).
+					if (unit.type === 'fillBlank' || unit.type === 'reading' || unit.type === 'inlineCloze')
+						expect(unit.practice?.items.length, unit.quizId).toBeGreaterThan(0);
+					else expect(unit.extra, unit.quizId).toBeTruthy();
+				}
+			});
+
+			it('gives every exercise type a paper form', () => {
+				const types = new Set(wb.units.map((u) => u.type));
+				for (const t of ['listening', 'dictation', 'speakRepeat', 'speaking', 'writing', 'vocabulary', 'suchbild'] as const)
+					if (course.quizzes.some((q) => q.level === level && q.type === t)) expect(types.has(t), t).toBe(true);
+			});
+
+			it('lists audio only where a voice has something to read', () => {
+				for (const unit of wb.units) {
+					const audible = ['listening', 'dictation', 'speakRepeat', 'suchbild', 'reading'].includes(unit.type);
+					expect(unit.audio.length > 0, unit.quizId).toBe(audible);
 				}
 			});
 
 			it('numbers each unit 1…n and keys every exercise exactly once', () => {
 				for (const unit of wb.units) {
-					const count = unit.checks.length + (unit.practice?.items.length ?? 0);
+					const count =
+						unit.checks.length + (unit.practice?.items.length ?? 0) + (unit.extra?.kind === 'listening' ? unit.extra.questions.length : 0);
 					expect(unit.answers.map((a) => a.n), unit.quizId).toEqual(
 						Array.from({ length: count }, (_, i) => i + 1)
 					);
@@ -84,7 +102,8 @@ describe('buildWorkbook', () => {
 
 			it('trims sentence banks and keeps a text whole', () => {
 				for (const unit of wb.units) {
-					const practice = unit.practice!;
+					const practice = unit.practice;
+					if (!practice) continue;
 					if (practice.kind === 'cloze') {
 						expect(practice.items.length).toBeLessThanOrEqual(PRACTICE_PER_UNIT);
 					}

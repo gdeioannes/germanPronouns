@@ -264,6 +264,21 @@
 		</ul>
 	</section>
 
+	<section class="card">
+		<h2>My book</h2>
+		<p class="lede">
+			Working through the printed book? Tell the app what you did on paper, unit by unit, and it counts as done here too. No check, no score: a tick is a tick.
+		</p>
+		<ul class="levels">
+			{#each ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as b (b)}
+				<li>
+					<span>Deutsch {b}</span>
+					<a href="/course/{course?.id ?? catalog.defaultCourseId}/book/{b}/progress">Open the checklist</a>
+				</li>
+			{/each}
+		</ul>
+	</section>
+
 	{#if account.available}
 		<section class="card">
 			<h2>Save your progress</h2>

@@ -274,6 +274,34 @@
 		</section>
 	{/if}
 
+	<!-- The printed book: a free copy for anyone who will read it and say what
+	     they think. The contact page holds the email behind its little check. -->
+	<section id="book" class="book-offer" aria-labelledby="book-offer-title">
+		<a class="book-pic" href="/contact" tabindex="-1" aria-hidden="true">
+			<img src="/img/book-a1-front.webp" alt="" width="640" height="828" loading="lazy" />
+			<span class="book-stamp">Work in progress</span>
+		</a>
+		<div class="book-copy">
+			<p class="kicker">The book · test copies, free</p>
+			<h2 id="book-offer-title">Deutsch A1 is becoming a printed book. Want to test it?</h2>
+			<p>
+				The whole A1 course on paper: 150 pages in colour, every lesson and exercise, and a code
+				on each unit that opens its audio and tutor in the app. It is not finished. The layout,
+				the wording and the order of things are still being worked on, and that is exactly why I
+				need readers now, before it goes on sale.
+			</p>
+			<p>
+				The first people who are interested get a copy for free, printing and postage on me. Read
+				it, use it for a week or two, and tell me what you think, good or bad. Your notes shape
+				the finished book.
+			</p>
+			<a class="primary" href="/contact">
+				Ask for a test copy <Icon name="arrowRight" size="1.05em" />
+			</a>
+			<p class="book-note">A handful of copies · no strings, no obligation to be kind</p>
+		</div>
+	</section>
+
 	<section id="levels" class="block">
 		<header class="block-head">
 			<p class="kicker">Already know some German?</p>
@@ -334,6 +362,12 @@
 			{/each}
 		</dl>
 	</section>
+
+	<!-- A small fixed label that points at the book offer further down. -->
+	<a class="book-tag" href="#book">
+		<Icon name="book" size="1.1em" />
+		<span><b>Deutsch A1, the book</b> · free test copies</span>
+	</a>
 
 	<section class="closing">
 		<h2>Your first German lesson takes five minutes.</h2>
@@ -987,6 +1021,130 @@
 		.story {
 			grid-template-columns: minmax(0, 1fr);
 			padding: 1.25rem;
+		}
+	}
+
+	/* -- the book offer ----------------------------------------------------- */
+
+	.book-offer {
+		display: grid;
+		grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+		align-items: center;
+		gap: 2.5rem;
+		margin-top: 5rem;
+		padding: 2rem 2.5rem;
+		border-radius: 24px;
+		border: 1px solid var(--line);
+		background:
+			radial-gradient(circle at 90% 10%, rgba(201, 104, 59, 0.16), transparent 45%),
+			var(--accent-soft);
+	}
+
+	.book-pic {
+		display: block;
+		justify-self: center;
+		width: min(100%, 13rem);
+		transform: rotate(-4deg);
+		transition: transform var(--medium) var(--ease-out);
+	}
+
+	.book-pic:hover {
+		transform: rotate(-1deg) translateY(-4px);
+	}
+
+	.book-pic img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 6px;
+		box-shadow:
+			0 30px 50px -28px rgba(31, 58, 95, 0.7),
+			0 0 0 1px rgba(31, 58, 95, 0.08);
+	}
+
+	.book-pic {
+		position: relative;
+	}
+
+	.book-stamp {
+		position: absolute;
+		top: 0.9rem;
+		right: -0.9rem;
+		padding: 0.3rem 0.7rem;
+		border-radius: 999px;
+		background: var(--accent-ink);
+		color: #fff;
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		transform: rotate(8deg);
+		box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.5);
+	}
+
+	/* The fixed label: a small pill in the corner, out of the way of the text. */
+	.book-tag {
+		position: fixed;
+		right: 1rem;
+		bottom: 1rem;
+		z-index: 5;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.55rem 0.9rem 0.55rem 0.75rem;
+		border-radius: 999px;
+		background: var(--navy);
+		color: #fff;
+		font-size: 0.82rem;
+		text-decoration: none;
+		box-shadow: 0 12px 28px -12px rgba(31, 58, 95, 0.8);
+		transition: transform var(--medium) var(--ease-out);
+	}
+
+	.book-tag:hover {
+		transform: translateY(-2px);
+	}
+
+	.book-tag b {
+		font-weight: 700;
+	}
+
+	@media (max-width: 40rem) {
+		.book-tag span {
+			display: none;
+		}
+		.book-tag {
+			padding: 0.7rem;
+		}
+	}
+
+	.book-copy h2 {
+		margin-bottom: 0.8rem;
+	}
+
+	.book-copy p {
+		margin: 0 0 1rem;
+		color: var(--ink-muted);
+		line-height: 1.6;
+	}
+
+	.book-copy .primary {
+		margin-top: 0.4rem;
+	}
+
+	.book-note {
+		margin: 0.9rem 0 0;
+		font-size: 0.85rem;
+	}
+
+	@media (max-width: 56rem) {
+		.book-offer {
+			grid-template-columns: minmax(0, 1fr);
+			padding: 1.5rem 1.25rem;
+			text-align: center;
+		}
+		.book-pic {
+			width: min(60%, 11rem);
 		}
 	}
 

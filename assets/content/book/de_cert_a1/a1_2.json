@@ -1,0 +1,96 @@
+{
+	"_comment": "How the A1.2 units read in the printed book. Keyed by quiz id; each field replaces the app's lesson text for the book only (hook, intro, tips by index, the whole remember list). Every text here talks about what the reader does on this page: lines, the key at the back, the Listen code.",
+	"quest_a1_2_hoeren_cafe": {
+		"intro": "A guest orders in a café: cake first, then a drink, then the bill — all of it only heard. Scan the Listen code and keep the key at the back closed. Two people speaking is the new difficulty: the waiter asks and names the price; the guest answers and pays. Keep a list on the notes lines as you listen: what is ordered, what is offered but refused, what it costs, what is paid. The ordering verbs are your signposts: nehmen and möchten (what is ordered), Was macht das? and Das macht … (the price). Listen once to get the two voices apart, then once for each question. The phrases here — Was möchten Sie? Ich nehme … Das macht … Stimmt so — are the script you will use yourself at every café table. The transcript, with the speakers marked, is in the key."
+	},
+	"quest_a1_2_sprechen_alltag": {
+		"intro": "Twelve sentences that describe a day — what time it is, when you get up, eat, shop and go to bed — to listen to and repeat: scan the Listen code, play each line, say it back. Two sounds and one grammar point are being trained. The sounds: ü (früh, fünf, frühstücke) needs rounded lips — but the u in Uhr and um is a plain long or short 'oo', never ü; and ch after i (ich, nicht) is a soft hiss. The grammar: separable verbs, where the prefix is said at the end of the sentence and carries the stress — Ich stehe um sieben Uhr AUF. Say the whole sentence as one arc and land firmly on that last word; it is the part English speakers swallow. The clock words halb and Viertel are explained below and drilled properly in the Uhrzeit unit."
+	},
+	"quest_a1_2_uhrzeit": {
+		"intro": "There are two clocks in German. The official one reads the digits and is used for timetables, appointments and anything written: vierzehn Uhr dreißig, neun Uhr fünfzehn. The colloquial one is what people actually say: Viertel nach acht (quarter past eight), Viertel vor neun (quarter to nine), fünf nach zehn — and halb, which is the one that trips English speakers, because halb drei means half *of the way to* three, i.e. 2:30, not 3:30. You will hear both every day — on the radio, at the station, from friends — and you should be able to switch: hear halb acht, write 7:30. Both clocks are right in the exercise: write Viertel nach acht or acht Uhr fünfzehn for 08:15, halb drei or vierzehn Uhr dreißig for 14:30 — the table in this unit shows the two side by side, and the key gives the everyday form.",
+		"tips": {
+			"1": {
+				"text": "nach = past, vor = to: Viertel nach acht (8:15), Viertel vor neun (8:45), zehn nach zwei (2:10), zwanzig vor sechs (5:40). The minutes always come first: fünf nach zehn is 10:05, zehn nach fünf is 5:10. Adding Minuten is fine too (fünf Minuten nach zehn), but there is no und — never zehn und fünf. In the south and east you will also hear zehn vor halb drei (2:20) and drei Viertel elf (10:45); those are right too."
+			}
+		}
+	},
+	"quest_a1_2_sprechen_kurzcheck": {
+		"intro": "A five-minute checkpoint on the first half of this part, out loud: what you have, what you need today, and whose things they are. Scan the code to open the exercise in the app and hand it to the tutor in your own AI assistant with voice on, or sit with anyone who speaks German and give them the points printed below to ask from. The listener is waiting for two things: the accusative after haben and brauchen — einen Apfel, einen Stift, keinen Hund — and the possessive with its ending — mein Auto, meine Tasche, meinen Schlüssel. Answer in full sentences; the article and the ending are the whole point, and they only show up in a sentence.",
+		"remember": [
+			"Blue nouns get -en after haben / brauchen: einen, keinen, meinen.",
+			"Whole sentences — the ending is the point, and it only lives in a sentence."
+		]
+	},
+	"quest_a1_2_wann_praepositionen": {
+		"intro": "Saying when is something you do in almost every conversation, and it hangs on a handful of prepositions that each own a kind of time: um for clock times (um acht Uhr), am for days and parts of the day (am Montag, am Morgen, am Wochenende), im for months and seasons (im März, im Sommer), and in der Nacht as the one exception. For spans and points around them: von … bis (from … to), ab (from … on), für (for a length of time — often left out: zwei Wochen), nach (after), vor (before), and in for the future (in einer Woche = in a week’s time). Years stand alone: Ich bin 1995 geboren, with no preposition. Each sentence gives you the time word in brackets; write the whole time phrase in the gap, preposition included."
+	},
+	"quest_a1_2_diktat_meintag": {
+		"intro": "A dictation built from one person's day, from getting up to going to bed: the separable verbs, the clock and the shopping phrases of this part. Scan the Listen code; every sentence is its own track. Hear the sentence, hold it whole, write it on the numbered line. The listening skill here is the split verb — Ich stehe um sieben Uhr auf — where the auf arrives at the very end and belongs to the verb at the start; write it where you hear it. Times are the other trap: halb acht is 7:30 and is written as two words. Then compare with the key at the back: every word must be there and in the right form, umlauts and ß included.",
+		"tips": {
+			"0": {
+				"text": "Listen to the end before you start writing: aufstehen, einkaufen, fernsehen put auf / ein / fern last. Nothing comes after it."
+			}
+		}
+	},
+	"quest_a1_2_bigtext_meintag": {
+		"tips": {
+			"1": {
+				"title": "The prefix is already at the end — write only the stem",
+				"trap": "writing 'aufstehe' into the gap doubles the prefix. The two halves live at opposite ends."
+			}
+		}
+	},
+	"quest_a1_2_perfekt_intro": {
+		"intro": "The Perfekt is how German talks about the past in conversation — 'I worked', 'I ate', 'I went' are all Ich habe gearbeitet, Ich habe gegessen, Ich bin gefahren. It is built from two pieces: a helper verb in the present (haben, or sein for a few verbs) in position 2, and the participle — ge- + stem + -t for regular verbs (gemacht, gelernt), ge- + stem + -en with a possible vowel change for irregular ones (gegessen, gefahren) — at the very end, exactly where a modal's infinitive goes. Fifteen verbs turn up in the Perfekt so often — in any story about yesterday or last weekend — that you need to recognise them straight away in what you hear and read. This unit gives you those fifteen. The full system follows later in the course. Each sentence has two gaps: the helper verb in position 2 and the participle at the end — write both, one in each gap."
+	},
+	"quest_a1_2_war_hatte": {
+		"intro": "For 'was' and 'had', German does not use the Perfekt but a simpler past form, the Präteritum of sein and haben — war and hatte. Ich war krank (I was ill), Wir hatten keine Zeit (we had no time). You will use the ich- and er-forms most; this unit gives you all six of each, because they are regular and you will hear the others constantly. sein: war, warst, war, waren, wart, waren. haben: hatte, hattest, hatte, hatten, hattet, hatten. Notice the shape: ich and er are identical, and the endings after that are the familiar -st, -en, -t, -en. From here on, 'yesterday I was …' is one word."
+	},
+	"quest_a1_2_imperativ": {
+		"intro": "The imperative gives instructions and requests, and German has three of them because it has three ways of saying 'you'. To one friend (du): the verb stem with no ending and no pronoun — Komm! Mach das! Warte! — and the vowel-change verbs keep their change: Nimm! Iss! Lies! Sprich! (but no umlaut: Fahr! Schlaf!). To several friends (ihr): the ihr-form of the verb, again without the pronoun — Kommt! Macht! Esst! Formally (Sie): the infinitive followed by Sie — Kommen Sie! Nehmen Sie Platz! You need all three forms from the start, because signs, recipes, teachers and shop assistants use them all day. A bitte makes any of them polite. In the Sie sentences the Sie is already printed — write only the verb."
+	},
+	"quest_a1_2_hoeflich": {
+		"intro": "Three fixed phrases make you polite in every shop, café, office and train: Ich hätte gern … (I'd like …), Könnten Sie …? (could you …?) and Ich würde gern … (I'd like to …). They belong to the Konjunktiv II, a grammar topic that comes much later — but you need them now, because you cannot live in a German-speaking country a single day without them. So learn them as chunks, like Guten Tag: hätte gern + a thing (accusative), Könnten Sie + a verb at the end, würde gern + a verb at the end, and möchte as the everyday alternative. Add bitte, and you have the whole register of politeness people expect at a counter or on the phone. The umlaut is what makes these polite (hätte, not hatte; könnten, not konnten), so write it every time."
+	},
+	"quest_a1_2_koerper": {
+		"intro": "When you are ill, you need two things first: naming what hurts, and saying how you feel. The pattern for pain is Mein Kopf tut weh — literally 'my head does pain' — with tun (to do) and the body part as subject; plural parts take tun weh: Meine Füße tun weh. Or use Schmerzen: Ich habe Kopfschmerzen, Bauchschmerzen, Zahnschmerzen — the body part glued to Schmerzen. For how you feel: Wie geht es dir? – Mir geht es gut / schlecht / nicht so gut; Ich bin krank / müde; Ich habe Fieber. The doctor's opening line, Was fehlt Ihnen? (what's wrong?), completes the set — a fuller unit in a later book builds the doctor's visit on this. The first sentences ask for the body part; the rest ask for what goes round it — mein or meine, tut or tun, and the …schmerzen compound."
+	},
+	"quest_a1_2_sprechen_dialog": {
+		"intro": "The closing conversation of this part: your everyday life — your routine and times, what you buy, what you can and must do. Scan the code to open it in the app and hand it to the tutor in your own AI assistant with voice on, or sit down with anyone who speaks German and give them the topic and the points printed below; ask them to keep the corrections for the end. Answer in full sentences. This conversation pulls together the core of the part. A listener will notice the accusative after haben/kaufen/brauchen, the possessives, the infinitive at the end after a modal, the separable prefix at the end, and times with um / am / halb. When it is over, tick the boxes under 'Afterwards' honestly.",
+		"tips": {
+			"0": {
+				"text": "Modal at 2, infinitive at the end: Ich muss um acht Uhr arbeiten. Separable verb: Ich stehe um sieben auf. Say the last word firmly — it is the part a listener waits for."
+			},
+			"2": {
+				"text": "If you don't know a word, ask 'Wie sagt man … auf Deutsch?' and carry on. Asking costs nothing; the sentence you then say is what counts."
+			}
+		},
+		"remember": [
+			"Whole sentences, verb at the end where it belongs.",
+			"Ask back — 'Und du?' — it turns answers into a conversation."
+		]
+	},
+	"quest_a1_2_schreiben_absage": {
+		"hook": "Cancel an evening in German, politely, then have the message checked.",
+		"intro": "A real message, the kind you send most often: you cannot make it, here is why, how about another day. Write it on the lines below, in pencil. Aim for 120 to 300 characters — five to eight short lines. The grammar this unit watches is the modal verb bracket: können takes second place and the other verb goes right to the end of the sentence. Get that right and the message is already most of the way there. To have it corrected, scan the code: the app carries your text to your own AI assistant, which corrects what you actually wrote. Without that, go through the checklist at the end of the unit line by line."
+	},
+	"quest_a1_2_possessiv_plural": {
+		"intro": "The possessives for more than one owner, and the formal one: unser (our), euer (your — several friends), ihr (their) and Ihr with a capital (your — formal, one person or several). They work exactly like mein: they take the ein-endings, decided by the noun that follows — unser Sohn, unsere Tochter, unsere Kinder, and in the accusative unseren Sohn. Two details make them tricky. euer loses its second e as soon as an ending is added: euer Hund, but eure Katze, euren Hund. And ihr / Ihr is the same word in speech: in writing the capital decides between 'their' and 'your (formal)', and in speech the situation does — Herr Braun, ist das Ihr Koffer? The exercise gives you the owner in brackets; choose the word and add the ending for the noun."
+	},
+	"quest_a1_2_wortschatz": {
+		"intro": "Every word the units of this part use, as a picture dictionary, grouped by the unit it came from: 214 words, 121 of them nouns. The vocabulary of this part is everyday nouns, the core verbs and the small words that hold a sentence together, from the themes Tagesablauf, Uhrzeit, Kalender, Reisen & Verkehr: tickets, Durchsagen, Einkaufen: Mengen, Maße, Währung, Dienstleistungen: Post, Bank. Work through it with a sheet of paper: cover the English and say the German with its article, then cover the German and go the other way. Put a pencil dot beside every word you miss, come back to the dotted ones tomorrow, and rub the dot out when you have got a word right three days in a row.",
+		"remember": [
+			"Never say a noun without its article, not even in your head.",
+			"A pencil dot beside a missed word; three days right in a row and the dot goes.",
+			"Verbs and adjectives have no article: learn them as they stand, like \"mich\"."
+		]
+	},
+	"quest_a1_2_suchbild_kueche": {
+		"hook": "A busy family kitchen with 32 everyday things in it: find each one in the picture, then write it with its article.",
+		"intro": "A picture hunt: one lived-in family kitchen with 32 things to find, all of them words you use every day at home — der Kühlschrank, die Pfanne, das Messer, the egg on the table and the spoon on the rail. Under the picture is a numbered list with an English word on each line. Find the thing in the picture, then write its German on the line, article first: die Pfanne, der Topf, das Messer. The article is half the exercise, so never write the bare noun. When you are done, compare with the key at the back and colour-code what you got wrong — blue for der, red for die, green for das — then come back in a week and do the list again with the key closed. Scan the Listen code to hear every word with its article, and say each one after the voice."
+	},
+	"quest_a1_2_suchbild_supermarkt": {
+		"hook": "A small corner shop full of groceries: find each item in the picture, then write it with its article.",
+		"intro": "A picture hunt: one small corner shop with 32 things to find in it, all words you need when you go shopping — der Einkaufswagen, die Kasse, das Fließband, the cheese on the shelf and the fish in the freezer. Under the picture is a numbered list with an English word on each line. Find the thing in the picture, then write its German on the line, article first: die Kasse, der Käse, das Brot. The article is half the exercise, so never write the bare noun. When you are done, compare with the key at the back and colour-code what you got wrong — blue for der, red for die, green for das — then come back in a week and do the list again with the key closed. Scan the Listen code to hear every word with its article, and say each one after the voice."
+	}
+}

@@ -1,0 +1,139 @@
+{
+	"_comment": "How the A1.1 units read in the printed book. Keyed by quiz id; each field replaces the app's lesson text for the book only (hook, intro, tips by index, the whole remember list). The book has lines, a key at the back and QR codes, not taps, runs and replays: every text here talks about what the reader does on this page.",
+	"quest_a1_1_artikel": {
+		"intro": "Every German noun belongs to one of three genders — masculine (der), feminine (die) or neuter (das) — and the gender is not about meaning: das Mädchen (the girl) is neuter, der Tisch (the table) is masculine. There is no way round it: you learn every noun together with its article, like a first name and a surname. This unit is the nominative, the form for the subject of a sentence and after sein: der Mann ist hier, das ist ein Mann. The indefinite article (a/an) is ein for der- and das-words and eine for die-words, and the plural of 'the' is always die, whatever the gender.",
+		"tips": {
+			"0": {
+				"text": "Never memorise 'Tisch = table'. Memorise 'der Tisch'. The tables in this book colour nouns by gender (der blue, die red, das green) so the colour sticks with the word."
+			}
+		},
+		"remember": [
+			"Colour the word in your head: der is blue, die is red, das is green — every table in this book uses the same three.",
+			"Say the article out loud every single time you say a noun. 'Tisch' is not a word; 'der Tisch' is."
+		]
+	},
+	"quest_a1_1_plural": {
+		"tips": {
+			"3": {
+				"text": "Word lists write the plural as an ending after a comma: der Tisch, -e; das Haus, ¨-er (the ¨ means 'add an umlaut'); der Schlüssel, - (no change). The tables in this book use the same notation."
+			}
+		}
+	},
+	"quest_a1_1_sprechen_vorstellung": {
+		"intro": "These twelve phrases are the first things you will ever say in German — greeting, giving your name, saying where you are from, saying goodbye — the phrases you will use with every new colleague, neighbour and classmate. The point of this unit is not vocabulary but sound: scan the Listen code, play each phrase, then say it back copying the melody and stress of the whole thing rather than hunting for individual letters. German is said with the stress on the first syllable of most words and a falling tone at the end of a statement, and once your ear has that, everything else you learn will sound German too."
+	},
+	"quest_a1_1_hoeren_vorstellung": {
+		"intro": "Max introduces himself in a short recording that you only hear: scan the Listen code and keep the key at the back closed until you have answered. This is how most everyday listening works: someone talks about themselves, and what you need comes in the order they say it. Your job is not to understand every word. It is to catch the answers to the W-questions — woher (where from), was (what he does), wie alt (how old), wie (what something is like) — and to hold each one until the matching question comes. Watch the time words too: am Wochenende and am Abend introduce different activities, and the questions ask about one of them. Listen once for the shape, once for the details, and play it again as often as you like: in real life you would simply ask 'Wie bitte?'.",
+		"tips": {
+			"0": {
+				"text": "Each question hunts one fact. Read the questions on this page and decide which W-word each one is before you start the recording, then wait for that part."
+			}
+		},
+		"remember": [
+			"Read the questions first, start the recording second — you listen better when you know what you are listening for.",
+			"Playing it again is part of the skill, not cheating: in real life you ask 'Wie bitte?'."
+		]
+	},
+	"quest_a1_1_sprechen_kurzcheck": {
+		"intro": "A five-minute checkpoint on the first half of this part, out loud: someone asks, you answer in full sentences. Two ways to do it. Scan the code to open the exercise in the app and hand it to the tutor in your own AI assistant with voice on; it asks, listens, and gives you a score and the three corrections that matter most at the end. Or sit with anyone who speaks German, give them the points printed below, and let them ask. Either way the ground is the same as any first conversation with someone new: your name, where you are from, your age, and a handful of numbers. Answer in whole sentences (Ich heiße …, Ich komme aus …, Ich bin … Jahre alt), because the sentence, not the word, is what people understand.",
+		"tips": {
+			"0": {
+				"text": "One-word answers do not count. 'Berlin' is not an answer; 'Ich wohne in Berlin' is."
+			},
+			"1": {
+				"text": "Corrections come at the end, not in the middle — ask your partner to note them and keep them for afterwards, as the tutor does. Don't stop to fix yourself mid-sentence; keep talking, that is what fluency practice is."
+			}
+		},
+		"remember": [
+			"Ich heiße / ich komme aus / ich wohne in / ich bin … Jahre alt — the four sentences that open every German conversation.",
+			"Say the number, then repeat it: numbers are what a listener waits for."
+		]
+	},
+	"quest_a1_1_vokalwechsel": {
+		"intro": "A small group of very common verbs change their stem vowel in the present tense — but only in two forms, du and er/sie/es. Everything else about them is regular: the endings are the usual -e, -st, -t, -en, -t, -en, and ich, wir, ihr and sie/Sie keep the vowel of the infinitive. There are three kinds of change — a becomes ä (fahren → du fährst), e becomes i (sprechen → du sprichst, essen → du isst) and e becomes ie (lesen → du liest, sehen → du siehst). The eight verbs in this unit are among the most common in everyday German and cover most of what you will meet; nehmen is the odd one out, doubling the m and losing the h: du nimmst, er nimmt. Because the umlaut is the whole point here, write it every time: fahrst for fährst is wrong, and the key at the back will say so."
+	},
+	"quest_a1_1_bigtext_dasbinich": {
+		"intro": "One whole self-introduction with twelve gaps, using everything from this part at once: verb endings for ich, sie and wir, sein and haben, and the nominative articles der / mein. Each gap has a small hint in brackets after it — the verb and the person (heißen · ich), or the article it wants — so this is not a memory test but a putting-together test. Read the whole text first, because the sentence tells you the person; fill the verbs before the articles; and write only the one word the gap wants. It is the text you will soon write yourself — for a course, a pen pal or a new colleague — seen in reverse.",
+		"remember": [
+			"Fill the verbs first, the articles second — the verb gap tells you the person; the article gap tells you the gender.",
+			"Read the hint after the gap before you write: it names the verb and the person."
+		]
+	},
+	"quest_a1_1_diktat_steckbrief": {
+		"intro": "A dictation: you hear one sentence from a personal profile — Ich heiße Anna. Ich komme aus England. Ich bin zwanzig Jahre alt. — and write it on the numbered line. Scan the Listen code; every sentence is its own track. Play it as often as you need, hold the whole sentence in your head, then write it in one go. Two things are being trained at once. Your ear: telling heiße from heißen, bin from bist. And your spelling: German is written almost exactly as it is said, so once you can hear it you can write it — provided you remember that every noun takes a capital, that ei is the 'eye' sound and ie the 'ee' sound, and that ß is just a sharp s. When you have written all of them, compare with the key at the back and mark every word, umlaut and capital.",
+		"tips": {
+			"0": {
+				"text": "Play the track until you can say the sentence yourself, then write it without stopping. Writing word by word while the audio plays makes you miss the endings."
+			},
+			"2": {
+				"text": "heiße = 'HIGH-sseh' → ei. Sie, vier, sieben = 'ee' → ie. On paper you have every letter: write ß and the umlauts as they are, and check them against the key."
+			}
+		}
+	},
+	"quest_a1_1_hoeren_zahlen": {
+		"intro": "A market seller calls out today's prices — apples, bananas, bread, eggs, cheese, potatoes — and you only hear it. Your job is to match each product to its price, which is the most common listening job of daily life: numbers inside real speech, said at real speed. The trick is to hold the pair together: the product name comes first, the price follows within a second or two (… Äpfel … zwei Euro). Prices are said euros first, then cents, with no word for the comma: 2,20 € is 'zwei Euro zwanzig'; 1,10 € is 'ein Euro zehn'. Two prices here are close on purpose — zwei Euro and zwei Euro zehn — so listen to the end of each number. Scan the Listen code and play it once for the products, once for the prices, with a pencil on the notes lines."
+	},
+	"quest_a1_1_farben": {
+		"intro": "Colours are the first adjectives you use to describe things, and at first you use them in the easy position: after the verb sein, where they never change — Das Auto ist rot. Die Blume ist gelb. (Before a noun an adjective takes an ending — ein rotes Auto — but that comes later in the course; for now you only need to recognise it.) You need eleven basic colours, and three of them are loanwords that never take any ending even later: rosa, lila and orange. The exercise gives you a clue and asks for the colour; the clues also quietly teach you nouns like Himmel, Gras and Sonne.",
+		"remember": [
+			"Blut is rot, Himmel is blau, Gras is grün, Sonne is gelb — the clues in this unit are the mnemonic.",
+			"Three foreigners never change: rosa, lila, orange."
+		]
+	},
+	"quest_a1_1_sprechen_zahlen": {
+		"intro": "Numbers are the words you will say most often in a German-speaking country — prices at the till, platform numbers at the station, room numbers, your own age and phone number — and they are also the words most often misheard, because the German sounds are not the English ones. This unit is pure sound: scan the Listen code, play each line and repeat it, from null to a price. Three sounds carry it: z is ts (zwei = 'tsvai', zwanzig = 'TSVAN-tsikh'), ei is 'eye' (drei, zwei), and the -ig at the end of the tens is a soft 'ikh', not 'ig'. Say each one three times, and say the price out loud the German way — euros, then cents."
+	},
+	"quest_a1_1_laender": {
+		"tips": {
+			"2": {
+				"text": "Ich spreche Deutsch, Englisch und ein bisschen Französisch. sprechen + language, no article. The adjective is the same word in lowercase: ein deutsches Buch. Some countries have more than one language — in der Schweiz spricht man Deutsch, Französisch, Italienisch und Rätoromanisch; this unit asks for the one most people speak."
+			}
+		}
+	},
+	"quest_a1_1_wo_praepositionen": {
+		"intro": "Saying where you are is something you do every day — Ich bin im Büro, wir sind in der Stadt, sie ist bei ihren Eltern — and a small set of prepositions covers it: in, an, auf, bei, aus, von, vor, unter (and nach for Wohin?, which has its own unit in Part 2 of this book). Behind them sits the dative case, which changes der to dem and die to der, and glues in + dem into im and an + dem into am. You will learn the dative as a system later in the course. For now you learn these as fixed chunks, the way a child does: im Park, am Bahnhof, in der Schule, bei Siemens, beim Arzt. The pairing is what matters: in for inside or in a town or country, an for at (a station, the sea, the university), bei for at a person’s or a company’s, auf / vor / unter for on, in front of and under something, and for ‘from’ the mirror image — aus for out of a place, von for from a person, a company or a point."
+	},
+	"quest_a1_1_wortbildung": {
+		"intro": "German builds words the way it builds numbers: by gluing pieces together. The two pieces to start with are the ending -in, which turns a male person-word into the female one (der Lehrer → die Lehrerin, der Student → die Studentin), and the compound noun, which fuses two nouns into one — die Schokolade + der Kuchen = der Schokoladenkuchen, das Haus + die Tür = die Haustür. Both let you understand far more than you have learnt: once you know Kuchen, you know Apfelkuchen, Käsekuchen and Geburtstagskuchen. Two rules cover nearly everything: -in is always die, with plural -innen and sometimes an umlaut (Arzt → Ärztin, Koch → Köchin); and a compound takes the gender of its last part. Write the umlaut in Ärztin and Köchin every time: without it the word is wrong."
+	},
+	"quest_a1_1_sprechen_dialog": {
+		"intro": "The closing conversation of this part: a seven-minute chat about you — name, where you live and come from, your family, and the numbers and colours around you. Scan the code to open it in the app and hand it to the tutor in your own AI assistant with voice on, or sit down with anyone who speaks German and give them the topic and the points printed below. Answer in full sentences. Ask your partner not to interrupt: the corrections should come at the end, together, the way the tutor gives them. This is as close to a real first conversation as practice gets: someone asking, you answering in whole sentences, with the verb endings and sein/haben forms carrying the meaning. When it is over, tick the boxes under 'Afterwards' honestly.",
+		"tips": {
+			"1": {
+				"text": "sein and haben, the -e / -st / -t endings, der/die/das, numbers to 100, colours: that is what this part gave you, and that is what to show off."
+			}
+		},
+		"remember": [
+			"Whole sentences only — the sentence is what counts, not the word.",
+			"Keep talking through mistakes; the corrections come at the end."
+		]
+	},
+	"quest_a1_1_schreiben_steckbrief": {
+		"hook": "Write six true sentences about yourself, then have them checked.",
+		"intro": "Your first piece of real German writing. Six short sentences are enough: your name, your age, where you are from, where you live, what you do, and one thing you like. Write them on the lines below, in pencil, so you can correct them. Aim for 120 to 300 characters — six to eight short lines. Do not reach for words you have not met yet. A short, correct text is better than an ambitious one full of guesses, and that is true at every level of this course. To have it corrected, scan the code: the app carries your text to your own AI assistant, which corrects what you actually wrote. Without that, go through the checklist at the end of the unit line by line, and compare your sentences with the self-introduction in the unit Lesen: Das bin ich."
+	},
+	"quest_a1_1_alphabet": {
+		"intro": "Wie schreibt man das? — how do you spell that? — is a question you will hear on your first day in any German office, and on the phone, at the doctor's and at every hotel desk you will be asked to spell your name. The German alphabet has the same 26 letters as English plus ä, ö, ü and ß, but many letters have different names, and the ones that differ are exactly the ones English speakers mix up: E is said 'ay' and I is said 'ee' (the other way round from what you expect), J is Jot, V is Vau (said 'fow'), W is We (said 'vay'), Z is Zett ('tset') and Y is Ypsilon. Germans spell with a few fixed helpers: Doppel-L for ll, A-Umlaut for ä, Eszett or scharfes S for ß. The exercise asks for the names of the tricky letters, then gives you names spelt out letter by letter and asks you to write the word."
+	},
+	"quest_a1_1_wortschatz": {
+		"hook": "A German noun without its article is only half a word — learn der, die or das and the plural with it, every time.",
+		"intro": "Every word the units of this part use, as a picture dictionary, grouped by the unit it came from: the nouns from the article and plural drills, the numbers, the family, the colours, the countries and the verbs. Work through it with a sheet of paper. Cover the English and say the German with its article — a noun is learnt with its article or not at all, so 'die Stelle' counts and 'Stelle' on its own does not. Then cover the German and go the other way. Put a pencil dot beside every word you miss, come back to the dotted ones tomorrow, and rub the dot out when you have got a word right three days in a row.",
+		"tips": {
+			"1": {
+				"text": "The plural is printed after every noun. Read it aloud once: the pattern (-e, -en, -s, -er, umlaut) is what you are memorising, not just the word."
+			}
+		},
+		"remember": [
+			"Never say a noun without its article — not even in your head.",
+			"A pencil dot beside a missed word; three days right in a row and the dot goes."
+		]
+	},
+	"quest_a1_1_suchbild_wohnzimmer": {
+		"hook": "A cosy living room full of everyday things: find each one in the picture, then write it with its article.",
+		"intro": "A picture hunt: one cosy, slightly cluttered living room with 32 things to find in it, the everyday words you need first — der Tisch, die Lampe, das Sofa, the cat asleep on the cushions and the dog on the rug. Under the picture is a numbered list with an English word on each line. Find the thing in the picture, then write its German on the line, article first: der Sessel, die Lampe, das Sofa. The article is half the exercise, so never write the bare noun. When you are done, compare with the key at the back and colour-code what you got wrong — blue for der, red for die, green for das — then come back in a week and do the list again with the key closed. Scan the Listen code to hear every word with its article, and say each one after the voice."
+	},
+	"quest_a1_1_suchbild_klassenzimmer": {
+		"hook": "An empty classroom after the bell: find each thing in the picture, then write it with its article.",
+		"intro": "A picture hunt: one empty, slightly messy classroom with 32 things to find in it, the words of a school day — die Tafel, der Bleistift, das Heft, the fish tank by the wall and the piano in the corner. Under the picture is a numbered list with an English word on each line. Find the thing in the picture, then write its German on the line, article first: das Lineal, die Tafel, der Stuhl. The article is half the exercise, so never write the bare noun. When you are done, compare with the key at the back and colour-code what you got wrong — blue for der, red for die, green for das — then come back in a week and do the list again with the key closed. Scan the Listen code to hear every word with its article, and say each one after the voice."
+	}
+}

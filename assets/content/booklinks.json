@@ -1,0 +1,607 @@
+{
+	"_comment": "Permanent QR codes printed in the books. Never delete or reuse a code; re-point its target instead. See src/lib/domain/booklinks.ts.",
+	"links": [
+		{
+			"code": "a1-01",
+			"kind": "book",
+			"target": "A1",
+			"note": "Book A1",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-02",
+			"kind": "quiz",
+			"target": "quest_a1_1_zahlen",
+			"note": "A1 Zahlen 0–10",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-03",
+			"kind": "quiz",
+			"target": "quest_a1_1_pronomen",
+			"note": "A1 Personalpronomen",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-04",
+			"kind": "quiz",
+			"target": "quest_a1_1_sprechen_vorstellung",
+			"note": "A1 Sprechen: Vorstellung",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-05",
+			"kind": "audio",
+			"target": "quest_a1_1_sprechen_vorstellung",
+			"note": "A1 Sprechen: Vorstellung audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-06",
+			"kind": "quiz",
+			"target": "quest_a1_1_artikel",
+			"note": "A1 Artikel im Nominativ",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-07",
+			"kind": "quiz",
+			"target": "quest_a1_1_plural",
+			"note": "A1 Plural der Nomen",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-08",
+			"kind": "quiz",
+			"target": "quest_a1_1_zahlen2",
+			"note": "A1 Zahlen 11–20",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-09",
+			"kind": "quiz",
+			"target": "quest_a1_1_hoeren_vorstellung",
+			"note": "A1 Hören: Vorstellung",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-10",
+			"kind": "audio",
+			"target": "quest_a1_1_hoeren_vorstellung",
+			"note": "A1 Hören: Vorstellung audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-11",
+			"kind": "quiz",
+			"target": "quest_a1_1_sein_haben",
+			"note": "A1 sein & haben",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-12",
+			"kind": "quiz",
+			"target": "quest_a1_1_wfragen",
+			"note": "A1 W-Fragen",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-13",
+			"kind": "quiz",
+			"target": "quest_a1_1_lesen_dasbinich",
+			"note": "A1 Lesen: Das bin ich",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-14",
+			"kind": "audio",
+			"target": "quest_a1_1_lesen_dasbinich",
+			"note": "A1 Lesen: Das bin ich audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-15",
+			"kind": "quiz",
+			"target": "quest_a1_1_sprechen_kurzcheck",
+			"note": "A1 Kurzcheck: Zahlen & Vorstellung",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-16",
+			"kind": "quiz",
+			"target": "quest_a1_1_praesens",
+			"note": "A1 Regelmäßige Verben (Präsens)",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-17",
+			"kind": "quiz",
+			"target": "quest_a1_1_vokalwechsel",
+			"note": "A1 Unregelmäßige Verben (Vokalwechsel)",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-18",
+			"kind": "quiz",
+			"target": "quest_a1_1_bigtext_dasbinich",
+			"note": "A1 Großer Text: Das bin ich",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-19",
+			"kind": "quiz",
+			"target": "quest_a1_1_diktat_steckbrief",
+			"note": "A1 Diktat: Steckbrief",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-20",
+			"kind": "audio",
+			"target": "quest_a1_1_diktat_steckbrief",
+			"note": "A1 Diktat: Steckbrief audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-21",
+			"kind": "quiz",
+			"target": "quest_a1_1_hoeren_zahlen",
+			"note": "A1 Hören: Zahlen & Preise",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-22",
+			"kind": "audio",
+			"target": "quest_a1_1_hoeren_zahlen",
+			"note": "A1 Hören: Zahlen & Preise audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-23",
+			"kind": "quiz",
+			"target": "quest_a1_1_zahlen3",
+			"note": "A1 Zahlen 20–100",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-24",
+			"kind": "quiz",
+			"target": "quest_a1_1_farben",
+			"note": "A1 Farben",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-25",
+			"kind": "quiz",
+			"target": "quest_a1_1_sprechen_zahlen",
+			"note": "A1 Sprechen: Zahlen & Preise",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-26",
+			"kind": "audio",
+			"target": "quest_a1_1_sprechen_zahlen",
+			"note": "A1 Sprechen: Zahlen & Preise audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-27",
+			"kind": "quiz",
+			"target": "quest_a1_1_familie",
+			"note": "A1 Familie & Menschen",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-28",
+			"kind": "quiz",
+			"target": "quest_a1_1_laender",
+			"note": "A1 Länder, Sprachen & Nationalitäten",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-29",
+			"kind": "quiz",
+			"target": "quest_a1_1_wo_praepositionen",
+			"note": "A1 Wo? — Ortsangaben",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-30",
+			"kind": "quiz",
+			"target": "quest_a1_1_wortbildung",
+			"note": "A1 Wortbildung: -in & Komposita",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-31",
+			"kind": "quiz",
+			"target": "quest_a1_1_sprechen_dialog",
+			"note": "A1 Gespräch: Das bin ich",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-32",
+			"kind": "quiz",
+			"target": "quest_a1_1_schreiben_steckbrief",
+			"note": "A1 Schreiben: Das bin ich",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-33",
+			"kind": "quiz",
+			"target": "quest_a1_1_alphabet",
+			"note": "A1 Das Alphabet & Buchstabieren",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-34",
+			"kind": "quiz",
+			"target": "quest_a1_1_zahlen_gross",
+			"note": "A1 Zahlen ab 100: Preise, Jahre, Mengen",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-35",
+			"kind": "quiz",
+			"target": "quest_a1_1_wortschatz",
+			"note": "A1 Wortschatz",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-36",
+			"kind": "quiz",
+			"target": "quest_a1_1_suchbild_wohnzimmer",
+			"note": "A1 Suchbild: Das Wohnzimmer",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-37",
+			"kind": "audio",
+			"target": "quest_a1_1_suchbild_wohnzimmer",
+			"note": "A1 Suchbild: Das Wohnzimmer audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-38",
+			"kind": "quiz",
+			"target": "quest_a1_1_suchbild_klassenzimmer",
+			"note": "A1 Suchbild: Das Klassenzimmer",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-39",
+			"kind": "audio",
+			"target": "quest_a1_1_suchbild_klassenzimmer",
+			"note": "A1 Suchbild: Das Klassenzimmer audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-40",
+			"kind": "quiz",
+			"target": "quest_a1_2_akkusativ",
+			"note": "A1 Akkusativ (Artikel)",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-41",
+			"kind": "quiz",
+			"target": "quest_a1_2_possessiv",
+			"note": "A1 Possessivartikel",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-42",
+			"kind": "quiz",
+			"target": "quest_a1_2_hoeren_cafe",
+			"note": "A1 Hören: Im Café",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-43",
+			"kind": "audio",
+			"target": "quest_a1_2_hoeren_cafe",
+			"note": "A1 Hören: Im Café audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-44",
+			"kind": "quiz",
+			"target": "quest_a1_2_pronomen_akk",
+			"note": "A1 Personalpronomen (Akkusativ)",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-45",
+			"kind": "quiz",
+			"target": "quest_a1_2_negation",
+			"note": "A1 Negation (kein/nicht)",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-46",
+			"kind": "quiz",
+			"target": "quest_a1_2_lesen_cafe",
+			"note": "A1 Lesen: Das neue Café",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-47",
+			"kind": "audio",
+			"target": "quest_a1_2_lesen_cafe",
+			"note": "A1 Lesen: Das neue Café audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-48",
+			"kind": "quiz",
+			"target": "quest_a1_2_modalverben",
+			"note": "A1 Modalverben",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-49",
+			"kind": "quiz",
+			"target": "quest_a1_2_sprechen_alltag",
+			"note": "A1 Sprechen: Alltag & Uhrzeit",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-50",
+			"kind": "audio",
+			"target": "quest_a1_2_sprechen_alltag",
+			"note": "A1 Sprechen: Alltag & Uhrzeit audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-51",
+			"kind": "quiz",
+			"target": "quest_a1_2_uhrzeit",
+			"note": "A1 Uhrzeit",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-52",
+			"kind": "quiz",
+			"target": "quest_a1_2_sprechen_kurzcheck",
+			"note": "A1 Kurzcheck: Akkusativ & Possessiv",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-53",
+			"kind": "quiz",
+			"target": "quest_a1_2_datum",
+			"note": "A1 Wochentage & Monate",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-54",
+			"kind": "quiz",
+			"target": "quest_a1_2_wann_praepositionen",
+			"note": "A1 Wann? — Zeitangaben",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-55",
+			"kind": "quiz",
+			"target": "quest_a1_2_diktat_meintag",
+			"note": "A1 Diktat: Mein Tag",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-56",
+			"kind": "audio",
+			"target": "quest_a1_2_diktat_meintag",
+			"note": "A1 Diktat: Mein Tag audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-57",
+			"kind": "quiz",
+			"target": "quest_a1_2_hoeren_termine",
+			"note": "A1 Hören: Termine & Uhrzeit",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-58",
+			"kind": "audio",
+			"target": "quest_a1_2_hoeren_termine",
+			"note": "A1 Hören: Termine & Uhrzeit audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-59",
+			"kind": "quiz",
+			"target": "quest_a1_2_hoeren_bahnhof",
+			"note": "A1 Hören: Durchsage am Bahnhof",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-60",
+			"kind": "audio",
+			"target": "quest_a1_2_hoeren_bahnhof",
+			"note": "A1 Hören: Durchsage am Bahnhof audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-61",
+			"kind": "quiz",
+			"target": "quest_a1_2_praepositionen",
+			"note": "A1 Akkusativpräpositionen",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-62",
+			"kind": "quiz",
+			"target": "quest_a1_2_bigtext_meintag",
+			"note": "A1 Großer Text: Mein Tag",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-63",
+			"kind": "quiz",
+			"target": "quest_a1_2_trennbare",
+			"note": "A1 Trennbare Verben",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-64",
+			"kind": "quiz",
+			"target": "quest_a1_2_perfekt_intro",
+			"note": "A1 Perfekt: erste Schritte",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-65",
+			"kind": "quiz",
+			"target": "quest_a1_2_war_hatte",
+			"note": "A1 war & hatte",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-66",
+			"kind": "quiz",
+			"target": "quest_a1_2_imperativ",
+			"note": "A1 Imperativ",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-67",
+			"kind": "quiz",
+			"target": "quest_a1_2_hoeflich",
+			"note": "A1 Höflich bitten & bestellen",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-68",
+			"kind": "quiz",
+			"target": "quest_a1_2_dativ_pronomen_intro",
+			"note": "A1 mir, dir, Ihnen — Dativ-Pronomen",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-69",
+			"kind": "quiz",
+			"target": "quest_a1_2_satzbau",
+			"note": "A1 Satzbau: Position 2 & Konnektoren",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-70",
+			"kind": "quiz",
+			"target": "quest_a1_2_sprechen_einkaufen",
+			"note": "A1 Sprechen: Einkaufen & Bestellen",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-71",
+			"kind": "audio",
+			"target": "quest_a1_2_sprechen_einkaufen",
+			"note": "A1 Sprechen: Einkaufen & Bestellen audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-72",
+			"kind": "quiz",
+			"target": "quest_a1_2_einkaufen_mengen",
+			"note": "A1 Einkaufen: Mengen & Preise",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-73",
+			"kind": "quiz",
+			"target": "quest_a1_2_koerper",
+			"note": "A1 Körper & Befinden",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-74",
+			"kind": "quiz",
+			"target": "quest_a1_2_lesen_reise",
+			"note": "A1 Lesen: Eine kleine Reise",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-75",
+			"kind": "audio",
+			"target": "quest_a1_2_lesen_reise",
+			"note": "A1 Lesen: Eine kleine Reise audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-76",
+			"kind": "quiz",
+			"target": "quest_a1_2_lesen_anzeigen",
+			"note": "A1 Lesen: Anzeigen & Schilder",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-77",
+			"kind": "audio",
+			"target": "quest_a1_2_lesen_anzeigen",
+			"note": "A1 Lesen: Anzeigen & Schilder audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-78",
+			"kind": "quiz",
+			"target": "quest_a1_2_sprechen_dialog",
+			"note": "A1 Gespräch: Mein Alltag",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-79",
+			"kind": "quiz",
+			"target": "quest_a1_2_schreiben_absage",
+			"note": "A1 Schreiben: Eine kurze Nachricht",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-80",
+			"kind": "quiz",
+			"target": "quest_a1_2_wohin",
+			"note": "A1 Wohin? — nach, zu, in",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-81",
+			"kind": "quiz",
+			"target": "quest_a1_2_possessiv_plural",
+			"note": "A1 unser, euer, Ihr",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-82",
+			"kind": "quiz",
+			"target": "quest_a1_2_wortschatz",
+			"note": "A1 Wortschatz",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-83",
+			"kind": "quiz",
+			"target": "quest_a1_2_suchbild_kueche",
+			"note": "A1 Suchbild: Die Küche",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-84",
+			"kind": "audio",
+			"target": "quest_a1_2_suchbild_kueche",
+			"note": "A1 Suchbild: Die Küche audio",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-85",
+			"kind": "quiz",
+			"target": "quest_a1_2_suchbild_supermarkt",
+			"note": "A1 Suchbild: Der Supermarkt",
+			"since": "2026-10-18"
+		},
+		{
+			"code": "a1-86",
+			"kind": "audio",
+			"target": "quest_a1_2_suchbild_supermarkt",
+			"note": "A1 Suchbild: Der Supermarkt audio",
+			"since": "2026-10-18"
+		}
+	]
+}
