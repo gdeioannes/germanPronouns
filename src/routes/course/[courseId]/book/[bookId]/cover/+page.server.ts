@@ -25,7 +25,8 @@ export const load: PageServerLoad = async ({ params }) => {
 		// no print yet
 	}
 	const bleed = 3.175;
-	const spine = +(pages * 0.0025 * 25.4).toFixed(2);
+	// KDP: white paper is 0.002252 in per page.
+	const spine = +(pages * 0.002252 * 25.4).toFixed(2);
 	return {
 		book: { id: book.id, title: book.title, subtitle: book.subtitle, cover: book.cover, courseName: book.courseName, parts: book.parts.map((p) => ({ level: p.level, title: p.title, canDo: p.canDo })) },
 		pages,

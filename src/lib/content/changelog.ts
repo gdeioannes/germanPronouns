@@ -17,6 +17,14 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-18",
+    title: "Every level's PDF, one tap from the course page",
+    items: [
+      "Each level on the course page now has a PDF button next to its name: the printable workbook for that level, downloaded straight away. The workbook shelf also offers the whole Deutsch A1 book as one PDF, exactly as it is printed.",
+      "The printed book passed the print service's checks: its pages are US Letter with proper margins, the running heads and page numbers sit clear of the edges, the chapter photographs are cropped to fit, and the cover matches the spine for 170 pages.",
+    ],
+  },
+  {
+    date: "2026-10-18",
     title: "Deutsch A1, the printed book",
     highlight: true,
     items: [

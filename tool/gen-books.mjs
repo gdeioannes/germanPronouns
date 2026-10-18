@@ -92,6 +92,27 @@ async function prepareHd() {
 	return made;
 }
 
+/**
+ * The chapter photographs at the page's own ratio (186 × 78 mm), cropped once
+ * here and committed under static/img/photo/wide/, so the page shows them
+ * without object-fit: a cropped-by-CSS image still carries its full object
+ * into the PDF, past the page edge, and KDP's checker flags it.
+ */
+async function prepareWide() {
+	const photoDir = join(root, 'static', 'img', 'photo');
+	const wideDir = join(photoDir, 'wide');
+	mkdirSync(wideDir, { recursive: true });
+	let made = 0;
+	for (const name of readdirSync(photoDir)) {
+		if (!name.endsWith('.jpg')) continue;
+		const out = join(wideDir, name);
+		if (existsSync(out)) continue;
+		await sharp(join(photoDir, name)).resize({ width: 1600, height: 671, fit: 'cover', position: 'attention' }).jpeg({ quality: 86 }).toFile(out);
+		made++;
+	}
+	return made;
+}
+
 /** Waits for the fonts and every picture — lazy ones made eager first — with a cap, so a lost picture cannot hang the run. */
 async function settled(page) {
 	await page.evaluate(async () => {
@@ -178,9 +199,9 @@ async function printCover(browser, base, courseId, bookId, spec) {
 
 const pageCount = (pdf) => (Buffer.from(pdf).toString('latin1').match(/\/Type\s*\/Page[^s]/g) ?? []).length;
 
-/** KDP: spine = pages × 0.0025 in on white paper; bleed 0.125 in on the outside edges. */
+/** KDP: spine = pages × 0.002252 in on white paper (colour books print on white); bleed 0.125 in on the outside edges. */
 function coverSpec(pages) {
-	const spineIn = pages * 0.0025;
+	const spineIn = pages * 0.002252;
 	// US Letter trim (8.5 × 11 in): the one full-size trim KDP sells in premium colour with expanded distribution.
 	return { spineMm: +(spineIn * 25.4).toFixed(2), widthMm: +((8.5 * 2 + spineIn + 0.25) * 25.4).toFixed(2), heightMm: +((11 + 0.25) * 25.4).toFixed(2) };
 }
@@ -191,6 +212,7 @@ mkdirSync(outDir, { recursive: true });
 
 const hd = await prepareHd();
 console.log(`${hd} press pictures prepared in static/img/hd/`);
+console.log(`${await prepareWide()} wide photographs prepared in static/img/photo/wide/`);
 
 const server = givenUrl ? { base: givenUrl.replace(/\/$/, ''), stop: () => {} } : await startServer();
 const browser = await puppeteer.launch({ executablePath: findChrome(), headless: true, protocolTimeout: 1_800_000 });
@@ -210,7 +232,10 @@ try {
 				console.log(`${file}  ${pages} pages  ${(pdf.length / 1e6).toFixed(1)} MB  spine ${manifest[file].cover.spineMm} mm`);
 			}
 			if (!manifest[file]) continue;
-			// The cover reads the page count from the manifest, so write it now.
+			// The cover reads the page count from the manifest, so write it now;
+			// the sheet size is recomputed so a changed spine rule reaches a
+			// --cover-only run too.
+			manifest[file].cover = coverSpec(manifest[file].pages);
 			writeFileSync(manifestPath, JSON.stringify(manifest, null, '\t') + '\n');
 			const coverFile = file.replace(/\.pdf$/, '_cover.pdf');
 			try {

@@ -28,6 +28,22 @@
 	import InProgressBadge from '$lib/components/InProgressBadge.svelte';
 	import type { QuizSummary } from '$lib/content/types';
 	import type { PageData } from './$types';
+	import { track } from '$lib/services/analytics';
+	import { workbookFile } from '$lib/domain/workbook';
+
+	// Each level's workbook PDF, as tool/gen-workbooks.mjs recorded it. The
+	// manifest is empty until the tool has run; a level without a PDF shows
+	// no button.
+	const workbookPdfs = Object.values(
+		import.meta.glob<Record<string, { pages: number }>>('/static/workbooks/manifest.json', {
+			eager: true,
+			import: 'default'
+		})
+	)[0] ?? {};
+	const levelPdf = (level: string) => {
+		const file = workbookFile(course.id, level);
+		return workbookPdfs[file] ? { href: `/workbooks/${file}`, pages: workbookPdfs[file].pages } : null;
+	};
 
 	let { data }: { data: PageData } = $props();
 	const course = $derived(data.course);
@@ -223,7 +239,8 @@
 		{/if}
 
 		<!-- Paper practice: a workbook per level — the lessons and the exercises,
-		     printable or as a PDF — plus a custom sheet of chosen exercises. -->
+		     printable or as a PDF — plus a custom sheet of chosen exercises. Each
+		     level's header below carries its own PDF button. -->
 		<a class="worksheet" href="/course/{course.id}/worksheet">
 			<Icon name="printer" size="1.2em" />
 			<span>
@@ -240,6 +257,18 @@
 				<header class="level-head">
 					<h3><a class="level-link" href="/course/{course.id}/level/{level.level}">{level.title}</a></h3>
 					<span class="level-meta">
+						{#if levelPdf(level.level)}
+							{@const pdf = levelPdf(level.level)!}
+							<a
+								class="level-pdf"
+								href={pdf.href}
+								download="German {level.level} workbook.pdf"
+								aria-label="Download the {level.level} workbook as PDF, {pdf.pages} pages"
+								onclick={() => track('workbook_download', { level: level.level, from: 'course' })}
+							>
+								<Icon name="download" size="0.95em" /> PDF
+							</a>
+						{/if}
 						<span class="tnum">{level.doneCount} / {level.quizzes.length}</span>
 						{#if level.complete}<Icon name="check" size="1em" />{/if}
 					</span>
@@ -633,6 +662,28 @@
 
 	.levels > li.complete .level-meta {
 		color: var(--right);
+	}
+
+	/* The level's workbook as PDF: a small pill before the count. */
+	.level-pdf {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		margin-right: 0.5rem;
+		padding: 0.15rem 0.55rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 999px;
+		color: var(--navy);
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		text-decoration: none;
+		transition: border-color var(--fast) var(--ease-out);
+	}
+
+	.level-pdf:hover {
+		border-color: var(--accent);
+		color: var(--accent-ink);
 	}
 
 	.quizzes {

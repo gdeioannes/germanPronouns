@@ -462,10 +462,9 @@ input[type='number'] {
    should not see carries `no-print`; the sheet itself styles its own layout.
    --------------------------------------------------------------------------- */
 
-@page {
-	size: A4;
-	margin: 14mm 12mm;
-}
+/* No global @page: each printed route (the worksheet, the workbooks, the
+   books) sets its own sheet size and margins; a global one would win over
+   theirs by load order. */
 
 @media print {
 	.no-print {

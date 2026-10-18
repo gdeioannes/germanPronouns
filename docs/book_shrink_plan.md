@@ -68,7 +68,7 @@ line 15, [tool/gen-books.mjs](../tool/gen-books.mjs), the cover route.
   `paperWidth: 8.5, paperHeight: 11` instead of A4, and the proof renderer
   nothing (it reads the PDF size).
 - Cover: `widthMm = 2 × 215.9 + spine + 2 × 3.175` bleed, `heightMm = 279.4 + 6.35`;
-  spine = pages × 0.0025 in. The cover page has to recompute from the manifest.
+  spine = pages × 0.002252 in (KDP, white paper). The cover page has to recompute from the manifest.
 - `.sheet.advert` fixed height 263 mm → 245 mm; `.half-title`, `.title-page`,
   `.copyright`, `.part-opener` `min-height` 250 mm → 232 mm.
 - The picture-hunt rooms need ≥ 87 mm width for 300 dpi; the 186 mm measure
@@ -197,7 +197,7 @@ then the fill script. Five to six builds in all.
 - Trim 8.5 × 11 in, premium colour, white paper, no bleed inside; cover with
   0.125 in bleed.
 - Gutter band 151–300 pages: inside margin ≥ 0.5 in. Outside margins ≥ 0.25 in.
-- Spine: 180 × 0.0025 in = 0.45 in (11.4 mm); the cover reads the manifest.
+- Spine: pages × 0.002252 in (KDP, white paper); the cover reads the manifest.
 - Print cost at premium colour: about 1.00 + 180 × 0.07 ≈ 13.60 € (was ≈ 22 €
   at 300). Confirm on KDP's pricing page on the day of upload.
 

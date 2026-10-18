@@ -12,14 +12,14 @@
 	const partHead = (i: number) => `Part ${i + 1} · ${book.parts[i]?.level ?? ''} ${book.parts[i]?.title ?? ''}`;
 	const pageStyle = $derived(
 		`<style>
-@page { size: 8.5in 11in; margin: 18mm 13mm 18mm 13mm; @bottom-center { content: counter(page); font: 800 8.5pt Inter, sans-serif; color: #1f3a5f; } @top-left { content: url(${data.mark}) "  languagequiz.org"; font: 700 7pt Inter, sans-serif; color: #1f3a5f; vertical-align: middle; white-space: pre; } }
+@page { size: 8.5in 11in; margin: 20mm 13mm 25mm 13mm; @bottom-center { content: counter(page) "\\A \\A "; white-space: pre; line-height: 5mm; font: 800 8.5pt Inter, sans-serif; color: #1f3a5f; } @top-left { content: url(${data.mark}) "  languagequiz.org"; font: 700 7pt Inter, sans-serif; color: #1f3a5f; padding-top: 12mm; white-space: pre; } }
 @page :left { margin-left: 13mm; margin-right: 17mm; }
 @page :right { margin-left: 17mm; margin-right: 13mm; }
 @page front { @bottom-center { content: none; } @top-left { content: none; } }
 @page advert { margin: 0; @bottom-center { content: none; } @top-left { content: none; } }
-@page part1 { @top-right { font: 600 7pt Inter, sans-serif; color: #6e6458; content: "${partHead(0)}"; } }
-@page part2 { @top-right { font: 600 7pt Inter, sans-serif; color: #6e6458; content: "${partHead(1)}"; } }
-@page back { @top-right { font: 600 7pt Inter, sans-serif; color: #6e6458; content: "Key, tables and index"; } }
+@page part1 { @top-right { padding-top: 12mm; font: 600 7pt Inter, sans-serif; color: #6e6458; content: "${partHead(0)}"; } }
+@page part2 { @top-right { padding-top: 12mm; font: 600 7pt Inter, sans-serif; color: #6e6458; content: "${partHead(1)}"; } }
+@page back { @top-right { padding-top: 12mm; font: 600 7pt Inter, sans-serif; color: #6e6458; content: "Key, tables and index"; } }
 </style>`
 	);
 
@@ -186,7 +186,7 @@
 				{#if part.subtitle}<p class="sub">{part.subtitle}</p>{/if}
 				{#if part.photo}
 					<figure class="photo">
-						<img src="/img/photo/{part.photo.id}.jpg" alt="" />
+						<img src="/img/photo/wide/{part.photo.id}.jpg" alt="" width="1600" height="671" />
 						{#if part.caption}<figcaption lang="de">{part.caption}</figcaption>{/if}
 					</figure>
 					{#if part.de}<p class="intro-de" lang="de">{part.de}</p><p class="intro-en">{part.en}</p>{/if}
@@ -211,7 +211,7 @@
 						{#if chapter.subtitle}<p class="sub">{chapter.subtitle}</p>{/if}
 						{#if chapter.photo}
 							<figure class="photo">
-								<img src="/img/photo/{chapter.photo.id}.jpg" alt="" />
+								<img src="/img/photo/wide/{chapter.photo.id}.jpg" alt="" width="1600" height="671" />
 								{#if chapter.caption}<figcaption lang="de">{chapter.caption}</figcaption>{/if}
 							</figure>
 						{/if}
@@ -322,7 +322,7 @@
 				<p class="lede">The photographs are used under free licences; the drawings and diagrams were made for this course. Thank you to the photographers who share their work.</p>
 				<ol class="credit-list">
 					{#each book.credits as ph (ph.id)}
-						<li><img src="/img/photo/{ph.id}.jpg" alt="" /><span><b>{ph.title.replace(/.[a-z]+$/i, '').replace(/_/g, ' ')}</b><br />{ph.author} · {ph.license}<br /><span class="mono">{ph.source}</span></span></li>
+						<li><img src="/img/photo/wide/{ph.id}.jpg" alt="" width="1600" height="671" /><span><b>{ph.title.replace(/.[a-z]+$/i, '').replace(/_/g, ' ')}</b><br />{ph.author} · {ph.license}<br /><span class="mono">{ph.source}</span></span></li>
 					{/each}
 				</ol>
 			</section>
@@ -438,7 +438,7 @@
 	.advert {
 		display: grid;
 		align-content: space-between;
-		min-height: 226mm;
+		min-height: 217mm;
 		background: var(--navy);
 		color: #fff;
 		border-radius: 3mm;
@@ -772,11 +772,12 @@
 		margin: 4mm 0 0;
 		width: 100%;
 	}
+	/* The wide crop (tool/gen-books.mjs) at its own ratio: no object-fit, so
+	   the image object never reaches past its box (KDP's margin checker). */
 	.photo img {
 		display: block;
 		width: 100%;
-		height: 96mm;
-		object-fit: cover;
+		height: auto;
 		border-radius: 2.5mm;
 	}
 	.photo figcaption {
@@ -864,8 +865,7 @@
 	}
 	.credit-list img {
 		width: 30mm;
-		height: 20mm;
-		object-fit: cover;
+		height: auto;
 		border-radius: 1.5mm;
 	}
 	.cando {
@@ -1119,8 +1119,11 @@
 	/* -- print ---------------------------------------------------------- */
 
 	@media print {
+		/* No painted background: Chrome draws it as a white rectangle that
+		   reaches into the page margins, and KDP's checker counts it as an
+		   object outside the margins. The paper is white anyway. */
 		:global(body) {
-			background: #fff;
+			background: none !important;
 		}
 		:global(.skip-link),
 		:global(header.site),
@@ -1136,6 +1139,7 @@
 		.sheet {
 			padding: 0;
 			box-shadow: none;
+			background: none; /* a white sheet rectangle can run past the page and trip KDP's checker */
 			break-before: page;
 		}
 		.front {
@@ -1143,7 +1147,7 @@
 		}
 		/* The navy page: a card that fills the printable area exactly, inside the white margins. */
 		.sheet.advert {
-			height: 243mm;
+			height: 234mm;
 			min-height: 0;
 			padding: 12mm 12mm 10mm;
 			box-sizing: border-box;
@@ -1165,7 +1169,7 @@
 		.title-page,
 		.copyright,
 		.part-opener {
-			min-height: 226mm;
+			min-height: 217mm;
 		}
 		/* Part openers and the title page start on a right-hand page. */
 		/* Chrome prints break-before: right as a plain page break; openers may land left. */
@@ -1215,9 +1219,6 @@
 		/* A chapter opener is a half page: the chapter's first unit follows on it. */
 		.chapter {
 			min-height: 0;
-		}
-		.chapter .photo img {
-			height: 78mm;
 		}
 		.ch-title {
 			font-size: 28pt;

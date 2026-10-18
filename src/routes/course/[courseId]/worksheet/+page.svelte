@@ -35,6 +35,17 @@
 			import: 'default'
 		})
 	)[0] ?? {};
+	// The printed book as one free PDF, when tool/gen-books.mjs has written it.
+	const bookPdfs = Object.values(
+		import.meta.glob<Record<string, { pages: number; bytes: number }>>('/static/books/manifest.json', {
+			eager: true,
+			import: 'default'
+		})
+	)[0] ?? {};
+	const bookPdf = $derived.by(() => {
+		const file = `${course.id}_a1.pdf`;
+		return bookPdfs[file] ? { href: `/books/${file}`, ...bookPdfs[file] } : null;
+	});
 	const cards = $derived(
 		workbookCards(course).map((card) => {
 			const file = workbookFile(course.id, card.level);
@@ -160,6 +171,22 @@
 				down at the foot of each unit. Download the PDF, or open it to print.
 			</p>
 		</header>
+
+		{#if bookPdf}
+			<a
+				class="whole-book"
+				href={bookPdf.href}
+				download="Deutsch A1.pdf"
+				onclick={() => track('book_download', { book: 'A1', from: 'shelf' })}
+			>
+				<Icon name="book" size="1.3em" />
+				<span>
+					<strong>Deutsch A1, the whole book</strong>
+					<small>A1.1 and A1.2 in one PDF, as printed · {bookPdf.pages} pages · {(bookPdf.bytes / 1e6).toFixed(0)} MB</small>
+				</span>
+				<Icon name="download" size="1.1em" />
+			</a>
+		{/if}
 
 		<ol class="books">
 			{#each cards as card (card.level)}
@@ -383,6 +410,13 @@
 </main>
 
 <style>
+	/* The worksheet's own sheet; it used to live in app.css, where it won over
+	   the books' page rules by load order. */
+	@page {
+		size: A4;
+		margin: 14mm 12mm;
+	}
+
 	.head {
 		margin-bottom: 1.5rem;
 	}
@@ -399,6 +433,33 @@
 	}
 
 	/* -- level workbooks: a shelf of covers -------------------------------- */
+
+	.whole-book {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		margin: 0 0 1rem;
+		padding: 0.7rem 1rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: var(--accent-soft);
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.whole-book:hover {
+		border-color: var(--accent);
+	}
+
+	.whole-book span {
+		flex: 1;
+	}
+
+	.whole-book small {
+		display: block;
+		color: var(--ink-muted);
+		font-size: 0.8rem;
+	}
 
 	.books {
 		display: grid;
