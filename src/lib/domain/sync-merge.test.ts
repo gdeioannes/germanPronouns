@@ -248,3 +248,45 @@ describe('differInProgress — whether the question is worth asking', () => {
 		).toBe(true);
 	});
 });
+
+describe('the medal ladder', () => {
+	const ladderKey = quizStatsKeys('deck_').ladder;
+	const ladder = (won: boolean[], legacy: string | null = null) => JSON.stringify({ won, legacy });
+
+	it('keeps every step won on either device, and the better old medal', () => {
+		const merged = mergeProgress(
+			{ [ladderKey]: ladder([true, false, false], 'bronze') },
+			{ [ladderKey]: ladder([false, false, true], 'silver') },
+			false
+		);
+		expect(JSON.parse(merged[ladderKey])).toEqual({ won: [true, false, true], legacy: 'silver' });
+		expect(mergeProgress(merged, merged, true)).toEqual(merged);
+	});
+
+	it('counts a laddered deck’s medal from its ladder, not its streak', () => {
+		const summary = summariseProgress({
+			[ladderKey]: ladder([true, true, false]),
+			[quizStatsKeys('deck_').bestStreakAbsolute]: '30'
+		});
+		expect(summary.medals).toEqual({ bronze: 0, silver: 1, gold: 0 });
+	});
+});
+
+describe('score medals', () => {
+	const medalKey = quizStatsKeys('lesen_').scoreMedal;
+
+	it('keeps the better medal from either device', () => {
+		const merged = mergeProgress({ [medalKey]: 'bronze' }, { [medalKey]: 'gold' }, false);
+		expect(merged[medalKey]).toBe('gold');
+		expect(mergeProgress(merged, { [medalKey]: 'silver' }, true)[medalKey]).toBe('gold');
+	});
+
+	it('counts one medal per exercise, the best it holds', () => {
+		const summary = summariseProgress({
+			[medalKey]: 'silver',
+			[quizStatsKeys('diktat_').bestStreakAbsolute]: '8',
+			[quizStatsKeys('diktat_').scoreMedal]: 'gold'
+		});
+		expect(summary.medals).toEqual({ bronze: 0, silver: 1, gold: 1 });
+	});
+});

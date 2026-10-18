@@ -226,6 +226,18 @@ export interface QuizSentence {
 	 * no answer uses is a distractor. The sentence has exactly one gap.
 	 */
 	tiles?: string[];
+	/**
+	 * Three wrong answers for the medal ladder's "choose" step, which offers
+	 * them beside the right one. Authored in assets/content/ladder.
+	 */
+	options?: string[];
+	/** One of the drill's hard sentences: the "no help" step draws on these. */
+	hard?: boolean;
+	/**
+	 * The trailing "(…)" carries something the English line doesn't (a
+	 * register, a tense, a case), so the "no help" step keeps it.
+	 */
+	keepCue?: boolean;
 }
 
 export interface FillBlankQuiz extends QuizBase {
@@ -264,7 +276,10 @@ export interface InlineBlank {
 	/** Extra spellings that also count (e.g. "heisse" for "heiße"). */
 	accepted?: string[];
 	hint?: string;
-	/** Choices, when `kind` is 'select'. */
+	/**
+	 * Choices, when `kind` is 'select'. A typed gap may carry three wrong
+	 * ones too, for the medal ladder's "choose" step.
+	 */
 	options?: string[];
 }
 

@@ -46,7 +46,7 @@
 	import { isSongCard, songCardHref, songDeckCard } from '$lib/domain/songs';
 	import { JA_NEIN_CARD_ID, JA_NEIN_PATH } from '$lib/domain/janein';
 	import { nextRound } from '$lib/domain/janeinRounds';
-	import { CHAT_CARD_PREFIX, chatDeckCard, findChat, MATCH_PATH, type ChatDeal } from '$lib/domain/matchChat';
+	import { CHAT_CARD_PREFIX, chatDeckCard, findChat, markMet, MATCH_PATH, type ChatDeal } from '$lib/domain/matchChat';
 	import { pickSurprise, takeSurpriseChance, type SurpriseCandidate } from '$lib/domain/surprise';
 	import { progress } from '$lib/state/progress.svelte';
 	import type { QuizFacts } from '$lib/domain/recommend';
@@ -408,6 +408,8 @@
 				}
 			} else {
 				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'go', pace });
+				// Opening a character's card is how you meet them (the deck is the only way).
+				if (isChatCard(card)) markMet(card.quiz.id.slice(CHAT_CARD_PREFIX.length));
 				void goto(href(card));
 			}
 			reset();

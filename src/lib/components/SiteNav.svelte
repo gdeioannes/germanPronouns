@@ -23,6 +23,8 @@
 	import { account } from '$lib/state/account.svelte';
 	import { openSignIn } from '$lib/state/signin.svelte';
 	import { SONGS } from '$lib/domain/songs';
+	import ContactsPeek from '$lib/components/match/ContactsPeek.svelte';
+	import PageHelp from '$lib/components/PageHelp.svelte';
 
 	onMount(initWhatsNew);
 
@@ -225,7 +227,11 @@
      whole menu fits on a phone screen without scrolling. -->
 {#snippet menuList()}
 	<div class="menu-links">
-		<div class="root-row">{@render forumLink()}{@render signIn()}</div>
+		<div class="root-row">
+			{@render forumLink()}
+			<a href="/settings" rel="nofollow"><Icon name="settings" size="1em" /> Settings</a>
+			{@render signIn()}
+		</div>
 		<p class="group-head">Library</p>
 		{@render libraryLinks()}
 		<p class="group-head">Levels</p>
@@ -241,7 +247,7 @@
 	<button
 		type="button"
 		class="menu"
-		aria-label={whatsNew.unseen ? 'Menu — new updates' : 'Menu'}
+		aria-label={whatsNew.unseen || forum.unread.length ? 'Menu — new updates' : 'Menu'}
 		bind:this={menuButton}
 		aria-expanded={open}
 		aria-controls="site-menu"
@@ -249,7 +255,7 @@
 	>
 		<Icon name={open ? 'close' : 'menu'} size="1.1em" />
 		<span>Menu</span>
-		{#if whatsNew.unseen && !open}<span class="dot" aria-hidden="true"></span>{/if}
+		{#if (whatsNew.unseen || forum.unread.length) && !open}<span class="dot" aria-hidden="true"></span>{/if}
 	</button>
 {/snippet}
 
@@ -262,21 +268,13 @@
 			<a class="icon-link" href="/words" aria-label="Word library" title="Word library">
 				<Icon name="words" size="1.15em" />
 			</a>
-			<!-- The forum, always; the dot says a reply to one of yours is waiting. -->
-			<a
-				class="icon-link bell"
-				class:unread={forum.unread.length > 0}
-				href="/forum"
-				aria-label={forum.unread.length ? 'Forum — new replies to your topics' : 'Forum'}
-				title={forum.unread.length ? 'New replies on the forum' : 'Forum'}
-			>
-				<Icon name="forum" size="1.15em" />
-				{#if forum.unread.length}<span class="dot" aria-hidden="true"></span>{/if}
-			</a>
+			<!-- Schreib mir! contacts, once a character has been met. The forum
+			     and settings live under Menu, whose dot says a forum reply is
+			     waiting. -->
+			<ContactsPeek />
+			<!-- "?": how this screen works (content/pageHelp), on pages that have an entry. -->
+			<PageHelp topic={page.route.id} />
 			{@render signIn()}
-			<a class="icon-link" href="/settings" rel="nofollow" aria-label="Settings" title="Settings">
-				<Icon name="settings" size="1.15em" />
-			</a>
 			{@render menuButtonSnippet()}
 		</div>
 		{#if open}
@@ -292,17 +290,20 @@
 			<!-- Wide: the three dropdowns in the bar. Narrow: the way into the
 			     course always stays in the bar; the rest drop down under Menu,
 			     which shrinks to its icon so nothing has to wrap. -->
-			<nav class="wide" aria-label="Main">
-				{@render drop('levels', 'Levels', levelLinks, true)}
-				{@render drop('library', 'Library', libraryLinks)}
-				{@render drop('about', 'About', aboutLinks, false, whatsNew.unseen)}
-				{@render forumLink()}
-				{@render signIn()}
-				{@render cta()}
-			</nav>
-			<div class="narrow">
-				{@render cta()}
-				{@render menuButtonSnippet()}
+			<div class="bar-end">
+				<nav class="wide" aria-label="Main">
+					{@render drop('levels', 'Levels', levelLinks, true)}
+					{@render drop('library', 'Library', libraryLinks)}
+					{@render drop('about', 'About', aboutLinks, false, whatsNew.unseen)}
+					{@render forumLink()}
+					{@render signIn()}
+					{@render cta()}
+				</nav>
+				<PageHelp topic={page.route.id} />
+				<div class="narrow">
+					{@render cta()}
+					{@render menuButtonSnippet()}
+				</div>
 			</div>
 		</div>
 		{#if open}
@@ -325,6 +326,12 @@
 	}
 
 	/* The links that only show up once the bar is too narrow for them. */
+	.bar-end {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+	}
+
 	.narrow {
 		display: none;
 		align-items: center;
@@ -663,14 +670,6 @@
 	.icon-link:hover {
 		color: var(--heading);
 		background: var(--surface-alt);
-	}
-
-	.icon-link.bell {
-		position: relative;
-	}
-
-	.icon-link.bell.unread {
-		color: var(--accent-ink);
 	}
 
 	.menu {

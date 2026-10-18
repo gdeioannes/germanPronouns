@@ -41,6 +41,31 @@ export function tileBank(item: QuizSentence): Tile[] {
 }
 
 /**
+ * The ids of the tiles that lay the item's first answer, or every tile when
+ * it cannot be laid. The medal ladder's easiest step offers only these: the
+ * order is still the learner's to find, without the distractors.
+ */
+export function answerTileIds(item: QuizSentence): Set<number> {
+	const words = (item.tiles ?? []).map((t) => normalizeAnswer(t, true));
+	const used = new Array(words.length).fill(false);
+	const lay = (rest: string): boolean => {
+		if (!rest) return true;
+		for (let i = 0; i < words.length; i++) {
+			const word = words[i];
+			if (used[i] || !word || !rest.startsWith(word)) continue;
+			if (rest.length > word.length && rest[word.length] !== ' ') continue;
+			used[i] = true;
+			if (lay(rest.slice(word.length).trimStart())) return true;
+			used[i] = false;
+		}
+		return false;
+	};
+	const answer = item.acceptedAnswers[0] ?? '';
+	if (!lay(normalizeAnswer(answer, true))) return new Set(words.map((_, i) => i));
+	return new Set(used.flatMap((u, i) => (u ? [i] : [])));
+}
+
+/**
  * Whether `answer` can be laid from `tiles`, each tile used at most once —
  * what the content gate holds every key of a tile item to. With `inOrder`,
  * only tiles left to right may be taken (skipping some is fine).

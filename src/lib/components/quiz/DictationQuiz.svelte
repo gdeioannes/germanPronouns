@@ -4,8 +4,8 @@
 	// until the line is answered or given up on — that is the whole exercise.
 	//
 	// Played in runs of RUN_LENGTH lines, like the fill-in and the flashcards:
-	// the same chevron bar above, the same streak and medals across runs and
-	// visits, the same end-of-run card. Lines come from the shuffle bag, so a
+	// the same chevron bar above, the same end-of-run card. Its medal is the
+	// run's score: 8 of 10 heard right is bronze, 9 silver, all 10 gold. Lines come from the shuffle bag, so a
 	// quiz with more lines than a run hands out a different ten each time, and
 	// a line that went wrong comes back round inside the same run.
 	//
@@ -26,10 +26,12 @@
 	import { celebrateMedal, react, shakeOn } from '$lib/motion/fx.svelte';
 	import { BAND_LABELS, bandNote, gradeDictation, type DictationGrade } from '$lib/domain/dictation';
 	import {
-		medalAnnouncement,
 		RUN_LENGTH,
+		RUN_PASS_MARK,
 		runPassed,
+		scoreMedal,
 		STREAK_LAP_SIZE,
+		TIER_LABELS,
 		type RibbonTier
 	} from '$lib/domain/progress';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
@@ -115,6 +117,8 @@
 			restart();
 			(async () => {
 				const stats = await progress.statsFor(quiz.storageKeyPrefix);
+				// Freezes a medal the old streak rule gave: kept, never re-earned by it.
+				await progress.openLadder(quiz.storageKeyPrefix);
 				if (id !== quiz.id) return;
 				streak = stats.streak;
 				best = stats.bestStreakAbsolute;
@@ -169,24 +173,15 @@
 		}
 		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun });
 
-		// The medal is the streak's, not the run's: it is celebrated on the
-		// line that crossed it, whenever in the run that happens.
-		if (stats.earned) {
-			earned = stats.earned;
-			celebrateMedal(stats.earned, stats.streak);
-		}
-
 		// Back in the field (a click on Check took focus away), where Enter
 		// moves on. Not on a touch screen: there the keyboard would spring back
 		// over the line just revealed, so it is put away instead.
 		if (window.matchMedia('(pointer: coarse)').matches) inputEl?.blur();
 		else inputEl?.focus();
 
-		const medal = stats.earned ? ` ${medalAnnouncement(stats.earned, stats.streak)}` : '';
 		announce([
 			{ text: `${BAND_LABELS[result.band]}, ${result.score} percent. The line was:` },
-			{ text: item.text, lang: locale },
-			...(medal ? [{ text: medal }] : [])
+			{ text: item.text, lang: locale }
 		]);
 	}
 
@@ -219,9 +214,19 @@
 		});
 		clearSpot(quiz.storageKeyPrefix);
 		onRunFinished(passed);
+		// The medal is the run's score; a better one than before is a medal moment.
+		const medal = scoreMedal(right, RUN_LENGTH, RUN_PASS_MARK / RUN_LENGTH);
+		const line = `${right} of ${RUN_LENGTH} heard right`;
 		announce(
-			`Run finished: ${right} of ${RUN_LENGTH} right — ${passed ? 'exercise done' : 'not this time'}. Your streak is ${streak}.`
+			`Run finished: ${line} — ${passed ? 'exercise done' : 'not this time'}.${medal ? ` ${TIER_LABELS[medal]} medal.` : ''}`
 		);
+		if (medal) {
+			void progress.recordScoreMedal(quiz.storageKeyPrefix, medal).then((better) => {
+				if (!better) return;
+				earned = medal;
+				celebrateMedal(medal, 0, null, line);
+			});
+		}
 	}
 
 	function onKey(event: KeyboardEvent) {
@@ -273,7 +278,7 @@
 
 <svelte:window onkeydown={onWindowKey} />
 
-<RunTracker {results} total={RUN_LENGTH} {streak} {best} />
+<RunTracker {results} total={RUN_LENGTH} {streak} {best} showStreak={false} />
 
 {#if runDone}
 	<RunSummary
@@ -286,6 +291,7 @@
 		{missed}
 		{locale}
 		{passed}
+		medalRule="Bronze for 8 of 10 heard right, silver for 9, gold for all 10."
 	/>
 {:else if item}
 	<section class="card" bind:this={cardEl} use:freshen={dealt} use:shakeOn={missKey} in:rise>

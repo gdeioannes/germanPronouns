@@ -2,12 +2,46 @@
 	// Draws the screen-level effects fired through motion/fx: confetti, the
 	// finished-quiz stamp, floating praise and the answer edge glow. Mounted
 	// once in the root layout; pointer-transparent, so it never takes a tap.
-	import { fx } from '$lib/motion/fx.svelte';
-	import { TIER_COLORS } from '$lib/domain/progress';
+	import { fx, land } from '$lib/motion/fx.svelte';
+	import { TIER_COLORS, type RibbonTier } from '$lib/domain/progress';
+	import RibbonBadge from './RibbonBadge.svelte';
 	import { unlockAudio } from '$lib/services/sounds';
 
 	// Browsers only start audio from a gesture: unlock it on the first one.
 	$effect(() => unlockAudio());
+
+	/** The stamp's medal, at full size; it shrinks to the slot's on the way. */
+	const MEDAL_WIDTH = 64;
+
+	/**
+	 * Flies a medal from the stamp to its slot on an arc — up and over, then
+	 * down into place, shrinking to the slot's size and turning once.
+	 */
+	function flyTo(node: HTMLElement, flight: { tier: RibbonTier; to: { x: number; y: number } }) {
+		// Take off from the medal hung in the stamp, wherever it sits.
+		const hung = document.querySelector('.fx .hung')?.getBoundingClientRect();
+		const from = hung?.width
+			? { x: hung.left + hung.width / 2, y: hung.top + hung.height / 2 }
+			: { x: window.innerWidth / 2, y: window.innerHeight / 2 - 70 };
+		const dx = flight.to.x - from.x;
+		const dy = flight.to.y - from.y;
+		const end = 11 / MEDAL_WIDTH;
+		const at = (x: number, y: number, scale: number, turn: number) =>
+			`translate(${x}px, ${y}px) translate(-50%, -50%) scale(${scale}) rotate(${turn}deg)`;
+		node.style.left = `${from.x}px`;
+		node.style.top = `${from.y}px`;
+		const animation = node.animate(
+			[
+				{ transform: at(0, 0, 1, -4), offset: 0 },
+				{ transform: at(dx * 0.35, dy * 0.2 - 90, 0.75, 120), offset: 0.4 },
+				{ transform: at(dx * 0.85, dy * 0.85 - 30, end * 1.6, 300), offset: 0.8 },
+				{ transform: at(dx, dy, end, 360), offset: 1 }
+			],
+			{ duration: 950, easing: 'cubic-bezier(0.45, 0, 0.25, 1)', fill: 'forwards' }
+		);
+		animation.onfinish = () => land(flight.tier);
+		return { destroy: () => animation.cancel() };
+	}
 </script>
 
 <div class="fx" aria-hidden="true">
@@ -35,10 +69,25 @@
 		{#key fx.stamp.id}
 			<div class="stamp" class:medal={fx.stamp.medal} style:--metal={fx.stamp.medal ? TIER_COLORS[fx.stamp.medal] : null}>
 				<span>
+					{#if fx.stamp.medal}
+						<!-- The medal itself, hung above its name. Once it sets off
+						     for its slot the stamp's own copy goes: one medal. -->
+						<i class="hung" class:gone={fx.flight !== null}>
+							<RibbonBadge tier={fx.stamp.medal} width={MEDAL_WIDTH} animate />
+						</i>
+					{/if}
 					{fx.stamp.text}
 					{#if fx.stamp.sub}<small>{fx.stamp.sub}</small>{/if}
 				</span>
 			</div>
+		{/key}
+	{/if}
+
+	{#if fx.flight}
+		{#key fx.flight.id}
+			<span class="flyer" use:flyTo={fx.flight} style:--metal={TIER_COLORS[fx.flight.tier]}>
+				<RibbonBadge tier={fx.flight.tier} width={MEDAL_WIDTH} />
+			</span>
 		{/key}
 	{/if}
 
@@ -206,6 +255,45 @@
 			opacity: 0;
 			transform: scale(0.9) rotate(-4deg);
 		}
+	}
+
+	/* The medal hung in the stamp, with a slow swing like a real ribbon. */
+	.hung {
+		display: block;
+		margin-bottom: 0.1em;
+		transform-origin: 50% 0;
+		animation: swing 1800ms ease-in-out 300ms both;
+		filter: drop-shadow(0 6px 10px color-mix(in srgb, var(--metal) 45%, transparent));
+	}
+
+	.hung.gone {
+		visibility: hidden;
+	}
+
+	@keyframes swing {
+		0% {
+			transform: rotate(0);
+		}
+		25% {
+			transform: rotate(9deg);
+		}
+		50% {
+			transform: rotate(-6deg);
+		}
+		75% {
+			transform: rotate(3deg);
+		}
+		100% {
+			transform: rotate(0);
+		}
+	}
+
+	/* The medal in flight to its slot, trailing a little light. */
+	.flyer {
+		position: absolute;
+		display: block;
+		filter: drop-shadow(0 0 12px color-mix(in srgb, var(--metal) 70%, transparent))
+			drop-shadow(0 8px 14px rgb(0 0 0 / 0.18));
 	}
 
 	/* A word of praise that pops up from the answer and floats away. */

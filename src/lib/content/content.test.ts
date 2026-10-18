@@ -177,6 +177,33 @@ describe('every quiz (baseline)', () => {
 		}
 	});
 
+	it('never puts the answer in the subject label, nor after an arrow in the cue', () => {
+		const has = (text: string, word: string) =>
+			new RegExp(`(^|[^\\p{L}])${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^\\p{L}]|$)`, 'u').test(text);
+		for (const q of quizzes) {
+			if (q.type !== 'fillBlank') continue;
+			for (const s of q.sentences ?? []) {
+				// The label above the sentence, as FillBlankQuiz shows it: not on a
+				// tile item, and not when the sentence already carries it (as its cue).
+				const label = q.subjects?.find((x) => x.key === s.subjectKey)?.display;
+				const shown = label && !s.tiles && !s.sentence.includes(label) ? label : '';
+				const cue = s.sentence.match(/\(([^()]*)\)\s*$/)?.[1] ?? '';
+				for (const key of s.acceptedAnswers) {
+					// Case-sensitive, and an English label may BE the word when both
+					// languages share it ("April", "pink (pigs)"): that is the meaning.
+					// "aus (from)" over a German gap is not.
+					const english = /^english:/i.test(s.hint ?? '');
+					const cognate = english && shown.replace(/\s*\([^()]*\)$/, '') === key;
+					const gives = !cognate && shown !== key && has(shown, key);
+					expect(gives, `${q.id}: label "${shown}" contains the answer "${key}"`).toBe(false);
+					// "gut → besser", "zu + dem = zum": the cue worked the answer out.
+					const worked = new RegExp(`[→=]\\s*${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i');
+					expect(worked.test(cue), `${q.id}: cue "(${cue})" works out the answer "${key}"`).toBe(false);
+				}
+			}
+		}
+	});
+
 	it('gives every passage a title, a translation and well-formed questions', () => {
 		for (const q of quizzes) {
 			if (q.type !== 'reading' && q.type !== 'listening') continue;

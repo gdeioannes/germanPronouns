@@ -24,7 +24,7 @@
 		type SpeakingTemplate
 	} from '$lib/domain/speakingPrompt';
 	import { SettingsKeys } from '$lib/domain/keys';
-	import type { SpeakingFix } from '$lib/domain/progress';
+	import { scoreMedal, type RibbonTier, type SpeakingFix } from '$lib/domain/progress';
 	import { storage } from '$lib/services/storage';
 	import { AI_ASSISTANTS, assistantHref } from '$lib/services/aiApps';
 	import type { SpeakingQuiz } from '$lib/content/types';
@@ -40,7 +40,8 @@
 		courseId: string;
 		learnLocale: string;
 		uiLang: string;
-		onFinish: (passed: boolean, score: number) => void;
+		/** The score saved: passed or not, the score, and the medal it earned. */
+		onFinish: (passed: boolean, score: number, medal: RibbonTier | null) => void;
 	} = $props();
 
 	const session = $derived(resolveSession(quiz.speaking, manifest as SpeakingManifest));
@@ -170,7 +171,7 @@
 		await storage.set(`${quiz.storageKeyPrefix}speaking_best`, String(score));
 		// Which prompt wording produced this score, so an old medal stays interpretable.
 		await storage.set(`${quiz.storageKeyPrefix}speaking_template`, String(manifest.templateVersion));
-		onFinish(score >= session.passScore, score);
+		onFinish(score >= session.passScore, score, scoreMedal(score, 100, session.passScore / 100, 0.9));
 	}
 </script>
 

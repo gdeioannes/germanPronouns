@@ -10,6 +10,11 @@
 	//
 	// A long text runs as pages that each fit the screen (see Steps), with the
 	// check as the last section.
+	//
+	// The medal ladder gives it three steps: every gap a choice of four (the
+	// authored wrong options beside the answer), every gap typed with its
+	// hint, or typed with no hint at all. Four in five right on a step passes
+	// it and, the first time, earns its medal.
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import Sheet from '../Sheet.svelte';
@@ -17,6 +22,11 @@
 	import Steps, { type StepMark } from './Steps.svelte';
 	import { pop } from '$lib/motion';
 	import { matchesAccepted } from '$lib/domain/answers';
+	import { seededShuffle } from '$lib/domain/lesson';
+	import { LADDER_PASS, RUN_LENGTH, TIER_LABELS } from '$lib/domain/progress';
+	import { LadderRun } from '$lib/state/ladderRun.svelte';
+	import MedalLadder from './MedalLadder.svelte';
+	import RibbonBadge from '../RibbonBadge.svelte';
 	import { paginateCloze, type ClozePart } from '$lib/domain/paginate';
 	import { fitOnResize, fitPages, type PageFit } from './fit';
 	import { tick, untrack } from 'svelte';
@@ -93,9 +103,45 @@
 		pages.map((page) => page.flatMap((part) => ('blank' in part ? [part.blank] : [])))
 	);
 
-	let answers = $state<string[]>([]);
+	// Empty from the first render on: the ladder counts right answers, so the
+	// check runs on the server too.
+	let answers = $state<string[]>(untrack(() => quiz.inlineBlanks.map(() => '')));
 	let checked = $state(false);
 	let index = $state(0);
+
+	/** The ladder, easiest first: the step's index is its medal's. */
+	const STEPS = [
+		{ label: 'Choose', hint: 'pick each gap from four.' },
+		{ label: 'Type', hint: 'type each gap, with its hint.' },
+		{ label: 'No help', hint: 'type each gap with no hints.' }
+	];
+	const run = new LadderRun(untrack(() => quiz.storageKeyPrefix), STEPS);
+	$effect(() => {
+		quiz.id;
+		untrack(() => void run.open());
+	});
+	/** The share of gaps right that passes a step: the drills' eight in ten. */
+	const PASS_SHARE = LADDER_PASS / RUN_LENGTH;
+
+	/**
+	 * A gap's four choices for the choose step, in a seeded order: the
+	 * authored wrong options, or else other gaps' answers from the passage.
+	 */
+	function choicesFor(i: number): string[] {
+		const blank = quiz.inlineBlanks[i];
+		const right = new Set(accepted(blank).map((a) => a.toLowerCase()));
+		let wrong = (blank.kind === 'select' ? (blank.options ?? []).filter((o) => o !== blank.answer) : (blank.options ?? []))
+			.filter((o) => !right.has(o.toLowerCase()));
+		if (wrong.length < 3) {
+			const others = seededShuffle(
+				quiz.inlineBlanks.map((b) => b.answer).filter((a) => !right.has(a.toLowerCase())),
+				`${quiz.id}#${i}`
+			);
+			wrong = [...new Set([...wrong, ...others])];
+		}
+		return seededShuffle([blank.answer, ...wrong.slice(0, 3)], `${quiz.id}|${i}`);
+	}
+	const choices = $derived(quiz.inlineBlanks.map((_, i) => choicesFor(i)));
 
 	// The page of gaps on screen, named by the gaps it holds, for a report.
 	$effect(() => {
@@ -145,13 +191,15 @@
 
 	const results = $derived(
 		quiz.inlineBlanks.map((blank, i) =>
-			matchesAccepted(answers[i], accepted(blank), progress.relaxedCorrection, quiz.strictDiacritics === true)
+			matchesAccepted(answers[i] ?? '', accepted(blank), progress.relaxedCorrection, quiz.strictDiacritics === true)
 		)
 	);
 	const correctCount = $derived(results.filter(Boolean).length);
 	const total = $derived(quiz.inlineBlanks.length);
-	// Same bar as the other passage quizzes: two thirds right.
+	// Same bar as the other passage quizzes: two thirds right marks it done.
 	const passed = $derived(correctCount / total >= 2 / 3);
+	/** Four in five: the step's medal. */
+	const stepPassed = $derived(correctCount / total >= PASS_SHARE);
 	const allFilled = $derived(answers.every((a) => a.trim().length > 0));
 
 	const count = $derived(pages.length + 1);
@@ -178,8 +226,22 @@
 		announce(
 			`${correctCount} of ${total} correct. ${passed ? 'Passed.' : 'Not quite yet: two thirds right passes.'}`
 		);
+		// After the page's own finish, so the medal's stamp is the one that shows.
+		if (stepPassed) void run.pass(`${correctCount} of ${total} on ${STEPS[run.step].label}`);
 		void tick().then(() => resultEl?.focus({ preventScroll: true }));
 	}
+
+	/** A new step: the passage starts over, answered its way. */
+	function setStep(to: number) {
+		if (to === run.step) return;
+		run.setStep(to);
+		retry();
+	}
+
+	/** The step above this one, once this one's medal is won. */
+	const up = $derived(
+		run.step + 1 < STEPS.length && run.summary(true, () => {}).earned ? run.step + 1 : null
+	);
 
 	function retry() {
 		answers = quiz.inlineBlanks.map(() => '');
@@ -199,6 +261,16 @@
 		else index = page + 1;
 	}
 </script>
+
+<div class="ladder-row">
+	<MedalLadder
+		steps={STEPS}
+		record={run.record}
+		active={run.step}
+		right={correctCount}
+		onpick={setStep}
+	/>
+</div>
 
 <div class="reading-fit" bind:this={root}>
 <Steps {count} bind:index {labels} {marks}>
@@ -224,6 +296,20 @@
 						{#if 'text' in part}<GermanText text={part.text} />{:else}
 							{@const blank = quiz.inlineBlanks[part.blank]}
 							<span class="slot">
+								{#if run.step === 0}
+									<select
+										bind:value={answers[part.blank]}
+										disabled={checked}
+										class:right={checked && results[part.blank]}
+										class:wrong={checked && !results[part.blank]}
+										aria-label="Gap {part.blank + 1} of {total}"
+									>
+										<option value="" disabled>…</option>
+										{#each choices[part.blank] as option (option)}
+											<option value={option}>{option}</option>
+										{/each}
+									</select>
+								{:else}
 								<input
 									bind:value={answers[part.blank]}
 									onkeydown={(event) => onKey(event, p, part.blank)}
@@ -234,15 +320,16 @@
 									aria-invalid={checked && !results[part.blank] ? 'true' : undefined}
 									size={Math.max(blank.answer.length, 4)}
 									aria-label="Gap {part.blank + 1} of {total}"
-									aria-describedby={blank.hint && !checked ? `${quiz.id}-hint-${part.blank}` : undefined}
+									aria-describedby={blank.hint && !checked && run.step === 1 ? `${quiz.id}-hint-${part.blank}` : undefined}
 									autocomplete="off"
 									autocapitalize="off"
 									spellcheck="false"
 								/>
+								{/if}
 								{#if checked && !results[part.blank]}
 									<span class="fix"><span class="sr-only" lang="en">Correct answer: </span>{blank.answer}</span>
 								{/if}
-								{#if !checked && blank.hint}
+								{#if !checked && blank.hint && run.step === 1}
 									<span class="hint" id="{quiz.id}-hint-{part.blank}">{blank.hint}</span>
 								{/if}
 							</span>
@@ -262,8 +349,24 @@
 						{passed ? 'Passed — well done.' : 'Not quite yet: two thirds right passes.'}
 						Go back to see the corrections under each gap.
 					</p>
-					{#if !passed}
-						<button type="button" class="btn" onclick={retry}>
+					{#if up !== null}
+						<!-- This step's medal is won: the next one up, one tap away. -->
+						<div class="climb">
+							<p>
+								<RibbonBadge tier={up === 1 ? 'silver' : 'gold'} width={12} />
+								<span><strong>{TIER_LABELS[up === 1 ? 'silver' : 'gold']} is next:</strong> {STEPS[up].hint}</span>
+							</p>
+							<button type="button" class="btn" onclick={() => setStep(up!)}>
+								Try for {up === 1 ? 'silver' : 'gold'}
+							</button>
+						</div>
+					{:else if !stepPassed}
+						<p class="reading-sub">
+							{Math.ceil(PASS_SHARE * total)} of {total} right on {STEPS[run.step].label} earns its medal.
+						</p>
+					{/if}
+					{#if !passed || !stepPassed}
+						<button type="button" class="btn" class:btn-ghost={up !== null} onclick={retry}>
 							<Icon name="repeat" size="1em" /> Try again
 						</button>
 					{/if}
@@ -354,6 +457,55 @@
 		align-items: center;
 		vertical-align: baseline;
 		white-space: normal;
+	}
+
+	.ladder-row {
+		display: flex;
+		margin-bottom: 0.6rem;
+	}
+
+	.climb {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 0.6rem 1rem;
+		margin: 0.4rem 0 0.8rem;
+		padding: 0.75rem 0.95rem;
+		border: 1px solid var(--line-strong);
+		border-radius: var(--radius-sm);
+		background: var(--surface-alt);
+	}
+
+	.climb p {
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		margin: 0;
+	}
+
+	/* The choose step's gap: a dropdown set in the passage's own type. */
+	.slot select {
+		padding: 0.05em 0.25em;
+		border: 0;
+		border-bottom: 2px solid var(--accent);
+		border-radius: 5px 5px 0 0;
+		background: var(--surface-alt);
+		font: inherit;
+		font-size: 0.95em;
+		color: var(--ink);
+	}
+
+	.slot select.right {
+		border-bottom-color: var(--right);
+		background: var(--right-bg);
+		color: var(--right);
+	}
+
+	.slot select.wrong {
+		border-bottom-color: var(--wrong);
+		background: var(--wrong-bg);
+		color: var(--wrong);
 	}
 
 	.slot input {

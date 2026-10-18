@@ -84,6 +84,15 @@ class Fx {
 	 * just earned, in its own colour and bigger still.
 	 */
 	stamp = $state<{ id: number; text: string; medal?: RibbonTier; sub?: string } | null>(null);
+	/**
+	 * A medal flying from the stamp to its slot on the mode switch. While it
+	 * is in the air, `landing` keeps the slot empty, so the medal arrives
+	 * rather than having been there all along; `landed` is bumped as it
+	 * drops in, for the slot to pop.
+	 */
+	flight = $state<{ id: number; tier: RibbonTier; to: { x: number; y: number } } | null>(null);
+	landing = $state<RibbonTier | null>(null);
+	landed = $state<{ id: number; tier: RibbonTier } | null>(null);
 }
 
 export const fx = new Fx();
@@ -131,9 +140,16 @@ export function celebrate(text = 'Geschafft!'): void {
  * holds. Fires on the crossing answer wherever the run is at — that is the
  * point: the medal is the streak's, not the run's.
  */
-export function celebrateMedal(tier: RibbonTier, streak: number): void {
+export function celebrateMedal(
+	tier: RibbonTier,
+	streak: number,
+	slot?: Element | null,
+	/** The stamp's small print, when the medal wasn't earned by a streak. */
+	sub?: string
+): void {
 	playSound('medal');
 	if (effectsCalm()) return;
+	if (slot) flyMedal(tier, slot);
 	const metal = TIER_COLORS[tier];
 	rain(180, [metal, metal, metal, '#fff6dd', ...CONFETTI_COLORS], 900);
 	showStamp(
@@ -141,7 +157,7 @@ export function celebrateMedal(tier: RibbonTier, streak: number): void {
 			id: nextId++,
 			text: MEDAL_STAMPS[tier],
 			medal: tier,
-			sub: `${streak} in a row · ${TIER_LABELS[tier]} medal`
+			sub: sub ?? `${streak} in a row · ${TIER_LABELS[tier]} medal`
 		},
 		2600
 	);
@@ -225,4 +241,32 @@ export function heat(streak: number): 0 | 1 | 2 | 3 {
 	if (streak >= 7) return 2;
 	if (streak > 0) return 1;
 	return 0;
+}
+
+/** How long the stamp holds before its medal sets off for the slot. */
+const FLIGHT_DELAY = 1700;
+
+/**
+ * Sends the stamp's medal to `slot` once the stamp has had its moment. The
+ * slot is measured at take-off, not now: the page may still be settling.
+ */
+function flyMedal(tier: RibbonTier, slot: Element): void {
+	fx.landing = tier;
+	setTimeout(() => {
+		if (fx.landing !== tier) return;
+		const box = slot.getBoundingClientRect();
+		if (!slot.isConnected || !box.width) {
+			land(tier);
+			return;
+		}
+		fx.flight = { id: nextId++, tier, to: { x: box.left + box.width / 2, y: box.top + box.height / 2 } };
+	}, FLIGHT_DELAY);
+}
+
+/** The flown medal is in its slot: clear the flight and let the slot pop. */
+export function land(tier: RibbonTier): void {
+	fx.flight = null;
+	fx.landing = null;
+	fx.landed = { id: nextId++, tier };
+	playSound('land');
 }

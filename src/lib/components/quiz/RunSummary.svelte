@@ -19,7 +19,9 @@
 		medal,
 		missed = [],
 		locale,
-		passed
+		passed,
+		ladder = null,
+		medalRule = null
 	}: {
 		right: number;
 		total: number;
@@ -36,6 +38,22 @@
 		locale: string;
 		/** Eight of ten or better: the exercise is done. Otherwise it was a try. */
 		passed: boolean;
+		/**
+		 * A medal-ladder drill: the step just played, its right answers this
+		 * run against the pass that earns its medal, whether this run could
+		 * earn one at all, and the step above it with a way straight up.
+		 */
+		ladder?: {
+			label: string;
+			tier: RibbonTier;
+			right: number;
+			at: number;
+			counting: boolean;
+			earned: boolean;
+			up: { label: string; tier: RibbonTier; hint: string; onClimb: () => void } | null;
+		} | null;
+		/** A drill whose medal is its run's score: the rule, said instead of the streak's. */
+		medalRule?: string | null;
 	} = $props();
 
 	const next = $derived(nextMedal(streak));
@@ -82,17 +100,46 @@
 		</p>
 	{/if}
 
-	<p class="streak-line">
-		{#if streak > 0 && next}
-			Your streak stands at <strong class="tnum">{streak}</strong> — <strong class="tnum">{next.at - streak}</strong> more in a row for {TIER_LABELS[next.tier].toLowerCase()}. It carries on into the next run.
-		{:else if streak > 0}
-			Your streak stands at <strong class="tnum">{streak}</strong>. Gold is yours; the flame just keeps burning.
-		{:else if next}
-			The streak starts fresh: <strong class="tnum">{next.at}</strong> in a row earns {TIER_LABELS[next.tier].toLowerCase()}.
+	{#if ladder}
+		{#if ladder.earned && ladder.up}
+			<div class="climb">
+				<p>
+					<RibbonBadge tier={ladder.up.tier} width={12} />
+					<span><strong>{TIER_LABELS[ladder.up.tier]} is next:</strong> {ladder.up.hint}</span>
+				</p>
+				<button type="button" class="btn" onclick={ladder.up.onClimb}>
+					Try for {TIER_LABELS[ladder.up.tier].toLowerCase()}
+				</button>
+			</div>
+		{:else if ladder.earned}
+			<p class="streak-line">
+				Gold is yours: you write them from memory. Come back now and then to keep them fresh.
+			</p>
+		{:else if !ladder.counting}
+			<p class="streak-line">
+				A run on just some of the words practises them; the medals are for passing the whole deck.
+			</p>
 		{:else}
-			Gold is yours. The next run is for the sentences themselves.
+			<p class="streak-line">
+				<strong class="tnum">{ladder.at}</strong> right on {ladder.label} in one run earns
+				{TIER_LABELS[ladder.tier].toLowerCase()} — this run had <strong class="tnum">{ladder.right}</strong>.
+			</p>
 		{/if}
-	</p>
+	{:else if medalRule}
+		<p class="streak-line">{medalRule}</p>
+	{:else}
+		<p class="streak-line">
+			{#if streak > 0 && next}
+				Your streak stands at <strong class="tnum">{streak}</strong> — <strong class="tnum">{next.at - streak}</strong> more in a row for {TIER_LABELS[next.tier].toLowerCase()}. It carries on into the next run.
+			{:else if streak > 0}
+				Your streak stands at <strong class="tnum">{streak}</strong>. Gold is yours; the flame just keeps burning.
+			{:else if next}
+				The streak starts fresh: <strong class="tnum">{next.at}</strong> in a row earns {TIER_LABELS[next.tier].toLowerCase()}.
+			{:else}
+				Gold is yours. The next run is for the sentences themselves.
+			{/if}
+		</p>
+	{/if}
 
 	{#if slips.length}
 		<!-- The slips, kept: they are what the next run is for. -->
@@ -106,7 +153,7 @@
 		</div>
 	{/if}
 
-	<p class="note">Try again and the bar starts fresh; your streak carries on.</p>
+	<p class="note">Try again and the bar starts fresh{ladder || medalRule ? '.' : '; your streak carries on.'}</p>
 </section>
 
 <style>
@@ -193,6 +240,26 @@
 		margin: 0.8rem 0 0;
 		font-size: var(--step-0);
 		color: var(--ink);
+	}
+
+	.climb {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.6rem 1rem;
+		margin: 1rem 0 0;
+		padding: 0.75rem 0.95rem;
+		border: 1px solid var(--line-strong);
+		border-radius: var(--radius-sm);
+		background: var(--surface-alt);
+	}
+
+	.climb p {
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		margin: 0;
 	}
 
 	.missed {

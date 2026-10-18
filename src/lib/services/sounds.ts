@@ -82,6 +82,8 @@ export type Sound =
 	| 'milestone'
 	| 'complete'
 	| 'medal'
+	// The medal dropping into its slot on the mode switch.
+	| 'land'
 	// "Schreib mir!" chat: a message in, a message out, interest up / down,
 	// the like, and the match deleted.
 	| 'msgIn'
@@ -230,6 +232,12 @@ export function playSound(sound: Sound, streak = 0): void {
 				note(ac, f, t + i * 0.16, 0.28, { type: 'triangle', volume: 0.12, glideTo: f * 0.97 })
 			);
 			note(ac, 98, t + 0.7, 0.6, { type: 'sine', volume: 0.3, glideTo: 49 });
+			break;
+		case 'land':
+			// A soft thud and a bright two-note clink: metal into its slot.
+			note(ac, 140, t, 0.14, { type: 'sine', volume: 0.22, glideTo: 90 });
+			note(ac, 2637.02, t + 0.02, 0.32, { type: 'sine', volume: 0.06 });
+			note(ac, 3951.07, t + 0.07, 0.42, { type: 'sine', volume: 0.04 });
 			break;
 		case 'medal':
 			// The medal fanfare: the finish's call twice, a step higher the

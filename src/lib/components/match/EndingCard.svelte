@@ -215,10 +215,8 @@
 			<button type="button" class="btn" onclick={share}>
 				<Icon name="external" size="1em" /> {copied ? 'Copied!' : 'Share'}
 			</button>
-			{#if liked}
-				<a class="btn btn-ghost" href="{MATCH_PATH}/kontakte">Contacts</a>
-			{/if}
-			<a class="btn btn-ghost" href={MATCH_PATH}>Next match</a>
+			<a class="btn btn-ghost" href={MATCH_PATH}>Contacts</a>
+			<a class="btn btn-ghost" href="/course/de_cert_a1">Back to the deck</a>
 			<button type="button" class="btn-quiet" onclick={onclose}>See the chat</button>
 		</div>
 	</div>

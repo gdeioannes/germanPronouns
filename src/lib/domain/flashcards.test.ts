@@ -4,6 +4,7 @@ import {
 	checkWritten,
 	chooseOptions,
 	fullForm,
+	clearsNeeded,
 	isWeak,
 	recordOutcome,
 	EMPTY_WORD
@@ -70,7 +71,7 @@ describe('choose-mode options', () => {
 });
 
 describe('weak words', () => {
-	it('is not weak until missed, and clears after three in a row', () => {
+	it('is not weak until missed, and one slip is cleared by one right answer', () => {
 		let r = EMPTY_WORD;
 		expect(isWeak(r)).toBe(false);
 		r = recordOutcome(r, false, 'write', new Date('2026-09-27T00:00:00Z'));
@@ -78,11 +79,21 @@ describe('weak words', () => {
 		expect(r.lastWrong).toBe('2026-09-27T00:00:00.000Z');
 		expect(r.mode).toBe('write');
 		r = recordOutcome(r, true, 'write');
-		r = recordOutcome(r, true, 'write');
-		expect(isWeak(r)).toBe(true);
-		r = recordOutcome(r, true, 'write');
 		expect(isWeak(r)).toBe(false);
-		expect(r.seen).toBe(4);
+		expect(r.seen).toBe(2);
 		expect(r.wrong).toBe(1);
+	});
+
+	it('asks as many right in a row as the misses, up to three', () => {
+		const missed = (n: number) =>
+			Array.from({ length: n }).reduce<typeof EMPTY_WORD>((r) => recordOutcome(r, false, 'write'), EMPTY_WORD);
+		const rightTimes = (r: typeof EMPTY_WORD, n: number) =>
+			Array.from({ length: n }).reduce<typeof EMPTY_WORD>((x) => recordOutcome(x, true, 'write'), r);
+		expect(clearsNeeded(missed(2))).toBe(2);
+		expect(isWeak(rightTimes(missed(2), 1))).toBe(true);
+		expect(isWeak(rightTimes(missed(2), 2))).toBe(false);
+		expect(clearsNeeded(missed(7))).toBe(3);
+		expect(isWeak(rightTimes(missed(7), 2))).toBe(true);
+		expect(isWeak(rightTimes(missed(7), 3))).toBe(false);
 	});
 });

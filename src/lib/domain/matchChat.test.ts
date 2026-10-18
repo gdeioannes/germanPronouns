@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+	canOpenChat,
 	findChat,
 	gradeSentence,
 	matchIntent,
@@ -374,5 +375,24 @@ describe('the course deck deals characters', () => {
 	it('nothing once every character has been met', () => {
 		const all = () => ({ name: 'Sam', log: [], startedAt: 1, ending: 'win' });
 		expect(chatDeckCard('A1.1', new Set(), all as never)).toBeNull();
+	});
+});
+
+describe('meeting a character through the deck', () => {
+	const none = () => null;
+	it('a character not met yet stays shut', () => {
+		expect(canOpenChat('lena', none, new Set())).toBe(false);
+	});
+	it('opening the card in the deck meets them', () => {
+		expect(canOpenChat('lena', none, new Set(['lena']))).toBe(true);
+	});
+	it('a chat already started stays open', () => {
+		const saved = (id: string) => (id === 'lena' ? { name: 'Sam', log: [], startedAt: 1 } : null);
+		expect(canOpenChat('lena', saved, new Set())).toBe(true);
+	});
+	it('a secret ending opens the character it unlocks', () => {
+		const saved = (id: string) => (id === 'helga' ? { name: 'Sam', log: [], startedAt: 1, ending: 'secret' } : null);
+		expect(canOpenChat('guenther', saved as never, new Set())).toBe(true);
+		expect(canOpenChat('guenther', none, new Set())).toBe(false);
 	});
 });

@@ -1,0 +1,2446 @@
+[
+  {
+    "id": "quest_a1_1_pronomen",
+    "sentences": [
+      {
+        "sentence": "____ bin müde. (I)",
+        "options": [
+          "Du",
+          "Er",
+          "Wir"
+        ]
+      },
+      {
+        "sentence": "____ bist mein Freund. (you, informal)",
+        "options": [
+          "Ich",
+          "Er",
+          "Ihr"
+        ]
+      },
+      {
+        "sentence": "Das ist Tom. ____ ist groß. (he)",
+        "options": [
+          "Sie",
+          "Es",
+          "Ich"
+        ]
+      },
+      {
+        "sentence": "Das ist Anna. ____ ist nett. (she)",
+        "options": [
+          "Er",
+          "Es",
+          "Du"
+        ]
+      },
+      {
+        "sentence": "Das ist das Kind. ____ spielt. (it)",
+        "options": [
+          "Er",
+          "Sie",
+          "Du"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Anna und ich lernen Deutsch. ____ sind Studenten.",
+        "options": [
+          "Ihr",
+          "Ich",
+          "Er"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ seid meine Freunde. (you, plural)",
+        "options": [
+          "Wir",
+          "Sie",
+          "Du"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das sind Tom und Anna. ____ kommen aus Berlin. (they)",
+        "options": [
+          "Er",
+          "Ihr",
+          "Du"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ sind sehr nett, Herr Müller. (you, formal)",
+        "options": [
+          "Du",
+          "Ihr",
+          "Er"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Heute lerne ____ Deutsch. (I)",
+        "options": [
+          "du",
+          "er",
+          "wir"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ trinkst Kaffee, oder? (you, informal)",
+        "options": [
+          "Ich",
+          "Ihr",
+          "Er"
+        ]
+      },
+      {
+        "sentence": "Das ist mein Vater. ____ arbeitet in Bonn. (he)",
+        "options": [
+          "Sie",
+          "Es",
+          "Ich"
+        ]
+      },
+      {
+        "sentence": "____ regnet heute. (it)",
+        "options": [
+          "Er",
+          "Sie",
+          "Ich"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Morgen fahren ____ nach Berlin. (we)",
+        "options": [
+          "ihr",
+          "ich",
+          "er"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Woher kommen ____, Frau Schmidt? (you, formal)",
+        "options": [
+          "du",
+          "ihr",
+          "er"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Wo ist das Baby? – ____ schläft. (it)",
+        "acceptedAnswers": [
+          "Es"
+        ],
+        "english": "Where is the baby? – ____ is sleeping. (it)",
+        "hint": "English: it",
+        "subjectKey": "s4",
+        "categoryLabel": "Welches Pronomen?",
+        "options": [
+          "Er",
+          "Sie",
+          "Du"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Seid ____ heute zu Hause? (you, plural)",
+        "acceptedAnswers": [
+          "ihr"
+        ],
+        "english": "Are ____ at home today? (you all)",
+        "hint": "English: you (plural)",
+        "subjectKey": "s6",
+        "categoryLabel": "Welches Pronomen?",
+        "options": [
+          "wir",
+          "sie",
+          "du"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Haben ____ einen Termin, Herr Braun? (you, formal)",
+        "acceptedAnswers": [
+          "Sie"
+        ],
+        "english": "Do ____ have an appointment, Mr Braun? (you, formal)",
+        "hint": "English: you (formal question)",
+        "subjectKey": "s14",
+        "categoryLabel": "Welches Pronomen?",
+        "options": [
+          "du",
+          "ihr",
+          "er"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Am Montag arbeite ____ zu Hause. (I)",
+        "acceptedAnswers": [
+          "ich"
+        ],
+        "english": "On Monday ____ work from home. (I)",
+        "hint": "English: I (after the verb)",
+        "subjectKey": "s9",
+        "categoryLabel": "Welches Pronomen?",
+        "options": [
+          "du",
+          "er",
+          "wir"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_sein_haben",
+    "sentences": [
+      {
+        "sentence": "Ich ____ müde und gehe ins Bett. (sein)",
+        "options": [
+          "habe",
+          "ist",
+          "bist"
+        ]
+      },
+      {
+        "sentence": "____ du Studentin? – Ja, in Köln. (sein)",
+        "options": [
+          "Ist",
+          "Hast",
+          "Bin"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Mein Bruder ____ zwanzig Jahre alt. (sein)",
+        "options": [
+          "hat",
+          "sind",
+          "bist"
+        ]
+      },
+      {
+        "sentence": "Wir ____ aus Wien, aber wir wohnen in Berlin. (sein)",
+        "options": [
+          "seid",
+          "haben",
+          "sein"
+        ]
+      },
+      {
+        "sentence": "Kinder, ihr ____ sehr laut! (sein)",
+        "options": [
+          "sind",
+          "seit",
+          "habt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Anna und Tom ____ in der Schule. (sein)",
+        "options": [
+          "ist",
+          "seid",
+          "haben"
+        ]
+      },
+      {
+        "sentence": "____ Sie Herr Müller? – Ja, das bin ich. (sein)",
+        "options": [
+          "Ist",
+          "Seid",
+          "Haben"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Wetter ____ heute schön. (sein)",
+        "options": [
+          "sind",
+          "hat",
+          "bist"
+        ]
+      },
+      {
+        "sentence": "Hallo, ich ____ Lena, die neue Kollegin. (sein)",
+        "options": [
+          "ist",
+          "habe",
+          "bist"
+        ]
+      },
+      {
+        "sentence": "Ich ____ einen Hund und zwei Katzen. (haben)",
+        "options": [
+          "hat",
+          "bin",
+          "haben"
+        ]
+      },
+      {
+        "sentence": "____ du Zeit? Wir gehen ins Kino. (haben)",
+        "options": [
+          "Habst",
+          "Bist",
+          "Hat"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Meine Schwester ____ ein Auto. (haben)",
+        "options": [
+          "habt",
+          "hast",
+          "haben"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir ____ Hunger. Wo ist ein Restaurant? (haben)",
+        "options": [
+          "sind",
+          "habt",
+          "hat"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ ihr Kinder? – Ja, einen Sohn. (haben)",
+        "options": [
+          "Hat",
+          "Haben",
+          "Hast"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Kinder ____ heute frei. (haben)",
+        "options": [
+          "hat",
+          "habt",
+          "hast"
+        ],
+        "hard": true,
+        "keepCue": true
+      },
+      {
+        "sentence": "____ Sie einen Moment Zeit, Frau Weber? (haben)",
+        "options": [
+          "Hat",
+          "Habt",
+          "Sind"
+        ]
+      },
+      {
+        "sentence": "Das Kind ____ Durst. (haben)",
+        "options": [
+          "ist",
+          "hast",
+          "habt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du ____ eine Schwester, oder? (haben)",
+        "options": [
+          "habst",
+          "hat",
+          "habe"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Mein Opa ____ heute Geburtstag. (haben)",
+        "acceptedAnswers": [
+          "hat"
+        ],
+        "english": "It's my grandpa's birthday today.",
+        "subjectKey": "er/sie/es",
+        "categoryLabel": "haben (to have)",
+        "options": [
+          "ist",
+          "habt",
+          "hast"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Oh, ihr ____ ja schon da! (sein)",
+        "acceptedAnswers": [
+          "seid"
+        ],
+        "english": "Oh, you're already here!",
+        "subjectKey": "ihr",
+        "categoryLabel": "sein (to be)",
+        "options": [
+          "sind",
+          "seit",
+          "habt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich ____ keine Angst vor Hunden. (haben)",
+        "acceptedAnswers": [
+          "habe"
+        ],
+        "english": "I'm not afraid of dogs.",
+        "subjectKey": "ich",
+        "categoryLabel": "haben (to have)",
+        "options": [
+          "bin",
+          "hat",
+          "hast"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_wfragen",
+    "sentences": [
+      {
+        "sentence": "Du fragst nach einer Person: ____ ist das?",
+        "options": [
+          "was",
+          "wo",
+          "wen"
+        ]
+      },
+      {
+        "sentence": "Du fragst nach einer Sache: ____ ist das?",
+        "options": [
+          "wer",
+          "wo",
+          "wie"
+        ]
+      },
+      {
+        "sentence": "Du fragst nach dem Ort: ____ wohnst du?",
+        "options": [
+          "wohin",
+          "woher",
+          "wann"
+        ]
+      },
+      {
+        "sentence": "Du fragst nach dem Ziel: ____ gehst du?",
+        "options": [
+          "wo",
+          "woher",
+          "wann"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach der Herkunft: ____ kommst du?",
+        "options": [
+          "wo",
+          "wohin",
+          "wer"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach der Zeit: ____ beginnt der Film?",
+        "options": [
+          "wenn",
+          "wo",
+          "wie"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach dem Befinden: ____ geht es dir?",
+        "options": [
+          "was",
+          "wo",
+          "wer"
+        ]
+      },
+      {
+        "sentence": "Du fragst nach dem Grund: ____ lernst du Deutsch?",
+        "options": [
+          "wie",
+          "wann",
+          "wo"
+        ]
+      },
+      {
+        "sentence": "Du fragst nach dem Preis: ____ kostet das?",
+        "options": [
+          "wie viele",
+          "wie",
+          "wer"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach der Anzahl: ____ Personen kommen?",
+        "options": [
+          "wie",
+          "wer",
+          "wie lange"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach dem Alter: ____ bist du?",
+        "options": [
+          "wie viel",
+          "wie lange",
+          "wie viele"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach der Uhrzeit: ____ ist es?",
+        "options": [
+          "wie lange",
+          "wie viele",
+          "wann"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach der Dauer: ____ bleibst du?",
+        "options": [
+          "wann",
+          "wie spät",
+          "wie viel"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach dem Wetter: ____ ist das Wetter heute?",
+        "options": [
+          "was",
+          "wo",
+          "wann"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach dem Wort: ____ heißt das auf Deutsch?",
+        "options": [
+          "wer",
+          "wo",
+          "wann"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Du fragst nach dem Ziel der Reise: ____ fahrt ihr im Sommer?",
+        "acceptedAnswers": [
+          "wohin"
+        ],
+        "english": "You ask about the destination of the trip: ____ are you going in summer? (where to)",
+        "hint": "English: where to",
+        "subjectKey": "s3",
+        "categoryLabel": "Welches Fragewort?",
+        "options": [
+          "wo",
+          "woher",
+          "wie"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach der Herkunft: ____ kommt der Wein?",
+        "acceptedAnswers": [
+          "woher"
+        ],
+        "english": "You ask about origin: ____ does the wine come from? (where from)",
+        "hint": "English: where from",
+        "subjectKey": "s4",
+        "categoryLabel": "Welches Fragewort?",
+        "options": [
+          "wo",
+          "wohin",
+          "wer"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Du fragst nach dem Preis pro Kilo: ____ kosten die Tomaten?",
+        "acceptedAnswers": [
+          "wie viel",
+          "wieviel",
+          "was"
+        ],
+        "english": "You ask about the price per kilo: ____ do the tomatoes cost? (how much)",
+        "hint": "English: how much",
+        "subjectKey": "s8",
+        "categoryLabel": "Welches Fragewort?",
+        "options": [
+          "wie viele",
+          "wie",
+          "wer"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_praesens",
+    "sentences": [
+      {
+        "sentence": "Was ____ du am Wochenende? (machen)",
+        "options": [
+          "mache",
+          "macht",
+          "machen"
+        ]
+      },
+      {
+        "sentence": "Ich ____ in Hamburg, in der Stadt. (wohnen)",
+        "options": [
+          "wohnst",
+          "wohnt",
+          "wohnen"
+        ]
+      },
+      {
+        "sentence": "Mein Bruder ____ gern Fußball. (spielen)",
+        "options": [
+          "spielst",
+          "spiele",
+          "spielen"
+        ]
+      },
+      {
+        "sentence": "Wir ____ zusammen Deutsch. (lernen)",
+        "options": [
+          "lernt",
+          "lerne",
+          "lernst"
+        ]
+      },
+      {
+        "sentence": "____ ihr heute Brot und Milch? (kaufen)",
+        "options": [
+          "Kaufen",
+          "Kaufst",
+          "Kaufe"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Anna und Tom ____ aus Berlin. (kommen)",
+        "options": [
+          "kommt",
+          "kommst",
+          "komme"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ du heute ins Kino? (gehen)",
+        "options": [
+          "Geht",
+          "Gehe",
+          "Gehen"
+        ]
+      },
+      {
+        "sentence": "Am Abend ____ ich Musik. (hören)",
+        "options": [
+          "hört",
+          "hörst",
+          "hören"
+        ]
+      },
+      {
+        "sentence": "____ du in Bonn oder in Köln? (arbeiten)",
+        "options": [
+          "Arbeitst",
+          "Arbeitet",
+          "Arbeiten"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Er ____ das Buch gut. (finden)",
+        "options": [
+          "findt",
+          "findest",
+          "finden"
+        ],
+        "hard": true,
+        "keepCue": true
+      },
+      {
+        "sentence": "Was ____ Sie beruflich, Herr Braun? (machen)",
+        "options": [
+          "macht",
+          "machst",
+          "mache"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wo ____ ihr? – In Bremen. (wohnen)",
+        "options": [
+          "wohnen",
+          "wohnst",
+          "wohne"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Am Samstag ____ wir Tennis. (spielen)",
+        "options": [
+          "spielt",
+          "spiele",
+          "spielst"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Jan ____ Deutsch an der Uni. (lernen)",
+        "options": [
+          "lernst",
+          "lernen",
+          "lerne"
+        ]
+      },
+      {
+        "sentence": "Ich ____ ein Brot und zwei Äpfel. (kaufen)",
+        "options": [
+          "kaufst",
+          "kauft",
+          "kaufen"
+        ]
+      },
+      {
+        "sentence": "Der Bus ____ jetzt. (kommen)",
+        "options": [
+          "kommen",
+          "kommst",
+          "komme"
+        ]
+      },
+      {
+        "sentence": "Meine Eltern ____ gern Radio. (hören)",
+        "options": [
+          "hört",
+          "höre",
+          "hörst"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Mein Vater ____ in einem Büro. (arbeiten)",
+        "options": [
+          "arbeitest",
+          "arbeiten",
+          "arbeite"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ ihr das Hotel gut? (finden)",
+        "options": [
+          "Findt",
+          "Finden",
+          "Findest"
+        ],
+        "hard": true,
+        "keepCue": true
+      },
+      {
+        "sentence": "Morgen ____ wir in den Park. (gehen)",
+        "options": [
+          "geht",
+          "gehe",
+          "gehst"
+        ]
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Wie lange ____ ihr heute? (arbeiten)",
+        "acceptedAnswers": [
+          "arbeitet"
+        ],
+        "english": "How long are you working today?",
+        "subjectKey": "arbeiten",
+        "categoryLabel": "ihr",
+        "options": [
+          "arbeitt",
+          "arbeiten",
+          "arbeitest"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Warum ____ ihr so laut Musik? (hören)",
+        "acceptedAnswers": [
+          "hört",
+          "hoert"
+        ],
+        "english": "Why are you listening to music so loud?",
+        "subjectKey": "hören",
+        "categoryLabel": "ihr",
+        "options": [
+          "hören",
+          "hörst",
+          "höre"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Herr Braun, ____ Sie heute im Büro? (arbeiten)",
+        "acceptedAnswers": [
+          "arbeiten"
+        ],
+        "english": "Mr Braun, are you working in the office today?",
+        "subjectKey": "arbeiten",
+        "categoryLabel": "sie/Sie",
+        "options": [
+          "arbeitet",
+          "arbeitest",
+          "arbeite"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_vokalwechsel",
+    "sentences": [
+      {
+        "sentence": "____ du mit dem Bus zur Arbeit? (fahren)",
+        "options": [
+          "Fahrst",
+          "Fährt",
+          "Fahren"
+        ]
+      },
+      {
+        "sentence": "Mein Vater ____ am Montag nach Berlin. (fahren)",
+        "options": [
+          "fahrt",
+          "fährst",
+          "fahren"
+        ],
+        "keepCue": true
+      },
+      {
+        "sentence": "____ du am Sonntag lange? (schlafen)",
+        "options": [
+          "Schlafst",
+          "Schläft",
+          "Schlaft"
+        ]
+      },
+      {
+        "sentence": "Das Baby ____ jetzt. (schlafen)",
+        "options": [
+          "schlaft",
+          "schläfst",
+          "schlafen"
+        ]
+      },
+      {
+        "sentence": "Was ____ du gern? (lesen)",
+        "options": [
+          "liesst",
+          "lest",
+          "lese"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Lisa ____ die Zeitung. (lesen)",
+        "options": [
+          "lest",
+          "lese",
+          "lesen"
+        ]
+      },
+      {
+        "sentence": "____ du das Auto dort? (sehen)",
+        "options": [
+          "Sehst",
+          "Sieht",
+          "Seht"
+        ]
+      },
+      {
+        "sentence": "Er ____ am Abend einen Film. (sehen)",
+        "options": [
+          "seht",
+          "siehst",
+          "sehen"
+        ],
+        "keepCue": true
+      },
+      {
+        "sentence": "____ du Englisch? (sprechen)",
+        "options": [
+          "Sprechst",
+          "Spricht",
+          "Sprecht"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Mein Kollege ____ sehr viel. (sprechen)",
+        "options": [
+          "sprecht",
+          "sprichst",
+          "spreche"
+        ],
+        "hard": true,
+        "keepCue": true
+      },
+      {
+        "sentence": "Was ____ du zum Frühstück? (essen)",
+        "options": [
+          "esst",
+          "ist",
+          "esse"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Sie ____ ein Brötchen. (essen)",
+        "options": [
+          "esst",
+          "ist",
+          "esse"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ du den Bus oder das Auto? (nehmen)",
+        "options": [
+          "Nehmst",
+          "Nimmt",
+          "Nehmt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Er ____ immer einen Kaffee. (nehmen)",
+        "options": [
+          "nehmt",
+          "nimmst",
+          "nimt"
+        ],
+        "hard": true,
+        "keepCue": true
+      },
+      {
+        "sentence": "Was ____ du Anna zum Geburtstag? (geben)",
+        "options": [
+          "gebst",
+          "gibt",
+          "gebt"
+        ],
+        "hard": true,
+        "keepCue": true
+      },
+      {
+        "sentence": "Der Lehrer ____ viele Hausaufgaben. (geben)",
+        "options": [
+          "gebt",
+          "gibst",
+          "geben"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir ____ am Wochenende lange. (schlafen)",
+        "options": [
+          "schläft",
+          "schlaft",
+          "schläfen"
+        ]
+      },
+      {
+        "sentence": "____ ihr gern Pizza? (essen)",
+        "options": [
+          "Isst",
+          "Essen",
+          "Ist"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich ____ jeden Tag die Zeitung. (lesen)",
+        "options": [
+          "liest",
+          "lest",
+          "lesen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Meine Eltern ____ nach Italien. (fahren)",
+        "options": [
+          "fährt",
+          "fahrt",
+          "fähren"
+        ],
+        "hard": true,
+        "keepCue": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "____ du heute Abend mit ihm? (sprechen)",
+        "acceptedAnswers": [
+          "Sprichst"
+        ],
+        "english": "Are you talking to him this evening?",
+        "subjectKey": "sprechen",
+        "categoryLabel": "du",
+        "options": [
+          "Sprechst",
+          "Spricht",
+          "Sprecht"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Oma ____ uns immer Schokolade. (geben)",
+        "acceptedAnswers": [
+          "gibt"
+        ],
+        "english": "Grandma always gives us chocolate.",
+        "subjectKey": "geben",
+        "categoryLabel": "er/sie/es",
+        "options": [
+          "gebt",
+          "gibst",
+          "geben"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_bigtext_dasbinich",
+    "blanks": [
+      {
+        "index": 0,
+        "options": [
+          "heißt",
+          "heißen",
+          "heißst"
+        ]
+      },
+      {
+        "index": 1,
+        "options": [
+          "kommt",
+          "kommst",
+          "kommen"
+        ]
+      },
+      {
+        "index": 2,
+        "options": [
+          "wohnt",
+          "wohnst",
+          "wohnen"
+        ]
+      },
+      {
+        "index": 3,
+        "options": [
+          "ist",
+          "habe",
+          "bist"
+        ]
+      },
+      {
+        "index": 4,
+        "options": [
+          "lernt",
+          "lernst",
+          "lernen"
+        ]
+      },
+      {
+        "index": 5,
+        "options": [
+          "hat",
+          "hast",
+          "haben"
+        ]
+      },
+      {
+        "index": 6,
+        "options": [
+          "wohne",
+          "wohnst",
+          "wohnen"
+        ]
+      },
+      {
+        "index": 7,
+        "options": [
+          "Meine",
+          "Meinen",
+          "Meinem"
+        ]
+      },
+      {
+        "index": 8,
+        "options": [
+          "habt",
+          "hat",
+          "sind"
+        ]
+      },
+      {
+        "index": 9,
+        "options": [
+          "Die",
+          "Das",
+          "Den"
+        ]
+      },
+      {
+        "index": 10,
+        "options": [
+          "habe",
+          "ist",
+          "bist"
+        ]
+      },
+      {
+        "index": 11,
+        "options": [
+          "spielt",
+          "spielst",
+          "spielen"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_farben",
+    "sentences": [
+      {
+        "sentence": "Die Farbe von Blut und Erdbeeren ist ____.",
+        "options": [
+          "gelb",
+          "orange",
+          "lila"
+        ]
+      },
+      {
+        "sentence": "Die Farbe vom Himmel ist ____.",
+        "options": [
+          "grün",
+          "gelb",
+          "lila"
+        ]
+      },
+      {
+        "sentence": "Die Farbe von Gras und Blättern ist ____.",
+        "options": [
+          "blau",
+          "rosa",
+          "lila"
+        ]
+      },
+      {
+        "sentence": "Die Farbe von der Sonne und Bananen ist ____.",
+        "options": [
+          "grün",
+          "blau",
+          "rot"
+        ]
+      },
+      {
+        "sentence": "Die Farbe von der Nacht ist ____.",
+        "options": [
+          "weiß",
+          "gelb",
+          "rosa"
+        ]
+      },
+      {
+        "sentence": "Die Farbe von Schnee und Milch ist ____.",
+        "options": [
+          "schwarz",
+          "braun",
+          "grün"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Farbe von einer Orange und Karotten ist ____.",
+        "options": [
+          "rot",
+          "braun",
+          "lila"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Farbe von Schokolade und Holz ist ____.",
+        "options": [
+          "grün",
+          "orange",
+          "lila"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Farbe von einem Elefanten und Wolken ist ____.",
+        "options": [
+          "braun",
+          "grün",
+          "blau"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Farbe von einem Flamingo ist ____.",
+        "options": [
+          "lila",
+          "grün",
+          "gelb"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Farbe von einer Aubergine ist ____.",
+        "options": [
+          "rosa",
+          "braun",
+          "gelb"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Viele Farben zusammen (ein Regenbogen) sind ____.",
+        "options": [
+          "blau",
+          "rosa",
+          "lila"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Farbe von Tomaten und Kirschen ist ____.",
+        "options": [
+          "rosa",
+          "lila",
+          "blau"
+        ]
+      },
+      {
+        "sentence": "Die Farbe von Zitronen ist ____.",
+        "options": [
+          "orange",
+          "rosa",
+          "braun"
+        ]
+      },
+      {
+        "sentence": "Die Farbe von kleinen Schweinen ist ____.",
+        "options": [
+          "rot",
+          "lila",
+          "gelb"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Die Farbe von Lavendel ist ____.",
+        "acceptedAnswers": [
+          "lila",
+          "violett"
+        ],
+        "english": "The colour of lavender is ____ (purple).",
+        "hint": "English: purple",
+        "subjectKey": "s10",
+        "categoryLabel": "Welche Farbe?",
+        "options": [
+          "rosa",
+          "braun",
+          "gelb"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ein Clown trägt viele Farben. Sein Kostüm ist ____.",
+        "acceptedAnswers": [
+          "bunt"
+        ],
+        "english": "A clown wears lots of colours. His costume is ____ (colourful).",
+        "hint": "English: colourful",
+        "subjectKey": "s11",
+        "categoryLabel": "Welche Farbe?",
+        "options": [
+          "grau",
+          "braun",
+          "rosa"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Farbe von Kakao ist ____.",
+        "acceptedAnswers": [
+          "braun"
+        ],
+        "english": "The colour of cocoa is ____ (brown).",
+        "hint": "English: brown",
+        "subjectKey": "s7",
+        "categoryLabel": "Welche Farbe?",
+        "options": [
+          "grau",
+          "orange",
+          "lila"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_familie",
+    "sentences": [
+      {
+        "sentence": "Eine Frau mit einem Kind ist ____.",
+        "options": [
+          "der Mutter",
+          "das Mutter",
+          "der Vater"
+        ]
+      },
+      {
+        "sentence": "Ein Mann mit einem Kind ist ____.",
+        "options": [
+          "die Vater",
+          "das Vater",
+          "die Mutter"
+        ]
+      },
+      {
+        "sentence": "Jonas ist der Sohn von Mama und Papa. Er ist ____.",
+        "options": [
+          "meine Bruder",
+          "meine Schwester",
+          "mein Vater"
+        ]
+      },
+      {
+        "sentence": "Mia ist die Tochter von Mama und Papa. Sie ist ____.",
+        "options": [
+          "mein Schwester",
+          "mein Bruder",
+          "meine Mutter"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Mama, Papa und ein Junge: Der Junge ist ____.",
+        "options": [
+          "die Sohn",
+          "das Sohn",
+          "der Vater"
+        ]
+      },
+      {
+        "sentence": "Mama, Papa und ein Mädchen: Das Mädchen ist ____.",
+        "options": [
+          "der Tochter",
+          "das Tochter",
+          "die Mutter"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Vater von Papa ist ____.",
+        "options": [
+          "die Großvater",
+          "der Bruder",
+          "die Großmutter"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Mutter von Mama ist ____.",
+        "options": [
+          "der Großmutter",
+          "die Schwester",
+          "der Großvater"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ein Junge oder ein Mädchen ist ____.",
+        "options": [
+          "der Kind",
+          "die Kind",
+          "die Familie"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Herr Braun hat eine Frau und zwei Kinder. Er ist ein ____ .",
+        "options": [
+          "Frau",
+          "Junge",
+          "Mädchen"
+        ]
+      },
+      {
+        "sentence": "Frau Braun hat einen Mann und zwei Kinder. Sie ist eine ____ .",
+        "options": [
+          "Mann",
+          "Mädchen",
+          "Kind"
+        ]
+      },
+      {
+        "sentence": "Tom ist sieben Jahre alt. Er ist ein ____ .",
+        "options": [
+          "Mädchen",
+          "Mann",
+          "Vater"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Mia ist sechs Jahre alt. Sie ist ein ____ .",
+        "options": [
+          "Junge",
+          "Frau",
+          "Tochter"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Eltern und Kinder zusammen sind ____.",
+        "options": [
+          "der Familie",
+          "das Familie",
+          "die Eltern"
+        ]
+      },
+      {
+        "sentence": "Tom ist nett. Ich mag Tom. Tom ist ____.",
+        "options": [
+          "meine Freund",
+          "meine Freundin",
+          "mein Freundin"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Lena ist nett. Ich mag Lena. Lena ist ____.",
+        "options": [
+          "mein Freundin",
+          "mein Freund",
+          "meine Freund"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Ich habe einen Sohn und eine Tochter. Das sind meine ____ .",
+        "acceptedAnswers": [
+          "Kinder"
+        ],
+        "english": "I have a son and a daughter. They are my ____ (children).",
+        "hint": "English: children",
+        "subjectKey": "s8",
+        "categoryLabel": "Wer ist das?",
+        "options": [
+          "Kind",
+          "Kindern",
+          "Eltern"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Meine Mutter und mein Vater sind meine ____ .",
+        "acceptedAnswers": [
+          "Eltern"
+        ],
+        "english": "My mother and my father are my ____ (parents).",
+        "hint": "English: parents",
+        "subjectKey": "s13",
+        "categoryLabel": "Wer ist das?",
+        "options": [
+          "Großeltern",
+          "Kinder",
+          "Geschwister"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Mein Bruder und meine Schwester sind meine ____ .",
+        "acceptedAnswers": [
+          "Geschwister"
+        ],
+        "english": "My brother and my sister are my ____ (siblings).",
+        "hint": "English: siblings",
+        "subjectKey": "s2",
+        "categoryLabel": "Wer ist das?",
+        "options": [
+          "Brüder",
+          "Schwestern",
+          "Eltern"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_wo_praepositionen",
+    "sentences": [
+      {
+        "sentence": "Wo bist du? – Ich bin ____ . (der Park)",
+        "options": [
+          "in der Park",
+          "in Park",
+          "in den Park"
+        ]
+      },
+      {
+        "sentence": "Wo ist Anna? – Sie ist ____ . (der Bahnhof)",
+        "options": [
+          "zum Bahnhof",
+          "an den Bahnhof",
+          "in der Bahnhof"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wo ist Tom? – Er ist ____ . (der Supermarkt)",
+        "options": [
+          "zum Supermarkt",
+          "in den Supermarkt",
+          "in der Supermarkt"
+        ]
+      },
+      {
+        "sentence": "Wo sind die Kinder? – Sie sind ____ . (die Schule)",
+        "options": [
+          "im Schule",
+          "in die Schule",
+          "zur Schule"
+        ]
+      },
+      {
+        "sentence": "Wo seid ihr? – Wir sind ____ . (die Stadt)",
+        "options": [
+          "im Stadt",
+          "in die Stadt",
+          "in dem Stadt"
+        ]
+      },
+      {
+        "sentence": "Wo ist Mama? – Sie ist ____ . (die Küche)",
+        "options": [
+          "im Küche",
+          "in die Küche",
+          "in dem Küche"
+        ]
+      },
+      {
+        "sentence": "Wo ist Lisa? – Sie ist ____ . (die Uni)",
+        "options": [
+          "im Uni",
+          "an die Uni",
+          "zur Uni"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wo bist du? – Ich bin noch ____ . (das Büro)",
+        "options": [
+          "in der Büro",
+          "ins Büro",
+          "zum Büro"
+        ]
+      },
+      {
+        "sentence": "Wo sind Anna und Tom? – Sie sind ____ . (das Kino)",
+        "options": [
+          "ins Kino",
+          "in der Kino",
+          "zum Kino"
+        ]
+      },
+      {
+        "sentence": "Wo ist das Kind? – Es ist schon ____ . (das Bett)",
+        "options": [
+          "in der Bett",
+          "in den Bett",
+          "zum Bett"
+        ]
+      },
+      {
+        "sentence": "Wo wohnt ihr? – Wir wohnen ____ . (Deutschland)",
+        "options": [
+          "im Deutschland",
+          "nach Deutschland",
+          "aus Deutschland"
+        ]
+      },
+      {
+        "sentence": "Wo arbeitest du? – Ich arbeite ____ . (die Bank)",
+        "options": [
+          "bei die Bank",
+          "zu der Bank",
+          "von der Bank"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wo ist Lena? – Sie ist ____ . (meine Eltern)",
+        "options": [
+          "bei meine Eltern",
+          "zu meinen Eltern",
+          "von meinen Eltern"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wo ist Herr Braun? – Er ist ____ . (der Arzt)",
+        "options": [
+          "bei der Arzt",
+          "bei den Arzt",
+          "im Arzt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Woher kommst du? – Ich komme ____ . (der Park)",
+        "options": [
+          "aus der Park",
+          "im Park",
+          "aus den Park"
+        ]
+      },
+      {
+        "sentence": "Woher kommt Anna? – Sie kommt ____ . (der Bahnhof)",
+        "options": [
+          "am Bahnhof",
+          "von der Bahnhof",
+          "von den Bahnhof"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Woher kommt ihr? – Wir kommen ____ . (der Supermarkt)",
+        "options": [
+          "im Supermarkt",
+          "aus der Supermarkt",
+          "aus den Supermarkt"
+        ]
+      },
+      {
+        "sentence": "Woher kommen die Kinder? – Sie kommen ____ . (die Schule)",
+        "options": [
+          "in der Schule",
+          "aus die Schule",
+          "vom Schule"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Woher kommt Lisa? – Sie kommt ____ . (die Uni)",
+        "options": [
+          "an der Uni",
+          "vom Uni",
+          "von die Uni"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Woher kommst du? – Ich komme ____ . (das Büro)",
+        "options": [
+          "im Büro",
+          "aus der Büro",
+          "aus das Büro"
+        ]
+      },
+      {
+        "sentence": "Woher kommt er? – Er kommt ____ . (Berlin)",
+        "options": [
+          "in Berlin",
+          "aus dem Berlin",
+          "bei Berlin"
+        ]
+      },
+      {
+        "sentence": "Woher kommt der Brief? – Er kommt ____ . (die Bank)",
+        "options": [
+          "von die Bank",
+          "bei der Bank",
+          "zu der Bank"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Woher kommt Herr Braun? – Er kommt ____ . (der Arzt)",
+        "options": [
+          "beim Arzt",
+          "aus dem Arzt",
+          "von der Arzt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Woher kommt das Paket? – Es kommt ____ . (meine Eltern)",
+        "options": [
+          "bei meinen Eltern",
+          "von meine Eltern",
+          "aus meinen Eltern"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Buch liegt ____ dem Tisch. (on)",
+        "options": [
+          "unter",
+          "vor",
+          "in"
+        ]
+      },
+      {
+        "sentence": "Der Hund schläft ____ dem Tisch. (under)",
+        "options": [
+          "auf",
+          "vor",
+          "über"
+        ]
+      },
+      {
+        "sentence": "Das Auto steht ____ dem Haus. (in front of)",
+        "options": [
+          "hinter",
+          "für",
+          "von"
+        ]
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Woher kommt Mama? – Sie kommt ____ . (die Küche)",
+        "acceptedAnswers": [
+          "aus der Küche"
+        ],
+        "english": "Where is Mum coming from? – She is coming from the kitchen.",
+        "subjectKey": "Küche",
+        "categoryLabel": "Woher? — Ich komme …",
+        "options": [
+          "in der Küche",
+          "aus dem Küche",
+          "von die Küche"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Woher kommt ihr? – Wir kommen ____ . (Deutschland)",
+        "acceptedAnswers": [
+          "aus Deutschland"
+        ],
+        "english": "Where are you from? – We are from Germany.",
+        "subjectKey": "Deutschland",
+        "categoryLabel": "Woher? — Ich komme …",
+        "options": [
+          "in Deutschland",
+          "aus dem Deutschland",
+          "im Deutschland"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Katze schläft ____ dem Bett. (under)",
+        "acceptedAnswers": [
+          "unter"
+        ],
+        "english": "The cat is sleeping under the bed.",
+        "subjectKey": "Bett",
+        "categoryLabel": "Wo? — auf / vor / unter",
+        "options": [
+          "auf",
+          "vor",
+          "über"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Handy liegt ____ dem Bett. (on)",
+        "acceptedAnswers": [
+          "auf"
+        ],
+        "english": "The phone is lying on the bed.",
+        "subjectKey": "Bett",
+        "categoryLabel": "Wo? — auf / vor / unter",
+        "options": [
+          "unter",
+          "vor",
+          "in"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_wortbildung",
+    "sentences": [
+      {
+        "sentence": "Herr Kern ist Lehrer. Frau Kern ist auch ____ . (der Lehrer)",
+        "options": [
+          "Lehrerinnen",
+          "Lehrin",
+          "Lehrerinn"
+        ]
+      },
+      {
+        "sentence": "Paul ist Student und Maria ist ____ . (der Student)",
+        "options": [
+          "Studenten",
+          "Studentinnen",
+          "Studentinn"
+        ]
+      },
+      {
+        "sentence": "Tom ist mein Freund und Anna ist meine ____ . (der Freund)",
+        "options": [
+          "Freundinnen",
+          "Freunde",
+          "Freundine"
+        ]
+      },
+      {
+        "sentence": "Herr Wolf ist Arzt. Seine Frau ist auch ____ . (der Arzt)",
+        "options": [
+          "Arztin",
+          "Ärzte",
+          "Ärztinnen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Im Café arbeiten ein Kellner und eine ____ . (der Kellner)",
+        "options": [
+          "Kellner",
+          "Kellnerinnen",
+          "Kellnerinn"
+        ]
+      },
+      {
+        "sentence": "Max ist Schüler und Lena ist ____ . (der Schüler)",
+        "options": [
+          "Schulerin",
+          "Schülerinnen",
+          "Schülerine"
+        ]
+      },
+      {
+        "sentence": "Im Supermarkt fragt Anna eine ____ . (der Verkäufer)",
+        "options": [
+          "Verkäufer",
+          "Verkauferin",
+          "Verkäuferinnen"
+        ]
+      },
+      {
+        "sentence": "Herr Berg ist Koch. Frau Berg ist auch ____ . (der Koch)",
+        "options": [
+          "Kochin",
+          "Köchinnen",
+          "Köche"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Frau Klein wohnt neben mir. Sie ist meine ____ . (der Nachbar)",
+        "options": [
+          "Nachbar",
+          "Nachbarn",
+          "Nachbarinnen"
+        ]
+      },
+      {
+        "sentence": "Anna arbeitet mit mir. Sie ist meine ____ . (der Kollege)",
+        "options": [
+          "Kollegein",
+          "Kollege",
+          "Kolleginnen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Sabine schreibt für die Zeitung. Sie ist ____ . (der Journalist)",
+        "options": [
+          "Journalisten",
+          "Journalistinnen",
+          "Journalistinn"
+        ]
+      },
+      {
+        "sentence": "John ist Amerikaner und Mary ist ____ . (der Amerikaner)",
+        "options": [
+          "Amerikanerinnen",
+          "Amerikanin",
+          "Amerikanerinn"
+        ]
+      },
+      {
+        "sentence": "An der Schule arbeiten viele ____ . (der Lehrer → Frauen, Plural)",
+        "options": [
+          "Lehrerin",
+          "Lehrerinen",
+          "Lehrinnen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "In Köln wohnen viele ____ . (der Student → Frauen, Plural)",
+        "options": [
+          "Studentin",
+          "Studentinen",
+          "Studentine"
+        ]
+      },
+      {
+        "sentence": "Anna hat drei ____ . (der Freund → Frauen, Plural)",
+        "options": [
+          "Freundin",
+          "Freundinen",
+          "Freundins"
+        ]
+      },
+      {
+        "sentence": "Meine zwei ____ kommen aus Italien. (der Kollege → Frauen, Plural)",
+        "options": [
+          "Kollegin",
+          "Kolleginen",
+          "Kollegeinnen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Im Krankenhaus arbeiten viele ____ . (der Arzt → Frauen, Plural)",
+        "options": [
+          "Ärztin",
+          "Ärztinen",
+          "Arztinnen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die ____ im Supermarkt sind nett. (der Verkäufer → Frauen, Plural)",
+        "options": [
+          "Verkäuferin",
+          "Verkäuferinen",
+          "Verkauferinnen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "die Schokolade + der Kuchen = der ____",
+        "options": [
+          "Kuchenschokolade",
+          "Schokoladeskuchen",
+          "Schokoladenskuchen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "das Haus + die Tür = die ____",
+        "options": [
+          "Türhaus",
+          "Häusertür",
+          "Hausstür"
+        ]
+      },
+      {
+        "sentence": "der Apfel + der Kuchen = der ____",
+        "options": [
+          "Kuchenapfel",
+          "Äpfelkuchen",
+          "Apfelskuchen"
+        ]
+      },
+      {
+        "sentence": "die Kinder + das Zimmer = das ____",
+        "options": [
+          "Kindzimmer",
+          "Kindszimmer",
+          "Zimmerkinder"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "der Fisch + die Suppe = die ____",
+        "options": [
+          "Fischesuppe",
+          "Suppenfisch",
+          "Fischensuppe"
+        ]
+      },
+      {
+        "sentence": "der Geburtstag + der Kuchen = der ____",
+        "options": [
+          "Geburtstagkuchen",
+          "Kuchengeburtstag",
+          "Geburtstagenkuchen"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Im Haus wohnen zwei nette ____ . (der Nachbar → Frauen, Plural)",
+        "acceptedAnswers": [
+          "Nachbarinnen"
+        ],
+        "english": "Two nice female neighbours live in the building.",
+        "subjectKey": "Nachbar",
+        "categoryLabel": "… die Frauen (-innen)",
+        "options": [
+          "Nachbarin",
+          "Nachbarinen",
+          "Nachbarninnen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Im Restaurant kochen heute zwei ____ . (der Koch → Frauen, Plural)",
+        "acceptedAnswers": [
+          "Köchinnen",
+          "Koechinnen"
+        ],
+        "english": "Two female cooks are cooking in the restaurant today.",
+        "subjectKey": "Koch",
+        "categoryLabel": "… die Frauen (-innen)",
+        "options": [
+          "Köchin",
+          "Kochinnen",
+          "Köchinen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "die Woche + das Ende = das ____",
+        "acceptedAnswers": [
+          "Wochenende"
+        ],
+        "english": "week + end = weekend",
+        "subjectKey": "k3",
+        "categoryLabel": "Komposita",
+        "options": [
+          "Wocheende",
+          "Wochesende",
+          "Endwoche"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "die Arbeit + der Platz = der ____",
+        "acceptedAnswers": [
+          "Arbeitsplatz"
+        ],
+        "english": "work + place = workplace",
+        "subjectKey": "k5",
+        "categoryLabel": "Komposita",
+        "options": [
+          "Arbeitplatz",
+          "Arbeitenplatz",
+          "Platzarbeit"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "der Hund + das Futter = das ____",
+        "acceptedAnswers": [
+          "Hundefutter"
+        ],
+        "english": "dog + food = dog food",
+        "subjectKey": "k4",
+        "categoryLabel": "Komposita",
+        "options": [
+          "Hundfutter",
+          "Hundsfutter",
+          "Futterhund"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_alphabet",
+    "sentences": [
+      {
+        "sentence": "Der Buchstabe J heißt auf Deutsch ____ .",
+        "options": [
+          "Ge",
+          "I",
+          "Je"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Buchstabe V heißt auf Deutsch ____ .",
+        "options": [
+          "We",
+          "Ve",
+          "Ef"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Buchstabe W heißt auf Deutsch ____ .",
+        "options": [
+          "Vau",
+          "Ve",
+          "Wau"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Buchstabe Z heißt auf Deutsch ____ .",
+        "options": [
+          "Es",
+          "Ze",
+          "Zi"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Buchstabe Y heißt auf Deutsch ____ .",
+        "options": [
+          "Ix",
+          "Jot",
+          "I"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Buchstabe H heißt auf Deutsch ____ .",
+        "options": [
+          "He",
+          "A",
+          "Ka"
+        ]
+      },
+      {
+        "sentence": "Der Buchstabe Q heißt auf Deutsch ____ .",
+        "options": [
+          "Ka",
+          "U",
+          "Ke"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Straße schreibt man mit ß. Dieser Buchstabe heißt ____ .",
+        "options": [
+          "Doppel-S",
+          "Beta",
+          "Zett"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Käse schreibt man mit ä. Dieser Buchstabe heißt ____ .",
+        "options": [
+          "E-Umlaut",
+          "O-Umlaut",
+          "U-Umlaut"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich buchstabiere: Ha – A – En – Es. Mein Vorname ist ____ .",
+        "options": [
+          "Ans",
+          "Hanz",
+          "Hens"
+        ]
+      },
+      {
+        "sentence": "Jot – U – El – I – A. Mein Vorname ist ____ .",
+        "options": [
+          "Giulia",
+          "Yulia",
+          "Julya"
+        ]
+      },
+      {
+        "sentence": "We – I – E – En. Die Stadt heißt ____ .",
+        "options": [
+          "Vien",
+          "Wein",
+          "Wiehn"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Vau – A – Te – E – Er. Das Wort ist ____ .",
+        "options": [
+          "Fater",
+          "Vatter",
+          "Vahter"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Zett – E – Ha – En. Die Zahl ist ____ .",
+        "options": [
+          "sehn",
+          "zen",
+          "zähn"
+        ]
+      },
+      {
+        "sentence": "Em – E – I – E – Er. Der Nachname ist ____ .",
+        "options": [
+          "Maier",
+          "Meyer",
+          "Mayer"
+        ]
+      },
+      {
+        "sentence": "Be – E – Er – El – I – En. Die Stadt heißt ____ .",
+        "options": [
+          "Berlien",
+          "Berlinn",
+          "Bärlin"
+        ]
+      },
+      {
+        "sentence": "Ka – A – Te – Zett – E. Das Tier ist eine ____ .",
+        "options": [
+          "Katse",
+          "Kaze",
+          "Kazze"
+        ]
+      },
+      {
+        "sentence": "Em – U-Umlaut – Doppel-El – E – Er. Der Nachname ist ____ .",
+        "options": [
+          "Muller",
+          "Müler",
+          "Möller"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a1_1_zahlen_gross",
+    "sentences": [
+      {
+        "sentence": "Die Wohnung kostet ____ Euro im Monat. (650)",
+        "options": [
+          "fünfhundertsechzig",
+          "sechshundertfünfzehn",
+          "sechzehnhundertfünfzig"
+        ]
+      },
+      {
+        "sentence": "Das Fahrrad kostet ____ Euro. (199)",
+        "options": [
+          "hundertneunzigneun",
+          "hundertneunzehn",
+          "neunhundertneunundneunzig"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Unsere Schule hat ____ Schüler. (300)",
+        "options": [
+          "dreißighundert",
+          "dreitausend",
+          "dreizehnhundert"
+        ]
+      },
+      {
+        "sentence": "Mein Zimmer im Hotel hat die Nummer ____ . (112)",
+        "options": [
+          "hundertzwanzig",
+          "zwölfhundert",
+          "einhundertzwei"
+        ]
+      },
+      {
+        "sentence": "Von Berlin nach München sind es ____ Kilometer. (585)",
+        "options": [
+          "fünfhundertachtzigfünf",
+          "fünfhundertachtundfünfzig",
+          "fünfhundertfünfundachzig"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Buch hat ____ Seiten. (416)",
+        "options": [
+          "vierhundertsechszehn",
+          "vierhundertsechzig",
+          "sechshundertvierzehn"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Miete ist ____ Euro. (980)",
+        "options": [
+          "neunhundertachtzehn",
+          "neunhundertachzig",
+          "achthundertneunzig"
+        ]
+      },
+      {
+        "sentence": "Der Deutschkurs kostet ____ Euro. (120)",
+        "options": [
+          "hundertzwölf",
+          "zwanzighundert",
+          "zweihundertzehn"
+        ]
+      },
+      {
+        "sentence": "Der Zug fährt ____ Kilometer pro Stunde. (250)",
+        "options": [
+          "zweihundertfünfzehn",
+          "fünfhundertzwanzig",
+          "zweihundertfünfundzwanzig"
+        ]
+      },
+      {
+        "sentence": "Die Halle hat ____ Plätze. (1.200)",
+        "options": [
+          "einskommazwei",
+          "zwölftausend",
+          "hundertzwanzig"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Auto kostet ____ Euro. (8.500)",
+        "options": [
+          "achtkommafünf",
+          "achthundertfünfzig",
+          "fünftausendachthundert"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Stadt hat ____ Einwohner. (20.000)",
+        "options": [
+          "zweitausend",
+          "zwanzighundert",
+          "zweihunderttausend"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich bin ____ geboren. (1998)",
+        "options": [
+          "tausendneunhundertachtundneunzig",
+          "neunzehnhundertneunundachtzig",
+          "neunzehnachtundneunzig"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Mein Vater ist ____ geboren. (1965)",
+        "options": [
+          "tausendneunhundertfünfundsechzig",
+          "neunzehnhundertsechsundfünfzig",
+          "neunzehnfünfundsechzig"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Meine Tochter ist ____ geboren. (2020)",
+        "options": [
+          "zweitausendzwölf",
+          "zwanzighundertzwanzig",
+          "zweitausendzweihundert"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Reise kostet ____ Euro. (2.400)",
+        "options": [
+          "zweikommavier",
+          "zweihundertvierzig",
+          "zweitausendvierzig"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Mein Opa ist ____ geboren. (1937)",
+        "acceptedAnswers": [
+          "neunzehnhundertsiebenunddreißig",
+          "neunzehnhundertsiebenunddreissig",
+          "im Jahr neunzehnhundertsiebenunddreißig"
+        ],
+        "english": "My grandpa was born in ____.",
+        "subjectKey": "n13",
+        "categoryLabel": "Auf Deutsch",
+        "options": [
+          "tausendneunhundertsiebenunddreißig",
+          "neunzehnhundertdreiundsiebzig",
+          "neunzehnhundertdreißigsieben"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Fernseher kostet ____ Euro. (1.399)",
+        "acceptedAnswers": [
+          "tausenddreihundertneunundneunzig",
+          "eintausenddreihundertneunundneunzig",
+          "dreizehnhundertneunundneunzig"
+        ],
+        "english": "The TV costs ____ euros.",
+        "subjectKey": "n9",
+        "categoryLabel": "Auf Deutsch",
+        "options": [
+          "tausenddreihundertneunzigneun",
+          "tausendneunhundertdreiundneunzig",
+          "dreihundertneunundneunzig"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich wohne seit ____ in Köln. (2008)",
+        "acceptedAnswers": [
+          "zweitausendacht"
+        ],
+        "english": "I have lived in Cologne since ____.",
+        "subjectKey": "n14",
+        "categoryLabel": "Auf Deutsch",
+        "options": [
+          "zwanzigacht",
+          "zwanzighundertacht",
+          "zweitausendachtzig"
+        ],
+        "hard": true
+      }
+    ]
+  }
+]

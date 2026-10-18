@@ -6,10 +6,17 @@
 
 import { quizStatsKeys, SettingsKeys } from '$lib/domain/keys';
 import {
+	betterMedal,
+	emptyLadder,
+	ladderMedal,
 	legacyStreakDone,
 	medalCrossed,
 	medalForStreak,
+	parseLadder,
+	parseMedal,
+	recordLadderPass,
 	runPassed,
+	type LadderRecord,
 	STREAK_LAP_SIZE,
 	type QuizMark,
 	type RibbonTier
@@ -128,6 +135,10 @@ class ProgressStore {
 	private completed = $state<Record<string, string[]>>({});
 	/** Each drill's finished runs, loaded with its stats so the mark reads synchronously. */
 	private runs = $state<Record<string, RunRecord[]>>({});
+	/** The medal ladders, for the drills that climb one; absent until first played that way. */
+	private ladders = $state<Record<string, LadderRecord>>({});
+	/** The best medal each scored exercise has earned. */
+	private scoreMedals = $state<Record<string, RibbonTier>>({});
 
 	/**
 	 * On by default: a missing umlaut or full stop is a keyboard problem, not a
@@ -168,6 +179,8 @@ class ProgressStore {
 		// A fresh read of storage: any stats cached from before are stale.
 		this.stats = {};
 		this.runs = {};
+		this.ladders = {};
+		this.scoreMedals = {};
 		const sets = [
 			SettingsKeys.completedQuestQuizzes,
 			SettingsKeys.completedSpeakQuizzes,
@@ -246,7 +259,62 @@ class ProgressStore {
 		};
 		this.stats = { ...this.stats, [prefix]: loaded };
 		this.runs = { ...this.runs, [prefix]: await this.readRuns(prefix) };
+		const ladder = parseLadder(await this.readJson(keys.ladder));
+		if (ladder) this.ladders = { ...this.ladders, [prefix]: ladder };
+		const scored = parseMedal(await storage.get(keys.scoreMedal));
+		if (scored) this.scoreMedals = { ...this.scoreMedals, [prefix]: scored };
 		return loaded;
+	}
+
+	/**
+	 * A scored attempt earned `tier`. Kept when it beats the best so far;
+	 * returns whether it did, so a new best can be a medal moment.
+	 */
+	async recordScoreMedal(prefix: string, tier: RibbonTier): Promise<boolean> {
+		await this.statsFor(prefix);
+		const before = this.scoreMedals[prefix] ?? null;
+		if (betterMedal(before, tier) === before) return false;
+		this.scoreMedals = { ...this.scoreMedals, [prefix]: tier };
+		await storage.set(quizStatsKeys(prefix).scoreMedal, tier);
+		return true;
+	}
+
+	/**
+	 * A drill's medal ladder. One never climbed starts empty, carrying the
+	 * medal the old streak rule had already given, so nobody loses one.
+	 */
+	ladderFor(prefix: string): LadderRecord {
+		return (
+			this.ladders[prefix] ?? emptyLadder(medalForStreak(this.peekStats(prefix).bestStreakAbsolute))
+		);
+	}
+
+	/**
+	 * Opens a drill's medal ladder, saving it the first time. The medal the
+	 * old streak rule had given is frozen into it now: that streak keeps
+	 * counting for the praise, and left live it would hand out medals the
+	 * learner never passed a run for.
+	 */
+	async openLadder(prefix: string): Promise<LadderRecord> {
+		await this.statsFor(prefix);
+		const existing = this.ladders[prefix];
+		if (existing) return existing;
+		const record = this.ladderFor(prefix);
+		this.ladders = { ...this.ladders, [prefix]: record };
+		await storage.set(quizStatsKeys(prefix).ladder, JSON.stringify(record));
+		return record;
+	}
+
+	/** A run passed on one ladder step; reports the medal it first earned. */
+	async recordLadderPass(
+		prefix: string,
+		step: number
+	): Promise<{ record: LadderRecord; earned: RibbonTier | null }> {
+		await this.statsFor(prefix);
+		const result = recordLadderPass(this.ladderFor(prefix), step);
+		this.ladders = { ...this.ladders, [prefix]: result.record };
+		await storage.set(quizStatsKeys(prefix).ladder, JSON.stringify(result.record));
+		return result;
 	}
 
 	/** Synchronous peek — returns zeros until `statsFor` has run for this prefix. */
@@ -476,6 +544,10 @@ class ProgressStore {
 	ribbonFor(type: QuizType, id: string, prefix: string): RibbonTier | null {
 		if (!this.isCompleted(type, id, prefix)) return null;
 		if (isDrill(type)) return this.medalFor(prefix);
+		// A scored kind: the best its scores have earned. One finished before
+		// scores were kept still has its bronze for the finish.
+		const scored = this.scoreMedals[prefix];
+		if (scored) return scored;
 		// A play-through kind earns its bronze by turning up — unless it recorded
 		// how the attempt went and it went badly. Only writing does that today:
 		// a text that came back under its pass mark is marked for another go,
@@ -496,9 +568,16 @@ class ProgressStore {
 		return this.lastRunPassed(prefix) ? 'done' : 'retry';
 	}
 
-	/** The medal the streak has earned so far, finished or not. */
+	/**
+	 * The medal earned so far, finished or not: the ladder's, once the drill
+	 * has been climbed that way, else the streak's.
+	 */
 	medalFor(prefix: string): RibbonTier | null {
-		return medalForStreak(this.peekStats(prefix).bestStreakAbsolute);
+		const ladder = this.ladders[prefix];
+		const base = ladder
+			? ladderMedal(ladder)
+			: medalForStreak(this.peekStats(prefix).bestStreakAbsolute);
+		return betterMedal(base, this.scoreMedals[prefix] ?? null);
 	}
 
 	// -- settings ------------------------------------------------------------

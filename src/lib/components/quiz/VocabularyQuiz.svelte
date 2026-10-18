@@ -1,32 +1,30 @@
 <script lang="ts">
 	import type { QuestionRef } from '$lib/domain/forum';
 	// The flashcard deck. A real card: English on the front, and whatever the
-	// mode — write the German, pick it from four, or flip and rate yourself —
-	// the answer is revealed by turning the card over. The back carries the
+	// mode — flip and rate yourself, pick it from four, or write the German —
+	// the answer is revealed by turning the card over. The three modes are the
+	// medal ladder: a run passed remembering earns bronze, choosing silver,
+	// writing it with its article gold. The back carries the
 	// German with its article coloured by gender, the plural, the audio and
 	// the verdict. A new card is dealt from a stack behind the current one.
 	//
 	// Progress is three things: the run (RUN_LENGTH cards; finishing one marks
-	// the deck done, as a fill-in does), the streak that runs across runs and
-	// earns the medals, and a per-word record in the vocab store, from which
-	// the "Weak words" toggle draws its cards.
+	// the deck done, as a fill-in does, and LADDER_PASS right on one step in
+	// it earns that step's medal), the streak behind the praise, and a
+	// per-word record in the vocab store, from which "to repeat" draws.
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
-	import { checkWritten, chooseOptions, fullForm } from '$lib/domain/flashcards';
+	import { checkWritten, chooseOptions, clearsNeeded, fullForm, isWeak } from '$lib/domain/flashcards';
 	import { GENDER_COLORS } from '$lib/domain/gender';
 	import { forSpeech } from '$lib/domain/spoken';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
-	import { celebrateMedal, react, shakeOn } from '$lib/motion/fx.svelte';
+	import { bumpOn, celebrate, react, shakeOn } from '$lib/motion/fx.svelte';
+	import { LadderRun } from '$lib/state/ladderRun.svelte';
+	import MedalLadder from './MedalLadder.svelte';
 	import RunSummary from './RunSummary.svelte';
 	import RunTracker from './RunTracker.svelte';
-	import {
-		medalAnnouncement,
-		RUN_LENGTH,
-		runPassed,
-		STREAK_LAP_SIZE,
-		type RibbonTier
-	} from '$lib/domain/progress';
+	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE } from '$lib/domain/progress';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
@@ -41,7 +39,8 @@
 		locale,
 		onRunFinished,
 		focusWord = null,
-		onQuestion
+		onQuestion,
+		onTryAgain
 	}: {
 		quiz: VocabularyQuiz;
 		courseId: string;
@@ -52,21 +51,33 @@
 		focusWord?: string | null;
 		/** The card on screen, for "Report a problem". */
 		onQuestion?: (q: QuestionRef | null) => void;
+		/** Starts a fresh run, as the finish bar's "Try again" does. */
+		onTryAgain?: () => void;
 	} = $props();
 
 	type Mode = 'write' | 'choose' | 'flip';
-	const MODES: { id: Mode; label: string; icon: 'gap' | 'check' | 'repeat' }[] = [
-		{ id: 'write', label: 'Write it', icon: 'gap' },
-		{ id: 'choose', label: 'Choose', icon: 'check' },
-		{ id: 'flip', label: 'Flip', icon: 'repeat' }
+	/** The ladder, easiest first: the step's index is its medal's. */
+	const STEPS: { id: Mode; label: string; hint: string }[] = [
+		{ id: 'flip', label: 'Remember', hint: 'turn the card and say whether you knew it.' },
+		{ id: 'choose', label: 'Choose', hint: 'pick the German from four.' },
+		{ id: 'write', label: 'Write', hint: 'write the article and the noun yourself.' }
 	];
 
 	const ARTICLE_GENDER: Record<string, 'm' | 'f' | 'n'> = { der: 'm', die: 'f', das: 'n' };
 
-	let mode = $state<Mode>('write');
+	/** The medal ladder: the step in play, its record, and this run's count per step. */
+	const run = new LadderRun(untrack(() => quiz.storageKeyPrefix), STEPS);
+	const mode = $derived(STEPS[run.step].id);
+	/** Right answers in a row, across runs: what the praise counts. */
+	let streak = $state(0);
 	let weakOnly = $state(false);
 	/** One exercise's words only, or null for the whole deck. */
 	let sourceOnly = $state<string | null>(null);
+	/**
+	 * A run on the repeat list, or on one exercise's words, practises a
+	 * handful of words: the medals are for the whole deck, so it counts none.
+	 */
+	const counting = $derived(!weakOnly && !sourceOnly);
 
 	// The page learns the "?from=" scope after mount; take it when it arrives.
 	// The learner can widen the scope again from the card.
@@ -117,21 +128,27 @@
 	/** Set when a noun was right but the article was left off. */
 	let missingArticle = $state(false);
 	let chosen = $state<string | null>(null);
-	let streak = $state(0);
 	/** The answer card, for the praise to rise from; `missKey` shakes it. */
 	let cardEl = $state<HTMLElement>();
 	let missKey = $state(0);
-	let best = $state(0);
+	/**
+	 * How this answer moved the word on the repeat list, for the card's back:
+	 * a step toward clearing it, cleared, or put on the list by a miss.
+	 */
+	let repeatNote = $state<
+		{ kind: 'step'; streak: number; need: number } | { kind: 'cleared' } | { kind: 'added'; need: number } | null
+	>(null);
+	/** The last weak word was just cleared while repeating: back to the whole deck. */
+	let allClear = false;
 	// The run: cards answered (the bar), how many right, the longest streak
 	// inside it, the medal it crossed into, and the words missed.
 	let results = $state<('right' | 'wrong')[]>([]);
 	const answered = $derived(results.length);
 	const right = $derived(results.filter((r) => r === 'right').length);
 	let bestInRun = $state(0);
-	let earned = $state<RibbonTier | null>(null);
 	let missed = $state<string[]>([]);
 	let runDone = $state(false);
-	type Spot = { results: ('right' | 'wrong')[]; bestInRun: number };
+	type Spot = { results: ('right' | 'wrong')[]; bestInRun: number; stepRight?: number[] };
 	let burst = $state(0);
 	let burstSize = $state(12);
 	let inputEl = $state<HTMLInputElement | null>(null);
@@ -160,6 +177,10 @@
 	}
 
 	function next() {
+		if (allClear) {
+			allClear = false;
+			weakOnly = false;
+		}
 		const key = `${sourceOnly ?? ''}|${weakOnly}`;
 		if (key !== poolKey) {
 			poolKey = key;
@@ -184,6 +205,7 @@
 		peeking = false;
 		verdict = null;
 		missingArticle = false;
+		repeatNote = null;
 		options = mode === 'choose' ? chooseOptions(card, quiz.cards) : [];
 	}
 
@@ -211,14 +233,14 @@
 			started = true;
 			(async () => {
 				await vocab.load(courseId);
-				const stats = await progress.statsFor(quiz.storageKeyPrefix);
-				streak = stats.streak;
-				best = stats.bestStreakAbsolute;
+				streak = (await progress.statsFor(quiz.storageKeyPrefix)).streak;
+				await run.open();
 				const spot = await loadSpot<Spot>(quiz.storageKeyPrefix);
 				const saved = Array.isArray(spot?.results) ? spot.results : [];
 				if (saved.length > 0 && saved.length < RUN_LENGTH) {
 					results = saved.filter((r) => r === 'right' || r === 'wrong');
 					bestInRun = spot?.bestInRun ?? 0;
+					run.restore(spot?.stepRight);
 				}
 				next();
 			})();
@@ -245,11 +267,17 @@
 
 	function setMode(m: Mode) {
 		if (m === mode || locked) return;
-		mode = m;
+		run.setStep(STEPS.findIndex((s) => s.id === m));
 		if (current) options = m === 'choose' ? chooseOptions(current, quiz.cards) : [];
 		peeking = false;
 		answer = '';
 		chosen = null;
+	}
+
+	/** "Try for silver/gold": a fresh run, one step up the ladder. */
+	function climb(to: number) {
+		run.climb(to);
+		onTryAgain?.();
 	}
 
 	function toggleWeak() {
@@ -269,16 +297,32 @@
 		if (!current) return;
 		verdict = correct ? 'right' : 'wrong';
 		const card = current;
-		await vocab.record(courseId, card, correct, mode, quiz.id);
+		const wasWeak = isWeak(vocab.recordFor(courseId, card));
+		const word = await vocab.record(courseId, card, correct, mode, quiz.id);
+		if (!correct) repeatNote = { kind: 'added', need: clearsNeeded(word) };
+		else if (wasWeak && !isWeak(word)) repeatNote = { kind: 'cleared' };
+		else if (wasWeak) repeatNote = { kind: 'step', streak: word.streak, need: clearsNeeded(word) };
+		// Repeating, and that was the last one: celebrate, and the next deal
+		// goes back to the whole deck.
+		if (weakOnly && correct && vocab.weakCount(courseId, quiz.cards) === 0) {
+			allClear = true;
+			celebrate('Alles wiederholt!');
+		}
+		// The plain streak and history run as before, for the praise, the stats
+		// and the weak spots; the medal is the ladder's, so its `earned` is
+		// not used here.
 		const stats = await progress.recordAnswer(quiz.storageKeyPrefix, correct, card.kind);
-		const lapCompleted = correct && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
-		best = stats.bestStreakAbsolute;
+		const lapCompleted = correct && streak > 0 && streak % STREAK_LAP_SIZE === 0;
+		// The ladder: the LADDER_PASSth right answer on this step in this run
+		// passes it — certain now, whatever the last cards do — and a step
+		// passed for the first time earns its medal, celebrated there and then.
+		const medalWon = correct ? await run.right(counting) : null;
 		results = [...results, correct ? 'right' : 'wrong'];
-		bestInRun = Math.max(bestInRun, stats.streak);
-		react(correct, cardEl, stats.streak);
+		bestInRun = Math.max(bestInRun, streak);
+		react(correct, cardEl, streak);
 		if (!correct) missKey += 1;
-		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun });
+		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun, stepRight: run.stepRight });
 		if (correct) {
 			burstSize = lapCompleted ? 30 : 12;
 			burst += 1;
@@ -286,15 +330,9 @@
 			retry.push(card);
 			missed = [...missed, target];
 		}
-		// The streak just crossed a medal boundary: the big celebration, now,
-		// whatever the run is doing — the medal is the streak's, not the run's.
-		if (stats.earned) {
-			earned = stats.earned;
-			celebrateMedal(stats.earned, stats.streak);
-		}
 		// One announcement per answer: a second call replaces the first, so the
 		// medal — a stamp and a fanfare the effects layer hides — is said here.
-		const medal = stats.earned ? medalAnnouncement(stats.earned, stats.streak) : '';
+		const medal = medalWon ? run.announcement(medalWon) : '';
 		announce([
 			{ text: correct ? 'Correct.' : 'Not quite. It is:' },
 			{ text: target, lang: locale },
@@ -364,39 +402,47 @@
 
 <svelte:window onkeydown={onWindowKey} />
 
-<RunTracker {results} total={RUN_LENGTH} {streak} {best} />
-
 <div class="controls">
-	<div class="modes" role="group" aria-label="Card mode">
-		{#each MODES as m (m.id)}
-			<button
-				type="button"
-				class="mode"
-				aria-pressed={mode === m.id}
-				disabled={locked}
-				onclick={() => setMode(m.id)}
-			>
-				<Icon name={m.icon} size="0.95em" />
-				{m.label}
-			</button>
-		{/each}
-	</div>
-	<span class="deck-count tnum">{pool.length} cards</span>
-	<button
-		type="button"
-		class="weak"
-		aria-pressed={weakOnly}
-		disabled={locked || (weakCount === 0 && !weakOnly)}
-		title={weakCount === 0
-			? 'No weak words yet — miss one and it lands here'
-			: 'Only the words you have missed'}
-		onclick={toggleWeak}
+	<MedalLadder
+		steps={STEPS}
+		record={run.record}
+		active={run.step}
+		right={run.stepRight[run.step]}
+		{counting}
+		disabled={locked || runDone}
+		onpick={(i) => setMode(STEPS[i].id)}
 	>
-		<Icon name="flame" size="1em" />
-		Weak words
-		<span class="count tnum">{weakCount}</span>
-	</button>
+		<!-- The words missed and not yet fixed: tap to deal only those. -->
+		<button
+			type="button"
+			class="weak"
+			aria-pressed={weakOnly}
+			disabled={locked || (weakCount === 0 && !weakOnly)}
+			title={weakCount === 0
+				? 'Nothing to repeat — a missed word lands here'
+				: weakOnly
+					? 'Back to the whole deck'
+					: 'Deal only the words you have missed'}
+			onclick={toggleWeak}
+		>
+			<Icon name="repeat" size="1.05em" />
+			{#if weakCount === 0 && !weakOnly}
+				<span class="weak-label">All clear</span>
+			{:else}
+				<span class="count tnum" use:bumpOn={weakCount}>{weakCount}</span>
+				<span class="weak-label">{weakOnly ? 'repeating' : 'to repeat'}</span>
+			{/if}
+		</button>
+	</MedalLadder>
 </div>
+
+<RunTracker
+	{results}
+	total={RUN_LENGTH}
+	{streak}
+	best={bestInRun}
+	showStreak={false}
+/>
 
 {#if sourceOnly}
 	<p class="scope">
@@ -411,11 +457,12 @@
 		total={RUN_LENGTH}
 		{bestInRun}
 		{streak}
-		{earned}
-		medal={progress.medalFor(quiz.storageKeyPrefix)}
+		earned={run.earned}
+		medal={run.medal}
 		{missed}
 		{locale}
 		passed={runPassed(right, RUN_LENGTH)}
+		ladder={run.summary(counting, climb)}
 	/>
 {:else if current}
 	<!-- The stage holds the stack: two decorative cards behind, the live card
@@ -536,6 +583,31 @@
 							{/if}
 						</p>
 					{/if}
+					{#if repeatNote}
+						<!-- Where the word stands on the repeat list. -->
+						<p class="repeat-note" class:cleared={repeatNote.kind === 'cleared'}>
+							{#if repeatNote.kind === 'cleared'}
+								<Icon name="check" size="1em" /> Cleared — off your repeat list
+							{:else}
+								{#if repeatNote.need > 1}
+									<span class="repeat-pips" aria-hidden="true">
+										{#each { length: repeatNote.need } as _, i (i)}
+											<i class:on={repeatNote.kind === 'step' && i < repeatNote.streak}></i>
+										{/each}
+									</span>
+								{/if}
+								{#if repeatNote.kind === 'step'}
+									{repeatNote.streak} of {repeatNote.need} — {repeatNote.need - repeatNote.streak === 1
+										? 'one more clears it'
+										: `${repeatNote.need - repeatNote.streak} more clear it`}
+								{:else if repeatNote.need === 1}
+									On your repeat list — get it right once to clear it
+								{:else}
+									On your repeat list — {repeatNote.need} right in a row clear it
+								{/if}
+							{/if}
+						</p>
+					{/if}
 					{#if locked && progress.answerRevealMode === 'manual'}
 						<button type="button" class="btn next-card" disabled={!skip} onclick={() => skip?.()}>
 							Next card <Icon name="arrowRight" size="1em" />
@@ -569,23 +641,19 @@
 		margin-bottom: 1.1rem;
 	}
 
-	.modes {
-		display: inline-flex;
-		padding: 0.2rem;
-		border: 1px solid var(--line);
-		border-radius: 999px;
-		background: var(--surface-alt);
-	}
-
-	.mode,
+	/* "To repeat": the last segment of the mode bar, rounded on the bar's
+	   right end as the first step is on its left. The count is said in
+	   words beside it — a number with only an icon read as a streak. */
 	.weak {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.35rem;
-		border: 1px solid transparent;
-		border-radius: 999px;
+		gap: 0.4rem;
+		padding: 0 0.95rem 0 0.75rem;
+		border: 0;
+		border-radius: 0 999px 999px 0;
 		background: none;
-		color: var(--ink-muted);
+		white-space: nowrap;
+		color: var(--heading);
 		font-size: 0.78rem;
 		font-weight: 700;
 		letter-spacing: 0.03em;
@@ -596,37 +664,32 @@
 			border-color var(--fast) var(--ease-out);
 	}
 
-	.mode {
-		padding: 0.38rem 0.85rem;
+	.weak:hover:not(:disabled) {
+		background: var(--surface);
 	}
 
-	.mode[aria-pressed='true'] {
-		background: var(--heading);
-		color: var(--paper);
-		box-shadow: 0 1px 2px rgb(0 0 0 / 0.12);
-	}
-
-	.weak {
-		padding: 0.38rem 0.8rem;
-		border-color: var(--line);
-	}
-
+	/* On: the deck is filtered, and the segment says so in terracotta. */
 	.weak[aria-pressed='true'] {
-		border-color: var(--accent);
 		background: var(--accent-soft);
 		color: var(--accent-ink);
 	}
 
 	.weak:disabled {
-		opacity: 0.55;
+		color: var(--ink-muted);
+		opacity: 0.7;
 		cursor: default;
 	}
 
 	.count {
-		padding: 0 0.4rem;
+		min-width: 1.25rem;
+		padding: 0.1rem 0.35rem;
 		border-radius: 999px;
-		background: var(--surface);
-		font-size: 0.7rem;
+		background: var(--accent);
+		color: #fff;
+		font-size: 0.68rem;
+		font-weight: 800;
+		line-height: 1.1;
+		text-align: center;
 	}
 
 	.scope {
@@ -760,13 +823,6 @@
 		letter-spacing: 0.02em;
 		text-transform: none;
 		font-size: var(--step--1);
-	}
-
-	.deck-count {
-		margin-left: auto;
-		font-size: var(--step--1);
-		font-weight: 600;
-		color: var(--ink-muted);
 	}
 
 	.prompt {
@@ -1032,6 +1088,39 @@
 		color: var(--ink-muted);
 	}
 
+	.repeat-note {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+		margin: 0.55rem 0 0;
+		font-size: var(--step--1);
+		font-weight: 600;
+		color: var(--accent-ink);
+	}
+
+	.repeat-note.cleared {
+		color: var(--right);
+		font-weight: 700;
+	}
+
+	.repeat-pips {
+		display: inline-flex;
+		gap: 3px;
+	}
+
+	.repeat-pips i {
+		width: 0.5rem;
+		height: 0.5rem;
+		border-radius: 50%;
+		border: 1.5px solid var(--accent);
+	}
+
+	.repeat-pips i.on {
+		background: var(--accent);
+	}
+
 	@media (prefers-reduced-motion: reduce) {
 		.deal {
 			animation: none;
@@ -1039,7 +1128,15 @@
 	}
 	@media (max-width: 36rem) {
 		.controls {
-			margin-bottom: 0.7rem;
+			flex-wrap: nowrap;
+			margin-bottom: 0.5rem;
+		}
+		/* On a phone the icon and the count say it. */
+		.weak-label {
+			display: none;
+		}
+		.weak {
+			padding: 0 0.7rem 0 0.5rem;
 		}
 		.face {
 			padding: 2.6rem 1.1rem 1.6rem;
@@ -1052,6 +1149,67 @@
 		.answer,
 		.turn {
 			margin-top: 1.1rem;
+		}
+	}
+
+	/* One screen, never a scroll — on a phone, or any short window. The card
+	   takes exactly the room left under the bar, and the picture is what
+	   gives way: it shrinks into whatever height is free, keeping its shape,
+	   so the question and the answers always stay in view. */
+	@media (max-width: 36rem), (max-height: 760px) {
+		.controls,
+		.scope {
+			flex: none;
+		}
+		.stage {
+			flex: 1 1 auto;
+			min-height: 0;
+			display: flex;
+			flex-direction: column;
+		}
+		.deal {
+			flex: 1 1 auto;
+			min-height: 0;
+			display: flex;
+			flex-direction: column;
+		}
+		.flashcard {
+			flex: 1 1 auto;
+			min-height: 0;
+			grid-template-rows: minmax(0, 1fr);
+		}
+		.face {
+			min-height: 0;
+			padding: 2.3rem 1rem 1.1rem;
+		}
+		.picture {
+			flex: 1 1 0;
+			min-height: 4.5rem;
+			width: 100%;
+			max-width: 17rem;
+			max-height: 17rem;
+			object-fit: contain;
+			margin: 0.2rem 0 0.3rem;
+		}
+		.thumb {
+			flex: 0 1 auto;
+			min-height: 3rem;
+			width: 100%;
+			max-width: 7rem;
+			object-fit: contain;
+		}
+	}
+
+	/* Four answers in two rows of two: half the height of a single column. */
+	@media (max-width: 36rem) {
+		.options {
+			grid-template-columns: 1fr 1fr;
+			gap: 0.45rem;
+			margin-top: 0.8rem;
+		}
+		.option {
+			padding: 0.65rem 0.4rem;
+			font-size: var(--step-0);
 		}
 	}
 </style>

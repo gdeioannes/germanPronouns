@@ -16,6 +16,44 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-18",
+    title: "Three ways to play every exercise, and a medal for each",
+    highlight: true,
+    items: [
+      "Most exercises now have a switch above them with three ways to play: an easier one, the usual one and one with no help. Pass a run of ten on one of them, with eight right, and you earn its medal: bronze for the easier way, silver for the usual one, gold for no help. A medal is never taken away.",
+      "Fill-in exercises: choose the answer from four, type it with the word in brackets to help, or type it with no brackets and no hint. The no-help way uses each exercise's hardest sentences, and we wrote hundreds of new ones so every exercise has at least ten.",
+      "Every one of the 3,400 fill-in sentences now comes with three wrong answers to choose from. They are the mistakes learners really make, like \"gegeht\" or \"in der Büro\", and each one has been checked so it is never also right.",
+      "Flashcards: remember, choose or write the word with its article. Picture hunts: find what the word names, find it and choose der, die or das, or just listen, find it and write it. The long texts with gaps: choose each gap, type it with its hint, or type it with no hints.",
+      "Reading, listening, dictation, speaking and writing earn their medal by score: bronze for a pass, silver for most of the way to full marks, gold for full marks.",
+      "Winning a medal is now a moment: it swings in the stamp, then flies into its place on the switch.",
+      "The words to repeat in a flashcard deck now show their progress on the card. A word you missed once leaves the list after one right answer, a word you keep missing after up to three. The count on the switch goes down as you go.",
+      "Medals you had already won are kept, and medals now sync between your devices when you are signed in.",
+      "We also corrected about a hundred fill-in sentences that marked a right answer as wrong, such as \"Sei\" beside \"Seid\", \"Können Sie\" beside \"Könnten Sie\", and \"Montag bis Freitag\".",
+      "Flashcards fit on one phone screen with no scrolling.",
+    ],
+  },
+  {
+    date: "2026-10-18",
+    title: "Exercises that no longer give away the answer",
+    items: [
+      "In some fill-in exercises, the small label above the sentence gave away the answer: \"ich → mich\" over \"Ich freue ___ auf das Wochenende\". The labels now only give the clue, such as \"ich\", and never the word you have to find.",
+      "This is fixed in 16 exercises: reflexive pronouns, war and hatte, comparatives and superlatives, the imperative, verbs with prepositions, dative prepositions, relative pronouns, \"it\" as ihn/sie/es, and the C1–C2 connectors, academic phrases and vocabulary.",
+      "Clues in brackets no longer work the answer out for you either: \"(zu + dem = zum)\" is now \"(zu + dem)\", and \"(gern → lieber)\" is now \"(gern)\".",
+    ],
+  },
+  {
+    date: "2026-10-18",
+    title: "Meet Schreib mir! characters in your deck, and come back straight to it",
+    items: [
+      "Schreib mir! characters are now met in your course deck only. When one turns up there and you open their card, you have met them, and their chat stays open for you on the Schreib mir! page as well.",
+      "The Schreib mir! page is now one list of your contacts, part of the app with its menu and footer: who liked you (with what they know about you and their Sunday voice note), chats still open, chats that ended without a like, and everyone you have not met yet as a blurred portrait with a question mark. The level chips filter the whole list.",
+      "Once you have met a Schreib mir! character, a heart sits in the top bar. It counts the characters who liked you, and one tap opens your contacts, so you can read your chats again.",
+      "To make room, Forum and Settings have moved into the Menu. The Menu button shows a dot when someone has replied to you on the forum.",
+      "A new ? in the top bar explains the screen you are on. For the deck it shows a labelled picture of the screen and diagrams of how each pace mixes your cards, when finished exercises come back and how surprises turn up. Schreib mir! gets the same: labelled pictures of your contact list and of a chat, how a character moves from blurred to liked, and how your sentence scores move the hearts. There is help too for Ja oder Nein?, the stories, the word library and the forum.",
+      "Coming back to the site takes you straight to your deck, so you can carry on where you left off. The front page is still one tap away on the logo.",
+    ],
+  },
+  {
     date: "2026-10-17",
     title: "No more tickets: surprises just turn up",
     items: [

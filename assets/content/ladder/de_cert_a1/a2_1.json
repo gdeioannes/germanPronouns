@@ -1,0 +1,2404 @@
+[
+  {
+    "id": "quest_a2_1_perfekt_haben",
+    "sentences": [
+      {
+        "sentence": "Ich habe Fußball ____. (spielen)",
+        "options": [
+          "gespielen",
+          "spielen",
+          "gespielte"
+        ]
+      },
+      {
+        "sentence": "Wir haben Pizza ____. (essen)",
+        "options": [
+          "gegesst",
+          "geessen",
+          "gegisst"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Hast du den Film ____? (sehen)",
+        "options": [
+          "gesieht",
+          "gesehnt",
+          "gesiehen"
+        ]
+      },
+      {
+        "sentence": "Er hat ein Buch ____. (lesen)",
+        "options": [
+          "gelest",
+          "geliesen",
+          "gelasen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Sie hat Kaffee ____. (trinken)",
+        "options": [
+          "getrinkt",
+          "getrinken",
+          "getrankt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich habe das Auto ____. (kaufen)",
+        "options": [
+          "gekaufen",
+          "gekäuft",
+          "gekauf"
+        ]
+      },
+      {
+        "sentence": "Wir haben viel ____. (arbeiten)",
+        "options": [
+          "gearbeitt",
+          "gearbeiten",
+          "gearbeit"
+        ]
+      },
+      {
+        "sentence": "Was hast du gestern ____? (machen)",
+        "options": [
+          "gemachen",
+          "gemachtet",
+          "machte"
+        ]
+      },
+      {
+        "sentence": "Ich habe dir einen Kaffee ____. (bringen)",
+        "options": [
+          "gebringt",
+          "gebrungen",
+          "gebrachen"
+        ],
+        "hard": true,
+        "keepCue": true
+      },
+      {
+        "sentence": "Sie hat den ganzen Tag an ihn ____. (denken)",
+        "options": [
+          "gedenkt",
+          "gedunken",
+          "gedachten"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Er hat einen Brief ____. (schreiben)",
+        "options": [
+          "geschreibt",
+          "geschreiben",
+          "geschriebt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich habe meine Schlüssel ____. (finden)",
+        "options": [
+          "gefindet",
+          "gefinden",
+          "gefanden"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir haben den Bus ____. (nehmen)",
+        "options": [
+          "genehmt",
+          "genimmt",
+          "genommt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Sie hat ihre Freunde ____. (treffen)",
+        "options": [
+          "getrefft",
+          "getreffen",
+          "getraffen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Er hat zum Geburtstag ein Fahrrad ____. (bekommen)",
+        "options": [
+          "gebekommen",
+          "gekommen",
+          "bekommte"
+        ],
+        "hard": true,
+        "keepCue": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Haben Sie meine E-Mail ____? (bekommen)",
+        "acceptedAnswers": [
+          "bekommen",
+          "erhalten"
+        ],
+        "english": "Did you get my email?",
+        "subjectKey": "s14",
+        "categoryLabel": "Perfekt",
+        "options": [
+          "gebekommen",
+          "bekommt",
+          "gekommen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Hast du an die Milch ____? (denken)",
+        "acceptedAnswers": [
+          "gedacht"
+        ],
+        "english": "Did you remember the milk?",
+        "subjectKey": "s9",
+        "categoryLabel": "Perfekt",
+        "options": [
+          "gedenkt",
+          "gedunken",
+          "gedachten"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Postbote hat ein Paket ____. (bringen)",
+        "acceptedAnswers": [
+          "gebracht"
+        ],
+        "english": "The postman brought a parcel.",
+        "subjectKey": "s8",
+        "categoryLabel": "Perfekt",
+        "options": [
+          "gebringt",
+          "gebrungen",
+          "gebrachen"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_perfekt_sein",
+    "sentences": [
+      {
+        "sentence": "Ich bin nach Berlin ____. (fahren)",
+        "options": [
+          "gefahrt",
+          "gefährt",
+          "gefuhren"
+        ]
+      },
+      {
+        "sentence": "Wir sind ins Kino ____. (gehen)",
+        "options": [
+          "gegeht",
+          "gegingen",
+          "gegangt"
+        ],
+        "keepCue": true
+      },
+      {
+        "sentence": "Er ist um sieben Uhr ____. (aufstehen)",
+        "options": [
+          "aufgesteht",
+          "geaufstanden",
+          "aufgestehen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wann bist du nach Hause ____? (kommen)",
+        "options": [
+          "gekommt",
+          "gekamen",
+          "gekomen"
+        ]
+      },
+      {
+        "sentence": "Sie ist Ärztin ____. (werden)",
+        "options": [
+          "worden",
+          "gewerdet",
+          "gewurden"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich bin zu Hause ____. (bleiben)",
+        "options": [
+          "gebleibt",
+          "gebliebt",
+          "gebleiben"
+        ]
+      },
+      {
+        "sentence": "Das Baby ist schnell ____. (einschlafen)",
+        "options": [
+          "eingeschlaft",
+          "geeinschlafen",
+          "eingeschläft"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir sind nach Spanien ____. (fliegen)",
+        "options": [
+          "gefliegt",
+          "gefliegen",
+          "geflugen"
+        ]
+      },
+      {
+        "sentence": "Er ist zum Bahnhof ____. (laufen)",
+        "options": [
+          "geläuft",
+          "gelauft",
+          "geliefen"
+        ],
+        "hard": true,
+        "keepCue": true
+      },
+      {
+        "sentence": "Wir sind im See ____. (schwimmen)",
+        "options": [
+          "geschwimmt",
+          "geschwammen",
+          "geschwummen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Bist du schon einmal in Wien ____? (sein)",
+        "options": [
+          "geseint",
+          "gewasen",
+          "gewart"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Sie ist letzten Monat nach Köln ____. (umziehen)",
+        "options": [
+          "umgeziehen",
+          "geumzogen",
+          "umgezieht"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Was ist gestern ____? (passieren)",
+        "options": [
+          "gepassiert",
+          "gepassieren",
+          "passierte"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich bin heute früh ____. (aufwachen)",
+        "options": [
+          "aufgewachen",
+          "geaufwacht",
+          "aufwachte"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir sind in den Bergen ____. (wandern)",
+        "options": [
+          "gewandern",
+          "gewundert",
+          "wandert"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Der Zug ist pünktlich ____. (ankommen)",
+        "acceptedAnswers": [
+          "angekommen"
+        ],
+        "english": "The train arrived on time.",
+        "subjectKey": "s3",
+        "categoryLabel": "Perfekt mit sein",
+        "options": [
+          "geankommen",
+          "angekommt",
+          "angekamen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Es ist plötzlich sehr kalt ____. (werden)",
+        "acceptedAnswers": [
+          "geworden"
+        ],
+        "english": "It suddenly turned very cold.",
+        "subjectKey": "s4",
+        "categoryLabel": "Perfekt mit sein",
+        "options": [
+          "worden",
+          "gewerdet",
+          "gewurden"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Bist du gestern lange auf der Party ____? (bleiben)",
+        "acceptedAnswers": [
+          "geblieben"
+        ],
+        "english": "Did you stay at the party long yesterday?",
+        "subjectKey": "s5",
+        "categoryLabel": "Perfekt mit sein",
+        "options": [
+          "gebleibt",
+          "gebliebt",
+          "gebleiben"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_dativ_artikel",
+    "sentences": [
+      {
+        "sentence": "Ich gebe ____ Mann das Buch. (der)",
+        "options": [
+          "den",
+          "der",
+          "das"
+        ]
+      },
+      {
+        "sentence": "Ich helfe ____ Frau. (die)",
+        "options": [
+          "die",
+          "den",
+          "dem"
+        ]
+      },
+      {
+        "sentence": "Wir danken ____ Kind. (das)",
+        "options": [
+          "das",
+          "den",
+          "der"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Sie spielt mit ____ Kindern. (die, Plural)",
+        "options": [
+          "die",
+          "dem",
+          "der"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Auto gehört ____ Lehrer. (der)",
+        "options": [
+          "den",
+          "der",
+          "das"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich gebe ____ Katze Milch. (die)",
+        "options": [
+          "die",
+          "dem",
+          "den"
+        ]
+      },
+      {
+        "sentence": "Ich schenke ____ Vater eine Krawatte. (der)",
+        "options": [
+          "den",
+          "der",
+          "das"
+        ]
+      },
+      {
+        "sentence": "Er antwortet ____ Lehrerin. (die)",
+        "options": [
+          "die",
+          "den",
+          "dem"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir helfen ____ Nachbarn. (die, Plural)",
+        "options": [
+          "die",
+          "der",
+          "das"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Fahrrad gehört ____ Mädchen. (das)",
+        "options": [
+          "das",
+          "der",
+          "den"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Sie erzählt ____ Kindern eine Geschichte. (die, Plural)",
+        "options": [
+          "die",
+          "dem",
+          "der"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Kellner bringt ____ Gast die Rechnung. (der)",
+        "options": [
+          "den",
+          "der",
+          "das"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich zeige ____ Touristin den Weg. (die)",
+        "options": [
+          "die",
+          "den",
+          "dem"
+        ]
+      },
+      {
+        "sentence": "Das Eis schmeckt ____ Kind. (das)",
+        "options": [
+          "das",
+          "den",
+          "der"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir danken ____ Eltern. (die, Plural)",
+        "options": [
+          "die",
+          "dem",
+          "der"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Die Schuhe passen ____ Jungen nicht. (der)",
+        "acceptedAnswers": [
+          "dem"
+        ],
+        "english": "The shoes don't fit the boy.",
+        "subjectKey": "s0",
+        "categoryLabel": "Dativ",
+        "options": [
+          "der",
+          "die",
+          "das"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir gratulieren ____ Oma zum Geburtstag. (die)",
+        "acceptedAnswers": [
+          "der"
+        ],
+        "english": "We wish Grandma a happy birthday.",
+        "subjectKey": "s1",
+        "categoryLabel": "Dativ",
+        "options": [
+          "die",
+          "dem",
+          "den"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Arzt hilft ____ Patienten. (die, Plural)",
+        "acceptedAnswers": [
+          "den"
+        ],
+        "english": "The doctor helps the patients.",
+        "subjectKey": "s14",
+        "categoryLabel": "Dativ",
+        "options": [
+          "die",
+          "der",
+          "das"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_dativ_praep",
+    "sentences": [
+      {
+        "sentence": "Ich komme ____ der Schweiz. (origin)",
+        "options": [
+          "von",
+          "nach",
+          "bei"
+        ]
+      },
+      {
+        "sentence": "Ich wohne ____ meinen Eltern. (at the home of)",
+        "options": [
+          "zu",
+          "von",
+          "nach"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich fahre ____ dem Bus. (by)",
+        "options": [
+          "bei",
+          "aus",
+          "seit"
+        ]
+      },
+      {
+        "sentence": "____ der Arbeit gehe ich nach Hause. (after)",
+        "options": [
+          "Seit",
+          "Zu",
+          "Mit"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich lerne Deutsch ____ einem Jahr. (since)",
+        "options": [
+          "vor",
+          "für",
+          "von"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das ist ein Geschenk ____ meiner Mutter. (from)",
+        "options": [
+          "aus",
+          "bei",
+          "seit"
+        ]
+      },
+      {
+        "sentence": "Ich gehe ____ Arzt. (zu + dem)",
+        "options": [
+          "beim",
+          "zur",
+          "nach"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Er kommt gerade ____ dem Haus. (out of)",
+        "options": [
+          "bei",
+          "mit",
+          "seit"
+        ]
+      },
+      {
+        "sentence": "Ich kaufe Brot ____ Bäcker. (bei + dem)",
+        "options": [
+          "zum",
+          "im",
+          "bei"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Sie spricht ____ ihrer Freundin. (with)",
+        "options": [
+          "aus",
+          "nach",
+          "seit"
+        ]
+      },
+      {
+        "sentence": "Wir fahren morgen ____ Berlin. (to a city)",
+        "options": [
+          "zu",
+          "bei",
+          "an"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ Montag bin ich krank. (since)",
+        "options": [
+          "Vor",
+          "Von",
+          "Für"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Brot ist frisch ____ Bäcker. (von + dem)",
+        "options": [
+          "zum",
+          "aus",
+          "von"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich bringe die Kinder ____ Schule. (zu + der)",
+        "options": [
+          "zum",
+          "nach",
+          "beim"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Apotheke liegt ____ dem Bahnhof. (opposite)",
+        "options": [
+          "gegen",
+          "über",
+          "entgegen"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Sie wohnt ____ drei Monaten in Hamburg. (since/for)",
+        "acceptedAnswers": [
+          "seit"
+        ],
+        "english": "She has been living in Hamburg for three months.",
+        "subjectKey": "s11",
+        "categoryLabel": "Dativpräposition",
+        "options": [
+          "vor",
+          "für",
+          "von"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_temporal_2",
+    "sentences": [
+      {
+        "sentence": "Ich wohne ____ zwei Jahren in Berlin.",
+        "options": [
+          "vor",
+          "für",
+          "ab"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ zwei Jahren war ich in Rom.",
+        "options": [
+          "In",
+          "Für",
+          "Ab"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ dem Kurs gehen wir essen.",
+        "options": [
+          "Für",
+          "Bis",
+          "Um"
+        ]
+      },
+      {
+        "sentence": "____ einer Woche habe ich Urlaub.",
+        "options": [
+          "Vor",
+          "Für",
+          "Ab"
+        ]
+      },
+      {
+        "sentence": "Ich fahre ____ eine Woche nach Wien.",
+        "options": [
+          "seit",
+          "vor",
+          "in"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir haben ____ eine Stunde gewartet.",
+        "options": [
+          "seit",
+          "vor",
+          "ab"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Bus kommt ____ acht und neun Uhr.",
+        "options": [
+          "von",
+          "ab",
+          "seit"
+        ]
+      },
+      {
+        "sentence": "____ Montag arbeite ich wieder.",
+        "options": [
+          "Von",
+          "Um",
+          "In"
+        ]
+      },
+      {
+        "sentence": "Sie lernt ____ 2015 Deutsch.",
+        "options": [
+          "vor",
+          "für",
+          "in"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ dem Frühstück gehe ich joggen.",
+        "options": [
+          "Bis",
+          "Um",
+          "Für"
+        ]
+      },
+      {
+        "sentence": "Der Zug ist ____ einer Stunde abgefahren.",
+        "options": [
+          "in",
+          "für",
+          "ab"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ achtzehn Uhr ist das Büro geschlossen.",
+        "options": [
+          "Von",
+          "Für",
+          "In"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ Ferien fahren wir weg. (in the, Pl.)",
+        "options": [
+          "Im Ferien",
+          "In der Ferien",
+          "An den Ferien"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ Montag ____ Freitag arbeite ich. (from … to)",
+        "options": [
+          "Von … zu",
+          "Seit … bis",
+          "Ab … zu"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich komme ____ acht. (around)",
+        "options": [
+          "über",
+          "seit",
+          "für"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Wir kennen uns schon ____ zwanzig Jahren.",
+        "acceptedAnswers": [
+          "seit"
+        ],
+        "english": "We've known each other for twenty years.",
+        "subjectKey": "s0",
+        "categoryLabel": "Präposition",
+        "options": [
+          "vor",
+          "für",
+          "ab"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich habe ihm ____ drei Tagen eine Mail geschrieben, aber er antwortet nicht.",
+        "acceptedAnswers": [
+          "vor"
+        ],
+        "english": "I emailed him three days ago, but he isn't answering.",
+        "subjectKey": "s1",
+        "categoryLabel": "Präposition",
+        "options": [
+          "seit",
+          "für",
+          "in"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ einem Monat ist das neue Café offen.",
+        "acceptedAnswers": [
+          "Seit"
+        ],
+        "english": "The new café has been open for a month.",
+        "subjectKey": "s0",
+        "categoryLabel": "Präposition",
+        "options": [
+          "Vor",
+          "Für",
+          "Ab"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_woher_wo_wohin",
+    "sentences": [
+      {
+        "sentence": "Heute Abend gehen wir ____. (Kino)",
+        "options": [
+          "im Kino",
+          "in den Kino",
+          "nach Kino"
+        ]
+      },
+      {
+        "sentence": "Wo bist du? – Ich bin noch ____. (Kino)",
+        "options": [
+          "ins Kino",
+          "in der Kino",
+          "zum Kino"
+        ]
+      },
+      {
+        "sentence": "Ich komme gerade ____. (Café)",
+        "options": [
+          "im Café",
+          "ins Café",
+          "aus der Café"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Kommst du mit ____? (Café)",
+        "options": [
+          "im Café",
+          "in die Café",
+          "nach Café"
+        ]
+      },
+      {
+        "sentence": "Die Kinder sind bis 13 Uhr ____. (Schule)",
+        "options": [
+          "in die Schule",
+          "im Schule",
+          "zur Schule"
+        ]
+      },
+      {
+        "sentence": "Um eins kommen die Kinder ____. (Schule)",
+        "options": [
+          "in der Schule",
+          "aus die Schule",
+          "vom Schule"
+        ]
+      },
+      {
+        "sentence": "Ich gehe schnell ____, wir haben kein Brot. (Supermarkt)",
+        "options": [
+          "im Supermarkt",
+          "in die Supermarkt",
+          "beim Supermarkt"
+        ]
+      },
+      {
+        "sentence": "Papa ist ____ und kauft ein. (Supermarkt)",
+        "options": [
+          "in den Supermarkt",
+          "zum Supermarkt",
+          "in der Supermarkt"
+        ]
+      },
+      {
+        "sentence": "Ich habe Fieber, ich gehe ____. (Arzt)",
+        "options": [
+          "beim Arzt",
+          "zur Arzt",
+          "in den Arzt"
+        ]
+      },
+      {
+        "sentence": "Sie kommt gerade ____ und hat ein Rezept. (Arzt)",
+        "options": [
+          "beim Arzt",
+          "aus dem Arzt",
+          "von der Arzt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir sind am Samstag ____. (Anna)",
+        "options": [
+          "nach Anna",
+          "von Anna",
+          "an Anna"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Nach der Schule gehe ich ____. (Anna)",
+        "options": [
+          "bei Anna",
+          "von Anna",
+          "an Anna"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Er kommt jeden Dienstag müde ____. (Sport)",
+        "options": [
+          "beim Sport",
+          "aus dem Sport",
+          "von Sport"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Meine Mutter ist noch ____. (Arbeit)",
+        "options": [
+          "zur Arbeit",
+          "bei die Arbeit",
+          "von der Arbeit"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Um sieben fahre ich ____. (Arbeit)",
+        "options": [
+          "zum Arbeit",
+          "bei der Arbeit",
+          "nach Arbeit"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Nächste Woche fahren wir ____. (Berlin)",
+        "options": [
+          "zu Berlin",
+          "ins Berlin",
+          "an Berlin"
+        ]
+      },
+      {
+        "sentence": "Mein Chef kommt ____. (Berlin)",
+        "options": [
+          "in Berlin",
+          "aus dem Berlin",
+          "bei Berlin"
+        ]
+      },
+      {
+        "sentence": "Im Winter fahren wir ____. (Schweiz)",
+        "options": [
+          "nach Schweiz",
+          "in Schweiz",
+          "zur Schweiz"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Meine Tante wohnt ____. (Schweiz)",
+        "options": [
+          "in die Schweiz",
+          "in Schweiz",
+          "nach Schweiz"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Es ist spät, ich fahre jetzt ____. (Haus)",
+        "options": [
+          "zu Hause",
+          "zum Hause",
+          "in Hause"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Am Sonntag bleiben wir ____. (Haus)",
+        "options": [
+          "nach Hause",
+          "bei Hause",
+          "in Hause"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Bus fährt ____. (Bahnhof)",
+        "options": [
+          "nach Bahnhof",
+          "zur Bahnhof",
+          "zu den Bahnhof"
+        ]
+      },
+      {
+        "sentence": "Ich warte ____ auf dich. (Bahnhof)",
+        "options": [
+          "zum Bahnhof",
+          "an den Bahnhof",
+          "in den Bahnhof"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Sie sitzt ____ und trinkt Tee. (Café)",
+        "options": [
+          "ins Café",
+          "in der Café",
+          "zum Café"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_pronomen_dativ",
+    "sentences": [
+      {
+        "sentence": "Kannst du ____ helfen? (me)",
+        "options": [
+          "mich",
+          "ich",
+          "mein"
+        ]
+      },
+      {
+        "sentence": "Ich gebe ____ das Buch. (you, informal)",
+        "options": [
+          "dich",
+          "du",
+          "dein"
+        ],
+        "keepCue": true
+      },
+      {
+        "sentence": "Das Auto gehört ____. (him)",
+        "options": [
+          "ihn",
+          "er",
+          "sein"
+        ]
+      },
+      {
+        "sentence": "Wie geht es ____? (her)",
+        "options": [
+          "sie",
+          "ihre",
+          "ihrer"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Können Sie ____ den Weg zeigen? (us)",
+        "options": [
+          "wir",
+          "unser",
+          "unsere"
+        ]
+      },
+      {
+        "sentence": "Wie geht es ____, Herr Müller? (you, formal)",
+        "options": [
+          "Sie",
+          "Ihre",
+          "Ihrer"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich danke ____ für die Hilfe. (you, plural)",
+        "options": [
+          "euer",
+          "eure",
+          "euren"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Geschenk gefällt ____. (them)",
+        "options": [
+          "sie",
+          "ihre",
+          "ihren"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Hund hat Hunger — gib ____ das Futter! (it: der Hund)",
+        "options": [
+          "ihn",
+          "er",
+          "es"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Rock gefällt ____ nicht. (me)",
+        "options": [
+          "mich",
+          "ich",
+          "mein"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich schreibe ____ eine E-Mail. (you, informal)",
+        "options": [
+          "dich",
+          "du",
+          "dein"
+        ],
+        "keepCue": true
+      },
+      {
+        "sentence": "Die Tasche gehört ____. (her)",
+        "options": [
+          "sie",
+          "ihre",
+          "ihrer"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Schmeckt ____ die Suppe? (you, plural)",
+        "options": [
+          "euer",
+          "eure",
+          "euren"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich zeige ____ die Stadt. (them)",
+        "options": [
+          "sie",
+          "ihre",
+          "ihren"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Kann ich ____ helfen, Frau Braun? (you, formal)",
+        "options": [
+          "Sie",
+          "Ihren",
+          "Ihre"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Die Hose passt ____ nicht. (him)",
+        "acceptedAnswers": [
+          "ihm"
+        ],
+        "english": "The trousers don't fit him.",
+        "subjectKey": "s2",
+        "categoryLabel": "Dativ",
+        "options": [
+          "ihn",
+          "er",
+          "sein"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir gratulieren ____ zur Hochzeit! (you, plural)",
+        "acceptedAnswers": [
+          "euch"
+        ],
+        "english": "Congratulations to you (all) on your wedding!",
+        "subjectKey": "s6",
+        "categoryLabel": "Dativ",
+        "options": [
+          "euer",
+          "eure",
+          "euren"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Gehört das Handy ____, Herr Klein? (you, formal)",
+        "acceptedAnswers": [
+          "Ihnen"
+        ],
+        "english": "Does the phone belong to you, Mr Klein?",
+        "subjectKey": "s5",
+        "categoryLabel": "Dativ",
+        "options": [
+          "Sie",
+          "Ihren",
+          "Ihre"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_dativ_akkusativ",
+    "sentences": [
+      {
+        "sentence": "Ich gebe ____."
+      },
+      {
+        "sentence": "Den Garten? Sie zeigt ____ den Gästen. (it)",
+        "options": [
+          "ihm",
+          "es",
+          "er"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir schicken ____.",
+        "hard": true
+      },
+      {
+        "sentence": "Die Blumen? Er schenkt ____ seiner Mutter. (them)",
+        "options": [
+          "ihnen",
+          "ihr",
+          "es"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Buch? Ich bringe ____ morgen.",
+        "hard": true
+      },
+      {
+        "sentence": "Kannst du ____ den Stift leihen? (ich)",
+        "options": [
+          "mich",
+          "ich",
+          "mein"
+        ]
+      },
+      {
+        "sentence": "Ich erkläre es ____. (du)",
+        "options": [
+          "dich",
+          "du",
+          "dein"
+        ]
+      },
+      {
+        "sentence": "Sie empfiehlt ____ den Film. (er)",
+        "options": [
+          "ihn",
+          "er",
+          "sein"
+        ]
+      },
+      {
+        "sentence": "Das Buch? Ich gebe es ____. (sie, she)",
+        "options": [
+          "sie",
+          "ihre",
+          "ihrer"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir erzählen ____.",
+        "hard": true
+      },
+      {
+        "sentence": "Das Fahrrad? Er kauft ____ zum Geburtstag.",
+        "hard": true
+      },
+      {
+        "sentence": "Ich wünsche ____ einen schönen Tag. (Sie)",
+        "options": [
+          "Sie",
+          "Ihren",
+          "Ihre"
+        ]
+      },
+      {
+        "sentence": "Ich leihe ____.",
+        "hard": true
+      },
+      {
+        "sentence": "Sie schickt ____.",
+        "hard": true
+      },
+      {
+        "sentence": "Wir bringen ____ morgen.",
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Die Tasche? Ich schenke ____ meiner Schwester. (it)",
+        "acceptedAnswers": [
+          "sie"
+        ],
+        "english": "The bag? I'm giving it to my sister.",
+        "subjectKey": "s3",
+        "categoryLabel": "Reihenfolge & Pronomen",
+        "options": [
+          "es",
+          "ihr",
+          "ihn"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Den Schlüssel? Ich gebe ihn ____ morgen. (du)",
+        "acceptedAnswers": [
+          "dir"
+        ],
+        "english": "The key? I'll give it to you tomorrow.",
+        "subjectKey": "s6",
+        "categoryLabel": "Reihenfolge & Pronomen",
+        "options": [
+          "dich",
+          "du",
+          "dein"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Kannst du ____ bitte das Salz geben? (wir)",
+        "acceptedAnswers": [
+          "uns"
+        ],
+        "english": "Can you pass us the salt, please?",
+        "subjectKey": "s5",
+        "categoryLabel": "Reihenfolge & Pronomen",
+        "options": [
+          "unser",
+          "wir",
+          "unsere"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_war_hatte",
+    "sentences": [
+      {
+        "sentence": "Gestern ____ ich krank. (sein, ich)",
+        "options": [
+          "bin",
+          "hatte",
+          "waren"
+        ]
+      },
+      {
+        "sentence": "____ du gestern zu Hause? (sein, du)",
+        "options": [
+          "War",
+          "Wart",
+          "Bist"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Essen ____ sehr gut. (sein, es)",
+        "options": [
+          "waren",
+          "hatte",
+          "wart"
+        ]
+      },
+      {
+        "sentence": "Wir ____ im Urlaub. (sein, wir)",
+        "options": [
+          "wart",
+          "war",
+          "hatten"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich ____ keine Zeit. (haben, ich)",
+        "options": [
+          "hat",
+          "hattest",
+          "war"
+        ]
+      },
+      {
+        "sentence": "Meine Oma ____ einen Hund. (haben)",
+        "options": [
+          "hattet",
+          "hattest",
+          "war"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir ____ viel Spaß. (haben, wir)",
+        "options": [
+          "hattet",
+          "hatte",
+          "waren"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wo ____ ihr im Sommer? (sein, ihr)",
+        "options": [
+          "waren",
+          "warst",
+          "hattet"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ du gestern Zeit? (haben, du)",
+        "options": [
+          "Hattet",
+          "Hatte",
+          "Warst"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Er ____ gestern nicht im Büro. (sein, er)",
+        "options": [
+          "hatte",
+          "waren",
+          "warst"
+        ]
+      },
+      {
+        "sentence": "Meine Eltern ____ ein kleines Haus. (haben, sie Pl.)",
+        "options": [
+          "hattet",
+          "hatte",
+          "waren"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ ihr Hunger? (haben, ihr)",
+        "options": [
+          "Wart",
+          "Hatten",
+          "Hattest"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Als Kind ____ ich viele Freunde. (haben, ich)",
+        "options": [
+          "hattet",
+          "war",
+          "hatten"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Party ____ super. (sein, sie Sg.)",
+        "options": [
+          "waren",
+          "hatte",
+          "wart"
+        ]
+      },
+      {
+        "sentence": "____ Sie schon in Wien, Herr Braun? (sein, Sie)",
+        "options": [
+          "Wart",
+          "Warst",
+          "Hatten"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Warum ____ du gestern so schlechte Laune? (haben, du)",
+        "acceptedAnswers": [
+          "hattest"
+        ],
+        "english": "Why were you in such a bad mood yesterday?",
+        "subjectKey": "s8",
+        "categoryLabel": "Präteritum",
+        "options": [
+          "warst",
+          "hattet",
+          "hatte"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ ihr schon einmal in Hamburg? (sein, ihr)",
+        "acceptedAnswers": [
+          "Wart"
+        ],
+        "english": "Have you (all) ever been to Hamburg?",
+        "subjectKey": "s7",
+        "categoryLabel": "Präteritum",
+        "options": [
+          "Waren",
+          "Warst",
+          "Hattet"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Letzten Winter ____ wir kein Glück mit dem Wetter. (haben, wir)",
+        "acceptedAnswers": [
+          "hatten"
+        ],
+        "english": "Last winter we had no luck with the weather.",
+        "subjectKey": "s6",
+        "categoryLabel": "Präteritum",
+        "options": [
+          "hattet",
+          "waren",
+          "hatte"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_bigtext_wochenende",
+    "blanks": [
+      {
+        "index": 0,
+        "options": [
+          "bin",
+          "hat",
+          "war"
+        ]
+      },
+      {
+        "index": 1,
+        "options": [
+          "habe",
+          "ist",
+          "hat"
+        ]
+      },
+      {
+        "index": 2,
+        "options": [
+          "den",
+          "der",
+          "die"
+        ]
+      },
+      {
+        "index": 3,
+        "options": [
+          "ist",
+          "war",
+          "haben"
+        ]
+      },
+      {
+        "index": 4,
+        "options": [
+          "haben",
+          "seid",
+          "hat"
+        ]
+      },
+      {
+        "index": 5,
+        "options": [
+          "die",
+          "dem",
+          "den"
+        ]
+      },
+      {
+        "index": 6,
+        "options": [
+          "bin",
+          "hat",
+          "war"
+        ]
+      },
+      {
+        "index": 7,
+        "options": [
+          "ist",
+          "habe",
+          "war"
+        ]
+      },
+      {
+        "index": 8,
+        "options": [
+          "den",
+          "der",
+          "das"
+        ]
+      },
+      {
+        "index": 9,
+        "options": [
+          "haben",
+          "seid",
+          "hat"
+        ]
+      },
+      {
+        "index": 10,
+        "options": [
+          "hatte",
+          "waren",
+          "wart"
+        ]
+      },
+      {
+        "index": 11,
+        "options": [
+          "habe",
+          "ist",
+          "hat"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_wetter",
+    "sentences": [
+      {
+        "sentence": "Im April ____ es oft. (rains)",
+        "options": [
+          "regnen",
+          "regnt",
+          "regent"
+        ]
+      },
+      {
+        "sentence": "Im Winter ____ es. (snows)",
+        "options": [
+          "schneint",
+          "schneien",
+          "schneet"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Heute ist es sehr ____. (sunny → die Sonne scheint)",
+        "options": [
+          "sonnisch",
+          "sonnenig",
+          "sonnlich"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Im ____ fallen die Blätter. (autumn)",
+        "options": [
+          "Frühling",
+          "Sommer",
+          "Mai"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Im ____ ist es heiß. (summer)",
+        "options": [
+          "Winter",
+          "Herbst",
+          "Januar"
+        ]
+      },
+      {
+        "sentence": "Es ist kalt und ____. (windy)",
+        "options": [
+          "windisch",
+          "windlich",
+          "gewindet"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Im ____ werden die Bäume wieder grün. (spring)",
+        "options": [
+          "Herbst",
+          "Winter",
+          "Frühlings"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Im ____ ist es kalt und dunkel. (winter)",
+        "options": [
+          "Sommer",
+          "Frühling",
+          "Juli"
+        ]
+      },
+      {
+        "sentence": "Der Himmel ist grau und ____. (cloudy)",
+        "options": [
+          "bewolkt",
+          "wolkenig",
+          "bewölkig"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Heute sind viele ____ am Himmel. (clouds)",
+        "options": [
+          "Wolke",
+          "Wolkes",
+          "Wölken"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Es sind heute dreißig ____. (degrees)",
+        "options": [
+          "Grade",
+          "Grads",
+          "Gräder"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Es regnet — ich brauche einen ____. (umbrella)",
+        "options": [
+          "Schirmregen",
+          "Regenschirme",
+          "Sonnenschirm"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Nur zwei Grad — es ist sehr ____. (cold)",
+        "options": [
+          "warm",
+          "heiß",
+          "kälter"
+        ]
+      },
+      {
+        "sentence": "Im Juli ist es oft ____. (hot)",
+        "options": [
+          "kalt",
+          "heißt",
+          "eisig"
+        ]
+      },
+      {
+        "sentence": "Es gibt ein ____ mit Blitz und Donner. (thunderstorm)",
+        "options": [
+          "Gewetter",
+          "Gewittern",
+          "Gewitters"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Im Oktober wird es langsam ____. (colder)",
+        "acceptedAnswers": [
+          "kälter",
+          "kaelter"
+        ],
+        "english": "In October it slowly gets colder.",
+        "subjectKey": "s12",
+        "categoryLabel": "Wetter",
+        "options": [
+          "kalter",
+          "kälterer",
+          "kältere"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Heute ist es ____: Man sieht kaum zehn Meter. (foggy)",
+        "acceptedAnswers": [
+          "neblig",
+          "nebelig"
+        ],
+        "english": "Today it is foggy: you can hardly see ten metres.",
+        "subjectKey": "s8",
+        "categoryLabel": "Wetter",
+        "options": [
+          "nebelisch",
+          "genebelt",
+          "nebig"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Im Norden ist es oft kälter als im ____. (south)",
+        "acceptedAnswers": [
+          "Süden",
+          "Sueden"
+        ],
+        "english": "In the north it is often colder than in the south.",
+        "subjectKey": "s12",
+        "categoryLabel": "Wetter",
+        "options": [
+          "Süd",
+          "Südens",
+          "Süde"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_komparativ",
+    "sentences": [
+      {
+        "sentence": "Ein Zug ist ____ als ein Bus. (schnell)",
+        "options": [
+          "schnellerer",
+          "mehr schnell",
+          "schnell"
+        ]
+      },
+      {
+        "sentence": "Mein Bruder ist ____ als ich. (alt)",
+        "options": [
+          "alter",
+          "älterer",
+          "mehr alt"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Berlin ist ____ als Bonn. (groß)",
+        "options": [
+          "großer",
+          "größerer",
+          "mehr groß"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Heute ist es ____ als gestern. (warm)",
+        "options": [
+          "warmer",
+          "wärmerer",
+          "mehr warm"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Dieses Buch ist ____ als der Film. (gut)",
+        "options": [
+          "guter",
+          "güter",
+          "mehr gut"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich trinke ____ Tee als Kaffee. (gern)",
+        "options": [
+          "gerner",
+          "mehr gern",
+          "lieb"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ein Fahrrad ist ____ als ein Auto. (langsam)",
+        "options": [
+          "langsämer",
+          "langsamerer",
+          "mehr langsam"
+        ]
+      },
+      {
+        "sentence": "Im Winter sind die Tage ____ als im Sommer. (kurz)",
+        "options": [
+          "kurzer",
+          "kürzerer",
+          "mehr kurz"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Meine Schwester ist ____ als ich. (jung)",
+        "options": [
+          "junger",
+          "jüngerer",
+          "mehr jung"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich esse ____ Obst als Süßigkeiten. (viel)",
+        "options": [
+          "vieler",
+          "mehrer",
+          "mehrere"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Kaffee ist ____ als Tee. (stark)",
+        "options": [
+          "starker",
+          "stärkerer",
+          "mehr stark"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Hotel ist ____ als die Jugendherberge. (teuer)",
+        "options": [
+          "mehr teuer",
+          "teurerer",
+          "teuer"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Mein neues Handy ist ____ als das alte. (leicht)",
+        "options": [
+          "leichterer",
+          "mehr leicht",
+          "leicht"
+        ]
+      },
+      {
+        "sentence": "Die Wohnung ist ____ als das Haus. (klein)",
+        "options": [
+          "kleinerer",
+          "mehr klein",
+          "klein"
+        ]
+      },
+      {
+        "sentence": "Im Sommer sind die Tage ____ als im Winter. (lang)",
+        "options": [
+          "langer",
+          "längerer",
+          "mehr lang"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Bei Regen fahre ich ____ mit dem Bus als mit dem Fahrrad. (gern)",
+        "acceptedAnswers": [
+          "lieber"
+        ],
+        "english": "When it rains I'd rather take the bus than cycle.",
+        "subjectKey": "s5",
+        "categoryLabel": "Komparativ",
+        "options": [
+          "gerner",
+          "mehr gern",
+          "liebster"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_welcher_dieser",
+    "sentences": [
+      {
+        "sentence": "____ Film läuft heute? (der)",
+        "options": [
+          "Welchen",
+          "Welches",
+          "Welche"
+        ]
+      },
+      {
+        "sentence": "____ hier, mit Tom Hanks. (der Film)",
+        "options": [
+          "Diesen",
+          "Dieses",
+          "Diese"
+        ],
+        "hard": true,
+        "keepCue": true
+      },
+      {
+        "sentence": "____ Tasche ist deine? (die)",
+        "options": [
+          "Welcher",
+          "Welches",
+          "Welchen"
+        ]
+      },
+      {
+        "sentence": "____ Tasche da. (die)",
+        "options": [
+          "Dieser",
+          "Dieses",
+          "Diesen"
+        ]
+      },
+      {
+        "sentence": "____ Buch möchtest du? (das, Akk)",
+        "options": [
+          "Welchen",
+          "Welcher",
+          "Welche"
+        ]
+      },
+      {
+        "sentence": "____ Mantel nimmst du? (der, Akk)",
+        "options": [
+          "Welcher",
+          "Welches",
+          "Welchem"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich fahre mit ____ Bruder. (mein)",
+        "options": [
+          "meinen",
+          "meiner",
+          "mein"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich fahre mit ____ Schwester. (meine)",
+        "options": [
+          "meinem",
+          "meine",
+          "meinen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich wohne bei ____ Eltern. (meine, Plural)",
+        "options": [
+          "meine",
+          "meinem",
+          "meiner"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Mit ____ Bus fährst du? (der)",
+        "options": [
+          "welchen",
+          "welcher",
+          "welches"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wir wohnen in ____ Haus. (das)",
+        "options": [
+          "diesen",
+          "dieses",
+          "dieser"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Das Geschenk ist von ____ Schwester. (deine)",
+        "options": [
+          "deinem",
+          "deine",
+          "deinen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ Bus fährt ins Zentrum? (which, m)",
+        "options": [
+          "Welchen",
+          "Welches",
+          "Welchem"
+        ]
+      },
+      {
+        "sentence": "Ich nehme ____ hier. (this one, m, Akk)",
+        "options": [
+          "dieser",
+          "dieses",
+          "diesem"
+        ],
+        "hard": true,
+        "keepCue": true
+      },
+      {
+        "sentence": "Mit ____ Zug fährst du? (which, m, Dat)",
+        "options": [
+          "welchen",
+          "welcher",
+          "welches"
+        ],
+        "hard": true
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Mit ____ Freundin warst du im Kino? (die)",
+        "acceptedAnswers": [
+          "welcher"
+        ],
+        "english": "Which friend did you go to the cinema with?",
+        "subjectKey": "s9",
+        "categoryLabel": "Artikelwort",
+        "options": [
+          "welche",
+          "welchem",
+          "welchen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Die Schlüssel sind in ____ Tasche. (deine)",
+        "acceptedAnswers": [
+          "deiner"
+        ],
+        "english": "The keys are in your bag.",
+        "subjectKey": "s11",
+        "categoryLabel": "Artikelwort",
+        "options": [
+          "deinem",
+          "deine",
+          "deinen"
+        ],
+        "hard": true
+      }
+    ]
+  },
+  {
+    "id": "quest_a2_1_indefinitpronomen",
+    "sentences": [
+      {
+        "sentence": "Hier darf ____ nicht rauchen. (one / you in general)",
+        "options": [
+          "Mann",
+          "niemand",
+          "alle"
+        ]
+      },
+      {
+        "sentence": "____ hat an der Tür geklingelt. (someone)",
+        "options": [
+          "Jemanden",
+          "Jemandem",
+          "Alle"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich habe angerufen, aber ____ war zu Hause. (no one)",
+        "options": [
+          "niemanden",
+          "alle",
+          "niemandem"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Möchtest du ____ trinken? (something)",
+        "options": [
+          "etwa",
+          "jemand",
+          "man"
+        ]
+      },
+      {
+        "sentence": "Ich habe heute noch ____ gegessen. (nothing)",
+        "options": [
+          "kein",
+          "keine",
+          "nie"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Am Samstag kommen ____ zur Party. (everyone)",
+        "options": [
+          "alles",
+          "jeder",
+          "man"
+        ]
+      },
+      {
+        "sentence": "Keine Sorge, ____ ist in Ordnung. (everything)",
+        "options": [
+          "alle",
+          "allen",
+          "aller"
+        ]
+      },
+      {
+        "sentence": "Gibt es ____ ____? (something new)",
+        "options": [
+          "etwas … Neue",
+          "etwas … Neuer",
+          "etwas … Neuen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Was machst du am Wochenende? – ____ ____. (nothing special)",
+        "options": [
+          "Nichts … Besondere",
+          "Nicht … Besonderes",
+          "Nichts … Besonderen"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Wie sagt ____ „sorry“ auf Deutsch? (you / people)",
+        "options": [
+          "Mann",
+          "alle",
+          "alles"
+        ]
+      },
+      {
+        "sentence": "Hat ____ meine Brille gesehen? (anyone)",
+        "options": [
+          "jemanden",
+          "jemandem",
+          "alle"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "In der neuen Stadt kenne ich noch ____. (no one, as object)",
+        "options": [
+          "niemandem",
+          "nicht",
+          "kein"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "____ Kinder spielen im Garten. (all)",
+        "options": [
+          "Alles",
+          "Allen",
+          "Jede"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Hast du ____ gehört? Es war so laut. (anything)",
+        "options": [
+          "etwa",
+          "man",
+          "kein"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Der Kühlschrank ist leer, wir haben ____ zu essen. (nothing)",
+        "options": [
+          "nicht",
+          "kein",
+          "keine"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "In Deutschland trennt ____ den Müll. (people in general)",
+        "options": [
+          "Mann",
+          "alle",
+          "alles"
+        ]
+      }
+    ],
+    "add": [
+      {
+        "sentence": "Ich habe dir ____ ____ mitgebracht! (something nice)",
+        "acceptedAnswers": [
+          "etwas … Schönes",
+          "was … Schönes"
+        ],
+        "english": "I've brought you something nice!",
+        "subjectKey": "s7",
+        "categoryLabel": "Indefinitpronomen",
+        "options": [
+          "etwas … Schöne",
+          "etwas … Schönen",
+          "etwas … Schöner"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Ich habe noch mit ____ darüber gesprochen. (no one)",
+        "acceptedAnswers": [
+          "niemandem",
+          "niemand"
+        ],
+        "english": "I haven't talked to anyone about it yet.",
+        "subjectKey": "s11",
+        "categoryLabel": "Indefinitpronomen",
+        "options": [
+          "niemanden",
+          "nicht",
+          "niemands"
+        ],
+        "hard": true
+      },
+      {
+        "sentence": "Im Kino darf ____ nicht laut telefonieren. (one / you in general)",
+        "acceptedAnswers": [
+          "man"
+        ],
+        "english": "You mustn't talk loudly on the phone in the cinema.",
+        "subjectKey": "s0",
+        "categoryLabel": "Indefinitpronomen",
+        "options": [
+          "Mann",
+          "alle",
+          "niemand"
+        ],
+        "hard": true
+      }
+    ]
+  }
+]

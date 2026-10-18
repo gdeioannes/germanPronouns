@@ -120,6 +120,128 @@ export function nextMedal(streak: number): { tier: RibbonTier; at: number } | nu
 	return null;
 }
 
+// -- The medal ladder -------------------------------------------------------
+//
+// A drill with difficulty steps earns its medals by step: pass a run — the
+// same RUN_PASS_MARK right of RUN_LENGTH that earns the done tick — on a
+// step, and that step's medal is yours. Bronze for the easiest way of
+// answering, gold for the one that leaves you no help. A medal once earned
+// is never taken back by playing an easier step. Only the flashcards climb
+// it so far; the others still count a streak of 8 / 16 / 24.
+
+/** Right answers on one step, within one run, that earn the step's medal. */
+export const LADDER_PASS = RUN_PASS_MARK;
+
+/** The rungs, easiest first, and the medal each one earns. */
+export const LADDER_TIERS = ['bronze', 'silver', 'gold'] as const satisfies readonly RibbonTier[];
+
+export interface LadderRecord {
+	/** Which steps have been passed, easiest first. */
+	won: [boolean, boolean, boolean];
+	/** The medal the old 8 / 16 / 24 rule had earned before the ladder came. */
+	legacy: RibbonTier | null;
+}
+
+export function emptyLadder(legacy: RibbonTier | null = null): LadderRecord {
+	return { won: [false, false, false], legacy };
+}
+
+const TIER_RANK: Record<RibbonTier, number> = { bronze: 0, silver: 1, gold: 2 };
+
+/**
+ * Whether step `step` has earned its medal: passed on its own, or covered by
+ * the medal the old rule had already given — an old bronze is the first
+ * step won, an old gold all three — so the switch never disagrees with it.
+ */
+export function ladderStepEarned(record: LadderRecord, step: number): boolean {
+	if (record.won[step]) return true;
+	return record.legacy !== null && TIER_RANK[record.legacy] >= step;
+}
+
+/** The best medal a ladder holds: its highest earned rung, or what it inherited. */
+export function ladderMedal(record: LadderRecord): RibbonTier | null {
+	let medal = record.legacy;
+	LADDER_TIERS.forEach((tier, step) => {
+		if (ladderStepEarned(record, step) && (!medal || TIER_RANK[tier] > TIER_RANK[medal])) medal = tier;
+	});
+	return medal;
+}
+
+/** The rung to open on: the easiest one still without its medal, else the top. */
+export function ladderStartStep(record: LadderRecord): number {
+	const open = LADDER_TIERS.findIndex((_, step) => !ladderStepEarned(record, step));
+	return open === -1 ? LADDER_TIERS.length - 1 : open;
+}
+
+/**
+ * A run passed on `step`. Returns the new record and the medal it earned —
+ * only the first time, so the celebration fires once per rung.
+ */
+export function recordLadderPass(
+	record: LadderRecord,
+	step: number
+): { record: LadderRecord; earned: RibbonTier | null } {
+	if (ladderStepEarned(record, step)) return { record, earned: null };
+	const won = [...record.won] as LadderRecord['won'];
+	won[step] = true;
+	return { record: { ...record, won }, earned: LADDER_TIERS[step] };
+}
+
+/**
+ * Reads a stored ladder, forgiving anything malformed. A ladder saved by the
+ * first, streak-based version counts a step whose best streak reached the
+ * pass mark as won.
+ */
+export function parseLadder(raw: unknown): LadderRecord | null {
+	const r = raw as { won?: unknown; best?: unknown; legacy?: unknown } | null;
+	if (!r || typeof r !== 'object') return null;
+	const at = (v: unknown, i: number) => (Array.isArray(v) ? v[i] : undefined);
+	const won = [0, 1, 2].map(
+		(i) => at(r.won, i) === true || Number(at(r.best, i)) >= LADDER_PASS
+	) as LadderRecord['won'];
+	const legacy =
+		typeof r.legacy === 'string' && r.legacy in TIER_RANK ? (r.legacy as RibbonTier) : null;
+	return { won, legacy };
+}
+
+// -- Score medals ------------------------------------------------------------
+//
+// The exercises judged by a score rather than climbed step by step — a
+// passage's questions, a dictation run, a spoken or written text the
+// learner's own AI scored — earn their medal by how well it went: bronze for
+// passing, silver for most of the way from there to full marks, gold for
+// full marks (or nearly, where an AI gives the score).
+
+const RANK: Record<RibbonTier, number> = { bronze: 0, silver: 1, gold: 2 };
+
+/** The better of two medals; either may be missing. */
+export function betterMedal(a: RibbonTier | null, b: RibbonTier | null): RibbonTier | null {
+	if (!a) return b;
+	if (!b) return a;
+	return RANK[a] >= RANK[b] ? a : b;
+}
+
+/**
+ * The medal a score earns. `pass` is the share that passes (2/3 for a
+ * passage, 8/10 for a run); silver is halfway from there to full marks;
+ * gold needs `gold` of it (all of it, unless an AI's score allows a margin).
+ */
+export function scoreMedal(score: number, total: number, pass: number, gold = 1): RibbonTier | null {
+	if (total <= 0) return null;
+	const share = score / total;
+	// A hair of tolerance, so 2 of 3 counts as the 2/3 it is.
+	const at = (mark: number) => share >= mark - 1e-9;
+	if (at(gold)) return 'gold';
+	if (at(pass + (1 - pass) / 2)) return 'silver';
+	if (at(pass)) return 'bronze';
+	return null;
+}
+
+/** A stored score medal, or null for anything else. */
+export function parseMedal(raw: unknown): RibbonTier | null {
+	return raw === 'bronze' || raw === 'silver' || raw === 'gold' ? raw : null;
+}
+
 /**
  * The Flutter build's completion rule for a drill: hold a streak of ten.
  * It wrote no completion set, so progress earned there is read from the

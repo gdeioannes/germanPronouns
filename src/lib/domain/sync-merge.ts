@@ -11,7 +11,16 @@
 // worksheet thought the learner could do nothing right.
 
 import { quizStatsKeys } from './keys';
-import { medalForStreak, type RibbonTier } from './progress';
+import {
+	betterMedal,
+	emptyLadder,
+	ladderMedal,
+	medalForStreak,
+	parseLadder,
+	parseMedal,
+	type LadderRecord,
+	type RibbonTier
+} from './progress';
 
 /** The whole persisted map: storage keys to their raw string values. */
 export type ProgressBlob = Record<string, string>;
@@ -59,7 +68,9 @@ const SUFFIX = (() => {
 		mistakes: k.mistakesByCase,
 		score: k.score,
 		bestStreakAbsolute: k.bestStreakAbsolute,
-		lastPlayed: k.lastPlayed
+		lastPlayed: k.lastPlayed,
+		ladder: k.ladder,
+		scoreMedal: k.scoreMedal
 	};
 })();
 
@@ -135,6 +146,28 @@ function mergeMistakes(a: string | undefined, b: string | undefined): string {
 	return JSON.stringify(merged);
 }
 
+const TIER_RANK: Record<RibbonTier, number> = { bronze: 0, silver: 1, gold: 2 };
+
+/**
+ * Two medal ladders into one: a step won on either device is won, and the
+ * frozen old medal is the better of the two. A ladder never loses a medal.
+ */
+function mergeLadder(a: string | undefined, b: string | undefined): string {
+	const left = parseLadder(parseJson(a)) ?? emptyLadder();
+	const right = parseLadder(parseJson(b)) ?? emptyLadder();
+	const legacy =
+		left.legacy && right.legacy
+			? TIER_RANK[left.legacy] >= TIER_RANK[right.legacy]
+				? left.legacy
+				: right.legacy
+			: (left.legacy ?? right.legacy);
+	const merged: LadderRecord = {
+		won: [0, 1, 2].map((i) => left.won[i] || right.won[i]) as LadderRecord['won'],
+		legacy
+	};
+	return JSON.stringify(merged);
+}
+
 function endsWithAny(key: string, suffixes: string[]): boolean {
 	return suffixes.some((suffix) => suffix && key.endsWith(suffix));
 }
@@ -163,6 +196,10 @@ function mergeValue(
 	}
 	if (key.endsWith(SUFFIX.runLog)) return mergeTimeline(local, remote, RUN_LOG_LIMIT);
 	if (key.endsWith(SUFFIX.mistakes)) return mergeMistakes(local, remote);
+	if (key.endsWith(SUFFIX.ladder)) return mergeLadder(local, remote);
+	if (key.endsWith(SUFFIX.scoreMedal)) {
+		return betterMedal(parseMedal(local), parseMedal(remote)) ?? local;
+	}
 
 	// Settings and saved selections: a preference, so newest write wins.
 	return preferRemote ? remote : local;
@@ -223,6 +260,22 @@ export function summariseProgress(blob: ProgressBlob): ProgressSummary {
 	const practised = new Set<string>();
 	let bestStreak = 0;
 	let lastActive = 0;
+	// One medal per exercise, the best it holds: a drill climbed by the ladder
+	// takes the ladder's (not the streak's), and a score medal counts too.
+	const laddered = new Set<string>();
+	const best = new Map<string, RibbonTier | null>();
+	const offer = (prefix: string, tier: RibbonTier | null) =>
+		best.set(prefix, betterMedal(best.get(prefix) ?? null, tier));
+	for (const [key, value] of Object.entries(blob)) {
+		if (key.endsWith(SUFFIX.ladder)) {
+			const prefix = key.slice(0, -SUFFIX.ladder.length);
+			laddered.add(prefix);
+			const ladder = parseLadder(parseJson(value));
+			offer(prefix, ladder ? ladderMedal(ladder) : null);
+		} else if (key.endsWith(SUFFIX.scoreMedal)) {
+			offer(key.slice(0, -SUFFIX.scoreMedal.length), parseMedal(value));
+		}
+	}
 
 	for (const [key, value] of Object.entries(blob)) {
 		if (key.endsWith(COMPLETION_SUFFIX)) {
@@ -234,8 +287,8 @@ export function summariseProgress(blob: ProgressBlob): ProgressSummary {
 		if (key.endsWith(SUFFIX.bestStreakAbsolute)) {
 			const streak = Number(value) || 0;
 			bestStreak = Math.max(bestStreak, streak);
-			const tier = medalForStreak(streak);
-			if (tier) medals[tier]++;
+			const prefix = key.slice(0, -SUFFIX.bestStreakAbsolute.length);
+			if (!laddered.has(prefix)) offer(prefix, medalForStreak(streak));
 			continue;
 		}
 		if (key.endsWith(SUFFIX.score)) {
@@ -254,6 +307,8 @@ export function summariseProgress(blob: ProgressBlob): ProgressSummary {
 			}
 		}
 	}
+
+	for (const tier of best.values()) if (tier) medals[tier]++;
 
 	return {
 		done: done.size,

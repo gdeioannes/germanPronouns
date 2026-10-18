@@ -15,8 +15,19 @@
 		results,
 		total,
 		streak,
-		best
-	}: { results: ('right' | 'wrong')[]; total: number; streak: number; best: number } = $props();
+		best,
+		showStreak = true
+	}: {
+		results: ('right' | 'wrong')[];
+		total: number;
+		streak: number;
+		best: number;
+		/**
+		 * False for a medal-ladder drill: the bar alone, and the streak left to
+		 * the praise and the medal's own moment.
+		 */
+		showStreak?: boolean;
+	} = $props();
 
 	const answered = $derived(results.length);
 
@@ -29,7 +40,7 @@
 	const next = $derived(nextMedal(streak));
 </script>
 
-<section class="tracker" aria-label="Your run">
+<section class="tracker" class:bar-only={!showStreak} aria-label="Your run">
 	<div class="run">
 		<span class="eyebrow tnum">Question {Math.min(answered + 1, total)} of {total} <span class="now-word" lang="de">· {nowWord}</span></span>
 		<div
@@ -54,6 +65,7 @@
 		</div>
 	</div>
 
+	{#if showStreak}
 	<div class="streak">
 		<span class="flame" class:hot={streak > 0} data-heat={heat(streak)}><Icon name="flame" size="1.1em" /></span>
 		<span class="value tnum" use:bumpOn={streak}>{streak}</span>
@@ -73,6 +85,7 @@
 		{#if medal}<RibbonBadge tier={medal} width={11} />{/if}
 		Best {best}
 	</span>
+	{/if}
 </section>
 
 <style>
@@ -91,6 +104,10 @@
 		border: 1px solid var(--line);
 		border-radius: var(--radius-sm);
 		background: var(--surface-alt);
+	}
+
+	.tracker.bar-only {
+		grid-template-areas: 'run run run';
 	}
 
 	.run {

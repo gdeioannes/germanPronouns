@@ -86,15 +86,25 @@ export interface WordRecord {
 
 export const EMPTY_WORD: WordRecord = { seen: 0, wrong: 0, streak: 0 };
 
-/** Correct answers in a row that clear a word from the weak deck. */
+/** The most right answers in a row a word ever needs to leave the weak deck. */
 export const CLEARED_STREAK = 3;
 
 /**
- * A word is weak when it has been missed and not yet answered right three
- * times in a row since. The weak deck is those words, most recent miss first.
+ * Right answers in a row that clear a word: as many as it has been missed,
+ * up to CLEARED_STREAK. One slip is fixed by one right answer; a word that
+ * keeps tripping the learner up has to be got right three times running.
+ */
+export function clearsNeeded(record: WordRecord): number {
+	return Math.min(Math.max(record.wrong, 1), CLEARED_STREAK);
+}
+
+/**
+ * A word is weak when it has been missed and not yet answered right enough
+ * times in a row since (see clearsNeeded). The weak deck is those words,
+ * most recent miss first.
  */
 export function isWeak(record: WordRecord): boolean {
-	return record.wrong > 0 && record.streak < CLEARED_STREAK;
+	return record.wrong > 0 && record.streak < clearsNeeded(record);
 }
 
 export function recordOutcome(

@@ -1,9 +1,10 @@
 <script lang="ts">
 	import type { QuestionRef } from '$lib/domain/forum';
-	// The fill-in-the-blank engine — 96 of the course's 214 exercises. Played
+	// The fill-in-the-blank engine — most of the course's exercises. Played
 	// in runs of RUN_LENGTH answers: the bar only fills, finishing a run marks
-	// the exercise done, and the streak (with its medals) runs across runs and
-	// visits (see domain/progress.ts).
+	// the exercise done. The medals come from the ladder above the sentence
+	// (domain/fillLadder.ts): pass a run choosing the answer, typing it with
+	// its cue, or typing it with no help at all, for bronze, silver and gold.
 	//
 	// Ported from lib/widgets/quiz_page.dart. The interaction is the Dart one:
 	//
@@ -29,21 +30,19 @@
 	import GermanText from '../GermanText.svelte';
 	import { BLANK, canonicalGapAnswer, gapCount, matchesGaps } from '$lib/domain/answers';
 	import { filledSentence, fillBlankPool, revealedParts } from '$lib/domain/spoken';
-	import { joinTiles, tileBank, type Tile } from '$lib/domain/tiles';
+	import { answerTileIds, joinTiles, tileBank, type Tile } from '$lib/domain/tiles';
+	import { choicesFor, goldSentence, stepPool } from '$lib/domain/fillLadder';
+	import { splitGapAnswer } from '$lib/domain/answers';
+	import { LadderRun } from '$lib/state/ladderRun.svelte';
+	import MedalLadder from './MedalLadder.svelte';
 	import { tick, untrack } from 'svelte';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
-	import {
-		medalAnnouncement,
-		RUN_LENGTH,
-		runPassed,
-		STREAK_LAP_SIZE,
-		type RibbonTier
-	} from '$lib/domain/progress';
+	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE } from '$lib/domain/progress';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
 	import { freshen, prefersReducedMotion } from '$lib/motion';
-	import { celebrateMedal, react, shakeOn } from '$lib/motion/fx.svelte';
+	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import RunSummary from './RunSummary.svelte';
 	import RunTracker from './RunTracker.svelte';
 	import type { FillBlankQuiz, QuizSentence } from '$lib/content/types';
@@ -53,7 +52,8 @@
 		locale,
 		onAnswer,
 		onRunFinished,
-		onQuestion
+		onQuestion,
+		onTryAgain
 	}: {
 		quiz: FillBlankQuiz;
 		locale: string;
@@ -62,30 +62,47 @@
 		onRunFinished: (passed: boolean) => void;
 		/** The sentence on screen, for "Report a problem". */
 		onQuestion?: (q: QuestionRef | null) => void;
+		/** Starts a fresh run, as the finish bar's "Try again" does. */
+		onTryAgain?: () => void;
 	} = $props();
 
+	/** The ladder, easiest first: the step's index is its medal's. */
+	const STEPS = [
+		{ label: 'Choose', hint: 'pick the answer from four.' },
+		{ label: 'Type', hint: 'type it, with the word in brackets to help.' },
+		{ label: 'No help', hint: 'type it with no brackets and no hint, on the harder sentences.' }
+	];
+	const run = new LadderRun(untrack(() => quiz.storageKeyPrefix), STEPS);
+	/** The step in play: 0 choose, 1 type, 2 no help. */
+	const step = $derived(run.step as 0 | 1 | 2);
+
 	// Built once: the page is keyed by quiz id, so a new quiz mounts a new component.
-	const pool = untrack(() => fillBlankPool(quiz));
-	const bag: QuizSentence[] = [];
+	const allSentences = untrack(() => fillBlankPool(quiz));
+	/** What the step draws on: the hard sentences for "no help", else the whole drill. */
+	const pool = $derived(stepPool(allSentences, step));
+	let bag: QuizSentence[] = [];
+	let bagStep = untrack(() => run.step);
 	/** Sentences missed this run, replayed before the run moves on. */
 	let retry: QuizSentence[] = [];
 	let sinceRetry = 0;
 
 	/** Where this run saves its place, so leaving mid-run costs nothing. */
-	type Spot = { results: ('right' | 'wrong')[]; bestInRun: number };
+	type Spot = { results: ('right' | 'wrong')[]; bestInRun: number; stepRight?: number[] };
 
 	// The first question is chosen up front rather than in an effect, so the
 	// prerendered page already shows a real sentence instead of an empty card.
 	// Raw, not deep state: the shuffle bag compares by identity, and a proxy
 	// never equals the pool's own object.
-	let current = $state.raw<QuizSentence | undefined>(pool[0]);
+	let current = $state.raw<QuizSentence | undefined>(untrack(() => pool[0]));
 	let started = false;
 
 	// The sentence's place in the authored pool, so a report names one line of
 	// content rather than its (shuffled) turn in the run.
 	$effect(() => {
 		const c = current;
-		onQuestion?.(c ? { number: pool.indexOf(c) + 1, total: pool.length, text: c.sentence } : null);
+		onQuestion?.(
+			c ? { number: allSentences.indexOf(c) + 1, total: allSentences.length, text: c.sentence } : null
+		);
 	});
 	/**
 	 * What the learner has typed, one entry per gap. Most sentences have one
@@ -108,7 +125,6 @@
 	const answered = $derived(results.length);
 	const right = $derived(results.filter((r) => r === 'right').length);
 	let bestInRun = $state(0);
-	let earned = $state<RibbonTier | null>(null);
 	let missed = $state<string[]>([]);
 	let runDone = $state(false);
 	let inputEls = $state<HTMLInputElement[]>([]);
@@ -119,10 +135,26 @@
 
 	const locked = $derived(verdict !== null);
 
-	/** A word-order item: built from tiles, not typed. */
-	const tiled = $derived(!!current?.tiles?.length);
-	/** The tiles on offer, in their seeded order (stable from prerender to hydration). */
-	let bank = $state.raw<Tile[]>(pool[0] ? tileBank(pool[0]) : []);
+	/** A word-order item: built from tiles, not typed — except with no help, where it is typed. */
+	const tiled = $derived(!!current?.tiles?.length && step < 2);
+	/** The choose step on an ordinary item: four answers to pick from. */
+	const choosing = $derived(step === 0 && !tiled);
+	/** The four choices, in a seeded order. */
+	const choices = $derived(current && choosing ? choicesFor(current, allSentences) : []);
+	let chosen = $state<string | null>(null);
+
+	/**
+	 * The tiles on offer, in their seeded order (stable from prerender to
+	 * hydration). The choose step offers only the ones the answer needs.
+	 */
+	function bankFor(item: QuizSentence | undefined, onStep: number): Tile[] {
+		if (!item?.tiles?.length) return [];
+		const tiles = tileBank(item);
+		if (onStep !== 0) return tiles;
+		const needed = answerTileIds(item);
+		return tiles.filter((t) => needed.has(t.id));
+	}
+	let bank = $state.raw<Tile[]>(untrack(() => bankFor(pool[0], run.step)));
 	/** Ids of the tiles placed in the gap, in order. */
 	let built = $state<number[]>([]);
 	let bankEls = $state<HTMLButtonElement[]>([]);
@@ -155,9 +187,23 @@
 	 * (or moves on), Backspace takes the last tile back, 1–9 place a tile.
 	 */
 	function onTileKey(event: KeyboardEvent) {
-		if (!tiled || event.ctrlKey || event.metaKey || event.altKey) return;
+		if (!(tiled || choosing) || event.ctrlKey || event.metaKey || event.altKey) return;
 		const target = event.target as HTMLElement | null;
 		if (target?.closest('input, textarea, select, [contenteditable="true"], dialog')) return;
+		if (choosing) {
+			// 1–4 pick a choice; Enter moves on once it is answered.
+			if (event.key === 'Enter' && locked && !event.repeat) {
+				event.preventDefault();
+				skip?.();
+			} else if (/^[1-4]$/.test(event.key) && !locked) {
+				const option = choices[Number(event.key) - 1];
+				if (option) {
+					event.preventDefault();
+					pick(option);
+				}
+			}
+			return;
+		}
 		if (event.key === 'Enter') {
 			// Enter on a tile places it — the button's own click does that.
 			if (!locked && target?.closest('.tile')) return;
@@ -186,10 +232,15 @@
 	const subject = $derived.by(() => {
 		// A word-order item's subject ("weil … bin") would say where the verb goes.
 		if (!current || tiled) return null;
+		// With no help, the subject is a cue like the bracket, and goes with it.
+		if (step === 2 && !current.keepCue) return null;
 		const found = quiz.subjects?.find((s) => s.key === current!.subjectKey);
 		if (!found) return null;
 		return current.sentence.includes(found.display) ? null : found.display;
 	});
+
+	/** The sentence as this step shows it: with no help, its trailing cue is gone. */
+	const shown = $derived(current ? (step === 2 ? goldSentence(current) : current.sentence) : '');
 
 	/** How many gaps the current sentence has. */
 	const gaps = $derived(current ? Math.max(1, gapCount(current.sentence)) : 1);
@@ -200,7 +251,7 @@
 	 * each gap so the answer is typed where the word belongs.
 	 */
 	const segments = $derived.by(() => {
-		const text = current?.sentence ?? '';
+		const text = shown;
 		const split = text.split(BLANK);
 		return split.length > 1 ? split : [text, ''];
 	});
@@ -219,9 +270,10 @@
 		return Math.max((answers[gap] ?? '').length + 1, (canonicalParts[gap] ?? '').length, 6);
 	}
 
-	/** The first-letter hint, pre-filled into every gap. */
+	/** The first-letter hint, pre-filled into every gap — on the "type" step only. */
 	function hintFill(): string[] {
 		if (tiled) return [''];
+		if (step !== 1) return new Array(gaps).fill('');
 		return canonicalParts.map((part) => (progress.showFirstLetterHint ? part.charAt(0) : ''));
 	}
 
@@ -238,6 +290,13 @@
 
 	function next() {
 		if (pool.length === 0) return;
+		// A step with its own pool (no help draws on the hard sentences) starts
+		// its own cycle; a missed sentence from the other pool is let go.
+		if (bagStep !== step) {
+			bag = [];
+			retry = retry.filter((s) => pool.includes(s));
+			bagStep = step;
+		}
 		// A missed sentence comes back after two others, so the correction is
 		// still fresh but not the very next thing on screen.
 		if (retry.length && sinceRetry >= 2 && retry[0] !== current) {
@@ -247,15 +306,16 @@
 			current = drawFromShuffleBag(bag, pool, { avoidRepeat: current });
 			sinceRetry++;
 		}
-		bank = current ? tileBank(current) : [];
+		bank = bankFor(current, step);
 		built = [];
+		chosen = null;
 		// The first-letter hint pre-fills the gap rather than sitting beside it.
 		answers = hintFill();
 		verdict = null;
 		fixes = [];
 		// The bank is re-rendered for the new item before its first tile can take focus.
 		if (tiled) tick().then(() => bankEls[0]?.focus());
-		else inputEls[0]?.focus();
+		else if (!choosing) inputEls[0]?.focus();
 	}
 
 	$effect(() => {
@@ -280,11 +340,16 @@
 				const stats = await progress.statsFor(quiz.storageKeyPrefix);
 				streak = stats.streak;
 				best = stats.bestStreakAbsolute;
+				const before = run.step;
+				await run.open();
+				// Opened on another step than the page was drawn for: deal for it.
+				if (run.step !== before && !locked) next();
 				const spot = await loadSpot<Spot>(quiz.storageKeyPrefix);
 				const saved = Array.isArray(spot?.results) ? spot.results : [];
 				if (saved.length > 0 && saved.length < RUN_LENGTH) {
 					results = saved.filter((r) => r === 'right' || r === 'wrong');
 					bestInRun = spot?.bestInRun ?? 0;
+					run.restore(spot?.stepRight);
 				}
 			})();
 		});
@@ -345,6 +410,9 @@
 		const lapCompleted = correct && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
 		best = stats.bestStreakAbsolute;
+		// The ladder: the LADDER_PASSth right answer on a step in this run
+		// passes it and, the first time, earns its medal — celebrated now.
+		const medalWon = correct ? await run.right(true) : null;
 		results = [...results, correct ? 'right' : 'wrong'];
 		bestInRun = Math.max(bestInRun, stats.streak);
 		react(correct, cardEl, stats.streak);
@@ -353,18 +421,11 @@
 			retry.push(current);
 		}
 		onAnswer(correct);
-		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun });
+		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun, stepRight: run.stepRight });
 
 		if (correct) {
 			burstSize = lapCompleted ? 30 : 12;
 			burst += 1;
-		}
-
-		// The streak just crossed a medal boundary: the big celebration, now,
-		// whatever the run is doing — the medal is the streak's, not the run's.
-		if (stats.earned) {
-			earned = stats.earned;
-			celebrateMedal(stats.earned, stats.streak);
 		}
 
 		const canonical = canonicalGapAnswer(typed, accepted, progress.relaxedCorrection, strict);
@@ -393,7 +454,7 @@
 		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
 		// One announcement per answer: a second call replaces the first, so a
 		// medal is said inside it rather than after it.
-		const medal = stats.earned ? ` ${medalAnnouncement(stats.earned, stats.streak)}` : '';
+		const medal = medalWon ? ` ${run.announcement(medalWon)}` : '';
 		if (correct) announce(`Correct.${medal}`);
 		else
 			announce([
@@ -417,6 +478,37 @@
 
 	/** Set while an answer is on show: skips straight to the next question. */
 	let skip = $state<(() => void) | null>(null);
+
+	/** The choose step: the picked answer goes into the gap(s) and is checked like a typed one. */
+	function pick(option: string) {
+		if (!current || locked) return;
+		chosen = option;
+		answers = splitGapAnswer(option, gaps) ?? [option];
+		submit();
+	}
+
+	/** A new step: its own way of answering from the next sentence on. */
+	function setStep(to: number) {
+		if (to === run.step || locked) return;
+		const wasGold = run.step === 2;
+		run.setStep(to);
+		// No help draws on its own sentences; any other change re-poses this one.
+		if (wasGold || to === 2) next();
+		else {
+			bank = bankFor(current, to);
+			built = [];
+			chosen = null;
+			answers = hintFill();
+			verdict = null;
+			fixes = [];
+		}
+	}
+
+	/** "Try for silver/gold": a fresh run, one step up the ladder. */
+	function climb(to: number) {
+		run.climb(to);
+		onTryAgain?.();
+	}
 
 	/** Every gap has something in it, so the answer can be checked. */
 	const filled = $derived(answers.every((a) => a.trim().length > 0));
@@ -462,7 +554,18 @@
 
 <svelte:window onkeydown={onTileKey} />
 
-<RunTracker {results} total={RUN_LENGTH} {streak} {best} />
+<div class="ladder-row">
+	<MedalLadder
+		steps={STEPS}
+		record={run.record}
+		active={run.step}
+		right={run.stepRight[run.step]}
+		disabled={locked || runDone}
+		onpick={setStep}
+	/>
+</div>
+
+<RunTracker {results} total={RUN_LENGTH} {streak} {best} showStreak={false} />
 
 {#if runDone}
 	<RunSummary
@@ -470,11 +573,12 @@
 		total={RUN_LENGTH}
 		{bestInRun}
 		{streak}
-		{earned}
-		medal={progress.medalFor(quiz.storageKeyPrefix)}
+		earned={run.earned}
+		medal={run.medal}
 		{missed}
 		{locale}
 		passed={runPassed(right, RUN_LENGTH)}
+		ladder={run.summary(true, climb)}
 	/>
 {:else if current}
 	<section class="card" bind:this={cardEl} use:freshen={current} use:shakeOn={missKey}>
@@ -522,7 +626,8 @@
 							bind:this={inputEls[i]}
 							bind:value={answers[i]}
 							onkeydown={(event) => onKey(event, i)}
-							readonly={locked}
+							readonly={locked || choosing}
+							tabindex={choosing ? -1 : undefined}
 							class:right={verdict === 'right'}
 							class:wrong={verdict === 'wrong'}
 							aria-invalid={verdict === 'wrong' ? 'true' : undefined}
@@ -541,6 +646,23 @@
 
 		{#if current.english}
 			<p class="english">{current.english}</p>
+		{/if}
+
+		{#if choosing}
+			<!-- The choose step: four answers, one right. 1–4 pick from the keyboard. -->
+			<div class="choices" role="group" aria-label="Choose the answer" lang={locale}>
+				{#each choices as option, i (option)}
+					<button
+						type="button"
+						class="choice"
+						class:right={locked && option === current?.acceptedAnswers[0]}
+						class:wrong={locked && verdict === 'wrong' && option === chosen}
+						disabled={locked}
+						onclick={() => pick(option)}
+						><span class="key" aria-hidden="true">{i + 1}</span>{option}</button
+					>
+				{/each}
+			</div>
 		{/if}
 
 		{#if tiled}
@@ -575,7 +697,7 @@
 				<Icon name="check" size="1.05em" /> Correct
 			{:else if verdict === 'wrong'}
 				<Icon name="close" size="1.05em" /> The answer is written in
-			{:else if current.hint}
+			{:else if current.hint && step < 2}
 				{current.hint}
 			{:else}
 				&nbsp;
@@ -585,7 +707,7 @@
 			<button type="button" class="act next" disabled={!skip} onpointerdown={holdFocus} onclick={() => skip?.()}>
 				Next <Icon name="arrowRight" size="1em" />
 			</button>
-		{:else}
+		{:else if !choosing}
 			<button type="button" class="act" bind:this={checkEl} disabled={!filled} onpointerdown={holdFocus} onclick={checkTap}>
 				Check
 			</button>
@@ -805,6 +927,80 @@
 		margin: 0.5rem 0 0;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
+	}
+
+	.ladder-row {
+		display: flex;
+		margin-bottom: 0.6rem;
+	}
+
+	/* The choose step's four answers: two by two, in the sentence's type. */
+	.choices {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.5rem;
+		margin: 1rem 0 0;
+	}
+
+	.choice {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		min-height: 2.9rem;
+		padding: 0.55rem 0.8rem;
+		border: 1.5px solid var(--line-strong);
+		border-radius: var(--radius-sm);
+		background: var(--surface);
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-0);
+		font-weight: 600;
+		color: var(--ink);
+		text-align: left;
+		cursor: pointer;
+		transition:
+			border-color var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out),
+			transform var(--fast) var(--ease-spring);
+	}
+
+	.choice:hover:not(:disabled) {
+		border-color: var(--heading);
+		transform: translateY(-1px);
+	}
+
+	.choice:disabled {
+		cursor: default;
+	}
+
+	.choice .key {
+		flex: none;
+		display: inline-grid;
+		place-items: center;
+		width: 1.35rem;
+		height: 1.35rem;
+		border-radius: 50%;
+		background: var(--surface-alt);
+		font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+		font-size: 0.7rem;
+		font-weight: 800;
+		color: var(--ink-muted);
+	}
+
+	/* After the answer: the right one green, a wrong pick red, the rest faded. */
+	.choice.right {
+		border-color: var(--right);
+		background: var(--right-bg);
+		color: var(--right);
+	}
+
+	.choice.wrong {
+		border-color: var(--wrong);
+		background: var(--wrong-bg);
+		color: var(--wrong);
+	}
+
+	.choice:disabled:not(.right):not(.wrong) {
+		opacity: 0.45;
 	}
 
 	/* One fixed row: hint while answering, verdict after. Reserving the space

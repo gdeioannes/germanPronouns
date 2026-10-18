@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PageHelp from '$lib/components/PageHelp.svelte';
 	// "Schreib mir!" — one match chat (domain/matchChat, docs/match_chat_helga.md).
 	//
 	// The character writes; the learner answers by building sentences from the
@@ -18,6 +19,7 @@
 	import OverlayText from '$lib/components/match/OverlayText.svelte';
 	import {
 		buildFeed,
+		canOpenChat,
 		changedWords,
 		cleanName,
 		clearChat,
@@ -60,6 +62,8 @@
 	let name = $state('');
 	let nameDraft = $state('');
 	let askName = $state(false);
+	/** Not met in the deck yet: the chat stays shut. */
+	let locked = $state(false);
 	/** A dev replay (?reset): the saved chat is wiped first. */
 	let free = $state(false);
 	let saved = $state<SavedChat | null>(null);
@@ -105,6 +109,11 @@
 			shownInterest = game.interest;
 			if (game.ending) showEnd = true;
 			void scrollDown(false);
+			return;
+		}
+		// Characters are met in the course deck only; a link alone does not open them.
+		if (!free && !canOpenChat(chat.id)) {
+			locked = true;
 			return;
 		}
 		// A new chat always opens on the start card: the name, and the one-chance rule.
@@ -278,6 +287,7 @@
 			{/key}
 			<span class="meter-label">Interest {shownInterest}/{MAX_INTEREST}</span>
 		</div>
+		<PageHelp topic="/play/schreib-mir/[id]" tone="light" />
 	</header>
 	<p class="goal"><span aria-hidden="true">🎯</span> <strong>Goal:</strong> {chat.goal} <span class="once">· one chance</span></p>
 
@@ -393,6 +403,18 @@
 		</footer>
 	{/if}
 </main>
+
+{#if locked}
+	<div class="scrim solid">
+		<div class="name-card locked-card">
+			<img class="shadow" src="/img/story/{chat.image}.webp" alt="" />
+			<h1 lang="de">Noch nicht getroffen</h1>
+			<p>Someone at {chat.level} is waiting to chat, but you meet characters in your course deck. They turn up there now and then while you learn. Open their card in the deck and this chat opens.</p>
+			<a class="btn" href="/course/de_cert_a1">Back to the deck</a>
+			<a class="btn-quiet" href={MATCH_PATH}>Your matches</a>
+		</div>
+	</div>
+{/if}
 
 {#if askName}
 	<div class="scrim">
@@ -815,6 +837,12 @@
 		border-radius: 50%;
 		object-fit: cover;
 		object-position: 50% 28%;
+	}
+	.scrim.solid {
+		background: var(--paper-mid);
+	}
+	.name-card img.shadow {
+		filter: blur(6px) saturate(0.6) brightness(0.8);
 	}
 	.name-card h1 {
 		margin: 0;

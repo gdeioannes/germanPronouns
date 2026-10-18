@@ -1161,6 +1161,49 @@ export function lowPoints(state: ChatState): Array<{ said: string; why: string }
 
 export const CHAT_CARD_PREFIX = 'chat:';
 
+// -- meeting a character ----------------------------------------------------
+// The deck is the only way to meet someone: opening a character's card from
+// the deck "meets" them, and only then can their chat be opened (from the
+// deck, the Schreib mir! page or a link). Everyone else waits as a silhouette.
+
+const MET_KEY = 'match_met';
+
+/** Characters met through the deck. */
+export function metChats(): Set<string> {
+	try {
+		const raw = JSON.parse(localStorage.getItem(MET_KEY) ?? '[]');
+		return new Set(Array.isArray(raw) ? raw.map(String) : []);
+	} catch {
+		return new Set();
+	}
+}
+
+/** The deck dealt this character and the learner opened the card. */
+export function markMet(id: string): void {
+	const met = metChats();
+	if (met.has(id)) return;
+	met.add(id);
+	try {
+		localStorage.setItem(MET_KEY, JSON.stringify([...met]));
+	} catch {
+		/* no storage: met for this visit only */
+	}
+}
+
+/**
+ * Whether this character's chat may be opened: met through the deck, already
+ * started (a chat begun before meeting existed), or unlocked by another
+ * chat's secret ending, whose ending card links straight to them.
+ */
+export function canOpenChat(
+	id: string,
+	saved: (id: string) => SavedChat | null = loadChat,
+	met: Set<string> = metChats()
+): boolean {
+	if (met.has(id) || saved(id)) return true;
+	return MATCH_CHATS.some((c) => c.unlocks?.id === id && saved(c.id)?.ending === 'secret');
+}
+
 export interface ChatDeal {
 	chat: MatchChat;
 	/** Already started: the card comes back in every hand until the chat ends. */

@@ -41,7 +41,7 @@
 		writingState
 	} from '$lib/domain/writing';
 	import { SettingsKeys } from '$lib/domain/keys';
-	import type { SpeakingFix } from '$lib/domain/progress';
+	import { scoreMedal, type RibbonTier, type SpeakingFix } from '$lib/domain/progress';
 	import { storage } from '$lib/services/storage';
 	import { AI_ASSISTANTS, assistantHref } from '$lib/services/aiApps';
 	import type { WritingQuiz } from '$lib/content/types';
@@ -57,7 +57,8 @@
 		courseId: string;
 		learnLocale: string;
 		uiLang: string;
-		onFinish: (passed: boolean, score: number) => void;
+		/** The score saved: passed or not, the score, and the medal it earned. */
+		onFinish: (passed: boolean, score: number, medal: RibbonTier | null) => void;
 	} = $props();
 
 	const bounds = $derived(charBoundsFor(quiz.writing, quiz.level));
@@ -319,7 +320,7 @@
 		// The draft is kept on purpose. "Try again" remounts the exercise, and a
 		// learner looking at four corrections wants their own text back to mend,
 		// not a blank sheet.
-		onFinish(score >= passScore, score);
+		onFinish(score >= passScore, score, scoreMedal(score, 100, passScore / 100, 0.9));
 	}
 </script>
 

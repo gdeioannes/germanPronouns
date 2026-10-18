@@ -4,48 +4,49 @@
 	// run of "Wo ist der Heizkörper?" — tap it in the picture. Every find
 	// shows its label while the answer is on screen, then leaves a small tick
 	// in its gender's colour, so the room records the run without labels
-	// covering it. Two modes, as the deck has three:
+	// covering it. Three ways to hunt, the medal ladder's three steps:
 	//
-	//   find   — the prompt is the German with its article; find the thing.
-	//   name   — the prompt hides the article ("Wo ist ___ Brille?"); find it,
-	//            then pick der/die/das. No audio until it is answered: the
-	//            voice would say the article.
+	//   Read    (bronze) — the prompt is the German with its article; find it.
+	//   Article (silver) — the prompt hides the article ("Wo ist ___ Brille?");
+	//            find it, then pick der/die/das. No audio until it is
+	//            answered: the voice would say the article.
+	//   Listen  (gold)   — the prompt is only heard; find it, then write the
+	//            article and the noun.
 	//
-	// The first runs are `find`; once a run has been passed the hunt opens on
-	// `name`, the harder half. The learner can switch either way.
+	// The hunt opens on the easiest step still without its medal; the learner
+	// can switch either way. Pass a run on a step and its medal is yours.
 	//
 	// A tap on another object names what you hit and the hunt goes on — the
 	// answer is not given away. Only after MAX_MISSES misses in a row does the
 	// right one glow. Found on the first tap counts as right; found after a
 	// miss, or shown, counts as a miss. A tap on bare wall is nothing —
-	// imprecise fingers are not wrong answers. Progress is the deck's: runs of RUN_LENGTH, the streak
-	// across runs, medals by streak.
+	// imprecise fingers are not wrong answers. Progress is the deck's: runs of
+	// RUN_LENGTH, and the ladder's medals.
 	import { dev } from '$app/environment';
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
-	import { celebrateMedal, react, shakeOn } from '$lib/motion/fx.svelte';
+	import { react, shakeOn } from '$lib/motion/fx.svelte';
+	import MedalLadder from './MedalLadder.svelte';
 	import RunSummary from './RunSummary.svelte';
 	import RunTracker from './RunTracker.svelte';
-	import {
-		medalAnnouncement,
-		RUN_LENGTH,
-		runPassed,
-		STREAK_LAP_SIZE,
-		type RibbonTier
-	} from '$lib/domain/progress';
+	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE } from '$lib/domain/progress';
+	import { checkWritten } from '$lib/domain/flashcards';
+	import { LadderRun } from '$lib/state/ladderRun.svelte';
+	import { tts } from '$lib/services/speech';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
 	import { onMount, untrack } from 'svelte';
-	import type { SuchbildQuiz, SuchbildSpot } from '$lib/content/types';
+	import type { SuchbildQuiz, SuchbildSpot, VocabCard } from '$lib/content/types';
 
 	let {
 		quiz,
 		locale,
 		onRunFinished,
-		onQuestion
+		onQuestion,
+		onTryAgain
 	}: {
 		quiz: SuchbildQuiz;
 		locale: string;
@@ -53,12 +54,16 @@
 		onRunFinished: (passed: boolean) => void;
 		/** The object being hunted, for "Report a problem". */
 		onQuestion?: (q: QuestionRef | null) => void;
+		/** Starts a fresh run, as the finish bar's "Try again" does. */
+		onTryAgain?: () => void;
 	} = $props();
 
-	type Mode = 'find' | 'name';
-	const MODES: { id: Mode; label: string; icon: 'search' | 'words' }[] = [
-		{ id: 'find', label: 'Find it', icon: 'search' },
-		{ id: 'name', label: 'Find + article', icon: 'words' }
+	type Mode = 'find' | 'name' | 'listen';
+	/** The ladder, easiest first: the step's index is its medal's. */
+	const STEPS: { id: Mode; label: string; hint: string }[] = [
+		{ id: 'find', label: 'Read', hint: 'find what the question names.' },
+		{ id: 'name', label: 'Article', hint: 'find it, then choose der, die or das.' },
+		{ id: 'listen', label: 'Listen', hint: 'hear it, find it, then write the article and the noun.' }
 	];
 	const ARTICLES = ['der', 'die', 'das'] as const;
 	/** Misses on one question before the right object is shown. */
@@ -67,7 +72,8 @@
 	const full = (s: SuchbildSpot) => `${s.article} ${s.de}`;
 	const colour = (s: SuchbildSpot) => GENDER_COLORS[GENDER[s.article]];
 
-	let mode = $state<Mode>('find');
+	const run = new LadderRun(untrack(() => quiz.storageKeyPrefix), STEPS);
+	const mode = $derived(STEPS[run.step].id);
 
 	// Raw, not deep state: spots are compared by identity.
 	let current = $state.raw<SuchbildSpot | undefined>(undefined);
@@ -78,8 +84,15 @@
 			c ? { number: quiz.spots.indexOf(c) + 1, total: quiz.spots.length, text: `${full(c)} — ${c.en}` } : null
 		);
 	});
-	/** `tap` while hunting; `article` once a `name` find wants its der/die/das. */
-	let phase = $state<'tap' | 'article'>('tap');
+	/**
+	 * `tap` while hunting; `article` once a find wants its der/die/das;
+	 * `write` once a heard one wants writing down.
+	 */
+	let phase = $state<'tap' | 'article' | 'write'>('tap');
+	/** The listen step's written answer, and whether it lacked only its article. */
+	let written = $state('');
+	let missingArticle = $state(false);
+	let writeEl = $state<HTMLInputElement>();
 	let verdict = $state<'right' | 'wrong' | null>(null);
 	/** The object tapped by mistake, named on the picture. */
 	let tappedWrong = $state.raw<SuchbildSpot | null>(null);
@@ -99,12 +112,17 @@
 	const answered = $derived(results.length);
 	const right = $derived(results.filter((r) => r === 'right').length);
 	let bestInRun = $state(0);
-	let earned = $state<RibbonTier | null>(null);
 	let missed = $state<string[]>([]);
 	let runDone = $state(false);
 	/** Objects already asked this run: none is asked twice in one run. */
 	let asked = $state<string[]>([]);
-	type Spot = { results: ('right' | 'wrong')[]; bestInRun: number; found: string[]; asked: string[] };
+	type Spot = {
+		results: ('right' | 'wrong')[];
+		bestInRun: number;
+		found: string[];
+		asked: string[];
+		stepRight?: number[];
+	};
 
 	let roomEl = $state<HTMLElement>();
 	let missKey = $state(0);
@@ -143,13 +161,23 @@
 		verdict = null;
 		tappedWrong = null;
 		chosenArticle = null;
+		written = '';
+		missingArticle = false;
 		misses = 0;
 		shown = false;
 		sayPrompt(spot);
 	}
 
-	/** The question, for screen readers; in `name` without the article. */
+	/**
+	 * The question, for screen readers; in `name` without the article. The
+	 * listen step speaks it aloud instead — that is the whole question.
+	 */
 	function sayPrompt(spot: SuchbildSpot) {
+		if (mode === 'listen') {
+			announce('Listen, find it in the picture, then write it.');
+			void tts.speak(`Wo ist ${full(spot)}?`, { locale });
+			return;
+		}
 		announce(
 			mode === 'find'
 				? [{ text: `Wo ist ${full(spot)}?`, lang: locale }]
@@ -163,8 +191,7 @@
 			const stats = await progress.statsFor(quiz.storageKeyPrefix);
 			streak = stats.streak;
 			best = stats.bestStreakAbsolute;
-			const runs = await progress.runsFor(quiz.storageKeyPrefix);
-			if (runs.some((r) => runPassed(r.right, r.total))) mode = 'name';
+			await run.open();
 			const spot = await loadSpot<Spot>(quiz.storageKeyPrefix);
 			const saved = Array.isArray(spot?.results) ? spot.results : [];
 			if (saved.length > 0 && saved.length < RUN_LENGTH) {
@@ -172,19 +199,37 @@
 				bestInRun = spot?.bestInRun ?? 0;
 				found = Array.isArray(spot?.found) ? spot.found : [];
 				asked = Array.isArray(spot?.asked) ? spot.asked : [];
+				run.restore(spot?.stepRight);
 			}
 			untrack(next);
 		})();
 		return clearTimers;
 	});
 
-	function setMode(m: Mode) {
-		if (m === mode || locked) return;
-		mode = m;
+	function setStep(to: number) {
+		if (to === run.step || locked) return;
+		run.setStep(to);
 		if (current) {
 			phase = 'tap';
+			written = '';
 			sayPrompt(current);
 		}
+	}
+
+	/** "Try for silver/gold": a fresh run, one step up the ladder. */
+	function climb(to: number) {
+		run.climb(to);
+		onTryAgain?.();
+	}
+
+	/** The listen step: the found thing, written with its article. */
+	function submitWritten() {
+		if (!current || locked || !written.trim()) return;
+		const card = { kind: 'noun', article: current.article, de: current.de, en: current.en } as VocabCard;
+		const result = checkWritten(written, card, progress.relaxedCorrection);
+		missingArticle = result.missingArticle;
+		// A find after a miss is already a miss, whatever is written.
+		void settle(misses === 0 && result.correct);
 	}
 
 	function finishRun() {
@@ -220,6 +265,11 @@
 			tappedWrong = null;
 			phase = 'article';
 			announce('Found it. Now the article: der, die or das?');
+		} else if (mode === 'listen') {
+			tappedWrong = null;
+			phase = 'write';
+			announce('Found it. Now write it, with its article.');
+			queueMicrotask(() => writeEl?.focus());
 		} else {
 			tappedWrong = null;
 			void settle(misses === 0);
@@ -387,6 +437,9 @@
 		best = stats.bestStreakAbsolute;
 		results = [...results, correct ? 'right' : 'wrong'];
 		bestInRun = Math.max(bestInRun, stats.streak);
+		// The ladder: the LADDER_PASSth right answer on a step in this run
+		// passes it and, the first time, earns its medal — celebrated now.
+		const medalWon = correct ? await run.right(true) : null;
 		react(correct, roomEl, stats.streak);
 		// A find keeps its tick on the room even after a wrong article: the
 		// thing was found, and its label shows the article it should have had.
@@ -395,15 +448,11 @@
 			burstSize = lapCompleted ? 30 : 12;
 			burst += 1;
 		} else {
-			if (shown || chosenArticle) missKey += 1;
+			if (shown || chosenArticle || phase === 'write') missKey += 1;
 			missed = [...missed, full(spot)];
 		}
-		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun, found, asked });
-		if (stats.earned) {
-			earned = stats.earned;
-			celebrateMedal(stats.earned, stats.streak);
-		}
-		const medal = stats.earned ? medalAnnouncement(stats.earned, stats.streak) : '';
+		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun, found, asked, stepRight: run.stepRight });
+		const medal = medalWon ? run.announcement(medalWon) : '';
 		announce([
 			{
 				text: correct
@@ -456,7 +505,7 @@
 	}
 
 	/** Screen-reader names for the objects: never the answer itself. */
-	const spotName = (s: SuchbildSpot) => (mode === 'find' ? s.en : s.de);
+	const spotName = (s: SuchbildSpot) => (mode === 'name' ? s.de : s.en);
 	const [sceneW, sceneH] = $derived(quiz.sceneSize);
 	// The room always takes the card's full width (edge to edge on a phone):
 	// the picture is the exercise, so a short window scrolls rather than
@@ -466,30 +515,18 @@
 
 <svelte:window onkeydown={onWindowKey} />
 
-<RunTracker {results} total={RUN_LENGTH} {streak} {best} />
+<div class="ladder-row">
+	<MedalLadder
+		steps={STEPS}
+		record={run.record}
+		active={run.step}
+		right={run.stepRight[run.step]}
+		disabled={locked || runDone}
+		onpick={setStep}
+	/>
+</div>
 
-{#snippet modes()}
-	<!-- One switch, not two pills: a click anywhere on it flips the mode, and
-	     the navy thumb slides to the icon in play. -->
-	<button
-		type="button"
-		class="modes"
-		role="switch"
-		aria-checked={mode === 'name'}
-		aria-label="Ask for the article too"
-		title={mode === 'find' ? 'Find it — click for Find + article' : 'Find + article — click for Find it'}
-		disabled={locked}
-		onclick={() => setMode(mode === 'find' ? 'name' : 'find')}
-	>
-		{#each MODES as m (m.id)}
-			<span class="mode" class:on={mode === m.id}><Icon name={m.icon} size="1.1em" /></span>
-		{/each}
-	</button>
-{/snippet}
-
-<!-- The modes live in the card: beside the question on a wide screen, in the
-     card's top row on a phone (the pressed pill then says what the eyebrow
-     would), so nothing sits between the bar and the picture. -->
+<RunTracker {results} total={RUN_LENGTH} {streak} {best} showStreak={false} />
 
 {#if runDone}
 	<RunSummary
@@ -497,11 +534,12 @@
 		total={RUN_LENGTH}
 		{bestInRun}
 		{streak}
-		{earned}
-		medal={progress.medalFor(quiz.storageKeyPrefix)}
+		earned={run.earned}
+		medal={run.medal}
 		{missed}
 		{locale}
 		passed={runPassed(right, RUN_LENGTH)}
+		ladder={run.summary(true, climb)}
 	/>
 {:else if current}
 	<!-- One card, like the fill-in's: the question on top, the room under it.
@@ -510,12 +548,16 @@
 	<section class="card" style="--gender:{colour(current)}">
 	<div class="ask">
 		<div class="ask-top">
-			<p class="prompt-label">{mode === 'find' ? 'Tap it in the picture' : 'Tap it, then its article'}</p>
-			<div class="modes-inline">{@render modes()}</div>
+			<p class="prompt-label">
+				{mode === 'find'
+					? 'Tap it in the picture'
+					: mode === 'name'
+						? 'Tap it, then its article'
+						: 'Listen, tap it, then write it'}
+			</p>
 			<span class="count tnum">{found.length} / {quiz.spots.length} found</span>
 		</div>
 		<div class="q-row">
-		<div class="modes-wide">{@render modes()}</div>
 		{#if locked}
 			<p class="q" lang={locale}>
 				<span class="article">{current.article}</span>
@@ -529,12 +571,25 @@
 				{current.de}?
 				<SpeakButton text={`Wo ist ${full(current)}?`} {locale} />
 			</p>
-		{:else}
+		{:else if mode === 'name'}
 			<!-- The article is the question: a gap, and no speak button, which
 			     would say it. -->
 			<p class="q" lang={locale}>
 				Wo ist <span class="gap" class:asking={phase === 'article'} aria-label="which article?">___</span>
 				{current.de}?
+			</p>
+		{:else}
+			<!-- The listen step: the question is only heard. -->
+			<p class="q listen" lang={locale}>
+				<button
+					type="button"
+					class="hear"
+					lang="en"
+					onclick={() => current && tts.speak(`Wo ist ${full(current)}?`, { locale })}
+				>
+					<Icon name="volume" size="1.1em" /> Listen again
+				</button>
+				<span class="muted" lang="en">Wo ist … ?</span>
 			</p>
 		{/if}
 		</div>
@@ -553,6 +608,24 @@
 					<button type="button" class="art art-{GENDER[a]}" lang={locale} onclick={() => pickArticle(a)}>{a}</button>
 				{/each}
 			</div>
+		{:else if phase === 'write' && !locked}
+			<form class="write" onsubmit={(e) => { e.preventDefault(); submitWritten(); }}>
+				<input
+					bind:this={writeEl}
+					bind:value={written}
+					lang={locale}
+					aria-label="Write it, with its article"
+					placeholder="der / die / das …"
+					autocomplete="off"
+					autocapitalize="off"
+					autocorrect="off"
+					spellcheck="false"
+					enterkeyhint="go"
+				/>
+				<button type="submit" class="go" aria-label="Check" disabled={!written.trim()}>
+					<Icon name="arrowRight" size="1.05em" />
+				</button>
+			</form>
 		{:else if verdict === 'right'}
 			<p class="verdict right"><Icon name="check" size="1em" /> Richtig!</p>
 		{:else if verdict === 'wrong'}
@@ -562,6 +635,10 @@
 					Three misses — there it is, glowing.
 				{:else if chosenArticle && chosenArticle !== current.article}
 					Found it — but it's <strong lang={locale}>{current.article}</strong>, not <s lang={locale}>{chosenArticle}</s>.
+				{:else if missingArticle}
+					Right word — with its article: <strong lang={locale}>{full(current)}</strong>.
+				{:else if written.trim() && misses === 0}
+					Found it — it's written <strong lang={locale}>{full(current)}</strong>, not <s lang={locale}>{written}</s>.
 				{:else}
 					Found — but not on the first try, so it counts as a miss.
 				{/if}
@@ -667,61 +744,6 @@
 {/if}
 
 <style>
-	.modes {
-		position: relative;
-		display: inline-flex;
-		padding: 0.2rem;
-		border: 1px solid var(--line);
-		border-radius: 999px;
-		background: var(--surface-alt);
-		cursor: pointer;
-	}
-
-	.modes:disabled {
-		cursor: default;
-		opacity: 0.7;
-	}
-
-	.modes:focus-visible {
-		outline: 2px solid var(--accent);
-		outline-offset: 2px;
-	}
-
-	/* The thumb sits under the first icon and slides to the second. */
-	.modes::before {
-		content: '';
-		position: absolute;
-		top: 0.2rem;
-		left: 0.2rem;
-		width: 2.1rem;
-		height: 1.9rem;
-		border-radius: 999px;
-		background: var(--heading);
-		box-shadow: 0 1px 2px rgb(0 0 0 / 0.12);
-		transition: translate var(--fast) var(--ease-out);
-	}
-
-	.modes[aria-checked='true']::before {
-		translate: 2.1rem 0;
-	}
-
-	/* Icon-only: a magnifier for `find`, the word mark for `name`; the label
-	   is the title and the screen-reader name. */
-	.mode {
-		position: relative;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 2.1rem;
-		height: 1.9rem;
-		color: var(--ink-muted);
-		transition: color var(--fast) var(--ease-out);
-	}
-
-	.mode.on {
-		color: var(--paper);
-	}
-
 	/* ── The card ────────────────────────────────────────────────────────── */
 
 	/* Below the bar and the modes; taller than a short window, the stage scrolls. */
@@ -760,10 +782,8 @@
 		color: var(--accent-ink);
 	}
 
-	/* Question on the left, the modes on the right of the same row. */
 	.q-row {
 		display: flex;
-		flex-direction: row-reverse;
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
@@ -774,14 +794,88 @@
 		flex: 1 1 auto;
 	}
 
-	.modes-wide {
-		flex: none;
-		margin-top: 0.45rem;
+	.ladder-row {
+		display: flex;
+		margin-bottom: 0.6rem;
 	}
 
-	/* The phone seat, in the card's top row (see the media query). */
-	.modes-inline {
-		display: none;
+	/* The listen step: the question is a sound, so the button is the prompt. */
+	.q.listen {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+	}
+
+	.hear {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		padding: 0.5rem 1rem;
+		border: 0;
+		border-radius: 999px;
+		background: var(--heading);
+		color: var(--paper);
+		font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+		font-size: var(--step--1);
+		font-weight: 800;
+		cursor: pointer;
+	}
+
+	.hear:hover {
+		background: var(--accent-ink);
+	}
+
+	.muted {
+		font-size: var(--step-0);
+		color: var(--ink-muted);
+	}
+
+	/* Writing what was heard: the field on the room's top edge, like the articles. */
+	.write {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.3rem;
+		border-radius: 999px;
+		background: var(--surface);
+		box-shadow: 0 6px 18px rgb(31 58 95 / 0.18);
+		pointer-events: auto;
+	}
+
+	.write input {
+		width: min(15rem, 60vw);
+		padding: 0.45rem 0.8rem;
+		border: 0;
+		border-bottom: 2px solid var(--accent);
+		border-radius: 999px;
+		background: var(--surface-alt);
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-0);
+		font-weight: 600;
+		color: var(--ink);
+	}
+
+	.write input:focus {
+		outline: none;
+		background: var(--accent-soft);
+		border-bottom-color: var(--accent-ink);
+	}
+
+	.write .go {
+		display: inline-grid;
+		place-items: center;
+		width: 2.3rem;
+		height: 2.3rem;
+		border: 0;
+		border-radius: 50%;
+		background: var(--heading);
+		color: var(--paper);
+		cursor: pointer;
+	}
+
+	.write .go:disabled {
+		opacity: 0.35;
+		cursor: default;
 	}
 
 	.count {
@@ -1129,34 +1223,11 @@
 	}
 
 	@media (max-width: 36rem) {
-		/* Every row above the picture costs a strip of the room, so the modes
-		   move into the card's top row, the eyebrow goes (the pressed pill says
-		   it), the question shrinks a step and the status line only takes the
-		   height it needs. */
-		.modes-wide {
-			display: none;
-		}
-		.modes-inline {
-			display: block;
-		}
+		/* Every row above the picture costs a strip of the room, so the
+		   question shrinks a step and the status line only takes the height it
+		   needs. */
 		.ask-top {
 			align-items: center;
-		}
-		.modes {
-			padding: 0.15rem;
-		}
-		.modes::before {
-			top: 0.15rem;
-			left: 0.15rem;
-			width: 1.9rem;
-			height: 1.7rem;
-		}
-		.modes[aria-checked='true']::before {
-			translate: 1.9rem 0;
-		}
-		.mode {
-			width: 1.9rem;
-			height: 1.7rem;
 		}
 		.q {
 			margin-top: 0.4rem;

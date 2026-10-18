@@ -14,7 +14,7 @@
 	import { openSignIn } from '$lib/state/signin.svelte';
 	import { STORY_EPISODES } from '$lib/domain/stories';
 	import { progress } from '$lib/state/progress.svelte';
-	import { onMount } from 'svelte';
+	import { afterNavigate, goto } from '$app/navigation';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -28,9 +28,15 @@
 	// is live and finds progress, the start buttons lead to the course home,
 	// whose deck deals the next exercise from what they have done. The
 	// prerendered HTML keeps the A1 link for first visits and crawlers.
+	//
+	// And a learner who opens the site again lands straight in their deck: the
+	// front page is for newcomers. Only on arrival (a typed address, a bookmark,
+	// a link from elsewhere); the logo or Home link from inside the app still
+	// shows this page.
 	let returning = $state(false);
-	onMount(async () => {
+	afterNavigate(async ({ from }) => {
 		returning = await progress.hasAnyProgress();
+		if (returning && from === null) void goto(courseHref, { replaceState: true });
 	});
 	const startHref = $derived(returning ? courseHref : firstHref);
 

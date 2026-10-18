@@ -83,6 +83,10 @@ export function quizStatsKeys(prefix: string) {
 		lastPlayed: `${prefix}quiz_last_played`,
 		/** Web-only. Each finished run of a drill: when, how many right, best streak. */
 		runLog: `${prefix}quiz_run_log`,
+		/** Web-only. The medal ladder: which steps have been passed. */
+		ladder: `${prefix}quiz_ladder`,
+		/** Web-only. The best medal a scored exercise has earned. */
+		scoreMedal: `${prefix}quiz_score_medal`,
 		enabledSubjects: `${prefix}quiz_enabled_pronouns`,
 		enabledCategories: `${prefix}quiz_enabled_cases`
 	};

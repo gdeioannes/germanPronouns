@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PageHelp from '$lib/components/PageHelp.svelte';
 	// "Ja oder Nein?" — a themed round of eight quick questions about life in
 	// Germany (see domain/janeinRounds for the shelves of rounds), swiped right
 	// for Ja and left for Nein against a sky that will not sit still. Nothing
@@ -211,6 +212,7 @@
 				{/each}
 			</ol>
 		{/if}
+		<span class="help-slot"><PageHelp topic="/play/ja-nein" tone="light" /></span>
 	</header>
 
 	{#if phase === 'intro' && round}

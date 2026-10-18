@@ -1,0 +1,3989 @@
+[
+	{
+		"id": "quest_b2_2_umwelt",
+		"sentences": [
+			{
+				"sentence": "Die ____ der Erde schreitet schneller voran, als viele Modelle vorhergesagt haben. (global warming)",
+				"options": [
+					"Wärmung",
+					"Erwarmung",
+					"Erwärmheit"
+				]
+			},
+			{
+				"sentence": "Die Regierung will neue ____ ergreifen, um den CO2-Ausstoß zu senken. (measures)",
+				"options": [
+					"Maßstäbe",
+					"Maßnahme",
+					"Mittel"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Immer mehr Menschen ____ im Alltag bewusst auf Plastikverpackungen. (to do without)",
+				"options": [
+					"vermeiden",
+					"sparen",
+					"entsagen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Forscher konnten einen klaren ____ zwischen Luftverschmutzung und Asthma feststellen. (connection)",
+				"options": [
+					"Zusammenhalt",
+					"Zusammenstoß",
+					"Zusammenschluss"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Studie hat ____, dass Mikroplastik inzwischen in fast allen Gewässern vorkommt. (proven — Partizip II)",
+				"options": [
+					"hingewiesen",
+					"verwiesen",
+					"zugewiesen"
+				]
+			},
+			{
+				"sentence": "Eine der wichtigsten ____ des Artensterbens ist die Zerstörung von Lebensräumen. (causes)",
+				"options": [
+					"Folgen",
+					"Anlässe",
+					"Ergebnisse"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die ____ des Klimawandels sind schon heute spürbar: Hitzewellen, Stürme, Ernteausfälle. (consequences)",
+				"options": [
+					"Ursachen",
+					"Erfolge",
+					"Vorteile"
+				]
+			},
+			{
+				"sentence": "Nach dem heißen Sommer leiden viele Regionen unter einer schweren ____. (drought)",
+				"options": [
+					"Überschwemmung",
+					"Wüste",
+					"Trocknung"
+				]
+			},
+			{
+				"sentence": "Nach tagelangem Starkregen kam es im Süden zu schweren ____. (floods)",
+				"options": [
+					"Dürren",
+					"Erdbeben",
+					"Lawinen"
+				]
+			},
+			{
+				"sentence": "Bis 2035 soll der Strom zu 80 Prozent aus ____ Energien stammen. (renewable)",
+				"options": [
+					"erneuerten",
+					"erneuernden",
+					"erneuerbare"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Viele Einwegverpackungen sind ____ und belasten die Natur über Jahrzehnte. (harmful to the environment)",
+				"options": [
+					"umweltfreundlich",
+					"umweltbewusst",
+					"umweltschonend"
+				]
+			},
+			{
+				"sentence": "Das Institut ____ seit Jahren, wie sich der Meeresspiegel an der Nordsee verändert. (investigates)",
+				"options": [
+					"versucht",
+					"besucht",
+					"aufsucht"
+				]
+			},
+			{
+				"sentence": "Der ____ an Wasser ist in der Landwirtschaft besonders hoch. (consumption)",
+				"options": [
+					"Gebrauch",
+					"Brauch",
+					"Missbrauch"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Firma möchte ihre Produkte in Zukunft ____ herstellen, also ohne Ressourcen zu verschwenden. (sustainably)",
+				"options": [
+					"nachträglich",
+					"nachlässig",
+					"nachdrücklich"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die ____ der Treibhausgase ist das zentrale Ziel des Abkommens. (reduction)",
+				"options": [
+					"Erhöhung",
+					"Steigerung",
+					"Verstärkung"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Wir müssen den Ausstoß von Treibhausgasen deutlich ____. (to reduce)",
+				"acceptedAnswers": [
+					"senken",
+					"reduzieren",
+					"verringern",
+					"mindern"
+				],
+				"english": "We must significantly reduce greenhouse gas emissions.",
+				"subjectKey": "s14",
+				"categoryLabel": "Umwelt",
+				"options": [
+					"sinken",
+					"steigern",
+					"versenken"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Tausende Tier- und Pflanzenarten sind vom ____ bedroht. (extinction)",
+				"acceptedAnswers": [
+					"Aussterben"
+				],
+				"english": "Thousands of animal and plant species are threatened with extinction.",
+				"subjectKey": "s6",
+				"categoryLabel": "Umwelt",
+				"options": [
+					"Aussteigen",
+					"Ausstieg",
+					"Aussterbung"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Plastikmüll ____ die Meere schon seit Jahrzehnten. (pollutes)",
+				"acceptedAnswers": [
+					"verschmutzt",
+					"verunreinigt"
+				],
+				"english": "Plastic waste has been polluting the seas for decades.",
+				"subjectKey": "s10",
+				"categoryLabel": "Umwelt",
+				"options": [
+					"verschmutzen",
+					"schmutzt",
+					"verschwendet"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_konj2_verg",
+		"sentences": [
+			{
+				"sentence": "Ich ____ das an deiner Stelle nie ____. (sagen)",
+				"options": [
+					"wäre … gesagt",
+					"würde … gesagt",
+					"hätte … sagen"
+				]
+			},
+			{
+				"sentence": "Wir ____ gern früher ____, aber der Chef wollte noch reden. (gehen)",
+				"options": [
+					"hätten … gegangen",
+					"würden … gegangen",
+					"wären … gehen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ohne den Stau ____ das nicht ____. (passieren)",
+				"options": [
+					"hätte … passiert",
+					"würde … passiert",
+					"wäre … gepassiert"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Du ____ mich wenigstens anrufen ____. (sollen)",
+				"options": [
+					"hättest … gesollt",
+					"wärst … sollen",
+					"solltest … haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie ____ um ein Haar den letzten Zug ____. (verpassen)",
+				"options": [
+					"wäre … verpasst",
+					"hätte … geverpasst",
+					"würde … verpasst"
+				]
+			},
+			{
+				"sentence": "Ihr ____ uns ruhig warnen ____. (können)",
+				"options": [
+					"hättet … gekonnt",
+					"wärt … können",
+					"hättest … können"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er ____ das Spiel beinahe ____. (gewinnen)",
+				"options": [
+					"wäre … gewonnen",
+					"hätte … gewinnen",
+					"würde … gewonnen"
+				]
+			},
+			{
+				"sentence": "Ohne die Hilfe unserer Eltern ____ wir das Haus nie kaufen ____. (können)",
+				"options": [
+					"hätten … gekonnt",
+					"wären … können",
+					"hätte … können"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ich ____ gern noch länger ____, aber der letzte Bus fuhr um elf. (bleiben)",
+				"options": [
+					"hätte … geblieben",
+					"wäre … gebleibt",
+					"würde … geblieben"
+				]
+			},
+			{
+				"sentence": "Sie ____ beinahe zu spät zum Vorstellungsgespräch ____. (kommen)",
+				"options": [
+					"hätte … gekommen",
+					"wäre … gekommt",
+					"würde … gekommen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ohne dich ____ wir völlig verloren ____. (sein)",
+				"options": [
+					"hätten … gewesen",
+					"würden … gewesen",
+					"wären … sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Du ____ viel früher mit dem Lernen anfangen ____. (müssen)",
+				"options": [
+					"hättest … gemusst",
+					"wärst … müssen",
+					"musstest … haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das ____ ich nie ____! (denken)",
+				"options": [
+					"wäre … gedacht",
+					"hätte … gedenkt",
+					"würde … gedacht"
+				]
+			},
+			{
+				"sentence": "Wenn es nicht geregnet hätte, ____ die Kinder noch lange draußen ____. (spielen)",
+				"options": [
+					"wären … gespielt",
+					"würden … gespielt",
+					"hätten … spielen"
+				]
+			},
+			{
+				"sentence": "Mit dem Zug ____ ihr viel schneller in Berlin ____. (sein)",
+				"options": [
+					"hättet … gewesen",
+					"würdet … gewesen",
+					"wärt … sein"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Ich ____ dir das Geld gern ____, aber ich war selbst pleite. (leihen)",
+				"acceptedAnswers": [
+					"hätte … geliehen",
+					"haette … geliehen"
+				],
+				"english": "I would gladly have lent you the money, but I was broke myself.",
+				"subjectKey": "s8",
+				"categoryLabel": "Konj. II Vergangenheit",
+				"options": [
+					"wäre … geliehen",
+					"hätte … geleiht",
+					"würde … geliehen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ihr ____ wirklich nicht ohne Jacke in die Berge aufbrechen ____. (dürfen)",
+				"acceptedAnswers": [
+					"hättet … dürfen",
+					"haettet … duerfen"
+				],
+				"english": "You really shouldn't have set off into the mountains without a jacket.",
+				"subjectKey": "s3",
+				"categoryLabel": "Konj. II Vergangenheit",
+				"options": [
+					"hättet … gedurft",
+					"wärt … dürfen",
+					"durftet … haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Fast ____ ich auf dem Glatteis vom Fahrrad ____. (fallen)",
+				"acceptedAnswers": [
+					"wäre … gefallen",
+					"waere … gefallen"
+				],
+				"english": "I very nearly fell off my bike on the black ice.",
+				"subjectKey": "s4",
+				"categoryLabel": "Konj. II Vergangenheit",
+				"options": [
+					"hätte … gefallen",
+					"wäre … gefällt",
+					"würde … gefallen"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_irreal",
+		"sentences": [
+			{
+				"sentence": "Wenn ich reich ____, würde ich ein Jahr lang um die Welt reisen. (sein)",
+				"options": [
+					"war",
+					"sei",
+					"bin"
+				]
+			},
+			{
+				"sentence": "Wenn du mich gefragt hättest, ____ ich dir gern ____. (helfen)",
+				"options": [
+					"wäre … geholfen",
+					"würde … geholfen",
+					"hätte … helfen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn ich das gewusst ____, wäre ich zu Hause geblieben. (haben)",
+				"options": [
+					"habe",
+					"hatte",
+					"wäre"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "An deiner Stelle ____ ich das Angebot sofort ____. (annehmen)",
+				"options": [
+					"würde … angenommen",
+					"hätte … annehmen",
+					"werde … annehmen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn ich du ____, würde ich mir eine neue Stelle suchen. (sein)",
+				"options": [
+					"war",
+					"bin",
+					"sei"
+				]
+			},
+			{
+				"sentence": "____ ich mehr Geld, würde ich in eine größere Wohnung ziehen. (haben)",
+				"options": [
+					"Habe",
+					"Hatte",
+					"Würde"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn du früher gekommen ____, hättest du ihn noch getroffen. (sein)",
+				"options": [
+					"hättest",
+					"warst",
+					"wärt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn wir ein Auto ____, könnten wir dich vom Bahnhof abholen. (haben)",
+				"options": [
+					"haben",
+					"hatten",
+					"würden"
+				]
+			},
+			{
+				"sentence": "Ich ____ gern ____, wenn du mich eingeladen hättest. (kommen)",
+				"options": [
+					"hätte … gekommen",
+					"würde … gekommen",
+					"wäre … kommen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn sie könnte, ____ sie sofort ____. (kündigen)",
+				"options": [
+					"würde … gekündigt",
+					"hätte … kündigen",
+					"wird … kündigen"
+				]
+			},
+			{
+				"sentence": "Wenn ihr Zeit ____, könntet ihr uns am Wochenende besuchen. (haben)",
+				"options": [
+					"habt",
+					"hattet",
+					"hättest"
+				]
+			},
+			{
+				"sentence": "Was ____ du ____, wenn du im Lotto gewinnen würdest? (machen)",
+				"options": [
+					"würdest … gemacht",
+					"wirst … machen",
+					"hättest … machen"
+				]
+			},
+			{
+				"sentence": "____ das Wetter besser, führen wir heute ans Meer. (sein)",
+				"options": [
+					"War",
+					"Ist",
+					"Würde"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn ich damals Medizin studiert hätte, ____ ich heute Ärztin. (sein)",
+				"options": [
+					"war",
+					"hätte",
+					"würde"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn es nicht so stark ____, gingen wir spazieren. (regnen)",
+				"options": [
+					"regnet",
+					"regnen wäre",
+					"geregnet wäre"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "____ du mich früher angerufen, hätte ich dich vom Bahnhof abgeholt. (haben)",
+				"acceptedAnswers": [
+					"Hättest",
+					"Haettest"
+				],
+				"english": "If you had called me earlier, I would have picked you up from the station.",
+				"subjectKey": "s12",
+				"categoryLabel": "irreale Bedingung",
+				"options": [
+					"Hattest",
+					"Hast",
+					"Wärst"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn er nicht so viel gearbeitet hätte, ____ er jetzt nicht so erschöpft. (sein)",
+				"acceptedAnswers": [
+					"wäre",
+					"waere"
+				],
+				"english": "If he hadn't worked so much, he wouldn't be so exhausted now.",
+				"subjectKey": "s13",
+				"categoryLabel": "irreale Bedingung",
+				"options": [
+					"war",
+					"hätte",
+					"ist"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn der Zug pünktlich gewesen ____, hätten wir den Anschluss noch erreicht. (sein)",
+				"acceptedAnswers": [
+					"wäre",
+					"waere"
+				],
+				"english": "If the train had been on time, we would still have made the connection.",
+				"subjectKey": "s6",
+				"categoryLabel": "irreale Bedingung",
+				"options": [
+					"hätte",
+					"war",
+					"würde"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_als_ob",
+		"sentences": [
+			{
+				"sentence": "Er tut so, ____. (als ob / der Chef sein)",
+				"options": [
+					"als ob er wäre der Chef",
+					"als er der Chef wäre",
+					"als ob wäre er der Chef"
+				]
+			},
+			{
+				"sentence": "Sie sieht aus, ____. (als ob / nicht schlafen, past)",
+				"options": [
+					"als ob sie hätte nicht geschlafen",
+					"als sie nicht geschlafen hätte",
+					"als ob hätte sie nicht geschlafen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es scheint, ____. (als ob / regnen)",
+				"options": [
+					"als ob es würde regnen",
+					"als es regnen würde",
+					"als ob würde es regnen"
+				]
+			},
+			{
+				"sentence": "Er redet, ____. (als / alles wissen — verb second)",
+				"options": [
+					"als er alles wüsste",
+					"als ob wüsste er alles",
+					"als ob er wüsste alles"
+				]
+			},
+			{
+				"sentence": "Sie benehmen sich, ____. (als ob / nichts passieren, past)",
+				"options": [
+					"als ob nichts wäre passiert",
+					"als nichts passiert wäre",
+					"als ob nichts passiert hätte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es sieht aus, ____. (als / gewinnen, past — verb second)",
+				"options": [
+					"als wir gewonnen hätten",
+					"als ob hätten wir gewonnen",
+					"als wären wir gewonnen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie spricht, ____. (als ob / Deutsche sein)",
+				"options": [
+					"als ob sie wäre Deutsche",
+					"als sie Deutsche wäre",
+					"als ob wäre sie Deutsche"
+				]
+			},
+			{
+				"sentence": "Er tat so, ____. (als ob / mich nicht hören, past)",
+				"options": [
+					"als ob er mich nicht gehört wäre",
+					"als er mich nicht gehört hätte",
+					"als ob er hätte mich nicht gehört"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es fühlte sich an, ____. (als ob / die Zeit stillstehen)",
+				"options": [
+					"als die Zeit stillstünde",
+					"als ob stünde die Zeit still",
+					"als stillstünde die Zeit"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Du siehst aus, ____. (als / ein Gespenst sehen, past — verb second)",
+				"options": [
+					"als du ein Gespenst gesehen hättest",
+					"als ob hättest du ein Gespenst gesehen",
+					"als wärst du ein Gespenst gesehen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er gibt Geld aus, ____. (als ob / reich sein)",
+				"options": [
+					"als ob er wäre reich",
+					"als er reich wäre",
+					"als ob wäre er reich"
+				]
+			},
+			{
+				"sentence": "Es klingt, ____. (als ob / das Konzert absagen, passive past)",
+				"options": [
+					"als ob das Konzert abgesagt geworden wäre",
+					"als ob das Konzert abgesagt worden hätte",
+					"als wäre das Konzert worden abgesagt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie tut so, ____. (als ob / krank sein)",
+				"options": [
+					"als ob sie wäre krank",
+					"als sie krank wäre",
+					"als ob wäre sie krank"
+				]
+			},
+			{
+				"sentence": "Es sieht aus, ____. (als / schneien, past — verb second)",
+				"options": [
+					"als es geschneit hätte",
+					"als wäre es geschneit",
+					"als ob hätte es geschneit"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er spricht, ____. (als ob / dort leben, past)",
+				"options": [
+					"als ob er dort gelebt wäre",
+					"als er dort gelebt hätte",
+					"als ob er hätte dort gelebt"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Er schaute mich an, ____. (als ob / mich noch nie sehen, past)",
+				"acceptedAnswers": [
+					"als ob er mich noch nie gesehen hätte",
+					"als hätte er mich noch nie gesehen"
+				],
+				"english": "He looked at me as if he had never seen me before.",
+				"subjectKey": "s11",
+				"categoryLabel": "Vergleichssatz",
+				"options": [
+					"als ob er mich noch nie gesehen wäre",
+					"als er mich noch nie gesehen hätte",
+					"als ob er hätte mich noch nie gesehen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Nach der Party sah die Wohnung aus, ____. (als / eine Bombe einschlagen, past — verb second)",
+				"acceptedAnswers": [
+					"als hätte eine Bombe eingeschlagen",
+					"als ob eine Bombe eingeschlagen hätte"
+				],
+				"english": "After the party the flat looked as if a bomb had hit it.",
+				"subjectKey": "x13",
+				"categoryLabel": "Vergleichssatz",
+				"options": [
+					"als eine Bombe eingeschlagen hätte",
+					"als hätte eingeschlagen eine Bombe",
+					"als ob eine Bombe einschlagen hätte"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_bigtext_chancen",
+		"blanks": [
+			{
+				"index": 0,
+				"options": [
+					"lernen",
+					"gelernen",
+					"gelehrt"
+				]
+			},
+			{
+				"index": 1,
+				"options": [
+					"gegeht",
+					"gehen",
+					"gegangt"
+				]
+			},
+			{
+				"index": 2,
+				"options": [
+					"hätte",
+					"war",
+					"würde"
+				]
+			},
+			{
+				"index": 3,
+				"options": [
+					"wäre",
+					"war",
+					"hättest"
+				]
+			},
+			{
+				"index": 4,
+				"options": [
+					"gesollt",
+					"sollte",
+					"sollten"
+				]
+			},
+			{
+				"index": 5,
+				"options": [
+					"Wäre",
+					"Hatte",
+					"Würde"
+				]
+			},
+			{
+				"index": 6,
+				"options": [
+					"hätte",
+					"war",
+					"würde"
+				]
+			},
+			{
+				"index": 7,
+				"options": [
+					"annehmen",
+					"angenehmt",
+					"angenommt"
+				]
+			},
+			{
+				"index": 8,
+				"options": [
+					"gebleibt",
+					"bleiben",
+					"gebliebt"
+				]
+			},
+			{
+				"index": 9,
+				"options": [
+					"gekonnt",
+					"könnte",
+					"konnten"
+				]
+			},
+			{
+				"index": 10,
+				"options": [
+					"hätte",
+					"würde",
+					"wird"
+				]
+			},
+			{
+				"index": 11,
+				"options": [
+					"gesuchen",
+					"suchen",
+					"gesuchte"
+				]
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_futur2",
+		"sentences": [
+			{
+				"sentence": "Er ist nicht da. Er ____ wohl den Zug ____. (verpassen)",
+				"options": [
+					"wird … verpasst sein",
+					"hat … verpasst haben",
+					"wird … verpassen haben"
+				]
+			},
+			{
+				"sentence": "Das Licht ist aus. Sie ____ wohl schon ____. (gehen)",
+				"options": [
+					"wird … gegangen haben",
+					"ist … gegangen sein",
+					"wird … gehen sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Kinder haben nicht angerufen. Sie ____ es wieder ____. (vergessen)",
+				"options": [
+					"wird … vergessen haben",
+					"werden … vergessen sein",
+					"werden … vergesst haben"
+				]
+			},
+			{
+				"sentence": "Er antwortet nicht mehr. Er ____ vor dem Fernseher ____. (einschlafen)",
+				"options": [
+					"wird … eingeschlafen haben",
+					"wird … einschlafen sein",
+					"ist … eingeschlafen sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Du ____ sicher schon davon ____. (hören)",
+				"options": [
+					"wirst … gehört sein",
+					"wird … gehört haben",
+					"hast … gehört haben"
+				]
+			},
+			{
+				"sentence": "Bis morgen früh ____ ich den Bericht ____. (schreiben)",
+				"options": [
+					"werde … geschrieben sein",
+					"wird … geschrieben haben",
+					"werde … geschreibt haben"
+				]
+			},
+			{
+				"sentence": "Bis 2030 ____ die Stadt auf über eine Million Einwohner ____. (wachsen)",
+				"options": [
+					"wird … gewachsen haben",
+					"wird … gewachst sein",
+					"ist … gewachsen sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie ist immer noch nicht hier. Sie ____ den falschen Bus ____. (nehmen)",
+				"options": [
+					"wird … genommen sein",
+					"wird … genehmt haben",
+					"hat … genommen haben"
+				]
+			},
+			{
+				"sentence": "Die Straße ist nass. Es ____ in der Nacht ____. (regnen)",
+				"options": [
+					"wird … geregnet sein",
+					"hat … geregnet haben",
+					"wird … regnen haben"
+				]
+			},
+			{
+				"sentence": "Die Zahlen stimmen nicht. Wir ____ bei der Rechnung einen Fehler ____. (machen)",
+				"options": [
+					"wird … gemacht haben",
+					"werden … gemacht sein",
+					"haben … gemacht haben"
+				]
+			},
+			{
+				"sentence": "Er hat meinen Anruf nicht gehört. Er ____ vermutlich noch im Büro ____. (sein)",
+				"options": [
+					"wird … gewesen haben",
+					"wird … geworden sein",
+					"ist … gewesen sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Bis zum Sommer ____ das neue Gesetz längst in Kraft ____. (treten)",
+				"options": [
+					"wird … getreten haben",
+					"wird … getritten sein",
+					"ist … getreten sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es ist schon zehn. Ihr Flug ____ inzwischen ____. (landen)",
+				"options": [
+					"wird … gelandet haben",
+					"ist … gelandet sein",
+					"wird … gelandet werden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er sucht schon seit einer Stunde. Er ____ den Schlüssel wohl ____. (verlieren)",
+				"options": [
+					"wird … verloren sein",
+					"wird … geverloren haben",
+					"hat … verloren haben"
+				]
+			},
+			{
+				"sentence": "In zwanzig Jahren ____ wir das Haus endlich ____. (abbezahlen)",
+				"options": [
+					"werden … abbezahlt sein",
+					"wird … abbezahlt haben",
+					"werden … abgebezahlt haben"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Sie strahlt über das ganze Gesicht. Sie ____ die Prüfung wohl ____. (bestehen)",
+				"acceptedAnswers": [
+					"wird … bestanden haben"
+				],
+				"english": "She is beaming all over her face. She will have passed the exam.",
+				"subjectKey": "s0",
+				"categoryLabel": "Futur II",
+				"options": [
+					"wird … bestanden sein",
+					"wird … gebestanden haben",
+					"hat … bestanden haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Bis du zurückkommst, ____ wir die ganze Wohnung ____. (aufräumen)",
+				"acceptedAnswers": [
+					"werden … aufgeräumt haben"
+				],
+				"english": "By the time you get back, we will have tidied the whole flat.",
+				"subjectKey": "s5",
+				"categoryLabel": "Futur II",
+				"options": [
+					"werden … aufgeräumt sein",
+					"werden … geaufräumt haben",
+					"wird … aufgeräumt haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Brief ist nie angekommen. Er ____ wohl bei der Post ____. (verloren gehen)",
+				"acceptedAnswers": [
+					"wird … verloren gegangen sein"
+				],
+				"english": "The letter never arrived. It will have got lost in the post.",
+				"subjectKey": "s2",
+				"categoryLabel": "Futur II",
+				"options": [
+					"wird … verloren gegangen haben",
+					"wird … verloren gehen sein",
+					"ist … verloren gegangen sein"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_genitiv_praep",
+		"sentences": [
+			{
+				"sentence": "____ des starken Regens fand das Konzert im Freien statt. (despite)",
+				"options": [
+					"Wegen",
+					"Infolge",
+					"Aufgrund"
+				]
+			},
+			{
+				"sentence": "Wegen ____ fahren heute keine Regionalzüge. (der Streik)",
+				"options": [
+					"den Streik",
+					"der Streiks",
+					"des Streik"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Während ____ haben wir kaum ein Wort gesprochen. (die lange Fahrt)",
+				"options": [
+					"die lange Fahrt",
+					"der lange Fahrt",
+					"den langen Fahrt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ eines neuen Autos kaufte sie sich ein E-Bike. (instead of)",
+				"options": [
+					"Wegen",
+					"Außer",
+					"Neben"
+				]
+			},
+			{
+				"sentence": "Aufgrund ____ verlängern wir das Angebot bis Ende Mai. (die hohe Nachfrage)",
+				"options": [
+					"die hohe Nachfrage",
+					"der hohe Nachfrage",
+					"dem hohen Nachfrage"
+				]
+			},
+			{
+				"sentence": "Infolge ____ war die Autobahn stundenlang gesperrt. (ein schwerer Unfall)",
+				"options": [
+					"einem schweren Unfall",
+					"eines schwerer Unfalls",
+					"eines schweren Unfall"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Bitte überweisen Sie den Betrag ____ von zwei Wochen. (within)",
+				"options": [
+					"außerhalb",
+					"während",
+					"binnen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ der Öffnungszeiten erreichen Sie uns per E-Mail. (outside)",
+				"options": [
+					"Unterhalb",
+					"Oberhalb",
+					"Anstatt"
+				]
+			},
+			{
+				"sentence": "____ der neuen Daten lässt sich zeigen, dass die Zahl der Unfälle gesunken ist. (on the evidence of)",
+				"options": [
+					"Anstatt",
+					"Anlässlich",
+					"Außerhalb"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ einer App kann man den Stromverbrauch im Haushalt kontrollieren. (with the help of)",
+				"options": [
+					"Infolge",
+					"Anstelle",
+					"Trotz"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ des 100. Geburtstags der Schule gibt es im Juni ein großes Fest. (on the occasion of)",
+				"options": [
+					"Anhand",
+					"Anstatt",
+					"Außerhalb"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ Ihrer Anfrage vom 3. Mai teilen wir Ihnen Folgendes mit. (regarding)",
+				"options": [
+					"Anstatt",
+					"Außerhalb",
+					"Trotz"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ der Grenze gelten andere Verkehrsregeln. (beyond)",
+				"options": [
+					"Oberhalb",
+					"Unterhalb",
+					"Anstatt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das kleine Dorf liegt direkt am Fluss, ____ der Burg. (below)",
+				"options": [
+					"oberhalb",
+					"außerhalb",
+					"innerhalb"
+				]
+			},
+			{
+				"sentence": "Die Hütte steht etwa 300 Meter ____ des Sees. (above)",
+				"options": [
+					"unterhalb",
+					"außerhalb",
+					"jenseits"
+				]
+			}
+		],
+		"add": [
+			{
+				"sentence": "Wegen ____ wurde der Flug nach Wien gestrichen. (das schlechte Wetter)",
+				"acceptedAnswers": [
+					"des schlechten Wetters"
+				],
+				"english": "Because of the bad weather the flight to Vienna was cancelled.",
+				"subjectKey": "s2",
+				"categoryLabel": "Genitivpräposition",
+				"options": [
+					"das schlechte Wetter",
+					"des schlechte Wetters",
+					"des schlechten Wetter"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Innerhalb ____ hat sich unsere Miete fast verdoppelt. (die letzten fünf Jahre)",
+				"acceptedAnswers": [
+					"der letzten fünf Jahre"
+				],
+				"english": "Within the last five years our rent has almost doubled.",
+				"subjectKey": "s4",
+				"categoryLabel": "Genitivpräposition",
+				"options": [
+					"die letzten fünf Jahre",
+					"der letzte fünf Jahre",
+					"des letzten fünf Jahres"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ der hohen Kosten entschied sich der Stadtrat gegen den Neubau. (in view of)",
+				"acceptedAnswers": [
+					"Angesichts"
+				],
+				"english": "In view of the high costs the city council decided against the new building.",
+				"subjectKey": "s0",
+				"categoryLabel": "Genitivpräposition",
+				"options": [
+					"Anlässlich",
+					"Anstatt",
+					"Innerhalb"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_partizip_attribut",
+		"sentences": [
+			{
+				"sentence": "Wir diskutierten über die von der Regierung im letzten Monat ____ Maßnahmen. (beschließen)",
+				"options": [
+					"beschlossene",
+					"beschließenden",
+					"beschlossen"
+				]
+			},
+			{
+				"sentence": "Das seit Jahren ____ Problem der Luftverschmutzung ist noch immer nicht gelöst. (bestehen)",
+				"options": [
+					"bestandene",
+					"bestehenden",
+					"bestehend"
+				]
+			},
+			{
+				"sentence": "Mit dem ständig ____ Verkehr wächst auch der Lärm in der Innenstadt. (zunehmen)",
+				"options": [
+					"zugenommenen",
+					"zunehmende",
+					"zunehmendem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die in der Studie ____ Zahlen wurden später korrigiert. (nennen)",
+				"options": [
+					"nennenden",
+					"genannte",
+					"genanntes"
+				]
+			},
+			{
+				"sentence": "Der Bürgermeister eröffnete die nach zwei Jahren Bauzeit ____ Brücke. (fertigstellen)",
+				"options": [
+					"fertigstellende",
+					"fertiggestellten",
+					"fertiggestelltes"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ein schnell ____ Unternehmen braucht ständig neues Personal. (wachsen)",
+				"options": [
+					"wachsende",
+					"wachsender",
+					"wachsenden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wir danken allen an dem Projekt ____ Kolleginnen und Kollegen. (beteiligen)",
+				"options": [
+					"beteiligenden",
+					"beteiligte",
+					"beteiligt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die aus dem Ausland ____ Pflegekräfte werden dringend gebraucht. (anwerben)",
+				"options": [
+					"anwerbenden",
+					"angeworbene",
+					"angewerbten"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er las den von seiner Chefin am Freitag ____ Bericht erst am Montag. (schreiben)",
+				"options": [
+					"schreibenden",
+					"geschriebene",
+					"geschreibten"
+				]
+			},
+			{
+				"sentence": "Bei stark ____ Temperaturen sollte man viel Wasser trinken. (steigen)",
+				"options": [
+					"steigende",
+					"steigendem",
+					"steigender"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das im 18. Jahrhundert ____ Schloss ist heute ein Museum. (erbauen)",
+				"options": [
+					"erbauende",
+					"erbauten",
+					"erbautes"
+				]
+			},
+			{
+				"sentence": "Die Zahl der auf eine Sozialwohnung ____ Familien ist weiter gestiegen. (warten)",
+				"options": [
+					"gewarteten",
+					"wartende",
+					"wartender"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ein gut ____ Team kann auch schwierige Aufgaben lösen. (organisieren)",
+				"options": [
+					"organisierendes",
+					"organisierte",
+					"organisierter"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Mit einem vor Kurzem ____ Gesetz will die Regierung die Mieten begrenzen. (verabschieden)",
+				"options": [
+					"verabschiedenden",
+					"verabschiedete",
+					"verabschiedetem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die in der Nacht vom Sturm ____ Bäume blockierten mehrere Straßen. (entwurzeln)",
+				"options": [
+					"entwurzelnden",
+					"entwurzelte",
+					"geentwurzelten"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_modalpartikeln",
+		"sentences": [
+			{
+				"sentence": "Kannst du mir ____ kurz mit dem Koffer helfen? (softening a request)",
+				"options": [
+					"ja",
+					"halt",
+					"etwa"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Setz dich ____! Der Stuhl ist frei. (friendly encouragement)",
+				"options": [
+					"etwa",
+					"wohl",
+					"denn"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Das stimmt ____ gar nicht! Ich war die ganze Zeit hier. (contradicting)",
+				"options": [
+					"denn",
+					"bloß",
+					"ruhig"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Du weißt ____, dass ich montags immer lange arbeite. (as you already know)",
+				"options": [
+					"denn",
+					"mal",
+					"ruhig"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Das ist ____ eine tolle Überraschung! (surprise at something evident)",
+				"options": [
+					"denn",
+					"ruhig",
+					"etwa"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Der letzte Bus ist weg? Dann gehen wir ____ zu Fuß. (resignation)",
+				"options": [
+					"denn",
+					"etwa",
+					"eigentlich"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Keine Sorge, das wird ____ klappen. (reassurance)",
+				"options": [
+					"denn",
+					"etwa",
+					"bloß"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Das ist ____ richtig, aber es löst unser Problem nicht. (conceding a point)",
+				"options": [
+					"denn",
+					"etwa",
+					"mal"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Er ist heute nicht gekommen, er ist ____ krank. (a guess)",
+				"options": [
+					"denn",
+					"etwa",
+					"ruhig"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Fass den Herd ____ nicht an, er ist noch heiß! (strong warning)",
+				"options": [
+					"denn",
+					"etwa",
+					"wohl"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Wenn der Regen ____ endlich aufhören würde! (wish)",
+				"options": [
+					"denn",
+					"etwa",
+					"ja"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Nimm dir ____ noch ein Stück Kuchen, es ist genug da. (go ahead)",
+				"options": [
+					"denn",
+					"etwa",
+					"wohl"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Was ist ____ hier los? (interested / surprised question)",
+				"options": [
+					"doch",
+					"halt",
+					"ruhig"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Das Leben ist ____ so, man kann nicht alles planen. (resignation)",
+				"options": [
+					"denn",
+					"etwa",
+					"ruhig"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Komm ____ ____ vorbei, wenn du Zeit hast! (friendly invitation: two particles)",
+				"options": [
+					"mal … doch",
+					"denn … mal",
+					"etwa … mal"
+				],
+				"hard": true,
+				"keepCue": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Warum hast du das ____ nicht gleich gesagt? (reproachful question)",
+				"acceptedAnswers": [
+					"denn",
+					"bloß",
+					"nur",
+					"bloss"
+				],
+				"english": "Why on earth didn't you say so straight away?",
+				"subjectKey": "s12",
+				"categoryLabel": "Modalpartikel",
+				"options": [
+					"doch",
+					"halt",
+					"ruhig"
+				],
+				"keepCue": true,
+				"hard": true
+			},
+			{
+				"sentence": "Sag meiner Mutter ____ nichts davon! (strong warning)",
+				"acceptedAnswers": [
+					"bloß",
+					"ja",
+					"nur",
+					"bloss"
+				],
+				"english": "Whatever you do, don't tell my mother about it!",
+				"subjectKey": "s9",
+				"categoryLabel": "Modalpartikel",
+				"options": [
+					"denn",
+					"etwa",
+					"wohl"
+				],
+				"keepCue": true,
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_fvg",
+		"sentences": [
+			{
+				"sentence": "Der Vorstand hat gestern eine wichtige Entscheidung ____. (= entscheiden)",
+				"options": [
+					"gemacht",
+					"genommen",
+					"gegeben"
+				]
+			},
+			{
+				"sentence": "Nach dem Vortrag durften die Zuhörer Fragen ____. (= fragen)",
+				"options": [
+					"fragen",
+					"machen",
+					"geben"
+				]
+			},
+			{
+				"sentence": "Wir sollten auch eine Verschiebung des Termins in Betracht ____. (= erwägen)",
+				"options": [
+					"nehmen",
+					"stellen",
+					"bringen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Opposition ____ scharfe Kritik an dem Gesetzentwurf. (= kritisierte)",
+				"options": [
+					"machte",
+					"gab",
+					"stellte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Für Rückfragen ____ ich Ihnen jederzeit zur Verfügung. (= bin verfügbar)",
+				"options": [
+					"bin",
+					"stelle",
+					"liege"
+				]
+			},
+			{
+				"sentence": "In der Sitzung hat sie das Problem mit den Überstunden zur ____ gebracht. (= angesprochen)",
+				"options": [
+					"Rede",
+					"Ansprache",
+					"Sprechen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die neue Regelung ____ am 1. Januar in Kraft. (= gilt ab)",
+				"options": [
+					"kommt",
+					"geht",
+					"steht"
+				]
+			},
+			{
+				"sentence": "Wir haben Ihre Beschwerde zur ____ genommen und melden uns in Kürze. (= registriert)",
+				"options": [
+					"Kenntnisnahme",
+					"Erkenntnis",
+					"Notiz"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ein Umzug ins Ausland kommt für uns im Moment nicht in ____. (= ist nicht möglich)",
+				"options": [
+					"Rede",
+					"Sprache",
+					"Kraft"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Anwohner haben eine Bitte an die Stadtverwaltung ____. (= gebeten)",
+				"options": [
+					"gegeben",
+					"gemacht",
+					"getroffen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Bitte ____ Sie Rücksicht auf die anderen Fahrgäste. (= berücksichtigen Sie)",
+				"options": [
+					"machen",
+					"geben",
+					"halten"
+				]
+			},
+			{
+				"sentence": "In ihrer Rede hat die Ministerin ihre Sorge deutlich zum ____ gebracht. (= ausgedrückt)",
+				"options": [
+					"Ausdrücken",
+					"Eindruck",
+					"Ausspruch"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Geld ____ bei dieser Entscheidung keine große Rolle. (= ist nicht wichtig)",
+				"options": [
+					"macht",
+					"hat",
+					"gibt"
+				]
+			},
+			{
+				"sentence": "Der Bericht ____ die bisherigen Ergebnisse ernsthaft in Frage. (= bezweifelt)",
+				"options": [
+					"setzt",
+					"bringt",
+					"zieht"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Bei der Trauerfeier nahmen Hunderte ____ von dem früheren Bürgermeister. (= verabschiedeten sich)",
+				"options": [
+					"Verabschiedung",
+					"Abschluss",
+					"Trauer"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Die Stadt hat den Bau der neuen Brücke endlich in ____ gegeben. (= beauftragt)",
+				"acceptedAnswers": [
+					"Auftrag"
+				],
+				"english": "The city has finally commissioned the construction of the new bridge.",
+				"subjectKey": "s5",
+				"categoryLabel": "Funktionsverbgefüge",
+				"options": [
+					"Arbeit",
+					"Betrieb",
+					"Bau"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Chefin hat mir eine Gehaltserhöhung in Aussicht ____. (= versprochen)",
+				"acceptedAnswers": [
+					"gestellt"
+				],
+				"english": "The boss has held out the prospect of a pay rise.",
+				"subjectKey": "s0",
+				"categoryLabel": "Funktionsverbgefüge",
+				"options": [
+					"gebracht",
+					"gegeben",
+					"gezogen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wir müssen die Kosten endlich in den Griff ____. (= kontrollieren)",
+				"acceptedAnswers": [
+					"bekommen",
+					"kriegen"
+				],
+				"english": "We finally have to get the costs under control.",
+				"subjectKey": "s1",
+				"categoryLabel": "Funktionsverbgefüge",
+				"options": [
+					"nehmen",
+					"machen",
+					"halten"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_verweiswoerter",
+		"sentences": [
+			{
+				"sentence": "Die Stadt baute eine Brücke. ____ kostete Millionen. (this one, f)",
+				"options": [
+					"Dieser",
+					"Dieses",
+					"Denen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Preise stiegen. ____ überraschte niemanden. (this fact)",
+				"options": [
+					"Dieser",
+					"Diese",
+					"Welches"
+				]
+			},
+			{
+				"sentence": "Er sparte Geld. ____ kaufte er ein Auto. (with it)",
+				"options": [
+					"Dahin",
+					"Daran",
+					"Darin"
+				]
+			},
+			{
+				"sentence": "Sie trainiert täglich. ____ bleibt sie fit. (through this)",
+				"options": [
+					"Darauf",
+					"Daran",
+					"Darüber"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wir besprachen den Plan. ____ fanden wir Fehler. (in doing so)",
+				"options": [
+					"Daran",
+					"Dafür",
+					"Dazu"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Bericht ist lang. ____ folgt eine Zusammenfassung. (after it)",
+				"options": [
+					"Davor",
+					"Daneben",
+					"Dagegen"
+				]
+			},
+			{
+				"sentence": "Zur Wahl stehen zwei Lösungen: eine schnelle und eine gründliche. ____ ist billig, ____ nachhaltig. (the former … the latter)",
+				"options": [
+					"Letztere … erstere",
+					"Ersterer … letzterer",
+					"Erste … letzte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das Thema wurde diskutiert. ____ schrieb die Zeitung. (about it)",
+				"options": [
+					"Darauf",
+					"Daran",
+					"Darin"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er war krank. ____ blieb er zu Hause. (for this reason)",
+				"options": [
+					"Dennoch",
+					"Dabei",
+					"Damit"
+				]
+			},
+			{
+				"sentence": "Berlin ist groß. ____ findet man alles. (there)",
+				"options": [
+					"Dahin",
+					"Dorthin",
+					"Dorther"
+				]
+			},
+			{
+				"sentence": "Die Kosten sind hoch. ____ ist die Zeit knapp. (moreover)",
+				"options": [
+					"Dennoch",
+					"Deshalb",
+					"Stattdessen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Viele waren dagegen. ____ wurde es beschlossen. (nevertheless)",
+				"options": [
+					"Deshalb",
+					"Daher",
+					"Außerdem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er erklärte die Regel. ____ verstanden alle. (after that)",
+				"options": [
+					"Davor",
+					"Dafür",
+					"Dagegen"
+				]
+			},
+			{
+				"sentence": "Der Plan hat eine Schwäche. ____ wurde er abgelehnt. (for this reason)",
+				"options": [
+					"Trotzdem",
+					"Zudem",
+					"Dabei"
+				]
+			},
+			{
+				"sentence": "Zwei Kandidaten: Braun und Klein. ____ gewann. (the latter)",
+				"options": [
+					"Letztere",
+					"Ersterer",
+					"Letzteres"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Die Mieten steigen seit Jahren. ____ hat die Stadt lange nichts unternommen. (against it)",
+				"acceptedAnswers": [
+					"Dagegen"
+				],
+				"english": "Rents have been rising for years. For a long time the city did nothing against it.",
+				"subjectKey": "s7",
+				"categoryLabel": "Verweiswort",
+				"options": [
+					"Dafür",
+					"Davon",
+					"Darauf"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er hatte zwei Angebote, eines aus Berlin und eines aus Wien. ____ nahm er an. (the latter, n)",
+				"acceptedAnswers": [
+					"Letzteres"
+				],
+				"english": "He had two offers, one from Berlin and one from Vienna. He accepted the latter.",
+				"subjectKey": "x14",
+				"categoryLabel": "Verweiswort",
+				"options": [
+					"Letzterer",
+					"Letztere",
+					"Ersteres"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_nominalisierung_intro",
+		"sentences": [
+			{
+				"sentence": "____ hat uns die Aufgabe noch einmal erklärt. (lehren → Person, mit Artikel)",
+				"options": [
+					"Die Lehre",
+					"Das Lehren",
+					"Der Lehr"
+				]
+			},
+			{
+				"sentence": "____ des Konzerts wurde um eine Stunde verschoben. (beginnen, mit Artikel)",
+				"options": [
+					"Die Beginnung",
+					"Die Begin",
+					"Das Begonnene"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das ständige ____ der Nachbarn im Treppenhaus stört mich. (reden, abwertend)",
+				"options": [
+					"Rede",
+					"Redung",
+					"Redner"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Beim ____ habe ich mir das Knie verletzt. (schwimmen)",
+				"options": [
+					"Schwimm",
+					"Schwimmung",
+					"Schwimmer"
+				]
+			},
+			{
+				"sentence": "Vielen Dank für deine ____ beim Umzug! (helfen)",
+				"options": [
+					"Helfe",
+					"Helfung",
+					"Hilf"
+				]
+			},
+			{
+				"sentence": "Ich hätte noch eine ____ zu Ihrer Rechnung. (fragen)",
+				"options": [
+					"Fragung",
+					"Gefrage",
+					"Frag"
+				]
+			},
+			{
+				"sentence": "Die mündliche ____ findet am Montag in Raum 204 statt. (prüfen)",
+				"options": [
+					"Prüfe",
+					"Prüfen",
+					"Prüfer"
+				]
+			},
+			{
+				"sentence": "Wir müssen bis Freitag eine ____ treffen. (entscheiden)",
+				"options": [
+					"Entscheide",
+					"Entscheidigung",
+					"Scheidung"
+				]
+			},
+			{
+				"sentence": "Nach dem langen ____ durch den Park waren alle erschöpft. (laufen, ein einzelnes Ereignis)",
+				"options": [
+					"Läufer",
+					"Laufung",
+					"Läufe"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "____ des Busses hat sofort die Polizei gerufen. (fahren → Person, mit Artikel)",
+				"options": [
+					"Die Fahrt",
+					"Das Fahren",
+					"Die Fähre"
+				]
+			},
+			{
+				"sentence": "Das laute ____ der Kinder war bis auf die Straße zu hören. (schreien, abwertend)",
+				"options": [
+					"Schrei",
+					"Schreiung",
+					"Geschrie"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Viele Studierende leiden unter ____. (Prüfung + Angst, ein Wort)",
+				"options": [
+					"Prüfungangst",
+					"Prüfangst",
+					"Angstprüfung"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "____ der Firma bekommen ab Juli mehr Gehalt. (angestellt → Personen, mit Artikel)",
+				"options": [
+					"Die Angestellte",
+					"Die Angestellter",
+					"Die Anstellung"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Die ____ nach einer neuen Wohnung dauert schon ein halbes Jahr. (suchen)",
+				"options": [
+					"Suchung",
+					"Gesuch",
+					"Sucher"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ein guter ____ ist wichtig für die Gesundheit. (schlafen)",
+				"options": [
+					"Schlafen",
+					"Schlafung",
+					"Geschlafe"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Das ständige ____ des Hundes hält mich nachts wach. (bellen, abwertend)",
+				"acceptedAnswers": [
+					"Gebell",
+					"Gebelle"
+				],
+				"english": "The dog's constant barking keeps me awake at night.",
+				"subjectKey": "s10",
+				"categoryLabel": "Nomen",
+				"options": [
+					"Bellung",
+					"Belle",
+					"Beller"
+				],
+				"keepCue": true,
+				"hard": true
+			},
+			{
+				"sentence": "Nach der ____ in Frankfurt mussten wir zwei Stunden auf den Anschluss warten. (ankommen)",
+				"acceptedAnswers": [
+					"Ankunft"
+				],
+				"english": "After our arrival in Frankfurt we had to wait two hours for the connection.",
+				"subjectKey": "s1",
+				"categoryLabel": "Nomen",
+				"options": [
+					"Ankommung",
+					"Ankommen",
+					"Ankommt"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_adjektivbildung",
+		"sentences": [
+			{
+				"sentence": "Die neue Kollegin ist sehr ____ und hilft allen. (Freund)",
+				"options": [
+					"freundig",
+					"freundhaft",
+					"freundisch"
+				]
+			},
+			{
+				"sentence": "Nach dem Regen wurde es am Nachmittag endlich ____. (Sonne)",
+				"options": [
+					"sonnlich",
+					"sonnenhaft",
+					"sonnisch"
+				]
+			},
+			{
+				"sentence": "Hör auf, dich so ____ zu benehmen! (Kind — negative judgement)",
+				"options": [
+					"kindlich",
+					"kindhaft",
+					"kindig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das neue Medikament ist sehr ____ gegen Kopfschmerzen. (wirken)",
+				"options": [
+					"wirklich",
+					"wirkbar",
+					"wirkend"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Blick vom Gipfel auf den See war einfach ____. (Traum)",
+				"options": [
+					"träumerisch",
+					"traumig",
+					"traumlich"
+				]
+			},
+			{
+				"sentence": "Die Ärztin ist tagsüber telefonisch ____. (erreichen)",
+				"options": [
+					"erreichlich",
+					"erreichsam",
+					"erreichend"
+				]
+			},
+			{
+				"sentence": "Seit die Fabrik geschlossen hat, sind viele Menschen in der Region ____. (Arbeit — without)",
+				"options": [
+					"arbeitlos",
+					"arbeitsarm",
+					"arbeitsam"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Für seine Diät kauft er nur noch ____ Joghurt. (Kalorien — few)",
+				"options": [
+					"kalorienarm",
+					"kalorienlosen",
+					"kalorienreichen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das Projekt war sehr ____: Alle Ziele wurden erreicht. (Erfolg)",
+				"options": [
+					"erfolglich",
+					"erfolgsam",
+					"erfolgvoll"
+				]
+			},
+			{
+				"sentence": "Danke für deinen ____ Tipp! (Wert — full of)",
+				"options": [
+					"wertvolle",
+					"wertreichen",
+					"wertigen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie hat viele ____ Ideen für die neue Werbekampagne. (kreieren)",
+				"options": [
+					"kreativen",
+					"kreatorische",
+					"kreativische"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Warte doch noch einen Moment, sei nicht so ____! (geduldig — negated)",
+				"options": [
+					"geduldlos",
+					"ungeduldlich",
+					"entgeduldig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es ist ____, noch länger zu warten – heute fährt kein Zug mehr. (Sinn — without)",
+				"options": [
+					"sinnvoll",
+					"sinnlich",
+					"sinnig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wir fahren heute ____ mit dem Auto, weil die Bahn streikt. (Ausnahme + -weise)",
+				"options": [
+					"ausnahmeweise",
+					"ausnahmlich",
+					"ausgenommen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Anleitung ist leider völlig ____ formuliert: Niemand versteht sie. (verstehen — negated)",
+				"options": [
+					"unverstanden",
+					"unverständig",
+					"verständlich"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_konzessiv",
+		"sentences": [
+			{
+				"sentence": "____ es in Strömen regnete, gingen wir spazieren. (although)",
+				"options": [
+					"Trotz",
+					"Zwar",
+					"Dennoch"
+				]
+			},
+			{
+				"sentence": "Es regnete in Strömen. ____ gingen wir spazieren. (nevertheless)",
+				"options": [
+					"Obwohl",
+					"Trotz",
+					"Zwar"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ des Regens gingen wir spazieren. (despite, + Genitiv)",
+				"options": [
+					"Obwohl",
+					"Trotzdem",
+					"Dennoch"
+				]
+			},
+			{
+				"sentence": "____ ist das Hotel teuer, aber es ist seinen Preis wert. (admittedly … but)",
+				"options": [
+					"Obwohl",
+					"Trotz",
+					"Selbst"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ es morgen regnen sollte, findet das Fest statt. (even if)",
+				"options": [
+					"Wenn auch",
+					"Selbst",
+					"Zwar"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "So teuer die Reise ____ war, sie hat sich gelohnt. (however expensive)",
+				"options": [
+					"doch",
+					"zwar",
+					"noch"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie nahm die Stelle an, ____ das Gehalt niedrig war. (although)",
+				"options": [
+					"trotz",
+					"dennoch",
+					"zwar"
+				]
+			},
+			{
+				"sentence": "Das Wetter war schlecht; wir hatten ____ viel Spaß. (nevertheless)",
+				"options": [
+					"obwohl",
+					"trotz",
+					"zwar"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ seiner starken Erkältung ging er zur Arbeit. (despite)",
+				"options": [
+					"Obwohl",
+					"Trotzdem",
+					"Dennoch"
+				]
+			},
+			{
+				"sentence": "Der Plan ist riskant; ____ wollen wir es versuchen. (nevertheless)",
+				"options": [
+					"obwohl",
+					"trotz",
+					"zwar"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es war ____ kalt, aber die Sonne schien den ganzen Tag. (admittedly … but)",
+				"options": [
+					"obwohl",
+					"trotz",
+					"wenn"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ er sich große Mühe gab, bestand er die Prüfung nicht. (although)",
+				"options": [
+					"Trotz",
+					"Zwar",
+					"Dennoch"
+				]
+			},
+			{
+				"sentence": "____ müde sie auch war, sie las das Buch bis zum Ende. (however tired)",
+				"options": [
+					"Zu",
+					"Sehr",
+					"Ganz"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ich komme mit, ____ ich eigentlich keine Zeit habe. (even though)",
+				"options": [
+					"trotz",
+					"zwar",
+					"dennoch"
+				]
+			},
+			{
+				"sentence": "Er blieb ruhig, ____ man ihn ständig provozierte. (although)",
+				"options": [
+					"trotz",
+					"dennoch",
+					"zwar"
+				]
+			}
+		],
+		"add": [
+			{
+				"sentence": "____ nett er auch ist, ich vertraue ihm nicht. (however nice)",
+				"acceptedAnswers": [
+					"So",
+					"Wie"
+				],
+				"english": "However nice he is, I don't trust him.",
+				"subjectKey": "s12",
+				"categoryLabel": "Konzession",
+				"options": [
+					"Zu",
+					"Sehr",
+					"Ganz"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er hat ____ viel gelernt, die Prüfung aber trotzdem nicht bestanden. (admittedly … but)",
+				"acceptedAnswers": [
+					"zwar"
+				],
+				"english": "He did study a lot, admittedly, but he still failed the exam.",
+				"subjectKey": "s10",
+				"categoryLabel": "Konzession",
+				"options": [
+					"obwohl",
+					"trotz",
+					"wenn"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wir fahren morgen früh los, ____ es schneien sollte. (even if)",
+				"acceptedAnswers": [
+					"auch wenn",
+					"selbst wenn"
+				],
+				"english": "We are setting off early tomorrow even if it should snow.",
+				"subjectKey": "s13",
+				"categoryLabel": "Konzession",
+				"options": [
+					"wenn auch",
+					"selbst",
+					"zwar"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_konditional_nominal",
+		"sentences": [
+			{
+				"sentence": "Wenn es regnet, fällt das Spiel aus. → ____ fällt das Spiel aus.",
+				"options": [
+					"Mit Regen",
+					"Im Regen",
+					"Ohne Regen"
+				]
+			},
+			{
+				"sentence": "Wenn Sie Fragen haben, rufen Sie an. → ____ rufen Sie an.",
+				"options": [
+					"Bei Frage",
+					"Ohne Fragen",
+					"Im Falle Fragen"
+				]
+			},
+			{
+				"sentence": "Falls ein Brand ausbricht, verlassen Sie das Gebäude. → ____ verlassen Sie das Gebäude.",
+				"options": [
+					"Im Falle einem Brand",
+					"Im Falle ein Brand",
+					"Bei eines Brandes"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn man keine Erlaubnis hat, darf man nicht parken. → ____ darf man nicht parken.",
+				"options": [
+					"Ohne einer Erlaubnis",
+					"Bei Erlaubnis",
+					"Mit Erlaubnis"
+				]
+			},
+			{
+				"sentence": "Wenn man gut plant, spart man Zeit. → ____ spart man Zeit.",
+				"options": [
+					"Bei gute Planung",
+					"Bei guten Planung",
+					"Bei guter Plan"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sofern das Wetter schön ist, grillen wir. → ____ grillen wir.",
+				"options": [
+					"Bei schöner Wetter",
+					"Bei schönen Wetter",
+					"Bei schönes Wetter"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Bei Regen bleiben wir drinnen. → Wir bleiben drinnen, ____ .",
+				"options": [
+					"wenn regnet es",
+					"wenn es regnen",
+					"falls regnet es"
+				]
+			},
+			{
+				"sentence": "Im Falle eines Unfalls rufen Sie 112. → Rufen Sie 112, ____ .",
+				"options": [
+					"falls passiert ein Unfall",
+					"wenn ein Unfall passieren",
+					"wenn es gibt einen Unfall"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ohne Hilfe schafft er es nicht. → Er schafft es nicht, ____ .",
+				"options": [
+					"wenn er hat keine Hilfe",
+					"wenn er keine Hilfe haben",
+					"ohne dass er Hilfe"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Bei rechtzeitiger Anmeldung gibt es einen Rabatt. → Es gibt einen Rabatt, ____ .",
+				"options": [
+					"wenn man sich anmeldet rechtzeitig",
+					"wenn man meldet sich rechtzeitig an",
+					"wenn man sich rechtzeitig anmelden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Unter der Bedingung, dass alle zustimmen, machen wir es. → ____ alle zustimmen, machen wir es.",
+				"options": [
+					"Obwohl",
+					"Sodass",
+					"Ob"
+				]
+			},
+			{
+				"sentence": "Bei Nichtbeachtung droht eine Strafe. → Es droht eine Strafe, ____ .",
+				"options": [
+					"wenn man die Regeln beachtet",
+					"wenn man beachtet die Regeln nicht",
+					"wenn man die Regeln nicht beachten"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn Sie etwas brauchen, sprechen Sie uns an. → ____ sprechen Sie uns an.",
+				"options": [
+					"Im Bedarf",
+					"Mit Bedarf",
+					"Bei Bedarfs"
+				]
+			},
+			{
+				"sentence": "Bei Verspätung melden Sie sich bitte. → Melden Sie sich bitte, ____ .",
+				"options": [
+					"wenn Sie verspäten sich",
+					"wenn Sie sich verspätet",
+					"wenn Sie verspäten"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Mit etwas Glück schaffen wir es. → Wir schaffen es, ____ .",
+				"options": [
+					"wenn wir haben Glück",
+					"wenn haben wir Glück",
+					"wenn wir Glücke haben"
+				]
+			}
+		],
+		"add": [
+			{
+				"sentence": "Wenn Sie den Vertrag vorzeitig kündigen, zahlen Sie eine Gebühr. → ____ zahlen Sie eine Gebühr.",
+				"acceptedAnswers": [
+					"bei vorzeitiger Kündigung",
+					"Bei vorzeitiger Kündigung",
+					"bei vorzeitiger Kündigung des Vertrags",
+					"Bei vorzeitiger Kündigung des Vertrags",
+					"im Falle einer vorzeitigen Kündigung",
+					"Im Falle einer vorzeitigen Kündigung"
+				],
+				"english": "In the event of early cancellation you pay a fee.",
+				"subjectKey": "s0",
+				"categoryLabel": "Umformung",
+				"options": [
+					"Bei vorzeitige Kündigung",
+					"Bei vorzeitigem Kündigen",
+					"Mit vorzeitiger Kündigen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ohne Fahrkarte darf man nicht einsteigen. → Man darf nicht einsteigen, ____ .",
+				"acceptedAnswers": [
+					"wenn man keine Fahrkarte hat",
+					"falls man keine Fahrkarte hat",
+					"wenn man kein Ticket hat"
+				],
+				"english": "Without a ticket you may not board.",
+				"subjectKey": "s6",
+				"categoryLabel": "Umformung",
+				"options": [
+					"wenn man eine Fahrkarte hat",
+					"wenn man hat keine Fahrkarte",
+					"wenn man keine Fahrkarte haben"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_konsekutiv_modal_nominal",
+		"sentences": [
+			{
+				"sentence": "Es stürmte, sodass der Strom ausfiel. → ____ fiel der Strom aus.",
+				"options": [
+					"Infolge des Sturm",
+					"Infolge dem Sturm",
+					"Infolge der Sturm"
+				]
+			},
+			{
+				"sentence": "Infolge des Unfalls wurden viele verletzt. → Es gab einen Unfall, ____ .",
+				"options": [
+					"sodass wurden viele verletzt",
+					"sodass viele verletzt worden",
+					"sodass viele verletzt haben"
+				]
+			},
+			{
+				"sentence": "Man schützt das Klima, indem man Energie spart. → Man schützt das Klima ____ .",
+				"options": [
+					"durch Energie sparen",
+					"indem Energiesparen",
+					"durch das Energie sparen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Durch regelmäßiges Training bleibt man fit. → Man bleibt fit, ____ .",
+				"options": [
+					"indem man trainiert regelmäßig",
+					"indem man regelmäßig trainieren",
+					"dadurch man regelmäßig trainiert"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er verbesserte sein Deutsch dadurch, dass er viel las. → Er verbesserte sein Deutsch ____ .",
+				"options": [
+					"durch viele Lesen",
+					"indem viel Lesen",
+					"durch viel Lesens"
+				]
+			},
+			{
+				"sentence": "Mithilfe eines Wörterbuchs versteht man den Text. → Man versteht den Text, ____ .",
+				"options": [
+					"indem man benutzt ein Wörterbuch",
+					"indem man ein Wörterbuch benutzen",
+					"dadurch man ein Wörterbuch benutzt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie gewinnt Zeit, indem sie früh aufsteht. → Sie gewinnt Zeit ____ .",
+				"options": [
+					"durch früh Aufstehen",
+					"durch frühe Aufstehen",
+					"durch frühem Aufstehen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es regnete so stark, dass die Straßen überflutet wurden. → ____ wurden die Straßen überflutet.",
+				"options": [
+					"Infolge des starken Regen",
+					"Infolge der starken Regen",
+					"Infolge dem starken Regen"
+				]
+			},
+			{
+				"sentence": "Durch die Reform des Arbeitsmarkts sank die Arbeitslosigkeit. → Die Arbeitslosigkeit sank, ____ .",
+				"options": [
+					"dadurch, der Arbeitsmarkt reformiert wurde",
+					"dass der Arbeitsmarkt reformiert wurde",
+					"indem der Arbeitsmarkt reformiert hat"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es gab viel Werbung, sodass viele Leute kamen. → ____ kamen viele Leute.",
+				"options": [
+					"Infolge des Werbung",
+					"Infolge die Werbung",
+					"Infolge der Werbungs"
+				]
+			},
+			{
+				"sentence": "Er schaffte es, ohne dass jemand half. → Er schaffte es ____ .",
+				"options": [
+					"ohne Helfen",
+					"ohne dass Hilfe",
+					"ohne von Hilfe"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ohne die Unterstützung der Stadt wäre das Projekt gescheitert. → Das Projekt wäre gescheitert, ____ .",
+				"options": [
+					"wenn die Stadt es nicht unterstützt hat",
+					"wenn die Stadt es nicht unterstützen hätte",
+					"ohne die Stadt es unterstützt hätte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Man spart, indem man früh bucht. → Man spart ____ .",
+				"options": [
+					"durch früh Buchen",
+					"durch frühe Buchen",
+					"durch frühem Buchen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es schneite stark, sodass die Schule ausfiel. → ____ fiel die Schule aus.",
+				"options": [
+					"Infolge des Schnee",
+					"Infolge dem Schnee",
+					"Infolge der Schnee"
+				]
+			},
+			{
+				"sentence": "Mithilfe einer App findet man den Weg. → Man findet den Weg, ____ .",
+				"options": [
+					"indem man benutzt eine App",
+					"indem man eine App benutzen",
+					"dadurch man eine App benutzt"
+				]
+			}
+		],
+		"add": [
+			{
+				"sentence": "Er hat die Prüfung bestanden, indem er jeden Tag geübt hat. → Er hat die Prüfung ____ bestanden.",
+				"acceptedAnswers": [
+					"durch tägliches Üben",
+					"durch das tägliche Üben"
+				],
+				"english": "He passed the exam through daily practice.",
+				"subjectKey": "s6",
+				"categoryLabel": "Umformung",
+				"options": [
+					"durch täglich Üben",
+					"durch tägliche Üben",
+					"durch täglichem Üben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Zug hatte Verspätung, sodass wir den Anschluss verpassten. → ____ verpassten wir den Anschluss.",
+				"acceptedAnswers": [
+					"infolge der Verspätung",
+					"Infolge der Verspätung",
+					"infolge der Verspätung des Zuges",
+					"Infolge der Verspätung des Zuges",
+					"infolge der Zugverspätung",
+					"Infolge der Zugverspätung",
+					"aufgrund der Verspätung",
+					"Aufgrund der Verspätung",
+					"wegen der Verspätung",
+					"Wegen der Verspätung"
+				],
+				"english": "As a result of the delay we missed the connection.",
+				"subjectKey": "s0",
+				"categoryLabel": "Umformung",
+				"options": [
+					"Infolge die Verspätung",
+					"Infolge des Verspätung",
+					"Infolge der Verspätungs"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_adversativ",
+		"sentences": [
+			{
+				"sentence": "____ der Norden regnerisch ist, ist der Süden trocken.",
+				"options": [
+					"Dagegen",
+					"Hingegen",
+					"Trotzdem"
+				]
+			},
+			{
+				"sentence": "Der Norden ist regnerisch; der Süden ____ ist trocken.",
+				"options": [
+					"während",
+					"wohingegen",
+					"trotzdem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ Norden ist der Süden trocken.",
+				"options": [
+					"Im Gegensatz zu",
+					"Im Gegensatz zur",
+					"Anders als"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Manche sparen, ____ andere alles ausgeben.",
+				"options": [
+					"dagegen",
+					"hingegen",
+					"trotzdem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er ist ruhig; sie ____ ist nervös.",
+				"options": [
+					"während",
+					"wohingegen",
+					"obwohl"
+				]
+			},
+			{
+				"sentence": "____ sein Bruder mag er Sport.",
+				"options": [
+					"Anders zu",
+					"Im Gegensatz",
+					"Anders von"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Preise stiegen, ____ die Löhne gleich blieben.",
+				"options": [
+					"dagegen",
+					"hingegen",
+					"trotzdem"
+				]
+			},
+			{
+				"sentence": "Städte wachsen; Dörfer ____ schrumpfen.",
+				"options": [
+					"während",
+					"wohingegen",
+					"obwohl"
+				]
+			},
+			{
+				"sentence": "____ letzten Jahr ist es warm.",
+				"options": [
+					"Im Gegensatz zu",
+					"Im Vergleich zu",
+					"Anders als"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ sie kocht, bestellt er nur.",
+				"options": [
+					"Dagegen",
+					"Hingegen",
+					"Trotzdem"
+				]
+			},
+			{
+				"sentence": "____ früher leben wir besser.",
+				"options": [
+					"Im Vergleich zum",
+					"Anders als zu",
+					"Im Gegensatz von"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das alte Modell war langsam; das neue ____ ist schnell.",
+				"options": [
+					"während",
+					"wohingegen",
+					"obwohl"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ er spart, gibt sie alles aus.",
+				"options": [
+					"Dagegen",
+					"Hingegen",
+					"Trotz"
+				]
+			},
+			{
+				"sentence": "Die Stadt ist laut; das Dorf ____ ist ruhig.",
+				"options": [
+					"während",
+					"wohingegen",
+					"trotz"
+				]
+			},
+			{
+				"sentence": "____ meiner Schwester mag ich Sport.",
+				"options": [
+					"Im Gegensatz zur",
+					"Im Gegensatz von",
+					"Anders als"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Meine Eltern lieben das Landleben, ____ ich mich nur in der Stadt wohlfühle.",
+				"acceptedAnswers": [
+					"wohingegen",
+					"während"
+				],
+				"english": "My parents love country life, whereas I only feel at home in the city.",
+				"subjectKey": "s3",
+				"categoryLabel": "Adversativ",
+				"options": [
+					"dagegen",
+					"hingegen",
+					"trotzdem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ seinem Vorgänger hört der neue Chef den Mitarbeitern wirklich zu.",
+				"acceptedAnswers": [
+					"Im Gegensatz zu",
+					"Im Unterschied zu"
+				],
+				"english": "Unlike his predecessor, the new boss really listens to the staff.",
+				"subjectKey": "x14",
+				"categoryLabel": "Adversativ",
+				"options": [
+					"Im Gegensatz zum",
+					"Anders als",
+					"Im Gegensatz von"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_sollen_subjektiv",
+		"sentences": [
+			{
+				"sentence": "Er ____ sehr reich ____. (Man sagt, er ist sehr reich.)",
+				"options": [
+					"will … sein",
+					"muss … sein",
+					"soll … gewesen"
+				]
+			},
+			{
+				"sentence": "Sie ____ den ersten Preis ____. (Man sagt, sie hat den ersten Preis gewonnen.)",
+				"options": [
+					"will … gewonnen haben",
+					"soll … gewonnen sein",
+					"hat … gewonnen haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das neue Hotel am See ____ ausgezeichnet ____. (Man sagt, es ist ausgezeichnet.)",
+				"options": [
+					"will … sein",
+					"soll … haben",
+					"sollen … sein"
+				]
+			},
+			{
+				"sentence": "Er ____ nach Kanada ____. (Man sagt, er ist nach Kanada gegangen.)",
+				"options": [
+					"soll … gegangen haben",
+					"will … gegangen sein",
+					"soll … gehen sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Firma ____ finanzielle Probleme ____. (Man sagt, sie hat Probleme.)",
+				"options": [
+					"will … haben",
+					"soll … sein",
+					"sollen … haben"
+				]
+			},
+			{
+				"sentence": "Der neue Film ____ ziemlich langweilig ____. (Man sagt, er ist langweilig.)",
+				"options": [
+					"will … sein",
+					"sollen … sein",
+					"soll … ist"
+				]
+			},
+			{
+				"sentence": "Die beiden ____ sich letzten Monat ____. (Man sagt, sie haben sich getrennt.)",
+				"options": [
+					"wollen … getrennt haben",
+					"sollen … getrennt sein",
+					"soll … getrennt haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Täter ____ durch ein Fenster im Keller ____. (Man sagt, er ist so geflohen.)",
+				"options": [
+					"soll … geflohen haben",
+					"will … geflohen sein",
+					"soll … geflieht sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Fahrer ____ den Unfall ____. (Man sagt, er hat ihn verursacht.)",
+				"options": [
+					"will … verursacht haben",
+					"soll … verursacht sein",
+					"soll … verursachen haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das Restaurant ____ letzte Woche ____. (Man sagt, es ist verkauft worden.)",
+				"options": [
+					"soll … verkauft geworden sein",
+					"soll … verkauft worden haben",
+					"will … verkauft worden sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er ____ an dem Abend nicht dort ____. (Er behauptet, er war nicht dort.)",
+				"options": [
+					"soll … gewesen sein",
+					"will … gewesen haben",
+					"will … sein gewesen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie ____ den Minister persönlich ____. (Sie behauptet, sie kennt ihn.)",
+				"options": [
+					"soll … kennen",
+					"will … gekannt",
+					"wollt … kennen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Morgen ____ es wieder deutlich kälter ____. (Laut Wetterbericht wird es kälter.)",
+				"options": [
+					"will … werden",
+					"soll … wird",
+					"soll … geworden"
+				]
+			},
+			{
+				"sentence": "Sie ____ vor Kurzem nach Hamburg ____. (Man sagt, sie ist umgezogen.)",
+				"options": [
+					"soll … umgezogen haben",
+					"will … umgezogen sein",
+					"soll … umziehen sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Zeuge ____ nichts ____. (Er behauptet, er hat nichts gesehen.)",
+				"options": [
+					"soll … gesehen haben",
+					"will … gesehen sein",
+					"will … sehen haben"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_passiversatz_intro",
+		"sentences": [
+			{
+				"sentence": "Das kann gemacht werden. → Das ist ____.",
+				"options": [
+					"machlich",
+					"zu gemacht",
+					"machsam"
+				]
+			},
+			{
+				"sentence": "Die Handschrift kann kaum gelesen werden. → Die Handschrift ist kaum ____.",
+				"options": [
+					"lesend",
+					"zu gelesen",
+					"leslich"
+				]
+			},
+			{
+				"sentence": "Das Wasser aus dieser Quelle kann getrunken werden. → Das Wasser ist ____. (-bar)",
+				"options": [
+					"trinkenbar",
+					"trinklich",
+					"getrunkbar"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Seine Reaktion kann man gut verstehen. → Seine Reaktion ist gut ____.",
+				"options": [
+					"verständig",
+					"zu verstanden",
+					"verstehlich"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das Problem kann schnell gelöst werden. → Das Problem ____ sich schnell ____.",
+				"options": [
+					"lässt … gelöst",
+					"ist … lösen",
+					"lässt … zu lösen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Tür kann nicht geöffnet werden. → Die Tür ____ sich nicht ____.",
+				"options": [
+					"lässt … geöffnet",
+					"ist … öffnen",
+					"lässt … zu öffnen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Rechnung muss bis Freitag bezahlt werden. → Die Rechnung ist bis Freitag ____.",
+				"options": [
+					"zu bezahlt",
+					"bezahlen",
+					"zu gezahlt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das Formular muss vollständig ausgefüllt werden. → Das Formular ist vollständig ____.",
+				"options": [
+					"zu ausfüllen",
+					"auszufüllt",
+					"aus zu füllen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Fehler kann leicht behoben werden. → Der Fehler ist leicht ____.",
+				"options": [
+					"zu behoben",
+					"beheben",
+					"zu behebt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Hier kann man nicht parken. → Hier ____ nicht geparkt ____.",
+				"options": [
+					"kann … sein",
+					"wird … werden",
+					"lässt … werden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das kann nicht erklärt werden. → Das ist ____.",
+				"options": [
+					"unerklärsam",
+					"unerklärend",
+					"nicht zu erklärt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Diese Pilze kann man essen. → Diese Pilze sind ____. (-bar)",
+				"options": [
+					"essenbar",
+					"esslich",
+					"gegessbar"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Der alte Fernseher kann nicht mehr repariert werden. → Der alte Fernseher ist nicht mehr ____.",
+				"options": [
+					"reparierlich",
+					"zu repariert",
+					"reparierend"
+				]
+			},
+			{
+				"sentence": "Der Text kann leicht übersetzt werden. → Der Text ____ sich leicht ____.",
+				"options": [
+					"lässt … übersetzt",
+					"ist … übersetzen",
+					"lässt … zu übersetzen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Miete muss pünktlich gezahlt werden. → Die Miete ist pünktlich ____.",
+				"options": [
+					"zu gezahlt",
+					"zahlen",
+					"zu zahlt"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_relativ_wer_was",
+		"sentences": [
+			{
+				"sentence": "____ gut schläft, lernt besser.",
+				"options": [
+					"Der",
+					"Wen",
+					"Wem"
+				]
+			},
+			{
+				"sentence": "____ du hilfst, der dankt dir auch.",
+				"options": [
+					"Wen",
+					"Wer",
+					"Dem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Alles, ____ er über den Unfall gesagt hat, stimmt.",
+				"options": [
+					"wo",
+					"dass",
+					"welches"
+				]
+			},
+			{
+				"sentence": "Es gibt nichts, ____ mich mehr ärgert als Unpünktlichkeit.",
+				"options": [
+					"wo",
+					"dass",
+					"der"
+				]
+			},
+			{
+				"sentence": "Das ist das Beste, ____ ich seit Langem gehört habe.",
+				"options": [
+					"dass",
+					"wo",
+					"wer"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er hat die Prüfung bestanden, ____ mich sehr gefreut hat.",
+				"options": [
+					"das",
+					"dass",
+					"wo"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das ist die Stadt, ____ ich geboren bin.",
+				"options": [
+					"wohin",
+					"woher",
+					"in die"
+				]
+			},
+			{
+				"sentence": "Das ist das Land, ____ meine Großeltern kommen.",
+				"options": [
+					"wo",
+					"wohin",
+					"aus der"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Kennst du einen Ort, ____ man im Winter gut fahren kann?",
+				"options": [
+					"woher",
+					"worin",
+					"womit"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das, ____ du da erzählst, ist leider nicht neu.",
+				"options": [
+					"das",
+					"dass",
+					"welches"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ mitkommen möchte, ist herzlich willkommen.",
+				"options": [
+					"Der",
+					"Wen",
+					"Welcher"
+				]
+			},
+			{
+				"sentence": "Es gibt etwas, ____ ich dir unbedingt sagen muss.",
+				"options": [
+					"dass",
+					"wo",
+					"wen"
+				]
+			},
+			{
+				"sentence": "____ man liebt, dem verzeiht man viel.",
+				"options": [
+					"Wer",
+					"Wem",
+					"Den"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das ist etwas, ____ ich mich schon lange freue.",
+				"options": [
+					"wofür",
+					"woran",
+					"wovon"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wir fahren nach Wien, ____ meine Schwester seit Jahren wohnt.",
+				"options": [
+					"wohin",
+					"woher",
+					"in der"
+				]
+			}
+		],
+		"add": [
+			{
+				"sentence": "____ das Essen nicht schmeckt, der kann sich gern etwas anderes bestellen.",
+				"acceptedAnswers": [
+					"Wem"
+				],
+				"english": "Anyone who doesn't like the food is welcome to order something else.",
+				"subjectKey": "s1",
+				"categoryLabel": "Relativwort",
+				"options": [
+					"Wer",
+					"Wen",
+					"Dem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie hat mir beim Umzug nicht geholfen, ____ ich ziemlich enttäuschend fand.",
+				"acceptedAnswers": [
+					"was"
+				],
+				"english": "She didn't help me with the move, which I found rather disappointing.",
+				"subjectKey": "s5",
+				"categoryLabel": "Relativwort",
+				"options": [
+					"das",
+					"dass",
+					"wo"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Vor der Reise hat er alles verkauft, ____ er besaß.",
+				"acceptedAnswers": [
+					"was"
+				],
+				"english": "Before the journey he sold everything he owned.",
+				"subjectKey": "s2",
+				"categoryLabel": "Relativwort",
+				"options": [
+					"wo",
+					"dass",
+					"wen"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_indefinit",
+		"sentences": [
+			{
+				"sentence": "____ ruft an. (someone)",
+				"options": [
+					"Jemanden",
+					"Jemandem",
+					"Etwas"
+				]
+			},
+			{
+				"sentence": "Ich habe ____ gesehen. (nobody, Akk)",
+				"options": [
+					"niemandem",
+					"keiner",
+					"niemands"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ könnte das machen. (anyone at all)",
+				"options": [
+					"Irgendetwas",
+					"Irgendwo",
+					"Irgendwann"
+				]
+			},
+			{
+				"sentence": "Hast du einen Stift? – Ja, ich habe ____. (one)",
+				"options": [
+					"eins",
+					"ein",
+					"einer"
+				]
+			},
+			{
+				"sentence": "Hast du ein Auto? – Nein, ich habe ____. (none)",
+				"options": [
+					"keinen",
+					"kein",
+					"keine"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Gibt es Äpfel? – Ja, es gibt noch ____. (some)",
+				"options": [
+					"welches",
+					"welchen",
+					"welcher"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Man muss ____ selbst helfen. (oneself)",
+				"options": [
+					"einen",
+					"einem",
+					"man"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das ärgert ____. (one, Akk of man)",
+				"options": [
+					"man",
+					"einem",
+					"sich"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Niemand hilft ____. (one, Dat of man)",
+				"options": [
+					"einen",
+					"man",
+					"sich"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ich bin ____ in der Stadt. (somewhere)",
+				"options": [
+					"irgendwohin",
+					"irgendwoher",
+					"irgendwas"
+				]
+			},
+			{
+				"sentence": "____ weiß das. (everyone)",
+				"options": [
+					"Jeden",
+					"Jedes",
+					"Jedem"
+				]
+			},
+			{
+				"sentence": "____ stimmen zu, ____ nicht. (some … others)",
+				"options": [
+					"Manche … anderen",
+					"Mancher … andere",
+					"Einige … anderes"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ich kenne ____, der helfen kann. (someone, Akk)",
+				"options": [
+					"jemandem",
+					"jemands",
+					"niemandem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Hast du eine Münze? – Ja, ich habe ____. (one, f)",
+				"options": [
+					"einen",
+					"eins",
+					"einer"
+				]
+			},
+			{
+				"sentence": "Damals hat ____ niemand geholfen. (one, Dat of man)",
+				"options": [
+					"einen",
+					"man",
+					"sich"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Hast du Kopfschmerztabletten? – Nein, ich habe leider ____. (none)",
+				"acceptedAnswers": [
+					"keine"
+				],
+				"english": "Do you have any headache tablets? – No, unfortunately I don't have any.",
+				"subjectKey": "s5",
+				"categoryLabel": "Indefinitpronomen",
+				"options": [
+					"keins",
+					"keinen",
+					"welche"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es tut ____ gut, wenn man gelobt wird. (one, Dat of man)",
+				"acceptedAnswers": [
+					"einem"
+				],
+				"english": "It does one good to be praised.",
+				"subjectKey": "s8",
+				"categoryLabel": "Indefinitpronomen",
+				"options": [
+					"einen",
+					"man",
+					"sich"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_relativ_dessen_deren",
+		"sentences": [
+			{
+				"sentence": "Das ist der Kollege, ____ Frau in unserer Abteilung arbeitet.",
+				"options": [
+					"deren",
+					"dem",
+					"den"
+				]
+			},
+			{
+				"sentence": "Die Nachbarin, ____ Hund nachts immer bellt, ist gestern ausgezogen.",
+				"options": [
+					"dessen",
+					"der",
+					"die"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das Kind, ____ Fahrrad gestohlen wurde, weinte bitterlich.",
+				"options": [
+					"deren",
+					"das",
+					"dem"
+				]
+			},
+			{
+				"sentence": "Alle Studierenden, ____ Hausarbeiten noch fehlen, müssen sich bis Freitag melden.",
+				"options": [
+					"dessen",
+					"denen",
+					"die"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Autor, mit ____ Roman ich mich gerade beschäftige, kommt nächste Woche zur Lesung.",
+				"options": [
+					"dem",
+					"deren",
+					"dessem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das ist die Firma, bei ____ ich mich beworben habe.",
+				"options": [
+					"die",
+					"dem",
+					"deren"
+				]
+			},
+			{
+				"sentence": "Der Freund, mit ____ ich im Urlaub war, heiratet im Mai.",
+				"options": [
+					"den",
+					"der",
+					"dessen"
+				]
+			},
+			{
+				"sentence": "Die Kolleginnen, von ____ ich am meisten gelernt habe, gehen jetzt in Rente.",
+				"options": [
+					"den",
+					"deren",
+					"die"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das Thema, über ____ wir gestern diskutiert haben, ist sehr umstritten.",
+				"options": [
+					"dem",
+					"den",
+					"dessen"
+				]
+			},
+			{
+				"sentence": "Die Stadt, in ____ ich aufgewachsen bin, hat sich stark verändert.",
+				"options": [
+					"die",
+					"dem",
+					"denen"
+				]
+			},
+			{
+				"sentence": "Das Projekt, für ____ sie so lange gekämpft hat, wurde endlich genehmigt.",
+				"options": [
+					"dem",
+					"den",
+					"dessen"
+				]
+			},
+			{
+				"sentence": "Die Frau, ____ ich den Schlüssel gegeben habe, ist die Hausmeisterin.",
+				"options": [
+					"die",
+					"denen",
+					"deren"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Familien, ____ Häuser beim Hochwasser zerstört wurden, bekommen Hilfe vom Staat.",
+				"options": [
+					"dessen",
+					"denen",
+					"die"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Termin, auf ____ ich so lange gewartet habe, wurde abgesagt.",
+				"options": [
+					"dem",
+					"der",
+					"das"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ich habe etwas gefunden, ____ du dich bestimmt freust.",
+				"options": [
+					"wovon",
+					"woran",
+					"wofür"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Das ist der Nachbar, ____ Auto ich mir manchmal ausleihe.",
+				"acceptedAnswers": [
+					"dessen"
+				],
+				"english": "That's the neighbour whose car I sometimes borrow.",
+				"subjectKey": "s0",
+				"categoryLabel": "Relativpronomen",
+				"options": [
+					"deren",
+					"dem",
+					"den"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Freunde, mit ____ Kindern unsere Tochter spielt, ziehen nach Kanada.",
+				"acceptedAnswers": [
+					"deren"
+				],
+				"english": "The friends whose children our daughter plays with are moving to Canada.",
+				"subjectKey": "s4",
+				"categoryLabel": "Relativpronomen",
+				"options": [
+					"denen",
+					"dessen",
+					"den"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_futur1_vermutung",
+		"sentences": [
+			{
+				"sentence": "Sie antwortet nicht. Sie ____ wohl noch im Meeting ____. (sein)",
+				"options": [
+					"ist … sein",
+					"wird … ist",
+					"werde … sein"
+				]
+			},
+			{
+				"sentence": "Das Paket ____ vermutlich morgen ____. (ankommen)",
+				"options": [
+					"wird … angekommen",
+					"ist … ankommen",
+					"werden … ankommen"
+				]
+			},
+			{
+				"sentence": "Er sieht so blass aus. Er ____ doch nicht krank ____? (sein)",
+				"options": [
+					"wird … gewesen",
+					"ist … sein",
+					"wirst … sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Keine Sorge, du ____ die Prüfung schon ____. (schaffen)",
+				"options": [
+					"wird … schaffen",
+					"wirst … geschafft",
+					"wirst … schaffst"
+				]
+			},
+			{
+				"sentence": "Es klingelt. Das ____ der Paketbote ____. (sein)",
+				"options": [
+					"ist … sein",
+					"werde … sein",
+					"wird … ist"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es ist schon elf. Die Kinder ____ jetzt wohl schon ____. (schlafen)",
+				"options": [
+					"wird … schlafen",
+					"werden … geschlafen",
+					"werden … schläft"
+				]
+			},
+			{
+				"sentence": "Wo ist mein Handy? – Es ____ bestimmt in deiner Jackentasche ____. (stecken)",
+				"options": [
+					"ist … stecken",
+					"werden … stecken",
+					"wird … steckt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Zug hat Verspätung. Wir ____ wahrscheinlich erst gegen zehn in Köln ____. (ankommen)",
+				"options": [
+					"wird … ankommen",
+					"werden … angekommen",
+					"sind … ankommen"
+				]
+			},
+			{
+				"sentence": "Alle Kneipen sind voll. Heute ____ wohl ein wichtiges Fußballspiel ____. (laufen)",
+				"options": [
+					"wird … gelaufen",
+					"ist … laufen",
+					"werden … laufen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie ist nicht gekommen. Sie ____ den Termin wohl ____. (vergessen)",
+				"options": [
+					"wird … vergessen sein",
+					"hat … vergessen haben",
+					"wird … vergessen werden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er ist schon zu Hause. Er ____ heute wohl früher Feierabend ____. (machen)",
+				"options": [
+					"wird … gemacht sein",
+					"hat … gemacht haben",
+					"wird … machen haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Mieten ____ im nächsten Jahr sicher weiter ____. (steigen)",
+				"options": [
+					"wird … steigen",
+					"werden … gestiegen",
+					"werden … steigt"
+				]
+			},
+			{
+				"sentence": "Du ____ nach der langen Reise sicher müde ____. (sein)",
+				"options": [
+					"wird … sein",
+					"wirst … gewesen",
+					"bist … sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ihr ____ doch nicht schon ____? Es ist erst neun! (gehen)",
+				"options": [
+					"werdet … gegangen",
+					"wird … gehen",
+					"werden … gehen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das Wetter ____ am Wochenende wieder besser ____. (werden)",
+				"options": [
+					"wird … geworden",
+					"ist … werden",
+					"werden … werden"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Er hat schon dreimal angerufen. Es ____ wohl etwas Wichtiges ____. (sein)",
+				"acceptedAnswers": [
+					"wird … sein"
+				],
+				"english": "He's already called three times. It'll be something important.",
+				"subjectKey": "s0",
+				"categoryLabel": "Futur I",
+				"options": [
+					"ist … sein",
+					"wird … gewesen",
+					"werde … sein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Mach dir keine Sorgen, sie ____ sich schon ____. (melden)",
+				"acceptedAnswers": [
+					"wird … melden"
+				],
+				"english": "Don't worry, she'll get in touch.",
+				"subjectKey": "s3",
+				"categoryLabel": "Futur I",
+				"options": [
+					"wird … gemeldet",
+					"ist … melden",
+					"werden … melden"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_b2_2_konj2_gegenwart",
+		"sentences": [
+			{
+				"sentence": "Wenn ich mehr Geld ____, würde ich weniger arbeiten. (haben)",
+				"options": [
+					"habe",
+					"hatte",
+					"würde"
+				]
+			},
+			{
+				"sentence": "Wenn das Wetter schöner ____, könnten wir heute Abend grillen. (sein)",
+				"options": [
+					"war",
+					"ist",
+					"sei"
+				]
+			},
+			{
+				"sentence": "____ Sie mir bitte das Salz geben? (können)",
+				"options": [
+					"Konnten",
+					"Könntest",
+					"Kannst"
+				]
+			},
+			{
+				"sentence": "Du ____ wirklich mal zum Arzt gehen. (sollen)",
+				"options": [
+					"solltet",
+					"sollte",
+					"solle"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ich ____ gern ein Glas Wasser, bitte. (haben)",
+				"options": [
+					"habe",
+					"hatte",
+					"würde"
+				]
+			},
+			{
+				"sentence": "Wenn ich du ____, würde ich das Angebot annehmen. (sein)",
+				"options": [
+					"war",
+					"bin",
+					"sei"
+				]
+			},
+			{
+				"sentence": "Wenn es eine einfache Lösung ____, wüssten wir sie schon. (geben)",
+				"options": [
+					"gab",
+					"gibt",
+					"gebe"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ich ____ nicht, was ich ohne dich machen würde. (wissen)",
+				"options": [
+					"wusste",
+					"wisste",
+					"wüste"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn er jetzt ____, könnten wir sofort anfangen. (kommen)",
+				"options": [
+					"kam",
+					"kommte",
+					"kämte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wir ____ dringend einen größeren Tisch für die Küche. (brauchen)",
+				"options": [
+					"bräuchtet",
+					"brauchtest",
+					"bräuchte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ du mir kurz beim Tragen helfen? (werden)",
+				"options": [
+					"Würdet",
+					"Würde",
+					"Wurdest"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es ____ schön, wenn ihr am Wochenende kommen könntet. (sein)",
+				"options": [
+					"war",
+					"sei",
+					"würde"
+				]
+			},
+			{
+				"sentence": "Wenn wir ein Auto ____, müssten wir nicht immer den Bus nehmen. (haben)",
+				"options": [
+					"haben",
+					"hatten",
+					"hättet"
+				]
+			},
+			{
+				"sentence": "Ihr ____ eigentlich mal richtig Urlaub machen. (sollen)",
+				"options": [
+					"solltest",
+					"sollten",
+					"solle"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn du früher ins Bett gehen würdest, ____ du morgens nicht so müde. (sein)",
+				"options": [
+					"warst",
+					"wärt",
+					"bist"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Wenn ich nur mehr Zeit für mich ____! (haben)",
+				"acceptedAnswers": [
+					"hätte",
+					"haette"
+				],
+				"english": "If only I had more time for myself!",
+				"subjectKey": "s9",
+				"categoryLabel": "Konj. II Gegenwart",
+				"options": [
+					"habe",
+					"hatte",
+					"hättest"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "An deiner Stelle ____ ich mir das noch einmal gut überlegen. (werden)",
+				"acceptedAnswers": [
+					"würde",
+					"wuerde"
+				],
+				"english": "In your place I would think it over carefully again.",
+				"subjectKey": "s13",
+				"categoryLabel": "Konj. II Gegenwart",
+				"options": [
+					"werde",
+					"wurde",
+					"würdest"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wenn du mich fragen würdest, ____ ich dir davon abraten. (müssen)",
+				"acceptedAnswers": [
+					"müsste",
+					"muesste"
+				],
+				"english": "If you asked me, I would have to advise you against it.",
+				"subjectKey": "s14",
+				"categoryLabel": "Konj. II Gegenwart",
+				"options": [
+					"musste",
+					"muss",
+					"müsstest"
+				],
+				"hard": true
+			}
+		]
+	}
+]

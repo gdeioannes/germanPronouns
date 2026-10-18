@@ -43,7 +43,8 @@
 	import type { QuestionRef, ReportTarget } from '$lib/domain/forum';
 	import { cloudConfigured } from '$lib/services/firebase';
 	import { SettingsKeys } from '$lib/domain/keys';
-	import { celebrate } from '$lib/motion/fx.svelte';
+	import { celebrate, celebrateMedal } from '$lib/motion/fx.svelte';
+	import { scoreMedal, type RibbonTier } from '$lib/domain/progress';
 	import { markGoodRun } from '$lib/domain/surprise';
 	import { playSound } from '$lib/services/sounds';
 	import { progress } from '$lib/state/progress.svelte';
@@ -217,6 +218,28 @@
 	}
 
 	/**
+	 * A scored attempt earned `medal` ("5 of 6 right"). Kept when it beats the
+	 * best so far — and a new best is a medal moment, the stamp in its metal;
+	 * anything else gets the ordinary finish.
+	 */
+	async function award(medal: RibbonTier | null, line: string) {
+		const better = medal ? await progress.recordScoreMedal(quiz.storageKeyPrefix, medal) : false;
+		if (medal && better) celebrateMedal(medal, 0, null, line);
+		else celebrate();
+	}
+
+	/** A passage (or a spoken text) passed: mark it, then its medal. */
+	async function completeScored(medal: RibbonTier | null, line: string) {
+		if (finished) return;
+		await markDone();
+		await award(medal, line);
+	}
+
+	/** A passage's questions: two thirds right passes. */
+	const passageFinished = (passed: boolean, correct: number, total: number) =>
+		passed && completeScored(scoreMedal(correct, total, 2 / 3), `${correct} of ${total} right`);
+
+	/**
 	 * A drill's run ended. Every finished run marks the exercise, whatever
 	 * the score — the mark itself says how it went (done tick, or try again).
 	 * A pass gets the fireworks; a weaker run just the chime. The medal, if
@@ -237,14 +260,19 @@
 	 * back under its pass mark is marked for another go rather than given a
 	 * bronze for turning up.
 	 */
-	async function writingFinished(passed: boolean) {
+	async function writingFinished(passed: boolean, score: number, medal: RibbonTier | null) {
 		await progress.recordRun(quiz.storageKeyPrefix, {
 			right: passed ? 10 : 0,
 			total: 10,
 			// A text is one piece of work, not a streak of answers.
 			bestStreak: 0
 		});
-		runFinished(passed);
+		void markDone();
+		doneDismissed = false;
+		if (passed) {
+			markGoodRun();
+			await award(medal, `Score ${score}`);
+		} else playSound('complete');
 	}
 
 	const nextHref = $derived(next ? `/course/${course.id}/quiz/${next.id}` : `/course/${course.id}`);
@@ -377,6 +405,7 @@
 				locale={course.learnLocale}
 				onAnswer={() => {}}
 				onRunFinished={runFinished}
+				onTryAgain={tryAgain}
 				onQuestion={(q) => (question = q)}
 			/>
 		{:else if quiz.type === 'reading'}
@@ -395,7 +424,7 @@
 					{quiz}
 					locale={course.learnLocale}
 					mode="read"
-					onFinish={(passed) => passed && complete()}
+					onFinish={passageFinished}
 					onQuestion={(q) => (question = q)}
 				/>
 			{/if}
@@ -404,7 +433,7 @@
 				{quiz}
 				locale={course.learnLocale}
 				mode="listen"
-				onFinish={(passed) => passed && complete()}
+				onFinish={passageFinished}
 				onQuestion={(q) => (question = q)}
 			/>
 		{:else if quiz.type === 'dictation'}
@@ -417,7 +446,7 @@
 				courseId={course.id}
 				learnLocale={course.learnLocale}
 				uiLang={course.uiLang}
-				onFinish={(passed) => passed && complete()}
+				onFinish={(passed, score, medal) => passed && completeScored(medal, `Score ${score}`)}
 			/>
 		{:else if quiz.type === 'writing'}
 			<!-- A saved correction ends the attempt whatever the score: the learner
@@ -436,11 +465,18 @@
 				courseId={course.id}
 				locale={course.learnLocale}
 				onRunFinished={runFinished}
+				onTryAgain={tryAgain}
 				{focusWord}
 				onQuestion={(q) => (question = q)}
 			/>
 		{:else if quiz.type === 'suchbild'}
-			<SuchbildQuiz {quiz} locale={course.learnLocale} onRunFinished={runFinished} onQuestion={(q) => (question = q)} />
+			<SuchbildQuiz
+				{quiz}
+				locale={course.learnLocale}
+				onRunFinished={runFinished}
+				onTryAgain={tryAgain}
+				onQuestion={(q) => (question = q)}
+			/>
 		{/if}
 		{/key}
 		</div>
