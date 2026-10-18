@@ -78,6 +78,8 @@
 
 	// Built once: the page is keyed by quiz id, so a new quiz mounts a new component.
 	const allSentences = untrack(() => fillBlankPool(quiz));
+	/** Template-driven (no authored sentences): its category label names the answer. */
+	const generated = untrack(() => !quiz.sentences?.length);
 	/** What the step draws on: the hard sentences for "no help", else the whole drill. */
 	const pool = $derived(stepPool(allSentences, step));
 	let bag: QuizSentence[] = [];
@@ -87,7 +89,7 @@
 	let sinceRetry = 0;
 
 	/** Where this run saves its place, so leaving mid-run costs nothing. */
-	type Spot = { results: ('right' | 'wrong')[]; bestInRun: number; stepRight?: number[] };
+	type Spot = LadderRun['saved'];
 
 	// The first question is chosen up front rather than in an effect, so the
 	// prerendered page already shows a real sentence instead of an empty card.
@@ -119,13 +121,14 @@
 	let cardEl = $state<HTMLElement>();
 	let missKey = $state(0);
 	let best = $state(0);
-	// The run: answers given (the bar), how many were right, the longest
-	// streak inside it, the medal it crossed into, and the slips to show.
-	let results = $state<('right' | 'wrong')[]>([]);
+	// The run on the step in play — each step keeps its own: answers given
+	// (the bar), how many were right, the longest streak inside it, and the
+	// slips to show.
+	const results = $derived(run.current.results);
 	const answered = $derived(results.length);
 	const right = $derived(results.filter((r) => r === 'right').length);
-	let bestInRun = $state(0);
-	let missed = $state<string[]>([]);
+	const bestInRun = $derived(run.current.bestInRun);
+	const missed = $derived(run.current.missed);
 	let runDone = $state(false);
 	let inputEls = $state<HTMLInputElement[]>([]);
 	let burst = $state(0);
@@ -344,13 +347,7 @@
 				await run.open();
 				// Opened on another step than the page was drawn for: deal for it.
 				if (run.step !== before && !locked) next();
-				const spot = await loadSpot<Spot>(quiz.storageKeyPrefix);
-				const saved = Array.isArray(spot?.results) ? spot.results : [];
-				if (saved.length > 0 && saved.length < RUN_LENGTH) {
-					results = saved.filter((r) => r === 'right' || r === 'wrong');
-					bestInRun = spot?.bestInRun ?? 0;
-					run.restore(spot?.stepRight);
-				}
+				run.restore(await loadSpot<Spot>(quiz.storageKeyPrefix));
 			})();
 		});
 	});
@@ -363,7 +360,10 @@
 			total: RUN_LENGTH,
 			bestStreak: bestInRun
 		});
-		clearSpot(quiz.storageKeyPrefix);
+		// This step starts over; the other steps keep their runs.
+		const left = run.afterFinish();
+		if (left) saveSpot<Spot>(quiz.storageKeyPrefix, left);
+		else clearSpot(quiz.storageKeyPrefix);
 		const passed = runPassed(right, RUN_LENGTH);
 		onRunFinished(passed);
 		announce(
@@ -410,26 +410,24 @@
 		const lapCompleted = correct && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
 		best = stats.bestStreakAbsolute;
+		const canonical = canonicalGapAnswer(typed, accepted, progress.relaxedCorrection, strict);
 		// The ladder: the LADDER_PASSth right answer on a step in this run
 		// passes it and, the first time, earns its medal — celebrated now.
-		const medalWon = correct ? await run.right(true) : null;
-		results = [...results, correct ? 'right' : 'wrong'];
-		bestInRun = Math.max(bestInRun, stats.streak);
+		const medalWon = await run.answer(correct, stats.streak, {
+			miss: filledSentence(current.sentence, canonical)
+		});
 		react(correct, cardEl, stats.streak);
 		if (!correct) {
 			missKey += 1;
 			retry.push(current);
 		}
 		onAnswer(correct);
-		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun, stepRight: run.stepRight });
+		saveSpot<Spot>(quiz.storageKeyPrefix, run.saved);
 
 		if (correct) {
 			burstSize = lapCompleted ? 30 : 12;
 			burst += 1;
 		}
-
-		const canonical = canonicalGapAnswer(typed, accepted, progress.relaxedCorrection, strict);
-		if (!correct) missed = [...missed, filledSentence(current.sentence, canonical)];
 		// A right answer is never retyped: it just turns green. If relaxed mode let
 		// a slip through ("schon" for "schön"), the proper spelling drops straight
 		// in and a note under the sentence says what changed.
@@ -559,7 +557,7 @@
 		steps={STEPS}
 		record={run.record}
 		active={run.step}
-		right={run.stepRight[run.step]}
+		right={run.current.counted}
 		disabled={locked || runDone}
 		onpick={setStep}
 	/>
@@ -599,7 +597,11 @@
 			<span>Word help</span>
 		</button>
 
-		<p class="prompt-label">{current.categoryLabel}</p>
+		<!-- A generated drill's category label is its answer key ("können → konnte"):
+		     with no help it goes, as the cue does. -->
+		{#if !(step === 2 && generated)}
+			<p class="prompt-label">{current.categoryLabel}</p>
+		{/if}
 		{#if subject}
 			<p class="subject">{subject}</p>
 		{/if}

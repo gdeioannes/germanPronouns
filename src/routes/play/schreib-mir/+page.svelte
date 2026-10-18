@@ -2,8 +2,9 @@
 	// "Schreib mir!" — your contacts: one list of every character, by how far
 	// you got with them. Who liked you (with what they know about you, and the
 	// Sunday voice note), chats still going, characters met in the deck but not
-	// written to yet, chats that ended without a like, and last, everyone not
-	// met yet as a blurred portrait. Characters are met in the course deck
+	// written to yet, and last, everyone not met yet as a blurred portrait. A
+	// chat that ended without a like is forgotten (forgetMatch), so that
+	// character is back among the not-met, waiting for another chance. Characters are met in the course deck
 	// only; the level chips narrow the whole list. A hidden character appears
 	// only once another chat's secret ending has unlocked them.
 	import Seo from '$lib/components/Seo.svelte';
@@ -15,11 +16,11 @@
 	import {
 		canOpenChat,
 		contactFacts,
+		forgetUnliked,
 		loadChat,
 		MATCH_CHATS,
 		MATCH_PATH,
 		metChats,
-		personalise,
 		replay,
 		saveChat,
 		sundayAfter,
@@ -36,13 +37,13 @@
 	let liked = $state<Contact[]>([]);
 	let going = $state<Contact[]>([]);
 	let fresh = $state<MatchChat[]>([]);
-	let ended = $state<Contact[]>([]);
 	let waiting = $state<MatchChat[]>([]);
 	let level = $state('all');
 	let now = $state(0);
 	let loaded = $state(false);
 
 	onMount(() => {
+		forgetUnliked();
 		now = dev && page.url.searchParams.has('sunday') ? Date.now() + 8 * 86400000 : Date.now();
 		const saved = new Map(MATCH_CHATS.map((c) => [c.id, loadChat(c.id)]));
 		const get = (id: string) => saved.get(id) ?? null;
@@ -58,8 +59,7 @@
 		for (const chat of shown) {
 			const s = get(chat.id);
 			if (s?.ending === 'win' || s?.ending === 'secret') liked.push(contact(chat));
-			else if (s?.ending) ended.push(contact(chat));
-			else if (s) going.push(contact(chat));
+			else if (s && !s.ending) going.push(contact(chat));
 			else if (canOpenChat(chat.id, get, met)) fresh.push(chat);
 			else waiting.push(chat);
 		}
@@ -86,17 +86,15 @@
 	const likedHere = $derived(liked.filter((c) => at(c.chat)));
 	const goingHere = $derived(going.filter((c) => at(c.chat)));
 	const freshHere = $derived(fresh.filter(at));
-	const endedHere = $derived(ended.filter((c) => at(c.chat)));
 	const waitingHere = $derived(waiting.filter(at));
 	const everyone = $derived([
 		...liked.map((c) => c.chat),
 		...going.map((c) => c.chat),
 		...fresh,
-		...ended.map((c) => c.chat),
 		...waiting
 	]);
 	const count = (lvl: string) => everyone.filter((c) => c.level.startsWith(lvl)).length;
-	const metCount = $derived(liked.length + going.length + fresh.length + ended.length);
+	const metCount = $derived(liked.length + going.length + fresh.length);
 
 	const date = (ms?: number) =>
 		ms ? new Date(ms).toLocaleDateString('de-DE', { day: 'numeric', month: 'long' }) : '';
@@ -109,17 +107,11 @@
 		saveChat(c.chat.id, c.saved);
 	}
 
-	function lastLine(c: Contact) {
-		const e = c.chat.endings;
-		return c.saved.ending === 'deleted'
-			? (e.deleted[c.state.cause ?? 'default'] ?? e.deleted.default)
-			: e.partial.at(-1);
-	}
 </script>
 
 <Seo
 	title="Schreib mir! Chat your way in, in German"
-	description="Meet characters in your deck and chat to reach a goal by building German sentences from word tiles, from A1 to C2. Every chat happens once: get a like and a new contact, or get deleted."
+	description="Meet characters in your deck and chat to reach a goal by building German sentences from word tiles, from A1 to C2. No second tries: get a like and a new contact, or they leave, and may turn up in your deck again."
 	path={MATCH_PATH}
 	jsonLd={[breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Schreib mir!', path: MATCH_PATH }])]}
 />
@@ -132,7 +124,7 @@
 		<div>
 			<h1 lang="de">Schreib mir!</h1>
 			<p>
-				Your contacts. New characters turn up in your deck while you learn. Every chat happens once.
+				Your contacts. New characters turn up in your deck while you learn. No like? They leave, and may turn up again.
 				{#if loaded}<span class="tally tnum">{metCount} of {everyone.length} met</span>{/if}
 			</p>
 		</div>
@@ -147,7 +139,7 @@
 		{/each}
 	</div>
 
-	{#if loaded && !likedHere.length && !goingHere.length && !freshHere.length && !endedHere.length}
+	{#if loaded && !likedHere.length && !goingHere.length && !freshHere.length}
 		<div class="empty">
 			<p class="empty-head" lang="de">Noch keine Kontakte{level === 'all' ? '' : ` auf ${level}`}.</p>
 			<p>Characters turn up in your course deck now and then while you learn. Open one there and they join this list.</p>
@@ -212,19 +204,6 @@
 		{/each}
 	{/if}
 
-	{#if endedHere.length}
-		<h2>🤝 Met, no like <span class="n">{endedHere.length}</span></h2>
-		{#each endedHere as c (c.chat.id)}
-			{@const line = lastLine(c)}
-			<a class="other" class:gone={c.saved.ending === 'deleted'} href="{MATCH_PATH}/{c.chat.id}">
-				<img src="/img/story/{c.chat.image}.webp" alt="" />
-				<span class="who">
-					<strong>{c.chat.name} {c.saved.ending === 'deleted' ? '💔 deleted you' : '🤝 met you, no like'}</strong>
-					{#if line?.de}<span lang="de">„{personalise(line.de, c.saved.name)}“</span>{/if}
-				</span>
-			</a>
-		{/each}
-	{/if}
 
 	{#if waitingHere.length}
 		<section class="waiting" aria-labelledby="waiting-title">
@@ -443,9 +422,6 @@
 	.other.open {
 		background: var(--surface);
 		border: 1.5px solid #f3c1c9;
-	}
-	.other.gone img {
-		filter: grayscale(1);
 	}
 	.go {
 		flex: none;

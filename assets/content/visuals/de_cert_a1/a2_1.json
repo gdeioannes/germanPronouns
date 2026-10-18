@@ -1,0 +1,1383 @@
+{
+  "quest_a2_1_perfekt_haben": {
+    "haben at 2, participle at the end": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "habe",
+            "gestern Pizza",
+            "gegessen."
+          ],
+          "en": "I ate pizza yesterday."
+        },
+        {
+          "cells": [
+            "Am Wochenende",
+            "haben",
+            "wir viel",
+            "gelesen."
+          ],
+          "en": "At the weekend we read a lot."
+        }
+      ]
+    },
+    "Regular ge-…-t, irregular ge-…-en": {
+      "kind": "pairs",
+      "left": "regular: ge- + stem + -t",
+      "right": "irregular: ge- + (new vowel) + -en",
+      "rows": [
+        {
+          "a": "machen → gemacht",
+          "b": "essen → gegessen"
+        },
+        {
+          "a": "kaufen → gekauft",
+          "b": "trinken → getrunken"
+        },
+        {
+          "a": "arbeiten → gearbeitet",
+          "b": "schreiben → geschrieben"
+        }
+      ]
+    },
+    "No ge- for -ieren and be-/ver-/er-/ent-": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "ge",
+              "role": "gone"
+            },
+            {
+              "text": "telefonier"
+            },
+            {
+              "text": "t",
+              "role": "ending"
+            }
+          ],
+          "result": "telefoniert"
+        },
+        {
+          "parts": [
+            {
+              "text": "be",
+              "role": "prefix"
+            },
+            {
+              "text": "zahl"
+            },
+            {
+              "text": "t",
+              "role": "ending"
+            }
+          ],
+          "result": "bezahlt"
+        },
+        {
+          "parts": [
+            {
+              "text": "ver",
+              "role": "prefix"
+            },
+            {
+              "text": "stand"
+            },
+            {
+              "text": "en",
+              "role": "ending"
+            }
+          ],
+          "result": "verstanden"
+        }
+      ]
+    },
+    "Separable verbs: ge- in the middle": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "auf",
+              "role": "prefix"
+            },
+            {
+              "text": "ge",
+              "role": "joint"
+            },
+            {
+              "text": "räum"
+            },
+            {
+              "text": "t",
+              "role": "ending"
+            }
+          ],
+          "result": "aufgeräumt"
+        },
+        {
+          "parts": [
+            {
+              "text": "ein",
+              "role": "prefix"
+            },
+            {
+              "text": "ge",
+              "role": "joint"
+            },
+            {
+              "text": "kauf"
+            },
+            {
+              "text": "t",
+              "role": "ending"
+            }
+          ],
+          "result": "eingekauft"
+        },
+        {
+          "parts": [
+            {
+              "text": "an",
+              "role": "prefix"
+            },
+            {
+              "text": "ge",
+              "role": "joint"
+            },
+            {
+              "text": "ruf"
+            },
+            {
+              "text": "en",
+              "role": "ending"
+            }
+          ],
+          "result": "angerufen"
+        }
+      ]
+    }
+  },
+  "quest_a2_1_perfekt_sein": {
+    "Movers and changers take sein": {
+      "kind": "tree",
+      "root": {
+        "q": "Does the verb move you from A to B?",
+        "yes": {
+          "answer": "sein",
+          "de": "Ich bin nach Rom gefahren."
+        },
+        "no": {
+          "q": "Does it describe a change of state (einschlafen, aufwachen, sterben)?",
+          "yes": {
+            "answer": "sein",
+            "de": "Das Baby ist eingeschlafen."
+          },
+          "no": {
+            "q": "Is it sein, bleiben or passieren?",
+            "yes": {
+              "answer": "sein",
+              "de": "Wir sind zu Hause geblieben."
+            },
+            "no": {
+              "answer": "haben",
+              "de": "Ich habe gut geschlafen."
+            }
+          }
+        }
+      }
+    },
+    "An object means haben — even for fahren": {
+      "kind": "pairs",
+      "left": "moving yourself",
+      "right": "moving something",
+      "rows": [
+        {
+          "a": "Ich bin nach Hause gefahren.",
+          "b": "Ich habe das Auto gefahren."
+        }
+      ]
+    }
+  },
+  "quest_a2_1_sprechen_wochenende": {
+    "Time word first, helper second, participle last": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Am Samstag",
+            "bin",
+            "ich ins Kino",
+            "gegangen."
+          ]
+        },
+        {
+          "cells": [
+            "Danach",
+            "haben",
+            "wir Pizza",
+            "gegessen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_1_dativ_artikel": {
+    "dem / der / dem / den(+n)": {
+      "kind": "caseGrid",
+      "caption": "The new row. In the plural the noun takes an -n too: mit den Kindern.",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "der",
+            "die",
+            "das",
+            "die"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "den",
+            "die",
+            "das",
+            "die"
+          ]
+        },
+        {
+          "label": "Dat",
+          "cells": [
+            "dem",
+            "der",
+            "dem",
+            "den …n"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "Ask wem?": {
+      "kind": "bracket",
+      "columns": [
+        "Who",
+        "Verb",
+        "To whom (Dat)",
+        "What (Akk)"
+      ],
+      "hot": [
+        2
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "gebe",
+            "dem Kind",
+            "einen Apfel."
+          ]
+        },
+        {
+          "cells": [
+            "Sie",
+            "hilft",
+            "der Frau.",
+            ""
+          ]
+        }
+      ]
+    },
+    "einem / einer, meinem / meiner": {
+      "kind": "caseGrid",
+      "rows": [
+        {
+          "label": "Dat",
+          "cells": [
+            "einem",
+            "einer",
+            "einem",
+            "–"
+          ]
+        },
+        {
+          "label": "Dat",
+          "cells": [
+            "meinem",
+            "meiner",
+            "meinem",
+            "meinen …n"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_1_hoeren_reise": {
+    "war for the weather, Perfekt for the actions": {
+      "kind": "pairs",
+      "left": "how it was",
+      "right": "what happened",
+      "rows": [
+        {
+          "a": "Das Wetter war schön.",
+          "b": "Wir sind ans Meer gefahren."
+        },
+        {
+          "a": "Das Hotel war teuer.",
+          "b": "Ich habe viele Fotos gemacht."
+        }
+      ]
+    }
+  },
+  "quest_a2_1_dativ_praep": {
+    "aus – bei – mit – nach – seit – von – zu": {
+      "kind": "pairs",
+      "left": "preposition",
+      "right": "always + dative",
+      "rows": [
+        {
+          "a": "aus",
+          "b": "aus dem Haus",
+          "note": "out of, from (a country)"
+        },
+        {
+          "a": "bei",
+          "b": "bei meiner Oma",
+          "note": "at someone's place"
+        },
+        {
+          "a": "mit",
+          "b": "mit dem Bus",
+          "note": "with, by"
+        },
+        {
+          "a": "nach",
+          "b": "nach dem Essen",
+          "note": "after, to (a city)"
+        },
+        {
+          "a": "seit",
+          "b": "seit einem Jahr",
+          "note": "since, for"
+        },
+        {
+          "a": "von",
+          "b": "von meinem Bruder",
+          "note": "from, of"
+        },
+        {
+          "a": "zu",
+          "b": "zu dem Arzt = zum Arzt",
+          "note": "to"
+        }
+      ]
+    },
+    "The contractions": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "zu"
+            },
+            {
+              "text": "dem",
+              "role": "gone"
+            }
+          ],
+          "result": "zum",
+          "en": "zum Bahnhof"
+        },
+        {
+          "parts": [
+            {
+              "text": "zu"
+            },
+            {
+              "text": "der",
+              "role": "gone"
+            }
+          ],
+          "result": "zur",
+          "en": "zur Schule"
+        },
+        {
+          "parts": [
+            {
+              "text": "von"
+            },
+            {
+              "text": "dem",
+              "role": "gone"
+            }
+          ],
+          "result": "vom",
+          "en": "vom Arzt"
+        },
+        {
+          "parts": [
+            {
+              "text": "bei"
+            },
+            {
+              "text": "dem",
+              "role": "gone"
+            }
+          ],
+          "result": "beim",
+          "en": "beim Bäcker"
+        }
+      ]
+    },
+    "seit: since / for — with the present tense": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -2.2,
+          "to": 0,
+          "label": "and still true now",
+          "de": "Ich wohne seit drei Jahren hier."
+        }
+      ]
+    }
+  },
+  "quest_a2_1_temporal_2": {
+    "seit vs für vs vor": {
+      "kind": "timeline",
+      "caption": "seit runs up to now; vor is a point in the past; für is a planned length.",
+      "marks": [
+        {
+          "at": -2.4,
+          "to": 0,
+          "label": "since then, still going",
+          "de": "seit zwei Jahren"
+        },
+        {
+          "at": -1.2,
+          "label": "a point back in time",
+          "de": "vor zwei Jahren"
+        },
+        {
+          "at": 1,
+          "to": 2.6,
+          "label": "a length of time",
+          "de": "für zwei Wochen"
+        }
+      ]
+    },
+    "vor / nach / in — before, after, from now": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -1.8,
+          "label": "before the meal",
+          "de": "vor dem Essen"
+        },
+        {
+          "at": 0,
+          "label": "the meal",
+          "de": "das Essen"
+        },
+        {
+          "at": 1.4,
+          "label": "after the meal",
+          "de": "nach dem Essen"
+        },
+        {
+          "at": 2.7,
+          "label": "from now",
+          "de": "in einer Stunde"
+        }
+      ]
+    }
+  },
+  "quest_a2_1_woher_wo_wohin": {
+    "Places you enter: aus – in – in": {
+      "kind": "places",
+      "items": [
+        {
+          "prep": "aus",
+          "mode": "woher",
+          "spot": "in",
+          "de": "aus dem Kino",
+          "en": "woher? + Dat"
+        },
+        {
+          "prep": "in",
+          "mode": "wo",
+          "spot": "in",
+          "de": "im Kino",
+          "en": "wo? + Dat"
+        },
+        {
+          "prep": "in",
+          "mode": "wohin",
+          "spot": "in",
+          "de": "ins Kino",
+          "en": "wohin? + Akk"
+        }
+      ]
+    },
+    "People and activities: von – bei – zu": {
+      "kind": "places",
+      "items": [
+        {
+          "prep": "von",
+          "mode": "woher",
+          "spot": "beside",
+          "de": "vom Arzt",
+          "en": "woher?"
+        },
+        {
+          "prep": "bei",
+          "mode": "wo",
+          "spot": "beside",
+          "de": "beim Arzt",
+          "en": "wo?"
+        },
+        {
+          "prep": "zu",
+          "mode": "wohin",
+          "spot": "beside",
+          "de": "zum Arzt",
+          "en": "wohin?"
+        }
+      ]
+    },
+    "Cities and countries: aus – in – nach": {
+      "kind": "pairs",
+      "left": "question",
+      "right": "answer",
+      "rows": [
+        {
+          "a": "Woher kommst du?",
+          "b": "aus Berlin"
+        },
+        {
+          "a": "Wo wohnst du?",
+          "b": "in Berlin"
+        },
+        {
+          "a": "Wohin fährst du?",
+          "b": "nach Berlin"
+        }
+      ]
+    }
+  },
+  "quest_a2_1_pronomen_dativ": {
+    "The nine forms": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "Nom",
+          "forms": [
+            "ich",
+            "du",
+            "er / sie / es",
+            "wir",
+            "ihr",
+            "sie / Sie"
+          ]
+        },
+        {
+          "label": "Akk",
+          "forms": [
+            "mich",
+            "dich",
+            "ihn / sie / es",
+            "uns",
+            "euch",
+            "sie / Sie"
+          ]
+        },
+        {
+          "label": "Dat",
+          "forms": [
+            "mir",
+            "dir",
+            "ihm / ihr / ihm",
+            "uns",
+            "euch",
+            "ihnen / Ihnen"
+          ]
+        }
+      ]
+    },
+    "gefallen, schmecken, gehören, passen — the thing is the subject": {
+      "kind": "pairs",
+      "left": "English",
+      "right": "German",
+      "rows": [
+        {
+          "a": "I like the city.",
+          "b": "Die Stadt gefällt mir."
+        },
+        {
+          "a": "He likes the soup.",
+          "b": "Die Suppe schmeckt ihm."
+        },
+        {
+          "a": "The bag is hers.",
+          "b": "Die Tasche gehört ihr."
+        }
+      ]
+    }
+  },
+  "quest_a2_1_dativ_akkusativ": {
+    "Two nouns: person first": {
+      "kind": "bracket",
+      "columns": [
+        "Who",
+        "Verb",
+        "Person (Dat)",
+        "Thing (Akk)"
+      ],
+      "hot": [
+        2,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "schenke",
+            "meiner Mutter",
+            "einen Schal."
+          ]
+        }
+      ]
+    },
+    "A pronoun jumps to the front": {
+      "kind": "bracket",
+      "columns": [
+        "Who",
+        "Verb",
+        "first",
+        "second"
+      ],
+      "hot": [
+        2
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "schenke",
+            "ihr",
+            "einen Schal."
+          ],
+          "en": "pronoun before noun"
+        },
+        {
+          "cells": [
+            "Ich",
+            "schenke",
+            "ihn",
+            "meiner Mutter."
+          ],
+          "en": "pronoun before noun"
+        },
+        {
+          "cells": [
+            "Ich",
+            "schenke",
+            "ihn",
+            "ihr."
+          ],
+          "en": "two pronouns: accusative first"
+        }
+      ]
+    }
+  },
+  "quest_a2_1_lesen_hamburg": {
+    "deshalb = therefore, and the verb follows it": {
+      "kind": "bracket",
+      "columns": [
+        "Position 1",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        0,
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Es",
+            "hat",
+            "geregnet."
+          ]
+        },
+        {
+          "cells": [
+            "Deshalb",
+            "sind",
+            "wir ins Museum gegangen."
+          ]
+        }
+      ],
+      "caption": "deshalb takes position 1, so the verb comes straight after it."
+    }
+  },
+  "quest_a2_1_sprechen_kurzcheck": {
+    "Movement? Then bin.": {
+      "kind": "tree",
+      "root": {
+        "q": "Did you move from A to B, or change state?",
+        "yes": {
+          "answer": "bin … gegangen / gefahren",
+          "de": "Ich bin ins Kino gegangen."
+        },
+        "no": {
+          "answer": "habe … gemacht / gegessen",
+          "de": "Ich habe Musik gehört."
+        }
+      }
+    }
+  },
+  "quest_a2_1_war_hatte": {
+    "war / hatte for background, Perfekt for events": {
+      "kind": "timeline",
+      "caption": "The background stretches under the story; the events are points on it.",
+      "marks": [
+        {
+          "at": -2.8,
+          "to": -0.2,
+          "label": "background",
+          "de": "Es war kalt. Ich hatte Hunger."
+        },
+        {
+          "at": -2,
+          "label": "event",
+          "de": "Ich bin aufgestanden."
+        },
+        {
+          "at": -0.8,
+          "label": "event",
+          "de": "Ich habe gekocht."
+        }
+      ]
+    },
+    "The full paradigms": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "sein",
+          "forms": [
+            "war",
+            "warst",
+            "war",
+            "waren",
+            "wart",
+            "waren"
+          ]
+        },
+        {
+          "label": "haben",
+          "forms": [
+            "hatte",
+            "hattest",
+            "hatte",
+            "hatten",
+            "hattet",
+            "hatten"
+          ]
+        }
+      ],
+      "hot": [
+        0,
+        2
+      ]
+    }
+  },
+  "quest_a2_1_modal_praeteritum": {
+    "Stem without umlaut + -te + endings": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "konn"
+            },
+            {
+              "text": "te",
+              "role": "ending"
+            }
+          ],
+          "result": "konnte",
+          "en": "können — the umlaut goes"
+        },
+        {
+          "parts": [
+            {
+              "text": "muss"
+            },
+            {
+              "text": "te",
+              "role": "ending"
+            }
+          ],
+          "result": "musste",
+          "en": "müssen"
+        },
+        {
+          "parts": [
+            {
+              "text": "woll"
+            },
+            {
+              "text": "te",
+              "role": "ending"
+            }
+          ],
+          "result": "wollte",
+          "en": "wollen"
+        },
+        {
+          "parts": [
+            {
+              "text": "durf"
+            },
+            {
+              "text": "te",
+              "role": "ending"
+            }
+          ],
+          "result": "durfte",
+          "en": "dürfen"
+        }
+      ]
+    },
+    "Infinitive still at the end": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "konnte",
+            "gestern nicht",
+            "kommen."
+          ]
+        },
+        {
+          "cells": [
+            "Ich",
+            "musste",
+            "lange",
+            "arbeiten."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_1_bigtext_wochenende": {
+    "mit / bei / nach → dem, der, dem": {
+      "kind": "caseGrid",
+      "rows": [
+        {
+          "label": "Dat",
+          "cells": [
+            "mit dem Zug",
+            "bei der Oma",
+            "nach dem Essen",
+            "mit den Kindern"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_1_wetter": {
+    "es + verb / es ist + adjective": {
+      "kind": "pictures",
+      "items": [
+        {
+          "image": "lesson_es_regnet",
+          "de": "Es regnet."
+        },
+        {
+          "image": "lesson_es_schneit",
+          "de": "Es schneit."
+        },
+        {
+          "image": "lesson_sonne_scheint",
+          "de": "Die Sonne scheint."
+        },
+        {
+          "image": "lesson_es_ist_windig",
+          "de": "Es ist windig."
+        }
+      ]
+    },
+    "Temperatures and change": {
+      "kind": "scale",
+      "low": "cold",
+      "high": "hot",
+      "points": [
+        {
+          "at": 95,
+          "de": "Es ist heiß. 32 Grad.",
+          "en": "hot"
+        },
+        {
+          "at": 65,
+          "de": "Es ist warm.",
+          "en": "warm"
+        },
+        {
+          "at": 35,
+          "de": "Es ist kühl.",
+          "en": "cool"
+        },
+        {
+          "at": 8,
+          "de": "Es ist kalt. Minus 5 Grad.",
+          "en": "cold"
+        }
+      ]
+    }
+  },
+  "quest_a2_1_diktat_perfekt": {
+    "Hear the helper, predict the participle": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Wir",
+            "sind",
+            "nach Hause",
+            "gefahren."
+          ]
+        },
+        {
+          "cells": [
+            "Ich",
+            "habe",
+            "einen Brief",
+            "geschrieben."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_1_sprechen_weg": {
+    "zum or zur": {
+      "kind": "caseGrid",
+      "columns": [
+        "m",
+        "f",
+        "n"
+      ],
+      "rows": [
+        {
+          "label": "Wie komme ich …",
+          "cells": [
+            "zum Bahnhof",
+            "zur Post",
+            "zum Museum"
+          ]
+        }
+      ]
+    },
+    "The four direction words": {
+      "kind": "pairs",
+      "left": "German",
+      "right": "English",
+      "rows": [
+        {
+          "a": "geradeaus",
+          "b": "straight on"
+        },
+        {
+          "a": "links · rechts",
+          "b": "left · right"
+        },
+        {
+          "a": "an der Ampel",
+          "b": "at the lights"
+        },
+        {
+          "a": "gegenüber",
+          "b": "opposite"
+        }
+      ]
+    }
+  },
+  "quest_a2_1_komparativ": {
+    "-er + als, for every adjective": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "billig"
+            },
+            {
+              "text": "er",
+              "role": "ending"
+            }
+          ],
+          "result": "billiger als",
+          "en": "cheaper than"
+        },
+        {
+          "parts": [
+            {
+              "text": "schnell"
+            },
+            {
+              "text": "er",
+              "role": "ending"
+            }
+          ],
+          "result": "schneller als",
+          "en": "faster than"
+        }
+      ]
+    },
+    "The irregular four — and teuer": {
+      "kind": "pairs",
+      "left": "adjective",
+      "right": "comparative",
+      "rows": [
+        {
+          "a": "gut",
+          "b": "besser"
+        },
+        {
+          "a": "viel",
+          "b": "mehr"
+        },
+        {
+          "a": "gern",
+          "b": "lieber"
+        },
+        {
+          "a": "hoch",
+          "b": "höher"
+        },
+        {
+          "a": "teuer",
+          "b": "teurer",
+          "note": "the e drops out"
+        }
+      ]
+    },
+    "Umlaut on many one-syllable a/o/u adjectives": {
+      "kind": "pairs",
+      "left": "adjective",
+      "right": "comparative",
+      "rows": [
+        {
+          "a": "alt",
+          "b": "älter"
+        },
+        {
+          "a": "groß",
+          "b": "größer"
+        },
+        {
+          "a": "jung",
+          "b": "jünger"
+        }
+      ]
+    }
+  },
+  "quest_a2_1_welcher_dieser": {
+    "welch- and dies- take der-endings": {
+      "kind": "caseGrid",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "der · dieser",
+            "die · diese",
+            "das · dieses",
+            "die · diese"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "den · diesen",
+            "die · diese",
+            "das · dieses",
+            "die · diese"
+          ]
+        },
+        {
+          "label": "Dat",
+          "cells": [
+            "dem · diesem",
+            "der · dieser",
+            "dem · diesem",
+            "den · diesen"
+          ]
+        }
+      ]
+    },
+    "The dative endings are always -m / -r / -m / -n": {
+      "kind": "caseGrid",
+      "rows": [
+        {
+          "label": "Dat",
+          "cells": [
+            "meinem",
+            "meiner",
+            "meinem",
+            "meinen"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ]
+    }
+  },
+  "quest_a2_1_hoeren_wetter": {
+    "es wird + comparative": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": 0,
+          "label": "today",
+          "de": "Es ist kalt."
+        },
+        {
+          "at": 1.5,
+          "label": "tomorrow",
+          "de": "Es wird wärmer."
+        }
+      ]
+    }
+  },
+  "quest_a2_1_lesen_emma": {
+    "war for how it was, Perfekt for what she did": {
+      "kind": "pairs",
+      "left": "how it was",
+      "right": "what she did",
+      "rows": [
+        {
+          "a": "Der erste Tag war schwer.",
+          "b": "Sie hat ihre Kollegen kennengelernt."
+        },
+        {
+          "a": "Sie war müde.",
+          "b": "Sie ist früh ins Bett gegangen."
+        }
+      ]
+    }
+  },
+  "quest_a2_1_sprechen_dialog": {
+    "Order the story with time words": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -2.5,
+          "label": "first",
+          "de": "zuerst"
+        },
+        {
+          "at": -1.4,
+          "label": "then",
+          "de": "dann"
+        },
+        {
+          "at": -0.3,
+          "label": "after that",
+          "de": "danach"
+        },
+        {
+          "at": 1,
+          "label": "in the end",
+          "de": "am Ende"
+        }
+      ],
+      "axis": {
+        "start": "start",
+        "end": "end",
+        "now": null
+      }
+    }
+  },
+  "quest_a2_1_schreiben_wochenende": {
+    "Order the weekend with zuerst, dann, danach": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Greeting",
+          "de": [
+            "Lieber Tom,"
+          ]
+        },
+        {
+          "label": "Saturday",
+          "de": [
+            "Am Samstag bin ich …",
+            "Zuerst …, dann …"
+          ]
+        },
+        {
+          "label": "Sunday",
+          "de": [
+            "Am Sonntag habe ich …",
+            "Danach …"
+          ]
+        },
+        {
+          "label": "Ask back",
+          "de": [
+            "Und was hast du gemacht?",
+            "Viele Grüße"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_1_indefinitpronomen": {
+    "Pairs": {
+      "kind": "pairs",
+      "left": "yes",
+      "right": "no",
+      "rows": [
+        {
+          "a": "jemand (someone)",
+          "b": "niemand (no one)"
+        },
+        {
+          "a": "etwas (something)",
+          "b": "nichts (nothing)"
+        },
+        {
+          "a": "alle (everyone)",
+          "b": "keiner (nobody)"
+        }
+      ]
+    }
+  },
+  "quest_a2_1_wortschatz": {
+    "Learn verbs with their partner": {
+      "kind": "pairs",
+      "left": "noun",
+      "right": "its verb",
+      "rows": [
+        {
+          "a": "eine Reise",
+          "b": "machen"
+        },
+        {
+          "a": "ein Hotel",
+          "b": "buchen"
+        },
+        {
+          "a": "eine Party",
+          "b": "feiern"
+        }
+      ]
+    }
+  },
+  "quest_a2_1_suchbild_badezimmer": {
+    "Compounds in the bathroom: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "der Zahn"
+            },
+            {
+              "text": "die Bürste",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Zahnbürste",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "die Hand"
+            },
+            {
+              "text": "das Tuch",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Handtuch",
+          "gender": "n"
+        }
+      ]
+    }
+  },
+  "quest_a2_1_suchbild_bahnhof": {
+    "Compounds in the station: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "die Fahrkarte"
+            },
+            {
+              "text": "n",
+              "role": "joint"
+            },
+            {
+              "text": "der Automat",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Fahrkartenautomat",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "die Bahn"
+            },
+            {
+              "text": "der Steig",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Bahnsteig",
+          "gender": "m"
+        }
+      ]
+    }
+  }
+}

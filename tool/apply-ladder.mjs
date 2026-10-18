@@ -16,7 +16,8 @@
 //   { "id": "quest_a1_1_pronomen",
 //     "sentences": [ { "sentence": "<the existing sentence, verbatim>",
 //                      "options": ["wrong", "wrong", "wrong"],
-//                      "hard": true, "keepCue": true } ],
+//                      "hard": true, "keepCue": true,
+//                      "english": "<replaces the English line, when it must carry the word>" } ],
 //     "add": [ { "sentence": "…____…", "acceptedAnswers": ["…"],
 //                "english": "…", "subjectKey": "s0", "categoryLabel": "…",
 //                "hint": "…", "options": [ … ], "hard": true } ] }
@@ -27,8 +28,10 @@
 // "(…)" there because it carries something the English line doesn't. `add`
 // brings new hard sentences, so every drill has at least MIN_HARD of them.
 //
-// A big-text cloze: { "id": "…", "blanks": [ { "index": 3, "options": [ … ] } ] }
-// — three wrong options for each typed ("input") gap.
+// A big-text cloze: { "id": "…", "blanks": [ { "index": 3, "cue": "lesen", "hint": "…", "options": [ … ] } ] }
+// — every gap has a `cue` (what the no-help step still shows: the lemma or a
+// two-word gloss), typed ("input") gaps have three wrong options, and `hint`
+// replaces the type step's hint when it needs to say more than the cue.
 //
 // Idempotent: running it twice yields the same bundle.
 
@@ -131,17 +134,22 @@ for (const file of files) {
 		}
 
 		if (quiz.type === 'reading' && quiz.inlineBlanks) {
-			const typed = quiz.inlineBlanks
-				.map((b, index) => ({ b, index }))
-				.filter(({ b }) => b.kind === 'input');
 			const given = new Map((entry.blanks ?? []).map((b) => [b.index, b]));
-			for (const { b, index } of typed) {
+			quiz.inlineBlanks.forEach((b, index) => {
 				const e = given.get(index);
-				if (!e) fail(where, `typed gap ${index} ("${b.answer}") has no options`);
-				else checkOptions(`${where} gap ${index}`, e.options, [b.answer, ...(b.accepted ?? [])]);
-			}
+				const at = `${where} gap ${index} ("${b.answer}")`;
+				if (!e) {
+					fail(at, 'not covered: every gap needs a cue');
+					return;
+				}
+				if (typeof e.cue !== 'string' || !e.cue.trim()) fail(at, 'needs a cue for the no-help step');
+				else if (norm(e.cue) === norm(b.answer)) fail(at, 'the cue is the answer');
+				if (e.hint !== undefined && (typeof e.hint !== 'string' || !e.hint.trim())) fail(at, '"hint" must be text');
+				if (b.kind === 'input') checkOptions(at, e.options, [b.answer, ...(b.accepted ?? [])]);
+				else if (e.options) fail(at, 'a dropdown gap has its own options');
+			});
 			for (const index of given.keys()) {
-				if (!typed.some((t) => t.index === index)) fail(where, `gap ${index} is not a typed gap`);
+				if (!quiz.inlineBlanks[index]) fail(where, `gap ${index} does not exist`);
 			}
 			plan.push({ quiz, entry, kind: 'cloze' });
 			continue;
@@ -179,6 +187,10 @@ for (const file of files) {
 			if (s.keepCue !== undefined) {
 				if (typeof s.keepCue !== 'boolean') fail(at, '"keepCue" must be true or false');
 				if (s.keepCue && !/\)\s*$/.test(sentence.sentence)) fail(at, '"keepCue" but no trailing "(…)" cue');
+			}
+			if (s.english !== undefined) {
+				if (typeof s.english !== 'string' || !s.english.trim()) fail(at, '"english" must be text');
+				else if (/____/.test(s.english)) fail(at, 'the English line must carry the word, not a blank');
 			}
 			if (s.hard) hard++;
 		}
@@ -232,7 +244,12 @@ let sentences = 0;
 let added = 0;
 for (const { quiz, entry, kind } of plan) {
 	if (kind === 'cloze') {
-		for (const b of entry.blanks) quiz.inlineBlanks[b.index].options = b.options;
+		for (const b of entry.blanks) {
+			const gap = quiz.inlineBlanks[b.index];
+			if (b.options) gap.options = b.options;
+			gap.cue = b.cue;
+			if (b.hint) gap.hint = b.hint;
+		}
 		continue;
 	}
 	const byText = new Map(entry.sentences.map((s) => [s.sentence, s]));
@@ -240,6 +257,7 @@ for (const { quiz, entry, kind } of plan) {
 		const s = byText.get(sentence.sentence);
 		if (!s) continue; // one this file added on an earlier run
 		if (s.options) sentence.options = s.options;
+		if (s.english) sentence.english = s.english;
 		if (s.hard) sentence.hard = true;
 		else delete sentence.hard;
 		if (s.keepCue) sentence.keepCue = true;

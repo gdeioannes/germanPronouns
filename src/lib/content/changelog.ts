@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-18",
+    title: "Gold always asks a real question",
+    items: [
+      "Some exercises had a no-help way with nothing to go on: \"Ich sehe zwei ____ .\" with no English line and no clue. We went through every exercise, on every level, and checked what each of the three ways actually shows you. Every gold step now gives you the German sentence and its English meaning, and nothing more.",
+      "This fixes the numbers, plurals, countries and languages, the first adjectives, and the past-tense modal verbs, where the small label above the card used to give the verb away. Numbers over 100 and the pronoun exercises now say the word in the English line instead of leaving a second gap.",
+      "The long texts with gaps keep a bare clue on the no-help way, such as \"sein\" or \"the bed\", and only drop the grammar note. Before, seven of the twelve texts could not be filled in without the hint.",
+      "Picture hunts: if your device has no German voice, the listening way shows the question in writing instead of staying silent. A wrongly tapped object no longer reveals its article while you are being asked for one.",
+      "Every short reading and listening text now has six questions instead of five, so silver can be earned there too: five of six.",
+    ],
+  },
+  {
+    date: "2026-10-18",
     title: "Three ways to play every exercise, and a medal for each",
     highlight: true,
     items: [

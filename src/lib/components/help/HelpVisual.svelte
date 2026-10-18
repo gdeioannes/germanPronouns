@@ -172,11 +172,11 @@
 		<div class="state"><span class="tag new">Schreib!</span><span><strong>Offen.</strong> Met, not written to yet.</span></div>
 		<div class="arrow" aria-hidden="true">↓ <small>you start the chat</small></div>
 		<div class="state"><span class="tag go">Weiter</span><span><strong>Offen.</strong> The chat is running. Leave and come back any time.</span></div>
-		<div class="arrow" aria-hidden="true">↓ <small>the chat ends, once and for all</small></div>
+		<div class="arrow" aria-hidden="true">↓ <small>the chat ends</small></div>
 		<div class="ends">
 			<span class="end win"><b>❤️ Mag dich</b><small>{WIN_AT} or more hearts at the end. A contact, and a voice note on Sunday.</small></span>
-			<span class="end mid"><b>🤝 Met, no like</b><small>{PARTIAL_AT} to {WIN_AT - 1} hearts at the end.</small></span>
-			<span class="end lost"><b>💔 Deleted</b><small>Under {PARTIAL_AT} at the end, or no hearts left mid-chat.</small></span>
+			<span class="end mid"><b>🤝 No like</b><small>{PARTIAL_AT} to {WIN_AT - 1} hearts at the end. They leave, and may come back in your deck.</small></span>
+			<span class="end lost"><b>💔 Deleted</b><small>Under {PARTIAL_AT} at the end, or no hearts left mid-chat. They leave, and may come back in your deck.</small></span>
 		</div>
 	</figure>
 {:else if kind === 'interest'}

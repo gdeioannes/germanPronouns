@@ -140,15 +140,16 @@
 	>(null);
 	/** The last weak word was just cleared while repeating: back to the whole deck. */
 	let allClear = false;
-	// The run: cards answered (the bar), how many right, the longest streak
-	// inside it, the medal it crossed into, and the words missed.
-	let results = $state<('right' | 'wrong')[]>([]);
+	// The run on the step in play — each step keeps its own: cards answered
+	// (the bar), how many right, the longest streak inside it, and the words
+	// missed.
+	const results = $derived(run.current.results);
 	const answered = $derived(results.length);
 	const right = $derived(results.filter((r) => r === 'right').length);
-	let bestInRun = $state(0);
-	let missed = $state<string[]>([]);
+	const bestInRun = $derived(run.current.bestInRun);
+	const missed = $derived(run.current.missed);
 	let runDone = $state(false);
-	type Spot = { results: ('right' | 'wrong')[]; bestInRun: number; stepRight?: number[] };
+	type Spot = LadderRun['saved'];
 	let burst = $state(0);
 	let burstSize = $state(12);
 	let inputEl = $state<HTMLInputElement | null>(null);
@@ -235,13 +236,7 @@
 				await vocab.load(courseId);
 				streak = (await progress.statsFor(quiz.storageKeyPrefix)).streak;
 				await run.open();
-				const spot = await loadSpot<Spot>(quiz.storageKeyPrefix);
-				const saved = Array.isArray(spot?.results) ? spot.results : [];
-				if (saved.length > 0 && saved.length < RUN_LENGTH) {
-					results = saved.filter((r) => r === 'right' || r === 'wrong');
-					bestInRun = spot?.bestInRun ?? 0;
-					run.restore(spot?.stepRight);
-				}
+				run.restore(await loadSpot<Spot>(quiz.storageKeyPrefix));
 				next();
 			})();
 		}
@@ -256,7 +251,10 @@
 			total: RUN_LENGTH,
 			bestStreak: bestInRun
 		});
-		clearSpot(quiz.storageKeyPrefix);
+		// This step starts over; the other steps keep their runs.
+		const left = run.afterFinish();
+		if (left) saveSpot<Spot>(quiz.storageKeyPrefix, left);
+		else clearSpot(quiz.storageKeyPrefix);
 		const passed = runPassed(right, RUN_LENGTH);
 		onRunFinished(passed);
 		announce(
@@ -317,18 +315,15 @@
 		// The ladder: the LADDER_PASSth right answer on this step in this run
 		// passes it — certain now, whatever the last cards do — and a step
 		// passed for the first time earns its medal, celebrated there and then.
-		const medalWon = correct ? await run.right(counting) : null;
-		results = [...results, correct ? 'right' : 'wrong'];
-		bestInRun = Math.max(bestInRun, streak);
+		const medalWon = await run.answer(correct, streak, { counting, miss: target });
 		react(correct, cardEl, streak);
 		if (!correct) missKey += 1;
-		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun, stepRight: run.stepRight });
+		saveSpot<Spot>(quiz.storageKeyPrefix, run.saved);
 		if (correct) {
 			burstSize = lapCompleted ? 30 : 12;
 			burst += 1;
 		} else {
 			retry.push(card);
-			missed = [...missed, target];
 		}
 		// One announcement per answer: a second call replaces the first, so the
 		// medal — a stamp and a fanfare the effects layer hides — is said here.
@@ -407,7 +402,7 @@
 		steps={STEPS}
 		record={run.record}
 		active={run.step}
-		right={run.stepRight[run.step]}
+		right={run.current.counted}
 		{counting}
 		disabled={locked || runDone}
 		onpick={(i) => setMode(STEPS[i].id)}

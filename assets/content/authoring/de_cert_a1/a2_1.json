@@ -7,7 +7,6 @@
     ],
     "title": "Perfekt mit haben",
     "help": {
-      "hook": "Tell someone what you did yesterday: haben in second place, the participle at the very end — Ich habe Pizza gegessen.",
       "intro": "The Perfekt is the past tense of spoken German: what you did yesterday, last weekend, an hour ago — Ich habe Fußball gespielt, Wir haben Pizza gegessen, Hast du den Film gesehen? It is built from haben in position 2 and the participle (Partizip II) at the very end, the same bracket as the modal verbs. Most verbs take haben; the participle has three shapes. Regular verbs: ge- + stem + -t (gemacht, gespielt, gekauft; gearbeitet with the helping e). Irregular verbs: ge- + changed stem + -en (gegessen, getrunken, geschrieben, gefunden, genommen, getroffen) — these have to be learnt one by one. And two groups take no ge- at all: verbs ending in -ieren (telefoniert, studiert) and verbs with an unstressed prefix be-, ver-, er-, ent- (besucht, verstanden, erklärt). Separable verbs put the ge- in the middle: aufgeräumt, eingekauft, angerufen. And a small mixed group changes its vowel but still ends in -t: bringen → gebracht, denken → gedacht, kennen → gekannt, wissen → gewusst.",
       "tips": [
         {
@@ -43,6 +42,29 @@
             ],
             "answer": "Ich habe gestern ein Buch gelesen.",
             "why": "habe stands in position 2 and the participle gelesen closes the sentence; everything else goes in between."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "habe",
+                  "gestern Pizza",
+                  "gegessen."
+                ],
+                "en": "I ate pizza yesterday."
+              },
+              {
+                "cells": [
+                  "Am Wochenende",
+                  "haben",
+                  "wir viel",
+                  "gelesen."
+                ],
+                "en": "At the weekend we read a lot."
+              }
+            ]
           }
         },
         {
@@ -76,6 +98,25 @@
             ],
             "answer": "getrunken",
             "why": "trinken is irregular: ge- + changed stem + -en gives getrunken."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "regular: ge- + stem + -t",
+            "right": "irregular: ge- + (new vowel) + -en",
+            "rows": [
+              {
+                "a": "machen → gemacht",
+                "b": "essen → gegessen"
+              },
+              {
+                "a": "kaufen → gekauft",
+                "b": "trinken → getrunken"
+              },
+              {
+                "a": "arbeiten → gearbeitet",
+                "b": "schreiben → geschrieben"
+              }
+            ]
           }
         },
         {
@@ -142,6 +183,59 @@
             ],
             "answer": "studiert",
             "why": "Verbs ending in -ieren take no ge-: studieren → studiert."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "ge",
+                    "role": "gone"
+                  },
+                  {
+                    "text": "telefonier"
+                  },
+                  {
+                    "text": "t",
+                    "role": "ending"
+                  }
+                ],
+                "result": "telefoniert"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "be",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "zahl"
+                  },
+                  {
+                    "text": "t",
+                    "role": "ending"
+                  }
+                ],
+                "result": "bezahlt"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "ver",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "stand"
+                  },
+                  {
+                    "text": "en",
+                    "role": "ending"
+                  }
+                ],
+                "result": "verstanden"
+              }
+            ]
           }
         },
         {
@@ -175,6 +269,71 @@
             ],
             "answer": "ferngesehen",
             "why": "fernsehen is separable: the prefix fern- stays in front, ge- slips in behind it, and the irregular stem ends in -en."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "auf",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "ge",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "räum"
+                  },
+                  {
+                    "text": "t",
+                    "role": "ending"
+                  }
+                ],
+                "result": "aufgeräumt"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "ein",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "ge",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "kauf"
+                  },
+                  {
+                    "text": "t",
+                    "role": "ending"
+                  }
+                ],
+                "result": "eingekauft"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "an",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "ge",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "ruf"
+                  },
+                  {
+                    "text": "en",
+                    "role": "ending"
+                  }
+                ],
+                "result": "angerufen"
+              }
+            ]
           }
         },
         {
@@ -246,7 +405,6 @@
           "why": "essen is irregular: gegessen with a double g."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "machen – gemacht",
@@ -316,7 +474,57 @@
           "de": "bekommen – bekommen",
           "en": "to get, receive"
         }
-      ]
+      ],
+      "hook": "Tell someone what you did yesterday: haben in second place, the participle at the very end — Ich habe Pizza gegessen.",
+      "recall": {
+        "known": "From \"Perfekt: erste Schritte\": haben at position 2, the participle at the end, ge-…-t and ge-…-en.",
+        "today": "The verbs that break the pattern: no ge- for -ieren and be-/ver-, ge- in the middle of separable verbs, and the mixed verbs."
+      },
+      "table": {
+        "caption": "The participle in five patterns",
+        "columns": [
+          "pattern",
+          "infinitive",
+          "Partizip II"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "regular: ge-…-t",
+              "machen, kaufen, arbeiten",
+              "gemacht, gekauft, gearbeitet"
+            ]
+          },
+          {
+            "cells": [
+              "irregular: ge-…-en",
+              "essen, trinken, schreiben",
+              "gegessen, getrunken, geschrieben"
+            ]
+          },
+          {
+            "cells": [
+              "mixed: new vowel + -t",
+              "bringen, denken, wissen",
+              "gebracht, gedacht, gewusst"
+            ]
+          },
+          {
+            "cells": [
+              "no ge-: -ieren, be-, ver-, er-, ent-",
+              "telefonieren, bezahlen, verstehen",
+              "telefoniert, bezahlt, verstanden"
+            ]
+          },
+          {
+            "cells": [
+              "separable: ge- in the middle",
+              "aufräumen, einkaufen, anrufen",
+              "aufgeräumt, eingekauft, angerufen"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -327,7 +535,6 @@
     ],
     "title": "Perfekt mit sein",
     "help": {
-      "hook": "Went, came, stayed, fell asleep: verbs that move you or change you take sein — learn that one rule and your past tense sounds right.",
       "intro": "A smaller group of verbs builds its Perfekt with sein instead of haben — and English speakers, who have only 'have', get this wrong for years unless they learn the rule early. The rule is short: verbs of movement from one place to another (gehen, fahren, kommen, fliegen, laufen, schwimmen, umziehen) and verbs of change of state (aufstehen, einschlafen, aufwachen, werden, sterben) take sein — plus three exceptions to learn by heart: sein (gewesen), bleiben (geblieben), passieren (passiert). Their participles are mostly irregular (gegangen, gefahren, gekommen, geworden). Everything else — including all verbs with an object — takes haben.",
       "tips": [
         {
@@ -364,6 +571,34 @@
             ],
             "answer": "sind",
             "why": "fliegen is movement from A to B, so it takes sein — and wir goes with sind."
+          },
+          "visual": {
+            "kind": "tree",
+            "root": {
+              "q": "Does the verb move you from A to B?",
+              "yes": {
+                "answer": "sein",
+                "de": "Ich bin nach Rom gefahren."
+              },
+              "no": {
+                "q": "Does it describe a change of state (einschlafen, aufwachen, sterben)?",
+                "yes": {
+                  "answer": "sein",
+                  "de": "Das Baby ist eingeschlafen."
+                },
+                "no": {
+                  "q": "Is it sein, bleiben or passieren?",
+                  "yes": {
+                    "answer": "sein",
+                    "de": "Wir sind zu Hause geblieben."
+                  },
+                  "no": {
+                    "answer": "haben",
+                    "de": "Ich habe gut geschlafen."
+                  }
+                }
+              }
+            }
           }
         },
         {
@@ -428,6 +663,17 @@
             ],
             "answer": "hat",
             "why": "den neuen Wagen is a direct object, so fahren switches to haben."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "moving yourself",
+            "right": "moving something",
+            "rows": [
+              {
+                "a": "Ich bin nach Hause gefahren.",
+                "b": "Ich habe das Auto gefahren."
+              }
+            ]
           }
         },
         {
@@ -497,7 +743,6 @@
           "why": "The participle of a separable verb takes ge- in the middle."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "gehen – gegangen",
@@ -555,7 +800,43 @@
           "de": "umziehen – umgezogen",
           "en": "to move house"
         }
-      ]
+      ],
+      "hook": "Went, came, stayed, fell asleep: verbs that move you or change you take sein — learn that one rule and your past tense sounds right.",
+      "recall": {
+        "known": "From \"Perfekt: erste Schritte\": fahren, bleiben and passieren take sein.",
+        "today": "The rule behind it: every verb of movement or change takes sein, and an object switches fahren back to haben."
+      },
+      "table": {
+        "caption": "The verbs that take sein",
+        "columns": [
+          "group",
+          "verbs",
+          "example"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "moving from A to B",
+              "gehen, fahren, fliegen, kommen, laufen, reisen",
+              "Ich bin nach Rom geflogen."
+            ]
+          },
+          {
+            "cells": [
+              "changing state",
+              "aufwachen, einschlafen, werden, sterben, wachsen",
+              "Er ist eingeschlafen."
+            ]
+          },
+          {
+            "cells": [
+              "the special three",
+              "sein, bleiben, passieren",
+              "Was ist passiert?"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -603,6 +884,27 @@
             ],
             "answer": "Am Sonntag habe ich Fußball gespielt.",
             "why": "Time first, then the helper habe, then the rest — and the participle gespielt last."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Am Samstag",
+                  "bin",
+                  "ich ins Kino",
+                  "gegangen."
+                ]
+              },
+              {
+                "cells": [
+                  "Danach",
+                  "haben",
+                  "wir Pizza",
+                  "gegessen."
+                ]
+              }
+            ]
           }
         },
         {
@@ -684,7 +986,6 @@
     ],
     "title": "Dativ: bestimmte Artikel",
     "help": {
-      "hook": "Give, help, thank, congratulate: learn dem, der and den, and German finally tells you who receives what.",
       "intro": "The dative is the third case, and the one everyday German leans on most after the accusative. It marks the receiver — the person something is given, shown, told or done to: Ich gebe dem Mann das Buch — and it follows a group of verbs (helfen, danken, gefallen, gehören, antworten) and a group of prepositions (mit, bei, nach, zu, aus, von, seit). The question is wem? (to whom?). Its articles are the ones you have met as chunks since the start of the course (im, am, beim): der → dem, das → dem, die → der, and the plural → den with an -n added to the noun itself (mit den Kindern). The indefinite article follows: einem, einem, einer; and kein, mein and the other ein-words do the same: meinem Vater, meiner Mutter, meinen Eltern.",
       "tips": [
         {
@@ -720,6 +1021,57 @@
             ],
             "answer": "den",
             "why": "Schülern is plural (with the extra dative -n), and the dative plural article is always den."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "caption": "The new row. In the plural the noun takes an -n too: mit den Kindern.",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "der",
+                  "die",
+                  "das",
+                  "die"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "den",
+                  "die",
+                  "das",
+                  "die"
+                ]
+              },
+              {
+                "label": "Dat",
+                "cells": [
+                  "dem",
+                  "der",
+                  "dem",
+                  "den …n"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ]
           }
         },
         {
@@ -753,6 +1105,36 @@
             ],
             "answer": "Der",
             "why": "A wem? question wants a dative answer, and die Oma becomes der Oma in the dative."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Who",
+              "Verb",
+              "To whom (Dat)",
+              "What (Akk)"
+            ],
+            "hot": [
+              2
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "gebe",
+                  "dem Kind",
+                  "einen Apfel."
+                ]
+              },
+              {
+                "cells": [
+                  "Sie",
+                  "hilft",
+                  "der Frau.",
+                  ""
+                ]
+              }
+            ]
           }
         },
         {
@@ -820,6 +1202,29 @@
             ],
             "answer": "meinem",
             "why": "gratulieren takes the dative, and the ein-words add -em for a masculine noun: meinem Bruder."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "rows": [
+              {
+                "label": "Dat",
+                "cells": [
+                  "einem",
+                  "einer",
+                  "einem",
+                  "–"
+                ]
+              },
+              {
+                "label": "Dat",
+                "cells": [
+                  "meinem",
+                  "meiner",
+                  "meinem",
+                  "meinen …n"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -903,7 +1308,46 @@
           "why": "The receiver is dative: feminine der."
         }
       ],
-      "exam": null
+      "hook": "Give, help, thank, congratulate: learn dem, der and den, and German finally tells you who receives what.",
+      "table": {
+        "caption": "The articles in three cases",
+        "columns": [
+          "",
+          "masc.",
+          "fem.",
+          "neut.",
+          "plural"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "Nom",
+              "der / ein",
+              "die / eine",
+              "das / ein",
+              "die / –"
+            ]
+          },
+          {
+            "cells": [
+              "Akk",
+              "den / einen",
+              "die / eine",
+              "das / ein",
+              "die / –"
+            ]
+          },
+          {
+            "cells": [
+              "Dat",
+              "dem / einem",
+              "der / einer",
+              "dem / einem",
+              "den / – (+n)"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -1010,6 +1454,21 @@
             ],
             "answer": "Es war kalt.",
             "why": "war describes a state — the scene. A helper plus participle (haben … getrunken) tells you something happened."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "how it was",
+            "right": "what happened",
+            "rows": [
+              {
+                "a": "Das Wetter war schön.",
+                "b": "Wir sind ans Meer gefahren."
+              },
+              {
+                "a": "Das Hotel war teuer.",
+                "b": "Ich habe viele Fotos gemacht."
+              }
+            ]
           }
         },
         {
@@ -1060,7 +1519,6 @@
     ],
     "title": "Dativpräpositionen",
     "help": {
-      "hook": "aus, bei, mit, nach, seit, von, zu: learn one short chant and you never have to guess the case after them again.",
       "intro": "Nine prepositions always take the dative, no matter what the sentence does: aus (out of, from), bei (at someone's, near), mit (with, by), nach (after, to a place), seit (since, for a time), von (from, of), zu (to a person or place), gegenüber (opposite — before or after the noun: gegenüber dem Bahnhof / dem Bahnhof gegenüber) — and außer (except). They are the mirror image of the accusative five you already know. Four of them usually fuse with the definite article in everyday speech: bei dem → beim, von dem → vom, zu dem → zum, zu der → zur. These are the chunks you learnt at the start (beim Arzt, zum Bahnhof, vom Bahnhof) — now you see the system behind them, and you can build any new one.",
       "tips": [
         {
@@ -1096,6 +1554,48 @@
             ],
             "answer": "dem",
             "why": "mit is one of the dative prepositions, so das becomes dem."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "preposition",
+            "right": "always + dative",
+            "rows": [
+              {
+                "a": "aus",
+                "b": "aus dem Haus",
+                "note": "out of, from (a country)"
+              },
+              {
+                "a": "bei",
+                "b": "bei meiner Oma",
+                "note": "at someone's place"
+              },
+              {
+                "a": "mit",
+                "b": "mit dem Bus",
+                "note": "with, by"
+              },
+              {
+                "a": "nach",
+                "b": "nach dem Essen",
+                "note": "after, to (a city)"
+              },
+              {
+                "a": "seit",
+                "b": "seit einem Jahr",
+                "note": "since, for"
+              },
+              {
+                "a": "von",
+                "b": "von meinem Bruder",
+                "note": "from, of"
+              },
+              {
+                "a": "zu",
+                "b": "zu dem Arzt = zum Arzt",
+                "note": "to"
+              }
+            ]
           }
         },
         {
@@ -1128,6 +1628,63 @@
             ],
             "answer": "zur",
             "why": "zu takes the dative: zu der Post, which fuses to zur. zum is for masculine and neuter nouns."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "zu"
+                  },
+                  {
+                    "text": "dem",
+                    "role": "gone"
+                  }
+                ],
+                "result": "zum",
+                "en": "zum Bahnhof"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "zu"
+                  },
+                  {
+                    "text": "der",
+                    "role": "gone"
+                  }
+                ],
+                "result": "zur",
+                "en": "zur Schule"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "von"
+                  },
+                  {
+                    "text": "dem",
+                    "role": "gone"
+                  }
+                ],
+                "result": "vom",
+                "en": "vom Arzt"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "bei"
+                  },
+                  {
+                    "text": "dem",
+                    "role": "gone"
+                  }
+                ],
+                "result": "beim",
+                "en": "beim Bäcker"
+              }
+            ]
           }
         },
         {
@@ -1195,6 +1752,17 @@
             ],
             "answer": "seit",
             "why": "Something that started in the past and is still going on takes seit + dative with the present tense."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": -2.2,
+                "to": 0,
+                "label": "and still true now",
+                "de": "Ich wohne seit drei Jahren hier."
+              }
+            ]
           }
         }
       ],
@@ -1283,7 +1851,66 @@
           "why": "seit for an ongoing state takes the present tense."
         }
       ],
-      "exam": null
+      "hook": "aus, bei, mit, nach, seit, von, zu: learn one short chant and you never have to guess the case after them again.",
+      "table": {
+        "caption": "The seven dative prepositions",
+        "columns": [
+          "preposition",
+          "meaning",
+          "example"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "aus",
+              "out of, from",
+              "aus dem Haus, aus Spanien"
+            ]
+          },
+          {
+            "cells": [
+              "bei",
+              "at (someone's)",
+              "bei meiner Oma, beim Arzt"
+            ]
+          },
+          {
+            "cells": [
+              "mit",
+              "with, by",
+              "mit dem Bus"
+            ]
+          },
+          {
+            "cells": [
+              "nach",
+              "after, to (city)",
+              "nach dem Essen, nach Berlin"
+            ]
+          },
+          {
+            "cells": [
+              "seit",
+              "since, for",
+              "seit einem Jahr"
+            ]
+          },
+          {
+            "cells": [
+              "von",
+              "from, of",
+              "vom Bahnhof"
+            ]
+          },
+          {
+            "cells": [
+              "zu",
+              "to",
+              "zum Arzt, zur Schule"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -1294,7 +1921,6 @@
     ],
     "title": "Zeitangaben: seit, vor, nach, in, für, über",
     "help": {
-      "hook": "English 'for' hides two German words — learn seit, für, vor and friends and you can place anything on a timeline.",
       "intro": "The second set of time prepositions turns single points in time into spans and distances: seit (since / for, still going: seit zwei Jahren), vor (ago / before: vor zwei Jahren, vor dem Essen), nach (after: nach dem Kurs), in (in … from now: in einer Woche), für (for a planned length: für eine Woche), über (for more than: über eine Stunde), zwischen (between: zwischen acht und neun), ab (from … on: ab Montag). Most of them take the dative — seit einem Jahr, vor einer Stunde, nach dem Essen, in einer Woche — and that dative plural -n shows up in seit zwei Jahren, vor drei Monaten. Two take the accusative: für (für einen Monat, für eine Woche) and über (über eine Stunde), and ab + time is usually a bare noun (ab Montag, ab 18 Uhr). The two that English speakers confuse are seit and für: seit for something that started in the past and continues, für for a length you plan.",
       "tips": [
         {
@@ -1330,6 +1956,29 @@
             ],
             "answer": "seit",
             "why": "Something that started in the past and is still going on takes seit + dative and the present tense."
+          },
+          "visual": {
+            "kind": "timeline",
+            "caption": "seit runs up to now; vor is a point in the past; für is a planned length.",
+            "marks": [
+              {
+                "at": -2.4,
+                "to": 0,
+                "label": "since then, still going",
+                "de": "seit zwei Jahren"
+              },
+              {
+                "at": -1.2,
+                "label": "a point back in time",
+                "de": "vor zwei Jahren"
+              },
+              {
+                "at": 1,
+                "to": 2.6,
+                "label": "a length of time",
+                "de": "für zwei Wochen"
+              }
+            ]
           }
         },
         {
@@ -1362,6 +2011,31 @@
             ],
             "answer": "Nach",
             "why": "nach dem Kurs = after the course; vor would mean before. Both take the dative."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": -1.8,
+                "label": "before the meal",
+                "de": "vor dem Essen"
+              },
+              {
+                "at": 0,
+                "label": "the meal",
+                "de": "das Essen"
+              },
+              {
+                "at": 1.4,
+                "label": "after the meal",
+                "de": "nach dem Essen"
+              },
+              {
+                "at": 2.7,
+                "label": "from now",
+                "de": "in einer Stunde"
+              }
+            ]
           }
         },
         {
@@ -1467,7 +2141,6 @@
           "why": "für takes the accusative, even in time phrases."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "seit + Dat",
@@ -1509,7 +2182,8 @@
           "de": "gegen",
           "en": "around (a time)"
         }
-      ]
+      ],
+      "hook": "English 'for' hides two German words — learn seit, für, vor and friends and you can place anything on a timeline."
     }
   },
   {
@@ -1520,7 +2194,6 @@
     ],
     "title": "Woher? Wo? Wohin?",
     "help": {
-      "hook": "Say where someone is, where they're going and where they've come from — im Kino, ins Kino, aus dem Kino.",
       "intro": "Three questions, three prepositions, three cases — and one table that answers all of them. For a place you can be inside (Kino, Schule, Supermarkt): Woher? aus dem / aus der — Wo? im / in der — Wohin? ins / in die / in den. For people, activities and the doctor (Anna, Arzt, Sport, Arbeit): von — bei — zu: vom Arzt, beim Arzt, zum Arzt. Cities and most countries: aus Berlin — in Berlin — nach Berlin; countries with an article keep it: aus der Schweiz — in der Schweiz — in die Schweiz. And home is its own set: von zu Hause — zu Hause — nach Hause. Whether you say gehe or fahre depends only on how you get there (on foot or by vehicle); the preposition does not change: Ich gehe ins Kino, ich fahre nach Berlin. The Wo? column is dative, the Wohin? column with in is accusative — that is the two-way preposition rule that comes later in the course, seen here through its most common examples.",
       "tips": [
         {
@@ -1556,6 +2229,32 @@
             ],
             "answer": "im",
             "why": "Being somewhere answers Wo? and takes the dative: in + dem = im. ins would mean going in."
+          },
+          "visual": {
+            "kind": "places",
+            "items": [
+              {
+                "prep": "aus",
+                "mode": "woher",
+                "spot": "in",
+                "de": "aus dem Kino",
+                "en": "woher? + Dat"
+              },
+              {
+                "prep": "in",
+                "mode": "wo",
+                "spot": "in",
+                "de": "im Kino",
+                "en": "wo? + Dat"
+              },
+              {
+                "prep": "in",
+                "mode": "wohin",
+                "spot": "in",
+                "de": "ins Kino",
+                "en": "wohin? + Akk"
+              }
+            ]
           }
         },
         {
@@ -1590,6 +2289,32 @@
             ],
             "answer": "zum",
             "why": "Going to a person such as the dentist is zu + dem = zum; beim means you are already there."
+          },
+          "visual": {
+            "kind": "places",
+            "items": [
+              {
+                "prep": "von",
+                "mode": "woher",
+                "spot": "beside",
+                "de": "vom Arzt",
+                "en": "woher?"
+              },
+              {
+                "prep": "bei",
+                "mode": "wo",
+                "spot": "beside",
+                "de": "beim Arzt",
+                "en": "wo?"
+              },
+              {
+                "prep": "zu",
+                "mode": "wohin",
+                "spot": "beside",
+                "de": "zum Arzt",
+                "en": "wohin?"
+              }
+            ]
           }
         },
         {
@@ -1623,6 +2348,25 @@
             ],
             "answer": "in die",
             "why": "die Türkei keeps its article, so going there is in die, not nach."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "question",
+            "right": "answer",
+            "rows": [
+              {
+                "a": "Woher kommst du?",
+                "b": "aus Berlin"
+              },
+              {
+                "a": "Wo wohnst du?",
+                "b": "in Berlin"
+              },
+              {
+                "a": "Wohin fährst du?",
+                "b": "nach Berlin"
+              }
+            ]
           }
         },
         {
@@ -1693,7 +2437,6 @@
           "why": "Going home is nach Hause; zu Hause is being there."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "woher? – aus / von",
@@ -1730,8 +2473,14 @@
         {
           "de": "am Bahnhof",
           "en": "at the station"
+        },
+        {
+          "de": "Zuhause",
+          "article": "das",
+          "en": "home"
         }
-      ]
+      ],
+      "hook": "Say where someone is, where they're going and where they've come from — im Kino, ins Kino, aus dem Kino."
     }
   },
   {
@@ -1741,7 +2490,6 @@
     ],
     "title": "Personalpronomen im Dativ",
     "help": {
-      "hook": "mir, dir, ihm, ihr: nine small words that let you help, thank, give — and say what you like.",
       "intro": "The dative pronouns are the receiver forms: mir, dir, ihm, ihr, ihm, uns, euch, ihnen, Ihnen. You met the most common of them early on (Wie geht es dir? Kannst du mir helfen?); now they become a system, used after the dative verbs (geben, helfen, danken, gefallen, gehören, schmecken, zeigen) and the dative prepositions (mit mir, bei ihm, von ihr). Two look-alikes to keep apart: ihr is 'to her' (and also 'you all' as a subject), ihnen is 'to them', and Ihnen with a capital is the formal 'to you'. And the pronoun that changes meaning most is ihm: it is both 'to him' and 'to it' for a der- or das-word.",
       "tips": [
         {
@@ -1776,6 +2524,44 @@
             ],
             "answer": "mir",
             "why": "The person who receives something is dative: mir. mich is the accusative, ich the subject."
+          },
+          "visual": {
+            "kind": "people",
+            "columns": [
+              {
+                "label": "Nom",
+                "forms": [
+                  "ich",
+                  "du",
+                  "er / sie / es",
+                  "wir",
+                  "ihr",
+                  "sie / Sie"
+                ]
+              },
+              {
+                "label": "Akk",
+                "forms": [
+                  "mich",
+                  "dich",
+                  "ihn / sie / es",
+                  "uns",
+                  "euch",
+                  "sie / Sie"
+                ]
+              },
+              {
+                "label": "Dat",
+                "forms": [
+                  "mir",
+                  "dir",
+                  "ihm / ihr / ihm",
+                  "uns",
+                  "euch",
+                  "ihnen / Ihnen"
+                ]
+              }
+            ]
           }
         },
         {
@@ -1811,6 +2597,25 @@
             ],
             "answer": "ihm",
             "why": "With gefallen the film is the subject and the person who likes it is dative: ihm."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "English",
+            "right": "German",
+            "rows": [
+              {
+                "a": "I like the city.",
+                "b": "Die Stadt gefällt mir."
+              },
+              {
+                "a": "He likes the soup.",
+                "b": "Die Suppe schmeckt ihm."
+              },
+              {
+                "a": "The bag is hers.",
+                "b": "Die Tasche gehört ihr."
+              }
+            ]
           }
         },
         {
@@ -1958,7 +2763,84 @@
           "why": "mit takes the dative pronoun."
         }
       ],
-      "exam": null
+      "hook": "mir, dir, ihm, ihr: nine small words that let you help, thank, give — and say what you like.",
+      "recall": {
+        "known": "From \"mir, dir, Ihnen\": the dative pronouns for me, you and formal you.",
+        "today": "The whole set — ihm, ihr, uns, euch, ihnen — and the verbs that take them."
+      },
+      "table": {
+        "caption": "All the personal pronouns",
+        "columns": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "ich",
+              "mich",
+              "mir"
+            ]
+          },
+          {
+            "cells": [
+              "du",
+              "dich",
+              "dir"
+            ]
+          },
+          {
+            "cells": [
+              "er",
+              "ihn",
+              "ihm"
+            ]
+          },
+          {
+            "cells": [
+              "sie",
+              "sie",
+              "ihr"
+            ]
+          },
+          {
+            "cells": [
+              "es",
+              "es",
+              "ihm"
+            ]
+          },
+          {
+            "cells": [
+              "wir",
+              "uns",
+              "uns"
+            ]
+          },
+          {
+            "cells": [
+              "ihr",
+              "euch",
+              "euch"
+            ]
+          },
+          {
+            "cells": [
+              "sie",
+              "sie",
+              "ihnen"
+            ]
+          },
+          {
+            "cells": [
+              "Sie",
+              "Sie",
+              "Ihnen"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -1969,7 +2851,6 @@
     ],
     "title": "Wem? Was? — Verben mit Dativ und Akkusativ",
     "help": {
-      "hook": "Ich gebe es dir: learn which object is dative, which is accusative, and who goes first, and every gift sentence falls into place.",
       "intro": "A group of everyday verbs takes two objects: the person who receives (dative — wem?) and the thing that is given (accusative — was?): Ich gebe dem Kind den Ball. geben, schenken, zeigen, schicken, bringen, leihen, erklären, empfehlen, erzählen, kaufen, wünschen all work this way, and the order is fixed in one direction and flips in the other. With two nouns, the person comes first: Ich gebe dem Kind den Ball. If the thing is a pronoun, it jumps ahead: Ich gebe es dem Kind. With two pronouns, the thing still comes first: Ich gebe es ihm. English does this with 'to' or with order; German does it with the case ending and the pronoun rule. The dative articles themselves (dem, der, den) are drilled in the Dativ quiz; here every gap is about the two objects together — which comes first, and when a pronoun jumps ahead. Where both objects are offered as word tiles, tap them into the right order — one tile is always a wrong form.",
       "tips": [
         {
@@ -2037,6 +2918,29 @@
             ],
             "answer": "dem Gast",
             "why": "With two nouns the person comes first and is dative: dem Gast, then the accusative thing: einen Kaffee."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Who",
+              "Verb",
+              "Person (Dat)",
+              "Thing (Akk)"
+            ],
+            "hot": [
+              2,
+              3
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "schenke",
+                  "meiner Mutter",
+                  "einen Schal."
+                ]
+              }
+            ]
           }
         },
         {
@@ -2070,6 +2974,47 @@
             ],
             "answer": "ihn dir",
             "why": "With two pronouns the thing (accusative ihn) comes first, then the person (dative dir)."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Who",
+              "Verb",
+              "first",
+              "second"
+            ],
+            "hot": [
+              2
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "schenke",
+                  "ihr",
+                  "einen Schal."
+                ],
+                "en": "pronoun before noun"
+              },
+              {
+                "cells": [
+                  "Ich",
+                  "schenke",
+                  "ihn",
+                  "meiner Mutter."
+                ],
+                "en": "pronoun before noun"
+              },
+              {
+                "cells": [
+                  "Ich",
+                  "schenke",
+                  "ihn",
+                  "ihr."
+                ],
+                "en": "two pronouns: accusative first"
+              }
+            ]
           }
         },
         {
@@ -2137,7 +3082,6 @@
           "why": "With two pronouns, the accusative comes first."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "geben",
@@ -2179,7 +3123,8 @@
           "de": "wünschen",
           "en": "to wish"
         }
-      ]
+      ],
+      "hook": "Ich gebe es dir: learn which object is dative, which is accusative, and who goes first, and every gift sentence falls into place."
     }
   },
   {
@@ -2224,6 +3169,35 @@
             ],
             "answer": "Es war kalt, deshalb bin ich zu Hause geblieben.",
             "why": "deshalb takes position 1, so the verb (bin) comes straight after it, then the subject."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Position 1",
+              "Verb",
+              "Rest"
+            ],
+            "hot": [
+              0,
+              1
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Es",
+                  "hat",
+                  "geregnet."
+                ]
+              },
+              {
+                "cells": [
+                  "Deshalb",
+                  "sind",
+                  "wir ins Museum gegangen."
+                ]
+              }
+            ],
+            "caption": "deshalb takes position 1, so the verb comes straight after it."
           }
         },
         {
@@ -2335,8 +3309,7 @@
     ],
     "title": "Kurzcheck: Perfekt",
     "help": {
-      "hook": "Tell someone what you did yesterday, one clean sentence at a time: the right helper, and the participle last.",
-      "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: single things you did yesterday, one sentence at a time. The tutor asks 'Was hast du gestern gemacht?' and follow-ups; you answer in the Perfekt. It is listening for exactly two decisions per sentence — haben or sein, and the participle at the end — plus the participle's form (gegessen not geesst, gefahren not gefahrt). Answer in complete sentences, and let the tutor keep its corrections for the report.",
+      "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: single things you did yesterday, one sentence at a time. The tutor asks 'Was hast du gestern gemacht?' and follow-ups; you answer in the Perfekt. It is listening for three decisions per sentence — haben or sein, and the participle at the end — plus the participle's form (gegessen not geesst, gefahren not gefahrt). Answer in complete sentences, and let the tutor keep its corrections for the report.",
       "tips": [
         {
           "kind": "rule",
@@ -2402,6 +3375,20 @@
             ],
             "answer": "bin",
             "why": "fliegen is movement from A to B, so it takes bin."
+          },
+          "visual": {
+            "kind": "tree",
+            "root": {
+              "q": "Did you move from A to B, or change state?",
+              "yes": {
+                "answer": "bin … gegangen / gefahren",
+                "de": "Ich bin ins Kino gegangen."
+              },
+              "no": {
+                "answer": "habe … gemacht / gegessen",
+                "de": "Ich habe Musik gehört."
+              }
+            }
           }
         }
       ],
@@ -2409,7 +3396,41 @@
         "Helper at 2, participle last — say the participle, then stop.",
         "If you moved, it's bin."
       ],
-      "exam": null
+      "hook": "Tell someone what you did yesterday, one clean sentence at a time: the right helper, and the participle last.",
+      "vocab": [
+        {
+          "de": "gestern",
+          "en": "yesterday"
+        },
+        {
+          "de": "gegangen",
+          "en": "gone, went (gehen)"
+        },
+        {
+          "de": "gefahren",
+          "en": "driven, went (fahren)"
+        },
+        {
+          "de": "gegessen",
+          "en": "eaten (essen)"
+        },
+        {
+          "de": "getroffen",
+          "en": "met (treffen)"
+        },
+        {
+          "de": "gesehen",
+          "en": "seen (sehen)"
+        },
+        {
+          "de": "geblieben",
+          "en": "stayed (bleiben)"
+        },
+        {
+          "de": "danach",
+          "en": "after that"
+        }
+      ]
     }
   },
   {
@@ -2420,7 +3441,6 @@
     ],
     "title": "war & hatte (Präteritum)",
     "help": {
-      "hook": "Tell a story the way Germans do: war and hatte set the scene — Es war kalt, ich hatte Hunger — and the Perfekt moves it on.",
       "intro": "sein and haben are the two verbs Germans do not put into the Perfekt when they talk about the past: they say ich war (not ich bin gewesen) and ich hatte (not ich habe gehabt). You learnt the forms earlier in the course; here they do a job — they carry the background of a story while the Perfekt carries the events. Das Wetter war schön, ich hatte viel Zeit, also bin ich an den See gefahren. States, feelings, weather, possession, age: war and hatte. Actions: Perfekt. Get that split right and your past-tense stories sound German instead of translated.",
       "tips": [
         {
@@ -2454,6 +3474,28 @@
             ],
             "answer": "Es war kalt",
             "why": "The weather is a state, so it takes war; buying the coat is the event, told in the Perfekt."
+          },
+          "visual": {
+            "kind": "timeline",
+            "caption": "The background stretches under the story; the events are points on it.",
+            "marks": [
+              {
+                "at": -2.8,
+                "to": -0.2,
+                "label": "background",
+                "de": "Es war kalt. Ich hatte Hunger."
+              },
+              {
+                "at": -2,
+                "label": "event",
+                "de": "Ich bin aufgestanden."
+              },
+              {
+                "at": -0.8,
+                "label": "event",
+                "de": "Ich habe gekocht."
+              }
+            ]
           }
         },
         {
@@ -2489,6 +3531,37 @@
             ],
             "answer": "wart",
             "why": "ihr takes -t: ihr wart."
+          },
+          "visual": {
+            "kind": "people",
+            "columns": [
+              {
+                "label": "sein",
+                "forms": [
+                  "war",
+                  "warst",
+                  "war",
+                  "waren",
+                  "wart",
+                  "waren"
+                ]
+              },
+              {
+                "label": "haben",
+                "forms": [
+                  "hatte",
+                  "hattest",
+                  "hatte",
+                  "hatten",
+                  "hattet",
+                  "hatten"
+                ]
+              }
+            ],
+            "hot": [
+              0,
+              2
+            ]
           }
         },
         {
@@ -2638,7 +3711,11 @@
           "why": "wir takes waren."
         }
       ],
-      "exam": null
+      "hook": "Tell a story the way Germans do: war and hatte set the scene — Es war kalt, ich hatte Hunger — and the Perfekt moves it on.",
+      "recall": {
+        "known": "From \"war & hatte\": all the forms of war and hatte.",
+        "today": "When to use them: war and hatte paint the background, the Perfekt tells the events."
+      }
     }
   },
   {
@@ -2649,7 +3726,6 @@
     ],
     "title": "Modalverben im Präteritum",
     "help": {
-      "hook": "„Ich konnte nicht, ich musste arbeiten“ — the past-tense excuse everyone needs, built from a few short, regular forms.",
       "intro": "Like sein and haben, the modal verbs go into the simple past rather than the Perfekt when you talk about the past: Ich konnte nicht kommen (I couldn't come), Ich musste arbeiten (I had to work), Er wollte schlafen (he wanted to sleep). Nobody says 'ich habe kommen können' in everyday speech. The forms are regular and easy: the stem loses its umlaut (können → konn-, müssen → muss-, dürfen → durf-), takes -te, and adds the past endings: konnte, konntest, konnte, konnten, konntet, konnten. The main verb stays an infinitive at the end, exactly as in the present. With war and hatte they are almost the whole Präteritum of everyday speech.",
       "tips": [
         {
@@ -2683,6 +3759,63 @@
             ],
             "answer": "mussten",
             "why": "wir takes the ending -ten: wir mussten. musste is for ich and er, musstet for ihr."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "konn"
+                  },
+                  {
+                    "text": "te",
+                    "role": "ending"
+                  }
+                ],
+                "result": "konnte",
+                "en": "können — the umlaut goes"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "muss"
+                  },
+                  {
+                    "text": "te",
+                    "role": "ending"
+                  }
+                ],
+                "result": "musste",
+                "en": "müssen"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "woll"
+                  },
+                  {
+                    "text": "te",
+                    "role": "ending"
+                  }
+                ],
+                "result": "wollte",
+                "en": "wollen"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "durf"
+                  },
+                  {
+                    "text": "te",
+                    "role": "ending"
+                  }
+                ],
+                "result": "durfte",
+                "en": "dürfen"
+              }
+            ]
           }
         },
         {
@@ -2716,6 +3849,27 @@
             ],
             "answer": "Ich wollte gestern meine Oma besuchen.",
             "why": "The modal stays in position 2 and the infinitive goes to the very end, just like in the present."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "konnte",
+                  "gestern nicht",
+                  "kommen."
+                ]
+              },
+              {
+                "cells": [
+                  "Ich",
+                  "musste",
+                  "lange",
+                  "arbeiten."
+                ]
+              }
+            ]
           }
         },
         {
@@ -2816,7 +3970,6 @@
           "why": "wir takes -ten."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "konnte",
@@ -2867,7 +4020,8 @@
           "de": "als Kind",
           "en": "as a child"
         }
-      ]
+      ],
+      "hook": "„Ich konnte nicht, ich musste arbeiten“ — the past-tense excuse everyone needs, built from a few short, regular forms."
     }
   },
   {
@@ -2880,7 +4034,6 @@
     ],
     "title": "Großer Text: Ein Wochenende bei Oma",
     "help": {
-      "hook": "Retell a weekend at grandma's: pick bin or habe, dem or der, and your story sounds like real German.",
       "intro": "A weekend at grandma's with twelve gaps that ask for the two big things of this module at once: the Perfekt helper — habe or bin, hat or sind — and the dative article after mit, bei and nach. Every gap has a hint that names only the pieces (the subject and the infinitive, or the preposition and the noun with its article: mit · der Zug); the decision — haben or sein, which case — is yours. Read the whole text first, because the participle at the end of each sentence tells you which helper the gap needs, and the noun after each preposition tells you its gender. Then work through it in order: helpers, then articles. One gap is not Perfekt at all: Das Wetter war schön — a state, told with war.",
       "tips": [
         {
@@ -2948,6 +4101,20 @@
             ],
             "answer": "dem",
             "why": "mit always takes the dative, and masculine der becomes dem."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "rows": [
+              {
+                "label": "Dat",
+                "cells": [
+                  "mit dem Zug",
+                  "bei der Oma",
+                  "nach dem Essen",
+                  "mit den Kindern"
+                ]
+              }
+            ]
           }
         },
         {
@@ -2986,7 +4153,7 @@
         "Participle first (it's at the end), helper second (it's in the gap).",
         "mit, bei, nach: dative, every time."
       ],
-      "exam": null
+      "hook": "Retell a weekend at grandma's: pick bin or habe, dem or der, and your story sounds like real German."
     }
   },
   {
@@ -2996,7 +4163,6 @@
     ],
     "title": "Das Wetter & Jahreszeiten",
     "help": {
-      "hook": "Rain, sun, twenty degrees and getting colder: learn to talk about the weather, the easiest small talk in German.",
       "intro": "Weather is the safest small talk there is — at the bus stop, in the lift, at the start of every phone call. German talks about the weather with es and a verb — es regnet, es schneit, es ist sonnig / windig / kalt / heiß — and gives the temperature in Grad: zwanzig Grad, minus fünf Grad. Change is es wird + comparative: es wird wärmer, es wird kälter. The seasons are all der and take im (im Sommer). Learn the ten weather words, the four seasons and the two questions — Wie ist das Wetter? Wie viel Grad sind es? — and you have every conversation about the sky.",
       "tips": [
         {
@@ -3030,6 +4196,27 @@
             ],
             "answer": "schneit",
             "why": "Weather verbs take es and the normal third-person form: es schneit, es regnet."
+          },
+          "visual": {
+            "kind": "pictures",
+            "items": [
+              {
+                "image": "lesson_es_regnet",
+                "de": "Es regnet."
+              },
+              {
+                "image": "lesson_es_schneit",
+                "de": "Es schneit."
+              },
+              {
+                "image": "lesson_sonne_scheint",
+                "de": "Die Sonne scheint."
+              },
+              {
+                "image": "lesson_es_ist_windig",
+                "de": "Es ist windig."
+              }
+            ]
           }
         },
         {
@@ -3065,6 +4252,33 @@
             ],
             "answer": "wird",
             "why": "A change in the weather is es wird + comparative: es wird kälter, es wird wärmer."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "cold",
+            "high": "hot",
+            "points": [
+              {
+                "at": 95,
+                "de": "Es ist heiß. 32 Grad.",
+                "en": "hot"
+              },
+              {
+                "at": 65,
+                "de": "Es ist warm.",
+                "en": "warm"
+              },
+              {
+                "at": 35,
+                "de": "Es ist kühl.",
+                "en": "cool"
+              },
+              {
+                "at": 8,
+                "de": "Es ist kalt. Minus 5 Grad.",
+                "en": "cold"
+              }
+            ]
           }
         },
         {
@@ -3226,7 +4440,7 @@
           "why": "Seasons take im."
         }
       ],
-      "exam": null
+      "hook": "Rain, sun, twenty degrees and getting colder: learn to talk about the weather, the easiest small talk in German."
     }
   },
   {
@@ -3271,6 +4485,27 @@
             ],
             "answer": "gefahren",
             "why": "sind as the helper signals a movement verb, so a participle like gefahren is coming."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Wir",
+                  "sind",
+                  "nach Hause",
+                  "gefahren."
+                ]
+              },
+              {
+                "cells": [
+                  "Ich",
+                  "habe",
+                  "einen Brief",
+                  "geschrieben."
+                ]
+              }
+            ]
           }
         },
         {
@@ -3385,6 +4620,24 @@
             ],
             "answer": "zur",
             "why": "Apotheke is feminine, so zu + der becomes zur."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "columns": [
+              "m",
+              "f",
+              "n"
+            ],
+            "rows": [
+              {
+                "label": "Wie komme ich …",
+                "cells": [
+                  "zum Bahnhof",
+                  "zur Post",
+                  "zum Museum"
+                ]
+              }
+            ]
           }
         },
         {
@@ -3418,6 +4671,29 @@
             ],
             "answer": "Turn left",
             "why": "links means left; straight on would be geradeaus and right would be rechts."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "German",
+            "right": "English",
+            "rows": [
+              {
+                "a": "geradeaus",
+                "b": "straight on"
+              },
+              {
+                "a": "links · rechts",
+                "b": "left · right"
+              },
+              {
+                "a": "an der Ampel",
+                "b": "at the lights"
+              },
+              {
+                "a": "gegenüber",
+                "b": "opposite"
+              }
+            ]
           }
         },
         {
@@ -3468,7 +4744,6 @@
     ],
     "title": "Komparativ",
     "help": {
-      "hook": "Train or car, Berlin or Bonn, tea or coffee: one ending, -er, plus als lets you compare almost anything.",
       "intro": "To compare, German adds -er to the adjective and joins the two things with als: Ein Zug ist schneller als ein Bus. That works for every adjective, long or short — there is no 'more interesting': interessanter. Many short adjectives with a, o or u take an umlaut (alt → älter, groß → größer, jung → jünger, warm → wärmer), and four are irregular in a way English speakers will recognise: gut → besser, viel → mehr, gern → lieber, hoch → höher. For 'as … as' use genauso … wie / so … wie. After sein the comparative takes no ending; before a noun it takes the adjective ending on top (ein schnellerer Zug — that comes later in the course).",
       "tips": [
         {
@@ -3503,11 +4778,42 @@
             ],
             "answer": "schwieriger",
             "why": "Every adjective, even a long one, just adds -er before als. German never uses mehr for this."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "billig"
+                  },
+                  {
+                    "text": "er",
+                    "role": "ending"
+                  }
+                ],
+                "result": "billiger als",
+                "en": "cheaper than"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "schnell"
+                  },
+                  {
+                    "text": "er",
+                    "role": "ending"
+                  }
+                ],
+                "result": "schneller als",
+                "en": "faster than"
+              }
+            ]
           }
         },
         {
           "kind": "rule",
-          "title": "Umlaut on short a/o/u adjectives",
+          "title": "Umlaut on many one-syllable a/o/u adjectives",
           "text": "alt → älter, groß → größer, jung → jünger, warm → wärmer, kalt → kälter, lang → länger, kurz → kürzer, stark → stärker. But: langsam → langsamer (no umlaut on longer words).",
           "examples": [
             {
@@ -3536,6 +4842,25 @@
             ],
             "answer": "länger",
             "why": "Short adjectives with a, o or u usually get an umlaut: lang → länger."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "adjective",
+            "right": "comparative",
+            "rows": [
+              {
+                "a": "alt",
+                "b": "älter"
+              },
+              {
+                "a": "groß",
+                "b": "größer"
+              },
+              {
+                "a": "jung",
+                "b": "jünger"
+              }
+            ]
           }
         },
         {
@@ -3568,6 +4893,34 @@
             ],
             "answer": "besser",
             "why": "gut is irregular: gut → besser, just like good → better in English."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "adjective",
+            "right": "comparative",
+            "rows": [
+              {
+                "a": "gut",
+                "b": "besser"
+              },
+              {
+                "a": "viel",
+                "b": "mehr"
+              },
+              {
+                "a": "gern",
+                "b": "lieber"
+              },
+              {
+                "a": "hoch",
+                "b": "höher"
+              },
+              {
+                "a": "teuer",
+                "b": "teurer",
+                "note": "the e drops out"
+              }
+            ]
           }
         },
         {
@@ -3689,7 +5042,66 @@
           "why": "gern's comparative is lieber."
         }
       ],
-      "exam": null
+      "hook": "Train or car, Berlin or Bonn, tea or coffee: one ending, -er, plus als lets you compare almost anything.",
+      "table": {
+        "caption": "Three steps",
+        "columns": [
+          "adjective",
+          "comparative",
+          "superlative"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "klein",
+              "kleiner",
+              "am kleinsten"
+            ]
+          },
+          {
+            "cells": [
+              "alt",
+              "älter",
+              "am ältesten"
+            ]
+          },
+          {
+            "cells": [
+              "groß",
+              "größer",
+              "am größten"
+            ]
+          },
+          {
+            "cells": [
+              "gut",
+              "besser",
+              "am besten"
+            ]
+          },
+          {
+            "cells": [
+              "viel",
+              "mehr",
+              "am meisten"
+            ]
+          },
+          {
+            "cells": [
+              "gern",
+              "lieber",
+              "am liebsten"
+            ]
+          },
+          {
+            "cells": [
+              "teuer",
+              "teurer",
+              "am teuersten"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -3700,7 +5112,6 @@
     ],
     "title": "welcher? dieser! — und mein im Dativ",
     "help": {
-      "hook": "Point at exactly what you mean — Welchen? Diesen hier! — and say who you're with: mit meinem Bruder, bei meiner Schwester.",
       "intro": "Three small article-words round off the case system so far. welch-? asks 'which?' and dies- answers 'this' — and both take the endings of der/die/das in every case: welcher / dieser (der), welche / diese (die), welches / dieses (das), welchen / diesen (accusative masculine), welchem / diesem and welcher / dieser (dative). In conversation the plain article does the same job: Welchen Film? – Den hier. The third piece is the possessives in the dative — meinem Bruder, meiner Schwester, meinen Eltern — which follow the ein-word pattern: -em, -er, -em, -en. After mit, bei, von, zu and every dative verb, that is the ending you need.",
       "tips": [
         {
@@ -3735,6 +5146,38 @@
             ],
             "answer": "Welchen",
             "why": "The pullover is the object of kaufst, so masculine accusative: welchen, like den."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "der · dieser",
+                  "die · diese",
+                  "das · dieses",
+                  "die · diese"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "den · diesen",
+                  "die · diese",
+                  "das · dieses",
+                  "die · diese"
+                ]
+              },
+              {
+                "label": "Dat",
+                "cells": [
+                  "dem · diesem",
+                  "der · dieser",
+                  "dem · diesem",
+                  "den · diesen"
+                ]
+              }
+            ]
           }
         },
         {
@@ -3835,6 +5278,38 @@
             ],
             "answer": "welcher",
             "why": "aus takes the dative, and feminine dative ends in -r, just like der: welcher."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "rows": [
+              {
+                "label": "Dat",
+                "cells": [
+                  "meinem",
+                  "meiner",
+                  "meinem",
+                  "meinen"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ]
+            ]
           }
         }
       ],
@@ -3871,7 +5346,6 @@
           "why": "Dative plural: meinen (+ -n on the noun where possible)."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "welcher / welche / welches",
@@ -3905,7 +5379,8 @@
           "de": "Mit welchem Bus?",
           "en": "With which bus?"
         }
-      ]
+      ],
+      "hook": "Point at exactly what you mean — Welchen? Diesen hier! — and say who you're with: mit meinem Bruder, bei meiner Schwester."
     }
   },
   {
@@ -3982,6 +5457,21 @@
             ],
             "answer": "It's getting colder at the weekend.",
             "why": "wird + comparative means 'is getting …': a change, not just a state."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": 0,
+                "label": "today",
+                "de": "Es ist kalt."
+              },
+              {
+                "at": 1.5,
+                "label": "tomorrow",
+                "de": "Es wird wärmer."
+              }
+            ]
           }
         },
         {
@@ -4095,6 +5585,21 @@
             ],
             "answer": "war Emma sehr müde",
             "why": "Feelings and states are told with war; the Perfekt tells you what she did."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "how it was",
+            "right": "what she did",
+            "rows": [
+              {
+                "a": "Der erste Tag war schwer.",
+                "b": "Sie hat ihre Kollegen kennengelernt."
+              },
+              {
+                "a": "Sie war müde.",
+                "b": "Sie ist früh ins Bett gegangen."
+              }
+            ]
           }
         },
         {
@@ -4184,6 +5689,36 @@
             ],
             "answer": "sind wir",
             "why": "Zuerst takes position 1, so the verb (sind) follows it straight away, then the subject."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": -2.5,
+                "label": "first",
+                "de": "zuerst"
+              },
+              {
+                "at": -1.4,
+                "label": "then",
+                "de": "dann"
+              },
+              {
+                "at": -0.3,
+                "label": "after that",
+                "de": "danach"
+              },
+              {
+                "at": 1,
+                "label": "in the end",
+                "de": "am Ende"
+              }
+            ],
+            "axis": {
+              "start": "start",
+              "end": "end",
+              "now": null
+            }
           }
         },
         {
@@ -4255,7 +5790,46 @@
         "Story words first, helper second, participle last.",
         "mit + dem/der/meinem: the person you did it with is dative."
       ],
-      "exam": "Talking about past events and making plans together are both part of the A2 speaking exam — and of every catch-up with a friend."
+      "exam": "Talking about past events and making plans together are both part of the A2 speaking exam — and of every catch-up with a friend.",
+      "vocab": [
+        {
+          "de": "Ausflug",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "trip, outing"
+        },
+        {
+          "de": "Erlebnis",
+          "article": "das",
+          "plural": "-se",
+          "en": "experience"
+        },
+        {
+          "de": "zuerst",
+          "en": "first"
+        },
+        {
+          "de": "dann",
+          "en": "then"
+        },
+        {
+          "de": "am Ende",
+          "en": "in the end"
+        },
+        {
+          "de": "mit meinem Freund",
+          "en": "with my friend"
+        },
+        {
+          "de": "Spaß machen",
+          "en": "to be fun"
+        },
+        {
+          "de": "Wetter",
+          "article": "das",
+          "en": "weather"
+        }
+      ]
     }
   },
   {
@@ -4408,6 +5982,38 @@
             ],
             "answer": "sind",
             "why": "After an opening word like dann the verb comes next, then the subject."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Greeting",
+                "de": [
+                  "Lieber Tom,"
+                ]
+              },
+              {
+                "label": "Saturday",
+                "de": [
+                  "Am Samstag bin ich …",
+                  "Zuerst …, dann …"
+                ]
+              },
+              {
+                "label": "Sunday",
+                "de": [
+                  "Am Sonntag habe ich …",
+                  "Danach …"
+                ]
+              },
+              {
+                "label": "Ask back",
+                "de": [
+                  "Und was hast du gemacht?",
+                  "Viele Grüße"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -4488,7 +6094,6 @@
     ],
     "title": "Indefinitpronomen: man, jemand, niemand, etwas, nichts, alle",
     "help": {
-      "hook": "Talk about people and things without naming them — man, jemand, niemand, etwas, nichts — the words of signs, rules and small talk.",
       "intro": "A small set of pronouns talks about people and things without naming them, and you hear them all day: man (one / you / people in general — In Deutschland trinkt man viel Kaffee), jemand (someone) and niemand (no one), etwas (something) and nichts (nothing), alle (everyone, all) and alles (everything). Three things make them German rather than English. man is always singular and takes the er-form of the verb: man sagt, man kann, man muss — and it is the normal way to say 'you' in the general sense. jemand and niemand are singular too (Niemand ist da, not 'are'). And etwas / nichts pair with a capitalised adjective: etwas Neues, nichts Besonderes. They are the words of instructions, signs and small talk — Hier darf man nicht rauchen. Hat jemand meine Brille gesehen? — and without them you cannot say anything general about people or habits.",
       "tips": [
         {
@@ -4651,6 +6256,25 @@
             ],
             "answer": "niemand",
             "why": "jemand pairs with niemand: someone? – no one. nichts is the partner of etwas."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "yes",
+            "right": "no",
+            "rows": [
+              {
+                "a": "jemand (someone)",
+                "b": "niemand (no one)"
+              },
+              {
+                "a": "etwas (something)",
+                "b": "nichts (nothing)"
+              },
+              {
+                "a": "alle (everyone)",
+                "b": "keiner (nobody)"
+              }
+            ]
           }
         }
       ],
@@ -4785,7 +6409,6 @@
           "alles"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "In Deutschland trinken man viel Bier.",
@@ -4807,7 +6430,8 @@
           "right": "Niemand ist da.",
           "why": "niemand is singular."
         }
-      ]
+      ],
+      "hook": "Talk about people and things without naming them — man, jemand, niemand, etwas, nichts — the words of signs, rules and small talk."
     }
   },
   {
@@ -4817,7 +6441,6 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "hook": "Pack the words for trips, weather, weekends and parties — every noun with its article, every verb with its partner.",
       "intro": "Every word this module's exercises use, on one deck of flashcards: 228 cards, 92 of them nouns. The vocabulary of this module is the words for travel, health, home and describing people, and many verbs you now use in the Perfekt, from the themes Reisen & Verkehr; Wegbeschreibung, Wetter & Jahreszeiten, Freizeit & Wochenende, Feste & Einladungen. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
@@ -4848,70 +6471,89 @@
             ],
             "answer": "Ich helfe meiner Mutter.",
             "why": "helfen takes the dative, so die Mutter becomes meiner Mutter. Learning the verb with its case avoids the mistake."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "noun",
+            "right": "its verb",
+            "rows": [
+              {
+                "a": "eine Reise",
+                "b": "machen"
+              },
+              {
+                "a": "ein Hotel",
+                "b": "buchen"
+              },
+              {
+                "a": "eine Party",
+                "b": "feiern"
+              }
+            ]
           }
         },
         {
-          "kind": "mnemonic",
-          "title": "Three modes, three kinds of memory",
-          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before you need the words.",
+          "kind": "rule",
+          "title": "Movement verbs take sein in the past",
+          "text": "gehen, fahren, kommen, fliegen, laufen, umziehen — and the change verbs einschlafen, aufwachen, werden — form the past with sein. Learn the participle with bin in front of it.",
           "examples": [
             {
-              "de": "die Apotheke, Plural: -n",
-              "en": "pharmacy",
+              "de": "Ich bin nach Hause gegangen.",
+              "en": "I went home.",
               "focus": [
-                "die",
-                "Apotheke"
+                "bin",
+                "gegangen"
               ]
             },
             {
-              "de": "der Bäcker, Plural: -",
-              "en": "baker",
+              "de": "Wir sind umgezogen.",
+              "en": "We moved house.",
               "focus": [
-                "der",
-                "Bäcker"
+                "sind",
+                "umgezogen"
               ]
             }
           ],
           "check": {
-            "q": "die Apotheke, Plural: -n. Two pharmacies are zwei ____.",
+            "q": "Ich ____ nach Rom geflogen.",
             "options": [
-              "Apotheken",
-              "Apothekes",
-              "Apotheke"
+              "bin",
+              "habe",
+              "hatte"
             ],
-            "answer": "Apotheken",
-            "why": "The plural note -n tells you to add -n: die Apotheken."
+            "answer": "bin",
+            "why": "fliegen moves you from A to B, so the Perfekt uses sein."
           }
         },
         {
           "kind": "warning",
-          "title": "A noun without its article is marked wrong",
-          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "title": "Verbs that want the dative",
+          "text": "helfen, danken, gefallen, gehören, schmecken, passen and antworten take a dative, where English has a plain object.",
           "examples": [
             {
-              "de": "das Kino, Plural: -s",
-              "en": "cinema",
+              "de": "Ich helfe dir.",
+              "en": "I help you.",
               "focus": [
-                "das"
+                "dir"
               ]
             },
             {
-              "de": "das Cafe",
-              "en": "café",
+              "de": "Das Kleid gefällt mir.",
+              "en": "I like the dress.",
               "focus": [
-                "das"
+                "mir"
               ]
             }
           ],
           "check": {
-            "q": "What should you learn for the word ‘cinema’?",
+            "q": "Kannst du ____ helfen?",
             "options": [
-              "das Kino",
-              "Kino",
-              "der Kino"
+              "mir",
+              "mich",
+              "ich"
             ],
-            "answer": "das Kino",
-            "why": "A noun is only half learnt without its article, and Kino is neuter: das Kino."
+            "answer": "mir",
+            "why": "helfen takes the dative: mir, not mich."
           }
         }
       ],
@@ -4920,7 +6562,7 @@
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
         "Verbs and adjectives have no article: type them as they stand, like \"machen\"."
       ],
-      "exam": null
+      "hook": "Pack the words for trips, weather, weekends and parties — every noun with its article, every verb with its partner."
     }
   },
   {
@@ -4935,7 +6577,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the bathroom: the last part decides",
           "text": "Many bathroom words are built from two nouns, and the last one decides the article. Zahn + Bürste: die Bürste, so die Zahnbürste. Dusche + Kopf: der Kopf, so der Duschkopf. Look at the end of the word, not the start.",
           "examples": [
             {
@@ -4962,6 +6604,37 @@
             ],
             "answer": "Der",
             "why": "The last part is der Vorhang, so the whole word is der Duschvorhang."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "der Zahn"
+                  },
+                  {
+                    "text": "die Bürste",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Zahnbürste",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "die Hand"
+                  },
+                  {
+                    "text": "das Tuch",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Handtuch",
+                "gender": "n"
+              }
+            ]
           }
         },
         {
@@ -5586,7 +7259,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the station: the last part decides",
           "text": "Station words are often long, but the article always comes from the last part. Fahrkarte + Automat: der Automat, so der Fahrkartenautomat. Bahnhof + Uhr: die Uhr, so die Bahnhofsuhr, even though der Bahnhof starts it.",
           "examples": [
             {
@@ -5613,6 +7286,41 @@
             ],
             "answer": "Der",
             "why": "The last part is der Hocker, so it is der Klavierhocker, even though das Klavier comes first."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "die Fahrkarte"
+                  },
+                  {
+                    "text": "n",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "der Automat",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Fahrkartenautomat",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "die Bahn"
+                  },
+                  {
+                    "text": "der Steig",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Bahnsteig",
+                "gender": "m"
+              }
+            ]
           }
         },
         {

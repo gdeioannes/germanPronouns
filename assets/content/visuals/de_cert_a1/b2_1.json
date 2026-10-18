@@ -1,0 +1,1280 @@
+{
+  "quest_b2_1_gesellschaft": {
+    "The state and its verbs": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Die Regierung",
+          "de": [
+            "ein Gesetz vorschlagen"
+          ]
+        },
+        {
+          "label": "Der Bundestag",
+          "de": [
+            "über ein Gesetz abstimmen",
+            "ein Gesetz beschließen"
+          ]
+        },
+        {
+          "label": "Das Gesetz",
+          "de": [
+            "tritt in Kraft"
+          ]
+        },
+        {
+          "label": "Die Bürger",
+          "de": [
+            "Steuern zahlen",
+            "dagegen protestieren"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_konj1": {
+    "Same as the indicative? Use Konjunktiv II": {
+      "kind": "pairs",
+      "left": "Konjunktiv I looks like the indicative",
+      "right": "so use Konjunktiv II",
+      "caption": "Only where the Konjunktiv I form is the same as the normal present does it give way.",
+      "rows": [
+        {
+          "a": "ich habe",
+          "b": "ich hätte"
+        },
+        {
+          "a": "wir haben, sie haben",
+          "b": "wir hätten, sie hätten"
+        },
+        {
+          "a": "sie kommen",
+          "b": "sie kämen / sie würden kommen"
+        },
+        {
+          "a": "er habe ✓",
+          "b": "stays: it is already different"
+        }
+      ]
+    },
+    "Stem + -e: er habe, er komme, er könne": {
+      "kind": "pairs",
+      "left": "he says (indicative)",
+      "right": "reported (Konjunktiv I)",
+      "rows": [
+        {
+          "a": "Er ist krank.",
+          "b": "Er sagt, er sei krank."
+        },
+        {
+          "a": "Sie hat keine Zeit.",
+          "b": "Sie sagt, sie habe keine Zeit."
+        },
+        {
+          "a": "Er kommt morgen.",
+          "b": "Er sagt, er komme morgen."
+        },
+        {
+          "a": "Man wird sehen.",
+          "b": "Man werde sehen."
+        }
+      ]
+    }
+  },
+  "quest_b2_1_bigtext_presse": {
+    "Introducing verb in the indicative, reported verb in the Konjunktiv": {
+      "kind": "bracket",
+      "columns": [
+        "Introduction",
+        "Reported",
+        "",
+        "Verb"
+      ],
+      "hot": [
+        0,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Die Ministerin sagte,",
+            "die Lage",
+            "",
+            "sei ernst."
+          ]
+        },
+        {
+          "cells": [
+            "Man",
+            "müsse",
+            "schnell",
+            "handeln."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_sprechen_verteidigen": {
+    "Concede, then contrast": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Concede",
+          "de": [
+            "Da haben Sie natürlich recht, …",
+            "Das stimmt zwar, …"
+          ]
+        },
+        {
+          "label": "Contrast",
+          "de": [
+            "… aber man muss auch sehen, dass …"
+          ]
+        },
+        {
+          "label": "Reassert",
+          "de": [
+            "Deshalb bleibe ich dabei: …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_indirekt_fragen": {
+    "Indirect requests: solle / möge": {
+      "kind": "pairs",
+      "left": "said",
+      "right": "reported",
+      "rows": [
+        {
+          "a": "„Kommen Sie morgen wieder!“",
+          "b": "Sie sagte, ich solle morgen wiederkommen."
+        },
+        {
+          "a": "„Haben Sie ein Konto?“",
+          "b": "Er fragte, ob ich ein Konto hätte."
+        },
+        {
+          "a": "„Wann sind Sie geboren?“",
+          "b": "Sie fragte, wann ich geboren sei."
+        }
+      ]
+    }
+  },
+  "quest_b2_1_konj1_vergangenheit": {
+    "All past → habe / sei + Partizip II": {
+      "kind": "pairs",
+      "left": "said (any past tense)",
+      "right": "reported",
+      "rows": [
+        {
+          "a": "„Ich ging nach Hause.“",
+          "b": "Er sagte, er sei nach Hause gegangen."
+        },
+        {
+          "a": "„Ich habe nichts gesehen.“",
+          "b": "Er sagte, er habe nichts gesehen."
+        },
+        {
+          "a": "„Ich hatte es vergessen.“",
+          "b": "Er sagte, er habe es vergessen."
+        }
+      ]
+    }
+  },
+  "quest_b2_1_modalpassiv": {
+    "Present / Präteritum: modal at 2, Partizip II + werden at the end": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Das Formular",
+            "muss",
+            "bis Freitag",
+            "ausgefüllt werden."
+          ]
+        },
+        {
+          "cells": [
+            "Das Problem",
+            "konnte",
+            "nicht",
+            "gelöst werden."
+          ]
+        }
+      ]
+    },
+    "Perfekt: hat + Partizip II + werden + modal (Ersatzinfinitiv)": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Das Problem",
+            "hat",
+            "nicht",
+            "gelöst werden können."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_hoeren_debatte": {
+    "Befürworter / Gegner / Moderator — three voices, three keywords": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Moderator",
+          "de": [
+            "Herzlich willkommen …",
+            "Frau X, wie sehen Sie das?"
+          ]
+        },
+        {
+          "label": "Befürworter (for)",
+          "de": [
+            "Ich bin dafür, weil …"
+          ]
+        },
+        {
+          "label": "Gegner (against)",
+          "de": [
+            "Da muss ich widersprechen …"
+          ]
+        },
+        {
+          "label": "Kompromiss",
+          "de": [
+            "Wir sind uns einig, dass …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_verben_praep": {
+    "auf = towards the future, über = about something present": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -1.2,
+          "label": "about something here now or past",
+          "de": "sich freuen über, sich ärgern über"
+        },
+        {
+          "at": 1.8,
+          "label": "towards something ahead",
+          "de": "sich freuen auf, warten auf, hoffen auf"
+        }
+      ]
+    },
+    "da(r)- + dass-clause or infinitive": {
+      "kind": "bracket",
+      "columns": [
+        "Main clause",
+        "da(r)-word",
+        "Clause"
+      ],
+      "hot": [
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich freue mich",
+            "darauf,",
+            "dass du kommst."
+          ]
+        },
+        {
+          "cells": [
+            "Er denkt nicht",
+            "daran,",
+            "aufzuhören."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_adjektive_praep": {
+    "The core set, by preposition": {
+      "kind": "pairs",
+      "left": "preposition",
+      "right": "adjectives",
+      "rows": [
+        {
+          "a": "auf + Akk",
+          "b": "stolz auf, neidisch auf, gespannt auf"
+        },
+        {
+          "a": "an + Dat",
+          "b": "interessiert an, beteiligt an"
+        },
+        {
+          "a": "für",
+          "b": "verantwortlich für, dankbar für"
+        },
+        {
+          "a": "mit",
+          "b": "zufrieden mit, einverstanden mit"
+        },
+        {
+          "a": "von",
+          "b": "abhängig von, überzeugt von"
+        }
+      ]
+    },
+    "Verb and adjective can differ": {
+      "kind": "pairs",
+      "left": "verb",
+      "right": "adjective",
+      "rows": [
+        {
+          "a": "sich interessieren für",
+          "b": "interessiert an"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_nomen_praep": {
+    "Verb → noun: the preposition sometimes changes": {
+      "kind": "pairs",
+      "left": "verb",
+      "right": "noun",
+      "rows": [
+        {
+          "a": "hoffen auf",
+          "b": "die Hoffnung auf"
+        },
+        {
+          "a": "sich fürchten vor",
+          "b": "die Furcht vor"
+        },
+        {
+          "a": "kritisieren (Akk)",
+          "b": "die Kritik an"
+        },
+        {
+          "a": "sich interessieren für",
+          "b": "das Interesse an"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_sprechen_kurzcheck": {
+    "Report with sei / habe / werde": {
+      "kind": "pairs",
+      "left": "he said",
+      "right": "you report",
+      "rows": [
+        {
+          "a": "„Ich bin müde.“",
+          "b": "Er sagt, er sei müde."
+        }
+      ]
+    }
+  },
+  "quest_b2_1_partizip_adj": {
+    "Folding: complements first, then the participle, then the ending": {
+      "kind": "pairs",
+      "left": "relative clause",
+      "right": "participle before the noun",
+      "rows": [
+        {
+          "a": "der Zug, der um acht ankommt",
+          "b": "der um acht ankommende Zug"
+        },
+        {
+          "a": "das Haus, das renoviert wurde",
+          "b": "das renovierte Haus"
+        },
+        {
+          "a": "die Kinder, die im Garten spielen",
+          "b": "die im Garten spielenden Kinder"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_lesen_homeoffice": {
+    "The Stellungnahme shape": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Topic",
+          "de": [
+            "Seit der Pandemie …"
+          ]
+        },
+        {
+          "label": "Pro",
+          "de": [
+            "Befürworter betonen, …"
+          ]
+        },
+        {
+          "label": "Turn",
+          "de": [
+            "Allerdings …",
+            "Jedoch …"
+          ]
+        },
+        {
+          "label": "The author's view",
+          "de": [
+            "Entscheidend ist …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_konnektoren": {
+    "Position 1, verb at 2 — or in the middle": {
+      "kind": "bracket",
+      "columns": [
+        "Position 1",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        0,
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Trotzdem",
+            "gehe",
+            "ich spazieren."
+          ]
+        },
+        {
+          "cells": [
+            "Ich",
+            "gehe",
+            "trotzdem spazieren."
+          ]
+        }
+      ]
+    },
+    "Register: which one when": {
+      "kind": "scale",
+      "low": "spoken",
+      "high": "written",
+      "points": [
+        {
+          "at": 90,
+          "de": "dennoch, folglich",
+          "en": "nevertheless, consequently"
+        },
+        {
+          "at": 55,
+          "de": "trotzdem, deshalb",
+          "en": "still, so"
+        },
+        {
+          "at": 20,
+          "de": "aber trotzdem, also",
+          "en": "but still, so"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_mittelfeld": {
+    "Te – Ka – Mo – Lo": {
+      "kind": "bracket",
+      "columns": [
+        "Start",
+        "when",
+        "why",
+        "how",
+        "where"
+      ],
+      "hot": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich fahre",
+            "morgen",
+            "wegen der Arbeit",
+            "mit dem Zug",
+            "nach Köln."
+          ]
+        }
+      ],
+      "caption": "Temporal, kausal, modal, lokal: when, why, how, where."
+    },
+    "Objects: Dat before Akk; pronoun before noun; pron Akk before pron Dat": {
+      "kind": "bracket",
+      "columns": [
+        "",
+        "Verb",
+        "first",
+        "second"
+      ],
+      "hot": [
+        2
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "gebe",
+            "dem Kind",
+            "das Buch."
+          ]
+        },
+        {
+          "cells": [
+            "Ich",
+            "gebe",
+            "es",
+            "dem Kind."
+          ]
+        },
+        {
+          "cells": [
+            "Ich",
+            "gebe",
+            "es",
+            "ihm."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_kausal_nominal": {
+    "Find the noun, pick the preposition, add the genitive": {
+      "kind": "pairs",
+      "left": "verbal",
+      "right": "nominal",
+      "rows": [
+        {
+          "a": "weil es stark regnete",
+          "b": "wegen des starken Regens"
+        },
+        {
+          "a": "weil die Kosten steigen",
+          "b": "aufgrund der steigenden Kosten"
+        },
+        {
+          "a": "weil sie geholfen hat",
+          "b": "dank ihrer Hilfe"
+        }
+      ]
+    },
+    "aus (motive) vs vor (reaction)": {
+      "kind": "pairs",
+      "left": "aus: a motive (chosen)",
+      "right": "vor: a reaction (it just happens)",
+      "rows": [
+        {
+          "a": "aus Liebe, aus Neugier",
+          "b": "vor Freude, vor Angst, vor Kälte"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_temporal_nominal": {
+    "The pairs": {
+      "kind": "pairs",
+      "left": "verbal",
+      "right": "nominal",
+      "rows": [
+        {
+          "a": "nachdem wir gegessen hatten",
+          "b": "nach dem Essen"
+        },
+        {
+          "a": "bevor er abreist",
+          "b": "vor seiner Abreise"
+        },
+        {
+          "a": "während sie studierte",
+          "b": "während ihres Studiums"
+        },
+        {
+          "a": "als ich ankam",
+          "b": "bei meiner Ankunft"
+        },
+        {
+          "a": "seit er umgezogen ist",
+          "b": "seit seinem Umzug"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_dass_infinitiv": {
+    "Same subject → zu-infinitive": {
+      "kind": "tree",
+      "root": {
+        "q": "Is the subject of both parts the same person?",
+        "yes": {
+          "answer": "zu-infinitive",
+          "de": "Ich hoffe, dich bald zu sehen."
+        },
+        "no": {
+          "q": "Is the subject of the second part the object of the first (bitten, empfehlen …)?",
+          "yes": {
+            "answer": "zu-infinitive",
+            "de": "Sie bat mich, das Fenster zu schließen."
+          },
+          "no": {
+            "answer": "dass-clause",
+            "de": "Ich hoffe, dass du bald kommst."
+          }
+        }
+      }
+    }
+  },
+  "quest_b2_1_lassen": {
+    "lassen + infinitive: cause or allow": {
+      "kind": "pairs",
+      "left": "meaning",
+      "right": "example",
+      "rows": [
+        {
+          "a": "have it done",
+          "b": "Ich lasse mein Auto reparieren."
+        },
+        {
+          "a": "let, allow",
+          "b": "Sie lässt die Kinder lange schlafen."
+        },
+        {
+          "a": "can be done (sich lassen)",
+          "b": "Das Problem lässt sich lösen."
+        }
+      ]
+    },
+    "Perfekt: haben + infinitive + lassen (Doppelinfinitiv)": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "habe",
+            "mein Auto",
+            "reparieren lassen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_nachsilben_genus": {
+    "der: -er, -ist, -ant, -ent, -or, -ling, -ismus": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Lehr"
+            },
+            {
+              "text": "-ling",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Lehrling",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "Tour"
+            },
+            {
+              "text": "-ismus",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Tourismus",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "Mot"
+            },
+            {
+              "text": "-or",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Motor",
+          "gender": "m"
+        }
+      ]
+    },
+    "das: -chen, -lein, -tum, -ment, -um, -nis (mostly), Ge-…-e": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Eigen"
+            },
+            {
+              "text": "-tum",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Eigentum",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "Doku"
+            },
+            {
+              "text": "-ment",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Dokument",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "Ge",
+              "role": "prefix"
+            },
+            {
+              "text": "bäud"
+            },
+            {
+              "text": "-e",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Gebäude",
+          "gender": "n"
+        }
+      ]
+    },
+    "die: -ung, -heit, -keit, -schaft, -ei, -ie, -ik, -ion, -tät, -ur, -enz, -anz, -in": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Bäcker"
+            },
+            {
+              "text": "-ei",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Bäckerei",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Univers"
+            },
+            {
+              "text": "-ität",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Universität",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Kult"
+            },
+            {
+              "text": "-ur",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Kultur",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_diktat_argument": {
+    "Hear the -e of the Konjunktiv I": {
+      "kind": "pairs",
+      "left": "indicative",
+      "right": "Konjunktiv I",
+      "rows": [
+        {
+          "a": "er hat",
+          "b": "er habe"
+        },
+        {
+          "a": "sie muss",
+          "b": "sie müsse"
+        },
+        {
+          "a": "es gibt",
+          "b": "es gebe"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_passiv_perfekt": {
+    "ist / sind + Partizip II + worden": {
+      "kind": "bracket",
+      "caption": "worden, not geworden: the passive drops the ge-.",
+      "rows": [
+        {
+          "cells": [
+            "Der Vertrag",
+            "ist",
+            "gestern",
+            "unterschrieben worden."
+          ]
+        },
+        {
+          "cells": [
+            "Die Fehler",
+            "sind",
+            "schon",
+            "behoben worden."
+          ]
+        }
+      ]
+    },
+    "wurde (written) = ist … worden (spoken)": {
+      "kind": "pairs",
+      "left": "written",
+      "right": "spoken",
+      "rows": [
+        {
+          "a": "Der Fehler wurde behoben.",
+          "b": "Der Fehler ist behoben worden."
+        }
+      ]
+    }
+  },
+  "quest_b2_1_zustandspassiv": {
+    "Past: wurde (action) vs war (state)": {
+      "kind": "pairs",
+      "left": "Vorgang (werden)",
+      "right": "Zustand (sein)",
+      "rows": [
+        {
+          "a": "Das Geschäft wird um 9 geöffnet.",
+          "b": "Das Geschäft ist bis 20 Uhr geöffnet."
+        },
+        {
+          "a": "Die Straße wurde gesperrt.",
+          "b": "Die Straße war drei Tage gesperrt."
+        }
+      ]
+    }
+  },
+  "quest_b2_1_passiv_subjektlos": {
+    "Most man-sentences with an action verb have a passive": {
+      "kind": "pairs",
+      "left": "with man",
+      "right": "passive, no subject",
+      "rows": [
+        {
+          "a": "Man tanzt.",
+          "b": "Es wird getanzt. / Heute wird getanzt."
+        },
+        {
+          "a": "Man raucht hier nicht.",
+          "b": "Hier wird nicht geraucht."
+        },
+        {
+          "a": "Man hilft ihm.",
+          "b": "Ihm wird geholfen."
+        }
+      ]
+    }
+  },
+  "quest_b2_1_hoeren_nachrichten": {
+    "Event – details – quote – reaction": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Event",
+          "de": [
+            "In Berlin hat … beschlossen."
+          ]
+        },
+        {
+          "label": "Details",
+          "de": [
+            "Ab Januar sollen …"
+          ]
+        },
+        {
+          "label": "Quote",
+          "de": [
+            "Der Minister sagte, …"
+          ]
+        },
+        {
+          "label": "Reaction",
+          "de": [
+            "Verbände begrüßten …",
+            "Kritiker warnten …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_sprechen_argument": {
+    "Open, structure, close": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Open",
+          "de": [
+            "Ich möchte heute über … sprechen."
+          ]
+        },
+        {
+          "label": "Pro",
+          "de": [
+            "Dafür spricht, dass …"
+          ]
+        },
+        {
+          "label": "Contra",
+          "de": [
+            "Dagegen spricht, dass …"
+          ]
+        },
+        {
+          "label": "Conclusion",
+          "de": [
+            "Daraus folgt, dass …"
+          ]
+        },
+        {
+          "label": "Close",
+          "de": [
+            "Vielen Dank für Ihre Aufmerksamkeit."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_lesen_leserbrief": {
+    "The Leserbrief moves": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Reference",
+          "de": [
+            "Zu Ihrem Artikel vom … möchte ich …"
+          ]
+        },
+        {
+          "label": "Observation",
+          "de": [
+            "Seit Monaten …"
+          ]
+        },
+        {
+          "label": "Criticism",
+          "de": [
+            "Es fehlt an …"
+          ]
+        },
+        {
+          "label": "Demand",
+          "de": [
+            "Ich fordere die Stadt auf, …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_stellungnahme": {
+    "The shape: Einleitung – Pro – Contra – Meinung – Schluss": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Einleitung",
+          "de": [
+            "In letzter Zeit wird viel über … diskutiert."
+          ]
+        },
+        {
+          "label": "Pro",
+          "de": [
+            "Für … spricht, dass …"
+          ]
+        },
+        {
+          "label": "Contra",
+          "de": [
+            "Andererseits darf man nicht vergessen, …"
+          ]
+        },
+        {
+          "label": "Meinung",
+          "de": [
+            "Meiner Ansicht nach …"
+          ]
+        },
+        {
+          "label": "Schluss",
+          "de": [
+            "Zusammenfassend lässt sich sagen, …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_sprechen_dialog": {
+    "Position → report → respond → conclude": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Position",
+          "de": [
+            "Ich bin der Meinung, dass …"
+          ]
+        },
+        {
+          "label": "Report",
+          "de": [
+            "Kritiker sagen, das sei zu teuer."
+          ]
+        },
+        {
+          "label": "Respond",
+          "de": [
+            "Das stimmt zwar, aber …"
+          ]
+        },
+        {
+          "label": "Conclude",
+          "de": [
+            "Deshalb …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_schreiben_stellungnahme": {
+    "Concede, then answer": {
+      "kind": "pairs",
+      "left": "concede",
+      "right": "answer",
+      "rows": [
+        {
+          "a": "Zwar sind die Kosten hoch,",
+          "b": "doch langfristig spart die Stadt Geld."
+        }
+      ]
+    }
+  },
+  "quest_b2_1_infinitivsaetze": {
+    "Same subject → infinitive; new subject → damit / dass": {
+      "kind": "pairs",
+      "left": "same subject",
+      "right": "different subject",
+      "rows": [
+        {
+          "a": "um … zu",
+          "b": "damit"
+        },
+        {
+          "a": "ohne … zu",
+          "b": "ohne dass"
+        },
+        {
+          "a": "statt … zu",
+          "b": "statt dass"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_brauchen_zu": {
+    "nicht müssen / nicht brauchen ≠ nicht dürfen": {
+      "kind": "pairs",
+      "left": "German",
+      "right": "means",
+      "rows": [
+        {
+          "a": "Du musst nicht kommen.",
+          "b": "You don't have to come."
+        },
+        {
+          "a": "Du brauchst nicht zu kommen.",
+          "b": "You don't have to come."
+        },
+        {
+          "a": "Du darfst nicht kommen.",
+          "b": "You must not come.",
+          "note": "the forbidden one"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_je_desto": {
+    "Two comparatives, two word orders": {
+      "kind": "bracket",
+      "columns": [
+        "je + comparative … verb last",
+        "desto + comparative",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        0,
+        2
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Je länger man wartet,",
+            "desto schwieriger",
+            "wird",
+            "es."
+          ]
+        },
+        {
+          "cells": [
+            "Je früher wir anfangen,",
+            "umso besser",
+            "ist",
+            "es."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_1_wortschatz": {
+    "Suffixes give the gender away": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Entwickl"
+            },
+            {
+              "text": "-ung",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Entwicklung",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Gesell"
+            },
+            {
+              "text": "-schaft",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Gesellschaft",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Ergeb"
+            },
+            {
+              "text": "-nis",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Ergebnis",
+          "gender": "n"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_suchbild_hotel": {
+    "Compounds in the hotel lobby: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "das Zimmer"
+            },
+            {
+              "text": "der Schlüssel",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Zimmerschlüssel",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "der Koffer"
+            },
+            {
+              "text": "der Wagen",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Kofferwagen",
+          "gender": "m"
+        }
+      ]
+    }
+  },
+  "quest_b2_1_suchbild_baustelle": {
+    "A compound takes the gender of its last part": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "der Bau"
+            },
+            {
+              "text": "der Helm",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Bauhelm",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "der Beton"
+            },
+            {
+              "text": "der Mischer",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Betonmischer",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "der Schutt"
+            },
+            {
+              "text": "die Mulde",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Schuttmulde",
+          "gender": "f"
+        }
+      ]
+    }
+  }
+}

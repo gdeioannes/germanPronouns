@@ -94,6 +94,156 @@ export interface HelpTip {
 	trap?: string;
 	/** The lesson's check on this rule. */
 	check?: HelpCheck;
+	/** A diagram drawn under the rule (components/lesson/LessonVisual). */
+	visual?: LessonVisual;
+}
+
+/**
+ * A diagram on a lesson's rule card. Every kind is a code-drawn component fed
+ * by this data, so one component serves every lesson that teaches the shape.
+ * The content gate test rejects a `kind` the renderer does not know.
+ */
+export type LessonVisual =
+	| BracketVisual
+	| CaseGridVisual
+	| PeopleVisual
+	| TimelineVisual
+	| ScaleVisual
+	| TreeVisual
+	| PairsVisual
+	| BlocksVisual
+	| ClockVisual
+	| PlacesVisual
+	| MovesVisual
+	| TextMapVisual
+	| PicturesVisual;
+
+interface VisualBase {
+	/** One line under the diagram, in English. */
+	caption?: string;
+}
+
+/**
+ * V1 — the sentence bracket: German sentences laid into fixed slots, so the
+ * verb positions line up from row to row. `hot` names the columns drawn as
+ * the verb slots (default: the second and the last).
+ */
+export interface BracketVisual extends VisualBase {
+	kind: 'bracket';
+	columns?: string[];
+	hot?: number[];
+	rows: { cells: string[]; en?: string }[];
+}
+
+/** V2 — the case grid: cases down, m/f/n/pl across, the new cells glowing. */
+export interface CaseGridVisual extends VisualBase {
+	kind: 'caseGrid';
+	/** Column heads; default m / f / n / pl, tinted by gender. */
+	columns?: string[];
+	rows: { label: string; cells: string[] }[];
+	/** [row, column] cells to light up — what this lesson adds. */
+	hot?: [number, number][];
+}
+
+/** V13 — the people grid: ich … Sie with one or more columns of forms. */
+export interface PeopleVisual extends VisualBase {
+	kind: 'people';
+	/** Default: ich, du, er/sie/es, wir, ihr, sie/Sie. */
+	persons?: string[];
+	columns: { label: string; forms: string[] }[];
+	/** Row indexes (persons) to light up. */
+	hot?: number[];
+}
+
+/** V3 — a timeline, past on the left, now in the middle, future on the right. */
+export interface TimelineVisual extends VisualBase {
+	kind: 'timeline';
+	/** Axis words; default past / now / future. `now: null` hides the middle tick. */
+	axis?: { start: string; end: string; now?: string | null };
+	/** Points and spans; `at` and `to` run from -3 (long ago) to 3 (far ahead), 0 = now. */
+	marks: { at: number; to?: number; label: string; de?: string }[];
+}
+
+/** V17 / V10 — a graded scale: certainty, register, politeness, strength. */
+export interface ScaleVisual extends VisualBase {
+	kind: 'scale';
+	low: string;
+	high: string;
+	/** `at` from 0 (low end) to 100 (high end). */
+	points: { at: number; de: string; en?: string }[];
+}
+
+/** V5 — a decision tree of yes/no questions ending in the form. */
+export interface TreeVisual extends VisualBase {
+	kind: 'tree';
+	root: TreeNode;
+}
+export interface TreeNode {
+	/** A question node has `q` and both branches; a leaf has `answer`. */
+	q?: string;
+	yes?: TreeNode;
+	no?: TreeNode;
+	answer?: string;
+	/** An example under the leaf. */
+	de?: string;
+}
+
+/** V16 — transformation pairs: left form ↔ right form, row by row. */
+export interface PairsVisual extends VisualBase {
+	kind: 'pairs';
+	left: string;
+	right: string;
+	rows: { a: string; b: string; note?: string }[];
+}
+
+/** V12 — word blocks: a word built from coloured pieces. */
+export interface BlocksVisual extends VisualBase {
+	kind: 'blocks';
+	rows: {
+		parts: { text: string; role?: 'stem' | 'prefix' | 'suffix' | 'ending' | 'joint' | 'gone' }[];
+		result: string;
+		/** m / f / n tints the result like a noun. */
+		gender?: string;
+		en?: string;
+	}[];
+}
+
+/** V8 — clock faces: the hand position and the German way of saying it. */
+export interface ClockVisual extends VisualBase {
+	kind: 'clock';
+	/** `time` as "H:MM" on a 12-hour face. */
+	faces: { time: string; de: string; digital?: string }[];
+}
+
+/** V4 — where something is (a dot) or where it goes (an arrow), by preposition. */
+export interface PlacesVisual extends VisualBase {
+	kind: 'places';
+	/** 'wo' draws a dot, 'wohin' an arrow in, 'woher' an arrow out. */
+	items: { prep: string; mode: 'wo' | 'wohin' | 'woher'; de: string; en?: string; spot: PlaceSpot }[];
+}
+export type PlaceSpot = 'on' | 'under' | 'in' | 'over' | 'beside' | 'front' | 'behind' | 'between' | 'at';
+
+/** V20 / V14 — the moves of a text or talk, in order, each with its phrases. */
+export interface MovesVisual extends VisualBase {
+	kind: 'moves';
+	moves: { label: string; de: string[] }[];
+}
+
+/**
+ * V15 — pictures, each with its German: a picture-book illustration (an id in
+ * static/img/, made by tool/gen-images.mjs) or, for a colour, a plain swatch.
+ */
+export interface PicturesVisual extends VisualBase {
+	kind: 'pictures';
+	items: { image?: string; color?: string; de: string; en?: string }[];
+	/** Wide scenes (4:3) take the full row; default tiles are square. */
+	wide?: boolean;
+}
+
+/** V11 — a text map: a passage cut into labelled blocks, the answer spots marked. */
+export interface TextMapVisual extends VisualBase {
+	kind: 'textMap';
+	blocks: { label: string; de: string; focus?: string[] }[];
 }
 
 /** An authored reference table, for quizzes with no grid to derive one from. */
@@ -127,6 +277,11 @@ export interface QuizHelp {
 	hook?: string;
 	/** Layer 1: the idea, in plain English. */
 	intro?: string;
+	/**
+	 * For a topic met before: what the learner already knows (naming the earlier
+	 * exercise) and the one thing this lesson adds. Shown on the opening screen.
+	 */
+	recall?: { known: string; today: string };
 	/** Layer 2: rule cards. */
 	tips?: HelpTip[];
 	/** Layer 3: an authored table; grid quizzes derive theirs instead. */
@@ -248,6 +403,12 @@ export interface FillBlankQuiz extends QuizBase {
 	sentences?: QuizSentence[];
 	/** Generator templates, keyed by category label, using `{subject}`. */
 	sentenceTemplates?: Record<string, string[]>;
+	/**
+	 * The English line for each generator template, in the same order, using
+	 * `{subject}` for the subject's `english` (its display when it has none).
+	 * The no-help step shows it instead of the cue, as for authored sentences.
+	 */
+	englishTemplates?: Record<string, string[]>;
 }
 
 // -- reading / listening (same question shape) ------------------------------
@@ -275,7 +436,13 @@ export interface InlineBlank {
 	answer: string;
 	/** Extra spellings that also count (e.g. "heisse" for "heiße"). */
 	accepted?: string[];
+	/** Help on the "type" step: the lemma and a grammar note. Hidden with no help. */
 	hint?: string;
+	/**
+	 * What the "no help" step still shows: the lemma or a two-word gloss, so
+	 * the gap asks for a form, never for a guess. Authored in assets/content/ladder.
+	 */
+	cue?: string;
 	/**
 	 * Choices, when `kind` is 'select'. A typed gap may carry three wrong
 	 * ones too, for the medal ladder's "choose" step.

@@ -1,0 +1,1545 @@
+{
+  "quest_a2_2_wechsel_wo": {
+    "Wo? → Dativ: dem / der / dem / den": {
+      "kind": "places",
+      "caption": "A dot: it stays where it is. Wo? asks for the dative.",
+      "items": [
+        {
+          "prep": "auf",
+          "mode": "wo",
+          "spot": "on",
+          "de": "auf dem Tisch"
+        },
+        {
+          "prep": "unter",
+          "mode": "wo",
+          "spot": "under",
+          "de": "unter dem Tisch"
+        },
+        {
+          "prep": "in",
+          "mode": "wo",
+          "spot": "in",
+          "de": "in der Kiste"
+        },
+        {
+          "prep": "über",
+          "mode": "wo",
+          "spot": "over",
+          "de": "über dem Tisch"
+        },
+        {
+          "prep": "neben",
+          "mode": "wo",
+          "spot": "beside",
+          "de": "neben der Kiste"
+        },
+        {
+          "prep": "vor",
+          "mode": "wo",
+          "spot": "front",
+          "de": "vor der Kiste"
+        },
+        {
+          "prep": "hinter",
+          "mode": "wo",
+          "spot": "behind",
+          "de": "hinter der Kiste"
+        },
+        {
+          "prep": "zwischen",
+          "mode": "wo",
+          "spot": "between",
+          "de": "zwischen den Kisten"
+        },
+        {
+          "prep": "an",
+          "mode": "wo",
+          "spot": "at",
+          "de": "an der Wand"
+        }
+      ]
+    },
+    "The verbs of position": {
+      "kind": "pictures",
+      "items": [
+        {
+          "image": "lesson_buch_liegt",
+          "de": "Das Buch liegt auf dem Tisch.",
+          "en": "liegen: lying flat"
+        },
+        {
+          "image": "lesson_flasche_steht",
+          "de": "Die Flasche steht auf dem Tisch.",
+          "en": "stehen: upright"
+        },
+        {
+          "image": "lesson_katze_sitzt",
+          "de": "Die Katze sitzt auf dem Stuhl.",
+          "en": "sitzen: sitting"
+        },
+        {
+          "image": "lesson_bild_haengt",
+          "de": "Das Bild hängt an der Wand.",
+          "en": "hängen: hanging"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_wechsel_wohin": {
+    "Wohin? → Akkusativ: den / die / das": {
+      "kind": "places",
+      "caption": "An arrow: it moves there. Wohin? asks for the accusative.",
+      "items": [
+        {
+          "prep": "auf",
+          "mode": "wohin",
+          "spot": "on",
+          "de": "auf den Tisch"
+        },
+        {
+          "prep": "unter",
+          "mode": "wohin",
+          "spot": "under",
+          "de": "unter den Tisch"
+        },
+        {
+          "prep": "in",
+          "mode": "wohin",
+          "spot": "in",
+          "de": "in die Kiste"
+        },
+        {
+          "prep": "an",
+          "mode": "wohin",
+          "spot": "at",
+          "de": "an die Wand"
+        }
+      ]
+    },
+    "legen / stellen / setzen / hängen — the putting verbs": {
+      "kind": "pairs",
+      "left": "put it there (Akk)",
+      "right": "now it is there (Dat)",
+      "rows": [
+        {
+          "a": "Ich lege das Buch auf den Tisch.",
+          "b": "Das Buch liegt auf dem Tisch."
+        },
+        {
+          "a": "Ich stelle die Flasche auf den Tisch.",
+          "b": "Die Flasche steht auf dem Tisch."
+        },
+        {
+          "a": "Ich setze das Kind auf den Stuhl.",
+          "b": "Das Kind sitzt auf dem Stuhl."
+        },
+        {
+          "a": "Ich hänge das Bild an die Wand.",
+          "b": "Das Bild hängt an der Wand."
+        }
+      ]
+    },
+    "ins, ans, aufs": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "in"
+            },
+            {
+              "text": "das",
+              "role": "gone"
+            }
+          ],
+          "result": "ins",
+          "en": "ins Kino"
+        },
+        {
+          "parts": [
+            {
+              "text": "an"
+            },
+            {
+              "text": "das",
+              "role": "gone"
+            }
+          ],
+          "result": "ans",
+          "en": "ans Meer"
+        },
+        {
+          "parts": [
+            {
+              "text": "auf"
+            },
+            {
+              "text": "das",
+              "role": "gone"
+            }
+          ],
+          "result": "aufs",
+          "en": "aufs Dach"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_bigtext_zimmer": {
+    "Same preposition, two cases": {
+      "kind": "places",
+      "items": [
+        {
+          "prep": "auf",
+          "mode": "wo",
+          "spot": "on",
+          "de": "Die Lampe steht auf dem Tisch.",
+          "en": "Wo? Dativ"
+        },
+        {
+          "prep": "auf",
+          "mode": "wohin",
+          "spot": "on",
+          "de": "Ich stelle die Lampe auf den Tisch.",
+          "en": "Wohin? Akkusativ"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_sprechen_zimmer": {
+    "Position = dative": {
+      "kind": "places",
+      "items": [
+        {
+          "prep": "an",
+          "mode": "wo",
+          "spot": "at",
+          "de": "Das Bild hängt an der Wand."
+        },
+        {
+          "prep": "neben",
+          "mode": "wo",
+          "spot": "beside",
+          "de": "Neben dem Bett steht ein Regal."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_reflexiv": {
+    "The reflexive pronouns": {
+      "kind": "people",
+      "caption": "Only sich is new: the rest are the accusative pronouns you know.",
+      "columns": [
+        {
+          "label": "sich freuen",
+          "forms": [
+            "freue mich",
+            "freust dich",
+            "freut sich",
+            "freuen uns",
+            "freut euch",
+            "freuen sich"
+          ]
+        }
+      ],
+      "hot": [
+        2,
+        5
+      ]
+    },
+    "Where the pronoun goes": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "freue",
+            "mich auf",
+            "den Urlaub."
+          ]
+        },
+        {
+          "cells": [
+            "Morgen",
+            "treffen",
+            "wir uns",
+            "im Park."
+          ]
+        }
+      ],
+      "hot": [
+        1
+      ]
+    }
+  },
+  "quest_a2_2_weil": {
+    "weil … verb at the end, comma before": {
+      "kind": "bracket",
+      "columns": [
+        "Main clause",
+        "Connector",
+        "Middle",
+        "Verb"
+      ],
+      "hot": [
+        1,
+        3
+      ],
+      "caption": "weil sends the verb to the very end of its clause.",
+      "rows": [
+        {
+          "cells": [
+            "Ich bleibe zu Hause,",
+            "weil",
+            "ich krank",
+            "bin."
+          ]
+        },
+        {
+          "cells": [
+            "Sie lernt Deutsch,",
+            "weil",
+            "sie in Berlin",
+            "arbeitet."
+          ]
+        }
+      ]
+    },
+    "Two verbs? Both at the end, helper last": {
+      "kind": "bracket",
+      "columns": [
+        "Main clause",
+        "Connector",
+        "Middle",
+        "Verbs"
+      ],
+      "hot": [
+        1,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich komme nicht,",
+            "weil",
+            "ich arbeiten",
+            "muss."
+          ]
+        },
+        {
+          "cells": [
+            "Er ist müde,",
+            "weil",
+            "er schlecht geschlafen",
+            "hat."
+          ]
+        }
+      ]
+    },
+    "weil vs denn": {
+      "kind": "pairs",
+      "left": "weil: verb last",
+      "right": "denn: normal order",
+      "rows": [
+        {
+          "a": "…, weil ich krank bin.",
+          "b": "…, denn ich bin krank."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_hoeren_verabredung": {
+    "vor dem Museum — outside, dative": {
+      "kind": "places",
+      "items": [
+        {
+          "prep": "vor",
+          "mode": "wo",
+          "spot": "front",
+          "de": "Wir treffen uns vor dem Museum."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_dass": {
+    "dass … verb at the end": {
+      "kind": "bracket",
+      "columns": [
+        "Main clause",
+        "Connector",
+        "Middle",
+        "Verb"
+      ],
+      "hot": [
+        1,
+        3
+      ],
+      "caption": "The same move as weil: the verb goes to the end.",
+      "rows": [
+        {
+          "cells": [
+            "Ich glaube,",
+            "dass",
+            "er heute",
+            "kommt."
+          ]
+        },
+        {
+          "cells": [
+            "Ich hoffe,",
+            "dass",
+            "du Zeit",
+            "hast."
+          ]
+        }
+      ]
+    },
+    "dass or das?": {
+      "kind": "tree",
+      "root": {
+        "q": "Can you replace it with dieses or welches?",
+        "yes": {
+          "answer": "das",
+          "de": "Das Buch, das ich lese, ist gut."
+        },
+        "no": {
+          "answer": "dass",
+          "de": "Ich weiß, dass er kommt."
+        }
+      }
+    }
+  },
+  "quest_a2_2_wenn_deshalb": {
+    "wenn: verb at the end; wenn-clause first → verbs meet at the comma": {
+      "kind": "bracket",
+      "columns": [
+        "wenn-clause",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        0,
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Wenn ich Zeit habe,",
+            "komme",
+            "ich."
+          ]
+        }
+      ],
+      "caption": "The whole wenn-clause is position 1, so the main verb follows right after the comma: habe, komme."
+    },
+    "weil ↔ deshalb: same fact, two directions": {
+      "kind": "pairs",
+      "left": "weil: the reason",
+      "right": "deshalb: the result",
+      "rows": [
+        {
+          "a": "Ich bleibe zu Hause, weil es regnet.",
+          "b": "Es regnet, deshalb bleibe ich zu Hause."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_indirekte_fragen": {
+    "W-question → W-word + verb at the end": {
+      "kind": "pairs",
+      "left": "direct question",
+      "right": "polite, indirect",
+      "rows": [
+        {
+          "a": "Wo ist der Bahnhof?",
+          "b": "Können Sie mir sagen, wo der Bahnhof ist?"
+        },
+        {
+          "a": "Wann fährt der Zug?",
+          "b": "Wissen Sie, wann der Zug fährt?"
+        }
+      ]
+    },
+    "Yes/no question → ob + verb at the end": {
+      "kind": "pairs",
+      "left": "direct question",
+      "right": "with ob",
+      "rows": [
+        {
+          "a": "Ist das Museum heute offen?",
+          "b": "Wissen Sie, ob das Museum heute offen ist?"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_verben_praep_intro": {
+    "auf vs über with sich freuen": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -1.5,
+          "label": "something that happened",
+          "de": "sich freuen über"
+        },
+        {
+          "at": 1.7,
+          "label": "something still to come",
+          "de": "sich freuen auf"
+        }
+      ]
+    },
+    "Asking about a thing: wo(r)- + preposition": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "wo",
+              "role": "prefix"
+            },
+            {
+              "text": "r",
+              "role": "joint"
+            },
+            {
+              "text": "auf"
+            }
+          ],
+          "result": "Worauf wartest du?"
+        },
+        {
+          "parts": [
+            {
+              "text": "wo",
+              "role": "prefix"
+            },
+            {
+              "text": "mit"
+            }
+          ],
+          "result": "Womit fährst du?"
+        }
+      ]
+    },
+    "Answering without repeating: da(r)- + preposition": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "da",
+              "role": "prefix"
+            },
+            {
+              "text": "r",
+              "role": "joint"
+            },
+            {
+              "text": "auf"
+            }
+          ],
+          "result": "Ich warte darauf."
+        },
+        {
+          "parts": [
+            {
+              "text": "da",
+              "role": "prefix"
+            },
+            {
+              "text": "mit"
+            }
+          ],
+          "result": "Ich fahre damit."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_sprechen_kurzcheck": {
+    "Answer wo? with a position verb and the dative": {
+      "kind": "pairs",
+      "left": "wo? + Dativ",
+      "right": "wohin? + Akkusativ",
+      "rows": [
+        {
+          "a": "Das Buch liegt auf dem Tisch.",
+          "b": "Ich lege das Buch auf den Tisch."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_gesundheit": {
+    "Praxis → Rezept → Apotheke": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "In der Praxis",
+          "de": [
+            "Was fehlt Ihnen?",
+            "Ich habe seit drei Tagen Fieber."
+          ]
+        },
+        {
+          "label": "Das Rezept",
+          "de": [
+            "Ich schreibe Ihnen ein Rezept."
+          ]
+        },
+        {
+          "label": "In der Apotheke",
+          "de": [
+            "Nehmen Sie die Tabletten dreimal täglich."
+          ]
+        }
+      ]
+    },
+    "seit + dative: how long": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -1.8,
+          "to": 0,
+          "label": "and still ill",
+          "de": "seit drei Tagen"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_kleidung": {
+    "The shop script": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Ask",
+          "de": [
+            "Haben Sie die Hose in Größe 40?"
+          ]
+        },
+        {
+          "label": "Try on",
+          "de": [
+            "Kann ich sie anprobieren?",
+            "Wo ist die Kabine?"
+          ]
+        },
+        {
+          "label": "Judge",
+          "de": [
+            "Sie passt mir.",
+            "Sie ist zu klein.",
+            "Das steht dir!"
+          ]
+        },
+        {
+          "label": "Buy",
+          "de": [
+            "Ich nehme sie."
+          ]
+        }
+      ]
+    },
+    "tragen / anziehen / anprobieren": {
+      "kind": "timeline",
+      "axis": {
+        "start": "in the shop",
+        "end": "out",
+        "now": null
+      },
+      "marks": [
+        {
+          "at": -2,
+          "label": "try on",
+          "de": "anprobieren"
+        },
+        {
+          "at": 0,
+          "label": "put on",
+          "de": "anziehen"
+        },
+        {
+          "at": 2,
+          "label": "wear",
+          "de": "tragen"
+        }
+      ]
+    },
+    "passen and stehen take the dative": {
+      "kind": "pictures",
+      "items": [
+        {
+          "image": "hose",
+          "de": "Die Hose passt mir.",
+          "en": "The trousers fit me."
+        },
+        {
+          "image": "kleid",
+          "de": "Das Kleid steht dir!",
+          "en": "The dress suits you!"
+        },
+        {
+          "image": "jacke",
+          "de": "Die Jacke ist mir zu groß.",
+          "en": "The jacket is too big for me."
+        },
+        {
+          "image": "schuh",
+          "de": "Die Schuhe passen ihm nicht.",
+          "en": "The shoes don't fit him."
+        },
+        {
+          "image": "pullover",
+          "de": "Der Pullover gefällt ihr.",
+          "en": "She likes the jumper."
+        },
+        {
+          "image": "muetze",
+          "de": "Die Mütze steht ihm gut.",
+          "en": "The hat suits him."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_imperativ": {
+    "du: the stem, and the e → i change stays": {
+      "kind": "pairs",
+      "left": "du-form",
+      "right": "command",
+      "rows": [
+        {
+          "a": "du nimmst",
+          "b": "Nimm!"
+        },
+        {
+          "a": "du liest",
+          "b": "Lies!"
+        },
+        {
+          "a": "du fährst",
+          "b": "Fahr!",
+          "note": "a → ä drops in the command"
+        }
+      ]
+    },
+    "Softening: bitte, doch, mal": {
+      "kind": "scale",
+      "low": "a bare order",
+      "high": "friendly",
+      "points": [
+        {
+          "at": 90,
+          "de": "Komm doch mal vorbei!",
+          "en": "Do drop by!"
+        },
+        {
+          "at": 65,
+          "de": "Komm bitte!",
+          "en": "Come, please."
+        },
+        {
+          "at": 15,
+          "de": "Komm!",
+          "en": "Come!"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_diktat_alltag": {
+    "dem vs den by ear": {
+      "kind": "pairs",
+      "left": "wo? — dem",
+      "right": "wohin? — den",
+      "rows": [
+        {
+          "a": "Er sitzt auf dem Stuhl.",
+          "b": "Er stellt den Stuhl in den Flur."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_sprechen_person": {
+    "sein + adjective, no ending": {
+      "kind": "pairs",
+      "left": "after sein: no ending",
+      "right": "before a noun: an ending",
+      "rows": [
+        {
+          "a": "Er ist groß.",
+          "b": "ein großer Mann"
+        },
+        {
+          "a": "Ihre Haare sind lang.",
+          "b": "Sie hat lange Haare."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_adjektiv_intro": {
+    "After ein: the adjective shows the gender": {
+      "kind": "caseGrid",
+      "caption": "ein does not show the gender, so the adjective does: -er, -e, -es.",
+      "rows": [
+        {
+          "label": "the",
+          "cells": [
+            "der neue Tisch",
+            "die neue Lampe",
+            "das neue Sofa",
+            "die neuen Stühle"
+          ]
+        },
+        {
+          "label": "a",
+          "cells": [
+            "ein neuer Tisch",
+            "eine neue Lampe",
+            "ein neues Sofa",
+            "neue Stühle"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "One strong signal": {
+      "kind": "pairs",
+      "left": "the article signals",
+      "right": "the adjective signals",
+      "rows": [
+        {
+          "a": "der alte Tisch",
+          "b": "ein alter Tisch"
+        },
+        {
+          "a": "das kleine Haus",
+          "b": "ein kleines Haus"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_koennte_sollte": {
+    "könnte — could, a suggestion": {
+      "kind": "scale",
+      "low": "a gentle idea",
+      "high": "a firm instruction",
+      "points": [
+        {
+          "at": 95,
+          "de": "Du musst zum Arzt gehen.",
+          "en": "You must go to the doctor."
+        },
+        {
+          "at": 60,
+          "de": "Du solltest zum Arzt gehen.",
+          "en": "You should go to the doctor."
+        },
+        {
+          "at": 25,
+          "de": "Du könntest zum Arzt gehen.",
+          "en": "You could go to the doctor."
+        }
+      ]
+    },
+    "könnte ≠ konnte": {
+      "kind": "pairs",
+      "left": "konnte: past",
+      "right": "könnte: possible",
+      "rows": [
+        {
+          "a": "Ich konnte nicht kommen.",
+          "b": "Wir könnten ins Kino gehen."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_relativ_intro": {
+    "The pronoun = the article of the noun": {
+      "kind": "caseGrid",
+      "caption": "The relative pronoun is the article again. Only den is new to think about.",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "der",
+            "die",
+            "das",
+            "die"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "den",
+            "die",
+            "das",
+            "die"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "Comma before, verb at the end": {
+      "kind": "bracket",
+      "columns": [
+        "Noun",
+        "Relative pronoun",
+        "Middle",
+        "Verb"
+      ],
+      "hot": [
+        1,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "der Mann,",
+            "der",
+            "dort",
+            "wohnt"
+          ]
+        },
+        {
+          "cells": [
+            "der Film,",
+            "den",
+            "ich gestern",
+            "gesehen habe"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_2_praeteritum_intro": {
+    "Regular: stem + -te + endings": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "machen",
+          "forms": [
+            "machte",
+            "machtest",
+            "machte",
+            "machten",
+            "machtet",
+            "machten"
+          ]
+        }
+      ],
+      "hot": [
+        0,
+        2
+      ]
+    },
+    "Irregular: vowel change, no -te": {
+      "kind": "pairs",
+      "left": "infinitive",
+      "right": "er / sie / es",
+      "rows": [
+        {
+          "a": "gehen",
+          "b": "ging"
+        },
+        {
+          "a": "kommen",
+          "b": "kam"
+        },
+        {
+          "a": "sehen",
+          "b": "sah"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_passiv_intro": {
+    "werden + participle at the end": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Hier",
+            "wird",
+            "Deutsch",
+            "gesprochen."
+          ]
+        },
+        {
+          "cells": [
+            "Das Haus",
+            "wird",
+            "",
+            "renoviert."
+          ]
+        }
+      ]
+    },
+    "Nobody in particular — or von + dative": {
+      "kind": "pairs",
+      "left": "active",
+      "right": "passive",
+      "rows": [
+        {
+          "a": "Der Koch macht die Suppe.",
+          "b": "Die Suppe wird (vom Koch) gemacht."
+        }
+      ]
+    }
+  },
+  "quest_a2_2_wortbildung": {
+    "-er: the doer, always der": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "lehr"
+            },
+            {
+              "text": "-er",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Lehrer",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "fahr"
+            },
+            {
+              "text": "-er",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Fahrer",
+          "gender": "m"
+        }
+      ]
+    },
+    "-ung: the thing or process, always die": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "wohn"
+            },
+            {
+              "text": "-ung",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Wohnung",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "rechn"
+            },
+            {
+              "text": "-ung",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Rechnung",
+          "gender": "f"
+        }
+      ]
+    },
+    "un-, -los, -bar": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "un",
+              "role": "prefix"
+            },
+            {
+              "text": "freundlich"
+            }
+          ],
+          "result": "unfreundlich",
+          "en": "unfriendly"
+        },
+        {
+          "parts": [
+            {
+              "text": "Arbeit"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "-los",
+              "role": "suffix"
+            }
+          ],
+          "result": "arbeitslos",
+          "en": "out of work"
+        },
+        {
+          "parts": [
+            {
+              "text": "trink"
+            },
+            {
+              "text": "-bar",
+              "role": "suffix"
+            }
+          ],
+          "result": "trinkbar",
+          "en": "drinkable"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_superlativ": {
+    "Three steps, one ladder": {
+      "kind": "scale",
+      "low": "plain",
+      "high": "the top",
+      "points": [
+        {
+          "at": 100,
+          "de": "am schnellsten",
+          "en": "the fastest"
+        },
+        {
+          "at": 66,
+          "de": "schneller",
+          "en": "faster"
+        },
+        {
+          "at": 33,
+          "de": "schnell",
+          "en": "fast"
+        }
+      ]
+    },
+    "The irregulars — and the umlaut": {
+      "kind": "pairs",
+      "left": "adjective",
+      "right": "superlative",
+      "rows": [
+        {
+          "a": "gut · besser",
+          "b": "am besten"
+        },
+        {
+          "a": "viel · mehr",
+          "b": "am meisten"
+        },
+        {
+          "a": "gern · lieber",
+          "b": "am liebsten"
+        },
+        {
+          "a": "groß · größer",
+          "b": "am größten"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_tekamolo": {
+    "Time – manner – place": {
+      "kind": "bracket",
+      "columns": [
+        "",
+        "Verb",
+        "When",
+        "How",
+        "Where"
+      ],
+      "hot": [
+        2,
+        3,
+        4
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "fahre",
+            "morgen",
+            "mit dem Zug",
+            "nach Berlin."
+          ]
+        }
+      ]
+    },
+    "Or put the time first": {
+      "kind": "bracket",
+      "columns": [
+        "Position 1",
+        "Verb",
+        "Subject",
+        "How",
+        "Where"
+      ],
+      "hot": [
+        0,
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Morgen",
+            "fahre",
+            "ich",
+            "mit dem Zug",
+            "nach Berlin."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_2_lesen_email": {
+    "The e-mail frame": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Greeting",
+          "de": [
+            "Liebe Marie,"
+          ]
+        },
+        {
+          "label": "Opening",
+          "de": [
+            "vielen Dank für deine Mail!"
+          ]
+        },
+        {
+          "label": "The news",
+          "de": [
+            "Stell dir vor: …"
+          ]
+        },
+        {
+          "label": "Sign-off",
+          "de": [
+            "Liebe Grüße",
+            "Bis bald!"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_2_lesen_formular": {
+    "Dates: day.month.year": {
+      "kind": "pairs",
+      "left": "written",
+      "right": "means",
+      "rows": [
+        {
+          "a": "03.10.2026",
+          "b": "3 October 2026"
+        },
+        {
+          "a": "Geb.-Datum",
+          "b": "date of birth"
+        },
+        {
+          "a": "PLZ / Ort",
+          "b": "postcode / town"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_sprechen_dialog": {
+    "Time before place": {
+      "kind": "bracket",
+      "columns": [
+        "",
+        "Verb",
+        "When",
+        "Where",
+        "End"
+      ],
+      "hot": [
+        2,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Wir",
+            "könnten",
+            "am Samstag",
+            "ins Kino",
+            "gehen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_2_genitiv_s_datum": {
+    "Name + s, no apostrophe": {
+      "kind": "pairs",
+      "left": "English",
+      "right": "German",
+      "rows": [
+        {
+          "a": "Anna's car",
+          "b": "Annas Auto"
+        },
+        {
+          "a": "Peter's brother",
+          "b": "Peters Bruder"
+        },
+        {
+          "a": "Max's flat",
+          "b": "Max' Wohnung",
+          "note": "a name ending in -s, -x, -z takes only an apostrophe"
+        }
+      ]
+    },
+    "Heute ist der … / am …-n": {
+      "kind": "pairs",
+      "left": "Welcher Tag ist heute?",
+      "right": "Wann?",
+      "rows": [
+        {
+          "a": "Heute ist der dritte Oktober.",
+          "b": "am dritten Oktober"
+        },
+        {
+          "a": "Heute ist der erste Mai.",
+          "b": "am ersten Mai"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_schreiben_email": {
+    "The frame: informal vs formal": {
+      "kind": "pairs",
+      "left": "informal (du)",
+      "right": "formal (Sie)",
+      "rows": [
+        {
+          "a": "Liebe Anna, / Hallo Tom,",
+          "b": "Sehr geehrte Frau Weber,"
+        },
+        {
+          "a": "Danke für deine Mail!",
+          "b": "vielen Dank für Ihre Nachricht."
+        },
+        {
+          "a": "Viele Grüße / Bis bald!",
+          "b": "Mit freundlichen Grüßen"
+        }
+      ]
+    },
+    "Answer every point": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Greeting",
+          "de": [
+            "Liebe Anna,"
+          ]
+        },
+        {
+          "label": "Opening line",
+          "de": [
+            "danke für deine Einladung!"
+          ]
+        },
+        {
+          "label": "Point 1, 2, 3",
+          "de": [
+            "Ich komme gern.",
+            "Ich bringe einen Salat mit.",
+            "Um wie viel Uhr …?"
+          ]
+        },
+        {
+          "label": "Closing",
+          "de": [
+            "Ich freue mich!",
+            "Viele Grüße"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_2_schreiben_einladung": {
+    "Four things a plan must say": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "What",
+          "de": [
+            "Wir könnten ins Kino gehen."
+          ]
+        },
+        {
+          "label": "When",
+          "de": [
+            "am Samstag um acht"
+          ]
+        },
+        {
+          "label": "Where",
+          "de": [
+            "Wir treffen uns vor dem Kino."
+          ]
+        },
+        {
+          "label": "Ask back",
+          "de": [
+            "Hast du Lust?"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a2_2_suchbild_kinderzimmer": {
+    "Compounds in the bedroom: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "das Kind"
+            },
+            {
+              "text": "er",
+              "role": "joint"
+            },
+            {
+              "text": "das Bett",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Kinderbett",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "spielen"
+            },
+            {
+              "text": "das Zeug",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Spielzeug",
+          "gender": "n"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_suchbild_cafe": {
+    "-chen makes every word neuter": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "das Brot"
+            },
+            {
+              "text": "-chen",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Brötchen",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "die Tasse"
+            },
+            {
+              "text": "-chen",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Tässchen",
+          "gender": "n"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_lesen_arzt": {
+    "Seit wann? → seit + dative": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -1.6,
+          "to": 0,
+          "label": "how long already",
+          "de": "seit drei Tagen"
+        },
+        {
+          "at": 1.6,
+          "label": "how long still",
+          "de": "drei Tage krankgeschrieben"
+        }
+      ]
+    },
+    "Three numbers, three questions": {
+      "kind": "pairs",
+      "left": "number",
+      "right": "answers",
+      "rows": [
+        {
+          "a": "seit drei Tagen",
+          "b": "Seit wann?"
+        },
+        {
+          "a": "zwanzig Minuten",
+          "b": "Wie lange wartet er?"
+        },
+        {
+          "a": "38,5 Grad",
+          "b": "Wie hoch ist das Fieber?"
+        }
+      ]
+    }
+  },
+  "quest_a2_2_wortschatz": {
+    "Learn verbs with their partner": {
+      "kind": "pairs",
+      "left": "noun",
+      "right": "its verb",
+      "rows": [
+        {
+          "a": "einen Termin",
+          "b": "vereinbaren"
+        },
+        {
+          "a": "die Wohnung",
+          "b": "mieten"
+        },
+        {
+          "a": "ein Rezept",
+          "b": "bekommen"
+        },
+        {
+          "a": "Kleidung",
+          "b": "anprobieren"
+        }
+      ]
+    }
+  }
+}

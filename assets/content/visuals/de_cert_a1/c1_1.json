@@ -1,0 +1,965 @@
+{
+  "quest_c1_1_bildung": {
+    "The research cycle as noun + verb pairs": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "die Annahme",
+          "de": [
+            "eine Annahme treffen",
+            "eine Hypothese aufstellen"
+          ]
+        },
+        {
+          "label": "die Erhebung",
+          "de": [
+            "Daten erheben"
+          ]
+        },
+        {
+          "label": "die Auswertung",
+          "de": [
+            "Daten auswerten"
+          ]
+        },
+        {
+          "label": "der Nachweis",
+          "de": [
+            "einen Zusammenhang nachweisen"
+          ]
+        }
+      ]
+    },
+    "Claim words with their strength": {
+      "kind": "scale",
+      "low": "tentative",
+      "high": "proven",
+      "points": [
+        {
+          "at": 95,
+          "de": "beweisen, belegen",
+          "en": "prove, document"
+        },
+        {
+          "at": 70,
+          "de": "zeigen, nachweisen",
+          "en": "show, demonstrate"
+        },
+        {
+          "at": 45,
+          "de": "nahelegen, darauf hindeuten",
+          "en": "suggest, point to"
+        },
+        {
+          "at": 20,
+          "de": "vermuten, annehmen",
+          "en": "suspect, assume"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_nominalisierung": {
+    "Clause → phrase: five moves": {
+      "kind": "pairs",
+      "left": "clause",
+      "right": "noun phrase",
+      "rows": [
+        {
+          "a": "Die Preise steigen schnell.",
+          "b": "der schnelle Anstieg der Preise",
+          "note": "verb → noun; adverb → adjective; subject → genitive"
+        },
+        {
+          "a": "Man wertet die Daten aus.",
+          "b": "die Auswertung der Daten",
+          "note": "object → genitive"
+        },
+        {
+          "a": "nachdem die Firma gegründet wurde",
+          "b": "nach der Gründung der Firma",
+          "note": "conjunction → preposition"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_sprechen_darstellen": {
+    "Announce the structure, then follow it": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Announce",
+          "de": [
+            "Ich gehe in drei Schritten vor."
+          ]
+        },
+        {
+          "label": "Step 1",
+          "de": [
+            "Zunächst …"
+          ]
+        },
+        {
+          "label": "Step 2",
+          "de": [
+            "Im Anschluss daran …"
+          ]
+        },
+        {
+          "label": "Step 3",
+          "de": [
+            "Abschließend …"
+          ]
+        },
+        {
+          "label": "Close",
+          "de": [
+            "Damit komme ich zum Schluss."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_1_verbalisierung": {
+    "The preposition → conjunction map": {
+      "kind": "pairs",
+      "left": "preposition",
+      "right": "conjunction",
+      "rows": [
+        {
+          "a": "wegen / aufgrund",
+          "b": "weil / da"
+        },
+        {
+          "a": "trotz",
+          "b": "obwohl"
+        },
+        {
+          "a": "nach",
+          "b": "nachdem"
+        },
+        {
+          "a": "bei",
+          "b": "wenn / als"
+        },
+        {
+          "a": "durch",
+          "b": "indem"
+        },
+        {
+          "a": "zur / zum",
+          "b": "um … zu / damit"
+        }
+      ]
+    },
+    "Restore subject and tense": {
+      "kind": "pairs",
+      "left": "nominal",
+      "right": "verbal",
+      "rows": [
+        {
+          "a": "Nach Erhalt Ihrer Nachricht …",
+          "b": "Nachdem ich Ihre Nachricht erhalten hatte, …"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_tempuswahl": {
+    "Narrative: Präteritum main line, Plusquamperfekt for the step back": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -2.6,
+          "label": "Plusquamperfekt: the step back",
+          "de": "hatte gewartet"
+        },
+        {
+          "at": -1.4,
+          "to": -0.4,
+          "label": "Präteritum: the story line",
+          "de": "ging, sah, kam"
+        },
+        {
+          "at": 0,
+          "label": "Präsens: truths, drama",
+          "de": "geht, sieht"
+        },
+        {
+          "at": 1.8,
+          "label": "Futur",
+          "de": "wird kommen"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_passiversatz": {
+    "sein + zu (must / can), sich lassen (can), -bar (can)": {
+      "kind": "pairs",
+      "left": "substitute",
+      "right": "= passive with a modal",
+      "rows": [
+        {
+          "a": "Der Antrag ist bis Mai einzureichen.",
+          "b": "muss eingereicht werden"
+        },
+        {
+          "a": "Das lässt sich ändern.",
+          "b": "kann geändert werden"
+        },
+        {
+          "a": "Das ist machbar.",
+          "b": "kann gemacht werden"
+        }
+      ]
+    },
+    "bekommen / erhalten + Partizip II — the recipient passive": {
+      "kind": "pairs",
+      "left": "werden-passive",
+      "right": "recipient passive",
+      "rows": [
+        {
+          "a": "Ihm wurde der Preis verliehen.",
+          "b": "Er bekam den Preis verliehen."
+        }
+      ]
+    }
+  },
+  "quest_c1_1_bigtext_hinweise": {
+    "Instructions → sein + zu; possibilities → sich lassen / -bar": {
+      "kind": "pairs",
+      "left": "instruction",
+      "right": "possibility",
+      "rows": [
+        {
+          "a": "Fehler sind sofort zu melden.",
+          "b": "Das Passwort lässt sich jederzeit ändern."
+        }
+      ]
+    }
+  },
+  "quest_c1_1_hoeren_vorlesung": {
+    "Hedged claims: nahelegen, vermuten, halten für": {
+      "kind": "scale",
+      "low": "cautious",
+      "high": "confident",
+      "points": [
+        {
+          "at": 85,
+          "de": "Die Daten zeigen, dass …"
+        },
+        {
+          "at": 55,
+          "de": "Die Ergebnisse legen nahe, dass …"
+        },
+        {
+          "at": 25,
+          "de": "Man vermutet, dass …"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_bar_lich": {
+    "-bar: productive, 'can be …-ed'": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "mach"
+            },
+            {
+              "text": "-bar",
+              "role": "suffix"
+            }
+          ],
+          "result": "machbar",
+          "en": "can be done"
+        },
+        {
+          "parts": [
+            {
+              "text": "nachvollzieh"
+            },
+            {
+              "text": "-bar",
+              "role": "suffix"
+            }
+          ],
+          "result": "nachvollziehbar",
+          "en": "can be followed"
+        },
+        {
+          "parts": [
+            {
+              "text": "un",
+              "role": "prefix"
+            },
+            {
+              "text": "lös"
+            },
+            {
+              "text": "-bar",
+              "role": "suffix"
+            }
+          ],
+          "result": "unlösbar",
+          "en": "cannot be solved"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_sprechen_kurzcheck": {
+    "Unpack: preposition → conjunction, genitive → subject": {
+      "kind": "pairs",
+      "left": "dense",
+      "right": "spoken",
+      "rows": [
+        {
+          "a": "Wegen der Erkrankung des Kollegen …",
+          "b": "Weil der Kollege krank ist, …"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_konnektoren": {
+    "Register ladder": {
+      "kind": "scale",
+      "low": "everyday",
+      "high": "formal prose",
+      "points": [
+        {
+          "at": 90,
+          "de": "zumal, sofern, insofern … als"
+        },
+        {
+          "at": 60,
+          "de": "da, falls, soweit"
+        },
+        {
+          "at": 25,
+          "de": "weil, wenn"
+        }
+      ]
+    },
+    "geschweige denn = let alone": {
+      "kind": "pairs",
+      "left": "German",
+      "right": "English",
+      "rows": [
+        {
+          "a": "Er kann kaum laufen, geschweige denn rennen.",
+          "b": "He can barely walk, let alone run."
+        }
+      ]
+    }
+  },
+  "quest_c1_1_konjunktionaladverbien": {
+    "Register ladder": {
+      "kind": "pairs",
+      "left": "everyday",
+      "right": "written",
+      "rows": [
+        {
+          "a": "aber",
+          "b": "allerdings, freilich, gleichwohl"
+        },
+        {
+          "a": "dagegen",
+          "b": "hingegen, indes"
+        },
+        {
+          "a": "also, deshalb",
+          "b": "folglich, somit, mithin"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_adverbialsaetze": {
+    "Causal: three columns": {
+      "kind": "bracket",
+      "columns": [
+        "Nebensatz",
+        "Hauptsatz",
+        "nominal"
+      ],
+      "hot": [
+        0
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Weil es regnete, …",
+            "Es regnete. Deshalb …",
+            "Wegen des Regens …"
+          ]
+        },
+        {
+          "cells": [
+            "Da die Kosten steigen, …",
+            "Die Kosten steigen. Daher …",
+            "Aufgrund der steigenden Kosten …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_1_adverbialsaetze_2": {
+    "Nine relations, one habit": {
+      "kind": "bracket",
+      "columns": [
+        "Nebensatz",
+        "Hauptsatz",
+        "nominal"
+      ],
+      "hot": [
+        0
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Obwohl es regnete, …",
+            "Es regnete. Trotzdem …",
+            "Trotz des Regens …"
+          ]
+        },
+        {
+          "cells": [
+            "Es regnete stark, sodass das Spiel ausfiel.",
+            "Es regnete stark. Folglich fiel das Spiel aus.",
+            "Infolge des starken Regens fiel das Spiel aus."
+          ]
+        },
+        {
+          "cells": [
+            "Indem man spart, …",
+            "Man spart. Dadurch …",
+            "Durch Sparen …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_1_genitiv_schriftsprache": {
+    "The letter-writer's three": {
+      "kind": "pairs",
+      "left": "preposition",
+      "right": "example",
+      "rows": [
+        {
+          "a": "anlässlich (on the occasion of)",
+          "b": "anlässlich Ihres Jubiläums"
+        },
+        {
+          "a": "bezüglich (regarding)",
+          "b": "bezüglich Ihrer Anfrage"
+        },
+        {
+          "a": "mangels (for lack of)",
+          "b": "mangels Beweisen"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_adjektive_praep_kasus": {
+    "Case before adjective": {
+      "kind": "pairs",
+      "left": "English",
+      "right": "German: the case does the work",
+      "rows": [
+        {
+          "a": "aware of the risk",
+          "b": "sich des Risikos bewusst (Gen)"
+        },
+        {
+          "a": "grateful to her",
+          "b": "ihr dankbar (Dat)"
+        },
+        {
+          "a": "used to the noise",
+          "b": "den Lärm gewohnt (Akk)"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_lesen_wissenschaft": {
+    "Assertion vs supposition": {
+      "kind": "pairs",
+      "left": "shown",
+      "right": "only suspected",
+      "rows": [
+        {
+          "a": "Studien belegen, dass …",
+          "b": "Man vermutet, dass … / Es könnte sein, dass …"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_lesen_saetze_einordnen": {
+    "Find the backward pointer in each candidate": {
+      "kind": "textMap",
+      "blocks": [
+        {
+          "label": "the sentence before",
+          "de": "Viele Städte führen Tempo 30 ein."
+        },
+        {
+          "label": "the gap: points back",
+          "de": "Diese Maßnahme soll Unfälle verhindern.",
+          "focus": [
+            "Diese Maßnahme"
+          ]
+        },
+        {
+          "label": "the sentence after",
+          "de": "Dabei zeigen erste Zahlen bereits Erfolge.",
+          "focus": [
+            "Dabei"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_1_partizipialsatz": {
+    "Unfold: add the conjunction and the subject back": {
+      "kind": "pairs",
+      "left": "participial clause",
+      "right": "full clause",
+      "rows": [
+        {
+          "a": "In Wien angekommen, rief er sie an.",
+          "b": "Als er in Wien angekommen war, rief er sie an."
+        },
+        {
+          "a": "Laut lachend verließ sie den Raum.",
+          "b": "Während sie laut lachte, verließ sie den Raum."
+        }
+      ]
+    }
+  },
+  "quest_c1_1_attribute": {
+    "Head noun first — always": {
+      "kind": "textMap",
+      "blocks": [
+        {
+          "label": "head noun",
+          "de": "die Ergebnisse",
+          "focus": [
+            "Ergebnisse"
+          ]
+        },
+        {
+          "label": "+ genitive",
+          "de": "die Ergebnisse der Studie",
+          "focus": [
+            "der Studie"
+          ]
+        },
+        {
+          "label": "+ genitive of the genitive",
+          "de": "die Ergebnisse der Studie des Instituts",
+          "focus": [
+            "des Instituts"
+          ]
+        },
+        {
+          "label": "+ preposition",
+          "de": "die Ergebnisse der Studie des Instituts zum Klima",
+          "focus": [
+            "zum Klima"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_1_diktat_nominalstil": {
+    "Compounds: one word, with or without Fugen-s": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Forschung"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "ergebnis",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Forschungsergebnis",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "Klima"
+            },
+            {
+              "text": "wandel",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Klimawandel",
+          "gender": "m"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_sprechen_grafik": {
+    "Describe the movement with von … auf … um …": {
+      "kind": "pairs",
+      "left": "preposition",
+      "right": "example",
+      "rows": [
+        {
+          "a": "von … auf …",
+          "b": "von 20 auf 30 Prozent gestiegen"
+        },
+        {
+          "a": "um …",
+          "b": "um 10 Prozentpunkte gestiegen"
+        },
+        {
+          "a": "auf … gesunken",
+          "b": "auf 5 Prozent gesunken"
+        }
+      ]
+    },
+    "Frame – striking point – trend – comparison – summary": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Frame",
+          "de": [
+            "Die Grafik zeigt …",
+            "Die Daten stammen von …"
+          ]
+        },
+        {
+          "label": "Striking point",
+          "de": [
+            "Auffällig ist, dass …"
+          ]
+        },
+        {
+          "label": "Trend",
+          "de": [
+            "Der Anteil ist kontinuierlich gestiegen."
+          ]
+        },
+        {
+          "label": "Comparison",
+          "de": [
+            "Im Vergleich zu …"
+          ]
+        },
+        {
+          "label": "Summary",
+          "de": [
+            "Insgesamt lässt sich sagen, …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_1_hoeren_podiumsdiskussion": {
+    "Position + condition": {
+      "kind": "pairs",
+      "left": "position",
+      "right": "the condition that limits it",
+      "rows": [
+        {
+          "a": "Ich bin für das Projekt,",
+          "b": "sofern die Finanzierung gesichert ist."
+        }
+      ]
+    }
+  },
+  "quest_c1_1_hoeren_vortrag_detail": {
+    "nicht … sondern = the detail that matters": {
+      "kind": "pairs",
+      "left": "the wrong idea",
+      "right": "the answer",
+      "rows": [
+        {
+          "a": "nicht die Zeit am Bildschirm,",
+          "b": "sondern die ständige Unterbrechung"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_lesen_essay": {
+    "Common view vs author's view": {
+      "kind": "pairs",
+      "left": "others think",
+      "right": "the author thinks",
+      "rows": [
+        {
+          "a": "Gemeinhin gilt …, man glaubt …",
+          "b": "Dabei …, Meines Erachtens …"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_lesen_sprachbausteine": {
+    "Grammar first: word class and form": {
+      "kind": "moves",
+      "caption": "Check the form first and the meaning second.",
+      "moves": [
+        {
+          "label": "Word class",
+          "de": [
+            "article? preposition? verb? connector?"
+          ]
+        },
+        {
+          "label": "Form",
+          "de": [
+            "case, tense, verb position"
+          ]
+        },
+        {
+          "label": "Meaning",
+          "de": [
+            "only now: which of the forms that fit makes sense?"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_1_sprechen_dialog": {
+    "Defend with a concession and a condition": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Concede",
+          "de": [
+            "Ich räume ein, dass …"
+          ]
+        },
+        {
+          "label": "Condition",
+          "de": [
+            "Das gilt aber nur, sofern …"
+          ]
+        },
+        {
+          "label": "Hold",
+          "de": [
+            "Insofern halte ich an meiner Position fest."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_1_schreiben_zusammenfassung": {
+    "Four moves and nothing else": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Source",
+          "de": [
+            "Der Bericht des … befasst sich mit …"
+          ]
+        },
+        {
+          "label": "Main claim",
+          "de": [
+            "Die Autoren stellen fest, dass …"
+          ]
+        },
+        {
+          "label": "Evidence",
+          "de": [
+            "Sie stützen sich dabei auf …"
+          ]
+        },
+        {
+          "label": "Conclusion",
+          "de": [
+            "Abschließend empfehlen sie, …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_1_partizipialattribute": {
+    "zu + Partizip I = must / can be done": {
+      "kind": "pairs",
+      "left": "attribute",
+      "right": "means",
+      "rows": [
+        {
+          "a": "die zu erwartenden Kosten",
+          "b": "die Kosten, die zu erwarten sind"
+        },
+        {
+          "a": "ein nicht zu unterschätzendes Risiko",
+          "b": "ein Risiko, das man nicht unterschätzen darf"
+        }
+      ]
+    },
+    "Unpacking: article → noun → back to the middle": {
+      "kind": "bracket",
+      "columns": [
+        "Article",
+        "Middle",
+        "Participle",
+        "Noun"
+      ],
+      "hot": [
+        0,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "die",
+            "seit Jahren",
+            "steigenden",
+            "Mieten"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_1_konnektoren_zweiteilig": {
+    "Position 1 or position 0?": {
+      "kind": "pairs",
+      "left": "pair",
+      "right": "word order",
+      "rows": [
+        {
+          "a": "Zwar ist es teuer, aber …",
+          "b": "zwar takes position 1 → verb next"
+        },
+        {
+          "a": "Entweder du kommst, oder …",
+          "b": "entweder: position 0 or 1"
+        },
+        {
+          "a": "Je mehr ich lese, desto …",
+          "b": "je: verb last; desto: verb next"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_funktionsverbgefuege": {
+    "Active or passive: the light verb decides": {
+      "kind": "pairs",
+      "left": "active (someone does it)",
+      "right": "passive (it happens)",
+      "rows": [
+        {
+          "a": "zur Verfügung stellen",
+          "b": "zur Verfügung stehen"
+        },
+        {
+          "a": "in Kraft setzen",
+          "b": "in Kraft treten"
+        },
+        {
+          "a": "zur Diskussion stellen",
+          "b": "zur Diskussion stehen"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_wortschatz": {
+    "Learn the noun with its verb": {
+      "kind": "pairs",
+      "left": "noun",
+      "right": "its verb",
+      "rows": [
+        {
+          "a": "eine These",
+          "b": "aufstellen"
+        },
+        {
+          "a": "einen Antrag",
+          "b": "stellen"
+        },
+        {
+          "a": "Kritik",
+          "b": "üben"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_suchbild_krankenhaus": {
+    "Compounds in the hospital room: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "der Tropf"
+            },
+            {
+              "text": "der Ständer",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Tropfständer",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "krank"
+            },
+            {
+              "text": "en",
+              "role": "joint"
+            },
+            {
+              "text": "das Bett",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Krankenbett",
+          "gender": "n"
+        }
+      ]
+    }
+  },
+  "quest_c1_1_suchbild_theater": {
+    "Compounds in the backstage: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "die Bühne"
+            },
+            {
+              "text": "n",
+              "role": "joint"
+            },
+            {
+              "text": "das Bild",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Bühnenbild",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "schminken"
+            },
+            {
+              "text": "der Tisch",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Schminktisch",
+          "gender": "m"
+        }
+      ]
+    }
+  }
+}

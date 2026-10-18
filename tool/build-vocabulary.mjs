@@ -63,7 +63,25 @@ const OVERRIDES = {
 	einen: { drop: true },
 	Antecedent: { drop: true },
 	'strukturelle Mehrdeutigkeit': { drop: true },
-	'Werkstatt-Witz': { drop: true }
+	'Werkstatt-Witz': { drop: true },
+	// English descriptions used as grid row labels (C2.2 philosophy, focus,
+	// implicature): a label, not a German word to learn.
+	'categorical imperative': { drop: true },
+	'means and end': { drop: true },
+	'instrumental reason': { drop: true },
+	'Weber’s two ethics': { drop: true },
+	'contrastive fronting': { drop: true },
+	'precisely because': { drop: true },
+	'statement as request': { drop: true },
+	'veiled criticism': { drop: true },
+	'saying the opposite': { drop: true },
+	'playing danger down': { drop: true },
+	'unstated reference': { drop: true },
+	'host at midnight': { drop: true },
+	'loaded question': { drop: true },
+	'rhetorical question': { drop: true },
+	'saying too little': { drop: true },
+	'reference-letter code': { drop: true }
 };
 
 /**

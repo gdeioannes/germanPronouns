@@ -1,3068 +1,3101 @@
 [
-  {
-    "id": "quest_c2_1_wirtschaft",
-    "sentences": [
-      {
-        "sentence": "Nach zwei Quartalen mit rückläufigem Auftragseingang spricht das Institut offen von einer ____. (recession)",
-        "options": [
-          "Rezension",
-          "Regression",
-          "Rezeption"
-        ]
-      },
-      {
-        "sentence": "Die ____ hat sich im dritten Quartal überraschend belebt. (economic activity, the cycle)",
-        "options": [
-          "Konjunktion",
-          "Konjektur",
-          "Konkurrenz"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Trotz gestiegener Umsätze fiel die ____ der Anleger unter zwei Prozent. (return on capital)",
-        "options": [
-          "Rente",
-          "Rate",
-          "Rabatt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Geschäftsführung sah sich gezwungen, beim Amtsgericht ____ anzumelden. (insolvency)",
-        "options": [
-          "Intoleranz",
-          "Insistenz",
-          "Inkompetenz"
-        ]
-      },
-      {
-        "sentence": "Gegen den Bescheid des Finanzamts legte die Firma fristgerecht ____ ein. (objection to an official decision)",
-        "options": [
-          "Anspruch",
-          "Ausspruch",
-          "Zuspruch"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Da das Urteil erster Instanz anfechtbar war, ging der Kläger in ____. (appeal to the next court)",
-        "options": [
-          "Bewerbung",
-          "Behandlung",
-          "Beratung"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Um den Prozess abzukürzen, schlossen die Parteien einen ____. (settlement)",
-        "options": [
-          "Verzicht",
-          "Vermerk",
-          "Verein"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Zentralbank hob den ____ um einen viertel Prozentpunkt an. (key interest rate)",
-        "options": [
-          "Leitsatz",
-          "Zinseszins",
-          "Leitstern"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Regierung erließ eine ____, die die Preisangaben im Onlinehandel regelt. (regulation issued by the executive)",
-        "options": [
-          "Vereinbarung",
-          "Verabredung",
-          "Verwaltung"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Nach zähen Verhandlungen einigten sich Gewerkschaft und Arbeitgeber auf einen neuen ____. (collective wage agreement)",
-        "options": [
-          "Mietvertrag",
-          "Arbeitsvertrag",
-          "Tarifwechsel"
-        ]
-      },
-      {
-        "sentence": "Das Kartellamt untersagte die ____ der beiden Energiekonzerne. (merger)",
-        "options": [
-          "Fission",
-          "Infusion",
-          "Konfusion"
-        ]
-      },
-      {
-        "sentence": "Die Staatsanwaltschaft wirft dem Konzern ____ in Millionenhöhe vor. (tax evasion)",
-        "options": [
-          "Steuerbefreiung",
-          "Steuererhöhung",
-          "Steuerhinterlegung"
-        ]
-      },
-      {
-        "sentence": "Der Insolvenzverwalter prüft, ob die Gläubiger ihre ____ noch geltend machen können. (claims, receivables)",
-        "options": [
-          "Förderungen",
-          "Anforderungen",
-          "Herausforderungen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Für Schäden aus dem Vertrag ____ der Lieferant nur bei grober Fahrlässigkeit. (is liable)",
-        "options": [
-          "heftet",
-          "hafte",
-          "haftest"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Nach Ablauf der Frist wird das Urteil ____. (final and legally binding)",
-        "options": [
-          "rechtzeitig",
-          "rechtmäßig",
-          "rechthaberisch"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Steigende Energiepreise treiben die ____ auf den höchsten Stand seit Jahrzehnten. (rise in the general price level)",
-        "options": [
-          "Deflation",
-          "Infektion",
-          "Reflation"
-        ]
-      },
-      {
-        "sentence": "Mit einer Steuersenkung will die Regierung die ____ ankurbeln. (demand)",
-        "options": [
-          "Anfrage",
-          "Rückfrage",
-          "Abfrage"
-        ]
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Der Konzern meldete für das vergangene Jahr einen ____ von 200 Millionen Euro. (loss)",
-        "acceptedAnswers": [
-          "Verlust",
-          "Fehlbetrag"
-        ],
-        "english": "The group reported a loss of 200 million euros for the past year.",
-        "hint": "English: loss",
-        "subjectKey": "s3",
-        "categoryLabel": "Fachwortschatz",
-        "options": [
-          "Verlass",
-          "Verlauf",
-          "Verleih"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Bank verlangt für den Kredit eine ____ in Form einer Grundschuld. (collateral)",
-        "acceptedAnswers": [
-          "Sicherheit",
-          "Kreditsicherheit",
-          "Sicherheitsleistung"
-        ],
-        "english": "The bank requires collateral for the loan in the form of a land charge.",
-        "hint": "English: collateral, security",
-        "subjectKey": "s7",
-        "categoryLabel": "Fachwortschatz",
-        "options": [
-          "Versicherung",
-          "Sichtung",
-          "Sachlichkeit"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_register",
-    "sentences": [
-      {
-        "sentence": "Chat: „Hab das Paket immer noch nicht gekriegt.“ → Brief: „Ich habe die Sendung bisher nicht ____.“ (received)",
-        "options": [
-          "gekriegt",
-          "erhielt",
-          "empfangt"
-        ]
-      },
-      {
-        "sentence": "Chat: „Das Ding ist kaputt.“ → Reklamation: „Das Gerät ist ____.“ (defective)",
-        "options": [
-          "kaputt",
-          "defektiv",
-          "hinüber"
-        ]
-      },
-      {
-        "sentence": "Chat: „Jemand hat mein Rad geklaut.“ → Anzeige: „Mein Fahrrad wurde ____.“ (stolen)",
-        "options": [
-          "geklaut",
-          "gemopst",
-          "entwandt"
-        ]
-      },
-      {
-        "sentence": "Chat: „Der Typ vom Support sagt, er muss das erst checken.“ → Bericht: „Der Mitarbeiter teilte mit, er müsse den Sachverhalt zunächst ____.“ (check)",
-        "options": [
-          "checken",
-          "abchecken",
-          "überprüft"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Chat: „Wir brauchen mehr Leute.“ → Antrag: „Wir ____ zusätzliches Personal.“ (require)",
-        "options": [
-          "benötigt",
-          "bedürfen",
-          "benötigst"
-        ],
-        "hard": true,
-        "keepCue": true
-      },
-      {
-        "sentence": "Chat: „Ich bin echt sauer.“ → Beschwerde: „Ich bin über den Vorgang äußerst ____.“ (annoyed)",
-        "options": [
-          "sauer",
-          "stinkig",
-          "verärgernd"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Chat: „Sag dem Chef, dass ich später komme.“ → Büro: „Bitte ____ Sie der Geschäftsleitung mit, dass ich mich verspäte.“ (inform)",
-        "options": [
-          "sagen",
-          "geben",
-          "melden"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Chat: „Mein Job ist weg.“ → Mitteilung: „Die ____ wurde gestrichen.“ (post)",
-        "options": [
-          "Job",
-          "Stellage",
-          "Maloche"
-        ]
-      },
-      {
-        "sentence": "Chat: „Das hat ’ne Menge gekostet.“ → Bericht: „Dies verursachte ____ Kosten.“ (considerable)",
-        "options": [
-          "jede Menge",
-          "erheblichen",
-          "massig"
-        ]
-      },
-      {
-        "sentence": "Chat: „Guck dir das Bild mal genau an.“ → Kunstführer: „____ Sie das Gemälde aus der Nähe.“ (view)",
-        "options": [
-          "Gucken",
-          "Schauen",
-          "Betrachtet"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Chat: „Er ist letzte Woche gestorben.“ → Traueranzeige: „Er ist am 3. März ____.“ (passed away)",
-        "options": [
-          "abgekratzt",
-          "krepiert",
-          "versterben"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Chat: „Wir fangen um neun an.“ → Programm: „Die Veranstaltung ____ um 9 Uhr.“ (begins)",
-        "options": [
-          "anfängt",
-          "losgeht",
-          "beginnte"
-        ],
-        "keepCue": true
-      },
-      {
-        "sentence": "Chat: „Kannst du mir helfen?“ → Anfrage: „Wären Sie so freundlich, mich dabei zu ____?“ (support)",
-        "options": [
-          "helfen",
-          "unterstütze",
-          "beistehen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Chat: „Das kapier ich nicht.“ → E-Mail: „Dieser Punkt ist mir nicht ____.“ (comprehensible)",
-        "options": [
-          "kapiert",
-          "nachvollziehen",
-          "verstanden"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Chat: „Das kriegen wir schon hin.“ → Bericht: „Wir werden dies ____.“ (accomplish, manage – formal)",
-        "options": [
-          "hinkriegen",
-          "deichseln",
-          "bewerkstelligt"
-        ],
-        "hard": true,
-        "keepCue": true
-      },
-      {
-        "sentence": "Brief: „Ich habe den Betrag erhalten.“ → Chat: „Hab die ____ gekriegt.“ (money – colloquial)",
-        "options": [
-          "Betrag",
-          "Summe",
-          "Zahlung"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Bericht: „Sie äußerte, dass sie nicht teilnehmen werde.“ → Chat: „Sie hat ____, dass sie nicht kommt.“ (said – neutral)",
-        "options": [
-          "geäußert",
-          "mitgeteilt",
-          "verlautbart"
-        ]
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Chat: „Der Chef hat mich voll angemotzt.“ → Bericht: „Der Vorgesetzte hat mich ____.“ (reprimanded)",
-        "acceptedAnswers": [
-          "zurechtgewiesen",
-          "gerügt",
-          "geruegt",
-          "getadelt",
-          "kritisiert",
-          "ermahnt"
-        ],
-        "english": "The boss really had a go at me. → My superior reprimanded me.",
-        "subjectKey": "s5",
-        "categoryLabel": "Register",
-        "options": [
-          "angemotzt",
-          "zusammengestaucht",
-          "zurechtgewiest"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Chat: „Ich hau jetzt ab.“ → Brief: „Ich werde mich nun ____.“ (take my leave)",
-        "acceptedAnswers": [
-          "verabschieden",
-          "empfehlen",
-          "zurückziehen",
-          "zurueckziehen"
-        ],
-        "english": "I'm off now. → I shall now take my leave.",
-        "subjectKey": "s11",
-        "categoryLabel": "Register",
-        "options": [
-          "abhauen",
-          "verdrücken",
-          "verabschiedet"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_kollokationen",
-    "sentences": [
-      {
-        "sentence": "Nach langem Zögern ____ der Aufsichtsrat eine weitreichende Entscheidung. (took – Präteritum)",
-        "options": [
-          "machte",
-          "stellte",
-          "nahm"
-        ]
-      },
-      {
-        "sentence": "Die Opposition ____ scharfe Kritik an dem Vorhaben. (voiced – Präteritum)",
-        "options": [
-          "machte",
-          "gab",
-          "stellte"
-        ]
-      },
-      {
-        "sentence": "Angesichts der Lage ____ die Regierung umgehend Maßnahmen. (took – Präteritum)",
-        "options": [
-          "nahm",
-          "machte",
-          "setzte"
-        ]
-      },
-      {
-        "sentence": "Der Verein hat beim Gericht einen Antrag auf einstweilige Verfügung ____. (filed – Partizip II)",
-        "options": [
-          "gemacht",
-          "gelegt",
-          "gegeben"
-        ]
-      },
-      {
-        "sentence": "Nach der Niederlage ____ die Mannschaft neue Hoffnung aus dem Nachwuchs. (drew – Präteritum)",
-        "options": [
-          "nahm",
-          "machte",
-          "holte"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Bürgerinitiative ____ jahrelang Widerstand gegen den Ausbau. (put up – Präteritum)",
-        "options": [
-          "machte",
-          "gab",
-          "übte"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Wer investiert, ____ ein Risiko ein. (takes)",
-        "options": [
-          "nimmt",
-          "macht",
-          "hält"
-        ]
-      },
-      {
-        "sentence": "Der Minister ____ Zweifel an der Verlässlichkeit der Zahlen. (harboured – Präteritum)",
-        "options": [
-          "machte",
-          "trug",
-          "stellte"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Studie ____ die Frage auf, ob das Modell überhaupt trägt. (raises)",
-        "options": [
-          "stellt",
-          "hebt",
-          "legt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Mit einer schlichten Feier ____ die Belegschaft Abschied von ihrem Gründer. (took leave – Präteritum)",
-        "options": [
-          "machte",
-          "gab",
-          "hielt"
-        ]
-      },
-      {
-        "sentence": "Lobbyisten ____ erheblichen Einfluss auf den Gesetzestext aus. (exerted – Präteritum)",
-        "options": [
-          "machten",
-          "gaben",
-          "nahmen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Behörde ____ die Gefahr, bevor sie sich ausbreiten konnte. (averted – Präteritum: eine Gefahr …)",
-        "options": [
-          "wendete",
-          "wehrte",
-          "bannt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Ihre Warnung ____ auf taube Ohren. (fell – Präteritum)",
-        "options": [
-          "fiel",
-          "kam",
-          "ging"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Dieses Argument ____ schwer. (carries weight)",
-        "options": [
-          "trägt",
-          "hebt",
-          "zählt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Er hatte einen ____ Grund, der Sitzung fernzubleiben. (valid, good – the fixed adjective)",
-        "options": [
-          "trifftigen",
-          "triftiger",
-          "triftigem"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Das Team musste eine ____ Niederlage hinnehmen. (bitter, heavy)",
-        "options": [
-          "herben",
-          "bitteren",
-          "saure"
-        ]
-      },
-      {
-        "sentence": "Sie brachte ein ____ Argument vor. (sound, cogent)",
-        "options": [
-          "stichhaltige",
-          "stichhaltigen",
-          "tiefes"
-        ]
-      },
-      {
-        "sentence": "Die Debatte ____ sich am Abend weiter zu. (came to a head – Präteritum)",
-        "options": [
-          "schärfte",
-          "spitzt",
-          "spitzten"
-        ],
-        "hard": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Die Firma muss die Konsequenzen ihres Handelns ____. (bear – Infinitiv)",
-        "acceptedAnswers": [
-          "tragen"
-        ],
-        "english": "The company must bear the consequences of its actions.",
-        "subjectKey": "s13",
-        "categoryLabel": "Kollokation",
-        "options": [
-          "machen",
-          "nehmen",
-          "haben"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Polizei hat gegen den Fahrer Anzeige ____. (filed – Partizip II)",
-        "acceptedAnswers": [
-          "erstattet"
-        ],
-        "english": "The police have filed charges against the driver.",
-        "subjectKey": "s3",
-        "categoryLabel": "Kollokation",
-        "options": [
-          "gegeben",
-          "geleistet",
-          "eingelegt"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_valenz",
-    "sentences": [
-      {
-        "sentence": "Die Stadt gedachte ____ des Anschlags. (die Opfer)",
-        "options": [
-          "die Opfer",
-          "den Opfern",
-          "der Opfern"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Dieser Vorschlag bedarf ____. (eine gründliche Prüfung)",
-        "options": [
-          "eine gründliche Prüfung",
-          "einer gründliche Prüfung",
-          "einer gründlichen Prüfungen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Partei erfreut sich ____. (wachsende Zustimmung)",
-        "options": [
-          "wachsende Zustimmung",
-          "wachsenden Zustimmung",
-          "wachsende Zustimmungen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Man beschuldigte den Manager ____. (der Betrug)",
-        "options": [
-          "den Betrug",
-          "dem Betrug",
-          "des Betrug"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Richter enthob ____ seines Amtes. (der Bürgermeister)",
-        "options": [
-          "dem Bürgermeister",
-          "des Bürgermeisters",
-          "der Bürgermeister"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Er widersprach ____ in mehreren Punkten. (der Bericht)",
-        "options": [
-          "den Bericht",
-          "des Berichts",
-          "der Bericht"
-        ]
-      },
-      {
-        "sentence": "Die Ministerin wich ____ geschickt aus. (die Frage)",
-        "options": [
-          "die Frage",
-          "dem Frage",
-          "von der Frage"
-        ]
-      },
-      {
-        "sentence": "Auf dem Flur begegnete sie ____. (ein alter Bekannter)",
-        "options": [
-          "einen alten Bekannten",
-          "einem alten Bekannter",
-          "einem alter Bekannten"
-        ]
-      },
-      {
-        "sentence": "Der Skandal kostete ____ das Amt. (der Minister)",
-        "options": [
-          "des Ministers",
-          "der Minister",
-          "den Ministern"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Sie lehrte ____ das Geigenspiel. (ihr Sohn)",
-        "options": [
-          "ihres Sohnes",
-          "ihr Sohn",
-          "ihren Sohnes"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Er rächte sich ____ für die Demütigung. (sein Rivale)",
-        "options": [
-          "an seinem Rival",
-          "seinem Rivalen",
-          "bei seinem Rivalen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Nichts konnte sie ____ abhalten. (die Reise)",
-        "options": [
-          "von die Reise",
-          "der Reise",
-          "an der Reise"
-        ]
-      },
-      {
-        "sentence": "Die Firma verdächtigt ____ der Industriespionage. (ein Mitarbeiter)",
-        "options": [
-          "einem Mitarbeiter",
-          "eines Mitarbeiters",
-          "ein Mitarbeiter"
-        ]
-      },
-      {
-        "sentence": "Sie beraubten ____ seiner Freiheit. (der Gefangene)",
-        "options": [
-          "dem Gefangenen",
-          "des Gefangenen",
-          "den Gefangene"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Er besteht ____. (seine Rechte)",
-        "options": [
-          "an seinen Rechten",
-          "seine Rechte",
-          "auf seinem Rechten"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Man nannte ihn ____. (ein Verräter)",
-        "options": [
-          "ein Verräter",
-          "einem Verräter",
-          "eines Verräters"
-        ]
-      },
-      {
-        "sentence": "Die Regierung enthielt sich ____. (eine Stellungnahme)",
-        "options": [
-          "eine Stellungnahme",
-          "von einer Stellungnahme",
-          "einer Stellungnahmen"
-        ]
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Der Verein entledigte sich ____. (seine Schulden)",
-        "acceptedAnswers": [
-          "seiner Schulden"
-        ],
-        "english": "The club rid itself of its debts.",
-        "subjectKey": "s16",
-        "categoryLabel": "Ergänzung",
-        "options": [
-          "seine Schulden",
-          "seinen Schulden",
-          "von seinen Schulden"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Man versicherte ____ der vollen Unterstützung. (der Bürgermeister)",
-        "acceptedAnswers": [
-          "den Bürgermeister",
-          "den Buergermeister"
-        ],
-        "english": "They assured the mayor of their full support.",
-        "subjectKey": "s12",
-        "categoryLabel": "Ergänzung",
-        "options": [
-          "dem Bürgermeister",
-          "der Bürgermeister",
-          "des Bürgermeisters"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_komposita",
-    "sentences": [
-      {
-        "sentence": "Der ____ für Pflegekräfte ist wie leer gefegt. (Arbeit + Markt)",
-        "options": [
-          "Arbeitmarkt",
-          "Arbeitenmarkt",
-          "Marktarbeit"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Laut ____ darf eine Prüfung nur einmal wiederholt werden. (Prüfung + Ordnung)",
-        "options": [
-          "Prüfungordnung",
-          "Prüfungenordnung",
-          "Ordnungsprüfung"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Im ____ ist ab Januar noch ein Platz frei. (Kind + Garten)",
-        "options": [
-          "Kindgarten",
-          "Kindesgarten",
-          "Kindsgarten"
-        ]
-      },
-      {
-        "sentence": "Sie trug eine dunkle ____. (Sonne + Brille)",
-        "options": [
-          "Sonnebrille",
-          "Sonnesbrille",
-          "Sonnbrille"
-        ]
-      },
-      {
-        "sentence": "Die ____ am Bahnhof hat bis Mitternacht geöffnet. (Buch + Handlung)",
-        "options": [
-          "Buchshandlung",
-          "Buchehandlung",
-          "Handlungsbuch"
-        ]
-      },
-      {
-        "sentence": "Die ____ auf dieser Strecke beträgt 80 km/h. (die Begrenzung der Geschwindigkeit → ein Wort)",
-        "options": [
-          "Geschwindigkeitbegrenzung",
-          "Begrenzungsgeschwindigkeit",
-          "Geschwindigkeitenbegrenzung"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die ____ ist im Grundgesetz garantiert. (die Freiheit der Wissenschaft → ein Wort)",
-        "options": [
-          "Wissenschaftfreiheit",
-          "Freiheitswissenschaft",
-          "Wissenschaftenfreiheit"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Sonntags gibt es bei uns ____ mit Knödeln. (Schwein + Braten)",
-        "options": [
-          "Schweinbraten",
-          "Schweinenbraten",
-          "Bratenschwein"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Er las die Schlagzeile in der ____. (Tag + Zeitung)",
-        "options": [
-          "Tagzeitung",
-          "Tagezeitung",
-          "Zeitungstag"
-        ]
-      },
-      {
-        "sentence": "Das ____ hat die Verordnung gekippt. (das Gericht für die Verfassung des Bundes → ein Wort)",
-        "options": [
-          "Bundverfassungsgericht",
-          "Bundesverfassunggericht",
-          "Verfassungsbundesgericht"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der ____ steigt ab Januar um 0,2 Prozentpunkte. (der Beitrag zur Versicherung der Arbeitslosen → ein Wort)",
-        "options": [
-          "Arbeitslosversicherungsbeitrag",
-          "Arbeitslosenversicherungbeitrag",
-          "Arbeitslosenbeitragsversicherung"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Sie hat morgen einen Termin beim ____. (Frau + Arzt)",
-        "options": [
-          "Frauarzt",
-          "Frausarzt",
-          "Arztfrau"
-        ]
-      },
-      {
-        "sentence": "Im ____ standen alle Bände der Reihe. (Bücher + Regal)",
-        "options": [
-          "Büchersregal",
-          "Bucherregal",
-          "Regalbücher"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die ____ hielt direkt am Marktplatz. (Straße + Bahn)",
-        "options": [
-          "Straßebahn",
-          "Straßbahn",
-          "Bahnstraße"
-        ]
-      },
-      {
-        "sentence": "Er schrieb ihr einen ____. (Liebe + Brief)",
-        "options": [
-          "Liebebrief",
-          "Liebenbrief",
-          "Briefliebe"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "An der ____ hängt ein Hinweisschild. (Haus + Tür)",
-        "options": [
-          "Häusertür",
-          "Hausetür",
-          "Türhaus"
-        ]
-      },
-      {
-        "sentence": "Die Organisation dokumentiert Verletzungen der ____ in über hundert Ländern. (Mensch + Recht, Plural)",
-        "options": [
-          "Menschrechte",
-          "Menschsrechte",
-          "Menschenrecht"
-        ],
-        "hard": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Die ____ der Stadt hat sich seit 1990 verdoppelt. (Bevölkerung + Zahl)",
-        "acceptedAnswers": [
-          "Bevölkerungszahl",
-          "Bevoelkerungszahl"
-        ],
-        "english": "The city's population has doubled since 1990.",
-        "subjectKey": "s0",
-        "categoryLabel": "Kompositum",
-        "options": [
-          "Bevölkerungzahl",
-          "Zahlbevölkerung",
-          "Bevölkerungenzahl"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Auf dem ____ gab es frisches Gemüse aus der Region. (Woche + Markt)",
-        "acceptedAnswers": [
-          "Wochenmarkt"
-        ],
-        "english": "At the weekly market there were fresh local vegetables.",
-        "subjectKey": "s8",
-        "categoryLabel": "Kompositum",
-        "options": [
-          "Wochemarkt",
-          "Wochsmarkt",
-          "Marktwoche"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_komparation_advanced",
-    "sentences": [
-      {
-        "sentence": "Die Studie gilt als ____ Untersuchungen, die es zu diesem Thema gibt. (one of the most thorough)",
-        "options": [
-          "einer der gründlichsten",
-          "eine der gründlichste",
-          "eine die gründlichsten"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Mit 38 Prozent erzielte die Partei ____ Ergebnis ihrer Geschichte. (by far the best — inside the noun phrase)",
-        "options": [
-          "das mit Abstand besten",
-          "das mit Abstand bessere",
-          "der mit Abstand beste"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Unter allen eingereichten Entwürfen war ihrer ____. (the best by a wide margin)",
-        "options": [
-          "mit Abstand der besten",
-          "mit Abstand der bessere",
-          "mit Abstand besser"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "____ die Verhandlungen dauern, ____ wird eine Einigung vor dem Jahresende. (the longer … the less likely)",
-        "options": [
-          "Je länger … umso unwahrscheinlich",
-          "Je lang … desto unwahrscheinlicher",
-          "Desto länger … je unwahrscheinlicher"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Sanierung wird ____ als ursprünglich veranschlagt. (far more expensive)",
-        "options": [
-          "sehr teurer",
-          "weitaus teuer",
-          "weitaus teuerste"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Befund des Gutachtens ist ____ beunruhigend. (highly — absolute degree, no comparison)",
-        "options": [
-          "höher",
-          "am höchsten",
-          "hochst"
-        ]
-      },
-      {
-        "sentence": "Man hätte die Anwohner ____ vorab informieren können. (at the very least)",
-        "options": [
-          "mindest",
-          "zuwenigst",
-          "minder"
-        ]
-      },
-      {
-        "sentence": "Nach der Restaurierung wirkt das Altarbild ____ neu. (as good as)",
-        "options": [
-          "so gut als ob",
-          "genauso gut",
-          "so gut wenn"
-        ]
-      },
-      {
-        "sentence": "Seine Haltung ist ____ pragmatisch ____ prinzipientreu. (more X than Y — preference, not degree)",
-        "options": [
-          "mehr … wie",
-          "eher … wie",
-          "eher … und"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Mieten im Zentrum sind inzwischen ____ hoch wie am Stadtrand. (three times as)",
-        "options": [
-          "dreimal mehr",
-          "dreifach so",
-          "dreimal als"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Abstände zwischen den Krisen werden ____. (ever shorter)",
-        "options": [
-          "immer kurzer",
-          "immer mehr kürzer",
-          "immer kürzere"
-        ]
-      },
-      {
-        "sentence": "Graz ist die ____ Stadt Österreichs. (second-largest)",
-        "options": [
-          "zweite größte",
-          "zweitgrößten",
-          "zweigrößte"
-        ]
-      },
-      {
-        "sentence": "Das Ergebnis fiel ____ gut aus wie erhofft. (nowhere near as)",
-        "options": [
-          "bei weitem so",
-          "nicht bei weitem so",
-          "längst so"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die überarbeitete Fassung ist ____ überzeugender als die erste. (even)",
-        "options": [
-          "sehr",
-          "mehr",
-          "am"
-        ],
-        "keepCue": true
-      },
-      {
-        "sentence": "Sie ist ____ Abgeordneten, die ihr Mandat ohne Nebeneinkünfte ausüben. (one of the few — feminine)",
-        "options": [
-          "einer der wenigen",
-          "eine der wenige",
-          "eine die wenigen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Regierung wies den Vorwurf aufs ____ zurück. (most sharply)",
-        "options": [
-          "Schärfsten",
-          "Schärfere",
-          "Schärfe"
-        ],
-        "hard": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Der Neubau ist ____ so groß wie das alte Rathaus. (twice as)",
-        "acceptedAnswers": [
-          "doppelt",
-          "zweimal"
-        ],
-        "english": "The new building is twice as large as the old town hall.",
-        "subjectKey": "s9",
-        "categoryLabel": "Form",
-        "options": [
-          "doppel",
-          "zweifach",
-          "doppelter"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Preise sind ____ gestiegen als befürchtet. (much more sharply)",
-        "acceptedAnswers": [
-          "viel stärker",
-          "weitaus stärker",
-          "deutlich stärker",
-          "erheblich stärker",
-          "wesentlich stärker",
-          "bedeutend stärker",
-          "ungleich stärker"
-        ],
-        "english": "Prices have risen much more sharply than feared.",
-        "hint": "stark",
-        "subjectKey": "s4",
-        "categoryLabel": "Form",
-        "options": [
-          "sehr stärker",
-          "mehr stark",
-          "viel stark"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_adjektivbildung",
-    "sentences": [
-      {
-        "sentence": "Die Aufführung war ____ – kein Ton daneben. (Meister + -haft)",
-        "options": [
-          "meistermäßig",
-          "meisterhaftig",
-          "meisterartig"
-        ],
-        "keepCue": true
-      },
-      {
-        "sentence": "Er trainiert ____ dreimal pro Woche. (Regel + -mäßig)",
-        "options": [
-          "regelhaft",
-          "regelartig",
-          "regelmäßlich"
-        ]
-      },
-      {
-        "sentence": "Das Tier bewegte sich ____ lautlos durchs Gras. (Katze + -artig)",
-        "options": [
-          "katzartig",
-          "katzig",
-          "katzengerecht"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Das System ist ____: Es verbessert sich mit jeder Eingabe. (lernen + -fähig)",
-        "options": [
-          "lernbar",
-          "lernwürdig",
-          "lernhaft"
-        ]
-      },
-      {
-        "sentence": "Die Zeugin wirkte auf das Gericht ____. (Glaube + -würdig)",
-        "options": [
-          "glaubfähig",
-          "glaubmäßig",
-          "glaubwürdlich"
-        ],
-        "hard": true,
-        "keepCue": true
-      },
-      {
-        "sentence": "Das Museum ist ____ gestaltet, mit niedrigen Vitrinen und Dingen zum Anfassen. (Kind + -gerecht)",
-        "options": [
-          "kindmäßig",
-          "kindwürdig",
-          "kindartig"
-        ],
-        "hard": true,
-        "keepCue": true
-      },
-      {
-        "sentence": "Der Saft ist ____ und trotzdem süß. (Zucker + -frei)",
-        "options": [
-          "zuckrig",
-          "zuckerreich",
-          "zuckerhaft"
-        ]
-      },
-      {
-        "sentence": "Das Programm war ____: Vorträge, Musik, Führungen. (Abwechslung + -reich)",
-        "options": [
-          "abwechslungreich",
-          "abwechselnd",
-          "abwechslungshaft"
-        ]
-      },
-      {
-        "sentence": "Er parkte ____ mitten auf dem Gehweg. (Rücksicht + -los)",
-        "options": [
-          "rücksichtsvoll",
-          "rücksichtlos",
-          "rücksichtsfrei"
-        ]
-      },
-      {
-        "sentence": "Die Studie ist ____ zu klein, um Schlüsse zu erlauben. (Zahl + -mäßig, plural joint)",
-        "options": [
-          "zahlmäßig",
-          "zahlsmäßig",
-          "zahlenartig"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Mieten sind hier noch ____ günstig. (Verhältnis + -mäßig)",
-        "options": [
-          "verhältnisartig",
-          "verhältnismäßlich",
-          "verhaltensmäßig"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Reparatur wurde ____ ausgeführt. (Fach + -gerecht)",
-        "options": [
-          "fachhaft",
-          "fachfähig",
-          "fachartig"
-        ],
-        "hard": true,
-        "keepCue": true
-      },
-      {
-        "sentence": "Das Unternehmen ist nicht mehr ____. (Zahlung + -fähig)",
-        "options": [
-          "zahlungfähig",
-          "zahlungswürdig",
-          "zahlungsmäßig"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Wende kam ____, über Nacht. (Schlag + -artig)",
-        "options": [
-          "schlaghaft",
-          "schlagmäßig",
-          "schlägig"
-        ]
-      },
-      {
-        "sentence": "Die Begründung ist nicht ____. (Stich + -haltig)",
-        "options": [
-          "stichartig",
-          "stichhaft",
-          "stichmäßig"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Wohnung ist ____, mit Aufzug und breiten Türen. (Alter + -gerecht, with -s- joint)",
-        "options": [
-          "altergerecht",
-          "altgerecht",
-          "altersfähig"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Tumor ist zum Glück nicht ____. (böse + -artig)",
-        "options": [
-          "boshaft",
-          "böswillig",
-          "bösmäßig"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Seine Antwort blieb ____ – niemand verstand sie. (Rätsel + -haft)",
-        "options": [
-          "rätselartig",
-          "rätselmäßig",
-          "rätselig"
-        ]
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Der Antrag ist in dieser Form leider nicht ____. (Zustimmung + -fähig)",
-        "acceptedAnswers": [
-          "zustimmungsfähig",
-          "zustimmungsfaehig"
-        ],
-        "english": "Unfortunately the motion cannot win approval in this form.",
-        "subjectKey": "s12",
-        "categoryLabel": "Adjektiv",
-        "options": [
-          "zustimmungfähig",
-          "zustimmungsmäßig",
-          "zustimmungshaft"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Ihr Verhalten war ____ – sie nahm die Kritik ohne Murren an. (Vorbild + -lich)",
-        "acceptedAnswers": [
-          "vorbildlich",
-          "vorbildhaft"
-        ],
-        "english": "Her behaviour was exemplary – she accepted the criticism without grumbling.",
-        "subjectKey": "s0",
-        "categoryLabel": "Adjektiv",
-        "options": [
-          "vorbildmäßig",
-          "vorbildartig",
-          "vorbildig"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_bigtext_vorstand",
-    "blanks": [
-      {
-        "index": 1,
-        "options": [
-          "Einnahmen",
-          "Einbauten",
-          "Abgaben"
-        ]
-      },
-      {
-        "index": 2,
-        "options": [
-          "habt",
-          "haben",
-          "hätten"
-        ]
-      },
-      {
-        "index": 4,
-        "options": [
-          "seie",
-          "sein",
-          "seien"
-        ]
-      },
-      {
-        "index": 5,
-        "options": [
-          "könnt",
-          "können",
-          "könnten"
-        ]
-      },
-      {
-        "index": 9,
-        "options": [
-          "wöllte",
-          "wollen",
-          "wollt"
-        ]
-      },
-      {
-        "index": 10,
-        "options": [
-          "ausschütten",
-          "ausschenken",
-          "ausschöpft"
-        ]
-      },
-      {
-        "index": 11,
-        "options": [
-          "gelegt",
-          "gebaut",
-          "gezogen"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_stilmittel",
-    "sentences": [
-      {
-        "sentence": "Aus einem Leitartikel: „Die Koalition ist ein Kartenhaus, und der erste Windstoß kommt bestimmt.“ – Stilmittel: ____ (an image transferred to a new domain, with no comparison word)",
-        "options": [
-          "Vergleich",
-          "Hyperbel",
-          "Ironie"
-        ]
-      },
-      {
-        "sentence": "Aus einer Parlamentsreportage: „Die Debatte zog sich zäh wie Kaugummi bis nach Mitternacht.“ – Stilmittel: ____ (two things linked explicitly by a comparison word)",
-        "options": [
-          "Metapher",
-          "Personifikation",
-          "Alliteration"
-        ]
-      },
-      {
-        "sentence": "Aus dem Börsenbericht: „Die Märkte reagierten nervös und straften die Regierung für ihr Zögern ab.“ – Stilmittel: ____ (gives human feelings and actions to something non-human)",
-        "options": [
-          "Vergleich",
-          "Anapher",
-          "Euphemismus"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Bürgermeisterin schloss: „Wir brauchen Mut. Wir brauchen Geduld. Wir brauchen einander.“ – Stilmittel: ____ (the same words open each successive clause)",
-        "options": [
-          "Antithese",
-          "Chiasmus",
-          "Zeugma"
-        ]
-      },
-      {
-        "sentence": "Ein Kommentar zur Bilanz des Kanzlers: „Er versprach Aufbruch und lieferte Stillstand.“ – Stilmittel: ____ (sets two opposed ideas against each other)",
-        "options": [
-          "Oxymoron",
-          "Anapher",
-          "Alliteration"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Auf dem Parteitag hieß es über den früheren Vorsitzenden: „Er hat die Partei geschwächt, gespalten, zerstört.“ – Stilmittel: ____ (rises step by step in intensity)",
-        "options": [
-          "Anapher",
-          "Antithese",
-          "Chiasmus"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Auf dem Plakat einer Konditorei: „Feine Früchte für festliche Feiertage.“ – Stilmittel: ____ (neighbouring words repeat the same initial sound)",
-        "options": [
-          "Anapher",
-          "Klimax",
-          "Oxymoron"
-        ]
-      },
-      {
-        "sentence": "Der Vorstand räumte ein, die Risiken der Übernahme seien „nicht ganz unerheblich“ gewesen. – Stilmittel: ____ (asserts something by denying its opposite, and so plays it down)",
-        "options": [
-          "Hyperbel",
-          "Oxymoron",
-          "Anapher"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Aus einer Glosse über das Bürgeramt: „Ich habe dort eine halbe Ewigkeit gewartet – und dann fehlte ein Formular.“ – Stilmittel: ____ (inflates beyond literal truth for effect)",
-        "options": [
-          "Litotes",
-          "Euphemismus",
-          "Chiasmus"
-        ]
-      },
-      {
-        "sentence": "Die Kollegin kommt vierzig Minuten zu spät, und die Leiterin sagt: „Schön, dass Sie es so pünktlich geschafft haben.“ – Stilmittel: ____ (says the opposite of what is meant)",
-        "options": [
-          "Euphemismus",
-          "Litotes",
-          "Anapher"
-        ]
-      },
-      {
-        "sentence": "Im Quartalsbericht heißt es, die Wirtschaft habe ein „negatives Wachstum“ verzeichnet. – Stilmittel: ____ (makes something unpleasant sound harmless)",
-        "options": [
-          "Ironie",
-          "Hyperbel",
-          "Anapher"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Aus einer Konzertkritik: „Nach dem letzten Akkord herrschte im Saal eine ohrenbetäubende Stille.“ – Stilmittel: ____ (fuses two contradictory words into one phrase)",
-        "options": [
-          "Euphemismus",
-          "Litotes",
-          "Alliteration"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "In der Festrede: „Wer von uns hat nicht schon einmal eine Frist versäumt?“ – Stilmittel: ____ (asks without expecting a reply, and presumes agreement)",
-        "options": [
-          "Ironie",
-          "Ellipse",
-          "Anapher"
-        ]
-      },
-      {
-        "sentence": "Die Gewerkschafterin hielt dagegen: „Wir leben nicht, um zu arbeiten – wir arbeiten, um zu leben.“ – Stilmittel: ____ (mirrors two elements crosswise: A–B, B–A)",
-        "options": [
-          "Parallelismus",
-          "Anapher",
-          "Zeugma"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Aus einer satirischen Kolumne: „Der Vorsitzende brach erst sein Schweigen und kurz darauf sein Wahlversprechen.“ – Stilmittel: ____ (one verb yoked to two objects in different senses)",
-        "options": [
-          "Chiasmus",
-          "Anapher",
-          "Litotes"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Aus einer Dorfchronik: „Um 1850 zählte der Ort kaum zweihundert Seelen.“ – Stilmittel: ____ (names a part to mean the whole person)",
-        "options": [
-          "Personifikation",
-          "Hyperbel",
-          "Anapher"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Auf die Frage nach der Reform antwortete der Minister knapp: „Vorerst vertagt.“ – Stilmittel: ____ (leaves out words the listener can supply)",
-        "options": [
-          "Litotes",
-          "Chiasmus",
-          "Klimax"
-        ],
-        "hard": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Aus einer Festrede: „Ich weiß, dass ich nichts weiß.“ – Stilmittel: ____ (a statement that seems to contradict itself yet holds a truth)",
-        "acceptedAnswers": [
-          "Paradoxon",
-          "das Paradoxon",
-          "ein Paradoxon",
-          "Paradox",
-          "das Paradox",
-          "ein Paradox",
-          "Paradoxie",
-          "die Paradoxie",
-          "eine Paradoxie"
-        ],
-        "english": "From a ceremonial speech: “I know that I know nothing.” – Device: paradox.",
-        "subjectKey": "s12",
-        "categoryLabel": "Stilmittel",
-        "options": [
-          "Chiasmus",
-          "Litotes",
-          "Hyperbel"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Aus einer Pressemitteilung: „Das Unternehmen trennt sich von 400 Mitarbeitern.“ – Stilmittel: ____ (makes something unpleasant sound harmless)",
-        "acceptedAnswers": [
-          "Euphemismus",
-          "der Euphemismus",
-          "ein Euphemismus",
-          "Beschönigung",
-          "Beschoenigung",
-          "die Beschönigung",
-          "eine Beschönigung",
-          "Verhüllung",
-          "die Verhüllung",
-          "eine Verhüllung"
-        ],
-        "english": "From a press release: “The company is parting ways with 400 employees.” – Device: euphemism.",
-        "subjectKey": "s7",
-        "categoryLabel": "Stilmittel",
-        "options": [
-          "Ironie",
-          "Hyperbel",
-          "Anapher"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_konj1_lit",
-    "sentences": [
-      {
-        "sentence": "Die Innenministerin erklärte, die Lage ____ ernst, aber beherrschbar. Man ____ alle verfügbaren Kräfte gebündelt und ____ die Maßnahmen in der kommenden Woche erneut überprüfen. (sein · haben · werden)",
-        "options": [
-          "ist … hat … wird",
-          "seie … habe … werde",
-          "sei … habe … wurde"
-        ]
-      },
-      {
-        "sentence": "Der Vorstandsvorsitzende räumte ein, dem Unternehmen ____ gravierende Fehler unterlaufen. Die interne Kontrolle ____ zu spät reagiert; so etwas ____ sich nicht wiederholen. (sein · haben · dürfen)",
-        "options": [
-          "sei … habe … dürfe",
-          "seien … habe … darf",
-          "sind … hat … darf"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Gewerkschaft teilte mit, die Beschäftigten ____ nicht länger bereit, unbezahlte Überstunden zu leisten. Sie ____ in den vergangenen Jahren genug Zugeständnisse gemacht. (sein · haben)",
-        "options": [
-          "sind … haben",
-          "seien … habe",
-          "seien … hätte"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Ein Sprecher des Ministeriums wies die Vorwürfe zurück. Es ____ zu keinem Zeitpunkt Absprachen mit der Industrie gegeben; der Bericht ____ auf veralteten Zahlen. Man ____ rechtliche Schritte. (haben · beruhen · prüfen)",
-        "options": [
-          "hat … beruht … prüft",
-          "habe … beruht … prüfe",
-          "habe … beruhe … prüft"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Nach Angaben der Polizei ____ der Fahrer mit deutlich überhöhter Geschwindigkeit unterwegs gewesen. Er ____ in der Kurve die Kontrolle über den Wagen verloren und ____ gegen einen Baum geprallt. (sein · haben · sein)",
-        "options": [
-          "ist … hat … ist",
-          "sei … habe … habe",
-          "habe … habe … sei"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Preisträgerin beteuerte in ihrer Dankesrede, sie ____ nie für ein Publikum geschrieben. Schreiben ____ für sie eine Art zu atmen; wer das nicht verstehe, ____ ihre Bücher getrost ungelesen lassen. (haben · sein · können)",
-        "options": [
-          "hat … ist … kann",
-          "habe … sei … kann",
-          "sei … sei … könne"
-        ]
-      },
-      {
-        "sentence": "Der Regisseur sagte im Interview, er ____ keine Botschaft, er ____ nur Fragen stellen. Die Antworten ____ das Publikum schon selbst finden. (haben · wollen · müssen)",
-        "options": [
-          "hat … will … muss",
-          "habe … will … müsse",
-          "habe … wolle … muss"
-        ]
-      },
-      {
-        "sentence": "Die Abgeordnete wollte wissen, ob die Regierung die Risiken gekannt ____, warum die Studie erst jetzt veröffentlicht ____ und wer dafür die Verantwortung ____. (haben · werden · tragen)",
-        "options": [
-          "hat … wird … trägt",
-          "habe … wird … trage",
-          "habe … werde … trägt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Vorsitzende Richter forderte den Angeklagten auf, er ____ sich endlich zur Sache äußern. Das Gericht ____ nicht unbegrenzt warten, die Geduld aller Beteiligten ____ erschöpft. (sollen · können · sein)",
-        "options": [
-          "soll … kann … ist",
-          "solle … kann … sei",
-          "solle … könne … ist"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Veranstalter kündigten an, das Festival ____ im kommenden Jahr nur noch zehn Tage dauern. Die Eintrittspreise ____ jedoch stabil bleiben; man ____ mit etwas weniger Besuchern. (werden · werden · rechnen)",
-        "options": [
-          "wird … werden … rechnet",
-          "werde … werdet … rechne",
-          "werde … würden … rechnet"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Einer neuen Studie zufolge ____ jeder dritte Jugendliche kaum noch Bücher. Mehr als die Hälfte ____ ihre Freizeit lieber online, und für längere Lektüre ____ vielen schlicht die Geduld. (lesen · verbringen · fehlen)",
-        "options": [
-          "liest … verbringt … fehlt",
-          "lese … verbringt … fehle",
-          "lies … verbringe … fehle"
-        ]
-      },
-      {
-        "sentence": "Wie die Staatsanwaltschaft mitteilte, ____ der Verdächtige bereits am Montag festgenommen worden. Er ____ die Tat inzwischen gestanden; ein Motiv ____ sich jedoch noch nicht erkennen. (sein · haben · lassen)",
-        "options": [
-          "ist … hat … lässt",
-          "sei … habe … lässt",
-          "habe … habe … lasse"
-        ]
-      },
-      {
-        "sentence": "Die Erzählerin des Romans behauptet, sie ____ ihren Bruder seit vierzig Jahren nicht gesehen. Er ____ eines Morgens ohne ein Wort verschwunden, und niemand im Dorf ____ je nach ihm gefragt. (haben · sein · haben)",
-        "options": [
-          "hat … ist … hat",
-          "habe … habe … habe",
-          "sei … sei … habe"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Forscherinnen betonen, ihre Ergebnisse ____ vorläufig. Weitere Messungen ____ nötig, bevor man belastbare Schlüsse ziehen ____. (sein · sein · können)",
-        "options": [
-          "sind … sind … kann",
-          "sei … sei … könne",
-          "seien … seien … kann"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Anwohner beklagen, sie ____ seit Monaten kaum noch schlafen. Der Baulärm ____ täglich um sechs Uhr, und die Stadt ____ auf keine einzige Beschwerde reagiert. (können · beginnen · haben)",
-        "options": [
-          "konnten … beginne … habe",
-          "könnten … beginnt … hat",
-          "könne … beginne … habe"
-        ],
-        "hard": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Der Sprecher betonte, die Firma ____ keine Kenntnis von den Vorgängen gehabt. Man ____ die Vorwürfe sehr ernst und ____ intern alles aufklären. (haben · nehmen · wollen)",
-        "acceptedAnswers": [
-          "habe … nehme … wolle"
-        ],
-        "english": "The spokesman stressed that the company had had no knowledge of the events. The allegations were being taken very seriously, and everything would be cleared up internally.",
-        "subjectKey": "s1",
-        "categoryLabel": "Konjunktiv I",
-        "options": [
-          "hat … nimmt … will",
-          "habe … nimmt … wolle",
-          "habe … nehme … will"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Ärzte warnten, viele Patienten ____ zu lange auf einen Termin. Sie ____ deshalb oft gleich in die Notaufnahme. (warten · kommen)",
-        "acceptedAnswers": [
-          "warteten … kämen",
-          "warteten … kaemen"
-        ],
-        "english": "The doctors warned that many patients waited too long for an appointment. That was why they often went straight to A&E.",
-        "subjectKey": "s13",
-        "categoryLabel": "Konjunktiv I",
-        "options": [
-          "wartet … kommt",
-          "warte … komme",
-          "wartete … käme"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_umformung_2",
-    "sentences": [
-      {
-        "sentence": "„Wir haben den Vertrag gestern unterschrieben“, sagte die Sprecherin. → Eine Woche später berichtete die Zeitung, man ____ den Vertrag ____ unterschrieben. (reported speech; shift the time reference)",
-        "options": [
-          "habe … gestern",
-          "habe … heute",
-          "habe … am Folgetag"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "„Kommen Sie bitte morgen noch einmal vorbei!“, sagte die Beamtin. → Die Beamtin sagte, ich ____ am nächsten Tag noch einmal vorbeikommen. (a reported polite request)",
-        "options": [
-          "sollen",
-          "mögen",
-          "sollst"
-        ]
-      },
-      {
-        "sentence": "„Wann fährt der letzte Zug nach Graz?“, fragte die Touristin. → Die Touristin wollte wissen, ____ der letzte Zug nach Graz ____. (reported question)",
-        "options": [
-          "wenn … fahre",
-          "ob … fahre",
-          "wann … fahren"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "„Haben Sie die Unterlagen schon eingereicht?“, fragte mich der Sachbearbeiter. → Der Sachbearbeiter fragte mich, ____ ich die Unterlagen schon eingereicht ____. (reported yes/no question)",
-        "options": [
-          "wenn … hätte",
-          "dass … habe",
-          "ob … haben"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Trainer sagte, er sei mit der Leistung seiner Mannschaft zufrieden gewesen. → „Ich ____ mit der Leistung ____ Mannschaft zufrieden“, sagte der Trainer. (restore the speaker’s own words)",
-        "options": [
-          "war … seiner",
-          "sei … meiner",
-          "bin … meiner"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Ministerin erklärte, man werde die Steuern nicht erhöhen. → „____ die Steuern nicht erhöhen“, erklärte die Ministerin. (restore the speaker’s own words; man = the government)",
-        "options": [
-          "Man werde",
-          "Wir würden",
-          "Sie werde"
-        ]
-      },
-      {
-        "sentence": "Weil die Nachfrage stark gesunken war, schloss das Werk. → ____ der stark ____ Nachfrage schloss das Werk. (the cause as a prepositional phrase)",
-        "options": [
-          "Wegen … gesunkene",
-          "Weil … gesunkenen",
-          "Wegen … gesinkten"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Trotz heftiger Proteste der Opposition wurde das Gesetz verabschiedet. → ____ die Opposition heftig ____, wurde das Gesetz verabschiedet. (the concession as a clause)",
-        "options": [
-          "Trotz … protestierte",
-          "Obwohl … protestiert",
-          "Obwohl … protestierten"
-        ]
-      },
-      {
-        "sentence": "Nachdem der Vertrag unterzeichnet worden war, begannen die Bauarbeiten. → ____ der ____ des Vertrags begannen die Bauarbeiten. (the time as a prepositional phrase)",
-        "options": [
-          "Nachdem … Unterzeichnung",
-          "Nach … Unterzeichnen",
-          "Seit … Unterzeichnung"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Bei starkem Frost wird die Brücke gesperrt. → ____ es stark ____, wird die Brücke gesperrt. (the condition as a clause)",
-        "options": [
-          "Bei … friert",
-          "Wenn … frierte",
-          "Wenn … fror"
-        ]
-      },
-      {
-        "sentence": "Durch regelmäßiges Üben verbesserte sie ihre Aussprache. → Sie verbesserte ihre Aussprache, ____ sie regelmäßig ____. (the means as a clause)",
-        "options": [
-          "durch … übte",
-          "indem … übt",
-          "in dem … übte"
-        ]
-      },
-      {
-        "sentence": "Zur Senkung der Kosten wurden Stellen gestrichen. → Stellen wurden gestrichen, ____ die Kosten zu ____. (the purpose as an infinitive clause)",
-        "options": [
-          "damit … senken",
-          "um … gesenkt",
-          "zur … senken"
-        ]
-      },
-      {
-        "sentence": "Bevor er ging, verabschiedete er sich von allen. → ____ seinem ____ verabschiedete er sich von allen. (the time as a prepositional phrase)",
-        "options": [
-          "Bevor … Aufbruch",
-          "Vor … Weggehens",
-          "Vor … Aufbruchs"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Man muss die Anträge bis Freitag einreichen. → Die Anträge ____ bis Freitag ____. (obligation without man)",
-        "options": [
-          "sind … zu einreichen",
-          "haben … einzureichen",
-          "müssen … einreichen"
-        ]
-      },
-      {
-        "sentence": "Das Problem kann ohne großen Aufwand gelöst werden. → Das Problem ____ ohne großen Aufwand ____. (possibility without werden)",
-        "options": [
-          "lässt sich … gelöst",
-          "ist … lösen",
-          "lässt … lösen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Stadt hat das Gebäude aufwendig saniert. → Das Gebäude ____ von der Stadt aufwendig ____. (keep the tense and the agent)",
-        "options": [
-          "ist … saniert geworden",
-          "hat … saniert worden",
-          "ist … saniert werden"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Fehler ist leicht zu übersehen. → Der Fehler ____ leicht ____. (possibility with a modal verb)",
-        "options": [
-          "kann … übersehen worden",
-          "kann … übersehen",
-          "kann … zu übersehen"
-        ],
-        "hard": true,
-        "keepCue": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "„Ich komme morgen zurück“, versprach er. → Er versprach, er ____ am ____ Tag zurück. (reported speech; shift the time reference)",
-        "acceptedAnswers": [
-          "komme … nächsten",
-          "komme … folgenden",
-          "komme … darauffolgenden"
-        ],
-        "english": "“I’ll be back tomorrow,” he promised. → He promised he would be back the next day.",
-        "subjectKey": "s0",
-        "categoryLabel": "Umformung",
-        "options": [
-          "komme … morgigen",
-          "kommt … gestrigen",
-          "käme … vorigen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Wegen des Streiks fielen alle Flüge aus. → ____ das Personal ____, fielen alle Flüge aus. (the cause as a clause)",
-        "acceptedAnswers": [
-          "Weil … streikte",
-          "Da … streikte"
-        ],
-        "english": "Because of the strike all flights were cancelled. → Because the staff were on strike, all flights were cancelled.",
-        "subjectKey": "s6",
-        "categoryLabel": "Umformung",
-        "options": [
-          "Wegen … streikte",
-          "Weil … streikt",
-          "Weil … gestreikt"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_konnotation",
-    "sentences": [
-      {
-        "sentence": "Er gönnt seinen Kindern nicht einmal ein Eis und rechnet jede Tasse Kaffee nach – ein ausgesprochen ____ Mensch. (negative counterpart of sparsam)",
-        "options": [
-          "sparsamer",
-          "großzügiger",
-          "geizige"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Sie tritt ____ auf, ohne je überheblich zu wirken – deshalb schickt man sie in die schwierigsten Verhandlungen. (positive; the negative would be arrogant)",
-        "options": [
-          "arrogant",
-          "überheblich",
-          "schüchtern"
-        ]
-      },
-      {
-        "sentence": "In der Schlagzeile des Boulevardblatts wurden aus den friedlichen Demonstranten ____, die angeblich die Innenstadt verwüsteten. (pejorative word for protesters)",
-        "options": [
-          "Demonstranten",
-          "Aktivisten",
-          "Bürger"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Regale waren ____: Schon nach einem Jahr lösten sich die Bretter aus den Halterungen. (negative: low price, low quality)",
-        "options": [
-          "preiswert",
-          "günstig",
-          "teuer"
-        ]
-      },
-      {
-        "sentence": "Das Hotel ist ____ und trotzdem tadellos sauber – für eine Großstadt eine Seltenheit. (positive: low price, no loss of quality)",
-        "options": [
-          "teuer",
-          "kostspielig",
-          "überteuert"
-        ]
-      },
-      {
-        "sentence": "Mit 88 fährt meine Großmutter noch jeden Morgen mit dem Rad zum Markt – sie ist erstaunlich ____. (positive for an old person: vigorous)",
-        "options": [
-          "betagt",
-          "gebrechlich",
-          "senil"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Vorstand ist ____: Kein Mitglied ist unter siebzig, und neue Ideen haben keine Chance. (negative: over-aged and rigid)",
-        "options": [
-          "erfahren",
-          "bejahrt",
-          "rüstig"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Schon als Kind war sie ____ und löcherte jeden Erwachsenen mit Fragen über die Sterne. (positive: eager to learn)",
-        "options": [
-          "aufdringlich",
-          "indiskret",
-          "desinteressiert"
-        ]
-      },
-      {
-        "sentence": "Die Nachbarin ist geradezu ____: Sie liest die Absender auf unseren Briefen und fragt jeden Besucher aus. (clearly negative, stronger than neugierig)",
-        "options": [
-          "wissbegierig",
-          "interessiert",
-          "diskret"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Pressestelle vermied das neutrale Wort Problem und sprach lieber von einer ____. (positive framing: something to be mastered)",
-        "options": [
-          "Schwierigkeit",
-          "Krise",
-          "Katastrophe"
-        ]
-      },
-      {
-        "sentence": "Der ____ aus der Mülltonne war im Hochsommer kaum auszuhalten. (negative counterpart of Geruch)",
-        "options": [
-          "Geruch",
-          "Duft",
-          "Aroma"
-        ]
-      },
-      {
-        "sentence": "Im Geschäftsbericht heißt es beschönigend, man habe dreihundert Beschäftigte ____. (euphemism for entlassen: ‘released’)",
-        "options": [
-          "entlassen",
-          "gefeuert",
-          "rausgeschmissen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Kritiker nennen den Minister stur; seine Anhänger loben ihn als ____. (positive word for the same trait)",
-        "options": [
-          "stur",
-          "starrsinnig",
-          "dickköpfig"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Ohne Seil auf den vereisten Grat zu steigen, war nicht mutig, sondern ____. (negative counterpart of mutig)",
-        "options": [
-          "mutig",
-          "tapfer",
-          "besonnen"
-        ]
-      },
-      {
-        "sentence": "Er prüft jede Kommastelle dreimal und korrigiert sogar Einkaufszettel – das ist nicht mehr gründlich, das ist ____. (negative counterpart of gründlich)",
-        "options": [
-          "gründlich",
-          "sorgfältig",
-          "genau"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Nach der langen Krankheit war er nicht mehr schlank, sondern ____ – man sah jede Rippe. (negative counterpart of schlank)",
-        "options": [
-          "schlank",
-          "zierlich",
-          "rank"
-        ]
-      },
-      {
-        "sentence": "Dem Chef gegenüber ist er ____: Er widerspricht nie und lacht über jeden noch so schlechten Witz. (negative: servile)",
-        "options": [
-          "loyal",
-          "höflich",
-          "respektvoll"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Regierung spricht von einer Reform des Rentensystems; die Gewerkschaften nennen dieselben Maßnahmen schlicht ____. (negative: what happens to the benefits)",
-        "options": [
-          "Anpassungen",
-          "Reformen",
-          "Verbesserungen"
-        ],
-        "hard": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Der Konzern spricht von „Preisanpassungen“ – die Kunden nennen es schlicht ____. (plain, unflattering word for what happens to the prices)",
-        "acceptedAnswers": [
-          "Preiserhöhungen",
-          "Preiserhoehungen",
-          "Preissteigerungen",
-          "Abzocke",
-          "Preistreiberei"
-        ],
-        "english": "The group speaks of ‘price adjustments’ – customers simply call them price rises.",
-        "subjectKey": "s17",
-        "categoryLabel": "Konnotation",
-        "options": [
-          "Preissenkungen",
-          "Rabatte",
-          "Sonderangebote"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Er ist nicht ehrgeizig, sondern geradezu ____: Für die Karriere würde er jeden Kollegen opfern. (negative counterpart of ehrgeizig)",
-        "acceptedAnswers": [
-          "skrupellos",
-          "rücksichtslos",
-          "ruecksichtslos",
-          "machtbesessen",
-          "karrieregeil",
-          "verbissen",
-          "gewissenlos"
-        ],
-        "english": "He is not ambitious but downright ruthless: he would sacrifice any colleague for his career.",
-        "subjectKey": "s14",
-        "categoryLabel": "Konnotation",
-        "options": [
-          "zielstrebig",
-          "strebsam",
-          "ambitioniert"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_abtoenung",
-    "sentences": [
-      {
-        "sentence": "Der Einwand ist ____ berechtigt, auch wenn er unbequem ist. (certainly – conceding against an expected doubt)",
-        "options": [
-          "keineswegs",
-          "kaum",
-          "mitnichten"
-        ]
-      },
-      {
-        "sentence": "Dass die Reform die Kosten senkt, ist ____ sicher; die Prognosen gehen weit auseinander. (by no means)",
-        "options": [
-          "durchaus",
-          "völlig",
-          "absolut"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Angesichts der Datenlage ist diese Behauptung ____ absurd. (downright)",
-        "options": [
-          "kaum",
-          "keineswegs",
-          "wenig"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Für viele Kritiker gilt dieses Buch als der Großstadtroman ____. (the very model of its kind – placed after the noun)",
-        "options": [
-          "geradezu",
-          "keineswegs",
-          "ausgesprochen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Sitzung wurde abgesagt – wir hätten ____ nicht teilnehmen können. (anyway, regardless)",
-        "options": [
-          "unbedingt",
-          "keineswegs",
-          "kaum"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Ein Vergleich ist ____ besser als ein jahrelanger Rechtsstreit. (any day, certainly)",
-        "options": [
-          "keineswegs",
-          "kaum",
-          "selten"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Am Schalter war man ____ unfreundlich; nicht einmal ein Gruß kam über die Lippen. (decidedly, markedly)",
-        "options": [
-          "kaum",
-          "keineswegs",
-          "wenig"
-        ]
-      },
-      {
-        "sentence": "Die alte Brücke ist ____ das Gedächtnis der Stadt. (as it were – marks a figurative statement)",
-        "options": [
-          "keineswegs",
-          "kaum",
-          "nie"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Urlaub war völlig verregnet; ____ war das Hotel ausgezeichnet. (at least – salvaging something positive)",
-        "options": [
-          "ebenfalls",
-          "folglich",
-          "deshalb"
-        ]
-      },
-      {
-        "sentence": "Mit 2000 Euro Kaltmiete ist die Wohnung ____ billig. (not exactly – ironic understatement)",
-        "options": [
-          "nicht nur",
-          "durchaus",
-          "sehr"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "____ ist das Verfahren aufwendig, doch es liefert verlässliche Ergebnisse. (admittedly – concession before doch)",
-        "options": [
-          "Obwohl",
-          "Weil",
-          "Deshalb"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Zusammenarbeit mit dem Institut war ____ fruchtbar. (exceedingly – elevated)",
-        "options": [
-          "kaum",
-          "wenig",
-          "überhaupt"
-        ]
-      },
-      {
-        "sentence": "Mit dem Ergebnis bin ich ____ zufrieden; begeistert bin ich nicht. (reasonably – within limits)",
-        "options": [
-          "überaus",
-          "äußerst",
-          "restlos"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Neu ist der Vorschlag nicht ____; schon vor zwanzig Jahren wurde Ähnliches diskutiert. (entirely – after nicht)",
-        "options": [
-          "gar",
-          "kaum",
-          "überhaupt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Kinder waren ____ begeistert und wollten gar nicht mehr nach Hause. (veritably, positively)",
-        "options": [
-          "kaum",
-          "wenig",
-          "keineswegs"
-        ]
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Das Angebot ist ____ verlockend, aber ich muss erst mit meiner Frau sprechen. (certainly – conceding before aber)",
-        "acceptedAnswers": [
-          "durchaus",
-          "sehr wohl",
-          "schon",
-          "gewiss",
-          "zweifellos",
-          "zwar",
-          "sicherlich",
-          "sicher",
-          "natürlich",
-          "natuerlich"
-        ],
-        "english": "The offer is certainly tempting, but I have to talk to my wife first.",
-        "subjectKey": "s0",
-        "categoryLabel": "Abtönung",
-        "options": [
-          "keineswegs",
-          "kaum",
-          "mitnichten"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Film ist ____ ein Meisterwerk, aber durchaus sehenswert. (not exactly – ironic understatement)",
-        "acceptedAnswers": [
-          "nicht gerade",
-          "nicht eben",
-          "nicht unbedingt"
-        ],
-        "english": "The film is not exactly a masterpiece, but it is certainly worth seeing.",
-        "subjectKey": "s9",
-        "categoryLabel": "Abtönung",
-        "options": [
-          "nicht nur",
-          "durchaus",
-          "geradezu"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_sprichwoerter",
-    "sentences": [
-      {
-        "sentence": "Schlagzeile: „Viele Köche, kein ____ – warum das Kabinett keinen Haushalt zustande bringt“ (too many people in charge ruin a project)",
-        "options": [
-          "Kuchen",
-          "Braten",
-          "Topf"
-        ]
-      },
-      {
-        "sentence": "Der Abgeordnete, der die Affäre lanciert hatte, stolperte am Ende selbst darüber – wer anderen eine ____ gräbt, eben. (the plotter falls into his own trap)",
-        "options": [
-          "Falle",
-          "Mulde",
-          "Höhle"
-        ]
-      },
-      {
-        "sentence": "Beim Thema Spendenaffäre sitzt die Partei selbst im ____ und sollte mit Vorwürfen gegen andere vorsichtig sein. (don’t attack others for faults you share)",
-        "options": [
-          "Glaspalast",
-          "Gewächshaus",
-          "Treibhaus"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Nun ist auch die Tochter des Bauunternehmers wegen Betrugs angeklagt – der ____ fällt eben nicht weit vom Stamm, raunt man im Ort. (children resemble their parents)",
-        "options": [
-          "Birne",
-          "Ast",
-          "Zweig"
-        ]
-      },
-      {
-        "sentence": "Schlagzeile: „Kurze ____ – wie der Konzernchef über seine eigenen Angaben stolperte“ (lies are soon found out)",
-        "options": [
-          "Arme",
-          "Wege",
-          "Ohren"
-        ]
-      },
-      {
-        "sentence": "Jahrelang war die Firma mit geschönten Abgaswerten durchgekommen. Doch der ____ geht so lange zum Brunnen, bis er bricht. (a risky habit fails in the end)",
-        "options": [
-          "Eimer",
-          "Becher",
-          "Esel"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Noch im Frühjahr hatte der Trainer die Meisterschaft für entschieden erklärt; nun steigt der Verein ab. Hochmut kommt vor dem ____. (arrogance precedes ruin)",
-        "options": [
-          "Ende",
-          "Neid",
-          "Ruhm"
-        ]
-      },
-      {
-        "sentence": "Die Pensionäre erhalten ihre Erhöhung, die Jungen zahlen die Zeche – den Letzten beißen die ____. (whoever comes last bears the cost)",
-        "options": [
-          "Katzen",
-          "Wölfe",
-          "Mäuse"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "„Wo gehobelt wird, fallen ____“, kommentierte der Minister die Entlassungen lapidar. (every big undertaking has casualties)",
-        "options": [
-          "Splitter",
-          "Bretter",
-          "Funken"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Schlagzeile: „Nicht alles Gold, was ____ – die Bilanz des Börsenlieblings“ (appearances deceive)",
-        "options": [
-          "strahlt",
-          "blinkt",
-          "schimmert"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "„Wer den ____ nicht ehrt …“, begann die Kämmerin – und strich auch die kleinsten Posten aus dem Etat. (small sums matter; the coin of the old proverb or today’s)",
-        "options": [
-          "Euro",
-          "Taler",
-          "Schein"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Kaum aus der Haft entlassen, wurde er erneut beim Einbruch erwischt – die Katze lässt das ____ nicht. (old habits persist)",
-        "options": [
-          "Jagen",
-          "Fressen",
-          "Mauzen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Schlagzeile: „Ein ____ kommt selten allein – nach dem Titel holt der Verein auch den Pokal“ (the proverb about misfortune, turned positive)",
-        "options": [
-          "Unglück",
-          "Pech",
-          "Schaden"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Umfragewerte sind glänzend, doch gewählt wird erst im Herbst: Man soll den Tag nicht vor dem ____ loben. (don’t celebrate too early)",
-        "options": [
-          "Morgen",
-          "Mittag",
-          "Ende"
-        ]
-      },
-      {
-        "sentence": "Ein starkes Quartal ist erfreulich, aber eine ____ macht noch keinen Sommer, warnen die Ökonomen. (one good sign proves nothing)",
-        "options": [
-          "Amsel",
-          "Taube",
-          "Blume"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Studie widerlegt das alte Vorurteil, was ____ nicht lerne, lerne Hans nimmermehr: Auch mit siebzig lernt das Gehirn noch Sprachen. (it’s too late to learn when you are old)",
-        "options": [
-          "Hans",
-          "Gretchen",
-          "Peterchen"
-        ],
-        "hard": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Die Gemeinde baute erst nach dem dritten Hochwasser einen Deich – den Brunnen deckt man eben erst zu, wenn das ____ hineingefallen ist. (people only act after the disaster)",
-        "acceptedAnswers": [
-          "Kind"
-        ],
-        "english": "The town only built a dyke after the third flood – people only cover the well once the child has fallen in.",
-        "subjectKey": "s10",
-        "categoryLabel": "Sprichwort",
-        "options": [
-          "Lamm",
-          "Schaf",
-          "Wasser"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Schlagzeile: „Wer zuletzt ____ – wie der Außenseiter am Ende doch triumphierte“ (whoever triumphs last enjoys it most)",
-        "acceptedAnswers": [
-          "lacht"
-        ],
-        "english": "Headline: “He who laughs last – how the outsider triumphed after all”.",
-        "subjectKey": "s12",
-        "categoryLabel": "Sprichwort",
-        "options": [
-          "weint",
-          "schweigt",
-          "spricht"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_konj2_nuancen",
-    "sentences": [
-      {
-        "sentence": "Rückblickend ist klar, dass der Vorstand die Risiken früher ____. (erkennen, müssen — past)",
-        "options": [
-          "hätte erkennen gemusst",
-          "hätte erkannt müssen",
-          "hätte müssen erkennen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Ich frage mich, ob ich an ihrer Stelle anders ____. (entscheiden, können — past)",
-        "options": [
-          "hätte entscheiden gekonnt",
-          "hätte entschieden können",
-          "hätte können entscheiden"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Du ____ mich wenigstens ____! (anrufen; should have)",
-        "options": [
-          "hättest … angerufen sollen",
-          "solltest … anrufen haben",
-          "hättest … anrufen gesollt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "So ein Fehler ____ nicht passieren ____. (modal — past: should never have been allowed to)",
-        "options": [
-          "hätte … gedurft",
-          "hätte … dürfte",
-          "wäre … dürfen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Auf dem vereisten Gehweg ____ ich beinahe ____. (stürzen)",
-        "options": [
-          "hätte … gestürzt",
-          "wäre … stürzen",
-          "würde … gestürzt"
-        ],
-        "hard": true,
-        "keepCue": true
-      },
-      {
-        "sentence": "Um ein Haar ____ wir den letzten Zug ____. (verpassen)",
-        "options": [
-          "wären … verpasst",
-          "hätten … verpassen",
-          "hätte … verpasst"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Fast ____ ich ihm im Ärger etwas Unverzeihliches ____. (sagen)",
-        "options": [
-          "wäre … gesagt",
-          "hätte … sagen",
-          "hätte … gesagen"
-        ],
-        "keepCue": true
-      },
-      {
-        "sentence": "Er tut so, als ob er von nichts ____. (wissen)",
-        "options": [
-          "wüsse",
-          "wüssten",
-          "gewusst"
-        ]
-      },
-      {
-        "sentence": "Sie sah mich an, als ____ sie mich nie zuvor ____. (sehen)",
-        "options": [
-          "hatte … gesehen",
-          "wäre … gesehen",
-          "hätte … sehen"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Er redet, als wenn er hier der Chef ____. (sein)",
-        "options": [
-          "würde",
-          "seie",
-          "wären"
-        ],
-        "keepCue": true
-      },
-      {
-        "sentence": "____ ich doch nur früher auf dich ____! (hören)",
-        "options": [
-          "Würde … gehört",
-          "Hätte … hören",
-          "Wäre … gehört"
-        ]
-      },
-      {
-        "sentence": "Wenn er doch nur etwas geduldiger ____! (sein)",
-        "options": [
-          "sei",
-          "war",
-          "wären"
-        ]
-      },
-      {
-        "sentence": "Ich ____ da noch eine Frage zum Vertrag. (haben — polite)",
-        "options": [
-          "hättest",
-          "würde",
-          "hätten"
-        ],
-        "keepCue": true
-      },
-      {
-        "sentence": "____ es möglich, den Termin auf Donnerstag zu verlegen? (sein — polite)",
-        "options": [
-          "Würde",
-          "War",
-          "Sei"
-        ],
-        "keepCue": true
-      },
-      {
-        "sentence": "Das Problem ist zu komplex, als dass man es in zwei Sätzen erklären ____. (können)",
-        "options": [
-          "konnte",
-          "können",
-          "könnten"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Reform kam zu spät, als dass sie die Firma noch ____. (retten, können — past)",
-        "options": [
-          "hätte retten gekonnt",
-          "hätte gerettet können",
-          "hätte können retten"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "____ da nicht die hohen Mietkosten, würden wir sofort in die Stadt ziehen. (sein)",
-        "options": [
-          "Waren",
-          "Würden",
-          "Seien"
-        ],
-        "hard": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Ohne deine Hilfe ____ ich die Prüfung nie ____. (bestehen)",
-        "acceptedAnswers": [
-          "hätte … bestanden"
-        ],
-        "english": "Without your help I would never have passed the exam.",
-        "hint": "English: I would never have passed",
-        "subjectKey": "s6",
-        "categoryLabel": "Konjunktiv II",
-        "options": [
-          "wäre … bestanden",
-          "hätte … bestehen",
-          "hatte … bestanden"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Sie hätte den Job ____, wenn sie gewollt hätte. (bekommen, können — past)",
-        "acceptedAnswers": [
-          "bekommen können",
-          "kriegen können"
-        ],
-        "english": "She could have got the job if she had wanted to.",
-        "hint": "English: could have got",
-        "subjectKey": "s1",
-        "categoryLabel": "Konjunktiv II",
-        "options": [
-          "bekommen gekonnt",
-          "bekommt können",
-          "gekonnt bekommen"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_konnektoren_nuancen",
-    "sentences": [
-      {
-        "sentence": "Der Minister versprach rasche Hilfe; die Betroffenen warten ____ bis heute darauf. (however — adverb in the middle field)",
-        "options": [
-          "obwohl",
-          "weil",
-          "trotz"
-        ]
-      },
-      {
-        "sentence": "Die Gäste plauderten im Salon. ____ bereitete der Gastgeber in der Küche das Dessert vor. (meanwhile — adverb, verb second)",
-        "options": [
-          "Während",
-          "Indem",
-          "Solange"
-        ]
-      },
-      {
-        "sentence": "____ er die Risiken kannte, unterschrieb er den Vertrag. (although — elevated, verb at the end)",
-        "options": [
-          "Dennoch",
-          "Trotz",
-          "Ungeachtet"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Vorschlag fand breite Zustimmung, ____ er im Detail noch Schwächen aufwies. (although — verb at the end)",
-        "options": [
-          "dennoch",
-          "trotz",
-          "sondern"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Es handelt sich um eine ____ umstrittene, so doch notwendige Maßnahme. (albeit — before the adjective)",
-        "options": [
-          "trotz",
-          "dennoch",
-          "auch wenn"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Wir sollten das Angebot annehmen, ____ die Konditionen kaum noch besser werden dürften. (especially as — verb at the end)",
-        "options": [
-          "zuweilen",
-          "indem",
-          "zumindest"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Absage überrascht, ____ der Verein erst im Mai seine Teilnahme zugesagt hatte. (all the more since — verb at the end)",
-        "options": [
-          "zuweilen",
-          "zumindest",
-          "umso"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Studie weist methodische Mängel auf; ____ liefert sie wertvolle Hinweise. (nevertheless — adverb, verb second)",
-        "options": [
-          "obwohl",
-          "trotz",
-          "obgleich"
-        ]
-      },
-      {
-        "sentence": "Die Kritik war berechtigt; der Autor hielt ____ an seiner These fest. (nonetheless — adverb in the middle field)",
-        "options": [
-          "obwohl",
-          "trotz",
-          "obgleich"
-        ]
-      },
-      {
-        "sentence": "Alle Warnungen lagen vor. ____ entschied sich die Behörde für den Weiterbau. (regardless of that — two words, verb second)",
-        "options": [
-          "Ungeachtet das",
-          "Dessen trotz",
-          "Ungeachtet deren"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Beschuldigte war zur Tatzeit im Ausland; er kann die Tat ____ nicht begangen haben. (consequently — adverb in the middle field)",
-        "options": [
-          "obwohl",
-          "weil",
-          "sodass"
-        ]
-      },
-      {
-        "sentence": "Alle Voraussetzungen sind erfüllt, ____ ist der Antrag zu genehmigen. (therefore — adverb, verb second)",
-        "options": [
-          "weil",
-          "sodass",
-          "denn"
-        ]
-      },
-      {
-        "sentence": "Die Reform ist ein Fortschritt, ____ sie erstmals auch Teilzeitkräfte einbezieht. (in so far as — two words, verb at the end)",
-        "options": [
-          "insofern dass",
-          "sofern als",
-          "insofern wie"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Vertrag ist nur ____ bindend, als beide Seiten ihn ratifiziert haben. (to that extent — first half of a split connector)",
-        "options": [
-          "sofern",
-          "zumal",
-          "inwiefern"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Er wollte helfen, ____ ihm fehlten die Mittel. (but — elevated, outside the clause, word order unchanged)",
-        "options": [
-          "allerdings",
-          "trotzdem",
-          "dennoch"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Mitglieder und Gäste zahlen 40 ____ 60 Euro Eintritt. (respectively)",
-        "options": [
-          "respektiv",
-          "respektvoll",
-          "beziehentlich"
-        ],
-        "hard": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Er hat den Preis verdient, ____ er das Buch unter schwierigsten Bedingungen schrieb. (all the more since — verb at the end)",
-        "acceptedAnswers": [
-          "zumal",
-          "zumal da",
-          "zumal weil",
-          "umso mehr als",
-          "um so mehr als"
-        ],
-        "english": "He deserved the prize, all the more since he wrote the book under the most difficult conditions.",
-        "hint": "English: all the more since",
-        "subjectKey": "s6",
-        "categoryLabel": "Konnektor",
-        "options": [
-          "zuweilen",
-          "zumindest",
-          "umso"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Kosten sind gestiegen, die Einnahmen ____ gesunken. (by contrast — adverb in the middle field)",
-        "acceptedAnswers": [
-          "hingegen",
-          "dagegen",
-          "indes",
-          "indessen",
-          "jedoch",
-          "aber",
-          "allerdings",
-          "wiederum",
-          "demgegenüber"
-        ],
-        "english": "Costs have risen; revenue, by contrast, has fallen.",
-        "hint": "English: by contrast",
-        "subjectKey": "s0",
-        "categoryLabel": "Konnektor",
-        "options": [
-          "obwohl",
-          "weil",
-          "trotz"
-        ],
-        "hard": true
-      }
-    ]
-  },
-  {
-    "id": "quest_c2_1_praefixe_semantik",
-    "sentences": [
-      {
-        "sentence": "Bei der Steuererklärung habe ich mich um fast tausend Euro ____. (rechnen — to miscalculate)",
-        "options": [
-          "berechnet",
-          "errechnet",
-          "zerrechnet"
-        ]
-      },
-      {
-        "sentence": "Heute Morgen habe ich ____ und den Zug verpasst. (schlafen — to oversleep)",
-        "options": [
-          "entschlafen",
-          "überschlafen",
-          "zerschlafen"
-        ]
-      },
-      {
-        "sentence": "Die Rosen im Garten sind längst ____. (blühen — to finish flowering)",
-        "options": [
-          "zerblüht",
-          "entblüht",
-          "beblüht"
-        ]
-      },
-      {
-        "sentence": "Wütend hat sie den Brief in kleine Stücke ____. (reißen — to tear to pieces)",
-        "options": [
-          "verrissen",
-          "entrissen",
-          "berissen"
-        ]
-      },
-      {
-        "sentence": "Beim Umzug ist die Vase meiner Großmutter ____. (brechen — to break into pieces)",
-        "options": [
-          "verbrochen",
-          "erbrochen",
-          "entbrochen"
-        ]
-      },
-      {
-        "sentence": "Die Mannschaft hat sich den Sieg in der Nachspielzeit ____. (kämpfen — to win by fighting)",
-        "options": [
-          "verkämpft",
-          "bekämpft",
-          "zerkämpft"
-        ]
-      },
-      {
-        "sentence": "Auf der Auktion ____ ein Sammler das Gemälde für zwei Millionen Euro. (steigern — to acquire by bidding; past)",
-        "options": [
-          "steigerte",
-          "besteigerte",
-          "entsteigerte"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Kaffeemaschine muss regelmäßig ____ werden. (kalken — to remove limescale)",
-        "options": [
-          "verkalkt",
-          "bekalkt",
-          "zerkalkt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Zwischen den beiden Ministern ____ ein heftiger Streit. (flammen — to flare up; past)",
-        "options": [
-          "verflammte",
-          "erflammte",
-          "beflammte"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Behörde hat meinen Antrag noch immer nicht ____. (arbeiten — to process)",
-        "options": [
-          "gearbeitet",
-          "zerarbeitet",
-          "entarbeitet"
-        ]
-      },
-      {
-        "sentence": "Die Ministerin ____ alle Fragen des Ausschusses ausführlich. (antworten — to answer, with a direct object; past)",
-        "options": [
-          "antwortete",
-          "erantwortete",
-          "zerantwortete"
-        ]
-      },
-      {
-        "sentence": "Sie hat den Roman aus dem Polnischen ins Deutsche ____. (setzen — to translate)",
-        "options": [
-          "übergesetzt",
-          "versetzt",
-          "ersetzt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Fährmann ____ die Reisenden ans andere Ufer ____. (setzen — to ferry across; past)",
-        "options": [
-          "übersetzte … über",
-          "setzte … übers",
-          "setzt … über"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der betrunkene Fahrer hat ein Verkehrsschild ____. (fahren — to knock down)",
-        "options": [
-          "geumfahren",
-          "umgefährt",
-          "zerfahren"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Wir haben den Stau auf der Autobahn großräumig ____. (fahren — to bypass)",
-        "options": [
-          "umgefahren",
-          "geumfahren",
-          "umfahrt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Mit seinen Reiseanekdoten ____ er den ganzen Abend die Runde. (halten — to entertain; past)",
-        "options": [
-          "unterhaltete",
-          "unterhält",
-          "erhielt"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Sie ____ einen Teller ____, damit keine Soße auf die Tischdecke tropfte. (halten — to hold underneath; past)",
-        "options": [
-          "unterhielt … unter",
-          "hält … unter",
-          "hielt … untern"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Die Kommissarin hat seine Lügen sofort ____. (schauen — to see through, not be fooled)",
-        "options": [
-          "durchgeschaut",
-          "verschaut",
-          "überschaut"
-        ],
-        "hard": true
-      }
-    ],
-    "add": [
-      {
-        "sentence": "Die Seilschaft ____ den Gipfel nach zwölf Stunden. (steigen — to climb, with a direct object; past)",
-        "acceptedAnswers": [
-          "bestieg",
-          "erstieg"
-        ],
-        "english": "The rope team climbed the summit after twelve hours.",
-        "hint": "English: climbed",
-        "subjectKey": "s9",
-        "categoryLabel": "Präfixverb",
-        "options": [
-          "stieg",
-          "verstieg",
-          "zerstieg"
-        ],
-        "hard": true
-      },
-      {
-        "sentence": "Der Vermieter hat die alte Wohnung komplett ____ und neu vermietet. (bauen — to convert, separable)",
-        "acceptedAnswers": [
-          "umgebaut"
-        ],
-        "english": "The landlord completely converted the old flat and let it again.",
-        "hint": "English: converted",
-        "subjectKey": "s13",
-        "categoryLabel": "Präfixverb",
-        "options": [
-          "geumbaut",
-          "umgebauen",
-          "umbaute"
-        ],
-        "hard": true
-      }
-    ]
-  }
+	{
+		"id": "quest_c2_1_wirtschaft",
+		"sentences": [
+			{
+				"sentence": "Nach zwei Quartalen mit rückläufigem Auftragseingang spricht das Institut offen von einer ____. (recession)",
+				"options": [
+					"Rezension",
+					"Regression",
+					"Rezeption"
+				]
+			},
+			{
+				"sentence": "Die ____ hat sich im dritten Quartal überraschend belebt. (economic activity, the cycle)",
+				"options": [
+					"Konjunktion",
+					"Konjektur",
+					"Konkurrenz"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Trotz gestiegener Umsätze fiel die ____ der Anleger unter zwei Prozent. (return on capital)",
+				"options": [
+					"Rente",
+					"Rate",
+					"Rabatt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Geschäftsführung sah sich gezwungen, beim Amtsgericht ____ anzumelden. (insolvency)",
+				"options": [
+					"Intoleranz",
+					"Insistenz",
+					"Inkompetenz"
+				]
+			},
+			{
+				"sentence": "Gegen den Bescheid des Finanzamts legte die Firma fristgerecht ____ ein. (objection to an official decision)",
+				"options": [
+					"Anspruch",
+					"Ausspruch",
+					"Zuspruch"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Da das Urteil erster Instanz anfechtbar war, ging der Kläger in ____. (appeal to the next court)",
+				"options": [
+					"Bewerbung",
+					"Behandlung",
+					"Beratung"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Um den Prozess abzukürzen, schlossen die Parteien einen ____. (settlement)",
+				"options": [
+					"Verzicht",
+					"Vermerk",
+					"Verein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Zentralbank hob den ____ um einen viertel Prozentpunkt an. (key interest rate)",
+				"options": [
+					"Leitsatz",
+					"Zinseszins",
+					"Leitstern"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Regierung erließ eine ____, die die Preisangaben im Onlinehandel regelt. (regulation issued by the executive)",
+				"options": [
+					"Vereinbarung",
+					"Verabredung",
+					"Verwaltung"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Nach zähen Verhandlungen einigten sich Gewerkschaft und Arbeitgeber auf einen neuen ____. (collective wage agreement)",
+				"options": [
+					"Mietvertrag",
+					"Arbeitsvertrag",
+					"Tarifwechsel"
+				]
+			},
+			{
+				"sentence": "Das Kartellamt untersagte die ____ der beiden Energiekonzerne. (merger)",
+				"options": [
+					"Fission",
+					"Infusion",
+					"Konfusion"
+				]
+			},
+			{
+				"sentence": "Die Staatsanwaltschaft wirft dem Konzern ____ in Millionenhöhe vor. (tax evasion)",
+				"options": [
+					"Steuerbefreiung",
+					"Steuererhöhung",
+					"Steuerhinterlegung"
+				]
+			},
+			{
+				"sentence": "Der Insolvenzverwalter prüft, ob die Gläubiger ihre ____ noch geltend machen können. (claims, receivables)",
+				"options": [
+					"Förderungen",
+					"Anforderungen",
+					"Herausforderungen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Für Schäden aus dem Vertrag ____ der Lieferant nur bei grober Fahrlässigkeit. (is liable)",
+				"options": [
+					"heftet",
+					"hafte",
+					"haftest"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Nach Ablauf der Frist wird das Urteil ____. (final and legally binding)",
+				"options": [
+					"rechtzeitig",
+					"rechtmäßig",
+					"rechthaberisch"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Steigende Energiepreise treiben die ____ auf den höchsten Stand seit Jahrzehnten. (rise in the general price level)",
+				"options": [
+					"Deflation",
+					"Infektion",
+					"Reflation"
+				]
+			},
+			{
+				"sentence": "Mit einer Steuersenkung will die Regierung die ____ ankurbeln. (demand)",
+				"options": [
+					"Anfrage",
+					"Rückfrage",
+					"Abfrage"
+				]
+			}
+		],
+		"add": [
+			{
+				"sentence": "Der Konzern meldete für das vergangene Jahr einen ____ von 200 Millionen Euro. (loss)",
+				"acceptedAnswers": [
+					"Verlust",
+					"Fehlbetrag"
+				],
+				"english": "The group reported a loss of 200 million euros for the past year.",
+				"hint": "English: loss",
+				"subjectKey": "s3",
+				"categoryLabel": "Fachwortschatz",
+				"options": [
+					"Verlass",
+					"Verlauf",
+					"Verleih"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Bank verlangt für den Kredit eine ____ in Form einer Grundschuld. (collateral)",
+				"acceptedAnswers": [
+					"Sicherheit",
+					"Kreditsicherheit",
+					"Sicherheitsleistung"
+				],
+				"english": "The bank requires collateral for the loan in the form of a land charge.",
+				"hint": "English: collateral, security",
+				"subjectKey": "s7",
+				"categoryLabel": "Fachwortschatz",
+				"options": [
+					"Versicherung",
+					"Sichtung",
+					"Sachlichkeit"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_register",
+		"sentences": [
+			{
+				"sentence": "Chat: „Hab das Paket immer noch nicht gekriegt.“ → Brief: „Ich habe die Sendung bisher nicht ____.“ (received)",
+				"options": [
+					"gekriegt",
+					"erhielt",
+					"empfangt"
+				]
+			},
+			{
+				"sentence": "Chat: „Das Ding ist kaputt.“ → Reklamation: „Das Gerät ist ____.“ (defective)",
+				"options": [
+					"kaputt",
+					"defektiv",
+					"hinüber"
+				]
+			},
+			{
+				"sentence": "Chat: „Jemand hat mein Rad geklaut.“ → Anzeige: „Mein Fahrrad wurde ____.“ (stolen)",
+				"options": [
+					"geklaut",
+					"gemopst",
+					"entwandt"
+				]
+			},
+			{
+				"sentence": "Chat: „Der Typ vom Support sagt, er muss das erst checken.“ → Bericht: „Der Mitarbeiter teilte mit, er müsse den Sachverhalt zunächst ____.“ (check)",
+				"options": [
+					"checken",
+					"abchecken",
+					"überprüft"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Chat: „Wir brauchen mehr Leute.“ → Antrag: „Wir ____ zusätzliches Personal.“ (require)",
+				"options": [
+					"benötigt",
+					"bedürfen",
+					"benötigst"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Chat: „Ich bin echt sauer.“ → Beschwerde: „Ich bin über den Vorgang äußerst ____.“ (annoyed)",
+				"options": [
+					"sauer",
+					"stinkig",
+					"verärgernd"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Chat: „Sag dem Chef, dass ich später komme.“ → Büro: „Bitte ____ Sie der Geschäftsleitung mit, dass ich mich verspäte.“ (inform)",
+				"options": [
+					"sagen",
+					"geben",
+					"melden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Chat: „Mein Job ist weg.“ → Mitteilung: „Die ____ wurde gestrichen.“ (post)",
+				"options": [
+					"Job",
+					"Stellage",
+					"Maloche"
+				]
+			},
+			{
+				"sentence": "Chat: „Das hat ’ne Menge gekostet.“ → Bericht: „Dies verursachte ____ Kosten.“ (considerable)",
+				"options": [
+					"jede Menge",
+					"erheblichen",
+					"massig"
+				]
+			},
+			{
+				"sentence": "Chat: „Guck dir das Bild mal genau an.“ → Kunstführer: „____ Sie das Gemälde aus der Nähe.“ (view)",
+				"options": [
+					"Gucken",
+					"Schauen",
+					"Betrachtet"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Chat: „Er ist letzte Woche gestorben.“ → Traueranzeige: „Er ist am 3. März ____.“ (passed away)",
+				"options": [
+					"abgekratzt",
+					"krepiert",
+					"versterben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Chat: „Wir fangen um neun an.“ → Programm: „Die Veranstaltung ____ um 9 Uhr.“ (begins)",
+				"options": [
+					"anfängt",
+					"losgeht",
+					"beginnte"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Chat: „Kannst du mir helfen?“ → Anfrage: „Wären Sie so freundlich, mich dabei zu ____?“ (support)",
+				"options": [
+					"helfen",
+					"unterstütze",
+					"beistehen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Chat: „Das kapier ich nicht.“ → E-Mail: „Dieser Punkt ist mir nicht ____.“ (comprehensible)",
+				"options": [
+					"kapiert",
+					"nachvollziehen",
+					"verstanden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Chat: „Das kriegen wir schon hin.“ → Bericht: „Wir werden dies ____.“ (accomplish, manage – formal)",
+				"options": [
+					"hinkriegen",
+					"deichseln",
+					"bewerkstelligt"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Brief: „Ich habe den Betrag erhalten.“ → Chat: „Hab die ____ gekriegt.“ (money – colloquial)",
+				"options": [
+					"Betrag",
+					"Summe",
+					"Zahlung"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Bericht: „Sie äußerte, dass sie nicht teilnehmen werde.“ → Chat: „Sie hat ____, dass sie nicht kommt.“ (said – neutral)",
+				"options": [
+					"geäußert",
+					"mitgeteilt",
+					"verlautbart"
+				]
+			}
+		],
+		"add": [
+			{
+				"sentence": "Chat: „Der Chef hat mich voll angemotzt.“ → Bericht: „Der Vorgesetzte hat mich ____.“ (reprimanded)",
+				"acceptedAnswers": [
+					"zurechtgewiesen",
+					"gerügt",
+					"geruegt",
+					"getadelt",
+					"kritisiert",
+					"ermahnt"
+				],
+				"english": "The boss really had a go at me. → My superior reprimanded me.",
+				"subjectKey": "s5",
+				"categoryLabel": "Register",
+				"options": [
+					"angemotzt",
+					"zusammengestaucht",
+					"zurechtgewiest"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Chat: „Ich hau jetzt ab.“ → Brief: „Ich werde mich nun ____.“ (take my leave)",
+				"acceptedAnswers": [
+					"verabschieden",
+					"empfehlen",
+					"zurückziehen",
+					"zurueckziehen"
+				],
+				"english": "I'm off now. → I shall now take my leave.",
+				"subjectKey": "s11",
+				"categoryLabel": "Register",
+				"options": [
+					"abhauen",
+					"verdrücken",
+					"verabschiedet"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_kollokationen",
+		"sentences": [
+			{
+				"sentence": "Nach langem Zögern ____ der Aufsichtsrat eine weitreichende Entscheidung. (took – Präteritum)",
+				"options": [
+					"machte",
+					"stellte",
+					"nahm"
+				]
+			},
+			{
+				"sentence": "Die Opposition ____ scharfe Kritik an dem Vorhaben. (voiced – Präteritum)",
+				"options": [
+					"machte",
+					"gab",
+					"stellte"
+				]
+			},
+			{
+				"sentence": "Angesichts der Lage ____ die Regierung umgehend Maßnahmen. (took – Präteritum)",
+				"options": [
+					"nahm",
+					"machte",
+					"setzte"
+				]
+			},
+			{
+				"sentence": "Der Verein hat beim Gericht einen Antrag auf einstweilige Verfügung ____. (filed – Partizip II)",
+				"options": [
+					"gemacht",
+					"gelegt",
+					"gegeben"
+				]
+			},
+			{
+				"sentence": "Nach der Niederlage ____ die Mannschaft neue Hoffnung aus dem Nachwuchs. (drew – Präteritum)",
+				"options": [
+					"nahm",
+					"machte",
+					"holte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Bürgerinitiative ____ jahrelang Widerstand gegen den Ausbau. (put up – Präteritum)",
+				"options": [
+					"machte",
+					"gab",
+					"übte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wer investiert, ____ ein Risiko ein. (takes)",
+				"options": [
+					"nimmt",
+					"macht",
+					"hält"
+				]
+			},
+			{
+				"sentence": "Der Minister ____ Zweifel an der Verlässlichkeit der Zahlen. (harboured – Präteritum)",
+				"options": [
+					"machte",
+					"trug",
+					"stellte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Studie ____ die Frage auf, ob das Modell überhaupt trägt. (raises)",
+				"options": [
+					"stellt",
+					"hebt",
+					"legt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Mit einer schlichten Feier ____ die Belegschaft Abschied von ihrem Gründer. (took leave – Präteritum)",
+				"options": [
+					"machte",
+					"gab",
+					"hielt"
+				]
+			},
+			{
+				"sentence": "Lobbyisten ____ erheblichen Einfluss auf den Gesetzestext aus. (exerted – Präteritum)",
+				"options": [
+					"machten",
+					"gaben",
+					"nahmen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Behörde ____ die Gefahr, bevor sie sich ausbreiten konnte. (averted – Präteritum: eine Gefahr …)",
+				"options": [
+					"wendete",
+					"wehrte",
+					"bannt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ihre Warnung ____ auf taube Ohren. (fell – Präteritum)",
+				"options": [
+					"fiel",
+					"kam",
+					"ging"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Dieses Argument ____ schwer. (carries weight)",
+				"options": [
+					"trägt",
+					"hebt",
+					"zählt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er hatte einen ____ Grund, der Sitzung fernzubleiben. (valid, good – the fixed adjective)",
+				"options": [
+					"trifftigen",
+					"triftiger",
+					"triftigem"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das Team musste eine ____ Niederlage hinnehmen. (bitter, heavy)",
+				"options": [
+					"herben",
+					"bitteren",
+					"saure"
+				]
+			},
+			{
+				"sentence": "Sie brachte ein ____ Argument vor. (sound, cogent)",
+				"options": [
+					"stichhaltige",
+					"stichhaltigen",
+					"tiefes"
+				]
+			},
+			{
+				"sentence": "Die Debatte ____ sich am Abend weiter zu. (came to a head – Präteritum)",
+				"options": [
+					"schärfte",
+					"spitzt",
+					"spitzten"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Die Firma muss die Konsequenzen ihres Handelns ____. (bear – Infinitiv)",
+				"acceptedAnswers": [
+					"tragen"
+				],
+				"english": "The company must bear the consequences of its actions.",
+				"subjectKey": "s13",
+				"categoryLabel": "Kollokation",
+				"options": [
+					"machen",
+					"nehmen",
+					"haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Polizei hat gegen den Fahrer Anzeige ____. (filed – Partizip II)",
+				"acceptedAnswers": [
+					"erstattet"
+				],
+				"english": "The police have filed charges against the driver.",
+				"subjectKey": "s3",
+				"categoryLabel": "Kollokation",
+				"options": [
+					"gegeben",
+					"geleistet",
+					"eingelegt"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_valenz",
+		"sentences": [
+			{
+				"sentence": "Die Stadt gedachte ____ des Anschlags. (die Opfer)",
+				"options": [
+					"die Opfer",
+					"den Opfern",
+					"der Opfern"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Dieser Vorschlag bedarf ____. (eine gründliche Prüfung)",
+				"options": [
+					"eine gründliche Prüfung",
+					"einer gründliche Prüfung",
+					"einer gründlichen Prüfungen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Partei erfreut sich ____. (wachsende Zustimmung)",
+				"options": [
+					"wachsende Zustimmung",
+					"wachsenden Zustimmung",
+					"wachsende Zustimmungen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Man beschuldigte den Manager ____. (der Betrug)",
+				"options": [
+					"den Betrug",
+					"dem Betrug",
+					"des Betrug"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Richter enthob ____ seines Amtes. (der Bürgermeister)",
+				"options": [
+					"dem Bürgermeister",
+					"des Bürgermeisters",
+					"der Bürgermeister"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er widersprach ____ in mehreren Punkten. (der Bericht)",
+				"options": [
+					"den Bericht",
+					"des Berichts",
+					"der Bericht"
+				]
+			},
+			{
+				"sentence": "Die Ministerin wich ____ geschickt aus. (die Frage)",
+				"options": [
+					"die Frage",
+					"dem Frage",
+					"von der Frage"
+				]
+			},
+			{
+				"sentence": "Auf dem Flur begegnete sie ____. (ein alter Bekannter)",
+				"options": [
+					"einen alten Bekannten",
+					"einem alten Bekannter",
+					"einem alter Bekannten"
+				]
+			},
+			{
+				"sentence": "Der Skandal kostete ____ das Amt. (der Minister)",
+				"options": [
+					"des Ministers",
+					"der Minister",
+					"den Ministern"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie lehrte ____ das Geigenspiel. (ihr Sohn)",
+				"options": [
+					"ihres Sohnes",
+					"ihr Sohn",
+					"ihren Sohnes"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er rächte sich ____ für die Demütigung. (sein Rivale)",
+				"options": [
+					"an seinem Rival",
+					"seinem Rivalen",
+					"bei seinem Rivalen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Nichts konnte sie ____ abhalten. (die Reise)",
+				"options": [
+					"von die Reise",
+					"der Reise",
+					"an der Reise"
+				]
+			},
+			{
+				"sentence": "Die Firma verdächtigt ____ der Industriespionage. (ein Mitarbeiter)",
+				"options": [
+					"einem Mitarbeiter",
+					"eines Mitarbeiters",
+					"ein Mitarbeiter"
+				]
+			},
+			{
+				"sentence": "Sie beraubten ____ seiner Freiheit. (der Gefangene)",
+				"options": [
+					"dem Gefangenen",
+					"des Gefangenen",
+					"den Gefangene"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er besteht ____. (seine Rechte)",
+				"options": [
+					"an seinen Rechten",
+					"seine Rechte",
+					"auf seinem Rechten"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Man nannte ihn ____. (ein Verräter)",
+				"options": [
+					"ein Verräter",
+					"einem Verräter",
+					"eines Verräters"
+				]
+			},
+			{
+				"sentence": "Die Regierung enthielt sich ____. (eine Stellungnahme)",
+				"options": [
+					"eine Stellungnahme",
+					"von einer Stellungnahme",
+					"einer Stellungnahmen"
+				]
+			}
+		],
+		"add": [
+			{
+				"sentence": "Der Verein entledigte sich ____. (seine Schulden)",
+				"acceptedAnswers": [
+					"seiner Schulden"
+				],
+				"english": "The club rid itself of its debts.",
+				"subjectKey": "s16",
+				"categoryLabel": "Ergänzung",
+				"options": [
+					"seine Schulden",
+					"seinen Schulden",
+					"von seinen Schulden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Man versicherte ____ der vollen Unterstützung. (der Bürgermeister)",
+				"acceptedAnswers": [
+					"den Bürgermeister",
+					"den Buergermeister"
+				],
+				"english": "They assured the mayor of their full support.",
+				"subjectKey": "s12",
+				"categoryLabel": "Ergänzung",
+				"options": [
+					"dem Bürgermeister",
+					"der Bürgermeister",
+					"des Bürgermeisters"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_komposita",
+		"sentences": [
+			{
+				"sentence": "Der ____ für Pflegekräfte ist wie leer gefegt. (Arbeit + Markt)",
+				"options": [
+					"Arbeitmarkt",
+					"Arbeitenmarkt",
+					"Marktarbeit"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Laut ____ darf eine Prüfung nur einmal wiederholt werden. (Prüfung + Ordnung)",
+				"options": [
+					"Prüfungordnung",
+					"Prüfungenordnung",
+					"Ordnungsprüfung"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Im ____ ist ab Januar noch ein Platz frei. (Kind + Garten)",
+				"options": [
+					"Kindgarten",
+					"Kindesgarten",
+					"Kindsgarten"
+				]
+			},
+			{
+				"sentence": "Sie trug eine dunkle ____. (Sonne + Brille)",
+				"options": [
+					"Sonnebrille",
+					"Sonnesbrille",
+					"Sonnbrille"
+				]
+			},
+			{
+				"sentence": "Die ____ am Bahnhof hat bis Mitternacht geöffnet. (Buch + Handlung)",
+				"options": [
+					"Buchshandlung",
+					"Buchehandlung",
+					"Handlungsbuch"
+				]
+			},
+			{
+				"sentence": "Die ____ auf dieser Strecke beträgt 80 km/h. (die Begrenzung der Geschwindigkeit → ein Wort)",
+				"options": [
+					"Geschwindigkeitbegrenzung",
+					"Begrenzungsgeschwindigkeit",
+					"Geschwindigkeitenbegrenzung"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die ____ ist im Grundgesetz garantiert. (die Freiheit der Wissenschaft → ein Wort)",
+				"options": [
+					"Wissenschaftfreiheit",
+					"Freiheitswissenschaft",
+					"Wissenschaftenfreiheit"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sonntags gibt es bei uns ____ mit Knödeln. (Schwein + Braten)",
+				"options": [
+					"Schweinbraten",
+					"Schweinenbraten",
+					"Bratenschwein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er las die Schlagzeile in der ____. (Tag + Zeitung)",
+				"options": [
+					"Tagzeitung",
+					"Tagezeitung",
+					"Zeitungstag"
+				]
+			},
+			{
+				"sentence": "Das ____ hat die Verordnung gekippt. (das Gericht für die Verfassung des Bundes → ein Wort)",
+				"options": [
+					"Bundverfassungsgericht",
+					"Bundesverfassunggericht",
+					"Verfassungsbundesgericht"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der ____ steigt ab Januar um 0,2 Prozentpunkte. (der Beitrag zur Versicherung der Arbeitslosen → ein Wort)",
+				"options": [
+					"Arbeitslosversicherungsbeitrag",
+					"Arbeitslosenversicherungbeitrag",
+					"Arbeitslosenbeitragsversicherung"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie hat morgen einen Termin beim ____. (Frau + Arzt)",
+				"options": [
+					"Frauarzt",
+					"Frausarzt",
+					"Arztfrau"
+				]
+			},
+			{
+				"sentence": "Im ____ standen alle Bände der Reihe. (Bücher + Regal)",
+				"options": [
+					"Büchersregal",
+					"Bucherregal",
+					"Regalbücher"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die ____ hielt direkt am Marktplatz. (Straße + Bahn)",
+				"options": [
+					"Straßebahn",
+					"Straßbahn",
+					"Bahnstraße"
+				]
+			},
+			{
+				"sentence": "Er schrieb ihr einen ____. (Liebe + Brief)",
+				"options": [
+					"Liebebrief",
+					"Liebenbrief",
+					"Briefliebe"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "An der ____ hängt ein Hinweisschild. (Haus + Tür)",
+				"options": [
+					"Häusertür",
+					"Hausetür",
+					"Türhaus"
+				]
+			},
+			{
+				"sentence": "Die Organisation dokumentiert Verletzungen der ____ in über hundert Ländern. (Mensch + Recht, Plural)",
+				"options": [
+					"Menschrechte",
+					"Menschsrechte",
+					"Menschenrecht"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Die ____ der Stadt hat sich seit 1990 verdoppelt. (Bevölkerung + Zahl)",
+				"acceptedAnswers": [
+					"Bevölkerungszahl",
+					"Bevoelkerungszahl"
+				],
+				"english": "The city's population has doubled since 1990.",
+				"subjectKey": "s0",
+				"categoryLabel": "Kompositum",
+				"options": [
+					"Bevölkerungzahl",
+					"Zahlbevölkerung",
+					"Bevölkerungenzahl"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Auf dem ____ gab es frisches Gemüse aus der Region. (Woche + Markt)",
+				"acceptedAnswers": [
+					"Wochenmarkt"
+				],
+				"english": "At the weekly market there were fresh local vegetables.",
+				"subjectKey": "s8",
+				"categoryLabel": "Kompositum",
+				"options": [
+					"Wochemarkt",
+					"Wochsmarkt",
+					"Marktwoche"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_komparation_advanced",
+		"sentences": [
+			{
+				"sentence": "Die Studie gilt als ____ Untersuchungen, die es zu diesem Thema gibt. (one of the most thorough)",
+				"options": [
+					"einer der gründlichsten",
+					"eine der gründlichste",
+					"eine die gründlichsten"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Mit 38 Prozent erzielte die Partei ____ Ergebnis ihrer Geschichte. (by far the best — inside the noun phrase)",
+				"options": [
+					"das mit Abstand besten",
+					"das mit Abstand bessere",
+					"der mit Abstand beste"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Unter allen eingereichten Entwürfen war ihrer ____. (the best by a wide margin)",
+				"options": [
+					"mit Abstand der besten",
+					"mit Abstand der bessere",
+					"mit Abstand besser"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ die Verhandlungen dauern, ____ wird eine Einigung vor dem Jahresende. (the longer … the less likely)",
+				"options": [
+					"Je länger … umso unwahrscheinlich",
+					"Je lang … desto unwahrscheinlicher",
+					"Desto länger … je unwahrscheinlicher"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Sanierung wird ____ als ursprünglich veranschlagt. (far more expensive)",
+				"options": [
+					"sehr teurer",
+					"weitaus teuer",
+					"weitaus teuerste"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Befund des Gutachtens ist ____ beunruhigend. (highly — absolute degree, no comparison)",
+				"options": [
+					"höher",
+					"am höchsten",
+					"hochst"
+				]
+			},
+			{
+				"sentence": "Man hätte die Anwohner ____ vorab informieren können. (at the very least)",
+				"options": [
+					"mindest",
+					"zuwenigst",
+					"minder"
+				]
+			},
+			{
+				"sentence": "Nach der Restaurierung wirkt das Altarbild ____ neu. (as good as)",
+				"options": [
+					"so gut als ob",
+					"genauso gut",
+					"so gut wenn"
+				]
+			},
+			{
+				"sentence": "Seine Haltung ist ____ pragmatisch ____ prinzipientreu. (more X than Y — preference, not degree)",
+				"options": [
+					"mehr … wie",
+					"eher … wie",
+					"eher … und"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Mieten im Zentrum sind inzwischen ____ hoch wie am Stadtrand. (three times as)",
+				"options": [
+					"dreimal mehr",
+					"dreifach so",
+					"dreimal als"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Abstände zwischen den Krisen werden ____. (ever shorter)",
+				"options": [
+					"immer kurzer",
+					"immer mehr kürzer",
+					"immer kürzere"
+				]
+			},
+			{
+				"sentence": "Graz ist die ____ Stadt Österreichs. (second-largest)",
+				"options": [
+					"zweite größte",
+					"zweitgrößten",
+					"zweigrößte"
+				]
+			},
+			{
+				"sentence": "Das Ergebnis fiel ____ gut aus wie erhofft. (nowhere near as)",
+				"options": [
+					"bei weitem so",
+					"nicht bei weitem so",
+					"längst so"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die überarbeitete Fassung ist ____ überzeugender als die erste. (even)",
+				"options": [
+					"sehr",
+					"mehr",
+					"am"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Sie ist ____ Abgeordneten, die ihr Mandat ohne Nebeneinkünfte ausüben. (one of the few — feminine)",
+				"options": [
+					"einer der wenigen",
+					"eine der wenige",
+					"eine die wenigen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Regierung wies den Vorwurf aufs ____ zurück. (most sharply)",
+				"options": [
+					"Schärfsten",
+					"Schärfere",
+					"Schärfe"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Der Neubau ist ____ so groß wie das alte Rathaus. (twice as)",
+				"acceptedAnswers": [
+					"doppelt",
+					"zweimal"
+				],
+				"english": "The new building is twice as large as the old town hall.",
+				"subjectKey": "s9",
+				"categoryLabel": "Form",
+				"options": [
+					"doppel",
+					"zweifach",
+					"doppelter"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Preise sind ____ gestiegen als befürchtet. (much more sharply)",
+				"acceptedAnswers": [
+					"viel stärker",
+					"weitaus stärker",
+					"deutlich stärker",
+					"erheblich stärker",
+					"wesentlich stärker",
+					"bedeutend stärker",
+					"ungleich stärker"
+				],
+				"english": "Prices have risen much more sharply than feared.",
+				"hint": "stark",
+				"subjectKey": "s4",
+				"categoryLabel": "Form",
+				"options": [
+					"sehr stärker",
+					"mehr stark",
+					"viel stark"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_adjektivbildung",
+		"sentences": [
+			{
+				"sentence": "Die Aufführung war ____ – kein Ton daneben. (Meister + -haft)",
+				"options": [
+					"meistermäßig",
+					"meisterhaftig",
+					"meisterartig"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Er trainiert ____ dreimal pro Woche. (Regel + -mäßig)",
+				"options": [
+					"regelhaft",
+					"regelartig",
+					"regelmäßlich"
+				]
+			},
+			{
+				"sentence": "Das Tier bewegte sich ____ lautlos durchs Gras. (Katze + -artig)",
+				"options": [
+					"katzartig",
+					"katzig",
+					"katzengerecht"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Das System ist ____: Es verbessert sich mit jeder Eingabe. (lernen + -fähig)",
+				"options": [
+					"lernbar",
+					"lernwürdig",
+					"lernhaft"
+				]
+			},
+			{
+				"sentence": "Die Zeugin wirkte auf das Gericht ____. (Glaube + -würdig)",
+				"options": [
+					"glaubfähig",
+					"glaubmäßig",
+					"glaubwürdlich"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Das Museum ist ____ gestaltet, mit niedrigen Vitrinen und Dingen zum Anfassen. (Kind + -gerecht)",
+				"options": [
+					"kindmäßig",
+					"kindwürdig",
+					"kindartig"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Der Saft ist ____ und trotzdem süß. (Zucker + -frei)",
+				"options": [
+					"zuckrig",
+					"zuckerreich",
+					"zuckerhaft"
+				]
+			},
+			{
+				"sentence": "Das Programm war ____: Vorträge, Musik, Führungen. (Abwechslung + -reich)",
+				"options": [
+					"abwechslungreich",
+					"abwechselnd",
+					"abwechslungshaft"
+				]
+			},
+			{
+				"sentence": "Er parkte ____ mitten auf dem Gehweg. (Rücksicht + -los)",
+				"options": [
+					"rücksichtsvoll",
+					"rücksichtlos",
+					"rücksichtsfrei"
+				]
+			},
+			{
+				"sentence": "Die Studie ist ____ zu klein, um Schlüsse zu erlauben. (Zahl + -mäßig, plural joint)",
+				"options": [
+					"zahlmäßig",
+					"zahlsmäßig",
+					"zahlenartig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Mieten sind hier noch ____ günstig. (Verhältnis + -mäßig)",
+				"options": [
+					"verhältnisartig",
+					"verhältnismäßlich",
+					"verhaltensmäßig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Reparatur wurde ____ ausgeführt. (Fach + -gerecht)",
+				"options": [
+					"fachhaft",
+					"fachfähig",
+					"fachartig"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Das Unternehmen ist nicht mehr ____. (Zahlung + -fähig)",
+				"options": [
+					"zahlungfähig",
+					"zahlungswürdig",
+					"zahlungsmäßig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Wende kam ____, über Nacht. (Schlag + -artig)",
+				"options": [
+					"schlaghaft",
+					"schlagmäßig",
+					"schlägig"
+				]
+			},
+			{
+				"sentence": "Die Begründung ist nicht ____. (Stich + -haltig)",
+				"options": [
+					"stichartig",
+					"stichhaft",
+					"stichmäßig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Wohnung ist ____, mit Aufzug und breiten Türen. (Alter + -gerecht, with -s- joint)",
+				"options": [
+					"altergerecht",
+					"altgerecht",
+					"altersfähig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Tumor ist zum Glück nicht ____. (böse + -artig)",
+				"options": [
+					"boshaft",
+					"böswillig",
+					"bösmäßig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Seine Antwort blieb ____ – niemand verstand sie. (Rätsel + -haft)",
+				"options": [
+					"rätselartig",
+					"rätselmäßig",
+					"rätselig"
+				]
+			}
+		],
+		"add": [
+			{
+				"sentence": "Der Antrag ist in dieser Form leider nicht ____. (Zustimmung + -fähig)",
+				"acceptedAnswers": [
+					"zustimmungsfähig",
+					"zustimmungsfaehig"
+				],
+				"english": "Unfortunately the motion cannot win approval in this form.",
+				"subjectKey": "s12",
+				"categoryLabel": "Adjektiv",
+				"options": [
+					"zustimmungfähig",
+					"zustimmungsmäßig",
+					"zustimmungshaft"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ihr Verhalten war ____ – sie nahm die Kritik ohne Murren an. (Vorbild + -lich)",
+				"acceptedAnswers": [
+					"vorbildlich",
+					"vorbildhaft"
+				],
+				"english": "Her behaviour was exemplary – she accepted the criticism without grumbling.",
+				"subjectKey": "s0",
+				"categoryLabel": "Adjektiv",
+				"options": [
+					"vorbildmäßig",
+					"vorbildartig",
+					"vorbildig"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_bigtext_vorstand",
+		"blanks": [
+			{
+				"index": 0,
+				"cue": "carried out"
+			},
+			{
+				"index": 1,
+				"options": [
+					"Einnahmen",
+					"Einbauten",
+					"Abgaben"
+				],
+				"cue": "losses"
+			},
+			{
+				"index": 2,
+				"options": [
+					"habt",
+					"haben",
+					"hätten"
+				],
+				"cue": "haben",
+				"hint": "haben · Konjunktiv I"
+			},
+			{
+				"index": 3,
+				"cue": "werden",
+				"hint": "werden · Konjunktiv I"
+			},
+			{
+				"index": 4,
+				"options": [
+					"seie",
+					"sein",
+					"seien"
+				],
+				"cue": "sein",
+				"hint": "sein · Konjunktiv I"
+			},
+			{
+				"index": 5,
+				"options": [
+					"könnt",
+					"können",
+					"könnten"
+				],
+				"cue": "können",
+				"hint": "können · Konjunktiv I"
+			},
+			{
+				"index": 6,
+				"cue": "meets"
+			},
+			{
+				"index": 7,
+				"cue": "voiced"
+			},
+			{
+				"index": 8,
+				"cue": "haben",
+				"hint": "haben · Konjunktiv II (Ersatzform)"
+			},
+			{
+				"index": 9,
+				"options": [
+					"wöllte",
+					"wollen",
+					"wollt"
+				],
+				"cue": "wollen",
+				"hint": "wollen · Konjunktiv I"
+			},
+			{
+				"index": 10,
+				"options": [
+					"ausschütten",
+					"ausschenken",
+					"ausschöpft"
+				],
+				"cue": "exhaust"
+			},
+			{
+				"index": 11,
+				"options": [
+					"gelegt",
+					"gebaut",
+					"gezogen"
+				],
+				"cue": "set"
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_stilmittel",
+		"sentences": [
+			{
+				"sentence": "Aus einem Leitartikel: „Die Koalition ist ein Kartenhaus, und der erste Windstoß kommt bestimmt.“ – Stilmittel: ____ (an image transferred to a new domain, with no comparison word)",
+				"options": [
+					"Vergleich",
+					"Hyperbel",
+					"Ironie"
+				]
+			},
+			{
+				"sentence": "Aus einer Parlamentsreportage: „Die Debatte zog sich zäh wie Kaugummi bis nach Mitternacht.“ – Stilmittel: ____ (two things linked explicitly by a comparison word)",
+				"options": [
+					"Metapher",
+					"Personifikation",
+					"Alliteration"
+				]
+			},
+			{
+				"sentence": "Aus dem Börsenbericht: „Die Märkte reagierten nervös und straften die Regierung für ihr Zögern ab.“ – Stilmittel: ____ (gives human feelings and actions to something non-human)",
+				"options": [
+					"Vergleich",
+					"Anapher",
+					"Euphemismus"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Bürgermeisterin schloss: „Wir brauchen Mut. Wir brauchen Geduld. Wir brauchen einander.“ – Stilmittel: ____ (the same words open each successive clause)",
+				"options": [
+					"Antithese",
+					"Chiasmus",
+					"Zeugma"
+				]
+			},
+			{
+				"sentence": "Ein Kommentar zur Bilanz des Kanzlers: „Er versprach Aufbruch und lieferte Stillstand.“ – Stilmittel: ____ (sets two opposed ideas against each other)",
+				"options": [
+					"Oxymoron",
+					"Anapher",
+					"Alliteration"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Auf dem Parteitag hieß es über den früheren Vorsitzenden: „Er hat die Partei geschwächt, gespalten, zerstört.“ – Stilmittel: ____ (rises step by step in intensity)",
+				"options": [
+					"Anapher",
+					"Antithese",
+					"Chiasmus"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Auf dem Plakat einer Konditorei: „Feine Früchte für festliche Feiertage.“ – Stilmittel: ____ (neighbouring words repeat the same initial sound)",
+				"options": [
+					"Anapher",
+					"Klimax",
+					"Oxymoron"
+				]
+			},
+			{
+				"sentence": "Der Vorstand räumte ein, die Risiken der Übernahme seien „nicht ganz unerheblich“ gewesen. – Stilmittel: ____ (asserts something by denying its opposite, and so plays it down)",
+				"options": [
+					"Hyperbel",
+					"Oxymoron",
+					"Anapher"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Aus einer Glosse über das Bürgeramt: „Ich habe dort eine halbe Ewigkeit gewartet – und dann fehlte ein Formular.“ – Stilmittel: ____ (inflates beyond literal truth for effect)",
+				"options": [
+					"Litotes",
+					"Euphemismus",
+					"Chiasmus"
+				]
+			},
+			{
+				"sentence": "Die Kollegin kommt vierzig Minuten zu spät, und die Leiterin sagt: „Schön, dass Sie es so pünktlich geschafft haben.“ – Stilmittel: ____ (says the opposite of what is meant)",
+				"options": [
+					"Euphemismus",
+					"Litotes",
+					"Anapher"
+				]
+			},
+			{
+				"sentence": "Im Quartalsbericht heißt es, die Wirtschaft habe ein „negatives Wachstum“ verzeichnet. – Stilmittel: ____ (makes something unpleasant sound harmless)",
+				"options": [
+					"Ironie",
+					"Hyperbel",
+					"Anapher"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Aus einer Konzertkritik: „Nach dem letzten Akkord herrschte im Saal eine ohrenbetäubende Stille.“ – Stilmittel: ____ (fuses two contradictory words into one phrase)",
+				"options": [
+					"Euphemismus",
+					"Litotes",
+					"Alliteration"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "In der Festrede: „Wer von uns hat nicht schon einmal eine Frist versäumt?“ – Stilmittel: ____ (asks without expecting a reply, and presumes agreement)",
+				"options": [
+					"Ironie",
+					"Ellipse",
+					"Anapher"
+				]
+			},
+			{
+				"sentence": "Die Gewerkschafterin hielt dagegen: „Wir leben nicht, um zu arbeiten – wir arbeiten, um zu leben.“ – Stilmittel: ____ (mirrors two elements crosswise: A–B, B–A)",
+				"options": [
+					"Parallelismus",
+					"Anapher",
+					"Zeugma"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Aus einer satirischen Kolumne: „Der Vorsitzende brach erst sein Schweigen und kurz darauf sein Wahlversprechen.“ – Stilmittel: ____ (one verb yoked to two objects in different senses)",
+				"options": [
+					"Chiasmus",
+					"Anapher",
+					"Litotes"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Aus einer Dorfchronik: „Um 1850 zählte der Ort kaum zweihundert Seelen.“ – Stilmittel: ____ (names a part to mean the whole person)",
+				"options": [
+					"Personifikation",
+					"Hyperbel",
+					"Anapher"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Auf die Frage nach der Reform antwortete der Minister knapp: „Vorerst vertagt.“ – Stilmittel: ____ (leaves out words the listener can supply)",
+				"options": [
+					"Litotes",
+					"Chiasmus",
+					"Klimax"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Aus einer Festrede: „Ich weiß, dass ich nichts weiß.“ – Stilmittel: ____ (a statement that seems to contradict itself yet holds a truth)",
+				"acceptedAnswers": [
+					"Paradoxon",
+					"das Paradoxon",
+					"ein Paradoxon",
+					"Paradox",
+					"das Paradox",
+					"ein Paradox",
+					"Paradoxie",
+					"die Paradoxie",
+					"eine Paradoxie"
+				],
+				"english": "From a ceremonial speech: “I know that I know nothing.” – Device: paradox.",
+				"subjectKey": "s12",
+				"categoryLabel": "Stilmittel",
+				"options": [
+					"Chiasmus",
+					"Litotes",
+					"Hyperbel"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Aus einer Pressemitteilung: „Das Unternehmen trennt sich von 400 Mitarbeitern.“ – Stilmittel: ____ (makes something unpleasant sound harmless)",
+				"acceptedAnswers": [
+					"Euphemismus",
+					"der Euphemismus",
+					"ein Euphemismus",
+					"Beschönigung",
+					"Beschoenigung",
+					"die Beschönigung",
+					"eine Beschönigung",
+					"Verhüllung",
+					"die Verhüllung",
+					"eine Verhüllung"
+				],
+				"english": "From a press release: “The company is parting ways with 400 employees.” – Device: euphemism.",
+				"subjectKey": "s7",
+				"categoryLabel": "Stilmittel",
+				"options": [
+					"Ironie",
+					"Hyperbel",
+					"Anapher"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_konj1_lit",
+		"sentences": [
+			{
+				"sentence": "Die Innenministerin erklärte, die Lage ____ ernst, aber beherrschbar. Man ____ alle verfügbaren Kräfte gebündelt und ____ die Maßnahmen in der kommenden Woche erneut überprüfen. (sein · haben · werden)",
+				"options": [
+					"ist … hat … wird",
+					"seie … habe … werde",
+					"sei … habe … wurde"
+				]
+			},
+			{
+				"sentence": "Der Vorstandsvorsitzende räumte ein, dem Unternehmen ____ gravierende Fehler unterlaufen. Die interne Kontrolle ____ zu spät reagiert; so etwas ____ sich nicht wiederholen. (sein · haben · dürfen)",
+				"options": [
+					"sei … habe … dürfe",
+					"seien … habe … darf",
+					"sind … hat … darf"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Gewerkschaft teilte mit, die Beschäftigten ____ nicht länger bereit, unbezahlte Überstunden zu leisten. Sie ____ in den vergangenen Jahren genug Zugeständnisse gemacht. (sein · haben)",
+				"options": [
+					"sind … haben",
+					"seien … habe",
+					"seien … hätte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ein Sprecher des Ministeriums wies die Vorwürfe zurück. Es ____ zu keinem Zeitpunkt Absprachen mit der Industrie gegeben; der Bericht ____ auf veralteten Zahlen. Man ____ rechtliche Schritte. (haben · beruhen · prüfen)",
+				"options": [
+					"hat … beruht … prüft",
+					"habe … beruht … prüfe",
+					"habe … beruhe … prüft"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Nach Angaben der Polizei ____ der Fahrer mit deutlich überhöhter Geschwindigkeit unterwegs gewesen. Er ____ in der Kurve die Kontrolle über den Wagen verloren und ____ gegen einen Baum geprallt. (sein · haben · sein)",
+				"options": [
+					"ist … hat … ist",
+					"sei … habe … habe",
+					"habe … habe … sei"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Preisträgerin beteuerte in ihrer Dankesrede, sie ____ nie für ein Publikum geschrieben. Schreiben ____ für sie eine Art zu atmen; wer das nicht verstehe, ____ ihre Bücher getrost ungelesen lassen. (haben · sein · können)",
+				"options": [
+					"hat … ist … kann",
+					"habe … sei … kann",
+					"sei … sei … könne"
+				]
+			},
+			{
+				"sentence": "Der Regisseur sagte im Interview, er ____ keine Botschaft, er ____ nur Fragen stellen. Die Antworten ____ das Publikum schon selbst finden. (haben · wollen · müssen)",
+				"options": [
+					"hat … will … muss",
+					"habe … will … müsse",
+					"habe … wolle … muss"
+				]
+			},
+			{
+				"sentence": "Die Abgeordnete wollte wissen, ob die Regierung die Risiken gekannt ____, warum die Studie erst jetzt veröffentlicht ____ und wer dafür die Verantwortung ____. (haben · werden · tragen)",
+				"options": [
+					"hat … wird … trägt",
+					"habe … wird … trage",
+					"habe … werde … trägt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Vorsitzende Richter forderte den Angeklagten auf, er ____ sich endlich zur Sache äußern. Das Gericht ____ nicht unbegrenzt warten, die Geduld aller Beteiligten ____ erschöpft. (sollen · können · sein)",
+				"options": [
+					"soll … kann … ist",
+					"solle … kann … sei",
+					"solle … könne … ist"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Veranstalter kündigten an, das Festival ____ im kommenden Jahr nur noch zehn Tage dauern. Die Eintrittspreise ____ jedoch stabil bleiben; man ____ mit etwas weniger Besuchern. (werden · werden · rechnen)",
+				"options": [
+					"wird … werden … rechnet",
+					"werde … werdet … rechne",
+					"werde … würden … rechnet"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Einer neuen Studie zufolge ____ jeder dritte Jugendliche kaum noch Bücher. Mehr als die Hälfte ____ ihre Freizeit lieber online, und für längere Lektüre ____ vielen schlicht die Geduld. (lesen · verbringen · fehlen)",
+				"options": [
+					"liest … verbringt … fehlt",
+					"lese … verbringt … fehle",
+					"lies … verbringe … fehle"
+				]
+			},
+			{
+				"sentence": "Wie die Staatsanwaltschaft mitteilte, ____ der Verdächtige bereits am Montag festgenommen worden. Er ____ die Tat inzwischen gestanden; ein Motiv ____ sich jedoch noch nicht erkennen. (sein · haben · lassen)",
+				"options": [
+					"ist … hat … lässt",
+					"sei … habe … lässt",
+					"habe … habe … lasse"
+				]
+			},
+			{
+				"sentence": "Die Erzählerin des Romans behauptet, sie ____ ihren Bruder seit vierzig Jahren nicht gesehen. Er ____ eines Morgens ohne ein Wort verschwunden, und niemand im Dorf ____ je nach ihm gefragt. (haben · sein · haben)",
+				"options": [
+					"hat … ist … hat",
+					"habe … habe … habe",
+					"sei … sei … habe"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Forscherinnen betonen, ihre Ergebnisse ____ vorläufig. Weitere Messungen ____ nötig, bevor man belastbare Schlüsse ziehen ____. (sein · sein · können)",
+				"options": [
+					"sind … sind … kann",
+					"sei … sei … könne",
+					"seien … seien … kann"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Anwohner beklagen, sie ____ seit Monaten kaum noch schlafen. Der Baulärm ____ täglich um sechs Uhr, und die Stadt ____ auf keine einzige Beschwerde reagiert. (können · beginnen · haben)",
+				"options": [
+					"konnten … beginne … habe",
+					"könnten … beginnt … hat",
+					"könne … beginne … habe"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Der Sprecher betonte, die Firma ____ keine Kenntnis von den Vorgängen gehabt. Man ____ die Vorwürfe sehr ernst und ____ intern alles aufklären. (haben · nehmen · wollen)",
+				"acceptedAnswers": [
+					"habe … nehme … wolle"
+				],
+				"english": "The spokesman stressed that the company had had no knowledge of the events. The allegations were being taken very seriously, and everything would be cleared up internally.",
+				"subjectKey": "s1",
+				"categoryLabel": "Konjunktiv I",
+				"options": [
+					"hat … nimmt … will",
+					"habe … nimmt … wolle",
+					"habe … nehme … will"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Ärzte warnten, viele Patienten ____ zu lange auf einen Termin. Sie ____ deshalb oft gleich in die Notaufnahme. (warten · kommen)",
+				"acceptedAnswers": [
+					"warteten … kämen",
+					"warteten … kaemen"
+				],
+				"english": "The doctors warned that many patients waited too long for an appointment. That was why they often went straight to A&E.",
+				"subjectKey": "s13",
+				"categoryLabel": "Konjunktiv I",
+				"options": [
+					"wartet … kommt",
+					"warte … komme",
+					"wartete … käme"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_umformung_2",
+		"sentences": [
+			{
+				"sentence": "„Wir haben den Vertrag gestern unterschrieben“, sagte die Sprecherin. → Eine Woche später berichtete die Zeitung, man ____ den Vertrag ____ unterschrieben. (reported speech; shift the time reference)",
+				"options": [
+					"habe … gestern",
+					"habe … heute",
+					"habe … am Folgetag"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "„Kommen Sie bitte morgen noch einmal vorbei!“, sagte die Beamtin. → Die Beamtin sagte, ich ____ am nächsten Tag noch einmal vorbeikommen. (a reported polite request)",
+				"options": [
+					"sollen",
+					"mögen",
+					"sollst"
+				]
+			},
+			{
+				"sentence": "„Wann fährt der letzte Zug nach Graz?“, fragte die Touristin. → Die Touristin wollte wissen, ____ der letzte Zug nach Graz ____. (reported question)",
+				"options": [
+					"wenn … fahre",
+					"ob … fahre",
+					"wann … fahren"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "„Haben Sie die Unterlagen schon eingereicht?“, fragte mich der Sachbearbeiter. → Der Sachbearbeiter fragte mich, ____ ich die Unterlagen schon eingereicht ____. (reported yes/no question)",
+				"options": [
+					"wenn … hätte",
+					"dass … habe",
+					"ob … haben"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Trainer sagte, er sei mit der Leistung seiner Mannschaft zufrieden gewesen. → „Ich ____ mit der Leistung ____ Mannschaft zufrieden“, sagte der Trainer. (restore the speaker’s own words)",
+				"options": [
+					"war … seiner",
+					"sei … meiner",
+					"bin … meiner"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Ministerin erklärte, man werde die Steuern nicht erhöhen. → „____ die Steuern nicht erhöhen“, erklärte die Ministerin. (restore the speaker’s own words; man = the government)",
+				"options": [
+					"Man werde",
+					"Wir würden",
+					"Sie werde"
+				]
+			},
+			{
+				"sentence": "Weil die Nachfrage stark gesunken war, schloss das Werk. → ____ der stark ____ Nachfrage schloss das Werk. (the cause as a prepositional phrase)",
+				"options": [
+					"Wegen … gesunkene",
+					"Weil … gesunkenen",
+					"Wegen … gesinkten"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Trotz heftiger Proteste der Opposition wurde das Gesetz verabschiedet. → ____ die Opposition heftig ____, wurde das Gesetz verabschiedet. (the concession as a clause)",
+				"options": [
+					"Trotz … protestierte",
+					"Obwohl … protestiert",
+					"Obwohl … protestierten"
+				]
+			},
+			{
+				"sentence": "Nachdem der Vertrag unterzeichnet worden war, begannen die Bauarbeiten. → ____ der ____ des Vertrags begannen die Bauarbeiten. (the time as a prepositional phrase)",
+				"options": [
+					"Nachdem … Unterzeichnung",
+					"Nach … Unterzeichnen",
+					"Seit … Unterzeichnung"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Bei starkem Frost wird die Brücke gesperrt. → ____ es stark ____, wird die Brücke gesperrt. (the condition as a clause)",
+				"options": [
+					"Bei … friert",
+					"Wenn … frierte",
+					"Wenn … fror"
+				]
+			},
+			{
+				"sentence": "Durch regelmäßiges Üben verbesserte sie ihre Aussprache. → Sie verbesserte ihre Aussprache, ____ sie regelmäßig ____. (the means as a clause)",
+				"options": [
+					"durch … übte",
+					"indem … übt",
+					"in dem … übte"
+				]
+			},
+			{
+				"sentence": "Zur Senkung der Kosten wurden Stellen gestrichen. → Stellen wurden gestrichen, ____ die Kosten zu ____. (the purpose as an infinitive clause)",
+				"options": [
+					"damit … senken",
+					"um … gesenkt",
+					"zur … senken"
+				]
+			},
+			{
+				"sentence": "Bevor er ging, verabschiedete er sich von allen. → ____ seinem ____ verabschiedete er sich von allen. (the time as a prepositional phrase)",
+				"options": [
+					"Bevor … Aufbruch",
+					"Vor … Weggehens",
+					"Vor … Aufbruchs"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Man muss die Anträge bis Freitag einreichen. → Die Anträge ____ bis Freitag ____. (obligation without man)",
+				"options": [
+					"sind … zu einreichen",
+					"haben … einzureichen",
+					"müssen … einreichen"
+				]
+			},
+			{
+				"sentence": "Das Problem kann ohne großen Aufwand gelöst werden. → Das Problem ____ ohne großen Aufwand ____. (possibility without werden)",
+				"options": [
+					"lässt sich … gelöst",
+					"ist … lösen",
+					"lässt … lösen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Stadt hat das Gebäude aufwendig saniert. → Das Gebäude ____ von der Stadt aufwendig ____. (keep the tense and the agent)",
+				"options": [
+					"ist … saniert geworden",
+					"hat … saniert worden",
+					"ist … saniert werden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Fehler ist leicht zu übersehen. → Der Fehler ____ leicht ____. (possibility with a modal verb)",
+				"options": [
+					"kann … übersehen worden",
+					"kann … übersehen",
+					"kann … zu übersehen"
+				],
+				"hard": true,
+				"keepCue": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "„Ich komme morgen zurück“, versprach er. → Er versprach, er ____ am ____ Tag zurück. (reported speech; shift the time reference)",
+				"acceptedAnswers": [
+					"komme … nächsten",
+					"komme … folgenden",
+					"komme … darauffolgenden"
+				],
+				"english": "“I’ll be back tomorrow,” he promised. → He promised he would be back the next day.",
+				"subjectKey": "s0",
+				"categoryLabel": "Umformung",
+				"options": [
+					"komme … morgigen",
+					"kommt … gestrigen",
+					"käme … vorigen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wegen des Streiks fielen alle Flüge aus. → ____ das Personal ____, fielen alle Flüge aus. (the cause as a clause)",
+				"acceptedAnswers": [
+					"Weil … streikte",
+					"Da … streikte"
+				],
+				"english": "Because of the strike all flights were cancelled. → Because the staff were on strike, all flights were cancelled.",
+				"subjectKey": "s6",
+				"categoryLabel": "Umformung",
+				"options": [
+					"Wegen … streikte",
+					"Weil … streikt",
+					"Weil … gestreikt"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_konnotation",
+		"sentences": [
+			{
+				"sentence": "Er gönnt seinen Kindern nicht einmal ein Eis und rechnet jede Tasse Kaffee nach – ein ausgesprochen ____ Mensch. (negative counterpart of sparsam)",
+				"options": [
+					"sparsamer",
+					"großzügiger",
+					"geizige"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie tritt ____ auf, ohne je überheblich zu wirken – deshalb schickt man sie in die schwierigsten Verhandlungen. (positive; the negative would be arrogant)",
+				"options": [
+					"arrogant",
+					"überheblich",
+					"schüchtern"
+				]
+			},
+			{
+				"sentence": "In der Schlagzeile des Boulevardblatts wurden aus den friedlichen Demonstranten ____, die angeblich die Innenstadt verwüsteten. (pejorative word for protesters)",
+				"options": [
+					"Demonstranten",
+					"Aktivisten",
+					"Bürger"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Regale waren ____: Schon nach einem Jahr lösten sich die Bretter aus den Halterungen. (negative: low price, low quality)",
+				"options": [
+					"preiswert",
+					"günstig",
+					"teuer"
+				]
+			},
+			{
+				"sentence": "Das Hotel ist ____ und trotzdem tadellos sauber – für eine Großstadt eine Seltenheit. (positive: low price, no loss of quality)",
+				"options": [
+					"teuer",
+					"kostspielig",
+					"überteuert"
+				]
+			},
+			{
+				"sentence": "Mit 88 fährt meine Großmutter noch jeden Morgen mit dem Rad zum Markt – sie ist erstaunlich ____. (positive for an old person: vigorous)",
+				"options": [
+					"betagt",
+					"gebrechlich",
+					"senil"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Vorstand ist ____: Kein Mitglied ist unter siebzig, und neue Ideen haben keine Chance. (negative: over-aged and rigid)",
+				"options": [
+					"erfahren",
+					"bejahrt",
+					"rüstig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Schon als Kind war sie ____ und löcherte jeden Erwachsenen mit Fragen über die Sterne. (positive: eager to learn)",
+				"options": [
+					"aufdringlich",
+					"indiskret",
+					"desinteressiert"
+				]
+			},
+			{
+				"sentence": "Die Nachbarin ist geradezu ____: Sie liest die Absender auf unseren Briefen und fragt jeden Besucher aus. (clearly negative, stronger than neugierig)",
+				"options": [
+					"wissbegierig",
+					"interessiert",
+					"diskret"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Pressestelle vermied das neutrale Wort Problem und sprach lieber von einer ____. (positive framing: something to be mastered)",
+				"options": [
+					"Schwierigkeit",
+					"Krise",
+					"Katastrophe"
+				]
+			},
+			{
+				"sentence": "Der ____ aus der Mülltonne war im Hochsommer kaum auszuhalten. (negative counterpart of Geruch)",
+				"options": [
+					"Geruch",
+					"Duft",
+					"Aroma"
+				]
+			},
+			{
+				"sentence": "Im Geschäftsbericht heißt es beschönigend, man habe dreihundert Beschäftigte ____. (euphemism for entlassen: ‘released’)",
+				"options": [
+					"entlassen",
+					"gefeuert",
+					"rausgeschmissen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Kritiker nennen den Minister stur; seine Anhänger loben ihn als ____. (positive word for the same trait)",
+				"options": [
+					"stur",
+					"starrsinnig",
+					"dickköpfig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ohne Seil auf den vereisten Grat zu steigen, war nicht mutig, sondern ____. (negative counterpart of mutig)",
+				"options": [
+					"mutig",
+					"tapfer",
+					"besonnen"
+				]
+			},
+			{
+				"sentence": "Er prüft jede Kommastelle dreimal und korrigiert sogar Einkaufszettel – das ist nicht mehr gründlich, das ist ____. (negative counterpart of gründlich)",
+				"options": [
+					"gründlich",
+					"sorgfältig",
+					"genau"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Nach der langen Krankheit war er nicht mehr schlank, sondern ____ – man sah jede Rippe. (negative counterpart of schlank)",
+				"options": [
+					"schlank",
+					"zierlich",
+					"rank"
+				]
+			},
+			{
+				"sentence": "Dem Chef gegenüber ist er ____: Er widerspricht nie und lacht über jeden noch so schlechten Witz. (negative: servile)",
+				"options": [
+					"loyal",
+					"höflich",
+					"respektvoll"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Regierung spricht von einer Reform des Rentensystems; die Gewerkschaften nennen dieselben Maßnahmen schlicht ____. (negative: what happens to the benefits)",
+				"options": [
+					"Anpassungen",
+					"Reformen",
+					"Verbesserungen"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Der Konzern spricht von „Preisanpassungen“ – die Kunden nennen es schlicht ____. (plain, unflattering word for what happens to the prices)",
+				"acceptedAnswers": [
+					"Preiserhöhungen",
+					"Preiserhoehungen",
+					"Preissteigerungen",
+					"Abzocke",
+					"Preistreiberei"
+				],
+				"english": "The group speaks of ‘price adjustments’ – customers simply call them price rises.",
+				"subjectKey": "s17",
+				"categoryLabel": "Konnotation",
+				"options": [
+					"Preissenkungen",
+					"Rabatte",
+					"Sonderangebote"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er ist nicht ehrgeizig, sondern geradezu ____: Für die Karriere würde er jeden Kollegen opfern. (negative counterpart of ehrgeizig)",
+				"acceptedAnswers": [
+					"skrupellos",
+					"rücksichtslos",
+					"ruecksichtslos",
+					"machtbesessen",
+					"karrieregeil",
+					"verbissen",
+					"gewissenlos"
+				],
+				"english": "He is not ambitious but downright ruthless: he would sacrifice any colleague for his career.",
+				"subjectKey": "s14",
+				"categoryLabel": "Konnotation",
+				"options": [
+					"zielstrebig",
+					"strebsam",
+					"ambitioniert"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_abtoenung",
+		"sentences": [
+			{
+				"sentence": "Der Einwand ist ____ berechtigt, auch wenn er unbequem ist. (certainly – conceding against an expected doubt)",
+				"options": [
+					"keineswegs",
+					"kaum",
+					"mitnichten"
+				]
+			},
+			{
+				"sentence": "Dass die Reform die Kosten senkt, ist ____ sicher; die Prognosen gehen weit auseinander. (by no means)",
+				"options": [
+					"durchaus",
+					"völlig",
+					"absolut"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Angesichts der Datenlage ist diese Behauptung ____ absurd. (downright)",
+				"options": [
+					"kaum",
+					"keineswegs",
+					"wenig"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Für viele Kritiker gilt dieses Buch als der Großstadtroman ____. (the very model of its kind – placed after the noun)",
+				"options": [
+					"geradezu",
+					"keineswegs",
+					"ausgesprochen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Sitzung wurde abgesagt – wir hätten ____ nicht teilnehmen können. (anyway, regardless)",
+				"options": [
+					"unbedingt",
+					"keineswegs",
+					"kaum"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ein Vergleich ist ____ besser als ein jahrelanger Rechtsstreit. (any day, certainly)",
+				"options": [
+					"keineswegs",
+					"kaum",
+					"selten"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Am Schalter war man ____ unfreundlich; nicht einmal ein Gruß kam über die Lippen. (decidedly, markedly)",
+				"options": [
+					"kaum",
+					"keineswegs",
+					"wenig"
+				]
+			},
+			{
+				"sentence": "Die alte Brücke ist ____ das Gedächtnis der Stadt. (as it were – marks a figurative statement)",
+				"options": [
+					"keineswegs",
+					"kaum",
+					"nie"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Urlaub war völlig verregnet; ____ war das Hotel ausgezeichnet. (at least – salvaging something positive)",
+				"options": [
+					"ebenfalls",
+					"folglich",
+					"deshalb"
+				]
+			},
+			{
+				"sentence": "Mit 2000 Euro Kaltmiete ist die Wohnung ____ billig. (not exactly – ironic understatement)",
+				"options": [
+					"nicht nur",
+					"durchaus",
+					"sehr"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ ist das Verfahren aufwendig, doch es liefert verlässliche Ergebnisse. (admittedly – concession before doch)",
+				"options": [
+					"Obwohl",
+					"Weil",
+					"Deshalb"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Zusammenarbeit mit dem Institut war ____ fruchtbar. (exceedingly – elevated)",
+				"options": [
+					"kaum",
+					"wenig",
+					"überhaupt"
+				]
+			},
+			{
+				"sentence": "Mit dem Ergebnis bin ich ____ zufrieden; begeistert bin ich nicht. (reasonably – within limits)",
+				"options": [
+					"überaus",
+					"äußerst",
+					"restlos"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Neu ist der Vorschlag nicht ____; schon vor zwanzig Jahren wurde Ähnliches diskutiert. (entirely – after nicht)",
+				"options": [
+					"gar",
+					"kaum",
+					"überhaupt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Kinder waren ____ begeistert und wollten gar nicht mehr nach Hause. (veritably, positively)",
+				"options": [
+					"kaum",
+					"wenig",
+					"keineswegs"
+				]
+			}
+		],
+		"add": [
+			{
+				"sentence": "Das Angebot ist ____ verlockend, aber ich muss erst mit meiner Frau sprechen. (certainly – conceding before aber)",
+				"acceptedAnswers": [
+					"durchaus",
+					"sehr wohl",
+					"schon",
+					"gewiss",
+					"zweifellos",
+					"zwar",
+					"sicherlich",
+					"sicher",
+					"natürlich",
+					"natuerlich"
+				],
+				"english": "The offer is certainly tempting, but I have to talk to my wife first.",
+				"subjectKey": "s0",
+				"categoryLabel": "Abtönung",
+				"options": [
+					"keineswegs",
+					"kaum",
+					"mitnichten"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Film ist ____ ein Meisterwerk, aber durchaus sehenswert. (not exactly – ironic understatement)",
+				"acceptedAnswers": [
+					"nicht gerade",
+					"nicht eben",
+					"nicht unbedingt"
+				],
+				"english": "The film is not exactly a masterpiece, but it is certainly worth seeing.",
+				"subjectKey": "s9",
+				"categoryLabel": "Abtönung",
+				"options": [
+					"nicht nur",
+					"durchaus",
+					"geradezu"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_sprichwoerter",
+		"sentences": [
+			{
+				"sentence": "Schlagzeile: „Viele Köche, kein ____ – warum das Kabinett keinen Haushalt zustande bringt“ (too many people in charge ruin a project)",
+				"options": [
+					"Kuchen",
+					"Braten",
+					"Topf"
+				]
+			},
+			{
+				"sentence": "Der Abgeordnete, der die Affäre lanciert hatte, stolperte am Ende selbst darüber – wer anderen eine ____ gräbt, eben. (the plotter falls into his own trap)",
+				"options": [
+					"Falle",
+					"Mulde",
+					"Höhle"
+				]
+			},
+			{
+				"sentence": "Beim Thema Spendenaffäre sitzt die Partei selbst im ____ und sollte mit Vorwürfen gegen andere vorsichtig sein. (don’t attack others for faults you share)",
+				"options": [
+					"Glaspalast",
+					"Gewächshaus",
+					"Treibhaus"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Nun ist auch die Tochter des Bauunternehmers wegen Betrugs angeklagt – der ____ fällt eben nicht weit vom Stamm, raunt man im Ort. (children resemble their parents)",
+				"options": [
+					"Birne",
+					"Ast",
+					"Zweig"
+				]
+			},
+			{
+				"sentence": "Schlagzeile: „Kurze ____ – wie der Konzernchef über seine eigenen Angaben stolperte“ (lies are soon found out)",
+				"options": [
+					"Arme",
+					"Wege",
+					"Ohren"
+				]
+			},
+			{
+				"sentence": "Jahrelang war die Firma mit geschönten Abgaswerten durchgekommen. Doch der ____ geht so lange zum Brunnen, bis er bricht. (a risky habit fails in the end)",
+				"options": [
+					"Eimer",
+					"Becher",
+					"Esel"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Noch im Frühjahr hatte der Trainer die Meisterschaft für entschieden erklärt; nun steigt der Verein ab. Hochmut kommt vor dem ____. (arrogance precedes ruin)",
+				"options": [
+					"Ende",
+					"Neid",
+					"Ruhm"
+				]
+			},
+			{
+				"sentence": "Die Pensionäre erhalten ihre Erhöhung, die Jungen zahlen die Zeche – den Letzten beißen die ____. (whoever comes last bears the cost)",
+				"options": [
+					"Katzen",
+					"Wölfe",
+					"Mäuse"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "„Wo gehobelt wird, fallen ____“, kommentierte der Minister die Entlassungen lapidar. (every big undertaking has casualties)",
+				"options": [
+					"Splitter",
+					"Bretter",
+					"Funken"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Schlagzeile: „Nicht alles Gold, was ____ – die Bilanz des Börsenlieblings“ (appearances deceive)",
+				"options": [
+					"strahlt",
+					"blinkt",
+					"schimmert"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "„Wer den ____ nicht ehrt …“, begann die Kämmerin – und strich auch die kleinsten Posten aus dem Etat. (small sums matter; the coin of the old proverb or today’s)",
+				"options": [
+					"Euro",
+					"Taler",
+					"Schein"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Kaum aus der Haft entlassen, wurde er erneut beim Einbruch erwischt – die Katze lässt das ____ nicht. (old habits persist)",
+				"options": [
+					"Jagen",
+					"Fressen",
+					"Mauzen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Schlagzeile: „Ein ____ kommt selten allein – nach dem Titel holt der Verein auch den Pokal“ (the proverb about misfortune, turned positive)",
+				"options": [
+					"Unglück",
+					"Pech",
+					"Schaden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Umfragewerte sind glänzend, doch gewählt wird erst im Herbst: Man soll den Tag nicht vor dem ____ loben. (don’t celebrate too early)",
+				"options": [
+					"Morgen",
+					"Mittag",
+					"Ende"
+				]
+			},
+			{
+				"sentence": "Ein starkes Quartal ist erfreulich, aber eine ____ macht noch keinen Sommer, warnen die Ökonomen. (one good sign proves nothing)",
+				"options": [
+					"Amsel",
+					"Taube",
+					"Blume"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Studie widerlegt das alte Vorurteil, was ____ nicht lerne, lerne Hans nimmermehr: Auch mit siebzig lernt das Gehirn noch Sprachen. (it’s too late to learn when you are old)",
+				"options": [
+					"Hans",
+					"Gretchen",
+					"Peterchen"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Die Gemeinde baute erst nach dem dritten Hochwasser einen Deich – den Brunnen deckt man eben erst zu, wenn das ____ hineingefallen ist. (people only act after the disaster)",
+				"acceptedAnswers": [
+					"Kind"
+				],
+				"english": "The town only built a dyke after the third flood – people only cover the well once the child has fallen in.",
+				"subjectKey": "s10",
+				"categoryLabel": "Sprichwort",
+				"options": [
+					"Lamm",
+					"Schaf",
+					"Wasser"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Schlagzeile: „Wer zuletzt ____ – wie der Außenseiter am Ende doch triumphierte“ (whoever triumphs last enjoys it most)",
+				"acceptedAnswers": [
+					"lacht"
+				],
+				"english": "Headline: “He who laughs last – how the outsider triumphed after all”.",
+				"subjectKey": "s12",
+				"categoryLabel": "Sprichwort",
+				"options": [
+					"weint",
+					"schweigt",
+					"spricht"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_konj2_nuancen",
+		"sentences": [
+			{
+				"sentence": "Rückblickend ist klar, dass der Vorstand die Risiken früher ____. (erkennen, müssen — past)",
+				"options": [
+					"hätte erkennen gemusst",
+					"hätte erkannt müssen",
+					"hätte müssen erkennen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Ich frage mich, ob ich an ihrer Stelle anders ____. (entscheiden, können — past)",
+				"options": [
+					"hätte entscheiden gekonnt",
+					"hätte entschieden können",
+					"hätte können entscheiden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Du ____ mich wenigstens ____! (anrufen; should have)",
+				"options": [
+					"hättest … angerufen sollen",
+					"solltest … anrufen haben",
+					"hättest … anrufen gesollt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "So ein Fehler ____ nicht passieren ____. (modal — past: should never have been allowed to)",
+				"options": [
+					"hätte … gedurft",
+					"hätte … dürfte",
+					"wäre … dürfen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Auf dem vereisten Gehweg ____ ich beinahe ____. (stürzen)",
+				"options": [
+					"hätte … gestürzt",
+					"wäre … stürzen",
+					"würde … gestürzt"
+				],
+				"hard": true,
+				"keepCue": true
+			},
+			{
+				"sentence": "Um ein Haar ____ wir den letzten Zug ____. (verpassen)",
+				"options": [
+					"wären … verpasst",
+					"hätten … verpassen",
+					"hätte … verpasst"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Fast ____ ich ihm im Ärger etwas Unverzeihliches ____. (sagen)",
+				"options": [
+					"wäre … gesagt",
+					"hätte … sagen",
+					"hätte … gesagen"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Er tut so, als ob er von nichts ____. (wissen)",
+				"options": [
+					"wüsse",
+					"wüssten",
+					"gewusst"
+				]
+			},
+			{
+				"sentence": "Sie sah mich an, als ____ sie mich nie zuvor ____. (sehen)",
+				"options": [
+					"hatte … gesehen",
+					"wäre … gesehen",
+					"hätte … sehen"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er redet, als wenn er hier der Chef ____. (sein)",
+				"options": [
+					"würde",
+					"seie",
+					"wären"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "____ ich doch nur früher auf dich ____! (hören)",
+				"options": [
+					"Würde … gehört",
+					"Hätte … hören",
+					"Wäre … gehört"
+				]
+			},
+			{
+				"sentence": "Wenn er doch nur etwas geduldiger ____! (sein)",
+				"options": [
+					"sei",
+					"war",
+					"wären"
+				]
+			},
+			{
+				"sentence": "Ich ____ da noch eine Frage zum Vertrag. (haben — polite)",
+				"options": [
+					"hättest",
+					"würde",
+					"hätten"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "____ es möglich, den Termin auf Donnerstag zu verlegen? (sein — polite)",
+				"options": [
+					"Würde",
+					"War",
+					"Sei"
+				],
+				"keepCue": true
+			},
+			{
+				"sentence": "Das Problem ist zu komplex, als dass man es in zwei Sätzen erklären ____. (können)",
+				"options": [
+					"konnte",
+					"können",
+					"könnten"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Reform kam zu spät, als dass sie die Firma noch ____. (retten, können — past)",
+				"options": [
+					"hätte retten gekonnt",
+					"hätte gerettet können",
+					"hätte können retten"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "____ da nicht die hohen Mietkosten, würden wir sofort in die Stadt ziehen. (sein)",
+				"options": [
+					"Waren",
+					"Würden",
+					"Seien"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Ohne deine Hilfe ____ ich die Prüfung nie ____. (bestehen)",
+				"acceptedAnswers": [
+					"hätte … bestanden"
+				],
+				"english": "Without your help I would never have passed the exam.",
+				"hint": "English: I would never have passed",
+				"subjectKey": "s6",
+				"categoryLabel": "Konjunktiv II",
+				"options": [
+					"wäre … bestanden",
+					"hätte … bestehen",
+					"hatte … bestanden"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie hätte den Job ____, wenn sie gewollt hätte. (bekommen, können — past)",
+				"acceptedAnswers": [
+					"bekommen können",
+					"kriegen können"
+				],
+				"english": "She could have got the job if she had wanted to.",
+				"hint": "English: could have got",
+				"subjectKey": "s1",
+				"categoryLabel": "Konjunktiv II",
+				"options": [
+					"bekommen gekonnt",
+					"bekommt können",
+					"gekonnt bekommen"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_konnektoren_nuancen",
+		"sentences": [
+			{
+				"sentence": "Der Minister versprach rasche Hilfe; die Betroffenen warten ____ bis heute darauf. (however — adverb in the middle field)",
+				"options": [
+					"obwohl",
+					"weil",
+					"trotz"
+				]
+			},
+			{
+				"sentence": "Die Gäste plauderten im Salon. ____ bereitete der Gastgeber in der Küche das Dessert vor. (meanwhile — adverb, verb second)",
+				"options": [
+					"Während",
+					"Indem",
+					"Solange"
+				]
+			},
+			{
+				"sentence": "____ er die Risiken kannte, unterschrieb er den Vertrag. (although — elevated, verb at the end)",
+				"options": [
+					"Dennoch",
+					"Trotz",
+					"Ungeachtet"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Vorschlag fand breite Zustimmung, ____ er im Detail noch Schwächen aufwies. (although — verb at the end)",
+				"options": [
+					"dennoch",
+					"trotz",
+					"sondern"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Es handelt sich um eine ____ umstrittene, so doch notwendige Maßnahme. (albeit — before the adjective)",
+				"options": [
+					"trotz",
+					"dennoch",
+					"auch wenn"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wir sollten das Angebot annehmen, ____ die Konditionen kaum noch besser werden dürften. (especially as — verb at the end)",
+				"options": [
+					"zuweilen",
+					"indem",
+					"zumindest"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Absage überrascht, ____ der Verein erst im Mai seine Teilnahme zugesagt hatte. (all the more since — verb at the end)",
+				"options": [
+					"zuweilen",
+					"zumindest",
+					"umso"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Studie weist methodische Mängel auf; ____ liefert sie wertvolle Hinweise. (nevertheless — adverb, verb second)",
+				"options": [
+					"obwohl",
+					"trotz",
+					"obgleich"
+				]
+			},
+			{
+				"sentence": "Die Kritik war berechtigt; der Autor hielt ____ an seiner These fest. (nonetheless — adverb in the middle field)",
+				"options": [
+					"obwohl",
+					"trotz",
+					"obgleich"
+				]
+			},
+			{
+				"sentence": "Alle Warnungen lagen vor. ____ entschied sich die Behörde für den Weiterbau. (regardless of that — two words, verb second)",
+				"options": [
+					"Ungeachtet das",
+					"Dessen trotz",
+					"Ungeachtet deren"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Beschuldigte war zur Tatzeit im Ausland; er kann die Tat ____ nicht begangen haben. (consequently — adverb in the middle field)",
+				"options": [
+					"obwohl",
+					"weil",
+					"sodass"
+				]
+			},
+			{
+				"sentence": "Alle Voraussetzungen sind erfüllt, ____ ist der Antrag zu genehmigen. (therefore — adverb, verb second)",
+				"options": [
+					"weil",
+					"sodass",
+					"denn"
+				]
+			},
+			{
+				"sentence": "Die Reform ist ein Fortschritt, ____ sie erstmals auch Teilzeitkräfte einbezieht. (in so far as — two words, verb at the end)",
+				"options": [
+					"insofern dass",
+					"sofern als",
+					"insofern wie"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Vertrag ist nur ____ bindend, als beide Seiten ihn ratifiziert haben. (to that extent — first half of a split connector)",
+				"options": [
+					"sofern",
+					"zumal",
+					"inwiefern"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Er wollte helfen, ____ ihm fehlten die Mittel. (but — elevated, outside the clause, word order unchanged)",
+				"options": [
+					"allerdings",
+					"trotzdem",
+					"dennoch"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Mitglieder und Gäste zahlen 40 ____ 60 Euro Eintritt. (respectively)",
+				"options": [
+					"respektiv",
+					"respektvoll",
+					"beziehentlich"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Er hat den Preis verdient, ____ er das Buch unter schwierigsten Bedingungen schrieb. (all the more since — verb at the end)",
+				"acceptedAnswers": [
+					"zumal",
+					"zumal da",
+					"zumal weil",
+					"umso mehr als",
+					"um so mehr als"
+				],
+				"english": "He deserved the prize, all the more since he wrote the book under the most difficult conditions.",
+				"hint": "English: all the more since",
+				"subjectKey": "s6",
+				"categoryLabel": "Konnektor",
+				"options": [
+					"zuweilen",
+					"zumindest",
+					"umso"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Kosten sind gestiegen, die Einnahmen ____ gesunken. (by contrast — adverb in the middle field)",
+				"acceptedAnswers": [
+					"hingegen",
+					"dagegen",
+					"indes",
+					"indessen",
+					"jedoch",
+					"aber",
+					"allerdings",
+					"wiederum",
+					"demgegenüber"
+				],
+				"english": "Costs have risen; revenue, by contrast, has fallen.",
+				"hint": "English: by contrast",
+				"subjectKey": "s0",
+				"categoryLabel": "Konnektor",
+				"options": [
+					"obwohl",
+					"weil",
+					"trotz"
+				],
+				"hard": true
+			}
+		]
+	},
+	{
+		"id": "quest_c2_1_praefixe_semantik",
+		"sentences": [
+			{
+				"sentence": "Bei der Steuererklärung habe ich mich um fast tausend Euro ____. (rechnen — to miscalculate)",
+				"options": [
+					"berechnet",
+					"errechnet",
+					"zerrechnet"
+				]
+			},
+			{
+				"sentence": "Heute Morgen habe ich ____ und den Zug verpasst. (schlafen — to oversleep)",
+				"options": [
+					"entschlafen",
+					"überschlafen",
+					"zerschlafen"
+				]
+			},
+			{
+				"sentence": "Die Rosen im Garten sind längst ____. (blühen — to finish flowering)",
+				"options": [
+					"zerblüht",
+					"entblüht",
+					"beblüht"
+				]
+			},
+			{
+				"sentence": "Wütend hat sie den Brief in kleine Stücke ____. (reißen — to tear to pieces)",
+				"options": [
+					"verrissen",
+					"entrissen",
+					"berissen"
+				]
+			},
+			{
+				"sentence": "Beim Umzug ist die Vase meiner Großmutter ____. (brechen — to break into pieces)",
+				"options": [
+					"verbrochen",
+					"erbrochen",
+					"entbrochen"
+				]
+			},
+			{
+				"sentence": "Die Mannschaft hat sich den Sieg in der Nachspielzeit ____. (kämpfen — to win by fighting)",
+				"options": [
+					"verkämpft",
+					"bekämpft",
+					"zerkämpft"
+				]
+			},
+			{
+				"sentence": "Auf der Auktion ____ ein Sammler das Gemälde für zwei Millionen Euro. (steigern — to acquire by bidding; past)",
+				"options": [
+					"steigerte",
+					"besteigerte",
+					"entsteigerte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Kaffeemaschine muss regelmäßig ____ werden. (kalken — to remove limescale)",
+				"options": [
+					"verkalkt",
+					"bekalkt",
+					"zerkalkt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Zwischen den beiden Ministern ____ ein heftiger Streit. (flammen — to flare up; past)",
+				"options": [
+					"verflammte",
+					"erflammte",
+					"beflammte"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Behörde hat meinen Antrag noch immer nicht ____. (arbeiten — to process)",
+				"options": [
+					"gearbeitet",
+					"zerarbeitet",
+					"entarbeitet"
+				]
+			},
+			{
+				"sentence": "Die Ministerin ____ alle Fragen des Ausschusses ausführlich. (antworten — to answer, with a direct object; past)",
+				"options": [
+					"antwortete",
+					"erantwortete",
+					"zerantwortete"
+				]
+			},
+			{
+				"sentence": "Sie hat den Roman aus dem Polnischen ins Deutsche ____. (setzen — to translate)",
+				"options": [
+					"übergesetzt",
+					"versetzt",
+					"ersetzt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Fährmann ____ die Reisenden ans andere Ufer ____. (setzen — to ferry across; past)",
+				"options": [
+					"übersetzte … über",
+					"setzte … übers",
+					"setzt … über"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der betrunkene Fahrer hat ein Verkehrsschild ____. (fahren — to knock down)",
+				"options": [
+					"geumfahren",
+					"umgefährt",
+					"zerfahren"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Wir haben den Stau auf der Autobahn großräumig ____. (fahren — to bypass)",
+				"options": [
+					"umgefahren",
+					"geumfahren",
+					"umfahrt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Mit seinen Reiseanekdoten ____ er den ganzen Abend die Runde. (halten — to entertain; past)",
+				"options": [
+					"unterhaltete",
+					"unterhält",
+					"erhielt"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Sie ____ einen Teller ____, damit keine Soße auf die Tischdecke tropfte. (halten — to hold underneath; past)",
+				"options": [
+					"unterhielt … unter",
+					"hält … unter",
+					"hielt … untern"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Die Kommissarin hat seine Lügen sofort ____. (schauen — to see through, not be fooled)",
+				"options": [
+					"durchgeschaut",
+					"verschaut",
+					"überschaut"
+				],
+				"hard": true
+			}
+		],
+		"add": [
+			{
+				"sentence": "Die Seilschaft ____ den Gipfel nach zwölf Stunden. (steigen — to climb, with a direct object; past)",
+				"acceptedAnswers": [
+					"bestieg",
+					"erstieg"
+				],
+				"english": "The rope team climbed the summit after twelve hours.",
+				"hint": "English: climbed",
+				"subjectKey": "s9",
+				"categoryLabel": "Präfixverb",
+				"options": [
+					"stieg",
+					"verstieg",
+					"zerstieg"
+				],
+				"hard": true
+			},
+			{
+				"sentence": "Der Vermieter hat die alte Wohnung komplett ____ und neu vermietet. (bauen — to convert, separable)",
+				"acceptedAnswers": [
+					"umgebaut"
+				],
+				"english": "The landlord completely converted the old flat and let it again.",
+				"hint": "English: converted",
+				"subjectKey": "s13",
+				"categoryLabel": "Präfixverb",
+				"options": [
+					"geumbaut",
+					"umgebauen",
+					"umbaute"
+				],
+				"hard": true
+			}
+		]
+	}
 ]

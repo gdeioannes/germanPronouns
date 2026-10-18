@@ -6,7 +6,6 @@
     ],
     "title": "Gesellschaft & Politik",
     "help": {
-      "hook": "Read a news report on a new law and understand who decided it, who objects, and what changes for taxpayers.",
       "intro": "Gesellschaft und Politik is the theme of most of what you read and hear in the news — a newspaper report on a new law, a radio debate on city traffic, a forum discussion on taxes — and the vocabulary is the vocabulary of the news. The state: die Regierung (government), das Parlament, die Wahl (election), die Stimme (vote), die Mehrheit / Minderheit, das Gesetz (law), die Demokratie, die Partei. The economy: die Steuern (taxes), die Arbeitslosigkeit, die Entwicklung, die Wirtschaft, das Einkommen, die Kluft (gap — die Kluft zwischen Arm und Reich). Public life: die Gesellschaft, die Bürger, die Rechte, die Medien, die Öffentlichkeit, die Herausforderung (challenge), die Verantwortung. The verbs of politics go with them: ein Gesetz beschließen / verabschieden, wählen, abstimmen, fordern (demand), kritisieren, sich einsetzen für (campaign for). Learn the nouns with their articles and their verb — die Wahl gewinnen, Steuern erhöhen / senken, Verantwortung übernehmen — because the exercise tests exactly those pairs, in the sentences of a news report.",
       "tips": [
         {
@@ -40,6 +39,37 @@
             ],
             "answer": "stimmt",
             "why": "abstimmen über means 'to vote on' something; it is separable, so ab goes to the end. wählen is for electing people or parties."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Die Regierung",
+                "de": [
+                  "ein Gesetz vorschlagen"
+                ]
+              },
+              {
+                "label": "Der Bundestag",
+                "de": [
+                  "über ein Gesetz abstimmen",
+                  "ein Gesetz beschließen"
+                ]
+              },
+              {
+                "label": "Das Gesetz",
+                "de": [
+                  "tritt in Kraft"
+                ]
+              },
+              {
+                "label": "Die Bürger",
+                "de": [
+                  "Steuern zahlen",
+                  "dagegen protestieren"
+                ]
+              }
+            ]
           }
         },
         {
@@ -292,7 +322,7 @@
           "why": "You cast (abgeben) a vote; you vote (wählen) for a party."
         }
       ],
-      "exam": null
+      "hook": "Read a news report on a new law and understand who decided it, who objects, and what changes for taxpayers."
     }
   },
   {
@@ -303,7 +333,6 @@
     ],
     "title": "Konjunktiv I: indirekte Rede",
     "help": {
-      "hook": "Pass on what someone said the way German news does: er sei, sie habe, man werde, reported without vouching for it.",
       "intro": "The Konjunktiv I is the mood of reported speech: when you pass on what someone said without vouching for it. Er sagt, er sei krank. Sie meint, sie habe keine Zeit. Der Minister erklärte, die Regierung werde handeln. It marks distance — the newspaper's 'the minister said the situation was serious' — and it is compulsory in German journalism, which is why every newspaper is full of it. The forms are built on the infinitive stem plus -e, -est, -e, -en, -et, -en: er komme, er habe, er könne, er mache; sein is the only fully irregular verb (ich sei, du seist, er sei, wir seien, ihr seiet, sie seien). In practice you use the Konjunktiv I mostly in the third person singular (er/sie/es), because there it differs clearly from the indicative (er hat → er habe, er kommt → er komme); where it would be identical — most plural forms (sie haben = sie haben) — German substitutes the Konjunktiv II (sie hätten). Past: habe / sei + participle. Future: werde + infinitive.",
       "tips": [
         {
@@ -402,11 +431,35 @@
             ],
             "answer": "hätten",
             "why": "The Konjunktiv I sie haben looks exactly like the indicative, so German switches to the Konjunktiv II hätten to keep the report audible; hatten is just a past indicative."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "Konjunktiv I looks like the indicative",
+            "right": "so use Konjunktiv II",
+            "caption": "Only where the Konjunktiv I form is the same as the normal present does it give way.",
+            "rows": [
+              {
+                "a": "ich habe",
+                "b": "ich hätte"
+              },
+              {
+                "a": "wir haben, sie haben",
+                "b": "wir hätten, sie hätten"
+              },
+              {
+                "a": "sie kommen",
+                "b": "sie kämen / sie würden kommen"
+              },
+              {
+                "a": "er habe ✓",
+                "b": "stays: it is already different"
+              }
+            ]
           }
         },
         {
           "kind": "mnemonic",
-          "title": "Drop the -t: er hat → er habe, er kommt → er komme",
+          "title": "Stem + -e: er habe, er komme, er könne",
           "text": "For the third person, take the present, remove the -t, add -e. er macht → er mache, er kann → er könne (infinitive stem), er ist → er sei (the exception). One transformation covers 95 % of what you need.",
           "examples": [
             {
@@ -436,6 +489,29 @@
             ],
             "answer": "laufe",
             "why": "Build it from the infinitive stem lauf- + -e. The umlaut of er läuft belongs only to the indicative."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "he says (indicative)",
+            "right": "reported (Konjunktiv I)",
+            "rows": [
+              {
+                "a": "Er ist krank.",
+                "b": "Er sagt, er sei krank."
+              },
+              {
+                "a": "Sie hat keine Zeit.",
+                "b": "Sie sagt, sie habe keine Zeit."
+              },
+              {
+                "a": "Er kommt morgen.",
+                "b": "Er sagt, er komme morgen."
+              },
+              {
+                "a": "Man wird sehen.",
+                "b": "Man werde sehen."
+              }
+            ]
           }
         }
       ],
@@ -459,7 +535,7 @@
               "sei",
               "(hätte)",
               "(würde)",
-              "(könnte)",
+              "könne",
               "(käme)"
             ]
           },
@@ -498,7 +574,7 @@
               "ihr",
               "seiet",
               "habet",
-              "werdet",
+              "(würdet)",
               "könnet",
               "kommet"
             ]
@@ -599,7 +675,7 @@
           "why": "Plural haben is identical to the indicative → Konjunktiv II."
         }
       ],
-      "exam": null
+      "hook": "Pass on what someone said the way German news does: er sei, sie habe, man werde, reported without vouching for it."
     }
   },
   {
@@ -610,7 +686,6 @@
     ],
     "title": "Großer Text: Die Pressekonferenz",
     "help": {
-      "hook": "Report what a minister said the way newspapers do, die Lage sei ernst, so every reader knows whose words they are.",
       "intro": "A press conference on housing policy, reported the way a German newspaper reports it — about 290 words, every claim of the minister, the tenants’ representative, the industry spokesman and the local authorities in the Konjunktiv I, so the reader knows these are the speakers’ words, not the paper’s. Die Lage sei ernst … die Regierung habe einen Plan … das Land müsse mehr investieren … es gebe keine schnelle Lösung … das sei zurzeit nicht vorgesehen … man werde alle Vorschläge prüfen. Fill each gap with the Konjunktiv I form of the verb given: third person singular → stem + -e (habe, werde, gebe, müsse, solle), sein → sei; where the reported subject is plural and the Konjunktiv I would match the indicative — 400.000 Wohnungen sollen, viele Unternehmen können — switch to the Konjunktiv II (sollten, könnten). The introducing verbs — stellte vor, sagte, betonte, erklärte, forderte, fügte hinzu, antwortete — stay in the Präteritum: they are the paper’s own words. The opposition’s criticism at the end is quoted directly, in quotation marks, and needs no Konjunktiv.",
       "tips": [
         {
@@ -644,6 +719,37 @@
             ],
             "answer": "erklärte",
             "why": "The introducing verb is the newspaper's own voice, so it stays in the indicative Präteritum. The Konjunktiv belongs in the reported clause: sei."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Introduction",
+              "Reported",
+              "",
+              "Verb"
+            ],
+            "hot": [
+              0,
+              3
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Die Ministerin sagte,",
+                  "die Lage",
+                  "",
+                  "sei ernst."
+                ]
+              },
+              {
+                "cells": [
+                  "Man",
+                  "müsse",
+                  "schnell",
+                  "handeln."
+                ]
+              }
+            ]
           }
         },
         {
@@ -716,7 +822,7 @@
         "stellte vor / sagte / betonte / forderte, … sei / habe / müsse / solle / gebe / werde: indicative frame, Konjunktiv content.",
         "Plural form clash (sie sollen, sie können) → Konjunktiv II: sollten, könnten."
       ],
-      "exam": null
+      "hook": "Report what a minister said the way newspapers do, die Lage sei ernst, so every reader knows whose words they are."
     }
   },
   {
@@ -760,6 +866,30 @@
             ],
             "answer": "zwar",
             "why": "Das stimmt zwar, aber … grants the small point and then turns to the big one. zwar is what announces the aber."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Concede",
+                "de": [
+                  "Da haben Sie natürlich recht, …",
+                  "Das stimmt zwar, …"
+                ]
+              },
+              {
+                "label": "Contrast",
+                "de": [
+                  "… aber man muss auch sehen, dass …"
+                ]
+              },
+              {
+                "label": "Reassert",
+                "de": [
+                  "Deshalb bleibe ich dabei: …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -843,7 +973,6 @@
     ],
     "title": "Indirekte Fragen",
     "help": {
-      "hook": "Report what someone asked or requested, from an adviser's questions to a doctor's orders, in clean written German.",
       "intro": "Indirect questions, met earlier as a politeness device, return here as part of reported speech: Er fragte, ob ich morgen komme (whether); Sie wollte wissen, wo ich wohne (W-word); Ich frage mich, ob das wahr ist. The mechanics you already know are unchanged — ob for yes/no questions, the W-word for the rest, verb at the end, comma before — but now they combine with the Konjunktiv I when reported in writing (Er fragte, ob sie Zeit habe; Sie wollte wissen, wann der Zug fahre) and with the indirect request: Er bat mich, ich solle / möge das Fenster schließen — solle for an instruction, möge for a polite request. The prepositional forms follow: Er fragte, womit ich fahre; Sie wollte wissen, worauf ich warte; and the personal ones: mit wem, auf wen. Every W-word you learnt as a beginner works here — wer, wen, wem, wessen, was, wo, wohin, woher, wann, wie, warum, wie viel.",
       "tips": [
         {
@@ -909,6 +1038,25 @@
             ],
             "answer": "A polite request",
             "why": "möge reports a polite request; an instruction would be reported with solle."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "said",
+            "right": "reported",
+            "rows": [
+              {
+                "a": "„Kommen Sie morgen wieder!“",
+                "b": "Sie sagte, ich solle morgen wiederkommen."
+              },
+              {
+                "a": "„Haben Sie ein Konto?“",
+                "b": "Er fragte, ob ich ein Konto hätte."
+              },
+              {
+                "a": "„Wann sind Sie geboren?“",
+                "b": "Sie fragte, wann ich geboren sei."
+              }
+            ]
           }
         },
         {
@@ -1055,7 +1203,11 @@
           "why": "A reported instruction uses solle; a reported polite request uses möge."
         }
       ],
-      "exam": null
+      "hook": "Report what someone asked or requested, from an adviser's questions to a doctor's orders, in clean written German.",
+      "recall": {
+        "known": "From the earlier indirect-question lessons: ob, the W-word and the verb at the end.",
+        "today": "Reporting someone else's questions and requests: solle, möge, and the Konjunktiv I."
+      }
     }
   },
   {
@@ -1066,7 +1218,6 @@
     ],
     "title": "Indirekte Rede: Vergangenheit, Fragen, Bitten",
     "help": {
-      "hook": "Report what someone said, asked or requested in the past, the way police reports and news stories do.",
       "intro": "Reported speech beyond the present: the past, the future, questions and requests. Any past tense of direct speech — Perfekt, Präteritum or Plusquamperfekt — becomes one form in reported speech: habe / sei + Partizip II. „Ich habe geschickt“ / „Ich schickte“ / „Ich hatte geschickt“ → er habe geschickt. „Ich bin angekommen“ → sie sei angekommen. With a modal: „Ich konnte nicht kommen“ → er habe nicht kommen können (double infinitive). The future keeps werde: er werde anrufen. Questions become ob- or W-clauses with the verb at the end and, in writing, the Konjunktiv (sie fragte, ob ich mitkomme / mitkäme; wann der Zug fahre). Requests and orders use solle (instruction) or möge (polite): sie bat, ich möge warten; er forderte, ich solle die Tür schließen. And whenever the Konjunktiv I form equals the indicative — sie haben, wir sind — switch to Konjunktiv II: sie hätten gewusst, wir seien (seien is fine, distinct) umgezogen.",
       "tips": [
         {
@@ -1101,6 +1252,25 @@
             ],
             "answer": "sei",
             "why": "Every past tense becomes one reported form, Konjunktiv I of the helper + Partizip II. ankommen takes sein, so it is sei angekommen."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "said (any past tense)",
+            "right": "reported",
+            "rows": [
+              {
+                "a": "„Ich ging nach Hause.“",
+                "b": "Er sagte, er sei nach Hause gegangen."
+              },
+              {
+                "a": "„Ich habe nichts gesehen.“",
+                "b": "Er sagte, er habe nichts gesehen."
+              },
+              {
+                "a": "„Ich hatte es vergessen.“",
+                "b": "Er sagte, er habe es vergessen."
+              }
+            ]
           }
         },
         {
@@ -1278,7 +1448,11 @@
           "en": "witness"
         }
       ],
-      "exam": null
+      "hook": "Report what someone said, asked or requested in the past, the way police reports and news stories do.",
+      "recall": {
+        "known": "From \"Konjunktiv I: indirekte Rede\": er sei, sie habe, man werde.",
+        "today": "Reporting the past (habe / sei + participle), questions and requests."
+      }
     }
   },
   {
@@ -1288,7 +1462,6 @@
     ],
     "title": "Modalpassiv",
     "help": {
-      "hook": "Write rules and reports like an official: Das Formular muss ausgefüllt werden, in the present, the past and even the Perfekt.",
       "intro": "The modal passive you already know, now in all its tenses. Present: Das Problem muss gelöst werden. Präteritum: Das Problem musste gelöst werden. Perfekt — the form that frightens people — Das Problem hat gelöst werden müssen: haben as helper, then the passive infinitive (gelöst werden), then the modal as a bare infinitive instead of a participle (müssen, not gemusst). That double infinitive at the end is the Ersatzinfinitiv, and it appears whenever a modal verb governs another verb in the Perfekt. In a subordinate clause the helper hat jumps in front of the infinitives: …, weil das Problem hat gelöst werden müssen. You need the present and Präteritum actively and the Perfekt mainly for reading; official texts, regulations and reports are written in these forms: Die Anträge müssen bis Freitag eingereicht werden. Der Vertrag konnte nicht unterschrieben werden.",
       "tips": [
         {
@@ -1324,6 +1497,27 @@
             ],
             "answer": "Die Tür musste sofort geschlossen werden.",
             "why": "Only the modal sits in position 2 and carries the tense; the participle and werden stay together at the end, participle first."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Das Formular",
+                  "muss",
+                  "bis Freitag",
+                  "ausgefüllt werden."
+                ]
+              },
+              {
+                "cells": [
+                  "Das Problem",
+                  "konnte",
+                  "nicht",
+                  "gelöst werden."
+                ]
+              }
+            ]
           }
         },
         {
@@ -1360,6 +1554,19 @@
             ],
             "answer": "müssen",
             "why": "In the Perfekt cluster the modal keeps its infinitive form (Ersatzinfinitiv): gesperrt werden müssen, never gemusst."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Das Problem",
+                  "hat",
+                  "nicht",
+                  "gelöst werden können."
+                ]
+              }
+            ]
           }
         },
         {
@@ -1546,7 +1753,11 @@
           "why": "The helper is haben."
         }
       ],
-      "exam": null
+      "hook": "Write rules and reports like an official: Das Formular muss ausgefüllt werden, in the present, the past and even the Perfekt.",
+      "recall": {
+        "known": "From \"Passiv mit Modalverb & Passiv Perfekt\": muss … gemacht werden.",
+        "today": "The Perfekt with the double infinitive: hat … gemacht werden müssen."
+      }
     }
   },
   {
@@ -1590,6 +1801,36 @@
             ],
             "answer": "the supporter (Befürworter)",
             "why": "Cleaner air and safer streets are arguments for the car-free plan, so this is the supporter's keyword set."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Moderator",
+                "de": [
+                  "Herzlich willkommen …",
+                  "Frau X, wie sehen Sie das?"
+                ]
+              },
+              {
+                "label": "Befürworter (for)",
+                "de": [
+                  "Ich bin dafür, weil …"
+                ]
+              },
+              {
+                "label": "Gegner (against)",
+                "de": [
+                  "Da muss ich widersprechen …"
+                ]
+              },
+              {
+                "label": "Kompromiss",
+                "de": [
+                  "Wir sind uns einig, dass …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -1671,7 +1912,6 @@
     ],
     "title": "Verben mit Präposition",
     "help": {
-      "hook": "Learn verbs together with their prepositions, so you can write 'darauf, dass …' and 'davon, ob …' like a newspaper.",
       "intro": "Verbs with fixed prepositions, introduced earlier, now consolidated to a core set of about forty and extended in the way written texts use them: with a dass-clause or an infinitive hanging on a da(r)-word. Ich freue mich darauf, dass du kommst. Er ärgert sich darüber, zu spät gekommen zu sein. Sie interessiert sich dafür, wie das funktioniert. The preposition still decides the case — auf, über, für, an, um take the accusative; von, mit, bei, nach, zu, vor take the dative — and the verb still has to be learnt with it: warten auf, sich interessieren für, denken an, sich freuen über / auf, teilnehmen an, sich ärgern über, träumen von, sprechen über, sich entschuldigen für, abhängen von, sich erinnern an, sich bedanken bei … für, sich beschäftigen mit, sich bewerben um, sich kümmern um, sich verlassen auf, leiden unter, sich wundern über. Newspaper articles, formal letters and reports lean on exactly these.",
       "tips": [
         {
@@ -1742,6 +1982,33 @@
             ],
             "answer": "darüber",
             "why": "sich ärgern über; with a dass-clause the preposition sits on the da(r)-word: darüber, then the comma."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Main clause",
+              "da(r)-word",
+              "Clause"
+            ],
+            "hot": [
+              1
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Ich freue mich",
+                  "darauf,",
+                  "dass du kommst."
+                ]
+              },
+              {
+                "cells": [
+                  "Er denkt nicht",
+                  "daran,",
+                  "aufzuhören."
+                ]
+              }
+            ]
           }
         },
         {
@@ -1810,6 +2077,21 @@
             ],
             "answer": "Ich freue mich auf das Wochenende.",
             "why": "Looking forward to something still ahead is sich freuen auf; sich freuen über is being glad about something already here."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": -1.2,
+                "label": "about something here now or past",
+                "de": "sich freuen über, sich ärgern über"
+              },
+              {
+                "at": 1.8,
+                "label": "towards something ahead",
+                "de": "sich freuen auf, warten auf, hoffen auf"
+              }
+            ]
           }
         }
       ],
@@ -1904,7 +2186,11 @@
           "why": "Separable prefix last; preposition phrase in the middle field."
         }
       ],
-      "exam": null
+      "hook": "Learn verbs together with their prepositions, so you can write 'darauf, dass …' and 'davon, ob …' like a newspaper.",
+      "recall": {
+        "known": "From \"Verben mit Präpositionen: worauf? – darauf!\": the verb and its preposition as one item.",
+        "today": "darauf, dass … and davon, ob …: a whole clause after the preposition."
+      }
     }
   },
   {
@@ -1914,7 +2200,6 @@
     ],
     "title": "Adjektive mit Präposition",
     "help": {
-      "hook": "Proud of, interested in, good at: German adjectives pick their own prepositions, so learn each adjective together with its partner.",
       "intro": "Adjectives, like verbs, can carry a fixed preposition, and the common set is worth knowing by heart: stolz auf (proud of), zufrieden mit (satisfied with), interessiert an (interested in), abhängig von (dependent on), verantwortlich für (responsible for), begeistert von (enthusiastic about), neugierig auf (curious about), verliebt in (in love with), ärgerlich über (annoyed about), bekannt für (known for), freundlich / nett zu (friendly to), überzeugt von (convinced of), fertig mit (finished with), bereit zu (ready for), reich / arm an (rich / poor in), typisch für, wichtig für, gut / schlecht in (good at), einverstanden mit (in agreement with). Many are participles of the verbs with prepositions you already know (interessiert an ← sich interessieren für — note the preposition changes!; begeistert von ← sich begeistern für). The case follows the preposition, and clauses attach with da(r)-: Ich bin stolz darauf, dass …; Sie ist neugierig darauf, wie … In writing they turn up alongside the verbs, often in the same sentence.",
       "tips": [
         {
@@ -1950,6 +2235,33 @@
             ],
             "answer": "von",
             "why": "abhängig always goes with von + dative: abhängig von Importen."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "preposition",
+            "right": "adjectives",
+            "rows": [
+              {
+                "a": "auf + Akk",
+                "b": "stolz auf, neidisch auf, gespannt auf"
+              },
+              {
+                "a": "an + Dat",
+                "b": "interessiert an, beteiligt an"
+              },
+              {
+                "a": "für",
+                "b": "verantwortlich für, dankbar für"
+              },
+              {
+                "a": "mit",
+                "b": "zufrieden mit, einverstanden mit"
+              },
+              {
+                "a": "von",
+                "b": "abhängig von, überzeugt von"
+              }
+            ]
           }
         },
         {
@@ -1983,6 +2295,17 @@
             ],
             "answer": "an",
             "why": "The verb is sich interessieren für, but the adjective is interessiert an. Learn the two separately."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "verb",
+            "right": "adjective",
+            "rows": [
+              {
+                "a": "sich interessieren für",
+                "b": "interessiert an"
+              }
+            ]
           }
         },
         {
@@ -2129,7 +2452,7 @@
           "en": "eager to see, excited about"
         }
       ],
-      "exam": null
+      "hook": "Proud of, interested in, good at: German adjectives pick their own prepositions, so learn each adjective together with its partner."
     }
   },
   {
@@ -2139,7 +2462,6 @@
     ],
     "title": "Nomen mit Präposition",
     "help": {
-      "hook": "Pack fear, hope and criticism into compact noun phrases like Angst vor, Hoffnung auf and Kritik an, the way newspapers write.",
       "intro": "The third family: nouns with a fixed preposition, mostly inherited from the verb or adjective they come from. sich fürchten vor → die Angst vor (fear of); sich interessieren für → das Interesse an (interest in — the preposition changes!); sich freuen über → die Freude über; teilnehmen an → die Teilnahme an; abhängen von → die Abhängigkeit von; verantwortlich für → die Verantwortung für; kritisieren → die Kritik an; bitten um → die Bitte um; fragen nach → die Frage nach; Einfluss auf, Lust auf, Grund für, Hoffnung auf, Zweifel an, Sehnsucht nach, Streit um / über, Vertrauen in, Erinnerung an. These matter because written German prefers nouns: 'die Kritik der Opposition an der Regierung' packs a whole sentence into a phrase — and newspapers, reports and official letters are written that way. The case follows the preposition; clauses attach with da(r)-: die Angst davor, dass …; die Hoffnung darauf, dass …",
       "tips": [
         {
@@ -2208,6 +2530,29 @@
             ],
             "answer": "an",
             "why": "kritisieren takes a direct object, but the noun Kritik needs a preposition, and it is always an + Dative."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "verb",
+            "right": "noun",
+            "rows": [
+              {
+                "a": "hoffen auf",
+                "b": "die Hoffnung auf"
+              },
+              {
+                "a": "sich fürchten vor",
+                "b": "die Furcht vor"
+              },
+              {
+                "a": "kritisieren (Akk)",
+                "b": "die Kritik an"
+              },
+              {
+                "a": "sich interessieren für",
+                "b": "das Interesse an"
+              }
+            ]
           }
         },
         {
@@ -2371,7 +2716,7 @@
           "en": "doubt about"
         }
       ],
-      "exam": null
+      "hook": "Pack fear, hope and criticism into compact noun phrases like Angst vor, Hoffnung auf and Kritik an, the way newspapers write."
     }
   },
   {
@@ -2383,8 +2728,7 @@
     ],
     "title": "Kurzcheck: Konjunktiv I",
     "help": {
-      "hook": "In three spoken minutes, report what someone said, say what has to be done and talk about your plans.",
-      "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: reporting what someone said, saying what must be done, and using verbs with their prepositions. The tutor gives you a short statement and asks you to report it (Was hat sie gesagt?), describes a situation and asks what has to happen (Was muss gemacht werden?), and asks about interests and plans (Wofür interessieren Sie sich? Worauf freuen Sie sich?). It listens for the Konjunktiv I in the third person (er sei, sie habe, es werde), for the modal passive frame (muss … werden), and for the right prepositions with da(r)-forms. Speak in full sentences; type 'Ende' for the score.",
+      "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: reporting what someone said, saying what must be done, and using verbs with their prepositions. The tutor gives you a short statement and asks you to report it (Was hat sie gesagt?), describes a situation and asks what has to happen (Was muss gemacht werden?), and asks about interests and plans (Wofür interessieren Sie sich? Worauf freuen Sie sich?). It listens for the Konjunktiv I in the third person (er sei, sie habe, es werde), for the modal passive frame (muss … werden), and for the right prepositions with da(r)-forms. Speak in full sentences; say 'Ende' if you need to stop early.",
       "tips": [
         {
           "kind": "rule",
@@ -2417,6 +2761,17 @@
             ],
             "answer": "sei",
             "why": "sein has the irregular Konjunktiv I sei, and the reported tense stays present, so not war."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "he said",
+            "right": "you report",
+            "rows": [
+              {
+                "a": "„Ich bin müde.“",
+                "b": "Er sagt, er sei müde."
+              }
+            ]
           }
         },
         {
@@ -2491,7 +2846,45 @@
         "sei / habe / werde for reports; muss … werden for necessities.",
         "Ich interessiere mich dafür, … / Ich freue mich darauf, …"
       ],
-      "exam": null
+      "hook": "In three spoken minutes, report what someone said, say what has to be done and talk about your plans.",
+      "vocab": [
+        {
+          "de": "Er sagte, er sei …",
+          "en": "He said he was …"
+        },
+        {
+          "de": "Sie meinte, sie habe …",
+          "en": "She said she had …"
+        },
+        {
+          "de": "Antrag",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "application"
+        },
+        {
+          "de": "ausfüllen",
+          "en": "to fill in"
+        },
+        {
+          "de": "muss erledigt werden",
+          "en": "has to be done"
+        },
+        {
+          "de": "sich interessieren für",
+          "en": "to be interested in"
+        },
+        {
+          "de": "sich kümmern um",
+          "en": "to take care of"
+        },
+        {
+          "de": "Plan",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "plan"
+        }
+      ]
     }
   },
   {
@@ -2501,7 +2894,6 @@
     ],
     "title": "Partizip als Adjektiv: Relativsatz ↔ Attribut",
     "help": {
-      "hook": "Fold 'the train that arrives at eight' into der um acht Uhr ankommende Zug, and unfold such phrases when reading.",
       "intro": "Participles as adjectives, made into a two-way skill. Partizip I (infinitive + -d) = happening now, active: das lachende Kind, der ankommende Zug. Partizip II = done, mostly passive: das zerbrochene Fenster, die eingeladenen Gäste. Both take full adjective endings by article, gender and case. What this step adds is the extended form — the participle with its own complements in front of it: der um acht Uhr ankommende Zug, die von der Firma eingeladenen Gäste. This quiz drills the transformation in both directions. Folding: take a relative clause (der Zug, der um acht Uhr ankommt), move its complements in front of the verb, turn the verb into a participle, and give it the ending the article demands (der um acht Uhr ankommende Zug). Unfolding: read the phrase from the article to the noun, then rebuild the relative clause with the right pronoun, tense and voice (die Gäste, die von der Firma eingeladen wurden). A later module then drills the participle form alone inside longer attributes; here the whole phrase is yours to build.",
       "tips": [
         {
@@ -2600,6 +2992,25 @@
             ],
             "answer": "die an der Kasse wartende Frau",
             "why": "Active and present means Partizip I, and the complement an der Kasse moves in front of the participle, which sits right before the noun."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "relative clause",
+            "right": "participle before the noun",
+            "rows": [
+              {
+                "a": "der Zug, der um acht ankommt",
+                "b": "der um acht ankommende Zug"
+              },
+              {
+                "a": "das Haus, das renoviert wurde",
+                "b": "das renovierte Haus"
+              },
+              {
+                "a": "die Kinder, die im Garten spielen",
+                "b": "die im Garten spielenden Kinder"
+              }
+            ]
           }
         },
         {
@@ -2749,7 +3160,11 @@
           "why": "Unfolding a Partizip II gives a passive: Partizip II + wurden."
         }
       ],
-      "exam": null
+      "hook": "Fold 'the train that arrives at eight' into der um acht Uhr ankommende Zug, and unfold such phrases when reading.",
+      "recall": {
+        "known": "From \"Partizip I & II als Adjektiv\": das lachende Kind, das gekochte Ei.",
+        "today": "Folding a whole relative clause into the participle, and unfolding it again."
+      }
     }
   },
   {
@@ -2795,6 +3210,36 @@
             ],
             "answer": "The pro arguments",
             "why": "Befürworter are the supporters; their view forms the pro section, before the turn to the critics."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Topic",
+                "de": [
+                  "Seit der Pandemie …"
+                ]
+              },
+              {
+                "label": "Pro",
+                "de": [
+                  "Befürworter betonen, …"
+                ]
+              },
+              {
+                "label": "Turn",
+                "de": [
+                  "Allerdings …",
+                  "Jedoch …"
+                ]
+              },
+              {
+                "label": "The author's view",
+                "de": [
+                  "Entscheidend ist …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -2874,7 +3319,6 @@
     ],
     "title": "Konnektoren",
     "help": {
-      "hook": "Link your sentences with trotzdem, deshalb, außerdem and sonst so a reader can follow your argument step by step.",
       "intro": "Conjunctional adverbs are the words that join sentences without changing word order the way weil and obwohl do: they take position 1 (or a middle-field slot) and the verb follows at 2. They come in families. Concession: trotzdem, dennoch (nevertheless), allerdings, jedoch (however — jedoch can also sit inside the sentence). Consequence: deshalb, deswegen, daher, folglich, dadurch (as a result), also (so). Addition: außerdem, zudem, darüber hinaus (moreover). Alternative: sonst (otherwise), stattdessen (instead). Contrast: dagegen, hingegen (by contrast). Time: dann, danach, inzwischen, schließlich. Each family also has a subordinating twin (obwohl, weil, während, wenn nicht) — and choosing between the two grammars is what makes your prose flow rather than stack. Connectors are the visible structure of any text you write: a reader follows your argument by them.",
       "tips": [
         {
@@ -2909,6 +3353,34 @@
             ],
             "answer": "Es regnete. Deshalb blieben wir zu Hause.",
             "why": "A fronted connector takes position 1, so the verb follows immediately in position 2, before the subject."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Position 1",
+              "Verb",
+              "Rest"
+            ],
+            "hot": [
+              0,
+              1
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Trotzdem",
+                  "gehe",
+                  "ich spazieren."
+                ]
+              },
+              {
+                "cells": [
+                  "Ich",
+                  "gehe",
+                  "trotzdem spazieren."
+                ]
+              }
+            ]
           }
         },
         {
@@ -2973,6 +3445,28 @@
             ],
             "answer": "Folglich",
             "why": "folglich, like daher, is the written choice for a consequence; deswegen and also are the everyday spoken ones."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "spoken",
+            "high": "written",
+            "points": [
+              {
+                "at": 90,
+                "de": "dennoch, folglich",
+                "en": "nevertheless, consequently"
+              },
+              {
+                "at": 55,
+                "de": "trotzdem, deshalb",
+                "en": "still, so"
+              },
+              {
+                "at": 20,
+                "de": "aber trotzdem, also",
+                "en": "but still, so"
+              }
+            ]
           }
         },
         {
@@ -3128,7 +3622,7 @@
           "why": "Don't double the concession."
         }
       ],
-      "exam": null
+      "hook": "Link your sentences with trotzdem, deshalb, außerdem and sonst so a reader can follow your argument step by step."
     }
   },
   {
@@ -3138,7 +3632,6 @@
     ],
     "title": "Mittelfeld: TeKaMoLo & Objektstellung",
     "help": {
-      "hook": "Put time, reason, manner, place, objects and nicht in the order Germans expect, and your sentences stop sounding translated.",
       "intro": "The Mittelfeld is everything between the verb in position 2 and the verb part at the end, and it has an order. Adverbials: Te-Ka-Mo-Lo — temporal (wann?), kausal (warum?), modal (wie?), lokal (wo/wohin?): Sie fährt morgen wegen einer Besprechung mit dem Zug nach Rom. Objects: a dative noun before an accusative noun (Ich gebe meinem Bruder das Buch); pronouns before nouns (Ich gebe es meinem Bruder; Ich gebe ihm das Buch); and when both are pronouns, accusative before dative (Ich gebe es ihm). Pronouns come as early as possible — right after the verb, before any adverbial: Sie hat uns gestern die Fotos gezeigt. Negation: nicht goes at the end for the whole sentence (Er ist gestern nicht gekommen; Wir haben das Museum nicht besucht — before the final verb part), and directly before a single element when only that element is denied (nicht das Museum, sondern den Zoo). None of this is absolute — German moves things for emphasis — but this is the neutral order, and deviations from it are what make an otherwise good sentence sound foreign.",
       "tips": [
         {
@@ -3175,6 +3668,34 @@
             ],
             "answer": "morgen mit dem Zug nach Hamburg",
             "why": "Te-Ka-Mo-Lo: time (morgen), then manner (mit dem Zug), then place (nach Hamburg)."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Start",
+              "when",
+              "why",
+              "how",
+              "where"
+            ],
+            "hot": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Ich fahre",
+                  "morgen",
+                  "wegen der Arbeit",
+                  "mit dem Zug",
+                  "nach Köln."
+                ]
+              }
+            ],
+            "caption": "Temporal, kausal, modal, lokal: when, why, how, where."
           }
         },
         {
@@ -3208,6 +3729,44 @@
             ],
             "answer": "es ihr",
             "why": "With two pronouns the accusative comes first: es (the photo), then ihr (to her)."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "",
+              "Verb",
+              "first",
+              "second"
+            ],
+            "hot": [
+              2
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "gebe",
+                  "dem Kind",
+                  "das Buch."
+                ]
+              },
+              {
+                "cells": [
+                  "Ich",
+                  "gebe",
+                  "es",
+                  "dem Kind."
+                ]
+              },
+              {
+                "cells": [
+                  "Ich",
+                  "gebe",
+                  "es",
+                  "ihm."
+                ]
+              }
+            ]
           }
         },
         {
@@ -3387,7 +3946,7 @@
           "en": "not …, but …"
         }
       ],
-      "exam": null
+      "hook": "Put time, reason, manner, place, objects and nicht in the order Germans expect, and your sentences stop sounding translated."
     }
   },
   {
@@ -3397,7 +3956,6 @@
     ],
     "title": "Kausal: verbal ↔ nominal",
     "help": {
-      "hook": "Say 'because it rained' two ways, weil es regnete and wegen des Regens, and switch between spoken and written German at will.",
       "intro": "A cause can be expressed verbally — with a clause — or nominally — with a preposition and a noun — and fluent German switches between them. Verbal: weil / da (verb last), denn (verb second, coordinating), deshalb / daher / folglich (adverb, verb second). Nominal: wegen + Gen (because of, neutral), aufgrund + Gen (on the basis of, formal), dank + Gen/Dat (thanks to, positive), aus + Dat (out of — for a conscious motive: aus Angst, aus Neugier, aus Liebe), vor + Dat (from — for an involuntary reaction: vor Freude weinen, vor Kälte zittern, vor Angst schreien). Turning weil es regnete into wegen des Regens means finding the noun (Regen), choosing the preposition, and putting the noun in the genitive. Turning it back means finding the verb again. Written German — reports, academic text, newspaper articles — lives in the nominal versions; speech lives in weil. Being able to do both is the mark of an advanced speaker.",
       "tips": [
         {
@@ -3499,6 +4057,17 @@
             ],
             "answer": "vor",
             "why": "Blushing is not a choice but a reaction that overwhelms you, so it is vor + feeling. aus is for a motive you act on."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "aus: a motive (chosen)",
+            "right": "vor: a reaction (it just happens)",
+            "rows": [
+              {
+                "a": "aus Liebe, aus Neugier",
+                "b": "vor Freude, vor Angst, vor Kälte"
+              }
+            ]
           }
         },
         {
@@ -3534,6 +4103,25 @@
             ],
             "answer": "des schlechten Wetters",
             "why": "Find the noun (das Wetter), pick the preposition (aufgrund), add the genitive: des schlechten Wetters."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "verbal",
+            "right": "nominal",
+            "rows": [
+              {
+                "a": "weil es stark regnete",
+                "b": "wegen des starken Regens"
+              },
+              {
+                "a": "weil die Kosten steigen",
+                "b": "aufgrund der steigenden Kosten"
+              },
+              {
+                "a": "weil sie geholfen hat",
+                "b": "dank ihrer Hilfe"
+              }
+            ]
           }
         }
       ],
@@ -3660,7 +4248,7 @@
           "en": "illness"
         }
       ],
-      "exam": null
+      "hook": "Say 'because it rained' two ways, weil es regnete and wegen des Regens, and switch between spoken and written German at will."
     }
   },
   {
@@ -3670,7 +4258,6 @@
     ],
     "title": "Temporal: verbal ↔ nominal",
     "help": {
-      "hook": "Turn 'after we had eaten' into nach dem Essen and write the compact German of reports and emails.",
       "intro": "Every temporal conjunction has a preposition twin, and fluent German trades one for the other. bevor ↔ vor + Dat (vor dem Essen), nachdem ↔ nach + Dat (nach dem Essen), während ↔ während + Gen (während der Arbeit), seit(dem) ↔ seit + Dat (seit ihrem Umzug), bis ↔ bis zu + Dat (bis zum Kursbeginn), sobald ↔ gleich nach / bei (gleich nach seiner Ankunft), als / wenn ↔ bei + Dat (bei seiner Ankunft, bei der Landung). Going nominal means finding the noun for the verb — essen → das Essen, ankommen → die Ankunft, umziehen → der Umzug, beginnen → der Beginn, landen → die Landung, abreisen → die Abreise — and attaching the subject as a possessive or genitive (seine Ankunft, der Beginn des Kurses). Going verbal means restoring the subject and the tense (nachdem + Plusquamperfekt). The nominal forms are the compact register of reports and instructions; the verbal ones are speech. You need both, and the skill of switching between them.",
       "tips": [
         {
@@ -3706,6 +4293,33 @@
             ],
             "answer": "Vor",
             "why": "dem Frühstück is a noun phrase, so it needs the preposition vor. bevor and nachdem are conjunctions and need a clause with the verb at the end."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "verbal",
+            "right": "nominal",
+            "rows": [
+              {
+                "a": "nachdem wir gegessen hatten",
+                "b": "nach dem Essen"
+              },
+              {
+                "a": "bevor er abreist",
+                "b": "vor seiner Abreise"
+              },
+              {
+                "a": "während sie studierte",
+                "b": "während ihres Studiums"
+              },
+              {
+                "a": "als ich ankam",
+                "b": "bei meiner Ankunft"
+              },
+              {
+                "a": "seit er umgezogen ist",
+                "b": "seit seinem Umzug"
+              }
+            ]
           }
         },
         {
@@ -3946,7 +4560,7 @@
           "en": "studies"
         }
       ],
-      "exam": null
+      "hook": "Turn 'after we had eaten' into nach dem Essen and write the compact German of reports and emails."
     }
   },
   {
@@ -3956,7 +4570,6 @@
     ],
     "title": "dass-Satz ↔ Infinitiv mit zu",
     "help": {
-      "hook": "Say 'I hope to…' and 'she asked me to…' the German way, and know exactly when dass has to stay.",
       "intro": "A dass-clause can be replaced by a zu-infinitive when the subject of the dass-clause is the same as the subject of the main clause (Ich hoffe, dass ich bestehe → Ich hoffe zu bestehen), the same as its object (Ich bitte dich, dass du mir hilfst → Ich bitte dich, mir zu helfen; Sie erlaubt ihm, dass er ausgeht → Sie erlaubt ihm auszugehen), or the impersonal man after es ist + adjective (Es ist wichtig, dass man übt → Es ist wichtig zu üben). When the subjects differ and no such link exists, dass stays: Ich hoffe, dass du bestehst. Es freut mich, dass Sie gekommen sind. Es ist möglich, dass es regnet. The infinitive can carry the past — gewusst zu haben, gekommen zu sein — and the passive — eingeladen zu werden. A dass-clause can also be the subject of the sentence (Dass er kommt, freut mich) with es as a placeholder when it comes second (Es freut mich, dass er kommt). The zu-form is shorter and more written; formal texts choose it whenever they can.",
       "tips": [
         {
@@ -3989,6 +4602,27 @@
             ],
             "answer": "Ich hoffe, dass du die Stelle bekommst.",
             "why": "I hope, but you get the job: the subjects differ, so a zu-infinitive is impossible and the dass-clause stays."
+          },
+          "visual": {
+            "kind": "tree",
+            "root": {
+              "q": "Is the subject of both parts the same person?",
+              "yes": {
+                "answer": "zu-infinitive",
+                "de": "Ich hoffe, dich bald zu sehen."
+              },
+              "no": {
+                "q": "Is the subject of the second part the object of the first (bitten, empfehlen …)?",
+                "yes": {
+                  "answer": "zu-infinitive",
+                  "de": "Sie bat mich, das Fenster zu schließen."
+                },
+                "no": {
+                  "answer": "dass-clause",
+                  "de": "Ich hoffe, dass du bald kommst."
+                }
+              }
+            }
           }
         },
         {
@@ -4169,7 +4803,7 @@
           "en": "the zu-infinitive"
         }
       ],
-      "exam": null
+      "hook": "Say 'I hope to…' and 'she asked me to…' the German way, and know exactly when dass has to stay."
     }
   },
   {
@@ -4179,7 +4813,6 @@
     ],
     "title": "lassen & Doppelinfinitiv",
     "help": {
-      "hook": "Say you had something done, let someone do something, or that a problem can be solved, all with one small verb: lassen.",
       "intro": "lassen has four jobs. Causing: Ich lasse mein Auto reparieren — I have it repaired (someone else does it). Allowing: Sie lässt die Kinder spielen — she lets them. Leaving behind: Ich habe den Schirm zu Hause gelassen — a full verb with an ordinary participle. And possibility with sich: Das Problem lässt sich lösen — it can be solved (= kann gelöst werden), a passive substitute you will meet again later in the course. In the first two and the fourth, lassen governs a bare infinitive (no zu) and, in the Perfekt, becomes an infinitive itself: Ich habe mir die Haare schneiden lassen — the double infinitive (Doppelinfinitiv), exactly like the modals (hat kommen müssen). The same double infinitive appears with sehen, hören and, optionally, helfen: Ich habe ihn kommen sehen; Wir haben sie singen hören; Sie hat mir tragen helfen (or, more usual, geholfen). Only 'leaving behind' takes gelassen. lassen is worth mastering because it hides a passive (lasse reparieren) and a modal (lässt sich lösen) in one small verb.",
       "tips": [
         {
@@ -4214,6 +4847,25 @@
             ],
             "answer": "reparieren",
             "why": "lassen takes a bare infinitive, without zu and never a participle."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "meaning",
+            "right": "example",
+            "rows": [
+              {
+                "a": "have it done",
+                "b": "Ich lasse mein Auto reparieren."
+              },
+              {
+                "a": "let, allow",
+                "b": "Sie lässt die Kinder lange schlafen."
+              },
+              {
+                "a": "can be done (sich lassen)",
+                "b": "Das Problem lässt sich lösen."
+              }
+            ]
           }
         },
         {
@@ -4248,6 +4900,19 @@
             ],
             "answer": "lassen",
             "why": "With an infinitive in front, the Perfekt uses the double infinitive: decken lassen. gelassen is only for 'left behind'."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "habe",
+                  "mein Auto",
+                  "reparieren lassen."
+                ]
+              }
+            ]
           }
         },
         {
@@ -4392,7 +5057,7 @@
           "en": "double infinitive"
         }
       ],
-      "exam": null
+      "hook": "Say you had something done, let someone do something, or that a problem can be solved, all with one small verb: lassen."
     }
   },
   {
@@ -4402,7 +5067,6 @@
     ],
     "title": "Nachsilben & Genus",
     "help": {
-      "hook": "Long German nouns look scary, but the ending usually gives the article away: -ung is die, -chen is das, -ismus is der.",
       "intro": "Gender in German is arbitrary for simple nouns and almost mechanical for derived ones: the suffix decides. Masculine: -er, -ler, -ner (people and tools: Lehrer, Künstler, Drucker), -ist, -ant, -ent (Journalist, Praktikant, Student — all n-Deklination), -or (Motor, Autor, Doktor — plural -en, but no n-Deklination in the singular), -ling (Frühling, Lehrling), -ismus (Tourismus), -ig / -ich (Honig, Teppich). Neuter: -chen, -lein (Mädchen, Büchlein — always), -tum (Eigentum, Wachstum; but der Reichtum, der Irrtum), -ment (Dokument, Instrument), -um (Zentrum, Museum), -nis mostly (Ergebnis, Erlebnis, Gefängnis; but die Erlaubnis, die Kenntnis, die Erkenntnis), Ge- + -e (Gebäude, Gemüse). Feminine: -ung, -heit, -keit, -schaft, -ei, -ie, -ik, -ion, -tät, -ur, -enz, -anz, -in (Nation, Universität, Natur, Energie, Musik, Bäckerei, Konferenz, Lehrerin). Prefixes also shape meaning: Un- (Unglück), Miss- (Misserfolg), Ge- (collective: Gebirge). Advanced vocabulary is full of these; knowing the rules means never guessing the article of a long word.",
       "tips": [
         {
@@ -4438,6 +5102,50 @@
             ],
             "answer": "Der",
             "why": "Nouns ending in -ismus are masculine: der Optimismus, like der Tourismus."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "Lehr"
+                  },
+                  {
+                    "text": "-ling",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Lehrling",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Tour"
+                  },
+                  {
+                    "text": "-ismus",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Tourismus",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Mot"
+                  },
+                  {
+                    "text": "-or",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Motor",
+                "gender": "m"
+              }
+            ]
           }
         },
         {
@@ -4474,6 +5182,54 @@
             ],
             "answer": "Das",
             "why": "Most nouns in -nis are neuter: das Hindernis, like das Ergebnis. Only a few, such as die Erlaubnis, are feminine."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "Eigen"
+                  },
+                  {
+                    "text": "-tum",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Eigentum",
+                "gender": "n"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Doku"
+                  },
+                  {
+                    "text": "-ment",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Dokument",
+                "gender": "n"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Ge",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "bäud"
+                  },
+                  {
+                    "text": "-e",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Gebäude",
+                "gender": "n"
+              }
+            ]
           }
         },
         {
@@ -4509,6 +5265,50 @@
             ],
             "answer": "die",
             "why": "-ung is always feminine, and über with the accusative keeps the feminine article die."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "Bäcker"
+                  },
+                  {
+                    "text": "-ei",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Bäckerei",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Univers"
+                  },
+                  {
+                    "text": "-ität",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Universität",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Kult"
+                  },
+                  {
+                    "text": "-ur",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Kultur",
+                "gender": "f"
+              }
+            ]
           }
         },
         {
@@ -4698,7 +5498,7 @@
           "en": "error, mistake"
         }
       ],
-      "exam": null
+      "hook": "Long German nouns look scary, but the ending usually gives the article away: -ung is die, -chen is das, -ismus is der."
     }
   },
   {
@@ -4774,6 +5574,25 @@
             ],
             "answer": "sei",
             "why": "In reported speech, sein becomes sei, the Konjunktiv I. The short final vowel is your signal; ist ends in -t."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "indicative",
+            "right": "Konjunktiv I",
+            "rows": [
+              {
+                "a": "er hat",
+                "b": "er habe"
+              },
+              {
+                "a": "sie muss",
+                "b": "sie müsse"
+              },
+              {
+                "a": "es gibt",
+                "b": "es gebe"
+              }
+            ]
           }
         },
         {
@@ -4824,7 +5643,6 @@
     ],
     "title": "Passiv Perfekt",
     "help": {
-      "hook": "Say what has been done, the contract signed, the bug fixed, the way Germans actually report it in conversation.",
       "intro": "The Perfekt passive — sein + Partizip II + worden — is the spoken form of the past passive and the form of every 'has been done' in reports: Das Haus ist 1990 gebaut worden. Die Briefe sind schon geschrieben worden. Der Vertrag ist unterschrieben worden. worden is the short passive participle of werden (geworden is 'become': Er ist Arzt geworden); it is always the last word, and sein is always the helper, whatever the verb. The Plusquamperfekt passive adds a step back: war … worden — Das Haus war schon gebaut worden, als … In subordinate clauses the helper goes to the end after worden: …, weil das Haus gebaut worden ist. Alongside wurde gebaut (Präteritum) you now have the full set for narrating what was done; the choice between them is register (wurde in writing, ist … worden in speech), not meaning.",
       "tips": [
         {
@@ -4859,6 +5677,28 @@
             ],
             "answer": "worden",
             "why": "The Perfekt passive is sein + Partizip II + worden. geworden means 'become', and wurden is the simple past."
+          },
+          "visual": {
+            "kind": "bracket",
+            "caption": "worden, not geworden: the passive drops the ge-.",
+            "rows": [
+              {
+                "cells": [
+                  "Der Vertrag",
+                  "ist",
+                  "gestern",
+                  "unterschrieben worden."
+                ]
+              },
+              {
+                "cells": [
+                  "Die Fehler",
+                  "sind",
+                  "schon",
+                  "behoben worden."
+                ]
+              }
+            ]
           }
         },
         {
@@ -4960,6 +5800,17 @@
             ],
             "answer": "Der Termin ist verschoben worden.",
             "why": "wurde + Partizip II in writing equals ist + Partizip II + worden in speech; the helper is always sein, and the participle is worden, not geworden."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "written",
+            "right": "spoken",
+            "rows": [
+              {
+                "a": "Der Fehler wurde behoben.",
+                "b": "Der Fehler ist behoben worden."
+              }
+            ]
           }
         }
       ],
@@ -5037,7 +5888,50 @@
           "why": "In a subordinate clause the helper goes last."
         }
       ],
-      "exam": null
+      "hook": "Say what has been done, the contract signed, the bug fixed, the way Germans actually report it in conversation.",
+      "recall": {
+        "known": "From \"Passiv (Präteritum)\": wurde + participle and ist … worden.",
+        "today": "The Perfekt passive in full: sind … worden, war … worden, and in a subordinate clause."
+      },
+      "table": {
+        "caption": "The passive in every tense",
+        "columns": [
+          "tense",
+          "example"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "Präsens",
+              "Der Vertrag wird unterschrieben."
+            ]
+          },
+          {
+            "cells": [
+              "Präteritum",
+              "Der Vertrag wurde unterschrieben."
+            ]
+          },
+          {
+            "cells": [
+              "Perfekt",
+              "Der Vertrag ist unterschrieben worden."
+            ]
+          },
+          {
+            "cells": [
+              "Plusquamperfekt",
+              "Der Vertrag war unterschrieben worden."
+            ]
+          },
+          {
+            "cells": [
+              "subordinate clause",
+              "…, weil der Vertrag unterschrieben worden ist."
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -5047,7 +5941,6 @@
     ],
     "title": "Zustandspassiv: ist geöffnet vs wird geöffnet",
     "help": {
-      "hook": "Tell 'the shop is being opened' from 'the shop is open': German uses werden for the action and sein for the result.",
       "intro": "German has two passives and English has one, which is why 'the shop is opened' is ambiguous in English and not in German. The Vorgangspassiv (werden) is the action: Das Geschäft wird um neun geöffnet — someone is opening it. The Zustandspassiv (sein) is the resulting state: Das Geschäft ist geöffnet — it's open, the opening is over. Das Auto wird repariert (being fixed) vs Das Auto ist repariert (fixed, ready). In the past: wurde geschlossen (the act) vs war geschlossen (the state). The state passive has no doer and no time of action; it describes how things are, like an adjective — and its participle behaves like one (die geöffnete Tür). A second distinction rides along: the agent of an action passive is introduced by von (a person or institution: vom Chef, von der Firma) or durch (a means or intermediary: durch einen Boten, durch Spenden). Natural forces can take either — von einem Erdbeben and durch ein Erdbeben are both standard; durch stresses the means, von the doer.",
       "tips": [
         {
@@ -5115,6 +6008,21 @@
             ],
             "answer": "waren",
             "why": "You describe the situation you found, not the act, which happened in the morning, so the state passive in the past: waren."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "Vorgang (werden)",
+            "right": "Zustand (sein)",
+            "rows": [
+              {
+                "a": "Das Geschäft wird um 9 geöffnet.",
+                "b": "Das Geschäft ist bis 20 Uhr geöffnet."
+              },
+              {
+                "a": "Die Straße wurde gesperrt.",
+                "b": "Die Straße war drei Tage gesperrt."
+              }
+            ]
           }
         },
         {
@@ -5301,7 +6209,11 @@
           "en": "through, by means of"
         }
       ],
-      "exam": null
+      "hook": "Tell 'the shop is being opened' from 'the shop is open': German uses werden for the action and sein for the result.",
+      "recall": {
+        "known": "From \"Zustandspassiv: Die Tür ist geschlossen\": werden for the action, sein for the state.",
+        "today": "The past (wurde vs war) and von versus durch."
+      }
     }
   },
   {
@@ -5311,7 +6223,6 @@
     ],
     "title": "Subjektlose Passivsätze: Es wird getanzt",
     "help": {
-      "hook": "Read every 'Hier wird nicht geraucht' sign and describe what goes on at a party without ever saying who did it.",
       "intro": "German can make a passive out of a verb that has no object at all — tanzen, arbeiten, lachen, rauchen — and out of verbs whose object is in the dative (helfen, danken, gratulieren, antworten). The result has no grammatical subject: Hier wird getanzt (there is dancing here), Sonntags wird nicht gearbeitet, Ihm wird geholfen (he is helped — ihm stays dative), Den Helfern wurde gedankt. The verb is always third person singular (wird / wurde), and if nothing else fills position 1, a dummy es does: Es wird getanzt. Es wurde viel gelacht. Es wird über Politik gesprochen. As soon as something else moves to the front — hier, sonntags, ihm, über das Thema — the es disappears. English has no such construction ('it is danced' is not English), which is why these look strange; but they are the standard way to describe what goes on somewhere without saying who does it, and every rule on a sign (Hier wird nicht geraucht) uses them.",
       "tips": [
         {
@@ -5417,7 +6328,7 @@
         },
         {
           "kind": "mnemonic",
-          "title": "Every man-sentence has a passive",
+          "title": "Most man-sentences with an action verb have a passive",
           "text": "man + verb → wird + participle. Man raucht hier nicht → Hier wird nicht geraucht. The man is the invisible doer that the passive lets you drop.",
           "examples": [
             {
@@ -5448,6 +6359,25 @@
             ],
             "answer": "wird oft gefeiert",
             "why": "man + verb becomes wird + participle, and the man simply drops out."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "with man",
+            "right": "passive, no subject",
+            "rows": [
+              {
+                "a": "Man tanzt.",
+                "b": "Es wird getanzt. / Heute wird getanzt."
+              },
+              {
+                "a": "Man raucht hier nicht.",
+                "b": "Hier wird nicht geraucht."
+              },
+              {
+                "a": "Man hilft ihm.",
+                "b": "Ihm wird geholfen."
+              }
+            ]
           }
         }
       ],
@@ -5528,7 +6458,7 @@
           "en": "sign"
         }
       ],
-      "exam": null
+      "hook": "Read every 'Hier wird nicht geraucht' sign and describe what goes on at a party without ever saying who did it."
     }
   },
   {
@@ -5575,6 +6505,36 @@
             ],
             "answer": "the quote",
             "why": "erklärte + Konjunktiv I (sei) reports what the source itself said, which is the quote step of the pattern."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Event",
+                "de": [
+                  "In Berlin hat … beschlossen."
+                ]
+              },
+              {
+                "label": "Details",
+                "de": [
+                  "Ab Januar sollen …"
+                ]
+              },
+              {
+                "label": "Quote",
+                "de": [
+                  "Der Minister sagte, …"
+                ]
+              },
+              {
+                "label": "Reaction",
+                "de": [
+                  "Verbände begrüßten …",
+                  "Kritiker warnten …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5689,6 +6649,41 @@
             ],
             "answer": "Zusammenfassend lässt sich sagen, dass …",
             "why": "Zusammenfassend signals the close; zunächst opens the structure and ein Beispiel supports a point in the middle."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Open",
+                "de": [
+                  "Ich möchte heute über … sprechen."
+                ]
+              },
+              {
+                "label": "Pro",
+                "de": [
+                  "Dafür spricht, dass …"
+                ]
+              },
+              {
+                "label": "Contra",
+                "de": [
+                  "Dagegen spricht, dass …"
+                ]
+              },
+              {
+                "label": "Conclusion",
+                "de": [
+                  "Daraus folgt, dass …"
+                ]
+              },
+              {
+                "label": "Close",
+                "de": [
+                  "Vielen Dank für Ihre Aufmerksamkeit."
+                ]
+              }
+            ]
           }
         },
         {
@@ -5808,6 +6803,35 @@
             ],
             "answer": "A concession",
             "why": "Ich habe Verständnis dafür, dass … grants the other side a point before aber brings the writer's objection."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Reference",
+                "de": [
+                  "Zu Ihrem Artikel vom … möchte ich …"
+                ]
+              },
+              {
+                "label": "Observation",
+                "de": [
+                  "Seit Monaten …"
+                ]
+              },
+              {
+                "label": "Criticism",
+                "de": [
+                  "Es fehlt an …"
+                ]
+              },
+              {
+                "label": "Demand",
+                "de": [
+                  "Ich fordere die Stadt auf, …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5926,6 +6950,41 @@
             ],
             "answer": "In letzter Zeit wird viel darüber diskutiert, ob Schuluniformen sinnvoll sind.",
             "why": "The introduction names the question. Dagegen belongs to the contra paragraph, and Zusammenfassend opens the conclusion."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Einleitung",
+                "de": [
+                  "In letzter Zeit wird viel über … diskutiert."
+                ]
+              },
+              {
+                "label": "Pro",
+                "de": [
+                  "Für … spricht, dass …"
+                ]
+              },
+              {
+                "label": "Contra",
+                "de": [
+                  "Andererseits darf man nicht vergessen, …"
+                ]
+              },
+              {
+                "label": "Meinung",
+                "de": [
+                  "Meiner Ansicht nach …"
+                ]
+              },
+              {
+                "label": "Schluss",
+                "de": [
+                  "Zusammenfassend lässt sich sagen, …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -6218,6 +7277,35 @@
             ],
             "answer": "Das mag sein, allerdings spart man jeden Tag viel Zeit.",
             "why": "Das mag sein concedes, allerdings brings your answer. The other lines are the position move and the conclusion."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Position",
+                "de": [
+                  "Ich bin der Meinung, dass …"
+                ]
+              },
+              {
+                "label": "Report",
+                "de": [
+                  "Kritiker sagen, das sei zu teuer."
+                ]
+              },
+              {
+                "label": "Respond",
+                "de": [
+                  "Das stimmt zwar, aber …"
+                ]
+              },
+              {
+                "label": "Conclude",
+                "de": [
+                  "Deshalb …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -6290,7 +7378,47 @@
         "Ansicht – Bericht (Konjunktiv) – Antwort (allerdings) – Schluss.",
         "wegen / aufgrund + Genitiv instead of weil, once per answer."
       ],
-      "exam": "Discussing a social question with a partner is a core speaking task in the B2 exam — and in any serious conversation in German."
+      "exam": "Discussing a social question with a partner is a core speaking task in the B2 exam — and in any serious conversation in German.",
+      "vocab": [
+        {
+          "de": "Standpunkt",
+          "article": "der",
+          "plural": "-e",
+          "en": "point of view"
+        },
+        {
+          "de": "Kritiker",
+          "article": "der",
+          "plural": "-",
+          "en": "critic"
+        },
+        {
+          "de": "einwenden",
+          "en": "to object"
+        },
+        {
+          "de": "entgegnen",
+          "en": "to reply, counter"
+        },
+        {
+          "de": "aufgrund",
+          "en": "because of (+ Gen)"
+        },
+        {
+          "de": "Folge",
+          "article": "die",
+          "plural": "-n",
+          "en": "consequence"
+        },
+        {
+          "de": "einerseits … andererseits",
+          "en": "on the one hand … on the other"
+        },
+        {
+          "de": "abschließend",
+          "en": "to conclude"
+        }
+      ]
     }
   },
   {
@@ -6399,7 +7527,18 @@
             "answer": "allerdings",
             "why": "zwar sets up a concession and needs a turn; außerdem would simply add."
           },
-          "trap": "A concession with no turn reads as agreement with the other side."
+          "trap": "A concession with no turn reads as agreement with the other side.",
+          "visual": {
+            "kind": "pairs",
+            "left": "concede",
+            "right": "answer",
+            "rows": [
+              {
+                "a": "Zwar sind die Kosten hoch,",
+                "b": "doch langfristig spart die Stadt Geld."
+              }
+            ]
+          }
         },
         {
           "kind": "mnemonic",
@@ -6511,7 +7650,6 @@
     ],
     "title": "um … zu, ohne … zu, statt … zu oder dass?",
     "help": {
-      "hook": "Explain why, without what, and instead of what you do, and know when German wants um … zu and when damit.",
       "intro": "Three pairs of clauses express purpose, a missing circumstance and a replacement, and each pair has an infinitive version and a finite version. Purpose: um … zu (same subject: Ich lerne Deutsch, um in Wien zu studieren) or damit (different subjects: Die Eltern arbeiten, damit die Kinder studieren können). Missing circumstance: ohne … zu (Er ging, ohne sich zu verabschieden) or ohne dass (Sie nahm das Auto, ohne dass ihr Mann davon wusste). Replacement: statt / anstatt … zu (Statt zu arbeiten, schlief er) or statt dass (Statt dass die Stadt Radwege baut, …). The choice is made by the subject: if the subject of both clauses is the same person, the infinitive is the natural choice; if it changes, only the dass-/damit-clause is possible. The infinitive version also demands the right form: zu before the infinitive (zu erreichen), inside a separable verb (einzuladen, aufzustehen), and at the very end of the clause.",
       "tips": [
         {
@@ -6545,6 +7683,25 @@
             ],
             "answer": "damit",
             "why": "The second action has a new subject (du), so it needs a finite damit-clause; um … zu can only borrow the main clause's subject."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "same subject",
+            "right": "different subject",
+            "rows": [
+              {
+                "a": "um … zu",
+                "b": "damit"
+              },
+              {
+                "a": "ohne … zu",
+                "b": "ohne dass"
+              },
+              {
+                "a": "statt … zu",
+                "b": "statt dass"
+              }
+            ]
           }
         },
         {
@@ -6754,7 +7911,11 @@
           "why": "In separable verbs zu goes between prefix and stem."
         }
       ],
-      "exam": null
+      "hook": "Explain why, without what, and instead of what you do, and know when German wants um … zu and when damit.",
+      "recall": {
+        "known": "From \"damit oder um … zu?\": count the subjects.",
+        "today": "The same test for ohne … zu / ohne dass and statt … zu / statt dass."
+      }
     }
   },
   {
@@ -6764,7 +7925,6 @@
     ],
     "title": "nicht / nur brauchen + zu",
     "help": {
-      "hook": "Tell someone they needn't worry or only need to sign with brauchen … zu, and never confuse it with 'must not'.",
       "intro": "nicht brauchen + zu-Infinitiv is the everyday negative of müssen: Du musst kommen → Du brauchst nicht zu kommen (you don’t have to / needn’t come). With nur or erst it means \"only need to\": Sie brauchen nur zu unterschreiben. It is conjugated like a normal verb (ich brauche, du brauchst, er braucht, wir brauchen, ihr braucht), takes the zu-infinitive at the end of the clause, and in the Präteritum becomes brauchte. In the Perfekt it behaves like a modal verb and keeps its infinitive: Wir haben nicht zu warten brauchen (in speech often: nicht warten brauchen). The big trap for English speakers is the negative of müssen: \"you must not\" is du darfst nicht (a ban), while \"you don’t have to\" is du musst nicht / du brauchst nicht zu (no obligation). A confident speaker keeps these two apart.",
       "tips": [
         {
@@ -6835,6 +7995,26 @@
             ],
             "answer": "darfst",
             "why": "A ban is nicht dürfen. nicht müssen and nicht brauchen only remove an obligation, which contradicts 'verboten'."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "German",
+            "right": "means",
+            "rows": [
+              {
+                "a": "Du musst nicht kommen.",
+                "b": "You don't have to come."
+              },
+              {
+                "a": "Du brauchst nicht zu kommen.",
+                "b": "You don't have to come."
+              },
+              {
+                "a": "Du darfst nicht kommen.",
+                "b": "You must not come.",
+                "note": "the forbidden one"
+              }
+            ]
           }
         },
         {
@@ -7020,7 +8200,7 @@
           "why": "brauchen + zu needs nicht, kein, nur or erst."
         }
       ],
-      "exam": null
+      "hook": "Tell someone they needn't worry or only need to sign with brauchen … zu, and never confuse it with 'must not'."
     }
   },
   {
@@ -7030,7 +8210,6 @@
     ],
     "title": "je … desto / umso",
     "help": {
-      "hook": "Link two changes in one sentence (the longer you wait, the harder it gets) and get both word orders right.",
       "intro": "je … desto (or je … umso) links two comparatives: the more one thing grows, the more the other does. Each half has its own word order. The je-half is a subordinate clause: je + comparative + subject + … + verb at the end (Je länger ich hier wohne). The desto-half is a main clause whose first position is desto + comparative, so the verb follows immediately and the subject comes after it (desto besser gefällt mir die Stadt). umso means exactly the same as desto and is slightly more formal. The comparative can be an adverb (besser, lieber, öfter) or can carry a noun with it (desto mehr Steuern, desto weniger Probleme). Short versions without verbs are common in headlines and sayings: Je höher der Preis, desto höher die Erwartungen. The halves can also be swapped: Die Aufgabe wird umso schwieriger, je länger man wartet — then the main clause comes first and je introduces the subordinate clause at the end.",
       "tips": [
         {
@@ -7165,6 +8344,37 @@
             ],
             "answer": "desto besser",
             "why": "Both halves need a comparative, and the second half takes desto or umso, never je."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "je + comparative … verb last",
+              "desto + comparative",
+              "Verb",
+              "Rest"
+            ],
+            "hot": [
+              0,
+              2
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Je länger man wartet,",
+                  "desto schwieriger",
+                  "wird",
+                  "es."
+                ]
+              },
+              {
+                "cells": [
+                  "Je früher wir anfangen,",
+                  "umso besser",
+                  "ist",
+                  "es."
+                ]
+              }
+            ]
           }
         }
       ],
@@ -7274,7 +8484,7 @@
           "why": "The second half takes desto or umso, not je."
         }
       ],
-      "exam": null
+      "hook": "Link two changes in one sentence (the longer you wait, the harder it gets) and get both word orders right."
     }
   },
   {
@@ -7284,7 +8494,6 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "hook": "Learn the words of news, work and society with their articles, so abstract nouns stop being a guessing game.",
       "intro": "Every word this module’s exercises use, on one deck of flashcards: 369 cards, 153 of them nouns. The vocabulary of this module is the language of society, work, environment and science, much of it abstract nouns in -ung, -heit, -keit and -ion, from the themes Gesellschaft & Politik, Arbeit & Wirtschaft, Medien & Kommunikation, Konsum. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
@@ -7313,68 +8522,116 @@
             ],
             "answer": "Die",
             "why": "Nouns ending in -schaft are always feminine."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "Entwickl"
+                  },
+                  {
+                    "text": "-ung",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Entwicklung",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Gesell"
+                  },
+                  {
+                    "text": "-schaft",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Gesellschaft",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Ergeb"
+                  },
+                  {
+                    "text": "-nis",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Ergebnis",
+                "gender": "n"
+              }
+            ]
           }
         },
         {
-          "kind": "mnemonic",
-          "title": "Three modes, three kinds of memory",
-          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before you need the words — a meeting, a trip, a conversation.",
+          "kind": "rule",
+          "title": "Reporting verbs with their partners",
+          "text": "behaupten, betonen, erklären, hinzufügen introduce what someone said; the report itself goes into the Konjunktiv I: er sei, sie habe, man werde.",
           "examples": [
             {
-              "de": "die Mehrheit, Plural: -en",
-              "en": "majority",
+              "de": "Der Minister betonte, die Lage sei ernst.",
+              "en": "The minister stressed that the situation was serious.",
               "focus": [
-                "Mehrheit"
+                "betonte",
+                "sei"
               ]
             },
             {
-              "de": "das Gesetz, Plural: -e",
-              "en": "law",
+              "de": "Sie fügte hinzu, man habe keine Wahl.",
+              "en": "She added that there was no choice.",
               "focus": [
-                "Gesetz"
+                "fügte",
+                "hinzu",
+                "habe"
               ]
             }
           ],
           "check": {
-            "q": "‘the development’ in German:",
+            "q": "Er behauptete, er ____ nichts davon.",
             "options": [
-              "die Entwicklung",
-              "der Entwicklung",
-              "das Entwicklung"
+              "wisse",
+              "weiß",
+              "wusste"
             ],
-            "answer": "die Entwicklung",
-            "why": "Every noun in -ung is feminine: die Entwicklung. Say it with its article until the pair sticks."
+            "answer": "wisse",
+            "why": "Reported speech after behaupten: Konjunktiv I, er wisse."
           }
         },
         {
           "kind": "warning",
-          "title": "A noun without its article is marked wrong",
-          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "title": "Politics nouns: watch the plural",
+          "text": "die Steuern is usually plural (taxes); die Mehrheit and die Minderheit have regular -en plurals; das Gesetz takes -e: die Gesetze.",
           "examples": [
             {
-              "de": "die Steuern",
-              "en": "taxes",
+              "de": "Die Steuern steigen.",
+              "en": "Taxes are rising.",
               "focus": [
-                "die"
+                "Die Steuern",
+                "steigen"
               ]
             },
             {
-              "de": "die Arbeitslosigkeit",
-              "en": "unemployment",
+              "de": "Das Parlament beschließt neue Gesetze.",
+              "en": "Parliament passes new laws.",
               "focus": [
-                "die"
+                "Gesetze"
               ]
             }
           ],
           "check": {
-            "q": "How should you write 'the election' as a German noun?",
+            "q": "The plural of das Gesetz is …",
             "options": [
-              "die Wahl",
-              "Wahl",
-              "der Wahl"
+              "die Gesetze",
+              "die Gesetzen",
+              "die Gesetzer"
             ],
-            "answer": "die Wahl",
-            "why": "A noun is only complete with its nominative article: die Wahl. der Wahl is the dative or genitive form."
+            "answer": "die Gesetze",
+            "why": "das Gesetz, die Gesetze: the plural ending is -e."
           }
         }
       ],
@@ -7383,7 +8640,7 @@
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
         "Verbs and adjectives have no article: type them as they stand, like \"beschließen\"."
       ],
-      "exam": null
+      "hook": "Learn the words of news, work and society with their articles, so abstract nouns stop being a guessing game."
     }
   },
   {
@@ -7398,7 +8655,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the hotel lobby: the last part decides",
           "text": "Hotel words are almost all compounds, and only the last part decides the article. Schlüssel + Brett: das Brett, so das Schlüsselbrett. Tisch + Klingel: die Klingel, so die Tischklingel. Ignore the front part and look at the end.",
           "examples": [
             {
@@ -7425,6 +8682,37 @@
             ],
             "answer": "Das",
             "why": "The last part is das Buch, so the whole word is das Gästebuch."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "das Zimmer"
+                  },
+                  {
+                    "text": "der Schlüssel",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Zimmerschlüssel",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "der Koffer"
+                  },
+                  {
+                    "text": "der Wagen",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Kofferwagen",
+                "gender": "m"
+              }
+            ]
           }
         },
         {
@@ -8103,6 +9391,50 @@
             ],
             "answer": "die",
             "why": "The last part is die Trommel, so it is die Kabeltrommel, even though das Kabel comes first."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "der Bau"
+                  },
+                  {
+                    "text": "der Helm",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Bauhelm",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "der Beton"
+                  },
+                  {
+                    "text": "der Mischer",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Betonmischer",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "der Schutt"
+                  },
+                  {
+                    "text": "die Mulde",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Schuttmulde",
+                "gender": "f"
+              }
+            ]
           }
         },
         {

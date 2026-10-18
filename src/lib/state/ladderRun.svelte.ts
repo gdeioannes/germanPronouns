@@ -12,6 +12,7 @@ import {
 	ladderMedal,
 	ladderStartStep,
 	ladderStepEarned,
+	RUN_LENGTH,
 	TIER_LABELS,
 	type LadderRecord,
 	type RibbonTier
@@ -26,14 +27,49 @@ export interface LadderStep {
 	hint: string;
 }
 
+export type RunMark = 'right' | 'wrong';
+
+/**
+ * One step's run of RUN_LENGTH answers. Each step keeps its own, so a switch
+ * shows that step's bar: three answers on bronze, then over to silver, finds
+ * silver empty, and bronze still has its three on the way back.
+ */
+export interface StepRun {
+	/** Every answer on this step, in order: the bar. */
+	results: RunMark[];
+	/** The right answers that count toward the medal (not a repeat-list run). */
+	counted: number;
+	/** The longest streak inside this run. */
+	bestInRun: number;
+	/** The answers missed, for the summary. */
+	missed: string[];
+}
+
+const freshRun = (): StepRun => ({ results: [], counted: 0, bestInRun: 0, missed: [] });
+
+/** A saved run, checked: anything malformed, empty or already finished is dropped. */
+function savedRun(value: unknown): StepRun {
+	const v = (value ?? {}) as Partial<StepRun>;
+	const results = Array.isArray(v.results)
+		? v.results.filter((r): r is RunMark => r === 'right' || r === 'wrong')
+		: [];
+	if (results.length === 0 || results.length >= RUN_LENGTH) return freshRun();
+	return {
+		results,
+		counted: Math.min(Number(v.counted) || 0, results.length),
+		bestInRun: Number(v.bestInRun) || 0,
+		missed: Array.isArray(v.missed) ? v.missed.filter((m) => typeof m === 'string') : []
+	};
+}
+
 /** The step each quiz was last played on, this visit — so "Try again" keeps it. */
 const lastStep = new Map<string, number>();
 
 export class LadderRun {
 	record = $state<LadderRecord>(emptyLadder());
 	step = $state(0);
-	/** Right answers on each step in this run. */
-	stepRight = $state<[number, number, number]>([0, 0, 0]);
+	/** Each step's own run, by step. */
+	runs = $state<StepRun[]>([freshRun(), freshRun(), freshRun()]);
 	/** The medal this run earned, if it did. */
 	earned = $state<RibbonTier | null>(null);
 
@@ -59,10 +95,64 @@ export class LadderRun {
 		lastStep.set(this.prefix, step);
 	}
 
-	/** Takes back the per-step counts a saved, unfinished run had. */
-	restore(saved: unknown): void {
-		if (!Array.isArray(saved)) return;
-		this.stepRight = [0, 1, 2].map((i) => Number(saved[i]) || 0) as [number, number, number];
+	/** The run on the step in play. */
+	get current(): StepRun {
+		return this.runs[this.step];
+	}
+
+	/**
+	 * Takes back the runs a saved spot had. A spot from before the runs were
+	 * kept per step had one bar for every step; it goes to the step in play.
+	 */
+	restore(spot: unknown): void {
+		const s = (spot ?? {}) as {
+			runs?: unknown;
+			results?: unknown;
+			bestInRun?: unknown;
+			stepRight?: unknown;
+		};
+		if (Array.isArray(s.runs)) {
+			this.runs = [0, 1, 2].map((i) => savedRun((s.runs as unknown[])[i]));
+		} else if (Array.isArray(s.results)) {
+			const counted = Array.isArray(s.stepRight) ? s.stepRight[this.step] : 0;
+			const runs = [freshRun(), freshRun(), freshRun()];
+			runs[this.step] = savedRun({ results: s.results, bestInRun: s.bestInRun, counted });
+			this.runs = runs;
+		}
+	}
+
+	/** What a spot saves of the runs, so leaving mid-run costs nothing. */
+	get saved(): { runs: StepRun[] } {
+		return { runs: $state.snapshot(this.runs) };
+	}
+
+	/**
+	 * The runs left to save once the one in play is finished — it starts over,
+	 * the other steps keep theirs — or null when nothing is left half-way.
+	 */
+	afterFinish(): { runs: StepRun[] } | null {
+		const runs = $state.snapshot(this.runs).map((r, i) => (i === this.step ? freshRun() : r));
+		return runs.some((r) => r.results.length > 0) ? { runs } : null;
+	}
+
+	/**
+	 * Logs an answer on the step in play: the bar, the streak inside the run
+	 * and, for a wrong one, `miss` for the summary. `counting` is false for a
+	 * run that earns nothing (a handful of words on the repeat list). The
+	 * LADDER_PASSth counted right answer passes the step; returns the medal it
+	 * earned — and celebrates it — or null.
+	 */
+	async answer(
+		correct: boolean,
+		streak: number,
+		{ counting = true, miss }: { counting?: boolean; miss?: string } = {}
+	): Promise<RibbonTier | null> {
+		const run = this.current;
+		run.results = [...run.results, correct ? 'right' : 'wrong'];
+		run.bestInRun = Math.max(run.bestInRun, streak);
+		if (!correct && miss !== undefined) run.missed = [...run.missed, miss];
+		if (correct && counting) run.counted += 1;
+		return correct ? this.right(counting) : null;
 	}
 
 	get medal(): RibbonTier | null {
@@ -73,18 +163,11 @@ export class LadderRun {
 		return LADDER_TIERS[this.step];
 	}
 
-	/**
-	 * One right answer on the step in play. `counting` is false for a run
-	 * that earns nothing (a handful of words on the repeat list). Returns the
-	 * medal it earned — and celebrates it — or null.
-	 */
-	async right(counting: boolean): Promise<RibbonTier | null> {
+	/** The medal check after a right answer `answer` has already counted. */
+	private async right(counting: boolean): Promise<RibbonTier | null> {
 		if (!counting) return null;
 		const step = this.step;
-		const onStep = [...this.stepRight] as [number, number, number];
-		onStep[step] += 1;
-		this.stepRight = onStep;
-		if (onStep[step] !== LADDER_PASS) return null;
+		if (this.runs[step].counted !== LADDER_PASS) return null;
 		const { earned } = await progress.recordLadderPass(this.prefix, step);
 		this.record = progress.ladderFor(this.prefix);
 		if (!earned) return null;
@@ -130,7 +213,7 @@ export class LadderRun {
 		return {
 			label: this.steps[step].label,
 			tier: LADDER_TIERS[step],
-			right: this.stepRight[step],
+			right: this.runs[step].counted,
 			at: LADDER_PASS,
 			counting,
 			earned: ladderStepEarned(this.record, step),

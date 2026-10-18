@@ -6,7 +6,6 @@
     ],
     "title": "Wirtschaft & Recht",
     "help": {
-      "hook": "Turnover, profit, return; objection, appeal, settlement — master the business-page words that look alike but never mean the same.",
       "intro": "Economics and law supply the specialist register of the business and politics pages, and their vocabulary is precise in a way general German is not. Economy: die Konjunktur (the business cycle — Hochkonjunktur, Rezession), die Nachfrage / das Angebot, der Umsatz (turnover) vs der Gewinn (profit) vs die Rendite (return), die Inflation / die Teuerung, der Leitzins (key rate) and der Zinssatz, die Börse, die Insolvenz (Insolvenz anmelden), die Gewerkschaft, der Tarifvertrag, die Fusion (merger), das Kartellamt. Law: das Gesetz (act, passed by parliament: verabschieden / erlassen) vs die Verordnung (regulation, issued by the executive: erlassen), der Vertrag, das Gericht, der Einspruch / Widerspruch (objection to an administrative decision) vs die Berufung / Revision (appeal to a higher court), der Vergleich (settlement — not ‘comparison’ here), die Klage, das Urteil (rechtskräftig = final), die Frist, die Haftung (liability), die Forderung (claim), die Steuerhinterziehung. The verbs are fixed: Insolvenz anmelden, Einspruch einlegen, in Berufung gehen, eine Klage einreichen, einen Vergleich schließen, den Leitzins anheben / senken, die Nachfrage ankurbeln, für etwas haften.",
       "tips": [
         {
@@ -76,6 +75,35 @@
             ],
             "answer": "Berufung",
             "why": "Against a court judgment you go in Berufung to a higher court; Einspruch is against an administrative decision, and a Vergleich is a settlement."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "der Bescheid",
+                "de": [
+                  "a decision from an authority"
+                ]
+              },
+              {
+                "label": "der Widerspruch",
+                "de": [
+                  "Widerspruch einlegen: object to the authority itself"
+                ]
+              },
+              {
+                "label": "die Klage",
+                "de": [
+                  "Klage erheben: take it to court"
+                ]
+              },
+              {
+                "label": "der Vergleich",
+                "de": [
+                  "sich vergleichen, einen Vergleich schließen: settle"
+                ]
+              }
+            ]
           }
         },
         {
@@ -147,6 +175,30 @@
             ],
             "answer": "Gewinn",
             "why": "Umsatz minus Kosten = Gewinn; only expressed as a percentage of the capital would it become the Rendite."
+          },
+          "visual": {
+            "kind": "moves",
+            "caption": "From all the money that comes in to how well the invested capital earns.",
+            "moves": [
+              {
+                "label": "der Umsatz — turnover",
+                "de": [
+                  "everything sold, before costs"
+                ]
+              },
+              {
+                "label": "der Gewinn — profit",
+                "de": [
+                  "Umsatz minus Kosten"
+                ]
+              },
+              {
+                "label": "die Rendite — return",
+                "de": [
+                  "Gewinn in Prozent des eingesetzten Kapitals"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -273,7 +325,7 @@
           "why": "Einspruch / Widerspruch against an administrative decision; Berufung against a court judgment."
         }
       ],
-      "exam": null
+      "hook": "Turnover, profit, return; objection, appeal, settlement — master the business-page words that look alike but never mean the same."
     }
   },
   {
@@ -283,7 +335,6 @@
     ],
     "title": "Register: formell ↔ umgangssprachlich",
     "help": {
-      "hook": "Kriegen, bekommen, erhalten: learn to pick the word that fits a chat, an everyday email or an official letter.",
       "intro": "Register — choosing the word that fits the situation — is what separates sounding fluent from sounding foreign, and it works by levels, not by single words. Umgangssprachlich (chat, speech, character voice): kriegen, kaputt, klauen, checken, Kohle, gucken, sauer, ’ne Menge, kapieren, hinkriegen. Neutral (most writing and speech): bekommen, Geld, prüfen, beginnen, helfen, sagen, brauchen, sterben. Gehoben / formell (official letters, reports, obituaries): erhalten, entwenden, überprüfen, benötigen, verärgert, mitteilen, betrachten, bewerkstelligen, versterben, sich äußern. The formal word is usually longer, often Latinate or prefixed (be-, ver-, er-, ent-), and goes with nominal style; the colloquial one is short, Germanic, and goes with particles and contractions. At this stage you move between the three levels on demand and hear a shift in a text as a signal (irony, quotation, character voice). Neither level is ‘better’; the wrong one in the wrong place is the error — and mixing two levels in one sentence is the error native listeners hear first. This quiz gives you the colloquial sentence and the formal frame (or the reverse); you supply the word that fits the frame.",
       "tips": [
         {
@@ -385,6 +436,29 @@
             ],
             "answer": "The writer is quoting someone, probably with ironic distance",
             "why": "A sudden drop in register inside a formal text marks a quotation or irony; the writer does not adopt the phrase as their own."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "colloquial",
+            "right": "neutral · formal",
+            "rows": [
+              {
+                "a": "kriegen",
+                "b": "bekommen · erhalten"
+              },
+              {
+                "a": "abhauen",
+                "b": "weggehen · sich entfernen"
+              },
+              {
+                "a": "kapieren",
+                "b": "verstehen · nachvollziehen"
+              },
+              {
+                "a": "Kohle",
+                "b": "Geld · finanzielle Mittel"
+              }
+            ]
           }
         },
         {
@@ -418,6 +492,25 @@
             ],
             "answer": "genehmigt",
             "why": "genehmigen is the prefixed official verb; abnicken and durchwinken are colloquial images for approving something without much scrutiny."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "colloquial",
+            "high": "formal",
+            "points": [
+              {
+                "at": 92,
+                "de": "Wir haben Ihre Unterlagen erhalten."
+              },
+              {
+                "at": 55,
+                "de": "Wir haben deine Unterlagen bekommen."
+              },
+              {
+                "at": 15,
+                "de": "Hab deine Sachen gekriegt."
+              }
+            ]
           }
         }
       ],
@@ -519,7 +612,11 @@
           "why": "Over-formal in an informal context is also a register error."
         }
       ],
-      "exam": null
+      "hook": "Kriegen, bekommen, erhalten: learn to pick the word that fits a chat, an everyday email or an official letter.",
+      "recall": {
+        "known": "From \"Register: informell → formell\": du-chat to Sie-e-mail.",
+        "today": "Three levels per word (kriegen, bekommen, erhalten) and what each one signals."
+      }
     }
   },
   {
@@ -597,6 +694,25 @@
             ],
             "answer": "Wir brauchen",
             "why": "An anaphora repeats the same opening words in each sentence, so the third one starts with Wir brauchen too."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "device",
+            "right": "example",
+            "rows": [
+              {
+                "a": "Anapher",
+                "b": "Wir brauchen Mut. Wir brauchen Geduld. Wir brauchen einander."
+              },
+              {
+                "a": "Antithese",
+                "b": "Nicht die Technik entscheidet, sondern der Mensch."
+              },
+              {
+                "a": "Klimax",
+                "b": "Es geht um unsere Stadt, unser Land, unsere Zukunft."
+              }
+            ]
           }
         },
         {
@@ -645,7 +761,6 @@
     ],
     "title": "Kollokationen",
     "help": {
-      "hook": "Give every noun the verb and adjective Germans expect, Kritik üben, Zweifel hegen, ein triftiger Grund, and your writing sounds native.",
       "intro": "A collocation is the word that goes with a word — the verb a noun 'takes' — and native speakers hear at once whether you have them: eine Entscheidung treffen (not machen), eine Rolle spielen, Maßnahmen ergreifen, einen Antrag stellen, Wert legen auf, ein Gespräch führen, eine Niederlage erleiden, Hoffnung schöpfen, ein Risiko eingehen, Widerstand leisten, eine Prüfung bestehen / ablegen, Verantwortung übernehmen / tragen, zum Ausdruck bringen, eine Bedingung erfüllen, Zweifel hegen, Kritik üben, Abschied nehmen, einen Beitrag leisten, Rücksicht nehmen, Einfluss ausüben, eine Frage aufwerfen, ein Ziel verfolgen, ein Versprechen halten / brechen, eine Gefahr bannen. Many overlap with Funktionsverbgefüge; the difference is only that collocations include adjective–noun pairs too (ein schwerer Fehler, eine heftige Debatte, ein herber Verlust, ein triftiger Grund, eine gewagte These). Getting the verb wrong is understood but heard; getting it right is what fluency sounds like.",
       "tips": [
         {
@@ -789,6 +904,29 @@
             ],
             "answer": "übte",
             "why": "The separable aus at the end points to ausüben, the fixed verb of Einfluss: Einfluss ausüben."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "noun",
+            "right": "the expected verb · adjective",
+            "rows": [
+              {
+                "a": "Kritik",
+                "b": "üben · scharfe Kritik"
+              },
+              {
+                "a": "Zweifel",
+                "b": "hegen · berechtigte Zweifel"
+              },
+              {
+                "a": "ein Grund",
+                "b": "anführen · ein triftiger Grund"
+              },
+              {
+                "a": "eine Rolle",
+                "b": "spielen · eine entscheidende Rolle"
+              }
+            ]
           }
         }
       ],
@@ -921,7 +1059,7 @@
           "why": "Fixed verb and preposition."
         }
       ],
-      "exam": null
+      "hook": "Give every noun the verb and adjective Germans expect, Kritik üben, Zweifel hegen, ein triftiger Grund, and your writing sounds native."
     }
   },
   {
@@ -931,7 +1069,6 @@
     ],
     "title": "Valenz: Verben und ihre Ergänzungen",
     "help": {
-      "hook": "Learn the verbs that demand a genitive, a dative or two accusatives, so your formal German reads and sounds exactly right.",
       "intro": "Valency is the set of complements a verb demands, and in formal prose the unusual patterns are everywhere: genitive objects (gedenken + Gen: der Opfer gedenken; bedürfen + Gen: einer Erklärung bedürfen; sich erfreuen + Gen: sich großer Beliebtheit erfreuen; sich einer Sache annehmen / bemächtigen / enthalten / rühmen / schämen), accusative + genitive (beschuldigen, bezichtigen, verdächtigen, berauben, entheben: jemanden des Diebstahls beschuldigen), dative-only verbs that look transitive (begegnen, widersprechen, ausweichen, folgen, dienen, schaden, gratulieren), double accusative (lehren, kosten, nennen, schimpfen: jemanden das Lesen lehren; jemanden viel Geld kosten), prepositional objects with a fixed case (sich rächen an + Dat für + Akk; abhalten von; jemanden um etwas bitten), and predicatives (nennen, heißen, bleiben + nominative: Er bleibt mein Freund). Valency also shifts meaning: lehren (Akk+Akk) vs unterrichten (Akk + in); sprechen mit / über / von; treffen (Akk) vs sich treffen mit. Rewriting a sentence in another form, or simply reading a legal or literary text, turns on getting these right. In this quiz the noun phrase is given in the nominative in brackets; you write it in the case the verb demands.",
       "tips": [
         {
@@ -967,6 +1104,25 @@
             ],
             "answer": "einer",
             "why": "bedürfen takes a genitive object, and die Analyse in the genitive is einer gründlichen Analyse."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "verb + genitive",
+            "right": "example",
+            "rows": [
+              {
+                "a": "gedenken",
+                "b": "Wir gedenken der Opfer."
+              },
+              {
+                "a": "bedürfen",
+                "b": "Das bedarf einer Erklärung."
+              },
+              {
+                "a": "sich bedienen",
+                "b": "Er bediente sich eines Tricks."
+              }
+            ]
           }
         },
         {
@@ -1001,6 +1157,37 @@
             ],
             "answer": "der",
             "why": "With bezichtigen the person is accusative and the thing is a bare genitive, with no von: der Lüge."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Who",
+              "Verb",
+              "Whom (Akk)",
+              "Of what (Gen)"
+            ],
+            "hot": [
+              2,
+              3
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Man",
+                  "beschuldigte",
+                  "ihn",
+                  "des Diebstahls."
+                ]
+              },
+              {
+                "cells": [
+                  "Man",
+                  "beraubte",
+                  "sie",
+                  "ihrer Rechte."
+                ]
+              }
+            ]
           }
         },
         {
@@ -1157,7 +1344,6 @@
           "why": "kosten takes two accusatives."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "gedenken + Gen",
@@ -1199,7 +1385,8 @@
           "de": "bestehen auf + Dat",
           "en": "to insist on"
         }
-      ]
+      ],
+      "hook": "Learn the verbs that demand a genitive, a dative or two accusatives, so your formal German reads and sounds exactly right."
     }
   },
   {
@@ -1209,7 +1396,6 @@
     ],
     "title": "Komposita bilden & verstehen",
     "help": {
-      "hook": "Take any German monster word apart from the right, and build your own with the right joint between the pieces.",
       "intro": "German compounds are built right to left: the last element (Determinatum) is the head and gives gender and plural; everything before it (Determinans) specifies — der Arbeitsmarkt is a Markt, die Buchhandlung a Handlung. Between the parts sits a linking element (Fugenelement) whose choice is historical rather than grammatical: -s- after -ung / -heit / -keit / -schaft / -ion / -tät and many masculine/neuter nouns (Prüfungsordnung, Arbeitsmarkt, Liebesbrief, Geschwindigkeitsbegrenzung), -n- / -en- after most feminine nouns in -e and weak masculines (Sonnenbrille, Frauenarzt, Studentenwerk), -e- after some nouns with an -e plural (Hundehütte, Schweinebraten, Tageszeitung with -es-), -er- after nouns with an -er plural (Kindergarten, Bücherregal), and nothing at all in many (Buchhandlung, Haustür). Compounds are also made ad hoc — Bahnhofsbuchhandlungskette — and decoded by finding the head and peeling leftward. This quiz gives the parts (or the phrase) and asks for the compound with its correct joint. In formal writing you form them for concision (die Geschwindigkeitsbegrenzung instead of die Begrenzung der Geschwindigkeit) and read them at speed.",
       "tips": [
         {
@@ -1277,6 +1463,62 @@
             ],
             "answer": "Zeitungsartikel",
             "why": "Nouns in -ung take the Fugen-s, even though Zeitung is feminine and has no genitive -s."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "Wohnung"
+                  },
+                  {
+                    "text": "s",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "markt",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Wohnungsmarkt",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Universität"
+                  },
+                  {
+                    "text": "s",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "klinik",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Universitätsklinik",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Freiheit"
+                  },
+                  {
+                    "text": "s",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "strafe",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Freiheitsstrafe",
+                "gender": "f"
+              }
+            ]
           }
         },
         {
@@ -1344,6 +1586,35 @@
             ],
             "answer": "a publisher of children's books",
             "why": "Read from the right: Verlag is the head (a publisher), and Kinderbuch says what it publishes."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "Donau"
+                  },
+                  {
+                    "text": "Dampfschiff"
+                  },
+                  {
+                    "text": "fahrt"
+                  },
+                  {
+                    "text": "s",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "gesellschaft",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Donaudampfschifffahrtsgesellschaft",
+                "gender": "f",
+                "en": "a company (Gesellschaft) for … steamship travel on the Danube"
+              }
+            ]
           }
         }
       ],
@@ -1425,7 +1696,6 @@
           "why": "No joint after Buch; gender from Handlung."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "Arbeitsmarkt",
@@ -1487,7 +1757,8 @@
           "article": "die",
           "en": "tram (-n-)"
         }
-      ]
+      ],
+      "hook": "Take any German monster word apart from the right, and build your own with the right joint between the pieces."
     }
   },
   {
@@ -1497,7 +1768,6 @@
     ],
     "title": "Komparation advanced: einer der größten, bei weitem, je … umso",
     "help": {
-      "hook": "One of the largest, by far the best, three times as expensive — grade every claim to exactly the degree you mean.",
       "intro": "Beyond -er and -st lies the apparatus of nuanced comparison that reports and commentaries use constantly. Relative superlatives: einer der größten (one of the largest — genitive plural after einer), die zweitgrößte / drittgrößte (second-, third-largest), der bei weitem / mit Abstand beste (by far / by a wide margin the best), einer der wenigen (one of the few). Intensified comparatives: weitaus / wesentlich / erheblich / bedeutend / ungleich teurer (far more expensive), immer größer (ever larger), noch besser (even better), bei weitem nicht so gut (nowhere near as good). Absolute superlatives, where -st marks a high degree without comparison: höchst / äußerst interessant (highly), in höchstem Maße, aufs Schärfste, neueste Mode. Proportionality: je mehr …, umso / desto mehr … Equality and approximation: so gut wie neu (as good as), doppelt / dreimal so teuer wie (twice as), eher … als (rather … than), ebenso … wie (just as). And the floor: zumindest / wenigstens / immerhin (at least). Each carries a case or a word-order rule; together they let you grade a claim to the exact degree. In this quiz each gap is the comparative apparatus itself — one of the few, by far the best, three times as, nowhere near as — inside a sentence from a report or commentary; the English cue names the degree, the sentence decides the case and the word order.",
       "tips": [
         {
@@ -1634,6 +1904,33 @@
             ],
             "answer": "mit Abstand beste",
             "why": "Inside the phrase, mit Abstand stands before the adjective, which keeps its weak ending after das: das mit Abstand beste Angebot."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "weaker",
+            "high": "stronger",
+            "points": [
+              {
+                "at": 100,
+                "de": "mit Abstand der größte",
+                "en": "by far the largest"
+              },
+              {
+                "at": 85,
+                "de": "der größte",
+                "en": "the largest"
+              },
+              {
+                "at": 70,
+                "de": "einer der größten",
+                "en": "one of the largest"
+              },
+              {
+                "at": 50,
+                "de": "ziemlich groß",
+                "en": "fairly large"
+              }
+            ]
           }
         }
       ],
@@ -1734,7 +2031,6 @@
           "why": "The je-clause is subordinate: verb last. The umso / desto clause has the verb second after the comparative."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "einer der größten",
@@ -1776,7 +2072,8 @@
           "de": "zumindest, wenigstens",
           "en": "at least"
         }
-      ]
+      ],
+      "hook": "One of the largest, by far the best, three times as expensive — grade every claim to exactly the degree you mean."
     }
   },
   {
@@ -1786,7 +2083,6 @@
     ],
     "title": "Adjektivbildung: -haft, -mäßig, -artig, -fähig, -würdig, -gerecht",
     "help": {
-      "hook": "Build precise adjectives with -haft, -mäßig, -artig, -fähig, -würdig and -gerecht, and say in one word what others need a clause for.",
       "intro": "The advanced adjective suffixes are the ones that build technical and evaluative vocabulary with precision. -haft (having the nature of): meisterhaft, ehrenhaft, rätselhaft, sagenhaft, mangelhaft, fehlerhaft. -mäßig (in accordance with / with regard to): regelmäßig, verhältnismäßig, planmäßig, zahlenmäßig, gewohnheitsmäßig — and the colloquial 'x-wise' (arbeitsmäßig = work-wise). -artig (of the kind of, resembling): katzenartig, neuartig, einzigartig, gutartig / bösartig (benign / malignant), schlagartig (abruptly). -fähig (capable of): lernfähig, arbeitsfähig, zahlungsfähig, konkurrenzfähig, entwicklungsfähig. -würdig (deserving of): glaubwürdig, sehenswürdig, merkwürdig (strange — originally 'worth noting'), fragwürdig (questionable), preiswürdig. -gerecht (suited to): kindgerecht, fachgerecht, altersgerecht, umweltgerecht, termingerecht. Plus the pairs -frei / -los (both ‘without’: -frei tends to name freedom from something unwanted — zuckerfrei, fehlerfrei, kostenfrei — and -los the lack of something — arbeitslos, hilflos, rücksichtslos — but many are neutral, kabellos, bargeldlos, kostenlos, and some bases take both with different meanings: sorgenfrei = free of worries, sorglos = careless) and -reich / -arm (abwechslungsreich / kalorienarm). Each suffix has a stable meaning, so a new coinage (KI-fähig, klimagerecht) is instantly readable.",
       "tips": [
         {
@@ -1890,6 +2186,58 @@
             ],
             "answer": "zahlungsfähig",
             "why": "-fähig expresses capacity: zahlungsfähig means able to pay, i.e. solvent."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "arbeit"
+                  },
+                  {
+                    "text": "s",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "-fähig",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "arbeitsfähig",
+                "en": "able to work"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "lieb"
+                  },
+                  {
+                    "text": "ens",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "-würdig",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "liebenswürdig",
+                "en": "worthy of love, kind"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "kind"
+                  },
+                  {
+                    "text": "-gerecht",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "kindgerecht",
+                "en": "suited to children"
+              }
+            ]
           }
         },
         {
@@ -2028,7 +2376,6 @@
           "why": "sorglos = careless; sorgenfrei = free of worries. Same base, two suffixes, two meanings."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "meisterhaft",
@@ -2102,7 +2449,8 @@
           "de": "stichhaltig",
           "en": "cogent, sound"
         }
-      ]
+      ],
+      "hook": "Build precise adjectives with -haft, -mäßig, -artig, -fähig, -würdig and -gerecht, and say in one word what others need a clause for."
     }
   },
   {
@@ -2113,7 +2461,6 @@
     ],
     "title": "Großer Text: Aus der Vorstandssitzung",
     "help": {
-      "hook": "Read German business news like an insider: the fixed word pairs of the financial pages, and who is really making each claim.",
       "intro": "A business-press report of about 420 words on a supervisory board meeting at a fictional engineering group, Brenner Maschinenbau AG, with twelve gaps. Two things make the register, and the gaps test both. First, fixed collocations of the business pages: einen Kurswechsel vollziehen, herbe Einbußen, auf erbitterten Widerstand stoßen, Bedenken anmelden, alle rechtlichen Mittel ausschöpfen, die Weichen stellen. Second, the journalistic Konjunktiv I, sustained over whole reported passages once a speaker is named: the CEO (man habe … unterschätzt, sie sei jedoch ohne Alternative), the works council chair (Die rund 2300 Beschäftigten der Sparte hätten …, Zum Dank wolle man sie nun …) and the board chairman (Wer heute zögere, verliere morgen den Anschluss). Collocation gaps give the English; Konjunktiv gaps give the infinitive. Read each paragraph once for who is speaking before you fill it in.",
       "tips": [
         {
@@ -2191,6 +2538,32 @@
             ],
             "answer": "sei",
             "why": "The second sentence still reports the CFO, so it stays in the Konjunktiv I. ist would make the forecast the newspaper's own."
+          },
+          "visual": {
+            "kind": "textMap",
+            "blocks": [
+              {
+                "label": "the paper speaks",
+                "de": "Der Vorstandschef äußerte sich am Montag.",
+                "focus": [
+                  "äußerte"
+                ]
+              },
+              {
+                "label": "the source speaks",
+                "de": "Das Unternehmen sei gut aufgestellt.",
+                "focus": [
+                  "sei"
+                ]
+              },
+              {
+                "label": "still the source",
+                "de": "Man habe die Kosten im Griff.",
+                "focus": [
+                  "habe"
+                ]
+              }
+            ]
           }
         },
         {
@@ -2304,7 +2677,7 @@
         "A named speaker → Konjunktiv I for the whole report (habe, sei, werde, könne, wolle); plural haben → hätten.",
         "Indicative = the journalist’s own voice."
       ],
-      "exam": null
+      "hook": "Read German business news like an insider: the fixed word pairs of the financial pages, and who is really making each claim."
     }
   },
   {
@@ -2314,7 +2687,6 @@
     ],
     "title": "Stilmittel & Rhetorik",
     "help": {
-      "hook": "Spot the metaphor, the anaphora or the litotes in a speech or editorial, and say in one German sentence what it does.",
       "intro": "Reading closely means naming a rhetorical device in a real text and saying what it does: how an editorial, a speech or a story achieves its effect — and, when you speak in public, using those devices on purpose. This quiz gives you seventeen short quotations in the style of editorials, speeches, reviews, columns and chronicles; each cue tells you what the device does, never its name, and you type the German term. Where German has two established names both are accepted: Übertreibung / Hyperbel, Untertreibung / Litotes, Personifikation / Personifizierung, Klimax / Steigerung, Alliteration / Stabreim, Euphemismus / Beschönigung, Chiasmus / Kreuzstellung, Pars pro toto / Synekdoche, Ellipse / Auslassung; you may type the term with or without its article. The devices: imagery (Metapher, Vergleich, Personifikation), structure (Anapher, Antithese, Klimax, Alliteration, Chiasmus, Zeugma, Ellipse), attitude (Ironie, Hyperbel, Litotes, Euphemismus, Oxymoron), appeal (rhetorische Frage) and substitution (Pars pro toto).",
       "tips": [
         {
@@ -2453,6 +2825,29 @@
             ],
             "answer": "steigert",
             "why": "A Klimax is a rising series, so its effect verb is steigern; mildern fits a Euphemismus and verschleiern a cover-up."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "device",
+            "right": "what it does",
+            "rows": [
+              {
+                "a": "Metapher: Das Gesetz ist ein zahnloser Tiger.",
+                "b": "makes the weakness vivid"
+              },
+              {
+                "a": "Litotes: Das war nicht ganz unproblematisch.",
+                "b": "criticises by understatement"
+              },
+              {
+                "a": "Chiasmus: Wir leben nicht, um zu essen, wir essen, um zu leben.",
+                "b": "turns a thought round to sharpen it"
+              },
+              {
+                "a": "Euphemismus: freigesetzte Mitarbeiter",
+                "b": "softens a hard fact (dismissed staff)"
+              }
+            ]
           }
         }
       ],
@@ -2570,7 +2965,7 @@
           "why": "Match each device to its own effect verb."
         }
       ],
-      "exam": null
+      "hook": "Spot the metaphor, the anaphora or the litotes in a speech or editorial, and say in one German sentence what it does."
     }
   },
   {
@@ -2657,6 +3052,17 @@
             ],
             "answer": "The station is quiet, as if waiting",
             "why": "It is a personification: the station is pictured as a body holding its breath, which simply means stillness, not people literally holding their breath."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "the image",
+            "right": "plain words",
+            "rows": [
+              {
+                "a": "Die Stadt atmet aus.",
+                "b": "The city grows quiet."
+              }
+            ]
           }
         },
         {
@@ -2711,7 +3117,6 @@
     ],
     "title": "Konjunktiv I (Journalismus)",
     "help": {
-      "hook": "Read a German news report and know in every line who is speaking: the source, or the paper itself.",
       "intro": "In German journalism a reported claim is carried in the Konjunktiv I, and not just for one clause: after a single introducing verb (erklärte, räumte ein, wies zurück, teilte mit, beteuerte, kündigte an, beklagen) or a source phrase (nach Angaben der Polizei, einer Studie zufolge, wie die Staatsanwaltschaft mitteilte), every following verb of the report stays in the Konjunktiv until the writer speaks in their own voice again. That is the skill this quiz drills — the one that lets you read a newspaper and know who is speaking. Each of the fifteen items is a short press or literary report of two or three sentences with two or three gaps; the infinitives are given in brackets and you type the finite forms in order (sei, habe, werde, könne, müsse, gebe …). Where the Konjunktiv I would look exactly like the indicative – mostly in the plural (sie haben, sie werden, sie können) – you use the Konjunktiv II instead (hätten, würden, könnten); those are the only places where a Konjunktiv II form is accepted. Umlauts count in this quiz: hätten, würden and könnten are the answer, hatten, wurden and konnten are wrong.",
       "tips": [
         {
@@ -2747,6 +3152,33 @@
             ],
             "answer": "habe",
             "why": "The report continues without a new verb of saying, so it stays in the Konjunktiv I. hat or hatte would make it the paper's own claim."
+          },
+          "visual": {
+            "kind": "textMap",
+            "blocks": [
+              {
+                "label": "introduction (indicative)",
+                "de": "Die Ministerin erklärte, die Lage sei ernst.",
+                "focus": [
+                  "erklärte",
+                  "sei"
+                ]
+              },
+              {
+                "label": "no new verb of saying",
+                "de": "Man müsse sofort handeln.",
+                "focus": [
+                  "müsse"
+                ]
+              },
+              {
+                "label": "clash → Konjunktiv II",
+                "de": "Die Länder hätten zu lange gewartet.",
+                "focus": [
+                  "hätten"
+                ]
+              }
+            ]
           }
         },
         {
@@ -2904,7 +3336,7 @@
             "cells": [
               "gibt / liest / beginnt",
               "gebe / lese / beginne",
-              "—"
+              "gäben / läsen / begännen (or würden …)"
             ]
           },
           {
@@ -2992,7 +3424,11 @@
           "why": "habe is distinct from the indicative; Konjunktiv II here suggests the writer doubts him."
         }
       ],
-      "exam": null
+      "hook": "Read a German news report and know in every line who is speaking: the source, or the paper itself.",
+      "recall": {
+        "known": "From the reported-speech lessons: the Konjunktiv I and its replacement.",
+        "today": "Keeping it going over a whole paragraph, so every sentence shows whose words they are."
+      }
     }
   },
   {
@@ -3002,7 +3438,6 @@
     ],
     "title": "Umformulierung 2: direkt ↔ indirekt, Konnektor ↔ Präposition, Aktiv ↔ Passiv",
     "help": {
-      "hook": "Say it a second way — report it, passivise it, swap weil for wegen — without losing a grain of meaning.",
       "intro": "Saying the same thing in another grammatical form — without changing meaning, tense, agent or register — is what you do whenever you summarise a report, quote a source or tighten a draft. This quiz drills three of the key moves in seventeen items: direct ↔ indirect speech (mood, person, time reference, questions, requests), connector ↔ preposition (weil ↔ wegen / aufgrund, obwohl ↔ trotz, nachdem ↔ nach, bevor ↔ vor, wenn ↔ bei, indem ↔ durch, um … zu ↔ zu / zwecks) and active ↔ passive ↔ passive substitute (werden-passive with agent, sein + zu, sich lassen, -bar). The rest of the target sentence is given; you type only the decisive part – usually one to four words in one or two gaps – and every natural variant is accepted (aufgrund / wegen / infolge, obwohl / obgleich / wenngleich, am Vortag / tags zuvor, Aufbruch / Weggang …). Nominal ↔ verbal style as such is drilled in the separate Nominalstil quiz; here it appears only where a preposition needs a noun.",
       "tips": [
         {
@@ -3139,6 +3574,35 @@
             ],
             "answer": "200 Mitarbeiter wurden von der Firma entlassen.",
             "why": "Präteritum active becomes Präteritum passive (wurden … entlassen); werden shifts the tense, and sind … zu adds an obligation that was not there."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Tense",
+                "de": [
+                  "still past? still future?"
+                ]
+              },
+              {
+                "label": "Agent",
+                "de": [
+                  "who does it: still clear?"
+                ]
+              },
+              {
+                "label": "Modal force",
+                "de": [
+                  "must, can, may: still the same?"
+                ]
+              },
+              {
+                "label": "Meaning",
+                "de": [
+                  "nothing added, nothing lost"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -3181,7 +3645,6 @@
           "why": "In the passive Perfekt werden loses its ge-: worden."
         }
       ],
-      "exam": null,
       "table": {
         "caption": "Connector ↔ preposition",
         "columns": [
@@ -3283,7 +3746,8 @@
           "de": "infolge (+ Gen.)",
           "en": "as a result of"
         }
-      ]
+      ],
+      "hook": "Say it a second way — report it, passivise it, swap weil for wegen — without losing a grain of meaning."
     }
   },
   {
@@ -3295,7 +3759,6 @@
     ],
     "title": "Kurzcheck: Register",
     "help": {
-      "hook": "Say the same news three ways, to a committee, to a friend and reported, and keep each register clean from start to finish.",
       "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: one short message said three ways. The tutor gives you a situation (a postponed meeting, a project that has stalled) and asks for it first as you would put it to a committee, then as you would tell a friend, then reported to a third person. It listens for four things: a formal register built from nouns, hedges and the fitting verb–noun collocation; a colloquial register built from modal particles, ellipsis and short clauses; a clean switch in which the whole sentence is rebuilt rather than one word swapped; and a report in the Konjunktiv I sustained over more than one clause. Speak in full sentences; type ‘Ende’ for the score.",
       "tips": [
         {
@@ -3398,6 +3861,17 @@
             ],
             "answer": "Die Sitzung wird auf nächste Woche verschoben.",
             "why": "The other two mix a formal frame with spoken particles (halt, eben, weißt du), which is neither register."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "to a friend",
+            "right": "to a committee",
+            "rows": [
+              {
+                "a": "Die Sache ist leider geplatzt.",
+                "b": "Das Vorhaben konnte leider nicht realisiert werden."
+              }
+            ]
           }
         },
         {
@@ -3439,7 +3913,45 @@
         "Rebuild the whole sentence when you switch.",
         "One introducing verb, then Konjunktiv I throughout."
       ],
-      "exam": null
+      "hook": "Say the same news three ways, to a committee, to a friend and reported, and keep each register clean from start to finish.",
+      "vocab": [
+        {
+          "de": "Gremium",
+          "article": "das",
+          "plural": "Gremien",
+          "en": "committee"
+        },
+        {
+          "de": "Vorhaben",
+          "article": "das",
+          "plural": "-",
+          "en": "project, plan"
+        },
+        {
+          "de": "umsetzen",
+          "en": "to implement"
+        },
+        {
+          "de": "scheitern",
+          "en": "to fail"
+        },
+        {
+          "de": "geplatzt",
+          "en": "fell through (colloquial)"
+        },
+        {
+          "de": "erheblich",
+          "en": "considerable"
+        },
+        {
+          "de": "Bedenken äußern",
+          "en": "to voice concerns"
+        },
+        {
+          "de": "es heißt, …",
+          "en": "it is said …"
+        }
+      ]
     }
   },
   {
@@ -3449,7 +3961,6 @@
     ],
     "title": "Konnotation & Wortwahl",
     "help": {
-      "hook": "Read a writer's stance from single words like Reform versus Kürzung, and choose warm, neutral or cold words on purpose yourself.",
       "intro": "Two words can name the same thing and judge it differently. Many German words come in triples: a positive word, a neutral one and a negative one – sparsam (+) / – / geizig (−); preiswert (+) / billig (−, when it means shoddy); rüstig (+) / alt (0) / vergreist (−); wissbegierig (+) / neugierig (0) / indiskret, aufdringlich (−); Herausforderung (+ framing) / Problem (0) / Katastrophe (−); Duft (+) / Geruch (0) / Gestank (−); standhaft (+) / stur (−); mutig (+) / leichtsinnig (−); gründlich (+) / pedantisch (−); schlank (+) / dürr (−); bescheiden (+) / unterwürfig (−); Reform (+ framing) / Kürzung (−); entlassen (0) / freisetzen (euphemism). In each of the eighteen sentences the context forces one connotation; the cue says whether you need the positive, the negative or the euphemistic word, and every word that fits the context is accepted. This is how you read a press text’s stance from its word choice, and how you choose your own words deliberately in writing.",
       "tips": [
         {
@@ -3587,6 +4098,29 @@
             ],
             "answer": "cold (−)",
             "why": "schlank is the flattering word, dünn the neutral one, and dürr says the person is too thin."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "positive · neutral",
+            "right": "negative",
+            "rows": [
+              {
+                "a": "sparsam · vorsichtig mit Geld",
+                "b": "geizig"
+              },
+              {
+                "a": "Reform · Änderung",
+                "b": "Kürzung"
+              },
+              {
+                "a": "schlank · dünn",
+                "b": "mager"
+              },
+              {
+                "a": "Duft · Geruch",
+                "b": "Gestank"
+              }
+            ]
           }
         }
       ],
@@ -3685,7 +4219,6 @@
           "why": "vergreist is pejorative; rüstig praises an old person’s vigour."
         }
       ],
-      "exam": null,
       "table": {
         "caption": "Connotation scales",
         "columns": [
@@ -3758,7 +4291,8 @@
             ]
           }
         ]
-      }
+      },
+      "hook": "Read a writer's stance from single words like Reform versus Kürzung, and choose warm, neutral or cold words on purpose yourself."
     }
   },
   {
@@ -3768,7 +4302,6 @@
     ],
     "title": "Abtönung & Graduierung: durchaus, keineswegs, geradezu",
     "help": {
-      "hook": "Set the exact temperature of every judgement with words like durchaus, keineswegs and geradezu, which English can only paraphrase.",
       "intro": "Abtönung – shading the force of a statement – is what gives advanced German its precision of judgement, and it is done with adverbs that have no one-to-one English equivalent. Affirming against a doubt: durchaus, sehr wohl. Denying: keineswegs, keinesfalls, mitnichten (elevated), durchaus nicht, bei weitem nicht. Understating: nicht gerade, nicht eben. Intensifying: geradezu, regelrecht, schlichtweg (downright); ausgesprochen, überaus, äußerst, ungemein (decidedly, exceedingly); schlechthin / par excellence after the noun. Relativising: ohnehin, sowieso (anyway); allemal (any day). Softening: gleichsam, gewissermaßen, sozusagen (as it were); einigermaßen, halbwegs, leidlich (reasonably). Salvaging and conceding: immerhin, wenigstens, zumindest; zwar, freilich, gewiss … doch. In each of the fifteen sentences the English cue names the nuance; every adverb that expresses it in that context is accepted, so the drill is about the shade, not about guessing one word. They sit in the middle field before the word they shade (durchaus berechtigt, keineswegs sicher) – schlechthin follows its noun, and zwar, freilich, immerhin often stand in position 1.",
       "tips": [
         {
@@ -3804,6 +4337,33 @@
             ],
             "answer": "keineswegs",
             "why": "keineswegs flatly denies: by no means justified. durchaus affirms, and nicht gerade only means 'not exactly'."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "denies",
+            "high": "affirms",
+            "points": [
+              {
+                "at": 98,
+                "de": "Das ist geradezu genial.",
+                "en": "nothing short of brilliant"
+              },
+              {
+                "at": 80,
+                "de": "Das ist durchaus sinnvoll.",
+                "en": "quite reasonable, actually"
+              },
+              {
+                "at": 35,
+                "de": "Das ist nicht gerade sinnvoll.",
+                "en": "not exactly sensible"
+              },
+              {
+                "at": 5,
+                "de": "Das ist keineswegs sinnvoll.",
+                "en": "by no means sensible"
+              }
+            ]
           }
         },
         {
@@ -3987,7 +4547,6 @@
           "why": "geradezu, not gerade."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "durchaus",
@@ -4041,7 +4600,8 @@
           "de": "nicht gerade / nicht eben",
           "en": "not exactly"
         }
-      ]
+      ],
+      "hook": "Set the exact temperature of every judgement with words like durchaus, keineswegs and geradezu, which English can only paraphrase."
     }
   },
   {
@@ -4097,6 +4657,17 @@
             ],
             "answer": "the author",
             "why": "seien is Konjunktiv I and belongs to the economist; hat reagiert is plain indicative, so that sentence is the author speaking."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "the source (Konjunktiv I)",
+            "right": "the author (indicative + könnte)",
+            "rows": [
+              {
+                "a": "Langsamkeit sei ein Luxus, heißt es.",
+                "b": "Vielleicht könnte sie aber eine Notwendigkeit sein."
+              }
+            ]
           }
         },
         {
@@ -4182,7 +4753,6 @@
     ],
     "title": "Sprichwörter",
     "help": {
-      "hook": "Headlines love half a proverb — learn to finish Wer anderen eine Grube gräbt … and catch the joke when one word changes.",
       "intro": "In real texts proverbs rarely appear whole. Journalists cut them off (Wer anderen eine Grube gräbt …), twist them in headlines (Viele Köche, kein Brei; Ein Glück kommt selten allein), shorten them to a keyword (Kurze Beine; im Glashaus sitzen) or quote them in reported speech (was Hänschen nicht lerne …). A skilled reader has to recognise the whole proverb from the fragment and understand why the writer alluded to it. In each of the sixteen items a proverb is alluded to in a headline, commentary, report or interview; the cue gives its meaning in English, and you type the decisive word as it appears in the allusion. The proverbs: Viele Köche verderben den Brei · Wer anderen eine Grube gräbt, fällt selbst hinein · Wer im Glashaus sitzt, sollte nicht mit Steinen werfen · Der Apfel fällt nicht weit vom Stamm · Lügen haben kurze Beine · Der Krug geht so lange zum Brunnen, bis er bricht · Hochmut kommt vor dem Fall · Den Letzten beißen die Hunde · Wo gehobelt wird, (da) fallen Späne · Es ist nicht alles Gold, was glänzt · Wer den Pfennig nicht ehrt, ist des Talers nicht wert · Die Katze lässt das Mausen nicht · Ein Unglück kommt selten allein · Man soll den Tag nicht vor dem Abend loben · Eine Schwalbe macht noch keinen Sommer · Was Hänschen nicht lernt, lernt Hans nimmermehr.",
       "tips": [
         {
@@ -4215,6 +4785,25 @@
             ],
             "answer": "bis er bricht",
             "why": "The full proverb ends bis er bricht: a risky habit goes well for a while and then ends badly — which is why the writer can leave it unsaid."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "the headline",
+            "right": "the full proverb",
+            "rows": [
+              {
+                "a": "Wer anderen eine Grube gräbt …",
+                "b": "… fällt selbst hinein."
+              },
+              {
+                "a": "Der Apfel fällt nicht weit …",
+                "b": "… vom Stamm."
+              },
+              {
+                "a": "Morgenstund …",
+                "b": "… hat Gold im Mund."
+              }
+            ]
           }
         },
         {
@@ -4279,6 +4868,28 @@
             ],
             "answer": "He criticises others for faults he has himself",
             "why": "The keyword calls up Wer im Glashaus sitzt, sollte nicht mit Steinen werfen: don’t attack others for what you are guilty of yourself."
+          },
+          "visual": {
+            "kind": "pictures",
+            "wide": true,
+            "caption": "A headline that mentions a Grube, an Apfel or Gold im Mund is pointing at one of these.",
+            "items": [
+              {
+                "image": "lesson_grube_graben",
+                "de": "Wer anderen eine Grube gräbt, fällt selbst hinein.",
+                "en": "harm planned for others comes back to you"
+              },
+              {
+                "image": "lesson_apfel_stamm",
+                "de": "Der Apfel fällt nicht weit vom Stamm.",
+                "en": "like parent, like child"
+              },
+              {
+                "image": "lesson_morgenstund",
+                "de": "Morgenstund hat Gold im Mund.",
+                "en": "the early bird catches the worm"
+              }
+            ]
           }
         },
         {
@@ -4411,7 +5022,6 @@
           "why": "Know the original to recognise the twist."
         }
       ],
-      "exam": null,
       "table": {
         "caption": "Proverbs and their typical allusions",
         "columns": [
@@ -4477,7 +5087,8 @@
             ]
           }
         ]
-      }
+      },
+      "hook": "Headlines love half a proverb — learn to finish Wer anderen eine Grube gräbt … and catch the joke when one word changes."
     }
   },
   {
@@ -4556,6 +5167,17 @@
             ],
             "answer": "habe",
             "why": "After einräumen the press register reports in the Konjunktiv I: sie habe, not the indicative hat."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "the resident said",
+            "right": "the report writes",
+            "rows": [
+              {
+                "a": "„Das ist eine Frechheit!“",
+                "b": "Das sei eine Frechheit, sagte ein Anwohner."
+              }
+            ]
           }
         },
         {
@@ -4673,6 +5295,36 @@
             ],
             "answer": "Frau Lenz, wie sehen Sie das?",
             "why": "A moderator names the person first and then asks them one direct question, so it is clear who speaks next."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Open",
+                "de": [
+                  "Herzlich willkommen zu unserer Diskussion über …"
+                ]
+              },
+              {
+                "label": "Give the floor",
+                "de": [
+                  "Frau Weber, Sie haben das Wort."
+                ]
+              },
+              {
+                "label": "Interrupt",
+                "de": [
+                  "Darf ich hier kurz einhaken?"
+                ]
+              },
+              {
+                "label": "Close",
+                "de": [
+                  "Lassen Sie mich zusammenfassen: …",
+                  "Vielen Dank an unsere Gäste."
+                ]
+              }
+            ]
           }
         },
         {
@@ -4865,6 +5517,17 @@
             ],
             "answer": "The planning was poor",
             "why": "The praise is mock praise: the very next sentence supplies the fact that cancels it."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "the praise",
+            "right": "the fact behind it",
+            "rows": [
+              {
+                "a": "Das Portal ist rund um die Uhr erreichbar.",
+                "b": "Nur funktioniert es nie."
+              }
+            ]
           }
         },
         {
@@ -5019,6 +5682,35 @@
             ],
             "answer": "She is avoiding what the letter might say.",
             "why": "The gesture supports an interpretation, avoidance. 'Definitely never' claims more than the line shows, and the sender is never mentioned."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "No introduction",
+                "de": [
+                  "straight into the scene"
+                ]
+              },
+              {
+                "label": "Everyday people",
+                "de": [
+                  "an ordinary moment"
+                ]
+              },
+              {
+                "label": "A turning point",
+                "de": [
+                  "one small gesture or object"
+                ]
+              },
+              {
+                "label": "Open ending",
+                "de": [
+                  "the reader decides"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5178,6 +5870,29 @@
             ],
             "answer": "durchaus",
             "why": "durchaus affirms a claim against an expected doubt: certainly worth reading. keineswegs would deny it, and ohnehin means 'anyway'."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "cautious",
+            "high": "categorical",
+            "points": [
+              {
+                "at": 95,
+                "de": "Das ist zweifellos richtig."
+              },
+              {
+                "at": 70,
+                "de": "Das trifft weitgehend zu."
+              },
+              {
+                "at": 45,
+                "de": "Das mag teilweise stimmen."
+              },
+              {
+                "at": 15,
+                "de": "Das halte ich für fraglich."
+              }
+            ]
           }
         },
         {
@@ -5363,7 +6078,43 @@
         "Collocations; the other side in Konjunktiv I; one concession or litotes per turn — no proverbs.",
         "Switch register whole; steer with zuspitzen, festhalten, zusammenfassen."
       ],
-      "exam": "Holding a position with control of style and register is what the C2 exam discussion asks for — and what any serious debate at work demands."
+      "exam": "Holding a position with control of style and register is what the C2 exam discussion asks for — and what any serious debate at work demands.",
+      "vocab": [
+        {
+          "de": "durchaus",
+          "en": "quite, certainly"
+        },
+        {
+          "de": "keineswegs",
+          "en": "by no means"
+        },
+        {
+          "de": "weitgehend",
+          "en": "largely"
+        },
+        {
+          "de": "Einwand",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "objection"
+        },
+        {
+          "de": "Kritik üben",
+          "en": "to criticise"
+        },
+        {
+          "de": "Zweifel hegen",
+          "en": "to have doubts"
+        },
+        {
+          "de": "nicht unproblematisch",
+          "en": "not without problems (litotes)"
+        },
+        {
+          "de": "zurück zum Thema",
+          "en": "back to the point"
+        }
+      ]
     }
   },
   {
@@ -5440,7 +6191,22 @@
             "answer": "Die Entscheidung wurde getroffen.",
             "why": "The passive and the nominalisation carry the formal register."
           },
-          "trap": "Over-formality in a message to a friend is a register mistake too, and it is the one most people make once they have learnt the formal words."
+          "trap": "Over-formality in a message to a friend is a register mistake too, and it is the one most people make once they have learnt the formal words.",
+          "visual": {
+            "kind": "pairs",
+            "left": "for a friend",
+            "right": "for the record",
+            "rows": [
+              {
+                "a": "Wir haben's verschoben.",
+                "b": "Der Termin wurde verschoben."
+              },
+              {
+                "a": "weil keiner Zeit hatte",
+                "b": "aufgrund terminlicher Überschneidungen"
+              }
+            ]
+          }
         },
         {
           "kind": "rule",
@@ -5576,7 +6342,6 @@
     ],
     "title": "Konjunktiv II: Nuancen",
     "help": {
-      "hook": "Say 'should have known', 'almost fell' and 'if only' in German with the Konjunktiv II shades that English hides in modals.",
       "intro": "At this stage the Konjunktiv II is no longer just “würde + infinitive” for unreal conditions; it carries shades of meaning that English expresses with modals, adverbs or intonation. This quiz drills seven of them in 17 sentences: the past modal with a double infinitive (hätte … sollen / müssen / können / dürfen), including its word order in subordinate clauses (dass er es hätte wissen müssen); near-misses with beinahe, fast and um ein Haar (Ich wäre beinahe gestürzt); unreal comparisons with als ob, als wenn and als + verb second (als hätte sie mich nie zuvor gesehen); wishes and regret (Hätte ich doch nur …!, Wenn er doch nur … wäre!); polite distance (Ich hätte da eine Frage; Wäre es möglich …?); unreal consequence after zu …, als dass; and the elevated condition “Wäre da nicht …”. Each gap is the decisive verb form; the cue gives the infinitive(s). Umlauts count: hatte and hätte, wusste and wüsste are different moods.",
       "tips": [
         {
@@ -5612,6 +6377,19 @@
             ],
             "answer": "hätte anrufen sollen",
             "why": "The past modal uses hätte + infinitive + modal infinitive, and in a dass-clause hätte moves in front of the two infinitives instead of going to the end."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Er",
+                  "hätte",
+                  "früher",
+                  "kommen sollen."
+                ]
+              }
+            ]
           }
         },
         {
@@ -5646,6 +6424,21 @@
             ],
             "answer": "wäre",
             "why": "A near-miss is unreal, so it takes the Konjunktiv II past, and ausrutschen is a movement verb that forms its perfect with sein: wäre ausgerutscht."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": -1.5,
+                "label": "almost happened, didn't",
+                "de": "Ich wäre fast gefallen."
+              },
+              {
+                "at": -0.4,
+                "label": "should have, didn't",
+                "de": "Ich hätte es wissen müssen."
+              }
+            ]
           }
         },
         {
@@ -5885,7 +6678,6 @@
           "Wäre"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "Ich weiß, dass ich früher hätte kommen gesollt.",
@@ -5907,7 +6699,12 @@
           "right": "Er tut so, als ob er von nichts wüsste.",
           "why": "wusste is the indicative past; the unreal comparison needs wüsste (or wisse)."
         }
-      ]
+      ],
+      "hook": "Say 'should have known', 'almost fell' and 'if only' in German with the Konjunktiv II shades that English hides in modals.",
+      "recall": {
+        "known": "From \"Konjunktiv II: Kritik & nachträgliche Empfehlung\": hätte … sollen.",
+        "today": "Near misses (wäre fast gefallen), als ob without ob, and zu …, als dass."
+      }
     }
   },
   {
@@ -5917,7 +6714,6 @@
     ],
     "title": "Konnektoren: indes, wiewohl, zumal, gleichwohl, mithin",
     "help": {
-      "hook": "Indes, wiewohl, zumal, mithin: the elevated connectors of serious prose — and the word order each one demands.",
       "intro": "These elevated connectors are rarely new in meaning — most of them have an everyday twin you already know (aber, obwohl, weil, trotzdem, deshalb) — but they differ in register, in the exact logical relation they express and, crucially, in the word order they trigger. This quiz drills 16 sentences: indes / indessen as adversative “however” and as temporal “meanwhile”; wiewohl, obschon, obgleich and wenn auch as elevated concessive connectors; zumal (da) for “especially as”; gleichwohl, nichtsdestoweniger and dessen ungeachtet as concessive adverbs with verb-second order; mithin and somit for a logical conclusion; insofern als and the split insoweit …, als for restriction; allein as literary “but” outside the clause; and respektive. Every cue gives the English meaning and the word-order slot you must fill, and every synonym that fits both is accepted.",
       "tips": [
         {
@@ -5953,6 +6749,25 @@
             ],
             "answer": "gleichwohl",
             "why": "The verb follows directly, so position 1 needs an adverb: gleichwohl. wiewohl, obgleich and zumal are subordinators and would send the verb to the end."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "connector",
+            "right": "word order",
+            "rows": [
+              {
+                "a": "wiewohl, zumal",
+                "b": "verb last (like obwohl, weil)"
+              },
+              {
+                "a": "indes(sen), gleichwohl, mithin",
+                "b": "position 1, verb next (like trotzdem)"
+              },
+              {
+                "a": "allein (= aber)",
+                "b": "position 0 (like aber)"
+              }
+            ]
           }
         },
         {
@@ -6206,7 +7021,6 @@
           "allein"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "Die Studie hat Mängel, gleichwohl sie wertvolle Hinweise liefert.",
@@ -6223,7 +7037,8 @@
           "right": "Er wollte helfen, allein ihm fehlten die Mittel.",
           "why": "As a conjunction, allein stands in position 0 like aber; the clause keeps its normal order."
         }
-      ]
+      ],
+      "hook": "Indes, wiewohl, zumal, mithin: the elevated connectors of serious prose — and the word order each one demands."
     }
   },
   {
@@ -6233,7 +7048,6 @@
     ],
     "title": "Präfixe: Bedeutung von ver-, zer-, er-, ent-, be-, über-",
     "help": {
-      "hook": "See what ver-, zer-, er-, ent- and be- do to a verb, and why übersetzen can mean translate or ferry across.",
       "intro": "German prefixes are not decoration: ver-, zer-, er-, ent- and be- change the meaning of a base verb in patterned ways, and über-, unter-, um- and durch- can be either separable (stressed, usually literal and spatial) or inseparable (unstressed, usually figurative). This quiz drills 18 sentences. ver- marks doing something wrongly (sich verrechnen, verschlafen) or to its end (verblühen); zer- means to pieces (zerreißen, zerbrechen); er- means achieving a result through the action (erkämpfen, ersteigern); ent- means removal or a sudden beginning (entkalken, entflammen); be- makes a verb transitive (bearbeiten, beantworten + Akk). The pairs übersetzen / übersetzen, umfahren / umfahren, unterhalten / unterhalten and durchschauen show the separable vs inseparable contrast. The gap is the prefixed verb in its sentence form (participle, Präteritum, or a split verb in two gaps); the cue gives the base verb and the English meaning.",
       "tips": [
         {
@@ -6266,6 +7080,50 @@
             ],
             "answer": "verhört",
             "why": "Reflexive ver- marks doing something wrongly: sich verhören means to mishear."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "ver",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "schreiben"
+                  }
+                ],
+                "result": "sich verschreiben",
+                "en": "write wrongly"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "ver",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "schenken"
+                  }
+                ],
+                "result": "verschenken",
+                "en": "give away"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "ver",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "blühen"
+                  }
+                ],
+                "result": "verblühen",
+                "en": "to finish blooming"
+              }
+            ]
           }
         },
         {
@@ -6363,6 +7221,21 @@
             ],
             "answer": "übersetzt",
             "why": "'Translate' is the figurative, inseparable überSETZen, so the participle has no ge-: übersetzt."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "separable (literal)",
+            "right": "inseparable (figurative)",
+            "rows": [
+              {
+                "a": "Der Fährmann setzt uns über.",
+                "b": "Sie übersetzt das Buch."
+              },
+              {
+                "a": "Er geht unter. (sinks)",
+                "b": "Er unterbricht mich."
+              }
+            ]
           }
         }
       ],
@@ -6495,7 +7368,6 @@
           "durchschauten"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "Sie hat den Roman ins Deutsche übergesetzt.",
@@ -6512,7 +7384,12 @@
           "right": "Wir haben den Stau umfahren.",
           "why": "umgefahren means knocked down; bypassing is the inseparable umfahren."
         }
-      ]
+      ],
+      "hook": "See what ver-, zer-, er-, ent- and be- do to a verb, and why übersetzen can mean translate or ferry across.",
+      "recall": {
+        "known": "From \"Wortbildung: Vorsilben\": be-, ver-, er-, ent-, zer-, miss-.",
+        "today": "Each prefix's core meaning, and über-, unter-, um-, durch- that can go either way."
+      }
     }
   },
   {
@@ -6522,7 +7399,6 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "hook": "Collect the precise vocabulary of business, law, media and literature, and learn which word fits a formal text.",
       "intro": "Every word this module’s exercises use, on one deck of flashcards: 283 cards, 126 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Wirtschaft & Recht, Medien & Journalismus, Stil & Rhetorik, Literatur: Kurzgeschichte. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
@@ -6554,68 +7430,88 @@
             ],
             "answer": "erhalten",
             "why": "erhalten is the formal word for 'receive'; kriegen means the same but is colloquial, and erhält is the wrong form after haben."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "neutral",
+            "right": "formal",
+            "rows": [
+              {
+                "a": "anfangen",
+                "b": "beginnen · einleiten"
+              },
+              {
+                "a": "zeigen",
+                "b": "aufzeigen · darlegen"
+              },
+              {
+                "a": "wichtig",
+                "b": "maßgeblich · von Belang"
+              }
+            ]
           }
         },
         {
-          "kind": "mnemonic",
-          "title": "Three modes, three kinds of memory",
-          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before you read or write.",
+          "kind": "rule",
+          "title": "Fixed noun + verb pairs carry formal German",
+          "text": "eine Entscheidung treffen, Maßnahmen ergreifen, Kritik üben, Zweifel hegen, ein Risiko eingehen: the noun brings the meaning and only one verb fits it.",
           "examples": [
             {
-              "de": "die Rendite, Plural: —",
-              "en": "return, yield",
+              "de": "Die Regierung ergreift neue Maßnahmen.",
+              "en": "The government is taking new measures.",
               "focus": [
-                "Rendite"
+                "ergreift",
+                "Maßnahmen"
               ]
             },
             {
-              "de": "der Leitzins",
-              "en": "key interest rate",
+              "de": "Er hegt Zweifel an der Studie.",
+              "en": "He has doubts about the study.",
               "focus": [
-                "Leitzins"
+                "hegt Zweifel"
               ]
             }
           ],
           "check": {
-            "q": "Die Zentralbank hat ____ Leitzins erneut erhöht.",
+            "q": "ein Risiko ____",
             "options": [
-              "den",
-              "die",
-              "das"
+              "eingehen",
+              "treffen",
+              "üben"
             ],
-            "answer": "den",
-            "why": "It's der Leitzins (der Zins is masculine), and as the object of erhöhen it becomes den."
+            "answer": "eingehen",
+            "why": "The fixed pair is ein Risiko eingehen: to take a risk."
           }
         },
         {
           "kind": "warning",
-          "title": "A noun without its article is marked wrong",
-          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "title": "Law words that look alike",
+          "text": "der Einspruch, der Widerspruch and die Berufung are all ways of challenging a decision, at different stages; der Vergleich ends a dispute by agreement.",
           "examples": [
             {
-              "de": "die Inflation",
-              "en": "inflation",
+              "de": "Gegen den Bescheid kann man Widerspruch einlegen.",
+              "en": "You can object to the decision.",
               "focus": [
-                "die"
+                "Widerspruch einlegen"
               ]
             },
             {
-              "de": "die Insolvenz",
-              "en": "insolvency",
+              "de": "Die Parteien schlossen einen Vergleich.",
+              "en": "The parties reached a settlement.",
               "focus": [
-                "die"
+                "Vergleich"
               ]
             }
           ],
           "check": {
-            "q": "‘the merger’ in German:",
+            "q": "A dispute ended by agreement ends in …",
             "options": [
-              "die Fusion",
-              "Fusion",
-              "der Fusion"
+              "einem Vergleich",
+              "einer Berufung",
+              "einem Einspruch"
             ],
-            "answer": "die Fusion",
-            "why": "A noun is only complete with its nominative article, and nouns in -ion are feminine: die Fusion."
+            "answer": "einem Vergleich",
+            "why": "der Vergleich is a settlement; Berufung and Einspruch keep the dispute going."
           }
         }
       ],
@@ -6624,7 +7520,7 @@
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
         "Verbs and adjectives have no article: type them as they stand, like \"rechtskräftig\"."
       ],
-      "exam": null
+      "hook": "Collect the precise vocabulary of business, law, media and literature, and learn which word fits a formal text."
     }
   },
   {
@@ -6666,6 +7562,37 @@
             ],
             "answer": "Die",
             "why": "The last part is die Waage, so the whole word is die Wasserwaage."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "hobeln"
+                  },
+                  {
+                    "text": "die Bank",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Hobelbank",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "stemmen"
+                  },
+                  {
+                    "text": "das Eisen",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Stemmeisen",
+                "gender": "n"
+              }
+            ]
           }
         },
         {
@@ -7352,6 +8279,54 @@
             ],
             "answer": "das",
             "why": "Young animals are neuter: das Ferkel, das Kalb, das Fohlen."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "columns": [
+              "m",
+              "f",
+              "n"
+            ],
+            "rows": [
+              {
+                "label": "cattle",
+                "cells": [
+                  "der Stier",
+                  "die Kuh",
+                  "das Kalb"
+                ]
+              },
+              {
+                "label": "pigs",
+                "cells": [
+                  "der Eber",
+                  "die Sau",
+                  "das Ferkel"
+                ]
+              },
+              {
+                "label": "horses",
+                "cells": [
+                  "der Hengst",
+                  "die Stute",
+                  "das Fohlen"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                2
+              ]
+            ]
           }
         },
         {

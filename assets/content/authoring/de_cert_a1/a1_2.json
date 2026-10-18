@@ -6,7 +6,6 @@
     ],
     "title": "Akkusativ (Artikel)",
     "help": {
-      "hook": "German shows who does what with the article, and in the accusative only der-words change: der Hund becomes den Hund.",
       "intro": "German marks the job a noun does in the sentence by changing its article — that is what a 'case' is. The nominative is the subject (the one doing); the accusative is the direct object (the one it is done to): Der Mann sieht den Hund — the man sees the dog. This is the first case beyond the nominative, and the friendliest: only the masculine changes. der becomes den, ein becomes einen; feminine, neuter and plural look exactly as they did. Every transitive verb — haben, sehen, kaufen, essen, brauchen, möchten — takes an accusative object, so you will use this in nearly every sentence from now on. Ask 'wen oder was?' (whom or what?) after the verb and the answer is the accusative.",
       "tips": [
         {
@@ -41,6 +40,36 @@
             ],
             "answer": "die",
             "why": "Only masculine nouns change in the accusative. Lehrerin is a die-word, so the article stays die."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "caption": "One cell changes in the whole accusative: the masculine. Everything else stays as it was.",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "der / ein",
+                  "die / eine",
+                  "das / ein",
+                  "die / –"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "den / einen",
+                  "die / eine",
+                  "das / ein",
+                  "die / –"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                1,
+                0
+              ]
+            ]
           }
         },
         {
@@ -73,6 +102,35 @@
             ],
             "answer": "Wer",
             "why": "The question asks who is doing the drinking, the subject, so it takes the nominative wer. wen asks for the object."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Who does it (Nom)",
+              "Verb",
+              "Whom / what (Akk)"
+            ],
+            "hot": [
+              2
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Der Hund",
+                  "sieht",
+                  "den Mann."
+                ],
+                "en": "The dog sees the man."
+              },
+              {
+                "cells": [
+                  "Den Mann",
+                  "sieht",
+                  "der Hund."
+                ],
+                "en": "Same meaning: the article, not the order, says who sees whom."
+              }
+            ]
           }
         },
         {
@@ -173,7 +231,7 @@
           "why": "The object of sehen is accusative: der → den."
         }
       ],
-      "exam": null
+      "hook": "German shows who does what with the article, and in the accusative only der-words change: der Hund becomes den Hund."
     }
   },
   {
@@ -184,7 +242,6 @@
     ],
     "title": "Possessivartikel",
     "help": {
-      "hook": "Say whose things are whose — mein, dein, sein, ihr — and get the ending right by looking at the noun, not the owner.",
       "intro": "Possessive articles say whose something is — mein, dein, sein, ihr, unser, euer, Ihr — and they behave exactly like ein: they take the ein-endings, decided by the noun that follows, not by the owner. So mein Vater (masculine), mein Kind (neuter), meine Mutter (feminine), meine Eltern (plural); and in the accusative the masculine adds -en: Ich sehe meinen Vater. The owner only decides which word you start from: sein for his (and for its with a der/das-word), ihr for her (and for their), Ihr with a capital for your (formal). Choose the owner, then add the ending for the noun — two separate decisions, in that order.",
       "tips": [
         {
@@ -216,6 +273,22 @@
             ],
             "answer": "Unser",
             "why": "The owners are wir (Ben and I), and wir → unser. euer belongs to ihr (you all)."
+          },
+          "visual": {
+            "kind": "people",
+            "columns": [
+              {
+                "label": "owner word",
+                "forms": [
+                  "mein",
+                  "dein",
+                  "sein / ihr / sein",
+                  "unser",
+                  "euer",
+                  "ihr / Ihr"
+                ]
+              }
+            ]
           }
         },
         {
@@ -249,6 +322,36 @@
             ],
             "answer": "meinen",
             "why": "Schlüssel is masculine and the object of suchen, so it takes -en, exactly like einen."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "caption": "The ending comes from the noun, exactly as with ein.",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "mein Hund",
+                  "meine Katze",
+                  "mein Haus",
+                  "meine Kinder"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "meinen Hund",
+                  "meine Katze",
+                  "mein Haus",
+                  "meine Kinder"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                1,
+                0
+              ]
+            ]
           }
         },
         {
@@ -282,6 +385,22 @@
             ],
             "answer": "seine",
             "why": "The owner is a man, so his = sein; Tochter is feminine, so it gets -e: seine Tochter."
+          },
+          "visual": {
+            "kind": "pictures",
+            "caption": "The owner decides sein or ihr; the noun decides the ending.",
+            "items": [
+              {
+                "image": "lesson_tom_sein_hund",
+                "de": "Tom und sein Hund",
+                "en": "his dog"
+              },
+              {
+                "image": "lesson_anna_ihr_hund",
+                "de": "Anna und ihr Hund",
+                "en": "her dog"
+              }
+            ]
           }
         },
         {
@@ -351,7 +470,7 @@
           "why": "Neuter takes no ending in the nominative and accusative."
         }
       ],
-      "exam": null
+      "hook": "Say whose things are whose — mein, dein, sein, ihr — and get the ending right by looking at the noun, not the owner."
     }
   },
   {
@@ -428,6 +547,32 @@
             ],
             "answer": "Ich nehme eine Cola, bitte.",
             "why": "The guest speaks with ich and orders; the waiter asks with Sie and names the price."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Waiter asks",
+                "de": [
+                  "Was möchten Sie?",
+                  "Sonst noch etwas?"
+                ]
+              },
+              {
+                "label": "Guest orders",
+                "de": [
+                  "Ich hätte gern …",
+                  "Einen Kaffee, bitte."
+                ]
+              },
+              {
+                "label": "Paying",
+                "de": [
+                  "Guest: Zahlen, bitte!",
+                  "Waiter: Das macht …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -478,7 +623,6 @@
     ],
     "title": "Personalpronomen (Akkusativ)",
     "help": {
-      "hook": "Say 'I see him', 'she loves us' and 'do you have it?' in German — object pronouns are just a handful of small words.",
       "intro": "When a pronoun is the object of the verb it changes form, just as in English (I → me, he → him): Ich sehe dich, du siehst mich, wir kennen ihn. Five of the nine change completely — ich → mich, du → dich, er → ihn, wir → uns, ihr → euch — and four stay exactly as they were: sie (her), sie (them), es and Sie. The one that catches English speakers is 'it': a thing is er, sie or es by its gender, so 'I see it' is Ich sehe ihn for der Tisch, sie for die Lampe, es for das Buch. Choose the pronoun by the noun's gender, then put it in the accusative — which, for a der-word, means ihn.",
       "tips": [
         {
@@ -512,6 +656,40 @@
             ],
             "answer": "dich",
             "why": "As the object of brauchen, du becomes dich — one of the five pronouns that change."
+          },
+          "visual": {
+            "kind": "people",
+            "columns": [
+              {
+                "label": "Nom",
+                "forms": [
+                  "ich",
+                  "du",
+                  "er / sie / es",
+                  "wir",
+                  "ihr",
+                  "sie / Sie"
+                ]
+              },
+              {
+                "label": "Akk",
+                "forms": [
+                  "mich",
+                  "dich",
+                  "ihn / sie / es",
+                  "uns",
+                  "euch",
+                  "sie / Sie"
+                ]
+              }
+            ],
+            "hot": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
           }
         },
         {
@@ -545,6 +723,39 @@
             ],
             "answer": "ihn",
             "why": "Kuli is a der-noun, so 'it' is er — and as an object er becomes ihn."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "columns": [
+              "m",
+              "f",
+              "n"
+            ],
+            "caption": "'it' copies the gender of the noun it stands for.",
+            "rows": [
+              {
+                "label": "the noun",
+                "cells": [
+                  "den Tisch",
+                  "die Lampe",
+                  "das Buch"
+                ]
+              },
+              {
+                "label": "it",
+                "cells": [
+                  "ihn",
+                  "sie",
+                  "es"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                1,
+                0
+              ]
+            ]
           }
         },
         {
@@ -645,7 +856,6 @@
           "why": "du becomes dich as an object."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "mich",
@@ -695,7 +905,74 @@
           "de": "sehen",
           "en": "to see"
         }
-      ]
+      ],
+      "hook": "Say 'I see him', 'she loves us' and 'do you have it?' in German — object pronouns are just a handful of small words.",
+      "table": {
+        "caption": "Subject and object pronouns",
+        "columns": [
+          "Nominativ",
+          "Akkusativ",
+          "English"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "ich",
+              "mich",
+              "me"
+            ]
+          },
+          {
+            "cells": [
+              "du",
+              "dich",
+              "you"
+            ]
+          },
+          {
+            "cells": [
+              "er",
+              "ihn",
+              "him / it"
+            ]
+          },
+          {
+            "cells": [
+              "sie",
+              "sie",
+              "her / it"
+            ]
+          },
+          {
+            "cells": [
+              "es",
+              "es",
+              "it"
+            ]
+          },
+          {
+            "cells": [
+              "wir",
+              "uns",
+              "us"
+            ]
+          },
+          {
+            "cells": [
+              "ihr",
+              "euch",
+              "you (group)"
+            ]
+          },
+          {
+            "cells": [
+              "sie / Sie",
+              "sie / Sie",
+              "them / you (formal)"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -705,7 +982,6 @@
     ],
     "title": "Negation (kein/nicht)",
     "help": {
-      "hook": "Say no the German way: kein for 'no money, no time', nicht for everything else, and put nicht in the right spot.",
       "intro": "English has one 'not' and one 'no'; German splits the job in two. kein negates a noun that would otherwise have ein or no article at all — it means 'not a', 'no', 'not any': Ich habe kein Auto, keine Zeit, keinen Hund. nicht negates everything else: a verb (Ich verstehe nicht), an adjective (Sie ist nicht müde), an adverb (nicht heute), and a noun that has a definite article or a possessive (Das ist nicht mein Auto). kein is an ein-word, so it takes the ein-endings — keinen for a masculine object. Where nicht goes is the other half: at the end of a simple sentence, but before the adjective, the adverb or the place it negates.",
       "tips": [
         {
@@ -738,6 +1014,20 @@
             ],
             "answer": "kein",
             "why": "The positive is ein Fahrrad, and an ein-noun is negated with kein, never nicht ein."
+          },
+          "visual": {
+            "kind": "tree",
+            "root": {
+              "q": "Are you saying 'no' to a noun that has ein or no article?",
+              "yes": {
+                "answer": "kein",
+                "de": "Ich habe kein Auto. Ich habe keine Zeit."
+              },
+              "no": {
+                "answer": "nicht",
+                "de": "Ich komme nicht. Das Auto ist nicht neu."
+              }
+            }
           }
         },
         {
@@ -803,6 +1093,42 @@
             ],
             "answer": "Die Suppe ist nicht heiß.",
             "why": "nicht goes directly before the adjective it negates, and the verb stays in position 2."
+          },
+          "visual": {
+            "kind": "bracket",
+            "hot": [
+              1,
+              3
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "komme",
+                  "heute",
+                  "nicht."
+                ],
+                "en": "The whole sentence: nicht at the end."
+              },
+              {
+                "cells": [
+                  "Das",
+                  "ist",
+                  "nicht",
+                  "teuer."
+                ],
+                "en": "Before an adjective."
+              },
+              {
+                "cells": [
+                  "Ich",
+                  "kann",
+                  "nicht",
+                  "schwimmen."
+                ],
+                "en": "Before the verb at the end."
+              }
+            ]
           }
         },
         {
@@ -870,7 +1196,6 @@
           "why": "nicht goes after the verb, at the end of a simple sentence."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "nicht",
@@ -922,7 +1247,47 @@
           "article": "die",
           "en": "siblings"
         }
-      ]
+      ],
+      "hook": "Say no the German way: kein for 'no money, no time', nicht for everything else, and put nicht in the right spot.",
+      "table": {
+        "caption": "kein, like ein",
+        "columns": [
+          "",
+          "masc.",
+          "fem.",
+          "neut.",
+          "plural"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "Nom",
+              "kein",
+              "keine",
+              "kein",
+              "keine"
+            ]
+          },
+          {
+            "cells": [
+              "Akk",
+              "keinen",
+              "keine",
+              "kein",
+              "keine"
+            ]
+          },
+          {
+            "cells": [
+              "Dat",
+              "keinem",
+              "keiner",
+              "keinem",
+              "keinen"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -1032,6 +1397,31 @@
             ],
             "answer": "to go to the cinema with you on Friday at four",
             "why": "The closing question Hast du … Zeit? is the invitation, and the day and time come with it."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "News",
+                "de": [
+                  "Es gibt ein neues Café …"
+                ]
+              },
+              {
+                "label": "Details",
+                "de": [
+                  "geöffnet von … bis …",
+                  "Ein Kaffee kostet …"
+                ]
+              },
+              {
+                "label": "Invitation",
+                "de": [
+                  "Hast du Lust?",
+                  "Treffen wir uns am …?"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -1049,7 +1439,6 @@
     ],
     "title": "Modalverben",
     "help": {
-      "hook": "With six small verbs (können, müssen, wollen, möchten, dürfen, sollen) you can ask, offer, refuse and order politely.",
       "intro": "Modal verbs colour another verb: können (can, be able), müssen (must, have to), wollen (want to), möchten (would like to), dürfen (may, be allowed), sollen (should, be supposed to). Two things make them a system of their own. Their forms: in the singular the vowel usually changes and the ich- and er-forms are identical with no ending — ich kann, er kann; ich muss, sie muss. And their word order: the modal takes position 2 and pushes the other verb, as an infinitive, to the very end of the sentence — Ich kann heute nicht kommen. That bracket, with the sentence held between the two verbs, is the shape of half of German grammar to come, so it is worth getting right now.",
       "tips": [
         {
@@ -1082,6 +1471,48 @@
             ],
             "answer": "kann",
             "why": "With a modal, er/sie has no ending and looks just like ich: ich kann, er kann."
+          },
+          "visual": {
+            "kind": "people",
+            "columns": [
+              {
+                "label": "können",
+                "forms": [
+                  "kann",
+                  "kannst",
+                  "kann",
+                  "können",
+                  "könnt",
+                  "können"
+                ]
+              },
+              {
+                "label": "müssen",
+                "forms": [
+                  "muss",
+                  "musst",
+                  "muss",
+                  "müssen",
+                  "müsst",
+                  "müssen"
+                ]
+              },
+              {
+                "label": "wollen",
+                "forms": [
+                  "will",
+                  "willst",
+                  "will",
+                  "wollen",
+                  "wollt",
+                  "wollen"
+                ]
+              }
+            ],
+            "hot": [
+              0,
+              2
+            ]
           }
         },
         {
@@ -1117,6 +1548,38 @@
             ],
             "answer": "Ich will heute ins Kino gehen.",
             "why": "The modal sits in position 2 and the infinitive goes to the very end, with everything else in between."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "kann",
+                  "gut",
+                  "schwimmen."
+                ],
+                "en": "I can swim well."
+              },
+              {
+                "cells": [
+                  "Heute",
+                  "muss",
+                  "ich lange",
+                  "arbeiten."
+                ],
+                "en": "Today I have to work late."
+              },
+              {
+                "cells": [
+                  "Wir",
+                  "möchten",
+                  "zwei Kaffee",
+                  "bestellen."
+                ],
+                "en": "We would like to order two coffees."
+              }
+            ]
           }
         },
         {
@@ -1180,6 +1643,28 @@
             ],
             "answer": "Ich möchte ein Wasser, bitte.",
             "why": "möchten is the polite 'would like' for ordering; wollen sounds blunt and demanding."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "blunt",
+            "high": "polite",
+            "points": [
+              {
+                "at": 95,
+                "de": "Ich hätte gern einen Tee.",
+                "en": "I'd like a tea, please."
+              },
+              {
+                "at": 75,
+                "de": "Ich möchte einen Tee.",
+                "en": "I'd like a tea."
+              },
+              {
+                "at": 20,
+                "de": "Ich will einen Tee.",
+                "en": "I want a tea."
+              }
+            ]
           }
         }
       ],
@@ -1262,7 +1747,7 @@
           "why": "wollen is blunt; möchten is the polite form for ordering."
         }
       ],
-      "exam": null
+      "hook": "With six small verbs (können, müssen, wollen, möchten, dürfen, sollen) you can ask, offer, refuse and order politely."
     }
   },
   {
@@ -1371,6 +1856,21 @@
             ],
             "answer": "7:30",
             "why": "halb counts towards the next hour: halb acht is half of the way to eight, so 7:30."
+          },
+          "visual": {
+            "kind": "clock",
+            "faces": [
+              {
+                "time": "6:30",
+                "de": "halb sieben",
+                "digital": "6:30"
+              },
+              {
+                "time": "8:15",
+                "de": "Viertel nach acht",
+                "digital": "8:15"
+              }
+            ]
           }
         }
       ],
@@ -1388,7 +1888,6 @@
     ],
     "title": "Uhrzeit",
     "help": {
-      "hook": "Hear halb acht and know it means 7:30 — and never turn up an hour late to a German appointment again.",
       "intro": "There are two clocks in German. The official one reads the digits and is used for timetables, appointments and anything written: vierzehn Uhr dreißig, neun Uhr fünfzehn. The colloquial one is what people actually say: Viertel nach acht (quarter past eight), Viertel vor neun (quarter to nine), fünf nach zehn — and halb, which is the one that trips English speakers, because halb drei means half *of the way to* three, i.e. 2:30, not 3:30. You will hear both every day — on the radio, at the station, from friends — and you should be able to switch: hear halb acht, write 7:30. Both are accepted in this quiz: type Viertel nach acht or acht Uhr fünfzehn for 08:15, halb drei or vierzehn Uhr dreißig for 14:30 — the reference table shows the two side by side.",
       "tips": [
         {
@@ -1423,6 +1922,22 @@
             ],
             "answer": "4:30",
             "why": "halb looks forward: halb fünf is half way to five, so 4:30."
+          },
+          "visual": {
+            "kind": "clock",
+            "caption": "halb acht is half-way TO eight. English 'half eight' is the opposite.",
+            "faces": [
+              {
+                "time": "7:30",
+                "de": "halb acht",
+                "digital": "7:30"
+              },
+              {
+                "time": "2:30",
+                "de": "halb drei",
+                "digital": "2:30"
+              }
+            ]
           }
         },
         {
@@ -1454,6 +1969,31 @@
             ],
             "answer": "vor",
             "why": "Ten minutes before ten is zehn vor zehn — vor means 'to'. zehn nach zehn would be 10:10."
+          },
+          "visual": {
+            "kind": "clock",
+            "faces": [
+              {
+                "time": "9:05",
+                "de": "fünf nach neun",
+                "digital": "9:05"
+              },
+              {
+                "time": "9:15",
+                "de": "Viertel nach neun",
+                "digital": "9:15"
+              },
+              {
+                "time": "9:45",
+                "de": "Viertel vor zehn",
+                "digital": "9:45"
+              },
+              {
+                "time": "9:50",
+                "de": "zehn vor zehn",
+                "digital": "9:50"
+              }
+            ]
           }
         },
         {
@@ -1489,6 +2029,21 @@
             ],
             "answer": "neunzehn Uhr vierzig",
             "why": "The official clock reads the digits in order on a 24-hour scale: hour, Uhr, minutes."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "everyday",
+            "right": "official (stations, radio)",
+            "rows": [
+              {
+                "a": "halb acht abends",
+                "b": "neunzehn Uhr dreißig"
+              },
+              {
+                "a": "Viertel nach zwei",
+                "b": "vierzehn Uhr fünfzehn"
+              }
+            ]
           }
         },
         {
@@ -1611,7 +2166,7 @@
           "why": "'at' a time is um."
         }
       ],
-      "exam": null
+      "hook": "Hear halb acht and know it means 7:30 — and never turn up an hour late to a German appointment again."
     }
   },
   {
@@ -1622,8 +2177,7 @@
     ],
     "title": "Kurzcheck: Akkusativ & Possessiv",
     "help": {
-      "hook": "Talk for three minutes about what you have, what you need and whose it is — einen Stift, meinen Schlüssel, meine Tasche.",
-      "intro": "A three-minute checkpoint on the first half of this module, run in your own AI assistant with voice on: what you have, what you need today, and whose things they are. Copy the exercise in, switch on voice, say 'Los geht's'. The tutor listens for two things: the accusative after haben and brauchen — einen Apfel, einen Stift, keinen Hund — and the possessive with its ending — mein Auto, meine Tasche, meinen Schlüssel. Answer in full sentences; the score is on the article and the ending, which only show up in a sentence.",
+      "intro": "A five-minute checkpoint on the first half of this module, run in your own AI assistant with voice on: what you have, what you need today, and whose things they are. Copy the exercise in, switch on voice, say 'Los geht's'. The tutor listens for two things: the accusative after haben and brauchen — einen Apfel, einen Stift, keinen Hund — and the possessive with its ending — mein Auto, meine Tasche, meinen Schlüssel. Answer in full sentences; the score is on the article and the ending, which only show up in a sentence.",
       "tips": [
         {
           "kind": "rule",
@@ -1656,6 +2210,26 @@
             ],
             "answer": "einen",
             "why": "brauchen takes the accusative, and a masculine object gets -en: einen Regenschirm."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "rows": [
+              {
+                "label": "Ich brauche …",
+                "cells": [
+                  "einen Stift",
+                  "eine Tasche",
+                  "ein Heft",
+                  "Bücher"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                0,
+                0
+              ]
+            ]
           }
         },
         {
@@ -1695,7 +2269,51 @@
         "Blue nouns get -en after haben / brauchen: einen, keinen, meinen.",
         "Whole sentences — the ending is the point, and it only lives in a sentence."
       ],
-      "exam": null
+      "hook": "Talk for three minutes about what you have, what you need and whose it is — einen Stift, meinen Schlüssel, meine Tasche.",
+      "vocab": [
+        {
+          "de": "brauchen",
+          "en": "to need"
+        },
+        {
+          "de": "haben",
+          "en": "to have"
+        },
+        {
+          "de": "Schlüssel",
+          "article": "der",
+          "plural": "-",
+          "en": "key"
+        },
+        {
+          "de": "Stift",
+          "article": "der",
+          "plural": "-e",
+          "en": "pen"
+        },
+        {
+          "de": "Tasche",
+          "article": "die",
+          "plural": "-n",
+          "en": "bag"
+        },
+        {
+          "de": "Handy",
+          "article": "das",
+          "plural": "-s",
+          "en": "mobile phone"
+        },
+        {
+          "de": "Geldbeutel",
+          "article": "der",
+          "plural": "-",
+          "en": "wallet"
+        },
+        {
+          "de": "gehören",
+          "en": "to belong"
+        }
+      ]
     }
   },
   {
@@ -1705,7 +2323,6 @@
     ],
     "title": "Wochentage & Monate",
     "help": {
-      "hook": "Name any day, month or date in German, and say exactly when your birthday, appointment or holiday is.",
       "intro": "Days, months and seasons are all masculine — der Montag, der Januar, der Sommer — and all written with a capital letter, because they are nouns. Two small prepositions do most of the work: am for a day or part of a day (am Montag, am Morgen, am Wochenende) and im for a month or season (im Mai, im Winter). The date itself is said with an ordinal number and der: der erste März, der zwölfte April; and 'on' a date is am + -en: am ersten März. The four seasons and the four parts of the day complete the calendar: with them you can name any appointment, birthday or holiday. The last six items practise exactly that: der dritte Mai, but am zwölften Juni — after am the ordinal takes -en.",
       "tips": [
         {
@@ -1769,6 +2386,36 @@
             ],
             "answer": "im",
             "why": "Months and seasons take im (in dem): im Juli, im Sommer. am is for days."
+          },
+          "visual": {
+            "kind": "timeline",
+            "axis": {
+              "start": "short",
+              "end": "long",
+              "now": null
+            },
+            "marks": [
+              {
+                "at": -2.6,
+                "label": "a clock time",
+                "de": "um acht"
+              },
+              {
+                "at": -1.2,
+                "label": "a day",
+                "de": "am Montag"
+              },
+              {
+                "at": 0.6,
+                "label": "a month",
+                "de": "im Mai"
+              },
+              {
+                "at": 2.3,
+                "label": "a season",
+                "de": "im Sommer"
+              }
+            ]
           }
         },
         {
@@ -1800,6 +2447,29 @@
             ],
             "answer": "erste",
             "why": "Dates use ordinals, and the 1st is irregular: der erste. The -en ending only comes after am (am ersten Mai)."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "written",
+            "right": "said",
+            "rows": [
+              {
+                "a": "1. Mai",
+                "b": "der erste Mai"
+              },
+              {
+                "a": "3. Oktober",
+                "b": "der dritte Oktober"
+              },
+              {
+                "a": "am 7. Juli",
+                "b": "am siebten Juli"
+              },
+              {
+                "a": "am 20. März",
+                "b": "am zwanzigsten März"
+              }
+            ]
           }
         },
         {
@@ -1940,7 +2610,7 @@
           "why": "After am the ordinal ends in -en."
         }
       ],
-      "exam": null
+      "hook": "Name any day, month or date in German, and say exactly when your birthday, appointment or holiday is."
     }
   },
   {
@@ -1951,7 +2621,6 @@
     ],
     "title": "Wann? — Zeitangaben",
     "help": {
-      "hook": "Say exactly when things happen, at eight, on Monday, in March, from tomorrow, with the little word each time needs.",
       "intro": "Saying when is something you do in almost every conversation, and it hangs on a handful of prepositions that each own a kind of time: um for clock times (um acht Uhr), am for days and parts of the day (am Montag, am Morgen, am Wochenende), im for months and seasons (im März, im Sommer), and in der Nacht as the one exception. For spans and points around them: von … bis (from … to), ab (from … on), für (for a length of time — often left out: zwei Wochen), nach (after), vor (before), and in for the future (in einer Woche = in a week’s time). Years stand alone: Ich bin 1995 geboren, with no preposition. Each item gives you the time word in brackets; type the whole time phrase, preposition included.",
       "tips": [
         {
@@ -1987,6 +2656,31 @@
             ],
             "answer": "am",
             "why": "Days of the week take am; um is for clock times and im for months and seasons."
+          },
+          "visual": {
+            "kind": "timeline",
+            "axis": {
+              "start": "short",
+              "end": "long",
+              "now": null
+            },
+            "marks": [
+              {
+                "at": -2.4,
+                "label": "clock time",
+                "de": "um 8 Uhr"
+              },
+              {
+                "at": -0.4,
+                "label": "day, date, part of day",
+                "de": "am Montag"
+              },
+              {
+                "at": 1.8,
+                "label": "month, season",
+                "de": "im Juli"
+              }
+            ]
           }
         },
         {
@@ -2020,6 +2714,23 @@
             ],
             "answer": "Ab",
             "why": "ab marks the point from which something starts and continues: ab morgen = from tomorrow on."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": -2,
+                "to": -0.6,
+                "label": "a closed span",
+                "de": "von Montag bis Freitag"
+              },
+              {
+                "at": 0.8,
+                "to": 3,
+                "label": "from then on",
+                "de": "ab morgen"
+              }
+            ]
           }
         },
         {
@@ -2125,7 +2836,59 @@
           "why": "Months and seasons take im."
         }
       ],
-      "exam": null
+      "hook": "Say exactly when things happen, at eight, on Monday, in March, from tomorrow, with the little word each time needs.",
+      "table": {
+        "caption": "Which little word for which time",
+        "columns": [
+          "time",
+          "word",
+          "example"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "clock time",
+              "um",
+              "um acht Uhr"
+            ]
+          },
+          {
+            "cells": [
+              "day, date, part of the day",
+              "am",
+              "am Montag, am 3. Mai, am Abend"
+            ]
+          },
+          {
+            "cells": [
+              "month, season",
+              "im",
+              "im Mai, im Sommer"
+            ]
+          },
+          {
+            "cells": [
+              "year",
+              "—",
+              "2026 / im Jahr 2026"
+            ]
+          },
+          {
+            "cells": [
+              "span",
+              "von … bis",
+              "von Montag bis Freitag"
+            ]
+          },
+          {
+            "cells": [
+              "from then on",
+              "ab",
+              "ab morgen"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -2171,6 +2934,27 @@
             ],
             "answer": "Ich kaufe am Samstag im Supermarkt ein.",
             "why": "The prefix of a separable verb goes to the very end of the sentence — write ein last, where you hear it."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "stehe",
+                  "um sieben",
+                  "auf."
+                ]
+              },
+              {
+                "cells": [
+                  "Dann",
+                  "kaufe",
+                  "ich im Supermarkt",
+                  "ein."
+                ]
+              }
+            ]
           }
         },
         {
@@ -2288,6 +3072,16 @@
             ],
             "answer": "6:30",
             "why": "halb sieben means half way to seven: 6:30. Subtract half an hour from the number you hear."
+          },
+          "visual": {
+            "kind": "clock",
+            "faces": [
+              {
+                "time": "7:30",
+                "de": "halb acht",
+                "digital": "7:30"
+              }
+            ]
           }
         },
         {
@@ -2405,6 +3199,35 @@
             ],
             "answer": "The delay in minutes",
             "why": "The number sits right before Minuten Verspätung, so it is the delay."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Which train",
+                "de": [
+                  "Der ICE nach München …"
+                ]
+              },
+              {
+                "label": "Time",
+                "de": [
+                  "… Abfahrt 14 Uhr 20 …"
+                ]
+              },
+              {
+                "label": "Platform",
+                "de": [
+                  "… fährt heute von Gleis 7 ab."
+                ]
+              },
+              {
+                "label": "Delay",
+                "de": [
+                  "… hat circa 10 Minuten Verspätung."
+                ]
+              }
+            ]
           }
         },
         {
@@ -2488,7 +3311,6 @@
     ],
     "title": "Akkusativpräpositionen",
     "help": {
-      "hook": "Learn five little words (durch, für, gegen, ohne, um) and you'll know exactly which article follows them, every time.",
       "intro": "Five prepositions always take the accusative, whatever the sentence: durch (through), für (for), gegen (against), ohne (without), um (around; at a time). After them the article shifts to its accusative form — which, as ever, only shows on the masculine: für den Mann, durch den Park, ohne den Schlüssel; feminine and neuter look unchanged: für die Frau, für das Kind. This is the first time a preposition, rather than a verb, decides the case — a pattern that will grow later in the course (dative prepositions, then the two-way ones). Learn these five as a chant; there are no exceptions. Most items ask for the article; five ask for the preposition itself, from its English meaning.",
       "tips": [
         {
@@ -2523,6 +3345,38 @@
             ],
             "answer": "ohne",
             "why": "ohne is one of the five: durch, für, gegen, ohne, um. mit and aus take a different case."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "preposition",
+            "right": "+ accusative",
+            "rows": [
+              {
+                "a": "durch",
+                "b": "durch den Park",
+                "note": "through"
+              },
+              {
+                "a": "für",
+                "b": "für meinen Bruder",
+                "note": "for"
+              },
+              {
+                "a": "gegen",
+                "b": "gegen den Baum",
+                "note": "against"
+              },
+              {
+                "a": "ohne",
+                "b": "ohne einen Schirm",
+                "note": "without"
+              },
+              {
+                "a": "um",
+                "b": "um den See",
+                "note": "around"
+              }
+            ]
           }
         },
         {
@@ -2655,7 +3509,6 @@
           "why": "Park is masculine."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "durch",
@@ -2719,7 +3572,8 @@
           "plural": "-",
           "en": "key"
         }
-      ]
+      ],
+      "hook": "Learn five little words (durch, für, gegen, ohne, um) and you'll know exactly which article follows them, every time."
     }
   },
   {
@@ -2732,7 +3586,6 @@
     ],
     "title": "Großer Text: Mein Tag",
     "help": {
-      "hook": "Follow one ordinary day in German and fill in the small forms that hold it together: einen Kaffee, stehe … auf, muss einkaufen.",
       "intro": "One whole day, twelve gaps, everything from this module at once: the accusative (einen Kaffee, den Bus), kein and keine, modal verbs with their infinitive at the end, and separable verbs with the prefix already waiting at the end of the sentence. Each gap has a hint — the verb and the person (aufstehen · ich) or the meaning and the noun (a (der Kaffee)) — and the job is to decide the form. Read the whole text first, because the end of a sentence (… auf, … an, … fern, … einkaufen) tells you what kind of verb the gap holds. This is the kind of text you will soon write yourself — a message, a diary entry, an answer to 'Wie war dein Tag?' — seen from the inside.",
       "tips": [
         {
@@ -2766,6 +3619,35 @@
             ],
             "answer": "ein",
             "why": "Ei is neuter, and only masculine nouns change in the accusative, so it stays ein."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "ein",
+                  "eine",
+                  "ein",
+                  "–"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "einen",
+                  "eine",
+                  "ein",
+                  "–"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                1,
+                0
+              ]
+            ]
           }
         },
         {
@@ -2800,6 +3682,19 @@
             ],
             "answer": "mache",
             "why": "The auf is already at the end of the sentence, so the gap takes only the conjugated stem: mache."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "stehe",
+                  "um sieben",
+                  "auf."
+                ]
+              }
+            ]
           }
         },
         {
@@ -2871,7 +3766,7 @@
         "Read the end of the sentence first: an infinitive means a modal in the gap, a prefix means a separable verb.",
         "A der-noun as the object? Then -en: einen, den, keinen."
       ],
-      "exam": null
+      "hook": "Follow one ordinary day in German and fill in the small forms that hold it together: einen Kaffee, stehe … auf, muss einkaufen."
     }
   },
   {
@@ -2881,7 +3776,6 @@
     ],
     "title": "Trennbare Verben",
     "help": {
-      "hook": "Get up, go shopping, call your mother, watch TV: the verbs of an ordinary day split in two, and the prefix waits at the end.",
       "intro": "Many everyday verbs are two pieces glued together — auf+stehen, ein+kaufen, an+rufen, fern+sehen — and in a normal sentence the glue comes off: the verb part takes position 2 and conjugates, the prefix flies to the very end. Ich stehe um sieben Uhr auf. Wann rufst du mich an? The prefix carries the stress (AUFstehen), which is how you can hear that a verb is separable. The separable prefixes are the ones that are also words on their own — auf, ab, an, aus, ein, mit, vor, zu, zurück, fern — and in the dictionary the verb is listed as one word, so learning to spot them is the skill. With a modal the pieces reunite at the end: Ich muss um sieben aufstehen.",
       "tips": [
         {
@@ -2916,6 +3810,39 @@
             ],
             "answer": "Wir laden morgen Freunde ein.",
             "why": "The verb part (laden) takes position 2 and the prefix ein goes to the very end of the sentence."
+          },
+          "visual": {
+            "kind": "bracket",
+            "caption": "aufstehen breaks in two: stehe goes to position 2, auf waits at the end.",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "stehe",
+                  "um sieben",
+                  "auf."
+                ],
+                "en": "aufstehen"
+              },
+              {
+                "cells": [
+                  "Wir",
+                  "kaufen",
+                  "am Samstag",
+                  "ein."
+                ],
+                "en": "einkaufen"
+              },
+              {
+                "cells": [
+                  "Sie",
+                  "ruft",
+                  "ihre Mutter",
+                  "an."
+                ],
+                "en": "anrufen"
+              }
+            ]
           }
         },
         {
@@ -2979,6 +3906,27 @@
             ],
             "answer": "fernsehen",
             "why": "With a modal like wollen, the infinitive goes to the end in one piece, prefix attached: fernsehen."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "stehe",
+                  "früh",
+                  "auf."
+                ]
+              },
+              {
+                "cells": [
+                  "Ich",
+                  "muss",
+                  "früh",
+                  "aufstehen."
+                ]
+              }
+            ]
           }
         },
         {
@@ -3098,7 +4046,7 @@
           "why": "ver- is unstressed and never separates."
         }
       ],
-      "exam": null
+      "hook": "Get up, go shopping, call your mother, watch TV: the verbs of an ordinary day split in two, and the prefix waits at the end."
     }
   },
   {
@@ -3108,7 +4056,6 @@
     ],
     "title": "Perfekt: erste Schritte",
     "help": {
-      "hook": "Tell someone what you did yesterday: ich habe gegessen, ich bin gefahren, with the past form landing at the end.",
       "intro": "The Perfekt is how German talks about the past in conversation — 'I worked', 'I ate', 'I went' are all Ich habe gearbeitet, Ich habe gegessen, Ich bin gefahren. It is built from two pieces: a helper verb in the present (haben, or sein for a few verbs) in position 2, and the participle — ge- + stem + -t for regular verbs (gemacht, gelernt), ge- + stem + -en with a possible vowel change for irregular ones (gegessen, gefahren) — at the very end, exactly where a modal's infinitive goes. Fifteen verbs turn up in the Perfekt so often — in any story about yesterday or last weekend — that you need to recognise them straight away in what you hear and read. This quiz gives you those fifteen. The full system follows later in the course. Each sentence has two gaps: the helper verb in position 2 and the participle at the end — type both, one in each gap.",
       "tips": [
         {
@@ -3143,6 +4090,29 @@
             ],
             "answer": "haben",
             "why": "essen takes haben, and the helper agrees with wir: wir haben. The participle gegessen stays at the end."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "habe",
+                  "Pizza",
+                  "gegessen."
+                ],
+                "en": "I ate pizza."
+              },
+              {
+                "cells": [
+                  "Gestern",
+                  "hat",
+                  "sie lange",
+                  "gearbeitet."
+                ],
+                "en": "Yesterday she worked late."
+              }
+            ]
           }
         },
         {
@@ -3176,11 +4146,84 @@
             ],
             "answer": "gefragt",
             "why": "fragen is regular, so the participle is ge- + stem + -t: gefragt."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "ge",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "mach"
+                  },
+                  {
+                    "text": "t",
+                    "role": "ending"
+                  }
+                ],
+                "result": "gemacht",
+                "en": "machen"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "ge",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "kauf"
+                  },
+                  {
+                    "text": "t",
+                    "role": "ending"
+                  }
+                ],
+                "result": "gekauft",
+                "en": "kaufen"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "ge",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "schlaf"
+                  },
+                  {
+                    "text": "en",
+                    "role": "ending"
+                  }
+                ],
+                "result": "geschlafen",
+                "en": "schlafen"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "ge",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "trunk"
+                  },
+                  {
+                    "text": "en",
+                    "role": "ending"
+                  }
+                ],
+                "result": "getrunken",
+                "en": "trinken"
+              }
+            ]
           }
         },
         {
           "kind": "warning",
-          "title": "Three take sein: fahren, bleiben, passieren",
+          "title": "Three to start with that take sein: fahren, bleiben, passieren",
           "text": "Movement and change use sein instead of haben: Ich bin gefahren. Wir sind geblieben. Was ist passiert? Note also: no ge- on verbs ending in -ieren (passiert) or starting with ver- (verstanden).",
           "examples": [
             {
@@ -3211,6 +4254,35 @@
             ],
             "answer": "bin",
             "why": "fahren is a verb of movement, so it takes sein: ich bin gefahren."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "bin",
+                  "nach Berlin",
+                  "gefahren."
+                ]
+              },
+              {
+                "cells": [
+                  "Wir",
+                  "sind",
+                  "zu Hause",
+                  "geblieben."
+                ]
+              },
+              {
+                "cells": [
+                  "Was",
+                  "ist",
+                  "",
+                  "passiert?"
+                ]
+              }
+            ]
           }
         },
         {
@@ -3280,7 +4352,7 @@
           "why": "-ieren verbs and ver-/be- verbs take no ge-."
         }
       ],
-      "exam": null
+      "hook": "Tell someone what you did yesterday: ich habe gegessen, ich bin gefahren, with the past form landing at the end."
     }
   },
   {
@@ -3290,7 +4362,6 @@
     ],
     "title": "war & hatte",
     "help": {
-      "hook": "Two short words, war and hatte, let you talk about yesterday, last week or your whole weekend.",
       "intro": "For 'was' and 'had', German does not use the Perfekt but a simpler past form, the Präteritum of sein and haben — war and hatte. Ich war krank (I was ill), Wir hatten keine Zeit (we had no time). You will use the ich- and er-forms most; this quiz gives you all six of each, because they are regular and you will hear the others constantly. sein: war, warst, war, waren, wart, waren. haben: hatte, hattest, hatte, hatten, hattet, hatten. Notice the shape: ich and er are identical, and the endings after that are the familiar -st, -en, -t, -en. From here on, 'yesterday I was …' is one word.",
       "tips": [
         {
@@ -3324,6 +4395,33 @@
             ],
             "answer": "waren",
             "why": "wir takes -en in the past of sein: wir waren. war is for ich/er, wart for ihr."
+          },
+          "visual": {
+            "kind": "people",
+            "columns": [
+              {
+                "label": "sein (now)",
+                "forms": [
+                  "bin",
+                  "bist",
+                  "ist",
+                  "sind",
+                  "seid",
+                  "sind"
+                ]
+              },
+              {
+                "label": "war (then)",
+                "forms": [
+                  "war",
+                  "warst",
+                  "war",
+                  "waren",
+                  "wart",
+                  "waren"
+                ]
+              }
+            ]
           }
         },
         {
@@ -3356,6 +4454,33 @@
             ],
             "answer": "Hattest",
             "why": "du adds -st to hatt-: du hattest. Hattet is the ihr-form."
+          },
+          "visual": {
+            "kind": "people",
+            "columns": [
+              {
+                "label": "haben (now)",
+                "forms": [
+                  "habe",
+                  "hast",
+                  "hat",
+                  "haben",
+                  "habt",
+                  "haben"
+                ]
+              },
+              {
+                "label": "hatte (then)",
+                "forms": [
+                  "hatte",
+                  "hattest",
+                  "hatte",
+                  "hatten",
+                  "hattet",
+                  "hatten"
+                ]
+              }
+            ]
           }
         },
         {
@@ -3457,7 +4582,6 @@
           "why": "er is hatte; hattet is ihr."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "war / waren",
@@ -3507,7 +4631,8 @@
           "article": "das",
           "en": "weekend"
         }
-      ]
+      ],
+      "hook": "Two short words, war and hatte, let you talk about yesterday, last week or your whole weekend."
     }
   },
   {
@@ -3517,7 +4642,6 @@
     ],
     "title": "Imperativ",
     "help": {
-      "hook": "Tell a friend, a group or a stranger what to do — Komm!, Kommt!, Kommen Sie! — and sound right to each of them.",
       "intro": "The imperative gives instructions and requests, and German has three of them because it has three ways of saying 'you'. To one friend (du): the verb stem with no ending and no pronoun — Komm! Mach das! Warte! — and the vowel-change verbs keep their change: Nimm! Iss! Lies! Sprich! (but no umlaut: Fahr! Schlaf!). To several friends (ihr): the ihr-form of the verb, again without the pronoun — Kommt! Macht! Esst! Formally (Sie): the infinitive followed by Sie — Kommen Sie! Nehmen Sie Platz! You need all three forms from the start, because signs, recipes, teachers and shop assistants use them all day. A bitte makes any of them polite. In the Sie items the Sie is already in the sentence — type only the verb.",
       "tips": [
         {
@@ -3551,6 +4675,25 @@
             ],
             "answer": "Lies",
             "why": "lesen changes e → ie in the du-form (du liest), and the imperative keeps that change: Lies!"
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "talking to",
+            "right": "the command",
+            "rows": [
+              {
+                "a": "a friend (du)",
+                "b": "Komm! Warte! Nimm das!"
+              },
+              {
+                "a": "a group (ihr)",
+                "b": "Kommt! Wartet! Nehmt das!"
+              },
+              {
+                "a": "a stranger (Sie)",
+                "b": "Kommen Sie! Warten Sie! Nehmen Sie das!"
+              }
+            ]
           }
         },
         {
@@ -3687,7 +4830,7 @@
           "why": "The formal imperative keeps Sie."
         }
       ],
-      "exam": null
+      "hook": "Tell a friend, a group or a stranger what to do — Komm!, Kommt!, Kommen Sie! — and sound right to each of them."
     }
   },
   {
@@ -3698,7 +4841,6 @@
     ],
     "title": "Höflich bitten & bestellen",
     "help": {
-      "hook": "Order a coffee, ask for help, pay the bill: three polite chunks get you through every counter, café and phone call.",
       "intro": "Three fixed phrases make you polite in every shop, café, office and train: Ich hätte gern … (I'd like …), Könnten Sie …? (could you …?) and Ich würde gern … (I'd like to …). They belong to the Konjunktiv II, a grammar topic that comes much later — but you need them now, because you cannot live in a German-speaking country a single day without them. So learn them as chunks, like Guten Tag: hätte gern + a thing (accusative), Könnten Sie + a verb at the end, würde gern + a verb at the end, and möchte as the everyday alternative. Add bitte, and you have the whole register of politeness people expect at a counter or on the phone. The umlaut is what makes these polite (hätte, not hatte; könnten, not konnten), so it is checked strictly here — type ae/oe/ue if your keyboard has no umlauts.",
       "tips": [
         {
@@ -3732,6 +4874,33 @@
             ],
             "answer": "hätten",
             "why": "For ordering, use hätte gern; with wir it's hätten. Without the umlaut, hatten is just the past tense 'had'."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "too blunt",
+            "high": "polite",
+            "points": [
+              {
+                "at": 98,
+                "de": "Könnten Sie mir bitte helfen?",
+                "en": "Could you help me, please?"
+              },
+              {
+                "at": 85,
+                "de": "Ich hätte gern ein Brot.",
+                "en": "I'd like a loaf."
+              },
+              {
+                "at": 70,
+                "de": "Ich möchte ein Brot.",
+                "en": "I'd like a loaf."
+              },
+              {
+                "at": 15,
+                "de": "Ich will ein Brot.",
+                "en": "I want a loaf."
+              }
+            ]
           }
         },
         {
@@ -3866,7 +5035,7 @@
           "why": "The thing you'd like is accusative: einen for der Kaffee."
         }
       ],
-      "exam": null
+      "hook": "Order a coffee, ask for help, pay the bill: three polite chunks get you through every counter, café and phone call."
     }
   },
   {
@@ -3876,7 +5045,6 @@
     ],
     "title": "mir, dir, Ihnen — Dativ-Pronomen",
     "help": {
-      "hook": "Ask how someone is, offer help, thank them and say what you like: mir, dir and Ihnen make it all work.",
       "intro": "Wie geht es dir? — how are you? — is one of the first questions you learn, and the dir in it is a dative pronoun. For now you need exactly this much dative: the pronouns mir, dir, ihm, ihr, uns, euch, ihnen, Ihnen after a handful of verbs that always take them — helfen (help), danken (thank), gehören (belong to), gefallen (please, i.e. 'like'), and the phrase es geht. The full dative — articles, nouns, prepositions — comes later in the course. For now these are chunks: Kannst du mir helfen? Das gehört mir. Gefällt dir das? Ich danke Ihnen. Notice that ihr is now 'to her' and ihnen 'to them', and Ihnen with a capital is the formal you.",
       "tips": [
         {
@@ -3909,6 +5077,39 @@
             ],
             "answer": "Ihnen",
             "why": "es geht takes the dative, and the formal you in the dative is Ihnen."
+          },
+          "visual": {
+            "kind": "people",
+            "columns": [
+              {
+                "label": "Akk",
+                "forms": [
+                  "mich",
+                  "dich",
+                  "ihn / sie / es",
+                  "uns",
+                  "euch",
+                  "sie / Sie"
+                ]
+              },
+              {
+                "label": "Dat",
+                "forms": [
+                  "mir",
+                  "dir",
+                  "ihm / ihr / ihm",
+                  "uns",
+                  "euch",
+                  "ihnen / Ihnen"
+                ]
+              }
+            ],
+            "hot": [
+              0,
+              1,
+              2,
+              5
+            ]
           }
         },
         {
@@ -3977,6 +5178,22 @@
             ],
             "answer": "mir",
             "why": "With gefallen the shoes are the subject and the person who likes them is dative: mir."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "English",
+            "right": "German",
+            "rows": [
+              {
+                "a": "I like the film.",
+                "b": "Der Film gefällt mir.",
+                "note": "The film is the subject; mir is the person it pleases."
+              },
+              {
+                "a": "Do you like the shoes?",
+                "b": "Gefallen dir die Schuhe?"
+              }
+            ]
           }
         },
         {
@@ -4045,7 +5262,73 @@
           "why": "danken takes the dative: Ihnen."
         }
       ],
-      "exam": null
+      "hook": "Ask how someone is, offer help, thank them and say what you like: mir, dir and Ihnen make it all work.",
+      "table": {
+        "caption": "Three cases of the pronouns",
+        "columns": [
+          "Nominativ",
+          "Akkusativ",
+          "Dativ"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "ich",
+              "mich",
+              "mir"
+            ]
+          },
+          {
+            "cells": [
+              "du",
+              "dich",
+              "dir"
+            ]
+          },
+          {
+            "cells": [
+              "er",
+              "ihn",
+              "ihm"
+            ]
+          },
+          {
+            "cells": [
+              "sie",
+              "sie",
+              "ihr"
+            ]
+          },
+          {
+            "cells": [
+              "es",
+              "es",
+              "ihm"
+            ]
+          },
+          {
+            "cells": [
+              "wir",
+              "uns",
+              "uns"
+            ]
+          },
+          {
+            "cells": [
+              "ihr",
+              "euch",
+              "euch"
+            ]
+          },
+          {
+            "cells": [
+              "sie / Sie",
+              "sie / Sie",
+              "ihnen / Ihnen"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -4055,7 +5338,6 @@
     ],
     "title": "Satzbau: Position 2 & Konnektoren",
     "help": {
-      "hook": "One rule builds every German statement (the verb comes second), and five small words join your sentences together.",
       "intro": "One rule shapes every German statement: the conjugated verb is the second element. Not the second word — the second element. Ich fahre morgen nach Berlin, but start with tomorrow and the verb still comes second, so the subject moves behind it: Morgen fahre ich nach Berlin. English keeps subject-verb whatever comes first ('Tomorrow I go'); German swaps. The other half of basic sentence-building is joining sentences with the five little connectors that do not disturb that order: und (and), oder (or), aber (but), denn (because), dann (then). After und/oder/aber/denn the next sentence keeps its normal shape; dann counts as position 1, so the verb follows it: … dann gehe ich.",
       "tips": [
         {
@@ -4090,6 +5372,40 @@
             ],
             "answer": "gehe ich",
             "why": "Heute Abend fills position 1, so the verb comes next and the subject moves behind it."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Position 1",
+              "Verb",
+              "Rest"
+            ],
+            "hot": [
+              1
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "fahre",
+                  "morgen nach Hamburg."
+                ]
+              },
+              {
+                "cells": [
+                  "Morgen",
+                  "fahre",
+                  "ich nach Hamburg."
+                ]
+              },
+              {
+                "cells": [
+                  "Mit meiner Schwester",
+                  "fahre",
+                  "ich morgen nach Hamburg."
+                ]
+              }
+            ]
           }
         },
         {
@@ -4124,6 +5440,45 @@
             ],
             "answer": "ich wohne",
             "why": "denn sits outside the sentence (position 0), so what follows keeps its normal order: subject, then verb."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Position 0",
+              "Position 1",
+              "Verb",
+              "Rest"
+            ],
+            "hot": [
+              0,
+              2
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "und",
+                  "ich",
+                  "komme",
+                  "mit."
+                ]
+              },
+              {
+                "cells": [
+                  "aber",
+                  "ich",
+                  "habe",
+                  "keine Zeit."
+                ]
+              },
+              {
+                "cells": [
+                  "denn",
+                  "ich",
+                  "bin",
+                  "krank."
+                ]
+              }
+            ]
           }
         },
         {
@@ -4156,6 +5511,34 @@
             ],
             "answer": "esse ich",
             "why": "dann takes position 1 itself, so the verb follows it straight away: dann esse ich."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Position 1",
+              "Verb",
+              "Rest"
+            ],
+            "hot": [
+              0,
+              1
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Zuerst",
+                  "frühstücke",
+                  "ich."
+                ]
+              },
+              {
+                "cells": [
+                  "Dann",
+                  "gehe",
+                  "ich zur Arbeit."
+                ]
+              }
+            ]
           }
         },
         {
@@ -4226,7 +5609,7 @@
           "why": "denn does not change word order."
         }
       ],
-      "exam": null
+      "hook": "One rule builds every German statement (the verb comes second), and five small words join your sentences together."
     }
   },
   {
@@ -4304,6 +5687,37 @@
             ],
             "answer": "Nein, danke, das ist alles.",
             "why": "Sonst noch etwas? means 'anything else?'. Das ist alles closes the order; Das macht … is what the baker says."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Greeting",
+                "de": [
+                  "Guten Tag! Was darf es sein?"
+                ]
+              },
+              {
+                "label": "You order",
+                "de": [
+                  "Ich hätte gern ein Kilo Äpfel."
+                ]
+              },
+              {
+                "label": "Anything else?",
+                "de": [
+                  "Sonst noch etwas?",
+                  "Nein, danke. Das ist alles."
+                ]
+              },
+              {
+                "label": "Paying",
+                "de": [
+                  "Das macht 4,50 Euro.",
+                  "Hier, bitte."
+                ]
+              }
+            ]
           }
         },
         {
@@ -4353,7 +5767,6 @@
     ],
     "title": "Einkaufen: Mengen & Preise",
     "help": {
-      "hook": "Buy cheese, bread and a bottle of wine at a German market, and understand exactly what the seller says it costs.",
       "intro": "Shopping needs two small word groups of its own: measures and weights, and money. German measures are simpler than English ones in one way — there is no 'of': ein Kilo Äpfel, eine Flasche Wasser, ein Stück Kuchen, the thing follows the measure directly — and stricter in another: the measures are nouns with a gender (das Kilo, der Liter, die Flasche, das Stück, die Packung, die Dose, das Glas, die Tasse, das Pfund = 500 g). Prices are euros then cents with no word for the comma: zwei Euro fünfzig; Euro never takes an s. Learn the shop's questions and answers as a script and you can buy anything.",
       "tips": [
         {
@@ -4387,6 +5800,25 @@
             ],
             "answer": "Flaschen",
             "why": "Flasche is feminine, so it takes a plural after a number — and German needs no 'of' before the thing."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "English",
+            "right": "German",
+            "rows": [
+              {
+                "a": "a kilo of apples",
+                "b": "ein Kilo Äpfel"
+              },
+              {
+                "a": "a bottle of water",
+                "b": "eine Flasche Wasser"
+              },
+              {
+                "a": "200 grams of cheese",
+                "b": "200 Gramm Käse"
+              }
+            ]
           }
         },
         {
@@ -4487,6 +5919,32 @@
             ],
             "answer": "Nein, danke, das ist alles.",
             "why": "Das ist alles closes your order; Das macht … is what the seller says, not you."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Ask",
+                "de": [
+                  "Was kostet …?",
+                  "Haben Sie …?"
+                ]
+              },
+              {
+                "label": "Order",
+                "de": [
+                  "Ich nehme …",
+                  "Ich hätte gern …"
+                ]
+              },
+              {
+                "label": "Close",
+                "de": [
+                  "Das ist alles.",
+                  "Was macht das?"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -4522,7 +5980,7 @@
           "why": "Feminine measures take a plural after a number."
         }
       ],
-      "exam": null
+      "hook": "Buy cheese, bread and a bottle of wine at a German market, and understand exactly what the seller says it costs."
     }
   },
   {
@@ -4533,7 +5991,6 @@
     ],
     "title": "Körper & Befinden",
     "help": {
-      "hook": "When you're ill, say what hurts and how you feel — Mein Kopf tut weh is the sentence that gets you help.",
       "intro": "When you are ill, you need two things first: naming what hurts, and saying how you feel. The pattern for pain is Mein Kopf tut weh — literally 'my head does pain' — with tun (to do) and the body part as subject; plural parts take tun weh: Meine Füße tun weh. Or use Schmerzen: Ich habe Kopfschmerzen, Bauchschmerzen, Zahnschmerzen — the body part glued to Schmerzen. For how you feel: Wie geht es dir? – Mir geht es gut / schlecht / nicht so gut; Ich bin krank / müde; Ich habe Fieber. The doctor's opening line, Was fehlt Ihnen? (what's wrong?), completes the set — a fuller quiz later in the course builds the doctor's visit on this. The first items ask for the body part; the rest ask for what goes round it — mein or meine, tut or tun, and the …schmerzen compound.",
       "tips": [
         {
@@ -4567,6 +6024,39 @@
             ],
             "answer": "tun",
             "why": "Augen is plural, so the verb is tun: Meine Augen tun weh. One thing hurting would be tut."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "What hurts",
+              "Verb",
+              "",
+              "End"
+            ],
+            "hot": [
+              1,
+              3
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Mein Kopf",
+                  "tut",
+                  "",
+                  "weh."
+                ],
+                "en": "one thing: tut"
+              },
+              {
+                "cells": [
+                  "Meine Füße",
+                  "tun",
+                  "",
+                  "weh."
+                ],
+                "en": "two or more: tun"
+              }
+            ]
           }
         },
         {
@@ -4598,6 +6088,36 @@
             ],
             "answer": "Halsschmerzen",
             "why": "Body part + Schmerzen makes one word, always plural, with haben: Ich habe Halsschmerzen."
+          },
+          "visual": {
+            "kind": "pictures",
+            "items": [
+              {
+                "image": "kopf",
+                "de": "Kopfschmerzen",
+                "en": "headache"
+              },
+              {
+                "image": "bauch",
+                "de": "Bauchschmerzen",
+                "en": "stomach ache"
+              },
+              {
+                "image": "zahn",
+                "de": "Zahnschmerzen",
+                "en": "toothache"
+              },
+              {
+                "image": "ruecken",
+                "de": "Rückenschmerzen",
+                "en": "backache"
+              },
+              {
+                "image": "hals",
+                "de": "Halsschmerzen",
+                "en": "sore throat"
+              }
+            ]
           }
         },
         {
@@ -4665,6 +6185,57 @@
             ],
             "answer": "Mein",
             "why": "It's das Bein, a neuter noun, so the subject form is mein: Mein Bein tut weh."
+          },
+          "visual": {
+            "kind": "pictures",
+            "caption": "Learn each one with its article: der Kopf, die Nase, das Auge.",
+            "items": [
+              {
+                "image": "kopf",
+                "de": "der Kopf",
+                "en": "head"
+              },
+              {
+                "image": "arm",
+                "de": "der Arm",
+                "en": "arm"
+              },
+              {
+                "image": "fuss",
+                "de": "der Fuß",
+                "en": "foot"
+              },
+              {
+                "image": "bauch",
+                "de": "der Bauch",
+                "en": "belly"
+              },
+              {
+                "image": "nase",
+                "de": "die Nase",
+                "en": "nose"
+              },
+              {
+                "image": "hand",
+                "de": "die Hand",
+                "en": "hand"
+              },
+              {
+                "image": "auge",
+                "de": "das Auge",
+                "en": "eye"
+              },
+              {
+                "image": "ohr",
+                "de": "das Ohr",
+                "en": "ear"
+              },
+              {
+                "image": "bein",
+                "de": "das Bein",
+                "en": "leg"
+              }
+            ]
           }
         }
       ],
@@ -4700,7 +6271,7 @@
           "why": "The …schmerzen compounds are always plural."
         }
       ],
-      "exam": null
+      "hook": "When you're ill, say what hurts and how you feel — Mein Kopf tut weh is the sentence that gets you help."
     }
   },
   {
@@ -4746,6 +6317,29 @@
             ],
             "answer": "zwei Stunden",
             "why": "Wie lange? is answered after dauert; um zehn Uhr answers Wann?"
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "question",
+            "right": "look for",
+            "rows": [
+              {
+                "a": "Wann?",
+                "b": "am …, im …, um …"
+              },
+              {
+                "a": "Wie lange?",
+                "b": "drei Tage, eine Woche"
+              },
+              {
+                "a": "Wie viel?",
+                "b": "… Euro"
+              },
+              {
+                "a": "Wie?",
+                "b": "mit dem Zug, mit dem Auto"
+              }
+            ]
           }
         },
         {
@@ -4894,6 +6488,25 @@
             ],
             "answer": "a flat to rent",
             "why": "zu vermieten means 'to rent out'; for sale would be zu verkaufen."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "in the ad",
+            "right": "means",
+            "rows": [
+              {
+                "a": "Zi. · qm",
+                "b": "Zimmer · Quadratmeter (rooms · m²)"
+              },
+              {
+                "a": "zu verkaufen · zu vermieten",
+                "b": "for sale · to rent"
+              },
+              {
+                "a": "Tel. · ab sofort",
+                "b": "phone · available now"
+              }
+            ]
           }
         },
         {
@@ -4950,7 +6563,6 @@
     ],
     "title": "Gespräch: Mein Alltag",
     "help": {
-      "hook": "Chat about your everyday life, your routine, your shopping, what you must and want to do, in full German sentences.",
       "intro": "The closing conversation of this module, in your own AI assistant with voice on: your everyday life — your routine and times, what you buy, what you can and must do. Copy the exercise in, say 'Los geht's', and answer in full sentences; the corrections and the score come at the end. This conversation pulls together the core of the module. The tutor listens for the accusative after haben/kaufen/brauchen, the possessives, the infinitive at the end after a modal, the separable prefix at the end, and times with um / am / halb.",
       "tips": [
         {
@@ -4985,6 +6597,27 @@
             ],
             "answer": "Ich muss morgen früh arbeiten.",
             "why": "The modal muss sits in position 2 and the infinitive arbeiten goes to the very end."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Am Morgen",
+                  "stehe",
+                  "ich um sieben",
+                  "auf."
+                ]
+              },
+              {
+                "cells": [
+                  "Am Abend",
+                  "muss",
+                  "ich noch",
+                  "einkaufen."
+                ]
+              }
+            ]
           }
         },
         {
@@ -5023,7 +6656,7 @@
         {
           "kind": "mnemonic",
           "title": "Keep going",
-          "text": "If you don't know a word, describe it or say 'Wie sagt man …?' and move on. Fluency counts; silence doesn't.",
+          "text": "If you don't know a word, ask 'Wie sagt man … auf Deutsch?' and carry on. Asking is never scored; the sentence you then say is.",
           "examples": [
             {
               "de": "Ich kaufe … äh … Brot, Milch und Obst.",
@@ -5058,7 +6691,46 @@
         "Whole sentences, verb at the end where it belongs.",
         "Ask back — 'Und du?' — it is scored as interaction."
       ],
-      "exam": "Talking about your routine, shopping and plans is the heart of A1 exam speaking — and of small talk with neighbours."
+      "exam": "Talking about your routine, shopping and plans is the heart of A1 exam speaking — and of small talk with neighbours.",
+      "hook": "Chat about your everyday life, your routine, your shopping, what you must and want to do, in full German sentences.",
+      "vocab": [
+        {
+          "de": "aufstehen",
+          "en": "to get up"
+        },
+        {
+          "de": "frühstücken",
+          "en": "to have breakfast"
+        },
+        {
+          "de": "einkaufen",
+          "en": "to do the shopping"
+        },
+        {
+          "de": "arbeiten",
+          "en": "to work"
+        },
+        {
+          "de": "Feierabend",
+          "article": "der",
+          "plural": "-e",
+          "en": "end of the working day"
+        },
+        {
+          "de": "Wochenende",
+          "article": "das",
+          "plural": "-n",
+          "en": "weekend"
+        },
+        {
+          "de": "müssen",
+          "en": "to have to"
+        },
+        {
+          "de": "wollen",
+          "en": "to want to"
+        }
+      ]
     }
   },
   {
@@ -5201,6 +6873,35 @@
             ],
             "answer": "am Freitag",
             "why": "Days take an: am Montag, am Freitag."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Sorry",
+                "de": [
+                  "Liebe Anna, es tut mir leid,"
+                ]
+              },
+              {
+                "label": "What and why",
+                "de": [
+                  "ich kann heute nicht kommen, denn ich bin krank."
+                ]
+              },
+              {
+                "label": "A new time",
+                "de": [
+                  "Hast du am Samstag Zeit?"
+                ]
+              },
+              {
+                "label": "Sign-off",
+                "de": [
+                  "Viele Grüße"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -5273,7 +6974,6 @@
     ],
     "title": "Wohin? — nach, zu, in",
     "help": {
-      "hook": "Say where you're heading, to Berlin, to the cinema, to the doctor, to grandma's, and pick nach, in or zu.",
       "intro": "Wo? asks where something is; Wohin? asks where it is going — and German answers the second question with three different prepositions. nach is for towns and for countries without an article (nach Berlin, nach Spanien) and for home (nach Hause). in is for countries that have an article (in die Schweiz, in die USA) and for places you go into: ins Kino, in die Stadt, in den Park, in die Schule. zu is for people (zu Anna, zu meiner Oma) and for places you go to rather than into — zum Arzt, zur Arbeit, zum Bahnhof. After in the article is accusative (in den Park), after zu it is dative (zum = zu dem, zur = zu der); for now you learn these as chunks. The contrast with Wo? is the heart of it: ich bin zu Hause, but ich gehe nach Hause; ich bin im Kino, but ich gehe ins Kino.",
       "tips": [
         {
@@ -5307,6 +7007,27 @@
             ],
             "answer": "nach",
             "why": "Towns and cities take nach, with no article after it."
+          },
+          "visual": {
+            "kind": "tree",
+            "root": {
+              "q": "A city, a country without an article, or home?",
+              "yes": {
+                "answer": "nach",
+                "de": "nach Berlin, nach Spanien, nach Hause"
+              },
+              "no": {
+                "q": "A person, or a place you don't go inside?",
+                "yes": {
+                  "answer": "zu",
+                  "de": "zum Arzt, zu meiner Oma, zur Bushaltestelle"
+                },
+                "no": {
+                  "answer": "in + Akk",
+                  "de": "ins Kino, in die Schweiz"
+                }
+              }
+            }
           }
         },
         {
@@ -5403,6 +7124,25 @@
             ],
             "answer": "zu Hause",
             "why": "Wo? asks where you are, so the answer is zu Hause; nach Hause is only for going home."
+          },
+          "visual": {
+            "kind": "places",
+            "items": [
+              {
+                "prep": "nach Hause",
+                "mode": "wohin",
+                "spot": "in",
+                "de": "Ich gehe nach Hause.",
+                "en": "going home"
+              },
+              {
+                "prep": "zu Hause",
+                "mode": "wo",
+                "spot": "in",
+                "de": "Ich bin zu Hause.",
+                "en": "at home"
+              }
+            ]
           }
         }
       ],
@@ -5490,7 +7230,7 @@
           "why": "zu Hause is where you are; nach Hause is where you are going."
         }
       ],
-      "exam": null
+      "hook": "Say where you're heading, to Berlin, to the cinema, to the doctor, to grandma's, and pick nach, in or zu."
     }
   },
   {
@@ -5500,7 +7240,6 @@
     ],
     "title": "unser, euer, Ihr",
     "help": {
-      "hook": "Our house, your flat, their dog: with unser, euer and ihr you can talk about things that belong to more than one person.",
       "intro": "The possessives for more than one owner, and the formal one: unser (our), euer (your — several friends), ihr (their) and Ihr with a capital (your — formal, one person or several). They work exactly like mein: they take the ein-endings, decided by the noun that follows — unser Sohn, unsere Tochter, unsere Kinder, and in the accusative unseren Sohn. Two details make them tricky. euer loses its second e as soon as an ending is added: euer Hund, but eure Katze, euren Hund. And ihr / Ihr is the same word in speech: in writing the capital decides between 'their' and 'your (formal)', and in speech the situation does — Herr Braun, ist das Ihr Koffer? The quiz gives you the owner in brackets; choose the word and add the ending for the noun.",
       "tips": [
         {
@@ -5532,6 +7271,26 @@
             ],
             "answer": "unser",
             "why": "The owner is wir, so the possessive is unser. euer belongs to ihr (you all), ihr to sie (they)."
+          },
+          "visual": {
+            "kind": "people",
+            "persons": [
+              "wir",
+              "ihr",
+              "sie (they)",
+              "Sie (formal)"
+            ],
+            "columns": [
+              {
+                "label": "owner word",
+                "forms": [
+                  "unser",
+                  "euer",
+                  "ihr",
+                  "Ihr"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5595,6 +7354,49 @@
             ],
             "answer": "eure",
             "why": "Plural nouns take -e, and euer drops its second e when an ending is added: eure."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "eu"
+                  },
+                  {
+                    "text": "e",
+                    "role": "gone"
+                  },
+                  {
+                    "text": "r"
+                  },
+                  {
+                    "text": "e",
+                    "role": "ending"
+                  }
+                ],
+                "result": "eure Wohnung"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "eu"
+                  },
+                  {
+                    "text": "e",
+                    "role": "gone"
+                  },
+                  {
+                    "text": "r"
+                  },
+                  {
+                    "text": "en",
+                    "role": "ending"
+                  }
+                ],
+                "result": "euren Hund"
+              }
+            ]
           }
         },
         {
@@ -5713,7 +7515,7 @@
           "why": "Formal your is written with a capital I."
         }
       ],
-      "exam": null
+      "hook": "Our house, your flat, their dog: with unser, euer and ihr you can talk about things that belong to more than one person."
     }
   },
   {
@@ -5723,7 +7525,6 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "hook": "Tickets, times, prices and the post office: learn these everyday words with their der, die or das and errands get easier.",
       "intro": "Every word this module's exercises use, on one deck of flashcards: 214 cards, 121 of them nouns. The vocabulary of this module is everyday nouns, the core verbs and the small words that hold a sentence together, from the themes Tagesablauf, Uhrzeit, Kalender, Reisen & Verkehr: tickets, Durchsagen, Einkaufen: Mengen, Maße, Währung, Dienstleistungen: Post, Bank. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
@@ -5755,62 +7556,94 @@
             ],
             "answer": "der Schlüssel",
             "why": "The gender can't be guessed reliably, so say the article with the noun every time until they stick together."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "columns": [
+              "m",
+              "f",
+              "n"
+            ],
+            "rows": [
+              {
+                "label": "",
+                "cells": [
+                  "der Fahrschein",
+                  "die Briefmarke",
+                  "das Paket"
+                ]
+              },
+              {
+                "label": "",
+                "cells": [
+                  "der Termin",
+                  "die Post",
+                  "das Ticket"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "Family words come in pairs",
+          "text": "Learn the man and the woman together: der Vater / die Mutter, der Bruder / die Schwester. The plural for both together is often its own word: die Eltern, die Geschwister.",
+          "examples": [
+            {
+              "de": "der Vater und die Mutter – die Eltern",
+              "en": "father and mother – the parents",
+              "focus": [
+                "die Eltern"
+              ]
+            },
+            {
+              "de": "der Bruder und die Schwester – die Geschwister",
+              "en": "brother and sister – the siblings",
+              "focus": [
+                "die Geschwister"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Brother and sister together are …",
+            "options": [
+              "die Geschwister",
+              "die Eltern",
+              "die Brüder"
+            ],
+            "answer": "die Geschwister",
+            "why": "die Geschwister is the word for brothers and sisters together; die Eltern are the parents."
           }
         },
         {
           "kind": "mnemonic",
-          "title": "Three modes, three kinds of memory",
-          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before a lesson or a trip.",
+          "title": "Clock words: halb, Viertel, nach, vor",
+          "text": "Four little words tell the time. halb looks forward to the next hour; nach is after, vor is before; Viertel is a quarter.",
           "examples": [
             {
-              "de": "der Hund, Plural: -e",
-              "en": "dog"
-            },
-            {
-              "de": "der Apfel, Plural: ¨-",
-              "en": "apple"
-            }
-          ],
-          "check": {
-            "q": "die Fahrkarte means …?",
-            "options": [
-              "ticket",
-              "timetable",
-              "platform"
-            ],
-            "answer": "ticket",
-            "why": "Recalling a meaning on your own builds stronger memory than spotting it. die Fahrkarte is the ticket; der Fahrplan is the timetable."
-          }
-        },
-        {
-          "kind": "warning",
-          "title": "A noun without its article is marked wrong",
-          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
-          "examples": [
-            {
-              "de": "der Ball, Plural: ¨-e",
-              "en": "ball",
+              "de": "Es ist halb acht.",
+              "en": "It's half past seven.",
               "focus": [
-                "der"
+                "halb acht"
               ]
             },
             {
-              "de": "die Frau, Plural: -en",
-              "en": "woman",
+              "de": "Es ist Viertel vor neun.",
+              "en": "It's a quarter to nine.",
               "focus": [
-                "die"
+                "Viertel vor"
               ]
             }
           ],
           "check": {
-            "q": "At the post office you need a stamp. Which is the complete word?",
+            "q": "halb neun is …",
             "options": [
-              "die Briefmarke",
-              "Briefmarke",
-              "das Briefmarke"
+              "8:30",
+              "9:30",
+              "9:15"
             ],
-            "answer": "die Briefmarke",
-            "why": "A noun is only complete with its article. Briefmarke is feminine: die Briefmarke."
+            "answer": "8:30",
+            "why": "halb looks forward: half-way to nine is 8:30."
           }
         }
       ],
@@ -5819,7 +7652,7 @@
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
         "Verbs and adjectives have no article: type them as they stand, like \"mich\"."
       ],
-      "exam": null
+      "hook": "Tickets, times, prices and the post office: learn these everyday words with their der, die or das and errands get easier."
     }
   },
   {
@@ -5834,7 +7667,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the kitchen: the last part decides",
           "text": "Many kitchen words are two words glued together, and the last part decides the article. Kühl + Schrank: der Schrank, so der Kühlschrank. Spül + Becken: das Becken, so das Spülbecken. Cover the front part and look at the end.",
           "examples": [
             {
@@ -5861,6 +7694,37 @@
             ],
             "answer": "Die",
             "why": "The last part is die Maschine, so the whole word is die Waschmaschine."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "kühl"
+                  },
+                  {
+                    "text": "der Schrank",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Kühlschrank",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "spülen"
+                  },
+                  {
+                    "text": "die Maschine",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Spülmaschine",
+                "gender": "f"
+              }
+            ]
           }
         },
         {
@@ -6489,7 +8353,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the corner shop: the last part decides",
           "text": "Shop words are often compounds, and the last part decides the article. Einkauf + Wagen: der Wagen, so der Einkaufswagen. Kühl + Truhe: die Truhe, so die Kühltruhe. Look at the end of the word.",
           "examples": [
             {
@@ -6516,6 +8380,41 @@
             ],
             "answer": "Der",
             "why": "The last part is der Strauß, so the whole word is der Blumenstrauß."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "der Einkauf"
+                  },
+                  {
+                    "text": "s",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "der Wagen",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Einkaufswagen",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "die Milch"
+                  },
+                  {
+                    "text": "die Flasche",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Milchflasche",
+                "gender": "f"
+              }
+            ]
           }
         },
         {

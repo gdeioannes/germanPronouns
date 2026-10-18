@@ -10,6 +10,7 @@ const s = (sentence: string, answer: string, extra: Partial<QuizSentence> = {}):
 	categoryLabel: 'Verb',
 	sentence,
 	acceptedAnswers: [answer],
+	english: 'An English line.',
 	...extra
 });
 
@@ -53,6 +54,16 @@ describe('the no-help step', () => {
 		);
 		expect(goldSentence(s('Ein Satz (mit Klammer) ____ hier.', 'steht'))).toBe(
 			'Ein Satz (mit Klammer) ____ hier.'
+		);
+	});
+
+	it('drops a cue with a bracket inside it', () => {
+		expect(goldSentence(s('Das ist ____ . (der Tisch (neu))', 'ein neuer Tisch'))).toBe('Das ist ____ .');
+	});
+
+	it('keeps the cue when there is no English line: it is the only question there is', () => {
+		expect(goldSentence(s('Ich sehe zwei ____ . (der Hund)', 'Hunde', { english: undefined }))).toBe(
+			'Ich sehe zwei ____ . (der Hund)'
 		);
 	});
 

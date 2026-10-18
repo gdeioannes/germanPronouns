@@ -1,0 +1,1242 @@
+{
+  "quest_b1_2_technik": {
+    "The verbs — mostly separable": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "lade",
+            "die App",
+            "herunter."
+          ]
+        },
+        {
+          "cells": [
+            "Schalt",
+            "",
+            "den Computer",
+            "aus!"
+          ]
+        },
+        {
+          "cells": [
+            "Du",
+            "musst",
+            "das Handy",
+            "neu starten."
+          ]
+        }
+      ]
+    },
+    "herunter / hoch = down / up": {
+      "kind": "pairs",
+      "left": "verb",
+      "right": "direction",
+      "rows": [
+        {
+          "a": "herunterladen",
+          "b": "from the internet to you ↓"
+        },
+        {
+          "a": "hochladen",
+          "b": "from you to the internet ↑"
+        },
+        {
+          "a": "einschalten · ausschalten",
+          "b": "switch on · off"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_praet_reg": {
+    "Stem + -te + ending": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "wohnen",
+          "forms": [
+            "wohnte",
+            "wohntest",
+            "wohnte",
+            "wohnten",
+            "wohntet",
+            "wohnten"
+          ]
+        },
+        {
+          "label": "arbeiten",
+          "forms": [
+            "arbeitete",
+            "arbeitetest",
+            "arbeitete",
+            "arbeiteten",
+            "arbeitetet",
+            "arbeiteten"
+          ]
+        }
+      ],
+      "hot": [
+        0,
+        2
+      ]
+    },
+    "When to write it, when to say it": {
+      "kind": "pairs",
+      "left": "written story (Präteritum)",
+      "right": "spoken (Perfekt)",
+      "rows": [
+        {
+          "a": "Sie wohnte zehn Jahre in Wien.",
+          "b": "Sie hat zehn Jahre in Wien gewohnt."
+        }
+      ]
+    }
+  },
+  "quest_b1_2_praet_unreg": {
+    "The vowel families": {
+      "kind": "pairs",
+      "left": "family",
+      "right": "infinitive – Präteritum – Partizip II",
+      "rows": [
+        {
+          "a": "ei – ie – ie",
+          "b": "bleiben – blieb – geblieben"
+        },
+        {
+          "a": "ei – i – i",
+          "b": "reiten – ritt – geritten"
+        },
+        {
+          "a": "i – a – u",
+          "b": "trinken – trank – getrunken"
+        },
+        {
+          "a": "e – a – o",
+          "b": "sprechen – sprach – gesprochen"
+        },
+        {
+          "a": "a – u – a",
+          "b": "fahren – fuhr – gefahren"
+        },
+        {
+          "a": "e – a – e",
+          "b": "geben – gab – gegeben"
+        }
+      ]
+    },
+    "Vowel change, no -te, no ending in ich/er": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "gehen",
+          "forms": [
+            "ging",
+            "gingst",
+            "ging",
+            "gingen",
+            "gingt",
+            "gingen"
+          ]
+        }
+      ],
+      "hot": [
+        0,
+        2
+      ]
+    }
+  },
+  "quest_b1_2_praet_misch": {
+    "New vowel + -te": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "brach"
+            },
+            {
+              "text": "te",
+              "role": "ending"
+            }
+          ],
+          "result": "brachte",
+          "en": "bringen"
+        },
+        {
+          "parts": [
+            {
+              "text": "dach"
+            },
+            {
+              "text": "te",
+              "role": "ending"
+            }
+          ],
+          "result": "dachte",
+          "en": "denken"
+        },
+        {
+          "parts": [
+            {
+              "text": "kann"
+            },
+            {
+              "text": "te",
+              "role": "ending"
+            }
+          ],
+          "result": "kannte",
+          "en": "kennen"
+        },
+        {
+          "parts": [
+            {
+              "text": "wuss"
+            },
+            {
+              "text": "te",
+              "role": "ending"
+            }
+          ],
+          "result": "wusste",
+          "en": "wissen"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_plusquamperfekt": {
+    "hatte / war + Partizip II": {
+      "kind": "timeline",
+      "caption": "Two steps back: the train had left before I arrived.",
+      "marks": [
+        {
+          "at": -2.4,
+          "label": "earlier past",
+          "de": "Der Zug war abgefahren."
+        },
+        {
+          "at": -0.9,
+          "label": "past",
+          "de": "Ich kam an."
+        }
+      ]
+    },
+    "nachdem + Plusquamperfekt, main clause + Präteritum": {
+      "kind": "bracket",
+      "columns": [
+        "nachdem-clause",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        0,
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Nachdem wir gegessen hatten,",
+            "gingen",
+            "wir spazieren."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_temporalsaetze": {
+    "nachdem = earlier (Plusquamperfekt); bevor / bis = later; während = same time": {
+      "kind": "timeline",
+      "axis": {
+        "start": "earlier",
+        "end": "later",
+        "now": "the main event"
+      },
+      "marks": [
+        {
+          "at": -2,
+          "label": "the clause happens first",
+          "de": "nachdem …"
+        },
+        {
+          "at": -0.9,
+          "to": 0.9,
+          "label": "at the same time",
+          "de": "während …"
+        },
+        {
+          "at": 2,
+          "label": "the clause happens after",
+          "de": "bevor … / bis …"
+        }
+      ]
+    },
+    "Each conjunction has a preposition twin": {
+      "kind": "pairs",
+      "left": "conjunction + clause",
+      "right": "preposition + noun",
+      "rows": [
+        {
+          "a": "nachdem wir gegessen hatten",
+          "b": "nach dem Essen"
+        },
+        {
+          "a": "bevor die Sitzung beginnt",
+          "b": "vor der Sitzung"
+        },
+        {
+          "a": "während ich arbeite",
+          "b": "während der Arbeit"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_bigtext_ritter": {
+    "The narrative skeleton": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Opening",
+          "de": [
+            "Es war einmal …"
+          ]
+        },
+        {
+          "label": "The trigger",
+          "de": [
+            "Eines Tages …"
+          ]
+        },
+        {
+          "label": "The events",
+          "de": [
+            "Da …",
+            "Plötzlich …",
+            "Dann …"
+          ]
+        },
+        {
+          "label": "The end",
+          "de": [
+            "Am Ende …",
+            "… und wenn sie nicht gestorben sind, …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_sprechen_geschichte": {
+    "Signposts of the story": {
+      "kind": "timeline",
+      "axis": {
+        "start": "start",
+        "end": "end",
+        "now": null
+      },
+      "marks": [
+        {
+          "at": -2.6,
+          "label": "set the scene",
+          "de": "Letzte Woche …"
+        },
+        {
+          "at": -1,
+          "label": "the turn",
+          "de": "Plötzlich …"
+        },
+        {
+          "at": 0.6,
+          "label": "what followed",
+          "de": "Danach …"
+        },
+        {
+          "at": 2.2,
+          "label": "the point",
+          "de": "Am Ende …"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_passiv": {
+    "Active → passive: the object becomes the subject": {
+      "kind": "pairs",
+      "left": "active",
+      "right": "passive",
+      "rows": [
+        {
+          "a": "Der Mechaniker repariert das Auto.",
+          "b": "Das Auto wird (vom Mechaniker) repariert."
+        },
+        {
+          "a": "Man spricht hier Deutsch.",
+          "b": "Hier wird Deutsch gesprochen."
+        }
+      ]
+    },
+    "werden + Partizip II at the end": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Die Briefe",
+            "werden",
+            "jeden Morgen",
+            "verteilt."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_hoeren_durchsage": {
+    "nicht … sondern, aber = the correction": {
+      "kind": "pairs",
+      "left": "first said",
+      "right": "the real answer",
+      "rows": [
+        {
+          "a": "nicht von Gleis 5,",
+          "b": "sondern von Gleis 8"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_passiv_praet": {
+    "wurde + Partizip II": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -2.5,
+          "label": "1810",
+          "de": "Die Universität wurde gegründet."
+        },
+        {
+          "at": -0.8,
+          "label": "1990",
+          "de": "Das Gebäude wurde renoviert."
+        }
+      ]
+    },
+    "Perfekt passive: ist … worden": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Das Haus",
+            "wurde",
+            "1900",
+            "gebaut."
+          ]
+        },
+        {
+          "cells": [
+            "Das Haus",
+            "ist",
+            "1900",
+            "gebaut worden."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_passiv_modal_intro": {
+    "Modal + Partizip II + werden": {
+      "kind": "bracket",
+      "caption": "The modal takes position 2; the participle and werden close the sentence.",
+      "rows": [
+        {
+          "cells": [
+            "Hier",
+            "darf",
+            "nicht",
+            "geparkt werden."
+          ]
+        },
+        {
+          "cells": [
+            "Das Formular",
+            "muss",
+            "bis Freitag",
+            "ausgefüllt werden."
+          ]
+        }
+      ]
+    },
+    "Perfekt passive: ist … worden": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Der Brief",
+            "ist",
+            "schon",
+            "geschickt worden."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_sprechen_kurzcheck": {
+    "Describe a process in the passive": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "First",
+          "de": [
+            "Zuerst wird das Wasser gekocht."
+          ]
+        },
+        {
+          "label": "Then",
+          "de": [
+            "Dann werden die Nudeln hineingegeben."
+          ]
+        },
+        {
+          "label": "Finally",
+          "de": [
+            "Zum Schluss wird alles serviert."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_n_deklination": {
+    "-(e)n in Akk, Dat, Gen and all plural forms": {
+      "kind": "caseGrid",
+      "columns": [
+        "sg",
+        "pl"
+      ],
+      "caption": "Only the nominative singular has no -n.",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "der Kollege",
+            "die Kollegen"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "den Kollegen",
+            "die Kollegen"
+          ]
+        },
+        {
+          "label": "Dat",
+          "cells": [
+            "dem Kollegen",
+            "den Kollegen"
+          ]
+        },
+        {
+          "label": "Gen",
+          "cells": [
+            "des Kollegen",
+            "der Kollegen"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    }
+  },
+  "quest_b1_2_lesen_technik": {
+    "Problem → solution → lesson": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Problem",
+          "de": [
+            "Plötzlich war der Bildschirm schwarz."
+          ]
+        },
+        {
+          "label": "Solution",
+          "de": [
+            "Zum Glück hatte er eine Sicherung gemacht."
+          ]
+        },
+        {
+          "label": "Lesson",
+          "de": [
+            "Seitdem speichert er jede Stunde."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_infinitiv": {
+    "um … zu = purpose (same subject)": {
+      "kind": "pairs",
+      "left": "construction",
+      "right": "example",
+      "rows": [
+        {
+          "a": "um … zu (in order to)",
+          "b": "Ich lerne Deutsch, um hier zu arbeiten."
+        },
+        {
+          "a": "ohne … zu (without …-ing)",
+          "b": "Er ging, ohne etwas zu sagen."
+        },
+        {
+          "a": "statt … zu (instead of …-ing)",
+          "b": "Sie spielt, statt zu lernen."
+        }
+      ]
+    },
+    "Same subject? Infinitive. Different? dass.": {
+      "kind": "tree",
+      "root": {
+        "q": "Do both parts have the same subject?",
+        "yes": {
+          "answer": "zu-infinitive",
+          "de": "Ich hoffe, pünktlich zu sein."
+        },
+        "no": {
+          "answer": "dass-clause",
+          "de": "Ich hoffe, dass du pünktlich bist."
+        }
+      }
+    }
+  },
+  "quest_b1_2_damit_umzu": {
+    "Count the subjects": {
+      "kind": "tree",
+      "root": {
+        "q": "Is the person doing the second action the same as the subject?",
+        "yes": {
+          "answer": "um … zu",
+          "de": "Ich spare, um ein Auto zu kaufen."
+        },
+        "no": {
+          "answer": "damit",
+          "de": "Ich spare, damit meine Kinder studieren können."
+        }
+      }
+    }
+  },
+  "quest_b1_2_indem_sodass": {
+    "indem = by …-ing (means)": {
+      "kind": "pairs",
+      "left": "means: indem",
+      "right": "result: sodass",
+      "rows": [
+        {
+          "a": "Er lernt, indem er Podcasts hört.",
+          "b": "Es regnete stark, sodass das Spiel ausfiel."
+        }
+      ]
+    }
+  },
+  "quest_b1_2_diktat_praeteritum": {
+    "Vowel first": {
+      "kind": "pairs",
+      "left": "you hear",
+      "right": "infinitive",
+      "rows": [
+        {
+          "a": "ging",
+          "b": "gehen"
+        },
+        {
+          "a": "saß",
+          "b": "sitzen"
+        },
+        {
+          "a": "wartete",
+          "b": "warten (regular)"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_relativ_dat": {
+    "dessen / deren = whose (no ending, no article)": {
+      "kind": "caseGrid",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "der",
+            "die",
+            "das",
+            "die"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "den",
+            "die",
+            "das",
+            "die"
+          ]
+        },
+        {
+          "label": "Dat",
+          "cells": [
+            "dem",
+            "der",
+            "dem",
+            "denen"
+          ]
+        },
+        {
+          "label": "Gen",
+          "cells": [
+            "dessen",
+            "deren",
+            "dessen",
+            "deren"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "quest_b1_2_konnektoren_zweiteilig": {
+    "The six pairs": {
+      "kind": "pairs",
+      "left": "pair",
+      "right": "example",
+      "rows": [
+        {
+          "a": "sowohl … als auch",
+          "b": "sowohl Tee als auch Kaffee",
+          "note": "both … and"
+        },
+        {
+          "a": "entweder … oder",
+          "b": "entweder heute oder morgen",
+          "note": "either … or"
+        },
+        {
+          "a": "weder … noch",
+          "b": "weder Zeit noch Geld",
+          "note": "neither … nor"
+        },
+        {
+          "a": "nicht nur … sondern auch",
+          "b": "nicht nur schön, sondern auch billig",
+          "note": "not only … but also"
+        },
+        {
+          "a": "zwar … aber",
+          "b": "zwar teuer, aber gut",
+          "note": "admittedly … but"
+        },
+        {
+          "a": "je … desto",
+          "b": "je mehr, desto besser",
+          "note": "the more … the more"
+        }
+      ]
+    },
+    "je … desto: two clauses, two word orders": {
+      "kind": "bracket",
+      "columns": [
+        "je-clause (verb last)",
+        "desto + comparative",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        0,
+        2
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Je mehr ich übe,",
+            "desto besser",
+            "spreche",
+            "ich."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_irreale_wuensche": {
+    "hätte / wäre + Partizip II": {
+      "kind": "pairs",
+      "left": "what happened",
+      "right": "the wish",
+      "rows": [
+        {
+          "a": "Ich habe den Zug verpasst.",
+          "b": "Hätte ich doch den Zug nicht verpasst!"
+        },
+        {
+          "a": "Ich bin zu spät gekommen.",
+          "b": "Wäre ich nur früher gekommen!"
+        }
+      ]
+    },
+    "Present regret vs past regret": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -1.6,
+          "label": "about the past",
+          "de": "Hätte ich doch gelernt!"
+        },
+        {
+          "at": 0.3,
+          "label": "about now",
+          "de": "Hätte ich doch Zeit!"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_trotz_wegen": {
+    "Three ways to say one thing": {
+      "kind": "pairs",
+      "left": "clause",
+      "right": "+ genitive",
+      "rows": [
+        {
+          "a": "weil es regnet",
+          "b": "wegen des Regens"
+        },
+        {
+          "a": "obwohl es viel kostet",
+          "b": "trotz der Kosten"
+        },
+        {
+          "a": "während der Film läuft",
+          "b": "während des Films"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_partizip_adj_intro": {
+    "kochend vs gekocht — the pair that shows the rule": {
+      "kind": "pictures",
+      "items": [
+        {
+          "image": "lesson_kochendes_wasser",
+          "de": "das kochende Wasser",
+          "en": "the boiling water (happening now)"
+        },
+        {
+          "image": "lesson_gekochtes_ei",
+          "de": "das gekochte Ei",
+          "en": "the boiled egg (done)"
+        }
+      ]
+    },
+    "Partizip I = infinitive + d + ending (active, now)": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "lachen"
+            },
+            {
+              "text": "d",
+              "role": "joint"
+            },
+            {
+              "text": "e",
+              "role": "ending"
+            }
+          ],
+          "result": "das lachende Kind"
+        },
+        {
+          "parts": [
+            {
+              "text": "ge",
+              "role": "prefix"
+            },
+            {
+              "text": "koch"
+            },
+            {
+              "text": "t",
+              "role": "joint"
+            },
+            {
+              "text": "e",
+              "role": "ending"
+            }
+          ],
+          "result": "das gekochte Ei"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_sprechen_begruenden": {
+    "Ways to say why": {
+      "kind": "moves",
+      "caption": "Rotate the frames so your reasons don't all start with weil.",
+      "moves": [
+        {
+          "label": "Reason",
+          "de": [
+            "…, weil …",
+            "…, denn …",
+            "Das liegt daran, dass …"
+          ]
+        },
+        {
+          "label": "Result",
+          "de": [
+            "…, deshalb …",
+            "…, sodass …"
+          ]
+        },
+        {
+          "label": "Purpose",
+          "de": [
+            "…, um … zu …",
+            "…, damit …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_modalpartikeln_intro": {
+    "Middle of the sentence, never stressed": {
+      "kind": "pairs",
+      "left": "plain",
+      "right": "with the particle",
+      "rows": [
+        {
+          "a": "Wo wohnst du?",
+          "b": "Wo wohnst du denn?",
+          "note": "interested, friendly"
+        },
+        {
+          "a": "Komm vorbei!",
+          "b": "Komm doch mal vorbei!",
+          "note": "a warm invitation"
+        },
+        {
+          "a": "Das ist teuer.",
+          "b": "Das ist ja teuer!",
+          "note": "surprise"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_hoeren_podcast": {
+    "Heute geht es um … = the topic": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Topic",
+          "de": [
+            "Heute geht es um …"
+          ]
+        },
+        {
+          "label": "Guest",
+          "de": [
+            "Bei mir ist …"
+          ]
+        },
+        {
+          "label": "Tip",
+          "de": [
+            "Unser Tipp: …"
+          ]
+        },
+        {
+          "label": "Teaser",
+          "de": [
+            "Nächste Woche …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_wortbildung": {
+    "-heit and -keit: always die": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "frei"
+            },
+            {
+              "text": "-heit",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Freiheit",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "möglich"
+            },
+            {
+              "text": "-keit",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Möglichkeit",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Freund"
+            },
+            {
+              "text": "-schaft",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Freundschaft",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "lös"
+            },
+            {
+              "text": "-ung",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Lösung",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_lesen_anekdote": {
+    "zuerst …, doch als … = a change": {
+      "kind": "timeline",
+      "axis": {
+        "start": "start",
+        "end": "end",
+        "now": null
+      },
+      "marks": [
+        {
+          "at": -2,
+          "label": "first",
+          "de": "Zuerst wollte er …"
+        },
+        {
+          "at": 0.5,
+          "label": "the turn",
+          "de": "Doch als …"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_sprechen_dialog": {
+    "Tell, explain, describe, weigh": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Tell",
+          "de": [
+            "Letztes Jahr ist mir etwas passiert …"
+          ]
+        },
+        {
+          "label": "Explain",
+          "de": [
+            "Das funktioniert so: zuerst wird …"
+          ]
+        },
+        {
+          "label": "Weigh",
+          "de": [
+            "Einerseits …, andererseits …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_2_schreiben_geschichte": {
+    "The Plusquamperfekt marks what came first": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -2.4,
+          "label": "before the story",
+          "de": "Ich hatte den Schlüssel vergessen."
+        },
+        {
+          "at": -1,
+          "label": "the story",
+          "de": "Ich stand vor der Tür."
+        }
+      ]
+    }
+  },
+  "quest_b1_2_zustandspassiv": {
+    "sein + Partizip II = the state after the action": {
+      "kind": "timeline",
+      "axis": {
+        "start": "action",
+        "end": "result",
+        "now": null
+      },
+      "marks": [
+        {
+          "at": -1.5,
+          "label": "the action",
+          "de": "Die Tür wird geschlossen."
+        },
+        {
+          "at": 0.8,
+          "to": 2.8,
+          "label": "the result, a state",
+          "de": "Die Tür ist geschlossen."
+        }
+      ]
+    },
+    "werden + Partizip II = the action in progress": {
+      "kind": "pictures",
+      "items": [
+        {
+          "image": "lesson_tuer_wird_geschlossen",
+          "de": "Die Tür wird geschlossen.",
+          "en": "is being closed (action)"
+        },
+        {
+          "image": "lesson_tuer_ist_geschlossen",
+          "de": "Die Tür ist geschlossen.",
+          "en": "is closed (state)"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_wortschatz": {
+    "Nouns come with their plural": {
+      "kind": "pairs",
+      "left": "singular",
+      "right": "plural",
+      "rows": [
+        {
+          "a": "die Umwelt",
+          "b": "— (no plural)"
+        },
+        {
+          "a": "das Gerät",
+          "b": "die Geräte"
+        },
+        {
+          "a": "der Bildschirm",
+          "b": "die Bildschirme"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_suchbild_garage": {
+    "Compounds in the garage: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "die Schraube"
+            },
+            {
+              "text": "n",
+              "role": "joint"
+            },
+            {
+              "text": "der Zieher",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Schraubenzieher",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "das Werk"
+            },
+            {
+              "text": "die Bank",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Werkbank",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_b1_2_suchbild_park": {
+    "Compounds in the park: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "der Park"
+            },
+            {
+              "text": "die Bank",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Parkbank",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "spielen"
+            },
+            {
+              "text": "der Platz",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Spielplatz",
+          "gender": "m"
+        }
+      ]
+    }
+  }
+}

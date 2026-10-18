@@ -2245,12 +2245,17 @@
 		"id": "quest_c2_2_bigtext_lesen",
 		"blanks": [
 			{
+				"index": 0,
+				"cue": "sein"
+			},
+			{
 				"index": 1,
 				"options": [
 					"lasen",
 					"lese",
 					"liesen"
-				]
+				],
+				"cue": "lesen"
 			},
 			{
 				"index": 2,
@@ -2258,7 +2263,16 @@
 					"ging",
 					"gehen",
 					"gingen"
-				]
+				],
+				"cue": "verloren gehen"
+			},
+			{
+				"index": 3,
+				"cue": "die Schuld tragen"
+			},
+			{
+				"index": 4,
+				"cue": "withstand"
 			},
 			{
 				"index": 5,
@@ -2266,7 +2280,8 @@
 					"werden",
 					"worden",
 					"würden"
-				]
+				],
+				"cue": "werden"
 			},
 			{
 				"index": 6,
@@ -2274,7 +2289,12 @@
 					"belegt",
 					"widerlegen",
 					"beliegen"
-				]
+				],
+				"cue": "substantiate"
+			},
+			{
+				"index": 7,
+				"cue": "dismiss"
 			},
 			{
 				"index": 8,
@@ -2282,7 +2302,8 @@
 					"liegen",
 					"legt",
 					"stellen"
-				]
+				],
+				"cue": "nahelegen"
 			},
 			{
 				"index": 9,
@@ -2290,7 +2311,12 @@
 					"folgert",
 					"folgen",
 					"schließt"
-				]
+				],
+				"cue": "follow"
+			},
+			{
+				"index": 10,
+				"cue": "is probably"
 			}
 		]
 	},

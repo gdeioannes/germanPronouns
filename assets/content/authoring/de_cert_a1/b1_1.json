@@ -6,7 +6,6 @@
     ],
     "title": "Die Welt der Arbeit",
     "help": {
-      "hook": "Job ads, contracts, colleagues and Feierabend: the words you need to talk about work, and to land your next job.",
       "intro": "Arbeit und Beruf is the theme that reaches into every corner of adult life: a job ad you read, a colleague's voicemail, a formal e-mail to an employer, a discussion about work–life balance over lunch. The vocabulary sits in four groups. Finding a job: die Stelle (post), die Bewerbung (application), der Lebenslauf (CV), das Vorstellungsgespräch (interview), die Firma / das Unternehmen. The contract: der Vertrag, das Gehalt (salary), die Teilzeit / Vollzeit, die Überstunden (overtime), der Urlaub, die Kündigung (notice, from either side). The people: der Chef / die Chefin, der Kollege / die Kollegin, der Angestellte, der Mitarbeiter. The day: die Besprechung (meeting), der Termin, der Feierabend (end of the working day), die Rente (retirement). And the two states: berufstätig, arbeitslos. Several are false friends, marked in the tips.",
       "tips": [
         {
@@ -40,6 +39,36 @@
             ],
             "answer": "beworben",
             "why": "sich um eine Stelle bewerben = to apply for a job; the Perfekt is hat sich … beworben. einstellen is what the company does (to hire)."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "die Stellenanzeige",
+                "de": [
+                  "Wir suchen ab sofort …"
+                ]
+              },
+              {
+                "label": "die Bewerbung",
+                "de": [
+                  "sich bewerben um eine Stelle",
+                  "der Lebenslauf"
+                ]
+              },
+              {
+                "label": "das Vorstellungsgespräch",
+                "de": [
+                  "Warum möchten Sie bei uns arbeiten?"
+                ]
+              },
+              {
+                "label": "der Arbeitsvertrag",
+                "de": [
+                  "einen Vertrag unterschreiben"
+                ]
+              }
+            ]
           }
         },
         {
@@ -107,6 +136,57 @@
             ],
             "answer": "She is working from home.",
             "why": "das Homeoffice is the German word for working from home, not a company's main office."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "die Arbeit"
+                  },
+                  {
+                    "text": "der Geber",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Arbeitgeber",
+                "gender": "m",
+                "en": "employer"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "die Arbeit"
+                  },
+                  {
+                    "text": "der Nehmer",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Arbeitnehmer",
+                "gender": "m",
+                "en": "employee"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "die Arbeit"
+                  },
+                  {
+                    "text": "s",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "der Platz",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Arbeitsplatz",
+                "gender": "m",
+                "en": "workplace"
+              }
+            ]
           }
         },
         {
@@ -182,7 +262,6 @@
           "why": "kündigen takes the dative of the person: jemandem kündigen. Ich habe gekündigt = I quit."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "Stelle",
@@ -270,7 +349,8 @@
           "de": "sich bewerben um",
           "en": "to apply for"
         }
-      ]
+      ],
+      "hook": "Job ads, contracts, colleagues and Feierabend: the words you need to talk about work, and to land your next job."
     }
   },
   {
@@ -280,7 +360,6 @@
     ],
     "title": "Adjektivendungen: bestimmter Artikel",
     "help": {
-      "hook": "After der, die or das the adjective needs only two endings, -e or -en; learn which slot takes which and describe anything correctly.",
       "intro": "This is the first table of the full adjective-ending system, and the easiest: after der, die, das (and dieser, jeder, welcher) the article already shows gender, number and case, so the adjective only needs a weak ending, and there are just two: -e or -en. -e in the five 'nominative-looking' slots — der große Mann, die junge Frau, das neue Auto (nominative), and die junge Frau, das neue Auto again (accusative feminine/neuter). -en everywhere else: den großen Mann, dem kleinen Kind, der netten Frau, des alten Hauses, and every plural (die roten Schuhe → den roten Schuhen). Draw the table once: the -e slots form a small block in the top left, the rest is -en. Any e-mail or description you write needs these endings right in simple phrases; this quiz drills them across all four cases.",
       "tips": [
         {
@@ -315,6 +394,70 @@
             ],
             "answer": "runden",
             "why": "den already shows masculine accusative, so the adjective takes the weak -en."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "caption": "After der / die / das: -e in the five glowing cells, -en in all the others.",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "der alte",
+                  "die alte",
+                  "das alte",
+                  "die alten"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "den alten",
+                  "die alte",
+                  "das alte",
+                  "die alten"
+                ]
+              },
+              {
+                "label": "Dat",
+                "cells": [
+                  "dem alten",
+                  "der alten",
+                  "dem alten",
+                  "den alten"
+                ]
+              },
+              {
+                "label": "Gen",
+                "cells": [
+                  "des alten",
+                  "der alten",
+                  "des alten",
+                  "der alten"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ]
           }
         },
         {
@@ -546,7 +689,11 @@
           "why": "Dative: -en."
         }
       ],
-      "exam": null
+      "hook": "After der, die or das the adjective needs only two endings, -e or -en; learn which slot takes which and describe anything correctly.",
+      "recall": {
+        "known": "From \"Adjektive vor dem Nomen: erste Begegnung\": after der the adjective takes -e or -en.",
+        "today": "The full table, all four cases: -e in five cells, -en in all the others."
+      }
     }
   },
   {
@@ -590,6 +737,38 @@
             ],
             "answer": "Wäre",
             "why": "The opener is Wäre es möglich, …? (would it be possible). Only sein fits with möglich."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "direct",
+            "high": "very polite",
+            "points": [
+              {
+                "at": 98,
+                "de": "Würden Sie mir bitte helfen?",
+                "en": "Would you help me, please?"
+              },
+              {
+                "at": 90,
+                "de": "Könnten Sie mir bitte helfen?",
+                "en": "Could you help me, please?"
+              },
+              {
+                "at": 80,
+                "de": "Hätten Sie kurz Zeit?",
+                "en": "Would you have a moment?"
+              },
+              {
+                "at": 45,
+                "de": "Können Sie mir helfen?",
+                "en": "Can you help me?"
+              },
+              {
+                "at": 15,
+                "de": "Helfen Sie mir!",
+                "en": "Help me!"
+              }
+            ]
           }
         },
         {
@@ -672,7 +851,6 @@
     ],
     "title": "Adjektivendungen: unbestimmter Artikel",
     "help": {
-      "hook": "After ein, the adjective has to do the article's job — learn the three spots where it does, and every other ending falls into place.",
       "intro": "After ein, kein and the possessives (mein, dein, sein, ihr, unser, euer, Ihr) the rule changes in exactly three places. ein, kein, mein show no case in the masculine nominative and the neuter nominative/accusative — ein Mann, ein Haus — so the adjective must show it instead: ein großer Mann, ein neues Haus (the -er and -es are the der/das endings moved onto the adjective). Everywhere else the article does show the case and the adjective is -e or -en, just as after der: eine junge Frau, einen kleinen Hund, meinem alten Freund, keine besseren Pläne. The plural has no ein, so it appears only with kein- and possessives — keine guten Ideen, meine kleinen Schwestern — always -en. Learn this table as 'the der-table with three repairs'.",
       "tips": [
         {
@@ -706,6 +884,62 @@
             ],
             "answer": "altes",
             "why": "Auto is neuter and here accusative. ein shows nothing, so the adjective takes das's -es: ein altes Auto."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "caption": "ein shows no gender in three cells, so the adjective does it there: -er, -es, -es.",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "ein alter",
+                  "eine alte",
+                  "ein altes",
+                  "keine alten"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "einen alten",
+                  "eine alte",
+                  "ein altes",
+                  "keine alten"
+                ]
+              },
+              {
+                "label": "Dat",
+                "cells": [
+                  "einem alten",
+                  "einer alten",
+                  "einem alten",
+                  "keinen alten"
+                ]
+              },
+              {
+                "label": "Gen",
+                "cells": [
+                  "eines alten",
+                  "einer alten",
+                  "eines alten",
+                  "keiner alten"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ]
+            ]
           }
         },
         {
@@ -937,7 +1171,11 @@
           "why": "Dative: -en, einem already shows the case."
         }
       ],
-      "exam": null
+      "hook": "After ein, the adjective has to do the article's job — learn the three spots where it does, and every other ending falls into place.",
+      "recall": {
+        "known": "From \"Adjektivendungen: bestimmter Artikel\": -e in five cells, -en everywhere else.",
+        "today": "After ein the adjective repairs three cells: -er, -es, -es."
+      }
     }
   },
   {
@@ -948,7 +1186,6 @@
     ],
     "title": "Großer Text: Meine neue Wohnung",
     "help": {
-      "hook": "Describe a flat in German, from the sofa and the big window to the old tree outside, with every adjective ending right and no guessing.",
       "intro": "A flat described in a text of about 170 words with twelve adjectives to complete — spread across all three tables you have just learnt. After der-words: Das große Wohnzimmer, auf dem bequemen Sofa, der junge Mann. After ein-words: in einer neuen Wohnung, ein großes Fenster, einen kleinen Park, ein schönes Bild, einen neuen Herd, einen modernen Kühlschrank, ein alter Baum. With no article at all (a preview of the Nullartikel): nette Nachbarn, mit heißem Tee. Each gap gives you only the adjective. Work through it with the three questions in order: which article (der-word, ein-word, none)? which gender and number? which case? — then read the ending off the table. This is the habit that makes endings reliable: no guessing, three questions.",
       "tips": [
         {
@@ -983,6 +1220,35 @@
             ],
             "answer": "einem großen",
             "why": "ein-word, neuter, dative after in (where?) → einem, and in the dative the adjective takes -en."
+          },
+          "visual": {
+            "kind": "moves",
+            "caption": "Ask the three questions in this order for every gap.",
+            "moves": [
+              {
+                "label": "Which case?",
+                "de": [
+                  "subject → Nom",
+                  "object → Akk",
+                  "after mit, in, auf … → check the preposition"
+                ]
+              },
+              {
+                "label": "Which gender and number?",
+                "de": [
+                  "der Balkon (m)",
+                  "die Küche (f)",
+                  "das Fenster (n)"
+                ]
+              },
+              {
+                "label": "Does the article already show it?",
+                "de": [
+                  "yes: mit dem großen Fenster",
+                  "no: ein großer Balkon"
+                ]
+              }
+            ]
           }
         },
         {
@@ -1056,7 +1322,7 @@
         "Article type → gender/number → case → ending. Always in that order.",
         "Dative after an article = -en; dative with no article = -em / -er / -en."
       ],
-      "exam": null
+      "hook": "Describe a flat in German, from the sofa and the big window to the old tree outside, with every adjective ending right and no guessing."
     }
   },
   {
@@ -1066,7 +1332,6 @@
     ],
     "title": "Adjektivendungen ohne Artikel",
     "help": {
-      "hook": "Menus, flat ads and headlines drop the article — so the adjective has to carry the ending all by itself.",
       "intro": "The third table completes the system, and it is the one with the clearest logic: when there is no article at all, the adjective takes over the article's job entirely and wears the der/die/das ending itself. Nominative: starker Kaffee (der → -er), frische Milch (die → -e), frisches Brot (das → -es), nette Leute (die → -e). Accusative: starken Kaffee (den → -en), the rest unchanged. Dative: starkem Kaffee (dem → -em), frischer Milch (der → -er), kaltem Wasser (dem → -em), netten Leuten (den → -en, and the noun takes -n). Genitive m/n is the one exception — guten Weines, not gutes, because the noun's -s already marks the case. The Nullartikel appears with mass nouns (Kaffee, Milch, Wetter), plurals (Leute, Kinder), after numbers (zwei kleine Kinder) and in headlines and ads — so flat ads, menus and newspapers are full of it.",
       "tips": [
         {
@@ -1203,6 +1468,39 @@
             ],
             "answer": "Kaltes",
             "why": "das Bier → cut the d- → -as becomes -es: kaltes Bier, the neuter nominative ending."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "caption": "With no article, the adjective borrows the article's ending. Only the masculine and neuter genitive take -en.",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "guter Wein",
+                  "frische Milch",
+                  "kaltes Wasser",
+                  "neue Schuhe"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "guten Wein",
+                  "frische Milch",
+                  "kaltes Wasser",
+                  "neue Schuhe"
+                ]
+              },
+              {
+                "label": "Dat",
+                "cells": [
+                  "gutem Wein",
+                  "frischer Milch",
+                  "kaltem Wasser",
+                  "neuen Schuhen"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -1294,7 +1592,6 @@
           "why": "Genitive masculine/neuter with no article: the noun already ends in -s, so the adjective takes -en."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "stark",
@@ -1348,7 +1645,12 @@
           "de": "zu vermieten",
           "en": "to let"
         }
-      ]
+      ],
+      "hook": "Menus, flat ads and headlines drop the article — so the adjective has to carry the ending all by itself.",
+      "recall": {
+        "known": "From the two adjective-ending lessons: after der and after ein.",
+        "today": "With no article at all, the adjective takes the article's own ending."
+      }
     }
   },
   {
@@ -1358,7 +1660,6 @@
     ],
     "title": "Komparativ & Superlativ vor dem Nomen",
     "help": {
-      "hook": "The bigger flat, the cheapest ticket, the best idea: comparatives before a noun simply add the normal adjective ending.",
       "intro": "Comparatives and superlatives are adjectives, and before a noun they take the same endings as any adjective — on top of their own -er / -st. der kürzere Weg (the shorter way), die größere Stadt, das ältere Haus; der kürzeste Weg, die größte Stadt, das älteste Haus; einen besseren Preis, mit einem schnelleren Zug, in der schönsten Stadt. So the form is stem + er/st + ending: kürz-er-e, kürz-est-e, kürz-er-en. The irregulars keep their special stems — besser / best-, mehr / meist-, höher / höchst-, näher / nächst- — and the umlaut ones keep the umlaut (größer, älter, jünger, wärmer, kürzer). Two spellings deserve a glance: teuer → teurer (one e drops) and the superlative -est- after t/d/s/z (ältest-, kürzest-). Any short talk or argument practically demands 'der wichtigste Punkt' and 'die meisten Leute'.",
       "tips": [
         {
@@ -1390,6 +1691,77 @@
             ],
             "answer": "schnellsten",
             "why": "schnell + st, then the normal ending: den is masculine accusative, so after a der-word the ending is -en."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "die"
+                  },
+                  {
+                    "text": "groß"
+                  },
+                  {
+                    "text": "er",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "e",
+                    "role": "ending"
+                  },
+                  {
+                    "text": "Wohnung"
+                  }
+                ],
+                "result": "die größere Wohnung"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "das"
+                  },
+                  {
+                    "text": "billig"
+                  },
+                  {
+                    "text": "st",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "e",
+                    "role": "ending"
+                  },
+                  {
+                    "text": "Ticket"
+                  }
+                ],
+                "result": "das billigste Ticket"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "ein"
+                  },
+                  {
+                    "text": "neu"
+                  },
+                  {
+                    "text": "er",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "es",
+                    "role": "ending"
+                  },
+                  {
+                    "text": "Auto"
+                  }
+                ],
+                "result": "ein neueres Auto"
+              }
+            ]
           }
         },
         {
@@ -1572,7 +1944,6 @@
           "why": "teuer drops an e in the comparative."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "kurz – kürzer – am kürzesten",
@@ -1622,7 +1993,8 @@
           "de": "schnell – schneller",
           "en": "fast"
         }
-      ]
+      ],
+      "hook": "The bigger flat, the cheapest ticket, the best idea: comparatives before a noun simply add the normal adjective ending."
     }
   },
   {
@@ -1633,7 +2005,6 @@
     ],
     "title": "Adjektive und Partizipien als Nomen",
     "help": {
-      "hook": "Talk about employees, relatives, adults and Germans, and say things like etwas Neues, by turning adjectives into nouns with the right ending.",
       "intro": "Adjectives and participles can become nouns for people and ideas, and the world of work is full of them: der Angestellte (employee, from angestellt), der Erwachsene (adult), der Deutsche, der Verwandte (relative), der Bekannte (acquaintance), der Jugendliche (teenager), der Arbeitslose, der Auszubildende (trainee), der Verletzte. They are written with a capital letter but keep their adjective endings, so the word before them decides the form, exactly as in the adjective tables you have just learnt: der Angestellte but ein Angestellter, die Angestellte (a woman), den Angestellten, mit einem Angestellten, die Angestellten (Pl.), and with no article Angestellte (Pl.). Things and ideas work the same way in the neuter: das Gute, alles Gute, etwas Neues, nichts Besonderes. (The other group of special masculine nouns, the n-Deklination — der Kollege, den Kollegen — has its own quiz later in the course.)",
       "tips": [
         {
@@ -1699,6 +2070,39 @@
             ],
             "answer": "einer Deutschen",
             "why": "mit takes the dative, and after einer the adjective noun ends in -en, exactly like einer netten Frau."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "caption": "The noun has gone; the adjective keeps the ending it would have had.",
+            "columns": [
+              "m",
+              "f",
+              "pl"
+            ],
+            "rows": [
+              {
+                "label": "der/die",
+                "cells": [
+                  "der Deutsche",
+                  "die Deutsche",
+                  "die Deutschen"
+                ]
+              },
+              {
+                "label": "ein/eine",
+                "cells": [
+                  "ein Deutscher",
+                  "eine Deutsche",
+                  "Deutsche"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                1,
+                0
+              ]
+            ]
           }
         },
         {
@@ -1894,7 +2298,6 @@
           "Neues"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "ein Angestellte (a man)",
@@ -1911,7 +2314,8 @@
           "right": "etwas Neues",
           "why": "After etwas / nichts the adjective becomes a noun: capital letter and -es."
         }
-      ]
+      ],
+      "hook": "Talk about employees, relatives, adults and Germans, and say things like etwas Neues, by turning adjectives into nouns with the right ending."
     }
   },
   {
@@ -1921,7 +2325,6 @@
     ],
     "title": "Konjunktiv II: würde + Infinitiv",
     "help": {
-      "hook": "With one little word, würde, you can wish, advise, ask politely and imagine 'what if' with almost any German verb.",
       "intro": "The Konjunktiv II is the mood of what is not (yet) real: wishes (Ich würde gern mehr reisen), polite requests (Würden Sie mir helfen?), advice (Ich würde das nicht machen) and unreal conditions (Wenn ich Zeit hätte, würde ich kommen). For almost every verb modern German builds it with würde + infinitive — würde, würdest, würde, würden, würdet, würden — which works like a modal: würde in position 2, infinitive at the end. Only a handful of verbs use their own one-word form (hätte, wäre, könnte, müsste, wüsste — the next quiz); for everything else, würde is not a shortcut but the standard. Wishes, hypotheses and polite suggestions are everyday talk, and any discussion practically runs on würde. In this quiz you type both halves of the frame — the würde-form in position 2 and the infinitive at the end — because the difficulty is not the word würde but the shape of the sentence around it.",
       "tips": [
         {
@@ -1955,6 +2358,27 @@
             ],
             "answer": "Ich würde morgen gern kommen.",
             "why": "würde works like a modal verb: it takes position 2 and the infinitive goes to the very end."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "würde",
+                  "gern ans Meer",
+                  "fahren."
+                ]
+              },
+              {
+                "cells": [
+                  "An deiner Stelle",
+                  "würde",
+                  "ich das nicht",
+                  "machen."
+                ]
+              }
+            ]
           }
         },
         {
@@ -1988,6 +2412,29 @@
             ],
             "answer": "An deiner Stelle würde ich die Wohnung nehmen.",
             "why": "An deiner Stelle würde ich … is the advice pattern. The other two are a polite request and a wish."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "use",
+            "right": "example",
+            "rows": [
+              {
+                "a": "a wish",
+                "b": "Ich würde gern in Italien leben."
+              },
+              {
+                "a": "advice",
+                "b": "Ich würde mehr schlafen."
+              },
+              {
+                "a": "a polite request",
+                "b": "Würden Sie das Fenster öffnen?"
+              },
+              {
+                "a": "what if",
+                "b": "Wenn ich Zeit hätte, würde ich kommen."
+              }
+            ]
           }
         },
         {
@@ -2135,7 +2582,59 @@
           "why": "An unreal condition is Konjunktiv on both sides."
         }
       ],
-      "exam": null
+      "hook": "With one little word, würde, you can wish, advise, ask politely and imagine 'what if' with almost any German verb.",
+      "table": {
+        "caption": "würde + infinitive",
+        "columns": [
+          "",
+          "würde",
+          "example"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "ich",
+              "würde",
+              "Ich würde gern reisen."
+            ]
+          },
+          {
+            "cells": [
+              "du",
+              "würdest",
+              "Würdest du mir helfen?"
+            ]
+          },
+          {
+            "cells": [
+              "er / sie / es",
+              "würde",
+              "Sie würde das nie tun."
+            ]
+          },
+          {
+            "cells": [
+              "wir",
+              "würden",
+              "Wir würden gern kommen."
+            ]
+          },
+          {
+            "cells": [
+              "ihr",
+              "würdet",
+              "Was würdet ihr machen?"
+            ]
+          },
+          {
+            "cells": [
+              "sie / Sie",
+              "würden",
+              "Würden Sie bitte warten?"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -2179,6 +2678,47 @@
             ],
             "answer": "The applicant asks her own questions.",
             "why": "This line closes an interview and hands the floor over: now the applicant asks, often politely with Könnten Sie mir sagen, …?"
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Welcome",
+                "de": [
+                  "Bitte nehmen Sie Platz."
+                ]
+              },
+              {
+                "label": "About you",
+                "de": [
+                  "Erzählen Sie doch etwas über sich."
+                ]
+              },
+              {
+                "label": "Why this job",
+                "de": [
+                  "Warum interessieren Sie sich für die Stelle?"
+                ]
+              },
+              {
+                "label": "Skills",
+                "de": [
+                  "Welche Sprachen sprechen Sie?"
+                ]
+              },
+              {
+                "label": "Practical",
+                "de": [
+                  "Ab wann könnten Sie anfangen?"
+                ]
+              },
+              {
+                "label": "Your question",
+                "de": [
+                  "Haben Sie noch Fragen an uns?"
+                ]
+              }
+            ]
           }
         },
         {
@@ -2261,7 +2801,6 @@
     ],
     "title": "Konjunktiv II: hätte / wäre / könnte",
     "help": {
-      "hook": "Wishes, polite requests and 'if only' — a handful of words like hätte, wäre and könnte carry them all.",
       "intro": "A small group of verbs form their Konjunktiv II in one word, and because they are the most frequent verbs in the language you hear them constantly: haben → hätte, sein → wäre, können → könnte, müssen → müsste, dürfen → dürfte, sollen → sollte, wollen → wollte, wissen → wüsste, werden → würde. The recipe: take the Präteritum (hatte, war, konnte, musste), add an umlaut where the vowel allows (hätte, wäre, könnte, müsste — but sollte and wollte stay as they are), and use the Präteritum endings: hätte, hättest, hätte, hätten, hättet, hätten. These forms carry the unreal condition (Wenn ich Zeit hätte …), the wish (Ich wäre jetzt gern am Meer), the polite request (Hätten Sie einen Moment?) and the soft advice (Du solltest …, Du müsstest …). Together with würde they are all the Konjunktiv II you need for everyday wishes, advice and requests.",
       "tips": [
         {
@@ -2296,6 +2835,59 @@
             ],
             "answer": "Hättest",
             "why": "hattest + umlaut = hättest, the 'would have' form for du. Hattest is the past; hättet is for ihr."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "hatte"
+                  },
+                  {
+                    "text": "¨",
+                    "role": "joint"
+                  }
+                ],
+                "result": "hätte"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "war"
+                  },
+                  {
+                    "text": "¨ + e",
+                    "role": "joint"
+                  }
+                ],
+                "result": "wäre"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "konnte"
+                  },
+                  {
+                    "text": "¨",
+                    "role": "joint"
+                  }
+                ],
+                "result": "könnte"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "musste"
+                  },
+                  {
+                    "text": "¨",
+                    "role": "joint"
+                  }
+                ],
+                "result": "müsste"
+              }
+            ]
           }
         },
         {
@@ -2329,6 +2921,37 @@
             ],
             "answer": "hätte",
             "why": "An unreal condition is Konjunktiv on both sides: wenn … hätte, … würde."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "wenn-clause",
+              "Verb",
+              "Middle",
+              "End"
+            ],
+            "hot": [
+              0,
+              1
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Wenn ich mehr Geld hätte,",
+                  "würde",
+                  "ich ein Haus",
+                  "kaufen."
+                ]
+              },
+              {
+                "cells": [
+                  "Wenn ich du wäre,",
+                  "würde",
+                  "ich das",
+                  "machen."
+                ]
+              }
+            ]
           }
         },
         {
@@ -2525,7 +3148,11 @@
           "why": "The infinitive is the last word."
         }
       ],
-      "exam": null
+      "hook": "Wishes, polite requests and 'if only' — a handful of words like hätte, wäre and könnte carry them all.",
+      "recall": {
+        "known": "From \"Konjunktiv II: würde + Infinitiv\": würde for wishes and what-ifs.",
+        "today": "The one-word forms hätte, wäre, könnte, and the full wenn-sentence."
+      }
     }
   },
   {
@@ -2570,6 +3197,36 @@
             ],
             "answer": "The disadvantages",
             "why": "Aber es gibt auch … is the classic turn from the advantages to the other side."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "The trend",
+                "de": [
+                  "Immer mehr Menschen …"
+                ]
+              },
+              {
+                "label": "Pros",
+                "de": [
+                  "Ein Vorteil ist, dass …"
+                ]
+              },
+              {
+                "label": "Cons",
+                "de": [
+                  "Andererseits …",
+                  "Ein Nachteil ist …"
+                ]
+              },
+              {
+                "label": "Outlook",
+                "de": [
+                  "In Zukunft wird …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -2657,7 +3314,6 @@
     ],
     "title": "Kurzcheck: Konjunktiv II",
     "help": {
-      "hook": "Talk through a few what-if situations and describe your home out loud, with every hätte, wäre and ending in place.",
       "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on. The tutor asks what you would do in a few situations (Was würdest du machen, wenn …?) and asks you to describe things with adjectives (Wie ist deine Wohnung?). It listens for two things: the Konjunktiv II on both sides of a wenn-sentence (hätte / wäre in the wenn-clause, würde in the main clause), and the adjective endings after der- and ein-words. Answer in full sentences, take your time over each ending, and use the umlaut forms — hätte, wäre, könnte — rather than falling back to the present tense.",
       "tips": [
         {
@@ -2691,6 +3347,17 @@
             ],
             "answer": "hätte",
             "why": "Mirror the question's mood: hätte in the wenn-clause, würde in the main clause."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "question",
+            "right": "answer",
+            "rows": [
+              {
+                "a": "Was würdest du machen, wenn du reich wärst?",
+                "b": "Wenn ich reich wäre, würde ich reisen."
+              }
+            ]
           }
         },
         {
@@ -2732,7 +3399,45 @@
         "wenn + hätte/wäre, main clause + würde.",
         "ein großer / eine große / ein großes — say the ending."
       ],
-      "exam": null
+      "hook": "Talk through a few what-if situations and describe your home out loud, with every hätte, wäre and ending in place.",
+      "vocab": [
+        {
+          "de": "Wenn ich … hätte",
+          "en": "If I had …"
+        },
+        {
+          "de": "Wenn ich … wäre",
+          "en": "If I were …"
+        },
+        {
+          "de": "würde gern",
+          "en": "would like to"
+        },
+        {
+          "de": "Wohnung",
+          "article": "die",
+          "plural": "-en",
+          "en": "flat"
+        },
+        {
+          "de": "gemütlich",
+          "en": "cosy"
+        },
+        {
+          "de": "hell",
+          "en": "bright"
+        },
+        {
+          "de": "geräumig",
+          "en": "spacious"
+        },
+        {
+          "de": "Traum",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "dream"
+        }
+      ]
     }
   },
   {
@@ -2742,7 +3447,6 @@
     ],
     "title": "Futur I",
     "help": {
-      "hook": "Promises, predictions and good guesses: werden + infinitive says what will happen, and what is probably happening right now.",
       "intro": "German usually talks about the future in the present tense with a time word — Morgen fahre ich nach Köln. The Futur I, werden + infinitive, is used when you want to stress that something will happen: a prediction (Es wird regnen), a promise (Ich werde dich nie vergessen), a firm intention (Ich werde ab Montag joggen), a warning (Du wirst dich erkälten!) — and, surprisingly often, a guess about the present (Er wird wohl krank sein = he's probably ill). werden conjugates like the passive helper you already know (werde, wirst, wird, werden, werdet, werden), sits in position 2, and pushes the infinitive to the end. In a weil- or dass-clause the order flips: …, dass es morgen regnen wird. Everyday speech prefers the present, but you need to understand both ways of talking about tomorrow.",
       "tips": [
         {
@@ -2777,6 +3481,29 @@
             ],
             "answer": "werdet",
             "why": "The subject is ihr, so werden becomes werdet; the infinitive verpassen goes to the end."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "werde",
+                  "dich morgen",
+                  "anrufen."
+                ],
+                "en": "a promise"
+              },
+              {
+                "cells": [
+                  "Es",
+                  "wird",
+                  "morgen",
+                  "regnen."
+                ],
+                "en": "a prediction"
+              }
+            ]
           }
         },
         {
@@ -2877,6 +3604,25 @@
             ],
             "answer": "My brother is becoming a teacher.",
             "why": "werden + a noun means to become. The future needs an infinitive, the passive a participle."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "werden + …",
+            "right": "meaning",
+            "rows": [
+              {
+                "a": "+ noun / adjective: Er wird Arzt.",
+                "b": "become"
+              },
+              {
+                "a": "+ infinitive: Er wird kommen.",
+                "b": "will (future)"
+              },
+              {
+                "a": "+ participle: Es wird gebaut.",
+                "b": "is being (passive)"
+              }
+            ]
           }
         }
       ],
@@ -2956,7 +3702,59 @@
           "why": "werden takes the infinitive, not a conjugated verb."
         }
       ],
-      "exam": null
+      "hook": "Promises, predictions and good guesses: werden + infinitive says what will happen, and what is probably happening right now.",
+      "table": {
+        "caption": "werden + infinitive",
+        "columns": [
+          "",
+          "werden",
+          "example"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "ich",
+              "werde",
+              "Ich werde dich anrufen."
+            ]
+          },
+          {
+            "cells": [
+              "du",
+              "wirst",
+              "Du wirst es schaffen."
+            ]
+          },
+          {
+            "cells": [
+              "er / sie / es",
+              "wird",
+              "Es wird regnen."
+            ]
+          },
+          {
+            "cells": [
+              "wir",
+              "werden",
+              "Wir werden sehen."
+            ]
+          },
+          {
+            "cells": [
+              "ihr",
+              "werdet",
+              "Ihr werdet staunen."
+            ]
+          },
+          {
+            "cells": [
+              "sie / Sie",
+              "werden",
+              "Sie werden bald kommen."
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -2966,7 +3764,6 @@
     ],
     "title": "Relativsätze (Nom./Akk.)",
     "help": {
-      "hook": "Describe people and things in one flowing sentence – der Kollege, der neben mir sitzt – even with the clause in the middle.",
       "intro": "The relative clause you already know, consolidated and stretched. The pronoun is still der, die, das, die by gender and number; nominative when it is the subject of its clause, accusative (den) when it is the object; comma before, verb at the end. What is new here is where the clause can sit and what can be inside it. It can interrupt the main sentence: Die Frau, die Deutsch spricht, ist nett — two commas, and the main verb waits until the clause is closed. It can contain a Perfekt or a modal: das Handy, das ich gestern gekauft habe; der Film, den wir sehen wollen. And the relative pronoun is chosen only by its role inside its own clause, never by the noun's role outside it: Ich kenne den Mann, der dort steht — den in the main clause, der in the relative clause, because there he is the subject.",
       "tips": [
         {
@@ -2999,6 +3796,38 @@
             ],
             "answer": "der",
             "why": "Inside the relative clause the technician does the repairing, so he is the subject: der, even though the main clause has den Techniker."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Noun",
+              "Pronoun (its case)",
+              "Middle",
+              "Verb"
+            ],
+            "hot": [
+              1
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Ich kenne den Mann,",
+                  "der",
+                  "dort",
+                  "wohnt."
+                ],
+                "en": "der: subject of wohnt"
+              },
+              {
+                "cells": [
+                  "Das ist der Mann,",
+                  "den",
+                  "ich gestern",
+                  "gesehen habe."
+                ],
+                "en": "den: object of gesehen"
+              }
+            ]
           }
         },
         {
@@ -3032,6 +3861,29 @@
             ],
             "answer": "Der Bus, der zum Bahnhof fährt, kommt gleich.",
             "why": "A relative clause in the middle has a comma on both sides and its verb at the end; the main verb kommt follows straight after the second comma."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Subject",
+              "Relative clause",
+              "Verb",
+              "Rest"
+            ],
+            "hot": [
+              1,
+              2
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Der Kollege,",
+                  "der neben mir sitzt,",
+                  "kommt",
+                  "aus Polen."
+                ]
+              }
+            ]
           }
         },
         {
@@ -3178,7 +4030,41 @@
           "why": "The conjugated verb goes last."
         }
       ],
-      "exam": null
+      "hook": "Describe people and things in one flowing sentence – der Kollege, der neben mir sitzt – even with the clause in the middle.",
+      "recall": {
+        "known": "From \"Relativsätze: der, die, das (Nom/Akk)\": the pronoun is the article, only den is new.",
+        "today": "The clause in the middle of a sentence, and Perfekt or a modal inside it."
+      },
+      "table": {
+        "caption": "Relative pronouns, Nom and Akk",
+        "columns": [
+          "",
+          "masc.",
+          "fem.",
+          "neut.",
+          "plural"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "Nom",
+              "der",
+              "die",
+              "das",
+              "die"
+            ]
+          },
+          {
+            "cells": [
+              "Akk",
+              "den",
+              "die",
+              "das",
+              "die"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -3189,7 +4075,6 @@
     ],
     "title": "Relativsätze mit Dativ & Präposition",
     "help": {
-      "hook": "Say 'the friend I rely on' or 'the flat we live in' the German way: preposition first, never left dangling at the end.",
       "intro": "Relative clauses now grow in two directions. First, the dative: when the pronoun is a dative object inside its clause (I help him, it belongs to her, I thanked them), it takes dem, der, dem, denen — the last one is new: die Freunde, denen ich helfe. Second, prepositions: when the verb of the relative clause needs a preposition (arbeiten mit, warten auf, wohnen in, denken an), the preposition comes first and the pronoun follows in the case that preposition demands: der Kollege, mit dem ich arbeite; die Wohnung, in der wir wohnen; der Mann, auf den ich warte. The preposition can never be left at the end of the clause as in English ('the man I'm waiting for'). For places, wo can replace in dem / in der: das Café, wo wir uns kennengelernt haben. The full pronoun table now has exactly two new words beyond the articles: denen (Dat Pl) and, later in the course, dessen/deren (Gen).",
       "tips": [
         {
@@ -3222,6 +4107,44 @@
             ],
             "answer": "der",
             "why": "gehören takes the dative, and the feminine dative relative pronoun is der."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "der",
+                  "die",
+                  "das",
+                  "die"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "den",
+                  "die",
+                  "das",
+                  "die"
+                ]
+              },
+              {
+                "label": "Dat",
+                "cells": [
+                  "dem",
+                  "der",
+                  "dem",
+                  "denen"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                2,
+                3
+              ]
+            ]
           }
         },
         {
@@ -3256,6 +4179,21 @@
             ],
             "answer": "auf den",
             "why": "It's warten auf + accusative, so the preposition comes first and Bus (masculine) takes den: auf den."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "English",
+            "right": "German",
+            "rows": [
+              {
+                "a": "the friend I rely on",
+                "b": "der Freund, auf den ich mich verlasse"
+              },
+              {
+                "a": "the flat we live in",
+                "b": "die Wohnung, in der wir wohnen"
+              }
+            ]
           }
         },
         {
@@ -3390,7 +4328,11 @@
           "why": "wohnen is a position: in + dative."
         }
       ],
-      "exam": null
+      "hook": "Say 'the friend I rely on' or 'the flat we live in' the German way: preposition first, never left dangling at the end.",
+      "recall": {
+        "known": "From \"Relativsätze (Nom./Akk.)\": der, den, die, das.",
+        "today": "The dative relatives, denen, and a preposition at the front of the clause."
+      }
     }
   },
   {
@@ -3435,6 +4377,21 @@
             ],
             "answer": "hätte",
             "why": "An unreal 'if' needs the Konjunktiv hätte, with the ä. hatte is just the past tense, and hätten doesn't go with ich."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "past (fact)",
+            "right": "Konjunktiv II (wish)",
+            "rows": [
+              {
+                "a": "Ich hatte Zeit.",
+                "b": "Ich hätte gern Zeit."
+              },
+              {
+                "a": "Es war schön.",
+                "b": "Es wäre schön."
+              }
+            ]
           }
         },
         {
@@ -3518,7 +4475,6 @@
     ],
     "title": "Genitiv",
     "help": {
-      "hook": "The genitive is how German writes 'the man's car' and 'because of the weather' — small forms you'll see in every newspaper.",
       "intro": "The genitive is the fourth case, the case of belonging and of 'of': das Auto des Mannes (the man's car), die Farbe des Hauses, die Tasche der Frau, die Meinung der Leute. Its forms are the smallest set of the four: masculine and neuter take des and add -s or -es to the noun (des Mannes, des Films, des Autos, des Hauses — -es after one syllable or a hissing sound), feminine and plural take der and leave the noun alone (der Frau, der Straße, der Kinder). After ein-words: eines Mannes, einer Frau, meines Bruders. Names simply add -s without an apostrophe: Annas Auto, Peters Buch. In speech the genitive is often replaced by von + dative (das Auto von dem Mann), which is fine — but in writing — newspapers, letters, official notices — the genitive is everywhere, and the prepositions wegen, während and trotz take it. In this quiz you write the whole genitive phrase — article and noun — because the -(e)s on the noun is where most mistakes happen.",
       "tips": [
         {
@@ -3554,6 +4510,48 @@
             ],
             "answer": "des Zimmers",
             "why": "Neuter genitive: des + noun with -s. Zimmer has more than one syllable, so just -s."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "caption": "The fourth row. Masculine and neuter nouns take -s or -es too.",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "der Mann",
+                  "die Frau",
+                  "das Kind",
+                  "die Leute"
+                ]
+              },
+              {
+                "label": "Gen",
+                "cells": [
+                  "des Mannes",
+                  "der Frau",
+                  "des Kindes",
+                  "der Leute"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ]
           }
         },
         {
@@ -3620,6 +4618,17 @@
             ],
             "answer": "das Haus von meinen Eltern",
             "why": "von takes the dative, and the dative plural of meine is meinen."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "written (genitive)",
+            "right": "spoken (von + dative)",
+            "rows": [
+              {
+                "a": "das Auto meines Vaters",
+                "b": "das Auto von meinem Vater"
+              }
+            ]
           }
         },
         {
@@ -3783,7 +4792,7 @@
           "why": "wegen takes the genitive in written German."
         }
       ],
-      "exam": null
+      "hook": "The genitive is how German writes 'the man's car' and 'because of the weather' — small forms you'll see in every newspaper."
     }
   },
   {
@@ -3863,6 +4872,33 @@
             ],
             "answer": "Einerseits",
             "why": "andererseits needs its partner einerseits: one side, then the other."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "disagree",
+            "high": "agree",
+            "points": [
+              {
+                "at": 95,
+                "de": "Da hast du völlig recht.",
+                "en": "You're absolutely right."
+              },
+              {
+                "at": 70,
+                "de": "Da stimme ich dir zu.",
+                "en": "I agree with you."
+              },
+              {
+                "at": 50,
+                "de": "Das sehe ich teilweise anders.",
+                "en": "I partly see it differently."
+              },
+              {
+                "at": 15,
+                "de": "Das sehe ich ganz anders.",
+                "en": "I see it quite differently."
+              }
+            ]
           }
         },
         {
@@ -3913,7 +4949,6 @@
     ],
     "title": "Nebensätze: wenn / als / obwohl",
     "help": {
-      "hook": "German splits English “when” in two: als for one moment in the past, wenn for everything else. Plus obwohl for “although”.",
       "intro": "Three subordinating conjunctions that share one word order (verb at the end) and are constantly confused in meaning. wenn = when (repeatedly or in the future) or if: Wenn ich Zeit habe, lese ich; Wenn es regnet, bleiben wir zu Hause. als = when, for a single event in the past: Als ich ein Kind war, wohnten wir in Köln; Als ich achtzehn wurde, … obwohl = although: Wir gehen spazieren, obwohl es kalt ist. The wenn/als split has no English equivalent — English 'when' covers both — and is one of the classic learner mistakes: past and once → als; anything repeated, present or future → wenn. Its cousin trotzdem (nevertheless) says the same as obwohl from the other side and is an adverb: verb second (Es ist kalt, trotzdem gehen wir spazieren). In the quiz there are no cues: the tense, a time word (gestern, letzten Sommer, immer) and the verb position tell you which word fits — including trotzdem, which keeps its verb second.",
       "tips": [
         {
@@ -3946,6 +4981,27 @@
             ],
             "answer": "Als",
             "why": "gestern makes it one single event in the past, so the conjunction is als. wann only asks questions."
+          },
+          "visual": {
+            "kind": "timeline",
+            "caption": "als: one moment in the past. wenn: every time, or in the future.",
+            "marks": [
+              {
+                "at": -2.2,
+                "label": "once, in the past",
+                "de": "als ich klein war"
+              },
+              {
+                "at": -1,
+                "label": "every time (past)",
+                "de": "immer wenn wir kamen"
+              },
+              {
+                "at": 1.8,
+                "label": "future",
+                "de": "wenn ich ankomme"
+              }
+            ]
           }
         },
         {
@@ -4010,6 +5066,17 @@
             ],
             "answer": "trotzdem",
             "why": "The verb gehen comes straight after the gap, in second position, so you need the adverb trotzdem. obwohl would send the verb to the end."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "obwohl: verb last",
+            "right": "trotzdem: verb second",
+            "rows": [
+              {
+                "a": "Obwohl es regnet, gehe ich spazieren.",
+                "b": "Es regnet. Trotzdem gehe ich spazieren."
+              }
+            ]
           }
         },
         {
@@ -4120,7 +5187,45 @@
           "why": "After a fronted subordinate clause, the main verb comes first."
         }
       ],
-      "exam": null
+      "hook": "German splits English “when” in two: als for one moment in the past, wenn for everything else. Plus obwohl for “although”.",
+      "table": {
+        "caption": "when, if, although",
+        "columns": [
+          "word",
+          "use",
+          "example"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "als",
+              "one moment in the past",
+              "Als ich klein war, …"
+            ]
+          },
+          {
+            "cells": [
+              "wenn",
+              "every time, if, or future when",
+              "Wenn es regnet, …"
+            ]
+          },
+          {
+            "cells": [
+              "obwohl",
+              "although (verb last)",
+              "Obwohl er müde ist, …"
+            ]
+          },
+          {
+            "cells": [
+              "trotzdem",
+              "still, nevertheless (verb second)",
+              "Er ist müde. Trotzdem …"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -4130,7 +5235,6 @@
     ],
     "title": "Infinitiv mit zu",
     "help": {
-      "hook": "Say what you plan, try, forget or feel like doing with zu + infinitive – and know when zu stays out.",
       "intro": "English 'to' + verb has a German twin: zu + infinitive, at the end of its clause — Ich habe vor, Deutsch zu lernen; Es ist wichtig, jeden Tag zu üben; Hast du Lust auszugehen? It appears after many verbs (vorhaben, versuchen, anfangen, aufhören, vergessen, hoffen, empfehlen, vorschlagen), after noun + haben (Lust / Zeit / Angst haben), after es ist + adjective (es ist wichtig / schön / leicht / schwer), and in um … zu (in order to). Separable verbs put zu between the prefix and the stem: aufzustehen, anzurufen, auszugehen. A comma before the infinitive clause is optional but recommended when the clause has more than zu + verb. Two things do not take zu: modal verbs (Ich will lernen) and a small set — lassen, sehen, hören, gehen, bleiben, lernen, helfen (Ich gehe schwimmen; Ich helfe dir tragen). And brauchen nicht … zu is the polite way to say 'need not': Du brauchst nicht zu kommen.",
       "tips": [
         {
@@ -4164,6 +5268,39 @@
             ],
             "answer": "anzurufen",
             "why": "anrufen is separable, so zu goes between prefix and stem: anzurufen, as the last word of the clause."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "zu",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "lernen"
+                  }
+                ],
+                "result": "Ich habe keine Lust, zu lernen."
+              },
+              {
+                "parts": [
+                  {
+                    "text": "auf",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "zu",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "stehen"
+                  }
+                ],
+                "result": "Es ist schwer, früh aufzustehen."
+              }
+            ]
           }
         },
         {
@@ -4229,6 +5366,21 @@
             ],
             "answer": "tanzen",
             "why": "gehen is one of the few verbs that take a bare infinitive: Wir gehen tanzen, like Ich gehe schwimmen."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "with zu",
+            "right": "no zu",
+            "rows": [
+              {
+                "a": "Ich versuche, pünktlich zu sein.",
+                "b": "Ich muss pünktlich sein."
+              },
+              {
+                "a": "Ich habe vergessen, dich anzurufen.",
+                "b": "Ich gehe morgen schwimmen."
+              }
+            ]
           }
         },
         {
@@ -4346,7 +5498,7 @@
           "why": "The zu-infinitive is the last word of its clause."
         }
       ],
-      "exam": null
+      "hook": "Say what you plan, try, forget or feel like doing with zu + infinitive – and know when zu stays out."
     }
   },
   {
@@ -4356,7 +5508,6 @@
     ],
     "title": "es-Ausdrücke: es gibt, es geht, es lohnt sich",
     "help": {
-      "hook": "Mir ist kalt, es lohnt sich, es gibt: learn these little es-chunks whole and you'll sound natural straight away.",
       "intro": "A family of expressions with es as a dummy subject, so frequent that they are worth learning as a structure of their own. Existence: es gibt + accusative (Es gibt einen Park). Wellbeing and feelings with the dative: Wie geht es dir? Es tut mir leid. Mir ist kalt / warm / schlecht (es dropped when mir comes first). Weather and time: Es regnet, es schneit, es ist spät, es ist acht Uhr. Evaluation: Es lohnt sich (it's worth it), es macht nichts, es ist möglich / wichtig / schade, es kommt darauf an (it depends), es handelt sich um (it's a matter of). Each is a fixed chunk with a fixed case, learnt whole. The dative ones are the traps: 'I am cold' is Mir ist kalt — Ich bin kalt says you are a cold person.",
       "tips": [
         {
@@ -4428,6 +5579,25 @@
             ],
             "answer": "Mir ist kalt.",
             "why": "Feelings like cold take the person in the dative: Mir ist kalt. Ich bin kalt means you're a cold person."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "English",
+            "right": "German",
+            "rows": [
+              {
+                "a": "I am cold.",
+                "b": "Mir ist kalt."
+              },
+              {
+                "a": "I'm fine.",
+                "b": "Es geht mir gut."
+              },
+              {
+                "a": "I'm sorry.",
+                "b": "Es tut mir leid."
+              }
+            ]
           }
         },
         {
@@ -4533,7 +5703,7 @@
           "why": "gibt stays singular."
         }
       ],
-      "exam": null
+      "hook": "Mir ist kalt, es lohnt sich, es gibt: learn these little es-chunks whole and you'll sound natural straight away."
     }
   },
   {
@@ -4612,6 +5782,17 @@
             ],
             "answer": "The tickets are too expensive.",
             "why": "würde gern is the wish; the obstacle comes after aber: die Karten sind zu teuer."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "the wish",
+            "right": "the reality",
+            "rows": [
+              {
+                "a": "Ich würde gern mehr Sport machen,",
+                "b": "aber ich habe keine Zeit."
+              }
+            ]
           }
         },
         {
@@ -4696,6 +5877,32 @@
             ],
             "answer": "One more point on the same side follows",
             "why": "Außerdem means 'besides, also': it adds another point to the list, here another difficulty."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "For",
+                "de": [
+                  "Einerseits …",
+                  "Ein großer Vorteil ist …"
+                ]
+              },
+              {
+                "label": "Against",
+                "de": [
+                  "Andererseits …",
+                  "Dagegen spricht …"
+                ]
+              },
+              {
+                "label": "Weighing",
+                "de": [
+                  "Insgesamt …",
+                  "Es kommt darauf an, …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -4817,6 +6024,38 @@
             ],
             "answer": "vielen Dank für Ihre schnelle Antwort.",
             "why": "After the greeting comma the text goes on in lowercase, and a formal mail uses Ihre."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Greeting",
+                "de": [
+                  "Sehr geehrte Damen und Herren,",
+                  "Sehr geehrter Herr Braun,"
+                ]
+              },
+              {
+                "label": "Why",
+                "de": [
+                  "ich schreibe Ihnen, weil …",
+                  "ich interessiere mich für …"
+                ]
+              },
+              {
+                "label": "Request",
+                "de": [
+                  "Könnten Sie mir bitte mitteilen, …?"
+                ]
+              },
+              {
+                "label": "Close",
+                "de": [
+                  "Ich freue mich auf Ihre Antwort.",
+                  "Mit freundlichen Grüßen"
+                ]
+              }
+            ]
           }
         },
         {
@@ -4916,6 +6155,25 @@
             ],
             "answer": "Könnten Sie mir bitte den Termin bestätigen?",
             "why": "A formal mail uses Sie all the way through. Even a polite könntest is still du."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "informal",
+            "right": "formal",
+            "rows": [
+              {
+                "a": "Hallo Tom,",
+                "b": "Sehr geehrter Herr Braun,"
+              },
+              {
+                "a": "Kannst du mir sagen, …?",
+                "b": "Könnten Sie mir mitteilen, …?"
+              },
+              {
+                "a": "Liebe Grüße",
+                "b": "Mit freundlichen Grüßen"
+              }
+            ]
           }
         }
       ],
@@ -5097,7 +6355,7 @@
     },
     "help": {
       "hook": "Write a real formal e-mail, and have your own AI mark it line by line.",
-      "intro": "This is the first exercise in the course where you write German yourself rather than filling a gap. You write the e-mail here, in the box, and the app builds a correction request that carries your own text. You paste that into your own AI, it corrects what you actually wrote, and you bring the score back. The four or five fixes it gives you are saved: your next speaking and writing exercises quietly bring one or two of them back, so the same slip does not survive for long. Aim for 400 to 900 characters, roughly the length of a real complaint e-mail. Much shorter and there is nothing to correct; much longer and you are writing an essay rather than an e-mail.",
+      "intro": "Your first formal text in the course. You write the e-mail here, in the box, and the app builds a correction request that carries your own text. You paste that into your own AI, it corrects what you actually wrote, and you bring the score back. The up to four fixes it gives you are saved: your next speaking and writing exercises quietly bring one or two of them back, so the same slip does not survive for long. Aim for 400 to 900 characters, roughly the length of a real complaint e-mail. Much shorter and there is nothing to correct; much longer and you are writing an essay rather than an e-mail.",
       "tips": [
         {
           "kind": "rule",
@@ -5174,6 +6432,41 @@
             ],
             "answer": "why you are writing",
             "why": "The greeting comes first, then one line saying why you are writing; the facts follow."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Greeting",
+                "de": [
+                  "Sehr geehrte Frau …,"
+                ]
+              },
+              {
+                "label": "Reason",
+                "de": [
+                  "ich schreibe Ihnen wegen …"
+                ]
+              },
+              {
+                "label": "Details",
+                "de": [
+                  "Ich möchte wissen, ob …"
+                ]
+              },
+              {
+                "label": "Request",
+                "de": [
+                  "Könnten Sie mir bitte …?"
+                ]
+              },
+              {
+                "label": "Close",
+                "de": [
+                  "Mit freundlichen Grüßen"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -5263,8 +6556,7 @@
     ],
     "title": "Gespräch: Meinungen & Wünsche",
     "help": {
-      "hook": "Give your opinion, push back politely and imagine 'what if' with wenn … würde: the three moves of any good discussion.",
-      "intro": "The closing conversation of this module, in your own AI assistant with voice on: opinions and wishes about work, study and living — what you think, why, and what you would do if. Copy the exercise in, say 'Los geht's', answer in full sentences; the score and corrections come at the end. The tutor listens for the building blocks of a real argument: an opinion with a reason (Ich finde, dass …, weil …), a hypothetical with the Konjunktiv II on both sides (Wenn ich …, würde ich …), a contrast (obwohl / trotzdem), and adjectives with endings in your descriptions. This is a real discussion in miniature, so also practise the moves of a discussion: agree, disagree politely, ask your partner what they think.",
+      "intro": "The closing conversation of this module, in your own AI assistant with voice on: opinions and wishes about work, study and living — what you think, why, and what you would do if. Copy the exercise in, say 'Los geht's', answer in full sentences; the score and corrections come at the end. The tutor listens for the building blocks of a real argument: an opinion with a reason (Ich finde …, weil …), a hypothetical with the Konjunktiv II on both sides (Wenn ich …, würde ich …), a contrast (obwohl / trotzdem), and adjectives with endings in your descriptions. This is a real discussion in miniature, so also practise the moves of a discussion: agree, disagree politely, ask your partner what they think.",
       "tips": [
         {
           "kind": "rule",
@@ -5299,6 +6591,32 @@
             ],
             "answer": "Ich finde Kochen wichtig, weil es gesund ist. Und du?",
             "why": "It has all three moves: an opinion, a reason with weil, and a question back to your partner."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Opinion",
+                "de": [
+                  "Ich finde, dass …",
+                  "Meiner Meinung nach …"
+                ]
+              },
+              {
+                "label": "Reason",
+                "de": [
+                  "…, weil …",
+                  "Ein Grund dafür ist …"
+                ]
+              },
+              {
+                "label": "Ask back",
+                "de": [
+                  "Wie siehst du das?",
+                  "Was meinst du?"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5374,7 +6692,48 @@
         "Opinion, reason, question back.",
         "wenn + hätte/wäre → würde."
       ],
-      "exam": "A discussion like this is part of the B1 speaking exam — and of every conversation where you want your view heard."
+      "exam": "A discussion like this is part of the B1 speaking exam — and of every conversation where you want your view heard.",
+      "hook": "Give your opinion, push back politely and imagine 'what if' with wenn … würde: the three moves of any good discussion.",
+      "vocab": [
+        {
+          "de": "Meinung",
+          "article": "die",
+          "plural": "-en",
+          "en": "opinion"
+        },
+        {
+          "de": "meiner Meinung nach",
+          "en": "in my opinion"
+        },
+        {
+          "de": "zustimmen",
+          "en": "to agree"
+        },
+        {
+          "de": "widersprechen",
+          "en": "to disagree, contradict"
+        },
+        {
+          "de": "Vorteil",
+          "article": "der",
+          "plural": "-e",
+          "en": "advantage"
+        },
+        {
+          "de": "Nachteil",
+          "article": "der",
+          "plural": "-e",
+          "en": "disadvantage"
+        },
+        {
+          "de": "obwohl",
+          "en": "although"
+        },
+        {
+          "de": "Wie siehst du das?",
+          "en": "How do you see it?"
+        }
+      ]
     }
   },
   {
@@ -5384,7 +6743,6 @@
     ],
     "title": "Verben mit Präpositionen: worauf? – darauf!",
     "help": {
-      "hook": "warten auf, denken an, Angst vor: learn each verb with its preposition, then point back with darauf, daran, davor.",
       "intro": "Many German verbs come with a fixed preposition, and the preposition is not the one English would use: warten auf (wait for), sich freuen auf (look forward to) and sich freuen über (be pleased about), sich interessieren für (be interested in), denken an (think of), sprechen über (talk about), Angst haben vor (be afraid of), sich bewerben um (apply for). Learn verb and preposition as one unit, together with the case: auf, über, an, für, um take the accusative in these combinations; vor, mit, von, bei, zu take the dative. The second half of the topic is how to ask and refer back. For things you use wo(r)- + preposition in questions (Worauf wartest du? Wofür interessierst du dich?) and da(r)- + preposition to point back (Ich warte darauf. Denk daran!). The -r- is inserted when the preposition starts with a vowel: worauf, darüber, daran. For people you keep the preposition with a pronoun or question word: Auf wen wartest du? – Auf meine Schwester. – Ich warte auf sie.",
       "tips": [
         {
@@ -5450,6 +6808,25 @@
             ],
             "answer": "Woran",
             "why": "denken an, about a thing, so the question is wo + r + an = woran; the -r- is added because an starts with a vowel."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "question",
+            "right": "answer",
+            "rows": [
+              {
+                "a": "Worauf wartest du?",
+                "b": "Auf den Bus. – Ich warte darauf."
+              },
+              {
+                "a": "Woran denkst du?",
+                "b": "An den Urlaub. – Ich denke daran."
+              },
+              {
+                "a": "Wovor hast du Angst?",
+                "b": "Vor Spinnen. – Ich habe Angst davor."
+              }
+            ]
           }
         },
         {
@@ -5484,6 +6861,21 @@
             ],
             "answer": "Auf wen",
             "why": "The answer is a person, so keep the preposition and use wen: Auf wen …? wo(r)- is only for things."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "a thing",
+            "right": "a person",
+            "rows": [
+              {
+                "a": "Worauf wartest du? – Darauf.",
+                "b": "Auf wen wartest du? – Auf ihn."
+              },
+              {
+                "a": "Wovon sprecht ihr? – Davon.",
+                "b": "Von wem sprecht ihr? – Von ihr."
+              }
+            ]
           }
         },
         {
@@ -5636,7 +7028,6 @@
           "darüber"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "Ich warte für den Bus.",
@@ -5653,7 +7044,12 @@
           "right": "Ich freue mich über dein Geschenk.",
           "why": "freuen auf = look forward to (future); freuen über = be pleased about (now or past)."
         }
-      ]
+      ],
+      "hook": "warten auf, denken an, Angst vor: learn each verb with its preposition, then point back with darauf, daran, davor.",
+      "recall": {
+        "known": "From \"Verben mit Präposition: worauf? darauf!\": warten auf, worauf, darauf.",
+        "today": "People versus things: auf wen? – auf ihn, but worauf? – darauf."
+      }
     }
   },
   {
@@ -5663,7 +7059,6 @@
     ],
     "title": "Indirekte Fragen: Können Sie mir sagen, ob …?",
     "help": {
-      "hook": "Ask strangers and officials politely – Können Sie mir sagen, wann der Zug abfährt? – by tucking the question into a sentence.",
       "intro": "An indirect question is a question packed inside another sentence: Können Sie mir sagen, wann der Zug abfährt? Ich weiß nicht, ob er kommt. It is the polite way to ask strangers, officials and colleagues for information, and fluent speakers use it constantly — Könnten Sie mir sagen, …? Wissen Sie, …? Ich möchte wissen, … Ich frage mich, … Two rules build it. First the linking word: a W-question keeps its question word (wann, wo, wie viel, warum, welcher …); a yes/no question gets ob (whether) — never wenn. Second the word order: the indirect question is a subordinate clause, so the conjugated verb goes to the end, and a separable verb joins up again (Wann fährt der Zug ab? → …, wann der Zug abfährt). The question mark belongs to the whole sentence: after Können Sie mir sagen, … there is one; after Ich weiß nicht, … there is a full stop. In this quiz each item shows the direct question; you write the linking word and the verb at the end.",
       "tips": [
         {
@@ -5763,6 +7158,46 @@
             ],
             "answer": "ankommt",
             "why": "At the end of a subordinate clause the separable verb joins up again into one word: ankommt."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Opener",
+              "Question word",
+              "Middle",
+              "Verb(s)"
+            ],
+            "hot": [
+              1,
+              3
+            ],
+            "caption": "New at this step: separable verbs join up again, and a helper verb comes last.",
+            "rows": [
+              {
+                "cells": [
+                  "Wissen Sie,",
+                  "wann",
+                  "der Zug",
+                  "abfährt?"
+                ]
+              },
+              {
+                "cells": [
+                  "Können Sie mir sagen,",
+                  "ob",
+                  "ich hier",
+                  "parken darf?"
+                ]
+              },
+              {
+                "cells": [
+                  "Ich frage mich,",
+                  "wo",
+                  "ich den Schlüssel",
+                  "hingelegt habe."
+                ]
+              }
+            ]
           }
         },
         {
@@ -5828,7 +7263,7 @@
           },
           {
             "cells": [
-              "Fährt der Zug ab?",
+              "Fährt der Zug schon ab?",
               "Weißt du, ob der Zug schon abfährt?"
             ]
           },
@@ -5896,7 +7331,6 @@
           "welche"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "Können Sie mir sagen, wann fährt der Zug ab?",
@@ -5913,7 +7347,12 @@
           "right": "Sie hat gefragt, ob ich Zeit habe.",
           "why": "Verb to the end, and the person changes from du to ich."
         }
-      ]
+      ],
+      "hook": "Ask strangers and officials politely – Können Sie mir sagen, wann der Zug abfährt? – by tucking the question into a sentence.",
+      "recall": {
+        "known": "From \"Indirekte Fragen: ob & W-Wort\": wrap the question and send the verb to the end.",
+        "today": "Separable verbs join up again, and a modal or Perfekt helper comes last."
+      }
     }
   },
   {
@@ -5924,7 +7363,6 @@
     ],
     "title": "falls, da, trotzdem",
     "help": {
-      "hook": "falls, da and trotzdem let you plan for the unexpected, give reasons and carry on anyway, and each one moves the verb differently.",
       "intro": "Three connectors round off your set of reasons, conditions and contrasts. falls means \"if / in case\" and is a more careful wenn for a condition that may or may not happen: Falls du Hilfe brauchst, ruf mich an. Nimm einen Schirm mit, falls es regnet (in case — here wenn would not work). da means \"as / since\" and gives a reason the listener already knows or can accept; it usually opens the sentence: Da heute Feiertag ist, sind die Geschäfte geschlossen. Both falls and da are subordinating conjunctions like weil and obwohl: the verb goes to the end. trotzdem means \"nevertheless / anyway\" and is the partner of obwohl: the same contrast, but an adverb, so it takes position 1 or sits in the middle and the verb stays second: Es regnete. Trotzdem gingen wir spazieren. = Obwohl es regnete, gingen wir spazieren. Its opposite partner is deshalb (that’s why). The quiz mixes all of them, so read the verb position before you choose.",
       "tips": [
         {
@@ -6026,6 +7464,21 @@
             ],
             "answer": "Trotzdem",
             "why": "The verb sind comes straight after the gap, so you need an adverb. trotzdem is the adverb partner of obwohl."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "conjunction: verb last",
+            "right": "adverb: verb second",
+            "rows": [
+              {
+                "a": "Weil es regnet, bleibe ich hier.",
+                "b": "Es regnet, deshalb bleibe ich hier."
+              },
+              {
+                "a": "Obwohl es regnet, gehe ich raus.",
+                "b": "Es regnet, trotzdem gehe ich raus."
+              }
+            ]
           }
         },
         {
@@ -6150,7 +7603,6 @@
           "falls"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "Es regnete. Trotzdem wir gingen spazieren.",
@@ -6167,7 +7619,8 @@
           "right": "Nimm einen Schirm mit, falls es regnet.",
           "why": "'in case' is falls."
         }
-      ]
+      ],
+      "hook": "falls, da and trotzdem let you plan for the unexpected, give reasons and carry on anyway, and each one moves the verb differently."
     }
   },
   {
@@ -6177,7 +7630,6 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "hook": "Work, study, flats and opinions: the words you need to apply for a job or argue a point, each noun with its plural.",
       "intro": "Every word this module's exercises use, on one deck of flashcards: 266 cards, 122 of them nouns. The vocabulary of this module is work, study, media and opinions, and the verbs and connectors you need to argue a point, from the themes Arbeit & Beruf, Bildung & Studium, Beziehungen & Meinungen, Wohnen. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
@@ -6209,68 +7661,87 @@
             ],
             "answer": "Kollegen",
             "why": "The plural note -n tells you to add -n: die Kollegen."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "singular",
+            "right": "plural",
+            "rows": [
+              {
+                "a": "die Bewerbung",
+                "b": "die Bewerbungen"
+              },
+              {
+                "a": "der Vertrag",
+                "b": "die Verträge"
+              },
+              {
+                "a": "das Gehalt",
+                "b": "die Gehälter"
+              }
+            ]
           }
         },
         {
-          "kind": "mnemonic",
-          "title": "Three modes, three kinds of memory",
-          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before you need the words.",
+          "kind": "rule",
+          "title": "Job words come in families",
+          "text": "Most work words grow from a handful of stems: die Arbeit, der Arbeitgeber, der Arbeitnehmer, arbeitslos; sich bewerben, die Bewerbung, der Bewerber.",
           "examples": [
             {
-              "de": "der Lebenslauf, Plural: ¨-e",
-              "en": "CV",
+              "de": "Ich bewerbe mich um die Stelle.",
+              "en": "I'm applying for the job.",
               "focus": [
-                "Lebenslauf"
+                "bewerbe mich um"
               ]
             },
             {
-              "de": "das Vorstellungsgespräch, Plural: -e",
-              "en": "job interview",
+              "de": "Meine Bewerbung ist fertig.",
+              "en": "My application is ready.",
               "focus": [
-                "Vorstellungsgespräch"
+                "Bewerbung"
               ]
             }
           ],
           "check": {
-            "q": "‘the internship’ in German:",
+            "q": "The person who employs you is …",
             "options": [
-              "das Praktikum",
-              "der Praktikum",
-              "die Praktikum"
+              "der Arbeitgeber",
+              "der Arbeitnehmer",
+              "der Bewerber"
             ],
-            "answer": "das Praktikum",
-            "why": "Praktikum is neuter: das Praktikum, like most nouns ending in -um."
+            "answer": "der Arbeitgeber",
+            "why": "der Arbeitgeber gives (geben) the work; der Arbeitnehmer takes (nehmen) it."
           }
         },
         {
           "kind": "warning",
-          "title": "A noun without its article is marked wrong",
-          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "title": "Adjectives as people keep their endings",
+          "text": "der Angestellte, ein Angestellter, die Angestellten: a person named by an adjective changes its ending like an adjective.",
           "examples": [
             {
-              "de": "das Gehalt, Plural: ¨-er",
-              "en": "salary",
+              "de": "Er ist ein Angestellter der Stadt.",
+              "en": "He is an employee of the city.",
               "focus": [
-                "das"
+                "ein Angestellter"
               ]
             },
             {
-              "de": "der Vertrag, Plural: ¨-e",
-              "en": "contract",
+              "de": "Die Erwachsenen zahlen mehr.",
+              "en": "The adults pay more.",
               "focus": [
-                "der"
+                "Die Erwachsenen"
               ]
             }
           ],
           "check": {
-            "q": "‘the appointment’ in German:",
+            "q": "Sie ist ____ in einer Bank.",
             "options": [
-              "der Termin",
-              "Termin",
-              "die Termin"
+              "Angestellte",
+              "Angestellter",
+              "Angestellten"
             ],
-            "answer": "der Termin",
-            "why": "A noun is only half learnt without its article, and Termin is masculine: der Termin."
+            "answer": "Angestellte",
+            "why": "No article and a woman: Angestellte, like eine alte."
           }
         }
       ],
@@ -6279,7 +7750,7 @@
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
         "Verbs and adjectives have no article: type them as they stand, like \"arbeitslos\"."
       ],
-      "exam": null
+      "hook": "Work, study, flats and opinions: the words you need to apply for a job or argue a point, each noun with its plural."
     }
   },
   {
@@ -6294,7 +7765,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the office: the last part decides",
           "text": "Office words are full of compounds, and only the last part decides the article. Schreibtisch + Lampe: die Lampe, so die Schreibtischlampe. Papier + Korb: der Korb, so der Papierkorb. Notiz + Buch: das Buch, so das Notizbuch.",
           "examples": [
             {
@@ -6321,6 +7792,37 @@
             ],
             "answer": "Der",
             "why": "The last part is der Rechner, so the whole word is der Taschenrechner."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "schreiben"
+                  },
+                  {
+                    "text": "der Tisch",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Schreibtisch",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "der Drucker"
+                  },
+                  {
+                    "text": "die Patrone",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Druckerpatrone",
+                "gender": "f"
+              }
+            ]
           }
         },
         {
@@ -6941,7 +8443,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the surgery: the last part decides",
           "text": "Medical words are long, but only the last part decides the article. Untersuchung + Liege: die Liege, so die Untersuchungsliege. Medizin + Schrank: der Schrank, so der Medizinschrank. Blutdruck + Messgerät: das Gerät, so das Blutdruckmessgerät.",
           "examples": [
             {
@@ -6968,6 +8470,45 @@
             ],
             "answer": "Der",
             "why": "The last part is der Spender, so the whole word is der Seifenspender."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "das Blut"
+                  },
+                  {
+                    "text": "der Druck",
+                    "role": "suffix"
+                  },
+                  {
+                    "text": "das Gerät",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Blutdruckgerät",
+                "gender": "n"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "die Untersuchung"
+                  },
+                  {
+                    "text": "s",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "die Liege",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Untersuchungsliege",
+                "gender": "f"
+              }
+            ]
           }
         },
         {

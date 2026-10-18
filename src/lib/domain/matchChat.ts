@@ -12,8 +12,8 @@
 //     sentence the bank allows is graded fairly.
 //
 // Interest (0–10, starts at 5) moves by the intent's value plus a bonus for a
-// perfect sentence. At 0 the character deletes the match on the spot. Every
-// chat happens once: the whole state is the log of sent sentences, saved after
+// perfect sentence. At 0 the character deletes the match on the spot. No
+// second tries inside a chat: the whole state is the log of sent sentences, saved after
 // each turn and replayed through these pure functions to rebuild the chat.
 
 // -- content ------------------------------------------------------------------
@@ -1079,11 +1079,41 @@ export interface Contact {
 	state: ChatState;
 }
 
+/** A like: the character stays as a contact. Any other ending lets them go. */
+export function isLiked(ending: Ending | null | undefined): boolean {
+	return ending === 'win' || ending === 'secret';
+}
+
+/**
+ * A chat that ended without a like is forgotten: the save goes, and so does
+ * the meeting, so the character leaves the contacts and can turn up in the
+ * deck again for another chance. The chat page keeps its ending on screen
+ * until the learner leaves.
+ */
+export function forgetMatch(id: string): void {
+	clearChat(id);
+	const met = metChats();
+	if (!met.delete(id)) return;
+	try {
+		localStorage.setItem(MET_KEY, JSON.stringify([...met]));
+	} catch {
+		/* nothing to forget */
+	}
+}
+
+/** Forgets every chat saved with an ending that was not a like (saves from before the rule). */
+export function forgetUnliked(): void {
+	for (const chat of MATCH_CHATS) {
+		const saved = loadChat(chat.id);
+		if (saved?.ending && !isLiked(saved.ending)) forgetMatch(chat.id);
+	}
+}
+
 /** Everyone who liked the learner back, newest first. */
 export function contacts(): Contact[] {
 	return MATCH_CHATS.flatMap((chat) => {
 		const saved = loadChat(chat.id);
-		if (!saved?.ending || (saved.ending !== 'win' && saved.ending !== 'secret')) return [];
+		if (!saved || !isLiked(saved.ending)) return [];
 		return [{ chat, saved, state: replay(chat, saved.log, saved.name) }];
 	}).sort((a, b) => (b.saved.endedAt ?? 0) - (a.saved.endedAt ?? 0));
 }
@@ -1222,7 +1252,8 @@ export function availableChats(saved: (id: string) => SavedChat | null = loadCha
  * The character the course deck would deal, if any. A chat in progress comes
  * first: started is enough, even if the learner left before the first answer.
  * Otherwise the next unplayed character at the learner's module, or the
- * nearest one around it. Whether the hand gets a surprise at all, and which
+ * nearest one around it; one whose chat ended without a like counts as
+ * unplayed, so they get another chance. Whether the hand gets a surprise at all, and which
  * kind, is decided by domain/surprise; skipped cards sit out like any other.
  */
 export function chatDeckCard(
@@ -1236,7 +1267,10 @@ export function chatDeckCard(
 		return s && !s.ending;
 	});
 	if (live) return { chat: live, resume: true };
-	const fresh = chats.filter((c) => !saved(c.id));
+	const fresh = chats.filter((c) => {
+		const s = saved(c.id);
+		return !s || (s.ending && !isLiked(s.ending));
+	});
 	if (!fresh.length) return null;
 	const target = level ? levelRank(level) : 0;
 	// Nearest module first, the easier side winning a tie.

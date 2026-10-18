@@ -6,7 +6,6 @@
     ],
     "title": "Technik & Medien",
     "help": {
-      "hook": "Download, save, switch it off and on again: the German words you need when your phone or laptop acts up.",
       "intro": "Medien und Technik is a theme you talk about every day, and its vocabulary is unusual in one way: much of it is English, but not the way you'd guess. Some words are borrowed whole and given a gender (der Computer, das Handy — which is not English at all —, die App, der Laptop, die E-Mail, das WLAN for Wi-Fi); some are German verbs built on the borrowed nouns (downloaden and herunterladen both exist, but herunterladen is the standard; speichern = save, drucken = print, klicken, hochladen = upload, ausschalten / einschalten = switch off/on); and some are plain German with no English echo at all (der Bildschirm = screen, das Gerät = device, das Passwort, der Akku = battery, die Datei = file, die Nachricht = message, die Festplatte = hard drive). Learn the verbs with their separable prefixes: Ich lade die App herunter; Schalte das Gerät aus.",
       "tips": [
         {
@@ -42,6 +41,35 @@
             ],
             "answer": "Ich lade die App herunter.",
             "why": "herunterladen is separable: lade sits in position 2 and herunter goes to the very end."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "lade",
+                  "die App",
+                  "herunter."
+                ]
+              },
+              {
+                "cells": [
+                  "Schalt",
+                  "",
+                  "den Computer",
+                  "aus!"
+                ]
+              },
+              {
+                "cells": [
+                  "Du",
+                  "musst",
+                  "das Handy",
+                  "neu starten."
+                ]
+              }
+            ]
           }
         },
         {
@@ -144,6 +172,25 @@
             ],
             "answer": "hochladen",
             "why": "Putting something online is going up: hochladen = upload. herunterladen is download."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "verb",
+            "right": "direction",
+            "rows": [
+              {
+                "a": "herunterladen",
+                "b": "from the internet to you ↓"
+              },
+              {
+                "a": "hochladen",
+                "b": "from you to the internet ↑"
+              },
+              {
+                "a": "einschalten · ausschalten",
+                "b": "switch on · off"
+              }
+            ]
           }
         }
       ],
@@ -253,7 +300,7 @@
           "why": "speichern = to save."
         }
       ],
-      "exam": null
+      "hook": "Download, save, switch it off and on again: the German words you need when your phone or laptop acts up."
     }
   },
   {
@@ -264,7 +311,6 @@
     ],
     "title": "Präteritum: regelmäßig",
     "help": {
-      "hook": "Write about your past the way German stories are written — one simple -te pattern turns kaufen into kaufte and wohnen into wohnte.",
       "intro": "You already recognise the Präteritum; now you write in it. Regular (weak) verbs form it by adding -te to the stem and then the past endings: ich arbeitete, du arbeitetest, er arbeitete, wir arbeiteten, ihr arbeitetet, sie arbeiteten. Stems ending in -t, -d, or a consonant cluster with -m/-n (arbeiten, reden, warten, öffnen, atmen) insert an -e- before the -te so it can be pronounced: arbeitete, redete, öffnete. The first and third person singular are identical (ich lernte / er lernte), and there is no -t in the third person. This is the tense of stories, reports, newspapers and any written account of what happened; in speech, the Perfekt is still normal — except for war, hatte and the modals, which are always Präteritum.",
       "tips": [
         {
@@ -297,6 +343,37 @@
             ],
             "answer": "kaufte",
             "why": "Regular verbs add -te to the stem: kauf-te. ich takes no extra ending, and -ete is only for stems ending in t, d or consonant + m/n."
+          },
+          "visual": {
+            "kind": "people",
+            "columns": [
+              {
+                "label": "wohnen",
+                "forms": [
+                  "wohnte",
+                  "wohntest",
+                  "wohnte",
+                  "wohnten",
+                  "wohntet",
+                  "wohnten"
+                ]
+              },
+              {
+                "label": "arbeiten",
+                "forms": [
+                  "arbeitete",
+                  "arbeitetest",
+                  "arbeitete",
+                  "arbeiteten",
+                  "arbeitetet",
+                  "arbeiteten"
+                ]
+              }
+            ],
+            "hot": [
+              0,
+              2
+            ]
           }
         },
         {
@@ -363,6 +440,17 @@
             ],
             "answer": "Ich habe gestern Tennis gespielt.",
             "why": "In everyday speech Germans use the Perfekt for most verbs; spielte belongs in written stories and reports."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "written story (Präteritum)",
+            "right": "spoken (Perfekt)",
+            "rows": [
+              {
+                "a": "Sie wohnte zehn Jahre in Wien.",
+                "b": "Sie hat zehn Jahre in Wien gewohnt."
+              }
+            ]
           }
         },
         {
@@ -483,7 +571,70 @@
           "why": "Plural takes -n."
         }
       ],
-      "exam": null
+      "hook": "Write about your past the way German stories are written — one simple -te pattern turns kaufen into kaufte and wohnen into wohnte.",
+      "recall": {
+        "known": "From \"Präteritum: erste Schritte\": stem + -te, and ich = er.",
+        "today": "The -ete verbs, and when to write the Präteritum and when to say the Perfekt."
+      },
+      "table": {
+        "caption": "Regular Präteritum",
+        "columns": [
+          "",
+          "machen",
+          "arbeiten",
+          "ending"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "ich",
+              "machte",
+              "arbeitete",
+              "-te"
+            ]
+          },
+          {
+            "cells": [
+              "du",
+              "machtest",
+              "arbeitetest",
+              "-test"
+            ]
+          },
+          {
+            "cells": [
+              "er / sie / es",
+              "machte",
+              "arbeitete",
+              "-te"
+            ]
+          },
+          {
+            "cells": [
+              "wir",
+              "machten",
+              "arbeiteten",
+              "-ten"
+            ]
+          },
+          {
+            "cells": [
+              "ihr",
+              "machtet",
+              "arbeitetet",
+              "-tet"
+            ]
+          },
+          {
+            "cells": [
+              "sie / Sie",
+              "machten",
+              "arbeiteten",
+              "-ten"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -494,7 +645,6 @@
     ],
     "title": "Präteritum: unregelmäßig",
     "help": {
-      "hook": "Tell what happened with ging, kam, sah and fuhr: the vowel-changing past forms every story is built on.",
       "intro": "Irregular (strong) verbs form the Präteritum by changing the stem vowel and adding no -te: gehen → ging, kommen → kam, sehen → sah, finden → fand, geben → gab, fahren → fuhr, nehmen → nahm, essen → aß, trinken → trank, schreiben → schrieb, lesen → las, schlafen → schlief, bleiben → blieb, werden → wurde. The singular ich/er forms have no ending at all (ich ging, er ging), du takes -st (du gingst), the plural takes -en / -t (wir gingen, ihr gingt, sie gingen). The vowel changes fall into families that help memory — ei → ie (bleiben/blieb, schreiben/schrieb), i → a (finden/fand, trinken/trank, singen/sang), e → a (geben/gab, sehen/sah, essen/aß), a → u (fahren/fuhr, tragen/trug) — and the Präteritum is the middle column of the verb triples you already know from the Perfekt: gehen – ging – gegangen. Around sixty strong verbs cover almost everything you will read in stories and reports; this quiz has the fifteen most frequent.",
       "tips": [
         {
@@ -530,6 +680,26 @@
             ],
             "answer": "kam",
             "why": "kommen is irregular: the vowel changes to kam and no -te is added, and er has no ending."
+          },
+          "visual": {
+            "kind": "people",
+            "columns": [
+              {
+                "label": "gehen",
+                "forms": [
+                  "ging",
+                  "gingst",
+                  "ging",
+                  "gingen",
+                  "gingt",
+                  "gingen"
+                ]
+              }
+            ],
+            "hot": [
+              0,
+              2
+            ]
           }
         },
         {
@@ -565,6 +735,37 @@
             ],
             "answer": "begann",
             "why": "beginnen belongs to the i → a family, like finden/fand and trinken/trank: begann."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "family",
+            "right": "infinitive – Präteritum – Partizip II",
+            "rows": [
+              {
+                "a": "ei – ie – ie",
+                "b": "bleiben – blieb – geblieben"
+              },
+              {
+                "a": "ei – i – i",
+                "b": "reiten – ritt – geritten"
+              },
+              {
+                "a": "i – a – u",
+                "b": "trinken – trank – getrunken"
+              },
+              {
+                "a": "e – a – o",
+                "b": "sprechen – sprach – gesprochen"
+              },
+              {
+                "a": "a – u – a",
+                "b": "fahren – fuhr – gefahren"
+              },
+              {
+                "a": "e – a – e",
+                "b": "geben – gab – gegeben"
+              }
+            ]
           }
         },
         {
@@ -728,7 +929,66 @@
           "why": "Plural takes -en."
         }
       ],
-      "exam": null
+      "hook": "Tell what happened with ging, kam, sah and fuhr: the vowel-changing past forms every story is built on.",
+      "table": {
+        "caption": "The vowel families",
+        "columns": [
+          "family",
+          "infinitive",
+          "Präteritum",
+          "Partizip II"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "ei – ie – ie",
+              "bleiben, schreiben",
+              "blieb, schrieb",
+              "geblieben, geschrieben"
+            ]
+          },
+          {
+            "cells": [
+              "i – a – u",
+              "trinken, finden",
+              "trank, fand",
+              "getrunken, gefunden"
+            ]
+          },
+          {
+            "cells": [
+              "e – a – o",
+              "sprechen, helfen",
+              "sprach, half",
+              "gesprochen, geholfen"
+            ]
+          },
+          {
+            "cells": [
+              "e – a – e",
+              "geben, sehen, lesen",
+              "gab, sah, las",
+              "gegeben, gesehen, gelesen"
+            ]
+          },
+          {
+            "cells": [
+              "a – u – a",
+              "fahren, tragen",
+              "fuhr, trug",
+              "gefahren, getragen"
+            ]
+          },
+          {
+            "cells": [
+              "unique",
+              "gehen, kommen, sein",
+              "ging, kam, war",
+              "gegangen, gekommen, gewesen"
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -738,7 +998,6 @@
     ],
     "title": "Präteritum: Mischverben",
     "help": {
-      "hook": "bringen, denken, wissen, kennen: nine everyday verbs change their vowel and add -te, so brachte, dachte and wusste come out right.",
       "intro": "A small third group of verbs mixes the two systems: they change their vowel like a strong verb and take the -te of a weak verb. There are only nine of them, and they are among the commonest verbs in the language: bringen → brachte (gebracht), denken → dachte (gedacht), wissen → wusste (gewusst), kennen → kannte (gekannt), nennen → nannte (genannt), rennen → rannte (gerannt), brennen → brannte (gebrannt), senden → sandte (gesandt), wenden → wandte (gewandt). The last two also have regular forms — sendete, wendete — which are just as correct and are the only possible forms for a broadcast (Das Radio sendete …) or for turning a car (Er wendete das Auto). The modals follow the same pattern: können → konnte, müssen → musste, dürfen → durfte, mögen → mochte, and haben → hatte. Note the consonant change in bringen and denken (ng/nk → ch: brachte, dachte) and the vowel e → a in kennen, nennen, rennen, brennen. The participle keeps the same changed stem with ge- + -t.",
       "tips": [
         {
@@ -773,6 +1032,63 @@
             ],
             "answer": "dachte",
             "why": "denken is a mixed verb: the stem changes to dach- and takes -te, so ich dachte."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "brach"
+                  },
+                  {
+                    "text": "te",
+                    "role": "ending"
+                  }
+                ],
+                "result": "brachte",
+                "en": "bringen"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "dach"
+                  },
+                  {
+                    "text": "te",
+                    "role": "ending"
+                  }
+                ],
+                "result": "dachte",
+                "en": "denken"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "kann"
+                  },
+                  {
+                    "text": "te",
+                    "role": "ending"
+                  }
+                ],
+                "result": "kannte",
+                "en": "kennen"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "wuss"
+                  },
+                  {
+                    "text": "te",
+                    "role": "ending"
+                  }
+                ],
+                "result": "wusste",
+                "en": "wissen"
+              }
+            ]
           }
         },
         {
@@ -915,7 +1231,6 @@
           "why": "For broadcasting only the regular form sendete is used."
         }
       ],
-      "exam": null,
       "table": {
         "caption": "Mixed verbs",
         "columns": [
@@ -1030,7 +1345,8 @@
           "de": "mögen – mochte – gemocht",
           "en": "to like"
         }
-      ]
+      ],
+      "hook": "bringen, denken, wissen, kennen: nine everyday verbs change their vowel and add -te, so brachte, dachte and wusste come out right."
     }
   },
   {
@@ -1040,7 +1356,6 @@
     ],
     "title": "Plusquamperfekt: hatte / war + Partizip II",
     "help": {
-      "hook": "Reach one step further back in a story: Als ich ankam, war der Zug schon abgefahren, the train had already gone.",
       "intro": "The Plusquamperfekt is the past before the past: when you are already telling a story in the Präteritum or Perfekt and need to reach one step further back. Als ich ankam, war der Zug schon abgefahren (when I arrived, the train had already left). Nachdem wir gegessen hatten, gingen wir spazieren. It is built exactly like the Perfekt, but with the helper in the Präteritum: hatte / war + Partizip II — hatte gegessen, war gegangen; the same haben/sein choice as in the Perfekt (movement and change of state take sein). Its natural partner is nachdem (after), which almost always takes the Plusquamperfekt in its clause and the Präteritum in the main clause, and the adverb schon (already). You need it to read narratives and to write 'nachdem'-sentences correctly. In the quiz you write both parts in their places: in a main clause the helper is in position 2 and the participle at the end (… war der Zug schon abgefahren); in a nachdem- or weil-clause the participle comes first and the helper is the very last word (Nachdem wir gegessen hatten, …).",
       "tips": [
         {
@@ -1075,6 +1390,22 @@
             ],
             "answer": "waren",
             "why": "einschlafen is a change of state, so it takes sein; the earlier event goes into the Plusquamperfekt: waren eingeschlafen."
+          },
+          "visual": {
+            "kind": "timeline",
+            "caption": "Two steps back: the train had left before I arrived.",
+            "marks": [
+              {
+                "at": -2.4,
+                "label": "earlier past",
+                "de": "Der Zug war abgefahren."
+              },
+              {
+                "at": -0.9,
+                "label": "past",
+                "de": "Ich kam an."
+              }
+            ]
           }
         },
         {
@@ -1110,6 +1441,27 @@
             ],
             "answer": "hatte",
             "why": "The main clause is Präteritum (ging), so the nachdem-clause goes one step further back: geschrieben hatte. schreiben takes haben."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "nachdem-clause",
+              "Verb",
+              "Rest"
+            ],
+            "hot": [
+              0,
+              1
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Nachdem wir gegessen hatten,",
+                  "gingen",
+                  "wir spazieren."
+                ]
+              }
+            ]
           }
         },
         {
@@ -1214,7 +1566,6 @@
           "why": "The earlier event needs the Plusquamperfekt."
         }
       ],
-      "exam": null,
       "table": {
         "caption": "Plusquamperfekt: hatte / war + Partizip II",
         "columns": [
@@ -1301,7 +1652,8 @@
           "de": "buchen – hat gebucht",
           "en": "to book"
         }
-      ]
+      ],
+      "hook": "Reach one step further back in a story: Als ich ankam, war der Zug schon abgefahren, the train had already gone."
     }
   },
   {
@@ -1312,7 +1664,6 @@
     ],
     "title": "Temporalsätze: nachdem, bevor, während, seit, bis",
     "help": {
-      "hook": "Put events in order — before, after, while, since, until — and your stories stop being a flat list of sentences.",
       "intro": "Temporal clauses fix the order of events, and German has one conjunction per relation, each sending its verb to the end. Earlier: nachdem (after — with the Plusquamperfekt) and als / wenn (when — one past event / repeated or future). Same time: während (while). Later: bevor (before), bis (until). Start point: seit / seitdem (since — present tense in German where English uses the perfect: Seit ich hier wohne, habe ich kein Auto). Trigger: sobald (as soon as). Every one of these has a preposition twin for use with a noun — nach dem Essen, vor dem Film, während der Arbeit, seit zwei Jahren, bis Montag — and choosing clause or noun phrase comes later in the course; for now, the clauses. Note bevor and während take the same tense as the main clause; only nachdem shifts back. The quiz tests both decisions: which conjunction fits, and which tense follows it — Plusquamperfekt after nachdem, the present after seit, the same tense as the main clause after bevor.",
       "tips": [
         {
@@ -1345,6 +1696,32 @@
             ],
             "answer": "Nachdem",
             "why": "nachdem marks the earlier event and takes the Plusquamperfekt (gegessen hatten); bevor and während keep the main clause's tense."
+          },
+          "visual": {
+            "kind": "timeline",
+            "axis": {
+              "start": "earlier",
+              "end": "later",
+              "now": "the main event"
+            },
+            "marks": [
+              {
+                "at": -2,
+                "label": "the clause happens first",
+                "de": "nachdem …"
+              },
+              {
+                "at": -0.9,
+                "to": 0.9,
+                "label": "at the same time",
+                "de": "während …"
+              },
+              {
+                "at": 2,
+                "label": "the clause happens after",
+                "de": "bevor … / bis …"
+              }
+            ]
           }
         },
         {
@@ -1443,6 +1820,25 @@
             ],
             "answer": "Nach",
             "why": "nachdem's preposition twin is nach (+ Dativ): nach dem Essen."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "conjunction + clause",
+            "right": "preposition + noun",
+            "rows": [
+              {
+                "a": "nachdem wir gegessen hatten",
+                "b": "nach dem Essen"
+              },
+              {
+                "a": "bevor die Sitzung beginnt",
+                "b": "vor der Sitzung"
+              },
+              {
+                "a": "während ich arbeite",
+                "b": "während der Arbeit"
+              }
+            ]
           }
         }
       ],
@@ -1484,7 +1880,6 @@
           "why": "nachdem with a past main clause needs the Plusquamperfekt in its own clause (hatte / war + participle)."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "nachdem",
@@ -1526,7 +1921,60 @@
           "de": "ankommen",
           "en": "to arrive"
         }
-      ]
+      ],
+      "hook": "Put events in order — before, after, while, since, until — and your stories stop being a flat list of sentences.",
+      "table": {
+        "caption": "Time conjunctions",
+        "columns": [
+          "conjunction",
+          "the clause happens",
+          "example"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "nachdem",
+              "before the main event (Plusquamperfekt)",
+              "Nachdem wir gegessen hatten, gingen wir."
+            ]
+          },
+          {
+            "cells": [
+              "bevor",
+              "after the main event",
+              "Bevor du gehst, ruf mich an."
+            ]
+          },
+          {
+            "cells": [
+              "während",
+              "at the same time",
+              "Während ich koche, hört sie Musik."
+            ]
+          },
+          {
+            "cells": [
+              "seit(dem)",
+              "from then until now",
+              "Seitdem er hier wohnt, ist er glücklich."
+            ]
+          },
+          {
+            "cells": [
+              "bis",
+              "up to that point",
+              "Warte, bis ich komme."
+            ]
+          },
+          {
+            "cells": [
+              "sobald",
+              "as soon as",
+              "Sobald ich Zeit habe, rufe ich an."
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -1538,7 +1986,6 @@
     ],
     "title": "Großer Text: Der kleine Ritter",
     "help": {
-      "hook": "Retell a fairy tale the way German children hear it — Es war einmal … — with every verb in the storytelling past.",
       "intro": "A fairy tale of about 170 words about a little knight and a dragon, with twelve verbs to fill in — all in the Präteritum, the tense every German story is told in from the first Es war einmal. Each gap gives you only the infinitive; you decide which kind of verb it is and supply the past form with the right ending for the subject. Regular verbs take -te: wohnte, kämpfte, erzählte, lachte. Irregular verbs change their vowel and take no -te: kam, nahm, ritt, sprach, wurden. bringen is a mixed verb (brachte), and sein and haben have their own forms (war, hatten). Watch the subject: der Ritter needs no ending after the stem or -te, die Menschen and die beiden need -en. Read the whole story first, because the story’s logic tells you the verb before the gap does.",
       "tips": [
         {
@@ -1639,6 +2086,38 @@
             ],
             "answer": "Eines",
             "why": "Eines Tages ('one day') is the fixed signpost that starts the main event of a story."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Opening",
+                "de": [
+                  "Es war einmal …"
+                ]
+              },
+              {
+                "label": "The trigger",
+                "de": [
+                  "Eines Tages …"
+                ]
+              },
+              {
+                "label": "The events",
+                "de": [
+                  "Da …",
+                  "Plötzlich …",
+                  "Dann …"
+                ]
+              },
+              {
+                "label": "The end",
+                "de": [
+                  "Am Ende …",
+                  "… und wenn sie nicht gestorben sind, …"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -1646,7 +2125,7 @@
         "Story = Präteritum, from Es war einmal to Am Ende.",
         "Infinitive → regular / irregular / mixed → ending for the subject."
       ],
-      "exam": null
+      "hook": "Retell a fairy tale the way German children hear it — Es war einmal … — with every verb in the storytelling past."
     }
   },
   {
@@ -1726,6 +2205,36 @@
             ],
             "answer": "Plötzlich hat es angefangen zu regnen.",
             "why": "A signpost in position 1 is followed directly by the verb, then the subject."
+          },
+          "visual": {
+            "kind": "timeline",
+            "axis": {
+              "start": "start",
+              "end": "end",
+              "now": null
+            },
+            "marks": [
+              {
+                "at": -2.6,
+                "label": "set the scene",
+                "de": "Letzte Woche …"
+              },
+              {
+                "at": -1,
+                "label": "the turn",
+                "de": "Plötzlich …"
+              },
+              {
+                "at": 0.6,
+                "label": "what followed",
+                "de": "Danach …"
+              },
+              {
+                "at": 2.2,
+                "label": "the point",
+                "de": "Am Ende …"
+              }
+            ]
           }
         },
         {
@@ -1776,7 +2285,6 @@
     ],
     "title": "Passiv (Präsens)",
     "help": {
-      "hook": "Say how things get done without naming who does them, just like signs, recipes and news reports: Hier wird Deutsch gesprochen.",
       "intro": "The present passive, met earlier for recognition, is now yours to build: werden in position 2, the Partizip II at the end, and the doer — if named at all — after von + dative. Hier wird Deutsch gesprochen. Das Auto wird gerade repariert. Die Briefe werden jeden Tag gebracht. Die Rechnung wird von meinem Chef bezahlt. The passive is chosen when the action matters more than the actor (rules, processes, notices, recipes, news), and it is the normal voice of instructions and descriptions of how things are done — which makes it a core reading structure and a useful writing one (In unserer Firma wird viel Englisch gesprochen). werden agrees with the new subject — the thing the action is done to: Das Brot wird gebacken; die Brötchen werden gebacken. In the quiz you type both halves: the form of werden, which agrees with the new subject (wird / werden), and the Partizip II at the end.",
       "tips": [
         {
@@ -1811,6 +2319,19 @@
             ],
             "answer": "wird",
             "why": "An action in progress uses werden + Partizip II; ist gewaschen would describe the finished state."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Die Briefe",
+                  "werden",
+                  "jeden Morgen",
+                  "verteilt."
+                ]
+              }
+            ]
           }
         },
         {
@@ -1845,6 +2366,21 @@
             ],
             "answer": "Der Salat wird vorbereitet.",
             "why": "The accusative object den Salat becomes the nominative subject der Salat, wird stays in position 2 and the participle goes last."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "active",
+            "right": "passive",
+            "rows": [
+              {
+                "a": "Der Mechaniker repariert das Auto.",
+                "b": "Das Auto wird (vom Mechaniker) repariert."
+              },
+              {
+                "a": "Man spricht hier Deutsch.",
+                "b": "Hier wird Deutsch gesprochen."
+              }
+            ]
           }
         },
         {
@@ -1988,7 +2524,38 @@
           "why": "The doer takes von + dative, and the participle is last."
         }
       ],
-      "exam": null
+      "hook": "Say how things get done without naming who does them, just like signs, recipes and news reports: Hier wird Deutsch gesprochen.",
+      "recall": {
+        "known": "From \"Passiv Präsens: Das wird gemacht\": werden + participle.",
+        "today": "Turning an active sentence round, and von for the doer, durch for the means."
+      },
+      "table": {
+        "caption": "Active and passive",
+        "columns": [
+          "active",
+          "passive"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "Der Koch macht die Suppe.",
+              "Die Suppe wird (vom Koch) gemacht."
+            ]
+          },
+          {
+            "cells": [
+              "Man repariert das Auto.",
+              "Das Auto wird repariert."
+            ]
+          },
+          {
+            "cells": [
+              "Man spricht hier Deutsch.",
+              "Hier wird Deutsch gesprochen."
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -2062,6 +2629,17 @@
             ],
             "answer": "at 9.40",
             "why": "The time after sondern is the valid one; the first time is the old plan."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "first said",
+            "right": "the real answer",
+            "rows": [
+              {
+                "a": "nicht von Gleis 5,",
+                "b": "sondern von Gleis 8"
+              }
+            ]
           }
         },
         {
@@ -2111,7 +2689,6 @@
     ],
     "title": "Passiv (Präteritum)",
     "help": {
-      "hook": "Was founded, was invented, was born: with wurde plus a participle you can tell history, follow the news and say when you were born.",
       "intro": "The passive in the past uses the Präteritum of werden — wurde, wurdest, wurde, wurden, wurdet, wurden — with the Partizip II at the end: Das Haus wurde 1990 gebaut. Amerika wurde 1492 entdeckt. Die Briefe wurden gestern geschrieben. This is the tense of history, biography and reports (wurde gegründet, wurde erfunden, wurde geboren — born is a passive!), and of the news (Die Straße wurde gesperrt). There is also a Perfekt passive — Das Haus ist gebaut worden — with the special short participle worden instead of geworden; it is used in speech where the Präteritum passive is used in writing, and both mean the same. The next quiz adds the modal passive; for now, wurde + participle is the form to make automatic. In the quiz you type both parts: wurde or wurden, agreeing with the subject, and the Partizip II at the end.",
       "tips": [
         {
@@ -2146,6 +2723,21 @@
             ],
             "answer": "wurdest",
             "why": "wurde takes the du ending -st: du wurdest, with the participle geboren at the end."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": -2.5,
+                "label": "1810",
+                "de": "Die Universität wurde gegründet."
+              },
+              {
+                "at": -0.8,
+                "label": "1990",
+                "de": "Das Gebäude wurde renoviert."
+              }
+            ]
           }
         },
         {
@@ -2179,6 +2771,27 @@
             ],
             "answer": "worden",
             "why": "In the Perfekt passive the participle of werden loses its ge-: ist repariert worden."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Das Haus",
+                  "wurde",
+                  "1900",
+                  "gebaut."
+                ]
+              },
+              {
+                "cells": [
+                  "Das Haus",
+                  "ist",
+                  "1900",
+                  "gebaut worden."
+                ]
+              }
+            ]
           }
         },
         {
@@ -2321,7 +2934,42 @@
           "why": "Plural subject: wurden."
         }
       ],
-      "exam": null
+      "hook": "Was founded, was invented, was born: with wurde plus a participle you can tell history, follow the news and say when you were born.",
+      "recall": {
+        "known": "From \"Passiv (Präsens)\": wird + participle.",
+        "today": "The past: wurde + participle, and the spoken ist … worden."
+      },
+      "table": {
+        "caption": "The passive in three tenses",
+        "columns": [
+          "tense",
+          "form",
+          "example"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "Präsens",
+              "wird + Partizip II",
+              "Das Haus wird gebaut."
+            ]
+          },
+          {
+            "cells": [
+              "Präteritum",
+              "wurde + Partizip II",
+              "Das Haus wurde 1900 gebaut."
+            ]
+          },
+          {
+            "cells": [
+              "Perfekt",
+              "ist + Partizip II + worden",
+              "Das Haus ist 1900 gebaut worden."
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -2331,7 +2979,6 @@
     ],
     "title": "Passiv mit Modalverb & Passiv Perfekt",
     "help": {
-      "hook": "Read the rules on every sign and notice, like Hier darf nicht geparkt werden, and write them yourself.",
       "intro": "Two extensions of the passive that turn up in every set of rules and every report. With a modal verb, the modal takes position 2 and the passive infinitive — Partizip II + werden — goes to the end: Das Auto muss repariert werden. Hier darf nicht geparkt werden. Das Formular kann per E-Mail geschickt werden. In the past the modal changes: Das Konzert musste abgesagt werden. And the Perfekt passive uses sein + Partizip II + worden: Das Haus ist gebaut worden — worden, the special short participle of werden, always last. Both forms are intros here (a later module consolidates them), but you already meet them on every sign — Hier darf nicht geraucht werden — and in every news item — Die Straße ist gesperrt worden. The rule to hold on to: the participle never moves; werden or worden follows it.",
       "tips": [
         {
@@ -2368,6 +3015,28 @@
             ],
             "answer": "abgeholt werden",
             "why": "With a modal, the passive infinitive goes to the end: participle first, then werden."
+          },
+          "visual": {
+            "kind": "bracket",
+            "caption": "The modal takes position 2; the participle and werden close the sentence.",
+            "rows": [
+              {
+                "cells": [
+                  "Hier",
+                  "darf",
+                  "nicht",
+                  "geparkt werden."
+                ]
+              },
+              {
+                "cells": [
+                  "Das Formular",
+                  "muss",
+                  "bis Freitag",
+                  "ausgefüllt werden."
+                ]
+              }
+            ]
           }
         },
         {
@@ -2438,6 +3107,19 @@
             ],
             "answer": "worden",
             "why": "The Perfekt passive is sein + Partizip II + worden; geworden is only for 'became'."
+          },
+          "visual": {
+            "kind": "bracket",
+            "rows": [
+              {
+                "cells": [
+                  "Der Brief",
+                  "ist",
+                  "schon",
+                  "geschickt worden."
+                ]
+              }
+            ]
           }
         },
         {
@@ -2506,7 +3188,11 @@
           "why": "The action passive uses werden."
         }
       ],
-      "exam": null
+      "hook": "Read the rules on every sign and notice, like Hier darf nicht geparkt werden, and write them yourself.",
+      "recall": {
+        "known": "From \"Passiv (Präteritum)\": wurde and ist … worden.",
+        "today": "A modal in front: muss … gemacht werden, darf nicht … werden."
+      }
     }
   },
   {
@@ -2519,8 +3205,7 @@
     ],
     "title": "Kurzcheck: Präteritum",
     "help": {
-      "hook": "Tell what happened last weekend and explain how something is made, out loud, in three minutes.",
-      "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: telling something that happened, and describing how something is done. The tutor asks Was ist letztes Wochenende passiert? and Wie wird … gemacht?, and listens for the past forms — war, hatte, ging, kam, wurde — and for the passive frame (wird … gemacht, wurde … gebaut). Speak in whole sentences with the signposts (zuerst, dann, plötzlich, am Ende) and let the verbs land at the end of the passive sentences; the score and corrections come when you type 'Ende'.",
+      "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: telling something that happened, and describing how something is done. The tutor asks Was ist letztes Wochenende passiert? and Wie wird … gemacht?, and listens for the past forms — war, hatte, ging, kam, wurde — and for the passive frame (wird … gemacht, wurde … gebaut). Speak in whole sentences with the signposts (zuerst, dann, plötzlich, am Ende) and let the verbs land at the end of the passive sentences; the score and corrections come at the end (say 'Ende' if you need to finish early).",
       "tips": [
         {
           "kind": "rule",
@@ -2590,6 +3275,29 @@
             ],
             "answer": "werden",
             "why": "A process step is an action, so it takes the werden-passive, and Kartoffeln is plural: werden geschält."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "First",
+                "de": [
+                  "Zuerst wird das Wasser gekocht."
+                ]
+              },
+              {
+                "label": "Then",
+                "de": [
+                  "Dann werden die Nudeln hineingegeben."
+                ]
+              },
+              {
+                "label": "Finally",
+                "de": [
+                  "Zum Schluss wird alles serviert."
+                ]
+              }
+            ]
           }
         }
       ],
@@ -2597,7 +3305,43 @@
         "Story: signposts + past verbs. Process: wird + participle.",
         "Say the participle at the end; don't stop before it."
       ],
-      "exam": null
+      "hook": "Tell what happened last weekend and explain how something is made, out loud, in three minutes.",
+      "vocab": [
+        {
+          "de": "letztes Wochenende",
+          "en": "last weekend"
+        },
+        {
+          "de": "ging",
+          "en": "went (gehen)"
+        },
+        {
+          "de": "kam",
+          "en": "came (kommen)"
+        },
+        {
+          "de": "traf",
+          "en": "met (treffen)"
+        },
+        {
+          "de": "zuerst wird …",
+          "en": "first … is …-ed"
+        },
+        {
+          "de": "Vorgang",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "process"
+        },
+        {
+          "de": "herstellen",
+          "en": "to produce, make"
+        },
+        {
+          "de": "zum Schluss",
+          "en": "finally"
+        }
+      ]
     }
   },
   {
@@ -2607,7 +3351,6 @@
     ],
     "title": "n-Deklination",
     "help": {
-      "hook": "Write 'mit dem Kollegen' and 'an Herrn Müller' correctly — the tiny -n that makes your e-mails look polished.",
       "intro": "The n-Deklination is the one group of nouns that changes its ending for case, and it gets its own quiz here (the adjective-nouns such as der Angestellte had theirs in the previous module). A group of masculine nouns add -n or -en in every case except the nominative singular: der Student → den Studenten, dem Studenten, des Studenten, die Studenten. The members are predictable: (1) masculine nouns for people and animals ending in -e: der Kollege, der Kunde, der Junge, der Neffe, der Löwe, der Affe; (2) masculine nouns with foreign endings -ent, -ant, -ist, -at, -oge, -graf, -nom: der Student, der Praktikant, der Polizist, der Soldat, der Biologe, der Fotograf; (3) a short list of old words: der Herr (den Herrn, but die Herren), der Mensch, der Nachbar, der Bauer, der Held, der Prinz; (4) a few that also take a genitive -s: der Name (des Namens), der Gedanke (des Gedankens), das Herz (des Herzens). Missing the -n on 'mit dem Kollegen' or 'an Herrn Müller' is a small error that every reader of your e-mail will notice.",
       "tips": [
         {
@@ -2642,6 +3385,58 @@
             ],
             "answer": "Kollegen",
             "why": "Kollege is an n-noun: every form except the nominative singular takes -n, so dative dem Kollegen."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "columns": [
+              "sg",
+              "pl"
+            ],
+            "caption": "Only the nominative singular has no -n.",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "der Kollege",
+                  "die Kollegen"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "den Kollegen",
+                  "die Kollegen"
+                ]
+              },
+              {
+                "label": "Dat",
+                "cells": [
+                  "dem Kollegen",
+                  "den Kollegen"
+                ]
+              },
+              {
+                "label": "Gen",
+                "cells": [
+                  "des Kollegen",
+                  "der Kollegen"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ]
           }
         },
         {
@@ -2830,7 +3625,6 @@
           "why": "Name adds -ns in the genitive."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "Student",
@@ -2904,7 +3698,8 @@
           "plural": "-n",
           "en": "name (des Namens)"
         }
-      ]
+      ],
+      "hook": "Write 'mit dem Kollegen' and 'an Herrn Müller' correctly — the tiny -n that makes your e-mails look polished."
     }
   },
   {
@@ -2949,6 +3744,29 @@
             ],
             "answer": "the solution",
             "why": "Zum Glück introduces the rescue: something goes right after the problem."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Problem",
+                "de": [
+                  "Plötzlich war der Bildschirm schwarz."
+                ]
+              },
+              {
+                "label": "Solution",
+                "de": [
+                  "Zum Glück hatte er eine Sicherung gemacht."
+                ]
+              },
+              {
+                "label": "Lesson",
+                "de": [
+                  "Seitdem speichert er jede Stunde."
+                ]
+              }
+            ]
           }
         },
         {
@@ -3031,7 +3849,6 @@
     ],
     "title": "Infinitivsätze: um … zu, ohne … zu, statt … zu",
     "help": {
-      "hook": "Say why, how and instead of what in one smooth step: um hier zu arbeiten, ohne etwas zu sagen, statt zu lernen.",
       "intro": "Three infinitive clauses that answer why, how and instead-of-what: um … zu (in order to), ohne … zu (without -ing), (an)statt … zu (instead of -ing). Ich lerne Deutsch, um in Berlin zu arbeiten. Sie ging weg, ohne etwas zu sagen. Er sah fern, statt zu lernen. All three take the zu-infinitive at the end, a comma before, and — the condition that decides whether you can use them — the same subject in both halves: the person who learns is the person who will work. When the subjects differ, um … zu becomes damit and ohne … zu becomes ohne dass (next quiz). um … zu is the most useful of the three: it is how you give a purpose in one smooth step — why you are here, why you called, why you are learning. In the quiz you place both parts yourself: um, ohne or (an)statt at the start of the clause, and zu + infinitive at the end — with the zu inside a separable verb (aufzustehen, durchzulesen).",
       "tips": [
         {
@@ -3067,6 +3884,25 @@
             ],
             "answer": "um",
             "why": "A purpose with the same subject is um … zu; damit needs its own subject, and für cannot introduce a zu-infinitive."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "construction",
+            "right": "example",
+            "rows": [
+              {
+                "a": "um … zu (in order to)",
+                "b": "Ich lerne Deutsch, um hier zu arbeiten."
+              },
+              {
+                "a": "ohne … zu (without …-ing)",
+                "b": "Er ging, ohne etwas zu sagen."
+              },
+              {
+                "a": "statt … zu (instead of …-ing)",
+                "b": "Sie spielt, statt zu lernen."
+              }
+            ]
           }
         },
         {
@@ -3171,6 +4007,20 @@
             ],
             "answer": "damit",
             "why": "The subjects differ (ich speaks, alle understand), so you need damit with its own subject, not an infinitive clause."
+          },
+          "visual": {
+            "kind": "tree",
+            "root": {
+              "q": "Do both parts have the same subject?",
+              "yes": {
+                "answer": "zu-infinitive",
+                "de": "Ich hoffe, pünktlich zu sein."
+              },
+              "no": {
+                "answer": "dass-clause",
+                "de": "Ich hoffe, dass du pünktlich bist."
+              }
+            }
           }
         }
       ],
@@ -3248,7 +4098,38 @@
           "why": "zu goes inside a separable verb."
         }
       ],
-      "exam": null
+      "hook": "Say why, how and instead of what in one smooth step: um hier zu arbeiten, ohne etwas zu sagen, statt zu lernen.",
+      "table": {
+        "caption": "Three infinitive clauses",
+        "columns": [
+          "construction",
+          "meaning",
+          "example"
+        ],
+        "rows": [
+          {
+            "cells": [
+              "um … zu",
+              "in order to",
+              "Ich lerne, um hier zu arbeiten."
+            ]
+          },
+          {
+            "cells": [
+              "ohne … zu",
+              "without …-ing",
+              "Er ging, ohne etwas zu sagen."
+            ]
+          },
+          {
+            "cells": [
+              "(an)statt … zu",
+              "instead of …-ing",
+              "Sie spielt, statt zu lernen."
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -3258,7 +4139,6 @@
     ],
     "title": "damit oder um … zu?",
     "help": {
-      "hook": "Ask who does the second action, and you will know whether to say um … zu or damit every time you explain what something is for.",
       "intro": "Purpose has two forms and one rule for choosing. If the person who acts is the person who benefits — same subject — use um … zu with the infinitive: Ich lerne Deutsch, um hier zu arbeiten. If the beneficiary is someone else — different subjects — use damit with a full clause, verb at the end: Ich lerne Deutsch, damit meine Kinder stolz sind. Both answer Wozu? (what for?). damit can also be used with the same subject (Ich lerne, damit ich arbeiten kann) and is never wrong, but um … zu with different subjects is impossible. The same split applies to ohne … zu / ohne dass and (an)statt … zu / (an)statt dass. Modal verbs in an um … zu clause are usually dropped (um zu arbeiten, not um arbeiten zu können — though the second exists); in a damit clause they stay (damit ich arbeiten kann). The cues in the quiz only give the content of the purpose; counting the subjects is up to you, and every natural form (um … zu, or damit with or without a modal) is accepted where it fits.",
       "tips": [
         {
@@ -3291,6 +4171,20 @@
             ],
             "answer": "damit",
             "why": "I cook, my friends eat: two different subjects, so damit."
+          },
+          "visual": {
+            "kind": "tree",
+            "root": {
+              "q": "Is the person doing the second action the same as the subject?",
+              "yes": {
+                "answer": "um … zu",
+                "de": "Ich spare, um ein Auto zu kaufen."
+              },
+              "no": {
+                "answer": "damit",
+                "de": "Ich spare, damit meine Kinder studieren können."
+              }
+            }
           }
         },
         {
@@ -3424,7 +4318,7 @@
           "why": "zu goes directly before the infinitive at the end."
         }
       ],
-      "exam": null
+      "hook": "Ask who does the second action, and you will know whether to say um … zu or damit every time you explain what something is for."
     }
   },
   {
@@ -3434,7 +4328,6 @@
     ],
     "title": "indem & sodass: Wie? Mit welcher Folge?",
     "help": {
-      "hook": "Explain how you manage things and what follows from them: indem for 'by doing', sodass for 'and so'.",
       "intro": "Two more subordinators, for how and with what result. indem answers Wie? — by doing what: Ich spare Geld, indem ich selbst koche (by cooking myself); Man lernt eine Sprache, indem man sie spricht. English uses 'by + -ing'; German uses a full clause with the verb at the end and the same subject on both sides. sodass (also written so dass) gives the consequence: Es regnete stark, sodass die Straße gesperrt wurde (so that / with the result that). When the cause is an adjective or adverb, the so moves in front of it and dass follows: Er war so müde, dass er einschlief. These two, with damit and um … zu, weil and obwohl, complete the core set of adverbial clauses; whenever you suggest a solution, indem shines — 'Man kann das Problem lösen, indem man …' is the standard proposal sentence.",
       "tips": [
         {
@@ -3469,6 +4362,17 @@
             ],
             "answer": "indem",
             "why": "Listening is how he improves, the means, so it is indem, written as one word."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "means: indem",
+            "right": "result: sodass",
+            "rows": [
+              {
+                "a": "Er lernt, indem er Podcasts hört.",
+                "b": "Es regnete stark, sodass das Spiel ausfiel."
+              }
+            ]
           }
         },
         {
@@ -3604,7 +4508,7 @@
           "why": "sodass sends the verb to the end."
         }
       ],
-      "exam": null
+      "hook": "Explain how you manage things and what follows from them: indem for 'by doing', sodass for 'and so'."
     }
   },
   {
@@ -3649,6 +4553,25 @@
             ],
             "answer": "saß",
             "why": "sitzen is irregular: you hear the changed vowel in saß, so there is no -te."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "you hear",
+            "right": "infinitive",
+            "rows": [
+              {
+                "a": "ging",
+                "b": "gehen"
+              },
+              {
+                "a": "saß",
+                "b": "sitzen"
+              },
+              {
+                "a": "wartete",
+                "b": "warten (regular)"
+              }
+            ]
           }
         },
         {
@@ -3729,7 +4652,6 @@
     ],
     "title": "Relativsätze (Dativ/Genitiv)",
     "help": {
-      "hook": "Say 'the friend whose dog I walk' or 'the café where we met' in one smooth German sentence.",
       "intro": "The relative-pronoun table completes here with the genitive: dessen (m/n) and deren (f/Pl) — 'whose'. Der Mann, dessen Auto kaputt ist. Die Frau, deren Kinder hier spielen. Die Leute, deren Haus wir gekauft haben. dessen/deren never change (no ending) and are followed directly by the noun without an article. The dative row — dem, der, dem, denen — comes back with its two triggers: dative verbs (helfen, danken, gehören, gefallen, schmecken, leihen with the person) and prepositions that take the dative or the position sense (mit dem, bei denen, in der, aus dem, von dem). And the preposition always leads: das Haus, in dem ich wohne; die Freunde, bei denen ich übernachte. With all four cases in hand, the relative clause is the tool that lets you describe anything at all in one sentence. The quiz gives no case labels: decide from the relative clause itself — a dative verb (helfen, vertrauen, leihen), a preposition, or a noun straight after the gap (then it is dessen / deren).",
       "tips": [
         {
@@ -3762,6 +4684,69 @@
             ],
             "answer": "deren",
             "why": "The possessor is die Nachbarin (feminine), so 'whose' is deren — followed directly by the noun, no article."
+          },
+          "visual": {
+            "kind": "caseGrid",
+            "rows": [
+              {
+                "label": "Nom",
+                "cells": [
+                  "der",
+                  "die",
+                  "das",
+                  "die"
+                ]
+              },
+              {
+                "label": "Akk",
+                "cells": [
+                  "den",
+                  "die",
+                  "das",
+                  "die"
+                ]
+              },
+              {
+                "label": "Dat",
+                "cells": [
+                  "dem",
+                  "der",
+                  "dem",
+                  "denen"
+                ]
+              },
+              {
+                "label": "Gen",
+                "cells": [
+                  "dessen",
+                  "deren",
+                  "dessen",
+                  "deren"
+                ]
+              }
+            ],
+            "hot": [
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                3
+              ]
+            ]
           }
         },
         {
@@ -3983,7 +4968,11 @@
           "why": "mit takes the dative: denen."
         }
       ],
-      "exam": null
+      "hook": "Say 'the friend whose dog I walk' or 'the café where we met' in one smooth German sentence.",
+      "recall": {
+        "known": "From \"Relativsätze mit Dativ & Präposition\": dem, der, denen.",
+        "today": "The genitive row: dessen and deren for whose."
+      }
     }
   },
   {
@@ -3993,7 +4982,6 @@
     ],
     "title": "Zweiteilige Konnektoren",
     "help": {
-      "hook": "Make your arguments sound structured with pairs like zwar … aber, entweder … oder and je mehr, desto besser.",
       "intro": "Six connectors that come in pairs, each joining two items or two clauses in a fixed relation: sowohl … als auch (both … and), nicht nur … sondern auch (not only … but also), entweder … oder (either … or), weder … noch (neither … nor — a negation, so no nicht), zwar … aber (admittedly … but — the classic concession), je … desto / umso (the … the — with comparatives). They are what make an argument sound structured: 'Das ist zwar teuer, aber es lohnt sich' does the work of a whole obwohl-sentence. Word order is the only difficulty: within a sentence they connect like und/oder; when they open clauses, entweder and zwar can take position 1 with the verb next (Entweder kommst du mit, oder du bleibst), and je … desto builds two clauses — je + comparative + verb at the end, desto + comparative + verb second: Je mehr ich übe, desto besser werde ich.",
       "tips": [
         {
@@ -4028,6 +5016,43 @@
             ],
             "answer": "sowohl",
             "why": "als auch only completes sowohl; weder goes with noch and entweder with oder."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "pair",
+            "right": "example",
+            "rows": [
+              {
+                "a": "sowohl … als auch",
+                "b": "sowohl Tee als auch Kaffee",
+                "note": "both … and"
+              },
+              {
+                "a": "entweder … oder",
+                "b": "entweder heute oder morgen",
+                "note": "either … or"
+              },
+              {
+                "a": "weder … noch",
+                "b": "weder Zeit noch Geld",
+                "note": "neither … nor"
+              },
+              {
+                "a": "nicht nur … sondern auch",
+                "b": "nicht nur schön, sondern auch billig",
+                "note": "not only … but also"
+              },
+              {
+                "a": "zwar … aber",
+                "b": "zwar teuer, aber gut",
+                "note": "admittedly … but"
+              },
+              {
+                "a": "je … desto",
+                "b": "je mehr, desto besser",
+                "note": "the more … the more"
+              }
+            ]
           }
         },
         {
@@ -4062,6 +5087,29 @@
             ],
             "answer": "Je wärmer es ist, desto lieber schwimme ich.",
             "why": "The je-clause puts its verb last; after desto + comparative the verb comes immediately."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "je-clause (verb last)",
+              "desto + comparative",
+              "Verb",
+              "Rest"
+            ],
+            "hot": [
+              0,
+              2
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Je mehr ich übe,",
+                  "desto besser",
+                  "spreche",
+                  "ich."
+                ]
+              }
+            ]
           }
         },
         {
@@ -4166,7 +5214,7 @@
           "why": "The pair is sowohl … als auch."
         }
       ],
-      "exam": null
+      "hook": "Make your arguments sound structured with pairs like zwar … aber, entweder … oder and je mehr, desto besser."
     }
   },
   {
@@ -4176,7 +5224,6 @@
     ],
     "title": "Irreale Wünsche: Hätte ich doch …!",
     "help": {
-      "hook": "Missed the train, forgot the umbrella? Hätte ich doch …! and Wäre ich nur …! let you sigh about the past in German.",
       "intro": "A wish about the past — what you'd change if you could — uses the Konjunktiv II of the past: hätte / wäre + Partizip II. Hätte ich doch mehr Zeit gehabt! Wäre ich nur zu Hause geblieben! Hätten wir doch den Zug genommen! The helper choice is the Perfekt's (sein for movement/change, haben for the rest), and the helper goes into its Konjunktiv form: hätte, wäre. The wish has two shapes: with wenn (Wenn ich doch mehr Zeit gehabt hätte!, verb last) or, more dramatically, without it — the verb jumps to the front: Hätte ich doch …! Wäre ich nur …! The particles doch or nur (or both: doch nur) are what make it a wish rather than a question; without them it is a condition. The same frame with the present Konjunktiv (Wäre ich doch reich!) wishes about now. This is an intro to the past Konjunktiv; later in the course you build full unreal conditions on it (Wenn ich das gewusst hätte, wäre ich gekommen). In the quiz the particle (doch, nur, bloß, doch nur) is already in the sentence; you supply the Konjunktiv helper and the participle in their places — at the front and the end, or both at the end after wenn.",
       "tips": [
         {
@@ -4210,6 +5257,21 @@
             ],
             "answer": "Wäre",
             "why": "aufstehen takes sein in the Perfekt (ich bin aufgestanden), so the wish uses wäre."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "what happened",
+            "right": "the wish",
+            "rows": [
+              {
+                "a": "Ich habe den Zug verpasst.",
+                "b": "Hätte ich doch den Zug nicht verpasst!"
+              },
+              {
+                "a": "Ich bin zu spät gekommen.",
+                "b": "Wäre ich nur früher gekommen!"
+              }
+            ]
           }
         },
         {
@@ -4307,6 +5369,21 @@
             ],
             "answer": "gewesen",
             "why": "Adding the participle gewesen pushes the wish into the past: wäre … gewesen."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": -1.6,
+                "label": "about the past",
+                "de": "Hätte ich doch gelernt!"
+              },
+              {
+                "at": 0.3,
+                "label": "about now",
+                "de": "Hätte ich doch Zeit!"
+              }
+            ]
           }
         }
       ],
@@ -4341,7 +5418,6 @@
           "why": "With wenn the helper is last."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "hätte … gehabt",
@@ -4375,7 +5451,8 @@
           "de": "wecken",
           "en": "to wake someone"
         }
-      ]
+      ],
+      "hook": "Missed the train, forgot the umbrella? Hätte ich doch …! and Wäre ich nur …! let you sigh about the past in German."
     }
   },
   {
@@ -4385,7 +5462,6 @@
     ],
     "title": "trotz, wegen, während + Genitiv",
     "help": {
-      "hook": "Pack a whole reason into three words, like wegen des Regens or trotz der Kosten, the compact style of letters and notices.",
       "intro": "Four prepositions take the genitive and carry the relations you have been expressing with clauses: wegen (because of = weil), trotz (despite = obwohl), während (during = während as a conjunction), (an)statt (instead of). Wegen des Regens bleiben wir zu Hause. Trotz des Wetters gehen wir raus. Während der Pause telefoniere ich. The genitive forms are the ones you already know: des + noun-(e)s for masculine/neuter, der for feminine and plural — wegen des Sturms, trotz der Krankheit, während der Ferien. In casual speech you will hear wegen dem Regen (dative), and it is accepted there; in writing — letters, e-mails, official notices — the genitive is expected. The pairs obwohl ↔ trotzdem ↔ trotz and weil ↔ deshalb ↔ wegen are the three ways to say the same thing — clause, adverb, preposition — and switching between them is a skill you will drill later in the course. In the quiz each item gives the meaning and the noun in the nominative; you write the preposition and the whole genitive phrase — article, any adjective, and the -(e)s on masculine and neuter nouns.",
       "tips": [
         {
@@ -4457,6 +5533,25 @@
             ],
             "answer": "Trotz",
             "why": "obwohl (clause) becomes trotz (preposition) when you use a noun. obwohl cannot take a noun on its own."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "clause",
+            "right": "+ genitive",
+            "rows": [
+              {
+                "a": "weil es regnet",
+                "b": "wegen des Regens"
+              },
+              {
+                "a": "obwohl es viel kostet",
+                "b": "trotz der Kosten"
+              },
+              {
+                "a": "während der Film läuft",
+                "b": "während des Films"
+              }
+            ]
           }
         },
         {
@@ -4558,7 +5653,6 @@
           "why": "trotz takes a noun; obwohl takes a clause."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "wegen + Gen",
@@ -4612,7 +5706,8 @@
           "article": "die",
           "plural": "-en"
         }
-      ]
+      ],
+      "hook": "Pack a whole reason into three words, like wegen des Regens or trotz der Kosten, the compact style of letters and notices."
     }
   },
   {
@@ -4622,7 +5717,6 @@
     ],
     "title": "Partizip I & II als Adjektiv",
     "help": {
-      "hook": "Turn 'the child who is laughing' into das lachende Kind — the compact two-word style of written German.",
       "intro": "Both participles can stand before a noun as adjectives, and they then take ordinary adjective endings. Partizip I (infinitive + -d: lachend, schlafend, kochend) describes something happening right now, actively: das lachende Kind (the laughing child), der schlafende Hund, das kochende Wasser (the boiling water). Partizip II (the ge- form) describes something done or finished, usually passively: die geöffnete Tür (the opened door), das gekochte Wasser (the boiled water), der geschriebene Brief, die verlorenen Schlüssel. The pair kochend / gekocht shows the difference exactly: boiling versus boiled. Both replace a relative clause — das Kind, das lacht → das lachende Kind; die Tür, die geöffnet wurde → die geöffnete Tür — which is why written German, which likes compact noun phrases, uses them constantly. This is an intro; later modules consolidate it and extend the phrase (das gestern von mir geschriebene …). The quiz gives only the verb; the English line tells you whether the meaning is active and ongoing (-end) or done (ge-…-t / -en) — boiling water or boiled water — and you add the ending the article and case require.",
       "tips": [
         {
@@ -4655,6 +5749,47 @@
             ],
             "answer": "spielenden",
             "why": "Active and happening now = Partizip I (spielend), and after die in the plural the adjective ending is -en."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "lachen"
+                  },
+                  {
+                    "text": "d",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "e",
+                    "role": "ending"
+                  }
+                ],
+                "result": "das lachende Kind"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "ge",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "koch"
+                  },
+                  {
+                    "text": "t",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "e",
+                    "role": "ending"
+                  }
+                ],
+                "result": "das gekochte Ei"
+              }
+            ]
           }
         },
         {
@@ -4721,6 +5856,21 @@
             ],
             "answer": "kochende",
             "why": "Boiling right now is active: kochend. After das (neuter accusative) the ending is -e."
+          },
+          "visual": {
+            "kind": "pictures",
+            "items": [
+              {
+                "image": "lesson_kochendes_wasser",
+                "de": "das kochende Wasser",
+                "en": "the boiling water (happening now)"
+              },
+              {
+                "image": "lesson_gekochtes_ei",
+                "de": "das gekochte Ei",
+                "en": "the boiled egg (done)"
+              }
+            ]
           }
         },
         {
@@ -4791,7 +5941,7 @@
           "why": "Plural after die: -en."
         }
       ],
-      "exam": null
+      "hook": "Turn 'the child who is laughing' into das lachende Kind — the compact two-word style of written German."
     }
   },
   {
@@ -4836,6 +5986,34 @@
             ],
             "answer": "ging ich",
             "why": "deshalb takes position 1 of its clause, so the verb comes straight after it: deshalb ging ich."
+          },
+          "visual": {
+            "kind": "moves",
+            "caption": "Rotate the frames so your reasons don't all start with weil.",
+            "moves": [
+              {
+                "label": "Reason",
+                "de": [
+                  "…, weil …",
+                  "…, denn …",
+                  "Das liegt daran, dass …"
+                ]
+              },
+              {
+                "label": "Result",
+                "de": [
+                  "…, deshalb …",
+                  "…, sodass …"
+                ]
+              },
+              {
+                "label": "Purpose",
+                "de": [
+                  "…, um … zu …",
+                  "…, damit …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -4918,7 +6096,6 @@
     ],
     "title": "Modalpartikeln: denn, doch, eigentlich, ja, mal",
     "help": {
-      "hook": "Sound like a person, not a textbook: denn, doch, ja and mal are the tiny words that give spoken German its tone.",
       "intro": "Modal particles are the little words that give spoken German its tone — denn, doch, eigentlich, ja, mal — and they have no translation, only a function. denn softens a question and shows interest: Was machst du denn hier? doch adds insistence or encouragement — in a command it means 'go on' (Setz dich doch!), in a statement it contradicts (Das ist doch unmöglich!). eigentlich makes a question casual, 'by the way' (Wie spät ist es eigentlich?). ja marks something as known or obvious (Das ist ja schön! Ich habe ja keine Zeit). mal turns a request into a light one (Schau mal. Gib mir mal das Salz). They are unstressed, sit in the middle of the sentence after the verb and pronouns, and can stack: Komm doch mal her! You will hear them in every listening text; using them is what makes a learner sound like a person rather than a textbook. Often more than one particle fits — Das ist ja schön! and Das ist doch schön! are both natural — and the quiz accepts every one that does.",
       "tips": [
         {
@@ -5046,6 +6223,28 @@
             ],
             "answer": "Kannst du mal kurz warten?",
             "why": "Particles sit in the middle, after the verb and the pronoun, before the rest of the sentence."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "plain",
+            "right": "with the particle",
+            "rows": [
+              {
+                "a": "Wo wohnst du?",
+                "b": "Wo wohnst du denn?",
+                "note": "interested, friendly"
+              },
+              {
+                "a": "Komm vorbei!",
+                "b": "Komm doch mal vorbei!",
+                "note": "a warm invitation"
+              },
+              {
+                "a": "Das ist teuer.",
+                "b": "Das ist ja teuer!",
+                "note": "surprise"
+              }
+            ]
           }
         }
       ],
@@ -5081,7 +6280,7 @@
           "why": "A negative question is answered yes with doch."
         }
       ],
-      "exam": null
+      "hook": "Sound like a person, not a textbook: denn, doch, ja and mal are the tiny words that give spoken German its tone."
     }
   },
   {
@@ -5126,6 +6325,35 @@
             ],
             "answer": "Schlaf",
             "why": "Heute geht es um … names today's topic; the next episode's topic at the end is the trap."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Topic",
+                "de": [
+                  "Heute geht es um …"
+                ]
+              },
+              {
+                "label": "Guest",
+                "de": [
+                  "Bei mir ist …"
+                ]
+              },
+              {
+                "label": "Tip",
+                "de": [
+                  "Unser Tipp: …"
+                ]
+              },
+              {
+                "label": "Teaser",
+                "de": [
+                  "Nächste Woche …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5210,7 +6438,6 @@
     ],
     "title": "Wortbildung: -heit, -keit, -ung, -schaft, -ler, -ant",
     "help": {
-      "hook": "Spot -heit, -keit, -ung or -schaft and you know the noun is feminine before you have even looked it up.",
       "intro": "German builds abstract nouns with a handful of suffixes, each with a fixed gender — knowing them turns unknown words into known ones and gives you the article for free. Adjective + -heit → die: frei → die Freiheit, gesund → die Gesundheit, schön → die Schönheit. Adjective in -ig/-lich/-bar/-sam + -keit → die: möglich → die Möglichkeit, freundlich → die Freundlichkeit, ehrlich → die Ehrlichkeit. Verb + -ung → die: entscheiden → die Entscheidung, meinen → die Meinung, erfahren → die Erfahrung. Noun + -schaft → die: die Freundschaft, die Wissenschaft, die Gesellschaft. Persons: -ler / -ner → der: der Sportler, der Künstler, der Wissenschaftler; -ant / -ent → der (n-Deklination!): der Praktikant, der Student, der Lieferant; -ismus → der: der Tourismus, der Journalismus. Newspapers, forms and official letters are full of these, and reading them relies on you decoding them. In the quiz you form the noun from the word in brackets and, where the sentence has no article, write the article too — so the suffix gives you the gender as well as the word.",
       "tips": [
         {
@@ -5244,6 +6471,63 @@
             ],
             "answer": "Traurigkeit",
             "why": "Adjectives ending in -ig take -keit, not -heit: die Traurigkeit."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "frei"
+                  },
+                  {
+                    "text": "-heit",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Freiheit",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "möglich"
+                  },
+                  {
+                    "text": "-keit",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Möglichkeit",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Freund"
+                  },
+                  {
+                    "text": "-schaft",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Freundschaft",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "lös"
+                  },
+                  {
+                    "text": "-ung",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Lösung",
+                "gender": "f"
+              }
+            ]
           }
         },
         {
@@ -5388,7 +6672,6 @@
           "why": "-ant nouns follow the n-Deklination."
         }
       ],
-      "exam": null,
       "table": {
         "caption": "Suffix → gender",
         "columns": [
@@ -5527,7 +6810,8 @@
           "article": "die",
           "plural": "-en"
         }
-      ]
+      ],
+      "hook": "Spot -heit, -keit, -ung or -schaft and you know the noun is feminine before you have even looked it up."
     }
   },
   {
@@ -5631,6 +6915,26 @@
             ],
             "answer": "enthusiastic",
             "why": "zuerst gives the first reaction; doch als … brings the change, and the final feeling is begeistert."
+          },
+          "visual": {
+            "kind": "timeline",
+            "axis": {
+              "start": "start",
+              "end": "end",
+              "now": null
+            },
+            "marks": [
+              {
+                "at": -2,
+                "label": "first",
+                "de": "Zuerst wollte er …"
+              },
+              {
+                "at": 0.5,
+                "label": "the turn",
+                "de": "Doch als …"
+              }
+            ]
           }
         }
       ],
@@ -5685,6 +6989,29 @@
             ],
             "answer": "Entweder",
             "why": "To weigh two options, entweder pairs with oder; weder goes with noch and sowohl with als auch."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Tell",
+                "de": [
+                  "Letztes Jahr ist mir etwas passiert …"
+                ]
+              },
+              {
+                "label": "Explain",
+                "de": [
+                  "Das funktioniert so: zuerst wird …"
+                ]
+              },
+              {
+                "label": "Weigh",
+                "de": [
+                  "Einerseits …, andererseits …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5759,7 +7086,43 @@
         "Story, reason, process, options — four moves per topic.",
         "um … zu (same subject) / damit (different subjects)."
       ],
-      "exam": "Planning, presenting and discussing are what the B1 exam asks of your speaking — this conversation rehearses all three."
+      "exam": "Planning, presenting and discussing are what the B1 exam asks of your speaking — this conversation rehearses all three.",
+      "vocab": [
+        {
+          "de": "passieren",
+          "en": "to happen"
+        },
+        {
+          "de": "funktionieren",
+          "en": "to work (of a thing)"
+        },
+        {
+          "de": "erklären",
+          "en": "to explain"
+        },
+        {
+          "de": "Zweck",
+          "article": "der",
+          "plural": "-e",
+          "en": "purpose"
+        },
+        {
+          "de": "damit",
+          "en": "so that"
+        },
+        {
+          "de": "um … zu",
+          "en": "in order to"
+        },
+        {
+          "de": "entweder … oder",
+          "en": "either … or"
+        },
+        {
+          "de": "sowohl … als auch",
+          "en": "both … and"
+        }
+      ]
     }
   },
   {
@@ -5874,6 +7237,21 @@
             ],
             "answer": "hatten",
             "why": "nachdem puts the earlier event in the Plusquamperfekt: hatten gegessen."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": -2.4,
+                "label": "before the story",
+                "de": "Ich hatte den Schlüssel vergessen."
+              },
+              {
+                "at": -1,
+                "label": "the story",
+                "de": "Ich stand vor der Tür."
+              }
+            ]
           }
         },
         {
@@ -5980,7 +7358,6 @@
     ],
     "title": "Zustandspassiv: Die Tür ist geschlossen",
     "help": {
-      "hook": "Tell 'the door is being closed' from 'the door is closed', the difference behind every Geschlossen sign and booked-out restaurant.",
       "intro": "German has two passives, and English uses \"is\" for both. The werden-passive (Vorgangspassiv) describes an action in progress: Die Tür wird geschlossen — someone is closing it now. The sein-passive (Zustandspassiv) describes the state that results from the action: Die Tür ist geschlossen — it is closed, the action is over. The form is simple — sein + Partizip II at the end: ist geschlossen, sind reserviert, war geöffnet — and it is everywhere in everyday life: on signs (Heute geschlossen), in shops and restaurants (Alle Tische sind reserviert), in forms (Das Formular ist nicht vollständig ausgefüllt) and at home (Der Tisch ist gedeckt). The test is always the same: is something happening (werden), or is something finished and now in a state (sein)? Words like gerade, jetzt gleich and im Moment point to werden; schon, seit, noch, endlich and a description of the result point to sein. For a completed event in the past you still use wurde: Das Haus wurde 1910 gebaut. In this quiz you type the helper and the participle.",
       "tips": [
         {
@@ -6015,6 +7392,27 @@
             ],
             "answer": "ist",
             "why": "The door is in an open state, so it takes sein + Partizip II: ist geöffnet."
+          },
+          "visual": {
+            "kind": "timeline",
+            "axis": {
+              "start": "action",
+              "end": "result",
+              "now": null
+            },
+            "marks": [
+              {
+                "at": -1.5,
+                "label": "the action",
+                "de": "Die Tür wird geschlossen."
+              },
+              {
+                "at": 0.8,
+                "to": 2.8,
+                "label": "the result, a state",
+                "de": "Die Tür ist geschlossen."
+              }
+            ]
           }
         },
         {
@@ -6050,6 +7448,21 @@
             ],
             "answer": "wird",
             "why": "gerade means the cleaning is happening now, so it is an action: werden."
+          },
+          "visual": {
+            "kind": "pictures",
+            "items": [
+              {
+                "image": "lesson_tuer_wird_geschlossen",
+                "de": "Die Tür wird geschlossen.",
+                "en": "is being closed (action)"
+              },
+              {
+                "image": "lesson_tuer_ist_geschlossen",
+                "de": "Die Tür ist geschlossen.",
+                "en": "is closed (state)"
+              }
+            ]
           }
         },
         {
@@ -6215,7 +7628,6 @@
           "erledigt"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "Die Tür wird schon geschlossen. (meaning: it is already shut)",
@@ -6232,7 +7644,8 @@
           "right": "Der Computer wird gerade repariert.",
           "why": "gerade (right now) describes an action in progress: werden."
         }
-      ]
+      ],
+      "hook": "Tell 'the door is being closed' from 'the door is closed', the difference behind every Geschlossen sign and booked-out restaurant."
     }
   },
   {
@@ -6242,7 +7655,6 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "hook": "Technology, health, the environment and society: the words you need to argue a point, each noun with its article and plural.",
       "intro": "Every word this module's exercises use, on one deck of flashcards: 304 cards, 109 of them nouns. The vocabulary of this module is work, study, media and opinions, and the verbs and connectors you need to argue a point, from the themes Technik & Medien, Gesundheit & Ernährung, Umwelt, Politik & Gesellschaft. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
@@ -6274,68 +7686,89 @@
             ],
             "answer": "Bildschirme",
             "why": "The plural note -e tells you to add -e: zwei Bildschirme."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "singular",
+            "right": "plural",
+            "rows": [
+              {
+                "a": "die Umwelt",
+                "b": "— (no plural)"
+              },
+              {
+                "a": "das Gerät",
+                "b": "die Geräte"
+              },
+              {
+                "a": "der Bildschirm",
+                "b": "die Bildschirme"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "Tech verbs are mostly separable",
+          "text": "einschalten, ausschalten, herunterladen, hochladen: in a main clause the prefix goes to the end. speichern and drucken stay in one piece.",
+          "examples": [
+            {
+              "de": "Ich lade die Datei herunter.",
+              "en": "I'm downloading the file.",
+              "focus": [
+                "lade",
+                "herunter"
+              ]
+            },
+            {
+              "de": "Schalt den Computer aus!",
+              "en": "Switch the computer off!",
+              "focus": [
+                "Schalt",
+                "aus"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Ich ____ das Foto ____.",
+            "options": [
+              "lade … hoch",
+              "hochlade … –",
+              "lade … herunter hoch"
+            ],
+            "answer": "lade … hoch",
+            "why": "hochladen is separable: lade at position 2, hoch at the end."
           }
         },
         {
           "kind": "mnemonic",
-          "title": "Three modes, three kinds of memory",
-          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before you need the words — a meeting, a trip, a phone call.",
+          "title": "Strong past forms: learn the triple",
+          "text": "gehen – ging – gegangen, kommen – kam – gekommen, sehen – sah – gesehen. Say the three forms as one chant; the middle one is the storytelling past.",
           "examples": [
             {
-              "de": "das Passwort, Plural: ¨-er",
-              "en": "password",
+              "de": "Sie ging nach Hause.",
+              "en": "She went home.",
               "focus": [
-                "Passwort"
+                "ging"
               ]
             },
             {
-              "de": "der Akku, Plural: -s",
-              "en": "battery (rechargeable)",
+              "de": "Er kam zu spät.",
+              "en": "He came too late.",
               "focus": [
-                "Akku"
+                "kam"
               ]
             }
           ],
           "check": {
-            "q": "‘the printer’ in German:",
+            "q": "The Präteritum of trinken is …",
             "options": [
-              "der Drucker",
-              "die Drucker",
-              "das Drucker"
+              "trank",
+              "trinkte",
+              "getrunken"
             ],
-            "answer": "der Drucker",
-            "why": "Drucker is masculine, like most -er nouns for machines: der Drucker."
-          }
-        },
-        {
-          "kind": "warning",
-          "title": "A noun without its article is marked wrong",
-          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
-          "examples": [
-            {
-              "de": "die Datei, Plural: -en",
-              "en": "file",
-              "focus": [
-                "die"
-              ]
-            },
-            {
-              "de": "die Nachricht, Plural: -en",
-              "en": "message",
-              "focus": [
-                "die"
-              ]
-            }
-          ],
-          "check": {
-            "q": "‘the e-mail’ in German:",
-            "options": [
-              "die E-Mail",
-              "E-Mail",
-              "der E-Mail"
-            ],
-            "answer": "die E-Mail",
-            "why": "A noun is only half learnt without its article, and E-Mail is feminine: die E-Mail."
+            "answer": "trank",
+            "why": "trinken – trank – getrunken: the vowel family i – a – u."
           }
         }
       ],
@@ -6344,7 +7777,7 @@
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
         "Verbs and adjectives have no article: type them as they stand, like \"speichern\"."
       ],
-      "exam": null
+      "hook": "Technology, health, the environment and society: the words you need to argue a point, each noun with its article and plural."
     }
   },
   {
@@ -6359,7 +7792,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the garage: the last part decides",
           "text": "Many tools are compounds, and the last part decides the article. Werkzeug + Kasten: der Kasten, so der Werkzeugkasten. Vorhänge + Schloss: das Schloss, so das Vorhängeschloss. Cover the front part and read only the last word.",
           "examples": [
             {
@@ -6386,6 +7819,41 @@
             ],
             "answer": "Die",
             "why": "The last part is die Lampe, so the whole word is die Taschenlampe."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "die Schraube"
+                  },
+                  {
+                    "text": "n",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "der Zieher",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Schraubenzieher",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "das Werk"
+                  },
+                  {
+                    "text": "die Bank",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Werkbank",
+                "gender": "f"
+              }
+            ]
           }
         },
         {
@@ -7014,7 +8482,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the park: the last part decides",
           "text": "Half the park is compounds, and the last word decides. Kinder + Wagen: der Wagen, so der Kinderwagen. Vogel + Haus: das Haus, so das Vogelhaus. Tischtennis + Platte: die Platte, so die Tischtennisplatte.",
           "examples": [
             {
@@ -7041,6 +8509,37 @@
             ],
             "answer": "Die",
             "why": "The last part is die Decke, so the whole word is die Picknickdecke."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "der Park"
+                  },
+                  {
+                    "text": "die Bank",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Parkbank",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "spielen"
+                  },
+                  {
+                    "text": "der Platz",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Spielplatz",
+                "gender": "m"
+              }
+            ]
           }
         },
         {

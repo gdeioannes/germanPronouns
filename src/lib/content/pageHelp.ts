@@ -129,8 +129,8 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 				visual: 'lifecycle'
 			},
 			{
-				title: 'Every chat happens once',
-				text: 'There is no second try. What you say stays said, and the ending is the one you earned. The level chips filter the whole list.'
+				title: 'No like? They leave',
+				text: 'What you say stays said: there is no second try inside a chat. A character who liked you stays as a contact. Anyone else leaves the list and goes back to the blurred ones, and may turn up in your deck again for another chance. The level chips filter the whole list.'
 			}
 		]
 	},
@@ -160,7 +160,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			},
 			{
 				title: 'One chance',
-				text: 'Every chat happens once. There is no undo after you send, and no second try at the end.'
+				text: 'There is no undo after you send. If the chat ends without a like, the character leaves your contacts, and may turn up in your deck again for a fresh start.'
 			}
 		]
 	},

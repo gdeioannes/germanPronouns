@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { spokenTexts } from '$lib/audio/spoken-texts';
-import { filledSentence, forSpeech, spokenVerbForm } from './spoken';
+import { fillBlankPool, filledSentence, forSpeech, spokenVerbForm } from './spoken';
+import type { FillBlankQuiz } from '$lib/content/types';
 
 describe('filledSentence', () => {
 	it.each([
@@ -29,6 +30,37 @@ describe('filledSentence', () => {
 		['die Gäste, die eingeladen wurden → die ____ Gäste', ['eingeladenen'], 'die Gäste, die eingeladen wurden, die eingeladenen Gäste']
 	])('%s', (sentence, parts, spoken) => {
 		expect(filledSentence(sentence, parts)).toBe(spoken);
+	});
+});
+
+describe('fillBlankPool', () => {
+	it('fills the English template per sentence template, with the article and plural tokens', () => {
+		const quiz = {
+			subjects: [
+				{ key: 'hund', display: 'der Hund', english: 'dog' },
+				{ key: 'apfel', display: 'der Apfel', english: 'apple' },
+				{ key: 'kind', display: 'das Kind', english: 'child' }
+			],
+			categories: [{ label: 'Plural', values: ['Hunde', 'Äpfel', 'Kinder'] }],
+			sentenceTemplates: { Plural: ['Ich sehe zwei ____ . ({subject})', 'Das ist ____ {subject}.'] },
+			englishTemplates: { Plural: ['I see two {pl}.', 'That is {a} {subject}.'] }
+		} as unknown as FillBlankQuiz;
+		expect(fillBlankPool(quiz).map((s) => s.english)).toEqual([
+			'I see two dogs.',
+			'That is a dog.',
+			'I see two apples.',
+			'That is an apple.',
+			'I see two children.',
+			'That is a child.'
+		]);
+	});
+
+	it('leaves a generated sentence without an English line when the quiz has no templates for it', () => {
+		const quiz = {
+			subjects: [{ key: 'a', display: '3' }],
+			categories: [{ label: 'Auf Deutsch', values: ['drei'] }]
+		} as unknown as FillBlankQuiz;
+		expect(fillBlankPool(quiz)[0].english).toBeUndefined();
 	});
 });
 

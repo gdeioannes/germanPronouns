@@ -1,0 +1,1178 @@
+{
+  "quest_c1_2_kultur": {
+    "Replace 'interessant'": {
+      "kind": "pairs",
+      "left": "what you mean",
+      "right": "the precise word",
+      "rows": [
+        {
+          "a": "it makes you think",
+          "b": "anregend, aufschlussreich"
+        },
+        {
+          "a": "it grips you",
+          "b": "fesselnd, packend"
+        },
+        {
+          "a": "it's new and bold",
+          "b": "innovativ, gewagt"
+        },
+        {
+          "a": "it disappoints",
+          "b": "enttäuschend, belanglos"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_modal_vermutung": {
+    "The certainty scale": {
+      "kind": "scale",
+      "low": "unlikely",
+      "high": "certain",
+      "points": [
+        {
+          "at": 95,
+          "de": "Er muss krank sein.",
+          "en": "He must be ill."
+        },
+        {
+          "at": 80,
+          "de": "Er dürfte krank sein.",
+          "en": "He is probably ill."
+        },
+        {
+          "at": 60,
+          "de": "Er wird krank sein.",
+          "en": "He'll be ill, I expect."
+        },
+        {
+          "at": 45,
+          "de": "Er könnte krank sein.",
+          "en": "He could be ill."
+        },
+        {
+          "at": 5,
+          "de": "Er kann nicht krank sein.",
+          "en": "He can't be ill."
+        }
+      ]
+    },
+    "Past supposition: modal + Partizip II + haben / sein": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Sie",
+            "muss",
+            "den Zug",
+            "verpasst haben."
+          ]
+        },
+        {
+          "cells": [
+            "Er",
+            "dürfte",
+            "schon",
+            "angekommen sein."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_2_sprechen_abschwaechen": {
+    "Modals and Konjunktiv as hedges": {
+      "kind": "scale",
+      "low": "soft",
+      "high": "blunt",
+      "points": [
+        {
+          "at": 95,
+          "de": "Das ist falsch.",
+          "en": "That's wrong."
+        },
+        {
+          "at": 60,
+          "de": "Das sehe ich anders.",
+          "en": "I see it differently."
+        },
+        {
+          "at": 30,
+          "de": "Da wäre ich mir nicht so sicher.",
+          "en": "I wouldn't be so sure."
+        },
+        {
+          "at": 10,
+          "de": "Man könnte vielleicht auch sagen, …",
+          "en": "One might perhaps also say …"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_konj2_kritik": {
+    "hätte + infinitive + modal: should / ought / could have": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Man",
+            "hätte",
+            "das Projekt früher",
+            "stoppen müssen."
+          ]
+        },
+        {
+          "cells": [
+            "Sie",
+            "hätten",
+            "uns vorher",
+            "informieren sollen."
+          ]
+        },
+        {
+          "cells": [
+            "Wir",
+            "hätten",
+            "das leicht",
+            "vermeiden können."
+          ]
+        }
+      ]
+    },
+    "Criticism + recommendation = one sentence pair": {
+      "kind": "pairs",
+      "left": "what should have happened",
+      "right": "what to do next time",
+      "rows": [
+        {
+          "a": "Die Kunden hätten früher informiert werden müssen.",
+          "b": "Künftig sollten wir sie sofort benachrichtigen."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_relativ_advanced": {
+    "Which relative? Ask what it refers to": {
+      "kind": "tree",
+      "root": {
+        "q": "Does it refer to a noun?",
+        "yes": {
+          "answer": "der / die / das (+ preposition)",
+          "de": "die Methode, mit der wir arbeiten"
+        },
+        "no": {
+          "q": "To a whole clause, or to alles / nichts / etwas?",
+          "yes": {
+            "answer": "was / wo(r)- + preposition",
+            "de": "…, womit niemand rechnete"
+          },
+          "no": {
+            "answer": "wer … (der)",
+            "de": "Wer zu spät kommt, (der) zahlt."
+          }
+        }
+      }
+    }
+  },
+  "quest_c1_2_numerus_gender": {
+    "-ende for people doing something": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "studier"
+            },
+            {
+              "text": "end",
+              "role": "joint"
+            },
+            {
+              "text": "en",
+              "role": "ending"
+            }
+          ],
+          "result": "die Studierenden",
+          "en": "students"
+        },
+        {
+          "parts": [
+            {
+              "text": "lehr"
+            },
+            {
+              "text": "end",
+              "role": "joint"
+            },
+            {
+              "text": "en",
+              "role": "ending"
+            }
+          ],
+          "result": "die Lehrenden",
+          "en": "teachers"
+        },
+        {
+          "parts": [
+            {
+              "text": "teilnehm"
+            },
+            {
+              "text": "end",
+              "role": "joint"
+            },
+            {
+              "text": "en",
+              "role": "ending"
+            }
+          ],
+          "result": "die Teilnehmenden",
+          "en": "participants"
+        }
+      ]
+    },
+    "Plural-only and singular-only nouns": {
+      "kind": "pairs",
+      "left": "plural only",
+      "right": "singular only",
+      "rows": [
+        {
+          "a": "die Eltern, die Leute",
+          "b": "das Obst, das Gemüse"
+        },
+        {
+          "a": "die Ferien, die Kosten",
+          "b": "die Polizei, der Durst"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_modal_hoerensagen": {
+    "Passive and modal inside the claim": {
+      "kind": "pairs",
+      "left": "claim",
+      "right": "means",
+      "rows": [
+        {
+          "a": "Das Bild soll gestohlen worden sein.",
+          "b": "People say the picture was stolen."
+        },
+        {
+          "a": "Er will nichts gesehen haben.",
+          "b": "He claims he saw nothing."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_bigtext_nachbar": {
+    "Who is the source? soll vs will": {
+      "kind": "pairs",
+      "left": "soll: the neighbours say",
+      "right": "will: he says of himself",
+      "rows": [
+        {
+          "a": "Er soll Schauspieler gewesen sein.",
+          "b": "Er will nie in Berlin gewesen sein."
+        }
+      ]
+    },
+    "How sure is the narrator? The certainty scale": {
+      "kind": "scale",
+      "low": "a guess",
+      "high": "sure",
+      "points": [
+        {
+          "at": 90,
+          "de": "Er muss reich sein."
+        },
+        {
+          "at": 70,
+          "de": "Er dürfte allein leben."
+        },
+        {
+          "at": 40,
+          "de": "Er könnte Musiker sein."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_wortbildung_vor": {
+    "ver-: away / wrongly / turn into; er-: achieve": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "ver",
+              "role": "prefix"
+            },
+            {
+              "text": "laufen"
+            }
+          ],
+          "result": "sich verlaufen",
+          "en": "get lost (wrongly)"
+        },
+        {
+          "parts": [
+            {
+              "text": "ver",
+              "role": "prefix"
+            },
+            {
+              "text": "kaufen"
+            }
+          ],
+          "result": "verkaufen",
+          "en": "sell (away)"
+        },
+        {
+          "parts": [
+            {
+              "text": "er",
+              "role": "prefix"
+            },
+            {
+              "text": "kämpfen"
+            }
+          ],
+          "result": "erkämpfen",
+          "en": "win by fighting"
+        }
+      ]
+    },
+    "ent-: remove / begin; zer-: destroy; miss-: wrong": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "ent",
+              "role": "prefix"
+            },
+            {
+              "text": "kalken"
+            }
+          ],
+          "result": "entkalken",
+          "en": "descale"
+        },
+        {
+          "parts": [
+            {
+              "text": "zer",
+              "role": "prefix"
+            },
+            {
+              "text": "brechen"
+            }
+          ],
+          "result": "zerbrechen",
+          "en": "break to pieces"
+        },
+        {
+          "parts": [
+            {
+              "text": "miss",
+              "role": "prefix"
+            },
+            {
+              "text": "verstehen"
+            }
+          ],
+          "result": "missverstehen",
+          "en": "misunderstand"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_hoeren_reportage": {
+    "Asserted or relayed? Listen for the source": {
+      "kind": "pairs",
+      "left": "the reporter states",
+      "right": "the reporter relays",
+      "rows": [
+        {
+          "a": "Die Halle ist seit Mai geschlossen.",
+          "b": "Die Stadt soll sie verkaufen wollen. / Laut Anwohnern sei …"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_hoeren_interview_stimmt": {
+    "Three answers, three tests": {
+      "kind": "tree",
+      "root": {
+        "q": "Did the speaker say it, in other words?",
+        "yes": {
+          "answer": "stimmt"
+        },
+        "no": {
+          "q": "Did the speaker say the opposite?",
+          "yes": {
+            "answer": "stimmt nicht"
+          },
+          "no": {
+            "answer": "nicht gesagt",
+            "de": "even if it sounds plausible"
+          }
+        }
+      }
+    }
+  },
+  "quest_c1_2_wortbildung_nach": {
+    "Chains: adjective → noun → adjective": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "frei"
+            },
+            {
+              "text": "-heit",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Freiheit",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Freiheit"
+            },
+            {
+              "text": "-lich",
+              "role": "suffix"
+            }
+          ],
+          "result": "freiheitlich"
+        },
+        {
+          "parts": [
+            {
+              "text": "möglich"
+            },
+            {
+              "text": "-keit",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Möglichkeit",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "sozial"
+            },
+            {
+              "text": "-ismus",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Sozialismus",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "Sozialist"
+            },
+            {
+              "text": "-isch",
+              "role": "suffix"
+            }
+          ],
+          "result": "sozialistisch"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_praefixe": {
+    "Literal = separable, figurative = inseparable": {
+      "kind": "pairs",
+      "left": "separable: stress on the prefix",
+      "right": "inseparable: stress on the stem",
+      "rows": [
+        {
+          "a": "Er fährt den Pfosten um.",
+          "b": "Er umfährt den Stau.",
+          "note": "UMfahren: knock down · umFAHren: drive around"
+        },
+        {
+          "a": "Die Fähre setzt uns über.",
+          "b": "Sie übersetzt den Text.",
+          "note": "ÜBERsetzen: ferry across · überSETZen: translate"
+        },
+        {
+          "a": "Er holt den Ball wieder.",
+          "b": "Er wiederholt den Satz.",
+          "note": "WIEDERholen: fetch back · wiederHOLen: repeat"
+        }
+      ]
+    },
+    "Separable: stress on prefix, ge-, literal": {
+      "kind": "pictures",
+      "items": [
+        {
+          "image": "lesson_umfahren_pfosten",
+          "de": "Er fährt den Pfosten um.",
+          "en": "UMfahren: knock down"
+        },
+        {
+          "image": "lesson_umfahren_herum",
+          "de": "Er umfährt den Kegel.",
+          "en": "umFAHren: drive around"
+        },
+        {
+          "image": "lesson_uebersetzen_faehre",
+          "de": "Die Fähre setzt uns über.",
+          "en": "ÜBERsetzen: ferry across"
+        },
+        {
+          "image": "lesson_uebersetzen_buch",
+          "de": "Sie übersetzt das Buch.",
+          "en": "überSETZen: translate"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_sprechen_kurzcheck": {
+    "Rumour → soll; self-claim → will": {
+      "kind": "pairs",
+      "left": "rumour",
+      "right": "self-claim",
+      "rows": [
+        {
+          "a": "Sie soll gekündigt haben.",
+          "b": "Er will es nicht gewusst haben."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_redewendungen": {
+    "Delay, failure, giving up": {
+      "kind": "pairs",
+      "left": "idiom",
+      "right": "plain meaning",
+      "rows": [
+        {
+          "a": "etwas auf die lange Bank schieben",
+          "b": "to put something off"
+        },
+        {
+          "a": "ins Wasser fallen",
+          "b": "to fall through"
+        },
+        {
+          "a": "die Flinte ins Korn werfen",
+          "b": "to give up too soon"
+        }
+      ]
+    },
+    "Truth, concealment, tact": {
+      "kind": "pairs",
+      "left": "idiom",
+      "right": "plain meaning",
+      "rows": [
+        {
+          "a": "jemandem reinen Wein einschenken",
+          "b": "to tell someone the plain truth"
+        },
+        {
+          "a": "etwas unter den Teppich kehren",
+          "b": "to sweep something under the carpet"
+        },
+        {
+          "a": "um den heißen Brei herumreden",
+          "b": "to beat about the bush"
+        }
+      ]
+    },
+    "Learn the verb with the image": {
+      "kind": "pictures",
+      "wide": true,
+      "caption": "Picture the literal scene and the idiom comes back with its verb.",
+      "items": [
+        {
+          "image": "lesson_bank_schieben",
+          "de": "etwas auf die lange Bank schieben",
+          "en": "to put off"
+        },
+        {
+          "image": "lesson_ins_wasser_fallen",
+          "de": "ins Wasser fallen",
+          "en": "to fall through"
+        },
+        {
+          "image": "lesson_flinte_ins_korn",
+          "de": "die Flinte ins Korn werfen",
+          "en": "to give up too soon"
+        },
+        {
+          "image": "lesson_reinen_wein",
+          "de": "jemandem reinen Wein einschenken",
+          "en": "to tell the plain truth"
+        },
+        {
+          "image": "lesson_unter_den_teppich",
+          "de": "etwas unter den Teppich kehren",
+          "en": "to hush up"
+        },
+        {
+          "image": "lesson_heisser_brei",
+          "de": "um den heißen Brei herumreden",
+          "en": "to beat about the bush"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_lesen_kolumne": {
+    "The column's moves": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Hook",
+          "de": [
+            "Neulich im Supermarkt …"
+          ]
+        },
+        {
+          "label": "Concession",
+          "de": [
+            "Natürlich kann man sagen, …"
+          ]
+        },
+        {
+          "label": "The turn",
+          "de": [
+            "Doch …"
+          ]
+        },
+        {
+          "label": "Proposal",
+          "de": [
+            "Wie wäre es, wenn …?"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_2_lesen_experten": {
+    "Match the stance, not a shared word": {
+      "kind": "pairs",
+      "left": "the claim says",
+      "right": "the expert says it like this",
+      "rows": [
+        {
+          "a": "Freier Eintritt lohnt sich nicht.",
+          "b": "Die Kosten stehen in keinem Verhältnis zum Nutzen."
+        },
+        {
+          "a": "Mehr Menschen würden kommen.",
+          "b": "Die Besucherzahlen dürften deutlich steigen."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_kohaesion": {
+    "Demonstratives and 'a … of this kind'": {
+      "kind": "textMap",
+      "blocks": [
+        {
+          "label": "the idea",
+          "de": "Viele Firmen bieten inzwischen eine Vier-Tage-Woche an."
+        },
+        {
+          "label": "points back",
+          "de": "Ein solches Modell ist nicht überall möglich.",
+          "focus": [
+            "Ein solches Modell"
+          ]
+        },
+        {
+          "label": "names it again",
+          "de": "Diese Arbeitszeitverkürzung verlangt gute Planung.",
+          "focus": [
+            "Diese Arbeitszeitverkürzung"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_2_redemittel_vortrag": {
+    "Talk: open – structure – transition – close": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Open",
+          "de": [
+            "In meinem Vortrag geht es um …"
+          ]
+        },
+        {
+          "label": "Structure",
+          "de": [
+            "Zunächst …, anschließend …, zum Schluss …"
+          ]
+        },
+        {
+          "label": "Transition",
+          "de": [
+            "Damit komme ich zum nächsten Punkt."
+          ]
+        },
+        {
+          "label": "Close",
+          "de": [
+            "Ich danke Ihnen für Ihre Aufmerksamkeit."
+          ]
+        }
+      ]
+    },
+    "Graph: frame – striking – trend – interpret": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Frame",
+          "de": [
+            "Die Grafik zeigt …"
+          ]
+        },
+        {
+          "label": "Striking",
+          "de": [
+            "Auffällig ist …"
+          ]
+        },
+        {
+          "label": "Trend",
+          "de": [
+            "… ist stetig gestiegen."
+          ]
+        },
+        {
+          "label": "Interpret",
+          "de": [
+            "Das lässt sich darauf zurückführen, dass …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_2_umformung_1": {
+    "Relative clause → participial attribute": {
+      "kind": "pairs",
+      "left": "relative clause",
+      "right": "participle",
+      "rows": [
+        {
+          "a": "die Kosten, die ständig steigen",
+          "b": "die ständig steigenden Kosten"
+        },
+        {
+          "a": "der Bericht, der gestern veröffentlicht wurde",
+          "b": "der gestern veröffentlichte Bericht"
+        }
+      ]
+    },
+    "Active ↔ passive ↔ substitute": {
+      "kind": "pairs",
+      "left": "passive",
+      "right": "substitute",
+      "rows": [
+        {
+          "a": "Das kann nicht bewiesen werden.",
+          "b": "Das ist nicht beweisbar. / Das lässt sich nicht beweisen."
+        },
+        {
+          "a": "Das muss geprüft werden.",
+          "b": "Das ist zu prüfen."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_register_formell": {
+    "Requests: Kannst du mal → Wäre es Ihnen möglich, … zu …": {
+      "kind": "pairs",
+      "left": "chat",
+      "right": "formal e-mail",
+      "rows": [
+        {
+          "a": "Kannst du mir mal die Datei schicken?",
+          "b": "Wäre es Ihnen möglich, mir die Datei zukommen zu lassen?"
+        },
+        {
+          "a": "Klappt leider nicht.",
+          "b": "Leider ist mir das nicht möglich."
+        },
+        {
+          "a": "Sag Bescheid!",
+          "b": "Ich bitte um Ihre Rückmeldung."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_schreiben_forum_beschwerde": {
+    "Beschwerde: occasion – facts – expectation – demand – deadline – consequence – close": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Occasion",
+          "de": [
+            "Hiermit beschwere ich mich über …"
+          ]
+        },
+        {
+          "label": "Facts",
+          "de": [
+            "Am … habe ich …"
+          ]
+        },
+        {
+          "label": "Demand",
+          "de": [
+            "Ich fordere Sie daher auf, …"
+          ]
+        },
+        {
+          "label": "Deadline",
+          "de": [
+            "bis spätestens …"
+          ]
+        },
+        {
+          "label": "Consequence",
+          "de": [
+            "Andernfalls sehe ich mich gezwungen, …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_2_diktat_idiom": {
+    "Modal clusters at the end": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Das",
+            "hätte",
+            "man",
+            "vorher wissen müssen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_2_sprechen_ironie": {
+    "Particles that flip the meaning": {
+      "kind": "pairs",
+      "left": "words",
+      "right": "after a disaster, it means",
+      "rows": [
+        {
+          "a": "Das ist ja großartig.",
+          "b": "That's terrible."
+        },
+        {
+          "a": "Na, toll!",
+          "b": "Just what I needed (not)."
+        },
+        {
+          "a": "Du bist mir ja ein schöner Freund.",
+          "b": "Some friend you are."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_hoeren_hoerspiel": {
+    "Scene – tension – reason – turn – resolution": {
+      "kind": "timeline",
+      "axis": {
+        "start": "start",
+        "end": "end",
+        "now": null
+      },
+      "marks": [
+        {
+          "at": -2.6,
+          "label": "scene",
+          "de": "Mitternacht"
+        },
+        {
+          "at": -1.3,
+          "label": "tension",
+          "de": "ein Klopfen"
+        },
+        {
+          "at": 0.2,
+          "label": "the turn",
+          "de": "die Tür"
+        },
+        {
+          "at": 2,
+          "label": "resolution",
+          "de": "die Auflösung"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_lesen_literatur": {
+    "Participial clauses: literary compression": {
+      "kind": "pairs",
+      "left": "in the text",
+      "right": "unfolded",
+      "rows": [
+        {
+          "a": "Am Fenster stehend, sah sie den Regen.",
+          "b": "Während sie am Fenster stand, sah sie den Regen."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_sprechen_dialog": {
+    "Grade, relay, hedge": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Grade",
+          "de": [
+            "Das dürfte stimmen.",
+            "Das muss ein Irrtum sein."
+          ]
+        },
+        {
+          "label": "Relay",
+          "de": [
+            "Er soll gesagt haben, …"
+          ]
+        },
+        {
+          "label": "Hedge",
+          "de": [
+            "Ich würde eher sagen, …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c1_2_konjunktiv1_indirekte_rede": {
+    "Questions and commands": {
+      "kind": "pairs",
+      "left": "direct",
+      "right": "reported",
+      "rows": [
+        {
+          "a": "„Kommst du mit?“",
+          "b": "Sie fragte, ob ich mitkäme."
+        },
+        {
+          "a": "„Wann beginnt die Sitzung?“",
+          "b": "Er wollte wissen, wann die Sitzung beginne."
+        },
+        {
+          "a": "„Warten Sie hier!“",
+          "b": "Sie sagte, ich solle hier warten."
+        }
+      ]
+    },
+    "Past and future": {
+      "kind": "pairs",
+      "left": "direct",
+      "right": "reported",
+      "rows": [
+        {
+          "a": "„Ich habe es gewusst.“",
+          "b": "Er sagte, er habe es gewusst."
+        },
+        {
+          "a": "„Ich werde kommen.“",
+          "b": "Sie sagte, sie werde kommen."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_modalpartikeln": {
+    "Statements: ja, doch, eben, halt, wohl, schon": {
+      "kind": "pairs",
+      "left": "sentence",
+      "right": "the speaker means",
+      "rows": [
+        {
+          "a": "Das weißt du ja.",
+          "b": "we both know that"
+        },
+        {
+          "a": "Das habe ich doch gesagt!",
+          "b": "I told you so"
+        },
+        {
+          "a": "Das ist eben so.",
+          "b": "that's how it is"
+        },
+        {
+          "a": "Er wird wohl krank sein.",
+          "b": "probably"
+        }
+      ]
+    },
+    "Questions: denn, eigentlich, etwa, bloß/nur": {
+      "kind": "pairs",
+      "left": "question",
+      "right": "tone",
+      "rows": [
+        {
+          "a": "Was machst du denn hier?",
+          "b": "surprised, interested"
+        },
+        {
+          "a": "Wie heißt du eigentlich?",
+          "b": "by the way"
+        },
+        {
+          "a": "Hast du etwa alles gegessen?",
+          "b": "I hope not!"
+        },
+        {
+          "a": "Was soll ich bloß machen?",
+          "b": "despairing"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_schreiben_nominalstil": {
+    "Cause, concession, condition": {
+      "kind": "pairs",
+      "left": "verbal",
+      "right": "nominal",
+      "rows": [
+        {
+          "a": "weil Unterlagen fehlten",
+          "b": "wegen fehlender Unterlagen"
+        },
+        {
+          "a": "obwohl wir mehrmals erinnert haben",
+          "b": "trotz mehrmaliger Erinnerung"
+        },
+        {
+          "a": "wenn die Zahlung ausbleibt",
+          "b": "bei ausbleibender Zahlung"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_schreiben_forumsbeitrag": {
+    "Three strengths of guess": {
+      "kind": "scale",
+      "low": "a guess",
+      "high": "sure",
+      "points": [
+        {
+          "at": 90,
+          "de": "Das muss … sein."
+        },
+        {
+          "at": 65,
+          "de": "Das dürfte … sein."
+        },
+        {
+          "at": 35,
+          "de": "Das könnte … sein."
+        }
+      ]
+    }
+  },
+  "quest_c1_2_wortschatz": {
+    "Learn the noun with its verb": {
+      "kind": "pairs",
+      "left": "noun",
+      "right": "its verb",
+      "rows": [
+        {
+          "a": "Kritik",
+          "b": "üben"
+        },
+        {
+          "a": "eine Entscheidung",
+          "b": "treffen"
+        },
+        {
+          "a": "Einfluss",
+          "b": "nehmen auf"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_suchbild_redaktion": {
+    "Compounds in the newsroom: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "die Zeitung"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "der Stapel",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Zeitungsstapel",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "schreiben"
+            },
+            {
+              "text": "der Block",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Schreibblock",
+          "gender": "m"
+        }
+      ]
+    }
+  },
+  "quest_c1_2_suchbild_flughafen": {
+    "Compounds in the airport: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "das Gepäck"
+            },
+            {
+              "text": "das Band",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Gepäckband",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "die Anzeige"
+            },
+            {
+              "text": "die Tafel",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Anzeigetafel",
+          "gender": "f"
+        }
+      ]
+    }
+  }
+}

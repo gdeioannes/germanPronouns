@@ -2453,6 +2453,66 @@
 			"size": 1024,
 			"trim": true,
 			"square": true
+		},
+		{
+			"id": "kopf",
+			"prompt": "a friendly human head and neck seen from the front, short hair"
+		},
+		{
+			"id": "auge",
+			"prompt": "a single human eye with eyebrow, open, seen from the front"
+		},
+		{
+			"id": "nase",
+			"prompt": "a human nose seen from the side, part of a simple face profile"
+		},
+		{
+			"id": "mund",
+			"prompt": "a smiling human mouth with lips, seen from the front"
+		},
+		{
+			"id": "ohr",
+			"prompt": "a single human ear seen from the side"
+		},
+		{
+			"id": "hand",
+			"prompt": "an open human hand, palm facing the viewer, fingers spread"
+		},
+		{
+			"id": "arm",
+			"prompt": "a human arm from shoulder to hand, slightly bent"
+		},
+		{
+			"id": "bein",
+			"prompt": "a single bare human leg from the knee down in short shorts, standing, clearly a leg and not clothing"
+		},
+		{
+			"id": "fuss",
+			"prompt": "a bare human foot seen from the side"
+		},
+		{
+			"id": "bauch",
+			"prompt": "the belly of a person in a T-shirt, both hands resting on it"
+		},
+		{
+			"id": "ruecken",
+			"prompt": "a person seen from behind, the back clearly in focus"
+		},
+		{
+			"id": "zahn",
+			"prompt": "a single white tooth"
+		},
+		{
+			"id": "hals",
+			"prompt": "a person pointing at their own throat and neck, slightly pained"
+		},
+		{
+			"id": "schuh",
+			"prompt": "a single brown leather lace-up shoe seen from the side"
+		},
+		{
+			"id": "pullover",
+			"prompt": "a knitted jumper with long sleeves, laid flat"
 		}
 	]
 }

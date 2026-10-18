@@ -43,7 +43,7 @@ export interface LessonWord {
 }
 
 export type LessonStep =
-	| { kind: 'hook'; label: string; hook: string; more?: string; roadmap: string[] }
+	| { kind: 'hook'; label: string; hook: string; more?: string; roadmap: string[]; image?: string; recall?: { known: string; today: string } }
 	| { kind: 'rule'; label: string; tip: HelpTip; number: number; of: number }
 	| { kind: 'check'; label: string; check: LessonCheck }
 	| { kind: 'words'; label: string; words: LessonWord[] }
@@ -202,7 +202,10 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 		label: 'The idea',
 		hook,
 		more: help.intro && help.intro !== hook ? help.intro : undefined,
-		roadmap: tips.map((t) => t.title ?? firstSentence(t.text))
+		roadmap: tips.map((t) => t.title ?? firstSentence(t.text)),
+		// Only a scene drawn for this quiz: the shared per-level cards say nothing about the topic.
+		image: quiz.image && !quiz.image.startsWith('card_') ? quiz.image : undefined,
+		recall: help.recall
 	});
 
 	// 2 · One rule per screen, each followed by its check.

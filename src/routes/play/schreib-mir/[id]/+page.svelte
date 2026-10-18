@@ -8,9 +8,11 @@
 	// quotes the sentence back, fixed, when it had a small mistake), and the
 	// interest meter in the header moves when she does.
 	//
-	// Every chat happens once. The log is saved after every sentence and the
+	// No second try within a chat. The log is saved after every sentence and the
 	// whole chat is rebuilt from it on load, so leaving and coming back lands on
-	// the same turn, and a finished chat only ever shows its ending.
+	// the same turn, and a liked chat only ever shows its ending. A chat that
+	// ends without a like is forgotten (forgetMatch): the ending stays on screen,
+	// but the character leaves the contacts and may be dealt again in the deck.
 	import Seo from '$lib/components/Seo.svelte';
 	import GermanText from '$lib/components/GermanText.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
@@ -24,6 +26,8 @@
 		cleanName,
 		clearChat,
 		findChat,
+		forgetMatch,
+		isLiked,
 		loadChat,
 		loadName,
 		MATCH_PATH,
@@ -101,6 +105,10 @@
 	onMount(() => {
 		free = dev && page.url.searchParams.has('reset');
 		if (free) clearChat(chat.id);
+		// A chat saved with an ending that was not a like (from before the rule)
+		// is wiped; the meeting stays, since the deck may have just dealt them again.
+		const old = loadChat(chat.id);
+		if (old?.ending && !isLiked(old.ending)) clearChat(chat.id);
 		saved = loadChat(chat.id);
 		if (saved) {
 			name = saved.name;
@@ -215,7 +223,9 @@
 			track('match_end', { chat: chat.id, ending: next.ending, average: next.average });
 			void bankFixes(next);
 		}
-		saveChat(chat.id, saved);
+		// No like: the character leaves the contacts and can come back in the deck.
+		if (next.ending && !isLiked(next.ending)) forgetMatch(chat.id);
+		else saveChat(chat.id, saved);
 		built = [];
 		game = next;
 		playSound('msgOut');
@@ -249,7 +259,8 @@
 		const plays = { ...(saved.plays ?? {}) };
 		plays[audio] = (plays[audio] ?? 0) + 1;
 		saved = { ...saved, plays };
-		saveChat(chat.id, saved);
+		// A chat that ended without a like is already forgotten: don't save it back.
+		if (!game?.ending || isLiked(game.ending)) saveChat(chat.id, saved);
 	}
 
 	function speak(msg: ChatMessage) {
@@ -265,7 +276,7 @@
 
 <Seo
 	title="Schreib mir! Chat with {chat.name}, {chat.age}"
-	description="{chat.level} German chat game. {chat.bioEn} Your goal: {chat.goal} Build every answer from word tiles. Every chat happens once."
+	description="{chat.level} German chat game. {chat.bioEn} Your goal: {chat.goal} Build every answer from word tiles. No second tries."
 	path="{MATCH_PATH}/{chat.id}"
 />
 
@@ -426,7 +437,7 @@
 			<label class="name-label" for="chat-name">Your name in the chat</label>
 			<!-- svelte-ignore a11y_autofocus -->
 			<input id="chat-name" bind:value={nameDraft} maxlength="14" autocomplete="given-name" placeholder="Your name" autofocus />
-			<p class="rule">Every chat happens once. Choose your words.</p>
+			<p class="rule">No second tries. Choose your words: without a like, {chat.name} leaves.</p>
 			<button class="btn" type="submit" disabled={!cleanName(nameDraft)}>Start the chat</button>
 		</form>
 	</div>

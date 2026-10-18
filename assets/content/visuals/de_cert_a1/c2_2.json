@@ -1,0 +1,1027 @@
+{
+  "quest_c2_2_philosophie": {
+    "Gender follows the form, not the abstractness": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "frei"
+            },
+            {
+              "text": "-heit",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Freiheit",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Pflicht"
+            }
+          ],
+          "result": "die Pflicht",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "das Gewissen"
+            }
+          ],
+          "result": "das Gewissen",
+          "gender": "n",
+          "en": "conscience"
+        },
+        {
+          "parts": [
+            {
+              "text": "Wille"
+            }
+          ],
+          "result": "der Wille",
+          "gender": "m"
+        }
+      ]
+    },
+    "Verbs of argument with fixed partners": {
+      "kind": "pairs",
+      "left": "verb",
+      "right": "partner",
+      "rows": [
+        {
+          "a": "sich berufen",
+          "b": "auf + Akk: sich auf Kant berufen"
+        },
+        {
+          "a": "Stellung nehmen",
+          "b": "zu + Dat: zu einer Frage Stellung nehmen"
+        },
+        {
+          "a": "zurückführen",
+          "b": "auf + Akk: etwas auf eine Ursache zurückführen"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_fokus": {
+    "The Vorfeld is the focus slot": {
+      "kind": "bracket",
+      "columns": [
+        "Vorfeld (focus)",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        0
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "habe",
+            "das nicht gesagt."
+          ],
+          "en": "neutral"
+        },
+        {
+          "cells": [
+            "Das",
+            "habe",
+            "ich nicht gesagt."
+          ],
+          "en": "THAT I didn't say"
+        },
+        {
+          "cells": [
+            "Ausgerechnet heute",
+            "regnet",
+            "es."
+          ],
+          "en": "today of all days"
+        }
+      ]
+    },
+    "erst vs nur; allein, schon, erst recht, zumindest": {
+      "kind": "pairs",
+      "left": "erst: later than expected",
+      "right": "nur: less than expected",
+      "rows": [
+        {
+          "a": "Er kommt erst um zehn.",
+          "b": "Er bleibt nur eine Stunde."
+        },
+        {
+          "a": "Ich habe erst drei Seiten gelesen. (more to come)",
+          "b": "Ich habe nur drei Seiten gelesen. (that's all)"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_sprechen_streitgespraech": {
+    "Contradict sharply, formally": {
+      "kind": "scale",
+      "low": "mild",
+      "high": "sharp",
+      "points": [
+        {
+          "at": 95,
+          "de": "Da muss ich Ihnen entschieden widersprechen."
+        },
+        {
+          "at": 70,
+          "de": "Das sehe ich grundlegend anders."
+        },
+        {
+          "at": 40,
+          "de": "Da bin ich nicht ganz Ihrer Meinung."
+        }
+      ]
+    }
+  },
+  "quest_c2_2_anspielung": {
+    "Irony, formulas and coded praise": {
+      "kind": "pairs",
+      "left": "a reference says",
+      "right": "it means",
+      "rows": [
+        {
+          "a": "Er war stets bemüht.",
+          "b": "He tried, and failed."
+        },
+        {
+          "a": "Sie trug zur Verbesserung des Betriebsklimas bei.",
+          "b": "She was sociable, perhaps too much."
+        },
+        {
+          "a": "Er erledigte alle Aufgaben stets zu unserer vollsten Zufriedenheit.",
+          "b": "Very good. (Without stets: only good.)"
+        }
+      ]
+    },
+    "Ask what the sentence does, not what it says": {
+      "kind": "pairs",
+      "left": "it says",
+      "right": "it does",
+      "rows": [
+        {
+          "a": "Es zieht hier ein bisschen.",
+          "b": "Please close the window."
+        },
+        {
+          "a": "Interessante Idee …",
+          "b": "I'm not convinced."
+        }
+      ]
+    }
+  },
+  "quest_c2_2_paraphrase": {
+    "Equivalence test: meaning, register, grammar": {
+      "kind": "pairs",
+      "left": "plain",
+      "right": "one rung up",
+      "rows": [
+        {
+          "a": "Viele Leute",
+          "b": "Zahlreiche Menschen"
+        },
+        {
+          "a": "etwas zeigen",
+          "b": "etwas verdeutlichen"
+        },
+        {
+          "a": "Das ist wichtig.",
+          "b": "Das ist von zentraler Bedeutung."
+        }
+      ]
+    }
+  },
+  "quest_c2_2_hoeren_fachvortrag": {
+    "Old model → gilt als überholt → vielmehr → new model": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "The old model",
+          "de": [
+            "Lange ging man davon aus, dass …"
+          ]
+        },
+        {
+          "label": "It falls",
+          "de": [
+            "Diese Vorstellung gilt heute als überholt."
+          ]
+        },
+        {
+          "label": "The new model",
+          "de": [
+            "Vielmehr …"
+          ]
+        },
+        {
+          "label": "Hedged conclusion",
+          "de": [
+            "Vieles deutet darauf hin, dass …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_wortspiel": {
+    "Gender decides the meaning": {
+      "kind": "pictures",
+      "caption": "Also: der See (lake) / die See (sea); der Band (volume) / die Band (group) / das Band (ribbon).",
+      "items": [
+        {
+          "image": "lesson_die_steuer",
+          "de": "die Steuer",
+          "en": "tax"
+        },
+        {
+          "image": "lesson_das_steuer",
+          "de": "das Steuer",
+          "en": "steering wheel"
+        },
+        {
+          "image": "lesson_die_leiter",
+          "de": "die Leiter",
+          "en": "ladder"
+        },
+        {
+          "image": "lesson_der_leiter",
+          "de": "der Leiter",
+          "en": "head, manager"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_sprechen_kurzcheck": {
+    "Imply and understate": {
+      "kind": "pairs",
+      "left": "direct",
+      "right": "implied",
+      "rows": [
+        {
+          "a": "Das war schlecht.",
+          "b": "Das war nicht gerade ein Meisterwerk."
+        },
+        {
+          "a": "Du bist zu spät.",
+          "b": "Schön, dass du es auch noch geschafft hast."
+        }
+      ]
+    }
+  },
+  "quest_c2_2_lesen_essay": {
+    "Concession → hinge → limitation → conclusion": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Concession",
+          "de": [
+            "Gewiss erleichtert das Internet das Erinnern."
+          ]
+        },
+        {
+          "label": "Hinge",
+          "de": [
+            "Doch …"
+          ]
+        },
+        {
+          "label": "Limitation",
+          "de": [
+            "…, sofern …"
+          ]
+        },
+        {
+          "label": "Redefinition",
+          "de": [
+            "Vergessen ist nicht …, sondern vielmehr …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_wissenschaftssprache": {
+    "Hedge, then structure": {
+      "kind": "scale",
+      "low": "hedged",
+      "high": "firm",
+      "points": [
+        {
+          "at": 90,
+          "de": "Daraus folgt, dass …"
+        },
+        {
+          "at": 65,
+          "de": "Es ist davon auszugehen, dass …"
+        },
+        {
+          "at": 40,
+          "de": "Die Ergebnisse deuten darauf hin, dass …"
+        },
+        {
+          "at": 15,
+          "de": "Es lässt sich vermuten, dass …"
+        }
+      ]
+    },
+    "Assume, infer, conclude": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Assume",
+          "de": [
+            "Wir gehen davon aus, dass …"
+          ]
+        },
+        {
+          "label": "Infer",
+          "de": [
+            "Daraus lässt sich schließen, dass …"
+          ]
+        },
+        {
+          "label": "Conclude",
+          "de": [
+            "Zusammenfassend ist festzuhalten, dass …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_praepositionen_schriftsprache": {
+    "Read them back as clauses": {
+      "kind": "pairs",
+      "left": "written",
+      "right": "read back as",
+      "rows": [
+        {
+          "a": "binnen einer Woche",
+          "b": "innerhalb einer Woche"
+        },
+        {
+          "a": "vorbehaltlich der Zustimmung",
+          "b": "wenn zugestimmt wird"
+        },
+        {
+          "a": "ungeachtet der Kritik",
+          "b": "obwohl es Kritik gibt"
+        },
+        {
+          "a": "kraft seines Amtes",
+          "b": "weil er das Amt hat"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_nominalstil": {
+    "Verdichten: five moves, one noun phrase": {
+      "kind": "pairs",
+      "left": "verbal",
+      "right": "nominal",
+      "rows": [
+        {
+          "a": "nachdem man die Daten ausgewertet hatte",
+          "b": "nach Auswertung der Daten"
+        },
+        {
+          "a": "weil die Nachfrage stark gestiegen ist",
+          "b": "aufgrund des starken Anstiegs der Nachfrage"
+        }
+      ]
+    },
+    "The light verbs: erfolgen, stattfinden, sein": {
+      "kind": "pairs",
+      "left": "verbal",
+      "right": "with a light verb",
+      "rows": [
+        {
+          "a": "Man zahlt monatlich.",
+          "b": "Die Zahlung erfolgt monatlich."
+        },
+        {
+          "a": "Wir treffen uns am Montag.",
+          "b": "Das Treffen findet am Montag statt."
+        }
+      ]
+    }
+  },
+  "quest_c2_2_behoerdensprache": {
+    "Three questions for every official letter": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "What is it about?",
+          "de": [
+            "Bußgeldbescheid wegen Geschwindigkeitsüberschreitung"
+          ]
+        },
+        {
+          "label": "What must I do, by when?",
+          "de": [
+            "zahlen oder Einspruch einlegen, innerhalb von zwei Wochen ab Zustellung"
+          ]
+        },
+        {
+          "label": "What if I don’t?",
+          "de": [
+            "Der Bescheid wird rechtskräftig."
+          ]
+        }
+      ]
+    },
+    "Commands in the passive-nominal, and their Klartext": {
+      "kind": "pairs",
+      "left": "Amtsdeutsch",
+      "right": "Klartext",
+      "rows": [
+        {
+          "a": "Der Betrag ist bis zum 1. Juni zu entrichten.",
+          "b": "Pay by 1 June."
+        },
+        {
+          "a": "Eine Stellungnahme ist binnen 14 Tagen einzureichen.",
+          "b": "Reply within two weeks."
+        }
+      ]
+    }
+  },
+  "quest_c2_2_lesen_amtliches_schreiben": {
+    "Anhörung ≠ Bescheid": {
+      "kind": "timeline",
+      "axis": {
+        "start": "step 1",
+        "end": "step 3",
+        "now": null
+      },
+      "marks": [
+        {
+          "at": -2.2,
+          "label": "you may reply",
+          "de": "die Anhörung"
+        },
+        {
+          "at": -0.2,
+          "label": "the decision",
+          "de": "der Bescheid"
+        },
+        {
+          "at": 1.8,
+          "label": "final",
+          "de": "rechtskräftig"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_appositionen": {
+    "Copy the case from the left": {
+      "kind": "pairs",
+      "left": "case of the noun",
+      "right": "apposition copies it",
+      "rows": [
+        {
+          "a": "mit Herrn Roth (Dat),",
+          "b": "dem neuen Bürgermeister"
+        },
+        {
+          "a": "Ich kenne Herrn Roth (Akk),",
+          "b": "den neuen Bürgermeister."
+        },
+        {
+          "a": "das Haus Herrn Roths (Gen),",
+          "b": "des neuen Bürgermeisters"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_modalverben_system": {
+    "Subjective: a scale of certainty": {
+      "kind": "scale",
+      "low": "unlikely",
+      "high": "certain",
+      "points": [
+        {
+          "at": 95,
+          "de": "muss"
+        },
+        {
+          "at": 80,
+          "de": "dürfte"
+        },
+        {
+          "at": 55,
+          "de": "kann / könnte"
+        },
+        {
+          "at": 35,
+          "de": "mag (concessive)"
+        },
+        {
+          "at": 5,
+          "de": "kann nicht"
+        }
+      ]
+    },
+    "Reporting: sollen for others, wollen for oneself": {
+      "kind": "pairs",
+      "left": "objective",
+      "right": "subjective / reporting",
+      "rows": [
+        {
+          "a": "Er muss arbeiten. (obligation)",
+          "b": "Er muss krank sein. (certainty)"
+        },
+        {
+          "a": "Er soll pünktlich sein. (instruction)",
+          "b": "Er soll reich sein. (hearsay)"
+        },
+        {
+          "a": "Er will kommen. (wish)",
+          "b": "Er will nichts gewusst haben. (claim)"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_passiv_meisterschaft": {
+    "Ask what is in focus": {
+      "kind": "pairs",
+      "left": "focus",
+      "right": "form",
+      "rows": [
+        {
+          "a": "the action",
+          "b": "Die Brücke wird gebaut."
+        },
+        {
+          "a": "the result",
+          "b": "Die Brücke ist gebaut."
+        },
+        {
+          "a": "the duty",
+          "b": "Die Brücke ist bis Mai zu bauen."
+        },
+        {
+          "a": "the possibility",
+          "b": "Die Brücke lässt sich schnell bauen."
+        }
+      ]
+    }
+  },
+  "quest_c2_2_adverbialsaetze_umformen": {
+    "Conjunction, subordinator or adverb: watch the verb": {
+      "kind": "bracket",
+      "columns": [
+        "Subordinate (verb last)",
+        "Main (verb 2nd)",
+        "Infinitive"
+      ],
+      "hot": [
+        0
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Weil er krank war, …",
+            "Er war krank, deshalb …",
+            "—"
+          ]
+        },
+        {
+          "cells": [
+            "Damit sie lernt, …",
+            "—",
+            "Um zu lernen, …"
+          ]
+        },
+        {
+          "cells": [
+            "Obwohl er müde war, …",
+            "Er war müde, trotzdem …",
+            "—"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_bigtext_lesen": {
+    "Sustained reported speech: the mood is the only marker": {
+      "kind": "textMap",
+      "blocks": [
+        {
+          "label": "the critics (Konjunktiv I)",
+          "de": "Lesen sei überholt, die Jugend lese nicht mehr.",
+          "focus": [
+            "sei",
+            "lese"
+          ]
+        },
+        {
+          "label": "the author (indicative)",
+          "de": "Doch die Zahlen zeigen etwas anderes.",
+          "focus": [
+            "zeigen"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_hoeren_lesung": {
+    "The symbolic object: image + „solange …“": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Fact",
+          "de": [
+            "ein gepackter Koffer, 31 Jahre lang"
+          ]
+        },
+        {
+          "label": "Symbol",
+          "de": [
+            "solange der Koffer stand, …"
+          ]
+        },
+        {
+          "label": "Meaning",
+          "de": [
+            "die Hoffnung auf Rückkehr"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_sprechen_analyse": {
+    "Content, focus, language, motif": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Content",
+          "de": [
+            "Die Geschichte handelt von …"
+          ]
+        },
+        {
+          "label": "Focus",
+          "de": [
+            "Im Mittelpunkt steht …"
+          ]
+        },
+        {
+          "label": "Language",
+          "de": [
+            "Auffällig ist die knappe Sprache."
+          ]
+        },
+        {
+          "label": "Motif",
+          "de": [
+            "Das Fenster steht für …"
+          ]
+        },
+        {
+          "label": "Verdict",
+          "de": [
+            "Insgesamt …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_rezension_redemittel": {
+    "The skeleton of a review": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Introduce",
+          "de": [
+            "In ihrem neuen Roman erzählt …"
+          ]
+        },
+        {
+          "label": "Interpret",
+          "de": [
+            "Der Titel verweist auf …"
+          ]
+        },
+        {
+          "label": "Weigh",
+          "de": [
+            "Überzeugend ist …, weniger gelungen …"
+          ]
+        },
+        {
+          "label": "Verdict",
+          "de": [
+            "Ein lesenswertes Buch, das …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_hoeren_capstone": {
+    "The optimists: vorausgesetzt / sofern / unter einer Bedingung": {
+      "kind": "pairs",
+      "left": "position",
+      "right": "fine print",
+      "rows": [
+        {
+          "a": "KI schafft neue Jobs,",
+          "b": "vorausgesetzt, wir investieren in Weiterbildung."
+        }
+      ]
+    }
+  },
+  "quest_c2_2_lesen_capstone": {
+    "Ritual + stated reason + halb im Scherz": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Ritual",
+          "de": [
+            "Jeden Abend um neun öffnete sie das Fenster."
+          ]
+        },
+        {
+          "label": "Stated reason",
+          "de": [
+            "… sagte sie halb im Scherz."
+          ]
+        },
+        {
+          "label": "Realisation",
+          "de": [
+            "Erst später begriff ich, …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_lesen_lyrik": {
+    "Device – form – reading: the three-sentence interpretation": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Device",
+          "de": [
+            "Das Gedicht arbeitet mit einer Fallhöhe: …"
+          ]
+        },
+        {
+          "label": "Form",
+          "de": [
+            "Paarreim, regelmäßiges Metrum"
+          ]
+        },
+        {
+          "label": "Reading",
+          "de": [
+            "Dadurch wirkt …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_sprechen_dialog": {
+    "Modal verbs to grade and to report": {
+      "kind": "scale",
+      "low": "a guess",
+      "high": "certain",
+      "points": [
+        {
+          "at": 95,
+          "de": "Das muss so gemeint sein."
+        },
+        {
+          "at": 75,
+          "de": "Das dürfte so gemeint sein."
+        },
+        {
+          "at": 45,
+          "de": "Das könnte so gemeint sein."
+        }
+      ]
+    }
+  },
+  "quest_c2_2_schreiben_eroerterung": {
+    "Give the objection its best case": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Frame",
+          "de": [
+            "Die Frage, ob …, ist umstritten."
+          ]
+        },
+        {
+          "label": "Thesis",
+          "de": [
+            "Für … spricht zunächst …"
+          ]
+        },
+        {
+          "label": "Strongest objection",
+          "de": [
+            "Der gewichtigste Einwand lautet …"
+          ]
+        },
+        {
+          "label": "Answer",
+          "de": [
+            "Dem lässt sich entgegenhalten, …"
+          ]
+        },
+        {
+          "label": "Conclusion",
+          "de": [
+            "Abwägend komme ich zu dem Schluss, …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_2_redewendungen": {
+    "Read the stance, not just the meaning": {
+      "kind": "pairs",
+      "left": "idiom",
+      "right": "the judgement in it",
+      "rows": [
+        {
+          "a": "jemandem das Wasser abgraben",
+          "b": "unfair: cutting off someone's livelihood"
+        },
+        {
+          "a": "sich mit fremden Federn schmücken",
+          "b": "dishonest: taking credit"
+        },
+        {
+          "a": "mit offenen Karten spielen",
+          "b": "approving: honest"
+        }
+      ]
+    },
+    "Remember the picture": {
+      "kind": "pictures",
+      "wide": true,
+      "items": [
+        {
+          "image": "lesson_wasser_abgraben",
+          "de": "jemandem das Wasser abgraben",
+          "en": "to cut off someone's livelihood"
+        },
+        {
+          "image": "lesson_fremde_federn",
+          "de": "sich mit fremden Federn schmücken",
+          "en": "to take credit for others' work"
+        },
+        {
+          "image": "lesson_offene_karten",
+          "de": "mit offenen Karten spielen",
+          "en": "to be open and honest"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_fremdwoerter": {
+    "Beware of English look-alikes": {
+      "kind": "pairs",
+      "left": "German",
+      "right": "means (not …)",
+      "rows": [
+        {
+          "a": "eventuell",
+          "b": "possibly (not eventually)"
+        },
+        {
+          "a": "aktuell",
+          "b": "current (not actual)"
+        },
+        {
+          "a": "konsequent",
+          "b": "consistent (not consequent)"
+        },
+        {
+          "a": "sensibel",
+          "b": "sensitive (not sensible)"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_dach_varianten": {
+    "Austria: the kitchen and the calendar": {
+      "kind": "pairs",
+      "left": "Deutschland",
+      "right": "Österreich · Schweiz",
+      "rows": [
+        {
+          "a": "die Aprikose",
+          "b": "die Marille · die Aprikose"
+        },
+        {
+          "a": "der Januar",
+          "b": "der Jänner · der Januar"
+        },
+        {
+          "a": "das Fahrrad",
+          "b": "das Fahrrad · das Velo"
+        },
+        {
+          "a": "die Fahrkarte",
+          "b": "die Fahrkarte · das Billett"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_wortschatz": {
+    "Register is part of the meaning": {
+      "kind": "pairs",
+      "left": "neutral",
+      "right": "elevated",
+      "rows": [
+        {
+          "a": "zeigen",
+          "b": "veranschaulichen"
+        },
+        {
+          "a": "Grund",
+          "b": "Beweggrund"
+        },
+        {
+          "a": "denken über",
+          "b": "reflektieren"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_suchbild_hafen": {
+    "Compounds in the harbour: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "leuchten"
+            },
+            {
+              "text": "der Turm",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Leuchtturm",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "der Fischer"
+            },
+            {
+              "text": "das Boot",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Fischerboot",
+          "gender": "n"
+        }
+      ]
+    }
+  },
+  "quest_c2_2_suchbild_antiquitaeten": {
+    "Loanwords keep a gender of their own": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Grammophon"
+            }
+          ],
+          "result": "das Grammophon",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "Kommode"
+            }
+          ],
+          "result": "die Kommode",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Sekretär"
+            }
+          ],
+          "result": "der Sekretär",
+          "gender": "m",
+          "en": "writing desk"
+        }
+      ]
+    }
+  }
+}

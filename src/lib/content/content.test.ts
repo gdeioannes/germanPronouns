@@ -14,6 +14,7 @@ import syllabus from '$content/syllabus/de_cert_a1.json';
 import type { CourseSyllabus, PopulatedCourse, Quiz } from './types';
 import { normalizeAnswer } from '$lib/domain/answers';
 import { buildableFromTiles, tileBank } from '$lib/domain/tiles';
+import { visualProblems } from '$lib/domain/lesson-visual';
 
 const bundle = course as unknown as PopulatedCourse;
 const syl = syllabus as unknown as CourseSyllabus;
@@ -384,8 +385,10 @@ describe('every quiz (baseline)', () => {
 			if (h.exam) expect(h.exam, `${q.id}: exam task number`).not.toMatch(TASK);
 			const prose = [
 				h.intro,
+				h.recall?.known,
+				h.recall?.today,
 				...(h.remember ?? []),
-				...(h.tips ?? []).flatMap((t) => [t.title, t.text, t.trap]),
+				...(h.tips ?? []).flatMap((t) => [t.title, t.text, t.trap, t.visual?.caption]),
 				h.table?.caption,
 				...(h.table?.columns ?? []),
 				...(h.mistakes ?? []).map((m) => m.why)
@@ -462,4 +465,21 @@ describe('completed modules (full standard)', () => {
 			for (const q of byLevel(module.level)) assertFullStandard(q);
 		}
 	);
+});
+
+describe("lesson diagrams", () => {
+	it("every rule-card diagram is one the lesson can draw", () => {
+		// components/lesson/LessonVisual.svelte draws nothing for a kind it does
+		// not know, and lines its cells up by index: bad data would ship a blank
+		// or a skewed diagram without failing anywhere else.
+		for (const q of quizzes) {
+			(q.help?.tips ?? []).forEach((t, i) => {
+				if (!t.visual) return;
+				expect(visualProblems(t.visual), `${q.id} tip ${i} (${t.title})`).toEqual([]);
+				if (t.visual.kind === 'pictures')
+					for (const it of t.visual.items)
+						if (it.image) expect(existsSync(`static/img/${it.image}.webp`), `${q.id}: missing picture ${it.image}`).toBe(true);
+			});
+		}
+	});
 });

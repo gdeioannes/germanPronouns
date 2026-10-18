@@ -21,12 +21,17 @@ export type FillStep = 0 | 1 | 2;
 /** Hard sentences the gold step needs before it draws on them alone. */
 export const MIN_HARD_POOL = 10;
 
-/** The sentence's trailing "(…)" cue, with the space before it. */
-const TRAILING_CUE = /\s*\([^()]*\)\s*$/;
+/** The sentence's trailing "(…)" cue, with the space before it; one level of nesting allowed. */
+const TRAILING_CUE = /\s*\((?:[^()]|\([^()]*\))*\)\s*$/;
 
-/** The sentence as the gold step shows it: the trailing cue dropped, unless it must stay. */
+/**
+ * The sentence as the gold step shows it: the trailing cue dropped, unless it
+ * must stay. With no English line the cue is the only question there is, so
+ * it stays too — a gap with nothing to go on is not a harder step, it is no
+ * step at all.
+ */
 export function goldSentence(item: QuizSentence): string {
-	if (item.keepCue) return item.sentence;
+	if (item.keepCue || !item.english) return item.sentence;
 	const bare = item.sentence.replace(TRAILING_CUE, '');
 	// A cue that was the whole sentence after the gap would leave nothing to read.
 	return bare.trim() ? bare : item.sentence;

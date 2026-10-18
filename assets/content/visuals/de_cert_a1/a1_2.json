@@ -1,0 +1,1685 @@
+{
+  "quest_a1_2_akkusativ": {
+    "Only masculine moves: der → den, ein → einen": {
+      "kind": "caseGrid",
+      "caption": "One cell changes in the whole accusative: the masculine. Everything else stays as it was.",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "der / ein",
+            "die / eine",
+            "das / ein",
+            "die / –"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "den / einen",
+            "die / eine",
+            "das / ein",
+            "die / –"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "wen oder was? — ask the verb": {
+      "kind": "bracket",
+      "columns": [
+        "Who does it (Nom)",
+        "Verb",
+        "Whom / what (Akk)"
+      ],
+      "hot": [
+        2
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Der Hund",
+            "sieht",
+            "den Mann."
+          ],
+          "en": "The dog sees the man."
+        },
+        {
+          "cells": [
+            "Den Mann",
+            "sieht",
+            "der Hund."
+          ],
+          "en": "Same meaning: the article, not the order, says who sees whom."
+        }
+      ]
+    }
+  },
+  "quest_a1_2_possessiv": {
+    "Pick the owner": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "owner word",
+          "forms": [
+            "mein",
+            "dein",
+            "sein / ihr / sein",
+            "unser",
+            "euer",
+            "ihr / Ihr"
+          ]
+        }
+      ]
+    },
+    "Then add the ein-ending for the noun": {
+      "kind": "caseGrid",
+      "caption": "The ending comes from the noun, exactly as with ein.",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "mein Hund",
+            "meine Katze",
+            "mein Haus",
+            "meine Kinder"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "meinen Hund",
+            "meine Katze",
+            "mein Haus",
+            "meine Kinder"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "sein vs ihr — his vs her": {
+      "kind": "pictures",
+      "caption": "The owner decides sein or ihr; the noun decides the ending.",
+      "items": [
+        {
+          "image": "lesson_tom_sein_hund",
+          "de": "Tom und sein Hund",
+          "en": "his dog"
+        },
+        {
+          "image": "lesson_anna_ihr_hund",
+          "de": "Anna und ihr Hund",
+          "en": "her dog"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_hoeren_cafe": {
+    "Two voices: who asks, who answers": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Waiter asks",
+          "de": [
+            "Was möchten Sie?",
+            "Sonst noch etwas?"
+          ]
+        },
+        {
+          "label": "Guest orders",
+          "de": [
+            "Ich hätte gern …",
+            "Einen Kaffee, bitte."
+          ]
+        },
+        {
+          "label": "Paying",
+          "de": [
+            "Guest: Zahlen, bitte!",
+            "Waiter: Das macht …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_pronomen_akk": {
+    "Five change, four stay": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "Nom",
+          "forms": [
+            "ich",
+            "du",
+            "er / sie / es",
+            "wir",
+            "ihr",
+            "sie / Sie"
+          ]
+        },
+        {
+          "label": "Akk",
+          "forms": [
+            "mich",
+            "dich",
+            "ihn / sie / es",
+            "uns",
+            "euch",
+            "sie / Sie"
+          ]
+        }
+      ],
+      "hot": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "'it' is ihn, sie or es": {
+      "kind": "caseGrid",
+      "columns": [
+        "m",
+        "f",
+        "n"
+      ],
+      "caption": "'it' copies the gender of the noun it stands for.",
+      "rows": [
+        {
+          "label": "the noun",
+          "cells": [
+            "den Tisch",
+            "die Lampe",
+            "das Buch"
+          ]
+        },
+        {
+          "label": "it",
+          "cells": [
+            "ihn",
+            "sie",
+            "es"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "quest_a1_2_negation": {
+    "kein for ein-nouns and bare nouns": {
+      "kind": "tree",
+      "root": {
+        "q": "Are you saying 'no' to a noun that has ein or no article?",
+        "yes": {
+          "answer": "kein",
+          "de": "Ich habe kein Auto. Ich habe keine Zeit."
+        },
+        "no": {
+          "answer": "nicht",
+          "de": "Ich komme nicht. Das Auto ist nicht neu."
+        }
+      }
+    },
+    "Where nicht goes": {
+      "kind": "bracket",
+      "hot": [
+        1,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "komme",
+            "heute",
+            "nicht."
+          ],
+          "en": "The whole sentence: nicht at the end."
+        },
+        {
+          "cells": [
+            "Das",
+            "ist",
+            "nicht",
+            "teuer."
+          ],
+          "en": "Before an adjective."
+        },
+        {
+          "cells": [
+            "Ich",
+            "kann",
+            "nicht",
+            "schwimmen."
+          ],
+          "en": "Before the verb at the end."
+        }
+      ]
+    }
+  },
+  "quest_a1_2_lesen_cafe": {
+    "The invitation comes at the end": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "News",
+          "de": [
+            "Es gibt ein neues Café …"
+          ]
+        },
+        {
+          "label": "Details",
+          "de": [
+            "geöffnet von … bis …",
+            "Ein Kaffee kostet …"
+          ]
+        },
+        {
+          "label": "Invitation",
+          "de": [
+            "Hast du Lust?",
+            "Treffen wir uns am …?"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_modalverben": {
+    "ich and er are the same, with no ending": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "können",
+          "forms": [
+            "kann",
+            "kannst",
+            "kann",
+            "können",
+            "könnt",
+            "können"
+          ]
+        },
+        {
+          "label": "müssen",
+          "forms": [
+            "muss",
+            "musst",
+            "muss",
+            "müssen",
+            "müsst",
+            "müssen"
+          ]
+        },
+        {
+          "label": "wollen",
+          "forms": [
+            "will",
+            "willst",
+            "will",
+            "wollen",
+            "wollt",
+            "wollen"
+          ]
+        }
+      ],
+      "hot": [
+        0,
+        2
+      ]
+    },
+    "The bracket: modal at 2, infinitive at the end": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "kann",
+            "gut",
+            "schwimmen."
+          ],
+          "en": "I can swim well."
+        },
+        {
+          "cells": [
+            "Heute",
+            "muss",
+            "ich lange",
+            "arbeiten."
+          ],
+          "en": "Today I have to work late."
+        },
+        {
+          "cells": [
+            "Wir",
+            "möchten",
+            "zwei Kaffee",
+            "bestellen."
+          ],
+          "en": "We would like to order two coffees."
+        }
+      ]
+    },
+    "möchten vs wollen — polite vs blunt": {
+      "kind": "scale",
+      "low": "blunt",
+      "high": "polite",
+      "points": [
+        {
+          "at": 95,
+          "de": "Ich hätte gern einen Tee.",
+          "en": "I'd like a tea, please."
+        },
+        {
+          "at": 75,
+          "de": "Ich möchte einen Tee.",
+          "en": "I'd like a tea."
+        },
+        {
+          "at": 20,
+          "de": "Ich will einen Tee.",
+          "en": "I want a tea."
+        }
+      ]
+    }
+  },
+  "quest_a1_2_sprechen_alltag": {
+    "halb counts forward, Viertel is a quarter": {
+      "kind": "clock",
+      "faces": [
+        {
+          "time": "6:30",
+          "de": "halb sieben",
+          "digital": "6:30"
+        },
+        {
+          "time": "8:15",
+          "de": "Viertel nach acht",
+          "digital": "8:15"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_uhrzeit": {
+    "halb looks forward": {
+      "kind": "clock",
+      "caption": "halb acht is half-way TO eight. English 'half eight' is the opposite.",
+      "faces": [
+        {
+          "time": "7:30",
+          "de": "halb acht",
+          "digital": "7:30"
+        },
+        {
+          "time": "2:30",
+          "de": "halb drei",
+          "digital": "2:30"
+        }
+      ]
+    },
+    "nach and vor": {
+      "kind": "clock",
+      "faces": [
+        {
+          "time": "9:05",
+          "de": "fünf nach neun",
+          "digital": "9:05"
+        },
+        {
+          "time": "9:15",
+          "de": "Viertel nach neun",
+          "digital": "9:15"
+        },
+        {
+          "time": "9:45",
+          "de": "Viertel vor zehn",
+          "digital": "9:45"
+        },
+        {
+          "time": "9:50",
+          "de": "zehn vor zehn",
+          "digital": "9:50"
+        }
+      ]
+    },
+    "The official clock: digits, 24 hours": {
+      "kind": "pairs",
+      "left": "everyday",
+      "right": "official (stations, radio)",
+      "rows": [
+        {
+          "a": "halb acht abends",
+          "b": "neunzehn Uhr dreißig"
+        },
+        {
+          "a": "Viertel nach zwei",
+          "b": "vierzehn Uhr fünfzehn"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_sprechen_kurzcheck": {
+    "haben and brauchen want the accusative": {
+      "kind": "caseGrid",
+      "rows": [
+        {
+          "label": "Ich brauche …",
+          "cells": [
+            "einen Stift",
+            "eine Tasche",
+            "ein Heft",
+            "Bücher"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "quest_a1_2_datum": {
+    "am for days, im for months and seasons": {
+      "kind": "timeline",
+      "axis": {
+        "start": "short",
+        "end": "long",
+        "now": null
+      },
+      "marks": [
+        {
+          "at": -2.6,
+          "label": "a clock time",
+          "de": "um acht"
+        },
+        {
+          "at": -1.2,
+          "label": "a day",
+          "de": "am Montag"
+        },
+        {
+          "at": 0.6,
+          "label": "a month",
+          "de": "im Mai"
+        },
+        {
+          "at": 2.3,
+          "label": "a season",
+          "de": "im Sommer"
+        }
+      ]
+    },
+    "The date: der erste, der zweite, der dritte …": {
+      "kind": "pairs",
+      "left": "written",
+      "right": "said",
+      "rows": [
+        {
+          "a": "1. Mai",
+          "b": "der erste Mai"
+        },
+        {
+          "a": "3. Oktober",
+          "b": "der dritte Oktober"
+        },
+        {
+          "a": "am 7. Juli",
+          "b": "am siebten Juli"
+        },
+        {
+          "a": "am 20. März",
+          "b": "am zwanzigsten März"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_wann_praepositionen": {
+    "um · am · im": {
+      "kind": "timeline",
+      "axis": {
+        "start": "short",
+        "end": "long",
+        "now": null
+      },
+      "marks": [
+        {
+          "at": -2.4,
+          "label": "clock time",
+          "de": "um 8 Uhr"
+        },
+        {
+          "at": -0.4,
+          "label": "day, date, part of day",
+          "de": "am Montag"
+        },
+        {
+          "at": 1.8,
+          "label": "month, season",
+          "de": "im Juli"
+        }
+      ]
+    },
+    "Spans: von … bis, ab, für": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -2,
+          "to": -0.6,
+          "label": "a closed span",
+          "de": "von Montag bis Freitag"
+        },
+        {
+          "at": 0.8,
+          "to": 3,
+          "label": "from then on",
+          "de": "ab morgen"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_diktat_meintag": {
+    "The prefix is the last word": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "stehe",
+            "um sieben",
+            "auf."
+          ]
+        },
+        {
+          "cells": [
+            "Dann",
+            "kaufe",
+            "ich im Supermarkt",
+            "ein."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_hoeren_termine": {
+    "halb acht is 7:30": {
+      "kind": "clock",
+      "faces": [
+        {
+          "time": "7:30",
+          "de": "halb acht",
+          "digital": "7:30"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_hoeren_bahnhof": {
+    "The announcement formula": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Which train",
+          "de": [
+            "Der ICE nach München …"
+          ]
+        },
+        {
+          "label": "Time",
+          "de": [
+            "… Abfahrt 14 Uhr 20 …"
+          ]
+        },
+        {
+          "label": "Platform",
+          "de": [
+            "… fährt heute von Gleis 7 ab."
+          ]
+        },
+        {
+          "label": "Delay",
+          "de": [
+            "… hat circa 10 Minuten Verspätung."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_praepositionen": {
+    "durch – für – gegen – ohne – um": {
+      "kind": "pairs",
+      "left": "preposition",
+      "right": "+ accusative",
+      "rows": [
+        {
+          "a": "durch",
+          "b": "durch den Park",
+          "note": "through"
+        },
+        {
+          "a": "für",
+          "b": "für meinen Bruder",
+          "note": "for"
+        },
+        {
+          "a": "gegen",
+          "b": "gegen den Baum",
+          "note": "against"
+        },
+        {
+          "a": "ohne",
+          "b": "ohne einen Schirm",
+          "note": "without"
+        },
+        {
+          "a": "um",
+          "b": "um den See",
+          "note": "around"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_bigtext_meintag": {
+    "Only masculine moves in the accusative": {
+      "kind": "caseGrid",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "ein",
+            "eine",
+            "ein",
+            "–"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "einen",
+            "eine",
+            "ein",
+            "–"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "The prefix is already at the end — type only the stem": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "stehe",
+            "um sieben",
+            "auf."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_trennbare": {
+    "Verb at 2, prefix at the end": {
+      "kind": "bracket",
+      "caption": "aufstehen breaks in two: stehe goes to position 2, auf waits at the end.",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "stehe",
+            "um sieben",
+            "auf."
+          ],
+          "en": "aufstehen"
+        },
+        {
+          "cells": [
+            "Wir",
+            "kaufen",
+            "am Samstag",
+            "ein."
+          ],
+          "en": "einkaufen"
+        },
+        {
+          "cells": [
+            "Sie",
+            "ruft",
+            "ihre Mutter",
+            "an."
+          ],
+          "en": "anrufen"
+        }
+      ]
+    },
+    "With a modal, the verb goes back together": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "stehe",
+            "früh",
+            "auf."
+          ]
+        },
+        {
+          "cells": [
+            "Ich",
+            "muss",
+            "früh",
+            "aufstehen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_perfekt_intro": {
+    "haben + participle at the end": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "habe",
+            "Pizza",
+            "gegessen."
+          ],
+          "en": "I ate pizza."
+        },
+        {
+          "cells": [
+            "Gestern",
+            "hat",
+            "sie lange",
+            "gearbeitet."
+          ],
+          "en": "Yesterday she worked late."
+        }
+      ]
+    },
+    "Regular: ge- … -t · Irregular: ge- … -en": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "ge",
+              "role": "prefix"
+            },
+            {
+              "text": "mach"
+            },
+            {
+              "text": "t",
+              "role": "ending"
+            }
+          ],
+          "result": "gemacht",
+          "en": "machen"
+        },
+        {
+          "parts": [
+            {
+              "text": "ge",
+              "role": "prefix"
+            },
+            {
+              "text": "kauf"
+            },
+            {
+              "text": "t",
+              "role": "ending"
+            }
+          ],
+          "result": "gekauft",
+          "en": "kaufen"
+        },
+        {
+          "parts": [
+            {
+              "text": "ge",
+              "role": "prefix"
+            },
+            {
+              "text": "schlaf"
+            },
+            {
+              "text": "en",
+              "role": "ending"
+            }
+          ],
+          "result": "geschlafen",
+          "en": "schlafen"
+        },
+        {
+          "parts": [
+            {
+              "text": "ge",
+              "role": "prefix"
+            },
+            {
+              "text": "trunk"
+            },
+            {
+              "text": "en",
+              "role": "ending"
+            }
+          ],
+          "result": "getrunken",
+          "en": "trinken"
+        }
+      ]
+    },
+    "Three to start with that take sein: fahren, bleiben, passieren": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "bin",
+            "nach Berlin",
+            "gefahren."
+          ]
+        },
+        {
+          "cells": [
+            "Wir",
+            "sind",
+            "zu Hause",
+            "geblieben."
+          ]
+        },
+        {
+          "cells": [
+            "Was",
+            "ist",
+            "",
+            "passiert?"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_war_hatte": {
+    "war — the past of sein": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "sein (now)",
+          "forms": [
+            "bin",
+            "bist",
+            "ist",
+            "sind",
+            "seid",
+            "sind"
+          ]
+        },
+        {
+          "label": "war (then)",
+          "forms": [
+            "war",
+            "warst",
+            "war",
+            "waren",
+            "wart",
+            "waren"
+          ]
+        }
+      ]
+    },
+    "hatte — the past of haben": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "haben (now)",
+          "forms": [
+            "habe",
+            "hast",
+            "hat",
+            "haben",
+            "habt",
+            "haben"
+          ]
+        },
+        {
+          "label": "hatte (then)",
+          "forms": [
+            "hatte",
+            "hattest",
+            "hatte",
+            "hatten",
+            "hattet",
+            "hatten"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_imperativ": {
+    "du: stem only, no pronoun": {
+      "kind": "pairs",
+      "left": "talking to",
+      "right": "the command",
+      "rows": [
+        {
+          "a": "a friend (du)",
+          "b": "Komm! Warte! Nimm das!"
+        },
+        {
+          "a": "a group (ihr)",
+          "b": "Kommt! Wartet! Nehmt das!"
+        },
+        {
+          "a": "a stranger (Sie)",
+          "b": "Kommen Sie! Warten Sie! Nehmen Sie das!"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_hoeflich": {
+    "Ich hätte gern + thing": {
+      "kind": "scale",
+      "low": "too blunt",
+      "high": "polite",
+      "points": [
+        {
+          "at": 98,
+          "de": "Könnten Sie mir bitte helfen?",
+          "en": "Could you help me, please?"
+        },
+        {
+          "at": 85,
+          "de": "Ich hätte gern ein Brot.",
+          "en": "I'd like a loaf."
+        },
+        {
+          "at": 70,
+          "de": "Ich möchte ein Brot.",
+          "en": "I'd like a loaf."
+        },
+        {
+          "at": 15,
+          "de": "Ich will ein Brot.",
+          "en": "I want a loaf."
+        }
+      ]
+    }
+  },
+  "quest_a1_2_dativ_pronomen_intro": {
+    "The dative pronouns": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "Akk",
+          "forms": [
+            "mich",
+            "dich",
+            "ihn / sie / es",
+            "uns",
+            "euch",
+            "sie / Sie"
+          ]
+        },
+        {
+          "label": "Dat",
+          "forms": [
+            "mir",
+            "dir",
+            "ihm / ihr / ihm",
+            "uns",
+            "euch",
+            "ihnen / Ihnen"
+          ]
+        }
+      ],
+      "hot": [
+        0,
+        1,
+        2,
+        5
+      ]
+    },
+    "gefallen turns the sentence round": {
+      "kind": "pairs",
+      "left": "English",
+      "right": "German",
+      "rows": [
+        {
+          "a": "I like the film.",
+          "b": "Der Film gefällt mir.",
+          "note": "The film is the subject; mir is the person it pleases."
+        },
+        {
+          "a": "Do you like the shoes?",
+          "b": "Gefallen dir die Schuhe?"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_satzbau": {
+    "Verb second — element, not word": {
+      "kind": "bracket",
+      "columns": [
+        "Position 1",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "fahre",
+            "morgen nach Hamburg."
+          ]
+        },
+        {
+          "cells": [
+            "Morgen",
+            "fahre",
+            "ich nach Hamburg."
+          ]
+        },
+        {
+          "cells": [
+            "Mit meiner Schwester",
+            "fahre",
+            "ich morgen nach Hamburg."
+          ]
+        }
+      ]
+    },
+    "und, oder, aber, denn — position 0": {
+      "kind": "bracket",
+      "columns": [
+        "Position 0",
+        "Position 1",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        0,
+        2
+      ],
+      "rows": [
+        {
+          "cells": [
+            "und",
+            "ich",
+            "komme",
+            "mit."
+          ]
+        },
+        {
+          "cells": [
+            "aber",
+            "ich",
+            "habe",
+            "keine Zeit."
+          ]
+        },
+        {
+          "cells": [
+            "denn",
+            "ich",
+            "bin",
+            "krank."
+          ]
+        }
+      ]
+    },
+    "dann takes position 1": {
+      "kind": "bracket",
+      "columns": [
+        "Position 1",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        0,
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Zuerst",
+            "frühstücke",
+            "ich."
+          ]
+        },
+        {
+          "cells": [
+            "Dann",
+            "gehe",
+            "ich zur Arbeit."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_sprechen_einkaufen": {
+    "The shopkeeper's questions": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Greeting",
+          "de": [
+            "Guten Tag! Was darf es sein?"
+          ]
+        },
+        {
+          "label": "You order",
+          "de": [
+            "Ich hätte gern ein Kilo Äpfel."
+          ]
+        },
+        {
+          "label": "Anything else?",
+          "de": [
+            "Sonst noch etwas?",
+            "Nein, danke. Das ist alles."
+          ]
+        },
+        {
+          "label": "Paying",
+          "de": [
+            "Das macht 4,50 Euro.",
+            "Hier, bitte."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_einkaufen_mengen": {
+    "Measure + thing, no 'of'": {
+      "kind": "pairs",
+      "left": "English",
+      "right": "German",
+      "rows": [
+        {
+          "a": "a kilo of apples",
+          "b": "ein Kilo Äpfel"
+        },
+        {
+          "a": "a bottle of water",
+          "b": "eine Flasche Wasser"
+        },
+        {
+          "a": "200 grams of cheese",
+          "b": "200 Gramm Käse"
+        }
+      ]
+    },
+    "The shop script": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Ask",
+          "de": [
+            "Was kostet …?",
+            "Haben Sie …?"
+          ]
+        },
+        {
+          "label": "Order",
+          "de": [
+            "Ich nehme …",
+            "Ich hätte gern …"
+          ]
+        },
+        {
+          "label": "Close",
+          "de": [
+            "Das ist alles.",
+            "Was macht das?"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_koerper": {
+    "… tut weh / … tun weh": {
+      "kind": "bracket",
+      "columns": [
+        "What hurts",
+        "Verb",
+        "",
+        "End"
+      ],
+      "hot": [
+        1,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Mein Kopf",
+            "tut",
+            "",
+            "weh."
+          ],
+          "en": "one thing: tut"
+        },
+        {
+          "cells": [
+            "Meine Füße",
+            "tun",
+            "",
+            "weh."
+          ],
+          "en": "two or more: tun"
+        }
+      ]
+    },
+    "The genders of the body": {
+      "kind": "pictures",
+      "caption": "Learn each one with its article: der Kopf, die Nase, das Auge.",
+      "items": [
+        {
+          "image": "kopf",
+          "de": "der Kopf",
+          "en": "head"
+        },
+        {
+          "image": "arm",
+          "de": "der Arm",
+          "en": "arm"
+        },
+        {
+          "image": "fuss",
+          "de": "der Fuß",
+          "en": "foot"
+        },
+        {
+          "image": "bauch",
+          "de": "der Bauch",
+          "en": "belly"
+        },
+        {
+          "image": "nase",
+          "de": "die Nase",
+          "en": "nose"
+        },
+        {
+          "image": "hand",
+          "de": "die Hand",
+          "en": "hand"
+        },
+        {
+          "image": "auge",
+          "de": "das Auge",
+          "en": "eye"
+        },
+        {
+          "image": "ohr",
+          "de": "das Ohr",
+          "en": "ear"
+        },
+        {
+          "image": "bein",
+          "de": "das Bein",
+          "en": "leg"
+        }
+      ]
+    },
+    "Ich habe …schmerzen": {
+      "kind": "pictures",
+      "items": [
+        {
+          "image": "kopf",
+          "de": "Kopfschmerzen",
+          "en": "headache"
+        },
+        {
+          "image": "bauch",
+          "de": "Bauchschmerzen",
+          "en": "stomach ache"
+        },
+        {
+          "image": "zahn",
+          "de": "Zahnschmerzen",
+          "en": "toothache"
+        },
+        {
+          "image": "ruecken",
+          "de": "Rückenschmerzen",
+          "en": "backache"
+        },
+        {
+          "image": "hals",
+          "de": "Halsschmerzen",
+          "en": "sore throat"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_lesen_reise": {
+    "Four questions, four signals": {
+      "kind": "pairs",
+      "left": "question",
+      "right": "look for",
+      "rows": [
+        {
+          "a": "Wann?",
+          "b": "am …, im …, um …"
+        },
+        {
+          "a": "Wie lange?",
+          "b": "drei Tage, eine Woche"
+        },
+        {
+          "a": "Wie viel?",
+          "b": "… Euro"
+        },
+        {
+          "a": "Wie?",
+          "b": "mit dem Zug, mit dem Auto"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_lesen_anzeigen": {
+    "The ad vocabulary": {
+      "kind": "pairs",
+      "left": "in the ad",
+      "right": "means",
+      "rows": [
+        {
+          "a": "Zi. · qm",
+          "b": "Zimmer · Quadratmeter (rooms · m²)"
+        },
+        {
+          "a": "zu verkaufen · zu vermieten",
+          "b": "for sale · to rent"
+        },
+        {
+          "a": "Tel. · ab sofort",
+          "b": "phone · available now"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_sprechen_dialog": {
+    "Build the sentence around the bracket": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Am Morgen",
+            "stehe",
+            "ich um sieben",
+            "auf."
+          ]
+        },
+        {
+          "cells": [
+            "Am Abend",
+            "muss",
+            "ich noch",
+            "einkaufen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_schreiben_absage": {
+    "Say when, not just that": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Sorry",
+          "de": [
+            "Liebe Anna, es tut mir leid,"
+          ]
+        },
+        {
+          "label": "What and why",
+          "de": [
+            "ich kann heute nicht kommen, denn ich bin krank."
+          ]
+        },
+        {
+          "label": "A new time",
+          "de": [
+            "Hast du am Samstag Zeit?"
+          ]
+        },
+        {
+          "label": "Sign-off",
+          "de": [
+            "Viele Grüße"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_2_wohin": {
+    "nach — cities, countries without article, home": {
+      "kind": "tree",
+      "root": {
+        "q": "A city, a country without an article, or home?",
+        "yes": {
+          "answer": "nach",
+          "de": "nach Berlin, nach Spanien, nach Hause"
+        },
+        "no": {
+          "q": "A person, or a place you don't go inside?",
+          "yes": {
+            "answer": "zu",
+            "de": "zum Arzt, zu meiner Oma, zur Bushaltestelle"
+          },
+          "no": {
+            "answer": "in + Akk",
+            "de": "ins Kino, in die Schweiz"
+          }
+        }
+      }
+    },
+    "nach Hause vs zu Hause": {
+      "kind": "places",
+      "items": [
+        {
+          "prep": "nach Hause",
+          "mode": "wohin",
+          "spot": "in",
+          "de": "Ich gehe nach Hause.",
+          "en": "going home"
+        },
+        {
+          "prep": "zu Hause",
+          "mode": "wo",
+          "spot": "in",
+          "de": "Ich bin zu Hause.",
+          "en": "at home"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_possessiv_plural": {
+    "Owner first": {
+      "kind": "people",
+      "persons": [
+        "wir",
+        "ihr",
+        "sie (they)",
+        "Sie (formal)"
+      ],
+      "columns": [
+        {
+          "label": "owner word",
+          "forms": [
+            "unser",
+            "euer",
+            "ihr",
+            "Ihr"
+          ]
+        }
+      ]
+    },
+    "euer drops an e": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "eu"
+            },
+            {
+              "text": "e",
+              "role": "gone"
+            },
+            {
+              "text": "r"
+            },
+            {
+              "text": "e",
+              "role": "ending"
+            }
+          ],
+          "result": "eure Wohnung"
+        },
+        {
+          "parts": [
+            {
+              "text": "eu"
+            },
+            {
+              "text": "e",
+              "role": "gone"
+            },
+            {
+              "text": "r"
+            },
+            {
+              "text": "en",
+              "role": "ending"
+            }
+          ],
+          "result": "euren Hund"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_suchbild_kueche": {
+    "Compounds in the kitchen: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "kühl"
+            },
+            {
+              "text": "der Schrank",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Kühlschrank",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "spülen"
+            },
+            {
+              "text": "die Maschine",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Spülmaschine",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_suchbild_supermarkt": {
+    "Compounds in the corner shop: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "der Einkauf"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "der Wagen",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Einkaufswagen",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "die Milch"
+            },
+            {
+              "text": "die Flasche",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Milchflasche",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_a1_2_wortschatz": {
+    "Say the article as part of the word": {
+      "kind": "caseGrid",
+      "columns": [
+        "m",
+        "f",
+        "n"
+      ],
+      "rows": [
+        {
+          "label": "",
+          "cells": [
+            "der Fahrschein",
+            "die Briefmarke",
+            "das Paket"
+          ]
+        },
+        {
+          "label": "",
+          "cells": [
+            "der Termin",
+            "die Post",
+            "das Ticket"
+          ]
+        }
+      ]
+    }
+  }
+}

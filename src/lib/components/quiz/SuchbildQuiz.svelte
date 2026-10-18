@@ -108,21 +108,17 @@
 
 	let streak = $state(0);
 	let best = $state(0);
-	let results = $state<('right' | 'wrong')[]>([]);
+	// The run on the step in play — each step keeps its own bar, streak and
+	// misses; the ticks on the room are shared by all three.
+	const results = $derived(run.current.results);
 	const answered = $derived(results.length);
 	const right = $derived(results.filter((r) => r === 'right').length);
-	let bestInRun = $state(0);
-	let missed = $state<string[]>([]);
+	const bestInRun = $derived(run.current.bestInRun);
+	const missed = $derived(run.current.missed);
 	let runDone = $state(false);
 	/** Objects already asked this run: none is asked twice in one run. */
 	let asked = $state<string[]>([]);
-	type Spot = {
-		results: ('right' | 'wrong')[];
-		bestInRun: number;
-		found: string[];
-		asked: string[];
-		stepRight?: number[];
-	};
+	type Spot = LadderRun['saved'] & { found?: string[]; asked?: string[] };
 
 	let roomEl = $state<HTMLElement>();
 	let missKey = $state(0);
@@ -158,6 +154,7 @@
 		asked = [...asked, spot.de];
 		current = spot;
 		phase = 'tap';
+		silent = false;
 		verdict = null;
 		tappedWrong = null;
 		chosenArticle = null;
@@ -175,7 +172,7 @@
 	function sayPrompt(spot: SuchbildSpot) {
 		if (mode === 'listen') {
 			announce('Listen, find it in the picture, then write it.');
-			void tts.speak(`Wo ist ${full(spot)}?`, { locale });
+			void speakQuestion(spot);
 			return;
 		}
 		announce(
@@ -183,6 +180,19 @@
 				? [{ text: `Wo ist ${full(spot)}?`, lang: locale }]
 				: [{ text: 'Find' }, { text: spot.de, lang: locale }, { text: ', then choose its article.' }]
 		);
+	}
+
+	/**
+	 * The listen step's question, spoken. When nothing can speak it (no German
+	 * voice on the device, no recording), the question is shown written
+	 * instead: a silent gold step would have no question at all.
+	 */
+	let silent = $state(false);
+	async function speakQuestion(spot: SuchbildSpot) {
+		const spoken = await tts.speak(`Wo ist ${full(spot)}?`, { locale });
+		if (spot !== current) return;
+		silent = !spoken;
+		if (silent) announce([{ text: 'No voice is available, so the question is written:' }, { text: `Wo ist ${full(spot)}?`, lang: locale }]);
 	}
 
 	onMount(() => {
@@ -193,13 +203,10 @@
 			best = stats.bestStreakAbsolute;
 			await run.open();
 			const spot = await loadSpot<Spot>(quiz.storageKeyPrefix);
-			const saved = Array.isArray(spot?.results) ? spot.results : [];
-			if (saved.length > 0 && saved.length < RUN_LENGTH) {
-				results = saved.filter((r) => r === 'right' || r === 'wrong');
-				bestInRun = spot?.bestInRun ?? 0;
+			run.restore(spot);
+			if (run.runs.some((r) => r.results.length > 0)) {
 				found = Array.isArray(spot?.found) ? spot.found : [];
 				asked = Array.isArray(spot?.asked) ? spot.asked : [];
-				run.restore(spot?.stepRight);
 			}
 			untrack(next);
 		})();
@@ -235,7 +242,10 @@
 	function finishRun() {
 		runDone = true;
 		void progress.recordRun(quiz.storageKeyPrefix, { right, total: RUN_LENGTH, bestStreak: bestInRun });
-		clearSpot(quiz.storageKeyPrefix);
+		// This step starts over; the other steps keep their runs.
+		const left = run.afterFinish();
+		if (left) saveSpot<Spot>(quiz.storageKeyPrefix, left);
+		else clearSpot(quiz.storageKeyPrefix);
 		const passed = runPassed(right, RUN_LENGTH);
 		onRunFinished(passed);
 		announce(
@@ -435,11 +445,9 @@
 		const lapCompleted = correct && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
 		best = stats.bestStreakAbsolute;
-		results = [...results, correct ? 'right' : 'wrong'];
-		bestInRun = Math.max(bestInRun, stats.streak);
 		// The ladder: the LADDER_PASSth right answer on a step in this run
 		// passes it and, the first time, earns its medal — celebrated now.
-		const medalWon = correct ? await run.right(true) : null;
+		const medalWon = await run.answer(correct, stats.streak, { miss: full(spot) });
 		react(correct, roomEl, stats.streak);
 		// A find keeps its tick on the room even after a wrong article: the
 		// thing was found, and its label shows the article it should have had.
@@ -449,9 +457,8 @@
 			burst += 1;
 		} else {
 			if (shown || chosenArticle || phase === 'write') missKey += 1;
-			missed = [...missed, full(spot)];
 		}
-		saveSpot<Spot>(quiz.storageKeyPrefix, { results, bestInRun, found, asked, stepRight: run.stepRight });
+		saveSpot<Spot>(quiz.storageKeyPrefix, { ...run.saved, found, asked });
 		const medal = medalWon ? run.announcement(medalWon) : '';
 		announce([
 			{
@@ -520,7 +527,7 @@
 		steps={STEPS}
 		record={run.record}
 		active={run.step}
-		right={run.stepRight[run.step]}
+		right={run.current.counted}
 		disabled={locked || runDone}
 		onpick={setStep}
 	/>
@@ -585,11 +592,16 @@
 					type="button"
 					class="hear"
 					lang="en"
-					onclick={() => current && tts.speak(`Wo ist ${full(current)}?`, { locale })}
+					onclick={() => current && speakQuestion(current)}
 				>
 					<Icon name="volume" size="1.1em" /> Listen again
 				</button>
-				<span class="muted" lang="en">Wo ist … ?</span>
+				{#if silent}
+					<!-- Nothing could speak it: the written question stands in. -->
+					<span class="muted">Wo ist <span class="article">{current.article}</span> {current.de}? <span lang="en">(no voice available)</span></span>
+				{:else}
+					<span class="muted" lang="en">Wo ist … ?</span>
+				{/if}
 			</p>
 		{/if}
 		</div>
@@ -715,7 +727,9 @@
 					lang={locale}
 					aria-hidden="true"
 				>
-					<b>{s.article}</b> {s.de}
+					<!-- On the article step a wrongly tapped object keeps its article to
+					     itself: it may be asked later in this run. -->
+					{#if mode === 'name' && !(isTarget && locked)}{s.de}{:else}<b>{s.article}</b> {s.de}{/if}
 				</span>
 			{:else if isFound}
 				<!-- Found earlier this run: a small tick at the box's corner, not a

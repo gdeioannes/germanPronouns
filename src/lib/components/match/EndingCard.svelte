@@ -5,8 +5,10 @@
 	//                  and the contact card that is now saved, with what the
 	//                  character knows about you. The secret ending also
 	//                  unlocks the next match.
-	//   partial      → you're in, but no like and no contact.
+	//   partial      → no like and no contact.
 	//   deleted      → the match is gone, with the line that ended it.
+	//   Without a like the character leaves the contacts (forgetMatch) and may
+	//   turn up in the deck again for another chance.
 	//
 	// Every ending shows "Dein Deutsch" (the average sentence score: the
 	// German and the story are graded apart on purpose), what went wrong, and
@@ -174,9 +176,9 @@
 				</a>
 			{/if}
 		{:else if ending === 'partial'}
-			<p class="note">No like and no contact. {chat.name} goes into <span lang="de">„Begegnungen“</span>, the people you've met.</p>
+			<p class="note">No like and no contact. {chat.name} leaves your contacts, but may turn up in your deck again for another chance.</p>
 		{:else}
-			<p class="note">Every chat happens once. {chat.name} is gone from your matches, and the next one is waiting.</p>
+			<p class="note">{chat.name} is gone from your contacts. Maybe they turn up in your deck again, and you get another chance.</p>
 		{/if}
 
 		{#if lows.length}

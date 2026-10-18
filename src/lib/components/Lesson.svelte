@@ -9,6 +9,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from './SpeakButton.svelte';
 	import GermanText from './GermanText.svelte';
+	import LessonVisual from './lesson/LessonVisual.svelte';
 	import Steps, { type StepMark } from './quiz/Steps.svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
 	import { speakable, splitFocus, spokenWord, type LessonCheck, type LessonStep } from '$lib/domain/lesson';
@@ -117,6 +118,17 @@
 					</p>
 					<h2 class="hook">{s.hook}</h2>
 
+					{#if s.recall}
+						<dl class="recall">
+							<div><dt>You already know</dt><dd>{s.recall.known}</dd></div>
+							<div><dt>New today</dt><dd>{s.recall.today}</dd></div>
+						</dl>
+					{/if}
+
+					{#if s.image}
+						<img class="hook-art" src="/img/{s.image}.webp" alt="" width="1024" height="768" loading="lazy" />
+					{/if}
+
 					{#if s.roadmap.length}
 						<ol class="roadmap">
 							{#each s.roadmap as point, n (n)}
@@ -145,6 +157,8 @@
 					</p>
 					{#if s.tip.title}<h2>{s.tip.title}</h2>{/if}
 					<p class="rule-text">{s.tip.text}</p>
+
+					{#if s.tip.visual}<LessonVisual visual={s.tip.visual} {locale} />{/if}
 
 					{#if s.tip.examples?.length}
 						<ul class="examples">
@@ -400,6 +414,45 @@
 	}
 
 	/* -- hook ------------------------------------------------------------- */
+
+	/* A topic met before: what carries over, and the one new thing. */
+	.recall {
+		margin: 0;
+		display: grid;
+		gap: 0.45rem;
+		padding: 0.75rem 0.9rem;
+		border-radius: var(--radius-sm);
+		background: var(--paper-low);
+		border: 1px solid var(--line);
+	}
+	.recall div {
+		display: grid;
+		gap: 0.1rem;
+	}
+	.recall dt {
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+	}
+	.recall div + div dt {
+		color: var(--accent-ink);
+	}
+	.recall dd {
+		margin: 0;
+		color: var(--ink);
+		line-height: 1.45;
+	}
+
+	/* The quiz's own scene, on the same paper as the picture. */
+	.hook-art {
+		width: 100%;
+		max-height: 14rem;
+		object-fit: contain;
+		border-radius: var(--radius-sm);
+		background: #fbf5e4;
+	}
 
 	.roadmap {
 		margin: 0.3rem 0 0;
@@ -729,6 +782,20 @@
 	.word:hover {
 		transform: translateY(-2px);
 		border-color: var(--g, var(--navy));
+	}
+
+	/* Long compounds (der Ersatzinfinitiv) must break inside the card, not spill out. */
+	.words > li,
+	.word,
+	.w-de,
+	.w-en {
+		min-width: 0;
+	}
+
+	.w-de,
+	.w-en {
+		overflow-wrap: anywhere;
+		hyphens: auto;
 	}
 
 	.w-de {

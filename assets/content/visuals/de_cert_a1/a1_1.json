@@ -1,0 +1,1658 @@
+{
+  "quest_a1_1_zahlen": {
+    "The eleven you build everything from": {
+      "kind": "pairs",
+      "left": "number",
+      "right": "German",
+      "caption": "Learn these eleven by heart: every bigger number is glued together from them.",
+      "rows": [
+        {
+          "a": "0 · 1 · 2 · 3",
+          "b": "null · eins · zwei · drei"
+        },
+        {
+          "a": "4 · 5 · 6 · 7",
+          "b": "vier · fünf · sechs · sieben"
+        },
+        {
+          "a": "8 · 9 · 10",
+          "b": "acht · neun · zehn"
+        }
+      ]
+    },
+    "z = ts, ei = eye, ie = ee": {
+      "kind": "pairs",
+      "left": "written",
+      "right": "say it like",
+      "rows": [
+        {
+          "a": "zwei, zehn",
+          "b": "tsvai, tsayn",
+          "note": "German z is always ts."
+        },
+        {
+          "a": "drei, zwei",
+          "b": "dry, tsvai",
+          "note": "ei rhymes with English eye."
+        },
+        {
+          "a": "vier, sieben",
+          "b": "feer, zee-ben",
+          "note": "ie is a long ee."
+        }
+      ]
+    }
+  },
+  "quest_a1_1_pronomen": {
+    "The nine forms": {
+      "kind": "people",
+      "caption": "Six rows to learn: er, sie and es share one row, and so do sie (they) and Sie (you, formal).",
+      "persons": [
+        "I",
+        "you (friend)",
+        "he / she / it",
+        "we",
+        "you (group)",
+        "they / you (formal)"
+      ],
+      "columns": [
+        {
+          "label": "subject",
+          "forms": [
+            "ich",
+            "du",
+            "er / sie / es",
+            "wir",
+            "ihr",
+            "sie / Sie"
+          ]
+        }
+      ]
+    },
+    "du or Sie?": {
+      "kind": "tree",
+      "root": {
+        "q": "Is it a child, a family member, a friend, or someone you call by first name?",
+        "yes": {
+          "answer": "du",
+          "de": "Wie heißt du?"
+        },
+        "no": {
+          "q": "Is it a stranger, a colleague you don't know well, or an official?",
+          "yes": {
+            "answer": "Sie",
+            "de": "Wie heißen Sie?"
+          },
+          "no": {
+            "answer": "Sie, until they offer du",
+            "de": "Wir können uns duzen."
+          }
+        }
+      }
+    }
+  },
+  "quest_a1_1_sprechen_vorstellung": {
+    "Hello and goodbye by time of day and formality": {
+      "kind": "timeline",
+      "caption": "The greeting follows the clock. Hallo and Tschüss fit any time with friends.",
+      "marks": [
+        {
+          "at": -2.6,
+          "to": -1.2,
+          "label": "morning",
+          "de": "Guten Morgen"
+        },
+        {
+          "at": -1.2,
+          "to": 0.8,
+          "label": "daytime",
+          "de": "Guten Tag"
+        },
+        {
+          "at": 0.8,
+          "to": 2.2,
+          "label": "evening",
+          "de": "Guten Abend"
+        },
+        {
+          "at": 2.7,
+          "label": "going to bed",
+          "de": "Gute Nacht"
+        }
+      ],
+      "axis": {
+        "start": "6:00",
+        "end": "midnight",
+        "now": null
+      }
+    }
+  },
+  "quest_a1_1_artikel": {
+    "der / die / das — and always learn them together": {
+      "kind": "caseGrid",
+      "caption": "Three genders and a plural, each with its own article. The colours stay the same everywhere in the course.",
+      "rows": [
+        {
+          "label": "the",
+          "cells": [
+            "der Tisch",
+            "die Lampe",
+            "das Buch",
+            "die Bücher"
+          ]
+        }
+      ]
+    },
+    "ein for der and das, eine for die": {
+      "kind": "caseGrid",
+      "caption": "ein has no plural: a plural noun simply has no article.",
+      "rows": [
+        {
+          "label": "the",
+          "cells": [
+            "der",
+            "die",
+            "das",
+            "die"
+          ]
+        },
+        {
+          "label": "a",
+          "cells": [
+            "ein",
+            "eine",
+            "ein",
+            "—"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "Endings that give the gender away": {
+      "kind": "blocks",
+      "caption": "Not a law, but a good bet: the ending often tells you the article.",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Lamp"
+            },
+            {
+              "text": "-e",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Lampe",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Wohn"
+            },
+            {
+              "text": "-ung",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Wohnung",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Mäd"
+            },
+            {
+              "text": "-chen",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Mädchen",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "Comput"
+            },
+            {
+              "text": "-er",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Computer",
+          "gender": "m"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_plural": {
+    "Five endings, one article": {
+      "kind": "pairs",
+      "left": "singular",
+      "right": "plural — always die",
+      "rows": [
+        {
+          "a": "der Tag",
+          "b": "die Tage",
+          "note": "-e (often with an umlaut: die Stühle)"
+        },
+        {
+          "a": "die Lampe",
+          "b": "die Lampen",
+          "note": "-n / -en: almost every feminine noun"
+        },
+        {
+          "a": "das Kind",
+          "b": "die Kinder",
+          "note": "-er, with an umlaut where it can: die Bücher"
+        },
+        {
+          "a": "das Auto",
+          "b": "die Autos",
+          "note": "-s: words from other languages"
+        },
+        {
+          "a": "der Lehrer",
+          "b": "die Lehrer",
+          "note": "no ending: many words in -er, -el, -en"
+        }
+      ]
+    },
+    "Read the dictionary notation": {
+      "kind": "blocks",
+      "caption": "The dictionary writes only what changes.",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Stuhl"
+            },
+            {
+              "text": "¨",
+              "role": "joint"
+            },
+            {
+              "text": "-e",
+              "role": "ending"
+            }
+          ],
+          "result": "die Stühle",
+          "en": "der Stuhl, ¨-e"
+        },
+        {
+          "parts": [
+            {
+              "text": "Frau"
+            },
+            {
+              "text": "-en",
+              "role": "ending"
+            }
+          ],
+          "result": "die Frauen",
+          "en": "die Frau, -en"
+        },
+        {
+          "parts": [
+            {
+              "text": "Zimmer"
+            },
+            {
+              "text": "–",
+              "role": "gone"
+            }
+          ],
+          "result": "die Zimmer",
+          "en": "das Zimmer, –"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_zahlen2": {
+    "Unit + zehn": {
+      "kind": "blocks",
+      "caption": "Like English thir-teen: the small number comes first.",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "drei"
+            },
+            {
+              "text": "zehn",
+              "role": "suffix"
+            }
+          ],
+          "result": "dreizehn",
+          "en": "13"
+        },
+        {
+          "parts": [
+            {
+              "text": "vier"
+            },
+            {
+              "text": "zehn",
+              "role": "suffix"
+            }
+          ],
+          "result": "vierzehn",
+          "en": "14"
+        },
+        {
+          "parts": [
+            {
+              "text": "neun"
+            },
+            {
+              "text": "zehn",
+              "role": "suffix"
+            }
+          ],
+          "result": "neunzehn",
+          "en": "19"
+        }
+      ]
+    },
+    "The three exceptions": {
+      "kind": "blocks",
+      "caption": "Two lose a piece; 11 and 12 are their own words.",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "sech"
+            },
+            {
+              "text": "s",
+              "role": "gone"
+            },
+            {
+              "text": "zehn",
+              "role": "suffix"
+            }
+          ],
+          "result": "sechzehn",
+          "en": "16"
+        },
+        {
+          "parts": [
+            {
+              "text": "sieb"
+            },
+            {
+              "text": "en",
+              "role": "gone"
+            },
+            {
+              "text": "zehn",
+              "role": "suffix"
+            }
+          ],
+          "result": "siebzehn",
+          "en": "17"
+        },
+        {
+          "parts": [
+            {
+              "text": "elf"
+            }
+          ],
+          "result": "elf · zwölf",
+          "en": "11 · 12"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_sein_haben": {
+    "sein — six forms, no pattern": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "sein",
+          "forms": [
+            "bin",
+            "bist",
+            "ist",
+            "sind",
+            "seid",
+            "sind"
+          ]
+        }
+      ]
+    },
+    "haben — regular, but two forms lose the b": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "haben",
+          "forms": [
+            "habe",
+            "hast",
+            "hat",
+            "haben",
+            "habt",
+            "haben"
+          ]
+        }
+      ],
+      "hot": [
+        1,
+        2
+      ]
+    }
+  },
+  "quest_a1_1_wfragen": {
+    "W-word, verb, subject": {
+      "kind": "bracket",
+      "columns": [
+        "W-word",
+        "Verb",
+        "Subject",
+        "Rest"
+      ],
+      "hot": [
+        0,
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Wo",
+            "wohnst",
+            "du",
+            "?"
+          ],
+          "en": "Where do you live?"
+        },
+        {
+          "cells": [
+            "Was",
+            "machst",
+            "du",
+            "heute?"
+          ],
+          "en": "What are you doing today?"
+        },
+        {
+          "cells": [
+            "Wann",
+            "kommt",
+            "der Bus",
+            "?"
+          ],
+          "en": "When does the bus come?"
+        }
+      ]
+    },
+    "wo, wohin, woher — three kinds of where": {
+      "kind": "places",
+      "items": [
+        {
+          "prep": "wo?",
+          "mode": "wo",
+          "spot": "in",
+          "de": "Wo bist du? – In der Schule.",
+          "en": "where (no movement)"
+        },
+        {
+          "prep": "wohin?",
+          "mode": "wohin",
+          "spot": "in",
+          "de": "Wohin gehst du? – In die Schule.",
+          "en": "where to"
+        },
+        {
+          "prep": "woher?",
+          "mode": "woher",
+          "spot": "in",
+          "de": "Woher kommst du? – Aus Spanien.",
+          "en": "where from"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_sprechen_kurzcheck": {
+    "Full sentences, always": {
+      "kind": "moves",
+      "caption": "The questions you will almost certainly hear, with a full-sentence answer ready.",
+      "moves": [
+        {
+          "label": "Name",
+          "de": [
+            "Wie heißt du?",
+            "Ich heiße …"
+          ]
+        },
+        {
+          "label": "Country",
+          "de": [
+            "Woher kommst du?",
+            "Ich komme aus …"
+          ]
+        },
+        {
+          "label": "Age",
+          "de": [
+            "Wie alt bist du?",
+            "Ich bin … Jahre alt."
+          ]
+        },
+        {
+          "label": "Number",
+          "de": [
+            "Wie ist deine Telefonnummer?",
+            "Meine Nummer ist …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_1_praesens": {
+    "Stem + ending": {
+      "kind": "people",
+      "caption": "Cut -en off the infinitive and add one ending per person.",
+      "columns": [
+        {
+          "label": "wohnen",
+          "forms": [
+            "wohne",
+            "wohnst",
+            "wohnt",
+            "wohnen",
+            "wohnt",
+            "wohnen"
+          ]
+        },
+        {
+          "label": "ending",
+          "forms": [
+            "-e",
+            "-st",
+            "-t",
+            "-en",
+            "-t",
+            "-en"
+          ]
+        }
+      ]
+    },
+    "The extra e after -t and -d": {
+      "kind": "blocks",
+      "caption": "Without the e, arbeitst and findt cannot be said.",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "arbeit"
+            },
+            {
+              "text": "e",
+              "role": "joint"
+            },
+            {
+              "text": "st",
+              "role": "ending"
+            }
+          ],
+          "result": "du arbeitest"
+        },
+        {
+          "parts": [
+            {
+              "text": "arbeit"
+            },
+            {
+              "text": "e",
+              "role": "joint"
+            },
+            {
+              "text": "t",
+              "role": "ending"
+            }
+          ],
+          "result": "er arbeitet"
+        },
+        {
+          "parts": [
+            {
+              "text": "find"
+            },
+            {
+              "text": "e",
+              "role": "joint"
+            },
+            {
+              "text": "t",
+              "role": "ending"
+            }
+          ],
+          "result": "sie findet"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_vokalwechsel": {
+    "Only du and er/sie/es change": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "fahren",
+          "forms": [
+            "fahre",
+            "fährst",
+            "fährt",
+            "fahren",
+            "fahrt",
+            "fahren"
+          ]
+        },
+        {
+          "label": "sprechen",
+          "forms": [
+            "spreche",
+            "sprichst",
+            "spricht",
+            "sprechen",
+            "sprecht",
+            "sprechen"
+          ]
+        },
+        {
+          "label": "sehen",
+          "forms": [
+            "sehe",
+            "siehst",
+            "sieht",
+            "sehen",
+            "seht",
+            "sehen"
+          ]
+        }
+      ],
+      "hot": [
+        1,
+        2
+      ]
+    },
+    "a → ä, e → i, e → ie": {
+      "kind": "pairs",
+      "left": "infinitive",
+      "right": "er / sie / es",
+      "rows": [
+        {
+          "a": "fahren, schlafen, tragen",
+          "b": "fährt, schläft, trägt",
+          "note": "a → ä"
+        },
+        {
+          "a": "sprechen, helfen, geben",
+          "b": "spricht, hilft, gibt",
+          "note": "e → i"
+        },
+        {
+          "a": "sehen, lesen",
+          "b": "sieht, liest",
+          "note": "e → ie"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_bigtext_dasbinich": {
+    "ich takes -e, sie takes -t, wir takes the infinitive": {
+      "kind": "people",
+      "columns": [
+        {
+          "label": "wohnen",
+          "forms": [
+            "wohne",
+            "wohnst",
+            "wohnt",
+            "wohnen",
+            "wohnt",
+            "wohnen"
+          ]
+        }
+      ],
+      "hot": [
+        0,
+        2,
+        3
+      ]
+    }
+  },
+  "quest_a1_1_diktat_steckbrief": {
+    "ei is eye, ie is ee, ß is ss": {
+      "kind": "pairs",
+      "left": "you hear",
+      "right": "you write",
+      "rows": [
+        {
+          "a": "“eye” — dry, my",
+          "b": "ei: drei, mein, heißen"
+        },
+        {
+          "a": "“ee” — see",
+          "b": "ie: vier, sieben, spielen"
+        },
+        {
+          "a": "a sharp s after a long vowel or ei / au / eu",
+          "b": "ß: heißen, Straße, groß"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_hoeren_zahlen": {
+    "Euros first, cents second, no comma word": {
+      "kind": "pairs",
+      "left": "on the label",
+      "right": "said aloud",
+      "rows": [
+        {
+          "a": "4,50 €",
+          "b": "vier Euro fünfzig"
+        },
+        {
+          "a": "1,99 €",
+          "b": "ein Euro neunundneunzig"
+        },
+        {
+          "a": "0,80 €",
+          "b": "achtzig Cent"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_zahlen3": {
+    "Unit + und + ten, one word": {
+      "kind": "blocks",
+      "caption": "Twenty-one is said one-and-twenty, and written as one word.",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "ein"
+            },
+            {
+              "text": "und",
+              "role": "joint"
+            },
+            {
+              "text": "zwanzig",
+              "role": "suffix"
+            }
+          ],
+          "result": "einundzwanzig",
+          "en": "21"
+        },
+        {
+          "parts": [
+            {
+              "text": "drei"
+            },
+            {
+              "text": "und",
+              "role": "joint"
+            },
+            {
+              "text": "vierzig",
+              "role": "suffix"
+            }
+          ],
+          "result": "dreiundvierzig",
+          "en": "43"
+        },
+        {
+          "parts": [
+            {
+              "text": "neun"
+            },
+            {
+              "text": "und",
+              "role": "joint"
+            },
+            {
+              "text": "neunzig",
+              "role": "suffix"
+            }
+          ],
+          "result": "neunundneunzig",
+          "en": "99"
+        }
+      ]
+    },
+    "The tens": {
+      "kind": "pairs",
+      "left": "number",
+      "right": "German",
+      "rows": [
+        {
+          "a": "20 · 30",
+          "b": "zwanzig · dreißig",
+          "note": "dreißig takes ß, not z."
+        },
+        {
+          "a": "40 · 50",
+          "b": "vierzig · fünfzig"
+        },
+        {
+          "a": "60 · 70",
+          "b": "sechzig · siebzig",
+          "note": "sechs and sieben lose a piece, as in the teens."
+        },
+        {
+          "a": "80 · 90 · 100",
+          "b": "achtzig · neunzig · hundert"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_farben": {
+    "After sein, colours don't change": {
+      "kind": "bracket",
+      "columns": [
+        "Thing",
+        "sein",
+        "Colour"
+      ],
+      "hot": [
+        2
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Das Auto",
+            "ist",
+            "rot."
+          ],
+          "en": "The car is red."
+        },
+        {
+          "cells": [
+            "Die Tasche",
+            "ist",
+            "blau."
+          ],
+          "en": "The bag is blue."
+        },
+        {
+          "cells": [
+            "Die Schuhe",
+            "sind",
+            "schwarz."
+          ],
+          "en": "The shoes are black."
+        }
+      ]
+    },
+    "hell- and dunkel-": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "hell",
+              "role": "prefix"
+            },
+            {
+              "text": "blau"
+            }
+          ],
+          "result": "hellblau",
+          "en": "light blue"
+        },
+        {
+          "parts": [
+            {
+              "text": "dunkel",
+              "role": "prefix"
+            },
+            {
+              "text": "grün"
+            }
+          ],
+          "result": "dunkelgrün",
+          "en": "dark green"
+        }
+      ]
+    },
+    "rosa and lila never change at all": {
+      "kind": "pictures",
+      "items": [
+        {
+          "color": "#c8372d",
+          "de": "rot",
+          "en": "red"
+        },
+        {
+          "color": "#2e6fb7",
+          "de": "blau",
+          "en": "blue"
+        },
+        {
+          "color": "#e8c22e",
+          "de": "gelb",
+          "en": "yellow"
+        },
+        {
+          "color": "#3f8f4e",
+          "de": "grün",
+          "en": "green"
+        },
+        {
+          "color": "#1f1f1f",
+          "de": "schwarz",
+          "en": "black"
+        },
+        {
+          "color": "#ffffff",
+          "de": "weiß",
+          "en": "white"
+        },
+        {
+          "color": "#8a8a8a",
+          "de": "grau",
+          "en": "grey"
+        },
+        {
+          "color": "#7a4b2a",
+          "de": "braun",
+          "en": "brown"
+        },
+        {
+          "color": "#e88a2e",
+          "de": "orange",
+          "en": "orange"
+        },
+        {
+          "color": "#f2a7c3",
+          "de": "rosa",
+          "en": "pink"
+        },
+        {
+          "color": "#9a6bc2",
+          "de": "lila",
+          "en": "purple"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_sprechen_zahlen": {
+    "Prices: euros, then cents": {
+      "kind": "pairs",
+      "left": "on the label",
+      "right": "said aloud",
+      "rows": [
+        {
+          "a": "2,40 €",
+          "b": "zwei Euro vierzig"
+        },
+        {
+          "a": "12,99 €",
+          "b": "zwölf Euro neunundneunzig"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_familie": {
+    "The core family, with articles": {
+      "kind": "pictures",
+      "caption": "Together: die Eltern (parents), die Geschwister (siblings), die Großeltern (grandparents), die Kinder (children).",
+      "items": [
+        {
+          "image": "vater",
+          "de": "der Vater",
+          "en": "father"
+        },
+        {
+          "image": "mutter",
+          "de": "die Mutter",
+          "en": "mother"
+        },
+        {
+          "image": "bruder",
+          "de": "der Bruder",
+          "en": "brother"
+        },
+        {
+          "image": "schwester",
+          "de": "die Schwester",
+          "en": "sister"
+        },
+        {
+          "image": "opa",
+          "de": "der Opa",
+          "en": "grandpa"
+        },
+        {
+          "image": "oma",
+          "de": "die Oma",
+          "en": "grandma"
+        },
+        {
+          "image": "sohn",
+          "de": "der Sohn",
+          "en": "son"
+        },
+        {
+          "image": "tochter",
+          "de": "die Tochter",
+          "en": "daughter"
+        }
+      ]
+    },
+    "Female forms end in -in": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Freund"
+            },
+            {
+              "text": "-in",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Freundin",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Lehrer"
+            },
+            {
+              "text": "-in",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Lehrerin",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Ärzt"
+            },
+            {
+              "text": "-in",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Ärztin",
+          "gender": "f",
+          "en": "der Arzt → die Ärztin"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_laender": {
+    "aus + country, no article": {
+      "kind": "tree",
+      "root": {
+        "q": "Does the country take an article?",
+        "yes": {
+          "q": "Is it plural (die USA, die Niederlande)?",
+          "yes": {
+            "answer": "aus den …",
+            "de": "Ich komme aus den USA."
+          },
+          "no": {
+            "answer": "aus der …",
+            "de": "Ich komme aus der Schweiz."
+          }
+        },
+        "no": {
+          "answer": "aus …",
+          "de": "Ich komme aus Spanien."
+        }
+      }
+    },
+    "Nationalities are nouns, and take -in for women": {
+      "kind": "caseGrid",
+      "columns": [
+        "m",
+        "f"
+      ],
+      "rows": [
+        {
+          "label": "Spanien",
+          "cells": [
+            "der Spanier",
+            "die Spanierin"
+          ]
+        },
+        {
+          "label": "Frankreich",
+          "cells": [
+            "der Franzose",
+            "die Französin"
+          ]
+        },
+        {
+          "label": "Deutschland",
+          "cells": [
+            "der Deutsche",
+            "die Deutsche"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_1_wo_praepositionen": {
+    "auf / vor / unter — on, in front of, under": {
+      "kind": "places",
+      "items": [
+        {
+          "prep": "auf",
+          "mode": "wo",
+          "spot": "on",
+          "de": "auf dem Tisch",
+          "en": "on"
+        },
+        {
+          "prep": "unter",
+          "mode": "wo",
+          "spot": "under",
+          "de": "unter dem Tisch",
+          "en": "under"
+        },
+        {
+          "prep": "vor",
+          "mode": "wo",
+          "spot": "front",
+          "de": "vor dem Haus",
+          "en": "in front of"
+        },
+        {
+          "prep": "in",
+          "mode": "wo",
+          "spot": "in",
+          "de": "im Büro",
+          "en": "in"
+        }
+      ]
+    },
+    "im–am–beim: the three contractions": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "in"
+            },
+            {
+              "text": "dem",
+              "role": "gone"
+            }
+          ],
+          "result": "im",
+          "en": "im Büro"
+        },
+        {
+          "parts": [
+            {
+              "text": "an"
+            },
+            {
+              "text": "dem",
+              "role": "gone"
+            }
+          ],
+          "result": "am",
+          "en": "am Bahnhof"
+        },
+        {
+          "parts": [
+            {
+              "text": "bei"
+            },
+            {
+              "text": "dem",
+              "role": "gone"
+            }
+          ],
+          "result": "beim",
+          "en": "beim Arzt"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_wortbildung": {
+    "Compounds: the last word rules": {
+      "kind": "blocks",
+      "caption": "The last piece gives the article and the main meaning.",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "der Apfel"
+            },
+            {
+              "text": "der Kuchen",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Apfelkuchen",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "das Haus"
+            },
+            {
+              "text": "die Tür",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Haustür",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "die Hand"
+            },
+            {
+              "text": "das Tuch",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Handtuch",
+          "gender": "n"
+        }
+      ]
+    },
+    "The little joint: -s-, -n-, -e-": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Geburt"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "tag",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Geburtstag",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "Straße"
+            },
+            {
+              "text": "n",
+              "role": "joint"
+            },
+            {
+              "text": "bahn",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Straßenbahn",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_sprechen_dialog": {
+    "Answer the question that was asked, in a full sentence": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Who you are",
+          "de": [
+            "Ich heiße …",
+            "Ich bin … Jahre alt."
+          ]
+        },
+        {
+          "label": "Where from, where now",
+          "de": [
+            "Ich komme aus …",
+            "Ich wohne in …"
+          ]
+        },
+        {
+          "label": "Family",
+          "de": [
+            "Ich habe einen Bruder.",
+            "Meine Mutter heißt …"
+          ]
+        },
+        {
+          "label": "Ask back",
+          "de": [
+            "Und du?",
+            "Und Sie?"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_1_schreiben_steckbrief": {
+    "The verb is always the second idea": {
+      "kind": "bracket",
+      "columns": [
+        "Position 1",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "heiße",
+            "Lena."
+          ]
+        },
+        {
+          "cells": [
+            "In Berlin",
+            "wohne",
+            "ich seit zwei Jahren."
+          ]
+        },
+        {
+          "cells": [
+            "Am Wochenende",
+            "spiele",
+            "ich Fußball."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_1_alphabet": {
+    "E is \"ay\", I is \"ee\"": {
+      "kind": "pairs",
+      "left": "letter",
+      "right": "German name",
+      "rows": [
+        {
+          "a": "A · E · I",
+          "b": "ah · ay · ee"
+        },
+        {
+          "a": "J · V · W",
+          "b": "yot · fow · vay"
+        },
+        {
+          "a": "Y · Z",
+          "b": "üpsilon · tset"
+        },
+        {
+          "a": "Ä · Ö · Ü · ß",
+          "b": "ah-umlaut · oh-umlaut · uh-umlaut · es-tset"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_zahlen_gross": {
+    "Hundreds + the number you already know": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "drei"
+            },
+            {
+              "text": "hundert",
+              "role": "suffix"
+            },
+            {
+              "text": "fünfzig"
+            }
+          ],
+          "result": "dreihundertfünfzig",
+          "en": "350"
+        },
+        {
+          "parts": [
+            {
+              "text": "zwei"
+            },
+            {
+              "text": "tausend",
+              "role": "suffix"
+            },
+            {
+              "text": "vierhundert"
+            }
+          ],
+          "result": "zweitausendvierhundert",
+          "en": "2.400"
+        }
+      ]
+    },
+    "Years: hundreds before 2000, zweitausend after": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -2.2,
+          "label": "1989",
+          "de": "neunzehnhundertneunundachtzig"
+        },
+        {
+          "at": 0.6,
+          "label": "2026",
+          "de": "zweitausendsechsundzwanzig"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_suchbild_wohnzimmer": {
+    "Many nouns in -e are die": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Lamp"
+            },
+            {
+              "text": "-e",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Lampe",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Vas"
+            },
+            {
+              "text": "-e",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Vase",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Kerz"
+            },
+            {
+              "text": "-e",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Kerze",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_suchbild_klassenzimmer": {
+    "Compounds in the classroom: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "die Schule"
+            },
+            {
+              "text": "das Buch",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Schulbuch",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "die Tafel"
+            },
+            {
+              "text": "der Schwamm",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Tafelschwamm",
+          "gender": "m"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_hoeren_vorstellung": {
+    "Listen for the W-answers, not the words": {
+      "kind": "pairs",
+      "left": "the question",
+      "right": "wait for",
+      "rows": [
+        {
+          "a": "Woher?",
+          "b": "aus + a country"
+        },
+        {
+          "a": "Wie alt?",
+          "b": "a number + Jahre alt"
+        },
+        {
+          "a": "Was macht er?",
+          "b": "Ich bin … (a job) / Ich lerne …"
+        },
+        {
+          "a": "Was macht er am Wochenende?",
+          "b": "Am Wochenende + a verb"
+        }
+      ]
+    }
+  },
+  "quest_a1_1_lesen_dasbinich": {
+    "The self-intro always comes in the same order": {
+      "kind": "moves",
+      "caption": "A self-introduction almost always runs in this order, so you know where to look.",
+      "moves": [
+        {
+          "label": "Name",
+          "de": [
+            "Ich heiße …"
+          ]
+        },
+        {
+          "label": "Age and origin",
+          "de": [
+            "Ich bin … Jahre alt",
+            "Ich komme aus …"
+          ]
+        },
+        {
+          "label": "Home and work",
+          "de": [
+            "Ich wohne in …",
+            "Ich bin … / Ich arbeite …"
+          ]
+        },
+        {
+          "label": "Family",
+          "de": [
+            "Ich habe einen Bruder …"
+          ]
+        },
+        {
+          "label": "Free time",
+          "de": [
+            "Am Wochenende …",
+            "Ich … gern …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_a1_1_wortschatz": {
+    "Article first, always": {
+      "kind": "caseGrid",
+      "columns": [
+        "m",
+        "f",
+        "n"
+      ],
+      "caption": "Say the article every time you say the word, and it sticks.",
+      "rows": [
+        {
+          "label": "",
+          "cells": [
+            "der Tisch",
+            "die Lampe",
+            "das Fenster"
+          ]
+        },
+        {
+          "label": "",
+          "cells": [
+            "der Stuhl",
+            "die Tür",
+            "das Bett"
+          ]
+        }
+      ]
+    },
+    "Learn the plural with the noun": {
+      "kind": "pairs",
+      "left": "learn this",
+      "right": "not just this",
+      "rows": [
+        {
+          "a": "der Stuhl, die Stühle",
+          "b": "Stuhl"
+        },
+        {
+          "a": "das Buch, die Bücher",
+          "b": "Buch"
+        },
+        {
+          "a": "die Frau, die Frauen",
+          "b": "Frau"
+        }
+      ]
+    }
+  }
+}

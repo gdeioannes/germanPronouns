@@ -1,0 +1,965 @@
+{
+  "quest_c2_1_wirtschaft": {
+    "Umsatz > Gewinn > Rendite": {
+      "kind": "moves",
+      "caption": "From all the money that comes in to how well the invested capital earns.",
+      "moves": [
+        {
+          "label": "der Umsatz — turnover",
+          "de": [
+            "everything sold, before costs"
+          ]
+        },
+        {
+          "label": "der Gewinn — profit",
+          "de": [
+            "Umsatz minus Kosten"
+          ]
+        },
+        {
+          "label": "die Rendite — return",
+          "de": [
+            "Gewinn in Prozent des eingesetzten Kapitals"
+          ]
+        }
+      ]
+    },
+    "Law: act, regulation, rule; objection, appeal, settlement": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "der Bescheid",
+          "de": [
+            "a decision from an authority"
+          ]
+        },
+        {
+          "label": "der Widerspruch",
+          "de": [
+            "Widerspruch einlegen: object to the authority itself"
+          ]
+        },
+        {
+          "label": "die Klage",
+          "de": [
+            "Klage erheben: take it to court"
+          ]
+        },
+        {
+          "label": "der Vergleich",
+          "de": [
+            "sich vergleichen, einen Vergleich schließen: settle"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_1_register": {
+    "Three levels, and what each signals": {
+      "kind": "pairs",
+      "left": "colloquial",
+      "right": "neutral · formal",
+      "rows": [
+        {
+          "a": "kriegen",
+          "b": "bekommen · erhalten"
+        },
+        {
+          "a": "abhauen",
+          "b": "weggehen · sich entfernen"
+        },
+        {
+          "a": "kapieren",
+          "b": "verstehen · nachvollziehen"
+        },
+        {
+          "a": "Kohle",
+          "b": "Geld · finanzielle Mittel"
+        }
+      ]
+    },
+    "Longer, Latinate, prefixed = up; short, Germanic, particle-friendly = down": {
+      "kind": "scale",
+      "low": "colloquial",
+      "high": "formal",
+      "points": [
+        {
+          "at": 92,
+          "de": "Wir haben Ihre Unterlagen erhalten."
+        },
+        {
+          "at": 55,
+          "de": "Wir haben deine Unterlagen bekommen."
+        },
+        {
+          "at": 15,
+          "de": "Hab deine Sachen gekriegt."
+        }
+      ]
+    }
+  },
+  "quest_c2_1_sprechen_rede": {
+    "Anaphora, antithesis, climax": {
+      "kind": "pairs",
+      "left": "device",
+      "right": "example",
+      "rows": [
+        {
+          "a": "Anapher",
+          "b": "Wir brauchen Mut. Wir brauchen Geduld. Wir brauchen einander."
+        },
+        {
+          "a": "Antithese",
+          "b": "Nicht die Technik entscheidet, sondern der Mensch."
+        },
+        {
+          "a": "Klimax",
+          "b": "Es geht um unsere Stadt, unser Land, unsere Zukunft."
+        }
+      ]
+    }
+  },
+  "quest_c2_1_kollokationen": {
+    "Learn the noun with its verb and its adjective": {
+      "kind": "pairs",
+      "left": "noun",
+      "right": "the expected verb · adjective",
+      "rows": [
+        {
+          "a": "Kritik",
+          "b": "üben · scharfe Kritik"
+        },
+        {
+          "a": "Zweifel",
+          "b": "hegen · berechtigte Zweifel"
+        },
+        {
+          "a": "ein Grund",
+          "b": "anführen · ein triftiger Grund"
+        },
+        {
+          "a": "eine Rolle",
+          "b": "spielen · eine entscheidende Rolle"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_valenz": {
+    "Genitive objects: the formal set": {
+      "kind": "pairs",
+      "left": "verb + genitive",
+      "right": "example",
+      "rows": [
+        {
+          "a": "gedenken",
+          "b": "Wir gedenken der Opfer."
+        },
+        {
+          "a": "bedürfen",
+          "b": "Das bedarf einer Erklärung."
+        },
+        {
+          "a": "sich bedienen",
+          "b": "Er bediente sich eines Tricks."
+        }
+      ]
+    },
+    "Akk + Gen: accusing and depriving": {
+      "kind": "bracket",
+      "columns": [
+        "Who",
+        "Verb",
+        "Whom (Akk)",
+        "Of what (Gen)"
+      ],
+      "hot": [
+        2,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Man",
+            "beschuldigte",
+            "ihn",
+            "des Diebstahls."
+          ]
+        },
+        {
+          "cells": [
+            "Man",
+            "beraubte",
+            "sie",
+            "ihrer Rechte."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_1_komposita": {
+    "Decode leftward, then rebuild": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Donau"
+            },
+            {
+              "text": "Dampfschiff"
+            },
+            {
+              "text": "fahrt"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "gesellschaft",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Donaudampfschifffahrtsgesellschaft",
+          "gender": "f",
+          "en": "a company (Gesellschaft) for … steamship travel on the Danube"
+        }
+      ]
+    },
+    "Fugen-s: after -ung, -heit, -keit, -schaft, -ion, -tät, and many others": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Wohnung"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "markt",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Wohnungsmarkt",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "Universität"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "klinik",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Universitätsklinik",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Freiheit"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "strafe",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Freiheitsstrafe",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_komparation_advanced": {
+    "Grade the superlative": {
+      "kind": "scale",
+      "low": "weaker",
+      "high": "stronger",
+      "points": [
+        {
+          "at": 100,
+          "de": "mit Abstand der größte",
+          "en": "by far the largest"
+        },
+        {
+          "at": 85,
+          "de": "der größte",
+          "en": "the largest"
+        },
+        {
+          "at": 70,
+          "de": "einer der größten",
+          "en": "one of the largest"
+        },
+        {
+          "at": 50,
+          "de": "ziemlich groß",
+          "en": "fairly large"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_adjektivbildung": {
+    "-fähig, -würdig: capacity and desert": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "arbeit"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "-fähig",
+              "role": "suffix"
+            }
+          ],
+          "result": "arbeitsfähig",
+          "en": "able to work"
+        },
+        {
+          "parts": [
+            {
+              "text": "lieb"
+            },
+            {
+              "text": "ens",
+              "role": "joint"
+            },
+            {
+              "text": "-würdig",
+              "role": "suffix"
+            }
+          ],
+          "result": "liebenswürdig",
+          "en": "worthy of love, kind"
+        },
+        {
+          "parts": [
+            {
+              "text": "kind"
+            },
+            {
+              "text": "-gerecht",
+              "role": "suffix"
+            }
+          ],
+          "result": "kindgerecht",
+          "en": "suited to children"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_bigtext_vorstand": {
+    "Konjunktiv I carries the whole reported passage": {
+      "kind": "textMap",
+      "blocks": [
+        {
+          "label": "the paper speaks",
+          "de": "Der Vorstandschef äußerte sich am Montag.",
+          "focus": [
+            "äußerte"
+          ]
+        },
+        {
+          "label": "the source speaks",
+          "de": "Das Unternehmen sei gut aufgestellt.",
+          "focus": [
+            "sei"
+          ]
+        },
+        {
+          "label": "still the source",
+          "de": "Man habe die Kosten im Griff.",
+          "focus": [
+            "habe"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_1_stilmittel": {
+    "Name it, then say what it does": {
+      "kind": "pairs",
+      "left": "device",
+      "right": "what it does",
+      "rows": [
+        {
+          "a": "Metapher: Das Gesetz ist ein zahnloser Tiger.",
+          "b": "makes the weakness vivid"
+        },
+        {
+          "a": "Litotes: Das war nicht ganz unproblematisch.",
+          "b": "criticises by understatement"
+        },
+        {
+          "a": "Chiasmus: Wir leben nicht, um zu essen, wir essen, um zu leben.",
+          "b": "turns a thought round to sharpen it"
+        },
+        {
+          "a": "Euphemismus: freigesetzte Mitarbeiter",
+          "b": "softens a hard fact (dismissed staff)"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_hoeren_feature": {
+    "Translate each image into plain words": {
+      "kind": "pairs",
+      "left": "the image",
+      "right": "plain words",
+      "rows": [
+        {
+          "a": "Die Stadt atmet aus.",
+          "b": "The city grows quiet."
+        }
+      ]
+    }
+  },
+  "quest_c2_1_konj1_lit": {
+    "One introducing verb, then the Konjunktiv carries the report": {
+      "kind": "textMap",
+      "blocks": [
+        {
+          "label": "introduction (indicative)",
+          "de": "Die Ministerin erklärte, die Lage sei ernst.",
+          "focus": [
+            "erklärte",
+            "sei"
+          ]
+        },
+        {
+          "label": "no new verb of saying",
+          "de": "Man müsse sofort handeln.",
+          "focus": [
+            "müsse"
+          ]
+        },
+        {
+          "label": "clash → Konjunktiv II",
+          "de": "Die Länder hätten zu lange gewartet.",
+          "focus": [
+            "hätten"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_1_umformung_2": {
+    "Check four things after every transformation": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Tense",
+          "de": [
+            "still past? still future?"
+          ]
+        },
+        {
+          "label": "Agent",
+          "de": [
+            "who does it: still clear?"
+          ]
+        },
+        {
+          "label": "Modal force",
+          "de": [
+            "must, can, may: still the same?"
+          ]
+        },
+        {
+          "label": "Meaning",
+          "de": [
+            "nothing added, nothing lost"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_1_sprechen_kurzcheck": {
+    "Switch the whole sentence, never half": {
+      "kind": "pairs",
+      "left": "to a friend",
+      "right": "to a committee",
+      "rows": [
+        {
+          "a": "Die Sache ist leider geplatzt.",
+          "b": "Das Vorhaben konnte leider nicht realisiert werden."
+        }
+      ]
+    }
+  },
+  "quest_c2_1_konnotation": {
+    "Same thing, three temperatures": {
+      "kind": "pairs",
+      "left": "positive · neutral",
+      "right": "negative",
+      "rows": [
+        {
+          "a": "sparsam · vorsichtig mit Geld",
+          "b": "geizig"
+        },
+        {
+          "a": "Reform · Änderung",
+          "b": "Kürzung"
+        },
+        {
+          "a": "schlank · dünn",
+          "b": "mager"
+        },
+        {
+          "a": "Duft · Geruch",
+          "b": "Gestank"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_abtoenung": {
+    "Affirm and deny: durchaus / keineswegs, nicht gerade": {
+      "kind": "scale",
+      "low": "denies",
+      "high": "affirms",
+      "points": [
+        {
+          "at": 98,
+          "de": "Das ist geradezu genial.",
+          "en": "nothing short of brilliant"
+        },
+        {
+          "at": 80,
+          "de": "Das ist durchaus sinnvoll.",
+          "en": "quite reasonable, actually"
+        },
+        {
+          "at": 35,
+          "de": "Das ist nicht gerade sinnvoll.",
+          "en": "not exactly sensible"
+        },
+        {
+          "at": 5,
+          "de": "Das ist keineswegs sinnvoll.",
+          "en": "by no means sensible"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_lesen_artikel": {
+    "Source or author? Look at the verb form": {
+      "kind": "pairs",
+      "left": "the source (Konjunktiv I)",
+      "right": "the author (indicative + könnte)",
+      "rows": [
+        {
+          "a": "Langsamkeit sei ein Luxus, heißt es.",
+          "b": "Vielleicht könnte sie aber eine Notwendigkeit sein."
+        }
+      ]
+    }
+  },
+  "quest_c2_1_sprichwoerter": {
+    "Truncation: the second half is left to the reader": {
+      "kind": "pairs",
+      "left": "the headline",
+      "right": "the full proverb",
+      "rows": [
+        {
+          "a": "Wer anderen eine Grube gräbt …",
+          "b": "… fällt selbst hinein."
+        },
+        {
+          "a": "Der Apfel fällt nicht weit …",
+          "b": "… vom Stamm."
+        },
+        {
+          "a": "Morgenstund …",
+          "b": "… hat Gold im Mund."
+        }
+      ]
+    },
+    "Keyword allusion and reported proverbs": {
+      "kind": "pictures",
+      "wide": true,
+      "caption": "A headline that mentions a Grube, an Apfel or Gold im Mund is pointing at one of these.",
+      "items": [
+        {
+          "image": "lesson_grube_graben",
+          "de": "Wer anderen eine Grube gräbt, fällt selbst hinein.",
+          "en": "harm planned for others comes back to you"
+        },
+        {
+          "image": "lesson_apfel_stamm",
+          "de": "Der Apfel fällt nicht weit vom Stamm.",
+          "en": "like parent, like child"
+        },
+        {
+          "image": "lesson_morgenstund",
+          "de": "Morgenstund hat Gold im Mund.",
+          "en": "the early bird catches the worm"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_diktat_register": {
+    "Report → Konjunktiv I": {
+      "kind": "pairs",
+      "left": "the resident said",
+      "right": "the report writes",
+      "rows": [
+        {
+          "a": "„Das ist eine Frechheit!“",
+          "b": "Das sei eine Frechheit, sagte ein Anwohner."
+        }
+      ]
+    }
+  },
+  "quest_c2_1_sprechen_moderieren": {
+    "Open and allocate the floor": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Open",
+          "de": [
+            "Herzlich willkommen zu unserer Diskussion über …"
+          ]
+        },
+        {
+          "label": "Give the floor",
+          "de": [
+            "Frau Weber, Sie haben das Wort."
+          ]
+        },
+        {
+          "label": "Interrupt",
+          "de": [
+            "Darf ich hier kurz einhaken?"
+          ]
+        },
+        {
+          "label": "Close",
+          "de": [
+            "Lassen Sie mich zusammenfassen: …",
+            "Vielen Dank an unsere Gäste."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_1_hoeren_satire": {
+    "Mock praise: take the praise literally, then look at the facts": {
+      "kind": "pairs",
+      "left": "the praise",
+      "right": "the fact behind it",
+      "rows": [
+        {
+          "a": "Das Portal ist rund um die Uhr erreichbar.",
+          "b": "Nur funktioniert es nie."
+        }
+      ]
+    }
+  },
+  "quest_c2_1_lesen_kurzgeschichte": {
+    "Kurzgeschichte conventions – find them in this text": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "No introduction",
+          "de": [
+            "straight into the scene"
+          ]
+        },
+        {
+          "label": "Everyday people",
+          "de": [
+            "an ordinary moment"
+          ]
+        },
+        {
+          "label": "A turning point",
+          "de": [
+            "one small gesture or object"
+          ]
+        },
+        {
+          "label": "Open ending",
+          "de": [
+            "the reader decides"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_1_sprechen_dialog": {
+    "Grade every claim": {
+      "kind": "scale",
+      "low": "cautious",
+      "high": "categorical",
+      "points": [
+        {
+          "at": 95,
+          "de": "Das ist zweifellos richtig."
+        },
+        {
+          "at": 70,
+          "de": "Das trifft weitgehend zu."
+        },
+        {
+          "at": 45,
+          "de": "Das mag teilweise stimmen."
+        },
+        {
+          "at": 15,
+          "de": "Das halte ich für fraglich."
+        }
+      ]
+    }
+  },
+  "quest_c2_1_schreiben_register": {
+    "Register moves on two axes": {
+      "kind": "pairs",
+      "left": "for a friend",
+      "right": "for the record",
+      "rows": [
+        {
+          "a": "Wir haben's verschoben.",
+          "b": "Der Termin wurde verschoben."
+        },
+        {
+          "a": "weil keiner Zeit hatte",
+          "b": "aufgrund terminlicher Überschneidungen"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_konj2_nuancen": {
+    "Near-miss: beinahe / fast / um ein Haar + Konjunktiv II past": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -1.5,
+          "label": "almost happened, didn't",
+          "de": "Ich wäre fast gefallen."
+        },
+        {
+          "at": -0.4,
+          "label": "should have, didn't",
+          "de": "Ich hätte es wissen müssen."
+        }
+      ]
+    },
+    "Past modal = hätte + double infinitive": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Er",
+            "hätte",
+            "früher",
+            "kommen sollen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_c2_1_konnektoren_nuancen": {
+    "Three word-order classes": {
+      "kind": "pairs",
+      "left": "connector",
+      "right": "word order",
+      "rows": [
+        {
+          "a": "wiewohl, zumal",
+          "b": "verb last (like obwohl, weil)"
+        },
+        {
+          "a": "indes(sen), gleichwohl, mithin",
+          "b": "position 1, verb next (like trotzdem)"
+        },
+        {
+          "a": "allein (= aber)",
+          "b": "position 0 (like aber)"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_praefixe_semantik": {
+    "ver-: wrongly, away, to the end": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "ver",
+              "role": "prefix"
+            },
+            {
+              "text": "schreiben"
+            }
+          ],
+          "result": "sich verschreiben",
+          "en": "write wrongly"
+        },
+        {
+          "parts": [
+            {
+              "text": "ver",
+              "role": "prefix"
+            },
+            {
+              "text": "schenken"
+            }
+          ],
+          "result": "verschenken",
+          "en": "give away"
+        },
+        {
+          "parts": [
+            {
+              "text": "ver",
+              "role": "prefix"
+            },
+            {
+              "text": "blühen"
+            }
+          ],
+          "result": "verblühen",
+          "en": "to finish blooming"
+        }
+      ]
+    },
+    "über-, unter-, um-, durch-: separable or not?": {
+      "kind": "pairs",
+      "left": "separable (literal)",
+      "right": "inseparable (figurative)",
+      "rows": [
+        {
+          "a": "Der Fährmann setzt uns über.",
+          "b": "Sie übersetzt das Buch."
+        },
+        {
+          "a": "Er geht unter. (sinks)",
+          "b": "Er unterbricht mich."
+        }
+      ]
+    }
+  },
+  "quest_c2_1_wortschatz": {
+    "Register is part of the meaning": {
+      "kind": "pairs",
+      "left": "neutral",
+      "right": "formal",
+      "rows": [
+        {
+          "a": "anfangen",
+          "b": "beginnen · einleiten"
+        },
+        {
+          "a": "zeigen",
+          "b": "aufzeigen · darlegen"
+        },
+        {
+          "a": "wichtig",
+          "b": "maßgeblich · von Belang"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_suchbild_tischlerei": {
+    "The last part of a compound decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "hobeln"
+            },
+            {
+              "text": "die Bank",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Hobelbank",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "stemmen"
+            },
+            {
+              "text": "das Eisen",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Stemmeisen",
+          "gender": "n"
+        }
+      ]
+    }
+  },
+  "quest_c2_1_suchbild_bauernhof": {
+    "Young animals are das": {
+      "kind": "caseGrid",
+      "columns": [
+        "m",
+        "f",
+        "n"
+      ],
+      "rows": [
+        {
+          "label": "cattle",
+          "cells": [
+            "der Stier",
+            "die Kuh",
+            "das Kalb"
+          ]
+        },
+        {
+          "label": "pigs",
+          "cells": [
+            "der Eber",
+            "die Sau",
+            "das Ferkel"
+          ]
+        },
+        {
+          "label": "horses",
+          "cells": [
+            "der Hengst",
+            "die Stute",
+            "das Fohlen"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    }
+  }
+}

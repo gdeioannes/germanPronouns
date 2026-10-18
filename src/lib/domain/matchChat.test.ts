@@ -361,11 +361,20 @@ describe('the course deck deals characters', () => {
 		expect(deal).toEqual(expect.objectContaining({ resume: true }));
 		expect(deal.chat.id).toBe('lena');
 	});
-	it('a finished chat is never dealt again', () => {
-		const saved = (id: string) => (id === 'lena' ? { name: 'Sam', log: [], startedAt: 1, ending: 'deleted' } : null);
+	it('a liked chat is never dealt again', () => {
+		const saved = (id: string) => (id === 'lena' ? { name: 'Sam', log: [], startedAt: 1, ending: 'win' } : null);
 		const deal = chatDeckCard('A1.1', new Set(), saved as never);
 		expect(deal?.chat.id).not.toBe('lena');
 		expect(deal?.resume).toBe(false);
+	});
+	it('a chat that ended without a like comes back for another chance', () => {
+		const lena = findChat('lena')!;
+		for (const ending of ['deleted', 'partial']) {
+			// Everyone else liked the learner already, so only Lena is left to deal.
+			const saved = (id: string) => ({ name: 'Sam', log: [], startedAt: 1, ending: id === 'lena' ? ending : 'win' });
+			const deal = chatDeckCard(lena.level, new Set(), saved as never)!;
+			expect(deal).toEqual({ chat: lena, resume: false });
+		}
 	});
 	it('never deals a hidden character or a skipped one', () => {
 		const deal = chatDeckCard('A2.1', new Set(['chat:klara', 'chat:grog', 'chat:uwe', 'chat:nebel', 'chat:jupp']), none)!;

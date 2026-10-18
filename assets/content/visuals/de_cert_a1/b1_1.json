@@ -1,0 +1,1348 @@
+{
+  "quest_b1_1_arbeit": {
+    "Finding a job": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "die Stellenanzeige",
+          "de": [
+            "Wir suchen ab sofort …"
+          ]
+        },
+        {
+          "label": "die Bewerbung",
+          "de": [
+            "sich bewerben um eine Stelle",
+            "der Lebenslauf"
+          ]
+        },
+        {
+          "label": "das Vorstellungsgespräch",
+          "de": [
+            "Warum möchten Sie bei uns arbeiten?"
+          ]
+        },
+        {
+          "label": "der Arbeitsvertrag",
+          "de": [
+            "einen Vertrag unterschreiben"
+          ]
+        }
+      ]
+    },
+    "People and the working day": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "die Arbeit"
+            },
+            {
+              "text": "der Geber",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Arbeitgeber",
+          "gender": "m",
+          "en": "employer"
+        },
+        {
+          "parts": [
+            {
+              "text": "die Arbeit"
+            },
+            {
+              "text": "der Nehmer",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Arbeitnehmer",
+          "gender": "m",
+          "en": "employee"
+        },
+        {
+          "parts": [
+            {
+              "text": "die Arbeit"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "der Platz",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Arbeitsplatz",
+          "gender": "m",
+          "en": "workplace"
+        }
+      ]
+    }
+  },
+  "quest_b1_1_adj_bestimmt": {
+    "-e in five slots, -en everywhere else": {
+      "kind": "caseGrid",
+      "caption": "After der / die / das: -e in the five glowing cells, -en in all the others.",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "der alte",
+            "die alte",
+            "das alte",
+            "die alten"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "den alten",
+            "die alte",
+            "das alte",
+            "die alten"
+          ]
+        },
+        {
+          "label": "Dat",
+          "cells": [
+            "dem alten",
+            "der alten",
+            "dem alten",
+            "den alten"
+          ]
+        },
+        {
+          "label": "Gen",
+          "cells": [
+            "des alten",
+            "der alten",
+            "des alten",
+            "der alten"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    }
+  },
+  "quest_b1_1_sprechen_bitten": {
+    "The five polite openers": {
+      "kind": "scale",
+      "low": "direct",
+      "high": "very polite",
+      "points": [
+        {
+          "at": 98,
+          "de": "Würden Sie mir bitte helfen?",
+          "en": "Would you help me, please?"
+        },
+        {
+          "at": 90,
+          "de": "Könnten Sie mir bitte helfen?",
+          "en": "Could you help me, please?"
+        },
+        {
+          "at": 80,
+          "de": "Hätten Sie kurz Zeit?",
+          "en": "Would you have a moment?"
+        },
+        {
+          "at": 45,
+          "de": "Können Sie mir helfen?",
+          "en": "Can you help me?"
+        },
+        {
+          "at": 15,
+          "de": "Helfen Sie mir!",
+          "en": "Help me!"
+        }
+      ]
+    }
+  },
+  "quest_b1_1_adj_unbestimmt": {
+    "Three repairs: ein …-er (m Nom), ein …-es (n Nom/Akk)": {
+      "kind": "caseGrid",
+      "caption": "ein shows no gender in three cells, so the adjective does it there: -er, -es, -es.",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "ein alter",
+            "eine alte",
+            "ein altes",
+            "keine alten"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "einen alten",
+            "eine alte",
+            "ein altes",
+            "keine alten"
+          ]
+        },
+        {
+          "label": "Dat",
+          "cells": [
+            "einem alten",
+            "einer alten",
+            "einem alten",
+            "keinen alten"
+          ]
+        },
+        {
+          "label": "Gen",
+          "cells": [
+            "eines alten",
+            "einer alten",
+            "eines alten",
+            "keiner alten"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    }
+  },
+  "quest_b1_1_bigtext_wohnung": {
+    "Three questions per gap": {
+      "kind": "moves",
+      "caption": "Ask the three questions in this order for every gap.",
+      "moves": [
+        {
+          "label": "Which case?",
+          "de": [
+            "subject → Nom",
+            "object → Akk",
+            "after mit, in, auf … → check the preposition"
+          ]
+        },
+        {
+          "label": "Which gender and number?",
+          "de": [
+            "der Balkon (m)",
+            "die Küche (f)",
+            "das Fenster (n)"
+          ]
+        },
+        {
+          "label": "Does the article already show it?",
+          "de": [
+            "yes: mit dem großen Fenster",
+            "no: ein großer Balkon"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_1_adj_nullartikel": {
+    "Take the article, cut the d-, glue the rest": {
+      "kind": "caseGrid",
+      "caption": "With no article, the adjective borrows the article's ending. Only the masculine and neuter genitive take -en.",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "guter Wein",
+            "frische Milch",
+            "kaltes Wasser",
+            "neue Schuhe"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "guten Wein",
+            "frische Milch",
+            "kaltes Wasser",
+            "neue Schuhe"
+          ]
+        },
+        {
+          "label": "Dat",
+          "cells": [
+            "gutem Wein",
+            "frischer Milch",
+            "kaltem Wasser",
+            "neuen Schuhen"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_1_adj_komparativ": {
+    "Stem + er/st + ordinary ending": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "die"
+            },
+            {
+              "text": "groß"
+            },
+            {
+              "text": "er",
+              "role": "joint"
+            },
+            {
+              "text": "e",
+              "role": "ending"
+            },
+            {
+              "text": "Wohnung"
+            }
+          ],
+          "result": "die größere Wohnung"
+        },
+        {
+          "parts": [
+            {
+              "text": "das"
+            },
+            {
+              "text": "billig"
+            },
+            {
+              "text": "st",
+              "role": "joint"
+            },
+            {
+              "text": "e",
+              "role": "ending"
+            },
+            {
+              "text": "Ticket"
+            }
+          ],
+          "result": "das billigste Ticket"
+        },
+        {
+          "parts": [
+            {
+              "text": "ein"
+            },
+            {
+              "text": "neu"
+            },
+            {
+              "text": "er",
+              "role": "joint"
+            },
+            {
+              "text": "es",
+              "role": "ending"
+            },
+            {
+              "text": "Auto"
+            }
+          ],
+          "result": "ein neueres Auto"
+        }
+      ]
+    }
+  },
+  "quest_b1_1_adjektive_als_nomen": {
+    "Men, women, plural": {
+      "kind": "caseGrid",
+      "caption": "The noun has gone; the adjective keeps the ending it would have had.",
+      "columns": [
+        "m",
+        "f",
+        "pl"
+      ],
+      "rows": [
+        {
+          "label": "der/die",
+          "cells": [
+            "der Deutsche",
+            "die Deutsche",
+            "die Deutschen"
+          ]
+        },
+        {
+          "label": "ein/eine",
+          "cells": [
+            "ein Deutscher",
+            "eine Deutsche",
+            "Deutsche"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "quest_b1_1_konj2_wuerde": {
+    "würde + infinitive at the end": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "würde",
+            "gern ans Meer",
+            "fahren."
+          ]
+        },
+        {
+          "cells": [
+            "An deiner Stelle",
+            "würde",
+            "ich das nicht",
+            "machen."
+          ]
+        }
+      ]
+    },
+    "The four uses": {
+      "kind": "pairs",
+      "left": "use",
+      "right": "example",
+      "rows": [
+        {
+          "a": "a wish",
+          "b": "Ich würde gern in Italien leben."
+        },
+        {
+          "a": "advice",
+          "b": "Ich würde mehr schlafen."
+        },
+        {
+          "a": "a polite request",
+          "b": "Würden Sie das Fenster öffnen?"
+        },
+        {
+          "a": "what if",
+          "b": "Wenn ich Zeit hätte, würde ich kommen."
+        }
+      ]
+    }
+  },
+  "quest_b1_1_konj2_haette": {
+    "Präteritum + umlaut = Konjunktiv II": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "hatte"
+            },
+            {
+              "text": "¨",
+              "role": "joint"
+            }
+          ],
+          "result": "hätte"
+        },
+        {
+          "parts": [
+            {
+              "text": "war"
+            },
+            {
+              "text": "¨ + e",
+              "role": "joint"
+            }
+          ],
+          "result": "wäre"
+        },
+        {
+          "parts": [
+            {
+              "text": "konnte"
+            },
+            {
+              "text": "¨",
+              "role": "joint"
+            }
+          ],
+          "result": "könnte"
+        },
+        {
+          "parts": [
+            {
+              "text": "musste"
+            },
+            {
+              "text": "¨",
+              "role": "joint"
+            }
+          ],
+          "result": "müsste"
+        }
+      ]
+    },
+    "The unreal condition: wenn … hätte, (dann) würde …": {
+      "kind": "bracket",
+      "columns": [
+        "wenn-clause",
+        "Verb",
+        "Middle",
+        "End"
+      ],
+      "hot": [
+        0,
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Wenn ich mehr Geld hätte,",
+            "würde",
+            "ich ein Haus",
+            "kaufen."
+          ]
+        },
+        {
+          "cells": [
+            "Wenn ich du wäre,",
+            "würde",
+            "ich das",
+            "machen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_1_lesen_arbeit": {
+    "The shape of an opinion text": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "The trend",
+          "de": [
+            "Immer mehr Menschen …"
+          ]
+        },
+        {
+          "label": "Pros",
+          "de": [
+            "Ein Vorteil ist, dass …"
+          ]
+        },
+        {
+          "label": "Cons",
+          "de": [
+            "Andererseits …",
+            "Ein Nachteil ist …"
+          ]
+        },
+        {
+          "label": "Outlook",
+          "de": [
+            "In Zukunft wird …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_1_sprechen_kurzcheck": {
+    "Answer a wenn-question with the same mood": {
+      "kind": "pairs",
+      "left": "question",
+      "right": "answer",
+      "rows": [
+        {
+          "a": "Was würdest du machen, wenn du reich wärst?",
+          "b": "Wenn ich reich wäre, würde ich reisen."
+        }
+      ]
+    }
+  },
+  "quest_b1_1_futur": {
+    "werden + infinitive at the end": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "werde",
+            "dich morgen",
+            "anrufen."
+          ],
+          "en": "a promise"
+        },
+        {
+          "cells": [
+            "Es",
+            "wird",
+            "morgen",
+            "regnen."
+          ],
+          "en": "a prediction"
+        }
+      ]
+    },
+    "werden has three hats": {
+      "kind": "pairs",
+      "left": "werden + …",
+      "right": "meaning",
+      "rows": [
+        {
+          "a": "+ noun / adjective: Er wird Arzt.",
+          "b": "become"
+        },
+        {
+          "a": "+ infinitive: Er wird kommen.",
+          "b": "will (future)"
+        },
+        {
+          "a": "+ participle: Es wird gebaut.",
+          "b": "is being (passive)"
+        }
+      ]
+    }
+  },
+  "quest_b1_1_relativ": {
+    "Case from inside the clause, never from outside": {
+      "kind": "bracket",
+      "columns": [
+        "Noun",
+        "Pronoun (its case)",
+        "Middle",
+        "Verb"
+      ],
+      "hot": [
+        1
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Ich kenne den Mann,",
+            "der",
+            "dort",
+            "wohnt."
+          ],
+          "en": "der: subject of wohnt"
+        },
+        {
+          "cells": [
+            "Das ist der Mann,",
+            "den",
+            "ich gestern",
+            "gesehen habe."
+          ],
+          "en": "den: object of gesehen"
+        }
+      ]
+    },
+    "The clause in the middle: two commas, main verb waits": {
+      "kind": "bracket",
+      "columns": [
+        "Subject",
+        "Relative clause",
+        "Verb",
+        "Rest"
+      ],
+      "hot": [
+        1,
+        2
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Der Kollege,",
+            "der neben mir sitzt,",
+            "kommt",
+            "aus Polen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_1_relativ_praep": {
+    "Dative relatives: dem, der, dem, denen": {
+      "kind": "caseGrid",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "der",
+            "die",
+            "das",
+            "die"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "den",
+            "die",
+            "das",
+            "die"
+          ]
+        },
+        {
+          "label": "Dat",
+          "cells": [
+            "dem",
+            "der",
+            "dem",
+            "denen"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "Preposition first, then the pronoun in its case": {
+      "kind": "pairs",
+      "left": "English",
+      "right": "German",
+      "rows": [
+        {
+          "a": "the friend I rely on",
+          "b": "der Freund, auf den ich mich verlasse"
+        },
+        {
+          "a": "the flat we live in",
+          "b": "die Wohnung, in der wir wohnen"
+        }
+      ]
+    }
+  },
+  "quest_b1_1_diktat_konjunktiv": {
+    "Hear the umlaut": {
+      "kind": "pairs",
+      "left": "past (fact)",
+      "right": "Konjunktiv II (wish)",
+      "rows": [
+        {
+          "a": "Ich hatte Zeit.",
+          "b": "Ich hätte gern Zeit."
+        },
+        {
+          "a": "Es war schön.",
+          "b": "Es wäre schön."
+        }
+      ]
+    }
+  },
+  "quest_b1_1_genitiv": {
+    "des …-(e)s / der …": {
+      "kind": "caseGrid",
+      "caption": "The fourth row. Masculine and neuter nouns take -s or -es too.",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "der Mann",
+            "die Frau",
+            "das Kind",
+            "die Leute"
+          ]
+        },
+        {
+          "label": "Gen",
+          "cells": [
+            "des Mannes",
+            "der Frau",
+            "des Kindes",
+            "der Leute"
+          ]
+        }
+      ],
+      "hot": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    "von + dative in speech": {
+      "kind": "pairs",
+      "left": "written (genitive)",
+      "right": "spoken (von + dative)",
+      "rows": [
+        {
+          "a": "das Auto meines Vaters",
+          "b": "das Auto von meinem Vater"
+        }
+      ]
+    }
+  },
+  "quest_b1_1_sprechen_meinung": {
+    "Agree, disagree, weigh": {
+      "kind": "scale",
+      "low": "disagree",
+      "high": "agree",
+      "points": [
+        {
+          "at": 95,
+          "de": "Da hast du völlig recht.",
+          "en": "You're absolutely right."
+        },
+        {
+          "at": 70,
+          "de": "Da stimme ich dir zu.",
+          "en": "I agree with you."
+        },
+        {
+          "at": 50,
+          "de": "Das sehe ich teilweise anders.",
+          "en": "I partly see it differently."
+        },
+        {
+          "at": 15,
+          "de": "Das sehe ich ganz anders.",
+          "en": "I see it quite differently."
+        }
+      ]
+    }
+  },
+  "quest_b1_1_konjunktionen": {
+    "als = once, in the past": {
+      "kind": "timeline",
+      "caption": "als: one moment in the past. wenn: every time, or in the future.",
+      "marks": [
+        {
+          "at": -2.2,
+          "label": "once, in the past",
+          "de": "als ich klein war"
+        },
+        {
+          "at": -1,
+          "label": "every time (past)",
+          "de": "immer wenn wir kamen"
+        },
+        {
+          "at": 1.8,
+          "label": "future",
+          "de": "wenn ich ankomme"
+        }
+      ]
+    },
+    "obwohl (verb last) = trotzdem (verb second)": {
+      "kind": "pairs",
+      "left": "obwohl: verb last",
+      "right": "trotzdem: verb second",
+      "rows": [
+        {
+          "a": "Obwohl es regnet, gehe ich spazieren.",
+          "b": "Es regnet. Trotzdem gehe ich spazieren."
+        }
+      ]
+    }
+  },
+  "quest_b1_1_infinitiv_zu": {
+    "zu + infinitive at the end; separable: auf-zu-stehen": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "zu",
+              "role": "joint"
+            },
+            {
+              "text": "lernen"
+            }
+          ],
+          "result": "Ich habe keine Lust, zu lernen."
+        },
+        {
+          "parts": [
+            {
+              "text": "auf",
+              "role": "prefix"
+            },
+            {
+              "text": "zu",
+              "role": "joint"
+            },
+            {
+              "text": "stehen"
+            }
+          ],
+          "result": "Es ist schwer, früh aufzustehen."
+        }
+      ]
+    },
+    "No zu after modals and a few verbs": {
+      "kind": "pairs",
+      "left": "with zu",
+      "right": "no zu",
+      "rows": [
+        {
+          "a": "Ich versuche, pünktlich zu sein.",
+          "b": "Ich muss pünktlich sein."
+        },
+        {
+          "a": "Ich habe vergessen, dich anzurufen.",
+          "b": "Ich gehe morgen schwimmen."
+        }
+      ]
+    }
+  },
+  "quest_b1_1_es": {
+    "Feelings with the dative: mir ist kalt, es geht mir gut, es tut mir leid": {
+      "kind": "pairs",
+      "left": "English",
+      "right": "German",
+      "rows": [
+        {
+          "a": "I am cold.",
+          "b": "Mir ist kalt."
+        },
+        {
+          "a": "I'm fine.",
+          "b": "Es geht mir gut."
+        },
+        {
+          "a": "I'm sorry.",
+          "b": "Es tut mir leid."
+        }
+      ]
+    }
+  },
+  "quest_b1_1_hoeren_umfrage": {
+    "würde gern …, aber … = a wish and its obstacle": {
+      "kind": "pairs",
+      "left": "the wish",
+      "right": "the reality",
+      "rows": [
+        {
+          "a": "Ich würde gern mehr Sport machen,",
+          "b": "aber ich habe keine Zeit."
+        }
+      ]
+    }
+  },
+  "quest_b1_1_lesen_studium": {
+    "Signposts of a balanced text": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "For",
+          "de": [
+            "Einerseits …",
+            "Ein großer Vorteil ist …"
+          ]
+        },
+        {
+          "label": "Against",
+          "de": [
+            "Andererseits …",
+            "Dagegen spricht …"
+          ]
+        },
+        {
+          "label": "Weighing",
+          "de": [
+            "Insgesamt …",
+            "Es kommt darauf an, …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_1_email_redemittel": {
+    "Formal frame": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Greeting",
+          "de": [
+            "Sehr geehrte Damen und Herren,",
+            "Sehr geehrter Herr Braun,"
+          ]
+        },
+        {
+          "label": "Why",
+          "de": [
+            "ich schreibe Ihnen, weil …",
+            "ich interessiere mich für …"
+          ]
+        },
+        {
+          "label": "Request",
+          "de": [
+            "Könnten Sie mir bitte mitteilen, …?"
+          ]
+        },
+        {
+          "label": "Close",
+          "de": [
+            "Ich freue mich auf Ihre Antwort.",
+            "Mit freundlichen Grüßen"
+          ]
+        }
+      ]
+    },
+    "Register: never mix": {
+      "kind": "pairs",
+      "left": "informal",
+      "right": "formal",
+      "rows": [
+        {
+          "a": "Hallo Tom,",
+          "b": "Sehr geehrter Herr Braun,"
+        },
+        {
+          "a": "Kannst du mir sagen, …?",
+          "b": "Könnten Sie mir mitteilen, …?"
+        },
+        {
+          "a": "Liebe Grüße",
+          "b": "Mit freundlichen Grüßen"
+        }
+      ]
+    }
+  },
+  "quest_b1_1_schreiben_email": {
+    "Five moves, in this order": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Greeting",
+          "de": [
+            "Sehr geehrte Frau …,"
+          ]
+        },
+        {
+          "label": "Reason",
+          "de": [
+            "ich schreibe Ihnen wegen …"
+          ]
+        },
+        {
+          "label": "Details",
+          "de": [
+            "Ich möchte wissen, ob …"
+          ]
+        },
+        {
+          "label": "Request",
+          "de": [
+            "Könnten Sie mir bitte …?"
+          ]
+        },
+        {
+          "label": "Close",
+          "de": [
+            "Mit freundlichen Grüßen"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_1_sprechen_dialog": {
+    "Opinion + reason + question back": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Opinion",
+          "de": [
+            "Ich finde, dass …",
+            "Meiner Meinung nach …"
+          ]
+        },
+        {
+          "label": "Reason",
+          "de": [
+            "…, weil …",
+            "Ein Grund dafür ist …"
+          ]
+        },
+        {
+          "label": "Ask back",
+          "de": [
+            "Wie siehst du das?",
+            "Was meinst du?"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_1_verben_praep": {
+    "Things: wo(r)- in questions, da(r)- in answers": {
+      "kind": "pairs",
+      "left": "question",
+      "right": "answer",
+      "rows": [
+        {
+          "a": "Worauf wartest du?",
+          "b": "Auf den Bus. – Ich warte darauf."
+        },
+        {
+          "a": "Woran denkst du?",
+          "b": "An den Urlaub. – Ich denke daran."
+        },
+        {
+          "a": "Wovor hast du Angst?",
+          "b": "Vor Spinnen. – Ich habe Angst davor."
+        }
+      ]
+    },
+    "People: preposition + wen / wem, preposition + pronoun": {
+      "kind": "pairs",
+      "left": "a thing",
+      "right": "a person",
+      "rows": [
+        {
+          "a": "Worauf wartest du? – Darauf.",
+          "b": "Auf wen wartest du? – Auf ihn."
+        },
+        {
+          "a": "Wovon sprecht ihr? – Davon.",
+          "b": "Von wem sprecht ihr? – Von ihr."
+        }
+      ]
+    }
+  },
+  "quest_b1_1_indirekte_fragen": {
+    "Separable verbs join up, modals and Perfekt go last": {
+      "kind": "bracket",
+      "columns": [
+        "Opener",
+        "Question word",
+        "Middle",
+        "Verb(s)"
+      ],
+      "hot": [
+        1,
+        3
+      ],
+      "caption": "New at this step: separable verbs join up again, and a helper verb comes last.",
+      "rows": [
+        {
+          "cells": [
+            "Wissen Sie,",
+            "wann",
+            "der Zug",
+            "abfährt?"
+          ]
+        },
+        {
+          "cells": [
+            "Können Sie mir sagen,",
+            "ob",
+            "ich hier",
+            "parken darf?"
+          ]
+        },
+        {
+          "cells": [
+            "Ich frage mich,",
+            "wo",
+            "ich den Schlüssel",
+            "hingelegt habe."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b1_1_falls_da_trotzdem": {
+    "obwohl ↔ trotzdem, weil ↔ deshalb": {
+      "kind": "pairs",
+      "left": "conjunction: verb last",
+      "right": "adverb: verb second",
+      "rows": [
+        {
+          "a": "Weil es regnet, bleibe ich hier.",
+          "b": "Es regnet, deshalb bleibe ich hier."
+        },
+        {
+          "a": "Obwohl es regnet, gehe ich raus.",
+          "b": "Es regnet, trotzdem gehe ich raus."
+        }
+      ]
+    }
+  },
+  "quest_b1_1_wortschatz": {
+    "Nouns come with their plural": {
+      "kind": "pairs",
+      "left": "singular",
+      "right": "plural",
+      "rows": [
+        {
+          "a": "die Bewerbung",
+          "b": "die Bewerbungen"
+        },
+        {
+          "a": "der Vertrag",
+          "b": "die Verträge"
+        },
+        {
+          "a": "das Gehalt",
+          "b": "die Gehälter"
+        }
+      ]
+    }
+  },
+  "quest_b1_1_suchbild_buero": {
+    "Compounds in the office: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "schreiben"
+            },
+            {
+              "text": "der Tisch",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Schreibtisch",
+          "gender": "m"
+        },
+        {
+          "parts": [
+            {
+              "text": "der Drucker"
+            },
+            {
+              "text": "die Patrone",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Druckerpatrone",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_b1_1_suchbild_arztpraxis": {
+    "Compounds in the surgery: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "das Blut"
+            },
+            {
+              "text": "der Druck",
+              "role": "suffix"
+            },
+            {
+              "text": "das Gerät",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Blutdruckgerät",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "die Untersuchung"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "die Liege",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Untersuchungsliege",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_b1_1_hoeren_interview": {
+    "The interview script": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Welcome",
+          "de": [
+            "Bitte nehmen Sie Platz."
+          ]
+        },
+        {
+          "label": "About you",
+          "de": [
+            "Erzählen Sie doch etwas über sich."
+          ]
+        },
+        {
+          "label": "Why this job",
+          "de": [
+            "Warum interessieren Sie sich für die Stelle?"
+          ]
+        },
+        {
+          "label": "Skills",
+          "de": [
+            "Welche Sprachen sprechen Sie?"
+          ]
+        },
+        {
+          "label": "Practical",
+          "de": [
+            "Ab wann könnten Sie anfangen?"
+          ]
+        },
+        {
+          "label": "Your question",
+          "de": [
+            "Haben Sie noch Fragen an uns?"
+          ]
+        }
+      ]
+    }
+  }
+}

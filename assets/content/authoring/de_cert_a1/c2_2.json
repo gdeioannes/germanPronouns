@@ -6,7 +6,6 @@
     ],
     "title": "Philosophie & Gesellschaft",
     "help": {
-      "hook": "Follow a German debate about freedom, duty and dignity using the very words Kant and Weber gave the language.",
       "intro": "When an essay or a discussion turns abstract, the vocabulary is that of the German philosophical tradition, which educated prose still uses without irony. This quiz sets that vocabulary in essayistic sentences, several of them close to classic public-domain wordings: Kant’s definition of Enlightenment (Ausgang aus der selbstverschuldeten Unmündigkeit), the kategorischer Imperativ, Pflicht versus Neigung, the human being as Zweck and never bloß als Mittel, Preis versus Würde, Urteilskraft and Erkenntnis; Max Weber’s Gesinnungsethik versus Verantwortungsethik; Leibniz’s Theodizee; the debate on Willensfreiheit and Determinismus; Rawls’s Gerechtigkeit als Fairness; the Zweck-Mittel-Relation of instrumental reason; das Menschenbild, das Gewissen, der Sinn. Around the nouns sit the verbs of argument you need in an essay: Verantwortung tragen, etwas in Abrede stellen (deny) as opposed to in Frage stellen (question), einen Sinn stiften. Several gaps need the noun in the case the sentence demands (des kategorischen Imperativs, des Gewissens, den freien Willen), and where German offers two natural phrasings – die Willensfreiheit or den freien Willen – both are accepted.",
       "tips": [
         {
@@ -106,6 +105,25 @@
             ],
             "answer": "in Abrede",
             "why": "in Abrede stellen means to deny; in Frage stellen only casts doubt."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "verb",
+            "right": "partner",
+            "rows": [
+              {
+                "a": "sich berufen",
+                "b": "auf + Akk: sich auf Kant berufen"
+              },
+              {
+                "a": "Stellung nehmen",
+                "b": "zu + Dat: zu einer Frage Stellung nehmen"
+              },
+              {
+                "a": "zurückführen",
+                "b": "auf + Akk: etwas auf eine Ursache zurückführen"
+              }
+            ]
           }
         },
         {
@@ -140,6 +158,52 @@
             ],
             "answer": "einen",
             "why": "Wille is masculine despite being abstract, and ohne takes the accusative: einen freien Willen."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "frei"
+                  },
+                  {
+                    "text": "-heit",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "die Freiheit",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Pflicht"
+                  }
+                ],
+                "result": "die Pflicht",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "das Gewissen"
+                  }
+                ],
+                "result": "das Gewissen",
+                "gender": "n",
+                "en": "conscience"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Wille"
+                  }
+                ],
+                "result": "der Wille",
+                "gender": "m"
+              }
+            ]
           }
         }
       ],
@@ -282,7 +346,6 @@
           "why": "Verantwortung combines with tragen or übernehmen, not with nehmen."
         }
       ],
-      "exam": null,
       "table": {
         "caption": "Genus der Grundbegriffe",
         "columns": [
@@ -327,7 +390,8 @@
             ]
           }
         ]
-      }
+      },
+      "hook": "Follow a German debate about freedom, duty and dignity using the very words Kant and Weber gave the language."
     }
   },
   {
@@ -337,7 +401,6 @@
     ],
     "title": "Wortstellung & Fokus",
     "help": {
-      "hook": "One small word in the right place moves the spotlight: selbst, ausgerechnet, erst and the slot before the verb decide what your sentence stresses.",
       "intro": "German marks focus with small words placed directly before the element they single out, and with the Vorfeld, the slot before the finite verb. This quiz drills the focus particles a careful writer must choose between: selbst and sogar (even) – interchangeable before a noun phrase and in selbst / sogar wenn, but only sogar can focus a verb, while selbst after a noun means himself (der Minister selbst); nicht einmal (not even); noch before a comparative (noch schwächer); ausgerechnet and gerade (of all days / of all people); genau, eben and gerade (exactly, precisely – gerade weil); erst (not until, only so far, only forty) against nur, bloß, lediglich (merely); allein, schon, bereits (the mere thought); zumindest / wenigstens (at least); erst recht (all the more). One item asks you to front an object for contrast (Den ersten Vorschlag lehne ich ab …). Where two or three particles are equally natural, every one of them is accepted; the English cue tells you which meaning is wanted, and the tips explain where the particles part company.",
       "tips": [
         {
@@ -443,6 +506,21 @@
             ],
             "answer": "erst",
             "why": "Temporal only (not until) is erst; nur, bloß and lediglich limit a quantity and would mean only tomorrow, on no other day."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "erst: later than expected",
+            "right": "nur: less than expected",
+            "rows": [
+              {
+                "a": "Er kommt erst um zehn.",
+                "b": "Er bleibt nur eine Stunde."
+              },
+              {
+                "a": "Ich habe erst drei Seiten gelesen. (more to come)",
+                "b": "Ich habe nur drei Seiten gelesen. (that's all)"
+              }
+            ]
           }
         },
         {
@@ -477,6 +555,43 @@
             ],
             "answer": "Seinen Bruder",
             "why": "The contrasted object moves into the Vorfeld but stays accusative: ich kenne seinen Bruder → Seinen Bruder kenne ich."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Vorfeld (focus)",
+              "Verb",
+              "Rest"
+            ],
+            "hot": [
+              0
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Ich",
+                  "habe",
+                  "das nicht gesagt."
+                ],
+                "en": "neutral"
+              },
+              {
+                "cells": [
+                  "Das",
+                  "habe",
+                  "ich nicht gesagt."
+                ],
+                "en": "THAT I didn't say"
+              },
+              {
+                "cells": [
+                  "Ausgerechnet heute",
+                  "regnet",
+                  "es."
+                ],
+                "en": "today of all days"
+              }
+            ]
           }
         }
       ],
@@ -573,7 +688,7 @@
           "why": "Before a comparative, even is noch (or sogar noch)."
         }
       ],
-      "exam": null
+      "hook": "One small word in the right place moves the spotlight: selbst, ausgerechnet, erst and the slot before the verb decide what your sentence stresses."
     }
   },
   {
@@ -618,6 +733,25 @@
             ],
             "answer": "schlicht",
             "why": "schlicht (simply) sharpens the denial Das trifft nicht zu; gewaltig belongs with sich irren."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "mild",
+            "high": "sharp",
+            "points": [
+              {
+                "at": 95,
+                "de": "Da muss ich Ihnen entschieden widersprechen."
+              },
+              {
+                "at": 70,
+                "de": "Das sehe ich grundlegend anders."
+              },
+              {
+                "at": 40,
+                "de": "Da bin ich nicht ganz Ihrer Meinung."
+              }
+            ]
           }
         },
         {
@@ -709,7 +843,6 @@
     ],
     "title": "Anspielungen & Implikatur",
     "help": {
-      "hook": "Hear what Germans mean but never say: hints, litotes, irony and the coded praise of a job reference.",
       "intro": "Educated German often means more than it says, and the listener or reader has to supply what is left unsaid. Each item in this quiz gives an utterance in its situation and asks what it does or means: a statement that is really a request („Ganz schön frisch hier drin“) or a hint to leave („Morgen ist ja leider wieder ein Arbeitstag“); litotes, which affirms by denying the opposite (a strict boss’s „Nicht schlecht“, „nicht unerheblich“, „nicht ganz ungefährlich“); veiled criticism („Da ist noch Luft nach oben“) and the coded language of German job references („Er bemühte sich …“); irony („Na, herrliches Wetter heute!“); fixed polite formulas whose real meaning is a rejection, an objection or nothing at all („Wir melden uns“, „Bei allem Respekt“, „Wir müssen mal essen gehen“); allusion to shared knowledge; the loaded question that presupposes guilt; the rhetorical question; and the judgement conveyed by what a writer leaves out. Your answer names the speech act or the meaning; synonyms that fit the sentence are accepted.",
       "tips": [
         {
@@ -812,6 +945,25 @@
             ],
             "answer": "Only adequate",
             "why": "In the coded language of references, plain zu unserer Zufriedenheit is a weak grade; very good needs stets and vollsten."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "a reference says",
+            "right": "it means",
+            "rows": [
+              {
+                "a": "Er war stets bemüht.",
+                "b": "He tried, and failed."
+              },
+              {
+                "a": "Sie trug zur Verbesserung des Betriebsklimas bei.",
+                "b": "She was sociable, perhaps too much."
+              },
+              {
+                "a": "Er erledigte alle Aufgaben stets zu unserer vollsten Zufriedenheit.",
+                "b": "Very good. (Without stets: only good.)"
+              }
+            ]
           }
         },
         {
@@ -878,6 +1030,21 @@
             ],
             "answer": "A reproach",
             "why": "The literal welcome does not fit forty minutes late, so look for the act: it is ironic criticism of the lateness."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "it says",
+            "right": "it does",
+            "rows": [
+              {
+                "a": "Es zieht hier ein bisschen.",
+                "b": "Please close the window."
+              },
+              {
+                "a": "Interessante Idee …",
+                "b": "I'm not convinced."
+              }
+            ]
           }
         }
       ],
@@ -981,7 +1148,7 @@
           "why": "Litotes affirms by denying the opposite: not insignificant = significant."
         }
       ],
-      "exam": null
+      "hook": "Hear what Germans mean but never say: hints, litotes, irony and the coded praise of a job reference."
     }
   },
   {
@@ -991,7 +1158,6 @@
     ],
     "title": "Paraphrase & Variation",
     "help": {
-      "hook": "Say the same thing twice without repeating yourself: swap plain words for weightier phrases and still mean exactly the same.",
       "intro": "Paraphrase – saying the same thing again in other words – is the advanced writer’s daily tool: it lets you avoid repetition, raise the register of a text and show range. This quiz gives a plain sentence and an elevated or restructured version with one decisive gap. It covers phrasal equivalents (wichtig → von großer Bedeutung; viele → eine Vielzahl von; helfen → Beistand leisten; zeigen → verdeutlichen; benutzen → sich einer Sache bedienen; für zentral halten → zentrale Bedeutung beimessen; berücksichtigen → Rechnung tragen; sich sehr bemühen → keine Mühe scheuen; sofort → ohne Verzug; erlauben → die Erlaubnis erteilen; nicht zweifeln → außer Zweifel stehen), elevated quantifiers (sämtliche, keinerlei), a causal clause turned into a prepositional phrase (in Anbetracht + Genitive), a relative clause condensed into a participle, and two phrases that are often misused: ums Leben kommen (to die in an accident or by violence – neutral register, not elevated) and den Anfang machen (to be the first to do something, not simply to begin something). The rule of the game is equivalence: same meaning, same or higher register. Every correct paraphrase that fits the gap is accepted.",
       "tips": [
         {
@@ -1156,6 +1322,25 @@
             ],
             "answer": "Er bediente sich eines Wörterbuchs.",
             "why": "sich bedienen takes the genitive, and den Anfang machen means to go first, which changes the meaning."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "plain",
+            "right": "one rung up",
+            "rows": [
+              {
+                "a": "Viele Leute",
+                "b": "Zahlreiche Menschen"
+              },
+              {
+                "a": "etwas zeigen",
+                "b": "etwas verdeutlichen"
+              },
+              {
+                "a": "Das ist wichtig.",
+                "b": "Das ist von zentraler Bedeutung."
+              }
+            ]
           }
         }
       ],
@@ -1261,7 +1446,7 @@
           "why": "Vielzahl takes von + Dative, and the subject eine Vielzahl is singular."
         }
       ],
-      "exam": null
+      "hook": "Say the same thing twice without repeating yourself: swap plain words for weightier phrases and still mean exactly the same."
     }
   },
   {
@@ -1305,6 +1490,35 @@
             ],
             "answer": "Sugar plays a bigger role.",
             "why": "What follows vielmehr is the new model the speaker holds; the view before gilt als überholt is the one dismissed."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "The old model",
+                "de": [
+                  "Lange ging man davon aus, dass …"
+                ]
+              },
+              {
+                "label": "It falls",
+                "de": [
+                  "Diese Vorstellung gilt heute als überholt."
+                ]
+              },
+              {
+                "label": "The new model",
+                "de": [
+                  "Vielmehr …"
+                ]
+              },
+              {
+                "label": "Hedged conclusion",
+                "de": [
+                  "Vieles deutet darauf hin, dass …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -1484,7 +1698,6 @@
     ],
     "title": "Wortspiel & Mehrdeutigkeit",
     "help": {
-      "hook": "German headlines and jokes live on double meanings; learn to hear both, from die Steuer versus das Steuer to a pun on Zug.",
       "intro": "Headlines, cabaret, advertising and literature play with words that have two meanings, and a good reader sees both at once. This quiz never asks you to repeat the word that is printed: you supply the other reading or the word that makes the pun. Six items turn on gender, where only the article tells the meanings apart – die Steuer (tax) / das Steuer (wheel), die See (sea) / der See (lake), das Verdienst (merit) / der Verdienst (earnings), der Kiefer (jaw) / die Kiefer (pine), die Leiter (ladder) / der Leiter (head), der Band (volume) / das Band (ribbon) – and the article has to be in the right case (den Kiefer, einen Band). Four items ask for the second reading behind a joke: der Tor (fool) behind das Tor, Schloss as palace, Birne as slang for head, and the idiom jemandem Flügel verleihen behind a piano shop’s slogan. Seven items ask for the single word that makes the pun work in both senses: Zug (move / train), Hahn (tap / rooster), Gericht (dish / court), Mutter (nut / mother), Satz (set / sentence), Läufer (rug / bishop), Absatz (heel / paragraph). The last item is a structural ambiguity: who has the binoculars?",
       "tips": [
         {
@@ -1521,6 +1734,32 @@
             ],
             "answer": "der",
             "why": "The sea is die See, and auf for a location takes the dative: auf der offenen See. auf dem See would be on a lake."
+          },
+          "visual": {
+            "kind": "pictures",
+            "caption": "Also: der See (lake) / die See (sea); der Band (volume) / die Band (group) / das Band (ribbon).",
+            "items": [
+              {
+                "image": "lesson_die_steuer",
+                "de": "die Steuer",
+                "en": "tax"
+              },
+              {
+                "image": "lesson_das_steuer",
+                "de": "das Steuer",
+                "en": "steering wheel"
+              },
+              {
+                "image": "lesson_die_leiter",
+                "de": "die Leiter",
+                "en": "ladder"
+              },
+              {
+                "image": "lesson_der_leiter",
+                "de": "der Leiter",
+                "en": "head, manager"
+              }
+            ]
           }
         },
         {
@@ -1782,7 +2021,6 @@
           "why": "The volume is der Band (Akk. einen Band); das Band is a ribbon."
         }
       ],
-      "exam": null,
       "table": {
         "caption": "Genus entscheidet",
         "columns": [
@@ -1849,7 +2087,8 @@
             ]
           }
         ]
-      }
+      },
+      "hook": "German headlines and jokes live on double meanings; learn to hear both, from die Steuer versus das Steuer to a pun on Zug."
     }
   },
   {
@@ -1861,8 +2100,7 @@
     ],
     "title": "Kurzcheck: Andeutung & Ironie",
     "help": {
-      "hook": "Say things without spelling them out: decode a hint, criticise by understatement, land irony and shift emphasis with one particle.",
-      "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: reading what is meant and saying things more than one way. The tutor gives you an indirect utterance and asks what it is doing (Was meint die Sprecherin mit „Es zieht hier“?); asks you to make a point by implication or understatement instead of saying it outright; asks you to say something ironically so that the irony is unmistakable; asks you to put the emphasis on a different element of a sentence (focus particle plus Vorfeld); and asks you to paraphrase a neutral sentence in an elevated register without changing its meaning. Speak in full sentences; type ‘Ende’ for the score.",
+      "intro": "A short checkpoint on the first half of this module, in your own AI assistant with voice on: you are the spokesperson of a company that has just withdrawn a product, and a sharp journalist asks what you do not want to answer. You answer without saying things outright - implication, understatement, irony that is marked so it lands, a corrected focus when her question presupposes something false, and a higher register when her question is crude - and twice you have to say what she actually meant. It listens for whether the implication lands, whether the focus correction is built with a particle and the Vorfeld, and whether the register holds. Say 'Ende' if you need to stop early.",
       "tips": [
         {
           "kind": "rule",
@@ -1938,6 +2176,21 @@
             ],
             "answer": "Das Ergebnis ist nicht gerade überzeugend.",
             "why": "nicht gerade + a positive word lets the listener draw the negative conclusion without it being named."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "direct",
+            "right": "implied",
+            "rows": [
+              {
+                "a": "Das war schlecht.",
+                "b": "Das war nicht gerade ein Meisterwerk."
+              },
+              {
+                "a": "Du bist zu spät.",
+                "b": "Schön, dass du es auch noch geschafft hast."
+              }
+            ]
           }
         },
         {
@@ -2046,7 +2299,45 @@
         "Imply with bezeichnenderweise, nicht gerade, alles andere als; mark irony with ja or man könnte meinen.",
         "Particle + Vorfeld = focus; keep the register consistent when paraphrasing."
       ],
-      "exam": null
+      "hook": "Say things without spelling them out: decode a hint, criticise by understatement, land irony and shift emphasis with one particle.",
+      "vocab": [
+        {
+          "de": "Andeutung",
+          "article": "die",
+          "plural": "-en",
+          "en": "hint"
+        },
+        {
+          "de": "andeuten",
+          "en": "to hint"
+        },
+        {
+          "de": "Untertreibung",
+          "article": "die",
+          "plural": "-en",
+          "en": "understatement"
+        },
+        {
+          "de": "ausgerechnet",
+          "en": "of all things"
+        },
+        {
+          "de": "nicht gerade",
+          "en": "not exactly"
+        },
+        {
+          "de": "anders ausgedrückt",
+          "en": "in other words"
+        },
+        {
+          "de": "ironisch",
+          "en": "ironic"
+        },
+        {
+          "de": "zwischen den Zeilen",
+          "en": "between the lines"
+        }
+      ]
     }
   },
   {
@@ -2160,6 +2451,35 @@
             ],
             "answer": "It limits the author’s own claim.",
             "why": "Nichts davon ist … tells you what the author does not claim: it is his self-limitation."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Concession",
+                "de": [
+                  "Gewiss erleichtert das Internet das Erinnern."
+                ]
+              },
+              {
+                "label": "Hinge",
+                "de": [
+                  "Doch …"
+                ]
+              },
+              {
+                "label": "Limitation",
+                "de": [
+                  "…, sofern …"
+                ]
+              },
+              {
+                "label": "Redefinition",
+                "de": [
+                  "Vergessen ist nicht …, sondern vielmehr …"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -2179,7 +2499,6 @@
     ],
     "title": "Wissenschaftssprache",
     "help": {
-      "hook": "Turn 'I think' into academic German: assume, infer, hedge and conclude like a published paper.",
       "intro": "Academic German has a fixed phrasebook, and every university paper, report or grant application expects it. This quiz drills it in the sentences of a typical study: assuming and inferring (es ist davon auszugehen, dass; daraus ergibt sich, dass; die Befunde legen nahe, dass; zu dem Ergebnis / Schluss kommen, dass), relating (im Hinblick auf, in Bezug auf, im Gegensatz zu, unter Berücksichtigung + Gen, vor dem Hintergrund + Gen, sich beziehen / stützen auf), operating on the material (definieren, untersuchen, interpretieren, zusammenfassen, stützen), hedging (es ist nicht auszuschließen, dass; bedarf weiterer Untersuchung; ist mit Vorsicht zu interpretieren) and concluding (abschließend lässt sich festhalten, dass). Where academic German offers several equally correct verbs or nouns – stützen, belegen, untermauern; zu dem Ergebnis or zu dem Schluss kommen; weiterer Untersuchung, Klärung or Prüfung bedürfen – all of them are accepted. The fixed frames (davon auszugehen, im Hinblick auf, Rechnung tragen) have only one filling. Everything is impersonal (es, man, passive, sein + zu), nominal and hedged.",
       "tips": [
         {
@@ -2213,6 +2532,29 @@
             ],
             "answer": "legen",
             "why": "The fixed phrase is etwas nahelegen: die Daten legen nahe, dass … means the data suggest."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Assume",
+                "de": [
+                  "Wir gehen davon aus, dass …"
+                ]
+              },
+              {
+                "label": "Infer",
+                "de": [
+                  "Daraus lässt sich schließen, dass …"
+                ]
+              },
+              {
+                "label": "Conclude",
+                "de": [
+                  "Zusammenfassend ist festzuhalten, dass …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -2280,6 +2622,29 @@
             ],
             "answer": "weiterer",
             "why": "bedürfen takes the genitive; without an article the feminine genitive ending is -er."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "hedged",
+            "high": "firm",
+            "points": [
+              {
+                "at": 90,
+                "de": "Daraus folgt, dass …"
+              },
+              {
+                "at": 65,
+                "de": "Es ist davon auszugehen, dass …"
+              },
+              {
+                "at": 40,
+                "de": "Die Ergebnisse deuten darauf hin, dass …"
+              },
+              {
+                "at": 15,
+                "de": "Es lässt sich vermuten, dass …"
+              }
+            ]
           }
         },
         {
@@ -2388,6 +2753,18 @@
           "article": "der",
           "plural": "Befunde",
           "en": "finding"
+        },
+        {
+          "de": "zusammenfassen",
+          "en": "to summarise"
+        },
+        {
+          "de": "untersuchen",
+          "en": "to examine"
+        },
+        {
+          "de": "interpretieren",
+          "en": "to interpret"
         }
       ],
       "context": {
@@ -2424,7 +2801,7 @@
           "why": "bedürfen + Genitive is the academic verb."
         }
       ],
-      "exam": null
+      "hook": "Turn 'I think' into academic German: assume, infer, hedge and conclude like a published paper."
     }
   },
   {
@@ -2434,7 +2811,6 @@
     ],
     "title": "Präpositionen der Schriftsprache",
     "help": {
-      "hook": "Read contracts, statutes and official notices with ease by mastering kraft, binnen, vorbehaltlich and their stiff, compact cousins.",
       "intro": "This quiz drills the prepositions of statutes, contracts, official letters and academic prose — the tier that contracts, rulings and academic papers take for granted. In twenty sentences you supply the preposition, and where the case is what decides, the article with it (gemäß den Vorschriften, mittels eines Transponders, entgegen den Erwartungen, zugunsten der Klägerin) or the noun it governs (kraft Gesetzes). Genitive: kraft, zwecks, mittels, vermöge, ungeachtet, unbeschadet, vorbehaltlich, eingedenk, anlässlich, seitens, infolge, zuzüglich, zugunsten. Dative: gemäß, entgegen, and zufolge, which follows its noun (dem Bericht zufolge). Either case: laut and binnen. Some can stand after the noun — dem Bericht zufolge, aller Warnungen ungeachtet, den Vorschriften gemäß. Where a plainer preposition says the same thing (innerhalb for binnen, mithilfe for mittels, aufgrund or wegen for infolge), it is accepted; where the cue asks for the elevated or the postposed word, only that one fits. Each of these prepositions folds a whole clause into a noun phrase — reading them back as clauses is the quickest way to understand a dense text.",
       "tips": [
         {
@@ -2602,6 +2978,29 @@
             ],
             "answer": "Obwohl es Einwände gab, …",
             "why": "ungeachtet compresses a concession, so it unpacks into an obwohl-clause."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "written",
+            "right": "read back as",
+            "rows": [
+              {
+                "a": "binnen einer Woche",
+                "b": "innerhalb einer Woche"
+              },
+              {
+                "a": "vorbehaltlich der Zustimmung",
+                "b": "wenn zugestimmt wird"
+              },
+              {
+                "a": "ungeachtet der Kritik",
+                "b": "obwohl es Kritik gibt"
+              },
+              {
+                "a": "kraft seines Amtes",
+                "b": "weil er das Amt hat"
+              }
+            ]
           }
         }
       ],
@@ -2841,7 +3240,6 @@
           "ungeachtet"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "gemäß der Vorschriften",
@@ -2863,7 +3261,8 @@
           "right": "entgegen den Erwartungen der Analysten",
           "why": "entgegen takes the dative; the plural article is den."
         }
-      ]
+      ],
+      "hook": "Read contracts, statutes and official notices with ease by mastering kraft, binnen, vorbehaltlich and their stiff, compact cousins."
     }
   },
   {
@@ -2873,7 +3272,6 @@
     ],
     "title": "Nominalstil: verdichten und auflösen",
     "help": {
-      "hook": "Turn 'nachdem man die Daten ausgewertet hatte' into 'nach Auswertung der Daten' and back: the core move of official and academic German.",
       "intro": "Nominalstil is the register of administration, law and much academic writing: clauses compressed into noun phrases with genitive and prepositional attributes, the verb reduced to a light verb such as erfolgen, stattfinden or sein. The aim is to do this deliberately and undo it fluently. The twenty sentences here go both ways. In the first twelve you compress: the source clause stands in the cue after the arrow (←), and you supply the decisive nominal part — the noun made from the verb (Auswertung, Zustellung), the genitive that replaces the subject (des Zugausfalls), the adjective that replaces the adverb (seiner schnellen Reaktion), the agent with durch, the preposition phrase that replaces the conjunction (Während der Sanierung), or the light verb itself (erfolgte). In the last eight you unpack: the nominal phrase stands in the cue and you restore the verb, the tense, the adverb or the conjunction. Wherever German offers more than one natural rendering (Protest / Widerstand, erfolgte / geschah, einhält / beachtet / befolgt), every one is accepted. Reading official letters and writing formal reports take exactly these moves.",
       "tips": [
         {
@@ -2909,6 +3307,21 @@
             ],
             "answer": "pünktlichen",
             "why": "The adverb pünktlich becomes an attributive adjective; after der in the genitive feminine it takes the weak ending -en."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "verbal",
+            "right": "nominal",
+            "rows": [
+              {
+                "a": "nachdem man die Daten ausgewertet hatte",
+                "b": "nach Auswertung der Daten"
+              },
+              {
+                "a": "weil die Nachfrage stark gestiegen ist",
+                "b": "aufgrund des starken Anstiegs der Nachfrage"
+              }
+            ]
           }
         },
         {
@@ -2976,6 +3389,21 @@
             ],
             "answer": "Die Sitzung des Ausschusses findet am Montag statt.",
             "why": "A Sitzung is an event, so it takes stattfinden; erfolgen is reserved for processes such as Zahlung or Prüfung."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "verbal",
+            "right": "with a light verb",
+            "rows": [
+              {
+                "a": "Man zahlt monatlich.",
+                "b": "Die Zahlung erfolgt monatlich."
+              },
+              {
+                "a": "Wir treffen uns am Montag.",
+                "b": "Das Treffen findet am Montag statt."
+              }
+            ]
           }
         },
         {
@@ -3189,7 +3617,6 @@
           "wegen"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "die Verschiebung des Projekts vom Rat",
@@ -3211,7 +3638,12 @@
           "right": "die Auswertung der Befragungsdaten der Studierenden",
           "why": "Three genitives in a row are unreadable; a compound breaks the chain."
         }
-      ]
+      ],
+      "hook": "Turn 'nachdem man die Daten ausgewertet hatte' into 'nach Auswertung der Daten' and back: the core move of official and academic German.",
+      "recall": {
+        "known": "From \"Nominalisierung\": clause → noun phrase.",
+        "today": "Both directions at full density, with erfolgen and stattfinden, and how much is too much."
+      }
     }
   },
   {
@@ -3221,7 +3653,6 @@
     ],
     "title": "Behördensprache: Amtsdeutsch übersetzen",
     "help": {
-      "hook": "Decode German official letters: which fine is which, how to object in time, and what ‘ist zu entrichten’ really asks of you.",
       "intro": "Amtsdeutsch — the German of authorities — is a register of its own, and reading it is a life skill for anyone who lives in a German-speaking country. This quiz has two kinds of sentence. In thirteen you complete an official sentence with the one term that is legally right: Einspruch or Widerspruch, Geldbuße, Verwarnungsgeld or Geldstrafe, bestandskräftig or rechtskräftig, Anhörung, Zustellung, Rechtsbehelfsbelehrung, Säumniszuschlag, Zwangsgeld, unbeschadet. In six, an official sentence is quoted and you complete its plain-German version (Klartext) with the everyday word. The distinctions are not pedantry: an Ordnungswidrigkeit (administrative offence) is punished with a Geldbuße, colloquially Bußgeld — a Geldstrafe is imposed only by a criminal court; a Bescheid of an authority becomes bestandskräftig, a court judgment rechtskräftig; you lodge Einspruch against a Bußgeldbescheid or a tax assessment, and Widerspruch against most other administrative decisions. The grammar is the Nominalstil and passive substitutes of the previous quizzes taken to the limit; the vocabulary is fixed and, once known, translatable.",
       "tips": [
         {
@@ -3356,6 +3787,21 @@
             ],
             "answer": "darf",
             "why": "ist untersagt means it is forbidden, and the prohibition is nicht dürfen; nicht müssen only means 'not have to'."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "Amtsdeutsch",
+            "right": "Klartext",
+            "rows": [
+              {
+                "a": "Der Betrag ist bis zum 1. Juni zu entrichten.",
+                "b": "Pay by 1 June."
+              },
+              {
+                "a": "Eine Stellungnahme ist binnen 14 Tagen einzureichen.",
+                "b": "Reply within two weeks."
+              }
+            ]
           }
         },
         {
@@ -3391,6 +3837,29 @@
             ],
             "answer": "Was passiert sonst?",
             "why": "andernfalls introduces the consequence if you do not comply, so it answers 'Was passiert sonst?'."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "What is it about?",
+                "de": [
+                  "Bußgeldbescheid wegen Geschwindigkeitsüberschreitung"
+                ]
+              },
+              {
+                "label": "What must I do, by when?",
+                "de": [
+                  "zahlen oder Einspruch einlegen, innerhalb von zwei Wochen ab Zustellung"
+                ]
+              },
+              {
+                "label": "What if I don’t?",
+                "de": [
+                  "Der Bescheid wird rechtskräftig."
+                ]
+              }
+            ]
           }
         }
       ],
@@ -3558,7 +4027,6 @@
           "rechtskräftig"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "Wegen Falschparkens musste er eine Geldstrafe zahlen.",
@@ -3580,7 +4048,8 @@
           "right": "Das Urteil ist rechtskräftig.",
           "why": "Court judgments become rechtskräftig; administrative decisions become bestandskräftig."
         }
-      ]
+      ],
+      "hook": "Decode German official letters: which fine is which, how to object in time, and what ‘ist zu entrichten’ really asks of you."
     }
   },
   {
@@ -3627,6 +4096,31 @@
             ],
             "answer": "No, only against a later Bescheid.",
             "why": "An Anhörung only invites you to respond; Einspruch is possible against the decision itself, the Bescheid."
+          },
+          "visual": {
+            "kind": "timeline",
+            "axis": {
+              "start": "step 1",
+              "end": "step 3",
+              "now": null
+            },
+            "marks": [
+              {
+                "at": -2.2,
+                "label": "you may reply",
+                "de": "die Anhörung"
+              },
+              {
+                "at": -0.2,
+                "label": "the decision",
+                "de": "der Bescheid"
+              },
+              {
+                "at": 1.8,
+                "label": "final",
+                "de": "rechtskräftig"
+              }
+            ]
           }
         },
         {
@@ -3806,7 +4300,6 @@
     ],
     "title": "Appositionen: Kasus, Komma, Titel",
     "help": {
-      "hook": "Write 'with Mr Roth, the new mayor' in German and the apposition must copy the case: dem neuen Bürgermeister, not der neue.",
       "intro": "An apposition is a noun phrase that renames the one before it, and in German it agrees in case — the point at which even native writers slip. In the twenty sentences of this quiz the commas are already in place; you type only the apposition itself, declined for the case of the noun it renames. Loose appositions (lockere Apposition), set off by commas, in all four cases: mit Dr. Weber, der Leiterin des Instituts (Dat) · die Rede des Kanzlers, eines gelernten Juristen (Gen) · wir trafen Herrn Klein, unseren neuen Nachbarn (Akk). An apposition without an article is also correct (mit Dr. Weber, Leiterin des Instituts). Dates: am Montag, dem 3. März — or, equally correct, den 3. März. Close appositions (enge Apposition), without commas: König Ludwig, Professor Berg, die Stadt München, der Monat Mai — only one part declines (König Ludwigs, des Professors Berg, der Stadt München, des Monats Mai). After a measure noun the material agrees with the measure (mit einem Glas rotem Wein) or stands in the elevated genitive (mit einem Glas roten Weins). als-phrases agree with the word they refer to: sie als Vorsitzende, ihm als Experten, ihn als ihren Chef, sich erweisen als ein Glücksfall.",
       "tips": [
         {
@@ -3974,6 +4467,25 @@
             ],
             "answer": "der jüngeren",
             "why": "bei makes meiner Tante dative, so the apposition copies the dative: der jüngeren Schwester."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "case of the noun",
+            "right": "apposition copies it",
+            "rows": [
+              {
+                "a": "mit Herrn Roth (Dat),",
+                "b": "dem neuen Bürgermeister"
+              },
+              {
+                "a": "Ich kenne Herrn Roth (Akk),",
+                "b": "den neuen Bürgermeister."
+              },
+              {
+                "a": "das Haus Herrn Roths (Gen),",
+                "b": "des neuen Bürgermeisters"
+              }
+            ]
           }
         }
       ],
@@ -4124,7 +4636,6 @@
           "Weins"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "mit Dr. Weber, die Leiterin des Instituts",
@@ -4146,7 +4657,8 @@
           "right": "die Geschichte der Stadt München",
           "why": "In a close apposition with an article, only the class noun declines; the name stays bare."
         }
-      ]
+      ],
+      "hook": "Write 'with Mr Roth, the new mayor' in German and the apposition must copy the case: dem neuen Bürgermeister, not der neue."
     }
   },
   {
@@ -4156,7 +4668,6 @@
     ],
     "title": "Modalverben — das ganze System",
     "help": {
-      "hook": "One small modal verb can command, permit, guess, doubt or pass on a rumour; learn to hear which one it’s doing.",
       "intro": "Every German modal verb has an objective reading, which describes the world (obligation, permission, ability, someone else’s instruction, intention, liking), and most also have a subjective reading, in which the speaker says how sure they are: muss (certain), müsste / sollte (expected), dürfte (probable), kann / könnte (possible), kann nicht (ruled out), mag (conceded). Two modals report what others or the subject say: sollen (hearsay) and wollen (self-claim). The 21 sentences here cover all three readings. Most gaps take the modal itself, including the Konjunktiv II forms dürfte, könnte and müsste. Three take a perfect infinitive and have two gaps (muss … geregnet haben, soll … abgesagt haben, will … gewesen sein). The last five give you the synonymous phrase that formal prose uses instead of a modal: es ist erforderlich, es steht zu erwarten, es ist nicht auszuschließen, angeblich, vermutlich. The cue in brackets always names the reading, so read it before you choose.",
       "tips": [
         {
@@ -4226,6 +4737,33 @@
             ],
             "answer": "muss",
             "why": "A sure inference about the past keeps the modal in the present and puts the past into the infinitive: muss geregnet haben."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "unlikely",
+            "high": "certain",
+            "points": [
+              {
+                "at": 95,
+                "de": "muss"
+              },
+              {
+                "at": 80,
+                "de": "dürfte"
+              },
+              {
+                "at": 55,
+                "de": "kann / könnte"
+              },
+              {
+                "at": 35,
+                "de": "mag (concessive)"
+              },
+              {
+                "at": 5,
+                "de": "kann nicht"
+              }
+            ]
           }
         },
         {
@@ -4262,6 +4800,25 @@
             ],
             "answer": "will",
             "why": "wollen with a perfect infinitive reports the subject’s own claim, which the speaker doubts; soll would be what others say."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "objective",
+            "right": "subjective / reporting",
+            "rows": [
+              {
+                "a": "Er muss arbeiten. (obligation)",
+                "b": "Er muss krank sein. (certainty)"
+              },
+              {
+                "a": "Er soll pünktlich sein. (instruction)",
+                "b": "Er soll reich sein. (hearsay)"
+              },
+              {
+                "a": "Er will kommen. (wish)",
+                "b": "Er will nichts gewusst haben. (claim)"
+              }
+            ]
           }
         },
         {
@@ -4406,7 +4963,6 @@
           "why": "soll reports what others say; a claim made by the subject about himself takes wollen."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "Lesart",
@@ -4456,7 +5012,12 @@
           "de": "jemandem etwas vorwerfen",
           "en": "to accuse someone of something"
         }
-      ]
+      ],
+      "hook": "One small modal verb can command, permit, guess, doubt or pass on a rumour; learn to hear which one it’s doing.",
+      "recall": {
+        "known": "From the modal lessons: muss, dürfte, soll and will in their many uses.",
+        "today": "The whole system on one page: objective, subjective and reporting."
+      }
     }
   },
   {
@@ -4466,7 +5027,6 @@
     ],
     "title": "Vorgangs-, Zustandspassiv, Passiversatz — Meisterschaft",
     "help": {
-      "hook": "Choose the exact perspective every time: the action, the result, the duty or the possibility, with werden, sein, ist zu and lässt sich.",
       "intro": "Twenty full sentences, each with the verb given in the cue, and the gap is always the form that decides the perspective. Process passive with werden: the action happens or happened (wurde … eröffnet, wird … renoviert, ist … festgenommen worden, unterzeichnet worden waren, muss … erneuert werden, the impersonal wurde … getanzt and Es wird darauf hingewiesen). State passive with sein: the result holds (ist … geschlossen, war … gesperrt, sind … ausverkauft). Then the substitutes, each with its shade: sein + zu for obligation or possibility (ist … einzureichen, nicht abzuschätzen), sich lassen and -bar for possibility (lässt sich beheben, reparabel), bekommen + Partizip II with the recipient as subject, the reflexive middle (liest sich leicht), the formal bedürfen + genitive and the colloquial gehören + Partizip II. Every frame contains the clue that makes one choice right: a date points to an event, a finding at a moment points to a state, a missing modal in the cue points to sein + zu.",
       "tips": [
         {
@@ -4607,6 +5167,29 @@
             ],
             "answer": "sind",
             "why": "Obligation is sein + zu + infinitive: Alle Angaben sind zu prüfen = müssen geprüft werden."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "focus",
+            "right": "form",
+            "rows": [
+              {
+                "a": "the action",
+                "b": "Die Brücke wird gebaut."
+              },
+              {
+                "a": "the result",
+                "b": "Die Brücke ist gebaut."
+              },
+              {
+                "a": "the duty",
+                "b": "Die Brücke ist bis Mai zu bauen."
+              },
+              {
+                "a": "the possibility",
+                "b": "Die Brücke lässt sich schnell bauen."
+              }
+            ]
           }
         }
       ],
@@ -4723,7 +5306,6 @@
           "why": "sein + zu takes the active infinitive; the passive meaning is built in."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "Vorgangspassiv",
@@ -4769,7 +5351,12 @@
           "article": "die",
           "en": "written form (legal requirement)"
         }
-      ]
+      ],
+      "hook": "Choose the exact perspective every time: the action, the result, the duty or the possibility, with werden, sein, ist zu and lässt sich.",
+      "recall": {
+        "known": "From every passive lesson: werden, sein, ist zu, lässt sich, bekommen.",
+        "today": "Choosing among them by what you want in focus: the action, the result, the duty or the possibility."
+      }
     }
   },
   {
@@ -4779,7 +5366,6 @@
     ],
     "title": "Adverbialsätze: Hauptsatz / Nebensatz / Infinitiv umformen",
     "help": {
-      "hook": "Say 'because', 'although' or 'in order to' in three different shapes and pick the one that suits your text.",
       "intro": "One adverbial relation, several syntactic shapes: a subordinate clause with the verb at the end (weil, da, obwohl, damit, ohne dass, falls), a main clause with a coordinating conjunction (denn, sondern) or a linking adverb in position 1 (deshalb, trotzdem, sonst, danach), an infinitive clause (um … zu, ohne … zu, statt … zu, zu … um zu, genug, um zu), a verb-first conditional (Hast du Zeit, …), the literary kaum … da, and occasionally a preposition (trotz, bei). Each of the 21 items gives you the source sentence and a target frame; the gap is only the part that carries the change: the connector, the preposition, or the infinitive construction. The rest of the target is printed, so the word order in the frame tells you which kind of word is needed.",
       "tips": [
         {
@@ -4813,6 +5399,40 @@
             ],
             "answer": "denn",
             "why": "The subject comes right after the gap and the verb is second: only coordinating denn fits that order."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Subordinate (verb last)",
+              "Main (verb 2nd)",
+              "Infinitive"
+            ],
+            "hot": [
+              0
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Weil er krank war, …",
+                  "Er war krank, deshalb …",
+                  "—"
+                ]
+              },
+              {
+                "cells": [
+                  "Damit sie lernt, …",
+                  "—",
+                  "Um zu lernen, …"
+                ]
+              },
+              {
+                "cells": [
+                  "Obwohl er müde war, …",
+                  "Er war müde, trotzdem …",
+                  "—"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5030,7 +5650,6 @@
           "why": "da in the causal sense is a subordinating conjunction, not a linking adverb."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "Nebensatz",
@@ -5081,7 +5700,8 @@
           "de": "umformen",
           "en": "to transform, rephrase"
         }
-      ]
+      ],
+      "hook": "Say 'because', 'although' or 'in order to' in three different shapes and pick the one that suits your text."
     }
   },
   {
@@ -5092,7 +5712,6 @@
     ],
     "title": "Großer Text: Zum Wert des Lesens",
     "help": {
-      "hook": "Follow a commentary that reports the critics' view in the subjunctive, then takes it apart in the author's own voice.",
       "intro": "An argumentative commentary of about 420 words on the value of reading, with eleven gaps. The first paragraph reports the critics’ thesis in indirect speech: after the single signal „so heißt es seit Jahren in Feuilletons und auf Podien“ every verb stays in the subjunctive – „wer heute noch einen Roman von sechshundert Seiten zur Hand nehme, gelte bereits als Sonderling“. From „Diese Diagnose hat den Vorzug der Eingängigkeit.“ onwards the author speaks in his own voice, in the indicative: he refutes part of the thesis, concedes another part, draws a limited conclusion and ends with „Nicht das Lesen ist bedroht, sondern die Muße, die es verlangt.“ The gaps test the Konjunktiv I and its Konjunktiv II substitute in sustained reported speech, the fixed phrases of refutation and concession, and the author’s hedged claims. Some gaps are drop-down choices, some must be typed; the hint gives the verb or its meaning, never the form.",
       "tips": [
         {
@@ -5126,6 +5745,26 @@
             ],
             "answer": "läsen",
             "why": "Plural Konjunktiv I lesen looks like the indicative, so you switch to Konjunktiv II läsen to keep it marked as the critics' words."
+          },
+          "visual": {
+            "kind": "textMap",
+            "blocks": [
+              {
+                "label": "the critics (Konjunktiv I)",
+                "de": "Lesen sei überholt, die Jugend lese nicht mehr.",
+                "focus": [
+                  "sei",
+                  "lese"
+                ]
+              },
+              {
+                "label": "the author (indicative)",
+                "de": "Doch die Zahlen zeigen etwas anderes.",
+                "focus": [
+                  "zeigen"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5240,7 +5879,7 @@
         "nahelegen, dass / darauf hindeuten, dass + indicative: the author’s own hedged claim.",
         "einer Prüfung standhalten · sich belegen lassen · nicht von der Hand zu weisen · Daraus folgt nicht, dass …"
       ],
-      "exam": null
+      "hook": "Follow a commentary that reports the critics' view in the subjunctive, then takes it apart in the author's own voice."
     }
   },
   {
@@ -5318,6 +5957,29 @@
             ],
             "answer": "Someone is still waiting.",
             "why": "The kein …, sondern … turns the lamp into an image, and the solange-clause explains it: as long as it burns, the waiting goes on."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Fact",
+                "de": [
+                  "ein gepackter Koffer, 31 Jahre lang"
+                ]
+              },
+              {
+                "label": "Symbol",
+                "de": [
+                  "solange der Koffer stand, …"
+                ]
+              },
+              {
+                "label": "Meaning",
+                "de": [
+                  "die Hoffnung auf Rückkehr"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5448,6 +6110,41 @@
             ],
             "answer": "steht",
             "why": "A motif stehen für something; handeln goes with von and is for the content of the whole text."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Content",
+                "de": [
+                  "Die Geschichte handelt von …"
+                ]
+              },
+              {
+                "label": "Focus",
+                "de": [
+                  "Im Mittelpunkt steht …"
+                ]
+              },
+              {
+                "label": "Language",
+                "de": [
+                  "Auffällig ist die knappe Sprache."
+                ]
+              },
+              {
+                "label": "Motif",
+                "de": [
+                  "Das Fenster steht für …"
+                ]
+              },
+              {
+                "label": "Verdict",
+                "de": [
+                  "Insgesamt …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5563,7 +6260,6 @@
     ],
     "title": "Rezension & Interpretation: Redemittel",
     "help": {
-      "hook": "Write about a novel like a critic: introduce it, interpret a quotation, weigh strengths against weaknesses and land a verdict.",
       "intro": "A literary review or interpretation follows a sequence of moves, and each move has fixed phrases. The 20 sentences here come from reviews of invented novels and stories, and the gap is always the verb or adverb that makes the phrase work: introduce the work (erzählt, handelt von), name the theme (setzt sich mit … auseinander, im Mittelpunkt steht), describe plot, perspective and language (die Handlung setzt ein, erzählt wird aus der Sicht, ergreift keine Partei, zeichnet sich durch … aus), interpret (steht für, verweist auf, lässt sich als … deuten, spielt auf … an, greift auf … zurück), describe the effect (dadurch entsteht), evaluate (besonders gelungen, weniger überzeugend ist hingegen, werfen … vor), place and conclude (knüpft an … an, erweist sich als, ein Buch, das man gelesen haben sollte). Many of these verbs are separable or reflexive, so read the whole sentence before filling in the gap.",
       "tips": [
         {
@@ -5700,6 +6396,35 @@
             ],
             "answer": "Ein Buch, das man gelesen haben sollte.",
             "why": "A review ends with verdict and recommendation; the start of the plot and the perspective belong much earlier."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Introduce",
+                "de": [
+                  "In ihrem neuen Roman erzählt …"
+                ]
+              },
+              {
+                "label": "Interpret",
+                "de": [
+                  "Der Titel verweist auf …"
+                ]
+              },
+              {
+                "label": "Weigh",
+                "de": [
+                  "Überzeugend ist …, weniger gelungen …"
+                ]
+              },
+              {
+                "label": "Verdict",
+                "de": [
+                  "Ein lesenswertes Buch, das …"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -5813,7 +6538,6 @@
           "why": "handeln von has the book as subject; es handelt sich um always has es as subject."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "Rezension",
@@ -5867,7 +6591,8 @@
           "de": "sich als etwas erweisen",
           "en": "to prove to be"
         }
-      ]
+      ],
+      "hook": "Write about a novel like a critic: introduce it, interpret a quotation, weigh strengths against weaknesses and land a verdict."
     }
   },
   {
@@ -5944,6 +6669,17 @@
             ],
             "answer": "Support, if residents are involved",
             "why": "vorausgesetzt attaches a condition: her support only holds if residents take part."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "position",
+            "right": "fine print",
+            "rows": [
+              {
+                "a": "KI schafft neue Jobs,",
+                "b": "vorausgesetzt, wir investieren in Weiterbildung."
+              }
+            ]
           }
         },
         {
@@ -6063,6 +6799,29 @@
             ],
             "answer": "The reason is partly true, and there is a serious reason too.",
             "why": "Half a joke means the other half is serious; the story will reveal the real reason later."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Ritual",
+                "de": [
+                  "Jeden Abend um neun öffnete sie das Fenster."
+                ]
+              },
+              {
+                "label": "Stated reason",
+                "de": [
+                  "… sagte sie halb im Scherz."
+                ]
+              },
+              {
+                "label": "Realisation",
+                "de": [
+                  "Erst später begriff ich, …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -6288,6 +7047,29 @@
             ],
             "answer": "So lässt sich das Gedicht als Spott auf große Pläne deuten.",
             "why": "The third step says what the poem means (als … deuten); the others name the form and the device."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Device",
+                "de": [
+                  "Das Gedicht arbeitet mit einer Fallhöhe: …"
+                ]
+              },
+              {
+                "label": "Form",
+                "de": [
+                  "Paarreim, regelmäßiges Metrum"
+                ]
+              },
+              {
+                "label": "Reading",
+                "de": [
+                  "Dadurch wirkt …"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -6444,6 +7226,25 @@
             ],
             "answer": "soll",
             "why": "soll passes on what others say without vouching for it; will would mean he claims it himself, dürfte would be your own estimate."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "a guess",
+            "high": "certain",
+            "points": [
+              {
+                "at": 95,
+                "de": "Das muss so gemeint sein."
+              },
+              {
+                "at": 75,
+                "de": "Das dürfte so gemeint sein."
+              },
+              {
+                "at": 45,
+                "de": "Das könnte so gemeint sein."
+              }
+            ]
           }
         },
         {
@@ -6519,7 +7320,47 @@
         "Implication and irony, lightly and marked; dürfte / soll / will to grade and report.",
         "Signposts hold long turns together; end each turn in focus."
       ],
-      "exam": "This conversation rehearses C2 exam speaking — and any serious discussion in German where you must defend a view against objections."
+      "exam": "This conversation rehearses C2 exam speaking — and any serious discussion in German where you must defend a view against objections.",
+      "vocab": [
+        {
+          "de": "Begriff",
+          "article": "der",
+          "plural": "-e",
+          "en": "concept, term"
+        },
+        {
+          "de": "definieren",
+          "en": "to define"
+        },
+        {
+          "de": "deuten",
+          "en": "to interpret"
+        },
+        {
+          "de": "Motiv",
+          "article": "das",
+          "plural": "-e",
+          "en": "motif"
+        },
+        {
+          "de": "Zitat",
+          "article": "das",
+          "plural": "-e",
+          "en": "quotation"
+        },
+        {
+          "de": "unterstellen",
+          "en": "to insinuate"
+        },
+        {
+          "de": "den Faden verlieren",
+          "en": "to lose the thread"
+        },
+        {
+          "de": "auf den Punkt bringen",
+          "en": "to sum up precisely"
+        }
+      ]
     }
   },
   {
@@ -6628,7 +7469,42 @@
             "answer": "Der gewichtigste Einwand lautet, dass die Autonomie ausgehöhlt wird.",
             "why": "It states the objection at its strongest and in its own terms."
           },
-          "trap": "Conceding a point does not lose the argument; refusing to concede an obvious one does."
+          "trap": "Conceding a point does not lose the argument; refusing to concede an obvious one does.",
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Frame",
+                "de": [
+                  "Die Frage, ob …, ist umstritten."
+                ]
+              },
+              {
+                "label": "Thesis",
+                "de": [
+                  "Für … spricht zunächst …"
+                ]
+              },
+              {
+                "label": "Strongest objection",
+                "de": [
+                  "Der gewichtigste Einwand lautet …"
+                ]
+              },
+              {
+                "label": "Answer",
+                "de": [
+                  "Dem lässt sich entgegenhalten, …"
+                ]
+              },
+              {
+                "label": "Conclusion",
+                "de": [
+                  "Abwägend komme ich zu dem Schluss, …"
+                ]
+              }
+            ]
+          }
         },
         {
           "kind": "mnemonic",
@@ -6736,7 +7612,6 @@
     ],
     "title": "Redewendungen",
     "help": {
-      "hook": "Read German commentary like a native: the idioms of the quality press, their frozen forms, and the judgement hidden in each.",
       "intro": "Idioms (Redewendungen) are not proverbs: a proverb is a complete sentence with a moral (Aller Anfang ist schwer), an idiom is a fixed phrase that you build into your own sentence and conjugate — jemandem den Rang ablaufen, etwas auf die lange Bank schieben, ins Hintertreffen geraten. Commentaries, leading articles and essays are full of them, and a fluent reader has to understand the figurative meaning at once and recognise the writer’s stance behind it. This quiz drills sixteen idioms of educated press German. Each gap is the decisive word or pair of words — the part that cannot be swapped for a synonym (Bade, not Wasser; Schilde, not Plan) — the English cue gives the meaning, and the German line above the sentence paraphrases it. Learn each idiom with its fixed form: old dative -e (mit dem Bade, im Schilde), article-less strong endings (auf verlorenem Posten), the dative person (jemandem das Wasser reichen) and the verb it belongs to.",
       "tips": [
         {
@@ -6836,6 +7711,25 @@
             ],
             "answer": "Her help actually harmed him.",
             "why": "einen Bärendienst erweisen means help that backfires: the writer judges her defence as damaging."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "idiom",
+            "right": "the judgement in it",
+            "rows": [
+              {
+                "a": "jemandem das Wasser abgraben",
+                "b": "unfair: cutting off someone's livelihood"
+              },
+              {
+                "a": "sich mit fremden Federn schmücken",
+                "b": "dishonest: taking credit"
+              },
+              {
+                "a": "mit offenen Karten spielen",
+                "b": "approving: honest"
+              }
+            ]
           }
         },
         {
@@ -6868,6 +7762,27 @@
             ],
             "answer": "Wasser",
             "why": "The picture is the servant handing over water to wash one’s hands: jemandem das Wasser reichen."
+          },
+          "visual": {
+            "kind": "pictures",
+            "wide": true,
+            "items": [
+              {
+                "image": "lesson_wasser_abgraben",
+                "de": "jemandem das Wasser abgraben",
+                "en": "to cut off someone's livelihood"
+              },
+              {
+                "image": "lesson_fremde_federn",
+                "de": "sich mit fremden Federn schmücken",
+                "en": "to take credit for others' work"
+              },
+              {
+                "image": "lesson_offene_karten",
+                "de": "mit offenen Karten spielen",
+                "en": "to be open and honest"
+              }
+            ]
           }
         }
       ],
@@ -7049,7 +7964,7 @@
           "why": "im Schilde is frozen with the old dative -e."
         }
       ],
-      "exam": null
+      "hook": "Read German commentary like a native: the idioms of the quality press, their frozen forms, and the judgement hidden in each."
     }
   },
   {
@@ -7059,7 +7974,6 @@
     ],
     "title": "Fremdwörter und Latinismen",
     "help": {
-      "hook": "Handle the Latin-flavoured words of serious German prose, like eruieren, obsolet and de facto, precisely and without false friends.",
       "intro": "Educated German (Bildungssprache) draws on a stock of Latin-derived words and phrases that rarely occur in everyday talk but run through every quality newspaper, court judgment and academic text: evident, eruieren, obsolet, prekär, konzedieren, implizieren, subsumieren, stringent, sukzessive, and set Latin phrases such as a priori, de facto, per se, ad hoc, Status quo and sui generis. The goal is to read them without hesitation and use them precisely in your own writing. In this quiz the German line above each sentence gives a plain paraphrase and the cue gives the English; type the Fremdwort, inflected to fit the sentence (prekären, konzediert, eruiert). Adjectives and verbs follow normal German grammar; the Latin phrases never inflect. Watch out for false friends with English: eventuell means possibly, not eventually, and konsequent means consistent, not consequent.",
       "tips": [
         {
@@ -7190,6 +8104,29 @@
             ],
             "answer": "sensibel",
             "why": "German sensibel means sensitive; English 'sensible' is vernünftig, and prägnant means concise."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "German",
+            "right": "means (not …)",
+            "rows": [
+              {
+                "a": "eventuell",
+                "b": "possibly (not eventually)"
+              },
+              {
+                "a": "aktuell",
+                "b": "current (not actual)"
+              },
+              {
+                "a": "konsequent",
+                "b": "consistent (not consequent)"
+              },
+              {
+                "a": "sensibel",
+                "b": "sensitive (not sensible)"
+              }
+            ]
           }
         }
       ],
@@ -7410,7 +8347,7 @@
           "why": "ambivalent means torn between opposing feelings, not indifferent."
         }
       ],
-      "exam": null
+      "hook": "Handle the Latin-flavoured words of serious German prose, like eruieren, obsolet and de facto, precisely and without false friends."
     }
   },
   {
@@ -7420,7 +8357,6 @@
     ],
     "title": "Deutsch in Österreich und der Schweiz",
     "help": {
-      "hook": "Read a Viennese menu or a Zurich notice without stumbling: Marillen, Jänner, Velo and Billett are standard German too.",
       "intro": "German is a pluricentric language: Germany, Austria and Switzerland each have their own standard variety, and Austrian and Swiss Standard German are no less correct than the German spoken in Hamburg — they are not dialects. They differ above all in vocabulary: Austria says Jänner, Paradeiser, Erdäpfel, Marillen, Topfen, Obers, Matura, Trafik and heuer; Switzerland says Velo, parkieren, grillieren, Trottoir, Billett, Znüni, Estrich (attic) and allenfalls (if necessary); both say Spital. There are also a few grammar differences, such as the perfect with sein (ich bin gesessen), and Swiss spelling never uses ß. The goal is to read Austrian and Swiss newspapers, official letters and recipes without stumbling. In this quiz the German line tells you the region and the word used in Germany; type the Austrian or Swiss standard word — or, in the two items marked with an arrow, the German-German equivalent.",
       "tips": [
         {
@@ -7454,6 +8390,29 @@
             ],
             "answer": "die Marille",
             "why": "Marille is the Austrian apricot; Paradeiser is a tomato and Topfen is quark."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "Deutschland",
+            "right": "Österreich · Schweiz",
+            "rows": [
+              {
+                "a": "die Aprikose",
+                "b": "die Marille · die Aprikose"
+              },
+              {
+                "a": "der Januar",
+                "b": "der Jänner · der Januar"
+              },
+              {
+                "a": "das Fahrrad",
+                "b": "das Fahrrad · das Velo"
+              },
+              {
+                "a": "die Fahrkarte",
+                "b": "die Fahrkarte · das Billett"
+              }
+            ]
           }
         },
         {
@@ -7762,7 +8721,7 @@
           "why": "The perfect with sein for sitzen/stehen/liegen is a regional standard feature, not an error either way."
         }
       ],
-      "exam": null
+      "hook": "Read a Viennese menu or a Zurich notice without stumbling: Marillen, Jänner, Velo and Billett are standard German too."
     }
   },
   {
@@ -7772,7 +8731,6 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "hook": "Gather the precise words of philosophy, science, law and literature, each with its article and its register.",
       "intro": "Every word this module’s exercises use, on one deck of flashcards: 365 cards, 184 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
@@ -7804,71 +8762,88 @@
             ],
             "answer": "Eine Vielzahl",
             "why": "eine Vielzahl von is the formal choice; ein Haufen and ein Batzen are colloquial."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "neutral",
+            "right": "elevated",
+            "rows": [
+              {
+                "a": "zeigen",
+                "b": "veranschaulichen"
+              },
+              {
+                "a": "Grund",
+                "b": "Beweggrund"
+              },
+              {
+                "a": "denken über",
+                "b": "reflektieren"
+              }
+            ]
           }
         },
         {
-          "kind": "mnemonic",
-          "title": "Three modes, three kinds of memory",
-          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before you need the words — a meeting, a letter, a trip.",
+          "kind": "rule",
+          "title": "Focus particles change what is stressed",
+          "text": "selbst, sogar, ausgerechnet, erst, nur, lediglich, zumindest, erst recht: each one points at one word and says how surprising, small or large it is.",
           "examples": [
             {
-              "de": "die Urteilskraft",
-              "en": "power of judgement",
+              "de": "Sogar der Chef war da.",
+              "en": "Even the boss was there.",
               "focus": [
-                "Urteilskraft"
+                "Sogar"
               ]
             },
             {
-              "de": "die Unmündigkeit",
-              "en": "immaturity, tutelage",
+              "de": "Ausgerechnet heute regnet es.",
+              "en": "Today of all days it's raining.",
               "focus": [
-                "Unmündigkeit"
+                "Ausgerechnet"
               ]
             }
           ],
           "check": {
-            "q": "‘the power of judgement’ in German:",
+            "q": "Er kommt ____ um zehn – später als gedacht.",
             "options": [
-              "die Urteilskraft",
-              "der Urteilskraft",
-              "das Urteilskraft"
+              "erst",
+              "nur",
+              "sogar"
             ],
-            "answer": "die Urteilskraft",
-            "why": "Compounds take the gender of their last part: die Kraft, so die Urteilskraft."
+            "answer": "erst",
+            "why": "erst marks something as later than expected; nur marks it as less."
           }
         },
         {
           "kind": "warning",
-          "title": "A noun without its article is marked wrong",
-          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "title": "Abstract nouns still have a gender",
+          "text": "die Vernunft, die Würde, das Gewissen, der Zweck, das Mittel: abstract ideas take der, die or das like any noun, and the ending is still the best clue.",
           "examples": [
             {
-              "de": "der kategorische Imperativ",
-              "en": "categorical imperative",
+              "de": "Die Würde des Menschen ist unantastbar.",
+              "en": "Human dignity is inviolable.",
               "focus": [
-                "der",
-                "kategorische"
+                "Die Würde"
               ]
             },
             {
-              "de": "der freie Wille",
-              "en": "free will (den freien Willen, des freien Willens)",
+              "de": "Der Zweck heiligt nicht die Mittel.",
+              "en": "The end does not justify the means.",
               "focus": [
-                "der",
-                "freie",
-                "Wille"
+                "Der Zweck",
+                "die Mittel"
               ]
             }
           ],
           "check": {
-            "q": "Er bestreitet ____. (free will)",
+            "q": "____ Gewissen",
             "options": [
-              "den freien Willen",
-              "der freie Wille",
-              "den freie Willen"
+              "das",
+              "die",
+              "der"
             ],
-            "answer": "den freien Willen",
-            "why": "bestreiten takes the accusative: der freie Wille becomes den freien Willen, with -en on both adjective and noun."
+            "answer": "das",
+            "why": "das Gewissen: a noun from a Ge-… stem, neuter."
           }
         }
       ],
@@ -7877,7 +8852,7 @@
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
         "Verbs and adjectives have no article: type them as they stand, like \"selbst\"."
       ],
-      "exam": null
+      "hook": "Gather the precise words of philosophy, science, law and literature, each with its article and its register."
     }
   },
   {
@@ -7892,7 +8867,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the antique shop: the last part decides",
           "text": "Most of the shop is compounds, and the last part decides the article, however unusual the first part is. Butter + Fass: das Fass, so das Butterfass. Kaffee + Mühle: die Mühle, so die Kaffeemühle. Schirm + Ständer: der Ständer, so der Schirmständer.",
           "examples": [
             {
@@ -7981,6 +8956,39 @@
             ],
             "answer": "der Globus",
             "why": "Globus is masculine; its plural is die Globen."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "Grammophon"
+                  }
+                ],
+                "result": "das Grammophon",
+                "gender": "n"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Kommode"
+                  }
+                ],
+                "result": "die Kommode",
+                "gender": "f"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Sekretär"
+                  }
+                ],
+                "result": "der Sekretär",
+                "gender": "m",
+                "en": "writing desk"
+              }
+            ]
           }
         }
       ],
@@ -8531,7 +9539,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the harbour: the last part decides",
           "text": "Harbour words are almost all compounds. Schiff + Glocke: die Glocke, so die Schiffsglocke. Steuer + Haus: das Haus, so das Steuerhaus. Hummer + Korb: der Korb, so der Hummerkorb. Find the last word and you have the article.",
           "examples": [
             {
@@ -8558,6 +9566,37 @@
             ],
             "answer": "Der",
             "why": "The last part is der Ring, so the whole word is der Rettungsring."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "leuchten"
+                  },
+                  {
+                    "text": "der Turm",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Leuchtturm",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "der Fischer"
+                  },
+                  {
+                    "text": "das Boot",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Fischerboot",
+                "gender": "n"
+              }
+            ]
           }
         },
         {

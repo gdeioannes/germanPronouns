@@ -1,0 +1,1176 @@
+{
+  "quest_b2_2_umwelt": {
+    "Verb + noun pairs": {
+      "kind": "pairs",
+      "left": "noun",
+      "right": "the verb Germans use",
+      "rows": [
+        {
+          "a": "Energie",
+          "b": "sparen"
+        },
+        {
+          "a": "Müll",
+          "b": "trennen"
+        },
+        {
+          "a": "Maßnahmen",
+          "b": "ergreifen"
+        },
+        {
+          "a": "die Umwelt",
+          "b": "schützen / belasten"
+        },
+        {
+          "a": "den CO₂-Ausstoß",
+          "b": "verringern"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_konj2_verg": {
+    "hätte / wäre + Partizip II": {
+      "kind": "pairs",
+      "left": "what happened",
+      "right": "what would have happened",
+      "rows": [
+        {
+          "a": "Ich habe den Bus verpasst.",
+          "b": "Ich hätte den Bus fast erreicht."
+        },
+        {
+          "a": "Wir sind zu Hause geblieben.",
+          "b": "Wir wären gern mitgekommen."
+        }
+      ]
+    },
+    "With a modal: hätte + infinitive + modal": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Du",
+            "hättest",
+            "mich",
+            "anrufen sollen."
+          ]
+        },
+        {
+          "cells": [
+            "Wir",
+            "hätten",
+            "früher",
+            "losfahren müssen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_irreal": {
+    "Real or unreal? Ask if it could still happen": {
+      "kind": "tree",
+      "root": {
+        "q": "Could it still happen?",
+        "yes": {
+          "answer": "real: indicative",
+          "de": "Wenn ich Zeit habe, komme ich."
+        },
+        "no": {
+          "q": "Is it about now, or about the past?",
+          "yes": {
+            "answer": "now: hätte / wäre / würde",
+            "de": "Wenn ich Zeit hätte, würde ich kommen."
+          },
+          "no": {
+            "answer": "past: hätte / wäre + Partizip II",
+            "de": "Wenn ich Zeit gehabt hätte, wäre ich gekommen."
+          }
+        }
+      }
+    },
+    "Past unreal: hätte / wäre + participle on both sides": {
+      "kind": "bracket",
+      "columns": [
+        "wenn-clause",
+        "Verb",
+        "Middle",
+        "End"
+      ],
+      "hot": [
+        0,
+        1,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Wenn ich das gewusst hätte,",
+            "wäre",
+            "ich",
+            "geblieben."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_als_ob": {
+    "als ob + Konjunktiv II, verb at the end": {
+      "kind": "pairs",
+      "left": "als ob: verb last",
+      "right": "als: verb straight after",
+      "rows": [
+        {
+          "a": "Er tut so, als ob er der Chef wäre.",
+          "b": "Er tut so, als wäre er der Chef."
+        },
+        {
+          "a": "Sie sieht aus, als ob sie nicht geschlafen hätte.",
+          "b": "Sie sieht aus, als hätte sie nicht geschlafen."
+        }
+      ]
+    }
+  },
+  "quest_b2_2_bigtext_chancen": {
+    "Modal? hätte + infinitive + modal": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Ich",
+            "hätte",
+            "den Wecker",
+            "stellen sollen."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_sprechen_hypothese": {
+    "Frames for regret and reproach": {
+      "kind": "pairs",
+      "left": "regret (me)",
+      "right": "reproach (you)",
+      "rows": [
+        {
+          "a": "Ich hätte früher anfangen sollen.",
+          "b": "Du hättest mir Bescheid sagen können."
+        }
+      ]
+    }
+  },
+  "quest_b2_2_futur2": {
+    "Futur I guesses now, Futur II guesses then": {
+      "kind": "timeline",
+      "marks": [
+        {
+          "at": -1.6,
+          "label": "a guess about the past",
+          "de": "Er wird den Zug verpasst haben."
+        },
+        {
+          "at": 0,
+          "label": "a guess about now",
+          "de": "Er wird noch im Büro sein."
+        },
+        {
+          "at": 2,
+          "label": "done by a deadline",
+          "de": "Bis Freitag werde ich es geschafft haben."
+        }
+      ]
+    },
+    "werden + Partizip II + haben / sein": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Sie",
+            "wird",
+            "schon",
+            "angekommen sein."
+          ]
+        },
+        {
+          "cells": [
+            "Er",
+            "wird",
+            "es",
+            "vergessen haben."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_genitiv_praep": {
+    "The clause twins": {
+      "kind": "pairs",
+      "left": "clause",
+      "right": "+ genitive",
+      "rows": [
+        {
+          "a": "obwohl die Kritik groß war",
+          "b": "trotz der großen Kritik"
+        },
+        {
+          "a": "weil der Sturm kam",
+          "b": "infolge des Sturms"
+        },
+        {
+          "a": "wenn man die Daten nimmt",
+          "b": "anhand der Daten"
+        },
+        {
+          "a": "solange die Ferien dauern",
+          "b": "während der Ferien"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_hoeren_vortrag": {
+    "The lecture's moves": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Claim",
+          "de": [
+            "Viele glauben, dass …"
+          ]
+        },
+        {
+          "label": "Evidence",
+          "de": [
+            "Studien zeigen, …"
+          ]
+        },
+        {
+          "label": "Explanation",
+          "de": [
+            "Das liegt daran, dass …"
+          ]
+        },
+        {
+          "label": "Advice",
+          "de": [
+            "Man sollte daher …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_partizip_attribut": {
+    "Article … complements … participle + ending … noun": {
+      "kind": "bracket",
+      "columns": [
+        "Article",
+        "Complements",
+        "Participle + ending",
+        "Noun"
+      ],
+      "hot": [
+        0,
+        2,
+        3
+      ],
+      "caption": "The article and the noun bracket everything in between.",
+      "rows": [
+        {
+          "cells": [
+            "die",
+            "von der Stadt",
+            "geplante",
+            "Brücke"
+          ]
+        },
+        {
+          "cells": [
+            "der",
+            "seit Jahren",
+            "steigende",
+            "Preis"
+          ]
+        }
+      ]
+    },
+    "Unfold into a relative clause": {
+      "kind": "pairs",
+      "left": "attribute",
+      "right": "relative clause",
+      "rows": [
+        {
+          "a": "die von der Stadt geplante Brücke",
+          "b": "die Brücke, die von der Stadt geplant wird"
+        },
+        {
+          "a": "der seit Jahren steigende Preis",
+          "b": "der Preis, der seit Jahren steigt"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_modalpartikeln": {
+    "Resignation: eben / halt; reassurance: schon": {
+      "kind": "pairs",
+      "left": "sentence",
+      "right": "tone",
+      "rows": [
+        {
+          "a": "Das ist halt so.",
+          "b": "nothing to be done"
+        },
+        {
+          "a": "Das wird schon klappen.",
+          "b": "don't worry"
+        },
+        {
+          "a": "Komm ruhig rein.",
+          "b": "go ahead, it's fine"
+        },
+        {
+          "a": "Mach bloß keinen Fehler!",
+          "b": "a warning"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_lesen_klima": {
+    "Framing – turn – argument – conclusion": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Others say",
+          "de": [
+            "Manche meinen, der Einzelne könne nichts ändern."
+          ]
+        },
+        {
+          "label": "The turn",
+          "de": [
+            "Doch …"
+          ]
+        },
+        {
+          "label": "The author's argument",
+          "de": [
+            "Wer … , der …"
+          ]
+        },
+        {
+          "label": "Conclusion",
+          "de": [
+            "Deshalb …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_fvg": {
+    "Nominal style: verb → Funktionsverbgefüge": {
+      "kind": "pairs",
+      "left": "simple verb",
+      "right": "Funktionsverbgefüge",
+      "rows": [
+        {
+          "a": "entscheiden",
+          "b": "eine Entscheidung treffen"
+        },
+        {
+          "a": "berücksichtigen",
+          "b": "in Betracht ziehen"
+        },
+        {
+          "a": "verfügbar sein",
+          "b": "zur Verfügung stehen"
+        },
+        {
+          "a": "fragen",
+          "b": "eine Frage stellen"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_verweiswoerter": {
+    "da(r)-words: preposition + 'this'": {
+      "kind": "textMap",
+      "blocks": [
+        {
+          "label": "the fact",
+          "de": "Die Mieten steigen stark."
+        },
+        {
+          "label": "points back",
+          "de": "Darüber ärgern sich viele Menschen.",
+          "focus": [
+            "Darüber"
+          ]
+        },
+        {
+          "label": "points back again",
+          "de": "Dennoch tut die Stadt wenig dagegen.",
+          "focus": [
+            "dagegen"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_nominalisierung_intro": {
+    "Gender by type": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "lauf"
+            },
+            {
+              "text": "-en",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Laufen",
+          "gender": "n",
+          "en": "the infinitive: always das"
+        },
+        {
+          "parts": [
+            {
+              "text": "Lauf"
+            }
+          ],
+          "result": "der Lauf",
+          "gender": "m",
+          "en": "the bare stem: usually der"
+        },
+        {
+          "parts": [
+            {
+              "text": "Läuf"
+            },
+            {
+              "text": "-er",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Läufer",
+          "gender": "m",
+          "en": "-er: the person"
+        },
+        {
+          "parts": [
+            {
+              "text": "lös"
+            },
+            {
+              "text": "-ung",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Lösung",
+          "gender": "f",
+          "en": "-ung: always die"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_adjektivbildung": {
+    "Noun → adjective: -lich, -ig, -isch, -haft, -los, -arm, -reich, -voll": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Freund"
+            },
+            {
+              "text": "-lich",
+              "role": "suffix"
+            }
+          ],
+          "result": "freundlich"
+        },
+        {
+          "parts": [
+            {
+              "text": "Sonne"
+            },
+            {
+              "text": "-ig",
+              "role": "suffix"
+            }
+          ],
+          "result": "sonnig"
+        },
+        {
+          "parts": [
+            {
+              "text": "Erfolg"
+            },
+            {
+              "text": "-reich",
+              "role": "suffix"
+            }
+          ],
+          "result": "erfolgreich"
+        },
+        {
+          "parts": [
+            {
+              "text": "Hoffnung"
+            },
+            {
+              "text": "s",
+              "role": "joint"
+            },
+            {
+              "text": "-los",
+              "role": "suffix"
+            }
+          ],
+          "result": "hoffnungslos"
+        }
+      ]
+    },
+    "Verb → adjective: -bar, -sam, -lich, -iv": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "ess"
+            },
+            {
+              "text": "-bar",
+              "role": "suffix"
+            }
+          ],
+          "result": "essbar",
+          "en": "can be eaten"
+        },
+        {
+          "parts": [
+            {
+              "text": "spar"
+            },
+            {
+              "text": "-sam",
+              "role": "suffix"
+            }
+          ],
+          "result": "sparsam",
+          "en": "thrifty"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_diktat_irreal": {
+    "Hear the umlaut and the double infinitive": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Wir",
+            "hätten",
+            "das",
+            "machen können."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_konzessiv": {
+    "obwohl / obgleich / obschon / wenngleich: verb last": {
+      "kind": "pairs",
+      "left": "verb last",
+      "right": "verb second",
+      "rows": [
+        {
+          "a": "Obwohl es teuer ist, kaufe ich es.",
+          "b": "Es ist teuer. Trotzdem kaufe ich es."
+        },
+        {
+          "a": "Wenngleich es spät war, …",
+          "b": "Es war spät. Dennoch …"
+        }
+      ]
+    },
+    "zwar … aber; selbst wenn / auch wenn; trotz": {
+      "kind": "pairs",
+      "left": "form",
+      "right": "example",
+      "rows": [
+        {
+          "a": "zwar … aber",
+          "b": "Das Hotel ist zwar teuer, aber sehr schön."
+        },
+        {
+          "a": "auch wenn",
+          "b": "Auch wenn es regnet, gehen wir."
+        },
+        {
+          "a": "trotz + Gen",
+          "b": "Trotz des Regens gehen wir."
+        }
+      ]
+    }
+  },
+  "quest_b2_2_konditional_nominal": {
+    "Nominal: bei + Dat, im Falle + Gen, ohne + Akk": {
+      "kind": "pairs",
+      "left": "verbal",
+      "right": "nominal",
+      "rows": [
+        {
+          "a": "wenn es regnet",
+          "b": "bei Regen"
+        },
+        {
+          "a": "falls es brennt",
+          "b": "im Falle eines Brandes"
+        },
+        {
+          "a": "wenn man sich nicht anmeldet",
+          "b": "ohne Anmeldung"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_konsekutiv_modal_nominal": {
+    "Means: indem / dadurch, dass ↔ durch + Akk / mithilfe + Gen": {
+      "kind": "pairs",
+      "left": "verbal",
+      "right": "nominal",
+      "rows": [
+        {
+          "a": "indem man früh bucht",
+          "b": "durch frühes Buchen"
+        },
+        {
+          "a": "Es stürmte, sodass viele Bäume umfielen.",
+          "b": "Infolge des Sturms fielen viele Bäume um."
+        },
+        {
+          "a": "ohne dass er fragte",
+          "b": "ohne Rückfrage"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_adversativ": {
+    "Contrast ≠ concession": {
+      "kind": "pairs",
+      "left": "contrast: two facts side by side",
+      "right": "concession: despite",
+      "rows": [
+        {
+          "a": "Der Norden ist nass, während der Süden trocken ist.",
+          "b": "Obwohl es regnet, gehen wir spazieren."
+        }
+      ]
+    },
+    "während / wohingegen: verb last, two facts side by side": {
+      "kind": "bracket",
+      "columns": [
+        "Fact 1",
+        "Connector",
+        "Middle",
+        "Verb"
+      ],
+      "hot": [
+        1,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Im Norden regnet es,",
+            "während",
+            "es im Süden sonnig",
+            "bleibt."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_hoeren_fachinterview": {
+    "The expert's moves": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Advice",
+          "de": [
+            "Ich empfehle, …"
+          ]
+        },
+        {
+          "label": "Qualification",
+          "de": [
+            "Das gilt allerdings nur, wenn …"
+          ]
+        },
+        {
+          "label": "Myth corrected",
+          "de": [
+            "Es stimmt nicht, dass …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_sollen_subjektiv": {
+    "sollen = others say; wollen = he says of himself": {
+      "kind": "pairs",
+      "left": "sentence",
+      "right": "who says so",
+      "rows": [
+        {
+          "a": "Er soll reich sein.",
+          "b": "People say he is rich."
+        },
+        {
+          "a": "Er will nichts gesehen haben.",
+          "b": "He claims he saw nothing (and I doubt it)."
+        },
+        {
+          "a": "Er soll das Geld gestohlen haben.",
+          "b": "He is said to have stolen the money."
+        }
+      ]
+    }
+  },
+  "quest_b2_2_passiversatz_intro": {
+    "Four ways, one meaning": {
+      "kind": "pairs",
+      "left": "form",
+      "right": "= kann gelöst werden",
+      "rows": [
+        {
+          "a": "Das Problem ist lösbar.",
+          "b": "-bar"
+        },
+        {
+          "a": "Das Problem lässt sich lösen.",
+          "b": "sich lassen"
+        },
+        {
+          "a": "Das Problem ist zu lösen.",
+          "b": "sein + zu"
+        },
+        {
+          "a": "Man kann das Problem lösen.",
+          "b": "man + können"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_relativ_wer_was": {
+    "was after alles / nichts / etwas / das / superlatives, and for a whole clause": {
+      "kind": "pairs",
+      "left": "after",
+      "right": "example",
+      "rows": [
+        {
+          "a": "alles, nichts, etwas",
+          "b": "Alles, was du sagst, stimmt."
+        },
+        {
+          "a": "das + superlative",
+          "b": "das Beste, was ich je gegessen habe"
+        },
+        {
+          "a": "a whole clause",
+          "b": "Er kam zu spät, was mich ärgerte."
+        }
+      ]
+    }
+  },
+  "quest_b2_2_indefinit": {
+    "einer / keiner / welche replace a noun with its article": {
+      "kind": "caseGrid",
+      "rows": [
+        {
+          "label": "Nom",
+          "cells": [
+            "einer",
+            "eine",
+            "eins",
+            "welche"
+          ]
+        },
+        {
+          "label": "Akk",
+          "cells": [
+            "einen",
+            "eine",
+            "eins",
+            "welche"
+          ]
+        },
+        {
+          "label": "Dat",
+          "cells": [
+            "einem",
+            "einer",
+            "einem",
+            "welchen"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_sprechen_einraeumen": {
+    "Concede, then pivot": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Concede",
+          "de": [
+            "Zugegeben, …",
+            "Da ist etwas dran."
+          ]
+        },
+        {
+          "label": "Pivot",
+          "de": [
+            "…, aber …",
+            "Trotzdem finde ich …"
+          ]
+        },
+        {
+          "label": "Partial agreement",
+          "de": [
+            "In diesem Punkt stimme ich zu, in jenem nicht."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_lesen_rezension": {
+    "Summary – praise – concession – verdict": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Summary",
+          "de": [
+            "Der Roman erzählt von …"
+          ]
+        },
+        {
+          "label": "Praise",
+          "de": [
+            "Besonders gelungen ist …"
+          ]
+        },
+        {
+          "label": "Concession",
+          "de": [
+            "Zwar ist der Mittelteil etwas lang, …"
+          ]
+        },
+        {
+          "label": "Verdict",
+          "de": [
+            "Insgesamt ein lesenswertes Buch."
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_lesen_textergaenzung": {
+    "Read the whole sentence, name the relation": {
+      "kind": "tree",
+      "root": {
+        "q": "Does the gap carry a relation between two ideas (cause, contrast, time)?",
+        "yes": {
+          "answer": "a connector",
+          "de": "weil, obwohl, während, dennoch"
+        },
+        "no": {
+          "q": "Does a verb or noun need a fixed partner?",
+          "yes": {
+            "answer": "a preposition or da(r)-word",
+            "de": "Angst vor, darauf, dass"
+          },
+          "no": {
+            "answer": "a form: article, pronoun, verb ending"
+          }
+        }
+      }
+    }
+  },
+  "quest_b2_2_sprechen_dialog": {
+    "Hypothesise, concede, contrast, decide": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Hypothesise",
+          "de": [
+            "Wenn alle weniger fliegen würden, …"
+          ]
+        },
+        {
+          "label": "Concede",
+          "de": [
+            "Zugegeben, …"
+          ]
+        },
+        {
+          "label": "Contrast",
+          "de": [
+            "Während …, …"
+          ]
+        },
+        {
+          "label": "Decide",
+          "de": [
+            "Alles in allem …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_schreiben_beschwerde": {
+    "A deadline with a consequence": {
+      "kind": "moves",
+      "moves": [
+        {
+          "label": "Concede",
+          "de": [
+            "Zwar verstehe ich, dass …"
+          ]
+        },
+        {
+          "label": "Facts",
+          "de": [
+            "Am 3. März habe ich … bestellt."
+          ]
+        },
+        {
+          "label": "Demand",
+          "de": [
+            "Ich erwarte daher …"
+          ]
+        },
+        {
+          "label": "Deadline",
+          "de": [
+            "bis zum 20. März.",
+            "Andernfalls werde ich …"
+          ]
+        }
+      ]
+    }
+  },
+  "quest_b2_2_relativ_dessen_deren": {
+    "dessen / deren = whose": {
+      "kind": "pairs",
+      "left": "owner",
+      "right": "whose",
+      "rows": [
+        {
+          "a": "der Mann (m) / das Kind (n)",
+          "b": "dessen: der Mann, dessen Auto …"
+        },
+        {
+          "a": "die Frau (f) / die Leute (pl)",
+          "b": "deren: die Frau, deren Hund …"
+        }
+      ]
+    },
+    "Preposition + relative pronoun: gender from the noun, case from the preposition": {
+      "kind": "pairs",
+      "left": "English",
+      "right": "German",
+      "rows": [
+        {
+          "a": "the people I work with",
+          "b": "die Leute, mit denen ich arbeite"
+        },
+        {
+          "a": "the topic we talked about",
+          "b": "das Thema, über das wir gesprochen haben"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_futur1_vermutung": {
+    "wohl, sicher, bestimmt, schon": {
+      "kind": "scale",
+      "low": "a guess",
+      "high": "almost sure",
+      "points": [
+        {
+          "at": 90,
+          "de": "Das wird bestimmt der Paketbote sein.",
+          "en": "That's surely the postman."
+        },
+        {
+          "at": 75,
+          "de": "Sie wird sicher noch im Meeting sein.",
+          "en": "She's sure to be in the meeting."
+        },
+        {
+          "at": 50,
+          "de": "Er wird wohl krank sein.",
+          "en": "He's probably ill."
+        }
+      ]
+    }
+  },
+  "quest_b2_2_konj2_gegenwart": {
+    "wäre, hätte and the modals: one word": {
+      "kind": "pairs",
+      "left": "one word",
+      "right": "würde + infinitive",
+      "rows": [
+        {
+          "a": "hätte, wäre, könnte, müsste, dürfte, wüsste",
+          "b": "—"
+        },
+        {
+          "a": "käme, ginge (elevated)",
+          "b": "würde kommen, würde gehen"
+        },
+        {
+          "a": "—",
+          "b": "würde kaufen, würde arbeiten (regular verbs)"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_wortschatz": {
+    "Suffixes give the gender away": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "Nachhaltig"
+            },
+            {
+              "text": "-keit",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Nachhaltigkeit",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "Region"
+            }
+          ],
+          "result": "die Region",
+          "gender": "f",
+          "en": "-ion: die"
+        },
+        {
+          "parts": [
+            {
+              "text": "Experi"
+            },
+            {
+              "text": "-ment",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Experiment",
+          "gender": "n"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_suchbild": {
+    "Compounds in the eco flat: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "die Steckdose"
+            },
+            {
+              "text": "n",
+              "role": "joint"
+            },
+            {
+              "text": "die Leiste",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Steckdosenleiste",
+          "gender": "f"
+        },
+        {
+          "parts": [
+            {
+              "text": "der Müll"
+            },
+            {
+              "text": "der Eimer",
+              "role": "suffix"
+            }
+          ],
+          "result": "der Mülleimer",
+          "gender": "m"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_suchbild_labor": {
+    "Compounds in the lab: the last part decides": {
+      "kind": "blocks",
+      "rows": [
+        {
+          "parts": [
+            {
+              "text": "das Reagenz"
+            },
+            {
+              "text": "das Glas",
+              "role": "suffix"
+            }
+          ],
+          "result": "das Reagenzglas",
+          "gender": "n"
+        },
+        {
+          "parts": [
+            {
+              "text": "der Schutz"
+            },
+            {
+              "text": "die Brille",
+              "role": "suffix"
+            }
+          ],
+          "result": "die Schutzbrille",
+          "gender": "f"
+        }
+      ]
+    }
+  },
+  "quest_b2_2_sprechen_kurzcheck": {
+    "Answer 'was hätte man …' with hätte … können / sollen": {
+      "kind": "bracket",
+      "rows": [
+        {
+          "cells": [
+            "Man",
+            "hätte",
+            "früher",
+            "planen sollen."
+          ]
+        },
+        {
+          "cells": [
+            "Wir",
+            "hätten",
+            "das Problem",
+            "vermeiden können."
+          ]
+        }
+      ]
+    }
+  }
+}

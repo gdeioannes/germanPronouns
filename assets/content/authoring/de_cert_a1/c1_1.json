@@ -6,7 +6,6 @@
     ],
     "title": "Bildung & Wissenschaft",
     "help": {
-      "hook": "Learn the words research runs on — Annahme, Auswertung, Nachweis — and a science article starts reading like a story.",
       "intro": "Bildung und Wissenschaft is the register of newspapers' science pages, academic articles, lectures and panel discussions. Its vocabulary is the vocabulary of research method: die Voraussetzung (precondition), die Annahme (assumption), die These / Hypothese, die Untersuchung / Durchführung (carrying out), die Auswertung (evaluation), das Ergebnis / der Befund (finding), der Nachweis / Beweis (proof), die Schlussfolgerung (conclusion), die Erkenntnis (insight). The people and places: der Professor / die Professorin, der Lehrstuhl, die Fakultät, die Fachzeitschrift (journal), das Stipendium (scholarship), die Zusammenarbeit (collaboration). The verbs: annehmen, untersuchen, durchführen, auswerten, nachweisen, belegen, widerlegen (refute), folgern, veröffentlichen. Almost every noun is a nominalisation with its verb beside it — die Durchführung / durchführen, die Auswertung / auswerten — and learning them as pairs pays off, because real texts move between the two constantly.",
       "tips": [
         {
@@ -41,6 +40,36 @@
             ],
             "answer": "Durchführung",
             "why": "durchführen (carry out) becomes die Durchführung, which fits der after nach. das Durchführen would need dem, and die Durchfahrt is a passage for traffic."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "die Annahme",
+                "de": [
+                  "eine Annahme treffen",
+                  "eine Hypothese aufstellen"
+                ]
+              },
+              {
+                "label": "die Erhebung",
+                "de": [
+                  "Daten erheben"
+                ]
+              },
+              {
+                "label": "die Auswertung",
+                "de": [
+                  "Daten auswerten"
+                ]
+              },
+              {
+                "label": "der Nachweis",
+                "de": [
+                  "einen Zusammenhang nachweisen"
+                ]
+              }
+            ]
           }
         },
         {
@@ -77,6 +106,33 @@
             ],
             "answer": "widerlegen",
             "why": "widerlegen means to prove something wrong. belegen would support the assumption, and vermuten only means to suppose."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "tentative",
+            "high": "proven",
+            "points": [
+              {
+                "at": 95,
+                "de": "beweisen, belegen",
+                "en": "prove, document"
+              },
+              {
+                "at": 70,
+                "de": "zeigen, nachweisen",
+                "en": "show, demonstrate"
+              },
+              {
+                "at": 45,
+                "de": "nahelegen, darauf hindeuten",
+                "en": "suggest, point to"
+              },
+              {
+                "at": 20,
+                "de": "vermuten, annehmen",
+                "en": "suspect, assume"
+              }
+            ]
           }
         },
         {
@@ -304,7 +360,7 @@
           "why": "Use the verb or a proper light verb."
         }
       ],
-      "exam": null
+      "hook": "Learn the words research runs on — Annahme, Auswertung, Nachweis — and a science article starts reading like a story."
     }
   },
   {
@@ -314,7 +370,6 @@
     ],
     "title": "Nominalisierung",
     "help": {
-      "hook": "Fold a whole clause into one dense noun phrase, the way reports and official letters do, and unfold it again when you read.",
       "intro": "You already know the six ways to make a noun from a verb; now you use them to rewrite whole sentences. Nominalisation turns a clause into a noun phrase: 'Die Regierung entschied, die Steuern zu senken' → 'die Entscheidung der Regierung, die Steuern zu senken' / 'die Entscheidung der Regierung zur Steuersenkung'. The subject becomes a genitive attribute (der Regierung) or a possessive (ihre Entscheidung); the object becomes a genitive (die Senkung der Steuern), a compound (Steuersenkung) or a prepositional attribute (die Entscheidung über …); adverbs become adjectives (schnell entscheiden → die schnelle Entscheidung); the verb's preposition stays (sich einigen auf → die Einigung auf). The result is the Nominalstil of academic and administrative German — dense, verb-poor, noun-heavy — which you must read fluently and write in moderation. Reports, official letters and any text that summarises a graph are written in it.",
       "tips": [
         {
@@ -451,6 +506,28 @@
             ],
             "answer": "Trotz",
             "why": "The conjunction obwohl becomes the preposition trotz + genitive; wegen would turn the concession into a cause."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "clause",
+            "right": "noun phrase",
+            "rows": [
+              {
+                "a": "Die Preise steigen schnell.",
+                "b": "der schnelle Anstieg der Preise",
+                "note": "verb → noun; adverb → adjective; subject → genitive"
+              },
+              {
+                "a": "Man wertet die Daten aus.",
+                "b": "die Auswertung der Daten",
+                "note": "object → genitive"
+              },
+              {
+                "a": "nachdem die Firma gegründet wurde",
+                "b": "nach der Gründung der Firma",
+                "note": "conjunction → preposition"
+              }
+            ]
           }
         }
       ],
@@ -548,7 +625,11 @@
           "why": "Adverb → declined adjective."
         }
       ],
-      "exam": null
+      "hook": "Fold a whole clause into one dense noun phrase, the way reports and official letters do, and unfold it again when you read.",
+      "recall": {
+        "known": "From \"Nominalisierung: die sechs Typen\": verb → noun, and the gender each type takes.",
+        "today": "Turning a whole clause into one noun phrase: subject, object, adverb and time all change."
+      }
     }
   },
   {
@@ -593,6 +674,41 @@
             ],
             "answer": "anschließend",
             "why": "The announced plan runs zunächst – anschließend – abschließend; the middle step is anschließend."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Announce",
+                "de": [
+                  "Ich gehe in drei Schritten vor."
+                ]
+              },
+              {
+                "label": "Step 1",
+                "de": [
+                  "Zunächst …"
+                ]
+              },
+              {
+                "label": "Step 2",
+                "de": [
+                  "Im Anschluss daran …"
+                ]
+              },
+              {
+                "label": "Step 3",
+                "de": [
+                  "Abschließend …"
+                ]
+              },
+              {
+                "label": "Close",
+                "de": [
+                  "Damit komme ich zum Schluss."
+                ]
+              }
+            ]
           }
         },
         {
@@ -676,7 +792,6 @@
     ],
     "title": "Verbalisierung",
     "help": {
-      "hook": "Unpack heavy phrases like 'nach Erhalt Ihrer Nachricht' into clear clauses, and dense official German suddenly reads like normal speech.",
       "intro": "The reverse of nominalisation: unpacking a dense noun phrase into a clause. Wegen des Regens → weil es regnete; nach dem Essen → nachdem wir gegessen hatten; trotz der Kälte → obwohl es kalt war; vor dem Abflug → bevor das Flugzeug abflog; durch tägliches Üben → indem man täglich übt; bei seiner Ankunft → als er ankam; seit ihrem Umzug → seitdem sie umgezogen ist; im Falle eines Brandes → falls ein Brand ausbricht; zur Verbesserung → um … zu verbessern; ohne Rücksicht → ohne Rücksicht zu nehmen. Each preposition has a conjunction twin, and the noun has a verb inside it; verbalising means restoring the subject (from the genitive or possessive), the tense (from context — nachdem takes the Plusquamperfekt), and the word order (verb last). Reading dense formal German is largely this operation done silently and fast, and it hinges on the conjunction or the preposition. Each item here gives you the nominal sentence and asks for the two decisive parts of the clause: the conjunction and the restored verb form — the hint names the verb; you choose its tense and place it last.",
       "tips": [
         {
@@ -712,6 +827,37 @@
             ],
             "answer": "Indem",
             "why": "durch (by means of) turns into indem: the clause names the method that produced the result."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "preposition",
+            "right": "conjunction",
+            "rows": [
+              {
+                "a": "wegen / aufgrund",
+                "b": "weil / da"
+              },
+              {
+                "a": "trotz",
+                "b": "obwohl"
+              },
+              {
+                "a": "nach",
+                "b": "nachdem"
+              },
+              {
+                "a": "bei",
+                "b": "wenn / als"
+              },
+              {
+                "a": "durch",
+                "b": "indem"
+              },
+              {
+                "a": "zur / zum",
+                "b": "um … zu / damit"
+              }
+            ]
           }
         },
         {
@@ -751,6 +897,17 @@
             ],
             "answer": "abgereist waren",
             "why": "In a past narrative nachdem takes the Plusquamperfekt, and abreisen is a verb of movement, so it uses sein: abgereist waren."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "nominal",
+            "right": "verbal",
+            "rows": [
+              {
+                "a": "Nach Erhalt Ihrer Nachricht …",
+                "b": "Nachdem ich Ihre Nachricht erhalten hatte, …"
+              }
+            ]
           }
         },
         {
@@ -903,7 +1060,7 @@
           "why": "bei → wenn / als."
         }
       ],
-      "exam": null
+      "hook": "Unpack heavy phrases like 'nach Erhalt Ihrer Nachricht' into clear clauses, and dense official German suddenly reads like normal speech."
     }
   },
   {
@@ -913,7 +1070,6 @@
     ],
     "title": "Tempuswahl in Erzählung und Bericht",
     "help": {
-      "hook": "Choose tenses on purpose: tell the story in Präteritum, step back with Plusquamperfekt, and jump into Präsens when it gets exciting.",
       "intro": "You already have all six tenses; what remains is choosing them on purpose. Präteritum is the tense of written narrative and of the background in stories (Es war spät; sie ging nach Hause) and of formal reports (Die Untersuchung ergab …). Plusquamperfekt marks a step further back within that past (Als sie ankam, hatte er das Haus schon verlassen). Perfekt is the spoken past (Gestern habe ich …) and, in writing, the past that still matters now (Die Preise sind gestiegen – wir müssen reagieren). Präsens covers the present, general truths (Wasser kocht bei 100 Grad), plans with a time adverb (Morgen fahre ich …) and — as a stylistic device — the historical present that makes a narrated moment vivid (Mitternacht. Plötzlich klopft es). Futur I predicts or promises; Futur II guesses about the past (Er wird den Zug verpasst haben) or marks completion by a future point (Bis Freitag werden wir … abgeschlossen haben). A tense change inside a text is never neutral: Präteritum → Präsens signals drama; Präteritum → Perfekt signals the narrator stepping into the present. Noticing these shifts is part of reading a story or a report well.",
       "tips": [
         {
@@ -949,6 +1105,32 @@
             ],
             "answer": "Als wir ankamen, hatte der Film schon begonnen.",
             "why": "The earlier event takes the Plusquamperfekt, and beginnen forms it with haben: hatte begonnen. begann gerade would mean it started at the moment we arrived."
+          },
+          "visual": {
+            "kind": "timeline",
+            "marks": [
+              {
+                "at": -2.6,
+                "label": "Plusquamperfekt: the step back",
+                "de": "hatte gewartet"
+              },
+              {
+                "at": -1.4,
+                "to": -0.4,
+                "label": "Präteritum: the story line",
+                "de": "ging, sah, kam"
+              },
+              {
+                "at": 0,
+                "label": "Präsens: truths, drama",
+                "de": "geht, sieht"
+              },
+              {
+                "at": 1.8,
+                "label": "Futur",
+                "de": "wird kommen"
+              }
+            ]
           }
         },
         {
@@ -1144,7 +1326,6 @@
           "why": "Keep the narrative line in one tense."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "Präteritum",
@@ -1198,7 +1379,8 @@
           "de": "verfeinern",
           "en": "to refine"
         }
-      ]
+      ],
+      "hook": "Choose tenses on purpose: tell the story in Präteritum, step back with Plusquamperfekt, and jump into Präsens when it gets exciting."
     }
   },
   {
@@ -1208,7 +1390,6 @@
     ],
     "title": "Passiversatz",
     "help": {
-      "hook": "Learn five ways German says 'is to be done', 'can be done' or 'was given' without a single werden.",
       "intro": "Passive substitutes, now in the full set that specialist and administrative texts use. sein + zu + Infinitiv for obligation or possibility (Das Formular ist auszufüllen; Der Text ist leicht zu verstehen); sich lassen for possibility (Das lässt sich lösen); -bar / -lich adjectives (lösbar, verständlich); man; and three forms that are new here: bekommen / erhalten / kriegen + Partizip II for a recipient-focused passive of dative verbs (Er bekam das Buch geschenkt = Ihm wurde das Buch geschenkt), the reflexive middle (Das Buch verkauft sich gut = wird gut verkauft; Die Tür öffnet sich), and gehören + Partizip II for a strong obligation (Das gehört verboten = muss verboten werden, colloquial). Choosing among them is a matter of nuance — sein + zu leans to 'must', sich lassen to 'can', bekommen to the person affected — and formal texts rely on that difference. This drill blanks the whole frame — auxiliary and participle, reflexive and verb — so that every item asks you to build the substitute, not just to spot it.",
       "tips": [
         {
@@ -1242,6 +1423,25 @@
             ],
             "answer": "einzureichen",
             "why": "sein + zu + infinitive expresses obligation, and with a separable verb zu goes between prefix and stem: einzureichen."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "substitute",
+            "right": "= passive with a modal",
+            "rows": [
+              {
+                "a": "Der Antrag ist bis Mai einzureichen.",
+                "b": "muss eingereicht werden"
+              },
+              {
+                "a": "Das lässt sich ändern.",
+                "b": "kann geändert werden"
+              },
+              {
+                "a": "Das ist machbar.",
+                "b": "kann gemacht werden"
+              }
+            ]
           }
         },
         {
@@ -1276,6 +1476,17 @@
             ],
             "answer": "Er bekam die Rechnung zugeschickt.",
             "why": "With bekommen + Partizip II the recipient becomes the subject; the werden-passive would need the dative: Ihm wurde …"
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "werden-passive",
+            "right": "recipient passive",
+            "rows": [
+              {
+                "a": "Ihm wurde der Preis verliehen.",
+                "b": "Er bekam den Preis verliehen."
+              }
+            ]
           }
         },
         {
@@ -1422,7 +1633,11 @@
           "why": "The reflexive middle is present tense, no werden."
         }
       ],
-      "exam": null
+      "hook": "Learn five ways German says 'is to be done', 'can be done' or 'was given' without a single werden.",
+      "recall": {
+        "known": "From \"Passiversatz: -bar, sich lassen, sein + zu\".",
+        "today": "The recipient passive (bekommen + participle) and the reflexive middle (das liest sich gut)."
+      }
     }
   },
   {
@@ -1433,7 +1648,6 @@
     ],
     "title": "Großer Text: Hinweise zum neuen System",
     "help": {
-      "hook": "Read and write office memos the way German offices do (ist zu melden, lässt sich ändern): rules without a single werden.",
       "intro": "An internal memo about a new document system, written the way administrative German is written: almost no werden-passives, but one passive substitute after another. Twelve gaps, and each one asks you to build the substitute, not to spot it: sein + zu + infinitive for the instructions (the gap holds zu + infinitive — ist … zu finden, sind … zu melden, sind … zu übertragen, sind … zu speichern, sind … zu vermeiden), sich lassen for what is possible (the gap holds the conjugated lassen — singular or plural), -bar adjectives for the same idea in adjective form (änderbar, erreichbar), and bekommen + Partizip II where the staff are the recipients (bekommen … zugeschickt, erhalten … erklärt). The hints give you the verb or the English meaning; the form is yours. Read the memo as a genre first — greeting, purpose, rules, travel rules, contact, sign-off — then fill the gaps. Afterwards rewrite two sentences in your head with the plain passive (muss gemeldet werden) to feel why the memo does not: the substitutes are shorter and sound like a rule rather than an order.",
       "tips": [
         {
@@ -1467,6 +1681,17 @@
             ],
             "answer": "einzureichen",
             "why": "A rule is sein + zu + infinitive, and with a separable verb the zu goes inside: einzureichen."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "instruction",
+            "right": "possibility",
+            "rows": [
+              {
+                "a": "Fehler sind sofort zu melden.",
+                "b": "Das Passwort lässt sich jederzeit ändern."
+              }
+            ]
           }
         },
         {
@@ -1540,7 +1765,7 @@
         "Rule = sein + zu (zu + infinitive in the gap); possible = lässt sich / lassen sich, -bar; recipient = bekommen / erhalten + Partizip II.",
         "Memos avoid werden: substitutes sound like rules, not orders."
       ],
-      "exam": null
+      "hook": "Read and write office memos the way German offices do (ist zu melden, lässt sich ändern): rules without a single werden."
     }
   },
   {
@@ -1621,6 +1846,25 @@
             ],
             "answer": "It exists but is small",
             "why": "halten für gives the speaker's own verdict, and the hedge aber für klein limits it."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "cautious",
+            "high": "confident",
+            "points": [
+              {
+                "at": 85,
+                "de": "Die Daten zeigen, dass …"
+              },
+              {
+                "at": 55,
+                "de": "Die Ergebnisse legen nahe, dass …"
+              },
+              {
+                "at": 25,
+                "de": "Man vermutet, dass …"
+              }
+            ]
           }
         },
         {
@@ -1670,7 +1914,6 @@
     ],
     "title": "Adjektive auf -bar / -lich",
     "help": {
-      "hook": "Say 'it can be done' in one word: machbar, lösbar, nachvollziehbar, the compact adjectives that reports and reviews live on.",
       "intro": "The -bar / -lich adjectives, consolidated as a productive tool. -bar attaches to almost any transitive verb and means 'can be …-ed': lösbar, machbar, essbar, lesbar, trinkbar, erreichbar, reparierbar, vorstellbar, verschiebbar, überschaubar (manageable, literally 'can be overlooked'), abrufbar (retrievable), nachvollziehbar (comprehensible), vermeidbar, bezahlbar (affordable), haltbar (durable), spürbar (perceptible). -lich covers a fixed set with the same meaning: verständlich, erklärlich, verträglich (tolerable), verzeihlich (forgivable), unglaublich, unvermeidlich, erschwinglich (affordable), begreiflich. Negation with un-: unlösbar, unerreichbar, unverständlich. Some pairs exist with different meanings: verständlich (understandable) vs verstehbar (rare); erklärlich (explicable) vs erklärbar (explainable — both fine). Each item gives you the verb; you decide whether it takes the productive -bar or belongs to the fixed -lich set. These adjectives are the compact passive of formal prose — 'die Kosten sind überschaubar' does the work of a whole clause — and they are the last of the Passiversatz family.",
       "tips": [
         {
@@ -1705,6 +1948,54 @@
             ],
             "answer": "lösbar",
             "why": "-bar on a transitive verb means 'can be …-ed': lösen → lösbar. löslich means 'soluble' (in water)."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "mach"
+                  },
+                  {
+                    "text": "-bar",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "machbar",
+                "en": "can be done"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "nachvollzieh"
+                  },
+                  {
+                    "text": "-bar",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "nachvollziehbar",
+                "en": "can be followed"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "un",
+                    "role": "prefix"
+                  },
+                  {
+                    "text": "lös"
+                  },
+                  {
+                    "text": "-bar",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "unlösbar",
+                "en": "cannot be solved"
+              }
+            ]
           }
         },
         {
@@ -1902,7 +2193,7 @@
           "why": "Negate with un- for the compact adjective."
         }
       ],
-      "exam": null
+      "hook": "Say 'it can be done' in one word: machbar, lösbar, nachvollziehbar, the compact adjectives that reports and reviews live on."
     }
   },
   {
@@ -1914,8 +2205,7 @@
     ],
     "title": "Kurzcheck: Nominalisierung",
     "help": {
-      "hook": "Turn dense official noun phrases into plain spoken sentences and back again, out loud, in about three minutes.",
-      "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: describing a process in formal register and unpacking a nominal phrase into a sentence. The tutor gives you a dense phrase (die Verschiebung des Termins wegen Krankheit des Referenten) and asks you to say it as a sentence, then gives you a sentence and asks for the nominal version; it also asks what must or can be done (sein + zu, sich lassen) and for a connector with sofern or zumal. It listens for correct genitives, the right conjunction for each preposition, the passive substitutes, and the register. Speak in full sentences; type 'Ende' for the score.",
+      "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: packing and unpacking. The tutor gives you six items, one at a time. For three of them you get a dense nominal phrase (die Verschiebung des Termins wegen Krankheit des Referenten) and say it as a full sentence with the matching conjunction; for the other three you get a sentence and pack it into one nominal phrase with the right preposition and the genitive, or into a passive substitute (sein + zu, sich lassen). It listens for the conjunction or preposition that matches, the case inside the phrase, and the register. One item, one answer; say 'Ende' if you need to stop early.",
       "tips": [
         {
           "kind": "rule",
@@ -1949,6 +2239,17 @@
             ],
             "answer": "weil",
             "why": "The preposition wegen unpacks into the conjunction weil, which opens a clause with the verb at the end."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "dense",
+            "right": "spoken",
+            "rows": [
+              {
+                "a": "Wegen der Erkrankung des Kollegen …",
+                "b": "Weil der Kollege krank ist, …"
+              }
+            ]
           }
         },
         {
@@ -1990,7 +2291,45 @@
         "Unpack: wegen → weil, nach → nachdem, genitive → subject.",
         "Pack: verb → -ung noun; subject → genitive; adverb → adjective."
       ],
-      "exam": null
+      "hook": "Turn dense official noun phrases into plain spoken sentences and back again, out loud, in about three minutes.",
+      "vocab": [
+        {
+          "de": "nach Erhalt",
+          "en": "on receipt"
+        },
+        {
+          "de": "bei Abschluss",
+          "en": "on completion"
+        },
+        {
+          "de": "Durchführung",
+          "article": "die",
+          "plural": "-en",
+          "en": "carrying out"
+        },
+        {
+          "de": "Genehmigung",
+          "article": "die",
+          "plural": "-en",
+          "en": "approval, permit"
+        },
+        {
+          "de": "ist zu beachten",
+          "en": "must be observed"
+        },
+        {
+          "de": "lässt sich ändern",
+          "en": "can be changed"
+        },
+        {
+          "de": "zumal",
+          "en": "especially since"
+        },
+        {
+          "de": "sofern",
+          "en": "provided that"
+        }
+      ]
     }
   },
   {
@@ -2000,7 +2339,6 @@
     ],
     "title": "Konnektoren (insofern/sofern/zumal/geschweige denn)",
     "help": {
-      "hook": "Sofern, zumal and geschweige denn let you set conditions, stack reasons and say 'let alone' the way serious German prose does.",
       "intro": "Four connectors that mark precise, formal German. sofern (provided that, if — formal): Ich helfe dir, sofern ich Zeit habe; it states a condition as a requirement. soweit (as far as, insofar as): soweit ich weiß; soweit die Daten reichen. zumal (especially since, all the more because): Wir sollten das Angebot annehmen, zumal es günstig ist — it adds a further reason that strengthens a point already made. insofern (in that respect), used alone as an adverb (Insofern hast du recht) or in the pair insofern …, als … (in so far as): Die Studie ist wichtig, insofern sie als Erste diese Frage stellt — als introduces the respect in which the claim holds. geschweige denn (let alone) follows a negative or a \"kaum\" and names the bigger thing that is even less the case: Er kann kaum Deutsch lesen, geschweige denn schreiben — it takes no verb of its own and repeats the structure of what precedes. And indem, consolidated: Man lernt eine Sprache, indem man sie benutzt (by). All send the verb to the end except adverbial insofern. Newspaper commentary, academic texts and formal letters lean on exactly these.",
       "tips": [
         {
@@ -2132,6 +2470,17 @@
             ],
             "answer": "Er kann kaum kochen, geschweige denn backen.",
             "why": "geschweige denn needs a negative or a restriction (kaum) before it and simply mirrors that structure, without a new clause of its own."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "German",
+            "right": "English",
+            "rows": [
+              {
+                "a": "Er kann kaum laufen, geschweige denn rennen.",
+                "b": "He can barely walk, let alone run."
+              }
+            ]
           }
         },
         {
@@ -2166,6 +2515,25 @@
             ],
             "answer": "sofern",
             "why": "The ladder rises wenn → falls → sofern; sofern is the formal, written choice."
+          },
+          "visual": {
+            "kind": "scale",
+            "low": "everyday",
+            "high": "formal prose",
+            "points": [
+              {
+                "at": 90,
+                "de": "zumal, sofern, insofern … als"
+              },
+              {
+                "at": 60,
+                "de": "da, falls, soweit"
+              },
+              {
+                "at": 25,
+                "de": "weil, wenn"
+              }
+            ]
           }
         }
       ],
@@ -2249,7 +2617,7 @@
           "why": "The pair is insofern … als, not dass."
         }
       ],
-      "exam": null
+      "hook": "Sofern, zumal and geschweige denn let you set conditions, stack reasons and say 'let alone' the way serious German prose does."
     }
   },
   {
@@ -2259,7 +2627,6 @@
     ],
     "title": "Konjunktionaladverbien der Schriftsprache",
     "help": {
-      "hook": "Words like allerdings, hingegen and mithin are the joints of a written argument; spot them and any dense article opens up.",
       "intro": "Written German has a second layer of connecting adverbs above the everyday trotzdem / deshalb / außerdem, and formal texts are made of it. Concession and limitation: allerdings (however — limiting what was just said), gleichwohl (nonetheless), freilich (admittedly), immerhin (at least, still). Contrast: hingegen (by contrast), indes / indessen (meanwhile, however — often both at once). Consequence: folglich, somit, mithin (hence — mithin is the most formal), demnach (accordingly, according to that). Addition: überdies, zudem, ferner, darüber hinaus. Weighing: einerseits … andererseits. They all take position 1 with the verb second, or sit in the middle field after the verb — Die Methode ist allerdings teuer — and, unlike the conjunctions, they connect independent sentences, which is why they are the joints of an argument. Learn them and every argument you read becomes easier to follow.",
       "tips": [
         {
@@ -2389,6 +2756,25 @@
             ],
             "answer": "überdies",
             "why": "außerdem → zudem → überdies: überdies sits at the academic end of the ladder."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "everyday",
+            "right": "written",
+            "rows": [
+              {
+                "a": "aber",
+                "b": "allerdings, freilich, gleichwohl"
+              },
+              {
+                "a": "dagegen",
+                "b": "hingegen, indes"
+              },
+              {
+                "a": "also, deshalb",
+                "b": "folglich, somit, mithin"
+              }
+            ]
           }
         }
       ],
@@ -2462,7 +2848,6 @@
           "why": "No comma around a mid-field adverb."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "allerdings",
@@ -2512,7 +2897,8 @@
           "de": "folglich",
           "en": "consequently"
         }
-      ]
+      ],
+      "hook": "Words like allerdings, hingegen and mithin are the joints of a written argument; spot them and any dense article opens up."
     }
   },
   {
@@ -2522,7 +2908,6 @@
     ],
     "title": "Adverbialsätze I: temporal, kausal, final, konditional",
     "help": {
-      "hook": "Say when, why, what for and under which condition in three ways — clause, adverb or noun — and pick the one that flows.",
       "intro": "Adverbial clauses form a system: nine relations, and for each one three ways to express it — a subordinate clause (verb last), a main-clause version with an adverb (verb second) or a special word order, and a nominal version with a preposition. This quiz covers the first four relations. Temporal: nachdem / bevor / während / seit / bis / sobald ↔ danach / davor / währenddessen / seitdem / inzwischen ↔ nach / vor / während / seit / bis + noun. Causal: weil / da ↔ deshalb / daher / folglich / denn ↔ wegen / aufgrund / infolge / dank + noun. Final: damit / um … zu ↔ dazu / zu diesem Zweck ↔ zu / zwecks / für + noun. Conditional: wenn / falls / sofern ↔ verb-first clause (Regnet es, bleiben wir) or dann / sonst / andernfalls ↔ bei / im Falle / ohne + noun. Fluency means having all three variants available for each and choosing by rhythm and register — three subordinate clauses in a row are as heavy as three nominal phrases, and alternation is what makes prose readable. Formal texts draw on all three columns.",
       "tips": [
         {
@@ -2591,6 +2976,33 @@
             ],
             "answer": "folglich",
             "why": "folglich is a main-clause adverb, so the verb follows it (kamen wir). weil would put the verb last, and wegen needs a noun in the genitive."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Nebensatz",
+              "Hauptsatz",
+              "nominal"
+            ],
+            "hot": [
+              0
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Weil es regnete, …",
+                  "Es regnete. Deshalb …",
+                  "Wegen des Regens …"
+                ]
+              },
+              {
+                "cells": [
+                  "Da die Kosten steigen, …",
+                  "Die Kosten steigen. Daher …",
+                  "Aufgrund der steigenden Kosten …"
+                ]
+              }
+            ]
           }
         },
         {
@@ -2742,7 +3154,6 @@
           "why": "The verb-first conditional takes a comma, not a question mark."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "nachdem / danach / nach",
@@ -2780,7 +3191,8 @@
           "de": "andernfalls",
           "en": "otherwise"
         }
-      ]
+      ],
+      "hook": "Say when, why, what for and under which condition in three ways — clause, adverb or noun — and pick the one that flows."
     }
   },
   {
@@ -2790,7 +3202,6 @@
     ],
     "title": "Adverbialsätze II: konzessiv, konsekutiv, modal, adversativ, komparativ",
     "help": {
-      "hook": "Say although, so that, by, whereas and as if in three different ways each, and your formal German stops sounding repetitive.",
       "intro": "The second half of the adverbial system: five more relations, each in its three forms. Concessive: obwohl / obgleich / obschon / wenngleich ↔ trotzdem / dennoch / gleichwohl / allerdings ↔ trotz / ungeachtet + Gen. Consecutive: sodass / so … dass ↔ folglich / infolgedessen / daher / somit ↔ infolge + Gen. Modal (means): indem / dadurch, dass ↔ dadurch / so ↔ durch / mittels / mithilfe + noun; and the negative ohne dass / ohne … zu ↔ ohne + Akk. Adversative: während / wohingegen ↔ dagegen / hingegen / demgegenüber ↔ im Gegensatz zu / anders als / im Unterschied zu + noun. Comparative: wie / so … wie / als (real: Es kam, wie erwartet; größer, als ich dachte), je … desto (proportional), als ob / als + Konjunktiv II (irreal). With the four relations of the previous quiz, this is the complete inventory of German adverbial linkage — every 'because, although, so that, by, whereas, as if' the language has. A formal text can pull from any of the three columns, and good writing varies across them.",
       "tips": [
         {
@@ -2932,6 +3343,40 @@
             ],
             "answer": "dennoch",
             "why": "This slot needs the main-clause column: dennoch at position 1, verb next; obwohl would need a subordinate clause and trotz a noun."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Nebensatz",
+              "Hauptsatz",
+              "nominal"
+            ],
+            "hot": [
+              0
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "Obwohl es regnete, …",
+                  "Es regnete. Trotzdem …",
+                  "Trotz des Regens …"
+                ]
+              },
+              {
+                "cells": [
+                  "Es regnete stark, sodass das Spiel ausfiel.",
+                  "Es regnete stark. Folglich fiel das Spiel aus.",
+                  "Infolge des starken Regens fiel das Spiel aus."
+                ]
+              },
+              {
+                "cells": [
+                  "Indem man spart, …",
+                  "Man spart. Dadurch …",
+                  "Durch Sparen …"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -3018,7 +3463,6 @@
           "why": "als ob: Konjunktiv II, verb last."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "obwohl, obgleich, wenngleich",
@@ -3064,7 +3508,8 @@
           "de": "je … desto / umso",
           "en": "the more … the more"
         }
-      ]
+      ],
+      "hook": "Say although, so that, by, whereas and as if in three different ways each, and your formal German stops sounding repetitive."
     }
   },
   {
@@ -3074,7 +3519,6 @@
     ],
     "title": "Genitivpräpositionen der Schriftsprache",
     "help": {
-      "hook": "Anlässlich, mangels, bezüglich: two words that replace a whole clause and instantly make a letter or report sound official.",
       "intro": "Beyond trotz, wegen and während lies a set of genitive prepositions that belong almost entirely to written, official and academic German, and that newspapers, contracts and official letters assume: anlässlich (on the occasion of: anlässlich des Jubiläums), mangels (for lack of: mangels Beweisen — dative plural when there is no article), zwecks (for the purpose of: zwecks Überprüfung), ungeachtet (regardless of: ungeachtet der Kritik), seitens / vonseiten (on the part of: seitens der Regierung), angesichts (in view of: angesichts der Lage), hinsichtlich / bezüglich (regarding: hinsichtlich der Kosten; bezüglich Ihrer Anfrage — the letter-writer's word), kraft (by virtue of: kraft seines Amtes), laut / gemäß / zufolge (according to: laut Bericht — laut takes genitive or dative; zufolge follows its noun with the dative: dem Bericht zufolge), infolge, anhand, mithilfe, mittels (by means of), abzüglich / zuzüglich (minus / plus), binnen (within — dative or genitive). Each folds a clause into two words; each marks register instantly.",
       "tips": [
         {
@@ -3211,6 +3655,25 @@
             ],
             "answer": "Bezüglich",
             "why": "bezüglich + genitive means 'regarding' and is the classic opener of a formal reply."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "preposition",
+            "right": "example",
+            "rows": [
+              {
+                "a": "anlässlich (on the occasion of)",
+                "b": "anlässlich Ihres Jubiläums"
+              },
+              {
+                "a": "bezüglich (regarding)",
+                "b": "bezüglich Ihrer Anfrage"
+              },
+              {
+                "a": "mangels (for lack of)",
+                "b": "mangels Beweisen"
+              }
+            ]
           }
         }
       ],
@@ -3296,7 +3759,7 @@
             ]
           }
         ],
-        "caption": "Written-language genitive prepositions"
+        "caption": "Written-language prepositions (mostly genitive)"
       },
       "context": {
         "de": "Anlässlich des fünfzigjährigen Bestehens veröffentlichte das Institut einen Bericht. Laut diesem Bericht wurden seitens der Politik mangels Mitteln jahrelang keine Stellen geschaffen; angesichts der heutigen Lage sei das kaum nachvollziehbar. Hinsichtlich der Zukunft bleibt der Bericht vage: Zwecks Planung sollen anhand der aktuellen Daten Szenarien entwickelt werden – ungeachtet der politischen Unsicherheit.",
@@ -3330,7 +3793,6 @@
           "why": "Genitive."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "anlässlich (+ Gen.)",
@@ -3380,7 +3842,8 @@
           "de": "mittels (+ Gen.)",
           "en": "by means of"
         }
-      ]
+      ],
+      "hook": "Anlässlich, mangels, bezüglich: two words that replace a whole clause and instantly make a letter or report sound official."
     }
   },
   {
@@ -3390,7 +3853,6 @@
     ],
     "title": "Adjektive mit Kasus & Nomen mit Präposition",
     "help": {
-      "hook": "Say 'aware of the risk' or 'grateful to her' the German way: no preposition, just the right case in front of the adjective.",
       "intro": "Some adjectives govern a case directly, without a preposition — a construction of written and formal German that formal texts use freely. Genitive: sich einer Sache bewusst sein (aware of), einer Sache sicher / gewiss sein (certain of), einer Sache würdig sein (worthy of), einer Sache schuldig / verdächtig sein (guilty / suspected of), einer Sache müde / überdrüssig sein (tired of), einer Sache fähig sein (capable of). Dative: jemandem behilflich / dankbar / bekannt / fremd / treu / ähnlich / überlegen / unterlegen sein (helpful / grateful / known / foreign / loyal / similar / superior / inferior to). Accusative of measure: zwei Meter lang, ein Jahr alt, einen Zentimeter dick, hundert Euro wert. And the nouns with prepositions extend to the abstract set of academic prose: die Forderung nach, der Zweifel an, der Verweis / Hinweis auf, der Beitrag zu, die Auswirkung auf, das Verhältnis zu, die Abhängigkeit von, der Anspruch auf, die Suche nach. The genitive object sits before the adjective (des Problems bewusst); the dative before it too (mir behilflich); the measure before it (zwei Meter lang). In this quiz the adjective or noun is given; you supply the governed part — the genitive, dative or accusative phrase built from the word in brackets, or the preposition a noun demands.",
       "tips": [
         {
@@ -3530,6 +3992,25 @@
             ],
             "answer": "Kann ich Ihnen behilflich sein?",
             "why": "The governed part comes first and the adjective last: Ihnen behilflich, with a bare dative."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "English",
+            "right": "German: the case does the work",
+            "rows": [
+              {
+                "a": "aware of the risk",
+                "b": "sich des Risikos bewusst (Gen)"
+              },
+              {
+                "a": "grateful to her",
+                "b": "ihr dankbar (Dat)"
+              },
+              {
+                "a": "used to the noise",
+                "b": "den Lärm gewohnt (Akk)"
+              }
+            ]
           }
         }
       ],
@@ -3601,7 +4082,6 @@
           "why": "Forderung nach + Dativ."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "sich einer Sache bewusst sein",
@@ -3651,7 +4131,8 @@
           "article": "der",
           "plural": "¨-e"
         }
-      ]
+      ],
+      "hook": "Say 'aware of the risk' or 'grateful to her' the German way: no preposition, just the right case in front of the adjective."
     }
   },
   {
@@ -3695,6 +4176,17 @@
             ],
             "answer": "That endorphins play a role",
             "why": "belegen signals an established finding; vermuten marks a supposition."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "shown",
+            "right": "only suspected",
+            "rows": [
+              {
+                "a": "Studien belegen, dass …",
+                "b": "Man vermutet, dass … / Es könnte sein, dass …"
+              }
+            ]
           }
         },
         {
@@ -3812,6 +4304,29 @@
             ],
             "answer": "A description of a change or trend",
             "why": "The demonstrative diese Entwicklung points back: the left neighbour must already have described a development."
+          },
+          "visual": {
+            "kind": "textMap",
+            "blocks": [
+              {
+                "label": "the sentence before",
+                "de": "Viele Städte führen Tempo 30 ein."
+              },
+              {
+                "label": "the gap: points back",
+                "de": "Diese Maßnahme soll Unfälle verhindern.",
+                "focus": [
+                  "Diese Maßnahme"
+                ]
+              },
+              {
+                "label": "the sentence after",
+                "de": "Dabei zeigen erste Zahlen bereits Erfolge.",
+                "focus": [
+                  "Dabei"
+                ]
+              }
+            ]
           }
         },
         {
@@ -3894,7 +4409,6 @@
     ],
     "title": "Partizipialsätze",
     "help": {
-      "hook": "Pack a whole clause into a few words — In Wien angekommen, … — and unfold it again whenever you read one.",
       "intro": "A participial clause is a subordinate clause with its conjunction and subject removed, leaving the participle: In Berlin angekommen, suchte er ein Hotel (= Als er in Berlin angekommen war, …). Lächelnd verließ sie den Raum (= Während sie lächelte, …). Von der Reise erschöpft, ging er sofort ins Bett (= Weil er von der Reise erschöpft war, …). Partizip II for a completed or passive action (angekommen, erschöpft, beeindruckt, vorbereitet), Partizip I for a simultaneous, active one (lächelnd, schweigend, zögernd, strahlend). Two conditions: the implied subject must be the subject of the main clause (it is 'he' who arrived and 'he' who looked), and a participle group with complements may be set off by a comma (In Berlin angekommen, …) — recommended, not obligatory — while a single participle takes none (Lächelnd verließ sie …). Participial clauses belong to narrative and to formal prose — commentaries, essays and literary texts — and unfolding them into a full clause is how you make sense of them. Each item gives you only the infinitive: deciding between Partizip I (simultaneous, active) and Partizip II (completed or passive) is the task.",
       "tips": [
         {
@@ -4023,6 +4537,21 @@
             ],
             "answer": "Weil sie vom Lärm geweckt worden war, stand sie auf.",
             "why": "geweckt is a passive Partizip II: the noise woke her, so the full clause is passive, with the main clause's subject sie put back."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "participial clause",
+            "right": "full clause",
+            "rows": [
+              {
+                "a": "In Wien angekommen, rief er sie an.",
+                "b": "Als er in Wien angekommen war, rief er sie an."
+              },
+              {
+                "a": "Laut lachend verließ sie den Raum.",
+                "b": "Während sie laut lachte, verließ sie den Raum."
+              }
+            ]
           }
         }
       ],
@@ -4111,7 +4640,7 @@
           "why": "The participial clause needs the participle, never the infinitive."
         }
       ],
-      "exam": null
+      "hook": "Pack a whole clause into a few words — In Wien angekommen, … — and unfold it again whenever you read one."
     }
   },
   {
@@ -4121,7 +4650,6 @@
     ],
     "title": "Attribute: Genitiv, Präposition, Apposition, Ketten",
     "help": {
-      "hook": "Untangle long noun chains like 'die Ergebnisse der Studie des Instituts zum Klima' by finding the head noun first.",
       "intro": "An attribute is anything that modifies a noun, and formal German stacks them. To the left of the noun (Linksattribute): articles, adjectives, participles and their complements — die kürzlich veröffentlichte Studie. To the right (Rechtsattribute): the genitive attribute (die Entscheidung der Kommission), the prepositional attribute (die Forderung nach Reformen), the apposition — a second noun phrase in the same case, set off by commas (Dr. Weber, die Leiterin des Instituts; mit Dr. Weber, der Leiterin — dative agrees), adverbs (das Haus dort), infinitive clauses (der Plan umzuziehen) and relative clauses. They chain: die kürzlich veröffentlichten Ergebnisse der Studie des Instituts zum Klima — participle, genitive, genitive, preposition. Reading such a phrase means finding the head noun (Ergebnisse) and hanging the rest on it; writing it means keeping the chain short — replace one genitive with a compound (der Institutsstudie) or move one attribute into a relative clause. Academic and official texts are built from these chains; in your own writing a chain that collapses loses the reader.",
       "tips": [
         {
@@ -4253,6 +4781,39 @@
             ],
             "answer": "Plan",
             "why": "Plan is the head: vom Minister sits inside the participle phrase on the left, and the prepositional attribute on the right attaches to the head."
+          },
+          "visual": {
+            "kind": "textMap",
+            "blocks": [
+              {
+                "label": "head noun",
+                "de": "die Ergebnisse",
+                "focus": [
+                  "Ergebnisse"
+                ]
+              },
+              {
+                "label": "+ genitive",
+                "de": "die Ergebnisse der Studie",
+                "focus": [
+                  "der Studie"
+                ]
+              },
+              {
+                "label": "+ genitive of the genitive",
+                "de": "die Ergebnisse der Studie des Instituts",
+                "focus": [
+                  "des Instituts"
+                ]
+              },
+              {
+                "label": "+ preposition",
+                "de": "die Ergebnisse der Studie des Instituts zum Klima",
+                "focus": [
+                  "zum Klima"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -4339,7 +4900,6 @@
           "why": "Complements go before the participle."
         }
       ],
-      "exam": null,
       "vocab": [
         {
           "de": "Attribut",
@@ -4390,7 +4950,8 @@
           "article": "die",
           "plural": "-n"
         }
-      ]
+      ],
+      "hook": "Untangle long noun chains like 'die Ergebnisse der Studie des Instituts zum Klima' by finding the head noun first."
     }
   },
   {
@@ -4468,6 +5029,41 @@
             ],
             "answer": "Universitätsbibliothek",
             "why": "Nouns in -ität take a linking -s- when they come first, and the compound is written as one word."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "Forschung"
+                  },
+                  {
+                    "text": "s",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "ergebnis",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Forschungsergebnis",
+                "gender": "n"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "Klima"
+                  },
+                  {
+                    "text": "wandel",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Klimawandel",
+                "gender": "m"
+              }
+            ]
           }
         },
         {
@@ -4619,6 +5215,25 @@
             ],
             "answer": "Der Anteil ist um 15 Prozentpunkte gestiegen.",
             "why": "um gives the size of the change, and a difference between two percentages is measured in Prozentpunkte (in Prozent it would be a 50 % rise)."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "preposition",
+            "right": "example",
+            "rows": [
+              {
+                "a": "von … auf …",
+                "b": "von 20 auf 30 Prozent gestiegen"
+              },
+              {
+                "a": "um …",
+                "b": "um 10 Prozentpunkte gestiegen"
+              },
+              {
+                "a": "auf … gesunken",
+                "b": "auf 5 Prozent gesunken"
+              }
+            ]
           }
         },
         {
@@ -4651,6 +5266,42 @@
             ],
             "answer": "Ein Grund dafür könnte in den höheren Mieten liegen.",
             "why": "After frame, striking point, trend and comparison comes the interpretation, softened with könnte."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Frame",
+                "de": [
+                  "Die Grafik zeigt …",
+                  "Die Daten stammen von …"
+                ]
+              },
+              {
+                "label": "Striking point",
+                "de": [
+                  "Auffällig ist, dass …"
+                ]
+              },
+              {
+                "label": "Trend",
+                "de": [
+                  "Der Anteil ist kontinuierlich gestiegen."
+                ]
+              },
+              {
+                "label": "Comparison",
+                "de": [
+                  "Im Vergleich zu …"
+                ]
+              },
+              {
+                "label": "Summary",
+                "de": [
+                  "Insgesamt lässt sich sagen, …"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -4701,6 +5352,17 @@
             ],
             "answer": "He supports home office if the technology is reliable.",
             "why": "The sofern-clause is half of his position: his support depends on that condition."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "position",
+            "right": "the condition that limits it",
+            "rows": [
+              {
+                "a": "Ich bin für das Projekt,",
+                "b": "sofern die Finanzierung gesichert ist."
+              }
+            ]
           }
         },
         {
@@ -4854,6 +5516,17 @@
             ],
             "answer": "The drivers' tiredness",
             "why": "In nicht … sondern the part after sondern carries the claim; the part after nicht is what is rejected."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "the wrong idea",
+            "right": "the answer",
+            "rows": [
+              {
+                "a": "nicht die Zeit am Bildschirm,",
+                "b": "sondern die ständige Unterbrechung"
+              }
+            ]
           }
         },
         {
@@ -4939,6 +5612,17 @@
             ],
             "answer": "A day off is a precondition for good work.",
             "why": "gilt als gives the common view; In Wahrheit marks the author's turn."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "others think",
+            "right": "the author thinks",
+            "rows": [
+              {
+                "a": "Gemeinhin gilt …, man glaubt …",
+                "b": "Dabei …, Meines Erachtens …"
+              }
+            ]
           }
         },
         {
@@ -5057,6 +5741,30 @@
             ],
             "answer": "Obwohl",
             "why": "waren stands at the end of its clause, so the gap needs a subordinator; trotzdem and allerdings are adverbs and would need the verb right after them."
+          },
+          "visual": {
+            "kind": "moves",
+            "caption": "Check the form first and the meaning second.",
+            "moves": [
+              {
+                "label": "Word class",
+                "de": [
+                  "article? preposition? verb? connector?"
+                ]
+              },
+              {
+                "label": "Form",
+                "de": [
+                  "case, tense, verb position"
+                ]
+              },
+              {
+                "label": "Meaning",
+                "de": [
+                  "only now: which of the forms that fit makes sense?"
+                ]
+              }
+            ]
           }
         },
         {
@@ -5243,6 +5951,29 @@
             ],
             "answer": "räume",
             "why": "To concede is einräumen: Ich räume ein, dass … and then you defend your point with allerdings or dennoch."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Concede",
+                "de": [
+                  "Ich räume ein, dass …"
+                ]
+              },
+              {
+                "label": "Condition",
+                "de": [
+                  "Das gilt aber nur, sofern …"
+                ]
+              },
+              {
+                "label": "Hold",
+                "de": [
+                  "Insofern halte ich an meiner Position fest."
+                ]
+              }
+            ]
           }
         },
         {
@@ -5281,7 +6012,47 @@
         "Announce – nominal phrase – formal connector – substitute – concede – conclude.",
         "sofern, zumal, insofern als, allerdings: one per answer."
       ],
-      "exam": "A structured talk followed by a discussion is the core of the C1 speaking exam — and of many meetings at work."
+      "exam": "A structured talk followed by a discussion is the core of the C1 speaking exam — and of many meetings at work.",
+      "vocab": [
+        {
+          "de": "Ansatz",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "approach"
+        },
+        {
+          "de": "Fragestellung",
+          "article": "die",
+          "plural": "-en",
+          "en": "question at issue"
+        },
+        {
+          "de": "einräumen",
+          "en": "to concede"
+        },
+        {
+          "de": "insofern … als",
+          "en": "to the extent that"
+        },
+        {
+          "de": "Voraussetzung",
+          "article": "die",
+          "plural": "-en",
+          "en": "precondition"
+        },
+        {
+          "de": "darlegen",
+          "en": "to set out"
+        },
+        {
+          "de": "zunächst",
+          "en": "first of all"
+        },
+        {
+          "de": "abschließend",
+          "en": "finally, to conclude"
+        }
+      ]
     }
   },
   {
@@ -5422,6 +6193,35 @@
             ],
             "answer": "whether you found the argument convincing",
             "why": "That is a review. A summary reports and stops."
+          },
+          "visual": {
+            "kind": "moves",
+            "moves": [
+              {
+                "label": "Source",
+                "de": [
+                  "Der Bericht des … befasst sich mit …"
+                ]
+              },
+              {
+                "label": "Main claim",
+                "de": [
+                  "Die Autoren stellen fest, dass …"
+                ]
+              },
+              {
+                "label": "Evidence",
+                "de": [
+                  "Sie stützen sich dabei auf …"
+                ]
+              },
+              {
+                "label": "Conclusion",
+                "de": [
+                  "Abschließend empfehlen sie, …"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -5501,7 +6301,6 @@
     ],
     "title": "Erweiterte Partizipialattribute",
     "help": {
-      "hook": "Crack the long noun phrases of newspapers and law — die seit Jahren steigenden Mieten — by reading article, noun, then the middle.",
       "intro": "An extended participial attribute (erweitertes Partizipialattribut) packs a whole relative clause between the article and the noun: die Reform, die von der Regierung geplant wird → die von der Regierung geplante Reform. Everything that belonged to the clause (agent, time, place, object) stands in front of the participle, and the participle takes an ordinary adjective ending. Partizip I (steigend, belastend) means the noun is doing something itself: die seit Jahren steigenden Mieten. Partizip II of a transitive verb is passive (die erzielten Umsätze = the sales that were achieved); of a sein-verb it is active and completed (die angekommene Delegation). zu + Partizip I is the Gerundivum and means 'must / can be done': der zu prüfende Antrag = der Antrag, der geprüft werden muss. Academic, legal and press German are full of these frames; reading them means finding the article, jumping to the noun, then reading the middle.",
       "tips": [
         {
@@ -5605,6 +6404,21 @@
             ],
             "answer": "abzurechnenden",
             "why": "sein + zu becomes the Gerundivum zu + Partizip I, and in a separable verb zu goes inside: ab-zu-rechnend-en. abgerechneten would mean they are already settled."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "attribute",
+            "right": "means",
+            "rows": [
+              {
+                "a": "die zu erwartenden Kosten",
+                "b": "die Kosten, die zu erwarten sind"
+              },
+              {
+                "a": "ein nicht zu unterschätzendes Risiko",
+                "b": "ein Risiko, das man nicht unterschätzen darf"
+              }
+            ]
           }
         },
         {
@@ -5637,6 +6451,29 @@
             ],
             "answer": "die Preiserhöhungen, die die Firma angekündigt hat",
             "why": "Article die → noun Preiserhöhungen; the middle (von der Firma angekündigt) becomes the relative clause. A plain Partizip II carries no must."
+          },
+          "visual": {
+            "kind": "bracket",
+            "columns": [
+              "Article",
+              "Middle",
+              "Participle",
+              "Noun"
+            ],
+            "hot": [
+              0,
+              3
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "die",
+                  "seit Jahren",
+                  "steigenden",
+                  "Mieten"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -5702,7 +6539,6 @@
           "klärenden"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "die teilgenommenen Personen",
@@ -5781,7 +6617,12 @@
           "de": "etwas abschätzen",
           "en": "to assess, estimate something"
         }
-      ]
+      ],
+      "hook": "Crack the long noun phrases of newspapers and law — die seit Jahren steigenden Mieten — by reading article, noun, then the middle.",
+      "recall": {
+        "known": "From \"Erweitertes Partizipialattribut\": article … complements … participle … noun.",
+        "today": "zu + Partizip I: die zu erwartenden Kosten."
+      }
     }
   },
   {
@@ -5791,7 +6632,6 @@
     ],
     "title": "Zweiteilige Konnektoren",
     "help": {
-      "hook": "Master zwar … aber, weder … noch and je … desto, including the word order that trips up even advanced speakers.",
       "intro": "Two-part connectors (zweiteilige Konnektoren) frame a pair of words, phrases or clauses and make the relation between them explicit: zwar … aber (concession), einerseits … andererseits (weighing), nicht nur … sondern auch and sowohl … als auch (addition), weder … noch (double negation), entweder … oder (alternative), je … desto/umso (proportion), teils … teils, bald … bald, mal … mal (alternation), zum einen … zum anderen (listing reasons). Here the difficulty is not the meaning but the word order: zwar, einerseits, weder, je and desto count as the first position of their clause, so the verb follows immediately (Weder hat die Firma reagiert, noch hat sie …), whereas aber, oder and sondern stand outside the clause and leave normal order intact (…, oder Ihr Antrag wird nicht bearbeitet). The je-part is a subordinate clause with the verb at the end; the desto-part is a main clause with the verb right after the comparative.",
       "tips": [
         {
@@ -5826,6 +6666,25 @@
             ],
             "answer": "Weder hat er angerufen, noch hat er geschrieben.",
             "why": "weder and noch each take position 1 of their clause, so the verb comes straight after them."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "pair",
+            "right": "word order",
+            "rows": [
+              {
+                "a": "Zwar ist es teuer, aber …",
+                "b": "zwar takes position 1 → verb next"
+              },
+              {
+                "a": "Entweder du kommst, oder …",
+                "b": "entweder: position 0 or 1"
+              },
+              {
+                "a": "Je mehr ich lese, desto …",
+                "b": "je: verb last; desto: verb next"
+              }
+            ]
           }
         },
         {
@@ -5943,7 +6802,7 @@
             "cells": [
               "zwar … aber / jedoch",
               "concession",
-              "zwar = pos. 1; aber = pos. 0 or middle field"
+              "zwar = pos. 1 or middle field; aber = pos. 0 or middle field"
             ]
           },
           {
@@ -6021,7 +6880,6 @@
           "desto"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "Weder die Firma hat reagiert, noch …",
@@ -6099,7 +6957,12 @@
           "de": "sich an etwas beteiligen",
           "en": "to contribute to, take part in something"
         }
-      ]
+      ],
+      "hook": "Master zwar … aber, weder … noch and je … desto, including the word order that trips up even advanced speakers.",
+      "recall": {
+        "known": "From \"Zweiteilige Konnektoren\": zwar … aber, entweder … oder, je … desto.",
+        "today": "The word order of each pair, and which verb agrees after weder … noch."
+      }
     }
   },
   {
@@ -6109,7 +6972,6 @@
     ],
     "title": "Funktionsverbgefüge der Fachsprache",
     "help": {
-      "hook": "Learn 'zur Verfügung stellen', 'in Kraft treten' and friends as chunks, and your formal writing gains the weight of official German.",
       "intro": "A Funktionsverbgefüge (FVG, noun-verb construction) splits a verb into a noun that carries the meaning and a 'light' verb that carries tense, person and aspect: anwenden → zur Anwendung kommen, erwägen → in Erwägung ziehen, ausdrücken → zum Ausdruck bringen. Official, legal and academic German prefer them because the noun can take attributes (scharfe Kritik üben) and because the light verb adds nuance: bringen/stellen are active and causative (etwas zur Sprache bringen, etwas zur Verfügung stellen), kommen/stehen/treten are passive or stative (zur Anwendung kommen, zur Verfügung stehen, in Kraft treten). The noun and its preposition are fixed, so you learn them as chunks; the light verb then behaves like any verb: it is conjugated at position 2, sent to the end in a subordinate clause, turned into a participle in the perfect (hat zum Ausdruck gebracht, ist in Kraft getreten) and placed after zu in an infinitive clause (zum Abschluss zu bringen).",
       "tips": [
         {
@@ -6152,6 +7014,25 @@
             ],
             "answer": "steht",
             "why": "The reading room itself is the subject (ein neuer Lesesaal), so you need the stative verb: zur Verfügung stehen. stellen would need someone who provides it."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "active (someone does it)",
+            "right": "passive (it happens)",
+            "rows": [
+              {
+                "a": "zur Verfügung stellen",
+                "b": "zur Verfügung stehen"
+              },
+              {
+                "a": "in Kraft setzen",
+                "b": "in Kraft treten"
+              },
+              {
+                "a": "zur Diskussion stellen",
+                "b": "zur Diskussion stehen"
+              }
+            ]
           }
         },
         {
@@ -6391,7 +7272,6 @@
           "getroffen"
         ]
       },
-      "exam": null,
       "mistakes": [
         {
           "wrong": "Das Gesetz hat in Kraft getreten.",
@@ -6475,7 +7355,8 @@
           "plural": "Übergangsfristen",
           "en": "transition period"
         }
-      ]
+      ],
+      "hook": "Learn 'zur Verfügung stellen', 'in Kraft treten' and friends as chunks, and your formal writing gains the weight of official German."
     }
   },
   {
@@ -6485,7 +7366,6 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "hook": "Learn the language of research and formal writing with articles, plurals and the verbs each noun goes with.",
       "intro": "Every word this module's exercises use, on one deck of flashcards: 257 cards, 142 of them nouns. The vocabulary of this module is academic and formal register: nominal style, research vocabulary and fixed noun-verb pairs, from the themes Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
@@ -6517,68 +7397,87 @@
             ],
             "answer": "ergreifen",
             "why": "Maßnahmen goes with ergreifen (or treffen) in formal German. machen and nehmen don't combine with it."
+          },
+          "visual": {
+            "kind": "pairs",
+            "left": "noun",
+            "right": "its verb",
+            "rows": [
+              {
+                "a": "eine These",
+                "b": "aufstellen"
+              },
+              {
+                "a": "einen Antrag",
+                "b": "stellen"
+              },
+              {
+                "a": "Kritik",
+                "b": "üben"
+              }
+            ]
           }
         },
         {
-          "kind": "mnemonic",
-          "title": "Three modes, three kinds of memory",
-          "text": "Choose trains recognition, Write trains recall, and Flip trains honesty with yourself. Start a new deck in Choose, move to Write once most cards feel familiar, and use Flip for a fast review before you need the words.",
+          "kind": "rule",
+          "title": "Research words in their order",
+          "text": "die Hypothese → die Durchführung → die Auswertung → die Erkenntnis → die Schlussfolgerung: learning the nouns in the order a study runs makes them easier to recall.",
           "examples": [
             {
-              "de": "die Annahme, Plural: -n",
-              "en": "assumption",
+              "de": "Die Auswertung der Daten dauerte ein Jahr.",
+              "en": "Analysing the data took a year.",
               "focus": [
-                "Annahme"
+                "Auswertung"
               ]
             },
             {
-              "de": "die Schlussfolgerung, Plural: -en",
-              "en": "conclusion",
+              "de": "Die Studie liefert neue Erkenntnisse.",
+              "en": "The study provides new insights.",
               "focus": [
-                "Schlussfolgerung"
+                "Erkenntnisse"
               ]
             }
           ],
           "check": {
-            "q": "‘the conclusions’ in German:",
+            "q": "What comes after the data have been collected?",
             "options": [
-              "die Schlussfolgerungen",
-              "die Schlussfolgerunge",
-              "die Schlussfolgerungs"
+              "die Auswertung",
+              "die Hypothese",
+              "die Durchführung"
             ],
-            "answer": "die Schlussfolgerungen",
-            "why": "Nouns in -ung form their plural with -en: die Schlussfolgerung → die Schlussfolgerungen."
+            "answer": "die Auswertung",
+            "why": "First you plan (Hypothese), then collect (Durchführung), then analyse (Auswertung)."
           }
         },
         {
           "kind": "warning",
-          "title": "A noun without its article is marked wrong",
-          "text": "In Write mode a noun only counts with der, die or das in front of it. The card tells you when you had the right word but left the article off, so you know exactly what to fix.",
+          "title": "belegen and widerlegen are opposites",
+          "text": "belegen shows that something is true; widerlegen shows that it is false. nachweisen proves; sich stützen auf means to rely on a source.",
           "examples": [
             {
-              "de": "die Durchführung",
-              "en": "carrying out, execution",
+              "de": "Die Daten belegen die These.",
+              "en": "The data support the thesis.",
               "focus": [
-                "die"
+                "belegen"
               ]
             },
             {
-              "de": "die Auswertung, Plural: -en",
-              "en": "evaluation, analysis",
+              "de": "Die neue Studie widerlegt die alte Annahme.",
+              "en": "The new study disproves the old assumption.",
               "focus": [
-                "die"
+                "widerlegt"
               ]
             }
           ],
           "check": {
-            "q": "‘the proof’ in German:",
+            "q": "A study that shows a claim is false ____ it.",
             "options": [
-              "der Nachweis",
-              "die Nachweis",
-              "das Nachweis"
+              "widerlegt",
+              "belegt",
+              "veröffentlicht"
             ],
-            "answer": "der Nachweis",
-            "why": "Nachweis is masculine, like der Beweis. Learn it as der Nachweis."
+            "answer": "widerlegt",
+            "why": "widerlegen = to disprove; belegen = to support with evidence."
           }
         }
       ],
@@ -6587,7 +7486,7 @@
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
         "Verbs and adjectives have no article: type them as they stand, like \"widerlegen\"."
       ],
-      "exam": null
+      "hook": "Learn the language of research and formal writing with articles, plurals and the verbs each noun goes with."
     }
   },
   {
@@ -6602,7 +7501,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the hospital room: the last part decides",
           "text": "Hospital words are long, but only the last part decides the article. Sauerstoff + Flasche: die Flasche, so die Sauerstoffflasche. Infusion + Ständer: der Ständer, so der Infusionsständer. Ignore the front; read the end.",
           "examples": [
             {
@@ -6629,6 +7528,41 @@
             ],
             "answer": "Der",
             "why": "The last part is der Spender, so the whole word is der Desinfektionsmittelspender."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "der Tropf"
+                  },
+                  {
+                    "text": "der Ständer",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Tropfständer",
+                "gender": "m"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "krank"
+                  },
+                  {
+                    "text": "en",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "das Bett",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Krankenbett",
+                "gender": "n"
+              }
+            ]
           }
         },
         {
@@ -7241,7 +8175,7 @@
       "tips": [
         {
           "kind": "rule",
-          "title": "A compound takes the gender of its last part",
+          "title": "Compounds in the backstage: the last part decides",
           "text": "Theatre words are built from pieces, and the last piece decides the article. Licht + Pult: das Pult, so das Lichtpult. Kleider + Ständer: der Ständer, so der Kleiderständer. The same ending gives the same gender: das Lichtpult and das Notenpult.",
           "examples": [
             {
@@ -7268,6 +8202,41 @@
             ],
             "answer": "Der",
             "why": "The last part is der Koffer, so the whole word is der Schrankkoffer."
+          },
+          "visual": {
+            "kind": "blocks",
+            "rows": [
+              {
+                "parts": [
+                  {
+                    "text": "die Bühne"
+                  },
+                  {
+                    "text": "n",
+                    "role": "joint"
+                  },
+                  {
+                    "text": "das Bild",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "das Bühnenbild",
+                "gender": "n"
+              },
+              {
+                "parts": [
+                  {
+                    "text": "schminken"
+                  },
+                  {
+                    "text": "der Tisch",
+                    "role": "suffix"
+                  }
+                ],
+                "result": "der Schminktisch",
+                "gender": "m"
+              }
+            ]
           }
         },
         {

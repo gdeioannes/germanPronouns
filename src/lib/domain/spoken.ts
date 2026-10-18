@@ -18,20 +18,40 @@ export function fillBlankPool(quiz: FillBlankQuiz): QuizSentence[] {
 	const generated: QuizSentence[] = [];
 	for (const category of quiz.categories ?? []) {
 		const templates = quiz.sentenceTemplates?.[category.label] ?? ['{subject} = ____'];
+		const english = quiz.englishTemplates?.[category.label] ?? [];
 		for (const [index, subject] of (quiz.subjects ?? []).entries()) {
 			const answer = category.values[index];
 			if (answer === undefined) continue;
-			for (const template of templates) {
+			for (const [t, template] of templates.entries()) {
+				const line = englishLine(english[t], subject.english ?? subject.display);
 				generated.push({
 					subjectKey: subject.key,
 					categoryLabel: category.label,
 					sentence: template.replace('{subject}', subject.display),
-					acceptedAnswers: [answer]
+					acceptedAnswers: [answer],
+					...(line ? { english: line } : {})
 				});
 			}
 		}
 	}
 	return generated;
+}
+
+/** Nouns whose English plural is not just an -s. */
+const IRREGULAR_PLURAL: Record<string, string> = { man: 'men', woman: 'women', child: 'children' };
+
+/**
+ * An English template filled in: `{subject}` is the English, `{a}` the
+ * article it takes ("an apple"), `{pl}` its plural ("two children").
+ */
+function englishLine(template: string | undefined, english: string): string | undefined {
+	if (!template) return undefined;
+	const head = english.split(' ').pop() ?? english;
+	const plural = IRREGULAR_PLURAL[head] ? english.replace(/\S+$/, IRREGULAR_PLURAL[head]) : `${english}s`;
+	return template
+		.replace('{a}', /^[aeiou]/i.test(english) ? 'an' : 'a')
+		.replace('{pl}', plural)
+		.replace('{subject}', english);
 }
 
 /** The first usable answer for each gap — what a reveal writes in. */

@@ -575,7 +575,9 @@
 					"neue",
 					"neuer",
 					"neues"
-				]
+				],
+				"cue": "neu",
+				"hint": "neu · in einer … Wohnung (Dat. f)"
 			},
 			{
 				"index": 1,
@@ -583,7 +585,9 @@
 					"großes",
 					"großen",
 					"großer"
-				]
+				],
+				"cue": "groß",
+				"hint": "groß · das … Wohnzimmer (Nom. n)"
 			},
 			{
 				"index": 2,
@@ -591,7 +595,9 @@
 					"große",
 					"großen",
 					"großer"
-				]
+				],
+				"cue": "groß",
+				"hint": "groß · ein … Fenster (Akk. n)"
 			},
 			{
 				"index": 3,
@@ -599,7 +605,9 @@
 					"kleiner",
 					"kleine",
 					"kleinem"
-				]
+				],
+				"cue": "klein",
+				"hint": "klein · einen … Park (Akk. m)"
 			},
 			{
 				"index": 4,
@@ -607,7 +615,9 @@
 					"schöne",
 					"schönen",
 					"schöner"
-				]
+				],
+				"cue": "schön",
+				"hint": "schön · ein … Bild (Akk. n)"
 			},
 			{
 				"index": 5,
@@ -615,7 +625,9 @@
 					"bequeme",
 					"bequemes",
 					"bequemem"
-				]
+				],
+				"cue": "bequem",
+				"hint": "bequem · auf dem … Sofa (Dat. n)"
 			},
 			{
 				"index": 6,
@@ -623,7 +635,9 @@
 					"neuer",
 					"neue",
 					"neues"
-				]
+				],
+				"cue": "neu",
+				"hint": "neu · einen … Herd (Akk. m)"
 			},
 			{
 				"index": 7,
@@ -631,7 +645,9 @@
 					"moderner",
 					"moderne",
 					"modernes"
-				]
+				],
+				"cue": "modern",
+				"hint": "modern · einen … Kühlschrank (Akk. m)"
 			},
 			{
 				"index": 8,
@@ -639,7 +655,9 @@
 					"alte",
 					"alten",
 					"altes"
-				]
+				],
+				"cue": "alt",
+				"hint": "alt · ein … Baum (Nom. m)"
 			},
 			{
 				"index": 9,
@@ -647,7 +665,9 @@
 					"netten",
 					"netter",
 					"nettes"
-				]
+				],
+				"cue": "nett",
+				"hint": "nett · … Nachbarn (Akk. Pl., kein Artikel)"
 			},
 			{
 				"index": 10,
@@ -655,7 +675,9 @@
 					"jungen",
 					"junger",
 					"junges"
-				]
+				],
+				"cue": "jung",
+				"hint": "jung · der … Mann (Nom. m)"
 			},
 			{
 				"index": 11,
@@ -663,7 +685,9 @@
 					"heißen",
 					"heißer",
 					"heißes"
-				]
+				],
+				"cue": "heiß",
+				"hint": "heiß · mit … Tee (Dat. m, kein Artikel)"
 			}
 		]
 	},

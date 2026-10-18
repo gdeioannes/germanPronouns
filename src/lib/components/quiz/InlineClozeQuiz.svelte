@@ -113,7 +113,7 @@
 	const STEPS = [
 		{ label: 'Choose', hint: 'pick each gap from four.' },
 		{ label: 'Type', hint: 'type each gap, with its hint.' },
-		{ label: 'No help', hint: 'type each gap with no hints.' }
+		{ label: 'No help', hint: 'type each gap from its bare word, with no grammar note.' }
 	];
 	const run = new LadderRun(untrack(() => quiz.storageKeyPrefix), STEPS);
 	$effect(() => {
@@ -267,7 +267,7 @@
 		steps={STEPS}
 		record={run.record}
 		active={run.step}
-		right={correctCount}
+		right={checked ? correctCount : 0}
 		onpick={setStep}
 	/>
 </div>
@@ -320,7 +320,7 @@
 									aria-invalid={checked && !results[part.blank] ? 'true' : undefined}
 									size={Math.max(blank.answer.length, 4)}
 									aria-label="Gap {part.blank + 1} of {total}"
-									aria-describedby={blank.hint && !checked && run.step === 1 ? `${quiz.id}-hint-${part.blank}` : undefined}
+									aria-describedby={!checked && ((blank.hint && run.step === 1) || (blank.cue && run.step === 2)) ? `${quiz.id}-hint-${part.blank}` : undefined}
 									autocomplete="off"
 									autocapitalize="off"
 									spellcheck="false"
@@ -331,6 +331,10 @@
 								{/if}
 								{#if !checked && blank.hint && run.step === 1}
 									<span class="hint" id="{quiz.id}-hint-{part.blank}">{blank.hint}</span>
+								{:else if !checked && blank.cue && run.step === 2}
+									<!-- No help still names what the gap asks for (the lemma, a
+									     gloss): the step drops the grammar note, not the question. -->
+									<span class="hint" id="{quiz.id}-hint-{part.blank}">{blank.cue}</span>
 								{/if}
 							</span>
 						{/if}
