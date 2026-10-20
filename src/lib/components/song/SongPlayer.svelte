@@ -5,6 +5,7 @@
 	// no medal: a song is a treat, not a test.
 	import Seo from '$lib/components/Seo.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { markSongHeard, SONGS, songHeard, type Song } from '$lib/domain/songs';
 	import { breadcrumbLd, shareImage, songDescription, songLd, songTitle } from '$lib/seo';
 	import { announce } from '$lib/a11y.svelte';
@@ -12,6 +13,11 @@
 	import { page } from '$app/state';
 
 	let { song, courseName }: { song: Song; courseName: string } = $props();
+
+	// Back to where the menu was opened: home, or the deck.
+	const backLabel = $derived(
+		{ Home: 'Back home', 'Your deck': 'Back to your deck' }[returnLabel(returnTo.path)] ?? 'Back'
+	);
 
 	// The playlist under the lyrics lists every song, this one included, each
 	// with its own play button and the exercise that drills its material.
@@ -97,7 +103,7 @@
 
 <main class="song">
 	<header class="top">
-		<a class="back" href="/course/{song.courseId}" aria-label="Back to your deck" title="Back to your deck">
+		<a class="back" href={returnTo.path} aria-label={backLabel} title={backLabel}>
 			<Icon name="arrowLeft" size="1.15em" />
 		</a>
 		<span class="kind" aria-hidden="true"><Icon name="headphones" size="1em" /></span>

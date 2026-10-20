@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { absoluteUrl, clip, courseLd, learningResourceLd, quizDescription, quizTitle, titleWithSite, topicOf } from './seo';
+import { absoluteUrl, bookLd, chatDescription, chatTitle, clip, courseLd, learningResourceLd, quizDescription, quizTitle, titleWithSite, topicOf } from './seo';
 import type { PopulatedCourse, Quiz } from './content/types';
 import course from '$content/courses/de_cert_a1.json';
 
@@ -110,5 +110,36 @@ describe('exercise titles across the course', () => {
 			level: 'C1.1'
 		} as unknown as Quiz;
 		expect(quizTitle(quiz)).toBe('Adverbialsätze II: konzessiv, konsekutiv, modal… – German C1');
+	});
+});
+
+describe('play page metadata', () => {
+	it('fits every chat title and description in a result', async () => {
+		const { MATCH_CHATS } = await import('./domain/matchChat');
+		const titles = new Set<string>();
+		for (const chat of MATCH_CHATS) {
+			const title = chatTitle(chat);
+			expect(title.length, title).toBeLessThanOrEqual(70);
+			expect(title).toContain(chat.name);
+			expect(titles.has(title), title).toBe(false);
+			titles.add(title);
+			expect(chatDescription(chat).length, chat.id).toBeLessThanOrEqual(155);
+		}
+	});
+
+	it('describes a literature edition as a free book with its PDF', () => {
+		const ld = bookLd({
+			id: 'b',
+			author: 'Franz Kafka',
+			title: 'Die Verwandlung',
+			en: 'The Metamorphosis',
+			year: 1915,
+			level: 'B1–B2',
+			blurb: 'Blurb.',
+			pdf: { href: '/books/b.pdf', pages: 90 },
+			cover: '/img/b.webp'
+		});
+		expect(ld.workExample.encoding.contentUrl).toBe('https://languagequiz.org/books/b.pdf');
+		expect(ld.workExample.offers.price).toBe('0');
 	});
 });

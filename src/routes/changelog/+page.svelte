@@ -5,6 +5,7 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { changelog } from '$lib/content/changelog';
 	import { ORGANIZATION, absoluteUrl, breadcrumbLd } from '$lib/seo';
 	import { onMount } from 'svelte';
@@ -58,7 +59,7 @@
 <SiteNav courseHref={page.data.site?.courseHref ?? '/'} />
 
 <main class="page">
-	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
+	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 	<h1>What's new</h1>
 	<p class="lede">
 		Everything that has changed in Language Quiz, newest first. The app keeps

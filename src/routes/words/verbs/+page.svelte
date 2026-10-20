@@ -55,8 +55,8 @@
 <style>
 	h1 { margin: 0 0 0.5rem; }
 	.lede { margin: 0 0 1.5rem; max-width: 60ch; color: var(--ink-muted); }
-	.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.15rem 1rem; }
-	.grid a { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.35rem 0.5rem; border-radius: var(--radius-sm); color: inherit; text-decoration: none; }
+	.grid { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr)); gap: 0.15rem 1rem; }
+	.grid a { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.5rem; padding: 0.35rem 0.5rem; border-radius: var(--radius-sm); color: inherit; text-decoration: none; }
 	.grid a:hover { background: var(--surface-alt); }
 	.term { font-weight: 600; }
 	.third { color: var(--ink-muted); font-size: var(--step--1); }

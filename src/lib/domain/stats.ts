@@ -47,6 +47,12 @@ export interface ProgressStats {
 	levels: LevelProgress[];
 	types: TypeProgress[];
 	medals: Record<RibbonTier, number>;
+	/**
+	 * How much of the course's medals are won, as medal steps: bronze is one,
+	 * silver two, gold three, out of the most each exercise can earn. Unlike
+	 * `course`, which counts an exercise once it is passed at all.
+	 */
+	medalSteps: Tally;
 	answers: number;
 	/** Share of right answers over all history; null before any answer. */
 	accuracy: number | null;
@@ -110,6 +116,12 @@ export function progressStats(
 	}
 
 	const medals: Record<RibbonTier, number> = { bronze: 0, silver: 0, gold: 0 };
+	const medalSteps: Tally = { done: 0, total: 0 };
+	for (const quiz of live) {
+		medalSteps.total += maxMedalSteps(quiz.type);
+		const tier = factsOf(quiz)?.done ? factsOf(quiz)?.tier : null;
+		if (tier) medalSteps.done += Math.min(MEDAL_STEPS[tier], maxMedalSteps(quiz.type));
+	}
 	let playedThisWeek = 0;
 	let lastPlayed: number | null = null;
 	let recentRight = 0;
@@ -146,6 +158,7 @@ export function progressStats(
 		levels,
 		types,
 		medals,
+		medalSteps,
 		answers: given,
 		accuracy: given ? right / given : null,
 		recentAccuracy: recentGiven ? recentRight / recentGiven : null,
@@ -161,6 +174,14 @@ export function progressStats(
 			.sort((a, b) => a.accuracy - b.accuracy || b.answered - a.answered)
 			.slice(0, 3)
 	};
+}
+
+/** A medal as steps up the ladder: gold is all three. */
+const MEDAL_STEPS: Record<RibbonTier, number> = { bronze: 1, silver: 2, gold: 3 };
+
+/** The most medal steps an exercise can earn: repeat-after-me is bronze for the finish, nothing more. */
+function maxMedalSteps(type: QuizType): number {
+	return type === 'speakRepeat' ? 1 : 3;
 }
 
 function answerTotals(quizzes: Quiz[], facts: Record<string, QuizFacts>) {

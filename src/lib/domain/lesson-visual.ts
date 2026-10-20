@@ -34,9 +34,12 @@ export function timelineX(at: number): number {
 /**
  * Gives each timeline mark a label row so neighbouring labels never sit on
  * top of each other: a mark takes the first row whose last label is far
- * enough to the left.
+ * enough to the left. `stack` is the row each label takes when the picture
+ * is too narrow for that and every label gets a row of its own: the mark
+ * nearest the middle goes first, so the outer marks' connectors pass beside
+ * the labels above them rather than through them.
  */
-export function spread<T extends { at: number; to?: number }>(marks: T[]): (T & { row: number })[] {
+export function spread<T extends { at: number; to?: number }>(marks: T[]): (T & { row: number; stack: number })[] {
 	const order = marks
 		.map((m, i) => ({ m, i, x: timelineX(m.to !== undefined ? (m.at + m.to) / 2 : m.at) }))
 		.sort((a, b) => a.x - b.x);
@@ -48,7 +51,11 @@ export function spread<T extends { at: number; to?: number }>(marks: T[]): (T & 
 		lastX[row] = x;
 		rows[i] = row;
 	}
-	return marks.map((m, i) => ({ ...m, row: rows[i] }));
+	const stacks: number[] = [];
+	[...order]
+		.sort((a, b) => Math.abs(a.x - 50) - Math.abs(b.x - 50) || a.x - b.x)
+		.forEach(({ i }, k) => (stacks[i] = k));
+	return marks.map((m, i) => ({ ...m, row: rows[i], stack: stacks[i] }));
 }
 
 /** Hand angles (degrees from 12) and the shaded minute wedge for "H:MM". */

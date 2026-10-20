@@ -70,6 +70,12 @@
 	let beatIndex = $state(0);
 	let micro = $state<MicroCheck | null>(null);
 	let notebookOpen = $state(false);
+	/** The notebook takes focus when it opens and hands it back to its button on Close or Escape. */
+	const focusOnOpen = (el: HTMLElement) => el.focus({ preventScroll: true });
+	function closeNotebook() {
+		notebookOpen = false;
+		document.querySelector<HTMLElement>('.nb-btn')?.focus({ preventScroll: true });
+	}
 	let started = $state(false);
 
 	function save() {
@@ -588,7 +594,7 @@
 			aria-pressed={soundsOn}>
 			<Icon name={soundsOn ? 'volume' : 'volumeOff'} size="1.05em" />
 		</button>
-		<button class="nb-btn" onclick={() => (notebookOpen = !notebookOpen)} aria-expanded={notebookOpen}>
+		<button class="nb-btn" onclick={() => (notebookOpen = !notebookOpen)} aria-expanded={notebookOpen} aria-controls="notebook" aria-label="Notebook">
 			<Icon name="book" size="1em" />
 			<span class="nb-label">Notebook</span>
 			{#if notebook.length}<span class="nb-count tnum">{notebook.length}</span>{/if}
@@ -616,8 +622,9 @@
 	{/if}
 
 	{#if notebookOpen}
-		<aside class="notebook">
-			<h2>Maya's notebook</h2>
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+		<aside class="notebook" id="notebook" aria-labelledby="notebook-title" tabindex="-1" data-focus-target {@attach focusOnOpen} onkeydown={(e) => e.key === 'Escape' && closeNotebook()}>
+			<h2 id="notebook-title">Maya's notebook</h2>
 			{#if !notebook.length}
 				<p class="muted">Empty. Clues you find go in here — German words included.</p>
 			{:else}
@@ -627,7 +634,7 @@
 					{/each}
 				</ul>
 			{/if}
-			<button class="btn" onclick={() => (notebookOpen = false)}>Close</button>
+			<button class="btn" onclick={closeNotebook}>Close</button>
 		</aside>
 	{/if}
 

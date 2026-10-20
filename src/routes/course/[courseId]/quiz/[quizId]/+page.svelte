@@ -44,7 +44,9 @@
 	import { cloudConfigured } from '$lib/services/firebase';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { celebrate, celebrateMedal } from '$lib/motion/fx.svelte';
-	import { scoreMedal, type RibbonTier } from '$lib/domain/progress';
+	import { scoreMedal, TIER_LABELS, type RibbonTier } from '$lib/domain/progress';
+	import type { ClimbOffer } from '$lib/state/ladderRun.svelte';
+	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
 	import { markGoodRun } from '$lib/domain/surprise';
 	import { playSound } from '$lib/services/sounds';
 	import { progress } from '$lib/state/progress.svelte';
@@ -179,13 +181,18 @@
 		attempt += 1;
 		finished = false;
 		doneDismissed = false;
+		ladderOffer = null;
 	}
+
+	/** A medal-ladder drill's next medal, reported by the drill once it finishes. */
+	let ladderOffer = $state<ClimbOffer | null>(null);
 
 	$effect(() => {
 		// Remembered so the deck can offer it again if the learner leaves early.
 		markOpened(quiz.id);
 		finished = false;
 		doneDismissed = false;
+		ladderOffer = null;
 	});
 
 	$effect(() => {
@@ -278,6 +285,22 @@
 	const nextHref = $derived(next ? `/course/${course.id}/quiz/${next.id}` : `/course/${course.id}`);
 	/** Back to the swipe deck for the next card. */
 	const homeHref = $derived(`/course/${course.id}`);
+	/** The kinds whose medal is the attempt's score: the same exercise again is the way up. */
+	const SCORED: string[] = ['reading', 'listening', 'dictation', 'speaking', 'writing'];
+
+	/**
+	 * What the finish bar offers first. A ladder drill whose step is won goes
+	 * for the next medal up, on that medal's step. A scored kind holding
+	 * bronze or silver goes for the next medal too. Anything else: Try again.
+	 */
+	const climbOffer = $derived.by((): ClimbOffer | null => {
+		if (ladderOffer) return ladderOffer;
+		if (!SCORED.includes(quiz.type) || (quiz.type === 'reading' && isInlineCloze(quiz))) return null;
+		if (ribbon === 'bronze') return { tier: 'silver', go: tryAgain };
+		if (ribbon === 'silver') return { tier: 'gold', go: tryAgain };
+		return null;
+	});
+
 	/** What the finish bar says the exercise was marked as. */
 	const markedAs = $derived(ribbon === 'retry' ? 'Marked for another go.' : 'Marked complete.');
 
@@ -311,7 +334,7 @@
 			<p class="where tnum">
 				{#if quiz.level}{quiz.level}{#if position}{` · ${position} of ${levelCount}`}{/if}{:else}{quiz.type}{/if}
 			</p>
-			<h1>{quiz.title}</h1>
+			<h1 lang={course.learnLocale}>{quiz.title}</h1>
 		</div>
 
 		{#if ribbon}
@@ -406,6 +429,7 @@
 				onAnswer={() => {}}
 				onRunFinished={runFinished}
 				onTryAgain={tryAgain}
+				onClimbOffer={(o) => (ladderOffer = o)}
 				onQuestion={(q) => (question = q)}
 			/>
 		{:else if quiz.type === 'reading'}
@@ -417,6 +441,8 @@
 					{quiz}
 					locale={course.learnLocale}
 					onFinish={(passed) => passed && complete()}
+					onTryAgain={tryAgain}
+					onClimbOffer={(o) => (ladderOffer = o)}
 					onQuestion={(q) => (question = q)}
 				/>
 			{:else}
@@ -466,6 +492,7 @@
 				locale={course.learnLocale}
 				onRunFinished={runFinished}
 				onTryAgain={tryAgain}
+				onClimbOffer={(o) => (ladderOffer = o)}
 				{focusWord}
 				onQuestion={(q) => (question = q)}
 			/>
@@ -475,6 +502,7 @@
 				locale={course.learnLocale}
 				onRunFinished={runFinished}
 				onTryAgain={tryAgain}
+				onClimbOffer={(o) => (ladderOffer = o)}
 				onQuestion={(q) => (question = q)}
 			/>
 		{/if}
@@ -497,10 +525,17 @@
 		</p>
 		<!-- The same three ways on for every kind of exercise. -->
 		<div class="done-actions">
-			<button type="button" class="btn" class:btn-ghost={ribbon !== 'retry'} onclick={tryAgain}>
-				<Icon name="repeat" size="1em" /> Try again
-			</button>
-			<a class="btn" class:btn-ghost={ribbon === 'retry'} href={nextHref} title={next ? topicOf(next.title) : 'Back to your deck'}>
+			{#if climbOffer}
+				<!-- A medal won: the first way on is the next one up, not the same again. -->
+				<button type="button" class="btn" onclick={climbOffer.go}>
+					<RibbonBadge tier={climbOffer.tier} width={11} /> Try for {TIER_LABELS[climbOffer.tier].toLowerCase()}
+				</button>
+			{:else}
+				<button type="button" class="btn" class:btn-ghost={ribbon !== 'retry'} onclick={tryAgain}>
+					<Icon name="repeat" size="1em" /> Try again
+				</button>
+			{/if}
+			<a class="btn" class:btn-ghost={ribbon === 'retry' || !!climbOffer} href={nextHref} title={next ? topicOf(next.title) : 'Back to your deck'}>
 				Next quiz <Icon name="arrowRight" size="1em" />
 			</a>
 			<a class="btn btn-ghost" href={homeHref}>
@@ -541,13 +576,13 @@
 		{#if previous}
 			<a href="/course/{course.id}/quiz/{previous.id}" rel="prev">
 				<small>Previous</small>
-				<span><Icon name="arrowLeft" size="1em" /> {topicOf(previous.title)}</span>
+				<span><Icon name="arrowLeft" size="1em" /> <span lang={course.learnLocale}>{topicOf(previous.title)}</span></span>
 			</a>
 		{/if}
 		{#if next}
 			<a class="to-next" href="/course/{course.id}/quiz/{next.id}" rel="next">
 				<small>Next</small>
-				<span>{topicOf(next.title)} <Icon name="arrowRight" size="1em" /></span>
+				<span><span lang={course.learnLocale}>{topicOf(next.title)}</span> <Icon name="arrowRight" size="1em" /></span>
 			</a>
 		{/if}
 	</nav>
@@ -582,7 +617,7 @@
 					<li>
 						<a href="/course/{course.id}/quiz/{r.id}">
 							<span class="kind" data-kind={r.type}><Icon name={QUIZ_TYPE_ICONS[r.type]} size="1em" /></span>
-							<span>{topicOf(r.title)}</span>
+							<span lang={course.learnLocale}>{topicOf(r.title)}</span>
 						</a>
 					</li>
 				{/each}

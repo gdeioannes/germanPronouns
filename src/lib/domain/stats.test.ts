@@ -44,6 +44,22 @@ describe('progressStats', () => {
 		expect(stats.recentAccuracy).toBeCloseTo((19 + 9 + 9) / 42, 5);
 	});
 
+	it('counts medal steps apart from passing: gold is three, bronze one, of three each', () => {
+		// a gold (3) + b bronze (1), out of 5 exercises × 3.
+		expect(stats.medalSteps).toEqual({ done: 4, total: 15 });
+		expect(percentOf(stats.medalSteps)).toBe(27);
+	});
+
+	it('caps repeat-after-me at bronze, so its medal can be all of it', () => {
+		const s = progressStats(
+			[quiz('r', 'speakRepeat', 'A1.1')],
+			{ r: { done: true, tier: 'bronze', answered: 0, mistakeRate: 0 } },
+			{},
+			NOW
+		);
+		expect(s.medalSteps).toEqual({ done: 1, total: 1 });
+	});
+
 	it('reports activity and due reviews', () => {
 		expect(stats.playedThisWeek).toBe(2);
 		expect(stats.daysSincePlayed).toBe(1);

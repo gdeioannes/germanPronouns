@@ -152,7 +152,7 @@
 					{:else}
 						<span class="kind" data-kind={quiz.type}><Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1em" /></span>
 					{/if}
-					<span class="title">{quiz.title}</span>
+					<span class="title" lang={course.learnLocale}>{quiz.title}</span>
 					{#if quiz.status === 'placeholder'}<span class="soon">preview</span>{/if}
 					{#if ribbon}<DoneMark mark={ribbon} width={13} />
 					{:else if inProgress.has(quiz.id)}<InProgressBadge />{/if}

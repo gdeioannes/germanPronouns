@@ -10,6 +10,7 @@
 		LOCALES,
 		SITE_NAME,
 		absoluteUrl,
+		clip,
 		type Alternate
 	} from '$lib/seo';
 
@@ -47,6 +48,8 @@
 	} = $props();
 
 	const url = $derived(absoluteUrl(path));
+	// A safety net: a result cuts a longer description mid-word anyway.
+	const desc = $derived(clip(description, 160));
 	const ogLocale = $derived(LOCALES[lang]?.ogLocale ?? LOCALES[DEFAULT_LANG].ogLocale);
 	// hreflang is reciprocal: the page lists itself along with its twins, and
 	// x-default names the version a reader of no listed language should get.
@@ -67,10 +70,13 @@
 
 <svelte:head>
 	<title>{title}</title>
-	<meta name="description" content={description} />
+	<meta name="description" content={desc} />
 	{#if noindex}
 		<meta name="robots" content="noindex" />
 	{:else}
+		<!-- Lets a result and Discover show the share image large, and a snippet
+		     run as long as the engine likes. -->
+		<meta name="robots" content="max-image-preview:large, max-snippet:-1" />
 		<link rel="canonical" href={url} />
 		{#each langLinks as link (link.lang)}
 			<link rel="alternate" hreflang={link.lang} href={absoluteUrl(link.path)} />
@@ -81,7 +87,7 @@
 	<meta property="og:url" content={url} />
 	<meta property="og:site_name" content={SITE_NAME} />
 	<meta property="og:title" content={ogTitle ?? title} />
-	<meta property="og:description" content={ogDescription ?? description} />
+	<meta property="og:description" content={ogDescription ?? desc} />
 	<meta property="og:image" content={image} />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
@@ -94,7 +100,7 @@
 	{/each}
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={ogTitle ?? title} />
-	<meta name="twitter:description" content={ogDescription ?? description} />
+	<meta name="twitter:description" content={ogDescription ?? desc} />
 	<meta name="twitter:image" content={image} />
 	<meta name="twitter:image:alt" content={imageAlt} />
 

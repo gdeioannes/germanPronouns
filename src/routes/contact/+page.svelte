@@ -8,6 +8,7 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 
@@ -55,7 +56,7 @@
 </script>
 
 <Seo
-	title="Contact — Language Quiz"
+	title="Contact Language Quiz: questions, mistakes and ideas"
 	jsonLd={[
 		{
 			'@context': 'https://schema.org',
@@ -78,7 +79,7 @@
 <SiteNav courseHref={page.data.site?.courseHref ?? '/'} />
 
 <main class="page">
-	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
+	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 	<h1>Contact</h1>
 	<p class="lede">
 		Found a mistake, something confusing, or something missing? I genuinely

@@ -1,5 +1,8 @@
 <script lang="ts" module>
 	export type StepMark = 'done' | 'right' | 'wrong' | null;
+
+	/** What a dot's colour says, for a screen reader. */
+	const MARK_SPOKEN: Record<string, string> = { done: ', done', right: ', right', wrong: ', wrong' };
 </script>
 
 <script lang="ts">
@@ -164,7 +167,7 @@
 						class:current={i === index}
 						data-mark={marks[i] ?? ''}
 						onclick={() => go(i)}
-						aria-label="Section {i + 1}{labels[i] ? `: ${labels[i]}` : ''}"
+						aria-label="Section {i + 1}{labels[i] ? `: ${labels[i]}` : ''}{MARK_SPOKEN[marks[i] ?? ''] ?? ''}"
 						aria-current={i === index ? 'step' : undefined}
 						title={labels[i]}
 					></button>
@@ -307,33 +310,44 @@
 
 	/* A pill for the current section, dots for the rest: the counter's
 	   number, drawn. */
+	/* The button is a 24px-tall strip so a finger finds it; the dot is drawn
+	   inside it. Prev/Next are the full-size way through. */
 	.dot {
 		width: 0.55rem;
-		height: 0.55rem;
+		height: 1.5rem;
 		padding: 0;
 		border: 0;
-		border-radius: 999px;
-		background: var(--outline);
+		background: none;
 		cursor: pointer;
-		transition:
-			width var(--medium) var(--ease-out),
-			background var(--medium) var(--ease-out);
+		transition: width var(--medium) var(--ease-out);
 	}
 
-	.dot[data-mark='done'] {
+	.dot::before {
+		content: '';
+		display: block;
+		height: 0.55rem;
+		border-radius: 999px;
+		background: var(--outline);
+		transition: background var(--medium) var(--ease-out);
+	}
+
+	.dot[data-mark='done']::before {
 		background: var(--navy);
 	}
 
-	.dot[data-mark='right'] {
+	.dot[data-mark='right']::before {
 		background: var(--right);
 	}
 
-	.dot[data-mark='wrong'] {
+	.dot[data-mark='wrong']::before {
 		background: var(--wrong);
 	}
 
 	.dot.current {
 		width: 1.5rem;
+	}
+
+	.dot.current::before {
 		background: var(--accent);
 	}
 

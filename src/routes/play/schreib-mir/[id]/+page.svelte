@@ -14,6 +14,7 @@
 	// ends without a like is forgotten (forgetMatch): the ending stays on screen,
 	// but the character leaves the contacts and may be dealt again in the deck.
 	import Seo from '$lib/components/Seo.svelte';
+	import { breadcrumbLd, chatDescription, chatTitle, gameLd } from '$lib/seo';
 	import GermanText from '$lib/components/GermanText.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import VoiceNote from '$lib/components/match/VoiceNote.svelte';
@@ -54,7 +55,7 @@
 	import { storage } from '$lib/services/storage';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { effectsCalm } from '$lib/motion/fx.svelte';
-	import { announce } from '$lib/a11y.svelte';
+	import { announce, modal } from '$lib/a11y.svelte';
 	import { track } from '$lib/services/analytics';
 	import { dev } from '$app/environment';
 	import { page } from '$app/state';
@@ -176,7 +177,7 @@
 				await wait(item.kind === 'in' ? delayFor(item.msg) : 900);
 				typing = false;
 				playSound('msgIn');
-				if (item.kind === 'in' && item.msg.de) announce(`${chat.name}: ${personalise(item.msg.de, name)}`);
+				if (item.kind === 'in' && item.msg.de) announce([{ text: `${chat.name}:` }, { text: personalise(item.msg.de, name), lang: 'de-DE' }]);
 			} else if (item.kind === 'system') {
 				await wait(600);
 			} else if (item.kind === 'outPhoto') {
@@ -275,9 +276,23 @@
 </script>
 
 <Seo
-	title="Schreib mir! Chat with {chat.name}, {chat.age}"
-	description="{chat.level} German chat game. {chat.bioEn} Your goal: {chat.goal} Build every answer from word tiles. No second tries."
+	title={chatTitle(chat)}
+	description={chatDescription(chat)}
 	path="{MATCH_PATH}/{chat.id}"
+	jsonLd={[
+		gameLd({
+			name: `Schreib mir! Chat with ${chat.name}`,
+			description: chatDescription(chat),
+			path: `${MATCH_PATH}/${chat.id}`,
+			level: chat.level,
+			teaches: chat.focus
+		}),
+		breadcrumbLd([
+			{ name: 'Home', path: '/' },
+			{ name: 'Schreib mir!', path: MATCH_PATH },
+			{ name: chat.name, path: `${MATCH_PATH}/${chat.id}` }
+		])
+	]}
 />
 
 <main class="chat" class:deleted>
@@ -285,14 +300,14 @@
 		<a class="back" href={MATCH_PATH} aria-label="Back to your matches"><Icon name="arrowLeft" size="1.2em" /></a>
 		<img class="ava" src="/img/story/{chat.image}.webp" alt="" />
 		<div class="who">
-			<strong>{chat.name}</strong>
+			<h1 class="name">{chat.name}</h1>
 			<span class="status" class:typing>
 				{#if typing}tippt…{:else if deleted}hat das Match gelöscht{:else if over}Chat beendet{:else}online{/if}
 			</span>
 		</div>
 		<div class="meter" role="meter" aria-label="Interest" aria-valuemin="0" aria-valuemax={MAX_INTEREST} aria-valuenow={shownInterest}>
 			{#key meterKick}
-				<span class="hearts" class:kick={meterKick > 0}>
+				<span class="hearts" class:kick={meterKick > 0} aria-hidden="true">
 					{#each hearts as on, i (i)}<span class:on>{on ? '❤' : '♡'}</span>{/each}
 				</span>
 			{/key}
@@ -417,9 +432,9 @@
 
 {#if locked}
 	<div class="scrim solid">
-		<div class="name-card locked-card">
+		<div class="name-card locked-card" role="dialog" aria-modal="true" aria-labelledby="locked-title" tabindex="-1" data-focus-target use:modal>
 			<img class="shadow" src="/img/story/{chat.image}.webp" alt="" />
-			<h1 lang="de">Noch nicht getroffen</h1>
+			<h1 id="locked-title" lang="de">Noch nicht getroffen</h1>
 			<p>Someone at {chat.level} is waiting to chat, but you meet characters in your course deck. They turn up there now and then while you learn. Open their card in the deck and this chat opens.</p>
 			<a class="btn" href="/course/de_cert_a1">Back to the deck</a>
 			<a class="btn-quiet" href={MATCH_PATH}>Your matches</a>
@@ -428,10 +443,10 @@
 {/if}
 
 {#if askName}
-	<div class="scrim">
+	<div class="scrim" role="dialog" aria-modal="true" aria-labelledby="name-title" use:modal>
 		<form class="name-card" onsubmit={confirmName}>
 			<img src="/img/story/{chat.image}.webp" alt="" />
-			<h1>{chat.name}, {chat.age}</h1>
+			<h1 id="name-title">{chat.name}, {chat.age}</h1>
 			<p lang="de" class="bio">„{chat.bio}“</p>
 			<p>Your goal: {chat.goal}</p>
 			<label class="name-label" for="chat-name">Your name in the chat</label>
@@ -444,8 +459,8 @@
 {/if}
 
 {#if zoom}
-	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
-	<div class="zoom" onclick={() => (zoom = null)}>
+	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions -->
+	<div class="zoom" onclick={() => (zoom = null)} role="dialog" aria-modal="true" aria-label={zoom.alt || 'Photo'} tabindex="-1" data-focus-target use:modal={() => (zoom = null)}>
 		<div class="zoom-inner">
 			<img src="/img/story/{zoom.image}.webp" alt={zoom.alt} onload={measure(zoom.image)} />
 			{#if zoom.overlay}
@@ -464,6 +479,8 @@
 	.chat {
 		display: grid;
 		grid-template-rows: auto auto 1fr auto;
+		/* minmax(0, …): a long header must not push the column past a narrow screen. */
+		grid-template-columns: minmax(0, 1fr);
 		height: 100dvh;
 		max-width: 44rem;
 		margin: 0 auto;
@@ -505,6 +522,11 @@
 		min-width: 0;
 		line-height: 1.2;
 	}
+	.name {
+		margin: 0;
+		font: inherit;
+		font-weight: 700;
+	}
 	.status {
 		font-size: var(--step--1);
 		opacity: 0.8;
@@ -542,7 +564,7 @@
 		border-bottom: 1px solid var(--line);
 	}
 	.once {
-		color: var(--terracotta);
+		color: var(--accent-ink);
 		font-weight: 600;
 	}
 	.log {

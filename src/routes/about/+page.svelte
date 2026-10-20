@@ -5,6 +5,7 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { absoluteUrl } from '$lib/seo';
 	import { page } from '$app/state';
 
@@ -12,7 +13,7 @@
 </script>
 
 <Seo
-	title="About — Language Quiz"
+	title="About Language Quiz: a free German course by a learner"
 	description="The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads."
 	path="/about"
 	jsonLd={[
@@ -50,7 +51,7 @@
 <SiteNav {courseHref} />
 
 <main class="page-wide">
-	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
+	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 
 	<header>
 		<h1>About Language Quiz</h1>

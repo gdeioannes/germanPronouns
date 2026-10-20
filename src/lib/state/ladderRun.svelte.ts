@@ -29,6 +29,12 @@ export interface LadderStep {
 
 export type RunMark = 'right' | 'wrong';
 
+/** The next medal a finished run can go for, and a tap that starts it. */
+export interface ClimbOffer {
+	tier: RibbonTier;
+	go: () => void;
+}
+
 /**
  * One step's run of RUN_LENGTH answers. Each step keeps its own, so a switch
  * shows that step's bar: three answers on bronze, then over to silver, finds
@@ -206,10 +212,39 @@ export class LadderRun {
 		return `${TIER_LABELS[tier]} medal! ${this.passLine()}.`;
 	}
 
+	/**
+	 * The medal to try for next, once the step in play is won: the first step
+	 * above it still without its medal. Null while this step's medal is still
+	 * to win, or when every medal above it is already held.
+	 */
+	get nextUp(): number | null {
+		if (!ladderStepEarned(this.record, this.step)) return null;
+		for (let s = this.step + 1; s < this.steps.length; s++) {
+			if (!ladderStepEarned(this.record, s)) return s;
+		}
+		return null;
+	}
+
+	/**
+	 * The finish bar's "Try for silver": the next medal and the way to it — a
+	 * fresh run on that step, started by `restart` (the page's Try again).
+	 */
+	offer(restart?: () => void): ClimbOffer | null {
+		const to = this.nextUp;
+		if (to === null) return null;
+		return {
+			tier: LADDER_TIERS[to],
+			go: () => {
+				this.climb(to);
+				restart?.();
+			}
+		};
+	}
+
 	/** The run summary's ladder block; `onClimb` starts a fresh run one step up. */
 	summary(counting: boolean, onClimb: (step: number) => void) {
 		const step = this.step;
-		const up = step + 1 < this.steps.length ? step + 1 : null;
+		const up = this.nextUp;
 		return {
 			label: this.steps[step].label,
 			tier: LADDER_TIERS[step],

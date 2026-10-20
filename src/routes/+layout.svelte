@@ -8,6 +8,7 @@
 	import { account } from '$lib/state/account.svelte';
 	import { forum } from '$lib/state/forum.svelte';
 	import { tts } from '$lib/services/speech';
+	import { noteVisit } from '$lib/state/returnTo.svelte';
 	import FxLayer from '$lib/components/FxLayer.svelte';
 	import VoiceNotice from '$lib/components/VoiceNotice.svelte';
 	import Announcer from '$lib/components/Announcer.svelte';
@@ -59,6 +60,12 @@
 	// is why there is no consent banner to show.
 	$effect(() => {
 		trackScreenView(page.url.pathname);
+	});
+
+	// Remembers the last non-menu page, so a menu page's back arrow returns
+	// there (home or the deck) rather than always home.
+	$effect(() => {
+		noteVisit(page.url.pathname, page.url.search);
 	});
 
 	// Where the browser supports the View Transitions API, a navigation

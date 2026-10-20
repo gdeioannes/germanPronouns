@@ -299,6 +299,173 @@ export function definedTermLd(term: {
 	};
 }
 
+/** What a "Schreib mir!" chat page needs to describe itself. */
+export type ChatSeo = { id: string; name: string; level: string; goal: string; focus?: string };
+
+/**
+ * Search title for one chat: who and what first, then the level. The
+ * game's own name goes last, as the part a searcher is least likely to type.
+ */
+export function chatTitle(chat: ChatSeo): string {
+	const fits = [
+		`Chat with ${chat.name} in German (${chat.level}) – Schreib mir! | ${SITE_NAME}`,
+		`Chat with ${chat.name} in German (${chat.level}) – Schreib mir!`,
+		`Chat with ${chat.name} in German (${chat.level})`
+	];
+	return fits.find((t) => t.length <= 70) ?? fits[fits.length - 1];
+}
+
+/**
+ * Meta description for a chat: the goal is the hook, so it leads; the
+ * level and how the game is played follow while they fit.
+ */
+export function chatDescription(chat: ChatSeo): string {
+	const opening = `German ${chat.level} chat game. Your goal: ${chat.goal}`;
+	const padded = `${opening} Build each answer from word tiles, free.`.replace(/\s+/g, ' ');
+	return padded.length <= 155 ? padded : clip(opening);
+}
+
+/**
+ * A browser game that teaches: a LearningResource that is also a Game, so
+ * the play pages can surface for the game and for the German they drill.
+ */
+export function gameLd(game: { name: string; description: string; path: string; level?: string; teaches?: string }) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': ['LearningResource', 'Game'],
+		name: game.name,
+		description: game.description,
+		url: absoluteUrl(game.path),
+		inLanguage: ['en', 'de'],
+		learningResourceType: 'Game',
+		educationalLevel: game.level ? `CEFR ${cefrOf(game.level)}` : undefined,
+		teaches: game.teaches ?? 'German',
+		about: { '@type': 'Thing', name: 'German language' },
+		isAccessibleForFree: true,
+		interactivityType: 'active',
+		educationalUse: 'practice',
+		provider: ORGANIZATION
+	};
+}
+
+/**
+ * An annotated edition on the literature shelf: a Book whose free PDF is
+ * the offer. `workExample` is this edition; the book itself is the author's.
+ */
+export function bookLd(book: {
+	id: string;
+	author: string;
+	title: string;
+	en: string;
+	year: number;
+	level: string;
+	blurb: string;
+	pdf: { href: string; pages: number };
+	cover: string;
+}) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'Book',
+		name: book.title,
+		alternateName: book.en,
+		author: { '@type': 'Person', name: book.author },
+		datePublished: String(book.year),
+		inLanguage: 'de',
+		description: book.blurb,
+		image: absoluteUrl(book.cover),
+		url: absoluteUrl(`/literature#${book.id}`),
+		educationalLevel: `CEFR ${book.level}`,
+		isAccessibleForFree: true,
+		workExample: {
+			'@type': 'Book',
+			name: `${book.title}, annotated for English speakers`,
+			bookFormat: 'https://schema.org/EBook',
+			inLanguage: ['de', 'en'],
+			numberOfPages: book.pdf.pages,
+			publisher: ORGANIZATION,
+			isAccessibleForFree: true,
+			encoding: { '@type': 'MediaObject', contentUrl: absoluteUrl(book.pdf.href), encodingFormat: 'application/pdf' },
+			offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', availability: 'https://schema.org/InStock' }
+		}
+	};
+}
+
+/**
+ * A book read online in stages: the Book, each stage a Chapter of it, so a
+ * result can show the parts and a stage page is known to belong to the book.
+ */
+export function readingBookLd(
+	book: { author: string; title: string; en: string; year: number; level: string; blurb: string; cover: string },
+	path: string,
+	stages: { name: string; path: string }[]
+) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'Book',
+		name: book.title,
+		alternateName: book.en,
+		author: { '@type': 'Person', name: book.author },
+		datePublished: String(book.year),
+		inLanguage: 'de',
+		description: book.blurb,
+		image: absoluteUrl(book.cover),
+		url: absoluteUrl(path),
+		educationalLevel: `CEFR ${book.level}`,
+		isAccessibleForFree: true,
+		publisher: ORGANIZATION,
+		hasPart: stages.map((s, i) => ({
+			'@type': 'Chapter',
+			position: i + 1,
+			name: s.name,
+			url: absoluteUrl(s.path)
+		}))
+	};
+}
+
+/** One reading stage of a book, as a Chapter that is also a learning resource. */
+export function readingStageLd(stage: {
+	name: string;
+	description: string;
+	path: string;
+	position: number;
+	level: string;
+	words: number;
+	book: { author: string; title: string; path: string };
+}) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': ['Chapter', 'LearningResource'],
+		name: stage.name,
+		description: stage.description,
+		url: absoluteUrl(stage.path),
+		position: stage.position,
+		inLanguage: ['de', 'en'],
+		wordCount: stage.words,
+		learningResourceType: 'Reading',
+		educationalLevel: `CEFR ${stage.level}`,
+		about: { '@type': 'Thing', name: 'German language' },
+		isAccessibleForFree: true,
+		author: { '@type': 'Person', name: stage.book.author },
+		publisher: ORGANIZATION,
+		isPartOf: { '@type': 'Book', name: stage.book.title, url: absoluteUrl(stage.book.path) }
+	};
+}
+
+/** A page that lists things (stories, books): an ItemList of links. */
+export function itemListLd(name: string, items: { name: string; path: string }[]) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'ItemList',
+		name,
+		itemListElement: items.map((it, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			name: it.name,
+			url: absoluteUrl(it.path)
+		}))
+	};
+}
+
 /** What a song page needs to describe itself: the registry's Song, loosely. */
 export type SongSeo = {
 	title: string;

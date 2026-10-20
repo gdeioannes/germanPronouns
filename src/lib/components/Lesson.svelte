@@ -12,6 +12,7 @@
 	import LessonVisual from './lesson/LessonVisual.svelte';
 	import Steps, { type StepMark } from './quiz/Steps.svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
+	import { fitTable } from '$lib/fit-table';
 	import { speakable, splitFocus, spokenWord, type LessonCheck, type LessonStep } from '$lib/domain/lesson';
 	import { react } from '$lib/motion/fx.svelte';
 	import { tts } from '$lib/services/speech';
@@ -295,7 +296,7 @@
 					{#if s.table}
 						<!-- A short table is shown; a long one folds, so the way on
 						     stays on screen. Folded, it is still in the page. -->
-						<details class="table-wrap" open={s.table.rows.length <= TABLE_OPEN_ROWS}>
+						<details class="table-wrap" open={s.table.rows.length <= TABLE_OPEN_ROWS} use:fitTable={s.table}>
 							<summary class="mini-head">{s.table.caption ?? "The full table"} · {s.table.rows.length} rows <Icon name="chevronDown" size="0.95em" /></summary>
 							<table>
 								<thead><tr>{#each s.table.columns as col, c (c)}<th scope="col">{col}</th>{/each}</tr></thead>
@@ -309,7 +310,7 @@
 							</table>
 						</details>
 					{:else if s.derived}
-						<details class="table-wrap" open={s.derived.rows.length <= TABLE_OPEN_ROWS}>
+						<details class="table-wrap" open={s.derived.rows.length <= TABLE_OPEN_ROWS} use:fitTable={s.derived}>
 							<summary class="mini-head">The full table · {s.derived.rows.length} rows <Icon name="chevronDown" size="0.95em" /></summary>
 							<table>
 								<thead>
@@ -979,6 +980,15 @@
 		text-align: left;
 		border-bottom: 1px solid var(--line);
 		white-space: nowrap;
+	}
+
+	/* On a phone cells may wrap; a table still too wide becomes cards (fit-table.ts). */
+	@media (max-width: 40rem) {
+		th,
+		td {
+			padding: 0.4rem 0.45rem;
+			white-space: normal;
+		}
 	}
 
 	thead th {

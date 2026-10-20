@@ -33,7 +33,7 @@
 	import { answerTileIds, joinTiles, tileBank, type Tile } from '$lib/domain/tiles';
 	import { choicesFor, goldSentence, stepPool } from '$lib/domain/fillLadder';
 	import { splitGapAnswer } from '$lib/domain/answers';
-	import { LadderRun } from '$lib/state/ladderRun.svelte';
+	import { LadderRun, type ClimbOffer } from '$lib/state/ladderRun.svelte';
 	import MedalLadder from './MedalLadder.svelte';
 	import { tick, untrack } from 'svelte';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
@@ -53,7 +53,8 @@
 		onAnswer,
 		onRunFinished,
 		onQuestion,
-		onTryAgain
+		onTryAgain,
+		onClimbOffer
 	}: {
 		quiz: FillBlankQuiz;
 		locale: string;
@@ -64,6 +65,8 @@
 		onQuestion?: (q: QuestionRef | null) => void;
 		/** Starts a fresh run, as the finish bar's "Try again" does. */
 		onTryAgain?: () => void;
+		/** A finished run's next medal, for the finish bar's "Try for silver". */
+		onClimbOffer?: (offer: ClimbOffer | null) => void;
 	} = $props();
 
 	/** The ladder, easiest first: the step's index is its medal's. */
@@ -507,6 +510,10 @@
 		run.climb(to);
 		onTryAgain?.();
 	}
+
+	// A finished run tells the page which medal is next, so its finish bar
+	// offers that instead of the same step again.
+	$effect(() => onClimbOffer?.(runDone ? run.offer(onTryAgain) : null));
 
 	/** Every gap has something in it, so the answer can be checked. */
 	const filled = $derived(answers.every((a) => a.trim().length > 0));

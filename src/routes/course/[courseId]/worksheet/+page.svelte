@@ -8,6 +8,7 @@
 	// Everything above the sheet is `no-print`: what the printer sees is the
 	// header, the exercises, and the answers wherever the learner put them.
 	import Icon from '$lib/icons/Icon.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { track } from '$lib/services/analytics';
 	import { progress } from '$lib/state/progress.svelte';
 	import {
@@ -159,8 +160,8 @@
 
 <main class="page-wide sheet-page">
 	<div class="no-print">
-		<a class="back-link" href="/course/{course.id}">
-			<Icon name="arrowLeft" size="1em" /> {course.name}
+		<a class="back-link" href={returnTo.path}>
+			<Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}
 		</a>
 
 		<header class="head">

@@ -84,7 +84,7 @@ export interface BookPart {
 	chapters: BookChapter[];
 	/** The medal-ladder page: the part's hardest items, seeded. */
 	challenge: ChallengeItem[];
-	/** A light page between the heavy units: eight yes/no questions. */
+	/** A light page between the heavy units: twelve yes/no questions. */
 	round?: JaNeinRound;
 }
 

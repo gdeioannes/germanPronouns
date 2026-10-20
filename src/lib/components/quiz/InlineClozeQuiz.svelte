@@ -24,7 +24,7 @@
 	import { matchesAccepted } from '$lib/domain/answers';
 	import { seededShuffle } from '$lib/domain/lesson';
 	import { LADDER_PASS, RUN_LENGTH, TIER_LABELS } from '$lib/domain/progress';
-	import { LadderRun } from '$lib/state/ladderRun.svelte';
+	import { LadderRun, type ClimbOffer } from '$lib/state/ladderRun.svelte';
 	import MedalLadder from './MedalLadder.svelte';
 	import RibbonBadge from '../RibbonBadge.svelte';
 	import { paginateCloze, type ClozePart } from '$lib/domain/paginate';
@@ -39,13 +39,19 @@
 		quiz,
 		locale,
 		onFinish,
-		onQuestion
+		onQuestion,
+		onTryAgain,
+		onClimbOffer
 	}: {
 		quiz: InlineClozeQuiz;
 		locale: string;
 		onFinish: (passed: boolean, correct: number, total: number) => void;
 		/** Which page of gaps is on screen, for "Report a problem". */
 		onQuestion?: (q: QuestionRef | null) => void;
+		/** Starts the exercise afresh, as the finish bar's "Try again" does. */
+		onTryAgain?: () => void;
+		/** A checked text's next medal, for the finish bar's "Try for silver". */
+		onClimbOffer?: (offer: ClimbOffer | null) => void;
 	} = $props();
 
 	/**
@@ -239,9 +245,11 @@
 	}
 
 	/** The step above this one, once this one's medal is won. */
-	const up = $derived(
-		run.step + 1 < STEPS.length && run.summary(true, () => {}).earned ? run.step + 1 : null
-	);
+	const up = $derived(run.nextUp);
+
+	// A checked text tells the page which medal is next, so its finish bar
+	// offers that instead of the same step again.
+	$effect(() => onClimbOffer?.(checked ? run.offer(onTryAgain) : null));
 
 	function retry() {
 		answers = quiz.inlineBlanks.map(() => '');
@@ -360,9 +368,12 @@
 								<RibbonBadge tier={up === 1 ? 'silver' : 'gold'} width={12} />
 								<span><strong>{TIER_LABELS[up === 1 ? 'silver' : 'gold']} is next:</strong> {STEPS[up].hint}</span>
 							</p>
-							<button type="button" class="btn" onclick={() => setStep(up!)}>
-								Try for {up === 1 ? 'silver' : 'gold'}
-							</button>
+							{#if !passed}
+								<!-- A pass brings up the page's finish bar, which offers it. -->
+								<button type="button" class="btn" onclick={() => setStep(up!)}>
+									Try for {up === 1 ? 'silver' : 'gold'}
+								</button>
+							{/if}
 						</div>
 					{:else if !stepPassed}
 						<p class="reading-sub">

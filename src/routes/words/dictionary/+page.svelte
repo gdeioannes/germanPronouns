@@ -40,8 +40,8 @@
 </script>
 
 <Seo
-	title="German function words A–Z: {data.total} pronouns, prepositions and particles | Language Quiz"
-	description="Every German function word in the course with its English meaning: pronouns, articles, prepositions, conjunctions, adverbs and the particles like doch and mal that no vocabulary list teaches. Free, no sign-up."
+	title="German function words A–Z: {data.total} with English meanings"
+	description="Every German pronoun, article, preposition, conjunction and particle in the course, like doch and mal, with its English meaning. Free, no sign-up."
 	path="/words/dictionary"
 	image={shareImage('words', 'dictionary')}
 	imageAlt="German function words with their English meanings"

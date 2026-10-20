@@ -6,7 +6,9 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { STORY_EPISODES } from '$lib/domain/stories';
+	import { ORGANIZATION, absoluteUrl, breadcrumbLd } from '$lib/seo';
 	import { page } from '$app/state';
 
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
@@ -14,15 +16,27 @@
 </script>
 
 <Seo
-	title="Stories — Language Quiz"
-	description="Maya's Berlin mysteries: playable German stories, one per step of the course. Pick an episode and solve the case with the German you have."
+	title="Interactive German stories for beginners | Language Quiz"
+	description="Maya's Berlin mysteries: playable German stories with audio, one per step of the course. Pick an episode and solve the case with the German you have."
 	path="/stories"
+	jsonLd={[
+		{
+			'@context': 'https://schema.org',
+			'@type': 'CollectionPage',
+			name: "Maya's Berlin mysteries",
+			url: absoluteUrl('/stories'),
+			inLanguage: ['en', 'de'],
+			isAccessibleForFree: true,
+			publisher: ORGANIZATION
+		},
+		breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Stories', path: '/stories' }])
+	]}
 />
 
 <SiteNav {courseHref} />
 
 <main class="page-wide">
-	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
+	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 
 	<header>
 		<h1>Stories</h1>

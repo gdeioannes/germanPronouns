@@ -143,8 +143,6 @@
 	<a href="/stories"><Icon name="compass" size="1em" /> Stories</a>
 	<a href="/literature"><Icon name="book" size="1em" /> Literature</a>
 	<a href={firstSong}><Icon name="headphones" size="1em" /> Songs</a>
-	<a href="/play/ja-nein"><Icon name="swipe" size="1em" /> Ja oder Nein?</a>
-	<a href="/play/schreib-mir"><Icon name="heart" size="1em" /> Schreib mir!</a>
 {/snippet}
 
 <!-- The forum is a root link, not a dropdown entry: it is where a learner goes
@@ -631,6 +629,15 @@
 
 	.mini.open {
 		box-shadow: 0 18px 36px -28px rgba(31, 58, 95, 0.55);
+	}
+
+	/* A sticky bar taller than the screen keeps its top pinned, so the end of
+	   the menu would only show once the page under it ran out. The menu gets
+	   the screen below the bar and scrolls on its own instead. */
+	.mini > nav {
+		max-height: calc(100dvh - 3.4rem);
+		overflow-y: auto;
+		overscroll-behavior: contain;
 	}
 
 	.mini-row {

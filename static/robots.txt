@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /settings
+# /settings is noindex instead: a blocked page can't show crawlers its noindex.
 # The worksheet builder is a tool, not a page worth indexing.
 Disallow: /course/*/worksheet
 # Internal design and preview pages.

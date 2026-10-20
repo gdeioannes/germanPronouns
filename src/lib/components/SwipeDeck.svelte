@@ -1,3 +1,8 @@
+<script lang="ts" module>
+	/** True until the first deck of this page load has mounted; that one came in the prerendered page. */
+	const pageLoad = { firstDeck: true };
+</script>
+
 <script lang="ts">
 	// The swipe deck — the course home's main event. A stack of exercise cards
 	// dealt from what the learner has done, the pace they want and the level
@@ -17,6 +22,8 @@
 	// The chip above the stack opens the deck chooser: how to learn (the pace)
 	// and where the learner is (the level). Both redeal the stack at once.
 	import Icon from '$lib/icons/Icon.svelte';
+	import { LOADING_TIPS, tipHtml } from '$lib/content/loadingTips';
+	import { browser } from '$app/environment';
 	import { QUIZ_TYPE_ICONS, type IconName } from '$lib/icons/paths';
 	import DoneMark from '$lib/components/DoneMark.svelte';
 	import InProgressBadge from '$lib/components/InProgressBadge.svelte';
@@ -129,6 +136,47 @@
 		// and a pick would otherwise re-run the load.
 		untrack(() => void load());
 	});
+
+	// The intro card's tip. The prerendered page carries the first tip plus a
+	// tiny script that swaps in a random one before paint; in the browser the
+	// component picks its own for client-side visits.
+	const tipIndex = browser ? Math.floor(Math.random() * LOADING_TIPS.length) : 0;
+
+	// The tip card stays INTRO_MS every time the deck opens, long enough to read
+	// it, and longer only if the deck is not dealt yet. A tap on the card once
+	// the deck is ready skips the rest of the wait.
+	const INTRO_MS = 4000;
+	let introDone = $state(false);
+	$effect(() => {
+		// The first deck of a page load was in the prerendered page, so it has
+		// been on screen since first paint: count from there. A deck opened
+		// later inside the app appears now: count from now.
+		const since = pageLoad.firstDeck ? performance.now() : 0;
+		pageLoad.firstDeck = false;
+		const timer = setTimeout(() => (introDone = true), Math.max(0, INTRO_MS - since));
+		return () => clearTimeout(timer);
+	});
+	const tipPicker =
+		'<scr' +
+		'ipt>try{var t=' +
+		JSON.stringify(LOADING_TIPS.map(tipHtml)).replace(/</g, '\\u003c') +
+		';document.getElementById("intro-tip").innerHTML=t[Math.floor(Math.random()*t.length)]}catch(e){}</scr' +
+		'ipt>';
+
+	/** The intro card's exit: a swipe off to a random side; a plain fade under calm or reduced motion. */
+	function liftAway(_node: Element) {
+		const calm = prefersReducedMotion() || document.documentElement.dataset.effects === 'calm';
+		// Swiped off like a played card, to the left or the right at random.
+		const side = Math.random() < 0.5 ? -1 : 1;
+		return {
+			duration: calm ? 150 : 480,
+			easing: (x: number) => x * x * (3 - 2 * x),
+			css: (t: number, u: number) =>
+				calm
+					? `opacity: ${t}`
+					: `opacity: ${Math.min(1, t * 2.5)}; transform: translate(${side * u * 125}%, ${u * 6}%) rotate(${side * u * 22}deg);`
+		};
+	}
 
 	async function load() {
 		try {
@@ -263,8 +311,8 @@
 				covers: []
 			},
 			reason: round
-				? `${round.hook} Eight swipes, no marks, and a verdict on who you are tonight for your persona shelf.`
-				: 'Eight swipes, no marks, and a verdict on who you are tonight, ready to send to a friend.'
+				? `${round.hook} Twelve swipes, no marks, and your type in percent for your persona shelf.`
+				: 'Twelve swipes, no marks, and your type in percent, ready to send to a friend.'
 		};
 	}
 	const isPlayCard = (card: DeckCard) => card.kind === 'play';
@@ -500,8 +548,31 @@
 	</header>
 
 	<div class="stage" bind:this={stageEl}>
-		{#if !loaded}
-			<div class="card ghost" aria-hidden="true"></div>
+		{#if !loaded || !introDone}
+			<!-- The intro card: what the deck shows while it deals, from the very
+			     first paint (it is in the prerendered page, and its animation is
+			     CSS, so it moves before any script runs). When the deck is ready it
+			     lifts away and the real cards deal in under it. -->
+			<div class="card intro" out:liftAway role="status" style="--intro-ms: {INTRO_MS}ms">
+				<!-- A random odd word or fact. The script picks it while the page is
+				     parsed, so a full load paints it straight away; on a client-side
+				     visit the component's own pick shows. {@html} is not repaired on
+				     hydration, so the two never fight. -->
+				<p class="intro-tip" id="intro-tip">{@html tipHtml(LOADING_TIPS[tipIndex])}</p>
+				{@html tipPicker}
+				<div class="intro-foot">
+					<span class="intro-fan" aria-hidden="true"><span></span><span></span><span></span></span>
+					<p class="intro-line"><span lang="de" aria-hidden="true">Mischen…</span> shuffling your cards</p>
+				</div>
+				<!-- Fills over the wait: the cards are coming. -->
+				<span class="intro-bar" aria-hidden="true"></span>
+				{#if loaded}
+					<!-- Ready: the whole card becomes the way in, so nobody has to wait it out. -->
+					<button type="button" class="intro-skip" onclick={() => (introDone = true)}>
+						<span class="sr-only">Show my cards</span>
+					</button>
+				{/if}
+			</div>
 		{:else if !top}
 			<div class="card empty">
 				<Icon name="trophy" size="1.6em" />
@@ -558,7 +629,7 @@
 								<span class="chat-flag">💬 Schreib mir!</span>
 								<span class="chat-tag" class:resume>{resume ? 'Läuft noch' : 'Neues Match'}</span>
 								<div class="chat-name">
-									<h3 class="title">{card.quiz.title} <span class="chat-lvl">{chat?.level}</span></h3>
+									<h3 class="title"><span lang={course.learnLocale}>{card.quiz.title}</span> <span class="chat-lvl">{chat?.level}</span></h3>
 									<p class="chat-bio" lang="de">„{chat?.bio}“</p>
 								</div>
 							</div>
@@ -606,7 +677,7 @@
 								<span class="kind-label">{DECK_KIND_LABELS[card.kind]}</span>
 								<span class="left tnum">{isTop ? `Card ${handSize - deck.length + 1} of ${handSize}` : ''}</span>
 							</p>
-							<h3 class="title">{card.quiz.title}</h3>
+							<h3 class="title" lang={course.learnLocale}>{card.quiz.title}</h3>
 							<p class="reason">{card.reason}</p>
 
 							<p class="meta">
@@ -827,7 +898,7 @@
 
 	/* A fresh deal: the cards drop onto the table one after another. Uses the
 	   separate `translate` property so it composes with the stack transform. */
-	.stage .card:not(.ghost):not(.empty) {
+	.stage .card:not(.intro):not(.empty) {
 		animation: deal-in var(--slow) var(--ease-out) backwards;
 	}
 
@@ -839,7 +910,7 @@
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.stage .card:not(.ghost):not(.empty) {
+		.stage .card:not(.intro):not(.empty) {
 			animation: none;
 		}
 	}
@@ -1097,9 +1168,298 @@
 		opacity: 0;
 	}
 
-	.card.ghost {
-		border-top-color: var(--line);
-		background: var(--surface-alt);
+	/* -- the intro card ------------------------------------------------------ */
+
+	/* A flash card the deck shows while it deals: an odd German word or a small
+	   fact, a faint watermark behind it, and a bar that fills over the wait. */
+	.card.intro {
+		--serif: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		/* Its contents size themselves to the card's height (see @container intro). */
+		container: intro / size;
+		z-index: 2;
+		align-items: center;
+		justify-content: center;
+		gap: 0;
+		padding: 1.6rem 1.4rem 3rem;
+		text-align: center;
+		border-top-color: var(--accent);
+		background:
+			radial-gradient(120% 70% at 50% 0%, rgba(201, 104, 59, 0.12), transparent 60%),
+			radial-gradient(90% 60% at 50% 100%, rgba(31, 58, 95, 0.06), transparent 70%),
+			var(--surface);
+	}
+
+	/* A soft light that sweeps across the card while it waits. */
+	.card.intro::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.5) 50%, transparent 62%);
+		transform: translateX(-100%);
+		animation: intro-sweep 2.4s var(--ease-out) 0.4s infinite;
+		pointer-events: none;
+	}
+
+	.intro-tip {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		justify-items: center;
+		gap: 0.55rem;
+		max-width: 22rem;
+		margin: 0 auto;
+		animation: intro-rise 0.6s var(--ease-out) backwards;
+	}
+
+	/* The watermark: the word's first letter, huge and faint, behind the text. */
+	.intro-tip :global(.tip-mark) {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: -1;
+		translate: -50% -54%;
+		font-family: var(--serif);
+		font-size: 15rem;
+		font-weight: 700;
+		line-height: 1;
+		color: rgba(201, 104, 59, 0.08);
+		pointer-events: none;
+		user-select: none;
+	}
+
+	.intro-tip :global(.tip-kind) {
+		padding: 0.28rem 0.7rem;
+		border-radius: 999px;
+		background: var(--accent-soft);
+		color: var(--accent-ink);
+		font-size: 0.66rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+	.intro-tip :global(.tip-de) {
+		margin-top: 0.4rem;
+		font-family: var(--serif);
+		font-size: clamp(2rem, 1.5rem + 2.2vw, 2.7rem);
+		font-weight: 700;
+		line-height: 1.05;
+		letter-spacing: -0.01em;
+		color: var(--heading);
+		/* Sized so each word fits a line (see tipHtml): a phrase may wrap
+		   between its words, a word is never broken in the middle. */
+		overflow-wrap: normal;
+		word-break: keep-all;
+		text-wrap: balance;
+	}
+	.intro-tip :global(.tip-de.long) {
+		font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.3rem);
+	}
+	.intro-tip :global(.tip-de.xlong) {
+		font-size: clamp(1.45rem, 1.15rem + 1.3vw, 2rem);
+	}
+	.intro-tip :global(.tip-de.phrase) {
+		font-size: clamp(1.4rem, 1.15rem + 1.2vw, 1.95rem);
+		line-height: 1.12;
+	}
+
+	/* A short card (a small phone): everything steps down to fit its height. */
+	@container intro (max-height: 380px) {
+		.intro-tip {
+			gap: 0.3rem;
+		}
+		.intro-tip :global(.tip-mark) {
+			font-size: 9rem;
+		}
+		.intro-tip :global(.tip-kind) {
+			padding: 0.18rem 0.55rem;
+			font-size: 0.6rem;
+		}
+		.intro-tip :global(.tip-de) {
+			margin-top: 0.15rem;
+			font-size: 1.75rem;
+		}
+		.intro-tip :global(.tip-de.long) {
+			font-size: 1.55rem;
+		}
+		.intro-tip :global(.tip-de.xlong) {
+			font-size: 1.35rem;
+		}
+		.intro-tip :global(.tip-de.phrase) {
+			font-size: 1.3rem;
+		}
+		.intro-tip :global(.tip-literal) {
+			font-size: 1rem;
+		}
+		.intro-tip :global(.tip-en) {
+			padding-top: 0.35rem;
+			font-size: 0.88rem;
+			line-height: 1.4;
+		}
+		.intro-tip :global(.tip-fact) {
+			margin-top: 0.2rem;
+			font-size: 1.1rem;
+			line-height: 1.3;
+		}
+		.intro-foot {
+			bottom: 0.7rem;
+		}
+	}
+	/* The literal reading, then the real meaning under a short rule. */
+	.intro-tip :global(.tip-literal) {
+		font-family: var(--serif);
+		font-size: var(--step-1);
+		font-style: italic;
+		color: var(--accent-ink);
+	}
+	.intro-tip :global(.tip-literal)::before {
+		content: '„';
+	}
+	.intro-tip :global(.tip-literal)::after {
+		content: '“';
+	}
+	.intro-tip :global(.tip-en) {
+		max-width: 18rem;
+		padding-top: 0.6rem;
+		border-top: 1px solid var(--line-strong);
+		font-size: var(--step-0);
+		line-height: 1.5;
+		color: var(--ink);
+	}
+	.intro-tip :global(.tip-fact) {
+		margin-top: 0.4rem;
+		font-family: var(--serif);
+		font-size: clamp(1.2rem, 1rem + 1.1vw, 1.6rem);
+		line-height: 1.3;
+		color: var(--heading);
+		text-wrap: balance;
+	}
+
+	/* Once the deck is ready the card is one big button: tap to see your cards. */
+	.intro-skip {
+		position: absolute;
+		inset: 0;
+		z-index: 3;
+		border: 0;
+		background: none;
+		cursor: pointer;
+	}
+	.intro-skip:focus-visible {
+		outline: 3px solid var(--accent);
+		outline-offset: -3px;
+		border-radius: inherit;
+	}
+
+	/* The foot: the little cards riffling, and what is happening. */
+	.intro-foot {
+		position: absolute;
+		bottom: 1.15rem;
+		left: 0;
+		right: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.55rem;
+	}
+	.intro-line {
+		margin: 0;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+	.intro-line span {
+		font-weight: 700;
+		color: var(--accent-ink);
+	}
+
+	/* Three little cards, in the deck's own kind colours, riffling. */
+	.intro-fan {
+		position: relative;
+		width: 1.6rem;
+		height: 1.5rem;
+	}
+	.intro-fan > span {
+		position: absolute;
+		inset: 0.05rem 0.3rem;
+		border-radius: 0.25rem;
+		border: 1px solid var(--line-strong);
+		border-top: 3px solid var(--kind, var(--terracotta));
+		background: var(--surface);
+		box-shadow: 0 4px 8px -5px rgba(31, 58, 95, 0.55);
+		animation: intro-riffle 1.6s var(--ease-out) infinite;
+	}
+	.intro-fan > span:nth-child(1) {
+		--kind: var(--ochre);
+		--to: -0.55rem;
+		--turn: -16deg;
+	}
+	.intro-fan > span:nth-child(2) {
+		--kind: var(--forest);
+		--to: 0rem;
+		--turn: 0deg;
+		animation-delay: 0.08s;
+	}
+	.intro-fan > span:nth-child(3) {
+		--kind: var(--terracotta);
+		--to: 0.55rem;
+		--turn: 16deg;
+		animation-delay: 0.16s;
+	}
+
+	/* The wait, as a thin bar along the bottom edge. */
+	.intro-bar {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 3px;
+		width: 100%;
+		background: var(--accent);
+		transform-origin: left;
+		animation: intro-fill var(--intro-ms, 4000ms) linear both;
+	}
+
+	@keyframes intro-rise {
+		from {
+			opacity: 0;
+			translate: 0 0.6rem;
+		}
+	}
+	@keyframes intro-fill {
+		from {
+			transform: scaleX(0);
+		}
+		to {
+			transform: scaleX(1);
+		}
+	}
+
+	@keyframes intro-riffle {
+		0%,
+		100% {
+			transform: translateX(0) rotate(0deg);
+		}
+		40%,
+		60% {
+			transform: translateX(var(--to)) rotate(var(--turn));
+		}
+	}
+	@keyframes intro-sweep {
+		to {
+			transform: translateX(100%);
+		}
+	}
+
+	/* Calm effects or reduced motion: the same card, standing still. */
+	:global(html[data-effects='calm']) .card.intro::after,
+	:global(html[data-effects='calm']) .intro-fan > span,
+	:global(html[data-effects='calm']) .intro-tip {
+		animation: none;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.card.intro::after,
+		.intro-fan > span,
+		.intro-tip {
+			animation: none;
+		}
 	}
 
 	.card.empty {

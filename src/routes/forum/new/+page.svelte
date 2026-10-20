@@ -1,7 +1,7 @@
 <script lang="ts">
 	// A new topic, by hand. The in-quiz report panel is the fast path for
 	// problems; this page is for questions, ideas and anything with a title of
-	// its own. "?category=" preselects a board.
+	// its own. "?category=" preselects a board, "?title=" starts the title.
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
@@ -17,6 +17,7 @@
 	import { track } from '$lib/services/analytics';
 	import { account } from '$lib/state/account.svelte';
 	import { forum } from '$lib/state/forum.svelte';
+	import { BOOK_REQUEST_TITLE, bookRequestRule } from '$lib/content/literature';
 
 	const available = cloudConfigured();
 
@@ -26,10 +27,15 @@
 	let noNotify = $state(false);
 	let busy = $state(false);
 	let error = $state<string | null>(null);
+	// Came from a "ask for a book" link: show which books can go on the shelf.
+	let bookRequest = $state(false);
 
 	onMount(() => {
-		const wanted = new URLSearchParams(window.location.search).get('category');
+		const params = new URLSearchParams(window.location.search);
+		const wanted = params.get('category');
 		if (isCategory(wanted)) category = wanted;
+		title = (params.get('title') ?? '').slice(0, LIMITS.title);
+		bookRequest = title.startsWith(BOOK_REQUEST_TITLE.trim());
 	});
 
 	$effect(() => {
@@ -100,6 +106,13 @@
 						exercise itself</strong> files it with the question number already
 						filled in. This form works too — say which exercise it is.
 					</span>
+				</p>
+			{/if}
+
+			{#if bookRequest}
+				<p class="tip">
+					<Icon name="info" size="1em" />
+					<span>{bookRequestRule()}</span>
 				</p>
 			{/if}
 

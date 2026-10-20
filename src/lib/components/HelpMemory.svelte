@@ -40,6 +40,7 @@
 	import SpeakButton from './SpeakButton.svelte';
 	import GermanText from './GermanText.svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
+	import { fitTable } from '$lib/fit-table';
 	import { speakable } from '$lib/domain/lesson';
 	import { vocabFor, type SharedNoun } from '$lib/domain/vocab';
 
@@ -133,7 +134,7 @@
 				<!-- 3 · The reference table: authored, or the quiz's own answer key
 				     seen sideways, so it can never drift from the questions. -->
 				{#if help?.table}
-					<div class="table-wrap">
+					<div class="table-wrap" use:fitTable={help.table}>
 						{#if help.table.caption}<h4 class="section-head">{help.table.caption}</h4>{/if}
 						<table>
 							<thead>
@@ -155,7 +156,7 @@
 						</table>
 					</div>
 				{:else if derivedTable}
-					<div class="table-wrap">
+					<div class="table-wrap" use:fitTable={derivedTable}>
 						<table>
 							<thead>
 								<tr>
@@ -352,8 +353,9 @@
 		margin-bottom: 0.3rem;
 	}
 
-	/* The table is the one thing here that may be wider than the page, so it
-	   scrolls inside its own box rather than pushing the layout sideways. */
+	/* The table is the one thing here that may be wider than the page. On a
+	   phone its cells wrap, and one still too wide becomes cards (fit-table.ts);
+	   scrolling inside its own box is only the last resort. */
 	.table-wrap {
 		margin-top: 1rem;
 		overflow-x: auto;
@@ -371,6 +373,14 @@
 		text-align: left;
 		border-bottom: 1px solid var(--line);
 		white-space: nowrap;
+	}
+
+	@media (max-width: 40rem) {
+		th,
+		td {
+			padding: 0.4rem 0.45rem;
+			white-space: normal;
+		}
 	}
 
 	thead th {

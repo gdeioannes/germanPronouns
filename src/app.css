@@ -613,3 +613,52 @@ html[data-effects='calm'] .flame {
 	animation: none !important;
 	filter: none !important;
 }
+
+/* A reference table too wide for its box, even with wrapping cells
+   (lib/fit-table.ts marks the box): each row becomes a small card, the row's
+   first cell its title and every value labelled with its column heading, so
+   nothing scrolls sideways. The headings row stays for screen readers. */
+.stacked table,
+.stacked tbody {
+	display: block;
+	width: 100%;
+}
+.stacked thead {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+.stacked tbody tr {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 0.3rem 1rem;
+	padding: 0.55rem 0;
+	border-bottom: 1px solid var(--line);
+}
+.stacked tbody th {
+	flex: 1 0 100%;
+	padding: 0;
+	border: 0;
+	white-space: normal;
+}
+.stacked tbody td {
+	display: grid;
+	gap: 0.05rem;
+	padding: 0;
+	border-bottom: 0;
+	white-space: normal;
+	hyphens: auto;
+}
+.stacked tbody td[data-label]::before {
+	content: attr(data-label);
+	font-family: 'Inter Variable', 'Inter', system-ui, sans-serif;
+	font-size: 0.66rem;
+	font-weight: 800;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--ink-muted);
+}

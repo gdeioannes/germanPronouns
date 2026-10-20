@@ -55,6 +55,36 @@ export function inertOutside(el: HTMLElement): () => void {
 }
 
 /**
+ * A `use:modal` action for an overlay rendered by `{#if}`: while it is
+ * mounted the page behind is inert, focus moves into it (to an
+ * `[autofocus]` field when there is one, else the element itself, which
+ * needs `tabindex="-1"`), Escape calls `onclose` when given, and focus goes
+ * back where it was once the overlay is gone. Sheet.svelte is the
+ * always-mounted version of the same contract.
+ */
+export function modal(node: HTMLElement, onclose?: () => void) {
+	let close = onclose;
+	const returnFocus = document.activeElement as HTMLElement | null;
+	const release = inertOutside(node);
+	const target = node.querySelector<HTMLElement>('[autofocus]') ?? node;
+	target.focus({ preventScroll: true });
+	function onKey(event: KeyboardEvent) {
+		if (event.key !== 'Escape' || !close) return;
+		event.stopPropagation();
+		close();
+	}
+	node.addEventListener('keydown', onKey);
+	return {
+		update: (next?: () => void) => (close = next),
+		destroy: () => {
+			node.removeEventListener('keydown', onKey);
+			release();
+			if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
+		}
+	};
+}
+
+/**
  * Arrow keys for a `role="radiogroup"` built from buttons, as a native radio
  * group behaves: arrows move to the neighbouring option and select it. Pair
  * it with `tabindex={checked ? 0 : -1}` on each option, so the group is one

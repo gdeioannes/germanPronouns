@@ -33,7 +33,7 @@
 	import RunTracker from './RunTracker.svelte';
 	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE } from '$lib/domain/progress';
 	import { checkWritten } from '$lib/domain/flashcards';
-	import { LadderRun } from '$lib/state/ladderRun.svelte';
+	import { LadderRun, type ClimbOffer } from '$lib/state/ladderRun.svelte';
 	import { tts } from '$lib/services/speech';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
@@ -46,7 +46,8 @@
 		locale,
 		onRunFinished,
 		onQuestion,
-		onTryAgain
+		onTryAgain,
+		onClimbOffer
 	}: {
 		quiz: SuchbildQuiz;
 		locale: string;
@@ -56,6 +57,8 @@
 		onQuestion?: (q: QuestionRef | null) => void;
 		/** Starts a fresh run, as the finish bar's "Try again" does. */
 		onTryAgain?: () => void;
+		/** A finished run's next medal, for the finish bar's "Try for silver". */
+		onClimbOffer?: (offer: ClimbOffer | null) => void;
 	} = $props();
 
 	type Mode = 'find' | 'name' | 'listen';
@@ -228,6 +231,10 @@
 		run.climb(to);
 		onTryAgain?.();
 	}
+
+	// A finished run tells the page which medal is next, so its finish bar
+	// offers that instead of the same step again.
+	$effect(() => onClimbOffer?.(runDone ? run.offer(onTryAgain) : null));
 
 	/** The listen step: the found thing, written with its article. */
 	function submitWritten() {

@@ -5,6 +5,8 @@ import { coursePaths, DICTIONARY_PATH, lastModified, SHARED_WORD_PATHS } from '$
 import { nouns, verbs } from '$lib/server/words';
 import { wordSlug } from '$lib/domain/words';
 import { SONGS } from '$lib/domain/songs';
+import { LITERATURE } from '$lib/content/literature';
+import { kafkaStages } from '$lib/server/kafka';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
@@ -25,11 +27,25 @@ export const GET: RequestHandler = async () => {
 		{ loc: '/contact', lastmod: lastModified('src/routes/contact'), priority: '0.3' },
 		{ loc: '/stories', lastmod: lastModified('src/lib/domain/stories.ts'), priority: '0.6' },
 		{ loc: '/literature', lastmod: lastModified('src/lib/content/literature.ts'), priority: '0.6' },
+		// The boards' front page; the topics themselves load live and stay noindex.
+		{ loc: '/forum', lastmod: lastModified('src/routes/forum'), priority: '0.4' },
 		{ loc: '/words', lastmod: wordsDate, priority: '0.6' },
 		{ loc: '/words/nouns', lastmod: wordsDate, priority: '0.7' },
 		{ loc: '/words/verbs', lastmod: wordsDate, priority: '0.7' },
 		{ loc: '/words/dictionary', lastmod: lastModified(DICTIONARY_PATH), priority: '0.7' }
 	];
+
+	// The annotated editions themselves: a search engine indexes a PDF's text,
+	// so "Die Verwandlung with English notes" can land straight on the book.
+	for (const book of LITERATURE) {
+		urls.push({ loc: book.pdf.href, lastmod: lastModified(`static${book.pdf.href}`), priority: '0.5' });
+		// The book read online: its front page and one page per stage.
+		if (book.read) {
+			const lastmod = lastModified('assets/reference', 'src/routes/literature');
+			urls.push({ loc: book.read, lastmod, priority: '0.6' });
+			for (const stage of kafkaStages()) urls.push({ loc: `${book.read}/stage-${stage.n}`, lastmod, priority: '0.5' });
+		}
+	}
 
 	for (const card of courses) {
 		const lastmod = lastModified(...coursePaths(card.id));

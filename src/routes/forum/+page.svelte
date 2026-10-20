@@ -8,9 +8,11 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import Seo from '$lib/components/Seo.svelte';
+	import { breadcrumbLd } from '$lib/seo';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import ThreadRow from '$lib/components/forum/ThreadRow.svelte';
 	import { openSignIn } from '$lib/state/signin.svelte';
 	import { FORUM_CATEGORIES, isCategory, matchesSearch, type ForumCategory, type ForumThread } from '$lib/domain/forum';
@@ -80,15 +82,16 @@
 </script>
 
 <Seo
-	title="Forum — Language Quiz"
+	title="German learners' forum: questions and reports | Language Quiz"
 	description="Report a problem with an exercise, ask a question about German, or suggest what the course should do next. Anyone can read; sign in to post."
 	path="/forum"
+	jsonLd={[breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Forum', path: '/forum' }])]}
 />
 
 <SiteNav courseHref={page.data.site?.courseHref ?? '/'} compact />
 
 <main class="page-wide">
-	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
+	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 	<header class="head">
 		<div>
 			<h1>Forum</h1>
@@ -258,6 +261,7 @@
 
 	.search:focus-within {
 		border-color: var(--accent);
+		box-shadow: 0 0 0 3px var(--accent-soft);
 	}
 
 	.board {

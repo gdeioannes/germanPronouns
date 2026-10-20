@@ -231,7 +231,7 @@
 					<span class="resume-label">
 						{totals.done === 0 ? 'First in order' : 'Next in order'}
 					</span>
-					<span class="resume-title">{resume.title}</span>
+					<span class="resume-title" lang={course.learnLocale}>{resume.title}</span>
 					<span class="resume-meta">{resume.level} · {typeLabel(resume.type)}</span>
 				</span>
 				<Icon name="arrowRight" size="1.2em" class="resume-go" />
@@ -292,7 +292,7 @@
 								<span class="kind" data-kind={quiz.type} title={quiz.type}>
 									<Icon name={QUIZ_TYPE_ICONS[quiz.type]} size="1em" />
 								</span>
-								<span class="title">{quiz.title}</span>
+								<span class="title" lang={course.learnLocale}>{quiz.title}</span>
 								{#if ribbon}<DoneMark mark={ribbon} width={13} />
 								{:else if inProgress.has(quiz.id)}<InProgressBadge />{/if}
 							</a>

@@ -10,6 +10,7 @@
 	import GermanText from '../GermanText.svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
 	import { splitFocus } from '$lib/domain/lesson';
+	import { fitTable } from '$lib/fit-table';
 	import { clockHands, spread, timelineX, VISUAL_KINDS } from '$lib/domain/lesson-visual';
 	import type { LessonVisual, TreeNode } from '$lib/content/types';
 
@@ -130,7 +131,7 @@
 		</div>
 	{:else if visual.kind === 'caseGrid'}
 		{@const cols = visual.columns ?? GENDER_COLS}
-		<div class="scroll">
+		<div class="scroll" use:fitTable={visual}>
 			<table class="grid">
 				<thead>
 					<tr>
@@ -157,7 +158,7 @@
 		</div>
 	{:else if visual.kind === 'people'}
 		{@const persons = visual.persons ?? DEFAULT_PERSONS}
-		<div class="scroll">
+		<div class="scroll" use:fitTable={visual}>
 			<table class="grid people">
 				<thead>
 					<tr>
@@ -187,27 +188,36 @@
 		</div>
 	{:else if visual.kind === 'timeline'}
 		{@const rows = spread(visual.marks)}
-		<div class="timeline" style="--rows:{Math.max(1, ...rows.map((m) => m.row + 1))}">
-			<div class="t-axis">
-				<span class="t-end">{visual.axis?.start ?? 'past'}</span>
-				{#if visual.axis?.now !== null}<span class="t-now" style="left:{timelineX(0)}%">{visual.axis?.now ?? 'now'}</span>{/if}
-				<span class="t-end future">{visual.axis?.end ?? 'future'}</span>
-			</div>
-			{#each rows as m, k (k)}
-				{#if m.to !== undefined}
-					<div
-						class="t-span"
-						style="left:{timelineX(Math.min(m.at, m.to))}%;width:{Math.abs(timelineX(m.to) - timelineX(m.at))}%;--row:{m.row}"
-					></div>
-				{:else}
-					<div class="t-dot" style="left:{timelineX(m.at)}%;--row:{m.row}"></div>
-				{/if}
-				{@const lx = timelineX(m.to !== undefined ? (m.at + m.to) / 2 : m.at)}
-				<div class="t-label" class:edge-l={lx < 18} class:edge-r={lx > 82} style="left:{timelineX(m.to !== undefined ? (m.at + m.to) / 2 : m.at)}%;--row:{m.row}">
-					{#if m.de}<b lang={locale}>{m.de}</b>{/if}
-					<span>{m.label}</span>
+		<!-- Wide: labels hang under their marks, one grid row per label row, so a
+		     label that wraps pushes the next row down instead of running into it.
+		     Narrow: every label gets a row of its own, still under its mark. -->
+		<div class="timeline">
+			<div class="t-track">
+				<div class="t-axis">
+					<span class="t-end">{visual.axis?.start ?? 'past'}</span>
+					{#if visual.axis?.now !== null}<span class="t-now" style="left:{timelineX(0)}%">{visual.axis?.now ?? 'now'}</span>{/if}
+					<span class="t-end future">{visual.axis?.end ?? 'future'}</span>
 				</div>
-			{/each}
+				{#each rows as m, k (k)}
+					{#if m.to !== undefined}
+						<div
+							class="t-span"
+							style="left:{timelineX(Math.min(m.at, m.to))}%;width:{Math.abs(timelineX(m.to) - timelineX(m.at))}%"
+						></div>
+					{:else}
+						<div class="t-dot" style="left:{timelineX(m.at)}%"></div>
+					{/if}
+				{/each}
+			</div>
+			<div class="t-labels">
+				{#each rows as m, k (k)}
+					{@const lx = timelineX(m.to !== undefined ? (m.at + m.to) / 2 : m.at)}
+					<div class="t-label" class:edge-l={lx < 18} class:edge-r={lx > 82} style="--x:{lx}%;--r:{m.row + 1};--z:{10 - m.row};--s:{m.stack + 1};--sz:{10 - m.stack}">
+						{#if m.de}<b lang={locale}>{m.de}</b>{/if}
+						<span>{m.label}</span>
+					</div>
+				{/each}
+			</div>
 		</div>
 	{:else if visual.kind === 'scale'}
 		<div class="scale">
@@ -395,10 +405,21 @@
 		overflow-wrap: normal;
 		word-break: normal;
 	}
+	/* On a phone a long German word breaks at a syllable rather than pushing
+	   the bracket wider than the screen. */
 	@media (max-width: 30rem) {
+		.bracket {
+			gap: 0.2rem;
+		}
 		.b-cell {
 			padding: 0.35rem 0.4rem;
 			font-size: var(--step--1);
+			hyphens: auto;
+			overflow-wrap: break-word;
+		}
+		.b-head {
+			padding: 0 0.15rem;
+			overflow-wrap: anywhere;
 		}
 	}
 	.b-cell.hot {
@@ -451,6 +472,8 @@
 		}
 		.grid td {
 			padding: 0.32rem 0.4rem;
+			white-space: normal;
+			hyphens: auto;
 		}
 		.grid th {
 			padding: 0 0.2rem;
@@ -504,9 +527,12 @@
 
 	/* -- V3 timeline ------------------------------------------------------ */
 	.timeline {
-		position: relative;
-		height: calc(3.2rem + var(--rows) * 3.1rem);
+		container-type: inline-size;
 		margin: 0 0.4rem;
+	}
+	.t-track {
+		position: relative;
+		height: calc(1.6rem + 2px);
 	}
 	.t-axis {
 		position: absolute;
@@ -548,6 +574,7 @@
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
 		color: var(--accent-ink);
+		white-space: nowrap;
 	}
 	.t-now::after {
 		content: '';
@@ -574,22 +601,40 @@
 	}
 	.t-span {
 		height: 8px;
-		top: calc(1.6rem - 3px - var(--row) * 0px);
+		top: calc(1.6rem - 3px);
 		border-radius: 4px;
 		background: color-mix(in srgb, var(--accent) 55%, transparent);
 	}
+	/* One grid row per label row: a label that wraps makes its row taller, so
+	   the row under it moves down rather than being written over. */
+	.t-labels {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		row-gap: 0.6rem;
+		padding-top: 0.9rem;
+		/* Connectors run up to the line and stop there (clipped at the top only). */
+		clip-path: inset(0 -100vw -100vw -100vw);
+	}
 	.t-label {
-		position: absolute;
-		top: calc(2.4rem + var(--row) * 3.1rem);
+		grid-column: 1;
+		grid-row: var(--r);
+		justify-self: start;
+		margin-left: var(--x);
 		transform: translateX(-50%);
+		position: relative;
+		/* Upper rows sit above the connectors of the rows below them. */
+		z-index: var(--z);
 		display: grid;
 		justify-items: center;
 		text-align: center;
 		width: max-content;
 		max-width: 8rem;
+		padding: 0 0.15rem;
+		background: var(--paper-low);
 		font-size: 0.78rem;
 		line-height: 1.25;
 		color: var(--ink-muted);
+		overflow-wrap: break-word;
 	}
 	.t-label.edge-l {
 		transform: none;
@@ -601,26 +646,61 @@
 		justify-items: end;
 		text-align: right;
 	}
-	.t-label.edge-l::before {
-		left: 0;
-	}
-	.t-label.edge-r::before {
-		left: auto;
-		right: 0;
-	}
 	.t-label b {
 		font-family: var(--serif, inherit);
 		font-size: var(--step-0);
 		color: var(--ink);
+		max-width: 100%;
+		hyphens: auto;
 	}
-	.t-label::before {
+	.t-label::after {
 		content: '';
 		position: absolute;
-		top: calc(-0.8rem - var(--row) * 3.1rem);
-		height: calc(0.7rem + var(--row) * 3.1rem);
+		bottom: 100%;
 		left: 50%;
 		width: 1px;
+		height: 100rem;
 		background: var(--line-strong);
+		z-index: -1;
+	}
+	.t-label.edge-l::after {
+		left: 0.15rem;
+	}
+	.t-label.edge-r::after {
+		left: auto;
+		right: 0.15rem;
+	}
+
+	/* Too narrow for labels side by side: every label gets a row of its own,
+	   still under its mark. A label slides along its row as far as its mark
+	   sits along the line (x% of the way across puts x% of the label left of
+	   the mark), so it never runs off either edge, and its connector leaves
+	   from that same point. */
+	@container (max-width: 30rem) {
+		.t-label,
+		.t-label.edge-l,
+		.t-label.edge-r {
+			grid-row: var(--s);
+			z-index: var(--sz);
+			transform: translateX(calc(var(--x) * -1));
+			max-width: min(14rem, 85%);
+			justify-items: center;
+			text-align: center;
+		}
+		.t-label.edge-l {
+			justify-items: start;
+			text-align: left;
+		}
+		.t-label.edge-r {
+			justify-items: end;
+			text-align: right;
+		}
+		.t-label::after,
+		.t-label.edge-l::after,
+		.t-label.edge-r::after {
+			left: var(--x);
+			right: auto;
+		}
 	}
 
 	/* -- V17 scale -------------------------------------------------------- */

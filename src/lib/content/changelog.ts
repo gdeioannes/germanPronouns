@@ -16,6 +16,54 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-20",
+    title: "Ja oder Nein? starts again: ten new questions about you",
+    highlight: true,
+    items: [
+      "Ten new themes, all new: which German city, food, drink, season, animal, party guest, traveller, flatmate and friend are you, and how German are you, really? Each theme has ten rounds of twelve questions instead of eight.",
+      "The result is now your type in percent, with a short profile, your mix of all five types as one bar, what your Ja and Nein say about the way you swipe, who you get on with and who you clash with.",
+      "The whole result fits on one phone screen, with no scrolling.",
+      "Sharing sends your type and your mix, never your answers. Your friend's link opens the same twelve questions, shows your card first, and after they play it puts the two of you side by side.",
+    ],
+  },
+  {
+    date: "2026-10-20",
+    title: "A word to read while your cards are dealt",
+    items: [
+      "When the deck opens, it now shows a card with one odd German word or a small fact about Germany while your cards are shuffled: Kummerspeck, Treppenwitz, why you never wish a German happy birthday early. Once your cards are ready, tap it to go straight to them.",
+      "When you come back to the site, you land on your deck straight away, without the front page loading first.",
+      "The back arrow on menu pages, like the forum, the literature shelf or the stories, now takes you back where you came from: home or your deck.",
+      "Ja oder Nein? and Schreib mir! have left the menu. You meet them in your deck, as surprises.",
+    ],
+  },
+  {
+    date: "2026-10-20",
+    title: "Read Die Verwandlung online, and ask for the next book",
+    items: [
+      "Kafka's Die Verwandlung can now be read on the site, in the same twelve stages as the PDF: the hard words first, then the text, then the notes. The PDF is still there for anyone who would rather print it.",
+      "Under the literature shelf, a new link asks which book should come next. It opens the forum, where you can ask for a book or back someone else's pick. Only books whose author died more than 70 years ago can go on the shelf.",
+    ],
+  },
+  {
+    date: "2026-10-20",
+    title: "Go for the next medal in one tap",
+    items: [
+      "When you win a medal, the first button at the end of the run is now \"Try for silver\" (or gold), and it starts a fresh run on that way of playing. Reading, listening and other scored exercises offer the next medal the same way.",
+      "Your progress panel now shows how much of the course's medals you have won, in percent, where gold counts three times bronze.",
+      "The course page opens much faster.",
+    ],
+  },
+  {
+    date: "2026-10-20",
+    title: "Easier to read on a phone, and with a screen reader",
+    items: [
+      "Grammar tables too wide for a phone now turn into small cards, each value labelled with its column, instead of hiding columns off the side of the screen.",
+      "Timelines in the lessons no longer let their labels run into each other; on a phone each label gets a row of its own. Long German words in the sentence diagrams break at a syllable instead of pushing past the edge.",
+      "On a phone, the menu now scrolls on its own, so its last links can always be reached.",
+      "Screen readers: pop-up windows now take focus, close with Escape and give focus back; the step dots say whether a section was right or wrong; Schreib mir! messages and German titles are read in a German voice.",
+    ],
+  },
+  {
     date: "2026-10-19",
     title: "Literature: read Kafka in German",
     highlight: true,

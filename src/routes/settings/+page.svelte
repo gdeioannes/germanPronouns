@@ -6,6 +6,7 @@
 	// unlock anything — a learner who already speaks some German just goes
 	// straight to the level that suits them.
 	import Icon from '$lib/icons/Icon.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import PracticeReminder from '$lib/components/PracticeReminder.svelte';
 	import { rise } from '$lib/motion';
 	import { playSound } from '$lib/services/sounds';
@@ -44,7 +45,7 @@
 <Seo title="Settings — Language Quiz" description="Your Language Quiz settings: how answers are checked and revealed, the voice, calmer effects, surprises in the deck, your starting point and privacy." path="/settings" noindex />
 
 <main class="page">
-	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
+	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 	<h1>Settings</h1>
 
 	{#if message}

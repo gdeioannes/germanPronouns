@@ -20,7 +20,7 @@
 	import { forSpeech } from '$lib/domain/spoken';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { bumpOn, celebrate, react, shakeOn } from '$lib/motion/fx.svelte';
-	import { LadderRun } from '$lib/state/ladderRun.svelte';
+	import { LadderRun, type ClimbOffer } from '$lib/state/ladderRun.svelte';
 	import MedalLadder from './MedalLadder.svelte';
 	import RunSummary from './RunSummary.svelte';
 	import RunTracker from './RunTracker.svelte';
@@ -40,7 +40,8 @@
 		onRunFinished,
 		focusWord = null,
 		onQuestion,
-		onTryAgain
+		onTryAgain,
+		onClimbOffer
 	}: {
 		quiz: VocabularyQuiz;
 		courseId: string;
@@ -53,6 +54,8 @@
 		onQuestion?: (q: QuestionRef | null) => void;
 		/** Starts a fresh run, as the finish bar's "Try again" does. */
 		onTryAgain?: () => void;
+		/** A finished run's next medal, for the finish bar's "Try for silver". */
+		onClimbOffer?: (offer: ClimbOffer | null) => void;
 	} = $props();
 
 	type Mode = 'write' | 'choose' | 'flip';
@@ -277,6 +280,10 @@
 		run.climb(to);
 		onTryAgain?.();
 	}
+
+	// A finished run tells the page which medal is next, so its finish bar
+	// offers that instead of the same step again.
+	$effect(() => onClimbOffer?.(runDone ? run.offer(onTryAgain) : null));
 
 	function toggleWeak() {
 		if (locked) return;

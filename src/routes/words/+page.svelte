@@ -8,6 +8,7 @@
 	// plural, cases and conjugation tables live; this page only carries the
 	// index, so it stays light however many words the collections grow to.
 	import Icon from '$lib/icons/Icon.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { GENDER_ARTICLES, GENDER_COLORS } from '$lib/domain/gender';
 	import DoneMark from '$lib/components/DoneMark.svelte';
 	import { progress } from '$lib/state/progress.svelte';
@@ -75,7 +76,7 @@
 <SiteNav {courseHref} compact />
 
 <main class="page-wide">
-	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
+	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 	<h1>Word Library</h1>
 	<p class="lede">
 		Every German word the course uses, with its article, plural, conjugation and audio.

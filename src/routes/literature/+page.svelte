@@ -5,23 +5,30 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
-	import { LITERATURE } from '$lib/content/literature';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
+	import { LITERATURE, bookRequestHref, bookRequestRule } from '$lib/content/literature';
 	import { track } from '$lib/services/analytics';
+	import { bookLd, breadcrumbLd, itemListLd } from '$lib/seo';
 	import { page } from '$app/state';
 
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
 </script>
 
 <Seo
-	title="Literature — Language Quiz"
-	description="Read German classics in the original, annotated for English speakers: reading stages, glossaries before each stage and notes on the language. Free PDF."
+	title="German classics annotated for English speakers, free PDF"
+	description="Read German classics in the original, like Kafka's Die Verwandlung, annotated for English speakers: reading stages, glossaries and notes on the language. Free PDF."
 	path="/literature"
+	jsonLd={[
+		...LITERATURE.map(bookLd),
+		itemListLd('Literature shelf', LITERATURE.map((b) => ({ name: `${b.author}: ${b.title}`, path: `/literature#${b.id}` }))),
+		breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Literature', path: '/literature' }])
+	]}
 />
 
 <SiteNav {courseHref} />
 
 <main class="page-wide">
-	<a class="back-link" href="/"><Icon name="arrowLeft" size="1em" /> Home</a>
+	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 
 	<header>
 		<h1>Literature</h1>
@@ -44,21 +51,37 @@
 					<ul>
 						{#each book.inside as line (line)}<li>{line}</li>{/each}
 					</ul>
-					<a
-						class="primary"
-						href={book.pdf.href}
-						download="{book.author} - {book.title}.pdf"
-						onclick={() => track('literature_download', { book: book.id })}
-					>
-						<Icon name="download" size="1.05em" /> Download the free PDF
-					</a>
+					<div class="actions">
+						{#if book.read}
+							<a class="primary" href={book.read}><Icon name="book" size="1.05em" /> Read it online</a>
+						{/if}
+						<a
+							class={book.read ? 'secondary' : 'primary'}
+							href={book.pdf.href}
+							download="{book.author} - {book.title}.pdf"
+							onclick={() => track('literature_download', { book: book.id })}
+						>
+							<Icon name="download" size="1.05em" /> Download the free PDF
+						</a>
+					</div>
 					<p class="small">{book.pdf.pages} pages · {book.pdf.megabytes} MB · print it or read it on a tablet</p>
 				</div>
 			</li>
 		{/each}
 	</ol>
 
-	<p class="more">More books are on the way. <a href="/contact">Tell us</a> which one you would like to read next.</p>
+	<!-- Requests go to one forum topic, so readers see and back each other's picks. -->
+	<section class="request" aria-labelledby="request-title">
+		<h2 id="request-title">Which book next?</h2>
+		<p>
+			More books are on the way. Ask for the one you would like to read on the forum, or
+			back someone else's pick.
+		</p>
+		<p class="rule">{bookRequestRule()}</p>
+		<a class="request-link" href={bookRequestHref()}>
+			<Icon name="forum" size="1em" /> Ask for a book on the forum
+		</a>
+	</section>
 </main>
 
 <SiteFooter />
@@ -132,15 +155,57 @@
 		text-decoration: none;
 	}
 
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem 1.2rem;
+		align-items: center;
+	}
+
+	.secondary {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		color: var(--accent-ink);
+		font-weight: 700;
+		text-decoration: none;
+	}
+
 	.small {
 		margin: 0.6rem 0 0;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
 	}
 
-	.more {
+	.request {
 		margin: 2rem 0 0;
+		padding: 1.2rem 1.4rem;
+		border: 1px dashed var(--line-strong);
+		border-radius: 1rem;
+	}
+
+	.request h2 {
+		font-size: var(--step-1);
+	}
+
+	.request p {
+		margin: 0.5rem 0 0;
+		line-height: 1.6;
+	}
+
+	.request .rule {
+		font-size: var(--step--1);
 		color: var(--ink-muted);
+	}
+
+	.request-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		margin-top: 0.9rem;
+		color: var(--accent-ink);
+		font-weight: 700;
+		text-decoration: none;
 	}
 
 	@media (max-width: 40rem) {

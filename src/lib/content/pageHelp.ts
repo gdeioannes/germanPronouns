@@ -74,7 +74,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			},
 			{
 				title: 'Runs and medals',
-				text: 'Exercises come in runs of ten, and eight right or better passes the run. Most exercises have three ways to play, shown as a switch above the exercise: an easier one, the usual one and one with no help. Passing a run on one earns its medal: bronze, silver or gold. Exercises you read, hear, say or write earn their medal by score instead: bronze for a pass, gold for full marks. A medal is never taken away, and there are no lives.'
+				text: 'Exercises come in runs of ten, and eight right or better passes the run. Most exercises have three ways to play, shown as a switch above the exercise: an easier one, the usual one and one with no help. Passing a run on one earns its medal: bronze, silver or gold. Exercises you read, hear, say or write earn their medal by score instead: bronze for a pass, gold for full marks. Once you hold a medal, the bar at the end offers the next one up — "Try for silver", then "Try for gold". A medal is never taken away, and there are no lives.'
 			},
 			{
 				title: 'How surprises turn up',
@@ -211,6 +211,10 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			{
 				title: 'Which level',
 				text: 'The texts are unsimplified, so they suit B1 and up. The glossaries do most of the work; read the list once, then read without stopping at every word.'
+			},
+			{
+				title: 'Asking for a book',
+				text: 'The link under the shelf takes you to the forum, where you can ask for the next book or back someone else\'s pick. Only books in the public domain can go on the shelf: the author died more than 70 years ago, and it is the German original.'
 			}
 		]
 	},

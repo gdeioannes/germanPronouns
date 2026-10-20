@@ -16,7 +16,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import VoiceNote from './VoiceNote.svelte';
 	import { effectsCalm } from '$lib/motion/fx.svelte';
-	import { announce } from '$lib/a11y.svelte';
+	import { announce, modal } from '$lib/a11y.svelte';
 	import { absoluteUrl } from '$lib/seo';
 	import {
 		contactFacts,
@@ -117,7 +117,7 @@
 		</div>
 	{/if}
 
-	<div class="card" bind:this={card} tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="end-title">
+	<div class="card" bind:this={card} tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="end-title" use:modal={onclose}>
 		<div class="avatar-wrap">
 			<img class="avatar" src="/img/story/{chat.image}.webp" alt="" />
 			<span class="badge" aria-hidden="true">

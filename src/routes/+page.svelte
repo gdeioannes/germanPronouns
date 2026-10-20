@@ -17,7 +17,7 @@
 	import { afterNavigate, goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { LITERATURE } from '$lib/content/literature';
+	import { LITERATURE, bookRequestHref } from '$lib/content/literature';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { track } from '$lib/services/analytics';
 	import type { PageData } from './$types';
@@ -71,9 +71,27 @@
 	// front page is for newcomers. Only on arrival (a typed address, a bookmark,
 	// a link from elsewhere); the logo or Home link from inside the app still
 	// shows this page.
+	//
+	// The jump happens in the page head, before anything renders: progress is
+	// plain localStorage, so a few lines can check it while the HTML is still
+	// being parsed and replace the page with the course at once, instead of
+	// loading the whole front page and the app first. It mirrors
+	// progress.hasAnyProgress(). Only a full page load runs it, which is what
+	// "arrival" means; the logo or Home link inside the app navigates without
+	// reloading, so the front page still shows. The query string goes along so
+	// campaign tags reach the analytics on the course page.
+	const arrivalJump = $derived(
+		'<scr' +
+			'ipt>try{var s=localStorage,go=false;for(var i=0;i<s.length&&!go;i++){var k=s.key(i)||"";' +
+			'if(/quiz_answer_history$/.test(k))go=true;' +
+			'else if(/_completed_quizzes$/.test(k)){try{var v=JSON.parse(s.getItem(k));go=Array.isArray(v)&&v.length>0}catch(e){}}}' +
+			`if(go&&location.pathname==="/")location.replace(${JSON.stringify(courseHref)}+location.search+location.hash)}catch(e){}</scr` +
+			'ipt>'
+	);
 	let returning = $state(false);
 	afterNavigate(async ({ from }) => {
 		returning = await progress.hasAnyProgress();
+		// Fallback only: the head script has normally left this page already.
 		if (returning && from === null) void goto(courseHref, { replaceState: true });
 	});
 	const startHref = $derived(returning ? courseHref : firstHref);
@@ -167,6 +185,11 @@
 		})
 	);
 </script>
+
+<svelte:head>
+	<!-- Returning learner: straight to the deck, before this page renders. -->
+	{@html arrivalJump}
+</svelte:head>
 
 <Seo
 	title="Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz"
@@ -367,6 +390,9 @@
 					<a class="lit-more" href="/literature">See the literature shelf <Icon name="arrowRight" size="1em" /></a>
 				</div>
 				<p class="book-note">{kafka.pdf.pages} pages · {kafka.level} · English glossaries and notes</p>
+				<p class="lit-request">
+					Want a different book? <a href={bookRequestHref()}>Ask for it on the forum</a>.
+				</p>
 			</div>
 		</section>
 	{/if}
@@ -772,7 +798,7 @@
 	.deal-sub {
 		font-size: var(--step--1);
 		font-weight: 600;
-		color: rgba(255, 255, 255, 0.82);
+		color: rgba(255, 255, 255, 0.9);
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -1046,14 +1072,15 @@
 		transform: translateX(3px);
 	}
 
-	/* On navy the terracotta reads a step brighter, with a warm glow. */
+	/* On navy the terracotta reads a step brighter, with a warm glow — but
+	   only as bright as white text still reads on (4.5:1). */
 	.primary.light {
-		background: var(--accent);
+		background: #b3542b;
 		box-shadow: 0 16px 36px -14px rgba(201, 104, 59, 1);
 	}
 
 	.primary.light:hover {
-		background: #d9754a;
+		background: var(--accent-ink);
 	}
 
 	/* -- story ------------------------------------------------------------ */
@@ -1259,6 +1286,17 @@
 		margin-top: 0;
 	}
 
+	.lit-request {
+		margin: 0.6rem 0 0;
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+
+	.lit-request a {
+		color: var(--accent-ink);
+		font-weight: 700;
+	}
+
 	.lit-more {
 		display: inline-flex;
 		align-items: center;
@@ -1407,14 +1445,18 @@
 		box-shadow: 0 16px 32px -24px rgba(31, 58, 95, 0.45);
 	}
 
+	/* --band-ink is the same tone deep enough for white text on it. */
 	.level[data-band='A'] {
 		--band: var(--forest);
+		--band-ink: var(--forest);
 	}
 	.level[data-band='B'] {
 		--band: var(--ochre);
+		--band-ink: var(--ochre-ink);
 	}
 	.level[data-band='C'] {
 		--band: var(--terracotta);
+		--band-ink: var(--accent-ink);
 	}
 
 	/* The vignette, cropped to a round on its own cream. */
@@ -1457,7 +1499,7 @@
 		justify-content: center;
 		padding: 0.05rem 0.5rem;
 		border-radius: 999px;
-		background: var(--band);
+		background: var(--band-ink);
 		color: #fff;
 		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: 0.9rem;

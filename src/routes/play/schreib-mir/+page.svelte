@@ -12,7 +12,7 @@
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import VoiceNote from '$lib/components/match/VoiceNote.svelte';
-	import { breadcrumbLd } from '$lib/seo';
+	import { breadcrumbLd, gameLd } from '$lib/seo';
 	import {
 		canOpenChat,
 		contactFacts,
@@ -110,10 +110,17 @@
 </script>
 
 <Seo
-	title="Schreib mir! Chat your way in, in German"
-	description="Meet characters in your deck and chat to reach a goal by building German sentences from word tiles, from A1 to C2. No second tries: get a like and a new contact, or they leave, and may turn up in your deck again."
+	title="Schreib mir! German chat game, A1 to C2 | Language Quiz"
+	description="Chat with absurd characters in German to reach a goal, building every answer from word tiles. One chance per chat, A1 to C2, free and no sign-up."
 	path={MATCH_PATH}
-	jsonLd={[breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Schreib mir!', path: MATCH_PATH }])]}
+	jsonLd={[
+		gameLd({
+			name: 'Schreib mir!',
+			description: 'Chat with characters in German to reach a goal, building every answer from word tiles, A1 to C2.',
+			path: MATCH_PATH
+		}),
+		breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Schreib mir!', path: MATCH_PATH }])
+	]}
 />
 
 <SiteNav courseHref="/course/de_cert_a1" compact />

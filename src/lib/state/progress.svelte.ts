@@ -139,6 +139,12 @@ class ProgressStore {
 	private ladders = $state<Record<string, LadderRecord>>({});
 	/** The best medal each scored exercise has earned. */
 	private scoreMedals = $state<Record<string, RibbonTier>>({});
+	/**
+	 * The finished quest exercises as a set. isQuestCompleted runs once per
+	 * exercise on the course page, and searching the list each time made that
+	 * page quadratic in the number of exercises.
+	 */
+	private questDone = $derived(new Set(this.completed[SettingsKeys.completedQuestQuizzes] ?? []));
 
 	/**
 	 * On by default: a missing umlaut or full stop is a keyboard problem, not a
@@ -249,21 +255,53 @@ class ProgressStore {
 	async statsFor(prefix: string): Promise<QuizStats> {
 		const cached = this.stats[prefix];
 		if (cached) return cached;
+		await this.loadStats([prefix]);
+		return this.stats[prefix];
+	}
+
+	/** Everything stored for one quiz's stats, read without touching reactive state. */
+	private async readStats(prefix: string) {
 		const keys = quizStatsKeys(prefix);
 		const read = async (key: string) => Number(await storage.get(key)) || 0;
-		const loaded: QuizStats = {
+		const stats: QuizStats = {
 			score: await read(keys.score),
 			streak: await read(keys.streak),
 			bestStreakLap: await read(keys.bestStreakLap),
 			bestStreakAbsolute: await read(keys.bestStreakAbsolute)
 		};
-		this.stats = { ...this.stats, [prefix]: loaded };
-		this.runs = { ...this.runs, [prefix]: await this.readRuns(prefix) };
-		const ladder = parseLadder(await this.readJson(keys.ladder));
-		if (ladder) this.ladders = { ...this.ladders, [prefix]: ladder };
-		const scored = parseMedal(await storage.get(keys.scoreMedal));
-		if (scored) this.scoreMedals = { ...this.scoreMedals, [prefix]: scored };
-		return loaded;
+		return {
+			stats,
+			runs: await this.readRuns(prefix),
+			ladder: parseLadder(await this.readJson(keys.ladder)),
+			scored: parseMedal(await storage.get(keys.scoreMedal))
+		};
+	}
+
+	/**
+	 * Loads the stats of every prefix not loaded yet, then publishes them in
+	 * one assignment per field. Each field is a reactive proxy: spreading it
+	 * once per quiz (403 of them on the course page) read every entry through
+	 * the proxy each time, which made the page's first load quadratic.
+	 */
+	private async loadStats(prefixes: string[]): Promise<void> {
+		const missing = [...new Set(prefixes)].filter((prefix) => !this.stats[prefix]);
+		if (!missing.length) return;
+		const stats: Record<string, QuizStats> = {};
+		const runs: Record<string, RunRecord[]> = {};
+		const ladders: Record<string, LadderRecord> = {};
+		const medals: Record<string, RibbonTier> = {};
+		for (const prefix of missing) {
+			const read = await this.readStats(prefix);
+			stats[prefix] = read.stats;
+			runs[prefix] = read.runs;
+			if (read.ladder) ladders[prefix] = read.ladder;
+			if (read.scored) medals[prefix] = read.scored;
+		}
+		// Another caller may have loaded some of these meanwhile; theirs stay.
+		this.stats = { ...stats, ...this.stats };
+		this.runs = { ...runs, ...this.runs };
+		if (Object.keys(ladders).length) this.ladders = { ...ladders, ...this.ladders };
+		if (Object.keys(medals).length) this.scoreMedals = { ...medals, ...this.scoreMedals };
 	}
 
 	/**
@@ -511,7 +549,7 @@ class ProgressStore {
 	 * progress ring — must await this first, or it renders zeros.
 	 */
 	async hydrateStats(prefixes: string[]): Promise<void> {
-		for (const prefix of prefixes) await this.statsFor(prefix);
+		await this.loadStats(prefixes);
 	}
 
 	async markCompleted(type: QuizType, id: string): Promise<void> {
@@ -525,7 +563,7 @@ class ProgressStore {
 	}
 
 	isQuestCompleted(key: string): boolean {
-		return (this.completed[SettingsKeys.completedQuestQuizzes] ?? []).includes(key);
+		return this.questDone.has(key);
 	}
 
 	async markQuestCompleted(key: string): Promise<void> {

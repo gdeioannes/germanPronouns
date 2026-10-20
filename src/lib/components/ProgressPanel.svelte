@@ -107,8 +107,10 @@
 			</span>
 		</div>
 		<div class="tile">
-			<span class="tile-label">Medals</span>
-			<span class="tile-value tnum">{medalTotal}</span>
+			<!-- The whole-course tile counts an exercise once it is passed; this
+			     one counts how much of every medal is won (gold = all of it). -->
+			<span class="tile-label">Medals won</span>
+			<span class="tile-value tnum" title="{medalTotal} medal{medalTotal === 1 ? '' : 's'}; gold counts three times bronze">{stats.medalSteps.done > 0 && percentOf(stats.medalSteps) === 0 ? '<1' : percentOf(stats.medalSteps)}%</span>
 			<span class="medals tnum">
 				<span title="Gold"><RibbonBadge tier="gold" width={11} /> {stats.medals.gold}</span>
 				<span title="Silver"><RibbonBadge tier="silver" width={11} /> {stats.medals.silver}</span>

@@ -102,14 +102,12 @@
 
 	{#if ladder}
 		{#if ladder.earned && ladder.up}
+			<!-- The way up is the finish bar's first button, "Try for silver". -->
 			<div class="climb">
 				<p>
 					<RibbonBadge tier={ladder.up.tier} width={12} />
 					<span><strong>{TIER_LABELS[ladder.up.tier]} is next:</strong> {ladder.up.hint}</span>
 				</p>
-				<button type="button" class="btn" onclick={ladder.up.onClimb}>
-					Try for {TIER_LABELS[ladder.up.tier].toLowerCase()}
-				</button>
 			</div>
 		{:else if ladder.earned}
 			<p class="streak-line">
@@ -153,7 +151,11 @@
 		</div>
 	{/if}
 
-	<p class="note">Try again and the bar starts fresh{ladder || medalRule ? '.' : '; your streak carries on.'}</p>
+	{#if ladder?.earned && ladder.up}
+		<p class="note">Try for {TIER_LABELS[ladder.up.tier].toLowerCase()} and a fresh run starts on {ladder.up.label}.</p>
+	{:else}
+		<p class="note">Try again and the bar starts fresh{ladder || medalRule ? '.' : '; your streak carries on.'}</p>
+	{/if}
 </section>
 
 <style>
