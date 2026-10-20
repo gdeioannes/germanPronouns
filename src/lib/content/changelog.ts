@@ -17,6 +17,14 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-20",
+    title: "Fixed problems get their own list in the forum",
+    items: [
+      "Once a reported problem has been put right, its topic leaves the main forum list, so what you see first is what still needs doing.",
+      "Open \"Fixed\" at the bottom of the forum to see everything that has been corrected. Search still finds fixed topics, so you can check before reporting something again.",
+    ],
+  },
+  {
+    date: "2026-10-20",
     title: "A1.1 on paper: a real study book",
     highlight: true,
     items: [

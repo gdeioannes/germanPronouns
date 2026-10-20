@@ -35,6 +35,13 @@
 	let deep = $state(false);
 	const SEARCH_LIMIT = 300;
 	const shown = $derived(search.trim() ? threads.filter((t) => matchesSearch(t, search)) : threads);
+
+	// Fixed topics leave the main list and wait, folded, at the bottom: the
+	// list stays about what still needs doing, and what got fixed is one click
+	// away. A search shows every match in one list (the badge says "Fixed").
+	const active = $derived(search.trim() ? shown : shown.filter((t) => t.status !== 'fixed'));
+	const fixed = $derived(search.trim() ? [] : shown.filter((t) => t.status === 'fixed'));
+	let fixedOpen = $state(false);
 	$effect(() => {
 		if (search.trim() && !deep) {
 			deep = true;
@@ -42,10 +49,13 @@
 		}
 	});
 
-	// "?category=report" opens on one board (the quiz's report panel links here).
+	// "?category=report" opens on one board (the quiz's report panel links here);
+	// "?fixed=1" opens with the fixed topics unfolded.
 	onMount(() => {
-		const wanted = new URLSearchParams(window.location.search).get('category');
+		const params = new URLSearchParams(window.location.search);
+		const wanted = params.get('category');
 		category = isCategory(wanted) ? wanted : null;
+		fixedOpen = params.get('fixed') === '1';
 	});
 
 	$effect(() => {
@@ -67,10 +77,22 @@
 		}
 	}
 
+	function syncUrl() {
+		const params = new URLSearchParams();
+		if (category) params.set('category', category);
+		if (fixedOpen) params.set('fixed', '1');
+		const query = params.toString();
+		history.replaceState(history.state, '', query ? `/forum?${query}` : '/forum');
+	}
+
 	function pick(next: ForumCategory | null) {
 		category = next;
-		const url = next ? `/forum?category=${next}` : '/forum';
-		history.replaceState(history.state, '', url);
+		syncUrl();
+	}
+
+	function toggleFixed() {
+		fixedOpen = !fixedOpen;
+		syncUrl();
 	}
 
 	$effect(() => {
@@ -154,11 +176,38 @@
 				{#if account.signedIn}<a href={newHref}>Start the first topic</a>.{:else}<button type="button" class="link" onclick={openSignIn}>Sign in</button> to start the first topic.{/if}
 			</p>
 		{:else}
-			<ul class="list">
-				{#each shown as t (t.id)}
-					<ThreadRow thread={t} showCategory={category === null} />
-				{/each}
-			</ul>
+			{#if active.length}
+				<ul class="list">
+					{#each active as t (t.id)}
+						<ThreadRow thread={t} showCategory={category === null} />
+					{/each}
+				</ul>
+			{:else}
+				<p class="muted">Nothing open here: every problem reported on this board has been fixed.</p>
+			{/if}
+			{#if fixed.length}
+				<section class="fixed" aria-labelledby="fixed-toggle">
+					<button
+						type="button"
+						id="fixed-toggle"
+						class="fixed-toggle"
+						aria-expanded={fixedOpen}
+						aria-controls="fixed-list"
+						onclick={toggleFixed}
+					>
+						<Icon name="check" size="1em" />
+						Fixed ({fixed.length})
+						<span class="chev" aria-hidden="true">{fixedOpen ? '▴' : '▾'}</span>
+					</button>
+					{#if fixedOpen}
+						<ul class="list" id="fixed-list">
+							{#each fixed as t (t.id)}
+								<ThreadRow thread={t} showCategory={category === null} />
+							{/each}
+						</ul>
+					{/if}
+				</section>
+			{/if}
 		{/if}
 	{/if}
 </main>
@@ -290,6 +339,32 @@
 
 	.muted {
 		color: var(--ink-muted);
+	}
+
+	.fixed {
+		margin-top: 1.25rem;
+		padding-top: 0.75rem;
+		border-top: 1px solid var(--line);
+	}
+
+	.fixed-toggle {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.4rem 0.9rem;
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		background: var(--surface);
+		color: var(--ink-muted);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	.fixed-toggle[aria-expanded='true'] {
+		border-color: var(--line-strong);
+		color: var(--ink);
 	}
 
 	.link {
