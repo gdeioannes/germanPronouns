@@ -1,7 +1,11 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import {
 	answerSquares,
+	decodeAnswers,
+	encodeAnswers,
 	isPair,
+	mixBar,
+	plainText,
 	shareLine,
 	shareText,
 	whatsappHref,
@@ -16,6 +20,7 @@ import {
 	markRoundPlayed,
 	nextRound,
 	personaKey,
+	resultStats,
 	ROUND_LENGTH,
 	ROUND_ORDER,
 	scoreRound,
@@ -37,10 +42,10 @@ Object.defineProperty(globalThis, 'localStorage', {
 afterEach(() => store.clear());
 
 describe('the shelves', () => {
-	it('are ten categories of ten rounds of eight, each with five personas of its own', () => {
+	it('are ten themes of ten rounds of twelve, each with five personas of its own', () => {
 		expect(JA_NEIN_CATEGORIES).toHaveLength(10);
 		expect(ROUND_ORDER).toHaveLength(100);
-		expect(ALL_QUESTIONS).toHaveLength(800);
+		expect(ALL_QUESTIONS).toHaveLength(1200);
 		for (const c of JA_NEIN_CATEGORIES) {
 			expect(c.personas, c.id).toHaveLength(5);
 			expect(c.rounds, c.id).toHaveLength(10);
@@ -66,7 +71,7 @@ describe('the shelves', () => {
 	});
 
 	it('deals the rounds round-robin across the shelves, the classics first, and starts over when all are played', () => {
-		expect(ROUND_ORDER[0].categoryId).toBe('typisch');
+		expect(ROUND_ORDER[0].categoryId).toBe('stadt');
 		const firstTen = ROUND_ORDER.slice(0, 10).map((r) => r.categoryId);
 		expect(new Set(firstTen).size).toBe(10);
 		expect(nextRound([])).toBe(ROUND_ORDER[0]);
@@ -107,28 +112,79 @@ describe('scoring', () => {
 		expect(result.category.personas.map((p) => p.id)).toContain(result.persona.id);
 	});
 
-	it('writes a share text with the round, every answer as a line, in order, and the link last', () => {
+	it('writes a share text with the question, the type in percent, every type as a bar, and the link last', () => {
 		const answers: Answer[] = ['ja', 'nein', 'ja'];
 		const three = qs.slice(0, 3);
 		const result = scoreRound(round, three, answers);
 		expect(answerSquares(answers)).toBe('🟩🟥🟩');
+		expect(result.mix).toHaveLength(5);
+		expect(result.mix[0].persona).toBe(result.persona);
+		expect(result.slices.map((m) => m.persona.id)).toEqual(result.category.personas.map((p) => p.id));
+		expect(result.slices.reduce((n, m) => n + m.count, 0)).toBe(3);
+		expect(result.mix.reduce((n, m) => n + m.count, 0)).toBe(3);
+		expect(result.match.id).toBe(result.persona.match);
+		expect(result.clash.id).toBe(result.persona.clash);
+		expect(mixBar(0.5)).toBe('▰▰▰▰▱▱▱▱');
 		const text = shareText(result, 'https://languagequiz.org/play/ja-nein');
-		expect(text).toContain(result.persona.title);
-		expect(text.startsWith(`Ja oder Nein? · ${round.title} 🇩🇪 Heute bin ich `)).toBe(true);
-		expect(text.split('\n').slice(1, 4)).toEqual(three.map((q, i) => shareLine(q, answers[i])));
+		const lines = text.split('\n');
+		expect(lines[0]).toBe(`${result.category.emoji} *${result.category.title}*`);
+		expect(lines[1]).toBe(`Ich bin *${result.persona.title}* ${result.persona.emoji} – zu ${Math.round(result.mix[0].share * 100)} %`);
+		// five bars in the theme's fixed order, mine in bold
+		expect(lines.slice(3, 8).map((l) => l.split(' ')[0])).toEqual(result.category.personas.map((p) => p.emoji));
+		expect(lines.slice(3, 8).filter((l) => l.includes(`*${result.persona.title}*`))).toHaveLength(1);
+		expect(text).toContain(`💞 Passt zu: ${result.match.emoji} ${result.match.title}`);
+		expect(text).toContain(`_${result.persona.de.line}_`);
+		// never the answers themselves: the type is the message
+		expect(text).not.toContain('✅');
+		expect(text).not.toContain('❌');
+		expect(lines.slice(-2)).toEqual(['👉 Und du? Gleiche 12 Fragen:', 'https://languagequiz.org/play/ja-nein']);
 		const english = shareText(result, 'https://languagequiz.org/play/ja-nein', 'en');
-		expect(english).toContain("🇩🇪 Tonight I'm ");
-		expect(text.split('\n').slice(-2)).toEqual(['Und du? Gleiche Fragen:', 'https://languagequiz.org/play/ja-nein']);
-		expect(english.split('\n').at(-2)).toBe('Your turn, same questions:');
+		expect(english.split('\n')[0]).toBe(`${result.category.emoji} *${result.category.en}*`);
+		expect(english).toContain("I'm *");
+		expect(english).toContain(`_${result.persona.line}_`);
+		expect(english.split('\n').at(-2)).toBe('👉 Your turn, same 12 questions:');
 		expect(whatsappHref('a b')).toBe('https://wa.me/?text=a%20b');
+		const plain = plainText(text);
+		expect(plain).not.toMatch(/\p{Extended_Pictographic}/u);
+		expect(plain).toContain('▰');
+		expect(plain.split('\n')[0]).toBe(`*${result.category.title}*`);
+	});
+
+	it('reads the answers back: how clear the verdict was, the Ja/Nein balance, the longest run', () => {
+		const allJa = scoreRound(round, qs, qs.map(() => 'ja' as Answer));
+		const s = resultStats(allJa);
+		expect(s.style).toBe('You said Ja to everything. Life says thank you.');
+		expect(s.streak).toEqual({ answer: 'ja', length: ROUND_LENGTH });
+		expect(s.verdict).toContain(allJa.persona.title);
+		const mixed = scoreRound(round, qs, ['ja', 'nein', 'nein', 'nein', 'ja', 'nein', 'ja', 'nein', 'ja', 'ja', 'nein', 'ja']);
+		const m = resultStats(mixed);
+		expect(m.style.startsWith('6 Ja, 6 Nein')).toBe(true);
+		expect(m.streak).toEqual({ answer: 'nein', length: 3 });
+		const german = resultStats(mixed, 'de');
+		expect(german.style.startsWith('6 Ja, 6 Nein: ausgeglichen')).toBe(true);
+		expect(resultStats(allJa, 'de').style).toBe('Du hast zu allem Ja gesagt. Das Leben sagt danke.');
+	});
+
+	it('carries the answers in the link, in the original order, and reads them back', () => {
+		const played = shuffled(round, () => 0.3);
+		const answers: Answer[] = played.map((_, i) => (i % 2 ? 'ja' : 'nein'));
+		const code = encodeAnswers(round.questions, played, answers);
+		expect(code).toHaveLength(ROUND_LENGTH);
+		const back = decodeAnswers(code, ROUND_LENGTH)!;
+		// the same answer for the same question, whatever the order it was asked in
+		round.questions.forEach((q, i) => expect(back[i]).toBe(answers[played.indexOf(q)]));
+		expect(scoreRound(round, round.questions, back).persona).toBe(scoreRound(round, played, answers).persona);
+		expect(decodeAnswers('jnx', 3)).toBeNull();
+		expect(decodeAnswers('jn', ROUND_LENGTH)).toBeNull();
 	});
 
 	it('writes a this-or-that line as the chosen over the other, German or English', () => {
-		const q = ALL_QUESTIONS.find((q) => q.left?.de === 'Oktoberfest' && q.right?.de === 'Weihnachtsmarkt')!;
+		const q = ALL_QUESTIONS.find(isPair)!;
 		expect(q).toBeDefined();
-		expect(shareLine(q, 'ja')).toBe('⚖️ Weihnachtsmarkt > Oktoberfest');
-		expect(shareLine(q, 'nein')).toBe('⚖️ Oktoberfest > Weihnachtsmarkt');
-		expect(shareLine(q, 'ja', 'en')).toBe('⚖️ Christmas market > Oktoberfest');
+		const cap = (w: string) => w.charAt(0).toUpperCase() + w.slice(1);
+		expect(shareLine(q, 'ja')).toBe(`⚖️ ${cap(q.right.de)} > ${cap(q.left.de)}`);
+		expect(shareLine(q, 'nein')).toBe(`⚖️ ${cap(q.left.de)} > ${cap(q.right.de)}`);
+		expect(shareLine(q, 'ja', 'en')).toBe(`⚖️ ${cap(q.right.en)} > ${cap(q.left.en)}`);
 		const plain = qs.find((q) => !isPair(q))!;
 		expect(shareLine(plain, 'nein')).toBe(`❌ ${plain.de}`);
 	});

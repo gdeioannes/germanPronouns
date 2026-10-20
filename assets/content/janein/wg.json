@@ -1,0 +1,1185 @@
+{
+ "id": "wg",
+ "title": "Welcher Mitbewohner bist du?",
+ "en": "Which flatmate are you?",
+ "emoji": "🏠",
+ "personas": [
+  {
+   "id": "putzplan",
+   "title": "Der Putzplan",
+   "emoji": "🧽",
+   "line": "Your notes have smileys. Everyone knows that's a threat.",
+   "profile": "The rota is laminated, the shelves are labelled and the flat only works because of you. You've never shouted; you once wrote 'Please :)' on a Post-it and it ended a friendship. Deep down you just want everyone to be happy, in a clean kitchen, by Thursday.",
+   "traits": [
+    "organised",
+    "loyal",
+    "slightly terrifying"
+   ],
+   "de": {
+    "line": "Deine Zettel haben Smileys. Alle wissen: Das ist eine Drohung.",
+    "profile": "Der Putzplan ist laminiert, die Regale sind beschriftet, und die WG funktioniert nur wegen dir. Du hast nie geschrien; einmal hast du 'Bitte :)' auf einen Zettel geschrieben, und das hat eine Freundschaft beendet. Tief drinnen willst du nur, dass alle glücklich sind. In einer sauberen Küche. Bis Donnerstag.",
+    "traits": [
+     "organisiert",
+     "loyal",
+     "leicht gruselig"
+    ]
+   },
+   "match": "phantom",
+   "clash": "partyhost",
+   "word": {
+    "de": "der Putzplan",
+    "en": "the cleaning rota"
+   }
+  },
+  {
+   "id": "phantom",
+   "title": "Das Phantom",
+   "emoji": "👻",
+   "line": "You pay rent on time and have been seen twice. Both times were a surprise.",
+   "profile": "Your door is closed, your dishes appear clean and vanish, and your rent lands on the first like clockwork. Nobody knows your job, your face or your weekends. Once a year you appear in the kitchen at 3 a.m., say 'Hi', and the flat talks about it for a month.",
+   "traits": [
+    "mysterious",
+    "reliable",
+    "quiet"
+   ],
+   "de": {
+    "line": "Du zahlst die Miete pünktlich und wurdest zweimal gesehen. Beide Male: Überraschung.",
+    "profile": "Deine Tür ist zu, dein Geschirr wird sauber und verschwindet, und deine Miete kommt am Ersten wie ein Uhrwerk. Niemand kennt deinen Job, dein Gesicht oder deine Wochenenden. Einmal im Jahr stehst du um 3 Uhr nachts in der Küche, sagst 'Hi', und die WG redet einen Monat darüber.",
+    "traits": [
+     "geheimnisvoll",
+     "zuverlässig",
+     "leise"
+    ]
+   },
+   "match": "putzplan",
+   "clash": "partyhost",
+   "word": {
+    "de": "die Zimmertür",
+    "en": "the bedroom door"
+   }
+  },
+  {
+   "id": "wgkoch",
+   "title": "Die WG-Küche",
+   "emoji": "🍳",
+   "line": "You've said 'sit down, eat' to a delivery driver. He stayed.",
+   "profile": "Five pans on four hobs, garlic in the air and a stranger holding a wooden spoon: that's a Tuesday. You feed the whole flat, their visitors and anyone who smells it from the stairs. The mess is part of the recipe, and somehow nobody minds once there are seconds.",
+   "traits": [
+    "generous",
+    "loud",
+    "messy"
+   ],
+   "de": {
+    "line": "Du hast zum Lieferboten 'Setz dich, iss' gesagt. Er ist geblieben.",
+    "profile": "Fünf Pfannen auf vier Platten, Knoblauch in der Luft und ein Fremder mit Kochlöffel: Das ist ein Dienstag. Du fütterst die ganze WG, ihren Besuch und jeden, der es im Treppenhaus riecht. Das Chaos gehört zum Rezept, und irgendwie stört es niemanden, sobald es Nachschlag gibt.",
+    "traits": [
+     "großzügig",
+     "laut",
+     "chaotisch"
+    ]
+   },
+   "match": "partyhost",
+   "clash": "putzplan",
+   "word": {
+    "de": "die Pfanne",
+    "en": "the pan"
+   }
+  },
+  {
+   "id": "pflanzeneltern",
+   "title": "Die Pflanzen-Eltern",
+   "emoji": "🌿",
+   "line": "You've cried over a leaf. The leaf was fine. You were not.",
+   "profile": "Forty plants, all with names, candles at dusk and a kettle that's never cold. You talk to the monstera and it talks back, sort of. You're the calm heart of the flat: when everyone fights, you hand out tea, and when a leaf drops, the flat holds a small funeral.",
+   "traits": [
+    "calm",
+    "caring",
+    "a bit misty"
+   ],
+   "de": {
+    "line": "Du hast wegen eines Blattes geweint. Dem Blatt ging es gut. Dir nicht.",
+    "profile": "Vierzig Pflanzen, alle mit Namen, Kerzen in der Dämmerung und ein Wasserkocher, der nie kalt wird. Du redest mit der Monstera, und sie antwortet, irgendwie. Du bist das ruhige Herz der WG: Wenn alle streiten, verteilst du Tee, und wenn ein Blatt fällt, hält die WG eine kleine Beerdigung.",
+    "traits": [
+     "ruhig",
+     "fürsorglich",
+     "ein bisschen verträumt"
+    ]
+   },
+   "match": "wgkoch",
+   "clash": "partyhost",
+   "word": {
+    "de": "die Gießkanne",
+    "en": "the watering can"
+   }
+  },
+  {
+   "id": "partyhost",
+   "title": "Der Partyhost",
+   "emoji": "🪩",
+   "line": "You know the neighbours by their complaints. They know you by your bass.",
+   "profile": "On Friday the flat is a club, on Saturday it's a hostel and on Sunday it's a crime scene. Your sofa has strangers on it and most of them become friends. You're fun, generous and slightly exhausting, and the flat secretly loves that something is always going on.",
+   "traits": [
+    "fun",
+    "social",
+    "exhausting"
+   ],
+   "de": {
+    "line": "Du kennst die Nachbarn von ihren Beschwerden. Sie kennen dich von deinem Bass.",
+    "profile": "Freitags ist die Wohnung ein Club, samstags ein Hostel und sonntags ein Tatort. Auf deinem Sofa liegen Fremde, und die meisten werden Freunde. Du bist lustig, großzügig und leicht anstrengend, und die WG liebt heimlich, dass immer was los ist.",
+    "traits": [
+     "lustig",
+     "gesellig",
+     "anstrengend"
+    ]
+   },
+   "match": "wgkoch",
+   "clash": "putzplan",
+   "word": {
+    "de": "die Nachbarn",
+    "en": "the neighbours"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "kueche",
+   "title": "Die Küche",
+   "en": "The kitchen",
+   "hook": "Four hobs, five people, one truth.",
+   "questions": [
+    {
+     "de": "Du spülst sofort nach dem Essen?",
+     "en": "You wash up right after eating?",
+     "ja": "putzplan",
+     "nein": "wgkoch"
+    },
+    {
+     "de": "Fünf Pfannen gleichzeitig sind normal?",
+     "en": "Five pans at once is normal?",
+     "ja": "wgkoch",
+     "nein": "phantom"
+    },
+    {
+     "de": "Du kochst nachts um drei, ganz leise?",
+     "en": "You cook at 3 a.m., very quietly?",
+     "ja": "phantom",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Auf der Fensterbank wächst Basilikum?",
+     "en": "There's basil growing on the windowsill?",
+     "ja": "pflanzeneltern",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Die Küche ist auch eine Tanzfläche?",
+     "en": "The kitchen is also a dance floor?",
+     "ja": "partyhost",
+     "nein": "putzplan"
+    },
+    {
+     "left": {
+      "de": "Spülmaschine",
+      "en": "dishwasher",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Spülen mit Musik",
+      "en": "washing up with music on",
+      "vibe": "partyhost"
+     }
+    },
+    {
+     "de": "Du kochst lieber für zehn als für dich?",
+     "en": "You'd rather cook for ten than for yourself?",
+     "ja": "wgkoch",
+     "nein": "phantom"
+    },
+    {
+     "left": {
+      "de": "Ofen an",
+      "en": "oven on",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Kerze an",
+      "en": "candle on",
+      "vibe": "pflanzeneltern"
+     }
+    },
+    {
+     "de": "Ein Kräutertee löst fast jedes Problem?",
+     "en": "A herbal tea solves almost any problem?",
+     "ja": "pflanzeneltern",
+     "nein": "partyhost"
+    },
+    {
+     "left": {
+      "de": "Essen am Küchentisch",
+      "en": "eating at the kitchen table",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Essen im Zimmer",
+      "en": "eating in your room",
+      "vibe": "phantom"
+     }
+    },
+    {
+     "de": "Jedes Gewürz hat ein Etikett?",
+     "en": "Every spice has a label?",
+     "ja": "putzplan",
+     "nein": "wgkoch"
+    },
+    {
+     "left": {
+      "de": "Kochen zu zweit",
+      "en": "cooking together",
+      "vibe": "pflanzeneltern"
+     },
+     "right": {
+      "de": "Kochen allein, nachts",
+      "en": "cooking alone, at night",
+      "vibe": "phantom"
+     }
+    }
+   ]
+  },
+  {
+   "id": "bad",
+   "title": "Das Bad",
+   "en": "The bathroom",
+   "hook": "One room, no witnesses, all the evidence.",
+   "questions": [
+    {
+     "de": "Ein Haar im Abfluss ist ein Notfall?",
+     "en": "A hair in the drain is an emergency?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Du duschst, wenn alle schlafen?",
+     "en": "You shower when everyone's asleep?",
+     "ja": "phantom",
+     "nein": "wgkoch"
+    },
+    {
+     "de": "Im Bad wohnt eine Pflanze?",
+     "en": "A plant lives in the bathroom?",
+     "ja": "pflanzeneltern",
+     "nein": "putzplan"
+    },
+    {
+     "left": {
+      "de": "Badesalz",
+      "en": "bath salts",
+      "vibe": "pflanzeneltern"
+     },
+     "right": {
+      "de": "Bluetooth-Box",
+      "en": "Bluetooth speaker",
+      "vibe": "partyhost"
+     }
+    },
+    {
+     "de": "Du singst laut unter der Dusche?",
+     "en": "You sing loudly in the shower?",
+     "ja": "partyhost",
+     "nein": "phantom"
+    },
+    {
+     "de": "Dein Handtuch hat deinen Namen?",
+     "en": "Your towel has your name on it?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "left": {
+      "de": "Klopapier auf Vorrat",
+      "en": "toilet paper stockpiled",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Klopapier, wenn leer",
+      "en": "toilet paper when it's out",
+      "vibe": "wgkoch"
+     }
+    },
+    {
+     "de": "Zwanzig Minuten Dusche sind okay?",
+     "en": "A twenty-minute shower is fine?",
+     "ja": "pflanzeneltern",
+     "nein": "putzplan"
+    },
+    {
+     "de": "Du wäschst Töpfe auch mal in der Wanne?",
+     "en": "You sometimes wash pots in the bathtub?",
+     "ja": "wgkoch",
+     "nein": "pflanzeneltern"
+    },
+    {
+     "left": {
+      "de": "Duschen vor allen",
+      "en": "showering before everyone",
+      "vibe": "phantom"
+     },
+     "right": {
+      "de": "Duschen nach dem Kochen",
+      "en": "showering after cooking",
+      "vibe": "wgkoch"
+     }
+    },
+    {
+     "de": "Nach der Party schläft jemand in der Wanne?",
+     "en": "After the party someone sleeps in the tub?",
+     "ja": "partyhost",
+     "nein": "phantom"
+    },
+    {
+     "left": {
+      "de": "Spiegel putzen",
+      "en": "cleaning the mirror",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Spiegel-Selfie",
+      "en": "mirror selfie",
+      "vibe": "partyhost"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kuehlschrank",
+   "title": "Der Kühlschrank",
+   "en": "The fridge",
+   "hook": "Cold, bright, and full of other people's secrets.",
+   "questions": [
+    {
+     "de": "Fremde Milch: erst fragen, dann nehmen?",
+     "en": "Someone else's milk: ask first, then take?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Dein Fach im Kühlschrank ist fast leer?",
+     "en": "Your shelf in the fridge is almost empty?",
+     "ja": "phantom",
+     "nein": "wgkoch"
+    },
+    {
+     "de": "Hafermilch und Kimchi, mehr nicht?",
+     "en": "Oat milk and kimchi, nothing else?",
+     "ja": "pflanzeneltern",
+     "nein": "wgkoch"
+    },
+    {
+     "left": {
+      "de": "Tupperdose mit Namen",
+      "en": "labelled lunchbox",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Topf ohne Deckel",
+      "en": "pot without a lid",
+      "vibe": "wgkoch"
+     }
+    },
+    {
+     "de": "Dreißig Dosen Bier sind ein Vorrat?",
+     "en": "Thirty cans of beer count as supplies?",
+     "ja": "partyhost",
+     "nein": "putzplan"
+    },
+    {
+     "de": "Du kochst aus Resten etwas für alle?",
+     "en": "You turn leftovers into dinner for everyone?",
+     "ja": "wgkoch",
+     "nein": "phantom"
+    },
+    {
+     "left": {
+      "de": "Kombucha",
+      "en": "kombucha",
+      "vibe": "pflanzeneltern"
+     },
+     "right": {
+      "de": "Sekt",
+      "en": "fizz",
+      "vibe": "partyhost"
+     }
+    },
+    {
+     "de": "Du schreibst das Datum auf den Joghurt?",
+     "en": "You write the date on your yoghurt?",
+     "ja": "putzplan",
+     "nein": "pflanzeneltern"
+    },
+    {
+     "de": "Du weißt nicht, was in deinem Fach liegt?",
+     "en": "You don't know what's on your shelf?",
+     "ja": "partyhost",
+     "nein": "putzplan"
+    },
+    {
+     "left": {
+      "de": "Ein Joghurt",
+      "en": "one yoghurt",
+      "vibe": "phantom"
+     },
+     "right": {
+      "de": "Zwölf Eier",
+      "en": "twelve eggs",
+      "vibe": "wgkoch"
+     }
+    },
+    {
+     "de": "Du isst heimlich vom Käse der anderen?",
+     "en": "You secretly eat other people's cheese?",
+     "ja": "phantom",
+     "nein": "pflanzeneltern"
+    },
+    {
+     "left": {
+      "de": "Eiswürfel",
+      "en": "ice cubes",
+      "vibe": "partyhost"
+     },
+     "right": {
+      "de": "Tiefkühl-Kräuter",
+      "en": "frozen herbs",
+      "vibe": "pflanzeneltern"
+     }
+    }
+   ]
+  },
+  {
+   "id": "freitag",
+   "title": "Freitagabend",
+   "en": "Friday night",
+   "hook": "The week is over. What happens to the flat now?",
+   "questions": [
+    {
+     "de": "Freitag ist die Wohnung ein Club?",
+     "en": "On Friday the flat is a club?",
+     "ja": "partyhost",
+     "nein": "putzplan"
+    },
+    {
+     "de": "Du bist zu Hause, aber niemand weiß es?",
+     "en": "You're home, but nobody knows it?",
+     "ja": "phantom",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Freitag kochst du ein Menü für die WG?",
+     "en": "On Friday you cook a full menu for the flat?",
+     "ja": "wgkoch",
+     "nein": "phantom"
+    },
+    {
+     "left": {
+      "de": "Sofa und Serie",
+      "en": "sofa and a series",
+      "vibe": "phantom"
+     },
+     "right": {
+      "de": "Küche und Gäste",
+      "en": "kitchen and guests",
+      "vibe": "wgkoch"
+     }
+    },
+    {
+     "de": "Freitag heißt: Badewanne und Buch?",
+     "en": "Friday means a bath and a book?",
+     "ja": "pflanzeneltern",
+     "nein": "wgkoch"
+    },
+    {
+     "de": "Du räumst auf, bevor die Gäste kommen?",
+     "en": "You tidy up before the guests arrive?",
+     "ja": "putzplan",
+     "nein": "wgkoch"
+    },
+    {
+     "left": {
+      "de": "Tee mit Honig",
+      "en": "tea with honey",
+      "vibe": "pflanzeneltern"
+     },
+     "right": {
+      "de": "Longdrink",
+      "en": "long drink",
+      "vibe": "partyhost"
+     }
+    },
+    {
+     "de": "Du kennst die Nachbarn vom Klingeln?",
+     "en": "You know the neighbours from them ringing the bell?",
+     "ja": "partyhost",
+     "nein": "pflanzeneltern"
+    },
+    {
+     "de": "Du gießt die Pflanzen, bevor du ausgehst?",
+     "en": "You water the plants before going out?",
+     "ja": "pflanzeneltern",
+     "nein": "phantom"
+    },
+    {
+     "left": {
+      "de": "Spieleabend mit Plan",
+      "en": "games night with a schedule",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Kochen ohne Rezept",
+      "en": "cooking without a recipe",
+      "vibe": "wgkoch"
+     }
+    },
+    {
+     "de": "Um 22 Uhr machst du die Musik leiser?",
+     "en": "At 10 p.m. you turn the music down?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "left": {
+      "de": "Tür zu, Kopfhörer",
+      "en": "door shut, headphones",
+      "vibe": "phantom"
+     },
+     "right": {
+      "de": "Tür auf, Musik",
+      "en": "door open, music",
+      "vibe": "partyhost"
+     }
+    }
+   ]
+  },
+  {
+   "id": "besuch",
+   "title": "Besuch",
+   "en": "Visitors",
+   "hook": "The doorbell rings. Your true self answers.",
+   "questions": [
+    {
+     "de": "Deine Eltern kommen, du putzt drei Tage?",
+     "en": "Your parents are coming, you clean for three days?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Besuch bekommt sofort einen Teller?",
+     "en": "Visitors get a plate straight away?",
+     "ja": "wgkoch",
+     "nein": "phantom"
+    },
+    {
+     "de": "Besuch? Du verschwindest ins Zimmer?",
+     "en": "Visitors? You vanish into your room?",
+     "ja": "phantom",
+     "nein": "wgkoch"
+    },
+    {
+     "left": {
+      "de": "Drei Gäste, ein Menü",
+      "en": "three guests, a full menu",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Dreißig Gäste, Chips",
+      "en": "thirty guests, crisps",
+      "vibe": "partyhost"
+     }
+    },
+    {
+     "de": "Fremde auf dem Sofa sind normal?",
+     "en": "Strangers on the sofa are normal?",
+     "ja": "partyhost",
+     "nein": "putzplan"
+    },
+    {
+     "de": "Du stellst dem Besuch deine Pflanzen vor?",
+     "en": "You introduce visitors to your plants?",
+     "ja": "pflanzeneltern",
+     "nein": "phantom"
+    },
+    {
+     "left": {
+      "de": "Hausschuhe",
+      "en": "slippers",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Räucherstäbchen",
+      "en": "incense sticks",
+      "vibe": "pflanzeneltern"
+     }
+    },
+    {
+     "de": "Gäste bekommen bei dir Hausschuhe?",
+     "en": "Guests get slippers at your place?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Besuch bekommt erst mal einen Tee?",
+     "en": "Visitors get a tea first of all?",
+     "ja": "pflanzeneltern",
+     "nein": "partyhost"
+    },
+    {
+     "left": {
+      "de": "Besuch anmelden",
+      "en": "announcing visitors",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Besuch vermeiden",
+      "en": "avoiding visitors",
+      "vibe": "phantom"
+     }
+    },
+    {
+     "de": "Besuch? Welcher Besuch?",
+     "en": "Visitors? What visitors?",
+     "ja": "phantom",
+     "nein": "wgkoch"
+    },
+    {
+     "left": {
+      "de": "Kuchen backen",
+      "en": "baking a cake",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Tee aufgießen",
+      "en": "brewing tea",
+      "vibe": "pflanzeneltern"
+     }
+    }
+   ]
+  },
+  {
+   "id": "miete",
+   "title": "Geld und Miete",
+   "en": "Money and rent",
+   "hook": "Who paid for the toilet paper? Nobody knows. Everyone has a theory.",
+   "questions": [
+    {
+     "de": "Die Miete kommt am Ersten, automatisch?",
+     "en": "The rent arrives on the first, automatically?",
+     "ja": "phantom",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Die Klopapier-Tabelle ist von dir?",
+     "en": "The toilet paper spreadsheet is yours?",
+     "ja": "putzplan",
+     "nein": "wgkoch"
+    },
+    {
+     "de": "Du kaufst für alle ein und rechnest nie ab?",
+     "en": "You shop for everyone and never split the bill?",
+     "ja": "wgkoch",
+     "nein": "putzplan"
+    },
+    {
+     "left": {
+      "de": "Kasse mit Zettel",
+      "en": "kitty with a list",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Kasse im Gefühl",
+      "en": "kitty by feel",
+      "vibe": "partyhost"
+     }
+    },
+    {
+     "de": "Pfandflaschen sind dein Notgroschen?",
+     "en": "Bottle deposits are your emergency fund?",
+     "ja": "partyhost",
+     "nein": "pflanzeneltern"
+    },
+    {
+     "de": "Vierzig Euro für eine Pflanze sind okay?",
+     "en": "Forty euros for a plant is fine?",
+     "ja": "pflanzeneltern",
+     "nein": "putzplan"
+    },
+    {
+     "left": {
+      "de": "Neue Pfanne",
+      "en": "a new pan",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Neue Monstera",
+      "en": "a new monstera",
+      "vibe": "pflanzeneltern"
+     }
+    },
+    {
+     "de": "Du leihst dir Geld und vergisst es?",
+     "en": "You borrow money and forget about it?",
+     "ja": "partyhost",
+     "nein": "phantom"
+    },
+    {
+     "de": "Niemand weiß, was du beruflich machst?",
+     "en": "Nobody knows what you do for a living?",
+     "ja": "phantom",
+     "nein": "wgkoch"
+    },
+    {
+     "left": {
+      "de": "Kostenteiler-App",
+      "en": "bill-splitting app",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Bargeld unter der Tür",
+      "en": "cash under the door",
+      "vibe": "phantom"
+     }
+    },
+    {
+     "de": "Geld für Blumenerde ist gut angelegt?",
+     "en": "Money for potting soil is money well spent?",
+     "ja": "pflanzeneltern",
+     "nein": "partyhost"
+    },
+    {
+     "left": {
+      "de": "Großeinkauf für alle",
+      "en": "big shop for everyone",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Einkauf nur für mich",
+      "en": "small shop, just for me",
+      "vibe": "phantom"
+     }
+    }
+   ]
+  },
+  {
+   "id": "laerm",
+   "title": "Lärm",
+   "en": "Noise",
+   "hook": "Thin walls, strong opinions.",
+   "questions": [
+    {
+     "de": "Der Mixer um 23 Uhr ist okay?",
+     "en": "The blender at 11 p.m. is fine?",
+     "ja": "wgkoch",
+     "nein": "putzplan"
+    },
+    {
+     "de": "Du klopfst an die Wand, wenn es laut ist?",
+     "en": "You knock on the wall when it gets loud?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Niemand hört dich kommen oder gehen?",
+     "en": "Nobody hears you come or go?",
+     "ja": "phantom",
+     "nein": "partyhost"
+    },
+    {
+     "left": {
+      "de": "Bass",
+      "en": "bass",
+      "vibe": "partyhost"
+     },
+     "right": {
+      "de": "Klangschale",
+      "en": "singing bowl",
+      "vibe": "pflanzeneltern"
+     }
+    },
+    {
+     "de": "Regen-Sounds helfen beim Schlafen?",
+     "en": "Rain sounds help you sleep?",
+     "ja": "pflanzeneltern",
+     "nein": "wgkoch"
+    },
+    {
+     "de": "Die Nachbarn kennen dich vom Beschweren?",
+     "en": "The neighbours know you from complaining?",
+     "ja": "partyhost",
+     "nein": "phantom"
+    },
+    {
+     "left": {
+      "de": "Küchenradio",
+      "en": "kitchen radio",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Stille",
+      "en": "silence",
+      "vibe": "phantom"
+     }
+    },
+    {
+     "de": "Du hörst Musik nur mit Kopfhörern?",
+     "en": "You only listen to music with headphones?",
+     "ja": "phantom",
+     "nein": "wgkoch"
+    },
+    {
+     "de": "Die Ruhezeiten hängen am Kühlschrank?",
+     "en": "The quiet hours are posted on the fridge?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "left": {
+      "de": "Staubsauger, Samstag",
+      "en": "vacuum cleaner, Saturday",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Topfdeckel-Konzert",
+      "en": "pot-lid concert",
+      "vibe": "wgkoch"
+     }
+    },
+    {
+     "de": "Deine Pflanzen hören mit dir Musik?",
+     "en": "Your plants listen to music with you?",
+     "ja": "pflanzeneltern",
+     "nein": "putzplan"
+    },
+    {
+     "left": {
+      "de": "Windspiel",
+      "en": "wind chime",
+      "vibe": "pflanzeneltern"
+     },
+     "right": {
+      "de": "Türklingel",
+      "en": "doorbell",
+      "vibe": "partyhost"
+     }
+    }
+   ]
+  },
+  {
+   "id": "flur",
+   "title": "Der Flur",
+   "en": "The hallway",
+   "hook": "Everything passes through here. Including the truth.",
+   "questions": [
+    {
+     "de": "Zwanzig Schuhe im Flur, zehn sind fremd?",
+     "en": "Twenty shoes in the hall, ten belong to strangers?",
+     "ja": "partyhost",
+     "nein": "putzplan"
+    },
+    {
+     "de": "Deine Tür ist immer zu?",
+     "en": "Your door is always shut?",
+     "ja": "phantom",
+     "nein": "wgkoch"
+    },
+    {
+     "de": "Im Flur hängt ein Zettel mit Smiley von dir?",
+     "en": "There's a note with a smiley from you in the hall?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "left": {
+      "de": "Schuhregal",
+      "en": "shoe rack",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Schuhberg",
+      "en": "shoe mountain",
+      "vibe": "partyhost"
+     }
+    },
+    {
+     "de": "Im Flur steht eine Pflanze, viel zu groß?",
+     "en": "There's a plant in the hall, far too big?",
+     "ja": "pflanzeneltern",
+     "nein": "phantom"
+    },
+    {
+     "de": "Im Flur riecht es schon nach Essen?",
+     "en": "The hall already smells of food?",
+     "ja": "wgkoch",
+     "nein": "phantom"
+    },
+    {
+     "left": {
+      "de": "Lichterkette",
+      "en": "fairy lights",
+      "vibe": "pflanzeneltern"
+     },
+     "right": {
+      "de": "Discokugel",
+      "en": "disco ball",
+      "vibe": "partyhost"
+     }
+    },
+    {
+     "de": "Du schleichst nachts durch den Flur?",
+     "en": "You sneak down the hall at night?",
+     "ja": "phantom",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Jeder Haken hat einen Namen?",
+     "en": "Every coat hook has a name on it?",
+     "ja": "putzplan",
+     "nein": "wgkoch"
+    },
+    {
+     "left": {
+      "de": "Matte: Willkommen",
+      "en": "doormat: Welcome",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Matte: Bitte nicht",
+      "en": "doormat: Please don't",
+      "vibe": "phantom"
+     }
+    },
+    {
+     "de": "Du grüßt im Flur zuerst die Pflanzen?",
+     "en": "In the hall you greet the plants first?",
+     "ja": "pflanzeneltern",
+     "nein": "wgkoch"
+    },
+    {
+     "left": {
+      "de": "Pfandkiste",
+      "en": "crate of empties",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Gießkanne",
+      "en": "watering can",
+      "vibe": "pflanzeneltern"
+     }
+    }
+   ]
+  },
+  {
+   "id": "streit",
+   "title": "Streit in der WG",
+   "en": "A flat fight",
+   "hook": "Somebody used the good olive oil. War.",
+   "questions": [
+    {
+     "de": "Bei Streit schreibst du eine Liste?",
+     "en": "In a fight, you write a list?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Bei Streit kochst du einfach etwas Gutes?",
+     "en": "In a fight, you just cook something good?",
+     "ja": "wgkoch",
+     "nein": "phantom"
+    },
+    {
+     "de": "Streit? Du warst gar nicht da?",
+     "en": "A fight? You weren't even there?",
+     "ja": "phantom",
+     "nein": "wgkoch"
+    },
+    {
+     "left": {
+      "de": "Gruppenchat",
+      "en": "group chat",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Küchentisch",
+      "en": "kitchen table",
+      "vibe": "wgkoch"
+     }
+    },
+    {
+     "de": "Du vermittelst mit Tee und ruhiger Stimme?",
+     "en": "You mediate with tea and a calm voice?",
+     "ja": "pflanzeneltern",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Du entschuldigst dich mit einer Party?",
+     "en": "You apologise by throwing a party?",
+     "ja": "partyhost",
+     "nein": "putzplan"
+    },
+    {
+     "left": {
+      "de": "Umarmung",
+      "en": "a hug",
+      "vibe": "pflanzeneltern"
+     },
+     "right": {
+      "de": "Runde Schnaps",
+      "en": "a round of schnapps",
+      "vibe": "partyhost"
+     }
+    },
+    {
+     "de": "Du sagst es direkt, aber mit Smiley?",
+     "en": "You say it straight, but with a smiley?",
+     "ja": "putzplan",
+     "nein": "phantom"
+    },
+    {
+     "de": "Ein WG-Meeting ist für dich Horror?",
+     "en": "A flat meeting is your idea of horror?",
+     "ja": "phantom",
+     "nein": "putzplan"
+    },
+    {
+     "left": {
+      "de": "Zettel unter der Tür",
+      "en": "a note under the door",
+      "vibe": "phantom"
+     },
+     "right": {
+      "de": "Reden beim Kochen",
+      "en": "talking while cooking",
+      "vibe": "wgkoch"
+     }
+    },
+    {
+     "de": "Nach dem Streit gibt es Nachtisch für alle?",
+     "en": "After the fight there's dessert for everyone?",
+     "ja": "wgkoch",
+     "nein": "pflanzeneltern"
+    },
+    {
+     "left": {
+      "de": "Spaziergang",
+      "en": "a walk",
+      "vibe": "pflanzeneltern"
+     },
+     "right": {
+      "de": "Kneipe, zusammen",
+      "en": "the pub, together",
+      "vibe": "partyhost"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sonntag",
+   "title": "Der Sonntag",
+   "en": "Sunday",
+   "hook": "No plans, no excuses, no hiding. Well, almost.",
+   "questions": [
+    {
+     "de": "Sonntag ist Putztag, mit Musik und Plan?",
+     "en": "Sunday is cleaning day, with music and a plan?",
+     "ja": "putzplan",
+     "nein": "phantom"
+    },
+    {
+     "de": "Sonntag kochst du für die ganze Woche?",
+     "en": "On Sunday you cook for the whole week?",
+     "ja": "wgkoch",
+     "nein": "partyhost"
+    },
+    {
+     "de": "Sonntag kommst du erst um 14 Uhr nach Hause?",
+     "en": "On Sunday you only get home at 2 p.m.?",
+     "ja": "partyhost",
+     "nein": "pflanzeneltern"
+    },
+    {
+     "left": {
+      "de": "Brunch für die WG",
+      "en": "brunch for the flat",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Brunch allein, im Bett",
+      "en": "brunch alone, in bed",
+      "vibe": "phantom"
+     }
+    },
+    {
+     "de": "Sonntag badest du alle Pflanzen?",
+     "en": "On Sunday you give all the plants a bath?",
+     "ja": "pflanzeneltern",
+     "nein": "phantom"
+    },
+    {
+     "de": "Sonntag sieht dich niemand aus der WG?",
+     "en": "On Sunday nobody in the flat sees you?",
+     "ja": "phantom",
+     "nein": "wgkoch"
+    },
+    {
+     "left": {
+      "de": "Yoga-Matte",
+      "en": "yoga mat",
+      "vibe": "pflanzeneltern"
+     },
+     "right": {
+      "de": "Kopfschmerztablette",
+      "en": "headache pill",
+      "vibe": "partyhost"
+     }
+    },
+    {
+     "de": "Der Kater ist dein Sonntagsgast?",
+     "en": "The hangover is your Sunday guest?",
+     "ja": "partyhost",
+     "nein": "putzplan"
+    },
+    {
+     "de": "Du planst die Woche schon am Sonntagabend?",
+     "en": "You plan the week on Sunday evening already?",
+     "ja": "putzplan",
+     "nein": "partyhost"
+    },
+    {
+     "left": {
+      "de": "Fensterputzen",
+      "en": "cleaning windows",
+      "vibe": "putzplan"
+     },
+     "right": {
+      "de": "Umtopfen",
+      "en": "repotting",
+      "vibe": "pflanzeneltern"
+     }
+    },
+    {
+     "de": "Sonntag ohne Frühstück für alle ist traurig?",
+     "en": "A Sunday without breakfast for everyone is sad?",
+     "ja": "wgkoch",
+     "nein": "phantom"
+    },
+    {
+     "left": {
+      "de": "Krimi mit allen",
+      "en": "the Sunday crime show, all together",
+      "vibe": "wgkoch"
+     },
+     "right": {
+      "de": "Podcast allein",
+      "en": "a podcast alone",
+      "vibe": "phantom"
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,11 +1,12 @@
-// "Ja oder Nein?" rounds: the bank is ten categories of ten themed rounds
-// of eight questions (assets/content/janein/<category>.json), each category
-// with five personas of its own. The deck deals the rounds in turn, round-
+// "Ja oder Nein?" rounds: the bank is ten themes, each one question ("Which
+// German city are you?"), of ten rounds of twelve questions
+// (assets/content/janein/<theme>.json), each theme with five result personas
+// of its own; a round is one angle on that question (your breakfast, money). The deck deals the rounds in turn, round-
 // robin across the categories, so two hands in a row never land on the
 // same shelf; a finished round's persona goes into the collection the
 // learner can brag about (/play/ja-nein/personas).
 
-import type { Answer, JaNeinQuestion, Persona } from './janein';
+import type { Answer, JaNeinQuestion, MixEntry, Persona } from './janein';
 
 export interface JaNeinCategory {
 	id: string;
@@ -27,10 +28,10 @@ export interface JaNeinRound {
 	questions: JaNeinQuestion[];
 }
 
-export const ROUND_LENGTH = 8;
+export const ROUND_LENGTH = 12;
 
-/** The shelves in the order the deck walks them: the classic five first. */
-const CATEGORY_ORDER = ['typisch', 'uhr', 'teller', 'nacht', 'zuhause', 'draussen', 'ordnung', 'stadtland', 'jahr', 'unterwegs'];
+/** The shelves in the order the deck walks them: the most shareable question first. */
+const CATEGORY_ORDER = ['stadt', 'tier', 'essen', 'getraenk', 'freund', 'party', 'reise', 'wg', 'jahreszeit', 'deutsch'];
 
 type RawQuestion =
 	| { de: string; en: string; ja: string; nein: string }
@@ -168,13 +169,20 @@ export interface RoundResult {
 	persona: Persona;
 	questions: JaNeinQuestion[];
 	tally: Record<string, number>;
+	/** Every persona of the theme with its share of the answers, strongest first. */
+	mix: MixEntry[];
+	/** The same five in the theme's fixed order, for the bar: your slice moves, the colours don't. */
+	slices: MixEntry[];
 	runnerUp: Persona | null;
+	/** The persona this one gets on with, and the one it clashes with. */
+	match: Persona;
+	clash: Persona;
 	ja: number;
 	nein: number;
 	answers: Answer[];
 }
 
-/** Who you are tonight: the persona the answers fed most; ties go to the one fed first. */
+/** Who you are: the persona the answers fed most; ties go to the one fed first. */
 export function scoreRound(round: JaNeinRound, questions: JaNeinQuestion[], answers: Answer[]): RoundResult {
 	const category = categoryOf(round);
 	const vibes = category.personas.map((p) => p.id);
@@ -188,17 +196,77 @@ export function scoreRound(round: JaNeinRound, questions: JaNeinQuestion[], answ
 		firstFed[vibe] ??= i;
 	});
 	const ranked = [...vibes].sort((a, b) => tally[b] - tally[a] || (firstFed[a] ?? Infinity) - (firstFed[b] ?? Infinity));
+	const total = Math.max(1, answers.length);
+	const persona = personaOf(category, ranked[0]);
 	return {
 		round,
 		category,
-		persona: personaOf(category, ranked[0]),
+		persona,
 		questions,
 		tally,
+		mix: ranked.map((v) => ({ persona: personaOf(category, v), count: tally[v], share: tally[v] / total })),
+		slices: vibes.map((v) => ({ persona: personaOf(category, v), count: tally[v], share: tally[v] / total })),
 		runnerUp: tally[ranked[1]] > 0 ? personaOf(category, ranked[1]) : null,
+		match: personaOf(category, persona.match),
+		clash: personaOf(category, persona.clash),
 		ja: answers.filter((a) => a === 'ja').length,
 		nein: answers.filter((a) => a === 'nein').length,
 		answers
 	};
+}
+
+// -- what the answers say about you ---------------------------------------------
+
+export interface ResultStats {
+	/** How clear the verdict was, in one sentence. */
+	verdict: string;
+	/** What the Ja/Nein balance says, in one sentence. */
+	style: string;
+	/** The longest run of the same answer, and which. */
+	streak: { answer: Answer; length: number };
+}
+
+/**
+ * The small print under the type: how decisive the mix was, what the
+ * balance of Ja and Nein says about the way you swipe, and the longest run.
+ * Plain words, no marks, a little cheeky; German or English.
+ */
+export function resultStats(result: RoundResult, lang: 'de' | 'en' = 'en'): ResultStats {
+	const [top, second] = result.mix;
+	const pct = Math.round((top?.share ?? 0) * 100);
+	const t = top.persona.title;
+	const s = second?.persona.title ?? '';
+	const sp = Math.round((second?.share ?? 0) * 100);
+	const de = lang === 'de';
+	let verdict: string;
+	if (!second || second.count === 0)
+		verdict = de ? `Jede einzelne Antwort zeigte auf ${t}. Kein Quiz, ein Geständnis.` : `Every single answer pointed at ${t}. Not a quiz, a confession.`;
+	else if (top.count - second.count >= 3)
+		verdict = de ? `Ein klarer Fall: ${pct} % ${t}, der Rest kam kaum zu Wort.` : `A clear case: ${pct} % ${t}, and the rest barely got a word in.`;
+	else if (top.count === second.count)
+		verdict = de ? `Unentschieden mit ${s}; ${t} hat es mit der ersten Antwort geholt.` : `A dead heat with ${s}; ${t} took it on the first answer.`;
+	else verdict = de ? `${t} mit knappem Vorsprung, ${s} mit ${sp} % direkt dahinter.` : `${t} by a nose, with ${s} ${sp} % right behind.`;
+
+	const n = result.answers.length || 1;
+	const jaShare = result.ja / n;
+	const ja = result.ja;
+	const nein = result.nein;
+	let style: string;
+	if (nein === 0) style = de ? 'Du hast zu allem Ja gesagt. Das Leben sagt danke.' : 'You said Ja to everything. Life says thank you.';
+	else if (ja === 0) style = de ? `Nein, ${nein} Mal von ${nein}. Respekt.` : `Nein, ${nein} times out of ${nein}. Respect.`;
+	else if (jaShare >= 0.75)
+		style = de ? `${ja} Ja, ${nein} Nein: Du sagst lieber Ja und bereust es später.` : `${ja} Ja, ${nein} Nein: you lean towards yes and regret it later.`;
+	else if (jaShare <= 0.25)
+		style = de ? `${ja} Ja, ${nein} Nein: Du sagst lieber Nein und schläfst sehr gut.` : `${ja} Ja, ${nein} Nein: you lean towards no and sleep very well.`;
+	else style = de ? `${ja} Ja, ${nein} Nein: ausgeglichen, oder einfach unentschlossen. Wer weiß.` : `${ja} Ja, ${nein} Nein: balanced, or just undecided. Nobody can tell.`;
+
+	let best = { answer: result.answers[0] ?? 'ja', length: 0 };
+	let run = 0;
+	result.answers.forEach((a, i) => {
+		run = i > 0 && result.answers[i - 1] === a ? run + 1 : 1;
+		if (run > best.length) best = { answer: a, length: run };
+	});
+	return { verdict, style, streak: best };
 }
 
 // -- the collection -------------------------------------------------------------

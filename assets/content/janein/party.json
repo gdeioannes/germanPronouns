@@ -1,0 +1,1185 @@
+{
+ "id": "party",
+ "title": "Welcher Partygast bist du?",
+ "en": "Which party guest are you?",
+ "emoji": "🎉",
+ "personas": [
+  {
+   "id": "djuebernahme",
+   "title": "Die DJ-Übernahme",
+   "emoji": "🎧",
+   "line": "\"Trust me.\" You took the aux cable at 22:14 and nobody has seen it since.",
+   "profile": "You have a playlist for every mood and a strong opinion about everyone else's. Within twenty minutes of arriving, the cable is yours and the room is 'finally sounding right'. People call it control issues. You call it taste. Deep down you just want everyone to feel the drop at the same second.",
+   "traits": [
+    "controlling",
+    "tasteful",
+    "opinionated"
+   ],
+   "de": {
+    "line": "„Vertrau mir.“ Um 22:14 hast du das Aux-Kabel genommen. Seitdem hat es niemand gesehen.",
+    "profile": "Du hast eine Playlist für jede Stimmung und eine klare Meinung zu allen anderen. Zwanzig Minuten nach dem Ankommen gehört das Kabel dir, und der Raum „klingt endlich richtig“. Andere nennen das Kontrollzwang. Du nennst es Geschmack. Tief drinnen willst du nur, dass alle den Drop in derselben Sekunde fühlen.",
+    "traits": [
+     "kontrollierend",
+     "guter Geschmack",
+     "meinungsstark"
+    ]
+   },
+   "match": "tanzflaeche",
+   "clash": "kuechenphilosoph",
+   "word": {
+    "de": "die Musik",
+    "en": "the music"
+   }
+  },
+  {
+   "id": "kuechenphilosoph",
+   "title": "Küchen-Philosophie",
+   "emoji": "🍷",
+   "line": "You never saw the dance floor. You did hear a stranger's whole life story.",
+   "profile": "The party happens in the living room; you happen in the kitchen. Leaning on the fridge, glass in hand, you're deep into the meaning of life with someone you met eleven minutes ago. You remember everyone's story and nobody's dance moves. The best conversations of the year happened next to a dishwasher.",
+   "traits": [
+    "deep",
+    "curious",
+    "kitchen-bound"
+   ],
+   "de": {
+    "line": "Die Tanzfläche hast du nie gesehen. Die ganze Lebensgeschichte eines Fremden schon.",
+    "profile": "Die Party findet im Wohnzimmer statt; du findest in der Küche statt. An den Kühlschrank gelehnt, Glas in der Hand, redest du über den Sinn des Lebens mit jemandem, den du seit elf Minuten kennst. Du merkst dir jede Geschichte und keinen einzigen Tanzschritt. Die besten Gespräche des Jahres: direkt neben der Spülmaschine.",
+    "traits": [
+     "tiefgründig",
+     "neugierig",
+     "küchentreu"
+    ]
+   },
+   "match": "lichtaus",
+   "clash": "tanzflaeche",
+   "word": {
+    "de": "die Küche",
+    "en": "the kitchen"
+   }
+  },
+  {
+   "id": "tanzflaeche",
+   "title": "Die Tanzfläche",
+   "emoji": "💃",
+   "line": "First to dance, last to stop. No shame, lots of sweat, pure joy.",
+   "profile": "You don't need a drink, you need bass. You're dancing before anyone else dares, and you're still dancing when the lights come on. Shame is a foreign concept, sweat is a trophy. Your energy pulls the shy ones onto the floor and that, honestly, is a public service.",
+   "traits": [
+    "joyful",
+    "shameless",
+    "energetic"
+   ],
+   "de": {
+    "line": "Zuerst beim Tanzen, zuletzt beim Aufhören. Keine Scham, viel Schweiß, pure Freude.",
+    "profile": "Du brauchst keinen Drink, du brauchst Bass. Du tanzt, bevor sich jemand anderes traut, und du tanzt noch, wenn das Licht angeht. Scham ist ein Fremdwort, Schweiß ist eine Trophäe. Deine Energie zieht die Schüchternen auf die Tanzfläche, und das ist, ehrlich gesagt, ein Dienst an der Gesellschaft.",
+    "traits": [
+     "fröhlich",
+     "schamlos",
+     "energiegeladen"
+    ]
+   },
+   "match": "djuebernahme",
+   "clash": "fruehabgang",
+   "word": {
+    "de": "der Tanz",
+    "en": "the dance"
+   }
+  },
+  {
+   "id": "fruehabgang",
+   "title": "Der Frühabgang",
+   "emoji": "🚪",
+   "line": "Gone at 23:30, no goodbye. By the time they notice, you're in pyjamas.",
+   "profile": "You love the idea of a party: the outfit, the invitation, the first hour. Then at 23:30 something in you says 'enough' and you simply vanish, no goodbyes, no explanation. While others queue for the bathroom, you're in bed with tea and a clear conscience. You regret nothing, ever.",
+   "traits": [
+    "self-aware",
+    "quiet exit",
+    "early to bed"
+   ],
+   "de": {
+    "line": "Um 23:30 weg, ohne Tschüss. Wenn es jemand merkt, trägst du schon Pyjama.",
+    "profile": "Du liebst die Idee einer Party: das Outfit, die Einladung, die erste Stunde. Dann sagt um 23:30 etwas in dir „reicht“, und du verschwindest einfach, ohne Tschüss, ohne Erklärung. Während die anderen vor dem Bad anstehen, liegst du im Bett mit Tee und gutem Gewissen. Du bereust nichts, nie.",
+    "traits": [
+     "kennt sich selbst",
+     "leiser Abgang",
+     "früh im Bett"
+    ]
+   },
+   "match": "kuechenphilosoph",
+   "clash": "lichtaus",
+   "word": {
+    "de": "die Tür",
+    "en": "the door"
+   }
+  },
+  {
+   "id": "lichtaus",
+   "title": "Licht-aus-Legende",
+   "emoji": "🌅",
+   "line": "Last one standing, first one washing up. Breakfast for eight at 6 a.m.",
+   "profile": "The party ends when you say it ends, and you never say it. At 5 a.m. you're collecting bottles, at 6 you're making eggs for whoever survived, and you know exactly where the host hides the good glasses. Hosts love you more than their own guests. You are the after-party, the clean-up and the brunch.",
+   "traits": [
+    "tireless",
+    "helpful",
+    "last to leave"
+   ],
+   "de": {
+    "line": "Als Letzter noch da, als Erster am Spülbecken. Frühstück für acht um 6 Uhr morgens.",
+    "profile": "Die Party endet, wenn du es sagst, und du sagst es nie. Um 5 Uhr sammelst du Flaschen, um 6 machst du Eier für alle, die überlebt haben, und du weißt genau, wo der Gastgeber die guten Gläser versteckt. Gastgeber lieben dich mehr als ihre eigenen Gäste. Du bist die Afterparty, das Aufräumen und der Brunch.",
+    "traits": [
+     "unermüdlich",
+     "hilfsbereit",
+     "geht als Letzter"
+    ]
+   },
+   "match": "tanzflaeche",
+   "clash": "fruehabgang",
+   "word": {
+    "de": "das Frühstück",
+    "en": "the breakfast"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "einladung",
+   "title": "Die Einladung",
+   "en": "The invitation",
+   "hook": "The invite arrives. What happens in your head?",
+   "questions": [
+    {
+     "de": "Du sagst sofort zu, mit Herz?",
+     "en": "You say yes instantly, with a heart?",
+     "ja": "tanzflaeche",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Du fragst zuerst: Wer macht die Musik?",
+     "en": "You ask first: who's doing the music?",
+     "ja": "djuebernahme",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Die Idee der Party ist besser als die Party?",
+     "en": "You look forward to the idea more than the party?",
+     "ja": "fruehabgang",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Du fragst, ob du beim Aufräumen helfen kannst?",
+     "en": "You ask if you can help clean up?",
+     "ja": "lichtaus",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Du fragst, wer noch kommt?",
+     "en": "You ask who else is coming?",
+     "ja": "kuechenphilosoph",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du planst schon den Abgang?",
+     "en": "You're already planning your exit?",
+     "ja": "fruehabgang",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Du bringst eine Playlist mit?",
+     "en": "You bring a playlist?",
+     "ja": "djuebernahme",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Du bringst Wein für die Küche mit?",
+     "en": "You bring wine for the kitchen?",
+     "ja": "kuechenphilosoph",
+     "nein": "tanzflaeche"
+    },
+    {
+     "left": {
+      "de": "Vielleicht",
+      "en": "maybe",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Auf jeden Fall!",
+      "en": "definitely!",
+      "vibe": "tanzflaeche"
+     }
+    },
+    {
+     "left": {
+      "de": "Playlist bauen",
+      "en": "build a playlist",
+      "vibe": "djuebernahme"
+     },
+     "right": {
+      "de": "Snacks kaufen",
+      "en": "buy snacks",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Frühe Party",
+      "en": "an early party",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Party bis morgen",
+      "en": "party till morning",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Wer kommt?",
+      "en": "who's coming?",
+      "vibe": "kuechenphilosoph"
+     },
+     "right": {
+      "de": "Wo wird getanzt?",
+      "en": "where do we dance?",
+      "vibe": "tanzflaeche"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ankommen",
+   "title": "Ankommen",
+   "en": "Arriving",
+   "hook": "You walk in. First thirty seconds.",
+   "questions": [
+    {
+     "de": "Du kommst pünktlich, als Erster?",
+     "en": "You arrive on time, the first one?",
+     "ja": "fruehabgang",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Du gehst direkt in die Küche?",
+     "en": "You head straight to the kitchen?",
+     "ja": "kuechenphilosoph",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du gehst direkt zur Musikanlage?",
+     "en": "You head straight to the speakers?",
+     "ja": "djuebernahme",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Du tanzt schon im Flur?",
+     "en": "You're already dancing in the hallway?",
+     "ja": "tanzflaeche",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Du bringst Eis und Becher mit?",
+     "en": "You bring ice and cups?",
+     "ja": "lichtaus",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Du begrüßt alle mit Umarmung?",
+     "en": "You greet everyone with a hug?",
+     "ja": "tanzflaeche",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Du suchst zuerst die Jacken-Ablage?",
+     "en": "You look for where the coats go first?",
+     "ja": "fruehabgang",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du fragst den Gastgeber, was fehlt?",
+     "en": "You ask the host what's missing?",
+     "ja": "lichtaus",
+     "nein": "djuebernahme"
+    },
+    {
+     "left": {
+      "de": "Küche",
+      "en": "the kitchen",
+      "vibe": "kuechenphilosoph"
+     },
+     "right": {
+      "de": "Wohnzimmer",
+      "en": "the living room",
+      "vibe": "tanzflaeche"
+     }
+    },
+    {
+     "left": {
+      "de": "Aux-Kabel suchen",
+      "en": "look for the aux cable",
+      "vibe": "djuebernahme"
+     },
+     "right": {
+      "de": "Flaschenöffner suchen",
+      "en": "look for a bottle opener",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Jacke anlassen",
+      "en": "keep your jacket on",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Jacke irgendwo",
+      "en": "jacket somewhere",
+      "vibe": "tanzflaeche"
+     }
+    },
+    {
+     "left": {
+      "de": "Bass prüfen",
+      "en": "check the bass",
+      "vibe": "djuebernahme"
+     },
+     "right": {
+      "de": "Gäste prüfen",
+      "en": "check out the guests",
+      "vibe": "kuechenphilosoph"
+     }
+    }
+   ]
+  },
+  {
+   "id": "musik",
+   "title": "Die Musik",
+   "en": "The music",
+   "hook": "Whose phone is connected to the speaker?",
+   "questions": [
+    {
+     "de": "Du hast das Aux-Kabel nach 20 Minuten?",
+     "en": "You have the aux cable within 20 minutes?",
+     "ja": "djuebernahme",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Dir ist egal, was läuft, Hauptsache Bass?",
+     "en": "You don't care what's on, as long as there's bass?",
+     "ja": "tanzflaeche",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Du hörst die Musik gar nicht?",
+     "en": "You don't even hear the music?",
+     "ja": "kuechenphilosoph",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Laute Musik ist dein Signal zum Gehen?",
+     "en": "Loud music is your cue to leave?",
+     "ja": "fruehabgang",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du singst um 5 Uhr noch mit?",
+     "en": "You're still singing along at 5 a.m.?",
+     "ja": "lichtaus",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Du skipst Songs von anderen?",
+     "en": "You skip other people's songs?",
+     "ja": "djuebernahme",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Du tanzt auch zu schlechter Musik?",
+     "en": "You dance even to bad music?",
+     "ja": "tanzflaeche",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Du machst die Musik leiser für ein Gespräch?",
+     "en": "You turn the music down for a conversation?",
+     "ja": "kuechenphilosoph",
+     "nein": "tanzflaeche"
+    },
+    {
+     "left": {
+      "de": "Ein Lied wünschen",
+      "en": "request a song",
+      "vibe": "tanzflaeche"
+     },
+     "right": {
+      "de": "Alle Lieder wählen",
+      "en": "choose all the songs",
+      "vibe": "djuebernahme"
+     }
+    },
+    {
+     "left": {
+      "de": "Leise Ecke",
+      "en": "quiet corner",
+      "vibe": "kuechenphilosoph"
+     },
+     "right": {
+      "de": "Vor der Box",
+      "en": "in front of the speaker",
+      "vibe": "tanzflaeche"
+     }
+    },
+    {
+     "left": {
+      "de": "Musik aus um 23 Uhr",
+      "en": "music off at 11",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Musik bis zur Sonne",
+      "en": "music till sunrise",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Mitsingen",
+      "en": "sing along",
+      "vibe": "lichtaus"
+     },
+     "right": {
+      "de": "Mitreden",
+      "en": "talk over it",
+      "vibe": "kuechenphilosoph"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kueche",
+   "title": "Die Küche",
+   "en": "The kitchen",
+   "hook": "The real party room. Admit it.",
+   "questions": [
+    {
+     "de": "Die Küche ist dein Zuhause auf jeder Party?",
+     "en": "The kitchen is your home at every party?",
+     "ja": "kuechenphilosoph",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du spülst, während die anderen feiern?",
+     "en": "You wash up while the others party?",
+     "ja": "lichtaus",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Du isst alle Snacks, allein?",
+     "en": "You eat all the snacks, alone?",
+     "ja": "fruehabgang",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Du tanzt auch in der Küche?",
+     "en": "You dance in the kitchen too?",
+     "ja": "tanzflaeche",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Du hast eine Meinung zum Küchenradio?",
+     "en": "You have an opinion about the kitchen radio?",
+     "ja": "djuebernahme",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Du redest mit dem Gastgeber über sein Leben?",
+     "en": "You talk to the host about their life?",
+     "ja": "kuechenphilosoph",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Du räumst leere Flaschen weg, automatisch?",
+     "en": "You clear empty bottles away automatically?",
+     "ja": "lichtaus",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Küchengespräche sind dir zu tief?",
+     "en": "Kitchen talks are too deep for you?",
+     "ja": "tanzflaeche",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "left": {
+      "de": "Wein",
+      "en": "wine",
+      "vibe": "kuechenphilosoph"
+     },
+     "right": {
+      "de": "Wasser",
+      "en": "water",
+      "vibe": "tanzflaeche"
+     }
+    },
+    {
+     "left": {
+      "de": "Kühlschrank-Lehne",
+      "en": "leaning on the fridge",
+      "vibe": "kuechenphilosoph"
+     },
+     "right": {
+      "de": "Spüle",
+      "en": "the sink",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Snack mitnehmen, gehen",
+      "en": "grab a snack, leave",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Snacks nachfüllen",
+      "en": "refill the snacks",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Boxen in die Küche",
+      "en": "speakers into the kitchen",
+      "vibe": "djuebernahme"
+     },
+     "right": {
+      "de": "Küche ohne Musik",
+      "en": "kitchen without music",
+      "vibe": "kuechenphilosoph"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ein_uhr",
+   "title": "1 Uhr nachts",
+   "en": "1 a.m.",
+   "hook": "It's one o'clock. Where exactly are you?",
+   "questions": [
+    {
+     "de": "Um 1 Uhr bist du schon im Bett?",
+     "en": "At 1 a.m. you're already in bed?",
+     "ja": "fruehabgang",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Um 1 Uhr redest du über den Sinn des Lebens?",
+     "en": "At 1 a.m. you're discussing the meaning of life?",
+     "ja": "kuechenphilosoph",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Um 1 Uhr bist du nass vom Tanzen?",
+     "en": "At 1 a.m. you're soaked from dancing?",
+     "ja": "tanzflaeche",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Um 1 Uhr wechselst du das Genre?",
+     "en": "At 1 a.m. you switch the genre?",
+     "ja": "djuebernahme",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Um 1 Uhr machst du Nachos für alle?",
+     "en": "At 1 a.m. you make nachos for everyone?",
+     "ja": "lichtaus",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Um 1 Uhr beginnt für dich die Party?",
+     "en": "For you the party starts at 1 a.m.?",
+     "ja": "lichtaus",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Um 1 Uhr kennst du drei neue Lebensgeschichten?",
+     "en": "At 1 a.m. you know three new life stories?",
+     "ja": "kuechenphilosoph",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Um 1 Uhr stehst du auf dem Tisch?",
+     "en": "At 1 a.m. you're standing on the table?",
+     "ja": "tanzflaeche",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "left": {
+      "de": "Zweiter Atem",
+      "en": "second wind",
+      "vibe": "lichtaus"
+     },
+     "right": {
+      "de": "Zweites Kissen",
+      "en": "second pillow",
+      "vibe": "fruehabgang"
+     }
+    },
+    {
+     "left": {
+      "de": "Bass lauter",
+      "en": "bass up",
+      "vibe": "djuebernahme"
+     },
+     "right": {
+      "de": "Licht dunkler",
+      "en": "lights down",
+      "vibe": "kuechenphilosoph"
+     }
+    },
+    {
+     "left": {
+      "de": "Tischtanz",
+      "en": "dancing on the table",
+      "vibe": "tanzflaeche"
+     },
+     "right": {
+      "de": "Balkongespräch",
+      "en": "balcony conversation",
+      "vibe": "kuechenphilosoph"
+     }
+    },
+    {
+     "left": {
+      "de": "Taxi-App",
+      "en": "taxi app",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Noch eine Playlist",
+      "en": "one more playlist",
+      "vibe": "djuebernahme"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fremde",
+   "title": "Fremde Leute",
+   "en": "Strangers",
+   "hook": "You know two people here. Problem?",
+   "questions": [
+    {
+     "de": "Du kennst niemanden und bleibst trotzdem?",
+     "en": "You know nobody and stay anyway?",
+     "ja": "kuechenphilosoph",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Fremde ziehst du auf die Tanzfläche?",
+     "en": "You pull strangers onto the dance floor?",
+     "ja": "tanzflaeche",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Fremde fragst du nach ihrer Lieblingsband?",
+     "en": "You ask strangers about their favourite band?",
+     "ja": "djuebernahme",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Fremde sind ein Grund zu gehen?",
+     "en": "Strangers are a reason to leave?",
+     "ja": "fruehabgang",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du kennst nach einer Stunde alle Namen?",
+     "en": "After an hour you know all the names?",
+     "ja": "lichtaus",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Du redest mit Fremden über ihre Kindheit?",
+     "en": "You talk to strangers about their childhood?",
+     "ja": "kuechenphilosoph",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Du machst Fremden Komplimente zum Tanz?",
+     "en": "You compliment strangers on their dancing?",
+     "ja": "tanzflaeche",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Du machst Fremden Frühstück?",
+     "en": "You make breakfast for strangers?",
+     "ja": "lichtaus",
+     "nein": "fruehabgang"
+    },
+    {
+     "left": {
+      "de": "Tiefes Gespräch",
+      "en": "deep conversation",
+      "vibe": "kuechenphilosoph"
+     },
+     "right": {
+      "de": "Gemeinsam tanzen",
+      "en": "dancing together",
+      "vibe": "tanzflaeche"
+     }
+    },
+    {
+     "left": {
+      "de": "Namen vergessen",
+      "en": "forget the names",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Nummern tauschen",
+      "en": "swap numbers",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Musikgeschmack prüfen",
+      "en": "test their music taste",
+      "vibe": "djuebernahme"
+     },
+     "right": {
+      "de": "Lebensgeschichte",
+      "en": "hear their life story",
+      "vibe": "kuechenphilosoph"
+     }
+    },
+    {
+     "left": {
+      "de": "Still beobachten",
+      "en": "watch quietly",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Alle mitreißen",
+      "en": "sweep everyone along",
+      "vibe": "tanzflaeche"
+     }
+    }
+   ]
+  },
+  {
+   "id": "alkohol",
+   "title": "Alkohol?",
+   "en": "Alcohol?",
+   "hook": "What's in your glass, and does it matter?",
+   "questions": [
+    {
+     "de": "Du brauchst keinen Alkohol zum Tanzen?",
+     "en": "You don't need alcohol to dance?",
+     "ja": "tanzflaeche",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Ein Glas Wein, drei Stunden lang?",
+     "en": "One glass of wine, for three hours?",
+     "ja": "kuechenphilosoph",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du trinkst Wasser, damit du durchhältst?",
+     "en": "You drink water so you can last?",
+     "ja": "lichtaus",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Nach zwei Getränken willst du nach Hause?",
+     "en": "After two drinks you want to go home?",
+     "ja": "fruehabgang",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Alkohol macht deinen Musikgeschmack mutiger?",
+     "en": "Alcohol makes your music taste braver?",
+     "ja": "djuebernahme",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Du mischst Getränke für alle?",
+     "en": "You mix drinks for everyone?",
+     "ja": "lichtaus",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Dein Glas steht irgendwo, vergessen?",
+     "en": "Your glass is somewhere, forgotten?",
+     "ja": "tanzflaeche",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Du bringst dein eigenes Getränk mit?",
+     "en": "You bring your own drink?",
+     "ja": "djuebernahme",
+     "nein": "lichtaus"
+    },
+    {
+     "left": {
+      "de": "Wein",
+      "en": "wine",
+      "vibe": "kuechenphilosoph"
+     },
+     "right": {
+      "de": "Shots",
+      "en": "shots",
+      "vibe": "tanzflaeche"
+     }
+    },
+    {
+     "left": {
+      "de": "Tee zu Hause",
+      "en": "tea at home",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Kaffee um 6",
+      "en": "coffee at 6 a.m.",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Bier in der Hand",
+      "en": "beer in hand",
+      "vibe": "djuebernahme"
+     },
+     "right": {
+      "de": "Hände frei",
+      "en": "hands free",
+      "vibe": "tanzflaeche"
+     }
+    },
+    {
+     "left": {
+      "de": "Ein Glas",
+      "en": "one glass",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Wer zählt?",
+      "en": "who's counting?",
+      "vibe": "lichtaus"
+     }
+    }
+   ]
+  },
+  {
+   "id": "abgang",
+   "title": "Der Abgang",
+   "en": "The exit",
+   "hook": "How do you leave? Do you leave?",
+   "questions": [
+    {
+     "de": "Du gehst ohne Tschüss zu sagen?",
+     "en": "You leave without saying goodbye?",
+     "ja": "fruehabgang",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Du gehst als Letzter, mit dem Gastgeber?",
+     "en": "You leave last, with the host?",
+     "ja": "lichtaus",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Du gehst, wenn die Musik schlecht wird?",
+     "en": "You leave when the music gets bad?",
+     "ja": "djuebernahme",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du gehst, wenn das letzte Lied gespielt ist?",
+     "en": "You leave after the very last song?",
+     "ja": "tanzflaeche",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Dein Abschied dauert eine Stunde?",
+     "en": "Your goodbye takes an hour?",
+     "ja": "kuechenphilosoph",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Du bist um 23:30 schon weg?",
+     "en": "You're gone by 23:30?",
+     "ja": "fruehabgang",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du nimmst den Müll mit raus?",
+     "en": "You take the rubbish out with you?",
+     "ja": "lichtaus",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Du gehst mit einem neuen besten Freund?",
+     "en": "You leave with a new best friend?",
+     "ja": "kuechenphilosoph",
+     "nein": "djuebernahme"
+    },
+    {
+     "left": {
+      "de": "Irish Exit",
+      "en": "Irish exit",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Große Verabschiedung",
+      "en": "a big send-off",
+      "vibe": "kuechenphilosoph"
+     }
+    },
+    {
+     "left": {
+      "de": "Letzter Song",
+      "en": "the last song",
+      "vibe": "tanzflaeche"
+     },
+     "right": {
+      "de": "Erster Bus",
+      "en": "the first bus",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Playlist mitnehmen",
+      "en": "take the playlist",
+      "vibe": "djuebernahme"
+     },
+     "right": {
+      "de": "Gläser mitspülen",
+      "en": "help wash the glasses",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Taxi um 23 Uhr",
+      "en": "taxi at 11 p.m.",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Zu Fuß um 6",
+      "en": "walk home at 6",
+      "vibe": "tanzflaeche"
+     }
+    }
+   ]
+  },
+  {
+   "id": "morgen_danach",
+   "title": "Der Morgen danach",
+   "en": "The morning after",
+   "hook": "Daylight. Where did you wake up?",
+   "questions": [
+    {
+     "de": "Du wachst ausgeschlafen und frisch auf?",
+     "en": "You wake up rested and fresh?",
+     "ja": "fruehabgang",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Du machst Frühstück für acht Leute?",
+     "en": "You make breakfast for eight people?",
+     "ja": "lichtaus",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Deine Beine tun weh vom Tanzen?",
+     "en": "Your legs hurt from dancing?",
+     "ja": "tanzflaeche",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Du denkst noch über ein Gespräch nach?",
+     "en": "You're still thinking about a conversation?",
+     "ja": "kuechenphilosoph",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du schickst allen die Playlist von gestern?",
+     "en": "You send everyone last night's playlist?",
+     "ja": "djuebernahme",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Du räumst morgens noch beim Gastgeber auf?",
+     "en": "You're still cleaning at the host's in the morning?",
+     "ja": "lichtaus",
+     "nein": "djuebernahme"
+    },
+    {
+     "de": "Du hast heimlich Freude, früh gegangen zu sein?",
+     "en": "You secretly love that you left early?",
+     "ja": "fruehabgang",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du hast neue Nummern im Handy?",
+     "en": "You have new numbers in your phone?",
+     "ja": "kuechenphilosoph",
+     "nein": "fruehabgang"
+    },
+    {
+     "left": {
+      "de": "Eier braten",
+      "en": "fry eggs",
+      "vibe": "lichtaus"
+     },
+     "right": {
+      "de": "Bäcker um 8",
+      "en": "bakery at 8",
+      "vibe": "fruehabgang"
+     }
+    },
+    {
+     "left": {
+      "de": "Playlist nachhören",
+      "en": "replay the playlist",
+      "vibe": "djuebernahme"
+     },
+     "right": {
+      "de": "Gespräche nachdenken",
+      "en": "replay the conversations",
+      "vibe": "kuechenphilosoph"
+     }
+    },
+    {
+     "left": {
+      "de": "Muskelkater",
+      "en": "sore muscles",
+      "vibe": "tanzflaeche"
+     },
+     "right": {
+      "de": "Kopfschmerzen",
+      "en": "headache",
+      "vibe": "kuechenphilosoph"
+     }
+    },
+    {
+     "left": {
+      "de": "Fotos durchsehen",
+      "en": "scroll the photos",
+      "vibe": "tanzflaeche"
+     },
+     "right": {
+      "de": "Ausgeschlafen joggen",
+      "en": "go jogging, well rested",
+      "vibe": "fruehabgang"
+     }
+    }
+   ]
+  },
+  {
+   "id": "eigene_party",
+   "title": "Deine eigene Party",
+   "en": "Your own party",
+   "hook": "Now you're the host. Oh no.",
+   "questions": [
+    {
+     "de": "Deine Party hat eine Playlist von 9 Stunden?",
+     "en": "Your party has a nine-hour playlist?",
+     "ja": "djuebernahme",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Du lädst nur sechs Leute ein, zum Reden?",
+     "en": "You invite only six people, to talk?",
+     "ja": "kuechenphilosoph",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Du räumst die Möbel weg zum Tanzen?",
+     "en": "You move the furniture to make room for dancing?",
+     "ja": "tanzflaeche",
+     "nein": "kuechenphilosoph"
+    },
+    {
+     "de": "Du gehst auf deiner eigenen Party ins Bett?",
+     "en": "You go to bed at your own party?",
+     "ja": "fruehabgang",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Deine Party endet mit Frühstück?",
+     "en": "Your party ends with breakfast?",
+     "ja": "lichtaus",
+     "nein": "fruehabgang"
+    },
+    {
+     "de": "Du schreibst \"Ende 23 Uhr\" in die Einladung?",
+     "en": "You write \"ends at 11\" on the invitation?",
+     "ja": "fruehabgang",
+     "nein": "tanzflaeche"
+    },
+    {
+     "de": "Niemand darf dein Aux-Kabel anfassen?",
+     "en": "Nobody may touch your aux cable?",
+     "ja": "djuebernahme",
+     "nein": "lichtaus"
+    },
+    {
+     "de": "Deine Gäste sitzen alle in der Küche?",
+     "en": "Your guests all sit in the kitchen?",
+     "ja": "kuechenphilosoph",
+     "nein": "djuebernahme"
+    },
+    {
+     "left": {
+      "de": "Boxen mieten",
+      "en": "rent speakers",
+      "vibe": "djuebernahme"
+     },
+     "right": {
+      "de": "Kerzen kaufen",
+      "en": "buy candles",
+      "vibe": "kuechenphilosoph"
+     }
+    },
+    {
+     "left": {
+      "de": "Küche offen",
+      "en": "kitchen open",
+      "vibe": "kuechenphilosoph"
+     },
+     "right": {
+      "de": "Wohnzimmer leer",
+      "en": "living room cleared",
+      "vibe": "tanzflaeche"
+     }
+    },
+    {
+     "left": {
+      "de": "Ende um 23 Uhr",
+      "en": "ends at 11",
+      "vibe": "fruehabgang"
+     },
+     "right": {
+      "de": "Ende offen",
+      "en": "open end",
+      "vibe": "lichtaus"
+     }
+    },
+    {
+     "left": {
+      "de": "Frühstück inklusive",
+      "en": "breakfast included",
+      "vibe": "lichtaus"
+     },
+     "right": {
+      "de": "Playlist inklusive",
+      "en": "playlist included",
+      "vibe": "djuebernahme"
+     }
+    }
+   ]
+  }
+ ]
+}

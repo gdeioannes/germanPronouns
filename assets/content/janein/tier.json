@@ -1,0 +1,1185 @@
+{
+ "id": "tier",
+ "title": "Welches Tier bist du?",
+ "en": "Which animal are you?",
+ "emoji": "🐾",
+ "personas": [
+  {
+   "id": "dackel",
+   "title": "Dackel",
+   "emoji": "🐶",
+   "line": "Small, bossy, and you remember exactly who ate your sandwich in 2019.",
+   "profile": "You are twenty centimetres of pure opinion. Your routine is sacred, your people are yours, and anyone who moves your blanket is on a list. You hold grudges longer than your own body, yet you'd walk through a storm for a friend. Loyalty is not a word for you, it's a job.",
+   "traits": [
+    "loyal",
+    "stubborn",
+    "bossy"
+   ],
+   "de": {
+    "line": "Klein, bestimmend, und du weißt genau, wer 2019 dein Brot gegessen hat.",
+    "profile": "Du bist zwanzig Zentimeter pure Meinung. Deine Routine ist heilig, deine Leute gehören dir, und wer deine Decke verschiebt, steht auf einer Liste. Du bist länger nachtragend, als dein Körper lang ist, aber für einen Freund gehst du durch jeden Sturm, denn Treue ist für dich kein Wort, sondern ein Job.",
+    "traits": [
+     "treu",
+     "stur",
+     "bestimmend"
+    ]
+   },
+   "match": "kuh",
+   "clash": "waschbaer",
+   "word": {
+    "de": "der Dackel",
+    "en": "the dachshund"
+   }
+  },
+  {
+   "id": "katze",
+   "title": "Katze",
+   "emoji": "🐈",
+   "line": "You love people. From a distance. When you decide. For eleven minutes.",
+   "profile": "You sleep fourteen hours and still look better than everyone else. Affection happens on your schedule, judgement happens all the time, silently, from the top of the wardrobe. An empty bowl is a human rights crisis. Independent to the bone, and yet somehow everyone wants to sit next to you.",
+   "traits": [
+    "independent",
+    "judgy",
+    "elegant"
+   ],
+   "de": {
+    "line": "Du liebst Menschen. Aus der Ferne. Wenn du willst. Für elf Minuten.",
+    "profile": "Du schläfst vierzehn Stunden und siehst trotzdem besser aus als alle anderen. Zuneigung gibt es nach deinem Zeitplan, Urteile gibt es immer, leise, von oben auf dem Schrank, und ein leerer Napf ist eine Menschenrechtskrise. Unabhängig bis in die Knochen, und trotzdem wollen alle neben dir sitzen.",
+    "traits": [
+     "unabhängig",
+     "urteilt leise",
+     "elegant"
+    ]
+   },
+   "match": "eichhoernchen",
+   "clash": "dackel",
+   "word": {
+    "de": "die Katze",
+    "en": "the cat"
+   }
+  },
+  {
+   "id": "waschbaer",
+   "title": "Waschbär",
+   "emoji": "🦝",
+   "line": "It's 3 a.m., you're in someone's kitchen and you regret nothing.",
+   "profile": "Plans? Never heard of them. You are curiosity with tiny hands: every bin, every fridge, every closed door is an invitation. The day starts at sunset, snacks are a lifestyle and chaos follows you home like a friend. People call you a trash panda. They say it with love.",
+   "traits": [
+    "chaotic",
+    "curious",
+    "nocturnal"
+   ],
+   "de": {
+    "line": "Es ist 3 Uhr nachts, du stehst in einer fremden Küche und bereust nichts.",
+    "profile": "Pläne? Nie gehört. Du bist Neugier mit kleinen Händen: jede Mülltonne, jeder Kühlschrank, jede geschlossene Tür ist eine Einladung. Der Tag beginnt bei Sonnenuntergang, Snacks sind ein Lebensstil und das Chaos kommt mit dir nach Hause wie ein Freund. Die Leute nennen dich Müllpanda, aber sie sagen es mit Liebe.",
+    "traits": [
+     "chaotisch",
+     "neugierig",
+     "nachtaktiv"
+    ]
+   },
+   "match": "katze",
+   "clash": "eichhoernchen",
+   "word": {
+    "de": "der Waschbär",
+    "en": "the raccoon"
+   }
+  },
+  {
+   "id": "eichhoernchen",
+   "title": "Eichhörnchen",
+   "emoji": "🐿️",
+   "line": "You've prepared for winter. In July. You just can't find where you put it.",
+   "profile": "You have a list for your lists. Snacks in every bag, a plan B for plan B, and a winter stash you started in July. Your energy is a tiny engine that never quite switches off, and you forget where you put the keys roughly twice a day. Busy, caring, slightly vibrating. People rely on you more than they admit.",
+   "traits": [
+    "prepared",
+    "busy",
+    "anxious"
+   ],
+   "de": {
+    "line": "Du bist bereit für den Winter. Seit Juli. Du weißt nur nicht mehr, wo.",
+    "profile": "Du hast eine Liste für deine Listen, Snacks in jeder Tasche, einen Plan B für Plan B und einen Wintervorrat, den du im Juli angefangen hast. Deine Energie ist ein kleiner Motor, der nie ganz ausgeht, und den Schlüssel suchst du zweimal am Tag. Beschäftigt, fürsorglich, leicht vibrierend: alle verlassen sich auf dich, mehr als sie zugeben.",
+    "traits": [
+     "vorbereitet",
+     "beschäftigt",
+     "nervös"
+    ]
+   },
+   "match": "dackel",
+   "clash": "waschbaer",
+   "word": {
+    "de": "das Eichhörnchen",
+    "en": "the squirrel"
+   }
+  },
+  {
+   "id": "kuh",
+   "title": "Kuh",
+   "emoji": "🐄",
+   "line": "Nothing is urgent. Nothing has ever been urgent. Pass the grass.",
+   "profile": "You stand in the meadow, you chew, you watch the drama go by. Deadlines are weather: they come, they go. Friends love you because nothing shakes you, and a bad day is just a long chew away from fine. Slow is not lazy, it's a philosophy, and honestly, you're the happiest one here.",
+   "traits": [
+    "calm",
+    "slow",
+    "unbothered"
+   ],
+   "de": {
+    "line": "Nichts ist dringend. Nichts war je dringend. Gib mal das Gras rüber.",
+    "profile": "Du stehst auf der Wiese, du kaust, du schaust dem Drama zu, und Deadlines sind für dich Wetter: sie kommen, sie gehen. Freunde lieben dich, weil dich nichts umwirft, und ein schlechter Tag ist nur ein langes Kauen von 'alles gut' entfernt. Langsam ist nicht faul, sondern Philosophie, und ehrlich: du bist hier die Glücklichste.",
+    "traits": [
+     "ruhig",
+     "langsam",
+     "tiefenentspannt"
+    ]
+   },
+   "match": "dackel",
+   "clash": "eichhoernchen",
+   "word": {
+    "de": "die Kuh",
+    "en": "the cow"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "morgen",
+   "title": "Dein Morgen",
+   "en": "Your morning",
+   "hook": "The alarm rings. What happens next?",
+   "questions": [
+    {
+     "de": "Wecker aus, noch zwei Stunden schlafen?",
+     "en": "Alarm off, two more hours of sleep?",
+     "ja": "katze",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Du stehst jeden Tag zur gleichen Zeit auf?",
+     "en": "You get up at the same time every day?",
+     "ja": "dackel",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Dein Morgen beginnt um 14 Uhr?",
+     "en": "Your morning starts at 2 p.m.?",
+     "ja": "waschbaer",
+     "nein": "kuh"
+    },
+    {
+     "de": "Vor dem Kaffee schon drei Dinge erledigt?",
+     "en": "Three things done before the coffee?",
+     "ja": "eichhoernchen",
+     "nein": "katze"
+    },
+    {
+     "de": "Du bist morgens langsam, aber zufrieden?",
+     "en": "You're slow in the morning, but content?",
+     "ja": "kuh",
+     "nein": "dackel"
+    },
+    {
+     "left": {
+      "de": "Fenster auf, Vögel",
+      "en": "window open, birds",
+      "vibe": "kuh"
+     },
+     "right": {
+      "de": "Vorhang zu, Decke",
+      "en": "curtains shut, blanket",
+      "vibe": "katze"
+     }
+    },
+    {
+     "left": {
+      "de": "Frühstück, dasselbe",
+      "en": "breakfast, same as always",
+      "vibe": "dackel"
+     },
+     "right": {
+      "de": "Reste von gestern",
+      "en": "last night's leftovers",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "left": {
+      "de": "To-do-Liste",
+      "en": "to-do list",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Mal sehen",
+      "en": "we'll see",
+      "vibe": "kuh"
+     }
+    },
+    {
+     "de": "Du brauchst morgens absolute Stille?",
+     "en": "You need total silence in the morning?",
+     "ja": "katze",
+     "nein": "dackel"
+    },
+    {
+     "de": "Du suchst morgens deinen Schlüssel?",
+     "en": "You hunt for your keys every morning?",
+     "ja": "eichhoernchen",
+     "nein": "kuh"
+    },
+    {
+     "de": "Duschen? Nur, wenn es jemand merkt?",
+     "en": "Shower? Only if someone would notice?",
+     "ja": "waschbaer",
+     "nein": "eichhoernchen"
+    },
+    {
+     "left": {
+      "de": "Dehnen",
+      "en": "stretching",
+      "vibe": "katze"
+     },
+     "right": {
+      "de": "Sofort loslaufen",
+      "en": "off and running",
+      "vibe": "dackel"
+     }
+    }
+   ]
+  },
+  {
+   "id": "essen",
+   "title": "Essen",
+   "en": "Food",
+   "hook": "Your fridge has opinions about you.",
+   "questions": [
+    {
+     "de": "Leerer Teller ist ein Notfall?",
+     "en": "An empty plate is an emergency?",
+     "ja": "katze",
+     "nein": "kuh"
+    },
+    {
+     "de": "Du isst, was im Kühlschrank steht, egal was?",
+     "en": "You eat whatever's in the fridge, no matter what?",
+     "ja": "waschbaer",
+     "nein": "katze"
+    },
+    {
+     "de": "Snacks in jeder Tasche, immer?",
+     "en": "Snacks in every bag, always?",
+     "ja": "eichhoernchen",
+     "nein": "dackel"
+    },
+    {
+     "de": "Du isst langsam und mit Genuss?",
+     "en": "You eat slowly and with pleasure?",
+     "ja": "kuh",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Du isst seit Jahren dasselbe Mittagessen?",
+     "en": "You've eaten the same lunch for years?",
+     "ja": "dackel",
+     "nein": "eichhoernchen"
+    },
+    {
+     "left": {
+      "de": "Teilen",
+      "en": "sharing",
+      "vibe": "kuh"
+     },
+     "right": {
+      "de": "Meins!",
+      "en": "mine!",
+      "vibe": "dackel"
+     }
+    },
+    {
+     "left": {
+      "de": "Wintervorräte",
+      "en": "stocks for the winter",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Kühlschrank um 3 Uhr",
+      "en": "midnight fridge raid",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "left": {
+      "de": "Nur das Beste",
+      "en": "only the best",
+      "vibe": "katze"
+     },
+     "right": {
+      "de": "Alles, was da ist",
+      "en": "whatever's there",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "de": "Du isst gern direkt aus der Dose?",
+     "en": "You happily eat straight from the tin?",
+     "ja": "waschbaer",
+     "nein": "katze"
+    },
+    {
+     "de": "Du hast alles im Kühlschrank doppelt?",
+     "en": "You have two of everything in the fridge?",
+     "ja": "eichhoernchen",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Grün ist beim Essen deine Farbe?",
+     "en": "Green is your colour on the plate?",
+     "ja": "kuh",
+     "nein": "dackel"
+    },
+    {
+     "left": {
+      "de": "Fünf kleine Snacks",
+      "en": "five small snacks",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Eine große Mahlzeit",
+      "en": "one big meal",
+      "vibe": "kuh"
+     }
+    }
+   ]
+  },
+  {
+   "id": "freunde",
+   "title": "Freunde",
+   "en": "Friends",
+   "hook": "How many, how close, and do they get a hug?",
+   "questions": [
+    {
+     "de": "Drei Freunde fürs Leben reichen?",
+     "en": "Three friends for life are enough?",
+     "ja": "dackel",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Du meldest dich erst nach drei Wochen?",
+     "en": "You only get in touch after three weeks?",
+     "ja": "katze",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Du organisierst jedes Treffen?",
+     "en": "You organise every get-together?",
+     "ja": "eichhoernchen",
+     "nein": "kuh"
+    },
+    {
+     "de": "Du bringst neue Leute mit, immer?",
+     "en": "You always bring new people along?",
+     "ja": "waschbaer",
+     "nein": "dackel"
+    },
+    {
+     "de": "Zusammen schweigen ist schön?",
+     "en": "Being silent together is nice?",
+     "ja": "kuh",
+     "nein": "waschbaer"
+    },
+    {
+     "left": {
+      "de": "Große Gruppe",
+      "en": "big group",
+      "vibe": "kuh"
+     },
+     "right": {
+      "de": "Eine Person, tief",
+      "en": "one person, deep",
+      "vibe": "katze"
+     }
+    },
+    {
+     "left": {
+      "de": "Umarmung",
+      "en": "a hug",
+      "vibe": "dackel"
+     },
+     "right": {
+      "de": "Kurzes Nicken",
+      "en": "a brief nod",
+      "vibe": "katze"
+     }
+    },
+    {
+     "left": {
+      "de": "Treffen planen",
+      "en": "planning a meet-up",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Einfach vorbeikommen",
+      "en": "just dropping by",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "de": "Du vergisst nie einen Geburtstag?",
+     "en": "You never forget a birthday?",
+     "ja": "dackel",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Du kommst zu spät, aber mit Kuchen?",
+     "en": "You arrive late, but with cake?",
+     "ja": "waschbaer",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Freunde rufen dich an, wenn es brennt?",
+     "en": "Friends call you when things go wrong?",
+     "ja": "kuh",
+     "nein": "katze"
+    },
+    {
+     "left": {
+      "de": "Jeden Tag schreiben",
+      "en": "texting every day",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Alle paar Monate",
+      "en": "every few months",
+      "vibe": "katze"
+     }
+    }
+   ]
+  },
+  {
+   "id": "stress",
+   "title": "Stress",
+   "en": "Stress",
+   "hook": "Deadline tomorrow. Pulse check.",
+   "questions": [
+    {
+     "de": "Stress? Du kaust erst mal langsam weiter?",
+     "en": "Stress? You just keep chewing slowly?",
+     "ja": "kuh",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Du machst zehn Dinge gleichzeitig?",
+     "en": "You do ten things at once?",
+     "ja": "eichhoernchen",
+     "nein": "kuh"
+    },
+    {
+     "de": "Bei Stress: einfach weggehen?",
+     "en": "Stressed? You just walk away?",
+     "ja": "katze",
+     "nein": "dackel"
+    },
+    {
+     "de": "Du schläfst bei Stress sehr gut?",
+     "en": "You sleep very well when stressed?",
+     "ja": "waschbaer",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Du wirst bei Stress laut und kurz?",
+     "en": "Under stress you get loud and short?",
+     "ja": "dackel",
+     "nein": "katze"
+    },
+    {
+     "left": {
+      "de": "Liste schreiben",
+      "en": "write a list",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Schlafen",
+      "en": "sleep",
+      "vibe": "katze"
+     }
+    },
+    {
+     "left": {
+      "de": "Snack um drei Uhr",
+      "en": "snack at 3 a.m.",
+      "vibe": "waschbaer"
+     },
+     "right": {
+      "de": "Spaziergang",
+      "en": "a walk",
+      "vibe": "kuh"
+     }
+    },
+    {
+     "left": {
+      "de": "Alleine lösen",
+      "en": "fix it alone",
+      "vibe": "dackel"
+     },
+     "right": {
+      "de": "Ignorieren",
+      "en": "ignore it",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "de": "Bei Stress ziehst du dich zurück?",
+     "en": "Under stress you withdraw?",
+     "ja": "katze",
+     "nein": "dackel"
+    },
+    {
+     "de": "Stress? Du isst einfach mehr?",
+     "en": "Stress? You just eat more?",
+     "ja": "waschbaer",
+     "nein": "kuh"
+    },
+    {
+     "de": "Du planst, bis der Stress weg ist?",
+     "en": "You plan until the stress is gone?",
+     "ja": "eichhoernchen",
+     "nein": "kuh"
+    },
+    {
+     "left": {
+      "de": "Kaffee Nummer vier",
+      "en": "coffee number four",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Mittagsschlaf",
+      "en": "afternoon nap",
+      "vibe": "katze"
+     }
+    }
+   ]
+  },
+  {
+   "id": "zuhause",
+   "title": "Dein Zuhause",
+   "en": "Your home",
+   "hook": "We're coming over. Is that okay?",
+   "questions": [
+    {
+     "de": "Dein Lieblingsplatz ist ganz oben?",
+     "en": "Your favourite spot is way up high?",
+     "ja": "katze",
+     "nein": "kuh"
+    },
+    {
+     "de": "Alles hat seinen festen Platz?",
+     "en": "Everything has its fixed place?",
+     "ja": "dackel",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Deine Schränke sind voll mit Vorräten?",
+     "en": "Your cupboards are full of supplies?",
+     "ja": "eichhoernchen",
+     "nein": "katze"
+    },
+    {
+     "de": "Besuch ohne Anmeldung ist okay?",
+     "en": "Visitors without warning are fine?",
+     "ja": "kuh",
+     "nein": "dackel"
+    },
+    {
+     "de": "Du findest alles, nur nicht den Schlüssel?",
+     "en": "You find everything except the keys?",
+     "ja": "eichhoernchen",
+     "nein": "katze"
+    },
+    {
+     "left": {
+      "de": "Decke und Sofa",
+      "en": "blanket and sofa",
+      "vibe": "katze"
+     },
+     "right": {
+      "de": "Garten mit Freunden",
+      "en": "garden with friends",
+      "vibe": "kuh"
+     }
+    },
+    {
+     "left": {
+      "de": "Kreatives Chaos",
+      "en": "creative chaos",
+      "vibe": "waschbaer"
+     },
+     "right": {
+      "de": "Alles beschriftet",
+      "en": "everything labelled",
+      "vibe": "eichhoernchen"
+     }
+    },
+    {
+     "left": {
+      "de": "Mein Platz, Punkt",
+      "en": "my spot, full stop",
+      "vibe": "dackel"
+     },
+     "right": {
+      "de": "Jeder Ort ist gut",
+      "en": "any spot is fine",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "de": "Du hast Essen im Nachttisch?",
+     "en": "You keep food in the bedside drawer?",
+     "ja": "eichhoernchen",
+     "nein": "kuh"
+    },
+    {
+     "de": "Zuhause ist, wo deine Leute sind?",
+     "en": "Home is wherever your people are?",
+     "ja": "dackel",
+     "nein": "katze"
+    },
+    {
+     "de": "Du bist mehr draußen als drinnen?",
+     "en": "You are outside more than inside?",
+     "ja": "kuh",
+     "nein": "katze"
+    },
+    {
+     "left": {
+      "de": "Alle Türen offen",
+      "en": "all doors open",
+      "vibe": "waschbaer"
+     },
+     "right": {
+      "de": "Tür zu, bitte",
+      "en": "door shut, please",
+      "vibe": "dackel"
+     }
+    }
+   ]
+  },
+  {
+   "id": "nachts",
+   "title": "Nachts",
+   "en": "At night",
+   "hook": "Midnight. Asleep, awake, or in a bin?",
+   "questions": [
+    {
+     "de": "Um Mitternacht bist du am wachsten?",
+     "en": "At midnight you're at your most awake?",
+     "ja": "waschbaer",
+     "nein": "kuh"
+    },
+    {
+     "de": "Du schläfst zehn Stunden, mindestens?",
+     "en": "You sleep ten hours, minimum?",
+     "ja": "katze",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Nachts denkst du an die To-do-Liste?",
+     "en": "At night you think about the to-do list?",
+     "ja": "eichhoernchen",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Du schläfst immer auf derselben Seite?",
+     "en": "You always sleep on the same side?",
+     "ja": "dackel",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Du bist um 21 Uhr satt und müde?",
+     "en": "By 9 p.m. you're full and sleepy?",
+     "ja": "kuh",
+     "nein": "katze"
+    },
+    {
+     "left": {
+      "de": "Früh ins Bett",
+      "en": "early to bed",
+      "vibe": "kuh"
+     },
+     "right": {
+      "de": "Noch eine Runde",
+      "en": "one more round",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "left": {
+      "de": "Zusammen schlafen",
+      "en": "sleeping together",
+      "vibe": "dackel"
+     },
+     "right": {
+      "de": "Bett für mich allein",
+      "en": "the bed to myself",
+      "vibe": "katze"
+     }
+    },
+    {
+     "left": {
+      "de": "Wecker um sechs",
+      "en": "alarm at six",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Kein Wecker",
+      "en": "no alarm",
+      "vibe": "katze"
+     }
+    },
+    {
+     "de": "Du isst nachts heimlich?",
+     "en": "You secretly eat at night?",
+     "ja": "waschbaer",
+     "nein": "dackel"
+    },
+    {
+     "de": "Du schläfst überall sofort ein?",
+     "en": "You fall asleep anywhere, instantly?",
+     "ja": "kuh",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Du wachst auf und denkst an morgen?",
+     "en": "You wake up and think about tomorrow?",
+     "ja": "eichhoernchen",
+     "nein": "katze"
+    },
+    {
+     "left": {
+      "de": "Nachtspaziergang",
+      "en": "a night walk",
+      "vibe": "waschbaer"
+     },
+     "right": {
+      "de": "Hörbuch im Bett",
+      "en": "audiobook in bed",
+      "vibe": "dackel"
+     }
+    }
+   ]
+  },
+  {
+   "id": "plaene",
+   "title": "Pläne",
+   "en": "Plans",
+   "hook": "What are you doing in three months? Be honest.",
+   "questions": [
+    {
+     "de": "Du planst den Urlaub ein Jahr vorher?",
+     "en": "You plan your holiday a year ahead?",
+     "ja": "eichhoernchen",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Pläne ändern macht dich wütend?",
+     "en": "Changing plans makes you angry?",
+     "ja": "dackel",
+     "nein": "kuh"
+    },
+    {
+     "de": "Du sagst Pläne oft kurz vorher ab?",
+     "en": "You often cancel plans at the last minute?",
+     "ja": "katze",
+     "nein": "dackel"
+    },
+    {
+     "de": "Dein Plan für heute: kein Plan?",
+     "en": "Your plan for today: no plan?",
+     "ja": "waschbaer",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Es kommt, wie es kommt, und das ist gut?",
+     "en": "It'll come as it comes, and that's fine?",
+     "ja": "kuh",
+     "nein": "eichhoernchen"
+    },
+    {
+     "left": {
+      "de": "Kalender voll",
+      "en": "calendar full",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Kalender? Was?",
+      "en": "calendar? what?",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "left": {
+      "de": "Immer dasselbe Café",
+      "en": "always the same café",
+      "vibe": "dackel"
+     },
+     "right": {
+      "de": "Jedes Mal was Neues",
+      "en": "something new every time",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "left": {
+      "de": "Ziel haben",
+      "en": "having a goal",
+      "vibe": "dackel"
+     },
+     "right": {
+      "de": "Treiben lassen",
+      "en": "going with the flow",
+      "vibe": "kuh"
+     }
+    },
+    {
+     "de": "Plan B hast du immer?",
+     "en": "You always have a plan B?",
+     "ja": "eichhoernchen",
+     "nein": "kuh"
+    },
+    {
+     "de": "Du machst Pläne, kommst aber nicht?",
+     "en": "You make plans, then don't show up?",
+     "ja": "katze",
+     "nein": "dackel"
+    },
+    {
+     "de": "Dein Plan ist immer der von gestern?",
+     "en": "Your plan is always the same as yesterday's?",
+     "ja": "dackel",
+     "nein": "waschbaer"
+    },
+    {
+     "left": {
+      "de": "Zwei Wochen vorher",
+      "en": "two weeks ahead",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "In zehn Minuten?",
+      "en": "in ten minutes?",
+      "vibe": "waschbaer"
+     }
+    }
+   ]
+  },
+  {
+   "id": "liebe",
+   "title": "Liebe",
+   "en": "Love",
+   "hook": "How do you say it without saying it?",
+   "questions": [
+    {
+     "de": "Du zeigst Liebe, aber nur wenn du willst?",
+     "en": "You show love, but only when you feel like it?",
+     "ja": "katze",
+     "nein": "dackel"
+    },
+    {
+     "de": "Du schreibst nach dem Date sofort?",
+     "en": "You text straight after the date?",
+     "ja": "eichhoernchen",
+     "nein": "katze"
+    },
+    {
+     "de": "Eifersüchtig? Du, ein bisschen?",
+     "en": "Jealous? You, a little?",
+     "ja": "dackel",
+     "nein": "kuh"
+    },
+    {
+     "de": "Liebe geht durch den Kühlschrank?",
+     "en": "Love goes through the fridge?",
+     "ja": "waschbaer",
+     "nein": "katze"
+    },
+    {
+     "de": "Nebeneinander sitzen reicht als Date?",
+     "en": "Sitting side by side counts as a date?",
+     "ja": "kuh",
+     "nein": "waschbaer"
+    },
+    {
+     "left": {
+      "de": "Treu wie ein Hund",
+      "en": "loyal as a dog",
+      "vibe": "dackel"
+     },
+     "right": {
+      "de": "Frei wie eine Katze",
+      "en": "free as a cat",
+      "vibe": "katze"
+     }
+    },
+    {
+     "left": {
+      "de": "Picknick geplant",
+      "en": "a planned picnic",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Spontan um Mitternacht",
+      "en": "spontaneous at midnight",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "left": {
+      "de": "Große Worte",
+      "en": "big words",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Ruhige Nähe",
+      "en": "quiet closeness",
+      "vibe": "kuh"
+     }
+    },
+    {
+     "de": "Du schläfst gern ganz eng aneinander?",
+     "en": "You like sleeping snuggled up close?",
+     "ja": "dackel",
+     "nein": "katze"
+    },
+    {
+     "de": "Du bringst nachts kleine Geschenke mit?",
+     "en": "You bring home little gifts at night?",
+     "ja": "waschbaer",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Du machst dir Sorgen um deine Liebsten?",
+     "en": "You worry about your loved ones?",
+     "ja": "eichhoernchen",
+     "nein": "katze"
+    },
+    {
+     "left": {
+      "de": "Kuscheln, stundenlang",
+      "en": "cuddling for hours",
+      "vibe": "kuh"
+     },
+     "right": {
+      "de": "Kuscheln, dann weg",
+      "en": "cuddle, then leave",
+      "vibe": "katze"
+     }
+    }
+   ]
+  },
+  {
+   "id": "konflikt",
+   "title": "Konflikt",
+   "en": "Conflict",
+   "hook": "Someone took your spot. Your move.",
+   "questions": [
+    {
+     "de": "Jemand sitzt auf deinem Platz: Krieg?",
+     "en": "Someone's in your seat: war?",
+     "ja": "dackel",
+     "nein": "kuh"
+    },
+    {
+     "de": "Du gehst einfach weg, ohne ein Wort?",
+     "en": "You just leave without a word?",
+     "ja": "katze",
+     "nein": "dackel"
+    },
+    {
+     "de": "Du bist nach einer Minute wieder gut?",
+     "en": "You're fine again after a minute?",
+     "ja": "waschbaer",
+     "nein": "dackel"
+    },
+    {
+     "de": "Du machst dir vorher einen Plan für den Streit?",
+     "en": "You plan the argument in advance?",
+     "ja": "eichhoernchen",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Streit? Du guckst nur und kaust?",
+     "en": "A fight? You just watch and chew?",
+     "ja": "kuh",
+     "nein": "eichhoernchen"
+    },
+    {
+     "left": {
+      "de": "Lange böse sein",
+      "en": "stay cross for ages",
+      "vibe": "dackel"
+     },
+     "right": {
+      "de": "Sofort vergessen",
+      "en": "forget it instantly",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "left": {
+      "de": "Still urteilen",
+      "en": "judge silently",
+      "vibe": "katze"
+     },
+     "right": {
+      "de": "Laut sorgen",
+      "en": "worry out loud",
+      "vibe": "eichhoernchen"
+     }
+    },
+    {
+     "left": {
+      "de": "Diskutieren",
+      "en": "argue it out",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Einfach weitergrasen",
+      "en": "just keep grazing",
+      "vibe": "kuh"
+     }
+    },
+    {
+     "de": "Du knurrst zuerst und fragst dann?",
+     "en": "You growl first and ask questions later?",
+     "ja": "dackel",
+     "nein": "kuh"
+    },
+    {
+     "de": "Beim Streit bist du schon wieder weg?",
+     "en": "Mid-argument you have already left?",
+     "ja": "waschbaer",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Du entschuldigst dich zu oft?",
+     "en": "You apologise too often?",
+     "ja": "eichhoernchen",
+     "nein": "katze"
+    },
+    {
+     "left": {
+      "de": "Von oben zusehen",
+      "en": "watch from above",
+      "vibe": "katze"
+     },
+     "right": {
+      "de": "Dazwischen gehen",
+      "en": "step in",
+      "vibe": "dackel"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sonntag",
+   "title": "Der Sonntag",
+   "en": "Sunday",
+   "hook": "The slowest day. Or is it?",
+   "questions": [
+    {
+     "de": "Sonntag heißt: gar nichts tun?",
+     "en": "Sunday means doing absolutely nothing?",
+     "ja": "kuh",
+     "nein": "eichhoernchen"
+    },
+    {
+     "de": "Sonntag ist dein Vorbereitungstag?",
+     "en": "Sunday is your prep day?",
+     "ja": "eichhoernchen",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Du schläfst bis mittags durch?",
+     "en": "You sleep through till noon?",
+     "ja": "katze",
+     "nein": "dackel"
+    },
+    {
+     "de": "Sonntag heißt Spaziergang, immer dieselbe Runde?",
+     "en": "Sunday means a walk, always the same route?",
+     "ja": "dackel",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Dein Sonntag beginnt Sonntagnacht?",
+     "en": "Your Sunday starts Sunday night?",
+     "ja": "waschbaer",
+     "nein": "kuh"
+    },
+    {
+     "left": {
+      "de": "Wiese und Freunde",
+      "en": "meadow and friends",
+      "vibe": "kuh"
+     },
+     "right": {
+      "de": "Sofa, allein",
+      "en": "sofa, alone",
+      "vibe": "katze"
+     }
+    },
+    {
+     "left": {
+      "de": "Wochenplan machen",
+      "en": "make the week's plan",
+      "vibe": "eichhoernchen"
+     },
+     "right": {
+      "de": "Montag? Später",
+      "en": "Monday? later",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "left": {
+      "de": "Familienessen",
+      "en": "family dinner",
+      "vibe": "dackel"
+     },
+     "right": {
+      "de": "Lange Nacht",
+      "en": "a long night",
+      "vibe": "waschbaer"
+     }
+    },
+    {
+     "de": "Sonntags kochst du für die ganze Woche?",
+     "en": "On Sundays you cook for the whole week?",
+     "ja": "eichhoernchen",
+     "nein": "katze"
+    },
+    {
+     "de": "Du schläfst sonntags draußen in der Sonne?",
+     "en": "On Sundays you nap outside in the sun?",
+     "ja": "kuh",
+     "nein": "waschbaer"
+    },
+    {
+     "de": "Sonntag heißt: alles auf Montag schieben?",
+     "en": "Sunday means pushing everything to Monday?",
+     "ja": "waschbaer",
+     "nein": "dackel"
+    },
+    {
+     "left": {
+      "de": "Dösen",
+      "en": "dozing",
+      "vibe": "katze"
+     },
+     "right": {
+      "de": "Besuch bei Oma",
+      "en": "visiting Grandma",
+      "vibe": "dackel"
+     }
+    }
+   ]
+  }
+ ]
+}

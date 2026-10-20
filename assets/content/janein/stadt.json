@@ -1,0 +1,1185 @@
+{
+ "id": "stadt",
+ "title": "Welche deutsche Stadt bist du?",
+ "en": "Which German city are you?",
+ "emoji": "🏙️",
+ "personas": [
+  {
+   "id": "berlin",
+   "title": "Berlin",
+   "emoji": "🐻",
+   "line": "You're never late, you're just still on the way. Since Tuesday.",
+   "profile": "You have three unfinished projects, a bike with one working brake and a Späti owner who knows your order. Plans are suggestions, 3 a.m. is a reasonable time for dinner, and you say 'ick' ironically until it isn't. Chaos follows you around, and somehow it always looks cool.",
+   "traits": [
+    "spontaneous",
+    "creative",
+    "late"
+   ],
+   "de": {
+    "line": "Du bist nie zu spät. Du bist nur noch unterwegs. Seit Dienstag.",
+    "profile": "Du hast drei halbfertige Projekte, ein Fahrrad mit einer Bremse und einen Späti-Besitzer, der deine Bestellung kennt. Pläne sind nur Vorschläge, 3 Uhr nachts ist eine gute Zeit fürs Abendessen, und du sagst 'ick' ironisch, bis es ernst wird. Das Chaos läuft dir hinterher, und irgendwie sieht es immer cool aus.",
+    "traits": [
+     "spontan",
+     "kreativ",
+     "zu spät"
+    ]
+   },
+   "match": "leipzig",
+   "clash": "muenchen",
+   "word": {
+    "de": "der Späti",
+    "en": "the late-night corner shop"
+   }
+  },
+  {
+   "id": "muenchen",
+   "title": "München",
+   "emoji": "🥨",
+   "line": "You own one jacket for every kind of rain, and all of them were expensive.",
+   "profile": "Your calendar is colour-coded, your hiking boots are polished and your Biergarten table is booked. You pay more for quality and don't apologise for it. Underneath the posh surface there's a soft, cosy soul who just wants everyone to sit down, eat well and be home by ten.",
+   "traits": [
+    "organised",
+    "quality-minded",
+    "secretly cosy"
+   ],
+   "de": {
+    "line": "Du hast für jede Art Regen eine Jacke, und alle waren teuer.",
+    "profile": "Dein Kalender hat Farben, deine Wanderschuhe glänzen und dein Tisch im Biergarten ist reserviert. Du zahlst mehr für Qualität und entschuldigst dich nicht dafür. Unter der feinen Oberfläche steckt eine weiche, gemütliche Seele, die nur will, dass alle sitzen, gut essen und um zehn zu Hause sind.",
+    "traits": [
+     "organisiert",
+     "Qualität zuerst",
+     "heimlich gemütlich"
+    ]
+   },
+   "match": "hamburg",
+   "clash": "berlin",
+   "word": {
+    "de": "der Biergarten",
+    "en": "the beer garden"
+   }
+  },
+  {
+   "id": "hamburg",
+   "title": "Hamburg",
+   "emoji": "⚓",
+   "line": "Rain doesn't exist. You're just slightly more wet than usual.",
+   "profile": "You say 'Moin' at any hour and consider it a full conversation. Hugs are rationed, loyalty is forever, and your jokes land so dry people only laugh ten minutes later. You'd rather stand at the water in a storm than small-talk in a warm room, and honestly, fair.",
+   "traits": [
+    "understated",
+    "loyal",
+    "dry humour"
+   ],
+   "de": {
+    "line": "Regen gibt es nicht. Du bist nur ein bisschen nasser als sonst.",
+    "profile": "Du sagst zu jeder Uhrzeit 'Moin' und findest, das war ein ganzes Gespräch. Umarmungen gibt es selten, Treue gibt es für immer, und deine Witze sind so trocken, dass die Leute erst zehn Minuten später lachen. Du stehst lieber im Sturm am Wasser als beim Small Talk im warmen Zimmer, und ehrlich: verständlich.",
+    "traits": [
+     "zurückhaltend",
+     "treu",
+     "trockener Humor"
+    ]
+   },
+   "match": "muenchen",
+   "clash": "koeln",
+   "word": {
+    "de": "der Hafen",
+    "en": "the harbour"
+   }
+  },
+  {
+   "id": "koeln",
+   "title": "Köln",
+   "emoji": "🎉",
+   "line": "You hug strangers at the bus stop and they thank you for it.",
+   "profile": "You've never met a stranger, only friends you haven't fed yet. Your kitchen is loud, your plans are chaotic and your heart is enormous. Something went wrong? 'Et hätt noch immer jot jejange' is your whole philosophy, and it keeps working, which annoys the planners.",
+   "traits": [
+    "warm",
+    "loud",
+    "chaotic-kind"
+   ],
+   "de": {
+    "line": "Du umarmst Fremde an der Bushaltestelle, und sie sagen danke.",
+    "profile": "Du kennst keine Fremden, nur Freunde, die du noch nicht gefüttert hast. Deine Küche ist laut, deine Pläne sind Chaos und dein Herz ist riesig. Etwas geht schief? 'Et hätt noch immer jot jejange' ist deine ganze Philosophie, und sie funktioniert immer, was die Planer ärgert.",
+    "traits": [
+     "warm",
+     "laut",
+     "chaotisch-lieb"
+    ]
+   },
+   "match": "berlin",
+   "clash": "hamburg",
+   "word": {
+    "de": "die Umarmung",
+    "en": "the hug"
+   }
+  },
+  {
+   "id": "leipzig",
+   "title": "Leipzig",
+   "emoji": "🚲",
+   "line": "You found that lamp at a flea market. You found that friend there too.",
+   "profile": "You cycle everywhere, drink filter coffee like it's a hobby and own at least one plant with a name. Whatever your age, you have a student's heart: curious, broke in style, always a bit in love with something new. People call your city the next big thing. You just shrug and keep cycling.",
+   "traits": [
+    "indie",
+    "curious",
+    "humble"
+   ],
+   "de": {
+    "line": "Die Lampe ist vom Flohmarkt. Der Freund da auch.",
+    "profile": "Du fährst überall mit dem Rad hin, trinkst Filterkaffee wie ein Hobby und hast mindestens eine Pflanze mit Namen. Egal wie alt du bist, du hast ein Studentenherz: neugierig, pleite mit Stil, immer ein bisschen verliebt in etwas Neues. Die Leute nennen deine Stadt das nächste große Ding, du zuckst mit den Schultern und fährst weiter.",
+    "traits": [
+     "indie",
+     "neugierig",
+     "bescheiden"
+    ]
+   },
+   "match": "berlin",
+   "clash": "muenchen",
+   "word": {
+    "de": "der Flohmarkt",
+    "en": "the flea market"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "fruehstueck",
+   "title": "Dein Frühstück",
+   "en": "Your breakfast",
+   "hook": "The first meal of the day tells on you.",
+   "questions": [
+    {
+     "de": "Frühstück um 14 Uhr ist noch Frühstück?",
+     "en": "Breakfast at 2 p.m. still counts as breakfast?",
+     "ja": "berlin",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Erst Kaffee, dann reden?",
+     "en": "Coffee first, talking later?",
+     "ja": "hamburg",
+     "nein": "koeln"
+    },
+    {
+     "de": "Du frühstückst jeden Tag das Gleiche?",
+     "en": "You eat the same breakfast every day?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Frühstück im Café statt zu Hause?",
+     "en": "Breakfast in a café rather than at home?",
+     "ja": "leipzig",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Frühstück mit Freunden, laut und lang?",
+     "en": "Breakfast with friends, loud and long?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "left": {
+      "de": "Franzbrötchen",
+      "en": "cinnamon pastry",
+      "vibe": "hamburg"
+     },
+     "right": {
+      "de": "Butterbrezel",
+      "en": "buttered pretzel",
+      "vibe": "muenchen"
+     }
+    },
+    {
+     "left": {
+      "de": "Kaffee im Gehen",
+      "en": "coffee on the move",
+      "vibe": "berlin"
+     },
+     "right": {
+      "de": "Filterkaffee, langsam",
+      "en": "slow filter coffee",
+      "vibe": "leipzig"
+     }
+    },
+    {
+     "left": {
+      "de": "Sekt zum Frühstück",
+      "en": "fizz with breakfast",
+      "vibe": "koeln"
+     },
+     "right": {
+      "de": "Tee, schwarz",
+      "en": "black tea",
+      "vibe": "hamburg"
+     }
+    },
+    {
+     "de": "Du isst Frühstück im Stehen?",
+     "en": "You eat breakfast standing up?",
+     "ja": "berlin",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Brötchen vom Bäcker, jeden Sonntag?",
+     "en": "Rolls from the bakery, every Sunday?",
+     "ja": "koeln",
+     "nein": "leipzig"
+    },
+    {
+     "de": "Frühstück ohne Reden ist perfekt?",
+     "en": "Breakfast without talking is perfect?",
+     "ja": "hamburg",
+     "nein": "koeln"
+    },
+    {
+     "left": {
+      "de": "Marmelade",
+      "en": "jam",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Fischbrötchen",
+      "en": "fish roll",
+      "vibe": "hamburg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wochenende",
+   "title": "Dein Wochenende",
+   "en": "Your weekend",
+   "hook": "Forty-eight hours. What do you actually do?",
+   "questions": [
+    {
+     "de": "Samstag: Flohmarkt statt Supermarkt?",
+     "en": "Saturday: flea market instead of supermarket?",
+     "ja": "leipzig",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Sonntag um 9 schon in den Bergen?",
+     "en": "Sunday, 9 a.m., already up a mountain?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Pläne absagen fühlt sich gut an?",
+     "en": "Cancelling plans feels good?",
+     "ja": "berlin",
+     "nein": "koeln"
+    },
+    {
+     "de": "Freitag, 22 Uhr: schon im Bett?",
+     "en": "Friday, 10 p.m.: already in bed?",
+     "ja": "hamburg",
+     "nein": "berlin"
+    },
+    {
+     "de": "Du lädst spontan zehn Leute ein?",
+     "en": "You invite ten people over on a whim?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "left": {
+      "de": "Wandern",
+      "en": "hiking",
+      "vibe": "muenchen"
+     },
+     "right": {
+      "de": "Rad fahren",
+      "en": "cycling",
+      "vibe": "leipzig"
+     }
+    },
+    {
+     "left": {
+      "de": "Am Wasser sitzen",
+      "en": "sitting by the water",
+      "vibe": "hamburg"
+     },
+     "right": {
+      "de": "Mit allen feiern",
+      "en": "partying with everyone",
+      "vibe": "koeln"
+     }
+    },
+    {
+     "left": {
+      "de": "Ausschlafen",
+      "en": "sleeping in",
+      "vibe": "berlin"
+     },
+     "right": {
+      "de": "Früh raus",
+      "en": "up early",
+      "vibe": "muenchen"
+     }
+    },
+    {
+     "de": "Du gehst allein ins Kino?",
+     "en": "You go to the cinema alone?",
+     "ja": "hamburg",
+     "nein": "koeln"
+    },
+    {
+     "de": "Samstagabend: drei Partys?",
+     "en": "Saturday night: three parties?",
+     "ja": "berlin",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Du putzt am Samstag, immer?",
+     "en": "You clean on Saturdays, always?",
+     "ja": "muenchen",
+     "nein": "leipzig"
+    },
+    {
+     "left": {
+      "de": "Konzert im Keller",
+      "en": "gig in a basement",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Oper",
+      "en": "opera",
+      "vibe": "muenchen"
+     }
+    }
+   ]
+  },
+  {
+   "id": "streit",
+   "title": "Streit!",
+   "en": "A fight!",
+   "hook": "Someone is wrong. Possibly you. Now what?",
+   "questions": [
+    {
+     "de": "Streit? Du sagst erst mal nichts?",
+     "en": "An argument? You say nothing at first?",
+     "ja": "hamburg",
+     "nein": "koeln"
+    },
+    {
+     "de": "Nach fünf Minuten ist alles wieder gut?",
+     "en": "Five minutes later everything is fine again?",
+     "ja": "koeln",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Du diskutierst gern bis 3 Uhr nachts?",
+     "en": "You happily argue until 3 a.m.?",
+     "ja": "berlin",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Regeln sind Regeln, auch im Streit?",
+     "en": "Rules are rules, even mid-fight?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Du schreibst lieber eine lange Nachricht?",
+     "en": "You'd rather write a long message?",
+     "ja": "leipzig",
+     "nein": "koeln"
+    },
+    {
+     "left": {
+      "de": "Umarmung",
+      "en": "a hug",
+      "vibe": "koeln"
+     },
+     "right": {
+      "de": "Ein kurzes Nicken",
+      "en": "a short nod",
+      "vibe": "hamburg"
+     }
+    },
+    {
+     "left": {
+      "de": "Laut werden",
+      "en": "raising your voice",
+      "vibe": "berlin"
+     },
+     "right": {
+      "de": "Tür zu, Ruhe",
+      "en": "door shut, silence",
+      "vibe": "muenchen"
+     }
+    },
+    {
+     "left": {
+      "de": "Recht haben",
+      "en": "being right",
+      "vibe": "muenchen"
+     },
+     "right": {
+      "de": "Frieden haben",
+      "en": "having peace",
+      "vibe": "leipzig"
+     }
+    },
+    {
+     "de": "Sorry sagen fällt dir leicht?",
+     "en": "Saying sorry comes easily to you?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Du gewinnst Streit mit Fakten?",
+     "en": "You win arguments with facts?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Nach einem Bier ist der Streit vergessen?",
+     "en": "One beer later the fight is forgotten?",
+     "ja": "koeln",
+     "nein": "leipzig"
+    },
+    {
+     "left": {
+      "de": "Ausdiskutieren",
+      "en": "talk it all out",
+      "vibe": "berlin"
+     },
+     "right": {
+      "de": "Schweigen",
+      "en": "silence",
+      "vibe": "hamburg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "geld",
+   "title": "Dein Geld",
+   "en": "Your money",
+   "hook": "Twenty euros on the pavement. Go.",
+   "questions": [
+    {
+     "de": "20 Euro gefunden: sofort ausgeben?",
+     "en": "Found 20 euros: spend it right away?",
+     "ja": "berlin",
+     "nein": "leipzig"
+    },
+    {
+     "de": "Du zahlst gern mehr für Qualität?",
+     "en": "You happily pay more for quality?",
+     "ja": "muenchen",
+     "nein": "leipzig"
+    },
+    {
+     "de": "Pfandflaschen bringst du immer zurück?",
+     "en": "You always take your deposit bottles back?",
+     "ja": "leipzig",
+     "nein": "berlin"
+    },
+    {
+     "de": "Du gibst die Runde aus, auch wenn's eng ist?",
+     "en": "You buy the round even when money's tight?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Du weißt genau, was auf dem Konto ist?",
+     "en": "You know exactly what's in your account?",
+     "ja": "hamburg",
+     "nein": "koeln"
+    },
+    {
+     "left": {
+      "de": "Secondhand",
+      "en": "second-hand",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Neu, aber gut",
+      "en": "new, but good",
+      "vibe": "muenchen"
+     }
+    },
+    {
+     "left": {
+      "de": "Bar zahlen",
+      "en": "paying cash",
+      "vibe": "berlin"
+     },
+     "right": {
+      "de": "Mit Karte",
+      "en": "by card",
+      "vibe": "hamburg"
+     }
+    },
+    {
+     "left": {
+      "de": "Sparen",
+      "en": "saving it",
+      "vibe": "hamburg"
+     },
+     "right": {
+      "de": "Verschenken",
+      "en": "giving it away",
+      "vibe": "koeln"
+     }
+    },
+    {
+     "de": "Du kennst den Preis von jedem Kaffee?",
+     "en": "You know the price of every coffee?",
+     "ja": "leipzig",
+     "nein": "koeln"
+    },
+    {
+     "de": "Du leihst Freunden Geld ohne Fragen?",
+     "en": "You lend friends money, no questions?",
+     "ja": "koeln",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Dein Fahrrad war teurer als dein Sofa?",
+     "en": "Your bike cost more than your sofa?",
+     "ja": "leipzig",
+     "nein": "hamburg"
+    },
+    {
+     "left": {
+      "de": "Trinkgeld, großzügig",
+      "en": "tip, generous",
+      "vibe": "koeln"
+     },
+     "right": {
+      "de": "Trinkgeld, korrekt",
+      "en": "tip, correct",
+      "vibe": "hamburg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dating",
+   "title": "Dating",
+   "en": "Dating",
+   "hook": "First date. Who shows up, and when?",
+   "questions": [
+    {
+     "de": "Erstes Date: du bist 20 Minuten zu spät?",
+     "en": "First date: you're 20 minutes late?",
+     "ja": "berlin",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Nach dem Date sofort eine Nachricht?",
+     "en": "A message straight after the date?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Date im Café mit vielen Büchern?",
+     "en": "A date in a café full of books?",
+     "ja": "leipzig",
+     "nein": "koeln"
+    },
+    {
+     "de": "Du planst das Date bis ins Detail?",
+     "en": "You plan the date down to the detail?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Drei Worte sind genug Gefühl?",
+     "en": "Three words are enough feelings?",
+     "ja": "hamburg",
+     "nein": "koeln"
+    },
+    {
+     "left": {
+      "de": "Biergarten",
+      "en": "beer garden",
+      "vibe": "muenchen"
+     },
+     "right": {
+      "de": "Bank vor dem Späti",
+      "en": "bench outside the Späti",
+      "vibe": "berlin"
+     }
+    },
+    {
+     "left": {
+      "de": "Spaziergang am Wasser",
+      "en": "a walk by the water",
+      "vibe": "hamburg"
+     },
+     "right": {
+      "de": "Tanzen bis vier",
+      "en": "dancing till four",
+      "vibe": "koeln"
+     }
+    },
+    {
+     "left": {
+      "de": "Flohmarkt-Date",
+      "en": "flea-market date",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Schickes Restaurant",
+      "en": "fancy restaurant",
+      "vibe": "muenchen"
+     }
+    },
+    {
+     "de": "Du redest beim Date über die Arbeit?",
+     "en": "You talk about work on a date?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Ein Date pro Woche, mindestens?",
+     "en": "One date a week, minimum?",
+     "ja": "berlin",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Dein Date lernt sofort deine Freunde kennen?",
+     "en": "Your date meets your friends right away?",
+     "ja": "koeln",
+     "nein": "leipzig"
+    },
+    {
+     "left": {
+      "de": "Langsam kennenlernen",
+      "en": "getting to know slowly",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Sofort verliebt",
+      "en": "instantly in love",
+      "vibe": "koeln"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wetter",
+   "title": "Das Wetter",
+   "en": "The weather",
+   "hook": "It's raining. Does that change anything?",
+   "questions": [
+    {
+     "de": "Regen? Du gehst trotzdem raus?",
+     "en": "Rain? You go out anyway?",
+     "ja": "hamburg",
+     "nein": "koeln"
+    },
+    {
+     "de": "Sonne: alle Pläne absagen und raus?",
+     "en": "Sunshine: cancel everything and go outside?",
+     "ja": "berlin",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Du hast immer eine Jacke dabei?",
+     "en": "You always have a jacket with you?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Schlechtes Wetter macht dich traurig?",
+     "en": "Bad weather makes you sad?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Du fährst auch im Schnee Fahrrad?",
+     "en": "You cycle even in the snow?",
+     "ja": "leipzig",
+     "nein": "koeln"
+    },
+    {
+     "left": {
+      "de": "Regenjacke",
+      "en": "rain jacket",
+      "vibe": "hamburg"
+     },
+     "right": {
+      "de": "Regenschirm",
+      "en": "umbrella",
+      "vibe": "muenchen"
+     }
+    },
+    {
+     "left": {
+      "de": "See",
+      "en": "lake",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Berge",
+      "en": "mountains",
+      "vibe": "muenchen"
+     }
+    },
+    {
+     "left": {
+      "de": "Allein auf dem Balkon",
+      "en": "alone on the balcony",
+      "vibe": "berlin"
+     },
+     "right": {
+      "de": "Sofa mit zehn Leuten",
+      "en": "sofa with ten people",
+      "vibe": "koeln"
+     }
+    },
+    {
+     "de": "Du redest gern über das Wetter?",
+     "en": "You like talking about the weather?",
+     "ja": "koeln",
+     "nein": "berlin"
+    },
+    {
+     "de": "Wetter-App: dreimal am Tag?",
+     "en": "Weather app: three times a day?",
+     "ja": "muenchen",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Nebel findest du schön?",
+     "en": "You find fog beautiful?",
+     "ja": "hamburg",
+     "nein": "koeln"
+    },
+    {
+     "left": {
+      "de": "Picknick",
+      "en": "picnic",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Kaminabend",
+      "en": "evening by the fire",
+      "vibe": "muenchen"
+     }
+    }
+   ]
+  },
+  {
+   "id": "handy",
+   "title": "Dein Handy",
+   "en": "Your phone",
+   "hook": "Unlock it. We're looking.",
+   "questions": [
+    {
+     "de": "Antwortest du auf Nachrichten sofort?",
+     "en": "Do you reply to messages straight away?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Dein Akku ist meistens unter 10 Prozent?",
+     "en": "Your battery is usually under 10 percent?",
+     "ja": "berlin",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Lange Sprachnachrichten? Ja, gerne?",
+     "en": "Long voice messages? Yes, please?",
+     "ja": "koeln",
+     "nein": "leipzig"
+    },
+    {
+     "de": "Dein Handy ist nachts aus?",
+     "en": "Your phone is off at night?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Du fotografierst jeden Kaffee?",
+     "en": "You photograph every coffee?",
+     "ja": "leipzig",
+     "nein": "hamburg"
+    },
+    {
+     "left": {
+      "de": "Anrufen",
+      "en": "calling",
+      "vibe": "koeln"
+     },
+     "right": {
+      "de": "Schreiben",
+      "en": "texting",
+      "vibe": "hamburg"
+     }
+    },
+    {
+     "left": {
+      "de": "Handy im Rucksack",
+      "en": "phone in the backpack",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Handy in der Hand",
+      "en": "phone in hand",
+      "vibe": "berlin"
+     }
+    },
+    {
+     "left": {
+      "de": "Apps sortiert",
+      "en": "apps sorted",
+      "vibe": "hamburg"
+     },
+     "right": {
+      "de": "Chaos mit Charme",
+      "en": "chaos with charm",
+      "vibe": "berlin"
+     }
+    },
+    {
+     "de": "Du schickst Nachrichten mit Herz-Emoji?",
+     "en": "You send messages with heart emojis?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Dein Hintergrundbild: ein Berg?",
+     "en": "Your wallpaper: a mountain?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Du postest jeden Flohmarkt-Fund?",
+     "en": "You post every flea-market find?",
+     "ja": "leipzig",
+     "nein": "hamburg"
+    },
+    {
+     "left": {
+      "de": "Gruppenchat stumm",
+      "en": "group chat muted",
+      "vibe": "berlin"
+     },
+     "right": {
+      "de": "Gruppenchat aktiv",
+      "en": "group chat buzzing",
+      "vibe": "koeln"
+     }
+    }
+   ]
+  },
+  {
+   "id": "buero",
+   "title": "Im Büro",
+   "en": "At the office",
+   "hook": "Monday, 9 a.m. Where are you?",
+   "questions": [
+    {
+     "de": "Meeting um 9: du kommst um 9:10?",
+     "en": "Meeting at 9: you arrive at 9:10?",
+     "ja": "berlin",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Du bringst Kuchen für alle mit?",
+     "en": "You bring cake for everyone?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Dein Schreibtisch ist immer aufgeräumt?",
+     "en": "Your desk is always tidy?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Small Talk im Aufzug? Lieber nicht?",
+     "en": "Small talk in the lift? Rather not?",
+     "ja": "hamburg",
+     "nein": "koeln"
+    },
+    {
+     "de": "Du arbeitest am liebsten im Café?",
+     "en": "You'd rather work from a café?",
+     "ja": "leipzig",
+     "nein": "muenchen"
+    },
+    {
+     "left": {
+      "de": "Homeoffice",
+      "en": "working from home",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Büro mit Leuten",
+      "en": "office with people",
+      "vibe": "koeln"
+     }
+    },
+    {
+     "left": {
+      "de": "Feierabend, pünktlich",
+      "en": "clock off, on time",
+      "vibe": "hamburg"
+     },
+     "right": {
+      "de": "Feierabend, später",
+      "en": "clock off, eventually",
+      "vibe": "berlin"
+     }
+    },
+    {
+     "left": {
+      "de": "Kantine",
+      "en": "canteen",
+      "vibe": "muenchen"
+     },
+     "right": {
+      "de": "Imbiss um die Ecke",
+      "en": "snack bar round the corner",
+      "vibe": "leipzig"
+     }
+    },
+    {
+     "de": "Du gehst als Letzter nach Hause?",
+     "en": "You are the last one to leave?",
+     "ja": "berlin",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Dein Kalender ist farbig sortiert?",
+     "en": "Your calendar is colour-coded?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Kollegen sind Freunde?",
+     "en": "Colleagues are friends?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "left": {
+      "de": "Fahrrad ins Büro",
+      "en": "cycling to work",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Auto ins Büro",
+      "en": "driving to work",
+      "vibe": "muenchen"
+     }
+    }
+   ]
+  },
+  {
+   "id": "urlaub",
+   "title": "Urlaub",
+   "en": "Holiday",
+   "hook": "Two weeks off. Suitcase or no suitcase?",
+   "questions": [
+    {
+     "de": "Urlaub ohne Plan, einfach los?",
+     "en": "A holiday with no plan, just go?",
+     "ja": "berlin",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Nach drei Tagen kennst du das ganze Hotel?",
+     "en": "After three days you know the whole hotel?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Dein Koffer ist eine Woche vorher fertig?",
+     "en": "Your suitcase is packed a week early?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "de": "Urlaub ist Zuhause ohne Termine?",
+     "en": "Holiday means home with no appointments?",
+     "ja": "hamburg",
+     "nein": "koeln"
+    },
+    {
+     "de": "Mit dem Zug statt mit dem Flieger?",
+     "en": "By train rather than by plane?",
+     "ja": "leipzig",
+     "nein": "muenchen"
+    },
+    {
+     "left": {
+      "de": "Berge",
+      "en": "mountains",
+      "vibe": "muenchen"
+     },
+     "right": {
+      "de": "Meer",
+      "en": "sea",
+      "vibe": "hamburg"
+     }
+    },
+    {
+     "left": {
+      "de": "Zelt",
+      "en": "tent",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Hotel mit Frühstück",
+      "en": "hotel with breakfast",
+      "vibe": "muenchen"
+     }
+    },
+    {
+     "left": {
+      "de": "Strandparty",
+      "en": "beach party",
+      "vibe": "koeln"
+     },
+     "right": {
+      "de": "Stadt, Kunst, Kaffee",
+      "en": "city, art, coffee",
+      "vibe": "leipzig"
+     }
+    },
+    {
+     "de": "Du schickst allen Postkarten?",
+     "en": "You send everyone postcards?",
+     "ja": "koeln",
+     "nein": "berlin"
+    },
+    {
+     "de": "Urlaub in der eigenen Stadt zählt?",
+     "en": "A holiday in your own city counts?",
+     "ja": "leipzig",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Im Urlaub stehst du um sieben auf?",
+     "en": "On holiday you get up at seven?",
+     "ja": "muenchen",
+     "nein": "berlin"
+    },
+    {
+     "left": {
+      "de": "Hafenstadt",
+      "en": "harbour town",
+      "vibe": "hamburg"
+     },
+     "right": {
+      "de": "Festival",
+      "en": "festival",
+      "vibe": "koeln"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kueche",
+   "title": "Deine Küche",
+   "en": "Your kitchen",
+   "hook": "Open the fridge. Explain yourself.",
+   "questions": [
+    {
+     "de": "Deine Küche ist voll mit Pflanzen?",
+     "en": "Your kitchen is full of plants?",
+     "ja": "leipzig",
+     "nein": "hamburg"
+    },
+    {
+     "de": "Kochen für zehn ist kein Problem?",
+     "en": "Cooking for ten is no problem?",
+     "ja": "koeln",
+     "nein": "berlin"
+    },
+    {
+     "de": "Du hast für alles ein Rezept im Kopf?",
+     "en": "You have a recipe for everything in your head?",
+     "ja": "muenchen",
+     "nein": "koeln"
+    },
+    {
+     "de": "Abendessen um 23 Uhr ist normal?",
+     "en": "Dinner at 11 p.m. is normal?",
+     "ja": "berlin",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Fisch mindestens zweimal pro Woche?",
+     "en": "Fish at least twice a week?",
+     "ja": "hamburg",
+     "nein": "leipzig"
+    },
+    {
+     "left": {
+      "de": "Lieferdienst",
+      "en": "delivery",
+      "vibe": "berlin"
+     },
+     "right": {
+      "de": "Selbst kochen",
+      "en": "cooking yourself",
+      "vibe": "muenchen"
+     }
+    },
+    {
+     "left": {
+      "de": "Bier mit allen",
+      "en": "beer with everyone",
+      "vibe": "koeln"
+     },
+     "right": {
+      "de": "Tee, allein",
+      "en": "tea, alone",
+      "vibe": "hamburg"
+     }
+    },
+    {
+     "left": {
+      "de": "Hafermilch",
+      "en": "oat milk",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Richtige Butter",
+      "en": "real butter",
+      "vibe": "muenchen"
+     }
+    },
+    {
+     "de": "Du kochst nach Rezept, auf das Gramm?",
+     "en": "You cook by recipe, to the gram?",
+     "ja": "muenchen",
+     "nein": "koeln"
+    },
+    {
+     "de": "Dein Kühlschrank: nur Senf und Bier?",
+     "en": "Your fridge: just mustard and beer?",
+     "ja": "berlin",
+     "nein": "muenchen"
+    },
+    {
+     "de": "Du isst am liebsten mit vielen Leuten?",
+     "en": "You prefer eating with lots of people?",
+     "ja": "koeln",
+     "nein": "hamburg"
+    },
+    {
+     "left": {
+      "de": "Handfilter",
+      "en": "pour-over",
+      "vibe": "leipzig"
+     },
+     "right": {
+      "de": "Kapselmaschine",
+      "en": "pod machine",
+      "vibe": "berlin"
+     }
+    }
+   ]
+  }
+ ]
+}

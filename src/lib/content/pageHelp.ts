@@ -168,19 +168,19 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 	'/play/ja-nein': {
 		title: 'Ja oder Nein?',
 		intro:
-			'Eight quick questions about life in Germany. Swipe towards your answer: nothing is marked, there is nothing to get wrong.',
+			'Which German city are you? Which animal, which drink? Twelve quick questions in easy German. Swipe towards your answer: nothing is marked, there is nothing to get wrong.',
 		items: [
 			{
 				title: 'Swiping',
 				text: 'Some questions are yes or no, some are this or that. Swipe towards the side you pick, or tap it.'
 			},
 			{
-				title: 'Your persona',
-				text: 'At the end you find out who you are tonight, one of five personas for that round, with a German word to keep. It goes on your persona shelf.'
+				title: 'Your result',
+				text: 'At the end you get your type, in percent, with a profile, your mix of all five, what your Ja and Nein say about you, who you get on with and who you clash with, and a German word to keep. It goes on your persona shelf.'
 			},
 			{
 				title: 'Sharing',
-				text: 'Send your result to a friend: the link opens the same eight questions for them.'
+				text: 'Send your type and your mix to a friend: the link opens the same twelve questions for them, so they can answer back.'
 			}
 		]
 	},

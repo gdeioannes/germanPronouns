@@ -1,0 +1,1185 @@
+{
+ "id": "deutsch",
+ "title": "Wie deutsch bist du wirklich?",
+ "en": "How German are you, really?",
+ "emoji": "🇩🇪",
+ "personas": [
+  {
+   "id": "ordnungsamt",
+   "title": "Ordnungsamt in Person",
+   "emoji": "📋",
+   "line": "Seven bins, guest slippers, five minutes early. Rules are how you say \"I love you\".",
+   "profile": "You have a bin for everything, including a bin for the bin bags. Guests get slippers before they get a hello, and you've never once been late, because you leave fifteen minutes early 'for safety'. People laugh at the Kehrwoche plan on your fridge. Those people have never had a stairwell this clean.",
+   "traits": [
+    "punctual",
+    "orderly",
+    "rule-loving"
+   ],
+   "de": {
+    "line": "Sieben Mülleimer, Gästehausschuhe, 5 Minuten zu früh. Regeln sind dein 'Ich liebe dich'.",
+    "profile": "Du hast einen Eimer für alles, auch einen für die Müllbeutel. Gäste bekommen Hausschuhe, bevor sie ein Hallo bekommen, und du warst noch nie zu spät, weil du 'zur Sicherheit' fünfzehn Minuten früher losgehst. Die Leute lachen über den Kehrwoche-Plan an deinem Kühlschrank. Diese Leute hatten noch nie so ein sauberes Treppenhaus.",
+    "traits": [
+     "pünktlich",
+     "ordentlich",
+     "liebt Regeln"
+    ]
+   },
+   "match": "gemuetlich",
+   "clash": "spaeti",
+   "word": {
+    "de": "die Ordnung",
+    "en": "order, tidiness"
+   }
+  },
+  {
+   "id": "gemuetlich",
+   "title": "Gemütlichkeits-Guru",
+   "emoji": "🛋️",
+   "line": "Socks, tea, cake at three, crime show at eight. Nobody does cosy like you.",
+   "profile": "Your Sunday has a schedule and the schedule is: nothing, slowly, in wool socks. Cake at three is non-negotiable, the Sunday crime show at eight is a sacred rite, and the candle is lit before the kettle boils. You don't go to the party. The party, if it's any good, comes to your sofa.",
+   "traits": [
+    "cosy",
+    "ritual-loving",
+    "calm"
+   ],
+   "de": {
+    "line": "Socken, Tee, Kuchen um drei, Krimi um acht. Gemütlich kann keiner so wie du.",
+    "profile": "Dein Sonntag hat einen Plan, und der Plan heißt: nichts, langsam, in Wollsocken. Kuchen um drei ist Pflicht, der Sonntagskrimi um acht ist heilig, und die Kerze brennt, bevor das Wasser kocht. Du gehst nicht zur Party. Die Party kommt, wenn sie gut ist, zu dir aufs Sofa.",
+    "traits": [
+     "gemütlich",
+     "liebt Rituale",
+     "ruhig"
+    ]
+   },
+   "match": "ordnungsamt",
+   "clash": "spaeti",
+   "word": {
+    "de": "die Gemütlichkeit",
+    "en": "cosiness"
+   }
+  },
+  {
+   "id": "spaeti",
+   "title": "Späti-Royalty",
+   "emoji": "🏪",
+   "line": "Mate at 3 a.m., kebab as a food group, zero order, maximum fun.",
+   "profile": "Your supermarket opens at midnight and knows your name. Order is a rumour, plans are a suggestion, and the night bus is your limousine. You're late to everything except the party, loud in every room, and the person who turns a Tuesday into a story. Germany didn't expect you. Germany is lucky to have you.",
+   "traits": [
+    "late",
+    "loud",
+    "spontaneous"
+   ],
+   "de": {
+    "line": "Mate um 3 Uhr nachts, Döner als Grundnahrung, null Ordnung, maximal Spaß.",
+    "profile": "Dein Supermarkt macht um Mitternacht auf und kennt deinen Namen. Ordnung ist ein Gerücht, Pläne sind ein Vorschlag, und der Nachtbus ist deine Limousine. Du kommst überall zu spät, außer zur Party, bist laut in jedem Raum und machst aus einem Dienstag eine Geschichte. Deutschland hat dich nicht erwartet. Deutschland hat Glück mit dir.",
+    "traits": [
+     "zu spät",
+     "laut",
+     "spontan"
+    ]
+   },
+   "match": "weltbuerger",
+   "clash": "ordnungsamt",
+   "word": {
+    "de": "der Späti",
+    "en": "the late-night corner shop"
+   }
+  },
+  {
+   "id": "waldbaden",
+   "title": "Waldbaden-Profi",
+   "emoji": "🌲",
+   "line": "Barefoot in the park, bread in the bag, phone on flight mode. Lake at 14 degrees? Fine.",
+   "profile": "You own more hiking boots than shoes. The lake is 14 degrees and you're already in it, the picnic is packed in a reused jar, and your phone has been on flight mode since Friday. Trees are your colleagues, the forest is your office. People call it a hobby. You call it Tuesday.",
+   "traits": [
+    "outdoorsy",
+    "grounded",
+    "offline"
+   ],
+   "de": {
+    "line": "Barfuß im Park, Brot im Rucksack, Handy im Flugmodus. See bei 14 Grad? Passt.",
+    "profile": "Du hast mehr Wanderschuhe als Schuhe. Der See hat 14 Grad, und du bist schon drin, das Picknick steckt in einem alten Glas, und dein Handy ist seit Freitag im Flugmodus. Bäume sind deine Kollegen, der Wald ist dein Büro. Die Leute nennen es Hobby. Du nennst es Dienstag.",
+    "traits": [
+     "draußen zu Hause",
+     "geerdet",
+     "offline"
+    ]
+   },
+   "match": "gemuetlich",
+   "clash": "spaeti",
+   "word": {
+    "de": "der Wald",
+    "en": "the forest"
+   }
+  },
+  {
+   "id": "weltbuerger",
+   "title": "Weltbürger",
+   "emoji": "🌍",
+   "line": "You laugh at the rules, hug the neighbours, pay by card. And you love it here anyway.",
+   "profile": "You arrived with a suitcase and an open heart. You hug people who wanted a handshake, you pay by card where cash is king, and you still have no slippers for guests. The rules make you laugh, then slowly, quietly, you start following them. Learning the language is your love letter to this odd, wonderful place.",
+   "traits": [
+    "warm",
+    "curious",
+    "rule-bending"
+   ],
+   "de": {
+    "line": "Du lachst über Regeln, umarmst Nachbarn, zahlst mit Karte. Und liebst es hier trotzdem.",
+    "profile": "Du bist mit einem Koffer und offenem Herzen angekommen. Du umarmst Leute, die einen Händedruck wollten, zahlst mit Karte, wo Bargeld König ist, und hast immer noch keine Hausschuhe für Gäste. Über die Regeln lachst du, und dann hältst du sie langsam, leise, doch. Deutsch lernen ist dein Liebesbrief an dieses seltsame, wunderbare Land.",
+    "traits": [
+     "warm",
+     "neugierig",
+     "biegt Regeln"
+    ]
+   },
+   "match": "spaeti",
+   "clash": "ordnungsamt",
+   "word": {
+    "de": "die Welt",
+    "en": "the world"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "zuhause",
+   "title": "Zu Hause",
+   "en": "At home",
+   "hook": "Shoes off? Slippers on? Let's see.",
+   "questions": [
+    {
+     "de": "Du hast Hausschuhe für Gäste?",
+     "en": "You have slippers for guests?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Du hast mehr als vier Mülleimer?",
+     "en": "You have more than four bins?",
+     "ja": "ordnungsamt",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du lüftest jeden Morgen fünf Minuten?",
+     "en": "You air the room for five minutes every morning?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Dein Sofa hat drei Decken?",
+     "en": "Your sofa has three blankets?",
+     "ja": "gemuetlich",
+     "nein": "spaeti"
+    },
+    {
+     "de": "In deinem Kühlschrank steht nur Mate?",
+     "en": "Your fridge contains only Mate?",
+     "ja": "spaeti",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Deine Wanderschuhe stehen im Flur?",
+     "en": "Your hiking boots live in the hallway?",
+     "ja": "waldbaden",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du bist zu Hause immer barfuß?",
+     "en": "At home you're always barefoot?",
+     "ja": "waldbaden",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Freunde kommen ohne Anruf vorbei?",
+     "en": "Friends drop by without calling?",
+     "ja": "weltbuerger",
+     "nein": "ordnungsamt"
+    },
+    {
+     "left": {
+      "de": "Hausschuhe",
+      "en": "slippers",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Barfuß",
+      "en": "barefoot",
+      "vibe": "waldbaden"
+     }
+    },
+    {
+     "left": {
+      "de": "Kerze an",
+      "en": "candle lit",
+      "vibe": "gemuetlich"
+     },
+     "right": {
+      "de": "Musik an",
+      "en": "music on",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Pfandkiste im Flur",
+      "en": "bottle crate in the hall",
+      "vibe": "spaeti"
+     },
+     "right": {
+      "de": "Rucksack im Flur",
+      "en": "backpack in the hall",
+      "vibe": "waldbaden"
+     }
+    },
+    {
+     "left": {
+      "de": "Schuhe aus, bitte",
+      "en": "shoes off, please",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Schuhe? Egal",
+      "en": "shoes? whatever",
+      "vibe": "weltbuerger"
+     }
+    }
+   ]
+  },
+  {
+   "id": "strasse",
+   "title": "Auf der Straße",
+   "en": "In the street",
+   "hook": "Red light, empty road, nobody looking.",
+   "questions": [
+    {
+     "de": "Du stehst bei Rot an der leeren Straße?",
+     "en": "You wait at a red light on an empty road?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Du gehst bei Rot, wenn niemand guckt?",
+     "en": "You cross on red when nobody's looking?",
+     "ja": "spaeti",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Du grüßt Fremde auf dem Spaziergang?",
+     "en": "You greet strangers on a walk?",
+     "ja": "waldbaden",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du starrst Leute in der Bahn an?",
+     "en": "You stare at people on the train?",
+     "ja": "gemuetlich",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Du redest mit Fremden an der Haltestelle?",
+     "en": "You chat with strangers at the bus stop?",
+     "ja": "weltbuerger",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Du bringst fremde Pfandflaschen zurück?",
+     "en": "You return other people's deposit bottles?",
+     "ja": "spaeti",
+     "nein": "waldbaden"
+    },
+    {
+     "de": "Du gehst lieber durch den Park als die Straße?",
+     "en": "You'd rather walk through the park than the street?",
+     "ja": "waldbaden",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du gehst nach dem Essen eine Runde?",
+     "en": "You take a walk after dinner?",
+     "ja": "gemuetlich",
+     "nein": "spaeti"
+    },
+    {
+     "left": {
+      "de": "Fahrrad",
+      "en": "bike",
+      "vibe": "waldbaden"
+     },
+     "right": {
+      "de": "Nachtbus",
+      "en": "night bus",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Rolltreppe: rechts",
+      "en": "escalator: stand right",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Einfach irgendwo",
+      "en": "anywhere, really",
+      "vibe": "weltbuerger"
+     }
+    },
+    {
+     "left": {
+      "de": "Kopfhörer",
+      "en": "headphones",
+      "vibe": "spaeti"
+     },
+     "right": {
+      "de": "Vogelstimmen",
+      "en": "birdsong",
+      "vibe": "waldbaden"
+     }
+    },
+    {
+     "left": {
+      "de": "Umarmung zur Begrüßung",
+      "en": "greet with a hug",
+      "vibe": "weltbuerger"
+     },
+     "right": {
+      "de": "Händedruck",
+      "en": "handshake",
+      "vibe": "ordnungsamt"
+     }
+    }
+   ]
+  },
+  {
+   "id": "puenktlich",
+   "title": "Pünktlichkeit",
+   "en": "Punctuality",
+   "hook": "Invited for eight. When do you ring the bell?",
+   "questions": [
+    {
+     "de": "Du bist fünf Minuten zu früh, immer?",
+     "en": "You're five minutes early, always?",
+     "ja": "ordnungsamt",
+     "nein": "spaeti"
+    },
+    {
+     "de": "\"Gleich\" heißt bei dir eine Stunde?",
+     "en": "\"In a minute\" means an hour for you?",
+     "ja": "spaeti",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Zu spät sein macht dich nervös?",
+     "en": "Being late makes you nervous?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Du kommst 20 Minuten zu spät, mit Umarmung?",
+     "en": "You arrive 20 minutes late, with a hug?",
+     "ja": "weltbuerger",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Du wartest im Auto, bis es genau 8 ist?",
+     "en": "You wait in the car until it's exactly 8?",
+     "ja": "ordnungsamt",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Zeit ist dir im Wald egal?",
+     "en": "Time doesn't matter to you in the forest?",
+     "ja": "waldbaden",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Du bist pünktlich, aber nur zum Kuchen?",
+     "en": "You're on time, but only for cake?",
+     "ja": "gemuetlich",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Zug zwei Minuten spät: du bist wütend?",
+     "en": "Train two minutes late: you're furious?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "left": {
+      "de": "Wecker",
+      "en": "alarm clock",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Sonnenstand",
+      "en": "position of the sun",
+      "vibe": "waldbaden"
+     }
+    },
+    {
+     "left": {
+      "de": "Fünf Minuten früher",
+      "en": "five minutes early",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Eine Stunde später",
+      "en": "an hour late",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Kalender voll",
+      "en": "calendar full",
+      "vibe": "gemuetlich"
+     },
+     "right": {
+      "de": "Kalender? Welcher?",
+      "en": "calendar? which one?",
+      "vibe": "weltbuerger"
+     }
+    },
+    {
+     "left": {
+      "de": "Nachricht: komme später",
+      "en": "text: running late",
+      "vibe": "weltbuerger"
+     },
+     "right": {
+      "de": "Einfach auftauchen",
+      "en": "just show up",
+      "vibe": "spaeti"
+     }
+    }
+   ]
+  },
+  {
+   "id": "essen",
+   "title": "Essen",
+   "en": "Food",
+   "hook": "Bread, cake, kebab, picnic. Pick a life.",
+   "questions": [
+    {
+     "de": "Abendbrot um 18 Uhr, kalt?",
+     "en": "Cold bread supper at 6 p.m.?",
+     "ja": "ordnungsamt",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Döner ist eine Mahlzeit, dreimal die Woche?",
+     "en": "Kebab is a meal, three times a week?",
+     "ja": "spaeti",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Kaffee und Kuchen um 15 Uhr ist Pflicht?",
+     "en": "Coffee and cake at 3 p.m. is a must?",
+     "ja": "gemuetlich",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Deine Brotzeit ist immer im Rucksack?",
+     "en": "Your snack box is always in the backpack?",
+     "ja": "waldbaden",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du vermisst das Essen von zu Hause?",
+     "en": "You miss the food from back home?",
+     "ja": "weltbuerger",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Du isst draußen, auch bei 10 Grad?",
+     "en": "You eat outside, even at 10 degrees?",
+     "ja": "waldbaden",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Brot ohne Kruste ist kein Brot?",
+     "en": "Bread without a crust isn't bread?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Dein Abendessen kommt aus dem Späti?",
+     "en": "Your dinner comes from the corner shop?",
+     "ja": "spaeti",
+     "nein": "gemuetlich"
+    },
+    {
+     "left": {
+      "de": "Brotzeit im Wald",
+      "en": "picnic in the forest",
+      "vibe": "waldbaden"
+     },
+     "right": {
+      "de": "Pommes um drei",
+      "en": "chips at 3 a.m.",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Kuchen",
+      "en": "cake",
+      "vibe": "gemuetlich"
+     },
+     "right": {
+      "de": "Döner",
+      "en": "kebab",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Immer dasselbe Brot",
+      "en": "always the same bread",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Jede Woche was Neues",
+      "en": "something new each week",
+      "vibe": "weltbuerger"
+     }
+    },
+    {
+     "left": {
+      "de": "Sprudelwasser",
+      "en": "sparkling water",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Leitungswasser",
+      "en": "tap water",
+      "vibe": "weltbuerger"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sonntag",
+   "title": "Dein Sonntag",
+   "en": "Your Sunday",
+   "hook": "Shops closed. Now what?",
+   "questions": [
+    {
+     "de": "Sonntag ist bei dir heilig?",
+     "en": "Sunday is sacred for you?",
+     "ja": "gemuetlich",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Sonntag bohrst du Löcher in die Wand?",
+     "en": "On Sunday you drill holes in the wall?",
+     "ja": "weltbuerger",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Du wachst sonntags um 14 Uhr auf?",
+     "en": "On Sunday you wake up at 2 p.m.?",
+     "ja": "spaeti",
+     "nein": "waldbaden"
+    },
+    {
+     "de": "Sonntag heißt Wandern, früh?",
+     "en": "Sunday means hiking, early?",
+     "ja": "waldbaden",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Sonntagabend: Krimi um 20:15, immer?",
+     "en": "Sunday evening: crime show at 8:15, always?",
+     "ja": "gemuetlich",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Du vergisst, dass sonntags alles zu ist?",
+     "en": "You forget everything is shut on Sundays?",
+     "ja": "weltbuerger",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Sonntag putzt du, mit Plan?",
+     "en": "On Sunday you clean, with a plan?",
+     "ja": "ordnungsamt",
+     "nein": "waldbaden"
+    },
+    {
+     "de": "Sonntag siehst du keinen Bildschirm?",
+     "en": "On Sunday you see no screen?",
+     "ja": "waldbaden",
+     "nein": "gemuetlich"
+    },
+    {
+     "left": {
+      "de": "Sofa",
+      "en": "sofa",
+      "vibe": "gemuetlich"
+     },
+     "right": {
+      "de": "See",
+      "en": "lake",
+      "vibe": "waldbaden"
+     }
+    },
+    {
+     "left": {
+      "de": "Spaziergang",
+      "en": "a walk",
+      "vibe": "gemuetlich"
+     },
+     "right": {
+      "de": "Späti-Bank",
+      "en": "bench outside the corner shop",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Ruhe, bitte",
+      "en": "quiet, please",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Musik, laut",
+      "en": "music, loud",
+      "vibe": "weltbuerger"
+     }
+    },
+    {
+     "left": {
+      "de": "Wanderkarte",
+      "en": "hiking map",
+      "vibe": "waldbaden"
+     },
+     "right": {
+      "de": "Katerfrühstück",
+      "en": "hangover breakfast",
+      "vibe": "spaeti"
+     }
+    }
+   ]
+  },
+  {
+   "id": "nachbarn",
+   "title": "Nachbarn",
+   "en": "Neighbours",
+   "hook": "Do you know their names? Do they know your bins?",
+   "questions": [
+    {
+     "de": "Du kennst alle Nachbarn mit Namen?",
+     "en": "You know all the neighbours by name?",
+     "ja": "weltbuerger",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du guckst, ob die Nachbarn richtig trennen?",
+     "en": "You check whether the neighbours sort their rubbish right?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Deine Nachbarn klopfen wegen Musik?",
+     "en": "Your neighbours knock because of your music?",
+     "ja": "spaeti",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Du bringst Nachbarn Kuchen?",
+     "en": "You bring neighbours cake?",
+     "ja": "gemuetlich",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du machst die Kehrwoche, gern?",
+     "en": "You do the stairwell cleaning rota, gladly?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Du kennst nur die Bäume vor dem Haus?",
+     "en": "You only know the trees in front of the house?",
+     "ja": "waldbaden",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Nachbarn laden dich zum Grillen ein?",
+     "en": "Neighbours invite you to the barbecue?",
+     "ja": "weltbuerger",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Du hast dich noch nie beschwert?",
+     "en": "You've never once complained?",
+     "ja": "waldbaden",
+     "nein": "ordnungsamt"
+    },
+    {
+     "left": {
+      "de": "Zettel im Flur",
+      "en": "note in the hallway",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Klingeln und reden",
+      "en": "ring and talk",
+      "vibe": "weltbuerger"
+     }
+    },
+    {
+     "left": {
+      "de": "Hallo im Treppenhaus",
+      "en": "hello on the stairs",
+      "vibe": "gemuetlich"
+     },
+     "right": {
+      "de": "Party im Treppenhaus",
+      "en": "party on the stairs",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Gartenzaun",
+      "en": "garden fence",
+      "vibe": "waldbaden"
+     },
+     "right": {
+      "de": "Balkon-Bier",
+      "en": "balcony beer",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Ruhezeit beachten",
+      "en": "respect quiet hours",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Ruhezeit? Was?",
+      "en": "quiet hours? what?",
+      "vibe": "weltbuerger"
+     }
+    }
+   ]
+  },
+  {
+   "id": "urlaub",
+   "title": "Urlaub",
+   "en": "Holiday",
+   "hook": "Suitcase packed. Rules packed too?",
+   "questions": [
+    {
+     "de": "Du trennst Müll auch im Urlaub?",
+     "en": "You sort your rubbish on holiday too?",
+     "ja": "ordnungsamt",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du reservierst die Liege mit Handtuch?",
+     "en": "You reserve the sunbed with a towel?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Dein Urlaub ist eine Hütte ohne Netz?",
+     "en": "Your holiday is a hut with no signal?",
+     "ja": "waldbaden",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du bist im Urlaub lieber zu Hause?",
+     "en": "On holiday you'd rather be at home?",
+     "ja": "gemuetlich",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Dein Urlaub beginnt um Mitternacht?",
+     "en": "Your holiday starts at midnight?",
+     "ja": "spaeti",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Urlaub heißt Familie besuchen, weit weg?",
+     "en": "Holiday means visiting family, far away?",
+     "ja": "weltbuerger",
+     "nein": "waldbaden"
+    },
+    {
+     "de": "Du wanderst im Urlaub 20 Kilometer am Tag?",
+     "en": "On holiday you hike 20 kilometres a day?",
+     "ja": "waldbaden",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Du suchst im Urlaub einen Späti?",
+     "en": "On holiday you look for a corner shop?",
+     "ja": "spaeti",
+     "nein": "waldbaden"
+    },
+    {
+     "left": {
+      "de": "Wanderurlaub",
+      "en": "hiking holiday",
+      "vibe": "waldbaden"
+     },
+     "right": {
+      "de": "Städtetrip, nachts",
+      "en": "city trip, by night",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Ferienhaus mit Decke",
+      "en": "cottage with a blanket",
+      "vibe": "gemuetlich"
+     },
+     "right": {
+      "de": "Hostel mit Leuten",
+      "en": "hostel with people",
+      "vibe": "weltbuerger"
+     }
+    },
+    {
+     "left": {
+      "de": "Reiseplan",
+      "en": "itinerary",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Einfach losfahren",
+      "en": "just set off",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Heimat besuchen",
+      "en": "visit home",
+      "vibe": "weltbuerger"
+     },
+     "right": {
+      "de": "Zu Hause bleiben",
+      "en": "stay at home",
+      "vibe": "gemuetlich"
+     }
+    }
+   ]
+  },
+  {
+   "id": "buero",
+   "title": "Im Büro",
+   "en": "At the office",
+   "hook": "Monday, 8:58. Where are you?",
+   "questions": [
+    {
+     "de": "Du bist der Erste im Büro?",
+     "en": "You're the first in the office?",
+     "ja": "ordnungsamt",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Du machst Mittagspause genau 30 Minuten?",
+     "en": "Your lunch break is exactly 30 minutes?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Du bringst Kuchen für alle mit?",
+     "en": "You bring cake for everyone?",
+     "ja": "gemuetlich",
+     "nein": "waldbaden"
+    },
+    {
+     "de": "Du kommst mit dem Fahrrad, bei jedem Wetter?",
+     "en": "You cycle in, whatever the weather?",
+     "ja": "waldbaden",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du duzt den Chef am ersten Tag?",
+     "en": "You call the boss by first name on day one?",
+     "ja": "weltbuerger",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Du bist nachts am produktivsten?",
+     "en": "You're most productive at night?",
+     "ja": "spaeti",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Feierabend ist für dich Feierabend?",
+     "en": "When work is over, it's over?",
+     "ja": "gemuetlich",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du machst Pause im Park, barfuß?",
+     "en": "You take your break in the park, barefoot?",
+     "ja": "waldbaden",
+     "nein": "ordnungsamt"
+    },
+    {
+     "left": {
+      "de": "Homeoffice mit Decke",
+      "en": "home office, blanket",
+      "vibe": "gemuetlich"
+     },
+     "right": {
+      "de": "Büro mit Leuten",
+      "en": "office with people",
+      "vibe": "weltbuerger"
+     }
+    },
+    {
+     "left": {
+      "de": "Stempeluhr",
+      "en": "time clock",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Irgendwann fertig",
+      "en": "done at some point",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Kaffeeküche",
+      "en": "the coffee kitchen",
+      "vibe": "weltbuerger"
+     },
+     "right": {
+      "de": "Spaziergang",
+      "en": "a walk",
+      "vibe": "waldbaden"
+     }
+    },
+    {
+     "left": {
+      "de": "Pünktlich um 17 Uhr",
+      "en": "on the dot at five",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Gemütlich bis 18 Uhr",
+      "en": "cosily till six",
+      "vibe": "gemuetlich"
+     }
+    }
+   ]
+  },
+  {
+   "id": "geld",
+   "title": "Geld",
+   "en": "Money",
+   "hook": "Cash or card? That's a personality test here.",
+   "questions": [
+    {
+     "de": "Du zahlst alles mit Karte?",
+     "en": "You pay for everything by card?",
+     "ja": "weltbuerger",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Du hast immer Bargeld dabei?",
+     "en": "You always carry cash?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Du bringst jede Pfandflasche zurück?",
+     "en": "You return every deposit bottle?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Dein Geld geht nachts weg?",
+     "en": "Your money disappears at night?",
+     "ja": "spaeti",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Du sparst für ein Haus mit Garten?",
+     "en": "You're saving for a house with a garden?",
+     "ja": "gemuetlich",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du gibst Geld für Wanderschuhe aus, gern?",
+     "en": "You spend money on hiking boots, gladly?",
+     "ja": "waldbaden",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Du redest offen über dein Gehalt?",
+     "en": "You talk openly about your salary?",
+     "ja": "weltbuerger",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Dein größter Luxus ist ein gutes Zelt?",
+     "en": "Your biggest luxury is a good tent?",
+     "ja": "waldbaden",
+     "nein": "gemuetlich"
+    },
+    {
+     "left": {
+      "de": "Sparbuch",
+      "en": "savings book",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Karte, kontaktlos",
+      "en": "card, contactless",
+      "vibe": "weltbuerger"
+     }
+    },
+    {
+     "left": {
+      "de": "Haushaltsbuch",
+      "en": "budget book",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Was übrig ist",
+      "en": "whatever's left",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Kuchen backen, günstig",
+      "en": "bake cake, cheap",
+      "vibe": "gemuetlich"
+     },
+     "right": {
+      "de": "Essen gehen, teuer",
+      "en": "eat out, pricey",
+      "vibe": "weltbuerger"
+     }
+    },
+    {
+     "left": {
+      "de": "Pfand sammeln",
+      "en": "collect deposits",
+      "vibe": "spaeti"
+     },
+     "right": {
+      "de": "Pilze sammeln",
+      "en": "collect mushrooms",
+      "vibe": "waldbaden"
+     }
+    }
+   ]
+  },
+  {
+   "id": "smalltalk",
+   "title": "Small Talk",
+   "en": "Small talk",
+   "hook": "\"How are you?\" Careful. They might answer.",
+   "questions": [
+    {
+     "de": "\"Wie geht's?\" beantwortest du ehrlich?",
+     "en": "You answer \"how are you?\" honestly?",
+     "ja": "ordnungsamt",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Du redest mit allen im Aufzug?",
+     "en": "You talk to everyone in the lift?",
+     "ja": "weltbuerger",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Small Talk über das Wetter ist schön?",
+     "en": "Small talk about the weather is nice?",
+     "ja": "gemuetlich",
+     "nein": "spaeti"
+    },
+    {
+     "de": "Small Talk um 3 Uhr am Späti?",
+     "en": "Small talk at 3 a.m. at the corner shop?",
+     "ja": "spaeti",
+     "nein": "ordnungsamt"
+    },
+    {
+     "de": "Du redest lieber mit Bäumen?",
+     "en": "You'd rather talk to trees?",
+     "ja": "waldbaden",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Schweigen ist für dich kein Problem?",
+     "en": "Silence is no problem for you?",
+     "ja": "waldbaden",
+     "nein": "weltbuerger"
+    },
+    {
+     "de": "Du fragst Fremde nach ihrem Leben?",
+     "en": "You ask strangers about their lives?",
+     "ja": "weltbuerger",
+     "nein": "gemuetlich"
+    },
+    {
+     "de": "Du redest gern über die Bahn?",
+     "en": "You enjoy talking about the trains?",
+     "ja": "ordnungsamt",
+     "nein": "waldbaden"
+    },
+    {
+     "left": {
+      "de": "Wetter",
+      "en": "the weather",
+      "vibe": "gemuetlich"
+     },
+     "right": {
+      "de": "Politik",
+      "en": "politics",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Lächeln",
+      "en": "a smile",
+      "vibe": "weltbuerger"
+     },
+     "right": {
+      "de": "Nicken",
+      "en": "a nod",
+      "vibe": "ordnungsamt"
+     }
+    },
+    {
+     "left": {
+      "de": "Über Berge reden",
+      "en": "talk about mountains",
+      "vibe": "waldbaden"
+     },
+     "right": {
+      "de": "Über Nächte reden",
+      "en": "talk about nights out",
+      "vibe": "spaeti"
+     }
+    },
+    {
+     "left": {
+      "de": "Kurz und ehrlich",
+      "en": "short and honest",
+      "vibe": "ordnungsamt"
+     },
+     "right": {
+      "de": "Lang und warm",
+      "en": "long and warm",
+      "vibe": "weltbuerger"
+     }
+    }
+   ]
+  }
+ ]
+}

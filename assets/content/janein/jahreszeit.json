@@ -1,0 +1,1185 @@
+{
+ "id": "jahreszeit",
+ "title": "Welche Jahreszeit bist du?",
+ "en": "Which season are you?",
+ "emoji": "🍂",
+ "personas": [
+  {
+   "id": "fruehling",
+   "title": "Frühling",
+   "emoji": "🌷",
+   "line": "New start every Monday, new plant every Saturday, new crush every April.",
+   "profile": "You believe in fresh starts the way other people believe in gravity. Twelve degrees and a bit of sun? Picnic. A new notebook? New life. You fall in love in April, buy plants you can't keep alive and sneeze through all of it with a smile. Over-optimistic, yes. But everyone needs a friend who sees the buds before the leaves.",
+   "traits": [
+    "optimistic",
+    "fresh starts",
+    "sneezing"
+   ],
+   "de": {
+    "line": "Jeden Montag ein Neustart, jeden Samstag eine Pflanze, jeden April neu verliebt.",
+    "profile": "Du glaubst an Neuanfänge wie andere an die Schwerkraft. Zwölf Grad und ein bisschen Sonne? Picknick. Ein neues Notizbuch? Neues Leben. Du verliebst dich im April, kaufst Pflanzen, die du nicht am Leben hältst, und niest lächelnd durch alles. Zu optimistisch, ja. Aber jeder braucht einen Freund, der die Knospen vor den Blättern sieht.",
+    "traits": [
+     "optimistisch",
+     "Neuanfänge",
+     "niest"
+    ]
+   },
+   "match": "sommer",
+   "clash": "winter",
+   "word": {
+    "de": "der Frühling",
+    "en": "the spring"
+   }
+  },
+  {
+   "id": "sommer",
+   "title": "Sommer",
+   "emoji": "☀️",
+   "line": "Lake, ice cream, sunburn, yes. No plans beyond tonight, ever.",
+   "profile": "Your calendar ends at tonight. You say yes to the lake, yes to the second ice cream, yes to staying out until the sky finally goes dark at ten. You own three pairs of sunglasses and have lost all of them. Sunburn is a lifestyle, the open-air pool is a second home, and nothing has ever been urgent.",
+   "traits": [
+    "spontaneous",
+    "sunny",
+    "says yes"
+   ],
+   "de": {
+    "line": "See, Eis, Sonnenbrand, ja. Pläne nach heute Abend? Nie.",
+    "profile": "Dein Kalender endet heute Abend. Du sagst Ja zum See, Ja zum zweiten Eis, Ja zum Draußenbleiben, bis der Himmel um zehn endlich dunkel wird. Du hast drei Sonnenbrillen und alle verloren. Sonnenbrand ist ein Lebensstil, das Freibad dein zweites Zuhause, und dringend war noch nie etwas.",
+    "traits": [
+     "spontan",
+     "sonnig",
+     "sagt Ja"
+    ]
+   },
+   "match": "karneval",
+   "clash": "herbst",
+   "word": {
+    "de": "der Sommer",
+    "en": "the summer"
+   }
+  },
+  {
+   "id": "herbst",
+   "title": "Herbst",
+   "emoji": "🍁",
+   "line": "Candles lit, scarf on, tea brewing. Rain on the window is your favourite song.",
+   "profile": "You are cosy with a hint of melancholy, and you like it that way. Long walks through wet leaves, a book you've read three times, Sunday evening crime on TV with a blanket. People think you're sad. You're not, you're just listening to the rain. Deep, warm, slightly dramatic about the light at 5 p.m.",
+   "traits": [
+    "cosy",
+    "thoughtful",
+    "melancholic"
+   ],
+   "de": {
+    "line": "Kerzen an, Schal um, Tee zieht. Regen am Fenster ist dein Lieblingslied.",
+    "profile": "Du bist gemütlich mit einem Hauch Melancholie, und so magst du es. Lange Spaziergänge durch nasses Laub, ein Buch, das du dreimal gelesen hast, Sonntagskrimi mit Decke. Die Leute denken, du bist traurig. Bist du nicht, du hörst nur dem Regen zu. Tief, warm, leicht dramatisch wegen des Lichts um 17 Uhr.",
+    "traits": [
+     "gemütlich",
+     "nachdenklich",
+     "melancholisch"
+    ]
+   },
+   "match": "winter",
+   "clash": "karneval",
+   "word": {
+    "de": "der Herbst",
+    "en": "the autumn"
+   }
+  },
+  {
+   "id": "winter",
+   "title": "Winter",
+   "emoji": "❄️",
+   "line": "Blanket fort built, hot chocolate ready, invitation declined. Perfect.",
+   "profile": "Leaving the house is a request you politely refuse. Your blanket fort is architecture, your hot chocolate is engineering, and silence is your favourite sound. You're honest to the point of frost, loyal to the few who make it inside. Snow makes you a child again. The sauna is your church.",
+   "traits": [
+    "honest",
+    "quiet",
+    "hibernating"
+   ],
+   "de": {
+    "line": "Deckenburg gebaut, heiße Schokolade fertig, Einladung abgesagt. Perfekt.",
+    "profile": "Das Haus verlassen ist eine Bitte, die du höflich ablehnst. Deine Deckenburg ist Architektur, deine heiße Schokolade ist Ingenieurskunst, und Stille ist dein Lieblingsgeräusch. Du bist ehrlich bis zum Frost und treu zu den wenigen, die es nach drinnen schaffen. Schnee macht dich wieder zum Kind. Die Sauna ist deine Kirche.",
+    "traits": [
+     "ehrlich",
+     "leise",
+     "im Winterschlaf"
+    ]
+   },
+   "match": "herbst",
+   "clash": "sommer",
+   "word": {
+    "de": "der Winter",
+    "en": "the winter"
+   }
+  },
+  {
+   "id": "karneval",
+   "title": "Karneval",
+   "emoji": "🎭",
+   "line": "The fifth season. Glitter everywhere, strangers are friends, Alaaf!",
+   "profile": "You live for one week a year and spend the other fifty-one planning the costume. Loud, dramatic, covered in glitter that will never fully come off. You talk to strangers on the tram, you sing in the street, you cry at parades. Some call it too much. You call it the only season that counts.",
+   "traits": [
+    "loud",
+    "dramatic",
+    "glittery"
+   ],
+   "de": {
+    "line": "Die fünfte Jahreszeit. Glitzer überall, Fremde sind Freunde, Alaaf!",
+    "profile": "Du lebst für eine Woche im Jahr und planst in den anderen 51 das Kostüm. Laut, dramatisch, voller Glitzer, der nie ganz abgeht. Du redest mit Fremden in der Bahn, singst auf der Straße und weinst beim Umzug. Manche sagen: zu viel. Du sagst: die einzige Jahreszeit, die zählt.",
+    "traits": [
+     "laut",
+     "dramatisch",
+     "glitzernd"
+    ]
+   },
+   "match": "sommer",
+   "clash": "winter",
+   "word": {
+    "de": "das Kostüm",
+    "en": "the costume"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "morgen",
+   "title": "Dein Morgen",
+   "en": "Your morning",
+   "hook": "Eyes open. What kind of day is it going to be?",
+   "questions": [
+    {
+     "de": "Du wachst auf und hast einen neuen Plan?",
+     "en": "You wake up with a brand-new plan?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Du bleibst liegen, bis es warm ist?",
+     "en": "You stay in bed until it's warm?",
+     "ja": "winter",
+     "nein": "sommer"
+    },
+    {
+     "de": "Dein Morgen beginnt mit Musik, laut?",
+     "en": "Your morning starts with loud music?",
+     "ja": "karneval",
+     "nein": "herbst"
+    },
+    {
+     "de": "Du trinkst den Kaffee am offenen Fenster?",
+     "en": "You drink your coffee at the open window?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Morgens brauchst du Stille und Tee?",
+     "en": "In the morning you need silence and tea?",
+     "ja": "herbst",
+     "nein": "karneval"
+    },
+    {
+     "de": "Du bist morgens sofort draußen?",
+     "en": "You're outside first thing?",
+     "ja": "sommer",
+     "nein": "herbst"
+    },
+    {
+     "de": "Du ziehst dich morgens zehn Minuten lang an?",
+     "en": "Getting dressed takes you ten minutes?",
+     "ja": "karneval",
+     "nein": "sommer"
+    },
+    {
+     "de": "Du siehst morgens als Erstes aufs Thermometer?",
+     "en": "The thermometer is the first thing you check?",
+     "ja": "winter",
+     "nein": "fruehling"
+    },
+    {
+     "left": {
+      "de": "Sonnenaufgang",
+      "en": "sunrise",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Nebel",
+      "en": "fog",
+      "vibe": "herbst"
+     }
+    },
+    {
+     "left": {
+      "de": "Barfuß",
+      "en": "barefoot",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Wollsocken",
+      "en": "wool socks",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Glitzer im Gesicht",
+      "en": "glitter on your face",
+      "vibe": "karneval"
+     },
+     "right": {
+      "de": "Buch am Tisch",
+      "en": "book at the table",
+      "vibe": "herbst"
+     }
+    },
+    {
+     "left": {
+      "de": "Fenster auf",
+      "en": "window open",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Decke drüber",
+      "en": "blanket over",
+      "vibe": "winter"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wetter",
+   "title": "Das Wetter",
+   "en": "The weather",
+   "hook": "Look outside. Happy?",
+   "questions": [
+    {
+     "de": "Regen am Fenster macht dich glücklich?",
+     "en": "Rain on the window makes you happy?",
+     "ja": "herbst",
+     "nein": "sommer"
+    },
+    {
+     "de": "Du bist bei 12 Grad schon im T-Shirt?",
+     "en": "At 12 degrees you're already in a T-shirt?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Schnee: du gehst sofort raus?",
+     "en": "Snow: you go straight outside?",
+     "ja": "winter",
+     "nein": "sommer"
+    },
+    {
+     "de": "Wetter ist dir egal, du feierst sowieso?",
+     "en": "Weather doesn't matter, you party anyway?",
+     "ja": "karneval",
+     "nein": "herbst"
+    },
+    {
+     "de": "Du hast immer Sonnenbrand?",
+     "en": "You always have sunburn?",
+     "ja": "sommer",
+     "nein": "winter"
+    },
+    {
+     "de": "Du redest gern über das Wetter?",
+     "en": "You enjoy talking about the weather?",
+     "ja": "herbst",
+     "nein": "karneval"
+    },
+    {
+     "de": "Hitze macht dich müde?",
+     "en": "Heat makes you tired?",
+     "ja": "winter",
+     "nein": "sommer"
+    },
+    {
+     "de": "Du siehst Wolken und denkst: bald Sonne?",
+     "en": "You see clouds and think: sun soon?",
+     "ja": "fruehling",
+     "nein": "herbst"
+    },
+    {
+     "left": {
+      "de": "Gewitter gucken",
+      "en": "watching a thunderstorm",
+      "vibe": "herbst"
+     },
+     "right": {
+      "de": "Im Regen tanzen",
+      "en": "dancing in the rain",
+      "vibe": "karneval"
+     }
+    },
+    {
+     "left": {
+      "de": "Hitze",
+      "en": "heat",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Frost",
+      "en": "frost",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Erster Sonnenstrahl",
+      "en": "first ray of sun",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Erster Schnee",
+      "en": "first snow",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Wetter-App",
+      "en": "weather app",
+      "vibe": "herbst"
+     },
+     "right": {
+      "de": "Einfach rausgehen",
+      "en": "just go outside",
+      "vibe": "sommer"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kleiderschrank",
+   "title": "Dein Kleiderschrank",
+   "en": "Your wardrobe",
+   "hook": "Open it. We won't judge. Much.",
+   "questions": [
+    {
+     "de": "Du hast mehr als fünf Schals?",
+     "en": "You own more than five scarves?",
+     "ja": "herbst",
+     "nein": "sommer"
+    },
+    {
+     "de": "Du hast ein Kostüm griffbereit, immer?",
+     "en": "You have a costume ready to go, always?",
+     "ja": "karneval",
+     "nein": "winter"
+    },
+    {
+     "de": "Du trägst im Winter kurze Hosen?",
+     "en": "You wear shorts in winter?",
+     "ja": "sommer",
+     "nein": "winter"
+    },
+    {
+     "de": "Du kaufst jedes Jahr etwas in Pastell?",
+     "en": "Every year you buy something pastel?",
+     "ja": "fruehling",
+     "nein": "herbst"
+    },
+    {
+     "de": "Dein Schrank ist zu 80 Prozent Pullover?",
+     "en": "Your wardrobe is 80 percent jumpers?",
+     "ja": "winter",
+     "nein": "karneval"
+    },
+    {
+     "de": "Glitzer ist für dich alltagstauglich?",
+     "en": "Glitter is everyday wear for you?",
+     "ja": "karneval",
+     "nein": "herbst"
+    },
+    {
+     "de": "Du hast drei Sonnenbrillen verloren?",
+     "en": "You've lost three pairs of sunglasses?",
+     "ja": "sommer",
+     "nein": "winter"
+    },
+    {
+     "de": "Du kaufst Kleidung für den neuen Start?",
+     "en": "You buy clothes for the fresh start?",
+     "ja": "fruehling",
+     "nein": "sommer"
+    },
+    {
+     "left": {
+      "de": "Wollpullover",
+      "en": "wool jumper",
+      "vibe": "winter"
+     },
+     "right": {
+      "de": "Leinenhemd",
+      "en": "linen shirt",
+      "vibe": "sommer"
+     }
+    },
+    {
+     "left": {
+      "de": "Strickjacke",
+      "en": "cardigan",
+      "vibe": "herbst"
+     },
+     "right": {
+      "de": "Blumenkleid",
+      "en": "flower dress",
+      "vibe": "fruehling"
+     }
+    },
+    {
+     "left": {
+      "de": "Kostüm",
+      "en": "costume",
+      "vibe": "karneval"
+     },
+     "right": {
+      "de": "Regenmantel",
+      "en": "raincoat",
+      "vibe": "herbst"
+     }
+    },
+    {
+     "left": {
+      "de": "Flipflops",
+      "en": "flip-flops",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Dicke Stiefel",
+      "en": "thick boots",
+      "vibe": "winter"
+     }
+    }
+   ]
+  },
+  {
+   "id": "freunde",
+   "title": "Freunde",
+   "en": "Friends",
+   "hook": "How many, how loud, how often?",
+   "questions": [
+    {
+     "de": "Du findest jeden Monat neue Freunde?",
+     "en": "You make new friends every month?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Du redest mit Fremden in der Bahn?",
+     "en": "You talk to strangers on the tram?",
+     "ja": "karneval",
+     "nein": "winter"
+    },
+    {
+     "de": "Deine Freunde sehen dich nur im Sommer?",
+     "en": "Your friends only see you in summer?",
+     "ja": "sommer",
+     "nein": "herbst"
+    },
+    {
+     "de": "Drei Freunde reichen für ein Leben?",
+     "en": "Three friends are enough for a lifetime?",
+     "ja": "winter",
+     "nein": "karneval"
+    },
+    {
+     "de": "Du bist der Freund für lange Gespräche?",
+     "en": "You're the friend for long talks?",
+     "ja": "herbst",
+     "nein": "sommer"
+    },
+    {
+     "de": "Du sagst Treffen ab, wenn es kalt ist?",
+     "en": "You cancel plans when it's cold?",
+     "ja": "winter",
+     "nein": "fruehling"
+    },
+    {
+     "de": "Du lädst zehn Leute zum Picknick ein?",
+     "en": "You invite ten people to a picnic?",
+     "ja": "fruehling",
+     "nein": "herbst"
+    },
+    {
+     "de": "Freunde erkennen dich am Lachen von weitem?",
+     "en": "Friends recognise your laugh from afar?",
+     "ja": "karneval",
+     "nein": "herbst"
+    },
+    {
+     "left": {
+      "de": "Große Gruppe",
+      "en": "big group",
+      "vibe": "karneval"
+     },
+     "right": {
+      "de": "Zu zweit",
+      "en": "just two of you",
+      "vibe": "herbst"
+     }
+    },
+    {
+     "left": {
+      "de": "Am See",
+      "en": "at the lake",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Am Kamin",
+      "en": "by the fire",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Umarmung",
+      "en": "a hug",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Nicken",
+      "en": "a nod",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Spontan treffen",
+      "en": "meet spontaneously",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Lange planen",
+      "en": "plan for ages",
+      "vibe": "herbst"
+     }
+    }
+   ]
+  },
+  {
+   "id": "plaene",
+   "title": "Pläne",
+   "en": "Plans",
+   "hook": "What are you doing in three months?",
+   "questions": [
+    {
+     "de": "Du planst das Kostüm ein Jahr vorher?",
+     "en": "You plan the costume a year ahead?",
+     "ja": "karneval",
+     "nein": "sommer"
+    },
+    {
+     "de": "Dein Plan endet heute Abend?",
+     "en": "Your plan ends tonight?",
+     "ja": "sommer",
+     "nein": "herbst"
+    },
+    {
+     "de": "Du machst jeden Montag neue Vorsätze?",
+     "en": "You make new resolutions every Monday?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Bester Plan: kein Plan, kein Rausgehen?",
+     "en": "Your favourite plan: no plan, no leaving the house?",
+     "ja": "winter",
+     "nein": "karneval"
+    },
+    {
+     "de": "Du planst lange Spaziergänge im Nebel?",
+     "en": "You plan long walks in the fog?",
+     "ja": "herbst",
+     "nein": "sommer"
+    },
+    {
+     "de": "Pläne absagen fühlt sich gut an?",
+     "en": "Cancelling plans feels good?",
+     "ja": "winter",
+     "nein": "fruehling"
+    },
+    {
+     "de": "Du planst Dinge, die du nie machst?",
+     "en": "You plan things you never do?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Dein Kalender hat eine Woche, die heilig ist?",
+     "en": "Your calendar has one sacred week?",
+     "ja": "karneval",
+     "nein": "sommer"
+    },
+    {
+     "left": {
+      "de": "Picknick planen",
+      "en": "plan a picnic",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Nichts planen",
+      "en": "plan nothing",
+      "vibe": "sommer"
+     }
+    },
+    {
+     "left": {
+      "de": "Lesezeit",
+      "en": "reading time",
+      "vibe": "herbst"
+     },
+     "right": {
+      "de": "Saunazeit",
+      "en": "sauna time",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Umzug planen",
+      "en": "plan a parade",
+      "vibe": "karneval"
+     },
+     "right": {
+      "de": "Stille planen",
+      "en": "plan silence",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Neues Hobby",
+      "en": "new hobby",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Altes Buch",
+      "en": "old book",
+      "vibe": "herbst"
+     }
+    }
+   ]
+  },
+  {
+   "id": "essen",
+   "title": "Essen",
+   "en": "Food",
+   "hook": "What's on your plate, and is it hot?",
+   "questions": [
+    {
+     "de": "Eis ist eine Mahlzeit?",
+     "en": "Ice cream is a meal?",
+     "ja": "sommer",
+     "nein": "winter"
+    },
+    {
+     "de": "Suppe ist dein Lieblingsessen?",
+     "en": "Soup is your favourite food?",
+     "ja": "winter",
+     "nein": "karneval"
+    },
+    {
+     "de": "Du isst draußen, sobald es geht?",
+     "en": "You eat outside as soon as possible?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Kürbis in allem, ab September?",
+     "en": "Pumpkin in everything, from September?",
+     "ja": "herbst",
+     "nein": "karneval"
+    },
+    {
+     "de": "Du isst im Stehen, mit Konfetti im Haar?",
+     "en": "You eat standing up, with confetti in your hair?",
+     "ja": "karneval",
+     "nein": "herbst"
+    },
+    {
+     "de": "Heiße Schokolade um 15 Uhr?",
+     "en": "Hot chocolate at 3 p.m.?",
+     "ja": "winter",
+     "nein": "sommer"
+    },
+    {
+     "de": "Du grillst bei 15 Grad?",
+     "en": "You barbecue at 15 degrees?",
+     "ja": "fruehling",
+     "nein": "herbst"
+    },
+    {
+     "de": "Du isst abends draußen bis 22 Uhr?",
+     "en": "You eat dinner outside until 10 p.m.?",
+     "ja": "sommer",
+     "nein": "winter"
+    },
+    {
+     "left": {
+      "de": "Erdbeeren",
+      "en": "strawberries",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Bratapfel",
+      "en": "baked apple",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Grillen",
+      "en": "barbecue",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Ofen an",
+      "en": "oven on",
+      "vibe": "herbst"
+     }
+    },
+    {
+     "left": {
+      "de": "Berliner",
+      "en": "jam doughnut",
+      "vibe": "karneval"
+     },
+     "right": {
+      "de": "Kürbissuppe",
+      "en": "pumpkin soup",
+      "vibe": "herbst"
+     }
+    },
+    {
+     "left": {
+      "de": "Spargel",
+      "en": "asparagus",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Eis am See",
+      "en": "ice cream at the lake",
+      "vibe": "sommer"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sonntag",
+   "title": "Dein Sonntag",
+   "en": "Your Sunday",
+   "hook": "The slowest day. Or your loudest?",
+   "questions": [
+    {
+     "de": "Sonntag heißt Spaziergang im Laub?",
+     "en": "Sunday means a walk through the leaves?",
+     "ja": "herbst",
+     "nein": "karneval"
+    },
+    {
+     "de": "Du verlässt sonntags das Haus nicht?",
+     "en": "On Sunday you don't leave the house?",
+     "ja": "winter",
+     "nein": "karneval"
+    },
+    {
+     "de": "Dein Sonntag ist eine Fortsetzung vom Samstag?",
+     "en": "Your Sunday is Saturday, continued?",
+     "ja": "karneval",
+     "nein": "herbst"
+    },
+    {
+     "de": "Du bist sonntags um 8 Uhr am See?",
+     "en": "On Sunday you're at the lake by 8?",
+     "ja": "sommer",
+     "nein": "winter"
+    },
+    {
+     "de": "Sonntag pflanzt du etwas um?",
+     "en": "On Sunday you repot something?",
+     "ja": "fruehling",
+     "nein": "karneval"
+    },
+    {
+     "de": "Sonntagabend: Krimi und Tee?",
+     "en": "Sunday evening: crime show and tea?",
+     "ja": "herbst",
+     "nein": "sommer"
+    },
+    {
+     "de": "Sonntag ist der Tag für neue Listen?",
+     "en": "Sunday is the day for new lists?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Du sagst sonntags einfach allen ab?",
+     "en": "On Sunday you just cancel on everyone?",
+     "ja": "winter",
+     "nein": "karneval"
+    },
+    {
+     "left": {
+      "de": "Freibad",
+      "en": "open-air pool",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Sauna",
+      "en": "sauna",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Blumenmarkt",
+      "en": "flower market",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Buchhandlung",
+      "en": "bookshop",
+      "vibe": "herbst"
+     }
+    },
+    {
+     "left": {
+      "de": "Kater mit Glitzer",
+      "en": "hangover with glitter",
+      "vibe": "karneval"
+     },
+     "right": {
+      "de": "Tee ohne Reden",
+      "en": "tea without talking",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Lange Fahrradtour",
+      "en": "long bike ride",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Langes Bad",
+      "en": "long bath",
+      "vibe": "herbst"
+     }
+    }
+   ]
+  },
+  {
+   "id": "liebe",
+   "title": "Liebe",
+   "en": "Love",
+   "hook": "How do you fall, and how fast?",
+   "questions": [
+    {
+     "de": "Du verliebst dich jedes Jahr im April?",
+     "en": "You fall in love every April?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Du verliebst dich bei einem Lied im Bus?",
+     "en": "You fall in love over a song on the bus?",
+     "ja": "karneval",
+     "nein": "herbst"
+    },
+    {
+     "de": "Deine Liebe dauert einen Sommer?",
+     "en": "Your love lasts one summer?",
+     "ja": "sommer",
+     "nein": "winter"
+    },
+    {
+     "de": "Du liebst leise und lange?",
+     "en": "You love quietly and for a long time?",
+     "ja": "winter",
+     "nein": "karneval"
+    },
+    {
+     "de": "Du schreibst lange Nachrichten bei Regen?",
+     "en": "You write long messages when it rains?",
+     "ja": "herbst",
+     "nein": "sommer"
+    },
+    {
+     "de": "Das erste Date ist ein Picknick?",
+     "en": "The first date is a picnic?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Du sagst \"Ich liebe dich\" nach drei Tagen?",
+     "en": "You say \"I love you\" after three days?",
+     "ja": "karneval",
+     "nein": "herbst"
+    },
+    {
+     "de": "Kuscheln ist wichtiger als Reden?",
+     "en": "Cuddling matters more than talking?",
+     "ja": "winter",
+     "nein": "karneval"
+    },
+    {
+     "left": {
+      "de": "Sonnenuntergang am See",
+      "en": "sunset at the lake",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Kerzen im Zimmer",
+      "en": "candles in the room",
+      "vibe": "herbst"
+     }
+    },
+    {
+     "left": {
+      "de": "Blumen",
+      "en": "flowers",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Decke teilen",
+      "en": "share a blanket",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Küssen im Konfettiregen",
+      "en": "kissing in confetti rain",
+      "vibe": "karneval"
+     },
+     "right": {
+      "de": "Küssen im Schnee",
+      "en": "kissing in the snow",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Heiße Liebe, kurz",
+      "en": "hot love, short",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Tiefe Liebe, langsam",
+      "en": "deep love, slow",
+      "vibe": "herbst"
+     }
+    }
+   ]
+  },
+  {
+   "id": "stress",
+   "title": "Stress",
+   "en": "Stress",
+   "hook": "Deadline tomorrow. Where do you hide?",
+   "questions": [
+    {
+     "de": "Bei Stress gehst du raus in die Sonne?",
+     "en": "Under stress you go out into the sun?",
+     "ja": "sommer",
+     "nein": "winter"
+    },
+    {
+     "de": "Bei Stress machst du einen Neuanfang?",
+     "en": "Under stress you make a fresh start?",
+     "ja": "fruehling",
+     "nein": "herbst"
+    },
+    {
+     "de": "Bei Stress ziehst du die Decke über den Kopf?",
+     "en": "Under stress you pull the blanket over your head?",
+     "ja": "winter",
+     "nein": "karneval"
+    },
+    {
+     "de": "Bei Stress machst du Musik laut und tanzt?",
+     "en": "Under stress you turn up the music and dance?",
+     "ja": "karneval",
+     "nein": "winter"
+    },
+    {
+     "de": "Bei Stress gehst du im Regen spazieren?",
+     "en": "Under stress you walk in the rain?",
+     "ja": "herbst",
+     "nein": "sommer"
+    },
+    {
+     "de": "Du bist eigentlich nie gestresst?",
+     "en": "You're basically never stressed?",
+     "ja": "sommer",
+     "nein": "fruehling"
+    },
+    {
+     "de": "Bei Stress schreibst du Tagebuch?",
+     "en": "Under stress you write in a diary?",
+     "ja": "herbst",
+     "nein": "karneval"
+    },
+    {
+     "de": "Bei Stress sagst du allen ehrlich Nein?",
+     "en": "Under stress you honestly say no to everyone?",
+     "ja": "winter",
+     "nein": "karneval"
+    },
+    {
+     "left": {
+      "de": "Sauna",
+      "en": "sauna",
+      "vibe": "winter"
+     },
+     "right": {
+      "de": "Freibad",
+      "en": "open-air pool",
+      "vibe": "sommer"
+     }
+    },
+    {
+     "left": {
+      "de": "Neue Pflanze",
+      "en": "a new plant",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Altes Buch",
+      "en": "an old book",
+      "vibe": "herbst"
+     }
+    },
+    {
+     "left": {
+      "de": "Feiern gehen",
+      "en": "go out and party",
+      "vibe": "karneval"
+     },
+     "right": {
+      "de": "Schlafen gehen",
+      "en": "go to sleep",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Spazieren",
+      "en": "a walk",
+      "vibe": "herbst"
+     },
+     "right": {
+      "de": "Schwimmen",
+      "en": "a swim",
+      "vibe": "sommer"
+     }
+    }
+   ]
+  },
+  {
+   "id": "erster_warmer_tag",
+   "title": "Der erste warme Tag",
+   "en": "The first warm day",
+   "hook": "Eighteen degrees. The whole country goes mad. You?",
+   "questions": [
+    {
+     "de": "Du sitzt sofort draußen im Café?",
+     "en": "You sit outside at a café right away?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Du gehst sofort an den See?",
+     "en": "You go straight to the lake?",
+     "ja": "sommer",
+     "nein": "herbst"
+    },
+    {
+     "de": "Du bleibst drinnen: zu viele Leute draußen?",
+     "en": "You stay in: too many people out there?",
+     "ja": "winter",
+     "nein": "sommer"
+    },
+    {
+     "de": "Du bist etwas traurig, dass der Winter geht?",
+     "en": "You're a bit sad the winter is gone?",
+     "ja": "herbst",
+     "nein": "fruehling"
+    },
+    {
+     "de": "Du machst eine Party auf dem Balkon?",
+     "en": "You throw a party on the balcony?",
+     "ja": "karneval",
+     "nein": "herbst"
+    },
+    {
+     "de": "Du kaufst drei Pflanzen und eine Gießkanne?",
+     "en": "You buy three plants and a watering can?",
+     "ja": "fruehling",
+     "nein": "winter"
+    },
+    {
+     "de": "Du hast abends schon Sonnenbrand?",
+     "en": "By evening you already have sunburn?",
+     "ja": "sommer",
+     "nein": "herbst"
+    },
+    {
+     "de": "Du trägst trotzdem einen Schal?",
+     "en": "You wear a scarf anyway?",
+     "ja": "herbst",
+     "nein": "sommer"
+    },
+    {
+     "left": {
+      "de": "Picknick",
+      "en": "picnic",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Freibad",
+      "en": "open-air pool",
+      "vibe": "sommer"
+     }
+    },
+    {
+     "left": {
+      "de": "Straßenfest",
+      "en": "street party",
+      "vibe": "karneval"
+     },
+     "right": {
+      "de": "Balkon allein",
+      "en": "balcony, alone",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Eis",
+      "en": "ice cream",
+      "vibe": "sommer"
+     },
+     "right": {
+      "de": "Letzter Glühwein",
+      "en": "last mulled wine",
+      "vibe": "winter"
+     }
+    },
+    {
+     "left": {
+      "de": "Fenster putzen",
+      "en": "clean the windows",
+      "vibe": "fruehling"
+     },
+     "right": {
+      "de": "Buch im Park",
+      "en": "a book in the park",
+      "vibe": "herbst"
+     }
+    }
+   ]
+  }
+ ]
+}

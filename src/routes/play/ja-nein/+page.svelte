@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PageHelp from '$lib/components/PageHelp.svelte';
-	// "Ja oder Nein?" — a themed round of eight quick questions about life in
+	// "Ja oder Nein?" — a themed round of twelve quick questions, one angle on a
 	// Germany (see domain/janeinRounds for the shelves of rounds), swiped right
 	// for Ja and left for Nein against a sky that will not sit still. Nothing
 	// is marked; the reward is who you turn out to be and the row of squares
@@ -10,10 +10,13 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
-	import { absoluteUrl, breadcrumbLd } from '$lib/seo';
+	import { absoluteUrl, breadcrumbLd, gameLd } from '$lib/seo';
 	import {
+		decodeAnswers,
+		encodeAnswers,
 		isPair,
 		JA_NEIN_PATH,
+		plainText,
 		shareText,
 		whatsappHref,
 		type Answer,
@@ -21,11 +24,13 @@
 		type ShareLang
 	} from '$lib/domain/janein';
 	import {
+		categoryOf,
 		collectionCount,
 		earnPersona,
 		findRound,
 		markRoundPlayed,
 		nextRound,
+		resultStats,
 		scoreRound,
 		shuffled,
 		type JaNeinRound,
@@ -44,12 +49,18 @@
 	let round = $state<JaNeinRound | null>(null);
 	let questions = $state<JaNeinQuestion[]>([]);
 	let answers = $state<Answer[]>([]);
-	let phase = $state<'intro' | 'play' | 'done'>('intro');
+	/** 'shared': the page was opened from a friend's link and shows their card first. */
+	let phase = $state<'intro' | 'play' | 'done' | 'shared'>('intro');
 	let result = $state<RoundResult | null>(null);
+	/** The result carried in the link, when someone sent theirs. */
+	let friend = $state<RoundResult | null>(null);
+	/** The card on screen: the friend's before playing, yours after. */
+	const shown = $derived(phase === 'shared' ? friend : result);
 	/** The persona just earned was not on the shelf before. */
 	let fresh = $state(false);
 	let shelf = $state({ earned: 0, total: 0 });
 
+	const category = $derived(round ? categoryOf(round) : null);
 	const index = $derived(answers.length);
 	const current = $derived<JaNeinQuestion | undefined>(questions[index]);
 	/** The sky's hue walks a third of the wheel over a round; each answer shifts it. */
@@ -74,7 +85,13 @@
 		round = asked ?? nextRound();
 		if (round) questions = shuffled(round);
 		shelf = collectionCount();
-		if (asked && page.url.searchParams.has('go')) begin();
+		// "&a=jnjj…": a friend's answers; their card comes first, then the dare.
+		const theirs = asked && decodeAnswers(page.url.searchParams.get('a'), asked.questions.length);
+		if (asked && theirs) {
+			friend = scoreRound(asked, asked.questions, theirs);
+			phase = 'shared';
+			track('janein', { step: 'open_shared', round: asked.key, persona: friend.persona.id });
+		} else if (asked && page.url.searchParams.has('go')) begin();
 	});
 
 	function begin() {
@@ -151,46 +168,70 @@
 		fresh = earnPersona(result);
 		shelf = collectionCount();
 		celebrate(fresh ? 'Neu!' : 'Das bist du!');
-		announce(`You are ${result.persona.title}. ${result.persona.line}${fresh ? ' New on your shelf.' : ''}`);
+		announce(
+			`${result.category.en} You are ${result.persona.title}, ${Math.round(result.mix[0].share * 100)} percent. ${result.persona.line}${fresh ? ' New on your shelf.' : ''}`
+		);
 		track('janein', { step: 'finish', round: round.key, persona: result.persona.id, ja: result.ja, fresh });
 	}
 
 	// -- sharing ---------------------------------------------------------------
 	/** The share's language: German is the native one, English for a friend who reads none. */
 	let shareLang = $state<ShareLang>('de');
-	/** The link carries the round, so whoever gets the message plays the same eight and can answer back. */
-	const shareUrl = $derived(absoluteUrl(round ? `${JA_NEIN_PATH}?round=${round.key}` : JA_NEIN_PATH));
+	/** Where the "you" pin sits: the centre of your slice of the fixed-order bar. */
+	const pin = $derived.by(() => {
+		const r = shown;
+		if (!r) return { slice: 0, at: 0 };
+		const slice = r.slices.findIndex((m) => m.persona.id === r.persona.id);
+		const before = r.slices.slice(0, slice).reduce((n, m) => n + m.share, 0);
+		return { slice, at: (before + r.mix[0].share / 2) * 100 };
+	});
+	const stats = $derived(shown ? resultStats(shown, shareLang) : { verdict: '', style: '', streak: { answer: 'ja' as Answer, length: 0 } });
+	/** The link carries the round, so whoever gets the message plays the same twelve and can answer back. */
+	const shareUrl = $derived(
+		absoluteUrl(
+			round && result
+				? `${JA_NEIN_PATH}?round=${round.key}&a=${encodeAnswers(round.questions, questions, answers)}`
+				: round
+					? `${JA_NEIN_PATH}?round=${round.key}`
+					: JA_NEIN_PATH
+		)
+	);
 	const text = $derived(result ? shareText(result, shareUrl, shareLang) : '');
 	let copied = $state(false);
-	const canShare = $derived(typeof navigator !== 'undefined' && typeof navigator.share === 'function');
+	/** A desktop: WhatsApp Desktop breaks emoji in links, so it gets the plain message (and the full one on the clipboard). */
+	const desktop = $derived(typeof matchMedia !== 'undefined' && matchMedia('(hover: hover) and (pointer: fine)').matches);
+	const waText = $derived(desktop ? plainText(text) : text);
 
-	async function share() {
-		track('janein', { step: 'share', via: 'native' });
-		try {
-			await navigator.share({ text });
-		} catch {
-			/* dismissed */
-		}
+	function onWhatsapp() {
+		track('janein', { step: 'share', via: desktop ? 'whatsapp-desktop' : 'whatsapp' });
+		if (desktop) navigator.clipboard?.writeText(text).catch(() => {});
 	}
-
 	async function copy() {
 		track('janein', { step: 'share', via: 'copy' });
 		try {
 			await navigator.clipboard.writeText(text);
 			copied = true;
-			announce('Copied.');
+			announce(shareLang === 'de' ? 'Kopiert.' : 'Copied.');
 			setTimeout(() => (copied = false), 1800);
 		} catch {
-			/* no clipboard: the text is on screen to select */
+			/* no clipboard */
 		}
 	}
 </script>
 
 <Seo
-	title="Ja oder Nein? Eight swipes, one verdict"
-	description="A themed round of eight quick yes-or-no questions about life in Germany, in easy German. Swipe, find out who you are tonight, collect the personas, and send the result to a friend."
+	title="Ja oder Nein? A German yes-or-no swipe game | Language Quiz"
+	description="Which German city are you? Which animal, which drink? Twelve quick swipes in easy German, your type in percent at the end, fifty personas to collect. Free, no sign-up."
 	path={JA_NEIN_PATH}
-	jsonLd={[breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Ja oder Nein?', path: JA_NEIN_PATH }])]}
+	jsonLd={[
+		gameLd({
+			name: 'Ja oder Nein?',
+			description: 'Personality quizzes in easy German: twelve swipes, then your type in percent.',
+			path: JA_NEIN_PATH,
+			level: 'A1'
+		}),
+		breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Ja oder Nein?', path: JA_NEIN_PATH }])
+	]}
 />
 
 <div class="sky" style:--hue={hue} aria-hidden="true">
@@ -215,14 +256,15 @@
 		<span class="help-slot"><PageHelp topic="/play/ja-nein" tone="light" /></span>
 	</header>
 
-	{#if phase === 'intro' && round}
+	{#if phase === 'intro' && round && category}
 		<section class="card intro">
 			<p class="eyebrow">Ja oder Nein? · {round.en}</p>
-			<h1 lang="de">{round.title}</h1>
+			<h1 lang="de">{category.title}</h1>
+			<p class="angle"><span lang="de">{round.title}</span> · {category.en}</p>
 			<p class="lead">
-				{round.hook} Eight questions: swipe right for <strong lang="de">Ja</strong>, left for
+				{round.hook} Twelve questions: swipe right for <strong lang="de">Ja</strong>, left for
 				<strong lang="de">Nein</strong>, or towards the side you'd pick. No marks, no wrong answers. At the
-				end you find out who you are tonight, and it goes on your shelf.
+				end you find out which one you are, in percent, and it goes on your shelf.
 			</p>
 			<button type="button" class="btn start" onclick={begin}>
 				Let's go <Icon name="arrowRight" size="1em" />
@@ -312,39 +354,140 @@
 				<p class="hint">Swipe, tap, or use the arrow keys.</p>
 			{/if}
 		</section>
-	{:else if phase === 'done' && result}
-		<section class="card verdict">
-			<p class="eyebrow">{fresh ? 'New on your shelf! Tonight you are' : 'Tonight you are'}</p>
-			<p class="big" aria-hidden="true">{result.persona.emoji}</p>
-			<h1 lang="de">{result.persona.title}</h1>
-			<p class="lead">{result.persona.line}</p>
-			<p class="word">
-				Your word: <strong lang="de">{result.persona.word.de}</strong>
-				<SpeakButton text={result.persona.word.de} locale={LOCALE} /> <span class="gloss">{result.persona.word.en}</span>
-			</p>
-
-			<!-- One row: the three ways to send it, and the language it goes in. -->
+	{:else if (phase === 'done' && result) || (phase === 'shared' && friend)}
+		{@const r = shown!}
+		{@const theirs = phase === 'shared'}
+		{@const de = shareLang === 'de'}
+		{@const pct = Math.round(r.mix[0].share * 100)}
+		<!-- One phone screen, no scrolling, everything in one card: the share
+		     row, a tinted band with the type, the profile, the mix as one
+		     stacked bar with a legend, two lines on your tendencies, who you
+		     go with, and the word. -->
+		<section class="card verdict" class:theirs lang={de ? 'de' : 'en'}>
 			<div class="share">
-				<a class="ic wa" href={whatsappHref(text)} target="_blank" rel="noopener" aria-label="Send on WhatsApp" title="Send on WhatsApp" onclick={() => track('janein', { step: 'share', via: 'whatsapp' })}>
-					<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-				</a>
-				{#if canShare}
-					<button type="button" class="ic" onclick={share} aria-label="Share…" title="Share…"><Icon name="external" size="1.15em" /></button>
-				{/if}
-				<button type="button" class="ic" class:done={copied} onclick={copy} aria-label={copied ? 'Copied' : 'Copy'} title={copied ? 'Copied!' : 'Copy'}>
-					<Icon name={copied ? 'check' : 'copy'} size="1.15em" />
-				</button>
-				<span class="langs" role="group" aria-label="Language of the message">
-					<button type="button" class:on={shareLang === 'de'} aria-pressed={shareLang === 'de'} onclick={() => (shareLang = 'de')}>Deutsch</button>
-					<button type="button" class:on={shareLang === 'en'} aria-pressed={shareLang === 'en'} onclick={() => (shareLang = 'en')}>English</button>
+				<span class="langs" role="group" aria-label="Language">
+					<button type="button" class:on={de} aria-pressed={de} onclick={() => (shareLang = 'de')}>DE</button>
+					<button type="button" class:on={!de} aria-pressed={!de} onclick={() => (shareLang = 'en')}>EN</button>
 				</span>
+				{#if theirs}
+					<button type="button" class="btn dare" onclick={begin}>
+						{de ? 'Und du? Die 12 Fragen' : 'And you? The 12 questions'} <Icon name="arrowRight" size="1em" />
+					</button>
+				{:else}
+				<span class="send" role="group" aria-label={de ? 'Teilen' : 'Share'}>
+					<a class="wa" href={whatsappHref(waText)} target="_blank" rel="noopener" onclick={onWhatsapp}>
+						<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+						<span>WhatsApp</span>
+					</a>
+					<button type="button" class="ic" class:done={copied} onclick={copy} aria-label={copied ? (de ? 'Kopiert' : 'Copied') : de ? 'Text kopieren' : 'Copy text'} title={copied ? (de ? 'Kopiert!' : 'Copied!') : de ? 'Text kopieren' : 'Copy text'}>
+						<Icon name={copied ? 'check' : 'copy'} size="1em" />
+					</button>
+				</span>
+				{/if}
 			</div>
-			<pre class="preview" lang={shareLang} aria-label="What you will send">{text}</pre>
 
-			<div class="after">
-				<a class="btn" href="{JA_NEIN_PATH}/personas">Your personas: {shelf.earned} of {shelf.total}</a>
-				<a class="btn btn-ghost" href={DECK}>Back to your deck</a>
+			<header class="band">
+				<p class="eyebrow" lang="de">{r.category.title}</p>
+				<span class="big" aria-hidden="true">{r.persona.emoji}</span>
+				<p class="youare">
+					{#if theirs}{de ? 'Jemand hat dir das geschickt. Diese Person ist' : 'Someone sent you this. They are'}{:else}{fresh ? (de ? 'Neu im Regal! Du bist' : 'New on your shelf! You are') : de ? 'Du bist' : 'You are'}{/if}
+				</p>
+				<h1 lang="de">{r.persona.title}</h1>
+				<p class="pct tnum">{de ? `zu ${pct} %` : `${pct} %`}</p>
+			</header>
+
+			<p class="tagline">{de ? r.persona.de.line : r.persona.line}</p>
+			<ul class="traits" aria-label={de ? 'Deine Eigenschaften' : 'Your traits'}>
+				{#each de ? r.persona.de.traits : r.persona.traits as t (t)}<li>{t}</li>{/each}
+			</ul>
+			<p class="profile">{de ? r.persona.de.profile : r.persona.profile}</p>
+
+			<div class="mix" aria-label={de ? 'Dein Mix' : 'Your mix'}>
+				<!-- Five slices in the theme's fixed order and colours; the pin sits on
+				     the one you won, so it moves with your answers. -->
+				<div class="barwrap" aria-hidden="true">
+					<span class="pin s{pin.slice}" style:left="{pin.at}%">
+						<span class="pinlabel"><span>{r.persona.emoji}</span> {theirs ? (de ? 'sie' : 'them') : de ? 'du' : 'you'}</span>
+						<span class="pintip"></span>
+					</span>
+					<div class="bar">
+						{#each r.slices as m, i (m.persona.id)}
+							<span class="s{i}" style:width="{m.share * 100}%"></span>
+						{/each}
+					</div>
+				</div>
+				<ul class="legend">
+					{#each r.slices as m, i (m.persona.id)}
+						<li class="s{i}" class:top={m.persona.id === r.persona.id}>
+							<span class="dot" aria-hidden="true"></span>
+							<span aria-hidden="true">{m.persona.emoji}</span>
+							<span class="nm" lang="de">{m.persona.title}</span>
+							<span class="n tnum">{Math.round(m.share * 100)} %</span>
+						</li>
+					{/each}
+				</ul>
 			</div>
+
+			<ul class="stats">
+				<li>{stats.verdict}</li>
+				<li>{stats.style}{#if stats.streak.length >= 4}{' '}{de ? 'Längste Serie' : 'Longest run'}: {stats.streak.length}× <span lang="de">{stats.streak.answer === 'ja' ? 'Ja' : 'Nein'}</span>.{/if}</li>
+			</ul>
+
+			{#if !theirs && friend}
+				<!-- The two of you: what came in the link against what you just got. -->
+				<p class="duo">
+					<span><span aria-hidden="true">{friend.persona.emoji}</span> <strong lang="de">{friend.persona.title}</strong> {Math.round(friend.mix[0].share * 100)} %</span>
+					<span class="vs">{de ? 'gegen' : 'vs'}</span>
+					<span><span aria-hidden="true">{r.persona.emoji}</span> <strong lang="de">{r.persona.title}</strong> {pct} %</span>
+					<span class="verdict-duo">
+						{#if friend.persona.id === r.persona.id}{de ? 'Zwillinge.' : 'Twins.'}
+						{:else if friend.persona.id === r.match.id}{de ? 'Ihr passt zusammen.' : 'You two get on.'}
+						{:else if friend.persona.id === r.clash.id}{de ? 'Clash! Das wird lustig.' : 'A clash. This will be fun.'}
+						{:else}{de ? 'Verschieden, aber okay.' : 'Different, and fine.'}{/if}
+					</span>
+				</p>
+			{/if}
+
+			<div class="pals">
+				<p class="pal">
+					<span class="k">{de ? 'Passt zu' : 'Gets on with'}</span>
+					<span class="v"><span aria-hidden="true">{r.match.emoji}</span> <strong lang="de">{r.match.title}</strong></span>
+				</p>
+				<p class="pal clash">
+					<span class="k">{de ? 'Clash mit' : 'Clashes with'}</span>
+					<span class="v"><span aria-hidden="true">{r.clash.emoji}</span> <strong lang="de">{r.clash.title}</strong></span>
+				</p>
+			</div>
+
+			<footer class="foot">
+				<span class="word">
+					<strong lang="de">{r.persona.word.de}</strong>
+					<SpeakButton text={r.persona.word.de} locale={LOCALE} />
+					{#if !de}<span class="gloss" lang="en">{r.persona.word.en}</span>{/if}
+				</span>
+				<span class="links">
+					{#if theirs}
+						<a href="{JA_NEIN_PATH}/personas">{de ? 'Alle 50 Typen' : 'All 50 types'}</a>
+					{:else}
+						<a href="{JA_NEIN_PATH}/personas">{de ? 'Regal' : 'Shelf'} {shelf.earned}/{shelf.total}</a>
+						<a href={DECK}>{de ? 'Deck' : 'Deck'}</a>
+					{/if}
+				</span>
+			</footer>
+		</section>
+	{:else if !round}
+		<!-- What the prerendered page (and a crawler) shows: the round is picked
+		     in the browser, from this learner's tour. -->
+		<section class="card intro">
+			<p class="eyebrow">A swipe game in easy German</p>
+			<h1 lang="de">Ja oder Nein?</h1>
+			<p class="lead">
+				Which German city are you, which animal, which drink? Twelve quick questions: swipe right for <strong lang="de">Ja</strong>, left for
+				<strong lang="de">Nein</strong>. No marks, no wrong answers. At the end you get your type in percent,
+				your mix, and what your answers say about you, and the persona goes on your shelf. There are a
+				hundred rounds and fifty personas to collect.
+			</p>
+			<p class="meta">≈ 1 minute · <a href="{JA_NEIN_PATH}/personas">all the personas</a></p>
 		</section>
 	{/if}
 </main>
@@ -827,58 +970,48 @@
 		color: rgb(255 255 255 / 0.75);
 	}
 
-	/* -- the verdict --------------------------------------------------------- */
+	.angle {
+		margin: 0.3rem 0 0;
+		font-size: var(--step--1);
+		font-weight: 600;
+		color: var(--ink-muted);
+	}
+
+	/* -- the verdict: one card, one phone screen ------------------------------ */
 	.verdict {
-		padding: 1.2rem 1.1rem 1rem;
+		--h: var(--hue, 272);
+		/* the five slices of the mix, one hue step apart, strongest first */
+		--c0: hsl(var(--h) 70% 48%);
+		--c1: hsl(calc(var(--h) + 45) 70% 58%);
+		--c2: hsl(calc(var(--h) + 95) 60% 56%);
+		--c3: hsl(calc(var(--h) + 150) 55% 58%);
+		--c4: hsl(calc(var(--h) + 210) 50% 62%);
+		max-width: 24rem;
+		padding: 0.6rem 0.9rem 0.7rem;
+		overflow: hidden;
+		font-size: 0.78rem;
+		line-height: 1.35;
 	}
 
-	.verdict h1 {
-		font-size: var(--step-3);
-	}
-
-	.verdict .lead {
-		margin-top: 0.4rem;
-		font-size: var(--step--1);
-	}
-
-	.verdict .big {
-		margin: 0.2rem 0 0;
-		font-size: 2rem;
-		line-height: 1;
-	}
-
-	.word {
-		display: inline-flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: center;
-		gap: 0.35rem;
-		margin: 0.6rem 0 0;
-		padding: 0.35rem 0.8rem;
-		border-radius: 999px;
-		background: var(--accent-soft);
-		font-size: var(--step--1);
-	}
-
-	.word .gloss {
-		font-size: inherit;
-	}
-
+	/* -- share row ---------------------------------------------------------- */
 	.share {
 		display: flex;
-		flex-wrap: wrap;
 		align-items: center;
-		justify-content: center;
-		gap: 0.45rem;
-		margin-top: 0.9rem;
+		justify-content: space-between;
+		gap: 0.5rem;
+	}
+
+	.send {
+		display: inline-flex;
+		gap: 0.3rem;
 	}
 
 	.ic {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.6rem;
-		height: 2.6rem;
+		width: 2rem;
+		height: 2rem;
 		border: 1px solid var(--line-strong);
 		border-radius: 50%;
 		background: var(--surface);
@@ -891,10 +1024,25 @@
 		transform: translateY(-1px) scale(1.05);
 	}
 
-	.ic.wa {
-		border-color: #25d366;
+	.wa {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		height: 2rem;
+		padding: 0 0.8rem 0 0.6rem;
+		border-radius: 999px;
 		background: #25d366;
 		color: #fff;
+		font-size: 0.74rem;
+		font-weight: 800;
+		text-decoration: none;
+		white-space: nowrap;
+		box-shadow: 0 8px 18px -10px #25d366;
+		transition: transform var(--fast) var(--ease-spring);
+	}
+
+	.wa:hover {
+		transform: translateY(-1px) scale(1.03);
 	}
 
 	.ic.done {
@@ -902,55 +1050,348 @@
 		color: var(--right);
 	}
 
+
 	.langs {
 		display: inline-flex;
-		gap: 0.25rem;
-		margin-left: 0.35rem;
-		font-size: var(--step--1);
+		border: 1px solid var(--line-strong);
+		border-radius: 999px;
+		overflow: hidden;
+		font-size: 0.7rem;
 	}
 
 	.langs button {
-		padding: 0.25rem 0.7rem;
-		border: 1px solid var(--line-strong);
-		border-radius: 999px;
-		background: var(--surface);
+		padding: 0.3rem 0.65rem;
+		border: 0;
+		background: transparent;
 		color: var(--ink);
 		font: inherit;
 		font-size: inherit;
-		font-weight: 600;
+		font-weight: 700;
 		cursor: pointer;
 	}
 
 	.langs button.on {
-		border-color: var(--navy);
 		background: var(--navy);
 		color: var(--paper);
 	}
 
-	.preview {
-		margin: 0.5rem 0 0;
-		padding: 0.55rem 0.75rem;
-		border-radius: var(--radius-sm);
-		background: var(--surface-alt);
-		font: inherit;
+	.dare {
+		padding: 0.4rem 0.9rem;
 		font-size: 0.78rem;
-		line-height: 1.35;
-		color: var(--ink);
-		text-align: left;
-		white-space: pre-wrap;
-		overflow-wrap: anywhere;
 	}
 
-	.after {
+	.duo {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 0.2rem 0.5rem;
+		margin: 0.5rem 0 0;
+		padding: 0.35rem 0.6rem;
+		border-radius: var(--radius-sm);
+		background: hsl(var(--h) 50% 95%);
+		font-size: 0.76rem;
+	}
+
+	.duo .vs {
+		font-size: 0.64rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+	}
+
+	.duo .verdict-duo {
+		flex-basis: 100%;
+		font-weight: 700;
+		color: hsl(var(--h) 60% 32%);
+	}
+
+	/* -- the band ------------------------------------------------------------ */
+	.band {
+		margin: 0.5rem -0.9rem 0;
+		padding: 0.6rem 0.9rem 0.55rem;
+		background: linear-gradient(180deg, hsl(var(--h) 80% 92%), hsl(var(--h) 80% 97%) 70%, transparent);
+	}
+
+	.band .eyebrow {
+		font-size: 0.66rem;
+		color: hsl(var(--h) 60% 32%);
+	}
+
+	.band .big {
+		display: block;
+		margin: 0.25rem 0 0;
+		font-size: 2.8rem;
+		line-height: 1;
+		filter: drop-shadow(0 6px 10px hsl(var(--h) 60% 40% / 0.3));
+	}
+
+	.youare {
+		margin: 0.2rem 0 0;
+		font-size: 0.7rem;
+		color: var(--ink-muted);
+	}
+
+	.verdict h1 {
+		margin: 0;
+		font-size: var(--step-3);
+		line-height: 1;
+	}
+
+	.pct {
+		margin: 0.1rem 0 0;
+		font-family: var(--font-display, inherit);
+		font-size: var(--step-1);
+		font-weight: 800;
+		line-height: 1.1;
+		color: hsl(var(--h) 65% 38%);
+	}
+
+	.tagline {
+		margin: 0.4rem 0 0;
+		font-size: 0.86rem;
+		font-weight: 600;
+		line-height: 1.25;
+		color: var(--heading);
+		text-wrap: balance;
+	}
+
+	.traits {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: 0.5rem;
-		margin-top: 0.8rem;
+		gap: 0.25rem;
+		margin: 0.35rem 0 0;
+		padding: 0;
+		list-style: none;
 	}
 
-	.after .btn {
-		padding-block: 0.55rem;
+	.traits li {
+		padding: 0.1rem 0.5rem;
+		border-radius: 999px;
+		background: hsl(var(--h) 50% 94%);
+		color: hsl(var(--h) 60% 30%);
+		font-size: 0.6rem;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	.profile {
+		margin: 0.45rem 0 0;
+		color: var(--ink);
+		text-align: left;
+	}
+
+	/* -- the mix: one stacked bar and its legend ------------------------------ */
+	.mix {
+		margin-top: 0.55rem;
+	}
+
+	.barwrap {
+		position: relative;
+		padding-top: 1.45rem;
+	}
+
+	.pin {
+		position: absolute;
+		top: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		transform: translateX(-50%);
+		transition: left 700ms var(--ease-out);
+	}
+
+	.pin.s0 { --seg: var(--c0); }
+	.pin.s1 { --seg: var(--c1); }
+	.pin.s2 { --seg: var(--c2); }
+	.pin.s3 { --seg: var(--c3); }
+	.pin.s4 { --seg: var(--c4); }
+
+	.pinlabel {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.2rem;
+		padding: 0.05rem 0.45rem;
+		border-radius: 999px;
+		background: var(--seg);
+		color: #fff;
+		font-size: 0.66rem;
+		font-weight: 800;
+		letter-spacing: 0.03em;
+		white-space: nowrap;
+		box-shadow: 0 4px 10px -4px var(--c0);
+	}
+
+	.pintip {
+		width: 0;
+		height: 0;
+		border-left: 0.3rem solid transparent;
+		border-right: 0.3rem solid transparent;
+		border-top: 0.35rem solid var(--seg);
+	}
+
+	.bar {
+		display: flex;
+		height: 0.7rem;
+		border-radius: 999px;
+		overflow: hidden;
+		background: var(--surface-alt);
+	}
+
+	.bar > span {
+		display: block;
+		height: 100%;
+		background: var(--seg);
+		transition: width 700ms var(--ease-out);
+	}
+
+	.s0 {
+		--seg: var(--c0);
+	}
+
+	.s1 {
+		--seg: var(--c1);
+	}
+
+	.s2 {
+		--seg: var(--c2);
+	}
+
+	.s3 {
+		--seg: var(--c3);
+	}
+
+	.s4 {
+		--seg: var(--c4);
+	}
+
+	.legend {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.2rem 0.55rem;
+		margin: 0.35rem 0 0;
+		padding: 0;
+		list-style: none;
+		font-size: 0.7rem;
+		color: var(--ink-muted);
+	}
+
+	.legend li {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	.legend li.top {
+		color: var(--heading);
+		font-weight: 700;
+	}
+
+	.legend .dot {
+		width: 0.5rem;
+		height: 0.5rem;
+		border-radius: 50%;
+		background: var(--seg);
+	}
+
+	/* -- tendencies, pals, foot ---------------------------------------------- */
+	.stats {
+		margin: 0.5rem 0 0;
+		padding: 0;
+		list-style: none;
+		font-size: 0.74rem;
+		color: var(--ink);
+		text-align: left;
+	}
+
+	.stats li {
+		position: relative;
+		padding-left: 0.9rem;
+	}
+
+	.stats li::before {
+		content: '';
+		position: absolute;
+		left: 0.1rem;
+		top: 0.45em;
+		width: 0.4rem;
+		height: 0.4rem;
+		border-radius: 50%;
+		background: var(--c0);
+	}
+
+	.pals {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.4rem;
+		margin-top: 0.5rem;
+	}
+
+	.pal {
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+		padding: 0.3rem 0.5rem;
+		border-radius: var(--radius-sm);
+		background: hsl(var(--h) 50% 95%);
+		font-size: 0.74rem;
+		line-height: 1.2;
+	}
+
+	.pal .k {
+		font-size: 0.62rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: hsl(var(--h) 55% 35%);
+	}
+
+	.pal.clash {
+		background: var(--wrong-bg, #fdecec);
+	}
+
+	.pal.clash .k {
+		color: var(--wrong);
+	}
+
+	.foot {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+		padding-top: 0.45rem;
+		border-top: 1px solid var(--line);
+		font-size: 0.74rem;
+	}
+
+	.word {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		min-width: 0;
+	}
+
+	.word .gloss {
+		font-size: inherit;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.links {
+		display: inline-flex;
+		gap: 0.6rem;
+		white-space: nowrap;
+	}
+
+	.links a {
+		color: var(--accent-ink);
+		font-weight: 600;
 	}
 
 	@media (max-width: 36rem) {

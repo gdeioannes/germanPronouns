@@ -1,0 +1,1185 @@
+{
+ "id": "essen",
+ "title": "Welches deutsche Essen bist du?",
+ "en": "Which German food are you?",
+ "emoji": "🥨",
+ "personas": [
+  {
+   "id": "doener",
+   "title": "Döner",
+   "emoji": "🥙",
+   "line": "Everyone's 3 a.m. friend. Fast, generous, and always 'mit alles'.",
+   "profile": "You show up when people need you most, usually after midnight, and you never ask questions. No pretension, no fuss: you give everything you have, with extra sauce. Street-smart, quick and warm, you've fed more broken hearts than any therapist. You're the friend everyone texts first.",
+   "traits": [
+    "generous",
+    "street-smart",
+    "fast"
+   ],
+   "de": {
+    "line": "Für alle der Freund um 3 Uhr nachts. Schnell, großzügig, immer 'mit alles'.",
+    "profile": "Du bist da, wenn dich die Leute am meisten brauchen, meistens nach Mitternacht, und du stellst keine Fragen. Kein Getue, kein Stress: du gibst alles, was du hast, mit extra Soße. Schnell, warm und straßenschlau hast du mehr gebrochene Herzen gefüttert als jeder Therapeut, und du bist der Freund, dem alle zuerst schreiben.",
+    "traits": [
+     "großzügig",
+     "straßenschlau",
+     "schnell"
+    ]
+   },
+   "match": "currywurst",
+   "clash": "kirschtorte",
+   "word": {
+    "de": "der Döner",
+    "en": "the kebab"
+   }
+  },
+  {
+   "id": "brezel",
+   "title": "Brezel",
+   "emoji": "🥨",
+   "line": "Twisted, salty, reliable. You go with everything and everyone knows it.",
+   "profile": "You are the classic. A bit twisted, a bit salty, but people trust you because you never change. Your humour is dry, your Sunday is sacred and you'd never miss a family thing. Tradition with a smile: you keep the old ways, but you'd never make anyone feel bad for not knowing them.",
+   "traits": [
+    "reliable",
+    "classic",
+    "salty humour"
+   ],
+   "de": {
+    "line": "Verdreht, salzig, zuverlässig. Du passt zu allem, und alle wissen das.",
+    "profile": "Du bist der Klassiker: ein bisschen verdreht, ein bisschen salzig, aber die Leute vertrauen dir, weil du dich nie änderst. Dein Humor ist trocken, dein Sonntag ist heilig und ein Familienfest verpasst du nie. Tradition mit einem Lächeln: du hältst die alten Regeln, aber niemand muss sich schlecht fühlen, der sie nicht kennt.",
+    "traits": [
+     "zuverlässig",
+     "klassisch",
+     "salziger Humor"
+    ]
+   },
+   "match": "kaesespaetzle",
+   "clash": "currywurst",
+   "word": {
+    "de": "die Brezel",
+    "en": "the pretzel"
+   }
+  },
+  {
+   "id": "currywurst",
+   "title": "Currywurst",
+   "emoji": "🌭",
+   "line": "Loud, red, no apologies. People say \"too much\". People come back.",
+   "profile": "You walk into a room and the room knows. Honest to the point of pain, loud with love, red sauce on everything. You've never pretended to be fancy and you never will. Some people find you a bit much. Those people are at your party anyway, laughing the loudest.",
+   "traits": [
+    "loud",
+    "honest",
+    "unapologetic"
+   ],
+   "de": {
+    "line": "Laut, rot, keine Entschuldigung. Die Leute sagen \"zu viel\". Die Leute kommen wieder.",
+    "profile": "Du kommst in einen Raum, und der Raum weiß es. Ehrlich, bis es wehtut, laut vor Liebe, rote Soße auf allem, und du hast nie so getan, als wärst du fein. Manche finden dich ein bisschen zu viel, aber genau die stehen auf deiner Party und lachen am lautesten.",
+    "traits": [
+     "laut",
+     "ehrlich",
+     "ohne Entschuldigung"
+    ]
+   },
+   "match": "doener",
+   "clash": "brezel",
+   "word": {
+    "de": "die Currywurst",
+    "en": "the curry sausage"
+   }
+  },
+  {
+   "id": "kaesespaetzle",
+   "title": "Käsespätzle",
+   "emoji": "🧀",
+   "line": "Comfort incarnate. Slow, warm, and allergic to being rushed.",
+   "profile": "You are a blanket in human form. Slow mornings, long hugs, dinner that takes three hours and nobody minds. Rushing is violence to you, and you've never understood why anyone would eat standing up. People come to you when the world feels too sharp. You pass them a bowl.",
+   "traits": [
+    "warm",
+    "slow",
+    "comforting"
+   ],
+   "de": {
+    "line": "Gemütlichkeit in Person. Langsam, warm und allergisch gegen Eile.",
+    "profile": "Du bist eine Decke in Menschenform: langsame Morgen, lange Umarmungen, ein Abendessen, das drei Stunden dauert, und niemand hat etwas dagegen. Eile ist für dich Gewalt, und du hast nie verstanden, warum jemand im Stehen isst. Wenn die Welt zu scharf wird, kommen die Leute zu dir, und du gibst ihnen eine Schüssel.",
+    "traits": [
+     "warm",
+     "langsam",
+     "tröstend"
+    ]
+   },
+   "match": "brezel",
+   "clash": "doener",
+   "word": {
+    "de": "die Käsespätzle",
+    "en": "cheese noodles"
+   }
+  },
+  {
+   "id": "kirschtorte",
+   "title": "Kirschtorte",
+   "emoji": "🍰",
+   "line": "Layered, dramatic, a little extra. Every Tuesday deserves a celebration.",
+   "profile": "You have layers, darling, and every one of them is dramatic. You celebrate birthdays, half-birthdays and the first warm day in March. Fancy on the outside, soft cream in the middle: people who get close find you surprisingly gentle. You'd never admit the cherry is for show.",
+   "traits": [
+    "dramatic",
+    "fancy",
+    "secretly soft"
+   ],
+   "de": {
+    "line": "Schichten, Drama, ein bisschen extra. Jeder Dienstag verdient eine Feier.",
+    "profile": "Du hast Schichten, Schätzchen, und jede davon ist Drama. Du feierst Geburtstage, halbe Geburtstage und den ersten warmen Tag im März. Außen schick, innen weiche Sahne: wer dir nahe kommt, merkt, wie sanft du eigentlich bist, und du würdest nie zugeben, dass die Kirsche nur Deko ist.",
+    "traits": [
+     "dramatisch",
+     "schick",
+     "heimlich weich"
+    ]
+   },
+   "match": "kaesespaetzle",
+   "clash": "doener",
+   "word": {
+    "de": "die Kirschtorte",
+    "en": "the cherry gateau"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "mitternacht",
+   "title": "Mitternacht",
+   "en": "Midnight",
+   "hook": "It's 12 o'clock. Where are you and what's in your hand?",
+   "questions": [
+    {
+     "de": "Um Mitternacht hast du Hunger?",
+     "en": "At midnight you get hungry?",
+     "ja": "doener",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Du bist um 22 Uhr im Bett?",
+     "en": "You're in bed by 10 p.m.?",
+     "ja": "brezel",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Um Mitternacht wirst du laut?",
+     "en": "At midnight you get loud?",
+     "ja": "currywurst",
+     "nein": "brezel"
+    },
+    {
+     "de": "Du bist der Letzte auf jeder Party?",
+     "en": "You're the last one at every party?",
+     "ja": "kirschtorte",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Nachts ist es gemütlich mit Decke?",
+     "en": "Night time means cosy under a blanket?",
+     "ja": "kaesespaetzle",
+     "nein": "doener"
+    },
+    {
+     "de": "Nach Mitternacht sagst du ehrlich alles?",
+     "en": "After midnight you tell the whole truth?",
+     "ja": "currywurst",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Du bist der Freund für den Notfall um drei?",
+     "en": "You're the friend for the 3 a.m. emergency?",
+     "ja": "doener",
+     "nein": "brezel"
+    },
+    {
+     "de": "Mitternacht ist der Start, nicht das Ende?",
+     "en": "Midnight is the start, not the end?",
+     "ja": "kirschtorte",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "left": {
+      "de": "Imbiss",
+      "en": "snack stand",
+      "vibe": "doener"
+     },
+     "right": {
+      "de": "Küche zu Hause",
+      "en": "kitchen at home",
+      "vibe": "kaesespaetzle"
+     }
+    },
+    {
+     "left": {
+      "de": "Letzte Bahn",
+      "en": "last train",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Erstes Taxi",
+      "en": "first taxi",
+      "vibe": "kirschtorte"
+     }
+    },
+    {
+     "left": {
+      "de": "Laut singen",
+      "en": "singing loud",
+      "vibe": "currywurst"
+     },
+     "right": {
+      "de": "Leise reden",
+      "en": "talking softly",
+      "vibe": "kaesespaetzle"
+     }
+    },
+    {
+     "left": {
+      "de": "Pommes rot-weiß",
+      "en": "chips with both sauces",
+      "vibe": "currywurst"
+     },
+     "right": {
+      "de": "Stück Kuchen",
+      "en": "a slice of cake",
+      "vibe": "kirschtorte"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sonntag",
+   "title": "Dein Sonntag",
+   "en": "Your Sunday",
+   "hook": "The slow day. Or your loudest?",
+   "questions": [
+    {
+     "de": "Sonntag ist Familientag, immer?",
+     "en": "Sunday is family day, always?",
+     "ja": "brezel",
+     "nein": "doener"
+    },
+    {
+     "de": "Du schläfst sonntags bis mittags?",
+     "en": "You sleep till noon on Sundays?",
+     "ja": "doener",
+     "nein": "brezel"
+    },
+    {
+     "de": "Sonntag heißt: Kaffee und Kuchen um drei?",
+     "en": "Sunday means coffee and cake at three?",
+     "ja": "kirschtorte",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Du bleibst den ganzen Tag im Schlafanzug?",
+     "en": "You stay in pyjamas all day?",
+     "ja": "kaesespaetzle",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Sonntag: Fußball und laut?",
+     "en": "Sunday: football and loud?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Du kochst sonntags drei Stunden?",
+     "en": "You cook for three hours on Sunday?",
+     "ja": "kaesespaetzle",
+     "nein": "doener"
+    },
+    {
+     "de": "Sonntag brauchst du Leute um dich?",
+     "en": "On Sunday you need people around you?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Dein Sonntag hat einen Dresscode?",
+     "en": "Your Sunday has a dress code?",
+     "ja": "kirschtorte",
+     "nein": "doener"
+    },
+    {
+     "left": {
+      "de": "Spaziergang",
+      "en": "a walk",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Sofa",
+      "en": "sofa",
+      "vibe": "kaesespaetzle"
+     }
+    },
+    {
+     "left": {
+      "de": "Brunch mit allen",
+      "en": "brunch with everyone",
+      "vibe": "kirschtorte"
+     },
+     "right": {
+      "de": "Allein mit Handy",
+      "en": "alone with your phone",
+      "vibe": "doener"
+     }
+    },
+    {
+     "left": {
+      "de": "Tatort gucken",
+      "en": "Sunday crime show",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Stadion",
+      "en": "stadium",
+      "vibe": "currywurst"
+     }
+    },
+    {
+     "left": {
+      "de": "Decke",
+      "en": "blanket",
+      "vibe": "kaesespaetzle"
+     },
+     "right": {
+      "de": "Festkleidung",
+      "en": "dressed up",
+      "vibe": "kirschtorte"
+     }
+    }
+   ]
+  },
+  {
+   "id": "geld",
+   "title": "Geld",
+   "en": "Money",
+   "hook": "Pay day. Gone by when?",
+   "questions": [
+    {
+     "de": "Fünf Euro für ein Essen ist genug?",
+     "en": "Five euros for a meal is enough?",
+     "ja": "doener",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Du gibst Geld lieber für Erlebnisse aus?",
+     "en": "You'd rather spend money on experiences?",
+     "ja": "kirschtorte",
+     "nein": "brezel"
+    },
+    {
+     "de": "Du sparst jeden Monat die gleiche Summe?",
+     "en": "You save the same amount every month?",
+     "ja": "brezel",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Du gibst die Runde aus, laut?",
+     "en": "You buy the round, loudly?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Gutes Essen darf teuer sein?",
+     "en": "Good food is allowed to be expensive?",
+     "ja": "kirschtorte",
+     "nein": "doener"
+    },
+    {
+     "de": "Du zahlst lieber bar?",
+     "en": "You'd rather pay cash?",
+     "ja": "doener",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Dein Geld geht für Zuhause und Küche?",
+     "en": "Your money goes on home and kitchen?",
+     "ja": "kaesespaetzle",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Du redest offen über Geld?",
+     "en": "You talk openly about money?",
+     "ja": "currywurst",
+     "nein": "brezel"
+    },
+    {
+     "left": {
+      "de": "Sparbuch",
+      "en": "savings book",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Spontan ausgeben",
+      "en": "spend on impulse",
+      "vibe": "currywurst"
+     }
+    },
+    {
+     "left": {
+      "de": "Trinkgeld, groß",
+      "en": "big tip",
+      "vibe": "doener"
+     },
+     "right": {
+      "de": "Trinkgeld, korrekt",
+      "en": "correct tip",
+      "vibe": "brezel"
+     }
+    },
+    {
+     "left": {
+      "de": "Teures Restaurant",
+      "en": "fancy restaurant",
+      "vibe": "kirschtorte"
+     },
+     "right": {
+      "de": "Großer Topf zu Hause",
+      "en": "big pot at home",
+      "vibe": "kaesespaetzle"
+     }
+    },
+    {
+     "left": {
+      "de": "Günstig und viel",
+      "en": "cheap and plenty",
+      "vibe": "doener"
+     },
+     "right": {
+      "de": "Wenig und fein",
+      "en": "little and fine",
+      "vibe": "kirschtorte"
+     }
+    }
+   ]
+  },
+  {
+   "id": "freunde",
+   "title": "Freunde",
+   "en": "Friends",
+   "hook": "How many friends, and how loud are they?",
+   "questions": [
+    {
+     "de": "Du hast überall ein paar Freunde?",
+     "en": "You have a few friends everywhere?",
+     "ja": "doener",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Deine Freunde kennst du seit der Schule?",
+     "en": "You've known your friends since school?",
+     "ja": "brezel",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Du bist der Laute in der Gruppe?",
+     "en": "You're the loud one in the group?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Freunde kommen zu dir zum Trösten?",
+     "en": "Friends come to you for comfort?",
+     "ja": "kaesespaetzle",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Du planst die Geburtstagsparty für alle?",
+     "en": "You plan the birthday party for everyone?",
+     "ja": "kirschtorte",
+     "nein": "doener"
+    },
+    {
+     "de": "Du sagst Freunden ehrlich die Meinung?",
+     "en": "You tell friends honestly what you think?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Neue Leute? Sofort Freunde?",
+     "en": "New people? Instant friends?",
+     "ja": "doener",
+     "nein": "brezel"
+    },
+    {
+     "de": "Du vergisst nie ein Jubiläum?",
+     "en": "You never forget an anniversary?",
+     "ja": "kirschtorte",
+     "nein": "doener"
+    },
+    {
+     "left": {
+      "de": "Alte Freunde",
+      "en": "old friends",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Neue Freunde",
+      "en": "new friends",
+      "vibe": "doener"
+     }
+    },
+    {
+     "left": {
+      "de": "Umarmung",
+      "en": "a hug",
+      "vibe": "kaesespaetzle"
+     },
+     "right": {
+      "de": "Schulterklopfen",
+      "en": "a slap on the back",
+      "vibe": "currywurst"
+     }
+    },
+    {
+     "left": {
+      "de": "Große Feier",
+      "en": "big celebration",
+      "vibe": "kirschtorte"
+     },
+     "right": {
+      "de": "Kleine Runde",
+      "en": "small circle",
+      "vibe": "kaesespaetzle"
+     }
+    },
+    {
+     "left": {
+      "de": "Stammtisch",
+      "en": "regulars' table",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Imbiss um die Ecke",
+      "en": "snack bar round the corner",
+      "vibe": "doener"
+     }
+    }
+   ]
+  },
+  {
+   "id": "streit",
+   "title": "Streit",
+   "en": "A fight",
+   "hook": "Someone's wrong. Sauce is flying.",
+   "questions": [
+    {
+     "de": "Im Streit wirst du schnell laut?",
+     "en": "In a fight you get loud fast?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Du bist nach fünf Minuten wieder gut?",
+     "en": "You're fine again after five minutes?",
+     "ja": "doener",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Du gehst lieber weg als zu streiten?",
+     "en": "You'd rather leave than argue?",
+     "ja": "kaesespaetzle",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Streit braucht bei dir Drama und Tränen?",
+     "en": "A fight needs drama and tears for you?",
+     "ja": "kirschtorte",
+     "nein": "brezel"
+    },
+    {
+     "de": "Du bleibst ruhig und sagst wenig?",
+     "en": "You stay calm and say little?",
+     "ja": "brezel",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Du versöhnst dich mit Essen?",
+     "en": "You make peace with food?",
+     "ja": "kaesespaetzle",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Du sagst sofort, was dich stört?",
+     "en": "You say straight away what bothers you?",
+     "ja": "currywurst",
+     "nein": "brezel"
+    },
+    {
+     "de": "Streit? Du machst einen Witz?",
+     "en": "A fight? You crack a joke?",
+     "ja": "doener",
+     "nein": "kirschtorte"
+    },
+    {
+     "left": {
+      "de": "Ausreden",
+      "en": "talk it out",
+      "vibe": "currywurst"
+     },
+     "right": {
+      "de": "Schweigen",
+      "en": "silence",
+      "vibe": "brezel"
+     }
+    },
+    {
+     "left": {
+      "de": "Große Geste",
+      "en": "grand gesture",
+      "vibe": "kirschtorte"
+     },
+     "right": {
+      "de": "Kleine Entschuldigung",
+      "en": "a quiet sorry",
+      "vibe": "kaesespaetzle"
+     }
+    },
+    {
+     "left": {
+      "de": "Sofort vergessen",
+      "en": "forget it instantly",
+      "vibe": "doener"
+     },
+     "right": {
+      "de": "Lange merken",
+      "en": "remember it for ages",
+      "vibe": "kirschtorte"
+     }
+    },
+    {
+     "left": {
+      "de": "Klartext",
+      "en": "plain words",
+      "vibe": "currywurst"
+     },
+     "right": {
+      "de": "Umweg",
+      "en": "the long way round",
+      "vibe": "kaesespaetzle"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dating",
+   "title": "Dating",
+   "en": "Dating",
+   "hook": "First date. Who orders what?",
+   "questions": [
+    {
+     "de": "Erstes Date am Imbiss ist romantisch?",
+     "en": "A first date at a snack stand is romantic?",
+     "ja": "doener",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Du planst das Date drei Wochen vorher?",
+     "en": "You plan the date three weeks ahead?",
+     "ja": "kirschtorte",
+     "nein": "doener"
+    },
+    {
+     "de": "Beim Date redest du am meisten?",
+     "en": "On a date you do most of the talking?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Das perfekte Date ist zu Hause auf dem Sofa?",
+     "en": "The perfect date is at home on the sofa?",
+     "ja": "kaesespaetzle",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Du bringst Blumen mit, immer?",
+     "en": "You always bring flowers?",
+     "ja": "brezel",
+     "nein": "doener"
+    },
+    {
+     "de": "Du sagst beim ersten Date, was du denkst?",
+     "en": "You say what you think on the first date?",
+     "ja": "currywurst",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Dein Date lernt sofort deine Eltern kennen?",
+     "en": "Your date meets your parents right away?",
+     "ja": "brezel",
+     "nein": "doener"
+    },
+    {
+     "de": "Du verliebst dich schnell und dramatisch?",
+     "en": "You fall in love fast and dramatically?",
+     "ja": "kirschtorte",
+     "nein": "brezel"
+    },
+    {
+     "left": {
+      "de": "Kerzen",
+      "en": "candles",
+      "vibe": "kirschtorte"
+     },
+     "right": {
+      "de": "Straßenlaterne",
+      "en": "streetlamp",
+      "vibe": "doener"
+     }
+    },
+    {
+     "left": {
+      "de": "Kochen zu zweit",
+      "en": "cooking together",
+      "vibe": "kaesespaetzle"
+     },
+     "right": {
+      "de": "Essen gehen",
+      "en": "eating out",
+      "vibe": "currywurst"
+     }
+    },
+    {
+     "left": {
+      "de": "Sonntag bei Oma",
+      "en": "Sunday at Grandma's",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Samstag im Club",
+      "en": "Saturday at the club",
+      "vibe": "currywurst"
+     }
+    },
+    {
+     "left": {
+      "de": "Lange Nachricht",
+      "en": "a long message",
+      "vibe": "kaesespaetzle"
+     },
+     "right": {
+      "de": "Kurzer Anruf",
+      "en": "a quick call",
+      "vibe": "doener"
+     }
+    }
+   ]
+  },
+  {
+   "id": "urlaub",
+   "title": "Urlaub",
+   "en": "Holiday",
+   "hook": "Two weeks off. Suitcase or no suitcase?",
+   "questions": [
+    {
+     "de": "Urlaub am selben Ort wie jedes Jahr?",
+     "en": "Holiday in the same place as every year?",
+     "ja": "brezel",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Du buchst alles in letzter Minute?",
+     "en": "You book everything last minute?",
+     "ja": "doener",
+     "nein": "brezel"
+    },
+    {
+     "de": "Im Urlaub brauchst du ein gutes Bett?",
+     "en": "On holiday you need a good bed?",
+     "ja": "kaesespaetzle",
+     "nein": "doener"
+    },
+    {
+     "de": "Urlaub ohne Fotos war kein Urlaub?",
+     "en": "A holiday without photos didn't happen?",
+     "ja": "kirschtorte",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Du redest im Urlaub mit allen?",
+     "en": "On holiday you talk to everyone?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Ferienwohnung mit Küche, bitte?",
+     "en": "Holiday flat with a kitchen, please?",
+     "ja": "kaesespaetzle",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Du isst im Urlaub nur Streetfood?",
+     "en": "On holiday you only eat street food?",
+     "ja": "doener",
+     "nein": "brezel"
+    },
+    {
+     "de": "Du brauchst im Urlaub Action?",
+     "en": "On holiday you need action?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "left": {
+      "de": "Berge",
+      "en": "mountains",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Großstadt",
+      "en": "big city",
+      "vibe": "doener"
+     }
+    },
+    {
+     "left": {
+      "de": "Fünf Sterne",
+      "en": "five stars",
+      "vibe": "kirschtorte"
+     },
+     "right": {
+      "de": "Campingplatz",
+      "en": "campsite",
+      "vibe": "currywurst"
+     }
+    },
+    {
+     "left": {
+      "de": "Rucksack",
+      "en": "backpack",
+      "vibe": "doener"
+     },
+     "right": {
+      "de": "Zwei Koffer",
+      "en": "two suitcases",
+      "vibe": "kirschtorte"
+     }
+    },
+    {
+     "left": {
+      "de": "Hängematte",
+      "en": "hammock",
+      "vibe": "kaesespaetzle"
+     },
+     "right": {
+      "de": "Stadtfest",
+      "en": "street festival",
+      "vibe": "currywurst"
+     }
+    }
+   ]
+  },
+  {
+   "id": "buero",
+   "title": "Im Büro",
+   "en": "At the office",
+   "hook": "Monday, 9 a.m. Who brought the cake?",
+   "questions": [
+    {
+     "de": "Du bringst Kuchen für alle mit?",
+     "en": "You bring cake for everyone?",
+     "ja": "kirschtorte",
+     "nein": "doener"
+    },
+    {
+     "de": "Du isst mittags am Schreibtisch?",
+     "en": "You eat lunch at your desk?",
+     "ja": "doener",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Du bist im Meeting der Lauteste?",
+     "en": "You're the loudest in the meeting?",
+     "ja": "currywurst",
+     "nein": "brezel"
+    },
+    {
+     "de": "Dein Schreibtisch ist seit Jahren gleich?",
+     "en": "Your desk has looked the same for years?",
+     "ja": "brezel",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Mittagspause heißt eine Stunde, mindestens?",
+     "en": "Lunch break means an hour, at least?",
+     "ja": "kaesespaetzle",
+     "nein": "doener"
+    },
+    {
+     "de": "Du sagst dem Chef die Wahrheit?",
+     "en": "You tell the boss the truth?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Dein Geburtstag im Büro: ein Event?",
+     "en": "Your birthday at the office: an event?",
+     "ja": "kirschtorte",
+     "nein": "brezel"
+    },
+    {
+     "de": "Du bist der Kollege für den Notfall?",
+     "en": "You're the colleague for emergencies?",
+     "ja": "doener",
+     "nein": "kirschtorte"
+    },
+    {
+     "left": {
+      "de": "Kantine",
+      "en": "canteen",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Imbiss",
+      "en": "snack stand",
+      "vibe": "doener"
+     }
+    },
+    {
+     "left": {
+      "de": "Homeoffice",
+      "en": "working from home",
+      "vibe": "kaesespaetzle"
+     },
+     "right": {
+      "de": "Großraumbüro",
+      "en": "open-plan office",
+      "vibe": "currywurst"
+     }
+    },
+    {
+     "left": {
+      "de": "Meeting mit Kuchen",
+      "en": "meeting with cake",
+      "vibe": "kirschtorte"
+     },
+     "right": {
+      "de": "Meeting, kurz",
+      "en": "meeting, short",
+      "vibe": "currywurst"
+     }
+    },
+    {
+     "left": {
+      "de": "Pünktlich raus",
+      "en": "clock off on time",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Feierabend, gemütlich",
+      "en": "clock off, slowly",
+      "vibe": "kaesespaetzle"
+     }
+    }
+   ]
+  },
+  {
+   "id": "kuehlschrank",
+   "title": "Dein Kühlschrank",
+   "en": "Your fridge",
+   "hook": "Open it. We can explain.",
+   "questions": [
+    {
+     "de": "Dein Kühlschrank ist fast leer?",
+     "en": "Your fridge is almost empty?",
+     "ja": "doener",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Käse in fünf Sorten?",
+     "en": "Cheese in five varieties?",
+     "ja": "kaesespaetzle",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Da steht Sahne für den Notfall?",
+     "en": "There is cream for emergencies?",
+     "ja": "kirschtorte",
+     "nein": "doener"
+    },
+    {
+     "de": "Alles sortiert, nichts abgelaufen?",
+     "en": "Everything sorted, nothing expired?",
+     "ja": "brezel",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Ketchup, Mayo, Curry: immer da?",
+     "en": "Ketchup, mayo, curry: always there?",
+     "ja": "currywurst",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Du hast Reste von drei Tagen?",
+     "en": "You have leftovers from three days?",
+     "ja": "kaesespaetzle",
+     "nein": "doener"
+    },
+    {
+     "de": "Soße ist wichtiger als das Essen?",
+     "en": "The sauce matters more than the food?",
+     "ja": "doener",
+     "nein": "brezel"
+    },
+    {
+     "de": "Dein Kühlschrank hat Deko?",
+     "en": "Your fridge has decorations?",
+     "ja": "kirschtorte",
+     "nein": "brezel"
+    },
+    {
+     "left": {
+      "de": "Volle Schublade Gemüse",
+      "en": "veg drawer full",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Nur Getränke",
+      "en": "only drinks",
+      "vibe": "currywurst"
+     }
+    },
+    {
+     "left": {
+      "de": "Butter, viel",
+      "en": "butter, lots",
+      "vibe": "kaesespaetzle"
+     },
+     "right": {
+      "de": "Sahne, viel",
+      "en": "cream, lots",
+      "vibe": "kirschtorte"
+     }
+    },
+    {
+     "left": {
+      "de": "Magnete, viele",
+      "en": "magnets, many",
+      "vibe": "currywurst"
+     },
+     "right": {
+      "de": "Magnete, keine",
+      "en": "magnets, none",
+      "vibe": "doener"
+     }
+    },
+    {
+     "left": {
+      "de": "Einkaufsliste",
+      "en": "shopping list",
+      "vibe": "brezel"
+     },
+     "right": {
+      "de": "Was gerade da ist",
+      "en": "whatever's there",
+      "vibe": "doener"
+     }
+    }
+   ]
+  },
+  {
+   "id": "feiern",
+   "title": "Feiern",
+   "en": "Celebrating",
+   "hook": "Party time. Who turns the music up?",
+   "questions": [
+    {
+     "de": "Du feierst jeden kleinen Anlass?",
+     "en": "You celebrate every little occasion?",
+     "ja": "kirschtorte",
+     "nein": "brezel"
+    },
+    {
+     "de": "Deine Party endet um 22 Uhr?",
+     "en": "Your party ends at 10 p.m.?",
+     "ja": "brezel",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Du bist der Erste auf der Tanzfläche?",
+     "en": "You're the first on the dance floor?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "de": "Die Küche ist der beste Ort der Party?",
+     "en": "The kitchen is the best place at a party?",
+     "ja": "kaesespaetzle",
+     "nein": "kirschtorte"
+    },
+    {
+     "de": "Die Gäste gehen, du holst Essen?",
+     "en": "Guests leave, you go and get food?",
+     "ja": "doener",
+     "nein": "brezel"
+    },
+    {
+     "de": "Du hältst eine Rede, immer?",
+     "en": "You give a speech, every time?",
+     "ja": "kirschtorte",
+     "nein": "doener"
+    },
+    {
+     "de": "Feiern heißt für dich: zusammen essen?",
+     "en": "For you, celebrating means eating together?",
+     "ja": "kaesespaetzle",
+     "nein": "currywurst"
+    },
+    {
+     "de": "Du singst laut mit, auch falsch?",
+     "en": "You sing along loud, even off-key?",
+     "ja": "currywurst",
+     "nein": "kaesespaetzle"
+    },
+    {
+     "left": {
+      "de": "Sekt",
+      "en": "sparkling wine",
+      "vibe": "kirschtorte"
+     },
+     "right": {
+      "de": "Bier",
+      "en": "beer",
+      "vibe": "currywurst"
+     }
+    },
+    {
+     "left": {
+      "de": "Spontane Party",
+      "en": "spontaneous party",
+      "vibe": "doener"
+     },
+     "right": {
+      "de": "Geplantes Fest",
+      "en": "planned celebration",
+      "vibe": "brezel"
+     }
+    },
+    {
+     "left": {
+      "de": "Tanzen",
+      "en": "dancing",
+      "vibe": "currywurst"
+     },
+     "right": {
+      "de": "Reden am Tisch",
+      "en": "talking at the table",
+      "vibe": "kaesespaetzle"
+     }
+    },
+    {
+     "left": {
+      "de": "Konfetti",
+      "en": "confetti",
+      "vibe": "kirschtorte"
+     },
+     "right": {
+      "de": "Kein Konfetti",
+      "en": "no confetti",
+      "vibe": "doener"
+     }
+    }
+   ]
+  }
+ ]
+}

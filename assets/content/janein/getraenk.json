@@ -1,0 +1,1185 @@
+{
+ "id": "getraenk",
+ "title": "Welches Getränk bist du?",
+ "en": "Which drink are you?",
+ "emoji": "☕",
+ "personas": [
+  {
+   "id": "filterkaffee",
+   "title": "Filterkaffee",
+   "emoji": "☕",
+   "line": "Up at six, no fuss, no oat-milk foam. Things get done because you exist.",
+   "profile": "You don't do hype, you do mornings. The alarm rings once, the coffee drips, the list gets ticked. People think you're boring until the day everything breaks and you're the only one still standing, mug in hand. Reliable isn't your trait, it's your whole personality, and you're fine with that.",
+   "traits": [
+    "reliable",
+    "early riser",
+    "no-nonsense"
+   ],
+   "de": {
+    "line": "Um sechs wach, kein Schnickschnack, kein Hafermilch-Schaum. Läuft, weil du da bist.",
+    "profile": "Du machst keinen Hype, du machst Morgen. Der Wecker klingelt einmal, der Kaffee tropft, die Liste wird abgehakt. Alle finden dich langweilig, bis der Tag kommt, an dem alles kaputtgeht und nur du noch stehst, Tasse in der Hand. Zuverlässig ist bei dir keine Eigenschaft, sondern die ganze Persönlichkeit. Und das ist okay so.",
+    "traits": [
+     "zuverlässig",
+     "Frühaufsteher",
+     "ohne Schnickschnack"
+    ]
+   },
+   "match": "apfelschorle",
+   "clash": "clubmate",
+   "word": {
+    "de": "der Filterkaffee",
+    "en": "filter coffee"
+   }
+  },
+  {
+   "id": "clubmate",
+   "title": "Club-Mate",
+   "emoji": "🧉",
+   "line": "It's 2 a.m., the laptop glows and you have \"just one more idea\".",
+   "profile": "You run on caffeine, irony and side projects. Your day starts at noon, peaks at midnight and ends when the battery does. Every conversation ends with 'one more thing', every weekend with a half-built app or a half-heard DJ set. Exhausting? Maybe. But everyone wants you at the table when ideas are needed.",
+   "traits": [
+    "night owl",
+    "ironic",
+    "restless"
+   ],
+   "de": {
+    "line": "Es ist 2 Uhr nachts, der Laptop leuchtet und du hast „nur noch eine Idee“.",
+    "profile": "Du läufst mit Koffein, Ironie und Nebenprojekten. Dein Tag beginnt mittags, ist um Mitternacht am besten und endet, wenn der Akku leer ist. Jedes Gespräch endet mit „noch eine Sache“, jedes Wochenende mit einer halben App oder einem halb gehörten DJ-Set. Anstrengend? Vielleicht. Aber wenn Ideen gebraucht werden, wollen dich alle am Tisch.",
+    "traits": [
+     "Nachteule",
+     "ironisch",
+     "rastlos"
+    ]
+   },
+   "match": "gluehwein",
+   "clash": "filterkaffee",
+   "word": {
+    "de": "die Mate",
+    "en": "the mate drink"
+   }
+  },
+  {
+   "id": "apfelschorle",
+   "title": "Apfelschorle",
+   "emoji": "🍏",
+   "line": "Hydrated, balanced, holding everyone's keys. The party needs you more than it knows.",
+   "profile": "You're the sensible one, and secretly the most important. You drive everyone home, you remember the birthdays, you stop the argument before it starts. Nobody writes songs about the designated driver, but nobody gets home without you either. Balanced, calm, quietly essential.",
+   "traits": [
+    "balanced",
+    "sensible",
+    "peacekeeper"
+   ],
+   "de": {
+    "line": "Gut hydriert, alle Schlüssel in der Tasche. Die Party braucht dich mehr, als sie denkt.",
+    "profile": "Du bist die vernünftige Person, und heimlich die wichtigste. Du fährst alle nach Hause, du weißt, wer Geburtstag hat, du stoppst den Streit, bevor er anfängt. Über den Fahrer schreibt niemand Lieder, aber ohne dich kommt auch niemand nach Hause. Ausgeglichen, ruhig, leise unverzichtbar.",
+    "traits": [
+     "ausgeglichen",
+     "vernünftig",
+     "Friedensstifter"
+    ]
+   },
+   "match": "filterkaffee",
+   "clash": "weissbier",
+   "word": {
+    "de": "die Apfelschorle",
+    "en": "apple spritzer"
+   }
+  },
+  {
+   "id": "weissbier",
+   "title": "Weißbier",
+   "emoji": "🍺",
+   "line": "Sun, a long table, a bigger laugh. Nothing today is urgent.",
+   "profile": "Your natural habitat is a long wooden table in the sun with eight people you've just met. Afternoons are slow, laughs are loud, and you'd never check the time when the company is good. Tradition suits you, rushing doesn't. People relax the moment you sit down, and that's a gift.",
+   "traits": [
+    "sociable",
+    "unhurried",
+    "big laugh"
+   ],
+   "de": {
+    "line": "Sonne, ein langer Tisch, ein noch längeres Lachen. Heute ist nichts dringend.",
+    "profile": "Dein Zuhause ist ein langer Holztisch in der Sonne mit acht Leuten, die du gerade erst kennengelernt hast. Die Nachmittage sind langsam, das Lachen ist laut, und auf die Uhr schaust du nie, wenn die Gesellschaft gut ist. Tradition passt zu dir, Eile nicht. Sobald du dich hinsetzt, entspannen sich alle. Das ist ein Geschenk.",
+    "traits": [
+     "gesellig",
+     "ohne Eile",
+     "lautes Lachen"
+    ]
+   },
+   "match": "gluehwein",
+   "clash": "apfelschorle",
+   "word": {
+    "de": "das Weißbier",
+    "en": "wheat beer"
+   }
+  },
+  {
+   "id": "gluehwein",
+   "title": "Glühwein",
+   "emoji": "🍷",
+   "line": "Scarf on in September, candles at noon, crying happily at adverts.",
+   "profile": "You are cosy in human form: scarves, candles, a blanket for every chair. You cry at films, at weddings and at a nice sunset, and you're not sorry. Winter is your season and you start it in October. Warm with everyone, sentimental about everything, and the friend whose hugs actually help.",
+   "traits": [
+    "cosy",
+    "sentimental",
+    "warm"
+   ],
+   "de": {
+    "line": "Schal ab September, Kerzen am Mittag, Tränen bei der Werbung, aber glückliche.",
+    "profile": "Du bist Gemütlichkeit in Menschenform: Schals, Kerzen, eine Decke für jeden Stuhl. Du weinst bei Filmen, bei Hochzeiten und bei einem schönen Sonnenuntergang, und es tut dir nicht leid. Winter ist deine Jahreszeit, und du startest sie im Oktober. Warm zu allen, sentimental bei allem, und deine Umarmungen helfen wirklich.",
+    "traits": [
+     "gemütlich",
+     "sentimental",
+     "warm"
+    ]
+   },
+   "match": "weissbier",
+   "clash": "filterkaffee",
+   "word": {
+    "de": "der Glühwein",
+    "en": "mulled wine"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "sieben_uhr",
+   "title": "7 Uhr morgens",
+   "en": "7 a.m.",
+   "hook": "The alarm rings. Are you a person yet?",
+   "questions": [
+    {
+     "de": "Um 7 Uhr bist du schon lange wach?",
+     "en": "At 7 a.m. you've been up for ages?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Um 7 Uhr bist du gerade ins Bett gegangen?",
+     "en": "At 7 a.m. you've just gone to bed?",
+     "ja": "clubmate",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Du trinkst morgens zuerst ein Glas Wasser?",
+     "en": "First thing in the morning: a glass of water?",
+     "ja": "apfelschorle",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Dein Morgen ist langsam und gemütlich?",
+     "en": "Your morning is slow and cosy?",
+     "ja": "gluehwein",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Morgens redest du mit niemandem?",
+     "en": "In the morning you talk to nobody?",
+     "ja": "filterkaffee",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Du frühstückst am liebsten draußen?",
+     "en": "You like breakfast outside best?",
+     "ja": "weissbier",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du hörst morgens Musik mit Kerze an?",
+     "en": "You play music with a candle lit in the morning?",
+     "ja": "gluehwein",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Dein Wecker klingelt genau einmal?",
+     "en": "Your alarm rings exactly once?",
+     "ja": "filterkaffee",
+     "nein": "gluehwein"
+    },
+    {
+     "left": {
+      "de": "Wecker um sechs",
+      "en": "alarm at six",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "Kein Wecker",
+      "en": "no alarm",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Decke bleibt an",
+      "en": "blanket stays on",
+      "vibe": "gluehwein"
+     },
+     "right": {
+      "de": "Fenster auf",
+      "en": "window open",
+      "vibe": "apfelschorle"
+     }
+    },
+    {
+     "left": {
+      "de": "Frühstück lang",
+      "en": "long breakfast",
+      "vibe": "weissbier"
+     },
+     "right": {
+      "de": "Frühstück im Gehen",
+      "en": "breakfast on the go",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Nachrichten lesen",
+      "en": "read the news",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "Nochmal einschlafen",
+      "en": "fall back asleep",
+      "vibe": "gluehwein"
+     }
+    }
+   ]
+  },
+  {
+   "id": "feierabend",
+   "title": "Dein Feierabend",
+   "en": "After work",
+   "hook": "Laptop shut. Or not?",
+   "questions": [
+    {
+     "de": "Nach der Arbeit arbeitest du weiter?",
+     "en": "After work you keep working?",
+     "ja": "clubmate",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Feierabend um 17 Uhr, pünktlich?",
+     "en": "Finish at five, on the dot?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Nach der Arbeit gehst du zum Sport?",
+     "en": "After work you go and exercise?",
+     "ja": "apfelschorle",
+     "nein": "gluehwein"
+    },
+    {
+     "de": "Feierabend heißt Freunde treffen, draußen?",
+     "en": "After work means meeting friends outside?",
+     "ja": "weissbier",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Feierabend heißt Sofa, Kerze, Film?",
+     "en": "After work means sofa, candle, film?",
+     "ja": "gluehwein",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du kochst abends ein richtiges Essen?",
+     "en": "You cook a proper dinner in the evening?",
+     "ja": "apfelschorle",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du redest abends gern über die Arbeit?",
+     "en": "In the evening you like talking about work?",
+     "ja": "clubmate",
+     "nein": "gluehwein"
+    },
+    {
+     "de": "Dein Abend endet um 22 Uhr?",
+     "en": "Your evening ends at 10 p.m.?",
+     "ja": "filterkaffee",
+     "nein": "weissbier"
+    },
+    {
+     "left": {
+      "de": "Biergarten",
+      "en": "beer garden",
+      "vibe": "weissbier"
+     },
+     "right": {
+      "de": "Coworking",
+      "en": "coworking space",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Spaziergang",
+      "en": "a walk",
+      "vibe": "apfelschorle"
+     },
+     "right": {
+      "de": "Badewanne",
+      "en": "a bath",
+      "vibe": "gluehwein"
+     }
+    },
+    {
+     "left": {
+      "de": "Zeitung",
+      "en": "newspaper",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "Podcast",
+      "en": "podcast",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Lange Tafel",
+      "en": "long table",
+      "vibe": "weissbier"
+     },
+     "right": {
+      "de": "Kuscheldecke",
+      "en": "snuggle blanket",
+      "vibe": "gluehwein"
+     }
+    }
+   ]
+  },
+  {
+   "id": "freunde",
+   "title": "Freunde",
+   "en": "Friends",
+   "hook": "Who gets your last text of the night?",
+   "questions": [
+    {
+     "de": "Du fährst alle nach Hause?",
+     "en": "You drive everyone home?",
+     "ja": "apfelschorle",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Du hast überall neue Freunde, sofort?",
+     "en": "You make new friends everywhere, instantly?",
+     "ja": "weissbier",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Deine Freunde sind alle online?",
+     "en": "Your friends are all online?",
+     "ja": "clubmate",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Du schreibst lange Nachrichten mit Herz?",
+     "en": "You write long messages with hearts?",
+     "ja": "gluehwein",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Du hast drei Freunde und das reicht?",
+     "en": "You have three friends and that's enough?",
+     "ja": "filterkaffee",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Du bist der Schlichter in der Gruppe?",
+     "en": "You're the peacemaker in the group?",
+     "ja": "apfelschorle",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du weinst beim Abschied am Bahnhof?",
+     "en": "You cry at goodbyes at the station?",
+     "ja": "gluehwein",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Du bringst immer jemand Neues mit?",
+     "en": "You always bring someone new along?",
+     "ja": "clubmate",
+     "nein": "apfelschorle"
+    },
+    {
+     "left": {
+      "de": "Treffen planen",
+      "en": "plan a meet-up",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "Spontan vorbei",
+      "en": "drop by spontaneously",
+      "vibe": "weissbier"
+     }
+    },
+    {
+     "left": {
+      "de": "Umarmung",
+      "en": "a hug",
+      "vibe": "gluehwein"
+     },
+     "right": {
+      "de": "Handschlag",
+      "en": "a handshake",
+      "vibe": "filterkaffee"
+     }
+    },
+    {
+     "left": {
+      "de": "Gruppenchat laut",
+      "en": "noisy group chat",
+      "vibe": "clubmate"
+     },
+     "right": {
+      "de": "Gruppenchat stumm",
+      "en": "muted group chat",
+      "vibe": "apfelschorle"
+     }
+    },
+    {
+     "left": {
+      "de": "Alle zusammen",
+      "en": "everyone together",
+      "vibe": "weissbier"
+     },
+     "right": {
+      "de": "Zu zweit",
+      "en": "just the two of you",
+      "vibe": "gluehwein"
+     }
+    }
+   ]
+  },
+  {
+   "id": "stress",
+   "title": "Stress",
+   "en": "Stress",
+   "hook": "Deadline tomorrow. What happens to you?",
+   "questions": [
+    {
+     "de": "Bei Stress machst du eine Liste?",
+     "en": "When stressed, you make a list?",
+     "ja": "filterkaffee",
+     "nein": "gluehwein"
+    },
+    {
+     "de": "Bei Stress arbeitest du die Nacht durch?",
+     "en": "When stressed, you work through the night?",
+     "ja": "clubmate",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Bei Stress trinkst du erst mal Wasser?",
+     "en": "When stressed, you drink water first?",
+     "ja": "apfelschorle",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Bei Stress brauchst du eine Umarmung?",
+     "en": "When stressed, you need a hug?",
+     "ja": "gluehwein",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Stress? Du lachst und wartest?",
+     "en": "Stress? You laugh and wait?",
+     "ja": "weissbier",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Du bist bei Stress sehr ruhig?",
+     "en": "Under stress you're very calm?",
+     "ja": "apfelschorle",
+     "nein": "gluehwein"
+    },
+    {
+     "de": "Bei Stress trinkst du sechs Kaffee?",
+     "en": "Under stress you drink six coffees?",
+     "ja": "clubmate",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Stress gibt es bei dir nicht?",
+     "en": "Stress doesn't exist for you?",
+     "ja": "weissbier",
+     "nein": "clubmate"
+    },
+    {
+     "left": {
+      "de": "Früh aufstehen",
+      "en": "get up early",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "Spät ins Bett",
+      "en": "go to bed late",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Spaziergang",
+      "en": "a walk",
+      "vibe": "apfelschorle"
+     },
+     "right": {
+      "de": "Heiße Dusche",
+      "en": "a hot shower",
+      "vibe": "gluehwein"
+     }
+    },
+    {
+     "left": {
+      "de": "Ruhe",
+      "en": "quiet",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "Leute um mich",
+      "en": "people around me",
+      "vibe": "weissbier"
+     }
+    },
+    {
+     "left": {
+      "de": "Weinen, kurz",
+      "en": "a quick cry",
+      "vibe": "gluehwein"
+     },
+     "right": {
+      "de": "Weiterarbeiten",
+      "en": "keep working",
+      "vibe": "clubmate"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wochenende",
+   "title": "Wochenende",
+   "en": "The weekend",
+   "hook": "Two days. How many of them in the sun?",
+   "questions": [
+    {
+     "de": "Samstag um 8 Uhr: schon beim Bäcker?",
+     "en": "Saturday 8 a.m.: already at the bakery?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Am Wochenende bist du draußen, egal wie?",
+     "en": "At the weekend you're outside, whatever?",
+     "ja": "weissbier",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Dein Wochenende hat einen Plan?",
+     "en": "Your weekend has a plan?",
+     "ja": "apfelschorle",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Am Sonntag backst du?",
+     "en": "On Sunday you bake?",
+     "ja": "gluehwein",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Dein Wochenende ist ein Hackathon?",
+     "en": "Your weekend is a hackathon?",
+     "ja": "clubmate",
+     "nein": "gluehwein"
+    },
+    {
+     "de": "Du gehst am Wochenende wandern?",
+     "en": "You go hiking at the weekend?",
+     "ja": "apfelschorle",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Am Wochenende redest du mit Fremden?",
+     "en": "At the weekend you talk to strangers?",
+     "ja": "weissbier",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Du siehst am Wochenende drei Filme?",
+     "en": "You watch three films at the weekend?",
+     "ja": "gluehwein",
+     "nein": "weissbier"
+    },
+    {
+     "left": {
+      "de": "Markt am Morgen",
+      "en": "morning market",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "Club bis morgens",
+      "en": "club till morning",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Berge",
+      "en": "mountains",
+      "vibe": "apfelschorle"
+     },
+     "right": {
+      "de": "Weihnachtsmarkt",
+      "en": "Christmas market",
+      "vibe": "gluehwein"
+     }
+    },
+    {
+     "left": {
+      "de": "Biergarten",
+      "en": "beer garden",
+      "vibe": "weissbier"
+     },
+     "right": {
+      "de": "Sofa mit Film",
+      "en": "sofa and a film",
+      "vibe": "gluehwein"
+     }
+    },
+    {
+     "left": {
+      "de": "Radtour",
+      "en": "bike ride",
+      "vibe": "apfelschorle"
+     },
+     "right": {
+      "de": "Lange Tafel",
+      "en": "long table",
+      "vibe": "weissbier"
+     }
+    }
+   ]
+  },
+  {
+   "id": "dating",
+   "title": "Dating",
+   "en": "Dating",
+   "hook": "First date. Who picks the place?",
+   "questions": [
+    {
+     "de": "Erstes Date um 9 Uhr beim Frühstück?",
+     "en": "First date at 9 a.m. over breakfast?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Date in der Bar mit Laptop-Leuten?",
+     "en": "A date in the bar full of laptop people?",
+     "ja": "clubmate",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Du bist beim Date der Ruhige?",
+     "en": "On a date you're the quiet one?",
+     "ja": "apfelschorle",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Du bringst zum Date eine Decke mit?",
+     "en": "You bring a blanket to the date?",
+     "ja": "gluehwein",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Date im Biergarten mit allen Freunden?",
+     "en": "A date at the beer garden with all your friends?",
+     "ja": "weissbier",
+     "nein": "gluehwein"
+    },
+    {
+     "de": "Du bist beim Date pünktlich, immer?",
+     "en": "You're on time for a date, always?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du schreibst nach dem Date sofort?",
+     "en": "You text straight after the date?",
+     "ja": "gluehwein",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Du fährst dein Date nach Hause?",
+     "en": "You drive your date home?",
+     "ja": "apfelschorle",
+     "nein": "clubmate"
+    },
+    {
+     "left": {
+      "de": "Kerzen",
+      "en": "candles",
+      "vibe": "gluehwein"
+     },
+     "right": {
+      "de": "Neonlicht",
+      "en": "neon light",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Spaziergang",
+      "en": "a walk",
+      "vibe": "apfelschorle"
+     },
+     "right": {
+      "de": "Konzert",
+      "en": "a concert",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Frühstück",
+      "en": "breakfast",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "Abend in der Sonne",
+      "en": "an evening in the sun",
+      "vibe": "weissbier"
+     }
+    },
+    {
+     "left": {
+      "de": "Lange Gespräche",
+      "en": "long talks",
+      "vibe": "gluehwein"
+     },
+     "right": {
+      "de": "Lange Tafel",
+      "en": "long table",
+      "vibe": "weissbier"
+     }
+    }
+   ]
+  },
+  {
+   "id": "geld",
+   "title": "Geld",
+   "en": "Money",
+   "hook": "What do you spend on, and when?",
+   "questions": [
+    {
+     "de": "Du weißt genau, was auf dem Konto ist?",
+     "en": "You know exactly what's in your account?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du gibst Geld für Gadgets aus?",
+     "en": "You spend money on gadgets?",
+     "ja": "clubmate",
+     "nein": "gluehwein"
+    },
+    {
+     "de": "Du sparst jeden Monat?",
+     "en": "You save every month?",
+     "ja": "apfelschorle",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Du gibst Geld für Kerzen und Deko aus?",
+     "en": "You spend money on candles and decor?",
+     "ja": "gluehwein",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Du gibst die Runde aus?",
+     "en": "You buy the round?",
+     "ja": "weissbier",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Du kaufst immer das Günstigste?",
+     "en": "You always buy the cheapest option?",
+     "ja": "apfelschorle",
+     "nein": "gluehwein"
+    },
+    {
+     "de": "Du kaufst nachts online, oft?",
+     "en": "You shop online at night, often?",
+     "ja": "clubmate",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Geld für ein Fest ist nie zu viel?",
+     "en": "Money for a party is never too much?",
+     "ja": "weissbier",
+     "nein": "filterkaffee"
+    },
+    {
+     "left": {
+      "de": "Sparkonto",
+      "en": "savings account",
+      "vibe": "apfelschorle"
+     },
+     "right": {
+      "de": "Neues Gadget",
+      "en": "new gadget",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Bar",
+      "en": "cash",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "App",
+      "en": "app",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Geschenke für alle",
+      "en": "presents for everyone",
+      "vibe": "gluehwein"
+     },
+     "right": {
+      "de": "Runde für alle",
+      "en": "a round for everyone",
+      "vibe": "weissbier"
+     }
+    },
+    {
+     "left": {
+      "de": "Trinkgeld, korrekt",
+      "en": "tip, correct",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "Trinkgeld, großzügig",
+      "en": "tip, generous",
+      "vibe": "weissbier"
+     }
+    }
+   ]
+  },
+  {
+   "id": "wetter",
+   "title": "Das Wetter",
+   "en": "The weather",
+   "hook": "Rain, sun or snow: which one is you?",
+   "questions": [
+    {
+     "de": "Schnee macht dich glücklich?",
+     "en": "Snow makes you happy?",
+     "ja": "gluehwein",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Regen ist egal, du gehst raus?",
+     "en": "Rain doesn't matter, you go out?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du checkst das Wetter, bevor du planst?",
+     "en": "You check the weather before you plan?",
+     "ja": "apfelschorle",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Wetter? Du bist sowieso drinnen?",
+     "en": "Weather? You're inside anyway?",
+     "ja": "clubmate",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Bei Sonne sagst du alle Termine ab?",
+     "en": "When it's sunny you cancel all appointments?",
+     "ja": "weissbier",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Du hast immer einen Schirm dabei?",
+     "en": "You always have an umbrella with you?",
+     "ja": "apfelschorle",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du liebst den Herbst am meisten?",
+     "en": "You love autumn most of all?",
+     "ja": "gluehwein",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Du redest gern über das Wetter?",
+     "en": "You like talking about the weather?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "left": {
+      "de": "Sommer",
+      "en": "summer",
+      "vibe": "weissbier"
+     },
+     "right": {
+      "de": "Winter",
+      "en": "winter",
+      "vibe": "gluehwein"
+     }
+    },
+    {
+     "left": {
+      "de": "Regenjacke",
+      "en": "rain jacket",
+      "vibe": "apfelschorle"
+     },
+     "right": {
+      "de": "Kapuze",
+      "en": "hood",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Nebel am Morgen",
+      "en": "morning fog",
+      "vibe": "filterkaffee"
+     },
+     "right": {
+      "de": "Schnee am Abend",
+      "en": "evening snow",
+      "vibe": "gluehwein"
+     }
+    },
+    {
+     "left": {
+      "de": "Sonnenbrille",
+      "en": "sunglasses",
+      "vibe": "weissbier"
+     },
+     "right": {
+      "de": "Schal",
+      "en": "scarf",
+      "vibe": "gluehwein"
+     }
+    }
+   ]
+  },
+  {
+   "id": "handy",
+   "title": "Dein Handy",
+   "en": "Your phone",
+   "hook": "How many unread? Be honest.",
+   "questions": [
+    {
+     "de": "Dein Akku ist immer fast leer?",
+     "en": "Your battery is always nearly empty?",
+     "ja": "clubmate",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Du antwortest innerhalb von einer Minute?",
+     "en": "You reply within a minute?",
+     "ja": "apfelschorle",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Dein Handy ist nachts aus?",
+     "en": "Your phone is off at night?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du schickst Fotos von Kerzen und Katzen?",
+     "en": "You send photos of candles and cats?",
+     "ja": "gluehwein",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Du vergisst dein Handy auf dem Tisch?",
+     "en": "You forget your phone on the table?",
+     "ja": "weissbier",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du hast mehr als 50 Apps?",
+     "en": "You have more than 50 apps?",
+     "ja": "clubmate",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Dein Hintergrundbild: Familie oder Freunde?",
+     "en": "Your wallpaper: family or friends?",
+     "ja": "gluehwein",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du rufst lieber an als zu schreiben?",
+     "en": "You'd rather call than text?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "left": {
+      "de": "Dunkelmodus",
+      "en": "dark mode",
+      "vibe": "clubmate"
+     },
+     "right": {
+      "de": "Hellmodus",
+      "en": "light mode",
+      "vibe": "apfelschorle"
+     }
+    },
+    {
+     "left": {
+      "de": "Sprachnachricht",
+      "en": "voice message",
+      "vibe": "gluehwein"
+     },
+     "right": {
+      "de": "Kurze Antwort",
+      "en": "short reply",
+      "vibe": "filterkaffee"
+     }
+    },
+    {
+     "left": {
+      "de": "Handy in der Tasche",
+      "en": "phone in the bag",
+      "vibe": "weissbier"
+     },
+     "right": {
+      "de": "Handy in der Hand",
+      "en": "phone in the hand",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Wecker-App",
+      "en": "alarm app",
+      "vibe": "apfelschorle"
+     },
+     "right": {
+      "de": "Fotos-App",
+      "en": "photos app",
+      "vibe": "gluehwein"
+     }
+    }
+   ]
+  },
+  {
+   "id": "silvester",
+   "title": "Silvester",
+   "en": "New Year's Eve",
+   "hook": "Midnight. Fireworks, bed or laptop?",
+   "questions": [
+    {
+     "de": "Silvester bist du um 1 Uhr im Bett?",
+     "en": "New Year's Eve, you're in bed by 1?",
+     "ja": "filterkaffee",
+     "nein": "clubmate"
+    },
+    {
+     "de": "Du machst Vorsätze, viele?",
+     "en": "You make resolutions, lots of them?",
+     "ja": "clubmate",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Du bist der Fahrer am Silvesterabend?",
+     "en": "You're the driver on New Year's Eve?",
+     "ja": "apfelschorle",
+     "nein": "weissbier"
+    },
+    {
+     "de": "Du weinst beim Countdown?",
+     "en": "You cry during the countdown?",
+     "ja": "gluehwein",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Silvester feierst du mit 30 Leuten?",
+     "en": "You celebrate New Year with 30 people?",
+     "ja": "weissbier",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Du schreibst um Mitternacht allen?",
+     "en": "At midnight you text everyone?",
+     "ja": "gluehwein",
+     "nein": "filterkaffee"
+    },
+    {
+     "de": "Du bleibst wach bis zum Sonnenaufgang?",
+     "en": "You stay up until sunrise?",
+     "ja": "clubmate",
+     "nein": "apfelschorle"
+    },
+    {
+     "de": "Feuerwerk ist dir egal?",
+     "en": "Fireworks don't matter to you?",
+     "ja": "filterkaffee",
+     "nein": "weissbier"
+    },
+    {
+     "left": {
+      "de": "Raclette",
+      "en": "raclette",
+      "vibe": "gluehwein"
+     },
+     "right": {
+      "de": "Pizza vom Lieferdienst",
+      "en": "delivery pizza",
+      "vibe": "clubmate"
+     }
+    },
+    {
+     "left": {
+      "de": "Feuerwerk gucken",
+      "en": "watch the fireworks",
+      "vibe": "weissbier"
+     },
+     "right": {
+      "de": "Früh schlafen",
+      "en": "early to bed",
+      "vibe": "filterkaffee"
+     }
+    },
+    {
+     "left": {
+      "de": "Sekt",
+      "en": "sparkling wine",
+      "vibe": "weissbier"
+     },
+     "right": {
+      "de": "Wasser mit Sprudel",
+      "en": "sparkling water",
+      "vibe": "apfelschorle"
+     }
+    },
+    {
+     "left": {
+      "de": "Neue Pläne",
+      "en": "new plans",
+      "vibe": "clubmate"
+     },
+     "right": {
+      "de": "Alte Freunde",
+      "en": "old friends",
+      "vibe": "gluehwein"
+     }
+    }
+   ]
+  }
+ ]
+}

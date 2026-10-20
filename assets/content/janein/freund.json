@@ -1,0 +1,1185 @@
+{
+ "id": "freund",
+ "title": "Was für ein Freund bist du?",
+ "en": "What kind of friend are you?",
+ "emoji": "🤝",
+ "personas": [
+  {
+   "id": "planungsbuero",
+   "title": "Das Planungsbüro",
+   "emoji": "📅",
+   "line": "You made the group chat, booked the table and have a spreadsheet. Nobody says thanks.",
+   "profile": "Without you, nothing happens. You create the group chat, send the poll, book the table and bring the spare charger. You're slightly stressed at all times and everyone else is relaxed because of it. People tease you about the spreadsheet. The spreadsheet is why the holiday happened.",
+   "traits": [
+    "organised",
+    "reliable",
+    "slightly stressed"
+   ],
+   "de": {
+    "line": "Du hast den Gruppenchat gemacht, den Tisch reserviert und eine Tabelle. Danke sagt keiner.",
+    "profile": "Ohne dich passiert nichts. Du gründest den Gruppenchat, schickst die Umfrage, reservierst den Tisch und bringst das Ersatz-Ladekabel mit. Du bist immer ein bisschen gestresst, und genau deshalb sind alle anderen entspannt. Die Leute lachen über deine Tabelle. Die Tabelle ist der Grund, warum der Urlaub stattgefunden hat.",
+    "traits": [
+     "organisiert",
+     "zuverlässig",
+     "leicht gestresst"
+    ]
+   },
+   "match": "fels",
+   "clash": "chaos",
+   "word": {
+    "de": "der Plan",
+    "en": "the plan"
+   }
+  },
+  {
+   "id": "therapiecouch",
+   "title": "Die Therapie-Couch",
+   "emoji": "🛋️",
+   "line": "\"How are you REALLY?\" You listen for hours and remember every word.",
+   "profile": "You ask how people are and then you wait for the real answer. You remember the ex's name, the job interview date, the thing they said in 2021. You cry with your friends, you give advice nobody asked for, and somehow it's always right. Your sofa has heard more than any professional.",
+   "traits": [
+    "listener",
+    "empathetic",
+    "remembers everything"
+   ],
+   "de": {
+    "line": "„Und wie geht es dir WIRKLICH?“ Du hörst stundenlang zu und merkst dir jedes Wort.",
+    "profile": "Du fragst, wie es jemandem geht, und dann wartest du auf die echte Antwort. Du weißt den Namen vom Ex, den Termin vom Vorstellungsgespräch und den Satz von 2021. Du weinst mit deinen Freunden, gibst Ratschläge, die niemand wollte, und irgendwie stimmen sie immer. Dein Sofa hat mehr gehört als jeder Profi.",
+    "traits": [
+     "Zuhörer",
+     "einfühlsam",
+     "vergisst nichts"
+    ]
+   },
+   "match": "hypemaschine",
+   "clash": "chaos",
+   "word": {
+    "de": "das Gespräch",
+    "en": "the conversation"
+   }
+  },
+  {
+   "id": "chaos",
+   "title": "Das Chaos",
+   "emoji": "🌪️",
+   "line": "Late, loud, legendary. You forgot the birthday but you brought pizza at 3 a.m.",
+   "profile": "You arrive forty minutes late with a story nobody will believe. Birthdays slip your mind, but when someone's world falls apart at 3 a.m., you're on the doorstep with pizza and no judgement. Every legendary night started with you saying 'just one more'. People complain. People always come.",
+   "traits": [
+    "spontaneous",
+    "loud",
+    "legendary"
+   ],
+   "de": {
+    "line": "Zu spät, zu laut, legendär. Geburtstag vergessen, aber um 3 Uhr nachts mit Pizza da.",
+    "profile": "Du kommst vierzig Minuten zu spät, mit einer Geschichte, die niemand glaubt. Geburtstage vergisst du, aber wenn um 3 Uhr nachts bei jemandem die Welt zusammenbricht, stehst du vor der Tür, mit Pizza und ohne Fragen. Jede legendäre Nacht hat mit deinem „nur noch eins“ angefangen. Alle beschweren sich. Alle kommen trotzdem.",
+    "traits": [
+     "spontan",
+     "laut",
+     "legendär"
+    ]
+   },
+   "match": "hypemaschine",
+   "clash": "planungsbuero",
+   "word": {
+    "de": "die Nacht",
+    "en": "the night"
+   }
+  },
+  {
+   "id": "hypemaschine",
+   "title": "Die Hype-Maschine",
+   "emoji": "📣",
+   "line": "Forty heart emojis for a new haircut. You believe in your friends more than they do.",
+   "profile": "You cheer for everything: the new job, the new plant, the slightly different haircut. Forty emojis, three voice messages, a 'YOU DID IT' before they've even done it. You push people to do the thing, and then you're first on the dance floor to celebrate it. Loyal to a fault, loud with love.",
+   "traits": [
+    "enthusiastic",
+    "loyal",
+    "first to dance"
+   ],
+   "de": {
+    "line": "Vierzig Herz-Emojis für eine neue Frisur. Du glaubst mehr an deine Freunde als sie selbst.",
+    "profile": "Du feierst alles: den neuen Job, die neue Pflanze, die leicht andere Frisur. Vierzig Emojis, drei Sprachnachrichten, ein „DU HAST ES GESCHAFFT“, bevor es überhaupt geschafft ist. Du schubst Leute dazu, die Sache endlich zu machen, und dann bist du zuerst auf der Tanzfläche, um zu feiern. Loyal bis zum Ende, laut vor Liebe.",
+    "traits": [
+     "begeistert",
+     "loyal",
+     "tanzt zuerst"
+    ]
+   },
+   "match": "chaos",
+   "clash": "fels",
+   "word": {
+    "de": "der Jubel",
+    "en": "the cheering"
+   }
+  },
+  {
+   "id": "fels",
+   "title": "Der Fels",
+   "emoji": "🪨",
+   "line": "Few words, zero drama. You drove them to the airport at 5 a.m. and never mentioned it.",
+   "profile": "You say little and mean all of it. You never cancel, you never gossip, you show up at 5 a.m. to drive someone to the airport and don't even want a coffee for it. Drama bounces off you. Friends forget to thank you because you make it look so easy. You're the one they call when it's serious.",
+   "traits": [
+    "steady",
+    "quiet",
+    "never cancels"
+   ],
+   "de": {
+    "line": "Wenig Worte, null Drama. Du hast sie um 5 Uhr zum Flughafen gefahren und nie erwähnt.",
+    "profile": "Du sagst wenig und meinst alles davon. Du sagst nie ab, du lästerst nie, du stehst um 5 Uhr morgens da und fährst jemanden zum Flughafen, und willst nicht mal einen Kaffee dafür. Drama prallt an dir ab. Freunde vergessen, danke zu sagen, weil es bei dir so leicht aussieht. Wenn es ernst wird, rufen sie dich an.",
+    "traits": [
+     "stabil",
+     "ruhig",
+     "sagt nie ab"
+    ]
+   },
+   "match": "planungsbuero",
+   "clash": "hypemaschine",
+   "word": {
+    "de": "der Fels",
+    "en": "the rock"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "gruppenchat",
+   "title": "Gruppenchat",
+   "en": "The group chat",
+   "hook": "112 unread messages. Which ones are yours?",
+   "questions": [
+    {
+     "de": "Du hast den Gruppenchat gegründet?",
+     "en": "You created the group chat?",
+     "ja": "planungsbuero",
+     "nein": "fels"
+    },
+    {
+     "de": "Du antwortest mit 40 Emojis?",
+     "en": "You reply with 40 emojis?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "de": "Du liest alles, antwortest aber nie?",
+     "en": "You read everything but never reply?",
+     "ja": "fels",
+     "nein": "hypemaschine"
+    },
+    {
+     "de": "Du schreibst um 3 Uhr nachts in die Gruppe?",
+     "en": "You post in the group at 3 a.m.?",
+     "ja": "chaos",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du fragst privat nach, wenn jemand still ist?",
+     "en": "You check in privately when someone goes quiet?",
+     "ja": "therapiecouch",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du machst die Umfrage für das Datum?",
+     "en": "You make the poll for the date?",
+     "ja": "planungsbuero",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du schickst Sprachnachrichten, 6 Minuten?",
+     "en": "You send six-minute voice messages?",
+     "ja": "therapiecouch",
+     "nein": "fels"
+    },
+    {
+     "de": "Du bist auf stumm, immer?",
+     "en": "You keep it muted, always?",
+     "ja": "fels",
+     "nein": "hypemaschine"
+    },
+    {
+     "left": {
+      "de": "Umfrage",
+      "en": "a poll",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Einfach losgehen",
+      "en": "just head out",
+      "vibe": "chaos"
+     }
+    },
+    {
+     "left": {
+      "de": "Herz-Emoji",
+      "en": "heart emoji",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Daumen hoch",
+      "en": "thumbs up",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Lange Antwort",
+      "en": "a long reply",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Meme",
+      "en": "a meme",
+      "vibe": "chaos"
+     }
+    },
+    {
+     "left": {
+      "de": "Chat organisieren",
+      "en": "organise the chat",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Chat anfeuern",
+      "en": "cheer the chat on",
+      "vibe": "hypemaschine"
+     }
+    }
+   ]
+  },
+  {
+   "id": "geburtstag",
+   "title": "Geburtstag",
+   "en": "Birthday",
+   "hook": "Their birthday. Did you remember?",
+   "questions": [
+    {
+     "de": "Du vergisst Geburtstage?",
+     "en": "You forget birthdays?",
+     "ja": "chaos",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du planst die Überraschungsparty?",
+     "en": "You plan the surprise party?",
+     "ja": "planungsbuero",
+     "nein": "fels"
+    },
+    {
+     "de": "Dein Geschenk ist etwas mit Erinnerung?",
+     "en": "Your present is something with a memory attached?",
+     "ja": "therapiecouch",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du schreibst um 0:01 Uhr die erste Nachricht?",
+     "en": "You send the first message at 00:01?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "de": "Du kommst ohne Geschenk, aber mit Kuchen?",
+     "en": "You arrive without a present, but with cake?",
+     "ja": "chaos",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du gratulierst kurz und ehrlich?",
+     "en": "You congratulate briefly and sincerely?",
+     "ja": "fels",
+     "nein": "hypemaschine"
+    },
+    {
+     "de": "Du weinst bei der Geburtstagsrede?",
+     "en": "You cry at the birthday speech?",
+     "ja": "therapiecouch",
+     "nein": "fels"
+    },
+    {
+     "de": "Du bringst alle zum Tanzen?",
+     "en": "You get everyone dancing?",
+     "ja": "hypemaschine",
+     "nein": "therapiecouch"
+    },
+    {
+     "left": {
+      "de": "Karte mit Hand",
+      "en": "handwritten card",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Sprachnachricht",
+      "en": "loud voice message",
+      "vibe": "hypemaschine"
+     }
+    },
+    {
+     "left": {
+      "de": "Geschenkliste",
+      "en": "gift list",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Spontan was Schönes",
+      "en": "something nice, on a whim",
+      "vibe": "chaos"
+     }
+    },
+    {
+     "left": {
+      "de": "Rede halten",
+      "en": "give a speech",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Grill übernehmen",
+      "en": "take over the grill",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Pünktlich da",
+      "en": "there on time",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Als Letzter weg",
+      "en": "last to leave",
+      "vibe": "chaos"
+     }
+    }
+   ]
+  },
+  {
+   "id": "krise",
+   "title": "Krise um 3 Uhr",
+   "en": "3 a.m. crisis",
+   "hook": "The phone rings at 3 a.m. What do you do?",
+   "questions": [
+    {
+     "de": "Um 3 Uhr gehst du ans Handy?",
+     "en": "At 3 a.m. you answer the phone?",
+     "ja": "therapiecouch",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du bist um 3 Uhr sowieso noch wach?",
+     "en": "At 3 a.m. you're awake anyway?",
+     "ja": "chaos",
+     "nein": "fels"
+    },
+    {
+     "de": "Du kommst sofort vorbei, ohne Fragen?",
+     "en": "You come over straight away, no questions?",
+     "ja": "fels",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du bringst Pizza mit?",
+     "en": "You bring pizza?",
+     "ja": "chaos",
+     "nein": "therapiecouch"
+    },
+    {
+     "de": "Du hörst zu, zwei Stunden lang?",
+     "en": "You listen, for two hours?",
+     "ja": "therapiecouch",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du sagst: Du schaffst das, hundertmal?",
+     "en": "You say \"you've got this\" a hundred times?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "de": "Du machst morgens einen Plan für die Krise?",
+     "en": "In the morning you make a plan for the crisis?",
+     "ja": "planungsbuero",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du sagst wenig und bleibst einfach?",
+     "en": "You say little and just stay?",
+     "ja": "fels",
+     "nein": "hypemaschine"
+    },
+    {
+     "left": {
+      "de": "Zuhören",
+      "en": "listening",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Ablenken",
+      "en": "distracting",
+      "vibe": "chaos"
+     }
+    },
+    {
+     "left": {
+      "de": "Taschentücher",
+      "en": "tissues",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Tanzen gehen",
+      "en": "go dancing",
+      "vibe": "hypemaschine"
+     }
+    },
+    {
+     "left": {
+      "de": "Plan für morgen",
+      "en": "a plan for tomorrow",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Einfach da sein",
+      "en": "just being there",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Pizza und Witze",
+      "en": "pizza and jokes",
+      "vibe": "chaos"
+     },
+     "right": {
+      "de": "Tee und Decke",
+      "en": "tea and a blanket",
+      "vibe": "therapiecouch"
+     }
+    }
+   ]
+  },
+  {
+   "id": "plaene",
+   "title": "Pläne machen",
+   "en": "Making plans",
+   "hook": "Dinner next week. How hard can it be?",
+   "questions": [
+    {
+     "de": "Du schlägst immer das Datum vor?",
+     "en": "You always suggest the date?",
+     "ja": "planungsbuero",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du sagst spontan zu, kommst dann nicht?",
+     "en": "You say yes on the spot and then don't come?",
+     "ja": "chaos",
+     "nein": "fels"
+    },
+    {
+     "de": "Du sagst zu allem Ja, sofort?",
+     "en": "You say yes to everything, instantly?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "de": "Du fragst erst, wie es allen geht?",
+     "en": "You first ask how everyone is doing?",
+     "ja": "therapiecouch",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du kommst, wenn du Ja gesagt hast, immer?",
+     "en": "If you said yes, you come, always?",
+     "ja": "fels",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du hast für jeden Plan eine Tabelle?",
+     "en": "You have a spreadsheet for every plan?",
+     "ja": "planungsbuero",
+     "nein": "hypemaschine"
+    },
+    {
+     "de": "Pläne ändern? Kein Problem?",
+     "en": "Changing plans? No problem?",
+     "ja": "chaos",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du bist der Grund, dass der Plan Spaß macht?",
+     "en": "You're the reason the plan is fun?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "left": {
+      "de": "Kalender",
+      "en": "calendar",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Bauchgefühl",
+      "en": "gut feeling",
+      "vibe": "chaos"
+     }
+    },
+    {
+     "left": {
+      "de": "Vorfreude teilen",
+      "en": "share the excitement",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Still zusagen",
+      "en": "quietly confirm",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Restaurant buchen",
+      "en": "book the restaurant",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Erst alle fragen",
+      "en": "ask what everyone wants",
+      "vibe": "therapiecouch"
+     }
+    },
+    {
+     "left": {
+      "de": "Großes Ding",
+      "en": "a big thing",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Kleine Runde",
+      "en": "a small circle",
+      "vibe": "therapiecouch"
+     }
+    }
+   ]
+  },
+  {
+   "id": "streit",
+   "title": "Streit",
+   "en": "A fight",
+   "hook": "Two friends are arguing. Where are you?",
+   "questions": [
+    {
+     "de": "Du bist der Vermittler im Streit?",
+     "en": "You're the mediator in a fight?",
+     "ja": "therapiecouch",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du vergisst den Streit nach einer Nacht?",
+     "en": "You forget the fight after one night?",
+     "ja": "chaos",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du sagst: Beide haben recht?",
+     "en": "You say \"you're both right\"?",
+     "ja": "therapiecouch",
+     "nein": "hypemaschine"
+    },
+    {
+     "de": "Du machst einen Plan für die Versöhnung?",
+     "en": "You make a plan for making up?",
+     "ja": "planungsbuero",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du bleibst ruhig und sagst einen Satz?",
+     "en": "You stay calm and say one sentence?",
+     "ja": "fels",
+     "nein": "hypemaschine"
+    },
+    {
+     "de": "Du bist laut auf der Seite deines Freundes?",
+     "en": "You're loudly on your friend's side?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "de": "Du bist der Streit?",
+     "en": "You ARE the fight?",
+     "ja": "chaos",
+     "nein": "therapiecouch"
+    },
+    {
+     "de": "Streit? Du machst einfach weiter wie immer?",
+     "en": "A fight? You just carry on as usual?",
+     "ja": "fels",
+     "nein": "therapiecouch"
+    },
+    {
+     "left": {
+      "de": "Reden",
+      "en": "talk",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Abwarten",
+      "en": "wait it out",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Treffen organisieren",
+      "en": "organise a meet-up",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Zusammen tanzen",
+      "en": "dance together",
+      "vibe": "hypemaschine"
+     }
+    },
+    {
+     "left": {
+      "de": "Partei ergreifen",
+      "en": "take sides",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Neutral bleiben",
+      "en": "stay neutral",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Lange Aussprache",
+      "en": "a long talk",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Ein Bier, fertig",
+      "en": "one beer, done",
+      "vibe": "chaos"
+     }
+    }
+   ]
+  },
+  {
+   "id": "urlaub",
+   "title": "Urlaub zusammen",
+   "en": "Holiday together",
+   "hook": "Seven days, one flat, five friends.",
+   "questions": [
+    {
+     "de": "Du hast die Reise gebucht, für alle?",
+     "en": "You booked the trip, for everyone?",
+     "ja": "planungsbuero",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du verpasst den Flug fast?",
+     "en": "You almost miss the flight?",
+     "ja": "chaos",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du fährst, immer?",
+     "en": "You drive, always?",
+     "ja": "fels",
+     "nein": "hypemaschine"
+    },
+    {
+     "de": "Du bist der Erste im Meer?",
+     "en": "You're first into the sea?",
+     "ja": "hypemaschine",
+     "nein": "therapiecouch"
+    },
+    {
+     "de": "Du redest abends auf dem Balkon bis drei?",
+     "en": "You talk on the balcony till three?",
+     "ja": "therapiecouch",
+     "nein": "fels"
+    },
+    {
+     "de": "Du hast die Reiseapotheke dabei?",
+     "en": "You bring the travel first-aid kit?",
+     "ja": "planungsbuero",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du findest nachts die beste Bar?",
+     "en": "You find the best bar at night?",
+     "ja": "chaos",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du trägst alle Koffer, ohne Kommentar?",
+     "en": "You carry all the suitcases, no comment?",
+     "ja": "fels",
+     "nein": "hypemaschine"
+    },
+    {
+     "left": {
+      "de": "Tagesplan",
+      "en": "daily plan",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Mal sehen",
+      "en": "we'll see",
+      "vibe": "chaos"
+     }
+    },
+    {
+     "left": {
+      "de": "Strandparty",
+      "en": "beach party",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Spaziergang zu zweit",
+      "en": "a walk for two",
+      "vibe": "therapiecouch"
+     }
+    },
+    {
+     "left": {
+      "de": "Auto fahren",
+      "en": "drive the car",
+      "vibe": "fels"
+     },
+     "right": {
+      "de": "Musik aussuchen",
+      "en": "pick the music",
+      "vibe": "hypemaschine"
+     }
+    },
+    {
+     "left": {
+      "de": "Gespräch am Meer",
+      "en": "a talk by the sea",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Nachtschwimmen",
+      "en": "night swim",
+      "vibe": "chaos"
+     }
+    }
+   ]
+  },
+  {
+   "id": "geheimnisse",
+   "title": "Geheimnisse",
+   "en": "Secrets",
+   "hook": "Someone tells you a secret. Now what?",
+   "questions": [
+    {
+     "de": "Du kennst alle Geheimnisse der Gruppe?",
+     "en": "You know all the group's secrets?",
+     "ja": "therapiecouch",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du vergisst Geheimnisse, zum Glück?",
+     "en": "You forget secrets, luckily?",
+     "ja": "chaos",
+     "nein": "therapiecouch"
+    },
+    {
+     "de": "Du sagst nichts, nie, zu niemandem?",
+     "en": "You say nothing, ever, to anyone?",
+     "ja": "fels",
+     "nein": "hypemaschine"
+    },
+    {
+     "de": "Du bist zu aufgeregt und erzählst es weiter?",
+     "en": "You get too excited and tell someone?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "de": "Du schreibst das Geheimnis in den Kalender?",
+     "en": "You put the secret in your calendar?",
+     "ja": "planungsbuero",
+     "nein": "chaos"
+    },
+    {
+     "de": "Freunde erzählen dir zuerst alles?",
+     "en": "Friends tell you everything first?",
+     "ja": "therapiecouch",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du hast selbst keine Geheimnisse?",
+     "en": "You have no secrets yourself?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "de": "Du fragst nie nach, wartest nur?",
+     "en": "You never ask, you just wait?",
+     "ja": "fels",
+     "nein": "therapiecouch"
+    },
+    {
+     "left": {
+      "de": "Nachfragen",
+      "en": "ask more",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Schweigen",
+      "en": "stay silent",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Feiern",
+      "en": "celebrate it",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Notieren",
+      "en": "note it down",
+      "vibe": "planungsbuero"
+     }
+    },
+    {
+     "left": {
+      "de": "Beim Wein erzählen",
+      "en": "tell it over wine",
+      "vibe": "chaos"
+     },
+     "right": {
+      "de": "Für immer behalten",
+      "en": "keep it forever",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Rat geben",
+      "en": "give advice",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Mitjubeln",
+      "en": "cheer along",
+      "vibe": "hypemaschine"
+     }
+    }
+   ]
+  },
+  {
+   "id": "umzug",
+   "title": "Umzug",
+   "en": "Moving house",
+   "hook": "A friend is moving. Saturday, 8 a.m. Are you there?",
+   "questions": [
+    {
+     "de": "Du bist um 8 Uhr mit dem Transporter da?",
+     "en": "You're there at 8 with the van?",
+     "ja": "fels",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du hast die Kisten beschriftet, alle?",
+     "en": "You labelled the boxes, all of them?",
+     "ja": "planungsbuero",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du kommst um 14 Uhr mit Pizza?",
+     "en": "You turn up at 2 p.m. with pizza?",
+     "ja": "chaos",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du machst Musik und Stimmung?",
+     "en": "You bring music and good vibes?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "de": "Du redest beim Packen über das Leben?",
+     "en": "You talk about life while packing?",
+     "ja": "therapiecouch",
+     "nein": "fels"
+    },
+    {
+     "de": "Du trägst das Sofa allein?",
+     "en": "You carry the sofa by yourself?",
+     "ja": "fels",
+     "nein": "therapiecouch"
+    },
+    {
+     "de": "Du hast einen Zeitplan für den Umzug?",
+     "en": "You have a schedule for the move?",
+     "ja": "planungsbuero",
+     "nein": "hypemaschine"
+    },
+    {
+     "de": "Du feierst die neue Wohnung mit Konfetti?",
+     "en": "You celebrate the new flat with confetti?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "left": {
+      "de": "Kisten tragen",
+      "en": "carry boxes",
+      "vibe": "fels"
+     },
+     "right": {
+      "de": "Kisten planen",
+      "en": "plan the boxes",
+      "vibe": "planungsbuero"
+     }
+    },
+    {
+     "left": {
+      "de": "Pizza bestellen",
+      "en": "order pizza",
+      "vibe": "chaos"
+     },
+     "right": {
+      "de": "Playlist machen",
+      "en": "make a playlist",
+      "vibe": "hypemaschine"
+     }
+    },
+    {
+     "left": {
+      "de": "Küche einräumen",
+      "en": "set up the kitchen",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Einweihungsparty",
+      "en": "housewarming party",
+      "vibe": "chaos"
+     }
+    },
+    {
+     "left": {
+      "de": "Erster da",
+      "en": "first to arrive",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Letzter da",
+      "en": "last to leave",
+      "vibe": "therapiecouch"
+     }
+    }
+   ]
+  },
+  {
+   "id": "neue_leute",
+   "title": "Neue Leute",
+   "en": "New people",
+   "hook": "A stranger at the table. Your move.",
+   "questions": [
+    {
+     "de": "Du kennst nach einer Stunde alle Namen?",
+     "en": "After an hour you know all the names?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "de": "Du bringst neue Leute mit, immer?",
+     "en": "You always bring new people along?",
+     "ja": "chaos",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du fragst Fremde nach ihrem Leben?",
+     "en": "You ask strangers about their lives?",
+     "ja": "therapiecouch",
+     "nein": "fels"
+    },
+    {
+     "de": "Neue Leute? Du bleibst erst mal still?",
+     "en": "New people? You stay quiet at first?",
+     "ja": "fels",
+     "nein": "hypemaschine"
+    },
+    {
+     "de": "Du fügst neue Leute sofort zum Chat hinzu?",
+     "en": "You add new people to the chat right away?",
+     "ja": "planungsbuero",
+     "nein": "fels"
+    },
+    {
+     "de": "Fremde finden dich sofort toll?",
+     "en": "Strangers like you instantly?",
+     "ja": "hypemaschine",
+     "nein": "planungsbuero"
+    },
+    {
+     "de": "Du redest lieber mit alten Freunden?",
+     "en": "You'd rather talk to old friends?",
+     "ja": "fels",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du bist nach einem Abend beste Freunde?",
+     "en": "After one evening you're best friends?",
+     "ja": "chaos",
+     "nein": "fels"
+    },
+    {
+     "left": {
+      "de": "Namen merken",
+      "en": "remember names",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Geschichten merken",
+      "en": "remember stories",
+      "vibe": "therapiecouch"
+     }
+    },
+    {
+     "left": {
+      "de": "Umarmung zur Begrüßung",
+      "en": "hug hello",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Handschlag",
+      "en": "handshake",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Tiefe Fragen",
+      "en": "deep questions",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Wilde Geschichten",
+      "en": "wild stories",
+      "vibe": "chaos"
+     }
+    },
+    {
+     "left": {
+      "de": "Komplimente machen",
+      "en": "pay compliments",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Zuhören",
+      "en": "listen",
+      "vibe": "therapiecouch"
+     }
+    }
+   ]
+  },
+  {
+   "id": "sonntag",
+   "title": "Der Sonntag",
+   "en": "Sunday",
+   "hook": "After the legendary Saturday. Who texts first?",
+   "questions": [
+    {
+     "de": "Sonntag planst du schon die Woche?",
+     "en": "On Sunday you're already planning the week?",
+     "ja": "planungsbuero",
+     "nein": "chaos"
+    },
+    {
+     "de": "Sonntag wachst du um 14 Uhr auf?",
+     "en": "On Sunday you wake up at 2 p.m.?",
+     "ja": "chaos",
+     "nein": "fels"
+    },
+    {
+     "de": "Du fragst sonntags, wie es allen geht?",
+     "en": "On Sunday you ask how everyone is?",
+     "ja": "therapiecouch",
+     "nein": "fels"
+    },
+    {
+     "de": "Du schickst Fotos von gestern, alle?",
+     "en": "You send the photos from last night, all of them?",
+     "ja": "hypemaschine",
+     "nein": "fels"
+    },
+    {
+     "de": "Du gehst sonntags allein spazieren?",
+     "en": "On Sunday you go for a walk alone?",
+     "ja": "fels",
+     "nein": "hypemaschine"
+    },
+    {
+     "de": "Du kochst sonntags für die Freunde?",
+     "en": "On Sunday you cook for your friends?",
+     "ja": "therapiecouch",
+     "nein": "chaos"
+    },
+    {
+     "de": "Du hast die Fotos schon sortiert?",
+     "en": "You've already sorted the photos?",
+     "ja": "planungsbuero",
+     "nein": "chaos"
+    },
+    {
+     "de": "Dein Sonntag ist eine Fortsetzung vom Samstag?",
+     "en": "Your Sunday is Saturday, continued?",
+     "ja": "chaos",
+     "nein": "planungsbuero"
+    },
+    {
+     "left": {
+      "de": "Brunch planen",
+      "en": "plan brunch",
+      "vibe": "planungsbuero"
+     },
+     "right": {
+      "de": "Brunch verschlafen",
+      "en": "sleep through brunch",
+      "vibe": "chaos"
+     }
+    },
+    {
+     "left": {
+      "de": "Lange Sprachnachricht",
+      "en": "a long voice message",
+      "vibe": "therapiecouch"
+     },
+     "right": {
+      "de": "Kurzes Danke",
+      "en": "a short thanks",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Wieder feiern",
+      "en": "party again",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Ruhe",
+      "en": "peace and quiet",
+      "vibe": "fels"
+     }
+    },
+    {
+     "left": {
+      "de": "Fotos posten",
+      "en": "post the photos",
+      "vibe": "hypemaschine"
+     },
+     "right": {
+      "de": "Reden über gestern",
+      "en": "talk about last night",
+      "vibe": "therapiecouch"
+     }
+    }
+   ]
+  }
+ ]
+}

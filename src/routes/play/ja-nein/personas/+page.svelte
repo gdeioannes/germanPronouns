@@ -79,8 +79,9 @@
 		<p class="eyebrow">Ja oder Nein?</p>
 		<h1>Your personas</h1>
 		<p class="lede">
-			Every round of Ja oder Nein? ends on one of five personas from its shelf. Play a round again and
-			you may land on another one. Collect them all, then send the grid to someone who thinks they know you.
+			Every shelf is one question, "Which city are you?", "Which animal?", and each round of twelve swipes
+			ends on one of its five answers. Play another round of the shelf and you may turn out to be
+			someone else. Collect them all, then send the grid to someone who thinks they know you.
 		</p>
 		<p class="tally">
 			<strong class="tnum">{count.earned}</strong> <span class="of">of {count.total}</span>
@@ -109,6 +110,7 @@
 							<span class="big" aria-hidden="true">{p.emoji}</span>
 							<strong lang="de">{p.title}</strong>
 							<span class="line">{p.line}</span>
+							<span class="traits">{p.traits.join(' · ')}</span>
 							<span class="word">Your word: <span lang="de">{p.word.de}</span> · {p.word.en}</span>
 							<time datetime={got}>since {got}</time>
 						{:else}
@@ -188,10 +190,11 @@
 		gap: 0.5rem;
 		margin-bottom: 0.75rem;
 	}
+	/* A deeper WhatsApp green: white on the bright #25d366 is 2:1. */
 	.wa {
-		background: #25d366;
+		background: #0e7a40;
 		color: #fff;
-		border-color: #25d366;
+		border-color: #0e7a40;
 	}
 	.preview {
 		font-size: var(--step--1);
@@ -269,6 +272,13 @@
 	}
 	.persona .line {
 		font-size: var(--step--1);
+	}
+	.persona .traits {
+		font-size: var(--step--2);
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--accent-ink);
 	}
 	.persona .word,
 	.persona time {

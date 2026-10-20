@@ -1,0 +1,1185 @@
+{
+ "id": "reise",
+ "title": "Welcher Reise-Typ bist du?",
+ "en": "Which kind of traveller are you?",
+ "emoji": "🧳",
+ "personas": [
+  {
+   "id": "rucksack",
+   "title": "Der Rucksack",
+   "emoji": "🎒",
+   "line": "Your itinerary is 'we'll see'. Your return date is also 'we'll see'.",
+   "profile": "Three shirts, three weeks, zero plans and a night bus that smells of oranges. You check into a hostel and by dinner you have a new best friend from Chile and a lift to a town you can't pronounce. Your family gets one text a week: 'alive, great, no wifi'. They believe two of those.",
+   "traits": [
+    "spontaneous",
+    "curious",
+    "light packer"
+   ],
+   "de": {
+    "line": "Dein Reiseplan heißt 'mal sehen'. Dein Rückflug heißt auch 'mal sehen'.",
+    "profile": "Drei T-Shirts, drei Wochen, null Plan und ein Nachtbus, der nach Orangen riecht. Im Hostel hast du bis zum Abendessen einen neuen besten Freund aus Chile und eine Mitfahrt in eine Stadt, die du nicht aussprechen kannst. Deine Familie bekommt eine Nachricht pro Woche: 'Lebe, super, kein WLAN.' Zwei davon glauben sie.",
+    "traits": [
+     "spontan",
+     "neugierig",
+     "packt leicht"
+    ]
+   },
+   "match": "camper",
+   "clash": "allinclusive",
+   "word": {
+    "de": "der Rucksack",
+    "en": "the backpack"
+   }
+  },
+  {
+   "id": "allinclusive",
+   "title": "All-inclusive",
+   "emoji": "🍹",
+   "line": "You reserved the sunbed at 7 a.m. and went straight back to bed. Respect.",
+   "profile": "Your wristband is a medal and you wear it for a week after the flight. You know the buffet like a chess board: soup is a trap, dessert comes before the queue. Decisions? You made one in February, and now someone else does the rest. People call it lazy. You call it genius with a cocktail.",
+   "traits": [
+    "relaxed",
+    "strategic",
+    "decision-free"
+   ],
+   "de": {
+    "line": "Du hast die Liege um 7 Uhr reserviert und bist dann wieder ins Bett. Respekt.",
+    "profile": "Dein Armband ist eine Medaille, und du trägst es noch eine Woche nach dem Flug. Das Buffet kennst du wie ein Schachbrett: Die Suppe ist eine Falle, Nachtisch kommt vor der Schlange. Entscheidungen? Eine im Februar, den Rest machen andere. Manche nennen das faul. Du nennst es Genie mit Cocktail.",
+    "traits": [
+     "entspannt",
+     "strategisch",
+     "entscheidungsfrei"
+    ]
+   },
+   "match": "balkonien",
+   "clash": "rucksack",
+   "word": {
+    "de": "das Buffet",
+    "en": "the buffet"
+   }
+  },
+  {
+   "id": "staedtetrip",
+   "title": "Der Städtetrip",
+   "emoji": "🏛️",
+   "line": "25,000 steps, three museums, one 'right' coffee. You call it rest.",
+   "profile": "Your Google Maps has 80 pins and a colour code. You are at the museum when it opens and at the viewpoint when the light is right, and your friends have blisters and a new respect for you. At night you fall asleep mid-sentence, smiling, phone still open on tomorrow's list.",
+   "traits": [
+    "organised",
+    "hungry for everything",
+    "fast walker"
+   ],
+   "de": {
+    "line": "25.000 Schritte, drei Museen, ein 'richtiger' Kaffee. Du nennst das Erholung.",
+    "profile": "Dein Google Maps hat 80 Pins und ein Farbsystem. Du bist im Museum, wenn es aufmacht, und am Aussichtspunkt, wenn das Licht stimmt. Deine Freunde haben Blasen und neuen Respekt vor dir. Abends schläfst du mitten im Satz ein, lächelnd, das Handy noch offen bei der Liste für morgen.",
+    "traits": [
+     "organisiert",
+     "hungrig auf alles",
+     "läuft schnell"
+    ]
+   },
+   "match": "rucksack",
+   "clash": "balkonien",
+   "word": {
+    "de": "die Altstadt",
+    "en": "the old town"
+   }
+  },
+  {
+   "id": "camper",
+   "title": "Der Camper",
+   "emoji": "🚐",
+   "line": "Sunrise over a lake, coffee on a gas stove, last shower unknown. Never happier.",
+   "profile": "Your van has a name and more plants than your flat. You wake up at a lake, cook pasta on a gas flame and read the weather like other people read the news. Showers are a rumour, freedom is a fact, and whoever hugs you afterwards does it for love.",
+   "traits": [
+    "free",
+    "handy",
+    "a bit smelly"
+   ],
+   "de": {
+    "line": "Sonnenaufgang am See, Kaffee vom Gaskocher, letzte Dusche: unbekannt. Nie glücklicher.",
+    "profile": "Dein Van hat einen Namen und mehr Pflanzen als deine Wohnung. Du wachst am See auf, kochst Nudeln auf der Gasflamme und liest das Wetter wie andere die Nachrichten. Duschen ist ein Gerücht, Freiheit ist Fakt, und wer dich danach umarmt, tut es aus Liebe.",
+    "traits": [
+     "frei",
+     "praktisch",
+     "ein bisschen müffelig"
+    ]
+   },
+   "match": "rucksack",
+   "clash": "allinclusive",
+   "word": {
+    "de": "der See",
+    "en": "the lake"
+   }
+  },
+  {
+   "id": "balkonien",
+   "title": "Balkonien",
+   "emoji": "🪴",
+   "line": "Your trip takes four steps: fridge, balcony, book, nap. No delays reported.",
+   "profile": "Everyone leaves town in August and you finally have it to yourself: empty streets, a quiet café, the radio humming on the balcony. You water the tomatoes, read half a chapter, nap, repeat. Your friends send sunsets from Portugal. You send a photo of your feet and a cold drink and feel zero envy.",
+   "traits": [
+    "content",
+    "quiet",
+    "secretly smug"
+   ],
+   "de": {
+    "line": "Deine Reise hat vier Schritte: Kühlschrank, Balkon, Buch, Nickerchen. Keine Verspätung.",
+    "profile": "Im August fahren alle weg, und endlich gehört die Stadt dir: leere Straßen, ein stilles Café, das Radio summt auf dem Balkon. Du gießt die Tomaten, liest ein halbes Kapitel, Nickerchen, von vorn. Deine Freunde schicken Sonnenuntergänge aus Portugal. Du schickst ein Foto von deinen Füßen und einem kalten Getränk. Neid: null.",
+    "traits": [
+     "zufrieden",
+     "ruhig",
+     "heimlich stolz"
+    ]
+   },
+   "match": "allinclusive",
+   "clash": "staedtetrip",
+   "word": {
+    "de": "der Balkon",
+    "en": "the balcony"
+   }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "koffer",
+   "title": "Koffer packen",
+   "en": "Packing",
+   "hook": "What goes in the bag says more than where it goes.",
+   "questions": [
+    {
+     "de": "Du packst am Abend vorher?",
+     "en": "You pack the night before?",
+     "ja": "staedtetrip",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Drei T-Shirts reichen für drei Wochen?",
+     "en": "Three shirts are enough for three weeks?",
+     "ja": "rucksack",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Dein Koffer bleibt im Keller?",
+     "en": "Your suitcase stays in the cellar?",
+     "ja": "balkonien",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Du hast eine Packliste im Handy?",
+     "en": "You have a packing list on your phone?",
+     "ja": "staedtetrip",
+     "nein": "camper"
+    },
+    {
+     "de": "Ein Kochtopf kommt mit in den Urlaub?",
+     "en": "A cooking pot comes on holiday with you?",
+     "ja": "camper",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Du nimmst drei Bücher mit und liest eins?",
+     "en": "You pack three books and read one?",
+     "ja": "balkonien",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Die Badehose ist das Wichtigste?",
+     "en": "Swimming trunks are the most important thing?",
+     "ja": "allinclusive",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Du vergisst immer die Zahnbürste?",
+     "en": "You always forget your toothbrush?",
+     "ja": "rucksack",
+     "nein": "camper"
+    },
+    {
+     "left": {
+      "de": "Rucksack",
+      "en": "backpack",
+      "vibe": "rucksack"
+     },
+     "right": {
+      "de": "Rollkoffer",
+      "en": "wheelie suitcase",
+      "vibe": "allinclusive"
+     }
+    },
+    {
+     "left": {
+      "de": "Wanderschuhe",
+      "en": "hiking boots",
+      "vibe": "camper"
+     },
+     "right": {
+      "de": "Flipflops",
+      "en": "flip-flops",
+      "vibe": "allinclusive"
+     }
+    },
+    {
+     "left": {
+      "de": "Lesebrille",
+      "en": "reading glasses",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Sonnenbrille",
+      "en": "sunglasses",
+      "vibe": "rucksack"
+     }
+    },
+    {
+     "left": {
+      "de": "Stadtplan",
+      "en": "city map",
+      "vibe": "staedtetrip"
+     },
+     "right": {
+      "de": "Stirnlampe",
+      "en": "head torch",
+      "vibe": "camper"
+     }
+    }
+   ]
+  },
+  {
+   "id": "flughafen",
+   "title": "Am Flughafen",
+   "en": "At the airport",
+   "hook": "The departure hall is a personality test with gates.",
+   "questions": [
+    {
+     "de": "Du bist drei Stunden vorher da?",
+     "en": "You arrive three hours early?",
+     "ja": "staedtetrip",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Sie rufen deinen Namen am Gate?",
+     "en": "They call your name at the gate?",
+     "ja": "rucksack",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Du fährst lieber mit dem Auto los?",
+     "en": "You would rather set off by car?",
+     "ja": "camper",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Der Flughafen ist dir zu laut?",
+     "en": "The airport is too loud for you?",
+     "ja": "balkonien",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Ein Sandwich für 9 Euro? Du kaufst es?",
+     "en": "A sandwich for 9 euros? You buy it?",
+     "ja": "allinclusive",
+     "nein": "camper"
+    },
+    {
+     "de": "Du hast den Hotel-Shuttle schon gebucht?",
+     "en": "You have already booked the hotel shuttle?",
+     "ja": "allinclusive",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Du bringst nur Freunde zum Flughafen?",
+     "en": "You only ever drop friends at the airport?",
+     "ja": "balkonien",
+     "nein": "camper"
+    },
+    {
+     "de": "Du liest im Flieger den Reiseführer?",
+     "en": "You read the guidebook on the plane?",
+     "ja": "staedtetrip",
+     "nein": "rucksack"
+    },
+    {
+     "left": {
+      "de": "Fensterplatz",
+      "en": "window seat",
+      "vibe": "camper"
+     },
+     "right": {
+      "de": "Gangplatz",
+      "en": "aisle seat",
+      "vibe": "staedtetrip"
+     }
+    },
+    {
+     "left": {
+      "de": "Zug zum Flughafen",
+      "en": "train to the airport",
+      "vibe": "rucksack"
+     },
+     "right": {
+      "de": "Taxi",
+      "en": "taxi",
+      "vibe": "allinclusive"
+     }
+    },
+    {
+     "left": {
+      "de": "Duty-free",
+      "en": "duty-free",
+      "vibe": "allinclusive"
+     },
+     "right": {
+      "de": "Buchladen",
+      "en": "bookshop",
+      "vibe": "balkonien"
+     }
+    },
+    {
+     "left": {
+      "de": "Bordkarte im Handy",
+      "en": "boarding pass on phone",
+      "vibe": "staedtetrip"
+     },
+     "right": {
+      "de": "Bordkarte auf Papier",
+      "en": "boarding pass on paper",
+      "vibe": "balkonien"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ersttag",
+   "title": "Der erste Tag",
+   "en": "The first day",
+   "hook": "Hour one shows what you really came for.",
+   "questions": [
+    {
+     "de": "Erster Tag: erst mal schlafen?",
+     "en": "First day: sleep first?",
+     "ja": "allinclusive",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Du bist um 8 Uhr im ersten Museum?",
+     "en": "You are in the first museum by 8?",
+     "ja": "staedtetrip",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Du suchst zuerst einen See?",
+     "en": "You look for a lake first?",
+     "ja": "camper",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Du fragst Fremde, wo es gut ist?",
+     "en": "You ask strangers where the good places are?",
+     "ja": "rucksack",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Du gießt zuerst die Pflanzen?",
+     "en": "You water the plants first?",
+     "ja": "balkonien",
+     "nein": "camper"
+    },
+    {
+     "de": "Die Liege ist um 7 Uhr reserviert?",
+     "en": "The sunbed is reserved by 7 a.m.?",
+     "ja": "allinclusive",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Du stehst für den Sonnenaufgang auf?",
+     "en": "You get up for the sunrise?",
+     "ja": "camper",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Du hast am Abend schon neue Freunde?",
+     "en": "You have new friends by the evening?",
+     "ja": "rucksack",
+     "nein": "balkonien"
+    },
+    {
+     "left": {
+      "de": "Stadtführung",
+      "en": "guided city tour",
+      "vibe": "staedtetrip"
+     },
+     "right": {
+      "de": "Strand",
+      "en": "beach",
+      "vibe": "allinclusive"
+     }
+    },
+    {
+     "left": {
+      "de": "Lagerfeuer",
+      "en": "campfire",
+      "vibe": "camper"
+     },
+     "right": {
+      "de": "Hostel-Küche",
+      "en": "hostel kitchen",
+      "vibe": "rucksack"
+     }
+    },
+    {
+     "left": {
+      "de": "Mittagsschlaf",
+      "en": "afternoon nap",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "25.000 Schritte",
+      "en": "25,000 steps",
+      "vibe": "staedtetrip"
+     }
+    },
+    {
+     "left": {
+      "de": "Das Buffet",
+      "en": "the buffet",
+      "vibe": "allinclusive"
+     },
+     "right": {
+      "de": "Bäcker um die Ecke",
+      "en": "bakery round the corner",
+      "vibe": "balkonien"
+     }
+    }
+   ]
+  },
+  {
+   "id": "essen",
+   "title": "Essen unterwegs",
+   "en": "Food on the road",
+   "hook": "Show me your holiday plate and I know your soul.",
+   "questions": [
+    {
+     "de": "Du isst dort, wo die Einheimischen essen?",
+     "en": "You eat where the locals eat?",
+     "ja": "rucksack",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Du isst viermal am Tag, weil es da ist?",
+     "en": "You eat four times a day because it is there?",
+     "ja": "allinclusive",
+     "nein": "camper"
+    },
+    {
+     "de": "Nudeln aus dem Topf am See?",
+     "en": "Pasta straight from the pot by the lake?",
+     "ja": "camper",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Du hast das Café schon vor der Reise gewählt?",
+     "en": "You picked the café before the trip?",
+     "ja": "staedtetrip",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Brotzeit auf dem Balkon ist ein Festmahl?",
+     "en": "Bread and cheese on the balcony is a feast?",
+     "ja": "balkonien",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Du probierst alles, auch das Komische?",
+     "en": "You try everything, even the weird stuff?",
+     "ja": "rucksack",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Du fotografierst das Essen zuerst?",
+     "en": "You photograph the food first?",
+     "ja": "staedtetrip",
+     "nein": "camper"
+    },
+    {
+     "de": "Du kennst den Kellner beim Namen?",
+     "en": "You know the waiter by name?",
+     "ja": "allinclusive",
+     "nein": "rucksack"
+    },
+    {
+     "left": {
+      "de": "Döner um 2 Uhr nachts",
+      "en": "kebab at 2 a.m.",
+      "vibe": "rucksack"
+     },
+     "right": {
+      "de": "Frühstücksbuffet",
+      "en": "breakfast buffet",
+      "vibe": "allinclusive"
+     }
+    },
+    {
+     "left": {
+      "de": "Dosenravioli",
+      "en": "tinned ravioli",
+      "vibe": "camper"
+     },
+     "right": {
+      "de": "Sterneküche",
+      "en": "fine dining",
+      "vibe": "staedtetrip"
+     }
+    },
+    {
+     "left": {
+      "de": "Kaffee aus der Kanne",
+      "en": "coffee from the pot",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Flat White",
+      "en": "flat white",
+      "vibe": "staedtetrip"
+     }
+    },
+    {
+     "left": {
+      "de": "Selbst gekocht",
+      "en": "home-cooked",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Alles inklusive",
+      "en": "all included",
+      "vibe": "allinclusive"
+     }
+    }
+   ]
+  },
+  {
+   "id": "geld",
+   "title": "Geld",
+   "en": "Money",
+   "hook": "Every budget is a confession.",
+   "questions": [
+    {
+     "de": "20 Euro gefunden: sofort Döner?",
+     "en": "Found 20 euros: kebab, right now?",
+     "ja": "rucksack",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Du zählst im Urlaub kein Geld?",
+     "en": "You never count money on holiday?",
+     "ja": "allinclusive",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Du zahlst 18 Euro für ein Museumsticket?",
+     "en": "You pay 18 euros for a museum ticket?",
+     "ja": "staedtetrip",
+     "nein": "camper"
+    },
+    {
+     "de": "Dein Geld geht lieber für Benzin weg?",
+     "en": "Your money would rather go on petrol?",
+     "ja": "camper",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Der billigste Urlaub ist der beste?",
+     "en": "The cheapest holiday is the best one?",
+     "ja": "balkonien",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Du hast eine Excel-Tabelle für die Reise?",
+     "en": "You have a spreadsheet for the trip?",
+     "ja": "staedtetrip",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Pfandflaschen sammeln ist Reisebudget?",
+     "en": "Collecting deposit bottles counts as travel budget?",
+     "ja": "rucksack",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Das gesparte Geld geht in Pflanzen?",
+     "en": "The saved money goes on plants?",
+     "ja": "balkonien",
+     "nein": "camper"
+    },
+    {
+     "left": {
+      "de": "Trinkgeld großzügig",
+      "en": "tip generously",
+      "vibe": "allinclusive"
+     },
+     "right": {
+      "de": "Trinkgeld genau",
+      "en": "tip exactly",
+      "vibe": "staedtetrip"
+     }
+    },
+    {
+     "left": {
+      "de": "Nachtbus",
+      "en": "night bus",
+      "vibe": "rucksack"
+     },
+     "right": {
+      "de": "Mietwagen",
+      "en": "rental car",
+      "vibe": "camper"
+     }
+    },
+    {
+     "left": {
+      "de": "Neues Buch",
+      "en": "a new book",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Neuer Cocktail",
+      "en": "a new cocktail",
+      "vibe": "allinclusive"
+     }
+    },
+    {
+     "left": {
+      "de": "Teures Ticket",
+      "en": "pricey ticket",
+      "vibe": "staedtetrip"
+     },
+     "right": {
+      "de": "Gratis-Aussicht",
+      "en": "free view",
+      "vibe": "camper"
+     }
+    }
+   ]
+  },
+  {
+   "id": "plaene",
+   "title": "Pläne",
+   "en": "Plans",
+   "hook": "Some plan every hour. Some plan to have no plan.",
+   "questions": [
+    {
+     "de": "Du hast einen Plan für jede Stunde?",
+     "en": "You have a plan for every hour?",
+     "ja": "staedtetrip",
+     "nein": "rucksack"
+    },
+    {
+     "de": "„Mal sehen“ ist ein guter Plan?",
+     "en": "\"We will see\" is a good plan?",
+     "ja": "rucksack",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Dein Plan ist: gar nichts?",
+     "en": "Your plan is: nothing at all?",
+     "ja": "allinclusive",
+     "nein": "camper"
+    },
+    {
+     "de": "Du fährst einfach los und schaust?",
+     "en": "You just set off and see?",
+     "ja": "camper",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Du buchst im Januar für den August?",
+     "en": "You book in January for August?",
+     "ja": "allinclusive",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Du planst, nichts zu planen?",
+     "en": "You plan to plan nothing?",
+     "ja": "balkonien",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Das Wetter entscheidet, wohin du fährst?",
+     "en": "The weather decides where you go?",
+     "ja": "camper",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Du schickst Freunden deine Route?",
+     "en": "You send friends your route?",
+     "ja": "staedtetrip",
+     "nein": "balkonien"
+    },
+    {
+     "left": {
+      "de": "Liste mit 80 Pins",
+      "en": "list with 80 pins",
+      "vibe": "staedtetrip"
+     },
+     "right": {
+      "de": "Keine Liste",
+      "en": "no list",
+      "vibe": "rucksack"
+     }
+    },
+    {
+     "left": {
+      "de": "Wettervorhersage",
+      "en": "weather forecast",
+      "vibe": "camper"
+     },
+     "right": {
+      "de": "Bauchgefühl",
+      "en": "gut feeling",
+      "vibe": "rucksack"
+     }
+    },
+    {
+     "left": {
+      "de": "Fester Platz am Pool",
+      "en": "fixed spot by the pool",
+      "vibe": "allinclusive"
+     },
+     "right": {
+      "de": "Ein Platz am See",
+      "en": "a spot by the lake",
+      "vibe": "camper"
+     }
+    },
+    {
+     "left": {
+      "de": "Wochenplan",
+      "en": "weekly plan",
+      "vibe": "staedtetrip"
+     },
+     "right": {
+      "de": "Radio an",
+      "en": "radio on",
+      "vibe": "balkonien"
+     }
+    }
+   ]
+  },
+  {
+   "id": "fotos",
+   "title": "Fotos",
+   "en": "Photos",
+   "hook": "Your camera roll is your diary, or your alibi.",
+   "questions": [
+    {
+     "de": "Du machst 400 Fotos am Tag?",
+     "en": "You take 400 photos a day?",
+     "ja": "staedtetrip",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Du hast kein Foto, nur Geschichten?",
+     "en": "You have no photos, only stories?",
+     "ja": "rucksack",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Dein Foto: Füße, Sand, Cocktail?",
+     "en": "Your photo: feet, sand, cocktail?",
+     "ja": "allinclusive",
+     "nein": "camper"
+    },
+    {
+     "de": "Du fotografierst den Sonnenaufgang am See?",
+     "en": "You photograph the sunrise at the lake?",
+     "ja": "camper",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Dein Urlaubsfoto ist eine Tomate vom Balkon?",
+     "en": "Your holiday photo is a tomato from the balcony?",
+     "ja": "balkonien",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Du postest alles sofort?",
+     "en": "You post everything straight away?",
+     "ja": "allinclusive",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Dein Handy ist am ersten Tag kaputt?",
+     "en": "Your phone breaks on day one?",
+     "ja": "rucksack",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Dein Handy liegt im Van unterm Sitz?",
+     "en": "Your phone is under the seat in the van?",
+     "ja": "camper",
+     "nein": "staedtetrip"
+    },
+    {
+     "left": {
+      "de": "Selfie",
+      "en": "selfie",
+      "vibe": "allinclusive"
+     },
+     "right": {
+      "de": "Foto vom Gebäude",
+      "en": "photo of the building",
+      "vibe": "staedtetrip"
+     }
+    },
+    {
+     "left": {
+      "de": "Analoge Kamera",
+      "en": "film camera",
+      "vibe": "rucksack"
+     },
+     "right": {
+      "de": "Handy",
+      "en": "phone",
+      "vibe": "allinclusive"
+     }
+    },
+    {
+     "left": {
+      "de": "Foto vom Himmel",
+      "en": "photo of the sky",
+      "vibe": "camper"
+     },
+     "right": {
+      "de": "Foto vom Buch",
+      "en": "photo of the book",
+      "vibe": "balkonien"
+     }
+    },
+    {
+     "left": {
+      "de": "Fotoalbum",
+      "en": "photo album",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Keine Fotos",
+      "en": "no photos",
+      "vibe": "rucksack"
+     }
+    }
+   ]
+  },
+  {
+   "id": "andere",
+   "title": "Mit anderen reisen",
+   "en": "Travelling with others",
+   "hook": "Company reveals the traveller faster than any map.",
+   "questions": [
+    {
+     "de": "Du reist am liebsten allein?",
+     "en": "You like travelling alone best?",
+     "ja": "rucksack",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Zehn Freunde, ein Hotel, eine Woche?",
+     "en": "Ten friends, one hotel, one week?",
+     "ja": "allinclusive",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Mitreisende müssen dein Tempo haben?",
+     "en": "Travel mates must keep your pace?",
+     "ja": "staedtetrip",
+     "nein": "camper"
+    },
+    {
+     "de": "Du teilst deinen Van mit einem Hund?",
+     "en": "You share your van with a dog?",
+     "ja": "camper",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Die Nachbarin kommt zum Kaffee auf den Balkon?",
+     "en": "The neighbour comes for coffee on the balcony?",
+     "ja": "balkonien",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Du kennst nach einem Tag das ganze Hostel?",
+     "en": "You know the whole hostel after one day?",
+     "ja": "rucksack",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Streit um die Route? Du gibst nach?",
+     "en": "Argument about the route? You give in?",
+     "ja": "allinclusive",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Du brauchst mal zwei Stunden allein?",
+     "en": "You need two hours alone now and then?",
+     "ja": "balkonien",
+     "nein": "allinclusive"
+    },
+    {
+     "left": {
+      "de": "Große Gruppe",
+      "en": "big group",
+      "vibe": "allinclusive"
+     },
+     "right": {
+      "de": "Zu zweit",
+      "en": "just the two of you",
+      "vibe": "camper"
+     }
+    },
+    {
+     "left": {
+      "de": "Neue Leute",
+      "en": "new people",
+      "vibe": "rucksack"
+     },
+     "right": {
+      "de": "Alte Freunde",
+      "en": "old friends",
+      "vibe": "balkonien"
+     }
+    },
+    {
+     "left": {
+      "de": "Fremde fragen",
+      "en": "ask strangers",
+      "vibe": "rucksack"
+     },
+     "right": {
+      "de": "Google fragen",
+      "en": "ask Google",
+      "vibe": "staedtetrip"
+     }
+    },
+    {
+     "left": {
+      "de": "Gemeinsam frühstücken",
+      "en": "breakfast together",
+      "vibe": "allinclusive"
+     },
+     "right": {
+      "de": "Jeder für sich",
+      "en": "everyone for themselves",
+      "vibe": "balkonien"
+     }
+    }
+   ]
+  },
+  {
+   "id": "schief",
+   "title": "Wenn was schiefgeht",
+   "en": "When things go wrong",
+   "hook": "The cancelled train is where the real you shows up.",
+   "questions": [
+    {
+     "de": "Der Zug fällt aus. Du lachst?",
+     "en": "The train is cancelled. You laugh?",
+     "ja": "rucksack",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Regen am Strand: du gehst trotzdem?",
+     "en": "Rain at the beach: you go anyway?",
+     "ja": "camper",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Plan B steht schon in der Liste?",
+     "en": "Plan B is already on the list?",
+     "ja": "staedtetrip",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Du rufst sofort die Rezeption an?",
+     "en": "You call reception straight away?",
+     "ja": "allinclusive",
+     "nein": "camper"
+    },
+    {
+     "de": "Schiefgehen? Du bist doch zu Hause?",
+     "en": "Go wrong? You are at home, after all?",
+     "ja": "balkonien",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Du schläfst auch mal am Bahnhof?",
+     "en": "You sometimes sleep at the station?",
+     "ja": "rucksack",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Der Gaskocher ist leer: du isst kalt?",
+     "en": "The gas is out: you eat cold?",
+     "ja": "camper",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Du verpasst was und bist froh?",
+     "en": "You miss something and are glad?",
+     "ja": "balkonien",
+     "nein": "staedtetrip"
+    },
+    {
+     "left": {
+      "de": "Beschwerde schreiben",
+      "en": "write a complaint",
+      "vibe": "allinclusive"
+     },
+     "right": {
+      "de": "Schulterzucken",
+      "en": "shrug",
+      "vibe": "rucksack"
+     }
+    },
+    {
+     "left": {
+      "de": "Panzertape",
+      "en": "duct tape",
+      "vibe": "camper"
+     },
+     "right": {
+      "de": "Reiseversicherung",
+      "en": "travel insurance",
+      "vibe": "staedtetrip"
+     }
+    },
+    {
+     "left": {
+      "de": "Neuer Plan",
+      "en": "new plan",
+      "vibe": "staedtetrip"
+     },
+     "right": {
+      "de": "Tee machen",
+      "en": "make tea",
+      "vibe": "balkonien"
+     }
+    },
+    {
+     "left": {
+      "de": "Lagerfeuer",
+      "en": "campfire",
+      "vibe": "camper"
+     },
+     "right": {
+      "de": "Poolbar",
+      "en": "pool bar",
+      "vibe": "allinclusive"
+     }
+    }
+   ]
+  },
+  {
+   "id": "zuhause",
+   "title": "Zurück zu Hause",
+   "en": "Back home",
+   "hook": "What you bring back is who you were out there.",
+   "questions": [
+    {
+     "de": "Du bist braun und gut genährt?",
+     "en": "You are tanned and well fed?",
+     "ja": "allinclusive",
+     "nein": "staedtetrip"
+    },
+    {
+     "de": "Dein Rucksack riecht nach drei Ländern?",
+     "en": "Your backpack smells of three countries?",
+     "ja": "rucksack",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Du planst schon die nächste Stadt?",
+     "en": "You are already planning the next city?",
+     "ja": "staedtetrip",
+     "nein": "camper"
+    },
+    {
+     "de": "Du brauchst nach dem Urlaub Urlaub?",
+     "en": "You need a holiday after the holiday?",
+     "ja": "staedtetrip",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Die erste Dusche seit sechs Tagen?",
+     "en": "First shower in six days?",
+     "ja": "camper",
+     "nein": "allinclusive"
+    },
+    {
+     "de": "Du warst nie weg und bist trotzdem erholt?",
+     "en": "You never left and still feel rested?",
+     "ja": "balkonien",
+     "nein": "rucksack"
+    },
+    {
+     "de": "Du hast 40 neue Nummern im Handy?",
+     "en": "You have 40 new numbers in your phone?",
+     "ja": "rucksack",
+     "nein": "balkonien"
+    },
+    {
+     "de": "Du vermisst das Buffet?",
+     "en": "You miss the buffet?",
+     "ja": "allinclusive",
+     "nein": "camper"
+    },
+    {
+     "left": {
+      "de": "Souvenir-Magnet",
+      "en": "souvenir magnet",
+      "vibe": "allinclusive"
+     },
+     "right": {
+      "de": "Sand im Schuh",
+      "en": "sand in your shoe",
+      "vibe": "camper"
+     }
+    },
+    {
+     "left": {
+      "de": "Neue Pflanze",
+      "en": "a new plant",
+      "vibe": "balkonien"
+     },
+     "right": {
+      "de": "Neue Freunde",
+      "en": "new friends",
+      "vibe": "rucksack"
+     }
+    },
+    {
+     "left": {
+      "de": "Wäsche sofort",
+      "en": "laundry right away",
+      "vibe": "staedtetrip"
+     },
+     "right": {
+      "de": "Wäsche nächste Woche",
+      "en": "laundry next week",
+      "vibe": "camper"
+     }
+    },
+    {
+     "left": {
+      "de": "Fotos sortieren",
+      "en": "sort the photos",
+      "vibe": "staedtetrip"
+     },
+     "right": {
+      "de": "Nickerchen",
+      "en": "a nap",
+      "vibe": "balkonien"
+     }
+    }
+   ]
+  }
+ ]
+}
