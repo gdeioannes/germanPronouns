@@ -261,7 +261,7 @@ async function shrink(png, file, transparent = false, size = SIZE, trim = false,
 		.raw()
 		.toBuffer({ resolveWithObject: true });
 	const filled = levelPaper(data, info.width, info.height);
-	if (trim) {
+	if (trim && !transparent) {
 		const box = drawingBox(filled, info.width, info.height, Math.round(info.width * 0.02));
 		process.stdout.write(`trimmed to ${JSON.stringify(box)} of ${info.width}x${info.height} … `);
 		const side = Math.max(box.width, box.height);
@@ -291,9 +291,11 @@ async function shrink(png, file, transparent = false, size = SIZE, trim = false,
 			rgba[p * 4 + 2] = data[p * 3 + 2];
 			rgba[p * 4 + 3] = filled[p] ? 0 : 255;
 		}
-		await sharp(rgba, { raw: { width: info.width, height: info.height, channels: 4 } })
-			.webp({ lossless: true, effort: 6 })
-			.toFile(file);
+		// With `trim` too (the study companion's print pictures), the clear
+		// margin is cropped away so a picture fills the box the page gives it.
+		let clear = sharp(rgba, { raw: { width: info.width, height: info.height, channels: 4 } });
+		if (trim) clear = sharp(await clear.png().toBuffer()).trim({ threshold: 10 });
+		await clear.webp({ lossless: true, effort: 6 }).toFile(file);
 		return;
 	}
 	// Lossy WebP shifts flat colours by a few units, which shows as a faint

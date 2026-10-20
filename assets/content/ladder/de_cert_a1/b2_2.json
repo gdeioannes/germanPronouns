@@ -730,7 +730,8 @@
 					"gelehrt"
 				],
 				"cue": "lernen",
-				"hint": "lernen · Partizip II"
+				"hint": "lernen · Partizip II",
+				"why": "Past regret: hätte + Partizip II. lernen is regular: ge- + stem + -t, so mehr gelernt hätte."
 			},
 			{
 				"index": 1,
@@ -740,7 +741,8 @@
 					"gegangt"
 				],
 				"cue": "gehen",
-				"hint": "gehen · Partizip II"
+				"hint": "gehen · Partizip II",
+				"why": "gehen is movement, so the past Konjunktiv II uses wäre. Its Partizip II is irregular: ins Bett gegangen wäre."
 			},
 			{
 				"index": 2,
@@ -750,7 +752,8 @@
 					"würde"
 				],
 				"cue": "sein",
-				"hint": "sein · Konjunktiv II"
+				"hint": "sein · Konjunktiv II",
+				"why": "Unreal past with sein: wäre + gewesen. The wenn-clause comes first, so the verb comes next: wäre ich … gewesen."
 			},
 			{
 				"index": 3,
@@ -760,7 +763,8 @@
 					"hättest"
 				],
 				"cue": "haben",
-				"hint": "haben · Konjunktiv II"
+				"hint": "haben · Konjunktiv II",
+				"why": "Past regret with a modal: hätte + verb + modal in the infinitive (not gesollt): Ich hätte … vorbereiten sollen."
 			},
 			{
 				"index": 4,
@@ -770,7 +774,8 @@
 					"sollten"
 				],
 				"cue": "should",
-				"hint": "sollen · Modalverb am Satzende (should)"
+				"hint": "sollen · Modalverb am Satzende (should)",
+				"why": "With hätte + another verb, the modal stays in the infinitive at the end (not gesollt): vorbereiten sollen."
 			},
 			{
 				"index": 5,
@@ -780,7 +785,8 @@
 					"Würde"
 				],
 				"cue": "haben",
-				"hint": "haben · Konjunktiv II, am Satzanfang"
+				"hint": "haben · Konjunktiv II, am Satzanfang",
+				"why": "A wenn-clause can drop wenn: the verb then goes first. verpassen uses haben: Hätte ich nicht den Bus verpasst."
 			},
 			{
 				"index": 6,
@@ -790,7 +796,8 @@
 					"würde"
 				],
 				"cue": "sein",
-				"hint": "sein · Konjunktiv II"
+				"hint": "sein · Konjunktiv II",
+				"why": "Unreal past with sein: wäre + gewesen. After the first clause the verb comes first: wäre ich pünktlich gewesen."
 			},
 			{
 				"index": 7,
@@ -800,7 +807,8 @@
 					"angenommt"
 				],
 				"cue": "annehmen",
-				"hint": "annehmen · Partizip II"
+				"hint": "annehmen · Partizip II",
+				"why": "A wish about the past: Hätte … doch + Partizip II. annehmen is separable and irregular: angenommen."
 			},
 			{
 				"index": 8,
@@ -810,7 +818,8 @@
 					"gebliebt"
 				],
 				"cue": "bleiben",
-				"hint": "bleiben · Partizip II"
+				"hint": "bleiben · Partizip II",
+				"why": "bleiben uses sein in the Perfekt, so here it's wäre + Partizip II. bleiben is irregular: ruhiger geblieben wäre."
 			},
 			{
 				"index": 9,
@@ -820,7 +829,8 @@
 					"konnten"
 				],
 				"cue": "could",
-				"hint": "können · Modalverb am Satzende (could)"
+				"hint": "können · Modalverb am Satzende (could)",
+				"why": "With hätte + another verb, the modal stays in the infinitive at the end (not gekonnt): bitten können."
 			},
 			{
 				"index": 10,
@@ -830,7 +840,8 @@
 					"wird"
 				],
 				"cue": "sein",
-				"hint": "sein · Konjunktiv II"
+				"hint": "sein · Konjunktiv II",
+				"why": "Unreal past with sein: wäre + gewesen. Reported opinion: es wäre besser gewesen."
 			},
 			{
 				"index": 11,
@@ -840,7 +851,8 @@
 					"gesuchte"
 				],
 				"cue": "suchen",
-				"hint": "suchen · Partizip II"
+				"hint": "suchen · Partizip II",
+				"why": "Past unreal condition: hätte + Partizip II. suchen is regular: ge- + stem + -t, so eine Lerngruppe gesucht hätte."
 			}
 		]
 	},

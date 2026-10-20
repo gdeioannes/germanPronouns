@@ -295,7 +295,8 @@
 					"seist"
 				],
 				"cue": "sein",
-				"hint": "sein · die Lage · Konjunktiv I"
+				"hint": "sein · die Lage · Konjunktiv I",
+				"why": "Reported speech (sagte sie) uses Konjunktiv I. sein with a singular subject is sei: die Lage sei ernst."
 			},
 			{
 				"index": 1,
@@ -305,7 +306,8 @@
 					"hab"
 				],
 				"cue": "haben",
-				"hint": "haben · die Regierung · Konjunktiv I"
+				"hint": "haben · die Regierung · Konjunktiv I",
+				"why": "Reported speech: Konjunktiv I. haben with er/sie/es is habe (no -t): die Regierung habe einen Plan."
 			},
 			{
 				"index": 2,
@@ -315,7 +317,8 @@
 					"solltet"
 				],
 				"cue": "sollen",
-				"hint": "sollen · 400.000 Wohnungen · Konjunktiv II (Präteritumform)"
+				"hint": "sollen · 400.000 Wohnungen · Konjunktiv II (Präteritumform)",
+				"why": "Konjunktiv I sollen with a plural subject looks like normal sollen, so you switch to Konjunktiv II: sollten."
 			},
 			{
 				"index": 3,
@@ -325,7 +328,8 @@
 					"müsset"
 				],
 				"cue": "müssen",
-				"hint": "müssen · das Land · Konjunktiv I"
+				"hint": "müssen · das Land · Konjunktiv I",
+				"why": "Reported speech after betonte: Konjunktiv I. müssen with er/sie/es is müsse: das Land müsse investieren."
 			},
 			{
 				"index": 4,
@@ -335,7 +339,8 @@
 					"wurde"
 				],
 				"cue": "sein",
-				"hint": "sein · die Zahl (… versprochen worden) · Konjunktiv I"
+				"hint": "sein · die Zahl (… versprochen worden) · Konjunktiv I",
+				"why": "Reported speech after erklärte: Konjunktiv I of sein, singular (die Zahl): sei versprochen worden."
 			},
 			{
 				"index": 5,
@@ -345,7 +350,8 @@
 					"sollt"
 				],
 				"cue": "sollen",
-				"hint": "sollen · die Regierung · Konjunktiv I"
+				"hint": "sollen · die Regierung · Konjunktiv I",
+				"why": "Reported demand after forderte: Konjunktiv I. sollen with er/sie/es is solle: die Regierung solle beschleunigen."
 			},
 			{
 				"index": 6,
@@ -355,7 +361,8 @@
 					"gebet"
 				],
 				"cue": "geben",
-				"hint": "geben · es · Konjunktiv I"
+				"hint": "geben · es · Konjunktiv I",
+				"why": "Reported speech (fügte hinzu): Konjunktiv I. geben with es is gebe: es gebe keine schnelle Lösung."
 			},
 			{
 				"index": 7,
@@ -365,7 +372,8 @@
 					"könntet"
 				],
 				"cue": "können",
-				"hint": "können · viele Unternehmen · Konjunktiv II (Präteritumform)"
+				"hint": "können · viele Unternehmen · Konjunktiv II (Präteritumform)",
+				"why": "Konjunktiv I können in the plural looks like normal können, so you switch to Konjunktiv II: könnten."
 			},
 			{
 				"index": 8,
@@ -375,7 +383,8 @@
 					"seist"
 				],
 				"cue": "sein",
-				"hint": "sein · das · Konjunktiv I"
+				"hint": "sein · das · Konjunktiv I",
+				"why": "Reported answer after antwortete: Konjunktiv I of sein, singular (das): das sei nicht vorgesehen."
 			},
 			{
 				"index": 9,
@@ -385,7 +394,8 @@
 					"werdet"
 				],
 				"cue": "werden",
-				"hint": "werden · man · Konjunktiv I"
+				"hint": "werden · man · Konjunktiv I",
+				"why": "Reported speech: Konjunktiv I. werden with man is werde, plus the infinitive at the end: man werde prüfen."
 			}
 		]
 	},

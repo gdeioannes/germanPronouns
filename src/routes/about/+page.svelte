@@ -70,7 +70,7 @@
 				habit in German — <em>der, die, das</em> — and <strong class="key">grew, release by
 				release, into a complete course</strong>: stepped lessons with audio at every
 				level, fill-in exercises, dictation, flashcards, a word library of
-				nouns and verbs, printable workbooks, and the beginnings of an
+				nouns and verbs, printable exercise sheets, and the beginnings of an
 				illustrated story mode. The <a href="/changelog">changelog</a> tells
 				that story in full.
 			</p>

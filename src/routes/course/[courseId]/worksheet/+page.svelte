@@ -11,6 +11,9 @@
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { track } from '$lib/services/analytics';
 	import { progress } from '$lib/state/progress.svelte';
+	import { vocab } from '$lib/state/vocab.svelte';
+	import { isWeak } from '$lib/domain/flashcards';
+	import { runPassed } from '$lib/domain/progress';
 	import {
 		buildWorksheet,
 		countItems,
@@ -22,7 +25,7 @@
 		type QuizHistory
 	} from '$lib/domain/worksheet';
 	import type { Quiz } from '$lib/content/types';
-	import { workbookCards, workbookFile } from '$lib/domain/workbook';
+	import { workbookCards, workbookFile, workbookReady } from '$lib/domain/workbook';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -36,21 +39,23 @@
 			import: 'default'
 		})
 	)[0] ?? {};
-	// The printed book as one free PDF, when tool/gen-books.mjs has written it.
-	const bookPdfs = Object.values(
-		import.meta.glob<Record<string, { pages: number; bytes: number }>>('/static/books/manifest.json', {
-			eager: true,
-			import: 'default'
-		})
-	)[0] ?? {};
-	const bookPdf = $derived.by(() => {
-		const file = `${course.id}_a1.pdf`;
-		return bookPdfs[file] ? { href: `/books/${file}`, ...bookPdfs[file] } : null;
-	});
+	// A level redone as a study companion shows the companion's cover. Only the
+	// `cover` key is imported, so the books themselves stay out of this page.
+	const companionCovers = import.meta.glob<string>('$content/companion/*/*.json', { eager: true, import: 'cover' });
+	const companionCover = (level: string) =>
+		companionCovers[Object.keys(companionCovers).find((k) => k.endsWith(`/${course.id}/${level.toLowerCase().replace(/\./g, '_')}.json`)) ?? ''];
 	const cards = $derived(
 		workbookCards(course).map((card) => {
 			const file = workbookFile(course.id, card.level);
-			return { ...card, pdf: pdfs[file] ? { href: `/workbooks/${file}`, ...pdfs[file] } : null };
+			const ready = workbookReady(card.level);
+			const companion = companionCover(card.level);
+			return {
+				...card,
+				cover: companion ?? card.cover,
+				companion: !!companion,
+				ready,
+				pdf: ready && pdfs[file] ? { href: `/workbooks/${file}`, ...pdfs[file] } : null
+			};
 		})
 	);
 
@@ -82,25 +87,43 @@
 	/**
 	 * The learner's per-quiz history, read once per build. `progress` must be
 	 * loaded first or every quiz would read as unfinished and the "what I have
-	 * finished" scope would come back empty.
+	 * finished" scope would come back empty. The weak-spot ranking also reads
+	 * the last run, the medal, and — for a flashcard deck — the words still
+	 * being missed.
 	 */
 	async function histories(): Promise<Map<string, QuizHistory>> {
 		if (!progress.loaded) await progress.load();
+		await vocab.load(course.id);
 		const map = new Map<string, QuizHistory>();
 		for (const quiz of course.quizzes) {
-			await progress.statsFor(quiz.storageKeyPrefix);
-			const history = await progress.historyFor(quiz.storageKeyPrefix);
+			const prefix = quiz.storageKeyPrefix;
+			await progress.statsFor(prefix);
+			const history = await progress.historyFor(prefix);
+			const lastRun = (await progress.runsFor(prefix)).at(-1);
 			map.set(quiz.id, {
 				...history,
-				done: progress.isCompleted(quiz.type, quiz.id, quiz.storageKeyPrefix)
+				done: progress.isCompleted(quiz.type, quiz.id, prefix),
+				lastRunFailed: !!lastRun && !runPassed(lastRun.right, lastRun.total),
+				tier: progress.ribbonFor(quiz.type, quiz.id, prefix),
+				weakWords:
+					quiz.type === 'vocabulary'
+						? quiz.cards.flatMap((card) => {
+								const record = vocab.recordFor(course.id, card);
+								return isWeak(record) ? [{ card, wrong: record.wrong }] : [];
+							})
+						: undefined
 			});
 		}
 		return map;
 	}
 
+	/** Whether anything at all has been answered, to tell "no data" from "no mistakes". */
+	let anyAnswered = $state(false);
+
 	async function build() {
 		building = true;
 		const map = await histories();
+		anyAnswered = [...map.values()].some((h) => h.answered > 0 || h.weakWords?.length);
 		const lookup = (quiz: Quiz) => map.get(quiz.id) ?? NO_HISTORY;
 		sections = buildWorksheet(course, lookup, { scope, maxItems: size });
 		building = false;
@@ -169,35 +192,30 @@
 			<p class="lede">
 				One workbook per level: every unit's rules with examples, the words with
 				pictures, check-yourself questions and written practice — answers upside
-				down at the foot of each unit. Download the PDF, or open it to print.
+				down at the foot of each unit. We are redoing them for paper: a level
+				marked "work in progress" is not ready to print yet.
 			</p>
 		</header>
-
-		{#if bookPdf}
-			<a
-				class="whole-book"
-				href={bookPdf.href}
-				download="Deutsch A1.pdf"
-				onclick={() => track('book_download', { book: 'A1', from: 'shelf' })}
-			>
-				<Icon name="book" size="1.3em" />
-				<span>
-					<strong>Deutsch A1, the whole book</strong>
-					<small>A1.1 and A1.2 in one PDF, as printed · {bookPdf.pages} pages · {(bookPdf.bytes / 1e6).toFixed(0)} MB</small>
-				</span>
-				<Icon name="download" size="1.1em" />
-			</a>
-		{/if}
 
 		<ol class="books">
 			{#each cards as card (card.level)}
 				<li>
-					<a class="book" href="/course/{course.id}/workbook/{card.level}">
-						{#if card.cover}<img src="/img/{card.cover}.webp" alt="" width="1024" height="768" loading="lazy" />{/if}
-						<span class="code">{card.level}</span>
-						<span class="name">{card.title}</span>
-						<small class="tnum">{card.units} units{#if card.pdf}{' · '}{card.pdf.pages} pages{/if}</small>
-					</a>
+					{#if card.ready}
+						<a class="book" href="/course/{course.id}/workbook/{card.level}">
+							{#if card.cover}<img src="/img/{card.cover}.webp" alt="" width="1024" height="768" loading="lazy" />{/if}
+							<span class="code">{card.level}</span>
+							<span class="name">{card.title}</span>
+							<small class="tnum">{card.companion ? 'Study book' : `${card.units} units`}{#if card.pdf}{' · '}{card.pdf.pages} pages{/if}</small>
+						</a>
+					{:else}
+						<!-- Not ready: the cover stays on the shelf, with nothing to open. -->
+						<div class="book wip">
+							{#if card.cover}<img src="/img/{card.cover}.webp" alt="" width="1024" height="768" loading="lazy" />{/if}
+							<span class="code">{card.level}</span>
+							<span class="name">{card.title}</span>
+							<small class="wip-tag">Work in progress</small>
+						</div>
+					{/if}
 					{#if card.pdf}
 						<a
 							class="pdf"
@@ -271,7 +289,9 @@
 				{scope === 'achieved'
 					? 'Nothing is finished yet — do an exercise or two, then come back.'
 					: scope === 'weakSpots'
-						? 'No answers recorded yet, so there are no weak spots to drill.'
+						? anyAnswered
+							? 'Nothing you have answered is going wrong right now — no weak spots to drill. Try the whole course instead.'
+							: 'No answers recorded yet in this browser, so there are no weak spots to drill. Do a few exercises first.'
 						: 'This course has no printable exercises.'}
 			</p>
 		{/if}
@@ -435,33 +455,6 @@
 
 	/* -- level workbooks: a shelf of covers -------------------------------- */
 
-	.whole-book {
-		display: flex;
-		align-items: center;
-		gap: 0.8rem;
-		margin: 0 0 1rem;
-		padding: 0.7rem 1rem;
-		border: 1px solid var(--line);
-		border-radius: var(--radius);
-		background: var(--accent-soft);
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.whole-book:hover {
-		border-color: var(--accent);
-	}
-
-	.whole-book span {
-		flex: 1;
-	}
-
-	.whole-book small {
-		display: block;
-		color: var(--ink-muted);
-		font-size: 0.8rem;
-	}
-
 	.books {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
@@ -496,6 +489,32 @@
 	.book:hover {
 		transform: translateY(-3px);
 		box-shadow: 0 10px 24px rgb(0 0 0 / 0.08);
+	}
+
+	/* A level still being redone: on the shelf, greyed, with nothing to open. */
+	.book.wip {
+		border-top-color: var(--line-strong);
+		color: var(--ink-muted);
+	}
+
+	.book.wip:hover {
+		transform: none;
+		box-shadow: none;
+	}
+
+	.book.wip img {
+		filter: grayscale(0.7);
+		opacity: 0.6;
+	}
+
+	.book .wip-tag {
+		justify-self: start;
+		margin: 0.3rem 0.9rem 0;
+		padding: 0.1rem 0.5rem;
+		border: 1px dashed var(--line-strong);
+		border-radius: 999px;
+		font-size: 0.72rem;
+		font-weight: 700;
 	}
 
 	.book img {

@@ -89,7 +89,8 @@ async function printLevel(browser, base, courseId, level) {
 	for (let attempt = 1; ; attempt++) {
 		const page = await browser.newPage();
 		try {
-			await page.goto(`${base}/course/${courseId}/workbook/${level}`, { waitUntil: 'load', timeout: 120_000 });
+			// ?preview: a level not yet offered (domain/workbook READY_WORKBOOKS) still prints.
+			await page.goto(`${base}/course/${courseId}/workbook/${level}?preview`, { waitUntil: 'load', timeout: 120_000 });
 			await settled(page);
 			return await page.pdf({ format: 'A4', printBackground: true, timeout: 300_000 });
 		} catch (err) {

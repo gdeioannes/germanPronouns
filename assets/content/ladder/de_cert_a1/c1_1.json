@@ -835,7 +835,8 @@
 					"lasst"
 				],
 				"cue": "lassen",
-				"hint": "lassen · sich … installieren (can be installed)"
+				"hint": "lassen · sich … installieren (can be installed)",
+				"why": "sich lassen + infinitive means 'can be done'. Das Programm is singular: lässt sich installieren."
 			},
 			{
 				"index": 1,
@@ -845,7 +846,8 @@
 					"finden"
 				],
 				"cue": "finden",
-				"hint": "finden · sein + zu (can be found)"
+				"hint": "finden · sein + zu (can be found)",
+				"why": "sein + zu + infinitive means 'can' or 'must be done'. Here 'can be found': ist … zu finden."
 			},
 			{
 				"index": 2,
@@ -855,7 +857,8 @@
 					"zu gemeldet"
 				],
 				"cue": "melden",
-				"hint": "melden · sein + zu (must be reported)"
+				"hint": "melden · sein + zu (must be reported)",
+				"why": "sein + zu + infinitive often means 'must be done'. Plural subject: Probleme sind dem Support zu melden."
 			},
 			{
 				"index": 3,
@@ -865,7 +868,8 @@
 					"ändernd"
 				],
 				"cue": "ändern",
-				"hint": "ändern · -bar (can be changed)"
+				"hint": "ändern · -bar (can be changed)",
+				"why": "Verb stem + -bar makes an adjective meaning 'can be done': ändern → änderbar, the password can be changed."
 			},
 			{
 				"index": 4,
@@ -875,7 +879,8 @@
 					"ist"
 				],
 				"cue": "lassen",
-				"hint": "lassen · sich nicht mehr … (can no longer be used)"
+				"hint": "lassen · sich nicht mehr … (can no longer be used)",
+				"why": "sich lassen + infinitive means 'can be done'; with nicht, 'can't'. Singular subject: lässt sich nicht verwenden."
 			},
 			{
 				"index": 5,
@@ -885,7 +890,8 @@
 					"übertragen zu"
 				],
 				"cue": "übertragen",
-				"hint": "übertragen · sein + zu (must be transferred)"
+				"hint": "übertragen · sein + zu (must be transferred)",
+				"why": "sein + zu + infinitive means 'must be done'. The zu goes before the whole verb: sind … zu übertragen."
 			},
 			{
 				"index": 6,
@@ -895,7 +901,8 @@
 					"lassen"
 				],
 				"cue": "receive",
-				"hint": "bekommen · Passiversatz (are sent the data)"
+				"hint": "bekommen · Passiversatz (are sent the data)",
+				"why": "bekommen + Partizip II is a passive where the receiver is the subject: Mitarbeitende bekommen … zugeschickt."
 			},
 			{
 				"index": 7,
@@ -905,7 +912,8 @@
 					"erklärend"
 				],
 				"cue": "erklären",
-				"hint": "erklären · Passiv Präsens (are explained)"
+				"hint": "erklären · erhalten + Partizip II (get explained)",
+				"why": "Like bekommen, erhalten + Partizip II is a passive with the receiver as subject: erhalten die Regeln erklärt."
 			},
 			{
 				"index": 8,
@@ -915,7 +923,8 @@
 					"haben"
 				],
 				"cue": "can be settled",
-				"hint": "lassen · sich … klären (can be settled)"
+				"hint": "lassen · sich … klären (can be settled)",
+				"why": "sich lassen + infinitive means 'can be done'. Die meisten Fragen is plural: lassen sich klären."
 			},
 			{
 				"index": 9,
@@ -925,7 +934,8 @@
 					"zu speichernd"
 				],
 				"cue": "speichern",
-				"hint": "speichern · sein + zu, verneint (are not to be saved)"
+				"hint": "speichern · sein + zu, verneint (are not to be saved)",
+				"why": "sein + zu + infinitive with nicht means 'must not be done': sind nicht auf privaten Geräten zu speichern."
 			},
 			{
 				"index": 10,
@@ -935,7 +945,8 @@
 					"vermeiden"
 				],
 				"cue": "vermeiden",
-				"hint": "vermeiden · sein + zu (are to be avoided)"
+				"hint": "vermeiden · sein + zu (are to be avoided)",
+				"why": "sein + zu + infinitive means 'must be done'. vermeiden stays whole after zu: sind unbedingt zu vermeiden."
 			},
 			{
 				"index": 11,
@@ -945,7 +956,8 @@
 					"erreichend"
 				],
 				"cue": "erreichen",
-				"hint": "erreichen · -bar (can be reached)"
+				"hint": "erreichen · -bar (can be reached)",
+				"why": "Verb stem + -bar means 'can be done': erreichen → erreichbar. The team can be reached: ist … erreichbar."
 			}
 		]
 	},

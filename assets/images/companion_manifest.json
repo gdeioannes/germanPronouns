@@ -1,0 +1,189 @@
+{
+	"style": "Figurative flat illustration for a printed German study book, in the spirit of a mid-century children's picture book with a touch of graphic simplification and a sense of humour: subjects drawn naturally and instantly recognizable, with real proportions and simple friendly faces, details reduced to clean flat colour shapes, medium-weight ink-navy outlines, no gradients, no textures. Limited warm palette: ink-navy (#1f3a5f), terracotta (#c9683b), mustard (#d9a441), sage (#7a9a7e), soft blue and cream. The drawing floats on a plain pure white background with generous empty margins on every side; nothing touches the edges of the image, no background colour field, no frame. Food and objects never have faces. No text, no letters, no numbers, no digits, no writing on signs or labels, no watermark.",
+	"images": [
+		{
+			"id": "cp_a1_1_zahlen_hero",
+			"prompt": "A small outdoor German weekly-market stall seen from the front: a cheerful moustached seller in an apron behind wooden crates of apples, bananas, bread loaves, eggs, a wheel of cheese and potatoes, each crate with a small blank price card on a stick. In front, a young woman with a tote bag counts coins in her open hand, and a dachshund sits at her feet looking hopefully at the cheese. Blank cards only, no writing anywhere.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_zahlen_telefon",
+			"prompt": "A young man sits on an armchair talking on an old-fashioned corded telephone, reading a phone number aloud from a small paper note in his hand, counting on the fingers of his free hand; a fat ginger cat lies on the telephone cord, and a second paper note is stuck to the cat. The notes are blank.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_daumen",
+			"prompt": "One hand giving a clear thumbs-up: a closed fist with only the thumb pointing straight up. Only the hand and the cuff of a sleeve.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_markt_aepfel",
+			"prompt": "A small pile of four red apples.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_markt_bananen",
+			"prompt": "A bunch of five ripe yellow bananas, plain fruit.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_markt_brot",
+			"prompt": "One round crusty loaf of German bread.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_markt_eier",
+			"prompt": "An open grey cardboard egg carton holding ten plain brown and white eggs, in two rows of five.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_markt_kaese",
+			"prompt": "A wedge of yellow Dutch cheese with a red rind.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_markt_kartoffeln",
+			"prompt": "A small heap of six ordinary brown potatoes with a few darker spots, earthy and plain.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_cover",
+			"prompt": "A friendly picture-book scene of arriving in a German city: a young woman with a rolling suitcase and a backpack waves hello on a cobbled square, a tram passes behind her, a pretzel stand on one side, a row of tall colourful old houses in the back, pigeons at her feet, one pigeon stealing a crumb from the pretzel stand. Signs and the tram destination are blank.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_hallo",
+			"prompt": "Two adults meeting for the first time in a doorway: a cheerful woman goes in for a big hug while a stiff, polite man offers a formal handshake; both freeze half-way, slightly embarrassed and amused. A small dog between them offers its paw to both.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_alphabet",
+			"prompt": "A small hotel reception desk: a tall traveller with a huge backpack leans over the counter and spells out his very long name with big hand gestures, while the receptionist writes in a big guest book with a puzzled face. Behind him, a short queue of three guests waits; one of them has fallen asleep standing up. The guest book pages are blank.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_sein_haben",
+			"prompt": "A very tired young man in pyjamas sits at a small kitchen table holding an enormous coffee mug with both hands, eyes half closed, hair messy; a cheeky cat on the table is quietly stealing the toast from his plate.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_praesens",
+			"prompt": "A cheerful shared-flat morning seen like a doll house cut-away of one big room: one young woman cooks pancakes, a young man plays guitar on the sofa, another works on a laptop, and an older man reads a newspaper upside down. A plant on the shelf is slowly tipping over.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_vokalwechsel",
+			"prompt": "A young man rides a bicycle while reading a book held in one hand, totally absorbed; a small dog runs beside him and has stolen the sandwich sticking out of his backpack.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_artikel",
+			"prompt": "Three everyday objects standing on a small theatre stage under three spotlights like stars of a show: a wooden chair on the left, a desk lamp in the middle, an open book on the right. A tiny mouse peeks from behind the curtain.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_wfragen",
+			"prompt": "A detective in a trench coat and deerskin hat holds a big magnifying glass up to a nervous goose sitting on a chair, as if interviewing it; the goose has a single suspicious crumb on its beak.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_laender",
+			"prompt": "A busy railway platform with four travellers waiting with suitcases covered in colourful round travel stickers (all stickers blank, no writing): a woman with a sun hat, a man with a big rucksack, an elderly couple, and a child holding a small globe.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_wo_zimmer",
+			"prompt": "A simple front view of a living room like a stage set, flat and frontal: a sofa on the left, a table in the middle with a bowl of fruit on it, a lamp on the right, a picture frame on the back wall, a window. A cat sits ON the table, a dog lies UNDER the table, a mouse peeks out from BEHIND the sofa, and a ball lies IN FRONT OF the sofa. Each animal clearly visible.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_familie",
+			"prompt": "A three-generation family posing for a photo on a garden bench: grandma and grandpa in the middle, mother and father behind them, a teenage boy, a girl and a small child in front; the grandpa secretly makes bunny ears behind the father’s head, and the family dog sits on the grandma’s lap.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_woerter",
+			"prompt": "A proud baker carries a gigantic chocolate cake shaped like a little house, with a real tiny front door, through a bakery doorway; the cake is too wide and gets stuck in the doorway, a customer watches with wide eyes.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_plural",
+			"prompt": "On the left, one single smug cat sits alone on a large armchair. On the right, a small sofa is completely crammed with five cats of different colours squeezed together, one hanging off the edge, one sitting on another cat.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_a1_1_wo",
+			"prompt": "A man in a cosy flat searches frantically for his glasses: he looks under a cushion with one hand and behind a plant with the other, while his glasses sit on top of his own head. A cat watches him calmly from the top of a bookshelf.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		}
+	]
+}

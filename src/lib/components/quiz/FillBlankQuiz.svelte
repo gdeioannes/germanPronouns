@@ -590,7 +590,9 @@
 		<Burst trigger={burst} count={burstSize} />
 
 		<!-- The word-help switch sits with the sentence it changes, not away in
-		     settings where the Dart build hid it. -->
+		     settings where the Dart build hid it. The no-help step has none:
+		     a noun's colour is its gender, which would answer the gap. -->
+		{#if step !== 2}
 		<button
 			type="button"
 			class="word-help"
@@ -603,6 +605,7 @@
 			<Icon name="book" size="1em" />
 			<span>Word help</span>
 		</button>
+		{/if}
 
 		<!-- A generated drill's category label is its answer key ("können → konnte"):
 		     with no help it goes, as the cue does. -->
@@ -616,7 +619,7 @@
 		<!-- The sentence, with a field standing in for each blank — or, for a
 		     word-order item, the tiles placed so far (tap one to take it back). -->
 		<p class="sentence" lang={locale}>
-			{#each segments as segment, i (i)}<GermanText text={segment} />{#if i < gaps && tiled}<span
+			{#each segments as segment, i (i)}<GermanText text={segment} help={step !== 2 || locked} />{#if i < gaps && tiled}<span
 						class="build"
 						class:right={verdict === 'right'}
 						class:wrong={verdict === 'wrong'}

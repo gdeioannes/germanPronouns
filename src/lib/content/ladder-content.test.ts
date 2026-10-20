@@ -78,4 +78,16 @@ describe('medal ladder content', () => {
 			});
 		}
 	});
+
+	// The check page lists every miss with its reason; a gap without one
+	// corrects without teaching.
+	it('gives every big-text gap a short reason for the correction', () => {
+		for (const q of quizzes) {
+			if (q.type !== 'reading' || !('inlineBlanks' in q) || !q.inlineBlanks) continue;
+			q.inlineBlanks.forEach((b, i) => {
+				expect(b.why?.trim(), `${q.id} gap ${i}: no "why"`).toBeTruthy();
+				expect(b.why!.length, `${q.id} gap ${i}: "why" over 160 characters`).toBeLessThanOrEqual(160);
+			});
+		}
+	});
 });

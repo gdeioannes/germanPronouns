@@ -5,14 +5,16 @@ import { describe, expect, it } from 'vitest';
 import {
 	buildWorksheet,
 	countItems,
+	gapCategory,
 	NO_HISTORY,
+	quizWeakness,
 	sectionFor,
 	selectSections,
 	speakingMaterialPairs,
 	type ExerciseSection,
 	type QuizHistory
 } from './worksheet';
-import type { FillBlankQuiz, PopulatedCourse, Quiz } from '$lib/content/types';
+import type { FillBlankQuiz, PopulatedCourse, Quiz, VocabCard } from '$lib/content/types';
 
 /** A deterministic stand-in for Math.random: always picks the first option. */
 const first = () => 0;
@@ -174,12 +176,45 @@ describe('scope', () => {
 		expect(sections.map((s) => s.quizTitle)).toEqual(['Im Café']);
 	});
 
-	it('keeps only answered quizzes for the weak-spot scope', () => {
-		const sections = buildWorksheet(course, history({ fb: { answered: 4 } }), {
+	it('keeps only quizzes with mistakes for the weak-spot scope', () => {
+		const sections = buildWorksheet(
+			course,
+			history({ fb: { answered: 4, mistakeRate: 0.5 }, rd: { answered: 6, mistakeRate: 0 } }),
+			{ scope: 'weakSpots', random: first }
+		);
+		// The reading was answered, but always right: nothing to drill there.
+		expect(sections.map((s) => s.quizTitle)).toEqual(['Articles']);
+	});
+
+	it('puts the weakest section first in the weak-spot scope', () => {
+		const sections = buildWorksheet(
+			course,
+			history({ fb: { answered: 20, mistakeRate: 0.1 }, rd: { answered: 20, mistakeRate: 0.8 } }),
+			{ scope: 'weakSpots', random: first }
+		);
+		expect(sections.map((s) => s.quizTitle)).toEqual(['Im Café', 'Articles']);
+	});
+
+	it("prints a flashcard deck's missed words, and only those", () => {
+		const dog: VocabCard = { de: 'Hund', en: 'dog', kind: 'noun', article: 'der', sourceQuizId: 'fb' };
+		const cat: VocabCard = { de: 'Katze', en: 'cat', kind: 'noun', article: 'die', sourceQuizId: 'fb' };
+		const deck = {
+			id: 'vc',
+			type: 'vocabulary',
+			title: 'Wörter',
+			storageKeyPrefix: 'vc_',
+			cards: [dog, cat]
+		} as Quiz;
+		const withDeck = { ...course, quizzes: [deck] } as PopulatedCourse;
+		const sections = buildWorksheet(withDeck, history({ vc: { weakWords: [{ card: cat, wrong: 2 }] } }), {
 			scope: 'weakSpots',
 			random: first
 		});
-		expect(sections.map((s) => s.quizTitle)).toEqual(['Articles']);
+		expect(sections).toHaveLength(1);
+		expect(sections[0].help).toBeUndefined();
+		expect(sections[0].items).toEqual([
+			expect.objectContaining({ prompt: '____', secondary: 'cat', answer: 'die Katze' })
+		]);
 	});
 });
 
@@ -192,8 +227,50 @@ describe('weak-spot weighting', () => {
 			done: false
 		};
 		const [weak] = sectionFor(fillBlank, stats)!.items;
-		// 0.6 * 0.5 (quiz accuracy) + 0.4 * 1 (the only, hence worst, category).
-		expect(weak.weakness).toBeCloseTo(0.7);
+		// 0.6 * (0.5 damped by 10 / 13 answers) + 0.4 * 1 (the only, hence worst, category).
+		expect(weak.weakness).toBeCloseTo(0.6 * (5 / 13) + 0.4);
+	});
+
+	it('does not let one slip outrank a steady run of misses', () => {
+		const slip = quizWeakness({ ...NO_HISTORY, answered: 1, mistakeRate: 1 });
+		const steady = quizWeakness({ ...NO_HISTORY, answered: 20, mistakeRate: 0.4 });
+		expect(steady).toBeGreaterThan(slip);
+	});
+
+	it('reads the recent mistakes over the all-time ones', () => {
+		const fixed = { ...NO_HISTORY, answered: 40, mistakeRate: 0.5, recentMistakeRate: 0 };
+		expect(quizWeakness(fixed)).toBe(0);
+	});
+
+	it('raises a failed last run and lowers a medal', () => {
+		const base = { ...NO_HISTORY, answered: 20, mistakeRate: 0.3 };
+		expect(quizWeakness({ ...base, lastRunFailed: true })).toBeGreaterThan(quizWeakness(base));
+		expect(quizWeakness({ ...base, tier: 'gold' })).toBeLessThan(quizWeakness(base));
+	});
+
+	it("weighs a big text's gaps by their own misses", () => {
+		const inline: Quiz = {
+			id: 'ic',
+			type: 'reading',
+			title: 'Big text',
+			storageKeyPrefix: 'ic_',
+			passageTitle: 'Big text',
+			passage: '',
+			inlineTemplate: '{{0}} {{1}}',
+			inlineBlanks: [
+				{ kind: 'input', answer: 'a' },
+				{ kind: 'input', answer: 'b' }
+			]
+		};
+		const stats: QuizHistory = {
+			...NO_HISTORY,
+			answered: 4,
+			mistakeRate: 0.25,
+			mistakesByCategory: { [gapCategory(1)]: 1 }
+		};
+		const [right, missed] = sectionFor(inline, stats)!.items;
+		expect(missed.weakness).toBeGreaterThan(right.weakness);
+		expect(missed.categoryLabel).toBeUndefined();
 	});
 
 	it('scores an unanswered quiz at zero', () => {

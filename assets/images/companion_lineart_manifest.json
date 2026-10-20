@@ -1,0 +1,13 @@
+{
+	"style": "Clean colouring-book line art for a printed German study book: bold, even black outlines on pure white, every shape left completely white inside so it can be coloured in with pencils, no colour, no grey, no shading, no hatching, no gradients. Friendly picture-book drawing with simple shapes and large areas to colour. Generous white margins, nothing touches the edges. No text, no letters, no numbers.",
+	"images": [
+		{
+			"id": "cp_a1_1_ausmalen",
+			"prompt": "A small street scene: a car parked in front of a house with a door and two windows, a tree next to the house, the sun in the sky, a flower in a pot by the door, a dog sitting on the pavement, and a bicycle leaning on the fence.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		}
+	]
+}

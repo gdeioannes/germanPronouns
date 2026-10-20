@@ -1326,7 +1326,8 @@
 		"blanks": [
 			{
 				"index": 0,
-				"cue": "carried out"
+				"cue": "carried out",
+				"why": "einen Kurswechsel vollziehen is the fixed formal phrase for carrying out a change; vollstrecken is for sentences."
 			},
 			{
 				"index": 1,
@@ -1335,7 +1336,8 @@
 					"Einbauten",
 					"Abgaben"
 				],
-				"cue": "losses"
+				"cue": "losses",
+				"why": "Einbußen are losses in money or income, the usual word in business news: herbe Einbußen. Einnahmen means income."
 			},
 			{
 				"index": 2,
@@ -1345,12 +1347,14 @@
 					"hätten"
 				],
 				"cue": "haben",
-				"hint": "haben · Konjunktiv I"
+				"hint": "haben · Konjunktiv I",
+				"why": "Reported admission (räumte ein): Konjunktiv I. haben with man is habe: man habe … unterschätzt."
 			},
 			{
 				"index": 3,
 				"cue": "werden",
-				"hint": "werden · Konjunktiv I"
+				"hint": "werden · Konjunktiv I",
+				"why": "Reported speech: Konjunktiv I of werden for a future statement: Die Umstellung werde schmerzhaft sein."
 			},
 			{
 				"index": 4,
@@ -1360,7 +1364,8 @@
 					"seien"
 				],
 				"cue": "sein",
-				"hint": "sein · Konjunktiv I"
+				"hint": "sein · Konjunktiv I",
+				"why": "Still his reported words: Konjunktiv I of sein, singular (sie = die Umstellung): sie sei ohne Alternative."
 			},
 			{
 				"index": 5,
@@ -1370,20 +1375,24 @@
 					"könnten"
 				],
 				"cue": "können",
-				"hint": "können · Konjunktiv I"
+				"hint": "können · Konjunktiv I",
+				"why": "Reported speech: Konjunktiv I. können with er is könne: Eine Garantie könne er nicht geben."
 			},
 			{
 				"index": 6,
-				"cue": "meets"
+				"cue": "meets",
+				"why": "auf Widerstand stoßen is the fixed collocation for 'meet with resistance': der Plan stößt auf Widerstand."
 			},
 			{
 				"index": 7,
-				"cue": "voiced"
+				"cue": "voiced",
+				"why": "Bedenken anmelden is the formal phrase for putting concerns on record. aufwerfen goes with Fragen."
 			},
 			{
 				"index": 8,
 				"cue": "haben",
-				"hint": "haben · Konjunktiv II (Ersatzform)"
+				"hint": "haben · Konjunktiv II (Ersatzform)",
+				"why": "Konjunktiv I haben in the plural looks like normal haben, so reported speech switches to Konjunktiv II: hätten."
 			},
 			{
 				"index": 9,
@@ -1393,7 +1402,8 @@
 					"wollt"
 				],
 				"cue": "wollen",
-				"hint": "wollen · Konjunktiv I"
+				"hint": "wollen · Konjunktiv I",
+				"why": "Reported speech, said bitterly: Konjunktiv I. wollen with man is wolle: Zum Dank wolle man sie verkaufen."
 			},
 			{
 				"index": 10,
@@ -1402,7 +1412,8 @@
 					"ausschenken",
 					"ausschöpft"
 				],
-				"cue": "exhaust"
+				"cue": "exhaust",
+				"why": "alle Mittel ausschöpfen is the fixed phrase for using every option to the full. ausschütten means pour out."
 			},
 			{
 				"index": 11,
@@ -1411,7 +1422,8 @@
 					"gebaut",
 					"gezogen"
 				],
-				"cue": "set"
+				"cue": "set",
+				"why": "die Weichen stellen ('set the railway points') means to set the course for the future: die Weichen gestellt."
 			}
 		]
 	},

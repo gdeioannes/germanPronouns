@@ -17,6 +17,57 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-20",
+    title: "A1.1 on paper: a real study book",
+    highlight: true,
+    items: [
+      "The A1.1 PDF is now a 40-page study book written for paper, instead of the exercises printed out. It replaces the old 55-page workbook.",
+      "Find it on the Workbooks shelf, with its own cover, or with the PDF button next to A1.1 on your course page.",
+      "Fourteen topics, each on two facing pages: the left page teaches, with tables, diagrams and pictures, and the right page is for your pencil: write, match, circle, sort into columns, label and even colour in.",
+      "Nothing is asked before it is taught: every German word on a practice page is on a learn page first, this one or an earlier one.",
+      "Two review spreads, a one-page summary of A1.1 to stick on the wall, a picture dictionary of 40 words and all the answers at the back, with each answer in bold.",
+      "QR codes take you to the audio for the listening exercises and to more practice on the site. The book prints well on A4, in colour or black and white. A1.2 and the higher levels are being redone the same way, and show \"Work in progress\" until they are ready.",
+      "The whole Deutsch A1 book is no longer offered as one big PDF: the A1.1 book replaces it, and A1.2 follows.",
+    ],
+  },
+  {
+    date: "2026-10-20",
+    title: "A weak-spot sheet that is really about your weak spots",
+    items: [
+      "\"My weak spots\" on the printable sheet now prints only what you got wrong, not whole exercises, with the weakest exercise first, so even half a sheet does the most good.",
+      "It reads your recent answers, your last run and your medals: a mistake you have since fixed fades, and one slip no longer outranks a steady run of misses.",
+      "Flashcard words you keep missing now come onto the sheet too: the English, and a line for the German with its article.",
+      "In the menu, \"Workbooks (PDF)\" is now \"Printable sheets\". Levels whose book is still being redone say \"PDF · work in progress\" on the course page.",
+    ],
+  },
+  {
+    date: "2026-10-20",
+    title: "See what went wrong in a text with gaps",
+    items: [
+      "When you check a long text with gaps, every gap you missed is now listed in its own sentence: what you wrote struck through, the right answer beside it, and one line on why.",
+      "\"Read the corrected text\" shows the whole text filled in, with the gaps you missed marked, and can read it aloud.",
+      "The right answer under a missed gap is now a green label you can actually read, instead of tiny text.",
+    ],
+  },
+  {
+    date: "2026-10-20",
+    title: "No help now means no help",
+    items: [
+      "On the no-help step, nouns lose their gender colours until you answer, because a colour gives away der, die or das. The Word help switch is hidden on that step for the same reason.",
+    ],
+  },
+  {
+    date: "2026-10-20",
+    title: "Small fixes",
+    items: [
+      "The word card at the start of your deck now shows only while your cards are being dealt, never on the way back from an exercise. It stays up to five seconds: swipe it away when you are ready, or tap it to keep it.",
+      "Reading, listening and other scored exercises now show the medal you actually won, not always bronze.",
+      "Word help works in chats and stories opened from a link.",
+      "In Schreib mir!, the translation of a word you tap now opens on top of the next message instead of under it.",
+      "Two grammar hints in the higher levels were wrong and are fixed.",
+    ],
+  },
+  {
+    date: "2026-10-20",
     title: "Ja oder Nein? starts again: ten new questions about you",
     highlight: true,
     items: [

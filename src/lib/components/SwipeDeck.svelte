@@ -142,41 +142,114 @@
 	// component picks its own for client-side visits.
 	const tipIndex = browser ? Math.floor(Math.random() * LOADING_TIPS.length) : 0;
 
-	// The tip card stays INTRO_MS every time the deck opens, long enough to read
-	// it, and longer only if the deck is not dealt yet. A tap on the card once
-	// the deck is ready skips the rest of the wait.
-	const INTRO_MS = 4000;
-	let introDone = $state(false);
+	// The tip card is there only while the deck is not ready. A full page load
+	// paints it from the prerendered HTML, before any script, so there it is
+	// always up. A deck opened inside the app (coming back from a quiz) deals
+	// in a few milliseconds: the card shows only if dealing takes longer than
+	// INTRO_GRACE_MS. Once up it stays INTRO_MS, can be swiped away as soon as
+	// the deck is ready, and a tap keeps it until it is swiped.
+	const INTRO_MS = 5000;
+	const INTRO_GRACE_MS = 350;
+	const SWIPE_AWAY = 90;
+	/** The card is on screen (or was, until it left). */
+	let introShown = $state(pageLoad.firstDeck);
+	/** INTRO_MS have passed since the card appeared. */
+	let introElapsed = $state(false);
+	/** Tapped: stays until swiped. */
+	let introPinned = $state(false);
+	/** Swiped (or the status line pressed) once the deck was ready. */
+	let introSwiped = $state(false);
+	/** Flying off, like a played card, before it is removed. */
+	let introLeaving = $state(false);
+	const introDone = $derived(!introShown || introSwiped);
+	// Five seconds up, deck ready, not kept: it goes by itself, the same way.
 	$effect(() => {
-		// The first deck of a page load was in the prerendered page, so it has
-		// been on screen since first paint: count from there. A deck opened
-		// later inside the app appears now: count from now.
-		const since = pageLoad.firstDeck ? performance.now() : 0;
-		pageLoad.firstDeck = false;
-		const timer = setTimeout(() => (introDone = true), Math.max(0, INTRO_MS - since));
-		return () => clearTimeout(timer);
+		if (introShown && loaded && introElapsed && !introPinned && !introLeaving && !introSwiped)
+			untrack(() => introFling(Math.random() < 0.5 ? -1 : 1));
 	});
+	$effect(() => {
+		const first = pageLoad.firstDeck;
+		pageLoad.firstDeck = false;
+		if (first) {
+			// On screen since first paint: count from there.
+			const timer = setTimeout(() => (introElapsed = true), Math.max(0, INTRO_MS - performance.now()));
+			return () => clearTimeout(timer);
+		}
+		let timer: ReturnType<typeof setTimeout> | undefined;
+		const grace = setTimeout(() => {
+			if (untrack(() => loaded)) return;
+			introShown = true;
+			timer = setTimeout(() => (introElapsed = true), INTRO_MS);
+		}, INTRO_GRACE_MS);
+		return () => {
+			clearTimeout(grace);
+			clearTimeout(timer);
+		};
+	});
+
+	// -- the intro card's gesture: drag to swipe away (once ready), tap to keep --
+	let introDx = $state(0);
+	let introDragging = $state(false);
+	let introStartX = 0;
+	let introMoved = false;
+	let introPointer: number | null = null;
+
+	function introDown(e: PointerEvent) {
+		if ((e.target as Element).closest('button')) return;
+		introPointer = e.pointerId;
+		introStartX = e.clientX;
+		introMoved = false;
+		introDragging = true;
+		(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+	}
+
+	function introMove(e: PointerEvent) {
+		if (!introDragging || e.pointerId !== introPointer) return;
+		const dx = e.clientX - introStartX;
+		if (Math.abs(dx) > 6) introMoved = true;
+		// Before the deck is ready the card only gives a little: nothing under it yet.
+		introDx = loaded ? dx : dx * 0.15;
+	}
+
+	function introUp(e: PointerEvent) {
+		if (!introDragging || e.pointerId !== introPointer) return;
+		introDragging = false;
+		introPointer = null;
+		if (!introMoved) {
+			introPinned = !introPinned;
+			introDx = 0;
+			announce(introPinned ? 'Kept. Swipe it away when you are ready.' : 'Released.');
+			return;
+		}
+		if (loaded && Math.abs(introDx) >= SWIPE_AWAY) introFling(introDx > 0 ? 1 : -1);
+		else introDx = 0;
+	}
+
+	/** Sends the tip card off exactly like a played card, then drops it: the dealt deck is already under it. */
+	function introFling(side: number) {
+		if (introLeaving) return;
+		introLeaving = true;
+		introDx = side * FLING;
+		window.setTimeout(() => (introSwiped = true), prefersReducedMotion() ? 0 : DURATION.slow);
+	}
+
+	function introCancel() {
+		introDragging = false;
+		introPointer = null;
+		introDx = 0;
+	}
+
+	/** The status line, once ready, is a button too: the keyboard's way in. */
+	function introContinue() {
+		introFling(1);
+	}
+
 	const tipPicker =
 		'<scr' +
 		'ipt>try{var t=' +
 		JSON.stringify(LOADING_TIPS.map(tipHtml)).replace(/</g, '\\u003c') +
 		';document.getElementById("intro-tip").innerHTML=t[Math.floor(Math.random()*t.length)]}catch(e){}</scr' +
 		'ipt>';
-
-	/** The intro card's exit: a swipe off to a random side; a plain fade under calm or reduced motion. */
-	function liftAway(_node: Element) {
-		const calm = prefersReducedMotion() || document.documentElement.dataset.effects === 'calm';
-		// Swiped off like a played card, to the left or the right at random.
-		const side = Math.random() < 0.5 ? -1 : 1;
-		return {
-			duration: calm ? 150 : 480,
-			easing: (x: number) => x * x * (3 - 2 * x),
-			css: (t: number, u: number) =>
-				calm
-					? `opacity: ${t}`
-					: `opacity: ${Math.min(1, t * 2.5)}; transform: translate(${side * u * 125}%, ${u * 6}%) rotate(${side * u * 22}deg);`
-		};
-	}
 
 	async function load() {
 		try {
@@ -466,6 +539,7 @@
 	}
 
 	function onKey(event: KeyboardEvent) {
+		if (!introDone) return;
 		if (event.key === 'ArrowRight' || event.key === 'Enter' || event.key === ' ') {
 			event.preventDefault();
 			fling('right');
@@ -548,32 +622,8 @@
 	</header>
 
 	<div class="stage" bind:this={stageEl}>
-		{#if !loaded || !introDone}
-			<!-- The intro card: what the deck shows while it deals, from the very
-			     first paint (it is in the prerendered page, and its animation is
-			     CSS, so it moves before any script runs). When the deck is ready it
-			     lifts away and the real cards deal in under it. -->
-			<div class="card intro" out:liftAway role="status" style="--intro-ms: {INTRO_MS}ms">
-				<!-- A random odd word or fact. The script picks it while the page is
-				     parsed, so a full load paints it straight away; on a client-side
-				     visit the component's own pick shows. {@html} is not repaired on
-				     hydration, so the two never fight. -->
-				<p class="intro-tip" id="intro-tip">{@html tipHtml(LOADING_TIPS[tipIndex])}</p>
-				{@html tipPicker}
-				<div class="intro-foot">
-					<span class="intro-fan" aria-hidden="true"><span></span><span></span><span></span></span>
-					<p class="intro-line"><span lang="de" aria-hidden="true">Mischen…</span> shuffling your cards</p>
-				</div>
-				<!-- Fills over the wait: the cards are coming. -->
-				<span class="intro-bar" aria-hidden="true"></span>
-				{#if loaded}
-					<!-- Ready: the whole card becomes the way in, so nobody has to wait it out. -->
-					<button type="button" class="intro-skip" onclick={() => (introDone = true)}>
-						<span class="sr-only">Show my cards</span>
-					</button>
-				{/if}
-			</div>
-		{:else if !top}
+		{#if loaded}
+			{#if !top}
 			<div class="card empty">
 				<Icon name="trophy" size="1.6em" />
 				<p><strong>Nothing left to deal.</strong></p>
@@ -599,6 +649,7 @@
 							? `transform: translate(${dx}px, ${dy}px) rotate(${dx / 18}deg);`
 							: stackStyle(depth)} animation-delay: {i * 70}ms;"
 						tabindex={isTop ? 0 : -1}
+						inert={!introDone || undefined}
 						role="button"
 						aria-label={isTop
 							? `${card.quiz.title}. ${DECK_KIND_LABELS[card.kind]}, card ${handSize - deck.length + 1} of ${handSize}, ${card.quiz.level}, ${cardFlavour(card)}${started ? ', in progress' : ''}. ${card.reason} Press Enter to start, or the left arrow to skip.`
@@ -689,7 +740,7 @@
 					</div>
 				{/each}
 			{/key}
-			{#if coach}
+			{#if coach && introDone}
 				<!-- First visit only: the gesture is invisible until someone says it
 				     is there. A scrim over the top card, a hand that sweeps the arc
 				     the finger would take, and the two directions named. Decorative
@@ -725,6 +776,50 @@
 				</div>
 			{/if}
 		{/if}
+		{#if !introDone}
+			<!-- On top of the dealt stack, like its first card. -->
+			<!-- The intro card: what the deck shows while it deals, from the very
+			     first paint (it is in the prerendered page, and its animation is
+			     CSS, so it moves before any script runs). It stays up to five
+			     seconds; once the deck is ready it can be swiped away, and a tap
+			     keeps it until it is. -->
+			<div
+				class="card intro"
+				class:ready={loaded}
+				class:pinned={introPinned}
+				class:dragging={introDragging}
+				class:leaving={introLeaving}
+				role="status"
+				style="--intro-ms: {INTRO_MS}ms; transform: translateX({introDx}px) rotate({introDx / 18}deg);"
+				onpointerdown={introDown}
+				onpointermove={introMove}
+				onpointerup={introUp}
+				onpointercancel={introCancel}
+			>
+				<!-- A random odd word or fact. The script picks it while the page is
+				     parsed, so a full load paints it straight away; on a client-side
+				     visit the component's own pick shows. {@html} is not repaired on
+				     hydration, so the two never fight. -->
+				<p class="intro-tip" id="intro-tip">{@html tipHtml(LOADING_TIPS[tipIndex])}</p>
+				{@html tipPicker}
+				{#if introPinned}
+					<span class="intro-pin" aria-hidden="true"><Icon name="check" size="0.9em" /> <span lang="de">bleibt</span></span>
+				{/if}
+				<div class="intro-foot">
+					{#if loaded}
+						<button type="button" class="intro-line ready" onclick={introContinue}>
+							<span lang="de">Fertig!</span> {introPinned ? 'Swipe it away when you are ready' : 'Swipe for your cards'} <span aria-hidden="true">→</span>
+						</button>
+					{:else}
+						<span class="intro-fan" aria-hidden="true"><span></span><span></span><span></span></span>
+						<p class="intro-line"><span lang="de">Dein Deck wird gemischt…</span> <span class="en">putting your cards together</span></p>
+					{/if}
+				</div>
+				<!-- Fills over the five seconds; holds still while the card is kept. -->
+				<span class="intro-bar" aria-hidden="true"></span>
+			</div>
+		{/if}
+		{/if}
 	</div>
 
 	<div class="controls" aria-hidden={!top}>
@@ -732,7 +827,7 @@
 			type="button"
 			class="ctl no"
 			onclick={() => fling('left')}
-			disabled={!top || !!leaving}
+			disabled={!top || !!leaving || !introDone}
 			aria-label="Skip this exercise"
 			title="Skip (←)"
 		>
@@ -749,7 +844,7 @@
 			type="button"
 			class="ctl yes"
 			onclick={() => fling('right')}
-			disabled={!top || !!leaving}
+			disabled={!top || !!leaving || !introDone}
 			aria-label="Start this exercise"
 			title="Let's go (→)"
 		>
@@ -1335,19 +1430,43 @@
 		text-wrap: balance;
 	}
 
-	/* Once the deck is ready the card is one big button: tap to see your cards. */
-	.intro-skip {
-		position: absolute;
-		inset: 0;
-		z-index: 3;
-		border: 0;
-		background: none;
-		cursor: pointer;
+	/* The card can be dragged: away once the deck is ready, a little before. */
+	.card.intro {
+		touch-action: pan-y;
+		user-select: none;
+		cursor: grab;
+		transition: transform 320ms var(--ease-out);
 	}
-	.intro-skip:focus-visible {
-		outline: 3px solid var(--accent);
-		outline-offset: -3px;
-		border-radius: inherit;
+	.card.intro.dragging {
+		transition: none;
+		cursor: grabbing;
+	}
+	/* Leaves like any played card (see .card.leaving). */
+	.card.intro.leaving {
+		transition: transform var(--slow) cubic-bezier(0.3, 0.6, 0.5, 1), opacity var(--slow) var(--ease-out);
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	/* Kept: a small mark in the corner, and the bar holds still. */
+	.intro-pin {
+		position: absolute;
+		top: 0.8rem;
+		right: 0.8rem;
+		z-index: 2;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		padding: 0.15rem 0.55rem;
+		border-radius: 999px;
+		background: var(--navy);
+		color: var(--paper);
+		font-size: var(--step--2);
+		font-weight: 700;
+		animation: intro-rise 220ms var(--ease-out) both;
+	}
+	.card.intro.pinned .intro-bar {
+		animation-play-state: paused;
 	}
 
 	/* The foot: the little cards riffling, and what is happening. */
@@ -1369,6 +1488,28 @@
 	.intro-line span {
 		font-weight: 700;
 		color: var(--accent-ink);
+	}
+	.intro-line .en {
+		font-weight: 400;
+		color: var(--ink-muted);
+	}
+	/* Ready: the line turns into the way in. */
+	.intro-line.ready {
+		position: relative;
+		z-index: 3;
+		padding: 0.35rem 0.9rem;
+		border: 1px solid var(--accent);
+		border-radius: 999px;
+		background: var(--surface);
+		color: var(--ink);
+		font: inherit;
+		font-size: var(--step--1);
+		cursor: pointer;
+		animation: intro-rise 260ms var(--ease-out) both;
+	}
+	.intro-line.ready:focus-visible {
+		outline: 3px solid var(--accent);
+		outline-offset: 2px;
 	}
 
 	/* Three little cards, in the deck's own kind colours, riffling. */

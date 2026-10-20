@@ -29,7 +29,7 @@
 	import type { QuizSummary } from '$lib/content/types';
 	import type { PageData } from './$types';
 	import { track } from '$lib/services/analytics';
-	import { workbookFile } from '$lib/domain/workbook';
+	import { workbookFile, workbookReady } from '$lib/domain/workbook';
 
 	// Each level's workbook PDF, as tool/gen-workbooks.mjs recorded it. The
 	// manifest is empty until the tool has run; a level without a PDF shows
@@ -41,6 +41,7 @@
 		})
 	)[0] ?? {};
 	const levelPdf = (level: string) => {
+		if (!workbookReady(level)) return null;
 		const file = workbookFile(course.id, level);
 		return workbookPdfs[file] ? { href: `/workbooks/${file}`, pages: workbookPdfs[file].pages } : null;
 	};
@@ -245,7 +246,7 @@
 			<Icon name="printer" size="1.2em" />
 			<span>
 				<strong>Printable workbooks</strong>
-				<small>Every level on paper — rules, words, pictures and exercises, as PDF</small>
+				<small>Build your own exercise sheet · level workbooks are in progress</small>
 			</span>
 			<Icon name="arrowRight" size="1.1em" />
 		</a>
@@ -268,6 +269,8 @@
 							>
 								<Icon name="download" size="0.95em" /> PDF
 							</a>
+						{:else}
+							<span class="level-pdf wip" title="This level's printable workbook is being redone">PDF · work in progress</span>
 						{/if}
 						<span class="tnum">{level.doneCount} / {level.quizzes.length}</span>
 						{#if level.complete}<Icon name="check" size="1em" />{/if}
@@ -684,6 +687,17 @@
 	.level-pdf:hover {
 		border-color: var(--accent);
 		color: var(--accent-ink);
+	}
+
+	/* Not a button: a note that this level's PDF is still being made. */
+	.level-pdf.wip,
+	.level-pdf.wip:hover {
+		border-style: dashed;
+		border-color: var(--line-strong);
+		color: var(--ink-muted);
+		font-weight: 600;
+		letter-spacing: 0;
+		cursor: default;
 	}
 
 	.quizzes {

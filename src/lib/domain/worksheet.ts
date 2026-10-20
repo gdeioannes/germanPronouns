@@ -17,10 +17,14 @@ import type {
 	Quiz,
 	QuizHelp,
 	ReadingQuiz,
-	SpeakingQuiz
+	SpeakingQuiz,
+	VocabCard,
+	VocabularyQuiz
 } from '$lib/content/types';
 import { isInlineCloze } from '$lib/content/types';
+import { fullForm } from '$lib/domain/flashcards';
 import { helpTableFor, type HelpTable } from '$lib/domain/help-table';
+import type { RibbonTier } from '$lib/domain/progress';
 import { tileBank } from '$lib/domain/tiles';
 
 /** Which quizzes feed the worksheet. */
@@ -71,10 +75,25 @@ export interface ExerciseSection {
 /** Hard cap for "all exercises", so a big course still prints a usable book. */
 export const MAX_SHEET_ITEMS = 500;
 
-// Weak-spot blend: the quiz's overall mistake rate versus how concentrated its
-// mistakes are on one category.
+// Weak-spot blend: how shaky the quiz is versus how concentrated its mistakes
+// are on one category.
 const QUIZ_ACCURACY_WEIGHT = 0.6;
 const CATEGORY_MISTAKE_WEIGHT = 0.4;
+/**
+ * Imaginary right answers added to every quiz's rate, so one slip in one
+ * answer (100 % wrong) does not outrank eight misses in twenty.
+ */
+const CONFIDENCE_PRIOR = 3;
+/** A last run that came back under the pass mark: the quiz is not held yet. */
+const FAILED_RUN_BOOST = 0.15;
+/** A medal is evidence the quiz is held; gold most of all. */
+const TIER_DISCOUNT: Record<RibbonTier, number> = { bronze: 0, silver: 0.05, gold: 0.1 };
+/** A missed flashcard word: weak by definition, more so the more it is missed. */
+const WEAK_WORD_BASE = 0.5;
+const WEAK_WORD_PER_MISS = 0.1;
+
+/** The category key a big-text gap's misses are counted under. */
+export const gapCategory = (index: number) => `#${index}`;
 
 /** What the builder needs to know about one quiz's saved history. */
 export interface QuizHistory {
@@ -82,10 +101,18 @@ export interface QuizHistory {
 	answered: number;
 	/** Share of them that were wrong, 0..1. */
 	mistakeRate: number;
-	/** Mistake counts per category label. */
+	/** The same over the latest answers only; a fixed weak spot fades. */
+	recentMistakeRate?: number;
+	/** Mistake counts per category label (big-text gaps under gapCategory). */
 	mistakesByCategory: Record<string, number>;
 	/** Whether the course home counts this quiz as finished. */
 	done: boolean;
+	/** The latest finished run came back under the pass mark. */
+	lastRunFailed?: boolean;
+	/** The medal held, if any. */
+	tier?: RibbonTier | null;
+	/** A flashcard deck's words still being missed, and how often each was. */
+	weakWords?: { card: VocabCard; wrong: number }[];
 }
 
 export const NO_HISTORY: QuizHistory = {
@@ -119,15 +146,36 @@ export function buildWorksheet(
 		if (quiz.status === 'placeholder') continue;
 		const stats = history(quiz);
 		if (scope === 'achieved' && !stats.done) continue;
-		if (scope === 'weakSpots' && stats.answered === 0) continue;
+		if (scope === 'weakSpots' && stats.answered === 0 && !stats.weakWords?.length) continue;
 		const section = sectionFor(quiz, stats, random);
-		if (section && section.items.length > 0) {
-			sections.push({ ...section, level: quiz.level, help: quiz.help, table: helpTableFor(quiz) });
+		if (!section) continue;
+		// A weak-spot sheet holds what went wrong: what was always right stays off.
+		if (scope === 'weakSpots' && section.kind !== 'inlineCloze') {
+			section.items = section.items.filter((item) => item.weakness > 0);
+		} else if (scope === 'weakSpots' && section.items.every((item) => item.weakness === 0)) {
+			continue;
+		}
+		if (section.items.length > 0) {
+			// A word list needs no lesson above it: the words are the lesson.
+			const words = quiz.type === 'vocabulary';
+			sections.push({
+				...section,
+				level: quiz.level,
+				help: words ? undefined : quiz.help,
+				table: words ? null : helpTableFor(quiz)
+			});
 		}
 	}
 
 	const cap = maxItems == null ? MAX_SHEET_ITEMS : Math.min(maxItems, MAX_SHEET_ITEMS);
-	return selectSections(sections, { cap, scope, random });
+	const selected = selectSections(sections, { cap, scope, random });
+	// The weakest first, so a sheet put down halfway has done the most good.
+	return scope === 'weakSpots'
+		? selected
+				.map((section) => ({ section, worst: Math.max(...section.items.map((i) => i.weakness)) }))
+				.sort((a, b) => b.worst - a.worst)
+				.map(({ section }) => section)
+		: selected;
 }
 
 /**
@@ -150,12 +198,13 @@ export function sectionFor(
 			return fillBlankSection(quiz, stats, random);
 		case 'speaking':
 			return speakingVocabSection(quiz, stats);
+		case 'vocabulary':
+			return weakWordsSection(quiz, stats);
 		case 'writing':
 			return null;
 		case 'listening':
 		case 'dictation':
 		case 'speakRepeat':
-		case 'vocabulary':
 		case 'suchbild':
 			return null;
 	}
@@ -164,8 +213,24 @@ export function sectionFor(
 // ── Weak-spot scoring ───────────────────────────────────────────────────────
 
 /**
- * How weak an item testing [categoryLabel] is: the quiz's overall mistake rate
- * blended with how concentrated its mistakes are on that category.
+ * How shaky a whole quiz is, 0..1: its recent mistake rate, damped while there
+ * are few answers to go on, raised by a failed last run, lowered by a medal.
+ * Zero when nothing has gone wrong.
+ */
+export function quizWeakness(stats: QuizHistory): number {
+	if (stats.answered === 0) return 0;
+	const rate = stats.recentMistakeRate ?? stats.mistakeRate;
+	// The recent window holds at most this many answers; more say no more.
+	const sample = Math.min(stats.answered, 20);
+	let score = (rate * sample) / (sample + CONFIDENCE_PRIOR);
+	if (stats.lastRunFailed) score += FAILED_RUN_BOOST;
+	if (score > 0 && stats.tier) score -= TIER_DISCOUNT[stats.tier];
+	return Math.min(1, Math.max(0, score));
+}
+
+/**
+ * How weak an item testing [categoryLabel] is: the quiz's shakiness blended
+ * with how concentrated its mistakes are on that category.
  */
 function weakness(stats: QuizHistory, categoryLabel?: string): number {
 	const mistakes = Object.values(stats.mistakesByCategory);
@@ -174,7 +239,28 @@ function weakness(stats: QuizHistory, categoryLabel?: string): number {
 		const worst = Math.max(...mistakes);
 		if (worst > 0) categoryShare = (stats.mistakesByCategory[categoryLabel] ?? 0) / worst;
 	}
-	return QUIZ_ACCURACY_WEIGHT * stats.mistakeRate + CATEGORY_MISTAKE_WEIGHT * categoryShare;
+	return QUIZ_ACCURACY_WEIGHT * quizWeakness(stats) + CATEGORY_MISTAKE_WEIGHT * categoryShare;
+}
+
+/**
+ * A flashcard deck's paper form: only the words still being missed, as
+ * "the English, write the German" — a noun with its article, as the deck
+ * demands it. A whole deck on paper would be a dictionary, not practice.
+ */
+function weakWordsSection(quiz: VocabularyQuiz, stats: QuizHistory): ExerciseSection | null {
+	const words = stats.weakWords ?? [];
+	if (words.length === 0) return null;
+	return {
+		quizTitle: `Words to fix — ${quiz.title}`,
+		kind: 'cloze',
+		items: words.map(({ card, wrong }) => ({
+			prompt: '____',
+			answer: fullForm(card),
+			secondary: card.en,
+			options: [],
+			weakness: Math.min(1, WEAK_WORD_BASE + WEAK_WORD_PER_MISS * wrong)
+		}))
+	};
 }
 
 // ── Extraction, one per printable kind ──────────────────────────────────────
@@ -296,16 +382,16 @@ function readingSection(quiz: ReadingQuiz, stats: QuizHistory): ExerciseSection 
  * markers in the template, so the passage travels with its items.
  */
 function inlineClozeSection(quiz: InlineClozeQuiz, stats: QuizHistory): ExerciseSection {
-	const score = weakness(stats);
 	return {
 		quizTitle: quiz.title,
 		kind: 'inlineCloze',
 		passage: quiz.inlineTemplate,
-		items: quiz.inlineBlanks.map((blank) => ({
+		// Each gap's own misses weigh it (no categoryLabel: "#3" means nothing on paper).
+		items: quiz.inlineBlanks.map((blank, i) => ({
 			prompt: blank.hint ?? '',
 			answer: blank.answer,
 			options: blank.options ?? [],
-			weakness: score
+			weakness: weakness(stats, gapCategory(i))
 		}))
 	};
 }

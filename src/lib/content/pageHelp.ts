@@ -74,7 +74,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			},
 			{
 				title: 'Runs and medals',
-				text: 'Exercises come in runs of ten, and eight right or better passes the run. Most exercises have three ways to play, shown as a switch above the exercise: an easier one, the usual one and one with no help. Passing a run on one earns its medal: bronze, silver or gold. Exercises you read, hear, say or write earn their medal by score instead: bronze for a pass, gold for full marks. Once you hold a medal, the bar at the end offers the next one up — "Try for silver", then "Try for gold". A medal is never taken away, and there are no lives.'
+				text: 'Exercises come in runs of ten, and eight right or better passes the run. Most exercises have three ways to play, shown as a switch above the exercise: an easier one, the usual one and one with no help, where nouns lose their gender colours until you answer. Passing a run on one earns its medal: bronze, silver or gold. Exercises you read, hear, say or write earn their medal by score instead: bronze for a pass, gold for full marks. Once you hold a medal, the bar at the end offers the next one up — "Try for silver", then "Try for gold". A medal is never taken away, and there are no lives. When you check a text with gaps, every gap you missed is listed in its sentence, with the right answer and why, and "Read the corrected text" shows the whole text filled in.'
 			},
 			{
 				title: 'How surprises turn up',

@@ -1,0 +1,5228 @@
+{
+	"title": "Erste Schritte",
+	"cover": "cp_a1_1_cover",
+	"welcome": [
+		"This book is the paper half of A1.1. Every topic gets two facing pages: the **left page** teaches — tables, diagrams, the few rules that matter — and the **right page** is yours to write on.",
+		"Work with a pencil. Say every German word out loud as you write it; your mouth learns as much as your hand. When a page has a **Listen** code, scan it with your phone camera to hear the German.",
+		"The answers are at the back. Do a whole page first, then check, and circle what you got wrong — those circles are next week's revision.",
+		"At the foot of each practice page are three or four **I can** lines. Tick one only when you could do it tomorrow without the book."
+	],
+	"spreads": [
+		{
+			"id": "hallo",
+			"title": "Hallo! Das bin ich",
+			"subtitle": "Greetings, introducing yourself, du and Sie",
+			"hook": "Five questions, five answers — enough for your first conversation in German.",
+			"hero": {
+				"image": "cp_a1_1_hallo"
+			},
+			"quiz": "quest_a1_1_pronomen",
+			"listenQuiz": "quest_a1_1_hoeren_vorstellung",
+			"learn": [
+				{
+					"kind": "words",
+					"title": "Hello and goodbye",
+					"cols": 3,
+					"items": [
+						{
+							"de": "Hallo!",
+							"en": "Hi!"
+						},
+						{
+							"de": "Guten Morgen!",
+							"en": "Good morning!"
+						},
+						{
+							"de": "Guten Tag!",
+							"en": "Hello! (polite)"
+						},
+						{
+							"de": "Guten Abend!",
+							"en": "Good evening!"
+						},
+						{
+							"de": "Tschüss!",
+							"en": "Bye!"
+						},
+						{
+							"de": "Auf Wiedersehen!",
+							"en": "Goodbye! (polite)"
+						},
+						{
+							"de": "Wie geht’s?",
+							"en": "How are you?"
+						},
+						{
+							"de": "Gut, danke!",
+							"en": "Fine, thanks!"
+						},
+						{
+							"de": "Und dir? · Und Ihnen?",
+							"en": "And you?"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Introduce yourself",
+					"note": "Ask a friend with *du*, a stranger with *Sie*. The answer is the same.",
+					"head": [
+						{
+							"text": "in English",
+							"en": true
+						},
+						{
+							"text": "du"
+						},
+						{
+							"text": "Sie"
+						},
+						{
+							"text": "you answer"
+						}
+					],
+					"rows": [
+						[
+							"What’s your name?",
+							"Wie heißt *du*?",
+							"Wie heißen *Sie*?",
+							"Ich heiße Lena."
+						],
+						[
+							"Where are you from?",
+							"Woher kommst *du*?",
+							"Woher kommen *Sie*?",
+							"Ich komme aus Spanien."
+						],
+						[
+							"Where do you live?",
+							"Wo wohnst *du*?",
+							"Wo wohnen *Sie*?",
+							"Ich wohne in Berlin."
+						],
+						[
+							"What do you speak?",
+							"Was sprichst *du*?",
+							"Was sprechen *Sie*?",
+							"Ich spreche Englisch."
+						],
+						[
+							"How old are you?",
+							"Wie alt bist *du*?",
+							"Wie alt sind *Sie*?",
+							"Ich bin … Jahre alt."
+						]
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "tiles",
+							"title": "Who is who",
+							"cols": 3,
+							"small": true,
+							"tiles": [
+								{
+									"big": "ich",
+									"word": "I"
+								},
+								{
+									"big": "du",
+									"word": "you (a friend)"
+								},
+								{
+									"big": "er · sie · es",
+									"word": "he · she · it"
+								},
+								{
+									"big": "wir",
+									"word": "we"
+								},
+								{
+									"big": "ihr",
+									"word": "you (friends)"
+								},
+								{
+									"big": "sie · Sie",
+									"word": "they · you (polite)",
+									"mark": true
+								}
+							]
+						},
+						{
+							"kind": "words",
+							"title": "Talking about someone",
+							"cols": 1,
+							"items": [
+								{
+									"de": "Das ist Paul.",
+									"en": "This is Paul."
+								},
+								{
+									"de": "Er heißt Paul.",
+									"en": "His name is Paul."
+								},
+								{
+									"de": "Er kommt aus England.",
+									"en": "He comes from England."
+								},
+								{
+									"de": "Er wohnt in München.",
+									"en": "He lives in Munich."
+								},
+								{
+									"de": "der Hund",
+									"en": "dog"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "tip",
+							"title": "du or Sie?",
+							"text": "*du* for friends, family, children and other learners. *Sie* for strangers, shops, offices and older people you don’t know. Not sure? Say *Sie* — and wait for “Wir können du sagen” (we can say du)."
+						},
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "sie, sie or Sie?",
+							"text": "*sie* is she, *sie* is they, and *Sie* with a capital S is the polite you. The verb gives it away: sie *ist* (she is), sie *sind* (they are), Sie *sind* (you are)."
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"cols": 3,
+					"items": [
+						{
+							"de": "Deutschland",
+							"en": "Germany"
+						},
+						{
+							"de": "Österreich",
+							"en": "Austria"
+						},
+						{
+							"de": "Spanien",
+							"en": "Spain"
+						},
+						{
+							"de": "Wien",
+							"en": "Vienna"
+						},
+						{
+							"de": "Deutsch · Englisch",
+							"en": "German · English"
+						},
+						{
+							"de": "und",
+							"en": "and"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "du or Sie?",
+					"instruction": "Who gets *du*, who gets *Sie*? Write du or Sie.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "a child",
+							"answer": "du"
+						},
+						{
+							"prompt": "a doctor",
+							"answer": "Sie"
+						},
+						{
+							"prompt": "your best friend",
+							"answer": "du"
+						},
+						{
+							"prompt": "a shop assistant",
+							"answer": "Sie"
+						}
+					],
+					"notGerman": true
+				},
+				{
+					"title": "Question and answer",
+					"instruction": "Draw a line from each question to its answer.",
+					"kind": "match",
+					"left": [
+						"Wie heißt du?",
+						"Woher kommst du?",
+						"Wo wohnst du?",
+						"Was sprichst du?",
+						"Wie geht’s?"
+					],
+					"right": [
+						"Ich wohne in Wien.",
+						"Gut, danke!",
+						"Ich heiße Paul.",
+						"Ich spreche Deutsch und Englisch.",
+						"Ich komme aus Österreich."
+					],
+					"answers": [
+						2,
+						4,
+						0,
+						3,
+						1
+					]
+				},
+				{
+					"title": "Max stellt sich vor",
+					"instruction": "Listen to Max introducing himself and complete the sentences.",
+					"listen": true,
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er kommt aus",
+							"after": ".",
+							"answer": "England"
+						},
+						{
+							"before": "Er wohnt in",
+							"after": ".",
+							"answer": "München"
+						},
+						{
+							"before": "Er ist",
+							"after": "Jahre alt.",
+							"answer": "zwanzig"
+						},
+						{
+							"before": "Der Hund heißt",
+							"after": ".",
+							"answer": "Rocky"
+						}
+					]
+				},
+				{
+					"title": "Now say it politely",
+					"instruction": "Rewrite each question with Sie.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wie heißt du?",
+							"answer": "Wie heißen Sie?"
+						},
+						{
+							"prompt": "Woher kommst du?",
+							"answer": "Woher kommen Sie?"
+						},
+						{
+							"prompt": "Wo wohnst du?",
+							"answer": "Wo wohnen Sie?"
+						},
+						{
+							"prompt": "Wie alt bist du?",
+							"answer": "Wie alt sind Sie?"
+						}
+					]
+				},
+				{
+					"title": "Das bin ich",
+					"instruction": "Write about yourself. Then say it out loud, without looking.",
+					"kind": "gaps",
+					"note": "About you — check each sentence against the table on the left page.",
+					"items": [
+						{
+							"before": "Ich heiße",
+							"after": "."
+						},
+						{
+							"before": "Ich komme aus",
+							"after": "."
+						},
+						{
+							"before": "Ich wohne in",
+							"after": "."
+						},
+						{
+							"before": "Ich spreche",
+							"after": "."
+						}
+					]
+				}
+			],
+			"canDo": [
+				"say hello and goodbye at any time of day",
+				"introduce myself in four sentences",
+				"ask the five questions with du and with Sie",
+				"choose between du and Sie"
+			]
+		},
+		{
+			"id": "zahlen",
+			"title": "Zahlen 0–20",
+			"subtitle": "Counting, and saying your phone number",
+			"hook": "Twelve words to learn by heart. Every other German number is built from them.",
+			"hero": {
+				"image": "cp_a1_1_zahlen_telefon"
+			},
+			"quiz": "quest_a1_1_zahlen",
+			"learn": [
+				{
+					"kind": "tiles",
+					"title": "0–12: learn these by heart",
+					"note": "Everything else is built from these.",
+					"cols": 13,
+					"tiles": [
+						{
+							"big": "0",
+							"word": "null"
+						},
+						{
+							"big": "1",
+							"word": "eins",
+							"say": "ines"
+						},
+						{
+							"big": "2",
+							"word": "zwei",
+							"say": "tsvai"
+						},
+						{
+							"big": "3",
+							"word": "drei",
+							"say": "dry"
+						},
+						{
+							"big": "4",
+							"word": "vier",
+							"say": "feer"
+						},
+						{
+							"big": "5",
+							"word": "fünf"
+						},
+						{
+							"big": "6",
+							"word": "sechs",
+							"say": "zex"
+						},
+						{
+							"big": "7",
+							"word": "sieben",
+							"say": "zee-ben"
+						},
+						{
+							"big": "8",
+							"word": "acht"
+						},
+						{
+							"big": "9",
+							"word": "neun",
+							"say": "noyn"
+						},
+						{
+							"big": "10",
+							"word": "zehn",
+							"say": "tsayn"
+						},
+						{
+							"big": "11",
+							"word": "elf",
+							"mark": true
+						},
+						{
+							"big": "12",
+							"word": "zwölf",
+							"say": "tsvölf",
+							"mark": true
+						}
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "build",
+							"title": "13–19: number + zehn",
+							"note": "Two of them lose letters.",
+							"rows": [
+								{
+									"parts": [
+										{
+											"text": "drei"
+										},
+										{
+											"text": "zehn",
+											"role": "suffix"
+										}
+									],
+									"result": "dreizehn",
+									"en": "13"
+								},
+								{
+									"parts": [
+										{
+											"text": "vier"
+										},
+										{
+											"text": "zehn",
+											"role": "suffix"
+										}
+									],
+									"result": "vierzehn",
+									"en": "14"
+								},
+								{
+									"parts": [
+										{
+											"text": "fünf"
+										},
+										{
+											"text": "zehn",
+											"role": "suffix"
+										}
+									],
+									"result": "fünfzehn",
+									"en": "15"
+								},
+								{
+									"parts": [
+										{
+											"text": "sech"
+										},
+										{
+											"text": "s",
+											"role": "cut"
+										},
+										{
+											"text": "zehn",
+											"role": "suffix"
+										}
+									],
+									"result": "sechzehn",
+									"en": "16"
+								},
+								{
+									"parts": [
+										{
+											"text": "sieb"
+										},
+										{
+											"text": "en",
+											"role": "cut"
+										},
+										{
+											"text": "zehn",
+											"role": "suffix"
+										}
+									],
+									"result": "siebzehn",
+									"en": "17"
+								},
+								{
+									"parts": [
+										{
+											"text": "acht"
+										},
+										{
+											"text": "zehn",
+											"role": "suffix"
+										}
+									],
+									"result": "achtzehn",
+									"en": "18"
+								},
+								{
+									"parts": [
+										{
+											"text": "neun"
+										},
+										{
+											"text": "zehn",
+											"role": "suffix"
+										}
+									],
+									"result": "neunzehn",
+									"en": "19"
+								},
+								{
+									"parts": [
+										{
+											"text": "zwan"
+										},
+										{
+											"text": "zig",
+											"role": "suffix"
+										}
+									],
+									"result": "zwanzig",
+									"en": "20"
+								}
+							]
+						},
+						{
+							"kind": "pairs",
+							"title": "Phone numbers",
+							"note": "Digit by digit, or in pairs. On the phone, zwei is often *zwo*, so it can’t be heard as drei.",
+							"rows": [
+								{
+									"a": "0176",
+									"b": "null – eins – sieben – sechs"
+								},
+								{
+									"a": "030 18 12",
+									"b": "null – drei – null – achtzehn – zwölf"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"cols": 3,
+					"items": [
+						{
+							"de": "plus · minus · mal",
+							"en": "+ · − · ×"
+						},
+						{
+							"de": "die Telefonnummer",
+							"en": "phone number"
+						},
+						{
+							"de": "Meine Telefonnummer ist …",
+							"en": "My phone number is …"
+						},
+						{
+							"de": "die Glückszahl",
+							"en": "lucky number"
+						},
+						{
+							"de": "Meine Glückszahl ist …",
+							"en": "My lucky number is …"
+						}
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "eins or ein?",
+							"text": "Counting, the number on its own is *eins*: eins, zwei, drei. In front of a word it becomes *ein*: ein Euro, ein Kind. The der/die/das topic has the whole story."
+						},
+						{
+							"kind": "box",
+							"tone": "culture",
+							"title": "Count from the thumb",
+							"text": "The thumb is *eins*, thumb + index finger is *zwei*. Show three fingers the English way at a bakery and you may get two pretzels — or four.",
+							"image": "cp_a1_1_daumen"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "Write it in words",
+					"instruction": "Say each number out loud, then write it.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "3",
+							"answer": "drei"
+						},
+						{
+							"prompt": "7",
+							"answer": "sieben"
+						},
+						{
+							"prompt": "11",
+							"answer": "elf"
+						},
+						{
+							"prompt": "12",
+							"answer": "zwölf"
+						},
+						{
+							"prompt": "15",
+							"answer": "fünfzehn"
+						},
+						{
+							"prompt": "16",
+							"answer": "sechzehn"
+						},
+						{
+							"prompt": "17",
+							"answer": "siebzehn"
+						},
+						{
+							"prompt": "20",
+							"answer": "zwanzig"
+						}
+					]
+				},
+				{
+					"title": "Twins",
+					"instruction": "Each little number has a big twin. Draw a line from each number to its word.",
+					"kind": "match",
+					"built": true,
+					"left": [
+						"2",
+						"12",
+						"6",
+						"16",
+						"7",
+						"17"
+					],
+					"right": [
+						"sechzehn",
+						"zwei",
+						"siebzehn",
+						"sechs",
+						"zwölf",
+						"sieben"
+					],
+					"answers": [
+						1,
+						4,
+						3,
+						0,
+						5,
+						2
+					]
+				},
+				{
+					"title": "Phone numbers",
+					"instruction": "Read each number aloud digit by digit, then write it in words.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "0 1 7 6",
+							"answer": "null – eins – sieben – sechs"
+						},
+						{
+							"prompt": "0 8 9 2",
+							"answer": "null – acht – neun – zwei (or zwo)"
+						}
+					]
+				},
+				{
+					"title": "Rechnen auf Deutsch",
+					"instruction": "Work it out and write the answer as a word.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "sieben plus acht =",
+							"answer": "fünfzehn"
+						},
+						{
+							"prompt": "zwanzig minus elf =",
+							"answer": "neun"
+						},
+						{
+							"prompt": "drei mal sechs =",
+							"answer": "achtzehn"
+						},
+						{
+							"prompt": "zwölf minus zwölf =",
+							"answer": "null"
+						}
+					]
+				},
+				{
+					"title": "Your numbers",
+					"instruction": "Fill in your own numbers, in words. Then read the sentences aloud.",
+					"kind": "gaps",
+					"note": "Your own numbers — check the spelling against the left page.",
+					"items": [
+						{
+							"before": "Meine Telefonnummer ist",
+							"after": "."
+						},
+						{
+							"before": "Meine Glückszahl ist",
+							"after": "."
+						}
+					]
+				}
+			],
+			"canDo": [
+				"count from 0 to 20 without stopping",
+				"spell sechzehn and siebzehn",
+				"say my phone number digit by digit",
+				"count on my fingers the German way"
+			]
+		},
+		{
+			"id": "zahlen_preise",
+			"title": "Zahlen bis 100",
+			"subtitle": "The tens, 21–99 and prices",
+			"hook": "One pattern takes you to a hundred — then you can say every price in the shop.",
+			"hero": {
+				"image": "cp_a1_1_zahlen_hero"
+			},
+			"quiz": "quest_a1_1_zahlen3",
+			"listenQuiz": "quest_a1_1_hoeren_zahlen",
+			"learn": [
+				{
+					"kind": "tiles",
+					"title": "The tens: number + zig",
+					"note": "The same two trims as 16 and 17, and dreißig with ß.",
+					"cols": 9,
+					"tiles": [
+						{
+							"big": "20",
+							"word": "zwanzig"
+						},
+						{
+							"big": "30",
+							"word": "*dreißig*",
+							"mark": true
+						},
+						{
+							"big": "40",
+							"word": "vierzig"
+						},
+						{
+							"big": "50",
+							"word": "fünfzig"
+						},
+						{
+							"big": "60",
+							"word": "*sech*zig",
+							"mark": true
+						},
+						{
+							"big": "70",
+							"word": "*sieb*zig",
+							"mark": true
+						},
+						{
+							"big": "80",
+							"word": "achtzig"
+						},
+						{
+							"big": "90",
+							"word": "neunzig"
+						},
+						{
+							"big": "100",
+							"word": "hundert"
+						}
+					]
+				},
+				{
+					"kind": "flip",
+					"title": "21–99: say it backwards",
+					"text": "Small number first, then *und*, then the ten, all as one word, like the old English “four-and-twenty”. When you listen, wait for the end: the second half is the big part.",
+					"number": "47",
+					"unit": "sieben",
+					"ten": "vierzig",
+					"examples": [
+						{
+							"n": "21",
+							"de": "*ein*undzwanzig",
+							"note": "ein, not eins"
+						},
+						{
+							"n": "35",
+							"de": "fünfunddreißig"
+						},
+						{
+							"n": "99",
+							"de": "neunundneunzig"
+						}
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "pairs",
+							"title": "Prices",
+							"note": "Euros, then cents. No word for the comma, and Euro never takes an -s.",
+							"rows": [
+								{
+									"a": "2,50 €",
+									"b": "zwei Euro fünfzig"
+								},
+								{
+									"a": "1,99 €",
+									"b": "*ein* Euro neunundneunzig"
+								},
+								{
+									"a": "0,80 €",
+									"b": "achtzig Cent"
+								}
+							]
+						},
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "Full stop and comma swap jobs",
+							"text": "**1.200 €** is twelve hundred euros; **1,20 €** is one euro twenty. Read a German price tag the English way and you’ll be thrilled — for about a second."
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"cols": 3,
+					"items": [
+						{
+							"de": "der Käse",
+							"en": "cheese"
+						},
+						{
+							"de": "das Brot",
+							"en": "bread"
+						},
+						{
+							"de": "der Apfel, die Äpfel",
+							"en": "apple, apples"
+						},
+						{
+							"de": "die Banane, die Bananen",
+							"en": "banana, bananas"
+						},
+						{
+							"de": "das Ei, die Eier",
+							"en": "egg, eggs"
+						},
+						{
+							"de": "die Kartoffel, die Kartoffeln",
+							"en": "potato, potatoes"
+						},
+						{
+							"de": "ein Stück",
+							"en": "a piece"
+						},
+						{
+							"de": "ein Kilo",
+							"en": "a kilo"
+						},
+						{
+							"de": "billig",
+							"en": "cheap"
+						},
+						{
+							"de": "der Kaffee",
+							"en": "coffee"
+						},
+						{
+							"de": "kosten · Das kostet …",
+							"en": "to cost · That costs …"
+						},
+						{
+							"de": "Ich bin … Jahre alt.",
+							"en": "I am … years old."
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "Write it in words",
+					"instruction": "Say each number out loud, then write it.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "21",
+							"answer": "einundzwanzig"
+						},
+						{
+							"prompt": "30",
+							"answer": "dreißig"
+						},
+						{
+							"prompt": "47",
+							"answer": "siebenundvierzig"
+						},
+						{
+							"prompt": "58",
+							"answer": "achtundfünfzig"
+						},
+						{
+							"prompt": "61",
+							"answer": "einundsechzig"
+						},
+						{
+							"prompt": "76",
+							"answer": "sechsundsiebzig"
+						},
+						{
+							"prompt": "85",
+							"answer": "fünfundachtzig"
+						},
+						{
+							"prompt": "99",
+							"answer": "neunundneunzig"
+						}
+					]
+				},
+				{
+					"title": "Sixes and sevens",
+					"instruction": "These six are easy to mix up. Draw a line from each number to its word.",
+					"kind": "match",
+					"built": true,
+					"left": [
+						"17",
+						"70",
+						"76",
+						"67",
+						"16",
+						"60"
+					],
+					"right": [
+						"sechzig",
+						"siebenundsechzig",
+						"siebzehn",
+						"sechzehn",
+						"siebzig",
+						"sechsundsiebzig"
+					],
+					"answers": [
+						2,
+						4,
+						5,
+						1,
+						3,
+						0
+					]
+				},
+				{
+					"title": "Auf dem Markt",
+					"instruction": "Listen to the market seller and write each price on its tag. No phone? Ask someone to read you the prices from the answers.",
+					"listen": true,
+					"kind": "tags",
+					"items": [
+						{
+							"image": "cp_markt_kaese",
+							"label": "ein Stück Käse",
+							"answer": "4,00 €"
+						},
+						{
+							"image": "cp_markt_brot",
+							"label": "ein Brot",
+							"answer": "2,10 €"
+						},
+						{
+							"image": "cp_markt_aepfel",
+							"label": "ein Kilo Äpfel",
+							"answer": "2,00 €"
+						},
+						{
+							"image": "cp_markt_kartoffeln",
+							"label": "die Kartoffeln",
+							"answer": "1,10 €"
+						},
+						{
+							"image": "cp_markt_eier",
+							"label": "zehn Eier",
+							"answer": "2,20 €"
+						},
+						{
+							"image": "cp_markt_bananen",
+							"label": "die Bananen",
+							"answer": "3,00 €"
+						}
+					],
+					"unit": "€"
+				},
+				{
+					"title": "Prices",
+					"instruction": "Write each price the way you would say it.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "3,50 €",
+							"answer": "drei Euro fünfzig"
+						},
+						{
+							"prompt": "1,20 €",
+							"answer": "ein Euro zwanzig"
+						},
+						{
+							"prompt": "0,90 €",
+							"answer": "neunzig Cent"
+						},
+						{
+							"prompt": "12,99 €",
+							"answer": "zwölf Euro neunundneunzig"
+						}
+					]
+				},
+				{
+					"title": "Your numbers",
+					"instruction": "Fill in your own numbers, in words. Then read the sentences aloud.",
+					"kind": "gaps",
+					"note": "Your own numbers — check the spelling against the left page.",
+					"items": [
+						{
+							"before": "Ich bin",
+							"after": "Jahre alt."
+						},
+						{
+							"before": "Ein Kaffee kostet",
+							"after": "."
+						}
+					]
+				}
+			],
+			"canDo": [
+				"say any number up to 100",
+				"hear the difference between 16 and 60",
+				"read a price like 3,49 € aloud",
+				"catch a price when someone says it"
+			]
+		},
+		{
+			"id": "alphabet",
+			"title": "Das Alphabet",
+			"subtitle": "Letters, spelling your name, A wie Anton",
+			"hook": "Twenty-six letters you already know — six of them in disguise.",
+			"hero": {
+				"image": "cp_a1_1_alphabet"
+			},
+			"quiz": "quest_a1_1_alphabet",
+			"learn": [
+				{
+					"kind": "tiles",
+					"title": "Das Alphabet",
+					"note": "The six marked letters are the ones English speakers get wrong.",
+					"cols": 10,
+					"small": true,
+					"tiles": [
+						{
+							"big": "A",
+							"word": "A",
+							"say": "ah"
+						},
+						{
+							"big": "B",
+							"word": "Be",
+							"say": "bay"
+						},
+						{
+							"big": "C",
+							"word": "Ce",
+							"say": "tsay"
+						},
+						{
+							"big": "D",
+							"word": "De",
+							"say": "day"
+						},
+						{
+							"big": "E",
+							"word": "E",
+							"say": "ay",
+							"mark": true
+						},
+						{
+							"big": "F",
+							"word": "Ef",
+							"say": "eff"
+						},
+						{
+							"big": "G",
+							"word": "Ge",
+							"say": "gay"
+						},
+						{
+							"big": "H",
+							"word": "Ha",
+							"say": "hah"
+						},
+						{
+							"big": "I",
+							"word": "I",
+							"say": "ee",
+							"mark": true
+						},
+						{
+							"big": "J",
+							"word": "Jott",
+							"say": "yot",
+							"mark": true
+						},
+						{
+							"big": "K",
+							"word": "Ka",
+							"say": "kah"
+						},
+						{
+							"big": "L",
+							"word": "El",
+							"say": "ell"
+						},
+						{
+							"big": "M",
+							"word": "Em",
+							"say": "em"
+						},
+						{
+							"big": "N",
+							"word": "En",
+							"say": "en"
+						},
+						{
+							"big": "O",
+							"word": "O",
+							"say": "oh"
+						},
+						{
+							"big": "P",
+							"word": "Pe",
+							"say": "pay"
+						},
+						{
+							"big": "Q",
+							"word": "Ku",
+							"say": "koo"
+						},
+						{
+							"big": "R",
+							"word": "Er",
+							"say": "air"
+						},
+						{
+							"big": "S",
+							"word": "Es",
+							"say": "ess"
+						},
+						{
+							"big": "T",
+							"word": "Te",
+							"say": "tay"
+						},
+						{
+							"big": "U",
+							"word": "U",
+							"say": "oo"
+						},
+						{
+							"big": "V",
+							"word": "Vau",
+							"say": "fow",
+							"mark": true
+						},
+						{
+							"big": "W",
+							"word": "We",
+							"say": "vay",
+							"mark": true
+						},
+						{
+							"big": "X",
+							"word": "Ix",
+							"say": "iks"
+						},
+						{
+							"big": "Y",
+							"word": "Ypsilon",
+							"say": "üp-si-lon"
+						},
+						{
+							"big": "Z",
+							"word": "Zett",
+							"say": "tset",
+							"mark": true
+						},
+						{
+							"big": "Ä",
+							"word": "A-Umlaut",
+							"say": "eh"
+						},
+						{
+							"big": "Ö",
+							"word": "O-Umlaut"
+						},
+						{
+							"big": "Ü",
+							"word": "U-Umlaut"
+						},
+						{
+							"big": "ß",
+							"word": "Eszett",
+							"say": "ess-tset"
+						}
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "Six letters in disguise",
+							"text": "**E** sounds like English A (*ay*), and **I** like English E (*ee*). **J** is *yot*, **V** is *fow*, **W** is *vay*, **Z** is *tset*. Spell VW out loud: *fow-vay*."
+						},
+						{
+							"kind": "box",
+							"tone": "culture",
+							"title": "A wie Anton",
+							"text": "On the phone, Germans spell with words: *A wie Anton*, *B wie Berta*, *M wie Martha*. Since 2022 the official list uses cities instead: *A wie Aachen*, *B wie Berlin*. Both are understood."
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Spelling",
+					"cols": 2,
+					"items": [
+						{
+							"de": "Wie schreibt man das?",
+							"en": "How do you write that?"
+						},
+						{
+							"de": "Können Sie das buchstabieren?",
+							"en": "Can you spell that?"
+						},
+						{
+							"de": "Ich buchstabiere: M – A – X.",
+							"en": "I’ll spell it: M – A – X."
+						},
+						{
+							"de": "groß · klein",
+							"en": "capital · small letter"
+						},
+						{
+							"de": "Doppel-L",
+							"en": "double L"
+						},
+						{
+							"de": "A wie Anton",
+							"en": "A as in Anton"
+						}
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "tip",
+					"title": "ä, ö, ü and ß",
+					"text": "The dots change the sound: *ä* is like the e in bed, *ö* is the ur in fur with round lips, *ü* is ee with round lips. *ß* is a double s after a long vowel: groß, heißen. Can’t write them? Use **ae, oe, ue, ss**: Muenchen, Tschuess."
+				}
+			],
+			"practise": [
+				{
+					"title": "Letters in disguise",
+					"instruction": "Write the German name of each letter.",
+					"kind": "write",
+					"cols": 4,
+					"items": [
+						{
+							"prompt": "E",
+							"answer": "E"
+						},
+						{
+							"prompt": "I",
+							"answer": "I"
+						},
+						{
+							"prompt": "J",
+							"answer": "Jott"
+						},
+						{
+							"prompt": "V",
+							"answer": "Vau"
+						},
+						{
+							"prompt": "W",
+							"answer": "We"
+						},
+						{
+							"prompt": "Z",
+							"answer": "Zett"
+						},
+						{
+							"prompt": "Y",
+							"answer": "Ypsilon"
+						},
+						{
+							"prompt": "ß",
+							"answer": "Eszett"
+						}
+					]
+				},
+				{
+					"title": "Say it in letters",
+					"instruction": "Germans say these as letters. Write how they sound.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "VW",
+							"answer": "Vau – We"
+						},
+						{
+							"prompt": "BMW",
+							"answer": "Be – Em – We"
+						},
+						{
+							"prompt": "USA",
+							"answer": "U – Es – A"
+						},
+						{
+							"prompt": "ZDF",
+							"answer": "Zett – De – Ef"
+						}
+					],
+					"notGerman": true
+				},
+				{
+					"title": "Read the spelling",
+					"instruction": "Someone spells a word for you. Write the word.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Em – A – Ix",
+							"answer": "Max"
+						},
+						{
+							"prompt": "We – I – E – En",
+							"answer": "Wien"
+						},
+						{
+							"prompt": "Be – E – Er – El – I – En",
+							"answer": "Berlin"
+						},
+						{
+							"prompt": "Te – Es – Ce – Ha – U-Umlaut – Es – Es",
+							"answer": "Tschüss"
+						}
+					]
+				},
+				{
+					"title": "Dots or no dots?",
+					"instruction": "Write the missing letter: ä, ö, ü or ß.",
+					"kind": "write",
+					"notGerman": true,
+					"cols": 3,
+					"items": [
+						{
+							"prompt": "Tsch _ ss",
+							"answer": "ü (Tschüss)"
+						},
+						{
+							"prompt": "M _ nchen",
+							"answer": "ü (München)"
+						},
+						{
+							"prompt": "_ sterreich",
+							"answer": "Ö (Österreich)"
+						},
+						{
+							"prompt": "hei _ en",
+							"answer": "ß (heißen)"
+						},
+						{
+							"prompt": "gro _",
+							"answer": "ß (groß)"
+						}
+					]
+				},
+				{
+					"title": "Your name, the German way",
+					"instruction": "Spell your first name in letters, then the phone way.",
+					"kind": "gaps",
+					"note": "About you — check each letter against the alphabet on the left page.",
+					"items": [
+						{
+							"before": "Ich heiße",
+							"after": "."
+						},
+						{
+							"before": "Ich buchstabiere:",
+							"after": "."
+						},
+						{
+							"before": "A wie Anton …",
+							"after": ""
+						}
+					]
+				}
+			],
+			"canDo": [
+				"say the alphabet",
+				"spell my name",
+				"write down a word someone spells for me",
+				"say E, I, J, V, W and Z the German way"
+			]
+		},
+		{
+			"id": "sein_haben",
+			"title": "sein & haben",
+			"subtitle": "I am, I have — the two verbs you use most",
+			"hook": "You can’t say much without these two. Both are irregular, so they go in by heart.",
+			"hero": {
+				"image": "cp_a1_1_sein_haben"
+			},
+			"quiz": "quest_a1_1_sein_haben",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "sein and haben",
+					"head": [
+						{
+							"text": "who"
+						},
+						{
+							"text": "sein · to be"
+						},
+						{
+							"text": "haben · to have"
+						}
+					],
+					"rows": [
+						[
+							"ich",
+							"*bin*",
+							"habe"
+						],
+						[
+							"du",
+							"*bist*",
+							"ha*st*"
+						],
+						[
+							"er · sie · es",
+							"*ist*",
+							"ha*t*"
+						],
+						[
+							"wir",
+							"sind",
+							"haben"
+						],
+						[
+							"ihr",
+							"*seid*",
+							"habt"
+						],
+						[
+							"sie · Sie",
+							"sind",
+							"haben"
+						]
+					],
+					"note": "sein has no pattern at all. haben is regular, except that du *hast* and er *hat* lose the b."
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "words",
+							"title": "sein: what you are",
+							"cols": 1,
+							"items": [
+								{
+									"de": "Ich bin müde.",
+									"en": "I am tired."
+								},
+								{
+									"de": "Du bist Student.",
+									"en": "You are a student."
+								},
+								{
+									"de": "Er ist zwanzig.",
+									"en": "He is twenty."
+								},
+								{
+									"de": "Das ist gut.",
+									"en": "That is good."
+								}
+							]
+						},
+						{
+							"kind": "words",
+							"title": "haben: what you have",
+							"cols": 1,
+							"items": [
+								{
+									"de": "Ich habe Zeit.",
+									"en": "I have time."
+								},
+								{
+									"de": "Er hat ein Auto.",
+									"en": "He has a car."
+								},
+								{
+									"de": "Wir haben Kinder.",
+									"en": "We have children."
+								},
+								{
+									"de": "Hast du ein Handy?",
+									"en": "Do you have a phone?"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "Hungry? Use haben",
+							"text": "German *has* hunger: Ich habe **Hunger** (I’m hungry), **Durst** (thirsty), **Angst** (afraid), **Zeit** (I have time). But your age is sein: Ich *bin* zwanzig."
+						},
+						{
+							"kind": "box",
+							"tone": "tip",
+							"title": "wir and sie are twins",
+							"text": "In both verbs, *wir* and *sie · Sie* have the same form: wir sind, sie sind; wir haben, sie haben. Learn four forms, get six."
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"cols": 3,
+					"items": [
+						{
+							"de": "müde",
+							"en": "tired"
+						},
+						{
+							"de": "gut",
+							"en": "good"
+						},
+						{
+							"de": "ja · nein",
+							"en": "yes · no"
+						},
+						{
+							"de": "das Auto",
+							"en": "car"
+						},
+						{
+							"de": "das Handy",
+							"en": "mobile phone"
+						},
+						{
+							"de": "die Kinder",
+							"en": "children"
+						},
+						{
+							"de": "der Hunger · der Durst",
+							"en": "hunger · thirst"
+						},
+						{
+							"de": "die Angst · die Zeit",
+							"en": "fear · time"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "sein",
+					"instruction": "Write the right form of sein.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich",
+							"after": "müde.",
+							"answer": "bin"
+						},
+						{
+							"before": "Du",
+							"after": "Student.",
+							"answer": "bist"
+						},
+						{
+							"before": "Paul",
+							"after": "zwanzig.",
+							"answer": "ist"
+						},
+						{
+							"before": "Wir",
+							"after": "in Wien.",
+							"answer": "sind"
+						},
+						{
+							"before": "Ihr",
+							"after": "müde.",
+							"answer": "seid"
+						},
+						{
+							"before": "Lena und Max",
+							"after": "in München.",
+							"answer": "sind"
+						}
+					]
+				},
+				{
+					"title": "haben",
+					"instruction": "Write the right form of haben.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich",
+							"after": "Hunger.",
+							"answer": "habe"
+						},
+						{
+							"before": "",
+							"after": "du Zeit?",
+							"answer": "Hast"
+						},
+						{
+							"before": "Er",
+							"after": "ein Auto.",
+							"answer": "hat"
+						},
+						{
+							"before": "Wir",
+							"after": "Durst.",
+							"answer": "haben"
+						},
+						{
+							"before": "",
+							"after": "ihr ein Handy?",
+							"answer": "Habt"
+						},
+						{
+							"before": "Die Kinder",
+							"after": "Hunger.",
+							"answer": "haben"
+						}
+					]
+				},
+				{
+					"title": "sein or haben?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Ich",
+							"options": [
+								"bin",
+								"habe"
+							],
+							"after": "Hunger.",
+							"answer": "habe"
+						},
+						{
+							"before": "Ich",
+							"options": [
+								"bin",
+								"habe"
+							],
+							"after": "zwanzig.",
+							"answer": "bin"
+						},
+						{
+							"before": "Er",
+							"options": [
+								"ist",
+								"hat"
+							],
+							"after": "müde.",
+							"answer": "ist"
+						},
+						{
+							"before": "Wir",
+							"options": [
+								"sind",
+								"haben"
+							],
+							"after": "Zeit.",
+							"answer": "haben"
+						},
+						{
+							"before": "",
+							"options": [
+								"Bist",
+								"Hast"
+							],
+							"after": "du Angst?",
+							"answer": "Hast"
+						},
+						{
+							"before": "Das",
+							"options": [
+								"ist",
+								"hat"
+							],
+							"after": "gut.",
+							"answer": "ist"
+						}
+					]
+				},
+				{
+					"title": "And you, today?",
+					"instruction": "Write two true sentences about yourself.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich bin",
+							"after": "."
+						},
+						{
+							"before": "Ich habe",
+							"after": "."
+						}
+					],
+					"note": "About you — check it against the left page."
+				}
+			],
+			"canDo": [
+				"say all six forms of sein",
+				"say all six forms of haben",
+				"say I’m hungry, thirsty or tired",
+				"choose between sein and haben"
+			]
+		},
+		{
+			"id": "praesens",
+			"title": "Verben im Präsens",
+			"subtitle": "What you do every day: regular verbs",
+			"hook": "Cut off the -en, add the ending. Six endings, and they fit every regular verb.",
+			"hero": {
+				"image": "cp_a1_1_praesens"
+			},
+			"quiz": "quest_a1_1_praesens",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Stem + ending",
+					"head": [
+						{
+							"text": "who"
+						},
+						{
+							"text": "ending"
+						},
+						{
+							"text": "wohnen"
+						},
+						{
+							"text": "kommen"
+						},
+						{
+							"text": "machen"
+						}
+					],
+					"rows": [
+						[
+							"ich",
+							"-e",
+							"wohn*e*",
+							"komm*e*",
+							"mach*e*"
+						],
+						[
+							"du",
+							"-st",
+							"wohn*st*",
+							"komm*st*",
+							"mach*st*"
+						],
+						[
+							"er · sie · es",
+							"-t",
+							"wohn*t*",
+							"komm*t*",
+							"mach*t*"
+						],
+						[
+							"wir",
+							"-en",
+							"wohn*en*",
+							"komm*en*",
+							"mach*en*"
+						],
+						[
+							"ihr",
+							"-t",
+							"wohn*t*",
+							"komm*t*",
+							"mach*t*"
+						],
+						[
+							"sie · Sie",
+							"-en",
+							"wohn*en*",
+							"komm*en*",
+							"mach*en*"
+						]
+					],
+					"note": "wohnen → wohn- → wohn*e*. wir and sie always look like the infinitive."
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "tip",
+							"title": "-t and -d need an extra e",
+							"text": "When the stem ends in t or d, an e slips in so you can say it: arbeiten → du arbeit*e*st, er arbeit*e*t."
+						},
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "One present, three Englishes",
+							"text": "*Ich wohne in Berlin* is I live, I’m living and I do live in Berlin. Never try to build “I am living” in German."
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Verbs for the practice page",
+					"cols": 3,
+					"items": [
+						{
+							"de": "lernen",
+							"en": "to learn"
+						},
+						{
+							"de": "spielen",
+							"en": "to play"
+						},
+						{
+							"de": "kochen",
+							"en": "to cook"
+						},
+						{
+							"de": "hören",
+							"en": "to hear, listen to"
+						},
+						{
+							"de": "trinken",
+							"en": "to drink"
+						},
+						{
+							"de": "arbeiten",
+							"en": "to work"
+						},
+						{
+							"de": "kaufen",
+							"en": "to buy"
+						},
+						{
+							"de": "heute",
+							"en": "today"
+						},
+						{
+							"de": "gern",
+							"en": "gladly — Ich spiele gern = I like playing"
+						},
+						{
+							"de": "der Fußball",
+							"en": "football"
+						},
+						{
+							"de": "die Musik",
+							"en": "music"
+						},
+						{
+							"de": "was",
+							"en": "what"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "The right ending",
+					"instruction": "Write the verb with its ending.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "ich (lernen)",
+							"answer": "lerne"
+						},
+						{
+							"prompt": "du (spielen)",
+							"answer": "spielst"
+						},
+						{
+							"prompt": "er (kochen)",
+							"answer": "kocht"
+						},
+						{
+							"prompt": "wir (hören)",
+							"answer": "hören"
+						},
+						{
+							"prompt": "ihr (kaufen)",
+							"answer": "kauft"
+						},
+						{
+							"prompt": "sie (trinken)",
+							"answer": "trinken"
+						},
+						{
+							"prompt": "du (arbeiten)",
+							"answer": "arbeitest"
+						},
+						{
+							"prompt": "er (arbeiten)",
+							"answer": "arbeitet"
+						}
+					]
+				},
+				{
+					"title": "Complete the sentences",
+					"instruction": "Use the verb in brackets.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich",
+							"after": "in Berlin. (wohnen)",
+							"answer": "wohne"
+						},
+						{
+							"before": "Was",
+							"after": "du heute? (machen)",
+							"answer": "machst"
+						},
+						{
+							"before": "Lena",
+							"after": "gern Fußball. (spielen)",
+							"answer": "spielt"
+						},
+						{
+							"before": "Wir",
+							"after": "Deutsch. (lernen)",
+							"answer": "lernen"
+						},
+						{
+							"before": "",
+							"after": "ihr Kaffee? (trinken)",
+							"answer": "Trinkt"
+						},
+						{
+							"before": "Max",
+							"after": "Musik. (hören)",
+							"answer": "hört"
+						}
+					]
+				},
+				{
+					"title": "Who is cooking?",
+					"instruction": "Draw a line from each person to the right form.",
+					"kind": "match",
+					"left": [
+						"ich",
+						"du",
+						"er",
+						"wir"
+					],
+					"right": [
+						"kochst",
+						"kochen",
+						"koche",
+						"kocht"
+					],
+					"answers": [
+						2,
+						0,
+						3,
+						1
+					]
+				},
+				{
+					"title": "Your week",
+					"instruction": "Write about yourself.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich lerne",
+							"after": "."
+						},
+						{
+							"before": "Ich spiele gern",
+							"after": "."
+						},
+						{
+							"before": "Ich trinke gern",
+							"after": "."
+						}
+					],
+					"note": "About you — check it against the left page."
+				}
+			],
+			"canDo": [
+				"put any regular verb into all six forms",
+				"add the extra e: du arbeitest",
+				"say what I like doing with gern",
+				"talk about my week"
+			]
+		},
+		{
+			"id": "review_1",
+			"review": true,
+			"title": "Wiederholung",
+			"subtitle": "Topics 1–6",
+			"hook": "Nothing new here — only what you know. Do both pages without looking back, then check.",
+			"quiz": "quest_a1_1_sprechen_kurzcheck",
+			"learn": [],
+			"left": [
+				{
+					"title": "Question and answer",
+					"instruction": "Draw a line from each question to its answer.",
+					"kind": "match",
+					"left": [
+						"Wie heißen Sie?",
+						"Woher kommst du?",
+						"Wie alt bist du?",
+						"Hast du Zeit?",
+						"Was machst du?"
+					],
+					"right": [
+						"Ja, ich habe Zeit.",
+						"Ich heiße Lena.",
+						"Ich lerne Deutsch.",
+						"Aus Österreich.",
+						"Ich bin zwölf."
+					],
+					"answers": [
+						1,
+						3,
+						4,
+						0,
+						2
+					]
+				},
+				{
+					"title": "Numbers and prices",
+					"instruction": "Write them in words.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "14",
+							"answer": "vierzehn"
+						},
+						{
+							"prompt": "38",
+							"answer": "achtunddreißig"
+						},
+						{
+							"prompt": "67",
+							"answer": "siebenundsechzig"
+						},
+						{
+							"prompt": "90",
+							"answer": "neunzig"
+						},
+						{
+							"prompt": "2,50 €",
+							"answer": "zwei Euro fünfzig"
+						},
+						{
+							"prompt": "0,80 €",
+							"answer": "achtzig Cent"
+						}
+					]
+				},
+				{
+					"title": "Spelled for you",
+					"instruction": "Write the word.",
+					"kind": "write",
+					"cols": 1,
+					"items": [
+						{
+							"prompt": "Ka – A – Ef – Ef – E – E",
+							"answer": "Kaffee"
+						},
+						{
+							"prompt": "Be – Er – O – Te",
+							"answer": "Brot"
+						},
+						{
+							"prompt": "Ha – U – En – De",
+							"answer": "Hund"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "Which form?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Woher",
+							"options": [
+								"kommst",
+								"kommt"
+							],
+							"after": "du?",
+							"answer": "kommst"
+						},
+						{
+							"before": "Wir",
+							"options": [
+								"sind",
+								"seid"
+							],
+							"after": "müde.",
+							"answer": "sind"
+						},
+						{
+							"before": "Lena",
+							"options": [
+								"hat",
+								"habt"
+							],
+							"after": "ein Handy.",
+							"answer": "hat"
+						},
+						{
+							"before": "Ich",
+							"options": [
+								"heiße",
+								"heißt"
+							],
+							"after": "Max.",
+							"answer": "heiße"
+						},
+						{
+							"before": "Ihr",
+							"options": [
+								"spielt",
+								"spielen"
+							],
+							"after": "Fußball.",
+							"answer": "spielt"
+						},
+						{
+							"before": "Das Brot",
+							"options": [
+								"kostet",
+								"kosten"
+							],
+							"after": "zwei Euro.",
+							"answer": "kostet"
+						}
+					]
+				},
+				{
+					"title": "du or Sie?",
+					"instruction": "Write each question the other way.",
+					"kind": "write",
+					"cols": 1,
+					"items": [
+						{
+							"prompt": "Wie heißt du?",
+							"answer": "Wie heißen Sie?"
+						},
+						{
+							"prompt": "Wo wohnen Sie?",
+							"answer": "Wo wohnst du?"
+						},
+						{
+							"prompt": "Hast du Zeit?",
+							"answer": "Haben Sie Zeit?"
+						}
+					]
+				},
+				{
+					"title": "A new person",
+					"instruction": "You meet someone at a party. Write your side.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Hallo! Ich heiße Paul. Und du?",
+							"after": ""
+						},
+						{
+							"before": "Woher kommst du?",
+							"after": ""
+						},
+						{
+							"before": "Was sprichst du?",
+							"after": ""
+						}
+					],
+					"note": "Your own answers — Ich heiße …, Ich komme aus …, Ich spreche …."
+				},
+				{
+					"title": "A friend",
+					"instruction": "Write about a friend.",
+					"kind": "gaps",
+					"note": "About your friend — check each sentence against Topic 1.",
+					"items": [
+						{
+							"before": "Das ist",
+							"after": "."
+						},
+						{
+							"before": "Er · Sie kommt aus",
+							"after": "."
+						},
+						{
+							"before": "Er · Sie wohnt in",
+							"after": "."
+						}
+					]
+				}
+			],
+			"canDo": [
+				"introduce myself without notes",
+				"say numbers and prices",
+				"spell a word",
+				"use sein, haben and regular verbs"
+			]
+		},
+		{
+			"id": "vokalwechsel",
+			"title": "Verben mit Vokalwechsel",
+			"subtitle": "fahren → du fährst: verbs that change",
+			"hook": "Eight everyday verbs change their vowel — but only for du and er, sie, es.",
+			"hero": {
+				"image": "cp_a1_1_vokalwechsel"
+			},
+			"quiz": "quest_a1_1_vokalwechsel",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Only the middle two change",
+					"head": [
+						{
+							"text": "who"
+						},
+						{
+							"text": "fahren"
+						},
+						{
+							"text": "sprechen"
+						},
+						{
+							"text": "lesen"
+						}
+					],
+					"rows": [
+						[
+							"ich",
+							"fahre",
+							"spreche",
+							"lese"
+						],
+						[
+							"du",
+							"f*ä*hrst",
+							"spr*i*chst",
+							"l*ie*st"
+						],
+						[
+							"er · sie · es",
+							"f*ä*hrt",
+							"spr*i*cht",
+							"l*ie*st"
+						],
+						[
+							"wir",
+							"fahren",
+							"sprechen",
+							"lesen"
+						],
+						[
+							"ihr",
+							"fahrt",
+							"sprecht",
+							"lest"
+						],
+						[
+							"sie · Sie",
+							"fahren",
+							"sprechen",
+							"lesen"
+						]
+					],
+					"note": "The endings are the usual ones. Only the vowel moves."
+				},
+				{
+					"kind": "table",
+					"title": "The eight verbs",
+					"head": [
+						{
+							"text": "in English",
+							"en": true
+						},
+						{
+							"text": "verb"
+						},
+						{
+							"text": "du"
+						},
+						{
+							"text": "er · sie · es"
+						}
+					],
+					"rows": [
+						[
+							"to drive, ride",
+							"fahren",
+							"f*ä*hrst",
+							"f*ä*hrt"
+						],
+						[
+							"to sleep",
+							"schlafen",
+							"schl*ä*fst",
+							"schl*ä*ft"
+						],
+						[
+							"to speak",
+							"sprechen",
+							"spr*i*chst",
+							"spr*i*cht"
+						],
+						[
+							"to eat",
+							"essen",
+							"*i*sst",
+							"*i*sst"
+						],
+						[
+							"to take",
+							"nehmen",
+							"n*imm*st",
+							"n*imm*t"
+						],
+						[
+							"to give",
+							"geben",
+							"g*i*bst",
+							"g*i*bt"
+						],
+						[
+							"to read",
+							"lesen",
+							"l*ie*st",
+							"l*ie*st"
+						],
+						[
+							"to see",
+							"sehen",
+							"s*ie*hst",
+							"s*ie*ht"
+						]
+					],
+					"note": "a → ä · e → i · e → ie"
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "Three that shrink",
+							"text": "*nehmen*: du nimmst, er nimmt — double m, no h. *essen*: du isst, er isst. *lesen*: du liest, never liesst."
+						},
+						{
+							"kind": "words",
+							"title": "Words for the practice page",
+							"cols": 1,
+							"items": [
+								{
+									"de": "das Buch",
+									"en": "book"
+								},
+								{
+									"de": "der Bus",
+									"en": "bus"
+								},
+								{
+									"de": "das Fahrrad",
+									"en": "bike"
+								},
+								{
+									"de": "viel",
+									"en": "a lot"
+								},
+								{
+									"de": "Fahrrad fahren",
+									"en": "to ride a bike"
+								},
+								{
+									"de": "Bus fahren",
+									"en": "to take the bus"
+								}
+							]
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "du changes",
+					"instruction": "Write the du-form.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "fahren",
+							"answer": "du fährst"
+						},
+						{
+							"prompt": "schlafen",
+							"answer": "du schläfst"
+						},
+						{
+							"prompt": "sprechen",
+							"answer": "du sprichst"
+						},
+						{
+							"prompt": "essen",
+							"answer": "du isst"
+						},
+						{
+							"prompt": "nehmen",
+							"answer": "du nimmst"
+						},
+						{
+							"prompt": "geben",
+							"answer": "du gibst"
+						},
+						{
+							"prompt": "lesen",
+							"answer": "du liest"
+						},
+						{
+							"prompt": "sehen",
+							"answer": "du siehst"
+						}
+					]
+				},
+				{
+					"title": "Complete the sentences",
+					"instruction": "Use the verb in brackets. Careful: not every form changes.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Max",
+							"after": "gern Bus. (fahren)",
+							"answer": "fährt"
+						},
+						{
+							"before": "Was",
+							"after": "du? (lesen)",
+							"answer": "liest"
+						},
+						{
+							"before": "Lena",
+							"after": "Deutsch und Englisch. (sprechen)",
+							"answer": "spricht"
+						},
+						{
+							"before": "Er",
+							"after": "viel. (essen)",
+							"answer": "isst"
+						},
+						{
+							"before": "Ich",
+							"after": "das Buch. (nehmen)",
+							"answer": "nehme"
+						},
+						{
+							"before": "Wir",
+							"after": "gern. (lesen)",
+							"answer": "lesen"
+						}
+					]
+				},
+				{
+					"title": "Which form?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Du",
+							"options": [
+								"fährst",
+								"fahrst"
+							],
+							"after": "Fahrrad.",
+							"answer": "fährst"
+						},
+						{
+							"before": "Er",
+							"options": [
+								"nimmt",
+								"nehmt"
+							],
+							"after": "das Buch.",
+							"answer": "nimmt"
+						},
+						{
+							"before": "Ich",
+							"options": [
+								"lese",
+								"lies"
+							],
+							"after": "gern.",
+							"answer": "lese"
+						},
+						{
+							"before": "Ihr",
+							"options": [
+								"esst",
+								"isst"
+							],
+							"after": "Brot.",
+							"answer": "esst"
+						},
+						{
+							"before": "Sie",
+							"options": [
+								"schläft",
+								"schlaft"
+							],
+							"after": "viel.",
+							"answer": "schläft"
+						},
+						{
+							"before": "Wir",
+							"options": [
+								"sprechen",
+								"sprichen"
+							],
+							"after": "Deutsch.",
+							"answer": "sprechen"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"name the eight verbs that change",
+				"say their du and er forms",
+				"remember nimmst, isst and liest",
+				"keep ich, wir, ihr and sie regular"
+			]
+		},
+		{
+			"id": "artikel",
+			"title": "der, die, das",
+			"subtitle": "Every noun has one — learn it with the word",
+			"hook": "Not “Tisch = table” but “der Tisch = table”. The article is part of the word.",
+			"hero": {
+				"image": "cp_a1_1_artikel"
+			},
+			"quiz": "quest_a1_1_artikel",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Three articles",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "der"
+						},
+						{
+							"text": "die"
+						},
+						{
+							"text": "das"
+						}
+					],
+					"rows": [
+						[
+							"the",
+							"*der* Tisch",
+							"*die* Lampe",
+							"*das* Buch"
+						],
+						[
+							"a",
+							"*ein* Tisch",
+							"*eine* Lampe",
+							"*ein* Buch"
+						],
+						[
+							"people",
+							"der Mann",
+							"die Frau",
+							"das Kind"
+						],
+						[
+							"animals",
+							"der Hund",
+							"die Katze",
+							"das Pferd"
+						],
+						[
+							"at home",
+							"der Stuhl",
+							"die Tür",
+							"das Fenster"
+						],
+						[
+							"",
+							"der Schlüssel",
+							"die Uhr",
+							"das Haus"
+						],
+						[
+							"",
+							"der Computer",
+							"die Tasche",
+							"das Auto"
+						]
+					],
+					"note": "ein for der and das, eine for die."
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "tip",
+							"title": "Three pencils",
+							"text": "Write every new der-word in blue, die in red and das in green. After a week, your hand knows the colour before your head does."
+						},
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "das Mädchen",
+							"text": "A girl is *das* Mädchen: every word ending in -chen is das, whatever it means. Gender is grammar, not biology."
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Clues that often work",
+					"cols": 2,
+					"items": [
+						{
+							"de": "-e → mostly die",
+							"en": "die Lampe, die Tasche, die Katze"
+						},
+						{
+							"de": "-ung → die",
+							"en": "die Wohnung (flat)"
+						},
+						{
+							"de": "-chen → das",
+							"en": "das Mädchen (girl)"
+						},
+						{
+							"de": "-er for people → der",
+							"en": "der Lehrer (teacher)"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"cols": 3,
+					"items": [
+						{
+							"de": "der Tisch",
+							"en": "table"
+						},
+						{
+							"de": "der Stuhl",
+							"en": "chair"
+						},
+						{
+							"de": "die Lampe",
+							"en": "lamp"
+						},
+						{
+							"de": "die Tür",
+							"en": "door"
+						},
+						{
+							"de": "das Fenster",
+							"en": "window"
+						},
+						{
+							"de": "das Pferd",
+							"en": "horse"
+						},
+						{
+							"de": "das Mädchen",
+							"en": "girl"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "What is it?",
+					"instruction": "Write each thing with der, die or das.",
+					"kind": "tags",
+					"items": [
+						{
+							"image": "tisch",
+							"label": "",
+							"answer": "der Tisch"
+						},
+						{
+							"image": "lampe",
+							"label": "",
+							"answer": "die Lampe"
+						},
+						{
+							"image": "buch",
+							"label": "",
+							"answer": "das Buch"
+						},
+						{
+							"image": "stuhl",
+							"label": "",
+							"answer": "der Stuhl"
+						},
+						{
+							"image": "tuer",
+							"label": "",
+							"answer": "die Tür"
+						},
+						{
+							"image": "fenster",
+							"label": "",
+							"answer": "das Fenster"
+						}
+					]
+				},
+				{
+					"title": "Three columns",
+					"instruction": "Write each word in its column.",
+					"kind": "sort",
+					"columns": [
+						"der",
+						"die",
+						"das"
+					],
+					"words": [
+						"Hund",
+						"Katze",
+						"Auto",
+						"Uhr",
+						"Schlüssel",
+						"Haus",
+						"Tasche",
+						"Mann",
+						"Mädchen"
+					],
+					"answers": [
+						0,
+						1,
+						2,
+						1,
+						0,
+						2,
+						1,
+						0,
+						2
+					]
+				},
+				{
+					"title": "ein or eine?",
+					"instruction": "Write ein or eine.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Das ist",
+							"after": "Tisch.",
+							"answer": "ein"
+						},
+						{
+							"before": "Das ist",
+							"after": "Lampe.",
+							"answer": "eine"
+						},
+						{
+							"before": "Das ist",
+							"after": "Buch.",
+							"answer": "ein"
+						},
+						{
+							"before": "Das ist",
+							"after": "Tasche.",
+							"answer": "eine"
+						},
+						{
+							"before": "Das ist",
+							"after": "Hund.",
+							"answer": "ein"
+						},
+						{
+							"before": "Das ist",
+							"after": "Uhr.",
+							"answer": "eine"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"say der, die or das for twenty everyday things",
+				"choose ein or eine",
+				"remember das Mädchen",
+				"use a clue like -chen or -ung"
+			]
+		},
+		{
+			"id": "plural",
+			"title": "Plural",
+			"subtitle": "One table, two tables: five ways to say more",
+			"hook": "English adds -s. German has five endings — and one article for all of them: die.",
+			"hero": {
+				"image": "cp_a1_1_plural"
+			},
+			"quiz": "quest_a1_1_plural",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Five endings",
+					"head": [
+						{
+							"text": "ending"
+						},
+						{
+							"text": "one"
+						},
+						{
+							"text": "more than one"
+						}
+					],
+					"rows": [
+						[
+							"-e",
+							"der Tisch · der Hund",
+							"die Tisch*e* · die Hund*e*"
+						],
+						[
+							"¨-e",
+							"der Stuhl",
+							"die St*ü*hl*e*"
+						],
+						[
+							"-(e)n",
+							"die Lampe · die Katze · die Frau",
+							"die Lampe*n* · die Katze*n* · die Frau*en*"
+						],
+						[
+							"¨-er",
+							"das Haus · das Buch · das Kind",
+							"die H*ä*us*er* · die B*ü*ch*er* · die Kind*er*"
+						],
+						[
+							"-s",
+							"das Auto · das Handy",
+							"die Auto*s* · die Handy*s*"
+						],
+						[
+							"–",
+							"der Schlüssel · der Apfel",
+							"die Schlüssel · die *Ä*pfel"
+						]
+					],
+					"note": "¨ means: add the dots. – means: no ending."
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "tip",
+							"title": "Always die",
+							"text": "Every plural takes *die*, whatever the word was before: der Tisch → *die* Tische, das Kind → *die* Kinder."
+						},
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "How word lists write it",
+							"text": "**der Tisch, -e** · **das Haus, ¨-er** · **der Schlüssel, -**. The bit after the comma is the plural. Learn it with the word, like the article."
+						}
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "culture",
+							"title": "Each ending has a favourite",
+							"text": "Most die-words take -n or -en. Many das-words take -er. Short and foreign words take -s."
+						},
+						{
+							"kind": "words",
+							"title": "Words for the practice page",
+							"cols": 1,
+							"items": [
+								{
+									"de": "eins · viele",
+									"en": "one · many"
+								},
+								{
+									"de": "ich kaufe",
+									"en": "I buy"
+								}
+							]
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "Make it more",
+					"instruction": "Write the plural with die.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "der Tisch",
+							"answer": "die Tische"
+						},
+						{
+							"prompt": "die Lampe",
+							"answer": "die Lampen"
+						},
+						{
+							"prompt": "das Kind",
+							"answer": "die Kinder"
+						},
+						{
+							"prompt": "das Auto",
+							"answer": "die Autos"
+						},
+						{
+							"prompt": "der Stuhl",
+							"answer": "die Stühle"
+						},
+						{
+							"prompt": "die Katze",
+							"answer": "die Katzen"
+						},
+						{
+							"prompt": "das Buch",
+							"answer": "die Bücher"
+						},
+						{
+							"prompt": "der Schlüssel",
+							"answer": "die Schlüssel"
+						}
+					]
+				},
+				{
+					"title": "One or many?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 3,
+					"items": [
+						{
+							"before": "zwei",
+							"options": [
+								"Tisch",
+								"Tische"
+							],
+							"after": "",
+							"answer": "Tische"
+						},
+						{
+							"before": "ein",
+							"options": [
+								"Kind",
+								"Kinder"
+							],
+							"after": "",
+							"answer": "Kind"
+						},
+						{
+							"before": "drei",
+							"options": [
+								"Apfel",
+								"Äpfel"
+							],
+							"after": "",
+							"answer": "Äpfel"
+						},
+						{
+							"before": "eine",
+							"options": [
+								"Lampe",
+								"Lampen"
+							],
+							"after": "",
+							"answer": "Lampe"
+						},
+						{
+							"before": "vier",
+							"options": [
+								"Auto",
+								"Autos"
+							],
+							"after": "",
+							"answer": "Autos"
+						},
+						{
+							"before": "zehn",
+							"options": [
+								"Ei",
+								"Eier"
+							],
+							"after": "",
+							"answer": "Eier"
+						}
+					]
+				},
+				{
+					"title": "Sort by ending",
+					"instruction": "Write each word under its plural ending.",
+					"kind": "sort",
+					"columns": [
+						"-e",
+						"-(e)n",
+						"-er",
+						"-s",
+						"–"
+					],
+					"words": [
+						"Hund",
+						"Frau",
+						"Haus",
+						"Handy",
+						"Apfel",
+						"Katze",
+						"Buch",
+						"Tisch",
+						"Auto",
+						"Schlüssel"
+					],
+					"answers": [
+						0,
+						1,
+						2,
+						3,
+						4,
+						1,
+						2,
+						0,
+						3,
+						4
+					]
+				},
+				{
+					"title": "At the market",
+					"instruction": "Write the plural.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich kaufe drei",
+							"after": "(der Apfel)",
+							"answer": "Äpfel"
+						},
+						{
+							"before": "Ich kaufe zwei",
+							"after": "(die Banane)",
+							"answer": "Bananen"
+						},
+						{
+							"before": "Ich kaufe sechs",
+							"after": "(die Kartoffel)",
+							"answer": "Kartoffeln"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"say die for every plural",
+				"make plurals with the five endings",
+				"read der Tisch, -e in a word list",
+				"count things: zwei Tische, drei Äpfel"
+			]
+		},
+		{
+			"id": "wfragen",
+			"title": "W-Fragen",
+			"subtitle": "Who, what, where, when — asking questions",
+			"hook": "Question word first, verb second — and no “do” anywhere.",
+			"hero": {
+				"image": "cp_a1_1_wfragen"
+			},
+			"quiz": "quest_a1_1_wfragen",
+			"learn": [
+				{
+					"kind": "tiles",
+					"title": "The question words",
+					"cols": 5,
+					"small": true,
+					"tiles": [
+						{
+							"big": "wer",
+							"word": "who"
+						},
+						{
+							"big": "was",
+							"word": "what"
+						},
+						{
+							"big": "wo",
+							"word": "where"
+						},
+						{
+							"big": "woher",
+							"word": "where from"
+						},
+						{
+							"big": "wohin",
+							"word": "where to"
+						},
+						{
+							"big": "wann",
+							"word": "when"
+						},
+						{
+							"big": "wie",
+							"word": "how"
+						},
+						{
+							"big": "warum",
+							"word": "why"
+						},
+						{
+							"big": "wie viel",
+							"word": "how much"
+						},
+						{
+							"big": "wie alt",
+							"word": "how old"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Word, verb, the rest",
+					"head": [
+						{
+							"text": "1 question word"
+						},
+						{
+							"text": "2 verb"
+						},
+						{
+							"text": "3 the rest"
+						}
+					],
+					"rows": [
+						[
+							"Wo",
+							"*wohnst*",
+							"du?"
+						],
+						[
+							"Was",
+							"*machst*",
+							"du heute?"
+						],
+						[
+							"Woher",
+							"*kommt*",
+							"Lena?"
+						],
+						[
+							"Wann",
+							"*kommt*",
+							"der Bus?"
+						],
+						[
+							"Wie viel",
+							"*kostet*",
+							"das Brot?"
+						]
+					],
+					"note": "The verb is always in second place."
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "Three kinds of where",
+							"text": "*Wo* bist du? – In Berlin. *Woher* kommst du? – Aus Wien. *Wohin* fährst du? – Nach München."
+						},
+						{
+							"kind": "box",
+							"tone": "tip",
+							"title": "Yes or no? Verb first",
+							"text": "Without a question word the verb starts: *Kommst* du? *Hast* du Zeit? – Ja. / Nein."
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"cols": 3,
+					"items": [
+						{
+							"de": "nach München",
+							"en": "to Munich"
+						},
+						{
+							"de": "um acht",
+							"en": "at eight"
+						},
+						{
+							"de": "Wer ist das?",
+							"en": "Who is that?"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "Which question word?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "",
+							"options": [
+								"Wo",
+								"Woher"
+							],
+							"after": "kommst du? – Aus Spanien.",
+							"answer": "Woher"
+						},
+						{
+							"before": "",
+							"options": [
+								"Wer",
+								"Was"
+							],
+							"after": "ist das? – Das ist Paul.",
+							"answer": "Wer"
+						},
+						{
+							"before": "",
+							"options": [
+								"Wann",
+								"Wie"
+							],
+							"after": "heißt du?",
+							"answer": "Wie"
+						},
+						{
+							"before": "",
+							"options": [
+								"Wo",
+								"Wohin"
+							],
+							"after": "wohnst du? – In Wien.",
+							"answer": "Wo"
+						},
+						{
+							"before": "",
+							"options": [
+								"Was",
+								"Wer"
+							],
+							"after": "machst du heute?",
+							"answer": "Was"
+						},
+						{
+							"before": "",
+							"options": [
+								"Wohin",
+								"Woher"
+							],
+							"after": "fährst du? – Nach Berlin.",
+							"answer": "Wohin"
+						}
+					]
+				},
+				{
+					"title": "Question and answer",
+					"instruction": "Draw a line from each question to its answer.",
+					"kind": "match",
+					"left": [
+						"Wie alt bist du?",
+						"Wann kommt der Bus?",
+						"Wer ist das?",
+						"Was liest du?",
+						"Wie viel kostet das?"
+					],
+					"right": [
+						"Das ist Lena.",
+						"Zwei Euro.",
+						"Ich bin zwanzig.",
+						"Um acht.",
+						"Ein Buch."
+					],
+					"answers": [
+						2,
+						3,
+						0,
+						4,
+						1
+					]
+				},
+				{
+					"title": "Ask the question",
+					"instruction": "Here is the answer. Write the question.",
+					"kind": "write",
+					"cols": 1,
+					"items": [
+						{
+							"prompt": "Ich heiße Max.",
+							"answer": "Wie heißt du?"
+						},
+						{
+							"prompt": "Ich komme aus England.",
+							"answer": "Woher kommst du?"
+						},
+						{
+							"prompt": "Ich wohne in München.",
+							"answer": "Wo wohnst du?"
+						},
+						{
+							"prompt": "Ich fahre nach Berlin.",
+							"answer": "Wohin fährst du?"
+						}
+					]
+				},
+				{
+					"title": "Verb first",
+					"instruction": "Make a yes/no question.",
+					"kind": "write",
+					"cols": 1,
+					"items": [
+						{
+							"prompt": "du / Zeit / haben",
+							"answer": "Hast du Zeit?"
+						},
+						{
+							"prompt": "ihr / Fußball / spielen",
+							"answer": "Spielt ihr Fußball?"
+						},
+						{
+							"prompt": "Lena / Deutsch / sprechen",
+							"answer": "Spricht Lena Deutsch?"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"use the ten question words",
+				"put the verb in second place",
+				"tell wo, woher and wohin apart",
+				"ask a yes/no question"
+			]
+		},
+		{
+			"id": "laender",
+			"title": "Länder und Sprachen",
+			"subtitle": "Countries, languages and nationalities",
+			"hook": "Where you’re from, what you speak, what you are: the first things anyone asks.",
+			"hero": {
+				"image": "cp_a1_1_laender"
+			},
+			"quiz": "quest_a1_1_laender",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Land, Sprache, Leute",
+					"head": [
+						{
+							"text": "country"
+						},
+						{
+							"text": "language"
+						},
+						{
+							"text": "he is …"
+						},
+						{
+							"text": "she is …"
+						}
+					],
+					"rows": [
+						[
+							"Deutschland",
+							"Deutsch",
+							"Deutscher",
+							"Deutsche"
+						],
+						[
+							"Österreich",
+							"Deutsch",
+							"Österreicher",
+							"Österreicher*in*"
+						],
+						[
+							"*die* Schweiz",
+							"Deutsch, Französisch, Italienisch",
+							"Schweizer",
+							"Schweizer*in*"
+						],
+						[
+							"England",
+							"Englisch",
+							"Engländer",
+							"Engländer*in*"
+						],
+						[
+							"Spanien",
+							"Spanisch",
+							"Spanier",
+							"Spanier*in*"
+						],
+						[
+							"Frankreich",
+							"Französisch",
+							"Franzose",
+							"Französ*in*"
+						],
+						[
+							"Italien",
+							"Italienisch",
+							"Italiener",
+							"Italiener*in*"
+						],
+						[
+							"*die* Türkei",
+							"Türkisch",
+							"Türke",
+							"Türk*in*"
+						],
+						[
+							"*die* USA",
+							"Englisch",
+							"Amerikaner",
+							"Amerikaner*in*"
+						]
+					],
+					"note": "Women mostly add *-in*."
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "Countries with die",
+							"text": "Most countries go straight after aus: aus Spanien. A few keep their article, and it changes: aus *der* Schweiz, aus *der* Türkei, aus *den* USA."
+						},
+						{
+							"kind": "box",
+							"tone": "tip",
+							"title": "No article after sein",
+							"text": "Ich bin Spanierin — not “eine Spanierin”. Languages take a capital and no article: Ich spreche Spanisch."
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"cols": 3,
+					"items": [
+						{
+							"de": "ein bisschen",
+							"en": "a little"
+						},
+						{
+							"de": "aus der Schweiz · aus den USA",
+							"en": "from Switzerland · from the USA"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "What do they speak?",
+					"instruction": "Write the language.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "Frankreich",
+							"answer": "Französisch"
+						},
+						{
+							"prompt": "Spanien",
+							"answer": "Spanisch"
+						},
+						{
+							"prompt": "Italien",
+							"answer": "Italienisch"
+						},
+						{
+							"prompt": "die Türkei",
+							"answer": "Türkisch"
+						},
+						{
+							"prompt": "England",
+							"answer": "Englisch"
+						},
+						{
+							"prompt": "Österreich",
+							"answer": "Deutsch"
+						}
+					]
+				},
+				{
+					"title": "aus …",
+					"instruction": "Circle the right words.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Ich komme aus",
+							"options": [
+								"Schweiz",
+								"der Schweiz"
+							],
+							"after": ".",
+							"answer": "der Schweiz"
+						},
+						{
+							"before": "Er kommt aus",
+							"options": [
+								"Spanien",
+								"der Spanien"
+							],
+							"after": ".",
+							"answer": "Spanien"
+						},
+						{
+							"before": "Sie kommt aus",
+							"options": [
+								"den USA",
+								"USA"
+							],
+							"after": ".",
+							"answer": "den USA"
+						},
+						{
+							"before": "Wir kommen aus",
+							"options": [
+								"der Türkei",
+								"Türkei"
+							],
+							"after": ".",
+							"answer": "der Türkei"
+						}
+					]
+				},
+				{
+					"title": "Who is what?",
+					"instruction": "Write the nationality.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Paul kommt aus England. Er ist",
+							"after": ".",
+							"answer": "Engländer"
+						},
+						{
+							"before": "Lena kommt aus Österreich. Sie ist",
+							"after": ".",
+							"answer": "Österreicherin"
+						},
+						{
+							"before": "Marco kommt aus Italien. Er ist",
+							"after": ".",
+							"answer": "Italiener"
+						},
+						{
+							"before": "Sophie kommt aus Frankreich. Sie ist",
+							"after": ".",
+							"answer": "Französin"
+						}
+					]
+				},
+				{
+					"title": "And you?",
+					"instruction": "Write about yourself.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich komme aus",
+							"after": "."
+						},
+						{
+							"before": "Ich bin",
+							"after": "."
+						},
+						{
+							"before": "Ich spreche",
+							"after": "und ein bisschen Deutsch."
+						}
+					],
+					"note": "About you — check it against the left page."
+				}
+			],
+			"canDo": [
+				"say where I’m from",
+				"say what languages I speak",
+				"give my nationality — without an article",
+				"say aus der Schweiz, aus den USA"
+			]
+		},
+		{
+			"id": "wo",
+			"title": "Wo?",
+			"subtitle": "im, am, beim — saying where you are",
+			"hook": "A handful of little words tell you where anything is. Learn them as chunks.",
+			"hero": {
+				"image": "cp_a1_1_wo"
+			},
+			"quiz": "quest_a1_1_wo_praepositionen",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Where are you?",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "der · das word"
+						},
+						{
+							"text": "die word"
+						}
+					],
+					"rows": [
+						[
+							"in (inside)",
+							"*im* Park · *im* Büro · *im* Kino",
+							"*in der* Schule · *in der* Stadt"
+						],
+						[
+							"an (at)",
+							"*am* Bahnhof",
+							"*an der* Uni"
+						],
+						[
+							"bei (at someone’s)",
+							"*beim* Arzt",
+							"bei Lena (a person)"
+						],
+						[
+							"towns, countries",
+							"in Berlin · in Spanien",
+							""
+						]
+					],
+					"note": "im = in dem · am = an dem · beim = bei dem."
+				},
+				{
+					"kind": "table",
+					"title": "Where is it?",
+					"head": [
+						{
+							"text": "in English",
+							"en": true
+						},
+						{
+							"text": "German"
+						}
+					],
+					"rows": [
+						[
+							"on the table",
+							"*auf* dem Tisch"
+						],
+						[
+							"under the table",
+							"*unter* dem Tisch"
+						],
+						[
+							"next to the table",
+							"*neben* dem Tisch"
+						],
+						[
+							"in front of the sofa",
+							"*vor* dem Sofa"
+						],
+						[
+							"behind the sofa",
+							"*hinter* dem Sofa"
+						],
+						[
+							"on the wall",
+							"*an* der Wand"
+						]
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "tip",
+							"title": "Hear an -m? That’s dem",
+							"text": "When a little word ends in -m — im, am, beim, vom — it has swallowed *dem*. So it goes with a der- or das-word."
+						},
+						{
+							"kind": "words",
+							"title": "Words for the practice page",
+							"cols": 2,
+							"items": [
+								{
+									"de": "der Park",
+									"en": "park"
+								},
+								{
+									"de": "das Büro",
+									"en": "office"
+								},
+								{
+									"de": "das Kino",
+									"en": "cinema"
+								},
+								{
+									"de": "die Schule",
+									"en": "school"
+								},
+								{
+									"de": "der Bahnhof",
+									"en": "station"
+								},
+								{
+									"de": "der Arzt",
+									"en": "doctor"
+								},
+								{
+									"de": "das Sofa",
+									"en": "sofa"
+								},
+								{
+									"de": "die Wand",
+									"en": "wall"
+								},
+								{
+									"de": "das Bild",
+									"en": "picture"
+								},
+								{
+									"de": "der Ball",
+									"en": "ball"
+								}
+							]
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "Wo ist …?",
+					"instruction": "Look at the picture. Where is it?",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Katze ist",
+							"after": ".",
+							"answer": "auf dem Sofa"
+						},
+						{
+							"before": "Der Hund ist",
+							"after": ".",
+							"answer": "unter dem Tisch"
+						},
+						{
+							"before": "Der Ball ist",
+							"after": ".",
+							"answer": "vor dem Sofa"
+						},
+						{
+							"before": "Das Bild ist",
+							"after": ".",
+							"answer": "an der Wand"
+						},
+						{
+							"before": "Die Lampe ist",
+							"after": ".",
+							"answer": "neben dem Tisch"
+						}
+					],
+					"image": "cp_a1_1_wo_zimmer"
+				},
+				{
+					"title": "im or in der?",
+					"instruction": "Circle the right words.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Ich bin",
+							"options": [
+								"im",
+								"in der"
+							],
+							"after": "Büro.",
+							"answer": "im"
+						},
+						{
+							"before": "Lena ist",
+							"options": [
+								"im",
+								"in der"
+							],
+							"after": "Schule.",
+							"answer": "in der"
+						},
+						{
+							"before": "Wir sind",
+							"options": [
+								"im",
+								"in der"
+							],
+							"after": "Kino.",
+							"answer": "im"
+						},
+						{
+							"before": "Er wohnt",
+							"options": [
+								"in",
+								"im"
+							],
+							"after": "Berlin.",
+							"answer": "in"
+						},
+						{
+							"before": "Ich bin",
+							"options": [
+								"am",
+								"an der"
+							],
+							"after": "Bahnhof.",
+							"answer": "am"
+						},
+						{
+							"before": "Max ist",
+							"options": [
+								"beim",
+								"bei der"
+							],
+							"after": "Arzt.",
+							"answer": "beim"
+						}
+					]
+				},
+				{
+					"title": "Your day",
+					"instruction": "Where are you?",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Am Morgen bin ich",
+							"after": "."
+						},
+						{
+							"before": "Am Abend bin ich",
+							"after": "."
+						}
+					],
+					"note": "About you — check it against the left page."
+				}
+			],
+			"canDo": [
+				"say im Park, in der Schule, am Bahnhof",
+				"say where things are: auf, unter, neben, vor, hinter",
+				"hear the dem inside im, am and beim",
+				"say where I am in the morning"
+			]
+		},
+		{
+			"id": "familie",
+			"title": "Familie und Farben",
+			"subtitle": "Your people, and the colours of things",
+			"hook": "A family tree to read and a picture to colour in — pencils out.",
+			"hero": {
+				"image": "cp_a1_1_familie"
+			},
+			"quiz": "quest_a1_1_familie",
+			"learn": [
+				{
+					"kind": "tree",
+					"title": "Lenas Familie",
+					"note": "die Eltern = Vater + Mutter · die Geschwister = Bruder + Schwester",
+					"people": {
+						"opa": {
+							"name": "Heinz",
+							"word": "der Opa"
+						},
+						"oma": {
+							"name": "Gisela",
+							"word": "die Oma"
+						},
+						"vater": {
+							"name": "Peter",
+							"word": "der Vater"
+						},
+						"mutter": {
+							"name": "Anna",
+							"word": "die Mutter"
+						},
+						"tante": {
+							"name": "Lisa",
+							"word": "die Tante"
+						},
+						"bruder": {
+							"name": "Tom",
+							"word": "der Bruder"
+						},
+						"ich": {
+							"name": "Lena",
+							"word": "ich"
+						},
+						"schwester": {
+							"name": "Mia",
+							"word": "die Schwester"
+						}
+					}
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "mein or meine?",
+							"text": "*mein* for der- and das-words: mein Bruder, mein Kind. *meine* for die-words and plurals: meine Schwester, meine Eltern."
+						},
+						{
+							"kind": "words",
+							"title": "More people",
+							"cols": 1,
+							"items": [
+								{
+									"de": "der Sohn · die Tochter",
+									"en": "son · daughter"
+								},
+								{
+									"de": "die Eltern",
+									"en": "parents"
+								},
+								{
+									"de": "die Geschwister",
+									"en": "brothers and sisters"
+								},
+								{
+									"de": "der Großvater · die Großmutter",
+									"en": "grandfather · grandmother"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "tiles",
+					"title": "Farben",
+					"note": "After ist and sind a colour never changes: Das Auto ist rot.",
+					"cols": 6,
+					"small": true,
+					"tiles": [
+						{
+							"big": "rot",
+							"word": "red",
+							"swatch": "#c8372d"
+						},
+						{
+							"big": "blau",
+							"word": "blue",
+							"swatch": "#2f5fa8"
+						},
+						{
+							"big": "gelb",
+							"word": "yellow",
+							"swatch": "#f2c230"
+						},
+						{
+							"big": "grün",
+							"word": "green",
+							"swatch": "#4c8b4a"
+						},
+						{
+							"big": "orange",
+							"word": "orange",
+							"swatch": "#e98a2e"
+						},
+						{
+							"big": "braun",
+							"word": "brown",
+							"swatch": "#7a5232"
+						},
+						{
+							"big": "schwarz",
+							"word": "black",
+							"swatch": "#1d1d1d"
+						},
+						{
+							"big": "weiß",
+							"word": "white",
+							"swatch": "#ffffff"
+						},
+						{
+							"big": "grau",
+							"word": "grey",
+							"swatch": "#9a9a9a"
+						},
+						{
+							"big": "rosa",
+							"word": "pink",
+							"swatch": "#f2a7bf"
+						},
+						{
+							"big": "lila",
+							"word": "purple",
+							"swatch": "#8a5aa8"
+						},
+						{
+							"big": "bunt",
+							"word": "colourful",
+							"swatch": "linear-gradient(90deg,#c8372d,#f2c230,#4c8b4a,#2f5fa8)"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"cols": 3,
+					"items": [
+						{
+							"de": "der Baum",
+							"en": "tree"
+						},
+						{
+							"de": "die Sonne",
+							"en": "sun"
+						},
+						{
+							"de": "die Blume",
+							"en": "flower"
+						},
+						{
+							"de": "mein · meine",
+							"en": "my"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "Lena’s family",
+					"instruction": "You are Lena. Look at the family tree.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Tom ist mein",
+							"after": ".",
+							"answer": "Bruder"
+						},
+						{
+							"before": "Mia ist meine",
+							"after": ".",
+							"answer": "Schwester"
+						},
+						{
+							"before": "Peter ist mein",
+							"after": ".",
+							"answer": "Vater"
+						},
+						{
+							"before": "Anna ist meine",
+							"after": ".",
+							"answer": "Mutter"
+						},
+						{
+							"before": "Heinz ist mein",
+							"after": ".",
+							"answer": "Opa"
+						},
+						{
+							"before": "Lisa ist meine",
+							"after": ".",
+							"answer": "Tante"
+						}
+					]
+				},
+				{
+					"title": "mein or meine?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 3,
+					"items": [
+						{
+							"before": "",
+							"options": [
+								"mein",
+								"meine"
+							],
+							"after": "Bruder",
+							"answer": "mein"
+						},
+						{
+							"before": "",
+							"options": [
+								"mein",
+								"meine"
+							],
+							"after": "Schwester",
+							"answer": "meine"
+						},
+						{
+							"before": "",
+							"options": [
+								"mein",
+								"meine"
+							],
+							"after": "Eltern",
+							"answer": "meine"
+						},
+						{
+							"before": "",
+							"options": [
+								"mein",
+								"meine"
+							],
+							"after": "Kind",
+							"answer": "mein"
+						},
+						{
+							"before": "",
+							"options": [
+								"mein",
+								"meine"
+							],
+							"after": "Oma",
+							"answer": "meine"
+						},
+						{
+							"before": "",
+							"options": [
+								"mein",
+								"meine"
+							],
+							"after": "Vater",
+							"answer": "mein"
+						}
+					]
+				},
+				{
+					"title": "Colour it in",
+					"instruction": "Read each sentence, colour the picture, tick the box.",
+					"kind": "colour",
+					"image": "cp_a1_1_ausmalen",
+					"sentences": [
+						"Das Auto ist rot.",
+						"Das Haus ist gelb.",
+						"Die Tür ist blau.",
+						"Der Baum ist grün.",
+						"Die Sonne ist orange.",
+						"Der Hund ist braun.",
+						"Die Blume ist rosa.",
+						"Das Fahrrad ist schwarz."
+					]
+				}
+			],
+			"canDo": [
+				"name the people in my family",
+				"say mein or meine",
+				"name twelve colours",
+				"say what colour something is"
+			]
+		},
+		{
+			"id": "woerter",
+			"title": "Wörter bauen",
+			"subtitle": "-in for women, and words made of words",
+			"hook": "German glues words together. Read a long word from the back and it explains itself.",
+			"hero": {
+				"image": "cp_a1_1_woerter"
+			},
+			"quiz": "quest_a1_1_wortbildung",
+			"learn": [
+				{
+					"kind": "build",
+					"title": "-in makes a woman",
+					"note": "Always die. More than one: -innen.",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "Lehrer"
+								},
+								{
+									"text": "in",
+									"role": "suffix"
+								}
+							],
+							"result": "die Lehrerin",
+							"en": "teacher"
+						},
+						{
+							"parts": [
+								{
+									"text": "Student"
+								},
+								{
+									"text": "in",
+									"role": "suffix"
+								}
+							],
+							"result": "die Studentin",
+							"en": "student"
+						},
+						{
+							"parts": [
+								{
+									"text": "Freund"
+								},
+								{
+									"text": "in",
+									"role": "suffix"
+								}
+							],
+							"result": "die Freundin",
+							"en": "friend"
+						},
+						{
+							"parts": [
+								{
+									"text": "Ärzt"
+								},
+								{
+									"text": "in",
+									"role": "suffix"
+								}
+							],
+							"result": "die Ärztin",
+							"en": "doctor (with dots)"
+						},
+						{
+							"parts": [
+								{
+									"text": "Köch"
+								},
+								{
+									"text": "in",
+									"role": "suffix"
+								}
+							],
+							"result": "die Köchin",
+							"en": "cook (with dots)"
+						}
+					]
+				},
+				{
+					"kind": "build",
+					"title": "Word + word = new word",
+					"note": "The last word decides what it is — and its article.",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "das Haus"
+								},
+								{
+									"text": "die Tür",
+									"role": "suffix"
+								}
+							],
+							"result": "die Haustür",
+							"en": "front door"
+						},
+						{
+							"parts": [
+								{
+									"text": "der Apfel"
+								},
+								{
+									"text": "der Kuchen",
+									"role": "suffix"
+								}
+							],
+							"result": "der Apfelkuchen",
+							"en": "apple cake"
+						},
+						{
+							"parts": [
+								{
+									"text": "die Kinder"
+								},
+								{
+									"text": "das Zimmer",
+									"role": "suffix"
+								}
+							],
+							"result": "das Kinderzimmer",
+							"en": "children’s room"
+						},
+						{
+							"parts": [
+								{
+									"text": "die Schokolade"
+								},
+								{
+									"text": "n",
+									"role": "joint"
+								},
+								{
+									"text": "der Kuchen",
+									"role": "suffix"
+								}
+							],
+							"result": "der Schokoladenkuchen",
+							"en": "chocolate cake"
+						}
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "tip",
+							"title": "Read from the back",
+							"text": "*Kinderzimmer*: Zimmer (room) … for Kinder. *Haustür*: Tür (door) … of the Haus. Start at the end."
+						},
+						{
+							"kind": "box",
+							"tone": "culture",
+							"title": "You already know one",
+							"text": "*die Telefonnummer* = das Telefon + die Nummer. Once you know Kuchen, you know Apfelkuchen and Käsekuchen too."
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"cols": 3,
+					"items": [
+						{
+							"de": "der Lehrer",
+							"en": "teacher"
+						},
+						{
+							"de": "der Koch",
+							"en": "cook"
+						},
+						{
+							"de": "der Kuchen",
+							"en": "cake"
+						},
+						{
+							"de": "das Zimmer",
+							"en": "room"
+						},
+						{
+							"de": "die Schokolade",
+							"en": "chocolate"
+						},
+						{
+							"de": "das Telefon",
+							"en": "telephone"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "Now a woman",
+					"instruction": "Write the female form.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "der Lehrer",
+							"answer": "die Lehrerin"
+						},
+						{
+							"prompt": "der Student",
+							"answer": "die Studentin"
+						},
+						{
+							"prompt": "der Freund",
+							"answer": "die Freundin"
+						},
+						{
+							"prompt": "der Arzt",
+							"answer": "die Ärztin"
+						},
+						{
+							"prompt": "der Koch",
+							"answer": "die Köchin"
+						},
+						{
+							"prompt": "der Spanier",
+							"answer": "die Spanierin"
+						}
+					]
+				},
+				{
+					"title": "Build the word",
+					"instruction": "Glue them together, with the right article.",
+					"kind": "write",
+					"cols": 1,
+					"items": [
+						{
+							"prompt": "das Haus + die Tür",
+							"answer": "die Haustür"
+						},
+						{
+							"prompt": "der Apfel + der Kuchen",
+							"answer": "der Apfelkuchen"
+						},
+						{
+							"prompt": "die Kinder + das Zimmer",
+							"answer": "das Kinderzimmer"
+						},
+						{
+							"prompt": "der Käse + der Kuchen",
+							"answer": "der Käsekuchen"
+						},
+						{
+							"prompt": "die Banane + das Brot",
+							"answer": "das Bananenbrot"
+						}
+					]
+				},
+				{
+					"title": "Which article?",
+					"instruction": "The last word decides. Circle it.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "",
+							"options": [
+								"der",
+								"die",
+								"das"
+							],
+							"after": "Haustür",
+							"answer": "die"
+						},
+						{
+							"before": "",
+							"options": [
+								"der",
+								"die",
+								"das"
+							],
+							"after": "Apfelkuchen",
+							"answer": "der"
+						},
+						{
+							"before": "",
+							"options": [
+								"der",
+								"die",
+								"das"
+							],
+							"after": "Kinderzimmer",
+							"answer": "das"
+						},
+						{
+							"before": "",
+							"options": [
+								"der",
+								"die",
+								"das"
+							],
+							"after": "Telefonnummer",
+							"answer": "die"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"make the female form with -in",
+				"build a word from two words",
+				"find the article from the last word",
+				"read a long word from the back"
+			]
+		},
+		{
+			"id": "review_2",
+			"review": true,
+			"title": "Wiederholung",
+			"subtitle": "Topics 7–14",
+			"hook": "The second half of the book, all at once. No looking back until you’ve finished.",
+			"quiz": "quest_a1_1_wortschatz",
+			"learn": [],
+			"left": [
+				{
+					"title": "Which form?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Du",
+							"options": [
+								"liest",
+								"lest"
+							],
+							"after": "gern.",
+							"answer": "liest"
+						},
+						{
+							"before": "Er",
+							"options": [
+								"fährt",
+								"fahrt"
+							],
+							"after": "Bus.",
+							"answer": "fährt"
+						},
+						{
+							"before": "Ihr",
+							"options": [
+								"esst",
+								"isst"
+							],
+							"after": "Brot.",
+							"answer": "esst"
+						},
+						{
+							"before": "Lena",
+							"options": [
+								"spricht",
+								"sprecht"
+							],
+							"after": "Englisch.",
+							"answer": "spricht"
+						}
+					]
+				},
+				{
+					"title": "More than one",
+					"instruction": "Write the plural with die.",
+					"kind": "write",
+					"cols": 2,
+					"items": [
+						{
+							"prompt": "das Kind",
+							"answer": "die Kinder"
+						},
+						{
+							"prompt": "die Frau",
+							"answer": "die Frauen"
+						},
+						{
+							"prompt": "der Hund",
+							"answer": "die Hunde"
+						},
+						{
+							"prompt": "das Auto",
+							"answer": "die Autos"
+						}
+					]
+				},
+				{
+					"title": "Ask the question",
+					"instruction": "Here is the answer. Write the question.",
+					"kind": "write",
+					"cols": 1,
+					"items": [
+						{
+							"prompt": "Ich wohne in Wien.",
+							"answer": "Wo wohnst du?"
+						},
+						{
+							"prompt": "Das ist Paul.",
+							"answer": "Wer ist das?"
+						},
+						{
+							"prompt": "Ich komme aus der Schweiz.",
+							"answer": "Woher kommst du?"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "der, die or das?",
+					"instruction": "Write each word in its column.",
+					"kind": "sort",
+					"columns": [
+						"der",
+						"die",
+						"das"
+					],
+					"words": [
+						"Haustür",
+						"Kuchen",
+						"Zimmer",
+						"Schwester",
+						"Bruder",
+						"Kind",
+						"Sonne",
+						"Baum",
+						"Bild"
+					],
+					"answers": [
+						1,
+						0,
+						2,
+						1,
+						0,
+						2,
+						1,
+						0,
+						2
+					]
+				},
+				{
+					"title": "Where?",
+					"instruction": "Circle the right words.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Ich bin",
+							"options": [
+								"im",
+								"am"
+							],
+							"after": "Büro.",
+							"answer": "im"
+						},
+						{
+							"before": "Er ist",
+							"options": [
+								"am",
+								"im"
+							],
+							"after": "Bahnhof.",
+							"answer": "am"
+						},
+						{
+							"before": "Wir sind",
+							"options": [
+								"in der",
+								"im"
+							],
+							"after": "Schule.",
+							"answer": "in der"
+						}
+					]
+				},
+				{
+					"title": "Meine Familie",
+					"instruction": "Write about your family.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Mein Vater heißt",
+							"after": "."
+						},
+						{
+							"before": "Meine Mutter kommt aus",
+							"after": "."
+						},
+						{
+							"before": "Ich habe",
+							"after": "."
+						}
+					],
+					"note": "About your family — check mein and meine on the family page."
+				}
+			],
+			"canDo": [
+				"use the eight changing verbs",
+				"make plurals",
+				"ask any W-question",
+				"talk about my family and where I am"
+			]
+		}
+	],
+	"credits": [
+		{
+			"what": "Illustrations",
+			"source": "Drawn for this book with Google Gemini",
+			"licence": "© languagequiz.org"
+		},
+		{
+			"what": "Picture dictionary",
+			"source": "From the languagequiz.org word cards, drawn with Google Gemini",
+			"licence": "© languagequiz.org"
+		}
+	],
+	"overview": {
+		"title": "A1.1 at a glance",
+		"blocks": [
+			{
+				"kind": "table",
+				"title": "Verbs",
+				"head": [
+					{
+						"text": "who"
+					},
+					{
+						"text": "sein"
+					},
+					{
+						"text": "haben"
+					},
+					{
+						"text": "wohnen"
+					},
+					{
+						"text": "fahren"
+					}
+				],
+				"rows": [
+					[
+						"ich",
+						"bin",
+						"habe",
+						"wohne",
+						"fahre"
+					],
+					[
+						"du",
+						"bist",
+						"hast",
+						"wohnst",
+						"f*ä*hrst"
+					],
+					[
+						"er · sie · es",
+						"ist",
+						"hat",
+						"wohnt",
+						"f*ä*hrt"
+					],
+					[
+						"wir",
+						"sind",
+						"haben",
+						"wohnen",
+						"fahren"
+					],
+					[
+						"ihr",
+						"seid",
+						"habt",
+						"wohnt",
+						"fahrt"
+					],
+					[
+						"sie · Sie",
+						"sind",
+						"haben",
+						"wohnen",
+						"fahren"
+					]
+				]
+			},
+			{
+				"kind": "columns",
+				"blocks": [
+					{
+						"kind": "table",
+						"title": "Articles",
+						"head": [
+							{
+								"text": ""
+							},
+							{
+								"text": "der"
+							},
+							{
+								"text": "die"
+							},
+							{
+								"text": "das"
+							},
+							{
+								"text": "plural"
+							}
+						],
+						"rows": [
+							[
+								"the",
+								"der",
+								"die",
+								"das",
+								"die"
+							],
+							[
+								"a",
+								"ein",
+								"eine",
+								"ein",
+								"–"
+							],
+							[
+								"my",
+								"mein",
+								"meine",
+								"mein",
+								"meine"
+							]
+						]
+					},
+					{
+						"kind": "table",
+						"title": "Where?",
+						"head": [
+							{
+								"text": ""
+							},
+							{
+								"text": "der · das"
+							},
+							{
+								"text": "die"
+							}
+						],
+						"rows": [
+							[
+								"in",
+								"im",
+								"in der"
+							],
+							[
+								"an",
+								"am",
+								"an der"
+							],
+							[
+								"bei",
+								"beim",
+								"bei der"
+							]
+						]
+					}
+				]
+			},
+			{
+				"kind": "tiles",
+				"title": "Question words",
+				"cols": 5,
+				"small": true,
+				"tiles": [
+					{
+						"big": "wer",
+						"word": "who"
+					},
+					{
+						"big": "was",
+						"word": "what"
+					},
+					{
+						"big": "wo",
+						"word": "where"
+					},
+					{
+						"big": "woher",
+						"word": "from where"
+					},
+					{
+						"big": "wohin",
+						"word": "where to"
+					},
+					{
+						"big": "wann",
+						"word": "when"
+					},
+					{
+						"big": "wie",
+						"word": "how"
+					},
+					{
+						"big": "warum",
+						"word": "why"
+					},
+					{
+						"big": "wie viel",
+						"word": "how much"
+					},
+					{
+						"big": "wie alt",
+						"word": "how old"
+					}
+				]
+			},
+			{
+				"kind": "columns",
+				"blocks": [
+					{
+						"kind": "pairs",
+						"title": "Numbers",
+						"rows": [
+							{
+								"a": "13",
+								"b": "drei*zehn*"
+							},
+							{
+								"a": "16 · 17",
+								"b": "sech*zehn* · sieb*zehn*"
+							},
+							{
+								"a": "30",
+								"b": "drei*ßig*"
+							},
+							{
+								"a": "47",
+								"b": "sieben*und*vierzig"
+							},
+							{
+								"a": "2,50 €",
+								"b": "zwei Euro fünfzig"
+							}
+						]
+					},
+					{
+						"kind": "box",
+						"tone": "tip",
+						"title": "Word order",
+						"text": "The verb is always in second place: *Ich wohne* in Berlin. Wo *wohnst* du? Yes/no questions start with it: *Wohnst* du in Berlin?"
+					}
+				]
+			},
+			{
+				"kind": "box",
+				"tone": "watch",
+				"title": "Plurals",
+				"text": "Five endings: -e, -(e)n, -er, -s, or nothing — and always *die*. Learn each noun as der Tisch, -e."
+			}
+		]
+	},
+	"dictionary": {
+		"title": "Words in pictures",
+		"note": "Forty words from this book. Cover the German, look at the picture, say the word **with its article**.",
+		"words": [
+			{
+				"de": "der Mann",
+				"en": "man",
+				"image": "mann"
+			},
+			{
+				"de": "die Frau",
+				"en": "woman",
+				"image": "frau"
+			},
+			{
+				"de": "das Kind",
+				"en": "child",
+				"image": "kind"
+			},
+			{
+				"de": "das Mädchen",
+				"en": "girl",
+				"image": "maedchen"
+			},
+			{
+				"de": "der Junge",
+				"en": "boy",
+				"image": "junge"
+			},
+			{
+				"de": "der Vater",
+				"en": "father",
+				"image": "vater"
+			},
+			{
+				"de": "die Mutter",
+				"en": "mother",
+				"image": "mutter"
+			},
+			{
+				"de": "der Bruder",
+				"en": "brother",
+				"image": "bruder"
+			},
+			{
+				"de": "die Schwester",
+				"en": "sister",
+				"image": "schwester"
+			},
+			{
+				"de": "die Oma",
+				"en": "grandma",
+				"image": "oma"
+			},
+			{
+				"de": "der Opa",
+				"en": "grandpa",
+				"image": "opa"
+			},
+			{
+				"de": "der Freund",
+				"en": "friend",
+				"image": "freund"
+			},
+			{
+				"de": "der Lehrer",
+				"en": "teacher",
+				"image": "lehrer"
+			},
+			{
+				"de": "der Arzt",
+				"en": "doctor",
+				"image": "arzt"
+			},
+			{
+				"de": "der Koch",
+				"en": "cook",
+				"image": "koch"
+			},
+			{
+				"de": "der Kellner",
+				"en": "waiter",
+				"image": "kellner"
+			},
+			{
+				"de": "der Hund",
+				"en": "dog",
+				"image": "hund"
+			},
+			{
+				"de": "die Katze",
+				"en": "cat",
+				"image": "katze"
+			},
+			{
+				"de": "die Sonne",
+				"en": "sun",
+				"image": "sonne"
+			},
+			{
+				"de": "der Himmel",
+				"en": "sky",
+				"image": "himmel"
+			},
+			{
+				"de": "der Tisch",
+				"en": "table",
+				"image": "tisch"
+			},
+			{
+				"de": "der Stuhl",
+				"en": "chair",
+				"image": "stuhl"
+			},
+			{
+				"de": "die Lampe",
+				"en": "lamp",
+				"image": "lampe"
+			},
+			{
+				"de": "die Tür",
+				"en": "door",
+				"image": "tuer"
+			},
+			{
+				"de": "das Fenster",
+				"en": "window",
+				"image": "fenster"
+			},
+			{
+				"de": "das Haus",
+				"en": "house",
+				"image": "haus"
+			},
+			{
+				"de": "das Bett",
+				"en": "bed",
+				"image": "bett"
+			},
+			{
+				"de": "der Schrank",
+				"en": "cupboard",
+				"image": "schrank"
+			},
+			{
+				"de": "das Auto",
+				"en": "car",
+				"image": "auto"
+			},
+			{
+				"de": "der Bus",
+				"en": "bus",
+				"image": "bus"
+			},
+			{
+				"de": "das Buch",
+				"en": "book",
+				"image": "buch"
+			},
+			{
+				"de": "die Tasche",
+				"en": "bag",
+				"image": "tasche"
+			},
+			{
+				"de": "die Uhr",
+				"en": "clock",
+				"image": "uhr"
+			},
+			{
+				"de": "der Schlüssel",
+				"en": "key",
+				"image": "schluessel"
+			},
+			{
+				"de": "der Computer",
+				"en": "computer",
+				"image": "computer"
+			},
+			{
+				"de": "der Ball",
+				"en": "ball",
+				"image": "ball"
+			},
+			{
+				"de": "der Apfel",
+				"en": "apple",
+				"image": "apfel"
+			},
+			{
+				"de": "die Banane",
+				"en": "banana",
+				"image": "banane"
+			},
+			{
+				"de": "das Brot",
+				"en": "bread",
+				"image": "brot"
+			},
+			{
+				"de": "die Jacke",
+				"en": "jacket",
+				"image": "jacke"
+			}
+		]
+	},
+	"names": [
+		"Lena",
+		"Max",
+		"Paul",
+		"Mia",
+		"Tom",
+		"Peter",
+		"Anna",
+		"Heinz",
+		"Gisela",
+		"Lisa",
+		"Marco",
+		"Sophie",
+		"Rocky"
+	]
+}

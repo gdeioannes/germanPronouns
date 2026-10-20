@@ -6394,7 +6394,8 @@
             "heißen",
             "heißst"
           ],
-          "cue": "heißen"
+          "cue": "heißen",
+          "why": "The subject is ich, and with ich the verb ends in -e: ich heiße."
         },
         {
           "kind": "input",
@@ -6405,7 +6406,8 @@
             "kommst",
             "kommen"
           ],
-          "cue": "kommen"
+          "cue": "kommen",
+          "why": "With ich the verb ending is -e: ich komme aus Italien."
         },
         {
           "kind": "input",
@@ -6416,7 +6418,8 @@
             "wohnst",
             "wohnen"
           ],
-          "cue": "wohnen"
+          "cue": "wohnen",
+          "why": "Regular verb with ich takes -e: Jetzt wohne ich in Köln. The verb is second, after Jetzt."
         },
         {
           "kind": "input",
@@ -6427,7 +6430,8 @@
             "habe",
             "bist"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "sein is irregular. With ich it is always bin: Ich bin Studentin."
         },
         {
           "kind": "input",
@@ -6438,7 +6442,8 @@
             "lernst",
             "lernen"
           ],
-          "cue": "lernen"
+          "cue": "lernen",
+          "why": "The subject is ich, so the ending is -e: ich lerne Deutsch."
         },
         {
           "kind": "input",
@@ -6449,7 +6454,8 @@
             "hast",
             "haben"
           ],
-          "cue": "haben"
+          "cue": "haben",
+          "why": "haben with ich is habe (du hast, er/sie hat): Ich habe eine Schwester."
         },
         {
           "kind": "input",
@@ -6460,7 +6466,8 @@
             "wohnst",
             "wohnen"
           ],
-          "cue": "wohnen"
+          "cue": "wohnen",
+          "why": "Meine Schwester is she (sie), so the verb ends in -t: Meine Schwester wohnt in Rom."
         },
         {
           "kind": "input",
@@ -6471,7 +6478,8 @@
             "Meinen",
             "Meinem"
           ],
-          "cue": "my"
+          "cue": "my",
+          "why": "Bruder is masculine (der) and the subject here, so 'my' has no ending: Mein Bruder."
         },
         {
           "kind": "input",
@@ -6482,7 +6490,8 @@
             "hat",
             "sind"
           ],
-          "cue": "to have (wir)"
+          "cue": "to have (wir)",
+          "why": "With wir the verb has the -en form, like the infinitive: Wir haben einen Hund."
         },
         {
           "kind": "input",
@@ -6493,7 +6502,8 @@
             "Das",
             "Den"
           ],
-          "cue": "the"
+          "cue": "the",
+          "why": "Hund is masculine and the subject of the sentence (nominative), so the article is der: Der Hund."
         },
         {
           "kind": "input",
@@ -6504,7 +6514,8 @@
             "ist",
             "bist"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "Age uses sein, not haben, in German. With ich: Ich bin zwanzig Jahre alt."
         },
         {
           "kind": "input",
@@ -6515,7 +6526,8 @@
             "spielst",
             "spielen"
           ],
-          "cue": "spielen"
+          "cue": "spielen",
+          "why": "With ich the ending is -e. The verb comes second, after Am Wochenende: spiele ich."
         }
       ],
       "covers": [
@@ -24313,7 +24325,8 @@
             "steht",
             "aufstehe"
           ],
-          "cue": "aufstehen"
+          "cue": "aufstehen",
+          "why": "aufstehen is separable: the verb (stehe) goes second, auf goes to the end: Ich stehe um sieben Uhr auf."
         },
         {
           "kind": "input",
@@ -24324,7 +24337,8 @@
             "einem",
             "eine"
           ],
-          "cue": "a"
+          "cue": "a",
+          "why": "Kaffee is masculine and the object of trinke (accusative), so ein becomes einen: einen Kaffee."
         },
         {
           "kind": "input",
@@ -24335,7 +24349,8 @@
             "dem",
             "das"
           ],
-          "cue": "the"
+          "cue": "the",
+          "why": "Bus is masculine and the object of nehme (accusative), so der becomes den: den Bus."
         },
         {
           "kind": "input",
@@ -24346,7 +24361,8 @@
             "keinen",
             "nicht"
           ],
-          "cue": "no, not a"
+          "cue": "no, not a",
+          "why": "Auto is neuter and the object of habe. Neuter kein has no ending in the accusative: kein Auto."
         },
         {
           "kind": "input",
@@ -24357,7 +24373,8 @@
             "müssen",
             "müsst"
           ],
-          "cue": "müssen"
+          "cue": "müssen",
+          "why": "müssen is irregular: ich muss (no ending). The other verb, einkaufen, goes to the end."
         },
         {
           "kind": "input",
@@ -24368,7 +24385,8 @@
             "einen",
             "einem"
           ],
-          "cue": "a"
+          "cue": "a",
+          "why": "Brot is neuter, object of kaufe. Neuter ein stays ein in the accusative: ein Brot."
         },
         {
           "kind": "input",
@@ -24379,7 +24397,8 @@
             "einen",
             "einer"
           ],
-          "cue": "a"
+          "cue": "a",
+          "why": "Banane is feminine, object of kaufe. Feminine stays eine in the accusative: eine Banane."
         },
         {
           "kind": "input",
@@ -24390,7 +24409,8 @@
             "eine",
             "einem"
           ],
-          "cue": "a"
+          "cue": "a",
+          "why": "Apfel is masculine, object of kaufe (accusative), so ein becomes einen: einen Apfel."
         },
         {
           "kind": "input",
@@ -24401,7 +24421,8 @@
             "keinen",
             "nicht"
           ],
-          "cue": "no"
+          "cue": "no",
+          "why": "Use kein (not nicht) to say 'no' before a noun. Milch is feminine, so: keine Milch."
         },
         {
           "kind": "input",
@@ -24412,7 +24433,8 @@
             "rufst",
             "anrufe"
           ],
-          "cue": "anrufen"
+          "cue": "anrufen",
+          "why": "anrufen is separable: rufe goes second, an goes to the end: Dann rufe ich meine Schwester an."
         },
         {
           "kind": "input",
@@ -24423,7 +24445,8 @@
             "sieht",
             "fernsehe"
           ],
-          "cue": "fernsehen"
+          "cue": "fernsehen",
+          "why": "fernsehen is separable and irregular (du siehst), but with ich it is sehe; fern goes to the end."
         },
         {
           "kind": "input",
@@ -24438,7 +24461,8 @@
             "willst",
             "wollt"
           ],
-          "cue": "wollen"
+          "cue": "wollen",
+          "why": "wollen is irregular: ich will (no ending). The second verb, sehen, goes to the end."
         }
       ],
       "covers": [
@@ -43953,7 +43977,8 @@
             "hat",
             "war"
           ],
-          "cue": "besuchen"
+          "cue": "besuchen",
+          "why": "besuchen takes an object (meine Oma), so the Perfekt uses haben: ich habe besucht."
         },
         {
           "kind": "input",
@@ -43964,7 +43989,8 @@
             "ist",
             "hat"
           ],
-          "cue": "fahren"
+          "cue": "fahren",
+          "why": "fahren is movement from A to B, so the Perfekt uses sein: ich bin gefahren."
         },
         {
           "kind": "input",
@@ -43975,7 +44001,8 @@
             "der",
             "die"
           ],
-          "cue": "the train"
+          "cue": "the train",
+          "why": "mit always takes the dative. Zug is masculine, so der becomes dem: mit dem Zug."
         },
         {
           "kind": "input",
@@ -43986,7 +44013,8 @@
             "war",
             "haben"
           ],
-          "cue": "dauern"
+          "cue": "dauern",
+          "why": "dauern is not movement or change, so the Perfekt uses haben. Die Fahrt is 'it': hat gedauert."
         },
         {
           "kind": "input",
@@ -43997,7 +44025,8 @@
             "seid",
             "hat"
           ],
-          "cue": "laufen"
+          "cue": "laufen",
+          "why": "laufen here is movement to a place, so the Perfekt uses sein. With wir: sind gelaufen."
         },
         {
           "kind": "input",
@@ -44008,7 +44037,8 @@
             "dem",
             "den"
           ],
-          "cue": "grandma"
+          "cue": "grandma",
+          "why": "bei always takes the dative. Oma is feminine, so die becomes der: bei der Oma."
         },
         {
           "kind": "input",
@@ -44019,7 +44049,8 @@
             "hat",
             "war"
           ],
-          "cue": "essen"
+          "cue": "essen",
+          "why": "essen takes an object (Kuchen), so the Perfekt uses haben: ich habe gegessen."
         },
         {
           "kind": "input",
@@ -44030,7 +44061,8 @@
             "habe",
             "war"
           ],
-          "cue": "zeigen"
+          "cue": "zeigen",
+          "why": "zeigen takes an object (Fotos), so the Perfekt uses haben. With sie (she): hat gezeigt."
         },
         {
           "kind": "input",
@@ -44041,7 +44073,8 @@
             "der",
             "das"
           ],
-          "cue": "the meal"
+          "cue": "the meal",
+          "why": "nach always takes the dative. Essen is neuter, so das becomes dem: nach dem Essen."
         },
         {
           "kind": "input",
@@ -44052,7 +44085,8 @@
             "seid",
             "hat"
           ],
-          "cue": "gehen"
+          "cue": "gehen",
+          "why": "spazieren gehen is movement, so the Perfekt uses sein. With wir: sind spazieren gegangen."
         },
         {
           "kind": "input",
@@ -44063,7 +44097,8 @@
             "waren",
             "wart"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "For sein, German uses the simple past (Präteritum) in stories. das Wetter is 'it': war."
         },
         {
           "kind": "input",
@@ -44074,7 +44109,8 @@
             "ist",
             "hat"
           ],
-          "cue": "fahren"
+          "cue": "fahren",
+          "why": "fahren is movement (nach Hause), so the Perfekt uses sein: ich bin gefahren."
         }
       ],
       "covers": [
@@ -53160,7 +53196,8 @@
             "dem",
             "den"
           ],
-          "cue": "the wall"
+          "cue": "the wall",
+          "why": "stehen says where something is: dative. Wand is feminine, so an der Wand."
         },
         {
           "kind": "input",
@@ -53171,7 +53208,8 @@
             "den",
             "der"
           ],
-          "cue": "the bed"
+          "cue": "the bed",
+          "why": "hängen here says where it hangs: dative. Bett is neuter, so über dem Bett."
         },
         {
           "kind": "input",
@@ -53182,7 +53220,8 @@
             "den",
             "der"
           ],
-          "cue": "the window"
+          "cue": "the window",
+          "why": "stehen says where something is: dative. Fenster is neuter, so vor dem Fenster."
         },
         {
           "kind": "input",
@@ -53193,7 +53232,8 @@
             "der",
             "das"
           ],
-          "cue": "the desk"
+          "cue": "the desk",
+          "why": "stehen says where something is: dative. Schreibtisch is masculine, so neben dem Schreibtisch."
         },
         {
           "kind": "input",
@@ -53204,7 +53244,8 @@
             "der",
             "das"
           ],
-          "cue": "the floor"
+          "cue": "the floor",
+          "why": "liegen says where something is: dative. Boden is masculine, so auf dem Boden."
         },
         {
           "kind": "input",
@@ -53215,7 +53256,8 @@
             "der",
             "das"
           ],
-          "cue": "the chair"
+          "cue": "the chair",
+          "why": "liegen says where something is: dative. Stuhl is masculine, so auf dem Stuhl."
         },
         {
           "kind": "input",
@@ -53226,7 +53268,8 @@
             "der",
             "das"
           ],
-          "cue": "the wardrobe"
+          "cue": "the wardrobe",
+          "why": "hängen here is putting it somewhere (where to?): accusative. Schrank is masculine, so in den Schrank."
         },
         {
           "kind": "input",
@@ -53237,7 +53280,8 @@
             "den",
             "der"
           ],
-          "cue": "the bed"
+          "cue": "the bed",
+          "why": "stellen is putting it somewhere (where to?): accusative. Bett is neuter, so unter das Bett."
         },
         {
           "kind": "input",
@@ -53248,7 +53292,8 @@
             "der",
             "das"
           ],
-          "cue": "the desk"
+          "cue": "the desk",
+          "why": "stellen is putting it somewhere (where to?): accusative. Schreibtisch is masculine, so auf den Schreibtisch."
         },
         {
           "kind": "input",
@@ -53259,7 +53304,8 @@
             "den",
             "dem"
           ],
-          "cue": "the kitchen"
+          "cue": "the kitchen",
+          "why": "bringen is moving it somewhere (where to?): accusative. Küche is feminine, so in die Küche."
         },
         {
           "kind": "input",
@@ -53270,7 +53316,8 @@
             "den",
             "der"
           ],
-          "cue": "the sofa"
+          "cue": "the sofa",
+          "why": "sich setzen is moving somewhere (where to?): accusative. Sofa is neuter, so auf das Sofa."
         },
         {
           "kind": "input",
@@ -53281,7 +53328,8 @@
             "den",
             "der"
           ],
-          "cue": "the bed"
+          "cue": "the bed",
+          "why": "legen is putting it somewhere (where to?): accusative. Bett is neuter, so neben das Bett."
         }
       ],
       "covers": [
@@ -74506,7 +74554,8 @@
             "neuer",
             "neues"
           ],
-          "cue": "neu"
+          "cue": "neu",
+          "why": "in + where? takes the dative. After einer (dative feminine) the adjective ends in -en: einer neuen Wohnung."
         },
         {
           "kind": "input",
@@ -74517,7 +74566,8 @@
             "großen",
             "großer"
           ],
-          "cue": "groß"
+          "cue": "groß",
+          "why": "After der/die/das in the nominative singular, the adjective ends in -e: das große Wohnzimmer."
         },
         {
           "kind": "input",
@@ -74528,7 +74578,8 @@
             "großen",
             "großer"
           ],
-          "cue": "groß"
+          "cue": "groß",
+          "why": "ein shows no gender, so the adjective must: neuter accusative after ein is -es: ein großes Fenster."
         },
         {
           "kind": "input",
@@ -74539,18 +74590,20 @@
             "kleine",
             "kleinem"
           ],
-          "cue": "klein"
+          "cue": "klein",
+          "why": "auf einen Park is accusative masculine. After einen the adjective ends in -en: einen kleinen Park."
         },
         {
           "kind": "input",
           "answer": "schönes",
-          "hint": "schön · ein … Bild (Akk. n)",
+          "hint": "schön · ein … Bild (Nom. n)",
           "options": [
             "schöne",
             "schönen",
             "schöner"
           ],
-          "cue": "schön"
+          "cue": "schön",
+          "why": "Bild is the subject of hängt (nominative, neuter). After ein the adjective shows it with -es: ein schönes Bild."
         },
         {
           "kind": "input",
@@ -74561,7 +74614,8 @@
             "bequemes",
             "bequemem"
           ],
-          "cue": "bequem"
+          "cue": "bequem",
+          "why": "auf + where? takes the dative. After dem the adjective always ends in -en: auf dem bequemen Sofa."
         },
         {
           "kind": "input",
@@ -74572,7 +74626,8 @@
             "neue",
             "neues"
           ],
-          "cue": "neu"
+          "cue": "neu",
+          "why": "Herd is the object of hat (accusative, masculine). After einen the adjective ends in -en: einen neuen Herd."
         },
         {
           "kind": "input",
@@ -74583,7 +74638,8 @@
             "moderne",
             "modernes"
           ],
-          "cue": "modern"
+          "cue": "modern",
+          "why": "Kühlschrank is masculine accusative (object of hat). After einen the ending is -en: einen modernen Kühlschrank."
         },
         {
           "kind": "input",
@@ -74594,7 +74650,8 @@
             "alten",
             "altes"
           ],
-          "cue": "alt"
+          "cue": "alt",
+          "why": "Baum is the subject (nominative, masculine). ein shows no gender, so the adjective takes -er: ein alter Baum."
         },
         {
           "kind": "input",
@@ -74605,7 +74662,8 @@
             "netter",
             "nettes"
           ],
-          "cue": "nett"
+          "cue": "nett",
+          "why": "No article, so the adjective carries the case: accusative plural gets -e, like die: nette Nachbarn."
         },
         {
           "kind": "input",
@@ -74616,7 +74674,8 @@
             "junger",
             "junges"
           ],
-          "cue": "jung"
+          "cue": "jung",
+          "why": "After der in the nominative singular, the adjective ends in -e: der junge Mann."
         },
         {
           "kind": "input",
@@ -74630,7 +74689,8 @@
             "heißer",
             "heißes"
           ],
-          "cue": "heiß"
+          "cue": "heiß",
+          "why": "mit takes the dative. No article, so the adjective takes the article's ending (dem → -em): mit heißem Tee."
         }
       ],
       "covers": [
@@ -95301,7 +95361,8 @@
             "ist",
             "gab"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "Fairy tales are told in the Präteritum. sein is irregular: es war. Es war einmal is the fixed fairy-tale opening."
         },
         {
           "kind": "input",
@@ -95312,7 +95373,8 @@
             "wohnete",
             "wöhnte"
           ],
-          "cue": "wohnen"
+          "cue": "wohnen",
+          "why": "wohnen is regular: Präteritum adds -te to the stem. With er (one knight): er wohnte."
         },
         {
           "kind": "input",
@@ -95323,7 +95385,8 @@
             "kommte",
             "kamen"
           ],
-          "cue": "kommen"
+          "cue": "kommen",
+          "why": "kommen is irregular: the Präteritum stem is kam, with no ending for er/sie/es: ein Drache kam."
         },
         {
           "kind": "input",
@@ -95334,7 +95397,8 @@
             "habten",
             "hätten"
           ],
-          "cue": "haben"
+          "cue": "haben",
+          "why": "haben in the Präteritum is hatte. Die Menschen is plural (sie), so add -en: sie hatten Angst."
         },
         {
           "kind": "input",
@@ -95345,7 +95409,8 @@
             "nahmte",
             "nahmen"
           ],
-          "cue": "nehmen"
+          "cue": "nehmen",
+          "why": "nehmen is irregular: the Präteritum stem is nahm, no ending for er: der kleine Ritter nahm sein Pferd."
         },
         {
           "kind": "input",
@@ -95356,7 +95421,8 @@
             "ritte",
             "reit"
           ],
-          "cue": "reiten"
+          "cue": "reiten",
+          "why": "reiten is irregular: the stem changes to ritt, no ending for er: er ritt allein zum Drachen."
         },
         {
           "kind": "input",
@@ -95370,7 +95436,8 @@
             "kämpfete",
             "kämpften"
           ],
-          "cue": "kämpfen"
+          "cue": "kämpfen",
+          "why": "kämpfen is regular: stem + -te, and the Umlaut stays: er kämpfte nicht."
         },
         {
           "kind": "input",
@@ -95381,7 +95448,8 @@
             "sprich",
             "sprachte"
           ],
-          "cue": "sprechen"
+          "cue": "sprechen",
+          "why": "sprechen is irregular: the Präteritum stem is sprach, no ending for er: er sprach freundlich mit ihm."
         },
         {
           "kind": "input",
@@ -95395,7 +95463,8 @@
             "erzählete",
             "erzählten"
           ],
-          "cue": "erzählen"
+          "cue": "erzählen",
+          "why": "erzählen is regular: stem + -te, and the Umlaut stays. One dragon, so: der Drache erzählte."
         },
         {
           "kind": "input",
@@ -95406,7 +95475,8 @@
             "brang",
             "bruchte"
           ],
-          "cue": "bringen"
+          "cue": "bringen",
+          "why": "bringen is a mixed verb: the stem changes to brach- and it still takes -te: der Ritter brachte."
         },
         {
           "kind": "input",
@@ -95417,7 +95487,8 @@
             "worden",
             "werdeten"
           ],
-          "cue": "werden"
+          "cue": "werden",
+          "why": "werden in the Präteritum is wurde. die beiden is plural, so add -n: die beiden wurden Freunde."
         },
         {
           "kind": "input",
@@ -95428,7 +95499,8 @@
             "lachete",
             "lochte"
           ],
-          "cue": "lachen"
+          "cue": "lachen",
+          "why": "lachen is regular: stem + -te. niemand counts as singular, so: niemand lachte mehr."
         }
       ],
       "covers": [
@@ -112645,7 +112717,8 @@
             "seien",
             "seist"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "Reported speech (sagte sie) uses Konjunktiv I. sein with a singular subject is sei: die Lage sei ernst."
         },
         {
           "kind": "input",
@@ -112656,7 +112729,8 @@
             "haben",
             "hab"
           ],
-          "cue": "haben"
+          "cue": "haben",
+          "why": "Reported speech: Konjunktiv I. haben with er/sie/es is habe (no -t): die Regierung habe einen Plan."
         },
         {
           "kind": "input",
@@ -112667,7 +112741,8 @@
             "sollest",
             "solltet"
           ],
-          "cue": "sollen"
+          "cue": "sollen",
+          "why": "Konjunktiv I sollen with a plural subject looks like normal sollen, so you switch to Konjunktiv II: sollten."
         },
         {
           "kind": "input",
@@ -112681,7 +112756,8 @@
             "müssen",
             "müsset"
           ],
-          "cue": "müssen"
+          "cue": "müssen",
+          "why": "Reported speech after betonte: Konjunktiv I. müssen with er/sie/es is müsse: das Land müsse investieren."
         },
         {
           "kind": "input",
@@ -112692,7 +112768,8 @@
             "seie",
             "wurde"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "Reported speech after erklärte: Konjunktiv I of sein, singular (die Zahl): sei versprochen worden."
         },
         {
           "kind": "input",
@@ -112703,7 +112780,8 @@
             "sollen",
             "sollt"
           ],
-          "cue": "sollen"
+          "cue": "sollen",
+          "why": "Reported demand after forderte: Konjunktiv I. sollen with er/sie/es is solle: die Regierung solle beschleunigen."
         },
         {
           "kind": "input",
@@ -112714,7 +112792,8 @@
             "geben",
             "gebet"
           ],
-          "cue": "geben"
+          "cue": "geben",
+          "why": "Reported speech (fügte hinzu): Konjunktiv I. geben with es is gebe: es gebe keine schnelle Lösung."
         },
         {
           "kind": "input",
@@ -112728,7 +112807,8 @@
             "könnest",
             "könntet"
           ],
-          "cue": "können"
+          "cue": "können",
+          "why": "Konjunktiv I können in the plural looks like normal können, so you switch to Konjunktiv II: könnten."
         },
         {
           "kind": "input",
@@ -112739,7 +112819,8 @@
             "seien",
             "seist"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "Reported answer after antwortete: Konjunktiv I of sein, singular (das): das sei nicht vorgesehen."
         },
         {
           "kind": "input",
@@ -112750,7 +112831,8 @@
             "werden",
             "werdet"
           ],
-          "cue": "werden"
+          "cue": "werden",
+          "why": "Reported speech: Konjunktiv I. werden with man is werde, plus the infinitive at the end: man werde prüfen."
         }
       ],
       "covers": [
@@ -135448,7 +135530,8 @@
             "gelernen",
             "gelehrt"
           ],
-          "cue": "lernen"
+          "cue": "lernen",
+          "why": "Past regret: hätte + Partizip II. lernen is regular: ge- + stem + -t, so mehr gelernt hätte."
         },
         {
           "kind": "input",
@@ -135459,7 +135542,8 @@
             "gehen",
             "gegangt"
           ],
-          "cue": "gehen"
+          "cue": "gehen",
+          "why": "gehen is movement, so the past Konjunktiv II uses wäre. Its Partizip II is irregular: ins Bett gegangen wäre."
         },
         {
           "kind": "input",
@@ -135473,7 +135557,8 @@
             "war",
             "würde"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "Unreal past with sein: wäre + gewesen. The wenn-clause comes first, so the verb comes next: wäre ich … gewesen."
         },
         {
           "kind": "input",
@@ -135487,7 +135572,8 @@
             "war",
             "hättest"
           ],
-          "cue": "haben"
+          "cue": "haben",
+          "why": "Past regret with a modal: hätte + verb + modal in the infinitive (not gesollt): Ich hätte … vorbereiten sollen."
         },
         {
           "kind": "input",
@@ -135498,7 +135584,8 @@
             "sollte",
             "sollten"
           ],
-          "cue": "should"
+          "cue": "should",
+          "why": "With hätte + another verb, the modal stays in the infinitive at the end (not gesollt): vorbereiten sollen."
         },
         {
           "kind": "input",
@@ -135512,7 +135599,8 @@
             "Hatte",
             "Würde"
           ],
-          "cue": "haben"
+          "cue": "haben",
+          "why": "A wenn-clause can drop wenn: the verb then goes first. verpassen uses haben: Hätte ich nicht den Bus verpasst."
         },
         {
           "kind": "input",
@@ -135526,7 +135614,8 @@
             "war",
             "würde"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "Unreal past with sein: wäre + gewesen. After the first clause the verb comes first: wäre ich pünktlich gewesen."
         },
         {
           "kind": "input",
@@ -135537,7 +135626,8 @@
             "angenehmt",
             "angenommt"
           ],
-          "cue": "annehmen"
+          "cue": "annehmen",
+          "why": "A wish about the past: Hätte … doch + Partizip II. annehmen is separable and irregular: angenommen."
         },
         {
           "kind": "input",
@@ -135548,7 +135638,8 @@
             "bleiben",
             "gebliebt"
           ],
-          "cue": "bleiben"
+          "cue": "bleiben",
+          "why": "bleiben uses sein in the Perfekt, so here it's wäre + Partizip II. bleiben is irregular: ruhiger geblieben wäre."
         },
         {
           "kind": "input",
@@ -135562,7 +135653,8 @@
             "könnte",
             "konnten"
           ],
-          "cue": "could"
+          "cue": "could",
+          "why": "With hätte + another verb, the modal stays in the infinitive at the end (not gekonnt): bitten können."
         },
         {
           "kind": "input",
@@ -135576,7 +135668,8 @@
             "würde",
             "wird"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "Unreal past with sein: wäre + gewesen. Reported opinion: es wäre besser gewesen."
         },
         {
           "kind": "input",
@@ -135587,7 +135680,8 @@
             "suchen",
             "gesuchte"
           ],
-          "cue": "suchen"
+          "cue": "suchen",
+          "why": "Past unreal condition: hätte + Partizip II. suchen is regular: ge- + stem + -t, so eine Lerngruppe gesucht hätte."
         }
       ],
       "covers": [
@@ -158172,7 +158266,8 @@
             "hat",
             "lasst"
           ],
-          "cue": "lassen"
+          "cue": "lassen",
+          "why": "sich lassen + infinitive means 'can be done'. Das Programm is singular: lässt sich installieren."
         },
         {
           "kind": "input",
@@ -158188,7 +158283,8 @@
             "zu findend",
             "finden"
           ],
-          "cue": "finden"
+          "cue": "finden",
+          "why": "sein + zu + infinitive means 'can' or 'must be done'. Here 'can be found': ist … zu finden."
         },
         {
           "kind": "input",
@@ -158199,7 +158295,8 @@
             "zu meldet",
             "zu gemeldet"
           ],
-          "cue": "melden"
+          "cue": "melden",
+          "why": "sein + zu + infinitive often means 'must be done'. Plural subject: Probleme sind dem Support zu melden."
         },
         {
           "kind": "input",
@@ -158216,7 +158313,8 @@
             "änderlich",
             "ändernd"
           ],
-          "cue": "ändern"
+          "cue": "ändern",
+          "why": "Verb stem + -bar makes an adjective meaning 'can be done': ändern → änderbar, the password can be changed."
         },
         {
           "kind": "input",
@@ -158230,7 +158328,8 @@
             "wird",
             "ist"
           ],
-          "cue": "lassen"
+          "cue": "lassen",
+          "why": "sich lassen + infinitive means 'can be done'; with nicht, 'can't'. Singular subject: lässt sich nicht verwenden."
         },
         {
           "kind": "input",
@@ -158244,7 +158343,8 @@
             "zu übertragt",
             "übertragen zu"
           ],
-          "cue": "übertragen"
+          "cue": "übertragen",
+          "why": "sein + zu + infinitive means 'must be done'. The zu goes before the whole verb: sind … zu übertragen."
         },
         {
           "kind": "input",
@@ -158259,7 +158359,8 @@
             "sind",
             "lassen"
           ],
-          "cue": "receive"
+          "cue": "receive",
+          "why": "bekommen + Partizip II is a passive where the receiver is the subject: Mitarbeitende bekommen … zugeschickt."
         },
         {
           "kind": "input",
@@ -158268,13 +158369,14 @@
             "erklaert",
             "vermittelt"
           ],
-          "hint": "erklären · Passiv Präsens (are explained)",
+          "hint": "erklären · erhalten + Partizip II (get explained)",
           "options": [
             "erklären",
             "zu erklären",
             "erklärend"
           ],
-          "cue": "erklären"
+          "cue": "erklären",
+          "why": "Like bekommen, erhalten + Partizip II is a passive with the receiver as subject: erhalten die Regeln erklärt."
         },
         {
           "kind": "input",
@@ -158285,7 +158387,8 @@
             "sind",
             "haben"
           ],
-          "cue": "can be settled"
+          "cue": "can be settled",
+          "why": "sich lassen + infinitive means 'can be done'. Die meisten Fragen is plural: lassen sich klären."
         },
         {
           "kind": "input",
@@ -158296,7 +158399,8 @@
             "zu gespeichert",
             "zu speichernd"
           ],
-          "cue": "speichern"
+          "cue": "speichern",
+          "why": "sein + zu + infinitive with nicht means 'must not be done': sind nicht auf privaten Geräten zu speichern."
         },
         {
           "kind": "input",
@@ -158307,7 +158411,8 @@
             "zu vermieden",
             "vermeiden"
           ],
-          "cue": "vermeiden"
+          "cue": "vermeiden",
+          "why": "sein + zu + infinitive means 'must be done'. vermeiden stays whole after zu: sind unbedingt zu vermeiden."
         },
         {
           "kind": "input",
@@ -158321,7 +158426,8 @@
             "erreichlich",
             "erreichend"
           ],
-          "cue": "erreichen"
+          "cue": "erreichen",
+          "why": "Verb stem + -bar means 'can be done': erreichen → erreichbar. The team can be reached: ist … erreichbar."
         }
       ],
       "covers": [
@@ -177230,7 +177336,8 @@
             "sollst",
             "sollt"
           ],
-          "cue": "people say"
+          "cue": "people say",
+          "why": "sollen + past infinitive passes on a rumour from others ('he is said to have'): Er soll … gelebt haben."
         },
         {
           "kind": "input",
@@ -177241,7 +177348,8 @@
             "willst",
             "wollt"
           ],
-          "cue": "he claims"
+          "cue": "he claims",
+          "why": "wollen here means the person claims it about himself, not that he wants it: Der Mann will Übersetzer sein."
         },
         {
           "kind": "input",
@@ -177252,7 +177360,8 @@
             "musst",
             "müsst"
           ],
-          "cue": "surely"
+          "cue": "surely",
+          "why": "müssen as a firm conclusion from evidence (up at six, light at midnight): He must be disciplined."
         },
         {
           "kind": "input",
@@ -177267,7 +177376,8 @@
             "darf",
             "dürftet"
           ],
-          "cue": "probably"
+          "cue": "probably",
+          "why": "dürften (Konjunktiv II) is a careful estimate, 'probably'. Plural subject (die Kisten): dürften … gewogen haben."
         },
         {
           "kind": "input",
@@ -177284,7 +177394,8 @@
             "magst",
             "mögt"
           ],
-          "cue": "may well"
+          "cue": "may well",
+          "why": "mögen here concedes a point, 'that may well be true': Das mag ja stimmen – but then comes the doubt."
         },
         {
           "kind": "input",
@@ -177295,7 +177406,8 @@
             "kannst",
             "könnt"
           ],
-          "cue": "impossible"
+          "cue": "impossible",
+          "why": "nicht können rules something out as impossible: Um ein Versehen kann es sich nicht handeln."
         },
         {
           "kind": "input",
@@ -177311,7 +177423,8 @@
             "könntest",
             "könnt"
           ],
-          "cue": "possibly"
+          "cue": "possibly",
+          "why": "könnte offers one possible explanation, and the oder gives another: Er könnte … verbracht haben."
         },
         {
           "kind": "input",
@@ -177322,7 +177435,8 @@
             "sollst",
             "sollt"
           ],
-          "cue": "rumour has it"
+          "cue": "rumour has it",
+          "why": "sollen passes on what people in the house say, here about the past: Die Unbekannte soll … gewesen sein."
         },
         {
           "kind": "input",
@@ -177333,7 +177447,8 @@
             "willst",
             "wollt"
           ],
-          "cue": "she claims"
+          "cue": "she claims",
+          "why": "wollen here means she claims it herself (and the narrator doubts it): Frau Albers will … gesehen haben."
         },
         {
           "kind": "input",
@@ -177351,7 +177466,8 @@
             "musst",
             "müsst"
           ],
-          "cue": "surely"
+          "cue": "surely",
+          "why": "müssen is a firm conclusion: he sees the name on the label, so: Das muss Ihres sein."
         },
         {
           "kind": "input",
@@ -177362,7 +177478,8 @@
             "willst",
             "wollt"
           ],
-          "cue": "he claims"
+          "cue": "he claims",
+          "why": "wollen + past infinitive: it is his own claim about himself, unchecked: Er will … gearbeitet haben."
         },
         {
           "kind": "input",
@@ -177378,7 +177495,8 @@
             "darfst",
             "dürftest"
           ],
-          "cue": "hardly likely"
+          "cue": "hardly likely",
+          "why": "dürfte kaum is a cautious estimate, 'is hardly likely': ein solcher Mann dürfte kaum ein Spion sein."
         }
       ],
       "covers": [
@@ -196939,7 +197057,8 @@
             "erledigt"
           ],
           "hint": "English: carried out (a change of course)",
-          "cue": "carried out"
+          "cue": "carried out",
+          "why": "einen Kurswechsel vollziehen is the fixed formal phrase for carrying out a change; vollstrecken is for sentences."
         },
         {
           "kind": "input",
@@ -196954,7 +197073,8 @@
             "Einbauten",
             "Abgaben"
           ],
-          "cue": "losses"
+          "cue": "losses",
+          "why": "Einbußen are losses in money or income, the usual word in business news: herbe Einbußen. Einnahmen means income."
         },
         {
           "kind": "input",
@@ -196965,7 +197085,8 @@
             "haben",
             "hätten"
           ],
-          "cue": "haben"
+          "cue": "haben",
+          "why": "Reported admission (räumte ein): Konjunktiv I. haben with man is habe: man habe … unterschätzt."
         },
         {
           "kind": "select",
@@ -196977,7 +197098,8 @@
             "werden"
           ],
           "hint": "werden · Konjunktiv I",
-          "cue": "werden"
+          "cue": "werden",
+          "why": "Reported speech: Konjunktiv I of werden for a future statement: Die Umstellung werde schmerzhaft sein."
         },
         {
           "kind": "input",
@@ -196988,7 +197110,8 @@
             "sein",
             "seien"
           ],
-          "cue": "sein"
+          "cue": "sein",
+          "why": "Still his reported words: Konjunktiv I of sein, singular (sie = die Umstellung): sie sei ohne Alternative."
         },
         {
           "kind": "input",
@@ -197002,7 +197125,8 @@
             "können",
             "könnten"
           ],
-          "cue": "können"
+          "cue": "können",
+          "why": "Reported speech: Konjunktiv I. können with er is könne: Eine Garantie könne er nicht geben."
         },
         {
           "kind": "select",
@@ -197014,7 +197138,8 @@
             "stößt"
           ],
           "hint": "English: meets (with resistance)",
-          "cue": "meets"
+          "cue": "meets",
+          "why": "auf Widerstand stoßen is the fixed collocation for 'meet with resistance': der Plan stößt auf Widerstand."
         },
         {
           "kind": "select",
@@ -197026,7 +197151,8 @@
             "eingelegt"
           ],
           "hint": "English: voiced, put on record (concerns)",
-          "cue": "voiced"
+          "cue": "voiced",
+          "why": "Bedenken anmelden is the formal phrase for putting concerns on record. aufwerfen goes with Fragen."
         },
         {
           "kind": "select",
@@ -197038,7 +197164,8 @@
             "habe"
           ],
           "hint": "haben · Konjunktiv II (Ersatzform)",
-          "cue": "haben"
+          "cue": "haben",
+          "why": "Konjunktiv I haben in the plural looks like normal haben, so reported speech switches to Konjunktiv II: hätten."
         },
         {
           "kind": "input",
@@ -197049,7 +197176,8 @@
             "wollen",
             "wollt"
           ],
-          "cue": "wollen"
+          "cue": "wollen",
+          "why": "Reported speech, said bitterly: Konjunktiv I. wollen with man is wolle: Zum Dank wolle man sie verkaufen."
         },
         {
           "kind": "input",
@@ -197065,7 +197193,8 @@
             "ausschenken",
             "ausschöpft"
           ],
-          "cue": "exhaust"
+          "cue": "exhaust",
+          "why": "alle Mittel ausschöpfen is the fixed phrase for using every option to the full. ausschütten means pour out."
         },
         {
           "kind": "input",
@@ -197076,7 +197205,8 @@
             "gebaut",
             "gezogen"
           ],
-          "cue": "set"
+          "cue": "set",
+          "why": "die Weichen stellen ('set the railway points') means to set the course for the future: die Weichen gestellt."
         }
       ],
       "covers": [
@@ -222517,7 +222647,8 @@
             "wäre gewesen"
           ],
           "hint": "(sein – to be)",
-          "cue": "sein"
+          "cue": "sein",
+          "why": "so heißt es marks reported claims, so Konjunktiv I. sein, singular (das Buch): Das Buch sei ein Auslaufmodell."
         },
         {
           "kind": "input",
@@ -222531,7 +222662,8 @@
             "lese",
             "liesen"
           ],
-          "cue": "lesen"
+          "cue": "lesen",
+          "why": "Konjunktiv I lesen in the plural looks like normal lesen, so you switch to Konjunktiv II: Junge Menschen läsen."
         },
         {
           "kind": "input",
@@ -222546,7 +222678,8 @@
             "gehen",
             "gingen"
           ],
-          "cue": "verloren gehen"
+          "cue": "verloren gehen",
+          "why": "Still the critics' claim: Konjunktiv I of verloren gehen, singular (die Fähigkeit): gehe … verloren."
         },
         {
           "kind": "select",
@@ -222558,7 +222691,8 @@
             "tragen würde"
           ],
           "hint": "(die Schuld tragen – to be to blame)",
-          "cue": "die Schuld tragen"
+          "cue": "die Schuld tragen",
+          "why": "Plural subject (Smartphone and Netzwerke); Konjunktiv I tragen would look normal, so Konjunktiv II: trügen."
         },
         {
           "kind": "select",
@@ -222570,7 +222704,8 @@
             "durch"
           ],
           "hint": "(to withstand scrutiny)",
-          "cue": "withstand"
+          "cue": "withstand",
+          "why": "einer Prüfung standhalten means 'withstand scrutiny'. standhalten is separable, so stand goes to the end: hält … stand."
         },
         {
           "kind": "input",
@@ -222585,7 +222720,8 @@
             "worden",
             "würden"
           ],
-          "cue": "werden"
+          "cue": "werden",
+          "why": "Reported claim (die Behauptung, …): Konjunktiv I of the passive werden, with es: es werde weniger gelesen."
         },
         {
           "kind": "input",
@@ -222605,7 +222741,8 @@
             "widerlegen",
             "beliegen"
           ],
-          "cue": "substantiate"
+          "cue": "substantiate",
+          "why": "eine Behauptung belegen means backing a claim with evidence. sich lassen + kaum = hardly can: lässt sich kaum belegen."
         },
         {
           "kind": "select",
@@ -222617,7 +222754,8 @@
             "geben"
           ],
           "hint": "(cannot be dismissed out of hand)",
-          "cue": "dismiss"
+          "cue": "dismiss",
+          "why": "nicht von der Hand zu weisen is a fixed idiom: 'cannot be dismissed'. Only weisen fits it."
         },
         {
           "kind": "input",
@@ -222628,7 +222766,8 @@
             "legt",
             "stellen"
           ],
-          "cue": "nahelegen"
+          "cue": "nahelegen",
+          "why": "nahelegen means 'to suggest'. It is separable and Studien is plural: Studien legen nahe."
         },
         {
           "kind": "input",
@@ -222642,7 +222781,8 @@
             "folgen",
             "schließt"
           ],
-          "cue": "follow"
+          "cue": "follow",
+          "why": "Daraus folgt, dass … is the fixed way to draw a conclusion: 'it follows from this'. folgern needs a person."
         },
         {
           "kind": "select",
@@ -222654,7 +222794,8 @@
             "durfte"
           ],
           "hint": "(is probably)",
-          "cue": "is probably"
+          "cue": "is probably",
+          "why": "dürfte (Konjunktiv II) makes a careful claim, 'is probably': diese Fähigkeit dürfte von unschätzbarem Wert sein."
         }
       ],
       "covers": [

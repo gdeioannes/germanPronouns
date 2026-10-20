@@ -444,6 +444,11 @@ export interface InlineBlank {
 	 */
 	cue?: string;
 	/**
+	 * Why the answer is what it is, in one English line: what the correction
+	 * shows under a miss. Authored in assets/content/ladder; optional.
+	 */
+	why?: string;
+	/**
 	 * Choices, when `kind` is 'select'. A typed gap may carry three wrong
 	 * ones too, for the medal ladder's "choose" step.
 	 */

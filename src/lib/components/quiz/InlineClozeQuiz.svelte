@@ -28,6 +28,8 @@
 	import MedalLadder from './MedalLadder.svelte';
 	import RibbonBadge from '../RibbonBadge.svelte';
 	import { paginateCloze, type ClozePart } from '$lib/domain/paginate';
+	import { clozeMisses } from '$lib/domain/clozeReview';
+	import { gapCategory } from '$lib/domain/worksheet';
 	import { fitOnResize, fitPages, type PageFit } from './fit';
 	import { tick, untrack } from 'svelte';
 	import { progress } from '$lib/state/progress.svelte';
@@ -222,12 +224,24 @@
 	]);
 	const filledCount = $derived(answers.filter((a) => a.trim().length > 0).length);
 
+	/** The correction: every missed gap in its sentence, with why. */
+	const misses = $derived(
+		checked ? clozeMisses(quiz.inlineTemplate, quiz.inlineBlanks, answers, results) : []
+	);
+	let showCorrected = $state(false);
+
 	/** The result panel: the Check button it replaces held focus. */
 	let resultEl = $state<HTMLElement>();
 
 	function check() {
 		checked = true;
 		clearSpot(quiz.storageKeyPrefix);
+		// Every gap into the history, each under its own key: the weak-spot sheet
+		// and the review schedule read big texts the way they read drills.
+		void progress.recordPassage(
+			quiz.storageKeyPrefix,
+			results.map((correct, i) => ({ correct, categoryLabel: gapCategory(i) }))
+		);
 		onFinish(passed, correctCount, total);
 		announce(
 			`${correctCount} of ${total} correct. ${passed ? 'Passed.' : 'Not quite yet: two thirds right passes.'}`
@@ -301,7 +315,7 @@
 
 				<p class="cloze" lang={locale}>
 					{#each pages[p] as part, i (i)}
-						{#if 'text' in part}<GermanText text={part.text} />{:else}
+						{#if 'text' in part}<GermanText text={part.text} help={run.step !== 2 || checked} />{:else}
 							{@const blank = quiz.inlineBlanks[part.blank]}
 							<span class="slot">
 								{#if run.step === 0}
@@ -350,7 +364,7 @@
 				</p>
 			</article>
 		{:else}
-			<div class="reading-check" tabindex="-1" data-focus-target bind:this={resultEl}>
+			<div class="reading-check" class:reviewing={misses.length > 0} tabindex="-1" data-focus-target bind:this={resultEl}>
 				{#if checked}
 					<Burst trigger={passed ? 1 : 0} count={26} />
 					<p class="reading-verdict" class:pass={passed} in:pop={{ from: 0.9 }}>
@@ -359,7 +373,6 @@
 					</p>
 					<p class="reading-sub">
 						{passed ? 'Passed — well done.' : 'Not quite yet: two thirds right passes.'}
-						Go back to see the corrections under each gap.
 					</p>
 					{#if up !== null}
 						<!-- This step's medal is won: the next one up, one tap away. -->
@@ -380,10 +393,42 @@
 							{Math.ceil(PASS_SHARE * total)} of {total} right on {STEPS[run.step].label} earns its medal.
 						</p>
 					{/if}
-					{#if !passed || !stepPassed}
-						<button type="button" class="btn" class:btn-ghost={up !== null} onclick={retry}>
-							<Icon name="repeat" size="1em" /> Try again
-						</button>
+					<div class="actions">
+						{#if !passed || !stepPassed}
+							<button type="button" class="btn" class:btn-ghost={up !== null} onclick={retry}>
+								<Icon name="repeat" size="1em" /> Try again
+							</button>
+						{/if}
+						{#if misses.length}
+							<button type="button" class="btn btn-ghost" onclick={() => (showCorrected = true)}>
+								<Icon name="book" size="1em" /> Read the corrected text
+							</button>
+						{/if}
+					</div>
+					{#if misses.length}
+						<!-- The correction, under the score and the buttons: a miss in its
+						     own sentence, what was written struck through beside the answer,
+						     and why — so a bad score is something to learn from. It is part
+						     of the page, not a box of its own: one scrollbar, not two. -->
+						<section class="review" aria-labelledby="{quiz.id}-review">
+							<h3 class="review-title" id="{quiz.id}-review">Your mistakes ({misses.length})</h3>
+							<ol class="misses">
+								{#each misses as miss (miss.index)}
+									<li class="miss">
+										<p class="miss-line" lang={locale}>
+											{miss.before}
+											{#if miss.given}<s class="given"><span class="sr-only" lang="en">You wrote: </span>{miss.given}</s>{:else}<span class="given empty" lang="en">empty</span>{/if}
+											<strong class="answer"><span class="sr-only" lang="en">Correct: </span>{miss.answer}</strong>{miss.after}
+										</p>
+										{#if miss.why}
+											<p class="miss-why" lang="en">{miss.why}</p>
+										{:else if miss.hint}
+											<p class="miss-why">{miss.hint}</p>
+										{/if}
+									</li>
+								{/each}
+							</ol>
+						</section>
 					{/if}
 				{:else}
 					<p class="reading-verdict neutral tnum">{filledCount} of {total} gaps filled</p>
@@ -401,6 +446,17 @@
 	{/snippet}
 </Steps>
 </div>
+
+<!-- The whole text the right way, the gaps that were missed marked. -->
+<Sheet bind:open={showCorrected} title="The corrected text" id="corrected-{quiz.id}">
+	<div class="corrected-head">
+		<SpeakButton text={quiz.passage} {locale} label="Play the corrected text" />
+	</div>
+	<p class="corrected" lang={locale}>{#each parts as part, i (i)}{#if 'text' in part}{part.text}{:else}<strong
+				class="filled"
+				class:missed={!results[part.blank]}>{quiz.inlineBlanks[part.blank].answer}</strong
+			>{/if}{/each}</p>
+</Sheet>
 
 {#if quiz.passageTranslation}
 	<Sheet bind:open={showTranslation} title="Translation" id="translation-{quiz.id}">
@@ -472,6 +528,109 @@
 		align-items: center;
 		vertical-align: baseline;
 		white-space: normal;
+	}
+
+	/* With a correction on it the check page starts at the top and grows:
+	   the section scrolls as a whole, so there is one scrollbar. */
+	.reading-check.reviewing {
+		margin: 0;
+		padding-bottom: 1rem;
+		gap: 0.75rem;
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.6rem;
+	}
+
+	.review {
+		width: min(100%, 36rem);
+		text-align: left;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-sm);
+		background: var(--surface);
+	}
+
+	.review-title {
+		margin: 0;
+		padding: 0.6rem 0.9rem;
+		border-bottom: 1px solid var(--line);
+		font-size: var(--step-0);
+		color: var(--heading);
+	}
+
+	.misses {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.miss {
+		padding: 0.65rem 0.9rem;
+	}
+
+	.miss + .miss {
+		border-top: 1px solid var(--line);
+	}
+
+	.miss-line {
+		margin: 0;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-0);
+		line-height: 1.5;
+		color: var(--ink);
+	}
+
+	.given {
+		color: var(--wrong);
+		text-decoration-thickness: 2px;
+	}
+
+	.given.empty {
+		font-family: 'Inter Variable', 'Inter', sans-serif;
+		font-size: 0.8em;
+		font-style: italic;
+	}
+
+	.answer {
+		padding: 0 0.2em;
+		border-radius: 4px;
+		background: var(--right-bg);
+		color: var(--right);
+	}
+
+	.miss-why {
+		margin: 0.25rem 0 0;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	.corrected-head {
+		display: flex;
+		margin-bottom: 0.5rem;
+	}
+
+	.corrected {
+		margin: 0;
+		max-width: var(--measure);
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-1);
+		line-height: 1.7;
+		white-space: pre-wrap;
+		color: var(--ink);
+	}
+
+	.filled {
+		color: var(--right);
+	}
+
+	.filled.missed {
+		padding: 0 0.15em;
+		border-radius: 4px;
+		background: var(--right-bg);
+		box-shadow: inset 0 -2px 0 var(--right);
 	}
 
 	.ladder-row {
@@ -569,10 +728,26 @@
 		text-wrap: balance;
 	}
 
+	/* The right answer under a missed gap: a green pill at reading size, so
+	   the correction is the first thing the eye finds, not a footnote. */
 	.fix {
+		max-width: none;
+		margin-top: 0.15rem;
+		padding: 0.08rem 0.5rem 0.12rem;
+		border: 1px solid color-mix(in srgb, var(--right) 45%, transparent);
+		border-radius: 999px;
+		background: var(--right-bg);
+		font-size: 0.85rem;
 		font-weight: 700;
+		line-height: 1.3;
+		white-space: nowrap;
 		color: var(--right);
 		animation: reveal 260ms var(--ease-out) both;
+	}
+
+	.fix::before {
+		content: '✓ ' / '';
+		font-weight: 800;
 	}
 
 	@keyframes reveal {

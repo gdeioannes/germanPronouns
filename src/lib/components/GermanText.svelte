@@ -28,14 +28,24 @@
 	import { headlineFor, POS_LABELS, wordHref, type WordInfo } from '$lib/domain/dictionary';
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
 	import { announce } from '$lib/a11y.svelte';
+	import { untrack } from 'svelte';
 
-	let { text }: { text: string } = $props();
+	// `help` is the exercise's say: a "no help" step turns it off whatever the
+	// setting, since a noun's colour is its gender and gives away der/die/das.
+	let { text, help = true }: { text: string; help?: boolean } = $props();
 
 	// `loaded` guards the first frames: until the setting has been read back
 	// from storage the defaults are in force, and a learner who turned word help
 	// off would watch it flick on and off again — which reads as "it didn't
 	// save". Plain text until we actually know.
-	const on = $derived(progress.loaded && progress.wordHelp);
+	const on = $derived(help && progress.loaded && progress.wordHelp);
+
+	// A page opened from a link (a chat, a story) may never load the settings,
+	// and word help would stay off for good: fetch them if no one has.
+	$effect(() => {
+		// Untracked: loading writes state this effect must not re-run on.
+		if (!progress.loaded) untrack(() => void progress.ensureLoaded());
+	});
 
 	$effect(() => {
 		if (on) dictionary.load();

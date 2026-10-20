@@ -2246,7 +2246,8 @@
 		"blanks": [
 			{
 				"index": 0,
-				"cue": "sein"
+				"cue": "sein",
+				"why": "so heißt es marks reported claims, so Konjunktiv I. sein, singular (das Buch): Das Buch sei ein Auslaufmodell."
 			},
 			{
 				"index": 1,
@@ -2255,7 +2256,8 @@
 					"lese",
 					"liesen"
 				],
-				"cue": "lesen"
+				"cue": "lesen",
+				"why": "Konjunktiv I lesen in the plural looks like normal lesen, so you switch to Konjunktiv II: Junge Menschen läsen."
 			},
 			{
 				"index": 2,
@@ -2264,15 +2266,18 @@
 					"gehen",
 					"gingen"
 				],
-				"cue": "verloren gehen"
+				"cue": "verloren gehen",
+				"why": "Still the critics' claim: Konjunktiv I of verloren gehen, singular (die Fähigkeit): gehe … verloren."
 			},
 			{
 				"index": 3,
-				"cue": "die Schuld tragen"
+				"cue": "die Schuld tragen",
+				"why": "Plural subject (Smartphone and Netzwerke); Konjunktiv I tragen would look normal, so Konjunktiv II: trügen."
 			},
 			{
 				"index": 4,
-				"cue": "withstand"
+				"cue": "withstand",
+				"why": "einer Prüfung standhalten means 'withstand scrutiny'. standhalten is separable, so stand goes to the end: hält … stand."
 			},
 			{
 				"index": 5,
@@ -2281,7 +2286,8 @@
 					"worden",
 					"würden"
 				],
-				"cue": "werden"
+				"cue": "werden",
+				"why": "Reported claim (die Behauptung, …): Konjunktiv I of the passive werden, with es: es werde weniger gelesen."
 			},
 			{
 				"index": 6,
@@ -2290,11 +2296,13 @@
 					"widerlegen",
 					"beliegen"
 				],
-				"cue": "substantiate"
+				"cue": "substantiate",
+				"why": "eine Behauptung belegen means backing a claim with evidence. sich lassen + kaum = hardly can: lässt sich kaum belegen."
 			},
 			{
 				"index": 7,
-				"cue": "dismiss"
+				"cue": "dismiss",
+				"why": "nicht von der Hand zu weisen is a fixed idiom: 'cannot be dismissed'. Only weisen fits it."
 			},
 			{
 				"index": 8,
@@ -2303,7 +2311,8 @@
 					"legt",
 					"stellen"
 				],
-				"cue": "nahelegen"
+				"cue": "nahelegen",
+				"why": "nahelegen means 'to suggest'. It is separable and Studien is plural: Studien legen nahe."
 			},
 			{
 				"index": 9,
@@ -2312,11 +2321,13 @@
 					"folgen",
 					"schließt"
 				],
-				"cue": "follow"
+				"cue": "follow",
+				"why": "Daraus folgt, dass … is the fixed way to draw a conclusion: 'it follows from this'. folgern needs a person."
 			},
 			{
 				"index": 10,
-				"cue": "is probably"
+				"cue": "is probably",
+				"why": "dürfte (Konjunktiv II) makes a careful claim, 'is probably': diese Fähigkeit dürfte von unschätzbarem Wert sein."
 			}
 		]
 	},

@@ -414,7 +414,8 @@
 					"dem",
 					"den"
 				],
-				"cue": "the wall"
+				"cue": "the wall",
+				"why": "stehen says where something is: dative. Wand is feminine, so an der Wand."
 			},
 			{
 				"index": 1,
@@ -423,7 +424,8 @@
 					"den",
 					"der"
 				],
-				"cue": "the bed"
+				"cue": "the bed",
+				"why": "hängen here says where it hangs: dative. Bett is neuter, so über dem Bett."
 			},
 			{
 				"index": 2,
@@ -432,7 +434,8 @@
 					"den",
 					"der"
 				],
-				"cue": "the window"
+				"cue": "the window",
+				"why": "stehen says where something is: dative. Fenster is neuter, so vor dem Fenster."
 			},
 			{
 				"index": 3,
@@ -441,7 +444,8 @@
 					"der",
 					"das"
 				],
-				"cue": "the desk"
+				"cue": "the desk",
+				"why": "stehen says where something is: dative. Schreibtisch is masculine, so neben dem Schreibtisch."
 			},
 			{
 				"index": 4,
@@ -450,7 +454,8 @@
 					"der",
 					"das"
 				],
-				"cue": "the floor"
+				"cue": "the floor",
+				"why": "liegen says where something is: dative. Boden is masculine, so auf dem Boden."
 			},
 			{
 				"index": 5,
@@ -459,7 +464,8 @@
 					"der",
 					"das"
 				],
-				"cue": "the chair"
+				"cue": "the chair",
+				"why": "liegen says where something is: dative. Stuhl is masculine, so auf dem Stuhl."
 			},
 			{
 				"index": 6,
@@ -468,7 +474,8 @@
 					"der",
 					"das"
 				],
-				"cue": "the wardrobe"
+				"cue": "the wardrobe",
+				"why": "hängen here is putting it somewhere (where to?): accusative. Schrank is masculine, so in den Schrank."
 			},
 			{
 				"index": 7,
@@ -477,7 +484,8 @@
 					"den",
 					"der"
 				],
-				"cue": "the bed"
+				"cue": "the bed",
+				"why": "stellen is putting it somewhere (where to?): accusative. Bett is neuter, so unter das Bett."
 			},
 			{
 				"index": 8,
@@ -486,7 +494,8 @@
 					"der",
 					"das"
 				],
-				"cue": "the desk"
+				"cue": "the desk",
+				"why": "stellen is putting it somewhere (where to?): accusative. Schreibtisch is masculine, so auf den Schreibtisch."
 			},
 			{
 				"index": 9,
@@ -495,7 +504,8 @@
 					"den",
 					"dem"
 				],
-				"cue": "the kitchen"
+				"cue": "the kitchen",
+				"why": "bringen is moving it somewhere (where to?): accusative. Küche is feminine, so in die Küche."
 			},
 			{
 				"index": 10,
@@ -504,7 +514,8 @@
 					"den",
 					"der"
 				],
-				"cue": "the sofa"
+				"cue": "the sofa",
+				"why": "sich setzen is moving somewhere (where to?): accusative. Sofa is neuter, so auf das Sofa."
 			},
 			{
 				"index": 11,
@@ -513,7 +524,8 @@
 					"den",
 					"der"
 				],
-				"cue": "the bed"
+				"cue": "the bed",
+				"why": "legen is putting it somewhere (where to?): accusative. Bett is neuter, so neben das Bett."
 			}
 		]
 	},

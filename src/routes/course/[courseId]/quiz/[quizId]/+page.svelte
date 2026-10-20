@@ -195,8 +195,15 @@
 		ladderOffer = null;
 	});
 
+	// The ribbon reads this quiz's stored medals, which load lazily: without
+	// them a scored exercise shows the bronze for finishing, whatever it won.
+	// Untracked, because loading writes the stats this effect would read.
 	$effect(() => {
-		if (!progress.loaded) progress.load();
+		const prefix = quiz.storageKeyPrefix;
+		untrack(async () => {
+			if (!progress.loaded) await progress.load();
+			await progress.hydrateStats([prefix]);
+		});
 	});
 
 	const ribbon = $derived(
@@ -242,9 +249,17 @@
 		await award(medal, line);
 	}
 
-	/** A passage's questions: two thirds right passes. */
-	const passageFinished = (passed: boolean, correct: number, total: number) =>
-		passed && completeScored(scoreMedal(correct, total, 2 / 3), `${correct} of ${total} right`);
+	/**
+	 * A passage's questions: two thirds right passes. Every attempt goes into
+	 * the answer history, a failed one too, so its misses count as weak spots.
+	 */
+	function passageFinished(passed: boolean, correct: number, total: number) {
+		void progress.recordPassage(
+			quiz.storageKeyPrefix,
+			Array.from({ length: total }, (_, i) => ({ correct: i < correct }))
+		);
+		if (passed) void completeScored(scoreMedal(correct, total, 2 / 3), `${correct} of ${total} right`);
+	}
 
 	/**
 	 * A drill's run ended. Every finished run marks the exercise, whatever

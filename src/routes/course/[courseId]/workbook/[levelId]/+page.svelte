@@ -4,9 +4,12 @@
 	// print, every unit starts a new A4 page. The same page is what
 	// tool/gen-workbooks.mjs prints to the PDF the Download button serves.
 	import Seo from '$lib/components/Seo.svelte';
+	import CompanionBook from '$lib/components/companion/CompanionBook.svelte';
 	import WorkbookUnit from '$lib/components/workbook/WorkbookUnit.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { track } from '$lib/services/analytics';
+	import { workbookReady } from '$lib/domain/workbook';
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -15,8 +18,9 @@
 	const footer = $derived(`${wb.courseName} · ${wb.level} ${wb.title}`);
 	// Running footer and page numbers, set in the page margins by the print
 	// engine. A CSS string can't hold a raw quote or backslash.
+	// A companion draws its own margins and footers on every sheet.
 	const pageStyle = $derived(
-		`<style>@page { size: A4; margin: 13mm 13mm 15mm; @bottom-left { content: "${footer.replace(/["\\]/g, '')}"; font: 600 7pt Inter, sans-serif; color: #6e6458; } @bottom-right { content: counter(page); font: 800 8pt Inter, sans-serif; color: #1f3a5f; } } @page :first { @bottom-left { content: none; } @bottom-right { content: none; } }</style>`
+		data.companion ? '<style>@page { size: A4; margin: 0; }</style>' : `<style>@page { size: A4; margin: 13mm 13mm 15mm; @bottom-left { content: "${footer.replace(/["\\]/g, '')}"; font: 600 7pt Inter, sans-serif; color: #6e6458; } @bottom-right { content: counter(page); font: 800 8pt Inter, sans-serif; color: #1f3a5f; } } @page :first { @bottom-left { content: none; } @bottom-right { content: none; } }</style>`
 	);
 
 
@@ -24,6 +28,14 @@
 		track('workbook_print', { level: wb.level });
 		window.print();
 	}
+
+	// A level not ready to offer shows a note instead of the booklet; `?preview`
+	// (read in the browser, the page is prerendered) shows it anyway, for the
+	// people redoing it and for tool/gen-workbooks.mjs.
+	const ready = $derived(workbookReady(wb.level));
+	let preview = $state(false);
+	onMount(() => (preview = new URLSearchParams(location.search).has('preview')));
+	const shown = $derived(ready || preview);
 
 	const megabytes = (bytes: number) => `${(bytes / 1_000_000).toFixed(1)} MB`;
 </script>
@@ -48,8 +60,13 @@
 			{#if data.next}<a href="/course/{wb.courseId}/workbook/{data.next}" aria-label="Next level">{data.next} <Icon name="arrowRight" size="0.9em" /></a>{/if}
 		</nav>
 		<div class="actions">
+			{#if !ready}
+				<span class="wip">Work in progress{preview ? ' · preview' : ''}</span>
+			{/if}
+			{#if shown}
 			<button type="button" onclick={print}><Icon name="printer" size="1.05em" /> Print</button>
-			{#if data.pdf}
+			{/if}
+			{#if ready && data.pdf}
 				<a
 					class="primary"
 					href={data.pdf.href}
@@ -64,6 +81,17 @@
 	</div>
 </div>
 
+{#if !shown}
+<main class="wip-note">
+	<h1>The {wb.level} workbook is being redone</h1>
+	<p>The printed version wasn't good enough yet, so it is off the shelf until it is. The exercises are all in the app in the meantime.</p>
+	<a class="primary" href="/course/{wb.courseId}">Back to the course</a>
+</main>
+{:else if data.companion}
+<main>
+	<CompanionBook companion={data.companion} courseName={data.courseName} qr={data.qr} />
+</main>
+{:else}
 <main class="booklet">
 	<!-- The cover: the level, what it is called, what is in it. -->
 	<section class="sheet cover">
@@ -124,6 +152,7 @@
 		</section>
 	{/if}
 </main>
+{/if}
 
 <style>
 	:global(body) {
@@ -199,6 +228,39 @@
 		border-color: var(--navy);
 		background: var(--navy);
 		color: #fff;
+	}
+
+	.actions .wip {
+		align-self: center;
+		padding: 0.25rem 0.7rem;
+		border: 1px dashed var(--line-strong);
+		border-radius: 999px;
+		font-size: 0.8rem;
+		font-weight: 700;
+		color: var(--ink-muted);
+	}
+
+	/* The note a level not yet offered shows in place of its booklet. */
+	.wip-note {
+		max-width: 34rem;
+		margin: 4rem auto;
+		padding: 0 1rem;
+		text-align: center;
+	}
+
+	.wip-note p {
+		color: var(--ink-muted);
+	}
+
+	.wip-note .primary {
+		display: inline-flex;
+		margin-top: 0.5rem;
+		padding: 0.6rem 1.1rem;
+		border-radius: 999px;
+		background: var(--navy);
+		color: #fff;
+		font-weight: 700;
+		text-decoration: none;
 	}
 
 	.actions button,

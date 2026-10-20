@@ -1058,7 +1058,8 @@
 					"heißen",
 					"heißst"
 				],
-				"cue": "heißen"
+				"cue": "heißen",
+				"why": "The subject is ich, and with ich the verb ends in -e: ich heiße."
 			},
 			{
 				"index": 1,
@@ -1067,7 +1068,8 @@
 					"kommst",
 					"kommen"
 				],
-				"cue": "kommen"
+				"cue": "kommen",
+				"why": "With ich the verb ending is -e: ich komme aus Italien."
 			},
 			{
 				"index": 2,
@@ -1076,7 +1078,8 @@
 					"wohnst",
 					"wohnen"
 				],
-				"cue": "wohnen"
+				"cue": "wohnen",
+				"why": "Regular verb with ich takes -e: Jetzt wohne ich in Köln. The verb is second, after Jetzt."
 			},
 			{
 				"index": 3,
@@ -1085,7 +1088,8 @@
 					"habe",
 					"bist"
 				],
-				"cue": "sein"
+				"cue": "sein",
+				"why": "sein is irregular. With ich it is always bin: Ich bin Studentin."
 			},
 			{
 				"index": 4,
@@ -1094,7 +1098,8 @@
 					"lernst",
 					"lernen"
 				],
-				"cue": "lernen"
+				"cue": "lernen",
+				"why": "The subject is ich, so the ending is -e: ich lerne Deutsch."
 			},
 			{
 				"index": 5,
@@ -1103,7 +1108,8 @@
 					"hast",
 					"haben"
 				],
-				"cue": "haben"
+				"cue": "haben",
+				"why": "haben with ich is habe (du hast, er/sie hat): Ich habe eine Schwester."
 			},
 			{
 				"index": 6,
@@ -1112,7 +1118,8 @@
 					"wohnst",
 					"wohnen"
 				],
-				"cue": "wohnen"
+				"cue": "wohnen",
+				"why": "Meine Schwester is she (sie), so the verb ends in -t: Meine Schwester wohnt in Rom."
 			},
 			{
 				"index": 7,
@@ -1121,7 +1128,8 @@
 					"Meinen",
 					"Meinem"
 				],
-				"cue": "my"
+				"cue": "my",
+				"why": "Bruder is masculine (der) and the subject here, so 'my' has no ending: Mein Bruder."
 			},
 			{
 				"index": 8,
@@ -1130,7 +1138,8 @@
 					"hat",
 					"sind"
 				],
-				"cue": "to have (wir)"
+				"cue": "to have (wir)",
+				"why": "With wir the verb has the -en form, like the infinitive: Wir haben einen Hund."
 			},
 			{
 				"index": 9,
@@ -1139,7 +1148,8 @@
 					"Das",
 					"Den"
 				],
-				"cue": "the"
+				"cue": "the",
+				"why": "Hund is masculine and the subject of the sentence (nominative), so the article is der: Der Hund."
 			},
 			{
 				"index": 10,
@@ -1148,7 +1158,8 @@
 					"ist",
 					"bist"
 				],
-				"cue": "sein"
+				"cue": "sein",
+				"why": "Age uses sein, not haben, in German. With ich: Ich bin zwanzig Jahre alt."
 			},
 			{
 				"index": 11,
@@ -1157,7 +1168,8 @@
 					"spielst",
 					"spielen"
 				],
-				"cue": "spielen"
+				"cue": "spielen",
+				"why": "With ich the ending is -e. The verb comes second, after Am Wochenende: spiele ich."
 			}
 		]
 	},

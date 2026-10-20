@@ -1409,7 +1409,8 @@
 					"steht",
 					"aufstehe"
 				],
-				"cue": "aufstehen"
+				"cue": "aufstehen",
+				"why": "aufstehen is separable: the verb (stehe) goes second, auf goes to the end: Ich stehe um sieben Uhr auf."
 			},
 			{
 				"index": 1,
@@ -1418,7 +1419,8 @@
 					"einem",
 					"eine"
 				],
-				"cue": "a"
+				"cue": "a",
+				"why": "Kaffee is masculine and the object of trinke (accusative), so ein becomes einen: einen Kaffee."
 			},
 			{
 				"index": 2,
@@ -1427,7 +1429,8 @@
 					"dem",
 					"das"
 				],
-				"cue": "the"
+				"cue": "the",
+				"why": "Bus is masculine and the object of nehme (accusative), so der becomes den: den Bus."
 			},
 			{
 				"index": 3,
@@ -1436,7 +1439,8 @@
 					"keinen",
 					"nicht"
 				],
-				"cue": "no, not a"
+				"cue": "no, not a",
+				"why": "Auto is neuter and the object of habe. Neuter kein has no ending in the accusative: kein Auto."
 			},
 			{
 				"index": 4,
@@ -1445,7 +1449,8 @@
 					"müssen",
 					"müsst"
 				],
-				"cue": "müssen"
+				"cue": "müssen",
+				"why": "müssen is irregular: ich muss (no ending). The other verb, einkaufen, goes to the end."
 			},
 			{
 				"index": 5,
@@ -1454,7 +1459,8 @@
 					"einen",
 					"einem"
 				],
-				"cue": "a"
+				"cue": "a",
+				"why": "Brot is neuter, object of kaufe. Neuter ein stays ein in the accusative: ein Brot."
 			},
 			{
 				"index": 6,
@@ -1463,7 +1469,8 @@
 					"einen",
 					"einer"
 				],
-				"cue": "a"
+				"cue": "a",
+				"why": "Banane is feminine, object of kaufe. Feminine stays eine in the accusative: eine Banane."
 			},
 			{
 				"index": 7,
@@ -1472,7 +1479,8 @@
 					"eine",
 					"einem"
 				],
-				"cue": "a"
+				"cue": "a",
+				"why": "Apfel is masculine, object of kaufe (accusative), so ein becomes einen: einen Apfel."
 			},
 			{
 				"index": 8,
@@ -1481,7 +1489,8 @@
 					"keinen",
 					"nicht"
 				],
-				"cue": "no"
+				"cue": "no",
+				"why": "Use kein (not nicht) to say 'no' before a noun. Milch is feminine, so: keine Milch."
 			},
 			{
 				"index": 9,
@@ -1490,7 +1499,8 @@
 					"rufst",
 					"anrufe"
 				],
-				"cue": "anrufen"
+				"cue": "anrufen",
+				"why": "anrufen is separable: rufe goes second, an goes to the end: Dann rufe ich meine Schwester an."
 			},
 			{
 				"index": 10,
@@ -1499,7 +1509,8 @@
 					"sieht",
 					"fernsehe"
 				],
-				"cue": "fernsehen"
+				"cue": "fernsehen",
+				"why": "fernsehen is separable and irregular (du siehst), but with ich it is sehe; fern goes to the end."
 			},
 			{
 				"index": 11,
@@ -1508,7 +1519,8 @@
 					"willst",
 					"wollt"
 				],
-				"cue": "wollen"
+				"cue": "wollen",
+				"why": "wollen is irregular: ich will (no ending). The second verb, sehen, goes to the end."
 			}
 		]
 	},

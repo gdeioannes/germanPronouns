@@ -50,7 +50,12 @@ const sinks: Sink[] = [
 	makeSink(env.PUBLIC_APTABASE_ALL_APP_KEY ?? DEFAULT_ALL_APP_KEY, true)
 ].filter((sink): sink is Sink => sink !== null);
 
-const enabled = sinks.length > 0;
+/**
+ * The dev server sends nothing: a localhost visit, a hot reload or a test
+ * run must never look like a learner. Set PUBLIC_ANALYTICS_IN_DEV=1 to try
+ * the events out locally (they are still marked isDebug).
+ */
+const enabled = sinks.length > 0 && (!dev || env.PUBLIC_ANALYTICS_IN_DEV === '1');
 
 /** A session is a run of activity; after this much idle time, a new one starts. */
 const SESSION_TIMEOUT_MS = 60 * 60 * 1000;
@@ -60,6 +65,23 @@ const SESSION_TIMEOUT_MS = 60 * 60 * 1000;
 // catches headless automation (Puppeteer/Playwright) even behind a spoofed UA.
 const BOT_UA =
 	/bot|spider|crawl|preview|headless|slurp|facebookexternalhit|whatsapp|telegram|lighthouse|gtmetrix|pingdom|uptime|monitor|scrape|wget|curl|python|node-fetch|axios/i;
+
+// "This is me": opening any page with ?internal=1 marks this browser as the
+// team's own (?internal=0 unmarks it). Its events skip the humans-only sink,
+// like a bot's, and reach the everything sink tagged `internal: true`, so
+// testing the site never shows up as visitors.
+const INTERNAL_KEY = 'lq_internal';
+
+function isInternal(): boolean {
+	try {
+		const flag = new URLSearchParams(location.search).get('internal');
+		if (flag === '1') localStorage.setItem(INTERNAL_KEY, '1');
+		else if (flag === '0') localStorage.removeItem(INTERNAL_KEY);
+		return localStorage.getItem(INTERNAL_KEY) === '1';
+	} catch {
+		return false;
+	}
+}
 
 function isBot(): boolean {
 	try {
@@ -293,6 +315,7 @@ function currentSession(): string {
 export function track(name: string, props: Record<string, string | number | boolean> = {}): void {
 	if (!browser || !enabled) return;
 	const bot = isBot();
+	const internal = isInternal();
 	const body = JSON.stringify({
 		timestamp: new Date().toISOString(),
 		sessionId: currentSession(),
@@ -307,11 +330,12 @@ export function track(name: string, props: Record<string, string | number | bool
 			...(attribution ??= resolveAttribution()),
 			...(tenure ??= resolveTenure()),
 			...props,
-			bot
+			bot,
+			internal
 		}
 	});
 	for (const sink of sinks) {
-		if (bot && !sink.includeBots) continue;
+		if ((bot || internal) && !sink.includeBots) continue;
 		void fetch(`${sink.host}/api/v0/event`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json', 'App-Key': sink.appKey },

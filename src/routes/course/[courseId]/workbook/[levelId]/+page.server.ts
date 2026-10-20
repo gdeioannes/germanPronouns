@@ -1,6 +1,11 @@
 import { error } from '@sveltejs/kit';
 import { readFileSync } from 'node:fs';
+import registry from '$content/booklinks.json';
 import { courses, loadCourse } from '$lib/content';
+import type { BookLinkRegistry, LinkKind } from '$lib/domain/booklinks';
+import { codeUrl } from '$lib/domain/booklinks';
+import { loadCompanion } from '$lib/domain/companion';
+import { qrSvg } from '$lib/server/qr';
 import { buildWorkbook, workbookFile, workbookLevels } from '$lib/domain/workbook';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
@@ -41,8 +46,26 @@ export const load: PageServerLoad = async ({ params }) => {
 	const at = levels.findIndex((l) => l.level === params.levelId);
 	const file = workbookFile(course.id, params.levelId);
 
+	// A level with an authored study companion prints that instead. Its QR
+	// codes reuse the printed book's permanent codes: one that isn't in the
+	// registry yet is left off rather than minted here, where nothing would
+	// save it (tool/gen-books.mjs owns minting).
+	const companion = loadCompanion(course.id, params.levelId);
+	const links = registry as unknown as BookLinkRegistry;
+	const code = async (kind: LinkKind, target?: string) => {
+		const link = target ? links.links.find((l) => l.kind === kind && l.target === target) : undefined;
+		return link ? { svg: await qrSvg(codeUrl(link.code)), code: link.code } : null;
+	};
+	const qr: Record<string, { app: Awaited<ReturnType<typeof code>>; listen: Awaited<ReturnType<typeof code>> }> = {};
+	for (const s of companion?.spreads ?? []) {
+		qr[s.id] = { app: await code('quiz', s.quiz), listen: await code('audio', s.listenQuiz) };
+	}
+
 	return {
 		workbook,
+		companion,
+		qr,
+		courseName: course.name,
 		pdf: pdfManifest()[file] ? { href: `/workbooks/${file}`, ...pdfManifest()[file] } : null,
 		previous: levels[at - 1]?.level ?? null,
 		next: levels[at + 1]?.level ?? null

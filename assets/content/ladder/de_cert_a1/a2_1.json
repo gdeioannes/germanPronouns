@@ -1611,7 +1611,8 @@
 					"hat",
 					"war"
 				],
-				"cue": "besuchen"
+				"cue": "besuchen",
+				"why": "besuchen takes an object (meine Oma), so the Perfekt uses haben: ich habe besucht."
 			},
 			{
 				"index": 1,
@@ -1620,7 +1621,8 @@
 					"ist",
 					"hat"
 				],
-				"cue": "fahren"
+				"cue": "fahren",
+				"why": "fahren is movement from A to B, so the Perfekt uses sein: ich bin gefahren."
 			},
 			{
 				"index": 2,
@@ -1629,7 +1631,8 @@
 					"der",
 					"die"
 				],
-				"cue": "the train"
+				"cue": "the train",
+				"why": "mit always takes the dative. Zug is masculine, so der becomes dem: mit dem Zug."
 			},
 			{
 				"index": 3,
@@ -1638,7 +1641,8 @@
 					"war",
 					"haben"
 				],
-				"cue": "dauern"
+				"cue": "dauern",
+				"why": "dauern is not movement or change, so the Perfekt uses haben. Die Fahrt is 'it': hat gedauert."
 			},
 			{
 				"index": 4,
@@ -1647,7 +1651,8 @@
 					"seid",
 					"hat"
 				],
-				"cue": "laufen"
+				"cue": "laufen",
+				"why": "laufen here is movement to a place, so the Perfekt uses sein. With wir: sind gelaufen."
 			},
 			{
 				"index": 5,
@@ -1656,7 +1661,8 @@
 					"dem",
 					"den"
 				],
-				"cue": "grandma"
+				"cue": "grandma",
+				"why": "bei always takes the dative. Oma is feminine, so die becomes der: bei der Oma."
 			},
 			{
 				"index": 6,
@@ -1665,7 +1671,8 @@
 					"hat",
 					"war"
 				],
-				"cue": "essen"
+				"cue": "essen",
+				"why": "essen takes an object (Kuchen), so the Perfekt uses haben: ich habe gegessen."
 			},
 			{
 				"index": 7,
@@ -1674,7 +1681,8 @@
 					"habe",
 					"war"
 				],
-				"cue": "zeigen"
+				"cue": "zeigen",
+				"why": "zeigen takes an object (Fotos), so the Perfekt uses haben. With sie (she): hat gezeigt."
 			},
 			{
 				"index": 8,
@@ -1683,7 +1691,8 @@
 					"der",
 					"das"
 				],
-				"cue": "the meal"
+				"cue": "the meal",
+				"why": "nach always takes the dative. Essen is neuter, so das becomes dem: nach dem Essen."
 			},
 			{
 				"index": 9,
@@ -1692,7 +1701,8 @@
 					"seid",
 					"hat"
 				],
-				"cue": "gehen"
+				"cue": "gehen",
+				"why": "spazieren gehen is movement, so the Perfekt uses sein. With wir: sind spazieren gegangen."
 			},
 			{
 				"index": 10,
@@ -1701,7 +1711,8 @@
 					"waren",
 					"wart"
 				],
-				"cue": "sein"
+				"cue": "sein",
+				"why": "For sein, German uses the simple past (Präteritum) in stories. das Wetter is 'it': war."
 			},
 			{
 				"index": 11,
@@ -1710,7 +1721,8 @@
 					"ist",
 					"hat"
 				],
-				"cue": "fahren"
+				"cue": "fahren",
+				"why": "fahren is movement (nach Hause), so the Perfekt uses sein: ich bin gefahren."
 			}
 		]
 	},

@@ -588,9 +588,17 @@
 		font-size: 0.72rem;
 		color: var(--ink-muted);
 	}
+	/* `backwards`, not `both`: a fill that outlives the animation keeps its
+	   transform, making every row a stacking context that the next message
+	   paints over — and a tapped word's panel opened under it. */
 	.row {
 		display: flex;
-		animation: land 260ms var(--ease-out, ease-out) both;
+		animation: land 260ms var(--ease-out, ease-out) backwards;
+	}
+	/* The row with a word's panel open sits above its neighbours. */
+	.row:has(:global(.word-wrap .panel)) {
+		position: relative;
+		z-index: 2;
 	}
 	.row.out {
 		justify-content: flex-end;

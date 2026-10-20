@@ -1,7 +1,9 @@
 // What the deck's intro card shows while the cards are dealt: one odd German
-// word or one small cultural fact, picked at random on each load. The card is
-// on screen for about half a second, so each entry must be readable at a
-// glance: a word and a short gloss, or one short sentence.
+// word or one small cultural fact, picked at random on each load. The card
+// shows only while the deck is not ready (a full page load, not the way back
+// from a quiz) and stays up to five seconds unless swiped; a tap keeps it.
+// Each entry should still read at a glance: a word and a short gloss, or one
+// short sentence.
 
 export type LoadingTip = { kind: 'word'; de: string; en: string } | { kind: 'tip'; en: string };
 

@@ -181,6 +181,19 @@ class ProgressStore {
 	answerRevealMode = $state<AnswerRevealMode>('normal');
 	loaded = $state(false);
 
+	private pending: Promise<void> | null = null;
+
+	/**
+	 * Loads once, for a component that needs the settings on a page that may
+	 * not have loaded them (a chat or story opened from a link). Every caller
+	 * shares the one read.
+	 */
+	ensureLoaded(): Promise<void> {
+		if (this.loaded) return Promise.resolve();
+		this.pending ??= this.load().finally(() => (this.pending = null));
+		return this.pending;
+	}
+
 	async load(): Promise<void> {
 		// A fresh read of storage: any stats cached from before are stale.
 		this.stats = {};
@@ -493,6 +506,20 @@ class ProgressStore {
 				: {};
 		mistakes[categoryLabel] = (Number(mistakes[categoryLabel]) || 0) + 1;
 		await storage.set(keys.mistakesByCase, JSON.stringify(mistakes));
+	}
+
+	/**
+	 * Logs a checked passage — a big text's gaps, a reading's questions — into
+	 * the answer history, so its misses rank weak spots and review like a
+	 * drill's. The streak is left alone: a passage earns its medal by score.
+	 */
+	async recordPassage(
+		prefix: string,
+		outcomes: readonly { correct: boolean; categoryLabel?: string }[]
+	): Promise<void> {
+		for (const { correct, categoryLabel } of outcomes) {
+			await this.recordHistory(prefix, correct, categoryLabel);
+		}
 	}
 
 	/**

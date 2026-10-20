@@ -32,6 +32,8 @@
 // — every gap has a `cue` (what the no-help step still shows: the lemma or a
 // two-word gloss), typed ("input") gaps have three wrong options, and `hint`
 // replaces the type step's hint when it needs to say more than the cue.
+// `why` is the one-line reason the correction gives after a miss ("stellen is
+// putting it somewhere: accusative …"); optional, shown only after checking.
 //
 // Idempotent: running it twice yields the same bundle.
 
@@ -145,6 +147,7 @@ for (const file of files) {
 				if (typeof e.cue !== 'string' || !e.cue.trim()) fail(at, 'needs a cue for the no-help step');
 				else if (norm(e.cue) === norm(b.answer)) fail(at, 'the cue is the answer');
 				if (e.hint !== undefined && (typeof e.hint !== 'string' || !e.hint.trim())) fail(at, '"hint" must be text');
+				if (e.why !== undefined && (typeof e.why !== 'string' || !e.why.trim())) fail(at, '"why" must be text');
 				if (b.kind === 'input') checkOptions(at, e.options, [b.answer, ...(b.accepted ?? [])]);
 				else if (e.options) fail(at, 'a dropdown gap has its own options');
 			});
@@ -249,6 +252,7 @@ for (const { quiz, entry, kind } of plan) {
 			if (b.options) gap.options = b.options;
 			gap.cue = b.cue;
 			if (b.hint) gap.hint = b.hint;
+			if (b.why) gap.why = b.why;
 		}
 		continue;
 	}

@@ -577,7 +577,8 @@
 					"neues"
 				],
 				"cue": "neu",
-				"hint": "neu · in einer … Wohnung (Dat. f)"
+				"hint": "neu · in einer … Wohnung (Dat. f)",
+				"why": "in + where? takes the dative. After einer (dative feminine) the adjective ends in -en: einer neuen Wohnung."
 			},
 			{
 				"index": 1,
@@ -587,7 +588,8 @@
 					"großer"
 				],
 				"cue": "groß",
-				"hint": "groß · das … Wohnzimmer (Nom. n)"
+				"hint": "groß · das … Wohnzimmer (Nom. n)",
+				"why": "After der/die/das in the nominative singular, the adjective ends in -e: das große Wohnzimmer."
 			},
 			{
 				"index": 2,
@@ -597,7 +599,8 @@
 					"großer"
 				],
 				"cue": "groß",
-				"hint": "groß · ein … Fenster (Akk. n)"
+				"hint": "groß · ein … Fenster (Akk. n)",
+				"why": "ein shows no gender, so the adjective must: neuter accusative after ein is -es: ein großes Fenster."
 			},
 			{
 				"index": 3,
@@ -607,7 +610,8 @@
 					"kleinem"
 				],
 				"cue": "klein",
-				"hint": "klein · einen … Park (Akk. m)"
+				"hint": "klein · einen … Park (Akk. m)",
+				"why": "auf einen Park is accusative masculine. After einen the adjective ends in -en: einen kleinen Park."
 			},
 			{
 				"index": 4,
@@ -617,7 +621,8 @@
 					"schöner"
 				],
 				"cue": "schön",
-				"hint": "schön · ein … Bild (Akk. n)"
+				"hint": "schön · ein … Bild (Nom. n)",
+				"why": "Bild is the subject of hängt (nominative, neuter). After ein the adjective shows it with -es: ein schönes Bild."
 			},
 			{
 				"index": 5,
@@ -627,7 +632,8 @@
 					"bequemem"
 				],
 				"cue": "bequem",
-				"hint": "bequem · auf dem … Sofa (Dat. n)"
+				"hint": "bequem · auf dem … Sofa (Dat. n)",
+				"why": "auf + where? takes the dative. After dem the adjective always ends in -en: auf dem bequemen Sofa."
 			},
 			{
 				"index": 6,
@@ -637,7 +643,8 @@
 					"neues"
 				],
 				"cue": "neu",
-				"hint": "neu · einen … Herd (Akk. m)"
+				"hint": "neu · einen … Herd (Akk. m)",
+				"why": "Herd is the object of hat (accusative, masculine). After einen the adjective ends in -en: einen neuen Herd."
 			},
 			{
 				"index": 7,
@@ -647,7 +654,8 @@
 					"modernes"
 				],
 				"cue": "modern",
-				"hint": "modern · einen … Kühlschrank (Akk. m)"
+				"hint": "modern · einen … Kühlschrank (Akk. m)",
+				"why": "Kühlschrank is masculine accusative (object of hat). After einen the ending is -en: einen modernen Kühlschrank."
 			},
 			{
 				"index": 8,
@@ -657,7 +665,8 @@
 					"altes"
 				],
 				"cue": "alt",
-				"hint": "alt · ein … Baum (Nom. m)"
+				"hint": "alt · ein … Baum (Nom. m)",
+				"why": "Baum is the subject (nominative, masculine). ein shows no gender, so the adjective takes -er: ein alter Baum."
 			},
 			{
 				"index": 9,
@@ -667,7 +676,8 @@
 					"nettes"
 				],
 				"cue": "nett",
-				"hint": "nett · … Nachbarn (Akk. Pl., kein Artikel)"
+				"hint": "nett · … Nachbarn (Akk. Pl., kein Artikel)",
+				"why": "No article, so the adjective carries the case: accusative plural gets -e, like die: nette Nachbarn."
 			},
 			{
 				"index": 10,
@@ -677,7 +687,8 @@
 					"junges"
 				],
 				"cue": "jung",
-				"hint": "jung · der … Mann (Nom. m)"
+				"hint": "jung · der … Mann (Nom. m)",
+				"why": "After der in the nominative singular, the adjective ends in -e: der junge Mann."
 			},
 			{
 				"index": 11,
@@ -687,7 +698,8 @@
 					"heißes"
 				],
 				"cue": "heiß",
-				"hint": "heiß · mit … Tee (Dat. m, kein Artikel)"
+				"hint": "heiß · mit … Tee (Dat. m, kein Artikel)",
+				"why": "mit takes the dative. No article, so the adjective takes the article's ending (dem → -em): mit heißem Tee."
 			}
 		]
 	},

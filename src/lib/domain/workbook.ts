@@ -24,6 +24,18 @@ import { buildLesson, seededRandom, seededShuffle, type LessonWord } from './les
 import { spokenPassage } from './spoken';
 import { sectionFor, type ExerciseSection } from './worksheet';
 
+/**
+ * The levels whose workbook is good enough to offer. The generated workbooks
+ * fell short on paper, so none is offered until its level has been redone
+ * (the study companion, domain/companion): a level left out shows "work in
+ * progress" wherever its PDF would be. Add a level here to offer it again.
+ */
+export const READY_WORKBOOKS: ReadonlySet<string> = new Set<string>(['A1.1']);
+
+export function workbookReady(level: string): boolean {
+	return READY_WORKBOOKS.has(level);
+}
+
 /** Practice items printed per grammar unit — enough to drill, few enough to fit. */
 export const PRACTICE_PER_UNIT = 8;
 
