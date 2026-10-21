@@ -370,8 +370,8 @@ doc = f"""<!doctype html><html lang="de"><head><meta charset="utf-8">
   @bottom-center {{ content: counter(page); font: 600 8pt Inter, sans-serif; color: #555555; }}
   @footnote {{ border-top: .2mm solid #999999; padding-top: 1.5mm; margin-top: 3mm; }} }}
 /* The story pages keep a wide outer margin for the word glosses. */
-@page :right {{ margin-left: 13mm; margin-right: 36mm; }}
-@page :left {{ margin-left: 36mm; margin-right: 13mm; }}
+@page :right {{ margin-left: 11mm; margin-right: 38mm; }}
+@page :left {{ margin-left: 38mm; margin-right: 11mm; }}
 @page front {{ margin: 18mm 15mm 20mm; @bottom-center {{ content: none; }} }}
 @page back {{ margin: 18mm 15mm 20mm; }}
 .pagedjs_page {{ position: relative; }}
@@ -514,4 +514,18 @@ subprocess.run(["node", js_path, html_path, pdf_path], check=True)
 print(f"{total} stages, {sum(len(s['words']) for s in spec['stages'])} glossary words, {repeats} repeat anchors")
 for w in warnings:
     print("  not found in its stage:", w)
+
+# KDP rejects anything within 0.25 in of the trim on a book without bleed, so
+# every page is checked here, with half a millimetre to spare, before KDP's
+# previewer has to say so.
+import fitz  # PyMuPDF
+
+SAFE = 0.25 * 72 + 0.5 / 25.4 * 72
+book = fitz.open(pdf_path)
+for k, pg in enumerate(book, 1):
+    W, H = pg.rect.width, pg.rect.height
+    boxes = [fitz.Rect(w[:4]) for w in pg.get_text("words")] + [d["rect"] for d in pg.get_drawings()]
+    out_of = [r for r in boxes if r.x0 < SAFE or r.y0 < SAFE or r.x1 > W - SAFE or r.y1 > H - SAFE]
+    if out_of:
+        print(f"  page {k}: {len(out_of)} object(s) inside KDP's 0.25 in edge margin")
 print(pdf_path)
