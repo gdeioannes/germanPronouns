@@ -2396,6 +2396,67 @@
 			"quiz": "quest_a2_1_woher_wo_wohin",
 			"learn": [
 				{
+					"kind": "slots",
+					"title": "From, at, to",
+					"note": "You stand in the middle box: coming from the left, going to the right.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "aus dem Kino ←",
+									"tag": "woher?"
+								},
+								{
+									"de": "im Kino",
+									"tag": "wo?",
+									"hot": true
+								},
+								{
+									"de": "→ ins Kino",
+									"tag": "wohin?"
+								}
+							],
+							"en": "a place you go into"
+						},
+						{
+							"cells": [
+								{
+									"de": "vom Arzt ←",
+									"tag": "woher?"
+								},
+								{
+									"de": "beim Arzt",
+									"tag": "wo?",
+									"hot": true
+								},
+								{
+									"de": "→ zum Arzt",
+									"tag": "wohin?"
+								}
+							],
+							"en": "a person, the doctor"
+						},
+						{
+							"cells": [
+								{
+									"de": "aus Berlin ←",
+									"tag": "woher?"
+								},
+								{
+									"de": "in Berlin",
+									"tag": "wo?",
+									"hot": true
+								},
+								{
+									"de": "→ nach Berlin",
+									"tag": "wohin?"
+								}
+							],
+							"en": "a town"
+						}
+					]
+				},
+				{
 					"kind": "table",
 					"title": "One place, three questions",
 					"head": [
@@ -2926,6 +2987,37 @@
 			"listenQuiz": "quest_a2_1_hoeren_wetter",
 			"learn": [
 				{
+					"kind": "pictures",
+					"title": "What the weather does",
+					"cols": 6,
+					"items": [
+						{
+							"image": "cpd_sonne",
+							"de": "Die Sonne scheint."
+						},
+						{
+							"image": "cpd_regen",
+							"de": "Es regnet."
+						},
+						{
+							"image": "cpd_schnee",
+							"de": "Es schneit."
+						},
+						{
+							"image": "cpd_wind",
+							"de": "Es ist windig."
+						},
+						{
+							"image": "cpd_wolke",
+							"de": "Es ist bewölkt."
+						},
+						{
+							"image": "cpd_gewitter",
+							"de": "Es donnert."
+						}
+					]
+				},
+				{
 					"kind": "table",
 					"title": "It rains, it is sunny",
 					"head": [
@@ -3076,41 +3168,29 @@
 			],
 			"practise": [
 				{
-					"title": "What’s the weather?",
-					"instruction": "Write a sentence for each picture: es regnet, es ist …",
-					"kind": "tags",
+					"title": "One street, four weathers",
+					"instruction": "Look at the picture on the left page. What is the weather for …",
+					"kind": "write",
 					"items": [
 						{
-							"image": "cpd_sonne",
-							"label": "",
-							"answer": "Die Sonne scheint. / Es ist sonnig."
+							"prompt": "the man with sunglasses",
+							"answer": "Die Sonne scheint."
 						},
 						{
-							"image": "cpd_regen",
-							"label": "",
+							"prompt": "the woman with the umbrella",
 							"answer": "Es regnet."
 						},
 						{
-							"image": "cpd_schnee",
-							"label": "",
+							"prompt": "the child with the snowman",
 							"answer": "Es schneit."
 						},
 						{
-							"image": "cpd_wind",
-							"label": "",
+							"prompt": "the man and his hat",
 							"answer": "Es ist windig."
-						},
-						{
-							"image": "cpd_wolke",
-							"label": "",
-							"answer": "Es ist bewölkt."
-						},
-						{
-							"image": "cpd_gewitter",
-							"label": "",
-							"answer": "Es donnert."
 						}
-					]
+					],
+					"cols": 2,
+					"notGerman": true
 				},
 				{
 					"title": "The weather report",
@@ -3558,6 +3638,90 @@
 			},
 			"quiz": "quest_a2_1_welcher_dieser",
 			"learn": [
+				{
+					"kind": "build",
+					"title": "Same ending as the article",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "d"
+								},
+								{
+									"text": "er",
+									"role": "suffix"
+								}
+							],
+							"result": "der",
+							"en": "the article"
+						},
+						{
+							"parts": [
+								{
+									"text": "dies"
+								},
+								{
+									"text": "er",
+									"role": "suffix"
+								}
+							],
+							"result": "dieser",
+							"en": "this"
+						},
+						{
+							"parts": [
+								{
+									"text": "welch"
+								},
+								{
+									"text": "er",
+									"role": "suffix"
+								}
+							],
+							"result": "welcher",
+							"en": "which"
+						},
+						{
+							"parts": [
+								{
+									"text": "d"
+								},
+								{
+									"text": "em",
+									"role": "suffix"
+								}
+							],
+							"result": "dem",
+							"en": "wem? — the article"
+						},
+						{
+							"parts": [
+								{
+									"text": "dies"
+								},
+								{
+									"text": "em",
+									"role": "suffix"
+								}
+							],
+							"result": "diesem",
+							"en": "wem? — this"
+						},
+						{
+							"parts": [
+								{
+									"text": "welch"
+								},
+								{
+									"text": "em",
+									"role": "suffix"
+								}
+							],
+							"result": "welchem",
+							"en": "wem? — which"
+						}
+					]
+				},
 				{
 					"kind": "table",
 					"title": "welcher and dieser end like der",

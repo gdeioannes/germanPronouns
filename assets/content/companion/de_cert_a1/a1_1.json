@@ -1879,10 +1879,63 @@
 					"kind": "columns",
 					"blocks": [
 						{
-							"kind": "box",
-							"tone": "tip",
-							"title": "-t and -d need an extra e",
-							"text": "When the stem ends in t or d, an e slips in so you can say it: arbeiten → du arbeit*e*st, er arbeit*e*t."
+							"kind": "build",
+							"title": "Stem + ending",
+							"note": "After -t or -d an e slips in.",
+							"rows": [
+								{
+									"parts": [
+										{
+											"text": "wohn"
+										},
+										{
+											"text": "e",
+											"role": "suffix"
+										}
+									],
+									"result": "wohne",
+									"en": "ich"
+								},
+								{
+									"parts": [
+										{
+											"text": "wohn"
+										},
+										{
+											"text": "st",
+											"role": "suffix"
+										}
+									],
+									"result": "wohnst",
+									"en": "du"
+								},
+								{
+									"parts": [
+										{
+											"text": "wohn"
+										},
+										{
+											"text": "t",
+											"role": "suffix"
+										}
+									],
+									"result": "wohnt",
+									"en": "er · sie · es"
+								},
+								{
+									"parts": [
+										{
+											"text": "arbeit"
+										},
+										{
+											"text": "est",
+											"role": "suffix"
+										}
+									],
+									"result": "arbeitest",
+									"en": "du — with an extra e"
+								}
+							]
 						},
 						{
 							"kind": "box",
@@ -2307,61 +2360,63 @@
 			"quiz": "quest_a1_1_vokalwechsel",
 			"learn": [
 				{
-					"kind": "table",
-					"title": "Only the middle two change",
-					"head": [
-						{
-							"text": "who"
-						},
-						{
-							"text": "fahren"
-						},
-						{
-							"text": "sprechen"
-						},
-						{
-							"text": "lesen"
-						}
-					],
+					"kind": "build",
+					"title": "Only du and er change",
+					"note": "The endings are the usual ones. Only the vowel moves.",
 					"rows": [
-						[
-							"ich",
-							"fahre",
-							"spreche",
-							"lese"
-						],
-						[
-							"du",
-							"f*ä*hrst",
-							"spr*i*chst",
-							"l*ie*st"
-						],
-						[
-							"er · sie · es",
-							"f*ä*hrt",
-							"spr*i*cht",
-							"l*ie*st"
-						],
-						[
-							"wir",
-							"fahren",
-							"sprechen",
-							"lesen"
-						],
-						[
-							"ihr",
-							"fahrt",
-							"sprecht",
-							"lest"
-						],
-						[
-							"sie · Sie",
-							"fahren",
-							"sprechen",
-							"lesen"
-						]
-					],
-					"note": "The endings are the usual ones. Only the vowel moves."
+						{
+							"parts": [
+								{
+									"text": "fähr"
+								},
+								{
+									"text": "st",
+									"role": "suffix"
+								}
+							],
+							"result": "du fährst",
+							"en": "fahren: a → ä"
+						},
+						{
+							"parts": [
+								{
+									"text": "sprich"
+								},
+								{
+									"text": "st",
+									"role": "suffix"
+								}
+							],
+							"result": "du sprichst",
+							"en": "sprechen: e → i"
+						},
+						{
+							"parts": [
+								{
+									"text": "lie"
+								},
+								{
+									"text": "st",
+									"role": "suffix"
+								}
+							],
+							"result": "du liest",
+							"en": "lesen: e → ie"
+						},
+						{
+							"parts": [
+								{
+									"text": "fahr"
+								},
+								{
+									"text": "en",
+									"role": "suffix"
+								}
+							],
+							"result": "wir fahren",
+							"en": "wir, ihr, sie: no change"
+						}
+					]
 				},
 				{
 					"kind": "table",
@@ -2968,10 +3023,72 @@
 					"kind": "columns",
 					"blocks": [
 						{
-							"kind": "box",
-							"tone": "culture",
-							"title": "Each ending has a favourite",
-							"text": "Most die-words take -n or -en. Many das-words take -er. Short and foreign words take -s."
+							"kind": "build",
+							"title": "Five ways to say more",
+							"note": "die-words like -n, das-words like -er.",
+							"rows": [
+								{
+									"parts": [
+										{
+											"text": "Tisch"
+										},
+										{
+											"text": "e",
+											"role": "suffix"
+										}
+									],
+									"result": "die Tische",
+									"en": "der Tisch"
+								},
+								{
+									"parts": [
+										{
+											"text": "Frau"
+										},
+										{
+											"text": "en",
+											"role": "suffix"
+										}
+									],
+									"result": "die Frauen",
+									"en": "die Frau"
+								},
+								{
+									"parts": [
+										{
+											"text": "Kind"
+										},
+										{
+											"text": "er",
+											"role": "suffix"
+										}
+									],
+									"result": "die Kinder",
+									"en": "das Kind"
+								},
+								{
+									"parts": [
+										{
+											"text": "Auto"
+										},
+										{
+											"text": "s",
+											"role": "suffix"
+										}
+									],
+									"result": "die Autos",
+									"en": "das Auto"
+								},
+								{
+									"parts": [
+										{
+											"text": "Schlüssel"
+										}
+									],
+									"result": "die Schlüssel",
+									"en": "der Schlüssel — no ending"
+								}
+							]
 						},
 						{
 							"kind": "words",

@@ -199,6 +199,16 @@ def tags_ex(title, instruction, items, unit=None):
 
 
 
+def pictures(title, items, ncols=6, note=None):
+    """items: (picture id, German, English or None) — labelled pictures that teach by showing."""
+    b = {'kind': 'pictures', 'title': title}
+    if note:
+        b['note'] = note
+    b['cols'] = ncols
+    b['items'] = [{'image': i, 'de': d, **({'en': e} if e else {})} for i, d, e in items]
+    return b
+
+
 def timeline(title, marks, note=None):
     """marks: (de, en, at) for a point, or (de, en, (from, to)) for a span; 0 is now, -4 … 4."""
     b = {'kind': 'timeline', 'title': title}

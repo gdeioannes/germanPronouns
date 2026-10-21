@@ -264,6 +264,19 @@
 			</ol>
 		</div>
 	</section>
+{:else if block.kind === 'pictures'}
+	<section class="block">
+		<h3>{block.title}{#if block.note}<small>{@html rich(block.note)}</small>{/if}</h3>
+		<ol class="pictures" style:--cols={block.cols ?? 6}>
+			{#each block.items as item (item.image)}
+				<li>
+					<img src="/img/{item.image}.webp" alt="" width="1024" height="1024" />
+					<b lang="de">{@html rich(item.de)}</b>
+					{#if item.en}<small>{item.en}</small>{/if}
+				</li>
+			{/each}
+		</ol>
+	</section>
 {:else if block.kind === 'timeline'}
 	{@const x = (v: number) => 100 + v * 22}
 	<section class="block">
@@ -993,6 +1006,41 @@
 
 	.dial .dial-small {
 		font-size: 6.5px;
+	}
+
+	/* -- labelled pictures --------------------------------------------------- */
+
+	.pictures {
+		display: grid;
+		grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+		gap: 2.5mm 3mm;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.pictures li {
+		display: grid;
+		justify-items: center;
+		align-content: start;
+		text-align: center;
+	}
+
+	.pictures img {
+		width: 100%;
+		height: 20mm;
+		object-fit: contain;
+	}
+
+	.pictures b {
+		margin-top: 1mm;
+		font-size: 9pt;
+		line-height: 1.2;
+	}
+
+	.pictures small {
+		font-size: 7.5pt;
+		color: var(--muted);
 	}
 
 	/* -- timeline ------------------------------------------------------------ */

@@ -5,7 +5,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kit  # noqa: E402
-from kit import (a, arrow, box, build, circle, cols, flow, gaps, match, q, review, sl, slots,  # noqa: E402,F401
+from kit import (a, arrow, box, build, circle, cols, flow, gaps, match, pictures, q, review, sl, slots,  # noqa: E402,F401
                  spread, table, tags_ex, tiles, timeline, words, write)
 
 kit.HERO_PREFIX = 'cp_a2_1_'
@@ -445,6 +445,11 @@ spreads.append(spread(
     'Every place has three little words: one for coming from it, one for being there, one for going there.',
     Q + 'woher_wo_wohin',
     [
+        slots('From, at, to', [
+            ([('aus dem Kino ←', 'woher?'), {'de': 'im Kino', 'tag': 'wo?', 'hot': True}, ('→ ins Kino', 'wohin?')], 'a place you go into'),
+            ([('vom Arzt ←', 'woher?'), {'de': 'beim Arzt', 'tag': 'wo?', 'hot': True}, ('→ zum Arzt', 'wohin?')], 'a person, the doctor'),
+            ([('aus Berlin ←', 'woher?'), {'de': 'in Berlin', 'tag': 'wo?', 'hot': True}, ('→ nach Berlin', 'wohin?')], 'a town'),
+        ], note='You stand in the middle box: coming from the left, going to the right.'),
         table('One place, three questions', ['Woher? coming from', 'Wo? being there', 'Wohin? going there'], [
             ['*aus* dem Kino', '*im* Kino', '*ins* Kino'],
             ['*aus* der Schule', '*in der* Schule', '*in die* Schule'],
@@ -552,6 +557,10 @@ spreads.append(spread(
     'Rain, sun, twenty degrees and getting colder: the easiest small talk in Germany.',
     Q + 'wetter',
     [
+        pictures('What the weather does', [
+            ('cpd_sonne', 'Die Sonne scheint.', None), ('cpd_regen', 'Es regnet.', None), ('cpd_schnee', 'Es schneit.', None),
+            ('cpd_wind', 'Es ist windig.', None), ('cpd_wolke', 'Es ist bewölkt.', None), ('cpd_gewitter', 'Es donnert.', None),
+        ], 6),
         table('It rains, it is sunny', ['es + verb', 'es ist + describing word'], [
             ['es *regnet*', 'es ist *sonnig*'],
             ['es *schneit*', 'es ist *windig*'],
@@ -579,14 +588,12 @@ spreads.append(spread(
         ], 3),
     ],
     [
-        tags_ex('What’s the weather?', 'Write a sentence for each picture: es regnet, es ist …', [
-            ('cpd_sonne', '', 'Die Sonne scheint. / Es ist sonnig.'),
-            ('cpd_regen', '', 'Es regnet.'),
-            ('cpd_schnee', '', 'Es schneit.'),
-            ('cpd_wind', '', 'Es ist windig.'),
-            ('cpd_wolke', '', 'Es ist bewölkt.'),
-            ('cpd_gewitter', '', 'Es donnert.'),
-        ]),
+        write('One street, four weathers', 'Look at the picture on the left page. What is the weather for …', [
+            ('the man with sunglasses', 'Die Sonne scheint.'),
+            ('the woman with the umbrella', 'Es regnet.'),
+            ('the child with the snowman', 'Es schneit.'),
+            ('the man and his hat', 'Es ist windig.'),
+        ], 2, not_german=True),
         gaps('The weather report', 'Listen to the forecast and fill in the notes.', [
             ('Hamburg, am Vormittag:', 'Grad', 'acht'),
             ('München, am Nachmittag: etwa', 'Grad', 'zwanzig'),
@@ -668,6 +675,14 @@ spreads.append(spread(
     'Welchen? Diesen hier! — and the same endings carry mein into the dative: mit meinem Bruder.',
     Q + 'welcher_dieser',
     [
+        build('Same ending as the article', [
+            (['d', ('er', 'suffix')], 'der', 'the article'),
+            (['dies', ('er', 'suffix')], 'dieser', 'this'),
+            (['welch', ('er', 'suffix')], 'welcher', 'which'),
+            (['d', ('em', 'suffix')], 'dem', 'wem? — the article'),
+            (['dies', ('em', 'suffix')], 'diesem', 'wem? — this'),
+            (['welch', ('em', 'suffix')], 'welchem', 'wem? — which'),
+        ]),
         table('welcher and dieser end like der', ['~', 'der', 'die', 'das', 'plural'], [
             ['wer?', 'welch*er* · dies*er*', 'welch*e* · dies*e*', 'welch*es* · dies*es*', 'welch*e* · dies*e*'],
             ['wen?', 'welch*en* · dies*en*', 'welch*e* · dies*e*', 'welch*es* · dies*es*', 'welch*e* · dies*e*'],

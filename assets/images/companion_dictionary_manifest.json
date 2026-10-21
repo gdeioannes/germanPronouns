@@ -255,6 +255,262 @@
 			"size": 800,
 			"transparent": true,
 			"trim": true
+		},
+		{
+			"id": "cpd_korb",
+			"prompt": "One object alone, centred, nothing else in the picture: a round wicker basket.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_regal",
+			"prompt": "One object alone, centred, nothing else in the picture: a wooden bookshelf with a few books.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_vase",
+			"prompt": "One object alone, centred, nothing else in the picture: a vase with one flower.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_teppich",
+			"prompt": "One object alone, centred, nothing else in the picture: a patterned rug, seen from above at an angle.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schrank",
+			"prompt": "One object alone, centred, nothing else in the picture: a wooden wardrobe.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_teller",
+			"prompt": "One object alone, centred, nothing else in the picture: an empty white plate.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_hemd",
+			"prompt": "One object alone, centred, nothing else in the picture: a shirt with a collar and buttons.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_pullover",
+			"prompt": "One object alone, centred, nothing else in the picture: a knitted jumper.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schuhe",
+			"prompt": "One object alone, centred, nothing else in the picture: a pair of shoes.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_socken",
+			"prompt": "One object alone, centred, nothing else in the picture: a pair of socks.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_tshirt",
+			"prompt": "One object alone, centred, nothing else in the picture: a plain T-shirt.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_hut",
+			"prompt": "One object alone, centred, nothing else in the picture: a hat.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_rezept",
+			"prompt": "One object alone, centred: a doctor's prescription — a small sheet of paper with a few blank lines and a round stamp, no letters, no symbols, no writing at all.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_medikament",
+			"prompt": "One object alone, centred, nothing else in the picture: a small medicine box and a blister pack of tablets, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_thermometer",
+			"prompt": "One object alone, centred, nothing else in the picture: a medical thermometer.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_pflaster",
+			"prompt": "One object alone, centred, nothing else in the picture: a sticking plaster.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_paket",
+			"prompt": "One object alone, centred, nothing else in the picture: a parcel tied with string, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_salz",
+			"prompt": "One object alone, centred, nothing else in the picture: a salt shaker.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_taxi",
+			"prompt": "One object alone, centred, nothing else in the picture: a cream-coloured taxi with a blank roof sign.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fahrrad",
+			"prompt": "One object alone, centred, nothing else in the picture: a bicycle.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schloss",
+			"prompt": "One object alone, centred, nothing else in the picture: a fairy-tale castle on a hill.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wald",
+			"prompt": "One object alone, centred, nothing else in the picture: a small forest of trees.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_koenig",
+			"prompt": "One object alone, centred, nothing else in the picture: a king with a crown and a red cloak.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_dorf",
+			"prompt": "One small scene alone, centred: a little village of four houses around a church with a tower, a few trees. No text, no numbers, no labels anywhere.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_elefant",
+			"prompt": "One object alone, centred, nothing else in the picture: an elephant.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_eis",
+			"prompt": "One object alone, centred, nothing else in the picture: an ice-cream cone with two scoops.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_bibliothek",
+			"prompt": "One object alone, centred, nothing else in the picture: a library with tall bookshelves and a reading table.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schluessel",
+			"prompt": "One object alone, centred, nothing else in the picture: a key.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_einladung",
+			"prompt": "One object alone, centred, nothing else in the picture: an invitation card decorated with balloons, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kalender",
+			"prompt": "One object alone, centred, nothing else in the picture: a wall calendar with blank boxes, no numbers.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_toilette",
+			"prompt": "One object alone, centred, nothing else in the picture: a toilet.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fahrer",
+			"prompt": "One object alone, centred, nothing else in the picture: a bus driver in uniform and cap.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
 		}
 	]
 }

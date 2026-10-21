@@ -25,6 +25,12 @@ Guard test: `src/lib/domain/companion.test.ts`. Rules marked **(tested)** fail t
   "Words for the practice page" block. If they don't fit, split the topic into two spreads.
 - **A schema beats a paragraph.** Before writing a tip box, ask whether a diagram says it faster. Use a
   block from the catalogue below, and add a new kind when none fits.
+- **Check every topic page for a diagram before a book is finished.** The test lists the topic pages
+  without one (it prints, it doesn't fail). Each one on that list must be a deliberate choice: an
+  irregular table or a page of vocabulary can be right without one.
+- **Teach with the pictures you test with.** When a practice exercise asks about pictures (positions,
+  weather), the learn page shows them first, labelled (`pictures`). The practice page then asks with
+  a different picture, such as the topic picture, so the reader can't just copy.
 - **Gender colours, always.** der is blue, die red, das green, plural grey, the same as the app. Every
   table with der, die and das columns sets `genders: true` **(tested)**. The article word stays printed,
   so the page still reads in black and white.
@@ -42,6 +48,8 @@ Guard test: `src/lib/domain/companion.test.ts`. Rules marked **(tested)** fail t
 | `flow` | A real either/or choice the reader keeps getting wrong. | kein or nicht? · du or Sie? · haben or sein? |
 | `merge` | One word made from two inputs. | owner *ihr* + thing *-e* = *ihre Tasche* |
 | `build` | Words glued from parts: endings, contractions, compounds, numbers. | k + ein = kein · in + dem = im |
+| `pictures` | Labelled pictures that teach by showing: where the cat is, what the weather does. | *auf dem Korb* under a cat on a basket |
+| `timeline` | seit, vor, in, für: a dot or a bar on a line with now in the middle. | vor zwei Jahren · seit zwei Jahren |
 | `clock` | Telling the time: faces with hands plus the German. `dial` adds the guide (nach right, vor left, halb at the bottom). Also good for "a day in the life" with times. | 09:30 = halb zehn |
 | `flip` | Numbers read right to left. | 47 = sieben-und-vierzig |
 | `tree` | Family. | |

@@ -17,6 +17,26 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-21",
+    title: "A2.2 on paper: the fourth study book",
+    highlight: true,
+    items: [
+      "The A2.2 PDF is now a 46-page study book written for paper, like the books before it. It replaces the old generated workbook and is on the Workbooks shelf with its own cover.",
+      "Seventeen topics: where things are and where they go (Wo? and Wohin?), ich freue mich, weil and dass, wenn and deshalb, polite wrapped questions, verbs with their little word, at the doctor's, clothes and the endings of describing words, advice with sollte, der Mann, der …, the past of fairy tales, das wird gemacht, am schnellsten, building words, when-how-where, dates and e-mails.",
+      "Wo? is taught with pictures: a cat on, in, under, next to, in front of and behind a basket — then you describe a living room yourself.",
+      "Two listening exercises with QR codes — a voicemail about a museum visit and a trip to the doctor — and a picture dictionary of 32 new words.",
+    ],
+  },
+  {
+    date: "2026-10-21",
+    title: "More pictures and diagrams in the study books",
+    items: [
+      "A1.1: the endings of the present, the vowel change (fahren – du fährst) and the five plurals are now shown as words built from their parts.",
+      "A2.1: Woher? Wo? Wohin? is drawn as coming from — being at — going to, the weather words are shown with pictures before you practise them, and der, dieser and welcher share their endings in one diagram.",
+      "In the A2.1 weather exercise you now describe a street with four kinds of weather, instead of the same pictures that teach the words.",
+    ],
+  },
+  {
+    date: "2026-10-21",
     title: "A2.1 on paper: the third study book",
     highlight: true,
     items: [

@@ -150,6 +150,18 @@ export type LearnBlock =
 			note?: string;
 			marks: { de: string; en?: string; at?: number; from?: number; to?: number }[];
 	  }
+	| {
+			/**
+			 * Labelled pictures that teach by showing: the cat on, in, under the
+			 * basket; the weather. The practice page then asks with other pictures.
+			 */
+			kind: 'pictures';
+			title: string;
+			note?: string;
+			/** Pictures per row (default 6). */
+			cols?: number;
+			items: { image: string; de: string; en?: string }[];
+	  }
 	| { kind: 'columns'; blocks: LearnBlock[] };
 
 /** A question with a branch for yes and for no, or an answer at the end of a branch. */
@@ -370,6 +382,8 @@ export function germanOf(block: LearnBlock): string[] {
 			return block.clocks.map((c) => c.de);
 		case 'timeline':
 			return block.marks.map((m) => m.de);
+		case 'pictures':
+			return block.items.map((i) => i.de);
 		case 'columns':
 			return block.blocks.flatMap(germanOf);
 		case 'box':
@@ -408,6 +422,7 @@ export function imagesOf(companion: Companion): string[] {
 	const out = new Set<string>([companion.cover]);
 	const walk = (b: LearnBlock) => {
 		if (b.kind === 'box' && b.image) out.add(b.image);
+		if (b.kind === 'pictures') b.items.forEach((i) => out.add(i.image));
 		if (b.kind === 'columns') b.blocks.forEach(walk);
 	};
 	for (const s of companion.spreads) {

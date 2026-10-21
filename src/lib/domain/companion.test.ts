@@ -140,6 +140,19 @@ describe('study companions', () => {
 				}
 			});
 
+			// docs/study_companion_guide.md: every topic page is checked for a
+			// diagram. Some rightly have none (an irregular table, vocabulary), so
+			// this lists them for review instead of failing.
+			it('lists the topic pages without a diagram', () => {
+				const DIAGRAMS = new Set(['slots', 'flow', 'merge', 'arrow', 'build', 'clock', 'timeline', 'flip', 'tree', 'pictures']);
+				const kinds = (b: LearnBlock): string[] => (b.kind === 'columns' ? b.blocks.flatMap(kinds) : [b.kind]);
+				const without = c.spreads.filter((s) => !s.review && !s.learn.flatMap(kinds).some((k) => DIAGRAMS.has(k)));
+				// Written straight to stderr: the runner hides console output from passing tests.
+				if (without.length) process.stderr.write(`${c.level}: no diagram on ${without.map((s) => s.title).join(', ')}
+`);
+				expect(true).toBe(true);
+			});
+
 			it('has a unique id per spread', () => {
 				const ids = c.spreads.map((s) => s.id);
 				expect(new Set(ids).size).toBe(ids.length);
