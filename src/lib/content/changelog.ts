@@ -17,6 +17,18 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-21",
+    title: "A2.1 on paper: the third study book",
+    highlight: true,
+    items: [
+      "The A2.1 PDF is now a 40-page study book written for paper, like A1.1 and A1.2. It replaces the old 52-page workbook and is on the Workbooks shelf with its own cover.",
+      "Fourteen topics: the past with haben and sein, war, hatte and konnte, the dative (dem, der, den, mir, dir, ihm and the little words that take it), where from, where and where to, seit, vor and für, the weather, comparing, welcher and dieser, man, jemand and nichts, and telling the story of your weekend.",
+      "New drawings to learn from: a timeline that shows seit, vor, in and für at a glance, a decision chart for haben or sein, and sentences cut into boxes for who gets what.",
+      "Two listening exercises with QR codes — a trip to Italy and a weather report — and an e-mail to a friend to write yourself.",
+      "A new picture dictionary of 32 words, drawn for this book, and all the answers at the back.",
+    ],
+  },
+  {
+    date: "2026-10-21",
     title: "Kafka with the words in the margin",
     items: [
       "The Die Verwandlung PDF no longer opens each stage with a list of words to learn first. Each word is now explained in the margin, beside the line it is on, with a thin line pointing to it.",

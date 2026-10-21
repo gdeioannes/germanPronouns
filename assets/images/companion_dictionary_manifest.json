@@ -1,0 +1,260 @@
+{
+	"images": [
+		{
+			"id": "cpd_sonne",
+			"prompt": "One object alone, centred, nothing else in the picture: a smiling-free plain sun with short rays.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_regen",
+			"prompt": "One object alone, centred, nothing else in the picture: a grey rain cloud with rain drops falling.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schnee",
+			"prompt": "One small scene alone, centred: a little snow-covered fir tree on snowy ground with big snowflakes falling around it.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wind",
+			"prompt": "One object alone, centred, nothing else in the picture: wind: curved wind lines blowing leaves through the air.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wolke",
+			"prompt": "One object alone, centred, nothing else in the picture: two soft white-grey clouds.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_gewitter",
+			"prompt": "One object alone, centred, nothing else in the picture: a dark thundercloud with a lightning bolt.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_regenschirm",
+			"prompt": "One object alone, centred, nothing else in the picture: an open umbrella.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_sonnenbrille",
+			"prompt": "One object alone, centred, nothing else in the picture: a pair of sunglasses.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_zug",
+			"prompt": "One object alone, centred, nothing else in the picture: a red regional passenger train seen from the side.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_flugzeug",
+			"prompt": "One object alone, centred, nothing else in the picture: a passenger plane in the sky.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_meer",
+			"prompt": "One object alone, centred, nothing else in the picture: the sea with small waves and a sailing boat on the horizon.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_berg",
+			"prompt": "One object alone, centred, nothing else in the picture: a mountain with a snowy peak.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_hotel",
+			"prompt": "One object alone, centred, nothing else in the picture: a small hotel building with balconies and an entrance canopy, blank sign.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_museum",
+			"prompt": "One object alone, centred, nothing else in the picture: a classical museum building with columns and steps.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_mantel",
+			"prompt": "One object alone, centred, nothing else in the picture: a long winter coat on a hanger.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kleid",
+			"prompt": "One object alone, centred, nothing else in the picture: a summer dress on a hanger.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_hose",
+			"prompt": "One object alone, centred, nothing else in the picture: a pair of trousers.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_rock",
+			"prompt": "One object alone, centred, nothing else in the picture: a knee-length skirt.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_krawatte",
+			"prompt": "One object alone, centred, nothing else in the picture: a tie.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_brille",
+			"prompt": "One object alone, centred, nothing else in the picture: a pair of ordinary reading glasses with thin dark frames and clear, see-through lenses.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_brief",
+			"prompt": "One object alone, centred, nothing else in the picture: a sealed letter in an envelope with a stamp, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_zeitung",
+			"prompt": "One object alone, centred, nothing else in the picture: a folded newspaper with blank columns, no letters.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_stift",
+			"prompt": "One object alone, centred, nothing else in the picture: a pen.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ball",
+			"prompt": "One object alone, centred, nothing else in the picture: a football.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_knochen",
+			"prompt": "One object alone, centred, nothing else in the picture: a dog bone.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_blumen",
+			"prompt": "One object alone, centred, nothing else in the picture: a small bunch of flowers.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_suppe",
+			"prompt": "One object alone, centred, nothing else in the picture: a bowl of soup with a spoon.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_obst",
+			"prompt": "One object alone, centred, nothing else in the picture: a fruit bowl with apples, pears and grapes.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_baecker",
+			"prompt": "One object alone, centred, nothing else in the picture: a baker in a white apron and hat holding a tray of bread rolls.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_post",
+			"prompt": "One object alone, centred, nothing else in the picture: a post office with a yellow letterbox in front, blank signs.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_markt",
+			"prompt": "One object alone, centred, nothing else in the picture: a small market stall with fruit and vegetables under an awning.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ampel",
+			"prompt": "One object alone, centred, nothing else in the picture: a traffic light showing red.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		}
+	]
+}

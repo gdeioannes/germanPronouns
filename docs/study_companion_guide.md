@@ -73,6 +73,9 @@ don't render in `words` items or in the hook line, so don't use them there.
 - **Public-domain and CC photos (Wikimedia Commons) are always an option** when a real photo beats a
   drawing: a station board, a market, a city. Credit them in the book's `credits` with author and
   licence, the way the printed book does in `assets/content/chapters/de_cert_a1/_photos.json`.
+- **The picture dictionary is drawn fresh** for each book, in the same study-book style (GDI,
+  2026-10-21: the app's word-card pictures are not usable on paper). One plain object per word,
+  ids `cpd_<word>`, shared between books, so a word drawn once is reused later.
 - Every picture a book prints must be on disk, and the credits can't be empty **(tested)**.
 
 ## Rights

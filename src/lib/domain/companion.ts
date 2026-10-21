@@ -139,6 +139,17 @@ export type LearnBlock =
 			cols?: number;
 			clocks: { time: string; de: string; mark?: boolean }[];
 	  }
+	| {
+			/**
+			 * Time words on a line with now in the middle (−4 … 4): a dot for a
+			 * moment (vor zwei Jahren, in einer Woche), a bar for a stretch (seit,
+			 * für). One row per mark.
+			 */
+			kind: 'timeline';
+			title: string;
+			note?: string;
+			marks: { de: string; en?: string; at?: number; from?: number; to?: number }[];
+	  }
 	| { kind: 'columns'; blocks: LearnBlock[] };
 
 /** A question with a branch for yes and for no, or an answer at the end of a branch. */
@@ -357,6 +368,8 @@ export function germanOf(block: LearnBlock): string[] {
 			return block.rows.flatMap((r) => [r.who, r.verb, r.whom]);
 		case 'clock':
 			return block.clocks.map((c) => c.de);
+		case 'timeline':
+			return block.marks.map((m) => m.de);
 		case 'columns':
 			return block.blocks.flatMap(germanOf);
 		case 'box':

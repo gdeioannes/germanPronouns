@@ -264,6 +264,31 @@
 			</ol>
 		</div>
 	</section>
+{:else if block.kind === 'timeline'}
+	{@const x = (v: number) => 100 + v * 22}
+	<section class="block">
+		<h3>{block.title}{#if block.note}<small>{@html rich(block.note)}</small>{/if}</h3>
+		<div class="timeline">
+			<span></span>
+			<svg viewBox="0 0 200 10" class="tl-axis" role="img" aria-label="past on the left, now in the middle, future on the right">
+				<text x="8" y="7" class="tl-end" text-anchor="start">← before</text>
+				<text x="100" y="7" class="tl-now">jetzt</text>
+				<text x="192" y="7" class="tl-end" text-anchor="end">later →</text>
+			</svg>
+			{#each block.marks as m, i (i)}
+				<span class="tl-label"><b lang="de">{@html rich(m.de)}</b>{#if m.en}<small>{m.en}</small>{/if}</span>
+				<svg viewBox="0 0 200 10" role="img" aria-label={m.en ?? m.de}>
+					<line x1="8" y1="5" x2="192" y2="5" class="tl-line" />
+					<line x1="100" y1="0" x2="100" y2="10" class="tl-nowline" />
+					{#if m.at !== undefined}
+						<circle cx={x(m.at)} cy="5" r="3" class="tl-dot" />
+					{:else if m.from !== undefined && m.to !== undefined}
+						<line x1={x(m.from)} y1="5" x2={x(m.to)} y2="5" class="tl-bar" />
+					{/if}
+				</svg>
+			{/each}
+		</div>
+	</section>
 {:else if block.kind === 'box'}
 	<aside class="box {block.tone}" class:has-image={block.image}>
 		<p class="label">{block.tone === 'watch' ? 'Watch out' : block.tone === 'culture' ? 'In Germany' : 'Tip'}</p>
@@ -968,6 +993,65 @@
 
 	.dial .dial-small {
 		font-size: 6.5px;
+	}
+
+	/* -- timeline ------------------------------------------------------------ */
+
+	.timeline {
+		display: grid;
+		grid-template-columns: 52mm 1fr;
+		gap: 1mm 4mm;
+		align-items: center;
+	}
+
+	.timeline svg {
+		display: block;
+	}
+
+	.tl-label {
+		display: grid;
+		font-size: 9.5pt;
+	}
+
+	.tl-label small {
+		font-size: 7.5pt;
+		color: var(--muted);
+	}
+
+	.tl-axis text {
+		font-family: var(--sans);
+		font-size: 4.6px;
+		font-weight: 700;
+	}
+
+	.tl-end {
+		fill: var(--muted);
+	}
+
+	.tl-now {
+		fill: var(--accent);
+		text-anchor: middle;
+	}
+
+	.tl-line {
+		stroke: var(--rule);
+		stroke-width: 1;
+	}
+
+	.tl-nowline {
+		stroke: var(--accent);
+		stroke-width: 1;
+		stroke-dasharray: 2 1.5;
+	}
+
+	.tl-dot {
+		fill: var(--navy);
+	}
+
+	.tl-bar {
+		stroke: var(--navy);
+		stroke-width: 3.6;
+		stroke-linecap: round;
 	}
 
 	/* -- sentence slots ------------------------------------------------------ */

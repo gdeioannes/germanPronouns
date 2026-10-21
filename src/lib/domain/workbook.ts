@@ -30,7 +30,7 @@ import { sectionFor, type ExerciseSection } from './worksheet';
  * (the study companion, domain/companion): a level left out shows "work in
  * progress" wherever its PDF would be. Add a level here to offer it again.
  */
-export const READY_WORKBOOKS: ReadonlySet<string> = new Set<string>(['A1.1', 'A1.2']);
+export const READY_WORKBOOKS: ReadonlySet<string> = new Set<string>(['A1.1', 'A1.2', 'A2.1']);
 
 export function workbookReady(level: string): boolean {
 	return READY_WORKBOOKS.has(level);
