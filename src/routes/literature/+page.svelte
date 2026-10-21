@@ -34,7 +34,7 @@
 		<h1>Literature</h1>
 		<p class="lede">
 			Real German books, in the words their authors wrote. Each edition splits the
-			story into short reading stages, explains the hard words before you meet them,
+			story into short reading stages, explains the hard words beside the line they are on,
 			and notes the German worth noticing on the way.
 		</p>
 	</header>

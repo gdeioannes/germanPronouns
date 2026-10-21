@@ -13,6 +13,7 @@ into a one-page PDF of the exact sheet size with PyMuPDF.
 The front shows a door left ajar, not the insect: in 1915 Kafka asked his
 publisher that the insect itself never be drawn on the cover.
 """
+import json
 import os
 import subprocess
 import sys
@@ -48,7 +49,11 @@ else:
 # A spine of a third of an inch or more is wide enough for its title.
 SPINE_TEXT = SPINE >= 0.3
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LOGO = "file:///" + os.path.join(ROOT, "static", "icons", "Icon-192.png").replace(os.sep, "/")
+# The counts on the covers come from the edition itself, so they follow it.
+STAGES = json.load(open(os.path.join(ROOT, "assets", "reference", "kafka_die_verwandlung_stages.json"), encoding="utf-8"))["stages"]
+WORDS = sum(len(s["words"]) for s in STAGES)
+NOTES = sum(len(s.get("notes", [])) for s in STAGES)
+LOGO ="file:///" + os.path.join(ROOT, "static", "icons", "Icon-192.png").replace(os.sep, "/")
 
 # The door: a frame, a dark opening, and the leaf swung a little inward so a
 # wedge of darkness shows. Drawn in the cover's own units (viewBox 0 0 200 300).
@@ -103,7 +108,11 @@ html = f"""<!doctype html><html lang="de"><head><meta charset="utf-8">
   .pub img {{ width: 0.36in; height: 0.36in; border-radius: 0.08in; }}
   .pub span {{ font: 500 7.4pt/1.45 Inter, sans-serif; color: #333; }}
   .pub b {{ font-weight: 800; color: #141414; }}
-  .site {{ margin: 0.1in 0 0; font: 800 8pt Inter, sans-serif; letter-spacing: .14em; color: #141414; }}
+  /* The publisher on the front, logo and name: on the Kindle cover it is the only place it shows. */
+  .site {{ margin: 0.16in 0 0; display: flex; align-items: center; justify-content: center; gap: 0.09in; }}
+  .site img {{ width: 0.3in; height: 0.3in; border-radius: 0.07in; }}
+  .site span {{ font: 500 7.6pt/1.35 Inter, sans-serif; color: #333; text-align: left; }}
+  .site b {{ display: block; font-weight: 800; font-size: 9pt; letter-spacing: .02em; color: #141414; }}
   .spine-logo {{ position: absolute; bottom: {BLEED + 0.3}in; left: 50%; width: 0.3in; height: 0.3in; margin-left: -0.15in; border-radius: 0.06in; }}
   .spine {{ position: relative; }}
   .spine-text span {{ font: 800 7.5pt Inter, sans-serif; letter-spacing: .28em; text-transform: uppercase; }}
@@ -118,8 +127,8 @@ html = f"""<!doctype html><html lang="de"><head><meta charset="utf-8">
     with the help to read it without a dictionary.</p>
     <ul>
       <li>Twelve reading stages of about 20 minutes each</li>
-      <li>524 words explained in English, before you meet them</li>
-      <li>76 notes on grammar, idioms and Prague German</li>
+      <li>{WORDS} words explained in the margin, beside the line they are on</li>
+      <li>{NOTES} notes on grammar, idioms and Prague German</li>
       <li>The unabridged 1917 text, with a guide to its spelling</li>
     </ul>
     <p class="wish">In 1915 Kafka asked his publisher that the insect never be drawn on the cover.
@@ -134,8 +143,8 @@ html = f"""<!doctype html><html lang="de"><head><meta charset="utf-8">
     <h1>Die Verwandlung</h1>
     <p class="en-title">The Metamorphosis in German</p>
     <div class="door">{DOOR}</div>
-    <p class="tag"><b>Annotated for English speakers</b><br>12 reading stages · 524 words · 76 notes</p>
-    <p class="site">LANGUAGEQUIZ.ORG</p>
+    <p class="tag"><b>Annotated for English speakers</b><br>{len(STAGES)} reading stages · {WORDS} words · {NOTES} notes</p>
+    <p class="site"><img src="{LOGO}" alt="" /><span><b>Language Quiz</b>languagequiz.org</span></p>
   </section>
 </div>
 </body></html>"""

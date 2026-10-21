@@ -21,7 +21,7 @@
 
 <Seo
 	title="Die Verwandlung in German with English notes, free online"
-	description="Read Kafka's Die Verwandlung in the original German, in twelve short stages. Each opens with the hard words in English, with notes on the grammar as you read."
+	description="Read Kafka's Die Verwandlung in the original German, in twelve short stages, with the hard words explained in English and notes on the grammar as you read."
 	{path}
 	type="article"
 	image={absoluteUrl(book.cover)}

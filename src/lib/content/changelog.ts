@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-21",
+    title: "Kafka with the words in the margin",
+    items: [
+      "The Die Verwandlung PDF no longer opens each stage with a list of words to learn first. Each word is now explained in the margin, beside the line it is on, with a thin line pointing to it.",
+      "855 words are explained instead of 524, and a word that comes back later is explained again wherever there is room on the page, so you never have to page back for it.",
+      "A dictionary at the back lists every word from A to Z with the page that explains it.",
+      "Fixed: Achsel was given as armpit; in Kafka's German it means shoulder.",
+    ],
+  },
+  {
+    date: "2026-10-21",
     title: "A1.2 on paper: the second study book",
     highlight: true,
     items: [

@@ -34,11 +34,12 @@ export const LITERATURE: LiteratureBook[] = [
 			'One morning a travelling salesman wakes up as a giant insect, and his first worry is the train he has missed. Short, gripping and darkly funny: the classic first novella for learners of German.',
 		inside: [
 			'The complete original text, in twelve reading stages of about 20 minutes',
-			'524 words explained in English before you meet them',
+			'855 words explained in the margin, beside the line they are on',
 			'76 notes on grammar, idioms and Prague German at the foot of the page',
-			'A guide to the 1917 spelling, so daß and mußte never stop you'
+			'A guide to the 1917 spelling, so daß and mußte never stop you',
+			'A dictionary at the back, A to Z, with the page that explains each word'
 		],
-		pdf: { href: '/books/literature/kafka_die_verwandlung.pdf', pages: 90, megabytes: 1.5 },
+		pdf: { href: '/books/literature/kafka_die_verwandlung.pdf', pages: 113, megabytes: 2.9 },
 		cover: '/img/book-kafka-front.webp',
 		read: '/literature/die-verwandlung'
 	}

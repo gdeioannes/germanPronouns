@@ -78,42 +78,121 @@ def stem(headword: str) -> str:
     for a in ARTICLES:
         if w.startswith(a):
             w = w[len(a) :]
-    w = w.split()[0] if w else w
+    # In a phrase the longest word is the telling one: Erstaunen, not "in".
+    w = max(w.split(), key=len) if w else w
     return w.lower().rstrip("!»«")[: max(4, min(6, len(w) - 2))]
 
 
 def word_html(w: dict) -> str:
-    de = esc(w["de"])
+    # In a narrow margin gloss the article stays with its noun, and a long
+    # word breaks with a hyphen (Gewissens-bisse) rather than leave "die" alone.
+    de = re.sub(r"^(der|die|das|sich) ", "\\1&nbsp;", hyphenate(w["de"]))
     pl = w.get("pl")
     if pl == "pl.":
         de += ' <span class="pl">(plural)</span>'
     elif pl and pl != "—":
         de += f' <span class="pl">· {esc(pl)}</span>'
-    return f'<li><span class="de">{de}</span><span class="en">{esc(w["en"])}</span></li>'
+    return f'<span class="de">{de}</span><span class="en">{esc(w["en"])}</span>'
 
 
+def sort_key(headword: str) -> str:
+    """Where a headword files in the dictionary: by the word, not its article."""
+    w = headword.lower()
+    for a in ARTICLES:
+        if w.startswith(a):
+            w = w[len(a) :]
+    return w.translate(str.maketrans({"ä": "a", "ö": "o", "ü": "u", "ß": "ss"}))
+
+
+def repeat_patterns(w: dict, always: bool = False) -> list:
+    """Where else in the book this word stands, for its repeat glosses. A
+    noun is matched as a whole word with its case endings, which its capital
+    letter makes safe. Anything else matches only its exact listed form or
+    its bare headword, never a stem: "schon" must not pass for schonen.
+    "again": false turns repeats off where a lookalike means something else
+    (Trotz, the noun, and trotz, the preposition)."""
+    if not w.get("again", True) and not always:
+        return []
+    pats = []
+    base = re.sub(r"\(.*?\)", "", w["de"]).strip()
+    for a in ARTICLES:
+        if base.startswith(a):
+            base = base[len(a) :]
+    noun = base[:1].isupper()
+    # Case matters for everything but a noun's lowercase "form": a verb must
+    # not gloss the noun it looks like (rücken, to shift; der Rücken, back).
+    # "also" lists further forms the text uses (opferte beside opfern).
+    for form in [w.get("form", "")] + w.get("also", []):
+        if form:
+            pats.append(re.compile(rf"\b{re.escape(form)}\b", re.IGNORECASE if noun else 0))
+    if " " not in base and base:
+        pats.append(re.compile(rf"\b{re.escape(base)}{'(?:e|n|en|s|es|ns)?' if noun else ''}\b"))
+    return pats
+
+
+# Each word is glossed in the margin beside the line it first appears on in
+# its stage (the main gloss, always printed), and again wherever else it
+# stands in the book (a repeat, printed when the word is not explained on
+# that page already and the margin has room beside the line). The text
+# carries an empty anchor at the start of each occurrence; once Paged.js has
+# laid out the pages, the script in the head measures where the anchors
+# landed and sets the glosses in the outer margin level with them.
+stage_paras = [chapters[s["chapter"]][s["from"] : s["to"]] for s in spec["stages"]]
+anchors = [{i: {} for i in range(len(p))} for p in stage_paras]
 warnings = []
+dictionary = []  # (sort key, gloss html, anchor id), every glossed word
+glossed = []  # (anchor id, entry, (stage, paragraph, offset) of the main gloss)
+for n, (s, paras) in enumerate(zip(spec["stages"], stage_paras), 1):
+    for k, w in enumerate(s["words"]):
+        # The whole word first, as its form or headword; failing that, its stem
+        # ("form" is the word as the text has it, for separable and irregular
+        # verbs). A stem alone can land on an earlier word: "schwer" for
+        # Schwerhörigkeit would gloss "schweren".
+        whole = [(i, m.start()) for pat in repeat_patterns(w, always=True) for i, p in enumerate(paras) if (m := pat.search(p))]
+        # The stem should start a word, or "erer" for ererbt finds besond-erer;
+        # only failing that may it sit inside one (ge-kündig-t, hervor-rag-te).
+        probe = w.get("form", "").lower() or stem(w["de"])
+        at_start = re.compile(rf"\b{re.escape(probe)}", re.IGNORECASE)
+        hit = (
+            min(whole)
+            if whole
+            else next(((i, m.start()) for i, p in enumerate(paras) if (m := at_start.search(p))), None)
+            or next(((i, p.lower().find(probe)) for i, p in enumerate(paras) if probe in p.lower()), None)
+        )
+        if hit is None:
+            warnings.append(f'stage {n}: "{w["de"]}" (looked for "{probe}")')
+            continue
+        i, at = hit
+        while at > 0 and paras[i][at - 1].isalpha():
+            at -= 1  # back to the start of the word the stem was found in
+        gid = f"g{n}-{k}"
+        g = esc(word_html(w), quote=True)
+        anchors[n - 1][i].setdefault(at, []).append(f'<span class="ga" id="{gid}" data-k="{gid}" data-g="{g}"></span>')
+        dictionary.append((sort_key(w["de"]), word_html(w), gid))
+        glossed.append((gid, w, (n - 1, i, at)))
+
+repeats = 0
+for gid, w, main in glossed:
+    g = esc(word_html(w), quote=True)
+    for pat in repeat_patterns(w):
+        for sn, paras in enumerate(stage_paras):
+            for i, p in enumerate(paras):
+                for m in pat.finditer(p):
+                    if (sn, i, m.start()) == main or any(f'data-k="{gid}"' in a for a in anchors[sn][i].get(m.start(), [])):
+                        continue
+                    anchors[sn][i].setdefault(m.start(), []).append(
+                        f'<span class="ga ga-r" data-k="{gid}" data-g="{g}"></span>'
+                    )
+                    repeats += 1
+
 pages = []
 total = len(spec["stages"])
 seen_chapters = set()
-for n, s in enumerate(spec["stages"], 1):
-    paras = chapters[s["chapter"]][s["from"] : s["to"]]
-    joined = " ".join(paras).lower()
-    found = []
-    for w in s["words"]:
-        # "form" is the word as the text has it, for separable and irregular verbs.
-        probe = w.get("form", "").lower() or stem(w["de"])
-        at = joined.find(probe)
-        if at < 0:
-            warnings.append(f'stage {n}: "{w["de"]}" (looked for "{probe}")')
-        found.append((at if at >= 0 else len(joined), w))
-    # The glossary reads in the order the words come up in the text.
-    ordered = [w for _, w in sorted(found, key=lambda pair: pair[0])]
+for n, (s, paras) in enumerate(zip(spec["stages"], stage_paras), 1):
     opener = ""
     if s["chapter"] not in seen_chapters:
         seen_chapters.add(s["chapter"])
         opener = f'<p class="chapter-no">Kapitel {s["chapter"]}</p>'
-    words = "\n".join(word_html(w) for w in ordered)
     # Language notes: each is tied to an exact phrase of the stage. The phrase
     # gets a faint dotted underline and a footnote call; the note itself is a
     # Paged.js footnote, so it lands at the foot of the page the phrase is on.
@@ -127,18 +206,32 @@ for n, s in enumerate(spec["stages"], 1):
         marks[i].append((at, at + len(note["at"]), note["note"]))
 
     def para_html(i: int, p: str) -> str:
+        def seg(a: int, z: int) -> str:
+            """p[a:z] as HTML, with the gloss anchors that fall inside it."""
+            out, pos = [], a
+            for at in sorted(x for x in anchors[n - 1][i] if a <= x < z):
+                out.append(hyphenate(p[pos:at]))
+                # The anchor holds the word's first letter: an empty one can be
+                # left at the end of the line before when the word starts a new
+                # line, and its gloss would point a line too high.
+                first, *more = anchors[n - 1][i][at]
+                out.append(first.removesuffix("</span>") + "".join(more) + esc(p[at]) + "</span>")
+                pos = at + 1
+            out.append(hyphenate(p[pos:z]))
+            # Gutenberg's plain text writes the dash as "--"; print it as a real one.
+            return "".join(out).replace("--", "–")
+
         out, pos = [], 0
         for a, z, note in sorted(marks[i]):
             if a < pos:
                 warnings.append(f'stage {n}: overlapping note phrases in paragraph {i}')
                 continue
-            out.append(hyphenate(p[pos:a]))
+            out.append(seg(pos, a))
             # The note is authored HTML (<b>, <i>); the phrase is escaped text.
-            out.append(f'<span class="mark">{hyphenate(p[a:z])}</span><span class="fn">{note}</span>')
+            out.append(f'<span class="mark">{seg(a, z)}</span><span class="fn">{note}</span>')
             pos = z
-        out.append(hyphenate(p[pos:]))
-        # Gutenberg's plain text writes the dash as "--"; print it as a real one.
-        return "<p>" + "".join(out).replace("--", "–") + "</p>"
+        out.append(seg(pos, len(p)))
+        return "<p>" + "".join(out) + "</p>"
 
     text_html = "\n".join(para_html(i, p) for i, p in enumerate(paras))
     pages.append(
@@ -147,10 +240,12 @@ for n, s in enumerate(spec["stages"], 1):
   <p class="kicker">Stufe {n} von {total} · Kapitel {s["chapter"]} · {sum(len(p.split()) for p in paras)} Wörter</p>
   <h2>{esc(s["title"])}</h2>
   <p class="summary">{esc(s["en"])}</p>
-  <div class="gloss"><p class="gloss-head">Words for this stage</p><ul>{words}</ul></div>
-</section>
-<section class="text">{text_html}</section>"""
+  <div class="text">{text_html}</div>
+</section>"""
     )
+
+dictionary.sort(key=lambda d: d[0])
+dict_html = "".join(f'<li>{g}<span class="pg" data-for="{gid}"></span></li>' for _, g, gid in dictionary)
 
 spelling = "".join(f"<tr><td>{esc(a)}</td><td>{esc(b)}</td></tr>" for a, b in spec["spelling"])
 
@@ -162,8 +257,111 @@ doc = f"""<!doctype html><html lang="de"><head><meta charset="utf-8">
   // meaningless anyway. So the links go once the layout is done.
   window.PagedConfig = {{ auto: true, after: () => {{
     document.querySelectorAll('a[href]').forEach((a) => a.removeAttribute('href'));
+    placeGlosses();
     window.pagedDone = true;
   }} }};
+
+  // Every occurrence of a glossed word left an empty anchor at its start. Now
+  // that the pages exist, set the glosses in the outer margin level with their
+  // lines: right of the text on a right-hand page, left of it on a left-hand
+  // one, so nothing runs into the binding. A word is explained once per page,
+  // at its first occurrence there. Glosses stay beside the body text, never
+  // beside a heading or the footnotes. Main glosses (the word's first
+  // appearance in its stage) are always printed: overlapping ones are pushed
+  // down, any that would run past the last line are pushed back up, and a page
+  // with more than its margin holds sets them a size smaller. Repeats then
+  // fill the gaps, each only if it fits close beside its own line. A thin grey
+  // leader runs from each gloss to the edge of the text at its line.
+  function placeGlosses() {{
+    const MM = 96 / 25.4, GAP = 6 * MM, WIDTH = 24 * MM, DRIFT = 5 * MM;
+    const SVG = 'http://www.w3.org/2000/svg';
+    for (const page of document.querySelectorAll('.pagedjs_page')) {{
+      const box = page.getBoundingClientRect();
+      const byWord = new Map();
+      for (const a of page.querySelectorAll('.ga')) {{
+        const r = a.getBoundingClientRect();
+        const want = r.top - box.top; // the top of its line
+        const main = !a.classList.contains('ga-r');
+        const seen = byWord.get(a.dataset.k);
+        if (!seen) byWord.set(a.dataset.k, {{ a, want, mid: want + r.height / 2, main }});
+        else if (main) seen.main = true; // explained here anyway, at the first occurrence
+      }}
+      if (!byWord.size) continue;
+      const area = page.querySelector('.pagedjs_page_content').getBoundingClientRect();
+      const texts = [...page.querySelectorAll('.text')].map((t) => t.getBoundingClientRect());
+      if (!texts.length) continue;
+      const ceiling = Math.min(...texts.map((r) => r.top)) - box.top;
+      const bottom = Math.max(...texts.map((r) => r.bottom)) - box.top;
+      const right = page.classList.contains('pagedjs_right_page');
+      const x = right ? area.right - box.left + GAP : area.left - box.left - GAP - WIDTH;
+      const notes = [...byWord.values()].sort((p, q) => p.want - q.want);
+      for (const n of notes) {{
+        n.g = document.createElement('div');
+        n.g.className = 'gm ' + (right ? 'gm-r' : 'gm-l');
+        n.g.innerHTML = n.a.dataset.g;
+        n.g.style.left = x + 'px';
+        n.g.style.width = WIDTH + 'px';
+        page.appendChild(n.g);
+      }}
+      const mains = notes.filter((n) => n.main);
+      // Shrink the type on this page until the main glosses fit beside the text.
+      let space;
+      for (const s of [1, 0.92, 0.85, 0.78, 0.72]) {{
+        for (const n of notes) {{ n.g.style.setProperty('--s', s); n.h = n.g.offsetHeight; }}
+        space = 1.4 * MM * s;
+        if (mains.reduce((sum, n) => sum + n.h + space, 0) <= bottom - ceiling + space) break;
+      }}
+      let next = ceiling;
+      for (const n of mains) {{
+        n.top = Math.max(n.want, next);
+        next = n.top + n.h + space;
+      }}
+      let limit = bottom;
+      for (const n of [...mains].reverse()) {{
+        n.top = Math.max(ceiling, Math.min(n.top, limit - n.h));
+        limit = n.top - space;
+      }}
+      const placed = mains.map((n) => [n.top, n.top + n.h]);
+      for (const n of notes.filter((n) => !n.main)) {{
+        let top = Math.max(n.want, ceiling), moved = true;
+        while (moved) {{
+          moved = false;
+          for (const [a, z] of placed) {{
+            if (top < z + space && top + n.h + space > a) {{ top = z + space; moved = true; }}
+          }}
+        }}
+        if (top - n.want > DRIFT || top + n.h > bottom) {{ n.g.remove(); continue; }}
+        n.top = top;
+        placed.push([top, top + n.h]);
+      }}
+      const svg = document.createElementNS(SVG, 'svg');
+      svg.setAttribute('class', 'leaders');
+      svg.setAttribute('width', box.width);
+      svg.setAttribute('height', box.height);
+      const edge = right ? area.right - box.left + 0.8 * MM : area.left - box.left - 0.8 * MM;
+      const start = right ? x - 0.8 * MM : x + WIDTH + 0.8 * MM;
+      for (const n of notes) {{
+        if (n.top === undefined) continue;
+        n.g.style.top = n.top + 'px';
+        // From the middle of the headword's first line to the text at the word's line.
+        const de = n.g.querySelector('.de');
+        const y = n.top + parseFloat(getComputedStyle(de).fontSize) * 0.62;
+        const line = document.createElementNS(SVG, 'line');
+        line.setAttribute('x1', start);
+        line.setAttribute('y1', y);
+        line.setAttribute('x2', edge);
+        line.setAttribute('y2', n.mid);
+        svg.appendChild(line);
+      }}
+      page.appendChild(svg);
+    }}
+    // The dictionary at the back gives the page each word is glossed on.
+    for (const pg of document.querySelectorAll('.pg')) {{
+      const a = document.getElementById(pg.dataset.for);
+      const page = a && a.closest('.pagedjs_page');
+      if (page) pg.textContent = page.dataset.pageNumber;
+    }}
+  }}
 </script>
 <script src="https://unpkg.com/pagedjs@0.4.3/dist/paged.polyfill.js"></script>
 <style>
@@ -171,7 +369,32 @@ doc = f"""<!doctype html><html lang="de"><head><meta charset="utf-8">
   counter-reset: footnote;
   @bottom-center {{ content: counter(page); font: 600 8pt Inter, sans-serif; color: #555555; }}
   @footnote {{ border-top: .2mm solid #999999; padding-top: 1.5mm; margin-top: 3mm; }} }}
-@page front {{ @bottom-center {{ content: none; }} }}
+/* The story pages keep a wide outer margin for the word glosses. */
+@page :right {{ margin-left: 13mm; margin-right: 36mm; }}
+@page :left {{ margin-left: 36mm; margin-right: 13mm; }}
+@page front {{ margin: 18mm 15mm 20mm; @bottom-center {{ content: none; }} }}
+@page back {{ margin: 18mm 15mm 20mm; }}
+.pagedjs_page {{ position: relative; }}
+.gm {{ position: absolute; line-height: 1.12; }}
+.gm-l {{ text-align: right; }}
+/* --s shrinks the glosses on a page that holds more than its margin fits. */
+.gm .de {{ display: block; font-weight: 700; font-size: calc(7.3pt * var(--s, 1)); color: #000000; }}
+.gm .pl {{ font-weight: 400; color: #555555; font-size: calc(6.7pt * var(--s, 1)); }}
+.gm .en {{ display: block; font: 500 calc(6.2pt * var(--s, 1))/1.2 Inter, sans-serif; color: #444444; }}
+.leaders {{ position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }}
+.leaders line {{ stroke: #a6a6a6; stroke-width: .3pt; }}
+.dict {{ page: back; break-before: page; }}
+.dict h3 {{ font: 700 15pt 'Source Serif 4', serif; color: #000000; margin: 0 0 1.5mm; }}
+.dict .intro {{ font: 500 7.8pt/1.45 Inter, sans-serif; color: #333333; margin: 0 0 4mm; }}
+.dict ul {{ list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 6mm; }}
+/* One line per word where it fits: headword, meaning, page. */
+.dict li {{ break-inside: avoid; margin: 0 0 .55mm; line-height: 1.22; position: relative; padding: 0 5mm 0 2.5mm; text-indent: -2.5mm; }}
+.dict .de {{ font-weight: 700; font-size: 7.4pt; color: #000000; margin-right: 1.2mm; }}
+.dict .pl {{ font-weight: 400; color: #555555; font-size: 6.8pt; }}
+.dict .en {{ font: 500 6.5pt Inter, sans-serif; color: #444444; }}
+.dict .pg {{ position: absolute; right: 0; top: .2mm; font: 600 6.5pt Inter, sans-serif; color: #555555; text-indent: 0; }}
+.gm .pl, .dict .pl {{ white-space: nowrap; }}
+.about {{ page: back; }}
 body {{ font-family: 'Source Serif 4', Georgia, serif; font-size: 10.5pt; line-height: 1.5; color: #000000; margin: 0; }}
 .title {{ page: front; height: 168mm; display: flex; flex-direction: column; justify-content: center; text-align: center; }}
 .title .author {{ font: 800 9pt Inter, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #555555; margin: 0 0 6mm; }}
@@ -206,13 +429,6 @@ body {{ font-family: 'Source Serif 4', Georgia, serif; font-size: 10.5pt; line-h
 .kicker {{ font: 800 7pt Inter, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #333333; margin: 0 0 1mm; }}
 h2 {{ font-size: 16pt; color: #000000; margin: 0 0 1.5mm; font-weight: 700; }}
 .summary {{ font-style: italic; color: #555555; margin: 0 0 4mm; font-size: 9.5pt; line-height: 1.4; }}
-.gloss {{ border-top: .4mm solid #000000; border-bottom: .2mm solid #999999; padding: 2mm 0 1.5mm; margin: 0 0 5mm; }}
-.gloss-head {{ font: 800 6.4pt Inter, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #555555; margin: 0 0 1.5mm; }}
-.gloss ul {{ list-style: none; margin: 0; padding: 0; columns: 3; column-gap: 3.5mm; }}
-.gloss li {{ break-inside: avoid; margin: 0 0 1mm; line-height: 1.15; }}
-.gloss .de {{ display: block; font-weight: 700; font-size: 7.6pt; color: #000000; }}
-.gloss .pl {{ font-weight: 400; color: #555555; font-size: 7pt; }}
-.gloss .en {{ display: block; font: 500 6.4pt Inter, sans-serif; color: #555555; }}
 .text p {{ margin: 0; text-indent: 1.2em; orphans: 2; widows: 2; text-align: justify; }}
 .text p:first-child {{ text-indent: 0; }}
 /* The language notes: a faint dotted underline on the phrase, a small
@@ -238,10 +454,13 @@ h2 {{ font-size: 16pt; color: #000000; margin: 0 0 1.5mm; font-weight: 700; }}
   <h3>How to read this edition</h3>
   <p>The story is split into <b>twelve stages</b> of about 1,600 words, four per chapter.
   At an unhurried pace a stage is a 20 to 30 minute read, a good amount for one sitting.</p>
-  <p>Each stage opens with a one-line summary, which never tells you more than the stage itself,
-  and with <b>the words for that stage</b>: the ones a B1 reader is unlikely to know, in the order
-  they appear. Nouns show their article and plural (<i>· -e</i>, <i>· ¨e</i> for an umlaut). Read
-  the list once, then read the text without stopping at every word. The context does the rest.</p>
+  <p>Each stage opens with a one-line summary, which never tells you more than the stage itself.</p>
+  <p><b>Words in the margin.</b> The words a B1 reader is unlikely to know are explained in the
+  outer margin, level with the line they first appear on, so the help is beside you when you need
+  it. Nouns show their article and plural (<i>· -e</i>, <i>· ¨e</i> for an umlaut). Glance across
+  when a word stops you, then read on; the context does the rest. When a word comes back later it
+  is explained again, once a page, wherever the margin has room. If it is not beside you,
+  <b>the dictionary at the back</b> lists every word, A to Z, with the page that explains it.</p>
   <p><b>Notes on the German.</b> A faint dotted underline with a small number marks a phrase that
   shows something worth noticing: a grammar point, an idiom, a word only Prague used. The note is at
   the foot of the page. Skip them on a first reading if you like; they will still be there.</p>
@@ -254,6 +473,12 @@ h2 {{ font-size: 16pt; color: #000000; margin: 0 0 1.5mm; font-weight: 700; }}
   (Kurt Wolff Verlag, Leipzig). This edition follows the 1917 Kurt Wolff text.</p>
 </section>
 {''.join(pages)}
+<section class="dict">
+  <h3>Wörterbuch</h3>
+  <p class="intro">Every word explained in the margins, A to Z by the word itself (articles and
+  <i>sich</i> aside), with the page where it is explained in context.</p>
+  <ul>{dict_html}</ul>
+</section>
 <section class="about">
   <img class="about-logo" src="{LOGO}" alt="" />
   <h3>{edition["about"]["title"]}</h3>
@@ -286,7 +511,7 @@ js_path = os.path.join(tmp, "print.cjs")
 open(js_path, "w").write(js)
 pdf_path = os.path.join(out, "kafka_die_verwandlung.pdf")
 subprocess.run(["node", js_path, html_path, pdf_path], check=True)
-print(f"{total} stages, {sum(len(s['words']) for s in spec['stages'])} glossary words")
+print(f"{total} stages, {sum(len(s['words']) for s in spec['stages'])} glossary words, {repeats} repeat anchors")
 for w in warnings:
     print("  not found in its stage:", w)
 print(pdf_path)
