@@ -16,6 +16,28 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-21",
+    title: "A1.2 on paper: the second study book",
+    highlight: true,
+    items: [
+      "The A1.2 PDF is now a 48-page study book written for paper, like A1.1. It replaces the old 70-page workbook and is on the Workbooks shelf with its own cover.",
+      "Seventeen topics on two facing pages each: den and einen, kein and nicht, mein and unser, the helper verbs, the time, days and months, verbs that split, nach, in and zu, ordering in a café, shopping, telling people what to do, your first past tense and more.",
+      "The rules are drawn, not just explained: clock faces for halb and Viertel, sentences cut into boxes so you see where the verb goes, small decision charts for kein or nicht and haben or sein, and arrows for who does what to whom.",
+      "Three listening exercises with QR codes: a phone message, an announcement at the station and an order in a café.",
+      "It starts where A1.1 ends: words from A1.1 aren't taught again, and where a topic builds on A1.1, a small box reminds you.",
+      "Two review spreads, a one-page summary to stick on the wall, a picture dictionary of 32 words and all the answers at the back.",
+    ],
+  },
+  {
+    date: "2026-10-21",
+    title: "The A1.1 book, a little clearer",
+    items: [
+      "der, die and das are now printed in their colours — blue, red and green, as in the rest of the site.",
+      "Where the verb goes in a question is now drawn as a sentence in boxes, du or Sie? is a small decision chart, and im, am and beim are shown as in + dem, an + dem, bei + dem.",
+      "Fixed: the bottom of pages 2 and 3 showed a line of computer code instead of the book's title.",
+    ],
+  },
+  {
     date: "2026-10-20",
     title: "Fixed problems get their own list in the forum",
     items: [

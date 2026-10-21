@@ -44,6 +44,16 @@ function texts(c: Companion): string[] {
 	return out.map(plain);
 }
 
+/** The German a companion teaches: its names, learn pages, overview and picture dictionary. */
+function taughtBy(c: Companion): string[] {
+	return [
+		...(c.names ?? []),
+		...c.spreads.flatMap((s) => s.learn.flatMap(germanOf)),
+		...(c.overview?.blocks.flatMap(germanOf) ?? []),
+		...(c.dictionary?.words.map((w) => w.de) ?? [])
+	].flatMap(wordsIn);
+}
+
 const hasLink = (kind: string, target: string) => registry.links.some((l) => l.kind === kind && l.target === target);
 
 describe('study companions', () => {
@@ -51,7 +61,7 @@ describe('study companions', () => {
 		expect(companions.map((c) => c.level)).toContain('A1.1');
 	});
 
-	for (const c of companions) {
+	for (const [n, c] of companions.entries()) {
 		describe(c.level, () => {
 			it('answers every exercise', () => {
 				for (const s of c.spreads) {
@@ -93,8 +103,8 @@ describe('study companions', () => {
 			});
 
 			// Nothing is asked that wasn't taught: every German word an exercise
-			// shows has been printed on a learn page by then — this spread's or
-			// an earlier one's.
+			// shows has been printed on a learn page by then — this spread's, an
+			// earlier one's, or an earlier level's book (A1.2 builds on A1.1).
 			it('asks only for German it has taught', () => {
 				const taught = new Set<string>((c.names ?? []).flatMap(wordsIn));
 				const untaught: string[] = [];
@@ -104,6 +114,7 @@ describe('study companions', () => {
 					taught.add(w);
 					if (w.length > 4 && w.endsWith('en')) for (const end of ['e', 'st', 't', 'est', 'et']) taught.add(w.slice(0, -2) + end);
 				};
+				companions.slice(0, n).flatMap(taughtBy).forEach(teach);
 				for (const s of c.spreads) {
 					s.learn.flatMap(germanOf).flatMap(wordsIn).forEach((w) => teach(w));
 					for (const ex of exercisesOf(s)) {
@@ -116,6 +127,17 @@ describe('study companions', () => {
 
 			it('talks about paper, not the screen', () => {
 				for (const t of texts(c)) expect(t).not.toMatch(FORBIDDEN);
+			});
+
+			// docs/study_companion_guide.md: der, die and das always print in their colours.
+			it('colours every der/die/das table', () => {
+				const walk = (b: LearnBlock): LearnBlock[] => (b.kind === 'columns' ? b.blocks.flatMap(walk) : [b]);
+				const blocks = [...c.spreads.flatMap((s) => s.learn), ...(c.overview?.blocks ?? [])].flatMap(walk);
+				for (const b of blocks) {
+					if (b.kind !== 'table') continue;
+					const heads = b.head.map((h) => h.text.toLowerCase());
+					if (['der', 'die', 'das'].every((g) => heads.includes(g))) expect(b.genders, b.title).toBe(true);
+				}
 			});
 
 			it('has a unique id per spread', () => {

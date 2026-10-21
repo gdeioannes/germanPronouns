@@ -183,10 +183,20 @@
 					"kind": "columns",
 					"blocks": [
 						{
-							"kind": "box",
-							"tone": "tip",
+							"kind": "flow",
 							"title": "du or Sie?",
-							"text": "*du* for friends, family, children and other learners. *Sie* for strangers, shops, offices and older people you don’t know. Not sure? Say *Sie* — and wait for “Wir können du sagen” (we can say du)."
+							"note": "Not sure? Say *Sie* — and wait for “Wir können du sagen”.",
+							"root": {
+								"q": "A friend, family, a child or another learner?",
+								"yes": {
+									"answer": "du",
+									"example": "Wie heißt du?"
+								},
+								"no": {
+									"answer": "Sie",
+									"example": "Wie heißen Sie?"
+								}
+							}
 						},
 						{
 							"kind": "box",
@@ -2685,7 +2695,8 @@
 							"das Auto"
 						]
 					],
-					"note": "ein for der and das, eine for die."
+					"note": "ein for der and das, eine for die.",
+					"genders": true
 				},
 				{
 					"kind": "columns",
@@ -3208,47 +3219,84 @@
 					]
 				},
 				{
-					"kind": "table",
+					"kind": "slots",
 					"title": "Word, verb, the rest",
+					"note": "The verb is always in second place.",
 					"head": [
-						{
-							"text": "1 question word"
-						},
-						{
-							"text": "2 verb"
-						},
-						{
-							"text": "3 the rest"
-						}
+						"question word",
+						"verb",
+						"the rest"
+					],
+					"hot": [
+						1
 					],
 					"rows": [
-						[
-							"Wo",
-							"*wohnst*",
-							"du?"
-						],
-						[
-							"Was",
-							"*machst*",
-							"du heute?"
-						],
-						[
-							"Woher",
-							"*kommt*",
-							"Lena?"
-						],
-						[
-							"Wann",
-							"*kommt*",
-							"der Bus?"
-						],
-						[
-							"Wie viel",
-							"*kostet*",
-							"das Brot?"
-						]
-					],
-					"note": "The verb is always in second place."
+						{
+							"cells": [
+								{
+									"de": "Wo"
+								},
+								{
+									"de": "wohnst"
+								},
+								{
+									"de": "du?"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "Was"
+								},
+								{
+									"de": "machst"
+								},
+								{
+									"de": "du heute?"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "Woher"
+								},
+								{
+									"de": "kommt"
+								},
+								{
+									"de": "Lena?"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "Wann"
+								},
+								{
+									"de": "kommt"
+								},
+								{
+									"de": "der Bus?"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "Wie viel"
+								},
+								{
+									"de": "kostet"
+								},
+								{
+									"de": "das Brot?"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "columns",
@@ -3260,10 +3308,39 @@
 							"text": "*Wo* bist du? – In Berlin. *Woher* kommst du? – Aus Wien. *Wohin* fährst du? – Nach München."
 						},
 						{
-							"kind": "box",
-							"tone": "tip",
+							"kind": "slots",
 							"title": "Yes or no? Verb first",
-							"text": "Without a question word the verb starts: *Kommst* du? *Hast* du Zeit? – Ja. / Nein."
+							"note": "No question word: the verb starts.",
+							"hot": [
+								0
+							],
+							"rows": [
+								{
+									"cells": [
+										{
+											"de": "Kommst"
+										},
+										{
+											"de": "du?"
+										}
+									],
+									"en": "Ja. / Nein."
+								},
+								{
+									"cells": [
+										{
+											"de": "Hast"
+										},
+										{
+											"de": "du"
+										},
+										{
+											"de": "Zeit?"
+										}
+									],
+									"en": "Ja. / Nein."
+								}
+							]
 						}
 					]
 				},
@@ -3769,10 +3846,50 @@
 					"kind": "columns",
 					"blocks": [
 						{
-							"kind": "box",
-							"tone": "tip",
+							"kind": "build",
 							"title": "Hear an -m? That’s dem",
-							"text": "When a little word ends in -m — im, am, beim, vom — it has swallowed *dem*. So it goes with a der- or das-word."
+							"note": "So it goes with a der- or das-word.",
+							"rows": [
+								{
+									"parts": [
+										{
+											"text": "in"
+										},
+										{
+											"text": "dem",
+											"role": "joint"
+										}
+									],
+									"result": "im",
+									"en": "im Park"
+								},
+								{
+									"parts": [
+										{
+											"text": "an"
+										},
+										{
+											"text": "dem",
+											"role": "joint"
+										}
+									],
+									"result": "am",
+									"en": "am Bahnhof"
+								},
+								{
+									"parts": [
+										{
+											"text": "bei"
+										},
+										{
+											"text": "dem",
+											"role": "joint"
+										}
+									],
+									"result": "beim",
+									"en": "beim Arzt"
+								}
+							]
 						},
 						{
 							"kind": "words",
@@ -4875,7 +4992,8 @@
 								"mein",
 								"meine"
 							]
-						]
+						],
+						"genders": true
 					},
 					{
 						"kind": "table",
@@ -4989,10 +5107,53 @@
 						]
 					},
 					{
-						"kind": "box",
-						"tone": "tip",
+						"kind": "slots",
 						"title": "Word order",
-						"text": "The verb is always in second place: *Ich wohne* in Berlin. Wo *wohnst* du? Yes/no questions start with it: *Wohnst* du in Berlin?"
+						"note": "The verb comes second — or first, in a yes/no question.",
+						"rows": [
+							{
+								"cells": [
+									{
+										"de": "Ich"
+									},
+									{
+										"de": "wohne",
+										"hot": true
+									},
+									{
+										"de": "in Berlin."
+									}
+								]
+							},
+							{
+								"cells": [
+									{
+										"de": "Wo"
+									},
+									{
+										"de": "wohnst",
+										"hot": true
+									},
+									{
+										"de": "du?"
+									}
+								]
+							},
+							{
+								"cells": [
+									{
+										"de": "Wohnst",
+										"hot": true
+									},
+									{
+										"de": "du"
+									},
+									{
+										"de": "in Berlin?"
+									}
+								]
+							}
+						]
 					}
 				]
 			},

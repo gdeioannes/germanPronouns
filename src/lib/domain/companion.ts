@@ -7,6 +7,8 @@
 // instead of the generated workbook; the PDF button doesn't change.
 //
 // Content: assets/content/companion/<course>/<level>.json, e.g. a1_1.json.
+// The rules every book follows (schemas, gender colours, pictures, paper
+// wording) are in docs/study_companion_guide.md.
 // Text fields take two marks: *focus* (the bit to notice, accent + underline)
 // and **bold**.
 
@@ -63,6 +65,8 @@ export type LearnBlock =
 			kind: 'table';
 			title: string;
 			note?: string;
+			/** Heads that read der, die, das or plural get the gender colours (blue, red, green). */
+			genders?: boolean;
 			head: { text: string; en?: boolean }[];
 			rows: string[][];
 	  }
@@ -80,7 +84,76 @@ export type LearnBlock =
 			note?: string;
 			people: Record<FamilyRole, { name: string; word: string }>;
 	  }
+	| {
+			/**
+			 * Sentences cut into their places, one framed box per place: who | verb |
+			 * what, or where nicht and the second verb go. `hot` places (0-based)
+			 * are framed in the accent — the verb in second place, the end slot.
+			 */
+			kind: 'slots';
+			title: string;
+			note?: string;
+			/** A label over each place (English). */
+			head?: string[];
+			hot?: number[];
+			rows: { cells: SlotCell[]; en?: string }[];
+	  }
+	| {
+			/** A yes/no decision drawn as a tree: follow the branches to the answer (kein or nicht?). */
+			kind: 'flow';
+			title: string;
+			note?: string;
+			root: FlowNode;
+	  }
+	| {
+			/**
+			 * Two inputs that each give a piece, joined into one word: the owner
+			 * gives ihr, the thing gives -e → ihre Tasche.
+			 */
+			kind: 'merge';
+			title: string;
+			note?: string;
+			/** English labels of the two inputs (owner, thing). */
+			labels: [string, string];
+			rows: { a: string; aTo: string; b: string; bTo: string; result: string; en?: string }[];
+	  }
+	| {
+			/** Who does it, an arrow with the verb, and who or what it happens to; `ask` labels the two ends (wer? wen?). */
+			kind: 'arrow';
+			title: string;
+			note?: string;
+			ask?: [string, string];
+			rows: { who: string; verb: string; whom: string; en?: string }[];
+	  }
+	| {
+			/**
+			 * Clock faces, each with its hands, the digits and the German. `dial`
+			 * first draws the guide: nach on the right, vor on the left, halb at the
+			 * bottom (heading for the next hour).
+			 */
+			kind: 'clock';
+			title: string;
+			note?: string;
+			dial?: boolean;
+			/** Faces per row (default 4). */
+			cols?: number;
+			clocks: { time: string; de: string; mark?: boolean }[];
+	  }
 	| { kind: 'columns'; blocks: LearnBlock[] };
+
+/** A question with a branch for yes and for no, or an answer at the end of a branch. */
+export type FlowNode = { q: string; yes: FlowNode; no: FlowNode } | { answer: string; example?: string };
+
+/** The German a decision tree prints: its answers and examples (the questions are English). */
+const flowGerman = (n: FlowNode): string[] =>
+	'q' in n ? [...flowGerman(n.yes), ...flowGerman(n.no)] : [n.answer, n.example ?? ''];
+
+/** One place in a sentence; `tag` is a small English label under it (who, what); `hot` frames this one place. */
+export interface SlotCell {
+	de: string;
+	tag?: string;
+	hot?: boolean;
+}
 
 export type FamilyRole = 'opa' | 'oma' | 'vater' | 'mutter' | 'tante' | 'bruder' | 'ich' | 'schwester';
 
@@ -133,6 +206,16 @@ export type Exercise = {
 			/** Do what each sentence says to the picture (colour it in). Checked against the sentences. */
 			kind: 'colour';
 			sentences: string[];
+	  }
+	| {
+			/**
+			 * Clock faces. `draw`: a blank face under the German — the reader draws
+			 * the hands (the key gives the time). Otherwise the face shows the time
+			 * and the reader writes the German.
+			 */
+			kind: 'clocks';
+			draw?: boolean;
+			items: { time: string; de: string }[];
 	  }
 	| {
 			/** Sentences with a gap: before ___ after. A gap with no answer is the reader's own. */
@@ -238,6 +321,8 @@ export function answersOf(ex: Exercise): { answers: KeyEntry['answers']; note?: 
 			return { answers: [], note: 'Check your picture against each sentence.' };
 		case 'gaps':
 			return { answers: ex.items.filter((i) => i.answer).map((i) => ({ a: i.answer! })), note: ex.note };
+		case 'clocks':
+			return { answers: ex.items.map((i) => (ex.draw ? { q: i.de, a: i.time } : { q: i.time, a: i.de })) };
 	}
 }
 
@@ -262,6 +347,16 @@ export function germanOf(block: LearnBlock): string[] {
 			return block.rows.flatMap((r) => r.filter((_, i) => !block.head[i]?.en));
 		case 'tree':
 			return Object.values(block.people).flatMap((p) => [p.name, p.word]);
+		case 'slots':
+			return block.rows.flatMap((r) => r.cells.map((c) => c.de));
+		case 'flow':
+			return flowGerman(block.root);
+		case 'merge':
+			return block.rows.flatMap((r) => [r.a, r.aTo, r.b, r.bTo, r.result]);
+		case 'arrow':
+			return block.rows.flatMap((r) => [r.who, r.verb, r.whom]);
+		case 'clock':
+			return block.clocks.map((c) => c.de);
 		case 'columns':
 			return block.blocks.flatMap(germanOf);
 		case 'box':
@@ -287,6 +382,8 @@ export function germanAskedBy(ex: Exercise): string[] {
 			return [...ex.columns, ...ex.words];
 		case 'match':
 			return ex.built ? [] : [...ex.left, ...ex.right];
+		case 'clocks':
+			return ex.draw ? ex.items.map((i) => i.de) : [];
 	}
 }
 

@@ -76,10 +76,10 @@
 	const article = (de: string) => /^(der|die|das) /.exec(de)?.[1];
 </script>
 
-{#snippet footer(page: number, title = running)}
+{#snippet footer(page: number, title?: string)}
 	<footer class="foot">
 		<span class="tnum">{page}</span>
-		<span>{title}</span>
+		<span>{title ?? running}</span>
 	</footer>
 {/snippet}
 
@@ -147,7 +147,8 @@
 	<section class="page right contents">
 		<p class="eyebrow">{companion.level}</p>
 		<h2>Contents</h2>
-		<ol>
+		<!-- More than twenty lines (A1.2's seventeen topics) close up to stay on the page. -->
+		<ol class:dense={spreads.length + (companion.planned?.length ?? 0) + 3 > 20}>
 			{#each spreads as s, i (s.id)}
 				<li class:review={s.review}>
 					<span class="no tnum">{s.review ? '↻' : topicNo[i]}</span>
@@ -582,6 +583,14 @@
 		gap: 4mm;
 		padding: 1.9mm 0;
 		border-bottom: 0.25mm solid var(--rule);
+	}
+
+	.contents .dense {
+		margin-top: 4mm;
+	}
+
+	.contents .dense li {
+		padding: 1.1mm 0;
 	}
 
 	.contents .no {

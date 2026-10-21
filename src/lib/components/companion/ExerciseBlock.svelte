@@ -3,6 +3,7 @@
 	// write on, dots to join, tags to fill. The answers are in the key at the
 	// back (domain/companion answerKey), never on the page.
 	import { rich, type Exercise } from '$lib/domain/companion';
+	import ClockFace from './ClockFace.svelte';
 
 	let { ex, n, listen = null }: { ex: Exercise; n: number; listen?: { svg: string; code: string } | null } = $props();
 </script>
@@ -69,6 +70,15 @@
 					<img src="/img/{item.image}.webp" alt="" width="1024" height="1024" />
 					<span class="tag"><span class="hole"></span><span class="blank"></span>{ex.unit ?? ''}</span>
 					<span class="label" lang="de">{item.label}</span>
+				</li>
+			{/each}
+		</ol>
+	{:else if ex.kind === 'clocks'}
+		<ol class="clocks">
+			{#each ex.items as item, i (i)}
+				<li>
+					<span class="face"><ClockFace time={ex.draw ? null : item.time} /></span>
+					{#if ex.draw}<span class="clock-de" lang="de">{item.de}</span>{:else}<span class="line"></span>{/if}
 				</li>
 			{/each}
 		</ol>
@@ -161,6 +171,35 @@
 		min-width: 20mm;
 		height: 6.2mm;
 		border-bottom: 0.3mm solid var(--ink);
+	}
+
+	.clocks {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 3mm 4mm;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.clocks li {
+		display: grid;
+		justify-items: center;
+		gap: 1mm;
+	}
+
+	.clocks .face {
+		width: 20mm;
+	}
+
+	.clocks .line {
+		width: 100%;
+	}
+
+	.clock-de {
+		font-size: 9pt;
+		font-weight: 600;
+		text-align: center;
 	}
 
 	.write {
