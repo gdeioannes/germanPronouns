@@ -16,6 +16,17 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-23",
+    title: "B1.2 on paper: the sixth study book",
+    highlight: true,
+    items: [
+      "The B1.2 PDF is now a 46-page study book written for paper. It replaces the old generated workbook and is on the Workbooks shelf with its own cover.",
+      "Seventeen topics: technology, the written past (sagte, brachte, ging, kam), the past before the past, nachdem, bevor and während, the passive now and in the past, rules on signs, the nouns that grow an -n, um … zu, damit and indem, dessen and deren, zwar … aber, Hätte ich doch …!, trotz and wegen, das lachende Kind, denn, doch, ja and mal, -heit and -keit, and writing a story where something goes wrong.",
+      "Timelines show what happened first: Als ich ankam, war der Zug schon abgefahren — and where nachdem, bevor, während, seit and bis sit.",
+      "Three listening exercises with QR codes — an office computer disaster, a train announcement and a podcast about stress — and a picture dictionary of 32 words.",
+    ],
+  },
+  {
     date: "2026-10-22",
     title: "B1.1 on paper: the fifth study book",
     highlight: true,

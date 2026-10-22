@@ -1,0 +1,4289 @@
+{
+	"title": "Erzählen & Begründen",
+	"cover": "cp_b1_2_cover",
+	"welcome": [
+		"This book is the paper half of B1.2. Every topic gets two facing pages: the **left page** teaches — tables, diagrams, the few rules that matter — and the **right page** is yours to write on.",
+		"It carries on from the earlier books. Words you learned there are not taught again; where a topic builds on something from before, a small note brings it back.",
+		"Work with a pencil and say every German word out loud as you write it. When a page has a **Listen** code, scan it with your phone camera to hear the German.",
+		"The answers are at the back. Do a whole page first, then check, and circle what you got wrong — those circles are next week’s revision. Tick an **I can** line only when you could do it tomorrow without the book."
+	],
+	"names": [
+		"Lena",
+		"Max",
+		"Paul",
+		"Mia",
+		"Tom",
+		"Anna",
+		"Lisa",
+		"Lea",
+		"Rocky",
+		"Klein",
+		"Brandt",
+		"Fischer",
+		"Müller",
+		"Hamburg",
+		"Rom",
+		"Bonn",
+		"Berlin",
+		"Wien",
+		"Polen",
+		"Köln"
+	],
+	"spreads": [
+		{
+			"id": "technik",
+			"title": "Technik & Medien",
+			"subtitle": "Download, save, switch it off and on again",
+			"hook": "The German you need when your phone, your laptop or the office printer gives up.",
+			"hero": {
+				"image": "cp_b1_2_technik"
+			},
+			"quiz": "quest_b1_2_technik",
+			"listenQuiz": "quest_b1_2_lesen_technik",
+			"learn": [
+				{
+					"kind": "build",
+					"title": "Up and down",
+					"note": "Most of them split: Ich lade die App herunter.",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "herunter"
+								},
+								{
+									"text": "laden"
+								}
+							],
+							"result": "herunterladen",
+							"en": "download"
+						},
+						{
+							"parts": [
+								{
+									"text": "hoch"
+								},
+								{
+									"text": "laden"
+								}
+							],
+							"result": "hochladen",
+							"en": "upload"
+						},
+						{
+							"parts": [
+								{
+									"text": "ein"
+								},
+								{
+									"text": "schalten"
+								}
+							],
+							"result": "einschalten",
+							"en": "switch on"
+						},
+						{
+							"parts": [
+								{
+									"text": "aus"
+								},
+								{
+									"text": "schalten"
+								}
+							],
+							"result": "ausschalten",
+							"en": "switch off"
+						},
+						{
+							"parts": [
+								{
+									"text": "an"
+								},
+								{
+									"text": "schließen"
+								}
+							],
+							"result": "anschließen",
+							"en": "connect"
+						},
+						{
+							"parts": [
+								{
+									"text": "neu"
+								},
+								{
+									"text": "starten"
+								}
+							],
+							"result": "neu starten",
+							"en": "restart"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Things and their gender",
+					"genders": true,
+					"head": [
+						{
+							"text": "der"
+						},
+						{
+							"text": "die"
+						},
+						{
+							"text": "das"
+						}
+					],
+					"rows": [
+						[
+							"der Bildschirm",
+							"die Datei",
+							"das Gerät"
+						],
+						[
+							"der Drucker",
+							"die Festplatte",
+							"das Passwort"
+						],
+						[
+							"der Akku",
+							"die Nachricht",
+							"das Programm"
+						],
+						[
+							"der Laptop",
+							"die App",
+							"das WLAN"
+						]
+					]
+				},
+				{
+					"kind": "table",
+					"title": "When it goes wrong",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "",
+							"en": true
+						}
+					],
+					"rows": [
+						[
+							"Der Bildschirm bleibt schwarz.",
+							"the screen stays black"
+						],
+						[
+							"Das Programm stürzt ab.",
+							"the program crashes"
+						],
+						[
+							"Die Verbindung ist weg.",
+							"the connection is gone"
+						],
+						[
+							"Ich habe das Passwort vergessen.",
+							"I forgot the password"
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "speichern",
+							"en": "to save"
+						},
+						{
+							"de": "drucken",
+							"en": "to print"
+						},
+						{
+							"de": "löschen",
+							"en": "to delete"
+						},
+						{
+							"de": "der Kundendienst",
+							"en": "customer service"
+						},
+						{
+							"de": "die Präsentation",
+							"en": "presentation"
+						},
+						{
+							"de": "die Kunden",
+							"en": "customers"
+						},
+						{
+							"de": "leihen · sie lieh",
+							"en": "to lend · lent"
+						},
+						{
+							"de": "kaputt",
+							"en": "broken"
+						},
+						{
+							"de": "die Kollegin",
+							"en": "colleague"
+						},
+						{
+							"de": "das Dokument",
+							"en": "document"
+						},
+						{
+							"de": "bleiben · blieb",
+							"en": "to stay · stayed"
+						},
+						{
+							"de": "anrufen · rief an",
+							"en": "to call · called"
+						}
+					],
+					"cols": 3
+				}
+			],
+			"practise": [
+				{
+					"title": "The right word",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich muss die Datei noch",
+							"after": ".",
+							"answer": "speichern"
+						},
+						{
+							"before": "Kannst du die App",
+							"after": "?",
+							"answer": "herunterladen"
+						},
+						{
+							"before": "Ich habe dir eine",
+							"after": "geschickt.",
+							"answer": "Nachricht"
+						},
+						{
+							"before": "Der",
+							"after": "von meinem Laptop ist kaputt.",
+							"answer": "Bildschirm"
+						},
+						{
+							"before": "Ich habe mein",
+							"after": "schon wieder vergessen.",
+							"answer": "Passwort"
+						},
+						{
+							"before": "Kannst du das Dokument bitte",
+							"after": "?",
+							"answer": "drucken"
+						}
+					]
+				},
+				{
+					"title": "A bad morning",
+					"instruction": "Listen to the story. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Der Bildschirm blieb",
+							"options": [
+								"schwarz",
+								"weiß"
+							],
+							"after": ".",
+							"answer": "schwarz"
+						},
+						{
+							"before": "Herr Klein rief den",
+							"options": [
+								"Kundendienst",
+								"Chef"
+							],
+							"after": "an.",
+							"answer": "Kundendienst"
+						},
+						{
+							"before": "Er hatte die Datei an seine",
+							"options": [
+								"Kollegin",
+								"Frau"
+							],
+							"after": "geschickt.",
+							"answer": "Kollegin"
+						},
+						{
+							"before": "Die",
+							"options": [
+								"Festplatte",
+								"Maus"
+							],
+							"after": "war kaputt.",
+							"answer": "Festplatte"
+						}
+					],
+					"listen": true
+				}
+			],
+			"canDo": [
+				"name the things on my desk with der, die, das",
+				"say what I do: speichern, herunterladen, ausschalten",
+				"explain what has gone wrong"
+			]
+		},
+		{
+			"id": "praet_reg",
+			"title": "sagte, brachte",
+			"subtitle": "The written past: -te",
+			"hook": "Stories, reports and CVs are written in this past: one -te for most verbs, and nine that change their vowel too.",
+			"hero": {
+				"image": "cp_b1_2_praet_reg"
+			},
+			"quiz": "quest_b1_2_praet_reg",
+			"learn": [
+				{
+					"kind": "build",
+					"title": "Stem + -te",
+					"note": "ich and er are the same: ich lernte, er lernte.",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "lern"
+								},
+								{
+									"text": "te",
+									"role": "suffix"
+								}
+							],
+							"result": "lernte",
+							"en": "lernen"
+						},
+						{
+							"parts": [
+								{
+									"text": "kauf"
+								},
+								{
+									"text": "te",
+									"role": "suffix"
+								}
+							],
+							"result": "kaufte",
+							"en": "kaufen"
+						},
+						{
+							"parts": [
+								{
+									"text": "arbeit"
+								},
+								{
+									"text": "ete",
+									"role": "suffix"
+								}
+							],
+							"result": "arbeitete",
+							"en": "arbeiten — after -t an extra e"
+						},
+						{
+							"parts": [
+								{
+									"text": "brach"
+								},
+								{
+									"text": "te",
+									"role": "suffix"
+								}
+							],
+							"result": "brachte",
+							"en": "bringen — a new vowel too"
+						},
+						{
+							"parts": [
+								{
+									"text": "dach"
+								},
+								{
+									"text": "te",
+									"role": "suffix"
+								}
+							],
+							"result": "dachte",
+							"en": "denken"
+						},
+						{
+							"parts": [
+								{
+									"text": "wuss"
+								},
+								{
+									"text": "te",
+									"role": "suffix"
+								}
+							],
+							"result": "wusste",
+							"en": "wissen"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "lernen in the past",
+					"head": [
+						{
+							"text": "ich"
+						},
+						{
+							"text": "du"
+						},
+						{
+							"text": "er · sie · es"
+						},
+						{
+							"text": "wir"
+						},
+						{
+							"text": "ihr"
+						},
+						{
+							"text": "sie · Sie"
+						}
+					],
+					"rows": [
+						[
+							"lern*te*",
+							"lern*test*",
+							"lern*te*",
+							"lern*ten*",
+							"lern*tet*",
+							"lern*ten*"
+						]
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "tiles",
+							"title": "The mixed four: -ennen",
+							"note": "New vowel and -te.",
+							"cols": 2,
+							"small": true,
+							"tiles": [
+								{
+									"big": "kannte",
+									"word": "kennen"
+								},
+								{
+									"big": "nannte",
+									"word": "nennen"
+								},
+								{
+									"big": "rannte",
+									"word": "rennen"
+								},
+								{
+									"big": "brannte",
+									"word": "brennen"
+								}
+							]
+						},
+						{
+							"kind": "box",
+							"tone": "tip",
+							"title": "Write it, don’t say it",
+							"text": "In speech Germans use the Perfekt (*ich habe gearbeitet*). Write this past in stories and CVs: *Von 2015 bis 2019 arbeitete ich …*"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "lachen",
+							"en": "to laugh"
+						},
+						{
+							"de": "schicken",
+							"en": "to send"
+						},
+						{
+							"de": "das Dorf",
+							"en": "village"
+						},
+						{
+							"de": "die Vokabeln",
+							"en": "vocabulary"
+						},
+						{
+							"de": "niemand",
+							"en": "nobody"
+						},
+						{
+							"de": "früher",
+							"en": "in the past"
+						},
+						{
+							"de": "die Haltestelle",
+							"en": "stop"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "-te",
+					"instruction": "Write the verb in the past.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er",
+							"after": "am Wochenende. (arbeiten)",
+							"answer": "arbeitete"
+						},
+						{
+							"before": "Wir",
+							"after": "in einem kleinen Dorf. (wohnen)",
+							"answer": "wohnten"
+						},
+						{
+							"before": "Ich",
+							"after": "ihm einen Brief. (schicken)",
+							"answer": "schickte"
+						},
+						{
+							"before": "Das Kind",
+							"after": "laut. (lachen)",
+							"answer": "lachte"
+						},
+						{
+							"before": "Er",
+							"after": "mir Blumen. (bringen)",
+							"answer": "brachte"
+						},
+						{
+							"before": "Niemand",
+							"after": ", wo der Schlüssel war. (wissen)",
+							"answer": "wusste"
+						},
+						{
+							"before": "Früher",
+							"after": "ich alle Nachbarn. (kennen)",
+							"answer": "kannte"
+						},
+						{
+							"before": "Als der Bus kam,",
+							"after": "wir zur Haltestelle. (rennen)",
+							"answer": "rannten"
+						}
+					]
+				},
+				{
+					"title": "Your CV",
+					"instruction": "Write it in the written past.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "2015–2019: arbeiten in Köln",
+							"answer": "Von 2015 bis 2019 arbeitete ich in Köln."
+						},
+						{
+							"prompt": "2019: lernen Deutsch",
+							"answer": "2019 lernte ich Deutsch."
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"write the past with -te",
+				"add -ete after -t and -d",
+				"use brachte, dachte, wusste, kannte"
+			]
+		},
+		{
+			"id": "praet_unreg",
+			"title": "ging, kam, sah",
+			"subtitle": "The past with a new vowel",
+			"hook": "gehen – ging – gegangen: learn the three together, and the middle one is the story past.",
+			"hero": {
+				"image": "cp_b1_2_praet_unreg"
+			},
+			"quiz": "quest_b1_2_praet_unreg",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "Three forms, one verb",
+					"note": "Say the three together; the middle one is new.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "gehen",
+									"tag": "now"
+								},
+								{
+									"de": "ging",
+									"tag": "story past",
+									"hot": true
+								},
+								{
+									"de": "ist gegangen",
+									"tag": "Perfekt"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "finden",
+									"tag": "now"
+								},
+								{
+									"de": "fand",
+									"tag": "story past",
+									"hot": true
+								},
+								{
+									"de": "hat gefunden",
+									"tag": "Perfekt"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "fahren",
+									"tag": "now"
+								},
+								{
+									"de": "fuhr",
+									"tag": "story past",
+									"hot": true
+								},
+								{
+									"de": "ist gefahren",
+									"tag": "Perfekt"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "schreiben",
+									"tag": "now"
+								},
+								{
+									"de": "schrieb",
+									"tag": "story past",
+									"hot": true
+								},
+								{
+									"de": "hat geschrieben",
+									"tag": "Perfekt"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Vowel families",
+					"head": [
+						{
+							"text": "change"
+						},
+						{
+							"text": "examples"
+						}
+					],
+					"rows": [
+						[
+							"ei → ie",
+							"bleiben – blieb · schreiben – schrieb"
+						],
+						[
+							"i → a",
+							"finden – fand · trinken – trank"
+						],
+						[
+							"e → a",
+							"geben – gab · sehen – sah · essen – aß"
+						],
+						[
+							"a → u",
+							"fahren – fuhr · tragen – trug"
+						],
+						[
+							"a → ie",
+							"schlafen – schlief · fallen – fiel"
+						],
+						[
+							"on their own",
+							"gehen – ging · kommen – kam · stehen – stand"
+						]
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "tip",
+					"title": "No ending for ich and er",
+					"text": "*ich ging, er ging* — nothing added. The plural adds -en: *wir gingen, sie gingen*."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "ankommen · sie kam an",
+							"en": "to arrive"
+						},
+						{
+							"de": "das Licht",
+							"en": "light"
+						},
+						{
+							"de": "der Salat",
+							"en": "salad"
+						},
+						{
+							"de": "der letzte Bus",
+							"en": "the last bus"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The story past",
+					"instruction": "Write the verb in the past.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er",
+							"after": "nach Hause. (gehen)",
+							"answer": "ging"
+						},
+						{
+							"before": "Sie",
+							"after": "spät an. (ankommen)",
+							"answer": "kam"
+						},
+						{
+							"before": "Ich",
+							"after": "ein Licht im Fenster. (sehen)",
+							"answer": "sah"
+						},
+						{
+							"before": "Wir",
+							"after": "den Schlüssel nicht. (finden)",
+							"answer": "fanden"
+						},
+						{
+							"before": "Er",
+							"after": "mir das Buch. (geben)",
+							"answer": "gab"
+						},
+						{
+							"before": "Wir",
+							"after": "mit dem Zug nach Wien. (fahren)",
+							"answer": "fuhren"
+						},
+						{
+							"before": "Er",
+							"after": "den letzten Bus. (nehmen)",
+							"answer": "nahm"
+						},
+						{
+							"before": "Sie",
+							"after": "nur einen Salat. (essen)",
+							"answer": "aß"
+						}
+					]
+				},
+				{
+					"title": "Which verb?",
+					"instruction": "Draw a line from the past to the verb.",
+					"kind": "match",
+					"left": [
+						"blieb",
+						"trank",
+						"trug",
+						"schlief",
+						"stand"
+					],
+					"right": [
+						"tragen",
+						"stehen",
+						"bleiben",
+						"schlafen",
+						"trinken"
+					],
+					"answers": [
+						2,
+						4,
+						0,
+						3,
+						1
+					]
+				}
+			],
+			"canDo": [
+				"recognise ging, kam, sah, fuhr",
+				"know the vowel families",
+				"learn each verb as three forms"
+			]
+		},
+		{
+			"id": "plusquamperfekt",
+			"title": "Der Zug war schon abgefahren",
+			"subtitle": "One step further back",
+			"hook": "Als ich ankam, war der Zug schon abgefahren: the past before the past.",
+			"hero": {
+				"image": "cp_b1_2_plusquamperfekt"
+			},
+			"quiz": "quest_b1_2_plusquamperfekt",
+			"learn": [
+				{
+					"kind": "timeline",
+					"title": "Two steps back",
+					"note": "The earlier thing takes the helper in the past.",
+					"marks": [
+						{
+							"de": "Der Zug war schon abgefahren.",
+							"en": "first: hatte / war + past form",
+							"at": -3
+						},
+						{
+							"de": "Als ich am Bahnhof ankam, …",
+							"en": "then: the story past",
+							"at": -1.5
+						},
+						{
+							"de": "Ich erzähle es dir.",
+							"en": "now",
+							"at": 0
+						}
+					]
+				},
+				{
+					"kind": "slots",
+					"title": "hatte or war + the past form",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Wir"
+								},
+								{
+									"de": "hatten",
+									"hot": true
+								},
+								{
+									"de": "schon"
+								},
+								{
+									"de": "gegessen.",
+									"hot": true
+								}
+							],
+							"en": "haben-verbs"
+						},
+						{
+							"cells": [
+								{
+									"de": "Der Zug"
+								},
+								{
+									"de": "war",
+									"hot": true
+								},
+								{
+									"de": "schon"
+								},
+								{
+									"de": "abgefahren.",
+									"hot": true
+								}
+							],
+							"en": "sein-verbs: moving, changing"
+						},
+						{
+							"cells": [
+								{
+									"de": "Nachdem"
+								},
+								{
+									"de": "wir gegessen"
+								},
+								{
+									"de": "hatten,",
+									"hot": true
+								},
+								{
+									"de": "gingen",
+									"hot": true
+								},
+								{
+									"de": "wir spazieren."
+								}
+							],
+							"en": "nachdem: the earlier step"
+						}
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "tip",
+					"title": "schon is the signal",
+					"text": "When *schon* or *bereits* appears in a past story, the verb is usually this form: *Er war schon gegangen.*"
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "bestehen · bestanden",
+							"en": "to pass (an exam)"
+						},
+						{
+							"de": "verschwinden · verschwunden",
+							"en": "to disappear"
+						},
+						{
+							"de": "feiern · sie feiert",
+							"en": "to celebrate"
+						},
+						{
+							"de": "der Dieb",
+							"en": "thief"
+						},
+						{
+							"de": "die Polizei",
+							"en": "police"
+						},
+						{
+							"de": "die Prüfung",
+							"en": "exam"
+						},
+						{
+							"de": "zweimal",
+							"en": "twice"
+						},
+						{
+							"de": "wir kamen",
+							"en": "we came"
+						},
+						{
+							"de": "umziehen · umgezogen",
+							"en": "to move house"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The helper",
+					"instruction": "Write hatte or war in the right form.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Nachdem wir gegessen",
+							"after": ", gingen wir spazieren.",
+							"answer": "hatten"
+						},
+						{
+							"before": "Als ich ankam,",
+							"after": "der Zug schon abgefahren.",
+							"answer": "war"
+						},
+						{
+							"before": "Sie",
+							"after": "den Film schon zweimal gesehen.",
+							"answer": "hatte"
+						},
+						{
+							"before": "Als die Polizei kam,",
+							"after": "der Dieb schon verschwunden.",
+							"answer": "war"
+						},
+						{
+							"before": "Als wir nach Hause kamen,",
+							"after": "die Kinder schon eingeschlafen.",
+							"answer": "waren"
+						}
+					]
+				},
+				{
+					"title": "First, then",
+					"instruction": "Tell it in the past. Join with nachdem: the first thing takes hatte or war.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Sie besteht die Prüfung. Sie feiert.",
+							"answer": "Nachdem sie die Prüfung bestanden hatte, feierte sie."
+						},
+						{
+							"prompt": "Er zieht nach Berlin um. Er lernt neue Leute kennen.",
+							"answer": "Nachdem er nach Berlin umgezogen war, lernte er neue Leute kennen."
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"say what had happened before",
+				"choose hatte or war",
+				"join two past events with nachdem"
+			]
+		},
+		{
+			"id": "temporal",
+			"title": "nachdem, bevor, während",
+			"subtitle": "Putting events in order",
+			"hook": "Before, after, while, since, until: one little word each — and the verb goes to the end.",
+			"hero": {
+				"image": "cp_b1_2_temporal"
+			},
+			"quiz": "quest_b1_2_temporalsaetze",
+			"learn": [
+				{
+					"kind": "timeline",
+					"title": "Where each word sits",
+					"note": "Each mark is the other event; the dotted line is the main one.",
+					"marks": [
+						{
+							"de": "nachdem",
+							"en": "after — the other thing came first",
+							"at": -2
+						},
+						{
+							"de": "während",
+							"en": "while — at the same time",
+							"from": -0.5,
+							"to": 0.5
+						},
+						{
+							"de": "bevor",
+							"en": "before — the other thing comes later",
+							"at": 2
+						},
+						{
+							"de": "seit",
+							"en": "since — and still",
+							"from": -3,
+							"to": 0
+						},
+						{
+							"de": "bis",
+							"en": "until",
+							"from": 0,
+							"to": 3
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "In a sentence — verb last",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "",
+							"en": true
+						}
+					],
+					"rows": [
+						[
+							"Nachdem wir gegessen hatten, gingen wir.",
+							"after"
+						],
+						[
+							"Bevor ich gehe, rufe ich an.",
+							"before"
+						],
+						[
+							"Während sie kocht, deckt er den Tisch.",
+							"while"
+						],
+						[
+							"Seit ich hier wohne, habe ich kein Auto.",
+							"since — present tense"
+						],
+						[
+							"Warte, bis ich komme.",
+							"until"
+						],
+						[
+							"Sobald der Bus kommt, fahren wir los.",
+							"as soon as"
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "den Tisch decken",
+							"en": "to lay the table"
+						},
+						{
+							"de": "losfahren",
+							"en": "to set off"
+						},
+						{
+							"de": "zurück",
+							"en": "back"
+						},
+						{
+							"de": "auf dem Land",
+							"en": "in the country"
+						},
+						{
+							"de": "ausschalten · schaltete aus",
+							"en": "to switch off"
+						},
+						{
+							"de": "frühstücken",
+							"en": "to have breakfast"
+						}
+					],
+					"cols": 3
+				}
+			],
+			"practise": [
+				{
+					"title": "Which word?",
+					"instruction": "Write nachdem, bevor, während, seit, bis or sobald.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "wir gegessen hatten, gingen wir aus.",
+							"answer": "Nachdem"
+						},
+						{
+							"before": "",
+							"after": "ich ins Bett gehe, lese ich noch.",
+							"answer": "Bevor"
+						},
+						{
+							"before": "",
+							"after": "sie kocht, deckt er den Tisch.",
+							"answer": "Während"
+						},
+						{
+							"before": "",
+							"after": "ich hier wohne, habe ich kein Auto mehr.",
+							"answer": "Seit"
+						},
+						{
+							"before": "Warte bitte,",
+							"after": "ich zurück bin.",
+							"answer": "bis"
+						},
+						{
+							"before": "",
+							"after": "der Bus kommt, fahren wir los.",
+							"answer": "Sobald"
+						}
+					]
+				},
+				{
+					"title": "Before or after?",
+					"instruction": "Join the two sentences with the word in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich frühstücke. Ich gehe zur Arbeit. (bevor)",
+							"answer": "Bevor ich zur Arbeit gehe, frühstücke ich."
+						},
+						{
+							"prompt": "Er schrieb die E-Mail. Er schaltete den Computer aus. (nachdem)",
+							"answer": "Nachdem er die E-Mail geschrieben hatte, schaltete er den Computer aus."
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"put events in order with nachdem, bevor, während",
+				"use seit with the present",
+				"say until and as soon as"
+			]
+		},
+		{
+			"id": "passiv",
+			"title": "wird gebaut, wurde gebaut",
+			"subtitle": "The passive — now and in the past",
+			"hook": "Hier wird ein Haus gebaut, das Haus wurde 1990 gebaut: say what gets done without naming who does it.",
+			"hero": {
+				"image": "cp_b1_2_passiv"
+			},
+			"quiz": "quest_b1_2_passiv",
+			"listenQuiz": "quest_b1_2_hoeren_durchsage",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "From active to passive",
+					"note": "The thing moves to the front; who did it can go.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Der Mechaniker",
+									"tag": "who"
+								},
+								{
+									"de": "repariert",
+									"hot": true
+								},
+								{
+									"de": "das Auto.",
+									"tag": "what"
+								}
+							],
+							"en": "active"
+						},
+						{
+							"cells": [
+								{
+									"de": "Das Auto",
+									"tag": "what"
+								},
+								{
+									"de": "wird",
+									"hot": true
+								},
+								{
+									"de": "vom Mechaniker",
+									"tag": "who — or leave it out"
+								},
+								{
+									"de": "repariert.",
+									"hot": true
+								}
+							],
+							"en": "passive"
+						},
+						{
+							"cells": [
+								{
+									"de": "Das Haus",
+									"tag": "what"
+								},
+								{
+									"de": "wurde",
+									"hot": true
+								},
+								{
+									"de": "1990"
+								},
+								{
+									"de": "gebaut.",
+									"hot": true
+								}
+							],
+							"en": "passive, in the past"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "wird or wurde",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "now"
+						},
+						{
+							"text": "in the past"
+						}
+					],
+					"rows": [
+						[
+							"one thing",
+							"wird gebaut",
+							"wurde gebaut"
+						],
+						[
+							"more than one",
+							"werden gebaut",
+							"wurden gebaut"
+						]
+					]
+				},
+				{
+					"kind": "tiles",
+					"title": "History and the news",
+					"cols": 6,
+					"small": true,
+					"tiles": [
+						{
+							"big": "gegründet",
+							"word": "founded"
+						},
+						{
+							"big": "erfunden",
+							"word": "invented"
+						},
+						{
+							"big": "entdeckt",
+							"word": "discovered"
+						},
+						{
+							"big": "zerstört",
+							"word": "destroyed"
+						},
+						{
+							"big": "abgesagt",
+							"word": "cancelled"
+						},
+						{
+							"big": "eröffnet",
+							"word": "opened"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "das Jahrhundert",
+							"en": "century"
+						},
+						{
+							"de": "der Sturm",
+							"en": "storm"
+						},
+						{
+							"de": "die Firma",
+							"en": "company"
+						},
+						{
+							"de": "begrüßen",
+							"en": "to welcome"
+						},
+						{
+							"de": "der Müll",
+							"en": "rubbish"
+						},
+						{
+							"de": "servieren",
+							"en": "to serve"
+						},
+						{
+							"de": "die Verspätung",
+							"en": "delay"
+						},
+						{
+							"de": "das Gleis",
+							"en": "platform"
+						},
+						{
+							"de": "das Bordrestaurant",
+							"en": "dining car"
+						},
+						{
+							"de": "am Platz",
+							"en": "at your seat"
+						},
+						{
+							"de": "die Sprachen",
+							"en": "languages"
+						},
+						{
+							"de": "wegen des Sturms",
+							"en": "because of the storm"
+						},
+						{
+							"de": "geschlossen",
+							"en": "closed"
+						},
+						{
+							"de": "die Getränke",
+							"en": "drinks"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "wird or wurde",
+					"instruction": "Write wird, werden, wurde or wurden.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "In der Schweiz",
+							"after": "vier Sprachen gesprochen.",
+							"answer": "werden"
+						},
+						{
+							"before": "Das Auto",
+							"after": "gerade repariert.",
+							"answer": "wird"
+						},
+						{
+							"before": "Das Haus",
+							"after": "1990 gebaut.",
+							"answer": "wurde"
+						},
+						{
+							"before": "Das Telefon",
+							"after": "im 19. Jahrhundert erfunden.",
+							"answer": "wurde"
+						},
+						{
+							"before": "Die Fenster",
+							"after": "letzte Woche geputzt.",
+							"answer": "wurden"
+						},
+						{
+							"before": "Das Konzert",
+							"after": "wegen des Sturms abgesagt.",
+							"answer": "wurde"
+						}
+					]
+				},
+				{
+					"title": "At the station",
+					"instruction": "Listen to the announcement. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Der Zug hat etwa",
+							"options": [
+								"zwanzig",
+								"zehn"
+							],
+							"after": "Minuten Verspätung.",
+							"answer": "zwanzig"
+						},
+						{
+							"before": "Er fährt heute von Gleis",
+							"options": [
+								"sieben",
+								"vier"
+							],
+							"after": "ab.",
+							"answer": "sieben"
+						},
+						{
+							"before": "Das Bordrestaurant ist heute",
+							"options": [
+								"geschlossen",
+								"geöffnet"
+							],
+							"after": ".",
+							"answer": "geschlossen"
+						},
+						{
+							"before": "Getränke werden am Platz",
+							"options": [
+								"verkauft",
+								"gebracht"
+							],
+							"after": ".",
+							"answer": "verkauft"
+						}
+					],
+					"listen": true
+				}
+			],
+			"canDo": [
+				"say what gets done with wird",
+				"say what was done with wurde",
+				"understand an announcement"
+			]
+		},
+		{
+			"id": "passiv_modal",
+			"title": "muss gemacht werden",
+			"subtitle": "Rules on signs — and the state that is left",
+			"hook": "Hier darf nicht geparkt werden; die Tür ist geschlossen: the passive with a helper, and the state after the action.",
+			"hero": {
+				"image": "cp_b1_2_passiv_modal"
+			},
+			"quiz": "quest_b1_2_passiv_modal_intro",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "With a helper: the past form + werden at the end",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Das Auto"
+								},
+								{
+									"de": "muss",
+									"hot": true
+								},
+								{
+									"de": "repariert werden.",
+									"hot": true
+								}
+							],
+							"en": "must be repaired"
+						},
+						{
+							"cells": [
+								{
+									"de": "Hier"
+								},
+								{
+									"de": "darf",
+									"hot": true
+								},
+								{
+									"de": "nicht"
+								},
+								{
+									"de": "geparkt werden.",
+									"hot": true
+								}
+							],
+							"en": "may not be parked"
+						},
+						{
+							"cells": [
+								{
+									"de": "Das Haus"
+								},
+								{
+									"de": "ist",
+									"hot": true
+								},
+								{
+									"de": "gebaut worden.",
+									"hot": true
+								}
+							],
+							"en": "has been built: worden, not geworden"
+						}
+					]
+				},
+				{
+					"kind": "flow",
+					"title": "wird or ist?",
+					"note": "Could you say fertig, offen or zu instead? Then ist.",
+					"root": {
+						"q": "Is it happening right now?",
+						"yes": {
+							"answer": "wird",
+							"example": "Der Tisch wird gedeckt."
+						},
+						"no": {
+							"answer": "ist",
+							"example": "Der Tisch ist gedeckt."
+						}
+					}
+				},
+				{
+					"kind": "table",
+					"title": "The state that is left",
+					"head": [
+						{
+							"text": "action (werden)"
+						},
+						{
+							"text": "state (sein)"
+						}
+					],
+					"rows": [
+						[
+							"Die Tür wird geschlossen.",
+							"Die Tür ist geschlossen. = zu"
+						],
+						[
+							"Das Fenster wird geöffnet.",
+							"Das Fenster ist geöffnet. = offen"
+						],
+						[
+							"Der Tisch wird gedeckt.",
+							"Der Tisch ist gedeckt. = fertig"
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "das Formular",
+							"en": "form"
+						},
+						{
+							"de": "lösen",
+							"en": "to solve"
+						},
+						{
+							"de": "abschließen",
+							"en": "to lock"
+						},
+						{
+							"de": "sperren · gesperrt",
+							"en": "to close off"
+						},
+						{
+							"de": "reservieren",
+							"en": "to reserve"
+						},
+						{
+							"de": "der Ruhetag",
+							"en": "closing day"
+						},
+						{
+							"de": "überweisen",
+							"en": "to transfer (money)"
+						},
+						{
+							"de": "per E-Mail",
+							"en": "by e-mail"
+						},
+						{
+							"de": "das Restaurant",
+							"en": "restaurant"
+						},
+						{
+							"de": "dienstags",
+							"en": "on Tuesdays"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Helper + werden",
+					"instruction": "Write the past form + werden.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Das Auto muss",
+							"after": ". (reparieren)",
+							"answer": "repariert werden"
+						},
+						{
+							"before": "Das Formular kann per E-Mail",
+							"after": ". (schicken)",
+							"answer": "geschickt werden"
+						},
+						{
+							"before": "Hier darf nicht",
+							"after": ". (parken)",
+							"answer": "geparkt werden"
+						},
+						{
+							"before": "Die Rechnung muss heute",
+							"after": ". (bezahlen)",
+							"answer": "bezahlt werden"
+						}
+					]
+				},
+				{
+					"title": "Action or state?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Das Restaurant",
+							"options": [
+								"ist",
+								"wird"
+							],
+							"after": "heute geschlossen — dienstags haben wir Ruhetag.",
+							"answer": "ist"
+						},
+						{
+							"before": "Setzt euch, der Tisch",
+							"options": [
+								"ist",
+								"wird"
+							],
+							"after": "gerade gedeckt.",
+							"answer": "wird"
+						},
+						{
+							"before": "Die Rechnung",
+							"options": [
+								"ist",
+								"wird"
+							],
+							"after": "schon bezahlt.",
+							"answer": "ist"
+						},
+						{
+							"before": "Für heute Abend",
+							"options": [
+								"sind",
+								"werden"
+							],
+							"after": "alle Tische reserviert.",
+							"answer": "sind"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"read rules: Hier darf nicht geparkt werden",
+				"say the passive with a helper",
+				"tell wird (action) from ist (state)"
+			]
+		},
+		{
+			"id": "review_1",
+			"review": true,
+			"title": "Wiederholung",
+			"subtitle": "Topics 1–7",
+			"hook": "Nothing new here — only what you know. Do both pages without looking back, then check.",
+			"quiz": "quest_b1_2_sprechen_kurzcheck",
+			"learn": [],
+			"left": [
+				{
+					"title": "The story past",
+					"instruction": "Write the verb in the story past.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er",
+							"after": "nach Hause. (gehen)",
+							"answer": "ging"
+						},
+						{
+							"before": "Wir",
+							"after": "in Köln. (wohnen)",
+							"answer": "wohnten"
+						},
+						{
+							"before": "Sie",
+							"after": "mir Blumen. (bringen)",
+							"answer": "brachte"
+						},
+						{
+							"before": "Ich",
+							"after": "den Schlüssel nicht. (finden)",
+							"answer": "fand"
+						}
+					]
+				},
+				{
+					"title": "Before and after",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "wir gegessen hatten, gingen wir.",
+							"answer": "Nachdem"
+						},
+						{
+							"before": "Als ich ankam,",
+							"after": "der Zug schon abgefahren.",
+							"answer": "war"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "Passive",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Das Haus",
+							"after": "1990 gebaut.",
+							"answer": "wurde"
+						},
+						{
+							"before": "Hier darf nicht geparkt",
+							"after": ".",
+							"answer": "werden"
+						},
+						{
+							"before": "Die Tür",
+							"after": "schon geschlossen — sie ist zu.",
+							"answer": "ist"
+						}
+					]
+				},
+				{
+					"title": "At the computer",
+					"instruction": "Draw a line from the problem to the fix.",
+					"kind": "match",
+					"left": [
+						"Der Bildschirm bleibt schwarz.",
+						"Ich habe das Passwort vergessen.",
+						"Die Datei ist zu groß."
+					],
+					"right": [
+						"Den Kundendienst anrufen.",
+						"Die Datei hochladen.",
+						"Den Computer neu starten."
+					],
+					"answers": [
+						2,
+						0,
+						1
+					]
+				}
+			],
+			"canDo": []
+		},
+		{
+			"id": "n_dekl",
+			"title": "mit dem Kollegen",
+			"subtitle": "The nouns that grow an -n",
+			"hook": "der Kollege, but mit dem Kollegen: a small group of masculine nouns takes -n everywhere except as the subject.",
+			"hero": {
+				"image": "cp_b1_2_n_dekl"
+			},
+			"quiz": "quest_b1_2_n_deklination",
+			"learn": [
+				{
+					"kind": "build",
+					"title": "Bare only as the subject",
+					"note": "And all plural forms: die Studenten.",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "der"
+								},
+								{
+									"text": "Student"
+								}
+							],
+							"result": "der Student",
+							"en": "wer?"
+						},
+						{
+							"parts": [
+								{
+									"text": "den"
+								},
+								{
+									"text": "Student"
+								},
+								{
+									"text": "en",
+									"role": "suffix"
+								}
+							],
+							"result": "den Studenten",
+							"en": "wen?"
+						},
+						{
+							"parts": [
+								{
+									"text": "dem"
+								},
+								{
+									"text": "Student"
+								},
+								{
+									"text": "en",
+									"role": "suffix"
+								}
+							],
+							"result": "dem Studenten",
+							"en": "wem?"
+						},
+						{
+							"parts": [
+								{
+									"text": "des"
+								},
+								{
+									"text": "Student"
+								},
+								{
+									"text": "en",
+									"role": "suffix"
+								}
+							],
+							"result": "des Studenten",
+							"en": "wessen?"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Who belongs",
+					"head": [
+						{
+							"text": "ending"
+						},
+						{
+							"text": "examples"
+						}
+					],
+					"rows": [
+						[
+							"-e (people, animals)",
+							"der Kollege, der Kunde, der Junge, der Neffe, der Affe"
+						],
+						[
+							"-ent, -ant, -ist, -at",
+							"der Student, der Präsident, der Praktikant, der Tourist, der Soldat"
+						],
+						[
+							"and a few more",
+							"der Herr, der Mensch, der Nachbar, der Bär"
+						]
+					],
+					"note": "All masculine."
+				},
+				{
+					"kind": "box",
+					"tone": "watch",
+					"title": "der Herr",
+					"text": "den *Herrn*, dem *Herrn* — but the plural is *die Herren*. On a letter: *Herrn* Müller."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Präsident",
+							"en": "president"
+						},
+						{
+							"de": "die Hand geben",
+							"en": "to shake hands"
+						},
+						{
+							"de": "der Flur",
+							"en": "hall"
+						},
+						{
+							"de": "dort",
+							"en": "there"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "-n or not?",
+					"instruction": "Write the noun in brackets with or without -(e)n.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich kenne den",
+							"after": ". (Student)",
+							"answer": "Studenten"
+						},
+						{
+							"before": "Ich helfe dem",
+							"after": ". (Junge)",
+							"answer": "Jungen"
+						},
+						{
+							"before": "Das ist das Auto des",
+							"after": ". (Kollege)",
+							"answer": "Kollegen"
+						},
+						{
+							"before": "Wir sprechen mit dem",
+							"after": ". (Nachbar)",
+							"answer": "Nachbarn"
+						},
+						{
+							"before": "Ich sehe einen",
+							"after": "auf der Straße. (Mensch)",
+							"answer": "Menschen"
+						},
+						{
+							"before": "Fragen Sie den",
+							"after": "dort! (Herr)",
+							"answer": "Herrn"
+						},
+						{
+							"before": "Der",
+							"after": "ist nett. (Kollege)",
+							"answer": "Kollege"
+						}
+					]
+				},
+				{
+					"title": "Subject or not?",
+					"instruction": "Circle the right form.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Der",
+							"options": [
+								"Kunde",
+								"Kunden"
+							],
+							"after": "ist König.",
+							"answer": "Kunde"
+						},
+						{
+							"before": "Wir helfen dem",
+							"options": [
+								"Kunde",
+								"Kunden"
+							],
+							"after": ".",
+							"answer": "Kunden"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"add -n to Kollege, Student, Herr …",
+				"keep them bare as the subject",
+				"write to Herrn Müller"
+			]
+		},
+		{
+			"id": "zweck",
+			"title": "um … zu, damit, indem",
+			"subtitle": "What for, how — and with what result",
+			"hook": "Ich lerne Deutsch, um hier zu arbeiten: one little question tells you which word to use.",
+			"hero": {
+				"image": "cp_b1_2_zweck"
+			},
+			"quiz": "quest_b1_2_damit_umzu",
+			"listenQuiz": "quest_b1_2_hoeren_podcast",
+			"learn": [
+				{
+					"kind": "flow",
+					"title": "um … zu or damit?",
+					"root": {
+						"q": "Does the same person do both?",
+						"yes": {
+							"answer": "um … zu",
+							"example": "Ich lerne, um zu arbeiten."
+						},
+						"no": {
+							"answer": "damit",
+							"example": "…, damit meine Kinder stolz sind."
+						}
+					}
+				},
+				{
+					"kind": "table",
+					"title": "Four questions, four words",
+					"head": [
+						{
+							"text": "question"
+						},
+						{
+							"text": "word"
+						},
+						{
+							"text": "like this"
+						}
+					],
+					"rows": [
+						[
+							"Wozu? (what for)",
+							"um … zu · damit",
+							"Ich spare, um ein Auto zu kaufen."
+						],
+						[
+							"Wie? (how)",
+							"indem",
+							"Ich spare, indem ich selbst koche."
+						],
+						[
+							"Mit welcher Folge? (result)",
+							"sodass",
+							"Es regnete, sodass die Straße gesperrt wurde."
+						],
+						[
+							"Wie? (without)",
+							"ohne … zu · statt … zu",
+							"Sie ging, ohne etwas zu sagen."
+						]
+					]
+				},
+				{
+					"kind": "slots",
+					"title": "so …, dass",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Er"
+								},
+								{
+									"de": "war",
+									"hot": true
+								},
+								{
+									"de": "so müde,"
+								},
+								{
+									"de": "dass"
+								},
+								{
+									"de": "er"
+								},
+								{
+									"de": "einschlief.",
+									"hot": true
+								}
+							],
+							"en": "so before the describing word"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "sparen",
+							"en": "to save"
+						},
+						{
+							"de": "erreichen",
+							"en": "to catch, reach"
+						},
+						{
+							"de": "stolz",
+							"en": "proud"
+						},
+						{
+							"de": "verpassen",
+							"en": "to miss"
+						},
+						{
+							"de": "Energie verbrauchen",
+							"en": "to use energy"
+						},
+						{
+							"de": "fit bleiben",
+							"en": "to stay fit"
+						},
+						{
+							"de": "die Luft",
+							"en": "air"
+						},
+						{
+							"de": "der Stress",
+							"en": "stress"
+						},
+						{
+							"de": "die Pause",
+							"en": "break"
+						},
+						{
+							"de": "verpassten",
+							"en": "missed"
+						},
+						{
+							"de": "Sport machen",
+							"en": "to do sport"
+						},
+						{
+							"de": "eine kurze Pause",
+							"en": "a short break"
+						}
+					],
+					"cols": 3
+				}
+			],
+			"practise": [
+				{
+					"title": "Which word?",
+					"instruction": "Write um, damit, indem or sodass.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich lerne Deutsch,",
+							"after": "hier zu arbeiten.",
+							"answer": "um"
+						},
+						{
+							"before": "Ich lerne Deutsch,",
+							"after": "meine Kinder stolz sind.",
+							"answer": "damit"
+						},
+						{
+							"before": "Ich spare Geld,",
+							"after": "ich selbst koche.",
+							"answer": "indem"
+						},
+						{
+							"before": "Der Bus kam zu spät,",
+							"after": "wir den Zug verpassten.",
+							"answer": "sodass"
+						},
+						{
+							"before": "Er spricht langsam,",
+							"after": "alle ihn verstehen.",
+							"answer": "damit"
+						},
+						{
+							"before": "Sie bleibt fit,",
+							"after": "sie jeden Tag Rad fährt.",
+							"answer": "indem"
+						}
+					]
+				},
+				{
+					"title": "Less stress",
+					"instruction": "Listen to the podcast and fill in the notes.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Sport: schon",
+							"after": "Minuten am Tag",
+							"answer": "zwanzig"
+						},
+						{
+							"before": "Das Handy: eine",
+							"after": "vor dem Schlafen aus",
+							"answer": "Stunde"
+						},
+						{
+							"before": "Jeden Tag eine kurze",
+							"after": "",
+							"answer": "Pause"
+						}
+					],
+					"listen": true
+				}
+			],
+			"canDo": [
+				"say what for with um … zu or damit",
+				"say how with indem",
+				"say the result with sodass"
+			]
+		},
+		{
+			"id": "relativ_dat",
+			"title": "dessen, deren",
+			"subtitle": "Whose — and the rest of the relative words",
+			"hook": "Die Frau, deren Auto vor dem Haus steht: only three new words — denen, dessen, deren.",
+			"hero": {
+				"image": "cp_b1_2_relativ_dat"
+			},
+			"quiz": "quest_b1_2_relativ_dat",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "The whole table",
+					"genders": true,
+					"head": [
+						{
+							"text": "",
+							"en": true
+						},
+						{
+							"text": "der"
+						},
+						{
+							"text": "die"
+						},
+						{
+							"text": "das"
+						},
+						{
+							"text": "plural"
+						}
+					],
+					"rows": [
+						[
+							"wer?",
+							"der",
+							"die",
+							"das",
+							"die"
+						],
+						[
+							"wen?",
+							"den",
+							"die",
+							"das",
+							"die"
+						],
+						[
+							"wem?",
+							"dem",
+							"der",
+							"dem",
+							"*denen*"
+						],
+						[
+							"wessen?",
+							"*dessen*",
+							"*deren*",
+							"*dessen*",
+							"*deren*"
+						]
+					],
+					"note": "Three new words; the rest is the article."
+				},
+				{
+					"kind": "slots",
+					"title": "whose: no article after it",
+					"note": "The word before the comma decides dessen or deren.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "der Kollege,"
+								},
+								{
+									"de": "dessen",
+									"hot": true
+								},
+								{
+									"de": "Frau Ärztin"
+								},
+								{
+									"de": "ist"
+								}
+							],
+							"en": "his wife"
+						},
+						{
+							"cells": [
+								{
+									"de": "die Frau,"
+								},
+								{
+									"de": "deren",
+									"hot": true
+								},
+								{
+									"de": "Auto vor dem Haus"
+								},
+								{
+									"de": "steht"
+								}
+							],
+							"en": "her car"
+						},
+						{
+							"cells": [
+								{
+									"de": "die Nachbarn,"
+								},
+								{
+									"de": "deren",
+									"hot": true
+								},
+								{
+									"de": "Hund immer"
+								},
+								{
+									"de": "bellt"
+								}
+							],
+							"en": "their dog"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "bellen",
+							"en": "to bark"
+						},
+						{
+							"de": "die Buchhaltung",
+							"en": "accounts"
+						},
+						{
+							"de": "teilen",
+							"en": "to share"
+						},
+						{
+							"de": "vertrauen",
+							"en": "to trust"
+						},
+						{
+							"de": "die Nachbarin",
+							"en": "neighbour"
+						}
+					],
+					"cols": 3
+				}
+			],
+			"practise": [
+				{
+					"title": "Which word?",
+					"instruction": "Write dem, der, denen, dessen or deren.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Das ist der Mann,",
+							"after": "ich geholfen habe.",
+							"answer": "dem"
+						},
+						{
+							"before": "Die Frau,",
+							"after": "Auto vor dem Haus steht, ist meine Nachbarin.",
+							"answer": "deren"
+						},
+						{
+							"before": "Das sind die Freunde,",
+							"after": "ich am meisten vertraue.",
+							"answer": "denen"
+						},
+						{
+							"before": "Der Kollege,",
+							"after": "Frau Ärztin ist, arbeitet in der Buchhaltung.",
+							"answer": "dessen"
+						},
+						{
+							"before": "Das Kind,",
+							"after": "Eltern noch arbeiten, wartet in der Schule.",
+							"answer": "dessen"
+						},
+						{
+							"before": "Die Kollegin, mit",
+							"after": "ich das Büro teile, kommt aus Polen.",
+							"answer": "der"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"say whose with dessen and deren",
+				"use denen in the plural",
+				"build one long sentence instead of two"
+			]
+		},
+		{
+			"id": "konnektoren",
+			"title": "zwar … aber",
+			"subtitle": "Pairs that make an argument sound structured",
+			"hook": "Both … and, either … or, the more … the better: six pairs that make any argument sound organised.",
+			"hero": {
+				"image": "cp_b1_2_konnektoren"
+			},
+			"quiz": "quest_b1_2_konnektoren_zweiteilig",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Six pairs",
+					"head": [
+						{
+							"text": "pair"
+						},
+						{
+							"text": "",
+							"en": true
+						}
+					],
+					"rows": [
+						[
+							"sowohl … als auch",
+							"both … and"
+						],
+						[
+							"nicht nur … sondern auch",
+							"not only … but also"
+						],
+						[
+							"entweder … oder",
+							"either … or"
+						],
+						[
+							"weder … noch",
+							"neither … nor"
+						],
+						[
+							"zwar … aber",
+							"true, … but"
+						],
+						[
+							"je … desto",
+							"the … the"
+						]
+					]
+				},
+				{
+					"kind": "slots",
+					"title": "je … desto: two orders",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Je mehr"
+								},
+								{
+									"de": "ich"
+								},
+								{
+									"de": "übe,",
+									"hot": true
+								},
+								{
+									"de": "desto besser"
+								},
+								{
+									"de": "werde",
+									"hot": true
+								},
+								{
+									"de": "ich."
+								}
+							],
+							"en": "je: verb last · desto: verb next"
+						}
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "tip",
+					"title": "weder … noch is already “no”",
+					"text": "Ich habe *weder* Zeit *noch* Geld — no nicht, no kein."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "klug",
+							"en": "clever"
+						},
+						{
+							"de": "fleißig",
+							"en": "hard-working"
+						},
+						{
+							"de": "üben",
+							"en": "to practise"
+						},
+						{
+							"de": "die Reise",
+							"en": "trip"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The other half",
+					"instruction": "Write the missing half of the pair.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Sie spricht sowohl Deutsch",
+							"after": "Englisch.",
+							"answer": "als auch"
+						},
+						{
+							"before": "Er ist nicht nur klug,",
+							"after": "fleißig.",
+							"answer": "sondern auch"
+						},
+						{
+							"before": "Wir fahren entweder mit dem Zug",
+							"after": "mit dem Auto.",
+							"answer": "oder"
+						},
+						{
+							"before": "Ich habe weder Zeit",
+							"after": "Geld.",
+							"answer": "noch"
+						},
+						{
+							"before": "Das Hotel ist zwar teuer,",
+							"after": "sehr schön.",
+							"answer": "aber"
+						},
+						{
+							"before": "Je mehr ich übe,",
+							"after": "besser werde ich.",
+							"answer": "desto"
+						}
+					]
+				},
+				{
+					"title": "Your argument",
+					"instruction": "Finish the sentence.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Deutsch ist zwar schwer, aber",
+							"after": "."
+						}
+					],
+					"note": "About you."
+				}
+			],
+			"canDo": [
+				"use both … and, either … or, neither … nor",
+				"concede a point with zwar … aber",
+				"say the more … the better"
+			]
+		},
+		{
+			"id": "wuensche",
+			"title": "Hätte ich doch …!",
+			"subtitle": "If only — wishes about the past",
+			"hook": "Missed the train, forgot the umbrella? Hätte ich doch …! Wäre ich nur …!",
+			"hero": {
+				"image": "cp_b1_2_wuensche"
+			},
+			"quiz": "quest_b1_2_irreale_wuensche",
+			"learn": [
+				{
+					"kind": "build",
+					"title": "hätte or wäre + the past form",
+					"note": "Same helper as the Perfekt — with dots.",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "hätte"
+								},
+								{
+									"text": "gelernt"
+								}
+							],
+							"result": "Hätte ich doch mehr gelernt!",
+							"en": "haben-verbs"
+						},
+						{
+							"parts": [
+								{
+									"text": "wäre"
+								},
+								{
+									"text": "geblieben"
+								}
+							],
+							"result": "Wäre ich nur zu Hause geblieben!",
+							"en": "sein-verbs"
+						},
+						{
+							"parts": [
+								{
+									"text": "wäre"
+								},
+								{
+									"text": "losgefahren"
+								}
+							],
+							"result": "Wären wir bloß früher losgefahren!",
+							"en": "moving: sein"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Now or then?",
+					"head": [
+						{
+							"text": "now"
+						},
+						{
+							"text": "then"
+						}
+					],
+					"rows": [
+						[
+							"Wäre ich doch reich!",
+							"Wäre ich doch reich gewesen!"
+						],
+						[
+							"Hätte ich doch Zeit!",
+							"Hätte ich doch Zeit gehabt!"
+						]
+					],
+					"note": "Add the past form to push the wish into the past."
+				},
+				{
+					"kind": "slots",
+					"title": "Two shapes",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Hätte",
+									"hot": true
+								},
+								{
+									"de": "ich"
+								},
+								{
+									"de": "doch mehr"
+								},
+								{
+									"de": "gelernt",
+									"hot": true
+								}
+							],
+							"en": "verb first"
+						},
+						{
+							"cells": [
+								{
+									"de": "Wenn"
+								},
+								{
+									"de": "ich doch mehr"
+								},
+								{
+									"de": "gelernt"
+								},
+								{
+									"de": "hätte",
+									"hot": true
+								}
+							],
+							"en": "wenn: verb last"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "bloß",
+							"en": "only"
+						},
+						{
+							"de": "losfahren · losgefahren",
+							"en": "to set off"
+						},
+						{
+							"de": "anrufen · angerufen",
+							"en": "to call"
+						},
+						{
+							"de": "sagen · gesagt",
+							"en": "to say"
+						}
+					],
+					"cols": 3
+				}
+			],
+			"practise": [
+				{
+					"title": "If only!",
+					"instruction": "Write hätte or wäre.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "ich doch mehr Zeit gehabt!",
+							"answer": "Hätte"
+						},
+						{
+							"before": "",
+							"after": "ich nur zu Hause geblieben!",
+							"answer": "Wäre"
+						},
+						{
+							"before": "",
+							"after": "wir bloß früher losgefahren!",
+							"answer": "Wären"
+						},
+						{
+							"before": "",
+							"after": "sie doch nur angerufen!",
+							"answer": "Hätte"
+						},
+						{
+							"before": "",
+							"after": "er doch gekommen!",
+							"answer": "Wäre"
+						},
+						{
+							"before": "",
+							"after": "ich das bloß nicht gesagt!",
+							"answer": "Hätte"
+						}
+					]
+				},
+				{
+					"title": "A sigh",
+					"instruction": "Write a wish about the past.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich habe nicht gelernt.",
+							"answer": "Hätte ich doch gelernt!"
+						},
+						{
+							"prompt": "Wir sind spät losgefahren.",
+							"answer": "Wären wir doch früher losgefahren!"
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"wish things had been different",
+				"choose hätte or wäre",
+				"tell a wish now from a wish about the past"
+			]
+		},
+		{
+			"id": "trotz_wegen",
+			"title": "trotz des Regens",
+			"subtitle": "Three ways to say one thing",
+			"hook": "Obwohl es regnet — es regnet, trotzdem — trotz des Regens: the shortest is the most written.",
+			"hero": {
+				"image": "cp_b1_2_trotz_wegen"
+			},
+			"quiz": "quest_b1_2_trotz_wegen",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "Three ways to say one thing",
+					"note": "Remember the genitive from B1.1.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Obwohl"
+								},
+								{
+									"de": "es"
+								},
+								{
+									"de": "regnet,",
+									"hot": true
+								},
+								{
+									"de": "gehen",
+									"hot": true
+								},
+								{
+									"de": "wir raus."
+								}
+							],
+							"en": "a clause"
+						},
+						{
+							"cells": [
+								{
+									"de": "Es regnet,"
+								},
+								{
+									"de": "trotzdem"
+								},
+								{
+									"de": "gehen",
+									"hot": true
+								},
+								{
+									"de": "wir raus."
+								}
+							],
+							"en": "an adverb"
+						},
+						{
+							"cells": [
+								{
+									"de": "Trotz des Regens"
+								},
+								{
+									"de": "gehen",
+									"hot": true
+								},
+								{
+									"de": "wir raus."
+								}
+							],
+							"en": "a little word + des"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "The same with because",
+					"head": [
+						{
+							"text": "clause"
+						},
+						{
+							"text": "adverb"
+						},
+						{
+							"text": "little word"
+						}
+					],
+					"rows": [
+						[
+							"weil es regnet",
+							"deshalb",
+							"wegen des Regens"
+						],
+						[
+							"obwohl es regnet",
+							"trotzdem",
+							"trotz des Regens"
+						],
+						[
+							"während ich arbeite",
+							"",
+							"während der Arbeit"
+						]
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "tip",
+					"title": "In speech: wegen dem Wetter",
+					"text": "People often say *wegen dem* — you will hear it everywhere. Write *wegen des Wetters*."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Stau",
+							"en": "traffic jam"
+						},
+						{
+							"de": "die Erkältung",
+							"en": "cold"
+						},
+						{
+							"de": "die Kosten",
+							"en": "costs"
+						},
+						{
+							"de": "buchen",
+							"en": "to book"
+						},
+						{
+							"de": "telefonieren",
+							"en": "to phone"
+						},
+						{
+							"de": "des Films · des Staus",
+							"en": "of the film · of the jam"
+						}
+					],
+					"cols": 3
+				}
+			],
+			"practise": [
+				{
+					"title": "trotz, wegen, während",
+					"instruction": "Write the little word and des or der.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "Regens bleiben wir zu Hause. (because of)",
+							"answer": "Wegen des"
+						},
+						{
+							"before": "",
+							"after": "Regens gehen wir spazieren. (despite)",
+							"answer": "Trotz des"
+						},
+						{
+							"before": "",
+							"after": "Films darf man nicht telefonieren. (during)",
+							"answer": "Während des"
+						},
+						{
+							"before": "",
+							"after": "Staus kamen wir zu spät. (because of)",
+							"answer": "Wegen des"
+						},
+						{
+							"before": "",
+							"after": "Ferien ist das Büro geschlossen. (during)",
+							"answer": "Während der"
+						}
+					]
+				},
+				{
+					"title": "Say it shorter",
+					"instruction": "Say it with trotz or wegen.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Obwohl er erkältet war, ging er zur Arbeit.",
+							"answer": "Trotz seiner Erkältung ging er zur Arbeit."
+						},
+						{
+							"prompt": "Weil es einen Sturm gab, wurde das Konzert abgesagt.",
+							"answer": "Wegen des Sturms wurde das Konzert abgesagt."
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"say because of, despite, during with des and der",
+				"say one thing in three ways",
+				"write the short form in a formal text"
+			]
+		},
+		{
+			"id": "partizip",
+			"title": "das lachende Kind",
+			"subtitle": "Doing or done: verbs as describing words",
+			"hook": "das lachende Kind, die geöffnete Tür: -end for doing, ge- for done — and then the usual ending.",
+			"hero": {
+				"image": "cp_b1_2_partizip"
+			},
+			"quiz": "quest_b1_2_partizip_adj_intro",
+			"learn": [
+				{
+					"kind": "flow",
+					"title": "-end or ge-?",
+					"note": "boiling or boiled?",
+					"root": {
+						"q": "Is it doing it right now?",
+						"yes": {
+							"answer": "-end",
+							"example": "das kochende Wasser"
+						},
+						"no": {
+							"answer": "ge-",
+							"example": "das gekochte Wasser"
+						}
+					}
+				},
+				{
+					"kind": "build",
+					"title": "Verb + -end / ge- + ending",
+					"note": "-end = -ing, ge- = -ed.",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "lach"
+								},
+								{
+									"text": "end",
+									"role": "joint"
+								},
+								{
+									"text": "e",
+									"role": "suffix"
+								}
+							],
+							"result": "das lachende Kind",
+							"en": "laughing"
+						},
+						{
+							"parts": [
+								{
+									"text": "schlaf"
+								},
+								{
+									"text": "end",
+									"role": "joint"
+								},
+								{
+									"text": "e",
+									"role": "suffix"
+								}
+							],
+							"result": "der schlafende Hund",
+							"en": "sleeping"
+						},
+						{
+							"parts": [
+								{
+									"text": "ge",
+									"role": "joint"
+								},
+								{
+									"text": "öffnet"
+								},
+								{
+									"text": "e",
+									"role": "suffix"
+								}
+							],
+							"result": "die geöffnete Tür",
+							"en": "opened"
+						},
+						{
+							"parts": [
+								{
+									"text": "verloren"
+								},
+								{
+									"text": "en",
+									"role": "suffix"
+								}
+							],
+							"result": "die verlorenen Schlüssel",
+							"en": "lost"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Schoß",
+							"en": "lap"
+						},
+						{
+							"de": "Vorsicht!",
+							"en": "careful!"
+						},
+						{
+							"de": "der Lärm",
+							"en": "noise"
+						},
+						{
+							"de": "wiederfinden",
+							"en": "to find again"
+						},
+						{
+							"de": "aufwachen",
+							"en": "to wake up"
+						},
+						{
+							"de": "kalte Luft",
+							"en": "cold air"
+						},
+						{
+							"de": "soll",
+							"en": "should"
+						}
+					],
+					"cols": 3
+				}
+			],
+			"practise": [
+				{
+					"title": "Doing or done?",
+					"instruction": "Write the word in brackets as -end or ge-, with its ending.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Das",
+							"after": "Kind sitzt auf dem Schoß der Mutter. (lachen)",
+							"answer": "lachende"
+						},
+						{
+							"before": "Vorsicht,",
+							"after": "Wasser! (kochen)",
+							"answer": "kochendes"
+						},
+						{
+							"before": "Trinken Sie nur",
+							"after": "Wasser. (kochen → ge-)",
+							"answer": "gekochtes"
+						},
+						{
+							"before": "Sei leise, der",
+							"after": "Hund soll nicht aufwachen. (schlafen)",
+							"answer": "schlafende"
+						},
+						{
+							"before": "Durch die",
+							"after": "Tür kam kalte Luft. (öffnen → ge-)",
+							"answer": "geöffnete"
+						},
+						{
+							"before": "Die",
+							"after": "Kinder machen viel Lärm. (spielen)",
+							"answer": "spielenden"
+						}
+					]
+				},
+				{
+					"title": "Shorter",
+					"instruction": "Say it in two words.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "das Kind, das lacht",
+							"answer": "das lachende Kind"
+						},
+						{
+							"prompt": "die Tür, die geöffnet wurde",
+							"answer": "die geöffnete Tür"
+						},
+						{
+							"prompt": "der Brief, der geschrieben wurde",
+							"answer": "der geschriebene Brief"
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"turn a verb into a describing word",
+				"tell -end (doing) from ge- (done)",
+				"add the usual ending"
+			]
+		},
+		{
+			"id": "partikeln",
+			"title": "denn, doch, ja, mal",
+			"subtitle": "The tiny words that make you sound human",
+			"hook": "Was machst du denn hier? Komm doch mit! — small, unstressed, in the middle: they turn grammar into conversation.",
+			"hero": {
+				"image": "cp_b1_2_partikeln"
+			},
+			"quiz": "quest_b1_2_modalpartikeln_intro",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "In the middle, never stressed",
+					"note": "After the verb and the pronouns.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Was"
+								},
+								{
+									"de": "machst"
+								},
+								{
+									"de": "du"
+								},
+								{
+									"de": "denn",
+									"hot": true
+								},
+								{
+									"de": "hier?"
+								}
+							],
+							"en": "curious, friendly"
+						},
+						{
+							"cells": [
+								{
+									"de": "Komm"
+								},
+								{
+									"de": "doch",
+									"hot": true
+								},
+								{
+									"de": "mit",
+									"hot": true
+								}
+							],
+							"en": "go on!"
+						},
+						{
+							"cells": [
+								{
+									"de": "Das"
+								},
+								{
+									"de": "ist"
+								},
+								{
+									"de": "ja",
+									"hot": true
+								},
+								{
+									"de": "toll",
+									"hot": true
+								}
+							],
+							"en": "how nice!"
+						},
+						{
+							"cells": [
+								{
+									"de": "Schau"
+								},
+								{
+									"de": "mal",
+									"hot": true
+								},
+								{
+									"de": "hier",
+									"hot": true
+								}
+							],
+							"en": "just"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "What each one adds",
+					"head": [
+						{
+							"text": "word"
+						},
+						{
+							"text": "adds"
+						},
+						{
+							"text": "",
+							"en": true
+						}
+					],
+					"rows": [
+						[
+							"denn",
+							"interest",
+							"in questions: Wo warst du denn?"
+						],
+						[
+							"doch",
+							"encouragement or “you know this”",
+							"Setz dich doch! Das ist doch klar!"
+						],
+						[
+							"ja",
+							"“as you know”, surprise",
+							"Du weißt ja … · Das ist ja toll!"
+						],
+						[
+							"mal",
+							"casually, just",
+							"Warte mal!"
+						],
+						[
+							"eigentlich",
+							"by the way",
+							"Kommst du eigentlich mit?"
+						]
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "tip",
+					"title": "doch alone = yes!",
+					"text": "Answering a no-question with yes: Kommst du nicht? — *Doch!*"
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "unmöglich",
+							"en": "impossible"
+						},
+						{
+							"de": "sich setzen · setz dich!",
+							"en": "to sit down"
+						}
+					],
+					"cols": 2
+				}
+			],
+			"practise": [
+				{
+					"title": "Which little word?",
+					"instruction": "Circle the word that fits.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Was machst du",
+							"options": [
+								"denn",
+								"mal"
+							],
+							"after": "hier?",
+							"answer": "denn"
+						},
+						{
+							"before": "Setz dich",
+							"options": [
+								"doch",
+								"denn"
+							],
+							"after": "!",
+							"answer": "doch"
+						},
+						{
+							"before": "Ich habe",
+							"options": [
+								"ja",
+								"denn"
+							],
+							"after": "keine Zeit, das weißt du.",
+							"answer": "ja"
+						},
+						{
+							"before": "Schau",
+							"options": [
+								"mal",
+								"denn"
+							],
+							"after": "hier.",
+							"answer": "mal"
+						},
+						{
+							"before": "Kommst du",
+							"options": [
+								"eigentlich",
+								"mal"
+							],
+							"after": "mit?",
+							"answer": "eigentlich"
+						},
+						{
+							"before": "Das ist",
+							"options": [
+								"doch",
+								"denn"
+							],
+							"after": "unmöglich!",
+							"answer": "doch"
+						}
+					]
+				},
+				{
+					"title": "Yes!",
+					"instruction": "Circle the right yes.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Kommst du nicht mit? —",
+							"options": [
+								"Doch!",
+								"Ja!"
+							],
+							"after": "",
+							"answer": "Doch!"
+						},
+						{
+							"before": "Kommst du mit? —",
+							"options": [
+								"Doch!",
+								"Ja!"
+							],
+							"after": "",
+							"answer": "Ja!"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"add denn, doch, ja, mal to sound natural",
+				"put them in the middle, unstressed",
+				"answer a no-question with doch"
+			]
+		},
+		{
+			"id": "wortbildung",
+			"title": "-heit, -keit, -schaft",
+			"subtitle": "Four endings that always mean die",
+			"hook": "Gesundheit, Möglichkeit, Freundschaft, Entscheidung: see the ending and you know it’s die.",
+			"hero": {
+				"image": "cp_b1_2_wortbildung"
+			},
+			"quiz": "quest_b1_2_wortbildung",
+			"learn": [
+				{
+					"kind": "build",
+					"title": "The die-quartet",
+					"note": "-keit after -ig, -lich, -bar: die Freundlichkeit, die Schwierigkeit.",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "gesund"
+								},
+								{
+									"text": "heit",
+									"role": "suffix"
+								}
+							],
+							"result": "die Gesundheit",
+							"en": "health"
+						},
+						{
+							"parts": [
+								{
+									"text": "möglich"
+								},
+								{
+									"text": "keit",
+									"role": "suffix"
+								}
+							],
+							"result": "die Möglichkeit",
+							"en": "possibility"
+						},
+						{
+							"parts": [
+								{
+									"text": "Freund"
+								},
+								{
+									"text": "schaft",
+									"role": "suffix"
+								}
+							],
+							"result": "die Freundschaft",
+							"en": "friendship"
+						},
+						{
+							"parts": [
+								{
+									"text": "entscheid"
+								},
+								{
+									"text": "ung",
+									"role": "suffix"
+								}
+							],
+							"result": "die Entscheidung",
+							"en": "decision"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "People",
+					"head": [
+						{
+							"text": "ending"
+						},
+						{
+							"text": "examples"
+						}
+					],
+					"rows": [
+						[
+							"-ler",
+							"der Sportler, der Künstler, der Wissenschaftler"
+						],
+						[
+							"-ant, -ent",
+							"der Praktikant, der Student — with -n (topic 8)"
+						],
+						[
+							"-ist",
+							"der Journalist, der Tourist"
+						]
+					],
+					"note": "For a woman: -in. die Sportlerin."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Meinung",
+							"en": "opinion"
+						},
+						{
+							"de": "die Erfahrung",
+							"en": "experience"
+						},
+						{
+							"de": "die Wissenschaft",
+							"en": "science"
+						},
+						{
+							"de": "forschen",
+							"en": "to research"
+						},
+						{
+							"de": "halten · gehalten",
+							"en": "to last"
+						},
+						{
+							"de": "das Leben",
+							"en": "life"
+						},
+						{
+							"de": "entscheiden",
+							"en": "to decide"
+						},
+						{
+							"de": "online",
+							"en": "online"
+						},
+						{
+							"de": "die beiden",
+							"en": "the two of them"
+						}
+					],
+					"cols": 3
+				}
+			],
+			"practise": [
+				{
+					"title": "Build the word",
+					"instruction": "Write the noun with its article.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Für mich ist",
+							"after": "das Wichtigste im Leben. (gesund)",
+							"answer": "die Gesundheit"
+						},
+						{
+							"before": "Ich habe",
+							"after": "getroffen. (entscheiden)",
+							"answer": "eine Entscheidung"
+						},
+						{
+							"before": "Vielen Dank für Ihre",
+							"after": "! (freundlich)",
+							"answer": "Freundlichkeit"
+						},
+						{
+							"before": "Gibt es",
+							"after": ", den Kurs online zu machen? (möglich)",
+							"answer": "eine Möglichkeit"
+						},
+						{
+							"before": "",
+							"after": "zwischen den beiden hat dreißig Jahre gehalten. (Freund)",
+							"answer": "Die Freundschaft"
+						}
+					]
+				},
+				{
+					"title": "der or die?",
+					"instruction": "Write each word in its column.",
+					"kind": "sort",
+					"columns": [
+						"der",
+						"die"
+					],
+					"words": [
+						"Sportler",
+						"Gesundheit",
+						"Journalist",
+						"Möglichkeit",
+						"Praktikant",
+						"Meinung"
+					],
+					"answers": [
+						0,
+						1,
+						0,
+						1,
+						0,
+						1
+					]
+				}
+			],
+			"canDo": [
+				"know that -heit, -keit, -ung, -schaft mean die",
+				"build nouns from describing words",
+				"name people with -ler, -ant, -ist"
+			]
+		},
+		{
+			"id": "geschichte",
+			"title": "Etwas ist schiefgegangen",
+			"subtitle": "Telling a story in writing",
+			"hook": "Am Anfang, plötzlich, zum Glück, am Ende: four signposts and the written past carry any story.",
+			"hero": {
+				"image": "cp_b1_2_geschichte"
+			},
+			"quiz": "quest_b1_2_schreiben_geschichte",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "The shape of a story",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Am Anfang …",
+									"tag": "set the scene"
+								},
+								{
+									"de": "Plötzlich …",
+									"tag": "something happens"
+								},
+								{
+									"de": "Zum Glück …",
+									"tag": "the rescue"
+								},
+								{
+									"de": "Am Ende …",
+									"tag": "how it ended",
+									"hot": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Which past where?",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "past form"
+						},
+						{
+							"text": "example"
+						}
+					],
+					"rows": [
+						[
+							"the story",
+							"sagte, ging (topics 2–3)",
+							"Ich ging zum Bahnhof."
+						],
+						[
+							"what came before",
+							"hatte / war + past form (topic 4)",
+							"Der Zug war schon abgefahren."
+						],
+						[
+							"states and feelings",
+							"war, hatte",
+							"Ich war sehr nervös."
+						]
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "tip",
+					"title": "Don’t slip into the present",
+					"text": "The most common mistake in a written story is switching to the present halfway. Check every verb before you finish."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "plötzlich",
+							"en": "suddenly"
+						},
+						{
+							"de": "zum Glück",
+							"en": "luckily"
+						},
+						{
+							"de": "nervös",
+							"en": "nervous"
+						},
+						{
+							"de": "schiefgehen",
+							"en": "to go wrong"
+						},
+						{
+							"de": "der Regenschirm",
+							"en": "umbrella"
+						},
+						{
+							"de": "nass",
+							"en": "wet"
+						},
+						{
+							"de": "ganz ruhig",
+							"en": "quite calm"
+						}
+					],
+					"cols": 3
+				}
+			],
+			"practise": [
+				{
+					"title": "Put it in the past",
+					"instruction": "Write the verb in the story past.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Am Anfang",
+							"after": "ich ganz ruhig. (sein)",
+							"answer": "war"
+						},
+						{
+							"before": "Dann",
+							"after": "ich zum Bahnhof. (gehen)",
+							"answer": "ging"
+						},
+						{
+							"before": "Plötzlich",
+							"after": "es stark. (regnen)",
+							"answer": "regnete"
+						},
+						{
+							"before": "Zum Glück",
+							"after": "mir eine Frau ihren Regenschirm. (geben)",
+							"answer": "gab"
+						}
+					]
+				},
+				{
+					"title": "Your story",
+					"instruction": "Write a short story about something that went wrong.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Am Anfang",
+							"after": "."
+						},
+						{
+							"before": "Plötzlich",
+							"after": "."
+						},
+						{
+							"before": "Zum Glück",
+							"after": "."
+						},
+						{
+							"before": "Am Ende",
+							"after": "."
+						}
+					],
+					"note": "About you — every verb in the story past."
+				}
+			],
+			"canDo": [
+				"tell a story in four steps",
+				"keep every verb in the past",
+				"say what had happened before"
+			]
+		},
+		{
+			"id": "review_2",
+			"review": true,
+			"title": "Wiederholung",
+			"subtitle": "Topics 8–17",
+			"hook": "The second half of the book, all at once. No looking back until you have done both pages.",
+			"quiz": "quest_b1_2_wortschatz",
+			"learn": [],
+			"left": [
+				{
+					"title": "Small words",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich helfe dem",
+							"after": ". (Kollege)",
+							"answer": "Kollegen"
+						},
+						{
+							"before": "Ich lerne Deutsch,",
+							"after": "hier zu arbeiten.",
+							"answer": "um"
+						},
+						{
+							"before": "Die Frau,",
+							"after": "Auto dort steht, ist nett.",
+							"answer": "deren"
+						},
+						{
+							"before": "Ich habe weder Zeit",
+							"after": "Geld.",
+							"answer": "noch"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "More",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "ich doch mehr gelernt!",
+							"answer": "Hätte"
+						},
+						{
+							"before": "",
+							"after": "des Regens gehen wir spazieren.",
+							"answer": "Trotz"
+						},
+						{
+							"before": "Das",
+							"after": "Kind schläft. (lachen)",
+							"answer": "lachende"
+						},
+						{
+							"before": "Was machst du",
+							"after": "hier?",
+							"answer": "denn"
+						}
+					]
+				},
+				{
+					"title": "Which article?",
+					"instruction": "Draw a line from the word to its article.",
+					"kind": "match",
+					"left": [
+						"Freundschaft",
+						"Sportler",
+						"Möglichkeit",
+						"Tourist"
+					],
+					"right": [
+						"die",
+						"der",
+						"die",
+						"der"
+					],
+					"answers": [
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"canDo": []
+		}
+	],
+	"overview": {
+		"title": "B1.2 at a glance",
+		"blocks": [
+			{
+				"kind": "table",
+				"title": "The story past",
+				"head": [
+					{
+						"text": ""
+					},
+					{
+						"text": "now"
+					},
+					{
+						"text": "story past"
+					},
+					{
+						"text": "Perfekt"
+					}
+				],
+				"rows": [
+					[
+						"-te",
+						"lernen",
+						"lernte",
+						"hat gelernt"
+					],
+					[
+						"new vowel + -te",
+						"bringen",
+						"brachte",
+						"hat gebracht"
+					],
+					[
+						"new vowel",
+						"gehen",
+						"ging",
+						"ist gegangen"
+					],
+					[
+						"one step further back",
+						"",
+						"hatte gelernt · war gegangen",
+						""
+					]
+				]
+			},
+			{
+				"kind": "table",
+				"title": "The passive",
+				"head": [
+					{
+						"text": ""
+					},
+					{
+						"text": "action"
+					},
+					{
+						"text": "state"
+					}
+				],
+				"rows": [
+					[
+						"now",
+						"wird gebaut",
+						"ist gebaut"
+					],
+					[
+						"past",
+						"wurde gebaut",
+						"war gebaut"
+					],
+					[
+						"with a helper",
+						"muss gebaut werden",
+						""
+					],
+					[
+						"Perfekt",
+						"ist gebaut worden",
+						""
+					]
+				]
+			},
+			{
+				"kind": "columns",
+				"blocks": [
+					{
+						"kind": "table",
+						"title": "Verb last",
+						"head": [
+							{
+								"text": ""
+							},
+							{
+								"text": "",
+								"en": true
+							}
+						],
+						"rows": [
+							[
+								"nachdem · bevor · während",
+								"time"
+							],
+							[
+								"seit · bis · sobald",
+								"time"
+							],
+							[
+								"damit · indem · sodass",
+								"what for, how, result"
+							]
+						]
+					},
+					{
+						"kind": "table",
+						"title": "Whose",
+						"genders": true,
+						"head": [
+							{
+								"text": ""
+							},
+							{
+								"text": "der"
+							},
+							{
+								"text": "die"
+							},
+							{
+								"text": "das"
+							},
+							{
+								"text": "plural"
+							}
+						],
+						"rows": [
+							[
+								"wessen?",
+								"dessen",
+								"deren",
+								"dessen",
+								"deren"
+							],
+							[
+								"wem? (plural)",
+								"",
+								"",
+								"",
+								"denen"
+							]
+						]
+					}
+				]
+			}
+		]
+	},
+	"dictionary": {
+		"title": "Words in pictures",
+		"note": "Thirty-two words from this book. Cover the German, look at the picture, say the word **with its article**.",
+		"words": [
+			{
+				"de": "die Maus",
+				"en": "mouse",
+				"image": "cpd_maus"
+			},
+			{
+				"de": "die Tastatur",
+				"en": "keyboard",
+				"image": "cpd_tastatur"
+			},
+			{
+				"de": "die Festplatte",
+				"en": "hard drive",
+				"image": "cpd_festplatte"
+			},
+			{
+				"de": "der Kopfhörer",
+				"en": "headphones",
+				"image": "cpd_kopfhoerer"
+			},
+			{
+				"de": "die Kamera",
+				"en": "camera",
+				"image": "cpd_kamera"
+			},
+			{
+				"de": "das Ladegerät",
+				"en": "charger",
+				"image": "cpd_ladegeraet"
+			},
+			{
+				"de": "der USB-Stick",
+				"en": "USB stick",
+				"image": "cpd_usbstick"
+			},
+			{
+				"de": "das Handy",
+				"en": "mobile phone",
+				"image": "cpd_handy"
+			},
+			{
+				"de": "der Drucker",
+				"en": "printer",
+				"image": "cpd_drucker"
+			},
+			{
+				"de": "die Brücke",
+				"en": "bridge",
+				"image": "cpd_bruecke"
+			},
+			{
+				"de": "der Kran",
+				"en": "crane",
+				"image": "cpd_kran"
+			},
+			{
+				"de": "die Baustelle",
+				"en": "building site",
+				"image": "cpd_baustelle"
+			},
+			{
+				"de": "der Ritter",
+				"en": "knight",
+				"image": "cpd_ritter"
+			},
+			{
+				"de": "der Drache",
+				"en": "dragon",
+				"image": "cpd_drache"
+			},
+			{
+				"de": "die Krone",
+				"en": "crown",
+				"image": "cpd_krone"
+			},
+			{
+				"de": "das Schloss",
+				"en": "castle",
+				"image": "cpd_schloss"
+			},
+			{
+				"de": "der Dieb",
+				"en": "thief",
+				"image": "cpd_dieb"
+			},
+			{
+				"de": "die Polizei",
+				"en": "police",
+				"image": "cpd_polizei"
+			},
+			{
+				"de": "das Telefon",
+				"en": "telephone",
+				"image": "cpd_telefon"
+			},
+			{
+				"de": "die Glühbirne",
+				"en": "light bulb",
+				"image": "cpd_gluehbirne"
+			},
+			{
+				"de": "der Stau",
+				"en": "traffic jam",
+				"image": "cpd_stau"
+			},
+			{
+				"de": "der Sturm",
+				"en": "storm",
+				"image": "cpd_sturm"
+			},
+			{
+				"de": "das Fenster",
+				"en": "window",
+				"image": "cpd_fenster"
+			},
+			{
+				"de": "die Tür",
+				"en": "door",
+				"image": "cpd_tuer"
+			},
+			{
+				"de": "der Müll",
+				"en": "rubbish",
+				"image": "cpd_muell"
+			},
+			{
+				"de": "das Formular",
+				"en": "form",
+				"image": "cpd_formular"
+			},
+			{
+				"de": "der Wecker",
+				"en": "alarm clock",
+				"image": "cpd_wecker"
+			},
+			{
+				"de": "das Wasser",
+				"en": "water",
+				"image": "cpd_wasser"
+			},
+			{
+				"de": "der Sportler",
+				"en": "athlete",
+				"image": "cpd_sportler"
+			},
+			{
+				"de": "der Künstler",
+				"en": "artist",
+				"image": "cpd_kuenstler"
+			},
+			{
+				"de": "die Zeitung",
+				"en": "newspaper",
+				"image": "cpd_zeitung"
+			},
+			{
+				"de": "der Regenschirm",
+				"en": "umbrella",
+				"image": "cpd_regenschirm"
+			}
+		]
+	},
+	"credits": [
+		{
+			"what": "Illustrations and picture dictionary",
+			"source": "Drawn for this book with Google Gemini",
+			"licence": "© languagequiz.org"
+		}
+	]
+}

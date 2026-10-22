@@ -1,0 +1,149 @@
+{
+	"style": "Figurative flat illustration for a printed German study book, in the spirit of a mid-century children's picture book with a touch of graphic simplification and a sense of humour: subjects drawn naturally and instantly recognizable, with real proportions and simple friendly faces, details reduced to clean flat colour shapes, medium-weight ink-navy outlines, no gradients, no textures. Limited warm palette: ink-navy, terracotta, mustard, sage, soft blue and cream. The drawing floats on a plain pure white background with generous empty margins on every side; nothing touches the edges of the image, no background colour field, no frame. Food and objects never have faces. No text, no letters, no numbers, no digits, no writing on signs or labels, no watermark. Never write any colour codes, hex values, numbers, labels or signatures anywhere in the picture.",
+	"images": [
+		{
+			"id": "cp_b1_2_cover",
+			"prompt": "A friendly picture-book scene of storytelling: a grandfather in an armchair tells a story with big gestures to two children on the rug; above them a story bubble shows a small knight and a friendly dragon having tea; the family cat listens wide-eyed. All people have natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_technik",
+			"prompt": "An office worker in panic in front of a computer with a completely black screen, holding a coffee cup, while a colleague calmly hands him a laptop; on the desk a cat sits on the keyboard looking innocent. Screens are blank.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_praet_reg",
+			"prompt": "An old diary lying open on a wooden desk next to a fountain pen and a cup of tea, with a small pressed flower between the pages; a cat sleeps beside it. The pages have only wavy lines, no letters.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_praet_unreg",
+			"prompt": "A cheerful man walks home in the evening carrying a bag of shopping, and a little dog follows him carrying the last baguette in its mouth; a street lamp and a house with a lit window behind them.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_plusquamperfekt",
+			"prompt": "A man running onto a railway platform with his suitcase, out of breath, just as the last carriage of the train disappears in the distance; a pigeon on the platform looks at him sympathetically. Signs are blank.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_temporal",
+			"prompt": "A kitchen at dinner time: a woman stirs a pot on the stove while a man lays the table with plates and forks, and a child waits at the table with a napkin tied round her neck; the dog waits under the table.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_passiv",
+			"prompt": "A big building site seen from the front: a yellow crane lifts a beam, workers in helmets build a wall, another paints a window frame, and a cat in a tiny helmet supervises from a pile of bricks.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_passiv_modal",
+			"prompt": "A restaurant door with a closed sign hanging on it (the sign blank), a man in front of it holding his stomach, hungry and disappointed; inside, through the window, the tables are already laid and a waiter waves apologetically.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_n_dekl",
+			"prompt": "A student with a backpack shaking hands with an older gentleman in a hat in front of a plain brick building with no sign; a neighbour waves from a window, and a boy rides past on a bicycle. Natural skin colours, no text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_zweck",
+			"prompt": "A woman jogging in a park early in the morning with headphones, a piggy bank under her arm as if she were saving money while running; a squirrel jogs beside her.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_relativ_dat",
+			"prompt": "A street of houses seen from the front: in one window a woman whose dog barks at a postman, in another a man reading, on the pavement a red car parked in front of a house, and children chalk on the ground.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_konnektoren",
+			"prompt": "Two friends at a crossroads with a signpost pointing in two directions (signs blank), one holding a map and one holding an umbrella and sunglasses at the same time, trying to decide.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_wuensche",
+			"prompt": "A man standing at a bus stop in pouring rain without an umbrella, soaked, looking at a poster on the bus shelter wall that shows only a sunny beach, no text; his umbrella can be seen lying at home in a small thought bubble.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_trotz_wegen",
+			"prompt": "A family having a picnic on a blanket in the rain, all wearing raincoats and smiling stubbornly, eating sandwiches under umbrellas; their dog sits in a puddle, delighted.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_partizip",
+			"prompt": "A living room: a laughing child on a rug, a sleeping dog on the sofa, a boiling kettle on a small stove in the corner with steam, and an open window with curtains blowing.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_partikeln",
+			"prompt": "Two friends meeting by surprise in a supermarket aisle, both pointing at each other with wide, happy surprise, each holding a shopping basket; a small child in a trolley looks on. Product labels blank.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_wortbildung",
+			"prompt": "Three people side by side: a sportswoman in running clothes with a medal, an artist with a paint palette in front of an easel, and a scientist in a lab coat holding a test tube — all waving.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_2_geschichte",
+			"prompt": "A woman on a rainy street whose umbrella has been turned inside out by the wind, while a kind stranger offers her his own umbrella; a dog in a yellow raincoat watches from a doorway.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		}
+	]
+}

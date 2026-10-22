@@ -1,4 +1,5 @@
 {
+	"style": "Figurative flat illustration for a printed German study book, in the spirit of a mid-century children's picture book with a touch of graphic simplification and a sense of humour: subjects drawn naturally and instantly recognizable, with real proportions and simple friendly faces, details reduced to clean flat colour shapes, medium-weight ink-navy outlines, no gradients, no textures. Limited warm palette: ink-navy, terracotta, mustard, sage, soft blue and cream. The drawing floats on a plain pure white background with generous empty margins on every side; nothing touches the edges of the image, no background colour field, no frame. Food and objects never have faces. No text, no letters, no numbers, no digits, no writing on signs or labels, no watermark. Never write any colour codes, hex values, numbers, labels or signatures anywhere in the picture.",
 	"images": [
 		{
 			"id": "cpd_sonne",
@@ -723,6 +724,222 @@
 		{
 			"id": "cpd_uhr",
 			"prompt": "One object alone, centred, nothing else in the picture: a wristwatch.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_maus",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a computer mouse.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_tastatur",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a computer keyboard.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_festplatte",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an external hard drive.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kopfhoerer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a pair of headphones.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kamera",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a photo camera.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ladegeraet",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a phone charger with its cable.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_usbstick",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a USB stick.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_handy",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a smartphone with a blank screen.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_bruecke",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a stone bridge over a river.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kran",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a yellow construction crane, drawn large.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_baustelle",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a small building site with bricks, a cement mixer and a barrier.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ritter",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a friendly knight in armour holding a shield.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_drache",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a friendly green dragon.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_krone",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a golden crown.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_dieb",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a cartoon burglar in a striped jumper and black mask, sneaking with a bag.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_polizei",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a police officer in a German green-and-blue uniform and cap.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_gluehbirne",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a light bulb.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_stau",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a traffic jam seen from the front at a slight angle: cars close together filling the picture, drawn large.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_sturm",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a stormy sky with dark clouds, wind and bending trees.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fenster",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a window with open shutters.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_tuer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden front door.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_muell",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a rubbish bin with a full bag.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_formular",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a paper form with empty boxes and lines, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wecker",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an old ringing alarm clock.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wasser",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a glass of water.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_sportler",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a sportsman running.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kuenstler",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an artist painting at an easel.",
 			"aspect": "1:1",
 			"size": 800,
 			"transparent": true,

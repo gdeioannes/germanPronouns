@@ -84,6 +84,15 @@ don't render in `words` items or in the hook line, so don't use them there.
 - **The picture dictionary is drawn fresh** for each book, in the same study-book style (GDI,
   2026-10-21: the app's word-card pictures are not usable on paper). One plain object per word,
   ids `cpd_<word>`, shared between books, so a word drawn once is reused later.
+- **Check every new picture by eye** (a contact sheet of the batch). Gemini's repeat faults:
+  - stray colour codes or numbers printed in a corner (`#fb8833`)
+  - English text on documents (CV, licence)
+  - faces on food
+  - odd skin colours (green, blue, teal)
+  - the scene not matching the word (a cat *in* the basket for *hinter*)
+
+  Fix the prompt, delete `assets/images/raw/<id>.png` and the `.webp`, and run again. Without the
+  delete, the tool reuses the cached original.
 - Every picture a book prints must be on disk, and the credits can't be empty **(tested)**.
 
 ## Rights

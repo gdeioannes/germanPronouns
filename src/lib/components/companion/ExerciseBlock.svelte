@@ -42,9 +42,9 @@
 			{/each}
 		</ol>
 	{:else if ex.kind === 'sort'}
-		<p class="bank" lang="de">{#each ex.words as w (w)}<span>{w}</span>{/each}</p>
+		<p class="bank" lang="de">{#each ex.words as w, i (i)}<span>{w}</span>{/each}</p>
 		<div class="sort" style:--cols={ex.columns.length}>
-			{#each ex.columns as c (c)}
+			{#each ex.columns as c, ci (ci)}
 				<div><b lang="de">{c}</b>{#each Array(Math.ceil(ex.words.length / ex.columns.length) + 1) as _, i (i)}<span class="line"></span>{/each}</div>
 			{/each}
 		</div>
@@ -57,15 +57,15 @@
 	{:else if ex.kind === 'match'}
 		<div class="match">
 			<ol>
-				{#each ex.left as l (l)}<li class="tnum">{l}<span class="dot"></span></li>{/each}
+				{#each ex.left as l, i (i)}<li class="tnum">{l}<span class="dot"></span></li>{/each}
 			</ol>
 			<ol>
-				{#each ex.right as r (r)}<li lang="de"><span class="dot"></span>{r}</li>{/each}
+				{#each ex.right as r, i (i)}<li lang="de"><span class="dot"></span>{r}</li>{/each}
 			</ol>
 		</div>
 	{:else if ex.kind === 'tags'}
 		<ol class="tags">
-			{#each ex.items as item (item.image)}
+			{#each ex.items as item, i (i)}
 				<li>
 					<img src="/img/{item.image}.webp" alt="" width="1024" height="1024" />
 					<span class="tag"><span class="hole"></span><span class="blank"></span>{ex.unit ?? ''}</span>
