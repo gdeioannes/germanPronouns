@@ -5,6 +5,7 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import StoreEditions from '$lib/components/StoreEditions.svelte';
 	import { LITERATURE } from '$lib/content/literature';
 	import { track } from '$lib/services/analytics';
 	import { absoluteUrl, breadcrumbLd, readingBookLd } from '$lib/seo';
@@ -68,18 +69,7 @@
 					<Icon name="download" size="1em" /> PDF to print ({book.pdf.pages} pages)
 				</a>
 			</div>
-			{#if book.store}
-				<p class="store">
-					Also as a printed book or on Kindle, on {book.store.name}:
-					{#each book.store.editions as e, i (e.format)}{i ? ' · ' : ''}<a
-							href={e.href}
-							target="_blank"
-							rel="noopener"
-							onclick={() => track('literature_store', { book: book.id, format: e.format, from: 'reader' })}
-							>{e.format}</a
-						>{/each}
-				</p>
-			{/if}
+			<StoreEditions {book} from="reader" />
 		</div>
 	</header>
 
@@ -174,16 +164,6 @@
 		margin-top: 1rem;
 	}
 
-	.store {
-		margin: 0.8rem 0 0;
-		font-size: var(--step--1);
-		color: var(--ink-muted);
-	}
-
-	.store a {
-		color: var(--accent-ink);
-		font-weight: 700;
-	}
 
 	.primary {
 		display: inline-flex;

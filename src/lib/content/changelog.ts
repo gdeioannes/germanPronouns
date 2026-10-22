@@ -16,6 +16,17 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-22",
+    title: "B1.1 on paper: the fifth study book",
+    highlight: true,
+    items: [
+      "The B1.1 PDF is now a 46-page study book written for paper, like the A books. It replaces the old generated workbook and is on the Workbooks shelf with its own cover.",
+      "Seventeen topics: the world of work, adjective endings after der, after ein and with no article at all, bigger and best before a noun, die Deutschen and etwas Neues, würde, hätte and wäre, the future with werden, der Kollege, mit dem …, the genitive, als, wenn and obwohl, falls and da, zu + verb, es gibt and es lohnt sich, worauf and darauf, and formal and informal e-mails.",
+      "Every topic has a drawing that explains it: the path from job advert to contract, the window of -e endings, cut the d- and glue the rest, a chart for the three jobs of werden, and one for als or wenn.",
+      "Two listening exercises with QR codes — a job interview and a radio survey — and a picture dictionary of 32 words.",
+    ],
+  },
+  {
     date: "2026-10-21",
     title: "A2.2 on paper: the fourth study book",
     highlight: true,

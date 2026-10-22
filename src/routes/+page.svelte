@@ -9,6 +9,7 @@
 	// here is a hand-maintained duplicate of the content, and because the route
 	// is prerendered a crawler sees all of it as plain HTML.
 	import Icon from '$lib/icons/Icon.svelte';
+	import StoreEditions from '$lib/components/StoreEditions.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import { account } from '$lib/state/account.svelte';
 	import { openSignIn } from '$lib/state/signin.svelte';
@@ -375,8 +376,9 @@
 				<h2 id="lit-offer-title">Read Kafka in the German he wrote.</h2>
 				<p>
 					<i lang="de">{kafka.title}</i>, the whole story in its original words, split into
-					twelve short reading stages. Each stage starts with the hard words in English, and
-					notes at the foot of the page explain the German worth noticing on the way.
+					twelve short reading stages. The hard words are explained in English in the margin,
+					beside the line they are on, and notes at the foot of the page explain the German
+					worth noticing on the way.
 				</p>
 				<div class="lit-actions">
 					<a
@@ -390,6 +392,7 @@
 					<a class="lit-more" href="/literature">See the literature shelf <Icon name="arrowRight" size="1em" /></a>
 				</div>
 				<p class="book-note">{kafka.pdf.pages} pages · {kafka.level} · English glossaries and notes</p>
+				<StoreEditions book={kafka} from="home" />
 				<p class="lit-request">
 					Want a different book? <a href={bookRequestHref()}>Ask for it on the forum</a>.
 				</p>

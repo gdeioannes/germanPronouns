@@ -1,0 +1,148 @@
+{
+	"images": [
+		{
+			"id": "cp_b1_1_cover",
+			"prompt": "A friendly picture-book scene of a lively discussion at a café table: four friends of different ages talk with lively gestures over coffee and cake, one dreamily imagining a beach in a thought bubble, one pointing at a newspaper; under the table a dog listens with its head tilted. The newspaper has blank columns, no writing.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_arbeit",
+			"prompt": "A small friendly office: a woman at a desk with a laptop, a colleague bringing two cups of coffee, a printer spitting out paper, and an office dog asleep in a basket under the desk wearing a tiny lanyard.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_adj_bestimmt",
+			"prompt": "A shop window with three coats on mannequins — a big red one, a small blue one, a long green one — and a woman outside pointing at the big red coat, while her small dog points its nose at the small blue one.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_adj_unbestimmt",
+			"prompt": "A flea-market table full of things: an old lamp, a new teddy bear, a big clock, a small vase; a young man holds up a strange old hat, and a cat sits on the table pretending to be for sale.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_adj_nullartikel",
+			"prompt": "A bakery counter with fresh bread rolls, a jug of warm milk and steaming strong coffee; a happy baker hands a fresh loaf across the counter, and a sparrow on the counter steals a crumb.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_adj_komparativ",
+			"prompt": "Two flats side by side seen from the front like a doll's house: a tiny cramped one with a man squeezed in, and a big bright one next door with a balcony and plants; the man looks enviously through the wall at the bigger flat where a cat stretches out lazily.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_adj_nomen",
+			"prompt": "A big family wedding photo in a garden: the bride and groom in the middle, grandparents, aunts, uncles, cousins and children around them, everyone smiling, and the family dog in the front row wearing a bow tie.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_konj2_wuerde",
+			"prompt": "A woman at her office desk on a rainy day, daydreaming: a big thought bubble above her shows her lying in a hammock on a sunny beach; on her desk a small cactus wears tiny sunglasses.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_konj2_haette",
+			"prompt": "A man at a bus stop counting a few coins in his hand and dreaming: a thought bubble above him shows him driving a red sports car with a dog in goggles beside him.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_futur",
+			"prompt": "A fortune teller at a little round table looking into a crystal ball, while a young couple lean forward eagerly; inside the ball a tiny picture of a house with a garden, and a cat on the table is trying to look into the ball too.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_relativ",
+			"prompt": "An open-plan office seen from the front: a colleague waters plants, another talks on the phone, a third eats a sandwich at her desk, and a man in the middle waves at the viewer as if introducing them all.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_genitiv",
+			"prompt": "A colourful house with a blue door and a red roof on a rainy day; in front of it a man holds an umbrella over his car instead of over himself, and his neighbour's cat watches from a dry window.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_konjunktionen",
+			"prompt": "A grown-up woman on a sofa looking at an old photo album; floating above her, like a memory bubble, a scene of her as a little girl building a sandcastle with her father on a beach.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_falls_da",
+			"prompt": "A hiker at the start of a mountain path, carefully packing an umbrella, a raincoat, sunglasses, sunscreen and a sandwich into a huge backpack for every possible weather, while the sky above is perfectly clear and a goat watches, unimpressed.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_infinitiv_zu",
+			"prompt": "A young man in pyjamas trying very hard to get up early: three alarm clocks ringing around his bed, one arm reaching out, while his cat sits on his chest keeping him down.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_es",
+			"prompt": "On a winter street, a woman with rosy cheeks and natural skin colour is wrapped in a thick blanket and scarf, shivering, next to a man in shorts and a T-shirt happily eating an ice cream; between them a small dog wears a knitted jumper.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_verben_praep",
+			"prompt": "A young woman waiting at a train station with a big bunch of flowers, looking at her watch; behind her a whole crowd of pigeons also waits in a neat line, looking in the same direction.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_b1_1_email",
+			"prompt": "A young man at a laptop writing an e-mail, a cup of coffee beside him; his cat lies across half the keyboard, and a small bird on the window sill peeks at the screen. The screen is blank, no writing.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		}
+	]
+}

@@ -5,6 +5,7 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import StoreEditions from '$lib/components/StoreEditions.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { LITERATURE, bookRequestHref, bookRequestRule } from '$lib/content/literature';
 	import { track } from '$lib/services/analytics';
@@ -65,17 +66,7 @@
 						</a>
 					</div>
 					<p class="small">{book.pdf.pages} pages · {book.pdf.megabytes} MB · print it or read it on a tablet</p>
-					{#if book.store}
-						<p class="store">
-							Also as a printed book or on Kindle, on {book.store.name}:
-							{#each book.store.editions as e, i (e.format)}{i ? ' · ' : ''}<a
-									href={e.href}
-									target="_blank"
-									rel="noopener"
-									onclick={() => track('literature_store', { book: book.id, format: e.format })}>{e.format}</a
-								>{/each}
-						</p>
-					{/if}
+					<StoreEditions {book} from="shelf" />
 				</div>
 			</li>
 		{/each}
@@ -188,16 +179,6 @@
 		color: var(--ink-muted);
 	}
 
-	.store {
-		margin: 0.4rem 0 0;
-		font-size: var(--step--1);
-		color: var(--ink-muted);
-	}
-
-	.store a {
-		color: var(--accent-ink);
-		font-weight: 700;
-	}
 
 	.request {
 		margin: 2rem 0 0;

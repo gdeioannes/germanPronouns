@@ -511,6 +511,222 @@
 			"size": 800,
 			"transparent": true,
 			"trim": true
+		},
+		{
+			"id": "cpd_lebenslauf",
+			"prompt": "One object alone, centred: a one-page document with a small empty photo square in the corner and only plain coloured bars and lines instead of text. Absolutely no letters, words or writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_vertrag",
+			"prompt": "One object alone, centred, nothing else in the picture: a signed contract with blank lines and a pen, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schreibtisch",
+			"prompt": "One object alone, centred, nothing else in the picture: an office desk with a drawer.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_drucker",
+			"prompt": "One object alone, centred, nothing else in the picture: an office printer.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ordner",
+			"prompt": "One object alone, centred, nothing else in the picture: a ring binder folder.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_laptop",
+			"prompt": "One object alone, centred, nothing else in the picture: an open laptop with a blank screen.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kaffeemaschine",
+			"prompt": "One object alone, centred, nothing else in the picture: a coffee machine.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_bildschirm",
+			"prompt": "One object alone, centred, nothing else in the picture: a computer monitor with a blank screen.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_telefon",
+			"prompt": "One object alone, centred, nothing else in the picture: a desk telephone.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_akku",
+			"prompt": "One object alone, centred, nothing else in the picture: a phone battery pack with a charging cable.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_balkon",
+			"prompt": "One object alone, centred, nothing else in the picture: a balcony with flower boxes on a house wall.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_milch",
+			"prompt": "One object alone, centred, nothing else in the picture: a glass bottle of milk.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_brot",
+			"prompt": "One object alone, centred: a plain round crusty loaf of bread. It is just bread: no face, no eyes, no mouth.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kaffee",
+			"prompt": "One object alone, centred, nothing else in the picture: a cup of coffee.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_hochzeit",
+			"prompt": "A bride in a white dress and veil and a groom in a dark suit, both with natural skin colour, holding hands and smiling.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fuehrerschein",
+			"prompt": "One object alone, centred: a small pink plastic ID card with an empty photo square and plain lines, no letters, no words, no writing at all.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_krimi",
+			"prompt": "One object alone, centred, nothing else in the picture: a crime novel book with a magnifying glass on the cover, no title.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_gitarre",
+			"prompt": "One object alone, centred, nothing else in the picture: an acoustic guitar.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_grill",
+			"prompt": "One object alone, centred, nothing else in the picture: a small barbecue grill with sausages.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_konzert",
+			"prompt": "One object alone, centred, nothing else in the picture: a small concert stage with a band of three musicians.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fahrkartenautomat",
+			"prompt": "One object alone, centred, nothing else in the picture: a train ticket machine with a blank screen, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_rente",
+			"prompt": "One object alone, centred, nothing else in the picture: an old couple sitting happily on a park bench.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_geld",
+			"prompt": "One object alone, centred, nothing else in the picture: some euro banknotes and coins, no numbers.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_bank",
+			"prompt": "One object alone, centred, nothing else in the picture: a bank building with columns, blank sign.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_anzug",
+			"prompt": "One object alone, centred, nothing else in the picture: a man's suit on a hanger.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kuchen",
+			"prompt": "One object alone, centred, nothing else in the picture: a cake with one slice cut out.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_uhr",
+			"prompt": "One object alone, centred, nothing else in the picture: a wristwatch.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
 		}
 	]
 }
