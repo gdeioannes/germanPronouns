@@ -17,6 +17,8 @@ export interface LiteratureBook {
 	/** What this edition adds, one line each. */
 	inside: string[];
 	pdf: { href: string; pages: number; megabytes: number };
+	/** The same edition in print and on Kindle, where it is sold. */
+	store?: { name: string; editions: { format: string; href: string }[] };
 	cover: string;
 	/** The book read online, stage by stage, when it has web pages. */
 	read?: string;
@@ -40,6 +42,14 @@ export const LITERATURE: LiteratureBook[] = [
 			'A dictionary at the back, A to Z, with the page that explains each word'
 		],
 		pdf: { href: '/books/literature/kafka_die_verwandlung.pdf', pages: 113, megabytes: 2.9 },
+		store: {
+			name: 'Amazon',
+			editions: [
+				{ format: 'Paperback', href: 'https://www.amazon.de/dp/B0HNTWFST6' },
+				{ format: 'Hardcover', href: 'https://www.amazon.de/dp/B0HNSGW3GK' },
+				{ format: 'Kindle', href: 'https://www.amazon.de/dp/B0HNRHB7JH' }
+			]
+		},
 		cover: '/img/book-kafka-front.webp',
 		read: '/literature/die-verwandlung'
 	}

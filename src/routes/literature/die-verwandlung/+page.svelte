@@ -68,6 +68,18 @@
 					<Icon name="download" size="1em" /> PDF to print ({book.pdf.pages} pages)
 				</a>
 			</div>
+			{#if book.store}
+				<p class="store">
+					Also as a printed book or on Kindle, on {book.store.name}:
+					{#each book.store.editions as e, i (e.format)}{i ? ' · ' : ''}<a
+							href={e.href}
+							target="_blank"
+							rel="noopener"
+							onclick={() => track('literature_store', { book: book.id, format: e.format, from: 'reader' })}
+							>{e.format}</a
+						>{/each}
+				</p>
+			{/if}
 		</div>
 	</header>
 
@@ -160,6 +172,17 @@
 		gap: 0.6rem 1.2rem;
 		align-items: center;
 		margin-top: 1rem;
+	}
+
+	.store {
+		margin: 0.8rem 0 0;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	.store a {
+		color: var(--accent-ink);
+		font-weight: 700;
 	}
 
 	.primary {
