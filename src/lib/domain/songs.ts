@@ -333,6 +333,141 @@ export const SONGS: Song[] = [
       },
     ],
   },
+  {
+    id: "wie_bitte_max",
+    courseId: "de_cert_a1",
+    level: "A1.1",
+    title: "Wie bitte?",
+    tagline:
+      "Max’s first date, survived on five German words. Too loud, too fast, snails and the bill: learn to ask when you don’t understand.",
+    href: "/song/wie-bitte",
+    quiz: "quest_a1_1_hoeren_vorstellung",
+    audio: "/audio/songs/wie_bitte_max.mp3",
+    after: "quest_a1_1_hoeren_vorstellung",
+    teaches: [
+      "Wie bitte? / Noch einmal, bitte.",
+      "Langsam, bitte.",
+      "Es ist zu laut. / Lauter, bitte.",
+      "Ich kenne das Wort nicht. / Was bedeutet …?",
+      "Können Sie das erklären?",
+      "Ich weiß es nicht.",
+      "Ich verstehe nur Bahnhof. (I don’t understand a thing)",
+    ],
+    sections: [
+      {
+        title: "Intro",
+        note: "spoken",
+        lines: [
+          en("Tonight I have a date. Lena. From Berlin."),
+          en("My German? Ten words."),
+          de("And five of them are „Wie bitte?“", "Wie bitte? = sorry, what did you say?"),
+        ],
+      },
+      {
+        title: "Verse 1: the bar",
+        lines: [
+          en("A bar in Kreuzberg, the music is loud,"),
+          en("Lena says something, I’m lost in the crowd."),
+          de("„Wie bitte?“ What? She shouts it again.", "Wie bitte? = sorry, what did you say?"),
+          de("„Wie bitte?“ Nothing. Again and again.", "Wie bitte? = sorry, what did you say?"),
+          de("„Es ist zu laut!“ It’s too loud in here!", "Es ist zu laut! = it’s too loud!"),
+          de("She grabs my hand: „Komm!“ Come on, let’s go!", "Komm! = come on!"),
+          en("She knows a quiet place, she says, just wait…"),
+          en("the library. A date in the library. Great."),
+        ],
+      },
+      {
+        title: "Hook",
+        note: "everybody shouts the German",
+        lines: [
+          de("Wie bitte? Wie bitte?", "What? What?"),
+          de("Say it again: noch einmal, bitte!", "noch einmal, bitte = once more, please"),
+          de("Langsam, bitte, slow it down,", "langsam, bitte = slowly, please"),
+          de(
+            "ich verstehe nur Bahnhof, I don’t get a thing in this town!",
+            "ich verstehe nur Bahnhof = lit. I only understand “station”: I don’t understand a thing",
+          ),
+          de("(Wie bitte? WIE BITTE!)", "What? WHAT?!"),
+        ],
+      },
+      {
+        title: "Verse 2: the library",
+        lines: [
+          en("Now it’s so quiet, she whispers so low,"),
+          de("„Lauter, bitte!“ Louder, please! „PSST!“ says the lady. Oh no.", "Lauter, bitte! = louder, please!"),
+          en("Then Lena gets happy, she talks like a train,"),
+          en("her job, her cat, her ex, her cat again."),
+          de("„Langsam, bitte!“ Slowly, please! Now she’s a robot:", "Langsam, bitte! = slowly, please!"),
+          de("„Ich… ha… be… ei… ne… Kat… ze.“ I have a cat. Got it!", "Ich habe eine Katze = I have a cat"),
+          de("„Noch einmal, bitte?“ Why did I say that?", "Noch einmal, bitte? = once more, please?"),
+          de("„Ich… ha… be…“ The library closes. That’s that.", "Ich habe … = I have …"),
+        ],
+      },
+      {
+        title: "Hook",
+        note: "everybody shouts the German",
+        lines: [
+          de("Wie bitte? Wie bitte?", "What? What?"),
+          de("Say it again: noch einmal, bitte!", "noch einmal, bitte = once more, please"),
+          de("Langsam, bitte, slow it down,", "langsam, bitte = slowly, please"),
+          de(
+            "ich verstehe nur Bahnhof, I don’t get a thing in this town!",
+            "ich verstehe nur Bahnhof = lit. I only understand “station”: I don’t understand a thing",
+          ),
+          de("(Wie bitte? WIE BITTE!)", "What? WHAT?!"),
+        ],
+      },
+      {
+        title: "Verse 3: the restaurant",
+        lines: [
+          en("Restaurant next, I can’t read a line,"),
+          de("Lena orders for us: „Zweimal Schnecken und Wein!“", "Zweimal Schnecken und Wein! = snails twice, and wine!"),
+          de("„Ich kenne das Wort nicht.“ I don’t know that word.", "Ich kenne das Wort nicht = I don’t know that word"),
+          de("„Was bedeutet Schnecken?“ Is it fish? Is it bird?", "Was bedeutet …? = what does … mean?"),
+          de("I ask the waiter: „Können Sie das erklären?“", "Können Sie das erklären? = can you explain that?"),
+          en("He gets down on the floor and crawls. Very slow."),
+          de("Snails. Two plates of snails.", "die Schnecken = the snails"),
+          de("„Schmeckt’s?“ Is it good? „Ich weiß es nicht.“ I don’t know.", "Schmeckt’s? = does it taste good? · Ich weiß es nicht = I don’t know"),
+        ],
+      },
+      {
+        title: "Verse 4: the bill",
+        lines: [
+          de("The waiter comes back: „Die Rechnung. Neunzig Euro.“", "Die Rechnung. Neunzig Euro. = the bill. Ninety euros."),
+          de("„Was bedeutet Rechnung?“ Lena smiles: “The bill. You pay.”", "Was bedeutet Rechnung? = what does “Rechnung” mean?"),
+          de("„Wie bitte?“ „Neunzig.“ „Noch einmal?“ „NEUNZIG!“", "What? – Ninety. – Once more? – NINETY!"),
+          en("Ninety euro for two plates of snails?"),
+          de("„Ich verstehe nur Bahnhof!“ I understand nothing!", "Ich verstehe nur Bahnhof! = I don’t understand a thing!"),
+          en("Lena laughs so hard that she pays the bill."),
+        ],
+      },
+      {
+        title: "Hook",
+        note: "twice, crowd on every German word",
+        lines: [
+          de("Wie bitte? Wie bitte?", "What? What?"),
+          de("Say it again: noch einmal, bitte!", "noch einmal, bitte = once more, please"),
+          de("Langsam, bitte, slow it down,", "langsam, bitte = slowly, please"),
+          de(
+            "ich verstehe nur Bahnhof, I don’t get a thing in this town!",
+            "ich verstehe nur Bahnhof = lit. I only understand “station”: I don’t understand a thing",
+          ),
+          de("(Wie bitte? WIE BITTE!)", "What? WHAT?!"),
+        ],
+      },
+      {
+        title: "Outro",
+        note: "spoken, the next morning",
+        lines: [
+          en("Next morning. A message from Lena."),
+          de("Two words: „Noch einmal?“", "Noch einmal? = once more?"),
+          en("One more time?"),
+          de("„Ja, bitte. Aber langsam.“", "Ja, bitte. Aber langsam. = yes, please. But slowly."),
+          en("Yes, please. But slowly."),
+        ],
+      },
+    ],
+  },
 ];
 
 const ID_PREFIX = "song:";

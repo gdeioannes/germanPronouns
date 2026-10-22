@@ -25,6 +25,7 @@ export const GET: RequestHandler = async () => {
 		{ loc: '/changelog', lastmod: lastModified('src/lib/content/changelog.ts'), priority: '0.4' },
 		{ loc: '/about', lastmod: lastModified('src/routes/about'), priority: '0.5' },
 		{ loc: '/contact', lastmod: lastModified('src/routes/contact'), priority: '0.3' },
+		{ loc: '/songs', lastmod: lastModified('src/lib/domain/songs.ts'), priority: '0.6' },
 		{ loc: '/stories', lastmod: lastModified('src/lib/domain/stories.ts'), priority: '0.6' },
 		{ loc: '/literature', lastmod: lastModified('src/lib/content/literature.ts'), priority: '0.6' },
 		// The boards' front page; the topics themselves load live and stay noindex.

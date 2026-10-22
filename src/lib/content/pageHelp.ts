@@ -219,6 +219,21 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 		]
 	},
 
+	'/songs': {
+		title: 'Songs',
+		intro: 'Funny sing-alongs about Max in Berlin. Each one has the recording, the lyrics and the English for every German line.',
+		items: [
+			{
+				title: 'Pick a song',
+				text: 'Tap a song to open it, then press play. "Heard" marks the songs you have listened to the end.'
+			},
+			{
+				title: 'In your deck',
+				text: 'Songs also turn up in your deck as a surprise, one at a time. Here you can pick any of them.'
+			}
+		]
+	},
+
 	'/stories': {
 		title: 'Stories',
 		intro: 'Maya\'s Berlin mysteries: playable stories, one for each step of the course. You solve the case with the German you have.',

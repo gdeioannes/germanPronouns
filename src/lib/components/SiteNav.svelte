@@ -22,7 +22,6 @@
 	import { forum } from '$lib/state/forum.svelte';
 	import { account } from '$lib/state/account.svelte';
 	import { openSignIn } from '$lib/state/signin.svelte';
-	import { SONGS } from '$lib/domain/songs';
 	import ContactsPeek from '$lib/components/match/ContactsPeek.svelte';
 	import PageHelp from '$lib/components/PageHelp.svelte';
 
@@ -49,10 +48,6 @@
 	const inCourse = $derived(
 		page.url.pathname === courseHref || page.url.pathname.startsWith(`${courseHref}/`)
 	);
-
-	// Stories has its own shelf page; Songs is one link, the song page lists
-	// the other songs itself.
-	const firstSong = SONGS[0]?.href ?? '/song/ich-bin-max';
 
 	type Menu = 'levels' | 'library' | 'about';
 
@@ -142,7 +137,7 @@
 	<a href="{courseHref}/worksheet"><Icon name="printer" size="1em" /> Printable sheets</a>
 	<a href="/stories"><Icon name="compass" size="1em" /> Stories</a>
 	<a href="/literature"><Icon name="book" size="1em" /> Literature</a>
-	<a href={firstSong}><Icon name="headphones" size="1em" /> Songs</a>
+	<a href="/songs"><Icon name="headphones" size="1em" /> Songs</a>
 {/snippet}
 
 <!-- The forum is a root link, not a dropdown entry: it is where a learner goes

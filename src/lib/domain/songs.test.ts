@@ -65,6 +65,15 @@ describe("songDeckCard", () => {
         new Set([...skipped, "song:der_die_das"]),
         () => true,
         never,
+      )?.quiz.id,
+    ).toBe("song:wie_bitte_max");
+    expect(
+      songDeckCard(
+        "de_cert_a1",
+        "A1.1",
+        new Set([...skipped, "song:der_die_das", "song:wie_bitte_max"]),
+        () => true,
+        never,
       ),
     ).toBeNull();
   });

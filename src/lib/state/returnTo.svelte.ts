@@ -10,7 +10,7 @@ const SIDE_TRIPS = [
 	/^\/words(\/|$)/,
 	/^\/stories\/?$/,
 	/^\/literature\/?$/,
-	/^\/song\//,
+	/^\/songs?(\/|$)/,
 	/^\/settings\/?$/,
 	/^\/about\/?$/,
 	/^\/contact\/?$/,

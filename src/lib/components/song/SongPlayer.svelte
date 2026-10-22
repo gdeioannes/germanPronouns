@@ -4,8 +4,8 @@
 	// "Heard it" switch that stops the deck dealing the song again. No score,
 	// no medal: a song is a treat, not a test.
 	import Seo from '$lib/components/Seo.svelte';
+	import SiteNav from '$lib/components/SiteNav.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
-	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { markSongHeard, SONGS, songHeard, type Song } from '$lib/domain/songs';
 	import { breadcrumbLd, shareImage, songDescription, songLd, songTitle } from '$lib/seo';
 	import { announce } from '$lib/a11y.svelte';
@@ -14,10 +14,10 @@
 
 	let { song, courseName }: { song: Song; courseName: string } = $props();
 
-	// Back to where the menu was opened: home, or the deck.
-	const backLabel = $derived(
-		{ Home: 'Back home', 'Your deck': 'Back to your deck' }[returnLabel(returnTo.path)] ?? 'Back'
-	);
+	// The site menu stays on top, and the arrow goes back to the songs list
+	// (/songs), where the learner picks the next one.
+	const courseHref = $derived(page.data.site?.courseHref ?? '/');
+	const backLabel = 'Back to all songs';
 
 	// The playlist under the lyrics lists every song, this one included, each
 	// with its own play button and the exercise that drills its material.
@@ -101,9 +101,11 @@
 	]}
 />
 
+<SiteNav {courseHref} />
+
 <main class="song">
 	<header class="top">
-		<a class="back" href={returnTo.path} aria-label={backLabel} title={backLabel}>
+		<a class="back" href="/songs" aria-label={backLabel} title={backLabel}>
 			<Icon name="arrowLeft" size="1.15em" />
 		</a>
 		<span class="kind" aria-hidden="true"><Icon name="headphones" size="1em" /></span>
@@ -190,7 +192,7 @@
 	</section>
 
 	<section class="more" aria-label="Songs">
-		<h2>Songs</h2>
+		<h2><a href="/songs">All songs</a></h2>
 		<ul>
 			{#each SONGS as s (s.id)}
 				{@const current = s.id === song.id}

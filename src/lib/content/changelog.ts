@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-23",
+    title: 'A third song: "Wie bitte?", and a page for all songs',
+    items: [
+      "New song: Max's first date with Lena, survived on five German words. Too loud, too fast, a plate of snails and the bill: Wie bitte?, Noch einmal, bitte, Langsam, bitte, Ich kenne das Wort nicht, Was bedeutet …?, Können Sie das erklären? and Ich verstehe nur Bahnhof.",
+      "It turns up in your A1.1 deck after the listening exercise where you introduce yourself, and the English for every German line is right under the lyrics.",
+      "Songs in the menu now opens a page with all the songs. Each one has its own play button, so you can listen right there, and a link to its lyrics.",
+      "A song's page keeps the menu at the top, and its back arrow takes you to the list of songs.",
+    ],
+  },
+  {
+    date: "2026-10-23",
     title: "B1.2 on paper: the sixth study book",
     highlight: true,
     items: [
@@ -24,6 +34,13 @@ export const changelog: ChangelogEntry[] = [
       "Seventeen topics: technology, the written past (sagte, brachte, ging, kam), the past before the past, nachdem, bevor and während, the passive now and in the past, rules on signs, the nouns that grow an -n, um … zu, damit and indem, dessen and deren, zwar … aber, Hätte ich doch …!, trotz and wegen, das lachende Kind, denn, doch, ja and mal, -heit and -keit, and writing a story where something goes wrong.",
       "Timelines show what happened first: Als ich ankam, war der Zug schon abgefahren — and where nachdem, bevor, während, seit and bis sit.",
       "Three listening exercises with QR codes — an office computer disaster, a train announcement and a podcast about stress — and a picture dictionary of 32 words.",
+    ],
+  },
+  {
+    date: "2026-10-22",
+    title: "Kafka as a printed book",
+    items: [
+      "Die Verwandlung with the words in the margin is now also a paperback, a hardcover and a Kindle book on Amazon. The links are under the free PDF on the Literature page and on the book's own page; the PDF stays free.",
     ],
   },
   {
