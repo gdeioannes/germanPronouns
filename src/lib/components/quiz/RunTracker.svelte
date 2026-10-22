@@ -2,7 +2,8 @@
 	// The bar over a drill: a chevron track, one step per answer of the run,
 	// each step carrying its German number word — eins, zwei, drei … zehn —
 	// so even the progress bar teaches something. A step turns green for a
-	// right answer and red for a miss (it only ever fills), the live
+	// right answer, yellow for a half (the picture hunt's find on a later
+	// try) and red for a miss (it only ever fills), the live
 	// one is navy. Then the streak with its flame, the next medal it is
 	// heading for, and the best. Shared by the fill-blank and flashcard
 	// quizzes so the two never drift.
@@ -10,15 +11,17 @@
 	import RibbonBadge from '../RibbonBadge.svelte';
 	import { medalForStreak, nextMedal, TIER_LABELS } from '$lib/domain/progress';
 	import { bumpOn, heat } from '$lib/motion/fx.svelte';
+	import type { Snippet } from 'svelte';
 
 	let {
 		results,
 		total,
 		streak,
 		best,
-		showStreak = true
+		showStreak = true,
+		aside
 	}: {
-		results: ('right' | 'wrong')[];
+		results: ('right' | 'half' | 'wrong')[];
 		total: number;
 		streak: number;
 		best: number;
@@ -27,6 +30,8 @@
 		 * the praise and the medal's own moment.
 		 */
 		showStreak?: boolean;
+		/** A drill's own controls (the picture hunt's ladder), on the right of the "Question 3 of 10" line. */
+		aside?: Snippet;
 	} = $props();
 
 	const answered = $derived(results.length);
@@ -42,7 +47,10 @@
 
 <section class="tracker" class:bar-only={!showStreak} aria-label="Your run">
 	<div class="run">
-		<span class="eyebrow tnum">Question {Math.min(answered + 1, total)} of {total} <span class="now-word" lang="de">· {nowWord}</span></span>
+		<div class="run-top">
+			<span class="eyebrow tnum">Question {Math.min(answered + 1, total)} of {total} <span class="now-word" lang="de">· {nowWord}</span></span>
+			{#if aside}{@render aside()}{/if}
+		</div>
 		<div
 			class="bar"
 			role="progressbar"
@@ -55,6 +63,7 @@
 				<span
 					class="step"
 					class:right={results[i] === 'right'}
+					class:half={results[i] === 'half'}
 					class:wrong={results[i] === 'wrong'}
 					class:now={i === answered}
 					style:z-index={total - i}
@@ -101,6 +110,7 @@
 		row-gap: 0.45rem;
 		padding: 0.6rem 1rem 0.65rem;
 		margin-bottom: 1rem;
+		container: run-tracker / inline-size;
 		border: 1px solid var(--line);
 		border-radius: var(--radius-sm);
 		background: var(--surface-alt);
@@ -119,6 +129,15 @@
 
 	.eyebrow {
 		font-size: 0.66rem;
+	}
+
+	/* Wraps on a narrow screen: the aside drops under the line, on the left. */
+	.run-top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.4rem 0.6rem;
 	}
 
 	/* The run bar: a chevron track, one step per answer. Each step is an
@@ -177,12 +196,19 @@
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, var(--arrow) 50%);
 	}
 
-	/* Flat colour, nothing else: green for right, red for a miss, navy for
-	   the step in play. */
+	/* Flat colour, nothing else: green for right, yellow for a half, red for
+	   a miss, navy for the step in play. */
 	.step.right {
 		background: var(--right);
 		box-shadow: none;
 		color: #fff;
+	}
+
+	/* Yellow, with dark text: white on yellow does not read. */
+	.step.half {
+		background: #e2b23c;
+		box-shadow: none;
+		color: #3b2a06;
 	}
 
 	.step.wrong {
@@ -207,9 +233,10 @@
 		display: none;
 	}
 
-	/* On a phone ten words will not fit: the steps show digits and the live
-	   word moves up into the eyebrow, so the German is still there. */
-	@media (max-width: 40rem) {
+	/* On a narrow bar (a phone, or beside the picture hunt's ladder) ten
+	   words will not fit: the steps show digits and the live word moves up
+	   into the eyebrow, so the German is still there. */
+	@container run-tracker (max-width: 36rem) {
 		.step .word {
 			display: none;
 		}

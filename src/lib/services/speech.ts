@@ -136,6 +136,121 @@ export class WebSttProvider implements SttProvider {
 }
 
 // ---------------------------------------------------------------------------
+// The one audio element
+// ---------------------------------------------------------------------------
+
+/**
+ * How a clip on the shared player ended: played through, cut off by the next
+ * clip or stop(), did not load, was refused by the browser (no tap yet), or
+ * did not start in time.
+ */
+type ClipEnd = 'ended' | 'stopped' | 'failed' | 'blocked' | 'slow';
+
+/**
+ * Every clip plays on this one element. Phone browsers (iOS above all) let
+ * an element play without a tap only once a tap has played it, so a fresh
+ * `new Audio()` per clip stayed silent whenever no tap started it — the
+ * picture hunt's spoken question after an answer moved on by itself. The
+ * first tap anywhere unlocks this element (see unlockOnFirstTap) and every
+ * later clip reuses it.
+ */
+let player: HTMLAudioElement | null = null;
+/** Settles the clip in play, so a newer one never leaves its caller waiting. */
+let settleClip: ((end: ClipEnd) => void) | null = null;
+
+function sharedPlayer(): HTMLAudioElement {
+	return (player ??= new Audio());
+}
+
+function playClip(src: string, rate: number, slowMs?: number): Promise<ClipEnd> {
+	settleClip?.('stopped');
+	const audio = sharedPlayer();
+	return new Promise<ClipEnd>((resolve) => {
+		let done = false;
+		let slow: ReturnType<typeof setTimeout> | undefined;
+		const finish = (end: ClipEnd) => {
+			if (done) return;
+			done = true;
+			clearTimeout(slow);
+			audio.onplaying = audio.onended = audio.onerror = null;
+			if (settleClip === finish) settleClip = null;
+			resolve(end);
+		};
+		settleClip = finish;
+		// Not started within slowMs: a weak connection. Give up on the clip.
+		slow = slowMs
+			? setTimeout(() => {
+					finish('slow');
+					audio.pause();
+				}, slowMs)
+			: undefined;
+		audio.onplaying = () => clearTimeout(slow);
+		audio.onended = () => finish('ended');
+		audio.onerror = () => finish('failed');
+		audio.src = src;
+		// After src: a new source resets the rate. Pitch is preserved, so the
+		// "Slower" buttons stay natural.
+		audio.playbackRate = rate;
+		audio.play().catch(() => finish('blocked'));
+	});
+}
+
+function stopClip(): void {
+	settleClip?.('stopped');
+	player?.pause();
+}
+
+/** A tenth of a second of silence, as a WAV: what the unlocking tap plays. */
+function silentWav(): string {
+	const samples = 800;
+	const bytes = new Uint8Array(44 + samples);
+	const view = new DataView(bytes.buffer);
+	const ascii = (at: number, s: string) => [...s].forEach((c, i) => (bytes[at + i] = c.charCodeAt(0)));
+	ascii(0, 'RIFF');
+	view.setUint32(4, 36 + samples, true);
+	ascii(8, 'WAVEfmt ');
+	view.setUint32(16, 16, true);
+	view.setUint16(20, 1, true); // PCM
+	view.setUint16(22, 1, true); // mono
+	view.setUint32(24, 8000, true); // sample rate
+	view.setUint32(28, 8000, true); // byte rate
+	view.setUint16(32, 1, true); // block align
+	view.setUint16(34, 8, true); // bits per sample
+	ascii(36, 'data');
+	view.setUint32(40, samples, true);
+	bytes.fill(128, 44); // 8-bit silence is the midpoint
+	return `data:audio/wav;base64,${btoa(String.fromCharCode(...bytes))}`;
+}
+
+/**
+ * The first tap or key press plays silence on the shared element (and an
+ * empty utterance for the device voice), which is all a phone needs to let
+ * both speak later without a tap of their own.
+ */
+function unlockOnFirstTap(): void {
+	if (typeof window === 'undefined' || typeof Audio === 'undefined') return;
+	const unlock = () => {
+		window.removeEventListener('pointerdown', unlock, true);
+		window.removeEventListener('keydown', unlock, true);
+		// A clip already playing was started by a tap: it is unlocked.
+		if (!settleClip) {
+			const audio = sharedPlayer();
+			audio.src = silentWav();
+			audio.play().catch(() => {});
+		}
+		if (typeof speechSynthesis !== 'undefined' && !speechSynthesis.speaking) {
+			const hush = new SpeechSynthesisUtterance('');
+			hush.volume = 0;
+			speechSynthesis.speak(hush);
+		}
+	};
+	window.addEventListener('pointerdown', unlock, true);
+	window.addEventListener('keydown', unlock, true);
+}
+
+unlockOnFirstTap();
+
+// ---------------------------------------------------------------------------
 // Connection trouble
 // ---------------------------------------------------------------------------
 
@@ -184,7 +299,6 @@ export class RecordedTtsProvider implements TtsProvider {
 	readonly name = 'recorded';
 
 	private shards = new Map<string, Promise<Record<string, Record<string, string>>>>();
-	private audio: HTMLAudioElement | null = null;
 
 	constructor(private readonly base = '/audio') {}
 
@@ -217,42 +331,12 @@ export class RecordedTtsProvider implements TtsProvider {
 		// report handled so the chain does not fall through to another voice.
 		if (generation !== this.generation) return true;
 		if (!file) return false;
-		await this.stop();
-		const audio = new Audio(`${this.base}/${file}`);
-		// Pitch is preserved, so the "Slower" buttons stay natural.
-		audio.playbackRate = options.rate ?? 1;
-		this.audio = audio;
-		try {
-			return await new Promise<boolean>((resolve) => {
-				// Not started within SLOW_MS: a weak connection. Give up on the
-				// clip (resolve first, so the pause below does not count as done).
-				const slow = setTimeout(() => {
-					noteNetworkTrouble();
-					resolve(false);
-					audio.pause();
-				}, SLOW_MS);
-				audio.onplaying = () => clearTimeout(slow);
-				audio.onended = () => resolve(true);
-				// The clip did not load (offline, dropped connection): the chain
-				// falls through to the next voice.
-				audio.onerror = () => {
-					clearTimeout(slow);
-					noteNetworkTrouble();
-					resolve(false);
-				};
-				// A later speak() pauses this one; settle so the caller's busy state clears.
-				audio.onpause = () => {
-					clearTimeout(slow);
-					if (!audio.ended) resolve(true);
-				};
-				audio.play().catch(() => {
-					clearTimeout(slow);
-					resolve(false);
-				});
-			});
-		} finally {
-			if (this.audio === audio) this.audio = null;
-		}
+		const end = await playClip(`${this.base}/${file}`, options.rate ?? 1, SLOW_MS);
+		// Too slow, or the clip did not load (offline, dropped connection): the
+		// chain falls through to the next voice. A later speak() cutting this one
+		// off counts as handled.
+		if (end === 'slow' || end === 'failed') noteNetworkTrouble();
+		return end === 'ended' || end === 'stopped';
 	}
 
 	/** Bumped by stop(), so a speak() still loading knows it was cancelled. */
@@ -260,8 +344,7 @@ export class RecordedTtsProvider implements TtsProvider {
 
 	async stop(): Promise<void> {
 		this.generation++;
-		this.audio?.pause();
-		this.audio = null;
+		stopClip();
 	}
 }
 
@@ -287,7 +370,6 @@ export class CloudTtsProvider implements TtsProvider {
 		private readonly gender: 'female' | 'male' = 'female'
 	) {}
 
-	private audio: HTMLAudioElement | null = null;
 
 	async isAvailable(): Promise<boolean> {
 		return this.endpoint !== '' && typeof Audio !== 'undefined';
@@ -322,19 +404,11 @@ export class CloudTtsProvider implements TtsProvider {
 			return true;
 		}
 
-		await this.stop();
-		const audio = new Audio(url);
-		audio.playbackRate = options.rate ?? 1;
-		this.audio = audio;
 		try {
-			return await new Promise<boolean>((resolve) => {
-				audio.onended = () => resolve(true);
-				audio.onerror = () => resolve(false);
-				audio.play().catch(() => resolve(false));
-			});
+			const end = await playClip(url, options.rate ?? 1);
+			return end === 'ended' || end === 'stopped';
 		} finally {
 			URL.revokeObjectURL(url);
-			if (this.audio === audio) this.audio = null;
 		}
 	}
 
@@ -343,8 +417,7 @@ export class CloudTtsProvider implements TtsProvider {
 
 	async stop(): Promise<void> {
 		this.generation++;
-		this.audio?.pause();
-		this.audio = null;
+		stopClip();
 	}
 }
 

@@ -10,18 +10,23 @@
 	//   Article (silver) — the prompt hides the article ("Wo ist ___ Brille?");
 	//            find it, then pick der/die/das. No audio until it is
 	//            answered: the voice would say the article.
-	//   Listen  (gold)   — the prompt is only heard; find it, then write the
-	//            article and the noun.
+	//   Listen  (gold)   — only the noun is heard, without its article; find
+	//            it, then write the article and the noun.
 	//
 	// The hunt opens on the easiest step still without its medal; the learner
 	// can switch either way. Pass a run on a step and its medal is yours.
 	//
 	// A tap on another object names what you hit and the hunt goes on — the
 	// answer is not given away. Only after MAX_MISSES misses in a row does the
-	// right one glow. Found on the first tap counts as right; found after a
-	// miss, or shown, counts as a miss. A tap on bare wall is nothing —
-	// imprecise fingers are not wrong answers. Progress is the deck's: runs of
-	// RUN_LENGTH, and the ladder's medals.
+	// right one glow. Found on the first tap counts as right (green); found on
+	// a later try is half a point (yellow); shown is a miss (red). On the
+	// article and listen steps the article or the writing must be right too,
+	// or the find is a miss. A tap on bare wall is nothing — imprecise fingers
+	// are not wrong answers. Progress is the deck's: runs of RUN_LENGTH, and
+	// the ladder's medals, where a half counts 0.5.
+	//
+	// The first hunt opens on a walkthrough (SuchbildTour), and "?" brings it
+	// back. "Cards" (onCards) swaps the hunt for flip cards of the room's words.
 	import { dev } from '$app/environment';
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
@@ -33,7 +38,11 @@
 	import RunTracker from './RunTracker.svelte';
 	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE } from '$lib/domain/progress';
 	import { checkWritten } from '$lib/domain/flashcards';
-	import { LadderRun, type ClimbOffer } from '$lib/state/ladderRun.svelte';
+	import { LadderRun, markValue, type ClimbOffer, type RunMark } from '$lib/state/ladderRun.svelte';
+	import SuchbildTour from './SuchbildTour.svelte';
+	import { playSound } from '$lib/services/sounds';
+	import { storage } from '$lib/services/storage';
+	import { SettingsKeys } from '$lib/domain/keys';
 	import { tts } from '$lib/services/speech';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
@@ -47,7 +56,9 @@
 		onRunFinished,
 		onQuestion,
 		onTryAgain,
-		onClimbOffer
+		onClimbOffer,
+		onCards,
+		active = true
 	}: {
 		quiz: SuchbildQuiz;
 		locale: string;
@@ -59,6 +70,13 @@
 		onTryAgain?: () => void;
 		/** A finished run's next medal, for the finish bar's "Try for silver". */
 		onClimbOffer?: (offer: ClimbOffer | null) => void;
+		/** Practise the room's words as flip cards instead. */
+		onCards?: () => void;
+		/**
+		 * False while the page's lesson is on screen and the hunt waits behind
+		 * it: the walkthrough holds off until the hunt is shown.
+		 */
+		active?: boolean;
 	} = $props();
 
 	type Mode = 'find' | 'name' | 'listen';
@@ -66,7 +84,7 @@
 	const STEPS: { id: Mode; label: string; hint: string }[] = [
 		{ id: 'find', label: 'Read', hint: 'find what the question names.' },
 		{ id: 'name', label: 'Article', hint: 'find it, then choose der, die or das.' },
-		{ id: 'listen', label: 'Listen', hint: 'hear it, find it, then write the article and the noun.' }
+		{ id: 'listen', label: 'Listen', hint: 'hear the noun, find it, then write it with its article.' }
 	];
 	const ARTICLES = ['der', 'die', 'das'] as const;
 	/** Misses on one question before the right object is shown. */
@@ -96,7 +114,8 @@
 	let written = $state('');
 	let missingArticle = $state(false);
 	let writeEl = $state<HTMLInputElement>();
-	let verdict = $state<'right' | 'wrong' | null>(null);
+	/** How the answer on show went: `half` is a find on a later try. */
+	let verdict = $state<RunMark | null>(null);
 	/** The object tapped by mistake, named on the picture. */
 	let tappedWrong = $state.raw<SuchbildSpot | null>(null);
 	let chosenArticle = $state<string | null>(null);
@@ -115,7 +134,8 @@
 	// misses; the ticks on the room are shared by all three.
 	const results = $derived(run.current.results);
 	const answered = $derived(results.length);
-	const right = $derived(results.filter((r) => r === 'right').length);
+	/** The run's score: a half counts 0.5. */
+	const right = $derived(results.reduce((sum, r) => sum + markValue(r), 0));
 	const bestInRun = $derived(run.current.bestInRun);
 	const missed = $derived(run.current.missed);
 	let runDone = $state(false);
@@ -134,6 +154,20 @@
 	const locked = $derived(verdict !== null);
 	/** Dev aid for placing the boxes: `?spots` outlines and names every one. */
 	let showSpots = $state(false);
+
+	/** The walkthrough is up: the first hunt ever, or "?". */
+	let touring = $state(false);
+	/** The tour's example: a middling thing, neither the wall nor a mouse. */
+	const tourSpot = $derived(
+		[...quiz.spots].sort((a, b) => a.w * a.h - b.w * b.h)[Math.floor(quiz.spots.length / 2)]
+	);
+
+	function endTour() {
+		touring = false;
+		void storage.set(SettingsKeys.suchbildTourSeen, '1');
+		// The gold step's question was spoken behind the tour: say it again.
+		if (current && mode === 'listen' && !locked) void speakQuestion(current);
+	}
 
 	function wait(ms: number) {
 		return new Promise<void>((resolve) => timers.push(setTimeout(resolve, ms)));
@@ -186,16 +220,17 @@
 	}
 
 	/**
-	 * The listen step's question, spoken. When nothing can speak it (no German
-	 * voice on the device, no recording), the question is shown written
-	 * instead: a silent gold step would have no question at all.
+	 * The listen step's question, spoken: the noun alone, so the article is
+	 * the learner's to know. When nothing can speak it (no German voice on the
+	 * device, no recording), the noun is shown written instead: a silent gold
+	 * step would have no question at all.
 	 */
 	let silent = $state(false);
 	async function speakQuestion(spot: SuchbildSpot) {
-		const spoken = await tts.speak(`Wo ist ${full(spot)}?`, { locale });
+		const spoken = await tts.speak(spot.de, { locale });
 		if (spot !== current) return;
 		silent = !spoken;
-		if (silent) announce([{ text: 'No voice is available, so the question is written:' }, { text: `Wo ist ${full(spot)}?`, lang: locale }]);
+		if (silent) announce([{ text: 'No voice is available, so the word is written:' }, { text: spot.de, lang: locale }]);
 	}
 
 	onMount(() => {
@@ -212,6 +247,7 @@
 				asked = Array.isArray(spot?.asked) ? spot.asked : [];
 			}
 			untrack(next);
+			touring = (await storage.get(SettingsKeys.suchbildTourSeen)) !== '1';
 		})();
 		return clearTimers;
 	});
@@ -242,8 +278,7 @@
 		const card = { kind: 'noun', article: current.article, de: current.de, en: current.en } as VocabCard;
 		const result = checkWritten(written, card, progress.relaxedCorrection);
 		missingArticle = result.missingArticle;
-		// A find after a miss is already a miss, whatever is written.
-		void settle(misses === 0 && result.correct);
+		void settle(!result.correct ? 'wrong' : misses === 0 ? 'right' : 'half');
 	}
 
 	function finishRun() {
@@ -269,7 +304,7 @@
 			queueMicrotask(() => (tappedWrong = spot));
 			if (misses >= MAX_MISSES) {
 				shown = true;
-				void settle(false);
+				void settle('wrong');
 				return;
 			}
 			const left = MAX_MISSES - misses;
@@ -289,7 +324,7 @@
 			queueMicrotask(() => writeEl?.focus());
 		} else {
 			tappedWrong = null;
-			void settle(misses === 0);
+			void settle(misses === 0 ? 'right' : 'half');
 		}
 	}
 
@@ -440,22 +475,29 @@
 	function pickArticle(article: string) {
 		if (!current || locked) return;
 		chosenArticle = article;
-		// A find after a miss is already a miss, whatever the article.
-		void settle(misses === 0 && article === current.article);
+		void settle(article !== current.article ? 'wrong' : misses === 0 ? 'right' : 'half');
 	}
 
-	async function settle(correct: boolean) {
+	/**
+	 * Settles the question: `right` found on the first try, `half` on a later
+	 * one (half a point; the streak starts over), `wrong` shown, or found but
+	 * named wrongly.
+	 */
+	async function settle(mark: RunMark) {
 		if (!current) return;
 		const spot = current;
-		verdict = correct ? 'right' : 'wrong';
+		const correct = mark === 'right';
+		verdict = mark;
 		const stats = await progress.recordAnswer(quiz.storageKeyPrefix, correct, mode);
 		const lapCompleted = correct && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
 		best = stats.bestStreakAbsolute;
-		// The ladder: the LADDER_PASSth right answer on a step in this run
-		// passes it and, the first time, earns its medal — celebrated now.
-		const medalWon = await run.answer(correct, stats.streak, { miss: full(spot) });
-		react(correct, roomEl, stats.streak);
+		// The ladder: LADDER_PASS points on a step in this run pass it and,
+		// the first time, earn its medal — celebrated now.
+		const medalWon = await run.answer(mark, stats.streak, { miss: full(spot) });
+		// A half is still a find: the chime, without the red glow of a miss.
+		if (mark === 'half') playSound('right');
+		else react(correct, roomEl, stats.streak);
 		// A find keeps its tick on the room even after a wrong article: the
 		// thing was found, and its label shows the article it should have had.
 		if (!shown && !found.includes(spot.de)) found = [...found, spot.de];
@@ -471,7 +513,9 @@
 			{
 				text: correct
 					? 'Correct.'
-					: shown
+					: mark === 'half'
+						? 'Found on a later try: half a point. It is:'
+						: shown
 						? `Three misses. It is shown now:`
 						: misses > 0 && !chosenArticle
 							? 'Found, but not on the first try. It is:'
@@ -487,7 +531,7 @@
 			if (answered >= RUN_LENGTH) finishRun();
 			else next();
 		};
-		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
+		if (mark !== 'wrong') wait(MIN_SHOW).then(() => (skip ??= moveOn));
 		else await wait(600).then(() => (skip = moveOn));
 		const pause = revealPause(progress.answerRevealMode);
 		if (pause === null) {
@@ -495,7 +539,7 @@
 			return;
 		}
 		// A miss needs time to see where the thing actually is.
-		await wait(pause + (correct ? 700 : 1600));
+		await wait(pause + (mark !== 'wrong' ? 700 : 1600));
 		if (skip === moveOn) moveOn();
 	}
 
@@ -529,18 +573,38 @@
 
 <svelte:window onkeydown={onWindowKey} />
 
-<div class="ladder-row">
-	<MedalLadder
-		steps={STEPS}
-		record={run.record}
-		active={run.step}
-		right={run.current.counted}
-		disabled={locked || runDone}
-		onpick={setStep}
-	/>
-</div>
+{#if touring && active && tourSpot}
+	<SuchbildTour scene={quiz.scene} sceneSize={quiz.sceneSize} spot={tourSpot} {locale} onclose={endTour} />
+{/if}
 
-<RunTracker {results} total={RUN_LENGTH} {streak} {best} showStreak={false} />
+<!-- One box over the room: the run's bar, with the ladder (and Cards, "?")
+     on the right of its "Question 3 of 10" line, so the room starts higher
+     up. On a narrow screen the ladder wraps under that line. While the room
+     is up, the box and the room's card touch: one panel, square where they
+     meet. -->
+<div class="run-box" class:joined={!runDone && !!current}>
+<RunTracker {results} total={RUN_LENGTH} {streak} {best} showStreak={false}>
+	{#snippet aside()}
+		<MedalLadder
+			steps={STEPS}
+			record={run.record}
+			active={run.step}
+			right={run.current.counted}
+			disabled={locked || runDone}
+			onpick={setStep}
+		>
+			{#if onCards}
+				<button type="button" class="extra" onclick={onCards} title="Practise this room's words as flip cards">
+					<Icon name="cards" size="1.05em" /><span class="extra-label">Cards</span>
+				</button>
+			{/if}
+			<button type="button" class="extra end" onclick={() => (touring = true)} aria-label="How to play" title="How to play">
+				<Icon name="help" size="1.05em" />
+			</button>
+		</MedalLadder>
+	{/snippet}
+</RunTracker>
+</div>
 
 {#if runDone}
 	<RunSummary
@@ -605,9 +669,9 @@
 				</button>
 				{#if silent}
 					<!-- Nothing could speak it: the written question stands in. -->
-					<span class="muted">Wo ist <span class="article">{current.article}</span> {current.de}? <span lang="en">(no voice available)</span></span>
+					<span class="muted">{current.de} <span lang="en">(no voice available)</span></span>
 				{:else}
-					<span class="muted" lang="en">Wo ist … ?</span>
+					<span class="muted" lang="en">Which thing did you hear?</span>
 				{/if}
 			</p>
 		{/if}
@@ -647,6 +711,8 @@
 			</form>
 		{:else if verdict === 'right'}
 			<p class="verdict right"><Icon name="check" size="1em" /> Richtig!</p>
+		{:else if verdict === 'half'}
+			<p class="verdict half"><Icon name="check" size="1em" /> Found on try {misses + 1}: half a point.</p>
 		{:else if verdict === 'wrong'}
 			<p class="verdict wrong">
 				<Icon name="close" size="1em" />
@@ -656,10 +722,10 @@
 					Found it — but it's <strong lang={locale}>{current.article}</strong>, not <s lang={locale}>{chosenArticle}</s>.
 				{:else if missingArticle}
 					Right word — with its article: <strong lang={locale}>{full(current)}</strong>.
-				{:else if written.trim() && misses === 0}
+				{:else if written.trim()}
 					Found it — it's written <strong lang={locale}>{full(current)}</strong>, not <s lang={locale}>{written}</s>.
 				{:else}
-					Found — but not on the first try, so it counts as a miss.
+					Not quite.
 				{/if}
 			</p>
 		{:else if tappedWrong}
@@ -815,9 +881,56 @@
 		flex: 1 1 auto;
 	}
 
-	.ladder-row {
-		display: flex;
-		margin-bottom: 0.6rem;
+	/* The run box sits on the room's card: no gap, and square where they
+	   meet; the card's top border is the line between them. */
+	.run-box.joined :global(.tracker) {
+		margin-bottom: 0;
+		border-bottom: 0;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.run-box.joined + .space .card {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+
+	/* In the run box, the ladder is as wide as its buttons, not the row. */
+	:global(.tracker) :global(.ladder.wide) {
+		width: auto;
+	}
+
+	/* Cards and "?", after the ladder's divider: segments of the same bar,
+	   as the deck's "to repeat" is. */
+	.extra {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0 0.7rem;
+		border: 0;
+		border-radius: 999px;
+		background: none;
+		white-space: nowrap;
+		color: var(--heading);
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		cursor: pointer;
+		transition: background var(--fast) var(--ease-out);
+	}
+
+	.extra:hover {
+		background: var(--surface);
+	}
+
+	.extra.end {
+		padding: 0 0.6rem;
+	}
+
+	@media (max-width: 30rem) {
+		.extra {
+			padding: 0 0.5rem;
+		}
 	}
 
 	/* The listen step: the question is a sound, so the button is the prompt. */
@@ -938,7 +1051,7 @@
 		margin: 0.25rem 0 0;
 		max-width: none;
 		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
-		font-size: var(--step-2);
+		font-size: var(--step-1);
 		font-variation-settings: 'opsz' 28;
 		font-weight: 600;
 		line-height: 1.3;
@@ -1022,6 +1135,10 @@
 
 	.verdict.right {
 		color: var(--right, #3f7d4f);
+	}
+
+	.verdict.half {
+		color: #7a5a08;
 	}
 
 	.verdict.wrong {

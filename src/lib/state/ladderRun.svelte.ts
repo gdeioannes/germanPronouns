@@ -27,7 +27,15 @@ export interface LadderStep {
 	hint: string;
 }
 
-export type RunMark = 'right' | 'wrong';
+/**
+ * One answer on the bar. `half` is a picture-hunt find on a later try: worth
+ * half a right answer toward the run's score and the medal, and yellow on
+ * the bar.
+ */
+export type RunMark = 'right' | 'half' | 'wrong';
+
+/** What a mark is worth toward the run's score and the medal. */
+export const markValue = (mark: RunMark): number => (mark === 'right' ? 1 : mark === 'half' ? 0.5 : 0);
 
 /** The next medal a finished run can go for, and a tap that starts it. */
 export interface ClimbOffer {
@@ -43,7 +51,7 @@ export interface ClimbOffer {
 export interface StepRun {
 	/** Every answer on this step, in order: the bar. */
 	results: RunMark[];
-	/** The right answers that count toward the medal (not a repeat-list run). */
+	/** The right answers that count toward the medal (not a repeat-list run); a half is 0.5. */
 	counted: number;
 	/** The longest streak inside this run. */
 	bestInRun: number;
@@ -57,7 +65,7 @@ const freshRun = (): StepRun => ({ results: [], counted: 0, bestInRun: 0, missed
 function savedRun(value: unknown): StepRun {
 	const v = (value ?? {}) as Partial<StepRun>;
 	const results = Array.isArray(v.results)
-		? v.results.filter((r): r is RunMark => r === 'right' || r === 'wrong')
+		? v.results.filter((r): r is RunMark => r === 'right' || r === 'half' || r === 'wrong')
 		: [];
 	if (results.length === 0 || results.length >= RUN_LENGTH) return freshRun();
 	return {
@@ -143,22 +151,27 @@ export class LadderRun {
 
 	/**
 	 * Logs an answer on the step in play: the bar, the streak inside the run
-	 * and, for a wrong one, `miss` for the summary. `counting` is false for a
-	 * run that earns nothing (a handful of words on the repeat list). The
-	 * LADDER_PASSth counted right answer passes the step; returns the medal it
-	 * earned — and celebrates it — or null.
+	 * and, for anything short of right, `miss` for the summary. `counting` is
+	 * false for a run that earns nothing (a handful of words on the repeat
+	 * list). `correct` may be a RunMark: a `half` counts 0.5. Reaching
+	 * LADDER_PASS counted passes the step; returns the medal it earned — and
+	 * celebrates it — or null.
 	 */
 	async answer(
-		correct: boolean,
+		correct: boolean | RunMark,
 		streak: number,
 		{ counting = true, miss }: { counting?: boolean; miss?: string } = {}
 	): Promise<RibbonTier | null> {
+		const mark: RunMark = correct === true ? 'right' : correct === false ? 'wrong' : correct;
 		const run = this.current;
-		run.results = [...run.results, correct ? 'right' : 'wrong'];
+		run.results = [...run.results, mark];
 		run.bestInRun = Math.max(run.bestInRun, streak);
-		if (!correct && miss !== undefined) run.missed = [...run.missed, miss];
-		if (correct && counting) run.counted += 1;
-		return correct ? this.right(counting) : null;
+		if (mark !== 'right' && miss !== undefined) run.missed = [...run.missed, miss];
+		if (mark === 'wrong' || !counting) return null;
+		const before = run.counted;
+		run.counted += markValue(mark);
+		// Halves can step over the pass mark (7.5 + 1): crossing it is what counts.
+		return before < LADDER_PASS && run.counted >= LADDER_PASS ? this.right() : null;
 	}
 
 	get medal(): RibbonTier | null {
@@ -169,11 +182,9 @@ export class LadderRun {
 		return LADDER_TIERS[this.step];
 	}
 
-	/** The medal check after a right answer `answer` has already counted. */
-	private async right(counting: boolean): Promise<RibbonTier | null> {
-		if (!counting) return null;
+	/** The step is passed: record it, and celebrate a medal won the first time. */
+	private async right(): Promise<RibbonTier | null> {
 		const step = this.step;
-		if (this.runs[step].counted !== LADDER_PASS) return null;
 		const { earned } = await progress.recordLadderPass(this.prefix, step);
 		this.record = progress.ladderFor(this.prefix);
 		if (!earned) return null;

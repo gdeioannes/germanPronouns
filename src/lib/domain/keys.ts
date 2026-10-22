@@ -28,6 +28,8 @@ export const SettingsKeys = {
 	completedWritingQuizzes: 'writing_completed_quizzes',
 	placementUnlockedQuizzes: 'placement_unlocked_quizzes',
 	seenHelpMemory: 'seen_help_memory',
+	/** Web-only. "1" once the picture hunt's walkthrough has been seen (or skipped). */
+	suchbildTourSeen: 'suchbild_tour_seen',
 	voiceOfflineOnly: 'voice_offline_only',
 	/** Web-only (no Flutter twin). Also read verbatim by the script in app.html. */
 	calmEffects: 'calm_effects',

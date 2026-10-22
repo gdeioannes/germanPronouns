@@ -27,6 +27,17 @@ export const changelog: ChangelogEntry[] = [
   },
   {
     date: "2026-10-23",
+    title: "The picture hunt: a walkthrough, half points and flip cards",
+    items: [
+      "The first time you open a picture hunt, a short walkthrough shows how it works: find the thing, zoom in, what the colours mean and the three medals. The ? button brings it back.",
+      "Found it on a later try? That is now half a point, shown in yellow on the run bar, instead of a miss. A find on the first try is still green, and a thing that had to be shown is red.",
+      "The Listen step now says only the noun, without der, die or das, so the article is yours to know.",
+      "Cards turns the room into flip cards of its words, to learn them before you hunt. They have their own runs and medals.",
+      "Audio on phones: the spoken question plays even when the hunt moves on by itself, without a tap first.",
+    ],
+  },
+  {
+    date: "2026-10-23",
     title: "B1.2 on paper: the sixth study book",
     highlight: true,
     items: [

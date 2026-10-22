@@ -148,10 +148,12 @@ function quizTexts(quiz: Quiz): [string, string][] {
 		case 'vocabulary':
 			return quiz.cards.map((c) => [forSpeech(fullForm(c)), 'flashcard']);
 		case 'suchbild':
-			// The question's speak button and the answer's, as SuchbildQuiz builds them.
+			// The question's speak button and the answer's, as SuchbildQuiz builds
+			// them, and the listen step's bare noun (its article is the question).
 			return quiz.spots.flatMap((s): [string, string][] => [
 				[`Wo ist ${s.article} ${s.de}?`, 'picture hunt'],
-				[`${s.article} ${s.de}`, 'picture hunt']
+				[`${s.article} ${s.de}`, 'picture hunt'],
+				[s.de, 'picture hunt']
 			]);
 		default:
 			return [];

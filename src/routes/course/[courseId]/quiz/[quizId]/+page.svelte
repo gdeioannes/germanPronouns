@@ -39,7 +39,7 @@
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
-	import { isInlineCloze } from '$lib/content/types';
+	import { isInlineCloze, type VocabularyQuiz as VocabularyQuizData } from '$lib/content/types';
 	import type { QuestionRef, ReportTarget } from '$lib/domain/forum';
 	import { cloudConfigured } from '$lib/services/firebase';
 	import { SettingsKeys } from '$lib/domain/keys';
@@ -187,12 +187,63 @@
 	/** A medal-ladder drill's next medal, reported by the drill once it finishes. */
 	let ladderOffer = $state<ClimbOffer | null>(null);
 
+	// A picture hunt can turn into flip cards of its room's words, to learn
+	// them before hunting. The cards keep their own runs and medals (their own
+	// storage prefix), and finishing a round of them does not finish the hunt.
+	let cards = $state(false);
+	/** A round of cards is over: the bar offers another, or the way up. */
+	let cardsDone = $state(false);
+	let cardsOffer = $state<ClimbOffer | null>(null);
+	const roomDeck = $derived<VocabularyQuizData | null>(
+		quiz.type === 'suchbild'
+			? {
+					id: `${quiz.id}-cards`,
+					type: 'vocabulary',
+					title: quiz.title,
+					level: quiz.level,
+					storageKeyPrefix: `${quiz.storageKeyPrefix}_cards`,
+					cards: quiz.spots.map((s) => ({
+						kind: 'noun',
+						de: s.de,
+						article: s.article,
+						en: s.en,
+						plural: s.plural,
+						sourceQuizId: quiz.id
+					}))
+				}
+			: null
+	);
+
+	function showCards(on: boolean) {
+		cards = on;
+		cardsDone = false;
+		cardsOffer = null;
+		question = null;
+		track(on ? 'suchbild_cards_open' : 'suchbild_cards_close', { course: course.id, quiz: quiz.id });
+	}
+
+	function cardsRoundFinished(passed: boolean) {
+		cardsDone = true;
+		if (passed) celebrate();
+		else playSound('complete');
+	}
+
+	/** Another round of cards: the deck remounts, still in cards mode. */
+	function cardsAgain() {
+		cardsDone = false;
+		cardsOffer = null;
+		attempt += 1;
+	}
+
 	$effect(() => {
 		// Remembered so the deck can offer it again if the learner leaves early.
 		markOpened(quiz.id);
 		finished = false;
 		doneDismissed = false;
 		ladderOffer = null;
+		cards = false;
+		cardsDone = false;
+		cardsOffer = null;
 	});
 
 	// The ribbon reads this quiz's stored medals, which load lazily: without
@@ -511,6 +562,32 @@
 				{focusWord}
 				onQuestion={(q) => (question = q)}
 			/>
+		{:else if quiz.type === 'suchbild' && cards && roomDeck}
+			<div class="cards-bar">
+				<button type="button" class="btn btn-ghost" onclick={() => showCards(false)}>
+					<Icon name="arrowLeft" size="1em" /> Back to the picture
+				</button>
+				{#if cardsDone}
+					{#if cardsOffer}
+						<button type="button" class="btn" onclick={cardsOffer.go}>
+							<RibbonBadge tier={cardsOffer.tier} width={11} /> Try for {TIER_LABELS[cardsOffer.tier].toLowerCase()}
+						</button>
+					{:else}
+						<button type="button" class="btn" onclick={cardsAgain}>
+							<Icon name="repeat" size="1em" /> Another round
+						</button>
+					{/if}
+				{/if}
+			</div>
+			<VocabularyQuiz
+				quiz={roomDeck}
+				courseId={course.id}
+				locale={course.learnLocale}
+				onRunFinished={cardsRoundFinished}
+				onTryAgain={cardsAgain}
+				onClimbOffer={(o) => (cardsOffer = o)}
+				onQuestion={(q) => (question = q)}
+			/>
 		{:else if quiz.type === 'suchbild'}
 			<SuchbildQuiz
 				{quiz}
@@ -519,6 +596,8 @@
 				onTryAgain={tryAgain}
 				onClimbOffer={(o) => (ladderOffer = o)}
 				onQuestion={(q) => (question = q)}
+				onCards={() => showCards(true)}
+				active={!learning}
 			/>
 		{/if}
 		{/key}
@@ -864,7 +943,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		padding-top: clamp(0.25rem, 4vh, 2.5rem);
+		padding-top: 0.25rem;
 		overflow-y: auto;
 	}
 
@@ -910,6 +989,16 @@
 	.kind[data-kind='dictation'] {
 		background: #f4eddc;
 		color: var(--ochre-ink);
+	}
+
+	/* A picture hunt's flip cards: the way back to the room above the deck. */
+	.cards-bar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		margin-bottom: 0.6rem;
 	}
 
 	/* -- finished bar -------------------------------------------------------- */
@@ -1125,9 +1214,6 @@
 
 		/* Tight to the header: the on-screen keyboard rises over the lower
 		   half, and the answer field must stay above it. */
-		.stage {
-			padding-top: 0.25rem;
-		}
 		.done-actions .btn {
 			flex: 1 1 calc(50% - 0.3rem);
 		}
