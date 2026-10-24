@@ -367,8 +367,8 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 				text: 'The flag inside an exercise opens a report with that exercise and question already filled in.'
 			},
 			{
-				title: 'Fixed problems',
-				text: 'Once a problem has been put right, its topic leaves the main list. Open "Fixed" at the bottom to see what has been corrected. Search still finds fixed topics too.'
+				title: 'Answered and fixed',
+				text: 'The main list shows only open topics. A topic marked answered moves to "Answered", and a problem that has been put right moves to "Fixed". Both are folded at the bottom. Search still finds every topic.'
 			}
 		]
 	},

@@ -17,6 +17,13 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-24",
+    title: "The forum shows what still needs an answer",
+    items: [
+      'The forum list now shows only open topics. Answered topics wait, folded, under "Answered" at the bottom, next to "Fixed". One click opens either, and search still finds every topic.',
+    ],
+  },
+  {
+    date: "2026-10-24",
     title: "One voice at a time: for screen readers and for hearing",
     items: [
       'New setting: "Say questions and answers aloud". It is on by default. If you use a screen reader, turn it off, so the course\'s voice and your screen reader don\'t talk over each other. The play buttons still work, and the picture hunt\'s Listen step still says its word, because that word is the question.',

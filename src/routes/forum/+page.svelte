@@ -36,11 +36,14 @@
 	const SEARCH_LIMIT = 300;
 	const shown = $derived(search.trim() ? threads.filter((t) => matchesSearch(t, search)) : threads);
 
-	// Fixed topics leave the main list and wait, folded, at the bottom: the
-	// list stays about what still needs doing, and what got fixed is one click
-	// away. A search shows every match in one list (the badge says "Fixed").
-	const active = $derived(search.trim() ? shown : shown.filter((t) => t.status !== 'fixed'));
+	// Answered and fixed topics leave the main list and wait, folded, at the
+	// bottom: the list stays about what still needs a reply, and what got
+	// answered or fixed is one click away. A search shows every match in one
+	// list (the badge says which).
+	const active = $derived(search.trim() ? shown : shown.filter((t) => t.status === 'open'));
+	const answered = $derived(search.trim() ? [] : shown.filter((t) => t.status === 'answered'));
 	const fixed = $derived(search.trim() ? [] : shown.filter((t) => t.status === 'fixed'));
+	let answeredOpen = $state(false);
 	let fixedOpen = $state(false);
 	$effect(() => {
 		if (search.trim() && !deep) {
@@ -50,11 +53,12 @@
 	});
 
 	// "?category=report" opens on one board (the quiz's report panel links here);
-	// "?fixed=1" opens with the fixed topics unfolded.
+	// "?answered=1" / "?fixed=1" open with those topics unfolded.
 	onMount(() => {
 		const params = new URLSearchParams(window.location.search);
 		const wanted = params.get('category');
 		category = isCategory(wanted) ? wanted : null;
+		answeredOpen = params.get('answered') === '1';
 		fixedOpen = params.get('fixed') === '1';
 	});
 
@@ -80,6 +84,7 @@
 	function syncUrl() {
 		const params = new URLSearchParams();
 		if (category) params.set('category', category);
+		if (answeredOpen) params.set('answered', '1');
 		if (fixedOpen) params.set('fixed', '1');
 		const query = params.toString();
 		history.replaceState(history.state, '', query ? `/forum?${query}` : '/forum');
@@ -87,6 +92,11 @@
 
 	function pick(next: ForumCategory | null) {
 		category = next;
+		syncUrl();
+	}
+
+	function toggleAnswered() {
+		answeredOpen = !answeredOpen;
 		syncUrl();
 	}
 
@@ -183,34 +193,39 @@
 					{/each}
 				</ul>
 			{:else}
-				<p class="muted">Nothing open here: every problem reported on this board has been fixed.</p>
+				<p class="muted">Nothing open here: every topic on this board has been answered or fixed.</p>
 			{/if}
-			{#if fixed.length}
-				<section class="fixed" aria-labelledby="fixed-toggle">
-					<button
-						type="button"
-						id="fixed-toggle"
-						class="fixed-toggle"
-						aria-expanded={fixedOpen}
-						aria-controls="fixed-list"
-						onclick={toggleFixed}
-					>
-						<Icon name="check" size="1em" />
-						Fixed ({fixed.length})
-						<span class="chev" aria-hidden="true">{fixedOpen ? '▴' : '▾'}</span>
-					</button>
-					{#if fixedOpen}
-						<ul class="list" id="fixed-list">
-							{#each fixed as t (t.id)}
-								<ThreadRow thread={t} showCategory={category === null} />
-							{/each}
-						</ul>
-					{/if}
-				</section>
-			{/if}
+			{@render fold('answered', 'Answered', 'chat', answered, answeredOpen, toggleAnswered)}
+			{@render fold('fixed', 'Fixed', 'check', fixed, fixedOpen, toggleFixed)}
 		{/if}
 	{/if}
 </main>
+
+{#snippet fold(id: string, label: string, icon: 'chat' | 'check', list: ForumThread[], open: boolean, toggle: () => void)}
+	{#if list.length}
+		<section class="fold" aria-labelledby="{id}-toggle">
+			<button
+				type="button"
+				id="{id}-toggle"
+				class="fold-toggle"
+				aria-expanded={open}
+				aria-controls="{id}-list"
+				onclick={toggle}
+			>
+				<Icon name={icon} size="1em" />
+				{label} ({list.length})
+				<span class="chev" aria-hidden="true">{open ? '▴' : '▾'}</span>
+			</button>
+			{#if open}
+				<ul class="list" id="{id}-list">
+					{#each list as t (t.id)}
+						<ThreadRow thread={t} showCategory={category === null} />
+					{/each}
+				</ul>
+			{/if}
+		</section>
+	{/if}
+{/snippet}
 
 <SiteFooter />
 
@@ -341,13 +356,17 @@
 		color: var(--ink-muted);
 	}
 
-	.fixed {
+	.fold {
 		margin-top: 1.25rem;
 		padding-top: 0.75rem;
 		border-top: 1px solid var(--line);
 	}
 
-	.fixed-toggle {
+	.fold + .fold {
+		margin-top: 0.75rem;
+	}
+
+	.fold-toggle {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
@@ -362,7 +381,7 @@
 		cursor: pointer;
 	}
 
-	.fixed-toggle[aria-expanded='true'] {
+	.fold-toggle[aria-expanded='true'] {
 		border-color: var(--line-strong);
 		color: var(--ink);
 	}
