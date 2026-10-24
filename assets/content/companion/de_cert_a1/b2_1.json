@@ -1,0 +1,5685 @@
+{
+	"title": "Berichten & Argumentieren",
+	"cover": "cp_b2_1_cover",
+	"welcome": [
+		"This book is the paper half of B2.1. Every topic gets two facing pages: the **left page** teaches — tables, diagrams, the few rules that matter — and the **right page** is yours to write on.",
+		"It has three parts. The first is about passing on what others say, the way a newspaper does. The second is the passive and the small building blocks of written German. The third is about arguing: joining, ordering and taking a position.",
+		"It carries on from the earlier books. Words you learned there are not taught again. Work with a pencil and say every German word out loud as you write it. When a page has a **Listen** code, scan it with your phone camera to hear the German.",
+		"The answers are at the back. Do a whole page first, then check, and circle what you got wrong — those circles are next week’s revision. Tick an **I can** line only when you could do it tomorrow without the book."
+	],
+	"names": [
+		"Lena",
+		"Max",
+		"Paul",
+		"Mia",
+		"Tom",
+		"Anna",
+		"Keller",
+		"Brandt",
+		"Neustadt",
+		"Gent",
+		"Karin",
+		"Schmidt",
+		"Hamburg",
+		"Berlin",
+		"München",
+		"Bayern",
+		"Leipzig",
+		"Wien",
+		"Rom",
+		"Euro",
+		"Oma"
+	],
+	"spreads": [
+		{
+			"id": "gesellschaft",
+			"title": "Gesellschaft & Politik",
+			"subtitle": "The words of the news",
+			"hook": "Government, laws, taxes, votes: the vocabulary of every news bulletin — each noun with its verb.",
+			"hero": {
+				"image": "cp_b2_1_gesellschaft"
+			},
+			"quiz": "quest_b2_1_gesellschaft",
+			"listenQuiz": "quest_b2_1_hoeren_nachrichten",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "The state and its verbs",
+					"genders": true,
+					"head": [
+						{
+							"text": "der"
+						},
+						{
+							"text": "die"
+						},
+						{
+							"text": "das"
+						}
+					],
+					"rows": [
+						[
+							"der Bürger",
+							"die Regierung",
+							"das Parlament"
+						],
+						[
+							"der Minister",
+							"die Wahl",
+							"das Gesetz"
+						],
+						[
+							"der Sprecher",
+							"die Partei",
+							"das Einkommen"
+						],
+						[
+							"der Gegner",
+							"die Mehrheit",
+							"das Ziel"
+						]
+					]
+				},
+				{
+					"kind": "arrow",
+					"title": "Who does what",
+					"ask": [
+						"wer?",
+						"was?"
+					],
+					"rows": [
+						{
+							"who": "Das Parlament",
+							"verb": "beschließt",
+							"whom": "ein Gesetz",
+							"en": "passes a law"
+						},
+						{
+							"who": "Die Bürger",
+							"verb": "wählen",
+							"whom": "eine neue Regierung",
+							"en": "elect a new government"
+						},
+						{
+							"who": "Die Regierung",
+							"verb": "erhöht",
+							"whom": "die Steuern",
+							"en": "raises taxes"
+						},
+						{
+							"who": "Die Partei",
+							"verb": "gewinnt",
+							"whom": "die Wahl",
+							"en": "wins the election"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "In a debate",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "",
+							"en": true
+						}
+					],
+					"rows": [
+						[
+							"die Befürworter ↔ die Gegner",
+							"supporters ↔ opponents"
+						],
+						[
+							"fordern · warnen vor · begrüßen",
+							"demand · warn of · welcome"
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Steuern",
+							"en": "taxes"
+						},
+						{
+							"de": "steigen ↔ sinken · gesunken",
+							"en": "to rise ↔ fall"
+						},
+						{
+							"de": "die Arbeitslosigkeit",
+							"en": "unemployment"
+						},
+						{
+							"de": "die Kluft zwischen Arm und Reich",
+							"en": "the gap between rich and poor"
+						},
+						{
+							"de": "wächst",
+							"en": "grows"
+						},
+						{
+							"de": "das Monatsticket",
+							"en": "monthly ticket"
+						},
+						{
+							"de": "kosten",
+							"en": "to cost"
+						},
+						{
+							"de": "der Sturm",
+							"en": "storm"
+						},
+						{
+							"de": "die Bäume",
+							"en": "trees"
+						},
+						{
+							"de": "entwurzelt",
+							"en": "uprooted"
+						},
+						{
+							"de": "das Festival",
+							"en": "festival"
+						},
+						{
+							"de": "die Karten",
+							"en": "tickets"
+						},
+						{
+							"de": "verkauft",
+							"en": "sold"
+						},
+						{
+							"de": "in Bayern",
+							"en": "in Bavaria"
+						},
+						{
+							"de": "leicht",
+							"en": "slightly"
+						},
+						{
+							"de": "im Februar",
+							"en": "in February"
+						},
+						{
+							"de": "mehr als",
+							"en": "more than"
+						},
+						{
+							"de": "die Kosten",
+							"en": "costs"
+						},
+						{
+							"de": "vor höheren Kosten",
+							"en": "of higher costs"
+						},
+						{
+							"de": "zweihundert",
+							"en": "two hundred"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Noun + verb",
+					"instruction": "Write the verb.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Das Parlament hat ein neues Gesetz",
+							"after": ".",
+							"answer": "beschlossen"
+						},
+						{
+							"before": "Die Partei hat die Wahl",
+							"after": ".",
+							"answer": "gewonnen"
+						},
+						{
+							"before": "Die Regierung will die Steuern",
+							"after": ".",
+							"answer": "erhöhen"
+						},
+						{
+							"before": "Die Gegner",
+							"after": "vor höheren Kosten.",
+							"answer": "warnen"
+						},
+						{
+							"before": "Die Arbeitslosigkeit ist",
+							"after": ", doch die Kluft zwischen Arm und Reich wächst.",
+							"answer": "gesunken"
+						}
+					]
+				},
+				{
+					"title": "The news",
+					"instruction": "Listen to the news. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Das Monatsticket soll nicht mehr als",
+							"options": [
+								"39",
+								"49"
+							],
+							"after": "Euro kosten.",
+							"answer": "39"
+						},
+						{
+							"before": "Nach dem Sturm in",
+							"options": [
+								"Hamburg",
+								"Berlin"
+							],
+							"after": "wurden mehr als zweihundert Bäume entwurzelt.",
+							"answer": "Hamburg"
+						},
+						{
+							"before": "Die Arbeitslosigkeit in Bayern ist im Februar leicht",
+							"options": [
+								"gesunken",
+								"gestiegen"
+							],
+							"after": ".",
+							"answer": "gesunken"
+						},
+						{
+							"before": "Für das Festival wurden über",
+							"options": [
+								"80.000",
+								"8.000"
+							],
+							"after": "Karten verkauft.",
+							"answer": "80.000"
+						}
+					],
+					"listen": true
+				}
+			],
+			"canDo": [
+				"name the people and things of politics with der, die, das",
+				"use each noun with its verb",
+				"follow a news bulletin"
+			]
+		},
+		{
+			"id": "konj1",
+			"title": "Er sagt, er sei krank",
+			"subtitle": "Reported speech: the Konjunktiv I",
+			"hook": "The newspaper’s way of saying “he says so — not us”: er sei, sie habe, man werde.",
+			"hero": {
+				"image": "cp_b2_1_konj1"
+			},
+			"quiz": "quest_b2_1_konj1",
+			"learn": [
+				{
+					"kind": "build",
+					"title": "er-form: stem + -e",
+					"note": "And one on its own: er ist → er sei.",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "komm"
+								},
+								{
+									"text": "e",
+									"role": "suffix"
+								}
+							],
+							"result": "er komme",
+							"en": "er kommt"
+						},
+						{
+							"parts": [
+								{
+									"text": "hab"
+								},
+								{
+									"text": "e",
+									"role": "suffix"
+								}
+							],
+							"result": "er habe",
+							"en": "er hat"
+						},
+						{
+							"parts": [
+								{
+									"text": "könn"
+								},
+								{
+									"text": "e",
+									"role": "suffix"
+								}
+							],
+							"result": "er könne",
+							"en": "er kann"
+						},
+						{
+							"parts": [
+								{
+									"text": "müss"
+								},
+								{
+									"text": "e",
+									"role": "suffix"
+								}
+							],
+							"result": "er müsse",
+							"en": "er muss"
+						},
+						{
+							"parts": [
+								{
+									"text": "werd"
+								},
+								{
+									"text": "e",
+									"role": "suffix"
+								}
+							],
+							"result": "er werde",
+							"en": "er wird"
+						},
+						{
+							"parts": [
+								{
+									"text": "geb"
+								},
+								{
+									"text": "e",
+									"role": "suffix"
+								}
+							],
+							"result": "es gebe",
+							"en": "es gibt"
+						}
+					]
+				},
+				{
+					"kind": "slots",
+					"title": "Two verbs, two moods",
+					"note": "The tense stays: sei, not war.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Der Minister"
+								},
+								{
+									"de": "sagte,"
+								},
+								{
+									"de": "die Lage"
+								},
+								{
+									"de": "sei",
+									"hot": true
+								},
+								{
+									"de": "ernst."
+								}
+							],
+							"en": "the reporter: indicative · the minister: Konjunktiv I"
+						},
+						{
+							"cells": [
+								{
+									"de": "Sie"
+								},
+								{
+									"de": "meint,"
+								},
+								{
+									"de": "sie"
+								},
+								{
+									"de": "habe",
+									"hot": true
+								},
+								{
+									"de": "keine Zeit."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "flow",
+					"title": "Looks like the indicative?",
+					"root": {
+						"q": "Is the Konjunktiv I the same as the normal form?",
+						"yes": {
+							"answer": "use the Konjunktiv II",
+							"example": "sie haben → sie hätten"
+						},
+						"no": {
+							"answer": "keep it",
+							"example": "er hat → er habe"
+						}
+					}
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Lage",
+							"en": "situation"
+						},
+						{
+							"de": "ernst",
+							"en": "serious"
+						},
+						{
+							"de": "der Plan",
+							"en": "plan"
+						},
+						{
+							"de": "der Chef",
+							"en": "boss"
+						},
+						{
+							"de": "die Experten",
+							"en": "experts"
+						},
+						{
+							"de": "keine schnelle Lösung",
+							"en": "no quick solution"
+						},
+						{
+							"de": "meinen · sie meint",
+							"en": "to say, think"
+						},
+						{
+							"de": "der Sprecher fügte hinzu",
+							"en": "the spokesman added"
+						},
+						{
+							"de": "handeln",
+							"en": "to act"
+						},
+						{
+							"de": "morgen",
+							"en": "tomorrow"
+						},
+						{
+							"de": "sie sagten",
+							"en": "they said"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Report it",
+					"instruction": "Write the verb in brackets in the Konjunktiv I.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er sagt, er",
+							"after": "morgen. (kommen)",
+							"answer": "komme"
+						},
+						{
+							"before": "Sie meint, sie",
+							"after": "keine Zeit. (haben)",
+							"answer": "habe"
+						},
+						{
+							"before": "Der Minister sagte, die Lage",
+							"after": "ernst. (sein)",
+							"answer": "sei"
+						},
+						{
+							"before": "Der Chef sagt, er",
+							"after": "noch arbeiten. (müssen)",
+							"answer": "müsse"
+						},
+						{
+							"before": "Der Sprecher fügte hinzu, es",
+							"after": "keine schnelle Lösung. (geben)",
+							"answer": "gebe"
+						},
+						{
+							"before": "Sie sagte, die Regierung",
+							"after": "handeln. (werden)",
+							"answer": "werde"
+						},
+						{
+							"before": "Die Experten sagten, sie",
+							"after": "keine schnelle Lösung. (haben)",
+							"answer": "hätten"
+						}
+					]
+				},
+				{
+					"title": "In the paper",
+					"instruction": "Report what the minister said.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "„Die Lage ist ernst.“",
+							"answer": "Der Minister sagte, die Lage sei ernst."
+						},
+						{
+							"prompt": "„Die Regierung hat einen Plan.“",
+							"answer": "Der Minister sagte, die Regierung habe einen Plan."
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"report with er sei, sie habe, es gebe",
+				"keep the tense: sei, not war",
+				"switch to hätten when the form looks normal"
+			]
+		},
+		{
+			"id": "konj1_verg",
+			"title": "Sie sagte, sie sei angekommen",
+			"subtitle": "Reporting the past, questions and requests",
+			"hook": "Any past becomes habe or sei + the past form. Questions take ob, requests take solle or möge.",
+			"hero": {
+				"image": "cp_b2_1_konj1_verg"
+			},
+			"quiz": "quest_b2_1_konj1_vergangenheit",
+			"listenQuiz": "quest_b2_1_diktat_argument",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "Every past becomes habe or sei + the past form",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "„Ich schickte.“ · „Ich habe geschickt.“",
+									"tag": "direct speech"
+								},
+								{
+									"de": "er habe geschickt",
+									"tag": "reported",
+									"hot": true
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "„Ich kam an.“ · „Ich bin angekommen.“",
+									"tag": "direct speech"
+								},
+								{
+									"de": "sie sei angekommen",
+									"tag": "reported",
+									"hot": true
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "„Ich konnte nicht kommen.“",
+									"tag": "with a modal"
+								},
+								{
+									"de": "er habe nicht kommen können",
+									"tag": "two infinitives",
+									"hot": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Questions and requests",
+					"head": [
+						{
+							"text": "direct"
+						},
+						{
+							"text": "reported"
+						}
+					],
+					"rows": [
+						[
+							"„Kommst du mit?“",
+							"Sie fragte, *ob* ich mitkomme."
+						],
+						[
+							"„Wann fährt der Zug?“",
+							"Er fragte, *wann* der Zug fahre."
+						],
+						[
+							"„Warte bitte!“",
+							"Sie bat, ich *möge* warten. (polite)"
+						],
+						[
+							"„Schließen Sie die Tür!“",
+							"Er sagte, ich *solle* die Tür schließen."
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Zeuge",
+							"en": "witness"
+						},
+						{
+							"de": "der Unfall",
+							"en": "accident"
+						},
+						{
+							"de": "stehen bleiben · stehen geblieben",
+							"en": "to stop"
+						},
+						{
+							"de": "der Termin",
+							"en": "appointment"
+						},
+						{
+							"de": "wahrnehmen",
+							"en": "to keep (an appointment)"
+						},
+						{
+							"de": "die Nachbarn",
+							"en": "neighbours"
+						},
+						{
+							"de": "nichts gehört",
+							"en": "heard nothing"
+						},
+						{
+							"de": "der Arzt",
+							"en": "doctor"
+						},
+						{
+							"de": "das Rauchen aufgeben",
+							"en": "to give up smoking"
+						},
+						{
+							"de": "schlafen",
+							"en": "to sleep"
+						},
+						{
+							"de": "das Projekt",
+							"en": "project"
+						},
+						{
+							"de": "teuer",
+							"en": "expensive"
+						},
+						{
+							"de": "verschoben",
+							"en": "postponed"
+						},
+						{
+							"de": "veröffentlicht worden",
+							"en": "been published"
+						},
+						{
+							"de": "die Studie",
+							"en": "study"
+						},
+						{
+							"de": "im letzten Jahr",
+							"en": "last year"
+						},
+						{
+							"de": "die Gegner",
+							"en": "opponents"
+						},
+						{
+							"de": "die Ministerin",
+							"en": "minister"
+						},
+						{
+							"de": "der Experte",
+							"en": "expert"
+						},
+						{
+							"de": "erklärte",
+							"en": "explained"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The past, reported",
+					"instruction": "Write habe or sei.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Der Zeuge sagte, er",
+							"after": "den Unfall gesehen.",
+							"answer": "habe"
+						},
+						{
+							"before": "… und er",
+							"after": "sofort stehen geblieben.",
+							"answer": "sei"
+						},
+						{
+							"before": "Sie erklärte, sie",
+							"after": "den Termin nicht wahrnehmen können.",
+							"answer": "habe"
+						},
+						{
+							"before": "Die Nachbarn sagten, sie",
+							"after": "nichts gehört.",
+							"answer": "hätten"
+						}
+					]
+				},
+				{
+					"title": "Questions and requests",
+					"instruction": "Write ob, wann, solle or möge.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Sie fragte,",
+							"after": "ich mitkomme.",
+							"answer": "ob"
+						},
+						{
+							"before": "Er fragte,",
+							"after": "der Zug fahre.",
+							"answer": "wann"
+						},
+						{
+							"before": "Der Arzt sagte, ich",
+							"after": "mehr schlafen.",
+							"answer": "solle"
+						},
+						{
+							"before": "Sie bat, ich",
+							"after": "warten.",
+							"answer": "möge"
+						}
+					]
+				},
+				{
+					"title": "Heard it?",
+					"instruction": "Listen to the dictation and write the missing words.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Ministerin sagte, die Lage",
+							"after": "ernst, aber man habe einen Plan.",
+							"answer": "sei"
+						},
+						{
+							"before": "Die Studie ist im letzten Jahr veröffentlicht",
+							"after": ".",
+							"answer": "worden"
+						},
+						{
+							"before": "Die Gegner meinen, dass die Kosten zu hoch",
+							"after": ".",
+							"answer": "seien"
+						}
+					],
+					"listen": true
+				}
+			],
+			"canDo": [
+				"report the past with habe or sei",
+				"report a question with ob or a W-word",
+				"report a request with solle or möge"
+			]
+		},
+		{
+			"id": "indirekt_fragen",
+			"title": "Ich frage mich, ob das stimmt",
+			"subtitle": "Indirect questions",
+			"hook": "ob for yes-or-no, the W-word for the rest, the verb at the end — and womit, worauf, mit wem.",
+			"hero": {
+				"image": "cp_b2_1_indirekt_fragen"
+			},
+			"quiz": "quest_b2_1_indirekt_fragen",
+			"learn": [
+				{
+					"kind": "flow",
+					"title": "ob or a W-word?",
+					"root": {
+						"q": "Can you answer it with ja or nein?",
+						"yes": {
+							"answer": "ob",
+							"example": "Kommst du? → Er fragt, ob ich komme."
+						},
+						"no": {
+							"answer": "the W-word",
+							"example": "Wo wohnst du? → Sie will wissen, wo ich wohne."
+						}
+					}
+				},
+				{
+					"kind": "slots",
+					"title": "The verb goes to the end",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Er fragt,"
+								},
+								{
+									"de": "ob"
+								},
+								{
+									"de": "ich morgen"
+								},
+								{
+									"de": "komme.",
+									"hot": true
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "Sie wollte wissen,"
+								},
+								{
+									"de": "womit"
+								},
+								{
+									"de": "ich"
+								},
+								{
+									"de": "fahre.",
+									"hot": true
+								}
+							],
+							"en": "things: wo(r)-"
+						},
+						{
+							"cells": [
+								{
+									"de": "Er fragte,"
+								},
+								{
+									"de": "mit wem"
+								},
+								{
+									"de": "ich"
+								},
+								{
+									"de": "wohne.",
+									"hot": true
+								}
+							],
+							"en": "people: mit wem, auf wen"
+						}
+					]
+				},
+				{
+					"kind": "tiles",
+					"title": "Four openers",
+					"cols": 4,
+					"small": true,
+					"tiles": [
+						{
+							"big": "Er wollte wissen, …",
+							"word": "he wanted to know"
+						},
+						{
+							"big": "Sie fragte (sich), …",
+							"word": "she asked (herself)"
+						},
+						{
+							"big": "Er bat mich, …",
+							"word": "he asked me to"
+						},
+						{
+							"big": "Ich weiß nicht, …",
+							"word": "I don’t know"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "stimmen · das stimmt",
+							"en": "to be true"
+						},
+						{
+							"de": "womit",
+							"en": "with what"
+						},
+						{
+							"de": "worauf",
+							"en": "for what"
+						},
+						{
+							"de": "wovon",
+							"en": "on what"
+						},
+						{
+							"de": "leben",
+							"en": "to live"
+						},
+						{
+							"de": "warten auf",
+							"en": "to wait for"
+						},
+						{
+							"de": "der Journalist",
+							"en": "journalist"
+						},
+						{
+							"de": "wirklich",
+							"en": "really"
+						},
+						{
+							"de": "der Bus",
+							"en": "bus"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Ask it politely",
+					"instruction": "Write ob or the W-word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Der Journalist fragte,",
+							"after": "die Regierung einen Plan habe.",
+							"answer": "ob"
+						},
+						{
+							"before": "Sie wollte wissen,",
+							"after": "ich wohne.",
+							"answer": "wo"
+						},
+						{
+							"before": "Ich frage mich,",
+							"after": "das wirklich stimmt.",
+							"answer": "ob"
+						},
+						{
+							"before": "Er fragte,",
+							"after": "ich fahre: mit dem Bus oder mit dem Rad?",
+							"answer": "womit"
+						},
+						{
+							"before": "Sie wollte wissen,",
+							"after": "ich warte.",
+							"answer": "worauf"
+						},
+						{
+							"before": "Er fragte, mit",
+							"after": "ich wohne.",
+							"answer": "wem"
+						}
+					]
+				},
+				{
+					"title": "Indirect",
+					"instruction": "Start with Er fragte, … .",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "„Kommst du morgen?“",
+							"answer": "Er fragte, ob ich morgen komme."
+						},
+						{
+							"prompt": "„Wovon lebst du?“",
+							"answer": "Er fragte, wovon ich lebe."
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"ask with ob for a yes-or-no question",
+				"put the verb at the end",
+				"use womit, worauf, mit wem"
+			]
+		},
+		{
+			"id": "verben_praep",
+			"title": "Ich freue mich darauf",
+			"subtitle": "Verbs with a fixed little word",
+			"hook": "warten auf, denken an, teilnehmen an: learn the verb with its little word — never translate it.",
+			"hero": {
+				"image": "cp_b2_1_verben_praep"
+			},
+			"quiz": "quest_b2_1_verben_praep",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "By little word",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "verbs"
+						}
+					],
+					"rows": [
+						[
+							"auf + Akk",
+							"warten · sich freuen (on what’s coming) · sich verlassen"
+						],
+						[
+							"über + Akk",
+							"sprechen · sich freuen (on what’s here) · sich ärgern"
+						],
+						[
+							"für + Akk",
+							"sich interessieren · sich entschuldigen · sich bedanken"
+						],
+						[
+							"an",
+							"denken (Akk) · teilnehmen (Dat) · sich erinnern (Akk)"
+						],
+						[
+							"um + Akk",
+							"sich bewerben · sich kümmern"
+						],
+						[
+							"von + Dat",
+							"träumen · abhängen"
+						]
+					],
+					"note": "never: depend on → abhängen von · take part in → teilnehmen an"
+				},
+				{
+					"kind": "timeline",
+					"title": "sich freuen: auf or über?",
+					"marks": [
+						{
+							"de": "Ich freue mich über das gute Wetter.",
+							"en": "über: it’s here now",
+							"at": 0
+						},
+						{
+							"de": "Ich freue mich auf den Urlaub.",
+							"en": "auf: it’s still to come",
+							"at": 2.5
+						}
+					]
+				},
+				{
+					"kind": "slots",
+					"title": "A whole clause? da(r)- before the comma",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Ich freue mich"
+								},
+								{
+									"de": "darauf,",
+									"hot": true
+								},
+								{
+									"de": "dass"
+								},
+								{
+									"de": "ihr kommt."
+								}
+							],
+							"en": "auf → darauf"
+						},
+						{
+							"cells": [
+								{
+									"de": "Er denkt"
+								},
+								{
+									"de": "daran,"
+								},
+								{
+									"de": "das Haus"
+								},
+								{
+									"de": "zu verkaufen."
+								}
+							],
+							"en": "an → daran"
+						},
+						{
+							"cells": [
+								{
+									"de": "Wovon",
+									"hot": true
+								},
+								{
+									"de": "hängt"
+								},
+								{
+									"de": "das ab?"
+								},
+								{
+									"de": "– Davon, wie viel Zeit wir haben."
+								}
+							],
+							"en": "asking: wo(r)-"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Konferenz",
+							"en": "conference"
+						},
+						{
+							"de": "die Organisatoren",
+							"en": "organisers"
+						},
+						{
+							"de": "die Einladung",
+							"en": "invitation"
+						},
+						{
+							"de": "die Unterlagen",
+							"en": "documents"
+						},
+						{
+							"de": "rechtzeitig",
+							"en": "in time"
+						},
+						{
+							"de": "ankommen",
+							"en": "to arrive"
+						},
+						{
+							"de": "die Verspätung",
+							"en": "delay"
+						},
+						{
+							"de": "die Stelle",
+							"en": "job"
+						},
+						{
+							"de": "der Urlaub",
+							"en": "holiday"
+						},
+						{
+							"de": "teilgenommen",
+							"en": "took part"
+						},
+						{
+							"de": "bedankt",
+							"en": "thanked"
+						},
+						{
+							"de": "der Zug",
+							"en": "train"
+						},
+						{
+							"de": "beworben",
+							"en": "applied"
+						},
+						{
+							"de": "kümmern",
+							"en": "to see to"
+						},
+						{
+							"de": "sie ärgert sich",
+							"en": "she is annoyed"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The little word",
+					"instruction": "Write the missing little word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich habe",
+							"after": "der Konferenz teilgenommen.",
+							"answer": "an"
+						},
+						{
+							"before": "Ich habe mich bei den Organisatoren",
+							"after": "die Einladung bedankt.",
+							"answer": "für"
+						},
+						{
+							"before": "Er hat sich",
+							"after": "die Stelle beworben.",
+							"answer": "um"
+						},
+						{
+							"before": "Das hängt",
+							"after": "der Zeit ab.",
+							"answer": "von"
+						},
+						{
+							"before": "Ich freue mich",
+							"after": "den Urlaub.",
+							"answer": "auf"
+						}
+					]
+				},
+				{
+					"title": "da(r)-",
+					"instruction": "Write the da(r)-word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Wir müssen uns",
+							"after": "kümmern, dass die Unterlagen rechtzeitig ankommen.",
+							"answer": "darum"
+						},
+						{
+							"before": "Sie ärgert sich",
+							"after": ", dass der Zug Verspätung hat.",
+							"answer": "darüber"
+						},
+						{
+							"before": "Ich freue mich",
+							"after": ", dass ihr kommt.",
+							"answer": "darauf"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"learn verbs with their little word",
+				"tell sich freuen auf from sich freuen über",
+				"attach a clause with darauf, darüber, daran"
+			]
+		},
+		{
+			"id": "adjektive_praep",
+			"title": "stolz auf, zufrieden mit",
+			"subtitle": "Describing words with a fixed little word",
+			"hook": "interested in is interessiert an, proud of is stolz auf: the English little word is a false friend every time.",
+			"hero": {
+				"image": "cp_b2_1_adjektive_praep"
+			},
+			"quiz": "quest_b2_1_adjektive_praep",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "The core set",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "describing words"
+						}
+					],
+					"rows": [
+						[
+							"auf + Akk",
+							"stolz · neugierig · gespannt"
+						],
+						[
+							"mit + Dat",
+							"zufrieden · einverstanden · fertig"
+						],
+						[
+							"an + Dat",
+							"interessiert · reich · schuld"
+						],
+						[
+							"von + Dat",
+							"abhängig · begeistert · überzeugt · enttäuscht"
+						],
+						[
+							"für + Akk",
+							"verantwortlich · bekannt · typisch"
+						],
+						[
+							"über + Akk",
+							"froh · traurig · ärgerlich"
+						],
+						[
+							"zu + Dat",
+							"freundlich · nett · bereit"
+						]
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "table",
+							"title": "Verb and describing word can differ",
+							"head": [
+								{
+									"text": "verb"
+								},
+								{
+									"text": "describing word"
+								}
+							],
+							"rows": [
+								[
+									"sich interessieren *für*",
+									"interessiert *an*"
+								],
+								[
+									"sich begeistern *für*",
+									"begeistert *von*"
+								]
+							]
+						},
+						{
+							"kind": "slots",
+							"title": "Where it goes",
+							"rows": [
+								{
+									"cells": [
+										{
+											"de": "Sie ist"
+										},
+										{
+											"de": "mit dem Ergebnis"
+										},
+										{
+											"de": "zufrieden.",
+											"hot": true
+										}
+									],
+									"en": "the little word in the middle"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "tip",
+					"title": "A whole clause",
+					"text": "Ich bin stolz *darauf*, dass du das geschafft hast. Sie ist neugierig *darauf*, wie es ausgeht."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "das Team",
+							"en": "team"
+						},
+						{
+							"de": "das Budget",
+							"en": "budget"
+						},
+						{
+							"de": "das Ergebnis",
+							"en": "result"
+						},
+						{
+							"de": "die Tochter",
+							"en": "daughter"
+						},
+						{
+							"de": "die Wohnung",
+							"en": "flat"
+						},
+						{
+							"de": "der Käse",
+							"en": "cheese"
+						},
+						{
+							"de": "niemand",
+							"en": "nobody"
+						},
+						{
+							"de": "geschafft",
+							"en": "managed"
+						},
+						{
+							"de": "der Vorschlag",
+							"en": "proposal"
+						},
+						{
+							"de": "die Musik",
+							"en": "music"
+						},
+						{
+							"de": "die Region",
+							"en": "region"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The little word",
+					"instruction": "Write the missing little word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Sie ist stolz",
+							"after": "ihre Arbeit.",
+							"answer": "auf"
+						},
+						{
+							"before": "Wir sind mit dem Ergebnis sehr",
+							"after": ". (zufrieden or stolz?)",
+							"answer": "zufrieden"
+						},
+						{
+							"before": "Er ist verantwortlich",
+							"after": "das Budget.",
+							"answer": "für"
+						},
+						{
+							"before": "Ich bin",
+							"after": "Musik interessiert.",
+							"answer": "an"
+						},
+						{
+							"before": "Die Region ist bekannt",
+							"after": "ihren Käse.",
+							"answer": "für"
+						},
+						{
+							"before": "Ich bin",
+							"after": "dem Vorschlag einverstanden.",
+							"answer": "mit"
+						},
+						{
+							"before": "Er ist enttäuscht",
+							"after": ", dass niemand gekommen ist.",
+							"answer": "davon"
+						}
+					]
+				},
+				{
+					"title": "About you",
+					"instruction": "Finish the sentence.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich bin stolz darauf, dass",
+							"after": "."
+						}
+					],
+					"note": "About you."
+				}
+			],
+			"canDo": [
+				"use stolz auf, zufrieden mit, interessiert an",
+				"remember that the verb’s little word can differ",
+				"attach a clause with darauf, davon"
+			]
+		},
+		{
+			"id": "nomen_praep",
+			"title": "die Kritik an der Regierung",
+			"subtitle": "Nouns with a fixed little word",
+			"hook": "Written German prefers nouns: die Kritik der Opposition an der Regierung packs a whole sentence into a phrase.",
+			"hero": {
+				"image": "cp_b2_1_nomen_praep"
+			},
+			"quiz": "quest_b2_1_nomen_praep",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "From verb to noun — the little word may change",
+					"head": [
+						{
+							"text": "verb"
+						},
+						{
+							"text": "noun"
+						},
+						{
+							"text": ""
+						}
+					],
+					"rows": [
+						[
+							"sich fürchten vor",
+							"die Angst vor",
+							"same"
+						],
+						[
+							"sich interessieren für",
+							"das Interesse *an*",
+							"changes!"
+						],
+						[
+							"kritisieren",
+							"die Kritik *an*",
+							"a new one"
+						],
+						[
+							"teilnehmen an",
+							"die Teilnahme an",
+							"same"
+						],
+						[
+							"bitten um",
+							"die Bitte um",
+							"same"
+						]
+					]
+				},
+				{
+					"kind": "table",
+					"title": "More to learn",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "nouns"
+						}
+					],
+					"rows": [
+						[
+							"auf + Akk",
+							"der Einfluss · die Lust · die Hoffnung · die Antwort"
+						],
+						[
+							"für + Akk",
+							"der Grund · die Verantwortung"
+						],
+						[
+							"über + Akk",
+							"die Freude · der Bericht"
+						],
+						[
+							"nach + Dat",
+							"die Frage · die Suche"
+						]
+					]
+				},
+				{
+					"kind": "slots",
+					"title": "Unpack the phrase",
+					"note": "The genitive is who, the little word is at what.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "der Einfluss"
+								},
+								{
+									"de": "der Medien"
+								},
+								{
+									"de": "auf die Wahl",
+									"hot": true
+								}
+							],
+							"en": "= Die Medien beeinflussen die Wahl."
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Medien",
+							"en": "the media"
+						},
+						{
+							"de": "die Opposition",
+							"en": "opposition"
+						},
+						{
+							"de": "wächst",
+							"en": "grows"
+						},
+						{
+							"de": "der Ärger",
+							"en": "anger"
+						},
+						{
+							"de": "die Lage",
+							"en": "situation"
+						},
+						{
+							"de": "sich bessern",
+							"en": "to improve"
+						},
+						{
+							"de": "gering",
+							"en": "small"
+						},
+						{
+							"de": "die Politik",
+							"en": "politics"
+						},
+						{
+							"de": "groß",
+							"en": "big"
+						},
+						{
+							"de": "fehlen · er fehlt",
+							"en": "to be absent"
+						},
+						{
+							"de": "sie bessert sich",
+							"en": "it improves"
+						},
+						{
+							"de": "klar",
+							"en": "clear"
+						},
+						{
+							"de": "der Kurs",
+							"en": "course"
+						},
+						{
+							"de": "die Schüler",
+							"en": "pupils"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The little word",
+					"instruction": "Write the missing little word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Kritik",
+							"after": "der Regierung wächst.",
+							"answer": "an"
+						},
+						{
+							"before": "Mein Interesse",
+							"after": "Politik ist groß.",
+							"answer": "an"
+						},
+						{
+							"before": "Der Grund",
+							"after": "den Ärger ist ihr Einfluss auf die Medien.",
+							"answer": "für"
+						},
+						{
+							"before": "Ich habe keine Lust",
+							"after": "den Kurs.",
+							"answer": "auf"
+						},
+						{
+							"before": "Die Teilnahme der Schüler",
+							"after": "dem Kurs ist gering.",
+							"answer": "an"
+						}
+					]
+				},
+				{
+					"title": "da(r)-",
+					"instruction": "Write the da(r)-word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Hoffnung",
+							"after": ", dass sich die Lage bessert, ist gering.",
+							"answer": "darauf"
+						},
+						{
+							"before": "Der Grund",
+							"after": ", dass er fehlt, ist nicht klar.",
+							"answer": "dafür"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"use nouns with their little word: Kritik an, Angst vor",
+				"notice when it changes: Interesse an",
+				"unpack a noun phrase into a sentence"
+			]
+		},
+		{
+			"id": "review_1",
+			"review": true,
+			"title": "Wiederholung",
+			"subtitle": "Topics 1–7",
+			"hook": "Nothing new here — only what you know. Do both pages without looking back, then check.",
+			"quiz": "quest_b2_1_sprechen_kurzcheck",
+			"learn": [],
+			"left": [
+				{
+					"title": "Reported",
+					"instruction": "Write the verb in the Konjunktiv I.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er sagt, er",
+							"after": "krank. (sein)",
+							"answer": "sei"
+						},
+						{
+							"before": "Sie meint, sie",
+							"after": "keine Zeit. (haben)",
+							"answer": "habe"
+						},
+						{
+							"before": "Der Zeuge sagte, er",
+							"after": "den Unfall gesehen. (haben)",
+							"answer": "habe"
+						}
+					]
+				},
+				{
+					"title": "Asked",
+					"instruction": "Write ob or the W-word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er fragte,",
+							"after": "ich morgen komme.",
+							"answer": "ob"
+						},
+						{
+							"before": "Sie wollte wissen,",
+							"after": "ich wohne.",
+							"answer": "wo"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "The little word",
+					"instruction": "Write the missing little word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich warte",
+							"after": "den Bus.",
+							"answer": "auf"
+						},
+						{
+							"before": "Ich habe",
+							"after": "der Konferenz teilgenommen.",
+							"answer": "an"
+						},
+						{
+							"before": "Sie ist stolz",
+							"after": "ihre Tochter.",
+							"answer": "auf"
+						},
+						{
+							"before": "Mein Interesse",
+							"after": "Politik ist groß.",
+							"answer": "an"
+						},
+						{
+							"before": "Ich freue mich",
+							"after": ", dass ihr kommt.",
+							"answer": "darauf"
+						}
+					]
+				}
+			],
+			"canDo": []
+		},
+		{
+			"id": "modalpassiv",
+			"title": "Das muss gelöst werden",
+			"subtitle": "The passive with a modal — in every tense",
+			"hook": "gelöst werden is one block. Put muss, musste or hat … müssen around it and you have every tense.",
+			"hero": {
+				"image": "cp_b2_1_modalpassiv"
+			},
+			"quiz": "quest_b2_1_modalpassiv",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "One block, three tenses",
+					"note": "Only the modal shows the tense.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Das Problem"
+								},
+								{
+									"de": "muss",
+									"hot": true
+								},
+								{
+									"de": "gelöst werden.",
+									"hot": true
+								}
+							],
+							"en": "now"
+						},
+						{
+							"cells": [
+								{
+									"de": "Das Problem"
+								},
+								{
+									"de": "musste",
+									"hot": true
+								},
+								{
+									"de": "gelöst werden.",
+									"hot": true
+								}
+							],
+							"en": "past — the one to use"
+						},
+						{
+							"cells": [
+								{
+									"de": "Das Problem"
+								},
+								{
+									"de": "hat",
+									"hot": true
+								},
+								{
+									"de": "gelöst werden müssen.",
+									"hot": true
+								}
+							],
+							"en": "Perfekt: müssen, not gemusst"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "man or the passive?",
+					"head": [
+						{
+							"text": "with man"
+						},
+						{
+							"text": "passive"
+						}
+					],
+					"rows": [
+						[
+							"Man muss das Problem lösen.",
+							"Das Problem muss gelöst werden."
+						],
+						[
+							"Man darf hier nicht rauchen.",
+							"Hier darf nicht geraucht werden."
+						],
+						[
+							"Man sollte die Fenster schließen.",
+							"Die Fenster sollten geschlossen werden."
+						]
+					],
+					"note": "Conversation likes man; rules and reports like the passive."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "das Formular",
+							"en": "form"
+						},
+						{
+							"de": "ausfüllen · ausgefüllt",
+							"en": "to fill in"
+						},
+						{
+							"de": "die Regeln",
+							"en": "rules"
+						},
+						{
+							"de": "beachten",
+							"en": "to follow"
+						},
+						{
+							"de": "der Vertrag",
+							"en": "contract"
+						},
+						{
+							"de": "unterschreiben · unterschrieben",
+							"en": "to sign"
+						},
+						{
+							"de": "der Flug",
+							"en": "flight"
+						},
+						{
+							"de": "streichen · gestrichen",
+							"en": "to cancel"
+						},
+						{
+							"de": "wegen des Sturms",
+							"en": "because of the storm"
+						},
+						{
+							"de": "der Antrag · die Anträge",
+							"en": "application"
+						},
+						{
+							"de": "einreichen · eingereicht",
+							"en": "to hand in"
+						},
+						{
+							"de": "bis Freitag",
+							"en": "by Friday"
+						},
+						{
+							"de": "die Gäste",
+							"en": "guests"
+						},
+						{
+							"de": "informiert",
+							"en": "informed"
+						},
+						{
+							"de": "reparieren · repariert",
+							"en": "to repair"
+						},
+						{
+							"de": "informieren",
+							"en": "to inform"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The modal",
+					"instruction": "Write the modal in brackets in the right form.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Das Formular",
+							"after": "ausgefüllt werden. (müssen, now)",
+							"answer": "muss"
+						},
+						{
+							"before": "Die Anträge",
+							"after": "bis Freitag eingereicht werden. (müssen, now)",
+							"answer": "müssen"
+						},
+						{
+							"before": "Der Vertrag",
+							"after": "nicht unterschrieben werden. (können, past)",
+							"answer": "konnte"
+						},
+						{
+							"before": "Hier",
+							"after": "nicht geraucht werden. (dürfen, now)",
+							"answer": "darf"
+						}
+					]
+				},
+				{
+					"title": "The end of the sentence",
+					"instruction": "Write the last two words.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Regeln müssen beachtet",
+							"after": ".",
+							"answer": "werden"
+						},
+						{
+							"before": "Der Flug hat wegen des Sturms gestrichen",
+							"after": ".",
+							"answer": "werden müssen"
+						}
+					]
+				},
+				{
+					"title": "In the passive",
+					"instruction": "Write it in the passive.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Man muss die Gäste informieren.",
+							"answer": "Die Gäste müssen informiert werden."
+						},
+						{
+							"prompt": "Man sollte das Fenster reparieren.",
+							"answer": "Das Fenster sollte repariert werden."
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"say what must be done: muss … werden",
+				"use the past: musste … werden",
+				"read the Perfekt: hat … werden müssen"
+			]
+		},
+		{
+			"id": "passiv_perfekt",
+			"title": "Das Haus ist 1990 gebaut worden",
+			"subtitle": "The passive in the Perfekt",
+			"hook": "ist … worden: sein as the helper, worden as the last word — never geworden.",
+			"hero": {
+				"image": "cp_b2_1_passiv_perfekt"
+			},
+			"quiz": "quest_b2_1_passiv_perfekt",
+			"listenQuiz": "quest_b2_1_lesen_leserbrief",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "ist … worden",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Das Haus"
+								},
+								{
+									"de": "ist",
+									"hot": true
+								},
+								{
+									"de": "1990"
+								},
+								{
+									"de": "gebaut worden.",
+									"hot": true
+								}
+							],
+							"en": "has been built"
+						},
+						{
+							"cells": [
+								{
+									"de": "Die Fehler"
+								},
+								{
+									"de": "sind",
+									"hot": true
+								},
+								{
+									"de": "korrigiert worden.",
+									"hot": true
+								}
+							],
+							"en": "sein agrees, worden never changes"
+						},
+						{
+							"cells": [
+								{
+									"de": "Das Haus"
+								},
+								{
+									"de": "war",
+									"hot": true
+								},
+								{
+									"de": "schon"
+								},
+								{
+									"de": "gebaut worden.",
+									"hot": true
+								}
+							],
+							"en": "one step further back"
+						},
+						{
+							"cells": [
+								{
+									"de": "…, weil"
+								},
+								{
+									"de": "das Haus"
+								},
+								{
+									"de": "gebaut worden"
+								},
+								{
+									"de": "ist.",
+									"hot": true
+								}
+							],
+							"en": "in a clause: the helper last"
+						}
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "box",
+							"tone": "watch",
+							"title": "worden or geworden?",
+							"text": "*Das Haus ist gebaut worden* (passive). *Er ist Arzt geworden* (became)."
+						},
+						{
+							"kind": "table",
+							"title": "Same meaning",
+							"head": [
+								{
+									"text": "written"
+								},
+								{
+									"text": "spoken"
+								}
+							],
+							"rows": [
+								[
+									"Das Haus wurde gebaut.",
+									"Das Haus ist gebaut worden."
+								]
+							]
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Dieb",
+							"en": "thief"
+						},
+						{
+							"de": "gefunden",
+							"en": "found"
+						},
+						{
+							"de": "die Rechnung",
+							"en": "bill"
+						},
+						{
+							"de": "bereits",
+							"en": "already"
+						},
+						{
+							"de": "gestrichen",
+							"en": "cancelled"
+						},
+						{
+							"de": "inzwischen",
+							"en": "by now"
+						},
+						{
+							"de": "behoben",
+							"en": "fixed"
+						},
+						{
+							"de": "der Park",
+							"en": "park"
+						},
+						{
+							"de": "das Parkhaus",
+							"en": "car park"
+						},
+						{
+							"de": "der Spielplatz",
+							"en": "playground"
+						},
+						{
+							"de": "die Tiefgarage",
+							"en": "underground car park"
+						},
+						{
+							"de": "die Grünflächen",
+							"en": "green spaces"
+						},
+						{
+							"de": "es fehlt an",
+							"en": "there is a lack of"
+						},
+						{
+							"de": "das Viertel",
+							"en": "neighbourhood"
+						},
+						{
+							"de": "die Wiese",
+							"en": "meadow"
+						},
+						{
+							"de": "hinter der Schule",
+							"en": "behind the school"
+						},
+						{
+							"de": "die Wohnblocks",
+							"en": "blocks of flats"
+						},
+						{
+							"de": "wo früher … war",
+							"en": "where there used to be"
+						},
+						{
+							"de": "ein Fünftel",
+							"en": "a fifth"
+						},
+						{
+							"de": "unbebaut",
+							"en": "not built on"
+						},
+						{
+							"de": "gewichen",
+							"en": "given way to"
+						},
+						{
+							"de": "mindestens",
+							"en": "at least"
+						},
+						{
+							"de": "jedes Grundstücks",
+							"en": "of every plot"
+						},
+						{
+							"de": "der Flughafen",
+							"en": "airport"
+						},
+						{
+							"de": "ankamen",
+							"en": "arrived"
+						},
+						{
+							"de": "die Briefe",
+							"en": "letters"
+						},
+						{
+							"de": "verschickt",
+							"en": "sent"
+						},
+						{
+							"de": "die Parks",
+							"en": "parks"
+						},
+						{
+							"de": "die Schulen",
+							"en": "schools"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "ist … worden",
+					"instruction": "Write ist, sind or war + worden.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Der Dieb",
+							"after": "gestern gefunden",
+							"answer": "ist … worden"
+						},
+						{
+							"before": "Die Briefe",
+							"after": "schon verschickt",
+							"answer": "sind … worden"
+						},
+						{
+							"before": "Der Flug",
+							"after": "schon gestrichen",
+							"answer": "war … worden"
+						}
+					],
+					"note": "Write both words in the gap, with … between them."
+				},
+				{
+					"title": "In a clause",
+					"instruction": "Write the last two words.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich weiß, dass der Fehler inzwischen behoben",
+							"after": ".",
+							"answer": "worden ist"
+						},
+						{
+							"before": "Wir waren froh, weil die Rechnung bereits bezahlt",
+							"after": ".",
+							"answer": "worden war"
+						}
+					]
+				},
+				{
+					"title": "A letter to the paper",
+					"instruction": "Listen to the letter. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Wo früher ein kleiner",
+							"options": [
+								"Park",
+								"Markt"
+							],
+							"after": "war, ist ein Parkhaus gebaut worden.",
+							"answer": "Park"
+						},
+						{
+							"before": "Der Spielplatz ist einer",
+							"options": [
+								"Tiefgarage",
+								"Schule"
+							],
+							"after": "gewichen.",
+							"answer": "Tiefgarage"
+						},
+						{
+							"before": "Im Viertel fehlt es an",
+							"options": [
+								"Grünflächen",
+								"Wohnungen"
+							],
+							"after": ".",
+							"answer": "Grünflächen"
+						},
+						{
+							"before": "Mindestens ein",
+							"options": [
+								"Fünftel",
+								"Viertel"
+							],
+							"after": "jedes Grundstücks soll unbebaut bleiben.",
+							"answer": "Fünftel"
+						}
+					],
+					"listen": true
+				}
+			],
+			"canDo": [
+				"say what has been done: ist … worden",
+				"tell worden from geworden",
+				"put the helper last in a clause"
+			]
+		},
+		{
+			"id": "zustandspassiv",
+			"title": "ist geöffnet oder wird geöffnet?",
+			"subtitle": "The action and the state",
+			"hook": "English says “is opened” for both. German doesn’t: wird geöffnet is happening, ist geöffnet is the result.",
+			"hero": {
+				"image": "cp_b2_1_zustandspassiv"
+			},
+			"quiz": "quest_b2_1_zustandspassiv",
+			"learn": [
+				{
+					"kind": "flow",
+					"title": "wird or ist?",
+					"root": {
+						"q": "Is something happening right now?",
+						"yes": {
+							"answer": "werden: the action",
+							"example": "Das Geschäft wird um neun geöffnet."
+						},
+						"no": {
+							"answer": "sein: the state",
+							"example": "Das Geschäft ist geöffnet. = offen"
+						}
+					}
+				},
+				{
+					"kind": "table",
+					"title": "Now and in the past",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "action"
+						},
+						{
+							"text": "state"
+						}
+					],
+					"rows": [
+						[
+							"now",
+							"Der Tisch *wird* gedeckt.",
+							"Der Tisch *ist* gedeckt."
+						],
+						[
+							"past",
+							"Das Museum *wurde* um fünf geschlossen.",
+							"Das Museum *war* schon geschlossen."
+						]
+					],
+					"note": "Can you say offen, zu or fertig instead? Then it’s the state."
+				},
+				{
+					"kind": "arrow",
+					"title": "von or durch?",
+					"note": "Der Brief wurde vom Chef geschrieben.",
+					"ask": [
+						"who or what?",
+						""
+					],
+					"rows": [
+						{
+							"who": "vom Chef",
+							"verb": "geschrieben",
+							"whom": "a person: von"
+						},
+						{
+							"who": "durch einen Boten",
+							"verb": "überbracht",
+							"whom": "a means: durch"
+						},
+						{
+							"who": "durch ein Erdbeben",
+							"verb": "zerstört",
+							"whom": "nature: von or durch"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "das Geschäft",
+							"en": "shop"
+						},
+						{
+							"de": "um neun",
+							"en": "at nine"
+						},
+						{
+							"de": "der Tisch",
+							"en": "table"
+						},
+						{
+							"de": "gedeckt",
+							"en": "laid"
+						},
+						{
+							"de": "gerade",
+							"en": "right now"
+						},
+						{
+							"de": "das Museum",
+							"en": "museum"
+						},
+						{
+							"de": "als wir ankamen",
+							"en": "when we arrived"
+						},
+						{
+							"de": "der Bote",
+							"en": "messenger"
+						},
+						{
+							"de": "das Erdbeben",
+							"en": "earthquake"
+						},
+						{
+							"de": "zerstört",
+							"en": "destroyed"
+						},
+						{
+							"de": "die Stadt",
+							"en": "city"
+						},
+						{
+							"de": "beschlossen",
+							"en": "passed"
+						},
+						{
+							"de": "bekannt gemacht",
+							"en": "made known"
+						},
+						{
+							"de": "repariert",
+							"en": "repaired"
+						},
+						{
+							"de": "wir können essen",
+							"en": "we can eat"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Action or state?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Das Geschäft",
+							"options": [
+								"wird",
+								"ist"
+							],
+							"after": "jeden Tag um neun geöffnet.",
+							"answer": "wird"
+						},
+						{
+							"before": "Der Tisch",
+							"options": [
+								"ist",
+								"wird"
+							],
+							"after": "gedeckt, wir können essen.",
+							"answer": "ist"
+						},
+						{
+							"before": "Als wir ankamen,",
+							"options": [
+								"war",
+								"wurde"
+							],
+							"after": "das Museum schon geschlossen.",
+							"answer": "war"
+						},
+						{
+							"before": "Das Auto",
+							"options": [
+								"wird",
+								"ist"
+							],
+							"after": "gerade repariert.",
+							"answer": "wird"
+						},
+						{
+							"before": "Das Gesetz wurde",
+							"options": [
+								"vom",
+								"durch das"
+							],
+							"after": "Parlament beschlossen.",
+							"answer": "vom"
+						},
+						{
+							"before": "Die Stadt wurde",
+							"options": [
+								"durch",
+								"vom"
+							],
+							"after": "ein Erdbeben zerstört.",
+							"answer": "durch"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"tell wird geöffnet from ist geöffnet",
+				"use wurde and war in the past",
+				"choose von for a person, durch for a means"
+			]
+		},
+		{
+			"id": "passiv_subjektlos",
+			"title": "Hier wird getanzt",
+			"subtitle": "A passive with no subject",
+			"hook": "Hier wird nicht geraucht. Ihm wird geholfen. No subject at all — and es only when nothing else is in front.",
+			"hero": {
+				"image": "cp_b2_1_passiv_subjektlos"
+			},
+			"quiz": "quest_b2_1_passiv_subjektlos",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "es fills the first place — and only there",
+					"note": "Always wird or wurde: singular.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Es",
+									"hot": true
+								},
+								{
+									"de": "wird"
+								},
+								{
+									"de": "getanzt."
+								}
+							],
+							"en": "nothing else in front: es"
+						},
+						{
+							"cells": [
+								{
+									"de": "Hier",
+									"hot": true
+								},
+								{
+									"de": "wird"
+								},
+								{
+									"de": "getanzt."
+								}
+							],
+							"en": "something in front: no es"
+						},
+						{
+							"cells": [
+								{
+									"de": "Sonntags"
+								},
+								{
+									"de": "wird"
+								},
+								{
+									"de": "nicht"
+								},
+								{
+									"de": "gearbeitet."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "The dative stays dative",
+					"head": [
+						{
+							"text": "with man"
+						},
+						{
+							"text": "passive"
+						}
+					],
+					"rows": [
+						[
+							"Man hilft *ihm*.",
+							"*Ihm* wird geholfen. (not: Er wird …)"
+						],
+						[
+							"Man dankte *den Helfern*.",
+							"*Den Helfern* wurde gedankt."
+						],
+						[
+							"Man antwortete *mir* nicht.",
+							"*Mir* wurde nicht geantwortet."
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Bibliothek",
+							"en": "library"
+						},
+						{
+							"de": "gesprochen",
+							"en": "spoken"
+						},
+						{
+							"de": "gegessen",
+							"en": "eaten"
+						},
+						{
+							"de": "gelacht",
+							"en": "laughed"
+						},
+						{
+							"de": "viel",
+							"en": "a lot"
+						},
+						{
+							"de": "die Gewinner",
+							"en": "winners"
+						},
+						{
+							"de": "gratuliert",
+							"en": "congratulated"
+						},
+						{
+							"de": "die Helfer",
+							"en": "helpers"
+						},
+						{
+							"de": "über Politik",
+							"en": "about politics"
+						},
+						{
+							"de": "diskutiert",
+							"en": "discussed"
+						},
+						{
+							"de": "man lachte",
+							"en": "people laughed"
+						},
+						{
+							"de": "man diskutiert",
+							"en": "people discuss"
+						},
+						{
+							"de": "rauchen · geraucht",
+							"en": "to smoke"
+						},
+						{
+							"de": "man raucht",
+							"en": "people smoke"
+						},
+						{
+							"de": "gestern",
+							"en": "yesterday"
+						},
+						{
+							"de": "auf der Party",
+							"en": "at the party"
+						},
+						{
+							"de": "getanzt",
+							"en": "danced"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "es or not?",
+					"instruction": "Write es where it is needed, or – where it isn’t.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "wird getanzt.",
+							"answer": "Es"
+						},
+						{
+							"before": "Hier wird",
+							"after": "getanzt.",
+							"answer": "–"
+						},
+						{
+							"before": "",
+							"after": "wurde viel gelacht.",
+							"answer": "Es"
+						},
+						{
+							"before": "Gestern wurde",
+							"after": "viel gelacht.",
+							"answer": "–"
+						}
+					]
+				},
+				{
+					"title": "The dative",
+					"instruction": "Write the person in the right form.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "wird geholfen. (er)",
+							"answer": "Ihm"
+						},
+						{
+							"before": "",
+							"after": "wurde nicht geantwortet. (ich)",
+							"answer": "Mir"
+						},
+						{
+							"before": "",
+							"after": "wurde gratuliert. (die Gewinner)",
+							"answer": "Den Gewinnern"
+						}
+					]
+				},
+				{
+					"title": "Without man",
+					"instruction": "Write it in the passive.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Man raucht hier nicht.",
+							"answer": "Hier wird nicht geraucht."
+						},
+						{
+							"prompt": "Man lachte auf der Party viel.",
+							"answer": "Auf der Party wurde viel gelacht."
+						},
+						{
+							"prompt": "Man diskutiert über Politik.",
+							"answer": "Es wird über Politik diskutiert."
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"describe what goes on: Hier wird getanzt",
+				"use es only in first place",
+				"keep the dative: Ihm wird geholfen"
+			]
+		},
+		{
+			"id": "lassen",
+			"title": "Ich lasse mein Auto reparieren",
+			"subtitle": "lassen: get it done, let it happen",
+			"hook": "Ich lasse das Auto reparieren — someone else does it. Ich habe mir die Haare schneiden lassen — two infinitives.",
+			"hero": {
+				"image": "cp_b2_1_lassen"
+			},
+			"quiz": "quest_b2_1_lassen",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Four jobs",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "like this"
+						},
+						{
+							"text": "",
+							"en": true
+						}
+					],
+					"rows": [
+						[
+							"get it done",
+							"Ich lasse das Auto *reparieren*.",
+							"someone else repairs it"
+						],
+						[
+							"allow",
+							"Sie lässt die Kinder *spielen*.",
+							"she lets them"
+						],
+						[
+							"leave behind",
+							"Ich habe den Schirm zu Hause *gelassen*.",
+							"the usual past form"
+						],
+						[
+							"can be",
+							"Das *lässt sich* lösen.",
+							"= kann gelöst werden"
+						]
+					]
+				},
+				{
+					"kind": "slots",
+					"title": "Perfekt: two infinitives",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Ich"
+								},
+								{
+									"de": "habe",
+									"hot": true
+								},
+								{
+									"de": "mir die Haare"
+								},
+								{
+									"de": "schneiden lassen.",
+									"hot": true
+								}
+							],
+							"en": "not: gelassen"
+						},
+						{
+							"cells": [
+								{
+									"de": "Wir"
+								},
+								{
+									"de": "haben",
+									"hot": true
+								},
+								{
+									"de": "ihn"
+								},
+								{
+									"de": "kommen sehen.",
+									"hot": true
+								}
+							],
+							"en": "sehen and hören work the same"
+						}
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "watch",
+					"title": "Who did it?",
+					"text": "*Ich habe mein Auto repariert* = I did it myself. *Ich habe mein Auto reparieren lassen* = I had it done."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Haare schneiden",
+							"en": "to cut hair"
+						},
+						{
+							"de": "der Brief",
+							"en": "letter"
+						},
+						{
+							"de": "übersetzen",
+							"en": "to translate"
+						},
+						{
+							"de": "warten",
+							"en": "to wait"
+						},
+						{
+							"de": "die Wohnung",
+							"en": "flat"
+						},
+						{
+							"de": "renovieren",
+							"en": "to renovate"
+						},
+						{
+							"de": "bei Oma",
+							"en": "at grandma’s"
+						},
+						{
+							"de": "das Kleid",
+							"en": "dress"
+						},
+						{
+							"de": "nähen",
+							"en": "to sew"
+						},
+						{
+							"de": "im Auto",
+							"en": "in the car"
+						},
+						{
+							"de": "der Schirm",
+							"en": "umbrella"
+						},
+						{
+							"de": "wegfahren",
+							"en": "to drive off"
+						},
+						{
+							"de": "hören",
+							"en": "to hear"
+						},
+						{
+							"de": "ändern",
+							"en": "to change"
+						},
+						{
+							"de": "in Ruhe",
+							"en": "in peace"
+						},
+						{
+							"de": "die Frage",
+							"en": "question"
+						},
+						{
+							"de": "beantworten",
+							"en": "to answer"
+						},
+						{
+							"de": "so einfach",
+							"en": "so easily"
+						},
+						{
+							"de": "lässt",
+							"en": "lets"
+						},
+						{
+							"de": "solange",
+							"en": "meanwhile"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "lassen",
+					"instruction": "Write lassen in the right form.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Wir",
+							"after": "die Wohnung renovieren.",
+							"answer": "lassen"
+						},
+						{
+							"before": "Sie",
+							"after": "die Kinder solange bei Oma.",
+							"answer": "lässt"
+						},
+						{
+							"before": "",
+							"after": "mich in Ruhe!",
+							"answer": "Lass"
+						},
+						{
+							"before": "Die Frage",
+							"after": "sich nicht so einfach beantworten.",
+							"answer": "lässt"
+						}
+					]
+				},
+				{
+					"title": "lassen or gelassen?",
+					"instruction": "Circle the right form.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Sie hat sich ein Kleid nähen",
+							"options": [
+								"lassen",
+								"gelassen"
+							],
+							"after": ".",
+							"answer": "lassen"
+						},
+						{
+							"before": "Sie hat das Kleid im Auto",
+							"options": [
+								"gelassen",
+								"lassen"
+							],
+							"after": ".",
+							"answer": "gelassen"
+						},
+						{
+							"before": "Er hat uns lange warten",
+							"options": [
+								"lassen",
+								"gelassen"
+							],
+							"after": ".",
+							"answer": "lassen"
+						},
+						{
+							"before": "Ich habe das Auto wegfahren",
+							"options": [
+								"hören",
+								"gehört"
+							],
+							"after": ".",
+							"answer": "hören"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"get something done with lassen",
+				"say the Perfekt with two infinitives",
+				"tell lassen from gelassen"
+			]
+		},
+		{
+			"id": "partizip_adj",
+			"title": "der um acht ankommende Zug",
+			"subtitle": "Relative clause ↔ describing word",
+			"hook": "der Zug, der um acht ankommt → der um acht ankommende Zug. Fold it one way, unfold it the other.",
+			"hero": {
+				"image": "cp_b2_1_partizip_adj"
+			},
+			"quiz": "quest_b2_1_partizip_adj",
+			"learn": [
+				{
+					"kind": "flow",
+					"title": "-end or ge-?",
+					"root": {
+						"q": "Is it doing it right now?",
+						"yes": {
+							"answer": "-end",
+							"example": "der bellende Hund = der Hund, der bellt"
+						},
+						"no": {
+							"answer": "ge-",
+							"example": "das zerbrochene Fenster = das Fenster, das zerbrochen wurde"
+						}
+					}
+				},
+				{
+					"kind": "table",
+					"title": "Fold and unfold",
+					"head": [
+						{
+							"text": "relative clause"
+						},
+						{
+							"text": "before the noun"
+						}
+					],
+					"rows": [
+						[
+							"der Zug, der um acht Uhr ankommt",
+							"der um acht Uhr ankommende Zug"
+						],
+						[
+							"die Gäste, die von der Firma eingeladen wurden",
+							"die von der Firma eingeladenen Gäste"
+						],
+						[
+							"die Preise, die seit Jahren steigen",
+							"die seit Jahren steigenden Preise"
+						]
+					],
+					"note": "Everything except der/die/das and the helper goes in front."
+				},
+				{
+					"kind": "box",
+					"tone": "watch",
+					"title": "The ending",
+					"text": "ein *gekochtes* Ei, die eingeladen*en* Gäste — the describing word always takes its ending."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "bellen",
+							"en": "to bark"
+						},
+						{
+							"de": "erschrecken",
+							"en": "to frighten"
+						},
+						{
+							"de": "spielend",
+							"en": "playing"
+						},
+						{
+							"de": "die Sonne geht unter",
+							"en": "the sun sets"
+						},
+						{
+							"de": "blühen",
+							"en": "to bloom"
+						},
+						{
+							"de": "die Blumen",
+							"en": "flowers"
+						},
+						{
+							"de": "das Ei",
+							"en": "egg"
+						},
+						{
+							"de": "kochen",
+							"en": "to boil"
+						},
+						{
+							"de": "das Hemd",
+							"en": "shirt"
+						},
+						{
+							"de": "bügeln",
+							"en": "to iron"
+						},
+						{
+							"de": "einladen · eingeladen",
+							"en": "to invite"
+						},
+						{
+							"de": "er erschreckte",
+							"en": "he frightened"
+						},
+						{
+							"de": "wunderschön",
+							"en": "beautiful"
+						},
+						{
+							"de": "untergehen",
+							"en": "to set"
+						},
+						{
+							"de": "pünktlich",
+							"en": "on time"
+						},
+						{
+							"de": "die Firma",
+							"en": "company"
+						},
+						{
+							"de": "zerbrechen · zerbrochen",
+							"en": "to break"
+						},
+						{
+							"de": "das Fenster",
+							"en": "window"
+						},
+						{
+							"de": "parken · geparkt",
+							"en": "to park"
+						},
+						{
+							"de": "steigen",
+							"en": "to rise"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Ending and all",
+					"instruction": "Write the verb in brackets as -end or ge-, with its ending.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Der",
+							"after": "Hund erschreckte die Kinder. (bellen)",
+							"answer": "bellende"
+						},
+						{
+							"before": "Ich esse ein",
+							"after": "Ei. (kochen)",
+							"answer": "gekochtes"
+						},
+						{
+							"before": "Die",
+							"after": "Sonne ist wunderschön. (untergehen)",
+							"answer": "untergehende"
+						},
+						{
+							"before": "Er trägt ein",
+							"after": "Hemd. (bügeln)",
+							"answer": "gebügeltes"
+						},
+						{
+							"before": "Die",
+							"after": "Gäste kamen pünktlich. (einladen)",
+							"answer": "eingeladenen"
+						}
+					]
+				},
+				{
+					"title": "Fold it",
+					"instruction": "Put the clause before the noun.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "das Fenster, das gestern zerbrochen wurde",
+							"answer": "das gestern zerbrochene Fenster"
+						},
+						{
+							"prompt": "die Preise, die seit Jahren steigen",
+							"answer": "die seit Jahren steigenden Preise"
+						}
+					],
+					"cols": 1
+				},
+				{
+					"title": "Unfold it",
+					"instruction": "Write it as a relative clause.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "der um acht Uhr ankommende Zug",
+							"answer": "der Zug, der um acht Uhr ankommt"
+						}
+					],
+					"cols": 1
+				}
+			],
+			"canDo": [
+				"fold a relative clause into a describing word",
+				"unfold it again",
+				"choose -end or ge-"
+			]
+		},
+		{
+			"id": "nachsilben",
+			"title": "die Meinung, das Mädchen, der Tourismus",
+			"subtitle": "The ending gives the gender away",
+			"hook": "Simple nouns you learn; long nouns you work out. The ending decides — with a handful of exceptions.",
+			"hero": {
+				"image": "cp_b2_1_nachsilben"
+			},
+			"quiz": "quest_b2_1_nachsilben_genus",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Endings and their article",
+					"genders": true,
+					"head": [
+						{
+							"text": "der"
+						},
+						{
+							"text": "die"
+						},
+						{
+							"text": "das"
+						}
+					],
+					"rows": [
+						[
+							"-er · -ler",
+							"-ung · -heit · -keit",
+							"-chen · -lein"
+						],
+						[
+							"-ist · -ant · -ent",
+							"-schaft · -ei · -ie",
+							"-tum · -ment"
+						],
+						[
+							"-or · -ling",
+							"-ik · -ion · -tät",
+							"-um · -nis"
+						],
+						[
+							"-ismus",
+							"-ur · -enz · -anz · -in",
+							"Ge- … -e"
+						]
+					]
+				},
+				{
+					"kind": "build",
+					"title": "One of each",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "Tour"
+								},
+								{
+									"text": "ismus",
+									"role": "suffix"
+								}
+							],
+							"result": "der Tourismus",
+							"en": ""
+						},
+						{
+							"parts": [
+								{
+									"text": "Meinung"
+								}
+							],
+							"result": "die Meinung",
+							"en": "-ung"
+						},
+						{
+							"parts": [
+								{
+									"text": "Mäd"
+								},
+								{
+									"text": "chen",
+									"role": "suffix"
+								}
+							],
+							"result": "das Mädchen",
+							"en": "even a girl"
+						},
+						{
+							"parts": [
+								{
+									"text": "Ergeb"
+								},
+								{
+									"text": "nis",
+									"role": "suffix"
+								}
+							],
+							"result": "das Ergebnis",
+							"en": ""
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Frühling",
+							"en": "spring"
+						},
+						{
+							"de": "der Lehrling",
+							"en": "apprentice"
+						},
+						{
+							"de": "der Motor",
+							"en": "engine"
+						},
+						{
+							"de": "der Autor",
+							"en": "author"
+						},
+						{
+							"de": "die Bäckerei",
+							"en": "bakery"
+						},
+						{
+							"de": "die Energie",
+							"en": "energy"
+						},
+						{
+							"de": "die Nation",
+							"en": "nation"
+						},
+						{
+							"de": "die Natur",
+							"en": "nature"
+						},
+						{
+							"de": "die Konferenz",
+							"en": "conference"
+						},
+						{
+							"de": "das Eigentum",
+							"en": "property"
+						},
+						{
+							"de": "das Instrument",
+							"en": "instrument"
+						},
+						{
+							"de": "das Zentrum",
+							"en": "centre"
+						},
+						{
+							"de": "das Erlebnis",
+							"en": "experience"
+						},
+						{
+							"de": "das Gebäude",
+							"en": "building"
+						},
+						{
+							"de": "die Distanz",
+							"en": "distance"
+						},
+						{
+							"de": "der Journalist",
+							"en": "journalist"
+						},
+						{
+							"de": "die Freiheit",
+							"en": "freedom"
+						},
+						{
+							"de": "der Praktikant",
+							"en": "intern"
+						},
+						{
+							"de": "das Häuschen",
+							"en": "little house"
+						},
+						{
+							"de": "die Musik",
+							"en": "music"
+						},
+						{
+							"de": "der Irrtum",
+							"en": "mistake — an exception"
+						},
+						{
+							"de": "der Reichtum",
+							"en": "wealth — an exception"
+						},
+						{
+							"de": "die Erlaubnis",
+							"en": "permission — an exception"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "der, die or das?",
+					"instruction": "Write each noun in its column.",
+					"kind": "sort",
+					"columns": [
+						"der",
+						"die",
+						"das"
+					],
+					"words": [
+						"Frühling",
+						"Journalist",
+						"Motor",
+						"Bäckerei",
+						"Nation",
+						"Freiheit",
+						"Eigentum",
+						"Zentrum",
+						"Häuschen",
+						"Gebäude",
+						"Musik",
+						"Praktikant"
+					],
+					"answers": [
+						0,
+						0,
+						0,
+						1,
+						1,
+						1,
+						2,
+						2,
+						2,
+						2,
+						1,
+						0
+					]
+				},
+				{
+					"title": "The exceptions",
+					"instruction": "Circle the right article.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "",
+							"options": [
+								"der",
+								"das"
+							],
+							"after": "Irrtum",
+							"answer": "der"
+						},
+						{
+							"before": "",
+							"options": [
+								"die",
+								"das"
+							],
+							"after": "Erlaubnis",
+							"answer": "die"
+						},
+						{
+							"before": "",
+							"options": [
+								"der",
+								"das"
+							],
+							"after": "Reichtum",
+							"answer": "der"
+						},
+						{
+							"before": "",
+							"options": [
+								"das",
+								"die"
+							],
+							"after": "Ergebnis",
+							"answer": "das"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"work out the article from the ending",
+				"know der for -ist, -ling, -ismus",
+				"remember Reichtum, Irrtum, Erlaubnis"
+			]
+		},
+		{
+			"id": "review_2",
+			"review": true,
+			"title": "Wiederholung",
+			"subtitle": "Topics 8–14",
+			"hook": "The passive and its friends, all at once. No looking back until you have done both pages.",
+			"quiz": "quest_b2_1_bigtext_presse",
+			"learn": [],
+			"left": [
+				{
+					"title": "The passive",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Das Formular muss ausgefüllt",
+							"after": ".",
+							"answer": "werden"
+						},
+						{
+							"before": "Das Haus ist 1990 gebaut",
+							"after": ".",
+							"answer": "worden"
+						},
+						{
+							"before": "Hier",
+							"after": "nicht geraucht. (wird or ist?)",
+							"answer": "wird"
+						},
+						{
+							"before": "Das Geschäft",
+							"after": "geöffnet: es ist offen. (wird or ist?)",
+							"answer": "ist"
+						},
+						{
+							"before": "",
+							"after": "wird geholfen. (er)",
+							"answer": "Ihm"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "lassen and participles",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich habe mir die Haare schneiden",
+							"after": ".",
+							"answer": "lassen"
+						},
+						{
+							"before": "Der",
+							"after": "Hund erschreckte die Kinder. (bellen)",
+							"answer": "bellende"
+						}
+					]
+				},
+				{
+					"title": "der, die or das?",
+					"instruction": "Write each noun in its column.",
+					"kind": "sort",
+					"columns": [
+						"der",
+						"die",
+						"das"
+					],
+					"words": [
+						"Tourismus",
+						"Meinung",
+						"Mädchen",
+						"Autor",
+						"Konferenz",
+						"Dokument"
+					],
+					"answers": [
+						0,
+						1,
+						2,
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"canDo": []
+		},
+		{
+			"id": "konnektoren",
+			"title": "Trotzdem haben wir es gekauft",
+			"subtitle": "Words that join sentences",
+			"hook": "Connector first, verb right after: Trotzdem haben wir … Daher sollte … Sonst verpassen wir …",
+			"hero": {
+				"image": "cp_b2_1_konnektoren"
+			},
+			"quiz": "quest_b2_1_konnektoren",
+			"listenQuiz": "quest_b2_1_lesen_homeoffice",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "Connector, then the verb",
+					"note": "Never: Trotzdem wir haben …",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Es war teuer."
+								},
+								{
+									"de": "Trotzdem"
+								},
+								{
+									"de": "haben",
+									"hot": true
+								},
+								{
+									"de": "wir es gekauft."
+								}
+							],
+							"en": "first place"
+						},
+						{
+							"cells": [
+								{
+									"de": "Es war teuer,"
+								},
+								{
+									"de": "wir"
+								},
+								{
+									"de": "haben",
+									"hot": true
+								},
+								{
+									"de": "es trotzdem gekauft."
+								}
+							],
+							"en": "or in the middle"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "The families and their twins",
+					"head": [
+						{
+							"text": "meaning"
+						},
+						{
+							"text": "connector (verb 2nd)"
+						},
+						{
+							"text": "twin (verb last)"
+						}
+					],
+					"rows": [
+						[
+							"although",
+							"trotzdem · dennoch · allerdings",
+							"obwohl"
+						],
+						[
+							"so",
+							"deshalb · daher · folglich",
+							"weil"
+						],
+						[
+							"and also",
+							"außerdem · zudem",
+							"—"
+						],
+						[
+							"or else",
+							"sonst",
+							"wenn … nicht"
+						],
+						[
+							"instead",
+							"stattdessen",
+							"statt dass"
+						],
+						[
+							"by contrast",
+							"dagegen · hingegen",
+							"während"
+						]
+					],
+					"note": "In writing: dennoch, daher, folglich, zudem, hingegen."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "folglich",
+							"en": "consequently"
+						},
+						{
+							"de": "bestand",
+							"en": "passed"
+						},
+						{
+							"de": "überdacht",
+							"en": "reconsidered"
+						},
+						{
+							"de": "sich beeilen · beeil dich",
+							"en": "to hurry"
+						},
+						{
+							"de": "nass",
+							"en": "wet"
+						},
+						{
+							"de": "der Schirm",
+							"en": "umbrella"
+						},
+						{
+							"de": "die Nachricht",
+							"en": "message"
+						},
+						{
+							"de": "schickte",
+							"en": "sent"
+						},
+						{
+							"de": "die Befürworter betonen",
+							"en": "supporters stress"
+						},
+						{
+							"de": "die Kritiker",
+							"en": "critics"
+						},
+						{
+							"de": "die Flexibilität",
+							"en": "flexibility"
+						},
+						{
+							"de": "die Grenze",
+							"en": "line, boundary"
+						},
+						{
+							"de": "die Freizeit",
+							"en": "free time"
+						},
+						{
+							"de": "die Kollegen",
+							"en": "colleagues"
+						},
+						{
+							"de": "der Austausch",
+							"en": "exchange"
+						},
+						{
+							"de": "ein Drittel",
+							"en": "a third"
+						},
+						{
+							"de": "zwei Drittel",
+							"en": "two thirds"
+						},
+						{
+							"de": "die Mischung",
+							"en": "mix"
+						},
+						{
+							"de": "die Arbeitszeiten",
+							"en": "working hours"
+						},
+						{
+							"de": "die Regelung",
+							"en": "rule"
+						},
+						{
+							"de": "entscheidend",
+							"en": "what matters"
+						},
+						{
+							"de": "das Büro",
+							"en": "office"
+						},
+						{
+							"de": "der Ort",
+							"en": "place"
+						},
+						{
+							"de": "die Umfrage",
+							"en": "survey"
+						},
+						{
+							"de": "vor allem",
+							"en": "above all"
+						},
+						{
+							"de": "eine klare Regelung",
+							"en": "a clear rule"
+						},
+						{
+							"de": "am Wochenende",
+							"en": "at the weekend"
+						},
+						{
+							"de": "die E-Mails",
+							"en": "e-mails"
+						},
+						{
+							"de": "beantwortet",
+							"en": "answers"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Which connector?",
+					"instruction": "Write trotzdem, folglich, außerdem, sonst or stattdessen.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Es war teuer.",
+							"after": "haben wir es gekauft.",
+							"answer": "Trotzdem"
+						},
+						{
+							"before": "Er hat viel gelernt.",
+							"after": "bestand er die Prüfung.",
+							"answer": "Folglich"
+						},
+						{
+							"before": "Nimm einen Schirm,",
+							"after": "wirst du nass.",
+							"answer": "sonst"
+						},
+						{
+							"before": "Er kam nicht;",
+							"after": "schickte er eine Nachricht.",
+							"answer": "stattdessen"
+						},
+						{
+							"before": "Die Wohnung ist schön.",
+							"after": "ist sie günstig.",
+							"answer": "Außerdem"
+						}
+					]
+				},
+				{
+					"title": "Working from home",
+					"instruction": "Listen to the text. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Befürworter betonen vor allem die",
+							"options": [
+								"Flexibilität",
+								"Ruhe"
+							],
+							"after": ".",
+							"answer": "Flexibilität"
+						},
+						{
+							"before": "Ein",
+							"options": [
+								"Drittel",
+								"Viertel"
+							],
+							"after": "beantwortet abends und am Wochenende E-Mails.",
+							"answer": "Drittel"
+						},
+						{
+							"before": "Der Austausch mit den",
+							"options": [
+								"Kollegen",
+								"Kunden"
+							],
+							"after": "fehlt.",
+							"answer": "Kollegen"
+						},
+						{
+							"before": "Entscheidend ist eine klare Regelung der",
+							"options": [
+								"Arbeitszeiten",
+								"Pausen"
+							],
+							"after": ".",
+							"answer": "Arbeitszeiten"
+						}
+					],
+					"listen": true
+				}
+			],
+			"canDo": [
+				"join sentences with trotzdem, daher, sonst",
+				"put the verb right after the connector",
+				"choose the written ones: dennoch, folglich, zudem"
+			]
+		},
+		{
+			"id": "mittelfeld",
+			"title": "morgen wegen der Arbeit mit dem Zug nach Rom",
+			"subtitle": "The order in the middle of the sentence",
+			"hook": "When, why, how, where — Te-Ka-Mo-Lo. And pronouns jump to the front: Ich gebe es ihm.",
+			"hero": {
+				"image": "cp_b2_1_mittelfeld"
+			},
+			"quiz": "quest_b2_1_mittelfeld",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "Te – Ka – Mo – Lo",
+					"note": "English puts time last; German puts it first.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Sie fährt",
+									"tag": ""
+								},
+								{
+									"de": "morgen",
+									"tag": "Te: wann?"
+								},
+								{
+									"de": "wegen der Arbeit",
+									"tag": "Ka: warum?"
+								},
+								{
+									"de": "mit dem Zug",
+									"tag": "Mo: wie?"
+								},
+								{
+									"de": "nach Rom.",
+									"tag": "Lo: wohin?",
+									"hot": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Two objects",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "like this"
+						}
+					],
+					"rows": [
+						[
+							"two nouns: dative first",
+							"Ich gebe *meinem Bruder* das Buch."
+						],
+						[
+							"a pronoun goes first",
+							"Ich gebe *es* meinem Bruder. · Ich gebe *ihm* das Buch."
+						],
+						[
+							"two pronouns: accusative first",
+							"Ich gebe *es ihm*."
+						]
+					]
+				},
+				{
+					"kind": "flow",
+					"title": "Where does nicht go?",
+					"root": {
+						"q": "Is the whole sentence denied?",
+						"yes": {
+							"answer": "at the end",
+							"example": "Er ist gestern nicht gekommen."
+						},
+						"no": {
+							"answer": "before that one part",
+							"example": "nicht das Museum, sondern den Zoo"
+						}
+					}
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Bruder",
+							"en": "brother"
+						},
+						{
+							"de": "das Salz",
+							"en": "salt"
+						},
+						{
+							"de": "der Vertrag",
+							"en": "contract"
+						},
+						{
+							"de": "gezeigt",
+							"en": "showed"
+						},
+						{
+							"de": "die Fotos",
+							"en": "photos"
+						},
+						{
+							"de": "um zehn",
+							"en": "at ten"
+						},
+						{
+							"de": "in Ruhe",
+							"en": "calmly"
+						},
+						{
+							"de": "wegen des Regens",
+							"en": "because of the rain"
+						},
+						{
+							"de": "das Museum",
+							"en": "museum"
+						},
+						{
+							"de": "der Zoo",
+							"en": "zoo"
+						},
+						{
+							"de": "besucht",
+							"en": "visited"
+						},
+						{
+							"de": "die Serie",
+							"en": "series"
+						},
+						{
+							"de": "jeden Tag",
+							"en": "every day"
+						},
+						{
+							"de": "gegeben",
+							"en": "given"
+						},
+						{
+							"de": "zur Arbeit",
+							"en": "to work"
+						},
+						{
+							"de": "mit dem Rad",
+							"en": "by bike"
+						},
+						{
+							"de": "blieben",
+							"en": "stayed"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Put it in order",
+					"instruction": "Write the sentence in the usual order.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er fährt (zur Arbeit · jeden Tag · mit dem Rad).",
+							"answer": "Er fährt jeden Tag mit dem Rad zur Arbeit."
+						},
+						{
+							"prompt": "Sie blieben (zu Hause · am Abend · wegen des Regens).",
+							"answer": "Sie blieben am Abend wegen des Regens zu Hause."
+						},
+						{
+							"prompt": "Er hat (den Vertrag · mir · gestern) gezeigt.",
+							"answer": "Er hat mir gestern den Vertrag gezeigt."
+						}
+					],
+					"cols": 1
+				},
+				{
+					"title": "Pronouns",
+					"instruction": "Write the two pronouns in the right order.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Kannst du mir das Salz geben? – Ich gebe",
+							"after": "sofort. (es · dir)",
+							"answer": "es dir"
+						},
+						{
+							"before": "Hast du ihm das Buch gegeben? – Ja, ich habe",
+							"after": "gegeben. (es · ihm)",
+							"answer": "es ihm"
+						}
+					]
+				},
+				{
+					"title": "nicht",
+					"instruction": "Circle where nicht goes.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Ich habe den Film",
+							"options": [
+								"nicht gesehen",
+								"gesehen nicht"
+							],
+							"after": ".",
+							"answer": "nicht gesehen"
+						},
+						{
+							"before": "Wir haben",
+							"options": [
+								"nicht das Museum",
+								"das Museum nicht"
+							],
+							"after": ", sondern den Zoo besucht.",
+							"answer": "nicht das Museum"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"order the middle: when, why, how, where",
+				"put pronouns first, accusative before dative",
+				"place nicht"
+			]
+		},
+		{
+			"id": "nominal",
+			"title": "wegen des Regens, nach dem Essen",
+			"subtitle": "Causes and times as phrases",
+			"hook": "weil es regnete → wegen des Regens: find the noun, then the little word.",
+			"hero": {
+				"image": "cp_b2_1_nominal"
+			},
+			"quiz": "quest_b2_1_kausal_nominal",
+			"learn": [
+				{
+					"kind": "merge",
+					"title": "Three moves",
+					"labels": [
+						"the little word",
+						"the noun"
+					],
+					"rows": [
+						{
+							"a": "weil …",
+							"aTo": "wegen",
+							"b": "es regnete",
+							"bTo": "des Regens",
+							"result": "wegen des Regens",
+							"en": "because of the rain"
+						},
+						{
+							"a": "weil …",
+							"aTo": "dank",
+							"b": "du hast geholfen",
+							"bTo": "deiner Hilfe",
+							"result": "dank deiner Hilfe",
+							"en": "thanks to your help"
+						},
+						{
+							"a": "nachdem …",
+							"aTo": "nach",
+							"b": "wir haben gegessen",
+							"bTo": "dem Essen",
+							"result": "nach dem Essen",
+							"en": "after the meal"
+						},
+						{
+							"a": "als …",
+							"aTo": "bei",
+							"b": "er kam an",
+							"bTo": "seiner Ankunft",
+							"result": "bei seiner Ankunft",
+							"en": "when he arrived"
+						}
+					]
+				},
+				{
+					"kind": "columns",
+					"blocks": [
+						{
+							"kind": "table",
+							"title": "Times",
+							"head": [
+								{
+									"text": "clause"
+								},
+								{
+									"text": "phrase"
+								}
+							],
+							"rows": [
+								[
+									"bevor",
+									"vor + Dat"
+								],
+								[
+									"nachdem",
+									"nach + Dat"
+								],
+								[
+									"während",
+									"während + Gen"
+								],
+								[
+									"als · wenn",
+									"bei + Dat"
+								]
+							]
+						},
+						{
+							"kind": "table",
+							"title": "aus or vor?",
+							"head": [
+								{
+									"text": ""
+								},
+								{
+									"text": "",
+									"en": true
+								}
+							],
+							"rows": [
+								[
+									"*aus* Angst sagte er nichts",
+									"a reason you act on"
+								],
+								[
+									"*vor* Angst zittern",
+									"a feeling that overwhelms you"
+								]
+							]
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Sturm · des Sturms",
+							"en": "storm"
+						},
+						{
+							"de": "die Krankheit",
+							"en": "illness"
+						},
+						{
+							"de": "die Ankunft",
+							"en": "arrival"
+						},
+						{
+							"de": "der Umzug",
+							"en": "move"
+						},
+						{
+							"de": "die Landung",
+							"en": "landing"
+						},
+						{
+							"de": "klatschen",
+							"en": "to clap"
+						},
+						{
+							"de": "die Passagiere",
+							"en": "passengers"
+						},
+						{
+							"de": "die Kälte",
+							"en": "cold"
+						},
+						{
+							"de": "die Neugier",
+							"en": "curiosity"
+						},
+						{
+							"de": "weinen",
+							"en": "to cry"
+						},
+						{
+							"de": "die Freude",
+							"en": "joy"
+						},
+						{
+							"de": "glücklicher",
+							"en": "happier"
+						},
+						{
+							"de": "stürmte",
+							"en": "there was a storm"
+						},
+						{
+							"de": "krank",
+							"en": "ill"
+						},
+						{
+							"de": "der Strom",
+							"en": "power"
+						},
+						{
+							"de": "landete",
+							"en": "landed"
+						},
+						{
+							"de": "klatschten",
+							"en": "clapped"
+						},
+						{
+							"de": "zitterte",
+							"en": "shook"
+						},
+						{
+							"de": "öffnete",
+							"en": "opened"
+						},
+						{
+							"de": "weinte",
+							"en": "cried"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Shorter",
+					"instruction": "Write the phrase.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "weil es stürmte →",
+							"after": "fiel der Strom aus.",
+							"answer": "Wegen des Sturms"
+						},
+						{
+							"before": "weil er krank war →",
+							"after": "blieb er zu Hause.",
+							"answer": "Wegen seiner Krankheit"
+						},
+						{
+							"before": "Nachdem wir gegessen hatten, gingen wir. →",
+							"after": "gingen wir.",
+							"answer": "Nach dem Essen"
+						},
+						{
+							"before": "Als das Flugzeug landete, klatschten alle. →",
+							"after": "klatschten alle Passagiere.",
+							"answer": "Bei der Landung"
+						},
+						{
+							"before": "Seit sie umgezogen ist, ist sie glücklicher. →",
+							"after": "ist sie glücklicher.",
+							"answer": "Seit ihrem Umzug"
+						}
+					]
+				},
+				{
+					"title": "aus or vor?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "",
+							"options": [
+								"Vor",
+								"Aus"
+							],
+							"after": "Kälte zitterte er.",
+							"answer": "Vor"
+						},
+						{
+							"before": "",
+							"options": [
+								"Aus",
+								"Vor"
+							],
+							"after": "Neugier öffnete sie den Brief.",
+							"answer": "Aus"
+						},
+						{
+							"before": "Sie weinte",
+							"options": [
+								"vor",
+								"aus"
+							],
+							"after": "Freude.",
+							"answer": "vor"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"turn weil into wegen, aufgrund, dank",
+				"turn nachdem, als, seit into a phrase",
+				"choose aus or vor"
+			]
+		},
+		{
+			"id": "infinitiv",
+			"title": "Ich hoffe, die Prüfung zu bestehen",
+			"subtitle": "dass or zu? um … zu or damit?",
+			"hook": "One question decides: does the same person do both things? Then zu. Someone else? Then dass or damit.",
+			"hero": {
+				"image": "cp_b2_1_infinitiv"
+			},
+			"quiz": "quest_b2_1_dass_infinitiv",
+			"learn": [
+				{
+					"kind": "flow",
+					"title": "dass or zu?",
+					"root": {
+						"q": "Does the same person do both?",
+						"yes": {
+							"answer": "zu + infinitive",
+							"example": "Ich hoffe, die Prüfung zu bestehen."
+						},
+						"no": {
+							"answer": "dass, damit, ohne dass",
+							"example": "Ich hoffe, dass du die Prüfung bestehst."
+						}
+					}
+				},
+				{
+					"kind": "table",
+					"title": "The three pairs",
+					"head": [
+						{
+							"text": "same person"
+						},
+						{
+							"text": "someone else"
+						}
+					],
+					"rows": [
+						[
+							"um … zu",
+							"damit"
+						],
+						[
+							"ohne … zu",
+							"ohne dass"
+						],
+						[
+							"statt … zu",
+							"statt dass"
+						]
+					],
+					"note": "Er ging, ohne zu grüßen. · Er ging, ohne dass ihn jemand sah."
+				},
+				{
+					"kind": "build",
+					"title": "Where zu goes",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "zu"
+								},
+								{
+									"text": "bestehen"
+								}
+							],
+							"result": "zu bestehen",
+							"en": "before the infinitive"
+						},
+						{
+							"parts": [
+								{
+									"text": "ein"
+								},
+								{
+									"text": "zu",
+									"role": "joint"
+								},
+								{
+									"text": "laden"
+								}
+							],
+							"result": "einzuladen",
+							"en": "inside a two-part verb"
+						},
+						{
+							"parts": [
+								{
+									"text": "gewusst"
+								},
+								{
+									"text": "zu"
+								},
+								{
+									"text": "haben"
+								}
+							],
+							"result": "gewusst zu haben",
+							"en": "the past"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "hoffen",
+							"en": "to hope"
+						},
+						{
+							"de": "bestehen",
+							"en": "to pass"
+						},
+						{
+							"de": "versprechen",
+							"en": "to promise"
+						},
+						{
+							"de": "bitten · ich bitte dich",
+							"en": "to ask"
+						},
+						{
+							"de": "raten · er rät",
+							"en": "to advise"
+						},
+						{
+							"de": "empfehlen",
+							"en": "to recommend"
+						},
+						{
+							"de": "behaupten",
+							"en": "to claim"
+						},
+						{
+							"de": "grüßen",
+							"en": "to say hello"
+						},
+						{
+							"de": "der Vertrag",
+							"en": "contract"
+						},
+						{
+							"de": "unterschrieb",
+							"en": "signed"
+						},
+						{
+							"de": "ihn",
+							"en": "it"
+						},
+						{
+							"de": "jemand",
+							"en": "someone"
+						},
+						{
+							"de": "sah",
+							"en": "saw"
+						},
+						{
+							"de": "sparen",
+							"en": "to save"
+						},
+						{
+							"de": "die Tochter",
+							"en": "daughter"
+						},
+						{
+							"de": "wiedersehen",
+							"en": "to see again"
+						},
+						{
+							"de": "mehr",
+							"en": "more"
+						},
+						{
+							"de": "sich verabschieden",
+							"en": "to say goodbye"
+						},
+						{
+							"de": "wusste",
+							"en": "knew"
+						},
+						{
+							"de": "er verspricht",
+							"en": "he promises"
+						},
+						{
+							"de": "nahm",
+							"en": "took"
+						},
+						{
+							"de": "ihr Mann",
+							"en": "her husband"
+						},
+						{
+							"de": "studieren",
+							"en": "to study"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "zu or dass?",
+					"instruction": "Write it with zu if you can — if not, keep dass.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich hoffe, dass ich die Prüfung bestehe.",
+							"answer": "Ich hoffe, die Prüfung zu bestehen."
+						},
+						{
+							"prompt": "Ich hoffe, dass du die Prüfung bestehst.",
+							"answer": "Ich hoffe, dass du die Prüfung bestehst."
+						},
+						{
+							"prompt": "Er verspricht, dass er kommt.",
+							"answer": "Er verspricht zu kommen."
+						},
+						{
+							"prompt": "Ich bitte dich, dass du mir hilfst.",
+							"answer": "Ich bitte dich, mir zu helfen."
+						}
+					],
+					"cols": 1
+				},
+				{
+					"title": "um, damit, ohne",
+					"instruction": "Write um, damit, ohne or ohne dass.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich spare,",
+							"after": "ein Auto zu kaufen.",
+							"answer": "um"
+						},
+						{
+							"before": "Ich spare,",
+							"after": "meine Tochter studieren kann.",
+							"answer": "damit"
+						},
+						{
+							"before": "Sie unterschrieb den Vertrag,",
+							"after": "ihn zu lesen.",
+							"answer": "ohne"
+						},
+						{
+							"before": "Sie nahm das Auto,",
+							"after": "ihr Mann davon wusste.",
+							"answer": "ohne dass"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"replace dass with zu when the person is the same",
+				"choose um … zu or damit",
+				"put zu inside two-part verbs: einzuladen"
+			]
+		},
+		{
+			"id": "brauchen",
+			"title": "Du brauchst nicht zu kommen",
+			"subtitle": "You don’t have to — and you mustn’t",
+			"hook": "Du musst nicht kommen = Du brauchst nicht zu kommen. Du darfst nicht kommen is a ban.",
+			"hero": {
+				"image": "cp_b2_1_brauchen"
+			},
+			"quiz": "quest_b2_1_brauchen_zu",
+			"learn": [
+				{
+					"kind": "flow",
+					"title": "“don’t have to” or “mustn’t”?",
+					"root": {
+						"q": "Is it forbidden?",
+						"yes": {
+							"answer": "nicht dürfen",
+							"example": "Du darfst hier nicht parken."
+						},
+						"no": {
+							"answer": "nicht brauchen zu",
+							"example": "Du brauchst nicht zu kommen."
+						}
+					}
+				},
+				{
+					"kind": "slots",
+					"title": "brauchen needs nicht, kein, nur or erst",
+					"note": "Never “Du brauchst zu kommen” — for yes, use müssen.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Du"
+								},
+								{
+									"de": "brauchst",
+									"hot": true
+								},
+								{
+									"de": "nicht"
+								},
+								{
+									"de": "zu kommen.",
+									"hot": true
+								}
+							],
+							"en": "you needn’t"
+						},
+						{
+							"cells": [
+								{
+									"de": "Sie"
+								},
+								{
+									"de": "brauchen",
+									"hot": true
+								},
+								{
+									"de": "keine Angst"
+								},
+								{
+									"de": "zu haben.",
+									"hot": true
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "Sie"
+								},
+								{
+									"de": "brauchen",
+									"hot": true
+								},
+								{
+									"de": "nur hier"
+								},
+								{
+									"de": "zu unterschreiben.",
+									"hot": true
+								}
+							],
+							"en": "you only need to"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "In the past",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": ""
+						}
+					],
+					"rows": [
+						[
+							"Präteritum",
+							"Wir *brauchten* nicht zu warten."
+						],
+						[
+							"Perfekt",
+							"Wir haben nicht zu warten *brauchen*."
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "kochen",
+							"en": "to cook"
+						},
+						{
+							"de": "essen gehen",
+							"en": "to eat out"
+						},
+						{
+							"de": "bezahlen",
+							"en": "to pay"
+						},
+						{
+							"de": "heute",
+							"en": "today"
+						},
+						{
+							"de": "mitkommen · mitzukommen",
+							"en": "to come along"
+						},
+						{
+							"de": "die Angst",
+							"en": "fear"
+						},
+						{
+							"de": "unterschreiben",
+							"en": "to sign"
+						},
+						{
+							"de": "nichts",
+							"en": "nothing"
+						},
+						{
+							"de": "brauchte",
+							"en": "needed"
+						},
+						{
+							"de": "die Jacke",
+							"en": "jacket"
+						},
+						{
+							"de": "warm",
+							"en": "warm"
+						},
+						{
+							"de": "mitnehmen · mitzunehmen",
+							"en": "to take"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "brauchen + zu",
+					"instruction": "Write brauchen in the right form.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Du",
+							"after": "heute nicht zu kochen, wir gehen essen.",
+							"answer": "brauchst"
+						},
+						{
+							"before": "Sie",
+							"after": "nur hier zu unterschreiben.",
+							"answer": "brauchen"
+						},
+						{
+							"before": "Er",
+							"after": "nichts zu bezahlen. (past)",
+							"answer": "brauchte"
+						}
+					]
+				},
+				{
+					"title": "Say it with brauchen",
+					"instruction": "Write it with nicht brauchen … zu.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Du musst nicht mitkommen.",
+							"answer": "Du brauchst nicht mitzukommen."
+						},
+						{
+							"prompt": "Ihr müsst keine Angst haben.",
+							"answer": "Ihr braucht keine Angst zu haben."
+						}
+					],
+					"cols": 1
+				},
+				{
+					"title": "Ban or no need?",
+					"instruction": "Circle the right verb.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Hier",
+							"options": [
+								"darf",
+								"braucht"
+							],
+							"after": "man nicht rauchen.",
+							"answer": "darf"
+						},
+						{
+							"before": "Es ist warm, du",
+							"options": [
+								"brauchst",
+								"darfst"
+							],
+							"after": "keine Jacke mitzunehmen.",
+							"answer": "brauchst"
+						}
+					]
+				}
+			],
+			"canDo": [
+				"say you needn’t with nicht brauchen zu",
+				"say you only need to with nur brauchen zu",
+				"keep dürfen nicht for a ban"
+			]
+		},
+		{
+			"id": "stellungnahme",
+			"title": "Meiner Ansicht nach …",
+			"subtitle": "Taking a position in writing",
+			"hook": "Position, reasons, the other side, a conclusion: a Stellungnahme has a fixed shape — and fixed phrases.",
+			"hero": {
+				"image": "cp_b2_1_stellungnahme"
+			},
+			"quiz": "quest_b2_1_stellungnahme",
+			"listenQuiz": "quest_b2_1_hoeren_debatte",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "The shape",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "In letzter Zeit wird viel darüber diskutiert, ob …",
+									"tag": "the question"
+								},
+								{
+									"de": "Dafür spricht, dass …",
+									"tag": "pro"
+								},
+								{
+									"de": "Dagegen lässt sich einwenden, dass …",
+									"tag": "contra"
+								},
+								{
+									"de": "Meiner Ansicht nach …",
+									"tag": "your view"
+								},
+								{
+									"de": "Zusammenfassend lässt sich sagen, dass …",
+									"tag": "conclusion",
+									"hot": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "The phrases and their grammar",
+					"head": [
+						{
+							"text": "phrase"
+						},
+						{
+							"text": "then"
+						}
+					],
+					"rows": [
+						[
+							"Dafür spricht, dass …",
+							"verb last"
+						],
+						[
+							"Meiner Ansicht nach …",
+							"verb next — no dass!"
+						],
+						[
+							"Zwar …, aber …",
+							"concede, then turn"
+						],
+						[
+							"Ich würde vorschlagen, …",
+							"zu + infinitive"
+						]
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "watch",
+					"title": "The classic mistake",
+					"text": "Not *Meiner Meinung nach, dass …* but *Meiner Meinung nach überwiegen die Vorteile.*"
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Vorteile",
+							"en": "advantages"
+						},
+						{
+							"de": "überwiegen",
+							"en": "to outweigh"
+						},
+						{
+							"de": "die Innenstadt",
+							"en": "city centre"
+						},
+						{
+							"de": "autofrei",
+							"en": "car-free"
+						},
+						{
+							"de": "sauberer",
+							"en": "cleaner"
+						},
+						{
+							"de": "die Luft",
+							"en": "air"
+						},
+						{
+							"de": "die Kunden",
+							"en": "customers"
+						},
+						{
+							"de": "vom Land",
+							"en": "from the country"
+						},
+						{
+							"de": "der Nahverkehr",
+							"en": "public transport"
+						},
+						{
+							"de": "besser werden",
+							"en": "to get better"
+						},
+						{
+							"de": "die Straße · einzelne Straßen",
+							"en": "street"
+						},
+						{
+							"de": "sich einig sein",
+							"en": "to agree"
+						},
+						{
+							"de": "beginnen",
+							"en": "to start"
+						},
+						{
+							"de": "der Kompromiss",
+							"en": "compromise"
+						},
+						{
+							"de": "das Argument",
+							"en": "argument"
+						},
+						{
+							"de": "man spart Zeit",
+							"en": "you save time"
+						},
+						{
+							"de": "beide Seiten",
+							"en": "both sides"
+						},
+						{
+							"de": "der Austausch fehlt",
+							"en": "the exchange is missing"
+						},
+						{
+							"de": "würde",
+							"en": "would"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The phrases",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Dafür",
+							"after": ", dass man Zeit spart.",
+							"answer": "spricht"
+						},
+						{
+							"before": "Meiner Ansicht nach",
+							"after": "die Vorteile.",
+							"answer": "überwiegen"
+						},
+						{
+							"before": "",
+							"after": "spart man Zeit, aber der Austausch fehlt.",
+							"answer": "Zwar"
+						},
+						{
+							"before": "",
+							"after": "lässt sich sagen, dass beide Seiten recht haben.",
+							"answer": "Zusammenfassend"
+						}
+					]
+				},
+				{
+					"title": "A debate on the radio",
+					"instruction": "Listen to the debate. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Frau Keller will die Innenstadt",
+							"options": [
+								"autofrei",
+								"grün"
+							],
+							"after": "machen.",
+							"answer": "autofrei"
+						},
+						{
+							"before": "Herr Brandt: Die Kunden kommen vom",
+							"options": [
+								"Land",
+								"Meer"
+							],
+							"after": ".",
+							"answer": "Land"
+						},
+						{
+							"before": "Beide sind sich einig: Der Nahverkehr muss",
+							"options": [
+								"besser",
+								"billiger"
+							],
+							"after": "werden.",
+							"answer": "besser"
+						}
+					],
+					"listen": true
+				},
+				{
+					"title": "Your view",
+					"instruction": "Write your own Stellungnahme in three sentences: should city centres be car-free?",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Dafür spricht, dass",
+							"after": "."
+						},
+						{
+							"before": "Dagegen lässt sich einwenden, dass",
+							"after": "."
+						},
+						{
+							"before": "Meiner Ansicht nach",
+							"after": "."
+						}
+					],
+					"note": "About you."
+				}
+			],
+			"canDo": [
+				"build a Stellungnahme: pro, contra, view, conclusion",
+				"use the phrases with the right word order",
+				"follow a debate"
+			]
+		},
+		{
+			"id": "review_3",
+			"review": true,
+			"title": "Wiederholung",
+			"subtitle": "Topics 15–20",
+			"hook": "The last part, all at once. No looking back until you have done both pages.",
+			"quiz": "quest_b2_1_sprechen_dialog",
+			"learn": [],
+			"left": [
+				{
+					"title": "Joining and ordering",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Es war teuer.",
+							"after": "haben wir es gekauft.",
+							"answer": "Trotzdem"
+						},
+						{
+							"before": "Nimm einen Schirm,",
+							"after": "wirst du nass.",
+							"answer": "sonst"
+						},
+						{
+							"before": "Kannst du mir das Salz geben? – Ich gebe",
+							"after": "dir sofort.",
+							"answer": "es"
+						},
+						{
+							"before": "weil es regnete →",
+							"after": "Regens",
+							"answer": "wegen des"
+						}
+					]
+				}
+			],
+			"practise": [
+				{
+					"title": "zu and brauchen",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich hoffe, die Prüfung",
+							"after": "bestehen.",
+							"answer": "zu"
+						},
+						{
+							"before": "Ich spare,",
+							"after": "meine Tochter studieren kann.",
+							"answer": "damit"
+						},
+						{
+							"before": "Du brauchst nicht",
+							"after": "kommen.",
+							"answer": "zu"
+						},
+						{
+							"before": "Meiner Ansicht nach",
+							"after": "die Vorteile.",
+							"answer": "überwiegen"
+						}
+					]
+				}
+			],
+			"canDo": []
+		}
+	],
+	"overview": {
+		"title": "B2.1 at a glance",
+		"blocks": [
+			{
+				"kind": "table",
+				"title": "Reported speech",
+				"head": [
+					{
+						"text": ""
+					},
+					{
+						"text": "direct"
+					},
+					{
+						"text": "reported"
+					}
+				],
+				"rows": [
+					[
+						"now",
+						"Ich bin krank.",
+						"er sei krank"
+					],
+					[
+						"",
+						"Ich habe keine Zeit.",
+						"sie habe keine Zeit"
+					],
+					[
+						"past",
+						"Ich habe es geschickt.",
+						"er habe es geschickt"
+					],
+					[
+						"",
+						"Ich bin gekommen.",
+						"sie sei gekommen"
+					],
+					[
+						"question",
+						"Kommst du?",
+						"ob ich komme"
+					],
+					[
+						"request",
+						"Warte!",
+						"ich solle / möge warten"
+					]
+				]
+			},
+			{
+				"kind": "table",
+				"title": "The passive",
+				"head": [
+					{
+						"text": ""
+					},
+					{
+						"text": "like this"
+					}
+				],
+				"rows": [
+					[
+						"with a modal",
+						"muss gelöst werden · musste gelöst werden"
+					],
+					[
+						"Perfekt",
+						"ist gebaut worden"
+					],
+					[
+						"action ↔ state",
+						"wird geöffnet ↔ ist geöffnet"
+					],
+					[
+						"no subject",
+						"Hier wird getanzt. · Ihm wird geholfen."
+					]
+				]
+			},
+			{
+				"kind": "columns",
+				"blocks": [
+					{
+						"kind": "table",
+						"title": "Clause → phrase",
+						"head": [
+							{
+								"text": "clause"
+							},
+							{
+								"text": "phrase"
+							}
+						],
+						"rows": [
+							[
+								"weil",
+								"wegen · aufgrund · dank"
+							],
+							[
+								"nachdem",
+								"nach"
+							],
+							[
+								"bevor",
+								"vor"
+							],
+							[
+								"als",
+								"bei"
+							],
+							[
+								"seit",
+								"seit"
+							]
+						]
+					},
+					{
+						"kind": "table",
+						"title": "Same person?",
+						"head": [
+							{
+								"text": "yes"
+							},
+							{
+								"text": "no"
+							}
+						],
+						"rows": [
+							[
+								"zu",
+								"dass"
+							],
+							[
+								"um … zu",
+								"damit"
+							],
+							[
+								"ohne … zu",
+								"ohne dass"
+							]
+						]
+					}
+				]
+			}
+		]
+	},
+	"dictionary": {
+		"title": "Words in pictures",
+		"note": "Thirty-two words from this book. Cover the German, look at the picture, say the word **with its article**.",
+		"words": [
+			{
+				"de": "der Kronleuchter",
+				"en": "chandelier",
+				"image": "cpd_kronleuchter"
+			},
+			{
+				"de": "die Tischklingel",
+				"en": "desk bell",
+				"image": "cpd_tischklingel"
+			},
+			{
+				"de": "das Gästebuch",
+				"en": "guest book",
+				"image": "cpd_gaestebuch"
+			},
+			{
+				"de": "der Gepäckwagen",
+				"en": "luggage trolley",
+				"image": "cpd_gepaeckwagen"
+			},
+			{
+				"de": "der Koffer",
+				"en": "suitcase",
+				"image": "cpd_koffer"
+			},
+			{
+				"de": "das Klavier",
+				"en": "piano",
+				"image": "cpd_klavier"
+			},
+			{
+				"de": "der Schirmständer",
+				"en": "umbrella stand",
+				"image": "cpd_schirmstaender"
+			},
+			{
+				"de": "der Wasserspender",
+				"en": "water cooler",
+				"image": "cpd_wasserspender"
+			},
+			{
+				"de": "der Blumentopf",
+				"en": "flowerpot",
+				"image": "cpd_blumentopf"
+			},
+			{
+				"de": "die Überwachungskamera",
+				"en": "security camera",
+				"image": "cpd_ueberwachungskamera"
+			},
+			{
+				"de": "der Bagger",
+				"en": "digger",
+				"image": "cpd_bagger"
+			},
+			{
+				"de": "der Betonmischer",
+				"en": "cement mixer",
+				"image": "cpd_betonmischer"
+			},
+			{
+				"de": "die Schubkarre",
+				"en": "wheelbarrow",
+				"image": "cpd_schubkarre"
+			},
+			{
+				"de": "das Gerüst",
+				"en": "scaffolding",
+				"image": "cpd_geruest"
+			},
+			{
+				"de": "der Helm",
+				"en": "hard hat",
+				"image": "cpd_helm"
+			},
+			{
+				"de": "die Wasserwaage",
+				"en": "spirit level",
+				"image": "cpd_wasserwaage"
+			},
+			{
+				"de": "der Hammer",
+				"en": "hammer",
+				"image": "cpd_hammer"
+			},
+			{
+				"de": "die Leiter",
+				"en": "ladder",
+				"image": "cpd_leiter"
+			},
+			{
+				"de": "der Kran",
+				"en": "crane",
+				"image": "cpd_kran"
+			},
+			{
+				"de": "die Baustelle",
+				"en": "building site",
+				"image": "cpd_baustelle"
+			},
+			{
+				"de": "das Mikrofon",
+				"en": "microphone",
+				"image": "cpd_mikrofon"
+			},
+			{
+				"de": "die Wahlurne",
+				"en": "ballot box",
+				"image": "cpd_wahlurne"
+			},
+			{
+				"de": "der Stimmzettel",
+				"en": "ballot paper",
+				"image": "cpd_stimmzettel"
+			},
+			{
+				"de": "die Fahne",
+				"en": "flag",
+				"image": "cpd_fahne"
+			},
+			{
+				"de": "der Briefkasten",
+				"en": "postbox",
+				"image": "cpd_briefkasten"
+			},
+			{
+				"de": "die Zeitung",
+				"en": "newspaper",
+				"image": "cpd_zeitung"
+			},
+			{
+				"de": "das Radio",
+				"en": "radio",
+				"image": "cpd_radio"
+			},
+			{
+				"de": "der Laptop",
+				"en": "laptop",
+				"image": "cpd_laptop"
+			},
+			{
+				"de": "das Ei",
+				"en": "egg",
+				"image": "cpd_ei"
+			},
+			{
+				"de": "das Hemd",
+				"en": "shirt",
+				"image": "cpd_hemd"
+			},
+			{
+				"de": "der Schirm",
+				"en": "umbrella",
+				"image": "cpd_regenschirm"
+			},
+			{
+				"de": "der Vertrag",
+				"en": "contract",
+				"image": "cpd_vertrag"
+			}
+		]
+	},
+	"credits": [
+		{
+			"what": "Illustrations and picture dictionary",
+			"source": "Drawn for this book with Google Gemini",
+			"licence": "© languagequiz.org"
+		}
+	]
+}

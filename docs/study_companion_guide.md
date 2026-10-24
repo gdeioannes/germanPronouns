@@ -78,6 +78,8 @@ don't render in `words` items or in the hook line, so don't use them there.
   shared picture-book style, transparent and trimmed:
   `node tool/gen-images.mjs --manifest <file> --no-link`.
   Ask for a small joke in each scene. Gemini can't draw German finger counting, and it can't draw text.
+- **The cover prints across the whole page, so its manifest entry sets `"size": 2048`.** At the default
+  800 the trim leaves a few hundred pixels and the cover prints blurry. Topic pictures stay at 800.
 - **Public-domain and CC photos (Wikimedia Commons) are always an option** when a real photo beats a
   drawing: a station board, a market, a city. Credit them in the book's `credits` with author and
   licence, the way the printed book does in `assets/content/chapters/de_cert_a1/_photos.json`.

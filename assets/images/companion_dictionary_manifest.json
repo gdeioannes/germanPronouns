@@ -944,6 +944,422 @@
 			"size": 800,
 			"transparent": true,
 			"trim": true
+		},
+		{
+			"id": "cpd_solaranlage",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a solar panel on a small metal stand on grass, no sun in the picture.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_windrad",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a white wind turbine with three blades.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_heizkoerper",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a white radiator with a thermostat knob.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_giesskanne",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a watering can.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_rauchmelder",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a round white smoke detector fixed to a piece of ceiling, seen at an angle from below, with a small red light.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_buegeleisen",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a clothes iron.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_steckdosenleiste",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a power strip with several sockets and a cable.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_einmachglas",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a glass preserving jar with a lid and a rubber ring, filled with red jam.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_waschmaschine",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a front-loading washing machine.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_plastiktuete",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a plastic shopping bag.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_muelltonne",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wheelie bin with a lid.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_batterie",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a cylindrical AA battery lying on its side, with the small raised button at one end, plain with no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_eisbaer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a polar bear standing on an ice floe.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_biene",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a honey bee, drawn large.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_baum",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a leafy tree.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_mikroskop",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a microscope.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_reagenzglas",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a test tube with blue liquid.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_bunsenbrenner",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a Bunsen burner with a small flame.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_trichter",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a laboratory funnel.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_pinzette",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a pair of tweezers.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_lupe",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a magnifying glass.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_teleskop",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a telescope on a tripod.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fossil",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a spiral ammonite fossil in stone.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_feuerloescher",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a red fire extinguisher.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schutzbrille",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a pair of clear safety goggles.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_globus",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a globe on a stand.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_waage",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a pair of old balance scales.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kronleuchter",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a crystal chandelier.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_tischklingel",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a silver desk bell, the kind on a hotel reception counter.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_gaestebuch",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a thick open guest book with a ribbon and a pen, pages with only lines.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_gepaeckwagen",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a brass hotel luggage trolley with two suitcases on it.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_koffer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a suitcase with a handle.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_klavier",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an upright piano.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schirmstaender",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an umbrella stand with two umbrellas in it.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wasserspender",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an office water cooler with a big blue bottle on top.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_blumentopf",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a terracotta flowerpot with a green plant.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ueberwachungskamera",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a white security camera on a wall bracket.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_bagger",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a yellow digger.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_betonmischer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a small orange cement mixer.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schubkarre",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wheelbarrow.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_geruest",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a section of metal scaffolding with planks.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_helm",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a yellow hard hat.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wasserwaage",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a spirit level with a green bubble.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_hammer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a hammer.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_leiter",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden ladder.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_mikrofon",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a microphone on a stand.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wahlurne",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a transparent ballot box with a slot on top and folded paper ballots visible inside, plain with no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_stimmzettel",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a ballot paper with empty boxes, one box marked with a cross, no other writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fahne",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a plain flag in one colour on a flagpole, no symbols.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_briefkasten",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a yellow German postbox, plain with no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_radio",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an old radio with a dial and two knobs.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ei",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a brown hen egg standing in a small egg cup.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
 		}
 	]
 }

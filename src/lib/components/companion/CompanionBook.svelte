@@ -147,8 +147,12 @@
 	<section class="page right contents">
 		<p class="eyebrow">{companion.level}</p>
 		<h2>Contents</h2>
-		<!-- More than twenty lines (A1.2's seventeen topics) close up to stay on the page. -->
-		<ol class:dense={spreads.length + (companion.planned?.length ?? 0) + 3 > 20}>
+		<!-- More than twenty lines (A1.2's seventeen topics) close up to stay on the page; more than
+		     twenty-four (B2.2's twenty topics and three reviews) close up further. -->
+		<ol
+			class:dense={spreads.length + (companion.planned?.length ?? 0) + 3 > 20}
+			class:denser={spreads.length + (companion.planned?.length ?? 0) + 3 > 24}
+		>
 			{#each spreads as s, i (s.id)}
 				<li class:review={s.review}>
 					<span class="no tnum">{s.review ? '↻' : topicNo[i]}</span>
@@ -451,9 +455,12 @@
 		color: var(--navy);
 	}
 
+	/* A tall picture shrinks to the room left above the footer instead of running into it. */
 	.cover-pic {
 		width: 100%;
 		height: auto;
+		min-height: 0;
+		object-fit: contain;
 		margin: auto 0;
 	}
 
@@ -591,6 +598,10 @@
 
 	.contents .dense li {
 		padding: 1.1mm 0;
+	}
+
+	.contents .denser li {
+		padding: 0.5mm 0;
 	}
 
 	.contents .no {

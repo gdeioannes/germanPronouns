@@ -44,6 +44,26 @@ export const changelog: ChangelogEntry[] = [
     ],
   },
   {
+    date: "2026-10-24",
+    title: "B2.1 on paper: Berichten & Argumentieren",
+    highlight: true,
+    items: [
+      "The B2.1 PDF is now a 54-page study book written for paper. It replaces the old generated workbook and is on the Workbooks shelf with its own cover.",
+      "Twenty topics in three parts. Passing on what others say: politics and the news, Er sagt, er sei krank, the reported past, questions and requests, indirect questions, and the fixed little words after verbs, describing words and nouns (warten auf, stolz auf, die Kritik an). The passive and its friends: muss gelöst werden, ist gebaut worden, wird geöffnet or ist geöffnet, Hier wird getanzt, lassen, der um acht ankommende Zug, and the endings that give the gender away. Arguing: trotzdem, daher and sonst, the order of the middle of a sentence, wegen des Regens and nach dem Essen, dass or zu, Du brauchst nicht zu kommen, and writing a Stellungnahme.",
+      "Five listening exercises with QR codes — the radio news, a dictation, a letter to the paper, a text about working from home and a debate about a car-free city centre — and a picture dictionary of 32 words from the hotel lobby, the building site and the polling station.",
+    ],
+  },
+  {
+    date: "2026-10-24",
+    title: "B2.2 on paper: Was wäre, wenn?",
+    highlight: true,
+    items: [
+      "The B2.2 PDF is now a 54-page study book written for paper. It replaces the old generated workbook and is on the Workbooks shelf with its own cover.",
+      "Twenty topics in three parts. What isn't so: the environment, Wenn ich reich wäre …, Du hättest anrufen sollen, als ob, Er wird den Zug verpasst haben, Er soll reich sein, and eben, halt, schon and wohl. The written style: aufgrund and infolge, nouns made from verbs, bei Regen and durch Sparen, eine Entscheidung treffen, die geplanten Maßnahmen, Das lässt sich lösen, and endings like -lich, -los and -bar. Arguing well: five ways to say although, während and dagegen, wer, was and wo, damit and dadurch, jemand and welche, and a complaint letter that gets an answer.",
+      "Five listening exercises with QR codes — a text about the climate, a dictation of what-ifs, a doctor on the radio, a book review and a talk about sleep — and a picture dictionary of 32 words from the eco flat and the lab.",
+    ],
+  },
+  {
     date: "2026-10-23",
     title: 'A third song: "Wie bitte?", and a page for all songs',
     items: [
