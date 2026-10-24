@@ -2450,6 +2450,650 @@
 			"target": "quest_b2_2_suchbild_labor",
 			"note": "B2 Suchbild: Das Labor audio",
 			"since": "2026-10-23"
+		},
+		{
+			"code": "c1-01",
+			"kind": "book",
+			"target": "C1",
+			"note": "Book C1",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-02",
+			"kind": "quiz",
+			"target": "quest_c1_1_bildung",
+			"note": "C1 Bildung & Wissenschaft",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-03",
+			"kind": "quiz",
+			"target": "quest_c1_1_nominalisierung",
+			"note": "C1 Nominalisierung",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-04",
+			"kind": "quiz",
+			"target": "quest_c1_1_sprechen_darstellen",
+			"note": "C1 Sprechen: Strukturiert darstellen",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-05",
+			"kind": "audio",
+			"target": "quest_c1_1_sprechen_darstellen",
+			"note": "C1 Sprechen: Strukturiert darstellen audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-06",
+			"kind": "quiz",
+			"target": "quest_c1_1_verbalisierung",
+			"note": "C1 Verbalisierung",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-07",
+			"kind": "quiz",
+			"target": "quest_c1_1_tempuswahl",
+			"note": "C1 Tempuswahl in Erzählung und Bericht",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-08",
+			"kind": "quiz",
+			"target": "quest_c1_1_passiversatz",
+			"note": "C1 Passiversatz",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-09",
+			"kind": "quiz",
+			"target": "quest_c1_1_bigtext_hinweise",
+			"note": "C1 Großer Text: Hinweise zum neuen System",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-10",
+			"kind": "quiz",
+			"target": "quest_c1_1_hoeren_vorlesung",
+			"note": "C1 Hören: Vorlesung",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-11",
+			"kind": "audio",
+			"target": "quest_c1_1_hoeren_vorlesung",
+			"note": "C1 Hören: Vorlesung audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-12",
+			"kind": "quiz",
+			"target": "quest_c1_1_bar_lich",
+			"note": "C1 Adjektive auf -bar / -lich",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-13",
+			"kind": "quiz",
+			"target": "quest_c1_1_sprechen_kurzcheck",
+			"note": "C1 Kurzcheck: Nominalisierung",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-14",
+			"kind": "quiz",
+			"target": "quest_c1_1_konnektoren",
+			"note": "C1 Konnektoren (insofern/sofern/zumal/geschweige denn)",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-15",
+			"kind": "quiz",
+			"target": "quest_c1_1_konjunktionaladverbien",
+			"note": "C1 Konjunktionaladverbien der Schriftsprache",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-16",
+			"kind": "quiz",
+			"target": "quest_c1_1_adverbialsaetze",
+			"note": "C1 Adverbialsätze I: temporal, kausal, final, konditional",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-17",
+			"kind": "quiz",
+			"target": "quest_c1_1_adverbialsaetze_2",
+			"note": "C1 Adverbialsätze II: konzessiv, konsekutiv, modal, adversativ, komparativ",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-18",
+			"kind": "quiz",
+			"target": "quest_c1_1_genitiv_schriftsprache",
+			"note": "C1 Genitivpräpositionen der Schriftsprache",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-19",
+			"kind": "quiz",
+			"target": "quest_c1_1_adjektive_praep_kasus",
+			"note": "C1 Adjektive mit Kasus & Nomen mit Präposition",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-20",
+			"kind": "quiz",
+			"target": "quest_c1_1_lesen_wissenschaft",
+			"note": "C1 Lesen: Wissenschaft",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-21",
+			"kind": "audio",
+			"target": "quest_c1_1_lesen_wissenschaft",
+			"note": "C1 Lesen: Wissenschaft audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-22",
+			"kind": "quiz",
+			"target": "quest_c1_1_lesen_saetze_einordnen",
+			"note": "C1 Lesen: Sätze einordnen",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-23",
+			"kind": "audio",
+			"target": "quest_c1_1_lesen_saetze_einordnen",
+			"note": "C1 Lesen: Sätze einordnen audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-24",
+			"kind": "quiz",
+			"target": "quest_c1_1_partizipialsatz",
+			"note": "C1 Partizipialsätze",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-25",
+			"kind": "quiz",
+			"target": "quest_c1_1_attribute",
+			"note": "C1 Attribute: Genitiv, Präposition, Apposition, Ketten",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-26",
+			"kind": "quiz",
+			"target": "quest_c1_1_diktat_nominalstil",
+			"note": "C1 Diktat: Wissenschaftssprache",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-27",
+			"kind": "audio",
+			"target": "quest_c1_1_diktat_nominalstil",
+			"note": "C1 Diktat: Wissenschaftssprache audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-28",
+			"kind": "quiz",
+			"target": "quest_c1_1_sprechen_grafik",
+			"note": "C1 Sprechen: Eine Grafik beschreiben",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-29",
+			"kind": "audio",
+			"target": "quest_c1_1_sprechen_grafik",
+			"note": "C1 Sprechen: Eine Grafik beschreiben audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-30",
+			"kind": "quiz",
+			"target": "quest_c1_1_hoeren_podiumsdiskussion",
+			"note": "C1 Hören: Diskussionsrunde",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-31",
+			"kind": "audio",
+			"target": "quest_c1_1_hoeren_podiumsdiskussion",
+			"note": "C1 Hören: Diskussionsrunde audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-32",
+			"kind": "quiz",
+			"target": "quest_c1_1_hoeren_vortrag_detail",
+			"note": "C1 Hören: Vortrag mit Detailfragen",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-33",
+			"kind": "audio",
+			"target": "quest_c1_1_hoeren_vortrag_detail",
+			"note": "C1 Hören: Vortrag mit Detailfragen audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-34",
+			"kind": "quiz",
+			"target": "quest_c1_1_lesen_essay",
+			"note": "C1 Lesen: Ein Essay",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-35",
+			"kind": "audio",
+			"target": "quest_c1_1_lesen_essay",
+			"note": "C1 Lesen: Ein Essay audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-36",
+			"kind": "quiz",
+			"target": "quest_c1_1_lesen_sprachbausteine",
+			"note": "C1 Lesen: Sprachbausteine-Cloze",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-37",
+			"kind": "audio",
+			"target": "quest_c1_1_lesen_sprachbausteine",
+			"note": "C1 Lesen: Sprachbausteine-Cloze audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-38",
+			"kind": "quiz",
+			"target": "quest_c1_1_sprechen_dialog",
+			"note": "C1 Gespräch: Abstrahieren",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-39",
+			"kind": "quiz",
+			"target": "quest_c1_1_schreiben_zusammenfassung",
+			"note": "C1 Schreiben: Zusammenfassung",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-40",
+			"kind": "quiz",
+			"target": "quest_c1_1_partizipialattribute",
+			"note": "C1 Erweiterte Partizipialattribute",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-41",
+			"kind": "quiz",
+			"target": "quest_c1_1_konnektoren_zweiteilig",
+			"note": "C1 Zweiteilige Konnektoren",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-42",
+			"kind": "quiz",
+			"target": "quest_c1_1_funktionsverbgefuege",
+			"note": "C1 Funktionsverbgefüge der Fachsprache",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-43",
+			"kind": "quiz",
+			"target": "quest_c1_1_wortschatz",
+			"note": "C1 Wortschatz",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-44",
+			"kind": "quiz",
+			"target": "quest_c1_1_suchbild_krankenhaus",
+			"note": "C1 Suchbild: Das Krankenzimmer",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-45",
+			"kind": "audio",
+			"target": "quest_c1_1_suchbild_krankenhaus",
+			"note": "C1 Suchbild: Das Krankenzimmer audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-46",
+			"kind": "quiz",
+			"target": "quest_c1_1_suchbild_theater",
+			"note": "C1 Suchbild: Hinter der Bühne",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-47",
+			"kind": "audio",
+			"target": "quest_c1_1_suchbild_theater",
+			"note": "C1 Suchbild: Hinter der Bühne audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-48",
+			"kind": "quiz",
+			"target": "quest_c1_2_kultur",
+			"note": "C1 Kultur & Medien",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-49",
+			"kind": "quiz",
+			"target": "quest_c1_2_modal_vermutung",
+			"note": "C1 Subjektive Modalverben: Vermutung",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-50",
+			"kind": "quiz",
+			"target": "quest_c1_2_sprechen_abschwaechen",
+			"note": "C1 Sprechen: Andeuten & abschwächen",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-51",
+			"kind": "audio",
+			"target": "quest_c1_2_sprechen_abschwaechen",
+			"note": "C1 Sprechen: Andeuten & abschwächen audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-52",
+			"kind": "quiz",
+			"target": "quest_c1_2_konj2_kritik",
+			"note": "C1 Konjunktiv II: Kritik & nachträgliche Empfehlung",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-53",
+			"kind": "quiz",
+			"target": "quest_c1_2_relativ_advanced",
+			"note": "C1 Relativsätze advanced",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-54",
+			"kind": "quiz",
+			"target": "quest_c1_2_numerus_gender",
+			"note": "C1 Numerus-Besonderheiten & genderneutrale Bezeichnungen",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-55",
+			"kind": "quiz",
+			"target": "quest_c1_2_modal_hoerensagen",
+			"note": "C1 Subjektive Modalverben: Hörensagen",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-56",
+			"kind": "quiz",
+			"target": "quest_c1_2_bigtext_nachbar",
+			"note": "C1 Großer Text: Der geheimnisvolle Nachbar",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-57",
+			"kind": "quiz",
+			"target": "quest_c1_2_wortbildung_vor",
+			"note": "C1 Wortbildung: Vorsilben",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-58",
+			"kind": "quiz",
+			"target": "quest_c1_2_hoeren_reportage",
+			"note": "C1 Hören: Reportage",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-59",
+			"kind": "audio",
+			"target": "quest_c1_2_hoeren_reportage",
+			"note": "C1 Hören: Reportage audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-60",
+			"kind": "quiz",
+			"target": "quest_c1_2_hoeren_interview_stimmt",
+			"note": "C1 Hören: Interview — stimmt / stimmt nicht / nicht gesagt",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-61",
+			"kind": "audio",
+			"target": "quest_c1_2_hoeren_interview_stimmt",
+			"note": "C1 Hören: Interview — stimmt / stimmt nicht / nicht gesagt audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-62",
+			"kind": "quiz",
+			"target": "quest_c1_2_wortbildung_nach",
+			"note": "C1 Wortbildung: Nachsilben",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-63",
+			"kind": "quiz",
+			"target": "quest_c1_2_praefixe",
+			"note": "C1 Präfixe: trennbar oder untrennbar?",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-64",
+			"kind": "quiz",
+			"target": "quest_c1_2_sprechen_kurzcheck",
+			"note": "C1 Kurzcheck: Subjektive Modalverben",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-65",
+			"kind": "quiz",
+			"target": "quest_c1_2_redewendungen",
+			"note": "C1 Redewendungen",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-66",
+			"kind": "quiz",
+			"target": "quest_c1_2_lesen_kolumne",
+			"note": "C1 Lesen: Eine Kolumne",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-67",
+			"kind": "audio",
+			"target": "quest_c1_2_lesen_kolumne",
+			"note": "C1 Lesen: Eine Kolumne audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-68",
+			"kind": "quiz",
+			"target": "quest_c1_2_lesen_experten",
+			"note": "C1 Lesen: Expertenmeinungen zuordnen",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-69",
+			"kind": "audio",
+			"target": "quest_c1_2_lesen_experten",
+			"note": "C1 Lesen: Expertenmeinungen zuordnen audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-70",
+			"kind": "quiz",
+			"target": "quest_c1_2_kohaesion",
+			"note": "C1 Textkohäsion",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-71",
+			"kind": "quiz",
+			"target": "quest_c1_2_redemittel_vortrag",
+			"note": "C1 Redemittel: Vortrag, Grafik, Stellungnahme",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-72",
+			"kind": "quiz",
+			"target": "quest_c1_2_umformung_1",
+			"note": "C1 Umformulierung: Relativsatz ↔ Partizip, Aktiv ↔ Passiv",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-73",
+			"kind": "quiz",
+			"target": "quest_c1_2_register_formell",
+			"note": "C1 Register: informell → formell",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-74",
+			"kind": "quiz",
+			"target": "quest_c1_2_schreiben_forum_beschwerde",
+			"note": "C1 Schreiben: Forumsbeitrag & formelle Beschwerde",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-75",
+			"kind": "quiz",
+			"target": "quest_c1_2_diktat_idiom",
+			"note": "C1 Diktat: Nuancen",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-76",
+			"kind": "audio",
+			"target": "quest_c1_2_diktat_idiom",
+			"note": "C1 Diktat: Nuancen audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-77",
+			"kind": "quiz",
+			"target": "quest_c1_2_sprechen_ironie",
+			"note": "C1 Sprechen: Ironie & Betonung",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-78",
+			"kind": "audio",
+			"target": "quest_c1_2_sprechen_ironie",
+			"note": "C1 Sprechen: Ironie & Betonung audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-79",
+			"kind": "quiz",
+			"target": "quest_c1_2_hoeren_hoerspiel",
+			"note": "C1 Hören: Hörspiel",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-80",
+			"kind": "audio",
+			"target": "quest_c1_2_hoeren_hoerspiel",
+			"note": "C1 Hören: Hörspiel audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-81",
+			"kind": "quiz",
+			"target": "quest_c1_2_lesen_literatur",
+			"note": "C1 Lesen: Literarischer Text",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-82",
+			"kind": "audio",
+			"target": "quest_c1_2_lesen_literatur",
+			"note": "C1 Lesen: Literarischer Text audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-83",
+			"kind": "quiz",
+			"target": "quest_c1_2_sprechen_dialog",
+			"note": "C1 Gespräch: Nuancieren",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-84",
+			"kind": "quiz",
+			"target": "quest_c1_2_konjunktiv1_indirekte_rede",
+			"note": "C1 Konjunktiv I: indirekte Rede",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-85",
+			"kind": "quiz",
+			"target": "quest_c1_2_modalpartikeln",
+			"note": "C1 Modalpartikeln",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-86",
+			"kind": "quiz",
+			"target": "quest_c1_2_schreiben_nominalstil",
+			"note": "C1 Schreiben: Bericht im Nominalstil",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-87",
+			"kind": "quiz",
+			"target": "quest_c1_2_schreiben_forumsbeitrag",
+			"note": "C1 Schreiben: Ein Forumsbeitrag",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-88",
+			"kind": "quiz",
+			"target": "quest_c1_2_wortschatz",
+			"note": "C1 Wortschatz",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-89",
+			"kind": "quiz",
+			"target": "quest_c1_2_suchbild_redaktion",
+			"note": "C1 Suchbild: Die Redaktion",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-90",
+			"kind": "audio",
+			"target": "quest_c1_2_suchbild_redaktion",
+			"note": "C1 Suchbild: Die Redaktion audio",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-91",
+			"kind": "quiz",
+			"target": "quest_c1_2_suchbild_flughafen",
+			"note": "C1 Suchbild: Der Flughafen",
+			"since": "2026-10-24"
+		},
+		{
+			"code": "c1-92",
+			"kind": "audio",
+			"target": "quest_c1_2_suchbild_flughafen",
+			"note": "C1 Suchbild: Der Flughafen audio",
+			"since": "2026-10-24"
 		}
 	]
 }

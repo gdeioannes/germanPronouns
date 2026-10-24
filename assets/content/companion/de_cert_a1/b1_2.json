@@ -327,6 +327,31 @@
 						}
 					],
 					"listen": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich herunterlade die App.",
+							"answer": "Ich lade die App herunter."
+						},
+						{
+							"prompt": "Der Datei ist zu groß.",
+							"answer": "Die Datei ist zu groß."
+						},
+						{
+							"prompt": "Das Bildschirm bleibt schwarz.",
+							"answer": "Der Bildschirm bleibt schwarz."
+						},
+						{
+							"prompt": "Die Programm stürzt schon wieder ab.",
+							"answer": "Das Programm stürzt schon wieder ab."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -599,6 +624,53 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Write it down",
+					"instruction": "Write it in the written past.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich habe in Köln gearbeitet.",
+							"answer": "Ich arbeitete in Köln."
+						},
+						{
+							"prompt": "Er hat mir Blumen gebracht.",
+							"answer": "Er brachte mir Blumen."
+						},
+						{
+							"prompt": "Wir haben an dich gedacht.",
+							"answer": "Wir dachten an dich."
+						},
+						{
+							"prompt": "Niemand hat es gewusst.",
+							"answer": "Niemand wusste es."
+						},
+						{
+							"prompt": "Ich habe ihm einen Brief geschickt.",
+							"answer": "Ich schickte ihm einen Brief."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "In 2019 I learned German.",
+							"answer": "2019 lernte ich Deutsch."
+						},
+						{
+							"prompt": "Back then I knew all the neighbours.",
+							"answer": "Früher kannte ich alle Nachbarn."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -833,6 +905,31 @@
 						3,
 						1
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Gestern geht ich früh nach Hause.",
+							"answer": "Gestern ging ich früh nach Hause."
+						},
+						{
+							"prompt": "Wir fand den Schlüssel nicht.",
+							"answer": "Wir fanden den Schlüssel nicht."
+						},
+						{
+							"prompt": "Gestern trinke ich zu viel Kaffee.",
+							"answer": "Gestern trank ich zu viel Kaffee."
+						},
+						{
+							"prompt": "Wir fuhr mit dem Zug nach Wien.",
+							"answer": "Wir fuhren mit dem Zug nach Wien."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1037,6 +1134,48 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Als ich ankam, hatte der Zug schon abgefahren.",
+							"answer": "Als ich ankam, war der Zug schon abgefahren."
+						},
+						{
+							"prompt": "Nachdem wir gegessen haben, gingen wir spazieren.",
+							"answer": "Nachdem wir gegessen hatten, gingen wir spazieren."
+						},
+						{
+							"prompt": "Sie war den Film schon zweimal gesehen.",
+							"answer": "Sie hatte den Film schon zweimal gesehen."
+						},
+						{
+							"prompt": "Als die Polizei kam, hatte der Dieb schon verschwunden.",
+							"answer": "Als die Polizei kam, war der Dieb schon verschwunden."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "First, then",
+					"instruction": "Join with nachdem: the first thing takes hatte or war.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wir essen. Wir gehen spazieren.",
+							"answer": "Nachdem wir gegessen hatten, gingen wir spazieren."
+						},
+						{
+							"prompt": "Der Dieb verschwindet. Die Polizei kommt.",
+							"answer": "Nachdem der Dieb verschwunden war, kam die Polizei."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1214,6 +1353,49 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Bevor ich gehe zur Arbeit, frühstücke ich.",
+							"answer": "Bevor ich zur Arbeit gehe, frühstücke ich."
+						},
+						{
+							"prompt": "Während sie kocht, er deckt den Tisch.",
+							"answer": "Während sie kocht, deckt er den Tisch."
+						},
+						{
+							"prompt": "Seit ich hier wohnte, habe ich kein Auto.",
+							"answer": "Seit ich hier wohne, habe ich kein Auto."
+						},
+						{
+							"prompt": "Warte, bis ich bin zurück.",
+							"answer": "Warte, bis ich zurück bin."
+						},
+						{
+							"prompt": "Sobald der Bus kommt, wir fahren los.",
+							"answer": "Sobald der Bus kommt, fahren wir los."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Before I go to bed, I read.",
+							"answer": "Bevor ich ins Bett gehe, lese ich."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1503,6 +1685,44 @@
 						}
 					],
 					"listen": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das Haus wird 1990 gebaut.",
+							"answer": "Das Haus wurde 1990 gebaut."
+						},
+						{
+							"prompt": "Die Fenster wurde letzte Woche geputzt.",
+							"answer": "Die Fenster wurden letzte Woche geputzt."
+						},
+						{
+							"prompt": "In der Schweiz wird vier Sprachen gesprochen.",
+							"answer": "In der Schweiz werden vier Sprachen gesprochen."
+						},
+						{
+							"prompt": "Das Auto wird gerade reparieren.",
+							"answer": "Das Auto wird gerade repariert."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Who did it? Nobody says",
+					"instruction": "Write it in the passive.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Man hat das Haus 1990 gebaut.",
+							"answer": "Das Haus wurde 1990 gebaut."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1739,6 +1959,48 @@
 							"answer": "sind"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das Auto muss repariert worden.",
+							"answer": "Das Auto muss repariert werden."
+						},
+						{
+							"prompt": "Hier darf nicht parken werden.",
+							"answer": "Hier darf nicht geparkt werden."
+						},
+						{
+							"prompt": "Das Haus ist gebaut geworden.",
+							"answer": "Das Haus ist gebaut worden."
+						},
+						{
+							"prompt": "Die Rechnung muss heute bezahlt wird.",
+							"answer": "Die Rechnung muss heute bezahlt werden."
+						},
+						{
+							"prompt": "Das Restaurant wird dienstags geschlossen — es ist zu.",
+							"answer": "Das Restaurant ist dienstags geschlossen — es ist zu."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Make it a rule",
+					"instruction": "Write it in the passive with the helper.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Man muss die Rechnung heute bezahlen.",
+							"answer": "Die Rechnung muss heute bezahlt werden."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1799,6 +2061,57 @@
 							"answer": "war"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich herunterlade das Programm.",
+							"answer": "Ich lade das Programm herunter."
+						},
+						{
+							"prompt": "Gestern geht er nach Hause.",
+							"answer": "Gestern ging er nach Hause."
+						},
+						{
+							"prompt": "Als ich ankam, hatte der Bus schon abgefahren.",
+							"answer": "Als ich ankam, war der Bus schon abgefahren."
+						},
+						{
+							"prompt": "Bevor ich frühstücke, ich dusche.",
+							"answer": "Bevor ich frühstücke, dusche ich."
+						},
+						{
+							"prompt": "Die Fenster wird gerade geputzt.",
+							"answer": "Die Fenster werden gerade geputzt."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Restart the computer! (du)",
+							"answer": "Starte den Computer neu!"
+						},
+						{
+							"prompt": "We didn’t find the key.",
+							"answer": "Wir fanden den Schlüssel nicht."
+						},
+						{
+							"prompt": "After we had eaten, we went for a walk.",
+							"answer": "Nachdem wir gegessen hatten, gingen wir spazieren."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -1843,6 +2156,178 @@
 						0,
 						1
 					]
+				},
+				{
+					"title": "Which one?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Er",
+							"options": [
+								"ging",
+								"geht"
+							],
+							"after": "gestern früh ins Bett.",
+							"answer": "ging"
+						},
+						{
+							"before": "Ich",
+							"options": [
+								"fand",
+								"fanden"
+							],
+							"after": "den Schlüssel.",
+							"answer": "fand"
+						},
+						{
+							"before": "Sie",
+							"options": [
+								"brachte",
+								"bringte"
+							],
+							"after": "mir Blumen.",
+							"answer": "brachte"
+						},
+						{
+							"before": "Ich",
+							"options": [
+								"wusste",
+								"wisste"
+							],
+							"after": "es nicht.",
+							"answer": "wusste"
+						},
+						{
+							"before": "Der Zug",
+							"options": [
+								"war",
+								"hatte"
+							],
+							"after": "schon abgefahren.",
+							"answer": "war"
+						},
+						{
+							"before": "Wir",
+							"options": [
+								"hatten",
+								"waren"
+							],
+							"after": "schon gegessen.",
+							"answer": "hatten"
+						},
+						{
+							"before": "",
+							"options": [
+								"Nachdem",
+								"Bevor"
+							],
+							"after": "wir gegessen hatten, gingen wir.",
+							"answer": "Nachdem"
+						},
+						{
+							"before": "",
+							"options": [
+								"Seit",
+								"Bis"
+							],
+							"after": "ich hier wohne, habe ich kein Auto.",
+							"answer": "Seit"
+						},
+						{
+							"before": "Das Haus",
+							"options": [
+								"wurde",
+								"wird"
+							],
+							"after": "1990 gebaut.",
+							"answer": "wurde"
+						},
+						{
+							"before": "Hier darf nicht geparkt",
+							"options": [
+								"werden",
+								"worden"
+							],
+							"after": ".",
+							"answer": "werden"
+						},
+						{
+							"before": "Die Tür",
+							"options": [
+								"ist",
+								"wird"
+							],
+							"after": "schon geschlossen.",
+							"answer": "ist"
+						},
+						{
+							"before": "Sie",
+							"options": [
+								"kam",
+								"kommt"
+							],
+							"after": "gestern spät an.",
+							"answer": "kam"
+						},
+						{
+							"before": "Er",
+							"options": [
+								"blieb",
+								"bleibt"
+							],
+							"after": "gestern zu Hause.",
+							"answer": "blieb"
+						},
+						{
+							"before": "Ich lade die App",
+							"options": [
+								"herunter",
+								"hoch"
+							],
+							"after": "— jetzt ist sie auf meinem Handy.",
+							"answer": "herunter"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "A bad day",
+					"instruction": "Tell it in the story past.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich gehe zum Bahnhof.",
+							"answer": "Ich ging zum Bahnhof."
+						},
+						{
+							"prompt": "Der Zug kommt nicht.",
+							"answer": "Der Zug kam nicht."
+						},
+						{
+							"prompt": "Ich rufe den Kundendienst an.",
+							"answer": "Ich rief den Kundendienst an."
+						},
+						{
+							"prompt": "Der Bildschirm bleibt schwarz.",
+							"answer": "Der Bildschirm blieb schwarz."
+						},
+						{
+							"prompt": "Wir essen nur einen Salat.",
+							"answer": "Wir aßen nur einen Salat."
+						},
+						{
+							"prompt": "Sie schreibt eine E-Mail.",
+							"answer": "Sie schrieb eine E-Mail."
+						},
+						{
+							"prompt": "Ich nehme den letzten Bus.",
+							"answer": "Ich nahm den letzten Bus."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": []
@@ -2049,6 +2534,61 @@
 							"answer": "Kunden"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich kenne den Student.",
+							"answer": "Ich kenne den Studenten."
+						},
+						{
+							"prompt": "Ich helfe dem Junge.",
+							"answer": "Ich helfe dem Jungen."
+						},
+						{
+							"prompt": "Der Studenten ist nett.",
+							"answer": "Der Student ist nett."
+						},
+						{
+							"prompt": "Wir sprechen mit dem Nachbar.",
+							"answer": "Wir sprechen mit dem Nachbarn."
+						},
+						{
+							"prompt": "Fragen Sie den Herr dort!",
+							"answer": "Fragen Sie den Herrn dort!"
+						},
+						{
+							"prompt": "Das ist das Auto des Präsident.",
+							"answer": "Das ist das Auto des Präsidenten."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I shake hands with the president.",
+							"answer": "Ich gebe dem Präsidenten die Hand."
+						},
+						{
+							"prompt": "Do you know the new colleague? (du)",
+							"answer": "Kennst du den neuen Kollegen?"
+						},
+						{
+							"prompt": "The customer is king.",
+							"answer": "Der Kunde ist König."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2267,6 +2807,49 @@
 						}
 					],
 					"listen": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich lerne Deutsch, damit hier zu arbeiten.",
+							"answer": "Ich lerne Deutsch, um hier zu arbeiten."
+						},
+						{
+							"prompt": "Ich lerne Deutsch, um meine Kinder stolz sind.",
+							"answer": "Ich lerne Deutsch, damit meine Kinder stolz sind."
+						},
+						{
+							"prompt": "Ich spare Geld, indem ich koche selbst.",
+							"answer": "Ich spare Geld, indem ich selbst koche."
+						},
+						{
+							"prompt": "Er war so müde, dass er schlief ein.",
+							"answer": "Er war so müde, dass er einschlief."
+						},
+						{
+							"prompt": "Sie ging, ohne etwas sagen.",
+							"answer": "Sie ging, ohne etwas zu sagen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I save money by cooking myself.",
+							"answer": "Ich spare Geld, indem ich selbst koche."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2465,6 +3048,60 @@
 							"answer": "der"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Frau, dessen Auto vor dem Haus steht, ist nett.",
+							"answer": "Die Frau, deren Auto vor dem Haus steht, ist nett."
+						},
+						{
+							"prompt": "Der Kollege, deren Frau Ärztin ist, arbeitet hier.",
+							"answer": "Der Kollege, dessen Frau Ärztin ist, arbeitet hier."
+						},
+						{
+							"prompt": "Das sind die Freunde, dem ich vertraue.",
+							"answer": "Das sind die Freunde, denen ich vertraue."
+						},
+						{
+							"prompt": "Die Nachbarn, deren der Hund immer bellt, wohnen hier.",
+							"answer": "Die Nachbarn, deren Hund immer bellt, wohnen hier."
+						},
+						{
+							"prompt": "Das Kind, deren Eltern noch arbeiten, wartet hier.",
+							"answer": "Das Kind, dessen Eltern noch arbeiten, wartet hier."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "One sentence",
+					"instruction": "Join with dessen or deren.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das ist der Kollege. Seine Frau ist Ärztin.",
+							"answer": "Das ist der Kollege, dessen Frau Ärztin ist."
+						},
+						{
+							"prompt": "Das ist die Nachbarin. Ihr Hund bellt immer.",
+							"answer": "Das ist die Nachbarin, deren Hund immer bellt."
+						},
+						{
+							"prompt": "Das sind die Kinder. Ihre Eltern arbeiten noch.",
+							"answer": "Das sind die Kinder, deren Eltern noch arbeiten."
+						},
+						{
+							"prompt": "Das ist das Kind. Sein Fahrrad steht vor dem Haus.",
+							"answer": "Das ist das Kind, dessen Fahrrad vor dem Haus steht."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2632,6 +3269,53 @@
 						}
 					],
 					"note": "About you."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich habe weder Zeit noch kein Geld.",
+							"answer": "Ich habe weder Zeit noch Geld."
+						},
+						{
+							"prompt": "Je mehr ich übe, desto ich werde besser.",
+							"answer": "Je mehr ich übe, desto besser werde ich."
+						},
+						{
+							"prompt": "Sie spricht sowohl Deutsch oder Englisch.",
+							"answer": "Sie spricht sowohl Deutsch als auch Englisch."
+						},
+						{
+							"prompt": "Er ist nicht nur klug, aber auch fleißig.",
+							"answer": "Er ist nicht nur klug, sondern auch fleißig."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "We go either by train or by car.",
+							"answer": "Wir fahren entweder mit dem Zug oder mit dem Auto."
+						},
+						{
+							"prompt": "The hotel is expensive, true, but very nice.",
+							"answer": "Das Hotel ist zwar teuer, aber sehr schön."
+						},
+						{
+							"prompt": "The more I sleep, the more tired I am.",
+							"answer": "Je mehr ich schlafe, desto müder bin ich."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2836,6 +3520,53 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Hätte ich doch zu Hause geblieben!",
+							"answer": "Wäre ich doch zu Hause geblieben!"
+						},
+						{
+							"prompt": "Wäre ich doch mehr gelernt!",
+							"answer": "Hätte ich doch mehr gelernt!"
+						},
+						{
+							"prompt": "Wenn ich doch hätte mehr gelernt!",
+							"answer": "Wenn ich doch mehr gelernt hätte!"
+						},
+						{
+							"prompt": "Hätte er doch gekommen!",
+							"answer": "Wäre er doch gekommen!"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "If only I had called her!",
+							"answer": "Hätte ich sie doch angerufen!"
+						},
+						{
+							"prompt": "If only we had stayed at home!",
+							"answer": "Wären wir doch zu Hause geblieben!"
+						},
+						{
+							"prompt": "If only I hadn’t said that!",
+							"answer": "Hätte ich das bloß nicht gesagt!"
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3034,6 +3765,48 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wegen des Stau kamen wir zu spät.",
+							"answer": "Wegen des Staus kamen wir zu spät."
+						},
+						{
+							"prompt": "Während der Film darf man nicht telefonieren.",
+							"answer": "Während des Films darf man nicht telefonieren."
+						},
+						{
+							"prompt": "Trotz der Regen gehen wir raus.",
+							"answer": "Trotz des Regens gehen wir raus."
+						},
+						{
+							"prompt": "Obwohl es regnet, wir gehen raus.",
+							"answer": "Obwohl es regnet, gehen wir raus."
+						},
+						{
+							"prompt": "Es regnet, trotzdem wir gehen raus.",
+							"answer": "Es regnet, trotzdem gehen wir raus."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it another way",
+					"instruction": "Write it again with the word in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Weil es regnet, bleiben wir zu Hause. (wegen)",
+							"answer": "Wegen des Regens bleiben wir zu Hause."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3232,6 +4005,53 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich sehe den schlafende Hund.",
+							"answer": "Ich sehe den schlafenden Hund."
+						},
+						{
+							"prompt": "Durch die geöffnet Tür kam kalte Luft.",
+							"answer": "Durch die geöffnete Tür kam kalte Luft."
+						},
+						{
+							"prompt": "Der lachende Kind sitzt auf dem Schoß.",
+							"answer": "Das lachende Kind sitzt auf dem Schoß."
+						},
+						{
+							"prompt": "Ich suche die verloren Schlüssel.",
+							"answer": "Ich suche die verlorenen Schlüssel."
+						},
+						{
+							"prompt": "Das Wasser kocht noch: Vorsicht, das gekochte Wasser!",
+							"answer": "Das Wasser kocht noch: Vorsicht, das kochende Wasser!"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "the laughing child",
+							"answer": "das lachende Kind"
+						},
+						{
+							"prompt": "the opened door",
+							"answer": "die geöffnete Tür"
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3482,6 +4302,78 @@
 							"answer": "Ja!"
 						}
 					]
+				},
+				{
+					"title": "Make it friendlier",
+					"instruction": "Write it again with the little word in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Was machst du hier? (denn)",
+							"answer": "Was machst du denn hier?"
+						},
+						{
+							"prompt": "Komm mit! (doch)",
+							"answer": "Komm doch mit!"
+						},
+						{
+							"prompt": "Warte! (mal)",
+							"answer": "Warte mal!"
+						},
+						{
+							"prompt": "Das ist toll! (ja)",
+							"answer": "Das ist ja toll!"
+						},
+						{
+							"prompt": "Kommst du mit? (eigentlich)",
+							"answer": "Kommst du eigentlich mit?"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Was denn machst du hier?",
+							"answer": "Was machst du denn hier?"
+						},
+						{
+							"prompt": "Doch komm mit!",
+							"answer": "Komm doch mit!"
+						},
+						{
+							"prompt": "Kommst du nicht mit? – Ja!",
+							"answer": "Kommst du nicht mit? – Doch!"
+						},
+						{
+							"prompt": "Mal schau hier!",
+							"answer": "Schau mal hier!"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In a chat",
+					"instruction": "Write denn, doch or ja.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Wo warst du",
+							"after": "gestern?",
+							"answer": "denn"
+						},
+						{
+							"before": "Du weißt",
+							"after": ", ich habe keine Zeit.",
+							"answer": "ja"
+						}
+					],
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3687,6 +4579,45 @@
 						0,
 						1
 					]
+				},
+				{
+					"title": "der or die? Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Der Gesundheit ist das Wichtigste.",
+							"answer": "Die Gesundheit ist das Wichtigste."
+						},
+						{
+							"prompt": "Das Freundschaft hat dreißig Jahre gehalten.",
+							"answer": "Die Freundschaft hat dreißig Jahre gehalten."
+						},
+						{
+							"prompt": "Die Journalist fragt nach meiner Meinung.",
+							"answer": "Der Journalist fragt nach meiner Meinung."
+						},
+						{
+							"prompt": "Das Möglichkeit ist gut.",
+							"answer": "Die Möglichkeit ist gut."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Health is the most important thing.",
+							"answer": "Die Gesundheit ist das Wichtigste."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3857,6 +4788,49 @@
 						}
 					],
 					"note": "About you — every verb in the story past."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Am Anfang war ich ruhig. Dann gehe ich zum Bahnhof.",
+							"answer": "Am Anfang war ich ruhig. Dann ging ich zum Bahnhof."
+						},
+						{
+							"prompt": "Plötzlich regnet es stark.",
+							"answer": "Plötzlich regnete es stark."
+						},
+						{
+							"prompt": "Zum Glück gibt mir eine Frau ihren Regenschirm.",
+							"answer": "Zum Glück gab mir eine Frau ihren Regenschirm."
+						},
+						{
+							"prompt": "Als ich ankam, ist der Zug schon abgefahren.",
+							"answer": "Als ich ankam, war der Zug schon abgefahren."
+						},
+						{
+							"prompt": "Am Ende bin ich nass, aber glücklich.",
+							"answer": "Am Ende war ich nass, aber glücklich."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "At the beginning I was very nervous.",
+							"answer": "Am Anfang war ich sehr nervös."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3900,6 +4874,69 @@
 							"answer": "noch"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich kenne den Kollege.",
+							"answer": "Ich kenne den Kollegen."
+						},
+						{
+							"prompt": "Ich spare, damit ein Auto zu kaufen.",
+							"answer": "Ich spare, um ein Auto zu kaufen."
+						},
+						{
+							"prompt": "Die Frau, dessen Auto dort steht, ist nett.",
+							"answer": "Die Frau, deren Auto dort steht, ist nett."
+						},
+						{
+							"prompt": "Wir fahren entweder mit dem Zug und mit dem Auto.",
+							"answer": "Wir fahren entweder mit dem Zug oder mit dem Auto."
+						},
+						{
+							"prompt": "Hätte ich nur zu Hause geblieben!",
+							"answer": "Wäre ich nur zu Hause geblieben!"
+						},
+						{
+							"prompt": "Trotz der Regen gehen wir spazieren.",
+							"answer": "Trotz des Regens gehen wir spazieren."
+						},
+						{
+							"prompt": "Der Freundschaft ist wichtig.",
+							"answer": "Die Freundschaft ist wichtig."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "We help the student.",
+							"answer": "Wir helfen dem Studenten."
+						},
+						{
+							"prompt": "If only I had stayed in bed!",
+							"answer": "Wäre ich doch im Bett geblieben!"
+						},
+						{
+							"prompt": "Because of the traffic jam we were late.",
+							"answer": "Wegen des Staus kamen wir zu spät."
+						},
+						{
+							"prompt": "Careful, sleeping dog!",
+							"answer": "Vorsicht, schlafender Hund!"
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -3952,6 +4989,140 @@
 						2,
 						3
 					]
+				},
+				{
+					"title": "Which one?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Wir sprechen mit dem",
+							"options": [
+								"Nachbarn",
+								"Nachbar"
+							],
+							"after": ".",
+							"answer": "Nachbarn"
+						},
+						{
+							"before": "Ich lerne,",
+							"options": [
+								"um",
+								"damit"
+							],
+							"after": "hier zu arbeiten.",
+							"answer": "um"
+						},
+						{
+							"before": "Die Frau,",
+							"options": [
+								"deren",
+								"dessen"
+							],
+							"after": "Hund bellt, wohnt hier.",
+							"answer": "deren"
+						},
+						{
+							"before": "Das sind die Freunde,",
+							"options": [
+								"denen",
+								"dem"
+							],
+							"after": "ich vertraue.",
+							"answer": "denen"
+						},
+						{
+							"before": "Ich habe weder Zeit",
+							"options": [
+								"noch",
+								"oder"
+							],
+							"after": "Geld.",
+							"answer": "noch"
+						},
+						{
+							"before": "Je mehr ich übe,",
+							"options": [
+								"desto",
+								"dann"
+							],
+							"after": "besser werde ich.",
+							"answer": "desto"
+						},
+						{
+							"before": "",
+							"options": [
+								"Wäre",
+								"Hätte"
+							],
+							"after": "ich nur zu Hause geblieben!",
+							"answer": "Wäre"
+						},
+						{
+							"before": "",
+							"options": [
+								"Wegen",
+								"Trotz"
+							],
+							"after": "des Staus kamen wir zu spät.",
+							"answer": "Wegen"
+						},
+						{
+							"before": "Der",
+							"options": [
+								"schlafende",
+								"geschlafene"
+							],
+							"after": "Hund soll nicht aufwachen.",
+							"answer": "schlafende"
+						},
+						{
+							"before": "Komm",
+							"options": [
+								"doch",
+								"denn"
+							],
+							"after": "mit!",
+							"answer": "doch"
+						},
+						{
+							"before": "",
+							"options": [
+								"Die",
+								"Der"
+							],
+							"after": "Freundschaft hat lange gehalten.",
+							"answer": "Die"
+						},
+						{
+							"before": "Am Ende",
+							"options": [
+								"war",
+								"ist"
+							],
+							"after": "alles gut.",
+							"answer": "war"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "One sentence",
+					"instruction": "Join with the word in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich fahre Rad. Ich will fit bleiben. (um … zu)",
+							"answer": "Ich fahre Rad, um fit zu bleiben."
+						},
+						{
+							"prompt": "Er spricht langsam. Alle verstehen ihn. (damit)",
+							"answer": "Er spricht langsam, damit alle ihn verstehen."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": []

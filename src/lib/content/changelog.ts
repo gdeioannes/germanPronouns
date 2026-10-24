@@ -79,6 +79,38 @@ export const changelog: ChangelogEntry[] = [
     ],
   },
   {
+    date: "2026-10-25",
+    title: "More to write in every study book",
+    highlight: true,
+    items: [
+      "The practice pages in all ten study books, A1.1 to C1.2, ended half empty. They are filled now: about 400 new exercises, sized to the room on each page.",
+      "New kinds of exercise: find the mistake (one typical error to correct), say it another way, translate from English, and write about yourself. Every answer is in the key at the back.",
+      "When you have to write a whole sentence, the line now runs the full width under it, so there is room for your handwriting.",
+      "The review pages have more mixed practice too, and every new exercise uses only German the book has already taught.",
+    ],
+  },
+  {
+    date: "2026-10-24",
+    title: "C1.2 on paper: Andeuten & Formulieren",
+    highlight: true,
+    items: [
+      "The C1.2 PDF is now a 54-page study book written for paper. It replaces the old generated workbook and is on the Workbooks shelf with its own cover.",
+      "Twenty topics in three parts. How sure you are, and who says so: culture and the media, Er dürfte im Stau stehen, Das Bild soll gestohlen worden sein, reporting in the Konjunktiv I, saying it at the right strength, Das hätte vermieden werden können, and particles and irony. Words and forms: be-, ver- and ent-, úmfahren and umfáhren, word families, die Eltern and die Studierenden, idioms of commentary, and mit dessen Hilfe. Texts and register: holding a text together, saying it in another grammar, a report in the nominal style, from a chat to a formal e-mail, phrases for a talk, a forum post and a complaint, and reading literature.",
+      "Eight listening exercises with QR codes — four experts on free museums, a radio report on volunteers, hedges, irony, a dictation of idioms, an interview on heat in the city, a column on always being reachable and a radio play — and a picture dictionary of 32 words from the newsroom and the airport.",
+    ],
+  },
+  {
+    date: "2026-10-24",
+    title: "C1.1 on paper: Verdichten & Verbinden",
+    highlight: true,
+    items: [
+      "The C1.1 PDF is now a 54-page study book written for paper. It replaces the old generated workbook and is on the Workbooks shelf with its own cover.",
+      "Twenty topics in three parts. The language of research: the words of a study, packing a sentence into a noun phrase and unpacking it again, anlässlich, mangels and zwecks, sich einer Sache bewusst, zur Anwendung kommen, and choosing a tense on purpose. Passive substitutes and participles: Er bekam das Buch geschenkt, überschaubar and nachvollziehbar, der zu prüfende Antrag, In Berlin angekommen, …, long noun phrases, and describing a graph. Connecting an argument: sofern, zumal and geschweige denn, gleichwohl and mithin, every adverbial link in three forms, weder … noch, presenting a topic and writing a summary.",
+      "Seven listening exercises with QR codes — why music moves us, a dictation of academic German, a graph, a panel on tablets in school, an essay on boredom, a lecture on language and thought and a talk on the attention economy — and a picture dictionary of 32 words from the hospital room, the backstage and the lecture hall.",
+      "In the B2.1 and B2.2 books, a few diagrams that ran off the right edge of the page now fit.",
+    ],
+  },
+  {
     date: "2026-10-24",
     title: "B2.1 on paper: Berichten & Argumentieren",
     highlight: true,

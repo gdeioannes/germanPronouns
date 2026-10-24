@@ -729,12 +729,12 @@ spreads.append(spread(
     Q + 'konzessiv',
     [
         slots('Where the verb goes', [
-            (sl('Obwohl', 'es', 'regnete,!', 'gingen!', 'wir spazieren.'), 'obwohl · obgleich · wenngleich: verb last'),
-            (sl('Es regnete.', 'Trotzdem', 'gingen!', 'wir spazieren.'), 'trotzdem · dennoch: verb second'),
-            (sl('Zwar', 'regnete!', 'es,', 'aber', 'wir gingen!', 'spazieren.'), 'zwar … aber'),
-            (sl('Selbst wenn', 'es', 'regnet,!', 'gehen!', 'wir.'), 'even if: verb last'),
-            (sl('Trotz des Regens', 'gingen!', 'wir spazieren.'), 'trotz + genitive'),
-        ]),
+            (sl('Obwohl', 'es', 'regnete,!', 'gingen!', 'wir.'), 'verb last'),
+            (sl('Es regnete.', 'Trotzdem', 'gingen!', 'wir.'), 'verb 2nd'),
+            (sl('Zwar', 'regnete!', 'es,', 'aber', 'wir gingen!'), 'zwar … aber'),
+            (sl('Selbst wenn', 'es', 'regnet,!', 'gehen!', 'wir.'), 'even if'),
+            (sl('Trotz des Regens', 'gingen!', 'wir.'), '+ genitive'),
+        ], note='obwohl, obgleich, wenngleich send the verb last; trotzdem and dennoch take it second.'),
         box('watch', 'One marker per sentence',
             'Never *Obwohl es regnete, trotzdem gingen wir.* Choose obwohl **or** trotzdem.'),
         table('The elegant one: so … auch', ['', '~'], [
@@ -777,11 +777,11 @@ spreads.append(spread(
                                           a('concession: obwohl, trotzdem', 'Obwohl es kalt ist, badet er.'),
                                           a('contrast: während, dagegen', 'Während es im Norden kalt ist, ist es im Süden warm.'))),
         slots('Three shapes', [
-            (sl('Während', 'der Norden regnerisch', 'ist,!', 'ist!', 'der Süden trocken.'), 'während = whereas: verb last'),
-            (sl('Der Süden', 'dagegen', 'ist!', 'trocken.'), 'dagegen · hingegen: after the subject'),
-            (sl('Im Gegensatz zum Norden', 'ist!', 'der Süden trocken.'), 'im Gegensatz zu · im Vergleich zu + dative'),
-            (sl('Anders als sein Bruder', 'mag!', 'er Sport.'), 'anders als = unlike'),
-        ]),
+            (sl('Während der Norden regnerisch', 'ist,!', 'ist!', 'der Süden trocken.'), None),
+            (sl('Der Süden dagegen', 'ist!', 'trocken.'), None),
+            (sl('Im Gegensatz zum Norden', 'ist!', 'der Süden trocken.'), None),
+            (sl('Anders als sein Bruder', 'mag!', 'er Sport.'), None),
+        ], note='während = whereas · dagegen, hingegen = by contrast · im Gegensatz zu, im Vergleich zu.'),
         words('Words for the practice page', [
             ('die Preise', 'prices'), ('die Löhne', 'wages'), ('gleich bleiben', 'to stay the same'), ('Pizza bestellen', 'to order pizza'),
             ('die Städte', 'cities'), ('die Dörfer', 'villages'), ('schrumpfen', 'to shrink'), ('wachsen', 'to grow'),
@@ -962,8 +962,8 @@ spreads.append(spread(
     Q + 'schreiben_beschwerde',
     [
         slots('The shape of a complaint', [
-            ([('Sehr geehrte Damen und Herren,', 'greeting'), ('Am 3. Mai …', 'the facts'), ('Zwar …, aber …', 'concede, then press'),
-              ('Ich bitte Sie, bis …', 'what you want, by when'), {'de': 'Andernfalls …', 'tag': 'what follows', 'hot': True}], None),
+            ([('Sehr geehrte Damen und Herren,', 'greeting'), ('Am 3. Mai …', 'the facts'), ('Zwar …, aber …', 'concede, press')], None),
+            ([('Ich bitte Sie, bis …', 'what, by when'), {'de': 'Andernfalls …', 'tag': 'what follows', 'hot': True}], None),
         ]),
         table('Facts, not adjectives', ['weak', 'strong'], [
             ['Die Lieferung kam viel zu spät.', 'Die Lieferung war für den 3. Mai zugesagt und kam erst am 28. Mai.'],

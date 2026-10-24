@@ -1,0 +1,173 @@
+{
+	"style": "Figurative flat illustration for a printed German study book, in the spirit of a mid-century children's picture book with a touch of graphic simplification and a sense of humour: subjects drawn naturally and instantly recognizable, with real proportions and simple friendly faces, details reduced to clean flat colour shapes, medium-weight ink-navy outlines, no gradients, no textures. Limited warm palette: ink-navy, terracotta, mustard, sage, soft blue and cream. The drawing floats on a plain pure white background with generous empty margins on every side; nothing touches the edges of the image, no background colour field, no frame. Food and objects never have faces. No text, no letters, no numbers, no digits, no writing on signs or labels, no watermark. Never write any colour codes, hex values, numbers, labels or signatures anywhere in the picture.",
+	"images": [
+		{
+			"id": "cp_c1_2_cover",
+			"prompt": "A theatre stage with the red curtain half open: an actress in a long dress raises one eyebrow and whispers something behind her hand to the audience, while a prompter’s head peeks out of the little box at the front of the stage with a finger on his lips; in the front row a dog in a bow tie listens very seriously. No text anywhere. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 2048,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_kultur",
+			"prompt": "A theatre audience in a small modern theatre after a play: half the people stand and applaud enthusiastically, the other half look puzzled and scratch their heads, and an elderly critic in the middle writes in a notebook with a raised eyebrow. Natural skin colours, no text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_vermutung",
+			"prompt": "A man standing outside a house at night looking up at a lit window and drawing conclusions, holding his chin thoughtfully; a cat on the windowsill looks back at him as if it knows everything. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_hoerensagen",
+			"prompt": "An empty golden picture frame on a museum wall where a painting used to be, two visitors whispering to each other, and a museum guard with a magnifying glass inspecting the empty frame; a mouse peeks out from behind the frame. No text. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_konj1",
+			"prompt": "A radio reporter with a microphone and headphones interviewing a volunteer who carries a crate of vegetables outside a plain brick hall with no sign and no writing on it, other volunteers loading a small van in the background, and an old man waving from a bench. No text. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_abschwaechen",
+			"prompt": "A meeting room where a man in a suit politely raises one finger to disagree, smiling diplomatically, while across the table a colleague has drawn an enormous, absurd chart on a flipchart; a potted plant in the corner seems to lean away. No text or numbers. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_kritik",
+			"prompt": "A delivery man arriving at a wedding with a huge cake that has slid sideways in its box, the bride and groom looking at it with polite disappointment, and the best man’s dog already licking the cream off the side. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_ironie",
+			"prompt": "A family on a beach holiday standing in pouring rain in their swimsuits with an umbrella, the father giving a forced thumbs-up with a deadpan face, while a seagull sits dry under the umbrella. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_vorsilben",
+			"prompt": "A tourist lost in a maze of narrow old streets, holding an upside-down map, while a pigeon on a wall points the right way with its wing. No text. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_praefixe",
+			"prompt": "A small car that has just knocked over a wooden post in a car park, the driver getting out with an embarrassed face, while another car in the background drives carefully around a second post. Natural skin colours, no text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_nachsilben",
+			"prompt": "A family tree drawn as a real tree in a garden, with small framed portraits hanging from its branches like fruit, and a child on a ladder adding a new portrait at the top; a squirrel holds one of the frames. Portraits are simple faces. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_numerus",
+			"prompt": "A lecture hall seen from the front: a very diverse group of students of all ages greets a new lecturer, who waves back; one student has brought a parrot on her shoulder. Natural skin colours, no text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_redewendungen",
+			"prompt": "A literal picture of an idiom: an office worker pushing a pile of files onto a very long wooden bench that disappears into the distance, while a colleague sweeps a little pile of papers under a rug. No text. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_relativ",
+			"prompt": "An old professor in a library helping a young author carry a stack of books up a ladder, the two of them working together, while a cat sleeps on the top shelf. No text on books. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_kohaesion",
+			"prompt": "A long chain of people passing buckets of water hand to hand from a lake to a small burning bonfire, each person turning to the next; a dog carries a tiny bucket at the end of the line. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_umformung",
+			"prompt": "A tailor in her workshop turning a long coat into a short jacket on a dressmaker’s dummy, scissors in hand, with the cut-off fabric becoming a little coat for a dachshund that waits patiently. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_bericht",
+			"prompt": "A street under renovation with a cordoned-off trench, workers laying new pipes, a site manager with a clipboard and a hard hat taking notes, and a duck family walking through the closed street. No text on signs. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_register",
+			"prompt": "A young man at his desk with two screens: on one he types a casual chat while slouching in a hoodie, on the other he sits upright in a shirt and tie writing a formal e-mail — the same man shown twice side by side. Screens blank. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_redemittel",
+			"prompt": "A woman giving a talk on a small stage in front of a projected screen showing only a tree and a thermometer drawing, the audience attentive, and one listener fanning herself because it is hot. No text or numbers. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_forum",
+			"prompt": "Two friends in a café: one is talking warmly, the other keeps glancing at her phone which lights up on the table; the cappuccino between them has a heart in the foam. Screen blank. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c1_2_literatur",
+			"prompt": "A woman sitting on a wide windowsill at dusk with her knees drawn up, holding an opened letter, looking out over darkening rooftops while the street lamps come on; a cat sits beside her. The letter has only wavy lines. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		}
+	]
+}

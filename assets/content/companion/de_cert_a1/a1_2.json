@@ -2107,6 +2107,23 @@
 						}
 					],
 					"note": "About you — check halb against the clocks on the left."
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "What time is it?",
+							"answer": "Wie spät ist es?"
+						},
+						{
+							"prompt": "It’s half past seven.",
+							"answer": "Es ist halb acht."
+						}
+					],
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2405,6 +2422,23 @@
 						}
 					],
 					"note": "About you."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich komme im Montag.",
+							"answer": "Ich komme am Montag."
+						},
+						{
+							"prompt": "Der Film beginnt am acht Uhr.",
+							"answer": "Der Film beginnt um acht Uhr."
+						}
+					],
+					"cols": 2,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2526,6 +2560,43 @@
 							"de": "zehn nach neun"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich habe ein Bruder.",
+							"answer": "Ich habe einen Bruder."
+						},
+						{
+							"prompt": "Wir haben keinen Zeit.",
+							"answer": "Wir haben keine Zeit."
+						},
+						{
+							"prompt": "Tom ist krank. Er muss zu Hause bleibt.",
+							"answer": "Tom ist krank. Er muss zu Hause bleiben."
+						},
+						{
+							"prompt": "Der Film beginnt im acht.",
+							"answer": "Der Film beginnt um acht."
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I don’t know him.",
+							"answer": "Ich kenne ihn nicht."
+						}
+					],
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -2601,6 +2672,46 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Make it no",
+					"instruction": "Write the sentence with kein or nicht.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich habe einen Regenschirm.",
+							"answer": "Ich habe keinen Regenschirm."
+						},
+						{
+							"prompt": "Das Fleisch ist teuer.",
+							"answer": "Das Fleisch ist nicht teuer."
+						},
+						{
+							"prompt": "Rocky hat ein Problem.",
+							"answer": "Rocky hat kein Problem."
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Add the helper",
+					"instruction": "Write the sentence again with the helper verb.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wir fahren nach Berlin. (wollen)",
+							"answer": "Wir wollen nach Berlin fahren."
+						},
+						{
+							"prompt": "Du kochst gut. (können)",
+							"answer": "Du kannst gut kochen."
+						},
+						{
+							"prompt": "Die Katze schläft nicht hier. (dürfen)",
+							"answer": "Die Katze darf nicht hier schlafen."
+						}
+					],
+					"extra": true
 				}
 			],
 			"canDo": []
@@ -2961,6 +3072,23 @@
 						}
 					],
 					"note": "About you — the front part at the end."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich stehe auf um sieben.",
+							"answer": "Ich stehe um sieben auf."
+						},
+						{
+							"prompt": "Lena einkauft heute.",
+							"answer": "Lena kauft heute ein."
+						}
+					],
+					"cols": 2,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3562,6 +3690,26 @@
 						}
 					],
 					"listen": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Heute Abend gehe ich im Kino.",
+							"answer": "Heute Abend gehe ich ins Kino."
+						},
+						{
+							"prompt": "Es ist spät. Ich gehe zu Hause.",
+							"answer": "Es ist spät. Ich gehe nach Hause."
+						},
+						{
+							"prompt": "Ich bin krank. Ich gehe beim Arzt.",
+							"answer": "Ich bin krank. Ich gehe zum Arzt."
+						}
+					],
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3882,6 +4030,23 @@
 						}
 					],
 					"note": "About you — einen before a der-word."
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I’d like a piece of cake.",
+							"answer": "Ich hätte gern ein Stück Kuchen."
+						},
+						{
+							"prompt": "A glass of water for the dog, please.",
+							"answer": "Ein Glas Wasser für den Hund, bitte."
+						}
+					],
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4195,6 +4360,23 @@
 						}
 					],
 					"note": "About you — no “of”: ein Kilo Äpfel."
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "a bottle of water",
+							"answer": "eine Flasche Wasser"
+						},
+						{
+							"prompt": "two cups of coffee",
+							"answer": "zwei Tassen Kaffee"
+						}
+					],
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4542,6 +4724,43 @@
 							"answer": "sitz"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Kommt bitte her, Tom!",
+							"answer": "Komm bitte her, Tom!"
+						},
+						{
+							"prompt": "Herr Braun, nimm bitte Platz!",
+							"answer": "Herr Braun, nehmen Sie bitte Platz!"
+						},
+						{
+							"prompt": "Esst dein Brot, Lena!",
+							"answer": "Iss dein Brot, Lena!"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Make it an order",
+					"instruction": "Write the sentence as an order.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Du sprichst langsam.",
+							"answer": "Sprich langsam!"
+						},
+						{
+							"prompt": "Ihr seid leise.",
+							"answer": "Seid leise!"
+						}
+					],
+					"cols": 2,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4865,6 +5084,26 @@
 						}
 					],
 					"note": "About you."
+				},
+				{
+					"title": "That was yesterday",
+					"instruction": "Start with Gestern and write it in the past.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich bin müde.",
+							"answer": "Gestern war ich müde."
+						},
+						{
+							"prompt": "Wir haben keine Zeit.",
+							"answer": "Gestern hatten wir keine Zeit."
+						},
+						{
+							"prompt": "Rocky hat Hunger.",
+							"answer": "Gestern hatte Rocky Hunger."
+						}
+					],
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -5272,6 +5511,26 @@
 						}
 					],
 					"note": "About you — the past form at the end."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich habe nach Hamburg gefahren.",
+							"answer": "Ich bin nach Hamburg gefahren."
+						},
+						{
+							"prompt": "Wir haben Pizza essen.",
+							"answer": "Wir haben Pizza gegessen."
+						},
+						{
+							"prompt": "Lena hat gelernt Deutsch.",
+							"answer": "Lena hat Deutsch gelernt."
+						}
+					],
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -6053,6 +6312,55 @@
 						}
 					],
 					"cols": 2
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich habe gestern nach Wien gefahren.",
+							"answer": "Ich bin gestern nach Wien gefahren."
+						},
+						{
+							"prompt": "Mein Füße tun weh.",
+							"answer": "Meine Füße tun weh."
+						},
+						{
+							"prompt": "Gestern ich war krank.",
+							"answer": "Gestern war ich krank."
+						},
+						{
+							"prompt": "Das Geschenk ist für dir.",
+							"answer": "Das Geschenk ist für dich."
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "My head hurts.",
+							"answer": "Mein Kopf tut weh."
+						},
+						{
+							"prompt": "Take the bus, Tom!",
+							"answer": "Nimm den Bus, Tom!"
+						},
+						{
+							"prompt": "Yesterday we were at the cinema.",
+							"answer": "Gestern waren wir im Kino."
+						},
+						{
+							"prompt": "I’d like a bottle of water.",
+							"answer": "Ich hätte gern eine Flasche Wasser."
+						}
+					],
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -6130,6 +6438,63 @@
 						0,
 						2
 					]
+				},
+				{
+					"title": "Say it politely",
+					"instruction": "Write it the polite way.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich will einen Kaffee.",
+							"answer": "Ich hätte gern einen Kaffee."
+						},
+						{
+							"prompt": "Helfen Sie mir!",
+							"answer": "Könnten Sie mir helfen?"
+						},
+						{
+							"prompt": "Ich will bezahlen.",
+							"answer": "Ich würde gern bezahlen."
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich rufe dich morgen auf.",
+							"answer": "Ich rufe dich morgen an."
+						},
+						{
+							"prompt": "Wir gehen durch der Park.",
+							"answer": "Wir gehen durch den Park."
+						},
+						{
+							"prompt": "Mein Bauch tun weh.",
+							"answer": "Mein Bauch tut weh."
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Last week",
+					"instruction": "Write two true sentences.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Letzte Woche war ich",
+							"after": "."
+						},
+						{
+							"before": "Am Sonntag habe ich",
+							"after": "gemacht."
+						}
+					],
+					"note": "About you.",
+					"extra": true
 				}
 			],
 			"canDo": []

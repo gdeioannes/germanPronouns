@@ -16,7 +16,12 @@ Guard test: `src/lib/domain/companion.test.ts`. Rules marked **(tested)** fail t
   so A1.2 doesn't teach *Tisch* again **(tested)**. Where a topic builds on an earlier rule, a short
   reminder brings it back (for example, mein + *-en* recalls *einen*).
 - **Every spread fits its page.** Check before printing, in print media, never by the screen view (the
-  screen view can look crowded when the print is fine).
+  screen view can look crowded when the print is fine). Check the width as well as the height: pages hide
+  overflow, and a `slots` row never wraps, so a long one is silently cut off at the right edge. Keep a
+  `slots` row to about three long cells, and give its rows matching cells — the rows share column widths.
+  The topic picture's space is reserved even before it is drawn, so the fit can be checked first.
+- **A timeline is for time.** Its axis reads "before · jetzt · later"; for a scale (weak → strong) or
+  numbers (von 40 auf 60) use tiles or slots.
 
 ## Teaching
 
@@ -71,6 +76,12 @@ don't render in `words` items or in the hook line, so don't use them there.
 - When a spread has a picture, at least one exercise should use what the picture shows. Write the
   exercise from the finished picture, not from the prompt.
 - End each practice page with an "about you" exercise when there's room, and 3–4 *I can* lines.
+- **Fill the practice page** (GDI, 2026-10-25: half-empty pages read as unfinished). Measure the room with
+  `node tool/companion/free-space.cjs <level>` and add exercises until 12–25 mm are left above the
+  *I can* box; review pages too. Prefer the types the core pages lack: *find the mistake* (one typical
+  error, made with real taught words), *say it another way*, *translate* (`not_german`), and *about you*.
+  They live in `tool/companion/extras_<stem>.py` (`EXTRAS`, `EXTRAS_LEFT` for a review's left page);
+  `kit.write_book` merges them, and `apply_extras.py` does it for a book without a script (A1.1).
 
 ## Pictures
 

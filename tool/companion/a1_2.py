@@ -1382,7 +1382,11 @@ book = {
     ],
 }
 
-with open(OUT, 'w', encoding='utf-8', newline='\n') as f:
-    json.dump(book, f, ensure_ascii=False, indent='\t')
-    f.write('\n')
-print('wrote', OUT, len(spreads), 'spreads')
+# kit.write_book also merges the extra exercises in extras_a1_2.py.
+import os  # noqa: E402
+import sys  # noqa: E402
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import kit  # noqa: E402
+
+kit.write_book(OUT, book)

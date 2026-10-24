@@ -924,9 +924,9 @@ spreads.append(spread(
     Q + 'stellungnahme',
     [
         slots('The shape', [
-            ([('In letzter Zeit wird viel darüber diskutiert, ob …', 'the question'), ('Dafür spricht, dass …', 'pro'),
-              ('Dagegen lässt sich einwenden, dass …', 'contra'), ('Meiner Ansicht nach …', 'your view'),
-              {'de': 'Zusammenfassend lässt sich sagen, dass …', 'tag': 'conclusion', 'hot': True}], None),
+            ([('In letzter Zeit wird viel darüber diskutiert, ob …', 'the question'), ('Dafür spricht, dass …', 'pro')], None),
+            ([('Dagegen lässt sich einwenden, dass …', 'contra'), ('Meiner Ansicht nach …', 'your view')], None),
+            ([{'de': 'Zusammenfassend lässt sich sagen, dass …', 'tag': 'conclusion', 'hot': True}], None),
         ]),
         table('The phrases and their grammar', ['phrase', 'then'], [
             ['Dafür spricht, dass …', 'verb last'], ['Meiner Ansicht nach …', 'verb next — no dass!'],

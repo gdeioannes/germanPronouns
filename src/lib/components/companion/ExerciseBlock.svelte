@@ -6,6 +6,11 @@
 	import ClockFace from './ClockFace.svelte';
 
 	let { ex, n, listen = null }: { ex: Exercise; n: number; listen?: { svg: string; code: string } | null } = $props();
+
+	/** When the prompt and the answer won't both fit on one row (in its column), the line goes underneath, full width. */
+	const tooLong = (item: { prompt: string; answer: string }) => (item.prompt.length + item.answer.length) * (ex.kind === 'write' ? (ex.cols ?? 1) : 1) > 64;
+	/** One layout per exercise, so rows side by side line up. */
+	const stacked = (ex.kind === 'write' && ex.items.some(tooLong));
 </script>
 
 <section class="ex">
@@ -51,7 +56,8 @@
 	{:else if ex.kind === 'write'}
 		<ol class="write" style:--cols={ex.cols ?? 1}>
 			{#each ex.items as item, i (i)}
-				<li><span class="prompt" lang="de">{@html rich(item.prompt)}</span><span class="line"></span></li>
+				<!-- A whole sentence to write gets a full-width line under its prompt. -->
+				<li class:stack={stacked}><span class="prompt" lang="de">{@html rich(item.prompt)}</span><span class="line"></span></li>
 			{/each}
 		</ol>
 	{:else if ex.kind === 'match'}
@@ -223,6 +229,21 @@
 		min-width: 7mm;
 		font-weight: 700;
 		color: var(--navy);
+	}
+
+	.write li.stack {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0;
+	}
+
+	.write li.stack .prompt {
+		flex: none;
+	}
+
+	.write li.stack .line {
+		flex: none;
+		width: 100%;
 	}
 
 	/* -- match --------------------------------------------------------------- */

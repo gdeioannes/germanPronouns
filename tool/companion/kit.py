@@ -236,7 +236,65 @@ def dictionary(note, entries):
             'words': [{'de': d, 'en': e, 'image': i} for d, e, i in entries]}
 
 
+def apply_extras(book, stem):
+    """Merge tool/companion/extras_<stem>.py into a book: extra exercises that fill the free space on a
+    practice page (EXTRAS = {spread id: [exercise, …]}) and on a review's left page (EXTRAS_LEFT).
+    Each is marked `extra` so a rerun replaces, never doubles them."""
+    import importlib.util
+    import os
+    file = os.path.join(os.path.dirname(os.path.abspath(__file__)), f'extras_{stem}.py')
+    for s in book['spreads']:
+        s['practise'] = [ex for ex in s['practise'] if not ex.get('extra')]
+        if 'left' in s:
+            s['left'] = [ex for ex in s['left'] if not ex.get('extra')]
+    if not os.path.exists(file):
+        return book
+    spec = importlib.util.spec_from_file_location(f'extras_{stem}', file)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    ids = {s['id']: s for s in book['spreads']}
+    # extras_fit.json caps how many extra items a page keeps (written by tool/companion/fit_extras.py).
+    fit_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'extras_fit.json')
+    caps = {}
+    if os.path.exists(fit_file):
+        with open(fit_file, encoding='utf-8') as f:
+            caps = json.load(f).get(stem, {})
+    for key, where in (('EXTRAS', 'practise'), ('EXTRAS_LEFT', 'left')):
+        for sid, exs in getattr(mod, key, {}).items():
+            if sid not in ids:
+                raise KeyError(f'extras_{stem}: no spread {sid}')
+            cap = caps.get(sid if where == 'practise' else f'{sid}:left')
+            ids[sid].setdefault(where, []).extend({**ex, 'extra': True} for ex in cap_items(exs, cap))
+    return book
+
+
+def extra_units(exs):
+    """How many trimmable units a list of extra exercises has: one per item of a gaps/write/circle,
+    one for any other exercise (a match or sort is kept or dropped whole)."""
+    return sum(len(ex['items']) if ex['kind'] in ('gaps', 'write', 'circle') else 1 for ex in exs)
+
+
+def cap_items(exs, cap):
+    """Keep the first `cap` units of a list of extra exercises (a trimmed exercise may keep a single item)."""
+    if cap is None:
+        return exs
+    out = []
+    for ex in exs:
+        if cap <= 0:
+            break
+        if ex['kind'] in ('gaps', 'write', 'circle'):
+            n = min(len(ex['items']), cap)
+            cap -= n
+            out.append({**ex, 'items': ex['items'][:n]})
+        else:
+            cap -= 1
+            out.append(ex)
+    return out
+
+
 def write_book(path, book):
+    import os
+    apply_extras(book, os.path.splitext(os.path.basename(path))[0])
     with open(path, 'w', encoding='utf-8', newline=chr(10)) as f:
         json.dump(book, f, ensure_ascii=False, indent=chr(9))
         f.write(chr(10))

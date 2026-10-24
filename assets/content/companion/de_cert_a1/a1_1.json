@@ -1463,6 +1463,19 @@
 							"after": ""
 						}
 					]
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "How do you write that?",
+							"answer": "Wie schreibt man das?"
+						}
+					],
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2216,6 +2229,51 @@
 							"answer": "Hund"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich bist müde.",
+							"answer": "Ich bin müde."
+						},
+						{
+							"prompt": "Woher kommt du?",
+							"answer": "Woher kommst du?"
+						},
+						{
+							"prompt": "Wir habt Zeit.",
+							"answer": "Wir haben Zeit."
+						},
+						{
+							"prompt": "Er heißen Max.",
+							"answer": "Er heißt Max."
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I am tired.",
+							"answer": "Ich bin müde."
+						},
+						{
+							"prompt": "Do you have time?",
+							"answer": "Hast du Zeit?"
+						},
+						{
+							"prompt": "Lena likes playing football.",
+							"answer": "Lena spielt gern Fußball."
+						}
+					],
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -2340,6 +2398,48 @@
 							"after": "."
 						}
 					]
+				},
+				{
+					"title": "Now it’s Paul",
+					"instruction": "Write each sentence about Paul: er instead of ich.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich wohne in Wien.",
+							"answer": "Er wohnt in Wien."
+						},
+						{
+							"prompt": "Ich habe ein Auto.",
+							"answer": "Er hat ein Auto."
+						},
+						{
+							"prompt": "Ich bin zwanzig.",
+							"answer": "Er ist zwanzig."
+						},
+						{
+							"prompt": "Ich lerne Deutsch.",
+							"answer": "Er lernt Deutsch."
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I am hungry.",
+							"answer": "Ich habe Hunger."
+						},
+						{
+							"prompt": "We are from Austria.",
+							"answer": "Wir kommen aus Österreich."
+						}
+					],
+					"cols": 2,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2670,6 +2770,26 @@
 							"answer": "sprechen"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Du fahrst gern Fahrrad.",
+							"answer": "Du fährst gern Fahrrad."
+						},
+						{
+							"prompt": "Lena sprecht Englisch.",
+							"answer": "Lena spricht Englisch."
+						},
+						{
+							"prompt": "Der Hund schlaft viel.",
+							"answer": "Der Hund schläft viel."
+						}
+					],
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2935,6 +3055,26 @@
 							"answer": "eine"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Der Katze ist müde.",
+							"answer": "Die Katze ist müde."
+						},
+						{
+							"prompt": "Das ist eine Tisch.",
+							"answer": "Das ist ein Tisch."
+						},
+						{
+							"prompt": "Die Mädchen hat ein Pferd.",
+							"answer": "Das Mädchen hat ein Pferd."
+						}
+					],
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3268,6 +3408,32 @@
 							"answer": "Kartoffeln"
 						}
 					]
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "two dogs",
+							"answer": "zwei Hunde"
+						},
+						{
+							"prompt": "three houses",
+							"answer": "drei Häuser"
+						},
+						{
+							"prompt": "ten keys",
+							"answer": "zehn Schlüssel"
+						},
+						{
+							"prompt": "four mobile phones",
+							"answer": "vier Handys"
+						}
+					],
+					"cols": 2,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3863,6 +4029,26 @@
 						}
 					],
 					"note": "About you — check it against the left page."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich komme aus Schweiz.",
+							"answer": "Ich komme aus der Schweiz."
+						},
+						{
+							"prompt": "Ich spreche Spanien.",
+							"answer": "Ich spreche Spanisch."
+						},
+						{
+							"prompt": "Er kommt aus der USA.",
+							"answer": "Er kommt aus den USA."
+						}
+					],
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4169,6 +4355,44 @@
 						}
 					],
 					"note": "About you — check it against the left page."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich bin in der Büro.",
+							"answer": "Ich bin im Büro."
+						},
+						{
+							"prompt": "Lena ist im Schule.",
+							"answer": "Lena ist in der Schule."
+						},
+						{
+							"prompt": "Max ist am Arzt.",
+							"answer": "Max ist beim Arzt."
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "The cat is under the table.",
+							"answer": "Die Katze ist unter dem Tisch."
+						},
+						{
+							"prompt": "The ball is on the sofa.",
+							"answer": "Der Ball ist auf dem Sofa."
+						}
+					],
+					"cols": 2,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4780,6 +5004,47 @@
 							"answer": "die"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Der Haustür ist rot.",
+							"answer": "Die Haustür ist rot."
+						},
+						{
+							"prompt": "Lena ist Lehrer.",
+							"answer": "Lena ist Lehrerin."
+						},
+						{
+							"prompt": "Das Apfelkuchen ist gut.",
+							"answer": "Der Apfelkuchen ist gut."
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "My friend (a woman) is a doctor.",
+							"answer": "Meine Freundin ist Ärztin."
+						},
+						{
+							"prompt": "The children’s room is green.",
+							"answer": "Das Kinderzimmer ist grün."
+						},
+						{
+							"prompt": "Is that a cake?",
+							"answer": "Ist das ein Kuchen?"
+						}
+					],
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4885,6 +5150,55 @@
 							"answer": "Woher kommst du?"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er fahrt nach Berlin.",
+							"answer": "Er fährt nach Berlin."
+						},
+						{
+							"prompt": "Ich habe zwei Hund.",
+							"answer": "Ich habe zwei Hunde."
+						},
+						{
+							"prompt": "Wo kommst du? – Aus Spanien.",
+							"answer": "Woher kommst du? – Aus Spanien."
+						},
+						{
+							"prompt": "Mein Schwester heißt Mia.",
+							"answer": "Meine Schwester heißt Mia."
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Where is the cat? – On the sofa.",
+							"answer": "Wo ist die Katze? – Auf dem Sofa."
+						},
+						{
+							"prompt": "Paul is English.",
+							"answer": "Paul ist Engländer."
+						},
+						{
+							"prompt": "I’m at the station.",
+							"answer": "Ich bin am Bahnhof."
+						},
+						{
+							"prompt": "The girl has three horses.",
+							"answer": "Das Mädchen hat drei Pferde."
+						}
+					],
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -4974,6 +5288,47 @@
 						}
 					],
 					"note": "About your family — check mein and meine on the family page."
+				},
+				{
+					"title": "Make it a question",
+					"instruction": "Put the verb first.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Du sprichst Deutsch.",
+							"answer": "Sprichst du Deutsch?"
+						},
+						{
+							"prompt": "Lena fährt Fahrrad.",
+							"answer": "Fährt Lena Fahrrad?"
+						},
+						{
+							"prompt": "Ihr habt Kinder.",
+							"answer": "Habt ihr Kinder?"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "My brother is a teacher.",
+							"answer": "Mein Bruder ist Lehrer."
+						},
+						{
+							"prompt": "The front door is purple.",
+							"answer": "Die Haustür ist lila."
+						},
+						{
+							"prompt": "Grandma eats a lot of cake.",
+							"answer": "Die Oma isst viel Kuchen."
+						}
+					],
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [

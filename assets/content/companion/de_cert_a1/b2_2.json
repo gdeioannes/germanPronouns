@@ -337,6 +337,28 @@
 						}
 					],
 					"note": "About you."
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "We separate our rubbish.",
+							"answer": "Wir trennen unseren Müll."
+						},
+						{
+							"prompt": "Global warming leads to droughts.",
+							"answer": "Die Erderwärmung führt zu Dürren."
+						},
+						{
+							"prompt": "Grandma does without plastic — but not without chocolate.",
+							"answer": "Oma verzichtet auf Plastik – aber nicht auf Schokolade."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -580,6 +602,27 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wenn ich reich wäre, ich würde um die Welt reisen.",
+							"answer": "Wenn ich reich wäre, würde ich um die Welt reisen."
+						},
+						{
+							"prompt": "Wenn ich das gewusst habe, wäre ich geblieben.",
+							"answer": "Wenn ich das gewusst hätte, wäre ich geblieben."
+						},
+						{
+							"prompt": "Hätte ich Zeit, ich käme.",
+							"answer": "Hätte ich Zeit, käme ich."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -836,6 +879,40 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wir hätten früher gegangen.",
+							"answer": "Wir wären früher gegangen."
+						},
+						{
+							"prompt": "Ich wäre das nie gesagt.",
+							"answer": "Ich hätte das nie gesagt."
+						},
+						{
+							"prompt": "Das hätte nicht passiert.",
+							"answer": "Das wäre nicht passiert."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Should have",
+					"instruction": "Say what should have happened. Use sollen.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er ist zu spät gekommen. (pünktlich)",
+							"answer": "Er hätte pünktlich kommen sollen."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1062,6 +1139,49 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er tut so, als ob er der Chef ist.",
+							"answer": "Er tut so, als ob er der Chef wäre."
+						},
+						{
+							"prompt": "Er tut so, als ob wäre er der Chef.",
+							"answer": "Er tut so, als wäre er der Chef."
+						},
+						{
+							"prompt": "Sie sieht aus, als ob sie nicht geschlafen wäre.",
+							"answer": "Sie sieht aus, als ob sie nicht geschlafen hätte."
+						},
+						{
+							"prompt": "Er redet, als er alles wüsste.",
+							"answer": "Er redet, als wüsste er alles."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "He acts as if he were rich.",
+							"answer": "Er tut so, als ob er reich wäre."
+						},
+						{
+							"prompt": "You look as if you had seen a ghost.",
+							"answer": "Du siehst aus, als ob du ein Gespenst gesehen hättest."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1308,6 +1428,35 @@
 							"answer": "wird"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er wird den Zug verpasst sein.",
+							"answer": "Er wird den Zug verpasst haben."
+						},
+						{
+							"prompt": "Sie wird schon gegangen haben.",
+							"answer": "Sie wird schon gegangen sein."
+						},
+						{
+							"prompt": "Sie wird wohl noch im Büro ist.",
+							"answer": "Sie wird wohl noch im Büro sein."
+						},
+						{
+							"prompt": "Er wird den Termin vergessen sein.",
+							"answer": "Er wird den Termin vergessen haben."
+						},
+						{
+							"prompt": "Das wird der Paketbote gewesen haben.",
+							"answer": "Das wird der Paketbote gewesen sein."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1577,6 +1726,48 @@
 						}
 					],
 					"listen": true
+				},
+				{
+					"title": "Say it another way",
+					"instruction": "Write it with sollen or wollen.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Man sagt, der neue Chef ist sehr streng.",
+							"answer": "Der neue Chef soll sehr streng sein."
+						},
+						{
+							"prompt": "Er sagt, er war nicht dort.",
+							"answer": "Er will nicht dort gewesen sein."
+						},
+						{
+							"prompt": "Man sagt, sie hat den ersten Preis gewonnen.",
+							"answer": "Sie soll den ersten Preis gewonnen haben."
+						},
+						{
+							"prompt": "Der Hund sagt, er hat den Käse nicht gegessen.",
+							"answer": "Der Hund will den Käse nicht gegessen haben."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er soll reich gewesen haben.",
+							"answer": "Er soll reich gewesen sein."
+						},
+						{
+							"prompt": "Sie will den Minister kennt.",
+							"answer": "Sie will den Minister kennen."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1802,6 +1993,57 @@
 							"answer": "mal"
 						}
 					]
+				},
+				{
+					"title": "Make it friendlier",
+					"instruction": "Add the little word in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Komm vorbei! (doch mal)",
+							"answer": "Komm doch mal vorbei!"
+						},
+						{
+							"prompt": "Nimm noch ein Stück Kuchen. (ruhig)",
+							"answer": "Nimm ruhig noch ein Stück Kuchen."
+						},
+						{
+							"prompt": "Dann nehmen wir den nächsten Zug. (eben)",
+							"answer": "Dann nehmen wir eben den nächsten Zug."
+						},
+						{
+							"prompt": "Das klappt. (schon)",
+							"answer": "Das klappt schon."
+						},
+						{
+							"prompt": "Mach das nicht! (bloß)",
+							"answer": "Mach das bloß nicht!"
+						},
+						{
+							"prompt": "Kannst du mir helfen? (mal)",
+							"answer": "Kannst du mir mal helfen?"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Go ahead and sit down!",
+							"answer": "Setz dich ruhig!"
+						},
+						{
+							"prompt": "He is probably ill.",
+							"answer": "Er ist wohl krank."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1867,6 +2109,57 @@
 							"answer": "verzichten"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wenn ich Zeit hätte, ich würde kommen.",
+							"answer": "Wenn ich Zeit hätte, würde ich kommen."
+						},
+						{
+							"prompt": "Wir wären früher aufstehen sollen.",
+							"answer": "Wir hätten früher aufstehen sollen."
+						},
+						{
+							"prompt": "Er tut so, als ob er alles weiß.",
+							"answer": "Er tut so, als ob er alles wüsste."
+						},
+						{
+							"prompt": "Sie wird schon nach Hause gegangen haben.",
+							"answer": "Sie wird schon nach Hause gegangen sein."
+						},
+						{
+							"prompt": "Wir verzichten für Plastik.",
+							"answer": "Wir verzichten auf Plastik."
+						},
+						{
+							"prompt": "Er wird wohl krank ist.",
+							"answer": "Er wird wohl krank sein."
+						},
+						{
+							"prompt": "Hätte ich das gewusst, ich wäre gekommen.",
+							"answer": "Hätte ich das gewusst, wäre ich gekommen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "If I had time, I would come.",
+							"answer": "Wenn ich Zeit hätte, würde ich kommen."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -1926,6 +2219,76 @@
 							"answer": "ruhig"
 						}
 					]
+				},
+				{
+					"title": "No wenn",
+					"instruction": "Start with the verb.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wenn ich das gewusst hätte, wäre ich gekommen.",
+							"answer": "Hätte ich das gewusst, wäre ich gekommen."
+						},
+						{
+							"prompt": "Wenn ich du wäre, würde ich kündigen.",
+							"answer": "Wäre ich du, würde ich kündigen."
+						},
+						{
+							"prompt": "Wenn er Zeit hätte, käme er.",
+							"answer": "Hätte er Zeit, käme er."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "The right form",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Wenn es eine Lösung",
+							"after": ", wüssten wir sie. (geben)",
+							"answer": "gäbe"
+						},
+						{
+							"before": "Er redet, als ob er alles",
+							"after": ". (wissen)",
+							"answer": "wüsste"
+						},
+						{
+							"before": "Es klingelt. Das",
+							"after": "der Paketbote sein.",
+							"answer": "wird"
+						},
+						{
+							"before": "Wir",
+							"after": "früher aufstehen sollen.",
+							"answer": "hätten"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Say it another way",
+					"instruction": "Write it with sollen or wollen.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Man sagt, die Firma hat Probleme.",
+							"answer": "Die Firma soll Probleme haben."
+						},
+						{
+							"prompt": "Sie sagt, sie hat nichts gehört.",
+							"answer": "Sie will nichts gehört haben."
+						},
+						{
+							"prompt": "Man sagt, die Katze ist sehr streng.",
+							"answer": "Die Katze soll sehr streng sein."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": []
@@ -2174,6 +2537,49 @@
 							"answer": "der Bauarbeiten"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wegen dem Streik fahren keine Regionalzüge.",
+							"answer": "Wegen des Streiks fahren keine Regionalzüge."
+						},
+						{
+							"prompt": "Innerhalb einem Monat wurde das Problem gelöst.",
+							"answer": "Innerhalb eines Monats wurde das Problem gelöst."
+						},
+						{
+							"prompt": "Bitte bezahlen Sie innerhalb zwei Wochen.",
+							"answer": "Bitte bezahlen Sie innerhalb von zwei Wochen."
+						},
+						{
+							"prompt": "Mithilfe Freunden haben wir es geschafft.",
+							"answer": "Mithilfe von Freunden haben wir es geschafft."
+						},
+						{
+							"prompt": "Anlässlich dem Jubiläum gab es Kuchen.",
+							"answer": "Anlässlich des Jubiläums gab es Kuchen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Because of the strike, the office is closed.",
+							"answer": "Wegen des Streiks ist das Büro geschlossen."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2490,6 +2896,52 @@
 						2,
 						2
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has the wrong article. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Beginn des Konzerts wurde verschoben.",
+							"answer": "Der Beginn des Konzerts wurde verschoben."
+						},
+						{
+							"prompt": "Der Suche nach einer Wohnung dauert lange.",
+							"answer": "Die Suche nach einer Wohnung dauert lange."
+						},
+						{
+							"prompt": "Die Gerede der Nachbarn stört mich.",
+							"answer": "Das Gerede der Nachbarn stört mich."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Name the person",
+					"instruction": "Write the person who does it, with der.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "jemand, der fährt",
+							"answer": "der Fahrer"
+						},
+						{
+							"prompt": "jemand, der läuft",
+							"answer": "der Läufer"
+						},
+						{
+							"prompt": "jemand, der lehrt",
+							"answer": "der Lehrer"
+						},
+						{
+							"prompt": "jemand, der liest",
+							"answer": "der Leser"
+						}
+					],
+					"cols": 2,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2708,6 +3160,48 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Say it shorter",
+					"instruction": "Write it with bei, ohne, durch or im Falle.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wenn das Wetter schön ist, essen wir draußen.",
+							"answer": "Bei schönem Wetter essen wir draußen."
+						},
+						{
+							"prompt": "Wenn man keine Hilfe hat, schafft man es nicht.",
+							"answer": "Ohne Hilfe schafft man es nicht."
+						},
+						{
+							"prompt": "Indem man Energie spart, schützt man die Umwelt.",
+							"answer": "Durch Energiesparen schützt man die Umwelt."
+						},
+						{
+							"prompt": "Falls ein Brand ausbricht, rufen Sie sofort an.",
+							"answer": "Im Falle eines Brandes rufen Sie sofort an."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Unfold it",
+					"instruction": "Write it with wenn or indem.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Bei Regen bleibt die Katze im Bett.",
+							"answer": "Wenn es regnet, bleibt die Katze im Bett."
+						},
+						{
+							"prompt": "Bei Fragen rufen Sie an.",
+							"answer": "Wenn Sie Fragen haben, rufen Sie an."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2962,6 +3456,45 @@
 						2,
 						0
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Der Vorstand hat eine Entscheidung gemacht.",
+							"answer": "Der Vorstand hat eine Entscheidung getroffen."
+						},
+						{
+							"prompt": "Darf ich eine Frage machen?",
+							"answer": "Darf ich eine Frage stellen?"
+						},
+						{
+							"prompt": "Ich stelle Ihnen jederzeit zur Verfügung.",
+							"answer": "Ich stehe Ihnen jederzeit zur Verfügung."
+						},
+						{
+							"prompt": "Das neue Gesetz kommt am 1. Januar in Kraft.",
+							"answer": "Das neue Gesetz tritt am 1. Januar in Kraft."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Money plays a big role.",
+							"answer": "Geld spielt eine große Rolle."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3203,6 +3736,44 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Unfold it",
+					"instruction": "Write it as a relative clause.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "die von der Regierung geplanten Maßnahmen",
+							"answer": "die Maßnahmen, die von der Regierung geplant wurden"
+						},
+						{
+							"prompt": "das seit Jahren bestehende Problem",
+							"answer": "das Problem, das seit Jahren besteht"
+						},
+						{
+							"prompt": "der ständig zunehmende Verkehr",
+							"answer": "der Verkehr, der ständig zunimmt"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Fold it",
+					"instruction": "Put the clause before the noun.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "die Produkte, die in der Fabrik hergestellt werden",
+							"answer": "die in der Fabrik hergestellten Produkte"
+						},
+						{
+							"prompt": "der Lärm, der ständig zunimmt",
+							"answer": "der ständig zunehmende Lärm"
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3417,6 +3988,39 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Say it shorter",
+					"instruction": "Write it with -bar or sich lassen.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Handschrift kann nicht gelesen werden.",
+							"answer": "Die Handschrift ist nicht lesbar."
+						},
+						{
+							"prompt": "Die Pilze können gegessen werden.",
+							"answer": "Die Pilze sind essbar."
+						},
+						{
+							"prompt": "Das Ziel kann erreicht werden.",
+							"answer": "Das Ziel ist erreichbar."
+						},
+						{
+							"prompt": "Das Problem kann leicht gelöst werden.",
+							"answer": "Das Problem ist leicht zu lösen."
+						},
+						{
+							"prompt": "Das Fenster kann nicht geöffnet werden.",
+							"answer": "Das Fenster lässt sich nicht öffnen."
+						},
+						{
+							"prompt": "Die Wohnung kann bezahlt werden.",
+							"answer": "Die Wohnung ist bezahlbar."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3762,6 +4366,49 @@
 						}
 					],
 					"cols": 3
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Ärztin ist nur telefonisch erreichen.",
+							"answer": "Die Ärztin ist nur telefonisch erreichbar."
+						},
+						{
+							"prompt": "Glücklich ist der Hund nicht nass geworden.",
+							"answer": "Glücklicherweise ist der Hund nicht nass geworden."
+						},
+						{
+							"prompt": "Der Vortrag ist sinnvoll: niemand hört zu.",
+							"answer": "Der Vortrag ist sinnlos: niemand hört zu."
+						},
+						{
+							"prompt": "Sie ist sehr geduldig: Sie wartet nie.",
+							"answer": "Sie ist sehr ungeduldig: Sie wartet nie."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "The new colleague is very friendly.",
+							"answer": "Die neue Kollegin ist sehr freundlich."
+						},
+						{
+							"prompt": "Luckily it was sunny.",
+							"answer": "Glücklicherweise war es sonnig."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3831,6 +4478,53 @@
 						1,
 						2
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wegen dem Streik blieb das Büro zu.",
+							"answer": "Wegen des Streiks blieb das Büro zu."
+						},
+						{
+							"prompt": "Er hat mir eine Frage gemacht.",
+							"answer": "Er hat mir eine Frage gestellt."
+						},
+						{
+							"prompt": "Der Prüfung war schwer.",
+							"answer": "Die Prüfung war schwer."
+						},
+						{
+							"prompt": "Die Tür lässt nicht öffnen.",
+							"answer": "Die Tür lässt sich nicht öffnen."
+						},
+						{
+							"prompt": "Bei schön Wetter essen wir draußen.",
+							"answer": "Bei schönem Wetter essen wir draußen."
+						},
+						{
+							"prompt": "Innerhalb einem Monat war alles fertig.",
+							"answer": "Innerhalb eines Monats war alles fertig."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Because of the rain, the match was cancelled.",
+							"answer": "Wegen des Regens fiel das Spiel aus."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -3860,6 +4554,120 @@
 							"answer": "unverständlich"
 						}
 					]
+				},
+				{
+					"title": "Official German",
+					"instruction": "Write infolge, innerhalb, anhand, mithilfe or anlässlich.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "des Unfalls fiel der Strom aus.",
+							"answer": "Infolge"
+						},
+						{
+							"before": "Bitte antworten Sie",
+							"after": "einer Woche.",
+							"answer": "innerhalb"
+						},
+						{
+							"before": "",
+							"after": "der Daten sieht man das Problem sofort.",
+							"answer": "Anhand"
+						},
+						{
+							"before": "",
+							"after": "einer App lernt mein Opa Deutsch.",
+							"answer": "Mithilfe"
+						},
+						{
+							"before": "",
+							"after": "des Jubiläums gibt es Kuchen für alle.",
+							"answer": "Anlässlich"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Make a noun",
+					"instruction": "Write the noun with its article. The verb is in brackets.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "des Films war langweilig. (beginnen)",
+							"answer": "Der Beginn"
+						},
+						{
+							"before": "",
+							"after": "nach dem Schlüssel dauert eine Stunde. (suchen)",
+							"answer": "Die Suche"
+						},
+						{
+							"before": "",
+							"after": "war leicht. (fragen)",
+							"answer": "Die Frage"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Say it shorter",
+					"instruction": "Write it with -bar or sich lassen.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das kann gemacht werden.",
+							"answer": "Das ist machbar."
+						},
+						{
+							"prompt": "Die Wohnung kann bezahlt werden.",
+							"answer": "Die Wohnung ist bezahlbar."
+						},
+						{
+							"prompt": "Der Fehler kann behoben werden.",
+							"answer": "Der Fehler lässt sich beheben."
+						},
+						{
+							"prompt": "Das Wasser kann getrunken werden.",
+							"answer": "Das Wasser ist trinkbar."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "The opposite",
+					"instruction": "Write the opposite.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "verständlich",
+							"answer": "unverständlich"
+						},
+						{
+							"prompt": "fettarm",
+							"answer": "fettreich"
+						},
+						{
+							"prompt": "sinnlos",
+							"answer": "sinnvoll"
+						},
+						{
+							"prompt": "freundlich",
+							"answer": "unfreundlich"
+						},
+						{
+							"prompt": "ungeduldig",
+							"answer": "geduldig"
+						},
+						{
+							"prompt": "erfolgreich",
+							"answer": "erfolglos"
+						}
+					],
+					"cols": 3,
+					"extra": true
 				}
 			],
 			"canDo": []
@@ -3877,6 +4685,7 @@
 				{
 					"kind": "slots",
 					"title": "Where the verb goes",
+					"note": "obwohl, obgleich, wenngleich send the verb last; trotzdem and dennoch take it second.",
 					"rows": [
 						{
 							"cells": [
@@ -3895,10 +4704,10 @@
 									"hot": true
 								},
 								{
-									"de": "wir spazieren."
+									"de": "wir."
 								}
 							],
-							"en": "obwohl · obgleich · wenngleich: verb last"
+							"en": "verb last"
 						},
 						{
 							"cells": [
@@ -3913,10 +4722,10 @@
 									"hot": true
 								},
 								{
-									"de": "wir spazieren."
+									"de": "wir."
 								}
 							],
-							"en": "trotzdem · dennoch: verb second"
+							"en": "verb 2nd"
 						},
 						{
 							"cells": [
@@ -3936,9 +4745,6 @@
 								{
 									"de": "wir gingen",
 									"hot": true
-								},
-								{
-									"de": "spazieren."
 								}
 							],
 							"en": "zwar … aber"
@@ -3963,7 +4769,7 @@
 									"de": "wir."
 								}
 							],
-							"en": "even if: verb last"
+							"en": "even if"
 						},
 						{
 							"cells": [
@@ -3975,10 +4781,10 @@
 									"hot": true
 								},
 								{
-									"de": "wir spazieren."
+									"de": "wir."
 								}
 							],
-							"en": "trotz + genitive"
+							"en": "+ genitive"
 						}
 					]
 				},
@@ -4141,6 +4947,48 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Obwohl es regnete, trotzdem gingen wir spazieren.",
+							"answer": "Obwohl es regnete, gingen wir spazieren."
+						},
+						{
+							"prompt": "Trotzdem es regnete, gingen wir.",
+							"answer": "Obwohl es regnete, gingen wir."
+						},
+						{
+							"prompt": "Trotz dem Regen gingen wir spazieren.",
+							"answer": "Trotz des Regens gingen wir spazieren."
+						},
+						{
+							"prompt": "So teuer die Reise war auch, sie hat sich gelohnt.",
+							"answer": "So teuer die Reise auch war, sie hat sich gelohnt."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it another way",
+					"instruction": "Write it with trotz.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Obwohl es regnete, gingen wir spazieren.",
+							"answer": "Trotz des Regens gingen wir spazieren."
+						},
+						{
+							"prompt": "Obwohl der Preis hoch ist, kaufen wir es.",
+							"answer": "Trotz des hohen Preises kaufen wir es."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4178,14 +5026,12 @@
 				{
 					"kind": "slots",
 					"title": "Three shapes",
+					"note": "während = whereas · dagegen, hingegen = by contrast · im Gegensatz zu, im Vergleich zu.",
 					"rows": [
 						{
 							"cells": [
 								{
-									"de": "Während"
-								},
-								{
-									"de": "der Norden regnerisch"
+									"de": "Während der Norden regnerisch"
 								},
 								{
 									"de": "ist,",
@@ -4198,16 +5044,12 @@
 								{
 									"de": "der Süden trocken."
 								}
-							],
-							"en": "während = whereas: verb last"
+							]
 						},
 						{
 							"cells": [
 								{
-									"de": "Der Süden"
-								},
-								{
-									"de": "dagegen"
+									"de": "Der Süden dagegen"
 								},
 								{
 									"de": "ist",
@@ -4216,8 +5058,7 @@
 								{
 									"de": "trocken."
 								}
-							],
-							"en": "dagegen · hingegen: after the subject"
+							]
 						},
 						{
 							"cells": [
@@ -4231,8 +5072,7 @@
 								{
 									"de": "der Süden trocken."
 								}
-							],
-							"en": "im Gegensatz zu · im Vergleich zu + dative"
+							]
 						},
 						{
 							"cells": [
@@ -4246,8 +5086,7 @@
 								{
 									"de": "er Sport."
 								}
-							],
-							"en": "anders als = unlike"
+							]
 						}
 					]
 				},
@@ -4432,6 +5271,31 @@
 						}
 					],
 					"listen": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Während es im Norden kalt ist, es ist im Süden warm.",
+							"answer": "Während es im Norden kalt ist, ist es im Süden warm."
+						},
+						{
+							"prompt": "Der Süden dagegen trocken ist.",
+							"answer": "Der Süden dagegen ist trocken."
+						},
+						{
+							"prompt": "Anders wie sein Bruder mag er Sport.",
+							"answer": "Anders als sein Bruder mag er Sport."
+						},
+						{
+							"prompt": "Die Preise stiegen, während blieben die Löhne gleich.",
+							"answer": "Die Preise stiegen, während die Löhne gleich blieben."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4717,6 +5581,49 @@
 						}
 					],
 					"listen": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Alles, das er sagt, stimmt.",
+							"answer": "Alles, was er sagt, stimmt."
+						},
+						{
+							"prompt": "Wer du hilfst, der dankt dir.",
+							"answer": "Wem du hilfst, der dankt dir."
+						},
+						{
+							"prompt": "Das ist etwas, darauf ich mich freue.",
+							"answer": "Das ist etwas, worauf ich mich freue."
+						},
+						{
+							"prompt": "Der Termin, den ich so lange gewartet habe, ist morgen.",
+							"answer": "Der Termin, auf den ich so lange gewartet habe, ist morgen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Everything he says is true.",
+							"answer": "Alles, was er sagt, stimmt."
+						},
+						{
+							"prompt": "Whoever sleeps well learns better.",
+							"answer": "Wer gut schläft, lernt besser."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4973,6 +5880,39 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Make it a text",
+					"instruction": "Join: start the second sentence with the word in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er trainiert täglich. Er bleibt fit. (dadurch)",
+							"answer": "Er trainiert täglich. Dadurch bleibt er fit."
+						},
+						{
+							"prompt": "Sie sparte zwei Jahre. Sie kaufte ein Auto. (damit)",
+							"answer": "Sie sparte zwei Jahre. Damit kaufte sie ein Auto."
+						},
+						{
+							"prompt": "Der Bus kam nicht. Wir gingen zu Fuß. (deshalb)",
+							"answer": "Der Bus kam nicht. Deshalb gingen wir zu Fuß."
+						},
+						{
+							"prompt": "Die Wohnung ist klein. Sie ist teuer. (zudem)",
+							"answer": "Die Wohnung ist klein. Zudem ist sie teuer."
+						},
+						{
+							"prompt": "Er war krank. Er kam zur Arbeit. (trotzdem)",
+							"answer": "Er war krank. Trotzdem kam er zur Arbeit."
+						},
+						{
+							"prompt": "Wir besprachen den Plan. Wir fanden mehrere Fehler. (dabei)",
+							"answer": "Wir besprachen den Plan. Dabei fanden wir mehrere Fehler."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -5239,6 +6179,49 @@
 							"answer": "welche"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich helfe jemanden gern.",
+							"answer": "Ich helfe jemandem gern."
+						},
+						{
+							"prompt": "Hast du ein Auto? – Nein, ich habe keinen.",
+							"answer": "Hast du ein Auto? – Nein, ich habe keins."
+						},
+						{
+							"prompt": "Gibt es noch Milch? – Ja, es gibt noch eine.",
+							"answer": "Gibt es noch Milch? – Ja, es gibt noch welche."
+						},
+						{
+							"prompt": "Man muss ihn beeilen.",
+							"answer": "Man muss sich beeilen."
+						},
+						{
+							"prompt": "Ich habe mit niemand gesprochen.",
+							"answer": "Ich habe mit niemandem gesprochen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Somebody is calling.",
+							"answer": "Jemand ruft an."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -5273,11 +6256,15 @@
 								},
 								{
 									"de": "Zwar …, aber …",
-									"tag": "concede, then press"
-								},
+									"tag": "concede, press"
+								}
+							]
+						},
+						{
+							"cells": [
 								{
 									"de": "Ich bitte Sie, bis …",
-									"tag": "what you want, by when"
+									"tag": "what, by when"
 								},
 								{
 									"de": "Andernfalls …",
@@ -5484,6 +6471,45 @@
 						}
 					],
 					"note": "About you."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Zwar kam der Techniker pünktlich, und der Schaden ist noch da.",
+							"answer": "Zwar kam der Techniker pünktlich, aber der Schaden ist noch da."
+						},
+						{
+							"prompt": "Ich bitte Sie, den Mangel bis 15. Juni beheben.",
+							"answer": "Ich bitte Sie, den Mangel bis 15. Juni zu beheben."
+						},
+						{
+							"prompt": "Andernfalls ich würde den Betrag mindern.",
+							"answer": "Andernfalls würde ich den Betrag mindern."
+						},
+						{
+							"prompt": "Die Lieferung kam spät, obwohl sie war für den 3. Mai zugesagt.",
+							"answer": "Die Lieferung kam spät, obwohl sie für den 3. Mai zugesagt war."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Write it the formal way",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Please fix the damage by 15 June at the latest.",
+							"answer": "Ich bitte Sie, den Schaden bis spätestens 15. Juni zu beheben."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -5544,6 +6570,61 @@
 							"answer": "was"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Obwohl es kalt war, trotzdem ging er schwimmen.",
+							"answer": "Obwohl es kalt war, ging er schwimmen."
+						},
+						{
+							"prompt": "Während er Sport mag, sein Bruder liest lieber.",
+							"answer": "Während er Sport mag, liest sein Bruder lieber."
+						},
+						{
+							"prompt": "Alles, das du sagst, stimmt.",
+							"answer": "Alles, was du sagst, stimmt."
+						},
+						{
+							"prompt": "Wen du hilfst, der dankt dir.",
+							"answer": "Wem du hilfst, der dankt dir."
+						},
+						{
+							"prompt": "Er sparte Geld. Damit er kaufte ein Rad.",
+							"answer": "Er sparte Geld. Damit kaufte er ein Rad."
+						},
+						{
+							"prompt": "Hast du einen Stift? – Ja, ich habe eins.",
+							"answer": "Hast du einen Stift? – Ja, ich habe einen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Although it was raining, we went for a walk.",
+							"answer": "Obwohl es regnete, gingen wir spazieren."
+						},
+						{
+							"prompt": "Nobody helped me.",
+							"answer": "Niemand hat mir geholfen."
+						},
+						{
+							"prompt": "Do you have milk? – Yes, I have some.",
+							"answer": "Hast du Milch? – Ja, ich habe welche."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -5573,6 +6654,110 @@
 							"answer": "Trotz"
 						}
 					]
+				},
+				{
+					"title": "Which word?",
+					"instruction": "Write obwohl, trotz, während, dagegen or dadurch.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "des Sturms fuhr der Bus.",
+							"answer": "Trotz"
+						},
+						{
+							"before": "",
+							"after": "es spät war, rief er noch an.",
+							"answer": "Obwohl"
+						},
+						{
+							"before": "",
+							"after": "sie Tee trinkt, trinkt er Kaffee.",
+							"answer": "Während"
+						},
+						{
+							"before": "Im Norden regnet es; im Süden",
+							"after": "scheint die Sonne.",
+							"answer": "dagegen"
+						},
+						{
+							"before": "Sie liest viel.",
+							"after": "spricht sie immer besser.",
+							"answer": "Dadurch"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Someone, some",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich kenne",
+							"after": "in Wien. (jemand)",
+							"answer": "jemanden"
+						},
+						{
+							"before": "Das hat",
+							"after": "gesehen. (niemand)",
+							"answer": "niemand"
+						},
+						{
+							"before": "Hast du einen Schirm? – Nein, ich habe",
+							"after": ".",
+							"answer": "keinen"
+						},
+						{
+							"before": "Brauchst du Äpfel? – Nein, ich habe schon",
+							"after": ".",
+							"answer": "welche"
+						},
+						{
+							"before": "Ich helfe",
+							"after": "gern. (jemand)",
+							"answer": "jemandem"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Join them",
+					"instruction": "Join with the word in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er hatte wenig Zeit. Er half uns. (trotzdem)",
+							"answer": "Er hatte wenig Zeit. Trotzdem half er uns."
+						},
+						{
+							"prompt": "Sie trainiert täglich. Sie bleibt fit. (dadurch)",
+							"answer": "Sie trainiert täglich. Dadurch bleibt sie fit."
+						},
+						{
+							"prompt": "Das Hotel ist teuer. Es ist schön. (zwar … aber)",
+							"answer": "Zwar ist das Hotel teuer, aber es ist schön."
+						},
+						{
+							"prompt": "Er sparte Geld. Er kaufte ein Rad. (damit)",
+							"answer": "Er sparte Geld. Damit kaufte er ein Rad."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your complaint",
+					"instruction": "Something you ordered came broken. Finish the sentences.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Trotz mehrfacher Zusagen",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
 				}
 			],
 			"canDo": []

@@ -1360,6 +1360,422 @@
 			"size": 800,
 			"transparent": true,
 			"trim": true
+		},
+		{
+			"id": "cpd_infusionsstaender",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a hospital drip stand with an infusion bag hanging from it.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_sauerstoffflasche",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a green medical oxygen bottle on a small trolley.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_waermflasche",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a red rubber hot-water bottle with a knitted cover.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_rollstuhl",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wheelchair.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kruecke",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: one metal forearm crutch.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_stethoskop",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a stethoscope.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_klemmbrett",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a clipboard with a blank sheet of paper.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kopfkissen",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a white pillow.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schnabeltasse",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a plastic sippy cup with a spout and two handles, for adults in hospital.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_treteimer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a pedal bin.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_scheinwerfer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a theatre spotlight on a stand.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_peruecke",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a curly blond wig on a plain smooth egg-shaped stand with no face.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_maske",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a carnival mask.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_vorhang",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a red theatre curtain, drawn large.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_trommel",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a drum with two drumsticks.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_notenpult",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a music stand with a blank sheet.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kleiderstaender",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a clothes rail with three colourful costumes.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_steckenpferd",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a hobby horse, a horse head on a stick.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_nebelmaschine",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a small smoke machine with a little cloud of fog.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schminktisch",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a make-up table with a mirror surrounded by light bulbs.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_tafel",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a school blackboard with nothing written on it.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_lehrbuch",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a closed thick textbook with a plain cover.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_urkunde",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a rolled certificate tied with a red ribbon and a plain round red wax seal with no symbol on it, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_doktorhut",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a black graduation cap with a tassel.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_tablet",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a tablet computer with a blank screen.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_sanduhr",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an hourglass.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_aktenvernichter",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a paper shredder with strips of paper coming out.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_briefablage",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a stacked letter tray with blank papers, no writing or marks on them.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_aktenschrank",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a metal filing cabinet with drawers.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_stativ",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a camera tripod.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_leinwand",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a pull-down projection screen, blank.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_beamer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a small video projector.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_megafon",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a megaphone.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_aquarium",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a small aquarium with two fish and a plant.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_locher",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a hole punch.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_tacker",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a stapler.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_roentgengeraet",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an airport X-ray baggage scanner with a suitcase going in.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fluggastbruecke",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an airport jet bridge connected to the side of a plane.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_triebwerk",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a jet engine seen from the side, hanging under a piece of aeroplane wing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kinderwagen",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a pram.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_reisepass",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a closed passport with a plain cover, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_bordkarte",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a boarding pass ticket with only lines and boxes, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_umschlag",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a sealed paper envelope with no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_tuerkette",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a door chain on a door slightly open.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_laterne",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a street lamp, lit.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_herd",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an old cast-iron wood stove.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_parkbank",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a park bench.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_pfosten",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a thin painted metal bollard post standing upright on pavement.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_faehre",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a small car ferry on water.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_gemaelde",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a framed oil painting of a landscape.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wappen",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a coat of arms shield with a lion, no letters.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_lederkoffer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a heavy brown leather briefcase.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
 		}
 	]
 }

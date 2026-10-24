@@ -300,6 +300,28 @@
 						}
 					],
 					"note": "About you — or the job you would like."
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I’m looking for a new job.",
+							"answer": "Ich suche eine neue Stelle."
+						},
+						{
+							"prompt": "I work part-time, twenty hours a week.",
+							"answer": "Ich arbeite Teilzeit, zwanzig Stunden pro Woche."
+						},
+						{
+							"prompt": "The meeting is at ten o’clock.",
+							"answer": "Die Besprechung ist um zehn Uhr."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -548,6 +570,53 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich sehe den große Mann.",
+							"answer": "Ich sehe den großen Mann."
+						},
+						{
+							"prompt": "Der großen Mann liest.",
+							"answer": "Der große Mann liest."
+						},
+						{
+							"prompt": "Ich mag die neue Schuhe.",
+							"answer": "Ich mag die neuen Schuhe."
+						},
+						{
+							"prompt": "Ich helfe dem kleine Kind.",
+							"answer": "Ich helfe dem kleinen Kind."
+						},
+						{
+							"prompt": "Das neuen Auto ist teuer.",
+							"answer": "Das neue Auto ist teuer."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "The old table is in the kitchen.",
+							"answer": "Der alte Tisch steht in der Küche."
+						},
+						{
+							"prompt": "I like the yellow flowers.",
+							"answer": "Ich mag die gelben Blumen."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -773,6 +842,41 @@
 						1,
 						0
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das ist ein große Mann.",
+							"answer": "Das ist ein großer Mann."
+						},
+						{
+							"prompt": "Wir haben ein neue Haus.",
+							"answer": "Wir haben ein neues Haus."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "My big brother lives in Bern.",
+							"answer": "Mein großer Bruder wohnt in Bern."
+						},
+						{
+							"prompt": "That’s a good idea!",
+							"answer": "Das ist eine gute Idee!"
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1016,6 +1120,35 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Frische Brot schmeckt am besten.",
+							"answer": "Frisches Brot schmeckt am besten."
+						},
+						{
+							"prompt": "Bei schönes Wetter sitzen wir im Garten.",
+							"answer": "Bei schönem Wetter sitzen wir im Garten."
+						},
+						{
+							"prompt": "Schöne Wohnung mit großer Balkon zu vermieten.",
+							"answer": "Schöne Wohnung mit großem Balkon zu vermieten."
+						},
+						{
+							"prompt": "Ich treffe mich mit guten Freunde.",
+							"answer": "Ich treffe mich mit guten Freunden."
+						},
+						{
+							"prompt": "Ich habe drei kleinen Kinder.",
+							"answer": "Ich habe drei kleine Kinder."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1242,6 +1375,53 @@
 					],
 					"cols": 1,
 					"notGerman": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wir nehmen den schneller Zug.",
+							"answer": "Wir nehmen den schnelleren Zug."
+						},
+						{
+							"prompt": "Das ist der beste Idee.",
+							"answer": "Das ist die beste Idee."
+						},
+						{
+							"prompt": "Ich suche eine größer Wohnung.",
+							"answer": "Ich suche eine größere Wohnung."
+						},
+						{
+							"prompt": "Die meiste Leute arbeiten im Büro.",
+							"answer": "Die meisten Leute arbeiten im Büro."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "We need a bigger flat.",
+							"answer": "Wir brauchen eine größere Wohnung."
+						},
+						{
+							"prompt": "That’s the cheapest offer.",
+							"answer": "Das ist das günstigste Angebot."
+						},
+						{
+							"prompt": "The next train is faster.",
+							"answer": "Der nächste Zug ist schneller."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1506,6 +1686,49 @@
 						0,
 						1
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Mein Bruder ist Angestellte bei einer Bank.",
+							"answer": "Mein Bruder ist Angestellter bei einer Bank."
+						},
+						{
+							"prompt": "Alle Angestellter bekommen dreißig Tage Urlaub.",
+							"answer": "Alle Angestellten bekommen dreißig Tage Urlaub."
+						},
+						{
+							"prompt": "Gibt es etwas Neue?",
+							"answer": "Gibt es etwas Neues?"
+						},
+						{
+							"prompt": "Sie ist mit einem Deutscher verheiratet.",
+							"answer": "Sie ist mit einem Deutschen verheiratet."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "All the best!",
+							"answer": "Alles Gute!"
+						},
+						{
+							"prompt": "Nothing special.",
+							"answer": "Nichts Besonderes."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -1775,6 +1998,41 @@
 						}
 					],
 					"note": "About you — würde second, the verb last."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Würdest Sie mir bitte das Salz reichen?",
+							"answer": "Würden Sie mir bitte das Salz reichen?"
+						},
+						{
+							"prompt": "An deiner Stelle ich würde das nicht machen.",
+							"answer": "An deiner Stelle würde ich das nicht machen."
+						},
+						{
+							"prompt": "Wir würde gern ein Haus kaufen.",
+							"answer": "Wir würden gern ein Haus kaufen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I’d like to climb more often.",
+							"answer": "Ich würde gern öfter klettern."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2028,6 +2286,31 @@
 						}
 					],
 					"note": "About you — würde or könnte after the comma."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wenn ich Zeit hätte, ich würde kommen.",
+							"answer": "Wenn ich Zeit hätte, würde ich kommen."
+						},
+						{
+							"prompt": "Wenn er reich ist, könnte er reisen.",
+							"answer": "Wenn er reich wäre, könnte er reisen."
+						},
+						{
+							"prompt": "Wenn ich mehr Zeit hatte, würde ich kommen.",
+							"answer": "Wenn ich mehr Zeit hätte, würde ich kommen."
+						},
+						{
+							"prompt": "Könnte du mir kurz helfen?",
+							"answer": "Könntest du mir kurz helfen?"
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2081,6 +2364,65 @@
 							"answer": "Verwandten"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Der Kollege hat einen neue Job.",
+							"answer": "Der Kollege hat einen neuen Job."
+						},
+						{
+							"prompt": "Wir trinken starker Kaffee.",
+							"answer": "Wir trinken starken Kaffee."
+						},
+						{
+							"prompt": "Das ist ein schwierig Problem.",
+							"answer": "Das ist ein schwieriges Problem."
+						},
+						{
+							"prompt": "Gibt es nichts Neue?",
+							"answer": "Gibt es nichts Neues?"
+						},
+						{
+							"prompt": "Wenn ich Zeit hätte, ich würde mitkommen.",
+							"answer": "Wenn ich Zeit hätte, würde ich mitkommen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I’m looking for a bigger flat.",
+							"answer": "Ich suche eine größere Wohnung."
+						},
+						{
+							"prompt": "The new colleague is nice.",
+							"answer": "Der neue Kollege ist nett."
+						},
+						{
+							"prompt": "Would you pass me the salt, please? (Sie)",
+							"answer": "Würden Sie mir bitte das Salz reichen?"
+						},
+						{
+							"prompt": "If I were rich, I would work part-time.",
+							"answer": "Wenn ich reich wäre, würde ich Teilzeit arbeiten."
+						},
+						{
+							"prompt": "All the best for the new job!",
+							"answer": "Alles Gute für die neue Stelle!"
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -2135,6 +2477,134 @@
 					],
 					"cols": 2,
 					"notGerman": true
+				},
+				{
+					"title": "Which one?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "Der",
+							"options": [
+								"neue",
+								"neuen"
+							],
+							"after": "Kollege ist nett.",
+							"answer": "neue"
+						},
+						{
+							"before": "Ich sehe den",
+							"options": [
+								"große",
+								"großen"
+							],
+							"after": "Mann.",
+							"answer": "großen"
+						},
+						{
+							"before": "Das ist ein",
+							"options": [
+								"neues",
+								"neue"
+							],
+							"after": "Haus.",
+							"answer": "neues"
+						},
+						{
+							"before": "Ich trinke",
+							"options": [
+								"kaltes",
+								"kalte"
+							],
+							"after": "Wasser.",
+							"answer": "kaltes"
+						},
+						{
+							"before": "Wir suchen eine",
+							"options": [
+								"größere",
+								"größer"
+							],
+							"after": "Wohnung.",
+							"answer": "größere"
+						},
+						{
+							"before": "Er ist",
+							"options": [
+								"Angestellter",
+								"Angestellte"
+							],
+							"after": "bei einer Bank.",
+							"answer": "Angestellter"
+						},
+						{
+							"before": "Wenn ich Zeit",
+							"options": [
+								"hätte",
+								"habe"
+							],
+							"after": ", würde ich kommen.",
+							"answer": "hätte"
+						},
+						{
+							"before": "",
+							"options": [
+								"Würden",
+								"Wären"
+							],
+							"after": "Sie mir helfen?",
+							"answer": "Würden"
+						},
+						{
+							"before": "Das",
+							"options": [
+								"wäre",
+								"würde"
+							],
+							"after": "schön!",
+							"answer": "wäre"
+						},
+						{
+							"before": "Ich",
+							"options": [
+								"würde",
+								"wäre"
+							],
+							"after": "gern reisen.",
+							"answer": "würde"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Describe it",
+					"instruction": "Write the sentence with the describing word.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich trinke Kaffee. (schwarz)",
+							"answer": "Ich trinke schwarzen Kaffee."
+						},
+						{
+							"prompt": "Das ist ein Kleid. (schön)",
+							"answer": "Das ist ein schönes Kleid."
+						},
+						{
+							"prompt": "Wir wohnen in einer Wohnung. (groß + er)",
+							"answer": "Wir wohnen in einer größeren Wohnung."
+						},
+						{
+							"prompt": "Ich helfe dem Kind. (klein)",
+							"answer": "Ich helfe dem kleinen Kind."
+						},
+						{
+							"prompt": "Er hat einen Hund. (stark)",
+							"answer": "Er hat einen starken Hund."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": []
@@ -2395,6 +2865,49 @@
 						}
 					],
 					"note": "About you — the verb at the end."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Morgen werdet es regnen.",
+							"answer": "Morgen wird es regnen."
+						},
+						{
+							"prompt": "Ich werde vergessen dich nie.",
+							"answer": "Ich werde dich nie vergessen."
+						},
+						{
+							"prompt": "Wirst du zur Party kommst?",
+							"answer": "Wirst du zur Party kommen?"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "It will rain tomorrow.",
+							"answer": "Morgen wird es regnen."
+						},
+						{
+							"prompt": "He’s probably at the office.",
+							"answer": "Er wird wohl im Büro sein."
+						},
+						{
+							"prompt": "Next year we will move house.",
+							"answer": "Nächstes Jahr werden wir umziehen."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2662,6 +3175,45 @@
 							"answer": "über das"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das ist der Kollege, mit den ich arbeite.",
+							"answer": "Das ist der Kollege, mit dem ich arbeite."
+						},
+						{
+							"prompt": "Die Freunde, mit dem ich reise, wohnen in Bonn.",
+							"answer": "Die Freunde, mit denen ich reise, wohnen in Bonn."
+						},
+						{
+							"prompt": "Das ist der Mann, dem ich gut kenne.",
+							"answer": "Das ist der Mann, den ich gut kenne."
+						},
+						{
+							"prompt": "Das ist das Thema, wir sprechen über das.",
+							"answer": "Das ist das Thema, über das wir sprechen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "That’s the colleague I work with.",
+							"answer": "Das ist der Kollege, mit dem ich arbeite."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -2920,6 +3472,52 @@
 							"answer": "des Regens"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das ist das Auto meines Vater.",
+							"answer": "Das ist das Auto meines Vaters."
+						},
+						{
+							"prompt": "Die Farbe des Haus gefällt mir.",
+							"answer": "Die Farbe des Hauses gefällt mir."
+						},
+						{
+							"prompt": "Das ist die Tasche des Lehrerin.",
+							"answer": "Das ist die Tasche der Lehrerin."
+						},
+						{
+							"prompt": "Während der Konzert war es laut.",
+							"answer": "Während des Konzerts war es laut."
+						},
+						{
+							"prompt": "Trotz des Regen gehen wir spazieren.",
+							"answer": "Trotz des Regens gehen wir spazieren."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it another way",
+					"instruction": "Write it with the genitive instead of von.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "das Auto von meinem Bruder",
+							"answer": "das Auto meines Bruders"
+						},
+						{
+							"prompt": "die Farbe von dem Haus",
+							"answer": "die Farbe des Hauses"
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3132,6 +3730,31 @@
 						}
 					],
 					"note": "About you."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wenn ich ein Kind war, wohnten wir in Köln.",
+							"answer": "Als ich ein Kind war, wohnten wir in Köln."
+						},
+						{
+							"prompt": "Als ich Zeit habe, lese ich.",
+							"answer": "Wenn ich Zeit habe, lese ich."
+						},
+						{
+							"prompt": "Obwohl es kalt ist, wir gehen spazieren.",
+							"answer": "Obwohl es kalt ist, gehen wir spazieren."
+						},
+						{
+							"prompt": "Es ist kalt. Trotzdem wir gehen spazieren.",
+							"answer": "Es ist kalt. Trotzdem gehen wir spazieren."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3312,6 +3935,48 @@
 							"answer": "ich kein Auto habe"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Nimm einen Schirm mit, falls es regnet später.",
+							"answer": "Nimm einen Schirm mit, falls es später regnet."
+						},
+						{
+							"prompt": "Da ich habe kein Auto, fahre ich Rad.",
+							"answer": "Da ich kein Auto habe, fahre ich Rad."
+						},
+						{
+							"prompt": "Der Film war langweilig. Trotzdem wir sind geblieben.",
+							"answer": "Der Film war langweilig. Trotzdem sind wir geblieben."
+						},
+						{
+							"prompt": "Ich bin müde, deshalb ich gehe ins Bett.",
+							"answer": "Ich bin müde, deshalb gehe ich ins Bett."
+						},
+						{
+							"prompt": "Falls Sie haben noch Fragen, schreiben Sie mir.",
+							"answer": "Falls Sie noch Fragen haben, schreiben Sie mir."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it another way",
+					"instruction": "Write it again with the word in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich bin müde, deshalb gehe ich ins Bett. (weil)",
+							"answer": "Ich gehe ins Bett, weil ich müde bin."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3565,6 +4230,49 @@
 						}
 					],
 					"note": "About you — zu + the verb last."
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich will zu schlafen.",
+							"answer": "Ich will schlafen."
+						},
+						{
+							"prompt": "Ich versuche, früh zu aufstehen.",
+							"answer": "Ich versuche, früh aufzustehen."
+						},
+						{
+							"prompt": "Hast du Lust, ins Kino gehen?",
+							"answer": "Hast du Lust, ins Kino zu gehen?"
+						},
+						{
+							"prompt": "Ich habe vergessen, zu anrufen.",
+							"answer": "Ich habe vergessen anzurufen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I plan to learn German.",
+							"answer": "Ich habe vor, Deutsch zu lernen."
+						},
+						{
+							"prompt": "It’s important to practise every day.",
+							"answer": "Es ist wichtig, jeden Tag zu üben."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -3781,6 +4489,53 @@
 					],
 					"cols": 2,
 					"notGerman": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich bin kalt.",
+							"answer": "Mir ist kalt."
+						},
+						{
+							"prompt": "Es geben viele Cafés.",
+							"answer": "Es gibt viele Cafés."
+						},
+						{
+							"prompt": "Es tut mich leid.",
+							"answer": "Es tut mir leid."
+						},
+						{
+							"prompt": "In der Stadt gibt es ein Park.",
+							"answer": "In der Stadt gibt es einen Park."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Is it worth it? – It depends.",
+							"answer": "Lohnt es sich? – Es kommt darauf an."
+						},
+						{
+							"prompt": "It doesn’t matter.",
+							"answer": "Es macht nichts."
+						},
+						{
+							"prompt": "It’s a pity that you aren’t coming.",
+							"answer": "Es ist schade, dass du nicht kommst."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4019,6 +4774,52 @@
 							"answer": "Wofür"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich warte seit zwanzig Minuten für den Bus.",
+							"answer": "Ich warte seit zwanzig Minuten auf den Bus."
+						},
+						{
+							"prompt": "Er hat Angst von dem Hund.",
+							"answer": "Er hat Angst vor dem Hund."
+						},
+						{
+							"prompt": "Hast du dich für die Stelle beworben?",
+							"answer": "Hast du dich um die Stelle beworben?"
+						},
+						{
+							"prompt": "Der Nachbar beschwert sich für den Lärm.",
+							"answer": "Der Nachbar beschwert sich über den Lärm."
+						},
+						{
+							"prompt": "Ich freue mich für die Ferien.",
+							"answer": "Ich freue mich auf die Ferien."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "A thing or a person?",
+					"instruction": "Answer without repeating the noun.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wartest du auf den Bus? – Ja, …",
+							"answer": "Ja, ich warte darauf."
+						},
+						{
+							"prompt": "Wartest du auf Anna? – Ja, …",
+							"answer": "Ja, ich warte auf sie."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4228,6 +5029,45 @@
 						}
 					],
 					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Sehr geehrte Damen und Herren, vielen Dank für deine Antwort.",
+							"answer": "Sehr geehrte Damen und Herren, vielen Dank für Ihre Antwort."
+						},
+						{
+							"prompt": "Liebe Tom, danke für deine Mail!",
+							"answer": "Lieber Tom, danke für deine Mail!"
+						},
+						{
+							"prompt": "Könnten Sie mir sagen, wann fährt der Zug ab?",
+							"answer": "Könnten Sie mir sagen, wann der Zug abfährt?"
+						},
+						{
+							"prompt": "Könnten Sie mir sagen, ob ist das Museum geöffnet?",
+							"answer": "Könnten Sie mir sagen, ob das Museum geöffnet ist?"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Thank you in advance.",
+							"answer": "Vielen Dank im Voraus."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"canDo": [
@@ -4297,6 +5137,57 @@
 							"answer": "zu reisen"
 						}
 					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Morgen wirst es regnen.",
+							"answer": "Morgen wird es regnen."
+						},
+						{
+							"prompt": "Die Leute, mit dem ich arbeite, sind nett.",
+							"answer": "Die Leute, mit denen ich arbeite, sind nett."
+						},
+						{
+							"prompt": "Wegen des Wetter bleiben wir zu Hause.",
+							"answer": "Wegen des Wetters bleiben wir zu Hause."
+						},
+						{
+							"prompt": "Wenn ich achtzehn wurde, machte ich den Führerschein.",
+							"answer": "Als ich achtzehn wurde, machte ich den Führerschein."
+						},
+						{
+							"prompt": "Ich habe vor, Deutsch lernen.",
+							"answer": "Ich habe vor, Deutsch zu lernen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it in German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I will never forget you.",
+							"answer": "Ich werde dich nie vergessen."
+						},
+						{
+							"prompt": "Take an umbrella, in case it rains. (du)",
+							"answer": "Nimm einen Schirm mit, falls es regnet."
+						},
+						{
+							"prompt": "It’s worth it.",
+							"answer": "Es lohnt sich."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
 				}
 			],
 			"practise": [
@@ -4356,6 +5247,112 @@
 						0,
 						1
 					]
+				},
+				{
+					"title": "Which one?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "",
+							"options": [
+								"Als",
+								"Wenn"
+							],
+							"after": "wir in Köln waren, regnete es.",
+							"answer": "Als"
+						},
+						{
+							"before": "Ich",
+							"options": [
+								"werde",
+								"wird"
+							],
+							"after": "dich anrufen.",
+							"answer": "werde"
+						},
+						{
+							"before": "Das ist die Frau,",
+							"options": [
+								"der",
+								"die"
+							],
+							"after": "ich helfe.",
+							"answer": "der"
+						},
+						{
+							"before": "Die Farbe",
+							"options": [
+								"des",
+								"dem"
+							],
+							"after": "Hauses gefällt mir.",
+							"answer": "des"
+						},
+						{
+							"before": "Es",
+							"options": [
+								"gibt",
+								"geben"
+							],
+							"after": "viele Cafés.",
+							"answer": "gibt"
+						},
+						{
+							"before": "Ich versuche,",
+							"options": [
+								"zu schlafen",
+								"schlafen"
+							],
+							"after": ".",
+							"answer": "zu schlafen"
+						},
+						{
+							"before": "",
+							"options": [
+								"Falls",
+								"Trotzdem"
+							],
+							"after": "du Zeit hast, ruf mich an!",
+							"answer": "Falls"
+						},
+						{
+							"before": "Er hat Angst",
+							"options": [
+								"vor",
+								"von"
+							],
+							"after": "dem Hund.",
+							"answer": "vor"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Short answers",
+					"instruction": "Answer without repeating the noun.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Denkst du an den Termin? – Ja, …",
+							"answer": "Ja, ich denke daran."
+						},
+						{
+							"prompt": "Freust du dich auf die Ferien? – Ja, …",
+							"answer": "Ja, ich freue mich darauf."
+						},
+						{
+							"prompt": "Hast du Angst vor dem Chef? – Nein, …",
+							"answer": "Nein, ich habe keine Angst vor ihm."
+						},
+						{
+							"prompt": "Sprichst du über das Thema? – Ja, …",
+							"answer": "Ja, ich spreche darüber."
+						}
+					],
+					"cols": 1,
+					"extra": true
 				}
 			],
 			"canDo": []

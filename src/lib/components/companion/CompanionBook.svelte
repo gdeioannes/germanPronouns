@@ -48,9 +48,9 @@
 
 	// The answers flow over as many pages as they need: spreads are packed
 	// onto a page until its share of text runs out.
-	const ANSWER_BUDGET = 6200;
+	const ANSWER_BUDGET = 5600;
 	const weight = (s: Spread) =>
-		answerKey(s).reduce((n, k) => n + 60 + k.answers.reduce((m, x) => m + (x.q?.length ?? 0) + x.a.length + 4, 0) + (k.note?.length ?? 0), 80);
+		answerKey(s).reduce((n, k) => n + 60 + k.answers.reduce((m, x) => m + (x.q?.length ?? 0) + x.a.length + 10, 0) + (k.note?.length ?? 0), 80);
 	const answerPages = $derived.by(() => {
 		const pages: number[][] = [[]];
 		let used = 0;

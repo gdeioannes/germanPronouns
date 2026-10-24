@@ -125,6 +125,44 @@ describe('study companions', () => {
 				expect(untaught).toEqual([]);
 			});
 
+			// A translation's German is what the reader has to produce, so it must
+			// be German the book has taught too — the English prompt can't teach it.
+			// Producing the forms is the exercise (blaue, Kollegen, rannten, länger),
+			// so a word counts as taught when its stem is.
+			it('translates only into German it has taught', () => {
+				const ENDINGS = ['sten', 'ste', 'ten', 'end', 'ern', 'est', 'en', 'er', 'es', 'em', 'et', 'te', 'st', 'e', 'n', 's', 't'];
+				const plainVowels = (w: string) => w.replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
+				const stem = (w: string) => {
+					let s = plainVowels(w);
+					for (let round = 0; round < 2; round++) {
+						const end = ENDINGS.find((e) => s.endsWith(e) && s.length - e.length >= 3);
+						if (end) s = s.slice(0, -end.length);
+					}
+					return s;
+				};
+				const stems = new Set<string>();
+				const teach = (w: string) => {
+					stems.add(stem(w));
+					if (w.startsWith('ge') && w.length > 5) stems.add(stem(w.slice(2)));
+				};
+				const known = (w: string) => stems.has(stem(w)) || (w.startsWith('ge') && stems.has(stem(w.slice(2))));
+				(c.names ?? []).flatMap(wordsIn).forEach(teach);
+				companions.slice(0, n).flatMap(taughtBy).forEach(teach);
+				const untaught: string[] = [];
+				// A box teaches too (Feierabend in a culture box), so its words count here.
+				const boxes = (b: LearnBlock): string[] => (b.kind === 'columns' ? b.blocks.flatMap(boxes) : b.kind === 'box' ? [b.text] : []);
+				for (const s of c.spreads) {
+					s.learn.flatMap(germanOf).flatMap(wordsIn).forEach(teach);
+					s.learn.flatMap(boxes).flatMap(wordsIn).forEach(teach);
+					for (const ex of exercisesOf(s)) {
+						if (ex.kind !== 'write' || !ex.notGerman) continue;
+						const missing = ex.items.flatMap((i) => wordsIn(i.answer)).filter((w) => !known(w));
+						if (missing.length) untaught.push(`${s.id}: ${ex.title}: ${[...new Set(missing)].join(', ')}`);
+					}
+				}
+				expect(untaught).toEqual([]);
+			});
+
 			it('talks about paper, not the screen', () => {
 				for (const t of texts(c)) expect(t).not.toMatch(FORBIDDEN);
 			});
