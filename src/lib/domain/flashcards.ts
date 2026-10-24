@@ -63,6 +63,66 @@ export function chooseOptions(
 	return options;
 }
 
+/**
+ * The ending rules the A1.1 lesson "Endings that give the gender away"
+ * teaches, longest ending first so "-heit" wins over "-e". `how` is said to
+ * the learner, so it is as honest as the deck: -ung has no exception in it,
+ * -er misses one noun in four. `not` lists endings that only look like the
+ * rule: Papier's -ier and Baum's -aum are not the -er and -um it means.
+ */
+const GENDER_RULES: { ending: string; article: string; how: string; not?: string[] }[] = [
+	{ ending: 'schaft', article: 'die', how: 'always' },
+	{ ending: 'heit', article: 'die', how: 'always' },
+	{ ending: 'keit', article: 'die', how: 'always' },
+	{ ending: 'ung', article: 'die', how: 'always' },
+	{ ending: 'ion', article: 'die', how: 'almost always' },
+	{ ending: 'chen', article: 'das', how: 'almost always' },
+	{ ending: 'lein', article: 'das', how: 'almost always' },
+	{ ending: 'ment', article: 'das', how: 'mostly' },
+	{ ending: 'ling', article: 'der', how: 'almost always' },
+	{ ending: 'um', article: 'das', how: 'mostly', not: ['aum'] },
+	{ ending: 'er', article: 'der', how: 'usually', not: ['ier'] },
+	{ ending: 'e', article: 'die', how: 'mostly' }
+];
+
+/** Plural-only nouns take die for being plural, not for their ending. */
+const PLURAL_ONLY = /(Geschwister|Eltern|Leute|Ferien|Kosten)$/;
+
+export interface GenderRule {
+	ending: string;
+	article: string;
+	how: string;
+	/** The noun the rule is about: "Wetter" in "schlechte Wetter". */
+	noun: string;
+	/** False when the card is an exception to the rule. */
+	follows: boolean;
+}
+
+/**
+ * The ending rule a noun card falls under, if any — for the correction on a
+ * missed card: "-ung words are always die", or "most -er words are der, but
+ * Mutter is an exception". A phrase card ("schlechte Wetter", "Bitte um") is
+ * judged by its last capitalised word, the noun.
+ */
+export function genderRule(card: VocabCard): GenderRule | null {
+	if (card.kind !== 'noun' || !card.article) return null;
+	const noun = card.de.split(/\s+/).filter((w) => /^[A-ZÄÖÜ]/.test(w)).pop();
+	if (!noun || PLURAL_ONLY.test(noun) || card.plural === '(Pl.)' || /plural/i.test(card.en)) return null;
+	for (const rule of GENDER_RULES) {
+		// The ending must follow a stem: "Ei" is not an -ei word, nor "Um" an -um one.
+		if (!noun.endsWith(rule.ending) || noun.length < rule.ending.length + 2) continue;
+		if (rule.not?.some((n) => noun.endsWith(n))) return null;
+		return {
+			ending: rule.ending,
+			article: rule.article,
+			how: rule.how,
+			noun,
+			follows: card.article === rule.article
+		};
+	}
+	return null;
+}
+
 function shuffle<T>(items: T[], random: () => number): void {
 	for (let i = items.length - 1; i > 0; i--) {
 		const j = Math.floor(random() * (i + 1));

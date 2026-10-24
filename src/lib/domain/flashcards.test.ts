@@ -4,6 +4,7 @@ import {
 	checkWritten,
 	chooseOptions,
 	fullForm,
+	genderRule,
 	clearsNeeded,
 	isWeak,
 	recordOutcome,
@@ -44,6 +45,39 @@ describe('written answers', () => {
 	it('is umlaut-strict even in relaxed mode', () => {
 		expect(checkWritten('die Apfel', aepfel, true).correct).toBe(false);
 		expect(checkWritten('die Äpfel.', aepfel, true).correct).toBe(true);
+	});
+});
+
+describe('gender rules', () => {
+	const noun = (de: string, article: string, en = 'x'): VocabCard => ({ de, en, kind: 'noun', article, sourceQuizId: 'q' });
+
+	it('names the ending a noun follows', () => {
+		expect(genderRule(noun('Wohnung', 'die'))).toMatchObject({ ending: 'ung', article: 'die', how: 'always', follows: true });
+		expect(genderRule(noun('Mädchen', 'das'))).toMatchObject({ ending: 'chen', follows: true });
+		expect(genderRule(noun('Lehrer', 'der'))).toMatchObject({ ending: 'er', how: 'usually', follows: true });
+	});
+
+	it('takes the longest ending', () => {
+		expect(genderRule(noun('Freiheit', 'die'))?.ending).toBe('heit');
+	});
+
+	it('marks an exception', () => {
+		expect(genderRule(noun('Mutter', 'die'))).toMatchObject({ ending: 'er', article: 'der', follows: false });
+		expect(genderRule(noun('Kuchen', 'der'))).toMatchObject({ ending: 'chen', follows: false });
+	});
+
+	it('judges a phrase card by its noun', () => {
+		expect(genderRule(noun('schlechte Wetter', 'das'))).toMatchObject({ noun: 'Wetter', follows: false });
+		expect(genderRule(noun('Bitte um', 'die'))).toMatchObject({ noun: 'Bitte', ending: 'e', follows: true });
+	});
+
+	it('stays quiet where no rule applies', () => {
+		expect(genderRule(chef)).toBeNull();
+		expect(genderRule(berlin)).toBeNull();
+		expect(genderRule(noun('Papier', 'das'))).toBeNull();
+		expect(genderRule(noun('Baum', 'der'))).toBeNull();
+		expect(genderRule(noun('Geschwister', 'die', 'siblings'))).toBeNull();
+		expect(genderRule(noun('Ei', 'das'))).toBeNull();
 	});
 });
 

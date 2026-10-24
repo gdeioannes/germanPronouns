@@ -28,6 +28,12 @@
 		<a href="/words"><Icon name="words" size="1.05em" /> Word library</a>
 		<a href="/words/nouns"><Icon name="pen" size="1.05em" /> German nouns</a>
 		<a href="/words/verbs"><Icon name="repeat" size="1.05em" /> German verbs</a>
+		<a href="/level-check"><Icon name="trophy" size="1.05em" /> Your level</a>
+		<a href="/stories"><Icon name="compass" size="1.05em" /> Stories</a>
+		<a href="/songs"><Icon name="headphones" size="1.05em" /> Songs</a>
+		<a href="/literature"><Icon name="book" size="1.05em" /> Literature</a>
+		<a href="/play/schreib-mir"><Icon name="chat" size="1.05em" /> <span lang="de">Schreib mir!</span></a>
+		<a href="/play/ja-nein"><Icon name="cards" size="1.05em" /> <span lang="de">Ja oder Nein?</span></a>
 		<a href="/changelog"><Icon name="star" size="1.05em" /> What's new</a>
 		<a href="/about"><Icon name="book" size="1.05em" /> About</a>
 		<a href="/about#accessibility"><Icon name="check" size="1.05em" /> Accessibility</a>

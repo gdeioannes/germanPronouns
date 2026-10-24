@@ -17,6 +17,14 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-24",
+    title: "Flashcards tell you the gender rule",
+    items: [
+      'Miss a noun in the flashcards, and the back of the card now tells you its ending rule: "words ending in -ung are always die", "-chen are almost always das", "-er are usually der".',
+      'When the noun breaks the rule, the card says so: "words ending in -er are usually der, but Mutter is an exception." Exceptions are where the article trips you up, so they get a warning of their own.',
+    ],
+  },
+  {
+    date: "2026-10-24",
     title: "Tap a word, get the right meaning",
     items: [
       'Tap "arm" and you now get "poor", not the body part. In "die Kluft zwischen Arm und Reich" the panel explains the phrase too. Thanks for the report!',

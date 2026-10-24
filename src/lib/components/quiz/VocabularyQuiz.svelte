@@ -15,7 +15,7 @@
 	import Burst from '../Burst.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
-	import { checkWritten, chooseOptions, clearsNeeded, fullForm, isWeak } from '$lib/domain/flashcards';
+	import { checkWritten, chooseOptions, clearsNeeded, fullForm, genderRule, isWeak } from '$lib/domain/flashcards';
 	import { GENDER_COLORS } from '$lib/domain/gender';
 	import { forSpeech } from '$lib/domain/spoken';
 	import { sayAnswer } from '$lib/services/sayAnswer';
@@ -169,6 +169,9 @@
 	const revealed = $derived(locked || peeking);
 	const target = $derived(current ? fullForm(current) : '');
 	const gender = $derived(current?.article ? ARTICLE_GENDER[current.article] : undefined);
+	/** The ending rule the noun falls under, shown with the correction on a miss. */
+	const rule = $derived(current ? genderRule(current) : null);
+	const ruleColor = $derived(rule ? GENDER_COLORS[ARTICLE_GENDER[rule.article]] : undefined);
 
 	function clearTimers() {
 		for (const t of timers) clearTimeout(t);
@@ -596,6 +599,19 @@
 								Not yet — it comes back in a moment.
 							{/if}
 						</p>
+						{#if rule}
+							<!-- The ending rule, so the miss teaches the next noun too. -->
+							<p class="rule" lang="en">
+								{#if rule.follows}
+									Tip: words ending in <strong lang={locale}>-{rule.ending}</strong> are {rule.how}
+									<strong lang={locale} style="color:{ruleColor}">{rule.article}</strong>.
+								{:else}
+									Careful: words ending in <strong lang={locale}>-{rule.ending}</strong> are {rule.how}
+									<strong lang={locale} style="color:{ruleColor}">{rule.article}</strong>, but
+									<strong lang={locale}>{rule.noun}</strong> is an exception.
+								{/if}
+							</p>
+						{/if}
 					{/if}
 					{#if repeatNote}
 						<!-- Where the word stands on the repeat list. -->
@@ -1100,6 +1116,13 @@
 
 	.empty {
 		color: var(--ink-muted);
+	}
+
+	.rule {
+		margin: 0.45rem 0 0;
+		max-width: 26rem;
+		font-size: var(--step--1);
+		color: var(--ink);
 	}
 
 	.repeat-note {
