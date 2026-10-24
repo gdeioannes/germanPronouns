@@ -197,7 +197,25 @@
 				<small>
 					For when you can't hear the audio: dictations and listening
 					exercises get a "Show the text" button, so you can read what is
-					said instead of hearing it.
+					said instead of hearing it. The picture hunt's Listen step shows
+					its word written.
+				</small>
+			</span>
+		</label>
+
+		<label class="row">
+			<input
+				type="checkbox"
+				checked={progress.autoSpeak}
+				onchange={(e) => progress.setAutoSpeak(e.currentTarget.checked)}
+			/>
+			<span>
+				<strong>Say questions and answers aloud</strong>
+				<small>
+					The voice reads the German question as it appears and the answer
+					after you check. Turn it off if you use a screen reader, so two
+					voices don't talk at once. The play buttons still work, and a
+					question you can only hear is still said.
 				</small>
 			</span>
 		</label>

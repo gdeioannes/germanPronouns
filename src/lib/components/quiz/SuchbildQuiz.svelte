@@ -168,8 +168,11 @@
 		touring = false;
 		void storage.set(SettingsKeys.suchbildTourSeen, '1');
 		// The question was spoken behind the tour: say it again.
-		if (current && !locked) void speakQuestion(current);
+		if (current && !locked) void speakQuestion(current, true);
 	}
+
+	/** The page was left: an answer still waiting to be said stays quiet. */
+	let closed = false;
 
 	function wait(ms: number) {
 		return new Promise<void>((resolve) => timers.push(setTimeout(resolve, ms)));
@@ -210,7 +213,7 @@
 	 * question.
 	 */
 	function sayPrompt(spot: SuchbildSpot) {
-		void speakQuestion(spot);
+		void speakQuestion(spot, true);
 		if (mode === 'listen') {
 			announce('Listen, find it in the picture, then write it.');
 			return;
@@ -228,10 +231,15 @@
 	 * article is the learner's to know. When nothing can speak the listen
 	 * step's noun (no German voice on the device, no recording), it is shown
 	 * written instead: a silent gold step would have no question at all.
+	 * `auto` (the question appearing, not "Listen again") leaves the read and
+	 * article steps quiet when "Say questions and answers aloud" is off: a
+	 * screen reader is reading them already. The listen step's question is
+	 * only heard, so it is always said.
 	 */
 	let silent = $state(false);
-	async function speakQuestion(spot: SuchbildSpot) {
+	async function speakQuestion(spot: SuchbildSpot, auto = false) {
 		const asking = mode;
+		if (auto && asking !== 'listen' && !progress.autoSpeak) return;
 		const spoken = await tts.speak(asking === 'find' ? `Wo ist ${full(spot)}?` : spot.de, { locale });
 		if (spot !== current || asking !== 'listen') return;
 		silent = !spoken;
@@ -254,7 +262,10 @@
 			untrack(next);
 			touring = (await storage.get(SettingsKeys.suchbildTourSeen)) !== '1';
 		})();
-		return clearTimers;
+		return () => {
+			closed = true;
+			clearTimers();
+		};
 	});
 
 	function setStep(to: number) {
@@ -507,7 +518,7 @@
 		// where it is: sound, picture and word together. Not after a first-try
 		// find on the read step: its question was just heard, article and all.
 		const said =
-			mode === 'find' && correct ? Promise.resolve() : sayAnswer(full(spot), locale, () => current === spot);
+			mode === 'find' && correct ? Promise.resolve() : sayAnswer(full(spot), locale, () => !closed && current === spot);
 		// A find keeps its tick on the room even after a wrong article: the
 		// thing was found, and its label shows the article it should have had.
 		if (!shown && !found.includes(spot.de)) found = [...found, spot.de];
@@ -682,6 +693,10 @@
 				{#if silent}
 					<!-- Nothing could speak it: the written question stands in. -->
 					<span class="muted">{current.de} <span lang="en">(no voice available)</span></span>
+				{:else if progress.showTranscripts}
+					<!-- "Show the text in listening exercises": for a learner who
+					     can't hear it, the noun (never the article) is written. -->
+					<span class="muted">{current.de} <span lang="en">(the word you hear)</span></span>
 				{:else}
 					<span class="muted" lang="en">Which thing did you hear?</span>
 				{/if}

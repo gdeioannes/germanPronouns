@@ -41,6 +41,8 @@ export const SettingsKeys = {
 	muted: 'app_muted',
 	/** Web-only. Listening exercises offer their text for learners who can't hear it. */
 	showTranscripts: 'show_transcripts',
+	/** Web-only. Only an explicit "false" turns it off: the voice says questions and answers by itself. */
+	autoSpeak: 'auto_speak',
 	/** Web-only. Date of the newest changelog release this browser has seen. */
 	changelogSeen: 'changelog_seen',
 	/** Web-only. The home page offers whose corner label this browser has clicked: those labels stay away. */

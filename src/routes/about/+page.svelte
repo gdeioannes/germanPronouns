@@ -175,37 +175,66 @@
 			</p>
 			<ul>
 				<li>
-					<strong>Screen readers</strong> — right and wrong answers, corrections
-					and results are read out, and German is marked as German, so a
-					corrected sentence is spoken in a German voice rather than an
-					English one.
+					<strong>Screen readers</strong> — right and wrong answers, the
+					corrected answer, your run result and new medals are read out as
+					they happen. German is marked as German (titles, answers, words in
+					the picture hunt), so it is spoken in a German voice rather than an
+					English one. Every icon button has a name, and in the picture hunt
+					every object in the room is a named button, so you can look for it
+					in a list instead of by eye. When a panel or a pop-up opens, your
+					screen reader goes into it, the page behind it goes quiet, Escape
+					closes it and you land back where you were.
+				</li>
+				<li>
+					<strong>One voice at a time</strong> — the course reads German
+					questions and answers aloud by itself. If you use a screen reader,
+					turn off "Say questions and answers aloud" in
+					<a href="/settings">settings</a> so the two voices don't talk over
+					each other; the play buttons still work.
 				</li>
 				<li>
 					<strong>Keyboard</strong> — every exercise, the card deck and every
-					panel work without a mouse, with a "skip to content" link and focus
-					that never gets lost when the screen changes.
+					panel work without a mouse. There is a "Skip to content" link, the
+					der/die/das buttons and other choices move with the arrow keys,
+					Enter moves on after an answer, and the picture hunt zooms with
+					+ and − buttons as well as a pinch. Your place is never lost when
+					the screen changes.
 				</li>
 				<li>
-					<strong>Your own pace</strong> — in <a href="/settings">settings</a>,
-					"Wait for me" stops the exercises moving on by themselves; nothing
-					is timed.
+					<strong>Your own pace</strong> — nothing is timed. In settings you
+					choose how long an answer stays on screen, and "Wait for me" stops
+					the exercises moving on by themselves at all.
 				</li>
 				<li>
-					<strong>Hearing</strong> — a setting adds a "Show the text" button to
-					dictations and listening exercises, for anyone who can't hear the
-					audio.
+					<strong>Hearing</strong> — "Show the text in listening exercises"
+					adds the text to dictations and listening exercises and writes the
+					word in the picture hunt's Listen step. If no voice can play, that
+					step writes the word by itself. No exercise needs a microphone.
 				</li>
 				<li>
-					<strong>Seeing</strong> — text meets the contrast guidelines, and
+					<strong>Seeing</strong> — text meets the AA contrast guidelines,
 					noun genders are told apart by their underline as well as their
-					colour.
+					colour, and every page still works on a screen 320 pixels wide or
+					zoomed in to 400%.
 				</li>
 				<li>
-					<strong>Motion</strong> — "Calm effects" in settings, or your
-					device's "reduce motion" setting, turns off the confetti, shakes
-					and pulses.
+					<strong>Hands and typing</strong> — in the picture hunt a tap just
+					beside a small thing still finds it. "Relaxed correction" (on by
+					default) accepts an answer that only misses an umlaut, an accent or
+					a full stop, so a keyboard without ä, ö, ü and ß is no problem.
+				</li>
+				<li>
+					<strong>Motion and sound</strong> — "Calm effects" in settings, or
+					your device's "reduce motion" setting, turns off the confetti,
+					shakes and pulses. "Mute the app" silences everything, and the
+					sound effects can be turned off on their own.
 				</li>
 			</ul>
+			<p>
+				The course is checked in rounds with an automatic accessibility test
+				(axe), a walk through each page using only the keyboard, and a narrow
+				320-pixel screen.
+			</p>
 			<p>
 				I test this myself, but not with every assistive technology. If
 				something gets in your way, <strong class="key">please tell me</strong>; I treat that

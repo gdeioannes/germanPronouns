@@ -244,8 +244,14 @@
 				next();
 			})();
 		}
-		return clearTimers;
+		return () => {
+			closed = true;
+			clearTimers();
+		};
 	});
+
+	/** The page was left: an answer still waiting to be said stays quiet. */
+	let closed = false;
 
 	/** The run is over: log it, mark the deck done, show the card. */
 	function finishRun() {
@@ -327,7 +333,7 @@
 		react(correct, cardEl, streak);
 		// Then the voice says the word on the back, right or wrong, while the
 		// card shows its picture: sound, picture and word together.
-		const said = sayAnswer(forSpeech(target), locale, () => current === card);
+		const said = sayAnswer(forSpeech(target), locale, () => !closed && current === card);
 		if (!correct) missKey += 1;
 		saveSpot<Spot>(quiz.storageKeyPrefix, run.saved);
 		if (correct) {

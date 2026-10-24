@@ -22,7 +22,7 @@ import {
 	type RibbonTier
 } from '$lib/domain/progress';
 import { applyCalmEffects } from '$lib/motion/fx.svelte';
-import { setMuted } from '$lib/services/mute';
+import { setAutoSpeak, setMuted } from '$lib/services/mute';
 import { setSoundEffects } from '$lib/services/sounds';
 import { setVoiceOfflineOnly, tts } from '$lib/services/speech';
 import { storage } from '$lib/services/storage';
@@ -177,6 +177,11 @@ class ProgressStore {
 	 * for everyone else the hidden text is the exercise.
 	 */
 	showTranscripts = $state(false);
+	/**
+	 * The voice says questions and answers by itself. On by default; a
+	 * screen-reader user turns it off so two voices don't talk at once.
+	 */
+	autoSpeak = $state(true);
 	/** How long the answer stays revealed before the next question. */
 	answerRevealMode = $state<AnswerRevealMode>('normal');
 	loaded = $state(false);
@@ -227,6 +232,8 @@ class ProgressStore {
 		this.surprises = (await storage.get(SettingsKeys.surprises)) !== 'false';
 		setMuted(this.muted);
 		this.showTranscripts = (await storage.get(SettingsKeys.showTranscripts)) === 'true';
+		this.autoSpeak = (await storage.get(SettingsKeys.autoSpeak)) !== 'false';
+		setAutoSpeak(this.autoSpeak);
 		const mode = await storage.get(SettingsKeys.answerRevealMode);
 		if (mode === 'quick' || mode === 'normal' || mode === 'slow' || mode === 'manual') {
 			this.answerRevealMode = mode;
@@ -682,6 +689,12 @@ class ProgressStore {
 	async setShowTranscripts(value: boolean): Promise<void> {
 		this.showTranscripts = value;
 		await storage.set(SettingsKeys.showTranscripts, String(value));
+	}
+
+	async setAutoSpeak(value: boolean): Promise<void> {
+		this.autoSpeak = value;
+		setAutoSpeak(value);
+		await storage.set(SettingsKeys.autoSpeak, String(value));
 	}
 
 	async setSoundEffects(value: boolean): Promise<void> {

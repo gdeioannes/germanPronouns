@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-24",
+    title: "One voice at a time: for screen readers and for hearing",
+    items: [
+      'New setting: "Say questions and answers aloud". It is on by default. If you use a screen reader, turn it off, so the course\'s voice and your screen reader don\'t talk over each other. The play buttons still work, and the picture hunt\'s Listen step still says its word, because that word is the question.',
+      'With "Show the text in listening exercises" on, the picture hunt\'s Listen step writes the word you hear: the noun only, never its article.',
+      "Leave an exercise right after answering, and the answer is no longer spoken on the next page.",
+      "The Accessibility section of the About page now lists exactly what the course does for screen readers, the keyboard, hearing, seeing, typing and motion.",
+    ],
+  },
+  {
+    date: "2026-10-24",
     title: "The picture hunt asks out loud",
     items: [
       "After you answer in the picture hunt or the flashcards, the voice says the right word, right or wrong, while you still see it: sound, picture and word together.",

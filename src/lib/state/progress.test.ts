@@ -11,6 +11,7 @@ import { progress, revealPause } from './progress.svelte';
 import { buildLadder } from '$lib/domain/ladder';
 import { quizStatsKeys, SettingsKeys } from '$lib/domain/keys';
 import { LEGACY_GOAL_STREAK } from '$lib/domain/progress';
+import { speaksOnItsOwn } from '$lib/services/mute';
 import type { PopulatedCourse, Quiz } from '$lib/content/types';
 
 /** A Map-backed localStorage, so the store's real persistence path is exercised. */
@@ -107,6 +108,19 @@ describe('settings survive a reload', () => {
 		await progress.load();
 		expect(progress.answerRevealMode).toBe('manual');
 		expect(progress.showTranscripts).toBe(true);
+	});
+
+	it('says questions and answers aloud until the learner turns it off', async () => {
+		const map = installStorage();
+		await progress.load();
+		expect(progress.autoSpeak).toBe(true);
+		await progress.setAutoSpeak(false);
+		expect(map.get(SettingsKeys.autoSpeak)).toBe('false');
+
+		await progress.load();
+		expect(progress.autoSpeak).toBe(false);
+		expect(speaksOnItsOwn()).toBe(false);
+		await progress.setAutoSpeak(true);
 	});
 
 	it('defaults word help and relaxed correction on for a new learner', async () => {
