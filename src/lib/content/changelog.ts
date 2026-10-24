@@ -17,6 +17,15 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-24",
+    title: "The picture hunt asks out loud",
+    items: [
+      "After you answer in the picture hunt or the flashcards, the voice says the right word, right or wrong, while you still see it: sound, picture and word together.",
+      "Every step of the picture hunt now says its question aloud, once, as soon as it appears. Bronze says it whole: \"Wo ist die Brille?\". Silver says only the noun, \"Brille\", so the article stays yours to choose. Gold, as before, says only the noun.",
+      "After a first-try find on bronze the voice no longer repeats the answer you just heard, so the run moves on faster. After a miss, and on silver and gold, you still hear the answer with its article.",
+    ],
+  },
+  {
+    date: "2026-10-24",
     title: "Your level: how many German words do you know?",
     highlight: true,
     items: [

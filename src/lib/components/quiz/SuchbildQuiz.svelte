@@ -6,10 +6,11 @@
 	// in its gender's colour, so the room records the run without labels
 	// covering it. Three ways to hunt, the medal ladder's three steps:
 	//
-	//   Read    (bronze) — the prompt is the German with its article; find it.
+	//   Read    (bronze) — the prompt is the German with its article, and is
+	//            heard so ("Wo ist die Brille?"); find it.
 	//   Article (silver) — the prompt hides the article ("Wo ist ___ Brille?");
-	//            find it, then pick der/die/das. No audio until it is
-	//            answered: the voice would say the article.
+	//            find it, then pick der/die/das. Only the noun is heard
+	//            until it is answered: the voice would say the article.
 	//   Listen  (gold)   — only the noun is heard, without its article; find
 	//            it, then write the article and the noun.
 	//
@@ -44,6 +45,7 @@
 	import { storage } from '$lib/services/storage';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { tts } from '$lib/services/speech';
+	import { sayAnswer } from '$lib/services/sayAnswer';
 	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
@@ -165,8 +167,8 @@
 	function endTour() {
 		touring = false;
 		void storage.set(SettingsKeys.suchbildTourSeen, '1');
-		// The gold step's question was spoken behind the tour: say it again.
-		if (current && mode === 'listen' && !locked) void speakQuestion(current);
+		// The question was spoken behind the tour: say it again.
+		if (current && !locked) void speakQuestion(current);
 	}
 
 	function wait(ms: number) {
@@ -203,13 +205,14 @@
 	}
 
 	/**
-	 * The question, for screen readers; in `name` without the article. The
-	 * listen step speaks it aloud instead — that is the whole question.
+	 * The question, for screen readers; in `name` without the article. Every
+	 * step also speaks it aloud, once — on the listen step that is the whole
+	 * question.
 	 */
 	function sayPrompt(spot: SuchbildSpot) {
+		void speakQuestion(spot);
 		if (mode === 'listen') {
 			announce('Listen, find it in the picture, then write it.');
-			void speakQuestion(spot);
 			return;
 		}
 		announce(
@@ -220,15 +223,17 @@
 	}
 
 	/**
-	 * The listen step's question, spoken: the noun alone, so the article is
-	 * the learner's to know. When nothing can speak it (no German voice on the
-	 * device, no recording), the noun is shown written instead: a silent gold
-	 * step would have no question at all.
+	 * The question, spoken. The read step says it whole ("Wo ist die
+	 * Brille?"); the article and listen steps say the noun alone, so the
+	 * article is the learner's to know. When nothing can speak the listen
+	 * step's noun (no German voice on the device, no recording), it is shown
+	 * written instead: a silent gold step would have no question at all.
 	 */
 	let silent = $state(false);
 	async function speakQuestion(spot: SuchbildSpot) {
-		const spoken = await tts.speak(spot.de, { locale });
-		if (spot !== current) return;
+		const asking = mode;
+		const spoken = await tts.speak(asking === 'find' ? `Wo ist ${full(spot)}?` : spot.de, { locale });
+		if (spot !== current || asking !== 'listen') return;
 		silent = !spoken;
 		if (silent) announce([{ text: 'No voice is available, so the word is written:' }, { text: spot.de, lang: locale }]);
 	}
@@ -498,6 +503,11 @@
 		// A half is still a find: the chime, without the red glow of a miss.
 		if (mark === 'half') playSound('right');
 		else react(correct, roomEl, stats.streak);
+		// Then the voice says the answer, right or wrong, while the room shows
+		// where it is: sound, picture and word together. Not after a first-try
+		// find on the read step: its question was just heard, article and all.
+		const said =
+			mode === 'find' && correct ? Promise.resolve() : sayAnswer(full(spot), locale, () => current === spot);
 		// A find keeps its tick on the room even after a wrong article: the
 		// thing was found, and its label shows the article it should have had.
 		if (!shown && !found.includes(spot.de)) found = [...found, spot.de];
@@ -540,6 +550,8 @@
 		}
 		// A miss needs time to see where the thing actually is.
 		await wait(pause + (mark !== 'wrong' ? 700 : 1600));
+		// Never cut the spoken answer off.
+		await said;
 		if (skip === moveOn) moveOn();
 	}
 

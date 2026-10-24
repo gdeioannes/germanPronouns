@@ -18,6 +18,7 @@
 	import { checkWritten, chooseOptions, clearsNeeded, fullForm, isWeak } from '$lib/domain/flashcards';
 	import { GENDER_COLORS } from '$lib/domain/gender';
 	import { forSpeech } from '$lib/domain/spoken';
+	import { sayAnswer } from '$lib/services/sayAnswer';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { bumpOn, celebrate, react, shakeOn } from '$lib/motion/fx.svelte';
 	import { LadderRun, type ClimbOffer } from '$lib/state/ladderRun.svelte';
@@ -324,6 +325,9 @@
 		// passed for the first time earns its medal, celebrated there and then.
 		const medalWon = await run.answer(correct, streak, { counting, miss: target });
 		react(correct, cardEl, streak);
+		// Then the voice says the word on the back, right or wrong, while the
+		// card shows its picture: sound, picture and word together.
+		const said = sayAnswer(forSpeech(target), locale, () => current === card);
 		if (!correct) missKey += 1;
 		saveSpot<Spot>(quiz.storageKeyPrefix, run.saved);
 		if (correct) {
@@ -359,6 +363,8 @@
 			return;
 		}
 		await wait(pause + (correct ? 500 : 800));
+		// Never cut the spoken answer off.
+		await said;
 		if (skip === moveOn) moveOn();
 	}
 
