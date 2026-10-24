@@ -28,6 +28,8 @@ export const GET: RequestHandler = async () => {
 		{ loc: '/songs', lastmod: lastModified('src/lib/domain/songs.ts'), priority: '0.6' },
 		{ loc: '/stories', lastmod: lastModified('src/lib/domain/stories.ts'), priority: '0.6' },
 		{ loc: '/literature', lastmod: lastModified('src/lib/content/literature.ts'), priority: '0.6' },
+		{ loc: '/level-check', lastmod: lastModified('src/routes/level-check'), priority: '0.7' },
+		{ loc: '/level-check/words', lastmod: lastModified('src/routes/level-check', 'assets/content/wordcheck/de.json'), priority: '0.7' },
 		// The boards' front page; the topics themselves load live and stay noindex.
 		{ loc: '/forum', lastmod: lastModified('src/routes/forum'), priority: '0.4' },
 		{ loc: '/words', lastmod: wordsDate, priority: '0.6' },

@@ -16,6 +16,25 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-24",
+    title: "Your level: how many German words do you know?",
+    highlight: true,
+    items: [
+      "New in the menu: Your level. The word check shows you German words, screen by screen, and you tap the ones you know. It takes about two minutes, and the words get harder as you go.",
+      "A few words on every screen are made up. Tapping them lowers your result, so tap only the words you are sure about. It keeps the answer honest.",
+      "At the end you see about how many German words you know, your level, a bar for every level from A1.1 to C2.2, and the words to learn next. No marks, no medals.",
+      "It also suggests a level and a pace for your deck, and one tap sets your deck up that way. Or choose your own.",
+      "Your checks are kept on the Your level page, so the next one shows how many words you gained. Once a month the check turns up in your deck as a card too.",
+    ],
+  },
+  {
+    date: "2026-10-24",
+    title: "Sharper covers on the study books",
+    items: [
+      "The covers of the A1.1 to B1.2 study books were blurry when printed. They are sharp now, in the PDFs too.",
+    ],
+  },
+  {
     date: "2026-10-23",
     title: 'A third song: "Wie bitte?", and a page for all songs',
     items: [

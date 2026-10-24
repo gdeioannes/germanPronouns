@@ -1,0 +1,223 @@
+{
+  "_comment": [
+    "The word bank of the level check (src/lib/domain/wordCheck.ts). Hand-picked, not generated:",
+    "the flashcard decks follow the grammar topics, so a C2 deck holds 'Straßenbahn' because of",
+    "compounding. Here each sub-level lists words typical of what a learner meets there, one word",
+    "per chip (no phrases, no 'sich'), nouns with their article, never repeated across levels.",
+    "fakes: made-up words that look German, in three tiers that look like the levels they hide in",
+    "(a = short A-level words, b = B-level derivations, c = long C-level ones). They must not be",
+    "real words, nor built from a real stem; src/lib/domain/wordCheck.test.ts checks them against the",
+    "dictionary, the noun and verb collections and the real words below."
+  ],
+  "levels": [
+    {
+      "level": "A1.1",
+      "words": [
+        ["der Vater", "father"], ["die Mutter", "mother"], ["der Bruder", "brother"], ["die Schwester", "sister"],
+        ["das Kind", "child"], ["der Name", "name"], ["heißen", "to be called"], ["wohnen", "to live"],
+        ["kommen", "to come"], ["sprechen", "to speak"], ["trinken", "to drink"], ["essen", "to eat"],
+        ["das Wasser", "water"], ["das Brot", "bread"], ["der Apfel", "apple"], ["die Milch", "milk"],
+        ["das Haus", "house"], ["die Stadt", "town, city"], ["groß", "big"], ["klein", "small"],
+        ["gut", "good"], ["heute", "today"], ["morgen", "tomorrow"], ["danke", "thank you"],
+        ["bitte", "please"], ["die Frau", "woman"], ["der Mann", "man"], ["das Buch", "book"],
+        ["der Tisch", "table"], ["der Stuhl", "chair"], ["die Tür", "door"], ["der Freund", "friend"],
+        ["die Uhr", "clock, watch"], ["das Jahr", "year"], ["der Tag", "day"], ["neu", "new"],
+        ["alt", "old"], ["schön", "beautiful, nice"], ["lernen", "to learn"], ["spielen", "to play"],
+        ["kaufen", "to buy"], ["hier", "here"], ["die Straße", "street"], ["die Zeit", "time"]
+      ]
+    },
+    {
+      "level": "A1.2",
+      "words": [
+        ["die Wohnung", "flat, apartment"], ["das Zimmer", "room"], ["die Küche", "kitchen"], ["das Bett", "bed"],
+        ["der Bahnhof", "station"], ["der Zug", "train"], ["die Fahrkarte", "ticket"], ["das Geschäft", "shop"],
+        ["das Gemüse", "vegetables"], ["das Obst", "fruit"], ["der Käse", "cheese"], ["das Fleisch", "meat"],
+        ["der Termin", "appointment"], ["die Woche", "week"], ["der Monat", "month"], ["das Wochenende", "weekend"],
+        ["aufstehen", "to get up"], ["anrufen", "to phone"], ["einkaufen", "to go shopping"], ["fahren", "to drive, to go"],
+        ["schlafen", "to sleep"], ["arbeiten", "to work"], ["brauchen", "to need"], ["suchen", "to look for"],
+        ["finden", "to find"], ["öffnen", "to open"], ["warten", "to wait"], ["müde", "tired"],
+        ["krank", "ill"], ["teuer", "expensive"], ["billig", "cheap"], ["links", "left"],
+        ["rechts", "right"], ["geradeaus", "straight on"], ["früh", "early"], ["spät", "late"],
+        ["oft", "often"], ["manchmal", "sometimes"], ["immer", "always"], ["der Kopf", "head"],
+        ["der Bauch", "belly"], ["das Wetter", "weather"], ["regnen", "to rain"], ["kalt", "cold"]
+      ]
+    },
+    {
+      "level": "A2.1",
+      "words": [
+        ["der Urlaub", "holiday"], ["die Reise", "trip"], ["das Gepäck", "luggage"], ["der Koffer", "suitcase"],
+        ["der Flughafen", "airport"], ["die Abfahrt", "departure"], ["die Verspätung", "delay"], ["umsteigen", "to change (trains)"],
+        ["der Arzt", "doctor"], ["die Apotheke", "pharmacy"], ["das Rezept", "prescription, recipe"], ["die Erkältung", "a cold"],
+        ["der Schmerz", "pain"], ["gesund", "healthy"], ["das Fieber", "fever"], ["husten", "to cough"],
+        ["die Jacke", "jacket"], ["das Kleid", "dress"], ["die Größe", "size"], ["anprobieren", "to try on"],
+        ["umtauschen", "to exchange"], ["die Kasse", "till, checkout"], ["die Quittung", "receipt"], ["bezahlen", "to pay"],
+        ["das Angebot", "offer"], ["der Schlüssel", "key"], ["die Rechnung", "bill"], ["bestellen", "to order"],
+        ["der Unfall", "accident"], ["die Ampel", "traffic light"], ["die Kreuzung", "crossroads"], ["eng", "tight, narrow"],
+        ["bequem", "comfortable"], ["freundlich", "friendly"], ["pünktlich", "on time"], ["bekannt", "well known"],
+        ["zuerst", "first"], ["danach", "after that"], ["schließlich", "finally"], ["vorgestern", "the day before yesterday"],
+        ["vergessen", "to forget"], ["erklären", "to explain"], ["zeigen", "to show"], ["leihen", "to lend, to borrow"]
+      ]
+    },
+    {
+      "level": "A2.2",
+      "words": [
+        ["der Kollege", "colleague"], ["die Firma", "company"], ["die Stelle", "job, position"], ["verdienen", "to earn"],
+        ["die Ausbildung", "training"], ["die Prüfung", "test"], ["der Nachbar", "neighbour"], ["die Miete", "rent"],
+        ["umziehen", "to move house"], ["die Heizung", "heating"], ["kaputt", "broken"], ["reparieren", "to repair"],
+        ["das Geschenk", "present"], ["feiern", "to celebrate"], ["einladen", "to invite"], ["die Hochzeit", "wedding"],
+        ["gewinnen", "to win"], ["verlieren", "to lose"], ["schicken", "to send"], ["bekommen", "to get, to receive"],
+        ["langweilig", "boring"], ["lustig", "funny"], ["ruhig", "quiet"], ["gefährlich", "dangerous"],
+        ["hoffen", "to hope"], ["glauben", "to believe"], ["die Meinung", "opinion"], ["wichtig", "important"],
+        ["die Nachricht", "message, news"], ["die Zeitung", "newspaper"], ["die Umwelt", "environment"], ["der Müll", "rubbish"],
+        ["trennen", "to separate"], ["die Ausstellung", "exhibition"], ["die Eintrittskarte", "admission ticket"], ["der Verein", "club"],
+        ["die Freizeit", "free time"], ["deshalb", "that's why"], ["trotzdem", "anyway, still"], ["wahrscheinlich", "probably"],
+        ["vielleicht", "maybe"], ["der Vorteil", "advantage"], ["der Nachteil", "disadvantage"], ["die Erfahrung", "experience"]
+      ]
+    },
+    {
+      "level": "B1.1",
+      "words": [
+        ["die Bewerbung", "application"], ["der Lebenslauf", "CV"], ["das Vorstellungsgespräch", "job interview"], ["die Beziehung", "relationship"],
+        ["die Erziehung", "upbringing"], ["die Gesellschaft", "society"], ["die Gewohnheit", "habit"], ["die Ernährung", "diet, nutrition"],
+        ["der Verbraucher", "consumer"], ["die Gebühr", "fee"], ["der Vertrag", "contract"], ["kündigen", "to cancel, to quit"],
+        ["die Beschwerde", "complaint"], ["die Lösung", "solution"], ["der Vorschlag", "suggestion"], ["entscheiden", "to decide"],
+        ["verantwortlich", "responsible"], ["die Pflicht", "duty"], ["der Unterschied", "difference"], ["ähnlich", "similar"],
+        ["ehrlich", "honest"], ["neugierig", "curious"], ["eifersüchtig", "jealous"], ["zuverlässig", "reliable"],
+        ["die Ursache", "cause"], ["die Folge", "consequence"], ["deutlich", "clear"], ["ungefähr", "about, roughly"],
+        ["sogar", "even"], ["allerdings", "however"], ["außerdem", "besides"], ["unterstützen", "to support"],
+        ["vermeiden", "to avoid"], ["erwarten", "to expect"], ["erlauben", "to allow"], ["verbieten", "to forbid"],
+        ["die Gelegenheit", "opportunity"], ["der Zustand", "state, condition"], ["die Aufgabe", "task"], ["leisten", "to achieve, to afford"],
+        ["sparen", "to save"], ["der Kunde", "customer"], ["die Abteilung", "department"], ["überzeugt", "convinced"]
+      ]
+    },
+    {
+      "level": "B1.2",
+      "words": [
+        ["die Umfrage", "survey"], ["die Mehrheit", "majority"], ["die Steuer", "tax"], ["die Behörde", "authority, office"],
+        ["der Antrag", "application (form)"], ["ausfüllen", "to fill in"], ["die Unterschrift", "signature"], ["der Ausweis", "ID card"],
+        ["die Wahl", "election, choice"], ["die Regierung", "government"], ["die Versicherung", "insurance"], ["der Schaden", "damage"],
+        ["die Verletzung", "injury"], ["das Gerät", "device"], ["die Anleitung", "instructions"], ["die Lieferung", "delivery"],
+        ["der Zusammenhang", "connection, context"], ["die Bedeutung", "meaning"], ["der Zweck", "purpose"], ["notwendig", "necessary"],
+        ["selbstständig", "independent"], ["die Leistung", "performance"], ["der Fortschritt", "progress"], ["die Entwicklung", "development"],
+        ["entwickeln", "to develop"], ["beeinflussen", "to influence"], ["verändern", "to change"], ["verbessern", "to improve"],
+        ["verursachen", "to cause"], ["behaupten", "to claim"], ["die Werbung", "advertising"], ["der Bürger", "citizen"],
+        ["die Grenze", "border, limit"], ["das Gesetz", "law"], ["die Forderung", "demand"], ["vorhanden", "available, present"],
+        ["gleichzeitig", "at the same time"], ["inzwischen", "meanwhile"], ["bereits", "already"], ["beinahe", "almost"],
+        ["die Rücksicht", "consideration"], ["der Eindruck", "impression"], ["empfehlen", "to recommend"], ["teilnehmen", "to take part"]
+      ]
+    },
+    {
+      "level": "B2.1",
+      "words": [
+        ["die Nachhaltigkeit", "sustainability"], ["der Klimawandel", "climate change"], ["die Voraussetzung", "prerequisite"], ["die Herausforderung", "challenge"],
+        ["die Auswirkung", "effect, impact"], ["die Maßnahme", "measure"], ["die Verantwortung", "responsibility"], ["der Aufwand", "effort"],
+        ["die Gleichberechtigung", "equal rights"], ["die Vielfalt", "diversity"], ["beantragen", "to apply for"], ["einreichen", "to submit"],
+        ["verschieben", "to postpone"], ["abhängig", "dependent"], ["anspruchsvoll", "demanding"], ["erheblich", "considerable"],
+        ["offensichtlich", "obvious"], ["vorübergehend", "temporary"], ["hingegen", "on the other hand"], ["dennoch", "nevertheless"],
+        ["ausreichend", "sufficient"], ["umfangreich", "extensive"], ["die Kenntnis", "knowledge"], ["der Einfluss", "influence"],
+        ["die Forschung", "research"], ["der Wettbewerb", "competition"], ["die Ausnahme", "exception"], ["die Ansicht", "view"],
+        ["überzeugen", "to convince"], ["ablehnen", "to reject"], ["zustimmen", "to agree"], ["betonen", "to emphasise"],
+        ["bewältigen", "to cope with"], ["bewerten", "to assess"], ["der Bedarf", "need, demand"], ["der Bestandteil", "component"],
+        ["die Beratung", "advice, counselling"], ["die Einschränkung", "restriction"], ["zuständig", "in charge"], ["vergleichbar", "comparable"],
+        ["die Absicht", "intention"], ["der Zweifel", "doubt"], ["verzichten", "to do without"], ["zunehmen", "to increase"]
+      ]
+    },
+    {
+      "level": "B2.2",
+      "words": [
+        ["die Verhandlung", "negotiation"], ["die Kündigung", "notice, dismissal"], ["der Zuschuss", "subsidy"], ["die Förderung", "funding, support"],
+        ["die Rente", "pension"], ["der Aufschwung", "upturn"], ["die Konjunktur", "economic situation"], ["der Umsatz", "turnover"],
+        ["die Nachfrage", "demand"], ["der Verbrauch", "consumption"], ["die Wahrnehmung", "perception"], ["das Vorurteil", "prejudice"],
+        ["die Zuwanderung", "immigration"], ["die Bevölkerung", "population"], ["der Wohlstand", "prosperity"], ["die Armut", "poverty"],
+        ["ausgewogen", "balanced"], ["nachvollziehbar", "understandable"], ["bezüglich", "regarding"], ["hinsichtlich", "with regard to"],
+        ["angemessen", "appropriate"], ["sachlich", "objective, factual"], ["voreingenommen", "biased"], ["umstritten", "controversial"],
+        ["ermöglichen", "to enable"], ["beeinträchtigen", "to impair"], ["berücksichtigen", "to take into account"], ["gewährleisten", "to guarantee"],
+        ["erläutern", "to explain"], ["hinweisen", "to point out"], ["feststellen", "to find, to establish"], ["verdeutlichen", "to make clear"],
+        ["der Verdacht", "suspicion"], ["die Sorgfalt", "care"], ["der Anlass", "occasion, reason"], ["die Belastung", "strain, burden"],
+        ["vorwiegend", "mainly"], ["keineswegs", "by no means"], ["ohnehin", "anyway"], ["dementsprechend", "accordingly"],
+        ["die Rücklage", "savings, reserve"], ["der Engpass", "bottleneck"], ["verhindern", "to prevent"], ["beitragen", "to contribute"]
+      ]
+    },
+    {
+      "level": "C1.1",
+      "words": [
+        ["die Abhandlung", "treatise"], ["die Annahme", "assumption"], ["die Erkenntnis", "insight, finding"], ["der Ansatz", "approach"],
+        ["die Tragweite", "implications, scope"], ["die Gegebenheit", "circumstance"], ["der Sachverhalt", "facts of the case"], ["die Fragestellung", "question, issue"],
+        ["der Befund", "finding, result"], ["die Stichprobe", "sample"], ["die Wechselwirkung", "interaction"], ["die Beeinträchtigung", "impairment"],
+        ["maßgeblich", "decisive"], ["schlüssig", "conclusive"], ["fundiert", "well-founded"], ["eindeutig", "unambiguous"],
+        ["vermeintlich", "supposed"], ["weitgehend", "largely"], ["zwangsläufig", "inevitably"], ["demnach", "accordingly"],
+        ["infolgedessen", "as a result"], ["wohingegen", "whereas"], ["sofern", "provided that"], ["ableiten", "to derive"],
+        ["belegen", "to prove, to back up"], ["widerlegen", "to refute"], ["hervorheben", "to highlight"], ["einräumen", "to concede"],
+        ["untermauern", "to underpin"], ["veranschaulichen", "to illustrate"], ["erörtern", "to discuss"], ["aufgreifen", "to take up"],
+        ["verzeichnen", "to record"], ["nachvollziehen", "to follow, to understand"], ["die Grundlage", "basis"], ["der Widerspruch", "contradiction"],
+        ["die Begebenheit", "occurrence"], ["erwägen", "to consider"], ["bemängeln", "to criticise"], ["unerlässlich", "indispensable"],
+        ["gegebenenfalls", "if necessary"], ["überwiegend", "predominantly"], ["die Vorgehensweise", "procedure"], ["die Gewichtung", "weighting"]
+      ]
+    },
+    {
+      "level": "C1.2",
+      "words": [
+        ["das Gerücht", "rumour"], ["der Zeuge", "witness"], ["der Vorwurf", "accusation"], ["die Anspielung", "allusion"],
+        ["die Andeutung", "hint"], ["die Gelassenheit", "composure"], ["die Zuversicht", "confidence"], ["der Zwiespalt", "inner conflict"],
+        ["die Verlegenheit", "embarrassment"], ["die Gewissenhaftigkeit", "conscientiousness"], ["angeblich", "allegedly"], ["beiläufig", "casually"],
+        ["eigenwillig", "idiosyncratic"], ["unbeholfen", "clumsy"], ["verblüfft", "amazed"], ["beharrlich", "persistent"],
+        ["bestreiten", "to deny"], ["beteuern", "to assert"], ["vorwerfen", "to reproach"], ["andeuten", "to hint"],
+        ["verharmlosen", "to play down"], ["übertreiben", "to exaggerate"], ["beschönigen", "to gloss over"], ["zögern", "to hesitate"],
+        ["ausweichen", "to evade"], ["schildern", "to describe"], ["empört", "outraged"], ["gekränkt", "hurt, offended"],
+        ["mitunter", "at times"], ["gleichwohl", "nonetheless"], ["der Leichtsinn", "carelessness"], ["die Rechtfertigung", "justification"],
+        ["die Schadenfreude", "malicious joy"], ["der Spott", "mockery"], ["taktlos", "tactless"], ["verlegen", "embarrassed"],
+        ["kleinlaut", "subdued"], ["zuvorkommend", "obliging"], ["anmaßend", "arrogant"], ["verschweigen", "to keep quiet about"],
+        ["zurechtkommen", "to cope"], ["verlautbaren", "to announce"], ["herablassend", "condescending"], ["einlenken", "to give way"]
+      ]
+    },
+    {
+      "level": "C2.1",
+      "words": [
+        ["die Befangenheit", "bias, self-consciousness"], ["die Haftung", "liability"], ["der Rechtsstreit", "lawsuit"], ["die Gepflogenheit", "custom, practice"],
+        ["die Anmaßung", "presumption"], ["die Spitzfindigkeit", "hair-splitting"], ["die Gratwanderung", "balancing act"], ["das Unterfangen", "undertaking"],
+        ["der Werdegang", "career path"], ["die Bewandtnis", "special reason"], ["erschwerend", "aggravating"], ["unumgänglich", "unavoidable"],
+        ["hanebüchen", "outrageous"], ["lapidar", "terse"], ["akribisch", "meticulous"], ["süffisant", "smug"],
+        ["zuweilen", "at times"], ["gemeinhin", "commonly"], ["alsbald", "shortly"], ["mithin", "consequently"],
+        ["anberaumen", "to schedule"], ["beanstanden", "to object to"], ["erwirken", "to obtain (by law)"], ["veräußern", "to sell off"],
+        ["ahnden", "to punish"], ["verwirken", "to forfeit"], ["monieren", "to criticise"], ["abwägen", "to weigh up"],
+        ["ergründen", "to fathom"], ["schwelgen", "to revel"], ["die Unbedarftheit", "naivety"], ["der Sachzwang", "practical constraint"],
+        ["die Zwietracht", "discord"], ["die Nachsicht", "leniency"], ["der Gesinnungswandel", "change of heart"], ["unbescholten", "of good character"],
+        ["unverhohlen", "undisguised"], ["anrüchig", "disreputable"], ["kaltschnäuzig", "callous"], ["vereiteln", "to thwart"],
+        ["bekunden", "to express"], ["beipflichten", "to agree with"], ["dergestalt", "in such a way"], ["eingedenk", "mindful of"]
+      ]
+    },
+    {
+      "level": "C2.2",
+      "words": [
+        ["die Muße", "leisure"], ["die Weltanschauung", "world view"], ["die Vergänglichkeit", "transience"], ["die Willkür", "arbitrariness"],
+        ["die Sittlichkeit", "morality"], ["der Trugschluss", "fallacy"], ["die Scheinheiligkeit", "hypocrisy"], ["die Behaglichkeit", "cosiness"],
+        ["der Firlefanz", "frippery"], ["das Sammelsurium", "hotchpotch"], ["die Gemengelage", "tangled mix"], ["unbotmäßig", "insubordinate"],
+        ["verschroben", "eccentric"], ["schnöde", "contemptible, base"], ["feingeistig", "refined"], ["weltfremd", "unworldly"],
+        ["unverblümt", "blunt"], ["geflissentlich", "deliberately"], ["bisweilen", "now and then"], ["gleichsam", "as it were"],
+        ["ungeachtet", "regardless of"], ["frönen", "to indulge in"], ["darben", "to go hungry"], ["feilschen", "to haggle"],
+        ["schwadronieren", "to blather"], ["lavieren", "to manoeuvre"], ["kokettieren", "to toy (with an idea)"], ["verballhornen", "to garble"],
+        ["anmuten", "to seem"], ["obliegen", "to be incumbent on"], ["die Gutgläubigkeit", "credulity"], ["der Kleingeist", "petty mind"],
+        ["die Langmut", "forbearance"], ["die Zerknirschung", "remorse"], ["die Läuterung", "purification"], ["blasiert", "jaded, snooty"],
+        ["selbstgefällig", "smug"], ["altklug", "precocious"], ["mürrisch", "sullen"], ["bräsig", "smug, sluggish"],
+        ["verquast", "muddled"], ["vergeistigt", "otherworldly"], ["anheimstellen", "to leave to (someone)"], ["vonstattengehen", "to take place"]
+      ]
+    }
+  ],
+  "fakes": {
+    "a": [
+      "der Flünz", "die Fommel", "das Knüsel", "der Wöspel", "die Murne", "das Trüpf",
+      "zöbeln", "drölen", "plüfen", "knessen", "flomm", "brüng",
+      "knöbig", "flumpig", "der Gnöff", "die Wonke", "das Pröck", "trulen"
+    ],
+    "b": [
+      "die Verbaschung", "die Flomheit", "das Bestrüpfnis", "der Ausfrempler", "verbaschen", "beplonsen",
+      "entknoffen", "aufschnirbeln", "glomprig", "verkliffbar", "die Quenkelei", "die Strüfnis",
+      "die Glumsung", "unbeflümmt", "der Ansprötel", "zerwimseln", "die Frellung", "vorbrünseln"
+    ],
+    "c": [
+      "die Unbeflürmbarkeit", "die Zerglümpfung", "die Verpronkung", "der Anklüstling", "anklüstlich", "unverplönbar",
+      "zerknäslich", "verplönen", "anberlünsen", "zerklünpern", "ergrümpfen", "hinterplunsen",
+      "die Ausgeplörtheit", "gemeinbrünglich", "plönterhin", "die Abstrüffelung", "unbeschnirpelt", "verfrimmeln"
+    ]
+  }
+}

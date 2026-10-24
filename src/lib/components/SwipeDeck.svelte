@@ -55,6 +55,7 @@
 	import { nextRound } from '$lib/domain/janeinRounds';
 	import { CHAT_CARD_PREFIX, chatDeckCard, findChat, markMet, MATCH_PATH, type ChatDeal } from '$lib/domain/matchChat';
 	import { pickSurprise, takeSurpriseChance, type SurpriseCandidate } from '$lib/domain/surprise';
+	import { checkDue, parseLog, WORD_CHECK_LOG, type CheckLogEntry } from '$lib/domain/wordCheck';
 	import { progress } from '$lib/state/progress.svelte';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
@@ -92,6 +93,9 @@
 	/** "1" once the learner has swiped (or pressed) once: the coach never returns. */
 	const COACH_KEY = 'deck_swipe_coached';
 	const SKIPPED_LIMIT = 80;
+	/** The word check's card ("Your level"): no exercise behind it, the check's own page. */
+	const CHECK_CARD_ID = 'level-check';
+	const CHECK_PATH = '/level-check/words?start';
 	/** How many cards of the stack are drawn behind the top one. */
 	const VISIBLE = 3;
 
@@ -113,6 +117,8 @@
 	/** How many cards the last deal held, for the "Card 3 of 12" line. */
 	let handSize = $state(0);
 	let chooserOpen = $state(false);
+	/** The word checks taken: the card comes when none has, or the last is a month old. */
+	let checkLog = $state<CheckLogEntry[]>([]);
 
 	const levels = $derived(courseLevels(course.quizzes));
 	const centre = $derived(deckLevel(course.quizzes, facts ?? {}, level));
@@ -265,6 +271,7 @@
 		const savedPace = await storage.get(PACE_KEY);
 		pace = isDeckPace(savedPace) ? savedPace : 'steady';
 		coach = (await storage.get(COACH_KEY)) !== '1';
+		checkLog = parseLog(await storage.get(WORD_CHECK_LOG));
 		deal();
 		loaded = true;
 	}
@@ -304,7 +311,8 @@
 					{ kind: 'story', card: story ? () => story : null },
 					{ kind: 'song', card: song ? () => song : null },
 					{ kind: 'play', card: skipped.includes(JA_NEIN_CARD_ID) ? null : playCard },
-					{ kind: 'chat', card: chatDeal ? () => chatCard(chatDeal) : null }
+					{ kind: 'chat', card: chatDeal ? () => chatCard(chatDeal) : null },
+					{ kind: 'check', card: checkDue(checkLog) && !skipped.includes(CHECK_CARD_ID) ? checkCard : null }
 				];
 				const odds = takeSurpriseChance();
 				const surprise = pickSurprise(candidates, odds.chance, Math.random, odds.first);
@@ -389,6 +397,27 @@
 		};
 	}
 	const isPlayCard = (card: DeckCard) => card.kind === 'play';
+	const isCheckCard = (card: DeckCard) => card.kind === 'check';
+
+	/** The word check, offered when due: the full check, not a quiz, and no medal at the end. */
+	function checkCard(): DeckCard {
+		const last = checkLog.at(-1);
+		return {
+			kind: 'check',
+			quiz: {
+				id: CHECK_CARD_ID,
+				type: 'vocabulary',
+				title: 'Wie viele Wörter kennst du?',
+				storageKeyPrefix: 'level_check',
+				level: 'Any level',
+				status: 'live',
+				covers: []
+			},
+			reason: last
+				? `A month since your last check: about ${last.words.toLocaleString('en-GB')} words. Tap the words you know and see how far you have come.`
+				: 'Tap the German words you know and find your level in about two minutes. No marks, no medals: a level and a suggestion for your deck.'
+		};
+	}
 	const isChatCard = (card: DeckCard) => card.kind === 'chat';
 	/** Chat cards that continue a chat already started. */
 	let chatResumes = $state<Set<string>>(new Set());
@@ -420,12 +449,15 @@
 				? 'sing-along'
 				: isPlayCard(card)
 					? 'swipe game · 1 min'
-					: isChatCard(card)
-						? chatResumes.has(card.quiz.id) ? 'chat in progress' : 'chat game'
-						: typeLabel(card.quiz.type);
+					: isCheckCard(card)
+						? 'level check · 2 min'
+						: isChatCard(card)
+							? chatResumes.has(card.quiz.id) ? 'chat in progress' : 'chat game'
+							: typeLabel(card.quiz.type);
 
 	function href(card: DeckCard) {
 		if (isPlayCard(card)) return JA_NEIN_PATH;
+		if (isCheckCard(card)) return CHECK_PATH;
 		if (isChatCard(card)) return `${MATCH_PATH}/${card.quiz.id.slice(CHAT_CARD_PREFIX.length)}`;
 		return storyCardHref(card) ?? songCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
 	}
@@ -708,6 +740,19 @@
 									<span class="emo e5">🧹</span>
 									<span class="emo e6">🌙</span>
 									<span class="hand"><Icon name="swipe" size="2.4em" /></span>
+								</div>
+							{:else if isCheckCard(card)}
+								<!-- The check in miniature: a few word chips, some tapped, one
+								     of them made up (the chips are decoration; the card's title
+								     and reason say what it is). -->
+								<div class="art-band check-band" aria-hidden="true">
+									<span class="wchip on" lang="de">das Haus</span>
+									<span class="wchip" lang="de">die Gelegenheit</span>
+									<span class="wchip on" lang="de">morgen</span>
+									<span class="wchip fake" lang="de">verbaschen</span>
+									<span class="wchip on" lang="de">die Rechnung</span>
+									<span class="wchip" lang="de">beiläufig</span>
+									<span class="wchip on" lang="de">freundlich</span>
 								</div>
 							{:else if card.quiz.image}
 								<!-- The quiz's scene as a cream band across the top of the card; it
@@ -2342,6 +2387,64 @@
 
 	.card[data-kind='play'] .kind-label::before {
 		content: '✨ ';
+	}
+
+	/* ---- the check card: "Your level", word chips on green paper ----------- */
+	.card[data-kind='check'] {
+		--kind: var(--forest);
+		border-top: 6px solid var(--forest);
+	}
+
+	.check-band {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: center;
+		gap: 0.45rem;
+		min-height: 9.5rem;
+		padding: 1rem;
+		background: #e8efe9;
+	}
+
+	.check-band::after {
+		background: none;
+	}
+
+	.wchip {
+		position: relative;
+		z-index: 1;
+		padding: 0.3rem 0.75rem;
+		border: 1.5px solid color-mix(in srgb, var(--forest) 45%, transparent);
+		border-radius: 999px;
+		background: var(--surface);
+		color: var(--ink);
+		font-size: var(--step--1);
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	.wchip.on {
+		border-color: var(--forest);
+		background: var(--forest);
+		color: #fff;
+	}
+
+	.wchip.on::before {
+		content: '✓ ';
+	}
+
+	/* The made-up one, struck through: the card's own joke on the rule. */
+	.wchip.fake {
+		color: var(--ink-muted);
+		text-decoration: line-through wavy var(--accent);
+	}
+
+	.card[data-kind='check'] .kind-label::before {
+		content: '📏 ';
+	}
+
+	.card[data-kind='check'] .stamp.yes {
+		color: var(--forest);
 	}
 
 	/* ---- the chat card: a character to match with -------------------------

@@ -234,6 +234,52 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 		]
 	},
 
+	'/level-check': {
+		title: 'Your level',
+		intro: 'Find out where you stand whenever you like. Nothing here counts as an exercise: no marks, no medals.',
+		items: [
+			{
+				title: 'The word check',
+				text: 'Tap the German words you know, screen by screen. It takes about two minutes and ends with your level, about how many words you know, and a suggestion for your deck.'
+			},
+			{
+				title: 'Your checks',
+				text: 'Every check is kept here, newest first, with how many words you gained since the one before. One a month shows your progress best.'
+			},
+			{
+				title: 'Coming later',
+				text: 'A placement test of grammar, reading and listening will join the word check on this page.'
+			}
+		]
+	},
+
+	'/level-check/words': {
+		title: 'The word check',
+		intro: 'Tap the words you know. The check finds your level from what you tap: no marks, no medals, nothing marked done.',
+		items: [
+			{
+				title: 'Which words to tap',
+				text: 'A word you would understand if you read it. You do not need to be able to use it yourself.'
+			},
+			{
+				title: 'Made-up words',
+				text: 'A few words on every screen are made up. Tapping them lowers your result, so only tap the words you are sure about. They keep the result honest.'
+			},
+			{
+				title: 'How it moves on',
+				text: 'Each screen holds words of one level. Know nearly all of them and the check jumps a level; know about half and it steps one up; know few and it stops. Most checks take four to six screens.'
+			},
+			{
+				title: 'Your result',
+				text: 'The bars show how much of each level you know. A light bar is worked out from the levels around it rather than shown. Your level is the first one you do not know well yet: that is where to learn.'
+			},
+			{
+				title: 'Setting up your deck',
+				text: 'The result suggests a level and a pace for your deck. One tap puts them in place; "Choose differently" lets you pick your own. You can change both later from the chip above your deck.'
+			}
+		]
+	},
+
 	'/stories': {
 		title: 'Stories',
 		intro: 'Maya\'s Berlin mysteries: playable stories, one for each step of the course. You solve the case with the German you have.',

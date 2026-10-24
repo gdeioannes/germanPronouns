@@ -69,6 +69,16 @@ describe('mergeProgress', () => {
 		expect(JSON.parse(merged[keys.runLog])).toHaveLength(50);
 	});
 
+	it('keeps the level checks taken on both devices', () => {
+		const check = (at: number, words: number) => ({ at, level: 'A2.2', words, pace: 'steady', shares: {}, careful: false });
+		const merged = mergeProgress(
+			{ wordcheck_log: JSON.stringify([check(1, 900)]) },
+			{ wordcheck_log: JSON.stringify([check(2, 1200)]) },
+			true
+		);
+		expect(JSON.parse(merged.wordcheck_log).map((c: { words: number }) => c.words)).toEqual([900, 1200]);
+	});
+
 	it('keeps a key only one device has ever written', () => {
 		const merged = mergeProgress({ [keys.score]: '3' }, { [keys.streak]: '2' }, false);
 		expect(merged[keys.score]).toBe('3');

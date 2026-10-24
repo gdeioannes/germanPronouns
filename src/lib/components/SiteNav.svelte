@@ -140,6 +140,12 @@
 	<a href="/songs"><Icon name="headphones" size="1em" /> Songs</a>
 {/snippet}
 
+<!-- "Your level": the word check (and later the placement test). A root link
+     beside the levels, since it is how a learner finds which level is theirs. -->
+{#snippet levelCheckLink()}
+	<a class="level-link" href="/level-check"><Icon name="star" size="1em" /> Your level</a>
+{/snippet}
+
 <!-- The forum is a root link, not a dropdown entry: it is where a learner goes
      to say something is wrong, and the dot is how they learn it was answered. -->
 {#snippet forumLink()}
@@ -222,6 +228,7 @@
 {#snippet menuList()}
 	<div class="menu-links">
 		<div class="root-row">
+			{@render levelCheckLink()}
 			{@render forumLink()}
 			<a href="/settings" rel="nofollow"><Icon name="settings" size="1em" /> Settings</a>
 			{@render signIn()}
@@ -287,6 +294,7 @@
 			<div class="bar-end">
 				<nav class="wide" aria-label="Main">
 					{@render drop('levels', 'Levels', levelLinks, true)}
+					{@render levelCheckLink()}
 					{@render drop('library', 'Library', libraryLinks)}
 					{@render drop('about', 'About', aboutLinks, false, whatsNew.unseen)}
 					{@render forumLink()}
@@ -404,10 +412,15 @@
 		}
 	}
 
-	.forum-link {
+	.forum-link,
+	.level-link {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
+	}
+
+	.level-link :global(.icon) {
+		color: var(--accent-ink);
 	}
 
 	.sign-in {
