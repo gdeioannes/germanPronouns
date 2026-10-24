@@ -29,6 +29,7 @@ const read = (path) => JSON.parse(readFileSync(new URL(path, ROOT), 'utf8'));
 const CONTENT = 'assets/content/';
 const OUT = `${CONTENT}shared/dictionary/de.json`;
 const CORE = `${CONTENT}shared/dictionary/core.de.json`;
+const CORE_FILE = existsSync(new URL(CORE, ROOT)) ? read(CORE) : {};
 
 // ---------------------------------------------------------------- extraction
 
@@ -188,15 +189,21 @@ function weakForms(infinitive) {
 	const m = infinitive.match(/^(.*?)(e?n)$/);
 	if (!m) return [];
 	const stem = m[1];
-	const link = /[dt]$|[bcdfghjklmnpqrstvwxzß][mn]$/.test(stem) ? 'e' : '';
+	// The cluster before -m/-n has to be hard to say without the -e-: "atmet",
+	// "öffnet", "rechnet" — but "lernt", "wohnt", "lehnt", "kämmt", where an l,
+	// r, m, n or a lengthening h leaves nothing to break up.
+	const link = /[dt]$|(?:[bdfgkpstvwxzß]|ch)[mn]$/.test(stem) ? 'e' : '';
 	const t = /[sßxz]$/.test(stem) ? 't' : `${link}t`;
 	// The ge- of the participle goes after a separable prefix, not before it:
 	// "aufmachen" gives "aufgemacht", never "geaufmacht". A prefix that is not
-	// separable (be-, ent-, er-, ver-, zer-, miss-) takes no ge- at all.
+	// separable (be-, ent-, er-, ver-, zer-, miss-) takes no ge- at all, and
+	// neither does a verb in -ieren ("diskutiert"). Longest prefix first, or
+	// "zurückführen" would split as zu + rückführen; and at least three letters
+	// after it, or "festigen" would split as fest + igen.
 	const separable = stem.match(
-		/^(ab|an|auf|aus|bei|ein|her|hin|los|mit|nach|vor|weg|zu|zurück|zusammen)(.+)/
+		/^(zusammen|vorbei|zurück|weiter|durch|statt|fest|fort|teil|auf|aus|bei|dar|ein|her|hin|los|mit|nach|vor|weg|ab|an|zu)(.{3,})/
 	);
-	const unstressed = /^(be|emp|ent|er|ge|miss|ver|zer)/.test(stem);
+	const unstressed = /^(be|emp|ent|er|ge|miss|ver|zer)/.test(stem) || /ier$/.test(stem);
 	const participle = separable
 		? `${separable[1]}ge${separable[2]}${t}`
 		: unstressed
@@ -288,7 +295,7 @@ function build() {
 	//    hundred chances to mistype. Anything irregular — "hoch" -> "hohe",
 	//    "teuer" -> "teure" — is listed in the entry's own `forms`, which is
 	//    claimed first either way.
-	const core = existsSync(new URL(CORE, ROOT)) ? read(CORE).entries : [];
+	const core = CORE_FILE.entries ?? [];
 	for (const item of core) {
 		const forms = [...(item.forms ?? [])];
 		if (item.pos === 'adjective') {
@@ -296,10 +303,36 @@ function build() {
 			for (const ending of ['e', 'en', 'em', 'er', 'es']) forms.push(stem + ending);
 		}
 		if (item.pos === 'verb') forms.push(...weakForms(item.de));
-		add(entryFor(item), forms);
+		// A core noun spells its plural the same way the collection does, so it
+		// gets the same two forms: "Texte" and "Texten" are certain, not guessed.
+		if (item.pos === 'noun') {
+			const plural = pluralForm(item.de, item.plural);
+			if (plural) forms.push(plural, dativePlural(plural));
+		}
+		add(
+			entryFor(item),
+			forms.filter((form) => !UNCLAIMED_FORMS.has(form))
+		);
+	}
+
+	// 4. Forms written out by hand for a word that already has an entry, from
+	//    whichever source: "bestellt" for bestellen, "wichtigsten" for wichtig.
+	//    A collection verb's sets cannot list every participle a text uses, and
+	//    a second entry just to carry them would show the word twice. Claimed
+	//    before the generated forms, because someone checked these.
+	const byLemma = new Map();
+	for (const [index, entry] of entries.entries()) {
+		if (!byLemma.has(entry.de)) byLemma.set(entry.de, index);
+	}
+	const handForms = [];
+	for (const [lemma, forms] of Object.entries(CORE_FILE.inflections ?? {})) {
+		const index = byLemma.get(lemma);
+		if (index === undefined) throw new Error(`core.de.json inflections: no entry "${lemma}"`);
+		for (const form of forms) handForms.push([form, index]);
 	}
 
 	for (const [index, entry] of entries.entries()) claim(entry.de, index);
+	for (const [form, index] of handForms) claim(form, index);
 	for (const [form, index] of inflections) claim(form, index);
 
 	return { entries, surfaces, coreCount: core.length };
@@ -309,13 +342,33 @@ function build() {
 
 const { entries, surfaces, coreCount } = build();
 
-// A capitalised word at the start of a sentence is the same word as lowercase,
-// and the runtime falls back to a case-folded lookup. The report must fold the
-// same way or it would queue "Und" and "und" as two separate jobs.
+// The report asks what the runtime asks — src/lib/domain/dictionary.ts
+// `lookupWord` — or it queues words a learner can already tap. That is: the
+// surface itself, the hand-kept noun forms, either capitalisation ("Und" is
+// "und"), and for a word longer than four letters, one stripped ending
+// ("Menschen" is "Mensch"). The noun-forms map is read out of the TypeScript
+// source, since a build script cannot import it.
+const NOUN_SURFACE_FORMS = Object.fromEntries(
+	[
+		...readFileSync(new URL('src/lib/domain/noun-surface-forms.ts', ROOT), 'utf8').matchAll(
+			/^\s*(\p{L}+): '([^']+)'/gmu
+		)
+	].map(([, form, noun]) => [form, noun])
+);
+const ENDINGS = ['es', 'en', 'er', 'em', 'n', 's', 'e'];
+const capitalise = (word) => word[0].toUpperCase() + word.slice(1);
+const known = (word) =>
+	surfaces.has(word) || surfaces.has(word.toLowerCase()) || surfaces.has(capitalise(word));
+// Not German at all, so nothing to gloss: English that sits under a German key
+// ("the indoor pool"), a spelled-out letter fragment. Listed in core.de.json so
+// the report can reach zero rather than carry the same noise forever.
+const NOT_GERMAN = new Set(CORE_FILE.notGerman ?? []);
 const resolved = (word) =>
-	surfaces.has(word) ||
-	surfaces.has(word.toLowerCase()) ||
-	surfaces.has(word[0].toUpperCase() + word.slice(1));
+	NOT_GERMAN.has(word) ||
+	known(word) ||
+	surfaces.has(NOUN_SURFACE_FORMS[word]) ||
+	(word.length > 4 &&
+		ENDINGS.some((ending) => word.endsWith(ending) && known(word.slice(0, -ending.length))));
 
 if (process.argv.includes('--report')) {
 	const freq = surfaceFrequency();
