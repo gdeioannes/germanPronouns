@@ -42,7 +42,8 @@ describe('the generated dictionary', () => {
 	it('carries the whole shared noun collection', () => {
 		for (const noun of nouns) {
 			expect(lemma(noun.noun), noun.noun).toBe(noun.noun);
-			expect(meaning(noun.noun), noun.noun).toBe(noun.english);
+			// A noun may add a phrase reading after its own meaning ("Arm und Reich").
+			expect(meaning(noun.noun)?.startsWith(noun.english), noun.noun).toBe(true);
 		}
 	});
 
@@ -76,6 +77,9 @@ describe('the generated dictionary', () => {
 			if (!plural) continue;
 			for (const form of [plural, dativePlural(plural)]) {
 				if (coreLemmas.has(form)) continue;
+				// Or a commoner word at the start of a sentence ("Sieben Euro." is
+				// seven, not Sieb's dative plural), left to the lowercase fold.
+				if (lemma(form) === form.toLowerCase() && coreLemmas.has(form.toLowerCase())) continue;
 				expect(lemma(form), form).toBe(noun.noun);
 			}
 		}

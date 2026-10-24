@@ -138,6 +138,20 @@ const entryFor = ({ de, en, pos, gender, plural, slug }) => {
 	return entry;
 };
 
+// A noun whose spelling is also a capitalised adjective in a fixed phrase. The
+// noun claims the spelling, so its gloss names the other reading too: a learner
+// who taps "Arm" in "die Kluft zwischen Arm und Reich" means poor, not the limb.
+// The Word Library keeps the plain meaning; only the tap panel adds this.
+const NOUN_GLOSS = {
+	Arm: "arm; in 'Arm und Reich': poor (and rich)",
+	Morgen: "morning; at the start of a sentence often 'morgen' = tomorrow"
+};
+
+// Generated noun inflections that must not claim their spelling, because a far
+// commoner word wears it at the start of a sentence: "Sieben Euro." is seven,
+// not the dative plural of "Sieb". Left unclaimed, the runtime folds to lowercase.
+const UNCLAIMED_FORMS = new Set(['Sieben']);
+
 // Ported from src/lib/domain/words.ts — a build script cannot import the
 // TypeScript module, so these three are duplicated and dictionary.test.ts
 // checks the generated file against the real implementations.
@@ -243,13 +257,13 @@ function build() {
 		add(
 			entryFor({
 				de: noun.noun,
-				en: noun.english,
+				en: NOUN_GLOSS[noun.noun] ?? noun.english,
 				pos: 'noun',
 				gender: noun.gender,
 				plural: noun.plural,
 				slug: wordSlug(noun.noun)
 			}),
-			plural ? [plural, dativePlural(plural)] : []
+			plural ? [plural, dativePlural(plural)].filter((form) => !UNCLAIMED_FORMS.has(form)) : []
 		);
 	}
 

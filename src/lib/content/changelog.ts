@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-24",
+    title: "Tap a word, get the right meaning",
+    items: [
+      'Tap "arm" and you now get "poor", not the body part. In "die Kluft zwischen Arm und Reich" the panel explains the phrase too. Thanks for the report!',
+      'More words that shared a spelling with a noun now show their own meaning: recht, stolz, wert, perfekt, taub, deutsch, kraft, and verbs like träumen, frühstücken, duschen, begriff (begreifen), gerät (geraten) and angeboten (anbieten).',
+      '"Sieben" at the start of a sentence is seven again, not a kitchen sieve. "Morgen" at the start of a sentence reminds you it often means tomorrow.',
+      'In reported speech, "wolle", "solle" and "müsse" now say "wants", "should" and "must" instead of all saying "could".',
+    ],
+  },
+  {
+    date: "2026-10-24",
     title: "The forum shows what still needs an answer",
     items: [
       'The forum list now shows only open topics. Answered topics wait, folded, under "Answered" at the bottom, next to "Fixed". One click opens either, and search still finds every topic.',
