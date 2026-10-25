@@ -1,0 +1,6348 @@
+{
+	"title": "Stil & Register",
+	"cover": "cp_c2_1_cover",
+	"welcome": [
+		"This book is the paper half of C2.1. Every topic gets two facing pages: the **left page** teaches — tables, diagrams, the few rules that matter — and the **right page** is yours to write on.",
+		"It has three parts. The first is about choosing the word: register, collocation, connotation and degree. The second is grammar at full stretch: valency, compounds, prefixes, the finer Konjunktiv and elevated connectors. The third is about texts and voices: reporting, rhetoric, speeches, moderating, satire and the short story.",
+		"It carries on from the earlier books. Words you learned there are not taught again. Work with a pencil and say every German word out loud as you write it. When a page has a **Listen** code, scan it with your phone camera to hear the German.",
+		"The answers are at the back. Do a whole page first, then check, and circle what you got wrong — those circles are next week’s revision. Tick an **I can** line only when you could do it tomorrow without the book."
+	],
+	"names": [
+		"Lena",
+		"Max",
+		"Anna",
+		"Wendt",
+		"Berger",
+		"Brenner",
+		"Ruth",
+		"Katrin",
+		"Brandt",
+		"Yilmaz",
+		"Demir",
+		"Berlin",
+		"Hamburg",
+		"Deutschlands",
+		"Mio",
+		"Euro",
+		"Herr",
+		"Frau",
+		"Stadt",
+		"direkt"
+	],
+	"spreads": [
+		{
+			"id": "wirtschaft",
+			"title": "Wirtschaft & Recht",
+			"subtitle": "Turnover, profit, appeal, settlement",
+			"hook": "The business and court pages use words that look alike and are not: Umsatz is not Gewinn, and a Vergleich in court is not a comparison.",
+			"hero": {
+				"image": "cp_c2_1_wirtschaft"
+			},
+			"quiz": "quest_c2_1_wirtschaft",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "Three nested circles",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "der Umsatz: 10 Mio.",
+									"tag": "all that comes in"
+								},
+								{
+									"de": "der Gewinn: 1 Mio.",
+									"tag": "what is left"
+								},
+								{
+									"de": "die Rendite: 5 %",
+									"tag": "profit as % of capital",
+									"hot": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "In court",
+					"head": [
+						{
+							"text": "noun"
+						},
+						{
+							"text": "its verb"
+						},
+						{
+							"text": "",
+							"en": true
+						}
+					],
+					"rows": [
+						[
+							"der Einspruch",
+							"einlegen",
+							"objection to an official decision"
+						],
+						[
+							"die Berufung",
+							"einlegen · in Berufung gehen",
+							"appeal"
+						],
+						[
+							"die Klage",
+							"einreichen",
+							"lawsuit"
+						],
+						[
+							"der Vergleich",
+							"schließen",
+							"settlement — not a comparison"
+						],
+						[
+							"das Urteil",
+							"fällen · wird rechtskräftig",
+							"judgment · becomes final"
+						]
+					]
+				},
+				{
+					"kind": "table",
+					"title": "In the economy",
+					"head": [
+						{
+							"text": "noun"
+						},
+						{
+							"text": "its verb"
+						}
+					],
+					"rows": [
+						[
+							"die Insolvenz",
+							"anmelden"
+						],
+						[
+							"der Leitzins",
+							"anheben · senken"
+						],
+						[
+							"die Nachfrage",
+							"ankurbeln · dämpfen"
+						],
+						[
+							"das Gesetz",
+							"verabschieden"
+						],
+						[
+							"die Verordnung",
+							"erlassen"
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Zentralbank",
+							"en": "central bank"
+						},
+						{
+							"de": "der Zinssatz",
+							"en": "interest rate"
+						},
+						{
+							"de": "die Firmen",
+							"en": "firms"
+						},
+						{
+							"de": "der Bescheid",
+							"en": "official decision"
+						},
+						{
+							"de": "das Gericht",
+							"en": "court"
+						},
+						{
+							"de": "schließlich",
+							"en": "in the end"
+						},
+						{
+							"de": "trotz steigenden Umsatzes",
+							"en": "despite rising turnover"
+						},
+						{
+							"de": "sank",
+							"en": "fell"
+						},
+						{
+							"de": "mehrere",
+							"en": "several"
+						},
+						{
+							"de": "das Parlament",
+							"en": "parliament"
+						},
+						{
+							"de": "die Regierung",
+							"en": "government"
+						},
+						{
+							"de": "meldeten an",
+							"en": "registered"
+						},
+						{
+							"de": "legte ein",
+							"en": "lodged"
+						},
+						{
+							"de": "hob an",
+							"en": "raised"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The fixed verb",
+					"instruction": "Write the verb the noun takes.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Mehrere Firmen meldeten Insolvenz",
+							"after": ".",
+							"answer": "an"
+						},
+						{
+							"before": "Gegen den Bescheid legte sie Einspruch",
+							"after": ".",
+							"answer": "ein"
+						},
+						{
+							"before": "Vor Gericht schloss man schließlich einen",
+							"after": ".",
+							"answer": "Vergleich"
+						},
+						{
+							"before": "Die Zentralbank hob den Leitzins",
+							"after": ", um die Nachfrage zu dämpfen.",
+							"answer": "an"
+						},
+						{
+							"before": "Das Parlament hat das Gesetz",
+							"after": ".",
+							"answer": "verabschiedet"
+						}
+					]
+				},
+				{
+					"title": "Umsatz, Gewinn or Rendite?",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Trotz steigenden",
+							"options": [
+								"Umsatzes",
+								"Gewinns"
+							],
+							"after": "sank der Gewinn.",
+							"answer": "Umsatzes"
+						},
+						{
+							"before": "Die",
+							"options": [
+								"Rendite",
+								"Umsatz"
+							],
+							"after": "lag bei fünf Prozent.",
+							"answer": "Rendite"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Gegen den Bescheid legte sie Einspruch an.",
+							"answer": "Gegen den Bescheid legte sie Einspruch ein."
+						},
+						{
+							"prompt": "Mehrere Firmen meldeten Insolvenz ein.",
+							"answer": "Mehrere Firmen meldeten Insolvenz an."
+						},
+						{
+							"prompt": "Vor Gericht machte man einen Vergleich.",
+							"answer": "Vor Gericht schloss man einen Vergleich."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "The central bank raised the interest rate.",
+							"answer": "Die Zentralbank hob den Zinssatz an."
+						},
+						{
+							"prompt": "Parliament passed the law.",
+							"answer": "Das Parlament hat das Gesetz verabschiedet."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"tell Umsatz, Gewinn and Rendite apart",
+				"use each legal noun with its verb",
+				"read a business report"
+			]
+		},
+		{
+			"id": "register",
+			"title": "kriegen – bekommen – erhalten",
+			"subtitle": "Three levels of the same word",
+			"hook": "Neither level is better; the wrong one in the wrong place is the error — and mixing two in one sentence is the one a listener hears first.",
+			"hero": {
+				"image": "cp_c2_1_register"
+			},
+			"quiz": "quest_c2_1_register",
+			"listenQuiz": "quest_c2_1_diktat_register",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Three levels",
+					"head": [
+						{
+							"text": "spoken"
+						},
+						{
+							"text": "neutral"
+						},
+						{
+							"text": "formal"
+						}
+					],
+					"rows": [
+						[
+							"kriegen",
+							"bekommen",
+							"erhalten"
+						],
+						[
+							"gucken",
+							"sehen",
+							"betrachten"
+						],
+						[
+							"klauen",
+							"stehlen",
+							"entwenden"
+						],
+						[
+							"checken",
+							"prüfen",
+							"überprüfen"
+						],
+						[
+							"Kohle",
+							"Geld",
+							"Mittel"
+						],
+						[
+							"sauer",
+							"verärgert",
+							"ungehalten"
+						],
+						[
+							"hinkriegen",
+							"schaffen",
+							"bewerkstelligen"
+						]
+					]
+				},
+				{
+					"kind": "flow",
+					"title": "Which level does a word belong to?",
+					"root": {
+						"q": "Is it long, Latin or with be-, ver-, er-, ent-?",
+						"yes": {
+							"answer": "formal",
+							"example": "erhalten · überprüfen · benötigen"
+						},
+						"no": {
+							"answer": "neutral or spoken",
+							"example": "kriegen · checken · brauchen"
+						}
+					}
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Typ",
+							"en": "guy"
+						},
+						{
+							"de": "der Mitarbeiter",
+							"en": "employee"
+						},
+						{
+							"de": "die Stelle",
+							"en": "post"
+						},
+						{
+							"de": "gestrichen",
+							"en": "cut"
+						},
+						{
+							"de": "das Schreiben",
+							"en": "letter"
+						},
+						{
+							"de": "der Job",
+							"en": "job"
+						},
+						{
+							"de": "weg",
+							"en": "gone"
+						},
+						{
+							"de": "die Brücke",
+							"en": "bridge"
+						},
+						{
+							"de": "die Fußgängerbrücke",
+							"en": "footbridge"
+						},
+						{
+							"de": "gesperrt",
+							"en": "closed"
+						},
+						{
+							"de": "die Mängel",
+							"en": "defects"
+						},
+						{
+							"de": "die Abnahme",
+							"en": "acceptance check"
+						},
+						{
+							"de": "festgestellt",
+							"en": "found"
+						},
+						{
+							"de": "ein Witz",
+							"en": "a joke"
+						},
+						{
+							"de": "die Kosten",
+							"en": "costs"
+						},
+						{
+							"de": "explodiert",
+							"en": "exploded"
+						},
+						{
+							"de": "der Zeitplan",
+							"en": "schedule"
+						},
+						{
+							"de": "ehrgeizig",
+							"en": "ambitious"
+						},
+						{
+							"de": "gekriegt",
+							"en": "got"
+						},
+						{
+							"de": "geklaut",
+							"en": "nicked"
+						},
+						{
+							"de": "die Stadtverwaltung",
+							"en": "city administration"
+						},
+						{
+							"de": "die Rentnerin",
+							"en": "pensioner"
+						},
+						{
+							"de": "der Baubeginn",
+							"en": "start of building"
+						},
+						{
+							"de": "geradezu",
+							"en": "downright"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Move it up",
+					"instruction": "Write the formal word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er hat den Brief gekriegt. → Er hat das Schreiben",
+							"after": ".",
+							"answer": "erhalten"
+						},
+						{
+							"before": "Der Typ ist sauer. → Der Mitarbeiter ist",
+							"after": ".",
+							"answer": "verärgert"
+						},
+						{
+							"before": "Jemand hat das Rad geklaut. → Das Rad wurde",
+							"after": ".",
+							"answer": "entwendet"
+						},
+						{
+							"before": "Wir müssen das checken. → Wir müssen das",
+							"after": ".",
+							"answer": "überprüfen"
+						}
+					]
+				},
+				{
+					"title": "Heard it?",
+					"instruction": "Listen to the dictation and write the missing words.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Stadtverwaltung erklärte, man",
+							"after": "die Mängel erst bei der Abnahme festgestellt.",
+							"answer": "habe"
+						},
+						{
+							"before": "„Die Brücke ist doch ein",
+							"after": "“, sagt eine Rentnerin.",
+							"answer": "Witz"
+						},
+						{
+							"before": "Die Kosten sind seit Baubeginn geradezu",
+							"after": ".",
+							"answer": "explodiert"
+						}
+					],
+					"listen": true
+				},
+				{
+					"title": "Move it down",
+					"instruction": "Write it the way you would say it to a friend.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er hat das Schreiben erhalten.",
+							"answer": "Er hat den Brief gekriegt."
+						},
+						{
+							"prompt": "Wir müssen das überprüfen.",
+							"answer": "Wir müssen das checken."
+						},
+						{
+							"prompt": "Der Mitarbeiter ist verärgert.",
+							"answer": "Der Typ ist sauer."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence mixes two levels. Write it all formal.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Der Mitarbeiter hat das Schreiben gekriegt.",
+							"answer": "Der Mitarbeiter hat das Schreiben erhalten."
+						},
+						{
+							"prompt": "Wir müssen die Mittel checken.",
+							"answer": "Wir müssen die Mittel überprüfen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"move a word between spoken, neutral and formal",
+				"keep one level in one sentence",
+				"hear a quotation by its drop in register"
+			]
+		},
+		{
+			"id": "kollokationen",
+			"title": "eine herbe Niederlage erleiden",
+			"subtitle": "The word that goes with the word",
+			"hook": "Getting the verb wrong is understood but heard; getting it right is what fluency sounds like.",
+			"hero": {
+				"image": "cp_c2_1_kollokationen"
+			},
+			"quiz": "quest_c2_1_kollokationen",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "The noun picks its verb",
+					"head": [
+						{
+							"text": "verb"
+						},
+						{
+							"text": "nouns"
+						}
+					],
+					"rows": [
+						[
+							"ergreifen",
+							"Maßnahmen · die Initiative · die Gelegenheit"
+						],
+						[
+							"leisten",
+							"Widerstand · einen Beitrag · Hilfe"
+						],
+						[
+							"erleiden",
+							"eine Niederlage · einen Verlust"
+						],
+						[
+							"hegen",
+							"Zweifel · Hoffnung"
+						],
+						[
+							"eingehen",
+							"ein Risiko · einen Kompromiss"
+						]
+					]
+				},
+				{
+					"kind": "table",
+					"title": "… and its describing word",
+					"head": [
+						{
+							"text": "noun"
+						},
+						{
+							"text": "describing word"
+						}
+					],
+					"rows": [
+						[
+							"der Grund",
+							"triftig"
+						],
+						[
+							"das Argument",
+							"stichhaltig · schlagend"
+						],
+						[
+							"der Verlust",
+							"herb · schwer"
+						]
+					]
+				},
+				{
+					"kind": "build",
+					"title": "Learn three words as one",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "eine herbe"
+								},
+								{
+									"text": "Niederlage"
+								},
+								{
+									"text": "erleiden"
+								}
+							],
+							"result": "eine herbe Niederlage erleiden",
+							"en": "suffer a bitter defeat"
+						},
+						{
+							"parts": [
+								{
+									"text": "scharfe"
+								},
+								{
+									"text": "Kritik"
+								},
+								{
+									"text": "üben"
+								}
+							],
+							"result": "scharfe Kritik üben",
+							"en": "criticise sharply"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Opposition",
+							"en": "opposition"
+						},
+						{
+							"de": "die Bürger",
+							"en": "citizens"
+						},
+						{
+							"de": "die Krise",
+							"en": "crisis"
+						},
+						{
+							"de": "sich zuspitzen",
+							"en": "to come to a head"
+						},
+						{
+							"de": "die Zeit drängt",
+							"en": "time is short"
+						},
+						{
+							"de": "der Vorwurf wiegt schwer",
+							"en": "the charge is serious"
+						},
+						{
+							"de": "die Mannschaft",
+							"en": "team"
+						},
+						{
+							"de": "der Verein",
+							"en": "club"
+						},
+						{
+							"de": "die Regierung",
+							"en": "government"
+						},
+						{
+							"de": "dennoch",
+							"en": "nevertheless"
+						},
+						{
+							"de": "ein triftiger Grund",
+							"en": "a good reason"
+						},
+						{
+							"de": "ein stichhaltiges Argument",
+							"en": "a sound argument"
+						},
+						{
+							"de": "ein herber Verlust",
+							"en": "a bitter loss"
+						},
+						{
+							"de": "eine hitzige Debatte",
+							"en": "a heated debate"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The fixed verb",
+					"instruction": "Write the verb the noun takes.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Regierung",
+							"after": "Maßnahmen.",
+							"answer": "ergriff"
+						},
+						{
+							"before": "Die Opposition",
+							"after": "scharfe Kritik.",
+							"answer": "übte"
+						},
+						{
+							"before": "Die Bürger",
+							"after": "Zweifel.",
+							"answer": "hegten"
+						},
+						{
+							"before": "Die Mannschaft",
+							"after": "eine herbe Niederlage.",
+							"answer": "erlitt"
+						},
+						{
+							"before": "Wir müssen ein Risiko",
+							"after": ".",
+							"answer": "eingehen"
+						}
+					]
+				},
+				{
+					"title": "The describing word",
+					"instruction": "Circle the word that goes with the noun.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "ein",
+							"options": [
+								"triftiger",
+								"großer"
+							],
+							"after": "Grund",
+							"answer": "triftiger"
+						},
+						{
+							"before": "ein",
+							"options": [
+								"stichhaltiges",
+								"schweres"
+							],
+							"after": "Argument",
+							"answer": "stichhaltiges"
+						},
+						{
+							"before": "ein",
+							"options": [
+								"herber",
+								"triftiger"
+							],
+							"after": "Verlust",
+							"answer": "herber"
+						},
+						{
+							"before": "eine",
+							"options": [
+								"hitzige",
+								"strikte"
+							],
+							"after": "Debatte",
+							"answer": "hitzige"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Regierung machte Maßnahmen.",
+							"answer": "Die Regierung ergriff Maßnahmen."
+						},
+						{
+							"prompt": "Die Opposition gab scharfe Kritik.",
+							"answer": "Die Opposition übte scharfe Kritik."
+						},
+						{
+							"prompt": "Die Mannschaft hatte eine herbe Niederlage.",
+							"answer": "Die Mannschaft erlitt eine herbe Niederlage."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "We have to take a risk.",
+							"answer": "Wir müssen ein Risiko eingehen."
+						},
+						{
+							"prompt": "The citizens had doubts.",
+							"answer": "Die Bürger hegten Zweifel."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "About you",
+					"instruction": "Use a fixed pair about yourself.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich habe einmal ein Risiko",
+							"after": ", als …"
+						},
+						{
+							"before": "Ich hege Zweifel an",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				}
+			],
+			"canDo": [
+				"use the verb each noun takes",
+				"use the describing word each noun takes",
+				"learn noun, verb and describing word together"
+			]
+		},
+		{
+			"id": "konnotation",
+			"title": "sparsam oder geizig?",
+			"subtitle": "Same thing, three temperatures",
+			"hook": "His friends call him sparsam, his enemies geizig. The word you choose shows which side you are on.",
+			"hero": {
+				"image": "cp_c2_1_konnotation"
+			},
+			"quiz": "quest_c2_1_konnotation",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Warm – neutral – cold",
+					"head": [
+						{
+							"text": "+"
+						},
+						{
+							"text": "0"
+						},
+						{
+							"text": "−"
+						}
+					],
+					"rows": [
+						[
+							"sparsam",
+							"—",
+							"geizig"
+						],
+						[
+							"rüstig",
+							"alt",
+							"vergreist"
+						],
+						[
+							"wissbegierig",
+							"neugierig",
+							"aufdringlich"
+						],
+						[
+							"standhaft",
+							"—",
+							"stur"
+						],
+						[
+							"gründlich",
+							"—",
+							"pedantisch"
+						],
+						[
+							"der Duft",
+							"der Geruch",
+							"der Gestank"
+						]
+					]
+				},
+				{
+					"kind": "flow",
+					"title": "Which word do you choose?",
+					"root": {
+						"q": "Do you like the person?",
+						"yes": {
+							"answer": "the warm word",
+							"example": "sparsam · standhaft · gründlich"
+						},
+						"no": {
+							"answer": "the cold word",
+							"example": "geizig · stur · pedantisch"
+						}
+					}
+				},
+				{
+					"kind": "table",
+					"title": "Public language",
+					"head": [
+						{
+							"text": "what is meant"
+						},
+						{
+							"text": "what is said"
+						}
+					],
+					"rows": [
+						[
+							"Kürzung",
+							"Reform"
+						],
+						[
+							"Problem",
+							"Herausforderung"
+						],
+						[
+							"entlassen",
+							"freisetzen"
+						]
+					],
+					"note": "A text that uses these has taken a side without an opinion sentence."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Freunde",
+							"en": "friends"
+						},
+						{
+							"de": "die Feinde",
+							"en": "enemies"
+						},
+						{
+							"de": "nennen",
+							"en": "to call"
+						},
+						{
+							"de": "vernünftig",
+							"en": "sensible"
+						},
+						{
+							"de": "mit 88",
+							"en": "at 88"
+						},
+						{
+							"de": "erstaunlich",
+							"en": "astonishingly"
+						},
+						{
+							"de": "der Vorstand",
+							"en": "board"
+						},
+						{
+							"de": "gilt als",
+							"en": "is considered"
+						},
+						{
+							"de": "die Gewerkschaften",
+							"en": "unions"
+						},
+						{
+							"de": "sprechen von",
+							"en": "to speak of"
+						},
+						{
+							"de": "die Küche",
+							"en": "kitchen"
+						},
+						{
+							"de": "aus der Küche",
+							"en": "from the kitchen"
+						},
+						{
+							"de": "ein herrlicher Duft",
+							"en": "a lovely smell"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Warm or cold?",
+					"instruction": "Write the word with the temperature in brackets.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Seine Freunde nennen ihn sparsam, seine Feinde",
+							"after": ". (−)",
+							"answer": "geizig"
+						},
+						{
+							"before": "Mit 88 ist sie erstaunlich",
+							"after": ". (+)",
+							"answer": "rüstig"
+						},
+						{
+							"before": "Aus der Küche kam ein herrlicher",
+							"after": ". (+)",
+							"answer": "Duft"
+						},
+						{
+							"before": "Die Regierung spricht von einer Reform, die Gewerkschaften von",
+							"after": ". (−)",
+							"answer": "Kürzungen"
+						}
+					]
+				},
+				{
+					"title": "+, 0 or −?",
+					"instruction": "Write each word in its column.",
+					"kind": "sort",
+					"columns": [
+						"+",
+						"0",
+						"−"
+					],
+					"words": [
+						"standhaft",
+						"stur",
+						"neugierig",
+						"gründlich",
+						"pedantisch",
+						"der Geruch"
+					],
+					"answers": [
+						0,
+						2,
+						1,
+						0,
+						2,
+						1
+					]
+				},
+				{
+					"title": "Warm it up",
+					"instruction": "Write the sentence with the warm word.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er ist geizig.",
+							"answer": "Er ist sparsam."
+						},
+						{
+							"prompt": "Sie ist stur.",
+							"answer": "Sie ist standhaft."
+						},
+						{
+							"prompt": "Er ist pedantisch.",
+							"answer": "Er ist gründlich."
+						}
+					],
+					"cols": 3,
+					"extra": true
+				},
+				{
+					"title": "What does the government say?",
+					"instruction": "Write the word the government would use.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Kürzung",
+							"answer": "Reform"
+						},
+						{
+							"prompt": "Problem",
+							"answer": "Herausforderung"
+						},
+						{
+							"prompt": "entlassen",
+							"answer": "freisetzen"
+						}
+					],
+					"cols": 3,
+					"extra": true
+				},
+				{
+					"title": "About you",
+					"instruction": "Describe a friend twice: once warm, once cold.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Warm: Mein Freund ist",
+							"after": "."
+						},
+						{
+							"before": "Cold: Mein Freund ist",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				}
+			],
+			"canDo": [
+				"hear the temperature of a word",
+				"choose the warm, neutral or cold word on purpose",
+				"spot framing in public language"
+			]
+		},
+		{
+			"id": "abtoenung",
+			"title": "durchaus, keineswegs, geradezu",
+			"subtitle": "Setting the temperature of a judgement",
+			"hook": "Der Plan ist durchaus vernünftig, aber keineswegs ausgereift — and nicht gerade billig. One shading word per claim.",
+			"hero": {
+				"image": "cp_c2_1_abtoenung"
+			},
+			"quiz": "quest_c2_1_abtoenung",
+			"learn": [
+				{
+					"kind": "tiles",
+					"title": "Strong no → strong yes",
+					"cols": 6,
+					"small": true,
+					"tiles": [
+						{
+							"big": "keineswegs",
+							"word": "by no means"
+						},
+						{
+							"big": "nicht gerade",
+							"word": "not exactly"
+						},
+						{
+							"big": "einigermaßen",
+							"word": "reasonably"
+						},
+						{
+							"big": "durchaus",
+							"word": "certainly"
+						},
+						{
+							"big": "ausgesprochen",
+							"word": "decidedly"
+						},
+						{
+							"big": "geradezu",
+							"word": "downright",
+							"mark": true
+						}
+					]
+				},
+				{
+					"kind": "flow",
+					"title": "durchaus: yes or no?",
+					"root": {
+						"q": "Is nicht right after it?",
+						"yes": {
+							"answer": "no: not at all",
+							"example": "Das ist durchaus nicht sicher."
+						},
+						"no": {
+							"answer": "yes: certainly",
+							"example": "Das ist durchaus berechtigt."
+						}
+					}
+				},
+				{
+					"kind": "table",
+					"title": "Watch these",
+					"head": [
+						{
+							"text": "word"
+						},
+						{
+							"text": "",
+							"en": true
+						}
+					],
+					"rows": [
+						[
+							"durchaus",
+							"certainly (against a doubt) — not “throughout”"
+						],
+						[
+							"durchaus nicht",
+							"not at all"
+						],
+						[
+							"geradezu",
+							"downright — not *gerade*"
+						],
+						[
+							"immerhin · zumindest",
+							"at least"
+						],
+						[
+							"schlechthin",
+							"par excellence — after the noun"
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Plan",
+							"en": "plan"
+						},
+						{
+							"de": "vernünftig",
+							"en": "sensible"
+						},
+						{
+							"de": "ausgereift",
+							"en": "fully developed"
+						},
+						{
+							"de": "billig",
+							"en": "cheap"
+						},
+						{
+							"de": "die Aufführung",
+							"en": "performance"
+						},
+						{
+							"de": "gelungen",
+							"en": "successful"
+						},
+						{
+							"de": "das Finale",
+							"en": "finale"
+						},
+						{
+							"de": "triumphal",
+							"en": "triumphant"
+						},
+						{
+							"de": "das Ergebnis",
+							"en": "result"
+						},
+						{
+							"de": "bescheiden",
+							"en": "modest"
+						},
+						{
+							"de": "der Anfang",
+							"en": "start"
+						},
+						{
+							"de": "absurd",
+							"en": "absurd"
+						},
+						{
+							"de": "sicher",
+							"en": "certain"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Shade it",
+					"instruction": "Write the shading word: the English in brackets helps.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Der Plan ist",
+							"after": "vernünftig. (certainly)",
+							"answer": "durchaus"
+						},
+						{
+							"before": "Er ist aber",
+							"after": "ausgereift. (by no means)",
+							"answer": "keineswegs"
+						},
+						{
+							"before": "Die Aufführung war",
+							"after": "gelungen. (decidedly)",
+							"answer": "ausgesprochen"
+						},
+						{
+							"before": "Das Finale war",
+							"after": "triumphal. (downright)",
+							"answer": "geradezu"
+						},
+						{
+							"before": "Das Ergebnis ist bescheiden;",
+							"after": "ist es ein Anfang. (immerhin or keineswegs?)",
+							"answer": "immerhin"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Der Plan ist gerade absurd. (downright)",
+							"answer": "Der Plan ist geradezu absurd."
+						},
+						{
+							"prompt": "Das ist durchaus sicher. (not at all)",
+							"answer": "Das ist durchaus nicht sicher."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it with one word",
+					"instruction": "Rewrite with keineswegs, durchaus or immerhin.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das ist sicher nicht billig.",
+							"answer": "Das ist keineswegs billig."
+						},
+						{
+							"prompt": "Das Ergebnis ist bescheiden, aber es ist ein Anfang.",
+							"answer": "Das Ergebnis ist bescheiden; immerhin ist es ein Anfang."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your verdict",
+					"instruction": "Judge a film you know with one shading word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Der Film war",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "The performance was decidedly successful.",
+							"answer": "Die Aufführung war ausgesprochen gelungen."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"grade a claim with durchaus, keineswegs, geradezu",
+				"tell durchaus from durchaus nicht",
+				"use one shading word per claim"
+			]
+		},
+		{
+			"id": "sprichwoerter",
+			"title": "Wer anderen eine Grube gräbt …",
+			"subtitle": "Proverbs in pieces",
+			"hook": "Journalists cut proverbs off, twist them in headlines and shrink them to one word. You have to hear the whole one in the fragment.",
+			"hero": {
+				"image": "cp_c2_1_sprichwoerter"
+			},
+			"quiz": "quest_c2_1_sprichwoerter",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "The whole proverb",
+					"head": [
+						{
+							"text": "proverb"
+						},
+						{
+							"text": "",
+							"en": true
+						}
+					],
+					"rows": [
+						[
+							"Wer anderen eine Grube gräbt, fällt selbst hinein.",
+							"the schemer falls into his own trap"
+						],
+						[
+							"Wer im Glashaus sitzt, sollte nicht mit Steinen werfen.",
+							"don’t criticise what you do yourself"
+						],
+						[
+							"Lügen haben kurze Beine.",
+							"lies are found out"
+						],
+						[
+							"Eine Schwalbe macht noch keinen Sommer.",
+							"one good sign is not a trend"
+						],
+						[
+							"Hochmut kommt vor dem Fall.",
+							"pride before a fall"
+						],
+						[
+							"Viele Köche verderben den Brei.",
+							"too many cooks"
+						]
+					]
+				},
+				{
+					"kind": "flow",
+					"title": "How is it used?",
+					"root": {
+						"q": "Is the whole proverb there?",
+						"yes": {
+							"answer": "rare — sounds folksy",
+							"example": "Viele Köche verderben den Brei."
+						},
+						"no": {
+							"answer": "cut, twisted or one word",
+							"example": "Viele Köche, kein Brei · im Glashaus sitzen"
+						}
+					}
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Intrige",
+							"en": "scheme"
+						},
+						{
+							"de": "stolpern",
+							"en": "to stumble"
+						},
+						{
+							"de": "eben",
+							"en": "you see"
+						},
+						{
+							"de": "die Partei",
+							"en": "party"
+						},
+						{
+							"de": "das Thema",
+							"en": "topic"
+						},
+						{
+							"de": "das Quartal",
+							"en": "quarter"
+						},
+						{
+							"de": "erfreulich",
+							"en": "pleasing"
+						},
+						{
+							"de": "stark",
+							"en": "strong"
+						},
+						{
+							"de": "das Kabinett",
+							"en": "cabinet"
+						},
+						{
+							"de": "der Haushalt",
+							"en": "budget"
+						},
+						{
+							"de": "zustande bringen",
+							"en": "to manage to produce"
+						},
+						{
+							"de": "er stolperte",
+							"en": "he tripped"
+						},
+						{
+							"de": "ein starkes Quartal",
+							"en": "a strong quarter"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Finish the proverb",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er stolperte über seine eigene Intrige – wer anderen eine",
+							"after": "gräbt, eben.",
+							"answer": "Grube"
+						},
+						{
+							"before": "Beim Thema sitzt die Partei selbst im",
+							"after": ".",
+							"answer": "Glashaus"
+						},
+						{
+							"before": "Ein starkes Quartal ist erfreulich, aber eine",
+							"after": "macht noch keinen Sommer.",
+							"answer": "Schwalbe"
+						},
+						{
+							"before": "Lügen haben kurze",
+							"after": ".",
+							"answer": "Beine"
+						},
+						{
+							"before": "Viele Köche, kein",
+							"after": ": Das Kabinett bringt keinen Haushalt zustande.",
+							"answer": "Brei"
+						}
+					]
+				},
+				{
+					"title": "The whole proverb",
+					"instruction": "Write the whole proverb.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wer anderen eine Grube gräbt …",
+							"answer": "Wer anderen eine Grube gräbt, fällt selbst hinein."
+						},
+						{
+							"prompt": "Wer im Glashaus sitzt …",
+							"answer": "Wer im Glashaus sitzt, sollte nicht mit Steinen werfen."
+						},
+						{
+							"prompt": "Viele Köche …",
+							"answer": "Viele Köche verderben den Brei."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write the German proverb.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Pride comes before a fall.",
+							"answer": "Hochmut kommt vor dem Fall."
+						},
+						{
+							"prompt": "Lies are soon found out.",
+							"answer": "Lügen haben kurze Beine."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "Use it",
+					"instruction": "Finish the sentence with a proverb that fits.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er hat gelogen, und jetzt wissen es alle –",
+							"answer": "Lügen haben kurze Beine."
+						},
+						{
+							"prompt": "Ein starkes Quartal ist erfreulich, aber",
+							"answer": "eine Schwalbe macht noch keinen Sommer."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"recognise a proverb from a fragment",
+				"understand a twisted headline",
+				"use one proverb, not three"
+			]
+		},
+		{
+			"id": "komparation",
+			"title": "eine der größten Städte Europas",
+			"subtitle": "Comparing to the exact degree",
+			"hook": "einer der besten — der bei weitem beste — der mit Abstand beste: choose how sure you are.",
+			"hero": {
+				"image": "cp_c2_1_komparation"
+			},
+			"quiz": "quest_c2_1_komparation_advanced",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "one of the …: genitive plural",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Berlin ist"
+								},
+								{
+									"de": "eine der"
+								},
+								{
+									"de": "größten",
+									"hot": true
+								},
+								{
+									"de": "Städte Europas."
+								}
+							],
+							"en": "not: größte"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Degree words",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "like this"
+						}
+					],
+					"rows": [
+						[
+							"by far",
+							"bei weitem · mit Abstand der beste"
+						],
+						[
+							"far more",
+							"weitaus · wesentlich · erheblich teurer"
+						],
+						[
+							"nowhere near",
+							"bei weitem nicht so gut wie"
+						],
+						[
+							"twice as",
+							"doppelt so teuer wie"
+						],
+						[
+							"highly",
+							"höchst · äußerst interessant"
+						],
+						[
+							"ever",
+							"immer größer"
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "Europa · Europas",
+							"en": "Europe"
+						},
+						{
+							"de": "teuer",
+							"en": "expensive"
+						},
+						{
+							"de": "die Lage",
+							"en": "situation"
+						},
+						{
+							"de": "ernst",
+							"en": "serious"
+						},
+						{
+							"de": "angenommen",
+							"en": "assumed"
+						},
+						{
+							"de": "schwierig",
+							"en": "difficult"
+						},
+						{
+							"de": "beunruhigend",
+							"en": "worrying"
+						},
+						{
+							"de": "der Befund",
+							"en": "finding"
+						},
+						{
+							"de": "wenig · die wenigen",
+							"en": "few"
+						},
+						{
+							"de": "das Beispiel",
+							"en": "example"
+						},
+						{
+							"de": "der Vorschlag",
+							"en": "proposal"
+						},
+						{
+							"de": "zweitgrößte",
+							"en": "second-largest"
+						},
+						{
+							"de": "ernster",
+							"en": "more serious"
+						},
+						{
+							"de": "ein beunruhigender Befund",
+							"en": "a worrying finding"
+						},
+						{
+							"de": "der mit Abstand beste",
+							"en": "by far the best"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The degree",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Berlin ist eine der",
+							"after": "Städte Europas. (groß)",
+							"answer": "größten"
+						},
+						{
+							"before": "Die Lage ist",
+							"after": "ernster als angenommen. (weitaus or immer?)",
+							"answer": "weitaus"
+						},
+						{
+							"before": "Das war der mit",
+							"after": "beste Vorschlag.",
+							"answer": "Abstand"
+						},
+						{
+							"before": "Hamburg ist die",
+							"after": "Stadt Deutschlands. (zwei + groß)",
+							"answer": "zweitgrößte"
+						},
+						{
+							"before": "Ein",
+							"after": "beunruhigender Befund. (höchst or bei weitem?)",
+							"answer": "höchst"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Berlin ist eine der größte Städte Europas.",
+							"answer": "Berlin ist eine der größten Städte Europas."
+						},
+						{
+							"prompt": "Die Lage ist bei weitem ernster wie angenommen.",
+							"answer": "Die Lage ist bei weitem ernster als angenommen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "That was by far the best proposal.",
+							"answer": "Das war bei weitem der beste Vorschlag."
+						},
+						{
+							"prompt": "The situation is far more serious than assumed.",
+							"answer": "Die Lage ist weitaus ernster als angenommen."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "Grade it",
+					"instruction": "Rewrite with the words in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Der Vorschlag war gut. (mit Abstand)",
+							"answer": "Der Vorschlag war mit Abstand der beste."
+						},
+						{
+							"prompt": "Die Lage ist ernst. (immer)",
+							"answer": "Die Lage wird immer ernster."
+						},
+						{
+							"prompt": "Das Hotel ist teuer. (doppelt so … wie das andere)",
+							"answer": "Das Hotel ist doppelt so teuer wie das andere."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"say one of the best with the genitive plural",
+				"grade: by far, far more, nowhere near",
+				"say twice as and highly"
+			]
+		},
+		{
+			"id": "review_1",
+			"review": true,
+			"title": "Wiederholung",
+			"subtitle": "Topics 1–7",
+			"hook": "Nothing new here — only what you know. Do both pages without looking back, then check.",
+			"quiz": "quest_c2_1_sprechen_kurzcheck",
+			"learn": [],
+			"left": [
+				{
+					"title": "The right word",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Mehrere Firmen meldeten Insolvenz",
+							"after": ".",
+							"answer": "an"
+						},
+						{
+							"before": "Er hat das Schreiben",
+							"after": ". (formal: kriegen)",
+							"answer": "erhalten"
+						},
+						{
+							"before": "Die Regierung",
+							"after": "Maßnahmen.",
+							"answer": "ergriff"
+						},
+						{
+							"before": "Seine Feinde nennen ihn",
+							"after": ". (− sparsam)",
+							"answer": "geizig"
+						}
+					]
+				},
+				{
+					"title": "Three levels",
+					"instruction": "Write the word in the other two levels.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "kriegen",
+							"answer": "bekommen – erhalten"
+						},
+						{
+							"prompt": "checken",
+							"answer": "prüfen – überprüfen"
+						},
+						{
+							"prompt": "Kohle",
+							"answer": "Geld – Mittel"
+						}
+					],
+					"cols": 3,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "one of the largest cities in Europe",
+							"answer": "eine der größten Städte Europas"
+						},
+						{
+							"prompt": "a good reason",
+							"answer": "ein triftiger Grund"
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Der Plan ist gerade absurd.",
+							"answer": "Der Plan ist geradezu absurd."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "About you",
+					"instruction": "Write two fixed pairs you use at work.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": ""
+						},
+						{
+							"before": "",
+							"after": ""
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Der Plan ist gerade absurd.",
+							"answer": "Der Plan ist geradezu absurd."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "About you",
+					"instruction": "Write two words that sound warm and two that sound cold.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": ""
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				}
+			],
+			"practise": [
+				{
+					"title": "Degree and allusion",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Der Plan ist",
+							"after": "ausgereift. (by no means)",
+							"answer": "keineswegs"
+						},
+						{
+							"before": "Eine Schwalbe macht noch keinen",
+							"after": ".",
+							"answer": "Sommer"
+						},
+						{
+							"before": "Berlin ist eine der",
+							"after": "Städte Europas.",
+							"answer": "größten"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Regierung machte Maßnahmen.",
+							"answer": "Die Regierung ergriff Maßnahmen."
+						},
+						{
+							"prompt": "Berlin ist eine der größte Städte Europas.",
+							"answer": "Berlin ist eine der größten Städte Europas."
+						},
+						{
+							"prompt": "Mehrere Firmen meldeten Insolvenz ein.",
+							"answer": "Mehrere Firmen meldeten Insolvenz an."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "The plan is by no means fully developed.",
+							"answer": "Der Plan ist keineswegs ausgereift."
+						},
+						{
+							"prompt": "He received the letter. (formal)",
+							"answer": "Er hat das Schreiben erhalten."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "About you",
+					"instruction": "Describe your job in a formal and a spoken way.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Formal:",
+							"after": "."
+						},
+						{
+							"before": "Spoken:",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ein starkes Quartal ist erfreulich, aber eine Schwalbe macht noch kein Sommer.",
+							"answer": "Ein starkes Quartal ist erfreulich, aber eine Schwalbe macht noch keinen Sommer."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Rephrase",
+					"instruction": "Write it in the other form.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das ist sicher nicht billig. → Das ist …",
+							"answer": "Das ist keineswegs billig."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				}
+			],
+			"canDo": []
+		},
+		{
+			"id": "valenz",
+			"title": "der Opfer gedenken",
+			"subtitle": "What a verb demands",
+			"hook": "Man beschuldigte ihn des Betrugs: no “von” — the bare genitive. Formal prose is full of these frames.",
+			"hero": {
+				"image": "cp_c2_1_valenz"
+			},
+			"quiz": "quest_c2_1_valenz",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Unusual frames",
+					"head": [
+						{
+							"text": "frame"
+						},
+						{
+							"text": "verbs"
+						},
+						{
+							"text": "like this"
+						}
+					],
+					"rows": [
+						[
+							"+ genitive",
+							"gedenken · bedürfen · sich erfreuen · sich enthalten",
+							"Das bedarf einer Erklärung."
+						],
+						[
+							"person (Akk) + thing (Gen)",
+							"beschuldigen · verdächtigen · berauben",
+							"Man beschuldigte ihn des Diebstahls."
+						],
+						[
+							"dative only",
+							"widersprechen · begegnen · ausweichen · schaden",
+							"Er widersprach dem Vorschlag."
+						],
+						[
+							"two accusatives",
+							"lehren · kosten · nennen",
+							"Das kostete ihn den Posten."
+						]
+					]
+				},
+				{
+					"kind": "arrow",
+					"title": "Accuse whom of what?",
+					"ask": [
+						"wen?",
+						"wessen?"
+					],
+					"rows": [
+						{
+							"who": "Man",
+							"verb": "beschuldigte",
+							"whom": "ihn des Betrugs",
+							"en": "person: accusative · thing: genitive"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Same verb, other frame, other meaning",
+					"head": [
+						{
+							"text": ""
+						},
+						{
+							"text": "",
+							"en": true
+						}
+					],
+					"rows": [
+						[
+							"bestehen auf + Dat",
+							"insist on"
+						],
+						[
+							"bestehen aus",
+							"consist of"
+						],
+						[
+							"bestehen in",
+							"consist in"
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Opfer",
+							"en": "victims"
+						},
+						{
+							"de": "die Erklärung",
+							"en": "explanation"
+						},
+						{
+							"de": "die Beliebtheit",
+							"en": "popularity"
+						},
+						{
+							"de": "der Betrug",
+							"en": "fraud"
+						},
+						{
+							"de": "das Amt",
+							"en": "office"
+						},
+						{
+							"de": "entheben",
+							"en": "to remove from"
+						},
+						{
+							"de": "der Diebstahl",
+							"en": "theft"
+						},
+						{
+							"de": "der Posten",
+							"en": "post"
+						},
+						{
+							"de": "das Zweifeln",
+							"en": "doubting"
+						},
+						{
+							"de": "die Regel",
+							"en": "rule"
+						},
+						{
+							"de": "drei Punkte",
+							"en": "three points"
+						},
+						{
+							"de": "die Fairness",
+							"en": "fairness"
+						},
+						{
+							"de": "die Stimme",
+							"en": "vote"
+						},
+						{
+							"de": "die Frage",
+							"en": "question"
+						},
+						{
+							"de": "die Partei",
+							"en": "party"
+						},
+						{
+							"de": "die Stadt",
+							"en": "city"
+						},
+						{
+							"de": "gedachte",
+							"en": "commemorated"
+						},
+						{
+							"de": "aus drei Punkten",
+							"en": "of three points"
+						},
+						{
+							"de": "der Sinn",
+							"en": "point"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The case the verb demands",
+					"instruction": "Write the words in brackets in the right case.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Stadt gedachte",
+							"after": ". (die Opfer)",
+							"answer": "der Opfer"
+						},
+						{
+							"before": "Das Projekt bedarf",
+							"after": ". (eine Erklärung)",
+							"answer": "einer Erklärung"
+						},
+						{
+							"before": "Man beschuldigte ihn",
+							"after": ". (der Betrug)",
+							"answer": "des Betrugs"
+						},
+						{
+							"before": "Er widersprach",
+							"after": ". (der Vorschlag)",
+							"answer": "dem Vorschlag"
+						},
+						{
+							"before": "Die Partei erfreut sich",
+							"after": ". (große Beliebtheit)",
+							"answer": "großer Beliebtheit"
+						}
+					]
+				},
+				{
+					"title": "bestehen",
+					"instruction": "Write auf, aus or in.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er besteht",
+							"after": "der Regel.",
+							"answer": "auf"
+						},
+						{
+							"before": "Die Regel besteht",
+							"after": "drei Punkten.",
+							"answer": "aus"
+						},
+						{
+							"before": "Ihr Sinn besteht",
+							"after": "der Fairness.",
+							"answer": "in"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Man beschuldigte ihn von Betrug.",
+							"answer": "Man beschuldigte ihn des Betrugs."
+						},
+						{
+							"prompt": "Er widersprach den Vorschlag.",
+							"answer": "Er widersprach dem Vorschlag."
+						},
+						{
+							"prompt": "Das Projekt bedarf eine Erklärung.",
+							"answer": "Das Projekt bedarf einer Erklärung."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "The city commemorated the victims.",
+							"answer": "Die Stadt gedachte der Opfer."
+						},
+						{
+							"prompt": "That cost him the post.",
+							"answer": "Das kostete ihn den Posten."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "Dative only",
+					"instruction": "Write the words in brackets in the right case.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Er widersprach",
+							"after": ". (die Regierung)",
+							"answer": "der Regierung"
+						},
+						{
+							"before": "Das schadet",
+							"after": ". (die Partei)",
+							"answer": "der Partei"
+						}
+					],
+					"extra": true
+				}
+			],
+			"canDo": [
+				"use verbs with the genitive: gedenken, bedürfen",
+				"accuse someone of something: des Betrugs",
+				"read a verb’s frame for its meaning"
+			]
+		},
+		{
+			"id": "komposita",
+			"title": "die Geschwindigkeits­begrenzung",
+			"subtitle": "Compounds: read from the right",
+			"hook": "The last part is the head — it gives the gender and the meaning. The joint in between (-s-, -n-, -er-) is history, not grammar.",
+			"hero": {
+				"image": "cp_c2_1_komposita"
+			},
+			"quiz": "quest_c2_1_komposita",
+			"learn": [
+				{
+					"kind": "build",
+					"title": "The joint",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "Prüfung"
+								},
+								{
+									"text": "s",
+									"role": "joint"
+								},
+								{
+									"text": "ordnung"
+								}
+							],
+							"result": "die Prüfungsordnung",
+							"en": "-s- after -ung, -ion …"
+						},
+						{
+							"parts": [
+								{
+									"text": "Sonne"
+								},
+								{
+									"text": "n",
+									"role": "joint"
+								},
+								{
+									"text": "brille"
+								}
+							],
+							"result": "die Sonnenbrille",
+							"en": "-n- after -e"
+						},
+						{
+							"parts": [
+								{
+									"text": "Kind"
+								},
+								{
+									"text": "er",
+									"role": "joint"
+								},
+								{
+									"text": "garten"
+								}
+							],
+							"result": "der Kindergarten",
+							"en": "-er- plural"
+						},
+						{
+							"parts": [
+								{
+									"text": "Buch"
+								},
+								{
+									"text": "handlung"
+								}
+							],
+							"result": "die Buchhandlung",
+							"en": "nothing"
+						}
+					]
+				},
+				{
+					"kind": "slots",
+					"title": "Decode from the right",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Bundes",
+									"tag": "of the federation"
+								},
+								{
+									"de": "verfassungs",
+									"tag": "for the constitution"
+								},
+								{
+									"de": "gericht",
+									"tag": "a court: the head",
+									"hot": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "watch",
+					"title": "Not a genitive",
+					"text": "The -s- in *Liebesbrief* is a joint: Liebe is feminine and has no genitive -s."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Geschwindigkeit",
+							"en": "speed"
+						},
+						{
+							"de": "die Begrenzung",
+							"en": "limit"
+						},
+						{
+							"de": "die Bundesstraße",
+							"en": "main road"
+						},
+						{
+							"de": "ganzjährig",
+							"en": "all year"
+						},
+						{
+							"de": "das Bilderbuch",
+							"en": "picture book"
+						},
+						{
+							"de": "das Bücherregal",
+							"en": "bookshelf"
+						},
+						{
+							"de": "die Haustür",
+							"en": "front door"
+						},
+						{
+							"de": "die Straßenbahn",
+							"en": "tram"
+						},
+						{
+							"de": "der Bahnhof",
+							"en": "station"
+						},
+						{
+							"de": "der Markt",
+							"en": "market"
+						},
+						{
+							"de": "die Arbeit",
+							"en": "work"
+						},
+						{
+							"de": "die Universität",
+							"en": "university"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Build the compound",
+					"instruction": "Write it as one word, with the right joint.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "die Begrenzung der Geschwindigkeit → die",
+							"after": "",
+							"answer": "Geschwindigkeitsbegrenzung"
+						},
+						{
+							"before": "der Markt für Arbeit → der",
+							"after": "",
+							"answer": "Arbeitsmarkt"
+						},
+						{
+							"before": "die Stadt mit der Universität → die",
+							"after": "",
+							"answer": "Universitätsstadt"
+						},
+						{
+							"before": "die Buchhandlung am Bahnhof → die",
+							"after": "",
+							"answer": "Bahnhofsbuchhandlung"
+						},
+						{
+							"before": "der Garten für Kinder → der",
+							"after": "",
+							"answer": "Kindergarten"
+						}
+					]
+				},
+				{
+					"title": "Decode it",
+					"instruction": "Write what the compound means, from the right.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "die Prüfungsordnung",
+							"answer": "die Ordnung für die Prüfung"
+						},
+						{
+							"prompt": "das Bücherregal",
+							"answer": "das Regal für die Bücher"
+						},
+						{
+							"prompt": "die Bundesstraße",
+							"answer": "die Straße des Bundes"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "The right joint",
+					"instruction": "Circle the right compound.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "der",
+							"options": [
+								"Kindergarten",
+								"Kindgarten"
+							],
+							"after": "",
+							"answer": "Kindergarten"
+						},
+						{
+							"before": "die",
+							"options": [
+								"Sonnenbrille",
+								"Sonnebrille"
+							],
+							"after": "",
+							"answer": "Sonnenbrille"
+						},
+						{
+							"before": "das",
+							"options": [
+								"Bücherregal",
+								"Buchregal"
+							],
+							"after": "",
+							"answer": "Bücherregal"
+						},
+						{
+							"before": "die",
+							"options": [
+								"Buchhandlung",
+								"Buchshandlung"
+							],
+							"after": "",
+							"answer": "Buchhandlung"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "the front door",
+							"answer": "die Haustür"
+						},
+						{
+							"prompt": "the tram",
+							"answer": "die Straßenbahn"
+						},
+						{
+							"prompt": "the picture book",
+							"answer": "das Bilderbuch"
+						},
+						{
+							"prompt": "the bookshelf",
+							"answer": "das Bücherregal"
+						}
+					],
+					"cols": 2,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "Build your own",
+					"instruction": "Make two compounds from words you know, and give their article.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": ""
+						},
+						{
+							"before": "",
+							"after": ""
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				}
+			],
+			"canDo": [
+				"find the head of a compound and its gender",
+				"choose the joint: -s-, -n-, -er- or nothing",
+				"decode a long compound from the right"
+			]
+		},
+		{
+			"id": "adjektive",
+			"title": "glaubwürdig, termingerecht",
+			"subtitle": "Suffixes with a precise meaning",
+			"hook": "Each suffix means one thing, so a new word like klimagerecht is readable on sight.",
+			"hero": {
+				"image": "cp_c2_1_adjektive"
+			},
+			"quiz": "quest_c2_1_adjektivbildung",
+			"learn": [
+				{
+					"kind": "build",
+					"title": "One suffix, one meaning",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "Meister"
+								},
+								{
+									"text": "haft",
+									"role": "suffix"
+								}
+							],
+							"result": "meisterhaft",
+							"en": "-haft: having the nature of"
+						},
+						{
+							"parts": [
+								{
+									"text": "Regel"
+								},
+								{
+									"text": "mäßig",
+									"role": "suffix"
+								}
+							],
+							"result": "regelmäßig",
+							"en": "-mäßig: in line with"
+						},
+						{
+							"parts": [
+								{
+									"text": "einzig"
+								},
+								{
+									"text": "artig",
+									"role": "suffix"
+								}
+							],
+							"result": "einzigartig",
+							"en": "-artig: of the kind"
+						},
+						{
+							"parts": [
+								{
+									"text": "lern"
+								},
+								{
+									"text": "fähig",
+									"role": "suffix"
+								}
+							],
+							"result": "lernfähig",
+							"en": "-fähig: able to"
+						},
+						{
+							"parts": [
+								{
+									"text": "glaub"
+								},
+								{
+									"text": "würdig",
+									"role": "suffix"
+								}
+							],
+							"result": "glaubwürdig",
+							"en": "-würdig: deserving"
+						},
+						{
+							"parts": [
+								{
+									"text": "Termin"
+								},
+								{
+									"text": "gerecht",
+									"role": "suffix"
+								}
+							],
+							"result": "termingerecht",
+							"en": "-gerecht: suited to"
+						}
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "watch",
+					"title": "Drifted",
+					"text": "*merkwürdig* means strange, *fragwürdig* questionable. And *sorgenfrei* (carefree) is not *sorglos* (careless)."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Aufführung",
+							"en": "performance"
+						},
+						{
+							"de": "der Schluss",
+							"en": "ending"
+						},
+						{
+							"de": "rätselhaft",
+							"en": "puzzling"
+						},
+						{
+							"de": "die Wohnung",
+							"en": "flat"
+						},
+						{
+							"de": "renoviert",
+							"en": "renovated"
+						},
+						{
+							"de": "verhältnismäßig",
+							"en": "relatively"
+						},
+						{
+							"de": "günstig",
+							"en": "cheap"
+						},
+						{
+							"de": "der Anbieter",
+							"en": "provider"
+						},
+						{
+							"de": "zahlungsfähig",
+							"en": "solvent"
+						},
+						{
+							"de": "fachgerecht",
+							"en": "properly"
+						},
+						{
+							"de": "konkurrenzfähig",
+							"en": "competitive"
+						},
+						{
+							"de": "der Preis",
+							"en": "price"
+						},
+						{
+							"de": "einzigartig · eine einzigartige",
+							"en": "unique"
+						},
+						{
+							"de": "ein konkurrenzfähiger",
+							"en": "a competitive"
+						},
+						{
+							"de": "merkwürdig · ein merkwürdiger",
+							"en": "strange"
+						},
+						{
+							"de": "der Zufall",
+							"en": "coincidence"
+						},
+						{
+							"de": "seltsam",
+							"en": "odd"
+						},
+						{
+							"de": "sorglos",
+							"en": "careless"
+						},
+						{
+							"de": "sorgenfrei",
+							"en": "carefree"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Which suffix?",
+					"instruction": "Write the describing word of the word in brackets.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Eine",
+							"after": ", geradezu einzigartige Aufführung. (Meister)",
+							"answer": "meisterhafte"
+						},
+						{
+							"before": "Die Wohnung wurde fachgerecht und",
+							"after": "renoviert. (Termin)",
+							"answer": "termingerecht"
+						},
+						{
+							"before": "Ein",
+							"after": ", konkurrenzfähiger Anbieter. (glauben)",
+							"answer": "glaubwürdiger"
+						},
+						{
+							"before": "Wir treffen uns",
+							"after": ". (Regel)",
+							"answer": "regelmäßig"
+						}
+					]
+				},
+				{
+					"title": "Not what it looks like",
+					"instruction": "Circle the right word.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Das ist ein",
+							"options": [
+								"merkwürdiger",
+								"glaubwürdiger"
+							],
+							"after": "Zufall – sehr seltsam.",
+							"answer": "merkwürdiger"
+						},
+						{
+							"before": "Er geht",
+							"options": [
+								"sorglos",
+								"sorgenfrei"
+							],
+							"after": "mit Geld um – leider.",
+							"answer": "sorglos"
+						}
+					]
+				},
+				{
+					"title": "Say it with one word",
+					"instruction": "Write one describing word for the phrase.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "kann lernen",
+							"answer": "lernfähig"
+						},
+						{
+							"prompt": "man kann ihm glauben",
+							"answer": "glaubwürdig"
+						},
+						{
+							"prompt": "genau zum Termin",
+							"answer": "termingerecht"
+						},
+						{
+							"prompt": "wie ein Meister",
+							"answer": "meisterhaft"
+						}
+					],
+					"cols": 2,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "A unique, masterly performance.",
+							"answer": "Eine einzigartige, meisterhafte Aufführung."
+						},
+						{
+							"prompt": "The flat was renovated on time.",
+							"answer": "Die Wohnung wurde termingerecht renoviert."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er geht sorgenfrei mit Geld um – leider.",
+							"answer": "Er geht sorglos mit Geld um – leider."
+						},
+						{
+							"prompt": "Das ist ein Zufall, merkwürdig im Sinn von: sehr gut.",
+							"answer": "Das ist ein merkwürdiger Zufall – sehr seltsam."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"build describing words with -haft, -fähig, -würdig, -gerecht",
+				"read a new word from its suffix",
+				"remember merkwürdig and fragwürdig"
+			]
+		},
+		{
+			"id": "praefixe",
+			"title": "sich verrechnen, ersteigern, entkalken",
+			"subtitle": "What a prefix does to a verb",
+			"hook": "ver- often means wrongly, zer- to pieces, er- by doing it, ent- away. Read the prefix and you read the verb.",
+			"hero": {
+				"image": "cp_c2_1_praefixe"
+			},
+			"quiz": "quest_c2_1_praefixe_semantik",
+			"learn": [
+				{
+					"kind": "build",
+					"title": "Prefix + verb",
+					"rows": [
+						{
+							"parts": [
+								{
+									"text": "ver",
+									"role": "joint"
+								},
+								{
+									"text": "rechnen"
+								}
+							],
+							"result": "sich verrechnen",
+							"en": "ver-: wrongly"
+						},
+						{
+							"parts": [
+								{
+									"text": "zer",
+									"role": "joint"
+								},
+								{
+									"text": "reißen"
+								}
+							],
+							"result": "zerreißen",
+							"en": "zer-: to pieces"
+						},
+						{
+							"parts": [
+								{
+									"text": "er",
+									"role": "joint"
+								},
+								{
+									"text": "kämpfen"
+								}
+							],
+							"result": "erkämpfen",
+							"en": "er-: get by doing"
+						},
+						{
+							"parts": [
+								{
+									"text": "ent",
+									"role": "joint"
+								},
+								{
+									"text": "kalken"
+								}
+							],
+							"result": "entkalken",
+							"en": "ent-: remove"
+						},
+						{
+							"parts": [
+								{
+									"text": "be",
+									"role": "joint"
+								},
+								{
+									"text": "antworten"
+								}
+							],
+							"result": "beantworten",
+							"en": "be-: takes an object"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "über-, um-: split or not?",
+					"head": [
+						{
+							"text": "split: literal"
+						},
+						{
+							"text": "fixed: figurative"
+						}
+					],
+					"rows": [
+						[
+							"Er setzt uns ans Ufer über. (ferries)",
+							"Er übersetzt den Text. (translates)"
+						],
+						[
+							"Er hat den Pfosten umgefahren. (knocked down)",
+							"Er hat die Stadt umfahren. (drove round)"
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Steuererklärung",
+							"en": "tax return"
+						},
+						{
+							"de": "tausend Euro",
+							"en": "a thousand euros"
+						},
+						{
+							"de": "der Sieg",
+							"en": "victory"
+						},
+						{
+							"de": "die Nachspielzeit",
+							"en": "injury time"
+						},
+						{
+							"de": "die Ministerin",
+							"en": "minister"
+						},
+						{
+							"de": "der Ausschuss",
+							"en": "committee"
+						},
+						{
+							"de": "ausführlich",
+							"en": "in detail"
+						},
+						{
+							"de": "der Fährmann",
+							"en": "ferryman"
+						},
+						{
+							"de": "die Reisenden",
+							"en": "travellers"
+						},
+						{
+							"de": "das Ufer",
+							"en": "bank"
+						},
+						{
+							"de": "der Wasserkocher",
+							"en": "kettle"
+						},
+						{
+							"de": "die Versteigerung",
+							"en": "auction"
+						},
+						{
+							"de": "steigern",
+							"en": "to bid"
+						},
+						{
+							"de": "das Präteritum",
+							"en": "simple past"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Prefix it",
+					"instruction": "Write the verb in the form the sentence needs.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Bei der Steuererklärung habe ich mich um tausend Euro",
+							"after": ". (rechnen, ver-)",
+							"answer": "verrechnet"
+						},
+						{
+							"before": "Die Mannschaft hat sich den Sieg in der Nachspielzeit",
+							"after": ". (kämpfen, er-)",
+							"answer": "erkämpft"
+						},
+						{
+							"before": "Du musst den Wasserkocher",
+							"after": ". (kalken, ent-)",
+							"answer": "entkalken"
+						},
+						{
+							"before": "Die Ministerin",
+							"after": "alle Fragen ausführlich. (antworten, be-, Präteritum)",
+							"answer": "beantwortete"
+						},
+						{
+							"before": "Er hat das Bild auf einer Versteigerung",
+							"after": ". (steigern, er-)",
+							"answer": "ersteigert"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Ministerin will auf alle Fragen beantworten.",
+							"answer": "Die Ministerin will alle Fragen beantworten."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "I made a mistake in my tax return.",
+							"answer": "Ich habe mich bei der Steuererklärung verrechnet."
+						},
+						{
+							"prompt": "The team won the victory in injury time.",
+							"answer": "Die Mannschaft hat sich den Sieg in der Nachspielzeit erkämpft."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "ver-, zer-, er-, ent-",
+					"instruction": "Write what the verb means in German words.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "zerreißen",
+							"answer": "in Stücke reißen"
+						},
+						{
+							"prompt": "entkalken",
+							"answer": "den Kalk entfernen"
+						},
+						{
+							"prompt": "sich verrechnen",
+							"answer": "falsch rechnen"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"read ver-, zer-, er-, ent-, be-",
+				"use be- with a direct object",
+				"tell über- and um- split or fixed"
+			]
+		},
+		{
+			"id": "konj2",
+			"title": "Um ein Haar wäre ich gestürzt",
+			"subtitle": "The Konjunktiv II in its finer shades",
+			"hook": "Near-misses, regret, politeness and the elevated Wäre da nicht …: the Konjunktiv II does what English does with modals and tone.",
+			"hero": {
+				"image": "cp_c2_1_konj2"
+			},
+			"quiz": "quest_c2_1_konj2_nuancen",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "hätte before the two infinitives — even in a clause",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Klar ist, dass"
+								},
+								{
+									"de": "er"
+								},
+								{
+									"de": "es"
+								},
+								{
+									"de": "hätte",
+									"hot": true
+								},
+								{
+									"de": "wissen müssen.",
+									"hot": true
+								}
+							],
+							"en": "not: wissen müssen hätte"
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Five shades",
+					"head": [
+						{
+							"text": "shade"
+						},
+						{
+							"text": "like this"
+						}
+					],
+					"rows": [
+						[
+							"near-miss",
+							"Um ein Haar *wäre* ich gestürzt. (I didn’t fall)"
+						],
+						[
+							"regret",
+							"*Hätte* ich doch nur früher auf dich gehört!"
+						],
+						[
+							"politeness",
+							"Ich *hätte* da eine Frage. · *Wäre* es möglich …?"
+						],
+						[
+							"too … to",
+							"zu komplex, als dass man es erklären *könnte*"
+						],
+						[
+							"were it not for",
+							"*Wären* da nicht die Kosten, …"
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "um ein Haar",
+							"en": "by a hair"
+						},
+						{
+							"de": "beinahe",
+							"en": "almost"
+						},
+						{
+							"de": "stürzen",
+							"en": "to fall"
+						},
+						{
+							"de": "der letzte Zug",
+							"en": "the last train"
+						},
+						{
+							"de": "die Risiken",
+							"en": "risks"
+						},
+						{
+							"de": "rückblickend",
+							"en": "looking back"
+						},
+						{
+							"de": "der Vorstand",
+							"en": "board"
+						},
+						{
+							"de": "die Reform",
+							"en": "reform"
+						},
+						{
+							"de": "retten",
+							"en": "to save"
+						},
+						{
+							"de": "die Firma",
+							"en": "company"
+						},
+						{
+							"de": "komplex",
+							"en": "complex"
+						},
+						{
+							"de": "gehört",
+							"en": "listened"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The verb form",
+					"instruction": "Write the Konjunktiv II form.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Um ein Haar",
+							"after": "wir den letzten Zug verpasst.",
+							"answer": "hätten"
+						},
+						{
+							"before": "Ich",
+							"after": "beinahe gestürzt.",
+							"answer": "wäre"
+						},
+						{
+							"before": "Rückblickend ist klar, dass der Vorstand die Risiken früher",
+							"after": "erkennen müssen.",
+							"answer": "hätte"
+						},
+						{
+							"before": "",
+							"after": "ich doch nur früher auf dich gehört!",
+							"answer": "Hätte"
+						},
+						{
+							"before": "Die Reform kam zu spät, als dass sie die Firma noch hätte retten",
+							"after": ".",
+							"answer": "können"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Klar ist, dass er es wissen müssen hätte.",
+							"answer": "Klar ist, dass er es hätte wissen müssen."
+						},
+						{
+							"prompt": "Ich hätte beinahe gestürzt.",
+							"answer": "Ich wäre beinahe gestürzt."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "If only I had listened to you earlier!",
+							"answer": "Hätte ich doch nur früher auf dich gehört!"
+						},
+						{
+							"prompt": "We almost missed the last train.",
+							"answer": "Um ein Haar hätten wir den letzten Zug verpasst."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "Politely",
+					"instruction": "Say it with distance: use the Konjunktiv II.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Ich habe eine Frage.",
+							"answer": "Ich hätte da eine Frage."
+						},
+						{
+							"prompt": "Ist es möglich, den Termin zu verschieben?",
+							"answer": "Wäre es möglich, den Termin zu verschieben?"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "About you",
+					"instruction": "Write a near-miss from your life.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Um ein Haar",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				}
+			],
+			"canDo": [
+				"say a near-miss: um ein Haar wäre …",
+				"put hätte before the two infinitives",
+				"use the elevated Wäre da nicht …"
+			]
+		},
+		{
+			"id": "konnektoren",
+			"title": "indes, wiewohl, mithin",
+			"subtitle": "Elevated connectors and their word order",
+			"hook": "Their meaning is easy — however, although, therefore. Their word order is the test.",
+			"hero": {
+				"image": "cp_c2_1_konnektoren"
+			},
+			"quiz": "quest_c2_1_konnektoren_nuancen",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Three word-order classes",
+					"head": [
+						{
+							"text": "class"
+						},
+						{
+							"text": "words"
+						},
+						{
+							"text": "verb"
+						}
+					],
+					"rows": [
+						[
+							"subordinators",
+							"wiewohl · obschon · zumal · insofern als",
+							"last"
+						],
+						[
+							"adverbs",
+							"indes · gleichwohl · mithin · somit",
+							"next (or in the middle)"
+						],
+						[
+							"outside",
+							"aber · doch · allein",
+							"unchanged"
+						]
+					]
+				},
+				{
+					"kind": "slots",
+					"title": "Same idea, two orders",
+					"note": "Not: …, gleichwohl er unterschrieb.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Wiewohl"
+								},
+								{
+									"de": "er die Risiken"
+								},
+								{
+									"de": "kannte,",
+									"hot": true
+								},
+								{
+									"de": "unterschrieb",
+									"hot": true
+								},
+								{
+									"de": "er."
+								}
+							],
+							"en": "subordinator"
+						},
+						{
+							"cells": [
+								{
+									"de": "Er kannte die Risiken;"
+								},
+								{
+									"de": "gleichwohl"
+								},
+								{
+									"de": "unterschrieb",
+									"hot": true
+								},
+								{
+									"de": "er."
+								}
+							],
+							"en": "adverb"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Risiken",
+							"en": "risks"
+						},
+						{
+							"de": "unterschrieb",
+							"en": "signed"
+						},
+						{
+							"de": "der Vertrag",
+							"en": "contract"
+						},
+						{
+							"de": "die Betroffenen",
+							"en": "those affected"
+						},
+						{
+							"de": "bis heute",
+							"en": "to this day"
+						},
+						{
+							"de": "der Beschuldigte",
+							"en": "the accused"
+						},
+						{
+							"de": "zur Tatzeit",
+							"en": "at the time of the crime"
+						},
+						{
+							"de": "im Ausland",
+							"en": "abroad"
+						},
+						{
+							"de": "begangen",
+							"en": "committed"
+						},
+						{
+							"de": "das Angebot",
+							"en": "offer"
+						},
+						{
+							"de": "die Konditionen",
+							"en": "terms"
+						},
+						{
+							"de": "versprach",
+							"en": "promised"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Which connector?",
+					"instruction": "Write wiewohl, indes, zumal or mithin.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": "er die Risiken kannte, unterschrieb er den Vertrag.",
+							"answer": "Wiewohl"
+						},
+						{
+							"before": "Der Minister versprach Hilfe; die Betroffenen warten",
+							"after": "bis heute.",
+							"answer": "indes"
+						},
+						{
+							"before": "Wir sollten das Angebot annehmen,",
+							"after": "die Konditionen kaum besser werden.",
+							"answer": "zumal"
+						},
+						{
+							"before": "Er war zur Tatzeit im Ausland; er kann die Tat",
+							"after": "nicht begangen haben.",
+							"answer": "mithin"
+						}
+					]
+				},
+				{
+					"title": "Word order",
+					"instruction": "Circle the right order.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Er kannte die Risiken; gleichwohl",
+							"options": [
+								"unterschrieb er",
+								"er unterschrieb"
+							],
+							"after": ".",
+							"answer": "unterschrieb er"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Er kannte die Risiken; gleichwohl er unterschrieb.",
+							"answer": "Er kannte die Risiken; gleichwohl unterschrieb er."
+						},
+						{
+							"prompt": "Wiewohl er kannte die Risiken, unterschrieb er.",
+							"answer": "Wiewohl er die Risiken kannte, unterschrieb er."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Say it another way",
+					"instruction": "Rewrite with the word in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Obwohl er die Risiken kannte, unterschrieb er. (gleichwohl)",
+							"answer": "Er kannte die Risiken; gleichwohl unterschrieb er."
+						},
+						{
+							"prompt": "Er war im Ausland, deshalb kann er es nicht gewesen sein. (mithin)",
+							"answer": "Er war im Ausland; er kann es mithin nicht gewesen sein."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "We should accept the offer, especially as the terms are good.",
+							"answer": "Wir sollten das Angebot annehmen, zumal die Konditionen gut sind."
+						},
+						{
+							"prompt": "He was abroad; consequently he cannot have done it.",
+							"answer": "Er war im Ausland; mithin kann er es nicht gewesen sein."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"use indes, wiewohl, zumal, mithin",
+				"put the verb where each class wants it",
+				"tell a subordinator from an adverb"
+			]
+		},
+		{
+			"id": "umformung",
+			"title": "am Vortag, tags darauf",
+			"subtitle": "Same meaning, another grammar",
+			"hook": "Rewrite — and check four things: meaning, tense, agent, register. Lose one and the rewrite fails.",
+			"hero": {
+				"image": "cp_c2_1_umformung"
+			},
+			"quiz": "quest_c2_1_umformung_2",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Direct → reported: the time words move too",
+					"head": [
+						{
+							"text": "direct"
+						},
+						{
+							"text": "reported later"
+						}
+					],
+					"rows": [
+						[
+							"gestern",
+							"am Vortag · tags zuvor"
+						],
+						[
+							"morgen",
+							"am nächsten Tag · tags darauf"
+						],
+						[
+							"heute",
+							"an jenem Tag"
+						]
+					]
+				},
+				{
+					"kind": "merge",
+					"title": "Connector ↔ little word",
+					"labels": [
+						"connector",
+						"noun phrase"
+					],
+					"rows": [
+						{
+							"a": "weil …",
+							"aTo": "wegen",
+							"b": "die Nachfrage sank",
+							"bTo": "der gesunkenen Nachfrage",
+							"result": "wegen der gesunkenen Nachfrage",
+							"en": "cause"
+						},
+						{
+							"a": "bevor …",
+							"aTo": "vor",
+							"b": "er ging",
+							"bTo": "seinem Aufbruch",
+							"result": "vor seinem Aufbruch",
+							"en": "not: vor seinem Gehen"
+						}
+					]
+				},
+				{
+					"kind": "flow",
+					"title": "Keep the force",
+					"root": {
+						"q": "Does ist zu … mean must here?",
+						"yes": {
+							"answer": "muss … werden",
+							"example": "Das Formular ist auszufüllen. = muss ausgefüllt werden"
+						},
+						"no": {
+							"answer": "lässt sich · kann … werden",
+							"example": "Der Fehler ist leicht zu beheben. = lässt sich leicht beheben"
+						}
+					}
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Vertrag",
+							"en": "contract"
+						},
+						{
+							"de": "unterschrieben",
+							"en": "signed"
+						},
+						{
+							"de": "die Nachfrage",
+							"en": "demand"
+						},
+						{
+							"de": "gesunken",
+							"en": "fallen"
+						},
+						{
+							"de": "das Gebäude",
+							"en": "building"
+						},
+						{
+							"de": "saniert",
+							"en": "renovated"
+						},
+						{
+							"de": "der Aufbruch",
+							"en": "departure"
+						},
+						{
+							"de": "die Stadt",
+							"en": "city"
+						},
+						{
+							"de": "der Fehler",
+							"en": "error"
+						},
+						{
+							"de": "beheben",
+							"en": "to fix"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Rephrase",
+					"instruction": "Write it in the other form.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "„Wir haben den Vertrag gestern unterschrieben.“ → Man …",
+							"answer": "Man habe den Vertrag am Vortag unterschrieben."
+						},
+						{
+							"prompt": "Weil die Nachfrage stark gesunken war, … → Wegen …",
+							"answer": "Wegen der stark gesunkenen Nachfrage …"
+						},
+						{
+							"prompt": "Die Stadt hat das Gebäude saniert. → Das Gebäude …",
+							"answer": "Das Gebäude ist von der Stadt saniert worden."
+						},
+						{
+							"prompt": "Das Problem kann gelöst werden. → Das Problem …",
+							"answer": "Das Problem lässt sich lösen."
+						}
+					],
+					"cols": 1
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das Formular ist auszufüllen. = Das Formular kann ausgefüllt werden.",
+							"answer": "Das Formular ist auszufüllen. = Das Formular muss ausgefüllt werden."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Rephrase",
+					"instruction": "Write it in the other form.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Stadt hat das Gebäude saniert. → Das Gebäude …",
+							"answer": "Das Gebäude ist von der Stadt saniert worden."
+						},
+						{
+							"prompt": "Der Fehler kann leicht behoben werden. → Der Fehler …",
+							"answer": "Der Fehler lässt sich leicht beheben."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "The building has been renovated by the city.",
+							"answer": "Das Gebäude ist von der Stadt saniert worden."
+						},
+						{
+							"prompt": "Because of the fallen demand …",
+							"answer": "Wegen der gesunkenen Nachfrage …"
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"move between direct and reported speech",
+				"swap a connector for a noun phrase",
+				"keep meaning, tense, agent and register"
+			]
+		},
+		{
+			"id": "review_2",
+			"review": true,
+			"title": "Wiederholung",
+			"subtitle": "Topics 8–14",
+			"hook": "Grammar at full stretch, all at once. No looking back until you have done both pages.",
+			"quiz": "quest_c2_1_bigtext_vorstand",
+			"learn": [],
+			"left": [
+				{
+					"title": "Frames and forms",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Man beschuldigte ihn",
+							"after": "Betrugs.",
+							"answer": "des"
+						},
+						{
+							"before": "die Begrenzung der Geschwindigkeit → die",
+							"after": "",
+							"answer": "Geschwindigkeitsbegrenzung"
+						},
+						{
+							"before": "Ein",
+							"after": "Anbieter. (glauben, -würdig)",
+							"answer": "glaubwürdiger"
+						},
+						{
+							"before": "Ich habe mich um tausend Euro",
+							"after": ". (rechnen, ver-)",
+							"answer": "verrechnet"
+						}
+					]
+				},
+				{
+					"title": "Build the compound",
+					"instruction": "Write it as one word.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "der Markt für Arbeit",
+							"answer": "der Arbeitsmarkt"
+						},
+						{
+							"prompt": "der Garten für Kinder",
+							"answer": "der Kindergarten"
+						},
+						{
+							"prompt": "die Stadt mit der Universität",
+							"answer": "die Universitätsstadt"
+						}
+					],
+					"cols": 3,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "The city commemorated the victims.",
+							"answer": "Die Stadt gedachte der Opfer."
+						},
+						{
+							"prompt": "If only I had listened to you!",
+							"answer": "Hätte ich doch nur auf dich gehört!"
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das Projekt bedarf eine Erklärung.",
+							"answer": "Das Projekt bedarf einer Erklärung."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "About you",
+					"instruction": "Write two compounds you saw today.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "",
+							"after": ""
+						},
+						{
+							"before": "",
+							"after": ""
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das Projekt bedarf eine Erklärung.",
+							"answer": "Das Projekt bedarf einer Erklärung."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				}
+			],
+			"practise": [
+				{
+					"title": "Shades and order",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Um ein Haar",
+							"after": "ich gestürzt.",
+							"answer": "wäre"
+						},
+						{
+							"before": "",
+							"after": "er die Risiken kannte, unterschrieb er.",
+							"answer": "Wiewohl"
+						},
+						{
+							"before": "„gestern“ → am",
+							"after": "",
+							"answer": "Vortag"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Man beschuldigte ihn von Betrug.",
+							"answer": "Man beschuldigte ihn des Betrugs."
+						},
+						{
+							"prompt": "Ich hätte beinahe gestürzt.",
+							"answer": "Ich wäre beinahe gestürzt."
+						},
+						{
+							"prompt": "Er kannte die Risiken; gleichwohl er unterschrieb.",
+							"answer": "Er kannte die Risiken; gleichwohl unterschrieb er."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Rephrase",
+					"instruction": "Write it in the other form.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das Problem kann gelöst werden. → Das Problem …",
+							"answer": "Das Problem lässt sich lösen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "We almost missed the last train.",
+							"answer": "Um ein Haar hätten wir den letzten Zug verpasst."
+						},
+						{
+							"prompt": "He made a mistake in his tax return.",
+							"answer": "Er hat sich bei der Steuererklärung verrechnet."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "About you",
+					"instruction": "Write one sentence with wiewohl and one with zumal.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Wiewohl",
+							"after": "."
+						},
+						{
+							"before": "…, zumal",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				},
+				{
+					"title": "The right joint",
+					"instruction": "Circle the right compound.",
+					"kind": "circle",
+					"cols": 2,
+					"items": [
+						{
+							"before": "der",
+							"options": [
+								"Kindergarten",
+								"Kindgarten"
+							],
+							"after": "",
+							"answer": "Kindergarten"
+						},
+						{
+							"before": "die",
+							"options": [
+								"Buchhandlung",
+								"Buchshandlung"
+							],
+							"after": "",
+							"answer": "Buchhandlung"
+						}
+					],
+					"extra": true
+				},
+				{
+					"title": "Rephrase",
+					"instruction": "Write it in the other form.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "kann lernen → …",
+							"answer": "lernfähig"
+						}
+					],
+					"cols": 2,
+					"extra": true
+				}
+			],
+			"canDo": []
+		},
+		{
+			"id": "konj1",
+			"title": "so Wendt, hätten …",
+			"subtitle": "Who is speaking? The verb tells you",
+			"hook": "One introducing verb, then the Konjunktiv I carries the whole report. Indicative = the paper’s own voice.",
+			"hero": {
+				"image": "cp_c2_1_konj1"
+			},
+			"quiz": "quest_c2_1_konj1_lit",
+			"listenQuiz": "quest_c2_1_lesen_artikel",
+			"learn": [
+				{
+					"kind": "flow",
+					"title": "Source or author?",
+					"root": {
+						"q": "Is the verb in the Konjunktiv (sei, habe, könne, hätten)?",
+						"yes": {
+							"answer": "a source speaks",
+							"example": "Die Beschleunigung sei an eine Grenze gestoßen."
+						},
+						"no": {
+							"answer": "the author speaks",
+							"example": "Beide haben recht."
+						}
+					}
+				},
+				{
+					"kind": "table",
+					"title": "No backshift — only the mood moves",
+					"head": [
+						{
+							"text": "direct"
+						},
+						{
+							"text": "reported"
+						}
+					],
+					"rows": [
+						[
+							"ist",
+							"sei"
+						],
+						[
+							"war · ist gewesen",
+							"sei gewesen"
+						],
+						[
+							"wird",
+							"werde"
+						],
+						[
+							"haben (plural)",
+							"hätten — I looks like the indicative"
+						]
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "watch",
+					"title": "Not hätte where habe works",
+					"text": "*er hätte* where *er habe* is available sounds as if the writer doubted the claim."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Innenministerin",
+							"en": "interior minister"
+						},
+						{
+							"de": "beherrschbar",
+							"en": "under control"
+						},
+						{
+							"de": "die Kräfte",
+							"en": "forces"
+						},
+						{
+							"de": "bündeln",
+							"en": "to pool"
+						},
+						{
+							"de": "die Langsamkeit",
+							"en": "slowness"
+						},
+						{
+							"de": "neu entdeckt",
+							"en": "rediscovered"
+						},
+						{
+							"de": "die Notwehr",
+							"en": "self-defence"
+						},
+						{
+							"de": "die Nostalgie",
+							"en": "nostalgia"
+						},
+						{
+							"de": "der Ökonom",
+							"en": "economist"
+						},
+						{
+							"de": "die Wohlhabenden",
+							"en": "the well-off"
+						},
+						{
+							"de": "knapp",
+							"en": "scarce"
+						},
+						{
+							"de": "die Gewerkschaft",
+							"en": "union"
+						},
+						{
+							"de": "die Zugeständnisse",
+							"en": "concessions"
+						},
+						{
+							"de": "die Beschäftigten",
+							"en": "employees"
+						},
+						{
+							"de": "bereit",
+							"en": "willing"
+						},
+						{
+							"de": "gebündelt",
+							"en": "pooled"
+						},
+						{
+							"de": "teilte mit",
+							"en": "announced"
+						},
+						{
+							"de": "erneut",
+							"en": "again"
+						},
+						{
+							"de": "die Bewegung",
+							"en": "movement"
+						},
+						{
+							"de": "das Phänomen",
+							"en": "phenomenon"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Report it",
+					"instruction": "Write the verb in the Konjunktiv I — or II where I looks like the indicative.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Ministerin erklärte, die Lage",
+							"after": "ernst, aber beherrschbar. (sein)",
+							"answer": "sei"
+						},
+						{
+							"before": "Man",
+							"after": "alle Kräfte gebündelt. (haben)",
+							"answer": "habe"
+						},
+						{
+							"before": "Die Gewerkschaft teilte mit, die Beschäftigten",
+							"after": "genug Zugeständnisse gemacht. (haben)",
+							"answer": "hätten"
+						},
+						{
+							"before": "Sie",
+							"after": "die Maßnahmen erneut überprüfen. (werden)",
+							"answer": "werde"
+						}
+					]
+				},
+				{
+					"title": "Slowness",
+					"instruction": "Listen to the article. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Immer mehr Menschen, so Wendt,",
+							"options": [
+								"hätten",
+								"haben"
+							],
+							"after": "den Wert der Langsamkeit neu entdeckt.",
+							"answer": "hätten"
+						},
+						{
+							"before": "Die neue Langsamkeit sei weniger Nostalgie als",
+							"options": [
+								"Notwehr",
+								"Mode"
+							],
+							"after": ".",
+							"answer": "Notwehr"
+						},
+						{
+							"before": "Berger hält die Bewegung für ein Phänomen der",
+							"options": [
+								"Wohlhabenden",
+								"Jugend"
+							],
+							"after": ".",
+							"answer": "Wohlhabenden"
+						},
+						{
+							"before": "Langsamkeit lasse sich gut verkaufen, weil sie",
+							"options": [
+								"knapp",
+								"teuer"
+							],
+							"after": "geworden sei.",
+							"answer": "knapp"
+						}
+					],
+					"listen": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Ministerin erklärte, die Lage ist ernst.",
+							"answer": "Die Ministerin erklärte, die Lage sei ernst."
+						},
+						{
+							"prompt": "Die Gewerkschaft teilte mit, die Beschäftigten haben genug Zugeständnisse gemacht.",
+							"answer": "Die Gewerkschaft teilte mit, die Beschäftigten hätten genug Zugeständnisse gemacht."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Report it",
+					"instruction": "Write it as a report: Er sagte, …",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "„Die Lage ist ernst.“",
+							"answer": "Er sagte, die Lage sei ernst."
+						},
+						{
+							"prompt": "„Wir werden die Maßnahmen überprüfen.“",
+							"answer": "Er sagte, man werde die Maßnahmen überprüfen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"keep a report in the Konjunktiv I",
+				"switch to hätten where the Konjunktiv I looks normal",
+				"tell a source’s claim from the author’s verdict"
+			]
+		},
+		{
+			"id": "stilmittel",
+			"title": "Die Stadt schläft nie",
+			"subtitle": "Rhetorical devices: name it, say what it does",
+			"hook": "Die Ampeln schalten, gewissenhaft wie Beamte: a simile. Die Häuser haben ihre Augen geschlossen: a personification.",
+			"hero": {
+				"image": "cp_c2_1_stilmittel"
+			},
+			"quiz": "quest_c2_1_stilmittel",
+			"listenQuiz": "quest_c2_1_hoeren_feature",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "Name and effect",
+					"head": [
+						{
+							"text": "device"
+						},
+						{
+							"text": "like this"
+						},
+						{
+							"text": "it …"
+						}
+					],
+					"rows": [
+						[
+							"Metapher",
+							"Die Koalition ist ein Kartenhaus.",
+							"compresses an image"
+						],
+						[
+							"Vergleich",
+							"zäh wie Kaugummi",
+							"compares openly — with wie"
+						],
+						[
+							"Personifikation",
+							"Die Märkte strafen ab.",
+							"brings things to life"
+						],
+						[
+							"Anapher",
+							"Wir brauchen Mut. Wir brauchen Geduld.",
+							"binds and stresses"
+						],
+						[
+							"Antithese",
+							"Er versprach Aufbruch und lieferte Stillstand.",
+							"sharpens a contrast"
+						],
+						[
+							"Litotes",
+							"nicht unerheblich (= erheblich)",
+							"understates — and stresses"
+						],
+						[
+							"Euphemismus",
+							"negatives Wachstum",
+							"softens"
+						]
+					]
+				},
+				{
+					"kind": "flow",
+					"title": "Metapher or Vergleich?",
+					"root": {
+						"q": "Is there a wie or als ob?",
+						"yes": {
+							"answer": "Vergleich",
+							"example": "laut wie ein Jahrmarkt"
+						},
+						"no": {
+							"answer": "Metapher",
+							"example": "ein Bienenstock"
+						}
+					}
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Ampeln",
+							"en": "traffic lights"
+						},
+						{
+							"de": "gewissenhaft",
+							"en": "conscientious"
+						},
+						{
+							"de": "die Beamten",
+							"en": "officials"
+						},
+						{
+							"de": "die Stille",
+							"en": "silence"
+						},
+						{
+							"de": "das Tuch",
+							"en": "cloth"
+						},
+						{
+							"de": "die Insel",
+							"en": "island"
+						},
+						{
+							"de": "das Meer",
+							"en": "sea"
+						},
+						{
+							"de": "die Dunkelheit",
+							"en": "darkness"
+						},
+						{
+							"de": "das Aquarium",
+							"en": "aquarium"
+						},
+						{
+							"de": "die Schienen",
+							"en": "rails"
+						},
+						{
+							"de": "die Großstadt",
+							"en": "big city"
+						},
+						{
+							"de": "der Dienstag",
+							"en": "Tuesday"
+						},
+						{
+							"de": "die Risiken",
+							"en": "risks"
+						},
+						{
+							"de": "ganz",
+							"en": "entirely"
+						},
+						{
+							"de": "die Häuser",
+							"en": "houses"
+						},
+						{
+							"de": "die Augen",
+							"en": "eyes"
+						},
+						{
+							"de": "der Arbeiter",
+							"en": "worker"
+						},
+						{
+							"de": "ein ganz gewöhnlicher Dienstag",
+							"en": "a quite ordinary Tuesday"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Name it",
+					"instruction": "Write the device: Metapher, Vergleich, Personifikation, Anapher, Antithese or Litotes.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Häuser haben ihre Augen geschlossen. →",
+							"after": "",
+							"answer": "Personifikation"
+						},
+						{
+							"before": "Die Stille liegt wie ein Tuch über den Straßen. →",
+							"after": "",
+							"answer": "Vergleich"
+						},
+						{
+							"before": "Jedes Licht ist eine kleine Insel in einem Meer aus Dunkelheit. →",
+							"after": "",
+							"answer": "Metapher"
+						},
+						{
+							"before": "Die Risiken waren nicht ganz unerheblich. →",
+							"after": "",
+							"answer": "Litotes"
+						}
+					]
+				},
+				{
+					"title": "The city before dawn",
+					"instruction": "Listen to the feature. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Wer glaubt, eine Großstadt",
+							"options": [
+								"schlafe",
+								"schläft"
+							],
+							"after": "nie, der irrt.",
+							"answer": "schlafe"
+						},
+						{
+							"before": "Die Ampeln schalten, gewissenhaft wie",
+							"options": [
+								"Beamte",
+								"Soldaten"
+							],
+							"after": ".",
+							"answer": "Beamte"
+						},
+						{
+							"before": "Die erste Straßenbahn ist hell wie ein",
+							"options": [
+								"Aquarium",
+								"Bahnhof"
+							],
+							"after": "auf Schienen.",
+							"answer": "Aquarium"
+						},
+						{
+							"before": "Für den Arbeiter ist es ein ganz gewöhnlicher",
+							"options": [
+								"Dienstag",
+								"Morgen"
+							],
+							"after": ".",
+							"answer": "Dienstag"
+						}
+					],
+					"listen": true
+				},
+				{
+					"title": "Name it and say what it does",
+					"instruction": "Write the device and its effect.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Märkte strafen ab.",
+							"answer": "Personifikation – sie macht die Märkte lebendig."
+						},
+						{
+							"prompt": "Er versprach Aufbruch und lieferte Stillstand.",
+							"answer": "Antithese – sie schärft den Kontrast."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your image",
+					"instruction": "Describe your city at night: one simile and one metaphor.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Stadt ist wie",
+							"after": "."
+						},
+						{
+							"before": "Die Stadt ist",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				},
+				{
+					"title": "Plain words",
+					"instruction": "Say the image in plain words.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Stille liegt wie ein Tuch über den Straßen.",
+							"answer": "Es ist sehr still."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"name a rhetorical device",
+				"say what it does in the text",
+				"tell a metaphor from a simile"
+			]
+		},
+		{
+			"id": "rede",
+			"title": "Wir brauchen Mut. Wir brauchen einander.",
+			"subtitle": "Giving a speech",
+			"hook": "Open with an image, build with three, close with the same image. And pause before the key word.",
+			"hero": {
+				"image": "cp_c2_1_rede"
+			},
+			"quiz": "quest_c2_1_sprechen_rede",
+			"listenQuiz": "quest_c2_1_sprechen_rede",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "The ring",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Stellen Sie sich eine Stadt vor, …",
+									"tag": "open: an image"
+								},
+								{
+									"de": "Wir brauchen … Wir brauchen …",
+									"tag": "build"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "Nicht …, sondern …",
+									"tag": "contrast"
+								},
+								{
+									"de": "Stellen Sie sich diese Stadt also noch einmal vor.",
+									"tag": "close: the image again",
+									"hot": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Devices in a speech",
+					"head": [
+						{
+							"text": "device"
+						},
+						{
+							"text": "like this"
+						}
+					],
+					"rows": [
+						[
+							"rhetorical question",
+							"Wer von uns hätte das für möglich gehalten?"
+						],
+						[
+							"anaphora",
+							"Wir brauchen Mut. Wir brauchen Ausdauer."
+						],
+						[
+							"antithesis",
+							"Nicht die Technik entscheidet, sondern der Mensch."
+						],
+						[
+							"climax",
+							"Es geht um Zeit, um Geld – und um unsere Kinder."
+						],
+						[
+							"concession",
+							"Gewiss, der Weg ist weit; doch er ist der einzige."
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "der Mut",
+							"en": "courage"
+						},
+						{
+							"de": "die Ausdauer",
+							"en": "stamina"
+						},
+						{
+							"de": "einander",
+							"en": "each other"
+						},
+						{
+							"de": "die Technik",
+							"en": "technology"
+						},
+						{
+							"de": "entscheiden",
+							"en": "to decide"
+						},
+						{
+							"de": "die Zukunft",
+							"en": "future"
+						},
+						{
+							"de": "der Weg",
+							"en": "path"
+						},
+						{
+							"de": "weit",
+							"en": "long"
+						},
+						{
+							"de": "gewiss",
+							"en": "certainly"
+						},
+						{
+							"de": "für möglich gehalten",
+							"en": "thought possible"
+						},
+						{
+							"de": "die Aufmerksamkeit",
+							"en": "attention"
+						},
+						{
+							"de": "der Mensch",
+							"en": "people"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The device",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Wir brauchen Mut. Wir brauchen Ausdauer. Wir brauchen",
+							"after": ".",
+							"answer": "einander"
+						},
+						{
+							"before": "Nicht die Technik entscheidet über unsere Zukunft,",
+							"after": "der Mensch.",
+							"answer": "sondern"
+						},
+						{
+							"before": "",
+							"after": ", der Weg ist weit; doch er ist der einzige.",
+							"answer": "Gewiss"
+						},
+						{
+							"before": "Wer von uns hätte das für möglich",
+							"after": "?",
+							"answer": "gehalten"
+						}
+					],
+					"listen": true
+				},
+				{
+					"title": "Build the speech",
+					"instruction": "Write the device the sentence shows.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wir brauchen Mut. Wir brauchen Ausdauer.",
+							"answer": "Anapher"
+						},
+						{
+							"prompt": "Nicht die Technik entscheidet, sondern der Mensch.",
+							"answer": "Antithese"
+						},
+						{
+							"prompt": "Wer von uns hätte das für möglich gehalten?",
+							"answer": "rhetorische Frage"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your opening",
+					"instruction": "Write the first sentence of a speech about your city.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Stellen Sie sich eine Stadt vor, in der",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				},
+				{
+					"title": "Make it a speech",
+					"instruction": "Rewrite with the device in brackets.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wir brauchen Mut und Ausdauer. (Anapher)",
+							"answer": "Wir brauchen Mut. Wir brauchen Ausdauer."
+						},
+						{
+							"prompt": "Der Mensch entscheidet, die Technik nicht. (Antithese)",
+							"answer": "Nicht die Technik entscheidet, sondern der Mensch."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "In German",
+					"instruction": "Write it in German.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Thank you for your attention.",
+							"answer": "Ich danke Ihnen für Ihre Aufmerksamkeit."
+						},
+						{
+							"prompt": "We need courage. We need each other.",
+							"answer": "Wir brauchen Mut. Wir brauchen einander."
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				}
+			],
+			"canDo": [
+				"open and close a speech with the same image",
+				"build with anaphora, antithesis and climax",
+				"pause before the key word"
+			]
+		},
+		{
+			"id": "moderieren",
+			"title": "Um es zuzuspitzen: …",
+			"subtitle": "Steering a discussion",
+			"hook": "Name, short question, silence. A good discussion needs someone steering, not just talking.",
+			"hero": {
+				"image": "cp_c2_1_moderieren"
+			},
+			"quiz": "quest_c2_1_sprechen_moderieren",
+			"listenQuiz": "quest_c2_1_sprechen_moderieren",
+			"learn": [
+				{
+					"kind": "table",
+					"title": "The moderator’s moves",
+					"head": [
+						{
+							"text": "move"
+						},
+						{
+							"text": "phrase"
+						}
+					],
+					"rows": [
+						[
+							"open",
+							"Ich begrüße Sie herzlich zu … · Lassen Sie uns mit der Frage beginnen, …"
+						],
+						[
+							"give the floor",
+							"Herr Brandt, Sie sehen die Pläne kritisch – warum?"
+						],
+						[
+							"sharpen",
+							"Um es zuzuspitzen: … – ja oder nein?"
+						],
+						[
+							"interrupt",
+							"Darf ich Sie an dieser Stelle kurz unterbrechen?"
+						],
+						[
+							"hold",
+							"Lassen Sie uns das festhalten, bevor wir weitergehen."
+						],
+						[
+							"close",
+							"Ich fasse zusammen: Einigkeit beim Ziel, Streit über den Weg."
+						]
+					]
+				},
+				{
+					"kind": "slots",
+					"title": "Name, short question, stop",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Frau Yilmaz –"
+								},
+								{
+									"de": "Ihre Einschätzung"
+								},
+								{
+									"de": "in einem Satz?",
+									"hot": true
+								}
+							],
+							"en": "then silence"
+						}
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Runde",
+							"en": "panel"
+						},
+						{
+							"de": "autofrei",
+							"en": "car-free"
+						},
+						{
+							"de": "die Innenstadt",
+							"en": "city centre"
+						},
+						{
+							"de": "kritisch",
+							"en": "critically"
+						},
+						{
+							"de": "die Sorge",
+							"en": "worry"
+						},
+						{
+							"de": "die Händler",
+							"en": "retailers"
+						},
+						{
+							"de": "das Fahrverbot",
+							"en": "driving ban"
+						},
+						{
+							"de": "die Altstadt",
+							"en": "old town"
+						},
+						{
+							"de": "unterbrechen",
+							"en": "to interrupt"
+						},
+						{
+							"de": "bremsen",
+							"en": "to stop"
+						},
+						{
+							"de": "die Einschätzung",
+							"en": "assessment"
+						},
+						{
+							"de": "das Schlusswort",
+							"en": "closing word"
+						},
+						{
+							"de": "das Ziel",
+							"en": "goal"
+						},
+						{
+							"de": "das Tempo",
+							"en": "pace"
+						},
+						{
+							"de": "lebendig",
+							"en": "lively"
+						},
+						{
+							"de": "streiten",
+							"en": "to argue"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "The move",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Um es",
+							"after": ": Sind Sie für ein Fahrverbot – ja oder nein?",
+							"answer": "zuzuspitzen"
+						},
+						{
+							"before": "Darf ich Sie an dieser Stelle kurz",
+							"after": "?",
+							"answer": "unterbrechen"
+						},
+						{
+							"before": "Lassen Sie uns das",
+							"after": ", bevor wir weitergehen.",
+							"answer": "festhalten"
+						},
+						{
+							"before": "Ich fasse",
+							"after": ": Einigkeit beim Ziel, Streit über den Weg.",
+							"answer": "zusammen"
+						}
+					]
+				},
+				{
+					"title": "A panel on the radio",
+					"instruction": "Listen. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Lassen Sie uns mit der Frage beginnen, wem die",
+							"options": [
+								"Innenstadt",
+								"Altstadt"
+							],
+							"after": "eigentlich gehört.",
+							"answer": "Innenstadt"
+						},
+						{
+							"before": "Sie streiten nicht über das Ziel, sondern über das",
+							"options": [
+								"Tempo",
+								"Geld"
+							],
+							"after": ".",
+							"answer": "Tempo"
+						}
+					],
+					"listen": true
+				},
+				{
+					"title": "Steer it",
+					"instruction": "Write what the moderator says.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "You want a clear answer: yes or no.",
+							"answer": "Um es zuzuspitzen: … – ja oder nein?"
+						},
+						{
+							"prompt": "You want to interrupt Herr Brandt politely.",
+							"answer": "Darf ich Sie an dieser Stelle kurz unterbrechen, Herr Brandt?"
+						},
+						{
+							"prompt": "You want to sum up in one sentence.",
+							"answer": "Ich fasse zusammen: …"
+						}
+					],
+					"cols": 1,
+					"notGerman": true,
+					"extra": true
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence is too blunt for a moderator. Write it politely.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Herr Brandt, ruhig jetzt!",
+							"answer": "Darf ich Sie an dieser Stelle kurz unterbrechen, Herr Brandt?"
+						},
+						{
+							"prompt": "Ja oder nein, schnell!",
+							"answer": "Um es zuzuspitzen: ja oder nein?"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your panel",
+					"instruction": "You moderate a panel on your city. Write your first two sentences.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich begrüße Sie herzlich zu",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				}
+			],
+			"canDo": [
+				"open a discussion and give the floor",
+				"sharpen, interrupt politely and hold a result",
+				"sum up in one balanced sentence"
+			]
+		},
+		{
+			"id": "satire",
+			"title": "Unsere Stadt ist digital.",
+			"subtitle": "Reading satire: praise that undoes itself",
+			"hook": "The speaker never says it is bad. He praises — and puts the evidence right next to the praise.",
+			"hero": {
+				"image": "cp_c2_1_satire"
+			},
+			"quiz": "quest_c2_1_hoeren_satire",
+			"listenQuiz": "quest_c2_1_hoeren_satire",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "Praise, then the fact",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "Anschließend erhält man einen Aktivierungscode."
+								},
+								{
+									"de": "Per Post.",
+									"hot": true
+								}
+							],
+							"en": "the shorter, the harder"
+						},
+						{
+							"cells": [
+								{
+									"de": "Innerhalb von zehn Werktagen.",
+									"hot": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "Three techniques",
+					"head": [
+						{
+							"text": "technique"
+						},
+						{
+							"text": "like this"
+						}
+					],
+					"rows": [
+						[
+							"mock praise",
+							"Das nennt man Transparenz."
+						],
+						[
+							"jargon quoted, then taken literally",
+							"„medienbruchfrei“ – man wechselt nur noch einmal hin und einmal her"
+						],
+						[
+							"the punchline catches the speaker",
+							"digital angekommen – und ich warte auf einen Brief"
+						]
+					]
+				},
+				{
+					"kind": "box",
+					"tone": "watch",
+					"title": "A concession is a set-up",
+					"text": "*Ich will nicht ungerecht sein.* In satire, the next sentence attacks."
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "das Bürgerportal",
+							"en": "citizens’ portal"
+						},
+						{
+							"de": "der Bildschirm",
+							"en": "screen"
+						},
+						{
+							"de": "der Aktivierungscode",
+							"en": "activation code"
+						},
+						{
+							"de": "die Werktage",
+							"en": "working days"
+						},
+						{
+							"de": "die Pressemitteilung",
+							"en": "press release"
+						},
+						{
+							"de": "der Termin",
+							"en": "appointment"
+						},
+						{
+							"de": "die Beschwerden",
+							"en": "complaints"
+						},
+						{
+							"de": "ausgedruckt",
+							"en": "printed"
+						},
+						{
+							"de": "abgeheftet",
+							"en": "filed"
+						},
+						{
+							"de": "die Einladung",
+							"en": "invitation"
+						},
+						{
+							"de": "das Fax",
+							"en": "fax"
+						},
+						{
+							"de": "der Preis",
+							"en": "award"
+						},
+						{
+							"de": "das Plakat",
+							"en": "poster"
+						},
+						{
+							"de": "das Fernglas",
+							"en": "binoculars"
+						},
+						{
+							"de": "die Baustelle",
+							"en": "building site"
+						},
+						{
+							"de": "der Februar",
+							"en": "February"
+						},
+						{
+							"de": "die Transparenz",
+							"en": "transparency"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Stadt direkt",
+					"instruction": "Listen to the gloss. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Den Aktivierungscode bekommt man per",
+							"options": [
+								"Post",
+								"E-Mail"
+							],
+							"after": ".",
+							"answer": "Post"
+						},
+						{
+							"before": "Die Beschwerden werden ausgedruckt und",
+							"options": [
+								"abgeheftet",
+								"gelöscht"
+							],
+							"after": ".",
+							"answer": "abgeheftet"
+						},
+						{
+							"before": "Die Einladung zum Preis kam per",
+							"options": [
+								"Fax",
+								"Brief"
+							],
+							"after": ".",
+							"answer": "Fax"
+						},
+						{
+							"before": "Der nächste freie Termin liegt im",
+							"options": [
+								"Februar",
+								"März"
+							],
+							"after": ".",
+							"answer": "Februar"
+						}
+					],
+					"listen": true
+				},
+				{
+					"title": "What it really means",
+					"instruction": "Finish the sentence in your own words.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "„Das nennt man Transparenz.“ – Der Sprecher meint:",
+							"after": "."
+						}
+					],
+					"note": "About you."
+				},
+				{
+					"title": "What it really means",
+					"instruction": "Write what the speaker really means.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das nennt man Transparenz.",
+							"answer": "Es ist keine Transparenz – man muss nur lange warten."
+						},
+						{
+							"prompt": "Medienbruchfrei, das ist ein schönes Wort.",
+							"answer": "Das Wort klingt gut, aber es stimmt nicht."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Spot the technique",
+					"instruction": "Write which technique the sentence uses: mock praise, jargon taken literally, or a set-up.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das nennt man Transparenz.",
+							"answer": "mock praise"
+						},
+						{
+							"prompt": "Medienbruchfrei, das ist ein schönes Wort.",
+							"answer": "jargon taken literally"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your gloss",
+					"instruction": "Praise something that does not work — in two sentences.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Unser Bus ist",
+							"after": "."
+						},
+						{
+							"before": "Das nennt man",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				}
+			],
+			"canDo": [
+				"recognise mock praise",
+				"hear quoted jargon taken literally",
+				"read the punchline as the thesis"
+			]
+		},
+		{
+			"id": "kurzgeschichte",
+			"title": "Die blaue Tasse",
+			"subtitle": "Reading a short story",
+			"hook": "An abrupt start, an ordinary moment, no feelings named, one object that carries the meaning — and an open ending.",
+			"hero": {
+				"image": "cp_c2_1_kurzgeschichte"
+			},
+			"quiz": "quest_c2_1_lesen_kurzgeschichte",
+			"listenQuiz": "quest_c2_1_lesen_kurzgeschichte",
+			"learn": [
+				{
+					"kind": "slots",
+					"title": "Follow the object",
+					"note": "Each step is a decision about how much of Ruth stays in his day.",
+					"rows": [
+						{
+							"cells": [
+								{
+									"de": "taken out",
+									"tag": "Er nahm die blaue Tasse aus dem Schrank."
+								},
+								{
+									"de": "left empty",
+									"tag": "Die blaue blieb leer."
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"de": "washed though clean",
+									"tag": "obwohl sie nicht schmutzig war"
+								},
+								{
+									"de": "on the windowsill",
+									"tag": "Von dort sieht man den Hof.",
+									"hot": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "table",
+					"title": "What makes it a Kurzgeschichte",
+					"head": [
+						{
+							"text": "feature"
+						},
+						{
+							"text": "in this story"
+						}
+					],
+					"rows": [
+						[
+							"abrupt start",
+							"Das Wasser kochte schon, als das Telefon klingelte."
+						],
+						[
+							"no feelings named",
+							"He acts; the reader infers grief."
+						],
+						[
+							"a symbol",
+							"the blue cup"
+						],
+						[
+							"an open ending",
+							"Von dort, dachte er, sieht man den Hof."
+						]
+					]
+				},
+				{
+					"kind": "words",
+					"title": "Words for the practice page",
+					"items": [
+						{
+							"de": "die Tasse",
+							"en": "cup"
+						},
+						{
+							"de": "der Schrank",
+							"en": "cupboard"
+						},
+						{
+							"de": "die Beerdigung",
+							"en": "funeral"
+						},
+						{
+							"de": "der Zettel",
+							"en": "note"
+						},
+						{
+							"de": "die Zuckerdose",
+							"en": "sugar bowl"
+						},
+						{
+							"de": "die Fensterbank",
+							"en": "windowsill"
+						},
+						{
+							"de": "der Hof",
+							"en": "yard"
+						},
+						{
+							"de": "schmutzig",
+							"en": "dirty"
+						},
+						{
+							"de": "abtrocknen",
+							"en": "to dry"
+						},
+						{
+							"de": "sorgfältig",
+							"en": "carefully"
+						},
+						{
+							"de": "die Brusttasche",
+							"en": "breast pocket"
+						},
+						{
+							"de": "der Nachbar",
+							"en": "neighbour"
+						},
+						{
+							"de": "die Mülltonnen",
+							"en": "bins"
+						},
+						{
+							"de": "das Telefon",
+							"en": "phone"
+						},
+						{
+							"de": "klingelte",
+							"en": "rang"
+						},
+						{
+							"de": "leer",
+							"en": "empty"
+						},
+						{
+							"de": "der Sprung",
+							"en": "crack"
+						},
+						{
+							"de": "die Wohnung",
+							"en": "flat"
+						},
+						{
+							"de": "zwei Zimmer",
+							"en": "two rooms"
+						},
+						{
+							"de": "reichen",
+							"en": "to be enough"
+						},
+						{
+							"de": "die blaue Tasse",
+							"en": "the blue cup"
+						},
+						{
+							"de": "stellte",
+							"en": "put"
+						}
+					],
+					"cols": 4
+				}
+			],
+			"practise": [
+				{
+					"title": "Brenner’s Tuesday",
+					"instruction": "Listen to the story. Circle what you hear.",
+					"kind": "circle",
+					"cols": 1,
+					"items": [
+						{
+							"before": "Katrin rief jeden",
+							"options": [
+								"Dienstag",
+								"Sonntag"
+							],
+							"after": "um halb acht an.",
+							"answer": "Dienstag"
+						},
+						{
+							"before": "Die blaue Tasse blieb",
+							"options": [
+								"leer",
+								"voll"
+							],
+							"after": ".",
+							"answer": "leer"
+						},
+						{
+							"before": "Zwei Zimmer, dachte er, das",
+							"options": [
+								"reicht",
+								"stimmt"
+							],
+							"after": "für einen.",
+							"answer": "reicht"
+						},
+						{
+							"before": "Die Tasse stellte er auf die",
+							"options": [
+								"Fensterbank",
+								"Zuckerdose"
+							],
+							"after": ".",
+							"answer": "Fensterbank"
+						}
+					],
+					"listen": true
+				},
+				{
+					"title": "Your reading",
+					"instruction": "Finish the sentence.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Am Ende stellt Brenner die Tasse auf die Fensterbank, weil",
+							"after": "."
+						}
+					],
+					"note": "About you."
+				},
+				{
+					"title": "Plain words",
+					"instruction": "Say in plain words what the gesture shows.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die blaue Tasse blieb leer.",
+							"answer": "Ruth fehlt ihm."
+						},
+						{
+							"prompt": "Die Tasse stellte er auf die Fensterbank.",
+							"answer": "Ruth soll noch dabei sein – sie sah gern auf den Hof."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "The story in plain words",
+					"instruction": "Answer in one sentence.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wer ist Ruth?",
+							"answer": "Brenners Frau, die gestorben ist."
+						},
+						{
+							"prompt": "Was will Katrin?",
+							"answer": "Dass er die Wohnung ansieht."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your ending",
+					"instruction": "Write one sentence that continues the story.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Am Donnerstag",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				}
+			],
+			"canDo": [
+				"name the features of a Kurzgeschichte",
+				"follow a symbol through a story",
+				"read an open ending without closing it"
+			]
+		},
+		{
+			"id": "review_3",
+			"review": true,
+			"title": "Wiederholung",
+			"subtitle": "Topics 15–20",
+			"hook": "The last part, all at once. No looking back until you have done both pages.",
+			"quiz": "quest_c2_1_sprechen_dialog",
+			"learn": [],
+			"left": [
+				{
+					"title": "Voices and devices",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Die Ministerin erklärte, die Lage",
+							"after": "ernst. (sein)",
+							"answer": "sei"
+						},
+						{
+							"before": "Die Stille liegt wie ein Tuch über den Straßen. →",
+							"after": "",
+							"answer": "Vergleich"
+						},
+						{
+							"before": "Nicht die Technik entscheidet,",
+							"after": "der Mensch.",
+							"answer": "sondern"
+						}
+					]
+				},
+				{
+					"title": "Report it",
+					"instruction": "Write it as a report: Sie sagte, …",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "„Die Lage ist ernst.“",
+							"answer": "Sie sagte, die Lage sei ernst."
+						},
+						{
+							"prompt": "„Wir haben alles versucht.“",
+							"answer": "Sie sagte, man habe alles versucht."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Name the device",
+					"instruction": "Write the device.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Häuser haben ihre Augen geschlossen.",
+							"answer": "Personifikation"
+						},
+						{
+							"prompt": "zäh wie Kaugummi",
+							"answer": "Vergleich"
+						},
+						{
+							"prompt": "nicht unerheblich",
+							"answer": "Litotes"
+						}
+					],
+					"cols": 3,
+					"extra": true
+				},
+				{
+					"title": "Plain words",
+					"instruction": "Say what the speaker really means.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das nennt man Transparenz.",
+							"answer": "Es ist keine Transparenz."
+						},
+						{
+							"prompt": "Die blaue Tasse blieb leer.",
+							"answer": "Ruth fehlt ihm."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your opening",
+					"instruction": "Write the first sentence of a speech.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Stellen Sie sich vor,",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				},
+				{
+					"title": "Rephrase",
+					"instruction": "Write it in the other form.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Das Problem kann gelöst werden. → Das Problem …",
+							"answer": "Das Problem lässt sich lösen."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your opening",
+					"instruction": "Write the first sentence of a speech.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Stellen Sie sich vor,",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				}
+			],
+			"practise": [
+				{
+					"title": "Steering and reading",
+					"instruction": "Write the missing word.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Um es",
+							"after": ": ja oder nein?",
+							"answer": "zuzuspitzen"
+						},
+						{
+							"before": "Ich fasse",
+							"after": ": Einigkeit beim Ziel.",
+							"answer": "zusammen"
+						},
+						{
+							"before": "Das nennt man",
+							"after": ". (mock praise)",
+							"answer": "Transparenz"
+						}
+					]
+				},
+				{
+					"title": "Find the mistake",
+					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die Ministerin erklärte, die Lage ist ernst.",
+							"answer": "Die Ministerin erklärte, die Lage sei ernst."
+						},
+						{
+							"prompt": "Die Stille liegt wie ein Tuch. → Metapher",
+							"answer": "Die Stille liegt wie ein Tuch. → Vergleich"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your verdict",
+					"instruction": "Write one balanced sentence about a debate you know.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich fasse zusammen:",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				},
+				{
+					"title": "Name it",
+					"instruction": "Write the device.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wir brauchen Mut. Wir brauchen Geduld.",
+							"answer": "Anapher"
+						},
+						{
+							"prompt": "Er versprach Aufbruch und lieferte Stillstand.",
+							"answer": "Antithese"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your summary",
+					"instruction": "Sum up a discussion you heard in one balanced sentence.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich fasse zusammen:",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				},
+				{
+					"title": "Name it",
+					"instruction": "Write the device.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Wir brauchen Mut. Wir brauchen Geduld.",
+							"answer": "Anapher"
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Plain words",
+					"instruction": "Say what the speaker really means.",
+					"kind": "write",
+					"items": [
+						{
+							"prompt": "Die blaue Tasse blieb leer.",
+							"answer": "Ruth fehlt ihm."
+						}
+					],
+					"cols": 1,
+					"extra": true
+				},
+				{
+					"title": "Your summary",
+					"instruction": "Sum up your book in one sentence.",
+					"kind": "gaps",
+					"items": [
+						{
+							"before": "Ich fasse zusammen:",
+							"after": "."
+						}
+					],
+					"note": "About you.",
+					"extra": true
+				}
+			],
+			"canDo": []
+		}
+	],
+	"overview": {
+		"title": "C2.1 at a glance",
+		"blocks": [
+			{
+				"kind": "table",
+				"title": "Three levels",
+				"head": [
+					{
+						"text": "spoken"
+					},
+					{
+						"text": "neutral"
+					},
+					{
+						"text": "formal"
+					}
+				],
+				"rows": [
+					[
+						"kriegen",
+						"bekommen",
+						"erhalten"
+					],
+					[
+						"checken",
+						"prüfen",
+						"überprüfen"
+					],
+					[
+						"Kohle",
+						"Geld",
+						"Mittel"
+					],
+					[
+						"sauer",
+						"verärgert",
+						"ungehalten"
+					]
+				]
+			},
+			{
+				"kind": "table",
+				"title": "Shading a claim",
+				"head": [
+					{
+						"text": ""
+					},
+					{
+						"text": "like this"
+					}
+				],
+				"rows": [
+					[
+						"by no means",
+						"keineswegs"
+					],
+					[
+						"not exactly",
+						"nicht gerade"
+					],
+					[
+						"certainly",
+						"durchaus"
+					],
+					[
+						"downright",
+						"geradezu"
+					],
+					[
+						"at least",
+						"immerhin"
+					]
+				]
+			},
+			{
+				"kind": "table",
+				"title": "Elevated connectors",
+				"head": [
+					{
+						"text": "verb"
+					},
+					{
+						"text": "words"
+					}
+				],
+				"rows": [
+					[
+						"last",
+						"wiewohl · obschon · zumal · insofern als"
+					],
+					[
+						"next",
+						"indes · gleichwohl · mithin"
+					],
+					[
+						"unchanged",
+						"aber · doch · allein"
+					]
+				]
+			}
+		]
+	},
+	"dictionary": {
+		"title": "Words in pictures",
+		"note": "Thirty-two words from this book. Cover the German, look at the picture, say the word **with its article**.",
+		"words": [
+			{
+				"de": "der Hobel",
+				"en": "plane",
+				"image": "cpd_hobel"
+			},
+			{
+				"de": "die Schraubzwinge",
+				"en": "clamp",
+				"image": "cpd_schraubzwinge"
+			},
+			{
+				"de": "der Zollstock",
+				"en": "folding rule",
+				"image": "cpd_zollstock"
+			},
+			{
+				"de": "die Hobelbank",
+				"en": "workbench",
+				"image": "cpd_hobelbank"
+			},
+			{
+				"de": "das Stemmeisen",
+				"en": "chisel",
+				"image": "cpd_stemmeisen"
+			},
+			{
+				"de": "der Akkuschrauber",
+				"en": "cordless drill",
+				"image": "cpd_akkuschrauber"
+			},
+			{
+				"de": "der Sägebock",
+				"en": "sawhorse",
+				"image": "cpd_saegebock"
+			},
+			{
+				"de": "das Ölkännchen",
+				"en": "oil can",
+				"image": "cpd_oelkaennchen"
+			},
+			{
+				"de": "die Säge",
+				"en": "saw",
+				"image": "cpd_saege"
+			},
+			{
+				"de": "der Hammer",
+				"en": "hammer",
+				"image": "cpd_hammer"
+			},
+			{
+				"de": "die Wasserwaage",
+				"en": "spirit level",
+				"image": "cpd_wasserwaage"
+			},
+			{
+				"de": "die Leiter",
+				"en": "ladder",
+				"image": "cpd_leiter"
+			},
+			{
+				"de": "die Sense",
+				"en": "scythe",
+				"image": "cpd_sense"
+			},
+			{
+				"de": "die Egge",
+				"en": "harrow",
+				"image": "cpd_egge"
+			},
+			{
+				"de": "der Melkschemel",
+				"en": "milking stool",
+				"image": "cpd_melkschemel"
+			},
+			{
+				"de": "das Scheunentor",
+				"en": "barn door",
+				"image": "cpd_scheunentor"
+			},
+			{
+				"de": "das Wagenrad",
+				"en": "cart wheel",
+				"image": "cpd_wagenrad"
+			},
+			{
+				"de": "der Wetterhahn",
+				"en": "weathercock",
+				"image": "cpd_wetterhahn"
+			},
+			{
+				"de": "das Ferkel",
+				"en": "piglet",
+				"image": "cpd_ferkel"
+			},
+			{
+				"de": "das Kalb",
+				"en": "calf",
+				"image": "cpd_kalb"
+			},
+			{
+				"de": "die Ziege",
+				"en": "goat",
+				"image": "cpd_ziege"
+			},
+			{
+				"de": "die Gans",
+				"en": "goose",
+				"image": "cpd_gans"
+			},
+			{
+				"de": "die Pumpe",
+				"en": "pump",
+				"image": "cpd_pumpe"
+			},
+			{
+				"de": "die Mistgabel",
+				"en": "pitchfork",
+				"image": "cpd_mistgabel"
+			},
+			{
+				"de": "der Taubenschlag",
+				"en": "dovecote",
+				"image": "cpd_taubenschlag"
+			},
+			{
+				"de": "der Strohballen",
+				"en": "straw bale",
+				"image": "cpd_strohballen"
+			},
+			{
+				"de": "die Schubkarre",
+				"en": "wheelbarrow",
+				"image": "cpd_schubkarre"
+			},
+			{
+				"de": "die Laterne",
+				"en": "lantern",
+				"image": "cpd_laterne"
+			},
+			{
+				"de": "die Tasse",
+				"en": "cup",
+				"image": "cpd_tasse"
+			},
+			{
+				"de": "die Zuckerdose",
+				"en": "sugar bowl",
+				"image": "cpd_zuckerdose"
+			},
+			{
+				"de": "das Fernglas",
+				"en": "binoculars",
+				"image": "cpd_fernglas"
+			},
+			{
+				"de": "das Faxgerät",
+				"en": "fax machine",
+				"image": "cpd_faxgeraet"
+			}
+		]
+	},
+	"credits": [
+		{
+			"what": "Illustrations and picture dictionary",
+			"source": "Drawn for this book with Google Gemini",
+			"licence": "© languagequiz.org"
+		}
+	]
+}

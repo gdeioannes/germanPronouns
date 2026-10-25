@@ -1,0 +1,173 @@
+{
+	"style": "Figurative flat illustration for a printed German study book, in the spirit of a mid-century children's picture book with a touch of graphic simplification and a sense of humour: subjects drawn naturally and instantly recognizable, with real proportions and simple friendly faces, details reduced to clean flat colour shapes, medium-weight ink-navy outlines, no gradients, no textures. Limited warm palette: ink-navy, terracotta, mustard, sage, soft blue and cream. The drawing floats on a plain pure white background with generous empty margins on every side; nothing touches the edges of the image, no background colour field, no frame. Food and objects never have faces. No text, no letters, no numbers, no digits, no writing on signs or labels, no watermark. Never write any colour codes, hex values, numbers, labels or signatures anywhere in the picture.",
+	"images": [
+		{
+			"id": "cp_c2_2_cover",
+			"prompt": "A woman reading a thick open book in a deep armchair by a window at dusk; from the lines of the book small paper birds rise and fly out of the window, while her cat sits on the windowsill trying to catch one. The pages show only wavy lines, no text. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 2048,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_philosophie",
+			"prompt": "An old philosopher in a long coat on a park bench, weighing a heavy book in one hand and an ice cream cone in the other with a very serious face, while a pigeon at his feet eats the ice cream drips. Natural skin colours, no text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_fokus",
+			"prompt": "A stage seen from the front with one bright spotlight falling on a small surprised man in a suit among a row of other people standing in the dark; a cat in the corner operates the spotlight. Natural skin colours, no text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_anspielung",
+			"prompt": "A living room late in the evening: a hostess in a dressing gown stands by the open door holding the guests’ coats, pointedly looking at a wall clock without numbers, while the two guests on the sofa keep chatting happily and the dog has already fallen asleep. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_paraphrase",
+			"prompt": "A tailor fitting the same plain grey sentence-shaped ribbon onto three mannequins, each one dressed more elegantly than the last, from a T-shirt to a dinner suit, while a mouse holds the pins. No letters on the ribbon. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_wortspiel",
+			"prompt": "A cook in a white hat standing in a courtroom in front of a judge, holding up a steaming bowl of soup as evidence, while the jury members lean forward to sniff it. No text. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_redewendungen",
+			"prompt": "A long wooden bench in an old office corridor piled high with dusty files and folders, with a clerk pushing yet another file onto it with a broom, and a cat asleep on top of the pile. Papers have only lines. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_fremdwoerter",
+			"prompt": "A scholar in a library in front of a Roman marble bust, both wearing the same round glasses; the scholar is taking notes, and the bust seems to raise one marble eyebrow. Natural skin colours, no text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_wissenschaft",
+			"prompt": "A researcher in a white coat at a blackboard full of simple drawn graphs without numbers, carefully pointing with a long stick while a lab rat on the desk takes notes on a tiny notepad. Natural skin colours, no text, no numbers.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_praepositionen",
+			"prompt": "A notary at a big desk pressing an enormous rubber stamp onto a contract, while a nervous client and his parrot watch; the parrot holds a tiny pen. Papers have only lines. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_nominalstil",
+			"prompt": "A man packing a whole sofa, a lamp and a bicycle into one small suitcase, sitting on the lid to close it, while his wife watches with folded arms. Natural skin colours, no text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_behoerde",
+			"prompt": "A small red car parked in front of a fire station door; a fire engine waits behind it with its crew standing around with their arms folded, and a traffic warden writes a ticket while a dalmatian sniffs the car tyre. No text, no numbers on the plates. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_appositionen",
+			"prompt": "An award ceremony on a stage: a woman receives a trophy and a bunch of flowers, and next to her stands a man holding a large blank name sign pointing at her, while a dog in a bow tie applauds with its paws. No text. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_modalverben",
+			"prompt": "Two neighbours whispering across a garden fence and pointing at a third house, where a man in a dressing gown waters his flowers in the rain with a watering can. Natural skin colours, no text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_passiv",
+			"prompt": "A museum entrance with a big closed door and a sign without text; workers on a scaffold renovate the façade, and a visitor with a guidebook sits on the steps waiting, while a pigeon sits on his hat. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_adverbial",
+			"prompt": "An open-air concert in the rain: a string quartet keeps playing under umbrellas held by their audience, and a duck in a raincoat sits in the front row. Natural skin colours, no text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_streit",
+			"prompt": "A television debate: two politicians at separate lecterns talk at the same time with raised hands, a calm moderator between them holds up a sand timer, and a cameraman in the foreground tries not to laugh. No text. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_eroerterung",
+			"prompt": "A woman at a desk arguing with herself: she sits on the left side of the desk and also stands on the right side in the same clothes, both pointing at an open notebook with only lines, while her cat watches the two of them. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_dach",
+			"prompt": "A market stall in the Alps with apricots, potatoes and tomatoes, a stallholder in a traditional hat weighing apricots, and a cyclist with a bicycle buying a basket of apricots; a mountain goat tries to steal a tomato. No text, no price signs. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_rezension",
+			"prompt": "An old man standing on a small ladder in a bedroom lifting down a brown leather suitcase from the top of a wardrobe, while his wife watches from the bed holding a teacup. No text, no writing on the luggage tag. Natural skin colours.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cp_c2_2_lyrik",
+			"prompt": "Two tiny ants with tiny backpacks and a map sitting exhausted on a cobbled country road, rubbing their legs, a signpost without text pointing far away, and a snail passing them confidently. No text.",
+			"aspect": "4:3",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		}
+	]
+}

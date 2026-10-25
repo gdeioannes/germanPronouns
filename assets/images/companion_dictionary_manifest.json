@@ -1776,6 +1776,478 @@
 			"size": 800,
 			"transparent": true,
 			"trim": true
+		},
+		{
+			"id": "cpd_hobel",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden hand plane.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schraubzwinge",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a metal screw clamp.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_zollstock",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a yellow folding carpenter’s rule, partly unfolded, without numbers.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_hobelbank",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden carpenter’s workbench with a vice.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_stemmeisen",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wood chisel.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_akkuschrauber",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a cordless drill.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_saegebock",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden sawhorse.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_oelkaennchen",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a small oil can with a long spout.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_saege",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a hand saw.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_sense",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a scythe.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_egge",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a farm harrow with iron spikes.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_melkschemel",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a three-legged milking stool.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_scheunentor",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a big red barn door.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wagenrad",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden cart wheel.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_wetterhahn",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a weathercock on a pole, a metal rooster only, with no compass letters and no arrows.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ferkel",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a pink piglet.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kalb",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a calf.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ziege",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a goat.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_gans",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a white goose.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_pumpe",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an old green hand water pump.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_mistgabel",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a pitchfork.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_taubenschlag",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden dovecote on a pole.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_strohballen",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a round straw bale.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_tasse",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a blue coffee cup.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_zuckerdose",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a sugar bowl with a lid.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fernglas",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a pair of binoculars.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_faxgeraet",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an old fax machine with a sheet of paper, no writing.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_sekretaer",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an antique wooden writing bureau with a fold-down desk and small drawers.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_paravent",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a folding screen with three painted panels.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_standuhr",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a tall wooden grandfather clock with a pendulum, no numbers on the face.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ritterruestung",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a suit of armour standing upright.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_ohrensessel",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a green wingback armchair.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schaukelpferd",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden rocking horse.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_spinnrad",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an old wooden spinning wheel.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_grammophon",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a gramophone with a big brass horn.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_naehmaschine",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an old black sewing machine with a hand wheel.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fernrohr",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a brass telescope on a wooden tripod.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_harfe",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a golden harp.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_faecher",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an open hand fan.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_truhe",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden chest with iron bands.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schachbrett",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a chessboard with a few chess pieces.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_butterfass",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden butter churn with a plunger.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_moerser",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a stone mortar with a pestle.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_akkordeon",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an accordion.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_vogelkaefig",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an empty round brass birdcage.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_hufeisen",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an iron horseshoe.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kaffeemuehle",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an old wooden coffee grinder with a crank handle.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_petroleumlampe",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: an old oil lamp with a glass chimney.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_leuchtturm",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a red and white lighthouse.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_kutter",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a small fishing boat.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_anker",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a ship’s anchor.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_rettungsring",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a red and white life ring.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_poller",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a black iron bollard on a quay with a rope around it.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_seilwinde",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a hand winch with a rope.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_schiffsglocke",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a plain brass ship’s bell hanging from a bracket, plain metal with no face, no eyes, no mouth.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_steuerrad",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden ship’s wheel.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_hummerkorb",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a lobster pot made of netting and wood.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_boje",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a red buoy floating.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
+		},
+		{
+			"id": "cpd_fass",
+			"prompt": "One object alone, centred, nothing else in the picture, no text: a wooden barrel.",
+			"aspect": "1:1",
+			"size": 800,
+			"transparent": true,
+			"trim": true
 		}
 	]
 }
