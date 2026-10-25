@@ -17,14 +17,12 @@
 import { browser, dev } from '$app/environment';
 import { env } from '$env/dynamic/public';
 
+// The free plan has a monthly event quota, so the rule for adding an event is:
+// one per decision a person makes (start, finish, download, post, share, sign
+// in) — never one per round, swipe, scroll or toggle.
+
 /** Humans only: bots are dropped before sending, so this dashboard counts people. */
 const DEFAULT_APP_KEY = 'A-EU-8128921580';
-/**
- * Everything, bots included: the same events go to this second Aptabase app
- * too, each tagged with a `bot` prop so the dashboard can still split them.
- * Override with PUBLIC_APTABASE_ALL_APP_KEY (empty = this sink off).
- */
-const DEFAULT_ALL_APP_KEY = 'A-EU-2341128762';
 
 /** Ingestion host per key region, as the Aptabase SDKs resolve them. */
 const HOSTS: Record<string, string> = {
@@ -33,43 +31,41 @@ const HOSTS: Record<string, string> = {
 	DEV: 'https://localhost:3000'
 };
 
-type Sink = { appKey: string; host: string; includeBots: boolean };
+type Sink = { appKey: string; host: string };
 
 /** A sink for a key, or null when the key is malformed or has no known host. */
-function makeSink(appKey: string, includeBots: boolean): Sink | null {
+function makeSink(appKey: string): Sink | null {
 	const parts = appKey.split('-');
 	const region = parts[1] ?? '';
 	/** A self-hosted key (region `SH`) needs its host given explicitly. */
 	const host = env.PUBLIC_APTABASE_HOST || HOSTS[region] || '';
 	/** Only a well-formed `A-REG-0000000000` key with a known host can send. */
-	return parts.length === 3 && host !== '' ? { appKey, host, includeBots } : null;
+	return parts.length === 3 && host !== '' ? { appKey, host } : null;
 }
 
-const sinks: Sink[] = [
-	makeSink(env.PUBLIC_APTABASE_APP_KEY ?? DEFAULT_APP_KEY, false),
-	makeSink(env.PUBLIC_APTABASE_ALL_APP_KEY ?? DEFAULT_ALL_APP_KEY, true)
-].filter((sink): sink is Sink => sink !== null);
+const sink = makeSink(env.PUBLIC_APTABASE_APP_KEY ?? DEFAULT_APP_KEY);
 
 /**
  * The dev server sends nothing: a localhost visit, a hot reload or a test
  * run must never look like a learner. Set PUBLIC_ANALYTICS_IN_DEV=1 to try
  * the events out locally (they are still marked isDebug).
  */
-const enabled = sinks.length > 0 && (!dev || env.PUBLIC_ANALYTICS_IN_DEV === '1');
+const enabled = sink !== null && (!dev || env.PUBLIC_ANALYTICS_IN_DEV === '1');
 
 /** A session is a run of activity; after this much idle time, a new one starts. */
 const SESSION_TIMEOUT_MS = 60 * 60 * 1000;
 
-// Bot handling: the humans-only sink never receives bot events; the
-// everything sink gets them tagged `bot: true`. The regex matches the crawlers/tools that execute JS; webdriver
-// catches headless automation (Puppeteer/Playwright) even behind a spoofed UA.
+// Bot handling, in two layers. First, browsers that give themselves away are
+// never sent anything: the regex matches the crawlers/tools that execute JS,
+// webdriver catches automation (Puppeteer/Playwright) even behind a spoofed
+// UA, and the rest are tells of a headless browser. Second, the human gate
+// below: nothing is sent until a real tap, click or key press.
 const BOT_UA =
 	/bot|spider|crawl|preview|headless|slurp|facebookexternalhit|whatsapp|telegram|lighthouse|gtmetrix|pingdom|uptime|monitor|scrape|wget|curl|python|node-fetch|axios/i;
 
 // "This is me": opening any page with ?internal=1 marks this browser as the
-// team's own (?internal=0 unmarks it). Its events skip the humans-only sink,
-// like a bot's, and reach the everything sink tagged `internal: true`, so
-// testing the site never shows up as visitors.
+// team's own (?internal=0 unmarks it). Like a bot's, its events are never
+// sent, so testing the site never shows up as visitors.
 const INTERNAL_KEY = 'lq_internal';
 
 function isInternal(): boolean {
@@ -85,11 +81,21 @@ function isInternal(): boolean {
 
 function isBot(): boolean {
 	try {
-		return navigator.webdriver || BOT_UA.test(navigator.userAgent);
+		if (navigator.webdriver || BOT_UA.test(navigator.userAgent)) return true;
+		// Real browsers always report at least one language and a screen.
+		if (!navigator.languages?.length) return true;
+		if (!screen.width || !screen.height) return true;
+		// Chromium's client hints name the headless build even when the UA lies.
+		const brands = (navigator as Navigator & { userAgentData?: { brands?: { brand: string }[] } })
+			.userAgentData?.brands;
+		return !!brands?.some((b) => /headless/i.test(b.brand));
 	} catch {
 		return true;
 	}
 }
+
+/** Decided once per page load: the answer cannot change mid-visit. */
+let botVerdict: boolean | null = null;
 
 // ---------------------------------------------------------------------------
 // Traffic attribution: where did this visit come from?
@@ -313,9 +319,8 @@ function currentSession(): string {
  * page, so every failure is swallowed.
  */
 export function track(name: string, props: Record<string, string | number | boolean> = {}): void {
-	if (!browser || !enabled) return;
-	const bot = isBot();
-	const internal = isInternal();
+	if (!browser || !enabled || !sink) return;
+	if ((botVerdict ??= isBot()) || isInternal()) return;
 	const body = JSON.stringify({
 		timestamp: new Date().toISOString(),
 		sessionId: currentSession(),
@@ -329,53 +334,58 @@ export function track(name: string, props: Record<string, string | number | bool
 		props: {
 			...(attribution ??= resolveAttribution()),
 			...(tenure ??= resolveTenure()),
-			...props,
-			bot,
-			internal
+			...props
 		}
 	});
-	for (const sink of sinks) {
-		if ((bot || internal) && !sink.includeBots) continue;
-		void fetch(`${sink.host}/api/v0/event`, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json', 'App-Key': sink.appKey },
-			// The request must not hold a navigation open.
-			keepalive: true,
-			body
-		}).catch(() => {
-			// Dropped. An event is never worth a console error in a learner's browser.
-		});
-	}
+	if (human) send(sink, body);
+	// Held until the visitor proves human; the cap keeps a bot that idles on
+	// the site from piling up memory.
+	else if (pending.length < PENDING_LIMIT) pending.push(body);
 }
 
-// `engaged` fires once per visit, the first time the visitor behaves like a
-// person: an interaction (pointer, key, touch, scroll) or ten seconds with the
-// tab visible. It is a metric, not a gate — every human visit is counted
-// whether or not it engages.
-const ENGAGED_DWELL_MS = 10 * 1000;
-let engagedSent = false;
-
-function markEngaged(via: 'interaction' | 'dwell'): void {
-	if (engagedSent) return;
-	engagedSent = true;
-	track('engaged', { via, route: lastRoute ?? '' });
+function send(to: Sink, body: string): void {
+	void fetch(`${to.host}/api/v0/event`, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json', 'App-Key': to.appKey },
+		// The request must not hold a navigation open.
+		keepalive: true,
+		body
+	}).catch(() => {
+		// Dropped. An event is never worth a console error in a learner's browser.
+	});
 }
+
+// The human gate: events wait in memory until the first trusted tap, click or
+// key press — `isTrusted` is set by the browser and cannot be faked by a
+// script. Scrolling and time on the page do not count: a bot rendering the
+// page can do both. A visitor who never touches the page is never counted,
+// which is the point: they were indistinguishable from a bot. Queued events
+// keep their own timestamps, so the dashboard still shows when they happened.
+const PENDING_LIMIT = 30;
+let human = false;
+const pending: string[] = [];
+
+function provenHuman(event: Event): void {
+	if (human || !event.isTrusted) return;
+	human = true;
+	for (const type of HUMAN_EVENTS) window.removeEventListener(type, provenHuman, { capture: true });
+	if (sink) for (const body of pending.splice(0)) send(sink, body);
+}
+
+const HUMAN_EVENTS = ['pointerdown', 'keydown', 'touchstart'] as const;
 
 if (browser) {
-	const once = { once: true, passive: true } as const;
-	for (const type of ['pointerdown', 'keydown', 'touchstart', 'scroll'] as const) {
-		window.addEventListener(type, () => markEngaged('interaction'), once);
+	for (const type of HUMAN_EVENTS) {
+		window.addEventListener(type, provenHuman, { passive: true, capture: true });
 	}
-	setTimeout(() => {
-		if (document.visibilityState === 'visible') markEngaged('dwell');
-	}, ENGAGED_DWELL_MS);
 }
 
-let lastRoute: string | null = null;
+/** Routes already counted in this tab: going back and forth is one view each. */
+const seenRoutes = new Set<string>();
 
-/** Records one `screen_view`, ignoring the repeat notifications a nav emits. */
+/** Records one `screen_view` per route per page load. */
 export function trackScreenView(path: string): void {
-	if (!path || path === lastRoute) return;
-	lastRoute = path;
+	if (!path || seenRoutes.has(path)) return;
+	seenRoutes.add(path);
 	track('screen_view', { route: path });
 }

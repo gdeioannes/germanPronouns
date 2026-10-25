@@ -235,7 +235,6 @@
 			run += 1;
 			burst += 1;
 			react(true, dockEl, run);
-			track('number_task', { quiz: quizId, task: task.id, step: 'round_ok', round: r + 1 });
 			if (!last) {
 				connect(line);
 				return;
@@ -251,7 +250,6 @@
 			run = 0;
 			missKey += 1;
 			react(false, dockEl);
-			track('number_task', { quiz: quizId, task: task.id, step: 'wrong_call', round: r + 1, who: stranger.who });
 		}
 		phase = 'oncall';
 		announce([

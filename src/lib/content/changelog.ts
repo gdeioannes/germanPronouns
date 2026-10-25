@@ -16,6 +16,21 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-25",
+    title: "Forum links work when you reload",
+    items: [
+      'Reloading a forum topic, or opening a link to one someone sent you, showed "Page not found". The topic now opens, every time.',
+    ],
+  },
+  {
+    date: "2026-10-25",
+    title: "We count less about your visit",
+    items: [
+      "The site's anonymous visit statistics now record only the big moments: opening a page, starting and finishing an exercise, signing in, downloading, posting and sharing. Single swipes, rounds and taps are no longer counted.",
+      "Nothing is counted until you tap, click or press a key, so automated visitors stay out of the numbers. As before, there are no cookies and nothing that identifies you.",
+    ],
+  },
+  {
     date: "2026-10-24",
     title: "Flashcards tell you the gender rule",
     items: [
@@ -76,6 +91,26 @@ export const changelog: ChangelogEntry[] = [
     title: "Sharper covers on the study books",
     items: [
       "The covers of the A1.1 to B1.2 study books were blurry when printed. They are sharp now, in the PDFs too.",
+    ],
+  },
+  {
+    date: "2026-10-25",
+    title: "C2.2 on paper: Zwischen den Zeilen",
+    highlight: true,
+    items: [
+      "The C2.2 PDF is now a 58-page study book written for paper, the last of the twelve. It replaces the old generated workbook and is on the Workbooks shelf with its own cover.",
+      "Twenty topics in three parts. Between the lines: Pflicht and Neigung, ausgerechnet and erst, what a hint really asks, saying it one step up, die Steuer and das Steuer, the idioms of commentary and Latin words like de facto. Official and academic German: Es ist davon auszugehen, kraft and binnen, the nominal style, an official letter in plain words, mit Dr. Weber, der Leiterin, Er soll es gewusst haben, Das lässt sich lösen and Kaum war er da. Argument and literature: holding your ground in a debate, the Erörterung, Marillen and Velo, writing a review and two comic poems.",
+      "Seven listening exercises with QR codes, a picture dictionary of 32 words from the antique shop and the harbour, and every practice page filled to the bottom.",
+    ],
+  },
+  {
+    date: "2026-10-25",
+    title: "C2.1 on paper: Stil & Register",
+    highlight: true,
+    items: [
+      "The C2.1 PDF is now a 58-page study book written for paper. It replaces the old generated workbook and is on the Workbooks shelf with its own cover.",
+      "Twenty topics in three parts. Words and register: business and law, kriegen, bekommen and erhalten, words that belong together, sparsam or geizig, durchaus and keineswegs, proverbs and eine der größten Städte. Building words and sentences: der Opfer gedenken, long compounds, glaubwürdig and termingerecht, sich verrechnen and ersteigern, Um ein Haar wäre ich gestürzt, indes and wiewohl, and saying it in another grammar. Style and texts: the Konjunktiv I in reports, rhetorical devices, giving a speech, leading a discussion, satire and a short story.",
+      "Seven listening exercises with QR codes, a picture dictionary of 32 words from the workshop and the farm, and every practice page filled to the bottom.",
     ],
   },
   {

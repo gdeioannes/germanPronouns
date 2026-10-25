@@ -87,7 +87,6 @@
 			react(true, sign, run);
 			phase = 'made';
 			announce(`Platform ${platform}. You made it.`);
-			track('number_task', { quiz: quizId, task: task.id, step: 'round_ok', round: r + 1 });
 			await sleep(1100);
 			if (!alive) return;
 			if (r === rounds.length - 1) {
@@ -112,7 +111,6 @@
 			caption = task.wrong[jokes++ % task.wrong.length];
 			phase = 'missed';
 			announce(`Wrong platform. ${caption}`);
-			track('number_task', { quiz: quizId, task: task.id, step: 'wrong_platform', round: r + 1 });
 		}
 	}
 

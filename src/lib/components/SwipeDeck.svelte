@@ -547,7 +547,6 @@
 				// card sits out like any skipped card until the deck runs dry.
 				skipped = [...skipped.filter((id) => id !== card.quiz.id), card.quiz.id].slice(-SKIPPED_LIMIT);
 				void storage.set(SKIPPED_KEY, JSON.stringify(skipped));
-				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'skip', pace });
 				deck = deck.slice(1);
 				if (deck.length === 0) deal();
 				const nextCard = deck[0];
@@ -560,7 +559,6 @@
 					void tick().then(() => stageEl?.querySelector<HTMLElement>('.card.top, .card.empty button')?.focus());
 				}
 			} else {
-				track('deck_swipe', { course: course.id, quiz: card.quiz.id, kind: card.kind, choice: 'go', pace });
 				// Opening a character's card is how you meet them (the deck is the only way).
 				if (isChatCard(card)) markMet(card.quiz.id.slice(CHAT_CARD_PREFIX.length));
 				void goto(href(card));

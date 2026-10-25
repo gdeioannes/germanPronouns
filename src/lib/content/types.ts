@@ -34,6 +34,12 @@ export interface CourseCard {
 	goal: string;
 	level: string;
 	version: string;
+	/**
+	 * The sub-levels the menu and footer link to, mirrored from the bundle's
+	 * questChain nav groups (a content test keeps them equal). Kept here so the
+	 * root layout can read them in the browser without loading the bundle.
+	 */
+	levels: { level: string; title: string }[];
 }
 
 export interface Catalog {

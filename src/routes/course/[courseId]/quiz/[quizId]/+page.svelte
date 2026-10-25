@@ -120,7 +120,6 @@
 	async function practise() {
 		mode = 'practise';
 		const id = quiz.id;
-		track('lesson_to_practice', { course: course.id, quiz: id });
 		await tick();
 		document.querySelector<HTMLInputElement>('.stage .exercise input:not([disabled])')?.focus();
 		const seen = await readSeen();
@@ -140,6 +139,8 @@
 		const id = quiz.id;
 		if (id === notesCheckedFor) return;
 		notesCheckedFor = id;
+		// Paired with quiz_completed: the gap between them is the drop-off.
+		untrack(() => track('quiz_started', { course: course.id, quiz: id, type: quiz.type }));
 		notesOpen = false;
 		moreOpen = false;
 		reportOpen = false;
@@ -219,7 +220,6 @@
 		cardsDone = false;
 		cardsOffer = null;
 		question = null;
-		track(on ? 'suchbild_cards_open' : 'suchbild_cards_close', { course: course.id, quiz: quiz.id });
 	}
 
 	function cardsRoundFinished(passed: boolean) {

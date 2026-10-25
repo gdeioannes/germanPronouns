@@ -20,6 +20,7 @@ import {
 	type ProgressBlob,
 	type ProgressSummary
 } from '$lib/domain/sync-merge';
+import { track } from '$lib/services/analytics';
 import { cloudConfigured, fetchRemote, firebase, pushRemote } from '$lib/services/firebase';
 import { observeStorage, readBlob, storage, writeBlob } from '$lib/services/storage';
 import { progress } from '$lib/state/progress.svelte';
@@ -180,6 +181,7 @@ class AccountStore {
 			const credential = await authApi.signInWithEmailLink(auth, email, href);
 			await storage.remove(SettingsKeys.accountEmailForLink);
 			this.linkSent = false;
+			track('sign_in');
 			await this.onUser(credential.user.uid, credential.user.email);
 			return true;
 		} catch (cause) {

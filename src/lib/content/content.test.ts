@@ -483,3 +483,16 @@ describe("lesson diagrams", () => {
 		}
 	});
 });
+
+describe('catalog levels', () => {
+	// The root layout reads the menu's levels from the catalog, so the browser
+	// never has to load the bundle for them. They must match the bundle's.
+	it('mirror the bundle questChain groups', async () => {
+		const { catalog } = await import('./index');
+		const card = catalog.courses.find((c) => c.id === bundle.id);
+		const fromBundle = bundle.nav.groups
+			.filter((g) => g.type === 'questChain' && g.level)
+			.map((g) => ({ level: g.level as string, title: g.title }));
+		expect(card?.levels).toEqual(fromBundle);
+	});
+});

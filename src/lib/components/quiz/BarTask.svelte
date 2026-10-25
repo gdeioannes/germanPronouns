@@ -90,13 +90,11 @@
 			burst += 1;
 			caption = '';
 			react(true, stageEl, run);
-			track('number_task', { quiz: quizId, task: task.id, step: 'round_ok', round: r + 1 });
 		} else {
 			run = 0;
 			missKey += 1;
 			caption = wrongOrderLine(task, count, round.answer, jokes++);
 			react(false, stageEl);
-			track('number_task', { quiz: quizId, task: task.id, step: 'wrong_order', round: r + 1 });
 		}
 		announce([
 			{ text: 'The bartender:' },

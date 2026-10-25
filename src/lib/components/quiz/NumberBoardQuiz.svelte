@@ -90,7 +90,6 @@
 	function begin() {
 		phase = 'play';
 		showWord = stage === 'hear' && isMuted();
-		track('number_board_stage', { quiz: quiz.id, stage });
 		if (stage === 'write') tick().then(() => inputEl?.focus());
 		else if (target && stage === 'hear') say(target.word);
 	}
