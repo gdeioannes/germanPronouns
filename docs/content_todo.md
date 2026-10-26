@@ -37,14 +37,21 @@ To do: move `durationMinutes` and `minExchanges` to the top level, set a
 become real contract fields or be dropped. The `dialog` exercises have no
 `passScore` anywhere, so that value has to be chosen, not recovered.
 
-### A2. Set `voiceGender` on five listening passages
+### A2. Set `voiceGender` on five listening passages — DONE 2026-10-25 (as `speakers`)
+
+`voiceGender` was never read by anything. The four labelled dialogues now carry a
+`speakers` map (label → male/female) and `npm run audio` records each line in a
+voice of that gender; `quest_c2_2_hoeren_fachvortrag` is a one-speaker lecture
+and was listed here by mistake. Re-recorded 2026-10-25.
 
 Multi-speaker passages are currently read by one voice:
 `quest_b1_1_hoeren_interview`, `quest_b1_1_hoeren_umfrage`,
 `quest_b1_2_hoeren_podcast`, `quest_c2_2_hoeren_fachvortrag`,
 `quest_c2_2_hoeren_capstone`. Re-record after setting it.
 
-### A3. Give C2.2 a dictation
+### A3. Give C2.2 a dictation — DONE 2026-10-25
+
+`quest_c2_2_diktat_wissenschaft`, after the Wissenschaftssprache quiz, recorded.
 
 Every sub-level has exactly one dictation except C2.2, which has none. The level
 already has the hardest listening material to draw on.
@@ -127,7 +134,9 @@ they also chip at the single-exposure problem in C1 below.
 
 ## C. Authoring work
 
-### C1. Recycle the grammar — the biggest retention risk
+### C1. Recycle the grammar — the biggest retention risk (list made 2026-10-25)
+
+The 112 single-exposure structures are listed in `docs/grammar_recycling_list.md`.
 
 115 of the 246 syllabus structures are covered by exactly one quiz. Nearly half
 the grammar inventory is taught once and never met again. 131 get two or more.
@@ -135,7 +144,11 @@ the grammar inventory is taught once and never met again. 131 get two or more.
 To do: list the 115, decide which deserve a second exposure, and add items to
 existing quizzes at later levels rather than new quizzes where possible.
 
-### C2. A1.1 does not deliver four things its own syllabus names
+### C2. A1.1 does not deliver four things its own syllabus names — DONE 2026-10-25
+
+möchte is a third column of sein & haben; kein/keine a third column of the
+article grid; five ordinals sit in Zahlen ab 100; the compass is a fourth
+column of Länder (Deutschland's cell is null, which the pool skips).
 
 | Syllabus item | Names | State |
 |---|---|---|
@@ -147,7 +160,11 @@ existing quizzes at later levels rather than new quizzes where possible.
 A1.1 is also the module that held most of the course's real errors, so it is
 worth one deliberate pass rather than four small ones.
 
-### C3. Fill the two deck holes
+### C3. Fill the two deck holes — DONE 2026-10-25
+
+Both were missing `help.vocab` lists (the Körper and Länder grids prompt in
+English, so the builder rightly ignores their subjects). Vocab added, decks
+rebuilt: A1.1 302 cards, A1.2 239.
 
 - **The A1.2 deck has no body vocabulary at all.** None of Kopf, Arm, Bein,
   Rücken, Bauch, Zahn, Auge, Fuß, Hals, Ohr, Knie, Nase, Finger or Fieber is in
@@ -160,13 +177,35 @@ worth one deliberate pass rather than four small ones.
 Both are deck-builder coverage, so check whether the words are missing from the
 source quizzes' `vocab` lists first.
 
-### C4. Picture the decks
+### C4. Picture the decks — B and C done 2026-10-26
 
-The image pipeline exists (`npm run images`), so this is running it and choosing
-prompts, not building anything.
+Decided 2026-10-25: picture by level, not by quiz — the A sets as the pattern,
+the same count for B, new sets for C; a word drawn once serves every deck that
+holds it. 410 object pictures were added for B1–C2 (the office, surgery, workshop,
+park, hotel lobby, building site, home, lab, hospital ward, theatre, airport,
+carpentry, farm, antique shop and harbour), checked on contact sheets, twelve
+redrawn for Gemini's faults (faces on objects, stray codes, English text).
 
 | Level | Pictured | Cards |
 |---|---|---|
+| A1.1 | 114 | 302 |
+| A1.2 | 85 | 239 |
+| A2.1 | 54 | 248 |
+| A2.2 | 82 | 321 |
+| B1.1 | 108 | 286 |
+| B1.2 | 98 | 321 |
+| B2.1 | 91 | 383 |
+| B2.2 | 84 | 304 |
+| C1.1 | 88 | 274 |
+| C1.2 | 94 | 263 |
+| C2.1 | 86 | 299 |
+| C2.2 | 90 | 364 |
+
+Still open: the abstract vocabulary of B2–C2 (Mehrheit, Erkenntnis, Register …)
+has no picture by design; the A levels' remaining unpictured nouns are the next
+cheap pass.
+
+---|---|---|
 | A1.1 | 90 | 239 |
 | A1.2 | 60 | 206 |
 | A2.1 | 34 | 228 |

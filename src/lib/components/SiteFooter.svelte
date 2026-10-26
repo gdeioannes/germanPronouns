@@ -39,6 +39,7 @@
 		<a href="/about#accessibility"><Icon name="check" size="1.05em" /> Accessibility</a>
 		<a href="/forum"><Icon name="forum" size="1.05em" /> Forum</a>
 		<a href="/contact"><Icon name="pen" size="1.05em" /> Contact</a>
+		<a href="/legal"><Icon name="check" size="1.05em" /> Legal &amp; privacy</a>
 		<a href="/settings" rel="nofollow"><Icon name="settings" size="1.05em" /> Settings</a>
 	</nav>
 	{#if levels.length && !compact}
@@ -50,7 +51,7 @@
 	{/if}
 	<p>
 		Language Quiz is an independent study aid, not affiliated with or endorsed by any
-		examination body.{#if version}{' '}<span class="version">Content version {version}.</span>{/if}
+		examination body. <a href="/legal">Imprint and privacy notice</a>.{#if version}{' '}<span class="version">Content version {version}.</span>{/if}
 	</p>
 </footer>
 

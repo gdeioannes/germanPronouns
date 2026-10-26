@@ -296,7 +296,7 @@ function sentenceClozeSection(quiz: FillBlankQuiz, stats: QuizHistory): Exercise
 			const index = subjectIndex.get(sentence.subjectKey);
 			const category = byLabel.get(sentence.categoryLabel);
 			if (index !== undefined && category && index < category.values.length) {
-				answer = category.values[index];
+				answer = category.values[index] ?? '';
 			}
 		}
 		if (!answer) continue;

@@ -16,6 +16,21 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-26",
+    title: "Offline, an imprint, and the gaps the review found",
+    items: [
+      "The site now works offline: every page, picture and audio clip you have opened once stays on your device, so a lesson started at home carries on in the U-Bahn. New releases arrive on the next online visit.",
+      "A legal page with the imprint and a full privacy notice, linked from every footer: what is stored, which services are involved, and what your rights are.",
+      "The forum has house rules, and every topic and reply has a Report link that opens a pre-filled report for a moderator.",
+      "C2.2 gets its dictation, the only level that had none: twelve sentences of a research abstract on sleep and memory, with the formulas, the written-language prepositions and the compounds that only the ear decides.",
+      "A1.1 now teaches four things its own syllabus promised: möchte joins sein and haben, kein and keine join the article grid, ordinal numbers (der erste Mai, der dritte Juni) join the big numbers, and the points of the compass join the countries.",
+      "The A1.2 flashcards finally hold the body words the Körper exercise teaches, and the A1.1 deck gets its languages, nationalities, the compass and die Familie: 302 cards at A1.1 and 239 at A1.2.",
+      "The multi-speaker listening passages (the job interview, the radio survey, the podcast and the C2.2 panel) are now heard with a different voice per speaker.",
+      "About four hundred new flashcard pictures for B1 to C2: the office, the surgery, the workshop, the park, the building site, the lab, the hospital ward, the theatre, the airport, the farm, the antique shop and the harbour.",
+      "The A1 study book follows the course: möchte stands beside sein and haben, kein and keine sit in the article table, and the countries page teaches im Norden, im Süden, im Osten, im Westen. The A1.1 PDF is reprinted.",
+    ],
+  },
+  {
     date: "2026-10-25",
     title: "C2.2 on paper: Zwischen den Zeilen",
     highlight: true,

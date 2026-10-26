@@ -6271,7 +6271,131 @@
           "why": "The …schmerzen compounds are always plural."
         }
       ],
-      "hook": "When you're ill, say what hurts and how you feel — Mein Kopf tut weh is the sentence that gets you help."
+      "hook": "When you're ill, say what hurts and how you feel — Mein Kopf tut weh is the sentence that gets you help.",
+      "vocab": [
+        {
+          "de": "Kopf",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "head"
+        },
+        {
+          "de": "Arm",
+          "article": "der",
+          "plural": "-e",
+          "en": "arm"
+        },
+        {
+          "de": "Bein",
+          "article": "das",
+          "plural": "-e",
+          "en": "leg"
+        },
+        {
+          "de": "Rücken",
+          "article": "der",
+          "plural": "-",
+          "en": "back"
+        },
+        {
+          "de": "Bauch",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "stomach, belly"
+        },
+        {
+          "de": "Zahn",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "tooth"
+        },
+        {
+          "de": "Auge",
+          "article": "das",
+          "plural": "-n",
+          "en": "eye"
+        },
+        {
+          "de": "Hand",
+          "article": "die",
+          "plural": "¨-e",
+          "en": "hand"
+        },
+        {
+          "de": "Fuß",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "foot"
+        },
+        {
+          "de": "Hals",
+          "article": "der",
+          "plural": "¨-e",
+          "en": "throat, neck"
+        },
+        {
+          "de": "Ohr",
+          "article": "das",
+          "plural": "-en",
+          "en": "ear"
+        },
+        {
+          "de": "Knie",
+          "article": "das",
+          "plural": "-",
+          "en": "knee"
+        },
+        {
+          "de": "Schulter",
+          "article": "die",
+          "plural": "-n",
+          "en": "shoulder"
+        },
+        {
+          "de": "Nase",
+          "article": "die",
+          "plural": "-n",
+          "en": "nose"
+        },
+        {
+          "de": "Finger",
+          "article": "der",
+          "plural": "-",
+          "en": "finger"
+        },
+        {
+          "de": "Fieber",
+          "article": "das",
+          "en": "fever, temperature"
+        },
+        {
+          "de": "Schmerzen",
+          "article": "die",
+          "en": "pain (plural: Kopfschmerzen = headache)"
+        },
+        {
+          "de": "Tablette",
+          "article": "die",
+          "plural": "-n",
+          "en": "tablet, pill"
+        },
+        {
+          "de": "wehtun",
+          "en": "to hurt (mein Kopf tut weh = my head hurts)"
+        },
+        {
+          "de": "krank",
+          "en": "ill"
+        },
+        {
+          "de": "gesund",
+          "en": "healthy"
+        },
+        {
+          "de": "müde",
+          "en": "tired"
+        }
+      ]
     }
   },
   {

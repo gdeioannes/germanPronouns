@@ -196,6 +196,26 @@
 	const quizHref = $derived(
 		thread?.courseId && thread.quizId ? `/course/${thread.courseId}/quiz/${thread.quizId}` : null
 	);
+
+	/**
+	 * "Report": a new topic on the problem-reports board, with the post's address
+	 * and a quote already filled in, so a reader needs no moderator's email.
+	 */
+	function reportHref(post: ForumPost | null): string {
+		if (!thread) return '/forum/new?category=report';
+		const where = post ? `a reply by ${post.authorName}` : `the topic by ${thread.authorName}`;
+		const quote = (post ? post.body : thread.body).slice(0, 200);
+		const params = new URLSearchParams({
+			category: 'report',
+			title: `Report a forum post: ${thread.title}`.slice(0, 140),
+			body: `Reporting ${where} in /forum/${thread.id}${post ? `#post-${post.id}` : ''}.
+
+“${quote}”
+
+Why it should be looked at: `
+		});
+		return `/forum/new?${params}`;
+	}
 </script>
 
 <Seo
@@ -249,6 +269,7 @@
 			<p class="meta">
 				<strong>{thread.authorName}</strong> · {ago(thread.createdAt)}
 				{#if thread.replyCount}· {thread.replyCount} repl{thread.replyCount === 1 ? 'y' : 'ies'}{/if}
+				· <a class="report" href={reportHref(null)}>Report</a>
 			</p>
 
 			{#if thread.quizTitle || thread.reportKind}
@@ -294,7 +315,7 @@
 		<section class="replies" aria-labelledby="replies-heading">
 			<h2 id="replies-heading">{posts.length ? `${posts.length} repl${posts.length === 1 ? 'y' : 'ies'}` : 'No replies yet'}</h2>
 			{#each posts as p (p.id)}
-				<article class="post" class:author={p.authorUid === thread.authorUid}>
+				<article class="post" id="post-{p.id}" class:author={p.authorUid === thread.authorUid}>
 					<p class="meta">
 						<strong>{p.authorName}</strong>
 						{#if p.authorUid === thread.authorUid}<span class="chip">author</span>{/if}
@@ -302,6 +323,7 @@
 						{#if (account.userId && p.authorUid === account.userId) || forum.admin}
 							<button type="button" class="btn-quiet x" onclick={() => removePost(p)}>Delete</button>
 						{/if}
+						· <a class="report" href={reportHref(p)}>Report</a>
 					</p>
 					<div class="body">{p.body}</div>
 					{@render likeButton(p.id, p.likeCount)}
@@ -376,6 +398,12 @@
 		border-color: var(--right);
 		color: var(--right);
 		background: var(--right-bg);
+	}
+
+	.meta .report {
+		color: inherit;
+		text-decoration: underline;
+		text-underline-offset: 0.15em;
 	}
 
 	.meta {

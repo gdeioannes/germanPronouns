@@ -21,7 +21,9 @@ export function fillBlankPool(quiz: FillBlankQuiz): QuizSentence[] {
 		const english = quiz.englishTemplates?.[category.label] ?? [];
 		for (const [index, subject] of (quiz.subjects ?? []).entries()) {
 			const answer = category.values[index];
-			if (answer === undefined) continue;
+			// A hole (null) in the values skips that subject: Germany has no
+			// direction from Germany.
+			if (answer == null) continue;
 			for (const [t, template] of templates.entries()) {
 				const line = englishLine(english[t], subject.english ?? subject.display);
 				generated.push({

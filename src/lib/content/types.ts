@@ -369,7 +369,8 @@ export interface QuizSubject {
 export interface QuizCategory {
 	label: string;
 	group: string;
-	values: string[];
+	/** One per subject, in subject order; null leaves that subject out of this column. */
+	values: (string | null)[];
 }
 
 export interface QuizSentence {
@@ -489,6 +490,12 @@ export interface ListeningQuiz extends QuizBase {
 	passageTranslation?: string;
 	questions: PassageQuestion[];
 	voiceGender?: string;
+	/**
+	 * A dialogue's speakers by the label that opens their lines ("Frau Wagner: …"),
+	 * so the recorder gives each one a voice of that gender. Unlabelled passages
+	 * are read by one voice.
+	 */
+	speakers?: Record<string, 'male' | 'female'>;
 }
 
 // -- dictation / speakRepeat ------------------------------------------------

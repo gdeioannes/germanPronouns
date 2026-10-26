@@ -142,6 +142,18 @@
 		{/if}
 	</header>
 
+	<details class="rules">
+		<summary>House rules</summary>
+		<ul>
+			<li>Be kind. Everyone here is learning, and a mistake in German is the whole point of asking.</li>
+			<li>Post in English or German, about German, the course or the site. No advertising, no politics, no personal data of other people.</li>
+			<li>Post only text you wrote yourself. Short quotes from the exercises are fine.</li>
+			<li>Anything insulting, discriminatory or illegal is removed, and the account that posted it is closed.</li>
+			<li>Every topic and reply has a <strong>Report</strong> link. Use it, and a moderator looks at the post.</li>
+			<li>Your posts show the name you chose and stay on the site until you delete them. The <a href="/legal">privacy notice</a> says what is stored.</li>
+		</ul>
+	</details>
+
 	{#if !available}
 		<p class="notice">The forum is not switched on for this site yet.</p>
 	{:else}
@@ -409,5 +421,22 @@
 		.head {
 			flex-direction: column;
 		}
+	}
+
+	.rules {
+		margin: 0 0 1.5rem;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+	.rules summary {
+		cursor: pointer;
+		font-weight: 600;
+		color: var(--ink);
+	}
+	.rules ul {
+		margin: 0.6rem 0 0;
+		padding-left: 1.2rem;
+		display: grid;
+		gap: 0.35rem;
 	}
 </style>

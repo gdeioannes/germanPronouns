@@ -1,7 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { fileURLToPath } from 'node:url';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 
 // The content bundles: typed JSON, one per course, plus the shared noun and
 // verb collections. Aliased rather than imported by relative path so a route
@@ -10,6 +10,9 @@ const content = fileURLToPath(new URL('./assets/content', import.meta.url));
 
 export default defineConfig({
 	resolve: { alias: { $content: content } },
+	// Transforming the content bundles took ~90 s of every test run; the
+	// on-disk module cache keeps them between runs.
+	test: { fsModuleCache: true },
 	// `PUBLIC_` joins Vite's default `VITE_`, so the Firebase web config reaches
 	// the client as `import.meta.env.PUBLIC_FIREBASE_*`. Read through
 	// `import.meta.env` rather than `$env/static/public` on purpose: a missing

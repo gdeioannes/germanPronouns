@@ -36,6 +36,38 @@ export interface SpokenText {
 	source: string;
 	/** The sub-level of the exercise it belongs to; absent for app-wide text. */
 	level?: string;
+	/**
+	 * A dialogue, line by line with the speaker's gender, for a passage whose
+	 * quiz names its `speakers`: the recorder voices each line with a voice of
+	 * that gender and joins them into the one clip filed under `text`.
+	 */
+	dialogue?: DialogueLine[];
+}
+
+export interface DialogueLine {
+	speaker: string;
+	gender: 'male' | 'female';
+	text: string;
+}
+
+/**
+ * The lines of a labelled passage ("Frau Wagner: …") with each speaker's
+ * gender from the quiz; an unlabelled line goes to the previous speaker, or
+ * to a female narrator. Empty when the quiz names no speakers.
+ */
+export function dialogueLines(passage: string, speakers?: Record<string, 'male' | 'female'>): DialogueLine[] {
+	if (!speakers) return [];
+	const out: DialogueLine[] = [];
+	let current: { speaker: string; gender: 'male' | 'female' } = { speaker: '', gender: 'female' };
+	for (const raw of passage.split('\n')) {
+		const line = raw.trim();
+		if (!line) continue;
+		const m = /^([^:]{1,32}):\s*(.*)$/.exec(line);
+		if (m && speakers[m[1]]) current = { speaker: m[1], gender: speakers[m[1]] };
+		const text = (m && speakers[m[1]] ? m[2] : line).trim();
+		if (text) out.push({ ...current, text });
+	}
+	return out;
 }
 
 type StoryEntry = { de: string };
@@ -70,9 +102,15 @@ const WORDS_LOCALE = 'de-DE';
 
 export async function spokenTexts(): Promise<SpokenText[]> {
 	const out: SpokenText[] = [];
-	const add = (text: string | null | undefined, locale: string, source: string, level?: string) => {
+	const add = (
+		text: string | null | undefined,
+		locale: string,
+		source: string,
+		level?: string,
+		dialogue?: DialogueLine[]
+	) => {
 		const t = text?.trim();
-		if (t) out.push({ text: t, locale, source, level });
+		if (t) out.push({ text: t, locale, source, level, ...(dialogue?.length ? { dialogue } : {}) });
 	};
 
 	// "Ja oder Nein?": every question's speak button, and the word each
@@ -85,7 +123,7 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 		const course = await loadCourse(card.id);
 		const locale = course.learnLocale;
 		for (const quiz of course.quizzes) {
-			for (const [text, source] of quizTexts(quiz)) add(text, locale, source, quiz.level);
+			for (const [text, source, dialogue] of quizTexts(quiz)) add(text, locale, source, quiz.level, dialogue);
 			if (quiz.help?.context?.de) add(speakable(quiz.help.context.de), locale, 'help memory', quiz.level);
 			if (hasLesson(quiz)) {
 				// The word list the quiz page derives for a text quiz (+page.server.ts).
@@ -123,8 +161,8 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 	});
 }
 
-/** [text, source] for everything one exercise can speak. */
-function quizTexts(quiz: Quiz): [string, string][] {
+/** [text, source, dialogue?] for everything one exercise can speak. */
+function quizTexts(quiz: Quiz): [string, string, DialogueLine[]?][] {
 	switch (quiz.type) {
 		case 'fillBlank': {
 			const strict = quiz.strictDiacritics === true;
@@ -138,7 +176,11 @@ function quizTexts(quiz: Quiz): [string, string][] {
 			// InlineClozeQuiz speaks a big text verbatim; PassageQuiz drops speaker labels.
 			if ('inlineBlanks' in quiz) return [[quiz.passage, 'big text']];
 			return [
-				[spokenPassage(quiz.passage), `${quiz.type} passage`],
+				[
+					spokenPassage(quiz.passage),
+					`${quiz.type} passage`,
+					dialogueLines(quiz.passage, quiz.type === 'listening' ? quiz.speakers : undefined)
+				],
 				...(quiz.questions ?? []).map((q): [string, string] => [q.question, `${quiz.type} question`])
 			];
 		case 'dictation':

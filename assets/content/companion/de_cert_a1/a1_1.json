@@ -1488,7 +1488,7 @@
 		{
 			"id": "sein_haben",
 			"title": "sein & haben",
-			"subtitle": "I am, I have — the two verbs you use most",
+			"subtitle": "I am, I have, I would like — the verbs you use most",
 			"hook": "You can’t say much without these two. Both are irregular, so they go in by heart.",
 			"hero": {
 				"image": "cp_a1_1_sein_haben"
@@ -1507,41 +1507,50 @@
 						},
 						{
 							"text": "haben · to have"
+						},
+						{
+							"text": "möchte · would like"
 						}
 					],
 					"rows": [
 						[
 							"ich",
 							"*bin*",
-							"habe"
+							"habe",
+							"*möchte*"
 						],
 						[
 							"du",
 							"*bist*",
-							"ha*st*"
+							"ha*st*",
+							"möchtest"
 						],
 						[
 							"er · sie · es",
 							"*ist*",
-							"ha*t*"
+							"ha*t*",
+							"*möchte*"
 						],
 						[
 							"wir",
 							"sind",
-							"haben"
+							"haben",
+							"möchten"
 						],
 						[
 							"ihr",
 							"*seid*",
-							"habt"
+							"habt",
+							"möchtet"
 						],
 						[
 							"sie · Sie",
 							"sind",
-							"haben"
+							"haben",
+							"möchten"
 						]
 					],
-					"note": "sein has no pattern at all. haben is regular, except that du *hast* and er *hat* lose the b."
+					"note": "sein has no pattern at all. haben is regular, except that du *hast* and er *hat* lose the b. möchte (would like) is the polite way to order or ask — and ich and er share one form."
 				},
 				{
 					"kind": "columns",
@@ -1727,7 +1736,7 @@
 					]
 				},
 				{
-					"title": "sein or haben?",
+					"title": "sein, haben or möchte?",
 					"instruction": "Circle the right word.",
 					"kind": "circle",
 					"cols": 2,
@@ -1763,10 +1772,10 @@
 							"before": "Wir",
 							"options": [
 								"sind",
-								"haben"
+								"möchten"
 							],
-							"after": "Zeit.",
-							"answer": "haben"
+							"after": "Kaffee.",
+							"answer": "möchten"
 						},
 						{
 							"before": "",
@@ -1778,13 +1787,13 @@
 							"answer": "Hast"
 						},
 						{
-							"before": "Das",
+							"before": "Lena",
 							"options": [
 								"ist",
-								"hat"
+								"möchte"
 							],
-							"after": "gut.",
-							"answer": "ist"
+							"after": "ein Handy.",
+							"answer": "möchte"
 						}
 					]
 				},
@@ -1809,7 +1818,7 @@
 				"say all six forms of sein",
 				"say all six forms of haben",
 				"say I’m hungry, thirsty or tired",
-				"choose between sein and haben"
+				"order politely with ich möchte"
 			]
 		},
 		{
@@ -2840,6 +2849,12 @@
 							"*ein* Buch"
 						],
 						[
+							"not a",
+							"*kein* Tisch",
+							"*keine* Lampe",
+							"*kein* Buch"
+						],
+						[
 							"people",
 							"der Mann",
 							"die Frau",
@@ -2870,7 +2885,7 @@
 							"das Auto"
 						]
 					],
-					"note": "ein for der and das, eine for die.",
+					"note": "ein for der and das, eine for die — and kein, keine the same way: “not a”.",
 					"genders": true
 				},
 				{
@@ -3886,7 +3901,7 @@
 							"kind": "box",
 							"tone": "tip",
 							"title": "No article after sein",
-							"text": "Ich bin Spanierin — not “eine Spanierin”. Languages take a capital and no article: Ich spreche Spanisch."
+							"text": "Ich bin Spanierin — not “eine Spanierin”. Languages take a capital and no article: Ich spreche Spanisch. The four directions are nouns with *im*: Hamburg ist *im Norden*, München ist *im Süden*."
 						}
 					]
 				},
@@ -3902,6 +3917,18 @@
 						{
 							"de": "aus der Schweiz · aus den USA",
 							"en": "from Switzerland · from the USA"
+						},
+						{
+							"de": "im Norden · im Süden",
+							"en": "in the north · in the south"
+						},
+						{
+							"de": "im Osten · im Westen",
+							"en": "in the east · in the west"
+						},
+						{
+							"de": "Hamburg · München",
+							"en": "two German cities"
 						}
 					]
 				}
@@ -4031,31 +4058,55 @@
 					"note": "About you — check it against the left page."
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "One word is wrong in each sentence. Write the sentence correctly.",
-					"kind": "write",
+					"title": "Wo ist das?",
+					"instruction": "Circle the direction.",
+					"kind": "circle",
+					"cols": 2,
 					"items": [
 						{
-							"prompt": "Ich komme aus Schweiz.",
-							"answer": "Ich komme aus der Schweiz."
+							"before": "Hamburg ist im",
+							"options": [
+								"Norden",
+								"Süden"
+							],
+							"after": ".",
+							"answer": "Norden"
 						},
 						{
-							"prompt": "Ich spreche Spanien.",
-							"answer": "Ich spreche Spanisch."
+							"before": "München ist im",
+							"options": [
+								"Norden",
+								"Süden"
+							],
+							"after": ".",
+							"answer": "Süden"
 						},
 						{
-							"prompt": "Er kommt aus der USA.",
-							"answer": "Er kommt aus den USA."
+							"before": "Frankreich ist im",
+							"options": [
+								"Osten",
+								"Westen"
+							],
+							"after": ".",
+							"answer": "Westen"
+						},
+						{
+							"before": "Österreich ist im",
+							"options": [
+								"Norden",
+								"Süden"
+							],
+							"after": ".",
+							"answer": "Süden"
 						}
-					],
-					"extra": true
+					]
 				}
 			],
 			"canDo": [
 				"say where I’m from",
 				"say what languages I speak",
 				"give my nationality — without an article",
-				"say aus der Schweiz, aus den USA"
+				"say im Norden, im Süden, im Osten, im Westen"
 			]
 		},
 		{

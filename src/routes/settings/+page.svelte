@@ -316,7 +316,8 @@
 			unique — so we can tell new visitors from returning ones in aggregate.
 			Your learning progress stays in this browser and never leaves it, unless
 			you choose to sign in above — and then the only thing stored is your
-			email address and your own scores.
+			email address and your own scores. The full <a href="/legal">privacy notice</a>
+			names every service involved.
 		</p>
 	</section>
 

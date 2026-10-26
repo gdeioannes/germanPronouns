@@ -22,6 +22,10 @@
 // shard.ts), and RecordedTtsProvider (src/lib/services/speech.ts) fetches only
 // the shard of the text it is about to speak.
 //
+// A listening passage whose quiz names its `speakers` is recorded line by
+// line, each speaker in a voice of their gender (VOICES), and joined into the
+// one clip the passage's text maps to; recasting re-records it.
+//
 // With --engine gemini each clip is transcribed back and re-recorded when the
 // transcript does not match — that model sometimes voices extra words, or
 // answers a lone word ("null") instead of reading it; SAY_AS covers those.
@@ -66,6 +70,14 @@ const ENGINES = {
 	}
 };
 const VOICE = 'Kore';
+/**
+ * The voices a dialogue's speakers get, by gender, in order of first
+ * appearance — so two women in one passage sound different. Chirp 3 HD and
+ * Gemini TTS share these names.
+ */
+const VOICES = { female: ['Kore', 'Leda', 'Aoede', 'Zephyr'], male: ['Charon', 'Puck', 'Orus', 'Fenrir'] };
+/** The pause between two speakers' lines, in seconds. */
+const TURN_GAP = 0.45;
 /**
  * What to send the engine for a text it will not read as written. The clip
  * is still filed under the original text. Keep the spoken words identical —
@@ -117,8 +129,10 @@ const texts = spoken.filter((t) => all || sources.includes(t.source) || (t.level
 const chars = texts.reduce((n, t) => n + t.text.length, 0);
 console.log(`${texts.length} distinct strings (${chars} characters) in ${all ? 'the whole app' : [...levels, ...sources].join(', ')}`);
 if (dry) {
-	for (const t of texts)
-		console.log(`  [${t.level ?? 'app'} ${t.source}] ${t.text.length > 70 ? t.text.slice(0, 70) + '…' : t.text}`);
+	for (const t of texts) {
+		const voices = t.dialogue ? `, ${new Set(t.dialogue.map((l) => l.speaker)).size} voices` : '';
+		console.log(`  [${t.level ?? 'app'} ${t.source}${voices}] ${t.text.length > 70 ? t.text.slice(0, 70) + '…' : t.text}`);
+	}
 	process.exit(0);
 }
 
@@ -142,15 +156,19 @@ async function worker() {
 	for (let item = queue.shift(); item !== undefined; item = queue.shift()) {
 		const { text, locale } = item;
 		const files = (manifest[locale] ??= {});
-		const file = `${createHash('sha1').update(`${engine.id}|${VOICE}|${locale}|${text}`).digest('hex').slice(0, 16)}.mp3`;
+		const cast = item.dialogue ? castVoices(item.dialogue) : null;
+		// The cast is part of the name, so recasting a dialogue re-records it.
+		const casting = cast ? `|${[...cast].map(([who, v]) => `${who}=${v}`).join(',')}` : '';
+		const file = `${createHash('sha1').update(`${engine.id}|${VOICE}|${locale}|${text}${casting}`).digest('hex').slice(0, 16)}.mp3`;
 		if (existsSync(join(OUT_DIR, file)) && !force) {
 			files[text] = file;
 			skipped++;
 			continue;
 		}
 		try {
-			const wav = await generate(text, locale);
-			const mp3 = encodeMp3(trimSilence(readWav(wav)));
+			const mp3 = cast
+				? await recordDialogue(item.dialogue, locale, cast)
+				: encodeMp3(trimSilence(readWav(await generate(text, locale))));
 			writeFileSync(join(OUT_DIR, file), mp3);
 			files[text] = file;
 			// Saved per clip, so an interrupted run keeps what it recorded.
@@ -162,6 +180,37 @@ async function worker() {
 			console.log(`FAILED  ${text.slice(0, 50)}: ${e.message}`);
 		}
 	}
+}
+
+/** speaker label → voice name: each gender's voices in order of first appearance. */
+function castVoices(lines) {
+	const cast = new Map();
+	const used = { female: 0, male: 0 };
+	for (const line of lines) {
+		if (cast.has(line.speaker)) continue;
+		const pool = VOICES[line.gender] ?? VOICES.female;
+		cast.set(line.speaker, pool[used[line.gender] % pool.length]);
+		used[line.gender]++;
+	}
+	return cast;
+}
+
+/** Each line in its speaker's voice, joined with a short pause, as one MP3. */
+async function recordDialogue(lines, locale, cast) {
+	const parts = [];
+	for (const line of lines)
+		parts.push(trimSilence(readWav(await generate(line.text, locale, cast.get(line.speaker)))));
+	const rate = parts[0].rate;
+	const gap = Math.round(rate * TURN_GAP);
+	const total = parts.reduce((n, p) => n + p.samples.length, 0) + gap * (parts.length - 1);
+	const samples = new Int16Array(total);
+	let at = 0;
+	for (const [i, p] of parts.entries()) {
+		if (i) at += gap;
+		samples.set(p.samples, at);
+		at += p.samples.length;
+	}
+	return encodeMp3({ rate, samples });
 }
 
 /**
@@ -241,10 +290,10 @@ function prune() {
  * One WAV buffer for the text. The API occasionally answers without audio or
  * rate-limits, and Gemini sometimes voices something else, so retry.
  */
-async function generate(text, locale, attempt = 1) {
+async function generate(text, locale, voice = VOICE, attempt = 1) {
 	try {
 		await ttsSlot();
-		const wav = await engine.synth(SAY_AS[text] ?? text, locale);
+		const wav = await engine.synth(SAY_AS[text] ?? text, locale, voice);
 		// Throws on an empty clip, which Chirp occasionally returns; retry it.
 		trimSilence(readWav(wav));
 		if (engine.verify) {
@@ -267,7 +316,7 @@ async function generate(text, locale, attempt = 1) {
 			: 3000 * attempt;
 		console.log(`retry ${attempt} in ${Math.round(wait / 1000)}s: ${e.message.split('\n')[0].slice(0, 90)}`);
 		await new Promise((r) => setTimeout(r, wait));
-		return generate(text, locale, attempt + 1);
+		return generate(text, locale, voice, attempt + 1);
 	}
 }
 
@@ -314,14 +363,14 @@ async function serviceAccountToken() {
 }
 
 /** Cloud Text-to-Speech, Chirp 3 HD: 24 kHz 16-bit WAV. */
-async function callChirp(text, locale) {
+async function callChirp(text, locale, voice = VOICE) {
 	const auth = key ? { 'x-goog-api-key': key } : { authorization: `Bearer ${await serviceAccountToken()}` };
 	const res = await fetch('https://texttospeech.googleapis.com/v1/text:synthesize', {
 		method: 'POST',
 		headers: { 'content-type': 'application/json', ...auth },
 		body: JSON.stringify({
 			input: { text },
-			voice: { languageCode: locale, name: `${locale}-Chirp3-HD-${VOICE}` },
+			voice: { languageCode: locale, name: `${locale}-Chirp3-HD-${voice}` },
 			audioConfig: { audioEncoding: 'LINEAR16', sampleRateHertz: SAMPLE_RATE }
 		})
 	});
@@ -333,14 +382,14 @@ async function callChirp(text, locale) {
 }
 
 /** Gemini TTS: 24 kHz WAV (or bare PCM from older models). */
-async function callGemini(text) {
+async function callGemini(text, _locale, voice = VOICE) {
 	// Only the text: this model voices any instruction in the prompt too
 	// ("Say calmly: …" is read aloud), and it rejects a systemInstruction.
 	const json = await gemini(engine.id, {
 		contents: [{ parts: [{ text }] }],
 		generationConfig: {
 			responseModalities: ['AUDIO'],
-			speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: VOICE } } }
+			speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } } }
 		}
 	});
 	const part = (json.candidates?.[0]?.content?.parts ?? []).find((p) => p.inlineData?.data);

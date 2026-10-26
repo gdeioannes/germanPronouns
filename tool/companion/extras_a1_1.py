@@ -45,14 +45,7 @@ EXTRAS = {
             ('four mobile phones', 'vier Handys'),
         ], ncols=2, not_german=True),
     ],
-    'laender': [
-        write('Find the mistake', MISTAKE, [
-            ('Ich komme aus Schweiz.', 'Ich komme aus der Schweiz.'),
-            ('Ich spreche Spanien.', 'Ich spreche Spanisch.'),
-            ('Er kommt aus der USA.', 'Er kommt aus den USA.'),
-            ('Sophie kommt aus Frankreich. Sie ist Franzose.', 'Sophie kommt aus Frankreich. Sie ist Französin.'),
-        ]),
-    ],
+    # laender: no extra — the compass exercise (2026-10-25) fills the page.
     'wo': [
         write('Find the mistake', MISTAKE, [
             ('Ich bin in der Büro.', 'Ich bin im Büro.'),

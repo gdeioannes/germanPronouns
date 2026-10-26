@@ -964,12 +964,52 @@
               }
             ]
           }
+        },
+        {
+          "kind": "rule",
+          "title": "kein, keine — “not a”, “no”",
+          "text": "A noun is negated with kein, never with nicht ein. kein follows the pattern of ein: kein for der and das words (kein Mann, kein Kind), keine for die words and for every plural (keine Frau, keine Kinder).",
+          "examples": [
+            {
+              "de": "Das ist kein Hund, das ist eine Katze.",
+              "en": "That is not a dog, that is a cat.",
+              "focus": [
+                "kein"
+              ]
+            },
+            {
+              "de": "Das ist keine Lampe.",
+              "en": "That is not a lamp.",
+              "focus": [
+                "keine"
+              ]
+            },
+            {
+              "de": "Ich habe keine Kinder.",
+              "en": "I have no children.",
+              "focus": [
+                "keine"
+              ]
+            }
+          ],
+          "trap": "Never nicht ein: “Das ist nicht ein Tisch” is wrong. kein already carries the “not”.",
+          "check": {
+            "q": "Das ist ____ Auto, das ist ein Bus.",
+            "options": [
+              "kein",
+              "keine",
+              "nicht ein"
+            ],
+            "answer": "kein",
+            "why": "das Auto takes ein, so its negative is kein."
+          }
         }
       ],
       "colorByGender": true,
       "remember": [
         "Colour the word in your head: der is blue, die is red, das is green — the whole app uses the same three.",
-        "Say the article out loud every single time you say a noun. 'Tisch' is not a word; 'der Tisch' is."
+        "Say the article out loud every single time you say a noun. 'Tisch' is not a word; 'der Tisch' is.",
+        "kein for der/das words, keine for die words and plurals — never nicht ein."
       ],
       "context": {
         "de": "Das ist mein Zimmer. Der Tisch ist braun und der Stuhl ist alt. Die Lampe ist neu. Das Fenster ist groß. Und das ist eine Katze – meine Katze! Sie heißt Mimi.",
@@ -1828,11 +1868,51 @@
             "answer": "haben",
             "why": "Germans have fear, hunger and thirst: wir haben Angst."
           }
+        },
+        {
+          "kind": "rule",
+          "title": "möchte — the polite “would like”",
+          "text": "möchte orders, asks and wishes without sounding blunt: Ich möchte einen Kaffee. It conjugates like a modal verb — ich möchte, du möchtest, er möchte, wir möchten, ihr möchtet, sie möchten — so ich and er share one form.",
+          "examples": [
+            {
+              "de": "Ich möchte einen Kaffee, bitte.",
+              "en": "I would like a coffee, please.",
+              "focus": [
+                "möchte"
+              ]
+            },
+            {
+              "de": "Möchtest du auch ein Eis?",
+              "en": "Would you like an ice cream too?",
+              "focus": [
+                "Möchtest"
+              ]
+            },
+            {
+              "de": "Was möchten Sie trinken?",
+              "en": "What would you like to drink?",
+              "focus": [
+                "möchten"
+              ]
+            }
+          ],
+          "trap": "English “I want” is ich will — correct, but blunt in a café. ich möchte is what people actually say when ordering.",
+          "check": {
+            "q": "At the bakery: Ich ____ zwei Brötchen, bitte.",
+            "options": [
+              "möchte",
+              "möchtest",
+              "möchten"
+            ],
+            "answer": "möchte",
+            "why": "ich takes möchte, the same form as er/sie/es."
+          }
         }
       ],
       "remember": [
         "bin-bist-ist / sind-seid-sind: chant it like a football rhythm until it needs no thought.",
-        "hast and hat have no b — the two shortest forms are the two you use most."
+        "hast and hat have no b — the two shortest forms are the two you use most.",
+        "möchte = would like: ich möchte, du möchtest, er möchte, wir möchten, ihr möchtet, sie möchten."
       ],
       "vocab": [
         {
@@ -1879,6 +1959,10 @@
         {
           "de": "Jahre alt",
           "en": "years old"
+        },
+        {
+          "de": "möchten",
+          "en": "would like (ich möchte = I would like)"
         }
       ],
       "context": {
@@ -4620,6 +4704,12 @@
       ],
       "vocab": [
         {
+          "de": "Familie",
+          "article": "die",
+          "plural": "-n",
+          "en": "family"
+        },
+        {
           "de": "Vater",
           "article": "der",
           "plural": "¨-",
@@ -4908,11 +4998,51 @@
               }
             ]
           }
+        },
+        {
+          "kind": "rule",
+          "title": "Norden, Süden, Osten, Westen",
+          "text": "The four directions are der-nouns and take im: im Norden, im Süden, im Osten, im Westen. Hamburg liegt im Norden von Deutschland; Von Deutschland aus liegt Polen im Osten. Two directions join into one word: im Südwesten, im Nordosten.",
+          "examples": [
+            {
+              "de": "Hamburg liegt im Norden von Deutschland.",
+              "en": "Hamburg is in the north of Germany.",
+              "focus": [
+                "Norden"
+              ]
+            },
+            {
+              "de": "Von Deutschland aus liegt Polen im Osten.",
+              "en": "Seen from Germany, Poland lies to the east.",
+              "focus": [
+                "Osten"
+              ]
+            },
+            {
+              "de": "Spanien liegt im Südwesten.",
+              "en": "Spain lies to the south-west.",
+              "focus": [
+                "Südwesten"
+              ]
+            }
+          ],
+          "trap": "The nouns are capitalised and keep -en: im Norden, not im Nord.",
+          "check": {
+            "q": "München liegt im ____ von Deutschland.",
+            "options": [
+              "Süden",
+              "Norden",
+              "Westen"
+            ],
+            "answer": "Süden",
+            "why": "Munich is in Bavaria, the south of Germany."
+          }
         }
       ],
       "remember": [
         "Four countries wear an article: die Schweiz, die Türkei, die USA, die Niederlande — 'the Swiss, the Turks, the Americans, the Dutch'.",
-        "Languages end in -isch and start with a capital: Englisch, Spanisch, Türkisch."
+        "Languages end in -isch and start with a capital: Englisch, Spanisch, Türkisch.",
+        "im Norden · im Süden · im Osten · im Westen — der-nouns, always with im."
       ],
       "context": {
         "de": "Hallo! Ich bin Yusuf und komme aus der Türkei. Ich spreche Türkisch, Englisch und jetzt auch ein bisschen Deutsch. Meine Frau ist Polin – sie kommt aus Krakau. Unsere Nachbarn sind Amerikaner, sie kommen aus den USA. Und woher kommst du?",
@@ -4943,7 +5073,160 @@
           "why": "Nationalities after sein take no article."
         }
       ],
-      "hook": "Where are you from, what do you speak, what are you — the three questions every new German conversation starts with."
+      "hook": "Where are you from, what do you speak, what are you — the three questions every new German conversation starts with.",
+      "vocab": [
+        {
+          "de": "Norden",
+          "article": "der",
+          "en": "north"
+        },
+        {
+          "de": "Süden",
+          "article": "der",
+          "en": "south"
+        },
+        {
+          "de": "Osten",
+          "article": "der",
+          "en": "east"
+        },
+        {
+          "de": "Westen",
+          "article": "der",
+          "en": "west"
+        },
+        {
+          "de": "Deutsch",
+          "en": "German (the language)"
+        },
+        {
+          "de": "Englisch",
+          "en": "English (the language)"
+        },
+        {
+          "de": "Französisch",
+          "en": "French (the language)"
+        },
+        {
+          "de": "Spanisch",
+          "en": "Spanish (the language)"
+        },
+        {
+          "de": "Italienisch",
+          "en": "Italian (the language)"
+        },
+        {
+          "de": "Türkisch",
+          "en": "Turkish (the language)"
+        },
+        {
+          "de": "Polnisch",
+          "en": "Polish (the language)"
+        },
+        {
+          "de": "Russisch",
+          "en": "Russian (the language)"
+        },
+        {
+          "de": "Chinesisch",
+          "en": "Chinese (the language)"
+        },
+        {
+          "de": "Japanisch",
+          "en": "Japanese (the language)"
+        },
+        {
+          "de": "Portugiesisch",
+          "en": "Portuguese (the language)"
+        },
+        {
+          "de": "der / die Deutsche",
+          "en": "German (a man / a woman)"
+        },
+        {
+          "de": "der Österreicher / die Österreicherin",
+          "en": "Austrian (a man / a woman)"
+        },
+        {
+          "de": "der Schweizer / die Schweizerin",
+          "en": "Swiss (a man / a woman)"
+        },
+        {
+          "de": "der Engländer / die Engländerin",
+          "en": "Englishman / Englishwoman"
+        },
+        {
+          "de": "der Amerikaner / die Amerikanerin",
+          "en": "American (a man / a woman)"
+        },
+        {
+          "de": "der Franzose / die Französin",
+          "en": "Frenchman / Frenchwoman"
+        },
+        {
+          "de": "der Spanier / die Spanierin",
+          "en": "Spaniard (a man / a woman)"
+        },
+        {
+          "de": "der Italiener / die Italienerin",
+          "en": "Italian (a man / a woman)"
+        },
+        {
+          "de": "der Türke / die Türkin",
+          "en": "Turk (a man / a woman)"
+        },
+        {
+          "de": "der Pole / die Polin",
+          "en": "Pole (a man / a woman)"
+        },
+        {
+          "de": "der Russe / die Russin",
+          "en": "Russian (a man / a woman)"
+        },
+        {
+          "de": "der Chinese / die Chinesin",
+          "en": "Chinese (a man / a woman)"
+        },
+        {
+          "de": "der Japaner / die Japanerin",
+          "en": "Japanese (a man / a woman)"
+        },
+        {
+          "de": "der Brasilianer / die Brasilianerin",
+          "en": "Brazilian (a man / a woman)"
+        },
+        {
+          "de": "der Mexikaner / die Mexikanerin",
+          "en": "Mexican (a man / a woman)"
+        },
+        {
+          "de": "Schweiz",
+          "article": "die",
+          "en": "Switzerland"
+        },
+        {
+          "de": "Türkei",
+          "article": "die",
+          "en": "Turkey"
+        },
+        {
+          "de": "USA",
+          "article": "die",
+          "en": "the USA (plural)"
+        },
+        {
+          "de": "Land",
+          "article": "das",
+          "plural": "¨-er",
+          "en": "country"
+        },
+        {
+          "de": "Sprache",
+          "article": "die",
+          "plural": "-n",
+          "en": "language"
+        }
+      ]
     }
   },
   {
@@ -6366,11 +6649,51 @@
             "answer": "dreihundertsechsundsiebzig",
             "why": "Read the hundreds from the left (dreihundert), then flip only the last pair: 76 = sechsundsiebzig."
           }
+        },
+        {
+          "kind": "rule",
+          "title": "Ordinal numbers: -te up to 19, -ste from 20",
+          "text": "Dates and rankings use ordinals, written with a full stop: der 1. Mai = der erste Mai. Add -te to the numbers 2 to 19 (zweite, vierte, zehnte, neunzehnte) and -ste from 20 upwards (zwanzigste, dreißigste, hundertste). Three are irregular: erste, dritte, siebte.",
+          "examples": [
+            {
+              "de": "Heute ist der erste Mai.",
+              "en": "Today is the first of May.",
+              "focus": [
+                "erste"
+              ]
+            },
+            {
+              "de": "Morgen ist der dritte Juni.",
+              "en": "Tomorrow is the third of June.",
+              "focus": [
+                "dritte"
+              ]
+            },
+            {
+              "de": "Der einunddreißigste Dezember ist Silvester.",
+              "en": "The thirty-first of December is New Year’s Eve.",
+              "focus": [
+                "einunddreißigste"
+              ]
+            }
+          ],
+          "trap": "The full stop after the figure is the ordinal mark: 3. Juni reads dritte Juni, never drei Juni.",
+          "check": {
+            "q": "Heute ist der ____ Oktober. (20.)",
+            "options": [
+              "zwanzigste",
+              "zwanzigte",
+              "zwanzig"
+            ],
+            "answer": "zwanzigste",
+            "why": "From 20 on the ending is -ste."
+          }
         }
       ],
       "remember": [
         "One number, one word: sechshundertfünfzig, tausendzweihundert.",
-        "Years before 2000 in hundreds (neunzehnhundert…), after 2000 with zweitausend."
+        "Years before 2000 in hundreds (neunzehnhundert…), after 2000 with zweitausend.",
+        "Ordinals: -te to 19, -ste from 20; erste, dritte, siebte are irregular. 3. Juni = dritte Juni."
       ],
       "vocab": [
         {
@@ -6426,6 +6749,26 @@
           "article": "der",
           "plural": "¨-e",
           "en": "seat, place"
+        },
+        {
+          "de": "erste",
+          "en": "first"
+        },
+        {
+          "de": "zweite",
+          "en": "second"
+        },
+        {
+          "de": "dritte",
+          "en": "third"
+        },
+        {
+          "de": "siebte",
+          "en": "seventh"
+        },
+        {
+          "de": "zwanzigste",
+          "en": "twentieth"
         }
       ],
       "context": {

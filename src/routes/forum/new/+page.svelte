@@ -35,6 +35,8 @@
 		const wanted = params.get('category');
 		if (isCategory(wanted)) category = wanted;
 		title = (params.get('title') ?? '').slice(0, LIMITS.title);
+		// A "Report" link on a forum post brings the post's address and a quote.
+		if (!body) body = (params.get('body') ?? '').slice(0, LIMITS.body);
 		bookRequest = title.startsWith(BOOK_REQUEST_TITLE.trim());
 	});
 
