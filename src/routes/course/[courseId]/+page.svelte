@@ -16,6 +16,9 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
+	import { storage } from '$lib/services/storage';
+	import { START_CHOSEN } from '$lib/domain/placement';
 	import { Tween } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	import { buildLadder, courseProgress, nextQuiz } from '$lib/domain/ladder';
@@ -54,6 +57,15 @@
 	// would invalidate the effect and re-enter it — an update-depth crash that
 	// takes the whole page down. onMount has no reactive dependencies at all.
 	onMount(async () => {
+		// First session, nothing chosen: ask where to start before dealing A1.1.
+		if (
+			!(await storage.get(START_CHOSEN)) &&
+			!(await storage.get('deck_level')) &&
+			!(await progress.hasAnyProgress())
+		) {
+			void goto('/start', { replaceState: true });
+			return;
+		}
 		if (!progress.loaded) await progress.load();
 		// The ribbons and the ring read the streaks, which load lazily — pull in
 		// this course's, or they all render as zero.

@@ -16,6 +16,7 @@ const SIDE_TRIPS = [
 	/^\/about\/?$/,
 	/^\/contact\/?$/,
 	/^\/legal\/?$/,
+	/^\/start\/?$/,
 	/^\/changelog\/?$/,
 	/^\/forum(\/|$)/,
 	/^\/signin\/?$/,

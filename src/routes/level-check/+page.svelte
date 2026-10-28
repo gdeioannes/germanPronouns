@@ -1,7 +1,7 @@
 <script lang="ts">
 	// "Your level": where a learner goes to find out where they stand, whenever
 	// they want. Today that is the word check (and its history, so a second
-	// check shows the growth); the placement test will join it here. Nothing on
+	// check shows the growth) and the placement test. Nothing on
 	// this page counts as an exercise: no medals, nothing marked done.
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
@@ -113,14 +113,15 @@
 		{/if}
 	</section>
 
-	<section class="soon card" aria-labelledby="soon-h">
-		<span class="disc muted-disc" aria-hidden="true"><Icon name="pen" size="1.3em" /></span>
+	<a class="check card" href="/level-check/test">
+		<span class="disc" aria-hidden="true"><Icon name="compass" size="1.5em" /></span>
 		<span class="body">
-			<span class="eyebrow">Coming later</span>
-			<strong class="name" id="soon-h">Placement test</strong>
-			<span class="what">A short test of grammar, reading and listening that puts you on the right level of the course, to go with the word check.</span>
+			<span class="eyebrow">Placement test · about 10 minutes</span>
+			<strong class="name">Which level should I start at?</strong>
+			<span class="what">Words, grammar, reading and listening, each part adapting as you go. You get the sub-level to start at, and one tap sets your deck there.</span>
+			<span class="go">Take the test <Icon name="arrowRight" size="1em" /></span>
 		</span>
-	</section>
+	</a>
 </main>
 
 <SiteFooter />
@@ -134,8 +135,7 @@
 		margin: 0 0 0.4rem;
 	}
 
-	.check,
-	.soon {
+	.check {
 		display: flex;
 		gap: 1rem;
 		align-items: flex-start;
@@ -165,11 +165,6 @@
 		border-radius: 50%;
 		background: #e8efe9;
 		color: var(--forest);
-	}
-
-	.muted-disc {
-		background: var(--surface-alt);
-		color: var(--ink-muted);
 	}
 
 	.body {
@@ -260,7 +255,4 @@
 		font-weight: 700;
 	}
 
-	.soon {
-		opacity: 0.85;
-	}
 </style>

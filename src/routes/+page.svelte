@@ -59,9 +59,6 @@
 	let { data }: { data: PageData } = $props();
 
 	const courseHref = $derived(`/course/${data.card.id}`);
-	const firstHref = $derived(
-		data.firstQuizId ? `/course/${data.card.id}/quiz/${data.firstQuizId}` : courseHref
-	);
 
 	// A learner coming back must not be dropped into A1.1 again: once the page
 	// is live and finds progress, the start buttons lead to the course home,
@@ -95,7 +92,9 @@
 		// Fallback only: the head script has normally left this page already.
 		if (returning && from === null) void goto(courseHref, { replaceState: true });
 	});
-	const startHref = $derived(returning ? courseHref : firstHref);
+	// A newcomer chooses where to start first (/start): new to German, find my
+	// level, or pick it. Everyone used to land in A1.1 without knowing they could.
+	const startHref = $derived(returning ? courseHref : '/start');
 
 	// The first episode needs no German at all — the right on-ramp for someone
 	// who just landed here.
@@ -361,6 +360,14 @@
 				Ask for a test copy <Icon name="arrowRight" size="1.05em" />
 			</a>
 			<p class="book-note">A handful of copies · no strings, no obligation to be kind</p>
+			<div class="book-dl">
+				<p class="kicker">New · free PDF</p>
+				<p><strong>Deutsch A1.1 · Erste Schritte</strong>, the new book: twelve chapters, each one a real place in Germany, with photos, stories and the practice. 131 pages.</p>
+				<a class="primary" href="/books/v2/de_cert_a1_a1_1.pdf" download onclick={() => track('book_download', { book: 'A1.1', from: 'home' })}>
+					<Icon name="download" size="1.05em" /> Download the PDF · 36 MB
+				</a>
+				<a class="book-preview" href="/course/{data.card.id}/book2/A1.1">Look inside first</a>
+			</div>
 		</div>
 	</section>
 
@@ -1411,6 +1418,22 @@
 
 	.faq dd a {
 		color: var(--accent-ink);
+	}
+
+	.book-dl {
+		margin-top: 1.5rem;
+		padding-top: 1.2rem;
+		border-top: 1px solid var(--line);
+	}
+
+	.book-dl p {
+		margin: 0.3rem 0 0.8rem;
+	}
+
+	.book-preview {
+		display: inline-block;
+		margin-left: 1rem;
+		font-size: var(--step--1);
 	}
 
 	/* -- levels: six compact chips ---------------------------------------- */

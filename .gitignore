@@ -43,3 +43,8 @@ docs/reference/*_hardcover.png
 
 # Python bytecode from tool/ scripts
 __pycache__/
+.commons-last.json
+# Book v2 photo originals (print only, ~3 MB each); the web/ copies are committed.
+static/img/photo/b2_*.jpg
+# KDP interior prints
+static/books/v2/*_print.pdf

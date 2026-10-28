@@ -16,6 +16,17 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-28",
+    title: "Start at your level, and the new A1.1 book",
+    highlight: true,
+    items: [
+      "Your first visit now asks where you start: new to German, find my level, or I know my level. Nobody has to begin at A1.1 by default any more.",
+      "A placement test, about ten minutes: tap the words you know, twelve grammar gaps that get harder or easier as you answer, one text to read and one to listen to. It tells you the sub-level to start at and sets your deck there in one tap. Find it any time under Your level.",
+      "Deutsch A1.1, the new book, is free to download: twelve chapters, each a real place in Germany, with the words pinned to the photo, a story, two grammar pages, a real sign or menu to read, and the practice. 131 pages.",
+      "The top menu is simpler: the twelve levels moved to the footer.",
+    ],
+  },
+  {
     date: "2026-10-26",
     title: "Offline, an imprint, and the gaps the review found",
     items: [

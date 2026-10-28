@@ -13809,7 +13809,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_zahlen",
           "article": "die",
-          "plural": "-en"
+          "plural": "-en",
+          "image": "zahl"
         },
         {
           "de": "Nummer",
@@ -13817,7 +13818,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_zahlen",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "nummer"
         },
         {
           "de": "ich",
@@ -14161,7 +14163,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_zahlen2",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "jahr"
         },
         {
           "de": "sein",
@@ -14355,7 +14358,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_sprechen_kurzcheck",
           "article": "das",
-          "plural": "¨-er"
+          "plural": "¨-er",
+          "image": "land"
         },
         {
           "de": "Wie bitte?",
@@ -14664,7 +14668,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_familie",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "familie"
         },
         {
           "de": "Vater",
@@ -14789,28 +14794,32 @@
           "en": "north",
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_laender",
-          "article": "der"
+          "article": "der",
+          "image": "norden"
         },
         {
           "de": "Süden",
           "en": "south",
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_laender",
-          "article": "der"
+          "article": "der",
+          "image": "sueden"
         },
         {
           "de": "Osten",
           "en": "east",
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_laender",
-          "article": "der"
+          "article": "der",
+          "image": "osten"
         },
         {
           "de": "Westen",
           "en": "west",
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_laender",
-          "article": "der"
+          "article": "der",
+          "image": "westen"
         },
         {
           "de": "Deutsch",
@@ -15112,7 +15121,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_laender",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "sprache"
         },
         {
           "de": "Deutschland",
@@ -15374,7 +15384,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_sprechen_dialog",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "lieblingsfarbe"
         },
         {
           "de": "Beruf",
@@ -15390,7 +15401,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_sprechen_dialog",
           "article": "das",
-          "plural": "-s"
+          "plural": "-s",
+          "image": "hobby"
         },
         {
           "de": "Und du?",
@@ -15432,7 +15444,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_alphabet",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "alphabet"
         },
         {
           "de": "buchstabieren",
@@ -15616,7 +15629,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_suchbild_wohnzimmer",
           "article": "das",
-          "plural": "-er"
+          "plural": "-er",
+          "image": "bild"
         },
         {
           "de": "Fernseher",
@@ -15624,7 +15638,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_suchbild_wohnzimmer",
           "article": "der",
-          "plural": "-"
+          "plural": "-",
+          "image": "fernseher"
         },
         {
           "de": "Schrank",
@@ -15730,7 +15745,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_suchbild_wohnzimmer",
           "article": "das",
-          "plural": "Gläser"
+          "plural": "Gläser",
+          "image": "glas"
         },
         {
           "de": "Tasse",
@@ -15763,7 +15779,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_suchbild_wohnzimmer",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "pflanze"
         },
         {
           "de": "Korb",
@@ -15804,7 +15821,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_suchbild_klassenzimmer",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "landkarte"
         },
         {
           "de": "Schulbank",
@@ -15936,7 +15954,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_suchbild_klassenzimmer",
           "article": "das",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "papier"
         },
         {
           "de": "Schere",
@@ -15961,7 +15980,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_1_suchbild_klassenzimmer",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "flasche"
         },
         {
           "de": "Lineal",
@@ -34420,7 +34440,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_sprechen_kurzcheck",
           "article": "der",
-          "plural": "-"
+          "plural": "-",
+          "image": "geldbeutel"
         },
         {
           "de": "gehören",
@@ -35254,7 +35275,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_kueche",
           "article": "der",
-          "plural": "Kühlschränke"
+          "plural": "Kühlschränke",
+          "image": "kuehlschrank"
         },
         {
           "de": "Waschmaschine",
@@ -35372,7 +35394,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_kueche",
           "article": "der",
-          "plural": "-"
+          "plural": "-",
+          "image": "loeffel"
         },
         {
           "de": "Schneebesen",
@@ -35454,7 +35477,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_kueche",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "flasche"
         },
         {
           "de": "Regal",
@@ -35521,7 +35545,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_supermarkt",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "kasse"
         },
         {
           "de": "Tüte",
@@ -35537,7 +35562,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_supermarkt",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "schokolade"
         },
         {
           "de": "Waage",
@@ -35564,7 +35590,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_supermarkt",
           "article": "das",
-          "plural": "-s"
+          "plural": "-s",
+          "image": "croissant"
         },
         {
           "de": "Wein",
@@ -35572,7 +35599,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_supermarkt",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "wein"
         },
         {
           "de": "Milch",
@@ -35588,7 +35616,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_supermarkt",
           "article": "der",
-          "plural": "Säfte"
+          "plural": "Säfte",
+          "image": "saft"
         },
         {
           "de": "Eierkarton",
@@ -35619,7 +35648,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_supermarkt",
           "article": "die",
-          "plural": "Würste"
+          "plural": "Würste",
+          "image": "wurst"
         },
         {
           "de": "Käse",
@@ -35651,7 +35681,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_supermarkt",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "fisch"
         },
         {
           "de": "Ananas",
@@ -35675,7 +35706,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_supermarkt",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "tomate"
         },
         {
           "de": "Melone",
@@ -35691,7 +35723,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_supermarkt",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "gurke"
         },
         {
           "de": "Salat",
@@ -35699,7 +35732,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a1_2_suchbild_supermarkt",
           "article": "der",
-          "plural": "-e"
+          "plural": "-e",
+          "image": "salat"
         }
       ],
       "help": {
@@ -51129,7 +51163,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_suchbild_bahnhof",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "treppe"
         },
         {
           "de": "Geländer",
@@ -51295,7 +51330,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_1_suchbild_bahnhof",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "flasche"
         },
         {
           "de": "Buch",
@@ -71572,7 +71608,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_suchbild_cafe",
           "article": "der",
-          "plural": "Kühlschränke"
+          "plural": "Kühlschränke",
+          "image": "kuehlschrank"
         },
         {
           "de": "Bank",
@@ -71694,7 +71731,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_suchbild_cafe",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "brezel"
         },
         {
           "de": "Wasserkocher",
@@ -71719,7 +71757,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_suchbild_cafe",
           "article": "die",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "kasse"
         },
         {
           "de": "Telefon",
@@ -71813,7 +71852,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_suchbild_cafe",
           "article": "das",
-          "plural": "Gläser"
+          "plural": "Gläser",
+          "image": "glas"
         },
         {
           "de": "Milchkännchen",
@@ -71829,7 +71869,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_a2_2_suchbild_cafe",
           "article": "das",
-          "plural": "-s"
+          "plural": "-s",
+          "image": "croissant"
         }
       ],
       "help": {
@@ -90824,7 +90865,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_1_suchbild_arztpraxis",
           "article": "der",
-          "plural": "Kühlschränke"
+          "plural": "Kühlschränke",
+          "image": "kuehlschrank"
         },
         {
           "de": "Mikroskop",
@@ -109853,7 +109895,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b1_2_n_deklination",
           "article": "der",
-          "plural": "-n"
+          "plural": "-n",
+          "image": "name"
         },
         {
           "de": "erreichen",
@@ -154385,7 +154428,8 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_2_suchbild_labor",
           "article": "der",
-          "plural": "Kühlschränke"
+          "plural": "Kühlschränke",
+          "image": "kuehlschrank"
         },
         {
           "de": "Labortisch",

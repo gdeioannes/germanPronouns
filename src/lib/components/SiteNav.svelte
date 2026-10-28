@@ -6,7 +6,7 @@
 	// scroll up. The way out is always one tap away without crowding the quiz.
 	//
 	// The links come in three groups, each a dropdown in the full bar and a
-	// headed list under Menu on a phone: Levels (the twelve modules), Library
+	// headed list under Menu on a phone: Library
 	// (the word library, the printable workbooks, the stories and songs) and
 	// About (about, what's new, contact). About carries the "something new"
 	// dot only while there is an unseen release. Settings only matters once
@@ -29,27 +29,14 @@
 
 	let { courseHref, compact = false }: { courseHref: string; compact?: boolean } = $props();
 
-	// The modules come from the root layout's load (see +layout.server.ts),
-	// the same list the footer prints.
-	// The nav titles come as "A1.1 · ERSTE SCHRITTE"; the menu shows the code
-	// on its own and the name in normal case.
-	const levels = $derived<{ level: string; title: string }[]>(
-		(page.data.site?.levels ?? []).map((l: { level: string; title: string }) => ({
-			level: l.level,
-			title: l.title
-				.replace(/^[A-C]\d(?:\.\d)?\s*[·-]\s*/, '')
-				.toLowerCase()
-				.replace(/(^|[\s-])(\p{L})/gu, (m: string) => m.toUpperCase())
-		}))
-	);
-	const bands = $derived(['A', 'B', 'C'].map((b) => levels.filter((l) => l.level.startsWith(b))));
-
 	// Inside the course "Open the course" would point at where you already are.
 	const inCourse = $derived(
 		page.url.pathname === courseHref || page.url.pathname.startsWith(`${courseHref}/`)
 	);
 
-	type Menu = 'levels' | 'library' | 'about';
+	// The twelve levels used to be a menu here too; learners tapped them instead
+	// of starting the course, so they live in the footer and on /start now.
+	type Menu = 'library' | 'about';
 
 	let open = $state(false);
 	/** Which dropdown in the full bar is down, if any. */
@@ -120,18 +107,6 @@
 
 <!-- The three groups' links. `wide` adds the sub-heads the dropdown panels
      use; the phone list gets its own headings instead. -->
-{#snippet levelLinks()}
-	{#each bands as band, i (i)}
-		{#if band.length}
-			<div class="col">
-				{#each band as l (l.level)}
-					<a href="{courseHref}/level/{l.level}"><span class="tnum code">{l.level}</span> <span class="name">{l.title}</span></a>
-				{/each}
-			</div>
-		{/if}
-	{/each}
-{/snippet}
-
 {#snippet libraryLinks()}
 	<a href="/words"><Icon name="words" size="1em" /> Word library</a>
 	<a href="{courseHref}/worksheet"><Icon name="printer" size="1em" /> Printable sheets</a>
@@ -235,8 +210,6 @@
 		</div>
 		<p class="group-head">Library</p>
 		{@render libraryLinks()}
-		<p class="group-head">Levels</p>
-		<div class="level-grid">{@render levelLinks()}</div>
 		<p class="group-head">About</p>
 		{@render aboutLinks()}
 		{@render cta()}
@@ -293,7 +266,6 @@
 			     which shrinks to its icon so nothing has to wrap. -->
 			<div class="bar-end">
 				<nav class="wide" aria-label="Main">
-					{@render drop('levels', 'Levels', levelLinks, true)}
 					{@render levelCheckLink()}
 					{@render drop('library', 'Library', libraryLinks)}
 					{@render drop('about', 'About', aboutLinks, false, whatsNew.unseen)}
@@ -556,32 +528,6 @@
 		color: var(--accent-ink);
 	}
 
-	/* Levels: the twelve modules in three columns, one per band. It is the
-	   widest panel, so it hangs from its right edge to stay on the page. */
-	.drop-panel.wide {
-		flex-direction: row;
-		gap: 0.25rem;
-		left: auto;
-		right: -0.75rem;
-	}
-
-	.col {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.drop-panel .col + .col {
-		border-left: 1px solid var(--line);
-		padding-left: 0.25rem;
-		margin-left: 0.25rem;
-	}
-
-	.code {
-		min-width: 2.4rem;
-		font-weight: 800;
-		color: var(--heading);
-	}
-
 	/* In the dropdown the mark rides beside the words instead of on an icon. */
 	.news-row {
 		display: flex;
@@ -752,23 +698,13 @@
 		margin-top: 0.3rem;
 	}
 
-	.level-grid {
-		grid-column: 1 / -1;
-		display: grid;
-		grid-template-columns: repeat(3, auto);
-		gap: 0 2.5rem;
-		justify-content: start;
-	}
-
 	.menu-links .bar-cta {
 		grid-column: 1 / -1;
 		justify-self: start;
 		margin-top: 1rem;
 	}
 
-	/* On phones the links stack as full-width rows, except the levels: those
-	   stay three columns (A, B, C band) of small tiles, the code on top and
-	   the name beneath, so twelve modules take a few lines, not a screen. */
+	/* On phones the links stack as full-width rows. */
 	@media (max-width: 40rem) {
 		.menu-links {
 			grid-template-columns: minmax(0, 1fr);
@@ -781,38 +717,6 @@
 		}
 		.group-head {
 			margin-top: 1.1rem;
-		}
-		.level-grid {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-			gap: 0.4rem;
-			justify-content: stretch;
-			margin-top: 0.3rem;
-		}
-		.level-grid .col {
-			gap: 0.4rem;
-		}
-		.level-grid a {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 0.1rem;
-			padding: 0.5rem 0.6rem;
-			border: 1px solid var(--line);
-			border-radius: 0.6rem;
-			background: var(--surface);
-			font-size: var(--step--1);
-			line-height: 1.2;
-		}
-		.level-grid .code {
-			min-width: 0;
-		}
-		.level-grid .name {
-			font-size: 0.72rem;
-			font-weight: 500;
-			color: var(--ink-muted);
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			max-width: 100%;
 		}
 	}
 

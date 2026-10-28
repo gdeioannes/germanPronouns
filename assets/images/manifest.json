@@ -4156,6 +4156,562 @@
 			"id": "card_dictation_c2_2",
 			"prompt": "scene: a researcher with headphones at a library desk writing down a lecture from a small recorder, a stack of journals beside her, drawn directly on the plain paper with no coloured background panel behind it, wide empty paper margins around the whole scene",
 			"aspect": "4:3"
+		},
+		{
+			"id": "tomate",
+			"prompt": "three ripe red tomatoes on the vine"
+		},
+		{
+			"id": "gurke",
+			"prompt": "a cucumber, whole, with one slice beside it"
+		},
+		{
+			"id": "zwiebel",
+			"prompt": "two brown onions, one cut in half"
+		},
+		{
+			"id": "wurst",
+			"prompt": "a ring of smoked sausage"
+		},
+		{
+			"id": "erdbeere",
+			"prompt": "three strawberries with leaves"
+		},
+		{
+			"id": "kirsche",
+			"prompt": "a pair of cherries on one stem"
+		},
+		{
+			"id": "birne",
+			"prompt": "a green pear"
+		},
+		{
+			"id": "zitrone",
+			"prompt": "a lemon with one wedge cut"
+		},
+		{
+			"id": "karotte",
+			"prompt": "three carrots with green tops"
+		},
+		{
+			"id": "paprika",
+			"prompt": "a red bell pepper and a yellow one"
+		},
+		{
+			"id": "brezel",
+			"prompt": "a golden Bavarian pretzel with coarse salt"
+		},
+		{
+			"id": "papiertuete",
+			"prompt": "a brown paper bag with apples looking out of the top"
+		},
+		{
+			"id": "gemuese",
+			"prompt": "a wooden crate of mixed vegetables: carrots, leek, cabbage, tomatoes"
+		},
+		{
+			"id": "marktstand",
+			"prompt": "a market stall with a striped awning and crates of fruit, no people"
+		},
+		{
+			"id": "preisschild",
+			"prompt": "a small handwritten chalkboard price sign on a stick in a crate of apples, with no letters or numbers on it"
+		},
+		{
+			"id": "kasse",
+			"prompt": "a small cash box open with euro coins and notes"
+		},
+		{
+			"id": "pfund",
+			"prompt": "a kitchen scale with a bowl of potatoes on it"
+		},
+		{
+			"id": "verkaeuferin",
+			"prompt": "a friendly market seller woman in an apron holding a paper bag"
+		},
+		{
+			"id": "name",
+			"prompt": "a blank name badge pinned on a shirt, no letters on it"
+		},
+		{
+			"id": "land",
+			"prompt": "a simple map outline of Germany with a small flag pin"
+		},
+		{
+			"id": "strasse",
+			"prompt": "a quiet city street with a row of houses, seen along the street"
+		},
+		{
+			"id": "studentin",
+			"prompt": "a young woman with a backpack and a notebook"
+		},
+		{
+			"id": "tee",
+			"prompt": "a glass of tea with a slice of lemon on a saucer"
+		},
+		{
+			"id": "bier",
+			"prompt": "a glass of beer with foam"
+		},
+		{
+			"id": "doener",
+			"prompt": "a Döner kebab in flatbread with salad"
+		},
+		{
+			"id": "kneipe",
+			"prompt": "a corner pub front with a lantern and a wooden door"
+		},
+		{
+			"id": "spaeti",
+			"prompt": "a small late-night corner shop front with drinks in the window, lit at dusk, no readable text"
+		},
+		{
+			"id": "familie",
+			"prompt": "a family of four standing together: two parents, two children"
+		},
+		{
+			"id": "zimmer",
+			"prompt": "a small room with a bed, a desk and a window"
+		},
+		{
+			"id": "baeckerei",
+			"prompt": "a bakery shop front with bread in the window"
+		},
+		{
+			"id": "musik",
+			"prompt": "a pair of headphones with music notes"
+		},
+		{
+			"id": "fussball",
+			"prompt": "a black and white football"
+		},
+		{
+			"id": "sprache",
+			"prompt": "two speech bubbles, one with a small German flag colour stripe, one with a British one"
+		},
+		{
+			"id": "nachbarin",
+			"prompt": "a friendly woman waving over a garden fence"
+		},
+		{
+			"id": "flasche",
+			"prompt": "a glass bottle of water with a cap"
+		},
+		{
+			"id": "pfand",
+			"prompt": "a beer bottle with a small deposit symbol tag hanging from its neck, no letters"
+		},
+		{
+			"id": "muenze",
+			"prompt": "three euro coins stacked"
+		},
+		{
+			"id": "schein",
+			"prompt": "a folded euro banknote, plain design with no digits"
+		},
+		{
+			"id": "chips",
+			"prompt": "an open bag of crisps"
+		},
+		{
+			"id": "schokolade",
+			"prompt": "a bar of chocolate with two pieces broken off"
+		},
+		{
+			"id": "cola",
+			"prompt": "a can of cola with a straw, plain red can with no letters"
+		},
+		{
+			"id": "saft",
+			"prompt": "a glass of orange juice with an orange beside it"
+		},
+		{
+			"id": "wein",
+			"prompt": "a bottle of red wine and a glass"
+		},
+		{
+			"id": "kaugummi",
+			"prompt": "a pack of chewing gum with one stick out"
+		},
+		{
+			"id": "kiosk",
+			"prompt": "a small street kiosk with newspapers and sweets in its window, no readable text"
+		},
+		{
+			"id": "zahl",
+			"prompt": "three large plain dice showing different numbers"
+		},
+		{
+			"id": "hausnummer",
+			"prompt": "a blue enamel house-number plate on a wall, showing the number 12"
+		},
+		{
+			"id": "geldbeutel",
+			"prompt": "an open leather wallet with coins and a note"
+		},
+		{
+			"id": "karte",
+			"prompt": "a plastic bank card, plain, no digits"
+		},
+		{
+			"id": "jahr",
+			"prompt": "a wall calendar with twelve small month blocks, no letters"
+		},
+		{
+			"id": "bad",
+			"prompt": "a small bathroom with a bathtub, a washbasin and a mirror"
+		},
+		{
+			"id": "schlafzimmer",
+			"prompt": "a bedroom with a bed, a bedside table and a lamp"
+		},
+		{
+			"id": "wohnzimmer",
+			"prompt": "a living room with a sofa, a coffee table and a floor lamp"
+		},
+		{
+			"id": "flur",
+			"prompt": "a narrow hallway with a coat rack and a door at the end"
+		},
+		{
+			"id": "decke",
+			"prompt": "a ceiling with a plain pendant lamp, seen from below"
+		},
+		{
+			"id": "bild",
+			"prompt": "a framed picture of a sailing boat hanging on a wall"
+		},
+		{
+			"id": "pflanze",
+			"prompt": "a green houseplant in a pot on a windowsill"
+		},
+		{
+			"id": "kuehlschrank",
+			"prompt": "a white fridge with the door slightly open"
+		},
+		{
+			"id": "dusche",
+			"prompt": "a shower with a glass door and water running"
+		},
+		{
+			"id": "heizung",
+			"prompt": "a white radiator under a window with a thermostat knob"
+		},
+		{
+			"id": "treppe",
+			"prompt": "a wooden staircase with a banister"
+		},
+		{
+			"id": "hof",
+			"prompt": "an inner courtyard of an old apartment house with a tree and bicycles"
+		},
+		{
+			"id": "keller",
+			"prompt": "a cellar door at the bottom of stairs, a bicycle beside it"
+		},
+		{
+			"id": "ofen",
+			"prompt": "an old tiled stove, cream tiles, with a small iron door"
+		},
+		{
+			"id": "fernseher",
+			"prompt": "a flat television on a low cabinet"
+		},
+		{
+			"id": "tante",
+			"prompt": "a cheerful middle-aged woman waving"
+		},
+		{
+			"id": "onkel",
+			"prompt": "a cheerful middle-aged man with a moustache waving"
+		},
+		{
+			"id": "baby",
+			"prompt": "a baby in a romper suit sitting up"
+		},
+		{
+			"id": "torte",
+			"prompt": "a layered cream cake with strawberries on top"
+		},
+		{
+			"id": "sahne",
+			"prompt": "a bowl of whipped cream with a spoon"
+		},
+		{
+			"id": "gabel",
+			"prompt": "a fork"
+		},
+		{
+			"id": "loeffel",
+			"prompt": "a spoon"
+		},
+		{
+			"id": "fisch",
+			"prompt": "a fish, whole, on a plate with a lemon slice"
+		},
+		{
+			"id": "hafen",
+			"prompt": "a harbour with a quay, a crane and a boat"
+		},
+		{
+			"id": "schiff",
+			"prompt": "a cargo ship seen from the side"
+		},
+		{
+			"id": "fruehstueck",
+			"prompt": "a breakfast table with a bread roll, jam, an egg and a cup of coffee"
+		},
+		{
+			"id": "mittagessen",
+			"prompt": "a plate of lunch: potatoes, vegetables and a piece of meat"
+		},
+		{
+			"id": "abendessen",
+			"prompt": "a wooden board with bread, cheese and sausage slices"
+		},
+		{
+			"id": "broetchen",
+			"prompt": "two crusty bread rolls"
+		},
+		{
+			"id": "freizeit",
+			"prompt": "a person lying in a hammock with a book"
+		},
+		{
+			"id": "dom",
+			"prompt": "a large gothic cathedral with two towers"
+		},
+		{
+			"id": "kirche",
+			"prompt": "a small village church with a pointed tower"
+		},
+		{
+			"id": "fluss",
+			"prompt": "a river with a bridge and a boat"
+		},
+		{
+			"id": "haltestelle",
+			"prompt": "a tram stop sign with a bench, the H sign in green and yellow, no letters"
+		},
+		{
+			"id": "u-bahn",
+			"prompt": "a blue U-Bahn station entrance sign on a post, no letters"
+		},
+		{
+			"id": "zentrum",
+			"prompt": "a town square with a fountain and buildings around it"
+		},
+		{
+			"id": "restaurant",
+			"prompt": "a restaurant front with tables outside and a menu board, no readable text"
+		},
+		{
+			"id": "ticket",
+			"prompt": "a paper ticket, plain, no letters"
+		},
+		{
+			"id": "stadtplan",
+			"prompt": "a folded city map with streets drawn on it, no letters"
+		},
+		{
+			"id": "turm",
+			"prompt": "a tall stone tower"
+		},
+		{
+			"id": "fahrkarte",
+			"prompt": "a train ticket being held in a hand, plain, no letters"
+		},
+		{
+			"id": "norden",
+			"prompt": "a compass rose with the top point coloured in, no letters"
+		},
+		{
+			"id": "sueden",
+			"prompt": "a compass rose with the bottom point coloured in, no letters"
+		},
+		{
+			"id": "osten",
+			"prompt": "a compass rose with the right point coloured in, no letters"
+		},
+		{
+			"id": "westen",
+			"prompt": "a compass rose with the left point coloured in, no letters"
+		},
+		{
+			"id": "flughafen",
+			"prompt": "an airport terminal building with a plane taking off behind it"
+		},
+		{
+			"id": "grenze",
+			"prompt": "a striped red and white barrier at a border crossing"
+		},
+		{
+			"id": "welt",
+			"prompt": "a simple globe showing the continents"
+		},
+		{
+			"id": "landkarte",
+			"prompt": "a folded paper map with a route drawn on it, no letters"
+		},
+		{
+			"id": "stempel",
+			"prompt": "a rubber stamp and its red ink print on paper, the print a plain shape with no letters"
+		},
+		{
+			"id": "nummer",
+			"prompt": "a small paper number ticket from a dispenser, showing 47"
+		},
+		{
+			"id": "amt",
+			"prompt": "a plain office counter with a glass window and a chair in front of it"
+		},
+		{
+			"id": "beamtin",
+			"prompt": "a woman in a cardigan at an office counter with a stamp"
+		},
+		{
+			"id": "wartezimmer",
+			"prompt": "a row of chairs in a waiting room with a number display showing 12"
+		},
+		{
+			"id": "unterschrift",
+			"prompt": "a hand signing a document with a pen, the signature a plain scribble"
+		},
+		{
+			"id": "alphabet",
+			"prompt": "wooden letter blocks showing A B C"
+		},
+		{
+			"id": "ausweis",
+			"prompt": "a plastic ID card with a photo silhouette, no letters"
+		},
+		{
+			"id": "adresse",
+			"prompt": "an envelope with a blank address field and a stamp"
+		},
+		{
+			"id": "insel",
+			"prompt": "a small island with a palm tree in the sea"
+		},
+		{
+			"id": "weg",
+			"prompt": "a path winding through a meadow"
+		},
+		{
+			"id": "bahn",
+			"prompt": "a red regional train at a platform"
+		},
+		{
+			"id": "zucker",
+			"prompt": "a sugar bowl with sugar cubes and tongs"
+		},
+		{
+			"id": "glas",
+			"prompt": "a tall glass of water"
+		},
+		{
+			"id": "trinkgeld",
+			"prompt": "a saucer with a few coins and a receipt on it"
+		},
+		{
+			"id": "speisekarte",
+			"prompt": "a folded menu card standing on a table, no readable text"
+		},
+		{
+			"id": "limonade",
+			"prompt": "a glass of lemonade with a straw and a lemon slice"
+		},
+		{
+			"id": "kakao",
+			"prompt": "a mug of hot chocolate with cream on top"
+		},
+		{
+			"id": "croissant",
+			"prompt": "a golden croissant on a plate"
+		},
+		{
+			"id": "werkzeug",
+			"prompt": "a hammer, a screwdriver and a spanner laid side by side"
+		},
+		{
+			"id": "schraube",
+			"prompt": "three screws of different sizes"
+		},
+		{
+			"id": "nagel",
+			"prompt": "a handful of nails"
+		},
+		{
+			"id": "pinsel",
+			"prompt": "a paintbrush with blue paint on it"
+		},
+		{
+			"id": "foto",
+			"prompt": "a passport photo of a young woman, plain background"
+		},
+		{
+			"id": "zettel",
+			"prompt": "a small note of paper with a pin, blank"
+		},
+		{
+			"id": "reisszwecke",
+			"prompt": "three coloured drawing pins"
+		},
+		{
+			"id": "hobby",
+			"prompt": "a guitar, a football and a paintbrush together"
+		},
+		{
+			"id": "lieblingsessen",
+			"prompt": "a plate of spaghetti with a heart drawn in tomato sauce"
+		},
+		{
+			"id": "haustier",
+			"prompt": "a cat and a small dog sitting together"
+		},
+		{
+			"id": "lieblingsfarbe",
+			"prompt": "a child holding up a blue crayon, blue scribble beside it"
+		},
+		{
+			"id": "butter",
+			"prompt": "a block of butter on a dish with a knife"
+		},
+		{
+			"id": "marmelade",
+			"prompt": "a jar of strawberry jam with a spoon"
+		},
+		{
+			"id": "honig",
+			"prompt": "a jar of honey with a wooden dipper"
+		},
+		{
+			"id": "salat",
+			"prompt": "a bowl of green salad with tomato"
+		},
+		{
+			"id": "haustuer",
+			"prompt": "a front door of a house with a brass handle and a doorbell"
+		},
+		{
+			"id": "kinderzimmer",
+			"prompt": "a child's bedroom with a small bed, toys and a rocking horse"
+		},
+		{
+			"id": "apfelkuchen",
+			"prompt": "a slice of apple cake on a plate"
+		},
+		{
+			"id": "papier",
+			"prompt": "a stack of white paper sheets"
+		},
+		{
+			"id": "kaesekuchen",
+			"prompt": "a slice of cheesecake on a plate"
+		},
+		{
+			"id": "bananenbrot",
+			"prompt": "a loaf of banana bread with two slices cut"
 		}
 	]
 }
