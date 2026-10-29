@@ -2,17 +2,26 @@
 	// The placement test (domain/placement): words, grammar, reading, listening,
 	// then a level and one tap to start there. About ten minutes. Nothing is
 	// marked or counted as an exercise; the result sets the deck's level.
+	//
+	// This is many learners' first screen after /start, so it gets the same care
+	// as the quizzes: one progress bar over the whole test (the words part is
+	// adaptive, so its share is an estimate that only ever moves forward), a way
+	// out at any point ("skip the rest" lands on the result with a best guess
+	// and the level picker), and the fx/sound layer for taps and the result.
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 	import { onMount, tick } from 'svelte';
+	import { fly } from 'svelte/transition';
 	import { storage } from '$lib/services/storage';
 	import { track } from '$lib/services/analytics';
 	import { tts } from '$lib/services/speech';
 	import { announce } from '$lib/a11y.svelte';
 	import { breadcrumbLd } from '$lib/seo';
+	import { celebrate, effectsCalm } from '$lib/motion/fx.svelte';
+	import { playSound } from '$lib/services/sounds';
 	import {
 		appendLog,
 		bankLevels,
@@ -47,13 +56,16 @@
 
 	type Phase = 'intro' | 'words' | 'grammar' | 'reading' | 'listening' | 'result';
 	let phase = $state<Phase>('intro');
-	const PARTS: { id: Phase; label: string }[] = [
-		{ id: 'words', label: 'Words' },
-		{ id: 'grammar', label: 'Grammar' },
-		{ id: 'reading', label: 'Reading' },
-		{ id: 'listening', label: 'Listening' }
+	const PARTS: { id: Phase; label: string; weight: number }[] = [
+		{ id: 'words', label: 'Words', weight: 0.3 },
+		{ id: 'grammar', label: 'Grammar', weight: 0.4 },
+		{ id: 'reading', label: 'Reading', weight: 0.15 },
+		{ id: 'listening', label: 'Listening', weight: 0.15 }
 	];
 	const partIndex = $derived(PARTS.findIndex((p) => p.id === phase));
+
+	/** Motion lasts this long, or not at all under calm effects / reduced motion. */
+	const dur = () => (effectsCalm() ? 0 : 280);
 
 	const shuffle = <T,>(list: T[]): T[] => {
 		const out = [...list];
@@ -79,6 +91,11 @@
 	function start() {
 		const first = nextLevel(wordLevels, []);
 		screens = first ? [buildScreen(data.words, first, new Set())] : [];
+		skipped = false;
+		answers = [];
+		reading = [0, 0];
+		listening = [0, 0];
+		wordsLevel = null;
 		phase = 'words';
 		track('placement_start', {});
 		void focusTop();
@@ -86,7 +103,9 @@
 
 	function toggle(de: string) {
 		if (!screen) return;
-		screen.ticked = screen.ticked.includes(de) ? screen.ticked.filter((w) => w !== de) : [...screen.ticked, de];
+		const off = screen.ticked.includes(de);
+		screen.ticked = off ? screen.ticked.filter((w) => w !== de) : [...screen.ticked, de];
+		playSound(off ? 'down' : 'up');
 	}
 
 	async function nextWords() {
@@ -101,6 +120,7 @@
 		// The word part counts as a word check too, so the history shows it.
 		const log = appendLog(parseLog(await storage.get(WORD_CHECK_LOG)), logEntry(result));
 		await storage.set(WORD_CHECK_LOG, JSON.stringify(log));
+		playSound('msgIn');
 		startGrammar();
 	}
 
@@ -108,6 +128,8 @@
 	let answers = $state<GrammarAnswer[]>([]);
 	let used = new Set<string>();
 	let item = $state<(GrammarItem & { level: string; options: string[] }) | null>(null);
+	/** The option just tapped, held highlighted for a beat before the next item. */
+	let picked = $state<string | null | undefined>(undefined);
 
 	function drawItem() {
 		const level = nextGrammarLevel(levels, wordsLevel ?? levels[1], answers);
@@ -127,15 +149,24 @@
 	}
 
 	function answerGrammar(choice: string | null) {
-		if (!item) return;
-		answers = [...answers, { level: item.level, right: choice === item.answer }];
-		if (answers.length < GRAMMAR_ITEMS) {
-			drawItem();
-			void focusTop();
-			return;
-		}
-		gLevel = grammarLevel(levels, answers);
-		startText('reading');
+		if (!item || picked !== undefined) return;
+		picked = choice;
+		playSound('up');
+		// A beat with the choice lit, so the tap visibly landed; no right/wrong
+		// is shown — a placement test acknowledges, it does not mark.
+		setTimeout(() => {
+			if (!item) return;
+			answers = [...answers, { level: item.level, right: choice === item.answer }];
+			picked = undefined;
+			if (answers.length < GRAMMAR_ITEMS) {
+				drawItem();
+				void focusTop();
+				return;
+			}
+			gLevel = grammarLevel(levels, answers);
+			playSound('msgIn');
+			startText('reading');
+		}, dur());
 	}
 
 	/** The sentence split round its gap, so the gap can be drawn. */
@@ -171,17 +202,63 @@
 		}
 	}
 
+	function pick(qi: number, oi: number) {
+		picks[qi] = oi;
+		playSound('up');
+	}
+
 	function finishText() {
 		const score: [number, number] = text
 			? [text.questions.filter((q, i) => picks[i] === q.correctIndex).length, text.questions.length]
 			: [0, 0];
 		if (phase === 'reading') {
 			reading = score;
+			playSound('msgIn');
 			startText('listening');
 		} else {
 			listening = score;
 			void finish();
 		}
+	}
+
+	// -- progress ----------------------------------------------------------------
+	// One bar across the whole test. Grammar, reading and listening have a fixed
+	// number of items; the word part is adaptive (typically five or six screens,
+	// at most nine), so its share is estimated against six and squeezed, never
+	// full and never moving backwards, until the part actually ends.
+	const EXPECTED_WORD_SCREENS = 6;
+	const partFraction = (id: Phase, index: number): number => {
+		if (partIndex > index || phase === 'result') return 1;
+		if (partIndex < index) return 0;
+		if (id === 'words') {
+			const done = screens.length - 1;
+			return done / Math.max(EXPECTED_WORD_SCREENS, done + 1);
+		}
+		if (id === 'grammar') return answers.length / GRAMMAR_ITEMS;
+		const answered = picks.filter((p) => p !== null).length;
+		return picks.length ? answered / picks.length : 0;
+	};
+	const fractions = $derived(PARTS.map((p, i) => partFraction(p.id, i)));
+	const progress = $derived(PARTS.reduce((sum, p, i) => sum + p.weight * fractions[i], 0));
+	const minutesLeft = $derived(Math.max(1, Math.ceil((1 - progress) * 10)));
+
+	// -- skipping out ----------------------------------------------------------
+	/** True when the learner bailed out early: the result is a rough guess. */
+	let skipped = $state(false);
+
+	/**
+	 * "Skip the rest": straight to the result with whatever the finished parts
+	 * said. Mid-words uses the screens so far; mid-grammar the staircase so far;
+	 * an unfinished text simply counts as not asked ([0, 0] changes nothing).
+	 */
+	function skipToResult() {
+		skipped = true;
+		track('placement_skip', { phase, progress: Math.round(progress * 100) });
+		if (phase === 'words' && screens.length > 1) wordsLevel = checkResult(wordLevels, screens).level;
+		gLevel = answers.length ? grammarLevel(levels, answers) : (wordsLevel ?? levels[0]);
+		if (phase !== 'listening') listening = [0, 0];
+		if (phase === 'words' || phase === 'grammar') reading = [0, 0];
+		void finish();
 	}
 
 	// -- result ----------------------------------------------------------------
@@ -192,10 +269,13 @@
 		level = placementLevel(levels, wordsLevel, gLevel, reading, listening);
 		chosen = level;
 		phase = 'result';
-		const entry = { at: Date.now(), level, words: wordsLevel, grammar: gLevel, reading, listening };
-		const log = [...parsePlacementLog(await storage.get(PLACEMENT_LOG)), entry].slice(-20);
-		await storage.set(PLACEMENT_LOG, JSON.stringify(log));
-		track('placement_done', { level, words: wordsLevel ?? '', grammar: gLevel, reading: reading[0], listening: listening[0] });
+		if (!skipped) {
+			const entry = { at: Date.now(), level, words: wordsLevel, grammar: gLevel, reading, listening };
+			const log = [...parsePlacementLog(await storage.get(PLACEMENT_LOG)), entry].slice(-20);
+			await storage.set(PLACEMENT_LOG, JSON.stringify(log));
+			track('placement_done', { level, words: wordsLevel ?? '', grammar: gLevel, reading: reading[0], listening: listening[0] });
+			celebrate(`${level}!`);
+		}
 		announce(`Your level: ${level}.`);
 		void focusTop();
 	}
@@ -203,7 +283,7 @@
 	async function startHere() {
 		await storage.set('deck_level', chosen);
 		await storage.set(START_CHOSEN, 'test');
-		track('placement_apply', { level: chosen, suggested: chosen === level ? 1 : 0 });
+		track('placement_apply', { level: chosen, suggested: chosen === level ? 1 : 0, skipped: skipped ? 1 : 0 });
 		await goto(courseHref);
 	}
 
@@ -228,98 +308,172 @@
 
 <main class="page test" bind:this={stage}>
 	{#if partIndex >= 0}
-		<ol class="steps" aria-label="Parts of the test">
+		<div
+			class="bar"
+			role="progressbar"
+			aria-valuenow={Math.round(progress * 100)}
+			aria-valuemin="0"
+			aria-valuemax="100"
+			aria-label="Test progress"
+		>
 			{#each PARTS as p, i (p.id)}
-				<li class:done={i < partIndex} class:now={i === partIndex}><span class="n">{i + 1}</span> {p.label}</li>
+				<div
+					class="seg"
+					class:done={fractions[i] >= 1}
+					class:now={i === partIndex}
+					style="flex-grow: {p.weight * 100}"
+				>
+					<div class="fill" style="width: {fractions[i] * 100}%"></div>
+					<span class="seg-label">
+						{#if fractions[i] >= 1}<Icon name="check" size="0.9em" />{/if}
+						{p.label}
+					</span>
+				</div>
 			{/each}
-		</ol>
+		</div>
+		<p class="bar-meta">
+			<span class="tnum">{Math.round(progress * 100)}%</span> · about {minutesLeft} min left
+		</p>
 	{/if}
 
 	{#if phase === 'intro'}
-		<p class="eyebrow">Placement test · about 10 minutes</p>
-		<h1 tabindex="-1" data-focus>Find your level</h1>
-		<p class="lede">Four short parts, each a little harder when you do well and easier when you don't. At the end you get your level, and the course starts you there.</p>
-		<ol class="intro-parts">
-			<li><strong>Words</strong> Tap the German words you know. Some are made up: leave those.</li>
-			<li><strong>Grammar</strong> Twelve sentences with a gap. Pick the word that fits.</li>
-			<li><strong>Reading</strong> One short text and three questions.</li>
-			<li><strong>Listening</strong> One recording, up to three plays, three questions.</li>
-		</ol>
-		<p class="small">Not sure? Choose <em>I don’t know</em> rather than guessing: a lucky guess puts you on a level that is too hard. Nothing is marked, and you can change the level afterwards.</p>
-		<button type="button" class="btn" onclick={start}>Start the test <Icon name="arrowRight" size="1em" /></button>
+		<div in:fly={{ y: 16, duration: dur() }}>
+			<p class="eyebrow">Placement test · about 10 minutes</p>
+			<h1 tabindex="-1" data-focus>Find your level</h1>
+			<p class="lede">Four short parts, each a little harder when you do well and easier when you don't. At the end you get your level, and the course starts you there.</p>
+			<ol class="intro-parts">
+				<li><strong>Words</strong> Tap the German words you know. Some are made up: leave those.</li>
+				<li><strong>Grammar</strong> Twelve sentences with a gap. Pick the word that fits.</li>
+				<li><strong>Reading</strong> One short text and three questions.</li>
+				<li><strong>Listening</strong> One recording, up to three plays, three questions.</li>
+			</ol>
+			<p class="small">Not sure? Choose <em>I don’t know</em> rather than guessing: a lucky guess puts you on a level that is too hard. Nothing is marked, and you can skip out at any point and pick a level yourself.</p>
+			<button type="button" class="btn" onclick={start}>Start the test <Icon name="arrowRight" size="1em" /></button>
+		</div>
 	{:else if phase === 'words' && screen}
-		<h1 class="q" tabindex="-1" data-focus>Tap the words you know.</h1>
-		<p class="small">Only the ones you are sure about. Some of these words do not exist.</p>
-		<ul class="chips">
-			{#each screen.items as w (w.de)}
-				<li>
-					<button type="button" class="chip" aria-pressed={screen.ticked.includes(w.de)} lang="de" onclick={() => toggle(w.de)}>{w.de}</button>
-				</li>
-			{/each}
-		</ul>
-		<button type="button" class="btn" onclick={nextWords}>Next <Icon name="arrowRight" size="1em" /></button>
+		{#key screens.length}
+			<div in:fly={{ y: 16, duration: dur() }}>
+				<p class="eyebrow">Words · screen {screens.length}</p>
+				<h1 class="q" tabindex="-1" data-focus>Tap the words you know.</h1>
+				<p class="small">Only the ones you are sure about. Some of these words do not exist.</p>
+				<ul class="chips">
+					{#each screen.items as w (w.de)}
+						<li>
+							<button type="button" class="chip" aria-pressed={screen.ticked.includes(w.de)} lang="de" onclick={() => toggle(w.de)}>{w.de}</button>
+						</li>
+					{/each}
+				</ul>
+			</div>
+		{/key}
+		<div class="actions">
+			<button type="button" class="btn" onclick={nextWords}>Next <Icon name="arrowRight" size="1em" /></button>
+		</div>
 	{:else if phase === 'grammar' && item}
-		<p class="eyebrow">Sentence {answers.length + 1} of {GRAMMAR_ITEMS}</p>
-		<p class="sentence" lang="de" tabindex="-1" data-focus>
-			{parts(item.sentence)[0]}<span class="gap" aria-label="gap">&nbsp;</span>{parts(item.sentence)[1]}
-		</p>
-		{#if item.english}<p class="english">{item.english}</p>{/if}
-		<div class="options">
-			{#each item.options as o (o)}
-				<button type="button" class="opt" lang="de" onclick={() => answerGrammar(o)}>{o}</button>
-			{/each}
-			<button type="button" class="opt idk" onclick={() => answerGrammar(null)}>I don’t know</button>
-		</div>
+		{#key answers.length}
+			<div in:fly={{ x: 24, duration: dur() }}>
+				<p class="eyebrow">Sentence {answers.length + 1} of {GRAMMAR_ITEMS}</p>
+				<p class="sentence" lang="de" tabindex="-1" data-focus>
+					{parts(item.sentence)[0]}<span class="gap" aria-label="gap">&nbsp;</span>{parts(item.sentence)[1]}
+				</p>
+				{#if item.english}<p class="english">{item.english}</p>{/if}
+				<div class="options">
+					{#each item.options as o (o)}
+						<button type="button" class="opt" class:picked={picked === o} lang="de" onclick={() => answerGrammar(o)}>{o}</button>
+					{/each}
+					<button type="button" class="opt idk" class:picked={picked === null} onclick={() => answerGrammar(null)}>I don’t know</button>
+				</div>
+			</div>
+		{/key}
 	{:else if (phase === 'reading' || phase === 'listening') && text}
-		<p class="eyebrow">{phase === 'reading' ? 'Read the text' : 'Listen to the recording'}</p>
-		<h1 class="q" lang="de" tabindex="-1" data-focus>{text.title}</h1>
-		{#if phase === 'reading'}
-			<div class="passage" lang="de">
-				{#each text.text.split('\n').filter(Boolean) as para, i (i)}<p>{para}</p>{/each}
-			</div>
-		{:else}
-			<div class="player">
-				<button type="button" class="btn" onclick={play} disabled={playing || plays >= MAX_PLAYS}>
-					<Icon name="headphones" size="1em" />
-					{playing ? 'Playing…' : plays === 0 ? 'Play the recording' : `Play again (${MAX_PLAYS - plays} left)`}
-				</button>
-				<p class="small">Listen first, then answer. The text is not shown: that is the test.</p>
-			</div>
-		{/if}
-		<ol class="questions">
-			{#each text.questions as q, qi (qi)}
-				<li>
-					<p class="question" lang="de">{q.question}</p>
-					<div class="choices" role="radiogroup" aria-label={q.question}>
-						{#each q.options as o, oi (oi)}
-							<button type="button" class="choice" role="radio" aria-checked={picks[qi] === oi} lang="de" onclick={() => (picks[qi] = oi)}>{o}</button>
-						{/each}
-						<button type="button" class="choice idk" role="radio" aria-checked={picks[qi] === -1} onclick={() => (picks[qi] = -1)}>I don’t know</button>
+		{#key phase}
+			<div in:fly={{ y: 16, duration: dur() }}>
+				<p class="eyebrow">{phase === 'reading' ? 'Read the text' : 'Listen to the recording'}</p>
+				<h1 class="q" lang="de" tabindex="-1" data-focus>{text.title}</h1>
+				{#if phase === 'reading'}
+					<div class="passage" lang="de">
+						{#each text.text.split('\n').filter(Boolean) as para, i (i)}<p>{para}</p>{/each}
 					</div>
-				</li>
-			{/each}
-		</ol>
-		<button type="button" class="btn" disabled={picks.some((p) => p === null)} onclick={finishText}>
-			{phase === 'reading' ? 'Next: listening' : 'See my level'} <Icon name="arrowRight" size="1em" />
-		</button>
-	{:else if phase === 'result'}
-		<p class="eyebrow">Your result</p>
-		<h1 tabindex="-1" data-focus>Start at <span class="lv">{level}</span></h1>
-		<p class="lede">{LEVEL_MEANING[level] ?? ''}</p>
-		<dl class="parts">
-			<div><dt>Words</dt><dd>{wordsLevel ?? '–'}</dd></div>
-			<div><dt>Grammar</dt><dd>{gLevel}</dd></div>
-			<div><dt>Reading</dt><dd>{reading[0]} of {reading[1]}</dd></div>
-			<div><dt>Listening</dt><dd>{listening[0]} of {listening[1]}</dd></div>
-		</dl>
-		<p class="small">Feel it is too easy or too hard? Pick another level: nothing is locked, and you can change it any time in your deck.</p>
-		<div class="levels" role="radiogroup" aria-label="Level to start at">
-			{#each levels as lv (lv)}
-				<button type="button" class="lv-btn tnum" role="radio" aria-checked={chosen === lv} onclick={() => (chosen = lv)}>{lv}</button>
-			{/each}
+				{:else}
+					<div class="player">
+						<button type="button" class="btn" onclick={play} disabled={playing || plays >= MAX_PLAYS}>
+							{#if playing}
+								<span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Playing…
+							{:else}
+								<Icon name="headphones" size="1em" />
+								{plays === 0 ? 'Play the recording' : 'Play again'}
+							{/if}
+						</button>
+						<span class="plays" aria-label="{MAX_PLAYS - plays} of {MAX_PLAYS} plays left">
+							{#each Array(MAX_PLAYS) as _, i (i)}<i class="dot" class:used={i < plays}></i>{/each}
+						</span>
+						<p class="small">Listen first, then answer. The text is not shown: that is the test.</p>
+					</div>
+				{/if}
+				<ol class="questions">
+					{#each text.questions as q, qi (qi)}
+						<li>
+							<p class="question" lang="de">{q.question}</p>
+							<div class="choices" role="radiogroup" aria-label={q.question}>
+								{#each q.options as o, oi (oi)}
+									<button type="button" class="choice" role="radio" aria-checked={picks[qi] === oi} lang="de" onclick={() => pick(qi, oi)}>{o}</button>
+								{/each}
+								<button type="button" class="choice idk" role="radio" aria-checked={picks[qi] === -1} onclick={() => pick(qi, -1)}>I don’t know</button>
+							</div>
+						</li>
+					{/each}
+				</ol>
+			</div>
+		{/key}
+		<div class="actions">
+			<button type="button" class="btn" disabled={picks.some((p) => p === null)} onclick={finishText}>
+				{phase === 'reading' ? 'Next: listening' : 'See my level'} <Icon name="arrowRight" size="1em" />
+			</button>
 		</div>
-		<button type="button" class="btn" onclick={startHere}>Start learning at {chosen} <Icon name="arrowRight" size="1em" /></button>
-		<p class="small"><button type="button" class="btn-quiet" onclick={start}>Take the test again</button></p>
+	{:else if phase === 'result'}
+		<div in:fly={{ y: 20, duration: dur() }}>
+			<p class="eyebrow">{skipped ? 'Our best guess so far' : 'Your result'}</p>
+			<h1 tabindex="-1" data-focus class="reveal">
+				{skipped ? 'Maybe' : 'Start at'} <span class="lv">{level}</span>
+			</h1>
+			<p class="lede">
+				{#if skipped}
+					You skipped part of the test, so this is rough. Pick the level that feels right: nothing is locked.
+				{:else}
+					{LEVEL_MEANING[level] ?? ''}
+				{/if}
+			</p>
+			<dl class="parts">
+				{#each [{ dt: 'Words', dd: wordsLevel ?? '–' }, { dt: 'Grammar', dd: skipped && !answers.length ? '–' : gLevel }, { dt: 'Reading', dd: reading[1] ? `${reading[0]} of ${reading[1]}` : '–' }, { dt: 'Listening', dd: listening[1] ? `${listening[0]} of ${listening[1]}` : '–' }] as part, i (part.dt)}
+					<div in:fly={{ y: 12, duration: dur(), delay: dur() ? 150 + i * 90 : 0 }}>
+						<dt>{part.dt}</dt>
+						<dd>{part.dd}</dd>
+					</div>
+				{/each}
+			</dl>
+			<p class="small">
+				{skipped ? 'Each step is one sub-level higher.' : 'Feel it is too easy or too hard? Pick another level: you can change it any time in your deck.'}
+			</p>
+			<div class="levels" role="radiogroup" aria-label="Level to start at">
+				{#each levels as lv, i (lv)}
+					<button type="button" class="lv-btn tnum" role="radio" aria-checked={chosen === lv} onclick={() => (chosen = lv)}>
+						{lv}
+						<span class="stair" style="height: {4 + i * 2}px" aria-hidden="true"></span>
+					</button>
+				{/each}
+			</div>
+			<p class="meaning small">{LEVEL_MEANING[chosen] ?? ''}</p>
+			<div class="actions">
+				<button type="button" class="btn" onclick={startHere}>Start learning at {chosen} <Icon name="arrowRight" size="1em" /></button>
+			</div>
+			<p class="small"><button type="button" class="btn-quiet" onclick={start}>Take the {skipped ? 'full' : ''} test{skipped ? '' : ' again'}</button></p>
+		</div>
+	{/if}
+
+	{#if partIndex >= 0}
+		<p class="skip-row small">
+			In a hurry?
+			<button type="button" class="btn-quiet" onclick={skipToResult}>Skip the rest and pick your level</button>
+		</p>
 	{/if}
 </main>
 
@@ -333,38 +487,96 @@
 		margin: 0.3rem 0 0.6rem;
 	}
 
+	/* -- the result reveal -------------------------------------------------- */
+
 	.lv {
+		display: inline-block;
 		color: var(--accent-ink);
 	}
 
-	.steps {
+	.reveal .lv {
+		animation: lv-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+		animation-delay: 0.15s;
+	}
+
+	@keyframes lv-pop {
+		from {
+			opacity: 0;
+			transform: scale(0.4);
+		}
+		60% {
+			transform: scale(1.15);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	:global(html[data-effects='calm']) .reveal .lv {
+		animation: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.reveal .lv {
+			animation: none;
+		}
+	}
+
+	/* -- the one progress bar over the whole test --------------------------- */
+
+	.bar {
 		display: flex;
-		gap: 0.4rem;
-		list-style: none;
-		margin: 0.5rem 0 1.5rem;
-		padding: 0;
+		gap: 0.3rem;
+		margin: 0.5rem 0 0.2rem;
+	}
+
+	.seg {
+		position: relative;
+		flex-basis: 0;
+		height: 0.55rem;
+		overflow: hidden;
+		border-radius: 999px;
+		background: var(--surface-alt);
+	}
+
+	.seg .fill {
+		height: 100%;
+		border-radius: 999px;
+		background: var(--accent);
+		transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.seg.done .fill {
+		background: var(--heading);
+	}
+
+	.seg-label {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		display: inline-flex;
+		gap: 0.2rem;
+		align-items: center;
+		padding-top: 0.25rem;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
+		white-space: nowrap;
 	}
 
-	.steps li {
-		flex: 1;
-		padding: 0.35rem 0.5rem;
-		border-bottom: 3px solid var(--line);
-	}
-
-	.steps li.done {
-		border-color: var(--accent);
-	}
-
-	.steps li.now {
-		border-color: var(--heading);
+	.seg.now .seg-label {
 		color: var(--heading);
 		font-weight: 700;
 	}
 
-	.steps .n {
-		font-weight: 800;
+	.seg.done .seg-label {
+		color: var(--accent-ink);
+	}
+
+	.bar-meta {
+		margin: 1.6rem 0 1.2rem;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
 	}
 
 	.intro-parts {
@@ -408,11 +620,24 @@
 		color: var(--ink);
 		font: inherit;
 		cursor: pointer;
+		transition:
+			transform 0.12s ease,
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.chip:active,
+	.opt:active,
+	.choice:active,
+	.lv-btn:active {
+		transform: scale(0.94);
 	}
 
 	.chip[aria-pressed='true'],
 	.choice[aria-checked='true'],
-	.lv-btn[aria-checked='true'] {
+	.lv-btn[aria-checked='true'],
+	.opt.picked {
 		border-color: var(--heading);
 		background: var(--heading);
 		color: var(--surface);
@@ -476,8 +701,80 @@
 		margin: 0 0 0.6rem;
 	}
 
+	/* -- the listening player ------------------------------------------------ */
+
 	.player {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+		align-items: center;
 		margin: 0.5rem 0 1.5rem;
+	}
+
+	.player .small {
+		flex-basis: 100%;
+		margin: 0;
+	}
+
+	.eq {
+		display: inline-flex;
+		gap: 2px;
+		align-items: flex-end;
+		height: 1em;
+	}
+
+	.eq i {
+		width: 3px;
+		border-radius: 2px;
+		background: currentcolor;
+		animation: eq-bounce 0.9s ease-in-out infinite;
+	}
+
+	.eq i:nth-child(1) {
+		animation-delay: 0s;
+	}
+	.eq i:nth-child(2) {
+		animation-delay: 0.22s;
+	}
+	.eq i:nth-child(3) {
+		animation-delay: 0.45s;
+	}
+	.eq i:nth-child(4) {
+		animation-delay: 0.1s;
+	}
+
+	@keyframes eq-bounce {
+		0%,
+		100% {
+			height: 30%;
+		}
+		50% {
+			height: 100%;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.eq i {
+			height: 60%;
+			animation: none;
+		}
+	}
+
+	.plays {
+		display: inline-flex;
+		gap: 0.3rem;
+	}
+
+	.plays .dot {
+		width: 0.5rem;
+		height: 0.5rem;
+		border-radius: 50%;
+		background: var(--accent);
+		transition: background 0.3s ease;
+	}
+
+	.plays .dot.used {
+		background: var(--surface-alt);
 	}
 
 	.questions {
@@ -509,6 +806,7 @@
 		padding: 0.6rem;
 		border: 1px solid var(--line);
 		border-radius: 0.6rem;
+		background: var(--surface);
 	}
 
 	.parts dt {
@@ -522,15 +820,50 @@
 		color: var(--heading);
 	}
 
+	/* -- the level picker as a staircase ------------------------------------- */
+
 	.levels {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.4rem;
-		margin: 0.6rem 0 1.2rem;
+		align-items: flex-end;
+		margin: 0.6rem 0 0.4rem;
 	}
 
 	.lv-btn {
-		padding: 0.4rem 0.7rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		align-items: center;
+		padding: 0.4rem 0.55rem 0.35rem;
+	}
+
+	.stair {
+		width: 100%;
+		border-radius: 2px;
+		background: var(--surface-alt);
+	}
+
+	.lv-btn[aria-checked='true'] .stair {
+		background: var(--accent);
+	}
+
+	.meaning {
+		min-height: 2.4em;
+		margin: 0 0 0.6rem;
+	}
+
+	/* -- actions that stay reachable ----------------------------------------- */
+
+	.actions {
+		position: sticky;
+		bottom: 0;
+		padding: 0.8rem 0 0.6rem;
+		background: linear-gradient(to top, var(--bg) 70%, transparent);
+	}
+
+	.skip-row {
+		margin-top: 1.2rem;
 	}
 
 	@media (max-width: 40rem) {
@@ -540,8 +873,8 @@
 		.parts {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
-		.steps {
-			font-size: 0.7rem;
+		.seg-label {
+			font-size: 0.68rem;
 		}
 	}
 </style>

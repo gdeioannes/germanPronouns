@@ -16,6 +16,18 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-29",
+    title: "A friendlier first ten minutes",
+    items: [
+      "The placement test now shows one progress bar over all four parts, with a percentage and about how many minutes are left, so you always know how far you are.",
+      "In a hurry? You can skip the rest of the test at any point: you land on the result with our best guess so far and pick your level yourself.",
+      "The test feels alive now: screens glide in, every tap answers with a small sound and a highlight, the recording shows it is playing, and your result arrives with a proper little celebration.",
+      "The level picker on the result page is drawn as a staircase, and picking a level tells you in plain words what it means.",
+      "The very first screen opens with a scene: a walker and a dachshund with a suitcase setting off along the stepping stones from A1 to C2. The three ways in arrive one after the other, and your choice is confirmed before the page moves on.",
+      "All of it respects the Calm effects setting and your system's reduced-motion preference.",
+    ],
+  },
+  {
     date: "2026-10-28",
     title: "Start at your level, and the new A1.1 book",
     highlight: true,
