@@ -3,18 +3,21 @@
 	// then a level and one tap to start there. About ten minutes. Nothing is
 	// marked or counted as an exercise; the result sets the deck's level.
 	//
-	// This is many learners' first screen after /start, so it gets the same care
-	// as the quizzes: one progress bar over the whole test (the words part is
-	// adaptive, so its share is an estimate that only ever moves forward), a way
-	// out at any point ("skip the rest" lands on the result with a best guess
-	// and the level picker), and the fx/sound layer for taps and the result.
+	// This is many learners' first screen after /start, so it wears the app's
+	// own clothes: each question sits on a deck-style card (the next card
+	// peeking out underneath), the progress strip is the twelve-stop level line
+	// itself — the marker drifts as the adaptive staircase moves, answering
+	// "how far am I?" and "where am I landing?" with one element — the walker
+	// and dachshund from /start cross the page as the test advances, and a
+	// short interstitial beat separates the parts. "Skip the rest" at any
+	// point lands on the result with a best guess and the level picker.
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 	import { onMount, tick } from 'svelte';
-	import { fly } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
 	import { storage } from '$lib/services/storage';
 	import { track } from '$lib/services/analytics';
 	import { tts } from '$lib/services/speech';
@@ -83,6 +86,26 @@
 		stage?.querySelector<HTMLElement>('[data-focus]')?.focus();
 	}
 
+	// -- the beat between parts -------------------------------------------------
+	// A card fills the stage for a moment: the finished part with a check, the
+	// next one named. A tap skips it; calm effects skip it entirely.
+	let interlude = $state<{ done: string; next: string } | null>(null);
+	let onInterludeEnd = () => {};
+	function breakThen(done: string, next: string, go: () => void) {
+		playSound('msgIn');
+		if (effectsCalm()) return go();
+		interlude = { done, next };
+		let over = false;
+		const proceed = () => {
+			if (over) return;
+			over = true;
+			interlude = null;
+			go();
+		};
+		onInterludeEnd = proceed;
+		setTimeout(proceed, 1500);
+	}
+
 	// -- 1. words ------------------------------------------------------------
 	let screens = $state<CheckScreen[]>([]);
 	let wordsLevel = $state<string | null>(null);
@@ -120,15 +143,14 @@
 		// The word part counts as a word check too, so the history shows it.
 		const log = appendLog(parseLog(await storage.get(WORD_CHECK_LOG)), logEntry(result));
 		await storage.set(WORD_CHECK_LOG, JSON.stringify(log));
-		playSound('msgIn');
-		startGrammar();
+		breakThen('Words', 'Grammar', startGrammar);
 	}
 
 	// -- 2. grammar ------------------------------------------------------------
 	let answers = $state<GrammarAnswer[]>([]);
 	let used = new Set<string>();
 	let item = $state<(GrammarItem & { level: string; options: string[] }) | null>(null);
-	/** The option just tapped, held highlighted for a beat before the next item. */
+	/** The option just tapped, held highlighted for a beat before the next card. */
 	let picked = $state<string | null | undefined>(undefined);
 
 	function drawItem() {
@@ -164,8 +186,7 @@
 				return;
 			}
 			gLevel = grammarLevel(levels, answers);
-			playSound('msgIn');
-			startText('reading');
+			breakThen('Grammar', 'Reading', () => startText('reading'));
 		}, dur());
 	}
 
@@ -213,8 +234,7 @@
 			: [0, 0];
 		if (phase === 'reading') {
 			reading = score;
-			playSound('msgIn');
-			startText('listening');
+			breakThen('Reading', 'Listening', () => startText('listening'));
 		} else {
 			listening = score;
 			void finish();
@@ -222,10 +242,10 @@
 	}
 
 	// -- progress ----------------------------------------------------------------
-	// One bar across the whole test. Grammar, reading and listening have a fixed
-	// number of items; the word part is adaptive (typically five or six screens,
-	// at most nine), so its share is estimated against six and squeezed, never
-	// full and never moving backwards, until the part actually ends.
+	// Grammar, reading and listening have a fixed number of items; the word part
+	// is adaptive (typically five or six screens, at most nine), so its share is
+	// estimated against six and squeezed, never full and never moving backwards,
+	// until the part actually ends.
 	const EXPECTED_WORD_SCREENS = 6;
 	const partFraction = (id: Phase, index: number): number => {
 		if (partIndex > index || phase === 'result') return 1;
@@ -241,6 +261,16 @@
 	const fractions = $derived(PARTS.map((p, i) => partFraction(p.id, i)));
 	const progress = $derived(PARTS.reduce((sum, p, i) => sum + p.weight * fractions[i], 0));
 	const minutesLeft = $derived(Math.max(1, Math.ceil((1 - progress) * 10)));
+
+	/** Where the test currently places the learner: the stop lit on the level line. */
+	const hoverLevel = $derived.by(() => {
+		if (phase === 'words') return screen?.level ?? levels[0];
+		if (phase === 'grammar') return item?.level ?? gLevel;
+		return gLevel;
+	});
+	const hoverIdx = $derived(Math.max(0, levels.indexOf(hoverLevel)));
+	/** Band labels (A1, B1 …) sit under the first stop of each band. */
+	const band = (lv: string) => (lv.endsWith('.1') ? lv.slice(0, 2) : '');
 
 	// -- skipping out ----------------------------------------------------------
 	/** True when the learner bailed out early: the result is a rough guess. */
@@ -308,35 +338,40 @@
 
 <main class="page test" bind:this={stage}>
 	{#if partIndex >= 0}
-		<div
-			class="bar"
+		<!-- The level line: twelve stops, the lit one is where the staircase is
+		     hovering right now. The same line the result's picker draws. -->
+		<div class="line" aria-hidden="true">
+			<div class="track"></div>
+			{#each levels as lv, i (lv)}
+				<span class="stop" class:passed={i < hoverIdx} class:here={i === hoverIdx} style="left: {(i / (levels.length - 1)) * 100}%">
+					{#if i === hoverIdx}
+						<span class="lv-now tnum">{lv}</span>
+					{:else if band(lv)}
+						<span class="lv-band tnum">{band(lv)}</span>
+					{/if}
+				</span>
+			{/each}
+		</div>
+		<p
+			class="line-meta"
 			role="progressbar"
 			aria-valuenow={Math.round(progress * 100)}
 			aria-valuemin="0"
 			aria-valuemax="100"
 			aria-label="Test progress"
 		>
-			{#each PARTS as p, i (p.id)}
-				<div
-					class="seg"
-					class:done={fractions[i] >= 1}
-					class:now={i === partIndex}
-					style="flex-grow: {p.weight * 100}"
-				>
-					<div class="fill" style="width: {fractions[i] * 100}%"></div>
-					<span class="seg-label">
-						{#if fractions[i] >= 1}<Icon name="check" size="0.9em" />{/if}
-						{p.label}
-					</span>
-				</div>
-			{/each}
-		</div>
-		<p class="bar-meta">
-			<span class="tnum">{Math.round(progress * 100)}%</span> · about {minutesLeft} min left
+			<span>Hovering around <b class="tnum">{hoverLevel}</b></span>
+			<span>{PARTS[partIndex].label} · part {partIndex + 1} of 4 · about {minutesLeft} min left</span>
 		</p>
 	{/if}
 
-	{#if phase === 'intro'}
+	{#if interlude}
+		<button type="button" class="interlude" onclick={() => onInterludeEnd()} in:fade={{ duration: 150 }}>
+			<span class="done"><Icon name="check" size="1.1em" /> {interlude.done}</span>
+			<span class="up-next">Next: {interlude.next}</span>
+			<span class="tap-hint">tap to continue</span>
+		</button>
+	{:else if phase === 'intro'}
 		<div in:fly={{ y: 16, duration: dur() }}>
 			<p class="eyebrow">Placement test · about 10 minutes</p>
 			<h1 tabindex="-1" data-focus>Find your level</h1>
@@ -352,9 +387,9 @@
 		</div>
 	{:else if phase === 'words' && screen}
 		{#key screens.length}
-			<div in:fly={{ y: 16, duration: dur() }}>
-				<p class="eyebrow">Words · screen {screens.length}</p>
-				<h1 class="q" tabindex="-1" data-focus>Tap the words you know.</h1>
+			<div class="qcard" in:fly={{ x: 28, duration: dur() }}>
+				<span class="count tnum">screen {screens.length}</span>
+				<p class="eyebrow">Tap the words you know</p>
 				<p class="small">Only the ones you are sure about. Some of these words do not exist.</p>
 				<ul class="chips">
 					{#each screen.items as w (w.de)}
@@ -370,8 +405,9 @@
 		</div>
 	{:else if phase === 'grammar' && item}
 		{#key answers.length}
-			<div in:fly={{ x: 24, duration: dur() }}>
-				<p class="eyebrow">Sentence {answers.length + 1} of {GRAMMAR_ITEMS}</p>
+			<div class="qcard" in:fly={{ x: 28, duration: dur() }}>
+				<span class="count tnum">{answers.length + 1} / {GRAMMAR_ITEMS}</span>
+				<p class="eyebrow">Fill the gap</p>
 				<p class="sentence" lang="de" tabindex="-1" data-focus>
 					{parts(item.sentence)[0]}<span class="gap" aria-label="gap">&nbsp;</span>{parts(item.sentence)[1]}
 				</p>
@@ -386,7 +422,7 @@
 		{/key}
 	{:else if (phase === 'reading' || phase === 'listening') && text}
 		{#key phase}
-			<div in:fly={{ y: 16, duration: dur() }}>
+			<div class="qcard" in:fly={{ x: 28, duration: dur() }}>
 				<p class="eyebrow">{phase === 'reading' ? 'Read the text' : 'Listen to the recording'}</p>
 				<h1 class="q" lang="de" tabindex="-1" data-focus>{text.title}</h1>
 				{#if phase === 'reading'}
@@ -444,10 +480,10 @@
 			</p>
 			<dl class="parts">
 				{#each [{ dt: 'Words', dd: wordsLevel ?? '–' }, { dt: 'Grammar', dd: skipped && !answers.length ? '–' : gLevel }, { dt: 'Reading', dd: reading[1] ? `${reading[0]} of ${reading[1]}` : '–' }, { dt: 'Listening', dd: listening[1] ? `${listening[0]} of ${listening[1]}` : '–' }] as part, i (part.dt)}
-					<div in:fly={{ y: 12, duration: dur(), delay: dur() ? 150 + i * 90 : 0 }}>
-						<dt>{part.dt}</dt>
-						<dd>{part.dd}</dd>
-					</div>
+				<div in:fly={{ y: 12, duration: dur(), delay: dur() ? 150 + i * 90 : 0 }}>
+					<dt>{part.dt}</dt>
+					<dd>{part.dd}</dd>
+				</div>
 				{/each}
 			</dl>
 			<p class="small">
@@ -465,11 +501,22 @@
 			<div class="actions">
 				<button type="button" class="btn" onclick={startHere}>Start learning at {chosen} <Icon name="arrowRight" size="1em" /></button>
 			</div>
-			<p class="small"><button type="button" class="btn-quiet" onclick={start}>Take the {skipped ? 'full' : ''} test{skipped ? '' : ' again'}</button></p>
+			<p class="small"><button type="button" class="btn-quiet" onclick={start}>Take the {skipped ? 'full test' : 'test again'}</button></p>
 		</div>
 	{/if}
 
-	{#if partIndex >= 0}
+	{#if partIndex >= 0 && !interlude}
+		<!-- The walker and dachshund from /start cross the page as the test advances. -->
+		<div class="journey" aria-hidden="true">
+			<svg class="walker" style="left: calc({progress * 100}% - {progress * 72}px)" width="72" height="42" viewBox="0 0 130 52">
+				<circle cx="38" cy="12" r="8" fill="var(--accent)" />
+				<path d="M38 20 L38 38 M38 26 L28 33 M38 26 L48 32 M38 38 L31 50 M38 38 L46 49" stroke="var(--heading)" stroke-width="3.6" stroke-linecap="round" fill="none" />
+				<ellipse cx="86" cy="42" rx="13" ry="5.5" fill="var(--gold, #a9802a)" />
+				<circle cx="100" cy="37" r="4.5" fill="var(--gold, #a9802a)" />
+				<path d="M78 46 L78 51 M85 47 L85 52 M92 47 L92 52 M97 46 L97 51" stroke="var(--gold, #a9802a)" stroke-width="2.4" stroke-linecap="round" />
+				<rect x="80" y="29" width="9" height="7" rx="1.5" fill="var(--heading)" />
+			</svg>
+		</div>
 		<p class="skip-row small">
 			In a hurry?
 			<button type="button" class="btn-quiet" onclick={skipToResult}>Skip the rest and pick your level</button>
@@ -523,59 +570,157 @@
 		}
 	}
 
-	/* -- the one progress bar over the whole test --------------------------- */
+	/* -- the level line ------------------------------------------------------ */
 
-	.bar {
-		display: flex;
-		gap: 0.3rem;
-		margin: 0.5rem 0 0.2rem;
-	}
-
-	.seg {
+	.line {
 		position: relative;
-		flex-basis: 0;
-		height: 0.55rem;
-		overflow: hidden;
-		border-radius: 999px;
-		background: var(--surface-alt);
+		height: 2.6rem;
+		margin: 1.4rem 0 0;
 	}
 
-	.seg .fill {
-		height: 100%;
-		border-radius: 999px;
-		background: var(--accent);
-		transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-
-	.seg.done .fill {
-		background: var(--heading);
-	}
-
-	.seg-label {
+	.track {
 		position: absolute;
-		top: 100%;
-		left: 0;
-		display: inline-flex;
-		gap: 0.2rem;
-		align-items: center;
-		padding-top: 0.25rem;
+		top: 50%;
+		right: 7px;
+		left: 7px;
+		height: 3px;
+		border-radius: 999px;
+		background: var(--line);
+	}
+
+	.stop {
+		position: absolute;
+		top: 50%;
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		background: var(--line);
+		transform: translate(-50%, -50%);
+		transition: background 0.3s ease;
+	}
+
+	.stop.passed {
+		background: var(--accent);
+	}
+
+	.stop.here {
+		width: 15px;
+		height: 15px;
+		background: var(--accent);
+		box-shadow: 0 0 0 4px var(--accent-soft, var(--surface-alt));
+	}
+
+	.lv-now {
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		padding-bottom: 0.45rem;
 		font-size: var(--step--1);
-		color: var(--ink-muted);
+		font-weight: 800;
+		color: var(--accent-ink);
+		transform: translateX(-50%);
 		white-space: nowrap;
 	}
 
-	.seg.now .seg-label {
-		color: var(--heading);
+	.lv-band {
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		padding-top: 0.45rem;
+		font-size: 0.68rem;
 		font-weight: 700;
+		color: var(--ink-muted);
+		transform: translateX(-50%);
 	}
 
-	.seg.done .seg-label {
+	.line-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.3rem 1rem;
+		justify-content: space-between;
+		margin: 1.1rem 0 1rem;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	.line-meta b {
+		color: var(--heading);
+	}
+
+	/* -- the beat between parts ---------------------------------------------- */
+
+	.interlude {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 16rem;
+		margin: 0.5rem 0;
+		padding: 2rem;
+		border: 1px solid var(--line);
+		border-radius: 1.1rem;
+		background: var(--surface);
+		font: inherit;
+		cursor: pointer;
+	}
+
+	.interlude .done {
+		display: inline-flex;
+		gap: 0.4rem;
+		align-items: center;
+		font-weight: 700;
 		color: var(--accent-ink);
 	}
 
-	.bar-meta {
-		margin: 1.6rem 0 1.2rem;
+	.interlude .up-next {
+		font-family: var(--font-display, serif);
+		font-size: var(--step-2);
+		font-weight: 700;
+		color: var(--heading);
+	}
+
+	.interlude .tap-hint {
+		margin-top: 0.4rem;
 		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	/* -- the question card ----------------------------------------------------- */
+
+	.qcard {
+		position: relative;
+		margin: 0.4rem 0 1rem;
+		padding: 1.3rem 1.2rem 1.2rem;
+		border: 1px solid var(--line);
+		border-radius: 1.1rem;
+		background: var(--surface);
+		box-shadow:
+			0 10px 24px rgb(31 58 95 / 0.1),
+			0 1px 0 var(--line);
+	}
+
+	/* the next card peeking out underneath, like the deck */
+	.qcard::after {
+		content: '';
+		position: absolute;
+		right: 10px;
+		bottom: -7px;
+		left: 10px;
+		z-index: -1;
+		height: 14px;
+		border: 1px solid var(--line);
+		border-radius: 0 0 1rem 1rem;
+		background: var(--surface-alt);
+	}
+
+	.count {
+		position: absolute;
+		top: 0.9rem;
+		right: 1.1rem;
+		font-size: var(--step--1);
+		font-weight: 700;
 		color: var(--ink-muted);
 	}
 
@@ -597,6 +742,7 @@
 	}
 
 	.q {
+		margin-top: 0;
 		font-size: var(--step-2);
 	}
 
@@ -605,7 +751,7 @@
 		flex-wrap: wrap;
 		gap: 0.5rem;
 		list-style: none;
-		margin: 1rem 0 1.5rem;
+		margin: 1rem 0 0.2rem;
 		padding: 0;
 	}
 
@@ -644,10 +790,11 @@
 	}
 
 	.sentence {
-		margin: 1rem 0 0.3rem;
+		margin: 0.8rem 0 0.3rem;
 		font-family: var(--font-display, serif);
 		font-size: var(--step-2);
 		line-height: 1.4;
+		color: var(--heading);
 	}
 
 	.gap {
@@ -661,6 +808,7 @@
 		margin: 0 0 1.2rem;
 		color: var(--ink-muted);
 		font-size: var(--step--1);
+		font-style: italic;
 	}
 
 	.options {
@@ -671,7 +819,9 @@
 
 	.opt {
 		padding: 0.9rem;
-		font-size: var(--step-0);
+		font-family: var(--font-display, serif);
+		font-size: var(--step-1);
+		color: var(--heading);
 		text-align: center;
 	}
 
@@ -687,13 +837,16 @@
 
 	.options .idk {
 		grid-column: 1 / -1;
+		border-style: dashed;
+		font-family: inherit;
+		font-size: var(--step--1);
 	}
 
 	.passage {
 		margin: 0.5rem 0 1.5rem;
 		padding: 1rem 1.2rem;
 		border-left: 3px solid var(--accent);
-		background: var(--surface);
+		background: var(--surface-alt);
 		line-height: 1.6;
 	}
 
@@ -780,7 +933,7 @@
 	.questions {
 		display: grid;
 		gap: 1.2rem;
-		margin: 0 0 1.5rem;
+		margin: 0 0 0.4rem;
 		padding-left: 1.2rem;
 	}
 
@@ -862,8 +1015,23 @@
 		background: linear-gradient(to top, var(--bg) 70%, transparent);
 	}
 
+	/* -- the journey strip ----------------------------------------------------- */
+
+	.journey {
+		position: relative;
+		height: 2.8rem;
+		margin-top: 0.6rem;
+		border-bottom: 2px dashed var(--line);
+	}
+
+	.walker {
+		position: absolute;
+		bottom: -4px;
+		transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
 	.skip-row {
-		margin-top: 1.2rem;
+		margin-top: 1rem;
 	}
 
 	@media (max-width: 40rem) {
@@ -873,8 +1041,8 @@
 		.parts {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
-		.seg-label {
-			font-size: 0.68rem;
+		.lv-band {
+			font-size: 0.6rem;
 		}
 	}
 </style>
