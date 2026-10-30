@@ -113,6 +113,7 @@
 	<a href="/stories"><Icon name="compass" size="1em" /> Stories</a>
 	<a href="/literature"><Icon name="book" size="1em" /> Literature</a>
 	<a href="/songs"><Icon name="headphones" size="1em" /> Songs</a>
+	<a href="/play/wortbloecke"><Icon name="blank" size="1em" /> <span lang="de">Wortblöcke</span></a>
 {/snippet}
 
 <!-- "Your level": the word check (and later the placement test). A root link

@@ -26,6 +26,9 @@ export const changelog: ChangelogEntry[] = [
       "Move and rotate blocks to engineer your lines — you start with one of each, and right articles, landslides and golden lines earn more.",
       "The words are the course's own, level by level: points climb you from A1.1 towards C2.2, the grid grows with you, and past C2 the Meister tier brings Fernweh, Mumpitz, Tohuwabohu and friends.",
       "Find it under Wortblöcke in the footer, or let it turn up in your deck as a surprise alongside the stories, songs, chats and Ja oder Nein?",
+      "Polished after a design review: words are written as German writes them (nouns with their capital letter), tapping a block speaks it, and a missed article is worn on the block from then on — read it every time you look, though it only pays silver now that it has been shown.",
+      "When the board pulses with Achtung, earned words stop refilling: matching your way out of danger is now a real rescue. And the game-over card tells the whole story — score, level, words earned, lines won, and your best.",
+      "Fairer endings: a word too long for the current grid waits for a bigger level instead of ending the game, a block stands up when only standing fits, and the game is over only when truly nothing can land any more. Wortblöcke also joined the Library menu.",
     ],
   },
   {

@@ -168,7 +168,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 	'/play/wortbloecke': {
 		title: 'Wortblöcke',
 		intro:
-			'A word puzzle in a falling-block well. Pair the German blocks with their English in the tray — either order works — and name the article for a noun. Mistakes drop new blocks; fill the board to the top and the game is over.',
+			'A word puzzle in a falling-block well. Pair the German blocks with their English in the tray — either order works — and name the article for a noun. Mistakes drop new blocks; fill the board to the top and the game is over. When the board pulses with Achtung, earned words stop refilling: matching is how you dig yourself out. Miss an article and the word wears it from then on — worth only silver, but read it every time you look.',
 		items: [
 			{
 				title: 'Golden lines',

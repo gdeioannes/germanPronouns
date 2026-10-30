@@ -57,6 +57,8 @@
 		clearing: boolean;
 		fizzle: boolean;
 		featured: boolean;
+		/** The article was missed once: the block now wears it, and only pays silver. */
+		learned: boolean;
 	}
 	interface GoldenSet {
 		color: string;
@@ -80,6 +82,11 @@
 	let levelIdx = $state(0);
 	const grid = $derived({ cols: WORT_LEVELS[levelIdx].cols, rows: WORT_LEVELS[levelIdx].rows });
 	let nextId = 1;
+	/** True while the opening hand is dealt, so lines don't fire per spawn. */
+	let dealing = false;
+	/** This game's story, for the game-over card. */
+	let wordsDone = $state(0);
+	let linesWon = $state(0);
 
 	// Golden sets live outside $state (Sets are not proxied); every visible
 	// consequence is written onto the reactive blocks and the banner string.
@@ -134,13 +141,19 @@
 		float(text, Math.min(b.c, Math.max(0, grid.cols - 5)) * cs, (b.r + dy) * cs, cls);
 
 	// -- spawning ------------------------------------------------------------------
+	/** A word suits the CURRENT grid: it lies flat, or stands with headroom.
+	 *  Longer words wait until the grid has grown with the level. */
+	const suitsGrid = (w: WortWord) => w.de.length <= grid.cols || w.de.length <= grid.rows - 4;
+
 	function refillQueue() {
 		if (queue.length) return;
 		const onBoard = new Set(blocks.map((b) => b.word.de));
-		queue = refillWords(data.pools, levelIdx, onBoard).map((word) => ({
-			word,
-			color: WORT_PALETTE[Math.floor(Math.random() * WORT_PALETTE.length)]
-		}));
+		queue = refillWords(data.pools, levelIdx, onBoard)
+			.filter(suitsGrid)
+			.map((word) => ({
+				word,
+				color: WORT_PALETTE[Math.floor(Math.random() * WORT_PALETTE.length)]
+			}));
 		queue.sort(() => Math.random() - 0.5);
 	}
 
@@ -152,19 +165,39 @@
 	function spawn(animate = true) {
 		if (phase === 'over') return;
 		const onBoard = (w: WortWord) => blocks.some((b) => b.word.de === w.de);
+		const usable = (q: { word: WortWord }) =>
+			!onBoard(q.word) && canFit(blocks, q.word.de.length, grid);
+		// The first queued word that actually FITS: a long word never ends the
+		// game while a shorter one is waiting behind it.
 		refillQueue();
-		let next = queue.shift();
-		while (next && onBoard(next.word)) next = queue.shift();
-		if (!next) {
+		let at = queue.findIndex(usable);
+		if (at < 0) {
 			queue = [];
 			refillQueue();
-			next = queue.shift();
-			while (next && onBoard(next.word)) next = queue.shift();
+			at = queue.findIndex(usable);
 		}
-		if (!next) return;
+		if (at < 0) {
+			// Nothing in the whole bank lands: over only when the board is
+			// truly full — even a three-letter word has nowhere to go.
+			if (!canFit(blocks, 3, grid)) gameOver();
+			return;
+		}
+		const next = queue.splice(at, 1)[0];
 		const len = next.word.de.length;
-		const dir = spawnDir(len, grid.cols);
-		const spot = pickSpot(blocks, len, dir, grid);
+		// The preferred orientation, falling back to the other when only that
+		// one has room.
+		let dir = spawnDir(len, grid.cols);
+		let spot = pickSpot(blocks, len, dir, grid);
+		if (!spot) {
+			const alt = dir === 'h' ? ('v' as const) : ('h' as const);
+			if (!(alt === 'v' && len > grid.rows) && !(alt === 'h' && len > grid.cols)) {
+				const altSpot = pickSpot(blocks, len, alt, grid);
+				if (altSpot) {
+					dir = alt;
+					spot = altSpot;
+				}
+			}
+		}
 		if (!spot) return gameOver();
 		const b: Block = {
 			id: nextId++,
@@ -179,7 +212,8 @@
 			runset: false,
 			clearing: false,
 			fizzle: false,
-			featured: false
+			featured: false,
+			learned: false
 		};
 		blocks.push(b);
 		if (animate) requestAnimationFrame(() => requestAnimationFrame(settle));
@@ -198,7 +232,7 @@
 
 	// -- lines, sets, runs ------------------------------------------------------------
 	function checkLines() {
-		if (activeCh) return;
+		if (activeCh || dealing) return;
 		const now = completeRows(blocks, grid);
 		const fresh = [...now].filter((r) => !fullRows.has(r));
 		fullRows = now;
@@ -275,6 +309,7 @@
 		clearSelection();
 		b.gilded = false;
 		b.done = true;
+		wordsDone++;
 		floatAt(b, `✨ ${b.word.en}`, 'gold', -0.6);
 		if (ch.ids.size === 0) winRun(ch);
 	}
@@ -299,11 +334,14 @@
 				gain(bonus);
 				movUses += LINE_MOVES * ch.lines;
 				rotUses += LINE_ROTATES * ch.lines;
+				linesWon += ch.lines;
 				celebrate(ch.lines >= 3 ? 'Dreifach-Zeile!' : ch.lines === 2 ? 'Doppel-Zeile!' : 'Zeile!');
 				announce(`Line cleared. ${bonus} bonus points.`);
 				settle();
 				syncChips();
-				spawn(); // a finished line feeds exactly ONE new word
+				// A finished line feeds exactly ONE new word — none in danger.
+				if (!danger) spawn();
+				else showNext();
 			},
 			doneBlocks.length * 110 * dur() + 380
 		);
@@ -351,15 +389,17 @@
 	function updateDanger() {
 		if (phase === 'over') return;
 		refillQueue();
-		const next = queue[0];
 		const tight = stackTop(blocks, grid.rows) <= 2;
-		const blocked = next ? !canFit(blocks, next.word.de.length, grid) : false;
+		// Critical when none of the next few words could land any more.
+		const blocked = queue.length
+			? !queue.slice(0, 5).some((q) => canFit(blocks, q.word.de.length, grid))
+			: false;
 		const was = danger;
 		danger = tight || blocked;
 		if (danger && !was) {
 			playSound('down');
 			float('⚠ Achtung — wenig Platz!', cs, cs, 'big accent');
-			announce('Careful: the board is nearly full.');
+			announce('Careful: the board is nearly full. While it is, earned words stop refilling — dig yourself out.');
 		}
 	}
 
@@ -376,7 +416,7 @@
 				/* no storage: the best is this session's */
 			}
 		}
-		track('wortbloecke_over', { pts, level: WORT_LEVELS[levelIdx].name });
+		track('wortbloecke_over', { pts, level: WORT_LEVELS[levelIdx].name, words: wordsDone, lines: linesWon });
 		announce(`The board is full. ${pts} points, level ${WORT_LEVELS[levelIdx].name}.`);
 	}
 
@@ -405,14 +445,17 @@
 		if (activeCh && ch !== activeCh) return buzz(b);
 		if (doneOf(b)) return buzz(b);
 		if (!selected) {
-			// Select the block; a golden word offers no Move/Rotate.
-			playSound(grabbedId === b.id ? 'down' : 'up');
-			grabbedId = grabbedId === b.id ? null : b.id;
+			// Select the block; a golden word offers no Move/Rotate. Selecting
+			// speaks the bare word — pronunciation without giving the article away.
+			const picking = grabbedId !== b.id;
+			playSound(picking ? 'up' : 'down');
+			grabbedId = picking ? b.id : null;
+			if (picking) sayDe(b.word.de);
 			return;
 		}
 		if (ch) {
 			if (selected !== b.word.de) return failRun(b, ch);
-			if (b.word.art) return askArticle(b, ch);
+			if (b.word.art && !b.learned) return askArticle(b, ch);
 			return markGilded(b, ch);
 		}
 		if (selected !== b.word.de) {
@@ -422,7 +465,7 @@
 			spawn(); // a wrong pair costs board space
 			return;
 		}
-		if (b.word.art) return askArticle(b, null);
+		if (b.word.art && !b.learned) return askArticle(b, null);
 		clearBlock(b, MATCH_POINTS, false);
 	}
 
@@ -441,10 +484,10 @@
 				return;
 			}
 			if (gch) {
-				if (g.word.art) return askArticle(g, gch);
+				if (g.word.art && !g.learned) return askArticle(g, gch);
 				return markGilded(g, gch);
 			}
-			if (g.word.art) return askArticle(g, null);
+			if (g.word.art && !g.learned) return askArticle(g, null);
 			return clearBlock(g, MATCH_POINTS, false);
 		}
 		selected = selected === de ? null : de;
@@ -471,10 +514,13 @@
 			return failRun(b, ch);
 		}
 		if (right) return clearBlock(b, GOLD_POINTS, true);
-		// Wrong article: the word stays unearned, and the mistake drops a new one.
+		// Wrong article: the word stays, now WEARING its article as the lesson —
+		// it will match for silver only, since the answer has been shown. The
+		// mistake still drops a new block.
 		playSound('wrong');
 		sayDe(spoken(b.word));
 		shake(b);
+		b.learned = true;
 		clearSelection();
 		spawn();
 	}
@@ -499,12 +545,16 @@
 			earn('move', 'Artikel!');
 			if (golds % 2 === 0) earn('rotate', 'Artikel!');
 		}
+		wordsDone++;
 		setTimeout(() => {
 			blocks = blocks.filter((x) => x !== b);
 			const fell = settle();
 			if (fell >= LANDSLIDE) earn('move', 'Landslide!');
 			syncChips();
-			spawn(); // only an earned word feeds the well
+			// Only an earned word feeds the well — and while the board is in
+			// danger, nothing does: earning words is how you dig yourself out.
+			if (!danger) spawn();
+			else showNext();
 		}, 380 * dur() + 20);
 	}
 
@@ -597,8 +647,11 @@
 	function start() {
 		phase = 'play';
 		track('wortbloecke_start', {});
+		// Deal quietly, then check once: a line on the opening board counts,
+		// but only as one line, not once per card dealt.
+		dealing = true;
 		for (let i = 0; i < 7; i++) spawn(false);
-		// A line on the opening board counts: mark it straight away.
+		dealing = false;
 		fullRows = new Set();
 		checkLines();
 		updateDanger();
@@ -612,15 +665,23 @@
 		fullRows = new Set();
 		queue = [];
 		chips = [];
+		preview = [];
+		floats = [];
+		lineFx = [];
 		pts = 0;
 		combo = 1;
+		lastMatch = 0;
 		movUses = START_MOVES;
 		rotUses = START_ROTATES;
 		golds = 0;
+		wordsDone = 0;
+		linesWon = 0;
 		levelIdx = 0;
 		goldBar = null;
+		danger = false;
 		pending = null;
 		pendingRun = null;
+		shaken = null;
 		clearSelection();
 		phase = 'intro';
 	}
@@ -636,8 +697,8 @@
 <main class="wort">
 	<header class="top">
 		<a class="back" href={DECK} aria-label="Back to your deck"><Icon name="arrowLeft" size="1em" /> Back</a>
-		<span class="brand"><span class="t" lang="de">Wortblöcke</span><span class="lvl tnum">{WORT_LEVELS[levelIdx].name}</span></span>
-		{#if combo > 1}<span class="combo">×{combo}!</span>{/if}
+		<span class="brand"><span class="t" lang="de">Wortblöcke</span>{#key levelIdx}<span class="lvl tnum pop">{WORT_LEVELS[levelIdx].name}</span>{/key}</span>
+		{#if combo > 1}{#key combo}<span class="combo pop">×{combo}!</span>{/key}{/if}
 		<span class="next" aria-hidden="true">
 			{#each preview as p, i (p.de + i)}
 				<span class="minigroup">
@@ -685,8 +746,8 @@
 					aria-label={spoken(b.word)}
 					onclick={() => tapBlock(b)}
 				>
-					{#each upper(b.word) as ch, i (i)}<span class="sq">{ch}</span>{/each}
-					{#if b.word.art}<span class="badge" aria-hidden="true">?</span>{/if}
+					{#each b.word.de as ch, i (i)}<span class="sq">{ch}</span>{/each}
+					{#if b.word.art}<span class="badge" class:learned={b.learned} aria-hidden="true">{b.learned ? b.word.art : '?'}</span>{/if}
 				</button>
 			{/each}
 
@@ -720,10 +781,17 @@
 
 			{#if phase === 'over'}
 				<div class="gameover">
-					<strong lang="de">Das Brett ist voll!</strong>
-					<span>Score <b class="tnum">{pts}</b> · Level {WORT_LEVELS[levelIdx].name}</span>
-					{#if best > 0}<span class="bestline">Best: <b class="tnum">{best}</b></span>{/if}
-					<button type="button" class="btn" onclick={again}>Nochmal <Icon name="repeat" size="1em" /></button>
+					<div class="over-card">
+						<strong lang="de">Das Brett ist voll!</strong>
+						<dl class="over-stats">
+							<div><dt>Score</dt><dd class="tnum">{pts}</dd></div>
+							<div><dt>Level</dt><dd>{WORT_LEVELS[levelIdx].name}</dd></div>
+							<div><dt>Words</dt><dd class="tnum">{wordsDone}</dd></div>
+							<div><dt>Lines</dt><dd class="tnum">{linesWon}</dd></div>
+						</dl>
+						{#if best > 0}<p class="bestline">{pts >= best ? '★ New best!' : `Best: ${best}`}</p>{/if}
+						<button type="button" class="btn" onclick={again}>Nochmal <Icon name="repeat" size="1em" /></button>
+					</div>
 				</div>
 			{/if}
 		</div>
@@ -751,6 +819,10 @@
 	{#if phase === 'intro'}
 		<div class="intro">
 			<section class="intro-card">
+				<div class="intro-art" aria-hidden="true">
+					<span class="irow"><span class="isq" style="background: {WORT_PALETTE[0]}">H</span><span class="isq" style="background: {WORT_PALETTE[0]}">a</span><span class="isq" style="background: {WORT_PALETTE[0]}">u</span><span class="isq" style="background: {WORT_PALETTE[0]}">s</span><span class="isq" style="background: {WORT_PALETTE[2]}">r</span><span class="isq" style="background: {WORT_PALETTE[2]}">o</span><span class="isq" style="background: {WORT_PALETTE[2]}">t</span></span>
+					<span class="irow"><span class="isq" style="background: {WORT_PALETTE[1]}">Z</span><span class="isq" style="background: {WORT_PALETTE[1]}">e</span><span class="isq" style="background: {WORT_PALETTE[1]}">i</span><span class="isq" style="background: {WORT_PALETTE[1]}">t</span><span class="isq gold">g</span><span class="isq gold">u</span><span class="isq gold">t</span></span>
+				</div>
 				<p class="eyebrow" lang="de">Wortblöcke · ein Wort-Puzzle</p>
 				<h1>Stack the words.<br />Know the words.</h1>
 				<p class="lead">
@@ -831,6 +903,29 @@
 		font-weight: 800;
 		font-size: 0.85rem;
 		color: var(--accent-ink);
+	}
+
+	/* A change worth noticing pops in: the level pill, the combo. */
+	.pop {
+		animation: pop-in 0.35s var(--ease-spring, ease);
+	}
+
+	@keyframes pop-in {
+		0% {
+			transform: scale(0.6);
+		}
+		60% {
+			transform: scale(1.18);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.pop {
+			animation: none;
+		}
 	}
 
 	.next {
@@ -956,6 +1051,10 @@
 		flex-direction: column;
 	}
 
+	.block:active {
+		transform: scale(0.96);
+	}
+
 	.block .sq {
 		display: grid;
 		place-items: center;
@@ -997,14 +1096,23 @@
 		z-index: 2;
 		display: grid;
 		place-items: center;
-		width: 16px;
+		min-width: 16px;
 		height: 16px;
-		border-radius: 50%;
+		border-radius: 999px;
 		background: #fff;
 		color: var(--c);
 		font-size: 10px;
 		font-weight: 800;
 		box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+	}
+
+	/* A missed article is worn from then on: the answer, read again and
+	   again — and the word only pays silver, since it has been shown. */
+	.badge.learned {
+		padding: 0 4px;
+		background: var(--heading);
+		color: #fff;
+		font-size: 9px;
 	}
 
 	.block.gilded .sq {
@@ -1337,19 +1445,60 @@
 		background: rgb(255 255 255 / 0.95);
 	}
 
-	.gameover strong {
+	.over-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.7rem;
+		align-items: center;
+		max-width: 18rem;
+		padding: 1.3rem 1.5rem;
+		border: 1px solid var(--line);
+		border-radius: calc(var(--radius) + 6px);
+		background: var(--surface);
+		box-shadow: 0 18px 40px -24px rgba(31, 58, 95, 0.45);
+	}
+
+	.over-card strong {
 		font-family: var(--font-display, serif);
-		font-size: 1.5rem;
+		font-size: 1.4rem;
 		color: var(--heading);
+		text-align: center;
 	}
 
-	.gameover span {
+	.over-stats {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 0.45rem;
+		width: 100%;
+		margin: 0;
+	}
+
+	.over-stats div {
+		padding: 0.4rem 0.2rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-sm);
+		text-align: center;
+	}
+
+	.over-stats dt {
 		color: var(--ink-muted);
-		font-weight: 600;
+		font-size: 0.62rem;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
 	}
 
-	.gameover .bestline {
+	.over-stats dd {
+		margin: 0;
+		color: var(--heading);
+		font-weight: 800;
+	}
+
+	.bestline {
+		margin: 0;
+		color: var(--ochre-ink, #836215);
 		font-size: var(--step--1);
+		font-weight: 700;
 	}
 
 	/* -- the tray ------------------------------------------------------------------- */
@@ -1434,6 +1583,37 @@
 		border-radius: calc(var(--radius) + 6px);
 		background: var(--surface);
 		box-shadow: 0 18px 40px -24px rgba(31, 58, 95, 0.45);
+	}
+
+	.intro-art {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+		margin-bottom: 0.9rem;
+	}
+
+	.irow {
+		display: flex;
+		gap: 2px;
+	}
+
+	.isq {
+		display: grid;
+		place-items: center;
+		width: 1.55rem;
+		height: 1.65rem;
+		border-radius: 5px;
+		color: #fff;
+		font-weight: 700;
+		font-size: 0.8rem;
+		box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.18);
+	}
+
+	.isq.gold {
+		background: var(--ochre, #a9802a);
+		box-shadow:
+			inset 0 -2px 0 rgb(0 0 0 / 0.18),
+			0 0 0 1.5px #f3e3bd;
 	}
 
 	.intro-card h1 {
