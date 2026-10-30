@@ -52,7 +52,8 @@
 	{/if}
 	<p>
 		Language Quiz is an independent study aid, not affiliated with or endorsed by any
-		examination body. <a href="/legal">Imprint and privacy notice</a>.{#if version}{' '}<span class="version">Content version {version}.</span>{/if}
+		examination body. Part of <a href="https://www.100words.org/en/" rel="noopener">100words.org</a>.
+		<a href="/legal">Imprint and privacy notice</a>.{#if version}{' '}<span class="version">Content version {version}.</span>{/if}
 	</p>
 </footer>
 

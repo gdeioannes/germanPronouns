@@ -42,7 +42,8 @@
 				description:
 					'Creator of Language Quiz. A German learner living in Germany since 2019, building the course they needed: non-linear, free, and tested on themself first.',
 				knowsLanguage: ['de', 'en', 'es'],
-				jobTitle: 'Independent developer and course author'
+				jobTitle: 'Independent developer and course author',
+				url: 'https://www.100words.org/en/'
 			}
 		}
 	]}
@@ -278,9 +279,11 @@
 		<p>
 			I build this on my own — the code, the course content, the
 			drawings and the audio, with the AI tools
-			<a href="#ai">described above</a>. If something is wrong, confusing or
-			missing, <strong class="key">I genuinely want to know</strong>: the app has grown out of
-			exactly that kind of feedback. <a href="/contact">Write to me</a> —
+			<a href="#ai">described above</a>. Language Quiz is part of
+			<a href="https://www.100words.org/en/" rel="noopener">100words.org</a>,
+			my personal site, where my other projects live. If something is wrong,
+			confusing or missing, <strong class="key">I genuinely want to know</strong>: the app has grown
+			out of exactly that kind of feedback. <a href="/contact">Write to me</a> —
 			every message gets read.
 		</p>
 	</section>
