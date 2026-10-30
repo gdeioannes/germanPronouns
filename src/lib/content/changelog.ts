@@ -36,6 +36,7 @@ export const changelog: ChangelogEntry[] = [
       "A hint star sometimes turns up among the chips: spend it on any word to see and hear what it means — shown words pay silver. Perfect clears, long words and first-try articles all pay bonuses.",
       "An illustrated So-spielst-du guide opens before your first game, with little pictures of every rule, and the word audio now answers instantly instead of after a cloud round-trip.",
       "Every word in every level's bag now has its own studio recording — the 126 that used to fall back to the device voice (compass nouns, the fancy C-level words) were recorded, so the whole game speaks in the same natural voice.",
+      "The how-to-play sheet behaves on phones: it fits the screen, the rules scroll under your finger, the start button stays pinned at the bottom, and a close button is always there — even on your very first visit.",
     ],
   },
   {

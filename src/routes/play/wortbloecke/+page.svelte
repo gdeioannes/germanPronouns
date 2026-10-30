@@ -1299,11 +1299,9 @@
 			<div class="sheet-card">
 				<header class="sheet-head">
 					<h2 lang="de">So spielst du</h2>
-					{#if rulesSeen}
-						<button type="button" class="linkish" onclick={closeRules} aria-label="Close">
-							<Icon name="close" size="1.1em" />
-						</button>
-					{/if}
+					<button type="button" class="linkish" onclick={closeRules} aria-label="Close">
+						<Icon name="close" size="1.1em" />
+					</button>
 				</header>
 				<ul class="rules">
 					<li>
@@ -2465,7 +2463,11 @@
 		display: flex;
 		flex-direction: column;
 		width: min(22rem, 100%);
-		max-height: 100%;
+		/* Viewport-based, not 100%: a centered grid item's percentage resolves
+		   against its auto row (= content height), so 100% never constrained
+		   the card and on phones the rules could not scroll. */
+		max-height: calc(100dvh - 2rem);
+		min-height: 0;
 		padding: 1rem 1.1rem;
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
@@ -2607,6 +2609,8 @@
 		min-height: 0;
 		padding: 0 2px 0 0;
 		overflow-y: auto;
+		touch-action: pan-y;
+		-webkit-overflow-scrolling: touch;
 		overscroll-behavior: contain;
 		list-style: none;
 		font-size: 0.8rem;
