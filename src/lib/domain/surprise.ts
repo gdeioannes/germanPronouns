@@ -7,7 +7,7 @@
 // character met) simply drops out of the draw. Nothing is paid for: there are
 // no tickets, and every surprise card that turns up can be played.
 
-export type SurpriseKind = 'story' | 'song' | 'play' | 'chat' | 'check';
+export type SurpriseKind = 'story' | 'song' | 'play' | 'chat' | 'check' | 'wort';
 
 /** The chance a hand holds a surprise. */
 export const SURPRISE_CHANCE = 0.3;

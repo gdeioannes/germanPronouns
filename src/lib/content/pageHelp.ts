@@ -74,7 +74,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			},
 			{
 				title: 'Runs and medals',
-				text: 'Exercises come in runs of ten, and eight right or better passes the run. Most exercises have three ways to play, shown as a switch above the exercise: an easier one, the usual one and one with no help, where nouns lose their gender colours until you answer. Passing a run on one earns its medal: bronze, silver or gold. Exercises you read, hear, say or write earn their medal by score instead: bronze for a pass, gold for full marks. Once you hold a medal, the bar at the end offers the next one up — "Try for silver", then "Try for gold". A medal is never taken away, and there are no lives. When you check a text with gaps, every gap you missed is listed in its sentence, with the right answer and why, and "Read the corrected text" shows the whole text filled in.'
+				text: 'Exercises come in runs of ten, and eight right or better passes the run. Most exercises have three ways to play, shown as a switch above the exercise: an easier one, the usual one and one with no help, where nouns lose their gender colors until you answer. Passing a run on one earns its medal: bronze, silver or gold. Exercises you read, hear, say or write earn their medal by score instead: bronze for a pass, gold for full marks. Once you hold a medal, the bar at the end offers the next one up — "Try for silver", then "Try for gold". A medal is never taken away, and there are no lives. When you check a text with gaps, every gap you missed is listed in its sentence, with the right answer and why, and "Read the corrected text" shows the whole text filled in.'
 			},
 			{
 				title: 'How surprises turn up',
@@ -165,6 +165,26 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 		]
 	},
 
+	'/play/wortbloecke': {
+		title: 'Wortblöcke',
+		intro:
+			'A word puzzle in a falling-block well. Pair the German blocks with their English in the tray — either order works — and name the article for a noun. Mistakes drop new blocks; fill the board to the top and the game is over.',
+		items: [
+			{
+				title: 'Golden lines',
+				text: 'Fill a whole row in ONE color and everything connected to it in that color turns golden. Match one golden word to start the run: then you must clear the whole set, one after another. All right pays the jackpot; one miss and the set dissolves without points.'
+			},
+			{
+				title: 'Move and rotate',
+				text: 'Tap a free block to grab it, then nudge it left or right or stand it up. You start with one of each; right articles and landslides earn more, and every golden line pays a bag of them.'
+			},
+			{
+				title: 'The climb',
+				text: 'Points move you up the levels, A1.1 towards C2.2, each with its own words from the course — and past C2 the Meister words get wonderfully weird. The grid grows with you.'
+			}
+		]
+	},
+
 	'/play/ja-nein': {
 		title: 'Ja oder Nein?',
 		intro:
@@ -191,7 +211,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 		items: [
 			{
 				title: 'Collecting',
-				text: 'The ones you have earned are in colour, the rest are a question mark. Play a round again and you may land on a different persona.'
+				text: 'The ones you have earned are in color, the rest are a question mark. Play a round again and you may land on a different persona.'
 			},
 			{
 				title: 'Picking a round',

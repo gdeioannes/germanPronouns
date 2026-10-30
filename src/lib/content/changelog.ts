@@ -16,6 +16,19 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-30",
+    title: "Wortblöcke: a word puzzle in a falling-block well",
+    highlight: true,
+    items: [
+      "A new game: German words are blocks of letter squares in four colors, stacked in a well. Pair a block with its English in the tray — either order — and name the article for a noun. Every word is spoken as you earn it.",
+      "Fill a row in ONE color and everything connected to it turns golden: match one golden word and you are in an all-or-nothing run — clear the whole set for the jackpot, miss once and it dissolves without points.",
+      "Mistakes drop new blocks onto the board, Tetris-style; overflow the top and the game is over. The board warns you when space runs short.",
+      "Move and rotate blocks to engineer your lines — you start with one of each, and right articles, landslides and golden lines earn more.",
+      "The words are the course's own, level by level: points climb you from A1.1 towards C2.2, the grid grows with you, and past C2 the Meister tier brings Fernweh, Mumpitz, Tohuwabohu and friends.",
+      "Find it under Wortblöcke in the footer, or let it turn up in your deck as a surprise alongside the stories, songs, chats and Ja oder Nein?",
+    ],
+  },
+  {
     date: "2026-10-29",
     title: "A friendlier first ten minutes",
     items: [
@@ -218,7 +231,7 @@ export const changelog: ChangelogEntry[] = [
     date: "2026-10-23",
     title: "The picture hunt: a walkthrough, half points and flip cards",
     items: [
-      "The first time you open a picture hunt, a short walkthrough shows how it works: find the thing, zoom in, what the colours mean and the three medals. The ? button brings it back.",
+      "The first time you open a picture hunt, a short walkthrough shows how it works: find the thing, zoom in, what the colors mean and the three medals. The ? button brings it back.",
       "Found it on a later try? That is now half a point, shown in yellow on the run bar, instead of a miss. A find on the first try is still green, and a thing that had to be shown is red.",
       "The Listen step now says only the noun, without der, die or das, so the article is yours to know. Every word is recorded in the same natural voice as the rest of the course.",
       "Cards turns the room into flip cards of its words, to learn them before you hunt. They have their own runs and medals.",
@@ -313,7 +326,7 @@ export const changelog: ChangelogEntry[] = [
     date: "2026-10-21",
     title: "The A1.1 book, a little clearer",
     items: [
-      "der, die and das are now printed in their colours — blue, red and green, as in the rest of the site.",
+      "der, die and das are now printed in their colors — blue, red and green, as in the rest of the site.",
       "Where the verb goes in a question is now drawn as a sentence in boxes, du or Sie? is a small decision chart, and im, am and beim are shown as in + dem, an + dem, bei + dem.",
       "Fixed: the bottom of pages 2 and 3 showed a line of computer code instead of the book's title.",
     ],
@@ -333,10 +346,10 @@ export const changelog: ChangelogEntry[] = [
     items: [
       "The A1.1 PDF is now a 40-page study book written for paper, instead of the exercises printed out. It replaces the old 55-page workbook.",
       "Find it on the Workbooks shelf, with its own cover, or with the PDF button next to A1.1 on your course page.",
-      "Fourteen topics, each on two facing pages: the left page teaches, with tables, diagrams and pictures, and the right page is for your pencil: write, match, circle, sort into columns, label and even colour in.",
+      "Fourteen topics, each on two facing pages: the left page teaches, with tables, diagrams and pictures, and the right page is for your pencil: write, match, circle, sort into columns, label and even color in.",
       "Nothing is asked before it is taught: every German word on a practice page is on a learn page first, this one or an earlier one.",
       "Two review spreads, a one-page summary of A1.1 to stick on the wall, a picture dictionary of 40 words and all the answers at the back, with each answer in bold.",
-      "QR codes take you to the audio for the listening exercises and to more practice on the site. The book prints well on A4, in colour or black and white. A1.2 and the higher levels are being redone the same way, and show \"Work in progress\" until they are ready.",
+      "QR codes take you to the audio for the listening exercises and to more practice on the site. The book prints well on A4, in color or black and white. A1.2 and the higher levels are being redone the same way, and show \"Work in progress\" until they are ready.",
       "The whole Deutsch A1 book is no longer offered as one big PDF: the A1.1 book replaces it, and A1.2 follows.",
     ],
   },
@@ -363,7 +376,7 @@ export const changelog: ChangelogEntry[] = [
     date: "2026-10-20",
     title: "No help now means no help",
     items: [
-      "On the no-help step, nouns lose their gender colours until you answer, because a colour gives away der, die or das. The Word help switch is hidden on that step for the same reason.",
+      "On the no-help step, nouns lose their gender colors until you answer, because a color gives away der, die or das. The Word help switch is hidden on that step for the same reason.",
     ],
   },
   {
@@ -448,7 +461,7 @@ export const changelog: ChangelogEntry[] = [
     title: "Deutsch A1, the printed book",
     highlight: true,
     items: [
-      "The first level is now a real book: Deutsch A1, Erste Schritte and Im Alltag in one volume, 150 pages in colour, US Letter size, ready for print on demand. Every lesson, every exercise, the diagrams, the picture dictionaries and the picture hunts are on paper, with the answers upside down under each unit.",
+      "The first level is now a real book: Deutsch A1, Erste Schritte and Im Alltag in one volume, 150 pages in color, US Letter size, ready for print on demand. Every lesson, every exercise, the diagrams, the picture dictionaries and the picture hunts are on paper, with the answers upside down under each unit.",
       "Paper and phone work together: each unit carries a QR code that opens the same exercise in the app, and the listening, dictation and repeat-after-me units carry a second code that opens a player with every recording. Scan the book's own code and the app shows a checklist of the book, so what you did on paper counts here too.",
       "At the back: the key with every transcript, dictation sentence and picture-hunt list, the grammar tables of the book, an A to Z word index, and the audio index for readers without a camera.",
       "It is a work in progress, not a finished book, and that is the point of the offer on the home page: the first readers who are interested get a test copy for free, printing and postage included. Write through the contact page, read it for a week or two, and say what you think.",
@@ -535,7 +548,7 @@ export const changelog: ChangelogEntry[] = [
     items: [
       "Ja oder Nein? is now a hundred themed rounds of eight on ten shelves: Rund um die Uhr, Auf dem Teller, Regeln und Ordnung, Draußen, Nachtleben, Zuhause, Stadt gegen Land, Durchs Jahr, Unterwegs and Typisch Deutsch?. Each round is a little tour of one theme, from Brot to Silvester to Die Deutsche Bahn, eight hundred questions in all.",
       "Every shelf has five personas of its own, fifty in total, from Krustenfan and Mett-Mensch to Berghain-Schlange, Rot-Geher:in and Balkonien-Urlauber:in. A round ends on one of its shelf's five, and the result is yours to keep.",
-      "Your personas have a page: ten shelves of five, the ones you have earned in colour, the rest a question mark. Play a round again and you may land on a different one. One tap sends the whole collection as a grid of squares, with your count out of fifty.",
+      "Your personas have a page: ten shelves of five, the ones you have earned in color, the rest a question mark. Play a round again and you may land on a different one. One tap sends the whole collection as a grid of squares, with your count out of fifty.",
       "The deck deals the rounds in turn, one shelf after another, and the card names the round it holds. On the persona page you can also pick any round by hand.",
       "Send a result and your friend gets the same round: the link in the message opens those eight questions, with a line that dares them to answer back.",
       "The card runs on tickets. You get one with your first deck, another every twelve hours, and you can hold two at a time. While you have one, the card has a one-in-three chance of turning up in each hand you deal, and playing it from the deck spends the ticket. Swipe it away and it waits for a later hand; the ticket stays yours. The card shows how many you hold.",
@@ -609,7 +622,7 @@ export const changelog: ChangelogEntry[] = [
       "188 more verbs in the library, from buchstabieren and rauchen to ankommen, mitkommen and zurückkommen, every one conjugated in full. That is 354 in all, so every verb the course uses now has its own page.",
       "The deck works out your level from everything you have done, not from the highest thing you ever finished. One peek at a C2 exercise after a month of A1 no longer makes the deck treat you as a C2 learner: a level counts as yours once there is real evidence at it, and a finish that went badly counts for little. The deck, the suggestions, the story and song cards and the level chip now all agree.",
       "In a picture hunt the two modes — find it, or find it and name its article — are now one small switch beside the question, and the nudges float over the top of the picture instead of taking a row of their own, so the room gets the whole card.",
-      "The cards behind the top one in your deck now peek out above it as neat coloured edges, like a pile of cards, instead of fanning out below.",
+      "The cards behind the top one in your deck now peek out above it as neat colored edges, like a pile of cards, instead of fanning out below.",
       "The what's new and contact pages have the same top bar as the rest of the site.",
     ],
   },
@@ -632,7 +645,7 @@ export const changelog: ChangelogEntry[] = [
       "Tap the wrong object and it tells you what you touched, and you keep looking — the answer only lights up after three misses. A tap on bare wall costs nothing, and a tap just beside the right thing counts, because fingers are wider than a piece of chalk.",
       "Once you have passed a run, the hunt gets harder: the question hides the article — \"Wo ist ___ Tür?\" — and after you find it you choose der, die or das yourself.",
       "On a phone the picture fills the whole width, and you can pinch to zoom (or use the + and − buttons) to reach the small things.",
-      "Each find shows its label in its gender's colour, then leaves a small tick, so you can see what you have found without labels covering the room. Every question can be heard read aloud.",
+      "Each find shows its label in its gender's color, then leaves a small tick, so you can see what you have found without labels covering the room. Every question can be heard read aloud.",
     ],
   },
   {
@@ -676,7 +689,7 @@ export const changelog: ChangelogEntry[] = [
     items: [
       "Every German word in the course can now be tapped for what it means in English — verbs in whatever form the sentence happens to use them, prepositions, and the small words like doch, sich and zwar that are in every sentence and in nobody's vocabulary list.",
       "It works in reading and listening texts, in the questions, in the fill-in exercises, in a dictation once you have revealed the line, in the Learn lessons, in the Help Memory examples and in the story dialogue.",
-      "Nouns look exactly as they did: coloured blue, red or green for der, die and das, and showing their article and plural when you tap them. Every other word stays unmarked until you hover or tab to it, so a text still reads like a text.",
+      "Nouns look exactly as they did: colored blue, red or green for der, die and das, and showing their article and plural when you tap them. Every other word stays unmarked until you hover or tab to it, so a text still reads like a text.",
       "The meanings are written for someone learning, not copied from a translator. \"der\" tells you it is also the feminine dative and genitive; \"weil\" tells you it sends the verb to the end; \"gern\" explains that \"ich esse gern\" means \"I like eating\".",
       "Each word in the panel can be played out loud, and nouns and verbs link through to their full page in the Word Library.",
       "There is a new page listing the small words A–Z, searchable from either language: ask what \"obwohl\" means, or ask which German word means \"although\".",
@@ -813,7 +826,7 @@ export const changelog: ChangelogEntry[] = [
       'Everything works from the keyboard, with a "Skip to content" link, and you no longer lose your place when the screen changes.',
       'New "Wait for me" answer reveal in Settings: exercises only move on when you press Next or Enter.',
       'A new setting adds a "Show the text" button to dictations and listening exercises, for when you can\'t hear the audio.',
-      "Clearer text colours and a more visible answer box, and noun genders now differ by underline as well as colour.",
+      "Clearer text colors and a more visible answer box, and noun genders now differ by underline as well as color.",
       '"Calm effects" now also stops the pulsing on the audio and microphone buttons.',
       "Read more in the new Accessibility section of the About page, linked from the footer.",
     ],

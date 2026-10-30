@@ -52,6 +52,7 @@
 	import { isStoryCard, reachedQuiz, storyCardHref, storyDeckCard } from '$lib/domain/stories';
 	import { isSongCard, songCardHref, songDeckCard } from '$lib/domain/songs';
 	import { JA_NEIN_CARD_ID, JA_NEIN_PATH } from '$lib/domain/janein';
+	import { WORT_CARD_ID, WORT_PATH } from '$lib/domain/wortbloecke';
 	import { nextRound } from '$lib/domain/janeinRounds';
 	import { CHAT_CARD_PREFIX, chatDeckCard, findChat, markMet, MATCH_PATH, type ChatDeal } from '$lib/domain/matchChat';
 	import { pickSurprise, takeSurpriseChance, type SurpriseCandidate } from '$lib/domain/surprise';
@@ -312,7 +313,8 @@
 					{ kind: 'song', card: song ? () => song : null },
 					{ kind: 'play', card: skipped.includes(JA_NEIN_CARD_ID) ? null : playCard },
 					{ kind: 'chat', card: chatDeal ? () => chatCard(chatDeal) : null },
-					{ kind: 'check', card: checkDue(checkLog) && !skipped.includes(CHECK_CARD_ID) ? checkCard : null }
+					{ kind: 'check', card: checkDue(checkLog) && !skipped.includes(CHECK_CARD_ID) ? checkCard : null },
+					{ kind: 'wort', card: skipped.includes(WORT_CARD_ID) ? null : wortCard }
 				];
 				const odds = takeSurpriseChance();
 				const surprise = pickSurprise(candidates, odds.chance, Math.random, odds.first);
@@ -398,6 +400,25 @@
 	}
 	const isPlayCard = (card: DeckCard) => card.kind === 'play';
 	const isCheckCard = (card: DeckCard) => card.kind === 'check';
+	const isWortCard = (card: DeckCard) => card.kind === 'wort';
+
+	/** The Wortblöcke card: a page of its own, no exercise behind it. */
+	function wortCard(): DeckCard {
+		return {
+			kind: 'wort',
+			quiz: {
+				id: WORT_CARD_ID,
+				type: 'vocabulary',
+				title: 'Wortblöcke',
+				storageKeyPrefix: 'play',
+				level: 'Any level',
+				status: 'live',
+				covers: []
+			},
+			reason:
+				'A word puzzle in a falling-block well: pair the German blocks with their English, name the articles, and clear golden lines. The words climb with you, from A1 past C2.'
+		};
+	}
 
 	/** The word check, offered when due: the full check, not a quiz, and no medal at the end. */
 	function checkCard(): DeckCard {
@@ -449,7 +470,9 @@
 				? 'sing-along'
 				: isPlayCard(card)
 					? 'swipe game · 1 min'
-					: isCheckCard(card)
+					: isWortCard(card)
+						? 'word puzzle'
+						: isCheckCard(card)
 						? 'level check · 2 min'
 						: isChatCard(card)
 							? chatResumes.has(card.quiz.id) ? 'chat in progress' : 'chat game'
@@ -457,6 +480,7 @@
 
 	function href(card: DeckCard) {
 		if (isPlayCard(card)) return JA_NEIN_PATH;
+		if (isWortCard(card)) return WORT_PATH;
 		if (isCheckCard(card)) return CHECK_PATH;
 		if (isChatCard(card)) return `${MATCH_PATH}/${card.quiz.id.slice(CHAT_CARD_PREFIX.length)}`;
 		return storyCardHref(card) ?? songCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
@@ -622,7 +646,7 @@
 	/** Transform for a card `depth` places into the stack (0 = top). */
 	// The cards behind the top one sit straight and a touch narrower, each
 	// poking out above the one in front by a few pixels, so the stack shows
-	// as neat coloured edges along the top — a pile of cards, not a fan.
+	// as neat colored edges along the top — a pile of cards, not a fan.
 	function stackStyle(depth: number): string {
 		const scale = 1 - depth * 0.03;
 		const y = -depth * 8;
@@ -721,7 +745,7 @@
 							</p>
 						{:else}
 							{#if isPlayCard(card)}
-								<!-- The game's own sky, in miniature: drifting colour, the two
+								<!-- The game's own sky, in miniature: drifting color, the two
 								     stamps you will be swiping between, and the five people you
 								     might turn out to be. -->
 								<div class="art-band play-sky" aria-hidden="true">
@@ -738,6 +762,14 @@
 									<span class="emo e5">🧹</span>
 									<span class="emo e6">🌙</span>
 									<span class="hand"><Icon name="swipe" size="2.4em" /></span>
+								</div>
+							{:else if isWortCard(card)}
+								<!-- The game in miniature: a few letter blocks in the four
+								     colors stacked in a well, the bottom row golden. -->
+								<div class="art-band wort-band" aria-hidden="true">
+									<span class="wrow"><span class="wsq navy">H</span><span class="wsq navy">A</span><span class="wsq navy">U</span><span class="wsq navy">S</span><span class="wsq forest">R</span><span class="wsq forest">O</span><span class="wsq forest">T</span></span>
+									<span class="wrow"><span class="wsq terra">Z</span><span class="wsq terra">E</span><span class="wsq terra">I</span><span class="wsq terra">T</span><span class="wsq ochre">G</span><span class="wsq ochre">U</span><span class="wsq ochre">T</span></span>
+									<span class="wrow gold"><span class="wsq">K</span><span class="wsq">A</span><span class="wsq">L</span><span class="wsq">T</span><span class="wsq">N</span><span class="wsq">E</span><span class="wsq">U</span></span>
 								</div>
 							{:else if isCheckCard(card)}
 								<!-- The check in miniature: a few word chips, some tapped, one
@@ -1005,7 +1037,7 @@
 		font-weight: 800;
 	}
 
-	/* Each pace has a colour; the chip and the chooser tiles both use it. */
+	/* Each pace has a color; the chip and the chooser tiles both use it. */
 	[data-pace] {
 		--pace: var(--forest);
 	}
@@ -1555,7 +1587,7 @@
 		outline-offset: 2px;
 	}
 
-	/* Three little cards, in the deck's own kind colours, riffling. */
+	/* Three little cards, in the deck's own kind colors, riffling. */
 	.intro-fan {
 		position: relative;
 		width: 1.6rem;
@@ -1695,7 +1727,7 @@
 		transform: rotate(0deg) scale(1.08);
 	}
 
-	/* The scene's own cream (its paper is levelled to this colour), bleeding
+	/* The scene's own cream (its paper is levelled to this color), bleeding
 	   to the card's edges; the scene's wide margins absorb the crop. */
 	.art-band,
 	.type-disc {
@@ -1709,7 +1741,7 @@
 	}
 
 	/* The card's own layer over everything in the band: its tint and pattern,
-	   multiplied, so white paper takes the colour and dark lines stay dark. */
+	   multiplied, so white paper takes the color and dark lines stay dark. */
 	.art-band::after,
 	.type-disc::after {
 		content: '';
@@ -2223,7 +2255,7 @@
 	}
 
 	.play-sky::after {
-		/* No paper tint here: the colours are the point. */
+		/* No paper tint here: the colors are the point. */
 		background: none;
 	}
 
@@ -2391,6 +2423,58 @@
 	.card[data-kind='check'] {
 		--kind: var(--forest);
 		border-top: 6px solid var(--forest);
+	}
+
+	.wort-band {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+		align-items: center;
+		justify-content: flex-end;
+		min-height: 9.5rem;
+		padding: 1rem;
+		background: #f1ede4;
+	}
+
+	.wort-band::after {
+		background: none;
+	}
+
+	.wrow {
+		display: flex;
+		gap: 2px;
+	}
+
+	.wsq {
+		display: grid;
+		place-items: center;
+		width: 1.5rem;
+		height: 1.6rem;
+		border-radius: 5px;
+		background: var(--navy);
+		color: #fff;
+		font-weight: 700;
+		font-size: 0.78rem;
+		box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.18);
+	}
+
+	.wsq.terra {
+		background: var(--terracotta);
+	}
+
+	.wsq.forest {
+		background: var(--forest);
+	}
+
+	.wsq.ochre {
+		background: var(--ochre);
+	}
+
+	.wrow.gold .wsq {
+		background: var(--ochre);
+		box-shadow:
+			inset 0 -2px 0 rgb(0 0 0 / 0.18),
+			0 0 0 1.5px #fff6dd;
 	}
 
 	.check-band {
