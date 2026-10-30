@@ -51,7 +51,8 @@ describe.runIf(existsSync(shardDir))('recorded audio manifest', () => {
 		expect(misplaced).toEqual([]);
 	});
 
-	it('points every text at a clip on disk', () => {
+	// ~19k existsSync calls: slow on a loaded run, so it gets its own budget.
+	it('points every text at a clip on disk', { timeout: 20000 }, () => {
 		const missing = shards
 			.flatMap(({ manifest }) => Object.values(manifest).flatMap((files) => Object.values(files)))
 			.filter((file) => !existsSync(join(dir, file)));

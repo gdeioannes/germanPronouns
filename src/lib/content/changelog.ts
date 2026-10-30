@@ -37,6 +37,9 @@ export const changelog: ChangelogEntry[] = [
       "An illustrated So-spielst-du guide opens before your first game, with little pictures of every rule, and the word audio now answers instantly instead of after a cloud round-trip.",
       "Every word in every level's bag now has its own studio recording — the 126 that used to fall back to the device voice (compass nouns, the fancy C-level words) were recorded, so the whole game speaks in the same natural voice.",
       "The how-to-play sheet behaves on phones: it fits the screen, the rules scroll under your finger, the start button stays pinned at the bottom, and a close button is always there — even on your very first visit.",
+      "Every mistake teaches now: a wrong pairing, a wrong article or a lost golden set shows and speaks the right word with its article and translation — on a readable white pill over the block, and full-size on the tray line for a few seconds.",
+      "A word already wearing its article badge goes straight to the der/die/das question when you tap it — the meaning is in view, no need to pair it again. A small ✕ puts the question away for later (never mid-run).",
+      "The high-score name is a real text box drawn as five letter cells: type, correct and move the caret like anywhere else — the invisible-input trick that left phone keyboards dead is gone, and all five letters stay visible.",
     ],
   },
   {

@@ -137,6 +137,15 @@
 	let queue: { word: WortWord; color: string }[] = [];
 	let preview = $state<{ de: string; color: string }[]>([]);
 	let goldBar = $state<string | null>(null);
+	/** The lesson line: after any miss, the right article + translation sits
+	 *  readable under the board for a moment — this is a learning app. */
+	let lesson = $state<string | null>(null);
+	let lessonTimer: ReturnType<typeof setTimeout> | undefined;
+	function teach(w: WortWord) {
+		lesson = `${w.art ? `${w.art} ${w.de}` : w.de} = ${w.en}`;
+		clearTimeout(lessonTimer);
+		lessonTimer = setTimeout(() => (lesson = null), 4500);
+	}
 	let danger = $state(false);
 	let lineFx = $state<{ id: number; r: number; mixed: boolean }[]>([]);
 	let floats = $state<{ id: number; x: number; y: number; text: string; cls: string }[]>([]);
@@ -192,7 +201,7 @@
 		};
 	});
 	let pending = $state<Block | null>(null);
-	let pendingRun: GoldenSet | null = null;
+	let pendingRun = $state<GoldenSet | null>(null);
 	/** English chips in the tray, in their own stable shuffled order. */
 	let chips = $state<string[]>([]);
 	let sayOn = $state(true);
@@ -241,15 +250,8 @@
 	/** Action: the keyboard is ready the moment the slots appear. */
 	const focusNow = (el: HTMLInputElement) => {
 		el.focus();
-		caretEnd(el);
+		el.setSelectionRange(el.value.length, el.value.length);
 	};
-
-	/** The slot row has no visible caret, so the real one is pinned to the
-	 *  end — otherwise a click lands it anywhere in invisible text, where
-	 *  Backspace deletes nothing and the box feels dead. */
-	function caretEnd(el: HTMLInputElement) {
-		requestAnimationFrame(() => el.setSelectionRange(el.value.length, el.value.length));
-	}
 
 	function submitName() {
 		if (!overRank || entered) return;
@@ -299,7 +301,8 @@
 	function float(text: string, x: number, y: number, cls = '') {
 		const id = nextId++;
 		floats = [...floats.slice(-4), { id, x, y, text, cls }];
-		setTimeout(() => (floats = floats.filter((f) => f.id !== id)), 1300);
+		// Teaching floats (the big ones) linger long enough to be read.
+		setTimeout(() => (floats = floats.filter((f) => f.id !== id)), cls.includes('big') ? 2600 : 1300);
 	}
 	const floatAt = (b: Block, text: string, cls = '', dy = -0.9) =>
 		float(text, Math.min(b.c, Math.max(0, grid.cols - 5)) * cs, (b.r + dy) * cs, cls);
@@ -534,7 +537,8 @@
 		playSound('wrong');
 		const name = spoken(b.word);
 		sayDe(name);
-		floatAt(b, `✗ ${name} = ${b.word.en}`, 'big', -1.1);
+		floatAt(b, `✗ ${name} = ${b.word.en}`, 'big ' + (b.word.art ? artClass(b.word.art) : ''), -1.1);
+		teach(b.word);
 		announce(`Wrong: ${name}, ${b.word.en}. The golden set is lost.`);
 		// The whole set goes down with the miss, and the board is refilled
 		// like for like: as many fresh words as were lost. No points.
@@ -650,6 +654,9 @@
 			playSound(picking ? 'up' : 'down');
 			grabbedId = picking ? b.id : null;
 			if (picking) sayDe(b.word.de);
+			// A word already wearing its article: picking it asks the article
+			// straight away — the meaning is in view, no need to pair it again.
+			if (picking && !ch && b.learned && b.word.art) askArticle(b, null);
 			return;
 		}
 		if (ch) {
@@ -661,6 +668,11 @@
 			playSound('wrong');
 			shake(b);
 			combo = 1;
+			// The lesson: what this block really means.
+			sayDe(spoken(b.word));
+			floatAt(b, `✗ ${spoken(b.word)} = ${b.word.en}`, 'big ' + (b.word.art ? artClass(b.word.art) : ''), -1.1);
+			teach(b.word);
+			announce(`Wrong. ${spoken(b.word)}: ${b.word.en}.`);
 			spawn(); // a wrong pair costs board space
 			return;
 		}
@@ -679,6 +691,10 @@
 				if (gch) return failRun(g, gch);
 				playSound('wrong');
 				combo = 1;
+				sayDe(spoken(g.word));
+				floatAt(g, `✗ ${spoken(g.word)} = ${g.word.en}`, 'big ' + (g.word.art ? artClass(g.word.art) : ''), -1.1);
+				teach(g.word);
+				announce(`Wrong. ${spoken(g.word)}: ${g.word.en}.`);
 				spawn(); // a wrong pair costs board space
 				return;
 			}
@@ -699,6 +715,15 @@
 		b.featured = true;
 	}
 
+	/** Put the question away (never mid-run): the word stays until resolved. */
+	function cancelArticle() {
+		if (!pending || pendingRun) return;
+		pending.featured = false;
+		pending = null;
+		grabbedId = null;
+		playSound('down');
+	}
+
 	function answerArticle(art: string) {
 		const b = pending;
 		if (!b) return;
@@ -707,7 +732,13 @@
 		const ch = pendingRun;
 		pendingRun = null;
 		const right = art === b.word.art;
-		floatAt(b, right ? `✓ ${spoken(b.word)}` : `✗ ${art}? → ${spoken(b.word)}`, 'big ' + artClass(b.word.art!), -1.1);
+		floatAt(
+			b,
+			right ? `✓ ${spoken(b.word)}` : `✗ ${art}? → ${spoken(b.word)} = ${b.word.en}`,
+			'big ' + artClass(b.word.art!),
+			-1.1
+		);
+		if (!right) teach(b.word);
 		if (ch) {
 			if (right) return markGilded(b, ch);
 			return failRun(b, ch);
@@ -1155,6 +1186,12 @@
 						<button type="button" class="art-btn die" onclick={() => answerArticle('die')}>die</button>
 						<button type="button" class="art-btn das" onclick={() => answerArticle('das')}>das</button>
 					</div>
+					{#if !pendingRun}
+						<!-- Outside a golden run the question may wait: back to the board. -->
+						<button type="button" class="art-x" onclick={cancelArticle} aria-label="Not now">
+							<Icon name="close" size="1em" />
+						</button>
+					{/if}
 				</div>
 			{/if}
 
@@ -1178,32 +1215,20 @@
 									submitName();
 								}}
 							>
-								<label class="slots" class:full={nameDraft.length === NAME_LEN} aria-label="Your name, up to five letters">
-									<input
-										class="ghost-input"
-										type="text"
-										maxlength={NAME_LEN}
-										autocapitalize="characters"
-										autocomplete="off"
-										spellcheck="false"
-										bind:value={nameDraft}
-										oninput={(e) => {
-											nameDraft = tidyName(nameDraft);
-											caretEnd(e.currentTarget);
-										}}
-										onclick={(e) => caretEnd(e.currentTarget)}
-										onfocus={(e) => caretEnd(e.currentTarget)}
-										use:focusNow
-									/>
-									{#each Array(NAME_LEN) as _, i (i)}
-										<span
-											class="slot"
-											class:filled={i < nameDraft.length}
-											class:cursor={i === nameDraft.length}
-											aria-hidden="true"
-										>{#key nameDraft[i] ?? ''}<em>{nameDraft[i] ?? ''}</em>{/key}</span>
-									{/each}
-								</label>
+								<!-- One REAL input, drawn as five letter cells: ordinary typing,
+								     visible caret, edit anywhere — the decoration is background only. -->
+								<input
+									class="slotline"
+									type="text"
+									maxlength={NAME_LEN}
+									autocapitalize="characters"
+									autocomplete="off"
+									spellcheck="false"
+									aria-label="Your name, up to five letters"
+									bind:value={nameDraft}
+									oninput={() => (nameDraft = tidyName(nameDraft))}
+									use:focusNow
+								/>
 								<button type="submit" class="btn" disabled={!nameDraft.length}>
 									Eintragen <Icon name="check" size="1em" />
 								</button>
@@ -1243,7 +1268,9 @@
 	<div class="tray-zone">
 		<!-- The one line of standing advice. Gold business borrows it, so the
 		     board itself is never covered by a message. -->
-		{#if goldBar}
+		{#if lesson}
+			<p class="tray-label lesson"><span lang="de">{lesson.split(' = ')[0]}</span> = {lesson.split(' = ')[1]}</p>
+		{:else if goldBar}
 			<p class="tray-label gold">{goldBar}</p>
 		{:else}
 			<p class="tray-label">Find the German for…</p>
@@ -1967,8 +1994,16 @@
 		animation: floatup 1.2s ease forwards;
 	}
 
+	/* The teaching floats sit on a solid pill: colored serif over colored
+	   blocks was unreadable exactly when it mattered. They also linger. */
 	.float.big {
-		font-size: calc(var(--cs) * 0.64);
+		padding: 0.14em 0.5em;
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		background: var(--surface);
+		box-shadow: 0 6px 16px -8px rgb(42 42 40 / 0.4);
+		font-size: calc(var(--cs) * 0.52);
+		animation: floatup 2.5s ease forwards;
 	}
 
 	.float.gold {
@@ -2192,6 +2227,19 @@
 		transform: scale(0.95);
 	}
 
+	.art-x {
+		flex: none;
+		display: grid;
+		place-items: center;
+		width: 1.9rem;
+		height: 1.9rem;
+		border: 1px solid var(--line);
+		border-radius: 50%;
+		background: var(--surface);
+		color: var(--ink-muted);
+		cursor: pointer;
+	}
+
 	.art-btn.der {
 		background: var(--navy, #1f3a5f);
 	}
@@ -2280,98 +2328,46 @@
 		align-items: center;
 	}
 
-	/* Five retro letter boxes, one per character, the cabinet way. The real
-	   input sits invisibly on top: taps focus it, keys fill the slots. */
-	.slots {
-		position: relative;
-		display: flex;
-		gap: 4px;
-		cursor: text;
-	}
-
-	/* Fully interactive but drawn transparent (NOT opacity-hidden: phones
-	   refuse the keyboard for inputs they consider invisible). */
-	.ghost-input {
-		position: absolute;
-		inset: 0;
-		width: 100%;
+	/* One ordinary input drawn as five letter cells: the cells are painted
+	   into the background on a fixed pitch, and a monospace face with
+	   letter-spacing drops exactly one glyph in each. Typing, caret and
+	   selection are the browser's own — nothing to break on a phone. */
+	.slotline {
+		--pitch: 2.6rem; /* one cell incl. its gap */
+		--gap: 0.25rem;
+		--pad: calc((var(--pitch) - var(--gap) - 1ch) / 2); /* centers a glyph in its cell */
+		/* Each glyph occupies 1ch + its trailing letter-spacing = one full
+		   pitch, so five letters need pad + 5 pitches — a hair less and the
+		   input scrolls, hiding the fifth letter. */
+		width: calc(var(--pad) + var(--pitch) * 5);
+		padding: 0.55rem 0 0.55rem var(--pad);
 		border: none;
 		outline: none;
-		background: transparent;
-		color: transparent;
-		-webkit-text-fill-color: transparent;
-		caret-color: transparent;
-		font-size: 16px; /* keeps iOS from zooming the page on focus */
-	}
-
-	.ghost-input::selection {
-		background: transparent;
-	}
-
-	.slot {
-		display: grid;
-		place-items: center;
-		width: 2.2rem;
-		height: 2.6rem;
-		border: 2px solid var(--line);
+		background:
+			repeating-linear-gradient(
+					to right,
+					var(--surface-alt) 0,
+					var(--surface-alt) calc(var(--pitch) - var(--gap)),
+					transparent calc(var(--pitch) - var(--gap)),
+					transparent var(--pitch)
+				)
+				left / calc(var(--pitch) * 5 - var(--gap)) 100% no-repeat;
 		border-radius: 7px;
-		background: var(--surface-alt);
+		box-shadow: inset 0 -3px 0 rgb(42 42 40 / 0.09);
 		color: var(--heading);
-		font-weight: 800;
+		font-family: ui-monospace, 'Cascadia Mono', Consolas, Menlo, monospace;
 		font-size: 1.35rem;
-		box-shadow: inset 0 -4px 0 rgb(42 42 40 / 0.09);
-		transition: border-color 0.12s ease, background 0.12s ease, box-shadow 0.2s ease;
+		font-weight: 800;
+		letter-spacing: calc(var(--pitch) - 1ch);
+		text-transform: uppercase;
+		caret-color: var(--accent);
 	}
 
-	.slot em {
-		font-style: normal;
-	}
-
-	.slot.filled {
-		border-color: var(--ochre, #a9802a);
-		background: var(--surface);
-	}
-
-	/* Each letter lands with a pop; a full name glows like a medal. */
-	.slot.filled em {
-		display: block;
-		animation: letter-pop 0.18s var(--ease-spring, ease);
-	}
-
-	@keyframes letter-pop {
-		from {
-			transform: scale(1.6);
-			opacity: 0;
-		}
-	}
-
-	.slots.full .slot {
+	.slotline:focus {
 		box-shadow:
-			inset 0 -4px 0 rgb(42 42 40 / 0.09),
-			0 0 10px rgb(169 128 42 / 0.4);
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.slot.filled em {
-			animation: none;
-		}
-	}
-
-	.slots:focus-within .slot.cursor {
-		border-color: var(--accent);
-		animation: slot-blink 1s step-end infinite;
-	}
-
-	@keyframes slot-blink {
-		50% {
-			border-color: var(--line);
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.slots:focus-within .slot.cursor {
-			animation: none;
-		}
+			inset 0 -3px 0 rgb(42 42 40 / 0.09),
+			0 0 0 2px var(--accent-soft),
+			0 0 10px rgb(169 128 42 / 0.3);
 	}
 
 	.minilist,
@@ -2884,6 +2880,14 @@
 		font-weight: 700;
 		letter-spacing: 0.07em;
 		text-transform: uppercase;
+	}
+
+	/* The lesson after a miss: full size, full contrast — it IS the point. */
+	.tray-label.lesson {
+		color: var(--heading);
+		font-size: 0.85rem;
+		letter-spacing: normal;
+		text-transform: none;
 	}
 
 	/* Every chip is always visible and tappable: no scroll, no clipping.
