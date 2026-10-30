@@ -35,6 +35,7 @@ export const changelog: ChangelogEntry[] = [
       "Nicer hands: drag a chip onto its block if you prefer, the grabbed word grows its own arrow and rotate handles (only the moves that are possible), and the next words wait in a little dock under the top bar.",
       "A hint star sometimes turns up among the chips: spend it on any word to see and hear what it means — shown words pay silver. Perfect clears, long words and first-try articles all pay bonuses.",
       "An illustrated So-spielst-du guide opens before your first game, with little pictures of every rule, and the word audio now answers instantly instead of after a cloud round-trip.",
+      "Every word in every level's bag now has its own studio recording — the 126 that used to fall back to the device voice (compass nouns, the fancy C-level words) were recorded, so the whole game speaks in the same natural voice.",
     ],
   },
   {

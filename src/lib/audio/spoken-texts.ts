@@ -8,6 +8,8 @@
 
 import nounData from '$content/shared/nouns/de.json';
 import verbData from '$content/shared/verbs/de.json';
+import wordBank from '$content/wordcheck/de.json';
+import { buildPools, mergeWordBank, type WortBankSource } from '$lib/domain/wortbloecke';
 import { catalog, loadCourse } from '$lib/content';
 import type { Quiz } from '$lib/content/types';
 import { fullForm } from '$lib/domain/flashcards';
@@ -142,6 +144,15 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 		add(entry.verb, WORDS_LOCALE, 'word library verb');
 		for (const set of entry.sets)
 			for (const form of set.forms) add(spokenVerbForm(form), WORDS_LOCALE, 'word library conjugation');
+	}
+
+	// Wortblöcke: every pool word speaks when its block lands or pairs — the
+	// article with its noun, exactly as the game's sayDe builds the string.
+	{
+		const course = await loadCourse(catalog.defaultCourseId);
+		const pools = mergeWordBank(buildPools(course.quizzes), wordBank as unknown as WortBankSource);
+		for (const [level, words] of Object.entries(pools))
+			for (const w of words) add(w.art ? `${w.art} ${w.de}` : w.de, WORDS_LOCALE, 'wortbloecke', level);
 	}
 
 	// Story notebooks: every word Maya files has a play button (SpeakButton,
