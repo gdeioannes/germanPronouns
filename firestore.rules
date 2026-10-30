@@ -123,5 +123,22 @@ service cloud.firestore {
       allow read: if signedIn() && request.auth.uid == uid;
       allow write: if false;
     }
+
+    // -- Wortblöcke world Bestenliste ----------------------------------------
+    // The arcade way: everyone reads the board, anyone may append ONE score
+    // with a five-letter name — no login, like the cabinets. Shape-checked,
+    // append-only; moderators can prune.
+    match /wort_scores/{scoreId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(['name', 'pts', 'level', 'at'])
+        && text(request.resource.data.name, 5)
+        && request.resource.data.pts is int
+        && request.resource.data.pts > 0
+        && request.resource.data.pts < 1000000
+        && text(request.resource.data.level, 10)
+        && request.resource.data.at is int;
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
   }
 }

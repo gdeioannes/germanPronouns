@@ -60,6 +60,11 @@ export const LINE_MOVES = 2;
 export const LINE_ROTATES = 1;
 /** Blocks falling at once from one clear that earn a bonus move. */
 export const LANDSLIDE = 3;
+/** Emptying the whole board — the rarest feat — pays this, plus a tool each. */
+export const PERFECT_CLEAR_BONUS = 150;
+/** Words this long pay a little extra: harder to read, harder to place. */
+export const LONG_WORD_LEN = 7;
+export const LONG_WORD_BONUS = 10;
 /** Seconds within which matches chain into a combo. */
 export const COMBO_WINDOW_MS = 4000;
 
@@ -78,19 +83,19 @@ export interface WortLevel {
  * grows with the learner, both for room and because the words get longer.
  */
 export const WORT_LEVELS: WortLevel[] = [
-	{ name: 'A1.1', at: 0, cols: 7, rows: 10 },
-	{ name: 'A1.2', at: 250, cols: 7, rows: 10 },
-	{ name: 'A2.1', at: 550, cols: 7, rows: 11 },
-	{ name: 'A2.2', at: 900, cols: 7, rows: 11 },
-	{ name: 'B1.1', at: 1300, cols: 8, rows: 11 },
-	{ name: 'B1.2', at: 1750, cols: 8, rows: 11 },
-	{ name: 'B2.1', at: 2250, cols: 8, rows: 12 },
-	{ name: 'B2.2', at: 2800, cols: 8, rows: 12 },
-	{ name: 'C1.1', at: 3400, cols: 8, rows: 12 },
-	{ name: 'C1.2', at: 4050, cols: 9, rows: 12 },
-	{ name: 'C2.1', at: 4750, cols: 9, rows: 12 },
-	{ name: 'C2.2', at: 5500, cols: 9, rows: 12 },
-	{ name: 'Meister', at: 6300, cols: 9, rows: 12 }
+	{ name: 'A1.1', at: 0, cols: 8, rows: 12 },
+	{ name: 'A1.2', at: 250, cols: 8, rows: 12 },
+	{ name: 'A2.1', at: 550, cols: 9, rows: 12 },
+	{ name: 'A2.2', at: 900, cols: 9, rows: 12 },
+	{ name: 'B1.1', at: 1300, cols: 9, rows: 13 },
+	{ name: 'B1.2', at: 1750, cols: 9, rows: 13 },
+	{ name: 'B2.1', at: 2250, cols: 10, rows: 13 },
+	{ name: 'B2.2', at: 2800, cols: 10, rows: 13 },
+	{ name: 'C1.1', at: 3400, cols: 10, rows: 14 },
+	{ name: 'C1.2', at: 4050, cols: 10, rows: 14 },
+	{ name: 'C2.1', at: 4750, cols: 10, rows: 14 },
+	{ name: 'C2.2', at: 5500, cols: 10, rows: 14 },
+	{ name: 'Meister', at: 6300, cols: 10, rows: 14 }
 ];
 
 export function levelForPoints(pts: number): number {
@@ -107,46 +112,90 @@ export const MEISTER_POOL: WortWord[] = [
 	{ de: 'Zugzwang', en: 'forced move', art: 'der' },
 	{ de: 'Firlefanz', en: 'frippery', art: 'der' },
 	{ de: 'Kokolores', en: 'hogwash', art: 'der' },
-	{ de: 'Tohuwabohu', en: 'utter chaos', art: 'das' },
-	{ de: 'Remmidemmi', en: 'racket', art: 'das' },
 	{ de: 'Quatsch', en: 'rubbish', art: 'der' },
-	{ de: 'Halligalli', en: 'hullabaloo', art: 'das' },
 	{ de: 'Larifari', en: 'wishy-washy talk', art: 'das' },
 	{ de: 'Zankapfel', en: 'bone of contention', art: 'der' },
-	{ de: 'Hickhack', en: 'squabbling', art: 'das' }
+	{ de: 'Hickhack', en: 'squabbling', art: 'das' },
+	{ de: 'Schmarrn', en: 'twaddle', art: 'der' },
+	{ de: 'Klamauk', en: 'slapstick', art: 'der' },
+	{ de: 'Radau', en: 'ruckus', art: 'der' }
 ];
 
 // -- word pools from the course ---------------------------------------------------
 
-/** The longest word a block can hold (it must stand on the smallest grid). */
-export const MAX_WORD_LEN = 10;
+/** The longest word a block can hold: it must LIE on the widest grid with a
+ *  cell to spare — tall standing pillars wreck the board, so long words
+ *  never stand (see spawnDir) and never exceed the biggest width. */
+export const MAX_WORD_LEN = 9;
 const LETTERS_ONLY = /^[A-Za-zÄÖÜäöüß]+$/;
-/** Words per sub-level carried to the page: plenty, but a bounded payload. */
-const POOL_CAP = 60;
+/** Words per sub-level carried to the page: deck plus word-check bank,
+ *  within a bounded payload — variety is the point of a learning game. */
+const POOL_CAP = 220;
 
 /**
  * One pool per sub-level, drawn from the course's own flashcard decks: single
  * words of 3–10 letters, nouns with their article, each word once. Deck order
  * is teaching order, so the cap keeps the earliest-taught words.
  */
+/** Whether a word belongs on the board, and its tray chip stays chip-sized:
+ *  grammar-table meanings like "she / it (die-noun); they" have no place. */
+function gameWorthy(de: string, en: string): boolean {
+	if (de.length < 3 || de.length > MAX_WORD_LEN || !LETTERS_ONLY.test(de)) return false;
+	return en.length <= 18 && !/[/;()]/.test(en);
+}
+
 export function buildPools(quizzes: readonly Quiz[]): Record<string, WortWord[]> {
 	const pools: Record<string, WortWord[]> = {};
+	const seen: Record<string, Set<string>> = {};
 	for (const quiz of quizzes) {
-		if (quiz.type !== 'vocabulary' || !quiz.level || pools[quiz.level]) continue;
-		const seen = new Set<string>();
-		const list: WortWord[] = [];
+		if (quiz.type !== 'vocabulary' || !quiz.level) continue;
+		const list = (pools[quiz.level] ??= []);
+		const keys = (seen[quiz.level] ??= new Set());
 		for (const card of quiz.cards) {
+			if (list.length >= POOL_CAP) break;
 			const de = card.de.trim();
-			if (de.length < 3 || de.length > MAX_WORD_LEN || !LETTERS_ONLY.test(de)) continue;
+			if (!gameWorthy(de, card.en)) continue;
 			const key = de.toLowerCase();
-			if (seen.has(key)) continue;
-			seen.add(key);
+			if (keys.has(key)) continue;
+			keys.add(key);
 			list.push({ de, en: card.en, art: card.kind === 'noun' ? (card.article ?? null) : null });
-			if (list.length === POOL_CAP) break;
 		}
-		if (list.length) pools[quiz.level] = list;
 	}
 	return pools;
+}
+
+/** The word-check bank's shape, as far as this game reads it. */
+export interface WortBankSource {
+	levels: { level: string; words: [string, string][] }[];
+}
+
+/**
+ * Tops the pools up from the word check's hand-picked bank: entries come as
+ * ["der Topf", "pot"], the article folded into the German. Words the decks
+ * already carry are skipped, so each pool only grows.
+ */
+export function mergeWordBank(
+	pools: Record<string, WortWord[]>,
+	bank: WortBankSource
+): Record<string, WortWord[]> {
+	const out: Record<string, WortWord[]> = { ...pools };
+	for (const { level, words } of bank.levels) {
+		const list = [...(out[level] ?? [])];
+		const keys = new Set(list.map((w) => w.de.toLowerCase()));
+		for (const [full, en] of words) {
+			if (list.length >= POOL_CAP) break;
+			const m = /^(der|die|das)\s+(.+)$/.exec(full.trim());
+			const de = (m ? m[2] : full).trim();
+			const art = m ? m[1] : null;
+			if (!gameWorthy(de, en)) continue;
+			const key = de.toLowerCase();
+			if (keys.has(key)) continue;
+			keys.add(key);
+			list.push({ de, en, art });
+		}
+		if (list.length) out[level] = list;
+	}
+	return out;
 }
 
 /** The bank for a level index: the matching sub-level pool, or the Meister tier. */
@@ -169,6 +218,90 @@ export function refillWords(
 	let out = fresh(poolFor(pools, levelIdx));
 	for (let i = levelIdx - 1; i >= 0 && out.length < 4; i--) out = out.concat(fresh(poolFor(pools, i)));
 	return out;
+}
+
+// -- the high-score table ---------------------------------------------------------
+// An arcade Bestenliste, kept on the device: a hundred places, five-letter
+// names. Make the table, write your name — like the cabinets had it.
+
+export interface WortScore {
+	/** Up to five characters, written in capitals like an arcade would. */
+	name: string;
+	pts: number;
+	level: string;
+	at: number;
+}
+
+export const SCORE_CAP = 100;
+export const NAME_LEN = 5;
+const NAME_CHARS = /[^A-Z0-9ÄÖÜß]/g;
+
+/** An arcade name: capitals, umlauts and digits, five characters at most. */
+export function sanitizeName(raw: string): string {
+	const name = raw.toUpperCase().replace(NAME_CHARS, '').slice(0, NAME_LEN);
+	return name || 'ANON';
+}
+
+/** The 1-based place a score would take, or null when it misses the table.
+ *  Ties rank below the earlier equal scores, as the cabinets did it. */
+export function scoreRank(list: readonly WortScore[], pts: number): number | null {
+	if (pts <= 0) return null;
+	let rank = 1;
+	for (const s of list) if (s.pts >= pts) rank++;
+	return rank <= SCORE_CAP ? rank : null;
+}
+
+/** The table with the entry written in: sorted, capped at a hundred places. */
+export function insertScore(list: readonly WortScore[], entry: WortScore): WortScore[] {
+	return [...list, entry]
+		.sort((a, b) => b.pts - a.pts || a.at - b.at)
+		.slice(0, SCORE_CAP);
+}
+
+/** The stored table, oldest meanings dropped; anything unreadable is empty. */
+export function parseScores(raw: string | null): WortScore[] {
+	try {
+		const list = JSON.parse(raw ?? '[]');
+		if (!Array.isArray(list)) return [];
+		return list
+			.filter(
+				(s) =>
+					s &&
+					typeof s.name === 'string' &&
+					typeof s.pts === 'number' &&
+					typeof s.level === 'string' &&
+					typeof s.at === 'number'
+			)
+			.slice(0, SCORE_CAP);
+	} catch {
+		return [];
+	}
+}
+
+/** How many played words the page remembers across games. */
+export const SEEN_CAP = 300;
+
+/**
+ * The queue order a learning game wants: words never played come first (in
+ * random order), then the played ones, the longest-unseen first — so every
+ * game teaches something new before it repeats anything.
+ * `seen` is oldest-first, newest last.
+ */
+export function orderByFreshness(
+	words: readonly WortWord[],
+	seen: readonly string[],
+	random: () => number = Math.random
+): WortWord[] {
+	const recency = new Map<string, number>();
+	seen.forEach((de, i) => recency.set(de, i));
+	const fresh = words.filter((w) => !recency.has(w.de));
+	const played = words.filter((w) => recency.has(w.de));
+	for (let i = fresh.length - 1; i > 0; i--) {
+		const j = Math.floor(random() * (i + 1));
+		[fresh[i], fresh[j]] = [fresh[j], fresh[i]];
+	}
+	played.sort((a, b) => recency.get(a.de)! - recency.get(b.de)!);
+	return [...fresh, ...played];
 }
 
 // -- the grid --------------------------------------------------------------------
@@ -286,9 +419,11 @@ export function goldenRegion(
 
 // -- spawning ----------------------------------------------------------------------
 
-/** How a new word falls: standing when it is wider than the board. */
+/** How a new word falls: lying, with only SHORT words sometimes standing.
+ *  Tall pillars fragment the floor and invite one-cell bridges, so a long
+ *  word never stands — a word too wide for the grid waits for a bigger one. */
 export function spawnDir(len: number, cols: number, random: () => number = Math.random): 'h' | 'v' {
-	if (len > cols) return 'v';
+	void cols;
 	return len <= 4 && random() < 0.35 ? 'v' : 'h';
 }
 
@@ -315,21 +450,33 @@ export function pickSpot(
 		c: 0
 	};
 	let best: { c: number; landing: number } | null = null;
+	let solid: { c: number; landing: number } | null = null;
 	const maxC = dir === 'h' ? grid.cols - len : grid.cols - 1;
 	for (let c = 0; c <= maxC; c++) {
 		probe.c = c;
 		const landing = probe.r + dropDist(probe, occ, grid.rows);
 		if (landing < 0) continue; // would stick out of the top
-		if (!best || landing > best.landing || (landing === best.landing && random() < 0.4))
-			best = { c, landing };
+		const pick = (prev: { c: number; landing: number } | null) =>
+			!prev || landing > prev.landing || (landing === prev.landing && random() < 0.4);
+		if (pick(best)) best = { c, landing };
+		if (dir === 'h') {
+			// How much of the word would rest on something: a word balanced on
+			// one cell looks broken, so a majority-supported landing wins.
+			let support = 0;
+			for (let i = 0; i < len; i++)
+				if (landing + 1 >= grid.rows || occ.has(`${landing + 1},${c + i}`)) support++;
+			if (support * 2 >= len && pick(solid)) solid = { c, landing };
+		}
 	}
-	return best ? { c: best.c, r: dir === 'v' ? -len : -1 } : null;
+	const spot = dir === 'h' ? (solid ?? best) : best;
+	return spot ? { c: spot.c, r: dir === 'v' ? -len : -1 } : null;
 }
 
-/** Whether a word of this length could still land fully on the board. */
+/** Whether a word of this length could still land fully on the board —
+ *  lying, or standing only when it is short enough to stand (see spawnDir). */
 export function canFit(blocks: readonly WortBlock[], len: number, grid: WortGrid): boolean {
-	for (const dir of len > grid.cols ? (['v'] as const) : (['h', 'v'] as const)) {
-		if (dir === 'v' && len > grid.rows) continue;
+	if (len >= grid.cols) return false;
+	for (const dir of len <= 4 ? (['h', 'v'] as const) : (['h'] as const)) {
 		if (pickSpot(blocks, len, dir, grid, () => 0)) return true;
 	}
 	return false;

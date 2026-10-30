@@ -29,6 +29,13 @@ export interface SpeakOptions {
 	locale: string;
 	/** 0.5–2.0, where 1 is the voice's natural pace. */
 	rate?: number;
+	/**
+	 * Skip the cloud leg for this utterance: a recording if one exists, else
+	 * straight to the device voice. For rapid-fire speech (a game speaking
+	 * every word tapped), where a cloud round-trip per word is a lag, not a
+	 * luxury.
+	 */
+	skipCloud?: boolean;
 }
 
 export interface TtsProvider {
@@ -451,7 +458,7 @@ export class ChainedTtsProvider implements TtsProvider {
 		if (isMuted()) return false;
 		networkTrouble = false;
 		if (await this.recorded.speak(text, options)) return true;
-		if (!this.offlineOnly()) {
+		if (!this.offlineOnly() && !options.skipCloud) {
 			// Offline, or the recording already hit a slow/failed connection:
 			// skip the cloud's request (another wait) and go to the device voice.
 			if (isOffline()) noteNetworkTrouble();

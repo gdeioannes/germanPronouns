@@ -29,6 +29,12 @@ export const changelog: ChangelogEntry[] = [
       "Polished after a design review: words are written as German writes them (nouns with their capital letter), tapping a block speaks it, and a missed article is worn on the block from then on — read it every time you look, though it only pays silver now that it has been shown.",
       "When the board pulses with Achtung, earned words stop refilling: matching your way out of danger is now a real rescue. And the game-over card tells the whole story — score, level, words earned, lines won, and your best.",
       "Fairer endings: a word too long for the current grid waits for a bigger level instead of ending the game, a block stands up when only standing fits, and the game is over only when truly nothing can land any more. Wortblöcke also joined the Library menu.",
+      "An arcade Bestenliste: make the top hundred and sign it with five letters in proper letter boxes — and with the World tab, your name goes onto a global board every player can see. The champions greet you right on the title screen.",
+      "A golden line is now ONE connected shape: the gold floods only through touching same-color words, distant lines are their own sets, and bigger grids plus a no-full-width rule keep the board honest. Long words always lie flat — no more impossible pillars.",
+      "Much more to learn: each level's word bag grew to as many as 220 words (the decks plus the word check's hand-picked bank), never-played words always come first, and repeats return longest-forgotten first.",
+      "Nicer hands: drag a chip onto its block if you prefer, the grabbed word grows its own arrow and rotate handles (only the moves that are possible), and the next words wait in a little dock under the top bar.",
+      "A hint star sometimes turns up among the chips: spend it on any word to see and hear what it means — shown words pay silver. Perfect clears, long words and first-try articles all pay bonuses.",
+      "An illustrated So-spielst-du guide opens before your first game, with little pictures of every rule, and the word audio now answers instantly instead of after a cloud round-trip.",
     ],
   },
   {

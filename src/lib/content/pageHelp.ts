@@ -165,25 +165,9 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 		]
 	},
 
-	'/play/wortbloecke': {
-		title: 'Wortblöcke',
-		intro:
-			'A word puzzle in a falling-block well. Pair the German blocks with their English in the tray — either order works — and name the article for a noun. Mistakes drop new blocks; fill the board to the top and the game is over. When the board pulses with Achtung, earned words stop refilling: matching is how you dig yourself out. Miss an article and the word wears it from then on — worth only silver, but read it every time you look.',
-		items: [
-			{
-				title: 'Golden lines',
-				text: 'Fill a whole row in ONE color and everything connected to it in that color turns golden. Match one golden word to start the run: then you must clear the whole set, one after another. All right pays the jackpot; one miss and the set dissolves without points.'
-			},
-			{
-				title: 'Move and rotate',
-				text: 'Tap a free block to grab it, then nudge it left or right or stand it up. You start with one of each; right articles and landslides earn more, and every golden line pays a bag of them.'
-			},
-			{
-				title: 'The climb',
-				text: 'Points move you up the levels, A1.1 towards C2.2, each with its own words from the course — and past C2 the Meister words get wonderfully weird. The grid grows with you.'
-			}
-		]
-	},
+	// Wortblöcke carries its own illustrated "So spielst du" guide in-game
+	// (shown before the first play, reopened from the ? in its top bar), so
+	// it has no PageHelp entry: one set of instructions, not two.
 
 	'/play/ja-nein': {
 		title: 'Ja oder Nein?',

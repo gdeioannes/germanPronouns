@@ -6,39 +6,52 @@
 	// ends the game. Points climb the learner A1.1 → C2.2 → Meister, growing
 	// the grid on the way. Nothing here is marked or counted as an exercise.
 	import Seo from '$lib/components/Seo.svelte';
-	import PageHelp from '$lib/components/PageHelp.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { onMount } from 'svelte';
 	import { announce } from '$lib/a11y.svelte';
 	import { celebrate, effectsCalm } from '$lib/motion/fx.svelte';
 	import { playSound } from '$lib/services/sounds';
 	import { tts } from '$lib/services/speech';
 	import { track } from '$lib/services/analytics';
+	import { fetchWorldScores, submitWorldScore, worldBoardAvailable } from '$lib/services/wortScores';
 	import { breadcrumbLd } from '$lib/seo';
 	import {
 		canFit,
 		cellsOf,
 		completeRows,
 		goldenRegion,
+		insertScore,
 		levelForPoints,
+		orderByFreshness,
+		parseScores,
 		pickSpot,
 		refillWords,
 		rowColors,
+		sanitizeName,
+		scoreRank,
 		settleBlocks,
 		spawnDir,
 		stackTop,
+		NAME_LEN,
+		SCORE_CAP,
+		SEEN_CAP,
 		COMBO_WINDOW_MS,
 		GOLD_POINTS,
 		LANDSLIDE,
 		LINE_BONUS,
 		LINE_MOVES,
 		LINE_ROTATES,
+		LONG_WORD_BONUS,
+		LONG_WORD_LEN,
 		MATCH_POINTS,
+		PERFECT_CLEAR_BONUS,
 		POT_PER_WORD,
 		START_MOVES,
 		START_ROTATES,
 		WORT_LEVELS,
 		WORT_PALETTE,
 		type WortBlock,
+		type WortScore,
 		type WortWord
 	} from '$lib/domain/wortbloecke';
 	import type { PageData } from './$types';
@@ -47,6 +60,22 @@
 	const DECK = $derived(`/course/${data.courseId}`);
 	const LOCALE = 'de-DE';
 	const BEST_KEY = 'wortbloecke_best';
+	const SCORES_KEY = 'wortbloecke_scores';
+	const NAME_KEY = 'wortbloecke_name';
+	const SEEN_KEY = 'wortbloecke_seen';
+
+	/** Words already played, oldest first — this is a learning app, so new
+	 *  words come before any repeat, across games too. */
+	let seen: string[] = [];
+
+	function markSeen(de: string) {
+		seen = [...seen.filter((x) => x !== de), de].slice(-SEEN_CAP);
+		try {
+			localStorage.setItem(SEEN_KEY, JSON.stringify(seen));
+		} catch {
+			/* no storage: variety holds within this session */
+		}
+	}
 
 	// -- the board model ---------------------------------------------------------
 	/** A block plus its screen states; $state makes mutations repaint. */
@@ -57,8 +86,10 @@
 		clearing: boolean;
 		fizzle: boolean;
 		featured: boolean;
-		/** The article was missed once: the block now wears it, and only pays silver. */
+		/** The article was missed or revealed: the block wears it, silver only. */
 		learned: boolean;
+		/** A hint star revealed this word's meaning. */
+		hinted: boolean;
 	}
 	interface GoldenSet {
 		color: string;
@@ -78,6 +109,11 @@
 	let lastMatch = 0;
 	let movUses = $state(START_MOVES);
 	let rotUses = $state(START_ROTATES);
+	/** The star is armed: the next block tapped is revealed, not matched. */
+	let hintMode = $state(false);
+	/** The hint star turns up IN the tray like a word — one at a time. */
+	const STAR = '__star__';
+	const STAR_CHANCE = 0.08;
 	let golds = 0;
 	let levelIdx = $state(0);
 	const grid = $derived({ cols: WORT_LEVELS[levelIdx].cols, rows: WORT_LEVELS[levelIdx].rows });
@@ -108,19 +144,145 @@
 	let selected = $state<string | null>(null);
 	let grabbedId = $state<number | null>(null);
 	const grabbed = $derived(blocks.find((b) => b.id === grabbedId) ?? null);
-	/** The Move/Rotate pad shows only for a free block. */
-	const padOpen = $derived(grabbed !== null && !setOf(grabbed as Block));
+	const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+	/** The grabbed block's handles, fused to the word itself: an arrow cap on
+	 *  each end in a darker shade of its own color, the rotate as a tab on its
+	 *  top edge (under its bottom edge when the word touches the ceiling).
+	 *  At a wall a cap slides inward over the end letter rather than clipping. */
+	const ctl = $derived.by(() => {
+		const b = grabbed;
+		if (!b || setOf(b as Block) || doneOf(b as Block)) return null;
+		// A handle only exists when its move is actually possible right now.
+		const canLeft = movUses > 0 && fits(b as Block, { dir: b.dir, r: b.r, c: b.c - 1 });
+		const canRight = movUses > 0 && fits(b as Block, { dir: b.dir, r: b.r, c: b.c + 1 });
+		const canRot = rotUses > 0 && b.len > 1 && rotateCandidate(b as Block) !== null;
+		if (!canLeft && !canRight && !canRot) return null;
+		const w = grid.cols * cs;
+		const h = grid.rows * cs;
+		const capW = Math.max(22, Math.round(cs * 0.72));
+		const capH = cs;
+		const rotW = Math.max(28, Math.round(cs * 0.95));
+		const rotH = Math.max(20, Math.round(cs * 0.55));
+		// Arrows ride the block's own row: the middle letter for a standing word.
+		const rowY = b.dir === 'h' ? b.r * cs : (b.r + Math.floor(b.len / 2)) * cs;
+		const cy = clamp(rowY, 0, h - capH);
+		const leftEdge = b.c * cs;
+		const rightEdge = (b.dir === 'h' ? b.c + b.len : b.c + 1) * cs;
+		// A cap sits just outside its end; with no room there it snaps flush
+		// ONTO the end letter, grid-aligned, never to a halfway overlap.
+		const leftX = leftEdge - capW >= -EXT ? leftEdge - capW : leftEdge;
+		const rightX = rightEdge <= w - capW + EXT ? rightEdge : rightEdge - capW;
+		const centerX = (b.dir === 'h' ? b.c * cs + (b.len * cs) / 2 : b.c * cs + cs / 2) - rotW / 2;
+		const above = b.r * cs - rotH + 1;
+		const under = above < -EXT;
+		const rotY = under ? (b.dir === 'h' ? (b.r + 1) * cs : (b.r + b.len) * cs) - 1 : above;
+		return {
+			color: b.color,
+			capW,
+			capH,
+			rotW,
+			rotH,
+			under,
+			canLeft,
+			canRight,
+			canRot,
+			left: { x: leftX, y: cy },
+			right: { x: rightX, y: cy },
+			rot: { x: clamp(centerX, -EXT, w - rotW + EXT), y: clamp(rotY, -EXT, h - rotH + EXT) }
+		};
+	});
 	let pending = $state<Block | null>(null);
 	let pendingRun: GoldenSet | null = null;
 	/** English chips in the tray, in their own stable shuffled order. */
 	let chips = $state<string[]>([]);
 	let sayOn = $state(true);
 
+	// -- the arcade Bestenliste ---------------------------------------------------
+	let scores = $state<WortScore[]>([]);
+	/** The place this game earned, or null; set at game over. */
+	let overRank = $state<number | null>(null);
+	let nameDraft = $state('');
+	let entered = $state(false);
+	let enteredAt = $state(0);
+	let showBoard = $state(false);
+	/** The world board: fetched on first open, refreshed after a new entry. */
+	let boardTab = $state<'local' | 'world'>('local');
+	let world = $state<WortScore[]>([]);
+	let worldState = $state<'idle' | 'loading' | 'error' | 'ready'>('idle');
+
+	function openBoard() {
+		showBoard = true;
+		if (worldBoardAvailable() && worldState === 'idle') void loadWorld();
+	}
+
+	async function loadWorld() {
+		worldState = 'loading';
+		const list = await fetchWorldScores();
+		if (list) {
+			world = list;
+			worldState = 'ready';
+		} else {
+			worldState = 'error';
+		}
+	}
+
+	function saveScores() {
+		try {
+			localStorage.setItem(SCORES_KEY, JSON.stringify(scores));
+			localStorage.setItem(NAME_KEY, nameDraft);
+		} catch {
+			/* no storage: the table is this session's */
+		}
+	}
+
+	/** Live keystroke cleanup: capitals, umlauts and digits, five at most. */
+	const tidyName = (v: string) => v.toUpperCase().replace(/[^A-Z0-9ÄÖÜß]/g, '').slice(0, NAME_LEN);
+
+	/** Action: the keyboard is ready the moment the slots appear. */
+	const focusNow = (el: HTMLInputElement) => {
+		el.focus();
+		caretEnd(el);
+	};
+
+	/** The slot row has no visible caret, so the real one is pinned to the
+	 *  end — otherwise a click lands it anywhere in invisible text, where
+	 *  Backspace deletes nothing and the box feels dead. */
+	function caretEnd(el: HTMLInputElement) {
+		requestAnimationFrame(() => el.setSelectionRange(el.value.length, el.value.length));
+	}
+
+	function submitName() {
+		if (!overRank || entered) return;
+		const name = sanitizeName(nameDraft);
+		nameDraft = name;
+		const entry: WortScore = { name, pts, level: WORT_LEVELS[levelIdx].name, at: Date.now() };
+		enteredAt = entry.at;
+		scores = insertScore(scores, entry);
+		entered = true;
+		saveScores();
+		// Your five letters go to the world board too, fire-and-forget.
+		void submitWorldScore(entry).then((ok) => {
+			if (ok) worldState = 'idle'; // refetch next time the board opens
+		});
+		playSound('milestone');
+		announce(`Place ${overRank}: ${name}, ${pts} points.`);
+	}
+
 	// -- sizing: the board fills whatever is left, no page scroll ever ------------
+	/** The mat around the grid: room for handles and badges to breathe. */
+	const PAD = 12;
+	/** How far a handle may reach into the mat before it slides inward. */
+	const EXT = 8;
 	let zoneW = $state(0);
 	let zoneH = $state(0);
 	const cs = $derived(
-		Math.max(20, Math.min(Math.floor((zoneW - 2) / grid.cols), Math.floor((zoneH - 2) / grid.rows)) || 20)
+		Math.max(
+			20,
+			Math.min(
+				Math.floor((zoneW - 2 - PAD * 2) / grid.cols),
+				Math.floor((zoneH - 2 - PAD * 2) / grid.rows)
+			) || 20
+		)
 	);
 
 	const upper = (w: WortWord) => w.de.toUpperCase();
@@ -129,7 +291,9 @@
 
 	function sayDe(text: string) {
 		if (!sayOn) return;
-		void tts.speak(text, { locale: LOCALE }).catch(() => {});
+		// skipCloud: the game speaks on every tap — a recording if one exists,
+		// else the device voice at once, never a cloud round-trip per word.
+		void tts.speak(text, { locale: LOCALE, skipCloud: true }).catch(() => {});
 	}
 
 	function float(text: string, x: number, y: number, cls = '') {
@@ -141,20 +305,22 @@
 		float(text, Math.min(b.c, Math.max(0, grid.cols - 5)) * cs, (b.r + dy) * cs, cls);
 
 	// -- spawning ------------------------------------------------------------------
-	/** A word suits the CURRENT grid: it lies flat, or stands with headroom.
-	 *  Longer words wait until the grid has grown with the level. */
-	const suitsGrid = (w: WortWord) => w.de.length <= grid.cols || w.de.length <= grid.rows - 4;
+	/** A word suits the CURRENT grid when it lies flat with at least one cell
+	 *  to spare — long words never stand (pillars wreck the board), and a
+	 *  full-width word would be a free line. Longer words wait for a bigger
+	 *  grid. */
+	const suitsGrid = (w: WortWord) => w.de.length < grid.cols;
 
 	function refillQueue() {
 		if (queue.length) return;
 		const onBoard = new Set(blocks.map((b) => b.word.de));
-		queue = refillWords(data.pools, levelIdx, onBoard)
-			.filter(suitsGrid)
-			.map((word) => ({
-				word,
-				color: WORT_PALETTE[Math.floor(Math.random() * WORT_PALETTE.length)]
-			}));
-		queue.sort(() => Math.random() - 0.5);
+		const words = refillWords(data.pools, levelIdx, onBoard).filter(suitsGrid);
+		// Never-played words first, then the longest-unseen: fresh learning
+		// every game, repeats only when the bank is truly exhausted.
+		queue = orderByFreshness(words, seen).map((word) => ({
+			word,
+			color: WORT_PALETTE[Math.floor(Math.random() * WORT_PALETTE.length)]
+		}));
 	}
 
 	function showNext() {
@@ -183,6 +349,7 @@
 			return;
 		}
 		const next = queue.splice(at, 1)[0];
+		markSeen(next.word.de);
 		const len = next.word.de.length;
 		// The preferred orientation, falling back to the other when only that
 		// one has room.
@@ -213,12 +380,14 @@
 			clearing: false,
 			fizzle: false,
 			featured: false,
-			learned: false
+			learned: false,
+			hinted: false
 		};
 		blocks.push(b);
 		if (animate) requestAnimationFrame(() => requestAnimationFrame(settle));
 		else settle();
 		syncChips();
+		if (animate) maybeDealStar();
 		showNext();
 	}
 
@@ -236,17 +405,14 @@
 		const now = completeRows(blocks, grid);
 		const fresh = [...now].filter((r) => !fullRows.has(r));
 		fullRows = now;
-		const byColor = new Map<string, number[]>();
 		for (const r of fresh) {
 			const colors = rowColors(blocks, r);
 			if (colors.size !== 1) {
 				lineFlash(r, true);
 				continue;
 			}
-			const color = [...colors][0];
-			byColor.set(color, [...(byColor.get(color) ?? []), r]);
+			gildRow(r, [...colors][0]);
 		}
-		for (const [color, rows] of byColor) gild(rows, color);
 	}
 
 	function lineFlash(r: number, mixed: boolean) {
@@ -256,20 +422,37 @@
 		if (mixed) float('Gemischt! One color makes gold', cs, Math.max(0, r - 1) * cs, 'muted');
 	}
 
-	function gild(rows: number[], color: string) {
-		let ch = challenges.find((x) => x.color === color && !x.active);
+	/** One line, one CONNECTED region. The flood from this row may run into a
+	 *  pending same-color set — only then do the sets merge. A same-color
+	 *  line elsewhere on the board stays its own set. */
+	function gildRow(row: number, color: string) {
+		// Other colors' sets are walls the flood never crosses; same-color
+		// pending sets are left open, so touching them is detectable below.
+		const taken = new Set<number>(
+			challenges.filter((x) => x.color !== color).flatMap((x) => [...x.ids, ...x.doneIds])
+		);
+		const region = goldenRegion(blocks, [row], color, taken) as Block[];
+		const ids = new Set(region.map((b) => b.id));
+		const touched = challenges.filter(
+			(x) => x.color === color && !x.active && [...x.ids].some((id) => ids.has(id))
+		);
+		let ch = touched[0];
 		const merging = Boolean(ch);
 		if (!ch) {
 			ch = { color, ids: new Set(), des: new Set(), doneIds: new Set(), active: false, pot: 0, lines: 0 };
 			challenges.push(ch);
 		}
-		ch.lines += rows.length;
-		for (const r of rows) lineFlash(r, false);
+		// The region bridged several pending sets of its color: they become one.
+		for (const other of touched.slice(1)) {
+			for (const id of other.ids) ch.ids.add(id);
+			for (const de of other.des) ch.des.add(de);
+			ch.lines += other.lines;
+			challenges = challenges.filter((x) => x !== other);
+		}
+		ch.lines += 1;
+		lineFlash(row, false);
 		playSound('msgIn');
-		const taken = new Set<number>(
-			challenges.filter((x) => x !== ch).flatMap((x) => [...x.ids, ...x.doneIds])
-		);
-		for (const b of goldenRegion(blocks, rows, color, taken) as Block[]) {
+		for (const b of region) {
 			ch.ids.add(b.id);
 			ch.des.add(b.word.de);
 			b.gilded = true;
@@ -287,8 +470,8 @@
 		const total = challenges.reduce((n, c) => n + c.ids.size, 0);
 		goldBar =
 			challenges.length > 1
-				? `⭐ ${challenges.length} golden sets (${total} words). Match a word to start ITS set — then finish that whole set.`
-				: `⭐ Golden line: ${total} words. Match any of them to start the run — then it is all or nothing.`;
+				? `⭐ ${challenges.length} golden sets (${total} words) — start one, finish THAT set`
+				: `⭐ Goldene Zeile: ${total} words — match one to start, then ALL in a row`;
 	}
 
 	function markGilded(b: Block, ch: GoldenSet) {
@@ -302,7 +485,7 @@
 		ch.doneIds.add(b.id);
 		ch.pot += POT_PER_WORD;
 		goldBar = ch.ids.size
-			? `⭐ ${b.word.en} ✓ — noch ${ch.ids.size}! Pot: ${ch.pot}`
+			? `⭐ ${b.word.en} ✓ · noch ${ch.ids.size} · Pot ${ch.pot}`
 			: '⭐ The last one…';
 		playSound('right', combo);
 		sayDe(spoken(b.word));
@@ -337,11 +520,10 @@
 				linesWon += ch.lines;
 				celebrate(ch.lines >= 3 ? 'Dreifach-Zeile!' : ch.lines === 2 ? 'Doppel-Zeile!' : 'Zeile!');
 				announce(`Line cleared. ${bonus} bonus points.`);
+				if (!blocks.length) return perfectClear();
 				settle();
 				syncChips();
-				// A finished line feeds exactly ONE new word — none in danger.
-				if (!danger) spawn();
-				else showNext();
+				spawn(); // a finished line feeds exactly ONE new word
 			},
 			doneBlocks.length * 110 * dur() + 380
 		);
@@ -399,7 +581,7 @@
 		if (danger && !was) {
 			playSound('down');
 			float('⚠ Achtung — wenig Platz!', cs, cs, 'big accent');
-			announce('Careful: the board is nearly full. While it is, earned words stop refilling — dig yourself out.');
+			announce('Careful: the board is nearly full.');
 		}
 	}
 
@@ -407,6 +589,8 @@
 		if (phase === 'over') return;
 		phase = 'over';
 		danger = false;
+		overRank = scoreRank(scores, pts);
+		entered = false;
 		playSound('unmatch');
 		if (pts > best) {
 			best = pts;
@@ -438,9 +622,24 @@
 		requestAnimationFrame(() => (shaken = b.id));
 	}
 
+	/** The star spent on a word: say and show what it means — and for a noun,
+	 *  the article. Shown is shown: the word pays silver from here on. */
+	function useHint(b: Block) {
+		hintMode = false;
+		chips = chips.filter((de) => de !== STAR); // the star is spent
+		b.hinted = true;
+		if (b.word.art) b.learned = true;
+		playSound('msgIn');
+		sayDe(spoken(b.word));
+		floatAt(b, `${spoken(b.word)} = ${b.word.en}`, 'big ' + (b.word.art ? artClass(b.word.art) : 'muted'), -1.1);
+		announce(`${spoken(b.word)}: ${b.word.en}.`);
+	}
+
 	function tapBlock(b: Block) {
 		if (pending || phase !== 'play') return;
 		if (b.clearing || b.fizzle) return;
+		// An armed star reveals any word — even a golden one mid-run.
+		if (hintMode) return useHint(b);
 		const ch = setOf(b);
 		if (activeCh && ch !== activeCh) return buzz(b);
 		if (doneOf(b)) return buzz(b);
@@ -455,7 +654,7 @@
 		}
 		if (ch) {
 			if (selected !== b.word.de) return failRun(b, ch);
-			if (b.word.art && !b.learned) return askArticle(b, ch);
+			if (b.word.art) return askArticle(b, ch);
 			return markGilded(b, ch);
 		}
 		if (selected !== b.word.de) {
@@ -465,7 +664,7 @@
 			spawn(); // a wrong pair costs board space
 			return;
 		}
-		if (b.word.art && !b.learned) return askArticle(b, null);
+		if (b.word.art) return askArticle(b, null);
 		clearBlock(b, MATCH_POINTS, false);
 	}
 
@@ -484,10 +683,10 @@
 				return;
 			}
 			if (gch) {
-				if (g.word.art && !g.learned) return askArticle(g, gch);
+				if (g.word.art) return askArticle(g, gch);
 				return markGilded(g, gch);
 			}
-			if (g.word.art && !g.learned) return askArticle(g, null);
+			if (g.word.art) return askArticle(g, null);
 			return clearBlock(g, MATCH_POINTS, false);
 		}
 		selected = selected === de ? null : de;
@@ -513,10 +712,12 @@
 			if (right) return markGilded(b, ch);
 			return failRun(b, ch);
 		}
-		if (right) return clearBlock(b, GOLD_POINTS, true);
-		// Wrong article: the word stays, now WEARING its article as the lesson —
-		// it will match for silver only, since the answer has been shown. The
-		// mistake still drops a new block.
+		// A learned word still has to be answered — the badge shows the
+		// article, reading it off IS the rep — but it pays silver, since the
+		// answer is in view. First-try knowledge pays gold.
+		if (right) return clearBlock(b, b.learned ? MATCH_POINTS : GOLD_POINTS, !b.learned);
+		// Wrong article: the word stays, now WEARING its article as the lesson.
+		// The mistake still drops a new block.
 		playSound('wrong');
 		sayDe(spoken(b.word));
 		shake(b);
@@ -533,11 +734,13 @@
 		const now = Date.now();
 		combo = now - lastMatch < COMBO_WINDOW_MS ? combo + 1 : 1;
 		lastMatch = now;
-		const gained = base * combo;
+		// A long word is harder to read and harder to place: it pays extra.
+		const long = b.len >= LONG_WORD_LEN;
+		const gained = (base + (long ? LONG_WORD_BONUS : 0)) * combo;
 		gain(gained);
 		playSound('right', combo);
 		sayDe(spoken(b.word));
-		floatAt(b, `${gold ? '★ ' : ''}+${gained}`, gold ? 'gold' : '', -0.6);
+		floatAt(b, `${gold ? '★ ' : ''}+${gained}${long ? ' · langes Wort!' : ''}`, gold ? 'gold' : '', -0.6);
 		clearSelection();
 		b.clearing = true;
 		if (gold) {
@@ -548,14 +751,25 @@
 		wordsDone++;
 		setTimeout(() => {
 			blocks = blocks.filter((x) => x !== b);
+			if (!blocks.length) return perfectClear();
 			const fell = settle();
 			if (fell >= LANDSLIDE) earn('move', 'Landslide!');
 			syncChips();
-			// Only an earned word feeds the well — and while the board is in
-			// danger, nothing does: earning words is how you dig yourself out.
-			if (!danger) spawn();
-			else showNext();
+			spawn(); // an earned word ALWAYS brings the next one
 		}, 380 * dur() + 20);
+	}
+
+	/** The board swept completely empty: the rarest feat in the game. */
+	function perfectClear() {
+		gain(PERFECT_CLEAR_BONUS);
+		movUses++;
+		rotUses++;
+		celebrate('Alles weg!');
+		announce(`Perfect clear! ${PERFECT_CLEAR_BONUS} bonus points.`);
+		syncChips();
+		danger = false;
+		// A fresh little hand, so the triumph flows straight into play.
+		for (let i = 0; i < 3; i++) spawn();
 	}
 
 	function earn(what: 'move' | 'rotate', why: string) {
@@ -592,9 +806,8 @@
 		setTimeout(settle, 180);
 	}
 
-	function doRotate() {
-		const b = grabbed as Block | null;
-		if (!b || rotUses === 0 || b.len === 1 || phase !== 'play') return;
+	/** The spot a rotation would land in, nearest pivot first, or null. */
+	function rotateCandidate(b: Block): { dir: 'h' | 'v'; r: number; c: number } | null {
 		const cands =
 			b.dir === 'h'
 				? [
@@ -609,7 +822,13 @@
 						{ dir: 'h' as const, r: b.r, c: b.c },
 						{ dir: 'h' as const, r: b.r, c: b.c - b.len + 1 }
 					];
-		const cand = cands.find((x) => fits(b, x));
+		return cands.find((x) => fits(b, x)) ?? null;
+	}
+
+	function doRotate() {
+		const b = grabbed as Block | null;
+		if (!b || rotUses === 0 || b.len === 1 || phase !== 'play') return;
+		const cand = rotateCandidate(b);
 		if (!cand) {
 			playSound('wrong');
 			shake(b);
@@ -624,7 +843,7 @@
 	// -- the tray -----------------------------------------------------------------------
 	function syncChips() {
 		const want = new Set(blocks.map((b) => b.word.de));
-		let next = chips.filter((de) => want.has(de));
+		let next = chips.filter((de) => de === STAR || want.has(de));
 		for (const de of want) {
 			if (next.includes(de)) continue;
 			const at = Math.floor(Math.random() * (next.length + 1));
@@ -632,19 +851,118 @@
 		}
 		chips = next;
 	}
+
+	/** Now and then a star is dealt into the tray like a word: one at a
+	 *  time, in a random seat. */
+	function maybeDealStar() {
+		if (chips.includes(STAR) || Math.random() >= STAR_CHANCE) return;
+		const at = Math.floor(Math.random() * (chips.length + 1));
+		chips = [...chips.slice(0, at), STAR, ...chips.slice(at)];
+		playSound('msgIn');
+		announce('A hint star turned up in the tray.');
+	}
 	const chipWord = (de: string) => blocks.find((b) => b.word.de === de)?.word ?? null;
 	const chipDone = (de: string) => blocks.some((b) => b.word.de === de && b.done);
 
+	// -- drag a chip onto a block -----------------------------------------------
+	// Pointer-based so it works with a thumb: past a small threshold the chip
+	// lifts into a ghost, the block underneath lights up, and dropping runs
+	// the very same match logic as tapping. A short press stays a tap.
+	let drag = $state<{ de: string; x: number; y: number } | null>(null);
+	let dragTarget = $state<number | null>(null);
+	let dragStart: { x: number; y: number; de: string } | null = null;
+	let suppressClick = false;
+
+	function chipDown(e: PointerEvent, de: string) {
+		if (phase !== 'play' || pending || chipDone(de)) return;
+		dragStart = { x: e.clientX, y: e.clientY, de };
+		(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+	}
+
+	function chipMove(e: PointerEvent) {
+		if (!dragStart) return;
+		if (!drag) {
+			if (Math.hypot(e.clientX - dragStart.x, e.clientY - dragStart.y) < 8) return;
+			drag = { de: dragStart.de, x: e.clientX, y: e.clientY };
+			playSound('up');
+		} else {
+			drag = { de: drag.de, x: e.clientX, y: e.clientY };
+		}
+		const el = document.elementFromPoint(e.clientX, e.clientY)?.closest('[data-block]');
+		dragTarget = el ? Number((el as HTMLElement).dataset.block) : null;
+	}
+
+	function chipUp() {
+		dragStart = null;
+		if (!drag) return; // it stayed a tap: the click handler takes it
+		suppressClick = true;
+		setTimeout(() => (suppressClick = false), 0);
+		const de = drag.de;
+		drag = null;
+		const id = dragTarget;
+		dragTarget = null;
+		const b = id !== null ? blocks.find((x) => x.id === id) : undefined;
+		if (!b) {
+			playSound('down');
+			return;
+		}
+		selected = de;
+		tapBlock(b);
+		if (selected === de) selected = null; // a miss leaves the selection set
+	}
+
+	function chipCancel() {
+		dragStart = null;
+		drag = null;
+		dragTarget = null;
+	}
+
 	// -- boot ----------------------------------------------------------------------------
-	$effect(() => {
+	// Boot reads run ONCE. (As an $effect this read its own freshly written
+	// `scores`, which re-triggers the effect forever in Svelte 5.)
+	onMount(() => {
 		try {
-			best = Number(localStorage.getItem(BEST_KEY) ?? 0) || 0;
+			rulesSeen = localStorage.getItem(RULES_KEY) === '1';
+			const rawSeen = JSON.parse(localStorage.getItem(SEEN_KEY) ?? '[]');
+			seen = Array.isArray(rawSeen) ? rawSeen.filter((x) => typeof x === 'string').slice(-SEEN_CAP) : [];
+			const list = parseScores(localStorage.getItem(SCORES_KEY));
+			scores = list;
+			const name = sanitizeName(localStorage.getItem(NAME_KEY) ?? '');
+			nameDraft = name === 'ANON' ? '' : name;
+			best = Math.max(Number(localStorage.getItem(BEST_KEY) ?? 0) || 0, list[0]?.pts ?? 0);
 		} catch {
 			best = 0;
 		}
 	});
 
+	// -- how to play ---------------------------------------------------------------
+	const RULES_KEY = 'wortbloecke_rules_seen';
+	let showRules = $state(false);
+	let rulesSeen = $state(false);
+
 	function start() {
+		// The first game opens on the rules; after that, straight in.
+		if (!rulesSeen) {
+			showRules = true;
+			return;
+		}
+		beginGame();
+	}
+
+	function closeRules() {
+		showRules = false;
+		if (!rulesSeen) {
+			rulesSeen = true;
+			try {
+				localStorage.setItem(RULES_KEY, '1');
+			} catch {
+				/* no storage: shown again next visit */
+			}
+			if (phase === 'intro') beginGame();
+		}
+	}
+
+	function beginGame() {
 		phase = 'play';
 		track('wortbloecke_start', {});
 		// Deal quietly, then check once: a line on the opening board counts,
@@ -673,6 +991,7 @@
 		lastMatch = 0;
 		movUses = START_MOVES;
 		rotUses = START_ROTATES;
+		hintMode = false;
 		golds = 0;
 		wordsDone = 0;
 		linesWon = 0;
@@ -682,6 +1001,9 @@
 		pending = null;
 		pendingRun = null;
 		shaken = null;
+		overRank = null;
+		entered = false;
+		showBoard = false;
 		clearSelection();
 		phase = 'intro';
 	}
@@ -696,25 +1018,37 @@
 
 <main class="wort">
 	<header class="top">
-		<a class="back" href={DECK} aria-label="Back to your deck"><Icon name="arrowLeft" size="1em" /> Back</a>
-		<span class="brand"><span class="t" lang="de">Wortblöcke</span>{#key levelIdx}<span class="lvl tnum pop">{WORT_LEVELS[levelIdx].name}</span>{/key}</span>
-		{#if combo > 1}{#key combo}<span class="combo pop">×{combo}!</span>{/key}{/if}
-		<span class="next" aria-hidden="true">
-			{#each preview as p, i (p.de + i)}
-				<span class="minigroup">
-					{#if i === 0}
-						{#each p.de as ch, j (j)}<span class="mini" style="background: {p.color}">{ch}</span>{/each}
-					{:else}
-						<span class="dotq" style="background: {p.color}"></span>
-					{/if}
-				</span>
-			{/each}
-		</span>
-		<span class="score"><small>Punkte</small> <b class="tnum">{pts}</b></span>
-		<button type="button" class="say" aria-pressed={sayOn} title="Speak the words" onclick={() => (sayOn = !sayOn)}>
-			<Icon name={sayOn ? 'volume' : 'volumeOff'} size="1.05em" />
-		</button>
-		<PageHelp topic="/play/wortbloecke" />
+		<div class="row">
+			<a class="back" href={DECK} aria-label="Back to your deck"><Icon name="arrowLeft" size="1em" /> <span class="bt">Back</span></a>
+			<span class="brand"><span class="t" lang="de">Wortblöcke</span>{#key levelIdx}<span class="lvl tnum pop">{WORT_LEVELS[levelIdx].name}</span>{/key}</span>
+			<span class="grow"></span>
+			{#if combo > 1}{#key combo}<span class="combo pop">×{combo}!</span>{/key}{/if}
+			<span class="score"><small class="st">Punkte</small> <b class="tnum">{pts}</b></span>
+			<button type="button" class="say" aria-pressed={sayOn} title="Speak the words" onclick={() => (sayOn = !sayOn)}>
+				<Icon name={sayOn ? 'volume' : 'volumeOff'} size="1.05em" />
+			</button>
+			<button type="button" class="say" title="Bestenliste" aria-label="Bestenliste" onclick={openBoard}>
+				<Icon name="trophy" size="1.05em" />
+			</button>
+			<button type="button" class="say" title="How to play" aria-label="How to play" onclick={() => (showRules = true)}>
+				<Icon name="help" size="1.05em" />
+			</button>
+		</div>
+		<!-- The queue gets a whole line: a nine-letter word fits with room over. -->
+		<div class="row sub" aria-hidden="true">
+			<span class="nextlabel">Next</span>
+			<span class="next">
+				{#each preview as p, i (p.de + i)}
+					<span class="minigroup">
+						{#if i === 0}
+							{#each p.de as ch, j (j)}<span class="mini" style="background: {p.color}">{ch}</span>{/each}
+						{:else}
+							<span class="dotq" style="background: {p.color}"></span>
+						{/if}
+					</span>
+				{/each}
+			</span>
+		</div>
 	</header>
 
 	<div class="zone" bind:clientWidth={zoneW} bind:clientHeight={zoneH}>
@@ -722,8 +1056,11 @@
 			class="board"
 			class:danger
 			class:golden={runOn}
-			style="width: {grid.cols * cs}px; height: {grid.rows * cs}px; --cs: {cs}px"
+			style="width: {grid.cols * cs + PAD * 2}px; height: {grid.rows * cs + PAD * 2}px; --cs: {cs}px"
 		>
+			<!-- The grid sits on a mat: handles and badges reach into the
+			     padding instead of being cut off at the board's edge. -->
+			<div class="grid" style="width: {grid.cols * cs}px; height: {grid.rows * cs}px">
 			{#each lineFx as fx (fx.id)}
 				<div class="linefx" class:mixed={fx.mixed} style="top: {fx.r * cs}px; height: {cs}px"></div>
 			{/each}
@@ -742,12 +1079,18 @@
 					class:grabbed={grabbedId === b.id}
 					class:shake={shaken === b.id}
 					style="left: {b.c * cs}px; top: {b.r * cs}px; --c: {b.color}"
+					class:droptarget={dragTarget === b.id}
+					data-block={b.id}
 					lang="de"
 					aria-label={spoken(b.word)}
 					onclick={() => tapBlock(b)}
 				>
 					{#each b.word.de as ch, i (i)}<span class="sq">{ch}</span>{/each}
-					{#if b.word.art}<span class="badge" class:learned={b.learned} aria-hidden="true">{b.learned ? b.word.art : '?'}</span>{/if}
+					{#if b.word.art}
+						<span class="badge" class:learned={b.learned} aria-hidden="true">{b.learned ? b.word.art : '?'}</span>
+					{:else if b.hinted}
+						<span class="badge learned" aria-hidden="true">★</span>
+					{/if}
 				</button>
 			{/each}
 
@@ -755,18 +1098,54 @@
 				<span class="float {f.cls}" style="left: {f.x}px; top: {f.y}px">{f.text}</span>
 			{/each}
 
-			{#if goldBar}
-				<p class="goldbar">{goldBar}</p>
+			{#if ctl}
+				<!-- The grabbed word grows its own handles: nudge from its end
+				     caps, rotate from the tab on its edge. A handle only shows
+				     when its move is possible. Keyed by the block, so handles
+				     never glide from one word to another — each grab puts them
+				     up fresh, arriving from the direction they push. -->
+				{#key grabbedId}
+				{#if ctl.canLeft}
+					<button
+						type="button"
+						class="bctl lcap"
+						style="left: {ctl.left.x}px; top: {ctl.left.y}px; width: {ctl.capW}px; height: {ctl.capH}px; --bc: {ctl.color}"
+						onclick={() => doMove(-1)}
+						aria-label="Move left ({movUses} left)"
+					>
+						<Icon name="arrowLeft" size="1em" />
+						<span class="uses tnum" aria-hidden="true">{movUses}</span>
+					</button>
+				{/if}
+				{#if ctl.canRight}
+					<button
+						type="button"
+						class="bctl rcap"
+						style="left: {ctl.right.x}px; top: {ctl.right.y}px; width: {ctl.capW}px; height: {ctl.capH}px; --bc: {ctl.color}"
+						onclick={() => doMove(1)}
+						aria-label="Move right ({movUses} left)"
+					>
+						<Icon name="arrowRight" size="1em" />
+						<span class="uses tnum" aria-hidden="true">{movUses}</span>
+					</button>
+				{/if}
+				{#if ctl.canRot}
+					<button
+						type="button"
+						class="bctl rot"
+						class:under={ctl.under}
+						style="left: {ctl.rot.x}px; top: {ctl.rot.y}px; width: {ctl.rotW}px; height: {ctl.rotH}px; --bc: {ctl.color}"
+						onclick={doRotate}
+						aria-label="Rotate ({rotUses} left)"
+					>
+						<Icon name="repeat" size="0.9em" />
+						<span class="uses tnum" aria-hidden="true">{rotUses}</span>
+					</button>
+				{/if}
+				{/key}
 			{/if}
+			</div>
 
-			{#if padOpen}
-				<div class="pad">
-					<button type="button" class="tool" disabled={movUses === 0} onclick={() => doMove(-1)}>◀ Move <span class="uses tnum">{movUses}</span></button>
-					<button type="button" class="tool" disabled={movUses === 0} onclick={() => doMove(1)}>Move ▶ <span class="uses tnum">{movUses}</span></button>
-					<button type="button" class="tool" disabled={rotUses === 0} onclick={doRotate}>⟳ 90° <span class="uses tnum">{rotUses}</span></button>
-					<button type="button" class="tool" onclick={() => (grabbedId = null)} aria-label="Done">✓</button>
-				</div>
-			{/if}
 
 			{#if pending}
 				<div class="art-ask">
@@ -789,8 +1168,72 @@
 							<div><dt>Words</dt><dd class="tnum">{wordsDone}</dd></div>
 							<div><dt>Lines</dt><dd class="tnum">{linesWon}</dd></div>
 						</dl>
-						{#if best > 0}<p class="bestline">{pts >= best ? '★ New best!' : `Best: ${best}`}</p>{/if}
-						<button type="button" class="btn" onclick={again}>Nochmal <Icon name="repeat" size="1em" /></button>
+						{#if overRank && !entered}
+							<!-- Made the table: write your name, arcade style. -->
+							<p class="bestline">★ Platz {overRank}! Dein Name:</p>
+							<form
+								class="entry"
+								onsubmit={(e) => {
+									e.preventDefault();
+									submitName();
+								}}
+							>
+								<label class="slots" class:full={nameDraft.length === NAME_LEN} aria-label="Your name, up to five letters">
+									<input
+										class="ghost-input"
+										type="text"
+										maxlength={NAME_LEN}
+										autocapitalize="characters"
+										autocomplete="off"
+										spellcheck="false"
+										bind:value={nameDraft}
+										oninput={(e) => {
+											nameDraft = tidyName(nameDraft);
+											caretEnd(e.currentTarget);
+										}}
+										onclick={(e) => caretEnd(e.currentTarget)}
+										onfocus={(e) => caretEnd(e.currentTarget)}
+										use:focusNow
+									/>
+									{#each Array(NAME_LEN) as _, i (i)}
+										<span
+											class="slot"
+											class:filled={i < nameDraft.length}
+											class:cursor={i === nameDraft.length}
+											aria-hidden="true"
+										>{#key nameDraft[i] ?? ''}<em>{nameDraft[i] ?? ''}</em>{/key}</span>
+									{/each}
+								</label>
+								<button type="submit" class="btn" disabled={!nameDraft.length}>
+									Eintragen <Icon name="check" size="1em" />
+								</button>
+							</form>
+						{:else}
+							{#if entered}
+								<ol class="minilist" aria-label="Best scores">
+									{#each scores.slice(0, 5) as s, i (s.at)}
+										<li class:me={s.at === enteredAt}>
+											<span class="rk tnum">{i + 1}</span>
+											<span class="nm">{s.name}</span>
+											<span class="sc tnum">{s.pts}</span>
+										</li>
+									{/each}
+									{#if overRank && overRank > 5}
+										<li class="me gap-row">
+											<span class="rk tnum">{overRank}</span>
+											<span class="nm">{nameDraft}</span>
+											<span class="sc tnum">{pts}</span>
+										</li>
+									{/if}
+								</ol>
+							{:else if best > 0}
+								<p class="bestline">{pts >= best ? '★ New best!' : `Best: ${best}`}</p>
+							{/if}
+							<div class="over-actions">
+								<button type="button" class="btn" onclick={again}>Nochmal <Icon name="repeat" size="1em" /></button>
+								<button type="button" class="btn-ghost" onclick={openBoard}>Bestenliste</button>
+							</div>
+						{/if}
 					</div>
 				</div>
 			{/if}
@@ -798,9 +1241,28 @@
 	</div>
 
 	<div class="tray-zone">
-		<p class="tray-label">Find the German for…</p>
-		<div class="tray">
+		<!-- The one line of standing advice. Gold business borrows it, so the
+		     board itself is never covered by a message. -->
+		{#if goldBar}
+			<p class="tray-label gold">{goldBar}</p>
+		{:else}
+			<p class="tray-label">Find the German for…</p>
+		{/if}
+		<div class="tray" class:dense={chips.length > 8} class:packed={chips.length > 12}>
 			{#each chips as de (de)}
+				{#if de === STAR}
+					<button
+						type="button"
+						class="en star"
+						class:armed={hintMode}
+						onclick={() => {
+							hintMode = !hintMode;
+							playSound(hintMode ? 'up' : 'down');
+						}}
+						aria-pressed={hintMode}
+						aria-label="Hint star: reveal a word's meaning"
+					>★</button>
+				{:else}
 				{@const w = chipWord(de)}
 				{#if w}
 					<button
@@ -808,13 +1270,175 @@
 						class="en"
 						class:sel={selected === de}
 						class:donechip={chipDone(de)}
+						class:lifted={drag?.de === de}
 						disabled={chipDone(de)}
-						onclick={() => tapChip(de)}
+						onclick={() => {
+							if (!suppressClick) tapChip(de);
+						}}
+						onpointerdown={(e) => chipDown(e, de)}
+						onpointermove={chipMove}
+						onpointerup={chipUp}
+						onpointercancel={chipCancel}
 					>{w.en}</button>
+				{/if}
 				{/if}
 			{/each}
 		</div>
 	</div>
+
+	{#if drag}
+		{@const gw = chipWord(drag.de)}
+		{#if gw}
+			<div class="dragghost" style="left: {drag.x}px; top: {drag.y}px">{gw.en}</div>
+		{/if}
+	{/if}
+
+	{#if showRules}
+		<!-- How to play: shown by itself before the very first game. -->
+		<div class="board-sheet" role="dialog" aria-label="How to play">
+			<div class="sheet-card">
+				<header class="sheet-head">
+					<h2 lang="de">So spielst du</h2>
+					{#if rulesSeen}
+						<button type="button" class="linkish" onclick={closeRules} aria-label="Close">
+							<Icon name="close" size="1.1em" />
+						</button>
+					{/if}
+				</header>
+				<ul class="rules">
+					<li>
+						<span class="demo" aria-hidden="true">
+							<span class="d-block"><i>T</i><i>ü</i><i>r</i></span>
+							<span class="d-sep">⇄</span>
+							<span class="d-chip">door</span>
+							<span class="d-gap"></span>
+							<span class="d-chip tilt">door</span>
+							<span class="d-sep">⤵</span>
+							<span class="d-block dim"><i>T</i><i>ü</i><i>r</i></span>
+						</span>
+						<span>Pair a German block with its English chip — tap one then the other, either order, or <strong>drag</strong> the chip onto the block. Every word is spoken.</span>
+					</li>
+					<li>
+						<span class="demo" aria-hidden="true">
+							<span class="d-art der">der</span>
+							<span class="d-art die on">die</span>
+							<span class="d-art das">das</span>
+							<span class="d-sep">→</span>
+							<span class="d-spark">★</span>
+							<span class="d-gap"></span>
+							<span class="d-sep">✗ →</span>
+							<span class="d-block badged"><i>U</i><i>h</i><i>r</i><b>die</b></span>
+						</span>
+						<span>A noun asks for its <strong>article</strong>. Right first try pays gold and earns tools; miss it and the word wears the article on its badge — silver from then on.</span>
+					</li>
+					<li>
+						<span class="demo" aria-hidden="true">
+							<span class="d-grid">
+								<i></i><i></i><i></i><i></i>
+								<i class="au"></i><i class="nv"></i><i></i><i></i>
+								<i class="au"></i><i class="au"></i><i class="au"></i><i class="au"></i>
+							</span>
+							<span class="d-sep">→</span>
+							<span class="d-block gold"><i>G</i><i>o</i><i>l</i><i>d</i></span>
+							<span class="d-spark">✨</span>
+						</span>
+						<span>Fill a row in <strong>one color</strong>: the row AND everything connected in that color turns golden (the odd color out stays plain). Match one golden word to start the run — then clear them ALL in a row. One miss loses the whole set; all right pays the jackpot.</span>
+					</li>
+					<li>
+						<span class="demo" aria-hidden="true">
+							<span class="d-cap l"><Icon name="arrowLeft" size="0.8em" /></span>
+							<span class="d-block"><i>W</i><i>o</i><i>r</i><i>t</i></span>
+							<span class="d-cap r"><Icon name="arrowRight" size="0.8em" /></span>
+							<span class="d-cap t"><Icon name="repeat" size="0.8em" /></span>
+						</span>
+						<span>Tap a free block to <strong>grab</strong> it: arrows nudge it, the tab stands it up. One move and one rotate to start — right articles, landslides and lines earn more.</span>
+					</li>
+					<li>
+						<span class="demo" aria-hidden="true">
+							<span class="d-star">★</span>
+							<Icon name="arrowRight" size="0.85em" />
+							<span class="d-chip">die Lampe · lamp</span>
+						</span>
+						<span>Now and then a <strong>star</strong> turns up in the tray. Spend it on any word to see and hear what it means.</span>
+					</li>
+					<li>
+						<span class="demo" aria-hidden="true">
+							<span class="d-sep">✗ →</span>
+							<span class="d-block dim sm"><i>n</i><i>e</i><i>u</i></span>
+							<span class="d-sep">↓</span>
+							<span class="d-board"><i></i><i></i><i></i></span>
+							<span class="d-warn">⚠</span>
+						</span>
+						<span>Mistakes drop <strong>extra</strong> blocks. When the board pulses, space is short — overflow the top and it is over. Points climb you from A1 past C2 into the Meister words, and the best hundred games go on the <strong>Bestenliste</strong>.</span>
+					</li>
+				</ul>
+				<button type="button" class="btn rules-go" onclick={closeRules}>
+					{rulesSeen ? 'Weiter' : 'Los geht’s'} <Icon name="arrowRight" size="1em" />
+				</button>
+			</div>
+		</div>
+	{/if}
+
+	{#if showBoard}
+		<!-- The arcade table: a hundred places, five letters each. -->
+		<div class="board-sheet" role="dialog" aria-label="Bestenliste">
+			<div class="sheet-card">
+				<header class="sheet-head">
+					<h2><span class="cup" aria-hidden="true"><Icon name="trophy" size="0.95em" /></span> Bestenliste</h2>
+					<button type="button" class="sheet-x" onclick={() => (showBoard = false)} aria-label="Close">
+						<Icon name="close" size="1em" />
+					</button>
+				</header>
+				{#if worldBoardAvailable()}
+					<div class="seg" role="tablist">
+						<button type="button" role="tab" class="tab" class:on={boardTab === 'local'} aria-selected={boardTab === 'local'} onclick={() => (boardTab = 'local')}>This device</button>
+						<button type="button" role="tab" class="tab" class:on={boardTab === 'world'} aria-selected={boardTab === 'world'} onclick={() => (boardTab = 'world')}>World</button>
+					</div>
+				{/if}
+				{#if boardTab === 'world' && worldBoardAvailable()}
+					{#if worldState === 'loading' || worldState === 'idle'}
+						<div class="empty"><p>Fetching the world's best…</p></div>
+					{:else if worldState === 'error'}
+						<div class="empty"><p>The world board is out of reach right now — try again online.</p></div>
+					{:else if world.length}
+						<ol class="scorelist">
+							{#each world as s, i (s.at + '-' + i)}
+								<li class:me={s.at === enteredAt}>
+									<span class="rk tnum">{i + 1}</span>
+									<span class="nm">{s.name}</span>
+									<span class="lv-s tnum">{s.level}</span>
+									<span class="sc tnum">{s.pts}</span>
+								</li>
+							{/each}
+						</ol>
+						<p class="sheet-foot">The best {world.length} games anywhere. Make the table and your five letters join them.</p>
+					{:else}
+						<div class="empty">
+							<span class="podium" aria-hidden="true"><i class="p2"></i><i class="p1"></i><i class="p3"></i></span>
+							<p>Nobody yet. The world's first champion could have your five letters.</p>
+						</div>
+					{/if}
+				{:else if scores.length}
+					<ol class="scorelist">
+						{#each scores as s, i (s.at)}
+							<li class:me={s.at === enteredAt}>
+								<span class="rk tnum">{i + 1}</span>
+								<span class="nm">{s.name}</span>
+								<span class="lv-s tnum">{s.level}</span>
+								<span class="sc tnum">{s.pts}</span>
+							</li>
+						{/each}
+					</ol>
+					<p class="sheet-foot">{scores.length} of {SCORE_CAP} places taken — on this device.</p>
+				{:else}
+					<div class="empty">
+						<span class="podium" aria-hidden="true"><i class="p2"></i><i class="p1"></i><i class="p3"></i></span>
+						<p>No scores yet — the first game writes history.</p>
+					</div>
+				{/if}
+			</div>
+		</div>
+	{/if}
 
 	{#if phase === 'intro'}
 		<div class="intro">
@@ -826,15 +1450,28 @@
 				<p class="eyebrow" lang="de">Wortblöcke · ein Wort-Puzzle</p>
 				<h1>Stack the words.<br />Know the words.</h1>
 				<p class="lead">
-					Pair the German blocks with their English. Fill a row in <strong>one color</strong> and
-					everything connected to it turns golden — clear the whole set, articles and all, for the
-					jackpot. Mistakes drop new blocks; overflow the board and the game is over.
+					Pair the German blocks with their English, name the articles, and build
+					<strong>one-color rows</strong> into golden jackpot runs — before the board fills up.
 				</p>
 				<button type="button" class="btn" onclick={start}>Los geht’s <Icon name="arrowRight" size="1em" /></button>
 				<p class="meta">
 					Points climb you from A1 towards C2 — and beyond, where the words get weird.
-					{#if best > 0}<br />Your best: <b class="tnum">{best}</b>{/if}
+					<br /><button type="button" class="linkish" onclick={() => (showRules = true)}>How to play</button>
+					· <button type="button" class="linkish" onclick={openBoard}>Bestenliste</button>
 				</p>
+				{#if scores.length}
+					<!-- The attract screen: the cabinet shows off its champions. -->
+					<ol class="minilist attract" aria-label="Best scores">
+						{#each scores.slice(0, 5) as s, i (s.at)}
+							<li>
+								<span class="rk tnum">{i + 1}</span>
+								<span class="nm">{s.name}</span>
+								<span class="lv-s tnum">{s.level}</span>
+								<span class="sc tnum">{s.pts}</span>
+							</li>
+						{/each}
+					</ol>
+				{/if}
 			</section>
 		</div>
 	{/if}
@@ -856,14 +1493,48 @@
 	.top {
 		display: flex;
 		flex: none;
-		align-items: center;
-		gap: 0.55rem;
+		flex-direction: column;
+		gap: 0.3rem;
 		min-width: 0;
 		margin-bottom: 0.45rem;
-		padding: 0.35rem 0.6rem;
+		padding: 0.35rem 0.6rem 0.45rem;
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
 		background: var(--surface);
+	}
+
+	.row {
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		min-width: 0;
+	}
+
+	.row .grow {
+		flex: 1;
+	}
+
+	/* The queue's dock: an inset slot across the header's bottom, so the
+	   next word visibly WAITS somewhere instead of floating in air. */
+	.row.sub {
+		gap: 0.5rem;
+		min-height: 17px;
+		padding: 0.3rem 0.55rem;
+		border-radius: var(--radius-sm);
+		background: var(--surface-alt);
+		box-shadow: inset 0 1px 2px rgb(42 42 40 / 0.07);
+	}
+
+	.nextlabel {
+		color: var(--ink-muted);
+		font-size: 0.6rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.row.sub .dotq:first-of-type {
+		margin-left: 2px;
 	}
 
 	.back {
@@ -930,12 +1601,9 @@
 
 	.next {
 		display: flex;
-		flex: 1;
 		gap: 5px;
 		align-items: center;
-		justify-content: center;
 		min-width: 0;
-		overflow: hidden;
 	}
 
 	.minigroup {
@@ -947,12 +1615,13 @@
 	.mini {
 		display: grid;
 		place-items: center;
-		width: 13px;
-		height: 15px;
+		width: 15px;
+		height: 17px;
 		border-radius: 3px;
 		color: #fff;
-		font-size: 8px;
+		font-size: 9px;
 		font-weight: 700;
+		box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.18);
 	}
 
 	.dotq {
@@ -988,6 +1657,20 @@
 		opacity: 0.35;
 	}
 
+	/* On a narrow phone the labels yield before the information does: the
+	   Next queue always stays on screen. */
+	@media (max-width: 460px) {
+		.back .bt,
+		.brand .t,
+		.score .st {
+			display: none;
+		}
+
+		.row {
+			gap: 0.45rem;
+		}
+	}
+
 	/* -- the well -------------------------------------------------------------- */
 	.zone {
 		position: relative;
@@ -999,14 +1682,21 @@
 
 	.board {
 		position: relative;
+		display: grid;
+		place-items: center;
 		overflow: hidden;
 		border: 1px solid var(--line);
-		border-radius: calc(var(--radius) + 6px);
+		border-radius: var(--radius);
+		background: var(--surface);
+		box-shadow: 0 18px 40px -24px rgba(31, 58, 95, 0.45);
+	}
+
+	.grid {
+		position: relative;
 		background:
 			repeating-linear-gradient(to right, transparent 0, transparent calc(var(--cs) - 1px), var(--surface-alt) calc(var(--cs) - 1px), var(--surface-alt) var(--cs)),
 			repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--cs) - 1px), var(--surface-alt) calc(var(--cs) - 1px), var(--surface-alt) var(--cs)),
 			var(--surface);
-		box-shadow: 0 18px 40px -24px rgba(31, 58, 95, 0.45);
 	}
 
 	.board.danger {
@@ -1070,49 +1760,52 @@
 	}
 
 	.block .sq:first-child {
-		border-radius: 8px 0 0 8px;
+		border-radius: 5px 0 0 5px;
 	}
 
 	.block .sq:last-child {
-		border-radius: 0 8px 8px 0;
+		border-radius: 0 5px 5px 0;
 	}
 
 	.block.v .sq:first-child {
-		border-radius: 8px 8px 0 0;
+		border-radius: 5px 5px 0 0;
 	}
 
 	.block.v .sq:last-child {
-		border-radius: 0 0 8px 8px;
+		border-radius: 0 0 5px 5px;
 	}
 
 	.block .sq:only-child {
-		border-radius: 8px;
+		border-radius: 5px;
 	}
 
+	/* The article badge sits INSIDE the block's corner: a block is its own
+	   stacking context, so anything poking outside gets painted over by a
+	   neighboring block — inside its own bounds it is always on top. */
 	.badge {
 		position: absolute;
-		top: -6px;
-		right: -6px;
+		top: 2px;
+		right: 2px;
 		z-index: 2;
 		display: grid;
 		place-items: center;
-		min-width: 16px;
-		height: 16px;
+		min-width: 13px;
+		height: 13px;
 		border-radius: 999px;
 		background: #fff;
 		color: var(--c);
-		font-size: 10px;
+		font-size: 9px;
 		font-weight: 800;
-		box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+		box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
 	}
 
 	/* A missed article is worn from then on: the answer, read again and
 	   again — and the word only pays silver, since it has been shown. */
 	.badge.learned {
-		padding: 0 4px;
+		padding: 0 3px;
 		background: var(--heading);
 		color: #fff;
-		font-size: 9px;
+		font-size: 8px;
 	}
 
 	.block.gilded .sq {
@@ -1121,24 +1814,33 @@
 			inset 0 0 0 2px var(--ochre, #a9802a);
 	}
 
-	.block.gilded {
-		animation: gild-pulse 1.6s ease-in-out infinite;
+	/* The golden shimmer is an opacity pulse on an overlay glow: opacity is
+	   composited on the GPU, while the old animated brightness/drop-shadow
+	   filter forced a repaint of every gilded block on every frame. */
+	.block.gilded::after {
+		content: '';
+		position: absolute;
+		inset: -2px;
+		border-radius: 7px;
+		box-shadow: 0 0 9px 3px rgb(169 128 42 / 0.55);
+		animation: gild-glow 1.6s ease-in-out infinite;
+		pointer-events: none;
 	}
 
-	@keyframes gild-pulse {
+	@keyframes gild-glow {
 		0%,
 		100% {
-			filter: brightness(1);
+			opacity: 0.25;
 		}
 		50% {
-			filter: brightness(1.22) drop-shadow(0 0 6px rgb(169 128 42 / 0.55));
+			opacity: 1;
 		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.block.gilded {
+		.block.gilded::after {
 			animation: none;
-			filter: brightness(1.12);
+			opacity: 0.7;
 		}
 	}
 
@@ -1161,17 +1863,26 @@
 		}
 	}
 
-	.block.grabbed,
-	.block.featured {
+	/* While grabbed, the article badge yields to the handles. */
+	.block.grabbed .badge {
+		opacity: 0;
+	}
+
+	/* The grabbed block stays EXACTLY on its grid cells — any lift or scale
+	   here would shear it against its own handles, which are positioned
+	   from the untransformed grid. The outline and handles mark it plenty. */
+	.block.grabbed {
 		z-index: 3;
-		transform: translateY(-2px) scale(1.04);
 		outline: 3px solid var(--accent);
-		outline-offset: 2px;
-		border-radius: 8px;
+		outline-offset: 1px;
+		border-radius: 6px;
 	}
 
 	.block.featured {
-		outline-color: var(--ochre, #a9802a);
+		z-index: 3;
+		outline: 3px solid var(--ochre, #a9802a);
+		outline-offset: 1px;
+		border-radius: 6px;
 	}
 
 	.block.clearing {
@@ -1301,64 +2012,126 @@
 		}
 	}
 
-	.goldbar {
-		position: absolute;
-		top: 8px;
-		right: 8px;
-		left: 8px;
-		z-index: 9;
-		margin: 0;
-		padding: 0.4rem 0.7rem;
-		border: 1.5px solid var(--ochre, #a9802a);
-		border-radius: var(--radius-sm);
-		background: rgb(255 255 255 / 0.95);
+	/* The gold message in the tray's label line: always visible, never over
+	   the board. */
+	.tray-label.gold {
+		overflow: hidden;
 		color: var(--ochre-ink, #836215);
-		font-weight: 700;
-		font-size: 0.76rem;
-		line-height: 1.3;
-		text-align: center;
-		pointer-events: none;
+		font-size: 0.72rem;
+		letter-spacing: 0;
+		text-overflow: ellipsis;
+		text-transform: none;
+		white-space: nowrap;
 	}
 
-	.pad {
+	/* The grabbed word's handles, one piece with the block: end caps and a
+	   rotate tab in a darker shade of the word's own color, sharing the
+	   letters' bevel so block and handles read as one object. */
+	.bctl {
 		position: absolute;
-		right: 8px;
-		bottom: 8px;
-		left: 8px;
-		z-index: 9;
-		display: flex;
-		gap: 0.4rem;
-		justify-content: center;
-	}
-
-	.tool {
-		display: inline-flex;
-		gap: 0.35rem;
-		align-items: center;
-		min-height: 2.5rem;
-		padding: 0.42rem 0.85rem;
-		border: 1px solid var(--line);
-		border-radius: 999px;
-		background: var(--surface);
-		color: var(--heading);
+		z-index: 4;
+		display: grid;
+		place-items: center;
+		padding: 0;
+		border: none;
+		background: color-mix(in srgb, var(--bc) 68%, #16160f);
+		color: #fff;
 		font: inherit;
-		font-weight: 700;
-		font-size: 0.84rem;
-		box-shadow: 0 4px 12px rgb(31 58 95 / 0.18);
+		box-shadow:
+			inset 0 calc(var(--cs) * -0.09) 0 rgb(0 0 0 / 0.2),
+			inset 0 0 0 1px rgb(255 255 255 / 0.14);
 		cursor: pointer;
+		transition:
+			left 0.3s var(--ease-out, ease),
+			top 0.3s var(--ease-out, ease),
+			transform 0.1s ease;
 	}
 
-	.tool:disabled {
-		opacity: 0.45;
+	.bctl.lcap {
+		border-radius: 6px 0 0 6px;
+		animation: cap-left 0.18s var(--ease-out, ease);
+	}
+
+	.bctl.rcap {
+		border-radius: 0 6px 6px 0;
+		animation: cap-right 0.18s var(--ease-out, ease);
+	}
+
+	.bctl.rot {
+		border-radius: 6px 6px 0 0;
+		box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.14);
+		animation: cap-up 0.18s var(--ease-out, ease);
+	}
+
+	.bctl.rot.under {
+		border-radius: 0 0 6px 6px;
+		animation: cap-down 0.18s var(--ease-out, ease);
+	}
+
+	/* Each handle arrives FROM the direction it pushes the word. */
+	@keyframes cap-left {
+		from {
+			opacity: 0;
+			transform: translateX(8px);
+		}
+	}
+
+	@keyframes cap-right {
+		from {
+			opacity: 0;
+			transform: translateX(-8px);
+		}
+	}
+
+	@keyframes cap-up {
+		from {
+			opacity: 0;
+			transform: translateY(8px);
+		}
+	}
+
+	@keyframes cap-down {
+		from {
+			opacity: 0;
+			transform: translateY(-8px);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.bctl.lcap,
+		.bctl.rcap,
+		.bctl.rot,
+		.bctl.rot.under {
+			animation: none;
+		}
+	}
+
+	.bctl:active:not(:disabled) {
+		transform: scale(0.92);
+	}
+
+	.bctl:disabled {
+		opacity: 0.4;
 		cursor: default;
 	}
 
-	.tool .uses {
-		padding: 0.05rem 0.45rem;
+	/* The count lives INSIDE the cap's corner: a handle is its own stacking
+	   context, so anything poking outside gets painted over by neighbors. */
+	.bctl .uses {
+		position: absolute;
+		top: 1px;
+		right: 1px;
+		display: grid;
+		place-items: center;
+		min-width: 0.8rem;
+		height: 0.8rem;
+		padding: 0 0.12rem;
 		border-radius: 999px;
-		background: var(--surface-alt);
-		color: var(--ink-muted);
-		font-size: 0.72rem;
+		background: var(--ochre, #a9802a);
+		color: #fff;
+		font-size: 0.52rem;
+		font-weight: 800;
+		box-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
 	}
 
 	.art-ask {
@@ -1501,6 +2274,595 @@
 		font-weight: 700;
 	}
 
+	/* -- the arcade table ------------------------------------------------------ */
+	.entry {
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+		align-items: center;
+	}
+
+	/* Five retro letter boxes, one per character, the cabinet way. The real
+	   input sits invisibly on top: taps focus it, keys fill the slots. */
+	.slots {
+		position: relative;
+		display: flex;
+		gap: 4px;
+		cursor: text;
+	}
+
+	/* Fully interactive but drawn transparent (NOT opacity-hidden: phones
+	   refuse the keyboard for inputs they consider invisible). */
+	.ghost-input {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		border: none;
+		outline: none;
+		background: transparent;
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+		caret-color: transparent;
+		font-size: 16px; /* keeps iOS from zooming the page on focus */
+	}
+
+	.ghost-input::selection {
+		background: transparent;
+	}
+
+	.slot {
+		display: grid;
+		place-items: center;
+		width: 2.2rem;
+		height: 2.6rem;
+		border: 2px solid var(--line);
+		border-radius: 7px;
+		background: var(--surface-alt);
+		color: var(--heading);
+		font-weight: 800;
+		font-size: 1.35rem;
+		box-shadow: inset 0 -4px 0 rgb(42 42 40 / 0.09);
+		transition: border-color 0.12s ease, background 0.12s ease, box-shadow 0.2s ease;
+	}
+
+	.slot em {
+		font-style: normal;
+	}
+
+	.slot.filled {
+		border-color: var(--ochre, #a9802a);
+		background: var(--surface);
+	}
+
+	/* Each letter lands with a pop; a full name glows like a medal. */
+	.slot.filled em {
+		display: block;
+		animation: letter-pop 0.18s var(--ease-spring, ease);
+	}
+
+	@keyframes letter-pop {
+		from {
+			transform: scale(1.6);
+			opacity: 0;
+		}
+	}
+
+	.slots.full .slot {
+		box-shadow:
+			inset 0 -4px 0 rgb(42 42 40 / 0.09),
+			0 0 10px rgb(169 128 42 / 0.4);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.slot.filled em {
+			animation: none;
+		}
+	}
+
+	.slots:focus-within .slot.cursor {
+		border-color: var(--accent);
+		animation: slot-blink 1s step-end infinite;
+	}
+
+	@keyframes slot-blink {
+		50% {
+			border-color: var(--line);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.slots:focus-within .slot.cursor {
+			animation: none;
+		}
+	}
+
+	.minilist,
+	.scorelist {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.minilist li,
+	.scorelist li {
+		display: flex;
+		gap: 0.6rem;
+		align-items: baseline;
+		padding: 0.22rem 0.5rem;
+		border-radius: 6px;
+		font-size: 0.85rem;
+	}
+
+	.minilist li.me,
+	.scorelist li.me {
+		background: var(--accent-soft);
+		font-weight: 800;
+	}
+
+	.minilist .gap-row {
+		border-top: 1px dashed var(--line);
+	}
+
+	.rk {
+		width: 2.2ch;
+		color: var(--ink-muted);
+		font-weight: 700;
+		text-align: right;
+	}
+
+	.nm {
+		flex: 1;
+		font-weight: 800;
+		letter-spacing: 0.18em;
+		color: var(--heading);
+	}
+
+	.lv-s {
+		color: var(--ink-muted);
+		font-size: 0.72rem;
+	}
+
+	.sc {
+		font-weight: 800;
+		color: var(--heading);
+	}
+
+	.over-actions {
+		display: flex;
+		gap: 0.6rem;
+		align-items: center;
+	}
+
+	.btn-ghost,
+	.linkish {
+		padding: 0.3rem 0.5rem;
+		border: none;
+		background: none;
+		color: var(--accent-ink);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 700;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		cursor: pointer;
+	}
+
+	.board-sheet {
+		position: absolute;
+		inset: 0;
+		z-index: 60;
+		display: grid;
+		place-items: center;
+		padding: 1rem;
+		background: rgb(42 42 40 / 0.35);
+	}
+
+	.sheet-card {
+		display: flex;
+		flex-direction: column;
+		width: min(22rem, 100%);
+		max-height: 100%;
+		padding: 1rem 1.1rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: var(--surface);
+		box-shadow: 0 18px 40px -24px rgba(31, 58, 95, 0.45);
+	}
+
+	.sheet-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 0.5rem;
+	}
+
+	.sheet-head h2 {
+		margin: 0;
+		font-family: var(--font-display, serif);
+		font-size: 1.2rem;
+		color: var(--heading);
+	}
+
+	.scorelist {
+		overflow-y: auto;
+	}
+
+	/* Device/World as one segmented control: a track with a raised thumb. */
+	.seg {
+		display: flex;
+		flex: none;
+		gap: 3px;
+		margin-bottom: 0.6rem;
+		padding: 3px;
+		border-radius: 999px;
+		background: var(--surface-alt);
+	}
+
+	.tab {
+		flex: 1;
+		padding: 0.4rem 0.5rem;
+		border: none;
+		border-radius: 999px;
+		background: transparent;
+		color: var(--ink-muted);
+		font: inherit;
+		font-weight: 700;
+		font-size: 0.8rem;
+		cursor: pointer;
+		transition: all 0.15s ease;
+	}
+
+	.tab.on {
+		background: var(--surface);
+		color: var(--heading);
+		box-shadow: 0 1px 3px rgb(42 42 40 / 0.14);
+	}
+
+	.sheet-head .cup {
+		display: inline-grid;
+		place-items: center;
+		width: 1.6rem;
+		height: 1.6rem;
+		margin-right: 0.15rem;
+		border-radius: 50%;
+		background: rgb(169 128 42 / 0.15);
+		color: var(--ochre-ink, #836215);
+		vertical-align: -0.35rem;
+	}
+
+	.sheet-x {
+		display: grid;
+		place-items: center;
+		width: 1.9rem;
+		height: 1.9rem;
+		padding: 0;
+		border: 1px solid var(--line);
+		border-radius: 50%;
+		background: var(--surface);
+		color: var(--ink-muted);
+		cursor: pointer;
+	}
+
+	/* An empty board still looks like a stage: the podium waits. */
+	.empty {
+		display: flex;
+		flex-direction: column;
+		gap: 0.7rem;
+		align-items: center;
+		padding: 1.3rem 0.5rem 0.9rem;
+		text-align: center;
+	}
+
+	.empty p {
+		margin: 0;
+		color: var(--ink-muted);
+		font-size: 0.82rem;
+		max-width: 16rem;
+	}
+
+	.podium {
+		display: inline-flex;
+		gap: 3px;
+		align-items: flex-end;
+	}
+
+	.podium i {
+		width: 1.3rem;
+		border-radius: 3px 3px 0 0;
+		box-shadow: inset 0 -3px 0 rgb(0 0 0 / 0.15);
+	}
+
+	.podium .p1 {
+		height: 2.2rem;
+		background: var(--ochre, #a9802a);
+	}
+
+	.podium .p2 {
+		height: 1.5rem;
+		background: var(--paper-highest, #e0e0e0);
+	}
+
+	.podium .p3 {
+		height: 1.1rem;
+		background: var(--accent);
+	}
+
+	.sheet-foot {
+		margin: 0.6rem 0 0;
+		color: var(--ink-muted);
+		font-size: 0.74rem;
+	}
+
+	/* -- how to play: every rule opens with a little picture of itself ------- */
+	.rules {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 0.8rem;
+		margin: 0;
+		min-height: 0;
+		padding: 0 2px 0 0;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		list-style: none;
+		font-size: 0.8rem;
+		line-height: 1.45;
+	}
+
+	.rules li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding-bottom: 0.7rem;
+		border-bottom: 1px solid var(--line);
+	}
+
+	.rules li:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	.rules strong {
+		color: var(--heading);
+	}
+
+	.demo {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		align-items: center;
+		color: var(--ink-muted);
+	}
+
+	.d-sep {
+		font-size: 0.78rem;
+		font-weight: 700;
+		color: var(--ink-muted);
+	}
+
+	.d-gap {
+		width: 0.5rem;
+	}
+
+	.d-chip.tilt {
+		transform: rotate(-5deg);
+		border-color: var(--heading);
+		box-shadow: 0 3px 6px -2px rgb(31 58 95 / 0.35);
+	}
+
+	.d-block.dim {
+		opacity: 0.75;
+		outline: 2px dashed var(--accent);
+		outline-offset: 1px;
+		border-radius: 4px;
+	}
+
+	.d-block.sm i {
+		width: 0.95rem;
+		height: 1.05rem;
+		font-size: 0.62rem;
+	}
+
+	.d-block.badged {
+		position: relative;
+	}
+
+	.d-block.badged b {
+		position: absolute;
+		top: -6px;
+		right: -8px;
+		padding: 0 3px;
+		border-radius: 999px;
+		background: var(--heading);
+		color: #fff;
+		font-size: 0.5rem;
+		font-weight: 800;
+	}
+
+	/* The golden-line diagram: a mini board, the line plus its connected
+	   color lit, the odd color out left plain. */
+	.d-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 0.8rem);
+		gap: 1px;
+		padding: 2px;
+		border: 1px solid var(--line);
+		border-radius: 4px;
+		background: var(--surface);
+	}
+
+	.d-grid i {
+		height: 0.8rem;
+		border-radius: 2px;
+		background: var(--surface-alt);
+	}
+
+	.d-grid i.au {
+		background: var(--ochre, #a9802a);
+		box-shadow: inset 0 0 0 1px #f3e3bd;
+	}
+
+	.d-grid i.nv {
+		background: var(--navy, #1f3a5f);
+	}
+
+	.d-block {
+		display: inline-flex;
+		gap: 1px;
+	}
+
+	.d-block i {
+		display: grid;
+		place-items: center;
+		width: 1.1rem;
+		height: 1.2rem;
+		background: var(--navy, #1f3a5f);
+		color: #fff;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 0.7rem;
+		box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.18);
+	}
+
+	.d-block i:first-child {
+		border-radius: 4px 0 0 4px;
+	}
+
+	.d-block i:last-child {
+		border-radius: 0 4px 4px 0;
+	}
+
+	.d-block.gold i {
+		background: var(--ochre, #a9802a);
+		box-shadow:
+			inset 0 -2px 0 rgb(0 0 0 / 0.18),
+			inset 0 0 0 1px #f3e3bd;
+	}
+
+	.d-chip {
+		padding: 0.15rem 0.5rem;
+		border: 1px solid var(--line);
+		border-radius: 6px;
+		background: var(--surface);
+		color: var(--ink);
+		font-weight: 650;
+		font-size: 0.72rem;
+		box-shadow: 0 1.5px 0 rgb(42 42 40 / 0.08);
+	}
+
+	.d-art {
+		padding: 0.18rem 0.5rem;
+		border-radius: 6px;
+		color: #fff;
+		font-weight: 800;
+		font-size: 0.7rem;
+		opacity: 0.55;
+		box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.2);
+	}
+
+	.d-art.der {
+		background: var(--navy, #1f3a5f);
+	}
+
+	.d-art.die {
+		background: var(--accent);
+	}
+
+	.d-art.das {
+		background: var(--forest, #3f5d45);
+	}
+
+	.d-art.on {
+		opacity: 1;
+		outline: 2px solid var(--ochre, #a9802a);
+		outline-offset: 1px;
+	}
+
+	.d-cap {
+		display: grid;
+		place-items: center;
+		width: 1rem;
+		height: 1.2rem;
+		background: color-mix(in srgb, var(--navy, #1f3a5f) 68%, #16160f);
+		color: #fff;
+		box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.2);
+	}
+
+	.d-cap.l {
+		border-radius: 4px 0 0 4px;
+	}
+
+	.d-cap.r {
+		border-radius: 0 4px 4px 0;
+	}
+
+	.d-cap.t {
+		margin-left: 0.4rem;
+		width: 1.4rem;
+		border-radius: 4px 4px 0 0;
+		background: var(--accent);
+	}
+
+	.d-star {
+		display: grid;
+		place-items: center;
+		width: 1.5rem;
+		height: 1.4rem;
+		border: 1px solid var(--ochre, #a9802a);
+		border-radius: 6px;
+		background: var(--surface);
+		color: var(--ochre-ink, #836215);
+		font-size: 0.9rem;
+	}
+
+	.d-spark {
+		font-size: 0.85rem;
+	}
+
+	.d-board {
+		display: inline-flex;
+		gap: 2px;
+		align-items: flex-end;
+		height: 1.4rem;
+		padding: 2px 3px;
+		border: 1.5px solid var(--accent);
+		border-radius: 4px;
+	}
+
+	.d-board i {
+		width: 0.45rem;
+		background: var(--surface-alt);
+	}
+
+	.d-board i:nth-child(1) {
+		height: 100%;
+		background: var(--navy, #1f3a5f);
+	}
+
+	.d-board i:nth-child(2) {
+		height: 70%;
+		background: var(--forest, #3f5d45);
+	}
+
+	.d-board i:nth-child(3) {
+		height: 45%;
+		background: var(--ochre, #a9802a);
+	}
+
+	.d-warn {
+		color: var(--accent-ink);
+		font-size: 0.95rem;
+	}
+
+	.rules-go {
+		margin-top: 0.9rem;
+		align-self: center;
+	}
+
 	/* -- the tray ------------------------------------------------------------------- */
 	.tray-zone {
 		flex: none;
@@ -1520,49 +2882,142 @@
 		text-transform: uppercase;
 	}
 
+	/* Every chip is always visible and tappable: no scroll, no clipping.
+	   The strip takes the rows it needs — with many words the chips shrink,
+	   and the BOARD gives up the height (its cells resize automatically). */
 	.tray {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.35rem;
+		gap: 0.4rem;
 		align-content: flex-start;
-		height: 5rem;
-		overflow-y: auto;
-		overscroll-behavior: contain;
-		scrollbar-width: thin;
+		min-height: 2.4rem;
+		padding-bottom: 2px; /* room for the tiles' bevel */
 	}
 
-	@media (max-height: 760px) {
-		.tray {
-			height: 4.4rem;
-		}
+	.tray.dense {
+		gap: 0.3rem;
 	}
 
+	.tray.dense .en {
+		min-width: 2.5rem;
+		padding: 0.3rem 0.6rem;
+		font-size: 0.74rem;
+	}
+
+	.tray.packed {
+		gap: 0.24rem;
+	}
+
+	.tray.packed .en {
+		min-width: 2.1rem;
+		padding: 0.22rem 0.5rem;
+		font-size: 0.67rem;
+	}
+
+
+	/* Answer tiles in the blocks' own language: paper tiles with a soft
+	   bottom bevel, evenly sized so "40" and "first name" sit as equals. */
 	.en {
-		padding: 0.38rem 0.75rem;
+		min-width: 3rem;
+		padding: 0.42rem 0.8rem;
 		border: 1px solid var(--line);
-		border-radius: 999px;
-		background: var(--bg);
+		border-radius: var(--radius-sm);
+		background: var(--surface);
 		color: var(--ink);
 		font: inherit;
-		font-weight: 600;
+		font-weight: 650;
 		font-size: 0.82rem;
+		text-align: center;
+		box-shadow:
+			0 2px 0 rgb(42 42 40 / 0.07),
+			0 1px 2px rgb(31 58 95 / 0.06);
 		cursor: pointer;
-		transition: all 0.15s ease;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease,
+			transform 0.1s ease,
+			box-shadow 0.1s ease;
+	}
+
+	.en:hover {
+		border-color: var(--heading);
 	}
 
 	.en.sel {
 		border-color: var(--heading);
 		background: var(--heading);
 		color: #fff;
+		transform: translateY(1px);
+		box-shadow: 0 1px 0 rgb(42 42 40 / 0.15);
 	}
 
 	.en.donechip {
 		opacity: 0.35;
 		text-decoration: line-through;
+		box-shadow: none;
 	}
 
 	.en:active {
-		transform: scale(0.94);
+		transform: translateY(1px) scale(0.97);
+		box-shadow: 0 1px 0 rgb(42 42 40 / 0.1);
+	}
+
+	/* The hint star: a golden tile at the head of the tray. Armed, it glows;
+	   the next block tapped is revealed instead of matched. */
+	.en.star {
+		position: relative;
+		min-width: 2.4rem;
+		border-color: var(--ochre, #a9802a);
+		color: var(--ochre-ink, #836215);
+		font-size: 1rem;
+		line-height: 1;
+	}
+
+	.en.star.armed {
+		background: var(--ochre, #a9802a);
+		color: #fff;
+		box-shadow: 0 0 0 3px rgb(169 128 42 / 0.25);
+	}
+
+	.en.star:disabled {
+		opacity: 0.35;
+		cursor: default;
+	}
+
+	/* Dragging: the chip's home seat empties while its ghost travels. */
+	.en {
+		touch-action: none;
+		user-select: none;
+		-webkit-user-select: none;
+	}
+
+	.en.lifted {
+		opacity: 0.3;
+	}
+
+	.dragghost {
+		position: fixed;
+		z-index: 70;
+		padding: 0.42rem 0.8rem;
+		border: 1px solid var(--heading);
+		border-radius: var(--radius-sm);
+		background: var(--surface);
+		color: var(--heading);
+		font-weight: 700;
+		font-size: 0.85rem;
+		box-shadow: 0 10px 24px -8px rgb(31 58 95 / 0.5);
+		transform: translate(-50%, -130%) scale(1.06) rotate(-2deg);
+		pointer-events: none;
+	}
+
+	/* The block under the ghost says "drop here". */
+	.block.droptarget {
+		z-index: 3;
+		outline: 3px dashed var(--accent);
+		outline-offset: 2px;
+		border-radius: 8px;
+		filter: brightness(1.1);
 	}
 
 	/* -- the title card ---------------------------------------------------------------- */
@@ -1636,5 +3091,11 @@
 		margin: 0.9rem 0 0;
 		color: var(--ink-muted);
 		font-size: 0.78rem;
+	}
+
+	.attract {
+		margin-top: 0.7rem;
+		padding-top: 0.6rem;
+		border-top: 1px solid var(--line);
 	}
 </style>

@@ -3,6 +3,12 @@ import {
 	buildPools,
 	canFit,
 	completeRows,
+	insertScore,
+	mergeWordBank,
+	orderByFreshness,
+	parseScores,
+	sanitizeName,
+	scoreRank,
 	dropDist,
 	goldenRegion,
 	levelForPoints,
@@ -101,9 +107,10 @@ describe('lines and the golden region', () => {
 });
 
 describe('spawning and the end', () => {
-	it('stands words wider than the board', () => {
-		expect(spawnDir(9, 7, () => 0.9)).toBe('v');
-		expect(spawnDir(5, 7, () => 0.9)).toBe('h');
+	it('long words always lie; only short ones sometimes stand', () => {
+		expect(spawnDir(9, 7, () => 0.9)).toBe('h');
+		expect(spawnDir(5, 7, () => 0.1)).toBe('h');
+		expect(spawnDir(3, 7, () => 0.1)).toBe('v');
 	});
 
 	it('lands on the flattest column, and reports game over when nothing fits', () => {
@@ -115,6 +122,60 @@ describe('spawning and the end', () => {
 		expect(pickSpot(wall, 4, 'h', GRID)).toBeNull();
 		expect(canFit(wall, 3, GRID)).toBe(false);
 		expect(stackTop(wall, GRID.rows)).toBe(0);
+	});
+});
+
+describe('word variety', () => {
+	const w = (de: string) => ({ de, en: de.toLowerCase(), art: null });
+
+	it('deals never-played words first, then the longest-unseen', () => {
+		const words = [w('Alt'), w('Neu'), w('Rot'), w('Gut')];
+		// Rot was played long ago, Gut just now; Alt and Neu never.
+		const out = orderByFreshness(words, ['Rot', 'Gut'], () => 0);
+		expect(out.slice(0, 2).map((x) => x.de).sort()).toEqual(['Alt', 'Neu']);
+		expect(out.slice(2).map((x) => x.de)).toEqual(['Rot', 'Gut']);
+	});
+
+	it('shuffles the fresh words between games', () => {
+		const words = [w('Eins'), w('Zwei'), w('Drei')];
+		const a = orderByFreshness(words, [], () => 0.1).map((x) => x.de);
+		const b = orderByFreshness(words, [], () => 0.9).map((x) => x.de);
+		expect(a).not.toEqual(b);
+	});
+});
+
+describe('the high-score table', () => {
+	const score = (pts: number, at = 0, name = 'GDI') => ({ name, pts, level: 'A1.1', at });
+
+	it('ranks a score below earlier equal ones, like the cabinets', () => {
+		const list = [score(300, 1), score(200, 2), score(100, 3)];
+		expect(scoreRank(list, 250)).toBe(2);
+		expect(scoreRank(list, 200)).toBe(3);
+		expect(scoreRank([], 10)).toBe(1);
+		expect(scoreRank([], 0)).toBeNull();
+	});
+
+	it('misses the table when a hundred better scores stand', () => {
+		const full = Array.from({ length: 100 }, (_, i) => score(1000 - i, i));
+		expect(scoreRank(full, 5)).toBeNull();
+		// 950 is already on the table: the newcomer ranks just below it.
+		expect(scoreRank(full, 950)).toBe(52);
+		expect(scoreRank(full, 950.5)).toBe(51);
+		expect(insertScore(full, score(950, 999))).toHaveLength(100);
+	});
+
+	it('writes the entry in sorted, and keeps names arcade-shaped', () => {
+		const list = insertScore([score(100, 1)], score(300, 2));
+		expect(list[0].pts).toBe(300);
+		expect(sanitizeName('güni!')).toBe('GÜNI');
+		expect(sanitizeName('averylongname')).toBe('AVERY');
+		expect(sanitizeName('  ')).toBe('ANON');
+	});
+
+	it('survives broken storage', () => {
+		expect(parseScores('nonsense{')).toEqual([]);
+		expect(parseScores(null)).toEqual([]);
+		expect(parseScores(JSON.stringify([score(10, 1), { bad: true }]))).toHaveLength(1);
 	});
 });
 
@@ -155,6 +216,28 @@ describe('the ladder and the pools', () => {
 		expect(pools['A1.1'][0].art).toBe('die');
 		expect(pools['A1.1'][1].art).toBeNull();
 		for (const w of pools['A1.1']) expect(w.de.length).toBeLessThanOrEqual(MAX_WORD_LEN);
+	});
+
+	it('merges every deck of a level and tops up from the word-check bank', () => {
+		const deck = (id: string, level: string, cards: unknown[]) =>
+			({ id, type: 'vocabulary', title: 't', storageKeyPrefix: id, level, status: 'live', covers: [], cards }) as unknown as Quiz;
+		const pools = buildPools([
+			deck('a', 'A1.1', [{ de: 'Tür', en: 'door', kind: 'noun', article: 'die', sourceQuizId: 'q' }]),
+			deck('b', 'A1.1', [
+				{ de: 'Tür', en: 'door again', kind: 'noun', article: 'die', sourceQuizId: 'q' },
+				{ de: 'Haus', en: 'house', kind: 'noun', article: 'das', sourceQuizId: 'q' }
+			])
+		]);
+		expect(pools['A1.1'].map((w) => w.de)).toEqual(['Tür', 'Haus']);
+		const merged = mergeWordBank(pools, {
+			levels: [
+				{ level: 'A1.1', words: [['der Topf', 'pot'], ['die Tür', 'door'], ['zu Hause', 'at home']] },
+				{ level: 'A1.2', words: [['morgen', 'tomorrow']] }
+			]
+		});
+		expect(merged['A1.1'].map((w) => w.de)).toEqual(['Tür', 'Haus', 'Topf']);
+		expect(merged['A1.1'][2].art).toBe('der');
+		expect(merged['A1.2'].map((w) => w.de)).toEqual(['morgen']);
 	});
 
 	it('refills from the levels below when a bank runs thin', () => {
