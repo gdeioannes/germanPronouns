@@ -40,6 +40,9 @@ export const changelog: ChangelogEntry[] = [
       "Every mistake teaches now: a wrong pairing, a wrong article or a lost golden set shows and speaks the right word with its article and translation — on a readable white pill over the block, and full-size on the tray line for a few seconds.",
       "A word already wearing its article badge goes straight to the der/die/das question when you tap it — the meaning is in view, no need to pair it again. A small ✕ puts the question away for later (never mid-run).",
       "The high-score name is a real text box drawn as five letter cells: type, correct and move the caret like anywhere else — the invisible-input trick that left phone keyboards dead is gone, and all five letters stay visible.",
+      "No more twin chips: two different German words that share one English translation (lila and violett are both purple) can no longer be on the board at the same time — tapping the right meaning was being counted wrong when you caught the twin.",
+      "Golden sets now follow the board honestly: when clearing other words shuffles the stack and a golden word loses touch with its line, its gold comes off and it is out of the set — only what still hangs together must be cleared.",
+      "A golden word wearing its article badge starts the run straight from the der/die/das question when you tap it — and until you actually pick an article, the ✕ lets you back out, because the run only begins with your answer.",
     ],
   },
   {

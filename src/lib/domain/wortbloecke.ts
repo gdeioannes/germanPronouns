@@ -212,9 +212,14 @@ export function poolFor(pools: Record<string, WortWord[]>, levelIdx: number): Wo
 export function refillWords(
 	pools: Record<string, WortWord[]>,
 	levelIdx: number,
-	onBoard: ReadonlySet<string>
+	onBoard: ReadonlySet<string>,
+	onBoardEn: ReadonlySet<string> = new Set()
 ): WortWord[] {
-	const fresh = (list: WortWord[]) => list.filter((w) => !onBoard.has(w.de));
+	// Distinct German words can share one English (lila/violett = "purple"):
+	// two identical-looking chips would make the right meaning "wrong", so a
+	// word whose English is already on the board waits its turn.
+	const fresh = (list: WortWord[]) =>
+		list.filter((w) => !onBoard.has(w.de) && !onBoardEn.has(w.en.toLowerCase()));
 	let out = fresh(poolFor(pools, levelIdx));
 	for (let i = levelIdx - 1; i >= 0 && out.length < 4; i--) out = out.concat(fresh(poolFor(pools, i)));
 	return out;
@@ -415,6 +420,35 @@ export function goldenRegion(
 		}
 	}
 	return region;
+}
+
+/**
+ * Rule three: a set member that the board's shuffling has cut off from the
+ * line no longer belongs to it. Flooding from the anchors (the blocks that
+ * made the completed rows) through touching MEMBERS, the ids reached are the
+ * set that remains; everything else has drifted off and drops out.
+ */
+export function connectedToAnchors(
+	blocks: readonly WortBlock[],
+	memberIds: ReadonlySet<number>,
+	anchorIds: ReadonlySet<number>
+): Set<number> {
+	const members = blocks.filter((b) => memberIds.has(b.id));
+	const kept = members.filter((b) => anchorIds.has(b.id));
+	const reached = new Set(kept.map((b) => b.id));
+	let grew = true;
+	while (grew) {
+		grew = false;
+		for (const b of members) {
+			if (reached.has(b.id)) continue;
+			if (kept.some((m) => touchingBlocks(b, m))) {
+				kept.push(b);
+				reached.add(b.id);
+				grew = true;
+			}
+		}
+	}
+	return reached;
 }
 
 // -- spawning ----------------------------------------------------------------------

@@ -19,6 +19,7 @@
 		canFit,
 		cellsOf,
 		completeRows,
+		connectedToAnchors,
 		goldenRegion,
 		insertScore,
 		levelForPoints,
@@ -96,6 +97,9 @@
 		ids: Set<number>;
 		des: Set<string>;
 		doneIds: Set<number>;
+		/** The blocks that stood IN the completed row(s): the line itself.
+		 *  Members the board's shuffling cuts off from these drop out again. */
+		anchorIds: Set<number>;
 		active: boolean;
 		pot: number;
 		lines: number;
@@ -202,6 +206,8 @@
 	});
 	let pending = $state<Block | null>(null);
 	let pendingRun = $state<GoldenSet | null>(null);
+	/** The open question is a free look (direct tap on a badge), not a wager. */
+	let pendingFree = $state(false);
 	/** English chips in the tray, in their own stable shuffled order. */
 	let chips = $state<string[]>([]);
 	let sayOn = $state(true);
@@ -317,7 +323,8 @@
 	function refillQueue() {
 		if (queue.length) return;
 		const onBoard = new Set(blocks.map((b) => b.word.de));
-		const words = refillWords(data.pools, levelIdx, onBoard).filter(suitsGrid);
+		const onBoardEn = new Set(blocks.map((b) => b.word.en.toLowerCase()));
+		const words = refillWords(data.pools, levelIdx, onBoard, onBoardEn).filter(suitsGrid);
 		// Never-played words first, then the longest-unseen: fresh learning
 		// every game, repeats only when the bank is truly exhausted.
 		queue = orderByFreshness(words, seen).map((word) => ({
@@ -333,7 +340,10 @@
 
 	function spawn(animate = true) {
 		if (phase === 'over') return;
-		const onBoard = (w: WortWord) => blocks.some((b) => b.word.de === w.de);
+		// Neither the word nor its English may already be on the board: two
+		// chips reading the same translation would make the right answer wrong.
+		const onBoard = (w: WortWord) =>
+			blocks.some((b) => b.word.de === w.de || b.word.en.toLowerCase() === w.en.toLowerCase());
 		const usable = (q: { word: WortWord }) =>
 			!onBoard(q.word) && canFit(blocks, q.word.de.length, grid);
 		// The first queued word that actually FITS: a long word never ends the
@@ -397,12 +407,35 @@
 	function settle() {
 		const fell = settleBlocks(blocks, grid.rows);
 		if (fell) setTimeout(() => playSound('land'), 260);
+		pruneSets();
 		checkLines();
 		updateDanger();
 		return fell;
 	}
 
 	// -- lines, sets, runs ------------------------------------------------------------
+	/** Rule three: when the board's shuffling cuts a pending set's member off
+	 *  from its line, the gold comes off it — it is no longer part of the set.
+	 *  The active run is left alone: its board cannot change under it. */
+	function pruneSets() {
+		if (activeCh || dealing) return;
+		let changed = false;
+		for (const ch of [...challenges]) {
+			const kept = connectedToAnchors(blocks, ch.ids, ch.anchorIds);
+			if (kept.size === ch.ids.size) continue;
+			changed = true;
+			for (const b of blocks) {
+				if (ch.ids.has(b.id) && !kept.has(b.id)) {
+					b.gilded = false;
+					ch.ids.delete(b.id);
+					ch.des.delete(b.word.de);
+				}
+			}
+			if (!ch.ids.size) challenges = challenges.filter((x) => x !== ch);
+		}
+		if (changed) updateGoldBar();
+	}
+
 	function checkLines() {
 		if (activeCh || dealing) return;
 		const now = completeRows(blocks, grid);
@@ -442,13 +475,14 @@
 		let ch = touched[0];
 		const merging = Boolean(ch);
 		if (!ch) {
-			ch = { color, ids: new Set(), des: new Set(), doneIds: new Set(), active: false, pot: 0, lines: 0 };
+			ch = { color, ids: new Set(), des: new Set(), doneIds: new Set(), anchorIds: new Set(), active: false, pot: 0, lines: 0 };
 			challenges.push(ch);
 		}
 		// The region bridged several pending sets of its color: they become one.
 		for (const other of touched.slice(1)) {
 			for (const id of other.ids) ch.ids.add(id);
 			for (const de of other.des) ch.des.add(de);
+			for (const id of other.anchorIds) ch.anchorIds.add(id);
 			ch.lines += other.lines;
 			challenges = challenges.filter((x) => x !== other);
 		}
@@ -458,6 +492,7 @@
 		for (const b of region) {
 			ch.ids.add(b.id);
 			ch.des.add(b.word.de);
+			if (cellsOf(b).some(([r]) => r === row)) ch.anchorIds.add(b.id);
 			b.gilded = true;
 		}
 		announce(merging ? 'Another golden line.' : `Golden line: ${ch.ids.size} words.`);
@@ -656,7 +691,9 @@
 			if (picking) sayDe(b.word.de);
 			// A word already wearing its article: picking it asks the article
 			// straight away — the meaning is in view, no need to pair it again.
-			if (picking && !ch && b.learned && b.word.art) askArticle(b, null);
+			// On a golden word this IS the golden move: a right article starts
+			// (or continues) the run, a wrong one loses the set.
+			if (picking && b.learned && b.word.art) askArticle(b, ch, true);
 			return;
 		}
 		if (ch) {
@@ -709,17 +746,23 @@
 	}
 
 	// -- the article strip ----------------------------------------------------------
-	function askArticle(b: Block, ch: GoldenSet | null) {
+	/** `free`: the question was opened by just tapping a badge-wearing word —
+	 *  nothing is wagered until an article is chosen, so it may be put away.
+	 *  A question reached by PAIRING is committed and must be answered. */
+	function askArticle(b: Block, ch: GoldenSet | null, free = false) {
 		pending = b;
 		pendingRun = ch;
+		pendingFree = free;
 		b.featured = true;
 	}
 
-	/** Put the question away (never mid-run): the word stays until resolved. */
+	/** Put the question away (only while nothing is wagered): the word stays. */
 	function cancelArticle() {
-		if (!pending || pendingRun) return;
+		if (!pending || (pendingRun && !pendingFree)) return;
 		pending.featured = false;
 		pending = null;
+		pendingRun = null;
+		pendingFree = false;
 		grabbedId = null;
 		playSound('down');
 	}
@@ -731,6 +774,7 @@
 		b.featured = false;
 		const ch = pendingRun;
 		pendingRun = null;
+		pendingFree = false;
 		const right = art === b.word.art;
 		floatAt(
 			b,
@@ -1186,8 +1230,8 @@
 						<button type="button" class="art-btn die" onclick={() => answerArticle('die')}>die</button>
 						<button type="button" class="art-btn das" onclick={() => answerArticle('das')}>das</button>
 					</div>
-					{#if !pendingRun}
-						<!-- Outside a golden run the question may wait: back to the board. -->
+					{#if !pendingRun || pendingFree}
+						<!-- While nothing is wagered the question may wait: back to the board. -->
 						<button type="button" class="art-x" onclick={cancelArticle} aria-label="Not now">
 							<Icon name="close" size="1em" />
 						</button>
@@ -1367,7 +1411,7 @@
 							<span class="d-block gold"><i>G</i><i>o</i><i>l</i><i>d</i></span>
 							<span class="d-spark">✨</span>
 						</span>
-						<span>Fill a row in <strong>one color</strong>: the row AND everything connected in that color turns golden (the odd color out stays plain). Match one golden word to start the run — then clear them ALL in a row. One miss loses the whole set; all right pays the jackpot.</span>
+						<span>Fill a row in <strong>one color</strong>: the row AND everything connected in that color turns golden (the odd color out stays plain). Match one golden word to start the run — then clear them ALL in a row. One miss loses the whole set; all right pays the jackpot. If the board shifts and a golden word loses touch with its line before you start, its gold comes off again.</span>
 					</li>
 					<li>
 						<span class="demo" aria-hidden="true">

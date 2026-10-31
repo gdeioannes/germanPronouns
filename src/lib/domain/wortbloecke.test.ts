@@ -3,6 +3,7 @@ import {
 	buildPools,
 	canFit,
 	completeRows,
+	connectedToAnchors,
 	insertScore,
 	mergeWordBank,
 	orderByFreshness,
@@ -244,5 +245,43 @@ describe('the ladder and the pools', () => {
 		const pools = { 'A1.1': [{ de: 'Tür', en: 'door', art: 'die' }] };
 		const words = refillWords(pools, 1, new Set());
 		expect(words.some((w) => w.de === 'Tür')).toBe(true);
+	});
+
+	it('holds back a word whose English is already on the board', () => {
+		// lila and violett both read "purple" in the tray: two identical chips
+		// would make the right meaning count as wrong.
+		const pools = {
+			'A1.1': [
+				{ de: 'lila', en: 'purple', art: null },
+				{ de: 'violett', en: 'Purple', art: null },
+				{ de: 'rot', en: 'red', art: null }
+			]
+		};
+		const words = refillWords(pools, 0, new Set(['lila']), new Set(['purple']));
+		expect(words.map((w) => w.de)).toEqual(['rot']);
+	});
+});
+
+describe('rule three: a cut-off member leaves the set', () => {
+	it('keeps only members still connected to the line, through chains', () => {
+		const anchor = block('KALT', 'g', 'h', 9, 0);
+		const bridge = block('ROT', 'g', 'h', 8, 0); // on the line
+		const chained = block('NEU', 'g', 'h', 7, 0); // on the bridge
+		const faraway = block('TAG', 'g', 'h', 5, 4); // drifted off
+		const members = new Set([anchor.id, bridge.id, chained.id, faraway.id]);
+		const kept = connectedToAnchors([anchor, bridge, chained, faraway], members, new Set([anchor.id]));
+		expect(kept).toEqual(new Set([anchor.id, bridge.id, chained.id]));
+	});
+
+	it('never bridges through a block that is not a member', () => {
+		const anchor = block('KALT', 'g', 'h', 9, 0);
+		const stranger = block('ROT', 'g', 'h', 8, 0);
+		const beyond = block('NEU', 'g', 'h', 7, 0);
+		const kept = connectedToAnchors(
+			[anchor, stranger, beyond],
+			new Set([anchor.id, beyond.id]),
+			new Set([anchor.id])
+		);
+		expect(kept).toEqual(new Set([anchor.id]));
 	});
 });
