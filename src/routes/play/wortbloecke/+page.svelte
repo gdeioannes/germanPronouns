@@ -1551,7 +1551,9 @@
 		display: flex;
 		flex-direction: column;
 		height: 100dvh;
-		max-width: 480px;
+		/* The same column the deck's quizzes get: phone-first, and on a
+		   computer the board simply grows into it (cells scale with space). */
+		max-width: 46rem;
 		margin: 0 auto;
 		padding: 0.5rem 1rem 0.6rem;
 		position: relative;

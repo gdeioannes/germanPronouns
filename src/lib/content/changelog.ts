@@ -43,6 +43,7 @@ export const changelog: ChangelogEntry[] = [
       "No more twin chips: two different German words that share one English translation (lila and violett are both purple) can no longer be on the board at the same time — tapping the right meaning was being counted wrong when you caught the twin.",
       "Golden sets now follow the board honestly: when clearing other words shuffles the stack and a golden word loses touch with its line, its gold comes off and it is out of the set — only what still hangs together must be cleared.",
       "A golden word wearing its article badge starts the run straight from the der/die/das question when you tap it — and until you actually pick an article, the ✕ lets you back out, because the run only begins with your answer.",
+      "On a computer the game now fills the same comfortable column as the course's quizzes instead of a narrow phone strip — bigger board, bigger letters; phones look exactly as before.",
     ],
   },
   {
