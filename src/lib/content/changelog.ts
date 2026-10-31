@@ -44,6 +44,7 @@ export const changelog: ChangelogEntry[] = [
       "Golden sets now follow the board honestly: when clearing other words shuffles the stack and a golden word loses touch with its line, its gold comes off and it is out of the set — only what still hangs together must be cleared.",
       "A golden word wearing its article badge starts the run straight from the der/die/das question when you tap it — and until you actually pick an article, the ✕ lets you back out, because the run only begins with your answer.",
       "On a computer the game now fills the same comfortable column as the course's quizzes instead of a narrow phone strip — bigger board, bigger letters; phones look exactly as before.",
+      "Fixed a run-breaking bug: when a golden run's FIRST word was a noun, the game lost track of its own set after the article was answered — every further golden word was refused with “Erst die goldene Zeile!”. Runs now accept all their words again.",
     ],
   },
   {

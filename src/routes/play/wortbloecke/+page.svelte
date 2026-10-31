@@ -205,7 +205,11 @@
 		};
 	});
 	let pending = $state<Block | null>(null);
-	let pendingRun = $state<GoldenSet | null>(null);
+	// $state.raw, like activeCh: a deep $state proxy would give the set a
+	// second identity — markGilded would activate the proxy while challenges
+	// kept the raw object inactive, and every later setOf comparison failed,
+	// refusing the rest of the run ("Erst die goldene Zeile!" on its own set).
+	let pendingRun = $state.raw<GoldenSet | null>(null);
 	/** The open question is a free look (direct tap on a badge), not a wager. */
 	let pendingFree = $state(false);
 	/** English chips in the tray, in their own stable shuffled order. */
