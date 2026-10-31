@@ -12,6 +12,7 @@
 	// short interstitial beat separates the parts. "Skip the rest" at any
 	// point lands on the result with a best guess and the level picker.
 	import Seo from '$lib/components/Seo.svelte';
+	import QuizChoices from '$lib/components/quiz/QuizChoices.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { page } from '$app/state';
@@ -119,6 +120,7 @@
 		reading = [0, 0];
 		listening = [0, 0];
 		wordsLevel = null;
+		hoverLevel = levels[0];
 		phase = 'words';
 		track('placement_start', {});
 		void focusTop();
@@ -140,6 +142,7 @@
 		}
 		const result = checkResult(wordLevels, screens);
 		wordsLevel = result.level;
+		hoverLevel = result.level ?? hoverLevel;
 		// The word part counts as a word check too, so the history shows it.
 		const log = appendLog(parseLog(await storage.get(WORD_CHECK_LOG)), logEntry(result));
 		await storage.set(WORD_CHECK_LOG, JSON.stringify(log));
@@ -186,6 +189,7 @@
 				return;
 			}
 			gLevel = grammarLevel(levels, answers);
+			hoverLevel = gLevel;
 			breakThen('Grammar', 'Reading', () => startText('reading'));
 		}, dur());
 	}
@@ -262,12 +266,10 @@
 	const progress = $derived(PARTS.reduce((sum, p, i) => sum + p.weight * fractions[i], 0));
 	const minutesLeft = $derived(Math.max(1, Math.ceil((1 - progress) * 10)));
 
-	/** Where the test currently places the learner: the stop lit on the level line. */
-	const hoverLevel = $derived.by(() => {
-		if (phase === 'words') return screen?.level ?? levels[0];
-		if (phase === 'grammar') return item?.level ?? gLevel;
-		return gLevel;
-	});
+	/** Where the test places the learner so far: the stop lit on the level
+	 *  line. It moves only when a PART ends — a marker drifting after every
+	 *  question pulled the eye away from the questions. */
+	let hoverLevel = $state('A1.1');
 	const hoverIdx = $derived(Math.max(0, levels.indexOf(hoverLevel)));
 	/** Band labels (A1, B1 …) sit under the first stop of each band. */
 	const band = (lv: string) => (lv.endsWith('.1') ? lv.slice(0, 2) : '');
@@ -412,12 +414,7 @@
 					{parts(item.sentence)[0]}<span class="gap" aria-label="gap">&nbsp;</span>{parts(item.sentence)[1]}
 				</p>
 				{#if item.english}<p class="english">{item.english}</p>{/if}
-				<div class="options">
-					{#each item.options as o (o)}
-						<button type="button" class="opt" class:picked={picked === o} lang="de" onclick={() => answerGrammar(o)}>{o}</button>
-					{/each}
-					<button type="button" class="opt idk" class:picked={picked === null} onclick={() => answerGrammar(null)}>I don’t know</button>
-				</div>
+				<QuizChoices choices={item.options} locale="de" selected={picked} idk="I don’t know" onpick={answerGrammar} />
 			</div>
 		{/key}
 	{:else if (phase === 'reading' || phase === 'listening') && text}
@@ -449,12 +446,16 @@
 					{#each text.questions as q, qi (qi)}
 						<li>
 							<p class="question" lang="de">{q.question}</p>
-							<div class="choices" role="radiogroup" aria-label={q.question}>
-								{#each q.options as o, oi (oi)}
-									<button type="button" class="choice" role="radio" aria-checked={picks[qi] === oi} lang="de" onclick={() => pick(qi, oi)}>{o}</button>
-								{/each}
-								<button type="button" class="choice idk" role="radio" aria-checked={picks[qi] === -1} onclick={() => pick(qi, -1)}>I don’t know</button>
-							</div>
+							<QuizChoices
+								radio
+								keys={false}
+								choices={q.options}
+								locale="de"
+								label={q.question}
+								selected={picks[qi] === null ? undefined : picks[qi] === -1 ? null : q.options[picks[qi]!]}
+								idk="I don’t know"
+								onpick={(o) => pick(qi, o === null ? -1 : q.options.indexOf(o))}
+							/>
 						</li>
 					{/each}
 				</ol>
@@ -526,7 +527,8 @@
 
 <style>
 	.test {
-		max-width: 44rem;
+		/* The quiz screen's column, so the cards sit at the same width. */
+		max-width: 46rem;
 		padding-bottom: 4rem;
 	}
 
@@ -689,30 +691,15 @@
 
 	/* -- the question card ----------------------------------------------------- */
 
+	/* The quizzes' card, exactly (see FillBlankQuiz): same padding, same
+	   radius, flat on the page — no deck shadow of its own. */
 	.qcard {
 		position: relative;
 		margin: 0.4rem 0 1rem;
-		padding: 1.3rem 1.2rem 1.2rem;
+		padding: 1.75rem;
 		border: 1px solid var(--line);
-		border-radius: 1.1rem;
+		border-radius: var(--radius);
 		background: var(--surface);
-		box-shadow:
-			0 10px 24px rgb(31 58 95 / 0.1),
-			0 1px 0 var(--line);
-	}
-
-	/* the next card peeking out underneath, like the deck */
-	.qcard::after {
-		content: '';
-		position: absolute;
-		right: 10px;
-		bottom: -7px;
-		left: 10px;
-		z-index: -1;
-		height: 14px;
-		border: 1px solid var(--line);
-		border-radius: 0 0 1rem 1rem;
-		background: var(--surface-alt);
 	}
 
 	.count {
@@ -756,8 +743,6 @@
 	}
 
 	.chip,
-	.opt,
-	.choice,
 	.lv-btn {
 		padding: 0.55rem 0.9rem;
 		border: 1px solid var(--line);
@@ -774,27 +759,31 @@
 	}
 
 	.chip:active,
-	.opt:active,
-	.choice:active,
 	.lv-btn:active {
 		transform: scale(0.94);
 	}
 
 	.chip[aria-pressed='true'],
-	.choice[aria-checked='true'],
-	.lv-btn[aria-checked='true'],
-	.opt.picked {
+	.lv-btn[aria-checked='true'] {
 		border-color: var(--heading);
 		background: var(--heading);
 		color: var(--surface);
 	}
 
+	/* The question card wears the quizzes' type exactly: the terracotta
+	   category label and the sentence's serif cut (see FillBlankQuiz). */
+	.qcard :global(.eyebrow) {
+		color: var(--accent-ink);
+	}
+
 	.sentence {
-		margin: 0.8rem 0 0.3rem;
-		font-family: var(--font-display, serif);
+		margin: 0.6rem 0 0;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-2);
-		line-height: 1.4;
-		color: var(--heading);
+		font-variation-settings: 'opsz' 28;
+		font-weight: 600;
+		line-height: 2;
+		color: var(--ink);
 	}
 
 	.gap {
@@ -805,41 +794,15 @@
 	}
 
 	.english {
-		margin: 0 0 1.2rem;
+		margin: 0.5rem 0 0;
 		color: var(--ink-muted);
 		font-size: var(--step--1);
-		font-style: italic;
 	}
 
-	.options {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 0.6rem;
-	}
+	/* The answer buttons are QuizChoices — the same component the quizzes use. */
 
-	.opt {
-		padding: 0.9rem;
-		font-family: var(--font-display, serif);
-		font-size: var(--step-1);
-		color: var(--heading);
-		text-align: center;
-	}
-
-	.opt:hover,
-	.choice:hover,
 	.chip:hover {
 		border-color: var(--heading);
-	}
-
-	.idk {
-		color: var(--ink-muted);
-	}
-
-	.options .idk {
-		grid-column: 1 / -1;
-		border-style: dashed;
-		font-family: inherit;
-		font-size: var(--step--1);
 	}
 
 	.passage {
@@ -942,12 +905,6 @@
 		font-weight: 700;
 	}
 
-	.choices {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.4rem;
-	}
-
 	.parts {
 		display: grid;
 		grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1035,8 +992,13 @@
 	}
 
 	@media (max-width: 40rem) {
-		.options {
-			grid-template-columns: minmax(0, 1fr);
+		/* The quiz card shrinks the same way on a phone. */
+		.qcard {
+			padding: 1.1rem 1rem 1rem;
+		}
+		.sentence {
+			font-size: var(--step-1);
+			line-height: 1.9;
 		}
 		.parts {
 			grid-template-columns: repeat(2, minmax(0, 1fr));

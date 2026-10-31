@@ -16,6 +16,15 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-31",
+    title: "The level test wears the quizzes' clothes",
+    items: [
+      "The placement test's answers are now drawn by the very same component as the course quizzes — the serif choice buttons with their little number chips — so your first screen and your daily practice look like one app. Future restyles hit both at once.",
+      "Its question card matches too: the same width, padding, terracotta category label and sentence type as a deck quiz, instead of the test's own look-alike.",
+      "The level line above the test now moves only when a whole part is done (words, grammar, reading, listening) — a marker drifting after every single answer pulled your eye away from the question.",
+    ],
+  },
+  {
     date: "2026-10-30",
     title: "Wortblöcke: a word puzzle in a falling-block well",
     highlight: true,

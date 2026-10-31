@@ -35,6 +35,7 @@
 	import { splitGapAnswer } from '$lib/domain/answers';
 	import { LadderRun, type ClimbOffer } from '$lib/state/ladderRun.svelte';
 	import MedalLadder from './MedalLadder.svelte';
+	import QuizChoices from './QuizChoices.svelte';
 	import { tick, untrack } from 'svelte';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE } from '$lib/domain/progress';
@@ -662,19 +663,14 @@
 
 		{#if choosing}
 			<!-- The choose step: four answers, one right. 1–4 pick from the keyboard. -->
-			<div class="choices" role="group" aria-label="Choose the answer" lang={locale}>
-				{#each choices as option, i (option)}
-					<button
-						type="button"
-						class="choice"
-						class:right={locked && option === current?.acceptedAnswers[0]}
-						class:wrong={locked && verdict === 'wrong' && option === chosen}
-						disabled={locked}
-						onclick={() => pick(option)}
-						><span class="key" aria-hidden="true">{i + 1}</span>{option}</button
-					>
-				{/each}
-			</div>
+			<QuizChoices
+				{choices}
+				{locale}
+				{locked}
+				right={current?.acceptedAnswers[0] ?? null}
+				wrong={verdict === 'wrong' ? chosen : null}
+				onpick={(option) => option !== null && pick(option)}
+			/>
 		{/if}
 
 		{#if tiled}
@@ -946,74 +942,7 @@
 		margin-bottom: 0.6rem;
 	}
 
-	/* The choose step's four answers: two by two, in the sentence's type. */
-	.choices {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 0.5rem;
-		margin: 1rem 0 0;
-	}
-
-	.choice {
-		display: flex;
-		align-items: center;
-		gap: 0.6rem;
-		min-height: 2.9rem;
-		padding: 0.55rem 0.8rem;
-		border: 1.5px solid var(--line-strong);
-		border-radius: var(--radius-sm);
-		background: var(--surface);
-		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
-		font-size: var(--step-0);
-		font-weight: 600;
-		color: var(--ink);
-		text-align: left;
-		cursor: pointer;
-		transition:
-			border-color var(--fast) var(--ease-out),
-			background var(--fast) var(--ease-out),
-			transform var(--fast) var(--ease-spring);
-	}
-
-	.choice:hover:not(:disabled) {
-		border-color: var(--heading);
-		transform: translateY(-1px);
-	}
-
-	.choice:disabled {
-		cursor: default;
-	}
-
-	.choice .key {
-		flex: none;
-		display: inline-grid;
-		place-items: center;
-		width: 1.35rem;
-		height: 1.35rem;
-		border-radius: 50%;
-		background: var(--surface-alt);
-		font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-		font-size: 0.7rem;
-		font-weight: 800;
-		color: var(--ink-muted);
-	}
-
-	/* After the answer: the right one green, a wrong pick red, the rest faded. */
-	.choice.right {
-		border-color: var(--right);
-		background: var(--right-bg);
-		color: var(--right);
-	}
-
-	.choice.wrong {
-		border-color: var(--wrong);
-		background: var(--wrong-bg);
-		color: var(--wrong);
-	}
-
-	.choice:disabled:not(.right):not(.wrong) {
-		opacity: 0.45;
-	}
+	/* The choose step's four answers live in QuizChoices, shared app-wide. */
 
 	/* One fixed row: hint while answering, verdict after. Reserving the space
 	   stops the card resizing between the two states. */
