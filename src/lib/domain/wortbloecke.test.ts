@@ -3,11 +3,15 @@ import {
 	buildPools,
 	canFit,
 	completeRows,
-	connectedToAnchors,
+	regionFromAnchors,
 	insertScore,
 	mergeWordBank,
 	orderByFreshness,
 	parseScores,
+	parseWordBook,
+	recordClean,
+	recordMiss,
+	weaveLearning,
 	sanitizeName,
 	scoreRank,
 	dropDist,
@@ -262,26 +266,70 @@ describe('the ladder and the pools', () => {
 	});
 });
 
-describe('rule three: a cut-off member leaves the set', () => {
-	it('keeps only members still connected to the line, through chains', () => {
-		const anchor = block('KALT', 'g', 'h', 9, 0);
-		const bridge = block('ROT', 'g', 'h', 8, 0); // on the line
-		const chained = block('NEU', 'g', 'h', 7, 0); // on the bridge
-		const faraway = block('TAG', 'g', 'h', 5, 4); // drifted off
-		const members = new Set([anchor.id, bridge.id, chained.id, faraway.id]);
-		const kept = connectedToAnchors([anchor, bridge, chained, faraway], members, new Set([anchor.id]));
-		expect(kept).toEqual(new Set([anchor.id, bridge.id, chained.id]));
+describe('the word book', () => {
+	const w = (de: string) => ({ de, en: de.toLowerCase(), art: null });
+
+	it('parses only well-formed entries, and survives junk', () => {
+		expect(parseWordBook(null)).toEqual({});
+		expect(parseWordBook('not json')).toEqual({});
+		expect(parseWordBook('[1,2]')).toEqual({});
+		expect(parseWordBook('{"Uhr":{"miss":2,"streak":1},"bad":{"miss":"x"}}')).toEqual({
+			Uhr: { miss: 2, streak: 1 }
+		});
 	});
 
-	it('never bridges through a block that is not a member', () => {
+	it('a miss enters the book and resets the streak; clean twice graduates', () => {
+		const book = {} as ReturnType<typeof parseWordBook>;
+		recordMiss(book, 'Uhr');
+		expect(book.Uhr).toEqual({ miss: 1, streak: 0 });
+		expect(recordClean(book, 'Uhr')).toBe(false);
+		recordMiss(book, 'Uhr');
+		expect(book.Uhr).toEqual({ miss: 2, streak: 0 });
+		expect(recordClean(book, 'Uhr')).toBe(false);
+		expect(recordClean(book, 'Uhr')).toBe(true);
+		expect(book.Uhr).toBeUndefined();
+		// words never missed are not tracked
+		expect(recordClean(book, 'Haus')).toBe(false);
+		expect(book.Haus).toBeUndefined();
+	});
+
+	it('weaves a learning word into every fourth seat', () => {
+		const words = [w('a'), w('b'), w('c'), w('d'), w('e'), w('f'), w('L1'), w('L2')];
+		const woven = weaveLearning(words, new Set(['L1', 'L2']));
+		expect(woven.map((x) => x.de)).toEqual(['a', 'b', 'c', 'L1', 'd', 'e', 'f', 'L2']);
+		// nothing due: untouched
+		expect(weaveLearning(words.slice(0, 3), new Set()).map((x) => x.de)).toEqual(['a', 'b', 'c']);
+		// only learning words left: they still all come out
+		expect(weaveLearning([w('L1'), w('L2')], new Set(['L1', 'L2'])).map((x) => x.de)).toEqual(['L1', 'L2']);
+	});
+});
+
+describe('the set follows the board: the flood from the anchors', () => {
+	it('keeps the chain, drops the drifted, and lets a newcomer join', () => {
 		const anchor = block('KALT', 'g', 'h', 9, 0);
-		const stranger = block('ROT', 'g', 'h', 8, 0);
-		const beyond = block('NEU', 'g', 'h', 7, 0);
-		const kept = connectedToAnchors(
-			[anchor, stranger, beyond],
-			new Set([anchor.id, beyond.id]),
-			new Set([anchor.id])
+		const bridge = block('ROT', 'g', 'h', 8, 0); // on the line
+		const newcomer = block('NEU', 'g', 'h', 7, 0); // landed on the bridge later
+		const faraway = block('TAG', 'g', 'h', 5, 4); // drifted off
+		const other = block('EIS', 'n', 'h', 8, 2); // wrong color, touching
+		const now = regionFromAnchors(
+			[anchor, bridge, newcomer, faraway, other],
+			new Set([anchor.id]),
+			'g',
+			new Set()
 		);
-		expect(kept).toEqual(new Set([anchor.id]));
+		expect(now).toEqual(new Set([anchor.id, bridge.id, newcomer.id]));
+	});
+
+	it('never grows through or into another set\'s blocks', () => {
+		const anchor = block('KALT', 'g', 'h', 9, 0);
+		const claimed = block('ROT', 'g', 'h', 8, 0); // another set's word
+		const beyond = block('NEU', 'g', 'h', 7, 0);
+		const now = regionFromAnchors(
+			[anchor, claimed, beyond],
+			new Set([anchor.id]),
+			'g',
+			new Set([claimed.id])
+		);
+		expect(now).toEqual(new Set([anchor.id]));
 	});
 });

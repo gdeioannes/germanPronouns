@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-31",
+    title: "Wortblöcke remembers the words you miss",
+    items: [
+      "Every word you miss goes into your word book, and the game deals it back — about every fourth new block is one of your learning words — until you answer it right twice in a row. Then it graduates, with a little 📖 Gelernt! on the board.",
+      "The lesson after a mistake no longer fades on a timer: the right word, article and translation stay under the board until your next move. Read at your own pace — this is a learning app.",
+      "A missed word stays marked on the board: tap it any time to see and hear its meaning again, free of charge (marked words pay silver, as shown words always did).",
+      "The game-over card now tells your learning story: how many new words you met, how many learning words came back, and how many you learned for good.",
+      "Golden sets now follow the board in BOTH directions: a same-color word that comes to touch the gold turns golden and joins the set, just as a cut-off word drops out — what you see hanging together is exactly what you must clear.",
+    ],
+  },
+  {
+    date: "2026-10-31",
     title: "The level test wears the quizzes' clothes",
     items: [
       "The placement test's answers are now drawn by the very same component as the course quizzes — the serif choice buttons with their little number chips — so your first screen and your daily practice look like one app. Future restyles hit both at once.",

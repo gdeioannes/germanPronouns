@@ -292,6 +292,85 @@ export const SEEN_CAP = 300;
  * game teaches something new before it repeats anything.
  * `seen` is oldest-first, newest last.
  */
+// -- the learning loop -------------------------------------------------------
+// Words the player has missed live in a little book until they are answered
+// clean (first try, no hint) twice. The game deals them back deliberately, so
+// a miss reliably returns until it sticks — this is a learning app.
+
+export interface WordStats {
+	/** How often this word was missed, ever. */
+	miss: number;
+	/** Clean answers in a row since the last miss. */
+	streak: number;
+}
+export type WordBook = Record<string, WordStats>;
+
+/** Clean answers in a row that graduate a word out of the book. */
+export const GRADUATE_STREAK = 2;
+/** The book holds this many words at most; the oldest entries make room. */
+export const BOOK_CAP = 200;
+
+export function parseWordBook(raw: string | null): WordBook {
+	try {
+		const parsed = JSON.parse(raw ?? '{}') as unknown;
+		if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+		const book: WordBook = {};
+		for (const [de, v] of Object.entries(parsed as Record<string, unknown>)) {
+			const s = v as Partial<WordStats> | null;
+			if (s && typeof s.miss === 'number' && typeof s.streak === 'number')
+				book[de] = { miss: s.miss, streak: s.streak };
+		}
+		return book;
+	} catch {
+		return {};
+	}
+}
+
+/** A miss puts the word in the book (or resets its streak). Mutates. */
+export function recordMiss(book: WordBook, de: string): void {
+	const prior = book[de];
+	// Re-inserting keeps the book in miss order, so the cap drops the oldest.
+	delete book[de];
+	book[de] = { miss: (prior?.miss ?? 0) + 1, streak: 0 };
+	const over = Object.keys(book).length - BOOK_CAP;
+	for (const key of Object.keys(book).slice(0, Math.max(0, over))) delete book[key];
+}
+
+/** A clean answer (first try, no hint) moves a book word towards graduating.
+ *  Returns true the moment it graduates. Words not in the book are no-ops. */
+export function recordClean(book: WordBook, de: string): boolean {
+	const stats = book[de];
+	if (!stats) return false;
+	stats.streak += 1;
+	if (stats.streak < GRADUATE_STREAK) return false;
+	delete book[de];
+	return true;
+}
+
+/**
+ * Deals the book's words back deliberately: every `every`-th queue seat is a
+ * learning word (keeping their given order), the rest keep theirs. With
+ * nothing in the book the queue is untouched.
+ */
+export function weaveLearning(
+	words: readonly WortWord[],
+	learning: ReadonlySet<string>,
+	every = 4
+): WortWord[] {
+	const due = words.filter((w) => learning.has(w.de));
+	if (!due.length) return [...words];
+	const rest = words.filter((w) => !learning.has(w.de));
+	const out: WortWord[] = [];
+	let d = 0;
+	let r = 0;
+	while (d < due.length || r < rest.length) {
+		const dueSeat = (out.length + 1) % every === 0;
+		if ((dueSeat && d < due.length) || r >= rest.length) out.push(due[d++]);
+		else out.push(rest[r++]);
+	}
+	return out;
+}
+
 export function orderByFreshness(
 	words: readonly WortWord[],
 	seen: readonly string[],
@@ -423,26 +502,27 @@ export function goldenRegion(
 }
 
 /**
- * Rule three: a set member that the board's shuffling has cut off from the
- * line no longer belongs to it. Flooding from the anchors (the blocks that
- * made the completed rows) through touching MEMBERS, the ids reached are the
- * set that remains; everything else has drifted off and drops out.
+ * A pending set's TRUE region right now: the flood from its anchors (the
+ * blocks that made the completed rows) through every touching same-color
+ * block. Membership is dynamic in both directions — a member the board's
+ * shuffling cut off drops out, and a same-color block that comes to touch
+ * the gold joins it. `taken` holds other sets' blocks, never stolen.
  */
-export function connectedToAnchors(
+export function regionFromAnchors(
 	blocks: readonly WortBlock[],
-	memberIds: ReadonlySet<number>,
-	anchorIds: ReadonlySet<number>
+	anchorIds: ReadonlySet<number>,
+	color: string,
+	taken: ReadonlySet<number>
 ): Set<number> {
-	const members = blocks.filter((b) => memberIds.has(b.id));
-	const kept = members.filter((b) => anchorIds.has(b.id));
-	const reached = new Set(kept.map((b) => b.id));
+	const region = blocks.filter((b) => anchorIds.has(b.id) && !taken.has(b.id));
+	const reached = new Set(region.map((b) => b.id));
 	let grew = true;
 	while (grew) {
 		grew = false;
-		for (const b of members) {
-			if (reached.has(b.id)) continue;
-			if (kept.some((m) => touchingBlocks(b, m))) {
-				kept.push(b);
+		for (const b of blocks) {
+			if (reached.has(b.id) || taken.has(b.id) || b.color !== color) continue;
+			if (region.some((m) => touchingBlocks(b, m))) {
+				region.push(b);
 				reached.add(b.id);
 				grew = true;
 			}

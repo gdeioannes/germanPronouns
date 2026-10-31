@@ -19,12 +19,16 @@
 		canFit,
 		cellsOf,
 		completeRows,
-		connectedToAnchors,
+		regionFromAnchors,
 		goldenRegion,
 		insertScore,
 		levelForPoints,
 		orderByFreshness,
 		parseScores,
+		parseWordBook,
+		recordClean,
+		recordMiss,
+		weaveLearning,
 		pickSpot,
 		refillWords,
 		rowColors,
@@ -51,6 +55,7 @@
 		START_ROTATES,
 		WORT_LEVELS,
 		WORT_PALETTE,
+		type WordBook,
 		type WortBlock,
 		type WortScore,
 		type WortWord
@@ -76,6 +81,40 @@
 		} catch {
 			/* no storage: variety holds within this session */
 		}
+	}
+
+	// -- the word book: misses come back until answered clean twice -----------
+	const WORDS_KEY = 'wortbloecke_words';
+	let book: WordBook = {};
+	function saveBook() {
+		try {
+			localStorage.setItem(WORDS_KEY, JSON.stringify(book));
+		} catch {
+			/* no storage: the book is this session's */
+		}
+	}
+	/** This game's learning story, told on the game-over card. */
+	let newMet = $state(0);
+	let learningMet = $state(0);
+	let graduated = $state(0);
+
+	/** A miss on this block: into the book, and the block wears its lesson —
+	 *  tapping a marked word always re-shows what it means. */
+	function noteMiss(b: Block) {
+		b.hinted = true;
+		if (b.word.art) b.learned = true;
+		recordMiss(book, b.word.de);
+		saveBook();
+	}
+
+	/** A clean earn (first try, no hint) moves a book word on. */
+	function noteClean(b: Block) {
+		if (b.hinted) return;
+		if (recordClean(book, b.word.de)) {
+			graduated++;
+			floatAt(b, '📖 Gelernt!', 'gold', -1.4);
+		}
+		saveBook();
 	}
 
 	// -- the board model ---------------------------------------------------------
@@ -142,13 +181,16 @@
 	let preview = $state<{ de: string; color: string }[]>([]);
 	let goldBar = $state<string | null>(null);
 	/** The lesson line: after any miss, the right article + translation sits
-	 *  readable under the board for a moment — this is a learning app. */
+	 *  readable under the board UNTIL THE NEXT TAP — no timer rushes the
+	 *  reading of a word you did not know. This is a learning app. */
 	let lesson = $state<string | null>(null);
-	let lessonTimer: ReturnType<typeof setTimeout> | undefined;
 	function teach(w: WortWord) {
 		lesson = `${w.art ? `${w.art} ${w.de}` : w.de} = ${w.en}`;
-		clearTimeout(lessonTimer);
-		lessonTimer = setTimeout(() => (lesson = null), 4500);
+	}
+	/** The next action turns the page: handlers call this before their work,
+	 *  so a lesson they set themselves stays up for the pause that follows. */
+	function closeLesson() {
+		lesson = null;
 	}
 	let danger = $state(false);
 	let lineFx = $state<{ id: number; r: number; mixed: boolean }[]>([]);
@@ -330,8 +372,10 @@
 		const onBoardEn = new Set(blocks.map((b) => b.word.en.toLowerCase()));
 		const words = refillWords(data.pools, levelIdx, onBoard, onBoardEn).filter(suitsGrid);
 		// Never-played words first, then the longest-unseen: fresh learning
-		// every game, repeats only when the bank is truly exhausted.
-		queue = orderByFreshness(words, seen).map((word) => ({
+		// every game, repeats only when the bank is truly exhausted — except
+		// the word book's misses, dealt back on every fourth seat until they
+		// are answered clean twice.
+		queue = weaveLearning(orderByFreshness(words, seen), new Set(Object.keys(book))).map((word) => ({
 			word,
 			color: WORT_PALETTE[Math.floor(Math.random() * WORT_PALETTE.length)]
 		}));
@@ -366,6 +410,8 @@
 			return;
 		}
 		const next = queue.splice(at, 1)[0];
+		if (!seen.includes(next.word.de)) newMet++;
+		if (book[next.word.de]) learningMet++;
 		markSeen(next.word.de);
 		const len = next.word.de.length;
 		// The preferred orientation, falling back to the other when only that
@@ -411,28 +457,37 @@
 	function settle() {
 		const fell = settleBlocks(blocks, grid.rows);
 		if (fell) setTimeout(() => playSound('land'), 260);
-		pruneSets();
+		syncSets();
 		checkLines();
 		updateDanger();
 		return fell;
 	}
 
 	// -- lines, sets, runs ------------------------------------------------------------
-	/** Rule three: when the board's shuffling cuts a pending set's member off
-	 *  from its line, the gold comes off it — it is no longer part of the set.
-	 *  The active run is left alone: its board cannot change under it. */
-	function pruneSets() {
+	/** Membership follows the board, both ways: a pending set is always
+	 *  exactly the same-color flood from its line's anchors — a member the
+	 *  shuffling cut off loses its gold, and a same-color word that comes to
+	 *  touch the gold turns golden too. The active run is left alone: its
+	 *  board cannot change under it. */
+	function syncSets() {
 		if (activeCh || dealing) return;
 		let changed = false;
 		for (const ch of [...challenges]) {
-			const kept = connectedToAnchors(blocks, ch.ids, ch.anchorIds);
-			if (kept.size === ch.ids.size) continue;
-			changed = true;
+			const taken = new Set<number>(
+				challenges.filter((x) => x !== ch).flatMap((x) => [...x.ids, ...x.doneIds])
+			);
+			const now = regionFromAnchors(blocks, ch.anchorIds, ch.color, taken);
 			for (const b of blocks) {
-				if (ch.ids.has(b.id) && !kept.has(b.id)) {
+				if (ch.ids.has(b.id) && !now.has(b.id)) {
+					changed = true;
 					b.gilded = false;
 					ch.ids.delete(b.id);
 					ch.des.delete(b.word.de);
+				} else if (!ch.ids.has(b.id) && now.has(b.id)) {
+					changed = true;
+					b.gilded = true;
+					ch.ids.add(b.id);
+					ch.des.add(b.word.de);
 				}
 			}
 			if (!ch.ids.size) challenges = challenges.filter((x) => x !== ch);
@@ -525,6 +580,7 @@
 		}
 		ch.ids.delete(b.id);
 		ch.doneIds.add(b.id);
+		noteClean(b);
 		ch.pot += POT_PER_WORD;
 		goldBar = ch.ids.size
 			? `⭐ ${b.word.en} ✓ · noch ${ch.ids.size} · Pot ${ch.pot}`
@@ -578,6 +634,7 @@
 		sayDe(name);
 		floatAt(b, `✗ ${name} = ${b.word.en}`, 'big ' + (b.word.art ? artClass(b.word.art) : ''), -1.1);
 		teach(b.word);
+		noteMiss(b);
 		announce(`Wrong: ${name}, ${b.word.en}. The golden set is lost.`);
 		// The whole set goes down with the miss, and the board is refilled
 		// like for like: as many fresh words as were lost. No points.
@@ -681,6 +738,7 @@
 	function tapBlock(b: Block) {
 		if (pending || phase !== 'play') return;
 		if (b.clearing || b.fizzle) return;
+		closeLesson();
 		// An armed star reveals any word — even a golden one mid-run.
 		if (hintMode) return useHint(b);
 		const ch = setOf(b);
@@ -693,6 +751,10 @@
 			playSound(picking ? 'up' : 'down');
 			grabbedId = picking ? b.id : null;
 			if (picking) sayDe(b.word.de);
+			// A marked word (missed or hinted before) re-shows its meaning on
+			// every pick: the lesson is free to read again, it only pays silver.
+			if (picking && b.hinted)
+				floatAt(b, `${spoken(b.word)} = ${b.word.en}`, 'big ' + (b.word.art ? artClass(b.word.art) : 'muted'), -1.1);
 			// A word already wearing its article: picking it asks the article
 			// straight away — the meaning is in view, no need to pair it again.
 			// On a golden word this IS the golden move: a right article starts
@@ -713,6 +775,7 @@
 			sayDe(spoken(b.word));
 			floatAt(b, `✗ ${spoken(b.word)} = ${b.word.en}`, 'big ' + (b.word.art ? artClass(b.word.art) : ''), -1.1);
 			teach(b.word);
+			noteMiss(b);
 			announce(`Wrong. ${spoken(b.word)}: ${b.word.en}.`);
 			spawn(); // a wrong pair costs board space
 			return;
@@ -723,6 +786,7 @@
 
 	function tapChip(de: string) {
 		if (phase !== 'play' || pending) return;
+		closeLesson();
 		const g = grabbed as Block | null;
 		playSound('up');
 		if (g) {
@@ -735,6 +799,7 @@
 				sayDe(spoken(g.word));
 				floatAt(g, `✗ ${spoken(g.word)} = ${g.word.en}`, 'big ' + (g.word.art ? artClass(g.word.art) : ''), -1.1);
 				teach(g.word);
+				noteMiss(g);
 				announce(`Wrong. ${spoken(g.word)}: ${g.word.en}.`);
 				spawn(); // a wrong pair costs board space
 				return;
@@ -774,6 +839,7 @@
 	function answerArticle(art: string) {
 		const b = pending;
 		if (!b) return;
+		closeLesson();
 		pending = null;
 		b.featured = false;
 		const ch = pendingRun;
@@ -800,7 +866,7 @@
 		playSound('wrong');
 		sayDe(spoken(b.word));
 		shake(b);
-		b.learned = true;
+		noteMiss(b);
 		clearSelection();
 		spawn();
 	}
@@ -810,6 +876,7 @@
 	// -- clearing a free block ---------------------------------------------------------
 	function clearBlock(b: Block, base: number, gold: boolean) {
 		if (b.clearing) return;
+		noteClean(b);
 		const now = Date.now();
 		combo = now - lastMatch < COMBO_WINDOW_MS ? combo + 1 : 1;
 		lastMatch = now;
@@ -873,6 +940,7 @@
 	function doMove(dc: number) {
 		const b = grabbed as Block | null;
 		if (!b || movUses === 0 || phase !== 'play') return;
+		closeLesson();
 		const cand = { dir: b.dir, r: b.r, c: b.c + dc };
 		if (!fits(b, cand)) {
 			playSound('wrong');
@@ -907,6 +975,7 @@
 	function doRotate() {
 		const b = grabbed as Block | null;
 		if (!b || rotUses === 0 || b.len === 1 || phase !== 'play') return;
+		closeLesson();
 		const cand = rotateCandidate(b);
 		if (!cand) {
 			playSound('wrong');
@@ -1002,6 +1071,7 @@
 	onMount(() => {
 		try {
 			rulesSeen = localStorage.getItem(RULES_KEY) === '1';
+			book = parseWordBook(localStorage.getItem(WORDS_KEY));
 			const rawSeen = JSON.parse(localStorage.getItem(SEEN_KEY) ?? '[]');
 			seen = Array.isArray(rawSeen) ? rawSeen.filter((x) => typeof x === 'string').slice(-SEEN_CAP) : [];
 			const list = parseScores(localStorage.getItem(SCORES_KEY));
@@ -1074,6 +1144,10 @@
 		golds = 0;
 		wordsDone = 0;
 		linesWon = 0;
+		newMet = 0;
+		learningMet = 0;
+		graduated = 0;
+		lesson = null;
 		levelIdx = 0;
 		goldBar = null;
 		danger = false;
@@ -1253,6 +1327,14 @@
 							<div><dt>Words</dt><dd class="tnum">{wordsDone}</dd></div>
 							<div><dt>Lines</dt><dd class="tnum">{linesWon}</dd></div>
 						</dl>
+						{#if newMet || learningMet || graduated}
+							<!-- The learning story: proof the game is teaching, not just scoring. -->
+							<p class="learnline">
+								{newMet} new {newMet === 1 ? 'word' : 'words'} met
+								{#if learningMet}&nbsp;· {learningMet} learning {learningMet === 1 ? 'word' : 'words'} back{/if}
+								{#if graduated}&nbsp;· <strong>{graduated} learned for good</strong>{/if}
+							</p>
+						{/if}
 						{#if overRank && !entered}
 							<!-- Made the table: write your name, arcade style. -->
 							<p class="bestline">★ Platz {overRank}! Dein Name:</p>
@@ -1314,15 +1396,18 @@
 	</div>
 
 	<div class="tray-zone">
-		<!-- The one line of standing advice. Gold business borrows it, so the
-		     board itself is never covered by a message. -->
-		{#if lesson}
-			<p class="tray-label lesson"><span lang="de">{lesson.split(' = ')[0]}</span> = {lesson.split(' = ')[1]}</p>
-		{:else if goldBar}
-			<p class="tray-label gold">{goldBar}</p>
-		{:else}
-			<p class="tray-label">Find the German for…</p>
-		{/if}
+		<!-- The one line of standing advice. Gold business and lessons borrow
+		     it. The slot's height NEVER changes, so the board above is never
+		     re-measured — no block-resizing jolt when a lesson appears. -->
+		<div class="tray-line">
+			{#if lesson}
+				<p class="tray-label lesson"><span lang="de">{lesson.split(' = ')[0]}</span> = {lesson.split(' = ')[1]}</p>
+			{:else if goldBar}
+				<p class="tray-label gold">{goldBar}</p>
+			{:else}
+				<p class="tray-label">Find the German for…</p>
+			{/if}
+		</div>
 		<div class="tray" class:dense={chips.length > 8} class:packed={chips.length > 12}>
 			{#each chips as de (de)}
 				{#if de === STAR}
@@ -1415,7 +1500,7 @@
 							<span class="d-block gold"><i>G</i><i>o</i><i>l</i><i>d</i></span>
 							<span class="d-spark">✨</span>
 						</span>
-						<span>Fill a row in <strong>one color</strong>: the row AND everything connected in that color turns golden (the odd color out stays plain). Match one golden word to start the run — then clear them ALL in a row. One miss loses the whole set; all right pays the jackpot. If the board shifts and a golden word loses touch with its line before you start, its gold comes off again.</span>
+						<span>Fill a row in <strong>one color</strong>: the row AND everything connected in that color turns golden (the odd color out stays plain). Match one golden word to start the run — then clear them ALL in a row. One miss loses the whole set; all right pays the jackpot. Before you start, the gold follows the board: a word that loses touch with its line drops out again, and a same-color word that comes to touch the gold joins in.</span>
 					</li>
 					<li>
 						<span class="demo" aria-hidden="true">
@@ -1443,6 +1528,14 @@
 							<span class="d-warn">⚠</span>
 						</span>
 						<span>Mistakes drop <strong>extra</strong> blocks. When the board pulses, space is short — overflow the top and it is over. Points climb you from A1 past C2 into the Meister words, and the best hundred games go on the <strong>Bestenliste</strong>.</span>
+					</li>
+					<li>
+						<span class="demo" aria-hidden="true">
+							<span class="d-chip">✗ die Uhr · clock</span>
+							<Icon name="arrowRight" size="0.85em" />
+							<span class="d-chip">📖 → ✓ ✓</span>
+						</span>
+						<span>A word you miss goes into your <strong>word book</strong>: it keeps coming back until you answer it right twice. Tap any marked word to see its meaning again — the lesson under the board stays until your next move.</span>
 					</li>
 				</ul>
 				<button type="button" class="btn rules-go" onclick={closeRules}>
@@ -2098,6 +2191,7 @@
 	/* The gold message in the tray's label line: always visible, never over
 	   the board. */
 	.tray-label.gold {
+		max-width: 100%;
 		overflow: hidden;
 		color: var(--ochre-ink, #836215);
 		font-size: 0.72rem;
@@ -2361,6 +2455,16 @@
 		margin: 0;
 		color: var(--heading);
 		font-weight: 800;
+	}
+
+	.learnline {
+		margin: 0.1rem 0 0.6rem;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
+	.learnline strong {
+		color: var(--right, #2e7d4f);
 	}
 
 	.bestline {
@@ -2923,8 +3027,19 @@
 		background: var(--surface);
 	}
 
+	/* The label slot: ALWAYS tall enough for the lesson pill, so swapping
+	   label ↔ gold ↔ lesson never changes the tray's height (a taller tray
+	   would shrink the zone and rescale every block mid-game). */
+	.tray-line {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 2.4rem;
+		margin-bottom: 0.15rem;
+	}
+
 	.tray-label {
-		margin: 0 0 0.25rem;
+		margin: 0;
 		color: var(--accent-ink);
 		font-size: 0.6rem;
 		font-weight: 700;
@@ -2932,11 +3047,19 @@
 		text-transform: uppercase;
 	}
 
-	/* The lesson after a miss: full size, full contrast — it IS the point. */
+	/* The lesson after a miss: centered and highlighted — it IS the point,
+	   and it stays until the next move, so it must not be overlooked. */
 	.tray-label.lesson {
+		padding: 0.3rem 0.8rem;
+		border: 1.5px solid var(--ochre, #a9802a);
+		border-radius: 999px;
+		background: var(--ochre-soft, rgb(169 128 42 / 0.12));
 		color: var(--heading);
-		font-size: 0.85rem;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: 1rem;
+		font-weight: 700;
 		letter-spacing: normal;
+		text-align: center;
 		text-transform: none;
 	}
 
