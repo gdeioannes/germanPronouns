@@ -16,6 +16,21 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-04",
+    title: "Wortblöcke: medals, more help, and games you can come back to",
+    highlight: true,
+    items: [
+      "Pick a medal before you play. Bronze colors every block by its article, in the app's own article colors — blue der, pink-red die, green das, as in word help and the gender tables; ochre for words without one — so the colors teach while you stack.",
+      "Silver plays with colors that have nothing to do with articles (ochre, plum, slate, orange): the color tells you nothing, you have to know. Gold deals the fewest stars, and a missed article is no longer written on the block for you — the lesson line still shows it.",
+      "Bronze is generous with hint stars: three in the tray from the first move, up to three at once, and a new one about every second word. Silver deals some, gold few.",
+      "A word revealed by a star now also stays in the lesson line above the tray until your next move, just like the lesson after a mistake.",
+      "Your game is saved as you play. Leave mid-game — Back, another page, closing the tab — and the start screen greets you with the unfinished game (medal, level, points): Weiterspielen picks up exactly where you were, New game starts fresh. A finished game clears its save.",
+      "Back now steps out one level: from a game to the medal choice, from there to your deck. Your medal is remembered, shown by the level badge while you play, printed as a small ribbon next to your name on this device's Bestenliste, and can be switched on the game-over card before Nochmal.",
+      "The der/die/das buttons and lessons in the game use the same app article colors too.",
+      "A lost golden set now costs one block more: the board refills like for like and drops one extra on top.",
+    ],
+  },
+  {
     date: "2026-10-31",
     title: "Wortblöcke remembers the words you miss",
     items: [

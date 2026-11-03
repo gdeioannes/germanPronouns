@@ -15,6 +15,8 @@
 	import { track } from '$lib/services/analytics';
 	import { fetchWorldScores, submitWorldScore, worldBoardAvailable } from '$lib/services/wortScores';
 	import { breadcrumbLd } from '$lib/seo';
+	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import { TIER_LABELS } from '$lib/domain/progress';
 	import {
 		canFit,
 		cellsOf,
@@ -54,8 +56,13 @@
 		START_MOVES,
 		START_ROTATES,
 		WORT_LEVELS,
-		WORT_PALETTE,
+		ARTICLE_COLORS,
+		MEDAL_RULES,
+		WORT_MEDALS,
+		blockColor,
+		isMedal,
 		type WordBook,
+		type WortMedal,
 		type WortBlock,
 		type WortScore,
 		type WortWord
@@ -101,8 +108,12 @@
 	/** A miss on this block: into the book, and the block wears its lesson —
 	 *  tapping a marked word always re-shows what it means. */
 	function noteMiss(b: Block) {
-		b.hinted = true;
-		if (b.word.art) b.learned = true;
+		// Gold keeps no crib on the board: the lesson line teaches, the block
+		// stays a question.
+		if (rules.marksMisses) {
+			b.hinted = true;
+			if (b.word.art) b.learned = true;
+		}
 		recordMiss(book, b.word.de);
 		saveBook();
 	}
@@ -153,10 +164,30 @@
 	let movUses = $state(START_MOVES);
 	let rotUses = $state(START_ROTATES);
 	/** The star is armed: the next block tapped is revealed, not matched. */
-	let hintMode = $state(false);
+	/** The armed star's id: the next block tapped is revealed, not matched. */
+	let hintMode = $state<string | null>(null);
 	/** The hint star turns up IN the tray like a word — one at a time. */
 	const STAR = '__star__';
-	const STAR_CHANCE = 0.08;
+	/** Each star is its own chip with its own id, so several can wait at once. */
+	const isStar = (de: string) => de.startsWith(STAR);
+	// -- the medal: how this game is played (bronze teaches, gold tests) -------
+	const MEDAL_KEY = 'wortbloecke_medal';
+	let medal = $state<WortMedal>('bronze');
+	const rules = $derived(MEDAL_RULES[medal]);
+	const MEDAL_BLURB: Record<WortMedal, string> = {
+		bronze: 'Colors show the article · 3× the stars',
+		silver: 'Colors say nothing · some stars',
+		gold: 'Few stars · a missed article is not kept'
+	};
+	function pickMedal(m: WortMedal) {
+		medal = m;
+		playSound('up');
+		try {
+			localStorage.setItem(MEDAL_KEY, m);
+		} catch {
+			/* no storage: the pick holds for this visit */
+		}
+	}
 	let golds = 0;
 	let levelIdx = $state(0);
 	const grid = $derived({ cols: WORT_LEVELS[levelIdx].cols, rows: WORT_LEVELS[levelIdx].rows });
@@ -309,7 +340,7 @@
 		if (!overRank || entered) return;
 		const name = sanitizeName(nameDraft);
 		nameDraft = name;
-		const entry: WortScore = { name, pts, level: WORT_LEVELS[levelIdx].name, at: Date.now() };
+		const entry: WortScore = { name, pts, level: WORT_LEVELS[levelIdx].name, at: Date.now(), medal };
 		enteredAt = entry.at;
 		scores = insertScore(scores, entry);
 		entered = true;
@@ -377,7 +408,7 @@
 		// are answered clean twice.
 		queue = weaveLearning(orderByFreshness(words, seen), new Set(Object.keys(book))).map((word) => ({
 			word,
-			color: WORT_PALETTE[Math.floor(Math.random() * WORT_PALETTE.length)]
+			color: blockColor(medal, word)
 		}));
 	}
 
@@ -459,6 +490,7 @@
 		if (fell) setTimeout(() => playSound('land'), 260);
 		syncSets();
 		checkLines();
+		saveGame();
 		updateDanger();
 		return fell;
 	}
@@ -593,6 +625,7 @@
 		wordsDone++;
 		floatAt(b, `✨ ${b.word.en}`, 'gold', -0.6);
 		if (ch.ids.size === 0) winRun(ch);
+		else saveGame();
 	}
 
 	function winRun(ch: GoldenSet) {
@@ -652,7 +685,8 @@
 			float('Verloren — keine Punkte', cs * 1.5, Math.round(grid.rows * 0.4) * cs, 'muted');
 			syncChips();
 			settle();
-			for (let i = 0; i < members.length; i++) spawn();
+			// Like for like, plus one: a lost line costs board space.
+		for (let i = 0; i < members.length + 1; i++) spawn();
 		}, 600 * dur() + 50);
 	}
 
@@ -687,6 +721,7 @@
 
 	function gameOver() {
 		if (phase === 'over') return;
+		clearSave();
 		phase = 'over';
 		danger = false;
 		overRank = scoreRank(scores, pts);
@@ -725,13 +760,15 @@
 	/** The star spent on a word: say and show what it means — and for a noun,
 	 *  the article. Shown is shown: the word pays silver from here on. */
 	function useHint(b: Block) {
-		hintMode = false;
-		chips = chips.filter((de) => de !== STAR); // the star is spent
+		const spent = hintMode;
+		hintMode = null;
+		chips = chips.filter((de) => de !== spent); // that star is spent
 		b.hinted = true;
 		if (b.word.art) b.learned = true;
 		playSound('msgIn');
 		sayDe(spoken(b.word));
 		floatAt(b, `${spoken(b.word)} = ${b.word.en}`, 'big ' + (b.word.art ? artClass(b.word.art) : 'muted'), -1.1);
+		teach(b.word); // the revealed word stays readable above the tray too
 		announce(`${spoken(b.word)}: ${b.word.en}.`);
 	}
 
@@ -753,8 +790,10 @@
 			if (picking) sayDe(b.word.de);
 			// A marked word (missed or hinted before) re-shows its meaning on
 			// every pick: the lesson is free to read again, it only pays silver.
-			if (picking && b.hinted)
+			if (picking && b.hinted) {
 				floatAt(b, `${spoken(b.word)} = ${b.word.en}`, 'big ' + (b.word.art ? artClass(b.word.art) : 'muted'), -1.1);
+				teach(b.word);
+			}
 			// A word already wearing its article: picking it asks the article
 			// straight away — the meaning is in view, no need to pair it again.
 			// On a golden word this IS the golden move: a right article starts
@@ -991,7 +1030,7 @@
 	// -- the tray -----------------------------------------------------------------------
 	function syncChips() {
 		const want = new Set(blocks.map((b) => b.word.de));
-		let next = chips.filter((de) => de === STAR || want.has(de));
+		let next = chips.filter((de) => isStar(de) || want.has(de));
 		for (const de of want) {
 			if (next.includes(de)) continue;
 			const at = Math.floor(Math.random() * (next.length + 1));
@@ -1003,11 +1042,15 @@
 	/** Now and then a star is dealt into the tray like a word: one at a
 	 *  time, in a random seat. */
 	function maybeDealStar() {
-		if (chips.includes(STAR) || Math.random() >= STAR_CHANCE) return;
-		const at = Math.floor(Math.random() * (chips.length + 1));
-		chips = [...chips.slice(0, at), STAR, ...chips.slice(at)];
+		if (chips.filter(isStar).length >= rules.maxStars || Math.random() >= rules.starChance) return;
+		dealStar();
 		playSound('msgIn');
 		announce('A hint star turned up in the tray.');
+	}
+
+	function dealStar() {
+		const at = Math.floor(Math.random() * (chips.length + 1));
+		chips = [...chips.slice(0, at), `${STAR}${nextId++}`, ...chips.slice(at)];
 	}
 	const chipWord = (de: string) => blocks.find((b) => b.word.de === de)?.word ?? null;
 	const chipDone = (de: string) => blocks.some((b) => b.word.de === de && b.done);
@@ -1069,9 +1112,17 @@
 	// Boot reads run ONCE. (As an $effect this read its own freshly written
 	// `scores`, which re-triggers the effect forever in Svelte 5.)
 	onMount(() => {
+		const waiting = readSave();
+		if (waiting) savedGame = { medal: waiting.medal, level: WORT_LEVELS[waiting.levelIdx].name, pts: waiting.pts };
+		// Leaving the page (tab closed, app switched) saves the board as it is.
+		const flush = () => document.visibilityState === 'hidden' && saveGame();
+		document.addEventListener('visibilitychange', flush);
+		window.addEventListener('pagehide', saveGame);
 		try {
 			rulesSeen = localStorage.getItem(RULES_KEY) === '1';
 			book = parseWordBook(localStorage.getItem(WORDS_KEY));
+			const savedMedal = localStorage.getItem(MEDAL_KEY);
+			if (isMedal(savedMedal)) medal = savedMedal;
 			const rawSeen = JSON.parse(localStorage.getItem(SEEN_KEY) ?? '[]');
 			seen = Array.isArray(rawSeen) ? rawSeen.filter((x) => typeof x === 'string').slice(-SEEN_CAP) : [];
 			const list = parseScores(localStorage.getItem(SCORES_KEY));
@@ -1082,6 +1133,12 @@
 		} catch {
 			best = 0;
 		}
+		return () => {
+			// Navigating away inside the app (Back, footer links) saves too.
+			saveGame();
+			document.removeEventListener('visibilitychange', flush);
+			window.removeEventListener('pagehide', saveGame);
+		};
 	});
 
 	// -- how to play ---------------------------------------------------------------
@@ -1111,9 +1168,182 @@
 		}
 	}
 
+	// -- the saved game: leave mid-game, come back, carry on ----------------
+	// The whole board is written to the device after every settle and when
+	// the page is hidden; the start screen then offers Continue or New game.
+	// A finished game deletes its save.
+	const SAVE_KEY = 'wortbloecke_game';
+	interface SavedSet {
+		color: string;
+		ids: number[];
+		des: string[];
+		doneIds: number[];
+		anchorIds: number[];
+		active: boolean;
+		pot: number;
+		lines: number;
+	}
+	interface SavedGame {
+		v: 1;
+		at: number;
+		medal: WortMedal;
+		levelIdx: number;
+		pts: number;
+		movUses: number;
+		rotUses: number;
+		golds: number;
+		wordsDone: number;
+		linesWon: number;
+		newMet: number;
+		learningMet: number;
+		graduated: number;
+		nextId: number;
+		danger: boolean;
+		blocks: Block[];
+		queue: { word: WortWord; color: string }[];
+		chips: string[];
+		fullRows: number[];
+		sets: SavedSet[];
+		/** Index into sets of the run underway, -1 for none. */
+		active: number;
+		pendingId: number | null;
+		pendingRun: number;
+		pendingFree: boolean;
+	}
+	/** What the start screen shows about a game waiting to be continued. */
+	let savedGame = $state<{ medal: WortMedal; level: string; pts: number } | null>(null);
+
+	function saveGame() {
+		if (phase !== 'play') return;
+		const sets = challenges.map((c) => ({
+			color: c.color,
+			ids: [...c.ids],
+			des: [...c.des],
+			doneIds: [...c.doneIds],
+			anchorIds: [...c.anchorIds],
+			active: c.active,
+			pot: c.pot,
+			lines: c.lines
+		}));
+		const game: SavedGame = {
+			v: 1,
+			at: Date.now(),
+			medal,
+			levelIdx,
+			pts,
+			movUses,
+			rotUses,
+			golds,
+			wordsDone,
+			linesWon,
+			newMet,
+			learningMet,
+			graduated,
+			nextId,
+			danger,
+			blocks: $state.snapshot(blocks) as Block[],
+			queue,
+			chips: $state.snapshot(chips) as string[],
+			fullRows: [...fullRows],
+			sets,
+			active: activeCh ? challenges.indexOf(activeCh) : -1,
+			pendingId: pending?.id ?? null,
+			pendingRun: pendingRun ? challenges.indexOf(pendingRun) : -1,
+			pendingFree
+		};
+		try {
+			localStorage.setItem(SAVE_KEY, JSON.stringify(game));
+		} catch {
+			/* no storage: this game lives only as long as the page */
+		}
+	}
+
+	function clearSave() {
+		savedGame = null;
+		try {
+			localStorage.removeItem(SAVE_KEY);
+		} catch {
+			/* nothing stored */
+		}
+	}
+
+	function readSave(): SavedGame | null {
+		try {
+			const g = JSON.parse(localStorage.getItem(SAVE_KEY) ?? 'null') as SavedGame | null;
+			if (!g || g.v !== 1 || !Array.isArray(g.blocks) || !isMedal(g.medal) || !WORT_LEVELS[g.levelIdx]) return null;
+			return g;
+		} catch {
+			return null;
+		}
+	}
+
+	function continueGame() {
+		const g = readSave();
+		if (!g) return clearSave();
+		medal = g.medal;
+		levelIdx = g.levelIdx;
+		pts = g.pts;
+		movUses = g.movUses;
+		rotUses = g.rotUses;
+		golds = g.golds;
+		wordsDone = g.wordsDone;
+		linesWon = g.linesWon;
+		newMet = g.newMet;
+		learningMet = g.learningMet;
+		graduated = g.graduated;
+		nextId = g.nextId;
+		danger = g.danger;
+		// Blocks caught mid-animation (clearing, dissolving) are gone for good.
+		blocks = g.blocks.filter((b) => !b.clearing && !b.fizzle).map((b) => ({ ...b, featured: false }));
+		const alive = new Set(blocks.map((b) => b.id));
+		challenges = g.sets.map((c) => ({
+			color: c.color,
+			ids: new Set(c.ids.filter((id) => alive.has(id))),
+			des: new Set(c.des),
+			doneIds: new Set(c.doneIds.filter((id) => alive.has(id))),
+			anchorIds: new Set(c.anchorIds),
+			active: c.active,
+			pot: c.pot,
+			lines: c.lines
+		}));
+		activeCh = challenges[g.active] ?? null;
+		runOn = Boolean(activeCh);
+		queue = g.queue;
+		chips = g.chips;
+		fullRows = new Set(g.fullRows);
+		const p = g.pendingId === null ? null : (blocks.find((b) => b.id === g.pendingId) ?? null);
+		pending = p;
+		pendingRun = p ? (challenges[g.pendingRun] ?? null) : null;
+		pendingFree = p ? g.pendingFree : false;
+		if (p) p.featured = true;
+		lesson = null;
+		floats = [];
+		lineFx = [];
+		hintMode = null;
+		combo = 1;
+		clearSelection();
+		phase = 'play';
+		if (activeCh) {
+			goldBar = activeCh.ids.size ? `⭐ noch ${activeCh.ids.size} · Pot ${activeCh.pot}` : '⭐ The last one…';
+		} else {
+			goldBar = null;
+			updateGoldBar();
+		}
+		syncChips();
+		showNext();
+		settle();
+		track('wortbloecke_continue', { medal });
+		announce(`Welcome back: ${WORT_LEVELS[levelIdx].name}, ${pts} points.`);
+	}
+
+	function newGame() {
+		clearSave();
+		start();
+	}
+
 	function beginGame() {
 		phase = 'play';
-		track('wortbloecke_start', {});
+		track('wortbloecke_start', { medal });
 		// Deal quietly, then check once: a line on the opening board counts,
 		// but only as one line, not once per card dealt.
 		dealing = true;
@@ -1122,9 +1352,16 @@
 		fullRows = new Set();
 		checkLines();
 		updateDanger();
+		// Bronze opens with stars already in the tray: help from the first move.
+		for (let i = 0; i < rules.startStars; i++) dealStar();
 	}
 
 	function again() {
+		// Leaving a game in play (Back) keeps it waiting on the start screen.
+		if (phase === 'play') {
+			saveGame();
+			savedGame = { medal, level: WORT_LEVELS[levelIdx].name, pts };
+		}
 		blocks = [];
 		challenges = [];
 		activeCh = null;
@@ -1140,7 +1377,7 @@
 		lastMatch = 0;
 		movUses = START_MOVES;
 		rotUses = START_ROTATES;
-		hintMode = false;
+		hintMode = null;
 		golds = 0;
 		wordsDone = 0;
 		linesWon = 0;
@@ -1172,8 +1409,14 @@
 <main class="wort">
 	<header class="top">
 		<div class="row">
-			<a class="back" href={DECK} aria-label="Back to your deck"><Icon name="arrowLeft" size="1em" /> <span class="bt">Back</span></a>
-			<span class="brand"><span class="t" lang="de">Wortblöcke</span>{#key levelIdx}<span class="lvl tnum pop">{WORT_LEVELS[levelIdx].name}</span>{/key}</span>
+			<!-- Back steps out one level: a game returns to the medal screen,
+			     the medal screen returns to the deck. -->
+			{#if phase === 'intro'}
+				<a class="back" href={DECK} aria-label="Back to your deck"><Icon name="arrowLeft" size="1em" /> <span class="bt">Back</span></a>
+			{:else}
+				<button type="button" class="back" onclick={again} aria-label="Back to the medal choice"><Icon name="arrowLeft" size="1em" /> <span class="bt">Back</span></button>
+			{/if}
+			<span class="brand"><span class="t" lang="de">Wortblöcke</span><span class="medal-now" title="{TIER_LABELS[medal]} medal"><RibbonBadge tier={medal} width={11} /></span>{#key levelIdx}<span class="lvl tnum pop">{WORT_LEVELS[levelIdx].name}</span>{/key}</span>
 			<span class="grow"></span>
 			{#if combo > 1}{#key combo}<span class="combo pop">×{combo}!</span>{/key}{/if}
 			<span class="score"><small class="st">Punkte</small> <b class="tnum">{pts}</b></span>
@@ -1369,7 +1612,7 @@
 									{#each scores.slice(0, 5) as s, i (s.at)}
 										<li class:me={s.at === enteredAt}>
 											<span class="rk tnum">{i + 1}</span>
-											<span class="nm">{s.name}</span>
+											<span class="nm">{#if s.medal}<RibbonBadge tier={s.medal} width={8} />{/if}{s.name}</span>
 											<span class="sc tnum">{s.pts}</span>
 										</li>
 									{/each}
@@ -1384,6 +1627,7 @@
 							{:else if best > 0}
 								<p class="bestline">{pts >= best ? '★ New best!' : `Best: ${best}`}</p>
 							{/if}
+							{@render medalPicker(true)}
 							<div class="over-actions">
 								<button type="button" class="btn" onclick={again}>Nochmal <Icon name="repeat" size="1em" /></button>
 								<button type="button" class="btn-ghost" onclick={openBoard}>Bestenliste</button>
@@ -1410,16 +1654,16 @@
 		</div>
 		<div class="tray" class:dense={chips.length > 8} class:packed={chips.length > 12}>
 			{#each chips as de (de)}
-				{#if de === STAR}
+				{#if isStar(de)}
 					<button
 						type="button"
 						class="en star"
-						class:armed={hintMode}
+						class:armed={hintMode === de}
 						onclick={() => {
-							hintMode = !hintMode;
+							hintMode = hintMode === de ? null : de;
 							playSound(hintMode ? 'up' : 'down');
 						}}
-						aria-pressed={hintMode}
+						aria-pressed={hintMode === de}
 						aria-label="Hint star: reveal a word's meaning"
 					>★</button>
 				{:else}
@@ -1521,13 +1765,21 @@
 					</li>
 					<li>
 						<span class="demo" aria-hidden="true">
+							<RibbonBadge tier="bronze" width={13} />
+							<RibbonBadge tier="silver" width={13} />
+							<RibbonBadge tier="gold" width={13} />
+						</span>
+						<span>Pick a <strong>medal</strong> before you play. Bronze colors every block by its article — blue <em>der</em>, pink-red <em>die</em>, green <em>das</em>, ochre for words without one — and is generous with stars: three to start, up to three at once. Silver's colors say nothing about the article. Gold has the fewest stars, and a missed article is not written on the block for you.</span>
+					</li>
+					<li>
+						<span class="demo" aria-hidden="true">
 							<span class="d-sep">✗ →</span>
 							<span class="d-block dim sm"><i>n</i><i>e</i><i>u</i></span>
 							<span class="d-sep">↓</span>
 							<span class="d-board"><i></i><i></i><i></i></span>
 							<span class="d-warn">⚠</span>
 						</span>
-						<span>Mistakes drop <strong>extra</strong> blocks. When the board pulses, space is short — overflow the top and it is over. Points climb you from A1 past C2 into the Meister words, and the best hundred games go on the <strong>Bestenliste</strong>.</span>
+						<span>Mistakes drop <strong>extra</strong> blocks, and a lost golden set drops one more on top. When the board pulses, space is short — overflow the top and it is over. Points climb you from A1 past C2 into the Meister words, and the best hundred games go on the <strong>Bestenliste</strong>.</span>
 					</li>
 					<li>
 						<span class="demo" aria-hidden="true">
@@ -1589,7 +1841,7 @@
 						{#each scores as s, i (s.at)}
 							<li class:me={s.at === enteredAt}>
 								<span class="rk tnum">{i + 1}</span>
-								<span class="nm">{s.name}</span>
+								<span class="nm">{#if s.medal}<RibbonBadge tier={s.medal} width={8} />{/if}{s.name}</span>
 								<span class="lv-s tnum">{s.level}</span>
 								<span class="sc tnum">{s.pts}</span>
 							</li>
@@ -1606,12 +1858,27 @@
 		</div>
 	{/if}
 
+	<!-- The medal: how this game is played, easiest first. -->
+	{#snippet medalPicker(compact: boolean)}
+		<div class="medals" class:compact role="radiogroup" aria-label="Medal">
+			{#each WORT_MEDALS as m (m)}
+				<button type="button" class="medal-opt" role="radio" aria-checked={medal === m} onclick={() => pickMedal(m)}>
+					<RibbonBadge tier={m} width={compact ? 10 : 13} />
+					<span class="mo-text">
+						<strong>{TIER_LABELS[m]}</strong>
+						{#if !compact}<small>{MEDAL_BLURB[m]}</small>{/if}
+					</span>
+				</button>
+			{/each}
+		</div>
+	{/snippet}
+
 	{#if phase === 'intro'}
 		<div class="intro">
 			<section class="intro-card">
 				<div class="intro-art" aria-hidden="true">
-					<span class="irow"><span class="isq" style="background: {WORT_PALETTE[0]}">H</span><span class="isq" style="background: {WORT_PALETTE[0]}">a</span><span class="isq" style="background: {WORT_PALETTE[0]}">u</span><span class="isq" style="background: {WORT_PALETTE[0]}">s</span><span class="isq" style="background: {WORT_PALETTE[2]}">r</span><span class="isq" style="background: {WORT_PALETTE[2]}">o</span><span class="isq" style="background: {WORT_PALETTE[2]}">t</span></span>
-					<span class="irow"><span class="isq" style="background: {WORT_PALETTE[1]}">Z</span><span class="isq" style="background: {WORT_PALETTE[1]}">e</span><span class="isq" style="background: {WORT_PALETTE[1]}">i</span><span class="isq" style="background: {WORT_PALETTE[1]}">t</span><span class="isq gold">g</span><span class="isq gold">u</span><span class="isq gold">t</span></span>
+					<span class="irow"><span class="isq" style="background: {ARTICLE_COLORS.der}">H</span><span class="isq" style="background: {ARTICLE_COLORS.der}">a</span><span class="isq" style="background: {ARTICLE_COLORS.der}">u</span><span class="isq" style="background: {ARTICLE_COLORS.der}">s</span><span class="isq" style="background: {ARTICLE_COLORS.das}">r</span><span class="isq" style="background: {ARTICLE_COLORS.das}">o</span><span class="isq" style="background: {ARTICLE_COLORS.das}">t</span></span>
+					<span class="irow"><span class="isq" style="background: {ARTICLE_COLORS.die}">Z</span><span class="isq" style="background: {ARTICLE_COLORS.die}">e</span><span class="isq" style="background: {ARTICLE_COLORS.die}">i</span><span class="isq" style="background: {ARTICLE_COLORS.die}">t</span><span class="isq gold">g</span><span class="isq gold">u</span><span class="isq gold">t</span></span>
 				</div>
 				<p class="eyebrow" lang="de">Wortblöcke · ein Wort-Puzzle</p>
 				<h1>Stack the words.<br />Know the words.</h1>
@@ -1619,7 +1886,24 @@
 					Pair the German blocks with their English, name the articles, and build
 					<strong>one-color rows</strong> into golden jackpot runs — before the board fills up.
 				</p>
-				<button type="button" class="btn" onclick={start}>Los geht’s <Icon name="arrowRight" size="1em" /></button>
+				{#if savedGame}
+					<!-- A game was left unfinished: carry on, or start fresh. -->
+					<div class="resume">
+						<p class="resume-what">
+							<RibbonBadge tier={savedGame.medal} width={12} />
+							<span>Unfinished game · <strong class="tnum">{savedGame.level}</strong> · <span class="tnum">{savedGame.pts}</span> Punkte</span>
+						</p>
+						<div class="resume-actions">
+							<button type="button" class="btn" onclick={continueGame}>Weiterspielen <Icon name="arrowRight" size="1em" /></button>
+							<button type="button" class="btn-ghost" onclick={newGame}>New game</button>
+						</div>
+					</div>
+					<p class="resume-note">A new game replaces the unfinished one. Its medal:</p>
+					{@render medalPicker(false)}
+				{:else}
+					{@render medalPicker(false)}
+					<button type="button" class="btn" onclick={start}>Los geht’s <Icon name="arrowRight" size="1em" /></button>
+				{/if}
 				<p class="meta">
 					Points climb you from A1 towards C2 — and beyond, where the words get weird.
 					<br /><button type="button" class="linkish" onclick={() => (showRules = true)}>How to play</button>
@@ -1631,7 +1915,7 @@
 						{#each scores.slice(0, 5) as s, i (s.at)}
 							<li>
 								<span class="rk tnum">{i + 1}</span>
-								<span class="nm">{s.name}</span>
+								<span class="nm">{#if s.medal}<RibbonBadge tier={s.medal} width={8} />{/if}{s.name}</span>
 								<span class="lv-s tnum">{s.level}</span>
 								<span class="sc tnum">{s.pts}</span>
 							</li>
@@ -1715,11 +1999,115 @@
 		white-space: nowrap;
 	}
 
+	/* The in-game Back is a button: same look as the link. */
+	button.back {
+		padding: 0;
+		border: 0;
+		background: none;
+		font-family: inherit;
+		cursor: pointer;
+	}
+
 	.brand {
 		display: inline-flex;
 		gap: 0.4rem;
 		align-items: center;
 		white-space: nowrap;
+	}
+
+	/* The unfinished game on the start screen: Continue first, New game beside. */
+	.resume {
+		margin: 0.9rem 0 0.4rem;
+		padding: 0.75rem 0.85rem;
+		border: 1.5px solid var(--heading);
+		border-radius: var(--radius-sm, 0.6rem);
+		background: var(--surface-alt);
+	}
+
+	.resume-what {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+		margin: 0 0 0.6rem;
+		font-size: var(--step--1);
+		color: var(--ink);
+	}
+
+	.resume-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.resume-note {
+		margin: 0.6rem 0 -0.4rem;
+		font-size: 0.75rem;
+		color: var(--ink-muted);
+	}
+
+	/* A local score's medal: a small ribbon ahead of the five letters. */
+	.nm :global(.ribbon) {
+		margin-right: 0.3rem;
+		vertical-align: -2px;
+	}
+
+	.medal-now {
+		display: inline-flex;
+		margin-right: -0.15rem;
+	}
+
+	/* The medal picker: three equal choices, the chosen one inked. */
+	.medals {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0.4rem;
+		margin: 0.9rem 0 1rem;
+	}
+
+	.medals.compact {
+		margin: 0.6rem 0 0.7rem;
+	}
+
+	.medal-opt {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+		min-width: 0;
+		padding: 0.45rem 0.55rem;
+		border: 1.5px solid var(--line-strong, var(--line));
+		border-radius: var(--radius-sm, 0.6rem);
+		background: var(--surface);
+		color: var(--ink);
+		font: inherit;
+		text-align: left;
+		cursor: pointer;
+	}
+
+	.medal-opt[aria-checked='true'] {
+		border-color: var(--heading);
+		box-shadow: inset 0 0 0 1px var(--heading);
+		background: var(--surface-alt);
+	}
+
+	.mo-text {
+		display: grid;
+		min-width: 0;
+		line-height: 1.2;
+	}
+
+	.mo-text strong {
+		font-size: 0.85rem;
+	}
+
+	.mo-text small {
+		color: var(--ink-muted);
+		font-size: 0.68rem;
+	}
+
+	.medals.compact .medal-opt {
+		justify-content: center;
+		padding: 0.35rem 0.4rem;
 	}
 
 	.brand .t {
@@ -2162,15 +2550,15 @@
 	}
 
 	.float.der {
-		color: var(--navy, #1f3a5f);
+		color: #2e6fb7;
 	}
 
 	.float.die {
-		color: var(--accent-ink);
+		color: #c0446a;
 	}
 
 	.float.das {
-		color: var(--forest, #3f5d45);
+		color: #3f7d4e;
 	}
 
 	@keyframes floatup {
@@ -2385,15 +2773,15 @@
 	}
 
 	.art-btn.der {
-		background: var(--navy, #1f3a5f);
+		background: #2e6fb7;
 	}
 
 	.art-btn.die {
-		background: var(--accent);
+		background: #c0446a;
 	}
 
 	.art-btn.das {
-		background: var(--forest, #3f5d45);
+		background: #3f7d4e;
 	}
 
 	.gameover {
@@ -2919,15 +3307,15 @@
 	}
 
 	.d-art.der {
-		background: var(--navy, #1f3a5f);
+		background: #2e6fb7;
 	}
 
 	.d-art.die {
-		background: var(--accent);
+		background: #c0446a;
 	}
 
 	.d-art.das {
-		background: var(--forest, #3f5d45);
+		background: #3f7d4e;
 	}
 
 	.d-art.on {

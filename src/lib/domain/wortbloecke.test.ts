@@ -3,6 +3,10 @@ import {
 	buildPools,
 	canFit,
 	completeRows,
+	ARTICLE_COLORS,
+	FREE_PALETTE,
+	MEDAL_RULES,
+	blockColor,
 	regionFromAnchors,
 	insertScore,
 	mergeWordBank,
@@ -331,5 +335,43 @@ describe('the set follows the board: the flood from the anchors', () => {
 			new Set([claimed.id])
 		);
 		expect(now).toEqual(new Set([anchor.id]));
+	});
+});
+
+describe('medals', () => {
+	const noun = (art: string) => ({ de: 'Wort', en: 'word', art });
+	const verb = { de: 'gehen', en: 'to go', art: null };
+
+	it('bronze colors a block by its article, ochre without one', () => {
+		expect(blockColor('bronze', noun('der'))).toBe(ARTICLE_COLORS.der);
+		expect(blockColor('bronze', noun('die'))).toBe(ARTICLE_COLORS.die);
+		expect(blockColor('bronze', noun('das'))).toBe(ARTICLE_COLORS.das);
+		expect(blockColor('bronze', verb)).toBe(ARTICLE_COLORS.none);
+	});
+
+	it('silver and gold never use an article color', () => {
+		const articleColors = new Set<string>([ARTICLE_COLORS.der, ARTICLE_COLORS.die, ARTICLE_COLORS.das]);
+		for (const c of FREE_PALETTE) expect(articleColors.has(c)).toBe(false);
+		for (let i = 0; i < 4; i++) {
+			const c = blockColor('gold', noun('der'), () => i / 4);
+			expect(FREE_PALETTE).toContain(c);
+		}
+	});
+
+	it('stars get rarer up the ladder; only gold drops the missed-article badge', () => {
+		expect(MEDAL_RULES.bronze.starChance).toBeGreaterThan(MEDAL_RULES.silver.starChance);
+		expect(MEDAL_RULES.silver.starChance).toBeGreaterThan(MEDAL_RULES.gold.starChance);
+		expect([MEDAL_RULES.bronze.marksMisses, MEDAL_RULES.silver.marksMisses, MEDAL_RULES.gold.marksMisses]).toEqual([true, true, false]);
+	});
+
+	it('keeps a valid medal on a stored score and drops a bad one', () => {
+		const list = parseScores(
+			JSON.stringify([
+				{ name: 'ANNA', pts: 90, level: 'A1.1', at: 1, medal: 'gold' },
+				{ name: 'BEN', pts: 80, level: 'A1.1', at: 2, medal: 'platinum' },
+				{ name: 'CEM', pts: 70, level: 'A1.1', at: 3 }
+			])
+		);
+		expect(list.map((s) => s.medal)).toEqual(['gold', undefined, undefined]);
 	});
 });

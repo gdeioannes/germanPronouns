@@ -1,6 +1,6 @@
 // Wortblöcke: a word puzzle in a Tetris well. German words are rigid blocks
-// of letter squares in one of four colors (the color means nothing — the
-// grammar you have to know); the learner clears a block by pairing it with
+// of letter squares in one of four colors (on bronze the color is the
+// article, on silver and gold it means nothing); the learner clears a block by pairing it with
 // its English in the tray, naming the article for a noun. A row filled in a
 // single color turns the whole connected same-color region golden: an
 // all-or-nothing run where every word must be matched, and one miss loses
@@ -12,6 +12,7 @@
 // spawning and the level ladder. The page (routes/play/wortbloecke) owns the
 // DOM, sounds and timers.
 
+import { GENDER_COLORS } from './gender';
 import type { Quiz } from '$lib/content/types';
 
 export const WORT_PATH = '/play/wortbloecke';
@@ -19,7 +20,60 @@ export const WORT_PATH = '/play/wortbloecke';
 export const WORT_CARD_ID = 'wortbloecke';
 
 /** The four block colors: the brand palette, carrying no grammar. */
-export const WORT_PALETTE = ['#1f3a5f', '#c9683b', '#3f5d45', '#a9802a'] as const;
+// -- medals: three ways to play, easiest first ------------------------------
+// Bronze colors every block by its article (der blue, die pink-red, das
+// green — the app's gender colors; everything that is not a noun ochre), so
+// the color teaches the article. Silver and gold deal colors from a palette
+// with NO article color in it: the color says nothing, the learner must know.
+// Stars get rarer up the ladder, and gold leaves a missed article off the block.
+
+export type WortMedal = 'bronze' | 'silver' | 'gold';
+export const WORT_MEDALS = ['bronze', 'silver', 'gold'] as const satisfies readonly WortMedal[];
+
+/** The app's article colors — the very ones word help and the gender tables
+ *  use (domain/gender) — plus ochre for words without an article. */
+export const ARTICLE_COLORS = {
+	der: GENDER_COLORS.m,
+	die: GENDER_COLORS.f,
+	das: GENDER_COLORS.n,
+	/** Verbs, adjectives, everything without an article. */
+	none: '#a9802a'
+} as const;
+
+/** Silver and gold: ochre, plum, slate and orange — no blue, pink-red or
+ *  green, so no color can be read as an article. */
+export const FREE_PALETTE = ['#a9802a', '#6a4c93', '#59636e', '#d9772b'] as const;
+
+export interface MedalRules {
+	/** Chance per spawned word that a hint star is dealt into the tray. */
+	starChance: number;
+	/** Stars the tray may hold at once. */
+	maxStars: number;
+	/** Stars already in the tray when the game starts. */
+	startStars: number;
+	/** Block color = article color (bronze), else a random free color. */
+	colorByArticle: boolean;
+	/** A missed word keeps its article / meaning badge on the block. */
+	marksMisses: boolean;
+}
+
+export const MEDAL_RULES: Record<WortMedal, MedalRules> = {
+	bronze: { starChance: 0.48, maxStars: 3, startStars: 3, colorByArticle: true, marksMisses: true },
+	silver: { starChance: 0.08, maxStars: 1, startStars: 0, colorByArticle: false, marksMisses: true },
+	gold: { starChance: 0.04, maxStars: 1, startStars: 0, colorByArticle: false, marksMisses: false }
+};
+
+/** The color a word's block takes under a medal. */
+export function blockColor(medal: WortMedal, word: WortWord, random: () => number = Math.random): string {
+	if (MEDAL_RULES[medal].colorByArticle) {
+		const art = word.art as 'der' | 'die' | 'das' | null;
+		return art && art in ARTICLE_COLORS ? ARTICLE_COLORS[art] : ARTICLE_COLORS.none;
+	}
+	return FREE_PALETTE[Math.floor(random() * FREE_PALETTE.length)];
+}
+
+export const isMedal = (v: unknown): v is WortMedal =>
+	typeof v === 'string' && (WORT_MEDALS as readonly string[]).includes(v);
 
 export interface WortWord {
 	/** As written, "Tür" — the board shows it in capitals. */
@@ -235,6 +289,8 @@ export interface WortScore {
 	pts: number;
 	level: string;
 	at: number;
+	/** The medal the game was played on (local table only). */
+	medal?: WortMedal;
 }
 
 export const SCORE_CAP = 100;
@@ -277,6 +333,7 @@ export function parseScores(raw: string | null): WortScore[] {
 					typeof s.level === 'string' &&
 					typeof s.at === 'number'
 			)
+			.map((s) => (s.medal === undefined || isMedal(s.medal) ? s : { ...s, medal: undefined }))
 			.slice(0, SCORE_CAP);
 	} catch {
 		return [];
