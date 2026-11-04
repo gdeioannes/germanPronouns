@@ -4,8 +4,8 @@ hardcover (case laminate) and the Kindle front.
     python tool/kafka-cover.py docs/reference/kafka_die_verwandlung.pdf docs/reference
     python tool/kafka-cover.py docs/reference/kafka_die_verwandlung.pdf docs/reference --hardcover 12.962 9.917
 
-Trim 5.5 x 8.5 in, 0.125 in bleed all round, spine from KDP's white-paper
-factor (0.002252 in per page) and the interior's page count, so a new build
+Trim 5.5 x 8.5 in, 0.125 in bleed all round, spine from KDP's cream-paper
+factor (0.0025 in per page) and the interior's page count, so a new build
 of the interior only needs this run again. Chrome will not print a sheet
 wider than it is tall, so the page is photographed at 300 dpi and wrapped
 into a one-page PDF of the exact sheet size with PyMuPDF.
@@ -41,7 +41,7 @@ if HARDCOVER:
     NAME = "kafka_die_verwandlung_hardcover"
 else:
     BLEED = 0.125
-    SPINE = round(pages * 0.002252, 4)
+    SPINE = round(pages * 0.0025, 4)
     W = 2 * TRIM_W + SPINE + 2 * BLEED
     H = TRIM_H + 2 * BLEED
     HINGE = 0.0

@@ -369,9 +369,10 @@ doc = f"""<!doctype html><html lang="de"><head><meta charset="utf-8">
   counter-reset: footnote;
   @bottom-center {{ content: counter(page); font: 600 8pt Inter, sans-serif; color: #555555; }}
   @footnote {{ border-top: .2mm solid #999999; padding-top: 1.5mm; margin-top: 3mm; }} }}
-/* The story pages keep a wide outer margin for the word glosses. */
-@page :right {{ margin-left: 11mm; margin-right: 38mm; }}
-@page :left {{ margin-left: 38mm; margin-right: 11mm; }}
+/* The story pages keep a wide outer margin for the word glosses, and an inside
+   margin wide enough that the text clears the curve into the binding. */
+@page :right {{ margin-left: 16mm; margin-right: 38mm; }}
+@page :left {{ margin-left: 38mm; margin-right: 16mm; }}
 @page front {{ margin: 18mm 15mm 20mm; @bottom-center {{ content: none; }} }}
 @page back {{ margin: 18mm 15mm 20mm; }}
 .pagedjs_page {{ position: relative; }}
