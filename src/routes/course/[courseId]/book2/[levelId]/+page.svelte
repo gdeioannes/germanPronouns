@@ -37,7 +37,7 @@
 			</a>
 		</div>
 	{/if}
-	<Book2 book={data.book} credits={data.credits} qr={data.qr} {cover} spineMm={spine} {hd} />
+	<Book2 book={data.book} credits={data.credits} qr={data.qr} siteQr={data.siteQr} {cover} spineMm={spine} {hd} />
 </main>
 
 <style>

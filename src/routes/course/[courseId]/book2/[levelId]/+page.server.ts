@@ -29,5 +29,5 @@ export const load: PageServerLoad = async ({ params }) => {
 	};
 	const qr: Record<string, { app: Awaited<ReturnType<typeof code>>; listen: Awaited<ReturnType<typeof code>>; speak: Awaited<ReturnType<typeof code>> }> = {};
 	for (const c of book.chapters) qr[c.id] = { app: await code('quiz', c.quiz), listen: await code('audio', c.listenQuiz), speak: await code('quiz', c.speakQuiz) };
-	return { book, credits: photoCredits(params.courseId), qr };
+	return { book, credits: photoCredits(params.courseId), qr, siteQr: await qrSvg('https://languagequiz.org') };
 };

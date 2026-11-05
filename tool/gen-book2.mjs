@@ -26,10 +26,18 @@ if (!chrome) throw new Error('No Chrome or Edge found — set CHROME_PATH.');
 
 const browser = await puppeteer.launch({ executablePath: chrome, headless: true });
 const page = await browser.newPage();
+// Wide enough that the preview's narrow-screen zoom stays off while the pages are fitted.
+await page.setViewport({ width: 1400, height: 1000 });
 const query = [coverMode ? `cover&spine=${spine}` : '', web ? '' : 'hd'].filter(Boolean).join('&');
 await page.goto(`${base}/course/${courseId}/book2/${level}${query ? `?${query}` : ''}`, { waitUntil: 'load', timeout: 120_000 });
 // The page reads its query in the browser; wait until it has.
 await page.waitForSelector('main[data-ready="true"]', { timeout: 60_000 });
+// Book2.svelte fits every page once fonts and pictures are in: an opener's word
+// panel grows, a crowded page's type shrinks a step, nothing is cut at the foot.
+await page.waitForFunction(() => document.documentElement.dataset.bookFit === 'done', { timeout: 180_000 });
+const fit = await page.evaluate(() => window.__bookFit ?? []);
+if (fit.length) console.log(`fitted ${fit.length} page(s):\n  ${fit.join('\n  ')}`);
+if (fit.some((f) => f.includes('still'))) console.warn('WARNING: some pages still overflow; shorten their content.');
 await new Promise((r) => setTimeout(r, 300));
 await page.evaluate(async () => {
 	await document.fonts.ready;

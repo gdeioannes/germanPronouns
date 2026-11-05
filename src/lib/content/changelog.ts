@@ -16,6 +16,16 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-05",
+    title: "The A1.1 book: a real cover, and nothing cut off",
+    items: [
+      "Deutsch A1.1 · Erste Schritte has a proper front and back cover. The front is the Munich market with its German words pinned on the stall, the seller and the apples; the back shows all twelve places, what you can do after the book, and a code to the site.",
+      "Fixed: on about fifty pages a fact box, an exercise or a word list ran past the foot of the page and was cut off, and some \"Schreib mit!\" boxes had no lines left to write on. Every page now fits: crowded pages set their type a little smaller, and each chapter's opening page gives its words more room.",
+      "The home page now offers the new A1.1 book as the free download, with its cover. The old whole-A1 book and its test-copy offer are gone for now, until a new A1 book is ready.",
+      "Die Verwandlung, the annotated Kafka reader: the text sits 5 mm further from the binding, so the printed book is easier to read near the spine.",
+    ],
+  },
+  {
     date: "2026-11-04",
     title: "Wortblöcke: medals, more help, and games you can come back to",
     highlight: true,

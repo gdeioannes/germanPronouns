@@ -24,12 +24,14 @@
 	import type { PageData } from './$types';
 
 	const kafka = LITERATURE[0];
+	/** The old whole-A1 printed book's test-copy offer; off until a new A1 book exists. */
+	const SHOW_TEST_COPY = false;
 
 	// One corner label per offer, each leading to its own section. A label goes
 	// for good in this browser once it is clicked, and only then: scrolling
 	// past the offer does not count.
 	const OFFERS = [
-		{ id: 'book', title: 'Deutsch A1, the book', note: 'free test copies' },
+		{ id: 'book', title: 'Deutsch A1.1, the book', note: 'free PDF' },
 		...(kafka ? [{ id: 'literature', title: 'Kafka in German', note: 'free PDF' }] : [])
 	];
 	let seen = $state<string[] | null>(null);
@@ -335,8 +337,28 @@
 		</section>
 	{/if}
 
-	<!-- The printed book: a free copy for anyone who will read it and say what
-	     they think. The contact page holds the email behind its little check. -->
+	<!-- The new book: Deutsch A1.1 (Book v2), a free PDF. -->
+	{#if !SHOW_TEST_COPY}
+	<section id="book" class="book-offer" aria-labelledby="book-offer-title">
+		<a class="book-pic" href="/course/{data.card.id}/book2/A1.1" tabindex="-1" aria-hidden="true">
+			<img src="/img/book-a1-1-front.webp" alt="" width="640" height="905" loading="lazy" />
+		</a>
+		<div class="book-copy">
+			<p class="kicker">New · the book · free PDF</p>
+			<h2 id="book-offer-title" lang="de">Deutsch A1.1 · Erste Schritte</h2>
+			<p>
+				Twelve chapters, each one a real place in Germany: words first, a photo, a story, two rules,
+				a real document, and the practice. Every chapter's audio is a QR code away. 131 pages.
+			</p>
+			<a class="primary" href="/books/v2/de_cert_a1_a1_1.pdf" download onclick={() => track('book_download', { book: 'A1.1', from: 'home' })}>
+				<Icon name="download" size="1.05em" /> Download the PDF · 36 MB
+			</a>
+			<a class="book-preview" href="/course/{data.card.id}/book2/A1.1">Look inside first</a>
+		</div>
+	</section>
+	{:else}
+	<!-- Hidden 2026-11-05: the old whole-A1 printed book and its test-copy offer,
+	     withdrawn until a new A1 book (A1.1 + A1.2) replaces it. -->
 	<section id="book" class="book-offer" aria-labelledby="book-offer-title">
 		<a class="book-pic" href="/contact" tabindex="-1" aria-hidden="true">
 			<img src="/img/book-a1-front.webp" alt="" width="640" height="828" loading="lazy" />
@@ -370,6 +392,7 @@
 			</div>
 		</div>
 	</section>
+	{/if}
 
 	<!-- Literature: the first annotated classic, free as a PDF. The shelf
 	     itself is /literature; this offer shows its first book. -->

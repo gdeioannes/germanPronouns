@@ -12,6 +12,9 @@
 	import { playSound } from '$lib/services/sounds';
 	import { forgetFirstSeen } from '$lib/services/analytics';
 	import { catalog } from '$lib/content';
+
+	/** The old whole-level printed book is withdrawn; flip back on with the new A1 book. */
+	const SHOW_PRINTED_BOOK = false;
 	import { loadCourse } from '$lib/content';
 	import { buildLadder } from '$lib/domain/ladder';
 	import { progress, type AnswerRevealMode } from '$lib/state/progress.svelte';
@@ -283,6 +286,10 @@
 		</ul>
 	</section>
 
+	<!-- Hidden 2026-11-05: the whole-level printed book (/book/<level>) is withdrawn
+	     until a new A1 book (Book v2 A1.1 + A1.2) replaces it. The progress pages stay
+	     reachable by URL so QR codes in any printed copy still open them. -->
+	{#if SHOW_PRINTED_BOOK}
 	<section class="card">
 		<h2>My book</h2>
 		<p class="lede">
@@ -297,6 +304,7 @@
 			{/each}
 		</ul>
 	</section>
+	{/if}
 
 	{#if account.available}
 		<section class="card">

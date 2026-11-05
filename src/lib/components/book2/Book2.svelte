@@ -19,7 +19,8 @@
 		qr,
 		cover = false,
 		spineMm = 7.4,
-		hd = false
+		hd = false,
+		siteQr = ''
 	}: {
 		book: Book2;
 		credits: Record<string, PhotoCredit>;
@@ -28,6 +29,8 @@
 		spineMm?: number;
 		/** Print originals (local only, gitignored); otherwise the 1400 px web copies. */
 		hd?: boolean;
+		/** The back cover's code to the site, as inline SVG. */
+		siteQr?: string;
 		/** Per chapter id: the app, Listen and Speak codes, when registered. */
 		qr: Record<string, { app: Qr | null; listen: Qr | null; speak: Qr | null }>;
 	} = $props();
@@ -48,6 +51,99 @@
 	/** "die Äpfel" prints whole; "-n" prints as the ending; "–" as nothing. */
 	const plural = (pl?: string) => (!pl || pl === '' ? '' : pl === '–' ? 'no plural' : pl.startsWith('-') || pl.startsWith('¨') ? `pl. ${pl}` : pl);
 	const split = <T,>(xs: T[], n: number): [T[], T[]] => [xs.slice(0, n), xs.slice(n)];
+
+	// The covers. The front is the market panorama's right half, the crop the
+	// chapter's words page shows, so its pinned words land where the book pins
+	// them; only the upper ones, clear of the title panel.
+	const coverChapter = $derived(book.chapters.find((c) => c.id === 'markt') ?? book.chapters[2] ?? book.chapters[0]);
+	const coverPins = $derived((coverChapter.opener.labels ?? []).filter((l) => l.y <= 52).slice(0, 6));
+	/** The cities the chapters visit, in a fixed order, for the front's route line. */
+	const CITIES = ['Berlin', 'München', 'Hamburg', 'Köln', 'Frankfurt', 'Leipzig', 'Dresden', 'Wien', 'Zürich'];
+	const coverCities = $derived(CITIES.filter((city) => book.chapters.some((c) => c.world.includes(city))));
+
+	// Fit pass. A page is a fixed A4 sheet with overflow hidden, so a chapter
+	// whose words, fact box or exercises run long was simply cut off at the
+	// footer. Once fonts and pictures are in, every page that runs past its
+	// limit has its content zoomed down a step at a time (never below MIN) until
+	// it fits; the text reflows to the full width at the smaller size. The
+	// result lands on <html data-book-fit> for tool/gen-book2.mjs to wait for
+	// and report: which pages shrank, and any that still overflow at MIN.
+	const STEPS = [0.96, 0.92, 0.88, 0.84, 0.8, 0.77, 0.75];
+	/** The opener's word panel (126 mm by design) may grow to this over the photo. */
+	const PLATE_MAX = 165;
+	let root = $state<HTMLElement>();
+
+	function fitPage(page: HTMLElement): { zoom: number; over: number; plate?: number } | null {
+		// Millimetres as drawn: the preview zooms the whole book on a narrow screen.
+		const MM = page.getBoundingClientRect().width / 210;
+		const plate = page.querySelector<HTMLElement>(':scope > .plate');
+		const foot = page.querySelector<HTMLElement>(':scope > .foot');
+		let units: HTMLElement[];
+		let limit: () => number;
+		if (plate) {
+			// Chapter opener: a fixed panel at the foot of the photo holds the words.
+			units = [...plate.children].filter((el): el is HTMLElement => el instanceof HTMLElement && getComputedStyle(el).position !== 'absolute');
+			limit = () => plate.getBoundingClientRect().bottom - 5 * MM;
+		} else if (foot && !page.classList.contains('words')) {
+			units = [...page.children].filter((el): el is HTMLElement => el instanceof HTMLElement && el !== foot && getComputedStyle(el).position !== 'absolute');
+			limit = () => foot.getBoundingClientRect().top - 1.5 * MM;
+		} else return null;
+		if (!units.length) return null;
+		const bottom = () => {
+			let b = -Infinity;
+			for (const u of units) {
+				b = Math.max(b, u.getBoundingClientRect().bottom);
+				for (const el of u.querySelectorAll<HTMLElement>('*')) {
+					if (el.closest('.fill')) continue; // writing space shrinks by design
+					const r = el.getBoundingClientRect();
+					if (r.height) b = Math.max(b, r.bottom);
+				}
+			}
+			return b;
+		};
+		let over = bottom() - limit();
+		if (over <= 0.5) return null;
+		let zoom = 1;
+		if (plate) {
+			// An opener first gives the words more paper and the photo less, up to
+			// PLATE_MAX, so its words keep their size; only then does it shrink.
+			const grown = Math.min(PLATE_MAX, plate.getBoundingClientRect().height / MM + over / MM + 1);
+			page.style.setProperty('--plate', `${grown.toFixed(1)}mm`);
+			over = bottom() - limit();
+			if (over <= 0.5) return { zoom, over: 0, plate: Math.round(grown) };
+		}
+		for (const z of STEPS) {
+			for (const u of units) u.style.zoom = String(z);
+			zoom = z;
+			over = bottom() - limit();
+			if (over <= 0.5) break;
+		}
+		const tall = page.style.getPropertyValue('--plate');
+		return { zoom, over: Math.max(0, Math.round(over / MM)), plate: tall ? Math.round(parseFloat(tall)) : undefined };
+	}
+
+	$effect(() => {
+		const el = root;
+		if (!el) return;
+		let gone = false;
+		(async () => {
+			await document.fonts.ready;
+			await Promise.all(
+				[...el.querySelectorAll('img')].map((img) =>
+					img.complete ? null : new Promise((r) => { img.addEventListener('load', r, { once: true }); img.addEventListener('error', r, { once: true }); })
+				)
+			);
+			if (gone) return;
+			const report: string[] = [];
+			el.querySelectorAll<HTMLElement>('section.page').forEach((page, i) => {
+				const r = fitPage(page);
+				if (r) report.push(`page ${i + 1}: ${r.plate ? `word panel ${r.plate} mm, ` : ''}${Math.round(r.zoom * 100)}%${r.over ? `, still ${r.over} mm over` : ''}`);
+			});
+			(window as unknown as { __bookFit?: string[] }).__bookFit = report;
+			document.documentElement.dataset.bookFit = 'done';
+		})();
+		return () => { gone = true; };
+	});
 </script>
 
 {#snippet foot(page: number, c: Chapter)}
@@ -81,53 +177,84 @@
 	</figure>
 {/snippet}
 
-<div class="book2" class:wrap={cover}>
+{#snippet frontCover()}
+	{@const c = coverChapter}
+	<div class="fc" data-accent={c.accent}>
+		<img class="fc-photo" src="{photoBase}/{c.opener.photo}.jpg" alt="" />
+		<div class="fc-shade"></div>
+		<header class="fc-brand">
+			<img src="/icons/Icon-192.png" alt="" />
+			<span><b>Language Quiz</b> · German for English speakers</span>
+		</header>
+		{#each coverPins as l (l.de)}
+			{@const a = article(l.de)}
+			<div class="pin {l.side ?? 'right'}" style:left="{l.x}%" style:top="{l.y}%">
+				<span class="dot"></span>
+				<span class="tag">
+					<span class="de" lang="de">{#if a}<b class="art {a}">{a}</b>&nbsp;{/if}{bare(l.de)}</span>
+					<span class="meta">{l.en}</span>
+				</span>
+			</div>
+		{/each}
+		<div class="fc-plate">
+			<div class="fc-badge"><b>{book.level}</b><span>for complete beginners</span></div>
+			<h1 lang="de">{book.title.replace(/\s*A\d\.\d$/, '')}</h1>
+			<p class="fc-sub" lang="de">{book.subtitle}</p>
+			<p class="fc-blurb">German in {book.chapters.length} real places: the words pinned on the things, a story in each place, and the grammar the story needs.</p>
+			<p class="fc-route" lang="de">{#each coverCities as city, i (city)}{#if i}<i>·</i>{/if}{city}{/each}</p>
+			<p class="fc-site">languagequiz.org</p>
+		</div>
+	</div>
+{/snippet}
+
+{#snippet backCover()}
+	<div class="bc">
+		<p class="bc-kicker">{book.title} · {book.subtitle}</p>
+		<h2>German, one place at a time.</h2>
+		<p class="bc-lede">A Späti at midnight. A market in Munich. A flat in Prenzlauer Berg, Sunday cake at Oma’s, the fish market at five in the morning. Twelve chapters, twelve real places, and the German you need in each of them.</p>
+		<ol class="bc-places">
+			{#each book.chapters as ch (ch.id)}
+				<li>
+					<img src="{photoBase}/{ch.opener.photo}.jpg" alt="" />
+					<span class="n">{ch.n}</span>
+					<span class="w" lang="de">{ch.world}</span>
+				</li>
+			{/each}
+		</ol>
+		<div class="bc-can">
+			<p class="bc-can-title">After this book you can</p>
+			<ul>
+				{#each book.chapters as ch (ch.id)}{#if ch.canDo[0]}<li>{ch.canDo[0]}</li>{/if}{/each}
+			</ul>
+		</div>
+		<div class="bc-points">
+			<p><b>Words first.</b> Every chapter opens on a photograph with the words pinned to the things, so the first German you learn is what you can see.</p>
+			<p><b>Real German.</b> A price board, a doorbell, a menu, a form at the Bürgeramt: the texts Germany actually prints, photographed and read.</p>
+			<p><b>Paper and phone.</b> Write in the book. Scan a code and the chapter is read aloud, a tutor talks with you, or the exercise opens in the app.</p>
+			<p><b>Free.</b> The whole course, A1 to C2, is free at languagequiz.org. This book is its paper half.</p>
+		</div>
+		<footer class="bc-foot">
+			{#if siteQr}<span class="bc-qr">{@html siteQr}</span>{/if}
+			<span class="bc-site"><img src="/icons/Icon-192.png" alt="" /><span><b>languagequiz.org</b><br />Start free, at your level.</span></span>
+		</footer>
+	</div>
+{/snippet}
+
+<div class="book2" class:wrap={cover} bind:this={root}>
 {#if cover}
 	{@const front = book.chapters[2] ?? book.chapters[0]}
-	{@const back = book.chapters[0]}
 	<section class="sheet" style:--spine="{spineMm}mm" data-accent={front.accent}>
-		<div class="half backhalf" data-accent={back.accent}>
-			<img class="bleed" src="{photoBase}/{back.opener.photo}.jpg" alt="" />
-			<div class="back-plate">
-			<p class="kicker">Language Quiz · German for English speakers</p>
-				<h2>German, one place at a time.</h2>
-				<p class="lede">A Berlin street at dusk. A Späti at midnight. A market in Munich, a flat in Prenzlauer Berg, Sunday cake at Oma’s, the fish market at five in the morning. Twelve chapters, twelve real places, and the German you need in each of them.</p>
-				<ul class="worlds">
-					{#each book.chapters as c (c.id)}<li><b>{c.n}</b> {c.world}</li>{/each}
-				</ul>
-				<div class="back-cols">
-					<p><b>Words first.</b> Every chapter opens on a photograph with the words pinned to the things, so the first thing you learn is what you can see.</p>
-					<p><b>Real German.</b> Price boards, a departures board, a doorbell, a menu, a passport, a lost-cat notice: the texts Germany actually prints, photographed and read.</p>
-					<p><b>Paper and phone.</b> Write in the book. Scan a code and the chapter is read aloud, a tutor talks to you, or the exercise opens in the app with instant correction.</p>
-					<p><b>Free.</b> The whole course, A1 to C2, is free at languagequiz.org. This book is its paper half.</p>
-				</div>
-				<p class="site">languagequiz.org</p>
-			</div>
+		<div class="half backhalf">
+			<div class="trim">{@render backCover()}</div>
 		</div>
-		<div class="spine"><span>Deutsch A1.1 · Erste Schritte</span><b>languagequiz.org</b></div>
+		<div class="spine"><span>{book.title} · {book.subtitle}</span><b>languagequiz.org</b></div>
 		<div class="half fronthalf">
-			<img class="bleed" src="{photoBase}/{front.opener.photo}.jpg" alt="" />
-			<div class="plate">
-				<p class="kicker">Language Quiz · German for English speakers</p>
-				<h1>{book.title}</h1>
-				<p class="subtitle">{book.subtitle}</p>
-				<p class="blurb">{book.chapters.length} chapters, each one a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. Every chapter's audio by QR code.</p>
-				<p class="site">languagequiz.org</p>
-			</div>
+			<div class="trim">{@render frontCover()}</div>
 		</div>
 	</section>
 {:else}
 	<!-- 1 · cover -->
-	<section class="page right cover" data-accent={book.chapters[2]?.accent ?? 'sage'}>
-		<img class="bleed" src="{photoBase}/{book.chapters[2]?.opener.photo ?? book.chapters[0].opener.photo}.jpg" alt="" />
-		<div class="plate">
-			<p class="kicker">Language Quiz · German for English speakers</p>
-			<h1>{book.title}</h1>
-			<p class="subtitle">{book.subtitle}</p>
-			<p class="blurb">{book.chapters.length} chapters, each one a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. Every chapter's audio by QR code.</p>
-			<p class="site">languagequiz.org</p>
-		</div>
-	</section>
+	<section class="page right cover">{@render frontCover()}</section>
 
 	<!-- 2 · how this book works -->
 	<section class="page left how">
@@ -412,24 +539,7 @@
 		</section>
 	{/each}
 	<!-- back cover -->
-	<section class="page left back" data-accent={book.chapters[0].accent}>
-		<img class="bleed" src="{photoBase}/{book.chapters[0].opener.photo}.jpg" alt="" />
-		<div class="back-plate">
-			<p class="kicker">Language Quiz · German for English speakers</p>
-			<h2>German, one place at a time.</h2>
-			<p class="lede">A Berlin street at dusk. A Späti at midnight. A market in Munich, a flat in Prenzlauer Berg, Sunday cake at Oma's, the fish market at five in the morning. Twelve chapters, twelve real places, and the German you need in each of them.</p>
-			<ul class="worlds">
-				{#each book.chapters as c (c.id)}<li><b>{c.n}</b> {c.world}</li>{/each}
-			</ul>
-			<div class="back-cols">
-				<p><b>Words first.</b> Every chapter opens on a photograph with the words pinned to the things, so the first thing you learn is what you can see.</p>
-				<p><b>Real German.</b> Price boards, a departures board, a doorbell, a menu, a passport, a lost-cat notice: the texts Germany actually prints, photographed and read.</p>
-				<p><b>Paper and phone.</b> Write in the book. Scan a code and the chapter is read aloud, a tutor talks to you, or the exercise opens in the app with instant correction.</p>
-				<p><b>Free.</b> The whole course, A1 to C2, is free at languagequiz.org. This book is its paper half.</p>
-			</div>
-			<p class="site">languagequiz.org · Deutsch A1.1 · Erste Schritte</p>
-		</div>
-	</section>
+	<section class="page left back">{@render backCover()}</section>
 {/if}
 </div>
 
@@ -538,50 +648,78 @@
 
 	/* -- the print wrap: back + spine + front, 3 mm bleed all round ------------- */
 	.sheet { --bleed: 3mm; position: relative; display: grid; grid-template-columns: calc(210mm + var(--bleed)) var(--spine) calc(210mm + var(--bleed)); width: calc(420mm + var(--spine) + 2 * var(--bleed)); height: calc(297mm + 2 * var(--bleed)); background: var(--accent); overflow: hidden; }
-	.half { position: relative; overflow: hidden; }
-	.half .bleed { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-	.backhalf .bleed { filter: brightness(0.55); }
-	.backhalf .back-plate { left: calc(18mm + var(--bleed)); right: 18mm; top: calc(22mm + var(--bleed)); bottom: auto; padding: 10mm 11mm 8mm; }
-	.backhalf .back-plate .site { margin-top: 5mm; }
-	.backhalf .back-cols { font-size: 10pt; }
-	.backhalf .worlds { font-size: 10pt; line-height: 1.7; }
-	.backhalf h2 { font-size: 34pt; }
-	.backhalf .lede { font-size: 13pt; }
-	.fronthalf .plate { position: absolute; left: 0; right: 0; bottom: 0; padding: 10mm calc(18mm + var(--bleed)) calc(12mm + var(--bleed)) 22mm; background: rgb(251 248 243 / 0.96); border-top: 4mm solid var(--accent); }
-	.fronthalf .kicker { margin: 0; font-size: 8pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
-	.fronthalf h1 { margin: 2mm 0 0; font-family: var(--serif); font-size: 52pt; line-height: 1; color: var(--navy); }
-	.fronthalf .subtitle { margin: 1mm 0 4mm; font-family: var(--serif); font-size: 20pt; color: var(--ink); }
-	.fronthalf .blurb { margin: 0; max-width: 130mm; font-size: 10pt; color: var(--muted); }
-	.fronthalf .site { margin: 5mm 0 0; font-size: 9pt; font-weight: 800; color: var(--navy); }
 	.spine { display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: calc(10mm + var(--bleed)) 0; background: var(--accent); color: #fff; writing-mode: vertical-rl; }
 	.spine span { font-family: var(--serif); font-size: 11pt; font-weight: 700; }
 	.spine b { font-size: 7pt; letter-spacing: 0.08em; }
 	.wrap { padding: 0; display: block; }
 
-	/* -- back cover ------------------------------------------------------------ */
-	.back { padding: 0; }
-	.back::before { display: none; }
-	.back .bleed { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55); }
-	.back-plate { position: absolute; left: 18mm; right: 22mm; top: 22mm; bottom: 22mm; padding: 10mm 11mm; background: rgb(251 248 243 / 0.96); border-radius: 2mm; display: flex; flex-direction: column; }
-	.back .kicker { margin: 0; font-size: 8pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
 	.back h2 { margin: 2mm 0 3mm; font-size: 30pt; }
-	.back .lede { margin: 0 0 5mm; font-family: var(--serif); font-size: 12pt; line-height: 1.4; color: var(--ink); }
-	.worlds { list-style: none; margin: 0 0 6mm; padding: 3mm 0; border-top: 0.3mm solid var(--accent); border-bottom: 0.3mm solid var(--accent); columns: 2; column-gap: 8mm; font-size: 9pt; line-height: 1.6; }
-	.worlds b { display: inline-block; width: 7mm; font-family: var(--serif); color: var(--accent); }
-	.back-cols { columns: 2; column-gap: 8mm; font-size: 9.5pt; line-height: 1.45; }
-	.back-cols p { margin: 0 0 3mm; break-inside: avoid; }
-	.back .site { margin-top: auto; font-size: 9pt; font-weight: 800; color: var(--navy); }
+
+	/* -- the covers -----------------------------------------------------------
+	   One front and one back, drawn on a 210 x 297 mm trim box: the PDF's first
+	   and last pages, and the two halves of the print wrap. */
+	.cover, .back { padding: 0; }
+	.cover::before, .back::before { display: none; }
+	.half { position: relative; overflow: hidden; }
+	.backhalf { background: var(--navy); }
+	.trim { position: absolute; top: var(--bleed); width: 210mm; height: 297mm; }
+	.backhalf .trim { left: var(--bleed); }
+	.fronthalf .trim { left: 0; }
+
+	.fc { position: absolute; inset: 0; overflow: hidden; }
+	.half .fc { overflow: visible; }
+	/* The words page's crop of the panorama, so the pins sit on their things. */
+	.fc-photo { position: absolute; top: 0; left: -210mm; width: 420mm; height: 297mm; object-fit: cover; }
+	.half .fc-photo { top: calc(-1 * var(--bleed)); height: calc(297mm + 2 * var(--bleed)); width: calc(420mm + 2 * var(--bleed)); }
+	.fc-shade { position: absolute; inset: 0 0 auto; height: 40mm; background: linear-gradient(rgb(0 0 0 / 0.5), transparent); }
+	.fc-brand { position: absolute; top: 10mm; left: 14mm; right: 14mm; display: flex; align-items: center; gap: 2.5mm; color: #fff; font-size: 9pt; letter-spacing: 0.02em; text-shadow: 0 1px 3px rgb(0 0 0 / 0.5); }
+	.fc-brand img { width: 9mm; height: 9mm; border-radius: 2mm; box-shadow: 0 1mm 3mm rgb(0 0 0 / 0.3); }
+	.fc .pin .tag { box-shadow: 0 1mm 3mm rgb(0 0 0 / 0.35); }
+	.fc .pin .de { font-size: 11pt; }
+	.fc .pin .meta { font-size: 7.5pt; }
+	.fc-plate { position: absolute; left: 0; right: 0; bottom: 0; height: 96mm; box-sizing: border-box; padding: 13mm 18mm 0 18mm; background: var(--paper); border-top: 3mm solid var(--accent); }
+	.half .fc-plate { bottom: calc(-1 * var(--bleed)); height: calc(96mm + var(--bleed)); padding-right: calc(18mm + var(--bleed)); }
+	.fc h1 { margin: 0; font-family: var(--serif); font-size: 66pt; line-height: 0.95; letter-spacing: -0.01em; color: var(--navy); }
+	.fc-sub { margin: 1.5mm 0 0; font-family: var(--serif); font-size: 26pt; font-style: italic; line-height: 1.1; color: var(--accent); }
+	.fc-blurb { margin: 6mm 0 0; max-width: 125mm; font-size: 10.5pt; line-height: 1.45; color: var(--ink); }
+	.fc-route { margin: 6mm 0 0; padding-top: 3mm; border-top: 0.3mm solid var(--rule); font-size: 8.5pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
+	.fc-route i { margin: 0 2.2mm; font-style: normal; color: var(--accent); }
+	.fc-site { position: absolute; right: 18mm; bottom: 10mm; margin: 0; font-size: 9pt; font-weight: 800; color: var(--navy); }
+	.half .fc-site { right: calc(18mm + var(--bleed)); bottom: calc(10mm + var(--bleed)); }
+	/* The level as a sticker on the panel's edge. */
+	.fc-badge { position: absolute; right: 16mm; top: -24mm; width: 40mm; height: 40mm; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1mm; background: var(--accent); color: #fff; transform: rotate(-8deg); box-shadow: 0 2mm 6mm rgb(0 0 0 / 0.3); border: 1.2mm solid var(--paper); text-align: center; }
+	.half .fc-badge { right: calc(16mm + var(--bleed)); }
+	.fc-badge b { font-family: var(--serif); font-size: 30pt; line-height: 1; }
+	.fc-badge span { max-width: 28mm; font-size: 7pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.2; }
+
+	.bc { position: absolute; inset: 0; box-sizing: border-box; display: flex; flex-direction: column; padding: 16mm 18mm 14mm; background: var(--navy); color: #f3eee6; }
+	.half .bc { inset: calc(-1 * var(--bleed)); padding: calc(16mm + var(--bleed)) calc(18mm + var(--bleed)) calc(14mm + var(--bleed)); }
+	.bc-kicker { margin: 0; font-size: 8pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #e9a27c; }
+	.bc h2 { margin: 2mm 0 0; font-family: var(--serif); font-size: 32pt; line-height: 1.05; color: #fff; }
+	.bc-lede { margin: 3.5mm 0 0; font-family: var(--serif); font-size: 11.5pt; line-height: 1.45; color: #e6e0d6; }
+	.bc-places { list-style: none; margin: 6mm 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3.5mm 3mm; }
+	.bc-places li { position: relative; }
+	.bc-places img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 1.2mm; }
+	.bc-places .n { position: absolute; top: 1.2mm; left: 1.2mm; min-width: 5mm; padding: 0.3mm 1mm; border-radius: 1mm; background: var(--navy); color: #fff; font-family: var(--serif); font-size: 8pt; font-weight: 700; text-align: center; }
+	.bc-places .w { display: block; margin-top: 1mm; font-size: 7pt; line-height: 1.25; color: #d9d2c6; }
+	.bc-can { margin-top: 5mm; padding: 4mm 0 3mm; border-top: 0.3mm solid rgb(255 255 255 / 0.25); border-bottom: 0.3mm solid rgb(255 255 255 / 0.25); }
+	.bc-can-title { margin: 0 0 2mm; font-size: 8pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #e9a27c; }
+	.bc-can ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 8mm; font-size: 8.8pt; line-height: 1.35; color: #f3eee6; }
+	.bc-can li { position: relative; padding-left: 4.5mm; margin-bottom: 1.2mm; break-inside: avoid; }
+	.bc-can li::before { content: '✓'; position: absolute; left: 0; color: #e9a27c; font-weight: 800; }
+	.bc-points { margin-top: 5mm; columns: 2; column-gap: 8mm; font-size: 9pt; line-height: 1.45; color: #e6e0d6; }
+	.bc-points p { margin: 0 0 2.8mm; break-inside: avoid; }
+	.bc-points b { color: #fff; }
+	/* Bottom right stays clear: KDP prints its barcode there (2 x 1.2 in). */
+	.bc-foot { margin-top: auto; padding-top: 3mm; display: flex; align-items: center; gap: 4mm; max-width: 110mm; }
+	.bc-qr { flex: none; width: 22mm; height: 22mm; padding: 1mm; background: #fff; border-radius: 1.2mm; }
+	.bc-qr :global(svg) { display: block; width: 100%; height: 100%; }
+	.bc-site { display: flex; align-items: center; gap: 2.5mm; font-size: 9pt; line-height: 1.35; color: #e6e0d6; }
+	.bc-site b { color: #fff; font-size: 10.5pt; }
+	.bc-site img { width: 9mm; height: 9mm; border-radius: 2mm; }
 
 	/* -- cover, how, contents ------------------------------------------------ */
-	.cover { padding: 0; }
-	.cover::before { display: none; }
-	.cover .bleed { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-	.cover .plate { position: absolute; left: 0; right: 0; bottom: 0; padding: 10mm 18mm 12mm 22mm; background: rgb(251 248 243 / 0.96); border-top: 4mm solid var(--accent); }
-	.cover .kicker { margin: 0; font-size: 8pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
 	.cover h1 { margin: 2mm 0 0; font-family: var(--serif); font-size: 52pt; line-height: 1; color: var(--navy); }
-	.cover .subtitle { margin: 1mm 0 4mm; font-family: var(--serif); font-size: 20pt; color: var(--ink); }
-	.cover .blurb { margin: 0; max-width: 130mm; font-size: 10pt; color: var(--muted); }
-	.cover .site { margin: 5mm 0 0; font-size: 9pt; font-weight: 800; color: var(--navy); }
 	.how-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; font-size: 9.5pt; line-height: 1.45; }
 	.how-cols p { margin: 0 0 2.5mm; }
 	.pages { margin: 0 0 3mm; padding-left: 5mm; }
@@ -642,11 +780,11 @@
 	.bleed.pano { position: absolute; top: 0; height: 297mm; width: 420mm; object-fit: cover; }
 	.bleed.pano.left { left: 0; }
 	.bleed.pano.right { left: -210mm; }
-	.opener .bleed { height: 297mm; clip-path: inset(0 0 126mm 0); }
+	.opener .bleed { height: 297mm; clip-path: inset(0 0 var(--plate, 126mm) 0); }
 	.opener .plate {
 		position: absolute;
 		left: 0; right: 0; bottom: 0;
-		height: 126mm;
+		height: var(--plate, 126mm);
 		padding: 5mm 22mm 5mm 18mm;
 		background: var(--paper);
 		border-top: 3mm solid var(--accent);
@@ -682,9 +820,9 @@
 	.flow.with-photo > :global(*) { margin-bottom: 3mm; }
 
 	/* -- filler: ruled lines that take whatever room the page has left ---------- */
-	.fill { flex: 1 1 0; display: flex; flex-direction: column; min-height: 0; margin-top: 3mm; overflow: hidden; }
+	.fill { flex: 1 1 0; display: flex; flex-direction: column; min-height: min-content; margin-top: 3mm; overflow: hidden; }
 	.fill-prompt { margin: 0.5mm 0 0; font-size: 8pt; color: var(--muted); }
-	.fill-lines { flex: 1; min-height: 0; margin-top: 1mm; background: repeating-linear-gradient(to bottom, transparent 0, transparent 7.7mm, var(--rule) 7.7mm, var(--rule) 7.95mm); background-position: 0 100%; }
+	.fill-lines { flex: 1; min-height: 16mm; margin-top: 1mm; background: repeating-linear-gradient(to bottom, transparent 0, transparent 7.7mm, var(--rule) 7.7mm, var(--rule) 7.95mm); background-position: 0 100%; }
 	.flow { flex: 0 0 auto; }
 
 	/* -- facts --------------------------------------------------------------- */
