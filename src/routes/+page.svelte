@@ -30,8 +30,23 @@
 	// One corner label per offer, each leading to its own section. A label goes
 	// for good in this browser once it is clicked, and only then: scrolling
 	// past the offer does not count.
+	// The rest of the shelf after A1.1: one free PDF per level (Book v2).
+	const SHELF = [
+		{ level: 'A1.2', file: 'a1_2', cover: 'a1-2', sub: 'Im Alltag', mb: 33 },
+		{ level: 'A2.1', file: 'a2_1', cover: 'a2-1', sub: 'Erlebnisse', mb: 30 },
+		{ level: 'A2.2', file: 'a2_2', cover: 'a2-2', sub: 'Beschreiben & Planen', mb: 33 },
+		{ level: 'B1.1', file: 'b1_1', cover: 'b1-1', sub: 'Meinungen & Wünsche', mb: 29 },
+		{ level: 'B1.2', file: 'b1_2', cover: 'b1-2', sub: 'Erzählen & Begründen', mb: 31 },
+		{ level: 'B2.1', file: 'b2_1', cover: 'b2-1', sub: 'Berichten & Argumentieren', mb: 27 },
+		{ level: 'B2.2', file: 'b2_2', cover: 'b2-2', sub: 'Was wäre, wenn?', mb: 29 },
+		{ level: 'C1.1', file: 'c1_1', cover: 'c1-1', sub: 'Verdichten & Verbinden', mb: 27 },
+		{ level: 'C1.2', file: 'c1_2', cover: 'c1-2', sub: 'Andeuten & Formulieren', mb: 27 },
+		{ level: 'C2.1', file: 'c2_1', cover: 'c2-1', sub: 'Stil & Register', mb: 24 },
+		{ level: 'C2.2', file: 'c2_2', cover: 'c2-2', sub: 'Zwischen den Zeilen', mb: 23 }
+	];
+
 	const OFFERS = [
-		{ id: 'book', title: 'Deutsch A1.1, the book', note: 'free PDF' },
+		{ id: 'book', title: 'The books, A1 to C2', note: 'free PDFs' },
 		...(kafka ? [{ id: 'literature', title: 'Kafka in German', note: 'free PDF' }] : [])
 	];
 	let seen = $state<string[] | null>(null);
@@ -355,6 +370,25 @@
 			</a>
 			<a class="book-preview" href="/course/{data.card.id}/book2/A1.1">Look inside first</a>
 		</div>
+	</section>
+	<section class="book-shelf" aria-labelledby="book-shelf-title">
+		<h2 id="book-shelf-title">The other eleven books, up to C2</h2>
+		<p>Each one has twelve new places, twelve stories and real German documents. All free, 131 pages each.</p>
+		<ul>
+			{#each SHELF as book (book.level)}
+				<li>
+					<a class="shelf-pic" href="/course/{data.card.id}/book2/{book.level}" tabindex="-1" aria-hidden="true">
+						<img src="/img/book-{book.cover}-front.webp" alt="" width="640" height="905" loading="lazy" />
+					</a>
+					<strong lang="de">Deutsch {book.level}</strong>
+					<span class="shelf-sub" lang="de">{book.sub}</span>
+					<a class="shelf-link" href="/books/v2/de_cert_a1_{book.file}.pdf" download onclick={() => track('book_download', { book: book.level, from: 'home' })}>
+						<Icon name="download" size="1em" /> PDF · {book.mb} MB
+					</a>
+					<a class="shelf-link" href="/course/{data.card.id}/book2/{book.level}">Look inside</a>
+				</li>
+			{/each}
+		</ul>
 	</section>
 	{:else}
 	<!-- Hidden 2026-11-05: the old whole-A1 printed book and its test-copy offer,
@@ -1453,6 +1487,52 @@
 		margin: 0.3rem 0 0.8rem;
 	}
 
+	.book-shelf {
+		max-width: 60rem;
+		margin: 3.5rem auto 0;
+	}
+	.book-shelf h2 {
+		margin: 0 0 0.35rem;
+	}
+	.book-shelf p {
+		margin: 0 0 1.25rem;
+	}
+	.book-shelf ul {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+		gap: 1.5rem 1.1rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.book-shelf li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		min-width: 0;
+	}
+	.shelf-pic {
+		display: block;
+		margin-bottom: 0.45rem;
+	}
+	.shelf-pic img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 3px;
+		box-shadow: 0 4px 14px rgb(0 0 0 / 0.16);
+	}
+	.shelf-sub {
+		font-size: 0.85rem;
+		opacity: 0.75;
+	}
+	.shelf-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3em;
+		font-size: 0.875rem;
+		min-height: 1.75rem;
+	}
 	.book-preview {
 		display: inline-block;
 		margin-left: 1rem;

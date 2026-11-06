@@ -46,5 +46,8 @@ __pycache__/
 .commons-last.json
 # Book v2 photo originals (print only, ~3 MB each); the web/ copies are committed.
 static/img/photo/b2_*.jpg
+static/img/photo/b2a12_*.jpg
+static/img/photo/b2a[2-9]*_*.jpg
+static/img/photo/b2[bc][12]*_*.jpg
 # KDP interior prints
 static/books/v2/*_print.pdf

@@ -1,14 +1,18 @@
 import { describe, expect, it } from 'vitest';
-import { existsSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import { loadBook2, photoCredits, photosOf, practiseOf, chapterExercises } from './book2';
 import { answersOf, wordsIn } from './companion';
 
 // Book v2 (docs/book_v2_plan.md): every chapter has its ten pages' worth of
 // content, every photo is on disk and credited, every exercise has its answer.
-const book = loadBook2('de_cert_a1', 'A1.1')!;
 const credits = photoCredits('de_cert_a1');
 
-describe('book v2 A1.1', () => {
+// Every book file: a1_2.json is A1.2.
+const levels = readdirSync('assets/content/book2/de_cert_a1').filter((f) => /^[abc]\d_\d\.json$/.test(f)).map((f) => f.slice(0, -5).toUpperCase().replace('_', '.'));
+
+for (const level of levels)
+describe(`book v2 ${level}`, () => {
+	const book = loadBook2('de_cert_a1', level)!;
 	it('exists, with chapters numbered 1…n in order', () => {
 		expect(book).toBeTruthy();
 		expect(book.chapters.map((c) => c.n)).toEqual(book.chapters.map((_, i) => i + 1));

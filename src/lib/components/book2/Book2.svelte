@@ -61,7 +61,7 @@
 	const coverChapter = $derived(book.chapters.find((c) => c.id === (book.cover?.chapter ?? 'markt')) ?? book.chapters[2] ?? book.chapters[0]);
 	const coverPins = $derived((coverChapter.opener.labels ?? []).filter((l) => l.y <= 52).slice(0, 6));
 	/** The cities the chapters visit, in a fixed order, for the front's route line. */
-	const CITIES = ['Berlin', 'München', 'Hamburg', 'Köln', 'Frankfurt', 'Leipzig', 'Dresden', 'Freiburg', 'Münster', 'Wien', 'Zürich'];
+	const CITIES = ['Berlin', 'München', 'Hamburg', 'Köln', 'Frankfurt', 'Leipzig', 'Dresden', 'Freiburg', 'Münster', 'Nürnberg', 'Heidelberg', 'Ulm', 'Rügen', 'Stuttgart', 'Göttingen', 'Sylt', 'Rothenburg', 'Passau', 'Karlsruhe', 'Wiesbaden', 'Papenburg', 'Wittenberg', 'Essen', 'Wien', 'Zürich'];
 	const coverCities = $derived(CITIES.filter((city) => book.chapters.some((c) => c.world.includes(city))));
 
 	// Fit pass. A page is a fixed A4 sheet with overflow hidden, so a chapter
@@ -201,10 +201,10 @@
 		{/each}
 		<div class="fc-plate">
 			<div class="fc-badge"><b>{book.level}</b><span>{book.cover?.badge ?? 'for complete beginners'}</span></div>
-			<h1 lang="de">{book.title.replace(/\s*A\d\.\d$/, '')}</h1>
+			<h1 lang="de">{book.title.replace(/\s*[A-C]\d\.\d$/, '')}</h1>
 			<p class="fc-sub" lang="de">{book.subtitle}</p>
 			<p class="fc-blurb">German in {book.chapters.length} real places: the words pinned on the things, a story in each place, and the grammar the story needs.</p>
-			<p class="fc-route" lang="de">{#each coverCities as city, i (city)}{#if i}<i>·</i>{/if}{city}{/each}</p>
+			<p class="fc-route" lang="de">{#each coverCities as city, i (city)}{#if i}<i>·</i>{/if}<span class="nb">{city}</span> {/each}</p>
 			<p class="fc-site">languagequiz.org</p>
 		</div>
 	</div>
@@ -419,7 +419,7 @@
 				<h2 lang="de">{c.document.caption}</h2>
 			</header>
 			{@render photo(c.document.photo, '', c.document.tall ? 'wide tall' : 'wide')}
-			<p class="intro">{c.document.intro}</p>
+			<p class="intro">{@html rich(c.document.intro)}</p>
 			<div class="flow">
 				{#each c.document.tasks as ex, e (e)}<ExerciseBlock {ex} n={e + 1} />{/each}
 			</div>
@@ -692,6 +692,7 @@
 	/* The level as a sticker on the panel's edge. */
 	.fc-badge { position: absolute; right: 16mm; top: -24mm; width: 40mm; height: 40mm; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1mm; background: var(--accent); color: #fff; transform: rotate(-8deg); box-shadow: 0 2mm 6mm rgb(0 0 0 / 0.3); border: 1.2mm solid var(--paper); text-align: center; }
 	.half .fc-badge { right: calc(16mm + var(--bleed)); }
+	.fc-route .nb { white-space: nowrap; }
 	.fc-badge b { font-family: var(--serif); font-size: 30pt; line-height: 1; }
 	.fc-badge span { max-width: 28mm; font-size: 7pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.2; }
 
@@ -819,7 +820,7 @@
 	.photo.wide img { aspect-ratio: 3 / 2; object-fit: cover; max-height: 94mm; }
 	.photo.wide { margin-bottom: 3mm; }
 	/* A portrait document (a menu, a timetable): the whole sheet, not a crop. */
-	.photo.wide.tall img { aspect-ratio: auto; object-fit: contain; width: auto; max-width: 100%; height: 128mm; max-height: 128mm; margin: 0 auto; }
+	.photo.wide.tall img { aspect-ratio: auto; object-fit: contain; width: auto; height: auto; max-width: 100%; max-height: 128mm; margin: 0 auto; }
 	.photo.float { float: right; width: 66mm; margin: 0 0 3mm 4mm; }
 	.flow.with-photo { display: block; }
 	.flow.with-photo > :global(*) { margin-bottom: 3mm; }

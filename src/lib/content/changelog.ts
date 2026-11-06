@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-06",
+    title: "Eleven new books: the whole course, from A1 to C2",
+    items: [
+      "There is now a free book for every level, A1.1 to C2.2: twelve books of 131 pages each. Download them from the shelf on the home page, or look inside first.",
+      "Each chapter is one place: words pinned on a photo, a funny story, two grammar pages, a real German document to read and the practice.",
+      "Every QR code in the PDFs is also a link, so you can tap straight through to the listening, the tutor and the exercises.",
+    ],
+    highlight: true,
+  },
+  {
+    date: "2026-11-06",
     title: "The codes in the A1.1 book are now links",
     items: [
       "In the A1.1 PDF you can now click or tap any QR code: the listening, the tutor and the exercise open straight away, without a second phone to scan with.",
