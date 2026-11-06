@@ -11,8 +11,8 @@
 	// No second try within a chat. The log is saved after every sentence and the
 	// whole chat is rebuilt from it on load, so leaving and coming back lands on
 	// the same turn, and a liked chat only ever shows its ending. A chat that
-	// ends without a like is forgotten (forgetMatch): the ending stays on screen,
-	// but the character leaves the contacts and may be dealt again in the deck.
+	// ends without a like is forgotten: the ending stays on screen, but the save
+	// goes, and the character is back on the Schreib mir! page for a fresh start.
 	import Seo from '$lib/components/Seo.svelte';
 	import { breadcrumbLd, chatDescription, chatTitle, gameLd } from '$lib/seo';
 	import GermanText from '$lib/components/GermanText.svelte';
@@ -27,7 +27,6 @@
 		cleanName,
 		clearChat,
 		findChat,
-		forgetMatch,
 		isLiked,
 		loadChat,
 		loadName,
@@ -67,7 +66,7 @@
 	let name = $state('');
 	let nameDraft = $state('');
 	let askName = $state(false);
-	/** Not met in the deck yet: the chat stays shut. */
+	/** A hidden character not unlocked yet: the chat stays shut. */
 	let locked = $state(false);
 	/** A dev replay (?reset): the saved chat is wiped first. */
 	let free = $state(false);
@@ -107,7 +106,7 @@
 		free = dev && page.url.searchParams.has('reset');
 		if (free) clearChat(chat.id);
 		// A chat saved with an ending that was not a like (from before the rule)
-		// is wiped; the meeting stays, since the deck may have just dealt them again.
+		// is wiped, for a fresh start.
 		const old = loadChat(chat.id);
 		if (old?.ending && !isLiked(old.ending)) clearChat(chat.id);
 		saved = loadChat(chat.id);
@@ -120,7 +119,7 @@
 			void scrollDown(false);
 			return;
 		}
-		// Characters are met in the course deck only; a link alone does not open them.
+		// A hidden character opens only once a secret ending has unlocked them.
 		if (!free && !canOpenChat(chat.id)) {
 			locked = true;
 			return;
@@ -224,8 +223,8 @@
 			track('match_end', { chat: chat.id, ending: next.ending, average: next.average });
 			void bankFixes(next);
 		}
-		// No like: the character leaves the contacts and can come back in the deck.
-		if (next.ending && !isLiked(next.ending)) forgetMatch(chat.id);
+		// No like: the character goes back among the new ones for another try.
+		if (next.ending && !isLiked(next.ending)) clearChat(chat.id);
 		else saveChat(chat.id, saved);
 		built = [];
 		game = next;
@@ -434,10 +433,9 @@
 	<div class="scrim solid">
 		<div class="name-card locked-card" role="dialog" aria-modal="true" aria-labelledby="locked-title" tabindex="-1" data-focus-target use:modal>
 			<img class="shadow" src="/img/story/{chat.image}.webp" alt="" />
-			<h1 id="locked-title" lang="de">Noch nicht getroffen</h1>
-			<p>Someone at {chat.level} is waiting to chat, but you meet characters in your course deck. They turn up there now and then while you learn. Open their card in the deck and this chat opens.</p>
-			<a class="btn" href="/course/de_cert_a1">Back to the deck</a>
-			<a class="btn-quiet" href={MATCH_PATH}>Your matches</a>
+			<h1 id="locked-title" lang="de">Noch geheim</h1>
+			<p>Someone at {chat.level} is hiding. The secret ending of another chat unlocks them.</p>
+			<a class="btn" href={MATCH_PATH}>See who you can chat with</a>
 		</div>
 	</div>
 {/if}

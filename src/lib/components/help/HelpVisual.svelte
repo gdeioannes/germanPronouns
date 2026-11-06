@@ -31,17 +31,15 @@
 		},
 		'contacts-anatomy': {
 			shot: 'contacts-anatomy',
-			alt: 'The Schreib mir! contact list: a contact who liked you, open chats, a chat that ended without a like, and blurred characters not met yet.',
+			alt: 'The Schreib mir! page: a contact who liked you, a chat still open, and new characters to write to.',
 			legend: {
-				1: { title: 'Met so far', text: 'How many characters you have met, out of all of them.' },
+				1: { title: 'Likes so far', text: 'How many characters like you, out of all of them.' },
 				2: { title: 'Level chips', text: 'Filter the whole list by level.' },
 				3: { title: 'A contact', text: 'Someone who liked you. Tap to read your chat again.' },
 				4: { title: 'What they know', text: 'The things you told them in the chat.' },
 				5: { title: 'Their voice note', text: 'Arrives the Sunday after your chat.' },
 				6: { title: 'Weiter', text: 'Carry on a chat you started.' },
-				7: { title: 'Schreib!', text: 'Start a chat with someone you met in your deck.' },
-				8: { title: 'Met, no like', text: 'A chat that ended without a like, with their last words.' },
-				9: { title: 'Not met yet', text: 'They turn up in your deck, one at a time.' }
+				7: { title: 'Schreib!', text: 'Start a chat with someone new.' }
 			}
 		},
 		'chat-anatomy': {
@@ -91,8 +89,7 @@
 	const KINDS = [
 		{ icon: '📖', label: 'Story' },
 		{ icon: '🎵', label: 'Song' },
-		{ icon: '🔀', label: 'Ja oder Nein?' },
-		{ icon: '💬', label: 'Schreib mir!' }
+		{ icon: '🔀', label: 'Ja oder Nein?' }
 	];
 </script>
 
@@ -167,16 +164,14 @@
 	</figure>
 {:else if kind === 'lifecycle'}
 	<figure class="flow life">
-		<div class="state"><span class="blur-dot" aria-hidden="true">?</span><span><strong>Noch nicht getroffen.</strong> Blurred, somewhere in the course.</span></div>
-		<div class="arrow" aria-hidden="true">↓ <small>turns up in your deck, and you open the card</small></div>
-		<div class="state"><span class="tag new">Schreib!</span><span><strong>Offen.</strong> Met, not written to yet.</span></div>
+		<div class="state"><span class="tag new">Schreib!</span><span><strong>Neu.</strong> You have not written to them yet.</span></div>
 		<div class="arrow" aria-hidden="true">↓ <small>you start the chat</small></div>
 		<div class="state"><span class="tag go">Weiter</span><span><strong>Offen.</strong> The chat is running. Leave and come back any time.</span></div>
 		<div class="arrow" aria-hidden="true">↓ <small>the chat ends</small></div>
 		<div class="ends">
 			<span class="end win"><b>❤️ Mag dich</b><small>{WIN_AT} or more hearts at the end. A contact, and a voice note on Sunday.</small></span>
-			<span class="end mid"><b>🤝 No like</b><small>{PARTIAL_AT} to {WIN_AT - 1} hearts at the end. They leave, and may come back in your deck.</small></span>
-			<span class="end lost"><b>💔 Deleted</b><small>Under {PARTIAL_AT} at the end, or no hearts left mid-chat. They leave, and may come back in your deck.</small></span>
+			<span class="end mid"><b>🤝 No like</b><small>{PARTIAL_AT} to {WIN_AT - 1} hearts at the end. Back to Neu, to try again.</small></span>
+			<span class="end lost"><b>💔 Deleted</b><small>Under {PARTIAL_AT} at the end, or no hearts left mid-chat. Back to Neu, to try again.</small></span>
 		</div>
 	</figure>
 {:else if kind === 'interest'}
@@ -574,17 +569,6 @@
 		display: flex;
 		gap: 0.6rem;
 		align-items: center;
-	}
-	.blur-dot {
-		flex: none;
-		display: grid;
-		place-items: center;
-		width: 2rem;
-		height: 2.6rem;
-		border-radius: 0.4rem;
-		background: linear-gradient(135deg, #7d7480, #b7a99b);
-		color: #fff;
-		font-weight: 800;
 	}
 	.tag {
 		flex: none;

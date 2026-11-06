@@ -24,6 +24,15 @@ export const changelog: ChangelogEntry[] = [
     ],
   },
   {
+    date: "2026-11-06",
+    title: "Schreib mir! moves out of the deck and into the Library",
+    items: [
+      "Schreib mir! characters no longer turn up in your deck, and a chat you have started no longer comes back in every hand. The deck is for exercises and quick surprises.",
+      "Schreib mir! is now in the Library menu, and you do not have to meet anyone first: every character is open, except the ones hidden behind a secret ending. The list opens on your own level, and the level chips show the others.",
+      "Your chats and the characters who like you are all still there. If a chat ends without a like, you can try that character again from the start.",
+    ],
+  },
+  {
     date: "2026-11-05",
     title: "The A1.1 book: a real cover, and nothing cut off",
     items: [

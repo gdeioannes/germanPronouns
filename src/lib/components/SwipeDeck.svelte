@@ -54,7 +54,6 @@
 	import { JA_NEIN_CARD_ID, JA_NEIN_PATH } from '$lib/domain/janein';
 	import { WORT_CARD_ID, WORT_PATH } from '$lib/domain/wortbloecke';
 	import { nextRound } from '$lib/domain/janeinRounds';
-	import { CHAT_CARD_PREFIX, chatDeckCard, findChat, markMet, MATCH_PATH, type ChatDeal } from '$lib/domain/matchChat';
 	import { pickSurprise, takeSurpriseChance, type SurpriseCandidate } from '$lib/domain/surprise';
 	import { checkDue, parseLog, WORD_CHECK_LOG, type CheckLogEntry } from '$lib/domain/wordCheck';
 	import { progress } from '$lib/state/progress.svelte';
@@ -294,35 +293,28 @@
 			void storage.set(SKIPPED_KEY, '[]');
 			deck = buildDeck(course.quizzes, known, { level, pace, size, exclude });
 		}
-		// Surprises: a story, a song, Ja oder Nein? or a Schreib mir! character.
+		// Surprises: a story, a song, Ja oder Nein?, the word check or Wortblöcke.
 		// At most one a hand, and none at all with surprises turned off in
-		// Settings. A chat already started always comes back, as the hand's one
-		// surprise; otherwise one roll says whether a surprise comes, and then
-		// one kind is drawn among those with something to offer (domain/surprise).
+		// Settings. One roll says whether a surprise comes, and then one kind is
+		// drawn among those with something to offer (domain/surprise).
 		if (progress.surprises) {
 			const at = deckLevel(course.quizzes, known, level);
 			const reached = (id: string) => reachedQuiz(course.quizzes, (q) => known[q]?.done === true, id);
-			const chatDeal = chatDeckCard(at, new Set(skipped));
-			if (chatDeal?.resume) {
-				deck = [...deck.slice(0, Math.min(1, deck.length)), chatCard(chatDeal), ...deck.slice(Math.min(1, deck.length))];
-			} else {
-				const story = storyDeckCard(course.id, at, new Set(skipped), reached);
-				const song = songDeckCard(course.id, at, new Set(skipped), reached);
-				const candidates: SurpriseCandidate<() => DeckCard>[] = [
-					{ kind: 'story', card: story ? () => story : null },
-					{ kind: 'song', card: song ? () => song : null },
-					{ kind: 'play', card: skipped.includes(JA_NEIN_CARD_ID) ? null : playCard },
-					{ kind: 'chat', card: chatDeal ? () => chatCard(chatDeal) : null },
-					{ kind: 'check', card: checkDue(checkLog) && !skipped.includes(CHECK_CARD_ID) ? checkCard : null },
-					{ kind: 'wort', card: skipped.includes(WORT_CARD_ID) ? null : wortCard }
-				];
-				const odds = takeSurpriseChance();
-				const surprise = pickSurprise(candidates, odds.chance, Math.random, odds.first);
-				odds.done(surprise !== null);
-				if (surprise) {
-					const slot = Math.min(surprise.slot, deck.length);
-					deck = [...deck.slice(0, slot), surprise.card(), ...deck.slice(slot)];
-				}
+			const story = storyDeckCard(course.id, at, new Set(skipped), reached);
+			const song = songDeckCard(course.id, at, new Set(skipped), reached);
+			const candidates: SurpriseCandidate<() => DeckCard>[] = [
+				{ kind: 'story', card: story ? () => story : null },
+				{ kind: 'song', card: song ? () => song : null },
+				{ kind: 'play', card: skipped.includes(JA_NEIN_CARD_ID) ? null : playCard },
+				{ kind: 'check', card: checkDue(checkLog) && !skipped.includes(CHECK_CARD_ID) ? checkCard : null },
+				{ kind: 'wort', card: skipped.includes(WORT_CARD_ID) ? null : wortCard }
+			];
+			const odds = takeSurpriseChance();
+			const surprise = pickSurprise(candidates, odds.chance, Math.random, odds.first);
+			odds.done(surprise !== null);
+			if (surprise) {
+				const slot = Math.min(surprise.slot, deck.length);
+				deck = [...deck.slice(0, slot), surprise.card(), ...deck.slice(slot)];
 			}
 		}
 		if (resume) deck = [resume, ...deck];
@@ -439,30 +431,6 @@
 				: 'Tap the German words you know and find your level in about two minutes. No marks, no medals: a level and a suggestion for your deck.'
 		};
 	}
-	const isChatCard = (card: DeckCard) => card.kind === 'chat';
-	/** Chat cards that continue a chat already started. */
-	let chatResumes = $state<Set<string>>(new Set());
-
-	function chatCard({ chat, resume }: ChatDeal): DeckCard {
-		const id = CHAT_CARD_PREFIX + chat.id;
-		chatResumes = resume ? new Set([...chatResumes, id]) : new Set([...chatResumes].filter((x) => x !== id));
-		return {
-			kind: 'chat',
-			quiz: {
-				id,
-				type: 'reading',
-				title: `${chat.emoji} ${chat.name}, ${chat.age}`,
-				storageKeyPrefix: 'chat',
-				level: chat.level,
-				status: 'live',
-				covers: [],
-				image: `story/${chat.image}`
-			},
-			reason: resume
-				? `Your chat is waiting. ${chat.goal}`
-				: `„${chat.bio}“ ${chat.goal} One chat, one chance.`
-		};
-	}
 	const cardFlavour = (card: DeckCard) =>
 		isStoryCard(card)
 			? 'interactive mystery'
@@ -474,15 +442,12 @@
 						? 'word puzzle'
 						: isCheckCard(card)
 						? 'level check · 2 min'
-						: isChatCard(card)
-							? chatResumes.has(card.quiz.id) ? 'chat in progress' : 'chat game'
-							: typeLabel(card.quiz.type);
+						: typeLabel(card.quiz.type);
 
 	function href(card: DeckCard) {
 		if (isPlayCard(card)) return JA_NEIN_PATH;
 		if (isWortCard(card)) return WORT_PATH;
 		if (isCheckCard(card)) return CHECK_PATH;
-		if (isChatCard(card)) return `${MATCH_PATH}/${card.quiz.id.slice(CHAT_CARD_PREFIX.length)}`;
 		return storyCardHref(card) ?? songCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
 	}
 
@@ -567,7 +532,7 @@
 					clearOpened(card.quiz.id);
 					openId = null;
 				}
-				// A "no" to a surprise (Ja oder Nein?, a character) means not now: the
+				// A "no" to a surprise (Ja oder Nein?, a song) means not now: the
 				// card sits out like any skipped card until the deck runs dry.
 				skipped = [...skipped.filter((id) => id !== card.quiz.id), card.quiz.id].slice(-SKIPPED_LIMIT);
 				void storage.set(SKIPPED_KEY, JSON.stringify(skipped));
@@ -583,8 +548,6 @@
 					void tick().then(() => stageEl?.querySelector<HTMLElement>('.card.top, .card.empty button')?.focus());
 				}
 			} else {
-				// Opening a character's card is how you meet them (the deck is the only way).
-				if (isChatCard(card)) markMet(card.quiz.id.slice(CHAT_CARD_PREFIX.length));
 				void goto(href(card));
 			}
 			reset();
@@ -724,94 +687,73 @@
 							<span class="started-badge"><InProgressBadge float /></span>
 						{/if}
 
-						{#if isChatCard(card)}
-							{@const chat = findChat(card.quiz.id.slice(CHAT_CARD_PREFIX.length))}
-							{@const resume = chatResumes.has(card.quiz.id)}
-							<!-- A profile, dating-app style: the portrait fills the band, and the
-							     name and German line sit on it. -->
-							<div class="chat-face">
-								<img class="chat-photo" src="/img/{card.quiz.image}.webp" alt="" loading="lazy" draggable="false" />
-								<span class="chat-flag">💬 Schreib mir!</span>
-								<span class="chat-tag" class:resume>{resume ? 'Läuft noch' : 'Neues Match'}</span>
-								<div class="chat-name">
-									<h3 class="title"><span lang={course.learnLocale}>{card.quiz.title}</span> <span class="chat-lvl">{chat?.level}</span></h3>
-									<p class="chat-bio" lang="de">„{chat?.bio}“</p>
-								</div>
+						{#if isPlayCard(card)}
+							<!-- The game's own sky, in miniature: drifting color, the two
+							     stamps you will be swiping between, and the five people you
+							     might turn out to be. -->
+							<div class="art-band play-sky" aria-hidden="true">
+								<span class="blob a"></span>
+								<span class="blob b"></span>
+								<span class="blob c"></span>
+								<span class="pstamp nein">Nein</span>
+								<span class="pstamp ja">Ja</span>
+								<span class="oder">oder?</span>
+								<span class="emo e1">🍻</span>
+								<span class="emo e2">🚌</span>
+								<span class="emo e3">🌲</span>
+								<span class="emo e4">☕</span>
+								<span class="emo e5">🧹</span>
+								<span class="emo e6">🌙</span>
+								<span class="hand"><Icon name="swipe" size="2.4em" /></span>
 							</div>
-							<p class="chat-goal"><span aria-hidden="true">🎯</span> {chat?.goal}</p>
-							<p class="meta">
-								<span class="chip">{resume ? 'Your chat is waiting' : 'One chat · one chance'}</span>
-								<span class="chat-count tnum">{isTop ? `Card ${handSize - deck.length + 1} of ${handSize}` : ''}</span>
-							</p>
+						{:else if isWortCard(card)}
+							<!-- The game in miniature: a few letter blocks in the four
+							     colors stacked in a well, the bottom row golden. -->
+							<div class="art-band wort-band" aria-hidden="true">
+								<span class="wrow"><span class="wsq navy">H</span><span class="wsq navy">A</span><span class="wsq navy">U</span><span class="wsq navy">S</span><span class="wsq forest">R</span><span class="wsq forest">O</span><span class="wsq forest">T</span></span>
+								<span class="wrow"><span class="wsq terra">Z</span><span class="wsq terra">E</span><span class="wsq terra">I</span><span class="wsq terra">T</span><span class="wsq ochre">G</span><span class="wsq ochre">U</span><span class="wsq ochre">T</span></span>
+								<span class="wrow gold"><span class="wsq">K</span><span class="wsq">A</span><span class="wsq">L</span><span class="wsq">T</span><span class="wsq">N</span><span class="wsq">E</span><span class="wsq">U</span></span>
+							</div>
+						{:else if isCheckCard(card)}
+							<!-- The check in miniature: a few word chips, some tapped, one
+							     of them made up (the chips are decoration; the card's title
+							     and reason say what it is). -->
+							<div class="art-band check-band" aria-hidden="true">
+								<span class="wchip on" lang="de">das Haus</span>
+								<span class="wchip" lang="de">die Gelegenheit</span>
+								<span class="wchip on" lang="de">morgen</span>
+								<span class="wchip fake" lang="de">verbaschen</span>
+								<span class="wchip on" lang="de">die Rechnung</span>
+								<span class="wchip" lang="de">beiläufig</span>
+								<span class="wchip on" lang="de">freundlich</span>
+							</div>
+						{:else if card.quiz.image}
+							<!-- The quiz's scene as a cream band across the top of the card; it
+							     stands in for the type disc. -->
+							<div class="art-band" style={artStyle(card.quiz.id)}>
+								<img class="art" src="/img/{card.quiz.image}.webp" alt="" width="1024" height="768" loading="lazy" draggable="false" />
+							</div>
 						{:else}
-							{#if isPlayCard(card)}
-								<!-- The game's own sky, in miniature: drifting color, the two
-								     stamps you will be swiping between, and the five people you
-								     might turn out to be. -->
-								<div class="art-band play-sky" aria-hidden="true">
-									<span class="blob a"></span>
-									<span class="blob b"></span>
-									<span class="blob c"></span>
-									<span class="pstamp nein">Nein</span>
-									<span class="pstamp ja">Ja</span>
-									<span class="oder">oder?</span>
-									<span class="emo e1">🍻</span>
-									<span class="emo e2">🚌</span>
-									<span class="emo e3">🌲</span>
-									<span class="emo e4">☕</span>
-									<span class="emo e5">🧹</span>
-									<span class="emo e6">🌙</span>
-									<span class="hand"><Icon name="swipe" size="2.4em" /></span>
-								</div>
-							{:else if isWortCard(card)}
-								<!-- The game in miniature: a few letter blocks in the four
-								     colors stacked in a well, the bottom row golden. -->
-								<div class="art-band wort-band" aria-hidden="true">
-									<span class="wrow"><span class="wsq navy">H</span><span class="wsq navy">A</span><span class="wsq navy">U</span><span class="wsq navy">S</span><span class="wsq forest">R</span><span class="wsq forest">O</span><span class="wsq forest">T</span></span>
-									<span class="wrow"><span class="wsq terra">Z</span><span class="wsq terra">E</span><span class="wsq terra">I</span><span class="wsq terra">T</span><span class="wsq ochre">G</span><span class="wsq ochre">U</span><span class="wsq ochre">T</span></span>
-									<span class="wrow gold"><span class="wsq">K</span><span class="wsq">A</span><span class="wsq">L</span><span class="wsq">T</span><span class="wsq">N</span><span class="wsq">E</span><span class="wsq">U</span></span>
-								</div>
-							{:else if isCheckCard(card)}
-								<!-- The check in miniature: a few word chips, some tapped, one
-								     of them made up (the chips are decoration; the card's title
-								     and reason say what it is). -->
-								<div class="art-band check-band" aria-hidden="true">
-									<span class="wchip on" lang="de">das Haus</span>
-									<span class="wchip" lang="de">die Gelegenheit</span>
-									<span class="wchip on" lang="de">morgen</span>
-									<span class="wchip fake" lang="de">verbaschen</span>
-									<span class="wchip on" lang="de">die Rechnung</span>
-									<span class="wchip" lang="de">beiläufig</span>
-									<span class="wchip on" lang="de">freundlich</span>
-								</div>
-							{:else if card.quiz.image}
-								<!-- The quiz's scene as a cream band across the top of the card; it
-								     stands in for the type disc. -->
-								<div class="art-band" style={artStyle(card.quiz.id)}>
-									<img class="art" src="/img/{card.quiz.image}.webp" alt="" width="1024" height="768" loading="lazy" draggable="false" />
-								</div>
-							{:else}
-								<span class="type-disc" data-type={card.quiz.type} style={artStyle(card.quiz.id)}>
-									<Icon name={isSongCard(card) ? 'headphones' : isPlayCard(card) ? 'swipe' : QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
-								</span>
-							{/if}
-
-							<!-- Why this card, and where it sits in this hand. "Card 3 of 12"
-							     rather than "10 left": a count of what is left reads as the
-							     whole course running out. -->
-							<p class="kind-row">
-								<span class="kind-label">{DECK_KIND_LABELS[card.kind]}</span>
-								<span class="left tnum">{isTop ? `Card ${handSize - deck.length + 1} of ${handSize}` : ''}</span>
-							</p>
-							<h3 class="title" lang={course.learnLocale}>{card.quiz.title}</h3>
-							<p class="reason">{card.reason}</p>
-
-							<p class="meta">
-								<span class="chip">{card.quiz.level}</span>
-								<span class="chip">{cardFlavour(card)}</span>
-								{#if ribbon}<DoneMark mark={ribbon} width={14} />{/if}
-							</p>
+							<span class="type-disc" data-type={card.quiz.type} style={artStyle(card.quiz.id)}>
+								<Icon name={isSongCard(card) ? 'headphones' : isPlayCard(card) ? 'swipe' : QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
+							</span>
 						{/if}
+
+						<!-- Why this card, and where it sits in this hand. "Card 3 of 12"
+						     rather than "10 left": a count of what is left reads as the
+						     whole course running out. -->
+						<p class="kind-row">
+							<span class="kind-label">{DECK_KIND_LABELS[card.kind]}</span>
+							<span class="left tnum">{isTop ? `Card ${handSize - deck.length + 1} of ${handSize}` : ''}</span>
+						</p>
+						<h3 class="title" lang={course.learnLocale}>{card.quiz.title}</h3>
+						<p class="reason">{card.reason}</p>
+
+						<p class="meta">
+							<span class="chip">{card.quiz.level}</span>
+							<span class="chip">{cardFlavour(card)}</span>
+							{#if ribbon}<DoneMark mark={ribbon} width={14} />{/if}
+						</p>
 					</div>
 				{/each}
 			{/key}
@@ -2527,125 +2469,6 @@
 
 	.card[data-kind='check'] .stamp.yes {
 		color: var(--forest);
-	}
-
-	/* ---- the chat card: a character to match with -------------------------
-	   A dating-card feel without the app clichés: the portrait in the band, a
-	   warm pink-to-terracotta frame, and a tag saying new match or still going. */
-	.card[data-kind='chat'] {
-		--kind: #c2364a;
-		border-top-color: transparent;
-		background:
-			linear-gradient(var(--surface), var(--surface)) padding-box,
-			linear-gradient(120deg, #ff6b81, #c9683b, #d9a441, #ff6b81) border-box;
-		border: 1px solid transparent;
-		border-top-width: 6px;
-	}
-	/* The chat card's portrait fills the top two thirds, edge to edge. */
-	.chat-face {
-		position: relative;
-		flex: 1 1 0;
-		align-self: stretch;
-		min-height: 9rem;
-		margin: -1.4rem -1.5rem 0.1rem;
-		overflow: hidden;
-		background: #2a2030;
-	}
-	.chat-photo {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: 50% 22%;
-		pointer-events: none;
-	}
-	.chat-face::after {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(to bottom, transparent 45%, rgb(20 14 26 / 0.85));
-		pointer-events: none;
-	}
-	.chat-flag {
-		position: absolute;
-		top: 0.7rem;
-		left: 0.7rem;
-		z-index: 2;
-		padding: 0.2rem 0.65rem;
-		border-radius: 999px;
-		background: rgb(255 255 255 / 0.92);
-		color: #c2364a;
-		font-size: var(--step--1);
-		font-weight: 800;
-		letter-spacing: 0.02em;
-	}
-	.chat-tag {
-		position: absolute;
-		top: 0.7rem;
-		right: 0.7rem;
-		z-index: 2;
-		padding: 0.2rem 0.65rem;
-		border-radius: 999px;
-		background: linear-gradient(120deg, #c2364a, #ff6b81);
-		color: #fff;
-		font-size: var(--step--1);
-		font-weight: 800;
-		letter-spacing: 0.02em;
-		transform: rotate(4deg);
-	}
-	.chat-tag.resume {
-		background: #3f7d46;
-		transform: none;
-	}
-	.chat-name {
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 2;
-		padding: 0 1rem 0.75rem;
-		color: #fff;
-	}
-	.chat-name .title {
-		margin: 0;
-		color: #fff;
-		text-shadow: 0 2px 10px rgb(0 0 0 / 0.5);
-	}
-	.chat-lvl {
-		display: inline-block;
-		vertical-align: middle;
-		margin-left: 0.3rem;
-		padding: 0.05rem 0.45rem;
-		border-radius: 999px;
-		background: rgb(255 255 255 / 0.2);
-		border: 1px solid rgb(255 255 255 / 0.45);
-		font-family: var(--font-body, inherit);
-		font-size: 0.7rem;
-		font-weight: 700;
-	}
-	.chat-bio {
-		margin: 0.15rem 0 0;
-		font-style: italic;
-		font-size: var(--step--1);
-		color: rgb(255 255 255 / 0.92);
-	}
-	.chat-goal {
-		margin: 0.2rem 0 0;
-		font-weight: 600;
-		color: var(--heading);
-		line-height: 1.35;
-	}
-	.chat-count {
-		margin-left: auto;
-		font-size: var(--step--1);
-		color: var(--ink-muted);
-	}
-	.card[data-kind='chat'] .kind-label::before {
-		content: '💬 ';
-	}
-	.card[data-kind='chat'] .stamp.yes {
-		color: #c2364a;
 	}
 
 	.card[data-kind='play'] .stamp.yes {

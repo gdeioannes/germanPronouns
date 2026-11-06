@@ -7,8 +7,8 @@
 	//                  unlocks the next match.
 	//   partial      → no like and no contact.
 	//   deleted      → the match is gone, with the line that ended it.
-	//   Without a like the character leaves the contacts (forgetMatch) and may
-	//   turn up in the deck again for another chance.
+	//   Without a like the save is wiped and the character is back on the
+	//   Schreib mir! page, for another try from the start.
 	//
 	// Every ending shows "Dein Deutsch" (the average sentence score: the
 	// German and the story are graded apart on purpose), what went wrong, and
@@ -176,9 +176,9 @@
 				</a>
 			{/if}
 		{:else if ending === 'partial'}
-			<p class="note">No like and no contact. {chat.name} leaves your contacts, but may turn up in your deck again for another chance.</p>
+			<p class="note">No like and no contact. {chat.name} leaves your contacts, but you can try again from the start.</p>
 		{:else}
-			<p class="note">{chat.name} is gone from your contacts. Maybe they turn up in your deck again, and you get another chance.</p>
+			<p class="note">{chat.name} is gone from your contacts, but you can try again from the start.</p>
 		{/if}
 
 		{#if lows.length}

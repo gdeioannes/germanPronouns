@@ -61,14 +61,11 @@ async function seed(kind) {
 	if (kind === 'contacts') {
 		save('helga', 'win', { ago: 2 });
 		save('bernd', 'win', { upTo: 2 });
-		save('kevin', 'deleted', { ago: 1 });
-		localStorage.setItem('match_met', JSON.stringify(['helga', 'bernd', 'kevin', 'lena']));
 	}
 	if (kind === 'chat') {
 		// One sentence in, with a slip (ein Limonade), so the screenshot shows
 		// its score badge and the "Ah, du meinst" recast.
 		save('lena', null, { say: [['t1', 'Ich möchte ein Limonade, bitte.']] });
-		localStorage.setItem('match_met', JSON.stringify(['lena']));
 	}
 }
 
@@ -98,7 +95,7 @@ const SHOTS = [
 		seed: 'contacts',
 		width: 560,
 		from: 'main.contacts .head',
-		to: '.waiting li:nth-child(4)',
+		to: 'main.contacts > .other:nth-of-type(4)',
 		markers: [
 			{ n: 1, sel: '.tally', side: 'right' },
 			{ n: 2, sel: '.chips' },
@@ -106,9 +103,7 @@ const SHOTS = [
 			{ n: 4, sel: '.contact .knows' },
 			{ n: 5, sel: '.contact .later' },
 			{ n: 6, sel: '.other.open .go:not(.new)', side: 'right' },
-			{ n: 7, sel: '.other.open .go.new', side: 'right' },
-			{ n: 8, sel: '.other:not(.open) img' },
-			{ n: 9, sel: '.waiting ul' }
+			{ n: 7, sel: '.other.open .go.new', side: 'right' }
 		]
 	},
 	{

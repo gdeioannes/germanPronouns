@@ -5,7 +5,7 @@ const all: SurpriseCandidate<string>[] = [
 	{ kind: 'story', card: 'S' },
 	{ kind: 'song', card: 'M' },
 	{ kind: 'play', card: 'J' },
-	{ kind: 'chat', card: 'C' }
+	{ kind: 'wort', card: 'W' }
 ];
 const seq = (...n: number[]) => () => n.shift() ?? 0;
 
@@ -15,13 +15,13 @@ describe('the deck surprise', () => {
 		expect(pickSurprise(all, SURPRISE_CHANCE, seq(0, 0, 0))).not.toBeNull();
 	});
 	it('then one kind, among the kinds that have something to offer', () => {
-		expect(pickSurprise(all, 1, seq(0, 0.99, 0))?.kind).toBe('chat');
+		expect(pickSurprise(all, 1, seq(0, 0.99, 0))?.kind).toBe('wort');
 		expect(pickSurprise(all, 1, seq(0, 0.3, 0))?.kind).toBe('song');
 		const onlyStories: SurpriseCandidate<string>[] = [
 			{ kind: 'story', card: 'S' },
 			{ kind: 'song', card: null },
 			{ kind: 'play', card: null },
-			{ kind: 'chat', card: null }
+			{ kind: 'wort', card: null }
 		];
 		expect(pickSurprise(onlyStories, 1, seq(0, 0.99, 0))?.kind).toBe('story');
 	});

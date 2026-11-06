@@ -236,8 +236,7 @@
 				<strong>Games and stories in the deck</strong>
 				<small>
 					Now and then your deck slips in a surprise: a story episode, a song,
-					a round of Ja oder Nein? or someone from Schreib mir! who wants to
-					chat. Never more than one in a hand. Turn this off and the deck
+					or a round of Ja oder Nein? Never more than one in a hand. Turn this off and the deck
 					deals only exercises. Stories, songs and the games are still in the
 					menu whenever you want them.
 				</small>

@@ -1,12 +1,11 @@
 <script lang="ts">
-	// "Schreib mir!" — your contacts: one list of every character, by how far
-	// you got with them. Who liked you (with what they know about you, and the
-	// Sunday voice note), chats still going, characters met in the deck but not
-	// written to yet, and last, everyone not met yet as a blurred portrait. A
-	// chat that ended without a like is forgotten (forgetMatch), so that
-	// character is back among the not-met, waiting for another chance. Characters are met in the course deck
-	// only; the level chips narrow the whole list. A hidden character appears
-	// only once another chat's secret ending has unlocked them.
+	// "Schreib mir!" — every character, by how far you got with them. Who liked
+	// you (with what they know about you, and the Sunday voice note), chats still
+	// going, and everyone you can start a chat with. A chat that ended without a
+	// like is forgotten, so that character is back among the new ones for another
+	// try. The level chips narrow the whole list, starting at the learner's own
+	// band. A hidden character appears only once another chat's secret ending has
+	// unlocked them.
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
@@ -14,19 +13,20 @@
 	import VoiceNote from '$lib/components/match/VoiceNote.svelte';
 	import { breadcrumbLd, gameLd } from '$lib/seo';
 	import {
-		canOpenChat,
+		availableChats,
 		contactFacts,
 		forgetUnliked,
 		loadChat,
 		MATCH_CHATS,
 		MATCH_PATH,
-		metChats,
 		replay,
 		saveChat,
 		sundayAfter,
 		type Contact,
 		type MatchChat
 	} from '$lib/domain/matchChat';
+	import { returnLabel, returnTo } from '$lib/state/returnTo.svelte';
+	import { storage } from '$lib/services/storage';
 	import { dev } from '$app/environment';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
@@ -36,41 +36,44 @@
 
 	let liked = $state<Contact[]>([]);
 	let going = $state<Contact[]>([]);
-	let fresh = $state<MatchChat[]>([]);
-	let waiting = $state<MatchChat[]>([]);
+	// Filled before mount too, so the prerendered page lists the characters.
+	let fresh = $state<MatchChat[]>(MATCH_CHATS.filter((c) => !c.hidden));
 	let level = $state('all');
 	let now = $state(0);
 	let loaded = $state(false);
 
-	onMount(() => {
+	onMount(async () => {
 		forgetUnliked();
 		now = dev && page.url.searchParams.has('sunday') ? Date.now() + 8 * 86400000 : Date.now();
 		const saved = new Map(MATCH_CHATS.map((c) => [c.id, loadChat(c.id)]));
 		const get = (id: string) => saved.get(id) ?? null;
-		const unlocked = new Set(
-			MATCH_CHATS.filter((c) => c.unlocks && get(c.id)?.ending === 'secret').map((c) => c.unlocks!.id)
-		);
-		const shown = MATCH_CHATS.filter((c) => !c.hidden || unlocked.has(c.id));
-		const met = metChats();
 		const contact = (chat: MatchChat): Contact => {
 			const s = get(chat.id)!;
 			return { chat, saved: s, state: replay(chat, s.log, s.name) };
 		};
-		for (const chat of shown) {
+		const unwritten: MatchChat[] = [];
+		for (const chat of availableChats(get)) {
 			const s = get(chat.id);
 			if (s?.ending === 'win' || s?.ending === 'secret') liked.push(contact(chat));
 			else if (s && !s.ending) going.push(contact(chat));
-			else if (canOpenChat(chat.id, get, met)) fresh.push(chat);
-			else waiting.push(chat);
+			else unwritten.push(chat);
 		}
+		fresh = unwritten;
 		liked.sort((a, b) => (b.saved.endedAt ?? 0) - (a.saved.endedAt ?? 0));
-		try {
-			const kept = localStorage.getItem(LEVEL_KEY);
-			level = kept && (kept === 'all' || (LEVELS as readonly string[]).includes(kept)) ? kept : 'all';
-		} catch {
-			/* no storage: show everything */
-		}
 		loaded = true;
+		let kept: string | null = null;
+		try {
+			kept = localStorage.getItem(LEVEL_KEY);
+		} catch {
+			/* no storage: fall back on the deck's level */
+		}
+		if (kept === 'all' || (LEVELS as readonly string[]).includes(kept ?? '')) {
+			level = kept!;
+			return;
+		}
+		// No choice made yet: open on the learner's own band, if the deck knows it.
+		const band = (await storage.get('deck_level'))?.slice(0, 2) ?? '';
+		if ((LEVELS as readonly string[]).includes(band) && count(band)) level = band;
 	});
 
 	function pick(next: string) {
@@ -86,15 +89,12 @@
 	const likedHere = $derived(liked.filter((c) => at(c.chat)));
 	const goingHere = $derived(going.filter((c) => at(c.chat)));
 	const freshHere = $derived(fresh.filter(at));
-	const waitingHere = $derived(waiting.filter(at));
 	const everyone = $derived([
 		...liked.map((c) => c.chat),
 		...going.map((c) => c.chat),
-		...fresh,
-		...waiting
+		...fresh
 	]);
 	const count = (lvl: string) => everyone.filter((c) => c.level.startsWith(lvl)).length;
-	const metCount = $derived(liked.length + going.length + fresh.length);
 
 	const date = (ms?: number) =>
 		ms ? new Date(ms).toLocaleDateString('de-DE', { day: 'numeric', month: 'long' }) : '';
@@ -127,12 +127,12 @@
 
 <main class="contacts">
 	<header class="head">
-		<a class="back" href="/course/de_cert_a1" aria-label="Back to your deck"><Icon name="arrowLeft" size="1.1em" /></a>
+		<a class="back" href={returnTo.path} aria-label={returnLabel(returnTo.path)}><Icon name="arrowLeft" size="1.1em" /></a>
 		<div>
 			<h1 lang="de">Schreib mir!</h1>
 			<p>
-				Your contacts. New characters turn up in your deck while you learn. No like? They leave, and may turn up again.
-				{#if loaded}<span class="tally tnum">{metCount} of {everyone.length} met</span>{/if}
+				Chat with strange characters in German and reach the goal on their profile. One chance per chat. No like? You can start over.
+				{#if loaded}<span class="tally tnum">{liked.length} of {everyone.length} like you</span>{/if}
 			</p>
 		</div>
 	</header>
@@ -145,14 +145,6 @@
 			{/if}
 		{/each}
 	</div>
-
-	{#if loaded && !likedHere.length && !goingHere.length && !freshHere.length}
-		<div class="empty">
-			<p class="empty-head" lang="de">Noch keine Kontakte{level === 'all' ? '' : ` auf ${level}`}.</p>
-			<p>Characters turn up in your course deck now and then while you learn. Open one there and they join this list.</p>
-			<a class="btn" href="/course/de_cert_a1"><Icon name="swipe" size="1em" /> Back to the deck</a>
-		</div>
-	{/if}
 
 	{#if likedHere.length}
 		<h2>❤️ <span lang="de">Mag dich</span> <span class="n">{likedHere.length}</span></h2>
@@ -187,8 +179,8 @@
 		{/each}
 	{/if}
 
-	{#if goingHere.length || freshHere.length}
-		<h2>💬 <span lang="de">Offen</span> <span class="n">{goingHere.length + freshHere.length}</span></h2>
+	{#if goingHere.length}
+		<h2>💬 <span lang="de">Offen</span> <span class="n">{goingHere.length}</span></h2>
 		{#each goingHere as c (c.chat.id)}
 			<a class="other open" href="{MATCH_PATH}/{c.chat.id}">
 				<img src="/img/story/{c.chat.image}.webp" alt="" />
@@ -199,9 +191,13 @@
 				<span class="go">Weiter</span>
 			</a>
 		{/each}
+	{/if}
+
+	{#if freshHere.length}
+		<h2>👋 <span lang="de">Neu</span> <span class="n">{freshHere.length}</span></h2>
 		{#each freshHere as chat (chat.id)}
 			<a class="other open" href="{MATCH_PATH}/{chat.id}">
-				<img src="/img/story/{chat.image}.webp" alt="" />
+				<img src="/img/story/{chat.image}.webp" alt="" loading="lazy" />
 				<span class="who">
 					<strong>{chat.emoji} {chat.name}, {chat.age} <span class="lvl">{chat.level}</span></strong>
 					<span lang="de">„{chat.bio}“</span>
@@ -209,24 +205,6 @@
 				<span class="go new">Schreib!</span>
 			</a>
 		{/each}
-	{/if}
-
-
-	{#if waitingHere.length}
-		<section class="waiting" aria-labelledby="waiting-title">
-			<h2 id="waiting-title"><span lang="de">Noch nicht getroffen</span> <span class="n">{waitingHere.length}</span></h2>
-			<p>They turn up in your deck, one at a time, while you learn.</p>
-			<ul>
-				{#each waitingHere as c (c.id)}
-					<li>
-						<img src="/img/story/{c.image}.webp" alt="" loading="lazy" draggable="false" />
-						<span class="q" aria-hidden="true">?</span>
-						<span class="lvl">{c.level}</span>
-						<span class="sr-only">A character at {c.level}, not met yet</span>
-					</li>
-				{/each}
-			</ul>
-		</section>
 	{/if}
 </main>
 
@@ -307,22 +285,6 @@
 		border-radius: 999px;
 		background: var(--paper-mid);
 		font-size: 0.75rem;
-	}
-	.empty {
-		display: grid;
-		justify-items: center;
-		gap: 0.6rem;
-		padding: 2rem 1rem 0.5rem;
-		color: var(--ink-muted);
-		text-align: center;
-	}
-	.empty p {
-		margin: 0;
-	}
-	.empty .empty-head {
-		font-family: 'Source Serif 4 Variable', serif;
-		font-size: var(--step-1);
-		color: var(--heading);
 	}
 	.contact {
 		padding: 1rem;
@@ -441,54 +403,5 @@
 	}
 	.go.new {
 		background: linear-gradient(120deg, #c2364a, #ff6b81);
-	}
-	.waiting > p {
-		margin: 0.2rem 0 0.7rem;
-		color: var(--ink-muted);
-		font-size: var(--step--1);
-	}
-	.waiting ul {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(4.6rem, 1fr));
-		gap: 0.55rem;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	.waiting li {
-		position: relative;
-		aspect-ratio: 3 / 4;
-		border-radius: 0.7rem;
-		overflow: hidden;
-		background: #2a2233;
-	}
-	/* The portrait blurred and faded: a hint of someone, who it is stays a
-	   surprise for the deck. Scaled up so the blur has no soft edge. */
-	.waiting img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: 50% 22%;
-		filter: blur(7px) saturate(0.6) brightness(0.75);
-		transform: scale(1.25);
-	}
-	.waiting .q {
-		position: absolute;
-		inset: 0;
-		display: grid;
-		place-items: center;
-		color: #fff;
-		font-family: 'Source Serif 4 Variable', serif;
-		font-size: 1.6rem;
-		font-weight: 800;
-		text-shadow: 0 1px 6px rgb(0 0 0 / 0.5);
-	}
-	.waiting .lvl {
-		position: absolute;
-		left: 0.3rem;
-		bottom: 0.3rem;
-		margin: 0;
-		background: rgb(255 255 255 / 0.9);
-		font-size: 0.62rem;
 	}
 </style>

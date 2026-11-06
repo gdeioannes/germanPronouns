@@ -83,8 +83,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 				list: [
 					'Story: the next episode in order, once you have reached its place in the course.',
 					'Song: the next song for your level.',
-					'Ja oder Nein?: the next themed round.',
-					'Schreib mir!: the next character you have not met, as close to your level as possible. A chat you have started always comes back until it ends, as the surprise in that hand.'
+					'Ja oder Nein?: the next themed round.'
 				]
 			},
 			{
@@ -93,7 +92,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			},
 			{
 				title: 'The heart in the top bar',
-				text: 'Once you have met a Schreib mir! character in the deck, a heart appears in the top bar. Its number counts the characters who liked you, and it opens your contacts.'
+				text: 'Once you have started a Schreib mir! chat, a heart appears in the top bar. Its number counts the characters who liked you, and it opens the game.'
 			}
 		]
 	},
@@ -116,7 +115,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 	'/play/schreib-mir': {
 		title: 'Schreib mir!',
 		intro:
-			'A chat game. Characters turn up in your course deck; open one there and you can chat with them in German, building every answer from word tiles, to reach the goal on their profile. This page is your contact list.',
+			'A chat game. Pick a character and chat with them in German, building every answer from word tiles, to reach the goal on their profile. Find it any time in the Library menu.',
 		items: [
 			{
 				title: 'The list at a glance',
@@ -125,12 +124,12 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			},
 			{
 				title: 'How a character moves through the list',
-				text: 'Everyone starts blurred at the bottom. Meeting them in your deck brings them up to Offen, and the chat decides where they end up.',
+				text: 'Everyone starts under Neu. Starting a chat moves them up to Offen, and the chat decides where they end up.',
 				visual: 'lifecycle'
 			},
 			{
 				title: 'No like? They leave',
-				text: 'What you say stays said: there is no second try inside a chat. A character who liked you stays as a contact. Anyone else leaves the list and goes back to the blurred ones, and may turn up in your deck again for another chance. The level chips filter the whole list.'
+				text: 'What you say stays said: there is no second try inside a chat. A character who liked you stays as a contact. Anyone else goes back under Neu, and you can try again from the start. The level chips filter the whole list.'
 			}
 		]
 	},
@@ -160,7 +159,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			},
 			{
 				title: 'One chance',
-				text: 'There is no undo after you send. If the chat ends without a like, the character leaves your contacts, and may turn up in your deck again for a fresh start.'
+				text: 'There is no undo after you send. If the chat ends without a like, the character leaves your contacts, and you can try again from the start.'
 			}
 		]
 	},

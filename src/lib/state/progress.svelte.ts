@@ -169,7 +169,7 @@ class ProgressStore {
 	soundEffects = $state(true);
 	/** Mute the app: no sound effects and no read-aloud voice. */
 	muted = $state(false);
-	/** Surprises in the deck: stories, songs, Ja oder Nein? and Schreib mir! characters. */
+	/** Surprises in the deck: stories, songs, Ja oder Nein? and Wortblöcke. */
 	surprises = $state(true);
 	/**
 	 * Listening exercises (dictation, listen-and-answer) offer a "Show the

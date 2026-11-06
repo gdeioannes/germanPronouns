@@ -143,7 +143,7 @@ export interface MatchChat {
 	image: string;
 	/** The sub-level module: "A1.1" … "C2.2". */
 	level: string;
-	/** Order within the level on the deck. */
+	/** Order within the level on the list. */
 	order?: number;
 	bio: string;
 	bioEn: string;
@@ -172,7 +172,7 @@ export interface MatchChat {
 	share?: { win: string; secret?: string; partial: string; deleted: string };
 	/** The flag that turns a win into the secret ending (default "secret"). */
 	secretFlag?: string;
-	/** Only on the deck once another chat's secret ending unlocks it. */
+	/** Only on offer once another chat's secret ending unlocks it. */
 	hidden?: boolean;
 	unlocks?: { id: string; name: string; emoji: string; bio: string };
 	imageCharacter?: string;
@@ -1084,28 +1084,11 @@ export function isLiked(ending: Ending | null | undefined): boolean {
 	return ending === 'win' || ending === 'secret';
 }
 
-/**
- * A chat that ended without a like is forgotten: the save goes, and so does
- * the meeting, so the character leaves the contacts and can turn up in the
- * deck again for another chance. The chat page keeps its ending on screen
- * until the learner leaves.
- */
-export function forgetMatch(id: string): void {
-	clearChat(id);
-	const met = metChats();
-	if (!met.delete(id)) return;
-	try {
-		localStorage.setItem(MET_KEY, JSON.stringify([...met]));
-	} catch {
-		/* nothing to forget */
-	}
-}
-
 /** Forgets every chat saved with an ending that was not a like (saves from before the rule). */
 export function forgetUnliked(): void {
 	for (const chat of MATCH_CHATS) {
 		const saved = loadChat(chat.id);
-		if (saved?.ending && !isLiked(saved.ending)) forgetMatch(chat.id);
+		if (saved?.ending && !isLiked(saved.ending)) clearChat(chat.id);
 	}
 }
 
@@ -1187,58 +1170,9 @@ export function lowPoints(state: ChatState): Array<{ said: string; why: string }
 		}));
 }
 
-// -- the course deck ------------------------------------------------------------
-
-export const CHAT_CARD_PREFIX = 'chat:';
-
-// -- meeting a character ----------------------------------------------------
-// The deck is the only way to meet someone: opening a character's card from
-// the deck "meets" them, and only then can their chat be opened (from the
-// deck, the Schreib mir! page or a link). Everyone else waits as a silhouette.
-
-const MET_KEY = 'match_met';
-
-/** Characters met through the deck. */
-export function metChats(): Set<string> {
-	try {
-		const raw = JSON.parse(localStorage.getItem(MET_KEY) ?? '[]');
-		return new Set(Array.isArray(raw) ? raw.map(String) : []);
-	} catch {
-		return new Set();
-	}
-}
-
-/** The deck dealt this character and the learner opened the card. */
-export function markMet(id: string): void {
-	const met = metChats();
-	if (met.has(id)) return;
-	met.add(id);
-	try {
-		localStorage.setItem(MET_KEY, JSON.stringify([...met]));
-	} catch {
-		/* no storage: met for this visit only */
-	}
-}
-
-/**
- * Whether this character's chat may be opened: met through the deck, already
- * started (a chat begun before meeting existed), or unlocked by another
- * chat's secret ending, whose ending card links straight to them.
- */
-export function canOpenChat(
-	id: string,
-	saved: (id: string) => SavedChat | null = loadChat,
-	met: Set<string> = metChats()
-): boolean {
-	if (met.has(id) || saved(id)) return true;
-	return MATCH_CHATS.some((c) => c.unlocks?.id === id && saved(c.id)?.ending === 'secret');
-}
-
-export interface ChatDeal {
-	chat: MatchChat;
-	/** Already started: the card comes back in every hand until the chat ends. */
-	resume: boolean;
-}
+// -- who can be chatted with ---------------------------------------------------
+// Everyone, from the Schreib mir! page, except a hidden character: they stay
+// shut until another chat's secret ending unlocks them.
 
 /** Characters on offer: not hidden, or unlocked by another chat's secret ending. */
 export function availableChats(saved: (id: string) => SavedChat | null = loadChat): MatchChat[] {
@@ -1248,36 +1182,7 @@ export function availableChats(saved: (id: string) => SavedChat | null = loadCha
 	return MATCH_CHATS.filter((c) => !c.hidden || unlocked.has(c.id));
 }
 
-/**
- * The character the course deck would deal, if any. A chat in progress comes
- * first: started is enough, even if the learner left before the first answer.
- * Otherwise the next unplayed character at the learner's module, or the
- * nearest one around it; one whose chat ended without a like counts as
- * unplayed, so they get another chance. Whether the hand gets a surprise at all, and which
- * kind, is decided by domain/surprise; skipped cards sit out like any other.
- */
-export function chatDeckCard(
-	level: string | null,
-	skipped: Set<string>,
-	saved: (id: string) => SavedChat | null = loadChat
-): ChatDeal | null {
-	const chats = availableChats(saved).filter((c) => !skipped.has(CHAT_CARD_PREFIX + c.id));
-	const live = chats.find((c) => {
-		const s = saved(c.id);
-		return s && !s.ending;
-	});
-	if (live) return { chat: live, resume: true };
-	const fresh = chats.filter((c) => {
-		const s = saved(c.id);
-		return !s || (s.ending && !isLiked(s.ending));
-	});
-	if (!fresh.length) return null;
-	const target = level ? levelRank(level) : 0;
-	// Nearest module first, the easier side winning a tie.
-	const pick = [...fresh].sort(
-		(a, b) =>
-			Math.abs(levelRank(a.level) - target) - Math.abs(levelRank(b.level) - target) ||
-			levelRank(a.level) - levelRank(b.level)
-	)[0];
-	return { chat: pick, resume: false };
+/** Whether this character's chat may be opened: on offer, or already started. */
+export function canOpenChat(id: string, saved: (id: string) => SavedChat | null = loadChat): boolean {
+	return Boolean(saved(id)) || availableChats(saved).some((c) => c.id === id);
 }

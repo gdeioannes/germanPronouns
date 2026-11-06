@@ -13,7 +13,6 @@ import {
 	sundayAfter,
 	turnById,
 	cleanName,
-	chatDeckCard,
 	tilesFor,
 	type ChatState,
 	type MatchChat,
@@ -342,66 +341,18 @@ describe('little helpers', () => {
 	});
 });
 
-describe('the course deck deals characters', () => {
+describe('who can be chatted with', () => {
 	const none = () => null;
-	it('the next character at the learner module', () => {
-		const deal = chatDeckCard('B1.1', new Set(), none)!;
-		expect(deal.resume).toBe(false);
-		expect(deal.chat.level).toBe('B1.1');
-	});
-	it('a chat in progress comes first', () => {
-		const saved = (id: string) => (id === 'bernd' ? { name: 'Sam', log: [{ turn: 't1', tokens: ['ich'] }], startedAt: 1 } : null);
-		const deal = chatDeckCard('C2.2', new Set(), saved)!;
-		expect(deal).toEqual(expect.objectContaining({ resume: true }));
-		expect(deal.chat.id).toBe('bernd');
-	});
-	it('a chat started but left before the first answer still comes back', () => {
-		const saved = (id: string) => (id === 'lena' ? { name: 'Sam', log: [], startedAt: 1 } : null);
-		const deal = chatDeckCard('C2.2', new Set(), saved)!;
-		expect(deal).toEqual(expect.objectContaining({ resume: true }));
-		expect(deal.chat.id).toBe('lena');
-	});
-	it('a liked chat is never dealt again', () => {
-		const saved = (id: string) => (id === 'lena' ? { name: 'Sam', log: [], startedAt: 1, ending: 'win' } : null);
-		const deal = chatDeckCard('A1.1', new Set(), saved as never);
-		expect(deal?.chat.id).not.toBe('lena');
-		expect(deal?.resume).toBe(false);
-	});
-	it('a chat that ended without a like comes back for another chance', () => {
-		const lena = findChat('lena')!;
-		for (const ending of ['deleted', 'partial']) {
-			// Everyone else liked the learner already, so only Lena is left to deal.
-			const saved = (id: string) => ({ name: 'Sam', log: [], startedAt: 1, ending: id === 'lena' ? ending : 'win' });
-			const deal = chatDeckCard(lena.level, new Set(), saved as never)!;
-			expect(deal).toEqual({ chat: lena, resume: false });
-		}
-	});
-	it('never deals a hidden character or a skipped one', () => {
-		const deal = chatDeckCard('A2.1', new Set(['chat:klara', 'chat:grog', 'chat:uwe', 'chat:nebel', 'chat:jupp']), none)!;
-		expect(deal.chat.id).not.toBe('guenther');
-		expect(['klara', 'grog', 'uwe', 'nebel', 'jupp']).not.toContain(deal.chat.id);
-	});
-	it('nothing once every character has been met', () => {
-		const all = () => ({ name: 'Sam', log: [], startedAt: 1, ending: 'win' });
-		expect(chatDeckCard('A1.1', new Set(), all as never)).toBeNull();
-	});
-});
-
-describe('meeting a character through the deck', () => {
-	const none = () => null;
-	it('a character not met yet stays shut', () => {
-		expect(canOpenChat('lena', none, new Set())).toBe(false);
-	});
-	it('opening the card in the deck meets them', () => {
-		expect(canOpenChat('lena', none, new Set(['lena']))).toBe(true);
+	it('anyone not hidden opens straight away', () => {
+		expect(canOpenChat('lena', none)).toBe(true);
 	});
 	it('a chat already started stays open', () => {
-		const saved = (id: string) => (id === 'lena' ? { name: 'Sam', log: [], startedAt: 1 } : null);
-		expect(canOpenChat('lena', saved, new Set())).toBe(true);
+		const saved = (id: string) => (id === 'guenther' ? { name: 'Sam', log: [], startedAt: 1 } : null);
+		expect(canOpenChat('guenther', saved)).toBe(true);
 	});
-	it('a secret ending opens the character it unlocks', () => {
+	it('a hidden character stays shut until a secret ending unlocks them', () => {
 		const saved = (id: string) => (id === 'helga' ? { name: 'Sam', log: [], startedAt: 1, ending: 'secret' } : null);
-		expect(canOpenChat('guenther', saved as never, new Set())).toBe(true);
-		expect(canOpenChat('guenther', none, new Set())).toBe(false);
+		expect(canOpenChat('guenther', none)).toBe(false);
+		expect(canOpenChat('guenther', saved as never)).toBe(true);
 	});
 });
