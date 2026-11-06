@@ -16,6 +16,14 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-06",
+    title: "The codes in the A1.1 book are now links",
+    items: [
+      "In the A1.1 PDF you can now click or tap any QR code: the listening, the tutor and the exercise open straight away, without a second phone to scan with.",
+      "Each code now has its full short address printed next to it, so on paper you can type it into a browser if your camera will not read the code.",
+    ],
+  },
+  {
     date: "2026-11-05",
     title: "The A1.1 book: a real cover, and nothing cut off",
     items: [

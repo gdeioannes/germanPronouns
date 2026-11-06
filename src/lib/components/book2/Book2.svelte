@@ -11,7 +11,10 @@
 	interface Qr {
 		svg: string;
 		code: string;
+		url: string;
 	}
+	/** A code's address as it is printed: short enough to type from paper. */
+	const shortUrl = (url: string) => url.replace(/^https?:\/\//, '');
 
 	let {
 		book,
@@ -55,10 +58,10 @@
 	// The covers. The front is the market panorama's right half, the crop the
 	// chapter's words page shows, so its pinned words land where the book pins
 	// them; only the upper ones, clear of the title panel.
-	const coverChapter = $derived(book.chapters.find((c) => c.id === 'markt') ?? book.chapters[2] ?? book.chapters[0]);
+	const coverChapter = $derived(book.chapters.find((c) => c.id === (book.cover?.chapter ?? 'markt')) ?? book.chapters[2] ?? book.chapters[0]);
 	const coverPins = $derived((coverChapter.opener.labels ?? []).filter((l) => l.y <= 52).slice(0, 6));
 	/** The cities the chapters visit, in a fixed order, for the front's route line. */
-	const CITIES = ['Berlin', 'München', 'Hamburg', 'Köln', 'Frankfurt', 'Leipzig', 'Dresden', 'Wien', 'Zürich'];
+	const CITIES = ['Berlin', 'München', 'Hamburg', 'Köln', 'Frankfurt', 'Leipzig', 'Dresden', 'Freiburg', 'Münster', 'Wien', 'Zürich'];
 	const coverCities = $derived(CITIES.filter((city) => book.chapters.some((c) => c.world.includes(city))));
 
 	// Fit pass. A page is a fixed A4 sheet with overflow hidden, so a chapter
@@ -197,7 +200,7 @@
 			</div>
 		{/each}
 		<div class="fc-plate">
-			<div class="fc-badge"><b>{book.level}</b><span>for complete beginners</span></div>
+			<div class="fc-badge"><b>{book.level}</b><span>{book.cover?.badge ?? 'for complete beginners'}</span></div>
 			<h1 lang="de">{book.title.replace(/\s*A\d\.\d$/, '')}</h1>
 			<p class="fc-sub" lang="de">{book.subtitle}</p>
 			<p class="fc-blurb">German in {book.chapters.length} real places: the words pinned on the things, a story in each place, and the grammar the story needs.</p>
@@ -211,7 +214,7 @@
 	<div class="bc">
 		<p class="bc-kicker">{book.title} · {book.subtitle}</p>
 		<h2>German, one place at a time.</h2>
-		<p class="bc-lede">A Späti at midnight. A market in Munich. A flat in Prenzlauer Berg, Sunday cake at Oma’s, the fish market at five in the morning. Twelve chapters, twelve real places, and the German you need in each of them.</p>
+		<p class="bc-lede">{book.cover?.lede ?? 'A Späti at midnight. A market in Munich. A flat in Prenzlauer Berg, Sunday cake at Oma’s, the fish market at five in the morning. Twelve chapters, twelve real places, and the German you need in each of them.'}</p>
 		<ol class="bc-places">
 			{#each book.chapters as ch (ch.id)}
 				<li>
@@ -229,12 +232,12 @@
 		</div>
 		<div class="bc-points">
 			<p><b>Words first.</b> Every chapter opens on a photograph with the words pinned to the things, so the first German you learn is what you can see.</p>
-			<p><b>Real German.</b> A price board, a doorbell, a menu, a form at the Bürgeramt: the texts Germany actually prints, photographed and read.</p>
+			<p><b>Real German.</b> {book.cover?.real ?? 'A price board, a doorbell, a menu, a form at the Bürgeramt'}: the texts Germany actually prints, photographed and read.</p>
 			<p><b>Paper and phone.</b> Write in the book. Scan a code and the chapter is read aloud, a tutor talks with you, or the exercise opens in the app.</p>
 			<p><b>Free.</b> The whole course, A1 to C2, is free at languagequiz.org. This book is its paper half.</p>
 		</div>
 		<footer class="bc-foot">
-			{#if siteQr}<span class="bc-qr">{@html siteQr}</span>{/if}
+			{#if siteQr}<a class="bc-qr" href="https://languagequiz.org" aria-label="languagequiz.org">{@html siteQr}</a>{/if}
 			<span class="bc-site"><img src="/icons/Icon-192.png" alt="" /><span><b>languagequiz.org</b><br />Start free, at your level.</span></span>
 		</footer>
 	</div>
@@ -242,7 +245,7 @@
 
 <div class="book2" class:wrap={cover} bind:this={root}>
 {#if cover}
-	{@const front = book.chapters[2] ?? book.chapters[0]}
+	{@const front = coverChapter}
 	<section class="sheet" style:--spine="{spineMm}mm" data-accent={front.accent}>
 		<div class="half backhalf">
 			<div class="trim">{@render backCover()}</div>
@@ -264,7 +267,7 @@
 		</header>
 		<div class="how-cols">
 			<div>
-				<p>Every chapter is one place: a market in Munich, a Späti at midnight, a flat in Berlin, the Bürgeramt. The place gives you the words, the words carry the story, and the story carries the grammar. You never learn a rule before you have met it in a sentence.</p>
+				<p>Every chapter is one place: {book.cover?.places ?? 'a market in Munich, a Späti at midnight, a flat in Berlin, the Bürgeramt'}. The place gives you the words, the words carry the story, and the story carries the grammar. You never learn a rule before you have met it in a sentence.</p>
 				<p>The chapters all have the same ten pages, so you always know where you are:</p>
 				<ol class="pages">
 					<li><b>The photo.</b> A real place, with the words pinned on the things.</li>
@@ -279,7 +282,7 @@
 			</div>
 			<div>
 				<p><b>Work with a pencil.</b> Say every German word out loud as you write it. The ruled lines at the foot of a page are yours: the sentences you want to keep, the mistakes you made twice.</p>
-				<p><b>The codes.</b> Scan a code with your phone camera and the chapter's audio plays, the tutor talks to you, or the app opens the exercise with instant correction. The number under each code is its address if the camera will not read it: languagequiz.org/b/<i>code</i>.</p>
+				<p><b>The codes.</b> Scan a code with your phone camera and the chapter's audio plays, the tutor talks to you, or the app opens the exercise with instant correction. The address under each code does the same if the camera will not read it: type it into a browser. In the PDF, the codes and addresses are links.</p>
 				<p><b>Wusstest du?</b> The box at the foot of a page is a fact about Germany, not grammar. Skip it or read it; it is there because the place deserved it.</p>
 				<p><b>Three colours.</b> Blue words are <b class="art der">der</b>, red words <b class="art die">die</b>, green words <b class="art das">das</b>, in every list and table. Buy three pencils.</p>
 				<p class="name">This book belongs to <span></span></p>
@@ -415,7 +418,7 @@
 				<p class="eyebrow">Lesen im Alltag · reading the real thing</p>
 				<h2 lang="de">{c.document.caption}</h2>
 			</header>
-			{@render photo(c.document.photo, '', 'wide')}
+			{@render photo(c.document.photo, '', c.document.tall ? 'wide tall' : 'wide')}
 			<p class="intro">{c.document.intro}</p>
 			<div class="flow">
 				{#each c.document.tasks as ex, e (e)}<ExerciseBlock {ex} n={e + 1} />{/each}
@@ -449,20 +452,20 @@
 			<div class="codes">
 				{#if qr[c.id]?.listen}
 					<div class="code">
-						{@html qr[c.id].listen!.svg}
-						<div><b>Hören</b><p>{c.listen?.intro ?? 'Every recording of this chapter. Scan, listen, and do the Listen exercise again with your eyes closed.'}</p><small>{qr[c.id].listen!.code}</small></div>
+						<a class="code-qr" href={qr[c.id].listen!.url} aria-label="Open this code">{@html qr[c.id].listen!.svg}</a>
+						<div><b>Hören</b><p>{c.listen?.intro ?? 'Every recording of this chapter. Scan, listen, and do the Listen exercise again with your eyes closed.'}</p><a class="code-url" href={qr[c.id].listen!.url}>{shortUrl(qr[c.id].listen!.url)}</a></div>
 					</div>
 				{/if}
 				{#if qr[c.id]?.speak}
 					<div class="code">
-						{@html qr[c.id].speak!.svg}
-						<div><b>Sprechen</b><p>{c.speak?.intro ?? 'Open the code and speak with the tutor.'}</p><small>{qr[c.id].speak!.code}</small></div>
+						<a class="code-qr" href={qr[c.id].speak!.url} aria-label="Open this code">{@html qr[c.id].speak!.svg}</a>
+						<div><b>Sprechen</b><p>{c.speak?.intro ?? 'Open the code and speak with the tutor.'}</p><a class="code-url" href={qr[c.id].speak!.url}>{shortUrl(qr[c.id].speak!.url)}</a></div>
 					</div>
 				{/if}
 				{#if qr[c.id]?.app}
 					<div class="code">
-						{@html qr[c.id].app!.svg}
-						<div><b>In der App</b><p>The chapter's exercise with instant correction and the medal ladder.</p><small>{qr[c.id].app!.code}</small></div>
+						<a class="code-qr" href={qr[c.id].app!.url} aria-label="Open this code">{@html qr[c.id].app!.svg}</a>
+						<div><b>In der App</b><p>The chapter's exercise with instant correction and the medal ladder.</p><a class="code-url" href={qr[c.id].app!.url}>{shortUrl(qr[c.id].app!.url)}</a></div>
 					</div>
 				{/if}
 			</div>
@@ -815,6 +818,8 @@
 	.photo.small img { aspect-ratio: 4 / 3; object-fit: cover; }
 	.photo.wide img { aspect-ratio: 3 / 2; object-fit: cover; max-height: 94mm; }
 	.photo.wide { margin-bottom: 3mm; }
+	/* A portrait document (a menu, a timetable): the whole sheet, not a crop. */
+	.photo.wide.tall img { aspect-ratio: auto; object-fit: contain; width: auto; max-width: 100%; height: 128mm; max-height: 128mm; margin: 0 auto; }
 	.photo.float { float: right; width: 66mm; margin: 0 0 3mm 4mm; }
 	.flow.with-photo { display: block; }
 	.flow.with-photo > :global(*) { margin-bottom: 3mm; }
@@ -847,7 +852,8 @@
 	.code :global(svg) { width: 26mm; height: 26mm; }
 	.code b { font-family: var(--serif); font-size: 14pt; color: var(--navy); }
 	.code p { margin: 1mm 0; font-size: 9.5pt; }
-	.code small { color: var(--muted); font-size: 7.5pt; }
+	.code-qr { display: block; width: 26mm; height: 26mm; }
+	.code-url { color: var(--muted); font-size: 8pt; text-decoration: none; }
 	.cando { padding: 5mm 6mm; background: var(--accent-tint); border-radius: 2mm; }
 	.cando ul { list-style: none; margin: 2mm 0 0; padding: 0; display: grid; gap: 2mm; font-size: 11pt; }
 	.cando li { display: flex; gap: 3mm; align-items: center; }

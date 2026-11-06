@@ -67,7 +67,13 @@ export interface Chapter {
 		tasks: Exercise[];
 	};
 	grammar: GrammarPage[];
-	document: PhotoRef & { intro: string; fact?: string; tasks: Exercise[] };
+	document: PhotoRef & {
+		intro: string;
+		fact?: string;
+		tasks: Exercise[];
+		/** A portrait document: print the whole sheet instead of a 3:2 crop. */
+		tall?: boolean;
+	};
 	practise: Exercise[];
 	speak?: { intro: string };
 	listen?: { intro: string };
@@ -80,6 +86,19 @@ export interface Book2 {
 	title: string;
 	subtitle: string;
 	names?: string[];
+	/** What the covers and the how-to page say about this level; A1.1's wording when left out. */
+	cover?: {
+		/** The chapter whose photo is the front cover. */
+		chapter?: string;
+		/** Under the level on the front's sticker. */
+		badge?: string;
+		/** The back cover's opening paragraph. */
+		lede?: string;
+		/** The back's list of real documents, without a closing full stop. */
+		real?: string;
+		/** Four example places for "How this book works". */
+		places?: string;
+	};
 	chapters: Chapter[];
 }
 

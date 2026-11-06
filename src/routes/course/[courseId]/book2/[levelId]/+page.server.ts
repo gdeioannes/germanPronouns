@@ -25,7 +25,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	// Codes are the printed book's permanent ones; one not yet minted is left off.
 	const code = async (kind: LinkKind, target?: string) => {
 		const link = target ? links.links.find((l) => l.kind === kind && l.target === target) : undefined;
-		return link ? { svg: await qrSvg(codeUrl(link.code)), code: link.code } : null;
+		return link ? { svg: await qrSvg(codeUrl(link.code)), code: link.code, url: codeUrl(link.code) } : null;
 	};
 	const qr: Record<string, { app: Awaited<ReturnType<typeof code>>; listen: Awaited<ReturnType<typeof code>>; speak: Awaited<ReturnType<typeof code>> }> = {};
 	for (const c of book.chapters) qr[c.id] = { app: await code('quiz', c.quiz), listen: await code('audio', c.listenQuiz), speak: await code('quiz', c.speakQuiz) };
