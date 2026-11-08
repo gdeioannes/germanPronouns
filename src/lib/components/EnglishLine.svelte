@@ -51,7 +51,7 @@
 		padding: 0 0.6rem;
 		line-height: 1.3;
 		border: 1px solid var(--line);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: transparent;
 		color: var(--ink-muted);
 		font: inherit;

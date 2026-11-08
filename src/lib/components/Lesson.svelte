@@ -1050,7 +1050,7 @@
 		align-items: baseline;
 		margin: 0;
 		padding: 0.6rem 0.8rem;
-		border-radius: 10px;
+		border-radius: var(--radius);
 		background: var(--accent-soft);
 		color: var(--accent-ink);
 		font-size: var(--step--1);

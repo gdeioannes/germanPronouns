@@ -207,7 +207,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 		items: [
 			{
 				title: 'What is in a book',
-				text: 'Twelve chapters, each one a real place in Germany: the words first, a photo, a story, two grammar rules, a real document, and the practice. The audio is a QR code away.'
+				text: 'Twelve chapters, each one a real place in Germany: the words first, a photo, a story, two grammar rules, a real document, and the practice. A code on every page opens that chapter in the app: the key, flashcards and the texts read aloud.'
 			},
 			{
 				title: 'Read online or download',
@@ -319,8 +319,8 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 				text: 'The prologue needs no German at all. Each later episode fits a level of the course and uses what you have learned up to there.'
 			},
 			{
-				title: 'In your deck',
-				text: 'Episodes also turn up in your deck as a surprise, in order. Here you can pick any of them.'
+				title: 'Where to find them',
+				text: 'The stories live here, under Games in the Library menu. They do not turn up in your deck: pick any episode whenever you want one.'
 			}
 		]
 	},

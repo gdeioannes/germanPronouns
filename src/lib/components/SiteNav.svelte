@@ -346,7 +346,7 @@
 	.bar-cta {
 		padding: 0.45rem 0.95rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		color: var(--heading);
 	}
 
@@ -511,7 +511,7 @@
 		min-width: 12rem;
 		padding: 0.35rem;
 		border: 1px solid var(--line);
-		border-radius: 0.75rem;
+		border-radius: var(--radius);
 		background: var(--surface);
 		box-shadow: 0 18px 36px -24px rgba(31, 58, 95, 0.55);
 	}
@@ -522,7 +522,7 @@
 		gap: 0.5rem;
 		white-space: nowrap;
 		padding: 0.5rem 0.75rem;
-		border-radius: 0.5rem;
+		border-radius: var(--radius-sm);
 	}
 
 	.drop-panel a:hover {
@@ -647,7 +647,7 @@
 		margin-left: 0.25rem;
 		padding: 0.4rem 0.8rem;
 		border: 1px solid var(--line);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--heading);
 		font: inherit;

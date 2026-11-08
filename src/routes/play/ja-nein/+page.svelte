@@ -648,7 +648,7 @@
 		max-width: 26rem;
 		margin: auto;
 		padding: 1.6rem 1.4rem;
-		border-radius: 22px;
+		border-radius: var(--radius);
 		background: rgb(255 255 255 / 0.92);
 		color: var(--ink);
 		box-shadow:
@@ -819,7 +819,7 @@
 		gap: 0.5rem;
 		padding: 0.9rem 1rem;
 		border: 0;
-		border-radius: 999px;
+		border-radius: 6px;
 		font: inherit;
 		font-size: var(--step-1);
 		font-weight: 800;
@@ -1054,7 +1054,7 @@
 	.langs {
 		display: inline-flex;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		overflow: hidden;
 		font-size: 0.7rem;
 	}

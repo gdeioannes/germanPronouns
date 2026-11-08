@@ -505,7 +505,7 @@ Why it should be looked at: `
 		margin-top: 0.6rem;
 		padding: 0.25rem 0.7rem;
 		border: 1px solid var(--line);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink-muted);
 		font: inherit;

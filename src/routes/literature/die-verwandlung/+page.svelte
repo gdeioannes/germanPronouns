@@ -170,7 +170,7 @@
 		align-items: center;
 		gap: 0.5rem;
 		padding: 0.8rem 1.4rem;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--accent-ink);
 		color: #fff;
 		font-weight: 700;
@@ -204,7 +204,7 @@
 		gap: 1rem;
 		padding: 0.9rem 1rem;
 		border: 1px solid var(--line);
-		border-radius: 0.8rem;
+		border-radius: var(--radius);
 		background: var(--surface);
 		color: inherit;
 		text-decoration: none;

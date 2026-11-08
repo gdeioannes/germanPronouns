@@ -128,7 +128,8 @@
 	<!-- The page is about the cards: the heading is a small label, the ring
 	     sits beside the deck chip, and everything else lives in the top bar. -->
 	{#snippet heading()}
-		<h1>{course.name}</h1>
+		<!-- Kept for screen readers and search, not shown: the deck needs no title. -->
+		<h1 class="sr-only">{course.name}</h1>
 	{/snippet}
 
 	{#snippet ring()}
@@ -268,7 +269,7 @@
 		margin-top: 1rem;
 		padding: 0.45rem 0.9rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--heading);
 		font: inherit;
@@ -315,15 +316,6 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 1rem;
-	}
-
-	/* A label, not a headline: the cards are the headline. */
-	h1 {
-		margin: 0;
-		font-size: var(--step-0);
-		line-height: 1.25;
-		letter-spacing: 0.01em;
-		color: var(--ink-muted);
 	}
 
 	/* Progress: a thin bar and one line, right-aligned in the header row. */
@@ -526,7 +518,7 @@
 		margin-right: 0.5rem;
 		padding: 0.15rem 0.55rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		color: var(--navy);
 		font-size: 0.72rem;
 		font-weight: 800;

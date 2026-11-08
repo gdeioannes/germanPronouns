@@ -412,7 +412,7 @@
 	.tabs button {
 		padding: 0.45rem 1.1rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;
@@ -438,7 +438,7 @@
 		padding: 0.15rem 0.9rem;
 		margin-bottom: 1.25rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink-muted);
 		transition:

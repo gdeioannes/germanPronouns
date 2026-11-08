@@ -130,6 +130,50 @@
 		return () => track?.removeEventListener('scroll', onScroll);
 	});
 
+	// Swipe with a mouse too. Touch already swipes through scroll-snap, so only
+	// mouse drags are handled here: the track follows the pointer, then snaps to
+	// the next or previous slide once the drag passes 50px.
+	let drag: { x: number; left: number; moved: boolean } | null = null;
+	let justDragged = false;
+
+	function onDown(e: PointerEvent) {
+		if (e.pointerType !== 'mouse' || e.button !== 0 || !track) return;
+		drag = { x: e.clientX, left: track.scrollLeft, moved: false };
+	}
+
+	function onMove(e: PointerEvent) {
+		if (!drag || !track) return;
+		const dx = e.clientX - drag.x;
+		if (!drag.moved && Math.abs(dx) < 6) return;
+		if (!drag.moved) {
+			drag.moved = true;
+			track.style.scrollSnapType = 'none';
+			track.setPointerCapture(e.pointerId);
+		}
+		track.scrollLeft = drag.left - dx;
+	}
+
+	function onUp(e: PointerEvent) {
+		if (!drag || !track) return;
+		const dx = e.clientX - drag.x;
+		const moved = drag.moved;
+		const from = Math.round(drag.left / track.clientWidth);
+		drag = null;
+		if (!moved) return;
+		justDragged = true;
+		setTimeout(() => (justDragged = false));
+		track.style.scrollSnapType = '';
+		go(dx < -50 ? from + 1 : dx > 50 ? from - 1 : from);
+	}
+
+	/** A drag that ends on a link must not also follow it. */
+	function onClickCapture(e: MouseEvent) {
+		if (justDragged) {
+			e.preventDefault();
+			e.stopPropagation();
+		}
+	}
+
 	function onKey(e: KeyboardEvent) {
 		if (e.key === 'ArrowRight') go(index + 1);
 		else if (e.key === 'ArrowLeft') go(index - 1);
@@ -138,7 +182,18 @@
 
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <section class="carousel" aria-roledescription="carousel" aria-label="Life in Germany" onkeydown={onKey}>
-	<div class="track" bind:this={track} aria-live="polite">
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div
+		class="track"
+		bind:this={track}
+		aria-live="polite"
+		onpointerdown={onDown}
+		onpointermove={onMove}
+		onpointerup={onUp}
+		onpointercancel={onUp}
+		onclickcapture={onClickCapture}
+		ondragstart={(e) => e.preventDefault()}
+	>
 		{#each SLIDES as s, i (s.img)}
 			<div class="slide" class:main={i === 0} role="group" aria-roledescription="slide" aria-label="{i + 1} of {SLIDES.length}">
 				<img
@@ -158,6 +213,8 @@
 					<div class="copy">
 						<p class="eyebrow">{s.kicker}</p>
 						{#if i === 0}<h1>{s.title}</h1>{:else}<h2>{s.title}</h2>{/if}
+						<!-- The action comes first, right under the headline, not after the reading. -->
+						<a class="btn" href={s.cta?.href ?? startHref} tabindex={i === index ? 0 : -1}>{s.cta?.label ?? (returning ? 'Keep learning' : 'Start learning German')} <Icon name="arrowRight" size="1em" /></a>
 						<p class="lede">{s.text}</p>
 						{#if s.card === 'levels'}
 							<ul class="card levels" aria-label="The twelve levels">
@@ -186,7 +243,6 @@
 								<li><Icon name="check" size="1em" stroke={2.5} /> Your first lesson takes five minutes</li>
 							</ul>
 						{/if}
-						<a class="btn" href={s.cta?.href ?? startHref} tabindex={i === index ? 0 : -1}>{s.cta?.label ?? (returning ? 'Keep learning' : 'Start learning German')} <Icon name="arrowRight" size="1em" /></a>
 					</div>
 				<p class="credit">{s.place} · {s.credit}</p>
 			</div>
@@ -221,6 +277,11 @@
 		overscroll-behavior-x: contain;
 		scroll-snap-type: x mandatory;
 		scrollbar-width: none;
+		cursor: grab;
+	}
+
+	.track:active {
+		cursor: grabbing;
 	}
 
 	.track::-webkit-scrollbar {
@@ -238,6 +299,8 @@
 		display: flex;
 		align-items: flex-end;
 		scroll-snap-align: start;
+		/* One swipe = one slide, however fast the flick. */
+		scroll-snap-stop: always;
 		overflow: hidden;
 	}
 
@@ -302,7 +365,7 @@
 		max-width: 30rem;
 		margin: 0 0 1.5rem;
 		padding: 0.8rem 1rem;
-		border-radius: 10px;
+		border-radius: var(--radius);
 		background: rgba(255, 255, 255, 0.96);
 		color: #14161a;
 		box-shadow: 0 16px 36px -18px rgba(0, 0, 0, 0.6);
@@ -421,13 +484,14 @@
 		gap: 0.5rem;
 		min-height: 3.3rem;
 		padding: 0 1.8rem;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: #a24c26;
 		color: #fff;
 		font-weight: 700;
 		font-size: 1.05rem;
 		text-decoration: none;
 		box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.6);
+		margin: 0 0 1.1rem;
 	}
 
 	.pin {

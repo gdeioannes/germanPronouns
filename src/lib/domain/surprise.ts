@@ -1,4 +1,4 @@
-// The deck's surprises: a story episode, Ja oder Nein?, Wortblöcke, or
+// The deck's surprises: Ja oder Nein?, Wortblöcke, or
 // the word check when it is due (never taken, or a month since the last).
 // They are treats in the learning, never in its way,
 // so a hand holds at most ONE. Each deal rolls once whether a surprise comes

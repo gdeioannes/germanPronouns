@@ -131,7 +131,7 @@
 		margin: 1.5rem 0 0.5rem;
 		padding: 0.6rem 0.8rem;
 		border: 1px solid var(--line);
-		border-radius: 12px;
+		border-radius: var(--radius);
 		background: var(--surface);
 		color: var(--ink-muted);
 	}

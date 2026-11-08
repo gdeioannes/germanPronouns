@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { courseInfo, courses, loadCourse, loadSyllabus, summarizeQuiz } from '$lib/content';
+import { deckPhotos, insidePicture } from '$lib/server/deckPhotos';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
 /** One prerendered syllabus page per quest-chain sub-level. */
@@ -27,6 +28,9 @@ export const load: PageServerLoad = async ({ params }) => {
 	);
 	if (!group) error(404, 'No such level');
 
+	const mine = course.quizzes.filter((q) => q.level === params.levelId);
+	const photos = deckPhotos(params.courseId, mine);
+
 	const levels = course.nav.groups.filter((g) => g.type === 'questChain');
 	const at = levels.findIndex((g) => g.level === params.levelId);
 
@@ -35,7 +39,8 @@ export const load: PageServerLoad = async ({ params }) => {
 		level: params.levelId,
 		title: group.title,
 		module: module ?? null,
-		quizzes: course.quizzes.filter((q) => q.level === params.levelId).map(summarizeQuiz),
+		// The same photo as the deck card and the exercise, not the old drawing.
+		quizzes: mine.map((q) => ({ ...summarizeQuiz(q), image: insidePicture(q, photos[q.id]).image })),
 		previous: levels[at - 1]?.level ?? null,
 		next: levels[at + 1]?.level ?? null
 	};

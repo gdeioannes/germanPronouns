@@ -662,7 +662,7 @@
 		margin: 0.5rem 0;
 		padding: 2rem;
 		border: 1px solid var(--line);
-		border-radius: 1.1rem;
+		border-radius: var(--radius);
 		background: var(--surface);
 		font: inherit;
 		cursor: pointer;
@@ -746,7 +746,7 @@
 	.lv-btn {
 		padding: 0.55rem 0.9rem;
 		border: 1px solid var(--line);
-		border-radius: 0.6rem;
+		border-radius: var(--radius-sm);
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;
@@ -915,7 +915,7 @@
 	.parts div {
 		padding: 0.6rem;
 		border: 1px solid var(--line);
-		border-radius: 0.6rem;
+		border-radius: var(--radius-sm);
 		background: var(--surface);
 	}
 

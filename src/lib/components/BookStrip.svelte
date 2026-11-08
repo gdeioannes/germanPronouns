@@ -37,7 +37,7 @@
 		margin: 1.25rem auto 0;
 		padding: 0.7rem 1rem;
 		border: 1px solid var(--line);
-		border-radius: 10px;
+		border-radius: var(--radius);
 		background: var(--surface);
 		color: var(--ink);
 		font-size: var(--step--1);

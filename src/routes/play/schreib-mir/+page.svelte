@@ -254,7 +254,7 @@
 	}
 	.chip {
 		padding: 0.3rem 0.75rem;
-		border-radius: 999px;
+		border-radius: 6px;
 		border: 1px solid var(--line-strong);
 		background: var(--surface);
 		color: var(--ink);
@@ -395,7 +395,7 @@
 	.go {
 		flex: none;
 		padding: 0.25rem 0.7rem;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: #3f7d46;
 		color: #fff;
 		font-size: var(--step--1);

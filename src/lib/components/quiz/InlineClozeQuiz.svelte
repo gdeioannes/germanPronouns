@@ -469,7 +469,7 @@
 		flex: 1;
 		padding: 1.25rem 1.5rem;
 		border: 1px solid var(--line);
-		border-radius: 14px;
+		border-radius: var(--radius);
 		background: var(--surface);
 	}
 

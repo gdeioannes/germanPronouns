@@ -80,7 +80,7 @@
 		align-items: center;
 		gap: 1rem;
 		border: 1px solid var(--line);
-		border-radius: 1rem;
+		border-radius: var(--radius);
 		background: var(--surface);
 		color: inherit;
 		text-decoration: none;

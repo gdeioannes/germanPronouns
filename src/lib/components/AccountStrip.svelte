@@ -71,7 +71,7 @@
 		margin: 1.25rem auto 0;
 		padding: 0.6rem 0.9rem;
 		border: 1px solid var(--line);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface-alt);
 		color: var(--ink-muted);
 		font-size: var(--step--1);

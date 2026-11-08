@@ -87,8 +87,9 @@
 	const pct = (n: number) => Math.round(n * 100);
 
 	const KINDS = [
-		{ icon: '📖', label: 'Story' },
-		{ icon: '🔀', label: 'Ja oder Nein?' }
+		{ icon: '🔀', label: 'Ja oder Nein?' },
+		{ icon: '🧱', label: 'Wortblöcke' },
+		{ icon: '📏', label: 'Word check' }
 	];
 </script>
 
@@ -318,7 +319,7 @@
 		gap: 0.3rem;
 		width: 5.5rem;
 		padding: 0.5rem;
-		border-radius: 0.6rem;
+		border-radius: var(--radius);
 		background: var(--surface);
 		border-top: 4px solid var(--terracotta);
 		box-shadow: 0 6px 14px -6px rgb(31 58 95 / 0.4);

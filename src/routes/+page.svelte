@@ -106,25 +106,25 @@
 	// How it works, in the order you meet it: swipe, learn or play, come back.
 	const HOW = [
 		{
-			img: 'how-swipe',
-			zoom: 1.5,
-			focus: '50% 52%',
+			img: 'deck/b2a12_bahn_opener',
+			zoom: 1,
+			focus: '50% 50%',
 			title: 'Swipe until something catches you',
 			try: { id: 'quest_a1_1_zahlen', name: 'Zahlen 0–10', note: 'pick a mission' },
 			text: 'The deck deals one card at a time. Not in the mood? Swipe left. Curious? Swipe right.'
 		},
 		{
-			img: 'how-learn',
-			zoom: 1.08,
+			img: 'deck/b2a22_bibliothek_opener',
+			zoom: 1,
 			focus: '50% 50%',
 			title: 'Read the rule, or jump straight in',
 			try: { id: 'quest_a1_1_artikel', name: 'Artikel im Nominativ', note: 'lesson + quiz' },
 			text: 'Every card has a short lesson and a quiz. Hear any sentence spoken, as often as you like.'
 		},
 		{
-			img: 'how-repeat',
-			zoom: 1.45,
-			focus: '50% 52%',
+			img: 'deck/b2a12_biergarten_opener',
+			zoom: 1,
+			focus: '50% 50%',
 			title: 'Move on, and come back when you want',
 			try: { id: 'quest_a1_1_sprechen_vorstellung', name: 'Sprechen: Vorstellung', note: 'repeat aloud' },
 			text: 'Nothing is locked and nothing is lost. Repeat what feels shaky, skip what you already know, collect medals on the way.'
@@ -188,7 +188,7 @@
 	description="Learn German from English with {data.total} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up."
 	path="/"
 	ogTitle="Language Quiz — Swipe your way to German, free"
-	ogDescription="A free German course for English speakers: swipe through five-minute cards with lessons, quizzes, picture hunts and Maya's Berlin mysteries. Every sentence spoken, A1 to C2, no account."
+	ogDescription="A German course for English speakers living in Germany or moving there: five-minute cards with lessons, quizzes and picture hunts, every sentence spoken, and a book for every level linked to the app. A1 to C2, no account."
 	jsonLd={[websiteLd(), jsonLd, faqLd]}
 />
 
@@ -251,7 +251,8 @@
 			<h2 id="book-offer-title" lang="de">Deutsch A1.1 · Erste Schritte</h2>
 			<p>
 				Twelve chapters, each one a real place in Germany: words first, a photo, a story, two rules,
-				a real document, and the practice. Every chapter's audio is a QR code away. 131 pages.
+				a real document, and the practice. A code on every page opens that chapter in the app: check
+				your answers, learn the words as flashcards, hear the texts. 131 pages.
 			</p>
 			<a class="primary" href="/books/v2/de_cert_a1_a1_1.pdf" download onclick={() => track('book_download', { book: 'A1.1', from: 'home' })}>
 				<Icon name="download" size="1.05em" /> Download the PDF · {BOOKS[0].mb} MB
@@ -445,7 +446,7 @@
 		flex-direction: column;
 		padding: 0 1.4rem 1.5rem;
 		border: 1px solid var(--line);
-		border-radius: 20px;
+		border-radius: var(--radius);
 		background: #fbf5e4;
 		overflow: hidden;
 		transition:
@@ -520,7 +521,7 @@
 
 	.try-label {
 		padding: 0.15rem 0.55rem;
-		border-radius: 999px;
+		border-radius: 4px;
 		background: var(--accent-ink);
 		color: #fff;
 		font-size: 0.7rem;
@@ -566,7 +567,7 @@
 			column-gap: 0.9rem;
 			align-items: center;
 			padding: 0 0.9rem 0 0;
-			border-radius: 16px;
+			border-radius: var(--radius);
 		}
 		.how-pic {
 			grid-row: 1 / 4;
@@ -606,14 +607,14 @@
 		}
 	}
 
-	/* -- the pill button, used on the story band and the closing band ----- */
+	/* -- the main button, used on the book offer and the closing band ----- */
 
 	.primary {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.6rem;
 		padding: 0.95rem 1.8rem;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--accent-ink);
 		color: #fff;
 		font-size: var(--step-0);
@@ -661,7 +662,7 @@
 		gap: 2.5rem;
 		margin-top: 5rem;
 		padding: 2rem 2.5rem;
-		border-radius: 24px;
+		border-radius: var(--radius);
 		border: 1px solid var(--line);
 		background:
 			radial-gradient(circle at 90% 10%, rgba(201, 104, 59, 0.16), transparent 45%),
@@ -733,7 +734,7 @@
 		align-items: center;
 		gap: 0.5rem;
 		padding: 0.55rem 0.9rem 0.55rem 0.75rem;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--navy);
 		color: #fff;
 		font-size: 0.82rem;
@@ -995,7 +996,7 @@
 	.closing {
 		margin: 5rem 0 0;
 		padding: 3.5rem 2rem;
-		border-radius: 24px;
+		border-radius: var(--radius);
 		background:
 			radial-gradient(circle at 85% 20%, rgba(201, 104, 59, 0.35), transparent 45%),
 			var(--navy);

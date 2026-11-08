@@ -127,7 +127,7 @@
 		min-height: 15rem;
 		padding: 1.25rem;
 		border: 1px solid var(--line);
-		border-radius: 10px;
+		border-radius: var(--radius);
 		background: var(--surface);
 		text-align: center;
 	}

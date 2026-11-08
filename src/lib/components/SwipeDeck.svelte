@@ -316,7 +316,7 @@
 			void storage.set(SKIPPED_KEY, '[]');
 			deck = buildDeck(course.quizzes, known, { level, pace, size, exclude });
 		}
-		// Surprises: a story, Ja oder Nein?, the word check or Wortblöcke.
+		// Surprises: Ja oder Nein?, the word check or Wortblöcke.
 		// At most one a hand, and none at all with surprises turned off in
 		// Settings. One roll says whether a surprise comes, and then one kind is
 		// drawn among those with something to offer (domain/surprise).
@@ -1068,7 +1068,7 @@
 		margin-top: 0.5rem;
 		padding: 0.5rem 1rem;
 		border: 1px solid var(--accent);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--accent-ink);
 		font: inherit;
@@ -1576,7 +1576,6 @@
 		inset: 0.05rem 0.3rem;
 		border-radius: 0.25rem;
 		border: 1px solid var(--line-strong);
-		border-top: 3px solid var(--kind, var(--terracotta));
 		background: var(--surface);
 		box-shadow: 0 4px 8px -5px rgba(31, 58, 95, 0.55);
 		animation: intro-riffle 1.6s var(--ease-out) infinite;
@@ -2562,7 +2561,7 @@
 		z-index: 1;
 		padding: 0.3rem 0.75rem;
 		border: 1.5px solid color-mix(in srgb, var(--forest) 45%, transparent);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink);
 		font-size: var(--step--1);

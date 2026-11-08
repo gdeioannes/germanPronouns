@@ -22,6 +22,11 @@ const force = process.argv.includes('--force');
 const warm = (img) =>
 	img.recomb([[1.05, 0.02, 0], [0, 1.03, 0], [0, 0, 0.95]]).linear(1.2, -8).modulate({ brightness: 1.04, saturation: 1.25 });
 
+// Night photos that stay gloomy after the grade: lift their shadows too, so
+// no card looks dark (GDI: photos must never be gloomy).
+const NIGHT = new Set(['b2b11_silvester_opener', 'b2b21_club_opener']);
+const lift = (img, photo) => (NIGHT.has(photo) ? img.normalise({ lower: 1, upper: 99.5 }).clahe({ width: 160, height: 160, maxSlope: 3 }).modulate({ brightness: 1.35 }) : img);
+
 mkdirSync(OUT, { recursive: true });
 const photos = new Set();
 for (const f of readdirSync(BOOKS).filter((f) => /^[abc]\d_\d\.json$/.test(f))) {
@@ -31,10 +36,16 @@ for (const f of readdirSync(BOOKS).filter((f) => /^[abc]\d_\d\.json$/.test(f))) 
 let made = 0;
 for (const photo of photos) {
 	const out = `${OUT}${photo}.webp`;
-	if (!force && existsSync(out)) continue;
+	if (!force && !NIGHT.has(photo) && existsSync(out)) continue;
 	const hd = `${root}static/img/photo/${photo}.jpg`;
 	const src = existsSync(hd) ? hd : `${root}static/img/photo/web/${photo}.jpg`;
-	await warm(sharp(readFileSync(src))).resize(1000).webp({ quality: 76 }).toFile(out);
+	let img = sharp(readFileSync(src));
+	// Silvester is a black sky over a small lit gate: keep the gate and the low fireworks.
+	if (photo === 'b2b11_silvester_opener') {
+		const m = await img.metadata();
+		img = sharp(await img.extract({ left: Math.round(m.width * 0.12), top: Math.round(m.height * 0.3), width: Math.round(m.width * 0.76), height: Math.round(m.height * 0.62) }).toBuffer());
+	}
+	await lift(warm(img), photo).resize(1000).webp({ quality: 76 }).toFile(out);
 	made++;
 }
 console.log(`${photos.size} chapter photos, ${made} written to static/img/deck/`);

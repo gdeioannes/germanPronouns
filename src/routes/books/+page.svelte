@@ -83,7 +83,7 @@
 		align-items: center;
 		padding: 1rem 1.2rem;
 		border: 1px solid var(--line);
-		border-radius: 1rem;
+		border-radius: var(--radius);
 		background: var(--surface);
 	}
 
@@ -125,7 +125,7 @@
 		align-items: center;
 		gap: 0.45rem;
 		padding: 0.6rem 1.1rem;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--accent-ink);
 		color: #fff;
 		font-weight: 700;

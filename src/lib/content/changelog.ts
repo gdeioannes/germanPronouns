@@ -16,6 +16,17 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-09",
+    title: "Photos everywhere, one calm style",
+    items: [
+      "The home page's How it works, the About page and the exercise lists of each level now show real photos of Germany instead of the old drawings.",
+      "Buttons, cards and panels across the site share the same small corners, from Settings to the games.",
+      "On the home page you can swipe through the slides one at a time, with your finger or the mouse, and each slide's button sits right under its headline.",
+      "The course page opens straight on your cards, without a title above them.",
+      "Two dark night photos in the deck are brighter, and one photo in the B2.2 book was cropped.",
+    ],
+  },
+  {
     date: "2026-11-08",
     title: "Your book and the app, working together",
     items: [

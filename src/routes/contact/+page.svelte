@@ -169,7 +169,7 @@
 		color: var(--ink);
 		background: var(--card, transparent);
 		border: 1px solid var(--line);
-		border-radius: 0.5rem;
+		border-radius: var(--radius-sm);
 	}
 
 	input:focus-visible {
@@ -184,7 +184,7 @@
 		color: var(--heading);
 		background: transparent;
 		border: 1px solid var(--line);
-		border-radius: 0.5rem;
+		border-radius: var(--radius-sm);
 		cursor: pointer;
 	}
 

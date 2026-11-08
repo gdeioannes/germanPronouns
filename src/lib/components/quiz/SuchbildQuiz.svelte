@@ -1008,7 +1008,7 @@
 		padding: 0.45rem 0.8rem;
 		border: 0;
 		border-bottom: 2px solid var(--accent);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface-alt);
 		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-0);

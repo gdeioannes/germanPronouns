@@ -71,15 +71,15 @@
 				habit in German — <em>der, die, das</em> — and <strong class="key">grew, release by
 				release, into a complete course</strong>: stepped lessons with audio at every
 				level, fill-in exercises, dictation, flashcards, a word library of
-				nouns and verbs, printable exercise sheets, and the beginnings of an
-				illustrated story mode. The <a href="/changelog">changelog</a> tells
+				nouns and verbs, printable exercise sheets, and a book for every level
+				that works together with the app. The <a href="/changelog">changelog</a> tells
 				that story in full.
 			</p>
 		</div>
 		<figure>
 			<img
-				src="/img/about_journey.webp"
-				alt="A traveller with a suitcase on a hill, looking down a long winding road toward a distant city"
+				src="/img/deck/bahnhof-1200.webp"
+				alt="A busy German railway station hall"
 				width="512"
 				height="384"
 				fetchpriority="high"
@@ -146,8 +146,8 @@
 		</div>
 		<figure>
 			<img
-				src="/img/about_paths.webp"
-				alt="A learner stepping off a rigid straight path of identical stones onto one of several colourful winding paths that all lead to the same town"
+				src="/img/deck/b2a21_sonntag_opener.webp"
+				alt="A path winding through a sunny German forest"
 				width="512"
 				height="384"
 				loading="lazy"
@@ -156,7 +156,7 @@
 		<p>
 			That is why the course refuses to be a single straight line. You
 			can read a lesson, listen to it, drill it as flashcards, type it,
-			speak it, follow it as an illustrated story, or print it and work
+			speak it, play it as a game, or open the book and work
 			on paper — the same German, offered in as many shapes as there are
 			ways of learning. Jump levels, circle back, skip what bores you:
 			<strong class="key">the course adapts to how you learn, not the other way round.</strong>
@@ -260,8 +260,8 @@
 		</div>
 		<figure>
 			<img
-				src="/img/about_builder.webp"
-				alt="A person at a small desk, writing in an exercise book with one hand while stacking building blocks with the other"
+				src="/img/deck/b2b21_homeoffice_opener.webp"
+				alt="People working at desks in a bright shared office"
 				width="512"
 				height="384"
 				loading="lazy"
@@ -405,12 +405,13 @@
 		display: block;
 		width: 100%;
 		height: auto;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
 		border-radius: var(--radius);
 	}
 
-	/* On a phone everything stacks: heading, lead, picture, rest. The plate
-	   shrinks and centres — the illustration carries generous drawn-in
-	   margins, so at full width it would swallow a whole screen. */
+	/* On a phone everything stacks: heading, lead, picture, rest. The photo
+	   runs full width, cropped a little lower so it does not fill the screen. */
 	@media (max-width: 48rem) {
 		.split {
 			grid-template-columns: 1fr;
@@ -422,8 +423,7 @@
 			margin: 0.25rem 0 1.25rem;
 		}
 		.split img {
-			max-width: 16rem;
-			margin-inline: auto;
+			aspect-ratio: 16 / 9;
 		}
 	}
 </style>

@@ -487,7 +487,7 @@
 
 	.context {
 		padding: 0.75rem 0.9rem;
-		border-radius: 10px;
+		border-radius: var(--radius);
 		background: var(--surface-alt);
 	}
 
@@ -539,7 +539,7 @@
 		align-items: baseline;
 		margin: 1.2rem 0 0;
 		padding: 0.6rem 0.8rem;
-		border-radius: 10px;
+		border-radius: var(--radius);
 		background: var(--accent-soft);
 		color: var(--accent-ink);
 		font-size: var(--step--1);

@@ -15,7 +15,7 @@
 		flex: none;
 		padding: 0.1rem 0.65rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: transparent;
 		color: var(--ink-muted);
 		font: inherit;

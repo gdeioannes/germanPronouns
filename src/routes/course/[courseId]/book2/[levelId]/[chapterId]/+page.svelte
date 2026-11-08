@@ -297,7 +297,7 @@
 		flex: none;
 		padding: 0.3rem 0.75rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		color: var(--ink);
 		font-size: var(--step--1);
 		text-decoration: none;
@@ -321,7 +321,7 @@
 		min-height: 2.6rem;
 		padding: 0 1rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;

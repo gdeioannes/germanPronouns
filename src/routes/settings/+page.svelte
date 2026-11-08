@@ -248,12 +248,12 @@
 				onchange={(e) => progress.setSurprises(e.currentTarget.checked)}
 			/>
 			<span>
-				<strong>Games and stories in the deck</strong>
+				<strong>Games in the deck</strong>
 				<small>
-					Now and then your deck slips in a surprise: a story episode
-					or a round of Ja oder Nein? Never more than one in a hand. Turn this off and the deck
-					deals only exercises. Stories and the games are still in the
-					menu whenever you want them.
+					Now and then your deck slips in a surprise: a round of Ja oder Nein?,
+					Wortblöcke or a quick word check. Never more than one in a hand. Turn this off and the deck
+					deals only exercises. The games and stories are still in the
+					Library menu whenever you want them.
 				</small>
 			</span>
 		</label>
@@ -432,14 +432,14 @@
 		display: inline-flex;
 		padding: 0.2rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface-alt);
 	}
 
 	.segmented button {
 		padding: 0.35rem 1.1rem;
 		border: 0;
-		border-radius: 999px;
+		border-radius: 4px;
 		background: none;
 		color: var(--ink-muted);
 		font: inherit;
@@ -463,7 +463,7 @@
 		.segmented:has(> :nth-child(4)) {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
-			border-radius: 1.2rem;
+			border-radius: var(--radius-sm);
 		}
 	}
 
@@ -493,7 +493,7 @@
 		flex: none;
 		padding: 0.32rem 0.9rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink);
 		font-size: var(--step--1);
@@ -516,7 +516,7 @@
 		gap: 0.4rem;
 		padding: 0.58rem 1.2rem;
 		border: 0;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--wrong);
 		color: #fff;
 		font: inherit;

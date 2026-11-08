@@ -541,7 +541,7 @@
 		min-height: 2.75rem;
 		padding: 0.45rem 0.95rem;
 		border: 1.5px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;

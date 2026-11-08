@@ -104,7 +104,7 @@
 		align-items: start;
 		padding: 1.4rem;
 		border: 1px solid var(--line);
-		border-radius: 1rem;
+		border-radius: var(--radius);
 		background: var(--surface);
 	}
 
@@ -150,7 +150,7 @@
 		align-items: center;
 		gap: 0.5rem;
 		padding: 0.8rem 1.4rem;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--accent-ink);
 		color: #fff;
 		font-weight: 700;
@@ -184,7 +184,7 @@
 		margin: 2rem 0 0;
 		padding: 1.2rem 1.4rem;
 		border: 1px dashed var(--line-strong);
-		border-radius: 1rem;
+		border-radius: var(--radius);
 	}
 
 	.request h2 {

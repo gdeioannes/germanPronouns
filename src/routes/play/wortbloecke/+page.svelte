@@ -3038,7 +3038,7 @@
 		gap: 3px;
 		margin-bottom: 0.6rem;
 		padding: 3px;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface-alt);
 	}
 
@@ -3046,7 +3046,7 @@
 		flex: 1;
 		padding: 0.4rem 0.5rem;
 		border: none;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: transparent;
 		color: var(--ink-muted);
 		font: inherit;

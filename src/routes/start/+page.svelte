@@ -179,7 +179,7 @@
 		width: 100%;
 		height: auto;
 		margin: 0.6rem 0 1rem;
-		border-radius: 0.9rem;
+		border-radius: var(--radius);
 		background: var(--surface-alt);
 	}
 
@@ -228,7 +228,7 @@
 		width: 100%;
 		padding: 1rem 1.2rem;
 		border: 1px solid var(--line);
-		border-radius: 0.9rem;
+		border-radius: var(--radius);
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;
@@ -338,7 +338,7 @@
 		width: 100%;
 		padding: 0.7rem 0.9rem;
 		border: 1px solid var(--line);
-		border-radius: 0.6rem;
+		border-radius: var(--radius-sm);
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;

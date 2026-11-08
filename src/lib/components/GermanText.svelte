@@ -229,7 +229,7 @@
 		max-width: 14rem;
 		padding: 0.5rem 0.7rem;
 		border: 1px solid var(--line);
-		border-radius: 10px;
+		border-radius: var(--radius);
 		background: var(--surface);
 		box-shadow: 0 10px 28px -12px rgba(31, 58, 95, 0.45);
 		font-family: 'Inter Variable', 'Inter', sans-serif;

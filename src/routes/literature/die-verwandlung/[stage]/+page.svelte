@@ -145,7 +145,7 @@
 	.gloss {
 		padding: 0.9rem 1.1rem;
 		border: 1px solid var(--line);
-		border-radius: 0.8rem;
+		border-radius: var(--radius);
 		background: var(--surface);
 	}
 

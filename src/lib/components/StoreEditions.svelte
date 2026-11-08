@@ -44,7 +44,7 @@
 		margin: 1.1rem 0 0.9rem;
 		padding: 1rem 1.1rem;
 		border: 1.5px dashed var(--accent);
-		border-radius: 16px;
+		border-radius: var(--radius);
 		background: var(--surface);
 		text-align: left;
 	}
@@ -93,7 +93,7 @@
 		gap: 0.35rem;
 		padding: 0.45rem 0.9rem;
 		border: 1.5px solid var(--accent-ink);
-		border-radius: 999px;
+		border-radius: 6px;
 		color: var(--accent-ink);
 		font-size: var(--step--1);
 		font-weight: 700;

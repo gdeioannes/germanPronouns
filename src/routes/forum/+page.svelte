@@ -318,7 +318,7 @@
 		max-width: 22rem;
 		padding: 0 0.8rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink-muted);
 	}
@@ -343,7 +343,7 @@
 	.board {
 		padding: 0.4rem 0.9rem;
 		border: 1px solid var(--line);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink-muted);
 		font: inherit;
@@ -384,7 +384,7 @@
 		gap: 0.4rem;
 		padding: 0.4rem 0.9rem;
 		border: 1px solid var(--line);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink-muted);
 		font: inherit;

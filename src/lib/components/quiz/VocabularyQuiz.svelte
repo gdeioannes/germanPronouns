@@ -809,12 +809,8 @@
 		-webkit-backface-visibility: hidden;
 	}
 
-	/* A coloured edge, like an index card's rule: navy on the front, the
-	   noun's gender colour on the back. */
-	.front {
-		border-top: 6px solid var(--heading);
-	}
-
+	/* The back carries the noun's gender colour as its top edge: it is
+	   information, not decoration. The front stays plain like the deck. */
 	.back {
 		transform: rotateY(180deg);
 		border-top: 6px solid var(--gender);

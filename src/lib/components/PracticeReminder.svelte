@@ -180,7 +180,7 @@
 		min-height: 2.25rem;
 		padding: 0.4rem 0.6rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink-muted);
 		font: inherit;
@@ -245,7 +245,7 @@
 		gap: 0.4rem;
 		padding: 0.5rem 1.05rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;

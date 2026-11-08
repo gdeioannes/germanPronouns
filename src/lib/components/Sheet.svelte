@@ -198,7 +198,7 @@
 			left: 0;
 			width: 100%;
 			max-height: 92dvh;
-			border-radius: 18px 18px 0 0;
+			border-radius: var(--radius) var(--radius) 0 0;
 			box-shadow: 0 -18px 48px -24px rgb(20 32 52 / 0.45);
 			transform: translateY(104%);
 		}

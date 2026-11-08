@@ -468,7 +468,6 @@
 		max-width: 210mm;
 		margin: 0 auto;
 		background: var(--surface);
-		border-top: 6px solid var(--accent);
 		border-radius: 4px;
 		padding: 13mm;
 		font-size: 10pt;

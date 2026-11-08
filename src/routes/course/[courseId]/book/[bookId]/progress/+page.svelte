@@ -146,7 +146,7 @@
 	.all {
 		padding: 0.35rem 0.7rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		font: inherit;
 		font-size: var(--step--1);
