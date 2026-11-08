@@ -1,0 +1,23 @@
+{
+ "intro": "Das Genus, also das grammatische Geschlecht, ist bei einfachen Nomen reine Willkür. Bei abgeleiteten Nomen läuft es fast mechanisch, denn die Endung entscheidet. Maskulin: -er, -ler, -ner (Menschen und Geräte: Lehrer, Künstler, Drucker), -ist, -ant, -ent (Journalist, Praktikant, Student, alle mit n-Deklination, also -en in allen Fällen außer dem Nominativ), -or (Motor, Autor, Doktor, Plural auf -en, aber im Singular keine n-Deklination), -ling (Frühling, Lehrling), -ismus (Tourismus), -ig / -ich (Honig, Teppich). Neutral: -chen, -lein (Mädchen, Büchlein, immer), -tum (Eigentum, Wachstum; aber der Reichtum, der Irrtum), -ment (Dokument, Instrument), -um (Zentrum, Museum), meistens -nis (Ergebnis, Erlebnis, Gefängnis; aber die Erlaubnis, die Kenntnis, die Erkenntnis), Ge- + -e (Gebäude, Gemüse). Feminin: -ung, -heit, -keit, -schaft, -ei, -ie, -ik, -ion, -tät, -ur, -enz, -anz, -in (Nation, Universität, Natur, Energie, Musik, Bäckerei, Konferenz, Lehrerin). Auch Vorsilben prägen die Bedeutung: Un- (Unglück), Miss- (Misserfolg), Ge- (etwas Gesammeltes: Gebirge). Fortgeschrittene Wörter sind voll davon. Kennst du die Regeln, musst du den Artikel eines langen Wortes nie mehr raten.",
+ "tips[0].title": "der: -er, -ist, -ant, -ent, -or, -ling, -ismus",
+ "tips[0].text": "der Lehrer, der Fahrer, der Computer · der Journalist, der Tourist · der Praktikant, der Student, der Präsident · der Motor, der Autor, der Doktor · der Frühling, der Lehrling, der Flüchtling · der Tourismus, der Kapitalismus. (-ist/-ant/-ent: n-Deklination, also den Journalisten; -or nicht: den Autor, aber die Autoren.)",
+ "tips[0].check.why": "Nomen auf -ismus sind maskulin: der Optimismus, wie der Tourismus.",
+ "tips[1].title": "das: -chen, -lein, -tum, -ment, -um, -nis (meistens), Ge-…-e",
+ "tips[1].text": "das Mädchen, das Häuschen, das Fräulein · das Eigentum, das Wachstum (aber der Reichtum, der Irrtum) · das Dokument, das Instrument, das Argument · das Zentrum, das Datum · das Ergebnis, das Erlebnis, das Gefängnis (aber die Erlaubnis, die Kenntnis) · das Gebäude, das Gemüse, das Gebirge.",
+ "tips[1].trap": "-chen macht alles neutral, sogar Menschen: das Mädchen, das Fräulein. Das Pronomen ist in sorgfältigem Deutsch es, auch wenn man beim Sprechen oft sie hört.",
+ "tips[1].check.why": "Die meisten Nomen auf -nis sind neutral: das Hindernis, wie das Ergebnis. Nur wenige, etwa die Erlaubnis, sind feminin.",
+ "tips[2].title": "die: -ung, -heit, -keit, -schaft, -ei, -ie, -ik, -ion, -tät, -ur, -enz, -anz, -in",
+ "tips[2].text": "die Meinung, die Freiheit, die Möglichkeit, die Freundschaft, die Bäckerei, die Energie, die Musik, die Nation, die Universität, die Natur, die Konferenz, die Distanz, die Lehrerin. Die längste Liste und die zuverlässigste.",
+ "tips[2].check.why": "-ung ist immer feminin, und über mit Akkusativ behält den femininen Artikel die.",
+ "tips[3].title": "Ausnahmen in einer Zeile",
+ "tips[3].text": "der Reichtum, der Irrtum (nicht das) · die Erlaubnis, die Kenntnis, die Erkenntnis, die Finsternis (nicht das) · das Labor (neutral, es ist kurz für das Laboratorium). Lern diese, dann halten die Regeln.",
+ "tips[3].check.why": "-tum ist meistens neutral, aber Reichtum ist eine der zwei Ausnahmen: der Reichtum, der Irrtum.",
+ "remember[0]": "der: -er/-ist/-ant/-ent/-or/-ling/-ismus. das: -chen/-lein/-tum/-ment/-um/-nis/Ge-e. die: -ung/-heit/-keit/-schaft/-ei/-ie/-ik/-ion/-tät/-ur/-enz/-in.",
+ "remember[1]": "Ausnahmen: der Reichtum/Irrtum; die Erlaubnis/Kenntnis; das Labor.",
+ "table.caption": "Endung → Genus",
+ "mistakes[0].why": "-chen ist immer neutral.",
+ "mistakes[1].why": "Eine der Ausnahmen bei -tum.",
+ "mistakes[2].why": "Eine der Ausnahmen bei -nis.",
+ "hook": "Lange deutsche Nomen sehen gefährlich aus, aber meist verrät die Endung den Artikel: -ung ist die, -chen ist das, -ismus ist der."
+}

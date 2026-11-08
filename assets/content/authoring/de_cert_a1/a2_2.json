@@ -8401,6 +8401,691 @@
     }
   },
   {
+    "id": "quest_a2_2_grammatikwoerter",
+    "after": "quest_a2_2_wortschatz",
+    "covers": [
+      "a2.grammar-words"
+    ],
+    "title": "Grammatikwörter",
+    "quiz": {
+      "type": "fillBlank",
+      "title": "Grammatikwörter",
+      "level": "A2.2",
+      "promptLabel": "Wort",
+      "subjectsLabel": "Grammatikwörter",
+      "subjectColumnLabel": "Wort",
+      "subjects": [
+        {
+          "key": "nomen",
+          "display": "Nomen",
+          "english": "noun"
+        },
+        {
+          "key": "verb",
+          "display": "Verb",
+          "english": "verb"
+        },
+        {
+          "key": "adjektiv",
+          "display": "Adjektiv",
+          "english": "adjective"
+        },
+        {
+          "key": "artikel",
+          "display": "Artikel",
+          "english": "article"
+        },
+        {
+          "key": "pronomen",
+          "display": "Pronomen",
+          "english": "pronoun"
+        },
+        {
+          "key": "präposition",
+          "display": "Präposition",
+          "english": "preposition"
+        },
+        {
+          "key": "endung",
+          "display": "Endung",
+          "english": "ending"
+        },
+        {
+          "key": "singular",
+          "display": "Singular",
+          "english": "singular"
+        },
+        {
+          "key": "plural",
+          "display": "Plural",
+          "english": "plural"
+        },
+        {
+          "key": "nominativ",
+          "display": "Nominativ",
+          "english": "nominative: who?"
+        },
+        {
+          "key": "akkusativ",
+          "display": "Akkusativ",
+          "english": "accusative: whom?"
+        },
+        {
+          "key": "dativ",
+          "display": "Dativ",
+          "english": "dative: to whom?"
+        },
+        {
+          "key": "genitiv",
+          "display": "Genitiv",
+          "english": "genitive: whose?"
+        },
+        {
+          "key": "infinitiv",
+          "display": "Infinitiv",
+          "english": "infinitive"
+        },
+        {
+          "key": "präsens",
+          "display": "Präsens",
+          "english": "present"
+        },
+        {
+          "key": "perfekt",
+          "display": "Perfekt",
+          "english": "perfect"
+        },
+        {
+          "key": "präteritum",
+          "display": "Präteritum",
+          "english": "simple past"
+        },
+        {
+          "key": "partizip",
+          "display": "Partizip",
+          "english": "participle"
+        },
+        {
+          "key": "hauptsatz",
+          "display": "Hauptsatz",
+          "english": "main clause"
+        },
+        {
+          "key": "nebensatz",
+          "display": "Nebensatz",
+          "english": "subordinate clause"
+        },
+        {
+          "key": "subjekt",
+          "display": "Subjekt",
+          "english": "subject"
+        },
+        {
+          "key": "objekt",
+          "display": "Objekt",
+          "english": "object"
+        },
+        {
+          "key": "komparativ",
+          "display": "Komparativ",
+          "english": "comparative"
+        },
+        {
+          "key": "superlativ",
+          "display": "Superlativ",
+          "english": "superlative"
+        }
+      ],
+      "categories": [
+        {
+          "label": "Grammatikwort",
+          "group": "wort",
+          "values": [
+            "Adjektive",
+            "Akkusativ",
+            "Artikel",
+            "Dativ",
+            "Endung",
+            "Genitiv",
+            "Hauptsatz",
+            "Infinitiv",
+            "Komparativ",
+            "Nebensatz",
+            "Nomen",
+            "Nominativ",
+            "Objekt",
+            "Partizip",
+            "Perfekt",
+            "Plural",
+            "Pronomen",
+            "Präpositionen",
+            "Präsens",
+            "Präteritum",
+            "Singular",
+            "Subjekt",
+            "Superlativ",
+            "Verben"
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "subjectKey": "nomen",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Hund, Haus und Kaffee sind ____.",
+          "acceptedAnswers": [
+            "Nomen"
+          ],
+          "english": "Hund, Haus and Kaffee are nouns.",
+          "options": [
+            "Verben",
+            "Adjektive",
+            "Endungen"
+          ]
+        },
+        {
+          "subjectKey": "verb",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "laufen, essen und schlafen sind ____.",
+          "acceptedAnswers": [
+            "Verben"
+          ],
+          "english": "laufen, essen and schlafen are verbs.",
+          "options": [
+            "Nomen",
+            "Artikel",
+            "Adjektive"
+          ]
+        },
+        {
+          "subjectKey": "adjektiv",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "groß, müde und grün sind ____.",
+          "acceptedAnswers": [
+            "Adjektive"
+          ],
+          "english": "groß, müde and grün are adjectives.",
+          "options": [
+            "Verben",
+            "Pronomen",
+            "Artikel"
+          ]
+        },
+        {
+          "subjectKey": "artikel",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "der, die und das sind ____.",
+          "acceptedAnswers": [
+            "Artikel"
+          ],
+          "english": "der, die and das are articles.",
+          "options": [
+            "Pronomen",
+            "Endungen",
+            "Nomen"
+          ]
+        },
+        {
+          "subjectKey": "pronomen",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "ich, du und sie sind ____.",
+          "acceptedAnswers": [
+            "Pronomen"
+          ],
+          "english": "ich, du and sie are pronouns.",
+          "options": [
+            "Artikel",
+            "Präpositionen",
+            "Nomen"
+          ]
+        },
+        {
+          "subjectKey": "präposition",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "auf, mit und nach sind ____.",
+          "acceptedAnswers": [
+            "Präpositionen"
+          ],
+          "english": "auf, mit and nach are prepositions.",
+          "options": [
+            "Pronomen",
+            "Endungen",
+            "Verben"
+          ]
+        },
+        {
+          "subjectKey": "endung",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "In „kleinen“ ist -en die ____.",
+          "acceptedAnswers": [
+            "Endung"
+          ],
+          "english": "In kleinen, -en is the ending.",
+          "options": [
+            "Präposition",
+            "Nomen",
+            "Mehrzahl"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "singular",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Kind ist der ____ von Kinder.",
+          "acceptedAnswers": [
+            "Singular"
+          ],
+          "english": "Kind is the singular of Kinder.",
+          "options": [
+            "Plural",
+            "Artikel",
+            "Infinitiv"
+          ]
+        },
+        {
+          "subjectKey": "plural",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Kinder ist der ____ von Kind.",
+          "acceptedAnswers": [
+            "Plural"
+          ],
+          "english": "Kinder is the plural of Kind.",
+          "options": [
+            "Singular",
+            "Artikel",
+            "Infinitiv"
+          ]
+        },
+        {
+          "subjectKey": "nominativ",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Wer kommt? Diese Frage sucht den ____.",
+          "acceptedAnswers": [
+            "Nominativ"
+          ],
+          "english": "Who is coming? This question looks for the nominative.",
+          "options": [
+            "Akkusativ",
+            "Dativ",
+            "Genitiv"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "akkusativ",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Wen siehst du? Diese Frage sucht den ____.",
+          "acceptedAnswers": [
+            "Akkusativ"
+          ],
+          "english": "Whom do you see? This question looks for the accusative.",
+          "options": [
+            "Nominativ",
+            "Dativ",
+            "Genitiv"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "dativ",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Wem hilfst du? Diese Frage sucht den ____.",
+          "acceptedAnswers": [
+            "Dativ"
+          ],
+          "english": "Whom are you helping? This question looks for the dative.",
+          "options": [
+            "Nominativ",
+            "Akkusativ",
+            "Genitiv"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "genitiv",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Wessen Socke ist das? Diese Frage sucht den ____.",
+          "acceptedAnswers": [
+            "Genitiv"
+          ],
+          "english": "Whose sock is that? This question looks for the genitive.",
+          "options": [
+            "Nominativ",
+            "Akkusativ",
+            "Dativ"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "infinitiv",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "essen, gehen, haben: So steht das Verb im Wörterbuch. Das ist der ____.",
+          "acceptedAnswers": [
+            "Infinitiv"
+          ],
+          "english": "essen, gehen, haben: that is how a verb stands in the dictionary. That is the infinitive.",
+          "options": [
+            "Plural",
+            "Superlativ",
+            "Hauptsatz"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "präsens",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Ich esse gerade: Das ist das ____.",
+          "acceptedAnswers": [
+            "Präsens"
+          ],
+          "english": "I am eating right now: that is the present.",
+          "options": [
+            "Perfekt",
+            "Präteritum",
+            "Partizip"
+          ]
+        },
+        {
+          "subjectKey": "perfekt",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Ich habe alles gegessen: Das ist das ____.",
+          "acceptedAnswers": [
+            "Perfekt"
+          ],
+          "english": "I have eaten everything: that is the perfect.",
+          "options": [
+            "Präsens",
+            "Präteritum",
+            "Partizip"
+          ]
+        },
+        {
+          "subjectKey": "präteritum",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Der König war müde und ging ins Bett: Das ist das ____.",
+          "acceptedAnswers": [
+            "Präteritum"
+          ],
+          "english": "The king was tired and went to bed: that is the simple past.",
+          "options": [
+            "Präsens",
+            "Perfekt",
+            "Infinitiv"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "partizip",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "In „Ich habe gegessen“ ist gegessen das ____.",
+          "acceptedAnswers": [
+            "Partizip"
+          ],
+          "english": "In Ich habe gegessen, gegessen is the participle.",
+          "options": [
+            "Präsens",
+            "Subjekt",
+            "Adjektiv"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "hauptsatz",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "„Ich bleibe im Bett, weil heute Montag ist.“ Ich bleibe im Bett ist der ____.",
+          "acceptedAnswers": [
+            "Hauptsatz"
+          ],
+          "english": "I am staying in bed, because today is Monday. I am staying in bed is the main clause.",
+          "options": [
+            "Nebensatz",
+            "Relativsatz",
+            "Infinitiv"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "nebensatz",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "„Ich bleibe im Bett, weil heute Montag ist.“ weil heute Montag ist ist der ____.",
+          "acceptedAnswers": [
+            "Nebensatz"
+          ],
+          "english": "I am staying in bed, because today is Monday. because today is Monday is the subordinate clause.",
+          "options": [
+            "Hauptsatz",
+            "Relativsatz",
+            "Plural"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "subjekt",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "„Der Hund isst meine Hausaufgaben.“ Der Hund ist das ____.",
+          "acceptedAnswers": [
+            "Subjekt"
+          ],
+          "english": "The dog is eating my homework. The dog is the subject.",
+          "options": [
+            "Objekt",
+            "Verb",
+            "Partizip"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "objekt",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "„Der Hund isst meine Hausaufgaben.“ meine Hausaufgaben ist das ____.",
+          "acceptedAnswers": [
+            "Objekt"
+          ],
+          "english": "The dog is eating my homework. my homework is the object.",
+          "options": [
+            "Subjekt",
+            "Verb",
+            "Partizip"
+          ],
+          "hard": true
+        },
+        {
+          "subjectKey": "komparativ",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Mein Hund ist schneller als dein Auto. schneller ist der ____.",
+          "acceptedAnswers": [
+            "Komparativ"
+          ],
+          "english": "My dog is faster than your car. faster is the comparative.",
+          "options": [
+            "Superlativ",
+            "Plural",
+            "Infinitiv"
+          ]
+        },
+        {
+          "subjectKey": "superlativ",
+          "categoryLabel": "Grammatikwort",
+          "sentence": "Mein Hund ist am schnellsten. am schnellsten ist der ____.",
+          "acceptedAnswers": [
+            "Superlativ"
+          ],
+          "english": "My dog is the fastest. the fastest is the superlative.",
+          "options": [
+            "Komparativ",
+            "Plural",
+            "Infinitiv"
+          ]
+        }
+      ],
+      "image": "card_grammar_a2_2"
+    },
+    "help": {
+      "hook": "Learn the two dozen words Germans use to talk about German, and a rule written in German stops looking like a wall.",
+      "intro": "Soon the explanations in this course switch to German, and German talks about its own grammar with its own words. The good news: you already know most of them. Nomen is a noun, Verb is a verb, Adjektiv is an adjective, Plural is a plural. Only a handful look new: die Endung (the ending), der Satz (the sentence), der Hauptsatz and der Nebensatz (main and subordinate clause). And you have used the four cases for months: each one simply answers its own question. Wer? is the Nominativ, wen? the Akkusativ, wem? the Dativ, wessen? the Genitiv. Learn these words once and every German grammar book, teacher and website is open to you.",
+      "recall": {
+        "known": "You already use all of this: der, den and dem, the Perfekt, weil with the verb at the end.",
+        "today": "Today it only gets its German name."
+      },
+      "tips": [
+        {
+          "kind": "rule",
+          "title": "Word types",
+          "text": "das Nomen, das Verb, das Adjektiv, der Artikel, das Pronomen, die Präposition. Nearly the same as in English, so learn them with their article and move on.",
+          "examples": [
+            {
+              "de": "Hund ist ein Nomen. Laufen ist ein Verb. Schnell ist ein Adjektiv.",
+              "en": "Hund is a noun. Laufen is a verb. Schnell is an adjective.",
+              "focus": [
+                "Nomen",
+                "Verb",
+                "Adjektiv"
+              ]
+            },
+            {
+              "de": "Mit ist eine Präposition. Sie ist ein Pronomen.",
+              "en": "Mit is a preposition. Sie is a pronoun.",
+              "focus": [
+                "Präposition",
+                "Pronomen"
+              ]
+            }
+          ],
+          "check": {
+            "q": "auf, in und neben sind ____.",
+            "options": [
+              "Präpositionen",
+              "Pronomen",
+              "Artikel"
+            ],
+            "answer": "Präpositionen",
+            "why": "auf, in and neben are small words that say where something is: Präpositionen."
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "Four cases, four questions",
+          "text": "wer? = Nominativ, wen? = Akkusativ, wem? = Dativ, wessen? = Genitiv. Ask the question and you have the case: nobody needs to remember the label by itself.",
+          "examples": [
+            {
+              "de": "Wer kommt? Der Mann kommt. Das ist der Nominativ.",
+              "en": "Who is coming? The man is coming. That is the nominative.",
+              "focus": [
+                "Wer",
+                "Nominativ"
+              ]
+            },
+            {
+              "de": "Wem hilfst du? Ich helfe dem Mann. Das ist der Dativ.",
+              "en": "Whom are you helping? I am helping the man. That is the dative.",
+              "focus": [
+                "Wem",
+                "Dativ"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Wen fragst du? Diese Frage sucht den ____.",
+            "options": [
+              "Akkusativ",
+              "Dativ",
+              "Genitiv"
+            ],
+            "answer": "Akkusativ",
+            "why": "wen? always asks for the Akkusativ."
+          },
+          "trap": "wem? and wen? differ by one letter. English 'whom' covers both, so say them aloud: wem has the m of dem, wen has the n of den."
+        },
+        {
+          "kind": "rule",
+          "title": "Sentences and endings",
+          "text": "der Satz is a sentence. In a Hauptsatz the verb stands second; in a Nebensatz, after weil or dass, it goes to the end. die Endung is the last bit of a word that changes: klein-e, klein-en.",
+          "examples": [
+            {
+              "de": "Ich bleibe zu Hause, weil ich krank bin.",
+              "en": "I am staying at home because I am ill.",
+              "focus": [
+                "Ich bleibe zu Hause",
+                "weil ich krank bin"
+              ]
+            },
+            {
+              "de": "Das Wort kleinen hat die Endung -en.",
+              "en": "The word kleinen has the ending -en.",
+              "focus": [
+                "Endung",
+                "-en"
+              ]
+            }
+          ],
+          "check": {
+            "q": "„Ich lerne Deutsch, weil ich in Berlin wohne.“ weil ich in Berlin wohne ist der ____.",
+            "options": [
+              "Nebensatz",
+              "Hauptsatz",
+              "Artikel"
+            ],
+            "answer": "Nebensatz",
+            "why": "It starts with weil and the verb is at the end: a Nebensatz."
+          }
+        },
+        {
+          "kind": "rule",
+          "title": "Time words",
+          "text": "das Präsens (ich esse), das Perfekt (ich habe gegessen), das Präteritum (ich aß), das Partizip (gegessen), der Infinitiv (essen).",
+          "examples": [
+            {
+              "de": "Ich habe gegessen: Das ist das Perfekt. Gegessen ist das Partizip.",
+              "en": "I have eaten: that is the perfect. Gegessen is the participle.",
+              "focus": [
+                "Perfekt",
+                "Partizip"
+              ]
+            },
+            {
+              "de": "Essen ist der Infinitiv. So steht das Verb im Wörterbuch.",
+              "en": "Essen is the infinitive. That is how the verb stands in the dictionary.",
+              "focus": [
+                "Infinitiv"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Ich gehe jetzt: Das ist das ____.",
+            "options": [
+              "Präsens",
+              "Perfekt",
+              "Präteritum"
+            ],
+            "answer": "Präsens",
+            "why": "gehe is happening now: the Präsens."
+          }
+        }
+      ],
+      "remember": [
+        "wer? Nominativ, wen? Akkusativ, wem? Dativ, wessen? Genitiv.",
+        "Hauptsatz: verb second. Nebensatz: verb last.",
+        "die Endung: the last bit of the word, the bit that changes."
+      ],
+      "context": {
+        "de": "Der Hund ist das Subjekt. Meine Hausaufgaben sind das Objekt. Essen ist das Verb. Und ich habe jetzt ein Problem.",
+        "en": "The dog is the subject. My homework is the object. Eat is the verb. And now I have a problem."
+      },
+      "mistakes": [
+        {
+          "wrong": "Wen hilfst du?",
+          "right": "Wem hilfst du?",
+          "why": "helfen takes the Dativ, and the Dativ asks wem?"
+        },
+        {
+          "wrong": "Das ist ein Nomen: schnell.",
+          "right": "Das ist ein Adjektiv: schnell.",
+          "why": "schnell describes something, so it is an Adjektiv. German nouns start with a capital letter."
+        }
+      ]
+    }
+  },
+  {
     "id": "quest_a2_2_suchbild_kinderzimmer",
     "after": "quest_a2_2_wortschatz",
     "covers": [

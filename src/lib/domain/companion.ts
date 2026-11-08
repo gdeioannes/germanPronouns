@@ -56,6 +56,8 @@ export type LearnBlock =
 	| {
 			kind: 'box';
 			tone: 'watch' | 'culture' | 'tip';
+			/** Overrides the tone's own label: German chapters say "Tipp". */
+			label?: string;
 			title: string;
 			text: string;
 			image?: string;

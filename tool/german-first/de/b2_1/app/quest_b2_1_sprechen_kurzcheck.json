@@ -1,0 +1,17 @@
+{
+ "intro": "Ein Zwischencheck von drei Minuten zur ersten Hälfte dieses Abschnitts, mit deinem eigenen KI-Assistenten und eingeschalteter Sprachfunktion. Du gibst wieder, was jemand gesagt hat, sagst, was getan werden muss, und benutzt Verben mit ihren Präpositionen. Der Tutor gibt dir eine kurze Aussage, die du wiedergibst (Was hat sie gesagt?). Er beschreibt eine Situation und fragt, was passieren muss (Was muss gemacht werden?). Und er fragt nach Interessen und Plänen (Wofür interessieren Sie sich? Worauf freuen Sie sich?). Er achtet auf den Konjunktiv I in der 3. Person (er sei, sie habe, es werde), auf den Rahmen des Passivs mit Modalverb (muss … werden) und auf die richtigen Präpositionen mit da(r)-Formen. Sprich in ganzen Sätzen. Sag „Ende“, wenn du früher aufhören musst.",
+ "tips[0].title": "Wiedergeben mit sei / habe / werde",
+ "tips[0].text": "Sie sagte, sie sei müde und habe keine Zeit; sie werde morgen anrufen. 3. Person, Stamm + -e, sein → sei.",
+ "tips[0].check.why": "sein hat den unregelmäßigen Konjunktiv I sei, und die wiedergegebene Zeit bleibt Präsens, also nicht war.",
+ "tips[0].visual.left": "er sagte",
+ "tips[0].visual.right": "du gibst wieder",
+ "tips[1].title": "Im Passiv sagen, was getan werden muss",
+ "tips[1].text": "Das Fenster muss repariert werden. Die Gäste müssen informiert werden. Modalverb auf 2, Partizip + werden am Ende.",
+ "tips[1].check.why": "Beim Passiv mit Modalverb steht das Modalverb auf 2 und Partizip + werden am Ende, das Partizip zuerst.",
+ "tips[2].title": "Interessen und Pläne mit der richtigen Präposition",
+ "tips[2].text": "Ich interessiere mich für Politik. Ich freue mich auf den Urlaub. Mit Nebensatz: Ich interessiere mich dafür, wie das funktioniert. Ich freue mich darauf, dass ihr kommt. Die Präposition gehört zum Verb, und das da(r)-Wort trägt sie vor das Komma.",
+ "tips[2].check.why": "Vorfreude auf etwas in der Zukunft ist sich freuen auf. Das da-Wort vor dem Nebensatz ist also darauf.",
+ "remember[0]": "sei / habe / werde zum Wiedergeben; muss … werden für das, was nötig ist.",
+ "remember[1]": "Ich interessiere mich dafür, … / Ich freue mich darauf, …",
+ "hook": "Gib in drei gesprochenen Minuten wieder, was jemand gesagt hat, sag, was getan werden muss, und erzähl von deinen Plänen."
+}

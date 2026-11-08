@@ -31,6 +31,7 @@
 	import { BLANK, canonicalGapAnswer, gapCount, matchesGaps } from '$lib/domain/answers';
 	import { filledSentence, fillBlankPool, revealedParts } from '$lib/domain/spoken';
 	import { answerTileIds, joinTiles, tileBank, type Tile } from '$lib/domain/tiles';
+	import EnglishLine from '$lib/components/EnglishLine.svelte';
 	import { choicesFor, goldSentence, stepPool } from '$lib/domain/fillLadder';
 	import { splitGapAnswer } from '$lib/domain/answers';
 	import { LadderRun, type ClimbOffer } from '$lib/state/ladderRun.svelte';
@@ -658,7 +659,8 @@
 		</p>
 
 		{#if current.english}
-			<p class="english">{current.english}</p>
+			<!-- "No help" has dropped the cue, so the English is the question: it stays. -->
+			<p class="english"><EnglishLine text={current.english} level={quiz.level} shown={step === 2 || locked} /></p>
 		{/if}
 
 		{#if choosing}

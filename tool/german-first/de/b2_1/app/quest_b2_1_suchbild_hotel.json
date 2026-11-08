@@ -1,0 +1,16 @@
+{
+ "hook": "Eine leere Hotellobby voller Dinge zum Finden: Tipp jedes Teil im Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt eines Kartenstapels: eine altmodische Hotellobby mit 32 Dingen zum Finden. Das sind die Wörter, die du beim Einchecken brauchst, beim Warten auf ein Zimmer oder wenn du an der Rezeption fragst: der Kronleuchter, die Tischklingel, das Gästebuch, der Gepäckwagen an der Drehtür. Die Aufgabe fragt zum Beispiel: Wo ist die Überwachungskamera? Du tippst sie im Bild an. Jeder Fund zeigt seinen Namen, gefärbt nach dem Genus. Danach bleibt ein kleines Häkchen in dieser Farbe, so siehst du, was du schon gefunden hast. Ein Tipp auf eine leere Stelle kostet nichts. Tippst du auf das falsche Teil, erfährst du, was du getroffen hast, und suchst weiter. Nach drei Fehlversuchen wird das richtige Teil gezeigt. Kein Teil wird im selben Durchgang zweimal gefragt. Hast du einen Durchgang bestanden, wird die Suche schwerer: Die Aufgabe versteckt den Artikel (Wo ist ___ Tischklingel?), und nach dem Fund wählst du selbst der, die oder das.",
+ "tips[0].title": "Zusammengesetzte Nomen in der Lobby: Der letzte Teil entscheidet",
+ "tips[0].text": "Fast alle Hotelwörter sind zusammengesetzt, und nur der letzte Teil entscheidet über den Artikel. Schlüssel + Brett: das Brett, also das Schlüsselbrett. Tisch + Klingel: die Klingel, also die Tischklingel. Vergiss den vorderen Teil und schau aufs Ende.",
+ "tips[0].check.why": "Der letzte Teil ist das Buch, also heißt das ganze Wort das Gästebuch.",
+ "tips[1].title": "Gleicher Anfang, anderer Artikel",
+ "tips[1].text": "Zwei Wörter können gleich anfangen und sich trotzdem unterscheiden: das Klavier, aber die Klavierbank; die Blume, aber der Blumentopf. Der vordere Teil gibt seinen Artikel nie weiter. Lern jedes zusammengesetzte Nomen also über seinen letzten Teil.",
+ "tips[1].check.why": "Der letzte Teil ist der Topf, also heißt es der Blumentopf, auch wenn die Blume vorn steht.",
+ "tips[2].title": "Geräte auf -er sind maskulin",
+ "tips[2].text": "Ein Ding, das eine Aufgabe erledigt und auf -er endet, hat fast immer der: der Feuerlöscher, der Wasserspender, der Kronleuchter, der Schirmständer. Stell dir einen Portier in der Lobby vor, der jedes davon in der Hand hält. Dann bleibt das der hängen.",
+ "tips[2].check.why": "Der Leuchter ist ein Gerät auf -er, also heißt das ganze Wort der Kronleuchter.",
+ "remember[0]": "Der letzte Teil eines zusammengesetzten Nomens bestimmt den Artikel: die Tischklingel wegen die Klingel.",
+ "remember[1]": "Geräte auf -er haben der: der Feuerlöscher, der Wasserspender, der Kronleuchter.",
+ "remember[2]": "Gleicher Anfang, neuer Artikel: das Klavier, aber die Klavierbank."
+}

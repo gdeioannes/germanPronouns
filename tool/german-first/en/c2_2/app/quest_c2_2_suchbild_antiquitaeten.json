@@ -1,0 +1,23 @@
+{
+ "hook": "A crowded antique shop full of rare old things: find each one in the picture, then give it its article.",
+ "intro": "A picture hunt instead of a deck: one crowded antique shop with 32 old things to find in it, every one a precise noun you rarely need until you walk into a place like this — der Sekretär, das Spinnrad, die Balkenwaage, das Butterfass, der Paravent. The prompt asks Wo ist die Registrierkasse? The prompt asks for one object, and you tap it in the picture. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Registrierkasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+ "tips[0].title": "Compounds in the antique shop: the last part decides",
+ "tips[0].text": "Most of the shop is compounds, and the last part decides the article, however unusual the first part is. Butter + Fass: das Fass, so das Butterfass. Kaffee + Mühle: die Mühle, so die Kaffeemühle. Schirm + Ständer: der Ständer, so der Schirmständer.",
+ "tips[0].check.why": "The last part is der Sessel, so the whole word is der Ohrensessel.",
+ "tips[1].title": "Same thing, different word, different gender",
+ "tips[1].text": "Two clocks, two different last parts: die Standuhr and die Sanduhr both end in die Uhr, but das Pendel inside the clock is neuter. And a desk is der Tisch, yet the bureau is der Sekretär, while the counter is die Ladentheke. Learn each word with its own article, never by the meaning.",
+ "tips[1].check.why": "Pendel is neuter: das Pendel, plural die Pendel.",
+ "tips[2].title": "Loanwords keep a gender of their own",
+ "tips[2].text": "Many antique-shop words came from French or Greek: der Sekretär, der Paravent, das Grammophon, das Akkordeon, der Globus. Say them aloud with the article as one unit — der Paravent, das Grammophon — and the colour on the label (blue der, red die, green das) gives your eye a second hook.",
+ "tips[2].check.why": "Globus is masculine; its plural is die Globen.",
+ "tips[2].visual.rows[0].parts[0].text": "Grammophon",
+ "tips[2].visual.rows[0].result": "das Grammophon",
+ "tips[2].visual.rows[1].parts[0].text": "Kommode",
+ "tips[2].visual.rows[1].result": "die Kommode",
+ "tips[2].visual.rows[2].parts[0].text": "Sekretär",
+ "tips[2].visual.rows[2].result": "der Sekretär",
+ "tips[2].visual.rows[2].en": "writing desk",
+ "remember[0]": "The last part of a compound sets the article: die Mühle → die Kaffeemühle, das Fass → das Butterfass.",
+ "remember[1]": "Loanwords have their own gender: der Sekretär, der Paravent, das Grammophon, das Akkordeon.",
+ "remember[2]": "Der Globus has an unusual plural: die Globen."
+}

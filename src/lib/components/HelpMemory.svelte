@@ -1,5 +1,8 @@
 <script lang="ts" module>
 	import type { Quiz } from '$lib/content/types';
+	import EnglishLine from '$lib/components/EnglishLine.svelte';
+	import EnglishToggle from '$lib/components/EnglishToggle.svelte';
+	import EnglishPanel from '$lib/components/EnglishPanel.svelte';
 	import { helpTableFor } from '$lib/domain/help-table';
 	import type { VocabEntry } from '$lib/domain/vocab';
 
@@ -51,6 +54,9 @@
 		deckHref = null
 	}: { quiz: Quiz; locale?: string; vocab?: VocabEntry[]; deckHref?: string | null } = $props();
 
+	/** Which German explanations have their English open. */
+	let openEnglish = $state<Record<string, boolean>>({});
+
 	const help = $derived(quiz.help);
 	const quizId = $derived(quiz.id);
 	// An authored table wins; the grid's own answer key is the fallback.
@@ -90,32 +96,44 @@
 
 </script>
 
+{#snippet prose(text: string)}
+	{#if help?.german}<span lang={locale}><GermanText {text} /></span>{:else}{text}{/if}
+{/snippet}
+
 {#if hasContent}
 	<section class="help">
 		<div class="body" id="help-{quizId}">
 				<!-- 1 · The idea -->
 				{#if help?.intro}
-					<p class="intro">{help.intro}</p>
+					<p class="intro">{@render prose(help.intro)}</p>
+					{#if help.german && help.introEn}
+						<EnglishToggle bind:open={openEnglish.intro} />
+						{#if openEnglish.intro}<EnglishPanel lines={[help.introEn]} />{/if}
+					{/if}
 				{/if}
 
 				<!-- 2 · Rule cards. They stagger in, so the panel reads as a short
 				     list rather than a wall that appears all at once. -->
 				{#each help?.tips ?? [] as tip, t (t)}
 					<div class="tip" data-kind={tip.kind ?? 'rule'}>
-						{#if tip.title}<h4>{tip.title}</h4>{/if}
-						<p>{tip.text}</p>
+						{#if tip.title}<h4>{@render prose(tip.title)}</h4>{/if}
+						<p>{@render prose(tip.text)}</p>
+						{#if help?.german && tip.en}
+							<EnglishToggle bind:open={openEnglish[`tip${t}`]} />
+							{#if openEnglish[`tip${t}`]}<EnglishPanel lines={[tip.en.title, tip.en.text, tip.en.trap].filter((x) => !!x) as string[]} />{/if}
+						{/if}
 						{#if tip.examples?.length}
 							<ul class="examples">
 								{#each tip.examples as ex, e (e)}
 									<li>
 										<span class="de" lang={locale}><GermanText text={ex.de} /></span>
-										<span class="en">{ex.en}</span>
+										<span class="en"><EnglishLine text={ex.en} level={quiz.level} /></span>
 									</li>
 								{/each}
 							</ul>
 						{/if}
 						{#if tip.trap}
-							<p class="trap"><Icon name="close" size="0.95em" /> <span>{tip.trap.replace(/^E\d+\s*[—-]\s*/, '')}</span></p>
+							<p class="trap"><Icon name="close" size="0.95em" /> <span>{@render prose(tip.trap.replace(/^E\d+\s*[—-]\s*/, ''))}</span></p>
 						{/if}
 					</div>
 				{/each}
@@ -227,7 +245,7 @@
 					<h4 class="section-head">In context</h4>
 					<div class="context">
 						<p class="de" lang={locale}><GermanText text={help.context.de} /> <SpeakButton text={speakable(help.context.de)} {locale} /></p>
-						<p class="en">{help.context.en}</p>
+						<p class="en"><EnglishLine text={help.context.en} level={quiz.level} /></p>
 					</div>
 				{/if}
 
@@ -240,7 +258,7 @@
 								<span class="wrong" lang={locale}>{m.wrong}</span>
 								<span class="arrow">→</span>
 								<span class="right" lang={locale}>{m.right}</span>
-								<small>{m.why}</small>
+								<small>{@render prose(m.why)}</small>
 							</li>
 						{/each}
 					</ul>
@@ -249,6 +267,10 @@
 				<!-- 7 · In the exam -->
 				{#if help?.exam}
 					<p class="exam"><Icon name="trophy" size="1em" /> <span>{help.exam}</span></p>
+					{#if help.german && help.examEn}
+						<EnglishToggle bind:open={openEnglish.exam} />
+						{#if openEnglish.exam}<EnglishPanel lines={[help.examEn]} />{/if}
+					{/if}
 				{/if}
 		</div>
 	</section>

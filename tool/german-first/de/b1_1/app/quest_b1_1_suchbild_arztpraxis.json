@@ -1,0 +1,16 @@
+{
+ "hook": "Ein Untersuchungszimmer beim Arzt voller Dinge: Tippe jeden Gegenstand im Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Suche im Bild statt Karten: ein Untersuchungszimmer beim Arzt mit 32 Dingen. Alle sind Nomen, die du beim Arztbesuch hörst: die Untersuchungsliege, das Stethoskop, der Rollstuhl, das Blutdruckmessgerät an der Wand. Die Aufgabe fragt Wo ist die Spritze?, und du tippst im Bild darauf. Jeder Fund zeigt sein Schild in der Farbe von seinem Artikel und lässt dann ein kleines Häkchen in dieser Farbe da. So siehst du, was du schon gefunden hast. Hast du eine Runde geschafft, wird die Suche schwerer: Die Aufgabe versteckt den Artikel (Wo ist ___ Spritze?), und nach dem Fund wählst du selbst der, die oder das. Ein Tipp auf die leere Wand kostet nichts. Tippst du auf das falsche Ding, sagt dir die App, was du getroffen hast, und du suchst weiter. Nach drei Fehlern zeigt sie dir das richtige Ding. Kein Ding kommt zweimal in derselben Runde.",
+ "tips[0].title": "Zusammengesetzte Wörter in der Praxis: Der letzte Teil entscheidet",
+ "tips[0].text": "Wörter aus der Medizin sind lang, aber nur der letzte Teil bestimmt den Artikel. Untersuchung + Liege: die Liege, also die Untersuchungsliege. Medizin + Schrank: der Schrank, also der Medizinschrank. Blutdruck + Messgerät: das Gerät, also das Blutdruckmessgerät.",
+ "tips[0].check.why": "Der letzte Teil ist der Spender, also heißt das ganze Wort der Seifenspender.",
+ "tips[1].title": "Instrumente auf -skop sind neutral",
+ "tips[1].text": "Instrumente zum Sehen auf -skop haben immer das: das Stethoskop, das Mikroskop. In diesem Zimmer gibt es noch zwei neutrale Familien: Wörter mit das Gerät (das Blutdruckmessgerät) und mit das Mittel (das Desinfektionsmittel).",
+ "tips[1].check.why": "Instrumente auf -skop sind neutral: das Stethoskop, das Mikroskop, das Teleskop.",
+ "tips[2].title": "Endet auf -e? Rate die",
+ "tips[2].text": "Die meisten Nomen auf -e sind feminin, und dieses Zimmer ist voll davon: die Spritze, die Krücke, die Waage, die Mullbinde, die Arzttasche. Findest du eins, sag es laut mit die. Das rote Schild zeigt dir, dass du recht hattest.",
+ "tips[2].check.why": "Waage endet auf -e, und wie die meisten Nomen auf -e ist es feminin: die Waage.",
+ "remember[0]": "Der letzte Teil eines zusammengesetzten Worts bestimmt den Artikel: der Medizinschrank, die Untersuchungsliege, das Blutdruckmessgerät.",
+ "remember[1]": "Instrumente auf -skop haben das: das Stethoskop, das Mikroskop.",
+ "remember[2]": "Nomen auf -e haben meistens die: die Spritze, die Krücke, die Waage."
+}

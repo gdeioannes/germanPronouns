@@ -7,7 +7,7 @@
 	import ClockFace from './ClockFace.svelte';
 	import Self from './LearnBlock.svelte';
 
-	let { block }: { block: LearnBlock } = $props();
+	let { block, german = false }: { block: LearnBlock; german?: boolean } = $props();
 
 	/** der/die/das/plural heads → their gender colour class, for tables flagged `genders`. */
 	const GENDER: Record<string, string> = { der: 'g-m', die: 'g-f', das: 'g-n', plural: 'g-p' };
@@ -26,8 +26,8 @@
 		<div class="fl-q">
 			<p class="fl-ask">{@html rich(n.q)}</p>
 			<div class="fl-branches">
-				<div class="fl-branch"><span class="fl-yn">yes</span>{@render flowNode(n.yes)}</div>
-				<div class="fl-branch"><span class="fl-yn">no</span>{@render flowNode(n.no)}</div>
+				<div class="fl-branch"><span class="fl-yn">{german ? 'ja' : 'yes'}</span>{@render flowNode(n.yes)}</div>
+				<div class="fl-branch"><span class="fl-yn">{german ? 'nein' : 'no'}</span>{@render flowNode(n.no)}</div>
 			</div>
 		</div>
 	{:else}
@@ -40,7 +40,7 @@
 
 {#if block.kind === 'columns'}
 	<div class="columns">
-		{#each block.blocks as b, i (i)}<div><Self block={b} /></div>{/each}
+		{#each block.blocks as b, i (i)}<div><Self block={b} {german} /></div>{/each}
 	</div>
 {:else if block.kind === 'tiles'}
 	<section class="block">
@@ -304,7 +304,7 @@
 	</section>
 {:else if block.kind === 'box'}
 	<aside class="box {block.tone}" class:has-image={block.image}>
-		<p class="label">{block.tone === 'watch' ? 'Watch out' : block.tone === 'culture' ? 'In Germany' : 'Tip'}</p>
+		<p class="label">{block.label ?? (german ? (block.tone === 'watch' ? 'Achtung' : block.tone === 'culture' ? 'In Deutschland' : 'Tipp') : block.tone === 'watch' ? 'Watch out' : block.tone === 'culture' ? 'In Germany' : 'Tip')}</p>
 		<h4>{block.title}</h4>
 		<p>{@html rich(block.text)}</p>
 		{#if block.image}<img src="/img/{block.image}.webp" alt="" width="1024" height="1024" />{/if}

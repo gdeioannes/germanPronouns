@@ -1,0 +1,22 @@
+{
+ "intro": "Ein Kontrollpunkt von drei Minuten zur ersten Hälfte dieses Moduls, in deinem eigenen KI-Assistenten mit eingeschalteter Stimme: eine kurze Botschaft, auf drei Arten gesagt. Der Tutor gibt dir eine Situation (ein verschobenes Treffen, ein stockendes Projekt) und will sie zuerst so hören, wie du sie einem Ausschuss vortragen würdest, dann so, wie du sie einem Freund erzählen würdest, und dann als Bericht an eine dritte Person. Er achtet auf vier Dinge: ein formelles Register aus Nomen, Abschwächungen und der passenden Kollokation aus Verb und Nomen; ein umgangssprachliches Register aus Modalpartikeln, Ellipsen (ausgelassenen Satzteilen) und kurzen Sätzen; einen sauberen Wechsel, bei dem der ganze Satz umgebaut wird, statt dass nur ein Wort ausgetauscht wird; und einen Bericht im Konjunktiv I (der Verbform der indirekten Rede), der über mehr als einen Satz durchgehalten wird. Sprich in ganzen Sätzen; tipp „Ende“ für die Bewertung.",
+ "tips[0].title": "Formell: Nomen, Abschwächungen und das passende Verb",
+ "tips[0].text": "Pack die Handlung in ein Nomen (die Verschiebung des Termins), schwäch die Aussage ab (nach derzeitigem Stand, weitgehend, gewissermaßen) und gib dem Nomen sein eigenes Verb (eine Entscheidung treffen, Maßnahmen ergreifen, Bedenken anmelden).",
+ "tips[0].check.why": "Im formellen Register hat Bedenken sein eigenes Verb: Bedenken anmelden.",
+ "tips[1].title": "Umgangssprachlich: Partikeln, Ellipsen, kurze Sätze",
+ "tips[1].text": "Die gesprochene Sprache lässt Subjekt oder Artikel weg, wo der Zusammenhang sie trägt (Weiß ich nicht. Wird später.), fügt Modalpartikeln hinzu (halt, eben, ja, mal) und reiht kurze Hauptsätze aneinander, statt unterzuordnen.",
+ "tips[1].check.why": "Das weggelassene Subjekt und die Partikel halt kennzeichnen gesprochenes Deutsch; die anderen beiden sind nominal und formell.",
+ "tips[2].title": "Wechsle den ganzen Satz, nie den halben",
+ "tips[2].text": "Wenn der Tutor das andere Register verlangt, bau den Satz um: Satzbau, Verb, Nomen und Partikeln bewegen sich gemeinsam. Eine Nominalgruppe in einem Plaudersatz oder halt in einem amtlichen Satz ist die Mischung, die einem Zuhörer sofort auffällt.",
+ "tips[2].trap": "Die Umsetzung erfolgt halt zeitnah: Ein formeller Satz mit umgangssprachlicher Partikel gehört zu keinem der beiden Register.",
+ "tips[2].check.why": "Die anderen beiden mischen einen formellen Rahmen mit Sprechpartikeln (halt, eben, weißt du) und gehören zu keinem der beiden Register.",
+ "tips[2].visual.left": "zu einem Freund",
+ "tips[2].visual.right": "zu einem Ausschuss",
+ "tips[3].title": "Gib wieder und halte den Konjunktiv I durch",
+ "tips[3].text": "„Wir haben alles versucht. Die Lage ist ernst.“ → Er sagte, man habe alles versucht; die Lage sei ernst. Ein einleitendes Verb, dann Konjunktiv I in jedem folgenden Satz: Rutsch nicht in den Indikativ zurück.",
+ "tips[3].check.why": "Beginnt der Bericht einmal im Konjunktiv I (sei), bleibt jeder folgende Satz darin: man müsse.",
+ "remember[0]": "Formell = Nomen + Abschwächung + passendes Verb; umgangssprachlich = Partikel + Ellipse + kurzer Satz.",
+ "remember[1]": "Bau beim Wechsel den ganzen Satz um.",
+ "remember[2]": "Ein einleitendes Verb, dann durchgehend Konjunktiv I.",
+ "hook": "Sag dieselbe Nachricht auf drei Arten, einem Ausschuss, einem Freund und als Bericht, und halte jedes Register von Anfang bis Ende sauber."
+}

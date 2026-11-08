@@ -1,0 +1,19 @@
+{
+ "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: reporting what someone said, saying what must be done, and using verbs with their prepositions. The tutor gives you a short statement and asks you to report it (Was hat sie gesagt?), describes a situation and asks what has to happen (Was muss gemacht werden?), and asks about interests and plans (Wofür interessieren Sie sich? Worauf freuen Sie sich?). It listens for the Konjunktiv I in the third person (er sei, sie habe, es werde), for the modal passive frame (muss … werden), and for the right prepositions with da(r)-forms. Speak in full sentences; say 'Ende' if you need to stop early.",
+ "tips[0].title": "Report with sei / habe / werde",
+ "tips[0].text": "Sie sagte, sie sei müde und habe keine Zeit; sie werde morgen anrufen. Third person, stem + -e, sein → sei.",
+ "tips[0].check.why": "sein has the irregular Konjunktiv I sei, and the reported tense stays present, so not war.",
+ "tips[0].visual.left": "he said",
+ "tips[0].visual.right": "you report",
+ "tips[0].visual.rows[0].a": "„Ich bin müde.“",
+ "tips[0].visual.rows[0].b": "Er sagt, er sei müde.",
+ "tips[1].title": "Say what must be done in the passive",
+ "tips[1].text": "Das Fenster muss repariert werden. Die Gäste müssen informiert werden. Modal at 2, participle + werden at the end.",
+ "tips[1].check.why": "The modal passive puts the modal at 2 and participle + werden at the end, participle first.",
+ "tips[2].title": "Interests and plans with the right preposition",
+ "tips[2].text": "Ich interessiere mich für Politik. Ich freue mich auf den Urlaub. With a clause: Ich interessiere mich dafür, wie das funktioniert. Ich freue mich darauf, dass ihr kommt. The preposition is part of the verb; the da(r)-word carries it in front of the comma.",
+ "tips[2].check.why": "Looking forward to something in the future is sich freuen auf, so the da-word in front of the clause is darauf.",
+ "remember[0]": "sei / habe / werde for reports; muss … werden for necessities.",
+ "remember[1]": "Ich interessiere mich dafür, … / Ich freue mich darauf, …",
+ "hook": "In three spoken minutes, report what someone said, say what has to be done and talk about your plans."
+}

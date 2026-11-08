@@ -1,0 +1,16 @@
+{
+ "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on. The tutor asks what you would do in a few situations (Was würdest du machen, wenn …?) and asks you to describe things with adjectives (Wie ist deine Wohnung?). It listens for two things: the Konjunktiv II on both sides of a wenn-sentence (hätte / wäre in the wenn-clause, würde in the main clause), and the adjective endings after der- and ein-words. Answer in full sentences, take your time over each ending, and use the umlaut forms — hätte, wäre, könnte — rather than falling back to the present tense.",
+ "tips[0].title": "Answer a wenn-question with the same mood",
+ "tips[0].text": "Was würdest du machen, wenn du reich wärst? – Wenn ich reich wäre, würde ich … Mirror the wäre, then continue with würde.",
+ "tips[0].check.why": "Mirror the question's mood: hätte in the wenn-clause, würde in the main clause.",
+ "tips[0].visual.left": "question",
+ "tips[0].visual.right": "answer",
+ "tips[0].visual.rows[0].a": "Was würdest du machen, wenn du reich wärst?",
+ "tips[0].visual.rows[0].b": "Wenn ich reich wäre, würde ich reisen.",
+ "tips[1].title": "Describe with the ending in place",
+ "tips[1].text": "Ich habe eine kleine Wohnung mit einem großen Balkon. Der alte Tisch steht im hellen Wohnzimmer. Say the ending, don't swallow it.",
+ "tips[1].check.why": "der Garten is masculine and einen is accusative, so the adjective ends in -en: einen schönen Garten.",
+ "remember[0]": "wenn + hätte/wäre, main clause + würde.",
+ "remember[1]": "ein großer / eine große / ein großes — say the ending.",
+ "hook": "Talk through a few what-if situations and describe your home out loud, with every hätte, wäre and ending in place."
+}

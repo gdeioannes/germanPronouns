@@ -1,0 +1,16 @@
+{
+ "hook": "Ein kleines Forschungslabor voller Geräte zum Finden: Tippe jedes auf dem Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche in einem kleinen, etwas vollgestellten Forschungslabor mit 32 Dingen zum Finden. Jedes ist ein Nomen, das dir begegnet, wenn es um Forschung und Experimente geht: der Bunsenbrenner im Abzug, das Stativ mit seinem Trichter, die Zentrifuge am Waschbecken, das Fossil im Regal. Die Aufgabe fragt Wo ist der Erlenmeyerkolben?, und du tippst darauf. Jeder Fund zeigt seine Beschriftung in der Farbe seines Genus und hinterlässt dann einen kleinen Haken in dieser Farbe. So siehst du, was du schon gefunden hast. Hast du einen Durchgang bestanden, wird die Suche schwerer: Die Aufgabe versteckt den Artikel (Wo ist ___ Erlenmeyerkolben?), und nach dem Fund wählst du selbst der, die oder das. Ein Tipp auf die leere Wand kostet nichts. Ein Tipp auf das falsche Ding sagt dir, was du getroffen hast, und du suchst weiter. Nach drei Fehlern wird das richtige Ding gezeigt. Kein Ding wird im selben Durchgang zweimal gefragt.",
+ "tips[0].title": "Zusammengesetzte Wörter im Labor: Der letzte Teil entscheidet",
+ "tips[0].text": "Wörter im Labor sind lang, aber der letzte Teil entscheidet über den Artikel. Reagenzglas + Ständer: der Ständer, also der Reagenzglasständer. Gas + Flasche: die Flasche, also die Gasflasche, und ebenso die Tropfflasche. Lies bis zum Ende des Worts, bevor du wählst.",
+ "tips[0].check.why": "Der letzte Teil ist der Ständer, also heißt das ganze Wort der Reagenzglasständer, auch wenn das Reagenzglas vorn steht.",
+ "tips[1].title": "Werkzeuge auf -er sind maskulin, aber nicht das Fenster",
+ "tips[1].text": "Ein Ding, das eine Aufgabe erledigt und auf -er endet, ist maskulin: der Bunsenbrenner, der Feuerlöscher, der Trichter, der Hocker. Aber nicht jedes Wort auf -er ist ein Werkzeug: das Fenster ist neutral, und das Waschbecken auch, das nur ähnlich klingt.",
+ "tips[1].check.why": "Ein Brenner ist ein Gerät, das brennt, gebaut aus brennen + -er, also der Bunsenbrenner.",
+ "tips[2].title": "Fremdwörter im Labor: Hör auf die Endung",
+ "tips[2].text": "Viele Wörter aus der Wissenschaft kommen aus dem Lateinischen, Griechischen oder Französischen, und ihre Endungen tragen das Genus. -ie, -ette und -uge sind feminin: die Batterie, die Pinzette, die Zentrifuge. -ium, -op, -iv und -il sind neutral: das Aquarium, das Teleskop, das Stativ, das Fossil.",
+ "tips[2].check.why": "Wörter auf -uge wie die Zentrifuge sind feminin.",
+ "remember[0]": "Der letzte Teil eines zusammengesetzten Worts bestimmt den Artikel: das Reagenzglas + der Ständer → der Reagenzglasständer.",
+ "remember[1]": "Geräte auf -er haben der (der Bunsenbrenner, der Feuerlöscher), aber das Fenster ist neutral.",
+ "remember[2]": "Endungen von Fremdwörtern helfen: -ie, -ette, -uge → die; -ium, -op, -iv → das."
+}

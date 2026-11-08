@@ -2,6 +2,9 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import Book2 from '$lib/components/book2/Book2.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import SiteNav from '$lib/components/SiteNav.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
+	import { page } from '$app/state';
 	import type { PageData } from './$types';
 
 	import { onMount } from 'svelte';
@@ -13,8 +16,14 @@
 	let spine = $state(7.4);
 	let hd = $state(false);
 	let ready = $state(false);
+	// The way back: the books list when it sent you here (?from=books), else
+	// wherever the trip started (home or the deck), like any side trip.
+	let fromBooks = $state(false);
+	const courseHref = $derived(page.data.site?.courseHref ?? '/');
+	const back = $derived(fromBooks ? { href: '/books', label: 'The books' } : { href: returnTo.path, label: returnLabel(returnTo.path) });
 	onMount(() => {
 		const q = new URLSearchParams(window.location.search);
+		fromBooks = q.get('from') === 'books';
 		cover = q.has('cover');
 		spine = Number(q.get('spine') ?? 7.4);
 		hd = q.has('hd');
@@ -28,9 +37,14 @@
 	{@html cover ? `<style>@page { size: ${420 + spine + 6}mm 303mm; margin: 0; }</style>` : '<style>@page { size: A4; margin: 0; }</style>'}
 </svelte:head>
 
+{#if !cover}
+	<div class="chrome"><SiteNav {courseHref} compact /></div>
+{/if}
+
 <main data-ready={ready}>
 	{#if !cover}
 		<div class="dl-bar">
+			<a class="back-link" href={back.href}><Icon name="arrowLeft" size="1em" /> {back.label}</a>
 			<span><strong>{data.book.title}</strong> · {data.book.subtitle} · {data.book.chapters.length} chapters</span>
 			<a class="btn" href="/books/v2/{data.book.courseId}_{data.book.level.toLowerCase().replace('.', '_')}.pdf" download>
 				<Icon name="download" size="1em" /> Download the PDF
@@ -41,6 +55,23 @@
 </main>
 
 <style>
+	/* The bar below stays pinned; the nav scrolls away with the page rather
+	   than stacking two sticky bars. */
+	.chrome :global(.mini) {
+		position: static;
+		transform: none;
+	}
+
+	.back-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		margin-right: auto;
+		color: var(--accent-ink);
+		font-weight: 700;
+		text-decoration: none;
+	}
+
 	.dl-bar {
 		position: sticky;
 		top: 0;
@@ -56,6 +87,7 @@
 	}
 
 	@media print {
+		.chrome,
 		.dl-bar {
 			display: none;
 		}

@@ -16,6 +16,18 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-08",
+    title: "From B1, German comes first",
+    items: [
+      "All twelve books are on one page now, The books, in the Library menu. Reading a book online has the menu on top and a way back to where you came from.",
+      "In the books, words without a picture sit in a tidy list under the picture tiles instead of leaving holes, and a few more words got their picture.",
+      "From B1 up, translations of sentences wait behind an English button, so you try the German first. Word meanings are still one tap away. If you prefer them always on, there is a switch in Settings.",
+      "The B1 to C2 books no longer print a translation under each reading.",
+      "Every explanation from B1 to C2 is now in German, in the app and in the books, written for your level. In the app, an English button next to each rule shows it in English whenever you need it.",
+      "A new A2.2 lesson, Grammatikwörter, teaches the German words for grammar first, and the B1 to C2 books list them with their English at the front."
+    ],
+  },
+  {
     date: "2026-11-06",
     title: "Eleven new books: the whole course, from A1 to C2",
     items: [

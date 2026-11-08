@@ -171,6 +171,8 @@ class ProgressStore {
 	muted = $state(false);
 	/** Surprises in the deck: stories, songs, Ja oder Nein? and Wortblöcke. */
 	surprises = $state(true);
+	/** Translations stay visible from B1 too, instead of waiting behind a tap. */
+	alwaysEnglish = $state(false);
 	/**
 	 * Listening exercises (dictation, listen-and-answer) offer a "Show the
 	 * text" button, for a learner who can't hear the audio. Off by default:
@@ -230,6 +232,7 @@ class ProgressStore {
 		setSoundEffects(this.soundEffects);
 		this.muted = (await storage.get(SettingsKeys.muted)) === 'true';
 		this.surprises = (await storage.get(SettingsKeys.surprises)) !== 'false';
+		this.alwaysEnglish = (await storage.get(SettingsKeys.alwaysEnglish)) === 'true';
 		setMuted(this.muted);
 		this.showTranscripts = (await storage.get(SettingsKeys.showTranscripts)) === 'true';
 		this.autoSpeak = (await storage.get(SettingsKeys.autoSpeak)) !== 'false';
@@ -684,6 +687,11 @@ class ProgressStore {
 	async setSurprises(value: boolean): Promise<void> {
 		this.surprises = value;
 		await storage.set(SettingsKeys.surprises, String(value));
+	}
+
+	async setAlwaysEnglish(value: boolean): Promise<void> {
+		this.alwaysEnglish = value;
+		await storage.set(SettingsKeys.alwaysEnglish, String(value));
 	}
 
 	async setShowTranscripts(value: boolean): Promise<void> {

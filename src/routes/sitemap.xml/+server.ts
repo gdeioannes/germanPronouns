@@ -29,6 +29,7 @@ export const GET: RequestHandler = async () => {
 		{ loc: '/songs', lastmod: lastModified('src/lib/domain/songs.ts'), priority: '0.6' },
 		{ loc: '/stories', lastmod: lastModified('src/lib/domain/stories.ts'), priority: '0.6' },
 		{ loc: '/literature', lastmod: lastModified('src/lib/content/literature.ts'), priority: '0.6' },
+		{ loc: '/books', lastmod: lastModified('src/lib/content/books.ts', 'static/books/v2'), priority: '0.7' },
 		{ loc: '/level-check', lastmod: lastModified('src/routes/level-check'), priority: '0.7' },
 		{ loc: '/level-check/test', lastmod: lastModified('src/routes/level-check/test', 'src/lib/domain/placement.ts'), priority: '0.7' },
 		{ loc: '/level-check/words', lastmod: lastModified('src/routes/level-check', 'assets/content/wordcheck/de.json'), priority: '0.7' },

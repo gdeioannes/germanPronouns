@@ -10,6 +10,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
 	import GermanText from '../GermanText.svelte';
+	import EnglishLine from '$lib/components/EnglishLine.svelte';
 	import { freshen, pop, rise } from '$lib/motion';
 	import { matchesSpoken } from '$lib/domain/answers';
 	import { stt, tts } from '$lib/services/speech';
@@ -143,7 +144,7 @@
 			<SpeakButton text={phrase.text} {locale} />
 		</p>
 		{#if phrase.translation}
-			<p class="translation">{phrase.translation}</p>
+			<p class="translation"><EnglishLine text={phrase.translation} level={quiz.level} /></p>
 		{/if}
 
 		<div class="controls">

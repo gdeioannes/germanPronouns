@@ -1,0 +1,16 @@
+{
+ "hook": "Eine Tischlerei voller Spezialwerkzeug: Tipp alles im Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt eines Kartenstapels: eine geschäftige Tischlerei mit 32 Dingen zum Finden, jedes ein genaues Handwerkswort, das das normale Gespräch selten braucht: der Hobel, die Schraubzwinge, das Senklot, der Klüpfel an der Lochwand. Die Aufgabe fragt Wo ist der Zollstock?, und du tippst ihn im Bild an. Jeder Fund zeigt seine Beschriftung, gefärbt nach dem Genus, und hinterlässt dann ein kleines Häkchen in dieser Farbe, damit du siehst, was du schon gefunden hast. Sobald du einen Durchgang bestanden hast, wird die Suche schwieriger: Die Aufgabe verbirgt den Artikel (Wo ist ___ Zollstock?), und nach dem Fund wählst du selbst der, die oder das. Ein Tipp auf die nackte Wand kostet nichts; ein Tipp auf den falschen Gegenstand sagt dir, was du getroffen hast, und du suchst weiter, und nach drei Fehlversuchen wird der richtige gezeigt. Kein Gegenstand wird im selben Durchgang zweimal abgefragt.",
+ "tips[0].title": "Der letzte Teil eines Kompositums entscheidet",
+ "tips[0].text": "Die meisten Werkzeuge hier sind Komposita, und nur der letzte Teil zählt. Schraube + Zwinge: die Zwinge, also die Schraubzwinge. Hobel + Bank: die Bank, also die Hobelbank, auch wenn der Hobel obendrauf liegt.",
+ "tips[0].check.why": "Der letzte Teil ist die Waage, also heißt das ganze Wort die Wasserwaage.",
+ "tips[1].title": "Gleicher erster Teil, anderer Artikel",
+ "tips[1].text": "Säge, Hobel und Schraube stehen hier alle am Anfang von Komposita, aber das Genus bestimmt jedes Mal das Ende: die Bandsäge, aber der Sägebock und das Sägeblatt; der Hobel, aber die Hobelbank. Übernimm nie den Artikel des ersten Wortes.",
+ "tips[1].check.why": "Der letzte Teil ist der Stock, also heißt es der Schraubstock; der erste Teil, die Schraube, zählt nicht.",
+ "tips[2].title": "Werkzeuge auf -er sind der, -eisen ist das, -chen ist das",
+ "tips[2].text": "Ein Gerät, das mit -er nach seiner Tätigkeit benannt ist, ist maskulin: der Akkuschrauber, der Hobel, der Klüpfel. Wörter auf der Grundlage von das Eisen bleiben neutral: das Stemmeisen. Kleine Dinge auf -chen sind immer das: das Ölkännchen.",
+ "tips[2].check.why": "Jedes Nomen auf -chen ist neutral, egal von welchem Wort es kommt (die Kanne → das Kännchen).",
+ "remember[0]": "Der letzte Teil eines Kompositums bestimmt den Artikel: die Schraube + die Zwinge → die Schraubzwinge, aber die Schraube + der Stock → der Schraubstock.",
+ "remember[1]": "-chen macht ein Nomen immer zu das: die Kanne → das Ölkännchen.",
+ "remember[2]": "Der Fuchsschwanz ist die Handsäge des Tischlers, nicht nur der Schwanz eines Fuchses."
+}

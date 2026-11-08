@@ -19,6 +19,7 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { LITERATURE, bookRequestHref } from '$lib/content/literature';
+	import { BOOKS } from '$lib/content/books';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { track } from '$lib/services/analytics';
 	import type { PageData } from './$types';
@@ -31,19 +32,7 @@
 	// for good in this browser once it is clicked, and only then: scrolling
 	// past the offer does not count.
 	// The rest of the shelf after A1.1: one free PDF per level (Book v2).
-	const SHELF = [
-		{ level: 'A1.2', file: 'a1_2', cover: 'a1-2', sub: 'Im Alltag', mb: 33 },
-		{ level: 'A2.1', file: 'a2_1', cover: 'a2-1', sub: 'Erlebnisse', mb: 30 },
-		{ level: 'A2.2', file: 'a2_2', cover: 'a2-2', sub: 'Beschreiben & Planen', mb: 33 },
-		{ level: 'B1.1', file: 'b1_1', cover: 'b1-1', sub: 'Meinungen & Wünsche', mb: 29 },
-		{ level: 'B1.2', file: 'b1_2', cover: 'b1-2', sub: 'Erzählen & Begründen', mb: 31 },
-		{ level: 'B2.1', file: 'b2_1', cover: 'b2-1', sub: 'Berichten & Argumentieren', mb: 27 },
-		{ level: 'B2.2', file: 'b2_2', cover: 'b2-2', sub: 'Was wäre, wenn?', mb: 29 },
-		{ level: 'C1.1', file: 'c1_1', cover: 'c1-1', sub: 'Verdichten & Verbinden', mb: 27 },
-		{ level: 'C1.2', file: 'c1_2', cover: 'c1-2', sub: 'Andeuten & Formulieren', mb: 27 },
-		{ level: 'C2.1', file: 'c2_1', cover: 'c2-1', sub: 'Stil & Register', mb: 24 },
-		{ level: 'C2.2', file: 'c2_2', cover: 'c2-2', sub: 'Zwischen den Zeilen', mb: 23 }
-	];
+	const SHELF = BOOKS.slice(1);
 
 	const OFFERS = [
 		{ id: 'book', title: 'The books, A1 to C2', note: 'free PDFs' },

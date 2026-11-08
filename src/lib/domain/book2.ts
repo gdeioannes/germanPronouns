@@ -35,6 +35,8 @@ export interface GrammarPage {
 }
 
 export interface Chapter {
+	/** The chapter is written in German: the page labels drop their English too. */
+	german?: boolean;
 	id: string;
 	n: number;
 	title: string;
@@ -149,7 +151,9 @@ export function pictureCheck(c: Chapter): Exercise {
 	const picked = words.filter((_, i) => i % step === 0).slice(0, 12);
 	return {
 		title: 'Bilder-Check',
-		instruction: 'Write each word with der, die or das. No peeking at the word page.',
+		instruction: c.german
+			? 'Schreib jedes Wort mit der, die oder das. Nicht auf der Wörterseite nachsehen!'
+			: 'Write each word with der, die or das. No peeking at the word page.',
 		kind: 'tags',
 		items: picked.map((w) => ({ image: w.image!, label: '', answer: w.de }))
 	};

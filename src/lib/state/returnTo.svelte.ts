@@ -10,6 +10,7 @@ const SIDE_TRIPS = [
 	/^\/words(\/|$)/,
 	/^\/stories\/?$/,
 	/^\/literature\/?$/,
+	/^\/books\/?$/,
 	/^\/level-check(\/|$)/,
 	/^\/songs?(\/|$)/,
 	/^\/play\/schreib-mir(\/|$)/,
@@ -21,7 +22,7 @@ const SIDE_TRIPS = [
 	/^\/changelog\/?$/,
 	/^\/forum(\/|$)/,
 	/^\/signin\/?$/,
-	/^\/course\/[^/]+\/(worksheet|workbook)(\/|$)/
+	/^\/course\/[^/]+\/(worksheet|workbook|book2)(\/|$)/
 ];
 
 const KEY = 'returnTo';

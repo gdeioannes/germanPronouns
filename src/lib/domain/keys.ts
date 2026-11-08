@@ -37,6 +37,7 @@ export const SettingsKeys = {
 	soundEffects: 'sound_effects',
 	/** Web-only. Only an explicit "false" turns them off: the deck's surprise cards (stories, songs, games). */
 	surprises: 'deck_surprises',
+	alwaysEnglish: 'always_english',
 	/** Web-only. Silences sound effects and the read-aloud voice alike. */
 	muted: 'app_muted',
 	/** Web-only. Listening exercises offer their text for learners who can't hear it. */

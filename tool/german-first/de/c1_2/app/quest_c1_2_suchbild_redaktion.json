@@ -1,0 +1,16 @@
+{
+ "hook": "Eine leere Redaktion voller präziser Büronomen: Tippe jedes Objekt im Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt eines Kartenstapels: eine Zeitungsredaktion, nachdem alle nach Hause gegangen sind, mit 32 Dingen zum Finden, jedes ein präzises Nomen aus der Welt der Presse und des Büros: der Aktenvernichter, die Briefablage, das Stativ, die Leinwand für die Morgenbesprechung. Die Aufgabe fragt Wo ist …?, und du tippst das Objekt im Bild an. Jeder Fund zeigt seine Beschriftung in der Farbe seines Genus und hinterlässt dann einen kleinen Haken in dieser Farbe, damit du siehst, was du schon gefunden hast. Ein Tipp auf die leere Wand kostet nichts; ein Tipp auf das falsche Objekt verrät dir, was du getroffen hast, und du suchst weiter. Nach drei Fehlversuchen wird das richtige Objekt gezeigt. Sobald du einen Durchgang bestanden hast, wird die Suche schwerer: Die Aufgabe verbirgt den Artikel (Wo ist ___ Briefablage?), und nach dem Fund wählst du selbst der, die oder das. Kein Objekt wird im selben Durchgang zweimal gefragt.",
+ "tips[0].title": "Zusammensetzungen in der Redaktion: Der letzte Teil entscheidet",
+ "tips[0].text": "Die meisten Bürowörter sind Zusammensetzungen, und nur der letzte Teil entscheidet über den Artikel. Akten + Schrank: der Schrank, also der Aktenschrank. Brief + Ablage: die Ablage, also die Briefablage. Deck den Anfang ab und lies das Ende.",
+ "tips[0].check.why": "Der letzte Teil ist der Ständer, also heißt das ganze Wort der Kleiderständer.",
+ "tips[1].title": "Geräte auf -er sind maskulin, aber nicht die -fon-Familie",
+ "tips[1].text": "Ein Gerät, das mit -er nach seiner Tätigkeit benannt ist, ist maskulin: der Drucker, der Beamer, der Wasserspender, der Aktenvernichter. Wörter mit griechischem -fon (Klang) sind dagegen neutral: das Telefon, das Mikrofon, das Megafon.",
+ "tips[1].check.why": "Die Wörter auf -fon sind neutral: das Telefon, das Mikrofon, das Megafon.",
+ "tips[2].title": "Die lateinischen Endungen -ium und -iv zeigen auf das",
+ "tips[2].text": "Aus dem Lateinischen entlehnte Nomen auf -ium oder -iv sind fast immer neutral, und Wörter auf -ium tauschen das im Plural gegen -ien: das Aquarium, die Aquarien. Stell dir den Goldfisch und das Stativ zusammen in einer grünen das-Ecke des Raums vor.",
+ "tips[2].check.why": "Lehnwörter auf -iv sind neutral: das Stativ, das Archiv.",
+ "remember[0]": "Der letzte Teil einer Zusammensetzung bestimmt den Artikel: die Ablage → die Briefablage.",
+ "remember[1]": "Geräte auf -er sind der (der Drucker); Wörter auf -fon sind das (das Mikrofon).",
+ "remember[2]": "Die Schere ist ein einziges Ding; die Scheren sind mehrere."
+}

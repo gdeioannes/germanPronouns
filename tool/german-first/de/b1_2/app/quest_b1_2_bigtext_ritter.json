@@ -1,0 +1,20 @@
+{
+ "intro": "Ein Märchen mit etwa 170 Wörtern über einen kleinen Ritter und einen Drachen. Du füllst zwölf Verben ein, alle im Präteritum. In dieser Zeit erzählt man jede deutsche Geschichte, vom ersten Es war einmal an. Jede Lücke zeigt dir nur den Infinitiv. Du entscheidest, welche Art von Verb es ist. Dann schreibst du die Vergangenheitsform mit der richtigen Endung für das Subjekt. Regelmäßige Verben bekommen -te: wohnte, kämpfte, erzählte, lachte. Unregelmäßige Verben ändern den Vokal und bekommen kein -te: kam, nahm, ritt, sprach, wurden. bringen ist ein gemischtes Verb (brachte). sein und haben haben eigene Formen (war, hatten). Achte auf das Subjekt: der Ritter braucht keine Endung nach dem Stamm oder nach -te. die Menschen und die beiden brauchen -en. Lies zuerst die ganze Geschichte. Die Logik der Geschichte zeigt dir das Verb, noch bevor die Lücke kommt.",
+ "tips[0].title": "Regelmäßig, unregelmäßig oder gemischt? Erst entscheiden, dann die Form bilden",
+ "tips[0].text": "wohnen, kämpfen, erzählen, lachen → regelmäßig: Stamm + -te. kommen, nehmen, reiten, sprechen, werden → unregelmäßig: neuer Vokal, kein -te. bringen → gemischt: neuer Vokal und -te (brachte). Bist du unsicher? Denk an das Partizip: gesprochen, geritten → unregelmäßig.",
+ "tips[0].check.why": "schreiben ist unregelmäßig (geschrieben). Der Vokal ändert sich zu schrieb, und es kommt kein -te dazu.",
+ "tips[1].title": "Das Subjekt bestimmt die Endung",
+ "tips[1].text": "der Ritter / der Drache → er-Form: wohnte, kam, brachte (kein -t dazu). die Menschen / die beiden → -en: hatten, wurden. Prüf in jedem Satz zuerst das Subjekt, bevor du schreibst.",
+ "tips[1].trap": "Im Englischen bleiben „had“ und „became“ im Plural gleich. Im Deutschen nicht: hatte → hatten, wurde → wurden.",
+ "tips[1].check.why": "Das Subjekt die Kinder ist Plural, also bekommt hatte ein -n: hatten. hattet passt zu ihr.",
+ "tips[2].title": "Das Gerüst einer Geschichte",
+ "tips[2].text": "Es war einmal … (der Anfang) · Eines Tages … (das Ereignis) · Da … (die Wende) · Am Ende … / Seitdem … (der Schluss). Vier Wegweiser, und jede Geschichte hat eine Form.",
+ "tips[2].check.why": "Eines Tages (one day) ist der feste Wegweiser. Damit beginnt das Hauptereignis einer Geschichte.",
+ "tips[2].visual.moves[0].label": "Anfang",
+ "tips[2].visual.moves[1].label": "Der Auslöser",
+ "tips[2].visual.moves[2].label": "Die Ereignisse",
+ "tips[2].visual.moves[3].label": "Das Ende",
+ "remember[0]": "Geschichte = Präteritum, von Es war einmal bis Am Ende.",
+ "remember[1]": "Infinitiv → regelmäßig / unregelmäßig / gemischt → Endung für das Subjekt.",
+ "hook": "Erzähl ein Märchen so, wie deutsche Kinder es hören: Es war einmal …, und jedes Verb steht in der Erzählzeit."
+}

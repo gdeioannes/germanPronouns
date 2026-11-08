@@ -22,17 +22,17 @@
 			"id": "forschung",
 			"n": 1,
 			"title": "Damit fing es an",
-			"subtitle": "Science and the environment: cause, effect, and words that point back",
+			"subtitle": "Wissenschaft und Umwelt: Ursache, Folge und Wörter, die zurückzeigen",
 			"accent": "terracotta",
 			"quiz": "quest_b2_2_umwelt",
 			"listenQuiz": "quest_b2_2_lesen_klima",
 			"speakQuiz": "quest_b2_2_sprechen_dialog",
 			"words": {
-				"intro": "German researchers spend whole winters on a ship frozen into the Arctic ice, and come home to explain to their neighbours why the summer is hot. Science here is a public argument.",
-				"more": "Auch in der Forschung · also in research",
+				"intro": "Deutsche Forscher verbringen ganze Winter auf einem Schiff im arktischen Eis und erklären danach den Nachbarn, warum der Sommer heiß ist. Wissenschaft ist hier öffentlicher Streit.",
+				"more": "Auch in der Forschung",
 				"groups": [
 					{
-						"title": "Die Wissenschaft · science",
+						"title": "Die Wissenschaft",
 						"items": [
 							{
 								"de": "die Wissenschaft",
@@ -120,7 +120,7 @@
 						]
 					},
 					{
-						"title": "Die Umwelt · the environment",
+						"title": "Die Umwelt",
 						"items": [
 							{
 								"de": "der Klimaschutz",
@@ -207,11 +207,11 @@
 			"grammar": [
 				{
 					"heading": "Ursache und Folge",
-					"subheading": "Cause, effect and the verbs that link them",
+					"subheading": "Ursache, Folge und die Verben dazwischen",
 					"blocks": [
 						{
 							"kind": "arrow",
-							"title": "Cause and effect",
+							"title": "Ursache und Folge",
 							"note": "die Ursache = cause · die Folge = effect",
 							"ask": [
 								"Ursache?",
@@ -222,19 +222,19 @@
 									"who": "Die Abgase",
 									"verb": "führen zu",
 									"whom": "schlechter Luft",
-									"en": "exhaust fumes lead to bad air"
+									"en": "schlechte Luft ist die Folge"
 								},
 								{
 									"who": "Die Erderwärmung",
 									"verb": "führt zu",
 									"whom": "Dürren und Überschwemmungen",
-									"en": "global warming leads to droughts and floods"
+									"en": "Dürren und Überschwemmungen sind die Folge"
 								},
 								{
 									"who": "Der hohe Verbrauch",
 									"verb": "führt zu",
 									"whom": "mehr Müll",
-									"en": "high consumption leads to more rubbish"
+									"en": "mehr Müll ist die Folge"
 								}
 							]
 						},
@@ -243,7 +243,7 @@
 							"blocks": [
 								{
 									"kind": "build",
-									"title": "One long word: the last part decides",
+									"title": "Ein langes Wort: Der letzte Teil entscheidet",
 									"rows": [
 										{
 											"parts": [
@@ -301,7 +301,7 @@
 								},
 								{
 									"kind": "table",
-									"title": "Noun + its verb",
+									"title": "Nomen + sein Verb",
 									"head": [
 										{
 											"text": ""
@@ -342,7 +342,7 @@
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "die Regierung",
@@ -416,10 +416,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "German likes a thorough *Studie*, and it usually comes with a *Gegenstudie*. The Klimahaus in Bremerhaven lets you travel along one line of longitude through several climates, in one building, in a single afternoon.",
+					"fact": "Deutsch mag eine gründliche *Studie*, und meist kommt eine *Gegenstudie* dazu. Im Klimahaus Bremerhaven reist du an einem Längengrad entlang durch mehrere Klimazonen, in einem Gebäude, an einem Nachmittag.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -456,7 +456,7 @@
 									"Ursache",
 									"Folge"
 								],
-								"after": "ist der Verkehr. (the cause)",
+								"after": "ist der Verkehr. (der Grund)",
 								"answer": "Ursache"
 							},
 							{
@@ -482,12 +482,12 @@
 				},
 				{
 					"heading": "Wörter, die zurückzeigen",
-					"subheading": "da(r) + little word: how a text holds together",
+					"subheading": "da(r) + Präposition: So hält ein Text zusammen",
 					"blocks": [
 						{
 							"kind": "build",
-							"title": "da(r) + little word = “this”",
-							"note": "An -r- before a vowel. At the start, the verb comes next: Damit kaufte er …",
+							"title": "da(r) + Präposition = „das“",
+							"note": "Ein -r- vor Vokal. Am Satzanfang folgt direkt das Verb: Damit kaufte er …",
 							"rows": [
 								{
 									"parts": [
@@ -541,31 +541,31 @@
 						},
 						{
 							"kind": "table",
-							"title": "What points at what",
+							"title": "Was worauf zeigt",
 							"head": [
 								{
-									"text": "points at"
+									"text": "zeigt auf"
 								},
 								{
-									"text": "word"
+									"text": "Wort"
 								},
 								{
-									"text": "like this"
+									"text": "so"
 								}
 							],
 							"rows": [
 								[
-									"a noun",
+									"ein Nomen",
 									"er · sie · es · dieser",
 									"Die Stadt baute eine Brücke. *Diese* kostete Millionen."
 								],
 								[
-									"a whole fact",
+									"eine ganze Tatsache",
 									"das · dies",
 									"Die Preise stiegen. *Das* überraschte niemanden."
 								],
 								[
-									"two things",
+									"zwei Dinge",
 									"Ersterer · Letzterer",
 									"Zwei Vorschläge: *Ersterer* wurde abgelehnt, *Letzterer* angenommen."
 								]
@@ -573,37 +573,37 @@
 						},
 						{
 							"kind": "table",
-							"title": "Links between sentences",
+							"title": "Verbindungen zwischen Sätzen",
 							"head": [
 								{
 									"text": ""
 								},
 								{
-									"text": "word"
+									"text": "Wort"
 								}
 							],
 							"rows": [
 								[
-									"cause",
+									"Grund",
 									"aus diesem Grund · deshalb"
 								],
 								[
-									"adding",
+									"Ergänzung",
 									"zudem · außerdem · darüber hinaus"
 								],
 								[
-									"although",
+									"Einräumung",
 									"dennoch · trotzdem"
 								],
 								[
-									"contrast",
+									"Gegensatz",
 									"hingegen · dagegen"
 								]
 							]
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "sparen · sparte",
@@ -673,10 +673,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "German school essays are marked down for repeating a noun. So learners of German must master *dieser*, *jener*, *dadurch* and *damit* to get the marks. A good German paragraph hardly names its subject twice.",
+					"fact": "In deutschen Schulaufsätzen kostet ein wiederholtes Nomen Punkte. Also müssen Deutschlerner *dieser*, *jener*, *dadurch* und *damit* beherrschen. Ein guter deutscher Absatz nennt sein Subjekt kaum zweimal.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -731,7 +731,7 @@
 									"dafür",
 									"dazu"
 								],
-								"after": ". (in favour)",
+								"after": ". (nicht dagegen)",
 								"answer": "dafür"
 							}
 						]
@@ -740,8 +740,8 @@
 			],
 			"practise": [
 				{
-					"title": "Noun + verb",
-					"instruction": "Write the verb that goes with the noun.",
+					"title": "Nomen + Verb",
+					"instruction": "Schreib das Verb, das zum Nomen passt.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -772,8 +772,8 @@
 					]
 				},
 				{
-					"title": "Who can save the climate?",
-					"instruction": "Listen to the text. Circle what you hear.",
+					"title": "Wer kann das Klima retten?",
+					"instruction": "Hör den Text. Kreise ein, was du hörst.",
 					"kind": "circle",
 					"cols": 1,
 					"items": [
@@ -817,8 +817,8 @@
 					"listen": true
 				},
 				{
-					"title": "About you",
-					"instruction": "Finish the sentence.",
+					"title": "Über dich",
+					"instruction": "Beende den Satz.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -826,11 +826,11 @@
 							"after": "."
 						}
 					],
-					"note": "About you."
+					"note": "Über dich."
 				},
 				{
-					"title": "Point back",
-					"instruction": "Write damit, dadurch, dabei, das, aus diesem Grund or zudem.",
+					"title": "Zurückzeigen",
+					"instruction": "Schreib damit, dadurch, dabei, das, aus diesem Grund oder zudem.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -866,8 +866,8 @@
 					]
 				},
 				{
-					"title": "Make it a text",
-					"instruction": "Join the sentences: start the second with the word in brackets.",
+					"title": "Mach einen Text daraus",
+					"instruction": "Verbinde die Sätze: Beginne den zweiten mit dem Wort in Klammern.",
 					"kind": "write",
 					"items": [
 						{
@@ -878,8 +878,8 @@
 					"cols": 1
 				},
 				{
-					"title": "Make it a text",
-					"instruction": "Join: start the second sentence with the word in brackets.",
+					"title": "Mach einen Text daraus",
+					"instruction": "Verbinde: Beginne den zweiten Satz mit dem Wort in Klammern.",
 					"kind": "write",
 					"items": [
 						{
@@ -912,16 +912,16 @@
 				}
 			],
 			"listen": {
-				"intro": "A piece on the climate and who can do something about it. Listen for each cause, each effect and each word that points back."
+				"intro": "Ein Beitrag zum Klima und dazu, wer etwas tun kann. Achte auf jede Ursache, jede Folge und jedes Wort, das zurückzeigt."
 			},
 			"speak": {
-				"intro": "A discussion with the tutor: a flight tax, say, or meat. Say what would happen, give way a little, then decide."
+				"intro": "Eine Diskussion mit dem Tutor, etwa über eine Flugsteuer oder Fleisch. Sag, was passieren würde, gib etwas nach, entscheide dann."
 			},
 			"canDo": [
-				"talk about causes and effects",
-				"use the words of science and the environment",
-				"use damit, dadurch, darauf to point back",
-				"join sentences into a text"
+				"über Ursachen und Folgen sprechen",
+				"die Wörter von Wissenschaft und Umwelt nutzen",
+				"mit damit, dadurch, darauf zurückzeigen",
+				"Sätze zu einem Text verbinden"
 			],
 			"world": "Ein Forschungsschiff",
 			"opener": {
@@ -989,7 +989,7 @@
 			},
 			"reading": {
 				"title": "Die Studie",
-				"intro": "Lena’s cousin has come home from a research ship. She is Dr. Anne Rainer, and she has spent a year measuring Arctic ice. She has been asked to give a talk in the village hall. It has gone well until the questions. Frau Huber, who is visiting, has her hand up.",
+				"intro": "Lenas Cousine ist von einem Forschungsschiff zurück: Dr. Anne Rainer hat ein Jahr lang arktisches Eis gemessen. Im Dorfsaal soll sie einen Vortrag halten. Bis zu den Fragen läuft es gut. Frau Huber, zu Besuch, hebt die Hand.",
 				"photos": [
 					{
 						"photo": "b2b22_forschung_haus",
@@ -1043,11 +1043,11 @@
 					}
 				],
 				"en": "Dr. Rainer: The ice shrinks every year. That leads to the sea warming. As a result, even more ice melts. · Frau Huber: And what can we do about it? · Dr. Rainer: We must reduce emissions. That’s what counts. That contributes most to climate protection. · Herr Kunze: That’s only a study. I don’t believe in it. We had a lot of snow here last winter. · Dr. Rainer: That’s got nothing to do with it. Weather isn’t climate. · Herr Kunze: And how did you get to the North Pole? By bicycle? · Dr. Rainer: On a ship that burns a great deal of diesel. That’s in the study, on page four. · Frau Huber: May I ask, doctor, what the worst thing up there was? The ice? The cold? · Dr. Rainer: The colleagues. A whole year with the same nine people and a piano. That’s how I came to understand how climate really works. · Frau Huber: I know that. We call it a block of flats.",
-				"fact": "Germany’s research ship *Polarstern* drifted frozen in the Arctic ice for a year in 2019 and 2020, on the largest polar expedition ever. Armed polar bear watches stood guard while the scientists worked on the ice.",
+				"fact": "Das deutsche Forschungsschiff *Polarstern* trieb 2019 und 2020 ein Jahr lang im arktischen Eis, auf der größten Polarexpedition aller Zeiten. Bewaffnete Eisbärenwachen schützten die Forscher bei der Arbeit auf dem Eis.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -1100,7 +1100,7 @@
 					},
 					{
 						"title": "Worauf zeigt das?",
-						"instruction": "Complete with damit, dadurch, darauf or daran.",
+						"instruction": "Ergänze mit damit, dadurch, darauf oder daran.",
 						"kind": "gaps",
 						"items": [
 							{
@@ -1130,12 +1130,12 @@
 			"document": {
 				"photo": "b2b22_forschung_dwd",
 				"caption": "Am Feldrand: Was steht auf dem Schild?",
-				"intro": "A real sign in a field, on the fence of a weather station. In three calm sentences, it tells you what science does with the weather: passive voice, folded phrases, and one polite request.",
-				"fact": "The *Deutscher Wetterdienst* has its head office in Offenbach, and its data comes from stations like this one.",
+				"intro": "Ein echtes Schild im Feld, am Zaun einer Wetterstation. In drei ruhigen Sätzen sagt es, was die Wissenschaft mit dem Wetter macht: Passiv, gefaltete Wortgruppen und eine höfliche Bitte.",
+				"fact": "Der *Deutsche Wetterdienst* sitzt in Offenbach, und seine Daten kommen von Stationen wie dieser.",
 				"tasks": [
 					{
 						"title": "Lies das Schild",
-						"instruction": "Circle what the sign says.",
+						"instruction": "Kreise ein, was auf dem Schild steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -1179,7 +1179,7 @@
 					},
 					{
 						"title": "Mit Rückverweis",
-						"instruction": "Join each pair with dadurch, damit or dafür.",
+						"instruction": "Verbinde jedes Paar mit dadurch, damit oder dafür.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -1198,23 +1198,24 @@
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "spielbank",
 			"n": 2,
 			"title": "Wenn ich reich wäre",
-			"subtitle": "Unreal conditions, now and then, and als ob",
+			"subtitle": "Irreal, jetzt und früher, und als ob",
 			"accent": "mustard",
 			"quiz": "quest_b2_2_irreal",
 			"listenQuiz": "quest_b2_2_diktat_irreal",
 			"speakQuiz": "quest_b2_2_sprechen_hypothese",
 			"words": {
-				"intro": "Dostoevsky lost everything at the tables in Wiesbaden. Today the casino still has the chandeliers and a dress code, and anybody may go and find out what they would have done with the money.",
-				"more": "Auch in der Spielbank · also at the casino",
+				"intro": "Dostojewski verlor an den Tischen in Wiesbaden alles. Das Casino hat noch die Kronleuchter und eine Kleiderordnung, und jeder darf herausfinden, was er mit dem Geld getan hätte.",
+				"more": "Auch in der Spielbank",
 				"groups": [
 					{
-						"title": "In der Spielbank · at the casino",
+						"title": "In der Spielbank",
 						"items": [
 							{
 								"de": "die Spielbank",
@@ -1300,7 +1301,7 @@
 						]
 					},
 					{
-						"title": "Wenn … · if …",
+						"title": "Wenn …",
 						"items": [
 							{
 								"de": "der Traum",
@@ -1384,16 +1385,16 @@
 			"grammar": [
 				{
 					"heading": "Wenn ich reich wäre",
-					"subheading": "Now or then: past + dots, and starting with the verb",
+					"subheading": "Jetzt oder früher: Präteritum + Punkte, und das Verb vorn",
 					"blocks": [
 						{
 							"kind": "flow",
-							"title": "Could it still happen?",
-							"note": "The Konjunktiv is the sound of “but it isn’t so”.",
+							"title": "Kann es noch passieren?",
+							"note": "Der Konjunktiv klingt nach: „Aber so ist es nicht.“",
 							"root": {
-								"q": "Is it still possible?",
+								"q": "Ist es noch möglich?",
 								"yes": {
-									"answer": "indicative",
+									"answer": "normales Verb",
 									"example": "Wenn ich Zeit habe, komme ich."
 								},
 								"no": {
@@ -1404,13 +1405,13 @@
 						},
 						{
 							"kind": "table",
-							"title": "Past + dots = the one-word form",
+							"title": "Präteritum + Punkte = die kurze Form",
 							"head": [
 								{
-									"text": "verb"
+									"text": "Verb"
 								},
 								{
-									"text": "past"
+									"text": "Präteritum"
 								},
 								{
 									"text": "Konjunktiv II"
@@ -1448,11 +1449,11 @@
 									"k*ö*nnte"
 								]
 							],
-							"note": "Other verbs: würde + infinitive — ich würde reisen."
+							"note": "Andere Verben: würde + Infinitiv: ich würde reisen."
 						},
 						{
 							"kind": "table",
-							"title": "Now or then?",
+							"title": "Jetzt oder früher?",
 							"head": [
 								{
 									"text": ""
@@ -1461,17 +1462,17 @@
 									"text": "wenn …"
 								},
 								{
-									"text": "main clause"
+									"text": "Hauptsatz"
 								}
 							],
 							"rows": [
 								[
-									"now",
+									"jetzt",
 									"Wenn ich reich *wäre*,",
 									"*würde* ich reisen."
 								],
 								[
-									"then",
+									"früher",
 									"Wenn ich das gewusst *hätte*,",
 									"*wäre* ich geblieben."
 								]
@@ -1479,7 +1480,7 @@
 						},
 						{
 							"kind": "slots",
-							"title": "No wenn: start with the verb",
+							"title": "Ohne wenn: Beginn mit dem Verb",
 							"rows": [
 								{
 									"cells": [
@@ -1501,13 +1502,13 @@
 											"de": "ich geblieben."
 										}
 									],
-									"en": "verb first, comma, verb first again"
+									"en": "Verb zuerst, Komma, wieder Verb zuerst"
 								}
 							]
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "die Wahl",
@@ -1541,10 +1542,10 @@
 							"cols": 3
 						}
 					],
-					"fact": "Germans love a good lottery fantasy: *Wenn ich im Lotto gewinne, …* is a staple of office conversation. The chance of the top prize in *6 aus 49* is about one in 140 million. Every Saturday evening, millions of people choose to find this out.",
+					"fact": "Deutsche lieben Lottoträume: *Wenn ich im Lotto gewinne, …* gehört zu jedem Bürogespräch. Die Chance auf den Hauptgewinn bei *6 aus 49* liegt bei etwa eins zu 140 Millionen. Jeden Samstagabend prüfen Millionen das nach.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -1581,7 +1582,7 @@
 									"wüsste",
 									"wusste"
 								],
-								"after": "es gern. (would like to know)",
+								"after": "es gern. (möchte es erfahren)",
 								"answer": "wüsste"
 							},
 							{
@@ -1590,7 +1591,7 @@
 									"käme",
 									"kam"
 								],
-								"after": "mir teuer vor. (would)",
+								"after": "mir teuer vor. (nicht real)",
 								"answer": "käme"
 							},
 							{
@@ -1607,11 +1608,11 @@
 				},
 				{
 					"heading": "Als ob",
-					"subheading": "Two shapes, one meaning, and verbs of seeming",
+					"subheading": "Zwei Formen, eine Bedeutung, und Verben des Scheins",
 					"blocks": [
 						{
 							"kind": "slots",
-							"title": "Two shapes, one meaning",
+							"title": "Zwei Formen, eine Bedeutung",
 							"rows": [
 								{
 									"cells": [
@@ -1629,7 +1630,7 @@
 											"hot": true
 										}
 									],
-									"en": "als ob: verb last"
+									"en": "als ob: Verb am Ende"
 								},
 								{
 									"cells": [
@@ -1647,13 +1648,13 @@
 											"de": "er der Chef."
 										}
 									],
-									"en": "als alone: verb straight after"
+									"en": "nur als: Verb direkt danach"
 								}
 							]
 						},
 						{
 							"kind": "table",
-							"title": "Now or then?",
+							"title": "Jetzt oder früher?",
 							"head": [
 								{
 									"text": ""
@@ -1668,22 +1669,22 @@
 							],
 							"rows": [
 								[
-									"now",
+									"jetzt",
 									"als ob er reich *wäre*",
 									"as if he were rich"
 								],
 								[
-									"now",
+									"jetzt",
 									"als ob er alles *wüsste*",
 									"as if he knew everything"
 								],
 								[
-									"then",
+									"früher",
 									"als ob nichts passiert *wäre*",
 									"as if nothing had happened"
 								],
 								[
-									"then",
+									"früher",
 									"als ob sie nicht geschlafen *hätte*",
 									"as if she hadn’t slept"
 								]
@@ -1691,7 +1692,7 @@
 						},
 						{
 							"kind": "tiles",
-							"title": "Verbs of seeming",
+							"title": "Verben des Scheins",
 							"cols": 6,
 							"small": true,
 							"tiles": [
@@ -1723,7 +1724,7 @@
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "das Gespenst",
@@ -1769,10 +1770,10 @@
 							"cols": 3
 						}
 					],
-					"fact": "*Tu nicht so, als ob!* Don’t pretend! A parent’s sentence, with no ending needed. *Als ob!* alone is a teenager’s: yeah, right. The grammar is not simple, but the shrug is the same as anywhere.",
+					"fact": "*Tu nicht so, als ob!* sagen Eltern, ganz ohne Ende. *Als ob!* allein sagen Jugendliche: Von wegen! Die Grammatik ist nicht einfach, aber das Schulterzucken ist überall gleich.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -1836,8 +1837,8 @@
 			],
 			"practise": [
 				{
-					"title": "Now",
-					"instruction": "Write the verb in brackets in the Konjunktiv II.",
+					"title": "Jetzt",
+					"instruction": "Schreib das Verb in Klammern im Konjunktiv II.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -1868,8 +1869,8 @@
 					]
 				},
 				{
-					"title": "Then",
-					"instruction": "Write hätte or wäre in the right form.",
+					"title": "Früher",
+					"instruction": "Schreib hätte oder wäre in der richtigen Form.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -1890,8 +1891,8 @@
 					]
 				},
 				{
-					"title": "Without wenn",
-					"instruction": "Start with the verb.",
+					"title": "Ohne wenn",
+					"instruction": "Beginne mit dem Verb.",
 					"kind": "write",
 					"items": [
 						{
@@ -1907,7 +1908,7 @@
 				},
 				{
 					"title": "als ob",
-					"instruction": "Write the verb in brackets in the Konjunktiv II.",
+					"instruction": "Schreib das Verb in Klammern im Konjunktiv II.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -1938,8 +1939,8 @@
 					]
 				},
 				{
-					"title": "Without ob",
-					"instruction": "Write it with als and the verb straight after.",
+					"title": "Ohne ob",
+					"instruction": "Schreib es mit als und dem Verb direkt danach.",
 					"kind": "write",
 					"items": [
 						{
@@ -1954,8 +1955,8 @@
 					"cols": 1
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -1980,16 +1981,16 @@
 				}
 			],
 			"listen": {
-				"intro": "A dictation of wishes and what-ifs. Write each one, and check whether it is about now or about then."
+				"intro": "Ein Diktat mit Wünschen und Was-wäre-wenn. Schreib alles auf und prüf, ob es um jetzt oder um früher geht."
 			},
 			"speak": {
-				"intro": "Hypotheses, line by line. Say each one, then make one about your own life."
+				"intro": "Annahmen, Zeile für Zeile. Sprich jede nach und bilde dann eine über dein Leben."
 			},
 			"canDo": [
-				"say what would happen, now and then",
-				"start with the verb: Hätte ich …",
-				"use als ob and als wäre",
-				"tell a story of what might have been"
+				"sagen, was passieren würde, jetzt und früher",
+				"mit dem Verb beginnen: Hätte ich …",
+				"als ob und als wäre verwenden",
+				"erzählen, was hätte sein können"
 			],
 			"world": "Die Spielbank in Wiesbaden",
 			"opener": {
@@ -2075,7 +2076,7 @@
 			},
 			"reading": {
 				"title": "Rot oder Schwarz",
-				"intro": "Maya has won a voucher for an evening at the casino in Wiesbaden. She has taken Frau Huber, who has dressed as if she owned it. Each has fifty euros. A man at the table is explaining his system to anyone who stands still.",
+				"intro": "Maya hat einen Gutschein für einen Abend im Casino Wiesbaden gewonnen. Sie nimmt Frau Huber mit, die sich kleidet, als ob es ihr gehörte. Jede hat fünfzig Euro. Ein Mann am Tisch erklärt jedem, der stehen bleibt, sein System.",
 				"photos": [
 					{
 						"photo": "b2b22_spielbank_tisch",
@@ -2136,11 +2137,11 @@
 					}
 				],
 				"en": "Mann: If you had bet on red, you’d have a hundred euros now. It looks as if red is bringing luck today. · Maya: If I knew as much as you, I’d already be rich. · Mann: I’m only pretending to be poor. If I hadn’t stopped yesterday, I’d have a house now. · Frau Huber: And the day before? · Mann: The day before I very nearly had a boat. · Frau Huber: Do you have a car? · Mann: I had one. Until 2009. · Frau Huber looks at him for a long time. Then she puts her fifty euros on seven, because that’s her house number. The ball spins. It’s very quiet. · Croupier: Seven. · Maya: Frau Huber! 1,750 euros! If you were to go on playing now … · Frau Huber: If I were that stupid, I wouldn’t still be here. We’re leaving. Young man, take the fifty. You can get home on that. · Mann: Thanks. I’ll put that on red.",
-				"fact": "Germany has dozens of state-licensed casinos, and Wiesbaden’s goes back to the 1770s. Dostoevsky’s novel *The Gambler* came out of his time at German tables. Gambling law is strict: you need an ID, and you can have yourself barred, and casinos must check the list.",
+				"fact": "Deutschland hat Dutzende lizenzierte Casinos, das in Wiesbaden stammt aus den 1770er-Jahren. Dostojewskis *Der Spieler* entstand aus seiner Zeit an deutschen Tischen. Das Gesetz ist streng: Ausweispflicht, Selbstsperre, und Casinos müssen die Liste prüfen.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -2193,7 +2194,7 @@
 					},
 					{
 						"title": "Wäre, hätte",
-						"instruction": "Complete from the text.",
+						"instruction": "Ergänze aus dem Text.",
 						"kind": "gaps",
 						"items": [
 							{
@@ -2223,12 +2224,12 @@
 			"document": {
 				"photo": "b2b22_spielbank_hand",
 				"caption": "In der Spielbank: So geht es schneller",
-				"intro": "A real notice in a modern German casino. Regular guests can sign in with the veins of their hand. It’s very short, with three commands. And there’s a ladybird.",
-				"fact": "German casinos must by law check who comes in, because players can have themselves barred. The ladybird, *der Marienkäfer*, is a German lucky charm, so it has come to the right place.",
+				"intro": "Ein echter Aushang in einem modernen deutschen Casino. Stammgäste melden sich mit den Handvenen an. Sehr kurz, drei Befehle. Und ein Marienkäfer.",
+				"fact": "Deutsche Casinos müssen per Gesetz prüfen, wer hereinkommt, weil Spieler sich sperren lassen können. Und *der Marienkäfer* bringt in Deutschland Glück, er ist hier also genau richtig.",
 				"tasks": [
 					{
 						"title": "Lies das Schild",
-						"instruction": "Circle what the notice says.",
+						"instruction": "Kreise ein, was auf dem Aushang steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -2272,7 +2273,7 @@
 					},
 					{
 						"title": "Wenn das Gerät …",
-						"instruction": "Complete with the right form.",
+						"instruction": "Ergänze die richtige Form.",
 						"kind": "gaps",
 						"items": [
 							{
@@ -2287,29 +2288,30 @@
 							},
 							{
 								"before": "Er tut, als ob er hier",
-								"after": ". (he’s pretending to be at home)",
+								"after": ". (er tut nur so)",
 								"answer": "wohnte"
 							}
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "huette",
 			"n": 3,
 			"title": "Du hättest anrufen sollen",
-			"subtitle": "Regret, reproach, and guessing about the past",
+			"subtitle": "Bedauern, Vorwurf und Vermutungen über früher",
 			"accent": "sage",
 			"quiz": "quest_b2_2_konj2_verg",
 			"listenQuiz": "quest_b2_2_hoeren_fachinterview",
 			"speakQuiz": "quest_b2_2_sprechen_kurzcheck",
 			"words": {
-				"intro": "An Alpine hut has a rule book, one stove and a room with twenty snoring people. It’s where the *Bergwacht* come to look for you, and they will tell you, kindly, what you should have done.",
-				"more": "Auch auf dem Berg · also on the mountain",
+				"intro": "Eine Alpenhütte hat ein Regelbuch, einen Ofen und ein Zimmer mit zwanzig Schnarchern. Hier sucht dich die *Bergwacht*, und sie sagt dir freundlich, was du hättest tun sollen.",
+				"more": "Auch auf dem Berg",
 				"groups": [
 					{
-						"title": "In den Bergen · in the mountains",
+						"title": "In den Bergen",
 						"items": [
 							{
 								"de": "der Berg",
@@ -2396,7 +2398,7 @@
 						]
 					},
 					{
-						"title": "Was wäre besser gewesen? · what would have been better?",
+						"title": "Was wäre besser gewesen?",
 						"items": [
 							{
 								"de": "der Fehler",
@@ -2477,12 +2479,12 @@
 			"grammar": [
 				{
 					"heading": "Du hättest anrufen sollen",
-					"subheading": "With a modal: two infinitives, and hätte or wäre",
+					"subheading": "Mit Modalverb: zwei Infinitive, und hätte oder wäre",
 					"blocks": [
 						{
 							"kind": "slots",
-							"title": "With a modal: two infinitives at the end",
-							"note": "Not gesollt or gekonnt: the modal stays an infinitive.",
+							"title": "Mit Modalverb: zwei Infinitive am Ende",
+							"note": "Nicht gesollt oder gekonnt: Das Modalverb bleibt im Infinitiv.",
 							"rows": [
 								{
 									"cells": [
@@ -2554,7 +2556,7 @@
 						},
 						{
 							"kind": "table",
-							"title": "hätte or wäre? The Perfekt decides",
+							"title": "hätte oder wäre? Das Perfekt entscheidet",
 							"head": [
 								{
 									"text": "Perfekt"
@@ -2577,17 +2579,17 @@
 									"Das *wäre* nicht passiert."
 								]
 							],
-							"note": "Never “würde gegangen haben”."
+							"note": "Nie „würde gegangen haben“."
 						},
 						{
 							"kind": "box",
 							"tone": "tip",
-							"title": "Four sentences of regret",
+							"title": "Vier Sätze des Bedauerns",
 							"text": "*Du hättest … sollen* (you should have) · *Ich hätte … müssen* (I ought to have) · *Wir hätten … können* (we could have) · *Hätte ich doch …!* (if only)"
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "der Termin",
@@ -2645,10 +2647,10 @@
 							"cols": 3
 						}
 					],
-					"fact": "German has a neat word for regret that comes too late: *hätte, hätte, Fahrradkette*, literally “would have, would have, bicycle chain”. It’s a rhyme that means: stop saying if only. A candidate for chancellor once used it on live television.",
+					"fact": "Für zu spätes Bedauern hat Deutsch einen schönen Reim: *hätte, hätte, Fahrradkette*. Er bedeutet: Hör auf mit „wenn doch“. Ein Kanzlerkandidat benutzte ihn einmal live im Fernsehen.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -2711,33 +2713,33 @@
 				},
 				{
 					"heading": "Er wird den Zug verpasst haben",
-					"subheading": "Guessing with werden: one step further back",
+					"subheading": "Vermuten mit werden: ein Schritt weiter zurück",
 					"blocks": [
 						{
 							"kind": "timeline",
-							"title": "One step further back",
-							"note": "Same werden; the past form + sein or haben pushes the guess back.",
+							"title": "Ein Schritt weiter zurück",
+							"note": "Dasselbe werden; Partizip + sein oder haben schiebt die Vermutung zurück.",
 							"marks": [
 								{
 									"de": "Er wird krank gewesen sein.",
-									"en": "a guess about then",
+									"en": "Vermutung über früher",
 									"at": -2.5
 								},
 								{
 									"de": "Er wird krank sein.",
-									"en": "a guess about now",
+									"en": "Vermutung über jetzt",
 									"at": 0
 								},
 								{
 									"de": "Das Paket wird morgen ankommen.",
-									"en": "a forecast",
+									"en": "Vorhersage",
 									"at": 2.5
 								}
 							]
 						},
 						{
 							"kind": "slots",
-							"title": "The frame",
+							"title": "Der Rahmen",
 							"rows": [
 								{
 									"cells": [
@@ -2756,7 +2758,7 @@
 											"hot": true
 										}
 									],
-									"en": "now: werden + infinitive"
+									"en": "jetzt: werden + Infinitiv"
 								},
 								{
 									"cells": [
@@ -2775,7 +2777,7 @@
 											"hot": true
 										}
 									],
-									"en": "then: past form + haben"
+									"en": "früher: Partizip + haben"
 								},
 								{
 									"cells": [
@@ -2794,7 +2796,7 @@
 											"hot": true
 										}
 									],
-									"en": "then: sein-verbs keep sein"
+									"en": "früher: sein-Verben mit sein"
 								}
 							]
 						},
@@ -2803,7 +2805,7 @@
 							"blocks": [
 								{
 									"kind": "table",
-									"title": "Make the guess clear",
+									"title": "Mach die Vermutung klar",
 									"head": [
 										{
 											"text": ""
@@ -2831,14 +2833,14 @@
 								{
 									"kind": "box",
 									"tone": "tip",
-									"title": "Plain future? Present tense",
-									"text": "*Morgen fahre ich nach Berlin.* A fixed plan needs no werden."
+									"title": "Einfach Zukunft? Präsens",
+									"text": "*Morgen fahre ich nach Berlin.* Ein fester Plan braucht kein werden."
 								}
 							]
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "das Licht ist aus",
@@ -2896,10 +2898,10 @@
 							"cols": 3
 						}
 					],
-					"fact": "The form *Er wird das vergessen haben* is called the Futur II, but it’s used for guessing about the past. Every German parent knows it: *Er wird schon angekommen sein*. It means: don’t worry. Often it’s followed by worrying.",
+					"fact": "Die Form *Er wird das vergessen haben* heißt Futur II, dient aber zum Vermuten über die Vergangenheit. Alle deutschen Eltern kennen sie: *Er wird schon angekommen sein*. Das heißt: Keine Sorge. Danach sorgen sie sich oft.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -2927,7 +2929,7 @@
 									"wird",
 									"wurde"
 								],
-								"after": "wohl krank sein. (guess, now)",
+								"after": "wohl krank sein. (Vermutung, jetzt)",
 								"answer": "wird"
 							},
 							{
@@ -2954,7 +2956,7 @@
 									"schlafen",
 									"geschlafen"
 								],
-								"after": ". (guess, now)",
+								"after": ". (Vermutung, jetzt)",
 								"answer": "schlafen"
 							}
 						]
@@ -2963,8 +2965,8 @@
 			],
 			"practise": [
 				{
-					"title": "hätte or wäre?",
-					"instruction": "Write hätte or wäre in the right form.",
+					"title": "hätte oder wäre?",
+					"instruction": "Schreib hätte oder wäre in der richtigen Form.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -2990,8 +2992,8 @@
 					]
 				},
 				{
-					"title": "Heard it?",
-					"instruction": "Listen to the dictation and write the missing words.",
+					"title": "Gehört?",
+					"instruction": "Hör das Diktat und schreib die fehlenden Wörter.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -3018,8 +3020,8 @@
 					"listen": true
 				},
 				{
-					"title": "A reproach",
-					"instruction": "Say what they should have done. Use sollen.",
+					"title": "Ein Vorwurf",
+					"instruction": "Sag mit sollen, was sie hätten tun sollen.",
 					"kind": "write",
 					"items": [
 						{
@@ -3034,8 +3036,8 @@
 					"cols": 1
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -3055,8 +3057,8 @@
 					"extra": true
 				},
 				{
-					"title": "Now or then?",
-					"instruction": "Write the guess with werden. Is it about now or about then?",
+					"title": "Jetzt oder früher?",
+					"instruction": "Schreib die Vermutung mit werden. Geht es um jetzt oder um früher?",
 					"kind": "write",
 					"items": [
 						{
@@ -3083,8 +3085,8 @@
 					"cols": 1
 				},
 				{
-					"title": "Don’t worry",
-					"instruction": "Write the form of werden.",
+					"title": "Keine Sorge",
+					"instruction": "Schreib die Form von werden.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -3100,8 +3102,8 @@
 					]
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -3130,16 +3132,16 @@
 				}
 			],
 			"listen": {
-				"intro": "An expert talks about why people give up in February. Listen for what they should have done, and what they could do."
+				"intro": "Eine Expertin erklärt, warum Leute im Februar aufgeben. Achte darauf, was sie hätten tun sollen und was sie tun könnten."
 			},
 			"speak": {
-				"intro": "A situation that went wrong: what should have been done differently, and what would have happened if?"
+				"intro": "Eine Situation ging schief: Was hätte man anders machen sollen, und was wäre passiert, wenn?"
 			},
 			"canDo": [
-				"say what someone should have done",
-				"use two infinitives after hätte",
-				"guess about the past with werden",
-				"understand the rules of a mountain hut"
+				"sagen, was jemand hätte tun sollen",
+				"zwei Infinitive nach hätte verwenden",
+				"mit werden über früher vermuten",
+				"die Regeln einer Berghütte verstehen"
 			],
 			"world": "Eine Hütte in den Alpen",
 			"opener": {
@@ -3215,7 +3217,7 @@
 			},
 			"reading": {
 				"title": "Am Gipfelkreuz",
-				"intro": "Max and Lena were to meet at the hut at six. It is now half past eight, it’s snowing, and Lena is sitting by the stove with the hut warden, Frau Moser. Then the door opens. It’s Max, in trainers, and with a very old map.",
+				"intro": "Max und Lena wollten sich um sechs auf der Hütte treffen. Jetzt ist es halb neun, es schneit, und Lena sitzt mit der Hüttenwirtin, Frau Moser, am Ofen. Dann geht die Tür auf. Es ist Max, in Turnschuhen, mit einer sehr alten Karte.",
 				"photos": [
 					{
 						"photo": "b2b22_huette_auto",
@@ -3276,11 +3278,11 @@
 					}
 				],
 				"en": "Lena: Max! You should have called! Where were you? · Max: I would have called, but there’s no reception here. I must have taken the wrong path. · Frau Moser: You should have turned back at three. The weather was forecast. And those aren’t mountain boots. · Max: Someone could have told me that. · Frau Moser: It’s on the sign, down at the car park. · Max: I must have missed the sign. · Frau Moser: And where did you get this map? · Max: From the flea market. It was very cheap. · Frau Moser: It’s from 1938. This hut can’t have existed then. The path you took has been gone since 1961. · Lena: So how on earth did you get here? · There’s a knock. A big dog is standing in the door. He looks at Max as if they know each other well. · Frau Moser: Ah, Bruno. He fetches one every week. Actually he should have had today off.",
-				"fact": "The German Alpine Club has more than a million members, making it the largest climbing club in the world, with hundreds of huts. *Bergwacht* rescuers are mostly volunteers. And if you are rescued while plainly badly equipped, the bill for the helicopter may be yours.",
+				"fact": "Der Deutsche Alpenverein hat über eine Million Mitglieder, ist damit der größte Bergsportverein der Welt und hat Hunderte Hütten. Die Retter der *Bergwacht* sind meist Freiwillige. Und wer klar schlecht ausgerüstet gerettet wird, zahlt den Hubschrauber vielleicht selbst.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -3333,7 +3335,7 @@
 					},
 					{
 						"title": "Du hättest …",
-						"instruction": "Turn each into a reproach, with hätte … sollen or müssen.",
+						"instruction": "Mach aus jedem Satz einen Vorwurf mit hätte … sollen oder müssen.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -3356,12 +3358,12 @@
 			"document": {
 				"photo": "b2b22_huette_schild",
 				"caption": "An der Wand der Hütte",
-				"intro": "A real sign on the wall of an Alpine hut. *ü. N. N.* means above sea level, *erbaut* is built, and *D.A.V.* is the German Alpine Club. A town in the north of Germany built it, at 2,759 metres in Austria.",
-				"fact": "Many Alpine Club huts were built long ago by a local section from a German city, which still runs them. So up in the Austrian Alps you may find a Braunschweig Hut or a Berlin Hut, quite far from either.",
+				"intro": "Ein echtes Schild an der Wand einer Alpenhütte. *ü. N. N.* heißt über dem Meer, *erbaut* heißt gebaut, *D.A.V.* ist der Deutsche Alpenverein. Eine Stadt in Norddeutschland baute sie, auf 2.759 Metern in Österreich.",
+				"fact": "Viele Hütten des Alpenvereins baute einst eine Sektion aus einer deutschen Stadt, die sie bis heute führt. So findest du in den österreichischen Alpen eine Braunschweiger oder Berliner Hütte, ziemlich weit von beiden.",
 				"tasks": [
 					{
 						"title": "Lies das Schild",
-						"instruction": "Circle what the sign says.",
+						"instruction": "Kreise ein, was auf dem Schild steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -3405,7 +3407,7 @@
 					},
 					{
 						"title": "Du hättest …",
-						"instruction": "Reproach Max, or guess about him.",
+						"instruction": "Mach Max einen Vorwurf oder vermute etwas über ihn.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -3414,33 +3416,34 @@
 								"answer": "Er wird die Hütte nicht gefunden haben."
 							},
 							{
-								"prompt": "Du bist nicht früh aufgestanden. (reproach)",
+								"prompt": "Du bist nicht früh aufgestanden. (Vorwurf)",
 								"answer": "Du hättest früh aufstehen sollen."
 							},
 							{
-								"prompt": "Er hat eine alte Karte gehabt. (guess)",
+								"prompt": "Er hat eine alte Karte gehabt. (Vermutung)",
 								"answer": "Er wird eine alte Karte gehabt haben."
 							}
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "dorf",
 			"n": 4,
 			"title": "Er soll reich sein",
-			"subtitle": "People say, he claims, and six more little words",
+			"subtitle": "Man sagt, er behauptet, und sechs kleine Wörter",
 			"accent": "blue",
 			"quiz": "quest_b2_2_sollen_subjektiv",
 			"listenQuiz": "quest_b2_2_lesen_textergaenzung",
 			"speakQuiz": "quest_b2_2_sprechen_einraeumen",
 			"words": {
-				"intro": "In a village in the Eifel, there’s a *Dorfplatz*, a bakery and one bench. Everything anybody needs to know is known there before lunch, and most of it is true.",
-				"more": "Auch im Dorf · also in the village",
+				"intro": "In einem Eifeldorf gibt es einen *Dorfplatz*, eine Bäckerei und eine Bank. Alles Wissenswerte ist dort vor dem Mittagessen bekannt, und das meiste stimmt sogar.",
+				"more": "Auch im Dorf",
 				"groups": [
 					{
-						"title": "Im Dorf · in the village",
+						"title": "Im Dorf",
 						"items": [
 							{
 								"de": "das Dorf",
@@ -3529,7 +3532,7 @@
 						]
 					},
 					{
-						"title": "Das Gerücht · the rumour",
+						"title": "Das Gerücht",
 						"items": [
 							{
 								"de": "das Gerücht",
@@ -3609,27 +3612,27 @@
 			"grammar": [
 				{
 					"heading": "Er soll reich sein",
-					"subheading": "Who says so? soll or will, now or then",
+					"subheading": "Wer sagt das? soll oder will, jetzt oder früher",
 					"blocks": [
 						{
 							"kind": "flow",
-							"title": "Who says so?",
-							"note": "Either way, the speaker isn’t vouching for it.",
+							"title": "Wer sagt das?",
+							"note": "So oder so: Der Sprecher bürgt nicht dafür.",
 							"root": {
-								"q": "Do other people say it?",
+								"q": "Sagen es andere Leute?",
 								"yes": {
 									"answer": "sollen",
 									"example": "Er soll reich sein."
 								},
 								"no": {
-									"answer": "wollen: he says it himself",
+									"answer": "wollen: Er sagt es selbst",
 									"example": "Er will reich sein."
 								}
 							}
 						},
 						{
 							"kind": "slots",
-							"title": "Now or then",
+							"title": "Jetzt oder früher",
 							"rows": [
 								{
 									"cells": [
@@ -3648,7 +3651,7 @@
 											"hot": true
 										}
 									],
-									"en": "is said to be"
+									"en": "sagt man: jetzt"
 								},
 								{
 									"cells": [
@@ -3667,7 +3670,7 @@
 											"hot": true
 										}
 									],
-									"en": "is said to have won"
+									"en": "sagt man: früher"
 								},
 								{
 									"cells": [
@@ -3686,19 +3689,19 @@
 											"hot": true
 										}
 									],
-									"en": "claims not to have been"
+									"en": "sagt er selbst: früher"
 								}
 							]
 						},
 						{
 							"kind": "box",
 							"tone": "watch",
-							"title": "Rumour, not an order",
-							"text": "In the news, *Der Minister soll zurücktreten* is usually a rumour: he is said to be resigning."
+							"title": "Gerücht, kein Befehl",
+							"text": "In den Nachrichten ist *Der Minister soll zurücktreten* meist ein Gerücht: Man sagt, er tritt zurück."
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "streng",
@@ -3780,10 +3783,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "The Eifel is a region of old volcanoes, west of Koblenz. It has crater lakes, the *Maare*, and more crime novels than crime: an entire local genre, the *Eifelkrimi*.",
+					"fact": "Die Eifel ist eine Gegend alter Vulkane westlich von Koblenz. Sie hat Kraterseen, die *Maare*, und mehr Krimis als Verbrechen: ein ganzes lokales Genre, den *Eifelkrimi*.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -3846,17 +3849,17 @@
 				},
 				{
 					"heading": "Das ist halt so",
-					"subheading": "Six more little words, and their false friends",
+					"subheading": "Sechs kleine Wörter und ihre falschen Freunde",
 					"blocks": [
 						{
 							"kind": "table",
-							"title": "What each one adds",
+							"title": "Was jedes Wort bewirkt",
 							"head": [
 								{
-									"text": "word"
+									"text": "Wort"
 								},
 								{
-									"text": "adds"
+									"text": "Wirkung"
 								},
 								{
 									"text": "",
@@ -3866,35 +3869,35 @@
 							"rows": [
 								[
 									"eben · halt",
-									"that’s just how it is",
+									"so ist es nun mal",
 									"Dann bleiben wir *eben* zu Hause."
 								],
 								[
 									"schon",
-									"don’t worry · true enough",
+									"keine Sorge · stimmt zwar",
 									"Das klappt *schon*. Das ist *schon* richtig, aber …"
 								],
 								[
 									"wohl",
-									"probably",
+									"vermutlich",
 									"Er ist *wohl* krank."
 								],
 								[
 									"ruhig",
-									"go ahead",
+									"nur zu",
 									"Nimm *ruhig* noch ein Stück."
 								],
 								[
 									"bloß · nur",
-									"don’t you dare · if only",
+									"wehe! · wenn doch",
 									"Mach das *bloß* nicht! Wenn er *nur* käme!"
 								]
 							]
 						},
 						{
 							"kind": "slots",
-							"title": "In the middle, never stressed",
-							"note": "After the verb and the pronouns. Stress it and it means something else.",
+							"title": "In der Mitte, nie betont",
+							"note": "Nach dem Verb und den Pronomen. Betont heißt es etwas anderes.",
 							"rows": [
 								{
 									"cells": [
@@ -3934,19 +3937,19 @@
 											"hot": true
 										}
 									],
-									"en": "two together: doch mal"
+									"en": "zwei zusammen: doch mal"
 								}
 							]
 						},
 						{
 							"kind": "box",
 							"tone": "watch",
-							"title": "False friends",
-							"text": "*wohl* is not “well”, *ruhig* is not “quietly” here, *eben* is not “just now”."
+							"title": "Falsche Freunde",
+							"text": "*wohl* ist nicht „well“, *ruhig* hier nicht „quietly“, *eben* nicht „just now“."
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "klappen",
@@ -3976,10 +3979,10 @@
 							"cols": 3
 						}
 					],
-					"fact": "Northern Germans say *eben* where southerners say *halt*, and both mean: there’s nothing to be done. *Das ist eben so.* It’s the whole of German philosophy, in three words. Hegel needed eight volumes.",
+					"fact": "Im Norden sagt man *eben*, im Süden *halt*, und beide meinen: Da kann man nichts machen. *Das ist eben so.* Die ganze deutsche Philosophie in vier Wörtern. Hegel brauchte acht Bände.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -3998,7 +4001,7 @@
 									"schon",
 									"denn"
 								],
-								"after": "gut gehen. (don’t worry)",
+								"after": "gut gehen. (keine Sorge)",
 								"answer": "schon"
 							},
 							{
@@ -4007,7 +4010,7 @@
 									"wohl",
 									"denn"
 								],
-								"after": "krank. (I suppose)",
+								"after": "krank. (vermutlich)",
 								"answer": "wohl"
 							},
 							{
@@ -4016,7 +4019,7 @@
 									"eigentlich",
 									"halt"
 								],
-								"after": "? (by the way)",
+								"after": "? (übrigens)",
 								"answer": "eigentlich"
 							},
 							{
@@ -4025,7 +4028,7 @@
 									"aber",
 									"denn"
 								],
-								"after": "teuer! (surprise)",
+								"after": "teuer! (Überraschung)",
 								"answer": "aber"
 							},
 							{
@@ -4034,7 +4037,7 @@
 									"ruhig",
 									"halt"
 								],
-								"after": "rein! (it’s fine)",
+								"after": "rein! (nur zu)",
 								"answer": "ruhig"
 							}
 						]
@@ -4043,8 +4046,8 @@
 			],
 			"practise": [
 				{
-					"title": "soll or will?",
-					"instruction": "Write soll or will.",
+					"title": "soll oder will?",
+					"instruction": "Schreib soll oder will.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -4070,8 +4073,8 @@
 					]
 				},
 				{
-					"title": "Ask the doctor",
-					"instruction": "Listen to the interview. Circle what you hear.",
+					"title": "Frag die Ärztin",
+					"instruction": "Hör das Interview. Kreise ein, was du hörst.",
 					"kind": "circle",
 					"cols": 1,
 					"items": [
@@ -4124,8 +4127,8 @@
 					"listen": true
 				},
 				{
-					"title": "Say it another way",
-					"instruction": "Write it with sollen or wollen.",
+					"title": "Anders gesagt",
+					"instruction": "Schreib es mit sollen oder wollen.",
 					"kind": "write",
 					"items": [
 						{
@@ -4149,8 +4152,8 @@
 					"extra": true
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -4166,8 +4169,8 @@
 					"extra": true
 				},
 				{
-					"title": "Which little word?",
-					"instruction": "Circle the word that fits.",
+					"title": "Welches kleine Wort?",
+					"instruction": "Kreise das passende Wort ein.",
 					"kind": "circle",
 					"cols": 2,
 					"items": [
@@ -4228,8 +4231,8 @@
 					]
 				},
 				{
-					"title": "Soften it",
-					"instruction": "Add mal to make the request friendly.",
+					"title": "Mach es weicher",
+					"instruction": "Mach die Bitte mit mal freundlich.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -4245,8 +4248,8 @@
 					]
 				},
 				{
-					"title": "Make it friendlier",
-					"instruction": "Add the little word in brackets.",
+					"title": "Mach es freundlicher",
+					"instruction": "Füg das kleine Wort in Klammern ein.",
 					"kind": "write",
 					"items": [
 						{
@@ -4279,16 +4282,16 @@
 				}
 			],
 			"listen": {
-				"intro": "A text on buying local. Fill in the gaps in your head, and say what people are said to want."
+				"intro": "Ein Text übers Einkaufen vor Ort. Füll die Lücken im Kopf und sag, was die Leute angeblich wollen."
 			},
 			"speak": {
-				"intro": "Give way a little, line by line. Then tell the tutor a rumour about a place you know: Er soll …"
+				"intro": "Gib Zeile für Zeile etwas nach. Erzähl dem Tutor dann ein Gerücht über einen Ort, den du kennst: Er soll …"
 			},
 			"canDo": [
-				"report a rumour with sollen",
-				"doubt a claim with wollen",
-				"use halt, eben, wohl, schon",
-				"understand what is said in a bakery"
+				"ein Gerücht mit sollen wiedergeben",
+				"eine Behauptung mit wollen anzweifeln",
+				"halt, eben, wohl, schon nutzen",
+				"verstehen, was man in einer Bäckerei sagt"
 			],
 			"world": "Ein Dorf in der Eifel",
 			"opener": {
@@ -4365,7 +4368,7 @@
 			},
 			"reading": {
 				"title": "Der Neue",
-				"intro": "A stranger has moved into the old mill above the village. Maya has come for a weekend with Lena’s aunt, and she goes to buy rolls. In the bakery, at half past seven, she learns everything there is to know about him. He has lived there for two days.",
+				"intro": "Ein Fremder ist in die alte Mühle über dem Dorf gezogen. Maya ist übers Wochenende bei Lenas Tante und holt Brötchen. In der Bäckerei erfährt sie um halb acht alles über ihn. Er wohnt seit zwei Tagen dort.",
 				"photos": [
 					{
 						"photo": "b2b22_dorf_linde",
@@ -4417,11 +4420,11 @@
 					}
 				],
 				"en": "Bäckerin: They say he’s from Berlin. And they say he’s very rich. · Kundin: He claims to be a writer. At least that’s what he says. But apparently he’s never written a book. · Bäckerin: His wife is supposed to have run off. Or he from her. You just don’t know exactly. · Maya: How do you know all this? · Kundin: People just say so. The postman saw a parcel. It’s said to have been very heavy. · Bäckerin: And he buys eight rolls a day. For one man alone! There’s something wrong there. · The door opens. A friendly man in glasses comes in. It goes very quiet at once. · Mann: Good morning! Eight rolls, please. For the workmen. The roof’s broken, you see. Tell me: I’ve heard there’s said to be a woman here in the village with a child by a priest. Do you know anything about it? · The baker drops the bag. The customer looks at the floor. Nobody says anything. · Mann: I see. Well. I’m actually a journalist. See you tomorrow!",
-				"fact": "German has a precise tool for gossip: *Er soll reich sein* means people say so. *Er will reich sein* means he himself claims so, and I doubt it. The same two helper verbs that give orders and wishes here keep you out of a libel suit. Newspapers depend on them.",
+				"fact": "Deutsch hat ein genaues Werkzeug für Klatsch: *Er soll reich sein* heißt, die Leute sagen es. *Er will reich sein* heißt, er behauptet es selbst, und ich zweifle. Dieselben Modalverben, die hier Befehle und Wünsche ausdrücken, schützen dich vor einer Klage. Zeitungen leben davon.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -4474,7 +4477,7 @@
 					},
 					{
 						"title": "Soll oder will?",
-						"instruction": "Complete with soll or will.",
+						"instruction": "Ergänze mit soll oder will.",
 						"kind": "gaps",
 						"items": [
 							{
@@ -4489,12 +4492,12 @@
 							},
 							{
 								"before": "Seine Frau",
-								"after": "weggelaufen sein. (they say)",
+								"after": "weggelaufen sein. (sagt man)",
 								"answer": "soll"
 							},
 							{
 								"before": "Das Paket",
-								"after": "schwer gewesen sein. (they say)",
+								"after": "schwer gewesen sein. (sagt man)",
 								"answer": "soll"
 							}
 						]
@@ -4505,12 +4508,12 @@
 				"photo": "b2b22_dorf_blatt",
 				"caption": "Das Gemeindeblatt von 1888",
 				"tall": true,
-				"intro": "A real local bulletin from Dornbirn, Austria, from the first day of 1888, in old type. Every village still has one. It’s where the official rumour goes. *Jänner* is Austrian for January, still.",
-				"fact": "Most German villages still have a *Gemeindeblatt* or *Amtsblatt*, which prints the fire brigade’s dates and who’s had a birthday. It’s often the only paper in the house that everybody reads to the end.",
+				"intro": "Ein echtes Lokalblatt aus Dornbirn, Österreich, vom ersten Tag des Jahres 1888, in alter Schrift. Jedes Dorf hat noch so eins: Dort landet das amtliche Gerücht. *Jänner* ist bis heute Österreichisch für Januar.",
+				"fact": "Die meisten deutschen Dörfer haben noch ein *Gemeindeblatt* oder *Amtsblatt*, mit den Terminen der Feuerwehr und den Geburtstagen. Oft ist es das einzige Blatt im Haus, das alle bis zum Ende lesen.",
 				"tasks": [
 					{
 						"title": "Lies das Blatt",
-						"instruction": "Circle what the page says.",
+						"instruction": "Kreise ein, was auf der Seite steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -4554,7 +4557,7 @@
 					},
 					{
 						"title": "Man sagt …",
-						"instruction": "Say each rumour with soll or will.",
+						"instruction": "Sag jedes Gerücht mit soll oder will.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -4563,7 +4566,7 @@
 								"answer": "Das Blatt soll sehr alt sein."
 							},
 							{
-								"prompt": "Er sagt, er hat es nie gelesen. (I doubt it)",
+								"prompt": "Er sagt, er hat es nie gelesen. (ich zweifle)",
 								"answer": "Er will es nie gelesen haben."
 							},
 							{
@@ -4573,23 +4576,24 @@
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "sturm",
 			"n": 5,
 			"title": "Aufgrund des Wetters",
-			"subtitle": "Little words of official German, and making nouns from verbs",
+			"subtitle": "Kleine Wörter des Amtsdeutschen und Nomen aus Verben",
 			"accent": "terracotta",
 			"quiz": "quest_b2_2_genitiv_praep",
 			"listenQuiz": "quest_b2_2_lesen_klima",
 			"speakQuiz": "quest_b2_2_sprechen_einraeumen",
 			"words": {
-				"intro": "When a storm goes through, a German town does not say a tree fell over. It says: *Infolge des Sturmtiefs kam es zu Beeinträchtigungen des Straßenverkehrs.* You will now learn to read that without flinching.",
-				"more": "Auch beim Sturm · also in the storm",
+				"intro": "Nach einem Sturm sagt eine deutsche Stadt nicht, ein Baum sei umgefallen. Sie sagt: *Infolge des Sturmtiefs kam es zu Beeinträchtigungen des Straßenverkehrs.* Bald liest du das, ohne zu zucken.",
+				"more": "Auch beim Sturm",
 				"groups": [
 					{
-						"title": "Der Sturm · the storm",
+						"title": "Der Sturm",
 						"items": [
 							{
 								"de": "der Sturm",
@@ -4677,7 +4681,7 @@
 						]
 					},
 					{
-						"title": "Amtsdeutsch · official German",
+						"title": "Amtsdeutsch",
 						"items": [
 							{
 								"de": "die Behörde",
@@ -4757,21 +4761,21 @@
 			"grammar": [
 				{
 					"heading": "Aufgrund des Wetters",
-					"subheading": "The written set: all with the genitive, and when von steps in",
+					"subheading": "Die Schriftwörter: alle mit Genitiv, und wann von einspringt",
 					"blocks": [
 						{
 							"kind": "table",
-							"title": "The written set — all + genitive",
+							"title": "Die Schriftwörter: alle + Genitiv",
 							"head": [
 								{
-									"text": "word"
+									"text": "Wort"
 								},
 								{
 									"text": "",
 									"en": true
 								},
 								{
-									"text": "like this"
+									"text": "so"
 								}
 							],
 							"rows": [
@@ -4814,8 +4818,8 @@
 						},
 						{
 							"kind": "build",
-							"title": "No article? von steps in",
-							"note": "With nothing to show the genitive, von + dative does the job.",
+							"title": "Kein Artikel? von springt ein",
+							"note": "Zeigt nichts den Genitiv, übernimmt von + Dativ.",
 							"rows": [
 								{
 									"parts": [
@@ -4853,7 +4857,7 @@
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "der Streik · des Streiks",
@@ -4939,10 +4943,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "A German official letter almost never uses *weil*. It says *aufgrund*. It almost never uses *wenn*: it says *im Falle*. And almost never *ich*: it says *es wird gebeten*. Reading one is an exercise in looking for the person.",
+					"fact": "Ein deutscher Amtsbrief benutzt fast nie *weil*. Er sagt *aufgrund*. Fast nie *wenn*: Er sagt *im Falle*. Und fast nie *ich*: Er sagt *es wird gebeten*. Beim Lesen suchst du den Menschen.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -4988,7 +4992,7 @@
 									"von",
 									"der"
 								],
-								"after": "Problemen (no article)",
+								"after": "Problemen (kein Artikel)",
 								"answer": "von"
 							},
 							{
@@ -5005,12 +5009,12 @@
 				},
 				{
 					"heading": "Der Lauf, das Laufen",
-					"subheading": "Six ways to make a noun from a verb",
+					"subheading": "Sechs Wege vom Verb zum Nomen",
 					"blocks": [
 						{
 							"kind": "build",
-							"title": "Six patterns, three genders",
-							"note": "Two der, two das, two die.",
+							"title": "Sechs Muster, drei Artikel",
+							"note": "Zweimal der, zweimal das, zweimal die.",
 							"rows": [
 								{
 									"parts": [
@@ -5023,7 +5027,7 @@
 										}
 									],
 									"result": "der Lehrer",
-									"en": "the person · der"
+									"en": "die Person · der"
 								},
 								{
 									"parts": [
@@ -5032,7 +5036,7 @@
 										}
 									],
 									"result": "der Beginn",
-									"en": "the stem: the event · der"
+									"en": "der Stamm: das Ereignis · der"
 								},
 								{
 									"parts": [
@@ -5049,7 +5053,7 @@
 										}
 									],
 									"result": "das Gerede",
-									"en": "Ge-…-e: constant, annoying · das"
+									"en": "Ge-…-e: ständig, nervig · das"
 								},
 								{
 									"parts": [
@@ -5058,7 +5062,7 @@
 										}
 									],
 									"result": "das Lesen",
-									"en": "the infinitive: the activity · das"
+									"en": "Infinitiv: die Tätigkeit · das"
 								},
 								{
 									"parts": [
@@ -5071,7 +5075,7 @@
 										}
 									],
 									"result": "die Frage",
-									"en": "stem + -e · die"
+									"en": "Stamm + -e · die"
 								},
 								{
 									"parts": [
@@ -5084,7 +5088,7 @@
 										}
 									],
 									"result": "die Prüfung",
-									"en": "-ung: process or result · die"
+									"en": "-ung: Vorgang, Ergebnis · die"
 								}
 							]
 						},
@@ -5093,7 +5097,7 @@
 							"blocks": [
 								{
 									"kind": "table",
-									"title": "One verb, several nouns",
+									"title": "Ein Verb, mehrere Nomen",
 									"head": [
 										{
 											"text": ""
@@ -5124,8 +5128,8 @@
 								},
 								{
 									"kind": "build",
-									"title": "The joining -s-",
-									"note": "After -ung, -heit, -keit, -schaft, -ion.",
+									"title": "Das verbindende -s-",
+									"note": "Nach -ung, -heit, -keit, -schaft, -ion.",
 									"rows": [
 										{
 											"parts": [
@@ -5149,7 +5153,7 @@
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "die Suche",
@@ -5247,10 +5251,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "German makes a noun of anything: *das Sein*, being. *das Nichts*, the nothing. *das Dasein*, being there. Philosophers have got rich on it. You can also do it at breakfast: *Das Aufstehen ist das Schlimmste.*",
+					"fact": "Deutsch macht aus allem ein Nomen: *das Sein*, *das Nichts*, *das Dasein*. Philosophen wurden damit reich. Das geht auch beim Frühstück: *Das Aufstehen ist das Schlimmste.*",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -5314,8 +5318,8 @@
 			],
 			"practise": [
 				{
-					"title": "Which little word?",
-					"instruction": "Write wegen, außerhalb, infolge, anlässlich or innerhalb.",
+					"title": "Welches kleine Wort?",
+					"instruction": "Schreib wegen, außerhalb, infolge, anlässlich oder innerhalb.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -5346,8 +5350,8 @@
 					]
 				},
 				{
-					"title": "The genitive",
-					"instruction": "Write the words in brackets in the genitive.",
+					"title": "Der Genitiv",
+					"instruction": "Schreib die Wörter in Klammern im Genitiv.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -5368,8 +5372,8 @@
 					]
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -5397,8 +5401,8 @@
 					"extra": true
 				},
 				{
-					"title": "In German",
-					"instruction": "Write it in German.",
+					"title": "Auf Deutsch",
+					"instruction": "Schreib es auf Deutsch.",
 					"kind": "write",
 					"items": [
 						{
@@ -5411,13 +5415,13 @@
 					"extra": true
 				},
 				{
-					"title": "Make a noun",
-					"instruction": "Write the noun with its article. The verb is in brackets.",
+					"title": "Bilde ein Nomen",
+					"instruction": "Schreib das Nomen mit Artikel. Das Verb steht in Klammern.",
 					"kind": "gaps",
 					"items": [
 						{
 							"before": "",
-							"after": "hat uns die Aufgabe noch einmal erklärt. (lehren → the person)",
+							"after": "hat uns die Aufgabe noch einmal erklärt. (lehren → die Person)",
 							"answer": "Der Lehrer"
 						},
 						{
@@ -5443,8 +5447,8 @@
 					]
 				},
 				{
-					"title": "der, die or das?",
-					"instruction": "Write each noun in its column.",
+					"title": "der, die oder das?",
+					"instruction": "Schreib jedes Nomen in seine Spalte.",
 					"kind": "sort",
 					"columns": [
 						"der",
@@ -5469,8 +5473,8 @@
 					]
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has the wrong article. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat den falschen Artikel. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -5490,8 +5494,8 @@
 					"extra": true
 				},
 				{
-					"title": "Name the person",
-					"instruction": "Write the person who does it, with der.",
+					"title": "Nenne die Person",
+					"instruction": "Schreib die Person, die es tut, mit der.",
 					"kind": "write",
 					"items": [
 						{
@@ -5516,16 +5520,16 @@
 				}
 			],
 			"listen": {
-				"intro": "The piece on the climate once more. Listen for the official words: aufgrund, infolge, hinsichtlich."
+				"intro": "Noch einmal der Beitrag zum Klima. Achte auf die Amtswörter: aufgrund, infolge, hinsichtlich."
 			},
 			"speak": {
-				"intro": "Give way, line by line, and then argue with the tutor about a local decision. Try one sentence in official German."
+				"intro": "Gib Zeile für Zeile nach und streite dann mit dem Tutor über eine lokale Entscheidung. Versuch einen Satz auf Amtsdeutsch."
 			},
 			"canDo": [
-				"read aufgrund, infolge, innerhalb",
-				"make a noun from a verb",
-				"understand an official notice",
-				"translate one into plain German"
+				"aufgrund, infolge, innerhalb lesen",
+				"aus einem Verb ein Nomen bilden",
+				"einen Aushang vom Amt verstehen",
+				"ihn in einfaches Deutsch übersetzen"
 			],
 			"world": "Nach dem Sturm",
 			"opener": {
@@ -5593,7 +5597,7 @@
 			},
 			"reading": {
 				"title": "Eine Mitteilung der Stadt",
-				"intro": "A storm has blown a tree onto Frau Huber’s bench. The next day a notice from the town hall goes up on the bakery door, and Max has been asked to read it out. Frau Huber translates, line by line. The whole queue is listening.",
+				"intro": "Ein Sturm hat einen Baum auf Frau Hubers Bank geworfen. Am nächsten Tag hängt an der Bäckertür ein Aushang vom Rathaus, und Max soll ihn vorlesen. Frau Huber übersetzt Zeile für Zeile. Die ganze Schlange hört zu.",
 				"photos": [
 					{
 						"photo": "b2b22_sturm_baum",
@@ -5650,11 +5654,11 @@
 					}
 				],
 				"en": "Max: \"Due to the storm depression, Monday saw disruption to road traffic within the urban area.\" · Frau Huber: A tree fell over. · Max: \"As a result of the closure of Hofstraße, measures had to be taken for the removal of the tree.\" · Frau Huber: The tree was on the road. Someone cleared it away. · Max: \"Thanks to the deployment of the volunteer fire brigade, passage could be restored by 16.00 with the help of heavy equipment.\" · Frau Huber: Herr Yilmaz had a saw. And his son. · Max: \"With regard to the whereabouts of the seating, your understanding is requested.\" · It’s very quiet in the bakery. Frau Huber slowly takes off her glasses. · Frau Huber: Seating? · Max: I think that’s the bench, Frau Huber. · Frau Huber: Give me a pen. \"With regard to the whereabouts of your mayor, your understanding is also requested. He is sitting in my kitchen until the bench is back.\"",
-				"fact": "German official language has its own dictionary of nouns: *Sitzgelegenheit* for a seat, *Personenvereinzelungsanlage* for a turnstile, *raumübergreifendes Großgrün* for a tree, in a famous bit of planning jargon. Some towns now run courses in plain language.",
+				"fact": "Amtsdeutsch hat sein eigenes Wörterbuch: *Sitzgelegenheit* für einen Sitz, *Personenvereinzelungsanlage* für ein Drehkreuz, *raumübergreifendes Großgrün* für einen Baum, ein berühmtes Stück Planersprache. Manche Städte bieten heute Kurse in einfacher Sprache an.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -5707,7 +5711,7 @@
 					},
 					{
 						"title": "Auf Deutsch, bitte",
-						"instruction": "Say each one in plain German, as Frau Huber would.",
+						"instruction": "Sag jeden Satz in einfachem Deutsch, wie Frau Huber.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -5727,12 +5731,12 @@
 				"photo": "b2b22_sturm_brief",
 				"caption": "Ein Brief an alle Anwohner",
 				"tall": true,
-				"intro": "A real letter from a German town, stuck up in a street. It’s announcing roadworks. It’s exactly what you’ve just learned: *in einem Bereich der o. g. Ortsstraße*, nouns everywhere, and *wir bitten um Verständnis*. Find the facts.",
-				"fact": "*Wir bitten um Verständnis* is the sentence that ends all German bad news: on trains, at roadworks, on closed swimming pools. Nobody knows of anyone who has ever understood. It’s still always asked for.",
+				"intro": "Ein echter Brief einer deutschen Stadt, ausgehängt auf der Straße. Er kündigt Bauarbeiten an. Genau das hast du gerade gelernt: *in einem Bereich der o. g. Ortsstraße*, überall Nomen, und *wir bitten um Verständnis*. Such die Tatsachen.",
+				"fact": "*Wir bitten um Verständnis*: So endet jede schlechte Nachricht in Deutschland, im Zug, an der Baustelle, am geschlossenen Schwimmbad. Niemand kennt jemanden, der je verstanden hat. Gebeten wird trotzdem immer.",
 				"tasks": [
 					{
 						"title": "Lies den Brief",
-						"instruction": "Circle what the letter says.",
+						"instruction": "Kreise ein, was im Brief steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -5776,7 +5780,7 @@
 					},
 					{
 						"title": "Auf gut Deutsch",
-						"instruction": "Say each one in plain German.",
+						"instruction": "Sag jedes davon in einfachem Deutsch.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -5795,23 +5799,24 @@
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "versicherung",
 			"n": 6,
 			"title": "Eine Entscheidung treffen",
-			"subtitle": "From a clause to a phrase, and noun + light verb",
+			"subtitle": "Nebensatz wird Wortgruppe, Nomen + Funktionsverb",
 			"accent": "mustard",
 			"quiz": "quest_b2_2_konditional_nominal",
 			"listenQuiz": "quest_b2_2_lesen_rezension",
 			"speakQuiz": "quest_b2_2_sprechen_kurzcheck",
 			"words": {
-				"intro": "Germans insure more than almost anyone: their teeth, their legal disputes and even their bicycles. Once in your life, you will fill in a claim form, and you will be judged by how well you describe a saucepan.",
-				"more": "Auch bei der Versicherung · also at the insurer",
+				"intro": "Deutsche versichern mehr als fast alle: ihre Zähne, ihre Rechtsstreite, sogar ihre Fahrräder. Einmal im Leben füllst du ein Schadensformular aus und wirst danach beurteilt, wie gut du einen Kochtopf beschreibst.",
+				"more": "Auch bei der Versicherung",
 				"groups": [
 					{
-						"title": "Der Schaden · the damage",
+						"title": "Der Schaden",
 						"items": [
 							{
 								"de": "die Versicherung",
@@ -5898,7 +5903,7 @@
 						]
 					},
 					{
-						"title": "Die Sprache · the language",
+						"title": "Die Sprache",
 						"items": [
 							{
 								"de": "die Entscheidung",
@@ -5979,15 +5984,15 @@
 			"grammar": [
 				{
 					"heading": "Bei Regen, durch Sparen",
-					"subheading": "Folding a clause into a phrase",
+					"subheading": "Einen Nebensatz zur Wortgruppe falten",
 					"blocks": [
 						{
 							"kind": "merge",
-							"title": "Fold the clause",
-							"note": "sodass names the result, infolge the cause. bei takes the dative ending: bei schönem Wetter.",
+							"title": "Falte den Nebensatz",
+							"note": "sodass nennt die Folge, infolge die Ursache. bei nimmt die Dativendung: bei schönem Wetter.",
 							"labels": [
-								"the little word",
-								"the verb becomes a noun"
+								"die Präposition",
+								"das Verb wird Nomen"
 							],
 							"rows": [
 								{
@@ -6042,7 +6047,7 @@
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "das Spiel",
@@ -6132,10 +6137,10 @@
 							"cols": 3
 						}
 					],
-					"fact": "Germany pays out for a thing called *Hausrat*: everything in your home, down to the spoons. So you may be asked, after a burglary, to list it all. It’s a rare and painful reckoning with your possessions.",
+					"fact": "Deutschland zahlt für etwas namens *Hausrat*: alles in deiner Wohnung, bis zu den Löffeln. Nach einem Einbruch musst du vielleicht alles auflisten. Eine seltene, schmerzhafte Abrechnung mit deinem Besitz.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -6198,12 +6203,12 @@
 				},
 				{
 					"heading": "Eine Entscheidung treffen",
-					"subheading": "The noun carries the meaning, the verb only carries the noun",
+					"subheading": "Das Nomen trägt die Bedeutung, das Verb trägt nur das Nomen",
 					"blocks": [
 						{
 							"kind": "build",
-							"title": "The noun carries the meaning",
-							"note": "The verb means almost nothing on its own: make a decision is treffen, not machen.",
+							"title": "Das Nomen trägt die Bedeutung",
+							"note": "Funktionsverb = Verb, das allein fast nichts sagt: eine Entscheidung treffen, nicht machen.",
 							"rows": [
 								{
 									"parts": [
@@ -6287,13 +6292,13 @@
 						},
 						{
 							"kind": "table",
-							"title": "By verb",
+							"title": "Nach Verben",
 							"head": [
 								{
-									"text": "verb"
+									"text": "Verb"
 								},
 								{
-									"text": "nouns"
+									"text": "Nomen"
 								}
 							],
 							"rows": [
@@ -6317,7 +6322,7 @@
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "der Vorstand",
@@ -6371,10 +6376,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "Why say *entscheiden* when you can say *eine Entscheidung treffen*? It’s longer, it sounds more important, and it leaves more room for delay. There’s a German word for this too: *Nominalstil*. Your teachers will warn you against it, and then use it.",
+					"fact": "Warum *entscheiden* sagen, wenn es *eine Entscheidung treffen* gibt? Es ist länger, klingt wichtiger und lässt mehr Raum zum Aufschieben. Auch dafür gibt es ein Wort: *Nominalstil*. Deine Lehrer warnen davor und benutzen ihn dann.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -6438,8 +6443,8 @@
 			],
 			"practise": [
 				{
-					"title": "Shorter",
-					"instruction": "Write the phrase.",
+					"title": "Kürzer",
+					"instruction": "Schreib die Wortgruppe.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -6475,8 +6480,8 @@
 					]
 				},
 				{
-					"title": "In a letter",
-					"instruction": "Write it the formal way, with bei.",
+					"title": "In einem Brief",
+					"instruction": "Schreib es formell, mit bei.",
 					"kind": "write",
 					"items": [
 						{
@@ -6487,8 +6492,8 @@
 					"cols": 1
 				},
 				{
-					"title": "Say it shorter",
-					"instruction": "Write it with bei, ohne, durch or im Falle.",
+					"title": "Sag es kürzer",
+					"instruction": "Schreib es mit bei, ohne, durch oder im Falle.",
 					"kind": "write",
 					"items": [
 						{
@@ -6512,8 +6517,8 @@
 					"extra": true
 				},
 				{
-					"title": "Unfold it",
-					"instruction": "Write it with wenn or indem.",
+					"title": "Falte es auf",
+					"instruction": "Schreib es mit wenn oder indem.",
 					"kind": "write",
 					"items": [
 						{
@@ -6529,8 +6534,8 @@
 					"extra": true
 				},
 				{
-					"title": "The light verb",
-					"instruction": "Write the verb that goes with the noun.",
+					"title": "Das Funktionsverb",
+					"instruction": "Schreib das Verb, das zum Nomen passt.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -6571,8 +6576,8 @@
 					]
 				},
 				{
-					"title": "Noun and verb",
-					"instruction": "Draw a line from the noun to its verb.",
+					"title": "Nomen und Verb",
+					"instruction": "Verbinde das Nomen mit seinem Verb.",
 					"kind": "match",
 					"left": [
 						"Rücksicht",
@@ -6594,8 +6599,8 @@
 					]
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -6620,16 +6625,16 @@
 				}
 			],
 			"listen": {
-				"intro": "A book review, read aloud, in very written German. Note each folded phrase, and say it again in plain words."
+				"intro": "Eine Rezension, vorgelesen, in sehr schriftlichem Deutsch. Notier jede gefaltete Wortgruppe und sag sie einfacher."
 			},
 			"speak": {
-				"intro": "A situation that went wrong: tell the tutor what happened, then say it as you would write to an insurer."
+				"intro": "Etwas ging schief: Erzähl es dem Tutor, und sag es dann so, wie du es der Versicherung schreiben würdest."
 			},
 			"canDo": [
-				"fold a clause into a phrase",
-				"use noun + light verb",
-				"read a formal German letter",
-				"fill in a claim form"
+				"einen Nebensatz zur Wortgruppe falten",
+				"Nomen + Funktionsverb nutzen",
+				"einen formellen deutschen Brief lesen",
+				"ein Schadensformular ausfüllen"
 			],
 			"world": "Der Schaden und die Versicherung",
 			"opener": {
@@ -6699,7 +6704,7 @@
 			},
 			"reading": {
 				"title": "Schadensmeldung",
-				"intro": "Max’s washing machine has flooded the flat below. He has to fill in a form for the insurer. Unfortunately, he has asked Lena to help. *Beschreiben Sie den Hergang in vollständigen Sätzen.* This is his third version.",
+				"intro": "Max’ Waschmaschine hat die Wohnung darunter geflutet. Er muss für die Versicherung ein Formular ausfüllen. Leider hat er Lena gefragt. *Beschreiben Sie den Hergang in vollständigen Sätzen.* Das ist seine dritte Fassung.",
 				"photos": [
 					{
 						"photo": "b2b22_versicherung_haus",
@@ -6760,11 +6765,11 @@
 					}
 				],
 				"en": "Max: \"I wanted to do a wash. Then everything was wet.\" · Lena: That’s out of the question. Write: \"During washing there was a water leak.\" · Max: \"On opening the door I was standing in water.\" Is that good? · Lena: Very good. Now: \"By immediately turning off the tap, greater damage could be prevented.\" · Max: But that’s not true. I only let them know an hour later. · Lena: Why? · Max: I was at the football. It’s hard to turn off a tap in your absence. · Lena: You’re not writing that! Write: \"On becoming aware of the damage, measures were taken at once.\" · Three weeks later the answer comes. Max reads it out, standing at the window. · Max: \"After examining your application we have made a decision. Your excellent damage report has convinced us. On receipt of the photos …\" Lena. What photos? · Lena: Didn’t you take any? · Max: Yes I did. Of the goal. At the football.",
-				"fact": "Germans are among the world’s most insured people: a household often has several policies, including *Haftpflicht*, liability, which pays when you break something belonging to someone else. It’s not compulsory, but having none is considered close to reckless. Every German asks: *Bist du haftpflichtversichert?*",
+				"fact": "Deutsche gehören zu den meistversicherten Menschen der Welt: Ein Haushalt hat oft mehrere Policen, darunter die *Haftpflicht*, die zahlt, wenn du fremde Sachen kaputt machst. Sie ist keine Pflicht, aber ohne sie gilt man als fast leichtsinnig. Jeder fragt: *Bist du haftpflichtversichert?*",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -6817,7 +6822,7 @@
 					},
 					{
 						"title": "Kürzer",
-						"instruction": "Say each one with a phrase: beim, bei, durch, nach.",
+						"instruction": "Sag jeden Satz mit: beim, bei, durch, nach.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -6841,12 +6846,12 @@
 				"photo": "b2b22_versicherung_plakette",
 				"caption": "An einem alten Haus",
 				"tall": true,
-				"intro": "A real enamel plate on the door of an old half-timbered house. It’s a fire insurance plate, and houses used to carry them so the fire brigade knew who’d pay. *Anstalt* is an old word for an institution. The 7 is the house number.",
-				"fact": "Fire insurance is old in Germany: a public fire fund began in Hamburg in 1676. Plates like this one survive on old houses. They were a kind of advertising, and a kind of warning.",
+				"intro": "Ein echtes Emailschild an der Tür eines alten Fachwerkhauses. Es ist ein Feuerversicherungsschild: So wusste die Feuerwehr, wer zahlt. *Anstalt* ist ein altes Wort für eine Einrichtung. Die 7 ist die Hausnummer.",
+				"fact": "Feuerversicherung ist in Deutschland alt: 1676 begann in Hamburg eine öffentliche Feuerkasse. Schilder wie dieses hängen noch an alten Häusern. Sie waren Werbung und auch eine Warnung.",
 				"tasks": [
 					{
 						"title": "Lies das Schild",
-						"instruction": "Circle what the plate says.",
+						"instruction": "Kreise ein, was auf dem Schild steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -6881,7 +6886,7 @@
 					},
 					{
 						"title": "Das Wort dazu",
-						"instruction": "Complete each light-verb phrase.",
+						"instruction": "Ergänze jede Wortgruppe mit Funktionsverb.",
 						"kind": "gaps",
 						"items": [
 							{
@@ -6907,23 +6912,24 @@
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "werft",
 			"n": 7,
 			"title": "Die geplanten Maßnahmen",
-			"subtitle": "A whole clause before the noun, and four ways to say it can be done",
+			"subtitle": "Ein ganzer Nebensatz vor dem Nomen, und vier Wege zu „machbar“",
 			"accent": "sage",
 			"quiz": "quest_b2_2_partizip_attribut",
 			"listenQuiz": "quest_b2_2_suchbild",
 			"speakQuiz": "quest_b2_2_sprechen_einraeumen",
 			"words": {
-				"intro": "In Papenburg, far inland, a shipyard builds the largest cruise ships in the world. Each one is too big for the river. So the river is dammed, dredged and closed, and the whole region comes to watch.",
-				"more": "Auch auf der Werft · also at the shipyard",
+				"intro": "In Papenburg, weit im Binnenland, baut eine Werft die größten Kreuzfahrtschiffe der Welt. Jedes ist zu groß für den Fluss. Also wird er gestaut, ausgebaggert und gesperrt, und die ganze Region schaut zu.",
+				"more": "Auch auf der Werft",
 				"groups": [
 					{
-						"title": "Die Werft · the shipyard",
+						"title": "Die Werft",
 						"items": [
 							{
 								"de": "die Werft",
@@ -7010,7 +7016,7 @@
 						]
 					},
 					{
-						"title": "Geht das? · can it be done?",
+						"title": "Geht das?",
 						"items": [
 							{
 								"de": "die Lösung",
@@ -7091,31 +7097,31 @@
 			"grammar": [
 				{
 					"heading": "Die geplanten Maßnahmen",
-					"subheading": "Article … the middle … participle: a clause before the noun",
+					"subheading": "Artikel … Mitte … Partizip: ein Nebensatz vor dem Nomen",
 					"blocks": [
 						{
 							"kind": "slots",
-							"title": "Article … the middle … participle + ending … noun",
-							"note": "Read: article → noun → back to the middle.",
+							"title": "Artikel … Mitte … Partizip + Endung … Nomen",
+							"note": "Lies: Artikel → Nomen → zurück zur Mitte.",
 							"rows": [
 								{
 									"cells": [
 										{
 											"de": "die",
-											"tag": "article"
+											"tag": "Artikel"
 										},
 										{
 											"de": "von der Regierung",
-											"tag": "the middle"
+											"tag": "die Mitte"
 										},
 										{
 											"de": "geplanten",
-											"tag": "participle",
+											"tag": "Partizip",
 											"hot": true
 										},
 										{
 											"de": "Maßnahmen",
-											"tag": "noun"
+											"tag": "Nomen"
 										}
 									]
 								},
@@ -7123,20 +7129,20 @@
 									"cells": [
 										{
 											"de": "das",
-											"tag": "article"
+											"tag": "Artikel"
 										},
 										{
 											"de": "seit Jahren",
-											"tag": "the middle"
+											"tag": "die Mitte"
 										},
 										{
 											"de": "bestehende",
-											"tag": "participle",
+											"tag": "Partizip",
 											"hot": true
 										},
 										{
 											"de": "Problem",
-											"tag": "noun"
+											"tag": "Nomen"
 										}
 									]
 								},
@@ -7144,20 +7150,20 @@
 									"cells": [
 										{
 											"de": "der",
-											"tag": "article"
+											"tag": "Artikel"
 										},
 										{
 											"de": "ständig",
-											"tag": "the middle"
+											"tag": "die Mitte"
 										},
 										{
 											"de": "zunehmende",
-											"tag": "participle",
+											"tag": "Partizip",
 											"hot": true
 										},
 										{
 											"de": "Verkehr",
-											"tag": "noun"
+											"tag": "Nomen"
 										}
 									]
 								}
@@ -7165,28 +7171,28 @@
 						},
 						{
 							"kind": "flow",
-							"title": "-end or ge-?",
+							"title": "-end oder ge-?",
 							"root": {
-								"q": "Is the noun doing it?",
+								"q": "Tut das Nomen es selbst?",
 								"yes": {
-									"answer": "-end: doing",
+									"answer": "-end: tut es selbst",
 									"example": "der zunehmende Verkehr = der Verkehr, der zunimmt"
 								},
 								"no": {
-									"answer": "ge-: done",
+									"answer": "ge-: wird getan",
 									"example": "die geplanten Maßnahmen = die Maßnahmen, die geplant wurden"
 								}
 							}
 						},
 						{
 							"kind": "table",
-							"title": "Fold the clause",
+							"title": "Falte den Nebensatz",
 							"head": [
 								{
-									"text": "relative clause"
+									"text": "Relativsatz"
 								},
 								{
-									"text": "before the noun"
+									"text": "vor dem Nomen"
 								}
 							],
 							"rows": [
@@ -7203,11 +7209,11 @@
 									"die im Bericht genannten Zahlen"
 								]
 							],
-							"note": "The ending comes from the article, as for any describing word."
+							"note": "Die Endung kommt vom Artikel, wie bei jedem Adjektiv."
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "beschließen · beschlossen",
@@ -7273,10 +7279,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "Mark Twain said that when a German dives into a sentence, you won’t see him again until he comes up on the other side, with his verb in his mouth. Folded phrases like these are what he had in mind. Newspapers use them to save space.",
+					"fact": "Mark Twain sagte: Taucht ein Deutscher in einen Satz, siehst du ihn erst auf der anderen Seite wieder, mit dem Verb im Mund. Solche gefalteten Wortgruppen meinte er. Zeitungen sparen damit Platz.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -7286,7 +7292,7 @@
 									"geplanten",
 									"planenden"
 								],
-								"after": "Maßnahmen (already planned)",
+								"after": "Maßnahmen (schon beschlossen)",
 								"answer": "geplanten"
 							},
 							{
@@ -7295,7 +7301,7 @@
 									"wartende",
 									"gewartete"
 								],
-								"after": "Schiff (it waits)",
+								"after": "Schiff (es wartet)",
 								"answer": "wartende"
 							},
 							{
@@ -7339,11 +7345,11 @@
 				},
 				{
 					"heading": "Das lässt sich lösen",
-					"subheading": "One meaning, four shapes",
+					"subheading": "Eine Bedeutung, vier Formen",
 					"blocks": [
 						{
 							"kind": "tiles",
-							"title": "One meaning, four shapes",
+							"title": "Eine Bedeutung, vier Formen",
 							"note": "= Das Problem kann gelöst werden.",
 							"cols": 4,
 							"small": true,
@@ -7368,25 +7374,25 @@
 						},
 						{
 							"kind": "flow",
-							"title": "ist zu … : can or must?",
+							"title": "ist zu … : kann oder muss?",
 							"root": {
-								"q": "Is there leicht, schwer or kaum?",
+								"q": "Steht leicht, schwer oder kaum da?",
 								"yes": {
-									"answer": "can",
+									"answer": "kann",
 									"example": "Der Fehler ist leicht zu beheben."
 								},
 								"no": {
-									"answer": "must",
+									"answer": "muss",
 									"example": "Die Rechnung ist bis Freitag zu bezahlen."
 								}
 							}
 						},
 						{
 							"kind": "table",
-							"title": "-bar and -lich",
+							"title": "-bar und -lich",
 							"head": [
 								{
-									"text": "can be …"
+									"text": "kann … werden"
 								},
 								{
 									"text": "",
@@ -7407,11 +7413,11 @@
 									"understandable · unbelievable"
 								]
 							],
-							"note": "Not verstehbar: learn each one as a word."
+							"note": "Nicht verstehbar: Lerne jedes als eigenes Wort."
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "die Handschrift",
@@ -7489,10 +7495,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "Watch out for *ist zu*: *Die Tür ist zu schließen* means the door must be closed. *Das Problem ist zu lösen* means it can be solved. Only the context will tell you, and in the army, the context is a sergeant.",
+					"fact": "Vorsicht bei *ist zu*: *Die Tür ist zu schließen* heißt, sie muss geschlossen werden. *Das Problem ist zu lösen* heißt, es kann gelöst werden. Nur der Kontext sagt es dir, und beim Militär ist der Kontext ein Feldwebel.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -7529,7 +7535,7 @@
 									"kann",
 									"muss"
 								],
-								"after": "gelöst werden. (possible)",
+								"after": "gelöst werden. (möglich)",
 								"answer": "kann"
 							},
 							{
@@ -7538,7 +7544,7 @@
 									"beachten",
 									"beachtet"
 								],
-								"after": ". (must)",
+								"after": ". (Pflicht)",
 								"answer": "beachten"
 							},
 							{
@@ -7556,8 +7562,8 @@
 			],
 			"practise": [
 				{
-					"title": "Participle + ending",
-					"instruction": "Write the verb in brackets as -end or ge-, with its ending.",
+					"title": "Partizip + Endung",
+					"instruction": "Schreib das Verb in Klammern als -end oder ge-, mit Endung.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -7583,8 +7589,8 @@
 					]
 				},
 				{
-					"title": "Fold it",
-					"instruction": "Put the clause before the noun.",
+					"title": "Falte es",
+					"instruction": "Stell den Nebensatz vor das Nomen.",
 					"kind": "write",
 					"items": [
 						{
@@ -7599,8 +7605,8 @@
 					"cols": 1
 				},
 				{
-					"title": "Unfold it",
-					"instruction": "Write it as a relative clause.",
+					"title": "Falte es auf",
+					"instruction": "Schreib es als Relativsatz.",
 					"kind": "write",
 					"items": [
 						{
@@ -7620,8 +7626,8 @@
 					"extra": true
 				},
 				{
-					"title": "Fold it",
-					"instruction": "Put the clause before the noun.",
+					"title": "Falte es",
+					"instruction": "Stell den Nebensatz vor das Nomen.",
 					"kind": "write",
 					"items": [
 						{
@@ -7637,8 +7643,8 @@
 					"extra": true
 				},
 				{
-					"title": "Say it shorter",
-					"instruction": "Write the shorter form.",
+					"title": "Sag es kürzer",
+					"instruction": "Schreib die kürzere Form.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -7669,8 +7675,8 @@
 					]
 				},
 				{
-					"title": "With sich lassen",
-					"instruction": "Write it with sich lassen.",
+					"title": "Mit sich lassen",
+					"instruction": "Schreib es mit sich lassen.",
 					"kind": "write",
 					"items": [
 						{
@@ -7685,8 +7691,8 @@
 					"cols": 1
 				},
 				{
-					"title": "Say it shorter",
-					"instruction": "Write it with -bar or sich lassen.",
+					"title": "Sag es kürzer",
+					"instruction": "Schreib es mit -bar oder sich lassen.",
 					"kind": "write",
 					"items": [
 						{
@@ -7719,16 +7725,16 @@
 				}
 			],
 			"listen": {
-				"intro": "A picture of a place with every word read aloud. Find each thing, say it, and fold it into a phrase: das dort stehende …"
+				"intro": "Ein Bild von einem Ort, jedes Wort vorgelesen. Such jedes Ding, sag es und falte es zu einer Wortgruppe: das dort stehende …"
 			},
 			"speak": {
-				"intro": "Give way a little, line by line. Then tell the tutor about a big project near you. Is it machbar?"
+				"intro": "Gib Zeile für Zeile etwas nach. Erzähl dem Tutor dann von einem großen Projekt in deiner Nähe. Ist es machbar?"
 			},
 			"canDo": [
-				"read a whole clause in front of a noun",
-				"unfold it into plain German",
-				"say something can be done, in four ways",
-				"tell ist zu = can from ist zu = must"
+				"einen ganzen Nebensatz vor dem Nomen lesen",
+				"ihn in einfaches Deutsch auffalten",
+				"auf vier Arten sagen, dass etwas geht",
+				"ist zu = kann und ist zu = muss unterscheiden"
 			],
 			"world": "Die Werft in Papenburg",
 			"opener": {
@@ -7798,7 +7804,7 @@
 			},
 			"reading": {
 				"title": "Die Brücke",
-				"intro": "A new ship is to leave the yard on Saturday. Maya’s friend Jan is the project manager, and he reads a note aloud in the canteen. It’s from head office, in the style head office uses.",
+				"intro": "Am Samstag soll ein neues Schiff die Werft verlassen. Mayas Freund Jan leitet das Projekt und liest in der Kantine eine Notiz vor. Sie kommt von der Zentrale, im Stil der Zentrale.",
 				"photos": [
 					{
 						"photo": "b2b22_werft_schiff",
@@ -7858,11 +7864,11 @@
 					}
 				],
 				"en": "Jan: \"The transfer, planned for Saturday, of the ship lying in dock is doable.\" · Maya: Is that good? · Jan: Wait. \"The permit not yet granted by the town cannot however be speeded up.\" · Maya: And what does that mean? · Jan: It means: we can’t go. \"The problem, however, is solvable.\" They always write that. · Maya: And this? \"The bridge, known for years and never repaired, is to be opened.\" · Jan: The bridge can’t be opened. It’s been broken since May. That’s not doable. · On Saturday. A hundred thousand people stand on the bank. The ship, twenty storeys high, stands in front of the bridge. · Maya: Jan? Why is Frau Huber walking onto the bridge? With a man in uniform? · Jan: She says she knows the man. He’s the grandson of a woman in her street. · Two minutes later the bridge lifts. A hundred thousand people cheer. The ship slowly passes through. · Jan: That isn’t in the plan.",
-				"fact": "The Meyer shipyard in Papenburg lies far inland, up the river Ems. Each new ship must be taken downriver, stern first, and a barrier is closed to raise the water. Thousands line the banks to watch.",
+				"fact": "Die Meyer Werft in Papenburg liegt weit im Binnenland an der Ems. Jedes neue Schiff muss rückwärts flussabwärts, und ein Sperrwerk staut das Wasser auf. Tausende schauen vom Ufer aus zu.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -7915,7 +7921,7 @@
 					},
 					{
 						"title": "Aufmachen",
-						"instruction": "Unfold each phrase into a relative clause.",
+						"instruction": "Falte jede Wortgruppe zu einem Relativsatz auf.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -7938,12 +7944,12 @@
 			"document": {
 				"photo": "b2b22_werft_alt",
 				"caption": "Ein altes Schild von der Werft",
-				"intro": "A real old signboard of the same shipyard. It’s all compound nouns, in handwriting. Take them apart: *die Maschine + die Fabrik*, *das Eisen + die Gießerei*, *der Kessel + die Schmiede*.",
-				"fact": "The family firm has been building ships in Papenburg since 1795, first of wood, then of iron. A shipyard that far from the sea makes little sense, and it’s a very big employer.",
+				"intro": "Ein echtes altes Schild derselben Werft. Lauter zusammengesetzte Nomen, von Hand geschrieben. Nimm sie auseinander: *die Maschine + die Fabrik*, *das Eisen + die Gießerei*, *der Kessel + die Schmiede*.",
+				"fact": "Die Familienfirma baut seit 1795 Schiffe in Papenburg, erst aus Holz, dann aus Eisen. Eine Werft so weit vom Meer ergibt wenig Sinn, und sie ist ein sehr großer Arbeitgeber.",
 				"tasks": [
 					{
 						"title": "Nimm es auseinander",
-						"instruction": "Write the two words each one is made of.",
+						"instruction": "Schreib die zwei Wörter, aus denen jedes besteht.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -7967,7 +7973,7 @@
 					},
 					{
 						"title": "Lies das Schild",
-						"instruction": "Circle what the sign says.",
+						"instruction": "Kreise ein, was auf dem Schild steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -7993,7 +7999,7 @@
 					},
 					{
 						"title": "Es lässt sich …",
-						"instruction": "Say each one with sich lassen.",
+						"instruction": "Sag jeden Satz mit sich lassen.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -8008,23 +8014,24 @@
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "schlaf",
 			"n": 8,
 			"title": "Wer gut schläft",
-			"subtitle": "Endings that make describing words, and wer, was, wo",
+			"subtitle": "Endungen, die Adjektive bilden, und wer, was, wo",
 			"accent": "blue",
 			"quiz": "quest_b2_2_adjektivbildung",
 			"listenQuiz": "quest_b2_2_hoeren_vortrag",
 			"speakQuiz": "quest_b2_2_sprechen_dialog",
 			"words": {
-				"intro": "German hospitals have sleep labs, where you’re wired up and filmed while trying to sleep naturally. It’s all rather sinnvoll, and also completely hoffnungslos.",
-				"more": "Auch im Schlaflabor · also at the sleep lab",
+				"intro": "Deutsche Kliniken haben Schlaflabore: Dort wirst du verkabelt und gefilmt und sollst natürlich schlafen. Das ist recht sinnvoll und völlig hoffnungslos.",
+				"more": "Auch im Schlaflabor",
 				"groups": [
 					{
-						"title": "Der Schlaf · sleep",
+						"title": "Der Schlaf",
 						"items": [
 							{
 								"de": "der Schlaf",
@@ -8113,7 +8120,7 @@
 						]
 					},
 					{
-						"title": "Wie ist das? · what’s it like?",
+						"title": "Wie ist das?",
 						"items": [
 							{
 								"de": "sinnvoll · sinnlos",
@@ -8192,11 +8199,11 @@
 			"grammar": [
 				{
 					"heading": "Sinnvoll oder sinnlos?",
-					"subheading": "Noun + ending, and the opposites",
+					"subheading": "Nomen + Endung und die Gegenteile",
 					"blocks": [
 						{
 							"kind": "build",
-							"title": "Noun + ending",
+							"title": "Nomen + Endung",
 							"rows": [
 								{
 									"parts": [
@@ -8235,7 +8242,7 @@
 										}
 									],
 									"result": "kindisch",
-									"en": "childish — it judges"
+									"en": "childish: abwertend"
 								},
 								{
 									"parts": [
@@ -8271,7 +8278,7 @@
 						},
 						{
 							"kind": "table",
-							"title": "Opposites",
+							"title": "Gegenteile",
 							"head": [
 								{
 									"text": ""
@@ -8306,7 +8313,7 @@
 							"blocks": [
 								{
 									"kind": "build",
-									"title": "Verb + ending",
+									"title": "Verb + Endung",
 									"rows": [
 										{
 											"parts": [
@@ -8338,7 +8345,7 @@
 								},
 								{
 									"kind": "build",
-									"title": "-weise: how",
+									"title": "-weise: wie",
 									"rows": [
 										{
 											"parts": [
@@ -8385,7 +8392,7 @@
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "die Kollegin",
@@ -8459,10 +8466,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "German word parts add up: *Schlaf*, *schlafen*, *schläfrig*, *einschlafen*, *ausschlafen*, *verschlafen* (to oversleep), *Schlaflosigkeit*. Learn one family, and you get a dozen words for the price of a single root.",
+					"fact": "Deutsche Wortteile addieren sich: *Schlaf*, *schlafen*, *schläfrig*, *einschlafen*, *ausschlafen*, *verschlafen* (to oversleep), *Schlaflosigkeit*. Lerne eine Familie, und du bekommst ein Dutzend Wörter zum Preis einer Wurzel.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -8494,7 +8501,7 @@
 								"answer": "täglich"
 							},
 							{
-								"before": "wie ein Kind (bad):",
+								"before": "wie ein Kind (schlecht):",
 								"options": [
 									"kindisch",
 									"kindlich"
@@ -8525,13 +8532,13 @@
 				},
 				{
 					"heading": "Wer gut schläft, lernt besser",
-					"subheading": "der/die/das or was, wer = whoever, and the little word in front",
+					"subheading": "der/die/das oder was, wer = jeder, der, und die Präposition vorn",
 					"blocks": [
 						{
 							"kind": "flow",
-							"title": "der/die/das or was?",
+							"title": "der/die/das oder was?",
 							"root": {
-								"q": "Is there a real noun before the comma?",
+								"q": "Steht vor dem Komma ein echtes Nomen?",
 								"yes": {
 									"answer": "der · die · das",
 									"example": "der Film, den ich sah"
@@ -8544,16 +8551,16 @@
 						},
 						{
 							"kind": "table",
-							"title": "wer = whoever: it changes for its job",
+							"title": "wer = jeder, der: Die Rolle entscheidet",
 							"head": [
 								{
 									"text": ""
 								},
 								{
-									"text": "wer-clause"
+									"text": "wer-Satz"
 								},
 								{
-									"text": "main clause"
+									"text": "Hauptsatz"
 								}
 							],
 							"rows": [
@@ -8573,12 +8580,12 @@
 									"*den* lade ich ein."
 								]
 							],
-							"note": "When the two cases differ, the der-word is needed."
+							"note": "Sind die zwei Fälle verschieden, braucht man das der-Wort."
 						},
 						{
 							"kind": "slots",
-							"title": "The preposition goes in front",
-							"note": "English leaves it at the end (the town I grew up in); German never does.",
+							"title": "Die Präposition steht vorn",
+							"note": "Englisch lässt sie am Ende (the town I grew up in), Deutsch nie.",
 							"rows": [
 								{
 									"cells": [
@@ -8614,7 +8621,7 @@
 											"de": "aufgewachsen bin"
 										}
 									],
-									"en": "or: wo"
+									"en": "oder: wo"
 								},
 								{
 									"cells": [
@@ -8632,13 +8639,13 @@
 											"de": "freust"
 										}
 									],
-									"en": "after etwas, alles: wo(r)-"
+									"en": "nach etwas, alles: wo(r)-"
 								}
 							]
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "der Unfall",
@@ -8728,10 +8735,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "Many old German proverbs begin this way: *Wer rastet, der rostet*, who rests, rusts. *Wer A sagt, muss auch B sagen*: who says A has to say B. *Wer zuletzt lacht, lacht am besten*. A proverb is a useful way to remember the grammar.",
+					"fact": "Viele alte deutsche Sprichwörter beginnen so: *Wer rastet, der rostet*. *Wer A sagt, muss auch B sagen*. *Wer zuletzt lacht, lacht am besten*. Ein Sprichwort ist eine gute Merkhilfe für die Grammatik.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -8795,8 +8802,8 @@
 			],
 			"practise": [
 				{
-					"title": "Which ending?",
-					"instruction": "Write the describing word. The noun or verb is in brackets.",
+					"title": "Welche Endung?",
+					"instruction": "Schreib das Adjektiv. Das Nomen oder Verb steht in Klammern.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -8837,8 +8844,8 @@
 					]
 				},
 				{
-					"title": "The opposite",
-					"instruction": "Write the opposite.",
+					"title": "Das Gegenteil",
+					"instruction": "Schreib das Gegenteil.",
 					"kind": "write",
 					"items": [
 						{
@@ -8857,8 +8864,8 @@
 					"cols": 3
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -8882,8 +8889,8 @@
 					"extra": true
 				},
 				{
-					"title": "Which relative word?",
-					"instruction": "Write wer, wem, was, wo or worauf.",
+					"title": "Welches Relativwort?",
+					"instruction": "Schreib wer, wem, was, wo oder worauf.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -8919,8 +8926,8 @@
 					]
 				},
 				{
-					"title": "A talk about sleep",
-					"instruction": "Listen to the talk and fill in the notes.",
+					"title": "Ein Vortrag über Schlaf",
+					"instruction": "Hör den Vortrag und ergänze die Notizen.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -8947,8 +8954,8 @@
 					"listen": true
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -8973,16 +8980,16 @@
 				}
 			],
 			"listen": {
-				"intro": "A talk on sleep: what it does, how much we need, and what we should stop doing. Note each wer and each was."
+				"intro": "Ein Vortrag über den Schlaf: was er bewirkt, wie viel wir brauchen, womit wir aufhören sollten. Notier jedes wer und was."
 			},
 			"speak": {
-				"intro": "A discussion with the tutor, on something like a four-day week. Hypotheses, then a balanced verdict."
+				"intro": "Eine Diskussion mit dem Tutor, etwa über die Viertagewoche. Annahmen, dann ein ausgewogenes Urteil."
 			},
 			"canDo": [
-				"build describing words with -voll, -los, -ig, -lich",
-				"use wer, was and wo as relative words",
-				"understand a talk on health",
-				"tell kindlich from kindisch"
+				"mit -voll, -los, -ig, -lich Adjektive bilden",
+				"wer, was und wo als Relativwörter nutzen",
+				"einen Vortrag über Gesundheit verstehen",
+				"kindlich und kindisch unterscheiden"
 			],
 			"world": "Die Nacht und der Schlaf",
 			"opener": {
@@ -9049,7 +9056,7 @@
 			},
 			"reading": {
 				"title": "Alles, was Sie wissen müssen",
-				"intro": "Max sleeps badly. His doctor has sent him to a sleep lab in Cologne for one night. There are eleven wires on his head, and a camera on the ceiling. The night nurse has given him a form. Then Dr. Berg, who’s in charge, comes on the speaker at midnight.",
+				"intro": "Max schläft schlecht. Sein Arzt schickt ihn für eine Nacht in ein Schlaflabor in Köln. Elf Kabel am Kopf, eine Kamera an der Decke. Die Nachtschwester hat ihm ein Formular gegeben. Um Mitternacht meldet sich Dr. Berg, die Chefin, über den Lautsprecher.",
 				"photos": [
 					{
 						"photo": "b2b22_schlaf_katze",
@@ -9112,11 +9119,11 @@
 					}
 				],
 				"en": "Dr. Berg: Mr Bell, whoever wants to sleep well has to relax. All you have to do now is sleep. · Max: That’s completely pointless. I have eleven wires on my head. · Dr. Berg: Just do what you’d do at home. · Max: At home I watch TV and eat crisps. · Dr. Berg: That’s exactly what’s unhealthy. · Three in the morning. Max is lying awake. He counts the wires. The camera blinks. · Max: Doctor? Are you still there? It’s hopeless. · Dr. Berg: Mm. What you’re saying is … what …? · Max: Doctor? · From the speaker comes a soft, regular snoring. It grows louder. Max listens for a long time. It’s very soothing. · The next morning, in the file: \"Patient falls asleep at 3:14. Deep sleep until 7:30.\" · Dr. Berg: You see? All you were missing was rest. That’ll be 280 euros. Sleep well? · Max: Yes. And you?",
-				"fact": "And there’s the German *Bettdecke*: couples often have two separate duvets, each neatly folded on a split mattress. Foreign guests are often surprised by this.",
+				"fact": "Und dann die deutsche *Bettdecke*: Paare haben oft zwei getrennte Decken, ordentlich gefaltet, auf einer geteilten Matratze. Das überrascht ausländische Gäste oft.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -9169,7 +9176,7 @@
 					},
 					{
 						"title": "Wer, was, wo",
-						"instruction": "Complete from the text.",
+						"instruction": "Ergänze aus dem Text.",
 						"kind": "gaps",
 						"items": [
 							{
@@ -9199,12 +9206,12 @@
 			"document": {
 				"photo": "b2b22_schlaf_ruhe",
 				"caption": "Am Waldrand: Wer braucht Ruhe?",
-				"intro": "A real sign on a tree at the edge of a German wood. It’s a request, and it’s stern. *Wildtiere* are wild animals, and *Hunde sind an der Leine zu führen* is the *ist zu* form: dogs must be on a lead.",
-				"fact": "Three exclamation marks on a German sign mean somebody has been upset. *Der Eigentümer*, signed at the bottom, is the owner, and in Germany you may walk in almost any wood, by law, even if it’s private. So he can only ask.",
+				"intro": "Ein echtes Schild an einem Baum am Waldrand. Es ist eine Bitte, und sie ist streng. *Wildtiere* sind wilde Tiere, und *Hunde sind an der Leine zu führen* ist die *ist zu*-Form: Hunde müssen an die Leine.",
+				"fact": "Drei Ausrufezeichen auf einem deutschen Schild heißen: Jemand hat sich aufgeregt. *Der Eigentümer*, unten unterschrieben, ist der Besitzer, und du darfst per Gesetz fast jeden Wald betreten, auch einen privaten. Er kann nur bitten.",
 				"tasks": [
 					{
 						"title": "Lies das Schild",
-						"instruction": "Circle what the sign says.",
+						"instruction": "Kreise ein, was auf dem Schild steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -9248,7 +9255,7 @@
 					},
 					{
 						"title": "Wer …",
-						"instruction": "Say each rule with wer: Wer …, muss …",
+						"instruction": "Sag jede Regel mit wer: Wer …, muss …",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -9263,23 +9270,24 @@
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "buchmesse",
 			"n": 9,
 			"title": "So schön es auch war",
-			"subtitle": "Although in five shapes, and two things side by side",
+			"subtitle": "Fünfmal obwohl, und zwei Dinge im Vergleich",
 			"accent": "terracotta",
 			"quiz": "quest_b2_2_konzessiv",
 			"listenQuiz": "quest_b2_2_lesen_rezension",
 			"speakQuiz": "quest_b2_2_sprechen_einraeumen",
 			"words": {
-				"intro": "Every spring, Leipzig gives a whole city to the book. Thousands read aloud in tram depots and in baths, and a critic gives a judgement that’s as careful as a tax return.",
-				"more": "Auch auf der Buchmesse · also at the book fair",
+				"intro": "Jeden Frühling gehört ganz Leipzig dem Buch. Tausende lesen in Straßenbahndepots und Bädern vor, und ein Kritiker urteilt so sorgfältig wie bei einer Steuererklärung.",
+				"more": "Auch auf der Buchmesse",
 				"groups": [
 					{
-						"title": "Die Bücher · books",
+						"title": "Die Bücher",
 						"items": [
 							{
 								"de": "das Buch",
@@ -9365,7 +9373,7 @@
 						]
 					},
 					{
-						"title": "Die Kritik · criticism",
+						"title": "Die Kritik",
 						"items": [
 							{
 								"de": "die Handlung",
@@ -9445,12 +9453,12 @@
 			"grammar": [
 				{
 					"heading": "So teuer es auch war",
-					"subheading": "Although in five shapes, and where the verb goes",
+					"subheading": "Fünfmal obwohl, und wo das Verb steht",
 					"blocks": [
 						{
 							"kind": "slots",
-							"title": "Where the verb goes",
-							"note": "obwohl, obgleich, wenngleich send the verb last; trotzdem and dennoch take it second.",
+							"title": "Wo das Verb steht",
+							"note": "obwohl, obgleich, wenngleich: Verb am Ende. trotzdem, dennoch: Verb an zweiter Stelle.",
 							"rows": [
 								{
 									"cells": [
@@ -9472,7 +9480,7 @@
 											"de": "wir."
 										}
 									],
-									"en": "verb last"
+									"en": "Verb am Ende"
 								},
 								{
 									"cells": [
@@ -9490,7 +9498,7 @@
 											"de": "wir."
 										}
 									],
-									"en": "verb 2nd"
+									"en": "Verb an Stelle 2"
 								},
 								{
 									"cells": [
@@ -9549,19 +9557,19 @@
 											"de": "wir."
 										}
 									],
-									"en": "+ genitive"
+									"en": "+ Genitiv"
 								}
 							]
 						},
 						{
 							"kind": "box",
 							"tone": "watch",
-							"title": "One marker per sentence",
-							"text": "Never *Obwohl es regnete, trotzdem gingen wir.* Choose obwohl **or** trotzdem."
+							"title": "Ein Signalwort pro Satz",
+							"text": "Nie *Obwohl es regnete, trotzdem gingen wir.* Wähle obwohl **oder** trotzdem."
 						},
 						{
 							"kind": "table",
-							"title": "The elegant one: so … auch",
+							"title": "Die elegante Form: so … auch",
 							"head": [
 								{
 									"text": ""
@@ -9574,18 +9582,18 @@
 							"rows": [
 								[
 									"So teuer die Reise *auch* war, sie hat sich gelohnt.",
-									"however expensive it was"
+									"egal, wie teuer sie war"
 								],
 								[
 									"So müde er *auch* war, er las bis Mitternacht.",
-									"tired as he was"
+									"obwohl er sehr müde war"
 								]
 							],
-							"note": "so + describing word, subject, verb, auch."
+							"note": "so + Adjektiv, Subjekt, auch, Verb."
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "in Strömen",
@@ -9659,10 +9667,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "Leipzig was the capital of the German book trade for centuries, with hundreds of publishers. After 1945 many left for the West, and Frankfurt took over. The fair in spring still fills the town.",
+					"fact": "Leipzig war jahrhundertelang die Hauptstadt des deutschen Buchhandels, mit Hunderten Verlagen. Nach 1945 gingen viele in den Westen, Frankfurt übernahm. Die Frühlingsmesse füllt die Stadt noch immer.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -9725,26 +9733,26 @@
 				},
 				{
 					"heading": "Der Süden dagegen ist trocken",
-					"subheading": "Contrast or concession, and three shapes",
+					"subheading": "Gegensatz oder Einräumung, und drei Formen",
 					"blocks": [
 						{
 							"kind": "flow",
-							"title": "Contrast or concession?",
+							"title": "Gegensatz oder Einräumung?",
 							"root": {
-								"q": "Could you add “surprisingly”?",
+								"q": "Passt „überraschenderweise“ dazu?",
 								"yes": {
-									"answer": "concession: obwohl, trotzdem",
+									"answer": "Einräumung: obwohl, trotzdem",
 									"example": "Obwohl es kalt ist, badet er."
 								},
 								"no": {
-									"answer": "contrast: während, dagegen",
+									"answer": "Gegensatz: während, dagegen",
 									"example": "Während es im Norden kalt ist, ist es im Süden warm."
 								}
 							}
 						},
 						{
 							"kind": "slots",
-							"title": "Three shapes",
+							"title": "Drei Formen",
 							"note": "während = whereas · dagegen, hingegen = by contrast · im Gegensatz zu, im Vergleich zu.",
 							"rows": [
 								{
@@ -9811,7 +9819,7 @@
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "die Preise",
@@ -9913,10 +9921,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "German reviewers are thought hard to please. The TV show *Das Literarische Quartett*, with its feared critic Marcel Reich-Ranicki, could make or break a book in an evening. Other critics tear books up on air, and sales go up.",
+					"fact": "Deutsche Rezensenten gelten als streng. Die Sendung *Das Literarische Quartett* mit dem gefürchteten Kritiker Marcel Reich-Ranicki machte oder vernichtete ein Buch an einem Abend. Andere zerreißen Bücher live, und die Verkäufe steigen.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -9980,8 +9988,8 @@
 			],
 			"practise": [
 				{
-					"title": "Which word?",
-					"instruction": "Write obwohl, trotzdem, trotz, zwar, selbst wenn or so.",
+					"title": "Welches Wort?",
+					"instruction": "Schreib obwohl, trotzdem, trotz, zwar, selbst wenn oder so.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -10017,8 +10025,8 @@
 					]
 				},
 				{
-					"title": "Say it another way",
-					"instruction": "Write it with trotzdem.",
+					"title": "Anders gesagt",
+					"instruction": "Schreib es mit trotzdem.",
 					"kind": "write",
 					"items": [
 						{
@@ -10033,8 +10041,8 @@
 					"cols": 1
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -10058,8 +10066,8 @@
 					"extra": true
 				},
 				{
-					"title": "Say it another way",
-					"instruction": "Write it with trotz.",
+					"title": "Anders gesagt",
+					"instruction": "Schreib es mit trotz.",
 					"kind": "write",
 					"items": [
 						{
@@ -10075,8 +10083,8 @@
 					"extra": true
 				},
 				{
-					"title": "Which word?",
-					"instruction": "Write während, dagegen, im Gegensatz zum or anders als.",
+					"title": "Welches Wort?",
+					"instruction": "Schreib während, dagegen, im Gegensatz zum oder anders als.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -10107,8 +10115,8 @@
 					]
 				},
 				{
-					"title": "A book review",
-					"instruction": "Listen to the review. Circle what you hear.",
+					"title": "Eine Rezension",
+					"instruction": "Hör die Rezension. Kreise ein, was du hörst.",
 					"kind": "circle",
 					"cols": 1,
 					"items": [
@@ -10152,8 +10160,8 @@
 					"listen": true
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -10178,16 +10186,16 @@
 				}
 			],
 			"listen": {
-				"intro": "A review of a novel called “Die lange Reise”. Listen for what is praised, what isn’t, and how the critic gives way."
+				"intro": "Eine Rezension des Romans „Die lange Reise“. Achte darauf, was gelobt wird, was nicht und was eingeräumt wird."
 			},
 			"speak": {
-				"intro": "Give way, line by line: Das stimmt zwar, aber … Then review something you have read to the tutor."
+				"intro": "Räum ein, Zeile für Zeile: Das stimmt zwar, aber … Besprich dann mit dem Tutor etwas Gelesenes."
 			},
 			"canDo": [
-				"say although in five ways",
-				"set two things side by side",
-				"read a German review",
-				"give way, and then press my point"
+				"obwohl auf fünf Arten sagen",
+				"zwei Dinge gegenüberstellen",
+				"eine deutsche Rezension lesen",
+				"etwas einräumen und dann nachlegen"
 			],
 			"world": "Die Buchmesse in Leipzig",
 			"opener": {
@@ -10257,7 +10265,7 @@
 			},
 			"reading": {
 				"title": "Die Rezension",
-				"intro": "Maya has written a book, or nearly: a small thing about her life in Germany, called *Halb zehn*. A publisher in Leipzig has printed 400 copies. The city paper has reviewed it, and Frau Huber is reading the review to her in the kitchen, slowly, with some pleasure.",
+				"intro": "Maya hat ein Buch geschrieben, oder fast: etwas Kleines über ihr Leben in Deutschland, *Halb zehn*. Ein Leipziger Verlag hat 400 Stück gedruckt. Die Stadtzeitung hat es besprochen, und Frau Huber liest ihr die Kritik in der Küche vor, langsam und genüsslich.",
 				"photos": [
 					{
 						"photo": "b2b22_buchmesse_laden",
@@ -10322,11 +10330,11 @@
 					}
 				],
 				"en": "Frau Huber: \"However charming the book may be, it has its longueurs.\" That’s good, Frau Maya. · Maya: That’s good? · Frau Huber: \"It’s true the author tells her story with humour; the plot, however, remains thin.\" · Maya: Thin! · Frau Huber: \"Whereas the young characters remain rather pale, an old neighbour is the real heroine. Even if you’d rather not meet her, you read every page about her with great pleasure.\" · Frau Huber puts the paper on the table. She takes off her glasses. · Frau Huber: I’ll read that again. \"The real heroine.\" · Maya: Although you told me you didn’t want to be in it? · Frau Huber: I did say that. All the same, what’s this man’s name, at the paper? I’d like to write to him. · Maya: Why? He’s praising you. · Frau Huber: He writes \"old neighbour\". I am a neighbour. That’s all. Do you have any other copies? · Maya: Three hundred and ninety. · Frau Huber: Then give me ten. For the street.",
-				"fact": "The Leipzig Book Fair is Germany’s second biggest, and it’s for readers: *Leipzig liest*, Leipzig reads, is a festival of thousands of readings all over town. A German review has its own music: *durchaus gelungen* means fine, *ambitioniert* means it failed.",
+				"fact": "Die Leipziger Buchmesse ist Deutschlands zweitgrößte und für Leser da: *Leipzig liest* ist ein Festival mit Tausenden Lesungen überall in der Stadt. Kritiken haben ihre eigene Musik: *durchaus gelungen* heißt ganz gut, *ambitioniert* heißt gescheitert.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -10379,7 +10387,7 @@
 					},
 					{
 						"title": "Obwohl, zwar, während",
-						"instruction": "Complete from the text.",
+						"instruction": "Ergänze aus dem Text.",
 						"kind": "gaps",
 						"items": [
 							{
@@ -10409,12 +10417,12 @@
 			"document": {
 				"photo": "b2b22_buchmesse_liste",
 				"caption": "Im Regal: Was steht auf Platz 1?",
-				"intro": "A real bestseller shelf in a German bookshop. Each week a magazine, *Der Spiegel*, publishes the list, and every shop in the country puts the numbers up, just like this. *Kultur Spiegel* is the sign above the shelf.",
-				"fact": "Number 1 on this shelf, *Tausend Zeilen Lüge*, is by the reporter who exposed a star colleague at Der Spiegel for inventing stories. So the magazine’s own list carried the book about its own scandal.",
+				"intro": "Ein echtes Bestseller-Regal in einer deutschen Buchhandlung. Jede Woche druckt das Magazin *Der Spiegel* die Liste, und jeder Laden im Land stellt die Zahlen auf, genau so. *Kultur Spiegel* ist das Schild über dem Regal.",
+				"fact": "Platz 1 hier, *Tausend Zeilen Lüge*, stammt vom Reporter, der einen Starkollegen beim Spiegel als Erfinder von Geschichten entlarvte. Die Liste des Magazins führte also das Buch über den eigenen Skandal.",
 				"tasks": [
 					{
 						"title": "Lies das Regal",
-						"instruction": "Circle what you can read.",
+						"instruction": "Kreise ein, was du lesen kannst.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -10449,7 +10457,7 @@
 					},
 					{
 						"title": "Obwohl, trotzdem, so … auch",
-						"instruction": "Say each one in the shape asked.",
+						"instruction": "Sag jeden Satz in der verlangten Form.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -10468,23 +10476,24 @@
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "tausch",
 			"n": 10,
 			"title": "Ja, ich habe welche",
-			"subtitle": "someone, nobody, one, some",
+			"subtitle": "jemand, niemand, man, welche",
 			"accent": "mustard",
 			"quiz": "quest_b2_2_indefinit",
 			"listenQuiz": "quest_b2_2_suchbild_labor",
 			"speakQuiz": "quest_b2_2_sprechen_dialog",
 			"words": {
-				"intro": "A *Repair Café* is a room where retired engineers mend your toaster for nothing, while telling you exactly who built it and why it broke. It’s one of the great German institutions, and you bring your own cake.",
-				"more": "Auch im Repair Café · also at the repair café",
+				"intro": "In einem *Repair Café* reparieren Ingenieure im Ruhestand gratis deinen Toaster und erklären dir genau, wer ihn gebaut hat und warum er kaputt ist. Eine große deutsche Institution, und den Kuchen bringst du mit.",
+				"more": "Auch im Repair Café",
 				"groups": [
 					{
-						"title": "Die Reparatur · repair",
+						"title": "Die Reparatur",
 						"items": [
 							{
 								"de": "der Toaster",
@@ -10571,7 +10580,7 @@
 						]
 					},
 					{
-						"title": "Wer? · who?",
+						"title": "Wer?",
 						"items": [
 							{
 								"de": "der Rentner",
@@ -10653,11 +10662,11 @@
 			"grammar": [
 				{
 					"heading": "Jemand und niemand",
-					"subheading": "jemand changes, and one word for the noun",
+					"subheading": "jemand ändert sich, und ein Wort für das Nomen",
 					"blocks": [
 						{
 							"kind": "table",
-							"title": "jemand and niemand change; etwas and nichts don’t",
+							"title": "jemand und niemand ändern sich, etwas und nichts nicht",
 							"head": [
 								{
 									"text": ""
@@ -10695,7 +10704,7 @@
 						},
 						{
 							"kind": "slots",
-							"title": "One word for the noun: it keeps the gender",
+							"title": "Ein Wort für das Nomen: Der Artikel zählt",
 							"rows": [
 								{
 									"cells": [
@@ -10740,7 +10749,7 @@
 											"hot": true
 										}
 									],
-									"en": "plural or milk, water … → welche · keine"
+									"en": "Plural oder Milch, Wasser … → welche · keine"
 								}
 							]
 						},
@@ -10777,7 +10786,7 @@
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "irgendjemand",
@@ -10839,10 +10848,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "*Man* has two forms you need: *einen* and *einem*. *Das macht einen müde.* That makes one tired. *Das sagt einem keiner.* No one tells you that. Germans use them all the time to complain about life in general, and it’s very satisfying.",
+					"fact": "*Man* hat zwei Formen, die du brauchst: *einen* und *einem*. *Das macht einen müde.* *Das sagt einem keiner.* Deutsche klagen damit ständig über das Leben im Allgemeinen, und das tut sehr gut.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -10905,54 +10914,54 @@
 				},
 				{
 					"heading": "Selbst reparieren",
-					"subheading": "Repair, praise and complain: the words at the table",
+					"subheading": "Reparieren, loben, klagen: die Wörter am Tisch",
 					"blocks": [
 						{
 							"kind": "table",
-							"title": "At the table",
+							"title": "Am Tisch",
 							"head": [
 								{
-									"text": "you want",
+									"text": "du willst",
 									"en": true
 								},
 								{
-									"text": "say"
+									"text": "du sagst"
 								}
 							],
 							"rows": [
 								[
-									"to describe",
+									"beschreiben",
 									"Das Gerät geht nicht mehr an. · Es macht ein komisches Geräusch."
 								],
 								[
-									"to ask",
+									"fragen",
 									"Lässt sich das noch reparieren?"
 								],
 								[
-									"to be told",
+									"Bescheid hören",
 									"Das lohnt sich nicht mehr. · Das Teil gibt es nicht mehr."
 								],
 								[
-									"to admire",
+									"bewundern",
 									"So etwas gibt es heute gar nicht mehr."
 								],
 								[
-									"to thank",
+									"danken",
 									"Vielen Dank. Was bin ich Ihnen schuldig?"
 								]
 							],
-							"note": "The answer to the last one is: a piece of cake."
+							"note": "Die Antwort auf den letzten Satz: ein Stück Kuchen."
 						},
 						{
 							"kind": "table",
 							"title": "Alle, viele, einige",
 							"head": [
 								{
-									"text": "word",
+									"text": "Wort",
 									"en": true
 								},
 								{
-									"text": "like this"
+									"text": "so"
 								}
 							],
 							"rows": [
@@ -10981,13 +10990,13 @@
 									"Beide Seiten sind verbrannt."
 								]
 							],
-							"note": "After these, the describing word takes *-e*: *viele alte Toaster*; after *alle*: *-en*: *alle alten Toaster*."
+							"note": "Danach endet das Adjektiv auf *-e*: *viele alte Toaster*; nach *alle* auf *-en*: *alle alten Toaster*."
 						}
 					],
-					"fact": "A phrase of the moment is *geplante Obsoleszenz*, planned obsolescence: the belief, widely held in repair cafés, that printers are built to die on the day the guarantee ends.",
+					"fact": "Gerade beliebt ist *geplante Obsoleszenz*: der in Repair Cafés weit verbreitete Glaube, Drucker seien so gebaut, dass sie am letzten Garantietag sterben.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -11051,8 +11060,8 @@
 			],
 			"practise": [
 				{
-					"title": "Someone, nobody",
-					"instruction": "Write the word in the right form.",
+					"title": "Jemand, niemand",
+					"instruction": "Schreib das Wort in der richtigen Form.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -11083,8 +11092,8 @@
 					]
 				},
 				{
-					"title": "One, none, some",
-					"instruction": "Write einen, eins, keins, keine or welche.",
+					"title": "Einer, keiner, welche",
+					"instruction": "Schreib einen, eins, keins, keine oder welche.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -11115,8 +11124,8 @@
 					]
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -11144,8 +11153,8 @@
 					"extra": true
 				},
 				{
-					"title": "In German",
-					"instruction": "Write it in German.",
+					"title": "Auf Deutsch",
+					"instruction": "Schreib es auf Deutsch.",
 					"kind": "write",
 					"items": [
 						{
@@ -11159,7 +11168,7 @@
 				},
 				{
 					"title": "In der Werkstatt",
-					"instruction": "Draw a line from each sentence to the best answer.",
+					"instruction": "Verbinde jeden Satz mit der besten Antwort.",
 					"kind": "match",
 					"left": [
 						"Lässt sich das reparieren?",
@@ -11185,9 +11194,9 @@
 				},
 				{
 					"title": "Dein Toaster",
-					"instruction": "Describe something of yours that is broken, and what you’d do with it.",
+					"instruction": "Beschreib etwas von dir, das kaputt ist, und was du damit tun würdest.",
 					"kind": "gaps",
-					"note": "Your own object.",
+					"note": "Dein eigener Gegenstand.",
 					"items": [
 						{
 							"before": "Mein",
@@ -11205,16 +11214,16 @@
 				}
 			],
 			"listen": {
-				"intro": "A laboratory picture, each word read aloud. Find each thing, say it, and say whether you have one, or some, or none."
+				"intro": "Ein Laborbild, jedes Wort wird vorgelesen. Such jedes Ding, sag es und sag, ob du eins, welche oder keins hast."
 			},
 			"speak": {
-				"intro": "A discussion with the tutor on throwing away and repairing. Say what would happen if nobody bought new things."
+				"intro": "Eine Diskussion mit dem Tutor übers Wegwerfen und Reparieren. Sag, was passieren würde, wenn niemand Neues kaufte."
 			},
 			"canDo": [
-				"use jemand, niemand and their endings",
-				"say one, none and some without the noun",
-				"use man, einen, einem",
-				"describe a broken thing and ask for help"
+				"jemand, niemand und ihre Endungen nutzen",
+				"eins, keins und welche ohne Nomen sagen",
+				"man, einen, einem nutzen",
+				"etwas Kaputtes beschreiben und um Hilfe bitten"
 			],
 			"world": "Reparieren und Tauschen",
 			"opener": {
@@ -11284,7 +11293,7 @@
 			},
 			"reading": {
 				"title": "Der Toaster",
-				"intro": "Saturday afternoon at a repair café in Kassel. Maya has brought the toaster that always burns one side. At table four sits Herr Rösch, 79, formerly of Siemens. He has already taken it to pieces and is looking at it as a doctor looks at an X-ray.",
+				"intro": "Samstagnachmittag in einem Repair Café in Kassel. Maya hat den Toaster mitgebracht, der immer eine Seite verbrennt. An Tisch vier sitzt Herr Rösch, 79, früher bei Siemens. Er hat ihn schon zerlegt und betrachtet ihn wie ein Arzt ein Röntgenbild.",
 				"photos": [
 					{
 						"photo": "b2b22_tausch_rot",
@@ -11344,11 +11353,11 @@
 					}
 				],
 				"en": "Herr Rösch: Who did this? Has someone already tried to repair this? · Maya: No one. No, actually: one of my friends. · Herr Rösch: That’ll have been Mr Bell. With the tape. Do you have screws? There are some missing here. · Maya: I don’t have any. Does anyone else have some? · Frau Kolb: I still have one. But only one. · Herr Rösch: You don’t need more than one. But no one tells you that. · Maya: Can such a toaster even be repaired? You can buy a new one. They’re everywhere. · The room goes quiet. Ten old men put down their screwdrivers. One slowly stands up. · Herr Rösch: Young woman. Nobody wants a new one like that. It’ll last two years. This one here is from 1974. It’ll outlive us all. · Maya: But it burns every slice on one side. · Herr Rösch: Of course. It’s a toaster from 1974. You just turn the bread over. That’s how it’s done. That’s how it’s always been done. · He gives her back the toaster. It isn’t repaired. It shines.",
-				"fact": "The first *Repair Café* began in Amsterdam in 2009, and Germany now has very many of them. They are run by volunteers, for free, with a tin for donations. People go for the coffee, for the company, and to be told by an expert that nobody builds them like this any more.",
+				"fact": "Das erste *Repair Café* begann 2009 in Amsterdam, und Deutschland hat heute sehr viele. Freiwillige betreiben sie gratis, mit einer Spendendose. Man kommt für den Kaffee, die Gesellschaft und um vom Experten zu hören, dass so etwas heute keiner mehr baut.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -11401,7 +11410,7 @@
 					},
 					{
 						"title": "Einer, keine, welche",
-						"instruction": "Complete from the text.",
+						"instruction": "Ergänze aus dem Text.",
 						"kind": "gaps",
 						"items": [
 							{
@@ -11431,12 +11440,12 @@
 			"document": {
 				"photo": "b2b22_tausch_text",
 				"caption": "Der offene Bücherschrank",
-				"intro": "A real notice on a red phone box full of books, in Brühl, near Cologne. There’s no lock and no staff, and the phone is long gone. It’s full of *Sie*, *jemand* and little imperatives.",
-				"fact": "Germany has a great many of these open bookcases, and they really work. People leave crime novels and take crime novels.",
+				"intro": "Ein echter Aushang an einer roten Telefonzelle voller Bücher, in Brühl bei Köln. Kein Schloss, kein Personal, das Telefon ist längst weg. Er ist voller *Sie*, *jemand* und kleiner Imperative.",
+				"fact": "Deutschland hat sehr viele solcher offenen Bücherschränke, und sie funktionieren wirklich. Man bringt Krimis und nimmt Krimis mit.",
 				"tasks": [
 					{
 						"title": "Lies den Text",
-						"instruction": "Circle what the notice says.",
+						"instruction": "Kreise ein, was auf dem Aushang steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -11480,7 +11489,7 @@
 					},
 					{
 						"title": "Einer, keins, welche",
-						"instruction": "Complete the short answers.",
+						"instruction": "Ergänze die kurzen Antworten.",
 						"kind": "gaps",
 						"items": [
 							{
@@ -11506,23 +11515,24 @@
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "miete",
 			"n": 11,
 			"title": "Trotz mehrfacher Zusagen",
-			"subtitle": "A complaint that works",
+			"subtitle": "Eine Beschwerde, die wirkt",
 			"accent": "sage",
 			"quiz": "quest_b2_2_schreiben_beschwerde",
 			"listenQuiz": "quest_b2_2_lesen_textergaenzung",
 			"speakQuiz": "quest_b2_2_sprechen_einraeumen",
 			"words": {
-				"intro": "Half of Germany rents, so half of Germany has a landlord, and each has a letter to write about a heating system. Tenant law is strict, and a well-made letter in the correct form can cost a landlord money.",
-				"more": "Auch im Mietshaus · also in the block of flats",
+				"intro": "Halb Deutschland mietet, hat also einen Vermieter und muss einen Brief über eine Heizung schreiben. Das Mietrecht ist streng, und ein guter Brief in der richtigen Form kann einen Vermieter Geld kosten.",
+				"more": "Auch im Mietshaus",
 				"groups": [
 					{
-						"title": "Die Wohnung · the flat",
+						"title": "Die Wohnung",
 						"items": [
 							{
 								"de": "die Wohnung",
@@ -11610,7 +11620,7 @@
 						]
 					},
 					{
-						"title": "Der Brief · the letter",
+						"title": "Der Brief",
 						"items": [
 							{
 								"de": "der Mangel",
@@ -11690,25 +11700,25 @@
 			"grammar": [
 				{
 					"heading": "Die Form einer Beschwerde",
-					"subheading": "The shape of a complaint: facts, not adjectives",
+					"subheading": "Aufbau einer Beschwerde: Tatsachen, keine Adjektive",
 					"blocks": [
 						{
 							"kind": "slots",
-							"title": "The shape of a complaint",
+							"title": "Aufbau einer Beschwerde",
 							"rows": [
 								{
 									"cells": [
 										{
 											"de": "Sehr geehrte Damen und Herren,",
-											"tag": "greeting"
+											"tag": "Anrede"
 										},
 										{
 											"de": "Am 3. Mai …",
-											"tag": "the facts"
+											"tag": "die Tatsachen"
 										},
 										{
 											"de": "Zwar …, aber …",
-											"tag": "concede, press"
+											"tag": "einräumen, drängen"
 										}
 									]
 								},
@@ -11716,11 +11726,11 @@
 									"cells": [
 										{
 											"de": "Ich bitte Sie, bis …",
-											"tag": "what, by when"
+											"tag": "was, bis wann"
 										},
 										{
 											"de": "Andernfalls …",
-											"tag": "what follows",
+											"tag": "was folgt",
 											"hot": true
 										}
 									]
@@ -11729,13 +11739,13 @@
 						},
 						{
 							"kind": "table",
-							"title": "Facts, not adjectives",
+							"title": "Tatsachen, keine Adjektive",
 							"head": [
 								{
-									"text": "weak"
+									"text": "schwach"
 								},
 								{
-									"text": "strong"
+									"text": "stark"
 								}
 							],
 							"rows": [
@@ -11751,7 +11761,7 @@
 						},
 						{
 							"kind": "table",
-							"title": "Firm but polite",
+							"title": "Bestimmt, aber höflich",
 							"head": [
 								{
 									"text": ""
@@ -11764,25 +11774,25 @@
 							"rows": [
 								[
 									"Zwar kam der Techniker pünktlich, aber der Schaden ist noch da.",
-									"concede, then press"
+									"einräumen, dann drängen"
 								],
 								[
 									"Trotz mehrfacher Zusagen ist bislang nichts geschehen.",
-									"trotz + genitive"
+									"trotz + Genitiv"
 								],
 								[
 									"Ich bitte Sie, den Mangel bis spätestens 15. Juni zu beheben.",
-									"the deadline"
+									"die Frist"
 								],
 								[
 									"Andernfalls würde ich den Betrag um 30 Prozent mindern.",
-									"what follows — in the Konjunktiv"
+									"was folgt, im Konjunktiv"
 								]
 							]
 						},
 						{
 							"kind": "words",
-							"title": "Words for the practice page",
+							"title": "Wörter für die Übungen",
 							"items": [
 								{
 									"de": "die Lieferung",
@@ -11864,10 +11874,10 @@
 							"cols": 4
 						}
 					],
-					"fact": "In Germany you may send such a letter by *Einschreiben*, registered post, and if you really want it to count, by *Einschreiben mit Rückschein*. Germans take this sort of thing seriously, and the mere sight of the yellow slip can cause a landlord to phone you.",
+					"fact": "Einen solchen Brief kannst du per *Einschreiben* schicken, und wenn er wirklich zählen soll, per *Einschreiben mit Rückschein*. Deutsche nehmen das ernst: Schon der gelbe Zettel kann einen Vermieter dazu bringen, dich anzurufen.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -11930,18 +11940,18 @@
 				},
 				{
 					"heading": "Sich einräumen, dann drängen",
-					"subheading": "Concede first, then press: the most useful move in German",
+					"subheading": "Erst einräumen, dann drängen: der nützlichste Zug im Deutschen",
 					"blocks": [
 						{
 							"kind": "table",
-							"title": "Concede, then press",
+							"title": "Erst einräumen, dann drängen",
 							"head": [
 								{
-									"text": "first",
+									"text": "zuerst",
 									"en": true
 								},
 								{
-									"text": "then",
+									"text": "dann",
 									"en": true
 								}
 							],
@@ -11963,18 +11973,18 @@
 									"Das ändert aber nichts an Ihrer Pflicht."
 								]
 							],
-							"note": "First you give them something. Then you take it back, with interest."
+							"note": "Erst gibst du ihnen etwas. Dann nimmst du es zurück, mit Zinsen."
 						},
 						{
 							"kind": "table",
 							"title": "Weniger ist mehr",
 							"head": [
 								{
-									"text": "not this",
+									"text": "nicht so",
 									"en": true
 								},
 								{
-									"text": "but this"
+									"text": "sondern so"
 								}
 							],
 							"rows": [
@@ -11995,13 +12005,13 @@
 									"Bis spätestens Freitag, den 15. Mai."
 								]
 							],
-							"note": "The calmer the letter, the more frightening it is."
+							"note": "Je ruhiger der Brief, desto bedrohlicher."
 						}
 					],
-					"fact": "A deadline is the heart of a German letter of complaint, and it must be a real date: *bis spätestens 15. Mai*. Without one, you have legally only expressed an opinion. With one, the other side is *in Verzug*, in default, and things start to cost money.",
+					"fact": "Die Frist ist das Herz einer deutschen Beschwerde, und sie braucht ein echtes Datum: *bis spätestens 15. Mai*. Ohne Datum hast du rechtlich nur eine Meinung geäußert. Mit Datum ist die andere Seite *in Verzug*, und es wird teuer.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -12065,8 +12075,8 @@
 			],
 			"practise": [
 				{
-					"title": "Firm but polite",
-					"instruction": "Write the missing word.",
+					"title": "Bestimmt, aber höflich",
+					"instruction": "Schreib das fehlende Wort.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -12092,8 +12102,8 @@
 					]
 				},
 				{
-					"title": "Concede, then press",
-					"instruction": "Join with obwohl.",
+					"title": "Einräumen, dann drängen",
+					"instruction": "Verbinde mit obwohl.",
 					"kind": "write",
 					"items": [
 						{
@@ -12104,8 +12114,8 @@
 					"cols": 1
 				},
 				{
-					"title": "Your complaint",
-					"instruction": "Write the start of a complaint about something that went wrong.",
+					"title": "Deine Beschwerde",
+					"instruction": "Schreib den Anfang einer Beschwerde über etwas, das schiefging.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -12121,11 +12131,11 @@
 							"after": "."
 						}
 					],
-					"note": "About you."
+					"note": "Über dich."
 				},
 				{
-					"title": "Find the mistake",
-					"instruction": "Each sentence has one mistake. Write it correctly.",
+					"title": "Finde den Fehler",
+					"instruction": "Jeder Satz hat einen Fehler. Schreib ihn richtig.",
 					"kind": "write",
 					"items": [
 						{
@@ -12149,8 +12159,8 @@
 					"extra": true
 				},
 				{
-					"title": "Write it the formal way",
-					"instruction": "Write it in German.",
+					"title": "Schreib es formell",
+					"instruction": "Schreib es auf Deutsch.",
 					"kind": "write",
 					"items": [
 						{
@@ -12164,16 +12174,16 @@
 				}
 			],
 			"listen": {
-				"intro": "A text about buying local. Listen, fill in the gaps in your head, and then write the shop one polite sentence of complaint."
+				"intro": "Ein Text übers Einkaufen vor Ort. Hör zu, füll die Lücken im Kopf und schreib dem Laden einen höflichen Beschwerdesatz."
 			},
 			"speak": {
-				"intro": "Give way, line by line. Then complain to the tutor about a heating system: facts, dates and no adjectives."
+				"intro": "Räum Zeile für Zeile ein. Beschwer dich dann beim Tutor über eine Heizung: Tatsachen, Daten, keine Adjektive."
 			},
 			"canDo": [
-				"write a complaint that works",
-				"set a deadline and a consequence",
-				"concede first, then press",
-				"use facts instead of adjectives"
+				"eine Beschwerde schreiben, die wirkt",
+				"eine Frist und eine Folge nennen",
+				"erst einräumen, dann drängen",
+				"Tatsachen statt Adjektive nutzen"
 			],
 			"world": "Ein Mietshaus",
 			"opener": {
@@ -12243,7 +12253,7 @@
 			},
 			"reading": {
 				"title": "Sehr geehrter Herr Kunze",
-				"intro": "The lift in Hofstraße 12 has been out of order for eleven weeks. Frau Huber, on the first floor, doesn’t need it. But Herr Yilmaz’s mother does. So Frau Huber has dictated a letter to the property manager, and she’s very pleased with the result. Maya has just added the date.",
+				"intro": "Der Aufzug in der Hofstraße 12 ist seit elf Wochen kaputt. Frau Huber im ersten Stock braucht ihn nicht, die Mutter von Herrn Yilmaz aber schon. Also hat Frau Huber der Hausverwaltung einen Brief diktiert und ist sehr zufrieden damit. Maya hat gerade das Datum ergänzt.",
 				"photos": [
 					{
 						"photo": "b2b22_miete_platte",
@@ -12296,11 +12306,11 @@
 					}
 				],
 				"en": "Dear Mr Kunze, I hereby inform you that the lift has been out of order since 3 February. · Despite repeated promises, the defect has still not been fixed. On 12 March you told me the technician would come \"next week\". That was six weeks ago. · I therefore call on you to have the lift repaired by 15 May at the latest. Otherwise I reserve the right to reduce the rent. · Yours sincerely, E. Huber · Maya: That’s really very good. How do you know how to do this? · Frau Huber: My Karl. Forty years at the tax office. No adjectives, only dates. You don’t write \"outrageous\". You write \"on 12 March\". · Maya: And do you think he’ll answer? · Frau Huber: There’s a P.S. Read it. · Maya: \"P.S.: Warm regards to your wife as well. I see that she’s been driving your new car since 20 April. The lift would have cost less.\" · Frau Huber: That’s the final stage. It’s rarely used. · The next morning at eight, a man is standing in the courtyard with a toolbox.",
-				"fact": "A German tenant may reduce the rent if the flat has a real defect, and there are long court-made lists of how much. But do it wrong and you can be evicted. So tenants’ associations, the *Mieterverein*, have more than a million members, each paying for good advice.",
+				"fact": "Hat die Wohnung einen echten Mangel, darf ein deutscher Mieter die Miete mindern, und Gerichte haben lange Listen dazu erstellt. Macht er es falsch, droht die Räumung. Darum hat der *Mieterverein* über eine Million Mitglieder, die für gute Beratung zahlen.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -12353,7 +12363,7 @@
 					},
 					{
 						"title": "Formell, bitte",
-						"instruction": "Rewrite each one, formally, with the phrase from the text.",
+						"instruction": "Schreib jeden Satz formell, mit der Wendung aus dem Text.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -12377,12 +12387,12 @@
 				"photo": "b2b22_miete_vertrag",
 				"caption": "Ein Mietvertrag von 1932",
 				"tall": true,
-				"intro": "A real rental contract from Hamburg, typed and signed in 1932. It’s very like the one you’d sign today, only shorter. You can read: who rents, what, for how much, and how you get out.",
-				"fact": "Tenants in Germany are very well protected, and the three-month notice in this contract is still the normal rule for tenants today. In 1932 the rent was 429 marks a year. Your landlord will be pleased to tell you what that would buy now.",
+				"intro": "Ein echter Mietvertrag aus Hamburg, 1932 getippt und unterschrieben. Er gleicht dem von heute sehr, ist nur kürzer. Du liest: wer was mietet, zu welchem Preis und wie man wieder rauskommt.",
+				"fact": "Mieter sind in Deutschland sehr gut geschützt, und die dreimonatige Kündigungsfrist aus diesem Vertrag gilt für sie noch heute. 1932 kostete die Miete 429 Mark im Jahr. Was man heute dafür bekäme, erklärt dir dein Vermieter gern.",
 				"tasks": [
 					{
 						"title": "Lies den Vertrag",
-						"instruction": "Circle what the contract says.",
+						"instruction": "Kreise ein, was im Vertrag steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -12435,9 +12445,9 @@
 					},
 					{
 						"title": "Ein Mängelbrief",
-						"instruction": "Write to the landlord about one thing in your flat. Use the phrases.",
+						"instruction": "Schreib dem Vermieter über eine Sache in deiner Wohnung. Nutz die Wendungen.",
 						"kind": "gaps",
-						"note": "The defect and the date are your own.",
+						"note": "Mangel und Datum wählst du selbst.",
 						"items": [
 							{
 								"before": "Hiermit teile ich Ihnen mit, dass",
@@ -12455,23 +12465,24 @@
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		},
 		{
 			"id": "fleisch",
 			"n": 12,
 			"title": "Einerseits, andererseits",
-			"subtitle": "A balanced verdict: everything from this book in one debate",
+			"subtitle": "Ein ausgewogenes Urteil: alles aus diesem Buch in einer Debatte",
 			"accent": "blue",
 			"quiz": "quest_b2_2_wortschatz",
 			"listenQuiz": "quest_b2_2_hoeren_fachinterview",
 			"speakQuiz": "quest_b2_2_sprechen_dialog",
 			"words": {
-				"intro": "Germany has a butcher in every village, and a government report on meat. At a family table, on a Sunday, with a roast, those two facts come together. Everybody has read a study.",
-				"more": "Auch am Tisch · also at the table",
+				"intro": "Deutschland hat in jedem Dorf einen Metzger und einen Regierungsbericht über Fleisch. Am Familientisch, sonntags, beim Braten, treffen beide aufeinander. Jeder hat eine Studie gelesen.",
+				"more": "Auch am Tisch",
 				"groups": [
 					{
-						"title": "Das Essen · food",
+						"title": "Das Essen",
 						"items": [
 							{
 								"de": "das Fleisch",
@@ -12557,7 +12568,7 @@
 						]
 					},
 					{
-						"title": "Die Debatte · the debate",
+						"title": "Die Debatte",
 						"items": [
 							{
 								"de": "die Debatte",
@@ -12639,51 +12650,51 @@
 			"grammar": [
 				{
 					"heading": "Abwägen",
-					"subheading": "How to say both sides, and reach a verdict",
+					"subheading": "Beide Seiten nennen und zu einem Urteil kommen",
 					"blocks": [
 						{
 							"kind": "table",
-							"title": "The shape of a balanced verdict",
+							"title": "Aufbau eines ausgewogenen Urteils",
 							"head": [
 								{
-									"text": "job",
+									"text": "Schritt",
 									"en": true
 								},
 								{
-									"text": "like this"
+									"text": "so"
 								}
 							],
 							"rows": [
 								[
-									"open",
+									"Einstieg",
 									"In letzter Zeit wird viel über … diskutiert."
 								],
 								[
-									"one side",
+									"eine Seite",
 									"*Einerseits* lässt sich nicht bestreiten, dass …"
 								],
 								[
-									"the other",
+									"andere Seite",
 									"*Andererseits* sollte man bedenken, dass …"
 								],
 								[
-									"give way",
+									"einräumen",
 									"*Zwar* mag es sein, dass …, *dennoch* …"
 								],
 								[
-									"what if",
+									"was wäre, wenn",
 									"Wenn alle …, *würde* das dazu führen, dass …"
 								],
 								[
-									"verdict",
+									"Urteil",
 									"*Alles in allem* bin ich der Ansicht, dass …"
 								]
 							],
-							"note": "Six moves. It’s the shape of every German essay and of most Sunday lunches."
+							"note": "Sechs Schritte: So läuft jeder deutsche Aufsatz und fast jedes Sonntagsessen."
 						},
 						{
 							"kind": "words",
-							"title": "Words that weigh",
+							"title": "Wörter, die abwägen",
 							"cols": 2,
 							"items": [
 								{
@@ -12715,14 +12726,14 @@
 						{
 							"kind": "box",
 							"tone": "tip",
-							"title": "Finish the job",
-							"text": "German teachers mark down a discussion that ends in *es gibt Vor- und Nachteile*. Everybody knows that. Say which ones win, and why."
+							"title": "Bring es zu Ende",
+							"text": "Deutsche Lehrer ziehen Punkte ab, wenn eine Diskussion mit *es gibt Vor- und Nachteile* endet. Das weiß jeder. Sag, welche gewinnen und warum."
 						}
 					],
-					"fact": "Every German schoolchild writes an *Erörterung*, in which you’re expected to weigh up both sides before you conclude. So nearly everyone in the country can produce, in a pub or at a funeral, a paragraph that begins with *einerseits*.",
+					"fact": "Jedes deutsche Schulkind schreibt eine *Erörterung*: erst beide Seiten abwägen, dann urteilen. Darum kann fast jeder im Land, in der Kneipe oder bei einer Beerdigung, einen Absatz liefern, der mit *einerseits* beginnt.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -12785,84 +12796,84 @@
 				},
 				{
 					"heading": "Noch einmal alles",
-					"subheading": "One discussion, every tool from this book",
+					"subheading": "Eine Diskussion, jedes Werkzeug aus diesem Buch",
 					"blocks": [
 						{
 							"kind": "table",
-							"title": "From this book",
+							"title": "Aus diesem Buch",
 							"head": [
 								{
-									"text": "tool",
+									"text": "Werkzeug",
 									"en": true
 								},
 								{
-									"text": "like this"
+									"text": "so"
 								},
 								{
-									"text": "chapter",
+									"text": "Kapitel",
 									"en": true
 								}
 							],
 							"rows": [
 								[
-									"if, now",
+									"wenn, jetzt",
 									"Wenn alle verzichten würden, wäre es besser.",
 									"2"
 								],
 								[
-									"if, then",
+									"wenn, damals",
 									"Hättest du das gewusst, wärst du gekommen.",
 									"2"
 								],
 								[
-									"regret",
+									"Bedauern",
 									"Du hättest fragen sollen.",
 									"3"
 								],
 								[
-									"rumour",
+									"Gerücht",
 									"Das soll gesund sein.",
 									"4"
 								],
 								[
-									"official",
+									"amtlich",
 									"Aufgrund der Studie …",
 									"5"
 								],
 								[
-									"folded",
+									"gefaltet",
 									"die oft zitierte Studie",
 									"7"
 								],
 								[
-									"can be done",
+									"machbar",
 									"Das lässt sich ändern.",
 									"7"
 								],
 								[
-									"although",
+									"obwohl",
 									"So gut es auch schmeckt, …",
 									"9"
 								],
 								[
-									"whoever",
+									"wer",
 									"Wer Fleisch isst, sollte das wissen.",
 									"8"
 								]
 							],
-							"note": "If you can read this table, you’ve done B2."
+							"note": "Kannst du diese Tabelle lesen, hast du es geschafft."
 						},
 						{
 							"kind": "box",
 							"tone": "culture",
 							"title": "Das Sonntagsessen",
-							"text": "Many Germans are unwilling to discuss money or how they vote at table. They’ll happily discuss a study, in detail, with the vegetables going cold. Now you can take part."
+							"text": "Viele Deutsche reden bei Tisch ungern über Geld oder ihre Wahl. Über eine Studie reden sie gern, im Detail, während das Gemüse kalt wird. Jetzt kannst du mitreden."
 						}
 					],
-					"fact": "*Der Klügere gibt nach*, the wiser one gives in, is what German grandparents say at the end of an argument, usually about themselves. It’s what you’ve learned in this chapter, with one small addition: *dennoch*.",
+					"fact": "*Der Klügere gibt nach*, sagen deutsche Großeltern am Ende eines Streits, meist über sich selbst. Genau das hast du in diesem Kapitel gelernt, mit einem kleinen Zusatz: *dennoch*.",
 					"check": {
 						"title": "Mini-Check",
-						"instruction": "Circle the right word.",
+						"instruction": "Kreise das richtige Wort ein.",
 						"kind": "circle",
 						"cols": 2,
 						"items": [
@@ -12881,7 +12892,7 @@
 									"soll",
 									"will"
 								],
-								"after": "gesund sein. (people say)",
+								"after": "gesund sein. (sagt man)",
 								"answer": "soll"
 							},
 							{
@@ -12927,7 +12938,7 @@
 			"practise": [
 				{
 					"title": "Das soll so sein",
-					"instruction": "Say each one with soll or hätte … sollen.",
+					"instruction": "Sag jeden Satz mit soll oder hätte … sollen.",
 					"kind": "write",
 					"cols": 1,
 					"items": [
@@ -12936,7 +12947,7 @@
 							"answer": "Tofu soll gesund sein."
 						},
 						{
-							"prompt": "Du hast nicht gefragt. (reproach)",
+							"prompt": "Du hast nicht gefragt. (Vorwurf)",
 							"answer": "Du hättest fragen sollen."
 						},
 						{
@@ -12947,7 +12958,7 @@
 				},
 				{
 					"title": "Falte es zusammen",
-					"instruction": "Fold each into a phrase.",
+					"instruction": "Falte sie zu einer Wortgruppe.",
 					"kind": "write",
 					"cols": 1,
 					"items": [
@@ -12963,7 +12974,7 @@
 				},
 				{
 					"title": "Sag es ganz formell",
-					"instruction": "Complete with one word each.",
+					"instruction": "Ergänze je ein Wort.",
 					"kind": "gaps",
 					"items": [
 						{
@@ -12990,14 +13001,14 @@
 				},
 				{
 					"title": "Was passt?",
-					"instruction": "Draw a line from each move to its words.",
+					"instruction": "Verbinde jeden Schritt mit seinen Wörtern.",
 					"kind": "match",
 					"left": [
-						"to open",
-						"to give way",
-						"to say what if",
-						"to conclude",
-						"to deny a denial"
+						"einleiten",
+						"einräumen",
+						"was wäre, wenn",
+						"urteilen",
+						"Zweifel abweisen"
 					],
 					"right": [
 						"Wenn alle …, würde …",
@@ -13016,9 +13027,9 @@
 				},
 				{
 					"title": "Deine Meinung",
-					"instruction": "Write five sentences on a question you care about.",
+					"instruction": "Schreib fünf Sätze zu einer Frage, die dir wichtig ist.",
 					"kind": "gaps",
-					"note": "Your own view: choose a side at the end.",
+					"note": "Deine Meinung: Wähle am Ende eine Seite.",
 					"items": [
 						{
 							"before": "In letzter Zeit wird viel über",
@@ -13044,16 +13055,16 @@
 				}
 			],
 			"listen": {
-				"intro": "An interview about why good intentions fail in February. Listen for what is said to work, and what the expert would have done."
+				"intro": "Ein Interview darüber, warum gute Vorsätze im Februar scheitern. Achte darauf, was helfen soll und was die Expertin getan hätte."
 			},
 			"speak": {
-				"intro": "The final discussion with the tutor: a flight tax, meat, or nuclear energy. Hypotheses, concessions, and a balanced verdict."
+				"intro": "Die letzte Diskussion mit dem Tutor: Flugsteuer, Fleisch oder Atomkraft. Annahmen, Einräumungen und ein ausgewogenes Urteil."
 			},
 			"canDo": [
-				"weigh up two sides of a question",
-				"give way and still make my point",
-				"reach a clear verdict",
-				"hold my own at a German Sunday lunch"
+				"zwei Seiten einer Frage abwägen",
+				"nachgeben und trotzdem überzeugen",
+				"zu einem klaren Urteil kommen",
+				"mich beim deutschen Sonntagsessen behaupten"
 			],
 			"world": "Der Sonntagsbraten",
 			"opener": {
@@ -13121,7 +13132,7 @@
 			},
 			"reading": {
 				"title": "Der Sonntagsbraten",
-				"intro": "Sunday lunch at Lena’s aunt’s in the Eifel. Lena’s nephew, Tim, is sixteen and has just announced that he is a vegan. There’s a very large roast on the table. Frau Huber, who’s a guest, sits between him and his grandfather, and carries on eating.",
+				"intro": "Sonntagsessen bei Lenas Tante in der Eifel. Lenas Neffe Tim, sechzehn, hat gerade verkündet, dass er Veganer ist. Auf dem Tisch steht ein sehr großer Braten. Frau Huber, ein Gast, sitzt zwischen ihm und seinem Großvater und isst weiter.",
 				"photos": [
 					{
 						"photo": "b2b22_fleisch_schild",
@@ -13177,11 +13188,11 @@
 					}
 				],
 				"en": "Tim: If everyone ate less meat, there’d be far less CO₂. A study is said to have shown that. · Opa: A study! If you hadn’t eaten so much meat as a child, you wouldn’t be so tall today. · Tim: That may be true, but that’s not the point. However good it tastes, factory farming can’t be defended. · Opa: This roast comes from the pig Herr Schmitz kept three doors down. It was called Willi. It had a lovely life. · Tim: It could also have gone on living. · Lena: On the one hand Tim is right. On the other hand Willi’s here now. It would be disrespectful to throw him away. · Everyone looks at Frau Huber. She slowly puts down her knife and fork. She dabs her mouth. · Frau Huber: Young man, you should read fewer studies. You, old man, should read more. All in all you’re both right, and you’re both unbearable. · Opa: And what do you suggest? · Frau Huber: That you do the washing up. And he helps you. You can argue while you do it, until you’re finished. · Later, in the kitchen. It’s quiet for a long time. Then the grandfather asks quietly: \"Does it actually taste good, this tofu?\"",
-				"fact": "Germans eat less meat than they did a generation ago. In 2013 a political party proposed a *Veggie Day* in public canteens, once a week. It was so unpopular that it is widely believed to have cost them votes.",
+				"fact": "Deutsche essen weniger Fleisch als noch vor einer Generation. 2013 schlug eine Partei einen *Veggie Day* in öffentlichen Kantinen vor, einmal pro Woche. Das war so unbeliebt, dass es sie angeblich Stimmen kostete.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
-						"instruction": "Circle what the text says.",
+						"instruction": "Kreise ein, was im Text steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -13234,7 +13245,7 @@
 					},
 					{
 						"title": "Abwägen",
-						"instruction": "Weigh it up, with the word in brackets.",
+						"instruction": "Wäge ab, mit dem Wort in Klammern.",
 						"kind": "write",
 						"cols": 1,
 						"items": [
@@ -13254,12 +13265,12 @@
 				"photo": "b2b22_forschung_zettel",
 				"caption": "Am schwarzen Brett: Du bist nicht allein!",
 				"tall": true,
-				"intro": "A real flyer on a street post in Wiesbaden, with tear-off strips. It offers a self-help group for people who feel guilty. It’s very serious. It’s also a joke. Read it and say which, and how you know. *Vielflieger*, *Fleischesser*, *Dieselfahrer*: there’s the debate in three words.",
-				"fact": "Swedish gave the world *flygskam*, and German quickly had its own: *Flugscham*, flight shame. The star in *Vielflieger*in* is the German way of including all genders, and it’s a whole other Sunday lunch.",
+				"intro": "Ein echter Flyer an einem Pfosten in Wiesbaden, mit Abreißstreifen: eine Selbsthilfegruppe für Menschen mit schlechtem Gewissen. Er ist sehr ernst. Er ist auch ein Witz. Lies ihn und sag, was davon stimmt und woran du es merkst. *Vielflieger*, *Fleischesser*, *Dieselfahrer*: die Debatte in drei Wörtern.",
+				"fact": "Aus Schweden kam *flygskam*, und Deutsch hatte schnell *Flugscham*. Das Sternchen vor dem „in“ bei *Vielflieger* schließt alle Geschlechter ein, und das ist ein ganz eigenes Sonntagsessen.",
 				"tasks": [
 					{
 						"title": "Lies den Zettel",
-						"instruction": "Circle what the flyer says.",
+						"instruction": "Kreise ein, was auf dem Flyer steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
@@ -13303,9 +13314,9 @@
 					},
 					{
 						"title": "Und du?",
-						"instruction": "Weigh it up in your own words.",
+						"instruction": "Wäge mit deinen eigenen Worten ab.",
 						"kind": "gaps",
-						"note": "Your own view. Check that the verb follows straight after each word.",
+						"note": "Deine Meinung. Prüf, ob das Verb direkt nach jedem Wort folgt.",
 						"items": [
 							{
 								"before": "Einerseits",
@@ -13322,7 +13333,8 @@
 						]
 					}
 				]
-			}
+			},
+			"german": true
 		}
 	]
 }

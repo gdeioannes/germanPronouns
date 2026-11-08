@@ -1,0 +1,16 @@
+{
+ "hook": "Eine belebte Baustelle voller Maschinen und Werkzeuge: Tipp jedes Teil an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt eines Kartenstapels: eine Baustelle, von vorn gesehen, mit 32 Maschinen, Materialien und Werkzeugen. Zu finden sind der Kran mit seinem Haken, der Bagger, die Schubkarre, das Gerüst an der halb fertigen Mauer und rechts die Werkbank voller Werkzeuge. Diese Wörter brauchst du, wenn ein Nachbar baut, eine Straße aufgerissen wird oder die Nachrichten über Bauarbeiten berichten. Die Aufgabe fragt zum Beispiel: Wo ist der Presslufthammer? Du tippst es im Bild an. Jeder Fund zeigt seinen Namen, gefärbt nach dem Genus. Danach bleibt ein kleines Häkchen in dieser Farbe, so siehst du, was du schon gefunden hast. Ein Tipp auf eine leere Stelle kostet nichts. Tippst du auf das falsche Teil, erfährst du, was du getroffen hast, und suchst weiter. Nach drei Fehlversuchen wird das richtige Teil gezeigt. Kein Teil wird im selben Durchgang zweimal gefragt. Hast du einen Durchgang bestanden, wird die Suche schwerer: Die Aufgabe versteckt den Artikel (Wo ist ___ Schubkarre?), und nach dem Fund wählst du selbst der, die oder das.",
+ "tips[0].title": "Maschinen auf -er sind maskulin",
+ "tips[0].text": "Viele der großen Maschinen hier enden auf -er und haben der: der Bagger, der Betonmischer, der Kipplaster, der Container. Hörst du am Ende -er, sag der, bevor du überhaupt nachdenkst.",
+ "tips[0].check.why": "Der Bagger ist eine Maschine auf -er, also steht der.",
+ "tips[1].title": "Ein zusammengesetztes Nomen nimmt das Genus seines letzten Teils",
+ "tips[1].text": "Bau + Toilette: die Toilette, also die Bautoilette. Kabel + Trommel: die Trommel, also die Kabeltrommel. Strom + Aggregat: das Aggregat, also das Stromaggregat. Das letzte Wort gewinnt immer.",
+ "tips[1].check.why": "Der letzte Teil ist die Trommel, also heißt es die Kabeltrommel, auch wenn das Kabel vorn steht.",
+ "tips[2].title": "Wörter mit Ge- sind oft neutral",
+ "tips[2].text": "Nomen, die mit Ge- beginnen, haben sehr oft das: das Gerüst, das Gerät, das Gewicht. Also das Gerüst und das Funkgerät, auch wenn das Gerüst riesig ist und sich nach der anfühlt.",
+ "tips[2].check.why": "Gerüst beginnt mit Ge-, einem typisch neutralen Anfang: das Gerüst.",
+ "remember[0]": "Maschinen auf -er haben der: der Bagger, der Betonmischer, der Kipplaster.",
+ "remember[1]": "Der letzte Teil entscheidet: die Kabeltrommel (die Trommel), das Stromaggregat (das Aggregat).",
+ "remember[2]": "Nomen mit Ge- sind meist neutral: das Gerüst, das Funkgerät."
+}

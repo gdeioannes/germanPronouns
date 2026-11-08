@@ -1,0 +1,20 @@
+{
+ "hook": "Write down nuanced German from the ear: fixed idioms, long verb clusters and connectors that pull the verb forward.",
+ "intro": "Twelve sentences from one local controversy — a city renovation that costs far more than planned — dictated. They contain the features that make nuanced German hard to write from the ear: idioms whose wording is fixed (eine Debatte ins Rollen bringen, auf dem Holzweg sein, sich kein Bein ausreißen, im selben Boot sitzen), subjective modals with past and passive infinitives (will … gewusst haben; soll … informiert worden sein; muss … passiert sein), hedges and concessions (dürfte kaum; mag …, aber), the past Konjunktiv II of criticism (hätte … einbeziehen müssen; wäre … gewesen), written connectors at position 1 followed at once by the verb (Gleichwohl bleibt …; Tatsächlich haben …) and the small particles that colour a sentence (wohl, ja, doch). None of these sentences appears in the other quizzes: use the patterns, not your memory. Type each sentence after hearing it whole.",
+ "tips[0].title": "Idioms: the wording is fixed",
+ "tips[0].text": "ins Rollen bringen, auf dem Holzweg sein, sich kein Bein ausreißen, im selben Boot sitzen — if the words you heard do not match the idiom, you misheard. Use the idiom to correct the ear.",
+ "tips[0].check.why": "The idiom is fixed: auf dem Holzweg sein means to be on the wrong track, and no other word can replace Holzweg.",
+ "tips[1].title": "Modal clusters at the end",
+ "tips[1].text": "will … gewusst haben · soll … informiert worden sein · muss … passiert sein · hätte … einbeziehen müssen. Write the verb forms in the order you hear them: participle, (worden), haben / sein — or infinitive + modal after hätte.",
+ "tips[1].check.why": "A past passive after a modal runs participle – worden – sein; in the passive the participle of werden is worden, not geworden.",
+ "tips[1].visual.rows[0].cells[0]": "Das",
+ "tips[1].visual.rows[0].cells[1]": "hätte",
+ "tips[1].visual.rows[0].cells[2]": "man",
+ "tips[1].visual.rows[0].cells[3]": "vorher wissen müssen.",
+ "tips[2].title": "Connector → verb → subject",
+ "tips[2].text": "Gleichwohl | bleibt | die Frage … Tatsächlich | haben | sich die Baukosten … Hear the connector, expect the verb immediately.",
+ "tips[2].check.why": "A connector like tatsächlich fills position 1, so the verb follows straight away, then the subject.",
+ "remember[0]": "Idiom wording is fixed; use it to check what you heard.",
+ "remember[1]": "Modal clusters: participle – (worden) – haben / sein; after hätte: infinitive + modal.",
+ "exam": "Spelling idioms, modal clusters and connectors correctly under time pressure matters in the C1 exam's writing — and in every quick e-mail."
+}

@@ -9,6 +9,10 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from './SpeakButton.svelte';
 	import GermanText from './GermanText.svelte';
+	import type { HelpTip } from '$lib/content/types';
+	import EnglishLine from '$lib/components/EnglishLine.svelte';
+	import EnglishToggle from '$lib/components/EnglishToggle.svelte';
+	import EnglishPanel from '$lib/components/EnglishPanel.svelte';
 	import LessonVisual from './lesson/LessonVisual.svelte';
 	import Steps, { type StepMark } from './quiz/Steps.svelte';
 	import { GENDER_COLORS } from '$lib/domain/gender';
@@ -22,11 +26,17 @@
 	let {
 		steps,
 		locale = 'de-DE',
+		level = null,
+		germanNotes = false,
 		deckHref = null,
 		onPractise
 	}: {
 		steps: LessonStep[];
 		locale?: string;
+		/** The exercise's level: from B1 its translations wait behind a tap. */
+		level?: string | null;
+		/** The explanations are in German: every word of them is tappable. */
+		germanNotes?: boolean;
 		deckHref?: string | null;
 		/** Leave the lesson for the exercise. */
 		onPractise: () => void;
@@ -38,6 +48,10 @@
 	/** The furthest step reached — what counts as "read" on the dots. */
 	let reached = $state(0);
 	let showEnglish = $state(false);
+	/** Which German explanations have their English open, by step and place. */
+	let openEnglish = $state<Record<string, boolean>>({});
+	const tipEnglish = (tip: HelpTip) =>
+		tip.en ? [tip.en.title, tip.en.text, tip.en.trap].filter((x): x is string => !!x) : [];
 
 	$effect(() => {
 		if (index > reached) reached = index;
@@ -96,6 +110,10 @@
 	};
 </script>
 
+{#snippet prose(text: string)}
+	{#if germanNotes}<span lang={locale}><GermanText {text} /></span>{:else}{text}{/if}
+{/snippet}
+
 <!-- A lesson example is German, so every word in it is tappable for the
      English, and the focus words the lesson is teaching stay marked on top of
      that: the mark says "this is the bit that matters", the tap says what the
@@ -117,12 +135,12 @@
 					<p class="eyebrow">
 						Lesson · {ruleCount} {ruleCount === 1 ? 'rule' : 'rules'} · about {minutes} min
 					</p>
-					<h2 class="hook">{s.hook}</h2>
+					<h2 class="hook">{@render prose(s.hook)}</h2>
 
 					{#if s.recall}
 						<dl class="recall">
-							<div><dt>You already know</dt><dd>{s.recall.known}</dd></div>
-							<div><dt>New today</dt><dd>{s.recall.today}</dd></div>
+							<div><dt>You already know</dt><dd>{@render prose(s.recall.known)}</dd></div>
+							<div><dt>New today</dt><dd>{@render prose(s.recall.today)}</dd></div>
 						</dl>
 					{/if}
 
@@ -141,8 +159,13 @@
 					{#if s.more}
 						<details class="more">
 							<summary>Why this matters <Icon name="chevronDown" size="0.9em" /></summary>
-							<p>{s.more}</p>
+							<p>{@render prose(s.more)}</p>
 						</details>
+					{/if}
+
+					{#if germanNotes && s.en?.length}
+						<div class="en-row"><EnglishToggle bind:open={openEnglish.hook} /></div>
+						{#if openEnglish.hook}<EnglishPanel lines={s.en} />{/if}
 					{/if}
 
 					<div class="actions">
@@ -153,11 +176,16 @@
 					</div>
 				{:else if s.kind === 'rule'}
 					{@const kind = s.tip.kind ?? 'rule'}
-					<p class="eyebrow" data-tone={kind}>
-						{KIND_LABEL[kind] ?? 'Rule'} · {s.number} of {s.of}
-					</p>
-					{#if s.tip.title}<h2>{s.tip.title}</h2>{/if}
-					<p class="rule-text">{s.tip.text}</p>
+					{@const ruleEn = germanNotes ? tipEnglish(s.tip) : []}
+					<div class="rule-top">
+						<p class="eyebrow" data-tone={kind}>
+							{KIND_LABEL[kind] ?? 'Rule'} · {s.number} of {s.of}
+						</p>
+						{#if ruleEn.length}<EnglishToggle bind:open={openEnglish[`rule${i}`]} />{/if}
+					</div>
+					{#if s.tip.title}<h2>{@render prose(s.tip.title)}</h2>{/if}
+					<p class="rule-text">{@render prose(s.tip.text)}</p>
+					{#if ruleEn.length && openEnglish[`rule${i}`]}<EnglishPanel lines={ruleEn} />{/if}
 
 					{#if s.tip.visual}<LessonVisual visual={s.tip.visual} {locale} />{/if}
 
@@ -168,7 +196,7 @@
 									<SpeakButton text={speakable(ex.de)} {locale} />
 									<span class="pair">
 										<span class="de" lang={locale}>{@render german(ex.de, ex.focus)}</span>
-										<span class="en">{ex.en}</span>
+										<span class="en"><EnglishLine text={ex.en} {level} /></span>
 									</span>
 								</li>
 							{/each}
@@ -178,7 +206,7 @@
 					{#if s.tip.trap}
 						<p class="trap">
 							<Icon name="info" size="1.05em" />
-							<span>{s.tip.trap.replace(/^E\d+\s*[—-]\s*/, '')}</span>
+							<span>{@render prose(s.tip.trap.replace(/^E\d+\s*[—-]\s*/, ''))}</span>
 						</p>
 					{/if}
 				{:else if s.kind === 'check'}
@@ -225,7 +253,11 @@
 					{#if answer !== undefined}
 						<div class="feedback" class:ok={answer === c.answer} tabindex="-1" data-focus-target>
 							<p class="verdict">{#if answer === c.answer}<span lang={locale}>Richtig!</span>{:else}Not quite — it's <span lang={c.germanOptions ? locale : undefined}>{c.answer}</span>.{/if}</p>
-							{#if c.why}<p class="why">{c.why}</p>{/if}
+							{#if c.why}<p class="why">{@render prose(c.why)}</p>{/if}
+							{#if germanNotes && c.whyEn}
+								<div class="en-row"><EnglishToggle bind:open={openEnglish[`why${i}`]} /></div>
+								{#if openEnglish[`why${i}`]}<EnglishPanel lines={[c.whyEn]} />{/if}
+							{/if}
 							{#if i < steps.length - 1}
 								<button type="button" class="btn" onclick={() => (index = i + 1)}>
 									Continue <Icon name="arrowRight" size="1em" />
@@ -288,8 +320,12 @@
 						<div class="remember">
 							<p class="mini-head"><Icon name="bolt" size="0.95em" /> How to remember it</p>
 							<ul>
-								{#each s.remember as aid, a (a)}<li>{aid}</li>{/each}
+								{#each s.remember as aid, a (a)}<li>{@render prose(aid)}</li>{/each}
 							</ul>
+							{#if germanNotes && s.rememberEn?.length}
+								<EnglishToggle bind:open={openEnglish.remember} />
+								{#if openEnglish.remember}<EnglishPanel lines={s.rememberEn} />{/if}
+							{/if}
 						</div>
 					{/if}
 
@@ -335,6 +371,10 @@
 
 					{#if s.exam}
 						<p class="exam"><Icon name="trophy" size="1em" /> <span>{s.exam}</span></p>
+						{#if germanNotes && s.examEn}
+							<div class="en-row"><EnglishToggle bind:open={openEnglish.exam} /></div>
+							{#if openEnglish.exam}<EnglishPanel lines={[s.examEn]} />{/if}
+						{/if}
 					{/if}
 
 					<div class="actions sticky">
@@ -349,6 +389,17 @@
 </div>
 
 <style>
+	.rule-top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.en-row {
+		margin-top: 0.5rem;
+	}
+
 	.lesson {
 		flex: 1;
 		min-height: 0;

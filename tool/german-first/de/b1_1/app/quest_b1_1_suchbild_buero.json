@@ -1,0 +1,16 @@
+{
+ "hook": "Ein kleines volles Büro mit vielen Dingen: Tippe jeden Gegenstand im Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Suche im Bild statt Karten: ein kleines, etwas unordentliches Büro mit 32 Dingen. Alle sind Nomen, die du brauchst, wenn du über deinen Arbeitstag sprichst: der Drucker, die Tastatur, das Whiteboard, der Klebebandabroller auf dem Schreibtisch. Die Aufgabe fragt Wo ist der Papierkorb?, und du tippst im Bild darauf. Jeder Fund zeigt sein Schild in der Farbe von seinem Artikel und lässt dann ein kleines Häkchen in dieser Farbe da. So siehst du, was du schon gefunden hast. Hast du eine Runde geschafft, wird die Suche schwerer: Die Aufgabe versteckt den Artikel (Wo ist ___ Papierkorb?), und nach dem Fund wählst du selbst der, die oder das. Ein Tipp auf die leere Wand kostet nichts. Tippst du auf das falsche Ding, sagt dir die App, was du getroffen hast, und du suchst weiter. Nach drei Fehlern zeigt sie dir das richtige Ding. Kein Ding kommt zweimal in derselben Runde.",
+ "tips[0].title": "Zusammengesetzte Wörter im Büro: Der letzte Teil entscheidet",
+ "tips[0].text": "Im Büro sind viele Wörter zusammengesetzt, und nur der letzte Teil bestimmt den Artikel. Schreibtisch + Lampe: die Lampe, also die Schreibtischlampe. Papier + Korb: der Korb, also der Papierkorb. Notiz + Buch: das Buch, also das Notizbuch.",
+ "tips[0].check.why": "Der letzte Teil ist der Rechner, also heißt das ganze Wort der Taschenrechner.",
+ "tips[1].title": "Maschinen auf -er sind maskulin, Maschinen auf -e nicht",
+ "tips[1].text": "Ein Ding, das eine Arbeit macht und auf -er endet, ist maskulin: der Drucker, der Ordner, der Taschenrechner, der Klebebandabroller. Die Endung entscheidet, nicht die Idee „Maschine“. Endet der letzte Teil auf -e, gewinnt die Regel für -e, und das Wort ist feminin: die Kaffeemaschine, die Klimaanlage.",
+ "tips[1].check.why": "Es ist eine Maschine, aber der letzte Teil ist die Anlage, mit -e am Ende: die Klimaanlage.",
+ "tips[2].title": "Englische Bürowörter haben meistens das",
+ "tips[2].text": "Deutsch nimmt viel Büro-Englisch auf, und die meisten dieser Wörter für Dinge werden neutral: das Headset, das Whiteboard, das Sideboard, das Handy. Taucht im deutschen Büro ein englisches Ding auf und du bist unsicher, dann rate zuerst das. Die Farben der Schilder helfen dir: blau der, rot die, grün das.",
+ "tips[2].check.why": "Die meisten englischen Wörter für Dinge werden im Deutschen neutral: das Headset, das Handy, das Whiteboard.",
+ "remember[0]": "Der letzte Teil eines zusammengesetzten Worts bestimmt den Artikel: der Schreibtisch + die Lampe → die Schreibtischlampe.",
+ "remember[1]": "Maschinen auf -er haben der (der Drucker, der Ordner), Maschinen auf -e haben die (die Kaffeemaschine).",
+ "remember[2]": "Englische Wörter für Dinge haben meistens das: das Headset, das Whiteboard, das Handy."
+}

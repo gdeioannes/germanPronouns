@@ -51,18 +51,32 @@
 		if (on) dictionary.load();
 	});
 
+	/**
+	 * A plain run, with any punctuation that opens it handed to the word before:
+	 * a tappable word is its own box, so otherwise a line can start with a comma.
+	 */
+	function pushPlain(out: { text: string; info: WordInfo | null; tail?: string }[], run: string) {
+		const before = out[out.length - 1];
+		const tail = before?.info ? (run.match(/^[.,;:!?)\]“”"'’…]+/u)?.[0] ?? '') : '';
+		if (tail) before.tail = tail;
+		const rest = run.slice(tail.length);
+		if (rest) out.push({ text: rest, info: null });
+	}
+
 	/** The text as alternating plain runs and recognised words. */
 	const parts = $derived.by(() => {
-		const out: { text: string; info: WordInfo | null }[] = [];
+		const out: { text: string; info: WordInfo | null; tail?: string }[] = [];
 		if (!on) return [{ text, info: null }];
 		let last = 0;
 		for (const match of text.matchAll(/\p{L}+/gu)) {
 			const at = match.index;
-			if (at > last) out.push({ text: text.slice(last, at), info: null });
-			out.push({ text: match[0], info: dictionary.lookup(match[0]) });
+			if (at > last) pushPlain(out, text.slice(last, at));
+			// "-en" in a grammar note is an ending, not the word it happens to spell.
+			const ending = text[at - 1] === '-' && !/\p{L}/u.test(text[at - 2] ?? '');
+			out.push({ text: match[0], info: ending ? null : dictionary.lookup(match[0]) });
 			last = at + match[0].length;
 		}
-		if (last < text.length) out.push({ text: text.slice(last), info: null });
+		if (last < text.length) pushPlain(out, text.slice(last));
 		return out;
 	});
 
@@ -123,7 +137,7 @@
 		info.entry.pos === 'noun' && info.entry.gender ? GENDER_COLORS[info.entry.gender] : null;
 </script>
 
-{#each parts as part, i (i)}{#if part.info}{@const colour = colourOf(part.info)}<span
+{#each parts as part, i (i)}{#if part.info}{@const colour = colourOf(part.info)}<span class="glued"><span
 			class="word-wrap"
 			><button
 				type="button"
@@ -150,9 +164,13 @@
 					{#if href}<a class="more" {href} lang="en">Full entry</a>{/if}
 				</span>
 			{/if}</span
-		>{:else}{part.text}{/if}{/each}
+		>{part.tail ?? ''}</span>{:else}{part.text}{/if}{/each}
 
 <style>
+	.glued {
+		white-space: nowrap;
+	}
+
 	.word-wrap {
 		position: relative;
 		display: inline-block;

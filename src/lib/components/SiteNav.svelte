@@ -109,6 +109,7 @@
      use; the phone list gets its own headings instead. -->
 {#snippet libraryLinks()}
 	<a href="/words"><Icon name="words" size="1em" /> Word library</a>
+	<a href="/books"><Icon name="book" size="1em" /> The books</a>
 	<a href="{courseHref}/worksheet"><Icon name="printer" size="1em" /> Printable sheets</a>
 	<a href="/stories"><Icon name="compass" size="1em" /> Stories</a>
 	<a href="/literature"><Icon name="book" size="1em" /> Literature</a>

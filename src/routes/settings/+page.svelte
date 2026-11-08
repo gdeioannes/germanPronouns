@@ -83,6 +83,21 @@
 		<label class="row">
 			<input
 				type="checkbox"
+				checked={progress.alwaysEnglish}
+				onchange={(e) => progress.setAlwaysEnglish(e.currentTarget.checked)}
+			/>
+			<span>
+				<strong>Always show translations</strong>
+				<small>
+					From B1, translations of sentences wait behind an English button, so
+					you try the German first. Turn this on to see them straight away.
+				</small>
+			</span>
+		</label>
+
+		<label class="row">
+			<input
+				type="checkbox"
 				checked={progress.wordHelp}
 				onchange={(e) => progress.setWordHelp(e.currentTarget.checked)}
 			/>

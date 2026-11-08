@@ -1,0 +1,20 @@
+{
+ "intro": "An internal memo about a new document system, written the way administrative German is written: almost no werden-passives, but one passive substitute after another. Twelve gaps, and each one asks you to build the substitute, not to spot it: sein + zu + infinitive for the instructions (the gap holds zu + infinitive — ist … zu finden, sind … zu melden, sind … zu übertragen, sind … zu speichern, sind … zu vermeiden), sich lassen for what is possible (the gap holds the conjugated lassen — singular or plural), -bar adjectives for the same idea in adjective form (änderbar, erreichbar), and bekommen + Partizip II where the staff are the recipients (bekommen … zugeschickt, erhalten … erklärt). The hints give you the verb or the English meaning; the form is yours. Read the memo as a genre first — greeting, purpose, rules, travel rules, contact, sign-off — then fill the gaps. Afterwards rewrite two sentences in your head with the plain passive (muss gemeldet werden) to feel why the memo does not: the substitutes are shorter and sound like a rule rather than an order.",
+ "tips[0].title": "Instructions → sein + zu; possibilities → sich lassen / -bar",
+ "tips[0].text": "A rule in a memo is sein + zu + infinitive: Probleme sind zu melden. With a separable verb the zu goes inside (einzureichen). What is possible is sich lassen (lässt sich / lassen sich — agree with the subject) or a -bar adjective (änderbar = kann geändert werden).",
+ "tips[0].trap": "sein + zu can mean must or can — in a memo of rules it almost always means must. Only sich lassen and -bar are unambiguously \"can\".",
+ "tips[0].check.why": "A rule is sein + zu + infinitive, and with a separable verb the zu goes inside: einzureichen.",
+ "tips[0].visual.left": "instruction",
+ "tips[0].visual.right": "possibility",
+ "tips[0].visual.rows[0].a": "Fehler sind sofort zu melden.",
+ "tips[0].visual.rows[0].b": "Das Passwort lässt sich jederzeit ändern.",
+ "tips[1].title": "Recipients → bekommen / erhalten + Partizip II",
+ "tips[1].text": "When the people addressed receive something, they become the subject: Sie bekommen die Unterlagen zugeschickt (= Ihnen werden die Unterlagen zugeschickt). The finite verb is bekommen or erhalten; the participle goes to the end.",
+ "tips[1].check.why": "When the people addressed receive something, they become the subject of bekommen, and the participle goes to the end.",
+ "tips[2].title": "The memo's skeleton",
+ "tips[2].text": "Liebe Kolleginnen und Kollegen, → purpose (wie angekündigt …) → rules in sein + zu → special cases (Für … gilt Folgendes:) → contact (… ist erreichbar) → thanks → Mit freundlichen Grüßen. Same frame every time; only the content changes.",
+ "tips[2].check.why": "The contact line of a memo uses the -bar adjective: ist … erreichbar (can be reached).",
+ "remember[0]": "Rule = sein + zu (zu + infinitive in the gap); possible = lässt sich / lassen sich, -bar; recipient = bekommen / erhalten + Partizip II.",
+ "remember[1]": "Memos avoid werden: substitutes sound like rules, not orders.",
+ "hook": "Read and write office memos the way German offices do (ist zu melden, lässt sich ändern): rules without a single werden."
+}

@@ -26,6 +26,7 @@
 		<a href="/"><Icon name="arrowLeft" size="1.05em" /> Home</a>
 		<a href={courseHref}><Icon name="book" size="1.05em" /> The course</a>
 		<a href="/words"><Icon name="words" size="1.05em" /> Word library</a>
+		<a href="/books"><Icon name="book" size="1.05em" /> The books</a>
 		<a href="/words/nouns"><Icon name="pen" size="1.05em" /> German nouns</a>
 		<a href="/words/verbs"><Icon name="repeat" size="1.05em" /> German verbs</a>
 		<a href="/level-check"><Icon name="trophy" size="1.05em" /> Your level</a>

@@ -1,0 +1,17 @@
+{
+ "hook": "Schreib gesprochene Argumente genau auf: Fang den Konnektor, das leise -e von sei und habe und das werden ganz am Ende ein.",
+ "intro": "Zwölf Sätze aus einer Argumentation als Diktat. In jedem steckt eines von drei Dingen, die dein Ohr erkennen muss. Erstens: Konnektoren (Verbindungswörter) am Satzanfang, direkt danach das Verb: trotzdem haben, daher sollte, außerdem müsse, dennoch bleibt, folglich wurde. Zweitens: Konjunktiv I, die Form für wiedergegebene Aussagen: die Lage sei ernst, man habe einen Plan, die Politik müsse handeln, die Kosten seien zu hoch, das Gesetz werde beschlossen. Diese Endungen unterscheiden sich vom Indikativ nur durch einen Laut (habe/hat, sei/ist, werde/wird, müsse/muss). Drittens: Passiv mit Modalverb oder im Perfekt: muss gelöst werden, sollte verschoben werden, darf nicht geparkt werden, ist veröffentlicht worden, wurde abgelehnt. Dazu kommt das Komma vor dass, ob und obwohl. Tipp jeden Satz erst, wenn du ihn ganz gehört hast. Der Konnektor legt den Bau des Satzes fest, und der Bau verrät dir die Reihenfolge des Rests.",
+ "tips[0].title": "Konnektor, dann Verb",
+ "tips[0].text": "Trotzdem | haben | wir … Daher | wurde | das Projekt … Außerdem | müsse | man … Hörst du den Konnektor, erwarte das Verb.",
+ "tips[0].check.why": "Ein Konnektor am Anfang besetzt Position 1. Das Verb steht also direkt danach, und das Subjekt folgt.",
+ "tips[1].title": "Hör das -e des Konjunktiv I",
+ "tips[1].text": "Er sagte, er habe (nicht hat) keine Zeit. Sie meinte, das sei (nicht ist) falsch. Das -e am Ende ist kurz. Wird eine Aussage wiedergegeben, rechne damit.",
+ "tips[1].check.why": "In der indirekten Rede wird aus sein die Form sei, der Konjunktiv I. Der kurze Vokal am Ende ist dein Signal; ist endet auf -t.",
+ "tips[1].visual.left": "Indikativ",
+ "tips[2].title": "werden / worden am Ende",
+ "tips[2].text": "muss … werden (Passiv mit Modalverb), ist … worden (Passiv im Perfekt). Beide schließen den Satz ab, also schreibst du sie zuletzt.",
+ "tips[2].check.why": "Ein Passiv mit Modalverb ist Partizip + werden, und werden schließt den Satz ab. worden gehört zum Passiv im Perfekt mit ist.",
+ "remember[0]": "Konnektor → Verb → Rest.",
+ "remember[1]": "habe / sei / werde: das -e, das einen Bericht verrät.",
+ "exam": "Richtige Konnektoren und der Konjunktiv I zählen beim Schreiben in der B2-Prüfung, und in jeder E-Mail und jedem Kommentar, in dem du etwas begründest."
+}

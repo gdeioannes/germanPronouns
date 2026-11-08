@@ -1,0 +1,19 @@
+{
+ "hook": "Ein alter Bauernhof voller Werkzeug, Geschirr und Tiere: Tipp alles im Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt eines Kartenstapels: ein vollgestellter Bauernhof vor einer roten Scheune, mit 32 Dingen zum Finden, viele davon alte ländliche Wörter, die dir eher in Romanen und Museen begegnen als im Alltagsgespräch: der Dreschflegel, das Kummet, die Egge, der Taubenschlag auf seiner Stange. Die Aufgabe fragt Wo ist die Sense?, und du tippst sie im Bild an. Jeder Fund zeigt seine Beschriftung, gefärbt nach dem Genus, und hinterlässt dann ein kleines Häkchen in dieser Farbe, damit du siehst, was du schon gefunden hast. Sobald du einen Durchgang bestanden hast, wird die Suche schwieriger: Die Aufgabe verbirgt den Artikel (Wo ist ___ Sense?), und nach dem Fund wählst du selbst der, die oder das. Ein Tipp auf leeren Himmel oder Gras kostet nichts; ein Tipp auf den falschen Gegenstand sagt dir, was du getroffen hast, und du suchst weiter, und nach drei Fehlversuchen wird der richtige gezeigt. Kein Gegenstand wird im selben Durchgang zweimal abgefragt.",
+ "tips[0].title": "Komposita richten sich nach dem letzten Teil",
+ "tips[0].text": "Melken + Schemel: der Schemel, also der Melkschemel. Scheune + Tor: das Tor, also das Scheunentor. Wagen + Rad: das Rad, also das Wagenrad. Der erste Teil sagt nur, welche Art; den Artikel bringt der letzte Teil mit.",
+ "tips[0].check.why": "Der letzte Teil ist der Trog, also heißt das ganze Wort der Futtertrog.",
+ "tips[1].title": "Jungtiere sind das",
+ "tips[1].text": "Tierbabys sind neutral, egal welches Genus das ausgewachsene Tier hat: das Ferkel neben die Sau, das Kalb neben die Kuh. Die ausgewachsenen Tiere auf diesem Hof sind es nicht: die Ziege, die Gans, die Katze.",
+ "tips[1].check.why": "Jungtiere sind neutral: das Ferkel, das Kalb, das Fohlen.",
+ "tips[1].visual.rows[0].label": "Rinder",
+ "tips[1].visual.rows[1].label": "Schweine",
+ "tips[1].visual.rows[2].label": "Pferde",
+ "tips[2].title": "Hofwerkzeuge auf -e sind meist die",
+ "tips[2].text": "Viele Handwerkzeuge hier enden auf -e, und Nomen auf -e sind meist feminin: die Sense, die Egge, die Raufe, die Laterne, die Pumpe. Stell sie dir in einer Reihe an der Scheunenwand vor, alle mit roten Schildchen.",
+ "tips[2].check.why": "Nomen auf -e sind meist feminin: die Raufe, die Egge, die Sense.",
+ "remember[0]": "Der letzte Teil eines Kompositums bestimmt den Artikel: die Scheune + das Tor → das Scheunentor.",
+ "remember[1]": "Jungtiere sind das: das Ferkel, das Kalb.",
+ "remember[2]": "Das Heu hat keinen Plural; ein Ballen davon ist der Heuballen."
+}

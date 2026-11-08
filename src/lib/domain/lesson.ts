@@ -30,6 +30,7 @@ export interface LessonCheck {
 	options: string[];
 	answer: string;
 	why?: string;
+	whyEn?: string;
 	/** Whether the options are German (set in the serif, read aloud on tap). */
 	germanOptions: boolean;
 }
@@ -43,12 +44,12 @@ export interface LessonWord {
 }
 
 export type LessonStep =
-	| { kind: 'hook'; label: string; hook: string; more?: string; roadmap: string[]; image?: string; recall?: { known: string; today: string } }
+	| { kind: 'hook'; label: string; hook: string; en?: string[]; more?: string; roadmap: string[]; image?: string; recall?: { known: string; today: string } }
 	| { kind: 'rule'; label: string; tip: HelpTip; number: number; of: number }
 	| { kind: 'check'; label: string; check: LessonCheck }
 	| { kind: 'words'; label: string; words: LessonWord[] }
 	| { kind: 'context'; label: string; context: Example }
-	| { kind: 'recap'; label: string; points: string[]; remember: string[]; table?: HelpTable; derived?: DerivedTable; exam?: string };
+	| { kind: 'recap'; label: string; points: string[]; remember: string[]; rememberEn?: string[]; table?: HelpTable; derived?: DerivedTable; exam?: string; examEn?: string };
 
 const ARTICLE_GENDER: Record<string, string> = { der: 'm', die: 'f', das: 'n' };
 
@@ -201,6 +202,9 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 		kind: 'hook',
 		label: 'The idea',
 		hook,
+		en: help.hookEn
+			? [help.hookEn, ...(help.recallEn ? [help.recallEn.known, help.recallEn.today] : [])]
+			: undefined,
 		more: help.intro && help.intro !== hook ? help.intro : undefined,
 		roadmap: tips.map((t) => t.title ?? firstSentence(t.text)),
 		// Only a scene drawn for this quiz: the shared per-level cards say nothing about the topic.
@@ -221,6 +225,7 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 					options: seededShuffle(tip.check.options, `${quiz.id}:${i}`),
 					answer: tip.check.answer,
 					why: tip.check.why,
+					whyEn: tip.check.whyEn,
 					germanOptions: true
 				}
 			});
@@ -249,6 +254,7 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 				options: seededShuffle([m.wrong, m.right], `${quiz.id}:mistake:${i}`),
 				answer: m.right,
 				why: m.why,
+				whyEn: m.whyEn,
 				germanOptions: true
 			}
 		});
@@ -264,9 +270,11 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 		label: 'Cheat sheet',
 		points: tips.map((t) => t.title ?? firstSentence(t.text)),
 		remember: help.remember ?? [],
+		rememberEn: help.rememberEn,
 		table: help.table,
 		derived: derivedRepeatsWords ? undefined : derived,
-		exam: help.exam
+		exam: help.exam,
+		examEn: help.examEn
 	});
 
 	return steps;

@@ -481,7 +481,7 @@
 	<main class="stage">
 		{#if lessonSteps}
 			<div class="pane" class:parked={!learning} inert={!learning}>
-				<Lesson steps={lessonSteps} locale={course.learnLocale} {deckHref} onPractise={practise} />
+				<Lesson steps={lessonSteps} locale={course.learnLocale} level={quiz.level} germanNotes={quiz.help?.german} {deckHref} onPractise={practise} />
 			</div>
 		{/if}
 		<div class="pane exercise" class:parked={learning} inert={learning}>

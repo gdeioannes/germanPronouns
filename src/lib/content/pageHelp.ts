@@ -203,6 +203,24 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 		]
 	},
 
+	'/books': {
+		title: 'The books',
+		intro: 'One book per level, A1.1 to C2.2, twelve in all. Each is a free PDF to print or read on a tablet, and you can read every one online too.',
+		items: [
+			{
+				title: 'What is in a book',
+				text: 'Twelve chapters, each one a real place in Germany: the words first, a photo, a story, two grammar rules, a real document, and the practice. The audio is a QR code away.'
+			},
+			{
+				title: 'Read online or download',
+				text: '"Read online" opens the same book in the browser, chapter by chapter. The PDF is the printable version, about 25 to 36 MB.'
+			},
+			{
+				title: 'Which one is yours',
+				text: 'Not sure of your level? "Your level" in the menu runs a short check and tells you where to start.'
+			}
+		]
+	},
 	'/literature': {
 		title: 'Literature',
 		intro: 'German classics in the original words, annotated for English speakers. Each one is a free PDF to print or read on a tablet.',

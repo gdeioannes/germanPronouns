@@ -1,0 +1,16 @@
+{
+ "hook": "Ein vollgestelltes Wohnzimmer voller Dinge zum Finden: Tippe jedes auf dem Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt eines Kartenstapels: ein bewohntes, etwas vollgestelltes Wohnzimmer, in dem du 32 Dinge findest. Jedes ist ein Nomen, das dir begegnet, wenn es ums Wohnen und Energiesparen geht: der Heizkörper, das Bügeleisen, die Steckdosenleiste, das Windrad vor dem Fenster. Die Aufgabe fragt Wo ist der Wäschekorb?, und du tippst darauf. Jeder Fund zeigt seine Beschriftung in der Farbe seines Genus und hinterlässt dann einen kleinen Haken in dieser Farbe. So siehst du, was du schon gefunden hast. Hast du einen Durchgang bestanden, wird die Suche schwerer: Die Aufgabe versteckt den Artikel (Wo ist ___ Wäschekorb?), und nach dem Fund wählst du selbst der, die oder das. Ein Tipp auf die leere Wand kostet nichts. Ein Tipp auf das falsche Ding sagt dir, was du getroffen hast, und du suchst weiter. Nach drei Fehlern wird das richtige Ding gezeigt. Kein Ding wird im selben Durchgang zweimal gefragt.",
+ "tips[0].title": "Zusammengesetzte Wörter in der Öko-Wohnung: Der letzte Teil entscheidet",
+ "tips[0].text": "Die meisten dieser Wörter sind zusammengesetzt, und der letzte Teil entscheidet über den Artikel. Steckdose + Leiste: die Leiste, also die Steckdosenleiste. Licht + Schalter: der Schalter, also der Lichtschalter. Finde das letzte Wort, und du hast den Artikel.",
+ "tips[0].check.why": "Der letzte Teil ist der Ständer, also heißt das ganze Wort der Wäscheständer.",
+ "tips[1].title": "Geräte auf -er sind maskulin, aber nicht -meter",
+ "tips[1].text": "Ein Ding, das eine Aufgabe erledigt und auf -er endet, ist maskulin: der Rauchmelder, der Lichtschalter, der Heizkörper. Wörter auf -meter, die etwas messen, sind die Ausnahme, die du an jeder Wand siehst: das Thermometer.",
+ "tips[1].check.why": "Messgeräte auf -meter sind neutral: das Thermometer, das Barometer.",
+ "tips[2].title": "Sag bei jedem Fund den Artikel laut",
+ "tips[2].text": "Wenn die Beschriftung erscheint, lies sie mit ihrem Artikel laut: der Heizkörper, die Gießkanne. Die Farbe ist dieselbe wie im Kartenstapel und in der Wortbibliothek: blau der, rot die, grün das. So trainiert das Bild dein Auge und dein Ohr.",
+ "tips[2].check.why": "Der letzte Teil ist das Rad, also heißt die Zusammensetzung das Windrad.",
+ "remember[0]": "Der letzte Teil eines zusammengesetzten Worts bestimmt den Artikel: die Steckdose + die Leiste → die Steckdosenleiste.",
+ "remember[1]": "Geräte auf -er haben der (der Rauchmelder); Messgeräte auf -meter haben das (das Thermometer).",
+ "remember[2]": "Das Altpapier hat keinen Plural: Es ist das Papier, das du zum Recycling rausstellst."
+}

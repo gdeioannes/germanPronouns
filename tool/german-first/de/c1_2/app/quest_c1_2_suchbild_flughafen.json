@@ -1,0 +1,16 @@
+{
+ "hook": "Eine Flughafenhalle ohne einen einzigen Menschen: Tippe jedes Objekt im Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt eines Kartenstapels: eine Abfertigungs- und Gatehalle am Flughafen mit 32 Dingen zum Finden, von der Sicherheitskontrolle bis zum Fenster zum Vorfeld: das Röntgengerät, die Fluggastbrücke, der Gepäckwagen, das Triebwerk unter dem Flügel. Viele davon sind lange Zusammensetzungen, die dir meist nur auf Reisen begegnen. Die Aufgabe fragt Wo ist …?, und du tippst das Objekt im Bild an. Jeder Fund zeigt seine Beschriftung in der Farbe seines Genus und hinterlässt dann einen kleinen Haken in dieser Farbe, damit du siehst, was du schon gefunden hast. Ein Tipp auf die leere Wand kostet nichts; ein Tipp auf das falsche Objekt verrät dir, was du getroffen hast, und du suchst weiter. Nach drei Fehlversuchen wird das richtige Objekt gezeigt. Sobald du einen Durchgang bestanden hast, wird die Suche schwerer: Die Aufgabe verbirgt den Artikel (Wo ist ___ Fluggastbrücke?), und nach dem Fund wählst du selbst der, die oder das. Kein Objekt wird im selben Durchgang zweimal gefragt.",
+ "tips[0].title": "Zusammensetzungen am Flughafen: Der letzte Teil entscheidet",
+ "tips[0].text": "Flughafenwörter stapeln Nomen aufeinander, und das letzte entscheidet. Röntgen + Gerät: das Gerät, also das Röntgengerät. Fluggast + Brücke: die Brücke, also die Fluggastbrücke, auch wenn der Gast davorsteht.",
+ "tips[0].check.why": "Der letzte Teil ist das Fach, also heißt das ganze Wort das Schließfach.",
+ "tips[1].title": "Eine Sonnenbrille ist ein einziges die",
+ "tips[1].text": "Das Englische sagt sunglasses, also Plural. Das Deutsche zählt das Paar als ein Ding: die Sonnenbrille, Singular. Erst mehrere davon sind die Sonnenbrillen.",
+ "tips[1].check.why": "Die Brille ist feminin und steht im Singular, also die Sonnenbrille.",
+ "tips[2].title": "Alles auf -wagen rollt als der herein",
+ "tips[2].text": "Der Wagen ist maskulin und leiht jedem Gefährt auf Rädern sein Genus: der Gepäckwagen, der Kinderwagen. Der Plural bleibt gleich: die Kinderwagen. Stell dir vor, wie beide Wagen unter einer blauen der-Fahne durch die Halle rasen.",
+ "tips[2].check.why": "Der letzte Teil ist der Wagen, also heißt die Zusammensetzung der Kinderwagen.",
+ "remember[0]": "Der letzte Teil einer Zusammensetzung bestimmt den Artikel: das Gerät → das Röntgengerät.",
+ "remember[1]": "Die Sonnenbrille ist ein einziges Ding; Wörter auf -wagen sind der und behalten denselben Plural.",
+ "remember[2]": "Die Gangway ist ein englisches Lehnwort: Der Plural heißt die Gangways."
+}

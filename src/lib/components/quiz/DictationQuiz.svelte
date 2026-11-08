@@ -20,6 +20,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
 	import GermanText from '../GermanText.svelte';
+	import EnglishLine from '$lib/components/EnglishLine.svelte';
 	import RunSummary from './RunSummary.svelte';
 	import RunTracker from './RunTracker.svelte';
 	import { freshen, pop, rise } from '$lib/motion';
@@ -373,7 +374,7 @@
 			</p>
 			<p class="note">{bandNote(grade.band)}</p>
 			{#if item.translation}
-				<p class="translation">{item.translation}</p>
+				<p class="translation"><EnglishLine text={item.translation} level={quiz.level} /></p>
 			{/if}
 			<button type="button" class="btn" onclick={next}>
 				{isLast ? 'Finish the run' : 'Next line'}

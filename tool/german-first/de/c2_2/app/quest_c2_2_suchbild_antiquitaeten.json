@@ -1,0 +1,16 @@
+{
+ "hook": "Ein vollgestopfter Antiquitätenladen voller seltener alter Dinge: Finde jedes im Bild und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt eines Kartenstapels: ein vollgestopfter Antiquitätenladen mit 32 alten Dingen, jedes davon ein präzises Nomen, das du selten brauchst, bis du einen solchen Ort betrittst: der Sekretär, das Spinnrad, die Balkenwaage, das Butterfass, der Paravent. Die Aufgabe fragt: Wo ist die Registrierkasse? Sie fragt nach einem einzigen Gegenstand, und du tippst ihn im Bild an. Jeder Fund zeigt seine Beschriftung in der Farbe seines Genus und hinterlässt dann ein kleines Häkchen in dieser Farbe, sodass du siehst, was du schon gefunden hast. Tippst du auf den falschen Gegenstand, erfährst du, was du getroffen hast, und suchst weiter; nach drei Fehlversuchen wird dir der richtige gezeigt. Sobald du einen Durchgang bestanden hast, wird die Suche schwieriger: Die Aufgabe verbirgt den Artikel (Wo ist ___ Registrierkasse?), und nach dem Fund wählst du selbst der, die oder das. Kein Gegenstand wird im selben Durchgang zweimal abgefragt.",
+ "tips[0].title": "Komposita im Antiquitätenladen: Der letzte Teil entscheidet",
+ "tips[0].text": "Der Laden besteht größtenteils aus Komposita (zusammengesetzten Nomen), und der letzte Teil entscheidet über den Artikel, wie ungewöhnlich der erste auch ist. Butter + Fass: das Fass, also das Butterfass. Kaffee + Mühle: die Mühle, also die Kaffeemühle. Schirm + Ständer: der Ständer, also der Schirmständer.",
+ "tips[0].check.why": "Der letzte Teil ist der Sessel, also heißt das ganze Wort der Ohrensessel.",
+ "tips[1].title": "Gleiche Sache, anderes Wort, anderes Genus",
+ "tips[1].text": "Zwei Uhren, ein letzter Teil: die Standuhr und die Sanduhr enden beide auf die Uhr, aber das Pendel in der Uhr ist neutral. Und ein Schreibtisch ist der Tisch, das Schreibmöbel dagegen der Sekretär, während die Verkaufstheke die Ladentheke heißt. Lern jedes Wort mit seinem eigenen Artikel, nie nach der Bedeutung.",
+ "tips[1].check.why": "Pendel ist neutral: das Pendel, Plural die Pendel.",
+ "tips[2].title": "Lehnwörter haben ihr eigenes Genus",
+ "tips[2].text": "Viele Wörter des Antiquitätenladens stammen aus dem Französischen oder Griechischen: der Sekretär, der Paravent, das Grammophon, das Akkordeon, der Globus. Sprich sie laut mit dem Artikel als Einheit: der Paravent, das Grammophon, und die Farbe der Beschriftung (blau der, rot die, grün das) gibt deinem Auge einen zweiten Haken.",
+ "tips[2].check.why": "Globus ist maskulin; sein Plural heißt die Globen.",
+ "remember[0]": "Der letzte Teil eines Kompositums bestimmt den Artikel: die Mühle → die Kaffeemühle, das Fass → das Butterfass.",
+ "remember[1]": "Lehnwörter haben ihr eigenes Genus: der Sekretär, der Paravent, das Grammophon, das Akkordeon.",
+ "remember[2]": "Der Globus hat einen ungewöhnlichen Plural: die Globen."
+}

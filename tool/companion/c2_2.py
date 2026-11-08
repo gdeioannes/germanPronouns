@@ -892,7 +892,7 @@ spreads.append(spread(
         table('Ringelnatz: Die Ameisen (aabbcc)', ['line', 'rhyme'], [
             ['In Hamburg lebten zwei Ameisen,', 'a'], ['Die wollten nach Australien reisen.', 'a'],
             ['Bei Altona auf der Chaussee', 'b'], ['Da taten ihnen die Beine weh,', 'b'],
-            ['Und da verzichteten sie weise', 'c'], ['Denn auf den letzten Teil der Reise.', 'c'],
+            ['Und da verzichteten sie weise', 'c'], ['Dann auf den letzten Teil der Reise.', 'c'],
         ]),
         table('One word does the work', ['word', 'device', 'effect'], [
             ['weise', 'irony', 'a defeat called a wise choice'], ['den letzten Teil', 'understatement', 'the last part is almost all of it'],

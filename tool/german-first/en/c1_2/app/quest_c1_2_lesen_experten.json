@@ -1,0 +1,23 @@
+{
+ "hook": "Match claims to four experts debating free museum entry by tracking each person's stance, not their keywords.",
+ "intro": "Four statements on one question — should museums abolish admission charges? — from a cultural economist (A, Vogt: the audience stays the same, invest in outreach), a museum director (B, Aydin: first-time visitors doubled, revenue offset), a cultural journalist (C, Sölle: the price is secondary, content matters) and a head of culture (D, Reinhardt: fees fund restoration, a middle way). The task gives eight paraphrased claims and asks \"Wer äußert das?\". All four talk about money, visitors and families, so shared words prove nothing: the stance and the exact function of each sentence decide. First write a three-word summary per expert, then match each claim to a summary.",
+ "tips[0].title": "Summarise each expert before reading the claims",
+ "tips[0].text": "A: Publikum bleibt gleich → Vermittlung. B: eigene Erfahrung, Erstbesucher verdoppelt → Ausgleich. C: Preis zweitrangig → Inhalte. D: Einnahmen nötig → Mittelweg. With these in hand, the claims become look-ups.",
+ "tips[0].check.why": "The price is dismissed and the quality of the exhibitions blamed, so the core stance is: content matters more than the price.",
+ "tips[1].title": "Match the stance, not a shared word",
+ "tips[1].text": "Families appear in B and D, money in all four. \"Wer nennt Wege, fehlende Einnahmen zu ersetzen?\" is B (how to replace them), not D (what they are used for). \"Wer hält den Preis für nebensächlich?\" is only C, although everyone mentions the price.",
+ "tips[1].trap": "Two experts can touch the same topic from opposite ends; the claim's verb (ersetzen vs verwenden, beschränken vs abschaffen) tells you which one.",
+ "tips[1].check.why": "Both lines talk about money, but the claim asks what the money is used for (verwenden), not how missing money is replaced (ersetzen).",
+ "tips[1].visual.left": "the claim says",
+ "tips[1].visual.right": "the expert says it like this",
+ "tips[1].visual.rows[0].a": "Freier Eintritt lohnt sich nicht.",
+ "tips[1].visual.rows[0].b": "Die Kosten stehen in keinem Verhältnis zum Nutzen.",
+ "tips[1].visual.rows[1].a": "Mehr Menschen würden kommen.",
+ "tips[1].visual.rows[1].b": "Die Besucherzahlen dürften deutlich steigen.",
+ "tips[2].title": "Learn the paraphrase pairs",
+ "tips[2].text": "nebensächlich = zweitrangig · ausgleichen = ersetzen / kompensieren · Erstbesucher = Menschen, die zum ersten Mal kommen · Vermittlung = Bildungsarbeit · ohnehin kulturaffin = gehen sowieso ins Museum · langweilig geworden = Qualität des Angebots. The claims are paraphrases, never quotations.",
+ "tips[2].check.why": "ohnehin = sowieso, and regelmäßig gehen = Stammbesucher sein; the claim says the same thing in different words.",
+ "remember[0]": "Three-word summary per expert first; then match each claim to a stance.",
+ "remember[1]": "Shared words are traps: the verb of the claim (ersetzen, beschränken, verwenden) decides.",
+ "exam": "Matching claims to the expert who made them is a typical C1 exam reading task — and how you read any debate page."
+}

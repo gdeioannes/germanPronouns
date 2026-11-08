@@ -1,0 +1,16 @@
+{
+ "hook": "Ein leeres Krankenzimmer voller Dinge zum Suchen: Tipp jedes Objekt im Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt eines Kartenstapels: ein leeres Krankenzimmer, wie du es vom Besuch auf einer Station kennst, mit 32 Dingen, die du darin finden sollst, jedes ein präzises Nomen, das dir in Lehrbüchern kaum begegnet: der Bettgalgen über dem Bett, die Schnabeltasse auf dem Nachtschrank, das Röntgenbild an der Wand, der Treteimer am Waschbecken. Die Aufgabe fragt Wo ist …?, und du tippst das Objekt im Bild an. Jeder Fund zeigt seine Beschriftung in der Farbe seines Genus und hinterlässt dann ein kleines Häkchen in dieser Farbe, sodass du siehst, was du schon gefunden hast. Ein Tipp auf die nackte Wand kostet nichts; ein Tipp auf das falsche Objekt verrät dir, was du getroffen hast, und du suchst weiter, und nach drei Fehlversuchen wird dir das richtige gezeigt. Sobald du einen Durchgang bestanden hast, wird die Suche schwerer: Die Aufgabe verbirgt den Artikel (Wo ist ___ Schnabeltasse?), und nach dem Fund wählst du selbst der, die oder das. Kein Objekt wird im selben Durchgang zweimal abgefragt.",
+ "tips[0].title": "Komposita im Krankenzimmer: Der letzte Teil entscheidet",
+ "tips[0].text": "Wörter aus dem Krankenhaus sind lang, aber nur der letzte Teil entscheidet über den Artikel. Sauerstoff + Flasche: die Flasche, also die Sauerstoffflasche. Infusion + Ständer: der Ständer, also der Infusionsständer. Ignoriere den Anfang, lies das Ende.",
+ "tips[0].check.why": "Der letzte Teil ist der Spender, also heißt das ganze Wort der Desinfektionsmittelspender.",
+ "tips[1].title": "Gleicher letzter Teil, gleicher Artikel, auch wenn es seltsam aussieht",
+ "tips[1].text": "die Wärmflasche ist ein Gummibeutel und gar keine Flasche, aber sie endet auf die Flasche und ist deshalb feminin. das Kopfkissen und das Klemmbrett richten sich nach das Kissen und das Brett. Vertrau dem letzten Wort, nicht dem Aussehen des Gegenstands.",
+ "tips[1].check.why": "Der letzte Teil ist die Tasse, also die Schnabeltasse.",
+ "tips[2].title": "Dinge, die etwas halten: der Beutel, der Eimer, der Ständer",
+ "tips[2].text": "Viele Behälter und Halter in diesem Zimmer sind maskulin: der Infusionsbeutel, der Treteimer, der Infusionsständer, der Nachttisch. Stell dir einen Krankenpfleger vor, Herrn Beutel, der sie alle am Bett vorbeiträgt; sag jedes davon mit der, wenn er vorbeikommt.",
+ "tips[2].check.why": "Der letzte Teil ist der Tisch, also der Nachttisch.",
+ "remember[0]": "Der letzte Teil eines Kompositums bestimmt den Artikel: die Flasche → die Sauerstoffflasche, die Wärmflasche.",
+ "remember[1]": "das Bett, das Kissen, das Brett bleiben auch in Komposita neutral: das Krankenbett, das Kopfkissen, das Klemmbrett.",
+ "remember[2]": "Lehnwörter haben oft ein festes Genus, das du auswendig lernen musst: der Paravent, das Stethoskop, das Rollo."
+}

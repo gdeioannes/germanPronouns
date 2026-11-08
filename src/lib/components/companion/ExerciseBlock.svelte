@@ -5,7 +5,7 @@
 	import { rich, type Exercise } from '$lib/domain/companion';
 	import ClockFace from './ClockFace.svelte';
 
-	let { ex, n, listen = null }: { ex: Exercise; n: number; listen?: { svg: string; code: string; url?: string } | null } = $props();
+	let { ex, n, listen = null, german = false }: { ex: Exercise; n: number; listen?: { svg: string; code: string; url?: string } | null; german?: boolean } = $props();
 
 	/** When the prompt and the answer won't both fit on one row (in its column), the line goes underneath, full width. */
 	const tooLong = (item: { prompt: string; answer: string }) => (item.prompt.length + item.answer.length) * (ex.kind === 'write' ? (ex.cols ?? 1) : 1) > 64;
@@ -23,7 +23,7 @@
 		{#if ex.listen && listen}
 			<figure class="qr">
 				{#if listen.url}<a href={listen.url} aria-label="Open the recording">{@html listen.svg}</a>{:else}{@html listen.svg}{/if}
-				<figcaption>Listen<br /><span>{listen.url ? listen.url.replace(/^https?:\/\//, '') : listen.code}</span></figcaption>
+				<figcaption>{german ? 'Hören' : 'Listen'}<br /><span>{listen.url ? listen.url.replace(/^https?:\/\//, '') : listen.code}</span></figcaption>
 			</figure>
 		{/if}
 	</header>
@@ -365,6 +365,8 @@
 	}
 
 	.choice {
+		flex-wrap: wrap;
+		max-width: 100%;
 		display: inline-flex;
 		gap: 1.6mm;
 		margin: 0 1mm;

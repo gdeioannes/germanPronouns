@@ -1,0 +1,16 @@
+{
+ "intro": "A three-minute checkpoint on the first half of this module, in your own AI assistant with voice on: packing and unpacking. The tutor gives you six items, one at a time. For three of them you get a dense nominal phrase (die Verschiebung des Termins wegen Krankheit des Referenten) and say it as a full sentence with the matching conjunction; for the other three you get a sentence and pack it into one nominal phrase with the right preposition and the genitive, or into a passive substitute (sein + zu, sich lassen). It listens for the conjunction or preposition that matches, the case inside the phrase, and the register. One item, one answer; say 'Ende' if you need to stop early.",
+ "tips[0].title": "Unpack: preposition → conjunction, genitive → subject",
+ "tips[0].text": "die Verschiebung des Termins wegen Krankheit des Referenten → Der Termin wurde verschoben, weil der Referent krank war.",
+ "tips[0].check.why": "The preposition wegen unpacks into the conjunction weil, which opens a clause with the verb at the end.",
+ "tips[0].visual.left": "dense",
+ "tips[0].visual.right": "spoken",
+ "tips[0].visual.rows[0].a": "Wegen der Erkrankung des Kollegen …",
+ "tips[0].visual.rows[0].b": "Weil der Kollege krank ist, …",
+ "tips[1].title": "Pack: verb → noun, subject → genitive",
+ "tips[1].text": "Die Firma reagierte schnell, deshalb blieb der Schaden klein. → Dank der schnellen Reaktion der Firma blieb der Schaden klein.",
+ "tips[1].check.why": "The verb becomes a noun (Anstieg), the subject a genitive, and the adverb a declined adjective: der deutliche Anstieg.",
+ "remember[0]": "Unpack: wegen → weil, nach → nachdem, genitive → subject.",
+ "remember[1]": "Pack: verb → -ung noun; subject → genitive; adverb → adjective.",
+ "hook": "Turn dense official noun phrases into plain spoken sentences and back again, out loud, in about three minutes."
+}

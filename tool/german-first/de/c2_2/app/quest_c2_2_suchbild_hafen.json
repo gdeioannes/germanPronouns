@@ -1,0 +1,16 @@
+{
+ "hook": "Ein alter Fischereihafen voller Schiffsausrüstung: Finde jedes Ding auf dem Kai oder im Wasser und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt eines Kartenstapels: ein alter Fischereihafen mit 32 Dingen, die du im Wasser und auf dem Kai finden sollst, jedes davon ein präzises Wort aus der Welt des Meeres und der Docks: der Poller, die Seilwinde, der Duckdalben, das Steuerhaus, der Hummerkorb. Die Aufgabe fragt: Wo ist der Fender? Sie fragt nach einem einzigen Gegenstand, und du tippst ihn im Bild an. Jeder Fund zeigt seine Beschriftung in der Farbe seines Genus und hinterlässt dann ein kleines Häkchen in dieser Farbe, sodass du siehst, was du schon gefunden hast. Tippst du auf den falschen Gegenstand, erfährst du, was du getroffen hast, und suchst weiter; nach drei Fehlversuchen wird dir der richtige gezeigt. Sobald du einen Durchgang bestanden hast, wird die Suche schwieriger: Die Aufgabe verbirgt den Artikel (Wo ist ___ Fender?), und nach dem Fund wählst du selbst der, die oder das. Kein Gegenstand wird im selben Durchgang zweimal abgefragt.",
+ "tips[0].title": "Komposita im Hafen: Der letzte Teil entscheidet",
+ "tips[0].text": "Hafenwörter sind fast alle Komposita (zusammengesetzte Nomen). Schiff + Glocke: die Glocke, also die Schiffsglocke. Steuer + Haus: das Haus, also das Steuerhaus. Hummer + Korb: der Korb, also der Hummerkorb. Finde das letzte Wort, und du hast den Artikel.",
+ "tips[0].check.why": "Der letzte Teil ist der Ring, also heißt das ganze Wort der Rettungsring.",
+ "tips[1].title": "Gleicher erster Teil, anderer Artikel",
+ "tips[1].text": "Steuer- verspricht nichts über das Genus: das Steuerrad (das Rad) und das Steuerhaus (das Haus) sind neutral, an Land aber ist die Steuer eine Abgabe an den Staat. Ebenso ergibt Fisch- die Fischkiste, aber das Fischernetz. Nur der letzte Teil zählt.",
+ "tips[1].check.why": "Der letzte Teil ist das Netz, also heißt es das Fischernetz.",
+ "tips[2].title": "Viele Dinge auf -er am Kai sind der",
+ "tips[2].text": "Dinge auf -er, die arbeiten oder etwas halten, sind hier meist maskulin: der Poller, der Fender, der Anker, der Kutter, der Eimer, der Kanister. Lies jede Beschriftung laut mit ihrem Artikel: Die blauen Häkchen häufen sich an der Kaikante.",
+ "tips[2].check.why": "Anker ist maskulin; der Plural sieht genauso aus: die Anker.",
+ "remember[0]": "Der letzte Teil eines Kompositums bestimmt den Artikel: der Turm → der Leuchtturm, die Glocke → die Schiffsglocke.",
+ "remember[1]": "Viele Dinge auf -er am Kai sind der: der Poller, der Fender, der Anker, der Kutter.",
+ "remember[2]": "Manche Plurale ändern den Vokal: das Floß → die Flöße, der Seesack → die Seesäcke."
+}

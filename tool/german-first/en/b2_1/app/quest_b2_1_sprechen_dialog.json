@@ -1,0 +1,20 @@
+{
+ "hook": "Hold a real argument about car-free cities or working from home: state your view, report the critics, answer them, conclude.",
+ "intro": "The closing conversation of this module, in your own AI assistant with voice on: a discussion on a social question — car-free cities, working from home, taxes — in which you present a position, report what others say, respond to counter-arguments and reach a conclusion. Copy the exercise in, say 'Los geht's', answer in full sentences; the score and corrections come at the end. The tutor listens for the markers of a mature argument: Redemittel of argument (Dafür spricht …, Das mag sein, aber …), the Konjunktiv I when you report (Kritiker sagen, das sei …), connectors at position 1 with the verb second (Allerdings …, Daher …), and at least one nominal cause (wegen der Kosten, aufgrund der Umfrage). This is a real discussion — the kind you have at work or with friends — in rehearsal.",
+ "tips[0].title": "Position → report → respond → conclude",
+ "tips[0].text": "Ich bin der Ansicht, dass … · Kritiker sagen zwar, das sei …, aber … · Das mag sein, allerdings … · Daraus folgt für mich, dass … Four moves per topic.",
+ "tips[0].check.why": "Das mag sein concedes, allerdings brings your answer. The other lines are the position move and the conclusion.",
+ "tips[0].visual.moves[0].label": "Position",
+ "tips[0].visual.moves[1].label": "Report",
+ "tips[0].visual.moves[2].label": "Respond",
+ "tips[0].visual.moves[3].label": "Conclude",
+ "tips[1].title": "Connector first, verb second — every time",
+ "tips[1].text": "Allerdings sehe ich …, Daher schlage ich vor …, Außerdem sollte … Say the connector, then the verb, then the rest.",
+ "tips[1].check.why": "Daher fills position 1, so the verb comes next and the subject follows: Daher schlage ich … vor.",
+ "tips[2].title": "One nominal cause per answer",
+ "tips[2].text": "wegen der hohen Kosten / aufgrund der Ergebnisse / dank der neuen Regelung — a genitive phrase instead of a weil-clause is the compact, formal move.",
+ "tips[2].check.why": "aufgrund takes the genitive, and the genitive plural is der hohen Mieten.",
+ "remember[0]": "Ansicht – Bericht (Konjunktiv) – Antwort (allerdings) – Schluss.",
+ "remember[1]": "wegen / aufgrund + Genitiv instead of weil, once per answer.",
+ "exam": "Discussing a social question with a partner is a core speaking task in the B2 exam — and in any serious conversation in German."
+}

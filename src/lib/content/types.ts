@@ -86,6 +86,8 @@ export interface HelpCheck {
 	answer: string;
 	/** Why — shown once the learner has answered, right or wrong. */
 	why?: string;
+	/** `why` in English, when the notes are in German (`QuizHelp.german`). */
+	whyEn?: string;
 }
 
 /** One rule card in a quiz's Help Memory panel. */
@@ -102,6 +104,8 @@ export interface HelpTip {
 	check?: HelpCheck;
 	/** A diagram drawn under the rule (components/lesson/LessonVisual). */
 	visual?: LessonVisual;
+	/** The rule in English, one tap away, when the notes are in German. */
+	en?: { title?: string; text: string; trap?: string };
 }
 
 /**
@@ -270,6 +274,8 @@ export interface HelpMistake {
 	wrong: string;
 	right: string;
 	why: string;
+	/** `why` in English, when the notes are in German. */
+	whyEn?: string;
 }
 
 /**
@@ -279,6 +285,14 @@ export interface HelpMistake {
  * much a given module's quizzes must carry.
  */
 export interface QuizHelp {
+	/** The explanations are written in German: render them tappable and marked as German. */
+	german?: boolean;
+	/** The English of a German `hook`, `intro`, `remember` and `recall`, behind a tap. */
+	hookEn?: string;
+	examEn?: string;
+	introEn?: string;
+	rememberEn?: string[];
+	recallEn?: { known: string; today: string };
 	/** The idea in one sentence — the lesson's opening line; `intro` sits behind it. */
 	hook?: string;
 	/** Layer 1: the idea, in plain English. */

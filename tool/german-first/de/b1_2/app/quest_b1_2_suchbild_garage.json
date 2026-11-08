@@ -1,0 +1,16 @@
+{
+ "hook": "Eine vollgestellte Garage voller Werkzeug: Tipp jeden Gegenstand im Bild an und gib ihm dann seinen Artikel.",
+ "intro": "Eine Bildersuche statt Karten: eine echte Garage, die auch Werkstatt ist, mit 32 Dingen zum Finden. der Schraubstock auf der Werkbank, die Zange an der Lochwand, das Verlängerungskabel aufgerollt auf dem Boden. Die Frage lautet Wo ist der Rasenmäher?, und du tippst ihn im Bild an. Tippst du auf die leere Wand, kostet das nichts. Tippst du auf den falschen Gegenstand, erfährst du, was du getroffen hast, und suchst weiter. Nach drei Fehlern zeigt das Spiel dir den richtigen. Jeder Fund zeigt seinen Namen, in der Farbe für der, die oder das. Danach bleibt ein kleiner Haken in dieser Farbe, so siehst du, was du schon gefunden hast. Hast du eine Runde bestanden, wird die Suche schwerer: Die Frage versteckt den Artikel (Wo ist ___ Rasenmäher?), und nach dem Fund wählst du selbst der, die oder das. In einer Runde kommt kein Gegenstand zweimal.",
+ "tips[0].title": "Zusammengesetzte Wörter in der Garage: Der letzte Teil entscheidet",
+ "tips[0].text": "Viele Werkzeuge sind zusammengesetzte Nomen, und der letzte Teil bestimmt den Artikel. Werkzeug + Kasten: der Kasten, also der Werkzeugkasten. Vorhänge + Schloss: das Schloss, also das Vorhängeschloss. Deck den vorderen Teil ab und lies nur das letzte Wort.",
+ "tips[0].check.why": "Der letzte Teil ist die Lampe, also heißt das ganze Wort die Taschenlampe.",
+ "tips[1].title": "-er macht ein Werkzeug maskulin, aber nicht jedes Wort auf -er",
+ "tips[1].text": "Eine Maschine oder ein Werkzeug, das eine Arbeit macht und nach seinem Verb mit -er heißt, ist maskulin: der Rasenmäher (mähen), der Feuerlöscher (löschen), der Schraubenzieher (ziehen). Die Endung -er allein beweist aber nichts: die Leiter und das Fenster stehen auch in dieser Garage.",
+ "tips[1].check.why": "Leiter kommt nicht von einem Verb und macht keine Arbeit. Das Wort ist einfach feminin: die Leiter.",
+ "tips[2].title": "Viele Werkzeuge auf -e sind feminin",
+ "tips[2].text": "Hör auf das -e am Ende: die Säge, die Zange, die Schubkarre, die Luftpumpe. Die meisten Nomen mit zwei Silben auf -e sind die. Endet ein Werkzeug auf -e, probier zuerst die und sag es bei jedem Fund laut.",
+ "tips[2].check.why": "Säge endet auf -e und ist wie die meisten dieser Nomen feminin.",
+ "remember[0]": "Der letzte Teil eines zusammengesetzten Wortes bestimmt den Artikel: das Schloss → das Vorhängeschloss.",
+ "remember[1]": "Dinge, die eine Arbeit machen und von einem Verb mit -er kommen, sind der (der Rasenmäher), aber die Leiter und das Fenster nicht.",
+ "remember[2]": "Werkzeuge auf -e sind meistens die: die Säge, die Zange."
+}

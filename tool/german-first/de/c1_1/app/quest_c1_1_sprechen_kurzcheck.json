@@ -1,0 +1,14 @@
+{
+ "intro": "Eine Zwischenprüfung von drei Minuten zur ersten Hälfte dieses Abschnitts, in deinem eigenen KI-Assistenten mit eingeschalteter Stimme: Ein- und Auspacken. Der Tutor gibt dir sechs Aufgaben, eine nach der anderen. Bei dreien bekommst du eine dichte Nominalgruppe (die Verschiebung des Termins wegen Krankheit des Referenten) und sagst sie als ganzen Satz mit der passenden Konjunktion; bei den anderen dreien bekommst du einen Satz und packst ihn in eine Nominalgruppe mit der richtigen Präposition und dem Genitiv oder in einen Passiversatz (sein + zu, sich lassen). Er achtet auf die passende Konjunktion oder Präposition, den Kasus in der Wortgruppe und die Stilebene. Eine Aufgabe, eine Antwort; sag „Ende“, wenn du vorzeitig aufhören musst.",
+ "tips[0].title": "Auspacken: Präposition → Konjunktion, Genitiv → Subjekt",
+ "tips[0].text": "die Verschiebung des Termins wegen Krankheit des Referenten → Der Termin wurde verschoben, weil der Referent krank war.",
+ "tips[0].check.why": "Die Präposition wegen wird ausgepackt zur Konjunktion weil, und die eröffnet einen Nebensatz mit dem Verb am Ende.",
+ "tips[0].visual.left": "dicht",
+ "tips[0].visual.right": "gesprochen",
+ "tips[1].title": "Einpacken: Verb → Nomen, Subjekt → Genitiv",
+ "tips[1].text": "Die Firma reagierte schnell, deshalb blieb der Schaden klein. → Dank der schnellen Reaktion der Firma blieb der Schaden klein.",
+ "tips[1].check.why": "Das Verb wird zum Nomen (Anstieg), das Subjekt zum Genitiv und das Adverb zum deklinierten Adjektiv: der deutliche Anstieg.",
+ "remember[0]": "Auspacken: wegen → weil, nach → nachdem, Genitiv → Subjekt.",
+ "remember[1]": "Einpacken: Verb → Nomen auf -ung; Subjekt → Genitiv; Adverb → Adjektiv.",
+ "hook": "Mach aus dichten amtlichen Nominalgruppen schlichte gesprochene Sätze und wieder zurück, laut, in etwa drei Minuten."
+}
