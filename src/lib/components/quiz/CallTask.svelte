@@ -1073,7 +1073,7 @@
 	.key {
 		min-height: 2.75rem;
 		border: 0;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: #ebe4d8;
 		color: var(--heading);
 		font: inherit;

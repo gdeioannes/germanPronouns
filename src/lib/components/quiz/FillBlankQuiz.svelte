@@ -746,7 +746,7 @@
 		gap: 0.35rem;
 		padding: 0.25rem 0.6rem;
 		border: 1px solid var(--line);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: none;
 		color: var(--ink-muted);
 		font-size: 0.72rem;
@@ -990,7 +990,7 @@
 		min-height: 2.6rem;
 		padding: 0.5rem 1.2rem;
 		border: 0;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--heading);
 		color: var(--surface);
 		font: inherit;

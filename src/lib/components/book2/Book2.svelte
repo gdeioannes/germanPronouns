@@ -21,6 +21,7 @@
 		book,
 		credits,
 		qr,
+		pages = {},
 		cover = false,
 		spineMm = 7.4,
 		hd = false,
@@ -37,6 +38,8 @@
 		siteQr?: string;
 		/** Per chapter id: the app, Listen and Speak codes, when registered. */
 		qr: Record<string, { app: Qr | null; listen: Qr | null; speak: Qr | null }>;
+		/** Per chapter id and page part: the small code that opens that part in the app (domain/bookStudy). */
+		pages?: Record<string, Partial<Record<string, Qr | null>>>;
 	} = $props();
 
 	/** Nine content pages and a notes page, so every chapter opens on a left-hand page. */
@@ -137,6 +140,34 @@
 		return { zoom, over: Math.max(0, Math.round(over / MM)), plate: tall ? Math.round(parseFloat(tall)) : undefined };
 	}
 
+	/**
+	 * The words page's code goes in the first corner where it touches no pinned
+	 * word: the labels sit on their things, so the code is what moves. Returns
+	 * the corner, or null when every corner is taken (it then stays top right).
+	 */
+	const CORNERS = ['tr', 'tl', 'br', 'bl'] as const;
+	function placeWordsCode(page: HTMLElement): string | null {
+		const code = page.querySelector<HTMLElement>('.page-code');
+		if (!code) return 'tr';
+		const labels = [...page.querySelectorAll<HTMLElement>('.pin .tag, .pin .dot, .eyebrow')].map((l) => l.getBoundingClientRect());
+		// Inline, not a [data-corner] rule: Svelte drops CSS for attributes the template never sets.
+		const at = (corner: (typeof CORNERS)[number]) => {
+			const top = corner[0] === 't';
+			const right = corner[1] === 'r';
+			code.style.top = top ? (right ? '10mm' : '18mm') : 'auto';
+			code.style.bottom = top ? '' : '18mm';
+			code.style.right = right ? '' : 'auto';
+			code.style.left = right ? '' : '10mm';
+		};
+		for (const corner of CORNERS) {
+			at(corner);
+			const r = code.getBoundingClientRect();
+			if (!labels.some((o) => o.left < r.right && o.right > r.left && o.top < r.bottom && o.bottom > r.top)) return corner;
+		}
+		at('tr');
+		return null;
+	}
+
 	$effect(() => {
 		const el = root;
 		if (!el) return;
@@ -154,12 +185,27 @@
 				const r = fitPage(page);
 				if (r) report.push(`page ${i + 1}: ${r.plate ? `word panel ${r.plate} mm, ` : ''}${Math.round(r.zoom * 100)}%${r.over ? `, still ${r.over} mm over` : ''}`);
 			});
+			el.querySelectorAll<HTMLElement>('section.page.words').forEach((page, i) => {
+				if (placeWordsCode(page) === null) report.push(`words page ${i + 1}: the code touches a label in every corner`);
+			});
 			(window as unknown as { __bookFit?: string[] }).__bookFit = report;
 			document.documentElement.dataset.bookFit = 'done';
 		})();
 		return () => { gone = true; };
 	});
 </script>
+
+<!-- The page's own code, top right: this page in the app. Checked against
+     the key, the words as cards, the text read aloud. -->
+{#snippet pageCode(c: Chapter, part: string, label: string)}
+	{@const code = pages[c.id]?.[part]}
+	{#if code}
+		<a class="page-code" href={code.url} aria-label="Open this page in the app">
+			{@html code.svg}
+			<span>{label}</span>
+		</a>
+	{/if}
+{/snippet}
 
 {#snippet foot(page: number, c: Chapter)}
 	<footer class="foot">
@@ -291,7 +337,7 @@
 					<li><b>Hören, sprechen, ich kann.</b> Die QR-Codes und was du jetzt kannst.</li>
 					<li><b>Bildwörterbuch.</b> Alle Wörter mit Bild auf einer Seite.</li>
 				</ol>
-				<p><b>Die Codes.</b> Scann einen Code mit dem Handy. Oder tipp die Adresse darunter in den Browser ein.</p>
+				<p><b>Die Codes.</b> Oben auf jeder Seite mit Übungen steht ein kleiner Code. Bist du mit der Seite fertig, scann ihn mit dem Handy: Die App prüft deine Antworten. Auf der Wörterseite macht er aus den Wörtern Wortkarten, auf der Leseseite liest er dir den Text vor. Die großen Codes am Ende des Kapitels haben eine Adresse darunter. Die kannst du auch in den Browser eintippen.</p>
 				<p><b>Regeln auf Englisch.</b> Alle Erklärungen sind hier auf Deutsch. In der App steht bei jeder Regel ein Knopf „English“. Dort findest du sie auch auf Englisch.</p>
 				<p><b>Drei Farben.</b> <b class="art der">der</b> ist blau, <b class="art die">die</b> ist rot, <b class="art das">das</b> ist grün.</p>
 				<p class="name">Dieses Buch gehört <span></span></p>
@@ -327,7 +373,7 @@
 			</div>
 			<div>
 				<p><b>Work with a pencil.</b> Say every German word out loud as you write it. The ruled lines at the foot of a page are yours: the sentences you want to keep, the mistakes you made twice.</p>
-				<p><b>The codes.</b> Scan a code with your phone camera and the chapter's audio plays, the tutor talks to you, or the app opens the exercise with instant correction. The address under each code does the same if the camera will not read it: type it into a browser. In the PDF, the codes and addresses are links.</p>
+				<p><b>The codes.</b> Every page you write on has a small code at the top. Finish the page, scan the code with your phone, and the app checks your answers against the key. On the words page it turns the words into flashcards; on the reading page it reads the text aloud. The bigger codes at the end of a chapter play its audio, start the tutor, or open more practice, and each has an address under it to type into a browser if the camera will not read it. In the PDF, every code is a link.</p>
 				<p><b>Wusstest du?</b> The box at the foot of a page is a fact about Germany, not grammar. Skip it or read it; it is there because the place deserved it.</p>
 				<p><b>Three colours.</b> Blue words are <b class="art der">der</b>, red words <b class="art die">die</b>, green words <b class="art das">das</b>, in every list and table. Buy three pencils.</p>
 				<p class="name">This book belongs to <span></span></p>
@@ -410,6 +456,7 @@
 		<section class="page {side(p + 1)} words" data-accent={c.accent}>
 			<img class="bleed pano right" src="{photoBase}/{c.opener.photo}.jpg" alt="" />
 			<p class="eyebrow onphoto">{c.german ? 'Wörter zuerst' : 'Wörter zuerst · words first'}</p>
+			{@render pageCode(c, 'woerter', 'Wortkarten')}
 			{#each c.opener.labels ?? [] as l (l.de)}
 				{@const a = article(l.de)}
 				<div class="pin {l.side ?? 'right'}" style:left="{l.x}%" style:top="{l.y}%">
@@ -424,7 +471,8 @@
 		</section>
 
 		<!-- 3 · Reading -->
-		<section class="page {side(p + 2)} reading" data-accent={c.accent}>
+		<section class="page {side(p + 2)} reading" class:coded={pages[c.id]?.lesen} data-accent={c.accent}>
+			{@render pageCode(c, 'lesen', 'Hören, prüfen')}
 			<header class="head small">
 				<p class="eyebrow">{c.german ? 'Lesen' : 'Lesen · reading'}</p>
 				<h2 lang="de">{c.reading.title}</h2>
@@ -454,7 +502,8 @@
 
 		<!-- 4–5 · Grammar -->
 		{#each c.grammar as g, gi (g.heading)}
-			<section class="page {side(p + 3 + gi)} grammar" data-accent={c.accent}>
+			<section class="page {side(p + 3 + gi)} grammar" class:coded={pages[c.id]?.[`grammatik-${gi + 1}`]} data-accent={c.accent}>
+				{#if g.check}{@render pageCode(c, `grammatik-${gi + 1}`, 'Prüfen')}{/if}
 				<header class="head small">
 					<p class="eyebrow">Grammatik · {gi + 1} {c.german ? 'von' : 'of'} {c.grammar.length}</p>
 					<h2 lang="de">{g.heading}</h2>
@@ -472,7 +521,8 @@
 		{/each}
 
 		<!-- 6 · Real-world reading -->
-		<section class="page {side(p + 5)} document" data-accent={c.accent}>
+		<section class="page {side(p + 5)} document" class:coded={pages[c.id]?.alltag} data-accent={c.accent}>
+			{@render pageCode(c, 'alltag', 'Prüfen')}
 			<header class="head small">
 				<p class="eyebrow">{c.german ? 'Lesen im Alltag' : 'Lesen im Alltag · reading the real thing'}</p>
 				<h2 lang="de">{c.document.caption}</h2>
@@ -489,7 +539,8 @@
 
 		<!-- 7–8 · Practise -->
 		{#each [prac1, prac2] as exs, pi (pi)}
-			<section class="page {side(p + 6 + pi)} practise" data-accent={c.accent}>
+			<section class="page {side(p + 6 + pi)} practise" class:coded={pages[c.id]?.[`uebungen-${pi + 1}`]} data-accent={c.accent}>
+				{@render pageCode(c, `uebungen-${pi + 1}`, 'Prüfen')}
 				<header class="head small">
 					<p class="eyebrow">{c.german ? `Übungen · ${pi + 1} von 2` : `Übungen · practise ${pi + 1} of 2`}</p>
 					<h2 lang="de">{c.title}</h2>
@@ -535,7 +586,8 @@
 				</ul>
 			</div>
 			<div class="next">
-				<p>{c.german ? `Fertig? Hak ab, was du kannst. Kreise ein, was in den Übungen falsch war, und übe es in einer Woche noch einmal. Die Lösungen stehen auf Seite ${keyPage}.` : `Done? Tick what you can, circle what you got wrong on the practice pages, and come back to those in a week. The answers are on page ${keyPage}.`}</p>
+				<p>{c.german ? `Fertig? Hak ab, was du kannst. Prüf jede Seite mit ihrem Code oder mit den Lösungen auf Seite ${keyPage}. Kreise ein, was falsch war, und übe es in einer Woche noch einmal.` : `Done? Tick what you can. Check each page with its code, or with the answers on page ${keyPage}. Circle what you got wrong and come back to it in a week.`}</p>
+				{#if pages[c.id]?.woerter}<p class="chapter-url">{c.german ? 'Das ganze Kapitel in der App' : 'The whole chapter in the app'}: <a href={pages[c.id]!.woerter!.url}>{shortUrl(pages[c.id]!.woerter!.url)}</a></p>{/if}
 			</div>
 			<p class="eyebrow notes-title">{c.german ? 'Meine Notizen' : 'Meine Notizen · my notes'}</p>
 			<div class="fill"><div class="fill-lines"></div></div>
@@ -695,6 +747,29 @@
 		color: var(--navy);
 	}
 	.head { display: flex; gap: 5mm; align-items: flex-start; margin-bottom: 4mm; }
+	/* The page's code, top right of the head, the title kept clear of it. */
+	.page-code {
+		position: absolute;
+		top: 11mm;
+		right: 18mm;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 17mm;
+		color: var(--muted);
+		text-decoration: none;
+	}
+	.left .page-code { right: 22mm; }
+	.page-code :global(svg) { display: block; width: 15mm; height: 15mm; }
+	.page-code span { margin-top: 0.3mm; font-size: 5.5pt; font-weight: 700; line-height: 1.15; text-align: center; letter-spacing: 0.02em; white-space: nowrap; }
+	.coded .head.small, .coded > .intro { padding-right: 20mm; }
+	/* The page's content starts below the code, so a floated photo never covers its label. */
+	.grammar.coded .head.small, .document.coded .head.small { min-height: 19mm; box-sizing: border-box; }
+	.chapter-url { margin: 1.5mm 0 0; font-size: 8pt; color: var(--muted); }
+	.chapter-url a { color: var(--navy); font-weight: 700; text-decoration: none; }
+	/* On the words page the code sits on a white tile over the photo. */
+	.words .page-code { top: 10mm; padding: 1.5mm 1mm 1mm; border-radius: 1.5mm; background: #fff; box-shadow: 0 0.5mm 2mm rgb(0 0 0 / 0.25); }
 	.head.small { display: block; margin-bottom: 3mm; }
 	.head.small h2 { font-size: 19pt; }
 	.head .num {

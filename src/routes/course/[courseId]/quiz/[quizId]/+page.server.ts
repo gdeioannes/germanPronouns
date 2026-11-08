@@ -2,6 +2,7 @@ import { error } from '@sveltejs/kit';
 import { courseInfo, courses, loadCourse, summarizeQuiz } from '$lib/content';
 import { helpTableFor } from '$lib/domain/help-table';
 import { vocabFor, type SharedNoun, type VocabEntry } from '$lib/domain/vocab';
+import { deckPhotos, insidePicture } from '$lib/server/deckPhotos';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
 /**
@@ -28,7 +29,10 @@ export const load: PageServerLoad = async ({ params }) => {
 	const index = course.quizzes.findIndex((q) => q.id === params.quizId);
 	if (index < 0) error(404, 'No such exercise');
 
-	const quiz = course.quizzes[index];
+	// Inside, the exercise shows its deck card's photo instead of the old drawing.
+	const levelPhotos = deckPhotos(params.courseId, course.quizzes.filter((q) => q.level === course.quizzes[index].level));
+	const picture = insidePicture(course.quizzes[index], levelPhotos[params.quizId]);
+	const quiz = { ...course.quizzes[index], image: picture.image };
 
 	// Text-based exercises list the nouns they use. Looked up here, at build
 	// time, so the list is in the prerendered page, and only this quiz's few
@@ -64,6 +68,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	return {
 		course: courseInfo(course),
 		quiz,
+		photoCredit: picture.credit,
 		vocab,
 		previous: previous ? summarizeQuiz(previous) : null,
 		next: next ? summarizeQuiz(next) : null,

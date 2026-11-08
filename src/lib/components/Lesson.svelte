@@ -425,13 +425,6 @@
 		background: var(--surface);
 	}
 
-	.page[data-kind='hook'] {
-		border-top: 6px solid var(--accent);
-	}
-
-	.page[data-kind='recap'] {
-		border-top: 6px solid var(--navy);
-	}
 
 	.eyebrow {
 		margin: 0;
@@ -498,12 +491,13 @@
 	}
 
 	/* The quiz's own scene, on the same paper as the picture. */
+	/* The exercise's photo (its deck card's): filling the width, gently cropped. */
 	.hook-art {
 		width: 100%;
+		height: auto;
 		max-height: 14rem;
-		object-fit: contain;
-		border-radius: var(--radius-sm);
-		background: #fbf5e4;
+		object-fit: cover;
+		border-radius: 6px;
 	}
 
 	.roadmap {
@@ -677,7 +671,7 @@
 		align-self: flex-start;
 		padding: 0.8rem 1.4rem;
 		border: 0;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--accent-ink);
 		color: #fff;
 		font: inherit;

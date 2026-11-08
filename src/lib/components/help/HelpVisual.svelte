@@ -88,7 +88,6 @@
 
 	const KINDS = [
 		{ icon: '📖', label: 'Story' },
-		{ icon: '🎵', label: 'Song' },
 		{ icon: '🔀', label: 'Ja oder Nein?' }
 	];
 </script>

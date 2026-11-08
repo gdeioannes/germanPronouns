@@ -1,13 +1,12 @@
-// The deck's surprises: a story episode, a song, Ja oder Nein?, Wortblöcke, or
+// The deck's surprises: a story episode, Ja oder Nein?, Wortblöcke, or
 // the word check when it is due (never taken, or a month since the last).
 // They are treats in the learning, never in its way,
 // so a hand holds at most ONE. Each deal rolls once whether a surprise comes
 // at all, and only then picks which kind, among the kinds that have something
-// to offer right now. A kind with nothing left (every episode finished, every
-// song sung) simply drops out of the draw. Nothing is paid for: there are
+// to offer right now. A kind with nothing left (every episode finished) simply drops out of the draw. Nothing is paid for: there are
 // no tickets, and every surprise card that turns up can be played.
 
-export type SurpriseKind = 'story' | 'song' | 'play' | 'check' | 'wort';
+export type SurpriseKind = 'story' | 'play' | 'check' | 'wort';
 
 /** The chance a hand holds a surprise. */
 export const SURPRISE_CHANCE = 0.3;

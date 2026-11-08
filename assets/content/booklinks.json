@@ -3682,6 +3682,7062 @@
 			"target": "quest_c2_2_suchbild_hafen",
 			"note": "C2 Suchbild: Der Hafen audio",
 			"since": "2026-10-25"
+		},
+		{
+			"code": "a11-01",
+			"kind": "chapter",
+			"target": "A1.1/hallo/woerter",
+			"note": "A1.1 Hallo! Das bin ich · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-02",
+			"kind": "chapter",
+			"target": "A1.1/hallo/lesen",
+			"note": "A1.1 Hallo! Das bin ich · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-03",
+			"kind": "chapter",
+			"target": "A1.1/hallo/grammatik-1",
+			"note": "A1.1 Hallo! Das bin ich · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-04",
+			"kind": "chapter",
+			"target": "A1.1/hallo/grammatik-2",
+			"note": "A1.1 Hallo! Das bin ich · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-05",
+			"kind": "chapter",
+			"target": "A1.1/hallo/alltag",
+			"note": "A1.1 Hallo! Das bin ich · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-06",
+			"kind": "chapter",
+			"target": "A1.1/hallo/uebungen-1",
+			"note": "A1.1 Hallo! Das bin ich · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-07",
+			"kind": "chapter",
+			"target": "A1.1/hallo/uebungen-2",
+			"note": "A1.1 Hallo! Das bin ich · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-08",
+			"kind": "chapter",
+			"target": "A1.1/zahlen/woerter",
+			"note": "A1.1 Zahlen und Preise · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-09",
+			"kind": "chapter",
+			"target": "A1.1/zahlen/lesen",
+			"note": "A1.1 Zahlen und Preise · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-10",
+			"kind": "chapter",
+			"target": "A1.1/zahlen/grammatik-1",
+			"note": "A1.1 Zahlen und Preise · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-11",
+			"kind": "chapter",
+			"target": "A1.1/zahlen/grammatik-2",
+			"note": "A1.1 Zahlen und Preise · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-12",
+			"kind": "chapter",
+			"target": "A1.1/zahlen/alltag",
+			"note": "A1.1 Zahlen und Preise · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-13",
+			"kind": "chapter",
+			"target": "A1.1/zahlen/uebungen-1",
+			"note": "A1.1 Zahlen und Preise · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-14",
+			"kind": "chapter",
+			"target": "A1.1/zahlen/uebungen-2",
+			"note": "A1.1 Zahlen und Preise · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-15",
+			"kind": "chapter",
+			"target": "A1.1/markt/woerter",
+			"note": "A1.1 Auf dem Markt · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-16",
+			"kind": "chapter",
+			"target": "A1.1/markt/lesen",
+			"note": "A1.1 Auf dem Markt · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-17",
+			"kind": "chapter",
+			"target": "A1.1/markt/grammatik-1",
+			"note": "A1.1 Auf dem Markt · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-18",
+			"kind": "chapter",
+			"target": "A1.1/markt/grammatik-2",
+			"note": "A1.1 Auf dem Markt · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-19",
+			"kind": "chapter",
+			"target": "A1.1/markt/alltag",
+			"note": "A1.1 Auf dem Markt · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-20",
+			"kind": "chapter",
+			"target": "A1.1/markt/uebungen-1",
+			"note": "A1.1 Auf dem Markt · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-21",
+			"kind": "chapter",
+			"target": "A1.1/markt/uebungen-2",
+			"note": "A1.1 Auf dem Markt · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-22",
+			"kind": "chapter",
+			"target": "A1.1/wohnung/woerter",
+			"note": "A1.1 Meine Wohnung · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-23",
+			"kind": "chapter",
+			"target": "A1.1/wohnung/lesen",
+			"note": "A1.1 Meine Wohnung · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-24",
+			"kind": "chapter",
+			"target": "A1.1/wohnung/grammatik-1",
+			"note": "A1.1 Meine Wohnung · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-25",
+			"kind": "chapter",
+			"target": "A1.1/wohnung/grammatik-2",
+			"note": "A1.1 Meine Wohnung · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-26",
+			"kind": "chapter",
+			"target": "A1.1/wohnung/alltag",
+			"note": "A1.1 Meine Wohnung · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-27",
+			"kind": "chapter",
+			"target": "A1.1/wohnung/uebungen-1",
+			"note": "A1.1 Meine Wohnung · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-28",
+			"kind": "chapter",
+			"target": "A1.1/wohnung/uebungen-2",
+			"note": "A1.1 Meine Wohnung · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-29",
+			"kind": "chapter",
+			"target": "A1.1/familie/woerter",
+			"note": "A1.1 Meine Familie · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-30",
+			"kind": "chapter",
+			"target": "A1.1/familie/lesen",
+			"note": "A1.1 Meine Familie · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-31",
+			"kind": "chapter",
+			"target": "A1.1/familie/grammatik-1",
+			"note": "A1.1 Meine Familie · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-32",
+			"kind": "chapter",
+			"target": "A1.1/familie/grammatik-2",
+			"note": "A1.1 Meine Familie · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-33",
+			"kind": "chapter",
+			"target": "A1.1/familie/alltag",
+			"note": "A1.1 Meine Familie · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-34",
+			"kind": "chapter",
+			"target": "A1.1/familie/uebungen-1",
+			"note": "A1.1 Meine Familie · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-35",
+			"kind": "chapter",
+			"target": "A1.1/familie/uebungen-2",
+			"note": "A1.1 Meine Familie · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-36",
+			"kind": "chapter",
+			"target": "A1.1/tag/woerter",
+			"note": "A1.1 Ein Tag in Hamburg · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-37",
+			"kind": "chapter",
+			"target": "A1.1/tag/lesen",
+			"note": "A1.1 Ein Tag in Hamburg · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-38",
+			"kind": "chapter",
+			"target": "A1.1/tag/grammatik-1",
+			"note": "A1.1 Ein Tag in Hamburg · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-39",
+			"kind": "chapter",
+			"target": "A1.1/tag/grammatik-2",
+			"note": "A1.1 Ein Tag in Hamburg · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-40",
+			"kind": "chapter",
+			"target": "A1.1/tag/alltag",
+			"note": "A1.1 Ein Tag in Hamburg · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-41",
+			"kind": "chapter",
+			"target": "A1.1/tag/uebungen-1",
+			"note": "A1.1 Ein Tag in Hamburg · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-42",
+			"kind": "chapter",
+			"target": "A1.1/tag/uebungen-2",
+			"note": "A1.1 Ein Tag in Hamburg · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-43",
+			"kind": "chapter",
+			"target": "A1.1/koeln/woerter",
+			"note": "A1.1 Wo bist du? · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-44",
+			"kind": "chapter",
+			"target": "A1.1/koeln/lesen",
+			"note": "A1.1 Wo bist du? · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-45",
+			"kind": "chapter",
+			"target": "A1.1/koeln/grammatik-1",
+			"note": "A1.1 Wo bist du? · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-46",
+			"kind": "chapter",
+			"target": "A1.1/koeln/grammatik-2",
+			"note": "A1.1 Wo bist du? · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-47",
+			"kind": "chapter",
+			"target": "A1.1/koeln/alltag",
+			"note": "A1.1 Wo bist du? · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-48",
+			"kind": "chapter",
+			"target": "A1.1/koeln/uebungen-1",
+			"note": "A1.1 Wo bist du? · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-49",
+			"kind": "chapter",
+			"target": "A1.1/koeln/uebungen-2",
+			"note": "A1.1 Wo bist du? · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-50",
+			"kind": "chapter",
+			"target": "A1.1/laender/woerter",
+			"note": "A1.1 Länder und Sprachen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-51",
+			"kind": "chapter",
+			"target": "A1.1/laender/lesen",
+			"note": "A1.1 Länder und Sprachen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-52",
+			"kind": "chapter",
+			"target": "A1.1/laender/grammatik-1",
+			"note": "A1.1 Länder und Sprachen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-53",
+			"kind": "chapter",
+			"target": "A1.1/laender/grammatik-2",
+			"note": "A1.1 Länder und Sprachen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-54",
+			"kind": "chapter",
+			"target": "A1.1/laender/alltag",
+			"note": "A1.1 Länder und Sprachen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-55",
+			"kind": "chapter",
+			"target": "A1.1/laender/uebungen-1",
+			"note": "A1.1 Länder und Sprachen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-56",
+			"kind": "chapter",
+			"target": "A1.1/laender/uebungen-2",
+			"note": "A1.1 Länder und Sprachen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-57",
+			"kind": "chapter",
+			"target": "A1.1/amt/woerter",
+			"note": "A1.1 Das Alphabet und ein Formular · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-58",
+			"kind": "chapter",
+			"target": "A1.1/amt/lesen",
+			"note": "A1.1 Das Alphabet und ein Formular · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-59",
+			"kind": "chapter",
+			"target": "A1.1/amt/grammatik-1",
+			"note": "A1.1 Das Alphabet und ein Formular · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-60",
+			"kind": "chapter",
+			"target": "A1.1/amt/grammatik-2",
+			"note": "A1.1 Das Alphabet und ein Formular · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-61",
+			"kind": "chapter",
+			"target": "A1.1/amt/alltag",
+			"note": "A1.1 Das Alphabet und ein Formular · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-62",
+			"kind": "chapter",
+			"target": "A1.1/amt/uebungen-1",
+			"note": "A1.1 Das Alphabet und ein Formular · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-63",
+			"kind": "chapter",
+			"target": "A1.1/amt/uebungen-2",
+			"note": "A1.1 Das Alphabet und ein Formular · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-64",
+			"kind": "chapter",
+			"target": "A1.1/cafe/woerter",
+			"note": "A1.1 Im Café · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-65",
+			"kind": "chapter",
+			"target": "A1.1/cafe/lesen",
+			"note": "A1.1 Im Café · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-66",
+			"kind": "chapter",
+			"target": "A1.1/cafe/grammatik-1",
+			"note": "A1.1 Im Café · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-67",
+			"kind": "chapter",
+			"target": "A1.1/cafe/grammatik-2",
+			"note": "A1.1 Im Café · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-68",
+			"kind": "chapter",
+			"target": "A1.1/cafe/alltag",
+			"note": "A1.1 Im Café · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-69",
+			"kind": "chapter",
+			"target": "A1.1/cafe/uebungen-1",
+			"note": "A1.1 Im Café · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-70",
+			"kind": "chapter",
+			"target": "A1.1/cafe/uebungen-2",
+			"note": "A1.1 Im Café · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-71",
+			"kind": "chapter",
+			"target": "A1.1/woerter/woerter",
+			"note": "A1.1 Wörter bauen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-72",
+			"kind": "chapter",
+			"target": "A1.1/woerter/lesen",
+			"note": "A1.1 Wörter bauen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-73",
+			"kind": "chapter",
+			"target": "A1.1/woerter/grammatik-1",
+			"note": "A1.1 Wörter bauen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-74",
+			"kind": "chapter",
+			"target": "A1.1/woerter/grammatik-2",
+			"note": "A1.1 Wörter bauen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-75",
+			"kind": "chapter",
+			"target": "A1.1/woerter/alltag",
+			"note": "A1.1 Wörter bauen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-76",
+			"kind": "chapter",
+			"target": "A1.1/woerter/uebungen-1",
+			"note": "A1.1 Wörter bauen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-77",
+			"kind": "chapter",
+			"target": "A1.1/woerter/uebungen-2",
+			"note": "A1.1 Wörter bauen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-78",
+			"kind": "chapter",
+			"target": "A1.1/steckbrief/woerter",
+			"note": "A1.1 Steckbrief · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-79",
+			"kind": "chapter",
+			"target": "A1.1/steckbrief/lesen",
+			"note": "A1.1 Steckbrief · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-80",
+			"kind": "chapter",
+			"target": "A1.1/steckbrief/grammatik-1",
+			"note": "A1.1 Steckbrief · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-81",
+			"kind": "chapter",
+			"target": "A1.1/steckbrief/grammatik-2",
+			"note": "A1.1 Steckbrief · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-82",
+			"kind": "chapter",
+			"target": "A1.1/steckbrief/alltag",
+			"note": "A1.1 Steckbrief · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-83",
+			"kind": "chapter",
+			"target": "A1.1/steckbrief/uebungen-1",
+			"note": "A1.1 Steckbrief · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a11-84",
+			"kind": "chapter",
+			"target": "A1.1/steckbrief/uebungen-2",
+			"note": "A1.1 Steckbrief · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-01",
+			"kind": "chapter",
+			"target": "A1.2/einkaufen/woerter",
+			"note": "A1.2 Einkaufen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-02",
+			"kind": "chapter",
+			"target": "A1.2/einkaufen/lesen",
+			"note": "A1.2 Einkaufen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-03",
+			"kind": "chapter",
+			"target": "A1.2/einkaufen/grammatik-1",
+			"note": "A1.2 Einkaufen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-04",
+			"kind": "chapter",
+			"target": "A1.2/einkaufen/grammatik-2",
+			"note": "A1.2 Einkaufen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-05",
+			"kind": "chapter",
+			"target": "A1.2/einkaufen/alltag",
+			"note": "A1.2 Einkaufen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-06",
+			"kind": "chapter",
+			"target": "A1.2/einkaufen/uebungen-1",
+			"note": "A1.2 Einkaufen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-07",
+			"kind": "chapter",
+			"target": "A1.2/einkaufen/uebungen-2",
+			"note": "A1.2 Einkaufen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-08",
+			"kind": "chapter",
+			"target": "A1.2/zimmer/woerter",
+			"note": "A1.2 Mein Zimmer, meine Sachen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-09",
+			"kind": "chapter",
+			"target": "A1.2/zimmer/lesen",
+			"note": "A1.2 Mein Zimmer, meine Sachen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-10",
+			"kind": "chapter",
+			"target": "A1.2/zimmer/grammatik-1",
+			"note": "A1.2 Mein Zimmer, meine Sachen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-11",
+			"kind": "chapter",
+			"target": "A1.2/zimmer/grammatik-2",
+			"note": "A1.2 Mein Zimmer, meine Sachen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-12",
+			"kind": "chapter",
+			"target": "A1.2/zimmer/alltag",
+			"note": "A1.2 Mein Zimmer, meine Sachen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-13",
+			"kind": "chapter",
+			"target": "A1.2/zimmer/uebungen-1",
+			"note": "A1.2 Mein Zimmer, meine Sachen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-14",
+			"kind": "chapter",
+			"target": "A1.2/zimmer/uebungen-2",
+			"note": "A1.2 Mein Zimmer, meine Sachen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-15",
+			"kind": "chapter",
+			"target": "A1.2/kurs/woerter",
+			"note": "A1.2 Was kannst du? · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-16",
+			"kind": "chapter",
+			"target": "A1.2/kurs/lesen",
+			"note": "A1.2 Was kannst du? · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-17",
+			"kind": "chapter",
+			"target": "A1.2/kurs/grammatik-1",
+			"note": "A1.2 Was kannst du? · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-18",
+			"kind": "chapter",
+			"target": "A1.2/kurs/grammatik-2",
+			"note": "A1.2 Was kannst du? · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-19",
+			"kind": "chapter",
+			"target": "A1.2/kurs/alltag",
+			"note": "A1.2 Was kannst du? · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-20",
+			"kind": "chapter",
+			"target": "A1.2/kurs/uebungen-1",
+			"note": "A1.2 Was kannst du? · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-21",
+			"kind": "chapter",
+			"target": "A1.2/kurs/uebungen-2",
+			"note": "A1.2 Was kannst du? · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-22",
+			"kind": "chapter",
+			"target": "A1.2/bahn/woerter",
+			"note": "A1.2 Wie spät ist es? · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-23",
+			"kind": "chapter",
+			"target": "A1.2/bahn/lesen",
+			"note": "A1.2 Wie spät ist es? · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-24",
+			"kind": "chapter",
+			"target": "A1.2/bahn/grammatik-1",
+			"note": "A1.2 Wie spät ist es? · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-25",
+			"kind": "chapter",
+			"target": "A1.2/bahn/grammatik-2",
+			"note": "A1.2 Wie spät ist es? · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-26",
+			"kind": "chapter",
+			"target": "A1.2/bahn/alltag",
+			"note": "A1.2 Wie spät ist es? · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-27",
+			"kind": "chapter",
+			"target": "A1.2/bahn/uebungen-1",
+			"note": "A1.2 Wie spät ist es? · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-28",
+			"kind": "chapter",
+			"target": "A1.2/bahn/uebungen-2",
+			"note": "A1.2 Wie spät ist es? · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-29",
+			"kind": "chapter",
+			"target": "A1.2/woche/woerter",
+			"note": "A1.2 Die Woche · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-30",
+			"kind": "chapter",
+			"target": "A1.2/woche/lesen",
+			"note": "A1.2 Die Woche · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-31",
+			"kind": "chapter",
+			"target": "A1.2/woche/grammatik-1",
+			"note": "A1.2 Die Woche · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-32",
+			"kind": "chapter",
+			"target": "A1.2/woche/grammatik-2",
+			"note": "A1.2 Die Woche · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-33",
+			"kind": "chapter",
+			"target": "A1.2/woche/alltag",
+			"note": "A1.2 Die Woche · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-34",
+			"kind": "chapter",
+			"target": "A1.2/woche/uebungen-1",
+			"note": "A1.2 Die Woche · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-35",
+			"kind": "chapter",
+			"target": "A1.2/woche/uebungen-2",
+			"note": "A1.2 Die Woche · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-36",
+			"kind": "chapter",
+			"target": "A1.2/tag/woerter",
+			"note": "A1.2 Mein Tag · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-37",
+			"kind": "chapter",
+			"target": "A1.2/tag/lesen",
+			"note": "A1.2 Mein Tag · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-38",
+			"kind": "chapter",
+			"target": "A1.2/tag/grammatik-1",
+			"note": "A1.2 Mein Tag · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-39",
+			"kind": "chapter",
+			"target": "A1.2/tag/grammatik-2",
+			"note": "A1.2 Mein Tag · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-40",
+			"kind": "chapter",
+			"target": "A1.2/tag/alltag",
+			"note": "A1.2 Mein Tag · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-41",
+			"kind": "chapter",
+			"target": "A1.2/tag/uebungen-1",
+			"note": "A1.2 Mein Tag · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-42",
+			"kind": "chapter",
+			"target": "A1.2/tag/uebungen-2",
+			"note": "A1.2 Mein Tag · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-43",
+			"kind": "chapter",
+			"target": "A1.2/unterwegs/woerter",
+			"note": "A1.2 Unterwegs · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-44",
+			"kind": "chapter",
+			"target": "A1.2/unterwegs/lesen",
+			"note": "A1.2 Unterwegs · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-45",
+			"kind": "chapter",
+			"target": "A1.2/unterwegs/grammatik-1",
+			"note": "A1.2 Unterwegs · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-46",
+			"kind": "chapter",
+			"target": "A1.2/unterwegs/grammatik-2",
+			"note": "A1.2 Unterwegs · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-47",
+			"kind": "chapter",
+			"target": "A1.2/unterwegs/alltag",
+			"note": "A1.2 Unterwegs · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-48",
+			"kind": "chapter",
+			"target": "A1.2/unterwegs/uebungen-1",
+			"note": "A1.2 Unterwegs · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-49",
+			"kind": "chapter",
+			"target": "A1.2/unterwegs/uebungen-2",
+			"note": "A1.2 Unterwegs · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-50",
+			"kind": "chapter",
+			"target": "A1.2/biergarten/woerter",
+			"note": "A1.2 Im Biergarten · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-51",
+			"kind": "chapter",
+			"target": "A1.2/biergarten/lesen",
+			"note": "A1.2 Im Biergarten · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-52",
+			"kind": "chapter",
+			"target": "A1.2/biergarten/grammatik-1",
+			"note": "A1.2 Im Biergarten · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-53",
+			"kind": "chapter",
+			"target": "A1.2/biergarten/grammatik-2",
+			"note": "A1.2 Im Biergarten · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-54",
+			"kind": "chapter",
+			"target": "A1.2/biergarten/alltag",
+			"note": "A1.2 Im Biergarten · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-55",
+			"kind": "chapter",
+			"target": "A1.2/biergarten/uebungen-1",
+			"note": "A1.2 Im Biergarten · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-56",
+			"kind": "chapter",
+			"target": "A1.2/biergarten/uebungen-2",
+			"note": "A1.2 Im Biergarten · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-57",
+			"kind": "chapter",
+			"target": "A1.2/arzt/woerter",
+			"note": "A1.2 Beim Arzt · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-58",
+			"kind": "chapter",
+			"target": "A1.2/arzt/lesen",
+			"note": "A1.2 Beim Arzt · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-59",
+			"kind": "chapter",
+			"target": "A1.2/arzt/grammatik-1",
+			"note": "A1.2 Beim Arzt · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-60",
+			"kind": "chapter",
+			"target": "A1.2/arzt/grammatik-2",
+			"note": "A1.2 Beim Arzt · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-61",
+			"kind": "chapter",
+			"target": "A1.2/arzt/alltag",
+			"note": "A1.2 Beim Arzt · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-62",
+			"kind": "chapter",
+			"target": "A1.2/arzt/uebungen-1",
+			"note": "A1.2 Beim Arzt · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-63",
+			"kind": "chapter",
+			"target": "A1.2/arzt/uebungen-2",
+			"note": "A1.2 Beim Arzt · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-64",
+			"kind": "chapter",
+			"target": "A1.2/gestern/woerter",
+			"note": "A1.2 Gestern · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-65",
+			"kind": "chapter",
+			"target": "A1.2/gestern/lesen",
+			"note": "A1.2 Gestern · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-66",
+			"kind": "chapter",
+			"target": "A1.2/gestern/grammatik-1",
+			"note": "A1.2 Gestern · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-67",
+			"kind": "chapter",
+			"target": "A1.2/gestern/grammatik-2",
+			"note": "A1.2 Gestern · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-68",
+			"kind": "chapter",
+			"target": "A1.2/gestern/alltag",
+			"note": "A1.2 Gestern · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-69",
+			"kind": "chapter",
+			"target": "A1.2/gestern/uebungen-1",
+			"note": "A1.2 Gestern · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-70",
+			"kind": "chapter",
+			"target": "A1.2/gestern/uebungen-2",
+			"note": "A1.2 Gestern · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-71",
+			"kind": "chapter",
+			"target": "A1.2/rezept/woerter",
+			"note": "A1.2 Mach das! · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-72",
+			"kind": "chapter",
+			"target": "A1.2/rezept/lesen",
+			"note": "A1.2 Mach das! · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-73",
+			"kind": "chapter",
+			"target": "A1.2/rezept/grammatik-1",
+			"note": "A1.2 Mach das! · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-74",
+			"kind": "chapter",
+			"target": "A1.2/rezept/grammatik-2",
+			"note": "A1.2 Mach das! · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-75",
+			"kind": "chapter",
+			"target": "A1.2/rezept/alltag",
+			"note": "A1.2 Mach das! · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-76",
+			"kind": "chapter",
+			"target": "A1.2/rezept/uebungen-1",
+			"note": "A1.2 Mach das! · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-77",
+			"kind": "chapter",
+			"target": "A1.2/rezept/uebungen-2",
+			"note": "A1.2 Mach das! · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-78",
+			"kind": "chapter",
+			"target": "A1.2/nachricht/woerter",
+			"note": "A1.2 Eine Nachricht · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-79",
+			"kind": "chapter",
+			"target": "A1.2/nachricht/lesen",
+			"note": "A1.2 Eine Nachricht · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-80",
+			"kind": "chapter",
+			"target": "A1.2/nachricht/grammatik-1",
+			"note": "A1.2 Eine Nachricht · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-81",
+			"kind": "chapter",
+			"target": "A1.2/nachricht/grammatik-2",
+			"note": "A1.2 Eine Nachricht · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-82",
+			"kind": "chapter",
+			"target": "A1.2/nachricht/alltag",
+			"note": "A1.2 Eine Nachricht · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-83",
+			"kind": "chapter",
+			"target": "A1.2/nachricht/uebungen-1",
+			"note": "A1.2 Eine Nachricht · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a12-84",
+			"kind": "chapter",
+			"target": "A1.2/nachricht/uebungen-2",
+			"note": "A1.2 Eine Nachricht · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-01",
+			"kind": "chapter",
+			"target": "A2.1/sonntag/woerter",
+			"note": "A2.1 Was hast du gemacht? · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-02",
+			"kind": "chapter",
+			"target": "A2.1/sonntag/lesen",
+			"note": "A2.1 Was hast du gemacht? · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-03",
+			"kind": "chapter",
+			"target": "A2.1/sonntag/grammatik-1",
+			"note": "A2.1 Was hast du gemacht? · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-04",
+			"kind": "chapter",
+			"target": "A2.1/sonntag/grammatik-2",
+			"note": "A2.1 Was hast du gemacht? · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-05",
+			"kind": "chapter",
+			"target": "A2.1/sonntag/alltag",
+			"note": "A2.1 Was hast du gemacht? · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-06",
+			"kind": "chapter",
+			"target": "A2.1/sonntag/uebungen-1",
+			"note": "A2.1 Was hast du gemacht? · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-07",
+			"kind": "chapter",
+			"target": "A2.1/sonntag/uebungen-2",
+			"note": "A2.1 Was hast du gemacht? · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-08",
+			"kind": "chapter",
+			"target": "A2.1/ostsee/woerter",
+			"note": "A2.1 Ich bin gefahren · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-09",
+			"kind": "chapter",
+			"target": "A2.1/ostsee/lesen",
+			"note": "A2.1 Ich bin gefahren · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-10",
+			"kind": "chapter",
+			"target": "A2.1/ostsee/grammatik-1",
+			"note": "A2.1 Ich bin gefahren · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-11",
+			"kind": "chapter",
+			"target": "A2.1/ostsee/grammatik-2",
+			"note": "A2.1 Ich bin gefahren · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-12",
+			"kind": "chapter",
+			"target": "A2.1/ostsee/alltag",
+			"note": "A2.1 Ich bin gefahren · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-13",
+			"kind": "chapter",
+			"target": "A2.1/ostsee/uebungen-1",
+			"note": "A2.1 Ich bin gefahren · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-14",
+			"kind": "chapter",
+			"target": "A2.1/ostsee/uebungen-2",
+			"note": "A2.1 Ich bin gefahren · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-15",
+			"kind": "chapter",
+			"target": "A2.1/kindheit/woerter",
+			"note": "A2.1 Als Kind · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-16",
+			"kind": "chapter",
+			"target": "A2.1/kindheit/lesen",
+			"note": "A2.1 Als Kind · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-17",
+			"kind": "chapter",
+			"target": "A2.1/kindheit/grammatik-1",
+			"note": "A2.1 Als Kind · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-18",
+			"kind": "chapter",
+			"target": "A2.1/kindheit/grammatik-2",
+			"note": "A2.1 Als Kind · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-19",
+			"kind": "chapter",
+			"target": "A2.1/kindheit/alltag",
+			"note": "A2.1 Als Kind · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-20",
+			"kind": "chapter",
+			"target": "A2.1/kindheit/uebungen-1",
+			"note": "A2.1 Als Kind · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-21",
+			"kind": "chapter",
+			"target": "A2.1/kindheit/uebungen-2",
+			"note": "A2.1 Als Kind · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-22",
+			"kind": "chapter",
+			"target": "A2.1/fundbuero/woerter",
+			"note": "A2.1 Wem gehört das? · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-23",
+			"kind": "chapter",
+			"target": "A2.1/fundbuero/lesen",
+			"note": "A2.1 Wem gehört das? · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-24",
+			"kind": "chapter",
+			"target": "A2.1/fundbuero/grammatik-1",
+			"note": "A2.1 Wem gehört das? · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-25",
+			"kind": "chapter",
+			"target": "A2.1/fundbuero/grammatik-2",
+			"note": "A2.1 Wem gehört das? · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-26",
+			"kind": "chapter",
+			"target": "A2.1/fundbuero/alltag",
+			"note": "A2.1 Wem gehört das? · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-27",
+			"kind": "chapter",
+			"target": "A2.1/fundbuero/uebungen-1",
+			"note": "A2.1 Wem gehört das? · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-28",
+			"kind": "chapter",
+			"target": "A2.1/fundbuero/uebungen-2",
+			"note": "A2.1 Wem gehört das? · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-29",
+			"kind": "chapter",
+			"target": "A2.1/bodensee/woerter",
+			"note": "A2.1 Mit dem Rad · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-30",
+			"kind": "chapter",
+			"target": "A2.1/bodensee/lesen",
+			"note": "A2.1 Mit dem Rad · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-31",
+			"kind": "chapter",
+			"target": "A2.1/bodensee/grammatik-1",
+			"note": "A2.1 Mit dem Rad · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-32",
+			"kind": "chapter",
+			"target": "A2.1/bodensee/grammatik-2",
+			"note": "A2.1 Mit dem Rad · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-33",
+			"kind": "chapter",
+			"target": "A2.1/bodensee/alltag",
+			"note": "A2.1 Mit dem Rad · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-34",
+			"kind": "chapter",
+			"target": "A2.1/bodensee/uebungen-1",
+			"note": "A2.1 Mit dem Rad · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-35",
+			"kind": "chapter",
+			"target": "A2.1/bodensee/uebungen-2",
+			"note": "A2.1 Mit dem Rad · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-36",
+			"kind": "chapter",
+			"target": "A2.1/kaufhaus/woerter",
+			"note": "A2.1 Das steht dir gut · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-37",
+			"kind": "chapter",
+			"target": "A2.1/kaufhaus/lesen",
+			"note": "A2.1 Das steht dir gut · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-38",
+			"kind": "chapter",
+			"target": "A2.1/kaufhaus/grammatik-1",
+			"note": "A2.1 Das steht dir gut · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-39",
+			"kind": "chapter",
+			"target": "A2.1/kaufhaus/grammatik-2",
+			"note": "A2.1 Das steht dir gut · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-40",
+			"kind": "chapter",
+			"target": "A2.1/kaufhaus/alltag",
+			"note": "A2.1 Das steht dir gut · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-41",
+			"kind": "chapter",
+			"target": "A2.1/kaufhaus/uebungen-1",
+			"note": "A2.1 Das steht dir gut · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-42",
+			"kind": "chapter",
+			"target": "A2.1/kaufhaus/uebungen-2",
+			"note": "A2.1 Das steht dir gut · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-43",
+			"kind": "chapter",
+			"target": "A2.1/geschenke/woerter",
+			"note": "A2.1 Ich gebe es dir · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-44",
+			"kind": "chapter",
+			"target": "A2.1/geschenke/lesen",
+			"note": "A2.1 Ich gebe es dir · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-45",
+			"kind": "chapter",
+			"target": "A2.1/geschenke/grammatik-1",
+			"note": "A2.1 Ich gebe es dir · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-46",
+			"kind": "chapter",
+			"target": "A2.1/geschenke/grammatik-2",
+			"note": "A2.1 Ich gebe es dir · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-47",
+			"kind": "chapter",
+			"target": "A2.1/geschenke/alltag",
+			"note": "A2.1 Ich gebe es dir · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-48",
+			"kind": "chapter",
+			"target": "A2.1/geschenke/uebungen-1",
+			"note": "A2.1 Ich gebe es dir · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-49",
+			"kind": "chapter",
+			"target": "A2.1/geschenke/uebungen-2",
+			"note": "A2.1 Ich gebe es dir · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-50",
+			"kind": "chapter",
+			"target": "A2.1/heidelberg/woerter",
+			"note": "A2.1 Woher? Wo? Wohin? · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-51",
+			"kind": "chapter",
+			"target": "A2.1/heidelberg/lesen",
+			"note": "A2.1 Woher? Wo? Wohin? · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-52",
+			"kind": "chapter",
+			"target": "A2.1/heidelberg/grammatik-1",
+			"note": "A2.1 Woher? Wo? Wohin? · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-53",
+			"kind": "chapter",
+			"target": "A2.1/heidelberg/grammatik-2",
+			"note": "A2.1 Woher? Wo? Wohin? · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-54",
+			"kind": "chapter",
+			"target": "A2.1/heidelberg/alltag",
+			"note": "A2.1 Woher? Wo? Wohin? · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-55",
+			"kind": "chapter",
+			"target": "A2.1/heidelberg/uebungen-1",
+			"note": "A2.1 Woher? Wo? Wohin? · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-56",
+			"kind": "chapter",
+			"target": "A2.1/heidelberg/uebungen-2",
+			"note": "A2.1 Woher? Wo? Wohin? · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-57",
+			"kind": "chapter",
+			"target": "A2.1/mauer/woerter",
+			"note": "A2.1 Seit, vor, für · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-58",
+			"kind": "chapter",
+			"target": "A2.1/mauer/lesen",
+			"note": "A2.1 Seit, vor, für · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-59",
+			"kind": "chapter",
+			"target": "A2.1/mauer/grammatik-1",
+			"note": "A2.1 Seit, vor, für · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-60",
+			"kind": "chapter",
+			"target": "A2.1/mauer/grammatik-2",
+			"note": "A2.1 Seit, vor, für · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-61",
+			"kind": "chapter",
+			"target": "A2.1/mauer/alltag",
+			"note": "A2.1 Seit, vor, für · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-62",
+			"kind": "chapter",
+			"target": "A2.1/mauer/uebungen-1",
+			"note": "A2.1 Seit, vor, für · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-63",
+			"kind": "chapter",
+			"target": "A2.1/mauer/uebungen-2",
+			"note": "A2.1 Seit, vor, für · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-64",
+			"kind": "chapter",
+			"target": "A2.1/wetter/woerter",
+			"note": "A2.1 Das Wetter · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-65",
+			"kind": "chapter",
+			"target": "A2.1/wetter/lesen",
+			"note": "A2.1 Das Wetter · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-66",
+			"kind": "chapter",
+			"target": "A2.1/wetter/grammatik-1",
+			"note": "A2.1 Das Wetter · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-67",
+			"kind": "chapter",
+			"target": "A2.1/wetter/grammatik-2",
+			"note": "A2.1 Das Wetter · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-68",
+			"kind": "chapter",
+			"target": "A2.1/wetter/alltag",
+			"note": "A2.1 Das Wetter · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-69",
+			"kind": "chapter",
+			"target": "A2.1/wetter/uebungen-1",
+			"note": "A2.1 Das Wetter · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-70",
+			"kind": "chapter",
+			"target": "A2.1/wetter/uebungen-2",
+			"note": "A2.1 Das Wetter · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-71",
+			"kind": "chapter",
+			"target": "A2.1/ulm/woerter",
+			"note": "A2.1 Größer als · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-72",
+			"kind": "chapter",
+			"target": "A2.1/ulm/lesen",
+			"note": "A2.1 Größer als · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-73",
+			"kind": "chapter",
+			"target": "A2.1/ulm/grammatik-1",
+			"note": "A2.1 Größer als · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-74",
+			"kind": "chapter",
+			"target": "A2.1/ulm/grammatik-2",
+			"note": "A2.1 Größer als · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-75",
+			"kind": "chapter",
+			"target": "A2.1/ulm/alltag",
+			"note": "A2.1 Größer als · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-76",
+			"kind": "chapter",
+			"target": "A2.1/ulm/uebungen-1",
+			"note": "A2.1 Größer als · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-77",
+			"kind": "chapter",
+			"target": "A2.1/ulm/uebungen-2",
+			"note": "A2.1 Größer als · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-78",
+			"kind": "chapter",
+			"target": "A2.1/hamburg/woerter",
+			"note": "A2.1 Mein Wochenende · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-79",
+			"kind": "chapter",
+			"target": "A2.1/hamburg/lesen",
+			"note": "A2.1 Mein Wochenende · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-80",
+			"kind": "chapter",
+			"target": "A2.1/hamburg/grammatik-1",
+			"note": "A2.1 Mein Wochenende · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-81",
+			"kind": "chapter",
+			"target": "A2.1/hamburg/grammatik-2",
+			"note": "A2.1 Mein Wochenende · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-82",
+			"kind": "chapter",
+			"target": "A2.1/hamburg/alltag",
+			"note": "A2.1 Mein Wochenende · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-83",
+			"kind": "chapter",
+			"target": "A2.1/hamburg/uebungen-1",
+			"note": "A2.1 Mein Wochenende · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a21-84",
+			"kind": "chapter",
+			"target": "A2.1/hamburg/uebungen-2",
+			"note": "A2.1 Mein Wochenende · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-01",
+			"kind": "chapter",
+			"target": "A2.2/umzug/woerter",
+			"note": "A2.2 Der Umzug · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-02",
+			"kind": "chapter",
+			"target": "A2.2/umzug/lesen",
+			"note": "A2.2 Der Umzug · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-03",
+			"kind": "chapter",
+			"target": "A2.2/umzug/grammatik-1",
+			"note": "A2.2 Der Umzug · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-04",
+			"kind": "chapter",
+			"target": "A2.2/umzug/grammatik-2",
+			"note": "A2.2 Der Umzug · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-05",
+			"kind": "chapter",
+			"target": "A2.2/umzug/alltag",
+			"note": "A2.2 Der Umzug · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-06",
+			"kind": "chapter",
+			"target": "A2.2/umzug/uebungen-1",
+			"note": "A2.2 Der Umzug · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-07",
+			"kind": "chapter",
+			"target": "A2.2/umzug/uebungen-2",
+			"note": "A2.2 Der Umzug · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-08",
+			"kind": "chapter",
+			"target": "A2.2/verabredung/woerter",
+			"note": "A2.2 Ich freue mich · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-09",
+			"kind": "chapter",
+			"target": "A2.2/verabredung/lesen",
+			"note": "A2.2 Ich freue mich · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-10",
+			"kind": "chapter",
+			"target": "A2.2/verabredung/grammatik-1",
+			"note": "A2.2 Ich freue mich · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-11",
+			"kind": "chapter",
+			"target": "A2.2/verabredung/grammatik-2",
+			"note": "A2.2 Ich freue mich · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-12",
+			"kind": "chapter",
+			"target": "A2.2/verabredung/alltag",
+			"note": "A2.2 Ich freue mich · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-13",
+			"kind": "chapter",
+			"target": "A2.2/verabredung/uebungen-1",
+			"note": "A2.2 Ich freue mich · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-14",
+			"kind": "chapter",
+			"target": "A2.2/verabredung/uebungen-2",
+			"note": "A2.2 Ich freue mich · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-15",
+			"kind": "chapter",
+			"target": "A2.2/camping/woerter",
+			"note": "A2.2 Weil es regnet · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-16",
+			"kind": "chapter",
+			"target": "A2.2/camping/lesen",
+			"note": "A2.2 Weil es regnet · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-17",
+			"kind": "chapter",
+			"target": "A2.2/camping/grammatik-1",
+			"note": "A2.2 Weil es regnet · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-18",
+			"kind": "chapter",
+			"target": "A2.2/camping/grammatik-2",
+			"note": "A2.2 Weil es regnet · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-19",
+			"kind": "chapter",
+			"target": "A2.2/camping/alltag",
+			"note": "A2.2 Weil es regnet · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-20",
+			"kind": "chapter",
+			"target": "A2.2/camping/uebungen-1",
+			"note": "A2.2 Weil es regnet · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-21",
+			"kind": "chapter",
+			"target": "A2.2/camping/uebungen-2",
+			"note": "A2.2 Weil es regnet · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-22",
+			"kind": "chapter",
+			"target": "A2.2/weimar/woerter",
+			"note": "A2.2 Wissen Sie, ob …? · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-23",
+			"kind": "chapter",
+			"target": "A2.2/weimar/lesen",
+			"note": "A2.2 Wissen Sie, ob …? · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-24",
+			"kind": "chapter",
+			"target": "A2.2/weimar/grammatik-1",
+			"note": "A2.2 Wissen Sie, ob …? · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-25",
+			"kind": "chapter",
+			"target": "A2.2/weimar/grammatik-2",
+			"note": "A2.2 Wissen Sie, ob …? · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-26",
+			"kind": "chapter",
+			"target": "A2.2/weimar/alltag",
+			"note": "A2.2 Wissen Sie, ob …? · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-27",
+			"kind": "chapter",
+			"target": "A2.2/weimar/uebungen-1",
+			"note": "A2.2 Wissen Sie, ob …? · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-28",
+			"kind": "chapter",
+			"target": "A2.2/weimar/uebungen-2",
+			"note": "A2.2 Wissen Sie, ob …? · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-29",
+			"kind": "chapter",
+			"target": "A2.2/kur/woerter",
+			"note": "A2.2 Du solltest zum Arzt · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-30",
+			"kind": "chapter",
+			"target": "A2.2/kur/lesen",
+			"note": "A2.2 Du solltest zum Arzt · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-31",
+			"kind": "chapter",
+			"target": "A2.2/kur/grammatik-1",
+			"note": "A2.2 Du solltest zum Arzt · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-32",
+			"kind": "chapter",
+			"target": "A2.2/kur/grammatik-2",
+			"note": "A2.2 Du solltest zum Arzt · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-33",
+			"kind": "chapter",
+			"target": "A2.2/kur/alltag",
+			"note": "A2.2 Du solltest zum Arzt · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-34",
+			"kind": "chapter",
+			"target": "A2.2/kur/uebungen-1",
+			"note": "A2.2 Du solltest zum Arzt · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-35",
+			"kind": "chapter",
+			"target": "A2.2/kur/uebungen-2",
+			"note": "A2.2 Du solltest zum Arzt · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-36",
+			"kind": "chapter",
+			"target": "A2.2/tracht/woerter",
+			"note": "A2.2 Ein neues Dirndl · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-37",
+			"kind": "chapter",
+			"target": "A2.2/tracht/lesen",
+			"note": "A2.2 Ein neues Dirndl · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-38",
+			"kind": "chapter",
+			"target": "A2.2/tracht/grammatik-1",
+			"note": "A2.2 Ein neues Dirndl · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-39",
+			"kind": "chapter",
+			"target": "A2.2/tracht/grammatik-2",
+			"note": "A2.2 Ein neues Dirndl · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-40",
+			"kind": "chapter",
+			"target": "A2.2/tracht/alltag",
+			"note": "A2.2 Ein neues Dirndl · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-41",
+			"kind": "chapter",
+			"target": "A2.2/tracht/uebungen-1",
+			"note": "A2.2 Ein neues Dirndl · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-42",
+			"kind": "chapter",
+			"target": "A2.2/tracht/uebungen-2",
+			"note": "A2.2 Ein neues Dirndl · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-43",
+			"kind": "chapter",
+			"target": "A2.2/krimi/woerter",
+			"note": "A2.2 Der Mann, der … · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-44",
+			"kind": "chapter",
+			"target": "A2.2/krimi/lesen",
+			"note": "A2.2 Der Mann, der … · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-45",
+			"kind": "chapter",
+			"target": "A2.2/krimi/grammatik-1",
+			"note": "A2.2 Der Mann, der … · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-46",
+			"kind": "chapter",
+			"target": "A2.2/krimi/grammatik-2",
+			"note": "A2.2 Der Mann, der … · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-47",
+			"kind": "chapter",
+			"target": "A2.2/krimi/alltag",
+			"note": "A2.2 Der Mann, der … · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-48",
+			"kind": "chapter",
+			"target": "A2.2/krimi/uebungen-1",
+			"note": "A2.2 Der Mann, der … · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-49",
+			"kind": "chapter",
+			"target": "A2.2/krimi/uebungen-2",
+			"note": "A2.2 Der Mann, der … · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-50",
+			"kind": "chapter",
+			"target": "A2.2/maerchen/woerter",
+			"note": "A2.2 Es war einmal · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-51",
+			"kind": "chapter",
+			"target": "A2.2/maerchen/lesen",
+			"note": "A2.2 Es war einmal · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-52",
+			"kind": "chapter",
+			"target": "A2.2/maerchen/grammatik-1",
+			"note": "A2.2 Es war einmal · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-53",
+			"kind": "chapter",
+			"target": "A2.2/maerchen/grammatik-2",
+			"note": "A2.2 Es war einmal · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-54",
+			"kind": "chapter",
+			"target": "A2.2/maerchen/alltag",
+			"note": "A2.2 Es war einmal · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-55",
+			"kind": "chapter",
+			"target": "A2.2/maerchen/uebungen-1",
+			"note": "A2.2 Es war einmal · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-56",
+			"kind": "chapter",
+			"target": "A2.2/maerchen/uebungen-2",
+			"note": "A2.2 Es war einmal · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-57",
+			"kind": "chapter",
+			"target": "A2.2/brauerei/woerter",
+			"note": "A2.2 Das Bier wird gebraut · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-58",
+			"kind": "chapter",
+			"target": "A2.2/brauerei/lesen",
+			"note": "A2.2 Das Bier wird gebraut · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-59",
+			"kind": "chapter",
+			"target": "A2.2/brauerei/grammatik-1",
+			"note": "A2.2 Das Bier wird gebraut · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-60",
+			"kind": "chapter",
+			"target": "A2.2/brauerei/grammatik-2",
+			"note": "A2.2 Das Bier wird gebraut · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-61",
+			"kind": "chapter",
+			"target": "A2.2/brauerei/alltag",
+			"note": "A2.2 Das Bier wird gebraut · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-62",
+			"kind": "chapter",
+			"target": "A2.2/brauerei/uebungen-1",
+			"note": "A2.2 Das Bier wird gebraut · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-63",
+			"kind": "chapter",
+			"target": "A2.2/brauerei/uebungen-2",
+			"note": "A2.2 Das Bier wird gebraut · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-64",
+			"kind": "chapter",
+			"target": "A2.2/rekorde/woerter",
+			"note": "A2.2 Am höchsten · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-65",
+			"kind": "chapter",
+			"target": "A2.2/rekorde/lesen",
+			"note": "A2.2 Am höchsten · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-66",
+			"kind": "chapter",
+			"target": "A2.2/rekorde/grammatik-1",
+			"note": "A2.2 Am höchsten · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-67",
+			"kind": "chapter",
+			"target": "A2.2/rekorde/grammatik-2",
+			"note": "A2.2 Am höchsten · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-68",
+			"kind": "chapter",
+			"target": "A2.2/rekorde/alltag",
+			"note": "A2.2 Am höchsten · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-69",
+			"kind": "chapter",
+			"target": "A2.2/rekorde/uebungen-1",
+			"note": "A2.2 Am höchsten · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-70",
+			"kind": "chapter",
+			"target": "A2.2/rekorde/uebungen-2",
+			"note": "A2.2 Am höchsten · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-71",
+			"kind": "chapter",
+			"target": "A2.2/bibliothek/woerter",
+			"note": "A2.2 Wörter bauen, Sätze bauen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-72",
+			"kind": "chapter",
+			"target": "A2.2/bibliothek/lesen",
+			"note": "A2.2 Wörter bauen, Sätze bauen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-73",
+			"kind": "chapter",
+			"target": "A2.2/bibliothek/grammatik-1",
+			"note": "A2.2 Wörter bauen, Sätze bauen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-74",
+			"kind": "chapter",
+			"target": "A2.2/bibliothek/grammatik-2",
+			"note": "A2.2 Wörter bauen, Sätze bauen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-75",
+			"kind": "chapter",
+			"target": "A2.2/bibliothek/alltag",
+			"note": "A2.2 Wörter bauen, Sätze bauen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-76",
+			"kind": "chapter",
+			"target": "A2.2/bibliothek/uebungen-1",
+			"note": "A2.2 Wörter bauen, Sätze bauen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-77",
+			"kind": "chapter",
+			"target": "A2.2/bibliothek/uebungen-2",
+			"note": "A2.2 Wörter bauen, Sätze bauen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-78",
+			"kind": "chapter",
+			"target": "A2.2/auto/woerter",
+			"note": "A2.2 Annas Auto · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-79",
+			"kind": "chapter",
+			"target": "A2.2/auto/lesen",
+			"note": "A2.2 Annas Auto · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-80",
+			"kind": "chapter",
+			"target": "A2.2/auto/grammatik-1",
+			"note": "A2.2 Annas Auto · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-81",
+			"kind": "chapter",
+			"target": "A2.2/auto/grammatik-2",
+			"note": "A2.2 Annas Auto · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-82",
+			"kind": "chapter",
+			"target": "A2.2/auto/alltag",
+			"note": "A2.2 Annas Auto · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-83",
+			"kind": "chapter",
+			"target": "A2.2/auto/uebungen-1",
+			"note": "A2.2 Annas Auto · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "a22-84",
+			"kind": "chapter",
+			"target": "A2.2/auto/uebungen-2",
+			"note": "A2.2 Annas Auto · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-01",
+			"kind": "chapter",
+			"target": "B1.1/bewerbung/woerter",
+			"note": "B1.1 Die Bewerbung · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-02",
+			"kind": "chapter",
+			"target": "B1.1/bewerbung/lesen",
+			"note": "B1.1 Die Bewerbung · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-03",
+			"kind": "chapter",
+			"target": "B1.1/bewerbung/grammatik-1",
+			"note": "B1.1 Die Bewerbung · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-04",
+			"kind": "chapter",
+			"target": "B1.1/bewerbung/grammatik-2",
+			"note": "B1.1 Die Bewerbung · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-05",
+			"kind": "chapter",
+			"target": "B1.1/bewerbung/alltag",
+			"note": "B1.1 Die Bewerbung · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-06",
+			"kind": "chapter",
+			"target": "B1.1/bewerbung/uebungen-1",
+			"note": "B1.1 Die Bewerbung · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-07",
+			"kind": "chapter",
+			"target": "B1.1/bewerbung/uebungen-2",
+			"note": "B1.1 Die Bewerbung · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-08",
+			"kind": "chapter",
+			"target": "B1.1/garten/woerter",
+			"note": "B1.1 Der kleine Garten · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-09",
+			"kind": "chapter",
+			"target": "B1.1/garten/lesen",
+			"note": "B1.1 Der kleine Garten · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-10",
+			"kind": "chapter",
+			"target": "B1.1/garten/grammatik-1",
+			"note": "B1.1 Der kleine Garten · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-11",
+			"kind": "chapter",
+			"target": "B1.1/garten/grammatik-2",
+			"note": "B1.1 Der kleine Garten · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-12",
+			"kind": "chapter",
+			"target": "B1.1/garten/alltag",
+			"note": "B1.1 Der kleine Garten · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-13",
+			"kind": "chapter",
+			"target": "B1.1/garten/uebungen-1",
+			"note": "B1.1 Der kleine Garten · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-14",
+			"kind": "chapter",
+			"target": "B1.1/garten/uebungen-2",
+			"note": "B1.1 Der kleine Garten · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-15",
+			"kind": "chapter",
+			"target": "B1.1/baeckerei/woerter",
+			"note": "B1.1 Frisches Brot · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-16",
+			"kind": "chapter",
+			"target": "B1.1/baeckerei/lesen",
+			"note": "B1.1 Frisches Brot · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-17",
+			"kind": "chapter",
+			"target": "B1.1/baeckerei/grammatik-1",
+			"note": "B1.1 Frisches Brot · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-18",
+			"kind": "chapter",
+			"target": "B1.1/baeckerei/grammatik-2",
+			"note": "B1.1 Frisches Brot · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-19",
+			"kind": "chapter",
+			"target": "B1.1/baeckerei/alltag",
+			"note": "B1.1 Frisches Brot · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-20",
+			"kind": "chapter",
+			"target": "B1.1/baeckerei/uebungen-1",
+			"note": "B1.1 Frisches Brot · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-21",
+			"kind": "chapter",
+			"target": "B1.1/baeckerei/uebungen-2",
+			"note": "B1.1 Frisches Brot · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-22",
+			"kind": "chapter",
+			"target": "B1.1/silvester/woerter",
+			"note": "B1.1 Alles Gute! · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-23",
+			"kind": "chapter",
+			"target": "B1.1/silvester/lesen",
+			"note": "B1.1 Alles Gute! · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-24",
+			"kind": "chapter",
+			"target": "B1.1/silvester/grammatik-1",
+			"note": "B1.1 Alles Gute! · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-25",
+			"kind": "chapter",
+			"target": "B1.1/silvester/grammatik-2",
+			"note": "B1.1 Alles Gute! · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-26",
+			"kind": "chapter",
+			"target": "B1.1/silvester/alltag",
+			"note": "B1.1 Alles Gute! · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-27",
+			"kind": "chapter",
+			"target": "B1.1/silvester/uebungen-1",
+			"note": "B1.1 Alles Gute! · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-28",
+			"kind": "chapter",
+			"target": "B1.1/silvester/uebungen-2",
+			"note": "B1.1 Alles Gute! · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-29",
+			"kind": "chapter",
+			"target": "B1.1/hotel/woerter",
+			"note": "B1.1 Ich würde gern … · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-30",
+			"kind": "chapter",
+			"target": "B1.1/hotel/lesen",
+			"note": "B1.1 Ich würde gern … · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-31",
+			"kind": "chapter",
+			"target": "B1.1/hotel/grammatik-1",
+			"note": "B1.1 Ich würde gern … · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-32",
+			"kind": "chapter",
+			"target": "B1.1/hotel/grammatik-2",
+			"note": "B1.1 Ich würde gern … · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-33",
+			"kind": "chapter",
+			"target": "B1.1/hotel/alltag",
+			"note": "B1.1 Ich würde gern … · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-34",
+			"kind": "chapter",
+			"target": "B1.1/hotel/uebungen-1",
+			"note": "B1.1 Ich würde gern … · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-35",
+			"kind": "chapter",
+			"target": "B1.1/hotel/uebungen-2",
+			"note": "B1.1 Ich würde gern … · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-36",
+			"kind": "chapter",
+			"target": "B1.1/koenig/woerter",
+			"note": "B1.1 Wenn ich König wäre · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-37",
+			"kind": "chapter",
+			"target": "B1.1/koenig/lesen",
+			"note": "B1.1 Wenn ich König wäre · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-38",
+			"kind": "chapter",
+			"target": "B1.1/koenig/grammatik-1",
+			"note": "B1.1 Wenn ich König wäre · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-39",
+			"kind": "chapter",
+			"target": "B1.1/koenig/grammatik-2",
+			"note": "B1.1 Wenn ich König wäre · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-40",
+			"kind": "chapter",
+			"target": "B1.1/koenig/alltag",
+			"note": "B1.1 Wenn ich König wäre · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-41",
+			"kind": "chapter",
+			"target": "B1.1/koenig/uebungen-1",
+			"note": "B1.1 Wenn ich König wäre · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-42",
+			"kind": "chapter",
+			"target": "B1.1/koenig/uebungen-2",
+			"note": "B1.1 Wenn ich König wäre · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-43",
+			"kind": "chapter",
+			"target": "B1.1/kirmes/woerter",
+			"note": "B1.1 Ich werde … · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-44",
+			"kind": "chapter",
+			"target": "B1.1/kirmes/lesen",
+			"note": "B1.1 Ich werde … · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-45",
+			"kind": "chapter",
+			"target": "B1.1/kirmes/grammatik-1",
+			"note": "B1.1 Ich werde … · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-46",
+			"kind": "chapter",
+			"target": "B1.1/kirmes/grammatik-2",
+			"note": "B1.1 Ich werde … · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-47",
+			"kind": "chapter",
+			"target": "B1.1/kirmes/alltag",
+			"note": "B1.1 Ich werde … · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-48",
+			"kind": "chapter",
+			"target": "B1.1/kirmes/uebungen-1",
+			"note": "B1.1 Ich werde … · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-49",
+			"kind": "chapter",
+			"target": "B1.1/kirmes/uebungen-2",
+			"note": "B1.1 Ich werde … · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-50",
+			"kind": "chapter",
+			"target": "B1.1/verein/woerter",
+			"note": "B1.1 Der Verein, in dem … · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-51",
+			"kind": "chapter",
+			"target": "B1.1/verein/lesen",
+			"note": "B1.1 Der Verein, in dem … · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-52",
+			"kind": "chapter",
+			"target": "B1.1/verein/grammatik-1",
+			"note": "B1.1 Der Verein, in dem … · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-53",
+			"kind": "chapter",
+			"target": "B1.1/verein/grammatik-2",
+			"note": "B1.1 Der Verein, in dem … · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-54",
+			"kind": "chapter",
+			"target": "B1.1/verein/alltag",
+			"note": "B1.1 Der Verein, in dem … · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-55",
+			"kind": "chapter",
+			"target": "B1.1/verein/uebungen-1",
+			"note": "B1.1 Der Verein, in dem … · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-56",
+			"kind": "chapter",
+			"target": "B1.1/verein/uebungen-2",
+			"note": "B1.1 Der Verein, in dem … · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-57",
+			"kind": "chapter",
+			"target": "B1.1/wegen/woerter",
+			"note": "B1.1 Wegen des Wetters · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-58",
+			"kind": "chapter",
+			"target": "B1.1/wegen/lesen",
+			"note": "B1.1 Wegen des Wetters · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-59",
+			"kind": "chapter",
+			"target": "B1.1/wegen/grammatik-1",
+			"note": "B1.1 Wegen des Wetters · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-60",
+			"kind": "chapter",
+			"target": "B1.1/wegen/grammatik-2",
+			"note": "B1.1 Wegen des Wetters · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-61",
+			"kind": "chapter",
+			"target": "B1.1/wegen/alltag",
+			"note": "B1.1 Wegen des Wetters · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-62",
+			"kind": "chapter",
+			"target": "B1.1/wegen/uebungen-1",
+			"note": "B1.1 Wegen des Wetters · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-63",
+			"kind": "chapter",
+			"target": "B1.1/wegen/uebungen-2",
+			"note": "B1.1 Wegen des Wetters · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-64",
+			"kind": "chapter",
+			"target": "B1.1/grenze/woerter",
+			"note": "B1.1 Als ich klein war · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-65",
+			"kind": "chapter",
+			"target": "B1.1/grenze/lesen",
+			"note": "B1.1 Als ich klein war · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-66",
+			"kind": "chapter",
+			"target": "B1.1/grenze/grammatik-1",
+			"note": "B1.1 Als ich klein war · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-67",
+			"kind": "chapter",
+			"target": "B1.1/grenze/grammatik-2",
+			"note": "B1.1 Als ich klein war · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-68",
+			"kind": "chapter",
+			"target": "B1.1/grenze/alltag",
+			"note": "B1.1 Als ich klein war · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-69",
+			"kind": "chapter",
+			"target": "B1.1/grenze/uebungen-1",
+			"note": "B1.1 Als ich klein war · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-70",
+			"kind": "chapter",
+			"target": "B1.1/grenze/uebungen-2",
+			"note": "B1.1 Als ich klein war · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-71",
+			"kind": "chapter",
+			"target": "B1.1/studium/woerter",
+			"note": "B1.1 Ich habe vor, … · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-72",
+			"kind": "chapter",
+			"target": "B1.1/studium/lesen",
+			"note": "B1.1 Ich habe vor, … · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-73",
+			"kind": "chapter",
+			"target": "B1.1/studium/grammatik-1",
+			"note": "B1.1 Ich habe vor, … · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-74",
+			"kind": "chapter",
+			"target": "B1.1/studium/grammatik-2",
+			"note": "B1.1 Ich habe vor, … · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-75",
+			"kind": "chapter",
+			"target": "B1.1/studium/alltag",
+			"note": "B1.1 Ich habe vor, … · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-76",
+			"kind": "chapter",
+			"target": "B1.1/studium/uebungen-1",
+			"note": "B1.1 Ich habe vor, … · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-77",
+			"kind": "chapter",
+			"target": "B1.1/studium/uebungen-2",
+			"note": "B1.1 Ich habe vor, … · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-78",
+			"kind": "chapter",
+			"target": "B1.1/wahl/woerter",
+			"note": "B1.1 Meine Meinung · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-79",
+			"kind": "chapter",
+			"target": "B1.1/wahl/lesen",
+			"note": "B1.1 Meine Meinung · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-80",
+			"kind": "chapter",
+			"target": "B1.1/wahl/grammatik-1",
+			"note": "B1.1 Meine Meinung · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-81",
+			"kind": "chapter",
+			"target": "B1.1/wahl/grammatik-2",
+			"note": "B1.1 Meine Meinung · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-82",
+			"kind": "chapter",
+			"target": "B1.1/wahl/alltag",
+			"note": "B1.1 Meine Meinung · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-83",
+			"kind": "chapter",
+			"target": "B1.1/wahl/uebungen-1",
+			"note": "B1.1 Meine Meinung · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b11-84",
+			"kind": "chapter",
+			"target": "B1.1/wahl/uebungen-2",
+			"note": "B1.1 Meine Meinung · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-01",
+			"kind": "chapter",
+			"target": "B1.2/technik/woerter",
+			"note": "B1.2 Haben Sie es schon versucht? · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-02",
+			"kind": "chapter",
+			"target": "B1.2/technik/lesen",
+			"note": "B1.2 Haben Sie es schon versucht? · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-03",
+			"kind": "chapter",
+			"target": "B1.2/technik/grammatik-1",
+			"note": "B1.2 Haben Sie es schon versucht? · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-04",
+			"kind": "chapter",
+			"target": "B1.2/technik/grammatik-2",
+			"note": "B1.2 Haben Sie es schon versucht? · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-05",
+			"kind": "chapter",
+			"target": "B1.2/technik/alltag",
+			"note": "B1.2 Haben Sie es schon versucht? · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-06",
+			"kind": "chapter",
+			"target": "B1.2/technik/uebungen-1",
+			"note": "B1.2 Haben Sie es schon versucht? · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-07",
+			"kind": "chapter",
+			"target": "B1.2/technik/uebungen-2",
+			"note": "B1.2 Haben Sie es schon versucht? · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-08",
+			"kind": "chapter",
+			"target": "B1.2/rothenburg/woerter",
+			"note": "B1.2 Es war einmal in Rothenburg · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-09",
+			"kind": "chapter",
+			"target": "B1.2/rothenburg/lesen",
+			"note": "B1.2 Es war einmal in Rothenburg · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-10",
+			"kind": "chapter",
+			"target": "B1.2/rothenburg/grammatik-1",
+			"note": "B1.2 Es war einmal in Rothenburg · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-11",
+			"kind": "chapter",
+			"target": "B1.2/rothenburg/grammatik-2",
+			"note": "B1.2 Es war einmal in Rothenburg · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-12",
+			"kind": "chapter",
+			"target": "B1.2/rothenburg/alltag",
+			"note": "B1.2 Es war einmal in Rothenburg · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-13",
+			"kind": "chapter",
+			"target": "B1.2/rothenburg/uebungen-1",
+			"note": "B1.2 Es war einmal in Rothenburg · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-14",
+			"kind": "chapter",
+			"target": "B1.2/rothenburg/uebungen-2",
+			"note": "B1.2 Es war einmal in Rothenburg · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-15",
+			"kind": "chapter",
+			"target": "B1.2/umsteigen/woerter",
+			"note": "B1.2 Der Zug war schon weg · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-16",
+			"kind": "chapter",
+			"target": "B1.2/umsteigen/lesen",
+			"note": "B1.2 Der Zug war schon weg · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-17",
+			"kind": "chapter",
+			"target": "B1.2/umsteigen/grammatik-1",
+			"note": "B1.2 Der Zug war schon weg · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-18",
+			"kind": "chapter",
+			"target": "B1.2/umsteigen/grammatik-2",
+			"note": "B1.2 Der Zug war schon weg · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-19",
+			"kind": "chapter",
+			"target": "B1.2/umsteigen/alltag",
+			"note": "B1.2 Der Zug war schon weg · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-20",
+			"kind": "chapter",
+			"target": "B1.2/umsteigen/uebungen-1",
+			"note": "B1.2 Der Zug war schon weg · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-21",
+			"kind": "chapter",
+			"target": "B1.2/umsteigen/uebungen-2",
+			"note": "B1.2 Der Zug war schon weg · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-22",
+			"kind": "chapter",
+			"target": "B1.2/hochwasser/woerter",
+			"note": "B1.2 Die Stadt wurde gerettet · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-23",
+			"kind": "chapter",
+			"target": "B1.2/hochwasser/lesen",
+			"note": "B1.2 Die Stadt wurde gerettet · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-24",
+			"kind": "chapter",
+			"target": "B1.2/hochwasser/grammatik-1",
+			"note": "B1.2 Die Stadt wurde gerettet · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-25",
+			"kind": "chapter",
+			"target": "B1.2/hochwasser/grammatik-2",
+			"note": "B1.2 Die Stadt wurde gerettet · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-26",
+			"kind": "chapter",
+			"target": "B1.2/hochwasser/alltag",
+			"note": "B1.2 Die Stadt wurde gerettet · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-27",
+			"kind": "chapter",
+			"target": "B1.2/hochwasser/uebungen-1",
+			"note": "B1.2 Die Stadt wurde gerettet · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-28",
+			"kind": "chapter",
+			"target": "B1.2/hochwasser/uebungen-2",
+			"note": "B1.2 Die Stadt wurde gerettet · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-29",
+			"kind": "chapter",
+			"target": "B1.2/muell/woerter",
+			"note": "B1.2 Muss getrennt werden · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-30",
+			"kind": "chapter",
+			"target": "B1.2/muell/lesen",
+			"note": "B1.2 Muss getrennt werden · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-31",
+			"kind": "chapter",
+			"target": "B1.2/muell/grammatik-1",
+			"note": "B1.2 Muss getrennt werden · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-32",
+			"kind": "chapter",
+			"target": "B1.2/muell/grammatik-2",
+			"note": "B1.2 Muss getrennt werden · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-33",
+			"kind": "chapter",
+			"target": "B1.2/muell/alltag",
+			"note": "B1.2 Muss getrennt werden · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-34",
+			"kind": "chapter",
+			"target": "B1.2/muell/uebungen-1",
+			"note": "B1.2 Muss getrennt werden · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-35",
+			"kind": "chapter",
+			"target": "B1.2/muell/uebungen-2",
+			"note": "B1.2 Muss getrennt werden · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-36",
+			"kind": "chapter",
+			"target": "B1.2/redaktion/woerter",
+			"note": "B1.2 Mit dem Kollegen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-37",
+			"kind": "chapter",
+			"target": "B1.2/redaktion/lesen",
+			"note": "B1.2 Mit dem Kollegen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-38",
+			"kind": "chapter",
+			"target": "B1.2/redaktion/grammatik-1",
+			"note": "B1.2 Mit dem Kollegen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-39",
+			"kind": "chapter",
+			"target": "B1.2/redaktion/grammatik-2",
+			"note": "B1.2 Mit dem Kollegen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-40",
+			"kind": "chapter",
+			"target": "B1.2/redaktion/alltag",
+			"note": "B1.2 Mit dem Kollegen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-41",
+			"kind": "chapter",
+			"target": "B1.2/redaktion/uebungen-1",
+			"note": "B1.2 Mit dem Kollegen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-42",
+			"kind": "chapter",
+			"target": "B1.2/redaktion/uebungen-2",
+			"note": "B1.2 Mit dem Kollegen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-43",
+			"kind": "chapter",
+			"target": "B1.2/krankenhaus/woerter",
+			"note": "B1.2 Damit es besser wird · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-44",
+			"kind": "chapter",
+			"target": "B1.2/krankenhaus/lesen",
+			"note": "B1.2 Damit es besser wird · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-45",
+			"kind": "chapter",
+			"target": "B1.2/krankenhaus/grammatik-1",
+			"note": "B1.2 Damit es besser wird · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-46",
+			"kind": "chapter",
+			"target": "B1.2/krankenhaus/grammatik-2",
+			"note": "B1.2 Damit es besser wird · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-47",
+			"kind": "chapter",
+			"target": "B1.2/krankenhaus/alltag",
+			"note": "B1.2 Damit es besser wird · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-48",
+			"kind": "chapter",
+			"target": "B1.2/krankenhaus/uebungen-1",
+			"note": "B1.2 Damit es besser wird · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-49",
+			"kind": "chapter",
+			"target": "B1.2/krankenhaus/uebungen-2",
+			"note": "B1.2 Damit es besser wird · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-50",
+			"kind": "chapter",
+			"target": "B1.2/bio/woerter",
+			"note": "B1.2 Zwar teuer, aber gut · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-51",
+			"kind": "chapter",
+			"target": "B1.2/bio/lesen",
+			"note": "B1.2 Zwar teuer, aber gut · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-52",
+			"kind": "chapter",
+			"target": "B1.2/bio/grammatik-1",
+			"note": "B1.2 Zwar teuer, aber gut · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-53",
+			"kind": "chapter",
+			"target": "B1.2/bio/grammatik-2",
+			"note": "B1.2 Zwar teuer, aber gut · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-54",
+			"kind": "chapter",
+			"target": "B1.2/bio/alltag",
+			"note": "B1.2 Zwar teuer, aber gut · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-55",
+			"kind": "chapter",
+			"target": "B1.2/bio/uebungen-1",
+			"note": "B1.2 Zwar teuer, aber gut · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-56",
+			"kind": "chapter",
+			"target": "B1.2/bio/uebungen-2",
+			"note": "B1.2 Zwar teuer, aber gut · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-57",
+			"kind": "chapter",
+			"target": "B1.2/hochzeit/woerter",
+			"note": "B1.2 Hätte ich doch …! · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-58",
+			"kind": "chapter",
+			"target": "B1.2/hochzeit/lesen",
+			"note": "B1.2 Hätte ich doch …! · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-59",
+			"kind": "chapter",
+			"target": "B1.2/hochzeit/grammatik-1",
+			"note": "B1.2 Hätte ich doch …! · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-60",
+			"kind": "chapter",
+			"target": "B1.2/hochzeit/grammatik-2",
+			"note": "B1.2 Hätte ich doch …! · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-61",
+			"kind": "chapter",
+			"target": "B1.2/hochzeit/alltag",
+			"note": "B1.2 Hätte ich doch …! · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-62",
+			"kind": "chapter",
+			"target": "B1.2/hochzeit/uebungen-1",
+			"note": "B1.2 Hätte ich doch …! · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-63",
+			"kind": "chapter",
+			"target": "B1.2/hochzeit/uebungen-2",
+			"note": "B1.2 Hätte ich doch …! · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-64",
+			"kind": "chapter",
+			"target": "B1.2/ritter/woerter",
+			"note": "B1.2 Etwas ist schiefgegangen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-65",
+			"kind": "chapter",
+			"target": "B1.2/ritter/lesen",
+			"note": "B1.2 Etwas ist schiefgegangen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-66",
+			"kind": "chapter",
+			"target": "B1.2/ritter/grammatik-1",
+			"note": "B1.2 Etwas ist schiefgegangen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-67",
+			"kind": "chapter",
+			"target": "B1.2/ritter/grammatik-2",
+			"note": "B1.2 Etwas ist schiefgegangen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-68",
+			"kind": "chapter",
+			"target": "B1.2/ritter/alltag",
+			"note": "B1.2 Etwas ist schiefgegangen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-69",
+			"kind": "chapter",
+			"target": "B1.2/ritter/uebungen-1",
+			"note": "B1.2 Etwas ist schiefgegangen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-70",
+			"kind": "chapter",
+			"target": "B1.2/ritter/uebungen-2",
+			"note": "B1.2 Etwas ist schiefgegangen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-71",
+			"kind": "chapter",
+			"target": "B1.2/theater/woerter",
+			"note": "B1.2 Das ist ja toll! · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-72",
+			"kind": "chapter",
+			"target": "B1.2/theater/lesen",
+			"note": "B1.2 Das ist ja toll! · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-73",
+			"kind": "chapter",
+			"target": "B1.2/theater/grammatik-1",
+			"note": "B1.2 Das ist ja toll! · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-74",
+			"kind": "chapter",
+			"target": "B1.2/theater/grammatik-2",
+			"note": "B1.2 Das ist ja toll! · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-75",
+			"kind": "chapter",
+			"target": "B1.2/theater/alltag",
+			"note": "B1.2 Das ist ja toll! · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-76",
+			"kind": "chapter",
+			"target": "B1.2/theater/uebungen-1",
+			"note": "B1.2 Das ist ja toll! · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-77",
+			"kind": "chapter",
+			"target": "B1.2/theater/uebungen-2",
+			"note": "B1.2 Das ist ja toll! · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-78",
+			"kind": "chapter",
+			"target": "B1.2/abschied/woerter",
+			"note": "B1.2 Mein Leben, kurz · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-79",
+			"kind": "chapter",
+			"target": "B1.2/abschied/lesen",
+			"note": "B1.2 Mein Leben, kurz · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-80",
+			"kind": "chapter",
+			"target": "B1.2/abschied/grammatik-1",
+			"note": "B1.2 Mein Leben, kurz · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-81",
+			"kind": "chapter",
+			"target": "B1.2/abschied/grammatik-2",
+			"note": "B1.2 Mein Leben, kurz · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-82",
+			"kind": "chapter",
+			"target": "B1.2/abschied/alltag",
+			"note": "B1.2 Mein Leben, kurz · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-83",
+			"kind": "chapter",
+			"target": "B1.2/abschied/uebungen-1",
+			"note": "B1.2 Mein Leben, kurz · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b12-84",
+			"kind": "chapter",
+			"target": "B1.2/abschied/uebungen-2",
+			"note": "B1.2 Mein Leben, kurz · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-01",
+			"kind": "chapter",
+			"target": "B2.1/nachrichten/woerter",
+			"note": "B2.1 Er sagt, er sei krank · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-02",
+			"kind": "chapter",
+			"target": "B2.1/nachrichten/lesen",
+			"note": "B2.1 Er sagt, er sei krank · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-03",
+			"kind": "chapter",
+			"target": "B2.1/nachrichten/grammatik-1",
+			"note": "B2.1 Er sagt, er sei krank · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-04",
+			"kind": "chapter",
+			"target": "B2.1/nachrichten/grammatik-2",
+			"note": "B2.1 Er sagt, er sei krank · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-05",
+			"kind": "chapter",
+			"target": "B2.1/nachrichten/alltag",
+			"note": "B2.1 Er sagt, er sei krank · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-06",
+			"kind": "chapter",
+			"target": "B2.1/nachrichten/uebungen-1",
+			"note": "B2.1 Er sagt, er sei krank · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-07",
+			"kind": "chapter",
+			"target": "B2.1/nachrichten/uebungen-2",
+			"note": "B2.1 Er sagt, er sei krank · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-08",
+			"kind": "chapter",
+			"target": "B2.1/gericht/woerter",
+			"note": "B2.1 Sie sagte, sie sei gekommen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-09",
+			"kind": "chapter",
+			"target": "B2.1/gericht/lesen",
+			"note": "B2.1 Sie sagte, sie sei gekommen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-10",
+			"kind": "chapter",
+			"target": "B2.1/gericht/grammatik-1",
+			"note": "B2.1 Sie sagte, sie sei gekommen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-11",
+			"kind": "chapter",
+			"target": "B2.1/gericht/grammatik-2",
+			"note": "B2.1 Sie sagte, sie sei gekommen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-12",
+			"kind": "chapter",
+			"target": "B2.1/gericht/alltag",
+			"note": "B2.1 Sie sagte, sie sei gekommen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-13",
+			"kind": "chapter",
+			"target": "B2.1/gericht/uebungen-1",
+			"note": "B2.1 Sie sagte, sie sei gekommen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-14",
+			"kind": "chapter",
+			"target": "B2.1/gericht/uebungen-2",
+			"note": "B2.1 Sie sagte, sie sei gekommen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-15",
+			"kind": "chapter",
+			"target": "B2.1/elternabend/woerter",
+			"note": "B2.1 Stolz auf, zufrieden mit · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-16",
+			"kind": "chapter",
+			"target": "B2.1/elternabend/lesen",
+			"note": "B2.1 Stolz auf, zufrieden mit · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-17",
+			"kind": "chapter",
+			"target": "B2.1/elternabend/grammatik-1",
+			"note": "B2.1 Stolz auf, zufrieden mit · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-18",
+			"kind": "chapter",
+			"target": "B2.1/elternabend/grammatik-2",
+			"note": "B2.1 Stolz auf, zufrieden mit · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-19",
+			"kind": "chapter",
+			"target": "B2.1/elternabend/alltag",
+			"note": "B2.1 Stolz auf, zufrieden mit · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-20",
+			"kind": "chapter",
+			"target": "B2.1/elternabend/uebungen-1",
+			"note": "B2.1 Stolz auf, zufrieden mit · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-21",
+			"kind": "chapter",
+			"target": "B2.1/elternabend/uebungen-2",
+			"note": "B2.1 Stolz auf, zufrieden mit · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-22",
+			"kind": "chapter",
+			"target": "B2.1/buergerinitiative/woerter",
+			"note": "B2.1 Die Kritik an der Regierung · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-23",
+			"kind": "chapter",
+			"target": "B2.1/buergerinitiative/lesen",
+			"note": "B2.1 Die Kritik an der Regierung · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-24",
+			"kind": "chapter",
+			"target": "B2.1/buergerinitiative/grammatik-1",
+			"note": "B2.1 Die Kritik an der Regierung · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-25",
+			"kind": "chapter",
+			"target": "B2.1/buergerinitiative/grammatik-2",
+			"note": "B2.1 Die Kritik an der Regierung · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-26",
+			"kind": "chapter",
+			"target": "B2.1/buergerinitiative/alltag",
+			"note": "B2.1 Die Kritik an der Regierung · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-27",
+			"kind": "chapter",
+			"target": "B2.1/buergerinitiative/uebungen-1",
+			"note": "B2.1 Die Kritik an der Regierung · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-28",
+			"kind": "chapter",
+			"target": "B2.1/buergerinitiative/uebungen-2",
+			"note": "B2.1 Die Kritik an der Regierung · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-29",
+			"kind": "chapter",
+			"target": "B2.1/flughafen/woerter",
+			"note": "B2.1 Das Haus ist gebaut worden · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-30",
+			"kind": "chapter",
+			"target": "B2.1/flughafen/lesen",
+			"note": "B2.1 Das Haus ist gebaut worden · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-31",
+			"kind": "chapter",
+			"target": "B2.1/flughafen/grammatik-1",
+			"note": "B2.1 Das Haus ist gebaut worden · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-32",
+			"kind": "chapter",
+			"target": "B2.1/flughafen/grammatik-2",
+			"note": "B2.1 Das Haus ist gebaut worden · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-33",
+			"kind": "chapter",
+			"target": "B2.1/flughafen/alltag",
+			"note": "B2.1 Das Haus ist gebaut worden · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-34",
+			"kind": "chapter",
+			"target": "B2.1/flughafen/uebungen-1",
+			"note": "B2.1 Das Haus ist gebaut worden · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-35",
+			"kind": "chapter",
+			"target": "B2.1/flughafen/uebungen-2",
+			"note": "B2.1 Das Haus ist gebaut worden · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-36",
+			"kind": "chapter",
+			"target": "B2.1/club/woerter",
+			"note": "B2.1 Hier wird getanzt · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-37",
+			"kind": "chapter",
+			"target": "B2.1/club/lesen",
+			"note": "B2.1 Hier wird getanzt · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-38",
+			"kind": "chapter",
+			"target": "B2.1/club/grammatik-1",
+			"note": "B2.1 Hier wird getanzt · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-39",
+			"kind": "chapter",
+			"target": "B2.1/club/grammatik-2",
+			"note": "B2.1 Hier wird getanzt · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-40",
+			"kind": "chapter",
+			"target": "B2.1/club/alltag",
+			"note": "B2.1 Hier wird getanzt · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-41",
+			"kind": "chapter",
+			"target": "B2.1/club/uebungen-1",
+			"note": "B2.1 Hier wird getanzt · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-42",
+			"kind": "chapter",
+			"target": "B2.1/club/uebungen-2",
+			"note": "B2.1 Hier wird getanzt · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-43",
+			"kind": "chapter",
+			"target": "B2.1/tuev/woerter",
+			"note": "B2.1 Ich lasse es machen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-44",
+			"kind": "chapter",
+			"target": "B2.1/tuev/lesen",
+			"note": "B2.1 Ich lasse es machen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-45",
+			"kind": "chapter",
+			"target": "B2.1/tuev/grammatik-1",
+			"note": "B2.1 Ich lasse es machen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-46",
+			"kind": "chapter",
+			"target": "B2.1/tuev/grammatik-2",
+			"note": "B2.1 Ich lasse es machen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-47",
+			"kind": "chapter",
+			"target": "B2.1/tuev/alltag",
+			"note": "B2.1 Ich lasse es machen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-48",
+			"kind": "chapter",
+			"target": "B2.1/tuev/uebungen-1",
+			"note": "B2.1 Ich lasse es machen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-49",
+			"kind": "chapter",
+			"target": "B2.1/tuev/uebungen-2",
+			"note": "B2.1 Ich lasse es machen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-50",
+			"kind": "chapter",
+			"target": "B2.1/finanzamt/woerter",
+			"note": "B2.1 Der um acht ankommende Brief · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-51",
+			"kind": "chapter",
+			"target": "B2.1/finanzamt/lesen",
+			"note": "B2.1 Der um acht ankommende Brief · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-52",
+			"kind": "chapter",
+			"target": "B2.1/finanzamt/grammatik-1",
+			"note": "B2.1 Der um acht ankommende Brief · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-53",
+			"kind": "chapter",
+			"target": "B2.1/finanzamt/grammatik-2",
+			"note": "B2.1 Der um acht ankommende Brief · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-54",
+			"kind": "chapter",
+			"target": "B2.1/finanzamt/alltag",
+			"note": "B2.1 Der um acht ankommende Brief · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-55",
+			"kind": "chapter",
+			"target": "B2.1/finanzamt/uebungen-1",
+			"note": "B2.1 Der um acht ankommende Brief · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-56",
+			"kind": "chapter",
+			"target": "B2.1/finanzamt/uebungen-2",
+			"note": "B2.1 Der um acht ankommende Brief · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-57",
+			"kind": "chapter",
+			"target": "B2.1/pendler/woerter",
+			"note": "B2.1 Morgen mit dem Zug nach Rom · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-58",
+			"kind": "chapter",
+			"target": "B2.1/pendler/lesen",
+			"note": "B2.1 Morgen mit dem Zug nach Rom · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-59",
+			"kind": "chapter",
+			"target": "B2.1/pendler/grammatik-1",
+			"note": "B2.1 Morgen mit dem Zug nach Rom · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-60",
+			"kind": "chapter",
+			"target": "B2.1/pendler/grammatik-2",
+			"note": "B2.1 Morgen mit dem Zug nach Rom · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-61",
+			"kind": "chapter",
+			"target": "B2.1/pendler/alltag",
+			"note": "B2.1 Morgen mit dem Zug nach Rom · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-62",
+			"kind": "chapter",
+			"target": "B2.1/pendler/uebungen-1",
+			"note": "B2.1 Morgen mit dem Zug nach Rom · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-63",
+			"kind": "chapter",
+			"target": "B2.1/pendler/uebungen-2",
+			"note": "B2.1 Morgen mit dem Zug nach Rom · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-64",
+			"kind": "chapter",
+			"target": "B2.1/homeoffice/woerter",
+			"note": "B2.1 Trotzdem · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-65",
+			"kind": "chapter",
+			"target": "B2.1/homeoffice/lesen",
+			"note": "B2.1 Trotzdem · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-66",
+			"kind": "chapter",
+			"target": "B2.1/homeoffice/grammatik-1",
+			"note": "B2.1 Trotzdem · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-67",
+			"kind": "chapter",
+			"target": "B2.1/homeoffice/grammatik-2",
+			"note": "B2.1 Trotzdem · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-68",
+			"kind": "chapter",
+			"target": "B2.1/homeoffice/alltag",
+			"note": "B2.1 Trotzdem · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-69",
+			"kind": "chapter",
+			"target": "B2.1/homeoffice/uebungen-1",
+			"note": "B2.1 Trotzdem · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-70",
+			"kind": "chapter",
+			"target": "B2.1/homeoffice/uebungen-2",
+			"note": "B2.1 Trotzdem · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-71",
+			"kind": "chapter",
+			"target": "B2.1/klima/woerter",
+			"note": "B2.1 Meiner Ansicht nach · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-72",
+			"kind": "chapter",
+			"target": "B2.1/klima/lesen",
+			"note": "B2.1 Meiner Ansicht nach · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-73",
+			"kind": "chapter",
+			"target": "B2.1/klima/grammatik-1",
+			"note": "B2.1 Meiner Ansicht nach · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-74",
+			"kind": "chapter",
+			"target": "B2.1/klima/grammatik-2",
+			"note": "B2.1 Meiner Ansicht nach · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-75",
+			"kind": "chapter",
+			"target": "B2.1/klima/alltag",
+			"note": "B2.1 Meiner Ansicht nach · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-76",
+			"kind": "chapter",
+			"target": "B2.1/klima/uebungen-1",
+			"note": "B2.1 Meiner Ansicht nach · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-77",
+			"kind": "chapter",
+			"target": "B2.1/klima/uebungen-2",
+			"note": "B2.1 Meiner Ansicht nach · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-78",
+			"kind": "chapter",
+			"target": "B2.1/interview/woerter",
+			"note": "B2.1 Frau Huber im Fernsehen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-79",
+			"kind": "chapter",
+			"target": "B2.1/interview/lesen",
+			"note": "B2.1 Frau Huber im Fernsehen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-80",
+			"kind": "chapter",
+			"target": "B2.1/interview/grammatik-1",
+			"note": "B2.1 Frau Huber im Fernsehen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-81",
+			"kind": "chapter",
+			"target": "B2.1/interview/grammatik-2",
+			"note": "B2.1 Frau Huber im Fernsehen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-82",
+			"kind": "chapter",
+			"target": "B2.1/interview/alltag",
+			"note": "B2.1 Frau Huber im Fernsehen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-83",
+			"kind": "chapter",
+			"target": "B2.1/interview/uebungen-1",
+			"note": "B2.1 Frau Huber im Fernsehen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b21-84",
+			"kind": "chapter",
+			"target": "B2.1/interview/uebungen-2",
+			"note": "B2.1 Frau Huber im Fernsehen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-01",
+			"kind": "chapter",
+			"target": "B2.2/forschung/woerter",
+			"note": "B2.2 Damit fing es an · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-02",
+			"kind": "chapter",
+			"target": "B2.2/forschung/lesen",
+			"note": "B2.2 Damit fing es an · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-03",
+			"kind": "chapter",
+			"target": "B2.2/forschung/grammatik-1",
+			"note": "B2.2 Damit fing es an · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-04",
+			"kind": "chapter",
+			"target": "B2.2/forschung/grammatik-2",
+			"note": "B2.2 Damit fing es an · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-05",
+			"kind": "chapter",
+			"target": "B2.2/forschung/alltag",
+			"note": "B2.2 Damit fing es an · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-06",
+			"kind": "chapter",
+			"target": "B2.2/forschung/uebungen-1",
+			"note": "B2.2 Damit fing es an · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-07",
+			"kind": "chapter",
+			"target": "B2.2/forschung/uebungen-2",
+			"note": "B2.2 Damit fing es an · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-08",
+			"kind": "chapter",
+			"target": "B2.2/spielbank/woerter",
+			"note": "B2.2 Wenn ich reich wäre · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-09",
+			"kind": "chapter",
+			"target": "B2.2/spielbank/lesen",
+			"note": "B2.2 Wenn ich reich wäre · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-10",
+			"kind": "chapter",
+			"target": "B2.2/spielbank/grammatik-1",
+			"note": "B2.2 Wenn ich reich wäre · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-11",
+			"kind": "chapter",
+			"target": "B2.2/spielbank/grammatik-2",
+			"note": "B2.2 Wenn ich reich wäre · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-12",
+			"kind": "chapter",
+			"target": "B2.2/spielbank/alltag",
+			"note": "B2.2 Wenn ich reich wäre · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-13",
+			"kind": "chapter",
+			"target": "B2.2/spielbank/uebungen-1",
+			"note": "B2.2 Wenn ich reich wäre · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-14",
+			"kind": "chapter",
+			"target": "B2.2/spielbank/uebungen-2",
+			"note": "B2.2 Wenn ich reich wäre · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-15",
+			"kind": "chapter",
+			"target": "B2.2/huette/woerter",
+			"note": "B2.2 Du hättest anrufen sollen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-16",
+			"kind": "chapter",
+			"target": "B2.2/huette/lesen",
+			"note": "B2.2 Du hättest anrufen sollen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-17",
+			"kind": "chapter",
+			"target": "B2.2/huette/grammatik-1",
+			"note": "B2.2 Du hättest anrufen sollen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-18",
+			"kind": "chapter",
+			"target": "B2.2/huette/grammatik-2",
+			"note": "B2.2 Du hättest anrufen sollen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-19",
+			"kind": "chapter",
+			"target": "B2.2/huette/alltag",
+			"note": "B2.2 Du hättest anrufen sollen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-20",
+			"kind": "chapter",
+			"target": "B2.2/huette/uebungen-1",
+			"note": "B2.2 Du hättest anrufen sollen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-21",
+			"kind": "chapter",
+			"target": "B2.2/huette/uebungen-2",
+			"note": "B2.2 Du hättest anrufen sollen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-22",
+			"kind": "chapter",
+			"target": "B2.2/dorf/woerter",
+			"note": "B2.2 Er soll reich sein · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-23",
+			"kind": "chapter",
+			"target": "B2.2/dorf/lesen",
+			"note": "B2.2 Er soll reich sein · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-24",
+			"kind": "chapter",
+			"target": "B2.2/dorf/grammatik-1",
+			"note": "B2.2 Er soll reich sein · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-25",
+			"kind": "chapter",
+			"target": "B2.2/dorf/grammatik-2",
+			"note": "B2.2 Er soll reich sein · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-26",
+			"kind": "chapter",
+			"target": "B2.2/dorf/alltag",
+			"note": "B2.2 Er soll reich sein · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-27",
+			"kind": "chapter",
+			"target": "B2.2/dorf/uebungen-1",
+			"note": "B2.2 Er soll reich sein · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-28",
+			"kind": "chapter",
+			"target": "B2.2/dorf/uebungen-2",
+			"note": "B2.2 Er soll reich sein · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-29",
+			"kind": "chapter",
+			"target": "B2.2/sturm/woerter",
+			"note": "B2.2 Aufgrund des Wetters · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-30",
+			"kind": "chapter",
+			"target": "B2.2/sturm/lesen",
+			"note": "B2.2 Aufgrund des Wetters · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-31",
+			"kind": "chapter",
+			"target": "B2.2/sturm/grammatik-1",
+			"note": "B2.2 Aufgrund des Wetters · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-32",
+			"kind": "chapter",
+			"target": "B2.2/sturm/grammatik-2",
+			"note": "B2.2 Aufgrund des Wetters · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-33",
+			"kind": "chapter",
+			"target": "B2.2/sturm/alltag",
+			"note": "B2.2 Aufgrund des Wetters · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-34",
+			"kind": "chapter",
+			"target": "B2.2/sturm/uebungen-1",
+			"note": "B2.2 Aufgrund des Wetters · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-35",
+			"kind": "chapter",
+			"target": "B2.2/sturm/uebungen-2",
+			"note": "B2.2 Aufgrund des Wetters · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-36",
+			"kind": "chapter",
+			"target": "B2.2/versicherung/woerter",
+			"note": "B2.2 Eine Entscheidung treffen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-37",
+			"kind": "chapter",
+			"target": "B2.2/versicherung/lesen",
+			"note": "B2.2 Eine Entscheidung treffen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-38",
+			"kind": "chapter",
+			"target": "B2.2/versicherung/grammatik-1",
+			"note": "B2.2 Eine Entscheidung treffen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-39",
+			"kind": "chapter",
+			"target": "B2.2/versicherung/grammatik-2",
+			"note": "B2.2 Eine Entscheidung treffen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-40",
+			"kind": "chapter",
+			"target": "B2.2/versicherung/alltag",
+			"note": "B2.2 Eine Entscheidung treffen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-41",
+			"kind": "chapter",
+			"target": "B2.2/versicherung/uebungen-1",
+			"note": "B2.2 Eine Entscheidung treffen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-42",
+			"kind": "chapter",
+			"target": "B2.2/versicherung/uebungen-2",
+			"note": "B2.2 Eine Entscheidung treffen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-43",
+			"kind": "chapter",
+			"target": "B2.2/werft/woerter",
+			"note": "B2.2 Die geplanten Maßnahmen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-44",
+			"kind": "chapter",
+			"target": "B2.2/werft/lesen",
+			"note": "B2.2 Die geplanten Maßnahmen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-45",
+			"kind": "chapter",
+			"target": "B2.2/werft/grammatik-1",
+			"note": "B2.2 Die geplanten Maßnahmen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-46",
+			"kind": "chapter",
+			"target": "B2.2/werft/grammatik-2",
+			"note": "B2.2 Die geplanten Maßnahmen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-47",
+			"kind": "chapter",
+			"target": "B2.2/werft/alltag",
+			"note": "B2.2 Die geplanten Maßnahmen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-48",
+			"kind": "chapter",
+			"target": "B2.2/werft/uebungen-1",
+			"note": "B2.2 Die geplanten Maßnahmen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-49",
+			"kind": "chapter",
+			"target": "B2.2/werft/uebungen-2",
+			"note": "B2.2 Die geplanten Maßnahmen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-50",
+			"kind": "chapter",
+			"target": "B2.2/schlaf/woerter",
+			"note": "B2.2 Wer gut schläft · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-51",
+			"kind": "chapter",
+			"target": "B2.2/schlaf/lesen",
+			"note": "B2.2 Wer gut schläft · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-52",
+			"kind": "chapter",
+			"target": "B2.2/schlaf/grammatik-1",
+			"note": "B2.2 Wer gut schläft · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-53",
+			"kind": "chapter",
+			"target": "B2.2/schlaf/grammatik-2",
+			"note": "B2.2 Wer gut schläft · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-54",
+			"kind": "chapter",
+			"target": "B2.2/schlaf/alltag",
+			"note": "B2.2 Wer gut schläft · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-55",
+			"kind": "chapter",
+			"target": "B2.2/schlaf/uebungen-1",
+			"note": "B2.2 Wer gut schläft · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-56",
+			"kind": "chapter",
+			"target": "B2.2/schlaf/uebungen-2",
+			"note": "B2.2 Wer gut schläft · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-57",
+			"kind": "chapter",
+			"target": "B2.2/buchmesse/woerter",
+			"note": "B2.2 So schön es auch war · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-58",
+			"kind": "chapter",
+			"target": "B2.2/buchmesse/lesen",
+			"note": "B2.2 So schön es auch war · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-59",
+			"kind": "chapter",
+			"target": "B2.2/buchmesse/grammatik-1",
+			"note": "B2.2 So schön es auch war · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-60",
+			"kind": "chapter",
+			"target": "B2.2/buchmesse/grammatik-2",
+			"note": "B2.2 So schön es auch war · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-61",
+			"kind": "chapter",
+			"target": "B2.2/buchmesse/alltag",
+			"note": "B2.2 So schön es auch war · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-62",
+			"kind": "chapter",
+			"target": "B2.2/buchmesse/uebungen-1",
+			"note": "B2.2 So schön es auch war · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-63",
+			"kind": "chapter",
+			"target": "B2.2/buchmesse/uebungen-2",
+			"note": "B2.2 So schön es auch war · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-64",
+			"kind": "chapter",
+			"target": "B2.2/tausch/woerter",
+			"note": "B2.2 Ja, ich habe welche · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-65",
+			"kind": "chapter",
+			"target": "B2.2/tausch/lesen",
+			"note": "B2.2 Ja, ich habe welche · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-66",
+			"kind": "chapter",
+			"target": "B2.2/tausch/grammatik-1",
+			"note": "B2.2 Ja, ich habe welche · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-67",
+			"kind": "chapter",
+			"target": "B2.2/tausch/grammatik-2",
+			"note": "B2.2 Ja, ich habe welche · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-68",
+			"kind": "chapter",
+			"target": "B2.2/tausch/alltag",
+			"note": "B2.2 Ja, ich habe welche · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-69",
+			"kind": "chapter",
+			"target": "B2.2/tausch/uebungen-1",
+			"note": "B2.2 Ja, ich habe welche · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-70",
+			"kind": "chapter",
+			"target": "B2.2/tausch/uebungen-2",
+			"note": "B2.2 Ja, ich habe welche · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-71",
+			"kind": "chapter",
+			"target": "B2.2/miete/woerter",
+			"note": "B2.2 Trotz mehrfacher Zusagen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-72",
+			"kind": "chapter",
+			"target": "B2.2/miete/lesen",
+			"note": "B2.2 Trotz mehrfacher Zusagen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-73",
+			"kind": "chapter",
+			"target": "B2.2/miete/grammatik-1",
+			"note": "B2.2 Trotz mehrfacher Zusagen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-74",
+			"kind": "chapter",
+			"target": "B2.2/miete/grammatik-2",
+			"note": "B2.2 Trotz mehrfacher Zusagen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-75",
+			"kind": "chapter",
+			"target": "B2.2/miete/alltag",
+			"note": "B2.2 Trotz mehrfacher Zusagen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-76",
+			"kind": "chapter",
+			"target": "B2.2/miete/uebungen-1",
+			"note": "B2.2 Trotz mehrfacher Zusagen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-77",
+			"kind": "chapter",
+			"target": "B2.2/miete/uebungen-2",
+			"note": "B2.2 Trotz mehrfacher Zusagen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-78",
+			"kind": "chapter",
+			"target": "B2.2/fleisch/woerter",
+			"note": "B2.2 Einerseits, andererseits · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-79",
+			"kind": "chapter",
+			"target": "B2.2/fleisch/lesen",
+			"note": "B2.2 Einerseits, andererseits · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-80",
+			"kind": "chapter",
+			"target": "B2.2/fleisch/grammatik-1",
+			"note": "B2.2 Einerseits, andererseits · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-81",
+			"kind": "chapter",
+			"target": "B2.2/fleisch/grammatik-2",
+			"note": "B2.2 Einerseits, andererseits · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-82",
+			"kind": "chapter",
+			"target": "B2.2/fleisch/alltag",
+			"note": "B2.2 Einerseits, andererseits · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-83",
+			"kind": "chapter",
+			"target": "B2.2/fleisch/uebungen-1",
+			"note": "B2.2 Einerseits, andererseits · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "b22-84",
+			"kind": "chapter",
+			"target": "B2.2/fleisch/uebungen-2",
+			"note": "B2.2 Einerseits, andererseits · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-01",
+			"kind": "chapter",
+			"target": "C1.1/studie/woerter",
+			"note": "C1.1 Die Studie zeigt · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-02",
+			"kind": "chapter",
+			"target": "C1.1/studie/lesen",
+			"note": "C1.1 Die Studie zeigt · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-03",
+			"kind": "chapter",
+			"target": "C1.1/studie/grammatik-1",
+			"note": "C1.1 Die Studie zeigt · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-04",
+			"kind": "chapter",
+			"target": "C1.1/studie/grammatik-2",
+			"note": "C1.1 Die Studie zeigt · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-05",
+			"kind": "chapter",
+			"target": "C1.1/studie/alltag",
+			"note": "C1.1 Die Studie zeigt · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-06",
+			"kind": "chapter",
+			"target": "C1.1/studie/uebungen-1",
+			"note": "C1.1 Die Studie zeigt · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-07",
+			"kind": "chapter",
+			"target": "C1.1/studie/uebungen-2",
+			"note": "C1.1 Die Studie zeigt · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-08",
+			"kind": "chapter",
+			"target": "C1.1/mahnmal/woerter",
+			"note": "C1.1 Trotz der Warnung · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-09",
+			"kind": "chapter",
+			"target": "C1.1/mahnmal/lesen",
+			"note": "C1.1 Trotz der Warnung · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-10",
+			"kind": "chapter",
+			"target": "C1.1/mahnmal/grammatik-1",
+			"note": "C1.1 Trotz der Warnung · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-11",
+			"kind": "chapter",
+			"target": "C1.1/mahnmal/grammatik-2",
+			"note": "C1.1 Trotz der Warnung · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-12",
+			"kind": "chapter",
+			"target": "C1.1/mahnmal/alltag",
+			"note": "C1.1 Trotz der Warnung · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-13",
+			"kind": "chapter",
+			"target": "C1.1/mahnmal/uebungen-1",
+			"note": "C1.1 Trotz der Warnung · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-14",
+			"kind": "chapter",
+			"target": "C1.1/mahnmal/uebungen-2",
+			"note": "C1.1 Trotz der Warnung · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-15",
+			"kind": "chapter",
+			"target": "C1.1/karlsruhe/woerter",
+			"note": "C1.1 Angesichts der Lage · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-16",
+			"kind": "chapter",
+			"target": "C1.1/karlsruhe/lesen",
+			"note": "C1.1 Angesichts der Lage · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-17",
+			"kind": "chapter",
+			"target": "C1.1/karlsruhe/grammatik-1",
+			"note": "C1.1 Angesichts der Lage · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-18",
+			"kind": "chapter",
+			"target": "C1.1/karlsruhe/grammatik-2",
+			"note": "C1.1 Angesichts der Lage · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-19",
+			"kind": "chapter",
+			"target": "C1.1/karlsruhe/alltag",
+			"note": "C1.1 Angesichts der Lage · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-20",
+			"kind": "chapter",
+			"target": "C1.1/karlsruhe/uebungen-1",
+			"note": "C1.1 Angesichts der Lage · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-21",
+			"kind": "chapter",
+			"target": "C1.1/karlsruhe/uebungen-2",
+			"note": "C1.1 Angesichts der Lage · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-22",
+			"kind": "chapter",
+			"target": "C1.1/boerse/woerter",
+			"note": "C1.1 Von 40 auf 60 Prozent · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-23",
+			"kind": "chapter",
+			"target": "C1.1/boerse/lesen",
+			"note": "C1.1 Von 40 auf 60 Prozent · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-24",
+			"kind": "chapter",
+			"target": "C1.1/boerse/grammatik-1",
+			"note": "C1.1 Von 40 auf 60 Prozent · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-25",
+			"kind": "chapter",
+			"target": "C1.1/boerse/grammatik-2",
+			"note": "C1.1 Von 40 auf 60 Prozent · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-26",
+			"kind": "chapter",
+			"target": "C1.1/boerse/alltag",
+			"note": "C1.1 Von 40 auf 60 Prozent · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-27",
+			"kind": "chapter",
+			"target": "C1.1/boerse/uebungen-1",
+			"note": "C1.1 Von 40 auf 60 Prozent · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-28",
+			"kind": "chapter",
+			"target": "C1.1/boerse/uebungen-2",
+			"note": "C1.1 Von 40 auf 60 Prozent · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-29",
+			"kind": "chapter",
+			"target": "C1.1/konzern/woerter",
+			"note": "C1.1 Zur Anwendung kommen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-30",
+			"kind": "chapter",
+			"target": "C1.1/konzern/lesen",
+			"note": "C1.1 Zur Anwendung kommen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-31",
+			"kind": "chapter",
+			"target": "C1.1/konzern/grammatik-1",
+			"note": "C1.1 Zur Anwendung kommen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-32",
+			"kind": "chapter",
+			"target": "C1.1/konzern/grammatik-2",
+			"note": "C1.1 Zur Anwendung kommen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-33",
+			"kind": "chapter",
+			"target": "C1.1/konzern/alltag",
+			"note": "C1.1 Zur Anwendung kommen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-34",
+			"kind": "chapter",
+			"target": "C1.1/konzern/uebungen-1",
+			"note": "C1.1 Zur Anwendung kommen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-35",
+			"kind": "chapter",
+			"target": "C1.1/konzern/uebungen-2",
+			"note": "C1.1 Zur Anwendung kommen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-36",
+			"kind": "chapter",
+			"target": "C1.1/charite/woerter",
+			"note": "C1.1 Der noch zu prüfende Antrag · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-37",
+			"kind": "chapter",
+			"target": "C1.1/charite/lesen",
+			"note": "C1.1 Der noch zu prüfende Antrag · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-38",
+			"kind": "chapter",
+			"target": "C1.1/charite/grammatik-1",
+			"note": "C1.1 Der noch zu prüfende Antrag · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-39",
+			"kind": "chapter",
+			"target": "C1.1/charite/grammatik-2",
+			"note": "C1.1 Der noch zu prüfende Antrag · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-40",
+			"kind": "chapter",
+			"target": "C1.1/charite/alltag",
+			"note": "C1.1 Der noch zu prüfende Antrag · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-41",
+			"kind": "chapter",
+			"target": "C1.1/charite/uebungen-1",
+			"note": "C1.1 Der noch zu prüfende Antrag · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-42",
+			"kind": "chapter",
+			"target": "C1.1/charite/uebungen-2",
+			"note": "C1.1 Der noch zu prüfende Antrag · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-43",
+			"kind": "chapter",
+			"target": "C1.1/museumsinsel/woerter",
+			"note": "C1.1 Mit Dr. Weber, der Leiterin · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-44",
+			"kind": "chapter",
+			"target": "C1.1/museumsinsel/lesen",
+			"note": "C1.1 Mit Dr. Weber, der Leiterin · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-45",
+			"kind": "chapter",
+			"target": "C1.1/museumsinsel/grammatik-1",
+			"note": "C1.1 Mit Dr. Weber, der Leiterin · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-46",
+			"kind": "chapter",
+			"target": "C1.1/museumsinsel/grammatik-2",
+			"note": "C1.1 Mit Dr. Weber, der Leiterin · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-47",
+			"kind": "chapter",
+			"target": "C1.1/museumsinsel/alltag",
+			"note": "C1.1 Mit Dr. Weber, der Leiterin · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-48",
+			"kind": "chapter",
+			"target": "C1.1/museumsinsel/uebungen-1",
+			"note": "C1.1 Mit Dr. Weber, der Leiterin · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-49",
+			"kind": "chapter",
+			"target": "C1.1/museumsinsel/uebungen-2",
+			"note": "C1.1 Mit Dr. Weber, der Leiterin · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-50",
+			"kind": "chapter",
+			"target": "C1.1/wittenberg/woerter",
+			"note": "C1.1 Da klopft es · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-51",
+			"kind": "chapter",
+			"target": "C1.1/wittenberg/lesen",
+			"note": "C1.1 Da klopft es · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-52",
+			"kind": "chapter",
+			"target": "C1.1/wittenberg/grammatik-1",
+			"note": "C1.1 Da klopft es · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-53",
+			"kind": "chapter",
+			"target": "C1.1/wittenberg/grammatik-2",
+			"note": "C1.1 Da klopft es · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-54",
+			"kind": "chapter",
+			"target": "C1.1/wittenberg/alltag",
+			"note": "C1.1 Da klopft es · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-55",
+			"kind": "chapter",
+			"target": "C1.1/wittenberg/uebungen-1",
+			"note": "C1.1 Da klopft es · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-56",
+			"kind": "chapter",
+			"target": "C1.1/wittenberg/uebungen-2",
+			"note": "C1.1 Da klopft es · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-57",
+			"kind": "chapter",
+			"target": "C1.1/fraunhofer/woerter",
+			"note": "C1.1 Sollte es regnen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-58",
+			"kind": "chapter",
+			"target": "C1.1/fraunhofer/lesen",
+			"note": "C1.1 Sollte es regnen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-59",
+			"kind": "chapter",
+			"target": "C1.1/fraunhofer/grammatik-1",
+			"note": "C1.1 Sollte es regnen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-60",
+			"kind": "chapter",
+			"target": "C1.1/fraunhofer/grammatik-2",
+			"note": "C1.1 Sollte es regnen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-61",
+			"kind": "chapter",
+			"target": "C1.1/fraunhofer/alltag",
+			"note": "C1.1 Sollte es regnen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-62",
+			"kind": "chapter",
+			"target": "C1.1/fraunhofer/uebungen-1",
+			"note": "C1.1 Sollte es regnen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-63",
+			"kind": "chapter",
+			"target": "C1.1/fraunhofer/uebungen-2",
+			"note": "C1.1 Sollte es regnen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-64",
+			"kind": "chapter",
+			"target": "C1.1/zollverein/woerter",
+			"note": "C1.1 Gleichwohl · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-65",
+			"kind": "chapter",
+			"target": "C1.1/zollverein/lesen",
+			"note": "C1.1 Gleichwohl · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-66",
+			"kind": "chapter",
+			"target": "C1.1/zollverein/grammatik-1",
+			"note": "C1.1 Gleichwohl · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-67",
+			"kind": "chapter",
+			"target": "C1.1/zollverein/grammatik-2",
+			"note": "C1.1 Gleichwohl · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-68",
+			"kind": "chapter",
+			"target": "C1.1/zollverein/alltag",
+			"note": "C1.1 Gleichwohl · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-69",
+			"kind": "chapter",
+			"target": "C1.1/zollverein/uebungen-1",
+			"note": "C1.1 Gleichwohl · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-70",
+			"kind": "chapter",
+			"target": "C1.1/zollverein/uebungen-2",
+			"note": "C1.1 Gleichwohl · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-71",
+			"kind": "chapter",
+			"target": "C1.1/ankommen/woerter",
+			"note": "C1.1 Im Folgenden möchte ich · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-72",
+			"kind": "chapter",
+			"target": "C1.1/ankommen/lesen",
+			"note": "C1.1 Im Folgenden möchte ich · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-73",
+			"kind": "chapter",
+			"target": "C1.1/ankommen/grammatik-1",
+			"note": "C1.1 Im Folgenden möchte ich · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-74",
+			"kind": "chapter",
+			"target": "C1.1/ankommen/grammatik-2",
+			"note": "C1.1 Im Folgenden möchte ich · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-75",
+			"kind": "chapter",
+			"target": "C1.1/ankommen/alltag",
+			"note": "C1.1 Im Folgenden möchte ich · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-76",
+			"kind": "chapter",
+			"target": "C1.1/ankommen/uebungen-1",
+			"note": "C1.1 Im Folgenden möchte ich · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-77",
+			"kind": "chapter",
+			"target": "C1.1/ankommen/uebungen-2",
+			"note": "C1.1 Im Folgenden möchte ich · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-78",
+			"kind": "chapter",
+			"target": "C1.1/presse/woerter",
+			"note": "C1.1 Ich formuliere das noch einmal · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-79",
+			"kind": "chapter",
+			"target": "C1.1/presse/lesen",
+			"note": "C1.1 Ich formuliere das noch einmal · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-80",
+			"kind": "chapter",
+			"target": "C1.1/presse/grammatik-1",
+			"note": "C1.1 Ich formuliere das noch einmal · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-81",
+			"kind": "chapter",
+			"target": "C1.1/presse/grammatik-2",
+			"note": "C1.1 Ich formuliere das noch einmal · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-82",
+			"kind": "chapter",
+			"target": "C1.1/presse/alltag",
+			"note": "C1.1 Ich formuliere das noch einmal · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-83",
+			"kind": "chapter",
+			"target": "C1.1/presse/uebungen-1",
+			"note": "C1.1 Ich formuliere das noch einmal · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c11-84",
+			"kind": "chapter",
+			"target": "C1.1/presse/uebungen-2",
+			"note": "C1.1 Ich formuliere das noch einmal · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-01",
+			"kind": "chapter",
+			"target": "C1.2/galerie/woerter",
+			"note": "C1.2 Das ist bemerkenswert · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-02",
+			"kind": "chapter",
+			"target": "C1.2/galerie/lesen",
+			"note": "C1.2 Das ist bemerkenswert · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-03",
+			"kind": "chapter",
+			"target": "C1.2/galerie/grammatik-1",
+			"note": "C1.2 Das ist bemerkenswert · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-04",
+			"kind": "chapter",
+			"target": "C1.2/galerie/grammatik-2",
+			"note": "C1.2 Das ist bemerkenswert · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-05",
+			"kind": "chapter",
+			"target": "C1.2/galerie/alltag",
+			"note": "C1.2 Das ist bemerkenswert · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-06",
+			"kind": "chapter",
+			"target": "C1.2/galerie/uebungen-1",
+			"note": "C1.2 Das ist bemerkenswert · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-07",
+			"kind": "chapter",
+			"target": "C1.2/galerie/uebungen-2",
+			"note": "C1.2 Das ist bemerkenswert · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-08",
+			"kind": "chapter",
+			"target": "C1.2/tatort/woerter",
+			"note": "C1.2 Er dürfte im Stau stehen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-09",
+			"kind": "chapter",
+			"target": "C1.2/tatort/lesen",
+			"note": "C1.2 Er dürfte im Stau stehen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-10",
+			"kind": "chapter",
+			"target": "C1.2/tatort/grammatik-1",
+			"note": "C1.2 Er dürfte im Stau stehen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-11",
+			"kind": "chapter",
+			"target": "C1.2/tatort/grammatik-2",
+			"note": "C1.2 Er dürfte im Stau stehen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-12",
+			"kind": "chapter",
+			"target": "C1.2/tatort/alltag",
+			"note": "C1.2 Er dürfte im Stau stehen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-13",
+			"kind": "chapter",
+			"target": "C1.2/tatort/uebungen-1",
+			"note": "C1.2 Er dürfte im Stau stehen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-14",
+			"kind": "chapter",
+			"target": "C1.2/tatort/uebungen-2",
+			"note": "C1.2 Er dürfte im Stau stehen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-15",
+			"kind": "chapter",
+			"target": "C1.2/boulevard/woerter",
+			"note": "C1.2 Soll gestohlen worden sein · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-16",
+			"kind": "chapter",
+			"target": "C1.2/boulevard/lesen",
+			"note": "C1.2 Soll gestohlen worden sein · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-17",
+			"kind": "chapter",
+			"target": "C1.2/boulevard/grammatik-1",
+			"note": "C1.2 Soll gestohlen worden sein · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-18",
+			"kind": "chapter",
+			"target": "C1.2/boulevard/grammatik-2",
+			"note": "C1.2 Soll gestohlen worden sein · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-19",
+			"kind": "chapter",
+			"target": "C1.2/boulevard/alltag",
+			"note": "C1.2 Soll gestohlen worden sein · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-20",
+			"kind": "chapter",
+			"target": "C1.2/boulevard/uebungen-1",
+			"note": "C1.2 Soll gestohlen worden sein · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-21",
+			"kind": "chapter",
+			"target": "C1.2/boulevard/uebungen-2",
+			"note": "C1.2 Soll gestohlen worden sein · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-22",
+			"kind": "chapter",
+			"target": "C1.2/kabarett/woerter",
+			"note": "C1.2 Das ist ja großartig gelaufen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-23",
+			"kind": "chapter",
+			"target": "C1.2/kabarett/lesen",
+			"note": "C1.2 Das ist ja großartig gelaufen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-24",
+			"kind": "chapter",
+			"target": "C1.2/kabarett/grammatik-1",
+			"note": "C1.2 Das ist ja großartig gelaufen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-25",
+			"kind": "chapter",
+			"target": "C1.2/kabarett/grammatik-2",
+			"note": "C1.2 Das ist ja großartig gelaufen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-26",
+			"kind": "chapter",
+			"target": "C1.2/kabarett/alltag",
+			"note": "C1.2 Das ist ja großartig gelaufen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-27",
+			"kind": "chapter",
+			"target": "C1.2/kabarett/uebungen-1",
+			"note": "C1.2 Das ist ja großartig gelaufen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-28",
+			"kind": "chapter",
+			"target": "C1.2/kabarett/uebungen-2",
+			"note": "C1.2 Das ist ja großartig gelaufen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-29",
+			"kind": "chapter",
+			"target": "C1.2/fahrschule/woerter",
+			"note": "C1.2 Den Pfosten umfahren · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-30",
+			"kind": "chapter",
+			"target": "C1.2/fahrschule/lesen",
+			"note": "C1.2 Den Pfosten umfahren · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-31",
+			"kind": "chapter",
+			"target": "C1.2/fahrschule/grammatik-1",
+			"note": "C1.2 Den Pfosten umfahren · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-32",
+			"kind": "chapter",
+			"target": "C1.2/fahrschule/grammatik-2",
+			"note": "C1.2 Den Pfosten umfahren · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-33",
+			"kind": "chapter",
+			"target": "C1.2/fahrschule/alltag",
+			"note": "C1.2 Den Pfosten umfahren · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-34",
+			"kind": "chapter",
+			"target": "C1.2/fahrschule/uebungen-1",
+			"note": "C1.2 Den Pfosten umfahren · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-35",
+			"kind": "chapter",
+			"target": "C1.2/fahrschule/uebungen-2",
+			"note": "C1.2 Den Pfosten umfahren · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-36",
+			"kind": "chapter",
+			"target": "C1.2/gender/woerter",
+			"note": "C1.2 Liebe Studierende! · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-37",
+			"kind": "chapter",
+			"target": "C1.2/gender/lesen",
+			"note": "C1.2 Liebe Studierende! · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-38",
+			"kind": "chapter",
+			"target": "C1.2/gender/grammatik-1",
+			"note": "C1.2 Liebe Studierende! · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-39",
+			"kind": "chapter",
+			"target": "C1.2/gender/grammatik-2",
+			"note": "C1.2 Liebe Studierende! · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-40",
+			"kind": "chapter",
+			"target": "C1.2/gender/alltag",
+			"note": "C1.2 Liebe Studierende! · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-41",
+			"kind": "chapter",
+			"target": "C1.2/gender/uebungen-1",
+			"note": "C1.2 Liebe Studierende! · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-42",
+			"kind": "chapter",
+			"target": "C1.2/gender/uebungen-2",
+			"note": "C1.2 Liebe Studierende! · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-43",
+			"kind": "chapter",
+			"target": "C1.2/stammtisch/woerter",
+			"note": "C1.2 Ein solcher Schritt · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-44",
+			"kind": "chapter",
+			"target": "C1.2/stammtisch/lesen",
+			"note": "C1.2 Ein solcher Schritt · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-45",
+			"kind": "chapter",
+			"target": "C1.2/stammtisch/grammatik-1",
+			"note": "C1.2 Ein solcher Schritt · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-46",
+			"kind": "chapter",
+			"target": "C1.2/stammtisch/grammatik-2",
+			"note": "C1.2 Ein solcher Schritt · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-47",
+			"kind": "chapter",
+			"target": "C1.2/stammtisch/alltag",
+			"note": "C1.2 Ein solcher Schritt · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-48",
+			"kind": "chapter",
+			"target": "C1.2/stammtisch/uebungen-1",
+			"note": "C1.2 Ein solcher Schritt · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-49",
+			"kind": "chapter",
+			"target": "C1.2/stammtisch/uebungen-2",
+			"note": "C1.2 Ein solcher Schritt · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-50",
+			"kind": "chapter",
+			"target": "C1.2/bescheid/woerter",
+			"note": "C1.2 Die Regeln sind zu beachten · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-51",
+			"kind": "chapter",
+			"target": "C1.2/bescheid/lesen",
+			"note": "C1.2 Die Regeln sind zu beachten · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-52",
+			"kind": "chapter",
+			"target": "C1.2/bescheid/grammatik-1",
+			"note": "C1.2 Die Regeln sind zu beachten · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-53",
+			"kind": "chapter",
+			"target": "C1.2/bescheid/grammatik-2",
+			"note": "C1.2 Die Regeln sind zu beachten · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-54",
+			"kind": "chapter",
+			"target": "C1.2/bescheid/alltag",
+			"note": "C1.2 Die Regeln sind zu beachten · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-55",
+			"kind": "chapter",
+			"target": "C1.2/bescheid/uebungen-1",
+			"note": "C1.2 Die Regeln sind zu beachten · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-56",
+			"kind": "chapter",
+			"target": "C1.2/bescheid/uebungen-2",
+			"note": "C1.2 Die Regeln sind zu beachten · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-57",
+			"kind": "chapter",
+			"target": "C1.2/hausgruppe/woerter",
+			"note": "C1.2 Wäre es Ihnen möglich · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-58",
+			"kind": "chapter",
+			"target": "C1.2/hausgruppe/lesen",
+			"note": "C1.2 Wäre es Ihnen möglich · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-59",
+			"kind": "chapter",
+			"target": "C1.2/hausgruppe/grammatik-1",
+			"note": "C1.2 Wäre es Ihnen möglich · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-60",
+			"kind": "chapter",
+			"target": "C1.2/hausgruppe/grammatik-2",
+			"note": "C1.2 Wäre es Ihnen möglich · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-61",
+			"kind": "chapter",
+			"target": "C1.2/hausgruppe/alltag",
+			"note": "C1.2 Wäre es Ihnen möglich · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-62",
+			"kind": "chapter",
+			"target": "C1.2/hausgruppe/uebungen-1",
+			"note": "C1.2 Wäre es Ihnen möglich · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-63",
+			"kind": "chapter",
+			"target": "C1.2/hausgruppe/uebungen-2",
+			"note": "C1.2 Wäre es Ihnen möglich · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-64",
+			"kind": "chapter",
+			"target": "C1.2/festrede/woerter",
+			"note": "C1.2 Dies dürfte darauf zurückzuführen sein · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-65",
+			"kind": "chapter",
+			"target": "C1.2/festrede/lesen",
+			"note": "C1.2 Dies dürfte darauf zurückzuführen sein · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-66",
+			"kind": "chapter",
+			"target": "C1.2/festrede/grammatik-1",
+			"note": "C1.2 Dies dürfte darauf zurückzuführen sein · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-67",
+			"kind": "chapter",
+			"target": "C1.2/festrede/grammatik-2",
+			"note": "C1.2 Dies dürfte darauf zurückzuführen sein · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-68",
+			"kind": "chapter",
+			"target": "C1.2/festrede/alltag",
+			"note": "C1.2 Dies dürfte darauf zurückzuführen sein · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-69",
+			"kind": "chapter",
+			"target": "C1.2/festrede/uebungen-1",
+			"note": "C1.2 Dies dürfte darauf zurückzuführen sein · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-70",
+			"kind": "chapter",
+			"target": "C1.2/festrede/uebungen-2",
+			"note": "C1.2 Dies dürfte darauf zurückzuführen sein · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-71",
+			"kind": "chapter",
+			"target": "C1.2/literatur/woerter",
+			"note": "C1.2 Den Umschlag noch in der Hand · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-72",
+			"kind": "chapter",
+			"target": "C1.2/literatur/lesen",
+			"note": "C1.2 Den Umschlag noch in der Hand · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-73",
+			"kind": "chapter",
+			"target": "C1.2/literatur/grammatik-1",
+			"note": "C1.2 Den Umschlag noch in der Hand · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-74",
+			"kind": "chapter",
+			"target": "C1.2/literatur/grammatik-2",
+			"note": "C1.2 Den Umschlag noch in der Hand · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-75",
+			"kind": "chapter",
+			"target": "C1.2/literatur/alltag",
+			"note": "C1.2 Den Umschlag noch in der Hand · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-76",
+			"kind": "chapter",
+			"target": "C1.2/literatur/uebungen-1",
+			"note": "C1.2 Den Umschlag noch in der Hand · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-77",
+			"kind": "chapter",
+			"target": "C1.2/literatur/uebungen-2",
+			"note": "C1.2 Den Umschlag noch in der Hand · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-78",
+			"kind": "chapter",
+			"target": "C1.2/trauer/woerter",
+			"note": "C1.2 Mein herzliches Beileid · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-79",
+			"kind": "chapter",
+			"target": "C1.2/trauer/lesen",
+			"note": "C1.2 Mein herzliches Beileid · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-80",
+			"kind": "chapter",
+			"target": "C1.2/trauer/grammatik-1",
+			"note": "C1.2 Mein herzliches Beileid · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-81",
+			"kind": "chapter",
+			"target": "C1.2/trauer/grammatik-2",
+			"note": "C1.2 Mein herzliches Beileid · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-82",
+			"kind": "chapter",
+			"target": "C1.2/trauer/alltag",
+			"note": "C1.2 Mein herzliches Beileid · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-83",
+			"kind": "chapter",
+			"target": "C1.2/trauer/uebungen-1",
+			"note": "C1.2 Mein herzliches Beileid · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c12-84",
+			"kind": "chapter",
+			"target": "C1.2/trauer/uebungen-2",
+			"note": "C1.2 Mein herzliches Beileid · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-01",
+			"kind": "chapter",
+			"target": "C2.1/gericht/woerter",
+			"note": "C2.1 Ich habe Einspruch eingelegt · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-02",
+			"kind": "chapter",
+			"target": "C2.1/gericht/lesen",
+			"note": "C2.1 Ich habe Einspruch eingelegt · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-03",
+			"kind": "chapter",
+			"target": "C2.1/gericht/grammatik-1",
+			"note": "C2.1 Ich habe Einspruch eingelegt · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-04",
+			"kind": "chapter",
+			"target": "C2.1/gericht/grammatik-2",
+			"note": "C2.1 Ich habe Einspruch eingelegt · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-05",
+			"kind": "chapter",
+			"target": "C2.1/gericht/alltag",
+			"note": "C2.1 Ich habe Einspruch eingelegt · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-06",
+			"kind": "chapter",
+			"target": "C2.1/gericht/uebungen-1",
+			"note": "C2.1 Ich habe Einspruch eingelegt · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-07",
+			"kind": "chapter",
+			"target": "C2.1/gericht/uebungen-2",
+			"note": "C2.1 Ich habe Einspruch eingelegt · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-08",
+			"kind": "chapter",
+			"target": "C2.1/kreisliga/woerter",
+			"note": "C2.1 Eine herbe Niederlage · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-09",
+			"kind": "chapter",
+			"target": "C2.1/kreisliga/lesen",
+			"note": "C2.1 Eine herbe Niederlage · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-10",
+			"kind": "chapter",
+			"target": "C2.1/kreisliga/grammatik-1",
+			"note": "C2.1 Eine herbe Niederlage · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-11",
+			"kind": "chapter",
+			"target": "C2.1/kreisliga/grammatik-2",
+			"note": "C2.1 Eine herbe Niederlage · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-12",
+			"kind": "chapter",
+			"target": "C2.1/kreisliga/alltag",
+			"note": "C2.1 Eine herbe Niederlage · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-13",
+			"kind": "chapter",
+			"target": "C2.1/kreisliga/uebungen-1",
+			"note": "C2.1 Eine herbe Niederlage · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-14",
+			"kind": "chapter",
+			"target": "C2.1/kreisliga/uebungen-2",
+			"note": "C2.1 Eine herbe Niederlage · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-15",
+			"kind": "chapter",
+			"target": "C2.1/zeugnis/woerter",
+			"note": "C2.1 Er war stets bemüht · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-16",
+			"kind": "chapter",
+			"target": "C2.1/zeugnis/lesen",
+			"note": "C2.1 Er war stets bemüht · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-17",
+			"kind": "chapter",
+			"target": "C2.1/zeugnis/grammatik-1",
+			"note": "C2.1 Er war stets bemüht · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-18",
+			"kind": "chapter",
+			"target": "C2.1/zeugnis/grammatik-2",
+			"note": "C2.1 Er war stets bemüht · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-19",
+			"kind": "chapter",
+			"target": "C2.1/zeugnis/alltag",
+			"note": "C2.1 Er war stets bemüht · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-20",
+			"kind": "chapter",
+			"target": "C2.1/zeugnis/uebungen-1",
+			"note": "C2.1 Er war stets bemüht · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-21",
+			"kind": "chapter",
+			"target": "C2.1/zeugnis/uebungen-2",
+			"note": "C2.1 Er war stets bemüht · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-22",
+			"kind": "chapter",
+			"target": "C2.1/schrebergarten/woerter",
+			"note": "C2.1 Wer im Glashaus sitzt · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-23",
+			"kind": "chapter",
+			"target": "C2.1/schrebergarten/lesen",
+			"note": "C2.1 Wer im Glashaus sitzt · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-24",
+			"kind": "chapter",
+			"target": "C2.1/schrebergarten/grammatik-1",
+			"note": "C2.1 Wer im Glashaus sitzt · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-25",
+			"kind": "chapter",
+			"target": "C2.1/schrebergarten/grammatik-2",
+			"note": "C2.1 Wer im Glashaus sitzt · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-26",
+			"kind": "chapter",
+			"target": "C2.1/schrebergarten/alltag",
+			"note": "C2.1 Wer im Glashaus sitzt · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-27",
+			"kind": "chapter",
+			"target": "C2.1/schrebergarten/uebungen-1",
+			"note": "C2.1 Wer im Glashaus sitzt · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-28",
+			"kind": "chapter",
+			"target": "C2.1/schrebergarten/uebungen-2",
+			"note": "C2.1 Wer im Glashaus sitzt · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-29",
+			"kind": "chapter",
+			"target": "C2.1/verein/woerter",
+			"note": "C2.1 Das bedarf einer Erklärung · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-30",
+			"kind": "chapter",
+			"target": "C2.1/verein/lesen",
+			"note": "C2.1 Das bedarf einer Erklärung · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-31",
+			"kind": "chapter",
+			"target": "C2.1/verein/grammatik-1",
+			"note": "C2.1 Das bedarf einer Erklärung · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-32",
+			"kind": "chapter",
+			"target": "C2.1/verein/grammatik-2",
+			"note": "C2.1 Das bedarf einer Erklärung · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-33",
+			"kind": "chapter",
+			"target": "C2.1/verein/alltag",
+			"note": "C2.1 Das bedarf einer Erklärung · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-34",
+			"kind": "chapter",
+			"target": "C2.1/verein/uebungen-1",
+			"note": "C2.1 Das bedarf einer Erklärung · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-35",
+			"kind": "chapter",
+			"target": "C2.1/verein/uebungen-2",
+			"note": "C2.1 Das bedarf einer Erklärung · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-36",
+			"kind": "chapter",
+			"target": "C2.1/autobahn/woerter",
+			"note": "C2.1 Die Geschwindigkeitsbegrenzung · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-37",
+			"kind": "chapter",
+			"target": "C2.1/autobahn/lesen",
+			"note": "C2.1 Die Geschwindigkeitsbegrenzung · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-38",
+			"kind": "chapter",
+			"target": "C2.1/autobahn/grammatik-1",
+			"note": "C2.1 Die Geschwindigkeitsbegrenzung · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-39",
+			"kind": "chapter",
+			"target": "C2.1/autobahn/grammatik-2",
+			"note": "C2.1 Die Geschwindigkeitsbegrenzung · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-40",
+			"kind": "chapter",
+			"target": "C2.1/autobahn/alltag",
+			"note": "C2.1 Die Geschwindigkeitsbegrenzung · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-41",
+			"kind": "chapter",
+			"target": "C2.1/autobahn/uebungen-1",
+			"note": "C2.1 Die Geschwindigkeitsbegrenzung · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-42",
+			"kind": "chapter",
+			"target": "C2.1/autobahn/uebungen-2",
+			"note": "C2.1 Die Geschwindigkeitsbegrenzung · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-43",
+			"kind": "chapter",
+			"target": "C2.1/werkstatt/woerter",
+			"note": "C2.1 Ich habe mich verschrieben · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-44",
+			"kind": "chapter",
+			"target": "C2.1/werkstatt/lesen",
+			"note": "C2.1 Ich habe mich verschrieben · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-45",
+			"kind": "chapter",
+			"target": "C2.1/werkstatt/grammatik-1",
+			"note": "C2.1 Ich habe mich verschrieben · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-46",
+			"kind": "chapter",
+			"target": "C2.1/werkstatt/grammatik-2",
+			"note": "C2.1 Ich habe mich verschrieben · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-47",
+			"kind": "chapter",
+			"target": "C2.1/werkstatt/alltag",
+			"note": "C2.1 Ich habe mich verschrieben · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-48",
+			"kind": "chapter",
+			"target": "C2.1/werkstatt/uebungen-1",
+			"note": "C2.1 Ich habe mich verschrieben · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-49",
+			"kind": "chapter",
+			"target": "C2.1/werkstatt/uebungen-2",
+			"note": "C2.1 Ich habe mich verschrieben · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-50",
+			"kind": "chapter",
+			"target": "C2.1/bauernhof/woerter",
+			"note": "C2.1 So der Landwirt · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-51",
+			"kind": "chapter",
+			"target": "C2.1/bauernhof/lesen",
+			"note": "C2.1 So der Landwirt · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-52",
+			"kind": "chapter",
+			"target": "C2.1/bauernhof/grammatik-1",
+			"note": "C2.1 So der Landwirt · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-53",
+			"kind": "chapter",
+			"target": "C2.1/bauernhof/grammatik-2",
+			"note": "C2.1 So der Landwirt · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-54",
+			"kind": "chapter",
+			"target": "C2.1/bauernhof/alltag",
+			"note": "C2.1 So der Landwirt · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-55",
+			"kind": "chapter",
+			"target": "C2.1/bauernhof/uebungen-1",
+			"note": "C2.1 So der Landwirt · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-56",
+			"kind": "chapter",
+			"target": "C2.1/bauernhof/uebungen-2",
+			"note": "C2.1 So der Landwirt · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-57",
+			"kind": "chapter",
+			"target": "C2.1/hochzeit/woerter",
+			"note": "C2.1 Die Ehe ist ein Kartenhaus · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-58",
+			"kind": "chapter",
+			"target": "C2.1/hochzeit/lesen",
+			"note": "C2.1 Die Ehe ist ein Kartenhaus · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-59",
+			"kind": "chapter",
+			"target": "C2.1/hochzeit/grammatik-1",
+			"note": "C2.1 Die Ehe ist ein Kartenhaus · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-60",
+			"kind": "chapter",
+			"target": "C2.1/hochzeit/grammatik-2",
+			"note": "C2.1 Die Ehe ist ein Kartenhaus · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-61",
+			"kind": "chapter",
+			"target": "C2.1/hochzeit/alltag",
+			"note": "C2.1 Die Ehe ist ein Kartenhaus · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-62",
+			"kind": "chapter",
+			"target": "C2.1/hochzeit/uebungen-1",
+			"note": "C2.1 Die Ehe ist ein Kartenhaus · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-63",
+			"kind": "chapter",
+			"target": "C2.1/hochzeit/uebungen-2",
+			"note": "C2.1 Die Ehe ist ein Kartenhaus · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-64",
+			"kind": "chapter",
+			"target": "C2.1/talkshow/woerter",
+			"note": "C2.1 In einem Satz · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-65",
+			"kind": "chapter",
+			"target": "C2.1/talkshow/lesen",
+			"note": "C2.1 In einem Satz · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-66",
+			"kind": "chapter",
+			"target": "C2.1/talkshow/grammatik-1",
+			"note": "C2.1 In einem Satz · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-67",
+			"kind": "chapter",
+			"target": "C2.1/talkshow/grammatik-2",
+			"note": "C2.1 In einem Satz · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-68",
+			"kind": "chapter",
+			"target": "C2.1/talkshow/alltag",
+			"note": "C2.1 In einem Satz · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-69",
+			"kind": "chapter",
+			"target": "C2.1/talkshow/uebungen-1",
+			"note": "C2.1 In einem Satz · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-70",
+			"kind": "chapter",
+			"target": "C2.1/talkshow/uebungen-2",
+			"note": "C2.1 In einem Satz · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-71",
+			"kind": "chapter",
+			"target": "C2.1/digital/woerter",
+			"note": "C2.1 Unsere Stadt ist digital · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-72",
+			"kind": "chapter",
+			"target": "C2.1/digital/lesen",
+			"note": "C2.1 Unsere Stadt ist digital · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-73",
+			"kind": "chapter",
+			"target": "C2.1/digital/grammatik-1",
+			"note": "C2.1 Unsere Stadt ist digital · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-74",
+			"kind": "chapter",
+			"target": "C2.1/digital/grammatik-2",
+			"note": "C2.1 Unsere Stadt ist digital · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-75",
+			"kind": "chapter",
+			"target": "C2.1/digital/alltag",
+			"note": "C2.1 Unsere Stadt ist digital · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-76",
+			"kind": "chapter",
+			"target": "C2.1/digital/uebungen-1",
+			"note": "C2.1 Unsere Stadt ist digital · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-77",
+			"kind": "chapter",
+			"target": "C2.1/digital/uebungen-2",
+			"note": "C2.1 Unsere Stadt ist digital · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-78",
+			"kind": "chapter",
+			"target": "C2.1/tasse/woerter",
+			"note": "C2.1 Die blaue Tasse · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-79",
+			"kind": "chapter",
+			"target": "C2.1/tasse/lesen",
+			"note": "C2.1 Die blaue Tasse · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-80",
+			"kind": "chapter",
+			"target": "C2.1/tasse/grammatik-1",
+			"note": "C2.1 Die blaue Tasse · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-81",
+			"kind": "chapter",
+			"target": "C2.1/tasse/grammatik-2",
+			"note": "C2.1 Die blaue Tasse · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-82",
+			"kind": "chapter",
+			"target": "C2.1/tasse/alltag",
+			"note": "C2.1 Die blaue Tasse · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-83",
+			"kind": "chapter",
+			"target": "C2.1/tasse/uebungen-1",
+			"note": "C2.1 Die blaue Tasse · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c21-84",
+			"kind": "chapter",
+			"target": "C2.1/tasse/uebungen-2",
+			"note": "C2.1 Die blaue Tasse · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-01",
+			"kind": "chapter",
+			"target": "C2.2/philosophie/woerter",
+			"note": "C2.2 Ausgerechnet heute · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-02",
+			"kind": "chapter",
+			"target": "C2.2/philosophie/lesen",
+			"note": "C2.2 Ausgerechnet heute · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-03",
+			"kind": "chapter",
+			"target": "C2.2/philosophie/grammatik-1",
+			"note": "C2.2 Ausgerechnet heute · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-04",
+			"kind": "chapter",
+			"target": "C2.2/philosophie/grammatik-2",
+			"note": "C2.2 Ausgerechnet heute · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-05",
+			"kind": "chapter",
+			"target": "C2.2/philosophie/alltag",
+			"note": "C2.2 Ausgerechnet heute · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-06",
+			"kind": "chapter",
+			"target": "C2.2/philosophie/uebungen-1",
+			"note": "C2.2 Ausgerechnet heute · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-07",
+			"kind": "chapter",
+			"target": "C2.2/philosophie/uebungen-2",
+			"note": "C2.2 Ausgerechnet heute · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-08",
+			"kind": "chapter",
+			"target": "C2.2/anspielung/woerter",
+			"note": "C2.2 Es ist schon spät · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-09",
+			"kind": "chapter",
+			"target": "C2.2/anspielung/lesen",
+			"note": "C2.2 Es ist schon spät · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-10",
+			"kind": "chapter",
+			"target": "C2.2/anspielung/grammatik-1",
+			"note": "C2.2 Es ist schon spät · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-11",
+			"kind": "chapter",
+			"target": "C2.2/anspielung/grammatik-2",
+			"note": "C2.2 Es ist schon spät · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-12",
+			"kind": "chapter",
+			"target": "C2.2/anspielung/alltag",
+			"note": "C2.2 Es ist schon spät · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-13",
+			"kind": "chapter",
+			"target": "C2.2/anspielung/uebungen-1",
+			"note": "C2.2 Es ist schon spät · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-14",
+			"kind": "chapter",
+			"target": "C2.2/anspielung/uebungen-2",
+			"note": "C2.2 Es ist schon spät · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-15",
+			"kind": "chapter",
+			"target": "C2.2/schlagloch/woerter",
+			"note": "C2.2 In Angriff nehmen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-16",
+			"kind": "chapter",
+			"target": "C2.2/schlagloch/lesen",
+			"note": "C2.2 In Angriff nehmen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-17",
+			"kind": "chapter",
+			"target": "C2.2/schlagloch/grammatik-1",
+			"note": "C2.2 In Angriff nehmen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-18",
+			"kind": "chapter",
+			"target": "C2.2/schlagloch/grammatik-2",
+			"note": "C2.2 In Angriff nehmen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-19",
+			"kind": "chapter",
+			"target": "C2.2/schlagloch/alltag",
+			"note": "C2.2 In Angriff nehmen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-20",
+			"kind": "chapter",
+			"target": "C2.2/schlagloch/uebungen-1",
+			"note": "C2.2 In Angriff nehmen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-21",
+			"kind": "chapter",
+			"target": "C2.2/schlagloch/uebungen-2",
+			"note": "C2.2 In Angriff nehmen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-22",
+			"kind": "chapter",
+			"target": "C2.2/berater/woerter",
+			"note": "C2.2 De facto obsolet · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-23",
+			"kind": "chapter",
+			"target": "C2.2/berater/lesen",
+			"note": "C2.2 De facto obsolet · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-24",
+			"kind": "chapter",
+			"target": "C2.2/berater/grammatik-1",
+			"note": "C2.2 De facto obsolet · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-25",
+			"kind": "chapter",
+			"target": "C2.2/berater/grammatik-2",
+			"note": "C2.2 De facto obsolet · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-26",
+			"kind": "chapter",
+			"target": "C2.2/berater/alltag",
+			"note": "C2.2 De facto obsolet · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-27",
+			"kind": "chapter",
+			"target": "C2.2/berater/uebungen-1",
+			"note": "C2.2 De facto obsolet · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-28",
+			"kind": "chapter",
+			"target": "C2.2/berater/uebungen-2",
+			"note": "C2.2 De facto obsolet · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-29",
+			"kind": "chapter",
+			"target": "C2.2/studie/woerter",
+			"note": "C2.2 Es ist davon auszugehen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-30",
+			"kind": "chapter",
+			"target": "C2.2/studie/lesen",
+			"note": "C2.2 Es ist davon auszugehen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-31",
+			"kind": "chapter",
+			"target": "C2.2/studie/grammatik-1",
+			"note": "C2.2 Es ist davon auszugehen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-32",
+			"kind": "chapter",
+			"target": "C2.2/studie/grammatik-2",
+			"note": "C2.2 Es ist davon auszugehen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-33",
+			"kind": "chapter",
+			"target": "C2.2/studie/alltag",
+			"note": "C2.2 Es ist davon auszugehen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-34",
+			"kind": "chapter",
+			"target": "C2.2/studie/uebungen-1",
+			"note": "C2.2 Es ist davon auszugehen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-35",
+			"kind": "chapter",
+			"target": "C2.2/studie/uebungen-2",
+			"note": "C2.2 Es ist davon auszugehen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-36",
+			"kind": "chapter",
+			"target": "C2.2/knoellchen/woerter",
+			"note": "C2.2 Ist binnen zwei Wochen zu entrichten · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-37",
+			"kind": "chapter",
+			"target": "C2.2/knoellchen/lesen",
+			"note": "C2.2 Ist binnen zwei Wochen zu entrichten · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-38",
+			"kind": "chapter",
+			"target": "C2.2/knoellchen/grammatik-1",
+			"note": "C2.2 Ist binnen zwei Wochen zu entrichten · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-39",
+			"kind": "chapter",
+			"target": "C2.2/knoellchen/grammatik-2",
+			"note": "C2.2 Ist binnen zwei Wochen zu entrichten · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-40",
+			"kind": "chapter",
+			"target": "C2.2/knoellchen/alltag",
+			"note": "C2.2 Ist binnen zwei Wochen zu entrichten · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-41",
+			"kind": "chapter",
+			"target": "C2.2/knoellchen/uebungen-1",
+			"note": "C2.2 Ist binnen zwei Wochen zu entrichten · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-42",
+			"kind": "chapter",
+			"target": "C2.2/knoellchen/uebungen-2",
+			"note": "C2.2 Ist binnen zwei Wochen zu entrichten · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-43",
+			"kind": "chapter",
+			"target": "C2.2/antiquitaeten/woerter",
+			"note": "C2.2 Er soll es gewusst haben · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-44",
+			"kind": "chapter",
+			"target": "C2.2/antiquitaeten/lesen",
+			"note": "C2.2 Er soll es gewusst haben · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-45",
+			"kind": "chapter",
+			"target": "C2.2/antiquitaeten/grammatik-1",
+			"note": "C2.2 Er soll es gewusst haben · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-46",
+			"kind": "chapter",
+			"target": "C2.2/antiquitaeten/grammatik-2",
+			"note": "C2.2 Er soll es gewusst haben · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-47",
+			"kind": "chapter",
+			"target": "C2.2/antiquitaeten/alltag",
+			"note": "C2.2 Er soll es gewusst haben · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-48",
+			"kind": "chapter",
+			"target": "C2.2/antiquitaeten/uebungen-1",
+			"note": "C2.2 Er soll es gewusst haben · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-49",
+			"kind": "chapter",
+			"target": "C2.2/antiquitaeten/uebungen-2",
+			"note": "C2.2 Er soll es gewusst haben · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-50",
+			"kind": "chapter",
+			"target": "C2.2/hafen/woerter",
+			"note": "C2.2 Das lässt sich lösen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-51",
+			"kind": "chapter",
+			"target": "C2.2/hafen/lesen",
+			"note": "C2.2 Das lässt sich lösen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-52",
+			"kind": "chapter",
+			"target": "C2.2/hafen/grammatik-1",
+			"note": "C2.2 Das lässt sich lösen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-53",
+			"kind": "chapter",
+			"target": "C2.2/hafen/grammatik-2",
+			"note": "C2.2 Das lässt sich lösen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-54",
+			"kind": "chapter",
+			"target": "C2.2/hafen/alltag",
+			"note": "C2.2 Das lässt sich lösen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-55",
+			"kind": "chapter",
+			"target": "C2.2/hafen/uebungen-1",
+			"note": "C2.2 Das lässt sich lösen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-56",
+			"kind": "chapter",
+			"target": "C2.2/hafen/uebungen-2",
+			"note": "C2.2 Das lässt sich lösen · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-57",
+			"kind": "chapter",
+			"target": "C2.2/streit/woerter",
+			"note": "C2.2 Da irren Sie sich gewaltig · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-58",
+			"kind": "chapter",
+			"target": "C2.2/streit/lesen",
+			"note": "C2.2 Da irren Sie sich gewaltig · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-59",
+			"kind": "chapter",
+			"target": "C2.2/streit/grammatik-1",
+			"note": "C2.2 Da irren Sie sich gewaltig · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-60",
+			"kind": "chapter",
+			"target": "C2.2/streit/grammatik-2",
+			"note": "C2.2 Da irren Sie sich gewaltig · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-61",
+			"kind": "chapter",
+			"target": "C2.2/streit/alltag",
+			"note": "C2.2 Da irren Sie sich gewaltig · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-62",
+			"kind": "chapter",
+			"target": "C2.2/streit/uebungen-1",
+			"note": "C2.2 Da irren Sie sich gewaltig · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-63",
+			"kind": "chapter",
+			"target": "C2.2/streit/uebungen-2",
+			"note": "C2.2 Da irren Sie sich gewaltig · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-64",
+			"kind": "chapter",
+			"target": "C2.2/wien/woerter",
+			"note": "C2.2 Marillen im Jänner · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-65",
+			"kind": "chapter",
+			"target": "C2.2/wien/lesen",
+			"note": "C2.2 Marillen im Jänner · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-66",
+			"kind": "chapter",
+			"target": "C2.2/wien/grammatik-1",
+			"note": "C2.2 Marillen im Jänner · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-67",
+			"kind": "chapter",
+			"target": "C2.2/wien/grammatik-2",
+			"note": "C2.2 Marillen im Jänner · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-68",
+			"kind": "chapter",
+			"target": "C2.2/wien/alltag",
+			"note": "C2.2 Marillen im Jänner · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-69",
+			"kind": "chapter",
+			"target": "C2.2/wien/uebungen-1",
+			"note": "C2.2 Marillen im Jänner · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-70",
+			"kind": "chapter",
+			"target": "C2.2/wien/uebungen-2",
+			"note": "C2.2 Marillen im Jänner · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-71",
+			"kind": "chapter",
+			"target": "C2.2/rezension/woerter",
+			"note": "C2.2 Lässt sich als Warnung deuten · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-72",
+			"kind": "chapter",
+			"target": "C2.2/rezension/lesen",
+			"note": "C2.2 Lässt sich als Warnung deuten · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-73",
+			"kind": "chapter",
+			"target": "C2.2/rezension/grammatik-1",
+			"note": "C2.2 Lässt sich als Warnung deuten · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-74",
+			"kind": "chapter",
+			"target": "C2.2/rezension/grammatik-2",
+			"note": "C2.2 Lässt sich als Warnung deuten · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-75",
+			"kind": "chapter",
+			"target": "C2.2/rezension/alltag",
+			"note": "C2.2 Lässt sich als Warnung deuten · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-76",
+			"kind": "chapter",
+			"target": "C2.2/rezension/uebungen-1",
+			"note": "C2.2 Lässt sich als Warnung deuten · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-77",
+			"kind": "chapter",
+			"target": "C2.2/rezension/uebungen-2",
+			"note": "C2.2 Lässt sich als Warnung deuten · uebungen-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-78",
+			"kind": "chapter",
+			"target": "C2.2/einbuergerung/woerter",
+			"note": "C2.2 Zwischen den Zeilen · woerter",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-79",
+			"kind": "chapter",
+			"target": "C2.2/einbuergerung/lesen",
+			"note": "C2.2 Zwischen den Zeilen · lesen",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-80",
+			"kind": "chapter",
+			"target": "C2.2/einbuergerung/grammatik-1",
+			"note": "C2.2 Zwischen den Zeilen · grammatik-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-81",
+			"kind": "chapter",
+			"target": "C2.2/einbuergerung/grammatik-2",
+			"note": "C2.2 Zwischen den Zeilen · grammatik-2",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-82",
+			"kind": "chapter",
+			"target": "C2.2/einbuergerung/alltag",
+			"note": "C2.2 Zwischen den Zeilen · alltag",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-83",
+			"kind": "chapter",
+			"target": "C2.2/einbuergerung/uebungen-1",
+			"note": "C2.2 Zwischen den Zeilen · uebungen-1",
+			"since": "2026-11-08"
+		},
+		{
+			"code": "c22-84",
+			"kind": "chapter",
+			"target": "C2.2/einbuergerung/uebungen-2",
+			"note": "C2.2 Zwischen den Zeilen · uebungen-2",
+			"since": "2026-11-08"
 		}
 	]
 }

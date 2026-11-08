@@ -17,6 +17,20 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-08",
+    title: "Your book and the app, working together",
+    items: [
+      "Every page of the twelve books now has a small code. Scan it or type it in, and that chapter opens in the app: check your answers against the key, learn the chapter's words with flashcards, and hear the texts read aloud.",
+      "The app remembers where you are in your book, so the course home shows your book and the chapter you are on.",
+      "The Book button on each level opens the book to read online, with Print and Download. The separate level workbooks are gone: the books replace them. The worksheet page now prints your own practice sheet.",
+      "A new home page: real photos of life in Germany, and a few slides on how the course works.",
+      "The deck has a new look: each card shows a photo from its book chapter, and the same photo is inside the exercise instead of the old drawings.",
+      "Cards, buttons and exercise screens share one calmer style, with smaller corners and no coloured stripes.",
+      "Stories now live under Games in the Library menu, and no longer turn up in the deck or the exercise list. The sing-along songs are gone for now.",
+    ],
+    highlight: true,
+  },
+  {
+    date: "2026-11-08",
     title: "From B1, German comes first",
     items: [
       "All twelve books are on one page now, The books, in the Library menu. Reading a book online has the menu on top and a way back to where you came from.",

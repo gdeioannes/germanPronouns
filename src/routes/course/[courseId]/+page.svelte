@@ -8,10 +8,9 @@
 	import DoneMark from '$lib/components/DoneMark.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SwipeDeck from '$lib/components/SwipeDeck.svelte';
-	import { STORY_EPISODES, type StoryEpisode } from '$lib/domain/stories';
-	import { SONGS, type Song } from '$lib/domain/songs';
 	import ProgressPanel from '$lib/components/ProgressPanel.svelte';
 	import AccountStrip from '$lib/components/AccountStrip.svelte';
+	import BookStrip from '$lib/components/BookStrip.svelte';
 	import Sheet from '$lib/components/Sheet.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
@@ -32,22 +31,10 @@
 	import type { QuizSummary } from '$lib/content/types';
 	import type { PageData } from './$types';
 	import { track } from '$lib/services/analytics';
-	import { workbookFile, workbookReady } from '$lib/domain/workbook';
+	import { BOOKS } from '$lib/content/books';
 
-	// Each level's workbook PDF, as tool/gen-workbooks.mjs recorded it. The
-	// manifest is empty until the tool has run; a level without a PDF shows
-	// no button.
-	const workbookPdfs = Object.values(
-		import.meta.glob<Record<string, { pages: number }>>('/static/workbooks/manifest.json', {
-			eager: true,
-			import: 'default'
-		})
-	)[0] ?? {};
-	const levelPdf = (level: string) => {
-		if (!workbookReady(level)) return null;
-		const file = workbookFile(course.id, level);
-		return workbookPdfs[file] ? { href: `/workbooks/${file}`, pages: workbookPdfs[file].pages } : null;
-	};
+	// Each level's book (Book v2): opens the book to read, with download and print there.
+	const levelBook = (level: string) => BOOKS.find((b) => b.level === level) ?? null;
 
 	let { data }: { data: PageData } = $props();
 	const course = $derived(data.course);
@@ -96,25 +83,6 @@
 	const ladder = $derived(
 		buildLadder(course, isDone)
 	);
-	/**
-	 * The episodes listed at one spot of a level: `afterQuiz` null = the top
-	 * (episodes without an `after`, or whose `after` quiz isn't in this level).
-	 */
-	function storiesAt(level: string, afterQuiz: string | null, quizzes: { id: string }[]): StoryEpisode[] {
-		return STORY_EPISODES.filter((e) => {
-			if (e.courseId !== course.id || e.level !== level) return false;
-			const placed = e.after && quizzes.some((q) => q.id === e.after);
-			return afterQuiz === null ? !placed : e.after === afterQuiz;
-		});
-	}
-	/** Same placement rule for the level's songs. */
-	function songsAt(level: string, afterQuiz: string | null, quizzes: { id: string }[]): Song[] {
-		return SONGS.filter((s) => {
-			if (s.courseId !== course.id || s.level !== level) return false;
-			const placed = s.after && quizzes.some((q) => q.id === s.after);
-			return afterQuiz === null ? !placed : s.after === afterQuiz;
-		});
-	}
 	const totals = $derived(courseProgress(ladder));
 	const resume = $derived(nextQuiz(ladder, isDone));
 	const finished = $derived(progress.loaded && !resume);
@@ -132,36 +100,10 @@
 	// The ring sweeps to its value rather than snapping, so returning to the
 	// page after finishing an exercise shows the gain rather than just stating it.
 	const sweep = new Tween(0, { duration: 900, easing: cubicOut });
-	const RING_R = 16;
-	const RING_C = 2 * Math.PI * RING_R;
 	$effect(() => {
 		sweep.target = percent;
 	});
 </script>
-
-{#snippet storyRow(e: StoryEpisode)}
-	<li class="story-item">
-		<a class="story-row" href={e.href}>
-			<img src="/img/{e.image}.webp" alt="" loading="lazy" />
-			<span class="story-text">
-				<strong>🕵️ {e.title}</strong>
-				<span>Interactive mystery — {e.tagline}</span>
-			</span>
-		</a>
-	</li>
-{/snippet}
-
-{#snippet songRow(s: Song)}
-	<li class="story-item">
-		<a class="story-row song-row" href={s.href}>
-			<span class="song-mark" aria-hidden="true">♪</span>
-			<span class="story-text">
-				<strong>🎤 {s.title}</strong>
-				<span>Sing-along — {s.tagline}</span>
-			</span>
-		</a>
-	</li>
-{/snippet}
 
 <Seo
 	title="{course.name}: {course.quizzes.length} free exercises with audio | Language Quiz"
@@ -197,15 +139,8 @@
 			aria-haspopup="dialog" aria-controls="progress-panel" onclick={() => (panelOpen = true)}
 			aria-label="{current?.level ?? ''}: {percent}% complete, {current?.done ?? 0} of {current?.total ?? 0}. Open your progress"
 			title="Your progress">
-			<svg class="ring" viewBox="0 0 40 40" aria-hidden="true">
-				<circle class="track" cx="20" cy="20" r={RING_R} />
-				<circle class="arc" cx="20" cy="20" r={RING_R}
-					stroke-dasharray="{(sweep.current / 100) * RING_C} {RING_C}" />
-			</svg>
-			<span class="nums">
-				<span class="pct tnum">{(current?.done ?? 0) > 0 && percent === 0 ? '<1' : percent}<span class="sign">%</span></span>
-				<span class="done tnum">{current ? levelLine(current) : ''}</span>
-			</span>
+			<span class="pbar" aria-hidden="true"><span style="width:{sweep.current}%"></span></span>
+			<span class="done tnum">{current ? levelLine(current) : ''}</span>
 		</button>
 	{/snippet}
 
@@ -222,13 +157,15 @@
 			<Icon name="menu" size="1em" /> All {totals.total} exercises
 		</button>
 	{:else}
-		<SwipeDeck {course} {facts} bind:level={pickedLevel} title={heading} aside={ring}
+		<SwipeDeck {course} {facts} photos={data.photos} bind:level={pickedLevel} title={heading} aside={ring}
 			onbrowse={() => (browseOpen = true)} {inProgress} />
 	{/if}
 
 	<!-- One quiet line, and only for a learner who is signed out and hasn't
 	     waved it away. It carries its own sign-in sheet. -->
 	<AccountStrip />
+	<!-- Where the reader is in the printed book, once a page code has been opened. -->
+	<BookStrip courseHref="/course/{course.id}" />
 </main>
 
 <SiteFooter compact />
@@ -251,14 +188,13 @@
 			</a>
 		{/if}
 
-		<!-- Paper practice: a workbook per level — the lessons and the exercises,
-		     printable or as a PDF — plus a custom sheet of chosen exercises. Each
-		     level's header below carries its own PDF button. -->
+		<!-- Paper practice: a sheet of chosen exercises (the whole course, what is
+		     finished, or the weak spots). The books are the printed course. -->
 		<a class="worksheet" href="/course/{course.id}/worksheet">
 			<Icon name="printer" size="1.2em" />
 			<span>
-				<strong>Printable workbooks</strong>
-				<small>Build your own exercise sheet · level workbooks are in progress</small>
+				<strong>Print a practice sheet</strong>
+				<small>The whole course, what you have finished, or your weak spots</small>
 			</span>
 			<Icon name="arrowRight" size="1.1em" />
 		</a>
@@ -270,19 +206,15 @@
 				<header class="level-head">
 					<h3><a class="level-link" href="/course/{course.id}/level/{level.level}">{level.title}</a></h3>
 					<span class="level-meta">
-						{#if levelPdf(level.level)}
-							{@const pdf = levelPdf(level.level)!}
+						{#if levelBook(level.level)}
+							{@const book = levelBook(level.level)!}
 							<a
 								class="level-pdf"
-								href={pdf.href}
-								download="German {level.level} workbook.pdf"
-								aria-label="Download the {level.level} workbook as PDF, {pdf.pages} pages"
-								onclick={() => track('workbook_download', { level: level.level, from: 'course' })}
+								href="/course/{course.id}/book2/{book.level}"
+								aria-label="Read the {book.level} book online"
 							>
-								<Icon name="download" size="0.95em" /> PDF
+								<Icon name="book" size="0.95em" /> Book
 							</a>
-						{:else}
-							<span class="level-pdf wip" title="This level's printable workbook is being redone">PDF · work in progress</span>
 						{/if}
 						<span class="tnum">{level.doneCount} / {level.quizzes.length}</span>
 						{#if level.complete}<Icon name="check" size="1em" />{/if}
@@ -290,14 +222,6 @@
 				</header>
 
 				<ul class="quizzes">
-					<!-- Story episodes sit where their material is: at the top of the
-					     level, or right after the quiz named by their `after`. -->
-					{#each storiesAt(level.level, null, level.quizzes) as e (e.id)}
-						{@render storyRow(e)}
-					{/each}
-					{#each songsAt(level.level, null, level.quizzes) as s (s.id)}
-						{@render songRow(s)}
-					{/each}
 					{#each level.quizzes as quiz (quiz.id)}
 						{@const ribbon = progress.loaded
 							? progress.markFor(quiz.type, quiz.id, quiz.storageKeyPrefix)
@@ -312,12 +236,6 @@
 								{:else if inProgress.has(quiz.id)}<InProgressBadge />{/if}
 							</a>
 						</li>
-						{#each storiesAt(level.level, quiz.id, level.quizzes) as e (e.id)}
-							{@render storyRow(e)}
-						{/each}
-						{#each songsAt(level.level, quiz.id, level.quizzes) as s (s.id)}
-							{@render songRow(s)}
-						{/each}
 					{/each}
 				</ul>
 			</li>
@@ -328,51 +246,6 @@
 </div>
 
 <style>
-	.story-item {
-		list-style: none;
-	}
-	.story-row {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		background: var(--accent-soft);
-		border: 1px solid var(--line);
-		border-radius: var(--radius-sm);
-		padding: 0.6rem 0.9rem;
-		margin-bottom: 0.75rem;
-		text-decoration: none;
-		color: inherit;
-	}
-	.song-mark {
-		flex: none;
-		width: 4.5rem;
-		aspect-ratio: 4 / 3;
-		display: grid;
-		place-items: center;
-		border-radius: 8px;
-		background: var(--accent);
-		color: #fff;
-		font-size: 1.6rem;
-		line-height: 1;
-	}
-	.story-row img {
-		width: 4.5rem;
-		border-radius: 8px;
-		display: block;
-	}
-	.story-row .story-text {
-		display: grid;
-		gap: 0.1rem;
-		font-size: var(--step--1);
-	}
-	.story-row strong {
-		color: var(--heading);
-		font-size: var(--step-0);
-	}
-	.story-row:hover {
-		border-color: var(--accent);
-	}
-
 	.shell {
 		display: flex;
 		flex-direction: column;
@@ -453,19 +326,19 @@
 		color: var(--ink-muted);
 	}
 
-	/* Progress: an arc and two numbers, right-aligned in the header row. */
+	/* Progress: a thin bar and one line, right-aligned in the header row. */
 	.progress {
 		flex: none;
 		display: flex;
-		align-items: center;
-		gap: 0.55rem;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 0.35rem;
 		margin: -0.35rem -0.5rem -0.35rem 0;
 		padding: 0.35rem 0.5rem;
 		border: 1px solid transparent;
-		border-radius: var(--radius);
+		border-radius: 6px;
 		background: none;
 		font: inherit;
-		text-align: left;
 		cursor: pointer;
 		transition:
 			border-color var(--fast) var(--ease-out),
@@ -477,56 +350,22 @@
 		background: var(--surface);
 	}
 
-	.ring {
-		width: 2.6rem;
-		height: 2.6rem;
-		transform: rotate(-90deg);
+	.pbar {
+		width: 8rem;
+		height: 6px;
+		border-radius: 3px;
+		background: var(--paper-high);
 	}
 
-	.ring circle {
-		fill: none;
-		stroke-width: 5.5;
-	}
-
-	.track {
-		stroke: var(--paper-high);
-	}
-
-	/* Round caps: a zero-length dash still draws the starting dot once
-	   anything is done; before that the arc stays hidden. */
-	.arc {
-		stroke: var(--accent);
-		stroke-linecap: round;
-		opacity: 0;
-		transition: opacity var(--medium) var(--ease-out);
-	}
-
-	.started .arc {
-		opacity: 1;
-	}
-
-	.nums {
-		display: flex;
-		flex-direction: column;
-		line-height: 1.05;
-	}
-
-	.pct {
-		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
-		font-size: var(--step-1);
-		font-weight: 700;
-		color: var(--heading);
-	}
-
-	.sign {
-		margin-left: 0.05em;
-		font-size: 0.6em;
-		color: var(--ink-muted);
+	.pbar span {
+		display: block;
+		height: 100%;
+		border-radius: 3px;
+		background: var(--right);
 	}
 
 	.done {
-		margin-top: 0.15rem;
-		font-size: 0.72rem;
+		font-size: 0.8rem;
 		font-weight: 600;
 		color: var(--ink-muted);
 	}
@@ -701,16 +540,6 @@
 		color: var(--accent-ink);
 	}
 
-	/* Not a button: a note that this level's PDF is still being made. */
-	.level-pdf.wip,
-	.level-pdf.wip:hover {
-		border-style: dashed;
-		border-color: var(--line-strong);
-		color: var(--ink-muted);
-		font-weight: 600;
-		letter-spacing: 0;
-		cursor: default;
-	}
 
 	.quizzes {
 		margin: 0.7rem 0 0;

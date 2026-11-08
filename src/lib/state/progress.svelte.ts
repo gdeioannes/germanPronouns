@@ -169,7 +169,7 @@ class ProgressStore {
 	soundEffects = $state(true);
 	/** Mute the app: no sound effects and no read-aloud voice. */
 	muted = $state(false);
-	/** Surprises in the deck: stories, songs, Ja oder Nein? and Wortblöcke. */
+	/** Surprises in the deck: stories, Ja oder Nein? and Wortblöcke. */
 	surprises = $state(true);
 	/** Translations stay visible from B1 too, instead of waiting behind a tap. */
 	alwaysEnglish = $state(false);

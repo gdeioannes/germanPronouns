@@ -486,14 +486,10 @@
 		font-size: var(--step-1);
 	}
 
-	/* The first page carries the scene on its own cream (the colour the
-	   picture's paper is levelled to), so there is no edge around it. */
-	.passage.pictured {
-		background: #fbf5e4;
-	}
-
+	/* The first page carries the exercise's photo, on the card's own white. */
 	.scene {
 		display: block;
+		border-radius: 6px;
 		width: min(100%, 22rem);
 		height: auto;
 		max-height: min(11rem, 24dvh);

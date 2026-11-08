@@ -403,7 +403,7 @@
 	/* A compact pill for the transport controls, sized off the button base. */
 	.chip {
 		padding: 0.48rem 0.95rem;
-		border-radius: 999px;
+		border-radius: 6px;
 		border: 1px solid var(--line-strong);
 		background: var(--surface);
 		color: var(--ink);

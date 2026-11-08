@@ -4,7 +4,6 @@ import { SITE_URL } from '$lib/seo';
 import { coursePaths, DICTIONARY_PATH, lastModified, SHARED_WORD_PATHS } from '$lib/server/lastmod';
 import { nouns, verbs } from '$lib/server/words';
 import { wordSlug } from '$lib/domain/words';
-import { SONGS } from '$lib/domain/songs';
 import { LITERATURE } from '$lib/content/literature';
 import { kafkaStages } from '$lib/server/kafka';
 import type { RequestHandler } from './$types';
@@ -26,7 +25,6 @@ export const GET: RequestHandler = async () => {
 		{ loc: '/about', lastmod: lastModified('src/routes/about'), priority: '0.5' },
 		{ loc: '/contact', lastmod: lastModified('src/routes/contact'), priority: '0.3' },
 		{ loc: '/legal', lastmod: lastModified('src/routes/legal'), priority: '0.2' },
-		{ loc: '/songs', lastmod: lastModified('src/lib/domain/songs.ts'), priority: '0.6' },
 		{ loc: '/stories', lastmod: lastModified('src/lib/domain/stories.ts'), priority: '0.6' },
 		{ loc: '/literature', lastmod: lastModified('src/lib/content/literature.ts'), priority: '0.6' },
 		{ loc: '/books', lastmod: lastModified('src/lib/content/books.ts', 'static/books/v2'), priority: '0.7' },
@@ -68,15 +66,8 @@ export const GET: RequestHandler = async () => {
 		}
 	}
 
-	// The sing-along pages. Story episodes are deliberately absent: they are
+	// Story episodes are deliberately absent from the sitemap: they are
 	// noindex, because an episode read out of the course spoils itself.
-	for (const song of SONGS) {
-		urls.push({
-			loc: song.href,
-			lastmod: lastModified('src/lib/domain/songs.ts'),
-			priority: '0.6'
-		});
-	}
 
 	urls.push({ loc: '/play/ja-nein', lastmod: lastModified('src/lib/domain/janein.ts'), priority: '0.6' });
 	urls.push({ loc: '/play/ja-nein/personas', lastmod: lastModified('src/lib/domain/janeinRounds.ts'), priority: '0.4' });

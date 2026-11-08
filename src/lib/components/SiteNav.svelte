@@ -7,7 +7,7 @@
 	//
 	// The links come in three groups, each a dropdown in the full bar and a
 	// headed list under Menu on a phone: Library
-	// (the word library, the printable workbooks, the stories and songs) and
+	// (the word library, the books, the games) and
 	// About (about, what's new, contact). About carries the "something new"
 	// dot only while there is an unseen release. Settings only matters once
 	// you practise, so it is a gear in the compact bar and stays out of the
@@ -111,9 +111,11 @@
 	<a href="/words"><Icon name="words" size="1em" /> Word library</a>
 	<a href="/books"><Icon name="book" size="1em" /> The books</a>
 	<a href="{courseHref}/worksheet"><Icon name="printer" size="1em" /> Printable sheets</a>
-	<a href="/stories"><Icon name="compass" size="1em" /> Stories</a>
 	<a href="/literature"><Icon name="book" size="1em" /> Literature</a>
-	<a href="/songs"><Icon name="headphones" size="1em" /> Songs</a>
+	<!-- The games, story mode among them: there for whoever wants to play,
+	     never dealt into the deck or shown on the front page. -->
+	<p class="group-head">Games</p>
+	<a href="/stories"><Icon name="compass" size="1em" /> Stories</a>
 	<a href="/play/schreib-mir"><Icon name="chat" size="1em" /> <span lang="de">Schreib mir!</span></a>
 	<a href="/play/wortbloecke"><Icon name="blank" size="1em" /> <span lang="de">Wortblöcke</span></a>
 {/snippet}

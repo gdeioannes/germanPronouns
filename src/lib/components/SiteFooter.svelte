@@ -1,61 +1,68 @@
 <script lang="ts">
-	// The site's footer, on every page: the main sections, the level list and
-	// the disclaimer. It is the one place a reader (or a crawler) on any page
+	// The site's footer, on every page: the main sections and the disclaimer. It is the one place a reader (or a crawler) on any page
 	// can reach every part of the site from, so no page is a dead end.
 	import { page } from '$app/state';
+	import Logo from '$lib/components/Logo.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 
-	// The course, its levels and its version come from the root layout's
+	// The course and its version come from the root layout's
 	// load (see +layout.server.ts), so every page shows the same footer
 	// without having to pass anything down.
 	const site = $derived(page.data.site);
 	const courseHref = $derived(site?.courseHref ?? '/');
-	const levels = $derived(site?.levels ?? []);
 	const version = $derived(site?.version);
 
 	/**
 	 * `compact`: one slim row, for pages that must fit a phone screen without
-	 * scrolling (the swipe-deck home). The level list is dropped — the page
-	 * itself links every level — and the disclaimer shrinks to a line.
+	 * scrolling (the swipe-deck home). The disclaimer shrinks to a line.
 	 */
 	let { compact = false }: { compact?: boolean } = $props();
 </script>
 
 <footer class="foot" class:compact>
+	<div class="about">
+		<a class="brand" href="/">
+			<Logo tile size="1.75rem" />
+			<span>Language Quiz</span>
+		</a>
+		<p class="legal">
+			Language Quiz is an independent study aid, not affiliated with or endorsed by any
+			examination body. Part of <a href="https://www.100words.org/en/" rel="noopener">100words.org</a>.
+			<a href="/legal">Imprint and privacy notice</a>.{#if version}{' '}<span class="version">Content version {version}.</span>{/if}
+		</p>
+	</div>
 	<nav class="quick" aria-label="Footer">
-		<a href="/"><Icon name="arrowLeft" size="1.05em" /> Home</a>
-		<a href={courseHref}><Icon name="book" size="1.05em" /> The course</a>
-		<a href="/words"><Icon name="words" size="1.05em" /> Word library</a>
-		<a href="/books"><Icon name="book" size="1.05em" /> The books</a>
-		<a href="/words/nouns"><Icon name="pen" size="1.05em" /> German nouns</a>
-		<a href="/words/verbs"><Icon name="repeat" size="1.05em" /> German verbs</a>
-		<a href="/level-check"><Icon name="trophy" size="1.05em" /> Your level</a>
-		<a href="/stories"><Icon name="compass" size="1.05em" /> Stories</a>
-		<a href="/songs"><Icon name="headphones" size="1.05em" /> Songs</a>
-		<a href="/literature"><Icon name="book" size="1.05em" /> Literature</a>
-		<a href="/play/schreib-mir"><Icon name="chat" size="1.05em" /> <span lang="de">Schreib mir!</span></a>
-		<a href="/play/ja-nein"><Icon name="cards" size="1.05em" /> <span lang="de">Ja oder Nein?</span></a>
-		<a href="/play/wortbloecke"><Icon name="blank" size="1.05em" /> <span lang="de">Wortblöcke</span></a>
-		<a href="/changelog"><Icon name="star" size="1.05em" /> What's new</a>
-		<a href="/about"><Icon name="book" size="1.05em" /> About</a>
-		<a href="/about#accessibility"><Icon name="check" size="1.05em" /> Accessibility</a>
-		<a href="/forum"><Icon name="forum" size="1.05em" /> Forum</a>
-		<a href="/contact"><Icon name="pen" size="1.05em" /> Contact</a>
-		<a href="/legal"><Icon name="check" size="1.05em" /> Legal &amp; privacy</a>
-		<a href="/settings" rel="nofollow"><Icon name="settings" size="1.05em" /> Settings</a>
+		<div class="group">
+			<h2>Learn</h2>
+			<a href={courseHref}>The course</a>
+			<a href="/level-check">Your level</a>
+			<a href="/words">Word library</a>
+			<a href="/words/nouns">German nouns</a>
+			<a href="/words/verbs">German verbs</a>
+		</div>
+		<div class="group">
+			<h2>Read</h2>
+			<a href="/books">The books</a>
+			<a href="/literature">Literature</a>
+			<a href="/stories">Stories</a>
+		</div>
+		<div class="group">
+			<h2>Play</h2>
+			<a href="/play/schreib-mir" lang="de">Schreib mir!</a>
+			<a href="/play/ja-nein" lang="de">Ja oder Nein?</a>
+			<a href="/play/wortbloecke" lang="de">Wortblöcke</a>
+		</div>
+		<div class="group">
+			<h2>Site</h2>
+			<a href="/about">About</a>
+			<a href="/about#accessibility">Accessibility</a>
+			<a href="/changelog">What's new</a>
+			<a href="/forum">Forum</a>
+			<a href="/contact">Contact</a>
+			<a href="/legal">Legal &amp; privacy</a>
+			<a href="/settings" rel="nofollow">Settings</a>
+		</div>
 	</nav>
-	{#if levels.length && !compact}
-		<nav class="levels" aria-label="Levels">
-			{#each levels as l (l.level)}
-				<a href="{courseHref}/level/{l.level}"><span class="tnum">{l.level}</span> {l.title}</a>
-			{/each}
-		</nav>
-	{/if}
-	<p>
-		Language Quiz is an independent study aid, not affiliated with or endorsed by any
-		examination body. Part of <a href="https://www.100words.org/en/" rel="noopener">100words.org</a>.
-		<a href="/legal">Imprint and privacy notice</a>.{#if version}{' '}<span class="version">Content version {version}.</span>{/if}
-	</p>
 </footer>
 
 <style>
@@ -68,42 +75,73 @@
 		color: var(--ink-muted);
 	}
 
-	.quick {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.6rem 1.4rem;
-		margin-bottom: 1rem;
+	.foot:not(.compact) {
+		display: grid;
+		grid-template-columns: minmax(15rem, 1.3fr) 3.2fr;
+		gap: 2rem 3rem;
+		align-items: start;
 	}
 
-	.quick a {
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.brand {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.4rem;
-		color: var(--ink-muted);
+		gap: 0.55rem;
+		width: fit-content;
+		font-weight: 800;
+		font-size: var(--step-0);
+		color: var(--heading);
 		text-decoration: none;
-		font-weight: 600;
 	}
 
-	.quick a:hover,
-	.levels a:hover {
+	.quick {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1.5rem 2rem;
+	}
+
+	.group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.45rem;
+	}
+
+	.quick h2 {
+		margin: 0 0 0.25rem;
+		font-family: inherit;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 		color: var(--heading);
 	}
 
-	.levels {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem 1.1rem;
-		margin-bottom: 1.25rem;
-		font-size: 0.8rem;
-	}
-
-	.levels a {
+	.quick a {
 		color: var(--ink-muted);
 		text-decoration: none;
+		font-weight: 600;
+		width: fit-content;
 	}
 
-	.levels .tnum {
-		font-weight: 700;
+	.quick a:hover {
+		color: var(--heading);
+	}
+
+	@media (max-width: 48rem) {
+		.foot:not(.compact) {
+			grid-template-columns: 1fr;
+		}
+		.about {
+			order: 2;
+		}
+		.quick {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
 	}
 
 	.foot p {
@@ -124,10 +162,35 @@
 		gap: 0.4rem 1.5rem;
 	}
 
+	/* Compact: the top bar already carries the brand; the legal line stays. */
+	.foot.compact .about {
+		display: contents;
+	}
+
+	.foot.compact .brand {
+		display: none;
+	}
+
+	/* Links first, the legal line after, as in the single-row design. */
+	.foot.compact .legal {
+		order: 2;
+	}
+
+	/* Compact: the groups dissolve into one flat row, headings hidden. */
 	.foot.compact .quick {
+		display: flex;
+		flex-wrap: wrap;
 		margin: 0;
 		gap: 0.4rem 1rem;
 		font-size: 0.78rem;
+	}
+
+	.foot.compact .group {
+		display: contents;
+	}
+
+	.foot.compact .quick h2 {
+		display: none;
 	}
 
 	/* On a phone the links go: the compact top bar already carries home (the

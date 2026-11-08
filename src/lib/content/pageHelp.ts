@@ -78,17 +78,15 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			},
 			{
 				title: 'How surprises turn up',
-				text: 'Each time the deck deals, it decides once whether a surprise comes, then picks one kind at random from the kinds that have something for you right now. Your very first surprise is the story prologue. Settings has a switch to turn surprises off.',
+				text: 'Each time the deck deals, it decides once whether a surprise comes, then picks one kind at random from the kinds that have something for you right now. Settings has a switch to turn surprises off.',
 				visual: 'surprise',
 				list: [
-					'Story: the next episode in order, once you have reached its place in the course.',
-					'Song: the next song for your level.',
 					'Ja oder Nein?: the next themed round.'
 				]
 			},
 			{
 				title: 'Exercise library',
-				text: 'The button between Skip and Let\'s go lists every exercise in order, if you would rather choose yourself.'
+				text: '"See all exercises", under Skip and Let\'s go, lists every exercise in order, if you would rather choose yourself.'
 			},
 			{
 				title: 'The heart in the top bar',
@@ -216,8 +214,34 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 				text: '"Read online" opens the same book in the browser, chapter by chapter. The PDF is the printable version, about 25 to 36 MB.'
 			},
 			{
+				title: 'Book and app together',
+				text: 'Every page you write on has a small code at the top. Scan it when the page is done and the app checks your answers. The words page turns into flashcards, the reading page is read aloud, and the course home remembers which chapter you are on.'
+			},
+			{
 				title: 'Which one is yours',
 				text: 'Not sure of your level? "Your level" in the menu runs a short check and tells you where to start.'
+			}
+		]
+	},
+	'/course/[courseId]/book2/[levelId]/[chapterId]': {
+		title: 'Your book, in the app',
+		intro: 'One chapter of your printed book. The code on each page brings you to its part here.',
+		items: [
+			{
+				title: 'Word cards',
+				text: 'The chapter’s words, picture and English first. Say the German, then show it. "I knew it" sends a card further away each time; "Not yet" brings it back today.'
+			},
+			{
+				title: 'Lesen',
+				text: 'The chapter’s text, every line with its own play button, or all of it in one go.'
+			},
+			{
+				title: 'Checking a page',
+				text: 'Put in what you wrote on paper and press Check. Typed answers are marked kindly: spaces, a closing full stop or the euro sign do not count. If your answer is right in a way the key does not know, "Mine was right too" counts it.'
+			},
+			{
+				title: 'Where you are',
+				text: 'Opening a chapter remembers it. The course home then shows "Your book" with a link straight back here.'
 			}
 		]
 	},
@@ -236,21 +260,6 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			{
 				title: 'Asking for a book',
 				text: 'The link under the shelf takes you to the forum, where you can ask for the next book or back someone else\'s pick. Only books in the public domain can go on the shelf: the author died more than 70 years ago, and it is the German original.'
-			}
-		]
-	},
-
-	'/songs': {
-		title: 'Songs',
-		intro: 'Funny sing-alongs about Max in Berlin. Each one has the recording, the lyrics and the English for every German line.',
-		items: [
-			{
-				title: 'Pick a song',
-				text: 'Tap a song to open it, then press play. "Heard" marks the songs you have listened to the end.'
-			},
-			{
-				title: 'In your deck',
-				text: 'Songs also turn up in your deck as a surprise, one at a time. Here you can pick any of them.'
 			}
 		]
 	},

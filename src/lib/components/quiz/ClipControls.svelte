@@ -56,7 +56,7 @@
 		justify-content: center;
 		gap: 0.4rem;
 		border: 0;
-		border-radius: 999px;
+		border-radius: 6px;
 		font: inherit;
 		font-weight: 700;
 		cursor: pointer;

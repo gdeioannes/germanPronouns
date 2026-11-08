@@ -1027,7 +1027,7 @@
 		margin-top: 1.8rem;
 		padding: 0.7rem 1.2rem;
 		border: 1px dashed var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface-alt);
 		font-weight: 700;
 		color: var(--heading);

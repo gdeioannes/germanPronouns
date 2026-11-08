@@ -720,6 +720,11 @@
 		</section>
 	{/if}
 
+	{#if data.photoCredit}
+		<!-- The exercise's photo, as its licence asks (Wikimedia Commons). -->
+		<p class="photo-credit">Photo: {data.photoCredit}, Wikimedia Commons</p>
+	{/if}
+
 	<SiteFooter />
 </Sheet>
 
@@ -815,7 +820,7 @@
 		height: 2.5rem;
 		padding: 0 0.9rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--heading);
 		font: inherit;
@@ -859,7 +864,7 @@
 		height: 2.5rem;
 		padding: 0.2rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		font: inherit;
 		cursor: pointer;
@@ -879,7 +884,7 @@
 		gap: 0.35rem;
 		height: 2.1rem;
 		padding: 0 0.85rem;
-		border-radius: 999px;
+		border-radius: 4px;
 		color: var(--ink-muted);
 		font-size: var(--step--1);
 		font-weight: 700;
@@ -897,7 +902,7 @@
 		bottom: 0.2rem;
 		left: 0.2rem;
 		width: calc(50% - 0.2rem);
-		border-radius: 999px;
+		border-radius: 4px;
 		background: var(--navy);
 		transition: transform var(--medium) var(--ease-spring);
 	}
@@ -1060,7 +1065,7 @@
 		gap: 0.35rem;
 		padding: 0.45rem 0.85rem;
 		border: 1px solid var(--right);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--right-bg);
 		color: var(--right);
 		font: inherit;
@@ -1140,7 +1145,7 @@
 		gap: 0.4rem;
 		padding: 0.45rem 0.85rem;
 		border: 1px solid var(--line);
-		border-radius: 999px;
+		border-radius: 6px;
 		color: var(--ink);
 		font-size: var(--step--1);
 		font-weight: 600;
@@ -1156,6 +1161,7 @@
 		color: var(--accent-ink);
 	}
 
+	.photo-credit { margin: 1rem 0 0; font-size: 0.75rem; color: var(--ink-muted); }
 	.related { margin-top: 1.5rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
 	.related h2 { margin: 0 0 0.5rem; font-size: var(--step-0); }
 	.related ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.2rem; }

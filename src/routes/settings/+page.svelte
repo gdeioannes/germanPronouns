@@ -250,9 +250,9 @@
 			<span>
 				<strong>Games and stories in the deck</strong>
 				<small>
-					Now and then your deck slips in a surprise: a story episode, a song,
+					Now and then your deck slips in a surprise: a story episode
 					or a round of Ja oder Nein? Never more than one in a hand. Turn this off and the deck
-					deals only exercises. Stories, songs and the games are still in the
+					deals only exercises. Stories and the games are still in the
 					menu whenever you want them.
 				</small>
 			</span>

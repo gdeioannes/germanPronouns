@@ -46,12 +46,16 @@
 		<div class="dl-bar">
 			<a class="back-link" href={back.href}><Icon name="arrowLeft" size="1em" /> {back.label}</a>
 			<span><strong>{data.book.title}</strong> · {data.book.subtitle} · {data.book.chapters.length} chapters</span>
+			<!-- The page is the book, laid out on A4 for print: the browser prints it as it is. -->
+			<button type="button" class="btn print" onclick={() => window.print()}>
+				<Icon name="printer" size="1em" /> Print
+			</button>
 			<a class="btn" href="/books/v2/{data.book.courseId}_{data.book.level.toLowerCase().replace('.', '_')}.pdf" download>
 				<Icon name="download" size="1em" /> Download the PDF
 			</a>
 		</div>
 	{/if}
-	<Book2 book={data.book} credits={data.credits} qr={data.qr} siteQr={data.siteQr} {cover} spineMm={spine} {hd} />
+	<Book2 book={data.book} credits={data.credits} qr={data.qr} pages={data.pages} siteQr={data.siteQr} {cover} spineMm={spine} {hd} />
 </main>
 
 <style>
@@ -84,6 +88,15 @@
 		padding: 0.7rem 1rem;
 		background: var(--surface, #fff);
 		border-bottom: 1px solid var(--line, #ddd);
+	}
+
+	.btn.print {
+		border: 1px solid var(--line-strong);
+		background: var(--surface);
+		color: var(--ink);
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
 	}
 
 	@media print {

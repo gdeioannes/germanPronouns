@@ -5,6 +5,7 @@ import type { BookLinkRegistry, LinkKind } from '$lib/domain/booklinks';
 import { codeUrl } from '$lib/domain/booklinks';
 import { loadBook2, photoCredits } from '$lib/domain/book2';
 import { qrSvg } from '$lib/server/qr';
+import { PART_IDS, type PartId } from '$lib/domain/bookStudy';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
 // Book v2 (docs/book_v2_plan.md), prerendered like the workbooks so
@@ -29,5 +30,12 @@ export const load: PageServerLoad = async ({ params }) => {
 	};
 	const qr: Record<string, { app: Awaited<ReturnType<typeof code>>; listen: Awaited<ReturnType<typeof code>>; speak: Awaited<ReturnType<typeof code>> }> = {};
 	for (const c of book.chapters) qr[c.id] = { app: await code('quiz', c.quiz), listen: await code('audio', c.listenQuiz), speak: await code('quiz', c.speakQuiz) };
-	return { book, credits: photoCredits(params.courseId), qr, siteQr: await qrSvg('https://languagequiz.org') };
+	// The small code on each page that opens that part of the chapter in the app
+	// (domain/bookStudy): check the page, the words as flashcards, the text read aloud.
+	const pages: Record<string, Partial<Record<PartId, Awaited<ReturnType<typeof code>>>>> = {};
+	for (const c of book.chapters) {
+		pages[c.id] = {};
+		for (const part of PART_IDS) pages[c.id][part] = await code('chapter', `${book.level}/${c.id}/${part}`);
+	}
+	return { book, credits: photoCredits(params.courseId), qr, pages, siteQr: await qrSvg('https://languagequiz.org') };
 };

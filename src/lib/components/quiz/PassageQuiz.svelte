@@ -452,15 +452,10 @@
 		font-size: var(--step-1);
 	}
 
-	/* A page that shows the scene takes the scene's own cream, so the picture
-	   sits on the card without an edge (its paper is levelled to exactly this
-	   colour by tool/gen-images.mjs). */
-	.passage.pictured {
-		background: #fbf5e4;
-	}
-
+	/* The scene is the exercise's photo: on the card's own white, small corners. */
 	.scene {
 		display: block;
+		border-radius: 6px;
 		width: min(100%, 26rem);
 		height: auto;
 		margin: 0 auto 0.6rem;

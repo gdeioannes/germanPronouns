@@ -231,7 +231,7 @@
 		gap: 0.4rem;
 		padding: 0.48rem 0.95rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;

@@ -18,12 +18,12 @@
 
 import { SITE_URL } from '$lib/seo';
 
-export type LinkKind = 'quiz' | 'audio' | 'deck' | 'book' | 'level' | 'url';
+export type LinkKind = 'quiz' | 'audio' | 'deck' | 'book' | 'level' | 'url' | 'chapter';
 
 export interface BookLink {
 	code: string;
 	kind: LinkKind;
-	/** The quiz id, deck id, book id, level, or a URL for `url`. */
+	/** The quiz id, deck id, book id, level, a URL for `url`, or `<level>/<chapter>/<part>` for `chapter`. */
 	target: string;
 	/** What it was for, for whoever edits the registry by hand. */
 	note?: string;
@@ -55,6 +55,12 @@ export function resolveLink(link: BookLink): string {
 			return `/course/de_cert_a1/book/${link.target}/progress`;
 		case 'url':
 			return link.target;
+		case 'chapter': {
+			// "<level>/<chapter>/<part>": one page of a Book v2 chapter, opened at
+			// that part of the chapter's page in the app (domain/bookStudy).
+			const [level, chapter, part] = link.target.split('/');
+			return `/course/de_cert_a1/book2/${level}/${chapter}${part ? `#${part}` : ''}`;
+		}
 	}
 }
 

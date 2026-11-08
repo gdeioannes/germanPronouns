@@ -424,7 +424,7 @@
 		gap: 0.35rem;
 		padding: 0.5rem 1.05rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 999px;
+		border-radius: 6px;
 		color: var(--ink);
 		text-decoration: none;
 		font-weight: 600;

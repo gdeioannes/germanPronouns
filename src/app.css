@@ -58,8 +58,8 @@
 	--step-4: clamp(2.07rem, 1.75rem + 1.6vw, 3.1rem);
 
 	/* -- rhythm ------------------------------------------------------------ */
-	--radius: 14px;
-	--radius-sm: 10px;
+	--radius: 8px;
+	--radius-sm: 6px;
 	--measure: 66ch;
 
 	/* -- motion ------------------------------------------------------------
@@ -399,10 +399,11 @@ input[type='number'] {
 	align-items: center;
 	justify-content: center;
 	gap: 0.45rem;
+	min-height: 2.75rem;
 	padding: 0.62rem 1.3rem;
 	border: 1px solid transparent;
-	border-radius: 999px;
-	background: var(--navy);
+	border-radius: 6px;
+	background: var(--accent-ink);
 	color: #fff;
 	font: inherit;
 	font-weight: 600;

@@ -4,7 +4,7 @@
 // One finished C2.2 exercise after a month of A1 does not make someone a C2
 // learner; it was a peek. So a sub-level only counts as "held" once there is
 // real evidence at it, and finished work that went badly counts for little.
-// The deck, the recommendation pools, the story/song cards and the level chip
+// The deck, the recommendation pools, the story cards and the level chip
 // all centre on the level this returns, so they agree with each other.
 
 import type { QuizSummary as Quiz } from '$lib/content/types';

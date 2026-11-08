@@ -49,8 +49,7 @@
 		type DeckCard,
 		type DeckPace
 	} from '$lib/domain/deck';
-	import { isStoryCard, reachedQuiz, storyCardHref, storyDeckCard } from '$lib/domain/stories';
-	import { isSongCard, songCardHref, songDeckCard } from '$lib/domain/songs';
+	import { isStoryCard, storyCardHref } from '$lib/domain/stories';
 	import { JA_NEIN_CARD_ID, JA_NEIN_PATH } from '$lib/domain/janein';
 	import { WORT_CARD_ID, WORT_PATH } from '$lib/domain/wortbloecke';
 	import { nextRound } from '$lib/domain/janeinRounds';
@@ -68,7 +67,8 @@
 		title,
 		aside,
 		onbrowse,
-		inProgress = new Set()
+		inProgress = new Set(),
+		photos = {}
 	}: {
 		course: CourseSummary;
 		/** Every quiz's facts, or null while the page is still loading them. */
@@ -83,7 +83,30 @@
 		onbrowse?: () => void;
 		/** Exercises started but not finished — their cards wear the marker. */
 		inProgress?: Set<string>;
+		/** Each exercise's card photo (lib/server/deckPhotos): warm-graded, credited. */
+		photos?: Record<string, { photo: string; credit: string }>;
 	} = $props();
+
+	// What a photo card says on its label: what you will do, in one word,
+	// and the colour that goes with it (listening blue, speaking green…).
+	type Look = { key: 'learn' | 'listen' | 'speak' | 'review' | 'read' | 'write'; label: string; icon: 'headphones' | 'mic' | 'pen' | 'book' | 'repeat' };
+	function look(card: DeckCard): Look {
+		const t = card.quiz.type;
+		if (t === 'listening' || t === 'dictation') return { key: 'listen', label: t === 'dictation' ? 'Dictation' : 'Listening', icon: 'headphones' };
+		if (t === 'speakRepeat' || t === 'speaking') return { key: 'speak', label: 'Speaking', icon: 'mic' };
+		if (t === 'writing') return { key: 'write', label: 'Writing', icon: 'pen' };
+		if (t === 'reading') return { key: 'read', label: 'Reading', icon: 'book' };
+		if (card.kind === 'review' || card.kind === 'practise') return { key: 'review', label: DECK_KIND_LABELS[card.kind], icon: 'repeat' };
+		return { key: 'learn', label: DECK_KIND_LABELS[card.kind], icon: 'pen' };
+	}
+	/** A photo for this card: exercises only, never the surprise cards with their own art. */
+	const photoOf = (card: DeckCard) =>
+		isPlayCard(card) || isWortCard(card) || isCheckCard(card) || card.kind === 'story' ? null : (photos[card.quiz.id] ?? null);
+	/** How it has gone lately, out of ten, once there is enough to say. */
+	function lately(card: DeckCard): number | null {
+		const f = facts?.[card.quiz.id];
+		return f && f.answered >= 5 ? Math.round((1 - (f.recentMistakeRate ?? f.mistakeRate)) * 10) : null;
+	}
 
 	// "quiz_" in the key puts the skips in the set that "start over" wipes.
 	// The level and pace are preferences, not progress, so they survive a reset.
@@ -293,18 +316,12 @@
 			void storage.set(SKIPPED_KEY, '[]');
 			deck = buildDeck(course.quizzes, known, { level, pace, size, exclude });
 		}
-		// Surprises: a story, a song, Ja oder Nein?, the word check or Wortblöcke.
+		// Surprises: a story, Ja oder Nein?, the word check or Wortblöcke.
 		// At most one a hand, and none at all with surprises turned off in
 		// Settings. One roll says whether a surprise comes, and then one kind is
 		// drawn among those with something to offer (domain/surprise).
 		if (progress.surprises) {
-			const at = deckLevel(course.quizzes, known, level);
-			const reached = (id: string) => reachedQuiz(course.quizzes, (q) => known[q]?.done === true, id);
-			const story = storyDeckCard(course.id, at, new Set(skipped), reached);
-			const song = songDeckCard(course.id, at, new Set(skipped), reached);
 			const candidates: SurpriseCandidate<() => DeckCard>[] = [
-				{ kind: 'story', card: story ? () => story : null },
-				{ kind: 'song', card: song ? () => song : null },
 				{ kind: 'play', card: skipped.includes(JA_NEIN_CARD_ID) ? null : playCard },
 				{ kind: 'check', card: checkDue(checkLog) && !skipped.includes(CHECK_CARD_ID) ? checkCard : null },
 				{ kind: 'wort', card: skipped.includes(WORT_CARD_ID) ? null : wortCard }
@@ -434,9 +451,7 @@
 	const cardFlavour = (card: DeckCard) =>
 		isStoryCard(card)
 			? 'interactive mystery'
-			: isSongCard(card)
-				? 'sing-along'
-				: isPlayCard(card)
+			: isPlayCard(card)
 					? 'swipe game · 1 min'
 					: isWortCard(card)
 						? 'word puzzle'
@@ -448,7 +463,7 @@
 		if (isPlayCard(card)) return JA_NEIN_PATH;
 		if (isWortCard(card)) return WORT_PATH;
 		if (isCheckCard(card)) return CHECK_PATH;
-		return storyCardHref(card) ?? songCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
+		return storyCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
 	}
 
 	function onDown(event: PointerEvent) {
@@ -532,7 +547,7 @@
 					clearOpened(card.quiz.id);
 					openId = null;
 				}
-				// A "no" to a surprise (Ja oder Nein?, a song) means not now: the
+				// A "no" to a surprise (Ja oder Nein?, a story) means not now: the
 				// card sits out like any skipped card until the deck runs dry.
 				skipped = [...skipped.filter((id) => id !== card.quiz.id), card.quiz.id].slice(-SKIPPED_LIMIT);
 				void storage.set(SKIPPED_KEY, JSON.stringify(skipped));
@@ -655,8 +670,12 @@
 					{@const isTop = depth === 0}
 					{@const ribbon = facts?.[card.quiz.id]?.mark ?? null}
 					{@const started = card.kind === 'continue' || inProgress.has(card.quiz.id)}
+					{@const ph = photoOf(card)}
+					{@const lk = look(card)}
 					<div
 						class="card"
+						class:has-photo={!!ph}
+						data-look={ph ? lk.key : undefined}
 						class:top={isTop}
 						class:dragging={isTop && dragging}
 						class:leaving={isTop && leaving}
@@ -727,6 +746,14 @@
 								<span class="wchip" lang="de">beiläufig</span>
 								<span class="wchip on" lang="de">freundlich</span>
 							</div>
+						{:else if ph}
+							<!-- A real place in Germany from the level's book, warm-graded;
+							     the label says what you will do. -->
+							<div class="art-band photo">
+								<img class="art" src="/img/deck/{ph.photo}.webp" alt="" width="1000" height="667" loading={isTop ? 'eager' : 'lazy'} draggable="false" />
+								<span class="look"><Icon name={lk.icon} size="1em" /> {lk.label}</span>
+								<span class="credit">{ph.credit}</span>
+							</div>
 						{:else if card.quiz.image}
 							<!-- The quiz's scene as a cream band across the top of the card; it
 							     stands in for the type disc. -->
@@ -735,7 +762,7 @@
 							</div>
 						{:else}
 							<span class="type-disc" data-type={card.quiz.type} style={artStyle(card.quiz.id)}>
-								<Icon name={isSongCard(card) ? 'headphones' : isPlayCard(card) ? 'swipe' : QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
+								<Icon name={isPlayCard(card) ? 'swipe' : QUIZ_TYPE_ICONS[card.quiz.type]} size="1.6em" />
 							</span>
 						{/if}
 
@@ -748,6 +775,16 @@
 						</p>
 						<h3 class="title" lang={course.learnLocale}>{card.quiz.title}</h3>
 						<p class="reason">{card.reason}</p>
+						{#if ph}
+							{@const score = lately(card)}
+							{#if lk.key === 'listen'}
+								<p class="preview"><span class="pdot"><Icon name="headphones" size="0.95em" /></span> Listen first, then answer. Play it as often as you like.</p>
+							{:else if lk.key === 'speak'}
+								<p class="preview"><span class="pdot"><Icon name="mic" size="0.95em" /></span> Hear it, say it, compare. Nobody else hears you.</p>
+							{:else if score !== null}
+								<p class="preview"><span class="pbar"><span style="width:{score * 10}%"></span></span> About <b>{score}</b>/10 lately</p>
+							{/if}
+						{/if}
 
 						<p class="meta">
 							<span class="chip">{card.quiz.level}</span>
@@ -851,12 +888,6 @@
 			<Icon name="close" size="1.2em" stroke={2.25} />
 			<span>Skip</span>
 		</button>
-		{#if onbrowse}
-			<button type="button" class="browse" onclick={onbrowse} aria-haspopup="dialog" aria-controls="all-exercises">
-				<Icon name="cards" size="1.15em" />
-				<span>Exercise library</span>
-			</button>
-		{/if}
 		<button
 			type="button"
 			class="ctl yes"
@@ -869,6 +900,12 @@
 			<span>Let's go</span>
 		</button>
 	</div>
+	{#if onbrowse}
+		<!-- The full list: a quiet link, not a third button competing with the two choices. -->
+		<button type="button" class="browse" onclick={onbrowse} aria-haspopup="dialog" aria-controls="all-exercises">
+			See all exercises <Icon name="arrowRight" size="0.9em" />
+		</button>
+	{/if}
 </section>
 
 <Sheet bind:open={chooserOpen} title="Your deck" id="deck-chooser">
@@ -1208,8 +1245,7 @@
 		gap: 0.55rem;
 		padding: 1.4rem 1.5rem 1.25rem;
 		border: 1px solid var(--line);
-		border-top: 6px solid var(--kind);
-		border-radius: calc(var(--radius) + 6px);
+		border-radius: 8px;
 		background: var(--surface);
 		box-shadow: 0 18px 40px -24px rgba(31, 58, 95, 0.45);
 		overflow: hidden;
@@ -1777,20 +1813,18 @@
 
 	.chip {
 		padding: 0.15rem 0.6rem;
-		border-radius: 999px;
+		border-radius: 4px;
 		background: var(--surface-alt);
 		font-size: var(--step--1);
 		font-weight: 700;
 		color: var(--ink);
 	}
 
-	/* Below the stack: one row the width of the card — skip, the library,
-	   and the start button, all on the same square-ish footprint so they read
-	   as one control bar rather than three loose shapes. */
+	/* Below the stack: Skip and Let's go, the go button twice as wide. */
 	.controls {
-		display: flex;
-		align-items: stretch;
-		gap: 0.5rem;
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 0.6rem;
 		margin: 1.1rem auto 0;
 		width: 100%;
 	}
@@ -1802,9 +1836,10 @@
 		gap: 0.45rem;
 		min-height: 3.25rem;
 		padding: 0 1rem;
-		border: 2px solid currentColor;
-		border-radius: var(--radius);
+		border: 1.5px solid var(--line-strong);
+		border-radius: 6px;
 		background: var(--surface);
+		color: var(--ink);
 		font: inherit;
 		font-size: var(--step-0);
 		font-weight: 700;
@@ -1815,19 +1850,11 @@
 			color var(--fast) var(--ease-out);
 	}
 
-	.ctl {
-		flex: 0 0 auto;
-	}
-
-	.ctl.no {
-		color: var(--wrong);
-	}
-
 	.ctl.yes {
-		border-color: var(--right);
-		background: var(--right);
+		border-color: var(--accent-ink);
+		background: var(--accent-ink);
 		color: #fff;
-		box-shadow: 0 10px 22px -14px var(--right);
+		box-shadow: 0 12px 26px -14px var(--accent-ink);
 	}
 
 	.ctl:hover:not(:disabled) {
@@ -1835,8 +1862,7 @@
 	}
 
 	.ctl.no:hover:not(:disabled) {
-		background: var(--wrong);
-		color: #fff;
+		border-color: var(--ink);
 	}
 
 	.ctl:active:not(:disabled) {
@@ -1848,37 +1874,141 @@
 		cursor: default;
 	}
 
-	/* The way to the full list: the widest button of the three, because
-	   picking your own exercise is a first-class way to use the course. */
+	/* The way to the full list: a quiet text link under the two buttons. */
 	.browse {
-		flex: 1;
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		min-height: 3.25rem;
-		padding: 0 0.9rem;
-		font-size: var(--step-0);
-		font-weight: 700;
-		border: 1px solid var(--accent);
-		border-radius: var(--radius);
-		background: var(--accent-soft);
-		color: var(--accent-ink);
+		gap: 0.35rem;
+		margin: 0.9rem auto 0;
+		padding: 0.3rem 0.4rem;
+		border: 0;
+		background: none;
+		color: var(--ink-muted);
 		font: inherit;
-		text-align: left;
+		font-size: 0.92rem;
+		font-weight: 600;
+		text-decoration: underline;
+		text-decoration-color: var(--line-strong);
+		text-underline-offset: 3px;
 		cursor: pointer;
-		transition:
-			background var(--fast) var(--ease-out),
-			transform var(--fast) var(--ease-out);
 	}
 
 	.browse:hover {
-		background: #f1d9cd;
-		transform: translateY(-1px);
+		color: var(--ink);
+		text-decoration-color: currentColor;
 	}
 
-	.browse:active {
-		transform: scale(0.99);
+	/* The cards behind the top one show as plain paper edges, not strips of
+	   their photos and colours. */
+	.card:not(.top):not(.intro):not(.empty) {
+		border-color: var(--line);
+		background: var(--paper-mid);
+		box-shadow: none;
+	}
+	.card:not(.top):not(.intro):not(.empty) > * {
+		visibility: hidden;
+	}
+
+	/* -- photo cards -------------------------------------------------------- */
+
+	.card.has-photo {
+		--look: var(--accent-ink);
+		--look-soft: #f7e6dd;
+	}
+	.card[data-look='listen'] { --look: #1f5fa8; --look-soft: #e6eef8; }
+	.card[data-look='speak'] { --look: #3f7d4a; --look-soft: #e7f1e8; }
+	.card[data-look='review'] { --look: #8a6412; --look-soft: #f6eedb; }
+	.card[data-look='read'] { --look: var(--navy); --look-soft: #e8edf3; }
+	.card[data-look='write'] { --look: #6b3f8a; --look-soft: #f0e8f5; }
+
+	/* The photo is the band: no tint or pattern over it, and never a sliver. */
+	.art-band.photo {
+		min-height: 45%;
+		background: var(--look-soft);
+	}
+	.art-band.photo::after {
+		display: none;
+	}
+	.art-band.photo .art {
+		transform: none;
+		object-position: center 55%;
+	}
+
+	/* The label says what you will do; the kind row then only counts. */
+	.look {
+		position: absolute;
+		left: 0.75rem;
+		top: 0.75rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.28rem 0.6rem;
+		border-radius: 4px;
+		background: var(--look);
+		color: #fff;
+		font-size: 0.74rem;
+		font-weight: 800;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+	.card.has-photo .kind-label {
+		visibility: hidden;
+	}
+	.card.has-photo.started .look {
+		top: 3rem;
+	}
+
+	.credit {
+		position: absolute;
+		left: 40%;
+		right: 0.5rem;
+		bottom: 0.3rem;
+		overflow: hidden;
+		font-size: 0.6rem;
+		color: rgb(255 255 255 / 0.9);
+		text-align: right;
+		text-overflow: ellipsis;
+		text-shadow: 0 1px 2px rgb(0 0 0 / 0.8);
+		white-space: nowrap;
+	}
+
+	.preview {
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		align-self: stretch;
+		margin: 0;
+		padding: 0.5rem 0.7rem;
+		border-radius: 6px;
+		background: var(--look-soft);
+		font-size: var(--step--1);
+		color: var(--ink);
+	}
+
+	.pdot {
+		display: inline-flex;
+		flex: none;
+		align-items: center;
+		justify-content: center;
+		width: 1.8rem;
+		height: 1.8rem;
+		border-radius: 50%;
+		background: var(--look);
+		color: #fff;
+	}
+
+	.pbar {
+		flex: 1;
+		height: 7px;
+		border-radius: 4px;
+		background: var(--surface);
+	}
+
+	.pbar span {
+		display: block;
+		height: 100%;
+		border-radius: 4px;
+		background: var(--look);
 	}
 
 	/* A laptop or desktop: a slightly wider deck, so the taller card keeps a
@@ -1917,14 +2047,9 @@
 			margin-top: 0.8rem;
 			gap: 0.5rem;
 		}
-		.ctl,
-		.browse {
-			min-height: 2.9rem;
-			font-size: var(--step--1);
+		.ctl {
+			min-height: 3rem;
 			padding: 0 0.7rem;
-		}
-		.ctl span {
-			display: none;
 		}
 	}
 	/* ---- the first-visit swipe coach -----------------------------------
@@ -2185,7 +2310,6 @@
 			linear-gradient(var(--surface), var(--surface)) padding-box,
 			linear-gradient(120deg, #ff4d6d, #ffb347, #38d39f, #4cc9f0, #7c3aed, #ff4d6d) border-box;
 		border: 1px solid transparent;
-		border-top-width: 6px;
 	}
 
 	/* The play card's band: the game's sky in miniature. */
@@ -2364,7 +2488,6 @@
 	/* ---- the check card: "Your level", word chips on green paper ----------- */
 	.card[data-kind='check'] {
 		--kind: var(--forest);
-		border-top: 6px solid var(--forest);
 	}
 
 	.wort-band {
@@ -2475,48 +2598,4 @@
 		color: #7c3aed;
 	}
 
-	/* ---- the song card: the other EVENT in the hand -----------------------
-	   A daylight card next to the story's night one: warm paper, a terracotta
-	   frame, and a bouncing music mark — loud, not glowing. */
-	.card[data-kind='song'] {
-		background: linear-gradient(170deg, #fff4e6 0%, #ffe6cc 60%, #ffdcb8 100%);
-		border-color: var(--accent);
-		box-shadow:
-			0 10px 28px rgb(0 0 0 / 0.14),
-			0 0 0 1px rgb(200 90 50 / 0.45);
-	}
-	.card[data-kind='song'] .kind-label {
-		color: var(--accent-ink);
-		letter-spacing: 0.1em;
-	}
-	.card[data-kind='song'] .kind-label::before {
-		content: '♪ ';
-		display: inline-block;
-		animation: song-bounce 1.1s ease-in-out infinite;
-	}
-	@keyframes song-bounce {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-0.18em);
-		}
-	}
-	.card[data-kind='song'] .type-disc {
-		background: var(--accent);
-		color: #fff;
-	}
-	.card[data-kind='song'] .stamp.yes {
-		color: var(--accent-ink);
-		border-color: var(--accent);
-	}
-	:global(html[data-effects='calm']) .card[data-kind='song'] .kind-label::before {
-		animation: none;
-	}
-	@media (prefers-reduced-motion: reduce) {
-		.card[data-kind='song'] .kind-label::before {
-			animation: none;
-		}
-	}
 </style>

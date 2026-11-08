@@ -1,5 +1,5 @@
 // Where a menu page's back arrow goes. The pages the menu opens (the word
-// library, workbooks, stories, literature, songs, settings, about, the forum…)
+// library, workbooks, stories, literature, settings, about, the forum…)
 // are side trips: their arrow returns to the page the trip started from —
 // home when you came from home, your deck when you came from the deck —
 // instead of a fixed "Home". Browsing between side-trip pages keeps the
@@ -12,7 +12,6 @@ const SIDE_TRIPS = [
 	/^\/literature\/?$/,
 	/^\/books\/?$/,
 	/^\/level-check(\/|$)/,
-	/^\/songs?(\/|$)/,
 	/^\/play\/schreib-mir(\/|$)/,
 	/^\/settings\/?$/,
 	/^\/about\/?$/,

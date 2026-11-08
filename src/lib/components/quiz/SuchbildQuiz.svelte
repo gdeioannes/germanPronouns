@@ -935,7 +935,7 @@
 		gap: 0.4rem;
 		padding: 0 0.7rem;
 		border: 0;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: none;
 		white-space: nowrap;
 		color: var(--heading);
@@ -973,7 +973,7 @@
 		gap: 0.45rem;
 		padding: 0.5rem 1rem;
 		border: 0;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--heading);
 		color: var(--paper);
 		font-family: Inter, ui-sans-serif, system-ui, sans-serif;
@@ -997,7 +997,7 @@
 		align-items: center;
 		gap: 0.4rem;
 		padding: 0.3rem;
-		border-radius: 999px;
+		border-radius: 6px;
 		background: var(--surface);
 		box-shadow: 0 6px 18px rgb(31 58 95 / 0.18);
 		pointer-events: auto;
