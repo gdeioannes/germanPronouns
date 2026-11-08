@@ -28,6 +28,7 @@ export const GET: RequestHandler = async () => {
 		{ loc: '/stories', lastmod: lastModified('src/lib/domain/stories.ts'), priority: '0.6' },
 		{ loc: '/literature', lastmod: lastModified('src/lib/content/literature.ts'), priority: '0.6' },
 		{ loc: '/books', lastmod: lastModified('src/lib/content/books.ts', 'static/books/v2'), priority: '0.7' },
+		{ loc: '/start', lastmod: lastModified('src/routes/start'), priority: '0.6' },
 		{ loc: '/level-check', lastmod: lastModified('src/routes/level-check'), priority: '0.7' },
 		{ loc: '/level-check/test', lastmod: lastModified('src/routes/level-check/test', 'src/lib/domain/placement.ts'), priority: '0.7' },
 		{ loc: '/level-check/words', lastmod: lastModified('src/routes/level-check', 'assets/content/wordcheck/de.json'), priority: '0.7' },
@@ -69,6 +70,7 @@ export const GET: RequestHandler = async () => {
 	// Story episodes are deliberately absent from the sitemap: they are
 	// noindex, because an episode read out of the course spoils itself.
 
+	urls.push({ loc: '/play/wortbloecke', lastmod: lastModified('src/routes/play/wortbloecke'), priority: '0.6' });
 	urls.push({ loc: '/play/ja-nein', lastmod: lastModified('src/lib/domain/janein.ts'), priority: '0.6' });
 	urls.push({ loc: '/play/ja-nein/personas', lastmod: lastModified('src/lib/domain/janeinRounds.ts'), priority: '0.4' });
 	urls.push({ loc: '/play/schreib-mir', lastmod: lastModified('src/lib/domain/matchChat.ts'), priority: '0.6' });
