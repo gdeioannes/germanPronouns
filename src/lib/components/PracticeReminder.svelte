@@ -77,7 +77,7 @@
 				<button
 					type="button"
 					aria-pressed={days.includes(day.code)}
-					aria-label={day.long}
+					aria-label="{day.short}, {day.long}"
 					onclick={() => toggle(day.code)}
 				>
 					{#if days.includes(day.code)}<Icon name="check" size="0.85em" />{/if}

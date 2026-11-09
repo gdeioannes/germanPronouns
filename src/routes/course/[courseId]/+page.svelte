@@ -138,7 +138,7 @@
 		     the full picture. -->
 		<button type="button" class="progress" class:started={(current?.done ?? 0) > 0}
 			aria-haspopup="dialog" aria-controls="progress-panel" onclick={() => (panelOpen = true)}
-			aria-label="{current?.level ?? ''}: {percent}% complete, {current?.done ?? 0} of {current?.total ?? 0}. Open your progress"
+			aria-label="{current ? levelLine(current) : ''}. {percent}% complete, {current?.done ?? 0} of {current?.total ?? 0}. Open your progress"
 			title="Your progress">
 			<span class="pbar" aria-hidden="true"><span style="width:{sweep.current}%"></span></span>
 			<span class="done tnum">{current ? levelLine(current) : ''}</span>

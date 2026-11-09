@@ -128,7 +128,7 @@
 		<table class="phrases">
 			<thead>
 				<tr>
-					{#each block.head as h, i (i)}<th class:en={h.en} class={block.genders ? GENDER[h.text.toLowerCase()] : undefined}>{h.text}</th>{/each}
+					{#each block.head as h, i (i)}{#if h.text}<th class:en={h.en} class={block.genders ? GENDER[h.text.toLowerCase()] : undefined}>{h.text}</th>{:else}<td></td>{/if}{/each}
 				</tr>
 			</thead>
 			<tbody>
@@ -305,7 +305,7 @@
 {:else if block.kind === 'box'}
 	<aside class="box {block.tone}" class:has-image={block.image}>
 		<p class="label">{block.label ?? (german ? (block.tone === 'watch' ? 'Achtung' : block.tone === 'culture' ? 'In Deutschland' : 'Tipp') : block.tone === 'watch' ? 'Watch out' : block.tone === 'culture' ? 'In Germany' : 'Tip')}</p>
-		<h4>{block.title}</h4>
+		<h3 class="box-title">{block.title}</h3>
 		<p>{@html rich(block.text)}</p>
 		{#if block.image}<img src="/img/{block.image}.webp" alt="" width="1024" height="1024" />{/if}
 	</aside>
@@ -1218,10 +1218,11 @@
 		color: var(--tone);
 	}
 
-	h4 {
+	.box-title {
 		margin: 0.4mm 0 1mm;
 		font-family: var(--serif);
 		font-size: 11pt;
+		font-weight: 700;
 		color: var(--navy);
 	}
 

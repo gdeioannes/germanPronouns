@@ -200,7 +200,7 @@
 {#snippet pageCode(c: Chapter, part: string, label: string)}
 	{@const code = pages[c.id]?.[part]}
 	{#if code}
-		<a class="page-code" href={code.url} aria-label="Open this page in the app">
+		<a class="page-code" href={code.url} aria-label="{label} – open this page in the app">
 			{@html code.svg}
 			<span>{label}</span>
 		</a>
@@ -668,6 +668,9 @@
 		--paper: #fbf8f3;
 		--accent: #c9683b;
 		--accent-tint: #fbefe8;
+		/* Small accent-coloured text needs 4.5:1 on the paper; the bright
+		   --accent stays for borders, large type and decoration. */
+		--accent-ink: #a24c26;
 		--der: #1f5aa6;
 		--die: #b8322e;
 		--das: #2f7d4f;
@@ -683,10 +686,10 @@
 		print-color-adjust: exact;
 	}
 
-	[data-accent='terracotta'] { --accent: #c9683b; --accent-tint: #fbefe8; }
-	[data-accent='mustard'] { --accent: #b9842a; --accent-tint: #fbf3df; }
-	[data-accent='sage'] { --accent: #5f8064; --accent-tint: #eef3ee; }
-	[data-accent='blue'] { --accent: #3b6ea5; --accent-tint: #e9f0f8; }
+	[data-accent='terracotta'] { --accent: #c9683b; --accent-tint: #fbefe8; --accent-ink: #a24c26; }
+	[data-accent='mustard'] { --accent: #b9842a; --accent-tint: #fbf3df; --accent-ink: #836215; }
+	[data-accent='sage'] { --accent: #5f8064; --accent-tint: #eef3ee; --accent-ink: #44614a; }
+	[data-accent='blue'] { --accent: #3b6ea5; --accent-tint: #e9f0f8; --accent-ink: #30597f; }
 
 	.page {
 		position: relative;
@@ -737,7 +740,7 @@
 		font-weight: 800;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		color: var(--accent);
+		color: var(--accent-ink);
 	}
 	h2 {
 		margin: 0.5mm 0 0;
@@ -824,7 +827,7 @@
 	.fc-site { position: absolute; right: 18mm; bottom: 10mm; margin: 0; font-size: 9pt; font-weight: 800; color: var(--navy); }
 	.half .fc-site { right: calc(18mm + var(--bleed)); bottom: calc(10mm + var(--bleed)); }
 	/* The level as a sticker on the panel's edge. */
-	.fc-badge { position: absolute; right: 16mm; top: -24mm; width: 40mm; height: 40mm; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1mm; background: var(--accent); color: #fff; transform: rotate(-8deg); box-shadow: 0 2mm 6mm rgb(0 0 0 / 0.3); border: 1.2mm solid var(--paper); text-align: center; }
+	.fc-badge { position: absolute; right: 16mm; top: -24mm; width: 40mm; height: 40mm; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1mm; background: var(--accent-ink); color: #fff; transform: rotate(-8deg); box-shadow: 0 2mm 6mm rgb(0 0 0 / 0.3); border: 1.2mm solid var(--paper); text-align: center; }
 	.half .fc-badge { right: calc(16mm + var(--bleed)); }
 	.fc-route .nb { white-space: nowrap; }
 	.fc-badge b { font-family: var(--serif); font-size: 30pt; line-height: 1; }
@@ -869,7 +872,7 @@
 	.toc .no { font-family: var(--serif); font-size: 18pt; font-weight: 700; color: var(--accent); }
 	.toc .t b { font-family: var(--serif); font-size: 13pt; color: var(--navy); }
 	.toc .t small { display: block; font-size: 8.5pt; color: var(--muted); }
-	.toc .t i { display: block; font-size: 7.5pt; font-style: normal; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-top: 0.5mm; }
+	.toc .t i { display: block; font-size: 7.5pt; font-style: normal; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink); margin-top: 0.5mm; }
 	.toc .pg { text-align: right; font-weight: 800; color: var(--navy); }
 	.toc .key-line .no { color: var(--navy); }
 
@@ -884,7 +887,7 @@
 	.pin .de { font-size: 9.5pt; font-weight: 800; color: var(--navy); }
 	.pin .meta { font-size: 6.6pt; color: var(--muted); }
 	.strip { position: absolute; left: 10mm; right: 14mm; bottom: 16mm; padding: 3.5mm 4mm 3mm; background: rgb(251 248 243 / 0.95); border-radius: 2mm; box-shadow: 0 2mm 8mm rgb(0 0 0 / 0.2); }
-	.strip-title { margin: 0 0 1.2mm; padding-top: 1.5mm; border-top: 0.3mm solid var(--accent); font-size: 7.5pt; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+	.strip-title { margin: 0 0 1.2mm; padding-top: 1.5mm; border-top: 0.3mm solid var(--accent); font-size: 7.5pt; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); }
 	.words .foot { left: 10mm; right: 14mm; border-top: 0; color: transparent; }
 	.words .foot .tnum { color: #fff; }
 	.plate-cols { display: grid; grid-template-columns: 1.3fr 1fr; gap: 6mm; align-items: end; margin-bottom: 2.5mm; }
@@ -946,7 +949,7 @@
 	}
 	.opener .num { position: absolute; left: 18mm; top: -22mm; font-family: var(--serif); font-size: 60pt; font-weight: 700; color: #fff; text-shadow: 0 1px 6px rgb(0 0 0 / 0.5); }
 	.opener h2 { font-size: 26pt; }
-	.opener .world { margin: 0.5mm 0 2mm; font-size: 9pt; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+	.opener .world { margin: 0.5mm 0 2mm; font-size: 9pt; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-ink); }
 	.opener .cap { margin: 0; font-family: var(--serif); font-size: 10.5pt; color: var(--ink); }
 	.qs { margin: 0; padding-left: 5mm; font-size: 10pt; }
 	.qs li { margin-bottom: 0.8mm; }
@@ -957,7 +960,7 @@
 	.dialogue { font-family: var(--serif); font-size: 10pt; line-height: 1.3; }
 	.dialogue p { margin: 0 0 0.9mm; display: grid; grid-template-columns: 22mm 1fr; gap: 2mm; }
 	.dialogue p.prose { display: block; margin-bottom: 2.2mm; }
-	.dialogue b { font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); padding-top: 0.8mm; }
+	.dialogue b { font-family: var(--sans); font-size: 8pt; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-ink); padding-top: 0.8mm; }
 	.dialogue p.a b { color: var(--navy); }
 	.side-photos { display: flex; flex-direction: column; gap: 3mm; }
 	.reading .en { margin: 0 0 2mm; font-size: 6.8pt; color: var(--muted); line-height: 1.25; }
@@ -1026,7 +1029,7 @@
 	/* -- key ------------------------------------------------------------------- */
 	.keycols { columns: 3; column-gap: 5mm; font-size: 7pt; line-height: 1.3; overflow: hidden; max-height: 240mm; }
 	.key h3 { margin: 0 0 1.5mm; font-family: var(--serif); font-size: 12pt; color: var(--navy); }
-	.key h4 { margin: 2.5mm 0 1mm; font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+	.key h4 { margin: 2.5mm 0 1mm; font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); }
 	.key p { margin: 0 0 1mm; break-inside: avoid; }
 	.key .n { display: inline-block; min-width: 3.5mm; font-weight: 800; color: var(--navy); }
 	.key em { color: var(--muted); }

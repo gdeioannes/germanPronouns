@@ -603,7 +603,10 @@
 		color: #fff;
 		font-size: 0.8rem;
 		font-weight: 600;
-		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+		/* Solid-enough backing: white text needs 4.5:1 whatever photo is behind. */
+		background: rgba(0, 0, 0, 0.6);
+		padding: 0.15rem 0.55rem;
+		border-radius: 999px;
 	}
 
 	/* Phone: the photo on top, the words on dark under it; swipe to move. */

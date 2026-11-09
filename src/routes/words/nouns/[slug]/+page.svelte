@@ -119,7 +119,7 @@
 			<div class="table-wrap">
 				<table>
 					<thead>
-						<tr><th></th><th>Singular</th><th>Plural</th></tr>
+						<tr><td></td><th scope="col">Singular</th><th scope="col">Plural</th></tr>
 					</thead>
 					<tbody>
 						{#each cases as row (row.label)}

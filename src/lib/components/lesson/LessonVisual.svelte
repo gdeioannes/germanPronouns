@@ -135,7 +135,7 @@
 			<table class="grid">
 				<thead>
 					<tr>
-						<th></th>
+						<td></td>
 						{#each cols as col, c (c)}<th scope="col" style="color:{genderTint(col)}">{GENDER_HEAD[col] ?? col}</th>{/each}
 					</tr>
 				</thead>
@@ -162,7 +162,7 @@
 			<table class="grid people">
 				<thead>
 					<tr>
-						<th></th>
+						<td></td>
 						{#each visual.columns as col, c (c)}<th scope="col" lang={locale}>{col.label}</th>{/each}
 					</tr>
 				</thead>
