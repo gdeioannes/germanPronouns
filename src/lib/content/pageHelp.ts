@@ -87,10 +87,6 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			{
 				title: 'Exercise library',
 				text: '"See all exercises", under Skip and Let\'s go, lists every exercise in order, if you would rather choose yourself.'
-			},
-			{
-				title: 'The heart in the top bar',
-				text: 'Once you have started a Schreib mir! chat, a heart appears in the top bar. Its number counts the characters who liked you, and it opens the game.'
 			}
 		]
 	},

@@ -22,7 +22,6 @@
 	import { forum } from '$lib/state/forum.svelte';
 	import { account } from '$lib/state/account.svelte';
 	import { openSignIn } from '$lib/state/signin.svelte';
-	import ContactsPeek from '$lib/components/match/ContactsPeek.svelte';
 	import PageHelp from '$lib/components/PageHelp.svelte';
 
 	onMount(initWhatsNew);
@@ -247,10 +246,6 @@
 			<a class="icon-link" href="/words" aria-label="Word library" title="Word library">
 				<Icon name="words" size="1.15em" />
 			</a>
-			<!-- Schreib mir! contacts, once a character has been met. The forum
-			     and settings live under Menu, whose dot says a forum reply is
-			     waiting. -->
-			<ContactsPeek />
 			<!-- "?": how this screen works (content/pageHelp), on pages that have an entry. -->
 			<PageHelp topic={page.route.id} />
 			{@render signIn()}
