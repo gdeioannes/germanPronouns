@@ -16,6 +16,14 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-10",
+    title: "Easier to find in a search",
+    items: [
+      "Search engines now get a complete map of the site: the start page and the Wortblöcke puzzle were missing from it.",
+      "A mistyped address shows a proper \"page not found\" message right away, with a link back to the start.",
+    ],
+  },
+  {
     date: "2026-11-09",
     title: "Photos everywhere, one calm style",
     items: [
