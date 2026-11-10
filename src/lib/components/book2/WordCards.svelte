@@ -10,6 +10,7 @@
 	import { storage } from '$lib/services/storage';
 	import { tts } from '$lib/services/speech';
 	import { dueWords, learntCount, parseBoxes, review, wordsKey, type WordBoxes } from '$lib/domain/bookStudy';
+	import { forSpeech } from '$lib/domain/spoken';
 
 	interface Word {
 		de: string;
@@ -43,7 +44,7 @@
 
 	function show() {
 		shown = true;
-		if (card) void tts.speak(card.de, { locale: 'de-DE' });
+		if (card) void tts.speak(forSpeech(card.de), { locale: 'de-DE' });
 	}
 
 	async function answer(known: boolean) {
@@ -77,7 +78,7 @@
 				<p class="de" lang="de">
 					{#if article(card.de)}<b class="art {article(card.de)}">{article(card.de)}</b>{/if}
 					{bare(card.de)}
-					<SpeakButton text={card.de} locale="de-DE" label="Listen to {card.de}" />
+					<SpeakButton text={forSpeech(card.de)} locale="de-DE" label="Listen to {card.de}" />
 				</p>
 				{#if plural(card.pl)}<p class="pl" lang="de">{plural(card.pl)}</p>{/if}
 			{/if}

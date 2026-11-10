@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-10",
+    title: "Every mistake explained, for real",
+    items: [
+      "Fill-in exercises now say why: a wrong answer shows the right one and the rule behind it — a matched note about that exact slip, or the hint that used to disappear the moment you answered. From B1 the note is in German, with English one tap away.",
+      "The picture hunt teaches on a missed article: \"it's die, not der\" now comes with the ending rule, the same tip the flashcards give.",
+      "Speaking exercises show the tutor's corrections with your score, not just a number: what you said, the right way, and why.",
+      "In speaking and writing reports, the tutor's reason for each fix is kept and shown instead of being stripped out.",
+      "The book's word cards no longer read notes like \"(+ gen.)\" or arrows aloud — you hear only the German.",
+    ],
+  },
+  {
+    date: "2026-11-10",
     title: "Easier to find in a search",
     items: [
       "Search engines now get a complete map of the site: the start page and the Wortblöcke puzzle were missing from it.",

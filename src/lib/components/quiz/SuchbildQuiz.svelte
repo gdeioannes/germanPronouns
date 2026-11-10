@@ -38,7 +38,7 @@
 	import RunSummary from './RunSummary.svelte';
 	import RunTracker from './RunTracker.svelte';
 	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE } from '$lib/domain/progress';
-	import { checkWritten } from '$lib/domain/flashcards';
+	import { checkWritten, genderRule } from '$lib/domain/flashcards';
 	import { LadderRun, markValue, type ClimbOffer, type RunMark } from '$lib/state/ladderRun.svelte';
 	import SuchbildTour from './SuchbildTour.svelte';
 	import { playSound } from '$lib/services/sounds';
@@ -121,6 +121,23 @@
 	/** The object tapped by mistake, named on the picture. */
 	let tappedWrong = $state.raw<SuchbildSpot | null>(null);
 	let chosenArticle = $state<string | null>(null);
+
+	/**
+	 * The ending rule behind a missed article, as the flashcards show it —
+	 * the why under "it's die, not der".
+	 */
+	const articleRule = $derived.by(() => {
+		if (verdict !== 'wrong' || !current) return null;
+		const articleMiss = (chosenArticle && chosenArticle !== current.article) || missingArticle;
+		if (!articleMiss) return null;
+		return genderRule({
+			kind: 'noun',
+			article: current.article,
+			de: current.de,
+			en: current.en,
+			plural: current.plural
+		} as VocabCard);
+	});
 	/** Wrong objects tapped on this question. */
 	let misses = $state(0);
 	/** MAX_MISSES reached: the right object glows and the question is lost. */
@@ -755,6 +772,19 @@
 					Not quite.
 				{/if}
 			</p>
+			{#if articleRule}
+				<!-- The ending rule, so the missed article teaches the next noun too. -->
+				<p class="rule">
+					{#if articleRule.follows}
+						Tip: words ending in <strong lang={locale}>-{articleRule.ending}</strong> are
+						{articleRule.how} <strong lang={locale}>{articleRule.article}</strong>.
+					{:else}
+						Careful: words ending in <strong lang={locale}>-{articleRule.ending}</strong> are
+						{articleRule.how} <strong lang={locale}>{articleRule.article}</strong>, but
+						<strong lang={locale}>{articleRule.noun}</strong> is an exception.
+					{/if}
+				</p>
+			{/if}
 		{:else if tappedWrong}
 			<p class="nudge miss">
 				Not that one — that's <span lang={locale}>{full(tappedWrong)}</span>. Keep looking
@@ -1170,6 +1200,14 @@
 
 	.verdict.wrong {
 		color: var(--wrong);
+	}
+
+	/* The ending rule under a missed article: teaching, not more red. */
+	.rule {
+		margin: 0.35rem 0 0;
+		font-size: var(--step--1);
+		font-weight: 600;
+		color: var(--accent-ink);
 	}
 
 	.next {

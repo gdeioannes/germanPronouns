@@ -538,6 +538,7 @@
 										<span class="said">{fix.said}</span>
 										<Icon name="arrowRight" size="0.8em" />
 										<span class="correct">{fix.correct}</span>
+										{#if fix.why}<small class="fix-why">{fix.why}</small>{/if}
 									</li>
 								{/each}
 							</ol>
@@ -1028,5 +1029,12 @@
 
 	.correct {
 		font-weight: 600;
+	}
+
+	/* The AI's reason for the fix, kept from the report instead of stripped. */
+	.fix-why {
+		flex-basis: 100%;
+		font-size: var(--step--2, 0.8rem);
+		color: var(--accent-ink);
 	}
 </style>

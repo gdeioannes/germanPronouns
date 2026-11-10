@@ -500,13 +500,13 @@ describe('noun lookup (ported from noun_lookup.dart)', () => {
 });
 
 describe('speaking fix hygiene', () => {
-	it('strips bracketed explanations and quotes from FIX lines', () => {
+	it('strips bracketed explanations and quotes from FIX lines, keeping the reason as why', () => {
 		const fixes = parseSpeakingFixes(
 			'FIX: "ich habe gegangen" -> "ich bin gegangen" (sein for movement)\nFIX: ich wohne Berlin -> ich wohne in Berlin [preposition]'
 		);
 		expect(fixes).toEqual([
-			{ said: 'ich habe gegangen', correct: 'ich bin gegangen' },
-			{ said: 'ich wohne Berlin', correct: 'ich wohne in Berlin' }
+			{ said: 'ich habe gegangen', correct: 'ich bin gegangen', why: 'sein for movement' },
+			{ said: 'ich wohne Berlin', correct: 'ich wohne in Berlin', why: 'preposition' }
 		]);
 	});
 

@@ -50,6 +50,8 @@
 	let copied = $state(false);
 	let report = $state('');
 	let saved = $state<number | null>(null);
+	/** The report's FIX: lines, shown with the score — not only banked. */
+	let remembered = $state<SpeakingFix[]>([]);
 	let index = $state(0);
 	const labels = ['Copy', 'Talk', 'Score'];
 
@@ -60,6 +62,7 @@
 		copied = false;
 		report = '';
 		saved = null;
+		remembered = [];
 	});
 
 	// Read in the browser only, so the prerendered page keeps the web links.
@@ -161,6 +164,7 @@
 		// learner's actual mistakes. Bank them for the personal-focus loop.
 		// Tagged with the level, so a later, lower session can leave them out.
 		const fixes = parseSpeakingFixes(report).map((f) => ({ ...f, level: quiz.level ?? 'A1' }));
+		remembered = fixes.slice(0, 4);
 		if (fixes.length > 0) {
 			const key = `${SettingsKeys.speakingFixLogPrefix}${courseId}`;
 			const raw = await storage.get(key);
@@ -266,6 +270,28 @@
 							<p class="medal">No medal yet — run it again when you're ready.</p>
 						{/if}
 					</div>
+
+					{#if remembered.length}
+						<!-- The corrections, in the open: what went wrong, the right way,
+						     and the tutor's reason — not only banked for later prompts. -->
+						<div class="focus" in:pop>
+							<h4><Icon name="pen" size="1em" /> Work on these next time</h4>
+							<ol>
+								{#each remembered as fix, n (n)}
+									<li>
+										<span class="said">{fix.said}</span>
+										<Icon name="arrowRight" size="0.8em" />
+										<span class="correct">{fix.correct}</span>
+										{#if fix.why}<small class="fix-why">{fix.why}</small>{/if}
+									</li>
+								{/each}
+							</ol>
+							<p class="note">
+								Saved. Your next speaking or writing exercise will quietly bring
+								one or two of them back.
+							</p>
+						</div>
+					{/if}
 				{/if}
 			</section>
 		{/if}
@@ -612,5 +638,53 @@
 		font-size: var(--step--1);
 		text-transform: capitalize;
 		color: var(--ink-muted);
+	}
+
+	/* The corrections list, as the writing exercise shows it. */
+	.focus {
+		align-self: stretch;
+		margin-top: 1rem;
+		padding: 0.9rem 1.1rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-sm);
+		background: var(--surface-sunken);
+	}
+
+	.focus h4 {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		margin: 0 0 0.5rem;
+		font-size: var(--step-0);
+	}
+
+	.focus ol {
+		margin: 0;
+		padding-left: 1.3rem;
+		display: grid;
+		gap: 0.4rem;
+	}
+
+	.focus li {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		font-size: var(--step--1);
+	}
+
+	.said {
+		text-decoration: line-through;
+		color: var(--ink-muted);
+	}
+
+	.correct {
+		font-weight: 600;
+	}
+
+	.fix-why {
+		flex-basis: 100%;
+		font-size: var(--step--2, 0.8rem);
+		color: var(--accent-ink);
 	}
 </style>

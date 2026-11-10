@@ -32,6 +32,8 @@
 	import { filledSentence, fillBlankPool, revealedParts } from '$lib/domain/spoken';
 	import { answerTileIds, joinTiles, tileBank, type Tile } from '$lib/domain/tiles';
 	import EnglishLine from '$lib/components/EnglishLine.svelte';
+	import EnglishToggle from '$lib/components/EnglishToggle.svelte';
+	import EnglishPanel from '$lib/components/EnglishPanel.svelte';
 	import { choicesFor, goldSentence, stepPool } from '$lib/domain/fillLadder';
 	import { splitGapAnswer } from '$lib/domain/answers';
 	import { LadderRun, type ClimbOffer } from '$lib/state/ladderRun.svelte';
@@ -121,6 +123,41 @@
 	let verdict = $state<'right' | 'wrong' | null>(null);
 	/** Gaps a relaxed check accepted but spelled differently from the key. */
 	let fixes = $state<{ typed: string; proper: string }[]>([]);
+	/** Why the miss was a miss — a matched common-mistake note, or the hint. */
+	let missWhy = $state<{ text: string; en?: string; german: boolean } | null>(null);
+	let whyEnOpen = $state(false);
+
+	const normAnswer = (s: string) => s.toLowerCase().replace(/\s+/g, ' ').trim();
+
+	/**
+	 * The reason to show under a wrong answer. The quiz's common-mistakes notes
+	 * (wrong → right + why) are matched against what was actually typed: the
+	 * exact pair first, then the classic wrong form alone, then any note about
+	 * this right answer. Failing all three, the hint — the grammar cue that
+	 * used to vanish exactly when it would have helped.
+	 */
+	function whyForMiss(typed: string[], canonical: string[]): typeof missWhy {
+		const entries = quiz.help?.mistakes ?? [];
+		const german = quiz.help?.german === true;
+		const note = (m: { why: string; whyEn?: string }) => ({
+			text: m.why,
+			en: german ? m.whyEn : undefined,
+			german
+		});
+		for (let i = 0; i < canonical.length; i++) {
+			const t = normAnswer(typed[i] ?? '');
+			const c = normAnswer(canonical[i] ?? '');
+			if (!t || t === c) continue;
+			const pair = entries.find((m) => normAnswer(m.wrong) === t && normAnswer(m.right) === c);
+			const found =
+				pair ??
+				entries.find((m) => normAnswer(m.wrong) === t) ??
+				entries.find((m) => normAnswer(m.right) === c);
+			if (found) return note(found);
+		}
+		const hint = current?.hint;
+		return hint ? { text: hint, german: false } : null;
+	}
 	let streak = $state(0);
 	/** The answer card, for the praise to rise from; `missKey` shakes it. */
 	let cardEl = $state<HTMLElement>();
@@ -321,6 +358,8 @@
 		answers = hintFill();
 		verdict = null;
 		fixes = [];
+		missWhy = null;
+		whyEnOpen = false;
 		// The bank is re-rendered for the new item before its first tile can take focus.
 		if (tiled) tick().then(() => bankEls[0]?.focus());
 		else if (!choosing) inputEls[0]?.focus();
@@ -425,6 +464,8 @@
 		if (!correct) {
 			missKey += 1;
 			retry.push(current);
+			// The right one and why: never just red.
+			missWhy = whyForMiss(typed, canonical);
 		}
 		onAnswer(correct);
 		saveSpot<Spot>(quiz.storageKeyPrefix, run.saved);
@@ -463,6 +504,7 @@
 			announce([
 				{ text: 'Not quite. The answer is:' },
 				{ text: filledSentence(current.sentence, canonical), lang: locale },
+				...(missWhy ? [{ text: missWhy.text, lang: missWhy.german ? locale : undefined }] : []),
 				...(medal ? [{ text: medal }] : [])
 			]);
 		if (correct) {
@@ -474,8 +516,8 @@
 		skip = moveOn;
 		const pause = revealPause(progress.answerRevealMode);
 		if (pause === null) return;
-		// A spelling note needs reading time of its own.
-		await wait(fixes.length ? Math.max(pause * 2, 2500) : pause);
+		// A spelling note, or a why under a miss, needs reading time of its own.
+		await wait(fixes.length || missWhy ? Math.max(pause * 2, 2500) : pause);
 		if (skip === moveOn) moveOn();
 	}
 
@@ -504,6 +546,8 @@
 			answers = hintFill();
 			verdict = null;
 			fixes = [];
+			missWhy = null;
+			whyEnOpen = false;
 		}
 	}
 
@@ -689,6 +733,20 @@
 					>
 				{/each}
 			</div>
+		{/if}
+
+		{#if verdict === 'wrong' && missWhy}
+			<!-- The promise on the front page: the right one, and why. -->
+			<div class="why" data-focus-target>
+				<Icon name="book" size="1em" />
+				<p lang={missWhy.german ? locale : undefined}>{missWhy.text}</p>
+				{#if missWhy.en}
+					<EnglishToggle bind:open={whyEnOpen} />
+				{/if}
+			</div>
+			{#if missWhy.en && whyEnOpen}
+				<EnglishPanel lines={[missWhy.en]} />
+			{/if}
 		{/if}
 
 		<!-- One fixed row under the sentence: the hint while answering, the
@@ -978,6 +1036,26 @@
 	.slip {
 		color: var(--ink-muted);
 		font-weight: 500;
+	}
+
+	/* The why under a miss: a quiet note in the accent's soft tint, so the
+	   correction reads as teaching rather than as more red. */
+	.why {
+		display: flex;
+		align-items: baseline;
+		gap: 0.5rem;
+		margin: 0.9rem 0 0;
+		padding: 0.6rem 0.8rem;
+		border-radius: var(--radius-sm);
+		background: var(--accent-soft);
+		color: var(--accent-ink);
+	}
+
+	.why p {
+		margin: 0;
+		font-size: var(--step--1);
+		font-weight: 600;
+		line-height: 1.5;
 	}
 
 	/* Check / Next: what Enter does, for thumbs. Faint until there is

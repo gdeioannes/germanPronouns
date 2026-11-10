@@ -280,6 +280,8 @@ export function speakingMedal(score: number): SpeakingMedal | null {
 export interface SpeakingFix {
 	said: string;
 	correct: string;
+	/** The AI's bracketed reason ("sein for movement"), shown with the fix. */
+	why?: string;
 	/** The level of the exercise that produced it, so it is only replayed at or above it. */
 	level?: string;
 }
@@ -319,12 +321,20 @@ export function parseSpeakingScore(input: string): number | null {
 	return bare >= 0 && bare <= 100 ? bare : null;
 }
 
+/** The bracketed reason at the end of a FIX side, if the AI appended one. */
+function trailingWhy(side: string): string {
+	const m = /[(\[（]([^()[\]（）]+)[)\]）]\s*$/.exec(side.trim());
+	return m ? m[1].trim() : '';
+}
+
 /** Every `FIX:` correction in a pasted report. */
 export function parseSpeakingFixes(input: string): SpeakingFix[] {
 	const fixes: SpeakingFix[] = [];
 	FIX_LINE.lastIndex = 0;
 	let match: RegExpExecArray | null;
 	while ((match = FIX_LINE.exec(input)) !== null) {
+		// The why is kept and shown with the fix; the trainer sentence stays clean.
+		const why = trailingWhy(match[2]) || trailingWhy(match[1]);
 		const said = match[1]
 			.replace(TRAILING_NOTE, '')
 			.replace(/\*\*/g, '')
@@ -335,7 +345,7 @@ export function parseSpeakingFixes(input: string): SpeakingFix[] {
 			.replace(/\*\*/g, '')
 			.replace(/^["„“]|["“”]$/g, '')
 			.trim();
-		if (said && correct) fixes.push({ said, correct });
+		if (said && correct) fixes.push({ said, correct, ...(why ? { why } : {}) });
 	}
 	return fixes;
 }

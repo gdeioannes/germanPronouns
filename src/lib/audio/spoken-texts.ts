@@ -165,8 +165,10 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 			const book = level ? loadBook2(catalog.defaultCourseId, level) : null;
 			for (const c of book?.chapters ?? []) {
 				for (const line of c.reading.lines) add(plain(line.de), WORDS_LOCALE, 'book reading', level);
-				for (const g of c.words.groups) for (const w of g.items) add(w.de, WORDS_LOCALE, 'book word', level);
-				for (const v of c.words.verbs ?? []) add(v.de, WORDS_LOCALE, 'book word', level);
+				// Word cards speak through forSpeech, so a note like "(+ gen.)"
+				// or an arrowed pair is recorded as it is actually said.
+				for (const g of c.words.groups) for (const w of g.items) add(forSpeech(w.de), WORDS_LOCALE, 'book word', level);
+				for (const v of c.words.verbs ?? []) add(forSpeech(v.de), WORDS_LOCALE, 'book word', level);
 			}
 		}
 	}
