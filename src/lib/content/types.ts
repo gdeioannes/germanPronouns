@@ -396,6 +396,14 @@ export interface QuizSentence {
 	hint?: string;
 	english?: string;
 	/**
+	 * Why the answer is what it is — the rule as applied to this gap, shown
+	 * under a miss. Authored in assets/content/whys, folded in by
+	 * tool/apply-whys.mjs. German from B1 (the quiz help's `german` flag),
+	 * with `whyEn` behind the English toggle.
+	 */
+	why?: string;
+	whyEn?: string;
+	/**
 	 * Word tiles: the learner builds the gap from these instead of typing it,
 	 * for items whose point is WHERE the words go (verb second, verb last,
 	 * TeKaMoLo). Every accepted answer must be buildable from them; any tile

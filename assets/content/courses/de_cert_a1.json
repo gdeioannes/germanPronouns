@@ -863,7 +863,8 @@
             "Du",
             "Er",
             "Wir"
-          ]
+          ],
+          "why": "bin only ever goes with ich — the verb form points at the person."
         },
         {
           "subjectKey": "s1",
@@ -879,7 +880,8 @@
             "Ich",
             "Er",
             "Ihr"
-          ]
+          ],
+          "why": "bist is the du form of sein: -st is the you-ending."
         },
         {
           "subjectKey": "s2",
@@ -895,7 +897,8 @@
             "Sie",
             "Es",
             "Ich"
-          ]
+          ],
+          "why": "Tom is a man, so he comes back as er — 'he'."
         },
         {
           "subjectKey": "s3",
@@ -911,7 +914,8 @@
             "Er",
             "Es",
             "Du"
-          ]
+          ],
+          "why": "Anna is a woman: sie, small s. Capital Sie would be the formal 'you'."
         },
         {
           "subjectKey": "s4",
@@ -928,7 +932,8 @@
             "Sie",
             "Du"
           ],
-          "hard": true
+          "hard": true,
+          "why": "das Kind is a das-word, so German says es — the grammar gender, not the child's."
         },
         {
           "subjectKey": "s5",
@@ -945,7 +950,8 @@
             "Ich",
             "Er"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Anna und ich includes the speaker: 'we' — wir, with sind."
         },
         {
           "subjectKey": "s6",
@@ -962,7 +968,8 @@
             "Sie",
             "Du"
           ],
-          "hard": true
+          "hard": true,
+          "why": "seid is the ihr form: several people you would each call du."
         },
         {
           "subjectKey": "s7",
@@ -979,7 +986,8 @@
             "Ihr",
             "Du"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Two people being talked about = sie, 'they'; the plural verb kommen confirms it."
         },
         {
           "subjectKey": "s8",
@@ -995,7 +1003,8 @@
             "Ihr",
             "Er"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Herr Müller is addressed politely: Sie, always with a capital S, and the verb in the -en form."
         },
         {
           "subjectKey": "s9",
@@ -1011,7 +1020,8 @@
             "er",
             "wir"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Heute takes position 1 and the verb must stay second, so ich moves to after it: lerne ich."
         },
         {
           "subjectKey": "s10",
@@ -1027,7 +1037,8 @@
             "Ich",
             "Ihr",
             "Er"
-          ]
+          ],
+          "why": "trinkst ends in -st — the du ending, so the subject is du."
         },
         {
           "subjectKey": "s11",
@@ -1043,7 +1054,8 @@
             "Sie",
             "Es",
             "Ich"
-          ]
+          ],
+          "why": "mein Vater is a man: er."
         },
         {
           "subjectKey": "s12",
@@ -1060,7 +1072,8 @@
             "Sie",
             "Ich"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Weather verbs have no real doer: German props them up with es — es regnet, like 'it rains'."
         },
         {
           "subjectKey": "s13",
@@ -1076,7 +1089,8 @@
             "ich",
             "er"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Morgen fills position 1; the verb stays second and the subject follows it: fahren wir."
         },
         {
           "subjectKey": "s14",
@@ -1092,7 +1106,8 @@
             "ihr",
             "er"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Polite address to Frau Schmidt: capital Sie, with the verb in the -en form."
         },
         {
           "subjectKey": "",
@@ -1108,7 +1123,8 @@
             "Sie",
             "Du"
           ],
-          "hard": true
+          "hard": true,
+          "why": "das Baby is a das-word, so it comes back as es."
         },
         {
           "subjectKey": "",
@@ -1124,7 +1140,8 @@
             "sie",
             "du"
           ],
-          "hard": true
+          "hard": true,
+          "why": "seid only goes with ihr; in a yes/no question the verb comes first and ihr right after."
         },
         {
           "subjectKey": "",
@@ -1140,7 +1157,8 @@
             "ihr",
             "er"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Herr Braun is addressed politely: capital Sie, with haben."
         },
         {
           "subjectKey": "",
@@ -1156,7 +1174,8 @@
             "er",
             "wir"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Am Montag is position 1; the verb keeps second place, so ich comes after it: arbeite ich."
         }
       ],
       "contextualLayout": true,
@@ -3334,7 +3353,8 @@
             "habe",
             "ist",
             "bist"
-          ]
+          ],
+          "why": "sein with ich is bin — its forms don't look like sein; they are learnt as a set."
         },
         {
           "subjectKey": "du",
@@ -3350,7 +3370,8 @@
             "Hast",
             "Bin"
           ],
-          "hard": true
+          "hard": true,
+          "why": "du takes bist — the -st is the du ending; in a question the verb comes first."
         },
         {
           "subjectKey": "er/sie/es",
@@ -3364,7 +3385,8 @@
             "hat",
             "sind",
             "bist"
-          ]
+          ],
+          "why": "mein Bruder = er, and er/sie/es takes ist."
         },
         {
           "subjectKey": "wir",
@@ -3378,7 +3400,8 @@
             "seid",
             "haben",
             "sein"
-          ]
+          ],
+          "why": "wir takes sind."
         },
         {
           "subjectKey": "ihr",
@@ -3393,7 +3416,8 @@
             "seit",
             "habt"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ihr takes seid — the one form of sein that ends in -d."
         },
         {
           "subjectKey": "sie/Sie",
@@ -3407,7 +3431,8 @@
             "ist",
             "seid",
             "haben"
-          ]
+          ],
+          "why": "Two names = sie ('they'), and sie takes sind."
         },
         {
           "subjectKey": "sie/Sie",
@@ -3423,7 +3448,8 @@
             "Seid",
             "Haben"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Formal Sie takes sind, and a yes/no question starts with the verb."
         },
         {
           "subjectKey": "er/sie/es",
@@ -3437,7 +3463,8 @@
             "sind",
             "hat",
             "bist"
-          ]
+          ],
+          "why": "das Wetter = es, and er/sie/es takes ist."
         },
         {
           "subjectKey": "ich",
@@ -3451,7 +3478,8 @@
             "ist",
             "habe",
             "bist"
-          ]
+          ],
+          "why": "ich bin — introducing yourself always uses bin."
         },
         {
           "subjectKey": "ich",
@@ -3465,7 +3493,8 @@
             "hat",
             "bin",
             "haben"
-          ]
+          ],
+          "why": "haben with ich is habe — the regular -e ending."
         },
         {
           "subjectKey": "du",
@@ -3481,7 +3510,8 @@
             "Bist",
             "Hat"
           ],
-          "hard": true
+          "hard": true,
+          "why": "du hast — haben drops the b in the du form: hast, never habst."
         },
         {
           "subjectKey": "er/sie/es",
@@ -3496,7 +3526,8 @@
             "hast",
             "haben"
           ],
-          "hard": true
+          "hard": true,
+          "why": "meine Schwester = sie, and er/sie/es is hat — again without the b."
         },
         {
           "subjectKey": "wir",
@@ -3511,7 +3542,8 @@
             "habt",
             "hat"
           ],
-          "hard": true
+          "hard": true,
+          "why": "wir haben — the plural forms keep the full stem with its b."
         },
         {
           "subjectKey": "ihr",
@@ -3527,7 +3559,8 @@
             "Haben",
             "Hast"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ihr habt — the ihr ending is -t, and the question starts with the verb."
         },
         {
           "subjectKey": "sie/Sie",
@@ -3543,7 +3576,8 @@
             "hast"
           ],
           "hard": true,
-          "keepCue": true
+          "keepCue": true,
+          "why": "die Kinder = sie ('they'), and sie takes haben."
         },
         {
           "subjectKey": "sie/Sie",
@@ -3558,7 +3592,8 @@
             "Hat",
             "Habt",
             "Sind"
-          ]
+          ],
+          "why": "Formal Sie always takes the -en form: Haben Sie."
         },
         {
           "subjectKey": "er/sie/es",
@@ -3573,7 +3608,8 @@
             "hast",
             "habt"
           ],
-          "hard": true
+          "hard": true,
+          "why": "das Kind = es, and er/sie/es is hat — no b."
         },
         {
           "subjectKey": "du",
@@ -3588,7 +3624,8 @@
             "hat",
             "habe"
           ],
-          "hard": true
+          "hard": true,
+          "why": "du hast — -st for du, and haben loses its b there."
         },
         {
           "subjectKey": "er/sie/es",
@@ -3603,7 +3640,8 @@
             "habt",
             "hast"
           ],
-          "hard": true
+          "hard": true,
+          "why": "mein Opa = er: hat. German has a birthday rather than 'is having' one."
         },
         {
           "subjectKey": "ihr",
@@ -3618,7 +3656,8 @@
             "seit",
             "habt"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ihr takes seid — sein's ihr form."
         },
         {
           "subjectKey": "ich",
@@ -3633,7 +3672,8 @@
             "hat",
             "hast"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ich habe — German has fear (Angst haben) where English is afraid."
         },
         {
           "subjectKey": "ich",
@@ -3647,7 +3687,8 @@
             "möchtest",
             "möchten",
             "möchtet"
-          ]
+          ],
+          "why": "ich möchte — möchte takes no extra ending with ich."
         },
         {
           "subjectKey": "du",
@@ -3663,7 +3704,8 @@
             "Möchten",
             "Möchtet"
           ],
-          "hard": true
+          "hard": true,
+          "why": "du möchtest — the du ending -st sits on möchte."
         },
         {
           "subjectKey": "er/sie/es",
@@ -3677,7 +3719,8 @@
             "möchtest",
             "möchten",
             "möchtet"
-          ]
+          ],
+          "why": "er/sie/es is möchte — the same form as ich, with no -t. One of möchte's surprises."
         },
         {
           "subjectKey": "wir",
@@ -3691,7 +3734,8 @@
             "möchte",
             "möchtet",
             "möchtest"
-          ]
+          ],
+          "why": "wir möchten — plural subjects take the -en form."
         },
         {
           "subjectKey": "ihr",
@@ -3707,7 +3751,8 @@
             "Möchte",
             "Möchtest"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ihr möchtet — the ihr ending is -t: möchtet."
         },
         {
           "subjectKey": "sie/Sie",
@@ -3721,7 +3766,8 @@
             "möchte",
             "möchtet",
             "möchtest"
-          ]
+          ],
+          "why": "Formal Sie takes the -en form: möchten."
         }
       ],
       "covers": [
@@ -4131,7 +4177,8 @@
             "was",
             "wo",
             "wen"
-          ]
+          ],
+          "why": "wer asks about a person — 'who'. Wer ist das? = Who is that?"
         },
         {
           "subjectKey": "s1",
@@ -4146,7 +4193,8 @@
             "wer",
             "wo",
             "wie"
-          ]
+          ],
+          "why": "was asks about a thing — 'what'."
         },
         {
           "subjectKey": "s2",
@@ -4161,7 +4209,8 @@
             "wohin",
             "woher",
             "wann"
-          ]
+          ],
+          "why": "wo asks about a place you are — 'where'. No movement, plain wo."
         },
         {
           "subjectKey": "s3",
@@ -4177,7 +4226,8 @@
             "woher",
             "wann"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Movement towards somewhere is wohin — 'where to'. German splits English 'where' in three: wo, wohin, woher."
         },
         {
           "subjectKey": "s4",
@@ -4193,7 +4243,8 @@
             "wohin",
             "wer"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Movement from somewhere is woher — 'where from'. wo + her, 'where hither'."
         },
         {
           "subjectKey": "s5",
@@ -4209,7 +4260,8 @@
             "wo",
             "wie"
           ],
-          "hard": true
+          "hard": true,
+          "why": "wann asks about a point in time — 'when'. (wenn is 'if/whenever', a different word.)"
         },
         {
           "subjectKey": "s6",
@@ -4224,7 +4276,8 @@
             "was",
             "wo",
             "wer"
-          ]
+          ],
+          "why": "wie asks 'how' — Wie geht es dir? is literally 'how goes it to you?'."
         },
         {
           "subjectKey": "s7",
@@ -4241,7 +4294,8 @@
             "wie",
             "wann",
             "wo"
-          ]
+          ],
+          "why": "warum asks for the reason — 'why'. wieso and weshalb mean the same."
         },
         {
           "subjectKey": "s8",
@@ -4259,7 +4313,8 @@
             "wie",
             "wer"
           ],
-          "hard": true
+          "hard": true,
+          "why": "A price is an amount: wie viel — 'how much'. Was kostet das? works too."
         },
         {
           "subjectKey": "s9",
@@ -4275,7 +4330,8 @@
             "wer",
             "wie lange"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Countable things take wie viele — 'how many'; wie viel is for amounts you don't count."
         },
         {
           "subjectKey": "s10",
@@ -4291,7 +4347,8 @@
             "wie lange",
             "wie viele"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Age is asked with wie alt — 'how old'; wie teams up with an adjective."
         },
         {
           "subjectKey": "s11",
@@ -4311,7 +4368,8 @@
             "wie viele",
             "wann"
           ],
-          "hard": true
+          "hard": true,
+          "why": "The clock time is Wie spät ist es? — literally 'how late is it?'. Wie viel Uhr ist es? also works."
         },
         {
           "subjectKey": "s12",
@@ -4327,7 +4385,8 @@
             "wie spät",
             "wie viel"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Duration is wie lange — 'how long'. lange, with the -e, when it stands alone like this."
         },
         {
           "subjectKey": "s13",
@@ -4343,7 +4402,8 @@
             "wo",
             "wann"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Asking what something is like uses wie — 'how is the weather?'."
         },
         {
           "subjectKey": "s14",
@@ -4360,7 +4420,8 @@
             "wo",
             "wann"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Wie heißt das? asks what something is called — German asks 'how', not 'what', with heißen."
         },
         {
           "subjectKey": "",
@@ -4376,7 +4437,8 @@
             "woher",
             "wie"
           ],
-          "hard": true
+          "hard": true,
+          "why": "fahren is movement towards a destination: wohin — 'where to'."
         },
         {
           "subjectKey": "",
@@ -4392,7 +4454,8 @@
             "wohin",
             "wer"
           ],
-          "hard": true
+          "hard": true,
+          "why": "kommen points back to an origin: woher — 'where from'."
         },
         {
           "subjectKey": "",
@@ -4410,7 +4473,8 @@
             "wie",
             "wer"
           ],
-          "hard": true
+          "hard": true,
+          "why": "A price is an amount: wie viel. The verb kosten is plural because die Tomaten are."
         }
       ],
       "contextualLayout": true,
@@ -5356,7 +5420,8 @@
             "mache",
             "macht",
             "machen"
-          ]
+          ],
+          "why": "du takes -st on the stem: mach + st = machst."
         },
         {
           "subjectKey": "wohnen",
@@ -5370,7 +5435,8 @@
             "wohnst",
             "wohnt",
             "wohnen"
-          ]
+          ],
+          "why": "ich takes -e: wohn + e = wohne."
         },
         {
           "subjectKey": "spielen",
@@ -5384,7 +5450,8 @@
             "spielst",
             "spiele",
             "spielen"
-          ]
+          ],
+          "why": "mein Bruder = er, and er/sie/es takes -t: spielt."
         },
         {
           "subjectKey": "lernen",
@@ -5398,7 +5465,8 @@
             "lernt",
             "lerne",
             "lernst"
-          ]
+          ],
+          "why": "wir takes -en — the same as the infinitive: lernen."
         },
         {
           "subjectKey": "kaufen",
@@ -5414,7 +5482,8 @@
             "Kaufst",
             "Kaufe"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ihr takes -t: kauft. In a yes/no question the verb moves to the front."
         },
         {
           "subjectKey": "kommen",
@@ -5429,7 +5498,8 @@
             "kommst",
             "komme"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Two names = sie ('they'), which takes -en: kommen."
         },
         {
           "subjectKey": "gehen",
@@ -5444,7 +5514,8 @@
             "Geht",
             "Gehe",
             "Gehen"
-          ]
+          ],
+          "why": "du takes -st: gehst; the question starts with the verb."
         },
         {
           "subjectKey": "hören",
@@ -5458,7 +5529,8 @@
             "hört",
             "hörst",
             "hören"
-          ]
+          ],
+          "why": "ich takes -e: höre. Am Abend sits in position 1, so ich follows the verb."
         },
         {
           "subjectKey": "arbeiten",
@@ -5474,7 +5546,8 @@
             "Arbeitet",
             "Arbeiten"
           ],
-          "hard": true
+          "hard": true,
+          "why": "The stem arbeit- ends in -t, so du squeezes in an e: arbeitest, not arbeitst."
         },
         {
           "subjectKey": "finden",
@@ -5490,7 +5563,8 @@
             "finden"
           ],
           "hard": true,
-          "keepCue": true
+          "keepCue": true,
+          "why": "The stem find- ends in -d, so er/sie/es inserts an e: findet."
         },
         {
           "subjectKey": "machen",
@@ -5505,7 +5579,8 @@
             "machst",
             "mache"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Formal Sie takes -en: machen."
         },
         {
           "subjectKey": "wohnen",
@@ -5520,7 +5595,8 @@
             "wohnst",
             "wohne"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ihr takes -t: wohnt."
         },
         {
           "subjectKey": "spielen",
@@ -5535,7 +5611,8 @@
             "spiele",
             "spielst"
           ],
-          "hard": true
+          "hard": true,
+          "why": "wir takes -en: spielen. Am Samstag fills position 1, so wir follows the verb."
         },
         {
           "subjectKey": "lernen",
@@ -5549,7 +5626,8 @@
             "lernst",
             "lernen",
             "lerne"
-          ]
+          ],
+          "why": "Jan = er, and er/sie/es takes -t: lernt."
         },
         {
           "subjectKey": "kaufen",
@@ -5563,7 +5641,8 @@
             "kaufst",
             "kauft",
             "kaufen"
-          ]
+          ],
+          "why": "ich takes -e: kaufe."
         },
         {
           "subjectKey": "kommen",
@@ -5577,7 +5656,8 @@
             "kommen",
             "kommst",
             "komme"
-          ]
+          ],
+          "why": "der Bus = er, and er/sie/es takes -t: kommt."
         },
         {
           "subjectKey": "hören",
@@ -5592,7 +5672,8 @@
             "höre",
             "hörst"
           ],
-          "hard": true
+          "hard": true,
+          "why": "meine Eltern = sie ('they'), which takes -en: hören."
         },
         {
           "subjectKey": "arbeiten",
@@ -5607,7 +5688,8 @@
             "arbeiten",
             "arbeite"
           ],
-          "hard": true
+          "hard": true,
+          "why": "er/sie/es takes -t, and arbeit- ends in -t, so an e slips in: arbeitet."
         },
         {
           "subjectKey": "finden",
@@ -5624,7 +5706,8 @@
             "Findest"
           ],
           "hard": true,
-          "keepCue": true
+          "keepCue": true,
+          "why": "ihr takes -t, and find- ends in -d, so it becomes findet."
         },
         {
           "subjectKey": "gehen",
@@ -5638,7 +5721,8 @@
             "geht",
             "gehe",
             "gehst"
-          ]
+          ],
+          "why": "wir takes -en: gehen. Morgen is position 1, so wir follows the verb."
         },
         {
           "subjectKey": "arbeiten",
@@ -5653,7 +5737,8 @@
             "arbeiten",
             "arbeitest"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ihr takes -t, and the -t stem needs its helper e: arbeitet."
         },
         {
           "subjectKey": "hören",
@@ -5669,7 +5754,8 @@
             "hörst",
             "höre"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ihr takes -t: hört."
         },
         {
           "subjectKey": "arbeiten",
@@ -5684,7 +5770,8 @@
             "arbeitest",
             "arbeite"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Formal Sie takes -en: arbeiten."
         }
       ],
       "covers": [
@@ -6116,7 +6203,8 @@
             "Fahrst",
             "Fährt",
             "Fahren"
-          ]
+          ],
+          "why": "fahren changes a → ä in the du and er/sie/es forms only: du fährst."
         },
         {
           "subjectKey": "fahren",
@@ -6132,7 +6220,8 @@
             "fährst",
             "fahren"
           ],
-          "keepCue": true
+          "keepCue": true,
+          "why": "mein Vater = er, and er/sie/es gets the vowel change a → ä: fährt."
         },
         {
           "subjectKey": "schlafen",
@@ -6148,7 +6237,8 @@
             "Schlafst",
             "Schläft",
             "Schlaft"
-          ]
+          ],
+          "why": "schlafen changes a → ä for du: schläfst."
         },
         {
           "subjectKey": "schlafen",
@@ -6163,7 +6253,8 @@
             "schlaft",
             "schläfst",
             "schlafen"
-          ]
+          ],
+          "why": "das Baby = es, and er/sie/es takes the a → ä change: schläft."
         },
         {
           "subjectKey": "lesen",
@@ -6178,7 +6269,8 @@
             "lest",
             "lese"
           ],
-          "hard": true
+          "hard": true,
+          "why": "lesen changes e → ie for du, and the stem's s merges with -st: du liest."
         },
         {
           "subjectKey": "lesen",
@@ -6192,7 +6284,8 @@
             "lest",
             "lese",
             "lesen"
-          ]
+          ],
+          "why": "Lisa = sie, and er/sie/es takes e → ie: liest — the same form as du here."
         },
         {
           "subjectKey": "sehen",
@@ -6207,7 +6300,8 @@
             "Sehst",
             "Sieht",
             "Seht"
-          ]
+          ],
+          "why": "sehen changes e → ie for du: siehst."
         },
         {
           "subjectKey": "sehen",
@@ -6222,7 +6316,8 @@
             "siehst",
             "sehen"
           ],
-          "keepCue": true
+          "keepCue": true,
+          "why": "er/sie/es takes the e → ie change: sieht."
         },
         {
           "subjectKey": "sprechen",
@@ -6238,7 +6333,8 @@
             "Spricht",
             "Sprecht"
           ],
-          "hard": true
+          "hard": true,
+          "why": "sprechen changes e → i (short) for du: sprichst."
         },
         {
           "subjectKey": "sprechen",
@@ -6254,7 +6350,8 @@
             "spreche"
           ],
           "hard": true,
-          "keepCue": true
+          "keepCue": true,
+          "why": "mein Kollege = er, and er/sie/es takes e → i: spricht."
         },
         {
           "subjectKey": "essen",
@@ -6269,7 +6366,8 @@
             "ist",
             "esse"
           ],
-          "hard": true
+          "hard": true,
+          "why": "essen changes e → i for du, and its ss merges with -st: du isst."
         },
         {
           "subjectKey": "essen",
@@ -6284,7 +6382,8 @@
             "ist",
             "esse"
           ],
-          "hard": true
+          "hard": true,
+          "why": "er/sie/es takes e → i: isst — spelt the same as the du form."
         },
         {
           "subjectKey": "nehmen",
@@ -6300,7 +6399,8 @@
             "Nimmt",
             "Nehmt"
           ],
-          "hard": true
+          "hard": true,
+          "why": "nehmen changes e → i and doubles the m for du: nimmst — the h disappears too."
         },
         {
           "subjectKey": "nehmen",
@@ -6316,7 +6416,8 @@
             "nimt"
           ],
           "hard": true,
-          "keepCue": true
+          "keepCue": true,
+          "why": "er/sie/es of nehmen is nimmt — e → i, double m, no h."
         },
         {
           "subjectKey": "geben",
@@ -6332,7 +6433,8 @@
             "gebt"
           ],
           "hard": true,
-          "keepCue": true
+          "keepCue": true,
+          "why": "geben changes e → i for du: gibst."
         },
         {
           "subjectKey": "geben",
@@ -6347,7 +6449,8 @@
             "gibst",
             "geben"
           ],
-          "hard": true
+          "hard": true,
+          "why": "der Lehrer = er, and er/sie/es takes e → i: gibt."
         },
         {
           "subjectKey": "schlafen",
@@ -6361,7 +6464,8 @@
             "schläft",
             "schlaft",
             "schläfen"
-          ]
+          ],
+          "why": "The vowel change touches only du and er/sie/es — wir keeps the plain stem: schlafen."
         },
         {
           "subjectKey": "essen",
@@ -6377,7 +6481,8 @@
             "Essen",
             "Ist"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ihr never takes the vowel change: esst, with the plain e."
         },
         {
           "subjectKey": "lesen",
@@ -6392,7 +6497,8 @@
             "lest",
             "lesen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ich never takes the vowel change: lese, with the plain e."
         },
         {
           "subjectKey": "fahren",
@@ -6408,7 +6514,8 @@
             "fähren"
           ],
           "hard": true,
-          "keepCue": true
+          "keepCue": true,
+          "why": "Plural sie keeps the plain stem — no umlaut: fahren."
         },
         {
           "subjectKey": "sprechen",
@@ -6423,7 +6530,8 @@
             "Spricht",
             "Sprecht"
           ],
-          "hard": true
+          "hard": true,
+          "why": "sprechen takes e → i for du: Sprichst."
         },
         {
           "subjectKey": "geben",
@@ -6438,7 +6546,8 @@
             "gibst",
             "geben"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Oma = sie, and er/sie/es of geben is gibt — e → i."
         }
       ],
       "covers": [
@@ -8114,7 +8223,8 @@
             "gelb",
             "orange",
             "lila"
-          ]
+          ],
+          "why": "rot is 'red' — the two words are old cousins; hear it in 'rouge' too."
         },
         {
           "subjectKey": "s1",
@@ -8129,7 +8239,8 @@
             "grün",
             "gelb",
             "lila"
-          ]
+          ],
+          "why": "blau is 'blue' — nearly the same word, said with an ow sound."
         },
         {
           "subjectKey": "s2",
@@ -8144,7 +8255,8 @@
             "blau",
             "rosa",
             "lila"
-          ]
+          ],
+          "why": "grün is 'green' — same family as grow and grass; the ü says ee with rounded lips."
         },
         {
           "subjectKey": "s3",
@@ -8159,7 +8271,8 @@
             "grün",
             "blau",
             "rot"
-          ]
+          ],
+          "why": "gelb is 'yellow' — both grew from the same old word; think of gold."
         },
         {
           "subjectKey": "s4",
@@ -8174,7 +8287,8 @@
             "weiß",
             "gelb",
             "rosa"
-          ]
+          ],
+          "why": "schwarz is 'black' — the odd one out; English kept it in 'swarthy'."
         },
         {
           "subjectKey": "s5",
@@ -8191,7 +8305,8 @@
             "braun",
             "grün"
           ],
-          "hard": true
+          "hard": true,
+          "why": "weiß is 'white' — w and a sharp s (ß); same root as 'white'."
         },
         {
           "subjectKey": "s6",
@@ -8207,7 +8322,8 @@
             "braun",
             "lila"
           ],
-          "hard": true
+          "hard": true,
+          "why": "orange is the same word as in English — fruit and colour alike."
         },
         {
           "subjectKey": "s7",
@@ -8223,7 +8339,8 @@
             "orange",
             "lila"
           ],
-          "hard": true
+          "hard": true,
+          "why": "braun is 'brown' — the same word with German spelling, au = ow."
         },
         {
           "subjectKey": "s8",
@@ -8239,7 +8356,8 @@
             "grün",
             "blau"
           ],
-          "hard": true
+          "hard": true,
+          "why": "grau is 'grey' — same root; au = ow, as in braun and blau."
         },
         {
           "subjectKey": "s9",
@@ -8256,7 +8374,8 @@
             "grün",
             "gelb"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Pink is rosa in German — from the rose. (German pink exists but is the loud, neon pink.)"
         },
         {
           "subjectKey": "s10",
@@ -8273,7 +8392,8 @@
             "braun",
             "gelb"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Purple is lila — from lilac; violett also works."
         },
         {
           "subjectKey": "s11",
@@ -8289,7 +8409,8 @@
             "rosa",
             "lila"
           ],
-          "hard": true
+          "hard": true,
+          "why": "bunt means 'colourful, multi-coloured' — many colours at once; no single English colour matches it."
         },
         {
           "subjectKey": "s12",
@@ -8304,7 +8425,8 @@
             "rosa",
             "lila",
             "blau"
-          ]
+          ],
+          "why": "Tomatoes and cherries are rot — 'red', cousin of 'rouge'."
         },
         {
           "subjectKey": "s13",
@@ -8319,7 +8441,8 @@
             "orange",
             "rosa",
             "braun"
-          ]
+          ],
+          "why": "Lemons are gelb — 'yellow', from the same old root as gold."
         },
         {
           "subjectKey": "s14",
@@ -8336,7 +8459,8 @@
             "lila",
             "gelb"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Piglets are rosa — soft pink, from the rose."
         },
         {
           "subjectKey": "",
@@ -8353,7 +8477,8 @@
             "braun",
             "gelb"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Lavender is lila — the word comes from lilac."
         },
         {
           "subjectKey": "",
@@ -8369,7 +8494,8 @@
             "braun",
             "rosa"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Many colours at once = bunt — colourful."
         },
         {
           "subjectKey": "",
@@ -8385,7 +8511,8 @@
             "orange",
             "lila"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Cocoa is braun — 'brown' in German clothing: au = ow."
         }
       ],
       "contextualLayout": true,
@@ -9096,7 +9223,8 @@
             "der Mutter",
             "das Mutter",
             "der Vater"
-          ]
+          ],
+          "why": "die Mutter — 'mother'. Family words for women are die; Mutter even breaks the -er rule."
         },
         {
           "subjectKey": "s1",
@@ -9113,7 +9241,8 @@
             "die Vater",
             "das Vater",
             "die Mutter"
-          ]
+          ],
+          "why": "der Vater — 'father'. Male family members are der."
         },
         {
           "subjectKey": "s2",
@@ -9131,7 +9260,8 @@
             "meine Bruder",
             "meine Schwester",
             "mein Vater"
-          ]
+          ],
+          "why": "der Bruder — 'brother'. A shared set of parents makes brothers and sisters."
         },
         {
           "subjectKey": "s3",
@@ -9150,7 +9280,8 @@
             "mein Bruder",
             "meine Mutter"
           ],
-          "hard": true
+          "hard": true,
+          "why": "die Schwester — 'sister'; die because she is female."
         },
         {
           "subjectKey": "s4",
@@ -9167,7 +9298,8 @@
             "die Sohn",
             "das Sohn",
             "der Vater"
-          ]
+          ],
+          "why": "der Sohn — 'son'; seen from the parents, the boy is their Sohn."
         },
         {
           "subjectKey": "s5",
@@ -9185,7 +9317,8 @@
             "das Tochter",
             "die Mutter"
           ],
-          "hard": true
+          "hard": true,
+          "why": "die Tochter — 'daughter'; seen from the parents, the girl is their Tochter."
         },
         {
           "subjectKey": "s6",
@@ -9207,7 +9340,8 @@
             "der Bruder",
             "die Großmutter"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Your father's father is der Großvater — literally the 'great-father'; Opa is the cosy word."
         },
         {
           "subjectKey": "s7",
@@ -9229,7 +9363,8 @@
             "die Schwester",
             "der Großvater"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Your mother's mother is die Großmutter — 'great-mother'; Oma is the cosy word."
         },
         {
           "subjectKey": "s8",
@@ -9247,7 +9382,8 @@
             "die Kind",
             "die Familie"
           ],
-          "hard": true
+          "hard": true,
+          "why": "das Kind — 'child'. das, whatever the child's sex: the word's gender is grammatical."
         },
         {
           "subjectKey": "s9",
@@ -9262,7 +9398,8 @@
             "Frau",
             "Junge",
             "Mädchen"
-          ]
+          ],
+          "why": "der Mann means both 'man' and 'husband' — eine Frau haben = to have a wife."
         },
         {
           "subjectKey": "s10",
@@ -9277,7 +9414,8 @@
             "Mann",
             "Mädchen",
             "Kind"
-          ]
+          ],
+          "why": "die Frau means both 'woman' and 'wife' — and doubles as 'Mrs' before a name."
         },
         {
           "subjectKey": "s11",
@@ -9293,7 +9431,8 @@
             "Mann",
             "Vater"
           ],
-          "hard": true
+          "hard": true,
+          "why": "der Junge — 'boy'. One of the few masculine words ending in -e."
         },
         {
           "subjectKey": "s12",
@@ -9310,7 +9449,8 @@
             "Frau",
             "Tochter"
           ],
-          "hard": true
+          "hard": true,
+          "why": "das Mädchen — 'girl'. -chen words are always das, even for a girl: ein Mädchen."
         },
         {
           "subjectKey": "s13",
@@ -9327,7 +9467,8 @@
             "der Familie",
             "das Familie",
             "die Eltern"
-          ]
+          ],
+          "why": "die Familie — 'family'; an -e word, and like most of them it is die."
         },
         {
           "subjectKey": "s14",
@@ -9346,7 +9487,8 @@
             "meine Freundin",
             "mein Freundin"
           ],
-          "hard": true
+          "hard": true,
+          "why": "der Freund — 'friend' (male). Careful: mein Freund can also mean 'my boyfriend'."
         },
         {
           "subjectKey": "s15",
@@ -9365,7 +9507,8 @@
             "mein Freund",
             "meine Freund"
           ],
-          "hard": true
+          "hard": true,
+          "why": "die Freundin — Freund + -in makes it female; meine Freundin can also mean 'my girlfriend'."
         },
         {
           "subjectKey": "",
@@ -9381,7 +9524,8 @@
             "Kindern",
             "Eltern"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Kinder is the plural of das Kind — one of the -er plurals."
         },
         {
           "subjectKey": "",
@@ -9397,7 +9541,8 @@
             "Kinder",
             "Geschwister"
           ],
-          "hard": true
+          "hard": true,
+          "why": "die Eltern — 'parents'. It only exists in the plural."
         },
         {
           "subjectKey": "",
@@ -9413,7 +9558,8 @@
             "Schwestern",
             "Eltern"
           ],
-          "hard": true
+          "hard": true,
+          "why": "die Geschwister — 'siblings', brothers and sisters together; plural only."
         }
       ],
       "contextualLayout": true,
@@ -10530,7 +10676,8 @@
             "in der Park",
             "in Park",
             "in den Park"
-          ]
+          ],
+          "why": "Being somewhere (wo?) takes in + dative: der Park → dem Park, and in dem shrinks to im."
         },
         {
           "subjectKey": "Bahnhof",
@@ -10547,7 +10694,8 @@
             "an den Bahnhof",
             "in der Bahnhof"
           ],
-          "hard": true
+          "hard": true,
+          "why": "At a point like the station it is an + dative: an dem → am Bahnhof."
         },
         {
           "subjectKey": "Supermarkt",
@@ -10562,7 +10710,8 @@
             "zum Supermarkt",
             "in den Supermarkt",
             "in der Supermarkt"
-          ]
+          ],
+          "why": "Inside a building: in + dative; der Supermarkt → dem, and in dem = im."
         },
         {
           "subjectKey": "Schule",
@@ -10576,7 +10725,8 @@
             "im Schule",
             "in die Schule",
             "zur Schule"
-          ]
+          ],
+          "why": "die-words take der in the dative: in der Schule."
         },
         {
           "subjectKey": "Stadt",
@@ -10590,7 +10740,8 @@
             "im Stadt",
             "in die Stadt",
             "in dem Stadt"
-          ]
+          ],
+          "why": "wo? means dative, and die Stadt becomes der Stadt: in der Stadt."
         },
         {
           "subjectKey": "Küche",
@@ -10604,7 +10755,8 @@
             "im Küche",
             "in die Küche",
             "in dem Küche"
-          ]
+          ],
+          "why": "die Küche in the dative is der Küche: in der Küche."
         },
         {
           "subjectKey": "Uni",
@@ -10620,7 +10772,8 @@
             "an die Uni",
             "zur Uni"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Institutions like the Uni take an + dative: an der Uni."
         },
         {
           "subjectKey": "Büro",
@@ -10635,7 +10788,8 @@
             "in der Büro",
             "ins Büro",
             "zum Büro"
-          ]
+          ],
+          "why": "das-words take dem in the dative, and in dem shrinks to im: im Büro."
         },
         {
           "subjectKey": "Kino",
@@ -10650,7 +10804,8 @@
             "ins Kino",
             "in der Kino",
             "zum Kino"
-          ]
+          ],
+          "why": "das Kino → dem Kino; in dem = im Kino."
         },
         {
           "subjectKey": "Bett",
@@ -10665,7 +10820,8 @@
             "in der Bett",
             "in den Bett",
             "zum Bett"
-          ]
+          ],
+          "why": "Lying in bed is a place (wo?): in + dative — im Bett."
         },
         {
           "subjectKey": "Deutschland",
@@ -10679,7 +10835,8 @@
             "im Deutschland",
             "nach Deutschland",
             "aus Deutschland"
-          ]
+          ],
+          "why": "Country names without an article take plain in: in Deutschland."
         },
         {
           "subjectKey": "Siemens",
@@ -10694,7 +10851,8 @@
             "zu der Bank",
             "von der Bank"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Working at an employer is bei + dative: bei der Bank."
         },
         {
           "subjectKey": "Eltern",
@@ -10709,7 +10867,8 @@
             "zu meinen Eltern",
             "von meinen Eltern"
           ],
-          "hard": true
+          "hard": true,
+          "why": "At a person's place it is bei + dative; plural dative adds -n: bei meinen Eltern."
         },
         {
           "subjectKey": "Arzt",
@@ -10725,7 +10884,8 @@
             "bei den Arzt",
             "im Arzt"
           ],
-          "hard": true
+          "hard": true,
+          "why": "At a person (the doctor's) it is bei + dative: bei dem → beim Arzt."
         },
         {
           "subjectKey": "Park",
@@ -10741,7 +10901,8 @@
             "aus der Park",
             "im Park",
             "aus den Park"
-          ]
+          ],
+          "why": "Coming from somewhere (woher?) is aus or von + dative: aus dem Park."
         },
         {
           "subjectKey": "Bahnhof",
@@ -10758,7 +10919,8 @@
             "von der Bahnhof",
             "von den Bahnhof"
           ],
-          "hard": true
+          "hard": true,
+          "why": "From a point you were at (am Bahnhof) you come vom — von dem — Bahnhof."
         },
         {
           "subjectKey": "Supermarkt",
@@ -10774,7 +10936,8 @@
             "im Supermarkt",
             "aus der Supermarkt",
             "aus den Supermarkt"
-          ]
+          ],
+          "why": "Out of a building is aus + dative: aus dem Supermarkt."
         },
         {
           "subjectKey": "Schule",
@@ -10790,7 +10953,8 @@
             "aus die Schule",
             "vom Schule"
           ],
-          "hard": true
+          "hard": true,
+          "why": "woher? takes dative: die Schule → der Schule — aus der Schule."
         },
         {
           "subjectKey": "Uni",
@@ -10806,7 +10970,8 @@
             "vom Uni",
             "von die Uni"
           ],
-          "hard": true
+          "hard": true,
+          "why": "From the Uni (where you are an der Uni) you come von der Uni — dative die → der."
         },
         {
           "subjectKey": "Büro",
@@ -10822,7 +10987,8 @@
             "im Büro",
             "aus der Büro",
             "aus das Büro"
-          ]
+          ],
+          "why": "Out of the building: aus + dative — das Büro → dem, aus dem Büro."
         },
         {
           "subjectKey": "Berlin",
@@ -10836,7 +11002,8 @@
             "in Berlin",
             "aus dem Berlin",
             "bei Berlin"
-          ]
+          ],
+          "why": "Towns and countries without an article take plain aus: aus Berlin."
         },
         {
           "subjectKey": "Siemens",
@@ -10851,7 +11018,8 @@
             "bei der Bank",
             "zu der Bank"
           ],
-          "hard": true
+          "hard": true,
+          "why": "A letter comes from a sender: von + dative — von der Bank."
         },
         {
           "subjectKey": "Arzt",
@@ -10867,7 +11035,8 @@
             "aus dem Arzt",
             "von der Arzt"
           ],
-          "hard": true
+          "hard": true,
+          "why": "From a person's place it is von + dative: von dem → vom Arzt — the pair of beim Arzt."
         },
         {
           "subjectKey": "Eltern",
@@ -10882,7 +11051,8 @@
             "von meine Eltern",
             "aus meinen Eltern"
           ],
-          "hard": true
+          "hard": true,
+          "why": "A parcel from people: von + dative, and the plural dative adds -n — von meinen Eltern."
         },
         {
           "subjectKey": "Tisch",
@@ -10896,7 +11066,8 @@
             "unter",
             "vor",
             "in"
-          ]
+          ],
+          "why": "auf is 'on top of'; lying somewhere is a position (wo?), so dative follows: auf dem Tisch."
         },
         {
           "subjectKey": "Tisch",
@@ -10910,7 +11081,8 @@
             "auf",
             "vor",
             "über"
-          ]
+          ],
+          "why": "unter is 'under'; the dog stays put, so dative: unter dem Tisch."
         },
         {
           "subjectKey": "Haus",
@@ -10924,7 +11096,8 @@
             "hinter",
             "für",
             "von"
-          ]
+          ],
+          "why": "vor is 'in front of'; the car is parked (wo?), so dative: vor dem Haus."
         },
         {
           "subjectKey": "Küche",
@@ -10939,7 +11112,8 @@
             "aus dem Küche",
             "von die Küche"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Out of a room: aus + dative — aus der Küche."
         },
         {
           "subjectKey": "Deutschland",
@@ -10954,7 +11128,8 @@
             "aus dem Deutschland",
             "im Deutschland"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Origin from a country without an article: plain aus — aus Deutschland."
         },
         {
           "subjectKey": "Bett",
@@ -10969,7 +11144,8 @@
             "vor",
             "über"
           ],
-          "hard": true
+          "hard": true,
+          "why": "unter = 'under'; sleeping is staying in place, so dative follows: unter dem Bett."
         },
         {
           "subjectKey": "Bett",
@@ -10984,7 +11160,8 @@
             "vor",
             "in"
           ],
-          "hard": true
+          "hard": true,
+          "why": "auf = 'on'; the phone just lies there (wo?), so dative: auf dem Bett."
         }
       ],
       "image": "card_grammar_a1_1"
@@ -11380,7 +11557,8 @@
             "Lehrerinnen",
             "Lehrin",
             "Lehrerinn"
-          ]
+          ],
+          "why": "-in turns a male job word female: der Lehrer → die Lehrerin."
         },
         {
           "subjectKey": "Student",
@@ -11394,7 +11572,8 @@
             "Studenten",
             "Studentinnen",
             "Studentinn"
-          ]
+          ],
+          "why": "Add -in for the woman: der Student → die Studentin."
         },
         {
           "subjectKey": "Freund",
@@ -11408,7 +11587,8 @@
             "Freundinnen",
             "Freunde",
             "Freundine"
-          ]
+          ],
+          "why": "der Freund + -in = die Freundin — the -in makes it female."
         },
         {
           "subjectKey": "Arzt",
@@ -11424,7 +11604,8 @@
             "Ärzte",
             "Ärztinnen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "-in, and the vowel often takes an umlaut: der Arzt → die Ärztin."
         },
         {
           "subjectKey": "Kellner",
@@ -11438,7 +11619,8 @@
             "Kellner",
             "Kellnerinnen",
             "Kellnerinn"
-          ]
+          ],
+          "why": "der Kellner + -in = die Kellnerin — the waitress."
         },
         {
           "subjectKey": "Schüler",
@@ -11453,7 +11635,8 @@
             "Schulerin",
             "Schülerinnen",
             "Schülerine"
-          ]
+          ],
+          "why": "der Schüler + -in = die Schülerin."
         },
         {
           "subjectKey": "Verkäufer",
@@ -11468,7 +11651,8 @@
             "Verkäufer",
             "Verkauferin",
             "Verkäuferinnen"
-          ]
+          ],
+          "why": "der Verkäufer + -in = die Verkäuferin — the shop assistant."
         },
         {
           "subjectKey": "Koch",
@@ -11484,7 +11668,8 @@
             "Köchinnen",
             "Köche"
           ],
-          "hard": true
+          "hard": true,
+          "why": "-in plus umlaut: der Koch → die Köchin."
         },
         {
           "subjectKey": "Nachbar",
@@ -11498,7 +11683,8 @@
             "Nachbar",
             "Nachbarn",
             "Nachbarinnen"
-          ]
+          ],
+          "why": "der Nachbar + -in = die Nachbarin — no umlaut here."
         },
         {
           "subjectKey": "Kollege",
@@ -11513,7 +11699,8 @@
             "Kollege",
             "Kolleginnen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "An -e man-word drops the -e before -in: der Kollege → die Kollegin."
         },
         {
           "subjectKey": "Journalist",
@@ -11527,7 +11714,8 @@
             "Journalisten",
             "Journalistinnen",
             "Journalistinn"
-          ]
+          ],
+          "why": "der Journalist + -in = die Journalistin."
         },
         {
           "subjectKey": "Amerikaner",
@@ -11541,7 +11729,8 @@
             "Amerikanerinnen",
             "Amerikanin",
             "Amerikanerinn"
-          ]
+          ],
+          "why": "Nationalities work the same way: der Amerikaner → die Amerikanerin."
         },
         {
           "subjectKey": "Lehrer",
@@ -11556,7 +11745,8 @@
             "Lehrerinen",
             "Lehrinnen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "The plural of an -in word doubles the n: Lehrerin → Lehrerinnen."
         },
         {
           "subjectKey": "Student",
@@ -11570,7 +11760,8 @@
             "Studentin",
             "Studentinen",
             "Studentine"
-          ]
+          ],
+          "why": "-in → -innen in the plural: Studentinnen."
         },
         {
           "subjectKey": "Freund",
@@ -11584,7 +11775,8 @@
             "Freundin",
             "Freundinen",
             "Freundins"
-          ]
+          ],
+          "why": "Freundin + -nen = Freundinnen — every -in plural ends in -innen."
         },
         {
           "subjectKey": "Kollege",
@@ -11599,7 +11791,8 @@
             "Kolleginen",
             "Kollegeinnen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Kollegin → Kolleginnen: the -in plural always doubles the n."
         },
         {
           "subjectKey": "Arzt",
@@ -11615,7 +11808,8 @@
             "Ärztinen",
             "Arztinnen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Ärztin → Ärztinnen — umlaut from the feminine, -innen for the plural."
         },
         {
           "subjectKey": "Verkäufer",
@@ -11631,7 +11825,8 @@
             "Verkäuferinen",
             "Verkauferinnen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Verkäuferin → Verkäuferinnen: -in doubles its n in the plural."
         },
         {
           "subjectKey": "k0",
@@ -11646,7 +11841,8 @@
             "Schokoladeskuchen",
             "Schokoladenskuchen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "In a compound the last word rules: a Kuchen of Schokolade is der Schokoladenkuchen — Schokolade links with -n."
         },
         {
           "subjectKey": "k1",
@@ -11661,7 +11857,8 @@
             "Türhaus",
             "Häusertür",
             "Hausstür"
-          ]
+          ],
+          "why": "The last word decides the article: die Tür makes it die Haustür, whatever Haus is."
         },
         {
           "subjectKey": "k2",
@@ -11675,7 +11872,8 @@
             "Kuchenapfel",
             "Äpfelkuchen",
             "Apfelskuchen"
-          ]
+          ],
+          "why": "Apfel + Kuchen join directly, nothing in between: der Apfelkuchen."
         },
         {
           "subjectKey": "k3",
@@ -11690,7 +11888,8 @@
             "Kindszimmer",
             "Zimmerkinder"
           ],
-          "hard": true
+          "hard": true,
+          "why": "The last word rules: das Zimmer → das Kinderzimmer, the room for the children."
         },
         {
           "subjectKey": "k4",
@@ -11704,7 +11903,8 @@
             "Fischesuppe",
             "Suppenfisch",
             "Fischensuppe"
-          ]
+          ],
+          "why": "die Suppe is last, so the soup wins: die Fischsuppe."
         },
         {
           "subjectKey": "k5",
@@ -11719,7 +11919,8 @@
             "Kuchengeburtstag",
             "Geburtstagenkuchen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Geburtstag links with an -s: der Geburtstagskuchen — the s glues many compounds."
         },
         {
           "subjectKey": "Nachbar",
@@ -11734,7 +11935,8 @@
             "Nachbarinen",
             "Nachbarninnen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Nachbarin → Nachbarinnen — the -in plural doubles the n."
         },
         {
           "subjectKey": "Koch",
@@ -11750,7 +11952,8 @@
             "Kochinnen",
             "Köchinen"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Köchin → Köchinnen: umlaut from the feminine, -innen for the plural."
         },
         {
           "subjectKey": "k3",
@@ -11765,7 +11968,8 @@
             "Wochesende",
             "Endwoche"
           ],
-          "hard": true
+          "hard": true,
+          "why": "das Ende is last and rules the article; Woche links with -n: das Wochenende."
         },
         {
           "subjectKey": "k5",
@@ -11780,7 +11984,8 @@
             "Arbeitenplatz",
             "Platzarbeit"
           ],
-          "hard": true
+          "hard": true,
+          "why": "der Platz is last, so der Arbeitsplatz — Arbeit takes the linking -s."
         },
         {
           "subjectKey": "k4",
@@ -11795,7 +12000,8 @@
             "Hundsfutter",
             "Futterhund"
           ],
-          "hard": true
+          "hard": true,
+          "why": "das Futter rules the article; Hund links with -e: das Hundefutter."
         }
       ],
       "strictDiacritics": true,
@@ -12614,7 +12820,8 @@
             "I",
             "Je"
           ],
-          "hard": true
+          "hard": true,
+          "why": "J is called Jot — said like 'yot'; a German j always sounds like English y."
         },
         {
           "subjectKey": "V",
@@ -12630,7 +12837,8 @@
             "Ve",
             "Ef"
           ],
-          "hard": true
+          "hard": true,
+          "why": "V is called Vau — said 'fow'; in German words v usually sounds like f."
         },
         {
           "subjectKey": "W",
@@ -12646,7 +12854,8 @@
             "Ve",
             "Wau"
           ],
-          "hard": true
+          "hard": true,
+          "why": "W is called We — said 'vay'; German w sounds like English v."
         },
         {
           "subjectKey": "Z",
@@ -12662,7 +12871,8 @@
             "Ze",
             "Zi"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Z is called Zett — and sounds like 'ts', as in Zeit."
         },
         {
           "subjectKey": "Y",
@@ -12679,7 +12889,8 @@
             "Jot",
             "I"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Y keeps its Greek name: Ypsilon."
         },
         {
           "subjectKey": "H",
@@ -12693,7 +12904,8 @@
             "He",
             "A",
             "Ka"
-          ]
+          ],
+          "why": "H is called Ha — just 'hah', not 'aitch'."
         },
         {
           "subjectKey": "Q",
@@ -12709,7 +12921,8 @@
             "U",
             "Ke"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Q is called Ku — said like 'koo', the cow word Kuh sounds the same."
         },
         {
           "subjectKey": "sz",
@@ -12726,7 +12939,8 @@
             "Beta",
             "Zett"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ß is the Eszett ('s-z'), also called scharfes S — it always sounds like a sharp double s."
         },
         {
           "subjectKey": "ae",
@@ -12743,7 +12957,8 @@
             "O-Umlaut",
             "U-Umlaut"
           ],
-          "hard": true
+          "hard": true,
+          "why": "ä is spelt out as A-Umlaut — Umlaut names the two dots that change the vowel's sound."
         },
         {
           "subjectKey": "w0",
@@ -12757,7 +12972,8 @@
             "Ans",
             "Hanz",
             "Hens"
-          ]
+          ],
+          "why": "Read each letter's name back: Ha=H, A, En=N, Es=S — Hans."
         },
         {
           "subjectKey": "w1",
@@ -12771,7 +12987,8 @@
             "Giulia",
             "Yulia",
             "Julya"
-          ]
+          ],
+          "why": "Jot=J, then U-L-I-A — Julia; remember Jot is the J."
         },
         {
           "subjectKey": "w2",
@@ -12786,7 +13003,8 @@
             "Wein",
             "Wiehn"
           ],
-          "hard": true
+          "hard": true,
+          "why": "We=W, I, E, En=N — Wien, Vienna; We is the letter W, said 'vay'."
         },
         {
           "subjectKey": "w3",
@@ -12801,7 +13019,8 @@
             "Vatter",
             "Vahter"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Vau=V, A, Te=T, E, Er=R — Vater; Vau is the letter V."
         },
         {
           "subjectKey": "w4",
@@ -12815,7 +13034,8 @@
             "sehn",
             "zen",
             "zähn"
-          ]
+          ],
+          "why": "Zett=Z, E, Ha=H, En=N — zehn, the number ten."
         },
         {
           "subjectKey": "w5",
@@ -12829,7 +13049,8 @@
             "Maier",
             "Meyer",
             "Mayer"
-          ]
+          ],
+          "why": "Em=M, E, I, E, Er=R — Meier; ei is said like English 'eye'."
         },
         {
           "subjectKey": "w6",
@@ -12843,7 +13064,8 @@
             "Berlien",
             "Berlinn",
             "Bärlin"
-          ]
+          ],
+          "why": "Be=B, E, Er=R, El=L, I, En=N — Berlin."
         },
         {
           "subjectKey": "w7",
@@ -12857,7 +13079,8 @@
             "Katse",
             "Kaze",
             "Kazze"
-          ]
+          ],
+          "why": "Ka=K, A, Te=T, Zett=Z, E — Katze; Zett is the z."
         },
         {
           "subjectKey": "w8",
@@ -12873,7 +13096,8 @@
             "Müler",
             "Möller"
           ],
-          "hard": true
+          "hard": true,
+          "why": "U-Umlaut is ü, Doppel-El a double l: M-ü-ll-e-r — Müller."
         }
       ],
       "contextualLayout": true,
@@ -13372,7 +13596,8 @@
             "fünfhundertsechzig",
             "sechshundertfünfzehn",
             "sechzehnhundertfünfzig"
-          ]
+          ],
+          "why": "Hundreds stack up front: sechs·hundert, then fünfzig — all one word, no 'and' after the hundred."
         },
         {
           "subjectKey": "n1",
@@ -13388,7 +13613,8 @@
             "hundertneunzehn",
             "neunhundertneunundneunzig"
           ],
-          "hard": true
+          "hard": true,
+          "why": "hundert, then units before tens: neun·und·neunzig — 'nine-and-ninety'."
         },
         {
           "subjectKey": "n2",
@@ -13402,7 +13628,8 @@
             "dreißighundert",
             "dreitausend",
             "dreizehnhundert"
-          ]
+          ],
+          "why": "A round hundred is just the digit + hundert: dreihundert."
         },
         {
           "subjectKey": "n3",
@@ -13417,7 +13644,8 @@
             "hundertzwanzig",
             "zwölfhundert",
             "einhundertzwei"
-          ]
+          ],
+          "why": "hundert + zwölf — 13 to 19 and the teens keep their own words, so no swapping here."
         },
         {
           "subjectKey": "n4",
@@ -13432,7 +13660,8 @@
             "fünfhundertachtundfünfzig",
             "fünfhundertfünfundachzig"
           ],
-          "hard": true
+          "hard": true,
+          "why": "fünfhundert, then units first: fünf·und·achtzig — 'five-and-eighty'."
         },
         {
           "subjectKey": "n5",
@@ -13447,7 +13676,8 @@
             "vierhundertsechzig",
             "sechshundertvierzehn"
           ],
-          "hard": true
+          "hard": true,
+          "why": "vierhundert + sechzehn — sechzehn is a teen word, said as is (and it clips sechs to sech-)."
         },
         {
           "subjectKey": "n6",
@@ -13461,7 +13691,8 @@
             "neunhundertachtzehn",
             "neunhundertachzig",
             "achthundertneunzig"
-          ]
+          ],
+          "why": "neunhundert + achtzig — a plain ten needs no swap: achtzig."
         },
         {
           "subjectKey": "n7",
@@ -13476,7 +13707,8 @@
             "hundertzwölf",
             "zwanzighundert",
             "zweihundertzehn"
-          ]
+          ],
+          "why": "hundert + zwanzig; the ein- in front of hundert is optional."
         },
         {
           "subjectKey": "n8",
@@ -13490,7 +13722,8 @@
             "zweihundertfünfzehn",
             "fünfhundertzwanzig",
             "zweihundertfünfundzwanzig"
-          ]
+          ],
+          "why": "zweihundert + fünfzig — hundreds first, then the rest, one word."
         },
         {
           "subjectKey": "n9",
@@ -13507,7 +13740,8 @@
             "zwölftausend",
             "hundertzwanzig"
           ],
-          "hard": true
+          "hard": true,
+          "why": "tausend + zweihundert; German can also say zwölfhundert, 'twelve hundred'."
         },
         {
           "subjectKey": "n10",
@@ -13522,7 +13756,8 @@
             "achthundertfünfzig",
             "fünftausendachthundert"
           ],
-          "hard": true
+          "hard": true,
+          "why": "acht·tausend·fünf·hundert — thousands, then hundreds, all one word."
         },
         {
           "subjectKey": "n11",
@@ -13537,7 +13772,8 @@
             "zwanzighundert",
             "zweihunderttausend"
           ],
-          "hard": true
+          "hard": true,
+          "why": "zwanzig·tausend — say the 20, then tausend; big numbers chain the same way."
         },
         {
           "subjectKey": "n12",
@@ -13553,7 +13789,8 @@
             "neunzehnhundertneunundachtzig",
             "neunzehnachtundneunzig"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Years before 2000 are said in hundreds: neunzehn·hundert + achtundneunzig — 'nineteen hundred…'."
         },
         {
           "subjectKey": "n13",
@@ -13569,7 +13806,8 @@
             "neunzehnhundertsechsundfünfzig",
             "neunzehnfünfundsechzig"
           ],
-          "hard": true
+          "hard": true,
+          "why": "neunzehnhundert + fünf·und·sechzig — hundreds for the year, units before tens."
         },
         {
           "subjectKey": "n14",
@@ -13585,7 +13823,8 @@
             "zwanzighundertzwanzig",
             "zweitausendzweihundert"
           ],
-          "hard": true
+          "hard": true,
+          "why": "From 2000 on, years are plain numbers: zweitausend·zwanzig — no hundreds trick."
         },
         {
           "subjectKey": "n15",
@@ -13601,7 +13840,8 @@
             "zweihundertvierzig",
             "zweitausendvierzig"
           ],
-          "hard": true
+          "hard": true,
+          "why": "zweitausendvierhundert — or vierundzwanzighundert, 'twenty-four hundred', like in English."
         },
         {
           "subjectKey": "",
@@ -13618,7 +13858,8 @@
             "neunzehnhundertdreiundsiebzig",
             "neunzehnhundertdreißigsieben"
           ],
-          "hard": true
+          "hard": true,
+          "why": "neunzehnhundert + sieben·und·dreißig — the year in hundreds, units before tens."
         },
         {
           "subjectKey": "",
@@ -13635,7 +13876,8 @@
             "tausendneunhundertdreiundneunzig",
             "dreihundertneunundneunzig"
           ],
-          "hard": true
+          "hard": true,
+          "why": "tausend·dreihundert + neunundneunzig — units before tens close the number."
         },
         {
           "subjectKey": "",
@@ -13650,7 +13892,8 @@
             "zwanzighundertacht",
             "zweitausendachtzig"
           ],
-          "hard": true
+          "hard": true,
+          "why": "Years from 2000 are plain: zweitausend·acht."
         },
         {
           "subjectKey": "o1",
@@ -13664,7 +13907,8 @@
             "einste",
             "erstes",
             "einte"
-          ]
+          ],
+          "why": "Dates take ordinals; 'first' is irregular: der erste — not einte."
         },
         {
           "subjectKey": "o3",
@@ -13678,7 +13922,8 @@
             "dreite",
             "dritter",
             "dreißigste"
-          ]
+          ],
+          "why": "'Third' is irregular: der dritte — not dreite."
         },
         {
           "subjectKey": "o7",
@@ -13693,7 +13938,8 @@
             "siebenste",
             "siebzigste",
             "siebter"
-          ]
+          ],
+          "why": "Ordinals to 19 add -te; sieben clips to siebte."
         },
         {
           "subjectKey": "o20",
@@ -13707,7 +13953,8 @@
             "zwanzigte",
             "zwanzigsten",
             "zweite"
-          ]
+          ],
+          "why": "From 20 up, ordinals add -ste: der zwanzigste."
         },
         {
           "subjectKey": "o31",
@@ -13721,7 +13968,8 @@
             "einunddreißigte",
             "dreißigeinste",
             "einunddreißig"
-          ]
+          ],
+          "why": "einunddreißig + -ste = der einunddreißigste — big ordinals take -ste."
         }
       ],
       "contextualLayout": true,

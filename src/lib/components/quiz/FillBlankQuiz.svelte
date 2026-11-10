@@ -130,15 +130,22 @@
 	const normAnswer = (s: string) => s.toLowerCase().replace(/\s+/g, ' ').trim();
 
 	/**
-	 * The reason to show under a wrong answer. The quiz's common-mistakes notes
-	 * (wrong → right + why) are matched against what was actually typed: the
-	 * exact pair first, then the classic wrong form alone, then any note about
-	 * this right answer. Failing all three, the hint — the grammar cue that
-	 * used to vanish exactly when it would have helped.
+	 * The reason to show under a wrong answer, best source first:
+	 *
+	 *   1. the sentence's authored `why` — the rule applied to this very gap
+	 *      (assets/content/whys, folded in by tool/apply-whys.mjs);
+	 *   2. a common-mistakes note matched against what was actually typed:
+	 *      the exact pair, then the classic wrong form, then this answer;
+	 *   3. the rule card (help tip) whose text or examples carry the answer —
+	 *      for sentences not yet authored;
+	 *   4. the hint — the grammar cue that used to vanish exactly when it
+	 *      would have helped.
 	 */
 	function whyForMiss(typed: string[], canonical: string[]): typeof missWhy {
-		const entries = quiz.help?.mistakes ?? [];
 		const german = quiz.help?.german === true;
+		if (current?.why) return { text: current.why, en: german ? current.whyEn : undefined, german };
+
+		const entries = quiz.help?.mistakes ?? [];
 		const note = (m: { why: string; whyEn?: string }) => ({
 			text: m.why,
 			en: german ? m.whyEn : undefined,
@@ -155,6 +162,21 @@
 				entries.find((m) => normAnswer(m.right) === c);
 			if (found) return note(found);
 		}
+
+		// The rule card that names this answer, e.g. "ihm" in the card on
+		// dative endings. Whole-word, so "er" never matches inside "der".
+		const answer = normAnswer(canonical[0] ?? '');
+		if (answer && !/[ ]/.test(answer)) {
+			const word = new RegExp(`(^|[^a-zäöüß])${answer.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^a-zäöüß]|$)`, 'i');
+			const tip = (quiz.help?.tips ?? []).find(
+				(t) =>
+					word.test(t.text) ||
+					(t.title && word.test(t.title)) ||
+					t.examples?.some((e) => word.test(e.de))
+			);
+			if (tip) return { text: tip.title ? `${tip.title}: ${tip.text}` : tip.text, german };
+		}
+
 		const hint = current?.hint;
 		return hint ? { text: hint, german: false } : null;
 	}

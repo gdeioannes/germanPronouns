@@ -17,6 +17,14 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-10",
+    title: "A written reason under every A1.1 miss",
+    items: [
+      "Every fill-in sentence in A1.1 now carries its own explanation: miss a gap and you see the rule as it applies to that very sentence — why it is fährt, why im Park, why der zwanzigste. The other levels follow, one by one.",
+      "Until a level has its own explanations, a miss shows the rule card that mentions your answer, so there is almost always more than red.",
+    ],
+  },
+  {
+    date: "2026-11-10",
     title: "Every mistake explained, for real",
     items: [
       "Fill-in exercises now say why: a wrong answer shows the right one and the rule behind it — a matched note about that exact slip, or the hint that used to disappear the moment you answered. From B1 the note is in German, with English one tap away.",
