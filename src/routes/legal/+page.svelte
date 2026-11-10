@@ -1,8 +1,9 @@
 <script lang="ts">
 	// Imprint (Impressum, §5 DDG) and privacy notice (Art. 13 GDPR). One page,
-	// linked from every footer. The operator's details below are placeholders
-	// until GDI fills them in: a German imprint must name a natural person, a
-	// postal address that can receive mail, and a directly readable email.
+	// linked from every footer. The postal address below is still a placeholder:
+	// a German imprint needs a "ladungsfähige Anschrift" (a real street address
+	// that can receive served mail — a P.O. box is not enough). GDI is deciding
+	// between the home address and a virtual-address service.
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
@@ -13,11 +14,11 @@
 
 	/** Fill these in before the page goes live; the notice renders them as-is. */
 	const OPERATOR = {
-		name: '[Full name]',
+		name: 'Gabriel De Ioannes',
 		street: '[Street and number]',
 		city: '[Postcode and city]',
 		country: 'Germany',
-		email: '[email address]'
+		email: 'gdeioannes@gmail.com'
 	};
 
 	const UPDATED = '2026-10-25';
