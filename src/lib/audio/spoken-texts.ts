@@ -27,6 +27,8 @@ import { buildLesson, hasLesson, lessonSpokenTexts, speakable } from '$lib/domai
 import { vocabFor, type SharedNoun } from '$lib/domain/vocab';
 import { STORY_EPISODES } from '$lib/domain/stories';
 import { ALL_QUESTIONS, JA_NEIN_CATEGORIES } from '$lib/domain/janeinRounds';
+import { loadBook2 } from '$lib/domain/book2';
+import { plain } from '$lib/domain/companion';
 
 const nouns = (nounData as { nouns: unknown[] }).nouns as SharedNoun[];
 
@@ -153,6 +155,20 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 		const pools = mergeWordBank(buildPools(course.quizzes), wordBank as unknown as WortBankSource);
 		for (const [level, words] of Object.entries(pools))
 			for (const w of words) add(w.art ? `${w.art} ${w.de}` : w.de, WORDS_LOCALE, 'wortbloecke', level);
+	}
+
+	// Book v2 chapters in the app: each reading line (and Read all) and each
+	// word card, as the chapter page and WordCards speak them.
+	{
+		const course = await loadCourse(catalog.defaultCourseId);
+		for (const level of new Set(course.quizzes.map((q) => q.level ?? ''))) {
+			const book = level ? loadBook2(catalog.defaultCourseId, level) : null;
+			for (const c of book?.chapters ?? []) {
+				for (const line of c.reading.lines) add(plain(line.de), WORDS_LOCALE, 'book reading', level);
+				for (const g of c.words.groups) for (const w of g.items) add(w.de, WORDS_LOCALE, 'book word', level);
+				for (const v of c.words.verbs ?? []) add(v.de, WORDS_LOCALE, 'book word', level);
+			}
+		}
 	}
 
 	// Story notebooks: every word Maya files has a play button (SpeakButton,
