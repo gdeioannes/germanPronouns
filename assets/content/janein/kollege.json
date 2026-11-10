@@ -1,0 +1,256 @@
+{
+ "id": "kollege",
+ "title": "Welcher Kollege bist du?",
+ "en": "Which colleague are you?",
+ "emoji": "💼",
+ "level": "B1",
+ "personas": [
+  {
+   "id": "kalender", "title": "Der Kalender", "emoji": "📅",
+   "line": "You've never had a free hour. You've never wanted one.",
+   "profile": "Your calendar is a work of art: colour-coded, back to back, with a meeting to prepare the meeting. You honestly believe anything can be solved if the right people sit in the right room for thirty minutes. Usually you're right. Sometimes it's just Tuesday.",
+   "traits": ["organised", "sociable", "booked out"],
+   "de": {
+    "line": "Du hattest nie eine freie Stunde. Du wolltest auch nie eine.",
+    "profile": "Dein Kalender ist ein Kunstwerk: bunt, lückenlos, mit einem Meeting, das das Meeting vorbereitet. Du glaubst wirklich, dass man alles lösen kann, wenn die richtigen Leute dreißig Minuten im richtigen Raum sitzen. Meistens hast du recht. Manchmal ist es nur Dienstag.",
+    "traits": ["organisiert", "gesellig", "ausgebucht"]
+   },
+   "match": "tabelle", "clash": "kameraaus",
+   "word": { "de": "die Besprechung", "en": "the meeting" }
+  },
+  {
+   "id": "kaffee", "title": "Die Kaffeeküche", "emoji": "☕",
+   "line": "You don't spread rumours. You just keep them warm.",
+   "profile": "Nothing happens in this office without you hearing it first, usually between the second and third coffee. People come to you for advice, news and biscuits. You're the reason new colleagues feel at home within a week, and the reason a secret lasts about four hours.",
+   "traits": ["warm", "well informed", "loud"],
+   "de": {
+    "line": "Du verbreitest keine Gerüchte. Du hältst sie nur warm.",
+    "profile": "In diesem Büro passiert nichts, ohne dass du es zuerst hörst, meistens zwischen dem zweiten und dritten Kaffee. Man kommt zu dir für Rat, Neuigkeiten und Kekse. Wegen dir fühlen sich Neue nach einer Woche zu Hause, und wegen dir hält ein Geheimnis ungefähr vier Stunden.",
+    "traits": ["herzlich", "gut informiert", "laut"]
+   },
+   "match": "chaos", "clash": "kameraaus",
+   "word": { "de": "der Flurfunk", "en": "the office grapevine" }
+  },
+  {
+   "id": "kameraaus", "title": "Kamera aus", "emoji": "🎧",
+   "line": "Nobody has seen your face since 2020. Your work is excellent.",
+   "profile": "You do your job quietly, quickly and better than most, ideally somewhere with no one else in it. Your status says busy, your headphones are a wall and your emails are three words long. Colleagues aren't sure you exist, but every project you touch is on time.",
+   "traits": ["efficient", "quiet", "mysterious"],
+   "de": {
+    "line": "Seit 2020 hat niemand dein Gesicht gesehen. Deine Arbeit ist super.",
+    "profile": "Du machst deinen Job leise, schnell und besser als die meisten, am liebsten an einem Ort ohne andere Menschen. Dein Status sagt beschäftigt, deine Kopfhörer sind eine Mauer, und deine Mails haben drei Wörter. Die Kollegen wissen nicht, ob es dich gibt, aber jedes Projekt von dir ist pünktlich.",
+    "traits": ["effizient", "ruhig", "geheimnisvoll"]
+   },
+   "match": "tabelle", "clash": "kalender",
+   "word": { "de": "das Homeoffice", "en": "working from home" }
+  },
+  {
+   "id": "chaos", "title": "Das kreative Chaos", "emoji": "🌪️",
+   "line": "Your desk is a disaster. Your ideas are the best in the building.",
+   "profile": "You start everything at the last minute and somehow finish it brilliantly. Your desk holds three mugs, two chargers and a sandwich from last week. Plans make you nervous; deadlines make you a genius. Everyone sighs about you, and everyone wants you on their team.",
+   "traits": ["creative", "spontaneous", "late"],
+   "de": {
+    "line": "Dein Schreibtisch ist eine Katastrophe. Deine Ideen sind die besten im Haus.",
+    "profile": "Du fängst alles in letzter Minute an und machst es trotzdem genial fertig. Auf deinem Schreibtisch stehen drei Tassen, zwei Ladekabel und ein Brötchen von letzter Woche. Pläne machen dich nervös, Deadlines machen dich zum Genie. Alle seufzen über dich, und alle wollen dich im Team.",
+    "traits": ["kreativ", "spontan", "zu spät"]
+   },
+   "match": "kaffee", "clash": "tabelle",
+   "word": { "de": "die Frist", "en": "the deadline" }
+  },
+  {
+   "id": "tabelle", "title": "Die Tabelle", "emoji": "📊",
+   "line": "If it isn't in a spreadsheet, it didn't happen.",
+   "profile": "You have a column for everything, a folder for every column and a backup of the folder. You're never late, never unprepared and never quite relaxed. Without you the office would fall apart in a week, and secretly everyone knows it, even the ones who laugh at your colour codes.",
+   "traits": ["precise", "reliable", "a bit strict"],
+   "de": {
+    "line": "Was nicht in einer Tabelle steht, ist nicht passiert.",
+    "profile": "Du hast für alles eine Spalte, für jede Spalte einen Ordner und vom Ordner eine Sicherheitskopie. Du bist nie zu spät, nie unvorbereitet und nie ganz entspannt. Ohne dich wäre das Büro in einer Woche kaputt, und heimlich wissen das alle, auch die, die über deine Farbcodes lachen.",
+    "traits": ["genau", "zuverlässig", "etwas streng"]
+   },
+   "match": "kalender", "clash": "chaos",
+   "word": { "de": "die Tabelle", "en": "the spreadsheet" }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "montag", "title": "Montagmorgen", "en": "Monday morning",
+   "hook": "The week starts. Some of you were ready on Friday.",
+   "questions": [
+    { "de": "Du bist um sieben im Büro, weil es dann so ruhig ist?", "en": "You're in the office at seven because it's so quiet then?", "ja": "tabelle", "nein": "chaos" },
+    { "de": "Du musstest am Wochenende an die Arbeit denken?", "en": "You had to think about work at the weekend?", "ja": "kalender", "nein": "kaffee" },
+    { "de": "Dein erstes Wort am Montag ist Kaffee?", "en": "Your first word on Monday is coffee?", "ja": "kaffee", "nein": "tabelle" },
+    { "de": "Alle hören von deinem Wochenende, ob sie wollen oder nicht?", "en": "Everyone hears about your weekend, whether they want to or not?", "ja": "kaffee", "nein": "kameraaus" },
+    { "de": "Du schaltest die Kamera erst um zehn ein?", "en": "You only switch your camera on at ten?", "ja": "kameraaus", "nein": "kalender" },
+    { "de": "Du suchst seit Freitag deinen Laptop?", "en": "You've been looking for your laptop since Friday?", "ja": "chaos", "nein": "tabelle" },
+    { "left": { "de": "To-do-Liste", "en": "a to-do list", "vibe": "tabelle" }, "right": { "de": "Bauchgefühl", "en": "gut feeling", "vibe": "chaos" } },
+    { "left": { "de": "Teamrunde um neun", "en": "a team huddle at nine", "vibe": "kalender" }, "right": { "de": "Kopfhörer bis zwölf", "en": "headphones on till noon", "vibe": "kameraaus" } },
+    { "de": "Du würdest den Montag abschaffen, wenn du könntest?", "en": "You'd abolish Mondays if you could?", "ja": "chaos", "nein": "kalender" },
+    { "de": "Um neun weißt du schon, wer sich getrennt hat?", "en": "By nine you already know who has broken up?", "ja": "kaffee", "nein": "kameraaus" },
+    { "left": { "de": "erst E-Mails", "en": "emails first", "vibe": "tabelle" }, "right": { "de": "erst Kaffeeküche", "en": "the office kitchen first", "vibe": "kaffee" } },
+    { "left": { "de": "voller Kalender", "en": "a full calendar", "vibe": "kalender" }, "right": { "de": "leerer Kalender", "en": "an empty calendar", "vibe": "chaos" } }
+   ]
+  },
+  {
+   "id": "kueche", "title": "Die Kaffeeküche", "en": "The office kitchen",
+   "hook": "Where the real meetings happen.",
+   "questions": [
+    { "de": "Du weißt, wem jede Tasse im Schrank gehört?", "en": "You know who every mug in the cupboard belongs to?", "ja": "kaffee", "nein": "chaos" },
+    { "de": "Du hast ein Schild an den Kühlschrank geklebt?", "en": "You've stuck a sign on the fridge?", "ja": "tabelle", "nein": "kaffee" },
+    { "de": "Du trinkst am Schreibtisch, damit dich keiner anspricht?", "en": "You drink at your desk so that nobody talks to you?", "ja": "kameraaus", "nein": "kaffee" },
+    { "de": "Du isst fremden Joghurt, wenn er bald abläuft?", "en": "You eat other people's yoghurt if it's about to expire?", "ja": "chaos", "nein": "tabelle" },
+    { "de": "In der Küche planst du schnell noch ein Meeting?", "en": "In the kitchen you quickly plan one more meeting?", "ja": "kalender", "nein": "kameraaus" },
+    { "left": { "de": "Filterkaffee", "en": "filter coffee", "vibe": "tabelle" }, "right": { "de": "Hafer-Cappuccino", "en": "an oat cappuccino", "vibe": "kaffee" } },
+    { "left": { "de": "Tee im Zimmer", "en": "tea in your room", "vibe": "kameraaus" }, "right": { "de": "Kaffee mit dem Team", "en": "coffee with the team", "vibe": "kalender" } },
+    { "de": "Die Spülmaschine räumst du nie aus?", "en": "You never empty the dishwasher?", "ja": "chaos", "nein": "tabelle" },
+    { "de": "Du würdest die Kaffeekasse mit einer Tabelle führen?", "en": "You'd run the coffee fund with a spreadsheet?", "ja": "tabelle", "nein": "chaos" },
+    { "left": { "de": "Klatsch", "en": "gossip", "vibe": "kaffee" }, "right": { "de": "Kopfhörer", "en": "headphones", "vibe": "kameraaus" } },
+    { "de": "Du gehst nur in die Küche, wenn sie leer ist?", "en": "You only go into the kitchen when it's empty?", "ja": "kameraaus", "nein": "kalender" },
+    { "de": "Du hast schon mal ein Meeting in der Küche gehalten?", "en": "You've held a meeting in the kitchen before?", "ja": "kalender", "nein": "chaos" }
+   ]
+  },
+  {
+   "id": "meetings", "title": "Meetings", "en": "Meetings",
+   "hook": "Could this have been an email? Asking for a friend.",
+   "questions": [
+    { "de": "Du hast schon mal ein Meeting über Meetings geplant?", "en": "You've planned a meeting about meetings before?", "ja": "kalender", "nein": "chaos" },
+    { "de": "Du hast für jedes Meeting eine Agenda?", "en": "You have an agenda for every meeting?", "ja": "tabelle", "nein": "chaos" },
+    { "de": "Du findest, das hätte auch eine Mail sein können?", "en": "You think that could have been an email?", "ja": "kameraaus", "nein": "kalender" },
+    { "de": "Du kommst zu spät, weil du noch Kaffee holen musstest?", "en": "You're late because you had to get coffee first?", "ja": "kaffee", "nein": "tabelle" },
+    { "de": "Deine Kamera war aus, weil du noch im Bett lagst?", "en": "Your camera was off because you were still in bed?", "ja": "kameraaus", "nein": "kalender" },
+    { "de": "Du malst im Meeting kleine Monster auf den Block?", "en": "You draw little monsters on your notepad in meetings?", "ja": "chaos", "nein": "tabelle" },
+    { "left": { "de": "Protokoll schreiben", "en": "taking the minutes", "vibe": "tabelle" }, "right": { "de": "Witze machen", "en": "making jokes", "vibe": "kaffee" } },
+    { "left": { "de": "Stummschalten", "en": "muting yourself", "vibe": "kameraaus" }, "right": { "de": "noch eine Frage", "en": "one more question", "vibe": "kalender" } },
+    { "de": "Du würdest jedes Meeting auf eine Viertelstunde kürzen?", "en": "You'd cut every meeting to fifteen minutes?", "ja": "chaos", "nein": "kalender" },
+    { "left": { "de": "Whiteboard", "en": "a whiteboard", "vibe": "kalender" }, "right": { "de": "Serviette", "en": "a napkin", "vibe": "chaos" } },
+    { "de": "Danach erzählst du allen, was wirklich gemeint war?", "en": "Afterwards you tell everyone what was really meant?", "ja": "kaffee", "nein": "kameraaus" },
+    { "left": { "de": "pünktlich anfangen", "en": "starting on time", "vibe": "tabelle" }, "right": { "de": "erst mal plaudern", "en": "chatting first", "vibe": "kaffee" } }
+   ]
+  },
+  {
+   "id": "mails", "title": "E-Mails", "en": "Emails",
+   "hook": "Kind regards, and a quiet threat.",
+   "questions": [
+    { "de": "Du setzt den Chef in CC, damit es schneller geht?", "en": "You CC the boss so that things go faster?", "ja": "tabelle", "nein": "kaffee" },
+    { "de": "Du hast über tausend ungelesene Mails?", "en": "You have over a thousand unread emails?", "ja": "chaos", "nein": "tabelle" },
+    { "de": "Du schreibst lieber eine Mail, als dass du anrufst?", "en": "You'd rather write an email than call?", "ja": "kameraaus", "nein": "kaffee" },
+    { "de": "Du schickst eine Mail und kommst dann trotzdem vorbei?", "en": "You send an email and then come over anyway?", "ja": "kaffee", "nein": "kameraaus" },
+    { "de": "Deine Mails haben Überschriften und Aufzählungen?", "en": "Your emails have headings and bullet points?", "ja": "tabelle", "nein": "chaos" },
+    { "de": "Aus jeder Mail machst du einen Termin?", "en": "You turn every email into a meeting?", "ja": "kalender", "nein": "kameraaus" },
+    { "left": { "de": "Grüße", "en": "Regards", "vibe": "kameraaus" }, "right": { "de": "Viele liebe Grüße", "en": "Lots of love", "vibe": "kaffee" } },
+    { "left": { "de": "Antwort an alle", "en": "reply all", "vibe": "kalender" }, "right": { "de": "Antwort an keinen", "en": "reply to nobody", "vibe": "chaos" } },
+    { "de": "Du schreibst Mails neu, weil du sie nicht mehr findest?", "en": "You rewrite emails because you can't find them any more?", "ja": "chaos", "nein": "tabelle" },
+    { "left": { "de": "Ordner nach Farbe", "en": "folders by colour", "vibe": "tabelle" }, "right": { "de": "alles im Posteingang", "en": "everything in the inbox", "vibe": "chaos" } },
+    { "de": "Nach fünf Mails schlägst du ein kurzes Meeting vor?", "en": "After five emails, you suggest a quick meeting?", "ja": "kalender", "nein": "kameraaus" },
+    { "left": { "de": "Abwesenheitsnotiz", "en": "an out-of-office reply", "vibe": "kameraaus" }, "right": { "de": "immer erreichbar", "en": "always reachable", "vibe": "kalender" } }
+   ]
+  },
+  {
+   "id": "homeoffice", "title": "Homeoffice", "en": "Working from home",
+   "hook": "Trousers optional. Wi-Fi not.",
+   "questions": [
+    { "de": "Du arbeitest im Schlafanzug, aber mit Hemd?", "en": "You work in pyjamas, but with a shirt on?", "ja": "kameraaus", "nein": "kalender" },
+    { "de": "Du würdest lieber jeden Tag ins Büro kommen?", "en": "You'd rather come into the office every day?", "ja": "kaffee", "nein": "kameraaus" },
+    { "de": "Deine Katze war schon in mehr Meetings als dein Chef?", "en": "Your cat has been in more meetings than your boss?", "ja": "chaos", "nein": "tabelle" },
+    { "de": "Du hast einen Stundenplan für dein Homeoffice?", "en": "You have a timetable for working from home?", "ja": "tabelle", "nein": "chaos" },
+    { "de": "Du rufst Kollegen an, nur um zu plaudern?", "en": "You call colleagues just to chat?", "ja": "kaffee", "nein": "kameraaus" },
+    { "de": "Auch von zu Hause planst du drei Videocalls am Tag?", "en": "Even from home you plan three video calls a day?", "ja": "kalender", "nein": "kameraaus" },
+    { "left": { "de": "Küchentisch", "en": "the kitchen table", "vibe": "chaos" }, "right": { "de": "Schreibtisch mit Lampe", "en": "a desk with a lamp", "vibe": "tabelle" } },
+    { "left": { "de": "Kamera an", "en": "camera on", "vibe": "kalender" }, "right": { "de": "altes Profilbild", "en": "an old profile photo", "vibe": "kameraaus" } },
+    { "left": { "de": "Mittag allein", "en": "lunch alone", "vibe": "kameraaus" }, "right": { "de": "Mittag im Videocall", "en": "lunch on a video call", "vibe": "kaffee" } },
+    { "de": "Du musstest schon mal ein Meeting aus dem Auto machen?", "en": "You've had to do a meeting from the car before?", "ja": "chaos", "nein": "tabelle" },
+    { "de": "Bei dir zu Hause hängt ein Whiteboard?", "en": "There's a whiteboard on the wall at home?", "ja": "kalender", "nein": "chaos" },
+    { "left": { "de": "Stille", "en": "silence", "vibe": "kameraaus" }, "right": { "de": "Bürogeräusche als Musik", "en": "office sounds as background music", "vibe": "kaffee" } }
+   ]
+  },
+  {
+   "id": "chef", "title": "Der Chef", "en": "The boss",
+   "hook": "Everyone has one. Some of you are one.",
+   "questions": [
+    { "de": "Du wärst gern selbst Chef, wenn du könntest?", "en": "You'd like to be the boss yourself, if you could?", "ja": "kalender", "nein": "kameraaus" },
+    { "de": "Du weißt vor dem Chef, wer gekündigt hat?", "en": "You know before the boss who has quit?", "ja": "kaffee", "nein": "tabelle" },
+    { "de": "Der Chef bekam von dir eine Tabelle zum Geburtstag?", "en": "The boss got a spreadsheet from you for their birthday?", "ja": "tabelle", "nein": "kaffee" },
+    { "de": "Der Chef kennt deinen Namen nicht, und das ist gut so?", "en": "The boss doesn't know your name, and that's fine?", "ja": "kameraaus", "nein": "kalender" },
+    { "de": "Du sagst Ja, obwohl du die Aufgabe nicht verstehst?", "en": "You say yes even though you don't understand the task?", "ja": "chaos", "nein": "tabelle" },
+    { "left": { "de": "Feedback per Mail", "en": "feedback by email", "vibe": "kameraaus" }, "right": { "de": "Feedback beim Kaffee", "en": "feedback over coffee", "vibe": "kaffee" } },
+    { "left": { "de": "Plan für fünf Jahre", "en": "a five-year plan", "vibe": "tabelle" }, "right": { "de": "Plan bis Freitag", "en": "a plan until Friday", "vibe": "chaos" } },
+    { "de": "Wenn der Chef fragt, schlägst du sofort einen Workshop vor?", "en": "When the boss asks, you immediately suggest a workshop?", "ja": "kalender", "nein": "chaos" },
+    { "de": "Könntest du dem Chef ehrlich sagen, dass er nervt?", "en": "Could you honestly tell the boss he's annoying?", "ja": "chaos", "nein": "kalender" },
+    { "left": { "de": "Lob vor allen", "en": "praise in front of everyone", "vibe": "kalender" }, "right": { "de": "Lob unter vier Augen", "en": "praise in private", "vibe": "kameraaus" } },
+    { "de": "Der Chef fragt dich, was im Team so los ist?", "en": "The boss asks you what's going on in the team?", "ja": "kaffee", "nein": "kameraaus" },
+    { "left": { "de": "Bericht mit Grafik", "en": "a report with charts", "vibe": "tabelle" }, "right": { "de": "spontane Idee", "en": "a spontaneous idea", "vibe": "chaos" } }
+   ]
+  },
+  {
+   "id": "mittag", "title": "Mittagspause", "en": "Lunch break",
+   "hook": "Sixty minutes. Very different plans.",
+   "questions": [
+    { "de": "Du isst jeden Tag um Punkt zwölf?", "en": "You eat at twelve on the dot every day?", "ja": "tabelle", "nein": "chaos" },
+    { "de": "Du isst am Schreibtisch, damit du früher gehen kannst?", "en": "You eat at your desk so you can leave earlier?", "ja": "kameraaus", "nein": "kaffee" },
+    { "de": "Die Mittagspause ist für dich ein Arbeitsessen?", "en": "For you, the lunch break is a working lunch?", "ja": "kalender", "nein": "kameraaus" },
+    { "de": "Du organisierst jeden Freitag Pizza für alle?", "en": "You organise pizza for everyone every Friday?", "ja": "kaffee", "nein": "tabelle" },
+    { "de": "Um drei merkst du, dass du nicht gegessen hast?", "en": "At three you notice you haven't eaten?", "ja": "chaos", "nein": "tabelle" },
+    { "left": { "de": "Kantine mit Team", "en": "the canteen with the team", "vibe": "kaffee" }, "right": { "de": "Brot im Park, allein", "en": "a sandwich in the park, alone", "vibe": "kameraaus" } },
+    { "left": { "de": "Meal-Prep-Dosen", "en": "meal-prep boxes", "vibe": "tabelle" }, "right": { "de": "was der Automat hat", "en": "whatever the vending machine has", "vibe": "chaos" } },
+    { "de": "Beim Essen besprichst du das nächste Projekt?", "en": "Over lunch you discuss the next project?", "ja": "kalender", "nein": "kaffee" },
+    { "de": "Du weißt, welche Kollegen zusammen essen, und warum?", "en": "You know which colleagues eat together, and why?", "ja": "kaffee", "nein": "kameraaus" },
+    { "left": { "de": "Spaziergang", "en": "a walk", "vibe": "kameraaus" }, "right": { "de": "Teamlunch mit Agenda", "en": "a team lunch with an agenda", "vibe": "kalender" } },
+    { "de": "Dein Essen im Kühlschrank hat Namen und Datum?", "en": "Your food in the fridge has your name and a date on it?", "ja": "tabelle", "nein": "chaos" },
+    { "left": { "de": "pünktlich zurück", "en": "back on time", "vibe": "tabelle" }, "right": { "de": "Pause, bis jemand sucht", "en": "a break until someone comes looking", "vibe": "chaos" } }
+   ]
+  },
+  {
+   "id": "deadline", "title": "Die Deadline", "en": "The deadline",
+   "hook": "Due tomorrow. Started: also tomorrow.",
+   "questions": [
+    { "de": "Du fängst erst an, wenn die Deadline morgen ist?", "en": "You only start when the deadline is tomorrow?", "ja": "chaos", "nein": "tabelle" },
+    { "de": "Du warst zwei Wochen vor der Deadline fertig?", "en": "You were done two weeks before the deadline?", "ja": "tabelle", "nein": "chaos" },
+    { "de": "Bei Stress planst du erst mal ein Meeting?", "en": "Under stress, you plan a meeting first?", "ja": "kalender", "nein": "chaos" },
+    { "de": "Du arbeitest am besten nachts, wenn keiner schreibt?", "en": "You work best at night, when nobody is messaging?", "ja": "kameraaus", "nein": "kaffee" },
+    { "de": "Du bringst Kuchen, damit das Team durchhält?", "en": "You bring cake so the team keeps going?", "ja": "kaffee", "nein": "kameraaus" },
+    { "de": "Du hast die Deadline vergessen, weil sie nirgends stand?", "en": "You forgot the deadline because it wasn't written anywhere?", "ja": "chaos", "nein": "kalender" },
+    { "left": { "de": "Gantt-Diagramm", "en": "a Gantt chart", "vibe": "tabelle" }, "right": { "de": "Panik und Pizza", "en": "panic and pizza", "vibe": "chaos" } },
+    { "left": { "de": "Statusmeeting", "en": "a status meeting", "vibe": "kalender" }, "right": { "de": "Tür zu, Handy aus", "en": "door shut, phone off", "vibe": "kameraaus" } },
+    { "de": "Du fragst, wer helfen kann, und alle kommen?", "en": "You ask who can help, and everyone comes?", "ja": "kaffee", "nein": "kameraaus" },
+    { "left": { "de": "allein durchziehen", "en": "pushing through alone", "vibe": "kameraaus" }, "right": { "de": "zusammen leiden", "en": "suffering together", "vibe": "kaffee" } },
+    { "de": "Du würdest die Deadline verschieben, wenn du dürftest?", "en": "You'd move the deadline if you were allowed to?", "ja": "chaos", "nein": "kalender" },
+    { "de": "Deine Checkliste hat eine Checkliste?", "en": "Your checklist has a checklist?", "ja": "tabelle", "nein": "kaffee" }
+   ]
+  },
+  {
+   "id": "feier", "title": "Die Weihnachtsfeier", "en": "The office party",
+   "hook": "One night a year. Everyone remembers it differently.",
+   "questions": [
+    { "de": "Du organisierst die Feier, weil es sonst keiner tut?", "en": "You organise the party because nobody else will?", "ja": "kalender", "nein": "chaos" },
+    { "de": "Du gehst nach einer Stunde, ohne dich zu verabschieden?", "en": "You leave after an hour without saying goodbye?", "ja": "kameraaus", "nein": "kaffee" },
+    { "de": "Am nächsten Tag weißt du, wer mit wem getanzt hat?", "en": "The next day you know who danced with whom?", "ja": "kaffee", "nein": "kameraaus" },
+    { "de": "Du hast für das Wichteln eine Tabelle gemacht?", "en": "You made a spreadsheet for Secret Santa?", "ja": "tabelle", "nein": "chaos" },
+    { "de": "Du kamst verkleidet, obwohl es keine Mottoparty war?", "en": "You came in costume even though it wasn't a theme party?", "ja": "chaos", "nein": "tabelle" },
+    { "left": { "de": "Karaoke", "en": "karaoke", "vibe": "kaffee" }, "right": { "de": "die Ecke mit dem Hund", "en": "the corner with the dog", "vibe": "kameraaus" } },
+    { "left": { "de": "Rede halten", "en": "giving the speech", "vibe": "kalender" }, "right": { "de": "Rede verpassen", "en": "missing the speech", "vibe": "chaos" } },
+    { "de": "Du würdest die Feier lieber im Videocall machen?", "en": "You'd rather have the party on a video call?", "ja": "kameraaus", "nein": "kalender" },
+    { "left": { "de": "Getränkeliste", "en": "the drinks list", "vibe": "tabelle" }, "right": { "de": "Tanzfläche", "en": "the dance floor", "vibe": "kaffee" } },
+    { "de": "Um Mitternacht hast du der Chefin das Du angeboten?", "en": "At midnight you offered the boss first-name terms?", "ja": "kaffee", "nein": "tabelle" },
+    { "de": "Du musstest die Feier wegen eines Calls verlassen?", "en": "You had to leave the party for a call?", "ja": "kalender", "nein": "kaffee" },
+    { "left": { "de": "zu früh da", "en": "there too early", "vibe": "tabelle" }, "right": { "de": "zu spät, mit Geschenk", "en": "too late, with a present", "vibe": "chaos" } }
+   ]
+  },
+  {
+   "id": "feierabend", "title": "Feierabend", "en": "Clocking off",
+   "hook": "Out the door. Or are you?",
+   "questions": [
+    { "de": "Du gehst um fünf, egal was passiert?", "en": "You leave at five, whatever happens?", "ja": "kameraaus", "nein": "kalender" },
+    { "de": "Nach der Arbeit gehst du mit Kollegen noch etwas trinken?", "en": "After work you go for a drink with colleagues?", "ja": "kaffee", "nein": "kameraaus" },
+    { "de": "Du räumst den Schreibtisch auf, bevor du gehst?", "en": "You tidy your desk before you leave?", "ja": "tabelle", "nein": "chaos" },
+    { "de": "Du antwortest auch abends noch auf Mails?", "en": "You still answer emails in the evening?", "ja": "kalender", "nein": "kameraaus" },
+    { "de": "Du hast den Schlüssel im Büro vergessen, schon wieder?", "en": "You left your key at the office, again?", "ja": "chaos", "nein": "tabelle" },
+    { "left": { "de": "Feierabendbier", "en": "an after-work beer", "vibe": "kaffee" }, "right": { "de": "Sport nach Plan", "en": "exercise by schedule", "vibe": "tabelle" } },
+    { "left": { "de": "Laptop zu", "en": "laptop shut", "vibe": "kameraaus" }, "right": { "de": "noch ein kurzer Call", "en": "one more quick call", "vibe": "kalender" } },
+    { "de": "Am Abend planst du schon den nächsten Tag?", "en": "In the evening you already plan the next day?", "ja": "tabelle", "nein": "chaos" },
+    { "de": "Das wichtigste Gespräch des Tages ist auf dem Parkplatz?", "en": "The most important chat of the day happens in the car park?", "ja": "kaffee", "nein": "kalender" },
+    { "left": { "de": "pünktlich", "en": "on time", "vibe": "kameraaus" }, "right": { "de": "wenn es fertig ist", "en": "when it's done", "vibe": "chaos" } },
+    { "de": "Du würdest auch am Wochenende ein Meeting annehmen?", "en": "You'd accept a meeting at the weekend too?", "ja": "kalender", "nein": "chaos" },
+    { "left": { "de": "Handy aus", "en": "phone off", "vibe": "kameraaus" }, "right": { "de": "Gruppenchat an", "en": "group chat on", "vibe": "kaffee" } }
+   ]
+  }
+ ]
+}

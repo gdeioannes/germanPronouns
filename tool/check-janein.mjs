@@ -23,6 +23,9 @@ for (const f of files) {
 	const c = JSON.parse(readFileSync(join(dir, f), 'utf8'));
 	if (!c.id || !c.title || !c.en || !c.emoji) err(`${f}: missing id/title/en/emoji`);
 	if (c.title && !c.title.endsWith('?')) err(`${f}: the theme title must be the quiz question ("${c.title}")`);
+	if (!['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].includes(c.level)) err(`${f}: level must be a CEFR band A1…C2 (${c.level})`);
+	// Questions above A2 use the band's grammar, so they may run longer.
+	const maxQ = ['A1', 'A2'].includes(c.level) ? 48 : c.level === 'B1' ? 60 : 72;
 	const vibes = new Set((c.personas ?? []).map((p) => p.id));
 	if (vibes.size !== 5) err(`${f}: ${vibes.size} personas, want 5`);
 	for (const p of c.personas ?? []) {
@@ -70,7 +73,7 @@ for (const f of files) {
 					if ((s.de ?? '').length > 24) err(`${tag}: ${side} too long "${s.de}"`);
 				}
 				if (q.left.vibe === q.right.vibe) err(`${tag}: both sides feed ${q.left.vibe} in "${de}"`);
-				if (de.length > 48) err(`${tag}: spoken as "${de}" it is ${de.length} chars, max 48`);
+				if (de.length > Math.min(maxQ, 54)) err(`${tag}: spoken as "${de}" it is ${de.length} chars, max ${Math.min(maxQ, 54)}`);
 				if (q.de || q.ja || q.nein) err(`${tag}: a this-or-that must not also have de/ja/nein ("${de}")`);
 				fed[q.left.vibe] = (fed[q.left.vibe] ?? 0) + 1;
 				fed[q.right.vibe] = (fed[q.right.vibe] ?? 0) + 1;
@@ -81,7 +84,7 @@ for (const f of files) {
 				if (!q.de?.endsWith('?')) err(`${tag}: not a question "${q.de}"`);
 				if (/[=+→←]/.test(q.de ?? '')) err(`${tag}: symbols are not spoken, write the word ("${q.de}")`);
 				if (!q.en?.endsWith('?')) err(`${tag}: English not a question "${q.en}"`);
-				if ((q.de ?? '').length > 48) err(`${tag}: too long "${q.de}"`);
+				if ((q.de ?? '').length > maxQ) err(`${tag}: too long (${q.de.length}, max ${maxQ}) "${q.de}"`);
 				if (!vibes.has(q.ja) || !vibes.has(q.nein)) err(`${tag}: unknown vibe in "${q.de}" (${q.ja}/${q.nein})`);
 				if (q.ja === q.nein) err(`${tag}: Ja and Nein both feed ${q.ja} in "${q.de}"`);
 				fed[q.ja] = (fed[q.ja] ?? 0) + 1;

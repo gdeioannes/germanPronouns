@@ -23,6 +23,13 @@ nothing new past A2. The deck deals a theme regardless of level.
 
 ### 1. Ja oder Nein?: level the themes, then add one theme per level band
 
+**Done 2026-11-10.** Every theme file has a `level` band (the first ten
+are A1); `nextRound(played, level)` deals only themes at or below the
+learner's band, their own band first, and the deck card links the exact
+round it shows (`?round=`). The six themes below are written and validated
+(`kollege`, `nachbar` B1; `diskutierer`, `mieter` B2; `leser` C1; `redner`
+C2); the validator allows 60 characters at B1 and 72 at B2–C2.
+
 Add a `level` field to each theme file and to the validator
 (`tool/check-janein.mjs`), and let the deck surprise (`src/lib/domain/deck.ts`,
 `deckSurprise`) prefer the themes at or below the learner's level, the way chats

@@ -1,0 +1,256 @@
+{
+ "id": "mieter",
+ "title": "Welcher Mieter bist du?",
+ "en": "Which tenant are you?",
+ "emoji": "🔑",
+ "level": "B2",
+ "personas": [
+  {
+   "id": "vertrag", "title": "Der Mietvertrag", "emoji": "📑",
+   "line": "You know the notice period, the clause and the paragraph number.",
+   "profile": "You've read every page, highlighted the important bits and filed a copy in a labelled folder. Landlords respect you and slightly fear you. You aren't difficult; you simply know what you're entitled to, and your service-charge objections succeed nine times out of ten.",
+   "traits": ["thorough", "informed", "unshakeable"],
+   "de": {
+    "line": "Du kennst die Kündigungsfrist, die Klausel und den Paragrafen.",
+    "profile": "Du hast jede Seite gelesen, das Wichtige markiert und eine Kopie in einem beschrifteten Ordner abgeheftet. Vermieter respektieren dich und fürchten dich ein bisschen. Du bist nicht schwierig; du weißt nur genau, was dir zusteht, und deine Widersprüche gegen die Nebenkosten sind fast immer erfolgreich.",
+    "traits": ["gründlich", "informiert", "unerschütterlich"]
+   },
+   "match": "liebling", "clash": "heimwerker",
+   "word": { "de": "die Nebenkostenabrechnung", "en": "the service-charge statement" }
+  },
+  {
+   "id": "heimwerker", "title": "Der Heimwerker", "emoji": "🔧",
+   "line": "Why call someone when you own a drill?",
+   "profile": "Dripping tap, wobbly shelf, a door that sticks: you've fixed it before anyone else noticed. Your cellar is a workshop and your weekends smell of sawdust. Now and then you improve things nobody asked you to improve, including, once, a wall that was holding something up.",
+   "traits": ["handy", "practical", "unstoppable"],
+   "de": {
+    "line": "Warum jemanden anrufen, wenn man eine Bohrmaschine hat?",
+    "profile": "Tropfender Hahn, wackeliges Regal, eine Tür, die klemmt: Du hast es repariert, bevor es jemand bemerkt hat. Dein Keller ist eine Werkstatt, und deine Wochenenden riechen nach Sägespänen. Manchmal verbesserst du Dinge, um die dich niemand gebeten hat, einmal sogar eine Wand, die etwas getragen hat.",
+    "traits": ["geschickt", "praktisch", "nicht zu bremsen"]
+   },
+   "match": "deko", "clash": "vertrag",
+   "word": { "de": "der Akkuschrauber", "en": "the cordless drill" }
+  },
+  {
+   "id": "deko", "title": "Das Wohnmagazin", "emoji": "🪴",
+   "line": "Your flat looks like a magazine. Your sofa is too nice to sit on.",
+   "profile": "You chose the flat for the light, the floorboards and the stucco, and then made it even better. Every lamp has a story, every plant has a name and every wall has a colour with a poetic name. Guests take photos. Afterwards you quietly put the cushions back.",
+   "traits": ["stylish", "creative", "particular"],
+   "de": {
+    "line": "Deine Wohnung sieht aus wie eine Zeitschrift. Dein Sofa ist zu schön zum Sitzen.",
+    "profile": "Du hast die Wohnung wegen des Lichts, der Dielen und des Stucks genommen und sie dann noch schöner gemacht. Jede Lampe hat eine Geschichte, jede Pflanze einen Namen und jede Wand eine Farbe mit poetischem Namen. Gäste machen Fotos. Danach rückst du heimlich die Kissen zurecht.",
+    "traits": ["stilvoll", "kreativ", "wählerisch"]
+   },
+   "match": "heimwerker", "clash": "nomade",
+   "word": { "de": "die Altbauwohnung", "en": "the period flat" }
+  },
+  {
+   "id": "nomade", "title": "Der Nomade", "emoji": "🧳",
+   "line": "You've moved six times. Three boxes are still from the first move.",
+   "profile": "A flat, for you, is a place to sleep between adventures. You sign quickly, unpack slowly and never quite unpack the last few boxes, because you'll be off again soon. Landlords barely know your face, and your post goes to four different addresses. Freedom has its filing problems.",
+   "traits": ["free", "flexible", "restless"],
+   "de": {
+    "line": "Du bist sechsmal umgezogen. Drei Kartons sind noch vom ersten Mal.",
+    "profile": "Eine Wohnung ist für dich ein Ort zum Schlafen zwischen zwei Abenteuern. Du unterschreibst schnell, packst langsam aus und die letzten Kartons nie, weil du ja bald wieder weg bist. Vermieter kennen kaum dein Gesicht, und deine Post geht an vier Adressen. Freiheit hat ihre Ablageprobleme.",
+    "traits": ["frei", "flexibel", "rastlos"]
+   },
+   "match": "heimwerker", "clash": "deko",
+   "word": { "de": "der Umzugskarton", "en": "the moving box" }
+  },
+  {
+   "id": "liebling", "title": "Der Lieblingsmieter", "emoji": "😇",
+   "line": "Your rent has never gone up. Nobody knows why. You do.",
+   "profile": "You pay early, say hello on the stairs and remember the birthdays of the landlady's grandchildren. Repairs happen in a day, the rent stays mysteriously low and you get Christmas biscuits. It isn't strategy, or not only: you genuinely like people, and they like you back.",
+   "traits": ["charming", "reliable", "lucky"],
+   "de": {
+    "line": "Deine Miete ist nie gestiegen. Niemand weiß, warum. Du schon.",
+    "profile": "Du zahlst früh, grüßt im Treppenhaus und kennst die Geburtstage der Enkel deiner Vermieterin. Reparaturen dauern einen Tag, die Miete bleibt rätselhaft niedrig, und an Weihnachten bekommst du Plätzchen. Das ist keine Strategie, oder nicht nur: Du magst Menschen wirklich, und sie mögen dich zurück.",
+    "traits": ["charmant", "zuverlässig", "ein Glückskind"]
+   },
+   "match": "vertrag", "clash": "nomade",
+   "word": { "de": "die Vermieterin", "en": "the landlady" }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "suche", "title": "Die Wohnungssuche", "en": "Flat hunting",
+   "hook": "Two hundred applicants. One flat. Bring your folder.",
+   "questions": [
+    { "de": "Deine Bewerbungsmappe ist besser sortiert als dein Leben?", "en": "Your application folder is better organised than your life?", "ja": "vertrag", "nein": "nomade" },
+    { "de": "Du fragst die Vermieterin, wie es ihrem Hund geht?", "en": "You ask the landlady how her dog is doing?", "ja": "liebling", "nein": "nomade" },
+    { "de": "Deine Entscheidung fällt nach dem Licht im Wohnzimmer?", "en": "Your decision depends on the light in the living room?", "ja": "deko", "nein": "heimwerker" },
+    { "de": "Hättest du die Wohnung genommen, wenn sie kein Bad gehabt hätte?", "en": "Would you have taken the flat if it hadn't had a bathroom?", "ja": "nomade", "nein": "vertrag" },
+    { "de": "Du denkst bei jeder Wohnung sofort, welche Wand raus muss?", "en": "In every flat you immediately think which wall has to go?", "ja": "heimwerker", "nein": "liebling" },
+    { "left": { "de": "Quadratmeterpreis", "en": "price per square metre", "vibe": "vertrag" }, "right": { "de": "Stuck an der Decke", "en": "stucco on the ceiling", "vibe": "deko" } },
+    { "left": { "de": "befristet, egal", "en": "fixed-term, whatever", "vibe": "nomade" }, "right": { "de": "unbefristet, bitte", "en": "open-ended, please", "vibe": "liebling" } },
+    { "de": "Die Besichtigung von zwanzig Wohnungen pro Woche ist für dich normal?", "en": "Viewing twenty flats a week is normal for you?", "ja": "nomade", "nein": "liebling" },
+    { "de": "Du rufst an, statt zu schreiben, damit man sich an dich erinnert?", "en": "You call instead of writing, so that they remember you?", "ja": "liebling", "nein": "vertrag" },
+    { "left": { "de": "Werkstatt im Keller", "en": "a workshop in the cellar", "vibe": "heimwerker" }, "right": { "de": "Fischgrätparkett", "en": "herringbone parquet", "vibe": "deko" } },
+    { "de": "Du liest Wohnungsanzeigen, auch wenn du gar nicht suchst?", "en": "You read flat adverts even when you're not looking?", "ja": "nomade", "nein": "vertrag" },
+    { "left": { "de": "Mietspiegel prüfen", "en": "checking the rent index", "vibe": "vertrag" }, "right": { "de": "selbst renovieren", "en": "renovating yourself", "vibe": "heimwerker" } }
+   ]
+  },
+  {
+   "id": "besichtigung", "title": "Die Besichtigung", "en": "The viewing",
+   "hook": "Fifteen minutes to fall in love or find the mould.",
+   "questions": [
+    { "de": "Du fragst, wann die Fenster zuletzt erneuert wurden?", "en": "You ask when the windows were last replaced?", "ja": "vertrag", "nein": "deko" },
+    { "de": "Du klopfst an die Wände, um zu hören, ob sie hohl sind?", "en": "You knock on the walls to hear whether they're hollow?", "ja": "heimwerker", "nein": "nomade" },
+    { "de": "Schon während der Besichtigung planst du die Möbel?", "en": "During the viewing you're already planning the furniture?", "ja": "deko", "nein": "vertrag" },
+    { "de": "Du bringst der Maklerin einen Kaffee mit?", "en": "You bring the estate agent a coffee?", "ja": "liebling", "nein": "heimwerker" },
+    { "de": "Du sagst sofort zu, ohne das Bad gesehen zu haben?", "en": "You say yes straight away without having seen the bathroom?", "ja": "nomade", "nein": "vertrag" },
+    { "left": { "de": "Wasserdruck testen", "en": "testing the water pressure", "vibe": "heimwerker" }, "right": { "de": "Fotos fürs Moodboard", "en": "photos for the mood board", "vibe": "deko" } },
+    { "left": { "de": "Fragenliste", "en": "a list of questions", "vibe": "vertrag" }, "right": { "de": "Smalltalk", "en": "small talk", "vibe": "liebling" } },
+    { "de": "Du merkst dir, ob die Steckdosen an der richtigen Stelle sind?", "en": "You note whether the sockets are in the right places?", "ja": "heimwerker", "nein": "liebling" },
+    { "de": "Du würdest eine Wohnung ohne Küche nehmen, wenn sie zentral wäre?", "en": "You'd take a flat with no kitchen if it were central?", "ja": "nomade", "nein": "deko" },
+    { "left": { "de": "Schimmel suchen", "en": "looking for mould", "vibe": "vertrag" }, "right": { "de": "Aussicht genießen", "en": "enjoying the view", "vibe": "deko" } },
+    { "de": "Am Ende der Besichtigung duzt du die Vermieterin schon?", "en": "By the end of the viewing you're on first-name terms with the landlady?", "ja": "liebling", "nein": "vertrag" },
+    { "left": { "de": "ein Koffer reicht", "en": "one suitcase is enough", "vibe": "nomade" }, "right": { "de": "Maßband dabei", "en": "tape measure in hand", "vibe": "heimwerker" } }
+   ]
+  },
+  {
+   "id": "vertrag", "title": "Der Mietvertrag", "en": "The tenancy agreement",
+   "hook": "Twelve pages. Who actually reads them?",
+   "questions": [
+    { "de": "Du hast alle zwölf Seiten gelesen, inklusive Kleingedrucktem?", "en": "You read all twelve pages, small print included?", "ja": "vertrag", "nein": "nomade" },
+    { "de": "Du unterschreibst, ohne zu fragen, was Staffelmiete bedeutet?", "en": "You sign without asking what a graduated rent means?", "ja": "nomade", "nein": "vertrag" },
+    { "de": "Du fragst, ob du streichen darfst, nachdem du es getan hast?", "en": "You ask whether you may paint after you've done it?", "ja": "heimwerker", "nein": "liebling" },
+    { "de": "Du fragst, ob Bilder mit Nägeln aufgehängt werden dürfen?", "en": "You ask whether pictures may be hung with nails?", "ja": "deko", "nein": "nomade" },
+    { "de": "Du bringst zur Unterschrift Blumen für die Vermieterin mit?", "en": "You bring flowers for the landlady to the signing?", "ja": "liebling", "nein": "heimwerker" },
+    { "left": { "de": "Paragrafen markieren", "en": "highlighting the clauses", "vibe": "vertrag" }, "right": { "de": "Kuli leihen", "en": "borrowing a pen", "vibe": "nomade" } },
+    { "left": { "de": "Klausel zu Dübeln", "en": "the clause on wall plugs", "vibe": "heimwerker" }, "right": { "de": "Klausel zu Farben", "en": "the clause on paint colours", "vibe": "deko" } },
+    { "de": "Die Kündigungsfrist kennst du auswendig?", "en": "You know the notice period by heart?", "ja": "vertrag", "nein": "deko" },
+    { "de": "Hättest du den Vertrag gelesen, wärst du nicht eingezogen?", "en": "If you had read the contract, you wouldn't have moved in?", "ja": "nomade", "nein": "vertrag" },
+    { "left": { "de": "Kopie im Ordner", "en": "a copy in a folder", "vibe": "vertrag" }, "right": { "de": "Foto auf dem Handy", "en": "a photo on your phone", "vibe": "nomade" } },
+    { "de": "Die Vermieterin erklärt dir den Vertrag beim Tee?", "en": "The landlady explains the contract to you over tea?", "ja": "liebling", "nein": "vertrag" },
+    { "left": { "de": "Werkzeug einpacken", "en": "packing your tools", "vibe": "heimwerker" }, "right": { "de": "Farbkarte einpacken", "en": "packing the colour chart", "vibe": "deko" } }
+   ]
+  },
+  {
+   "id": "einrichten", "title": "Einrichten", "en": "Furnishing",
+   "hook": "Empty rooms, full opinions.",
+   "questions": [
+    { "de": "Dein Sofa wurde nach der Farbe der Wand ausgesucht?", "en": "Your sofa was chosen to match the colour of the wall?", "ja": "deko", "nein": "nomade" },
+    { "de": "Du baust alle Möbel selbst auf, auch ohne Anleitung?", "en": "You assemble all your furniture yourself, even without instructions?", "ja": "heimwerker", "nein": "deko" },
+    { "de": "Nach einem Jahr stehen noch Kartons im Flur?", "en": "After a year there are still boxes in the hallway?", "ja": "nomade", "nein": "deko" },
+    { "de": "Du fragst die Vermieterin, ob sie die alte Lampe behalten will?", "en": "You ask the landlady whether she'd like to keep the old lamp?", "ja": "liebling", "nein": "nomade" },
+    { "de": "Die Anbringung jedes Regals ist mit dem Vertrag abgestimmt?", "en": "Putting up each shelf has been checked against the contract?", "ja": "vertrag", "nein": "heimwerker" },
+    { "left": { "de": "Matratze auf dem Boden", "en": "a mattress on the floor", "vibe": "nomade" }, "right": { "de": "Bett aus Samt", "en": "a velvet bed", "vibe": "deko" } },
+    { "left": { "de": "Bohrmaschine", "en": "a drill", "vibe": "heimwerker" }, "right": { "de": "Klebehaken", "en": "adhesive hooks", "vibe": "vertrag" } },
+    { "de": "Du hast mehr Pflanzen als Stühle?", "en": "You have more plants than chairs?", "ja": "deko", "nein": "vertrag" },
+    { "de": "Du hast die alte Küche übernommen, weil die Vormieterin so nett war?", "en": "You took over the old kitchen because the previous tenant was so nice?", "ja": "liebling", "nein": "heimwerker" },
+    { "left": { "de": "leichte Möbel", "en": "light furniture", "vibe": "nomade" }, "right": { "de": "Einbauschrank", "en": "a built-in wardrobe", "vibe": "heimwerker" } },
+    { "de": "Wärst du reich, hättest du jedes Jahr einen neuen Stil?", "en": "If you were rich, you'd have a new style every year?", "ja": "deko", "nein": "liebling" },
+    { "left": { "de": "Garantiebelege sammeln", "en": "collecting warranty receipts", "vibe": "vertrag" }, "right": { "de": "Kekse für die Nachbarn", "en": "biscuits for the neighbours", "vibe": "liebling" } }
+   ]
+  },
+  {
+   "id": "reparatur", "title": "Reparaturen", "en": "Repairs",
+   "hook": "Something drips. Who do you call?",
+   "questions": [
+    { "de": "Du reparierst den tropfenden Hahn, bevor du jemanden fragst?", "en": "You fix the dripping tap before asking anyone?", "ja": "heimwerker", "nein": "vertrag" },
+    { "de": "Du schickst eine Mängelanzeige mit Fristsetzung?", "en": "You send a formal defect notice with a deadline?", "ja": "vertrag", "nein": "heimwerker" },
+    { "de": "Die kaputte Lampe bleibt, weil du eh bald ausziehst?", "en": "The broken lamp stays because you're moving out soon anyway?", "ja": "nomade", "nein": "heimwerker" },
+    { "de": "Der Hausmeister kommt bei dir sofort, weil er dich mag?", "en": "The caretaker comes straight away for you because he likes you?", "ja": "liebling", "nein": "nomade" },
+    { "de": "Den Riss in der Wand hast du hinter einem Bild versteckt?", "en": "You've hidden the crack in the wall behind a picture?", "ja": "deko", "nein": "vertrag" },
+    { "left": { "de": "Werkzeugkasten", "en": "a toolbox", "vibe": "heimwerker" }, "right": { "de": "Anwalt", "en": "a lawyer", "vibe": "vertrag" } },
+    { "left": { "de": "Pullover anziehen", "en": "putting on a jumper", "vibe": "nomade" }, "right": { "de": "Vermieterin anrufen", "en": "calling the landlady", "vibe": "liebling" } },
+    { "de": "Du fragst nach, wann genau der Handwerker kommen wird?", "en": "You ask exactly when the tradesman will come?", "ja": "vertrag", "nein": "nomade" },
+    { "de": "Hättest du das richtige Werkzeug, würdest du die Heizung reparieren?", "en": "If you had the right tools, you'd repair the heating?", "ja": "heimwerker", "nein": "liebling" },
+    { "left": { "de": "Kerzen statt Licht", "en": "candles instead of light", "vibe": "deko" }, "right": { "de": "Sicherung tauschen", "en": "changing the fuse", "vibe": "heimwerker" } },
+    { "de": "Die Vermieterin schickt dir eine Karte, als Dank für deine Geduld?", "en": "The landlady sends you a card to thank you for your patience?", "ja": "liebling", "nein": "vertrag" },
+    { "left": { "de": "Mietminderung", "en": "a rent reduction", "vibe": "vertrag" }, "right": { "de": "Umzug", "en": "moving out", "vibe": "nomade" } }
+   ]
+  },
+  {
+   "id": "nebenkosten", "title": "Die Nebenkosten", "en": "Service charges",
+   "hook": "The annual letter nobody understands. Almost nobody.",
+   "questions": [
+    { "de": "Die Nebenkostenabrechnung prüfst du Zeile für Zeile?", "en": "You check the service-charge statement line by line?", "ja": "vertrag", "nein": "nomade" },
+    { "de": "Du überweist die Nachzahlung, ohne den Brief zu öffnen?", "en": "You transfer the extra payment without opening the letter?", "ja": "nomade", "nein": "vertrag" },
+    { "de": "Vor der Frage zur Abrechnung fragst du nach ihrem Urlaub?", "en": "Before asking about the bill, you ask about her holiday?", "ja": "liebling", "nein": "vertrag" },
+    { "de": "Du hast eigene Zähler eingebaut, um den Verbrauch zu messen?", "en": "You've installed your own meters to measure consumption?", "ja": "heimwerker", "nein": "deko" },
+    { "de": "Du heizt, weil die Wohnung sonst ungemütlich aussieht?", "en": "You turn the heating up because otherwise the flat looks uncosy?", "ja": "deko", "nein": "vertrag" },
+    { "left": { "de": "Widerspruch einlegen", "en": "lodging an objection", "vibe": "vertrag" }, "right": { "de": "Danke sagen", "en": "saying thank you", "vibe": "liebling" } },
+    { "left": { "de": "Dichtungen erneuern", "en": "replacing the seals", "vibe": "heimwerker" }, "right": { "de": "Kuscheldecken kaufen", "en": "buying cosy blankets", "vibe": "deko" } },
+    { "de": "Wärst du nicht eh bald weg, würdest du widersprechen?", "en": "If you weren't leaving soon anyway, you'd object?", "ja": "nomade", "nein": "liebling" },
+    { "de": "Die Erhöhung der Vorauszahlung akzeptierst du mit einem Lächeln?", "en": "You accept the higher advance payment with a smile?", "ja": "liebling", "nein": "vertrag" },
+    { "left": { "de": "Thermostat auf zwei", "en": "the thermostat on two", "vibe": "heimwerker" }, "right": { "de": "Kaminvideo", "en": "a fireplace video", "vibe": "deko" } },
+    { "de": "Du weißt, wie viel Wasser die Wohnung im Jahr verbraucht?", "en": "You know how much water the flat uses in a year?", "ja": "vertrag", "nein": "deko" },
+    { "left": { "de": "Brief verlieren", "en": "losing the letter", "vibe": "nomade" }, "right": { "de": "Brief einrahmen", "en": "framing the letter", "vibe": "deko" } }
+   ]
+  },
+  {
+   "id": "vermieterin", "title": "Die Vermieterin", "en": "The landlady",
+   "hook": "She lives downstairs. She notices things.",
+   "questions": [
+    { "de": "Die Vermieterin hat dir schon mal Kuchen gebracht?", "en": "The landlady has brought you cake before?", "ja": "liebling", "nein": "nomade" },
+    { "de": "Du kommunizierst mit ihr ausschließlich schriftlich?", "en": "You communicate with her exclusively in writing?", "ja": "vertrag", "nein": "liebling" },
+    { "de": "Sie weiß nicht, wie du aussiehst, weil du so selten da bist?", "en": "She doesn't know what you look like because you're hardly ever there?", "ja": "nomade", "nein": "liebling" },
+    { "de": "Du hast ihr Gartentor repariert, ohne dass sie gefragt hat?", "en": "You repaired her garden gate without her asking?", "ja": "heimwerker", "nein": "vertrag" },
+    { "de": "Sie fragt dich, wie man das Treppenhaus schöner machen könnte?", "en": "She asks you how the stairwell could be made prettier?", "ja": "deko", "nein": "nomade" },
+    { "left": { "de": "Brief per Einschreiben", "en": "a letter by registered post", "vibe": "vertrag" }, "right": { "de": "Zettel mit Herz", "en": "a note with a heart", "vibe": "liebling" } },
+    { "left": { "de": "Leiter leihen", "en": "lending her a ladder", "vibe": "heimwerker" }, "right": { "de": "Vase schenken", "en": "giving her a vase", "vibe": "deko" } },
+    { "de": "Du fragst sie, ob sie Hilfe beim Einkaufen braucht?", "en": "You ask her whether she needs help with the shopping?", "ja": "liebling", "nein": "heimwerker" },
+    { "de": "Hätte sie mehr Geschmack, wäre das Haus ein Traum?", "en": "If she had more taste, the building would be a dream?", "ja": "deko", "nein": "liebling" },
+    { "left": { "de": "Termin vereinbaren", "en": "making an appointment", "vibe": "vertrag" }, "right": { "de": "einfach klingeln", "en": "just ringing the bell", "vibe": "nomade" } },
+    { "de": "Du hast ihr erklärt, welche Pflichten sie laut Gesetz hat?", "en": "You've explained to her what her legal duties are?", "ja": "vertrag", "nein": "deko" },
+    { "left": { "de": "Werkbank im Hof", "en": "a workbench in the courtyard", "vibe": "heimwerker" }, "right": { "de": "Abschied per SMS", "en": "a goodbye by text", "vibe": "nomade" } }
+   ]
+  },
+  {
+   "id": "erhoehung", "title": "Die Mieterhöhung", "en": "The rent increase",
+   "hook": "Ten per cent. Effective in three months. Breathe.",
+   "questions": [
+    { "de": "Du prüfst sofort, ob die Erhöhung dem Mietspiegel entspricht?", "en": "You check at once whether the increase matches the rent index?", "ja": "vertrag", "nein": "liebling" },
+    { "de": "Du ziehst lieber aus, als zu verhandeln?", "en": "You'd rather move out than negotiate?", "ja": "nomade", "nein": "vertrag" },
+    { "de": "Du bietest an, das Treppenhaus zu streichen, statt mehr zu zahlen?", "en": "You offer to paint the stairwell instead of paying more?", "ja": "heimwerker", "nein": "nomade" },
+    { "de": "Du zahlst, weil du so eine schöne Wohnung nie wieder findest?", "en": "You pay because you'll never find such a lovely flat again?", "ja": "deko", "nein": "nomade" },
+    { "de": "Die Vermieterin erhöht bei allen, nur bei dir nicht?", "en": "The landlady raises everyone's rent except yours?", "ja": "liebling", "nein": "vertrag" },
+    { "left": { "de": "Mieterverein", "en": "the tenants' association", "vibe": "vertrag" }, "right": { "de": "Kuchen und Gespräch", "en": "cake and a chat", "vibe": "liebling" } },
+    { "left": { "de": "Umzugskartons bestellen", "en": "ordering moving boxes", "vibe": "nomade" }, "right": { "de": "neue Vorhänge kaufen", "en": "buying new curtains", "vibe": "deko" } },
+    { "de": "Hättest du es gewusst, hättest du nicht neu tapeziert?", "en": "Had you known, you wouldn't have re-wallpapered?", "ja": "heimwerker", "nein": "vertrag" },
+    { "de": "Du fragst höflich, wie die Erhöhung begründet wird?", "en": "You politely ask how the increase is justified?", "ja": "vertrag", "nein": "nomade" },
+    { "left": { "de": "Widerspruch", "en": "an objection", "vibe": "vertrag" }, "right": { "de": "Wohnung tauschen", "en": "swapping flats", "vibe": "nomade" } },
+    { "de": "Du akzeptierst, weil die neue Küche wirklich schön ist?", "en": "You accept because the new kitchen really is beautiful?", "ja": "deko", "nein": "vertrag" },
+    { "left": { "de": "Gegenleistung anbieten", "en": "offering something in return", "vibe": "heimwerker" }, "right": { "de": "Danke für alles", "en": "thanks for everything", "vibe": "liebling" } }
+   ]
+  },
+  {
+   "id": "renovieren", "title": "Renovieren", "en": "Redecorating",
+   "hook": "Was the wall always this colour? Not any more.",
+   "questions": [
+    { "de": "Du streichst eine Wand dunkelgrün, obwohl das nicht erlaubt ist?", "en": "You paint a wall dark green even though it's not allowed?", "ja": "deko", "nein": "vertrag" },
+    { "de": "Die Entfernung einer Wand hast du ernsthaft in Erwägung gezogen?", "en": "You've seriously considered removing a wall?", "ja": "heimwerker", "nein": "liebling" },
+    { "de": "Du renovierst nie, weil du sowieso bald umziehst?", "en": "You never redecorate because you're moving soon anyway?", "ja": "nomade", "nein": "deko" },
+    { "de": "Du fragst schriftlich, ob du den Boden abschleifen darfst?", "en": "You ask in writing whether you may sand the floor?", "ja": "vertrag", "nein": "heimwerker" },
+    { "de": "Die Vermieterin kommt jedes Mal, um das Ergebnis zu bewundern?", "en": "The landlady comes by every time to admire the result?", "ja": "liebling", "nein": "nomade" },
+    { "left": { "de": "Farbmuster", "en": "colour samples", "vibe": "deko" }, "right": { "de": "Spachtelmasse", "en": "filler", "vibe": "heimwerker" } },
+    { "left": { "de": "Genehmigung", "en": "permission", "vibe": "vertrag" }, "right": { "de": "Überraschung", "en": "a surprise", "vibe": "deko" } },
+    { "de": "Du hast schon mal eine Küche komplett selbst eingebaut?", "en": "You've fitted an entire kitchen yourself before?", "ja": "heimwerker", "nein": "nomade" },
+    { "de": "Wäre es deine eigene Wohnung, würdest du alles anders machen?", "en": "If it were your own flat, you'd do everything differently?", "ja": "deko", "nein": "liebling" },
+    { "left": { "de": "Klebefolie", "en": "sticky-back plastic", "vibe": "nomade" }, "right": { "de": "neue Fliesen", "en": "new tiles", "vibe": "heimwerker" } },
+    { "de": "Du lädst die Vermieterin zur Einweihung der neuen Küche ein?", "en": "You invite the landlady to the opening of the new kitchen?", "ja": "liebling", "nein": "vertrag" },
+    { "left": { "de": "Fotos für den Fall", "en": "photos, just in case", "vibe": "vertrag" }, "right": { "de": "Fotos für Instagram", "en": "photos for Instagram", "vibe": "deko" } }
+   ]
+  },
+  {
+   "id": "auszug", "title": "Der Auszug", "en": "Moving out",
+   "hook": "Handover day. The landlady has a torch.",
+   "questions": [
+    { "de": "Vor dem Auszug hast du jede Wand wieder weiß gestrichen?", "en": "Before moving out you painted every wall white again?", "ja": "vertrag", "nein": "nomade" },
+    { "de": "Du ziehst schon zum fünften Mal in drei Jahren um?", "en": "This is your fifth move in three years?", "ja": "nomade", "nein": "liebling" },
+    { "de": "Die Dübellöcher füllst du so, dass niemand sie sieht?", "en": "You fill the plug holes so that nobody can see them?", "ja": "heimwerker", "nein": "nomade" },
+    { "de": "Bei deinem Auszug weint die Vermieterin?", "en": "When you move out, the landlady cries?", "ja": "liebling", "nein": "vertrag" },
+    { "de": "Du lässt die Lampen hängen, weil sie so gut zur Wohnung passen?", "en": "You leave the lamps up because they suit the flat so well?", "ja": "deko", "nein": "heimwerker" },
+    { "left": { "de": "Übergabeprotokoll", "en": "the handover report", "vibe": "vertrag" }, "right": { "de": "Abschiedsbrief", "en": "a farewell letter", "vibe": "liebling" } },
+    { "left": { "de": "Kartons vom letzten Mal", "en": "boxes from last time", "vibe": "nomade" }, "right": { "de": "Kartons nach Farben", "en": "boxes sorted by colour", "vibe": "deko" } },
+    { "de": "Du fragst, ob die Kaution mit Zinsen zurückgezahlt wird?", "en": "You ask whether the deposit will be repaid with interest?", "ja": "vertrag", "nein": "deko" },
+    { "de": "Du hinterlässt die Wohnung schöner, als du sie bekommen hast?", "en": "You leave the flat nicer than you found it?", "ja": "heimwerker", "nein": "nomade" },
+    { "left": { "de": "Nachmieter suchen", "en": "finding the next tenant", "vibe": "liebling" }, "right": { "de": "einfach gehen", "en": "just leaving", "vibe": "nomade" } },
+    { "de": "Deine Pflanzen ziehen in einem eigenen Transporter um?", "en": "Your plants move in a van of their own?", "ja": "deko", "nein": "vertrag" },
+    { "left": { "de": "Schlüssel und Kuchen", "en": "keys and cake", "vibe": "liebling" }, "right": { "de": "Schlüssel und Werkzeug", "en": "keys and tools", "vibe": "heimwerker" } }
+   ]
+  }
+ ]
+}

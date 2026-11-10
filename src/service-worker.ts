@@ -11,7 +11,10 @@
 //     and served from the cache when the network is slow or gone;
 //   - pages are tried on the network first, so a new release shows up on the
 //     next online visit; media is cache-first, because a clip never changes
-//     (its file name is a hash of its text and voice).
+//     (its file name is a hash of its text and voice). The audio manifest is
+//     the exception: it grows with every recording run, so it is network-first;
+//   - "Save this level for offline" (lib/offline/saveLevel) fills the same
+//     two caches ahead of time, so the cache names are shared with it.
 //
 // Nothing of Firebase or Aptabase is touched: those requests go straight to
 // the network, and fail quietly offline as they already do.
@@ -30,11 +33,20 @@ const MEDIA = 'media';
 const shellFiles = files.filter((f) => !/^\/(audio|img|workbooks|books|og)\//.test(f));
 const shell = new Set([...build, ...shellFiles]);
 
+/**
+ * SvelteKit's runtime env module: not a build file, but every page imports
+ * it while starting, so without it an offline page shows but never wakes up.
+ */
+const ENV = '/_app/env.js';
+
 sw.addEventListener('install', (event) => {
 	event.waitUntil(
 		caches
 			.open(SHELL)
-			.then((cache) => cache.addAll([...shell]))
+			.then(async (cache) => {
+				await cache.addAll([...shell]);
+				await caches.open(PAGES).then((pages) => pages.add(ENV)).catch(() => {});
+			})
 			.then(() => sw.skipWaiting())
 	);
 });
@@ -48,14 +60,38 @@ sw.addEventListener('activate', (event) => {
 	);
 });
 
+function isManifest(url: URL): boolean {
+	return url.pathname.startsWith('/audio/manifest/');
+}
+
 function isMedia(url: URL): boolean {
 	return /^\/(audio|img|workbooks|books)\//.test(url.pathname) || /\.(mp3|webp|png|jpg|svg|woff2|pdf)$/.test(url.pathname);
+}
+
+function isData(url: URL): boolean {
+	return url.pathname.endsWith('/__data.json');
 }
 
 function isPage(request: Request, url: URL): boolean {
 	if (request.mode === 'navigate') return true;
 	// SvelteKit's prerendered pages, and the client-side data they load.
-	return prerendered.includes(url.pathname) || url.pathname.endsWith('/__data.json');
+	return prerendered.includes(url.pathname) || isData(url);
+}
+
+/** Network first, the cache when offline; data files are stored without SvelteKit's query string. */
+function networkFirst(cacheName: string, request: Request, url: URL, fallback?: () => Promise<Response | undefined>) {
+	const key = isData(url) ? url.origin + url.pathname : request;
+	return caches.open(cacheName).then(async (cache) => {
+		try {
+			const fresh = await fetch(request);
+			if (fresh.ok) void cache.put(key, fresh.clone());
+			return fresh;
+		} catch {
+			const hit = await cache.match(key, { ignoreSearch: isData(url) });
+			if (hit) return hit;
+			return (await fallback?.()) ?? Response.error();
+		}
+	});
 }
 
 sw.addEventListener('fetch', (event) => {
@@ -66,6 +102,16 @@ sw.addEventListener('fetch', (event) => {
 
 	if (shell.has(url.pathname)) {
 		event.respondWith(caches.match(request).then((hit) => hit ?? fetch(request)));
+		return;
+	}
+
+	if (url.pathname === ENV) {
+		event.respondWith(networkFirst(PAGES, request, url));
+		return;
+	}
+
+	if (isManifest(url)) {
+		event.respondWith(networkFirst(MEDIA, request, url));
 		return;
 	}
 
@@ -83,22 +129,7 @@ sw.addEventListener('fetch', (event) => {
 	}
 
 	if (isPage(request, url)) {
-		event.respondWith(
-			caches.open(PAGES).then(async (cache) => {
-				try {
-					const fresh = await fetch(request);
-					if (fresh.ok) void cache.put(request, fresh.clone());
-					return fresh;
-				} catch {
-					const hit = await cache.match(request);
-					if (hit) return hit;
-					// A page never opened before: the home page, which is in the
-					// shell list of prerendered pages only if it was visited; fall
-					// back to the 404 page SvelteKit prerenders for GitHub Pages.
-					const home = await cache.match('/');
-					return home ?? Response.error();
-				}
-			})
-		);
+		// A page never opened or saved: the home page, if that was visited.
+		event.respondWith(networkFirst(PAGES, request, url, () => caches.match('/')));
 	}
 });

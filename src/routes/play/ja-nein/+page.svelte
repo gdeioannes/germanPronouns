@@ -30,6 +30,7 @@
 		findRound,
 		markRoundPlayed,
 		nextRound,
+		readDeckLevel,
 		resultStats,
 		scoreRound,
 		shuffled,
@@ -82,7 +83,7 @@
 		// "?round=teller/brot" (the shelf page, the dev table) plays that round;
 		// otherwise the next one in the tour, the same the deck card showed.
 		const asked = findRound(page.url.searchParams.get('round'));
-		round = asked ?? nextRound();
+		round = asked ?? nextRound(undefined, readDeckLevel());
 		if (round) questions = shuffled(round);
 		shelf = collectionCount();
 		// "&a=jnjj…": a friend's answers; their card comes first, then the dare.

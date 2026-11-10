@@ -1,0 +1,256 @@
+{
+ "id": "redner",
+ "title": "Welcher Redner bist du?",
+ "en": "What kind of speaker are you?",
+ "emoji": "🎙️",
+ "level": "C2",
+ "personas": [
+  {
+   "id": "stegreif", "title": "Der Stegreifkünstler", "emoji": "🎤",
+   "line": "You've never prepared a speech. You've never needed to.",
+   "profile": "Give you a microphone and thirty seconds' warning and you'll have the room in your hand. Notes slow you down, scripts bore you, and your best lines arrive exactly when you need them. Now and then you put your foot in it, but you get out again so charmingly that people remember it fondly.",
+   "traits": ["quick-witted", "fearless", "charming"],
+   "de": {
+    "line": "Du hast nie eine Rede vorbereitet. Du musstest auch nie.",
+    "profile": "Gib dir ein Mikrofon und dreißig Sekunden Vorwarnung, und du hast den Saal in der Hand. Notizen bremsen dich, Manuskripte langweilen dich, und deine besten Sätze kommen genau dann, wenn du sie brauchst. Manchmal trittst du ins Fettnäpfchen, aber so charmant wieder heraus, dass man sich gern daran erinnert.",
+    "traits": ["schlagfertig", "furchtlos", "charmant"]
+   },
+   "match": "anekdote", "clash": "folien",
+   "word": { "de": "die Stegreifrede", "en": "the impromptu speech" }
+  },
+  {
+   "id": "folien", "title": "Die Folienschlacht", "emoji": "🖥️",
+   "line": "Slide 47 of 112. You're making good time.",
+   "profile": "You never speak without a deck. Every idea gets a slide, every slide a chart and every chart a footnote. Your presentations are thorough, beautifully designed and occasionally longer than the meeting. When the projector fails, a small part of you dies, and then you hand out printouts.",
+   "traits": ["thorough", "visual", "prepared"],
+   "de": {
+    "line": "Folie 47 von 112. Du liegst gut in der Zeit.",
+    "profile": "Du sprichst nie ohne Präsentation. Jede Idee bekommt eine Folie, jede Folie ein Diagramm und jedes Diagramm eine Fußnote. Deine Vorträge sind gründlich, schön gestaltet und manchmal länger als die Besprechung. Wenn der Beamer ausfällt, stirbt ein kleiner Teil von dir, dann verteilst du Ausdrucke.",
+    "traits": ["gründlich", "visuell", "vorbereitet"]
+   },
+   "match": "lampenfieber", "clash": "stegreif",
+   "word": { "de": "die Folie", "en": "the slide" }
+  },
+  {
+   "id": "anekdote", "title": "Die Anekdote", "emoji": "📜",
+   "line": "Every point you make starts in 1987.",
+   "profile": "You don't make arguments, you tell stories, and each story reminds you of another. Audiences love you, timekeepers fear you, and your speeches end somewhere entirely different from where they started, usually somewhere better. Nobody remembers your conclusion; everybody remembers the goat.",
+   "traits": ["warm", "entertaining", "long-winded"],
+   "de": {
+    "line": "Jeder deiner Punkte beginnt im Jahr 1987.",
+    "profile": "Du argumentierst nicht, du erzählst, und jede Geschichte erinnert dich an eine andere. Das Publikum liebt dich, die Zeitnehmer fürchten dich, und deine Reden enden ganz woanders, als sie begonnen haben, meistens an einem besseren Ort. An dein Fazit erinnert sich niemand; an die Ziege alle.",
+    "traits": ["herzlich", "unterhaltsam", "ausführlich"]
+   },
+   "match": "stegreif", "clash": "punkt",
+   "word": { "de": "die Abschweifung", "en": "the digression" }
+  },
+  {
+   "id": "punkt", "title": "Auf den Punkt", "emoji": "🎯",
+   "line": "Three sentences. Applause. You're back in your seat.",
+   "profile": "You believe every speech is too long, and you prove it by example. You find the one sentence that matters, say it clearly and sit down while others are still clearing their throats. People underestimate you until they notice that yours is the line everyone quotes the next day.",
+   "traits": ["clear", "efficient", "dry"],
+   "de": {
+    "line": "Drei Sätze. Applaus. Du sitzt schon wieder.",
+    "profile": "Du glaubst, jede Rede sei zu lang, und beweist es mit gutem Beispiel. Du findest den einen Satz, der zählt, sagst ihn klar und setzt dich, während andere sich noch räuspern. Man unterschätzt dich, bis man merkt, dass am nächsten Tag alle deinen Satz zitieren.",
+    "traits": ["klar", "effizient", "trocken"]
+   },
+   "match": "folien", "clash": "anekdote",
+   "word": { "de": "die Kernaussage", "en": "the key message" }
+  },
+  {
+   "id": "lampenfieber", "title": "Das Lampenfieber", "emoji": "😰",
+   "line": "Your knees shake, your hands sweat, and then you're brilliant.",
+   "profile": "You rehearse in the shower, on the bike and in your sleep, and you still feel sick before you start. But once you're up there, the preparation pays off: precise, honest and quietly moving. You'd never volunteer to give a speech, and that's exactly why people listen when you do.",
+   "traits": ["conscientious", "honest", "nervous"],
+   "de": {
+    "line": "Die Knie zittern, die Hände schwitzen, und dann bist du großartig.",
+    "profile": "Du übst unter der Dusche, auf dem Rad und im Schlaf, und trotzdem ist dir vor dem Anfang schlecht. Doch sobald du oben stehst, zahlt sich alles aus: präzise, ehrlich und leise bewegend. Freiwillig würdest du nie eine Rede halten, und genau deshalb hören alle zu, wenn du es tust.",
+    "traits": ["gewissenhaft", "ehrlich", "nervös"]
+   },
+   "match": "punkt", "clash": "stegreif",
+   "word": { "de": "das Lampenfieber", "en": "stage fright" }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "hochzeit", "title": "Die Hochzeitsrede", "en": "The wedding speech",
+   "hook": "Two hundred guests, one microphone, the bride's mother watching.",
+   "questions": [
+    { "de": "Ausgerechnet die Hochzeitsrede improvisierst du komplett?", "en": "Of all speeches, it's the wedding speech you improvise completely?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Deine Hochzeitsrede hat Folien mit Fotos von 1998?", "en": "Your wedding speech has slides with photos from 1998?", "ja": "folien", "nein": "punkt" },
+    { "de": "Du erzählst die Geschichte vom Junggesellenabschied, Wort für Wort?", "en": "You tell the story of the stag night, word for word?", "ja": "anekdote", "nein": "punkt" },
+    { "de": "Nach zwei Minuten hebst du das Glas, und alle sind gerührt?", "en": "After two minutes you raise your glass, and everyone is moved?", "ja": "punkt", "nein": "anekdote" },
+    { "de": "Du hast die Rede zwanzigmal vor dem Spiegel geübt?", "en": "You rehearsed the speech twenty times in front of the mirror?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "Karteikarten", "en": "cue cards", "vibe": "lampenfieber" }, "right": { "de": "kein Zettel", "en": "no notes at all", "vibe": "stegreif" } },
+    { "left": { "de": "Diashow", "en": "a slideshow", "vibe": "folien" }, "right": { "de": "drei Sätze", "en": "three sentences", "vibe": "punkt" } },
+    { "de": "Selbst in einer kurzen Rede schweifst du dreimal ab?", "en": "Even in a short speech you go off on three tangents?", "ja": "anekdote", "nein": "punkt" },
+    { "de": "Die Braut sagte später, die Rede sei das Beste am Tag gewesen?", "en": "The bride said later that the speech had been the best part of the day?", "ja": "stegreif", "nein": "folien" },
+    { "left": { "de": "Witz über den Bräutigam", "en": "a joke about the groom", "vibe": "anekdote" }, "right": { "de": "Danke an alle", "en": "thanks to everyone", "vibe": "punkt" } },
+    { "de": "Du trittst in jedes Fettnäpfchen, das die Familie aufgestellt hat?", "en": "You put your foot in every trap the family has set?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "left": { "de": "Mikro zittert", "en": "the mic shaking", "vibe": "lampenfieber" }, "right": { "de": "Beamer streikt", "en": "the projector on strike", "vibe": "folien" } }
+   ]
+  },
+  {
+   "id": "referat", "title": "Das Referat", "en": "The class presentation",
+   "hook": "Twenty minutes, one topic, thirty bored faces.",
+   "questions": [
+    { "de": "Erst am Abend vorher fängst du mit dem Referat an?", "en": "You only start the presentation the evening before?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Dein Referat hat mehr Folien als Minuten?", "en": "Your presentation has more slides than minutes?", "ja": "folien", "nein": "punkt" },
+    { "de": "Du redest so lange um den heißen Brei herum, bis die Zeit um ist?", "en": "You beat about the bush until the time is up?", "ja": "anekdote", "nein": "punkt" },
+    { "de": "Du fasst das Thema in einem Satz zusammen, und der sitzt?", "en": "You sum up the topic in one sentence, and it lands?", "ja": "punkt", "nein": "anekdote" },
+    { "de": "Dir zittern die Knie, obwohl du alles auswendig kannst?", "en": "Your knees shake although you know it all by heart?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "Handout", "en": "a handout", "vibe": "folien" }, "right": { "de": "Tafel und Kreide", "en": "blackboard and chalk", "vibe": "stegreif" } },
+    { "left": { "de": "Fragerunde", "en": "a Q&A", "vibe": "punkt" }, "right": { "de": "Exkurs", "en": "a digression", "vibe": "anekdote" } },
+    { "de": "Die Lehrerin meinte, das Referat sei zu kurz, aber perfekt gewesen?", "en": "The teacher said the presentation had been too short but perfect?", "ja": "punkt", "nein": "folien" },
+    { "de": "Selbst mit Spickzettel verlierst du den Faden?", "en": "Even with a crib sheet you lose the thread?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "Animationen", "en": "animations", "vibe": "folien" }, "right": { "de": "Anekdoten", "en": "anecdotes", "vibe": "anekdote" } },
+    { "de": "Ein misslungenes Referat rettest du mit einem spontanen Witz?", "en": "You rescue a failed presentation with a spontaneous joke?", "ja": "stegreif", "nein": "folien" },
+    { "left": { "de": "Notizen auf Karten", "en": "notes on cards", "vibe": "lampenfieber" }, "right": { "de": "Notizen im Kopf", "en": "notes in your head", "vibe": "stegreif" } }
+   ]
+  },
+  {
+   "id": "toast", "title": "Der Trinkspruch", "en": "The toast",
+   "hook": "Glasses up. Someone has to say something.",
+   "questions": [
+    { "de": "Du stehst auf, bevor dich überhaupt jemand fragt?", "en": "You stand up before anyone has even asked you?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Dein Trinkspruch beginnt mit einer Geschichte aus den Siebzigern?", "en": "Your toast begins with a story from the seventies?", "ja": "anekdote", "nein": "punkt" },
+    { "de": "Ein Satz, Gläser hoch, fertig?", "en": "One sentence, glasses up, done?", "ja": "punkt", "nein": "anekdote" },
+    { "de": "Selbst für einen Trinkspruch hast du eine Notiz im Handy?", "en": "Even for a toast you have a note in your phone?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "de": "Für den Trinkspruch hast du eine kleine Grafik vorbereitet?", "en": "You've prepared a little chart for the toast?", "ja": "folien", "nein": "stegreif" },
+    { "left": { "de": "auf das Leben", "en": "to life", "vibe": "punkt" }, "right": { "de": "auf alle, einzeln", "en": "to everyone, one by one", "vibe": "anekdote" } },
+    { "left": { "de": "Glas zittert", "en": "a trembling glass", "vibe": "lampenfieber" }, "right": { "de": "Glas und Laserpointer", "en": "a glass and a laser pointer", "vibe": "folien" } },
+    { "de": "Sogar mit einem Trinkspruch bringst du alle zum Lachen?", "en": "Even with a toast you make everyone laugh?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Hinterher hieß es, dein Trinkspruch habe zwanzig Minuten gedauert?", "en": "Afterwards people said your toast had lasted twenty minutes?", "ja": "anekdote", "nein": "punkt" },
+    { "left": { "de": "Prost", "en": "cheers", "vibe": "punkt" }, "right": { "de": "Prost mit Fußnoten", "en": "cheers, with footnotes", "vibe": "folien" } },
+    { "de": "Du bittest lieber jemand anderen, den Trinkspruch zu halten?", "en": "You'd rather ask someone else to give the toast?", "ja": "lampenfieber", "nein": "anekdote" },
+    { "left": { "de": "Zitat aus dem Kopf", "en": "a quote from memory", "vibe": "stegreif" }, "right": { "de": "Zitat vom Zettel", "en": "a quote from a slip of paper", "vibe": "lampenfieber" } }
+   ]
+  },
+  {
+   "id": "praesentation", "title": "Die Präsentation", "en": "The work presentation",
+   "hook": "Next slide, please. Next slide. Next slide.",
+   "questions": [
+    { "de": "Deine Präsentation hat einen Anhang mit vierzig Reservefolien?", "en": "Your presentation has an appendix of forty backup slides?", "ja": "folien", "nein": "punkt" },
+    { "de": "Ausgerechnet vor dem Vorstand fällt dir dein bester Witz ein?", "en": "In front of the board, of all people, you think of your best joke?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Nach drei Minuten ist alles gesagt, und du setzt dich?", "en": "After three minutes everything has been said, and you sit down?", "ja": "punkt", "nein": "folien" },
+    { "de": "Jede Zahl erklärst du mit einer Geschichte über einen Kunden?", "en": "You explain every number with a story about a customer?", "ja": "anekdote", "nein": "folien" },
+    { "de": "In der Nacht davor hast du kein Auge zugetan?", "en": "You didn't sleep a wink the night before?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "Folie 1 von 80", "en": "slide 1 of 80", "vibe": "folien" }, "right": { "de": "keine Folien", "en": "no slides", "vibe": "stegreif" } },
+    { "left": { "de": "Kernbotschaft", "en": "the core message", "vibe": "punkt" }, "right": { "de": "Kundengeschichte", "en": "a customer story", "vibe": "anekdote" } },
+    { "de": "Der Chef sagte, er habe noch nie so wenige Folien gesehen?", "en": "The boss said he had never seen so few slides?", "ja": "punkt", "nein": "folien" },
+    { "de": "Du liest jedes Wort von der Folie ab, zur Sicherheit?", "en": "You read every word off the slide, just to be safe?", "ja": "lampenfieber", "nein": "anekdote" },
+    { "left": { "de": "Probe mit Stoppuhr", "en": "a rehearsal with a stopwatch", "vibe": "lampenfieber" }, "right": { "de": "Probe im Taxi", "en": "a rehearsal in the taxi", "vibe": "stegreif" } },
+    { "de": "Selbst eine Präsentation über Steuern machst du spannend?", "en": "Even a presentation about tax you make exciting?", "ja": "anekdote", "nein": "lampenfieber" },
+    { "left": { "de": "Diagramm", "en": "a chart", "vibe": "folien" }, "right": { "de": "Fazit", "en": "the conclusion", "vibe": "punkt" } }
+   ]
+  },
+  {
+   "id": "bewerbung", "title": "Die Bewerbung", "en": "The job interview",
+   "hook": "Tell us about yourself. In ninety seconds.",
+   "questions": [
+    { "de": "Auf die Frage nach deinen Schwächen antwortest du aus dem Stegreif?", "en": "Asked about your weaknesses, you answer off the cuff?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Du hast deinen Lebenslauf als Präsentation mitgebracht?", "en": "You brought your CV as a presentation?", "ja": "folien", "nein": "stegreif" },
+    { "de": "Deine Antworten sind kurz, klar und vorher geübt?", "en": "Your answers are short, clear and rehearsed in advance?", "ja": "punkt", "nein": "anekdote" },
+    { "de": "Du erzählst von deinem Praktikum 2009, als wäre es gestern gewesen?", "en": "You talk about your 2009 internship as if it were yesterday?", "ja": "anekdote", "nein": "punkt" },
+    { "de": "Deine Hände sind so feucht, dass du keinem die Hand geben willst?", "en": "Your hands are so sweaty you don't want to shake anyone's?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "Mappe mit Reitern", "en": "a folder with tabs", "vibe": "folien" }, "right": { "de": "ein Lächeln", "en": "a smile", "vibe": "stegreif" } },
+    { "left": { "de": "Antwort in einem Satz", "en": "an answer in one sentence", "vibe": "punkt" }, "right": { "de": "Antwort mit Vorspann", "en": "an answer with a preamble", "vibe": "anekdote" } },
+    { "de": "Später hieß es, du habest einen bleibenden Eindruck hinterlassen?", "en": "Later they said you had left a lasting impression?", "ja": "anekdote", "nein": "lampenfieber" },
+    { "de": "Erst im Aufzug fällt dir ein, was du hättest sagen sollen?", "en": "Only in the lift do you think of what you should have said?", "ja": "lampenfieber", "nein": "punkt" },
+    { "left": { "de": "Fragen vorbereitet", "en": "questions prepared", "vibe": "folien" }, "right": { "de": "Fragen spontan", "en": "questions on the spot", "vibe": "stegreif" } },
+    { "de": "Du bringst deine Stärken in zwei Sätzen auf den Punkt?", "en": "You sum up your strengths in two sentences?", "ja": "punkt", "nein": "anekdote" },
+    { "left": { "de": "Stoppuhr im Kopf", "en": "a stopwatch in your head", "vibe": "punkt" }, "right": { "de": "Herzklopfen", "en": "a pounding heart", "vibe": "lampenfieber" } }
+   ]
+  },
+  {
+   "id": "elternabend", "title": "Der Elternabend", "en": "The parents' evening",
+   "hook": "Fifty adults on tiny chairs. Someone wants the floor.",
+   "questions": [
+    { "de": "Du meldest dich zu jedem Punkt der Tagesordnung?", "en": "You speak up on every item on the agenda?", "ja": "anekdote", "nein": "lampenfieber" },
+    { "de": "Du hast für die Klassenfahrt eine Tabelle vorbereitet?", "en": "You've prepared a spreadsheet for the class trip?", "ja": "folien", "nein": "stegreif" },
+    { "de": "Spontan bietest du an, das Sommerfest selbst zu organisieren?", "en": "On the spur of the moment you offer to organise the summer fete?", "ja": "stegreif", "nein": "folien" },
+    { "de": "Dein Beitrag dauert zwanzig Sekunden und beendet die Diskussion?", "en": "Your contribution lasts twenty seconds and ends the discussion?", "ja": "punkt", "nein": "anekdote" },
+    { "de": "Du schweigst, obwohl du eine Meinung hast, und ärgerst dich später?", "en": "You say nothing although you have an opinion, and regret it later?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "Wortmeldung", "en": "putting your hand up", "vibe": "stegreif" }, "right": { "de": "Mail danach", "en": "an email afterwards", "vibe": "lampenfieber" } },
+    { "left": { "de": "Pinnwand", "en": "a pinboard", "vibe": "folien" }, "right": { "de": "die eigene Schulzeit", "en": "your own school days", "vibe": "anekdote" } },
+    { "de": "Andere erzählen hinterher, du habest den Abend gerettet?", "en": "Others say afterwards that you had saved the evening?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Selbst beim Thema Brotdosen holst du weit aus?", "en": "Even on the subject of lunchboxes you start from the dawn of time?", "ja": "anekdote", "nein": "punkt" },
+    { "left": { "de": "Abstimmung, jetzt", "en": "a vote, now", "vibe": "punkt" }, "right": { "de": "Präsentation, morgen", "en": "a presentation, tomorrow", "vibe": "folien" } },
+    { "de": "Bevor du sprichst, notierst du dir drei Stichpunkte?", "en": "Before you speak, you jot down three bullet points?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "kurz und bündig", "en": "short and sweet", "vibe": "punkt" }, "right": { "de": "lang und herzlich", "en": "long and heartfelt", "vibe": "anekdote" } }
+   ]
+  },
+  {
+   "id": "konferenz", "title": "Die Konferenz", "en": "The conference",
+   "hook": "Keynote, coffee, networking. Your name badge is upside down.",
+   "questions": [
+    { "de": "Du hältst deinen Vortrag ohne ein einziges Blatt Papier?", "en": "You give your talk without a single sheet of paper?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Deine Folien sind so voll, dass man sie fotografiert, statt zuzuhören?", "en": "Your slides are so full that people photograph them instead of listening?", "ja": "folien", "nein": "punkt" },
+    { "de": "Dein Vortrag ist zehn Minuten kürzer als geplant, und alle sind dankbar?", "en": "Your talk is ten minutes shorter than planned, and everyone is grateful?", "ja": "punkt", "nein": "anekdote" },
+    { "de": "Du beginnst jeden Vortrag mit einer Geschichte aus deiner Kindheit?", "en": "You begin every talk with a story from your childhood?", "ja": "anekdote", "nein": "folien" },
+    { "de": "Vor dem Auftritt versteckst du dich auf der Toilette?", "en": "Before going on stage you hide in the toilets?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "Laserpointer", "en": "a laser pointer", "vibe": "folien" }, "right": { "de": "eine Pause", "en": "a pause", "vibe": "punkt" } },
+    { "left": { "de": "Bühne", "en": "the stage", "vibe": "stegreif" }, "right": { "de": "Backstage", "en": "backstage", "vibe": "lampenfieber" } },
+    { "de": "Der Moderator sagte, du seist der heimliche Star gewesen?", "en": "The host said you had been the secret star?", "ja": "stegreif", "nein": "folien" },
+    { "de": "Erst nach der Kaffeepause kommst du richtig in Fahrt?", "en": "Only after the coffee break do you really get going?", "ja": "anekdote", "nein": "punkt" },
+    { "left": { "de": "Zeitplan", "en": "the schedule", "vibe": "punkt" }, "right": { "de": "Abschweifung", "en": "a digression", "vibe": "anekdote" } },
+    { "de": "Für die Fragerunde hast du schon vierzig Antworten vorbereitet?", "en": "You've already prepared forty answers for the Q&A?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "QR-Code auf jeder Folie", "en": "a QR code on every slide", "vibe": "folien" }, "right": { "de": "Visitenkarte und Witz", "en": "a business card and a joke", "vibe": "stegreif" } }
+   ]
+  },
+  {
+   "id": "podium", "title": "Das Podium", "en": "The panel",
+   "hook": "Four experts, one moderator, nobody listening.",
+   "questions": [
+    { "de": "Du unterbrichst, sobald dir etwas Kluges einfällt?", "en": "You interrupt as soon as something clever occurs to you?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Du bringst eine Grafik mit, obwohl keine Leinwand da ist?", "en": "You bring a chart even though there's no screen?", "ja": "folien", "nein": "stegreif" },
+    { "de": "Du antwortest auf jede Frage mit genau einem Satz?", "en": "You answer every question with exactly one sentence?", "ja": "punkt", "nein": "anekdote" },
+    { "de": "Jede deiner Antworten beginnt mit einer Erinnerung?", "en": "Every one of your answers begins with a memory?", "ja": "anekdote", "nein": "punkt" },
+    { "de": "Du sagst kaum etwas und wirst trotzdem am meisten zitiert?", "en": "You barely say anything and still get quoted the most?", "ja": "punkt", "nein": "folien" },
+    { "left": { "de": "Zwischenruf", "en": "a heckle", "vibe": "stegreif" }, "right": { "de": "Wasser trinken", "en": "sipping water", "vibe": "lampenfieber" } },
+    { "left": { "de": "Statistik zeigen", "en": "showing statistics", "vibe": "folien" }, "right": { "de": "Geschichte erzählen", "en": "telling a story", "vibe": "anekdote" } },
+    { "de": "Die Zeitung schrieb, nur du habest die Frage beantwortet?", "en": "The paper wrote that only you had answered the question?", "ja": "punkt", "nein": "anekdote" },
+    { "de": "Ausgerechnet wenn das Mikro bei dir ist, wird dein Kopf leer?", "en": "Just when the mic comes to you, your mind goes blank?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "Moderationskarten", "en": "prompt cards", "vibe": "lampenfieber" }, "right": { "de": "Bauchgefühl", "en": "gut feeling", "vibe": "stegreif" } },
+    { "de": "Du lenkst das Gespräch auf dein Lieblingsthema, egal worum es geht?", "en": "You steer the conversation to your favourite topic, whatever it's about?", "ja": "anekdote", "nein": "lampenfieber" },
+    { "left": { "de": "Handout fürs Publikum", "en": "a handout for the audience", "vibe": "folien" }, "right": { "de": "Schlusswort", "en": "the closing word", "vibe": "punkt" } }
+   ]
+  },
+  {
+   "id": "verein", "title": "Der Verein", "en": "The club meeting",
+   "hook": "Annual general meeting. Item fourteen: any other business.",
+   "questions": [
+    { "de": "Unter Verschiedenes redest du eine halbe Stunde?", "en": "Under any other business, you talk for half an hour?", "ja": "anekdote", "nein": "punkt" },
+    { "de": "Den Kassenbericht hast du als Präsentation mit Animationen gebaut?", "en": "You've built the treasurer's report as a presentation with animations?", "ja": "folien", "nein": "stegreif" },
+    { "de": "Spontan übernimmst du die Leitung, weil der Vorsitzende fehlt?", "en": "On the spot you take the chair because the chairman is absent?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Dein Antrag ist eine Zeile lang und wird einstimmig angenommen?", "en": "Your motion is one line long and passes unanimously?", "ja": "punkt", "nein": "folien" },
+    { "de": "Aus Angst vor Reden lässt du dich nie in den Vorstand wählen?", "en": "For fear of speeches, you never let yourself be elected to the committee?", "ja": "lampenfieber", "nein": "anekdote" },
+    { "left": { "de": "Tagesordnung", "en": "the agenda", "vibe": "punkt" }, "right": { "de": "Vereinschronik", "en": "the club history", "vibe": "anekdote" } },
+    { "left": { "de": "Beamer aufbauen", "en": "setting up the projector", "vibe": "folien" }, "right": { "de": "einfach anfangen", "en": "just starting", "vibe": "stegreif" } },
+    { "de": "Im Protokoll steht, du habest die Sitzung gerettet?", "en": "The minutes say you had saved the meeting?", "ja": "stegreif", "nein": "folien" },
+    { "de": "Du sprichst erst, wenn alle anderen gesprochen haben?", "en": "You only speak once everyone else has spoken?", "ja": "lampenfieber", "nein": "stegreif" },
+    { "left": { "de": "Rede zum Jubiläum", "en": "an anniversary speech", "vibe": "anekdote" }, "right": { "de": "Rede in einem Satz", "en": "a one-sentence speech", "vibe": "punkt" } },
+    { "de": "Selbst die Kassenprüfung erklärst du mit Diagrammen?", "en": "Even the audit you explain with charts?", "ja": "folien", "nein": "punkt" },
+    { "left": { "de": "Mut zum Mikro", "en": "the courage to take the mic", "vibe": "stegreif" }, "right": { "de": "Mut zur Mail", "en": "the courage to send an email", "vibe": "lampenfieber" } }
+   ]
+  },
+  {
+   "id": "abschied", "title": "Die Abschiedsrede", "en": "The farewell speech",
+   "hook": "A colleague retires. Tissues are on the table.",
+   "questions": [
+    { "de": "Du erzählst jede gemeinsame Geschichte der letzten dreißig Jahre?", "en": "You tell every shared story of the last thirty years?", "ja": "anekdote", "nein": "punkt" },
+    { "de": "Deine Abschiedsrede ist eine Fotoshow mit Musik?", "en": "Your farewell speech is a photo show with music?", "ja": "folien", "nein": "stegreif" },
+    { "de": "Du sagst drei Sätze, und alle weinen?", "en": "You say three sentences, and everyone cries?", "ja": "punkt", "nein": "folien" },
+    { "de": "Du hältst die Rede, ohne vorher zu wissen, was du sagen wirst?", "en": "You give the speech without knowing beforehand what you'll say?", "ja": "stegreif", "nein": "lampenfieber" },
+    { "de": "Deine Stimme bricht schon beim ersten Satz?", "en": "Your voice breaks at the very first sentence?", "ja": "lampenfieber", "nein": "anekdote" },
+    { "left": { "de": "Taschentuch", "en": "a tissue", "vibe": "lampenfieber" }, "right": { "de": "Pointe", "en": "a punchline", "vibe": "stegreif" } },
+    { "left": { "de": "Fotos von früher", "en": "photos from the old days", "vibe": "folien" }, "right": { "de": "Geschichten von früher", "en": "stories from the old days", "vibe": "anekdote" } },
+    { "de": "Der Kollege sagte, es sei die schönste Rede seines Lebens gewesen?", "en": "The colleague said it had been the finest speech of his life?", "ja": "stegreif", "nein": "folien" },
+    { "de": "Ausgerechnet beim Abschied fasst du dich kurz?", "en": "At a farewell, of all times, you keep it short?", "ja": "punkt", "nein": "anekdote" },
+    { "left": { "de": "Rede auf Papier", "en": "a speech on paper", "vibe": "lampenfieber" }, "right": { "de": "Rede aus dem Herzen", "en": "a speech from the heart", "vibe": "stegreif" } },
+    { "de": "Du redest so lange, dass der Kollege fast noch ein Jahr bleibt?", "en": "You talk so long that the colleague nearly stays another year?", "ja": "anekdote", "nein": "punkt" },
+    { "left": { "de": "Folie mit Danke", "en": "a thank-you slide", "vibe": "folien" }, "right": { "de": "nur das Wort Danke", "en": "just the word thank you", "vibe": "punkt" } }
+   ]
+  }
+ ]
+}

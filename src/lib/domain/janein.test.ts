@@ -13,7 +13,9 @@ import {
 } from './janein';
 import {
 	ALL_QUESTIONS,
+	categoryOf,
 	collectionCount,
+	findRound,
 	collectionShareText,
 	earnPersona,
 	JA_NEIN_CATEGORIES,
@@ -42,10 +44,10 @@ Object.defineProperty(globalThis, 'localStorage', {
 afterEach(() => store.clear());
 
 describe('the shelves', () => {
-	it('are ten themes of ten rounds of twelve, each with five personas of its own', () => {
-		expect(JA_NEIN_CATEGORIES).toHaveLength(10);
-		expect(ROUND_ORDER).toHaveLength(100);
-		expect(ALL_QUESTIONS).toHaveLength(1200);
+	it('are sixteen themes of ten rounds of twelve, each with five personas of its own', () => {
+		expect(JA_NEIN_CATEGORIES).toHaveLength(16);
+		expect(ROUND_ORDER).toHaveLength(160);
+		expect(ALL_QUESTIONS).toHaveLength(1920);
 		for (const c of JA_NEIN_CATEGORIES) {
 			expect(c.personas, c.id).toHaveLength(5);
 			expect(c.rounds, c.id).toHaveLength(10);
@@ -55,7 +57,7 @@ describe('the shelves', () => {
 				expect(new Set(r.questions.map((q) => q.de)).size, r.key).toBe(ROUND_LENGTH);
 				for (const q of r.questions) {
 					expect(q.de.endsWith('?'), q.de).toBe(true);
-					expect(q.de.length, q.de).toBeLessThanOrEqual(48);
+					expect(q.de.length, q.de).toBeLessThanOrEqual(c.level === "A1" || c.level === "A2" ? 48 : c.level === "B1" ? 60 : 72);
 					expect(q.ja, q.de).not.toBe(q.nein);
 					expect(vibes.has(q.ja) && vibes.has(q.nein), `${r.key}: ${q.de}`).toBe(true);
 					if (isPair(q)) expect(q.de).toBe(`${q.left.de} oder ${q.right.de}?`);
@@ -82,6 +84,21 @@ describe('the shelves', () => {
 		// the played list persists and dedupes
 		expect(markRoundPlayed('a', ['a', 'b'])).toEqual(['b', 'a']);
 		expect(JSON.parse(store.get('janein_played')!)).toEqual(['b', 'a']);
+	});
+
+	it('deals only themes at or below the learner\'s band, their own band first', () => {
+		const band = (key: string) => categoryOf(findRound(key)!).level;
+		// no level: A-level themes only
+		expect(band(nextRound([])!.key)).toBe('A1');
+		// an A1.1 learner never meets a B or C theme, even with every A round played
+		const aKeys = ROUND_ORDER.filter((r) => categoryOf(r).level === 'A1').map((r) => r.key);
+		expect(band(nextRound(aKeys, 'A1.1')!.key)).toBe('A1');
+		// a B2 learner gets a B2 theme first, then B1, then A
+		expect(band(nextRound([], 'B2.1')!.key)).toBe('B2');
+		const b2Keys = ROUND_ORDER.filter((r) => categoryOf(r).level === 'B2').map((r) => r.key);
+		expect(['A1', 'B1']).toContain(band(nextRound(b2Keys, 'B2.1')!.key));
+		// C2 reaches every theme
+		expect(band(nextRound([], 'C2.2')!.key)).toBe('C2');
 	});
 
 	it('shuffles a round without losing or doubling a question', () => {
@@ -194,17 +211,17 @@ describe('the collection', () => {
 	it('shelves a persona once, counts it, and sends the whole grid', () => {
 		const round = ROUND_ORDER[0];
 		const result = scoreRound(round, round.questions, round.questions.map(() => 'ja' as Answer));
-		expect(collectionCount()).toEqual({ earned: 0, total: 50 });
+		expect(collectionCount()).toEqual({ earned: 0, total: 80 });
 		expect(earnPersona(result, new Date('2026-10-14T10:00:00Z'))).toBe(true);
 		expect(earnPersona(result)).toBe(false);
-		expect(collectionCount()).toEqual({ earned: 1, total: 50 });
+		expect(collectionCount()).toEqual({ earned: 1, total: 80 });
 		expect(JSON.parse(store.get('janein_personas')!)[personaKey(round.categoryId, result.persona.id)]).toBe('2026-10-14');
 		const text = collectionShareText('https://languagequiz.org/play/ja-nein/personas');
 		const lines = text.split('\n');
-		expect(lines[0]).toBe('Ja oder Nein? 🇩🇪 Meine Personas: 1 von 50');
-		expect(lines).toHaveLength(12);
+		expect(lines[0]).toBe('Ja oder Nein? 🇩🇪 Meine Personas: 1 von 80');
+		expect(lines).toHaveLength(JA_NEIN_CATEGORIES.length + 2);
 		expect(lines.slice(1, 11).join('')).toContain('🟪');
-		expect((text.match(/⬜/g) ?? []).length).toBe(49);
-		expect(lines[11]).toBe('https://languagequiz.org/play/ja-nein/personas');
+		expect((text.match(/⬜/g) ?? []).length).toBe(79);
+		expect(lines.at(-1)).toBe('https://languagequiz.org/play/ja-nein/personas');
 	});
 });

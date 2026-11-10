@@ -1,0 +1,256 @@
+{
+ "id": "nachbar",
+ "title": "Welcher Nachbar bist du?",
+ "en": "Which neighbour are you?",
+ "emoji": "🏢",
+ "level": "B1",
+ "personas": [
+  {
+   "id": "hausordnung", "title": "Die Hausordnung", "emoji": "📋",
+   "line": "You know the quiet hours better than your own birthday.",
+   "profile": "You have read the house rules twice, and you're the reason they still apply. Quiet hours, bin colours, bikes in the right corner: someone has to care, and it's you. Your notes are polite, your memory is long, and the stairwell has never been so clean.",
+   "traits": ["fair", "tidy", "watchful"],
+   "de": {
+    "line": "Du kennst die Ruhezeiten besser als deinen Geburtstag.",
+    "profile": "Du hast die Hausordnung zweimal gelesen, und wegen dir gilt sie noch. Ruhezeiten, Mülltonnen, Fahrräder in der richtigen Ecke: Irgendwer muss sich kümmern, und das bist du. Deine Zettel sind höflich, dein Gedächtnis ist lang, und das Treppenhaus war noch nie so sauber.",
+    "traits": ["fair", "ordentlich", "wachsam"]
+   },
+   "match": "fenster", "clash": "hausparty",
+   "word": { "de": "die Hausordnung", "en": "the house rules" }
+  },
+  {
+   "id": "paket", "title": "Die Paketannahme", "emoji": "📦",
+   "line": "Half the building's shopping is in your hallway.",
+   "profile": "You take in every parcel, water every plant and know whose cat is whose. Your door is always open, your cake is always shared, and new neighbours get a welcome before they've unpacked. The building runs on favours, and most of them are yours.",
+   "traits": ["helpful", "kind", "always home"],
+   "de": {
+    "line": "Die Bestellungen des halben Hauses stehen in deinem Flur.",
+    "profile": "Du nimmst jedes Paket an, gießt jede Pflanze und weißt, welche Katze wem gehört. Deine Tür ist immer offen, dein Kuchen wird immer geteilt, und Neue werden begrüßt, bevor sie ausgepackt haben. Das Haus funktioniert mit Gefallen, und die meisten sind von dir.",
+    "traits": ["hilfsbereit", "freundlich", "immer da"]
+   },
+   "match": "hausparty", "clash": "klingel",
+   "word": { "de": "die Paketannahme", "en": "taking in parcels" }
+  },
+  {
+   "id": "hausparty", "title": "Die Hausparty", "emoji": "🎉",
+   "line": "The walls are thin. Your playlist is long.",
+   "profile": "Every weekend is a reason, every neighbour is a guest and every complaint is an invitation. You've never had a quiet birthday and you never will. Some neighbours sigh when they hear your bass; the rest come down in their slippers and stay till three.",
+   "traits": ["generous", "loud", "fun"],
+   "de": {
+    "line": "Die Wände sind dünn. Deine Playlist ist lang.",
+    "profile": "Jedes Wochenende ist ein Grund, jeder Nachbar ein Gast und jede Beschwerde eine Einladung. Du hattest nie einen ruhigen Geburtstag und wirst nie einen haben. Manche Nachbarn seufzen, wenn sie deinen Bass hören; die anderen kommen in Hausschuhen runter und bleiben bis drei.",
+    "traits": ["großzügig", "laut", "lustig"]
+   },
+   "match": "paket", "clash": "hausordnung",
+   "word": { "de": "die Einweihungsparty", "en": "the housewarming party" }
+  },
+  {
+   "id": "fenster", "title": "Der Fensterplatz", "emoji": "🪟",
+   "line": "You don't gossip. You simply observe, in great detail.",
+   "profile": "From your window you see the whole street: who comes home late, who gets flowers, who is moving out before they know it themselves. You're not nosy, you're informed. If anything ever happens in this building, the police will want to talk to you first.",
+   "traits": ["observant", "curious", "patient"],
+   "de": {
+    "line": "Du tratschst nicht. Du beobachtest nur, sehr genau.",
+    "profile": "Von deinem Fenster aus siehst du die ganze Straße: wer spät nach Hause kommt, wer Blumen bekommt, wer auszieht, bevor er es selbst weiß. Du bist nicht neugierig, du bist informiert. Wenn in diesem Haus je etwas passiert, will die Polizei zuerst mit dir sprechen.",
+    "traits": ["aufmerksam", "neugierig", "geduldig"]
+   },
+   "match": "hausordnung", "clash": "klingel",
+   "word": { "de": "die Neugier", "en": "curiosity" }
+  },
+  {
+   "id": "klingel", "title": "Nur ein Klingelschild", "emoji": "🔔",
+   "line": "Your neighbours know your name. Only your name.",
+   "profile": "You've lived here for years and nobody would recognise you in the street. You leave early, come home late and take the stairs when they're empty. It isn't shyness, it's a lifestyle: no small talk, no favours owed, no drama. Peace and quiet, by the square metre.",
+   "traits": ["private", "calm", "invisible"],
+   "de": {
+    "line": "Deine Nachbarn kennen deinen Namen. Nur deinen Namen.",
+    "profile": "Du wohnst seit Jahren hier, und niemand würde dich auf der Straße erkennen. Du gehst früh, kommst spät und nimmst die Treppe, wenn sie leer ist. Das ist nicht Schüchternheit, das ist ein Lebensstil: kein Smalltalk, keine Gefallen, kein Drama. Ruhe, pro Quadratmeter.",
+    "traits": ["privat", "ruhig", "unsichtbar"]
+   },
+   "match": "hausordnung", "clash": "hausparty",
+   "word": { "de": "das Klingelschild", "en": "the nameplate by the doorbell" }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "einzug", "title": "Der Einzug", "en": "Moving in",
+   "hook": "New flat, new neighbours, new rules on the wall.",
+   "questions": [
+    { "de": "Du hast am ersten Tag an jeder Tür geklingelt?", "en": "On day one you rang every doorbell?", "ja": "paket", "nein": "klingel" },
+    { "de": "Als du einzogst, hast du gleich die Hausordnung gelesen?", "en": "When you moved in, you read the house rules straight away?", "ja": "hausordnung", "nein": "hausparty" },
+    { "de": "Nach einer Woche kanntest du alle Namen im Haus?", "en": "After a week you knew every name in the building?", "ja": "fenster", "nein": "klingel" },
+    { "de": "Deine Einweihungsparty ging bis vier Uhr morgens?", "en": "Your housewarming went on till four in the morning?", "ja": "hausparty", "nein": "hausordnung" },
+    { "de": "Nach drei Jahren steht dein Name noch nicht an der Tür?", "en": "After three years your name still isn't on the door?", "ja": "klingel", "nein": "fenster" },
+    { "left": { "de": "Zettel an alle", "en": "a note to everyone", "vibe": "hausordnung" }, "right": { "de": "Kuchen für alle", "en": "cake for everyone", "vibe": "paket" } },
+    { "left": { "de": "Umzug in der Nacht", "en": "moving in at night", "vibe": "klingel" }, "right": { "de": "Umzug mit Musik", "en": "moving in with music", "vibe": "hausparty" } },
+    { "de": "Du weißt, wer vor dir in der Wohnung gewohnt hat?", "en": "You know who lived in the flat before you?", "ja": "fenster", "nein": "hausparty" },
+    { "de": "Du hilfst jedem, der eine Waschmaschine trägt?", "en": "You help anyone who is carrying a washing machine?", "ja": "paket", "nein": "klingel" },
+    { "left": { "de": "Gardinen zu", "en": "curtains closed", "vibe": "klingel" }, "right": { "de": "Gardinen offen", "en": "curtains open", "vibe": "fenster" } },
+    { "de": "Je mehr Nachbarn du kennst, desto wohler fühlst du dich?", "en": "The more neighbours you know, the more at home you feel?", "ja": "paket", "nein": "hausordnung" },
+    { "left": { "de": "Bohren am Sonntag", "en": "drilling on a Sunday", "vibe": "hausparty" }, "right": { "de": "Bohren nach Plan", "en": "drilling to schedule", "vibe": "hausordnung" } }
+   ]
+  },
+  {
+   "id": "treppenhaus", "title": "Das Treppenhaus", "en": "The stairwell",
+   "hook": "Ten metres of small talk. Or none at all.",
+   "questions": [
+    { "de": "Du wartest, bis das Treppenhaus leer ist?", "en": "You wait until the stairwell is empty?", "ja": "klingel", "nein": "paket" },
+    { "de": "Du grüßt jeden, der dir auf der Treppe begegnet?", "en": "You greet everyone you meet on the stairs?", "ja": "paket", "nein": "klingel" },
+    { "de": "Du weißt, wer heute Nacht spät nach Hause kam?", "en": "You know who came home late last night?", "ja": "fenster", "nein": "hausparty" },
+    { "de": "Schuhe vor der Wohnungstür findest du nicht in Ordnung?", "en": "You don't think shoes outside the flat door are acceptable?", "ja": "hausordnung", "nein": "hausparty" },
+    { "de": "Das Fahrrad, das allen im Weg steht, ist deins?", "en": "The bike that's in everyone's way is yours?", "ja": "hausparty", "nein": "hausordnung" },
+    { "left": { "de": "Aufzug", "en": "the lift", "vibe": "klingel" }, "right": { "de": "Treppe mit Gespräch", "en": "the stairs, with a chat", "vibe": "paket" } },
+    { "left": { "de": "Licht an", "en": "light on", "vibe": "hausordnung" }, "right": { "de": "im Dunkeln singen", "en": "singing in the dark", "vibe": "hausparty" } },
+    { "de": "Du hast einen Plan, wer wann die Treppe putzt?", "en": "You have a plan for who cleans the stairs when?", "ja": "hausordnung", "nein": "hausparty" },
+    { "de": "Durch die Tür hörst du, wer gerade streitet?", "en": "Through the door you can hear who's arguing right now?", "ja": "fenster", "nein": "klingel" },
+    { "left": { "de": "Smalltalk über Wetter", "en": "small talk about the weather", "vibe": "paket" }, "right": { "de": "Blick auf das Handy", "en": "eyes on your phone", "vibe": "klingel" } },
+    { "de": "Du sprichst Nachbarn an, die du noch nie gesehen hast?", "en": "You talk to neighbours you've never seen before?", "ja": "paket", "nein": "fenster" },
+    { "left": { "de": "Spion in der Tür", "en": "the peephole", "vibe": "fenster" }, "right": { "de": "Tür einfach auf", "en": "the door simply open", "vibe": "hausparty" } }
+   ]
+  },
+  {
+   "id": "pakete", "title": "Pakete", "en": "Parcels",
+   "hook": "Everyone's shopping, delivered to one person.",
+   "questions": [
+    { "de": "Du nimmst Pakete für das ganze Haus an?", "en": "You take in parcels for the whole building?", "ja": "paket", "nein": "klingel" },
+    { "de": "Du weißt, was in den Paketen ist, ohne sie zu öffnen?", "en": "You know what's in the parcels without opening them?", "ja": "fenster", "nein": "paket" },
+    { "de": "Du hast ein Paket bekommen, das du nie bestellt hast?", "en": "You've received a parcel that you never ordered?", "ja": "hausparty", "nein": "hausordnung" },
+    { "de": "Du machst nicht auf, obwohl du zu Hause bist?", "en": "You don't open the door even though you're home?", "ja": "klingel", "nein": "paket" },
+    { "de": "Du führst eine Liste, wer welches Paket abgeholt hat?", "en": "You keep a list of who picked up which parcel?", "ja": "hausordnung", "nein": "hausparty" },
+    { "left": { "de": "Packstation", "en": "a parcel locker", "vibe": "klingel" }, "right": { "de": "die nette Nachbarin", "en": "the nice neighbour", "vibe": "paket" } },
+    { "left": { "de": "Paket sofort bringen", "en": "bringing the parcel straight up", "vibe": "paket" }, "right": { "de": "Paket mit Zettel", "en": "a parcel with a note", "vibe": "hausordnung" } },
+    { "de": "Du siehst den Paketboten, bevor er klingelt?", "en": "You see the delivery driver before they ring?", "ja": "fenster", "nein": "hausparty" },
+    { "de": "Ein Paket, das drei Wochen bei dir liegt, öffnest du?", "en": "A parcel that has been at yours for three weeks: you open it?", "ja": "hausparty", "nein": "hausordnung" },
+    { "left": { "de": "Ich bin nie da", "en": "I'm never in", "vibe": "klingel" }, "right": { "de": "Ich bin immer da", "en": "I'm always in", "vibe": "fenster" } },
+    { "de": "Der Paketbote kennt deinen Vornamen?", "en": "The delivery driver knows your first name?", "ja": "paket", "nein": "klingel" },
+    { "left": { "de": "Paket vor der Tür", "en": "a parcel left at the door", "vibe": "hausparty" }, "right": { "de": "Paket sortiert im Keller", "en": "parcels sorted in the cellar", "vibe": "hausordnung" } }
+   ]
+  },
+  {
+   "id": "laerm", "title": "Der Lärm", "en": "Noise",
+   "hook": "Thin walls, strong opinions.",
+   "questions": [
+    { "de": "Nach zehn Uhr hörst du weder Musik noch Fernsehen?", "en": "After ten you listen to neither music nor TV?", "ja": "hausordnung", "nein": "hausparty" },
+    { "de": "Je später der Abend, desto lauter deine Musik?", "en": "The later the evening, the louder your music?", "ja": "hausparty", "nein": "hausordnung" },
+    { "de": "Du klopfst an die Wand, wenn es zu laut ist?", "en": "You knock on the wall when it's too loud?", "ja": "hausordnung", "nein": "paket" },
+    { "de": "Du weißt, welches Lied der Nachbar jeden Tag übt?", "en": "You know which song the neighbour practises every day?", "ja": "fenster", "nein": "klingel" },
+    { "de": "Statt dich zu beschweren, gehst du rüber und tanzt mit?", "en": "Instead of complaining, you go over and dance?", "ja": "hausparty", "nein": "fenster" },
+    { "left": { "de": "Ohrstöpsel", "en": "earplugs", "vibe": "klingel" }, "right": { "de": "Beschwerdebrief", "en": "a letter of complaint", "vibe": "hausordnung" } },
+    { "left": { "de": "Bass", "en": "bass", "vibe": "hausparty" }, "right": { "de": "Stille", "en": "silence", "vibe": "klingel" } },
+    { "de": "Man hört dich nie, weder morgens noch abends?", "en": "Nobody ever hears you, neither in the morning nor at night?", "ja": "klingel", "nein": "hausparty" },
+    { "de": "Wer sich beschwert, wird zur nächsten Party eingeladen?", "en": "Whoever complains gets invited to the next party?", "ja": "paket", "nein": "hausordnung" },
+    { "left": { "de": "Polizei rufen", "en": "calling the police", "vibe": "hausordnung" }, "right": { "de": "Fenster auf, zuhören", "en": "window open, listening", "vibe": "fenster" } },
+    { "de": "Du erkennst am Schritt, wer die Treppe hochkommt?", "en": "You can tell by the footsteps who's coming up the stairs?", "ja": "fenster", "nein": "hausparty" },
+    { "left": { "de": "Party mit Zettel vorher", "en": "a party with a note beforehand", "vibe": "paket" }, "right": { "de": "Party ohne Warnung", "en": "a party without warning", "vibe": "hausparty" } }
+   ]
+  },
+  {
+   "id": "muell", "title": "Der Müll", "en": "The bins",
+   "hook": "Five colours of bin. One person who checks.",
+   "questions": [
+    { "de": "Du hast schon mal den Müll anderer Leute sortiert?", "en": "You've sorted other people's rubbish before?", "ja": "hausordnung", "nein": "hausparty" },
+    { "de": "Du weißt, wer die Pizzakartons in den Papiermüll stopft?", "en": "You know who stuffs the pizza boxes into the paper bin?", "ja": "fenster", "nein": "klingel" },
+    { "de": "Du bringst den Müll nachts runter, damit dich keiner sieht?", "en": "You take the rubbish down at night so nobody sees you?", "ja": "klingel", "nein": "paket" },
+    { "de": "Nach der Party brauchst du drei Wege zum Altglas?", "en": "After the party you need three trips to the bottle bank?", "ja": "hausparty", "nein": "hausordnung" },
+    { "de": "Du nimmst den Müll der alten Nachbarin gleich mit?", "en": "You take the old neighbour's rubbish down along with yours?", "ja": "paket", "nein": "klingel" },
+    { "left": { "de": "Gelbe Tonne", "en": "the recycling bin", "vibe": "hausordnung" }, "right": { "de": "irgendeine Tonne", "en": "any bin at all", "vibe": "hausparty" } },
+    { "left": { "de": "Müll mit Gruß", "en": "rubbish with a hello", "vibe": "paket" }, "right": { "de": "Müll ohne Spuren", "en": "rubbish without a trace", "vibe": "klingel" } },
+    { "de": "Am Müllraum hängt ein Zettel, den du geschrieben hast?", "en": "There's a note on the bin room that you wrote?", "ja": "hausordnung", "nein": "hausparty" },
+    { "de": "Aus dem Fenster siehst du, wer was wegwirft?", "en": "From your window you see who throws away what?", "ja": "fenster", "nein": "klingel" },
+    { "left": { "de": "Sperrmüll ansehen", "en": "looking through the bulky waste", "vibe": "fenster" }, "right": { "de": "Sperrmüll mitnehmen", "en": "taking the bulky waste home", "vibe": "hausparty" } },
+    { "de": "Du hast schon mal etwas vom Sperrmüll verschenkt?", "en": "You've given away something from the bulky waste?", "ja": "paket", "nein": "fenster" },
+    { "left": { "de": "Müllplan am Kühlschrank", "en": "a bin rota on the fridge", "vibe": "hausordnung" }, "right": { "de": "Müll, wenn er überläuft", "en": "the rubbish when it overflows", "vibe": "klingel" } }
+   ]
+  },
+  {
+   "id": "balkon", "title": "Der Balkon", "en": "The balcony",
+   "hook": "Two square metres of personality.",
+   "questions": [
+    { "de": "Auf deinem Balkon wachsen Tomaten, die du allen schenkst?", "en": "Tomatoes grow on your balcony and you give them to everyone?", "ja": "paket", "nein": "klingel" },
+    { "de": "Vom Balkon aus siehst du die ganze Straße?", "en": "From your balcony you can see the whole street?", "ja": "fenster", "nein": "klingel" },
+    { "de": "Du grillst auf dem Balkon, obwohl es verboten ist?", "en": "You barbecue on the balcony even though it's not allowed?", "ja": "hausparty", "nein": "hausordnung" },
+    { "de": "Der Balkon ist für dich ein Lager für Kartons?", "en": "For you, the balcony is a storeroom for boxes?", "ja": "klingel", "nein": "fenster" },
+    { "de": "Du hast erklärt, wann man Teppiche klopfen darf?", "en": "You've explained when carpets may be beaten?", "ja": "hausordnung", "nein": "hausparty" },
+    { "left": { "de": "Lichterkette", "en": "fairy lights", "vibe": "hausparty" }, "right": { "de": "Sichtschutz", "en": "a privacy screen", "vibe": "klingel" } },
+    { "left": { "de": "Fernglas", "en": "binoculars", "vibe": "fenster" }, "right": { "de": "Gießkanne", "en": "a watering can", "vibe": "paket" } },
+    { "de": "Du rufst vom Balkon zum Nachbarn hinüber?", "en": "You call across from your balcony to the neighbour's?", "ja": "paket", "nein": "klingel" },
+    { "de": "Du weißt, wer auf dem Balkon heimlich raucht?", "en": "You know who smokes secretly on their balcony?", "ja": "fenster", "nein": "hausparty" },
+    { "left": { "de": "Blumen in Reihe", "en": "flowers in neat rows", "vibe": "hausordnung" }, "right": { "de": "Blumen, die wild wachsen", "en": "flowers growing wild", "vibe": "hausparty" } },
+    { "de": "Dein Balkon ist sowohl Büro als auch Partyraum?", "en": "Your balcony is both an office and a party room?", "ja": "hausparty", "nein": "hausordnung" },
+    { "left": { "de": "Kaffee mit Blick", "en": "coffee with a view", "vibe": "fenster" }, "right": { "de": "Kaffee für alle", "en": "coffee for everyone", "vibe": "paket" } }
+   ]
+  },
+  {
+   "id": "versammlung", "title": "Die Hausversammlung", "en": "The residents' meeting",
+   "hook": "Once a year. Three hours. One topic: the bins.",
+   "questions": [
+    { "de": "Du bringst eine Liste mit zwölf Punkten mit?", "en": "You bring a list with twelve points?", "ja": "hausordnung", "nein": "klingel" },
+    { "de": "Du warst noch nie bei einer Hausversammlung?", "en": "You've never been to a residents' meeting?", "ja": "klingel", "nein": "hausordnung" },
+    { "de": "Du weißt schon vorher, wer sich mit wem streiten wird?", "en": "You know beforehand who will argue with whom?", "ja": "fenster", "nein": "paket" },
+    { "de": "Du bringst Kekse mit, damit alle freundlich bleiben?", "en": "You bring biscuits so that everyone stays friendly?", "ja": "paket", "nein": "hausordnung" },
+    { "de": "Nach der Versammlung lädst du alle zu dir ein?", "en": "After the meeting, you invite everyone back to yours?", "ja": "hausparty", "nein": "klingel" },
+    { "left": { "de": "Protokoll", "en": "the minutes", "vibe": "hausordnung" }, "right": { "de": "Prosecco", "en": "prosecco", "vibe": "hausparty" } },
+    { "left": { "de": "zuhören", "en": "listening", "vibe": "fenster" }, "right": { "de": "Kompromiss vorschlagen", "en": "suggesting a compromise", "vibe": "paket" } },
+    { "de": "Das Thema Treppenhaus hast du schon dreimal angesprochen?", "en": "You've raised the stairwell topic three times already?", "ja": "hausordnung", "nein": "hausparty" },
+    { "de": "Du stimmst für alles, solange es schnell vorbei ist?", "en": "You vote for anything as long as it's over quickly?", "ja": "klingel", "nein": "fenster" },
+    { "left": { "de": "erste Reihe", "en": "the front row", "vibe": "hausordnung" }, "right": { "de": "letzte Reihe", "en": "the back row", "vibe": "klingel" } },
+    { "de": "Du erzählst dort, was du am Fenster gesehen hast?", "en": "There you tell everyone what you saw from the window?", "ja": "fenster", "nein": "klingel" },
+    { "left": { "de": "Sommerfest planen", "en": "planning a summer party", "vibe": "hausparty" }, "right": { "de": "Hof-Flohmarkt planen", "en": "planning a courtyard flea market", "vibe": "paket" } }
+   ]
+  },
+  {
+   "id": "urlaub", "title": "Urlaub", "en": "Holidays",
+   "hook": "You're away. Who waters the plants?",
+   "questions": [
+    { "de": "Du gießt die Pflanzen der Nachbarn, wenn sie weg sind?", "en": "You water the neighbours' plants when they're away?", "ja": "paket", "nein": "klingel" },
+    { "de": "Du merkst sofort, wenn jemand in Urlaub gefahren ist?", "en": "You notice straight away when someone has gone on holiday?", "ja": "fenster", "nein": "hausparty" },
+    { "de": "Während die Nachbarn weg sind, feierst du etwas lauter?", "en": "While the neighbours are away, you party a little louder?", "ja": "hausparty", "nein": "hausordnung" },
+    { "de": "Niemand merkt, ob du da bist oder im Urlaub?", "en": "Nobody notices whether you're here or on holiday?", "ja": "klingel", "nein": "fenster" },
+    { "de": "Du hinterlässt einen Plan, wann die Blumen Wasser brauchen?", "en": "You leave a schedule of when the plants need water?", "ja": "hausordnung", "nein": "hausparty" },
+    { "left": { "de": "Schlüssel beim Nachbarn", "en": "a key with the neighbour", "vibe": "paket" }, "right": { "de": "Schlüssel bei niemandem", "en": "a key with nobody", "vibe": "klingel" } },
+    { "left": { "de": "Postkarte ans Haus", "en": "a postcard to the building", "vibe": "paket" }, "right": { "de": "Party bei der Rückkehr", "en": "a party when you get back", "vibe": "hausparty" } },
+    { "de": "Du weißt, warum die Müllers früher zurückkamen?", "en": "You know why the Müllers came back early?", "ja": "fenster", "nein": "klingel" },
+    { "de": "Im Urlaub fragst du, ob die Ruhezeiten eingehalten werden?", "en": "On holiday you check whether the quiet hours are being kept?", "ja": "hausordnung", "nein": "hausparty" },
+    { "left": { "de": "Briefkasten leeren", "en": "emptying the letterbox", "vibe": "paket" }, "right": { "de": "Briefkasten beobachten", "en": "watching the letterbox", "vibe": "fenster" } },
+    { "de": "Wenn du zurückkommst, gibt es zuerst eine Party?", "en": "When you get back, the first thing is a party?", "ja": "hausparty", "nein": "hausordnung" },
+    { "left": { "de": "Urlaub ohne Abschied", "en": "leaving without a goodbye", "vibe": "klingel" }, "right": { "de": "Abschied mit Kuchen", "en": "a goodbye with cake", "vibe": "paket" } }
+   ]
+  },
+  {
+   "id": "keller", "title": "Der Keller", "en": "The cellar",
+   "hook": "Dark, damp and full of other people's bikes.",
+   "questions": [
+    { "de": "Dein Kellerabteil ist beschriftet und sortiert?", "en": "Your cellar space is labelled and sorted?", "ja": "hausordnung", "nein": "hausparty" },
+    { "de": "Du warst seit Jahren nicht mehr im Keller?", "en": "You haven't been to the cellar for years?", "ja": "klingel", "nein": "hausordnung" },
+    { "de": "Du weißt, wem jedes Fahrrad im Keller gehört?", "en": "You know who every bike in the cellar belongs to?", "ja": "fenster", "nein": "klingel" },
+    { "de": "Im Keller steht noch Deko von der letzten Party?", "en": "There's still decoration from the last party in the cellar?", "ja": "hausparty", "nein": "hausordnung" },
+    { "de": "Du leihst jedem deine Bohrmaschine, der fragt?", "en": "You lend your drill to anyone who asks?", "ja": "paket", "nein": "klingel" },
+    { "left": { "de": "Taschenlampe", "en": "a torch", "vibe": "klingel" }, "right": { "de": "Werkstatt für alle", "en": "a workshop for everyone", "vibe": "paket" } },
+    { "left": { "de": "Keller als Partyraum", "en": "the cellar as a party room", "vibe": "hausparty" }, "right": { "de": "Keller als Lager", "en": "the cellar as a storeroom", "vibe": "hausordnung" } },
+    { "de": "Im Keller findest du Dinge, die keinem gehören?", "en": "In the cellar you find things that belong to nobody?", "ja": "fenster", "nein": "hausordnung" },
+    { "de": "Du gehst nur in den Keller, wenn du nicht anders kannst?", "en": "You only go to the cellar when you have no choice?", "ja": "klingel", "nein": "paket" },
+    { "left": { "de": "Werkzeug verleihen", "en": "lending tools", "vibe": "paket" }, "right": { "de": "Werkzeug mit Namen", "en": "tools with your name on", "vibe": "hausordnung" } },
+    { "de": "Je dunkler der Keller, desto mehr Geschichten kennst du?", "en": "The darker the cellar, the more stories you know?", "ja": "fenster", "nein": "klingel" },
+    { "left": { "de": "Bier im Keller", "en": "beer in the cellar", "vibe": "hausparty" }, "right": { "de": "nichts im Keller", "en": "nothing in the cellar", "vibe": "klingel" } }
+   ]
+  },
+  {
+   "id": "silvester", "title": "Silvester", "en": "New Year's Eve",
+   "hook": "Midnight in the courtyard. Who brought what?",
+   "questions": [
+    { "de": "Du feierst Silvester mit dem ganzen Haus?", "en": "You celebrate New Year's Eve with the whole building?", "ja": "hausparty", "nein": "klingel" },
+    { "de": "Du gehst früh schlafen, obwohl draußen alle knallen?", "en": "You go to bed early even though everyone's letting off fireworks?", "ja": "klingel", "nein": "hausparty" },
+    { "de": "Am ersten Januar kehrst du den Hof, bevor alle wach sind?", "en": "On the first of January you sweep the courtyard before anyone's up?", "ja": "hausordnung", "nein": "hausparty" },
+    { "de": "Du weißt, wer um Mitternacht wen geküsst hat?", "en": "You know who kissed whom at midnight?", "ja": "fenster", "nein": "klingel" },
+    { "de": "Du bringst Berliner zu den Nachbarn, die allein feiern?", "en": "You bring doughnuts to the neighbours celebrating alone?", "ja": "paket", "nein": "fenster" },
+    { "left": { "de": "Feuerwerk", "en": "fireworks", "vibe": "hausparty" }, "right": { "de": "Fenster zu, Film an", "en": "window shut, film on", "vibe": "klingel" } },
+    { "left": { "de": "Raclette für zwanzig", "en": "raclette for twenty", "vibe": "paket" }, "right": { "de": "Raclette nach Liste", "en": "raclette by list", "vibe": "hausordnung" } },
+    { "de": "Du schreibst einen Zettel, dass Böller verboten sind?", "en": "You write a note saying firecrackers are banned?", "ja": "hausordnung", "nein": "hausparty" },
+    { "de": "Um Mitternacht zählst du am Fenster die Raketen?", "en": "At midnight you count the rockets from the window?", "ja": "fenster", "nein": "paket" },
+    { "left": { "de": "gute Vorsätze, notiert", "en": "resolutions, written down", "vibe": "hausordnung" }, "right": { "de": "keine Vorsätze", "en": "no resolutions", "vibe": "hausparty" } },
+    { "de": "Um null Uhr eins klingelst du bei allen Nachbarn?", "en": "At one minute past midnight you ring every neighbour's bell?", "ja": "paket", "nein": "klingel" },
+    { "left": { "de": "Hof mit allen", "en": "the courtyard with everyone", "vibe": "paket" }, "right": { "de": "Balkon mit Fernglas", "en": "the balcony with binoculars", "vibe": "fenster" } }
+   ]
+  }
+ ]
+}

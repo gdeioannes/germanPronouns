@@ -390,7 +390,7 @@
 
 	/** The "Ja oder Nein?" card: no exercise behind it, a page of its own; it names the round the game will deal. */
 	function playCard(): DeckCard {
-		const round = nextRound();
+		const round = nextRound(undefined, centre);
 		return {
 			kind: 'play',
 			quiz: {
@@ -460,7 +460,11 @@
 						: typeLabel(card.quiz.type);
 
 	function href(card: DeckCard) {
-		if (isPlayCard(card)) return JA_NEIN_PATH;
+		if (isPlayCard(card)) {
+			// The round the card names, so the game does not pick by its own level guess.
+			const round = nextRound(undefined, centre);
+			return round ? `${JA_NEIN_PATH}?round=${encodeURIComponent(round.key)}` : JA_NEIN_PATH;
+		}
 		if (isWortCard(card)) return WORT_PATH;
 		if (isCheckCard(card)) return CHECK_PATH;
 		return storyCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;

@@ -13,6 +13,8 @@ export interface JaNeinCategory {
 	title: string;
 	en: string;
 	emoji: string;
+	/** The CEFR band its questions are written in ("A1" … "C2"). */
+	level: string;
 	personas: Persona[];
 	rounds: JaNeinRound[];
 }
@@ -31,7 +33,12 @@ export interface JaNeinRound {
 export const ROUND_LENGTH = 12;
 
 /** The shelves in the order the deck walks them: the most shareable question first. */
-const CATEGORY_ORDER = ['stadt', 'tier', 'essen', 'getraenk', 'freund', 'party', 'reise', 'wg', 'jahreszeit', 'deutsch'];
+const CATEGORY_ORDER = [
+	'stadt', 'tier', 'essen', 'getraenk', 'freund', 'party', 'reise', 'wg', 'jahreszeit', 'deutsch',
+	'kollege', 'nachbar', 'diskutierer', 'mieter', 'leser', 'redner'
+];
+
+export const BANDS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
 type RawQuestion =
 	| { de: string; en: string; ja: string; nein: string }
@@ -42,6 +49,7 @@ interface RawCategory {
 	title: string;
 	en: string;
 	emoji: string;
+	level?: string;
 	personas: Persona[];
 	rounds: { id: string; title: string; en: string; hook: string; questions: RawQuestion[] }[];
 }
@@ -68,6 +76,7 @@ export const JA_NEIN_CATEGORIES: JaNeinCategory[] = Object.values(raw)
 		title: c.title,
 		en: c.en,
 		emoji: c.emoji,
+		level: c.level ?? 'A1',
 		personas: c.personas,
 		rounds: c.rounds.map((r) => ({
 			key: `${c.id}/${r.id}`,
@@ -135,22 +144,43 @@ export function markRoundPlayed(key: string, played: string[] = playedRounds()):
 	return next;
 }
 
+/** The level the learner picked for their deck (storage key `deck_level`), if any. */
+export function readDeckLevel(): string | null {
+	try {
+		return localStorage.getItem('deck_level');
+	} catch {
+		return null;
+	}
+}
+
+/** 0 for A1 … 5 for C2; a sub-level ("B1.2") counts as its band. Unknown = A2. */
+function bandIndex(level: string | null | undefined): number {
+	const i = BANDS.indexOf((level ?? '').slice(0, 2));
+	return i < 0 ? 1 : i;
+}
+
 /**
- * The round the deck deals next: the first in dealing order not yet played.
- * Once every round has been played the tour starts over, oldest first, so
- * there is always a next one and the shelves keep filling with new personas.
+ * The round the deck deals next, for a learner at `level` (a sub-level such
+ * as "B1.2"; none = A2). Only themes written at or below the learner's band
+ * are dealt, and the themes of their own band come first, so a B2 learner
+ * meets the B2 questions before the A-level ones. Within that, the first in
+ * dealing order not yet played. Once every round has been played the tour
+ * starts over, oldest first, so there is always a next one.
  */
-export function nextRound(played: string[] = playedRounds()): JaNeinRound | null {
-	if (ROUND_ORDER.length === 0) return null;
+export function nextRound(played: string[] = playedRounds(), level?: string | null): JaNeinRound | null {
+	const own = bandIndex(level);
+	const eligible = ROUND_ORDER.filter((r) => bandIndex(categoryOf(r).level) <= own);
+	if (eligible.length === 0) return null;
 	const done = new Set(played);
-	const fresh = ROUND_ORDER.find((r) => !done.has(r.key));
-	if (fresh) return fresh;
+	const fresh = eligible.filter((r) => !done.has(r.key));
+	const fit = fresh.find((r) => bandIndex(categoryOf(r).level) === own) ?? fresh[0];
+	if (fit) return fit;
 	// All played: the one played longest ago (keys not in the bank any more are skipped).
 	for (const key of played) {
-		const r = findRound(key);
+		const r = eligible.find((e) => e.key === key);
 		if (r) return r;
 	}
-	return ROUND_ORDER[0];
+	return eligible[0];
 }
 
 /** A round's questions shuffled, so a replay asks them in a new order. */

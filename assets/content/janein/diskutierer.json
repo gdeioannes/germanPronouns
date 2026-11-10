@@ -1,0 +1,256 @@
+{
+ "id": "diskutierer",
+ "title": "Welcher Diskutierer bist du?",
+ "en": "What kind of arguer are you?",
+ "emoji": "🗣️",
+ "level": "B2",
+ "personas": [
+  {
+   "id": "fakten", "title": "Der Faktencheck", "emoji": "🔎",
+   "line": "You never lose an argument. You just win it later, with a link.",
+   "profile": "You don't argue, you research. Every claim gets checked, every number gets a source, and every 'everyone knows that' gets a polite 'does everyone?'. People find you exhausting at parties and indispensable before elections. Your browser has 84 tabs open, all of them evidence.",
+   "traits": ["precise", "well read", "relentless"],
+   "de": {
+    "line": "Du verlierst nie eine Diskussion. Du gewinnst nur später, mit Link.",
+    "profile": "Du streitest nicht, du recherchierst. Jede Behauptung wird geprüft, jede Zahl bekommt eine Quelle, und jedes ‚Das weiß doch jeder‘ bekommt ein höfliches ‚Wirklich jeder?‘. Auf Partys findet man dich anstrengend, vor Wahlen unverzichtbar. In deinem Browser sind 84 Tabs offen, alle sind Beweise.",
+    "traits": ["genau", "belesen", "unermüdlich"]
+   },
+   "match": "still", "clash": "laut",
+   "word": { "de": "die Quelle", "en": "the source" }
+  },
+  {
+   "id": "teufel", "title": "Advocatus Diaboli", "emoji": "😈",
+   "line": "You agree with everyone. Just never out loud.",
+   "profile": "Whatever the room thinks, you think the opposite, at least for the next ten minutes. You don't do it to be difficult; you do it because an idea nobody has attacked isn't an idea yet. Some people call you annoying. The smart ones call you before making big decisions.",
+   "traits": ["sharp", "provocative", "playful"],
+   "de": {
+    "line": "Du bist mit allen einer Meinung. Nur nie laut.",
+    "profile": "Was der Raum denkt, siehst du andersherum, zumindest für die nächsten zehn Minuten. Du machst das nicht, um zu nerven, sondern weil eine Idee, die niemand angegriffen hat, noch keine Idee ist. Manche finden dich anstrengend. Die Klugen rufen dich an, bevor sie große Entscheidungen treffen.",
+    "traits": ["scharfsinnig", "provokant", "verspielt"]
+   },
+   "match": "laut", "clash": "harmonie",
+   "word": { "de": "der Widerspruch", "en": "contradiction" }
+  },
+  {
+   "id": "harmonie", "title": "Die Friedenstaube", "emoji": "🕊️",
+   "line": "Both sides have a point, and you've found where.",
+   "profile": "When voices rise, yours gets softer, and somehow everyone calms down. You hear what people mean, not just what they say, and you can find the compromise in any argument, even about pizza. You've ended more family rows than any diplomat. Nobody knows what you actually think, and that's fine.",
+   "traits": ["calm", "empathetic", "diplomatic"],
+   "de": {
+    "line": "Beide Seiten haben recht, und du hast herausgefunden, wo.",
+    "profile": "Wenn die Stimmen lauter werden, wird deine leiser, und irgendwie beruhigen sich alle. Du hörst, was Leute meinen, nicht nur, was sie sagen, und findest in jedem Streit den Kompromiss, sogar bei Pizza. Du hast mehr Familienstreits beendet als jeder Diplomat. Was du selbst denkst, weiß niemand.",
+    "traits": ["ruhig", "einfühlsam", "diplomatisch"]
+   },
+   "match": "still", "clash": "teufel",
+   "word": { "de": "der Kompromiss", "en": "the compromise" }
+  },
+  {
+   "id": "laut", "title": "Der Lautsprecher", "emoji": "📢",
+   "line": "You don't always have the best argument. You have the loudest.",
+   "profile": "You argue with your whole body: hands, voice, the occasional table. Facts are welcome but optional; conviction is everything. Debates with you are never boring, rarely short and always remembered. You'd die for your opinions, and you change them about twice a week, each time at full volume.",
+   "traits": ["passionate", "energetic", "loud"],
+   "de": {
+    "line": "Du hast nicht immer das beste Argument. Aber das lauteste.",
+    "profile": "Du diskutierst mit dem ganzen Körper: Hände, Stimme, manchmal der Tisch. Fakten sind willkommen, aber freiwillig; Überzeugung ist alles. Diskussionen mit dir sind nie langweilig, selten kurz und immer unvergessen. Du würdest für deine Meinungen sterben, und du änderst sie zweimal pro Woche, jedes Mal in voller Lautstärke.",
+    "traits": ["leidenschaftlich", "energisch", "laut"]
+   },
+   "match": "teufel", "clash": "fakten",
+   "word": { "de": "das letzte Wort", "en": "the last word" }
+  },
+  {
+   "id": "still", "title": "Der stille Sieger", "emoji": "🤫",
+   "line": "Forty minutes of silence. One sentence. Game over.",
+   "profile": "You listen while everyone else talks, and you notice what they've missed. Then, just as the debate runs out of steam, you say one quiet sentence and the whole room goes silent. You don't need to win often; you win when it matters, and you never raise your voice.",
+   "traits": ["thoughtful", "patient", "dry"],
+   "de": {
+    "line": "Vierzig Minuten Schweigen. Ein Satz. Spiel vorbei.",
+    "profile": "Du hörst zu, während alle anderen reden, und du merkst, was sie übersehen haben. Dann, wenn der Debatte die Luft ausgeht, sagst du einen ruhigen Satz, und der ganze Raum wird still. Du musst nicht oft gewinnen; du gewinnst, wenn es zählt, und du wirst nie laut.",
+    "traits": ["nachdenklich", "geduldig", "trocken"]
+   },
+   "match": "fakten", "clash": "laut",
+   "word": { "de": "die Pointe", "en": "the punchline" }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "familie", "title": "Familienessen", "en": "Family dinner",
+   "hook": "Three generations, one roast, zero agreement.",
+   "questions": [
+    { "de": "Obwohl alle essen wollen, fängst du eine Grundsatzdebatte an?", "en": "Although everyone wants to eat, you start a debate about principles?", "ja": "laut", "nein": "harmonie" },
+    { "de": "Den von Opa zitierten Zeitungsartikel googelst du unter dem Tisch?", "en": "Under the table you google the newspaper article Grandpa quoted?", "ja": "fakten", "nein": "laut" },
+    { "de": "Du vertrittst die Meinung deines Onkels, nur weil sonst keiner es tut?", "en": "You defend your uncle's opinion just because nobody else will?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Während alle streiten, isst du in Ruhe den Nachtisch?", "en": "While everyone argues, you calmly eat dessert?", "ja": "still", "nein": "laut" },
+    { "de": "Du schlägst vor, dass das Thema auf später verschoben wird?", "en": "You suggest the topic be postponed until later?", "ja": "harmonie", "nein": "teufel" },
+    { "left": { "de": "Statistik", "en": "statistics", "vibe": "fakten" }, "right": { "de": "Lautstärke", "en": "volume", "vibe": "laut" } },
+    { "left": { "de": "Themenwechsel", "en": "changing the subject", "vibe": "harmonie" }, "right": { "de": "Öl ins Feuer", "en": "pouring oil on the fire", "vibe": "teufel" } },
+    { "de": "Zwar sagst du wenig, aber dein letzter Satz beendet alles?", "en": "You may say little, but your last sentence ends it all?", "ja": "still", "nein": "laut" },
+    { "de": "Ein falsch erzähltes Familiendetail wird von dir korrigiert?", "en": "A wrongly told family detail gets corrected by you?", "ja": "fakten", "nein": "harmonie" },
+    { "left": { "de": "Oma zustimmen", "en": "agreeing with Grandma", "vibe": "harmonie" }, "right": { "de": "Oma widersprechen", "en": "contradicting Grandma", "vibe": "teufel" } },
+    { "de": "Du wirst laut, sobald jemand das Wort Politik erwähnt?", "en": "You get loud as soon as someone mentions the word politics?", "ja": "laut", "nein": "still" },
+    { "left": { "de": "schweigend nicken", "en": "nodding in silence", "vibe": "still" }, "right": { "de": "Quellen nennen", "en": "naming sources", "vibe": "fakten" } }
+   ]
+  },
+  {
+   "id": "gruppenchat", "title": "Der Gruppenchat", "en": "The group chat",
+   "hook": "Forty-seven unread messages. One of them is yours.",
+   "questions": [
+    { "de": "Du schickst Sprachnachrichten, die länger als fünf Minuten sind?", "en": "You send voice messages longer than five minutes?", "ja": "laut", "nein": "still" },
+    { "de": "Behauptungen im Chat werden von dir mit Links beantwortet?", "en": "Claims in the chat get answered by you with links?", "ja": "fakten", "nein": "laut" },
+    { "de": "Du liest alles mit, schreibst aber nie etwas?", "en": "You read everything but never write anything?", "ja": "still", "nein": "laut" },
+    { "de": "Du stimmst gegen den Vorschlag, obwohl er dir eigentlich gefällt?", "en": "You vote against the suggestion even though you actually like it?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Nach jedem Streit schickst du ein versöhnliches Emoji?", "en": "After every row you send a conciliatory emoji?", "ja": "harmonie", "nein": "teufel" },
+    { "left": { "de": "Großbuchstaben", "en": "capital letters", "vibe": "laut" }, "right": { "de": "Fußnoten", "en": "footnotes", "vibe": "fakten" } },
+    { "left": { "de": "Daumen hoch", "en": "a thumbs-up", "vibe": "still" }, "right": { "de": "Umfrage starten", "en": "starting a poll", "vibe": "harmonie" } },
+    { "de": "Die zitierte Nachricht schickst du mit einem Fragezeichen zurück?", "en": "You send the quoted message back with a question mark?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Du merkst sofort, wenn jemand sich selbst widerspricht?", "en": "You notice straight away when someone contradicts themselves?", "ja": "fakten", "nein": "still" },
+    { "left": { "de": "Gruppe stummschalten", "en": "muting the group", "vibe": "still" }, "right": { "de": "Gruppe anheizen", "en": "stirring up the group", "vibe": "teufel" } },
+    { "de": "Während andere tippen, hast du schon drei Nachrichten geschickt?", "en": "While others are typing, you've already sent three messages?", "ja": "laut", "nein": "fakten" },
+    { "left": { "de": "alle beruhigen", "en": "calming everyone down", "vibe": "harmonie" }, "right": { "de": "alle anrufen", "en": "calling everyone", "vibe": "laut" } }
+   ]
+  },
+  {
+   "id": "kommentare", "title": "Kommentare", "en": "The comments section",
+   "hook": "Someone is wrong on the internet. Again.",
+   "questions": [
+    { "de": "Einen falschen Kommentar kannst du nicht unbeantwortet lassen?", "en": "You can't leave a wrong comment unanswered?", "ja": "fakten", "nein": "still" },
+    { "de": "Du kommentierst, ohne den Artikel gelesen zu haben?", "en": "You comment without having read the article?", "ja": "laut", "nein": "fakten" },
+    { "de": "Du schreibst absichtlich das Gegenteil, um zu sehen, was passiert?", "en": "You deliberately write the opposite to see what happens?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Du liest die Kommentare nur, um dich zu amüsieren?", "en": "You only read the comments to entertain yourself?", "ja": "still", "nein": "laut" },
+    { "de": "Du antwortest beiden Seiten, dass sie irgendwie recht haben?", "en": "You tell both sides that they're somehow right?", "ja": "harmonie", "nein": "teufel" },
+    { "left": { "de": "Faktencheck", "en": "a fact check", "vibe": "fakten" }, "right": { "de": "Ausrufezeichen", "en": "exclamation marks", "vibe": "laut" } },
+    { "left": { "de": "Like und weiter", "en": "like and scroll on", "vibe": "still" }, "right": { "de": "Friedensangebot", "en": "a peace offering", "vibe": "harmonie" } },
+    { "de": "Gelöschte Kommentare hast du vorher als Screenshot gespeichert?", "en": "You saved deleted comments as screenshots beforehand?", "ja": "fakten", "nein": "harmonie" },
+    { "de": "Je mehr Gegenwind, desto mehr Spaß hast du?", "en": "The more pushback, the more fun you have?", "ja": "teufel", "nein": "still" },
+    { "left": { "de": "Empörung", "en": "outrage", "vibe": "laut" }, "right": { "de": "kluger Einzeiler", "en": "a clever one-liner", "vibe": "still" } },
+    { "de": "Du entschuldigst dich, obwohl du nichts falsch gemacht hast?", "en": "You apologise even though you've done nothing wrong?", "ja": "harmonie", "nein": "laut" },
+    { "left": { "de": "nach der Quelle fragen", "en": "asking for the source", "vibe": "fakten" }, "right": { "de": "einfach provozieren", "en": "just provoking", "vibe": "teufel" } }
+   ]
+  },
+  {
+   "id": "fussball", "title": "Fußball", "en": "Football",
+   "hook": "Ninety minutes, and the referee is always wrong.",
+   "questions": [
+    { "de": "Der Schiedsrichter hat für dich grundsätzlich unrecht?", "en": "For you, the referee is wrong on principle?", "ja": "laut", "nein": "fakten" },
+    { "de": "Du kennst die Ballbesitz-Statistik jedes Spiels?", "en": "You know the possession stats of every game?", "ja": "fakten", "nein": "laut" },
+    { "de": "Du hältst zum Gegner, nur um deine Freunde zu ärgern?", "en": "You support the other team just to annoy your friends?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Du schaust zu, sagst nichts und jubelst nur beim Tor?", "en": "You watch, say nothing and only cheer at a goal?", "ja": "still", "nein": "laut" },
+    { "de": "Du findest, dass beide Mannschaften gut gespielt haben?", "en": "You think both teams played well?", "ja": "harmonie", "nein": "teufel" },
+    { "left": { "de": "Zeitlupe prüfen", "en": "checking the slow motion", "vibe": "fakten" }, "right": { "de": "Fernseher anschreien", "en": "shouting at the TV", "vibe": "laut" } },
+    { "left": { "de": "Unentschieden", "en": "a draw", "vibe": "harmonie" }, "right": { "de": "Verlängerung", "en": "extra time", "vibe": "teufel" } },
+    { "de": "Obwohl dein Team verliert, behauptest du, alles laufe nach Plan?", "en": "Although your team is losing, you claim it's all going to plan?", "ja": "teufel", "nein": "fakten" },
+    { "de": "Ein umstrittenes Tor wird von dir nüchtern analysiert?", "en": "A disputed goal gets analysed by you, soberly?", "ja": "fakten", "nein": "laut" },
+    { "left": { "de": "Bier in Ruhe", "en": "a quiet beer", "vibe": "still" }, "right": { "de": "Fangesang", "en": "fan chants", "vibe": "laut" } },
+    { "de": "Du bringst Snacks für beide Fanlager mit?", "en": "You bring snacks for both sets of fans?", "ja": "harmonie", "nein": "teufel" },
+    { "left": { "de": "das letzte Wort", "en": "the last word", "vibe": "still" }, "right": { "de": "das lauteste Wort", "en": "the loudest word", "vibe": "laut" } }
+   ]
+  },
+  {
+   "id": "date", "title": "Beim Date", "en": "On a date",
+   "hook": "Small talk turns into a debate. Romantic?",
+   "questions": [
+    { "de": "Du widersprichst beim ersten Date, nur um die Reaktion zu sehen?", "en": "You disagree on a first date just to see the reaction?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Du hast den Lieblingsfilm deines Dates vorher recherchiert?", "en": "You researched your date's favourite film beforehand?", "ja": "fakten", "nein": "laut" },
+    { "de": "Du findest jede Meinung deines Dates interessant?", "en": "You find every one of your date's opinions interesting?", "ja": "harmonie", "nein": "teufel" },
+    { "de": "Du redest den ganzen Abend, während dein Date zuhört?", "en": "You talk all evening while your date listens?", "ja": "laut", "nein": "still" },
+    { "de": "Du sagst wenig, aber was du sagst, wird nie vergessen?", "en": "You say little, but what you say is never forgotten?", "ja": "still", "nein": "laut" },
+    { "left": { "de": "Diskussion", "en": "a discussion", "vibe": "teufel" }, "right": { "de": "Dessert teilen", "en": "sharing dessert", "vibe": "harmonie" } },
+    { "left": { "de": "Fakten über Wein", "en": "facts about wine", "vibe": "fakten" }, "right": { "de": "Geschichten über dich", "en": "stories about yourself", "vibe": "laut" } },
+    { "de": "Ein vom Date erwähnter Fakt wird von dir heimlich geprüft?", "en": "A fact your date mentions gets secretly checked by you?", "ja": "fakten", "nein": "harmonie" },
+    { "de": "Schweigen beim Essen findest du nicht unangenehm, sondern schön?", "en": "You find silence over dinner not awkward but nice?", "ja": "still", "nein": "laut" },
+    { "left": { "de": "zustimmen", "en": "agreeing", "vibe": "harmonie" }, "right": { "de": "zurückfragen", "en": "asking back", "vibe": "still" } },
+    { "de": "Du streitest über Pizza mit Ananas, als ginge es um Leben und Tod?", "en": "You argue about pineapple on pizza as if it were life and death?", "ja": "laut", "nein": "fakten" },
+    { "left": { "de": "ein Gegenargument", "en": "a counter-argument", "vibe": "teufel" }, "right": { "de": "eine Quelle", "en": "a source", "vibe": "fakten" } }
+   ]
+  },
+  {
+   "id": "job", "title": "Im Job", "en": "At work",
+   "hook": "Professional disagreement, with slides.",
+   "questions": [
+    { "de": "Du bringst zu jeder Diskussion eine Präsentation mit?", "en": "You bring a presentation to every discussion?", "ja": "fakten", "nein": "laut" },
+    { "de": "Du stellst jeden Vorschlag infrage, selbst deinen eigenen?", "en": "You question every suggestion, even your own?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Wer am lautesten redet, gewinnt, und das bist meistens du?", "en": "Whoever talks loudest wins, and that's usually you?", "ja": "laut", "nein": "still" },
+    { "de": "Konflikte im Team werden von dir moderiert?", "en": "Conflicts in the team get moderated by you?", "ja": "harmonie", "nein": "laut" },
+    { "de": "Du sagst im Meeting nichts und schreibst danach eine perfekte Mail?", "en": "You say nothing in the meeting and write a perfect email afterwards?", "ja": "still", "nein": "laut" },
+    { "left": { "de": "Beweis in Excel", "en": "proof in Excel", "vibe": "fakten" }, "right": { "de": "Bauchgefühl, laut", "en": "gut feeling, loudly", "vibe": "laut" } },
+    { "left": { "de": "Konsens", "en": "consensus", "vibe": "harmonie" }, "right": { "de": "Kontroverse", "en": "controversy", "vibe": "teufel" } },
+    { "de": "Zwar stimmst du zu, trotzdem fragst du nach dem Risiko?", "en": "You do agree, but you still ask about the risk?", "ja": "teufel", "nein": "still" },
+    { "de": "Die gesammelten Einwände fasst du am Ende neutral zusammen?", "en": "At the end, you sum up the collected objections neutrally?", "ja": "harmonie", "nein": "teufel" },
+    { "left": { "de": "erst denken", "en": "thinking first", "vibe": "still" }, "right": { "de": "erst reden", "en": "talking first", "vibe": "laut" } },
+    { "de": "Ein ungeprüft übernommener Wert fällt dir sofort auf?", "en": "A figure copied over unchecked catches your eye at once?", "ja": "fakten", "nein": "still" },
+    { "left": { "de": "Pause vorschlagen", "en": "suggesting a break", "vibe": "harmonie" }, "right": { "de": "Abstimmung jetzt", "en": "a vote right now", "vibe": "laut" } }
+   ]
+  },
+  {
+   "id": "essen", "title": "Ernährung", "en": "Food fights",
+   "hook": "Oat milk, meat, carbs: choose your battle.",
+   "questions": [
+    { "de": "Du erklärst ungefragt, warum deine Ernährung die beste ist?", "en": "You explain, unasked, why your diet is the best?", "ja": "laut", "nein": "still" },
+    { "de": "Bei Ernährungsmythen zitierst du sofort Studien?", "en": "When food myths come up, you immediately cite studies?", "ja": "fakten", "nein": "laut" },
+    { "de": "Unter Veganern verteidigst du Fleisch, unter Fleischessern Tofu?", "en": "Among vegans you defend meat, among meat-eaters tofu?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Du kochst so, dass jeder am Tisch etwas essen kann?", "en": "You cook so that everyone at the table can eat something?", "ja": "harmonie", "nein": "teufel" },
+    { "de": "Du isst, was auf den Tisch kommt, und sagst nichts dazu?", "en": "You eat whatever comes to the table and say nothing about it?", "ja": "still", "nein": "laut" },
+    { "left": { "de": "Nährwerttabelle", "en": "a nutrition table", "vibe": "fakten" }, "right": { "de": "Omas Rezept", "en": "Grandma's recipe", "vibe": "harmonie" } },
+    { "left": { "de": "Grillstreit", "en": "a barbecue argument", "vibe": "laut" }, "right": { "de": "Salat ohne Kommentar", "en": "salad without comment", "vibe": "still" } },
+    { "de": "Obwohl du Fleisch isst, lobst du den Tofu am lautesten?", "en": "Although you eat meat, you praise the tofu the loudest?", "ja": "teufel", "nein": "fakten" },
+    { "de": "Das gerade gehypte Superfood wird von dir erst überprüft?", "en": "The superfood everyone is hyping gets checked by you first?", "ja": "fakten", "nein": "harmonie" },
+    { "left": { "de": "Hafermilch für alle", "en": "oat milk for everyone", "vibe": "harmonie" }, "right": { "de": "Hafermilch ist Unsinn", "en": "oat milk is nonsense", "vibe": "teufel" } },
+    { "de": "Du redest über Brot, als wäre es eine Religion?", "en": "You talk about bread as if it were a religion?", "ja": "laut", "nein": "still" },
+    { "left": { "de": "ein Blick genügt", "en": "one look is enough", "vibe": "still" }, "right": { "de": "Kalorien zählen", "en": "counting calories", "vibe": "fakten" } }
+   ]
+  },
+  {
+   "id": "reise", "title": "Die Reiseplanung", "en": "Planning a trip",
+   "hook": "Four friends, one holiday, eleven opinions.",
+   "questions": [
+    { "de": "Du vergleichst jedes Hotel auf drei Bewertungsportalen?", "en": "You compare every hotel on three review sites?", "ja": "fakten", "nein": "laut" },
+    { "de": "Du schlägst Island vor, obwohl alle Strand wollen?", "en": "You suggest Iceland although everyone wants a beach?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Du suchst ein Ziel, mit dem wirklich alle zufrieden sind?", "en": "You look for a destination that truly everyone is happy with?", "ja": "harmonie", "nein": "laut" },
+    { "de": "Am Ende fahren alle dahin, wohin du am lautesten wolltest?", "en": "In the end everyone goes where you most loudly wanted to go?", "ja": "laut", "nein": "still" },
+    { "de": "Du sagst nichts, buchst aber am Ende den Flug?", "en": "You say nothing, but in the end you're the one who books the flight?", "ja": "still", "nein": "laut" },
+    { "left": { "de": "Bewertungen lesen", "en": "reading reviews", "vibe": "fakten" }, "right": { "de": "Gegenvorschlag", "en": "a counter-proposal", "vibe": "teufel" } },
+    { "left": { "de": "Kompromissziel", "en": "a compromise destination", "vibe": "harmonie" }, "right": { "de": "mein Ziel", "en": "my destination", "vibe": "laut" } },
+    { "de": "Die von allen gewünschte Route findest du zu langweilig?", "en": "You find the route everyone wants too boring?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Während die anderen diskutieren, packst du schon den Koffer?", "en": "While the others discuss, you're already packing?", "ja": "still", "nein": "fakten" },
+    { "left": { "de": "Tabelle mit Preisen", "en": "a spreadsheet of prices", "vibe": "fakten" }, "right": { "de": "Abstimmung per Emoji", "en": "a vote by emoji", "vibe": "harmonie" } },
+    { "de": "Du hältst einen Vortrag über das Wetter am Reiseziel?", "en": "You give a lecture on the weather at the destination?", "ja": "laut", "nein": "still" },
+    { "left": { "de": "Plan B", "en": "plan B", "vibe": "teufel" }, "right": { "de": "kein Plan, kein Streit", "en": "no plan, no row", "vibe": "still" } }
+   ]
+  },
+  {
+   "id": "film", "title": "Der Film danach", "en": "After the film",
+   "hook": "The credits roll. The arguing starts.",
+   "questions": [
+    { "de": "Du erklärst nach dem Kino, was der Regisseur wirklich meinte?", "en": "After the cinema you explain what the director really meant?", "ja": "laut", "nein": "still" },
+    { "de": "Du findest den gelobten Film schlecht, gerade weil alle ihn loben?", "en": "You find the acclaimed film bad precisely because everyone praises it?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Du weißt, welche Szene im Buch anders war?", "en": "You know which scene was different in the book?", "ja": "fakten", "nein": "laut" },
+    { "de": "Mehr als zwei Wörter sagst du über den Film nicht?", "en": "You say no more than two words about the film?", "ja": "still", "nein": "laut" },
+    { "de": "Du suchst eine Stunde lang den Film, den alle sehen wollen?", "en": "You spend an hour looking for the film everyone wants to see?", "ja": "harmonie", "nein": "teufel" },
+    { "left": { "de": "Logikfehler finden", "en": "finding plot holes", "vibe": "fakten" }, "right": { "de": "Lieblingsszene spielen", "en": "acting out your favourite scene", "vibe": "laut" } },
+    { "left": { "de": "alle haben recht", "en": "everyone is right", "vibe": "harmonie" }, "right": { "de": "alle irren sich", "en": "everyone is wrong", "vibe": "teufel" } },
+    { "de": "Das offene Ende wird von dir sofort gegoogelt?", "en": "The open ending gets googled by you straight away?", "ja": "fakten", "nein": "still" },
+    { "de": "Obwohl du eingeschlafen bist, hast du eine starke Meinung?", "en": "Although you fell asleep, you have a strong opinion?", "ja": "laut", "nein": "fakten" },
+    { "left": { "de": "Abspann in Ruhe", "en": "the credits in peace", "vibe": "still" }, "right": { "de": "Debatte im Foyer", "en": "a debate in the foyer", "vibe": "laut" } },
+    { "de": "Du findest an jedem Film etwas Gutes?", "en": "You find something good in every film?", "ja": "harmonie", "nein": "teufel" },
+    { "left": { "de": "ein Satz, dann Stille", "en": "one sentence, then silence", "vibe": "still" }, "right": { "de": "zehn Fakten, Staunen", "en": "ten facts, amazement", "vibe": "fakten" } }
+   ]
+  },
+  {
+   "id": "politik", "title": "Politik", "en": "Politics",
+   "hook": "The topic everyone says they'll avoid.",
+   "questions": [
+    { "de": "Du verteidigst Positionen, die du selbst gar nicht vertrittst?", "en": "You defend positions you don't even hold yourself?", "ja": "teufel", "nein": "harmonie" },
+    { "de": "Zahlen, die in Talkshows genannt werden, prüfst du nach?", "en": "You check the figures quoted on talk shows?", "ja": "fakten", "nein": "laut" },
+    { "de": "Bei Politik verlässt du lieber leise den Raum?", "en": "When politics comes up, you'd rather quietly leave the room?", "ja": "still", "nein": "laut" },
+    { "de": "Du suchst, was beide Seiten verbindet, statt was sie trennt?", "en": "You look for what unites both sides rather than what divides them?", "ja": "harmonie", "nein": "teufel" },
+    { "de": "Du argumentierst mit Gefühl, wohingegen andere Zahlen bringen?", "en": "You argue with feeling, whereas others bring numbers?", "ja": "laut", "nein": "fakten" },
+    { "left": { "de": "Wahlprogramm lesen", "en": "reading the manifesto", "vibe": "fakten" }, "right": { "de": "Wahlplakat kommentieren", "en": "commenting on the posters", "vibe": "laut" } },
+    { "left": { "de": "Brücken bauen", "en": "building bridges", "vibe": "harmonie" }, "right": { "de": "Fragen, die wehtun", "en": "questions that hurt", "vibe": "teufel" } },
+    { "de": "Deine Meinung kennt niemand, nicht einmal deine Familie?", "en": "Nobody knows your opinion, not even your family?", "ja": "still", "nein": "laut" },
+    { "de": "Ein schlecht begründetes Argument ärgert dich mehr als ein falsches?", "en": "A badly argued point annoys you more than a wrong one?", "ja": "fakten", "nein": "harmonie" },
+    { "left": { "de": "Einigung", "en": "agreement", "vibe": "harmonie" }, "right": { "de": "Revolution", "en": "revolution", "vibe": "laut" } },
+    { "de": "Du wechselst die Seite, sobald alle einer Meinung sind?", "en": "You switch sides as soon as everyone agrees?", "ja": "teufel", "nein": "still" },
+    { "left": { "de": "zuhören und nicken", "en": "listening and nodding", "vibe": "still" }, "right": { "de": "zuhören und zerlegen", "en": "listening and taking it apart", "vibe": "teufel" } }
+   ]
+  }
+ ]
+}

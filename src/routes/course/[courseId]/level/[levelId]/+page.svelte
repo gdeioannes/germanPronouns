@@ -8,6 +8,7 @@
 	// everything for A1?" against.
 	import Icon from '$lib/icons/Icon.svelte';
 	import DoneMark from '$lib/components/DoneMark.svelte';
+	import OfflineSave from '$lib/components/OfflineSave.svelte';
 	import InProgressBadge from '$lib/components/InProgressBadge.svelte';
 	import { inProgressIds } from '$lib/state/resume';
 	import SiteNav from '$lib/components/SiteNav.svelte';
@@ -138,6 +139,8 @@
 			{#each (Array.isArray(module.exam) ? module.exam : [module.exam]) as item (item)}<li>{item}</li>{/each}
 		</ul>
 	{/if}
+
+	<OfflineSave {level} />
 
 	<h2>The exercises</h2>
 	<ol class="quizzes">

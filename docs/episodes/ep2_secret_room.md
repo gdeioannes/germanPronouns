@@ -455,6 +455,12 @@ pick-one, 48 notebook words. Playtest bot (pictures and clips missing):
 
 ## Audio takes
 
+**2026-11-10:** 18 of the 20 Chirp reads below were re-recorded as acted
+takes (`node tool/gen-story-audio.mjs ep2_secret_room --gemini-api`,
+$0.23). Two failed the transcript check three times, the model misreading
+the prices: `ep2_narr_p7_0` and `ep2_narr_p7_2` stay as their Chirp reads.
+Still unheard by a person: the spelled-letter and gate-code clips.
+
 Acted takes (Gemini-TTS, directed) exist for 45 clips. The Cloud route
 (`npm run story-audio`) needs the "Agent Platform API" enabled on the
 Google project, and the Gemini-API route hit its daily quota at clip 46.

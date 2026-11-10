@@ -17,6 +17,18 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-10",
+    title: "Your level, offline and out loud",
+    items: [
+      "Each level's page has a new Save offline button: it downloads every exercise, book chapter and recording of that level, so you can study on the U-Bahn or a flight without a connection.",
+      "Your book in the app now reads every line and every word card in a real recorded voice, in all twelve books, instead of your device's voice.",
+      "Ja oder Nein? has six new themes for higher levels, with questions written in the grammar of the level: Which colleague are you? and Which neighbour are you? at B1, What kind of arguer are you? and Which tenant are you? at B2, What kind of reader are you? at C1 and What kind of speaker are you? at C2.",
+      "The game now deals the themes of your level first, and never one above it, and every question, old and new, is read aloud in a recorded voice.",
+      "In the second Maya story, most of the narration and the voices of Oma Hartmann and the courier are now properly acted.",
+    ],
+    highlight: true,
+  },
+  {
+    date: "2026-11-10",
     title: "A written reason under every miss, A1 to C2",
     items: [
       "All 3,839 fill-in sentences across all twelve levels now carry their own explanation: miss a gap and you see the rule as it applies to that very sentence — why it is fährt, why im Park, why dessen and not deren. From B1 the reason is in German, with English one tap away.",

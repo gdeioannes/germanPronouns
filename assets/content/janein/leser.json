@@ -1,0 +1,256 @@
+{
+ "id": "leser",
+ "title": "Welcher Leser bist du?",
+ "en": "What kind of reader are you?",
+ "emoji": "📖",
+ "level": "C1",
+ "personas": [
+  {
+   "id": "klassiker", "title": "Der Bildungsbürger", "emoji": "🎩",
+   "line": "You have read Faust twice. Voluntarily.",
+   "profile": "Your shelf runs from Goethe to Mann in strict order, and you finish every book on principle, even the ones that deserve to be abandoned. You quote poets at dinner, own three editions of the same novel and believe a great sentence can still change a life. Annoyingly, you're right.",
+   "traits": ["cultured", "disciplined", "a bit proud"],
+   "de": {
+    "line": "Du hast den Faust zweimal gelesen. Freiwillig.",
+    "profile": "Dein Regal reicht in strenger Ordnung von Goethe bis Mann, und du liest jedes Buch aus Prinzip zu Ende, auch die, die es nicht verdienen. Beim Essen zitierst du Dichter, besitzt drei Ausgaben desselben Romans und glaubst, dass ein großer Satz ein Leben verändern kann. Ärgerlicherweise hast du recht.",
+    "traits": ["gebildet", "diszipliniert", "etwas stolz"]
+   },
+   "match": "rand", "clash": "hoerbuch",
+   "word": { "de": "der Kanon", "en": "the canon" }
+  },
+  {
+   "id": "krimi", "title": "Der Krimifan", "emoji": "🔪",
+   "line": "You knew it was the gardener on page thirty.",
+   "profile": "You read with your detective's hat on: every alibi checked, every clue noted, every red herring eaten for breakfast. Series are your natural habitat, Scandinavian winters your favourite weather. Spoil an ending for you and you will, figuratively speaking, plan the perfect crime.",
+   "traits": ["sharp", "impatient", "hooked"],
+   "de": {
+    "line": "Auf Seite dreißig wusstest du: Es war der Gärtner.",
+    "profile": "Du liest mit Detektivhut: jedes Alibi geprüft, jede Spur notiert, jede falsche Fährte zum Frühstück verspeist. Buchreihen sind dein natürlicher Lebensraum, skandinavische Winter dein Lieblingswetter. Wer dir ein Ende verrät, sollte wissen: Du planst, bildlich gesprochen, das perfekte Verbrechen.",
+    "traits": ["scharfsinnig", "ungeduldig", "süchtig"]
+   },
+   "match": "hoerbuch", "clash": "klassiker",
+   "word": { "de": "der Täter", "en": "the culprit" }
+  },
+  {
+   "id": "stapel", "title": "Der ungelesene Stapel", "emoji": "📚",
+   "line": "You buy books faster than you can read them. That's the point.",
+   "profile": "For you, a book you haven't read yet is pure possibility, and you collect possibilities. Your bedside table is a tower, your hallway a second shelf, and you could get through a year without buying a single page. You will read them all. One day. Probably.",
+   "traits": ["curious", "optimistic", "overbooked"],
+   "de": {
+    "line": "Du kaufst Bücher schneller, als du sie lesen kannst. Genau darum geht es.",
+    "profile": "Ein ungelesenes Buch ist für dich reine Möglichkeit, und du sammelst Möglichkeiten. Dein Nachttisch ist ein Turm, dein Flur ein zweites Regal, und du kämst ein Jahr lang aus, ohne eine einzige Seite zu kaufen. Du wirst sie alle lesen. Irgendwann. Wahrscheinlich.",
+    "traits": ["neugierig", "optimistisch", "überbucht"]
+   },
+   "match": "klassiker", "clash": "rand",
+   "word": { "de": "der Bücherstapel", "en": "the pile of books" }
+  },
+  {
+   "id": "hoerbuch", "title": "Das Hörbuch", "emoji": "🎧",
+   "line": "You've read forty books this year. All of them while jogging.",
+   "profile": "Books are your soundtrack: on the bike, in the kitchen, at double speed on the U-Bahn. You have opinions about narrators the way others have opinions about footballers, and you've finished more novels than your bookish friends without ever turning a page.",
+   "traits": ["efficient", "busy", "modern"],
+   "de": {
+    "line": "Du hast dieses Jahr vierzig Bücher gelesen. Alle beim Joggen.",
+    "profile": "Bücher sind dein Soundtrack: auf dem Rad, in der Küche, in doppeltem Tempo in der U-Bahn. Über Sprecher hast du Meinungen wie andere über Fußballer, und du hast mehr Romane beendet als deine belesenen Freunde, ohne je eine Seite umzublättern.",
+    "traits": ["effizient", "beschäftigt", "modern"]
+   },
+   "match": "krimi", "clash": "rand",
+   "word": { "de": "das Hörbuch", "en": "the audiobook" }
+  },
+  {
+   "id": "rand", "title": "Die Randnotiz", "emoji": "✏️",
+   "line": "You don't just read books. You argue with them, in pencil.",
+   "profile": "Every book you own looks as if it survived a debate: underlining, question marks, an exasperated 'no!' on page 112. You copy out sentences, keep reading journals and remember exactly where you were when a paragraph changed your mind. Lending you a book is risky; getting it back is a gift.",
+   "traits": ["thoughtful", "critical", "devoted"],
+   "de": {
+    "line": "Du liest Bücher nicht nur. Du streitest mit ihnen, mit Bleistift.",
+    "profile": "Jedes deiner Bücher sieht aus, als hätte es eine Debatte überlebt: Unterstreichungen, Fragezeichen, ein genervtes ‚Nein!‘ auf Seite 112. Du schreibst Sätze ab, führst Lesetagebücher und weißt genau, wo du warst, als ein Absatz deine Meinung geändert hat. Dir ein Buch zu leihen ist riskant; es zurückzubekommen, ein Geschenk.",
+    "traits": ["nachdenklich", "kritisch", "hingebungsvoll"]
+   },
+   "match": "klassiker", "clash": "stapel",
+   "word": { "de": "die Randbemerkung", "en": "the margin note" }
+  }
+ ],
+ "rounds": [
+  {
+   "id": "buchhandlung", "title": "Die Buchhandlung", "en": "The bookshop",
+   "hook": "You came in for one book. Obviously.",
+   "questions": [
+    { "de": "Du verlässt eine Buchhandlung nie mit nur einem Buch?", "en": "You never leave a bookshop with just one book?", "ja": "stapel", "nein": "hoerbuch" },
+    { "de": "Du gehst direkt zu den Krimis, ohne nach links oder rechts zu schauen?", "en": "You head straight for the crime shelf without looking left or right?", "ja": "krimi", "nein": "klassiker" },
+    { "de": "Die Empfehlung der Buchhändlerin notierst du mit Bleistift?", "en": "You note the bookseller's recommendation in pencil?", "ja": "rand", "nein": "hoerbuch" },
+    { "de": "Du dürftest der einzige Kunde sein, der nach Fontane fragt?", "en": "You're probably the only customer who asks for Fontane?", "ja": "klassiker", "nein": "krimi" },
+    { "de": "Du fragst, ob es das Buch auch als Hörbuch gibt?", "en": "You ask whether the book is also out as an audiobook?", "ja": "hoerbuch", "nein": "stapel" },
+    { "left": { "de": "Neuerscheinungen", "en": "new releases", "vibe": "stapel" }, "right": { "de": "Antiquariat", "en": "the second-hand section", "vibe": "klassiker" } },
+    { "left": { "de": "Spannung", "en": "suspense", "vibe": "krimi" }, "right": { "de": "Anmerkungen", "en": "annotations", "vibe": "rand" } },
+    { "de": "Ein dreimal gekauftes, nie gelesenes Buch steht in deinem Regal?", "en": "There's a book on your shelf you've bought three times and never read?", "ja": "stapel", "nein": "rand" },
+    { "de": "Du liest in der Buchhandlung das Ende, bevor du kaufst?", "en": "In the bookshop you read the ending before you buy?", "ja": "krimi", "nein": "klassiker" },
+    { "left": { "de": "gebundene Ausgabe", "en": "a hardback", "vibe": "klassiker" }, "right": { "de": "App mit Sprecher", "en": "an app with a narrator", "vibe": "hoerbuch" } },
+    { "de": "Du sollst einmal erst nach Ladenschluss gegangen sein?", "en": "Rumour has it you once left only after closing time?", "ja": "stapel", "nein": "hoerbuch" },
+    { "left": { "de": "Bleistift kaufen", "en": "buying a pencil", "vibe": "rand" }, "right": { "de": "Kopfhörer laden", "en": "charging your headphones", "vibe": "hoerbuch" } }
+   ]
+  },
+  {
+   "id": "bett", "title": "Im Bett", "en": "In bed",
+   "hook": "Just one more chapter. It's two in the morning.",
+   "questions": [
+    { "de": "Du liest einen Krimi, bis du den Täter kennst, egal wie spät es ist?", "en": "You read a crime novel until you know who did it, however late it gets?", "ja": "krimi", "nein": "hoerbuch" },
+    { "de": "Neben deinem Bett liegen mindestens sieben angefangene Bücher?", "en": "There are at least seven half-read books beside your bed?", "ja": "stapel", "nein": "klassiker" },
+    { "de": "Du schläfst mit Kopfhörern ein, während dir jemand vorliest?", "en": "You fall asleep with headphones on while someone reads to you?", "ja": "hoerbuch", "nein": "rand" },
+    { "de": "Auch im Bett liest du mit einem Stift in der Hand?", "en": "Even in bed, you read with a pen in your hand?", "ja": "rand", "nein": "hoerbuch" },
+    { "de": "Vor dem Einschlafen liest du ein paar Seiten Rilke?", "en": "Before falling asleep you read a few pages of Rilke?", "ja": "klassiker", "nein": "krimi" },
+    { "left": { "de": "Leselampe", "en": "a reading lamp", "vibe": "rand" }, "right": { "de": "Schlaftimer", "en": "a sleep timer", "vibe": "hoerbuch" } },
+    { "left": { "de": "noch ein Kapitel", "en": "one more chapter", "vibe": "krimi" }, "right": { "de": "neues Buch anfangen", "en": "starting a new book", "vibe": "stapel" } },
+    { "de": "Das auf dem Nachttisch liegende Buch dürfte seit Monaten dasselbe sein?", "en": "The book on your bedside table has probably been the same for months?", "ja": "stapel", "nein": "krimi" },
+    { "de": "Du liest lieber Briefwechsel berühmter Dichter als Romane?", "en": "You'd rather read famous poets' letters than novels?", "ja": "klassiker", "nein": "hoerbuch" },
+    { "left": { "de": "Lesezeichen aus Leder", "en": "a leather bookmark", "vibe": "klassiker" }, "right": { "de": "Eselsohren", "en": "dog-eared pages", "vibe": "stapel" } },
+    { "de": "Nachts schreibst du einen Satz ab, der dich nicht loslässt?", "en": "At night you copy out a sentence that won't let you go?", "ja": "rand", "nein": "krimi" },
+    { "left": { "de": "Stille", "en": "silence", "vibe": "klassiker" }, "right": { "de": "eine Stimme im Ohr", "en": "a voice in your ear", "vibe": "hoerbuch" } }
+   ]
+  },
+  {
+   "id": "unterwegs", "title": "Unterwegs", "en": "On the go",
+   "hook": "The U-Bahn is your reading room.",
+   "questions": [
+    { "de": "In der U-Bahn hörst du Bücher, die du nie lesen würdest?", "en": "On the U-Bahn you listen to books you'd never read?", "ja": "hoerbuch", "nein": "klassiker" },
+    { "de": "Du hast deine Haltestelle verpasst, weil das Kapitel so spannend war?", "en": "You missed your stop because the chapter was so gripping?", "ja": "krimi", "nein": "stapel" },
+    { "de": "Du hast immer zwei Bücher dabei, falls eins langweilig wird?", "en": "You always carry two books in case one gets boring?", "ja": "stapel", "nein": "hoerbuch" },
+    { "de": "Du unterstreichst sogar im Stehen, wenn die Bahn wackelt?", "en": "You underline even standing up in a wobbly train?", "ja": "rand", "nein": "hoerbuch" },
+    { "de": "Man könnte meinen, du liest Thomas Mann, um gesehen zu werden?", "en": "One might think you read Thomas Mann in order to be seen?", "ja": "klassiker", "nein": "krimi" },
+    { "left": { "de": "Gedichtband", "en": "a volume of poems", "vibe": "klassiker" }, "right": { "de": "Thriller", "en": "a thriller", "vibe": "krimi" } },
+    { "left": { "de": "Notizbuch", "en": "a notebook", "vibe": "rand" }, "right": { "de": "drei Bücher im Rucksack", "en": "three books in your rucksack", "vibe": "stapel" } },
+    { "de": "Du hörst Hörbücher doppelt so schnell, um mehr zu schaffen?", "en": "You play audiobooks at double speed to get through more?", "ja": "hoerbuch", "nein": "rand" },
+    { "de": "Du schaust, was die Leute neben dir lesen, und machst dir Notizen?", "en": "You look at what the people next to you are reading and take notes?", "ja": "rand", "nein": "krimi" },
+    { "left": { "de": "Fensterplatz mit Buch", "en": "a window seat with a book", "vibe": "klassiker" }, "right": { "de": "Stehplatz mit Podcast", "en": "standing room with a podcast", "vibe": "hoerbuch" } },
+    { "de": "Ein im Zug liegen gelassenes Buch nimmst du mit und liest es?", "en": "A book left behind on the train: you take it home and read it?", "ja": "stapel", "nein": "klassiker" },
+    { "left": { "de": "Mord im Zug", "en": "murder on the train", "vibe": "krimi" }, "right": { "de": "Gedanken im Zug", "en": "thoughts on the train", "vibe": "rand" } }
+   ]
+  },
+  {
+   "id": "lesekreis", "title": "Der Lesekreis", "en": "The book club",
+   "hook": "Wine, cheese and one person who actually finished.",
+   "questions": [
+    { "de": "Im Lesekreis hast nur du das Buch zu Ende gelesen?", "en": "In the book club, you're the only one who finished the book?", "ja": "klassiker", "nein": "stapel" },
+    { "de": "Du kommst mit dreißig markierten Stellen zum Treffen?", "en": "You come to the meeting with thirty marked passages?", "ja": "rand", "nein": "hoerbuch" },
+    { "de": "Du willst das Buch gelesen haben, kennst aber nur die Rezension?", "en": "You claim to have read the book, but you only know the review?", "ja": "stapel", "nein": "rand" },
+    { "de": "Du hast das Buch gehört, nicht gelesen, und sagst es niemandem?", "en": "You listened to the book rather than read it, and tell no one?", "ja": "hoerbuch", "nein": "klassiker" },
+    { "de": "Du schlägst jedes Mal einen Krimi vor, egal was auf der Liste steht?", "en": "Every time you suggest a crime novel, whatever is on the list?", "ja": "krimi", "nein": "rand" },
+    { "left": { "de": "Zitate vorlesen", "en": "reading out quotes", "vibe": "rand" }, "right": { "de": "Theorien zum Täter", "en": "theories about the culprit", "vibe": "krimi" } },
+    { "left": { "de": "Wein und Plaudern", "en": "wine and chatter", "vibe": "stapel" }, "right": { "de": "Interpretation", "en": "interpretation", "vibe": "klassiker" } },
+    { "de": "Die Meinung des Autors widerlegst du mit seinem eigenen Zitat?", "en": "You refute the author's view with his own words?", "ja": "rand", "nein": "hoerbuch" },
+    { "de": "Du dürftest öfter über die Sprecherin reden als über das Buch?", "en": "You probably talk more about the narrator than about the book?", "ja": "hoerbuch", "nein": "klassiker" },
+    { "left": { "de": "nächstes Mal Klassiker", "en": "a classic next time", "vibe": "klassiker" }, "right": { "de": "nächstes Mal Thriller", "en": "a thriller next time", "vibe": "krimi" } },
+    { "de": "Du kaufst jedes vorgeschlagene Buch, liest aber keins davon?", "en": "You buy every suggested book but read none of them?", "ja": "stapel", "nein": "krimi" },
+    { "left": { "de": "Notizen teilen", "en": "sharing your notes", "vibe": "rand" }, "right": { "de": "Hörbuch-Link teilen", "en": "sharing an audiobook link", "vibe": "hoerbuch" } }
+   ]
+  },
+  {
+   "id": "strand", "title": "Am Strand", "en": "On the beach",
+   "hook": "Sand in the pages, sun on the spoiler.",
+   "questions": [
+    { "de": "Im Urlaub liest du den dicken Klassiker, den du seit Jahren aufschiebst?", "en": "On holiday you read the fat classic you've put off for years?", "ja": "klassiker", "nein": "krimi" },
+    { "de": "Du packst sechs Bücher für eine Woche ein und liest keins?", "en": "You pack six books for a week and read none of them?", "ja": "stapel", "nein": "krimi" },
+    { "de": "Am Strand hörst du Krimis, die Augen geschlossen?", "en": "On the beach you listen to crime stories with your eyes shut?", "ja": "hoerbuch", "nein": "rand" },
+    { "de": "Ein am Strand verschlungener Thriller ist für dich Urlaub genug?", "en": "A thriller devoured on the beach is holiday enough for you?", "ja": "krimi", "nein": "klassiker" },
+    { "de": "Selbst am Strand hast du Klebezettel dabei?", "en": "Even on the beach you have sticky notes with you?", "ja": "rand", "nein": "stapel" },
+    { "left": { "de": "Strandkrimi", "en": "a beach thriller", "vibe": "krimi" }, "right": { "de": "Strandhörbuch", "en": "a beach audiobook", "vibe": "hoerbuch" } },
+    { "left": { "de": "Sand zwischen den Seiten", "en": "sand between the pages", "vibe": "stapel" }, "right": { "de": "Bleistift hinterm Ohr", "en": "a pencil behind your ear", "vibe": "rand" } },
+    { "de": "Im Liegestuhl liest du Dante auf Italienisch, weil er es verdient?", "en": "In your deckchair you read Dante in Italian, because he deserves it?", "ja": "klassiker", "nein": "hoerbuch" },
+    { "de": "Du tauschst Bücher mit Fremden am Hotelpool?", "en": "You swap books with strangers at the hotel pool?", "ja": "stapel", "nein": "rand" },
+    { "left": { "de": "Kopfhörer und Meer", "en": "headphones and the sea", "vibe": "hoerbuch" }, "right": { "de": "Notizen zum Meer", "en": "notes on the sea", "vibe": "rand" } },
+    { "de": "Nach dem ersten Kapitel ahnst du, wer der Mörder sein dürfte?", "en": "After the first chapter you have a hunch who the murderer might be?", "ja": "krimi", "nein": "stapel" },
+    { "left": { "de": "Bestseller vom Flughafen", "en": "a bestseller from the airport", "vibe": "stapel" }, "right": { "de": "Gesamtausgabe", "en": "the complete works", "vibe": "klassiker" } }
+   ]
+  },
+  {
+   "id": "bibliothek", "title": "Die Bibliothek", "en": "The library",
+   "hook": "Quiet, please. Someone is underlining.",
+   "questions": [
+    { "de": "Du hast geliehene Bücher schon mal viel zu lange behalten?", "en": "You've kept borrowed books far too long before?", "ja": "stapel", "nein": "klassiker" },
+    { "de": "Du leihst Hörbücher aus, weil dir Lesen zu langsam ist?", "en": "You borrow audiobooks because reading is too slow for you?", "ja": "hoerbuch", "nein": "rand" },
+    { "de": "In ein geliehenes Buch würdest du nie schreiben, obwohl es dich juckt?", "en": "You'd never write in a borrowed book, although you're itching to?", "ja": "klassiker", "nein": "rand" },
+    { "de": "Du kennst jeden skandinavischen Krimi im Bestand?", "en": "You know every Scandinavian crime novel in stock?", "ja": "krimi", "nein": "klassiker" },
+    { "de": "Fremde Notizen in geliehenen Büchern liest du lieber als den Text?", "en": "You'd rather read strangers' notes in borrowed books than the text?", "ja": "rand", "nein": "krimi" },
+    { "left": { "de": "Lesesaal", "en": "the reading room", "vibe": "klassiker" }, "right": { "de": "Hörbuchregal", "en": "the audiobook shelf", "vibe": "hoerbuch" } },
+    { "left": { "de": "Mahngebühr", "en": "a late fee", "vibe": "stapel" }, "right": { "de": "Fernleihe", "en": "an inter-library loan", "vibe": "klassiker" } },
+    { "de": "Du merkst zwölf Bücher gleichzeitig vor, weil du alle willst?", "en": "You reserve twelve books at once because you want them all?", "ja": "stapel", "nein": "hoerbuch" },
+    { "de": "Du hast die Bibliothekarin gebeten, das Ende nicht zu verraten?", "en": "You've asked the librarian not to give away the ending?", "ja": "krimi", "nein": "rand" },
+    { "left": { "de": "Exzerpt schreiben", "en": "writing an excerpt", "vibe": "rand" }, "right": { "de": "einfach weiterhören", "en": "just listening on", "vibe": "hoerbuch" } },
+    { "de": "Eine Erstausgabe würdest du nur mit Handschuhen anfassen?", "en": "You'd only touch a first edition with gloves on?", "ja": "klassiker", "nein": "stapel" },
+    { "left": { "de": "Thrillerregal", "en": "the thriller shelf", "vibe": "krimi" }, "right": { "de": "Zufallsfund", "en": "a lucky find", "vibe": "stapel" } }
+   ]
+  },
+  {
+   "id": "verfilmung", "title": "Verfilmungen", "en": "Film adaptations",
+   "hook": "The book was better. Discuss.",
+   "questions": [
+    { "de": "Du sagst nach jedem Film, das Buch sei besser gewesen?", "en": "After every film you say the book was better?", "ja": "klassiker", "nein": "hoerbuch" },
+    { "de": "Du schaust lieber die Verfilmung, als das Buch zu lesen?", "en": "You'd rather watch the adaptation than read the book?", "ja": "hoerbuch", "nein": "klassiker" },
+    { "de": "Du erkennst im Film sofort, welche Szene gestrichen wurde?", "en": "In the film you spot at once which scene was cut?", "ja": "rand", "nein": "stapel" },
+    { "de": "Im Kino flüsterst du deinem Nachbarn zu, wer der Täter ist?", "en": "In the cinema you whisper to your neighbour who did it?", "ja": "krimi", "nein": "rand" },
+    { "de": "Du kaufst das Buch erst, wenn der Film schon im Kino läuft?", "en": "You only buy the book once the film is already showing?", "ja": "stapel", "nein": "klassiker" },
+    { "left": { "de": "Buch zuerst", "en": "book first", "vibe": "klassiker" }, "right": { "de": "Film zuerst", "en": "film first", "vibe": "stapel" } },
+    { "left": { "de": "Hörspielfassung", "en": "the radio-play version", "vibe": "hoerbuch" }, "right": { "de": "Drehbuch mit Notizen", "en": "the screenplay with notes", "vibe": "rand" } },
+    { "de": "Bei verfilmten Krimis rätst du mit, obwohl du das Ende kennst?", "en": "With filmed crime novels, you play detective though you know the ending?", "ja": "krimi", "nein": "hoerbuch" },
+    { "de": "Die Hauptfigur sieht nie so aus, wie du sie dir vorgestellt hast?", "en": "The main character never looks the way you imagined?", "ja": "rand", "nein": "krimi" },
+    { "left": { "de": "Originalfassung", "en": "the original version", "vibe": "klassiker" }, "right": { "de": "Spoilerwarnung", "en": "a spoiler warning", "vibe": "krimi" } },
+    { "de": "Du hörst den Soundtrack, während du das Buch liest?", "en": "You listen to the soundtrack while you read the book?", "ja": "hoerbuch", "nein": "rand" },
+    { "left": { "de": "Kinokarte im Buch", "en": "a cinema ticket in the book", "vibe": "stapel" }, "right": { "de": "Kritik im Notizbuch", "en": "a review in your notebook", "vibe": "rand" } }
+   ]
+  },
+  {
+   "id": "geschenk", "title": "Bücher verschenken", "en": "Giving books",
+   "hook": "A book as a present. A message, too?",
+   "questions": [
+    { "de": "Du verschenkst Bücher mit Widmung und Anmerkungen?", "en": "You give books with a dedication and annotations?", "ja": "rand", "nein": "stapel" },
+    { "de": "Zum Geburtstag gibt es von dir einen Klassiker, ob man will oder nicht?", "en": "For birthdays you give a classic, whether people want one or not?", "ja": "klassiker", "nein": "hoerbuch" },
+    { "de": "Du verschenkst ein Hörbuch-Abo, weil keiner Zeit zum Lesen hat?", "en": "You give an audiobook subscription because nobody has time to read?", "ja": "hoerbuch", "nein": "klassiker" },
+    { "de": "Du verschenkst Bücher, die du selbst noch lesen wolltest?", "en": "You give away books you still meant to read yourself?", "ja": "stapel", "nein": "rand" },
+    { "de": "Du verschenkst nur Krimis, deren Ende du schon kennst?", "en": "You only give crime novels whose ending you already know?", "ja": "krimi", "nein": "klassiker" },
+    { "left": { "de": "Erstausgabe", "en": "a first edition", "vibe": "klassiker" }, "right": { "de": "Gutschein", "en": "a voucher", "vibe": "stapel" } },
+    { "left": { "de": "Buch mit Klebezetteln", "en": "a book full of sticky notes", "vibe": "rand" }, "right": { "de": "Buch mit Kopfhörern", "en": "a book with headphones", "vibe": "hoerbuch" } },
+    { "de": "Das verschenkte Buch soll man bitte zurückgeben, wenn man fertig ist?", "en": "The book you give is to be returned, please, once they've finished?", "ja": "rand", "nein": "stapel" },
+    { "de": "Du verpackst Bücher so, dass niemand den Titel erraten kann?", "en": "You wrap books so that nobody can guess the title?", "ja": "krimi", "nein": "hoerbuch" },
+    { "left": { "de": "Lieblingsbuch schenken", "en": "giving your favourite book", "vibe": "klassiker" }, "right": { "de": "Bestseller schenken", "en": "giving a bestseller", "vibe": "stapel" } },
+    { "de": "Du liest das Geschenk vorher selbst, vorsichtig, ohne Knicke?", "en": "You read the present yourself first, carefully, without creasing it?", "ja": "klassiker", "nein": "krimi" },
+    { "left": { "de": "Vorlesen am Telefon", "en": "reading aloud on the phone", "vibe": "hoerbuch" }, "right": { "de": "Rätsel zum Auspacken", "en": "a riddle to unwrap", "vibe": "krimi" } }
+   ]
+  },
+  {
+   "id": "regal", "title": "Das Bücherregal", "en": "The bookshelf",
+   "hook": "Your shelf says who you are. Or who you'd like to be.",
+   "questions": [
+    { "de": "Dein Regal ist alphabetisch nach Autor sortiert?", "en": "Your shelf is sorted alphabetically by author?", "ja": "klassiker", "nein": "stapel" },
+    { "de": "Deine Bücher stapeln sich längst auch auf dem Boden?", "en": "Your books have long since been piling up on the floor too?", "ja": "stapel", "nein": "hoerbuch" },
+    { "de": "Dein Regal ist fast leer, weil alles auf dem Handy ist?", "en": "Your shelf is nearly empty because everything is on your phone?", "ja": "hoerbuch", "nein": "stapel" },
+    { "de": "Jedes Buch im Regal ist voller Unterstreichungen?", "en": "Every book on your shelf is full of underlining?", "ja": "rand", "nein": "klassiker" },
+    { "de": "Ein ganzes Regalbrett gehört den Krimis aus einer einzigen Reihe?", "en": "A whole shelf belongs to crime novels from a single series?", "ja": "krimi", "nein": "rand" },
+    { "left": { "de": "nach Farben sortiert", "en": "sorted by colour", "vibe": "stapel" }, "right": { "de": "nach Epochen sortiert", "en": "sorted by period", "vibe": "klassiker" } },
+    { "left": { "de": "Spuren des Lesens", "en": "traces of reading", "vibe": "rand" }, "right": { "de": "die Reihe in Ordnung", "en": "the series in order", "vibe": "krimi" } },
+    { "de": "Gäste sollen beim Blick auf dein Regal beeindruckt sein?", "en": "Guests are meant to be impressed when they see your shelf?", "ja": "klassiker", "nein": "hoerbuch" },
+    { "de": "Über die Hälfte der Bücher im Regal dürftest du nie gelesen haben?", "en": "You've probably never read over half the books on your shelf?", "ja": "stapel", "nein": "rand" },
+    { "left": { "de": "Regal voll", "en": "a full shelf", "vibe": "stapel" }, "right": { "de": "Speicher voll", "en": "a full phone", "vibe": "hoerbuch" } },
+    { "de": "In jedem Buch steht hinten dein eigenes Register?", "en": "At the back of every book there's an index of your own?", "ja": "rand", "nein": "krimi" },
+    { "left": { "de": "Lieblingskrimis vorne", "en": "favourite crime novels at the front", "vibe": "krimi" }, "right": { "de": "Hörbücher in der App", "en": "audiobooks in the app", "vibe": "hoerbuch" } }
+   ]
+  },
+  {
+   "id": "ende", "title": "Das Ende", "en": "The ending",
+   "hook": "Last page. Satisfied, furious or already on the next one?",
+   "questions": [
+    { "de": "Du liest zuerst die letzte Seite, um zu sehen, ob es sich lohnt?", "en": "You read the last page first to see if it's worth it?", "ja": "stapel", "nein": "krimi" },
+    { "de": "Ein offenes Ende macht dich wütend, weil du den Täter wissen willst?", "en": "An open ending makes you furious because you want to know who did it?", "ja": "krimi", "nein": "klassiker" },
+    { "de": "Nach dem letzten Satz schreibst du eine Seite Gedanken auf?", "en": "After the last sentence you write a page of thoughts?", "ja": "rand", "nein": "hoerbuch" },
+    { "de": "Das Ende hörst du dir zweimal an, weil die Stimme so schön ist?", "en": "You listen to the ending twice because the voice is so beautiful?", "ja": "hoerbuch", "nein": "rand" },
+    { "de": "Du liest ein Buch aus Prinzip zu Ende, auch wenn es dich langweilt?", "en": "You finish a book on principle, even if it bores you?", "ja": "klassiker", "nein": "stapel" },
+    { "left": { "de": "letzte Seite zuerst", "en": "last page first", "vibe": "stapel" }, "right": { "de": "letzte Seite zuletzt", "en": "last page last", "vibe": "krimi" } },
+    { "left": { "de": "Nachwort lesen", "en": "reading the afterword", "vibe": "klassiker" }, "right": { "de": "Sprecherinterview hören", "en": "hearing the narrator's interview", "vibe": "hoerbuch" } },
+    { "de": "Ein schwaches Ende verbesserst du mit Bleistift am Rand?", "en": "You improve a weak ending in pencil in the margin?", "ja": "rand", "nein": "krimi" },
+    { "de": "Kaum ist ein Buch zu Ende, liegen schon drei neue bereit?", "en": "No sooner is one book finished than three new ones are waiting?", "ja": "stapel", "nein": "klassiker" },
+    { "left": { "de": "Tränen", "en": "tears", "vibe": "klassiker" }, "right": { "de": "Fortsetzung bestellen", "en": "ordering the sequel", "vibe": "krimi" } },
+    { "de": "Das Ende des Hörbuchs verpasst du, weil du eingeschlafen bist?", "en": "You miss the end of the audiobook because you fell asleep?", "ja": "hoerbuch", "nein": "rand" },
+    { "left": { "de": "Zitat abschreiben", "en": "copying out a quote", "vibe": "rand" }, "right": { "de": "Buch weiterschenken", "en": "passing the book on", "vibe": "stapel" } }
+   ]
+  }
+ ]
+}
