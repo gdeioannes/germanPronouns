@@ -1,0 +1,463 @@
+[
+	{
+		"id": "quest_b2_1_gesellschaft",
+		"whys": [
+			{ "sentence": "Das Parlament hat das neue Gesetz mit großer Mehrheit ____. (to pass — beschließen / verabschieden, Partizip II)", "why": "Gesetze werden verabschiedet oder beschlossen — beide Partizipien ohne ge-, wegen ver-/be-.", "whyEn": "Laws are 'verabschiedet' or 'beschlossen' — both participles without ge-, thanks to ver-/be-." },
+			{ "sentence": "Die Regierung hat im Parlament keine eigene ____ mehr. (majority)", "why": "die Mehrheit — von mehr + -heit; das Gegenteil ist die Minderheit.", "whyEn": "die Mehrheit — from mehr + -heit; its opposite is die Minderheit." },
+			{ "sentence": "Die ____ zwischen Arm und Reich wächst seit Jahren. (gap)", "why": "die Kluft — der bildhafte Abgrund; die Schere 'öffnet sich' im selben Bild.", "whyEn": "die Kluft — the figurative chasm; die Schere ('scissors') opens in the same image." },
+			{ "sentence": "Die ____ des Gesetzes betonen den Nutzen für die Umwelt. (supporters)", "why": "die Befürworter — die, die FÜR etwas sprechen (befürworten).", "whyEn": "die Befürworter — those who speak FOR something (befürworten)." },
+			{ "sentence": "Die ____ warnen dagegen vor höheren Kosten für die Bürger. (opponents)", "why": "die Gegner — von gegen; das Gegenstück zu den Befürwortern.", "whyEn": "die Gegner — from gegen; the counterpart of the Befürworter." },
+			{ "sentence": "Der Bundestag ____ heute über die Rentenreform ab. (to vote on)", "why": "abstimmen über + Akkusativ — trennbar: stimmt … ab.", "whyEn": "abstimmen über + accusative — separable: stimmt … ab." },
+			{ "sentence": "Die Partei setzt sich ____ eine gerechtere Verteilung ein. (sich einsetzen + preposition)", "why": "sich einsetzen FÜR + Akkusativ — sich für etwas starkmachen.", "whyEn": "sich einsetzen FÜR + accusative — to campaign for something." },
+			{ "sentence": "Um die Schulden abzubauen, will die Regierung die Steuern ____. (to raise)", "why": "Steuern erhöhen — hoch als Verb: er-höhen.", "whyEn": "Steuern erhöhen — hoch turned into a verb: er-höhen, to raise." },
+			{ "sentence": "Nach dem Skandal übernahm der Minister die ____ und trat zurück. (responsibility)", "why": "die Verantwortung — Verantwortung übernehmen ist die feste Kollokation.", "whyEn": "die Verantwortung — Verantwortung übernehmen is the fixed collocation." },
+			{ "sentence": "Der demografische Wandel ist die größte ____ für die Sozialsysteme. (challenge)", "why": "die Herausforderung — von herausfordern; -ung, also die.", "whyEn": "die Herausforderung — from herausfordern; -ung, hence die." },
+			{ "sentence": "Die Entscheidung wurde in der ____ scharf kritisiert. (the public)", "why": "die Öffentlichkeit — öffentlich + -keit: der öffentliche Raum als Nomen.", "whyEn": "die Öffentlichkeit — öffentlich + -keit: the public sphere as a noun." },
+			{ "sentence": "Die Rechte einer ____ müssen auch gegen die Mehrheit geschützt werden. (minority)", "why": "die Minderheit — minder (weniger) + -heit.", "whyEn": "die Minderheit — minder (less) + -heit." },
+			{ "sentence": "Trotz des Wachstums ist die ____ in einigen Regionen weiter hoch. (unemployment)", "why": "die Arbeitslosigkeit — arbeitslos + -igkeit, die Nominalisierung des Zustands.", "whyEn": "die Arbeitslosigkeit — arbeitslos + -igkeit, the state turned noun." },
+			{ "sentence": "Wer ein hohes ____ hat, soll künftig mehr Steuern zahlen. (income)", "why": "das Einkommen — das, was 'hereinkommt'; substantivierter Infinitiv, also das.", "whyEn": "das Einkommen — what 'comes in'; a nominalised infinitive, hence das." },
+			{ "sentence": "Die Opposition ____ den Rücktritt der Ministerin. (to demand)", "why": "fordern + Akkusativ — die Opposition fordert; fördern mit ö wäre 'to support'.", "whyEn": "fordern + accusative — to demand; fördern with ö would mean 'to support'." }
+		]
+	},
+	{
+		"id": "quest_b2_1_konj1",
+		"whys": [
+			{ "sentence": "Er sagt, er ____ krank. (sein → Konj. I)", "why": "Indirekte Rede: Konjunktiv I von sein — er sei; so bleibt es seine Behauptung.", "whyEn": "Reported speech: Konjunktiv I of sein — er sei; it stays his claim, not your fact." },
+			{ "sentence": "Sie meint, sie ____ keine Zeit. (haben → Konj. I)", "why": "Konjunktiv I: der Stamm + e — sie habe.", "whyEn": "Konjunktiv I: stem + e — sie habe." },
+			{ "sentence": "Die Experten sagten, sie ____ keine schnelle Lösung. (haben, Plural)", "why": "Plural-Konjunktiv I (haben) sieht wie Indikativ aus — darum Ausweichform Konjunktiv II: hätten.", "whyEn": "The plural Konjunktiv I of haben looks like the indicative — so the fallback Konjunktiv II: hätten." },
+			{ "sentence": "Man sagt, er ____ sehr reich. (sein → Konj. I)", "why": "er sei — das Gerücht bleibt im Konjunktiv.", "whyEn": "er sei — the rumour stays in the Konjunktiv." },
+			{ "sentence": "Sie behauptet, sie ____ nichts davon gewusst. (haben → Konj. I)", "why": "sie habe … gewusst — Konjunktiv I des Hilfsverbs trägt die Vergangenheit.", "whyEn": "sie habe … gewusst — the helper's Konjunktiv I carries the past." },
+			{ "sentence": "Der Sprecher erklärt, die Lage ____ ruhig. (sein → Konj. I)", "why": "die Lage sei ruhig — klassische Nachrichtensprache.", "whyEn": "die Lage sei ruhig — classic news-report German." },
+			{ "sentence": "Unsere Nachbarn sagten, sie ____ nächste Woche vorbei. (vorbeikommen, Plural)", "why": "Plural: Konjunktiv I = Indikativ (kommen) → Ausweichen auf Konjunktiv II: kämen.", "whyEn": "Plural: Konjunktiv I equals the indicative (kommen) → fall back to Konjunktiv II: kämen." },
+			{ "sentence": "Sie meint, das ____ nicht stimmen. (können → Konj. I)", "why": "können im Konjunktiv I: könne — Stamm + e, mit Umlaut.", "whyEn": "können in Konjunktiv I: könne — stem + e, umlaut kept." },
+			{ "sentence": "Die Zeitung schreibt, der Präsident ____ morgen. (kommen → Konj. I)", "why": "er komme — der Konjunktiv I der dritten Person: Stamm + e.", "whyEn": "er komme — third-person Konjunktiv I: stem + e." },
+			{ "sentence": "Er behauptet, er ____ nichts gesehen. (haben → Konj. I)", "why": "er habe … gesehen — behaupten + Konjunktiv hält Distanz.", "whyEn": "er habe … gesehen — behaupten + Konjunktiv keeps the distance." },
+			{ "sentence": "Ich sagte ihm, ich ____ keine Zeit. (haben, 1. Person)", "why": "1. Person: Konjunktiv I (habe) = Indikativ → Konjunktiv II: hätte.", "whyEn": "First person: Konjunktiv I (habe) equals the indicative → Konjunktiv II: hätte." },
+			{ "sentence": "Der Minister erklärt, es ____ keine neuen Steuern geben. (werden → Konj. I)", "why": "werden im Konjunktiv I: werde — es werde … geben, das berichtete Futur.", "whyEn": "werden in Konjunktiv I: werde — es werde … geben, the reported future." },
+			{ "sentence": "Die Polizei berichtet, der Täter ____ geflohen. (sein → Konj. I)", "why": "sei geflohen — sein-Perfekt in der indirekten Rede.", "whyEn": "sei geflohen — a sein-perfect in reported speech." },
+			{ "sentence": "Die Zeugen behaupteten, sie ____ nichts davon. (wissen, Plural)", "why": "Plural wissen: Konjunktiv I = Indikativ → Konjunktiv II: wüssten.", "whyEn": "Plural wissen: Konjunktiv I equals the indicative → Konjunktiv II: wüssten." },
+			{ "sentence": "Die Mitarbeiter erklärten, sie ____ mit dem Ergebnis zufrieden. (sein, Plural)", "why": "sein ist die Ausnahme: auch im Plural unterscheidbar — seien.", "whyEn": "sein is the exception: distinct even in the plural — seien." }
+		]
+	},
+	{
+		"id": "quest_b2_1_indirekt_fragen",
+		"whys": [
+			{ "sentence": "Der Journalist fragte, ____ die Regierung einen Plan habe. (whether)", "why": "Ja/Nein-Frage indirekt: ob — mit Konjunktiv I (habe).", "whyEn": "An indirect yes/no question: ob — with Konjunktiv I (habe)." },
+			{ "sentence": "Sie wollte wissen, ob ich am Wochenende Zeit ____. (haben → Konj. I, reported in writing)", "why": "ich + Konjunktiv I ist unsichtbar → habe oder hätte; geschrieben gern hätte.", "whyEn": "ich + Konjunktiv I is invisible → habe or hätte; in writing often hätte." },
+			{ "sentence": "Er fragte, wann der nächste Zug nach Köln ____. (fahren → Konj. I)", "why": "3. Person Konjunktiv I: fahre — ohne Umlaut, der gehört dem Indikativ fährt.", "whyEn": "Third-person Konjunktiv I: fahre — no umlaut; that belongs to the indicative fährt." },
+			{ "sentence": "Der Arzt sagte, ich ____ mehr schlafen und weniger arbeiten. (reported instruction)", "why": "Berichtete Anweisung: sollen im Konjunktiv — ich solle.", "whyEn": "A reported instruction: sollen in the Konjunktiv — ich solle." },
+			{ "sentence": "Sie bat, ich ____ das Fenster schließen, es ziehe. (reported polite request)", "why": "Berichtete Bitte: mögen — ich möge; höflicher als solle.", "whyEn": "A reported polite request: mögen — ich möge; politer than solle." },
+			{ "sentence": "Die Beraterin fragte, ____ ich zur Arbeit fahre. (with what → wo(r)-)", "why": "Sache + mit → womit.", "whyEn": "A thing + mit → womit." },
+			{ "sentence": "Er wollte wissen, ____ ich so lange warte. (for what → wo(r)-)", "why": "warten auf + Sache → worauf — r vor Vokal.", "whyEn": "warten auf + a thing → worauf — linking r before the vowel." },
+			{ "sentence": "Sie fragte mich, ____ ich zurzeit lebe. (on what → wo(r)-)", "why": "leben von + Sache → wovon.", "whyEn": "leben von + a thing → wovon." },
+			{ "sentence": "Die Vermieterin wollte wissen, mit ____ ich einziehen werde. (with whom)", "why": "Person: Präposition + wem (Dativ nach mit) — mit wem.", "whyEn": "A person: preposition + wem (dative after mit) — mit wem." },
+			{ "sentence": "Er fragte, auf ____ wir noch warten. (for whom)", "why": "Person im Akkusativ: auf wen.", "whyEn": "A person in the accusative: auf wen." },
+			{ "sentence": "Der Polizist fragte, ____ Auto vor der Einfahrt stehe. (whose)", "why": "Besitzfrage: wessen — der Genitiv des Fragewortes.", "whyEn": "The possession question: wessen — the question word's genitive." },
+			{ "sentence": "Sie erkundigte sich, wann ich mit dem Kurs beginnen ____. (können → Konj. I)", "why": "können, 1. Person: könne — hier unterscheidbar, weil der Indikativ kann wäre.", "whyEn": "können, first person: könne — distinct here, since the indicative would be kann." },
+			{ "sentence": "Der Kunde fragte, ob die Lieferung schon unterwegs ____. (sein → Konj. I)", "why": "sei — sein bleibt die klarste Konjunktiv-I-Form.", "whyEn": "sei — sein remains the clearest Konjunktiv I form." },
+			{ "sentence": "Ich frage mich, ____ es sich wirklich lohnt, so lange zu warten. (whether)", "why": "sich fragen, ob — die Selbstzweifel-Formel.", "whyEn": "sich fragen, ob — the self-doubt formula." },
+			{ "sentence": "Der Chef sagte, wir ____ uns bis Freitag melden. (reported instruction, wir)", "why": "wir + sollen: Konjunktiv I = Indikativ → sollten (Konjunktiv II).", "whyEn": "wir + sollen: Konjunktiv I equals the indicative → sollten (Konjunktiv II)." }
+		]
+	},
+	{
+		"id": "quest_b2_1_konj1_vergangenheit",
+		"whys": [
+			{ "sentence": "Er sagte, ____. („Ich habe den Brief geschickt.“)", "why": "Perfekt → habe + Partizip: er habe den Brief geschickt.", "whyEn": "Perfect → habe + participle: er habe den Brief geschickt." },
+			{ "sentence": "Sie sagte, ____. („Ich bin gestern angekommen.“)", "why": "sein-Perfekt → sei + Partizip: sie sei … angekommen.", "whyEn": "A sein-perfect → sei + participle: sie sei … angekommen." },
+			{ "sentence": "Sie sagten, ____. („Wir haben nichts gewusst.“)", "why": "Plural: haben → hätten (Ausweichform): sie hätten nichts gewusst.", "whyEn": "Plural: haben → hätten (the fallback): sie hätten nichts gewusst." },
+			{ "sentence": "Er sagte, ____. („Ich werde morgen anrufen.“)", "why": "Futur → werde + Infinitiv: er werde morgen anrufen.", "whyEn": "Future → werde + infinitive: er werde morgen anrufen." },
+			{ "sentence": "Sie fragte, ____. („Kommst du mit?“)", "why": "Ja/Nein → ob; du wird in meiner Wiedergabe ich: ob ich mitkomme.", "whyEn": "Yes/no → ob; du becomes ich in my retelling: ob ich mitkomme." },
+			{ "sentence": "Er fragte, ____. („Wann fährt der Zug?“)", "why": "W-Wort bleibt, Konjunktiv I: wann der Zug fahre.", "whyEn": "The W-word stays, Konjunktiv I: wann der Zug fahre." },
+			{ "sentence": "Sie bat, ____. („Warte bitte hier!“)", "why": "Bitte → mögen: ich möge hier warten.", "whyEn": "A request → mögen: ich möge hier warten." },
+			{ "sentence": "Er forderte, ____. („Schließen Sie die Tür!“)", "why": "Befehl → sollen: ich solle die Tür schließen.", "whyEn": "An order → sollen: ich solle die Tür schließen." },
+			{ "sentence": "Er sagte, ____. („Ich konnte nicht kommen.“)", "why": "Modal-Vergangenheit: habe + Doppelinfinitiv — er habe nicht kommen können.", "whyEn": "A modal past: habe + double infinitive — er habe nicht kommen können." },
+			{ "sentence": "Sie sagten, ____. („Wir sind umgezogen.“)", "why": "sein-Perfekt im Plural: seien — sie seien umgezogen.", "whyEn": "A sein-perfect in the plural: seien — sie seien umgezogen." },
+			{ "sentence": "Er fragte, ____. („Hast du das gesehen?“)", "why": "ob + Perfekt: ob ich das gesehen habe/hätte.", "whyEn": "ob + perfect: ob ich das gesehen habe/hätte." },
+			{ "sentence": "Sie sagte, ____. („Ich musste lange warten.“)", "why": "Modal: sie habe lange warten müssen — der Doppelinfinitiv am Ende.", "whyEn": "Modal: sie habe lange warten müssen — the double infinitive at the end." },
+			{ "sentence": "Sie sagten, ____. („Wir haben das Spiel verloren.“)", "why": "Plural → hätten: sie hätten das Spiel verloren.", "whyEn": "Plural → hätten: sie hätten das Spiel verloren." },
+			{ "sentence": "Sie fragte, ____. („Wo wohnst du?“)", "why": "wo bleibt; du → ich: wo ich wohne.", "whyEn": "wo stays; du → ich: wo ich wohne." },
+			{ "sentence": "Er sagte, ____. („Ich werde das prüfen.“)", "why": "werde + Infinitiv: er werde das prüfen.", "whyEn": "werde + infinitive: er werde das prüfen." }
+		]
+	},
+	{
+		"id": "quest_b2_1_modalpassiv",
+		"whys": [
+			{ "sentence": "Das Problem muss so schnell wie möglich ____. (lösen — Präsens)", "why": "Modal + Passiv: Partizip + werden — gelöst werden.", "whyEn": "Modal + passive: participle + werden — gelöst werden." },
+			{ "sentence": "In allen Räumen des Gebäudes darf nicht ____. (rauchen — Präsens)", "why": "Subjektloses Verbot: geraucht werden.", "whyEn": "A subjectless ban: geraucht werden." },
+			{ "sentence": "Die Anträge müssen bis zum 15. online ____. (einreichen — Präsens)", "why": "eingereicht werden — Präfix um das ge-.", "whyEn": "eingereicht werden — the prefix wraps the ge-." },
+			{ "sentence": "Ein Antrag ohne Unterschrift kann leider nicht ____. (bearbeiten — Präsens)", "why": "bearbeitet werden — be- ohne ge-.", "whyEn": "bearbeitet werden — be- takes no ge-." },
+			{ "sentence": "Der Termin ____ wegen Krankheit ____. (müssen, Präteritum · verschieben)", "why": "Modal im Präteritum: musste … verschoben werden.", "whyEn": "The modal in the Präteritum: musste … verschoben werden." },
+			{ "sentence": "Der Vertrag ____ gestern nicht ____. (können, Präteritum · unterschreiben)", "why": "konnte … unterschrieben werden.", "whyEn": "konnte … unterschrieben werden." },
+			{ "sentence": "Alle Kunden ____ rechtzeitig ____. (sollen, Präteritum · informieren)", "why": "sollten … informiert werden — Plural sollten.", "whyEn": "sollten … informiert werden — plural sollten." },
+			{ "sentence": "Die Baustelle ____ ohne Helm nicht ____. (dürfen, Präteritum · betreten)", "why": "durfte … betreten werden.", "whyEn": "durfte … betreten werden." },
+			{ "sentence": "Das Problem ____ innerhalb eines Tages ____. (müssen, Perfekt · lösen)", "why": "Perfekt des Modalpassivs: hat + Partizip + werden + Modal-Infinitiv — hat … gelöst werden müssen.", "whyEn": "The modal passive's perfect: hat + participle + werden + modal infinitive — hat … gelöst werden müssen." },
+			{ "sentence": "Der Flug ____ wegen des Sturms ____. (müssen, Perfekt · streichen)", "why": "hat … gestrichen werden müssen — die Dreierkette am Ende.", "whyEn": "hat … gestrichen werden müssen — the three-verb chain at the end." },
+			{ "sentence": "Zahlreiche Anträge ____ im letzten Jahr ____. (müssen, Perfekt · zurückschicken)", "why": "haben … zurückgeschickt werden müssen — Plural haben.", "whyEn": "haben … zurückgeschickt werden müssen — plural haben." },
+			{ "sentence": "Die Tür ____ auch vom Hausmeister nicht ____. (können, Perfekt · öffnen)", "why": "hat … geöffnet werden können.", "whyEn": "hat … geöffnet werden können." },
+			{ "sentence": "Wir sind zu spät gekommen, weil das Problem zuerst ____. (müssen, Perfekt, Nebensatz · lösen)", "why": "Im Nebensatz rückt hat VOR die Kette: … zuerst hat gelöst werden müssen.", "whyEn": "In a subordinate clause hat moves BEFORE the chain: … hat gelöst werden müssen." },
+			{ "sentence": "Sie erklärte, dass der Termin ____. (müssen, Perfekt, Nebensatz · verschieben)", "why": "dass … hat verschoben werden müssen — hat vor dem Doppel-Infinitiv-Block.", "whyEn": "dass … hat verschoben werden müssen — hat before the double-infinitive block." },
+			{ "sentence": "Der Plan ____ meiner Meinung nach noch einmal ____. (müssen, Konjunktiv II · überdenken)", "why": "Vorsichtig gefordert: müsste … überdacht werden.", "whyEn": "A careful demand: müsste … überdacht werden." }
+		]
+	},
+	{
+		"id": "quest_b2_1_verben_praep",
+		"whys": [
+			{ "sentence": "Viele Familien leiden ____ den hohen Mieten in der Stadt. (leiden)", "why": "leiden UNTER + Dativ — die Last liegt darunter.", "whyEn": "leiden UNTER + dative — the burden sits on top." },
+			{ "sentence": "Du kannst dich ____ verlassen: Die Unterlagen kommen morgen an. (sich verlassen, da(r)-Wort)", "why": "sich verlassen AUF → darauf.", "whyEn": "sich verlassen AUF → darauf." },
+			{ "sentence": "Ich habe mich ____ die Stelle als Projektleiterin beworben. (sich bewerben)", "why": "sich bewerben UM + Akkusativ.", "whyEn": "sich bewerben UM + accusative." },
+			{ "sentence": "Wer kümmert sich ____ die Kinder, wenn du auf Dienstreise bist? (sich kümmern)", "why": "sich kümmern UM + Akkusativ.", "whyEn": "sich kümmern UM + accusative." },
+			{ "sentence": "Der Erfolg des Projekts hängt vor allem ____ ab, ob die Finanzierung steht. (abhängen, da(r)-Wort)", "why": "abhängen VON → davon — das da-Wort kündigt den ob-Satz an.", "whyEn": "abhängen VON → davon — the da-word announces the ob-clause." },
+			{ "sentence": "Wir freuen uns schon sehr ____, euch im Sommer wiederzusehen. (sich freuen, da(r)-Wort)", "why": "freuen AUF (kommt noch) → darauf.", "whyEn": "freuen AUF (still ahead) → darauf." },
+			{ "sentence": "____ interessierst du dich eigentlich am meisten? – Für Geschichte. (sich interessieren, Fragewort)", "why": "Sache: wo + für = Wofür.", "whyEn": "A thing: wo + für = Wofür." },
+			{ "sentence": "____ hast du dich so geärgert? – Über den Kommentar meines Chefs. (sich ärgern, Fragewort)", "why": "Sache: wo + r + über = Worüber.", "whyEn": "A thing: wo + r + über = Worüber." },
+			{ "sentence": "Er erinnerte sich plötzlich ____, den Herd nicht ausgeschaltet zu haben. (sich erinnern, da(r)-Wort)", "why": "erinnern AN → daran — vor dem Infinitivsatz.", "whyEn": "erinnern AN → daran — before the infinitive clause." },
+			{ "sentence": "Nach der Sitzung bedankte sie sich ____ allen Kolleginnen und Kollegen für die Unterstützung. (sich bedanken)", "why": "sich bedanken BEI der Person (für die Sache).", "whyEn": "sich bedanken BEI the person (für the thing)." },
+			{ "sentence": "Die Betriebe müssen sich ____ einstellen, dass die Energiepreise weiter steigen. (sich einstellen, da(r)-Wort)", "why": "sich einstellen AUF → darauf.", "whyEn": "sich einstellen AUF → darauf." },
+			{ "sentence": "Die Studierenden beschweren sich ____ die schlechte Ausstattung der Bibliothek. (sich beschweren)", "why": "sich beschweren ÜBER + Akkusativ.", "whyEn": "sich beschweren ÜBER + accusative." },
+			{ "sentence": "Die Kommission beschäftigt sich zurzeit ____ der Frage, wie die Pflege finanziert werden soll. (sich beschäftigen)", "why": "sich beschäftigen MIT + Dativ.", "whyEn": "sich beschäftigen MIT + dative." },
+			{ "sentence": "Niemand zweifelt ____, dass der Plan grundsätzlich richtig ist. (zweifeln, da(r)-Wort)", "why": "zweifeln AN → daran.", "whyEn": "zweifeln AN → daran." },
+			{ "sentence": "Die Ärztin warnte ____, die Symptome zu unterschätzen. (warnen, da(r)-Wort)", "why": "warnen VOR → davor.", "whyEn": "warnen VOR → davor." }
+		]
+	},
+	{
+		"id": "quest_b2_1_adjektive_praep",
+		"whys": [
+			{ "sentence": "Sie ist sehr stolz ____ ihre Tochter, die gerade das Abitur bestanden hat. (stolz + …)", "why": "stolz AUF + Akkusativ.", "whyEn": "stolz AUF + accusative." },
+			{ "sentence": "Wir sind ____ dem Ergebnis der Verhandlungen zufrieden. (zufrieden + …)", "why": "zufrieden MIT + Dativ.", "whyEn": "zufrieden MIT + dative." },
+			{ "sentence": "Immer mehr junge Leute sind ____ Politik interessiert. (interessiert + …)", "why": "interessiert AN + Dativ — anders als sich interessieren für!", "whyEn": "interessiert AN + dative — unlike sich interessieren für!" },
+			{ "sentence": "Die Ernte ist stark ____ Wetter abhängig. (abhängig + … + article)", "why": "abhängig VON + Dativ: von dem = vom Wetter.", "whyEn": "abhängig VON + dative: von dem = vom Wetter." },
+			{ "sentence": "Wer ist in Ihrer Firma ____ das Budget verantwortlich? (verantwortlich + …)", "why": "verantwortlich FÜR + Akkusativ.", "whyEn": "verantwortlich FÜR + accusative." },
+			{ "sentence": "Die Chefin war ____ der neuen Idee begeistert. (begeistert + …)", "why": "begeistert VON + Dativ.", "whyEn": "begeistert VON + dative." },
+			{ "sentence": "Ich bin neugierig ____ die Antwort der Behörde. (neugierig + …)", "why": "neugierig AUF + Akkusativ.", "whyEn": "neugierig AUF + accusative." },
+			{ "sentence": "Er ist ____ seine Kollegin verliebt, aber er sagt es niemandem. (verliebt + …)", "why": "verliebt IN + Akkusativ.", "whyEn": "verliebt IN + accusative." },
+			{ "sentence": "Sie war ärgerlich ____ den Fehler in der Rechnung. (ärgerlich + …)", "why": "ärgerlich ÜBER + Akkusativ.", "whyEn": "ärgerlich ÜBER + accusative." },
+			{ "sentence": "Die Region ist ____ ihren Wein bekannt. (bekannt + …)", "why": "bekannt FÜR + Akkusativ.", "whyEn": "bekannt FÜR + accusative." },
+			{ "sentence": "Das Personal war ____ allen Gästen freundlich. (freundlich + …)", "why": "freundlich ZU + Dativ.", "whyEn": "freundlich ZU + dative." },
+			{ "sentence": "Ich bin ____ der Lösung überzeugt, die Sie vorgeschlagen haben. (überzeugt + …)", "why": "überzeugt VON + Dativ.", "whyEn": "überzeugt VON + dative." },
+			{ "sentence": "Sind Sie ____ den neuen Arbeitszeiten einverstanden? (einverstanden + …)", "why": "einverstanden MIT + Dativ.", "whyEn": "einverstanden MIT + dative." },
+			{ "sentence": "Wir sind gespannt ____ das Ergebnis der Wahl. (gespannt + …)", "why": "gespannt AUF + Akkusativ.", "whyEn": "gespannt AUF + accusative." },
+			{ "sentence": "Viele Familien sind ____ die Hilfe des Staates angewiesen. (angewiesen + …)", "why": "angewiesen AUF + Akkusativ.", "whyEn": "angewiesen AUF + accusative." }
+		]
+	},
+	{
+		"id": "quest_b2_1_nomen_praep",
+		"whys": [
+			{ "sentence": "Die Angst ____ der Prüfung hielt ihn die ganze Nacht wach. (Angst + …)", "why": "die Angst VOR + Dativ — wie Angst haben vor.", "whyEn": "die Angst VOR + dative — like Angst haben vor." },
+			{ "sentence": "Das Interesse ____ dem Kurs war so groß, dass ein zweiter angeboten wird. (Interesse + …)", "why": "das Interesse AN + Dativ.", "whyEn": "das Interesse AN + dative." },
+			{ "sentence": "Ihre Freude ____ das Geschenk war unübersehbar. (Freude + …)", "why": "die Freude ÜBER + Akkusativ — das Geschenk ist schon da.", "whyEn": "die Freude ÜBER + accusative — the gift is already there." },
+			{ "sentence": "Der Grund ____ die Absage war eine Erkrankung des Sängers. (Grund + …)", "why": "der Grund FÜR + Akkusativ.", "whyEn": "der Grund FÜR + accusative." },
+			{ "sentence": "Die Frage ____ der Finanzierung blieb bis zum Schluss offen. (Frage + …)", "why": "die Frage NACH + Dativ — wie fragen nach.", "whyEn": "die Frage NACH + dative — like fragen nach." },
+			{ "sentence": "Die Abhängigkeit ____ Öl soll bis 2040 deutlich sinken. (Abhängigkeit + … + article)", "why": "die Abhängigkeit VON: von dem = vom Öl.", "whyEn": "die Abhängigkeit VON: von dem = vom Öl." },
+			{ "sentence": "Die Verantwortung ____ das Team liegt bei der neuen Leiterin. (Verantwortung + …)", "why": "die Verantwortung FÜR + Akkusativ.", "whyEn": "die Verantwortung FÜR + accusative." },
+			{ "sentence": "Die Teilnahme ____ Kurs ist nur nach Anmeldung möglich. (Teilnahme + … + article)", "why": "die Teilnahme AN + Dativ: an dem = am Kurs.", "whyEn": "die Teilnahme AN + dative: an dem = am Kurs." },
+			{ "sentence": "Der Einfluss der Medien ____ die Wahl wird oft überschätzt. (Einfluss + …)", "why": "der Einfluss AUF + Akkusativ.", "whyEn": "der Einfluss AUF + accusative." },
+			{ "sentence": "Die Kritik ____ der Regierung wird von Woche zu Woche lauter. (Kritik + …)", "why": "die Kritik AN + Dativ.", "whyEn": "die Kritik AN + dative." },
+			{ "sentence": "Nach der langen Sitzung hatte niemand mehr Lust ____ eine Diskussion. (Lust + …)", "why": "die Lust AUF + Akkusativ.", "whyEn": "die Lust AUF + accusative." },
+			{ "sentence": "Wir schicken Ihnen die Unterlagen mit der Bitte ____ eine schnelle Antwort. (Bitte + …)", "why": "die Bitte UM + Akkusativ — wie bitten um.", "whyEn": "die Bitte UM + accusative — like bitten um." },
+			{ "sentence": "Die Hoffnung ____ eine schnelle Lösung ist gering. (Hoffnung + …)", "why": "die Hoffnung AUF + Akkusativ.", "whyEn": "die Hoffnung AUF + accusative." },
+			{ "sentence": "Es gibt erhebliche Zweifel ____ der Richtigkeit der Zahlen. (Zweifel + …)", "why": "der Zweifel AN + Dativ — wie zweifeln an.", "whyEn": "der Zweifel AN + dative — like zweifeln an." },
+			{ "sentence": "Im Winter wächst die Sehnsucht ____ Sonne und Wärme. (Sehnsucht + …)", "why": "die Sehnsucht NACH + Dativ.", "whyEn": "die Sehnsucht NACH + dative." }
+		]
+	},
+	{
+		"id": "quest_b2_1_partizip_adj",
+		"whys": [
+			{ "sentence": "der Zug, der um acht Uhr ankommt → der ____ Zug (Partizip I + Ergänzung)", "why": "Aktiv + gleichzeitig → Partizip I: ankommend + -e; die Ergänzung rückt davor.", "whyEn": "Active + simultaneous → Partizip I: ankommend + -e; the complement moves in front." },
+			{ "sentence": "die Gäste, die von der Firma eingeladen wurden → die ____ Gäste (Partizip II + Ergänzung)", "why": "Passiv → Partizip II: eingeladen + -en, mit von der Firma davor.", "whyEn": "Passive → Partizip II: eingeladen + -en, with von der Firma in front." },
+			{ "sentence": "die Preise, die seit Jahren steigen → die ____ Preise (Partizip I + Ergänzung)", "why": "Aktiv, laufend: steigend + -en.", "whyEn": "Active, ongoing: steigend + -en." },
+			{ "sentence": "das Fenster, das gestern zerbrochen wurde → das ____ Fenster (Partizip II + Ergänzung)", "why": "Passiv-Ergebnis: zerbrochen + -e.", "whyEn": "Passive result: zerbrochen + -e." },
+			{ "sentence": "die Kinder, die im Garten spielen → die ____ Kinder (Partizip I + Ergänzung)", "why": "Aktiv: spielend + -en, im Garten davor.", "whyEn": "Active: spielend + -en, im Garten first." },
+			{ "sentence": "das Essen, das von mir gekocht wurde → das ____ Essen (Partizip II + Ergänzung)", "why": "Passiv: gekocht + -e.", "whyEn": "Passive: gekocht + -e." },
+			{ "sentence": "der Hund, der laut bellt → der ____ Hund (Partizip I + Ergänzung)", "why": "Aktiv: bellend + -e, laut davor.", "whyEn": "Active: bellend + -e, laut first." },
+			{ "sentence": "die Maßnahmen, die von der Regierung geplant wurden → die ____ Maßnahmen (Partizip II + Ergänzung)", "why": "Passiv: geplant + -en.", "whyEn": "Passive: geplant + -en." },
+			{ "sentence": "Siehst du das Kind, das dort lacht? → Siehst du das ____ Kind? (Partizip I + Ergänzung)", "why": "Aktiv: lachend + -e.", "whyEn": "Active: lachend + -e." },
+			{ "sentence": "Wir helfen den Reisenden, die am Bahnhof gestrandet sind. → Wir helfen den ____ Reisenden. (Partizip II + Ergänzung)", "why": "Ergebniszustand: gestrandet + Dativ -en.", "whyEn": "Resulting state: gestrandet + dative -en." },
+			{ "sentence": "die von der Firma eingeladenen Gäste → die Gäste, ____ (Relativsatz im Passiv, Präteritum)", "why": "Rückübersetzung: Relativsatz im Passiv — die von der Firma eingeladen wurden.", "whyEn": "Translating back: a passive relative clause — die von der Firma eingeladen wurden." },
+			{ "sentence": "der um acht Uhr ankommende Zug → der Zug, ____ (Relativsatz, Präsens)", "why": "Partizip I → Aktiv-Relativsatz im Präsens: der um acht Uhr ankommt.", "whyEn": "Partizip I → an active present relative clause: der um acht Uhr ankommt." },
+			{ "sentence": "die seit Jahren steigenden Preise → die Preise, ____ (Relativsatz, Präsens)", "why": "die seit Jahren steigen — Aktiv, Präsens.", "whyEn": "die seit Jahren steigen — active, present." },
+			{ "sentence": "das gestern zerbrochene Fenster → das Fenster, ____ (Relativsatz im Passiv, Präteritum)", "why": "Partizip II → Passiv-Relativsatz: das gestern zerbrochen wurde.", "whyEn": "Partizip II → a passive relative clause: das gestern zerbrochen wurde." },
+			{ "sentence": "das von mir gekochte Essen → das Essen, ____ (Relativsatz im Aktiv, Perfekt)", "why": "von mir verrät den Täter: aktiv — das ich gekocht habe.", "whyEn": "von mir names the doer: active — das ich gekocht habe." }
+		]
+	},
+	{
+		"id": "quest_b2_1_konnektoren",
+		"whys": [
+			{ "sentence": "Es war teuer. ____.", "why": "Gegen die Erwartung: trotzdem — Position 1, Verb direkt danach.", "whyEn": "Against expectation: trotzdem — position 1, verb right after." },
+			{ "sentence": "Er hat viel gelernt. ____ bestand er die Prüfung. (consequently)", "why": "Logische Folge: folglich/deshalb — Hauptsatz-Adverb auf Position 1.", "whyEn": "A logical consequence: folglich/deshalb — a main-clause adverb in position 1." },
+			{ "sentence": "Das Hotel war gut. ____ war es zentral gelegen. (moreover)", "why": "Noch ein Pluspunkt: außerdem/zudem.", "whyEn": "One more plus: außerdem/zudem." },
+			{ "sentence": "Sie war krank. ____ ging sie zur Arbeit. (nevertheless)", "why": "Gegen die Erwartung, etwas förmlicher: dennoch.", "whyEn": "Against expectation, a bit more formal: dennoch." },
+			{ "sentence": "Es ist spät. ____ müssen wir gehen. (therefore)", "why": "Folge: deshalb/daher.", "whyEn": "Consequence: deshalb/daher." },
+			{ "sentence": "Der Plan ist gut. ____ gibt es ein Problem. (however)", "why": "Einschränkung: allerdings/jedoch — 'aber' auf gehoben.", "whyEn": "A reservation: allerdings/jedoch — an elevated 'but'." },
+			{ "sentence": "Es regnete stark. ____ blieben wir zu Hause. (that is why)", "why": "Folge: daher/deshalb.", "whyEn": "Consequence: daher/deshalb." },
+			{ "sentence": "Das Essen war lecker. ____ war der Service freundlich. (in addition)", "why": "Aufzählung: zudem/außerdem.", "whyEn": "Adding on: zudem/außerdem." },
+			{ "sentence": "Beeil dich! ____.", "why": "Die Drohung der Alternative: sonst — 'wenn nicht, dann …'.", "whyEn": "The threatened alternative: sonst — 'otherwise …'." },
+			{ "sentence": "Er kaufte kein Auto. ____.", "why": "Der Ersatz: stattdessen — an die Stelle trat das Fahrrad.", "whyEn": "The replacement: stattdessen — the bike took its place." },
+			{ "sentence": "Ich mag Tee. ____.", "why": "Der Kontrast zweier Seiten: dagegen — 'im Unterschied dazu'.", "whyEn": "Contrasting two sides: dagegen — 'by contrast'." },
+			{ "sentence": "Sie hatte Kopfschmerzen. ____ nahm sie eine Tablette. (that is why)", "why": "Folge: deswegen/deshalb.", "whyEn": "Consequence: deswegen/deshalb." },
+			{ "sentence": "Der Film war lang. ____ war er nie langweilig. (however)", "why": "Einschränkung: jedoch/allerdings.", "whyEn": "A reservation: jedoch/allerdings." },
+			{ "sentence": "Er trainiert jeden Tag. ____ wurde er immer besser. (as a result — through this)", "why": "Das Mittel wird zur Ursache: dadurch — 'durch das Training'.", "whyEn": "The means becomes the cause: dadurch — 'through the training'." },
+			{ "sentence": "Wir haben wenig Zeit. ____ schaffen wir es. (nevertheless)", "why": "Gegen die Erwartung: trotzdem/dennoch.", "whyEn": "Against expectation: trotzdem/dennoch." }
+		]
+	},
+	{
+		"id": "quest_b2_1_mittelfeld",
+		"whys": [
+			{ "sentence": "Ich gebe ____.", "why": "Nomen + Nomen: Dativ vor Akkusativ; Pronomen springen davor, es vor ihm. Hier je nach Form: meinem Bruder das Buch / es ihm.", "whyEn": "Noun + noun: dative before accusative; pronouns jump ahead, es before ihm — here whichever form the answer takes." },
+			{ "sentence": "Sie fährt ____.", "why": "Mittelfeld-Ordnung: Zeit (morgen) vor Grund, Art (mit dem Zug), Ort zuletzt (nach Rom).", "whyEn": "Midfield order: time (morgen) before cause, manner (mit dem Zug), place last (nach Rom)." },
+			{ "sentence": "Er fährt ____.", "why": "Te-Ka-Mo-Lo: jeden Tag, mit dem Rad, zur Arbeit.", "whyEn": "Te-Ka-Mo-Lo: jeden Tag, mit dem Rad, zur Arbeit." },
+			{ "sentence": "Wir haben ____.", "why": "nicht vor dem, was verneint wird: das Museum nicht besucht (alles) oder nicht das Museum, sondern … (Kontrast).", "whyEn": "nicht goes before what it negates: … nicht besucht (the whole thing) or nicht das Museum, sondern … (a contrast)." },
+			{ "sentence": "Ich erkläre ____.", "why": "Dativ-Person vor Akkusativ-Sache: den Studenten … die Regel; die Zeit kann davor oder dazwischen.", "whyEn": "Dative person before accusative thing: den Studenten … die Regel; the time can sit before or between." },
+			{ "sentence": "Sie hat ____.", "why": "Pronomen zuerst (uns), dann Zeit, dann die Akkusativ-Sache: uns gestern die Fotos gezeigt.", "whyEn": "Pronoun first (uns), then time, then the accusative thing: uns gestern die Fotos gezeigt." },
+			{ "sentence": "Er ist ____.", "why": "nicht steht vor dem Partizip: gestern nicht gekommen.", "whyEn": "nicht stands before the participle: gestern nicht gekommen." },
+			{ "sentence": "Sie blieben ____.", "why": "Zeit und Grund vor dem Ort: am Abend wegen des Regens zu Hause.", "whyEn": "Time and cause before place: am Abend wegen des Regens zu Hause." },
+			{ "sentence": "Er erklärt ____.", "why": "Dativ vor Akkusativ, Zeit/Ort flexibel dazwischen: dem Team morgen im Büro den Plan.", "whyEn": "Dative before accusative, time/place flexibly between: dem Team morgen im Büro den Plan." },
+			{ "sentence": "Ich habe ____.", "why": "Satzverneinung: nicht direkt vor dem Partizip — das Buch nicht gelesen.", "whyEn": "Sentence negation: nicht right before the participle — das Buch nicht gelesen." },
+			{ "sentence": "Ich schenke ____.", "why": "Akkusativ-Pronomen vor Dativ-Nomen: es meiner Mutter.", "whyEn": "Accusative pronoun before dative noun: es meiner Mutter." },
+			{ "sentence": "Er hat ____.", "why": "Zwei Pronomen: Akkusativ vor Dativ — sie mir, dann die Zeit: sie mir gestern gezeigt.", "whyEn": "Two pronouns: accusative before dative — sie mir, then the time: sie mir gestern gezeigt." },
+			{ "sentence": "Sie hat gestern ____.", "why": "nicht vor dem Partizip: das Paket nicht abgeholt.", "whyEn": "nicht before the participle: das Paket nicht abgeholt." }
+		]
+	},
+	{
+		"id": "quest_b2_1_kausal_nominal",
+		"whys": [
+			{ "sentence": "Wir blieben zu Hause, weil es regnete. → Wir blieben ____ zu Hause.", "why": "weil-Satz → Nomen: wegen + Genitiv — wegen des Regens.", "whyEn": "weil-clause → noun: wegen + genitive — wegen des Regens." },
+			{ "sentence": "Das Projekt wurde gestoppt, weil die Kosten zu hoch waren. → Das Projekt wurde ____ gestoppt.", "why": "Formeller: aufgrund + Genitiv — aufgrund der hohen Kosten.", "whyEn": "More formal: aufgrund + genitive — aufgrund der hohen Kosten." },
+			{ "sentence": "Wir haben es geschafft, weil sie uns geholfen hat. → Wir haben es ____ geschafft.", "why": "Positiver Grund: dank + Genitiv/Dativ — dank ihrer Hilfe.", "whyEn": "A positive cause: dank + genitive/dative — dank ihrer Hilfe." },
+			{ "sentence": "Er sagte nichts, weil er Angst hatte. → Er sagte ____ nichts.", "why": "Bewusstes Motiv: aus + Gefühl ohne Artikel — aus Angst.", "whyEn": "A conscious motive: aus + emotion, no article — aus Angst." },
+			{ "sentence": "Sie weinte, weil sie sich so freute. → Sie weinte ____ .", "why": "Unwillkürliche Reaktion: vor + Gefühl — vor Freude.", "whyEn": "An involuntary reaction: vor + emotion — vor Freude." },
+			{ "sentence": "Wegen des Sturms fiel der Flug aus. → Der Flug fiel aus, ____ .", "why": "Nomen → weil-Satz: weil es stürmte.", "whyEn": "Noun → weil-clause: weil es stürmte." },
+			{ "sentence": "Aufgrund der schlechten Ergebnisse änderten wir den Plan. → Wir änderten den Plan, ____ .", "why": "Zurück zum Satz: weil die Ergebnisse schlecht waren.", "whyEn": "Back to a clause: weil die Ergebnisse schlecht waren." },
+			{ "sentence": "Dank deiner Hilfe bin ich fertig. → Ich bin fertig, ____ .", "why": "dank → weil du (mir) geholfen hast.", "whyEn": "dank → weil du (mir) geholfen hast." },
+			{ "sentence": "Aus Neugier öffnete er die Tür. → Er öffnete die Tür, ____ .", "why": "aus + Motiv → weil er neugierig war.", "whyEn": "aus + motive → weil er neugierig war." },
+			{ "sentence": "Vor Kälte zitterte er. → Er zitterte, ____ .", "why": "vor + Reaktion → weil ihm kalt war — der Dativ-Frost.", "whyEn": "vor + reaction → weil ihm kalt war — the dative chill." },
+			{ "sentence": "Er kam nicht, denn er war krank. → Er war krank, ____ kam er nicht.", "why": "Grund zuerst, Folge danach: deshalb auf Position 1.", "whyEn": "Cause first, consequence after: deshalb in position 1." },
+			{ "sentence": "Da es spät war, gingen wir. → ____ gingen wir.", "why": "Satz → Nomen: Wegen der späten Stunde.", "whyEn": "Clause → noun: Wegen der späten Stunde." },
+			{ "sentence": "Sie fehlte, weil sie krank war. → Sie fehlte ____ .", "why": "wegen ihrer Krankheit — Genitiv feminin ihrer.", "whyEn": "wegen ihrer Krankheit — feminine genitive ihrer." },
+			{ "sentence": "Er schlief ein, weil er so müde war. → Er schlief ____ ein.", "why": "Unwillkürlich: vor Müdigkeit.", "whyEn": "Involuntary: vor Müdigkeit." },
+			{ "sentence": "Dank des guten Wetters kamen viele. → Viele kamen, ____ .", "why": "dank → weil das Wetter gut war.", "whyEn": "dank → weil das Wetter gut war." }
+		]
+	},
+	{
+		"id": "quest_b2_1_temporal_nominal",
+		"whys": [
+			{ "sentence": "Bevor wir essen, waschen wir uns die Hände. → ____ waschen wir uns die Hände.", "why": "bevor + Satz → vor + Dativ-Nomen: vor dem Essen.", "whyEn": "bevor + clause → vor + dative noun: vor dem Essen." },
+			{ "sentence": "Nachdem wir gegessen hatten, gingen wir. → ____ gingen wir.", "why": "nachdem → nach + Dativ: nach dem Essen.", "whyEn": "nachdem → nach + dative: nach dem Essen." },
+			{ "sentence": "Während ich arbeite, höre ich Musik. → ____ höre ich Musik.", "why": "während + Satz → während + Genitiv: während der Arbeit.", "whyEn": "während + clause → während + genitive: während der Arbeit." },
+			{ "sentence": "Sobald er ankommt, rufen wir an. → ____ rufen wir an.", "why": "sobald → gleich nach / bei seiner Ankunft — ankommen wird die Ankunft.", "whyEn": "sobald → gleich nach / bei seiner Ankunft — ankommen becomes die Ankunft." },
+			{ "sentence": "Seit sie umgezogen ist, ist sie glücklicher. → ____ ist sie glücklicher.", "why": "seit + Satz → seit + Dativ-Nomen: seit ihrem Umzug.", "whyEn": "seit + clause → seit + dative noun: seit ihrem Umzug." },
+			{ "sentence": "Bis der Kurs beginnt, haben wir Zeit. → ____ haben wir Zeit.", "why": "bis → bis zu + Dativ: bis zum Kursbeginn.", "whyEn": "bis → bis zu + dative: bis zum Kursbeginn." },
+			{ "sentence": "Als er ankam, regnete es. → ____ regnete es.", "why": "Der Moment als Nomen: bei seiner Ankunft.", "whyEn": "The moment as a noun: bei seiner Ankunft." },
+			{ "sentence": "Vor der Abreise packen wir. → Wir packen, ____ .", "why": "Nomen → Satz: bevor wir abreisen.", "whyEn": "Noun → clause: bevor wir abreisen." },
+			{ "sentence": "Nach dem Studium fand er eine Stelle. → Er fand eine Stelle, ____ .", "why": "nach → nachdem + Plusquamperfekt: nachdem er studiert hatte.", "whyEn": "nach → nachdem + past perfect: nachdem er studiert hatte." },
+			{ "sentence": "Während des Konzerts fiel der Strom aus. → Der Strom fiel aus, ____ .", "why": "während + Genitiv → während + Satz: während das Konzert lief.", "whyEn": "während + genitive → während + clause: während das Konzert lief." },
+			{ "sentence": "Seit seiner Ankunft ist es laut. → Es ist laut, ____ .", "why": "seit + Nomen → seit(dem) er angekommen ist.", "whyEn": "seit + noun → seit(dem) er angekommen ist." },
+			{ "sentence": "Bei der Landung klatschten alle. → Alle klatschten, ____ .", "why": "bei + Nomen → als-Satz: als das Flugzeug landete.", "whyEn": "bei + noun → an als-clause: als das Flugzeug landete." },
+			{ "sentence": "Bevor er abreiste, rief er an. → ____ rief er an.", "why": "bevor → vor seiner Abreise — abreisen wird die Abreise.", "whyEn": "bevor → vor seiner Abreise — abreisen becomes die Abreise." },
+			{ "sentence": "Während er studierte, jobbte er. → ____ jobbte er.", "why": "während + Genitiv: während seines Studiums.", "whyEn": "während + genitive: während seines Studiums." },
+			{ "sentence": "Nach dem Konzert gingen wir essen. → Wir gingen essen, ____ .", "why": "nach → nachdem das Konzert zu Ende war.", "whyEn": "nach → nachdem das Konzert zu Ende war." }
+		]
+	},
+	{
+		"id": "quest_b2_1_dass_infinitiv",
+		"whys": [
+			{ "sentence": "Ich hoffe, ____ . (dass ich die Prüfung bestehe)", "why": "Gleiches Subjekt (ich hoffe, ich bestehe) → Infinitiv: die Prüfung zu bestehen.", "whyEn": "Same subject (I hope, I pass) → infinitive: die Prüfung zu bestehen." },
+			{ "sentence": "Ich hoffe, ____ . (dass du die Prüfung bestehst — can it become zu?)", "why": "Anderes Subjekt (du!) → der dass-Satz muss bleiben.", "whyEn": "Different subject (du!) → the dass-clause has to stay." },
+			{ "sentence": "Er verspricht, ____ . (dass er pünktlich kommt)", "why": "Gleiches Subjekt → pünktlich zu kommen.", "whyEn": "Same subject → pünktlich zu kommen." },
+			{ "sentence": "Sie freut sich, ____ . (dass sie uns sieht)", "why": "Gleiches Subjekt → uns zu sehen.", "whyEn": "Same subject → uns zu sehen." },
+			{ "sentence": "Es ist wichtig, ____ . (dass man täglich übt)", "why": "Unpersönliches man → Infinitiv geht: täglich zu üben.", "whyEn": "Impersonal man → the infinitive works: täglich zu üben." },
+			{ "sentence": "Er behauptet, ____ . (dass er nichts gewusst hat)", "why": "Vergangenheit im Infinitiv: Partizip + zu haben — nichts gewusst zu haben.", "whyEn": "Past in the infinitive: participle + zu haben — nichts gewusst zu haben." },
+			{ "sentence": "Ich bitte dich, ____ . (dass du mir hilfst)", "why": "Das Objekt dich IST der Täter → Infinitiv: mir zu helfen.", "whyEn": "The object dich IS the doer → infinitive: mir zu helfen." },
+			{ "sentence": "Es freut mich, ____ . (dass Sie gekommen sind — can it become zu?)", "why": "Sie ≠ mich: andere Subjekte → dass bleibt.", "whyEn": "Sie ≠ mich: different subjects → dass stays." },
+			{ "sentence": "Sie erlaubt ihm, ____ . (dass er ausgeht)", "why": "ihm ist der Ausgehende → Infinitiv: auszugehen.", "whyEn": "ihm is the one going out → infinitive: auszugehen." },
+			{ "sentence": "Er glaubt, ____ . (dass er recht hat)", "why": "Gleiches Subjekt → recht zu haben.", "whyEn": "Same subject → recht zu haben." },
+			{ "sentence": "Wir haben vor, ____ . (dass wir umziehen)", "why": "Gleiches Subjekt, trennbar: umzuziehen.", "whyEn": "Same subject, separable: umzuziehen." },
+			{ "sentence": "Es ist möglich, ____ . (dass es regnet — can it become zu?)", "why": "es regnet hat kein handelndes Subjekt → dass bleibt.", "whyEn": "es regnet has no acting subject → dass stays." },
+			{ "sentence": "Ich freue mich, ____ . (dass ich dich sehe)", "why": "Gleiches Subjekt → dich zu sehen.", "whyEn": "Same subject → dich zu sehen." },
+			{ "sentence": "Er rät mir, ____ . (dass ich warte)", "why": "mir ist der Wartende → zu warten.", "whyEn": "mir is the one who waits → zu warten." },
+			{ "sentence": "Es ist schade, ____ . (dass er nicht kommt — can it become zu?)", "why": "er ist ein eigenes Subjekt → dass bleibt.", "whyEn": "er is its own subject → dass stays." }
+		]
+	},
+	{
+		"id": "quest_b2_1_lassen",
+		"whys": [
+			{ "sentence": "Ich ____ . (mein Auto reparieren — I have it done)", "why": "Etwas machen LASSEN: lassen + Infinitiv — ich lasse mein Auto reparieren.", "whyEn": "Having something done: lassen + infinitive — ich lasse mein Auto reparieren." },
+			{ "sentence": "Sie ____ . (die Kinder spielen — she allows)", "why": "lassen = erlauben: sie lässt die Kinder spielen.", "whyEn": "lassen = to allow: sie lässt die Kinder spielen." },
+			{ "sentence": "Ich ____ . (meinen Schirm zu Hause — Perfekt, left behind)", "why": "Zurücklassen im Perfekt: habe … gelassen — hier normales Partizip.", "whyEn": "Leaving behind, in the perfect: habe … gelassen — a normal participle here." },
+			{ "sentence": "Das Problem ____ . (lösen — can be)", "why": "sich lassen + Infinitiv = 'kann man': lässt sich lösen.", "whyEn": "sich lassen + infinitive = 'can be done': lässt sich lösen." },
+			{ "sentence": "Ich ____ . (mir die Haare schneiden — Perfekt)", "why": "Perfekt mit Infinitiv: Doppelinfinitiv — habe … schneiden lassen, nicht gelassen.", "whyEn": "Perfect with an infinitive: double infinitive — habe … schneiden lassen, not gelassen." },
+			{ "sentence": "Er ____ . (uns warten — Perfekt)", "why": "hat uns warten lassen — der Doppelinfinitiv.", "whyEn": "hat uns warten lassen — the double infinitive." },
+			{ "sentence": "Ich ____ . (ihn kommen — sehen, Präteritum)", "why": "Wahrnehmungsverb + Infinitiv: sah ihn kommen.", "whyEn": "Perception verb + infinitive: sah ihn kommen." },
+			{ "sentence": "Wir ____ . (sie singen — hören, Perfekt)", "why": "hören im Perfekt mit Infinitiv: haben sie singen hören (auch gehört möglich).", "whyEn": "hören in the perfect with an infinitive: haben sie singen hören (gehört also possible)." },
+			{ "sentence": "Er ____ . (das Auto waschen — lassen, Präteritum: he had it done)", "why": "Präteritum von lassen: ließ — er ließ das Auto waschen.", "whyEn": "lassen's Präteritum: ließ — er ließ das Auto waschen." },
+			{ "sentence": "Das ____ . (ändern — can't be)", "why": "lässt sich nicht ändern — 'kann man nicht ändern'.", "whyEn": "lässt sich nicht ändern — 'cannot be changed'." },
+			{ "sentence": "____ ! (mich in Ruhe — Imperativ du)", "why": "Imperativ von lassen: Lass! — Lass mich in Ruhe.", "whyEn": "lassen's imperative: Lass! — Lass mich in Ruhe." },
+			{ "sentence": "Er ____ . (den Brief übersetzen — Perfekt)", "why": "hat … übersetzen lassen — Doppelinfinitiv.", "whyEn": "hat … übersetzen lassen — double infinitive." },
+			{ "sentence": "Sie ____ . (die Wohnung putzen — has it done)", "why": "lässt die Wohnung putzen — jemand anders putzt.", "whyEn": "lässt die Wohnung putzen — someone else does the cleaning." },
+			{ "sentence": "____ ! (die Kinder schlafen — Imperativ du)", "why": "Lass die Kinder schlafen — lassen als 'nicht stören'.", "whyEn": "Lass die Kinder schlafen — lassen as 'don't disturb'." },
+			{ "sentence": "Wir ____ . (ihn singen — hören, Perfekt)", "why": "haben ihn singen hören — Wahrnehmung im Doppelinfinitiv.", "whyEn": "haben ihn singen hören — perception in the double infinitive." },
+			{ "sentence": "Wir ____ . (das Dach reparieren — Perfekt, we had it done)", "why": "haben das Dach reparieren lassen.", "whyEn": "haben das Dach reparieren lassen." }
+		]
+	},
+	{
+		"id": "quest_b2_1_nachsilben_genus",
+		"whys": [
+			{ "sentence": "____ Journalist schreibt einen Bericht über die Wahl. (Artikel)", "why": "-ist ist maskulin: der Journalist.", "whyEn": "-ist is masculine: der Journalist." },
+			{ "sentence": "____ Motor des alten Wagens läuft noch einwandfrei. (Artikel)", "why": "-or ist maskulin: der Motor.", "whyEn": "-or is masculine: der Motor." },
+			{ "sentence": "____ Frühling kam dieses Jahr sehr spät. (Artikel)", "why": "-ling ist maskulin, und Jahreszeiten sind der: der Frühling.", "whyEn": "-ling is masculine, and seasons take der: der Frühling." },
+			{ "sentence": "____ Tourismus ist für die Region die wichtigste Einnahmequelle. (Artikel)", "why": "-ismus ist immer maskulin: der Tourismus.", "whyEn": "-ismus is always masculine: der Tourismus." },
+			{ "sentence": "____ neue Praktikant arbeitet in der Marketingabteilung. (Artikel)", "why": "-ant ist maskulin: der Praktikant.", "whyEn": "-ant is masculine: der Praktikant." },
+			{ "sentence": "____ Ergebnis der Studie hat viele überrascht. (Artikel)", "why": "-nis ist meist neutral: das Ergebnis.", "whyEn": "-nis is mostly neuter: das Ergebnis." },
+			{ "sentence": "____ Eigentum an der Wohnung ging an die Tochter über. (Artikel)", "why": "-tum ist neutral: das Eigentum (Ausnahmen: der Irrtum, der Reichtum).", "whyEn": "-tum is neuter: das Eigentum (exceptions: der Irrtum, der Reichtum)." },
+			{ "sentence": "____ Dokument muss von beiden Seiten unterschrieben werden. (Artikel)", "why": "-ment ist neutral: das Dokument.", "whyEn": "-ment is neuter: das Dokument." },
+			{ "sentence": "____ Mädchen aus dem Publikum stellte die beste Frage. (Artikel)", "why": "-chen ist immer neutral: das Mädchen.", "whyEn": "-chen is always neuter: das Mädchen." },
+			{ "sentence": "____ Zentrum der Stadt ist seit Mai autofrei. (Artikel)", "why": "-um ist neutral: das Zentrum.", "whyEn": "-um is neuter: das Zentrum." },
+			{ "sentence": "____ Nation feiert am Sonntag ihren Unabhängigkeitstag. (Artikel)", "why": "-ion ist feminin: die Nation.", "whyEn": "-ion is feminine: die Nation." },
+			{ "sentence": "____ Freundschaft zwischen den beiden Ländern ist alt. (Artikel)", "why": "-schaft ist feminin: die Freundschaft.", "whyEn": "-schaft is feminine: die Freundschaft." },
+			{ "sentence": "____ Konferenz über erneuerbare Energien findet in Wien statt. (Artikel)", "why": "-enz ist feminin: die Konferenz.", "whyEn": "-enz is feminine: die Konferenz." },
+			{ "sentence": "____ Universität hat ein neues Labor eröffnet. (Artikel)", "why": "-tät ist feminin: die Universität.", "whyEn": "-tät is feminine: die Universität." },
+			{ "sentence": "____ Erlaubnis der Eltern liegt inzwischen vor. (Artikel)", "why": "Erlaubnis ist eine der femininen -nis-Ausnahmen: die Erlaubnis.", "whyEn": "Erlaubnis is one of the feminine -nis exceptions: die Erlaubnis." },
+			{ "sentence": "____ Reichtum der Familie stammt aus dem Bergbau. (Artikel)", "why": "Reichtum ist die -tum-Ausnahme: der Reichtum.", "whyEn": "Reichtum is the -tum exception: der Reichtum." },
+			{ "sentence": "____ Zeugnis liegt der Bewerbung bei. (Artikel)", "why": "-nis neutral: das Zeugnis.", "whyEn": "-nis neuter: das Zeugnis." }
+		]
+	},
+	{
+		"id": "quest_b2_1_passiv_perfekt",
+		"whys": [
+			{ "sentence": "Das Haus ____ im Jahr 1990 ____. (bauen — Passiv Perfekt)", "why": "Passiv Perfekt: ist + Partizip + worden — ist … gebaut worden.", "whyEn": "Passive perfect: ist + participle + worden — ist … gebaut worden." },
+			{ "sentence": "Die Briefe ____ schon gestern ____. (schreiben — Passiv Perfekt, Plural)", "why": "Plural: sind … geschrieben worden.", "whyEn": "Plural: sind … geschrieben worden." },
+			{ "sentence": "Der Dieb ____ noch in derselben Nacht ____. (finden — Passiv Perfekt)", "why": "ist … gefunden worden — worden immer ohne ge-.", "whyEn": "ist … gefunden worden — worden always without ge-." },
+			{ "sentence": "Das Konzert ____ wegen des Sturms ____. (absagen — Passiv Perfekt)", "why": "ist … abgesagt worden.", "whyEn": "ist … abgesagt worden." },
+			{ "sentence": "Ich ____ über die Änderung nicht ____. (informieren — Passiv Perfekt, ich)", "why": "ich: bin … informiert worden.", "whyEn": "ich: bin … informiert worden." },
+			{ "sentence": "Die Räume ____ vor der Eröffnung komplett ____. (renovieren — Passiv Perfekt, Plural)", "why": "sind … renoviert worden.", "whyEn": "sind … renoviert worden." },
+			{ "sentence": "____ der Vertrag schon ____? (unterschreiben — Passiv Perfekt, Frage)", "why": "Frage: Ist … unterschrieben worden?", "whyEn": "Question: Ist … unterschrieben worden?" },
+			{ "sentence": "Der Fehler auf der Website ____ am Wochenende ____. (beheben — Passiv Perfekt)", "why": "ist … behoben worden.", "whyEn": "ist … behoben worden." },
+			{ "sentence": "Ich weiß nicht, wann das Haus ____. (bauen — Passiv Perfekt, Nebensatz)", "why": "Nebensatz: die Kette dreht sich — gebaut worden ist.", "whyEn": "Subordinate clause: the chain flips — gebaut worden ist." },
+			{ "sentence": "Sie bestätigte, dass die Einladungen ____. (verschicken — Passiv Perfekt, Nebensatz, Plural)", "why": "dass … verschickt worden sind — sind am Ende.", "whyEn": "dass … verschickt worden sind — sind last." },
+			{ "sentence": "Die Zeitung berichtet, dass das Gesetz gestern ____. (verabschieden — Passiv Perfekt, Nebensatz)", "why": "verabschiedet worden ist.", "whyEn": "verabschiedet worden ist." },
+			{ "sentence": "Der Flug ____ schon ____, bevor wir am Flughafen ankamen. (streichen — Passiv Plusquamperfekt)", "why": "Vorvergangenheit: war … gestrichen worden.", "whyEn": "The past before the past: war … gestrichen worden." },
+			{ "sentence": "Die Rechnung ____ bereits ____, als die Mahnung kam. (bezahlen — Passiv Plusquamperfekt)", "why": "war … bezahlt worden — bezahlt lag vor der Mahnung.", "whyEn": "war … bezahlt worden — the payment came before the reminder." },
+			{ "sentence": "Niemand hatte Zeit, obwohl der Fehler schon zwei Wochen vorher ____. (melden — Passiv Plusquamperfekt, Nebensatz)", "why": "Nebensatz: gemeldet worden war.", "whyEn": "Subordinate clause: gemeldet worden war." },
+			{ "sentence": "Die Autobahn ____ nach dem Unfall für drei Stunden ____. (sperren — Passiv Perfekt)", "why": "ist … gesperrt worden.", "whyEn": "ist … gesperrt worden." }
+		]
+	},
+	{
+		"id": "quest_b2_1_zustandspassiv",
+		"whys": [
+			{ "sentence": "Das Geschäft ____ (state: it's open).", "why": "Zustand: sein + Partizip — ist geöffnet.", "whyEn": "A state: sein + participle — ist geöffnet." },
+			{ "sentence": "Das Geschäft ____ gerade (action: being opened).", "why": "Vorgang läuft: wird geöffnet.", "whyEn": "The process is running: wird geöffnet." },
+			{ "sentence": "Das Auto ____ (state: done).", "why": "Ergebnis: ist repariert.", "whyEn": "The result: ist repariert." },
+			{ "sentence": "Das Auto ____ gerade (action).", "why": "Gerade dabei: wird repariert.", "whyEn": "In progress: wird repariert." },
+			{ "sentence": "Der Tisch ____ (state).", "why": "Fertig: ist gedeckt.", "whyEn": "Done: ist gedeckt." },
+			{ "sentence": "Der Tisch ____ gerade (action).", "why": "Läuft: wird gedeckt.", "whyEn": "Happening: wird gedeckt." },
+			{ "sentence": "Die Briefe ____ (state: done).", "why": "Plural-Zustand: sind geschrieben.", "whyEn": "A plural state: sind geschrieben." },
+			{ "sentence": "Die Briefe ____ gerade (action).", "why": "Plural-Vorgang: werden geschrieben.", "whyEn": "A plural process: werden geschrieben." },
+			{ "sentence": "Das Fenster ____, als ich kam (state, past).", "why": "Zustand in der Vergangenheit: war geschlossen.", "whyEn": "A past state: war geschlossen." },
+			{ "sentence": "Das Fenster ____ um acht (action, past).", "why": "Vorgang in der Vergangenheit: wurde geschlossen.", "whyEn": "A past event: wurde geschlossen." },
+			{ "sentence": "Die Stadt ____ . (Erdbeben, zerstören — Präteritum Passiv)", "why": "Naturkraft als Ursache: durch — wurde durch ein Erdbeben zerstört.", "whyEn": "A natural force as cause: durch — wurde durch ein Erdbeben zerstört." },
+			{ "sentence": "Der Brief ____ . (Chef, doer)", "why": "Person als Täter: von — wurde vom Chef geschrieben.", "whyEn": "A person as the doer: von — wurde vom Chef geschrieben." },
+			{ "sentence": "Der Bericht ____ (state: finished).", "why": "Zustand: ist geschrieben.", "whyEn": "A state: ist geschrieben." },
+			{ "sentence": "Der Bericht ____ gerade (action).", "why": "Vorgang: wird geschrieben.", "whyEn": "A process: wird geschrieben." },
+			{ "sentence": "Der Brand ____ . (Zigarette, verursachen — Präteritum Passiv, means)", "why": "Mittel/Ursache: durch — wurde durch eine Zigarette verursacht.", "whyEn": "Means/cause: durch — wurde durch eine Zigarette verursacht." }
+		]
+	},
+	{
+		"id": "quest_b2_1_passiv_subjektlos",
+		"whys": [
+			{ "sentence": "____ . (Man tanzt hier. → Hier …)", "why": "man-Satz ohne Objekt → subjektloses Passiv: Hier wird getanzt.", "whyEn": "A man-sentence with no object → subjectless passive: Hier wird getanzt." },
+			{ "sentence": "____ . (Man arbeitet sonntags nicht. → Sonntags …)", "why": "Sonntags wird nicht gearbeitet — das Verb bleibt 3. Person Singular.", "whyEn": "Sonntags wird nicht gearbeitet — the verb stays third person singular." },
+			{ "sentence": "____ . (Man raucht hier nicht. → Hier …)", "why": "Hier wird nicht geraucht.", "whyEn": "Hier wird nicht geraucht." },
+			{ "sentence": "____ . (Man hilft ihm. → Ihm …)", "why": "Dativobjekt bleibt Dativ — es wird NICHT Subjekt: Ihm wird geholfen.", "whyEn": "The dative object stays dative — it does NOT become the subject: Ihm wird geholfen." },
+			{ "sentence": "____ . (Man dankte den Helfern. → Den Helfern …)", "why": "danken + Dativ: Den Helfern wurde gedankt — Singular wurde!", "whyEn": "danken + dative: Den Helfern wurde gedankt — singular wurde!" },
+			{ "sentence": "____ . (Man lachte viel. → Es …)", "why": "Ohne Vorfeld-Element springt es ein: Es wurde viel gelacht.", "whyEn": "With nothing to fill position 1, es steps in: Es wurde viel gelacht." },
+			{ "sentence": "____ . (Man diskutiert über das Thema. → Über das Thema …)", "why": "Das Präpositionalobjekt bleibt: Über das Thema wird diskutiert.", "whyEn": "The prepositional object stays: Über das Thema wird diskutiert." },
+			{ "sentence": "____ . (Man gratulierte ihr. → Ihr …)", "why": "gratulieren + Dativ: Ihr wurde gratuliert.", "whyEn": "gratulieren + dative: Ihr wurde gratuliert." },
+			{ "sentence": "____ . (Man wartet auf den Bus. → Auf den Bus …)", "why": "Auf den Bus wird gewartet — warten auf bleibt.", "whyEn": "Auf den Bus wird gewartet — warten auf stays." },
+			{ "sentence": "____ . (Man schläft in der Bibliothek nicht. → In der Bibliothek …)", "why": "In der Bibliothek wird nicht geschlafen — die Hausordnung als Passiv.", "whyEn": "In der Bibliothek wird nicht geschlafen — house rules as a passive." },
+			{ "sentence": "____ . (Man antwortete mir nicht. → Mir …)", "why": "antworten + Dativ: Mir wurde nicht geantwortet.", "whyEn": "antworten + dative: Mir wurde nicht geantwortet." },
+			{ "sentence": "____ . (Man spricht viel über Politik. → Es …)", "why": "Es füllt Position 1: Es wird viel über Politik gesprochen.", "whyEn": "Es fills position 1: Es wird viel über Politik gesprochen." },
+			{ "sentence": "____ . (Man arbeitet hier viel. → Hier …)", "why": "Hier wird viel gearbeitet.", "whyEn": "Hier wird viel gearbeitet." },
+			{ "sentence": "____ . (Man widersprach ihm. → Ihm …)", "why": "widersprechen + Dativ: Ihm wurde widersprochen.", "whyEn": "widersprechen + dative: Ihm wurde widersprochen." },
+			{ "sentence": "____ . (Man feierte bis spät. → Es …)", "why": "Es wurde bis spät gefeiert — das Party-Passiv.", "whyEn": "Es wurde bis spät gefeiert — the party passive." }
+		]
+	},
+	{
+		"id": "quest_b2_1_stellungnahme",
+		"whys": [
+			{ "sentence": "____ Homeoffice die Zukunft der Arbeit ist. (introduction: topic)", "why": "Der Themen-Einstieg: In letzter Zeit wird viel darüber diskutiert, ob …", "whyEn": "The topic opener: In letzter Zeit wird viel darüber diskutiert, ob …" },
+			{ "sentence": "____ über die Stadtplanung gelesen. (introduction: article)", "why": "Der Leserbrief-Einstieg: Mit großem Interesse habe ich Ihren Artikel … gelesen.", "whyEn": "The letter-to-the-editor opener: Mit großem Interesse habe ich Ihren Artikel … gelesen." },
+			{ "sentence": "____ man Zeit spart. (pro)", "why": "Pro-Argument einleiten: Dafür spricht vor allem, dass …", "whyEn": "Introducing a pro argument: Dafür spricht vor allem, dass …" },
+			{ "sentence": "____ der Kontakt zu den Kollegen fehlt. (contra)", "why": "Contra einleiten: Dagegen lässt sich einwenden, dass …", "whyEn": "Introducing the contra: Dagegen lässt sich einwenden, dass …" },
+			{ "sentence": "____ meine eigene Firma. (example)", "why": "Beleg: Ein Beispiel dafür ist …", "whyEn": "Evidence: Ein Beispiel dafür ist …" },
+			{ "sentence": "____ überwiegen die Vorteile. (own opinion — verb second follows)", "why": "Meinung als Adverbial: Meiner Ansicht nach + Verb an Position 2.", "whyEn": "Opinion as an adverbial: Meiner Ansicht nach + verb in second place." },
+			{ "sentence": "____, zwei Tage pro Woche im Büro zu arbeiten. (proposal)", "why": "Vorschlag: Ich würde vorschlagen, … zu …", "whyEn": "A proposal: Ich würde vorschlagen, … zu …" },
+			{ "sentence": "____ klare Regeln für alle. (demand)", "why": "Forderung mit Begründung davor: Deshalb fordere ich …", "whyEn": "A demand with its reason before it: Deshalb fordere ich …" },
+			{ "sentence": "____ beide Seiten gute Argumente haben. (summary)", "why": "Das Fazit: Zusammenfassend lässt sich sagen, dass …", "whyEn": "The conclusion: Zusammenfassend lässt sich sagen, dass …" },
+			{ "sentence": "____ sich das Modell durchsetzt. (outlook)", "why": "Der Ausblick: Es bleibt abzuwarten, ob …", "whyEn": "The outlook: Es bleibt abzuwarten, ob …" },
+			{ "sentence": "____ nicht jeder zu Hause arbeiten kann. (concession)", "why": "Das Zugeständnis vor dem aber: Zwar ist es richtig, dass …", "whyEn": "The concession before the but: Zwar ist es richtig, dass …" },
+			{ "sentence": "____ die Kosten. (transition)", "why": "Der Themenwechsel: Ein weiterer Aspekt ist/sind …", "whyEn": "The transition: Ein weiterer Aspekt ist/sind …" },
+			{ "sentence": "____ die Kosten steigen. (moreover — strengthen)", "why": "Verstärkung: Hinzu kommt, dass …", "whyEn": "Reinforcement: Hinzu kommt, dass …" },
+			{ "sentence": "____, arbeiten 25 Prozent im Homeoffice. (cite the graph: Wie …)", "why": "Grafikbezug: Wie die Grafik zeigt, …", "whyEn": "Citing the chart: Wie die Grafik zeigt, …" },
+			{ "sentence": "____ Homeoffice nicht für alle passt. (own experience)", "why": "Eigene Erfahrung: Ich selbst habe erlebt, dass …", "whyEn": "Personal experience: Ich selbst habe erlebt, dass …" }
+		]
+	},
+	{
+		"id": "quest_b2_1_infinitivsaetze",
+		"whys": [
+			{ "sentence": "Ich lerne Deutsch, ____ in Wien studieren zu können.", "why": "Gleiches Subjekt + zu: um — das Ziel.", "whyEn": "Same subject + zu: um — the purpose." },
+			{ "sentence": "Die Eltern arbeiten viel, ____ ihre Kinder studieren können.", "why": "Anderes Subjekt (die Kinder): damit.", "whyEn": "Different subject (the children): damit." },
+			{ "sentence": "Er verließ das Büro, ____ sich von den Kollegen zu verabschieden.", "why": "Gleiches Subjekt + zu: ohne — was fehlte.", "whyEn": "Same subject + zu: ohne — what was missing." },
+			{ "sentence": "Sie hat das Auto genommen, ____ ihr Mann davon wusste.", "why": "Anderes Subjekt (ihr Mann): ohne dass.", "whyEn": "Different subject (her husband): ohne dass." },
+			{ "sentence": "____ im Büro zu sitzen, arbeitet sie heute im Park.", "why": "Gleiches Subjekt + zu: (An)statt.", "whyEn": "Same subject + zu: (An)statt." },
+			{ "sentence": "____ die Stadt neue Radwege baut, plant sie ein weiteres Parkhaus.", "why": "Eigenes Subjekt im Satz: (An)statt dass.", "whyEn": "Its own subject in the clause: (An)statt dass." },
+			{ "sentence": "Wir stehen um fünf Uhr auf, um den ersten Zug ____. (erreichen)", "why": "um … zu + Infinitiv: zu erreichen.", "whyEn": "um … zu + infinitive: zu erreichen." },
+			{ "sentence": "Man kann das Formular nicht einreichen, ohne es vorher ____. (unterschreiben)", "why": "ohne … zu unterschreiben.", "whyEn": "ohne … zu unterschreiben." },
+			{ "sentence": "Er ruft seine Mutter an, um sie zu seinem Geburtstag ____. (einladen)", "why": "Trennbar: einzuladen — zu in der Mitte.", "whyEn": "Separable: einzuladen — zu in the middle." },
+			{ "sentence": "Statt die Rechnung sofort ____, hat er sie wochenlang liegen lassen. (bezahlen)", "why": "statt … zu bezahlen.", "whyEn": "statt … zu bezahlen." },
+			{ "sentence": "Ich erkläre es gern noch einmal, ____ es wirklich alle verstehen.", "why": "alle = anderes Subjekt: damit.", "whyEn": "alle = a different subject: damit." },
+			{ "sentence": "Er hat drei Stunden gearbeitet, ____ eine einzige Pause zu machen.", "why": "Gleiches Subjekt: ohne … zu.", "whyEn": "Same subject: ohne … zu." },
+			{ "sentence": "Sie schreibt sich jeden Termin auf, ____ nichts zu vergessen.", "why": "Ziel, gleiches Subjekt: um … zu.", "whyEn": "Purpose, same subject: um … zu." },
+			{ "sentence": "Plötzlich ging die Tür auf, ____ jemand geklingelt hatte.", "why": "jemand = eigenes Subjekt: ohne dass.", "whyEn": "jemand = its own subject: ohne dass." },
+			{ "sentence": "Die Firma investiert in Weiterbildung, ____ ihre Mitarbeiter auf dem neuesten Stand bleiben.", "why": "Die Mitarbeiter sind das andere Subjekt: damit.", "whyEn": "The employees are the other subject: damit." }
+		]
+	},
+	{
+		"id": "quest_b2_1_brauchen_zu",
+		"whys": [
+			{ "sentence": "Du ____ morgen nicht ins Büro zu kommen, wir haben Feiertag.", "why": "nicht/nur + brauchen + zu = 'müssen nicht': du brauchst nicht zu kommen.", "whyEn": "nicht/nur + brauchen + zu = 'don't have to': du brauchst nicht zu kommen." },
+			{ "sentence": "Sie ____ das Formular nur noch zu unterschreiben.", "why": "nur brauchen + zu: Sie brauchen nur … — mehr ist nicht nötig.", "whyEn": "nur brauchen + zu: Sie brauchen nur … — nothing more is needed." },
+			{ "sentence": "Ihr ____ keine Angst zu haben, der Hund ist harmlos.", "why": "ihr braucht — die ihr-Form.", "whyEn": "ihr braucht — the ihr form." },
+			{ "sentence": "Er ____ sich keine Sorgen zu machen, alles ist schon erledigt.", "why": "er braucht … zu machen — mit kein- genügt brauchen.", "whyEn": "er braucht … zu machen — with kein-, brauchen suffices." },
+			{ "sentence": "Wir ____ den Termin nicht zu verschieben, die Ärztin hat doch Zeit.", "why": "wir brauchen nicht … zu verschieben.", "whyEn": "wir brauchen nicht … zu verschieben." },
+			{ "sentence": "Die Unterlagen brauchen Sie nicht per Post ____. (schicken)", "why": "brauchen verlangt zu: zu schicken.", "whyEn": "brauchen demands zu: zu schicken." },
+			{ "sentence": "Du brauchst mich nicht vom Bahnhof ____. (abholen)", "why": "Trennbar: abzuholen — zu in der Mitte.", "whyEn": "Separable: abzuholen — zu in the middle." },
+			{ "sentence": "Um das Gerät einzuschalten, braucht man nur auf diesen Knopf ____. (drücken)", "why": "nur brauchen + zu drücken.", "whyEn": "nur brauchen + zu drücken." },
+			{ "sentence": "Ihr braucht euch nicht ____, der Film fängt erst um acht an. (sich beeilen)", "why": "Reflexiv + zu: euch … zu beeilen.", "whyEn": "Reflexive + zu: euch … zu beeilen." },
+			{ "sentence": "Wir mussten nicht lange warten. → Wir ____ nicht lange zu warten.", "why": "mussten nicht → brauchten nicht … zu — das Präteritum von brauchen.", "whyEn": "mussten nicht → brauchten nicht … zu — brauchen's Präteritum." },
+			{ "sentence": "Er musste für die Reparatur nichts bezahlen. → Er ____ für die Reparatur nichts zu bezahlen.", "why": "brauchte — Präteritum Singular.", "whyEn": "brauchte — Präteritum singular." },
+			{ "sentence": "Du ____ hier nicht parken, das ist eine Feuerwehrzufahrt.", "why": "Verbot, nicht fehlende Pflicht: darfst — brauchen passt hier nicht.", "whyEn": "A ban, not a missing obligation: darfst — brauchen doesn't fit here." },
+			{ "sentence": "Du ____ keinen Parkplatz zu suchen, ich lasse dich direkt vor dem Eingang aussteigen.", "why": "Keine Notwendigkeit + zu: brauchst.", "whyEn": "No necessity + zu: brauchst." },
+			{ "sentence": "Kinder unter sechs Jahren ____ keinen Eintritt zu bezahlen.", "why": "Plural: brauchen … zu bezahlen.", "whyEn": "Plural: brauchen … zu bezahlen." },
+			{ "sentence": "Zum Glück haben wir nicht lange zu warten ____.", "why": "Perfekt wie ein Modal: Ersatzinfinitiv brauchen statt gebraucht.", "whyEn": "The perfect works like a modal's: the substitute infinitive brauchen instead of gebraucht." }
+		]
+	},
+	{
+		"id": "quest_b2_1_je_desto",
+		"whys": [
+			{ "sentence": "Je länger ich in Berlin wohne, ____ gefällt mir die Stadt. (gut)", "why": "je + Komparativ, desto + Komparativ: desto besser — gut ist unregelmäßig.", "whyEn": "je + comparative, desto + comparative: desto besser — gut is irregular." },
+			{ "sentence": "Je ____ man trainiert, desto fitter wird man. (viel)", "why": "viel → mehr: Je mehr man trainiert.", "whyEn": "viel → mehr: Je mehr man trainiert." },
+			{ "sentence": "Je früher wir losfahren, ____. (schnell · wir · da sein)", "why": "Der desto-Teil ist Hauptsatz: desto schneller sind wir da — Verb direkt nach dem Komparativ.", "whyEn": "The desto part is a main clause: desto schneller sind wir da — verb right after the comparative." },
+			{ "sentence": "Je mehr ich verdiene, ____. (viel · ich · Steuern zahlen)", "why": "desto mehr Steuern zahle ich — Komparativ + Nomen, dann das Verb.", "whyEn": "desto mehr Steuern zahle ich — comparative + noun, then the verb." },
+			{ "sentence": "____, desto müder werden die Kinder. (spät · es · werden)", "why": "Der je-Teil ist Nebensatz: Je später es wird — Verb am Ende.", "whyEn": "The je part is a subordinate clause: Je später es wird — verb last." },
+			{ "sentence": "____, desto ruhiger bist du in der Prüfung. (gut · du · vorbereitet sein)", "why": "Je besser du vorbereitet bist — Verb ans Ende.", "whyEn": "Je besser du vorbereitet bist — verb to the end." },
+			{ "sentence": "Je teurer eine Wohnung ist, ____ Interessenten gibt es. (wenig)", "why": "wenig → weniger: desto weniger.", "whyEn": "wenig → weniger: desto weniger." },
+			{ "sentence": "Je älter meine Großmutter wird, ____ erzählt sie von früher. (gern)", "why": "gern → lieber: desto lieber.", "whyEn": "gern → lieber: desto lieber." },
+			{ "sentence": "Je höher der Preis, ____ die Erwartungen. (hoch)", "why": "Elliptisch ohne Verb: desto höher — hoch → höher.", "whyEn": "Elliptical, no verb: desto höher — hoch → höher." },
+			{ "sentence": "____, desto mehr Fehler finde ich. (oft · ich · den Text lesen)", "why": "oft → öfter: Je öfter ich den Text lese.", "whyEn": "oft → öfter: Je öfter ich den Text lese." },
+			{ "sentence": "Je genauer wir planen, ____. (wenig · Probleme · es · geben)", "why": "desto weniger Probleme gibt es.", "whyEn": "desto weniger Probleme gibt es." },
+			{ "sentence": "Je mehr Menschen das Rad nehmen, ____ wird die Luft. (sauber)", "why": "desto sauberer.", "whyEn": "desto sauberer." },
+			{ "sentence": "Die Aufgabe wird umso schwieriger, ____ länger man wartet.", "why": "Umgedrehte Reihenfolge: umso vorn, je hinten — je länger man wartet.", "whyEn": "Reversed order: umso first, je after — je länger man wartet." },
+			{ "sentence": "Man lernt eine Sprache umso schneller, ____ mehr man sie spricht.", "why": "Wieder: je im Nachsatz — je mehr man sie spricht.", "whyEn": "Again: je in the second clause — je mehr man sie spricht." },
+			{ "sentence": "Je ____ die Tage im Herbst werden, desto mehr Menschen fühlen sich müde. (kurz)", "why": "kurz → kürzer — der Umlaut-Komparativ im je-Teil.", "whyEn": "kurz → kürzer — the umlaut comparative in the je part." }
+		]
+	}
+]

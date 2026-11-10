@@ -1,0 +1,362 @@
+[
+	{
+		"id": "quest_c1_2_kultur",
+		"whys": [
+			{ "sentence": "Die Erfahrungen der Nachkriegszeit haben ihr gesamtes Werk ____. (shaped)", "why": "prägen → geprägt — wie eine Münze geprägt wird: dauerhaft formen.", "whyEn": "prägen → geprägt — like minting a coin: to shape lastingly." },
+			{ "sentence": "Gute Journalistinnen ____ auch die Aussagen von Fachleuten. (question critically)", "why": "hinterfragen — hinter die Aussage schauen; untrennbar.", "whyEn": "hinterfragen — to look behind a statement; inseparable." },
+			{ "sentence": "Die sprachliche ____ der Stadt spiegelt sich im Kulturprogramm wider. (diversity)", "why": "die Vielfalt — viel + Falt, die Vielgestaltigkeit.", "whyEn": "die Vielfalt — manyness of forms, diversity." },
+			{ "sentence": "Das Museum will Geschichte anschaulich ____. (convey)", "why": "vermitteln — als Mittler weitergeben.", "whyEn": "vermitteln — to pass on as a mediator." },
+			{ "sentence": "Der Roman ist eine schonungslose ____ mit der eigenen Familiengeschichte. (engagement, reckoning)", "why": "die Auseinandersetzung MIT + Dativ — das Ringen mit einem Thema.", "whyEn": "die Auseinandersetzung MIT + dative — grappling with a subject." },
+			{ "sentence": "Die ____ des Films war in Frankreich deutlich positiver als in Deutschland. (reception)", "why": "die Rezeption — das Fachwort für die Aufnahme beim Publikum.", "whyEn": "die Rezeption — the technical word for how audiences received it." },
+			{ "sentence": "Die neue ____ des Stücks verlegt die Handlung in ein Großraumbüro. (staging, production)", "why": "die Inszenierung — inszenieren + -ung, die Regie-Deutung.", "whyEn": "die Inszenierung — inszenieren + -ung, the director's interpretation." },
+			{ "sentence": "Das Buch erhielt überwiegend wohlwollende ____. (reviews)", "why": "die Rezension → Rezensionen — die Buchkritik.", "whyEn": "die Rezension → Rezensionen — the book review." },
+			{ "sentence": "Der Skandal wurde erst durch eine Recherche der Zeitung der ____ bekannt. (the public)", "why": "die Öffentlichkeit — der Öffentlichkeit bekannt werden, Dativ.", "whyEn": "die Öffentlichkeit — der Öffentlichkeit bekannt werden, dative." },
+			{ "sentence": "Das Stück steckt voller ____ auf die aktuelle Politik. (allusions)", "why": "die Anspielung → Anspielungen AUF + Akkusativ.", "whyEn": "die Anspielung → Anspielungen AUF + accusative." },
+			{ "sentence": "Die Galerie zeigt ausschließlich ____ Kunst. (contemporary)", "why": "zeitgenössisch — vom Zeitgenossen, dem Mitlebenden.", "whyEn": "zeitgenössisch — from Zeitgenosse, one's contemporary." },
+			{ "sentence": "Die Serie ____ ein Thema ____, das lange als Tabu galt. (takes up)", "why": "aufgreifen — trennbar: greift … auf.", "whyEn": "aufgreifen — separable: greift … auf." },
+			{ "sentence": "Die Entscheidung der Jury, den Preis einem Debütroman zu verleihen, ist ____. (controversial)", "why": "umstritten — darum wird gestritten.", "whyEn": "umstritten — it is being fought over." },
+			{ "sentence": "Die Altstadt gehört zum kulturellen ____ der Menschheit. (heritage)", "why": "das Erbe — das Weltkulturerbe-Wort.", "whyEn": "das Erbe — the world-heritage word." },
+			{ "sentence": "Kunst kann verändern, wie wir unsere Umgebung ____. (perceive)", "why": "wahrnehmen — wörtlich 'für wahr nehmen'.", "whyEn": "wahrnehmen — literally 'to take as true'." }
+		]
+	},
+	{
+		"id": "quest_c1_2_modal_vermutung",
+		"whys": [
+			{ "sentence": "Das Licht brennt, und das Auto steht vor der Tür. Er ____ zu Hause sein. (almost certain)", "why": "Fast sichere Vermutung: muss — die stärkste Stufe.", "whyEn": "A near-certain guess: muss — the strongest rung." },
+			{ "sentence": "Bei diesem Schneefall ____ der Zug erhebliche Verspätung haben. (probably)", "why": "Wahrscheinlich: dürfte — die höfliche Prognose-Stufe.", "whyEn": "Probable: dürfte — the polite forecast rung." },
+			{ "sentence": "Sie geht nicht ans Telefon. Sie ____ schon schlafen. (possibly)", "why": "Möglich: könnte.", "whyEn": "Possible: könnte." },
+			{ "sentence": "Das ____ auf den ersten Blick überzeugen, bei genauerem Hinsehen hält es aber nicht. (I concede it may)", "why": "Das Zugeständnis: mag — 'mag sein, aber'.", "whyEn": "The concession: mag — 'may be, but'." },
+			{ "sentence": "Die Zeitungen stapeln sich vor der Tür. Die Nachbarn ____ nicht zu Hause sein. (ruled out)", "why": "Ausgeschlossen mit nicht: können … nicht — 'das kann nicht sein'.", "whyEn": "Ruled out with nicht: können … nicht — 'that cannot be'." },
+			{ "sentence": "Er kennt jede Gasse der Altstadt. Er ____ hier aufgewachsen ____. (almost certain; past)", "why": "Vergangenheit: muss + Partizip + sein — aufgewachsen sein.", "whyEn": "The past: muss + participle + sein — aufgewachsen sein." },
+			{ "sentence": "Die Straße ist nass. Es ____ in der Nacht geregnet ____. (almost certain; past)", "why": "muss … geregnet haben.", "whyEn": "muss … geregnet haben." },
+			{ "sentence": "Sie ist noch nicht da. Sie ____ den Zug verpasst ____. (probably; past)", "why": "dürfte … verpasst haben.", "whyEn": "dürfte … verpasst haben." },
+			{ "sentence": "Der Brief ist vor einer Woche abgeschickt worden. Er ____ längst angekommen ____. (by rights; past)", "why": "Eigentlich-Erwartung: müsste … sein — 'nach aller Logik'.", "whyEn": "The by-rights expectation: müsste … sein — 'by all logic'." },
+			{ "sentence": "Die Unterschrift sieht anders aus. Jemand anderes ____ den Vertrag unterschrieben ____. (possibly; past)", "why": "könnte … haben.", "whyEn": "könnte … haben." },
+			{ "sentence": "Drei Pannen am selben Tag – das ____ kein Zufall gewesen ____. (ruled out; past)", "why": "kann … gewesen sein — mit kein ausgeschlossen.", "whyEn": "kann … gewesen sein — ruled out with kein." },
+			{ "sentence": "Der Chef ist seit Stunden nicht erreichbar. Er ____ in einer Besprechung sitzen. (probably)", "why": "dürfte.", "whyEn": "dürfte." },
+			{ "sentence": "Er ____ zwar viel über Statistik gelesen ____, aber verstanden hat er sie nicht. (I concede; past)", "why": "mag … gelesen haben — das Zugeständnis in der Vergangenheit.", "whyEn": "mag … gelesen haben — the concession in the past." },
+			{ "sentence": "Nach vierzehn Stunden Flug ____ sie völlig erschöpft sein. (almost certain)", "why": "muss.", "whyEn": "muss." },
+			{ "sentence": "Das Projekt ____ bis Ende des Monats abgeschlossen sein. (probably — a forecast)", "why": "dürfte/müsste — die Prognose-Stufen.", "whyEn": "dürfte/müsste — the forecast rungs." }
+		]
+	},
+	{
+		"id": "quest_c1_2_konj2_kritik",
+		"whys": [
+			{ "sentence": "Sie ____ uns früher ____. (informieren / sollen)", "why": "Der Rückblicks-Vorwurf: hätten + Infinitiv + Modal — informieren sollen.", "whyEn": "The hindsight reproach: hätten + infinitive + modal — informieren sollen." },
+			{ "sentence": "Sie ____ die Frist im Kalender ____. (notieren / müssen)", "why": "hätten … notieren müssen.", "whyEn": "hätten … notieren müssen." },
+			{ "sentence": "Du ____ mich wenigstens ____. (anrufen / können)", "why": "hättest … anrufen können.", "whyEn": "hättest … anrufen können." },
+			{ "sentence": "An Ihrer Stelle ____ ich das Angebot ____. (ablehnen)", "why": "Ohne Modal nur Partizip: hätte … abgelehnt.", "whyEn": "Without a modal, just the participle: hätte … abgelehnt." },
+			{ "sentence": "Es ____ besser ____, noch eine Woche zu warten. (sein)", "why": "wäre … gewesen — die Rückblicks-Empfehlung.", "whyEn": "wäre … gewesen — the hindsight recommendation." },
+			{ "sentence": "Man ____ die Zahlen vor der Veröffentlichung ____. (prüfen / sollen)", "why": "hätte … prüfen sollen.", "whyEn": "hätte … prüfen sollen." },
+			{ "sentence": "Der Schaden ____ leicht ____. (vermeiden / können — passive)", "why": "Passiv + Modal: hätte vermieden werden können — die Dreierkette.", "whyEn": "Passive + modal: hätte vermieden werden können — the three-verb chain." },
+			{ "sentence": "Das ____ du in der Sitzung nicht ____. (sagen / sollen)", "why": "hättest … sagen sollen.", "whyEn": "hättest … sagen sollen." },
+			{ "sentence": "Es ____ ratsam ____, den Vertrag vorher prüfen zu lassen. (sein)", "why": "wäre … gewesen.", "whyEn": "wäre … gewesen." },
+			{ "sentence": "Von einem so erfahrenen Team ____ ich mehr ____. (erwarten)", "why": "hätte … erwartet — die Enttäuschung im Konjunktiv.", "whyEn": "hätte … erwartet — disappointment in the Konjunktiv." },
+			{ "sentence": "Für diese Aufgabe ____ wir mindestens zwei Wochen mehr ____. (brauchen)", "why": "hätten … gebraucht.", "whyEn": "hätten … gebraucht." },
+			{ "sentence": "Der Bericht ____ spätestens am Montag ____. (schicken / sollen — passive)", "why": "hätte geschickt werden sollen.", "whyEn": "hätte geschickt werden sollen." },
+			{ "sentence": "Sie ____ jederzeit ____. (fragen / können)", "why": "hätten … fragen können.", "whyEn": "hätten … fragen können." },
+			{ "sentence": "Ich ärgere mich, weil ich den Fehler ____. (bemerken / können)", "why": "Im Nebensatz: hätte bemerken können — hätte VOR dem Doppelinfinitiv.", "whyEn": "In a subordinate clause: hätte bemerken können — hätte BEFORE the double infinitive." },
+			{ "sentence": "Der Kunde beschwert sich zu Recht, weil er über die Verzögerung ____. (informieren / sollen — passive)", "why": "hätte informiert werden sollen — Passivkette im Nebensatz.", "whyEn": "hätte informiert werden sollen — the passive chain in a subordinate clause." }
+		]
+	},
+	{
+		"id": "quest_c1_2_relativ_advanced",
+		"whys": [
+			{ "sentence": "Das ist der Kollege, ____ Hilfe ich die Auswertung abgeschlossen habe.", "why": "Präposition + Besitz: mit dessen Hilfe.", "whyEn": "Preposition + possession: mit dessen Hilfe." },
+			{ "sentence": "Die Firma, ____ weltweit verkauft werden, sitzt in einem kleinen Dorf.", "why": "deren Produkte — der Besitz steht gleich hinter deren.", "whyEn": "deren Produkte — the possession follows deren directly." },
+			{ "sentence": "Ich danke den Kolleginnen, ____ Unterstützung ich mich immer verlassen konnte.", "why": "sich verlassen AUF + deren: auf deren Unterstützung.", "whyEn": "sich verlassen AUF + deren: auf deren Unterstützung." },
+			{ "sentence": "Das ist die Stadt, ____ ich studiert habe.", "why": "Ort: wo — oder in der.", "whyEn": "A place: wo — or in der." },
+			{ "sentence": "Das Land, ____ ihre Familie stammt, kennt sie nur aus Erzählungen.", "why": "Herkunft: woher — oder aus dem.", "whyEn": "Origin: woher — or aus dem." },
+			{ "sentence": "Das Dorf, ____ meine Großeltern gezogen sind, liegt direkt am Meer.", "why": "Ziel: wohin — oder in das.", "whyEn": "Destination: wohin — or in das." },
+			{ "sentence": "____ diesen Bericht liest, der versteht die Aufregung.", "why": "Verallgemeinernd: Wer … liest, der …", "whyEn": "Generalising: Wer … liest, der …" },
+			{ "sentence": "Das Thema, ____ wir gestern gesprochen haben, steht nicht auf der Tagesordnung.", "why": "sprechen über: über das — oder worüber.", "whyEn": "sprechen über: über das — or worüber." },
+			{ "sentence": "Er hat die Prüfung im ersten Versuch bestanden, ____ alle überrascht hat.", "why": "Bezug auf den ganzen Satz: was.", "whyEn": "Referring to the whole clause: was." },
+			{ "sentence": "Die Firma schrieb schwarze Zahlen, ____ niemand gerechnet hatte.", "why": "rechnen mit + Satzbezug: womit.", "whyEn": "rechnen mit + clause reference: womit." },
+			{ "sentence": "Das ist eine Frage, ____ noch aussteht.", "why": "deren Antwort — Besitz bei die Frage.", "whyEn": "deren Antwort — possession of die Frage." },
+			{ "sentence": "Alles, ____ wir gesprochen haben, bleibt vertraulich.", "why": "Nach alles mit Präposition: worüber.", "whyEn": "After alles with a preposition: worüber." },
+			{ "sentence": "Es ist ein Roman, an ____ Ende alle Rätsel gelöst werden.", "why": "an dessen Ende — dessen bleibt vor dem Nomen starr.", "whyEn": "an dessen Ende — dessen stays rigid before its noun." },
+			{ "sentence": "Der Vertrag wurde verlängert, ____ wir lange gehofft hatten.", "why": "hoffen auf + Satz- oder Sachbezug: worauf.", "whyEn": "hoffen auf + clause or thing reference: worauf." },
+			{ "sentence": "Ich erinnere mich genau an den Tag, ____ wir uns kennengelernt haben.", "why": "Zeitpunkt: an dem — oder als.", "whyEn": "A point in time: an dem — or als." }
+		]
+	},
+	{
+		"id": "quest_c1_2_numerus_gender",
+		"whys": [
+			{ "sentence": "Die Kosten für die Renovierung ____ deutlich höher als geplant. (sein, Präsens)", "why": "die Kosten gibt es nur im Plural: sind.", "whyEn": "die Kosten exists only in the plural: sind." },
+			{ "sentence": "Das Gepäck der Reisenden ____ bis 10 Uhr an der Rezeption abgegeben werden. (müssen)", "why": "das Gepäck ist ein Singular-Sammelwort: muss.", "whyEn": "das Gepäck is a singular collective: muss." },
+			{ "sentence": "Die Möbel in der Ausstellung ____ aus dem 18. Jahrhundert. (stammen, Präsens)", "why": "die Möbel sind im Deutschen Plural: stammen.", "whyEn": "die Möbel is plural in German: stammen." },
+			{ "sentence": "Ich habe eine wichtige ____ für Sie: Die Sitzung fällt aus. (piece of information)", "why": "EINE Information — Deutsch zählt sie einfach, kein 'piece of' nötig.", "whyEn": "EINE Information — German just counts it, no 'piece of' needed." },
+			{ "sentence": "Sie gab mir zwei gute ____, die ich bis heute befolge. (pieces of advice)", "why": "der Ratschlag ist zählbar: zwei Ratschläge.", "whyEn": "der Ratschlag is countable: zwei Ratschläge." },
+			{ "sentence": "In den ____ der Region sind drei Sonderausstellungen zu sehen. (das Museum, Plural)", "why": "das Museum → die Museen — der lateinische Plural.", "whyEn": "das Museum → die Museen — the Latin plural." },
+			{ "sentence": "Beide ____ werden in der nächsten Sitzung behandelt. (das Thema, Plural)", "why": "das Thema → die Themen — griechischer Plural.", "whyEn": "das Thema → die Themen — the Greek plural." },
+			{ "sentence": "Während des Studiums hat sie drei ____ absolviert. (das Praktikum, Plural)", "why": "das Praktikum → die Praktika — -um wird -a.", "whyEn": "das Praktikum → die Praktika — -um becomes -a." },
+			{ "sentence": "Für die Exkursion brauchen alle Teilnehmenden gültige ____. (das Visum, Plural)", "why": "das Visum → die Visa — wie Praktikum/Praktika.", "whyEn": "das Visum → die Visa — like Praktikum/Praktika." },
+			{ "sentence": "Die ____ des Instituts haben einen offenen Brief unterschrieben. (people who teach — gender-neutral)", "why": "Das Partizip als neutrale Personenform: die Lehrenden.", "whyEn": "The participle as the gender-neutral form: die Lehrenden." },
+			{ "sentence": "Alle ____ erhalten ab Januar einen Zuschuss zum Jobticket. (people who work here — gender-neutral)", "why": "die Mitarbeitenden — das neutrale Partizip von mitarbeiten.", "whyEn": "die Mitarbeitenden — the neutral participle of mitarbeiten." },
+			{ "sentence": "Ein ____ hat sich beschwert, dass die Bibliothek zu früh schließt. (studieren — a male student, participle noun)", "why": "Nach ein mit maskuliner Endung: ein Studierender.", "whyEn": "After ein with the masculine ending: ein Studierender." },
+			{ "sentence": "Wir suchen eine erfahrene ____ für unser Pflegeteam. (skilled worker — gender-neutral compound)", "why": "die Fachkraft/Pflegekraft — -kraft macht Berufe neutral.", "whyEn": "die Fachkraft/Pflegekraft — -kraft makes job titles neutral." },
+			{ "sentence": "Liebe ____, vielen Dank für Ihre Mitarbeit im letzten Semester. (colleagues — pair form)", "why": "Die Paarform der Anrede: Kolleginnen und Kollegen.", "whyEn": "The paired address: Kolleginnen und Kollegen." },
+			{ "sentence": "Der Verkehr in der Innenstadt ____ seit der Sperrung deutlich ____. (abnehmen, Perfekt)", "why": "der Verkehr ist Singular: hat … abgenommen.", "whyEn": "der Verkehr is singular: hat … abgenommen." }
+		]
+	},
+	{
+		"id": "quest_c1_2_modal_hoerensagen",
+		"whys": [
+			{ "sentence": "Man sagt, der Bürgermeister sei früher Profifußballer gewesen. → Der Bürgermeister ____ früher Profifußballer ____.", "why": "Fremde Behauptung: soll + Vergangenheits-Infinitiv — gewesen sein.", "whyEn": "Someone else's claim: soll + past infinitive — gewesen sein." },
+			{ "sentence": "Der Angeklagte behauptet, er sei zur Tatzeit zu Hause gewesen. → Der Angeklagte ____ zur Tatzeit zu Hause ____.", "why": "EIGENE Behauptung: will … gewesen sein.", "whyEn": "His OWN claim: will … gewesen sein." },
+			{ "sentence": "Es heißt, das Rathaus werde im Sommer renoviert. → Das Rathaus ____ im Sommer renoviert ____.", "why": "Gerücht über Künftiges: soll … renoviert werden.", "whyEn": "A rumour about the future: soll … renoviert werden." },
+			{ "sentence": "Angeblich wurde das Gemälde im Krieg gestohlen. → Das Gemälde ____ im Krieg gestohlen ____.", "why": "Passiv-Vergangenheit: soll … gestohlen worden sein.", "whyEn": "A past passive: soll … gestohlen worden sein." },
+			{ "sentence": "Sie behauptet, sie habe von dem Plan nichts gewusst. → Sie ____ von dem Plan nichts ____.", "why": "Eigenbehauptung: will … gewusst haben.", "whyEn": "Her own claim: will … gewusst haben." },
+			{ "sentence": "Berichten zufolge plant der Konzern, 2000 Stellen abzubauen. → Der Konzern ____ 2000 Stellen ____ wollen.", "why": "soll … abbauen wollen — Hörensagen über eine Absicht.", "whyEn": "soll … abbauen wollen — hearsay about an intention." },
+			{ "sentence": "Der Zeuge sagt, er habe den Täter genau erkannt. → Der Zeuge ____ den Täter genau ____.", "why": "will … erkannt haben — seine Aussage, mit Zweifel.", "whyEn": "will … erkannt haben — his statement, with doubt." },
+			{ "sentence": "Man erzählt sich, die Sängerin lebe inzwischen in Kanada. → Die Sängerin ____ inzwischen in Kanada ____.", "why": "soll … leben — Gegenwart des Gerüchts.", "whyEn": "soll … leben — the rumour's present tense." },
+			{ "sentence": "Der Spieler behauptet, er sei vorher nicht gewarnt worden. → Der Spieler ____ vorher nicht ____.", "why": "will … gewarnt worden sein — Eigenbehauptung im Passiv.", "whyEn": "will … gewarnt worden sein — his own claim, in the passive." },
+			{ "sentence": "Angeblich ist der Minister gestern zurückgetreten. → Der Minister ____ gestern ____.", "why": "soll … zurückgetreten sein.", "whyEn": "soll … zurückgetreten sein." },
+			{ "sentence": "Niemand gibt zu, in der Nacht etwas gehört zu haben. → Niemand ____ in der Nacht etwas ____.", "why": "will … gehört haben — niemand behauptet es von sich.", "whyEn": "will … gehört haben — nobody claims it of themselves." },
+			{ "sentence": "Es heißt, bei dem Brand seien keine Menschen verletzt worden. → Bei dem Brand ____ keine Menschen verletzt ____.", "why": "Plural: sollen … verletzt worden sein.", "whyEn": "Plural: sollen … verletzt worden sein." },
+			{ "sentence": "Laut Polizei hatte der Fahrer 1,5 Promille. → Der Fahrer ____ 1,5 Promille ____.", "why": "soll … gehabt haben.", "whyEn": "soll … gehabt haben." },
+			{ "sentence": "Die Firma behauptet, sie habe alle Vorschriften eingehalten. → Die Firma ____ alle Vorschriften ____.", "why": "will … eingehalten haben — die Selbstverteidigung.", "whyEn": "will … eingehalten haben — the self-defence." },
+			{ "sentence": "Man sagt, der Autor schreibe schon an einem neuen Roman. → Der Autor ____ schon an einem neuen Roman ____.", "why": "soll … schreiben.", "whyEn": "soll … schreiben." }
+		]
+	},
+	{
+		"id": "quest_c1_2_wortbildung_vor",
+		"whys": [
+			{ "sentence": "Ich muss die Anfrage bis morgen ____. (antworten — answer it)", "why": "be- macht transitiv: die Anfrage beantworten — mit Akkusativ.", "whyEn": "be- makes it transitive: die Anfrage beantworten — with an accusative." },
+			{ "sentence": "Die Vase ist beim Umzug ____. (brechen — to pieces)", "why": "zer- heißt kaputt/auseinander: zerbrochen.", "whyEn": "zer- means to pieces: zerbrochen." },
+			{ "sentence": "Dem Gefangenen gelang es, aus dem Lager zu ____. (fliehen / kommen — escape)", "why": "ent- heißt weg/heraus: entkommen.", "whyEn": "ent- means away/out: entkommen." },
+			{ "sentence": "Ohne Karte haben wir uns in der Altstadt ____. (laufen — got lost)", "why": "ver- + sich = falsch gelaufen: sich verlaufen.", "whyEn": "ver- + sich = gone wrong: sich verlaufen, to lose one's way." },
+			{ "sentence": "Ihr Antrag wird derzeit noch ____. (arbeiten — processed)", "why": "be- + arbeiten: bearbeitet — am Antrag arbeiten.", "whyEn": "be- + arbeiten: bearbeitet — working ON the application." },
+			{ "sentence": "Leider hat er meine Bemerkung völlig ____. (verstehen — wrongly)", "why": "miss- heißt falsch: missverstanden.", "whyEn": "miss- means wrongly: missverstanden." },
+			{ "sentence": "Die neue Software hat die Abläufe deutlich ____. (besser — made better)", "why": "ver- + besser: verbessert — besser machen.", "whyEn": "ver- + besser: verbessert — to make better." },
+			{ "sentence": "Den Forschern ist es gelungen, die Inschrift zu ____. (Schlüssel — decode)", "why": "ent- + Schlüssel: entschlüsseln — den Schlüssel finden.", "whyEn": "ent- + Schlüssel: entschlüsseln — to unlock the code." },
+			{ "sentence": "Der erste Versuch ist leider ____. (gelingen — the opposite)", "why": "miss- dreht gelingen um: misslungen.", "whyEn": "miss- flips gelingen: misslungen." },
+			{ "sentence": "Nach vier Stunden hatten wir endlich den Gipfel ____. (reichen — reached)", "why": "er- heißt 'bis zum Ziel': erreicht.", "whyEn": "er- means 'through to the goal': erreicht." },
+			{ "sentence": "Das Gelände darf nur mit Helm ____ werden. (treten — entered)", "why": "be- + treten: betreten — aufs Gelände treten.", "whyEn": "be- + treten: betreten — to step onto." },
+			{ "sentence": "Der Fleck ließ sich problemlos ____. (fern — remove)", "why": "ent- + fern: entfernen — weg machen.", "whyEn": "ent- + fern: entfernen — to make far, remove." },
+			{ "sentence": "Der Sturm hat die halbe Ernte ____. (stören — destroyed)", "why": "zer- + stören: zerstört — kaputt gemacht.", "whyEn": "zer- + stören: zerstört — smashed." },
+			{ "sentence": "Als Kind sprach sie fließend Italienisch, inzwischen hat sie es fast ____. (lernen — forgotten how to)", "why": "ver- kehrt lernen um: verlernt.", "whyEn": "ver- reverses lernen: verlernt, unlearned." },
+			{ "sentence": "Erst nach Jahren ____ er, wie wichtig ihm die Familie war. (kennen — realised, Präteritum)", "why": "er- + kennen: erkannte — zur Einsicht kommen.", "whyEn": "er- + kennen: erkannte — to come to see." }
+		]
+	},
+	{
+		"id": "quest_c1_2_wortbildung_nach",
+		"whys": [
+			{ "sentence": "Die ____ der Presse ist ein Grundpfeiler der Demokratie. (frei)", "why": "frei + -heit: die Freiheit.", "whyEn": "frei + -heit: die Freiheit." },
+			{ "sentence": "Wir prüfen derzeit die ____ einer Zusammenarbeit. (möglich)", "why": "möglich + -keit: die Möglichkeit.", "whyEn": "möglich + -keit: die Möglichkeit." },
+			{ "sentence": "Die ____ der Behörde gegenüber den Beschwerden hat viele empört. (gleichgültig)", "why": "gleichgültig + -keit: die Gleichgültigkeit.", "whyEn": "gleichgültig + -keit: die Gleichgültigkeit." },
+			{ "sentence": "Viele ältere Menschen leiden unter ____. (einsam)", "why": "einsam + -keit: die Einsamkeit.", "whyEn": "einsam + -keit: die Einsamkeit." },
+			{ "sentence": "Das Grundstück ist seit 1950 im ____ der Stadt. (eigen — property)", "why": "eigen + -tum: das Eigentum.", "whyEn": "eigen + -tum: das Eigentum." },
+			{ "sentence": "Die ____ vieler Kinder in der Stadt gilt als Chance. (mehrsprachig)", "why": "-ig-Adjektive nehmen -keit: die Mehrsprachigkeit.", "whyEn": "-ig adjectives take -keit: die Mehrsprachigkeit." },
+			{ "sentence": "Sein Verhalten auf der Feier war einfach ____. (Kind — a negative judgement)", "why": "-isch wertet ab: kindisch.", "whyEn": "-isch disparages: kindisch." },
+			{ "sentence": "Sie hat sich eine ____ Neugier bewahrt. (Kind — neutral, with ending)", "why": "-lich bleibt neutral: kindliche.", "whyEn": "-lich stays neutral: kindliche." },
+			{ "sentence": "Für die Fahrer gibt es ____ Getränke. (Alkohol — free of, with ending)", "why": "-frei heißt 'ohne': alkoholfreie.", "whyEn": "-frei means 'free of': alkoholfreie." },
+			{ "sentence": "Nach der Schließung des Werks war er ein halbes Jahr ____. (Arbeit — without)", "why": "-los: arbeitslos.", "whyEn": "-los: arbeitslos." },
+			{ "sentence": "Die Kosten sind ____ gering. (Verhältnis — relatively)", "why": "-mäßig: verhältnismäßig — 'im Verhältnis betrachtet'.", "whyEn": "-mäßig: verhältnismäßig — 'relatively speaking'." },
+			{ "sentence": "Der Bericht ist leider ____ und muss überarbeitet werden. (Fehler — containing faults)", "why": "-haft: fehlerhaft — voller Fehler.", "whyEn": "-haft: fehlerhaft — full of faults." },
+			{ "sentence": "Das neue Medikament hat sich als äußerst ____ erwiesen. (wirken — effective)", "why": "-sam: wirksam.", "whyEn": "-sam: wirksam." },
+			{ "sentence": "Ihre ____ im Umgang mit Konflikten beeindruckt alle. (gelassen)", "why": "gelassen + -heit: die Gelassenheit.", "whyEn": "gelassen + -heit: die Gelassenheit." },
+			{ "sentence": "Die ____ des Projekts hängt allein von der Finanzierung ab. (durchführbar)", "why": "-bar + -keit: die Durchführbarkeit — die Machbarkeits-Kette.", "whyEn": "-bar + -keit: die Durchführbarkeit — the feasibility chain." }
+		]
+	},
+	{
+		"id": "quest_c1_2_praefixe",
+		"whys": [
+			{ "sentence": "Der Lkw hat beim Rückwärtsfahren einen Laternenmast ____. (umfahren — knocked down)", "why": "Trennbar = umwerfen: UMgefahren — mit ge in der Mitte.", "whyEn": "Separable = knocked over: UMgefahren — with ge in the middle." },
+			{ "sentence": "Um den Stau zu vermeiden, ____ wir die Innenstadt großräumig. (umfahren — drive around)", "why": "Untrennbar = herumfahren: umfahren — kein ge, Betonung auf fahren.", "whyEn": "Inseparable = drive around: umfahren — no ge, stress on fahren." },
+			{ "sentence": "Die Lehrerin ____ die Erklärung noch einmal. (wiederholen — repeat, Präsens)", "why": "Untrennbar = noch einmal sagen: wiederholt.", "whyEn": "Inseparable = to repeat: wiederholt." },
+			{ "sentence": "Der Hund hat den Ball aus dem Teich ____. (wiederholen — fetched back)", "why": "Trennbar = zurückholen: WIEDERgeholt.", "whyEn": "Separable = fetched back: WIEDERgeholt." },
+			{ "sentence": "Ich habe die Akten noch einmal gründlich ____, aber nichts gefunden. (durchschauen — looked through)", "why": "Trennbar = durchsehen: DURCHgeschaut.", "whyEn": "Separable = looked through: DURCHgeschaut." },
+			{ "sentence": "Die Kommissarin hat den Plan des Betrügers sofort ____. (durchschauen — saw through)", "why": "Untrennbar = erkennen: durchschaut — kein ge.", "whyEn": "Inseparable = saw through: durchschaut — no ge." },
+			{ "sentence": "Der Roman wurde in über dreißig Sprachen ____. (übersetzen — translated)", "why": "Untrennbar = in eine Sprache bringen: übersetzt.", "whyEn": "Inseparable = translated: übersetzt." },
+			{ "sentence": "Bei Hochwasser ____ die Fähre nicht ____. (übersetzen — ferry across, Präsens)", "why": "Trennbar = ans andere Ufer: setzt … über.", "whyEn": "Separable = ferry across: setzt … über." },
+			{ "sentence": "Als der Regen einsetzte, haben wir uns in einer Scheune ____. (unterstellen — took shelter)", "why": "Trennbar = sich unterstellen: UNTERgestellt.", "whyEn": "Separable = took shelter: UNTERgestellt." },
+			{ "sentence": "Der Journalist hat dem Minister Absicht ____. (unterstellen — insinuated)", "why": "Untrennbar = behaupten: unterstellt — kein ge.", "whyEn": "Inseparable = insinuated: unterstellt — no ge." },
+			{ "sentence": "Nach der Kritik hat die Autorin das ganze Kapitel ____. (umschreiben — rewritten)", "why": "Trennbar = neu schreiben: UMgeschrieben.", "whyEn": "Separable = rewritten: UMgeschrieben." },
+			{ "sentence": "Er hat den Begriff geschickt ____, ohne ihn zu nennen. (umschreiben — paraphrased)", "why": "Untrennbar = mit anderen Worten: umschrieben.", "whyEn": "Inseparable = paraphrased: umschrieben." },
+			{ "sentence": "Nach seinem Tod ist das Geschäft an die Tochter ____. (übergehen — passed on)", "why": "Trennbar = den Besitzer wechseln: ÜBERgegangen — mit sein.", "whyEn": "Separable = passed to a new owner: ÜBERgegangen — with sein." },
+			{ "sentence": "Die Leitung hat unseren Einwand einfach ____. (übergehen — ignored)", "why": "Untrennbar = ignorieren: übergangen.", "whyEn": "Inseparable = ignored: übergangen." },
+			{ "sentence": "Er ____ seiner Familie ein großes Vermögen. (hinterlassen — left behind, Präteritum)", "why": "hinter- ist immer untrennbar: hinterließ.", "whyEn": "hinter- is always inseparable: hinterließ." }
+		]
+	},
+	{
+		"id": "quest_c1_2_redewendungen",
+		"whys": [
+			{ "sentence": "Die Entscheidung über die Sanierung wird seit Jahren auf die lange ____ geschoben. (postponed indefinitely)", "why": "etwas auf die lange Bank schieben — endlos verschieben.", "whyEn": "auf die lange Bank schieben — to put off endlessly." },
+			{ "sentence": "Erst ein anonymer Hinweis hat die Ermittlungen ins ____ gebracht. (set in motion)", "why": "etwas ins Rollen bringen — in Gang setzen.", "whyEn": "ins Rollen bringen — to set rolling." },
+			{ "sentence": "Mit seiner Bemerkung über das Alter der Chefin ist er gründlich ins ____ getreten. (put his foot in it)", "why": "ins Fettnäpfchen treten — der Takt-Unfall.", "whyEn": "ins Fettnäpfchen treten — stepping into the grease bowl: the tact accident." },
+			{ "sentence": "Wer glaubt, das Problem lasse sich allein mit Technik lösen, ist auf dem ____. (on the wrong track)", "why": "auf dem Holzweg sein — der Weg, der im Wald endet.", "whyEn": "auf dem Holzweg sein — the logging path that ends nowhere." },
+			{ "sentence": "Der Skandal sollte offenbar unter den ____ gekehrt werden. (swept under the carpet)", "why": "unter den Teppich kehren — verstecken.", "whyEn": "unter den Teppich kehren — swept under the carpet." },
+			{ "sentence": "Nach dem dritten abgelehnten Antrag wollte sie schon die Flinte ins ____ werfen. (give up)", "why": "die Flinte ins Korn werfen — aufgeben.", "whyEn": "die Flinte ins Korn werfen — throwing the rifle into the corn: giving up." },
+			{ "sentence": "Es ist Zeit, den Beschäftigten reinen ____ einzuschenken. (tell the plain truth)", "why": "reinen Wein einschenken — die ungeschminkte Wahrheit sagen.", "whyEn": "reinen Wein einschenken — pouring unwatered wine: telling the plain truth." },
+			{ "sentence": "Trotz aller Mühe kommt der kleine Verlag seit Jahren auf keinen grünen ____. (make no headway)", "why": "auf keinen grünen Zweig kommen — nicht vorankommen.", "whyEn": "auf keinen grünen Zweig kommen — never reaching a green branch: no headway." },
+			{ "sentence": "Bei kleinen Formfehlern drückt die Prüferin manchmal ein ____ zu. (turn a blind eye)", "why": "ein Auge zudrücken — großzügig übersehen.", "whyEn": "ein Auge zudrücken — pressing one eye shut: being lenient." },
+			{ "sentence": "Mitten im Vortrag hat er plötzlich den ____ verloren. (lost the thread)", "why": "den Faden verlieren — wie Ariadnes Faden.", "whyEn": "den Faden verlieren — like Ariadne's thread." },
+			{ "sentence": "Ihre Zusammenfassung bringt die ganze Debatte auf den ____. (sums it up precisely)", "why": "etwas auf den Punkt bringen.", "whyEn": "auf den Punkt bringen — to bring to the point." },
+			{ "sentence": "Mit diesem Kommentar hat der Minister nur noch Öl ins ____ gegossen. (made things worse)", "why": "Öl ins Feuer gießen — den Streit anheizen.", "whyEn": "Öl ins Feuer gießen — pouring oil on the fire." },
+			{ "sentence": "Als sie von der Kündigung erfuhr, fiel sie aus allen ____. (was completely taken aback)", "why": "aus allen Wolken fallen — völlig überrascht sein.", "whyEn": "aus allen Wolken fallen — falling out of the clouds: utterly surprised." },
+			{ "sentence": "Wie die anderen Abteilungen ihr Budget verteilen, ist nicht mein ____. (not my business — colloquial)", "why": "das ist nicht mein Bier — geht mich nichts an.", "whyEn": "nicht mein Bier — not my beer: none of my business." },
+			{ "sentence": "Mit dieser Analyse haben Sie den Nagel auf den ____ getroffen. (exactly right)", "why": "den Nagel auf den Kopf treffen — genau richtig.", "whyEn": "den Nagel auf den Kopf treffen — hitting the nail on the head." }
+		]
+	},
+	{
+		"id": "quest_c1_2_kohaesion",
+		"whys": [
+			{ "sentence": "Die Stadt will die Innenstadt für Autos sperren. ____ Maßnahme ist allerdings umstritten. (such a — referring back)", "why": "Rückverweis mit solch-: Eine solche Maßnahme.", "whyEn": "Back-reference with solch-: Eine solche Maßnahme." },
+			{ "sentence": "Man schlug vor, die Prüfung zu verschieben. ____ Schritt wäre jedoch teuer. (such a — referring back)", "why": "Maskulin: Ein solcher Schritt.", "whyEn": "Masculine: Ein solcher Schritt." },
+			{ "sentence": "Die Firma hat zwei Angebote erhalten, eines aus Polen und eines aus Spanien. ____ ist günstiger, letzteres schneller. (the former)", "why": "Ersteres … letzteres — das geordnete Paar, Neutrum.", "whyEn": "Ersteres … letzteres — the ordered pair, neuter." },
+			{ "sentence": "Man hatte mit steigenden Kosten gerechnet. ____ haben sie sich innerhalb eines Jahres verdoppelt. (indeed — confirming)", "why": "Bestätigung: Tatsächlich.", "whyEn": "Confirmation: Tatsächlich." },
+			{ "sentence": "Die Regierung hat ein neues Mietgesetz beschlossen. Die ____ sieht vor, dass Mieten nur noch um zwei Prozent jährlich steigen dürfen. (the new rule — a synonym, not \"Gesetz\")", "why": "Wiederaufnahme durch Synonym: die Neuregelung — Wortwiederholung vermeiden.", "whyEn": "Re-mention via synonym: die Neuregelung — avoiding word repetition." },
+			{ "sentence": "Die Stadt baut einen neuen Tunnel unter dem Fluss. Das ____ soll 2030 fertig sein. (the construction — a more general word)", "why": "Das Oberbegriff-Wort: das Bauwerk/Projekt.", "whyEn": "The umbrella word: das Bauwerk/Projekt." },
+			{ "sentence": "____ fehlt Geld, zum anderen fehlt qualifiziertes Personal. (for one thing)", "why": "Zum einen … zum anderen.", "whyEn": "Zum einen … zum anderen." },
+			{ "sentence": "Bei der Anmeldung ist ____ zu beachten: Die Frist endet am 15. März. (the following)", "why": "Folgendes — großgeschrieben, kündigt die Liste an.", "whyEn": "Folgendes — capitalised, announcing the list." },
+			{ "sentence": "Viele Anwohner lehnen den Plan ab. ____ gibt es auch Zustimmung. (nonetheless)", "why": "Dennoch/Gleichwohl.", "whyEn": "Dennoch/Gleichwohl." },
+			{ "sentence": "Die Preise steigen. ____ sinken die Reallöhne. (at the same time)", "why": "Gleichzeitig/Zugleich.", "whyEn": "Gleichzeitig/Zugleich." },
+			{ "sentence": "Er hat die Miete drei Monate lang nicht bezahlt. ____ wurde ihm gekündigt. (consequently)", "why": "Folglich/Daher.", "whyEn": "Folglich/Daher." },
+			{ "sentence": "Der Minister hat sich öffentlich entschuldigt. ____ war selbst seine Partei überrascht. (about that)", "why": "da-Wort als Rückverweis: Darüber.", "whyEn": "A da-word as back-reference: Darüber." },
+			{ "sentence": "Zuerst werden die Daten geprüft; ____ werden die Ergebnisse veröffentlicht. (afterwards)", "why": "anschließend/danach.", "whyEn": "anschließend/danach." },
+			{ "sentence": "Die Zahlen sind schlecht. Der Hauptgrund ____ ist die schwache Nachfrage. (for that)", "why": "der Grund dafür/hierfür.", "whyEn": "der Grund dafür/hierfür." },
+			{ "sentence": "Im ____ werden die wichtigsten Ergebnisse kurz dargestellt. (in what follows)", "why": "Im Folgenden — die Textgliederungs-Formel.", "whyEn": "Im Folgenden — the text-structuring formula." }
+		]
+	},
+	{
+		"id": "quest_c1_2_redemittel_vortrag",
+		"whys": [
+			{ "sentence": "Mein Vortrag ____ sich mit der Frage, ob Homeoffice die Produktivität steigert. (deals with)", "why": "sich befassen mit — der Vortragseinstieg.", "whyEn": "sich befassen mit — the talk's opener." },
+			{ "sentence": "Ich werde ____ die Datenlage erläutern, anschließend Vor- und Nachteile darstellen und abschließend Stellung nehmen. (first)", "why": "Die Gliederung: zunächst … anschließend … abschließend.", "whyEn": "The outline: zunächst … anschließend … abschließend." },
+			{ "sentence": "Damit ____ ich zum nächsten Punkt. (come)", "why": "Damit komme ich zu … — der Übergang.", "whyEn": "Damit komme ich zu … — the transition." },
+			{ "sentence": "Zusammenfassend lässt sich ____, dass die Vorteile überwiegen. (state, establish)", "why": "festhalten/feststellen — das Fazit.", "whyEn": "festhalten/feststellen — the conclusion." },
+			{ "sentence": "Die Daten ____ aus einer Befragung von 2000 Beschäftigten. (come from)", "why": "stammen aus — die Quellenangabe.", "whyEn": "stammen aus — citing the source." },
+			{ "sentence": "Die Angaben ____ in Prozent. (are given)", "why": "erfolgen — Amtsstil für 'gemacht werden'.", "whyEn": "erfolgen — officialese for 'are made'." },
+			{ "sentence": "Besonders ____ ist, dass sich der Anteil in nur zwei Jahren verdoppelt hat. (striking)", "why": "auffällig/bemerkenswert — das Hervorheben.", "whyEn": "auffällig/bemerkenswert — highlighting." },
+			{ "sentence": "Der Anteil ist ____ 12 ____ 25 Prozent gestiegen. (from … to)", "why": "steigen von … auf — das Grafik-Paar.", "whyEn": "steigen von … auf — the chart pair." },
+			{ "sentence": "Dies dürfte ____ die Pandemie zurückzuführen sein. (attributable to)", "why": "zurückzuführen AUF + Akkusativ.", "whyEn": "zurückzuführen AUF + accusative." },
+			{ "sentence": "Ich ____ die Auffassung, dass Homeoffice die Produktivität eher steigert. (hold)", "why": "eine Auffassung VERTRETEN — das Meinungs-FVG.", "whyEn": "eine Auffassung VERTRETEN — the opinion light-verb phrase." },
+			{ "sentence": "____ lässt sich einwenden, dass der Austausch leidet, ____ lässt sich das mit hybriden Modellen auffangen. (admittedly … yet)", "why": "Zwar … doch — Einwand und Entkräftung.", "whyEn": "Zwar … doch — objection and rebuttal." },
+			{ "sentence": "Dies lässt sich ____ begründen, dass langfristig Kosten gespart werden. (by the fact)", "why": "damit/dadurch begründen, dass …", "whyEn": "damit/dadurch begründen, dass …" },
+			{ "sentence": "Alles in allem ____ die Vorteile. (prevail)", "why": "überwiegen — die Schlussbilanz.", "whyEn": "überwiegen — the closing balance." },
+			{ "sentence": "Dies lässt sich am ____ der skandinavischen Länder verdeutlichen. (example)", "why": "am Beispiel + Genitiv.", "whyEn": "am Beispiel + genitive." },
+			{ "sentence": "Den niedrigsten Wert ____ die Gruppe der über 60-Jährigen. (reaches)", "why": "erreicht/verzeichnet — Grafiksprache.", "whyEn": "erreicht/verzeichnet — chart language." }
+		]
+	},
+	{
+		"id": "quest_c1_2_umformung_1",
+		"whys": [
+			{ "sentence": "die Studie, die kürzlich veröffentlicht wurde → die kürzlich ____ Studie", "why": "Passiv-Relativsatz → Partizip II: veröffentlichte.", "whyEn": "Passive relative clause → Partizip II: veröffentlichte." },
+			{ "sentence": "die Mieten, die seit Jahren steigen → die seit Jahren ____ Mieten", "why": "Aktiv → Partizip I: steigenden.", "whyEn": "Active → Partizip I: steigenden." },
+			{ "sentence": "der von der Stadt geplante Tunnel → der Tunnel, ____ die Stadt plant", "why": "Zurück ins Aktiv: den — der Tunnel ist Objekt.", "whyEn": "Back into the active: den — the tunnel is the object." },
+			{ "sentence": "die am Bahnhof wartenden Reisenden → die Reisenden, die am Bahnhof ____", "why": "Partizip I → Relativsatz im Präsens: warten.", "whyEn": "Partizip I → a present relative clause: warten." },
+			{ "sentence": "Die Firma stellt das Gerät in Polen her. → Das Gerät ____ in Polen ____.", "why": "Aktiv → Passiv: wird … hergestellt.", "whyEn": "Active → passive: wird … hergestellt." },
+			{ "sentence": "Eine unabhängige Kommission prüft den Antrag. → Der Antrag wird ____ einer unabhängigen Kommission geprüft.", "why": "Täter im Passiv: von + Dativ.", "whyEn": "The doer in the passive: von + dative." },
+			{ "sentence": "Man muss die Sicherheitsregeln unbedingt beachten. → Die Sicherheitsregeln sind unbedingt ____.", "why": "müssen → sein + zu: zu beachten.", "whyEn": "müssen → sein + zu: zu beachten." },
+			{ "sentence": "Das Problem kann ohne großen Aufwand gelöst werden. → Das Problem ____ ohne großen Aufwand ____.", "why": "kann + Passiv → lässt sich … lösen.", "whyEn": "kann + passive → lässt sich … lösen." },
+			{ "sentence": "Die Formulare sind bis Freitag einzureichen. → Die Formulare ____ bis Freitag ____.", "why": "sein + zu → müssen + Passiv: müssen … eingereicht werden.", "whyEn": "sein + zu → müssen + passive: müssen … eingereicht werden." },
+			{ "sentence": "Der Fehler lässt sich nicht mehr korrigieren. → Der Fehler ____ nicht mehr ____.", "why": "lässt sich → kann … korrigiert werden.", "whyEn": "lässt sich → kann … korrigiert werden." },
+			{ "sentence": "Weil die Kosten stiegen, wurde gespart. → ____ der steigenden Kosten wurde gespart.", "why": "weil → Wegen/Aufgrund + Genitiv.", "whyEn": "weil → Wegen/Aufgrund + genitive." },
+			{ "sentence": "Nach Abschluss der Prüfung wurden die Ergebnisse verschickt. → Nachdem die Prüfung ____, wurden die Ergebnisse verschickt.", "why": "Nomen → Passiv-Plusquamperfekt: abgeschlossen worden war.", "whyEn": "Noun → passive past perfect: abgeschlossen worden war." },
+			{ "sentence": "Die Gäste, die man eingeladen hatte, kamen pünktlich. → Die ____ Gäste kamen pünktlich.", "why": "man-Satz → Partizip II: eingeladenen.", "whyEn": "A man-clause → Partizip II: eingeladenen." },
+			{ "sentence": "Obwohl die Anwohner protestierten, wurde gebaut. → ____ der Proteste der Anwohner wurde gebaut.", "why": "obwohl → Trotz + Genitiv.", "whyEn": "obwohl → Trotz + genitive." },
+			{ "sentence": "Die Zahl der Anträge, die im letzten Jahr eingereicht wurden, hat sich verdoppelt. → Die Zahl der im letzten Jahr ____ Anträge hat sich verdoppelt.", "why": "Passiv-Relativsatz → Partizip: eingereichten.", "whyEn": "Passive relative clause → participle: eingereichten." }
+		]
+	},
+	{
+		"id": "quest_c1_2_register_formell",
+		"whys": [
+			{ "sentence": "Kannst du mal den Bericht schicken? → Wäre es Ihnen möglich, mir den Bericht ____?", "why": "Formell: zukommen zu lassen — die Amtsformel für schicken.", "whyEn": "Formal: zukommen zu lassen — officialese for sending." },
+			{ "sentence": "Ich find's nicht gut, dass die Zahlen fehlen. → Ich halte es für ____, dass die Zahlen fehlen.", "why": "halten für + sachliches Adjektiv: problematisch/bedenklich.", "whyEn": "halten für + a sober adjective: problematisch/bedenklich." },
+			{ "sentence": "Das geht so nicht. → In dieser Form ist das leider nicht ____.", "why": "umsetzbar/machbar — das -bar-Adjektiv statt 'geht nicht'.", "whyEn": "umsetzbar/machbar — the -bar adjective instead of 'won't work'." },
+			{ "sentence": "Sag mal Bescheid, ob du kommst. → Ich bitte Sie, mir ____, ob Sie teilnehmen werden.", "why": "mitteilen — formell für Bescheid sagen.", "whyEn": "mitteilen — formal for letting someone know." },
+			{ "sentence": "Das ist echt zu teuer. → Die Kosten erscheinen mir ____ hoch.", "why": "unverhältnismäßig/unangemessen — das abwägende Urteil.", "whyEn": "unverhältnismäßig/unangemessen — the measured judgement." },
+			{ "sentence": "Ich hab keine Zeit dafür. → Dafür stehen mir derzeit leider keine ____ zur Verfügung.", "why": "Kapazitäten — Zeit wird im Büro zu Kapazität.", "whyEn": "Kapazitäten — in the office, time becomes capacity." },
+			{ "sentence": "Können wir das verschieben? → ____ es möglich, den Termin zu verschieben?", "why": "Wäre es möglich — der Konjunktiv öffnet die Bitte.", "whyEn": "Wäre es möglich — the Konjunktiv opens the request." },
+			{ "sentence": "Danke für die Info! → Vielen Dank für die ____.", "why": "die Information/Auskunft — ausgeschrieben statt Info.", "whyEn": "die Information/Auskunft — written out, not Info." },
+			{ "sentence": "Sorry, das hab ich vergessen. → Bitte ____ Sie, dass ich dies versäumt habe.", "why": "entschuldigen Sie … versäumt — Amtston für vergessen.", "whyEn": "entschuldigen Sie … versäumt — officialese for forgetting." },
+			{ "sentence": "Das müssen wir noch klären. → Dieser Punkt ____ noch der Klärung.", "why": "bedürfen + GENITIV: bedarf der Klärung.", "whyEn": "bedürfen + GENITIVE: bedarf der Klärung." },
+			{ "sentence": "Ruf mich einfach an. → Sie ____ mich jederzeit telefonisch unter 0341 224567.", "why": "Sie erreichen mich — die Signatur-Formel.", "whyEn": "Sie erreichen mich — the signature formula." },
+			{ "sentence": "Bis dann! → Mit ____ Grüßen", "why": "Mit freundlichen Grüßen — der formelle Schluss.", "whyEn": "Mit freundlichen Grüßen — the formal sign-off." },
+			{ "sentence": "Ich hab's nicht geschafft, den Bericht fertig zu machen. → Es ist mir leider nicht ____, den Bericht fertigzustellen.", "why": "gelingen: Es ist mir nicht gelungen.", "whyEn": "gelingen: Es ist mir nicht gelungen." },
+			{ "sentence": "Kannst du das noch mal erklären? → Könnten Sie das bitte noch einmal ____?", "why": "erläutern — gehoben für erklären.", "whyEn": "erläutern — elevated for erklären." },
+			{ "sentence": "Das passt mir nicht. (the date) → Dieser Termin ist mir leider nicht ____.", "why": "nicht möglich/recht/gelegen — die höfliche Absage.", "whyEn": "nicht möglich/recht/gelegen — the polite refusal." }
+		]
+	},
+	{
+		"id": "quest_c1_2_schreiben_forum_beschwerde",
+		"whys": [
+			{ "sentence": "Mit ____ habe ich die bisherigen Beiträge gelesen und möchte einen Aspekt ergänzen. (interest)", "why": "Mit Interesse habe ich … gelesen — der Forumseinstieg.", "whyEn": "Mit Interesse habe ich … gelesen — the forum opener." },
+			{ "sentence": "Aus eigener ____ kann ich sagen, dass Homeoffice nicht für alle funktioniert. (experience)", "why": "aus eigener Erfahrung — der Erfahrungsbeleg.", "whyEn": "aus eigener Erfahrung — the experience card." },
+			{ "sentence": "Einige hier vertreten die ____, dass Homeoffice die Produktivität senkt. (view)", "why": "die Ansicht/Auffassung vertreten.", "whyEn": "die Ansicht/Auffassung vertreten." },
+			{ "sentence": "Dem möchte ich ____, dass die Grafik das Gegenteil zeigt. (counter)", "why": "entgegenhalten + Dativ — der höfliche Widerspruch.", "whyEn": "entgegenhalten + dative — the polite counter." },
+			{ "sentence": "Ich würde ____, zwei feste Bürotage pro Woche einzuführen. (suggest)", "why": "vorschlagen + zu-Infinitiv.", "whyEn": "vorschlagen + zu-infinitive." },
+			{ "sentence": "Wie ____ ihr das? Ich bin gespannt auf eure Meinungen. (see)", "why": "Wie seht ihr das? — die Forums-Schlussfrage.", "whyEn": "Wie seht ihr das? — the forum's closing question." },
+			{ "sentence": "Wie die Grafik ____, arbeiten inzwischen doppelt so viele Menschen von zu Hause aus. (shows)", "why": "Wie die Grafik zeigt — der Grafikbezug.", "whyEn": "Wie die Grafik zeigt — citing the chart." },
+			{ "sentence": "Ich ____ mich an Sie, da ich mit der Abwicklung meiner Bestellung nicht zufrieden bin. (turn to)", "why": "sich wenden an + Akkusativ — der Beschwerdeeinstieg.", "whyEn": "sich wenden an + accusative — the complaint opener." },
+			{ "sentence": "Am 3. März habe ich bei Ihnen einen Laptop bestellt; ____ wurde mir eine Lieferung innerhalb von fünf Werktagen zugesichert. (at the time)", "why": "dabei/damals — der Rückbezug auf die Bestellung.", "whyEn": "dabei/damals — referring back to the order." },
+			{ "sentence": "Ich hatte ____, dass Sie mich zumindest über die Verzögerung informieren. (expected)", "why": "erwartet — die enttäuschte Erwartung im Plusquamperfekt.", "whyEn": "erwartet — the disappointed expectation in the past perfect." },
+			{ "sentence": "Ich ____ Sie daher auf, den Betrag zu erstatten. (call on)", "why": "auffordern — trennbar: fordere … auf.", "whyEn": "auffordern — separable: fordere … auf." },
+			{ "sentence": "Bitte überweisen Sie den Betrag bis ____ 15. April. (at the latest)", "why": "bis spätestens — die Frist.", "whyEn": "bis spätestens — the deadline." },
+			{ "sentence": "____ sehe ich mich gezwungen, rechtliche Schritte einzuleiten. (otherwise)", "why": "Andernfalls — die höfliche Drohung.", "whyEn": "Andernfalls — the polite threat." },
+			{ "sentence": "Bereits am 20. März habe ich mich an Sie ____, ohne eine Antwort zu erhalten. (turned to)", "why": "sich gewandt — das Partizip von sich wenden.", "whyEn": "sich gewandt — sich wenden's participle." },
+			{ "sentence": "Ich hoffe auf eine ____ Rückmeldung. (prompt)", "why": "zeitnah/baldig — der Schlusswunsch.", "whyEn": "zeitnah/baldig — the closing wish." }
+		]
+	},
+	{
+		"id": "quest_c1_2_konjunktiv1_indirekte_rede",
+		"whys": [
+			{ "sentence": "Die Ministerin erklärte, die Regierung ____ an ihren Plänen fest. („Die Regierung hält an ihren Plänen fest.“)", "why": "Konjunktiv I: halte — Stamm + e, ohne Umlaut.", "whyEn": "Konjunktiv I: halte — stem + e, no umlaut." },
+			{ "sentence": "Der Sprecher betonte, das Unternehmen ____ keine Kenntnis von den Vorgängen. („Das Unternehmen hat keine Kenntnis von den Vorgängen.“)", "why": "habe — die Kernform des Konjunktiv I.", "whyEn": "habe — Konjunktiv I's core form." },
+			{ "sentence": "Die Behörde teilte mit, der Antrag ____ bereits im März genehmigt ____ . („Der Antrag wurde bereits im März genehmigt.“)", "why": "Passiv-Vergangenheit: sei … genehmigt worden.", "whyEn": "A past passive: sei … genehmigt worden." },
+			{ "sentence": "Viele Befragte gaben an, sie ____ kaum noch Vertrauen in die Politik. („Wir haben kaum noch Vertrauen in die Politik.“)", "why": "Plural haben: Konjunktiv I = Indikativ → hätten.", "whyEn": "Plural haben: Konjunktiv I equals the indicative → hätten." },
+			{ "sentence": "Die Forschenden schreiben, sie ____ die Daten noch einmal gründlich prüfen. („Wir müssen die Daten noch einmal gründlich prüfen.“)", "why": "Plural müssen → Ausweichform müssten.", "whyEn": "Plural müssen → the fallback müssten." },
+			{ "sentence": "Der Zeuge sagte aus, er ____ den Fahrer deutlich ____ . („Ich sah den Fahrer deutlich.“)", "why": "Präteritum wird Konjunktiv-Perfekt: habe … gesehen.", "whyEn": "The Präteritum becomes a Konjunktiv perfect: habe … gesehen." },
+			{ "sentence": "Die Sprecherin teilte mit, der Minister ____ bereits am Vormittag ____ . („Der Minister reiste bereits am Vormittag ab.“)", "why": "abreisen + sein: sei … abgereist.", "whyEn": "abreisen + sein: sei … abgereist." },
+			{ "sentence": "Die Studierenden beklagen, sie ____ von der Änderung der Prüfungsordnung nichts ____ . („Von der Änderung erfuhren wir nichts.“)", "why": "Plural: hätten … erfahren.", "whyEn": "Plural: hätten … erfahren." },
+			{ "sentence": "Der Bürgermeister kündigte an, die Stadt ____ die Gebühren im kommenden Jahr nicht ____ . („Die Stadt wird die Gebühren nicht erhöhen.“)", "why": "Futur: werde … erhöhen.", "whyEn": "The future: werde … erhöhen." },
+			{ "sentence": "Die Gewerkschaften drohten, sie ____ notfalls auch über die Feiertage ____ . („Wir werden notfalls auch über die Feiertage streiken.“)", "why": "Plural werden → würden … streiken.", "whyEn": "Plural werden → würden … streiken." },
+			{ "sentence": "Die Journalistin fragte, ob die Finanzierung des Projekts inzwischen gesichert ____ . („Ist die Finanzierung inzwischen gesichert?“)", "why": "Indirekte Ja/Nein-Frage: ob … sei.", "whyEn": "An indirect yes/no question: ob … sei." },
+			{ "sentence": "Ein Abgeordneter wollte wissen, wann der Abschlussbericht endlich ____ . („Wann erscheint der Abschlussbericht endlich?“)", "why": "W-Frage: wann … erscheine.", "whyEn": "A W-question: wann … erscheine." },
+			{ "sentence": "Die Ärztin riet dem Patienten, er ____ sich in den nächsten Wochen mehr schonen. („Schonen Sie sich in den nächsten Wochen mehr!“)", "why": "Berichteter Rat: solle.", "whyEn": "Reported advice: solle." },
+			{ "sentence": "Die Vorsitzende bat jeden Redner, er ____ sich angesichts der Zeit kurz fassen. („Fassen Sie sich bitte kurz!“)", "why": "Berichtete Bitte: möge — höflicher als solle.", "whyEn": "A reported request: möge — politer than solle." },
+			{ "sentence": "In der Stellungnahme des Konzerns heißt es, man ____ weitere Verzögerungen nicht ausschließen. („Wir können weitere Verzögerungen nicht ausschließen.“)", "why": "können → könne — man zählt als er/sie/es.", "whyEn": "können → könne — man counts as third person." }
+		]
+	},
+	{
+		"id": "quest_c1_2_modalpartikeln",
+		"whys": [
+			{ "sentence": "– Ich finde meinen Schlüssel nicht. – Der liegt ____ auf dem Tisch, direkt vor dir! (reproachful: you should have seen it)", "why": "doch — 'siehst du es denn nicht?'.", "whyEn": "doch — 'can't you see it?'." },
+			{ "sentence": "Wie bereits erwähnt, ist das Problem ____ seit Jahren bekannt; neu ist nur seine Dringlichkeit. (neutral reminder: as we all know)", "why": "ja — der neutrale Verweis auf Bekanntes.", "whyEn": "ja — the neutral nod to shared knowledge." },
+			{ "sentence": "Wo bleibst du ____? Wir warten schon seit einer halben Stunde! (impatient, involved question)", "why": "denn/nur — die ungeduldige Frage.", "whyEn": "denn/nur — the impatient question." },
+			{ "sentence": "Kannst du ____ kurz das Fenster aufmachen? Es ist ziemlich stickig hier. (casual, softened request)", "why": "mal — die beiläufige Bitte.", "whyEn": "mal — the casual request." },
+			{ "sentence": "– Die Bahn hat schon wieder Verspätung. – Tja, das ist ____ so. Da kann man nichts machen. (resigned acceptance)", "why": "halt/eben — die Resignation.", "whyEn": "halt/eben — resignation." },
+			{ "sentence": "Was machst du ____ beruflich? Das habe ich dich nie gefragt. (casual topic shift: by the way)", "why": "eigentlich — der Themenwechsel.", "whyEn": "eigentlich — the topic shift." },
+			{ "sentence": "– Herr Keller ist heute nicht gekommen. – Er ist ____ krank; gestern hat er schon gehustet. (supposition: probably)", "why": "wohl — die Vermutungs-Partikel.", "whyEn": "wohl — the supposition particle." },
+			{ "sentence": "Keine Sorge, die Prüfung schaffst du ____! Du hast dich gründlich vorbereitet. (reassurance: it will work out)", "why": "schon — 'wird schon klappen'.", "whyEn": "schon — 'it'll work out'." },
+			{ "sentence": "Wenn Sie Fragen haben, können Sie mich ____ anrufen, auch am Wochenende. (reassuring permission: don’t hesitate)", "why": "ruhig — die großzügige Erlaubnis.", "whyEn": "ruhig — the generous permission." },
+			{ "sentence": "Was hast du ____ gemacht? Die ganze Küche steht unter Wasser! (alarmed, reproachful question)", "why": "bloß/nur — Alarm und Vorwurf.", "whyEn": "bloß/nur — alarm and reproach." },
+			{ "sentence": "Hast du ____ schon wieder dein Handy verloren? Das wäre das dritte Mal in diesem Monat. (incredulous question hoping for no)", "why": "etwa — 'doch nicht etwa?!', hofft auf Nein.", "whyEn": "etwa — 'surely not?!', hoping for a no." },
+			{ "sentence": "Fass den Topf ____ nicht an, der ist glühend heiß! (stressed warning: under no circumstances)", "why": "ja/bloß — die scharfe Warnung.", "whyEn": "ja/bloß — the sharp warning." },
+			{ "sentence": "Wenn ich ____ mehr Zeit für meine Familie hätte! (longing wish)", "why": "nur/bloß — der Seufzer im Wunschsatz.", "whyEn": "nur/bloß — the sigh inside the wish." },
+			{ "sentence": "– Keiner fühlt sich zuständig. – Das ist ____ das Problem! (emphatic agreement: that is exactly it)", "why": "eben/ja — 'genau das!'.", "whyEn": "eben/ja — 'exactly that!'." },
+			{ "sentence": "Komm ____ mal vorbei, wenn du wieder in der Stadt bist! (friendly, encouraging invitation)", "why": "doch (mal) — die herzliche Einladung.", "whyEn": "doch (mal) — the warm invitation." }
+		]
+	},
+	{
+		"id": "quest_c1_2_schreiben_nominalstil",
+		"whys": [
+			{ "sentence": "Weil der Fahrbahnbelag stark beschädigt war, wird die Brückenstraße seit März saniert. → ____ starker Schäden am Fahrbahnbelag wird die Brückenstraße seit März saniert.", "why": "weil → Wegen/Aufgrund + Genitiv.", "whyEn": "weil → Wegen/Aufgrund + genitive." },
+			{ "sentence": "Bevor die Arbeiten begannen, wurden die Anwohner in einer Bürgerversammlung informiert. → ____ der Arbeiten wurden die Anwohner in einer Bürgerversammlung informiert.", "why": "bevor … begannen → Vor Beginn.", "whyEn": "bevor … begannen → Vor Beginn." },
+			{ "sentence": "Weil Unterlagen fehlten, verzögerte sich die Genehmigung um drei Wochen. → ____ Unterlagen verzögerte sich die Genehmigung um drei Wochen.", "why": "fehlten → Wegen fehlender / Mangels — das Partizip ersetzt den Satz.", "whyEn": "fehlten → Wegen fehlender / Mangels — the participle replaces the clause." },
+			{ "sentence": "Um die Kosten zu senken, verzichtete das Amt auf den Bau einer Tiefgarage. → ____ der Kosten verzichtete das Amt auf den Bau einer Tiefgarage.", "why": "um … zu senken → Zur Senkung.", "whyEn": "um … zu senken → Zur Senkung." },
+			{ "sentence": "Damit der Verkehr möglichst wenig beeinträchtigt wird, wurde in zwei Abschnitten gebaut. → ____ der Verkehrsbeeinträchtigungen wurde in zwei Abschnitten gebaut.", "why": "damit möglichst wenig → Zur Minimierung.", "whyEn": "damit möglichst wenig → Zur Minimierung." },
+			{ "sentence": "Solange die Bauarbeiten dauerten, fuhren die Busse über die Parkallee. → ____ der Bauarbeiten wurde der Busverkehr über die Parkallee umgeleitet.", "why": "solange → Für die Dauer / Während.", "whyEn": "solange → Für die Dauer / Während." },
+			{ "sentence": "Nachdem die Versorgungsleitungen erneuert worden waren, wurde die Fahrbahn neu asphaltiert. → ____ der Versorgungsleitungen wurde die Fahrbahn neu asphaltiert.", "why": "nachdem → Nach Erneuerung.", "whyEn": "nachdem → Nach Erneuerung." },
+			{ "sentence": "Obwohl es im Oktober ungewöhnlich stark regnete, wurde der Zeitplan eingehalten. → ____ der ungewöhnlich starken Regenfälle im Oktober wurde der Zeitplan eingehalten.", "why": "obwohl → Trotz + Genitiv.", "whyEn": "obwohl → Trotz + genitive." },
+			{ "sentence": "Weil sich die Anwohner über den Lärm beschwert hatten, wurden die Arbeitszeiten angepasst. → ____ der Anwohner über den Baulärm wurden die Arbeitszeiten angepasst.", "why": "sich beschweren → Nach/Aufgrund von Beschwerden.", "whyEn": "sich beschweren → Nach/Aufgrund von Beschwerden." },
+			{ "sentence": "Die Kosten wurden überschritten, weil die Materialpreise gestiegen sind. → Die Kostenüberschreitung ist auf ____ der Materialpreise zurückzuführen.", "why": "gestiegen → den Anstieg — zurückzuführen auf + Akkusativ.", "whyEn": "gestiegen → den Anstieg — zurückzuführen auf + accusative." },
+			{ "sentence": "Als der erste Bauabschnitt abgenommen wurde, stellte man keine Mängel fest. → ____ des ersten Bauabschnitts wurden keine Mängel festgestellt.", "why": "als … abgenommen wurde → Bei der Abnahme.", "whyEn": "als … abgenommen wurde → Bei der Abnahme." },
+			{ "sentence": "Es ist geplant, die gesamte Straße im Mai wieder für den Verkehr freizugeben. → ____ der gesamten Straße für den Verkehr ist für Mai geplant.", "why": "freizugeben → Die Freigabe.", "whyEn": "freizugeben → Die Freigabe." },
+			{ "sentence": "Falls es zu weiteren Verzögerungen kommt, muss die Baufirma eine Vertragsstrafe zahlen. → ____ weiterer Verzögerungen wird eine Vertragsstrafe fällig.", "why": "falls → Im Falle + Genitiv.", "whyEn": "falls → Im Falle + genitive." },
+			{ "sentence": "Damit Radfahrende sicherer unterwegs sind, wird ein geschützter Radweg angelegt. → ____ der Radfahrenden wird ein geschützter Radweg angelegt.", "why": "damit sicherer → Zum Schutz.", "whyEn": "damit sicherer → Zum Schutz." },
+			{ "sentence": "Das Amt empfiehlt, den Zustand der Brücke künftig regelmäßig zu überprüfen. → Das Amt empfiehlt künftig ____ des Brückenzustands.", "why": "zu überprüfen → eine regelmäßige Überprüfung.", "whyEn": "zu überprüfen → eine regelmäßige Überprüfung." }
+		]
+	}
+]

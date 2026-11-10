@@ -80,7 +80,10 @@ for (const file of files) {
 		const seen = new Set();
 		for (const w of entry.whys ?? []) {
 			const where = `${file} ${entry.id}: "${(w.sentence ?? '').slice(0, 40)}…"`;
-			const target = quiz.sentences?.find((s) => s.sentence === w.sentence);
+			// A drill may pose the same sentence twice ("Heute ____." with two
+			// answers): one entry explains them all, since the rule is the same.
+			const targets = quiz.sentences?.filter((s) => s.sentence === w.sentence) ?? [];
+			const target = targets[0];
 			if (!target) {
 				problems.push(`${where} — no such sentence (must match verbatim)`);
 				continue;
@@ -101,10 +104,12 @@ for (const file of files) {
 			}
 			if (german && w.why && !w.whyEn) problems.push(`${where} — German help needs whyEn`);
 			if (checkOnly) continue;
-			target.why = w.why;
-			if (w.whyEn) target.whyEn = w.whyEn;
-			else delete target.whyEn;
-			set++;
+			for (const t of targets) {
+				t.why = w.why;
+				if (w.whyEn) t.whyEn = w.whyEn;
+				else delete t.whyEn;
+				set++;
+			}
 		}
 	}
 }

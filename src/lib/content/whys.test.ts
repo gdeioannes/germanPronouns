@@ -6,8 +6,12 @@
 import { describe, expect, it } from 'vitest';
 import course from '../../../assets/content/courses/de_cert_a1.json';
 
-/** Levels whose fill-in sentences are fully authored. Extend as levels land. */
-const ENFORCED = ['A1.1'];
+/** Levels whose fill-in sentences are fully authored. All twelve, since 2026-11-10. */
+const ENFORCED = [
+	'A1.1', 'A1.2', 'A2.1', 'A2.2',
+	'B1.1', 'B1.2', 'B2.1', 'B2.2',
+	'C1.1', 'C1.2', 'C2.1', 'C2.2'
+];
 
 type Sentence = { sentence: string; why?: string; whyEn?: string };
 type Quiz = {
