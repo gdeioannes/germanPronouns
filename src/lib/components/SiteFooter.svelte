@@ -4,6 +4,8 @@
 	import { page } from '$app/state';
 	import Logo from '$lib/components/Logo.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
 
 	// The course and its version come from the root layout's
 	// load (see +layout.server.ts), so every page shows the same footer
@@ -26,41 +28,50 @@
 			<span>Language Quiz</span>
 		</a>
 		<p class="legal">
-			Language Quiz is an independent study aid, not affiliated with or endorsed by any
-			examination body. Part of <a href="https://www.100words.org/en/" rel="noopener">100words.org</a>.
-			<a href="/legal">Imprint and privacy notice</a>.{#if version}{' '}<span class="version">Content version {version}.</span>{/if}
+			{t('Language Quiz is an independent study aid, not affiliated with or endorsed by any examination body.')}
+			{t('Part of')} <a href="https://www.100words.org/en/" rel="noopener">100words.org</a>.
+			<a href="/legal">{t('Imprint and privacy notice')}</a>.{#if version}{' '}<span class="version">{t('Content version {version}.', { version })}</span>{/if}
 		</p>
 	</div>
-	<nav class="quick" aria-label="Footer">
+	<nav class="quick" aria-label={t('Footer')}>
 		<div class="group">
-			<h2>Learn</h2>
-			<a href={courseHref}>The course</a>
-			<a href="/level-check">Your level</a>
-			<a href="/words">Word library</a>
-			<a href="/words/nouns">German nouns</a>
-			<a href="/words/verbs">German verbs</a>
+			<h2>{t('Learn')}</h2>
+			<a href={courseHref}>{t('The course')}</a>
+			<a href="/level-check">{t('Your level')}</a>
+			{#if !lang.tr}
+				<a href="/words">Word library</a>
+				<a href="/words/nouns">German nouns</a>
+				<a href="/words/verbs">German verbs</a>
+			{/if}
 		</div>
 		<div class="group">
-			<h2>Read</h2>
-			<a href="/books">The books</a>
-			<a href="/literature">Literature</a>
-			<a href="/stories">Stories</a>
+			<h2>{t('Read')}</h2>
+			<a href="/books">{t('The books')}</a>
+			{#if !lang.tr}
+				<a href="/literature">Literature</a>
+				<a href="/stories">Stories</a>
+			{/if}
 		</div>
+		<!-- Turkish mode: the games are English-only for now. -->
+		{#if !lang.tr}
 		<div class="group">
 			<h2>Play</h2>
 			<a href="/play/schreib-mir" lang="de">Schreib mir!</a>
 			<a href="/play/ja-nein" lang="de">Ja oder Nein?</a>
 			<a href="/play/wortbloecke" lang="de">Wortblöcke</a>
 		</div>
+		{/if}
 		<div class="group">
-			<h2>Site</h2>
-			<a href="/about">About</a>
-			<a href="/about#accessibility">Accessibility</a>
-			<a href="/changelog">What's new</a>
-			<a href="/forum">Forum</a>
-			<a href="/contact">Contact</a>
-			<a href="/legal">Legal &amp; privacy</a>
-			<a href="/settings" rel="nofollow">Settings</a>
+			<h2>{t('Site')}</h2>
+			<a href="/about">{t('About')}</a>
+			<a href="/about#accessibility">{t('Accessibility')}</a>
+			{#if !lang.tr}
+				<a href="/changelog">What's new</a>
+				<a href="/forum">Forum</a>
+			{/if}
+			<a href="/contact">{t('Contact')}</a>
+			<a href="/legal">{t('Legal & privacy')}</a>
+			<a href="/settings" rel="nofollow">{t('Settings')}</a>
 		</div>
 	</nav>
 </footer>

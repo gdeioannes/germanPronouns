@@ -55,6 +55,8 @@
 	import { nextRound } from '$lib/domain/janeinRounds';
 	import { pickSurprise, takeSurpriseChance, type SurpriseCandidate } from '$lib/domain/surprise';
 	import { checkDue, parseLog, WORD_CHECK_LOG, type CheckLogEntry } from '$lib/domain/wordCheck';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
 	import { progress } from '$lib/state/progress.svelte';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
@@ -89,15 +91,17 @@
 
 	// What a photo card says on its label: what you will do, in one word,
 	// and the colour that goes with it (listening blue, speaking green…).
+	// `t` is a local here (the quiz type), so the translator goes by another name.
+	const tr = t;
 	type Look = { key: 'learn' | 'listen' | 'speak' | 'review' | 'read' | 'write'; label: string; icon: 'headphones' | 'mic' | 'pen' | 'book' | 'repeat' };
 	function look(card: DeckCard): Look {
 		const t = card.quiz.type;
-		if (t === 'listening' || t === 'dictation') return { key: 'listen', label: t === 'dictation' ? 'Dictation' : 'Listening', icon: 'headphones' };
-		if (t === 'speakRepeat' || t === 'speaking') return { key: 'speak', label: 'Speaking', icon: 'mic' };
-		if (t === 'writing') return { key: 'write', label: 'Writing', icon: 'pen' };
-		if (t === 'reading') return { key: 'read', label: 'Reading', icon: 'book' };
-		if (card.kind === 'review' || card.kind === 'practise') return { key: 'review', label: DECK_KIND_LABELS[card.kind], icon: 'repeat' };
-		return { key: 'learn', label: DECK_KIND_LABELS[card.kind], icon: 'pen' };
+		if (t === 'listening' || t === 'dictation') return { key: 'listen', label: tr(t === 'dictation' ? 'Dictation' : 'Listening'), icon: 'headphones' };
+		if (t === 'speakRepeat' || t === 'speaking') return { key: 'speak', label: tr('Speaking'), icon: 'mic' };
+		if (t === 'writing') return { key: 'write', label: tr('Writing'), icon: 'pen' };
+		if (t === 'reading') return { key: 'read', label: tr('Reading'), icon: 'book' };
+		if (card.kind === 'review' || card.kind === 'practise') return { key: 'review', label: tr(DECK_KIND_LABELS[card.kind]), icon: 'repeat' };
+		return { key: 'learn', label: tr(DECK_KIND_LABELS[card.kind]), icon: 'pen' };
 	}
 	/** A photo for this card: exercises only, never the surprise cards with their own art. */
 	const photoOf = (card: DeckCard) =>
@@ -170,6 +174,11 @@
 	// tiny script that swaps in a random one before paint; in the browser the
 	// component picks its own for client-side visits.
 	const tipIndex = browser ? Math.floor(Math.random() * LOADING_TIPS.length) : 0;
+	/** Flips once after mount in Turkish, so the tip's {@html} is made again in Turkish. */
+	let tipLang = $state(false);
+	$effect(() => {
+		tipLang = lang.tr;
+	});
 
 	// The tip card is there only while the deck is not ready. A full page load
 	// paints it from the prerendered HTML, before any script, so there it is
@@ -247,7 +256,7 @@
 		if (!introMoved) {
 			introPinned = !introPinned;
 			introDx = 0;
-			announce(introPinned ? 'Kept. Swipe it away when you are ready.' : 'Released.');
+			announce(introPinned ? t('Kept. Swipe it away when you are ready.') : t('Released.'));
 			return;
 		}
 		if (loaded && Math.abs(introDx) >= SWIPE_AWAY) introFling(introDx > 0 ? 1 : -1);
@@ -320,7 +329,8 @@
 		// At most one a hand, and none at all with surprises turned off in
 		// Settings. One roll says whether a surprise comes, and then one kind is
 		// drawn among those with something to offer (domain/surprise).
-		if (progress.surprises) {
+		// Turkish mode: the surprises (games, the word check) are English-only.
+		if (progress.surprises && !lang.tr) {
 			const candidates: SurpriseCandidate<() => DeckCard>[] = [
 				{ kind: 'play', card: skipped.includes(JA_NEIN_CARD_ID) ? null : playCard },
 				{ kind: 'check', card: checkDue(checkLog) && !skipped.includes(CHECK_CARD_ID) ? checkCard : null },
@@ -457,7 +467,7 @@
 						? 'word puzzle'
 						: isCheckCard(card)
 						? 'level check · 2 min'
-						: typeLabel(card.quiz.type);
+						: t(typeLabel(card.quiz.type));
 
 	function href(card: DeckCard) {
 		if (isPlayCard(card)) {
@@ -560,8 +570,8 @@
 				const nextCard = deck[0];
 				announce(
 					nextCard
-						? `Skipped. Next: ${nextCard.quiz.title}, card ${handSize - deck.length + 1} of ${handSize}.`
-						: 'Skipped. Nothing left to deal.'
+						? t('Skipped. Next: {title}, card {i} of {n}.', { title: nextCard.quiz.title, i: handSize - deck.length + 1, n: handSize })
+						: t('Skipped. Nothing left to deal.')
 				);
 				if (cardHadFocus) {
 					void tick().then(() => stageEl?.querySelector<HTMLElement>('.card.top, .card.empty button')?.focus());
@@ -636,7 +646,7 @@
 	}
 </script>
 
-<section class="deck" aria-label="Your next exercise">
+<section class="deck" aria-label={t('Your next exercise')}>
 	<header class="deck-head">
 		<div class="head-main">
 			{@render title?.()}
@@ -649,7 +659,7 @@
 				onclick={() => (chooserOpen = true)}
 			>
 				<Icon name={PACE_ICONS[pace]} size="1.05em" />
-				<span class="chip-pace">{DECK_PACES[pace].label}</span>
+				<span class="chip-pace">{t(DECK_PACES[pace].label)}</span>
 				<span class="chip-level tnum">{centre ?? '–'}</span>
 				<Icon name="chevronDown" size="0.9em" />
 			</button>
@@ -662,9 +672,9 @@
 			{#if !top}
 			<div class="card empty">
 				<Icon name="trophy" size="1.6em" />
-				<p><strong>Nothing left to deal.</strong></p>
-				<p>Every exercise around {centre} is done.</p>
-				<button type="button" class="empty-cta" onclick={() => (chooserOpen = true)}>Change your deck</button>
+				<p><strong>{t('Nothing left to deal.')}</strong></p>
+				<p>{t('Every exercise around {level} is done.', { level: centre ?? '' })}</p>
+				<button type="button" class="empty-cta" onclick={() => (chooserOpen = true)}>{t('Change your deck')}</button>
 			</div>
 		{:else}
 			{#key dealt}
@@ -692,7 +702,7 @@
 						inert={!introDone || undefined}
 						role="button"
 						aria-label={isTop
-							? `${card.quiz.title}. ${DECK_KIND_LABELS[card.kind]}, card ${handSize - deck.length + 1} of ${handSize}, ${card.quiz.level}, ${cardFlavour(card)}${started ? ', in progress' : ''}. ${card.reason} Press Enter to start, or the left arrow to skip.`
+							? t('{title}. {kind}, card {i} of {n}, {level}, {flavour}{started}. {reason} Press Enter to start, or the left arrow to skip.', { title: card.quiz.title, kind: t(DECK_KIND_LABELS[card.kind]), i: handSize - deck.length + 1, n: handSize, level: card.quiz.level ?? '', flavour: cardFlavour(card), started: started ? t(', in progress') : '', reason: card.reason })
 							: undefined}
 						aria-hidden={isTop ? undefined : 'true'}
 						onpointerdown={isTop ? onDown : undefined}
@@ -702,8 +712,8 @@
 						onkeydown={isTop ? onKey : undefined}
 					>
 						{#if isTop}
-							<span class="stamp no" style="opacity:{Math.max(0, -lean)}" class:firm={decided && dx < 0}>Skip</span>
-							<span class="stamp yes" style="opacity:{Math.max(0, lean)}" class:firm={decided && dx > 0}>Let's go</span>
+							<span class="stamp no" style="opacity:{Math.max(0, -lean)}" class:firm={decided && dx < 0}>{t('Skip')}</span>
+							<span class="stamp yes" style="opacity:{Math.max(0, lean)}" class:firm={decided && dx > 0}>{t("Let's go")}</span>
 						{/if}
 
 						{#if started}
@@ -774,19 +784,19 @@
 						     rather than "10 left": a count of what is left reads as the
 						     whole course running out. -->
 						<p class="kind-row">
-							<span class="kind-label">{DECK_KIND_LABELS[card.kind]}</span>
-							<span class="left tnum">{isTop ? `Card ${handSize - deck.length + 1} of ${handSize}` : ''}</span>
+							<span class="kind-label">{t(DECK_KIND_LABELS[card.kind])}</span>
+							<span class="left tnum">{isTop ? t('Card {i} of {n}', { i: handSize - deck.length + 1, n: handSize }) : ''}</span>
 						</p>
 						<h3 class="title" lang={course.learnLocale}>{card.quiz.title}</h3>
 						<p class="reason">{card.reason}</p>
 						{#if ph}
 							{@const score = lately(card)}
 							{#if lk.key === 'listen'}
-								<p class="preview"><span class="pdot"><Icon name="headphones" size="0.95em" /></span> Listen first, then answer. Play it as often as you like.</p>
+								<p class="preview"><span class="pdot"><Icon name="headphones" size="0.95em" /></span> {t('Listen first, then answer. Play it as often as you like.')}</p>
 							{:else if lk.key === 'speak'}
-								<p class="preview"><span class="pdot"><Icon name="mic" size="0.95em" /></span> Hear it, say it, compare. Nobody else hears you.</p>
+								<p class="preview"><span class="pdot"><Icon name="mic" size="0.95em" /></span> {t('Hear it, say it, compare. Nobody else hears you.')}</p>
 							{:else if score !== null}
-								<p class="preview"><span class="pbar"><span style="width:{score * 10}%"></span></span> About <b>{score}</b>/10 lately</p>
+								<p class="preview"><span class="pbar"><span style="width:{score * 10}%"></span></span> {t('About')} <b>{score}</b>/10 {t('lately')}</p>
 							{/if}
 						{/if}
 
@@ -824,12 +834,12 @@
 								</g>
 							</svg>
 						</div>
-						<p class="coach-title">Swipe the card</p>
+						<p class="coach-title">{t('Swipe the card')}</p>
 						<p class="coach-ways">
-							<span class="coach-way skip"><Icon name="arrowLeft" size="1em" stroke={2.25} /> Skip it</span>
-							<span class="coach-way go">Start it <Icon name="arrowRight" size="1em" stroke={2.25} /></span>
+							<span class="coach-way skip"><Icon name="arrowLeft" size="1em" stroke={2.25} /> {t('Skip it')}</span>
+							<span class="coach-way go">{t('Start it')} <Icon name="arrowRight" size="1em" stroke={2.25} /></span>
 						</p>
-						<p class="coach-foot">… or use the buttons below</p>
+						<p class="coach-foot">{t('… or use the buttons below')}</p>
 					</div>
 				</div>
 			{/if}
@@ -858,7 +868,10 @@
 				     parsed, so a full load paints it straight away; on a client-side
 				     visit the component's own pick shows. {@html} is not repaired on
 				     hydration, so the two never fight. -->
-				<p class="intro-tip" id="intro-tip">{@html tipHtml(LOADING_TIPS[tipIndex])}</p>
+				<!-- {@html} is not patched at hydration: in Turkish the tip is re-made once mounted. -->
+				{#key tipLang}
+					<p class="intro-tip" id="intro-tip">{@html tipHtml(LOADING_TIPS[tipIndex])}</p>
+				{/key}
 				{@html tipPicker}
 				{#if introPinned}
 					<span class="intro-pin" aria-hidden="true"><Icon name="check" size="0.9em" /> <span lang="de">bleibt</span></span>
@@ -866,11 +879,11 @@
 				<div class="intro-foot">
 					{#if loaded}
 						<button type="button" class="intro-line ready" onclick={introContinue}>
-							<span lang="de">Fertig!</span> {introPinned ? 'Swipe it away when you are ready' : 'Swipe for your cards'} <span aria-hidden="true">→</span>
+							<span lang="de">Fertig!</span> {introPinned ? t('Swipe it away when you are ready') : t('Swipe for your cards')} <span aria-hidden="true">→</span>
 						</button>
 					{:else}
 						<span class="intro-fan" aria-hidden="true"><span></span><span></span><span></span></span>
-						<p class="intro-line"><span lang="de">Dein Deck wird gemischt…</span> <span class="en">putting your cards together</span></p>
+						<p class="intro-line"><span lang="de">Dein Deck wird gemischt…</span> <span class="en">{t('putting your cards together')}</span></p>
 					{/if}
 				</div>
 				<!-- Fills over the five seconds; holds still while the card is kept. -->
@@ -886,35 +899,35 @@
 			class="ctl no"
 			onclick={() => fling('left')}
 			disabled={!top || !!leaving || !introDone}
-			aria-label="Skip this exercise"
-			title="Skip (←)"
+			aria-label={t('Skip this exercise')}
+			title={t('Skip (←)')}
 		>
 			<Icon name="close" size="1.2em" stroke={2.25} />
-			<span>Skip</span>
+			<span>{t('Skip')}</span>
 		</button>
 		<button
 			type="button"
 			class="ctl yes"
 			onclick={() => fling('right')}
 			disabled={!top || !!leaving || !introDone}
-			aria-label="Start this exercise"
-			title="Let's go (→)"
+			aria-label={t('Start this exercise')}
+			title={t("Let's go (→)")}
 		>
 			<Icon name="check" size="1.2em" stroke={2.25} />
-			<span>Let's go</span>
+			<span>{t("Let's go")}</span>
 		</button>
 	</div>
 	{#if onbrowse}
 		<!-- The full list: a quiet link, not a third button competing with the two choices. -->
 		<button type="button" class="browse" onclick={onbrowse} aria-haspopup="dialog" aria-controls="all-exercises">
-			See all exercises <Icon name="arrowRight" size="0.9em" />
+			{t('See all exercises')} <Icon name="arrowRight" size="0.9em" />
 		</button>
 	{/if}
 </section>
 
-<Sheet bind:open={chooserOpen} title="Your deck" id="deck-chooser">
-	<p class="q">How do you want to learn?</p>
-	<div class="paces" role="radiogroup" aria-label="Pace" use:radioKeys>
+<Sheet bind:open={chooserOpen} title={t('Your deck')} id="deck-chooser">
+	<p class="q">{t('How do you want to learn?')}</p>
+	<div class="paces" role="radiogroup" aria-label={t('Pace')} use:radioKeys>
 		{#each DECK_PACE_ORDER as p (p)}
 			<button
 				type="button"
@@ -926,15 +939,15 @@
 				onclick={() => pickPace(p)}
 			>
 				<span class="pace-icon"><Icon name={PACE_ICONS[p]} size="1.25em" /></span>
-				<strong>{DECK_PACES[p].label}</strong>
-				<small>{DECK_PACES[p].blurb}</small>
+				<strong>{t(DECK_PACES[p].label)}</strong>
+				<small>{t(DECK_PACES[p].blurb)}</small>
 			</button>
 		{/each}
 	</div>
 
-	<p class="q">Where are you?</p>
+	<p class="q">{t('Where are you?')}</p>
 	<button type="button" class="lv auto" aria-pressed={level === null} onclick={() => pickLevel(null)}>
-		Work it out from my progress <span class="tnum">({autoLevel ?? '–'})</span>
+		{t('Work it out from my progress')} <span class="tnum">({autoLevel ?? '–'})</span>
 	</button>
 	<div class="bands">
 		{#each bands as band (band.name)}
@@ -946,11 +959,11 @@
 			</div>
 		{/each}
 	</div>
-	<p class="note">Pick a level and the deck centres there. "Work it out" uses the furthest level you have finished anything in.</p>
+	<p class="note">{t('Pick a level and the deck centres there. “Work it out” uses the furthest level you have finished anything in.')}</p>
 
 	{#snippet footer()}
 		<button type="button" class="deal" onclick={() => (chooserOpen = false)}>
-			Deal {deck.length} cards
+			{t('Deal {n} cards', { n: deck.length })}
 		</button>
 	{/snippet}
 </Sheet>

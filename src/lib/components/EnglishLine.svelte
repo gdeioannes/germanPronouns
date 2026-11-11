@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// A translation that, from B1, waits behind a tap (domain/germanFirst.ts).
 	//
 	// The text stays in the page, invisible rather than absent: its height is
@@ -28,7 +29,7 @@
 	<span class="line">
 		<span class="text" class:closed lang="en">{text}</span>
 		{#if closed}
-			<button type="button" class="reveal" onclick={() => (openedFor = text)}>English</button>
+			<button type="button" class="reveal" onclick={() => (openedFor = text)}>{t('English')}</button>
 		{/if}
 	</span>
 {:else}{text}{/if}

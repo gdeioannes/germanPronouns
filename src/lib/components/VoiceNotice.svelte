@@ -36,6 +36,7 @@
 			clearTimeout(hideTimer);
 		};
 	});
+	import { t } from '$lib/i18n/t';
 </script>
 
 <div class="slot" role="status" aria-live="polite">
@@ -43,10 +44,9 @@
 		<div class="notice" transition:fly={{ y: 16, duration: 220 }}>
 			<span class="icon" aria-hidden="true"><Icon name="volumeOff" size="1.1em" /></span>
 			<p>
-				<strong>Weak connection.</strong> You're hearing your device's voice, which sounds less
-				natural. For the best audio, use a better connection.
+				<strong>{t('Weak connection.')}</strong> {t("You're hearing your device's voice, which sounds less natural. For the best audio, use a better connection.")}
 			</p>
-			<button type="button" class="close" onclick={hide} aria-label="Dismiss">
+			<button type="button" class="close" onclick={hide} aria-label={t('Dismiss')}>
 				<Icon name="close" size="1em" />
 			</button>
 		</div>

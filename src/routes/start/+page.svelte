@@ -20,10 +20,16 @@
 	import { LEVEL_MEANING } from '$lib/domain/wordCheck';
 	import { START_CHOSEN } from '$lib/domain/placement';
 	import type { PageData } from './$types';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { levelInTurkish } from '$lib/i18n/available';
 
 	let { data }: { data: PageData } = $props();
 	const courseHref = $derived(page.data.site?.courseHref ?? `/course/${data.courseId}`);
-	const levels = $derived<{ level: string; title: string }[]>(page.data.site?.levels ?? []);
+	// In Turkish only the levels that exist in Turkish (A1–A2).
+	const levels = $derived<{ level: string; title: string }[]>(
+		(page.data.site?.levels ?? []).filter((l: { level: string }) => !lang.tr || levelInTurkish(l.level))
+	);
 	const name = (title: string) =>
 		title
 			.replace(/^[A-C]\d(?:\.\d)?\s*[·-]\s*/, '')
@@ -59,7 +65,7 @@
 </script>
 
 <Seo
-	title="Where do you start? | Language Quiz"
+	title="{t('Where do you start?')} | Language Quiz"
 	description="New to German, or not? Start at the beginning, take a ten-minute placement test, or pick your level from A1 to C2."
 	path="/start"
 />
@@ -68,7 +74,7 @@
 
 <main class="page start">
 	<!-- The path up the levels: a small flat scene in the picture-book style. -->
-	<svg class="scene" viewBox="0 0 640 170" role="img" aria-label="A walker and a dachshund with a suitcase set off along stepping stones labelled A1 to C2, up a gentle hill towards the sun.">
+	<svg class="scene" viewBox="0 0 640 170" role="img" aria-label={t('A walker and a dachshund with a suitcase set off along stepping stones labelled A1 to C2, up a gentle hill towards the sun.')}>
 		<circle cx="565" cy="42" r="26" fill="#e0a458" />
 		<path d="M0 150 Q 160 96 340 112 T 640 66 L 640 170 L 0 170 Z" fill="#3f5d45" opacity="0.22" />
 		<path d="M0 160 Q 200 120 400 130 T 640 96 L 640 170 L 0 170 Z" fill="#3f5d45" opacity="0.4" />
@@ -97,9 +103,15 @@
 	</svg>
 
 	<div class="arrive">
-		<p class="eyebrow">Before your first card</p>
-		<h1>Where do you start?</h1>
-		<p class="lede">The course runs from your first <em lang="de">Hallo</em> to C2. Start where you are, not at the beginning by default.</p>
+		<p class="eyebrow">{t('Before your first card')}</p>
+		<h1>{t('Where do you start?')}</h1>
+		<p class="lede">
+			{#if lang.tr}
+				{t('In Turkish the course runs from your first Hallo to A2. Start where you are, not at the beginning by default.')}
+			{:else}
+				The course runs from your first <em lang="de">Hallo</em> to C2. Start where you are, not at the beginning by default.
+			{/if}
+		</p>
 	</div>
 
 	<div class="ways">
@@ -112,8 +124,8 @@
 		>
 			<span class="disc" aria-hidden="true"><Icon name={leaving === 'new' ? 'check' : 'star'} size="1.4em" /></span>
 			<span class="body">
-				<strong>I’m new to German</strong>
-				<span>Start with the very first lesson: numbers, hello, your name.</span>
+				<strong>{t('I’m new to German')}</strong>
+				<span>{t('Start with the very first lesson: numbers, hello, your name.')}</span>
 			</span>
 			<Icon name="arrowRight" size="1.1em" />
 		</button>
@@ -127,8 +139,8 @@
 		>
 			<span class="disc" aria-hidden="true"><Icon name={leaving === 'test' ? 'check' : 'compass'} size="1.4em" /></span>
 			<span class="body">
-				<strong>I know some German: find my level</strong>
-				<span>A ten-minute placement test: words, grammar, reading and listening. You start where it puts you, and you can skip out and pick a level at any point.</span>
+				<strong>{t('I know some German: find my level')}</strong>
+				<span>{t('A ten-minute placement test: words, grammar, reading and listening. You start where it puts you, and you can skip out and pick a level at any point.')}</span>
 			</span>
 			<Icon name="arrowRight" size="1.1em" />
 		</button>
@@ -143,8 +155,8 @@
 		>
 			<span class="disc" aria-hidden="true"><Icon name="trophy" size="1.4em" /></span>
 			<span class="body">
-				<strong>I know my level</strong>
-				<span>Pick it from the twelve sub-levels, A1.1 to C2.2.</span>
+				<strong>{t('I know my level')}</strong>
+				<span>{lang.tr ? t('Pick it from the four sub-levels, A1.1 to A2.2.') : 'Pick it from the twelve sub-levels, A1.1 to C2.2.'}</span>
 			</span>
 			<span class="chev" class:flip={picking}><Icon name="chevronDown" size="1.1em" /></span>
 		</button>
@@ -156,7 +168,7 @@
 				<li>
 					<button type="button" class:chosen={leaving === 'pick'} onclick={() => choose('pick', l.level)}>
 						<span class="code tnum">{l.level}</span>
-						<span class="t"><strong lang="de">{name(l.title)}</strong><small>{LEVEL_MEANING[l.level] ?? ''}</small></span>
+						<span class="t"><strong lang="de">{name(l.title)}</strong><small>{t(LEVEL_MEANING[l.level] ?? '')}</small></span>
 					</button>
 				</li>
 			{/each}
@@ -164,7 +176,7 @@
 	{/if}
 
 	<p class="small arrive" style="--arrive-delay: 420ms">
-		Nothing is locked, whatever you choose. You can change the level any time from your deck, or retake the test under <a href="/level-check">Your level</a>.
+		{t('Nothing is locked, whatever you choose. You can change the level any time from your deck, or retake the test under')} <a href="/level-check">{t('Your level')}</a>.
 	</p>
 </main>
 

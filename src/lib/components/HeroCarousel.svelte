@@ -9,8 +9,12 @@
 	import { onMount } from 'svelte';
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { t } from '$lib/i18n/t';
+	import { BOOKS, bookCover } from '$lib/content/books';
+	import { lang } from '$lib/i18n/lang.svelte';
 	import { account } from '$lib/state/account.svelte';
 	import { openSignIn } from '$lib/state/signin.svelte';
+	import LangSwitch from '$lib/components/LangSwitch.svelte';
 
 	type Card = 'levels' | 'fix' | 'books' | 'voice' | 'open';
 
@@ -34,84 +38,92 @@
 
 	// Slide one says why; the others say what the course gives you, each on a
 	// moment of life in Germany.
-	const SLIDES: Slide[] = [
+	// In Turkish the course is A1–A2, so the level and book slides say so.
+	const SLIDES: Slide[] = $derived([
 		{
 			img: 'bergmannstrasse',
-			alt: 'Friends at an outdoor café on a summer evening in Berlin-Kreuzberg',
+			alt: t('Friends at an outdoor café on a summer evening in Berlin-Kreuzberg'),
 			focus: '60% 60%',
 			place: 'Bergmannstraße, Berlin',
-			kicker: 'German for English speakers · A1 to C2',
-			title: 'Learn German. Live better in Germany.',
-			text: 'The German you need for the café, the flat, the doctor and the neighbours.',
+			kicker: lang.tr ? t('German for Turkish speakers · A1 to A2') : 'German for English speakers · A1 to C2',
+			title: t('Learn German. Live better in Germany.'),
+			text: t('The German you need for the café, the flat, the doctor and the neighbours.'),
 			pins: [
-				{ a: 'der', w: 'Baum', en: 'tree', x: 58, y: 18 },
-				{ a: 'das', w: 'Café', en: 'café', x: 80, y: 44 },
-				{ a: 'die', w: 'Freunde', en: 'friends', x: 66, y: 70 }
+				{ a: 'der', w: 'Baum', en: t('tree'), x: 58, y: 18 },
+				{ a: 'das', w: 'Café', en: t('café'), x: 80, y: 44 },
+				{ a: 'die', w: 'Freunde', en: t('friends'), x: 66, y: 70 }
 			],
 			credit: 'JoachimKohler-HB, CC BY-SA 4.0'
 		},
 		{
 			img: 'ostsee',
-			alt: 'Blue beach chairs on the Baltic beach at Rostock',
+			alt: t('Blue beach chairs on the Baltic beach at Rostock'),
 			focus: '50% 60%',
 			place: 'Warnemünde, Ostsee',
-			kicker: 'Twelve levels, all open',
-			title: 'Start at your level.',
-			text: 'From your first Hallo to C2. A short check tells you where to begin, and you can move up or back whenever you like.',
+			kicker: lang.tr ? t('Four levels in Turkish, all open') : 'Twelve levels, all open',
+			title: t('Start at your level.'),
+			text: lang.tr
+				? t('From your first Hallo to A2. A short check tells you where to begin, and you can move up or back whenever you like.')
+				: 'From your first Hallo to C2. A short check tells you where to begin, and you can move up or back whenever you like.',
 			card: 'levels',
-			cta: { label: 'Find my level', href: '/level-check/test' },
+			cta: { label: t('Find my level'), href: '/level-check/test' },
 			credit: 'Bundesanstalt für Wasserbau, CC BY 2.0'
 		},
 		{
 			img: 'markt',
-			alt: 'Fruit and vegetables piled high at the Viktualienmarkt in Munich',
+			alt: t('Fruit and vegetables piled high at the Viktualienmarkt in Munich'),
 			focus: '50% 55%',
 			place: 'Viktualienmarkt, München',
-			kicker: 'Learn the rule, then use it',
-			title: 'Every mistake explained.',
-			text: 'Short lessons, then practice. A wrong answer is never just red: you see the right one and why.',
+			kicker: t('Learn the rule, then use it'),
+			title: t('Every mistake explained.'),
+			text: t('Short lessons, then practice. A wrong answer is never just red: you see the right one and why.'),
 			card: 'fix',
-			cta: { label: 'Try an exercise', href: '/course/de_cert_a1/quiz/quest_a1_1_artikel' },
+			cta: { label: t('Try an exercise'), href: '/course/de_cert_a1/quiz/quest_a1_1_artikel' },
 			credit: 'Henning Schlottmann, CC BY-SA 4.0'
 		},
 		{
 			img: 'hochzeit',
-			alt: 'A wedding party with balloons outside Düsseldorf city hall',
+			alt: t('A wedding party with balloons outside Düsseldorf city hall'),
 			focus: '50% 60%',
 			place: 'Rathaus, Düsseldorf',
-			kicker: 'On paper too',
-			title: 'A book for every level.',
-			text: 'Twelve books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.',
+			kicker: t('On paper too'),
+			title: t('A book for every level.'),
+			text: lang.tr
+				? t('Four books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.')
+				: 'Twelve books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.',
 			card: 'books',
-			cta: { label: 'See the books', href: '/books' },
+			cta: { label: t('See the books'), href: '/books' },
 			credit: 'Kürschner, CC0'
 		},
 		{
 			img: 'oktoberfest',
-			alt: 'Women and men in traditional dress at the Oktoberfest parade in Munich',
+			alt: t('Women and men in traditional dress at the Oktoberfest parade in Munich'),
 			focus: '65% 55%',
 			place: 'Oktoberfest, München',
-			kicker: 'Listening and speaking',
-			title: 'Hear it. Say it.',
-			text: 'Every sentence read aloud, as often as you need, and speaking practice in every chapter.',
+			kicker: t('Listening and speaking'),
+			title: t('Hear it. Say it.'),
+			text: t('Every sentence read aloud, as often as you need, and speaking practice in every chapter.'),
 			card: 'voice',
 			credit: 'Jordiferrer, CC BY-SA 3.0'
 		},
 		{
 			img: 'chiemsee',
-			alt: 'A jetty on the Chiemsee with the Alps behind',
+			alt: t('A jetty on the Chiemsee with the Alps behind'),
 			focus: '50% 50%',
 			place: 'Chiemsee, Bayern',
-			kicker: 'Your pace, your order',
-			title: 'Open to everyone.',
-			text: 'Five minutes a day or a whole Sunday. Skip what you know, repeat what you don’t.',
+			kicker: t('Your pace, your order'),
+			title: t('Open to everyone.'),
+			text: t('Five minutes a day or a whole Sunday. Skip what you know, repeat what you don’t.'),
 			card: 'open',
 			credit: 'SimonWaldherr, CC BY-SA 4.0'
 		}
-	];
+	]);
 
-	const LEVELS = ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1', 'B2.2', 'C1.1', 'C1.2', 'C2.1', 'C2.2'];
-	const COVERS = ['a1-1', 'b1-1', 'c2-2'];
+	const ALL_LEVELS = ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1', 'B2.2', 'C1.1', 'C1.2', 'C2.1', 'C2.2'];
+	const LEVELS = $derived(lang.tr ? ALL_LEVELS.slice(0, 4) : ALL_LEVELS);
+	/** The level the example card marks as "your level". */
+	const YOU = $derived(lang.tr ? 'A2.1' : 'B1.1');
+	const COVERS = $derived(lang.tr ? ['a1-1', 'a1-2', 'a2-2'] : ['a1-1', 'b1-1', 'c2-2']);
 
 	let { startHref = '/start', returning = false }: { startHref?: string; returning?: boolean } = $props();
 
@@ -183,7 +195,7 @@
 </script>
 
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-<section class="carousel" aria-roledescription="carousel" aria-label="Life in Germany" onkeydown={onKey}>
+<section class="carousel" aria-roledescription="carousel" aria-label={t('Life in Germany')} onkeydown={onKey}>
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		class="track"
@@ -197,7 +209,7 @@
 		ondragstart={(e) => e.preventDefault()}
 	>
 		{#each SLIDES as s, i (s.img)}
-			<div class="slide" class:main={i === 0} role="group" aria-roledescription="slide" aria-label="{i + 1} of {SLIDES.length}">
+			<div class="slide" class:main={i === 0} role="group" aria-roledescription="slide" aria-label={t('{i} of {n}', { i: i + 1, n: SLIDES.length })}>
 				<img
 					class="bg"
 					src="/img/hero/{s.img}-2400.webp"
@@ -210,48 +222,48 @@
 				/>
 				<div class="shade"></div>
 				{#each s.pins ?? [] as p (p.w)}
-					<span class="pin" style:left="{p.x}%" style:top="{p.y}%" lang="de"><span><b class={p.a}>{p.a}</b> {p.w}</span><small lang="en">{p.en}</small></span>
+					<span class="pin" style:left="{p.x}%" style:top="{p.y}%" lang="de"><span><b class={p.a}>{p.a}</b> {p.w}</span><small lang={lang.current}>{p.en}</small></span>
 				{/each}
 					<div class="copy">
 						<p class="eyebrow">{s.kicker}</p>
 						{#if i === 0}<h1>{s.title}</h1>{:else}<h2>{s.title}</h2>{/if}
 						<!-- The action comes first, right under the headline, not after the reading. -->
 						<div class="actions">
-							<a class="btn" href={s.cta?.href ?? startHref} tabindex={i === index ? 0 : -1}>{s.cta?.label ?? (returning ? 'Keep learning' : 'Start learning German')} <Icon name="arrowRight" size="1em" /></a>
+							<a class="btn" href={s.cta?.href ?? startHref} tabindex={i === index ? 0 : -1}>{s.cta?.label ?? (returning ? t('Keep learning') : t('Start learning German'))} <Icon name="arrowRight" size="1em" /></a>
 							<!-- Slide one only: the way back in for someone already learning elsewhere. -->
-							{#if i === 0 && account.available && !account.signedIn}
+							{#if i === 0 && account.available && !account.signedIn && !lang.tr}
 								<p class="have-account">
-									Already learning on another device?
-									<button type="button" onclick={openSignIn} tabindex={i === index ? 0 : -1}>Sign in</button>
+									{t('Already learning on another device?')}
+									<button type="button" onclick={openSignIn} tabindex={i === index ? 0 : -1}>{t('Sign in')}</button>
 								</p>
 							{/if}
 						</div>
 						<p class="lede">{s.text}</p>
 						{#if s.card === 'levels'}
-							<ul class="card levels" aria-label="The twelve levels">
-								{#each LEVELS as l (l)}<li class:you={l === 'B1.1'}>{l}{#if l === 'B1.1'}<small>your level</small>{/if}</li>{/each}
+							<ul class="card levels" aria-label={lang.tr ? t('The four levels') : 'The twelve levels'}>
+								{#each LEVELS as l (l)}<li class:you={l === YOU}>{l}{#if l === YOU}<small>{t('your level')}</small>{/if}</li>{/each}
 							</ul>
 						{:else if s.card === 'fix'}
 							<div class="card fix">
 								<p lang="de">Ich gehe in <s>der</s> Supermarkt.</p>
 								<p class="ok" lang="de"><Icon name="check" size="0.95em" stroke={2.5} /> Ich gehe in <b>den</b> Supermarkt.</p>
-								<p class="why"><b>Why:</b> <i lang="de">in</i> + where you go → accusative.</p>
+								<p class="why"><b>{t('Why:')}</b> <i lang="de">in</i> + {t('where you go → accusative.')}</p>
 							</div>
 						{:else if s.card === 'books'}
 							<div class="card books">
-								<span class="covers">{#each COVERS as c (c)}<img src="/img/book-{c}-front.webp" alt="" loading="lazy" />{/each}</span>
-								<span class="steps"><b>Scan a page</b> → checked · read aloud · flashcards</span>
+								<span class="covers">{#each COVERS as c (c)}<img src={lang.tr ? bookCover(BOOKS.find((b) => b.cover === c)!, true) : `/img/book-${c}-front.webp`} alt="" loading="lazy" />{/each}</span>
+								<span class="steps"><b>{t('Scan a page')}</b> → {t('checked · read aloud · flashcards')}</span>
 							</div>
 						{:else if s.card === 'voice'}
 							<div class="card voice">
-								<p lang="de">„Entschuldigung, ist hier noch frei?“ <SpeakButton text="Entschuldigung, ist hier noch frei?" locale="de-DE" label="Listen" /></p>
-								<small>Excuse me, is this seat free?</small>
+								<p lang="de">„Entschuldigung, ist hier noch frei?“ <SpeakButton text="Entschuldigung, ist hier noch frei?" locale="de-DE" label={t('Listen')} /></p>
+								<small>{t('Excuse me, is this seat free?')}</small>
 							</div>
 						{:else if s.card === 'open'}
 							<ul class="card open">
-								<li><Icon name="check" size="1em" stroke={2.5} /> Every level open from day one</li>
-								<li><Icon name="check" size="1em" stroke={2.5} /> No account needed</li>
-								<li><Icon name="check" size="1em" stroke={2.5} /> Your first lesson takes five minutes</li>
+								<li><Icon name="check" size="1em" stroke={2.5} /> {t('Every level open from day one')}</li>
+								<li><Icon name="check" size="1em" stroke={2.5} /> {t('No account needed')}</li>
+								<li><Icon name="check" size="1em" stroke={2.5} /> {t('Your first lesson takes five minutes')}</li>
 							</ul>
 						{/if}
 					</div>
@@ -260,18 +272,21 @@
 		{/each}
 	</div>
 
-	<button type="button" class="arrow prev" onclick={() => go(index - 1)} disabled={index === 0} aria-label="Previous">
+	<button type="button" class="arrow prev" onclick={() => go(index - 1)} disabled={index === 0} aria-label={t('Previous')}>
 		<Icon name="arrowLeft" size="1.2em" />
 	</button>
-	<button type="button" class="arrow next" onclick={() => go(index + 1)} disabled={index === SLIDES.length - 1} aria-label="Next">
+	<button type="button" class="arrow next" onclick={() => go(index + 1)} disabled={index === SLIDES.length - 1} aria-label={t('Next')}>
 		<Icon name="arrowRight" size="1.2em" />
 	</button>
 
+	<!-- The base language, on the photo's corner where a first visit sees it. -->
+	<div class="lang"><LangSwitch /></div>
+
 	<div class="dots">
 		{#each SLIDES as s, i (s.img)}
-			<button type="button" class:on={i === index} onclick={() => go(i)} aria-label="Slide {i + 1}: {s.title}" aria-current={i === index}></button>
+			<button type="button" class:on={i === index} onclick={() => go(i)} aria-label={t('Slide {i}: {title}', { i: i + 1, title: s.title })} aria-current={i === index}></button>
 		{/each}
-		{#if index === 0}<span class="hint">Swipe for more <Icon name="arrowRight" size="0.9em" /></span>{/if}
+		{#if index === 0}<span class="hint">{t('Swipe for more')} <Icon name="arrowRight" size="0.9em" /></span>{/if}
 	</div>
 </section>
 
@@ -615,6 +630,13 @@
 		right: 1rem;
 	}
 
+	.lang {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 3;
+	}
+
 	.dots {
 		position: absolute;
 		left: 50%;
@@ -703,6 +725,11 @@
 		.credit {
 			top: 0.5rem;
 			bottom: auto;
+			right: 0.6rem;
+		}
+		/* Under the credit line, which runs along the photo's top edge here. */
+		.lang {
+			top: 2rem;
 			right: 0.6rem;
 		}
 	}

@@ -32,19 +32,20 @@ import { recommend, WEAK_MISTAKE_RATE, type QuizFacts, type RecommendationKind }
 import { reviewDue, strengths } from './review';
 import { estimateLevel, levelsOf } from './level';
 
+import { t, tk } from '$lib/i18n/t';
 export type DeckKind = RecommendationKind | 'review' | 'fresh' | 'continue' | 'story' | 'play' | 'check' | 'wort';
 
 export const DECK_KIND_LABELS: Record<DeckKind, string> = {
-	continue: 'Continue',
-	practise: 'Practise',
-	review: 'Review',
-	next: 'Learn next',
-	mix: 'Mix it up',
-	fresh: 'Something new',
-	story: 'Story time',
-	play: 'Surprise!',
-	check: 'Your level',
-	wort: 'Wortblöcke'
+	continue: tk('Continue'),
+	practise: tk('Practise'),
+	review: tk('Review'),
+	next: tk('Learn next'),
+	mix: tk('Mix it up'),
+	fresh: tk('Something new'),
+	story: tk('Story time'),
+	play: tk('Surprise!'),
+	check: tk('Your level'),
+	wort: tk('Wortblöcke')
 };
 
 export interface DeckCard {
@@ -84,7 +85,7 @@ export function continueCard(
 	if (!lastOpenedId) return null;
 	const quiz = quizzes.find((q) => q.id === lastOpenedId);
 	if (!quiz || quiz.status === 'placeholder' || facts[quiz.id]?.done) return null;
-	return { kind: 'continue', quiz, reason: 'You left this one part-way. Swipe right to pick up where you stopped.' };
+	return { kind: 'continue', quiz, reason: t('You left this one part-way. Swipe right to pick up where you stopped.') };
 }
 
 /**
@@ -111,8 +112,8 @@ export interface PaceSpec {
 
 export const DECK_PACES: Record<DeckPace, PaceSpec> = {
 	steady: {
-		label: 'Slow & steady',
-		blurb: 'Your own level, with regular review.',
+		label: tk('Slow & steady'),
+		blurb: tk('Your own level, with regular review.'),
 		quota: { repair: 0.25, fresh: 0.5, explore: 0.25 },
 		levels: [
 			{ offset: 0, weight: 0.6 },
@@ -121,8 +122,8 @@ export const DECK_PACES: Record<DeckPace, PaceSpec> = {
 		]
 	},
 	fast: {
-		label: 'Fast learner',
-		blurb: 'Mostly new, pushing a level ahead.',
+		label: tk('Fast learner'),
+		blurb: tk('Mostly new, pushing a level ahead.'),
 		quota: { repair: 0.15, fresh: 0.6, explore: 0.25 },
 		levels: [
 			{ offset: 0, weight: 0.45 },
@@ -131,8 +132,8 @@ export const DECK_PACES: Record<DeckPace, PaceSpec> = {
 		]
 	},
 	adventurous: {
-		label: 'Adventurous',
-		blurb: 'A wide spread, two levels either way.',
+		label: tk('Adventurous'),
+		blurb: tk('A wide spread, two levels either way.'),
 		quota: { repair: 0.1, fresh: 0.7, explore: 0.2 },
 		levels: [
 			{ offset: 0, weight: 0.3 },
@@ -143,8 +144,8 @@ export const DECK_PACES: Record<DeckPace, PaceSpec> = {
 		]
 	},
 	review: {
-		label: 'Polish up',
-		blurb: 'Weak spots and due reviews first.',
+		label: tk('Polish up'),
+		blurb: tk('Weak spots and due reviews first.'),
 		quota: { repair: 0.6, fresh: 0.2, explore: 0.2 },
 		levels: [
 			{ offset: 0, weight: 0.6 },
@@ -160,15 +161,15 @@ export function isDeckPace(value: unknown): value is DeckPace {
 }
 
 const TYPE_LABELS: Record<QuizType, string> = {
-	fillBlank: 'grammar drill',
-	reading: 'reading',
-	listening: 'listening',
-	dictation: 'dictation',
-	speakRepeat: 'repeat aloud',
-	speaking: 'speaking',
-	writing: 'writing',
-	vocabulary: 'flashcards',
-	suchbild: 'picture hunt'
+	fillBlank: tk('grammar drill'),
+	reading: tk('reading'),
+	listening: tk('listening'),
+	dictation: tk('dictation'),
+	speakRepeat: tk('repeat aloud'),
+	speaking: tk('speaking'),
+	writing: tk('writing'),
+	vocabulary: tk('flashcards'),
+	suchbild: tk('picture hunt')
 };
 
 /** The learner-facing name of a quiz type, for the card's meta line. */
@@ -396,11 +397,11 @@ function fresh(
 }
 
 function freshReason(level: string, offset: number, done: number, total: number): string {
-	if (offset > 1) return `A stretch: ${level}, two steps up from where you are.`;
-	if (offset > 0) return `A peek at ${level}, one step up from where you are.`;
-	if (offset < 0) return `Back at ${level} — a quick one to keep it warm.`;
-	if (done === 0) return `Your first ${level} exercise — a taste of the level.`;
-	return `New at ${level}, where you have ${done} of ${total} done.`;
+	if (offset > 1) return t('A stretch: {level}, two steps up from where you are.', { level });
+	if (offset > 0) return t('A peek at {level}, one step up from where you are.', { level });
+	if (offset < 0) return t('Back at {level} — a quick one to keep it warm.', { level });
+	if (done === 0) return t('Your first {level} exercise — a taste of the level.', { level });
+	return t('New at {level}, where you have {done} of {total} done.', { level, done, total });
 }
 
 function shuffle<T>(items: T[], random: () => number): T[] {

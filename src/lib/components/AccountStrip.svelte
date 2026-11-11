@@ -33,9 +33,11 @@
 		dismissed = true;
 		await storage.set(SettingsKeys.accountStripDismissed, '1');
 	}
+	import { lang } from '$lib/i18n/lang.svelte';
 </script>
 
-{#if account.available && !account.signedIn && !dismissed}
+<!-- Turkish mode hides signing in (English-only). -->
+{#if account.available && !account.signedIn && !dismissed && !lang.tr}
 	<aside class="strip">
 		<Icon name="cloud" size="1.1em" />
 		<p>

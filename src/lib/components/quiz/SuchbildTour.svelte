@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The picture hunt's walkthrough: a few cards in front of the room, shown
 	// the first time a hunt opens and again from its "?" button. Each card
 	// shows the move it explains — the room itself with one thing ringed, the
@@ -29,28 +30,28 @@
 	const CARDS: Card[] = [
 		{
 			id: 'find',
-			title: 'Find it in the picture',
-			text: 'The question names one thing in the room. Tap it in the picture.'
+			title: t('Find it in the picture'),
+			text: t('The question names one thing in the room. Tap it in the picture.')
 		},
 		{
 			id: 'zoom',
-			title: 'Look closer',
-			text: 'Small things hide well. Pinch the picture, or use + and −, and drag to look around.'
+			title: t('Look closer'),
+			text: t('Small things hide well. Pinch the picture, or use + and −, and drag to look around.')
 		},
 		{
 			id: 'tries',
 			title: 'Three tries',
-			text: 'Tap the wrong thing and you see what it is: keep looking. After three misses the right one glows.'
+			text: t('Tap the wrong thing and you see what it is: keep looking. After three misses the right one glows.')
 		},
 		{
 			id: 'medals',
 			title: 'Three medals',
-			text: 'Eight points in a run of ten wins the medal for that step. Pick the step at the top.'
+			text: t('Eight points in a run of ten wins the medal for that step. Pick the step at the top.')
 		},
 		{
 			id: 'cards',
-			title: 'Learn the words first',
-			text: 'Not sure of the words yet? "Cards" turns this room into flip cards. Come back to the picture when you know them.'
+			title: t('Learn the words first'),
+			text: t('Not sure of the words yet? "Cards" turns this room into flip cards. Come back to the picture when you know them.')
 		}
 	];
 
@@ -73,7 +74,7 @@
 		tabindex="-1"
 		use:modal={onclose}
 	>
-		<p class="eyebrow tnum">How to play · {at + 1} of {CARDS.length}</p>
+		<p class="eyebrow tnum">{t('How to play · {i} of {n}', { i: at + 1, n: CARDS.length })}</p>
 
 		<div class="show" aria-hidden="true">
 			{#if card.id === 'find' || card.id === 'zoom'}
@@ -100,15 +101,15 @@
 				</div>
 			{:else if card.id === 'tries'}
 				<ul class="marks">
-					<li><span class="mark right">1st try</span> a full point</li>
-					<li><span class="mark half">2nd or 3rd try</span> half a point</li>
+					<li><span class="mark right">{t('1st try')}</span> {t('a full point')}</li>
+					<li><span class="mark half">{t('2nd or 3rd try')}</span> {t('half a point')}</li>
 					<li><span class="mark wrong">3 misses</span> no point</li>
 				</ul>
 			{:else if card.id === 'medals'}
 				<ul class="medals">
-					<li><RibbonBadge tier="bronze" width={14} /><span><b>Read</b> — the question shows the word.</span></li>
-					<li><RibbonBadge tier="silver" width={14} /><span><b>Article</b> — find it, then pick der, die or das.</span></li>
-					<li><RibbonBadge tier="gold" width={14} /><span><b>Listen</b> — you only hear the word. Find it, then write it with der, die or das.</span></li>
+					<li><RibbonBadge tier="bronze" width={14} /><span><b>Read</b> {t('— the question shows the word.')}</span></li>
+					<li><RibbonBadge tier="silver" width={14} /><span><b>Article</b> {t('— find it, then pick der, die or das.')}</span></li>
+					<li><RibbonBadge tier="gold" width={14} /><span><b>{t('Listen')}</b> {t('— you only hear the word. Find it, then write it with der, die or das.')}</span></li>
 				</ul>
 			{:else}
 				<div class="flip">
@@ -132,11 +133,11 @@
 			{#if last}
 				<span></span>
 			{:else}
-				<button type="button" class="btn btn-ghost" onclick={onclose}>Skip</button>
+				<button type="button" class="btn btn-ghost" onclick={onclose}>{t('Skip')}</button>
 			{/if}
 			<div class="nav">
 				{#if at > 0}
-					<button type="button" class="btn btn-ghost" aria-label="Back" onclick={() => (at -= 1)}>
+					<button type="button" class="btn btn-ghost" aria-label={t('Back')} onclick={() => (at -= 1)}>
 						<Icon name="arrowLeft" size="1em" />
 					</button>
 				{/if}
@@ -144,7 +145,7 @@
 					<button type="button" class="btn" onclick={onclose}>Start hunting</button>
 				{:else}
 					<button type="button" class="btn" onclick={() => (at += 1)}>
-						Next <Icon name="arrowRight" size="1em" />
+						{t('Next')} <Icon name="arrowRight" size="1em" />
 					</button>
 				{/if}
 			</div>

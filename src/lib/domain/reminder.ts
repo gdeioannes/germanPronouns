@@ -1,3 +1,4 @@
+import { t } from '$lib/i18n/t';
 // A practice reminder the learner adds to their own calendar.
 //
 // The app has no server to send notifications from, so the calendar does the
@@ -67,7 +68,7 @@ function slot(plan: ReminderPlan, now: Date): [string, string, string] {
 }
 
 function description(plan: ReminderPlan): string {
-	return `A few minutes of German. Pick up where you left off: ${plan.url}`;
+	return t('A few minutes of German. Pick up where you left off: {url}', { url: plan.url });
 }
 
 /** Text values in a calendar file escape \ ; , and newlines. */

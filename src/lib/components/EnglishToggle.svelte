@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// Asks for the English of a German explanation. Separate from what it opens
 	// (EnglishPanel), because the button sits beside the rule's heading and the
 	// English belongs under the rule's text.
@@ -7,7 +8,7 @@
 </script>
 
 <button type="button" class="toggle" aria-expanded={!!open} onclick={() => (open = !open)}>
-	{open ? 'Hide English' : 'English'}
+	{open ? t('Hide English') : t('English')}
 </button>
 
 <style>

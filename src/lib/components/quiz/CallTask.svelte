@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// "Call Kim after the party" — the first number task, played on a phone
 	// (see domain/callTask). It opens on the lock screen with Kim's voice
 	// message; the chat thread keeps every voice note, call and hint; the
@@ -304,7 +305,7 @@
 		const { line, stranger } = callee;
 		phase = 'chat';
 		if (stranger) {
-			add({ kind: 'call', label: `Wrong number · ${stranger.name}`, ok: false });
+			add({ kind: 'call', label: t('Wrong number · {name}', { name: stranger.name }), ok: false });
 			fails += 1;
 			if (round.kind === 'fill') {
 				typed = keepRight(typed, pendingWrong);
@@ -316,7 +317,7 @@
 					locked = [...locked, k];
 					hinted = [...hinted, k];
 					flash = flash.filter((i) => i !== k);
-					add({ kind: 'note', text: 'One digit filled in for you. Listen again for the rest.' });
+					add({ kind: 'note', text: t('One digit filled in for you. Listen again for the rest.') });
 				}
 			}
 			return;
@@ -374,20 +375,20 @@
 					<span class="app">🎤</span>
 					<span class="notif-text">
 						<strong>Kim 🎉</strong>
-						<span>Voice message · {duration(round.clip)}</span>
+						<span>{t('Voice message · {time}', { time: duration(round.clip) })}</span>
 					</span>
 					<span class="notif-time">02:14</span>
 				</button>
 				<div class="notif quiet" aria-hidden="true">
 					<span class="app">🪫</span>
-					<span class="notif-text"><strong>Battery low</strong><span>{battery}% left</span></span>
+					<span class="notif-text"><strong>{t('Battery low')}</strong><span>{battery}% left</span></span>
 				</div>
-				<p class="lock-hint">Tap the voice message</p>
+				<p class="lock-hint">{t('Tap the voice message')}</p>
 			</div>
 		</div>
 	{:else if phase === 'calling' || phase === 'oncall'}
 		<div class="callscreen" use:shakeOn={missKey}>
-			<p class="call-state">{phase === 'calling' ? 'Calling…' : callee?.stranger ? 'Wrong number' : 'Connected'}</p>
+			<p class="call-state">{phase === 'calling' ? 'Calling…' : callee?.stranger ? t('Wrong number') : 'Connected'}</p>
 			<div class="avatar" class:ringing={phase === 'calling'} class:stranger={!!callee?.stranger}>
 				{phase === 'calling' ? '📞' : callee?.face}
 			</div>
@@ -395,7 +396,7 @@
 			{#if phase === 'oncall' && callee}
 				<p class="call-line"><EmojiText text={callee.line.de} lang={locale} /></p>
 				<p class="call-en">{callee.line.en}</p>
-				<ClipControls id={callee.line.audio} text={callee.line.de} {locale} label="Play again" dark />
+				<ClipControls id={callee.line.audio} text={callee.line.de} {locale} label={t('Play again')} dark />
 				{#if callee.stranger}<p class="caption">{callee.stranger.caption}</p>{/if}
 				<button type="button" class="hangup" disabled={!canHangUp} onclick={hangUp} aria-label="Hang up">
 					<span aria-hidden="true">📵</span>
@@ -407,25 +408,25 @@
 		<div class="finale">
 			<p class="bubble text kim-text">{task.endingText}</p>
 			<p class="fin-title">Kim picked up! 🎉</p>
-			<p class="fin-sub">Strangers you met on the way · {met.length}/{task.wrong.length}</p>
+			<p class="fin-sub">{t('Strangers you met on the way · {met}/{all}', { met: met.length, all: task.wrong.length })}</p>
 			<ul class="collection">
 				{#each task.wrong as s (s.who)}
-					<li class:met={met.includes(s.who)} title={met.includes(s.who) ? s.name : 'Not met yet'}>
+					<li class:met={met.includes(s.who)} title={met.includes(s.who) ? s.name : t('Not met yet')}>
 						<span aria-hidden="true">{met.includes(s.who) ? s.emoji : '❔'}</span>
-						<span class="sr-only">{met.includes(s.who) ? s.name : 'Not met yet'}</span>
+						<span class="sr-only">{met.includes(s.who) ? s.name : t('Not met yet')}</span>
 					</li>
 				{/each}
 			</ul>
-			{#if met.length < task.wrong.length}<p class="fin-tip">Dial wrong on purpose next time to meet them all 😉</p>{/if}
+			{#if met.length < task.wrong.length}<p class="fin-tip">{t('Dial wrong on purpose next time to meet them all 😉')}</p>{/if}
 			<div class="fin-actions">
-				<button type="button" class="btn btn-ghost" onclick={restart}>Play again</button>
-				<button type="button" class="btn" onclick={onBack}>Back to the tasks</button>
+				<button type="button" class="btn btn-ghost" onclick={restart}>{t('Play again')}</button>
+				<button type="button" class="btn" onclick={onBack}>{t('Back to the tasks')}</button>
 			</div>
 		</div>
 	{:else}
 		<header class="thread-head">
 			<span class="face">K</span>
-			<span><strong>Kim 🎉</strong><small>from the party</small></span>
+			<span><strong>Kim 🎉</strong><small>{t('from the party')}</small></span>
 		</header>
 
 		{#if live}
@@ -435,14 +436,14 @@
 				<div class="live-head">
 					<span class="live-dot" aria-hidden="true"></span>
 					<strong>{live.name}</strong>
-					<span class="live-state">on the line</span>
+					<span class="live-state">{t('on the line')}</span>
 					<button type="button" class="live-hangup" onclick={endLive} aria-label="Hang up">
 						<span aria-hidden="true">📵</span>
 					</button>
 				</div>
 				<p class="live-de"><EmojiText text={hideNumber(live.de)} lang={locale} /></p>
 				<p class="live-en">{hideNumber(live.en)}</p>
-				<ClipControls id={live.audio} text={live.de} {locale} label="Play again" dark />
+				<ClipControls id={live.audio} text={live.de} {locale} label={t('Play again')} dark />
 			</section>
 		{/if}
 
@@ -456,7 +457,7 @@
 								<button
 									type="button"
 									class="vplay"
-									aria-label="{on(entry.line, 'playing') ? 'Pause' : on(entry.line, 'paused') ? 'Resume' : 'Play'} {entry.line.name}'s voice message"
+									aria-label="{on(entry.line, 'playing') ? t('Pause') : on(entry.line, 'paused') ? 'Resume' : t('Play')} {entry.line.name}'s voice message"
 									onclick={() => toggleClip(entry.line.audio, { text: entry.line.de, locale })}
 								>
 									<Icon name={on(entry.line, 'playing') ? 'pause' : 'play'} size="1em" />
@@ -469,7 +470,7 @@
 									type="button"
 									class="vagain"
 									aria-label="Replay {entry.line.name}'s voice message from the start"
-									title="Replay from the start"
+									title={t('Replay from the start')}
 									onclick={() => playClip(entry.line.audio, { text: entry.line.de, locale })}
 								>
 									<Icon name="repeat" size="0.95em" />
@@ -503,7 +504,7 @@
 			<Burst trigger={burst} count={18} />
 			{#if round.kind === 'pick'}
 				<p class="where">{round.where}</p>
-				<div class="options" role="group" aria-label="Which number?">
+				<div class="options" role="group" aria-label={t('Which number?')}>
 					{#each round.options ?? [] as option (option)}
 						<button
 							type="button"
@@ -520,7 +521,7 @@
 			{:else}
 				<div class="numrow">
 					<span class="where">{round.where}</span>
-					<div class="number tnum" role="group" aria-label="The number so far">
+					<div class="number tnum" role="group" aria-label={t('The number so far')}>
 						{#each cells as cell, i (i)}
 							{#if cell.kind === 'space'}<span class="gap"></span>
 							{:else if cell.kind === 'digit'}<span class="d">{cell.digit}</span>
@@ -535,7 +536,7 @@
 						{/each}
 					</div>
 				</div>
-				<div class="keypad" role="group" aria-label="Phone keypad">
+				<div class="keypad" role="group" aria-label={t('Phone keypad')}>
 					<!-- Each key carries its German word, like the letters on a real keypad:
 					     the sound in the voice note finds its digit here. -->
 					{#each KEYS as k (k)}
@@ -548,7 +549,7 @@
 							>{k}<span class="word" lang={locale}>{NUMBER_WORDS[Number(k)]}</span></button
 						>
 					{/each}
-					<button type="button" class="key aux" aria-label="Delete" onclick={back}>⌫</button>
+					<button type="button" class="key aux" aria-label={t('Delete')} onclick={back}>⌫</button>
 					<button type="button" class="key tnum" disabled={full} aria-label="0, null" onclick={() => key('0')}
 						>0<span class="word" lang={locale}>null</span></button
 					>

@@ -1,3 +1,5 @@
+import { t, tk } from '$lib/i18n/t';
+
 // The progression rules. Pure functions with no framework or platform
 // dependency, so they are directly unit-testable and survive a Capacitor wrap
 // untouched.
@@ -72,9 +74,9 @@ export const TIER_COLORS: Record<RibbonTier, string> = {
 };
 
 export const TIER_LABELS: Record<RibbonTier, string> = {
-	gold: 'Gold',
-	silver: 'Silver',
-	bronze: 'Bronze'
+	gold: tk('Gold'),
+	silver: tk('Silver'),
+	bronze: tk('Bronze')
 };
 
 /**
@@ -83,7 +85,7 @@ export const TIER_LABELS: Record<RibbonTier, string> = {
  * has to be said in the same announcement that reports the answer.
  */
 export function medalAnnouncement(tier: RibbonTier, streak: number): string {
-	return `${TIER_LABELS[tier]} medal! ${streak} in a row.`;
+	return t('{tier} medal! {n} in a row.', { tier: t(TIER_LABELS[tier]), n: streak });
 }
 
 /** How many laps a best streak represents. */

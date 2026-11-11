@@ -14,6 +14,8 @@
 import type { QuizSummary as Quiz } from '$lib/content/types';
 import { WEAK_MISTAKE_RATE, type QuizFacts } from './recommend';
 
+import { t } from '$lib/i18n/t';
+import { lang } from '$lib/i18n/lang.svelte';
 const DAY = 24 * 60 * 60 * 1000;
 
 /** Days before a finished exercise comes round again, by how well it is held. */
@@ -102,12 +104,12 @@ export function reviewDue(
 
 function reviewReason(daysAgo: number | null, f: QuizFacts): string {
 	const shaky = f.answered > 0 && recentRate(f) >= WEAK_MISTAKE_RATE;
-	if (daysAgo === null) return 'Done a while back — a quick pass keeps it from fading.';
+	if (daysAgo === null) return t('Done a while back — a quick pass keeps it from fading.');
 	const when =
-		daysAgo === 0 ? 'earlier today' : daysAgo === 1 ? 'yesterday' : `${daysAgo} days ago`;
-	if (shaky) return `Last seen ${when}, and it was wobbly — a short run now will settle it.`;
-	if (f.tier === 'gold') return `Gold ${when}. Nothing to prove — one lap keeps it that way.`;
-	return `Last done ${when} — a refresh now is worth two later.`;
+		daysAgo === 0 ? t('earlier today') : daysAgo === 1 ? t('yesterday') : t('{n} days ago', { n: daysAgo });
+	if (shaky) return t('Last seen {when}, and it was wobbly — a short run now will settle it.', { when });
+	if (f.tier === 'gold') return t('Gold {when}. Nothing to prove — one lap keeps it that way.', { when });
+	return t('Last done {when} — a refresh now is worth two later.', { when });
 }
 
 /**
@@ -195,6 +197,11 @@ export function strengths(
 
 function strengthReason(topic: string, m: TopicMastery, fresh: number): string {
 	const percent = Math.round((1 - m.mistakeRate) * 100);
+	// Topic names are English ids, so Turkish says "this topic" instead.
+	if (lang.tr)
+		return fresh > 0
+			? t("You're {percent}% right on this topic — this takes it somewhere new.", { percent })
+			: t("You're {percent}% right on this topic. Ride that: it makes this one easy to start.", { percent });
 	const name = topicLabel(topic);
 	return fresh > 0
 		? `You're ${percent}% right on ${name} — this takes it somewhere new.`

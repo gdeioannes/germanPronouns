@@ -23,6 +23,8 @@
 	import { account } from '$lib/state/account.svelte';
 	import { openSignIn } from '$lib/state/signin.svelte';
 	import PageHelp from '$lib/components/PageHelp.svelte';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
 
 	onMount(initWhatsNew);
 
@@ -107,37 +109,43 @@
 <!-- The three groups' links. `wide` adds the sub-heads the dropdown panels
      use; the phone list gets its own headings instead. -->
 {#snippet libraryLinks()}
-	<a href="/words"><Icon name="words" size="1em" /> Word library</a>
-	<a href="/books"><Icon name="book" size="1em" /> The books</a>
-	<a href="{courseHref}/worksheet"><Icon name="printer" size="1em" /> Printable sheets</a>
-	<a href="/literature"><Icon name="book" size="1em" /> Literature</a>
-	<!-- The games, story mode among them: there for whoever wants to play,
-	     never dealt into the deck or shown on the front page. -->
-	<p class="group-head">Games</p>
-	<a href="/stories"><Icon name="compass" size="1em" /> Stories</a>
-	<a href="/play/schreib-mir"><Icon name="chat" size="1em" /> <span lang="de">Schreib mir!</span></a>
-	<a href="/play/wortbloecke"><Icon name="blank" size="1em" /> <span lang="de">Wortblöcke</span></a>
+	<!-- Turkish mode lists only what exists in Turkish (i18n/available). -->
+	{#if !lang.tr}<a href="/words"><Icon name="words" size="1em" /> Word library</a>{/if}
+	<a href="/books"><Icon name="book" size="1em" /> {t('The books')}</a>
+	{#if !lang.tr}
+		<a href="{courseHref}/worksheet"><Icon name="printer" size="1em" /> Printable sheets</a>
+		<a href="/literature"><Icon name="book" size="1em" /> Literature</a>
+		<!-- The games, story mode among them: there for whoever wants to play,
+		     never dealt into the deck or shown on the front page. -->
+		<p class="group-head">Games</p>
+		<a href="/stories"><Icon name="compass" size="1em" /> Stories</a>
+		<a href="/play/schreib-mir"><Icon name="chat" size="1em" /> <span lang="de">Schreib mir!</span></a>
+		<a href="/play/wortbloecke"><Icon name="blank" size="1em" /> <span lang="de">Wortblöcke</span></a>
+	{/if}
 {/snippet}
 
 <!-- "Your level": the word check (and later the placement test). A root link
      beside the levels, since it is how a learner finds which level is theirs. -->
 {#snippet levelCheckLink()}
-	<a class="level-link" href="/level-check"><Icon name="star" size="1em" /> Your level</a>
+	<a class="level-link" href="/level-check"><Icon name="star" size="1em" /> {t('Your level')}</a>
 {/snippet}
 
 <!-- The forum lives under About; its dot (a reply to your topic) also shows
      on the About button, so a learner still sees they were answered. -->
 {#snippet forumLink()}
+	{#if !lang.tr}
 	<a class="forum-link" href="/forum" aria-label={forum.unread.length ? 'Forum — new replies to your topics' : undefined}>
 		<Icon name="forum" size="1em" /> Forum
 		{#if forum.unread.length}<span class="dot inline" aria-hidden="true"></span>{/if}
 	</a>
+	{/if}
 {/snippet}
 
 <!-- In the About dropdown the first link names the site, so it does not just
      repeat the button it hangs from. -->
-{#snippet aboutLinks(aboutLabel = 'About')}
+{#snippet aboutLinks(aboutLabel = t('About'))}
 	<a href="/about">{aboutLabel}</a>
+	{#if !lang.tr}
 	<a
 		class="news-row"
 		href="/changelog"
@@ -146,21 +154,22 @@
 		What's new
 		{#if whatsNew.unseen}<span class="dot inline" aria-hidden="true"></span>{/if}
 	</a>
+	{/if}
 	{@render forumLink()}
-	<a href="/contact">Contact</a>
+	<a href="/contact">{t('Contact')}</a>
 {/snippet}
 
 <!-- Sign in, in plain sight: the course needs no account, and saying so is
      part of the link's job, but a learner who has one should not have to
      hunt for it in settings. Signed in, it becomes the account itself. -->
 {#snippet signIn()}
-	{#if account.available}
+	{#if account.available && !lang.tr}
 		<button type="button" class="sign-in" aria-haspopup="dialog" aria-controls="sign-in-sheet" onclick={openSignIn}>
 			<Icon name="cloud" size="1em" />
 			{#if account.signedIn}
-				<span class="sign-in-label">Account</span>
+				<span class="sign-in-label">{t('Account')}</span>
 			{:else}
-				<span class="sign-in-label">Sign in</span>
+				<span class="sign-in-label">{t('Sign in')}</span>
 			{/if}
 		</button>
 	{/if}
@@ -168,7 +177,7 @@
 
 {#snippet cta()}
 	{#if !inCourse}
-		<a class="bar-cta" href={courseHref}>Open the course</a>
+		<a class="bar-cta" href={courseHref}>{t('Open the course')}</a>
 	{/if}
 {/snippet}
 
@@ -181,7 +190,7 @@
 			bind:this={dropButtons[menu]}
 			aria-expanded={dropdown === menu}
 			aria-controls="{menu}-menu"
-			aria-label={dotted ? `${label} — new updates` : undefined}
+			aria-label={dotted ? `${label} — ${t('new updates')}` : undefined}
 			onclick={() => toggle(menu)}
 		>
 			{label}
@@ -209,12 +218,12 @@
 	<div class="menu-links">
 		<div class="root-row">
 			{@render levelCheckLink()}
-			<a href="/settings" rel="nofollow"><Icon name="settings" size="1em" /> Settings</a>
+			<a href="/settings" rel="nofollow"><Icon name="settings" size="1em" /> {t('Settings')}</a>
 			{@render signIn()}
 		</div>
-		<p class="group-head">Library</p>
+		<p class="group-head">{t('Library')}</p>
 		{@render libraryLinks()}
-		<p class="group-head">About</p>
+		<p class="group-head">{t('About')}</p>
 		{@render aboutLinks()}
 		{@render cta()}
 	</div>
@@ -225,15 +234,15 @@
 	<button
 		type="button"
 		class="menu"
-		aria-label={whatsNew.unseen || forum.unread.length ? 'Menu — new updates' : 'Menu'}
+		aria-label={!lang.tr && (whatsNew.unseen || forum.unread.length) ? `${t('Menu')} — ${t('new updates')}` : t('Menu')}
 		bind:this={menuButton}
 		aria-expanded={open}
 		aria-controls="site-menu"
 		onclick={() => (open = !open)}
 	>
 		<Icon name={open ? 'close' : 'menu'} size="1.1em" />
-		<span>Menu</span>
-		{#if (whatsNew.unseen || forum.unread.length) && !open}<span class="dot" aria-hidden="true"></span>{/if}
+		<span>{t('Menu')}</span>
+		{#if !lang.tr && (whatsNew.unseen || forum.unread.length) && !open}<span class="dot" aria-hidden="true"></span>{/if}
 	</button>
 {/snippet}
 
@@ -243,16 +252,18 @@
 			{@render brand()}
 			<!-- The places people jump to most sit in the bar as icons; the
 			     rest are one tap away under Menu. -->
-			<a class="icon-link" href="/words" aria-label="Word library" title="Word library">
-				<Icon name="words" size="1.15em" />
-			</a>
+			{#if !lang.tr}
+				<a class="icon-link" href="/words" aria-label="Word library" title="Word library">
+					<Icon name="words" size="1.15em" />
+				</a>
+			{/if}
 			<!-- "?": how this screen works (content/pageHelp), on pages that have an entry. -->
 			<PageHelp topic={page.route.id} />
 			{@render signIn()}
 			{@render menuButtonSnippet()}
 		</div>
 		{#if open}
-			<nav id="site-menu" aria-label="Main" transition:slide={{ duration: 180, easing: cubicOut }}>
+			<nav id="site-menu" aria-label={t('Main')} transition:slide={{ duration: 180, easing: cubicOut }}>
 				{@render menuList()}
 			</nav>
 		{/if}
@@ -265,10 +276,10 @@
 			     course always stays in the bar; the rest drop down under Menu,
 			     which shrinks to its icon so nothing has to wrap. -->
 			<div class="bar-end">
-				<nav class="wide" aria-label="Main">
+				<nav class="wide" aria-label={t('Main')}>
 					{@render levelCheckLink()}
-					{@render drop('library', 'Library', libraryLinks)}
-					{@render drop('about', 'About', aboutLinks, false, whatsNew.unseen || forum.unread.length > 0)}
+					{@render drop('library', t('Library'), libraryLinks)}
+					{@render drop('about', t('About'), aboutLinks, false, (whatsNew.unseen || forum.unread.length > 0) && !lang.tr)}
 					{@render signIn()}
 					{@render cta()}
 				</nav>
@@ -280,7 +291,7 @@
 			</div>
 		</div>
 		{#if open}
-			<nav id="site-menu" aria-label="Main" transition:slide={{ duration: 180, easing: cubicOut }}>
+			<nav id="site-menu" aria-label={t('Main')} transition:slide={{ duration: 180, easing: cubicOut }}>
 				{@render menuList()}
 			</nav>
 		{/if}

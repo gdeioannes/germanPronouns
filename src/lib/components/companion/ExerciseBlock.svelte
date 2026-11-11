@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// One exercise on a companion's right page, shaped for a pencil: lines to
 	// write on, dots to join, tags to fill. The answers are in the key at the
 	// back (domain/companion answerKey), never on the page.
@@ -23,7 +24,7 @@
 		{#if ex.listen && listen}
 			<figure class="qr">
 				{#if listen.url}<a href={listen.url} aria-label="Open the recording">{@html listen.svg}</a>{:else}{@html listen.svg}{/if}
-				<figcaption>{german ? 'Hören' : 'Listen'}<br /><span>{listen.url ? listen.url.replace(/^https?:\/\//, '') : listen.code}</span></figcaption>
+				<figcaption>{german ? 'Hören' : t('Listen')}<br /><span>{listen.url ? listen.url.replace(/^https?:\/\//, '') : listen.code}</span></figcaption>
 			</figure>
 		{/if}
 	</header>

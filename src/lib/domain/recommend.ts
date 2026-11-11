@@ -13,6 +13,7 @@ import type { QuizMark, RibbonTier } from './progress';
 import { topicOf } from '$lib/seo';
 import { estimateLevel, WEAK_MISTAKE_RATE } from './level';
 
+import { t } from '$lib/i18n/t';
 export { WEAK_MISTAKE_RATE };
 
 export type RecommendationKind = 'practise' | 'next' | 'mix';
@@ -48,15 +49,15 @@ export interface Recommendation {
 const MIN_ANSWERS = 5;
 
 const TYPE_NAMES: Record<QuizType, { one: string; many: string; pitch: string }> = {
-	fillBlank: { one: 'grammar drill', many: 'grammar drills', pitch: 'tighten up the grammar' },
+	fillBlank: { one: t('grammar drill'), many: t('grammar drills'), pitch: t('tighten up the grammar') },
 	reading: { one: 'reading', many: 'readings', pitch: 'read some real German' },
-	listening: { one: 'listening exercise', many: 'listening exercises', pitch: 'train your ear' },
-	dictation: { one: 'dictation', many: 'dictations', pitch: 'fix spelling by ear' },
-	speakRepeat: { one: 'repeat-aloud', many: 'repeat-alouds', pitch: 'get your mouth moving' },
-	speaking: { one: 'speaking exercise', many: 'speaking exercises', pitch: 'say it out loud' },
-	writing: { one: 'writing task', many: 'writing tasks', pitch: 'write it yourself' },
-	vocabulary: { one: 'flashcard deck', many: 'flashcard decks', pitch: 'grow your vocabulary' },
-	suchbild: { one: 'picture hunt', many: 'picture hunts', pitch: 'find the words in a room' }
+	listening: { one: t('listening exercise'), many: t('listening exercises'), pitch: t('train your ear') },
+	dictation: { one: 'dictation', many: 'dictations', pitch: t('fix spelling by ear') },
+	speakRepeat: { one: 'repeat-aloud', many: 'repeat-alouds', pitch: t('get your mouth moving') },
+	speaking: { one: t('speaking exercise'), many: t('speaking exercises'), pitch: t('say it out loud') },
+	writing: { one: t('writing task'), many: t('writing tasks'), pitch: t('write it yourself') },
+	vocabulary: { one: t('flashcard deck'), many: t('flashcard decks'), pitch: t('grow your vocabulary') },
+	suchbild: { one: t('picture hunt'), many: t('picture hunts'), pitch: t('find the words in a room') }
 };
 
 const EMPTY: QuizFacts = { done: false, tier: null, answered: 0, mistakeRate: 0 };
@@ -117,14 +118,14 @@ function practise(
 				quiz,
 				weight: 3 + f.mistakeRate,
 				reason: measured
-					? `You started this one and missed ${percent}% of answers — finish it off.`
-					: 'You started this one — finish it off.'
+					? t('You started this one and missed {percent}% of answers — finish it off.', { percent })
+					: t('You started this one — finish it off.')
 			});
 		} else if (f.done && measured && f.mistakeRate >= WEAK_MISTAKE_RATE) {
 			ranked.push({
 				quiz,
 				weight: 2 + f.mistakeRate,
-				reason: `You missed ${percent}% of answers here — another run will make it stick.`
+				reason: t('You missed {percent}% of answers here — another run will make it stick.', { percent })
 			});
 		} else if (quiz.type !== 'fillBlank' && quiz.type !== 'vocabulary' && quiz.type !== 'suchbild') {
 			// Only fill-ins earn a medal by streak; a finished reading or
@@ -134,19 +135,19 @@ function practise(
 			ranked.push({
 				quiz,
 				weight: 1.5,
-				reason: 'Finished, no medal yet — eight in a row earns bronze.'
+				reason: t('Finished, no medal yet — eight in a row earns bronze.')
 			});
 		} else if (f.done && f.tier === 'bronze') {
 			ranked.push({
 				quiz,
 				weight: 1,
-				reason: 'Finished with bronze — a longer streak lifts it to silver.'
+				reason: t('Finished with bronze — a longer streak lifts it to silver.')
 			});
 		} else if (f.done && f.tier === 'silver') {
 			ranked.push({
 				quiz,
 				weight: 0.5,
-				reason: 'Silver so far — one strong run takes it to gold.'
+				reason: t('Silver so far — one strong run takes it to gold.')
 			});
 		}
 	}
@@ -192,7 +193,7 @@ function next(
 		ranked.push({
 			quiz,
 			weight,
-			reason: `Builds on “${topicOf(base.title)}”, which you’ve finished.`
+			reason: t('Builds on “{topicOf}”, which you’ve finished.', { topicOf: topicOf(base.title) })
 		});
 	});
 	return ranked

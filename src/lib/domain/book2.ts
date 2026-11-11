@@ -1,3 +1,4 @@
+import { t } from '$lib/i18n/t';
 // Book v2 (docs/book_v2_plan.md): situation-led chapters of nine pages, with
 // photographs from Wikimedia Commons and the companion's blocks and exercise
 // kinds. One file per sub-level in assets/content/book2/<course>/<stem>.json,
@@ -153,7 +154,7 @@ export function pictureCheck(c: Chapter): Exercise {
 		title: 'Bilder-Check',
 		instruction: c.german
 			? 'Schreib jedes Wort mit der, die oder das. Nicht auf der Wörterseite nachsehen!'
-			: 'Write each word with der, die or das. No peeking at the word page.',
+			: t('Write each word with der, die or das. No peeking at the word page.'),
 		kind: 'tags',
 		items: picked.map((w) => ({ image: w.image!, label: '', answer: w.de }))
 	};

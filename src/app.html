@@ -11,7 +11,29 @@
 				if (localStorage.getItem('calm_effects') === 'true')
 					document.documentElement.dataset.effects = 'calm';
 			} catch (e) {}
+			// Turkish: the page is prerendered in English and switches right
+			// after hydration, so a Turkish visitor's page stays hidden until
+			// then (never longer than 1.5 s). Mirrors lang.svelte.ts pickLang.
+			try {
+				var q = new URLSearchParams(location.search).get('lang');
+				var s = localStorage.getItem('ui_lang');
+				var b = (navigator.languages || [navigator.language]).some(function (l) {
+					return /^tr/i.test(l);
+				});
+				if (q === 'tr' || (q !== 'en' && (s === 'tr' || (!s && b)))) {
+					document.documentElement.dataset.uiLang = 'tr';
+					document.documentElement.lang = 'tr';
+					setTimeout(function () {
+						document.documentElement.dataset.langReady = '1';
+					}, 1500);
+				}
+			} catch (e) {}
 		</script>
+		<style>
+			html[data-ui-lang='tr']:not([data-lang-ready]) body {
+				visibility: hidden;
+			}
+		</style>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	// Dictation: hear a line, type what you heard. The text is never shown
 	// until the line is answered or given up on — that is the whole exercise.
@@ -217,9 +218,10 @@
 		onRunFinished(passed);
 		// The medal is the run's score; a better one than before is a medal moment.
 		const medal = scoreMedal(right, RUN_LENGTH, RUN_PASS_MARK / RUN_LENGTH);
-		const line = `${right} of ${RUN_LENGTH} heard right`;
+		const line = t('{right} of {n} heard right', { right, n: RUN_LENGTH });
 		announce(
-			`Run finished: ${line} — ${passed ? 'exercise done' : 'not this time'}.${medal ? ` ${TIER_LABELS[medal]} medal.` : ''}`
+			t('Run finished: {line} — {result}.', { line, result: passed ? t('exercise done') : t('not this time') }) +
+				(medal ? ' ' + t('{tier} medal.', { tier: t(TIER_LABELS[medal]) }) : '')
 		);
 		if (medal) {
 			void progress.recordScoreMedal(quiz.storageKeyPrefix, medal).then((better) => {
@@ -299,7 +301,7 @@
 		<div class="controls">
 			<Burst trigger={burst} count={burstSize} />
 			<button type="button" class="btn-ghost chip" onclick={() => play()}>
-				<Icon name="play" size="0.95em" /> Play
+				<Icon name="play" size="0.95em" /> {t('Play')}
 			</button>
 			<button type="button" class="btn-ghost chip" onclick={() => play(0.6)}>
 				<Icon name="slow" size="0.95em" /> Slower
@@ -312,7 +314,7 @@
 					aria-controls="dictation-transcript"
 					onclick={() => (peek = !peek)}
 				>
-					<Icon name="book" size="0.95em" /> {peek ? 'Hide the text' : 'Show the text'}
+					<Icon name="book" size="0.95em" /> {peek ? t('Hide the text') : t('Show the text')}
 				</button>
 			{/if}
 		</div>
@@ -331,7 +333,7 @@
 			readonly={grade !== null}
 			aria-invalid={grade && !grade.right ? 'true' : undefined}
 			aria-label="Type what you hear, line {Math.min(answered + 1, RUN_LENGTH)} of {RUN_LENGTH}"
-			placeholder="Type what you hear"
+			placeholder={t('Type what you hear')}
 			lang={locale}
 			autocomplete="off"
 			autocapitalize="sentences"
@@ -341,9 +343,9 @@
 		{#if grade === null}
 			<button type="button" class="btn" class:btn-ghost={!answer.trim()} onclick={check}>
 				{#if answer.trim()}
-					<Icon name="check" size="1em" /> Check
+					<Icon name="check" size="1em" /> {t('Check')}
 				{:else}
-					Skip this line <Icon name="arrowRight" size="1em" />
+					{t('Skip this line')} <Icon name="arrowRight" size="1em" />
 				{/if}
 			</button>
 		{:else}
@@ -360,12 +362,12 @@
 			<p class="reveal marked" lang={locale} in:rise>
 				{#each marks as mark, i (i)}
 					{#if mark.state === 'extra'}
-						<span class="word extra" title="Not in the line">{mark.typed}</span>
+						<span class="word extra" title={t('Not in the line')}>{mark.typed}</span>
 					{:else}
 						<span class="word {mark.state}">
 							{mark.target}
 							{#if mark.state === 'slip' && mark.typed}
-								<span class="was">you wrote {mark.typed}</span>
+								<span class="was">{t('you wrote {typed}', { typed: mark.typed })}</span>
 							{/if}
 						</span>
 					{/if}
@@ -377,7 +379,7 @@
 				<p class="translation"><EnglishLine text={item.translation} level={quiz.level} /></p>
 			{/if}
 			<button type="button" class="btn" onclick={next}>
-				{isLast ? 'Finish the run' : 'Next line'}
+				{isLast ? t('Finish the run') : t('Next line')}
 				<Icon name="arrowRight" size="1em" />
 			</button>
 		{/if}

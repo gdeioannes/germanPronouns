@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
 	// Settings card: a weekly practice reminder in the learner's own calendar.
 	// There is no server to send notifications, so the calendar does it — see
 	// domain/reminder.ts.
@@ -25,7 +27,7 @@
 		days,
 		time,
 		minutes,
-		title: 'German practice 🇩🇪',
+		title: t('German practice 🇩🇪'),
 		url: absoluteUrl(`/course/${catalog.defaultCourseId}`)
 	});
 
@@ -35,12 +37,16 @@
 		days = days.includes(day) ? days.filter((d) => d !== day) : [...days, day];
 	}
 
+	// Day names in the learner's language, from the browser (2024-01-01 was a Monday).
+	const dayName = (i: number, style: 'short' | 'long') =>
+		lang.tr ? new Date(2024, 0, 1 + i).toLocaleDateString('tr', { weekday: style }) : style === 'short' ? WEEKDAYS[i].short : WEEKDAYS[i].long;
+
 	/** "Monday, Wednesday and Friday at 19:00" — the plan in words, for the summary line. */
 	const summary = $derived.by(() => {
-		const names = WEEKDAYS.filter((w) => days.includes(w.code)).map((w) => w.long);
-		if (names.length === 7) return `Every day at ${time}`;
-		const list = names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names.at(-1)}` : names[0];
-		return `${list} at ${time}, ${minutes} minutes`;
+		const names = WEEKDAYS.flatMap((w, i) => (days.includes(w.code) ? [dayName(i, 'long')] : []));
+		if (names.length === 7) return t('Every day at {time}', { time });
+		const list = new Intl.ListFormat(lang.current, { type: 'conjunction' }).format(names);
+		return t('{days} at {time}, {minutes} minutes', { days: list, time, minutes });
 	});
 
 	function props(target: string) {
@@ -57,31 +63,28 @@
 		a.click();
 		setTimeout(() => URL.revokeObjectURL(url), 1000);
 		track('reminder_added', props('ics'));
-		announce('Calendar file downloaded. Open it to add the reminder.');
+		announce(t('Calendar file downloaded. Open it to add the reminder.'));
 	}
 </script>
 
 <section class="card">
-	<h2>Practice reminder</h2>
+	<h2>{t('Practice reminder')}</h2>
 	<p class="lede">
-		Little and often beats long and rare. Pick your days and a time, and add a
-		repeating reminder to your own calendar — tapping it brings you straight
-		back to your course. Nothing is sent to us; change or delete it in your
-		calendar whenever you like.
+		{t('Little and often beats long and rare. Pick your days and a time, and add a repeating reminder to your own calendar — tapping it brings you straight back to your course. Nothing is sent to us; change or delete it in your calendar whenever you like.')}
 	</p>
 
 	<div class="field">
-		<span class="label" id="reminder-days">Days</span>
+		<span class="label" id="reminder-days">{t('Days')}</span>
 		<div class="days" role="group" aria-labelledby="reminder-days" aria-describedby="reminder-status">
-			{#each WEEKDAYS as day (day.code)}
+			{#each WEEKDAYS as day, i (day.code)}
 				<button
 					type="button"
 					aria-pressed={days.includes(day.code)}
-					aria-label="{day.short}, {day.long}"
+					aria-label="{dayName(i, 'short')}, {dayName(i, 'long')}"
 					onclick={() => toggle(day.code)}
 				>
 					{#if days.includes(day.code)}<Icon name="check" size="0.85em" />{/if}
-					{day.short}
+					{dayName(i, 'short')}
 				</button>
 			{/each}
 		</div>
@@ -89,14 +92,14 @@
 
 	<div class="pair">
 		<label class="field">
-			<span class="label">Time</span>
+			<span class="label">{t('Time')}</span>
 			<input type="time" bind:value={time} required />
 		</label>
 		<label class="field">
-			<span class="label">Length</span>
+			<span class="label">{t('Length')}</span>
 			<select bind:value={minutes}>
 				{#each [5, 10, 15, 20, 30] as m (m)}
-					<option value={m}>{m} minutes</option>
+					<option value={m}>{t('{n} minutes', { n: m })}</option>
 				{/each}
 			</select>
 		</label>
@@ -105,7 +108,7 @@
 	<!-- Always in the page, so a screen reader hears it change rather than missing
 	     a region that appears out of nowhere. -->
 	<p class="status" class:hint={!ready} id="reminder-status" role="status">
-		{ready ? summary : 'Pick at least one day and a time.'}
+		{ready ? summary : t('Pick at least one day and a time.')}
 	</p>
 
 	<div class="actions">
@@ -117,18 +120,18 @@
 				rel="noopener"
 				onclick={() => track('reminder_added', props('google'))}
 			>
-				<Icon name="calendar" size="1em" /> Google Calendar
+				<Icon name="calendar" size="1em" /> {t('Google Calendar')}
 				<Icon name="external" size="0.85em" />
-				<span class="sr-only">(opens in a new tab)</span>
+				<span class="sr-only">{t('(opens in a new tab)')}</span>
 			</a>
 		{:else}
 			<!-- A link can't be disabled; a button can, and says so to a screen reader. -->
 			<button type="button" class="btn" disabled>
-				<Icon name="calendar" size="1em" /> Google Calendar
+				<Icon name="calendar" size="1em" /> {t('Google Calendar')}
 			</button>
 		{/if}
 		<button type="button" class="btn" disabled={!ready} onclick={downloadIcs}>
-			<Icon name="download" size="1em" /> Apple, Outlook &amp; others (.ics)
+			<Icon name="download" size="1em" /> {t('Apple, Outlook & others (.ics)')}
 		</button>
 	</div>
 </section>

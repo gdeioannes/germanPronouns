@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { t } from '$lib/i18n/t';
 	// One exercise of the printed book, to check in the app: the reader puts in
 	// what they wrote on paper and the app marks it against the book's key
 	// (domain/bookStudy). Typed answers are marked leniently (spaces, closing
@@ -58,19 +60,19 @@
 	{#if m && m !== 'open'}
 		<span class="verdict {m}">
 			{#if m === 'right'}
-				<Icon name="check" size="1em" stroke={2.5} /><span class="sr">Right</span>
+				<Icon name="check" size="1em" stroke={2.5} /><span class="sr">{t('Right')}</span>
 			{:else if m === 'capitals'}
-				<Icon name="check" size="1em" stroke={2.5} /> <span>Mind the capitals: <b lang="de">{results![i].expected}</b></span>
+				<Icon name="check" size="1em" stroke={2.5} /> <span>{t('Mind the capitals:')} <b lang="de">{results![i].expected}</b></span>
 			{:else}
 				<Icon name="close" size="0.9em" stroke={2.5} />
-				<span><span class="sr">Not quite. </span>{german ? 'Lösung' : 'Answer'}: <b lang="de">{results![i].expected}</b></span>
+				<span><span class="sr">{t('Not quite.')} </span>{german ? 'Lösung' : t('Answer')}: <b lang="de">{results![i].expected}</b></span>
 				{#if typed && results![i].given}
-					<button type="button" class="own" onclick={() => countRight(i)}>{german ? 'Meine war auch richtig' : 'Mine was right too'}</button>
+					<button type="button" class="own" onclick={() => countRight(i)}>{german ? 'Meine war auch richtig' : t('Mine was right too')}</button>
 				{/if}
 			{/if}
 		</span>
 	{:else if m === 'open'}
-		<span class="verdict open">{german ? 'Deine eigene Antwort' : 'Your own answer'}</span>
+		<span class="verdict open">{german ? 'Deine eigene Antwort' : t('Your own answer')}</span>
 	{/if}
 {/snippet}
 
@@ -122,7 +124,7 @@
 			{#each ex.items as it, i (i)}
 				<li>
 					<label><span class="prompt">{ex.draw ? it.de : it.time}</span>
-						<input type="text" bind:value={answers[i]} disabled={!!results} placeholder={ex.draw ? '00:00' : ''} autocomplete="off" aria-label={ex.draw ? `The time for ${it.de}` : `The German for ${it.time}`} />
+						<input type="text" bind:value={answers[i]} disabled={!!results} placeholder={ex.draw ? '00:00' : ''} autocomplete="off" aria-label={ex.draw ? t('The time for {de}', { de: it.de }) : t('The German for {time}', { time: it.time })} />
 					</label>
 					{@render verdict(i)}
 				</li>
@@ -170,11 +172,11 @@
 	</ol>
 
 	{#if ex.kind === 'colour'}
-		<p class="note" lang="en">Check your picture against each sentence: this one only paper can mark.</p>
+		<p class="note" lang={lang.current}>{t('Check your picture against each sentence: this one only paper can mark.')}</p>
 	{:else if results}
-		<button type="button" class="btn ghost" onclick={again}><Icon name="repeat" size="1em" /> {german ? 'Noch einmal' : 'Try again'}</button>
+		<button type="button" class="btn ghost" onclick={again}><Icon name="repeat" size="1em" /> {german ? 'Noch einmal' : t('Try again')}</button>
 	{:else}
-		<button type="button" class="btn" onclick={check}>{german ? 'Prüfen' : 'Check'}</button>
+		<button type="button" class="btn" onclick={check}>{german ? 'Prüfen' : t('Check')}</button>
 	{/if}
 </section>
 

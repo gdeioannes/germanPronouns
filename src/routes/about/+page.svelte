@@ -8,6 +8,7 @@
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { absoluteUrl } from '$lib/seo';
 	import { page } from '$app/state';
+	import { lang } from '$lib/i18n/lang.svelte';
 
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
 </script>
@@ -54,6 +55,142 @@
 <main class="page-wide">
 	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 
+	<!-- Turkish mode: the page written in Turkish rather than pieced together
+	     string by string. Keep it in step with the English below. -->
+	{#if lang.tr}
+		<header>
+			<h1>Language Quiz hakkında</h1>
+			<p class="lede">
+				Zamanına ve gizliliğine saygı duyan ücretsiz bir Almanca kursu: hesap yok, reklam yok,
+				ödeme duvarı yok ve seninle ilgili hiçbir şey tarayıcından dışarı çıkmaz. Türkçe kurs
+				A1 ve A2 seviyelerini kapsıyor.
+			</p>
+		</header>
+
+		<section class="split">
+			<div class="lead">
+				<h2>Proje</h2>
+				<p>
+					Language Quiz, Haziran 2026’da Almancanın en zor alışkanlığı için küçük bir testle başladı:
+					<em lang="de">der, die, das</em>. Sürüm sürüm <strong class="key">eksiksiz bir kursa dönüştü</strong>:
+					her seviyede sesli, adım adım dersler, boşluk doldurma alıştırmaları, dikte, kelime kartları
+					ve uygulamayla birlikte çalışan her seviye için bir kitap.
+				</p>
+			</div>
+			<figure>
+				<img src="/img/deck/bahnhof-1200.webp" alt="Kalabalık bir Alman tren istasyonu" width="512" height="384" fetchpriority="high" />
+			</figure>
+			<p>
+				Her kararı birkaç ilke belirliyor. <strong class="key">Öğrenmek, sınanmaktan önemlidir</strong>: hiçbir
+				şey kilitli değil, her seviye ilk ziyaretten itibaren açık. Eksik bir umlaut ya da unutulmuş bir
+				nokta cevabı batırmaz, çünkü gerçek pratik böyle işler. Ve <strong class="key">her şey ücretsiz kalıyor</strong>:
+				ilerlemen kendi tarayıcında durur, sesler önceden kaydedilmiştir ve hesap açman gerekmez.
+			</p>
+			<p>
+				<strong class="key">Gizlilik burada bir özellik değil, yapının kendisi.</strong> Çerez yok, kimlik
+				bilgisi yok, onay penceresi yok; yalnızca anonim, toplu istatistikler var. Ayrıntılar
+				<a href="/settings">ayarlar sayfasında</a>.
+			</p>
+
+			<div class="disclosure" id="ai">
+				<h3>Yapay zekâ nasıl kullanılıyor</h3>
+				<p>
+					Her şeyi açıkça söylemek adına: <strong class="key">bu kurs yapay zekâ araçlarının yardımıyla yapılıyor</strong>
+					ve nerede kullanıldığını bilmelisin.
+				</p>
+				<ul>
+					<li><strong>Resimler</strong>: her çizim, benim yazdığım ve seçtiğim tarif ve stille Google’ın Gemini görsel modeliyle üretiliyor.</li>
+					<li><strong>Ses</strong>: duyduğun Almanca, kayıtlı insan sesleri değil, Google Cloud Text-to-Speech yapay sinir ağı sesleri.</li>
+					<li><strong>Dersler ve alıştırmalar</strong>: Anthropic’in Claude’u açıklamaları, örnek cümleleri ve soruları taslak olarak yazmama yardım ediyor; neyin gireceğine ben karar veriyorum, kontrol edip düzeltiyorum.</li>
+					<li><strong>Türkçe</strong>: Türkçe açıklamalar ve arayüz Claude ile çevrildi ve Türkçe konuşanlar için yeniden yazıldı. Henüz anadili Türkçe olan biri tarafından tamamen kontrol edilmedi: bir hata görürsen lütfen yaz.</li>
+					<li><strong>Kod</strong>: uygulamayı bir yapay zekâ kodlama asistanı olan Claude Code ile yazıyorum.</li>
+				</ul>
+				<p>
+					<strong class="key">Hiçbiri senin üzerinde çalışmaz</strong>: hiçbir yapay zekâ cevaplarını ya da
+					ilerlemeni okumaz; konuşma alıştırması seni kendi seçtiğin bir asistana yönlendirir. Yapay
+					zekâ yine de hata yapabilir ve bazıları gözümden kaçabilir. Bir tane görürsen lütfen söyle.
+				</p>
+			</div>
+		</section>
+
+		<section class="split">
+			<div class="lead">
+				<h2>Amaç</h2>
+				<p>
+					Çoğu dil kursu tek tip bir öğrenci varsayar: birinci sayfadan başla, düz bir çizgide ilerle,
+					sınavı geç, sayfayı çevir. Pek çok insan böyle öğrenmez ve çoğu sorunun kendisinde olduğunu
+					düşünür. <strong class="key">Öyle değil.</strong> Language Quiz’le amacım, Almancayı
+					<strong class="key">tam da bu insanlara açmak</strong>.
+				</p>
+			</div>
+			<figure>
+				<img src="/img/deck/b2a21_sonntag_opener.webp" alt="Güneşli bir Alman ormanında kıvrılan bir patika" width="512" height="384" loading="lazy" />
+			</figure>
+			<p>
+				Bu yüzden kurs tek bir düz çizgi olmayı reddeder. Bir dersi okuyabilir, dinleyebilir, kelime
+				kartlarıyla çalışabilir, yazabilir, sesli söyleyebilir ya da kitabı açıp kâğıt üzerinde
+				çalışabilirsin: aynı Almanca, öğrenme yolları kadar çok biçimde. Seviye atla, geri dön,
+				sıkıldığını geç: <strong class="key">kurs senin öğrenme şekline uyar, tersi değil.</strong>
+			</p>
+			<p>
+				Baştan sona ücretsiz, açık teknolojiyle çalışır; böylece her öğrenci için ücretsiz kalabilir.
+				<strong class="key">Bir dile erişim bir aboneliğe bağlı olmamalı.</strong>
+			</p>
+
+			<div class="disclosure" id="accessibility">
+				<h3>Erişilebilirlik</h3>
+				<p>
+					Almancayı herkese açmak, ekran okuyucu ya da fare yerine klavye kullananları, renge, sese ya
+					da hızlı okumaya güvenemeyenleri de kapsamalı. <strong class="key">Kurs onlar için de çalışacak şekilde
+					yapıldı</strong> ve WCAG 2.2 AA yönergelerini hedefler:
+				</p>
+				<ul>
+					<li><strong>Ekran okuyucular</strong>: doğru ve yanlış cevaplar, düzeltilmiş cevap, tur sonucun ve yeni madalyalar anında okunur. Almanca, Alman sesiyle okunsun diye Almanca olarak işaretlenmiştir.</li>
+					<li><strong>Tek seferde tek ses</strong>: kurs Almanca soruları ve cevapları kendiliğinden sesli okur. Ekran okuyucu kullanıyorsan <a href="/settings">ayarlarda</a> “Soruları ve cevapları sesli oku”yu kapat.</li>
+					<li><strong>Klavye</strong>: her alıştırma, kart destesi ve her panel faresiz çalışır; seçenekler ok tuşlarıyla değişir, Enter bir sonrakine geçer.</li>
+					<li><strong>Kendi hızın</strong>: hiçbir şey zamanlı değil. “Beni bekle” ayarıyla alıştırmalar kendiliğinden hiç ilerlemez.</li>
+					<li><strong>İşitme</strong>: “Dinleme alıştırmalarında metni göster” dikte ve dinleme alıştırmalarına metni ekler. Hiçbir alıştırma mikrofon gerektirmez.</li>
+					<li><strong>Görme</strong>: metinler AA kontrast yönergelerini karşılar, isimlerin cinsiyeti renginin yanında alt çizgisiyle de ayırt edilir ve her sayfa 320 piksel genişlikte ya da %400 yakınlaştırmada çalışır.</li>
+					<li><strong>Eller ve yazma</strong>: “Esnek düzeltme” (varsayılan olarak açık) yalnızca bir umlaut, bir aksan ya da bir nokta eksik olan cevabı kabul eder; ä, ö, ü ve ß olmayan bir klavye sorun değil.</li>
+					<li><strong>Hareket ve ses</strong>: ayarlardaki “Sakin efektler” ya da cihazının “hareketi azalt” ayarı konfetiyi ve titreşimleri kapatır. “Uygulamayı sessize al” her şeyi susturur.</li>
+				</ul>
+				<p>
+					Bunları kendim test ediyorum ama her yardımcı teknolojiyle değil. Bir şey yoluna çıkarsa
+					<strong class="key">lütfen bana yaz</strong>; bunu bir dilek değil, bir hata olarak görürüm.
+				</p>
+			</div>
+		</section>
+
+		<section class="split">
+			<div class="lead">
+				<h2>Ben kimim</h2>
+				<p>
+					Merhaba, ben GDI. 2019’da Almanya’ya taşındım ve o günden beri Almancayı zor yoldan
+					öğreniyorum: A1’den B1.2’ye kadar her sınıf kursu, çoğunu birden fazla kez, büyük dil
+					uygulamaları ve uzun bir çevrimiçi kaynak listesi. <strong class="key">Ve hâlâ zorlanıyorum.</strong>
+					Bu araçların her biri beni aynı şekilde kaybetti: sayfa sayfa katı bir ilerleyiş, ta ki
+					ilgi tükenip bırakana kadar. Ama burada yaşarken bırakmak bir seçenek değil.
+				</p>
+			</div>
+			<figure>
+				<img src="/img/deck/b2b21_homeoffice_opener.webp" alt="Aydınlık ortak bir ofiste masalarda çalışan insanlar" width="512" height="384" loading="lazy" />
+			</figure>
+			<p>
+				<strong class="key">Bu yüzden ihtiyacım olan kursu yapıyorum</strong>: tek başına da, bir sınıf
+				kursunun yanında da işe yarayan, dersler arasında dili canlı tutan bir şey.
+				<strong class="key">İlk deneği de benim</strong>: uygulamadaki neredeyse her etkileşim önce bende
+				deneniyor; işe yararsa kalıyor, yaramazsa yeniden yapılıyor. Umarım benim durumumdaki ve
+				hiç hayal etmediğim durumlardaki daha çok insana yardımı olur.
+			</p>
+			<p>
+				Kodu, kurs içeriğini, çizimleri ve sesleri tek başıma, <a href="#ai">yukarıda anlatılan</a>
+				yapay zekâ araçlarıyla yapıyorum. Language Quiz, diğer projelerimin de yer aldığı kişisel
+				sitem <a href="https://www.100words.org/en/" rel="noopener">100words.org</a>’un bir parçası.
+				Bir şey yanlış, kafa karıştırıcı ya da eksikse <strong class="key">gerçekten bilmek istiyorum</strong>:
+				uygulama tam da bu tür geri bildirimlerle büyüdü. <a href="/contact">Bana yaz</a>, her mesaj okunur.
+			</p>
+		</section>
+	{:else}
 	<header>
 		<h1>About Language Quiz</h1>
 		<p class="lede">
@@ -288,6 +425,7 @@
 			other learners can see the answer too.
 		</p>
 	</section>
+	{/if}
 </main>
 
 <SiteFooter />

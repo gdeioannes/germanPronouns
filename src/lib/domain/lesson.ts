@@ -1,3 +1,4 @@
+import { t } from '$lib/i18n/t';
 // The study notes as a lesson: the quiz's Help Memory cut into one idea per
 // screen, with a question after each rule — so the notes are worked through
 // before the drill, not scrolled past on the way to it.
@@ -180,8 +181,8 @@ export function listeningCheck(words: LessonWord[], seed: string): LessonCheck |
 	const options = seededShuffle([target.en, ...rest.slice(0, 3).map((w) => w.en)], `${seed}:listen-options`);
 	const spoken = spokenWord(target);
 	return {
-		eyebrow: 'Listen',
-		question: 'Play it, then pick what you heard.',
+		eyebrow: t('Listen'),
+		question: t('Play it, then pick what you heard.'),
 		listen: spoken,
 		options,
 		answer: target.en,
@@ -200,7 +201,7 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 	const hook = help.hook ?? (help.intro ? firstSentence(help.intro) : quiz.title);
 	steps.push({
 		kind: 'hook',
-		label: 'The idea',
+		label: t('The idea'),
 		hook,
 		en: help.hookEn
 			? [help.hookEn, ...(help.recallEn ? [help.recallEn.known, help.recallEn.today] : [])]
@@ -214,7 +215,7 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 
 	// 2 · One rule per screen, each followed by its check.
 	tips.forEach((tip, i) => {
-		steps.push({ kind: 'rule', label: tip.title ?? `Rule ${i + 1}`, tip, number: i + 1, of: tips.length });
+		steps.push({ kind: 'rule', label: tip.title ?? t('Rule {i}', { i: i + 1 }), tip, number: i + 1, of: tips.length });
 		if (tip.check && tip.check.options.includes(tip.check.answer)) {
 			steps.push({
 				kind: 'check',
@@ -235,9 +236,9 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 	// 3 · The words, then hear one and say what it means.
 	const words = wordsFor(quiz, derivedVocab);
 	if (words.length) {
-		steps.push({ kind: 'words', label: 'Words', words });
+		steps.push({ kind: 'words', label: t('Words'), words });
 		const listen = listeningCheck(words, quiz.id);
-		if (listen) steps.push({ kind: 'check', label: 'Listen', check: listen });
+		if (listen) steps.push({ kind: 'check', label: t('Listen'), check: listen });
 	}
 
 	// 4 · The structure in a real exchange.
@@ -247,10 +248,10 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 	(help.mistakes ?? []).forEach((m, i) => {
 		steps.push({
 			kind: 'check',
-			label: 'Spot the mistake',
+			label: t('Spot the mistake'),
 			check: {
-				eyebrow: 'Spot the mistake',
-				question: 'Which one is right?',
+				eyebrow: t('Spot the mistake'),
+				question: t('Which one is right?'),
 				options: seededShuffle([m.wrong, m.right], `${quiz.id}:mistake:${i}`),
 				answer: m.right,
 				why: m.why,
@@ -267,7 +268,7 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 	const derivedRepeatsWords = !!derived && derived.columns.length === 1 && words.length > 0;
 	steps.push({
 		kind: 'recap',
-		label: 'Cheat sheet',
+		label: t('Cheat sheet'),
 		points: tips.map((t) => t.title ?? firstSentence(t.text)),
 		remember: help.remember ?? [],
 		rememberEn: help.rememberEn,

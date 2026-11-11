@@ -1,3 +1,4 @@
+import { tk } from '$lib/i18n/t';
 // Looking a German word up in the tap-a-word dictionary.
 //
 // The collection that `nouns.lookup` reads knows nouns. This one knows every
@@ -58,16 +59,16 @@ export interface WordInfo {
 /** Labels for the panel. 'noun' is left out: its article says it already. */
 export const POS_LABELS: Record<DictEntry['pos'], string> = {
 	noun: '',
-	verb: 'verb',
-	pronoun: 'pronoun',
-	article: 'article',
-	preposition: 'preposition',
-	conjunction: 'conjunction',
-	adverb: 'adverb',
-	adjective: 'adjective',
-	number: 'number',
-	particle: 'particle',
-	name: 'name'
+	verb: tk('verb'),
+	pronoun: tk('pronoun'),
+	article: tk('article'),
+	preposition: tk('preposition'),
+	conjunction: tk('conjunction'),
+	adverb: tk('adverb'),
+	adjective: tk('adjective'),
+	number: tk('number'),
+	particle: tk('particle'),
+	name: tk('name')
 };
 
 const capitalise = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);

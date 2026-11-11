@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The mark a finished exercise carries: its medal ribbon when the streak
 	// has earned one, a green tick when the last run passed, or a terracotta
 	// "try again" when it went badly. One component, so every list draws the
@@ -16,11 +17,11 @@
 </script>
 
 {#if mark === 'done'}
-	<span class="mark done" style:--size="{width * 1.3}px" title="Done" role="img" aria-label="Done">
+	<span class="mark done" style:--size="{width * 1.3}px" title={t('Done')} role="img" aria-label={t('Done')}>
 		<Icon name="check" size="70%" />
 	</span>
 {:else if mark === 'retry'}
-	<span class="mark retry" style:--size="{width * 1.3}px" title="Try again" role="img" aria-label="Try again">
+	<span class="mark retry" style:--size="{width * 1.3}px" title={t('Try again')} role="img" aria-label={t('Try again')}>
 		<Icon name="repeat" size="70%" />
 	</span>
 {:else}

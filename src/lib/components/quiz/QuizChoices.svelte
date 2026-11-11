@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The app's one way to offer "pick one of these answers": the serif choice
 	// buttons with their little number chips, as the course quizzes draw them.
 	// The level check uses it too, so a question looks the same everywhere —
@@ -8,7 +9,7 @@
 		choices,
 		onpick,
 		locale,
-		label = 'Choose the answer',
+		label = t('Choose the answer'),
 		keys = true,
 		radio = false,
 		locked = false,

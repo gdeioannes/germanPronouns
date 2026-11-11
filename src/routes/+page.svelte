@@ -17,7 +17,10 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { LITERATURE, bookRequestHref } from '$lib/content/literature';
-	import { BOOKS } from '$lib/content/books';
+	import { BOOKS, bookCover, bookMb, bookPdf, hasTurkishPdf } from '$lib/content/books';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { levelInTurkish } from '$lib/i18n/available';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { track } from '$lib/services/analytics';
 	import type { PageData } from './$types';
@@ -30,12 +33,14 @@
 	// for good in this browser once it is clicked, and only then: scrolling
 	// past the offer does not count.
 	// The whole shelf, A1.1 included: one free PDF per level (Book v2).
-	const SHELF = BOOKS;
+	// In Turkish only the A1–A2 books, and Kafka (English notes) not at all.
+	const SHELF = $derived(lang.tr ? BOOKS.filter((b) => levelInTurkish(b.level)) : BOOKS);
+	const firstBook = BOOKS[0];
 
-	const OFFERS = [
-		{ id: 'book', title: 'The books, A1 to C2', note: 'free PDFs' },
-		...(kafka ? [{ id: 'literature', title: 'Kafka in German', note: 'free PDF' }] : [])
-	];
+	const OFFERS = $derived([
+		{ id: 'book', title: lang.tr ? t('The books, A1 to A2') : 'The books, A1 to C2', note: t('free PDFs') },
+		...(kafka && !lang.tr ? [{ id: 'literature', title: 'Kafka in German', note: 'free PDF' }] : [])
+	]);
 	let seen = $state<string[] | null>(null);
 	const labels = $derived(seen ? OFFERS.filter((o) => !seen!.includes(o.id)) : []);
 
@@ -102,34 +107,35 @@
 
 
 	// How it works, in the order you meet it: swipe, learn or play, come back.
-	const HOW = [
+	const HOW = $derived([
 		{
 			img: 'deck/b2a12_bahn_opener',
 			zoom: 1,
 			focus: '50% 50%',
-			title: 'Swipe until something catches you',
-			try: { id: 'quest_a1_1_zahlen', name: 'Zahlen 0–10', note: 'pick a mission' },
-			text: 'The deck deals one card at a time. Not in the mood? Swipe left. Curious? Swipe right.'
+			title: t('Swipe until something catches you'),
+			try: { id: 'quest_a1_1_zahlen', name: 'Zahlen 0–10', note: t('pick a mission') },
+			text: t('The deck deals one card at a time. Not in the mood? Swipe left. Curious? Swipe right.')
 		},
 		{
 			img: 'deck/b2a22_bibliothek_opener',
 			zoom: 1,
 			focus: '50% 50%',
-			title: 'Read the rule, or jump straight in',
-			try: { id: 'quest_a1_1_artikel', name: 'Artikel im Nominativ', note: 'lesson + quiz' },
-			text: 'Every card has a short lesson and a quiz. Hear any sentence spoken, as often as you like.'
+			title: t('Read the rule, or jump straight in'),
+			try: { id: 'quest_a1_1_artikel', name: 'Artikel im Nominativ', note: t('lesson + quiz') },
+			text: t('Every card has a short lesson and a quiz. Hear any sentence spoken, as often as you like.')
 		},
 		{
 			img: 'deck/b2a12_biergarten_opener',
 			zoom: 1,
 			focus: '50% 50%',
-			title: 'Move on, and come back when you want',
-			try: { id: 'quest_a1_1_sprechen_vorstellung', name: 'Sprechen: Vorstellung', note: 'repeat aloud' },
-			text: 'Nothing is locked and nothing is lost. Repeat what feels shaky, skip what you already know, collect medals on the way.'
+			title: t('Move on, and come back when you want'),
+			try: { id: 'quest_a1_1_sprechen_vorstellung', name: 'Sprechen: Vorstellung', note: t('repeat aloud') },
+			text: t('Nothing is locked and nothing is lost. Repeat what feels shaky, skip what you already know, collect medals on the way.')
 		}
-	];
+	]);
 
-	const FAQ = $derived([
+	// The English FAQ also feeds the FAQPage JSON-LD; the Turkish one is shown only.
+	const FAQ_EN = [
 		{
 			q: 'Is it really free?',
 			a: 'Yes. Every exercise is open — no paywall, no trial, no account. Your progress is saved in your own browser.'
@@ -140,7 +146,7 @@
 		},
 		{
 			q: 'I already speak some German — must I start at A1?',
-			a: `No. Nothing is locked: pick the level that matches you from the ${data.subLevelCount} sub-levels and start there instead of replaying the basics.`
+			a: 'No. Nothing is locked: pick the level that matches you from the {n} sub-levels and start there instead of replaying the basics.'
 		},
 		{
 			q: 'Does it work on my phone?',
@@ -154,7 +160,23 @@
 			q: 'How is AI used?',
 			a: 'Illustrations and the audio voices are generated; the lessons and exercises are written and checked by a person. Nothing you do is sent to an AI. More on the About page.'
 		}
-	]);
+	];
+	// In Turkish the course stops at A2, so the level answers say so; signing in is English-only.
+	const FAQ_TR_SWAP: Record<string, string> = {
+		'Do I need an account?': 'No. Your progress is saved in your own browser, with nothing to sign up for.',
+		'I already speak some German — must I start at A1?':
+			'No. Nothing is locked: pick the level that matches you from the four sub-levels in Turkish (A1.1 to A2.2) and start there.',
+		'Does it prepare me for an exam?':
+			'In Turkish the course covers A1 and A2 of the CEFR scale and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.'
+	};
+	const FAQ = $derived(
+		FAQ_EN.map((item) => ({
+			id: item.q,
+			q: t(item.q),
+			a: t(lang.tr ? (FAQ_TR_SWAP[item.q] ?? item.a) : item.a, { n: data.subLevelCount })
+		}))
+	);
+	const faqEn = $derived(FAQ_EN.map((item) => ({ q: item.q, a: item.a.replace('{n}', String(data.subLevelCount)) })));
 
 	const jsonLd = $derived(
 		courseLd(
@@ -167,7 +189,7 @@
 		({
 			'@context': 'https://schema.org',
 			'@type': 'FAQPage',
-			mainEntity: FAQ.map((item) => ({
+			mainEntity: faqEn.map((item) => ({
 				'@type': 'Question',
 				name: item.q,
 				acceptedAnswer: { '@type': 'Answer', text: item.a }
@@ -198,8 +220,8 @@
 <main>
 	<section id="how" class="block">
 		<header class="block-head">
-			<p class="kicker">How it works</p>
-			<h2>Your course, your order</h2>
+			<p class="kicker">{t('How it works')}</p>
+			<h2>{t('Your course, your order')}</h2>
 		</header>
 		<ol class="how">
 			{#each HOW as step, i (step.img)}
@@ -219,7 +241,7 @@
 					<h3>{step.title}</h3>
 					<p>{step.text}</p>
 					<a class="try" href="/course/{data.card.id}/quiz/{step.try.id}">
-						<span class="try-label">Try it</span>
+						<span class="try-label">{t('Try it')}</span>
 						<span class="try-text"
 							><span class="try-name" lang="de">{step.try.name}</span>
 							<span class="try-note">· {step.try.note}</span></span
@@ -235,37 +257,40 @@
 	{#if !SHOW_TEST_COPY}
 	<section id="book" class="book-offer" aria-labelledby="book-offer-title">
 		<a class="book-pic" href="/course/{data.card.id}/book2/A1.1" tabindex="-1" aria-hidden="true">
-			<img src="/img/book-a1-1-front.webp" alt="" width="640" height="905" loading="lazy" />
+			<img src={bookCover(firstBook, lang.tr)} alt="" width="640" height="905" loading="lazy" />
 		</a>
 		<div class="book-copy">
-			<p class="kicker">New · the book · free PDF</p>
+			<p class="kicker">{t('New · the book · free PDF')}</p>
 			<h2 id="book-offer-title" lang="de">Deutsch A1.1 · Erste Schritte</h2>
 			<p>
-				Twelve chapters, each one a real place in Germany: words first, a photo, a story, two rules,
-				a real document, and the practice. A code on every page opens that chapter in the app: check
-				your answers, learn the words as flashcards, hear the texts. 131 pages.
+				{t('Twelve chapters, each one a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. A code on every page opens that chapter in the app: check your answers, learn the words as flashcards, hear the texts. 131 pages.')}
 			</p>
-			<a class="primary" href="/books/v2/de_cert_a1_a1_1.pdf" download onclick={() => track('book_download', { book: 'A1.1', from: 'home' })}>
-				<Icon name="download" size="1.05em" /> Download the PDF · {BOOKS[0].mb} MB
-			</a>
-			<a class="book-preview" href="/course/{data.card.id}/book2/A1.1">Look inside first</a>
+			<!-- Turkish: the Turkish edition once it is printed; until then no download. -->
+			{#if !lang.tr || hasTurkishPdf(firstBook)}
+				<a class="primary" href={bookPdf(firstBook, lang.tr)} download onclick={() => track('book_download', { book: 'A1.1', from: 'home' })}>
+					<Icon name="download" size="1.05em" /> {t('Download the PDF · {mb} MB', { mb: bookMb(firstBook, lang.tr) })}
+				</a>
+			{/if}
+			<a class="book-preview" href="/course/{data.card.id}/book2/A1.1">{t('Look inside first')}</a>
 		</div>
 	</section>
 	<section class="book-shelf" aria-labelledby="book-shelf-title">
-		<h2 id="book-shelf-title">All twelve books, A1.1 to C2.2</h2>
-		<p>Each one has twelve new places, twelve stories and real German documents. All free, 131 pages each.</p>
+		<h2 id="book-shelf-title">{lang.tr ? t('The four books, A1.1 to A2.2') : 'All twelve books, A1.1 to C2.2'}</h2>
+		<p>{t('Each one has twelve new places, twelve stories and real German documents. All free, 131 pages each.')}</p>
 		<ul>
 			{#each SHELF as book (book.level)}
 				<li>
 					<a class="shelf-pic" href="/course/{data.card.id}/book2/{book.level}" tabindex="-1" aria-hidden="true">
-						<img src="/img/book-{book.cover}-front.webp" alt="" width="640" height="905" loading="lazy" />
+						<img src={bookCover(book, lang.tr)} alt="" width="640" height="905" loading="lazy" />
 					</a>
 					<strong lang="de">Deutsch {book.level}</strong>
 					<span class="shelf-sub" lang="de">{book.sub}</span>
-					<a class="shelf-link" href="/books/v2/de_cert_a1_{book.file}.pdf" download onclick={() => track('book_download', { book: book.level, from: 'home' })}>
-						<Icon name="download" size="1em" /> PDF · {book.mb} MB
-					</a>
-					<a class="shelf-link" href="/course/{data.card.id}/book2/{book.level}">Look inside</a>
+					{#if !lang.tr || hasTurkishPdf(book)}
+						<a class="shelf-link" href={bookPdf(book, lang.tr)} download onclick={() => track('book_download', { book: book.level, from: 'home' })}>
+							<Icon name="download" size="1em" /> PDF · {bookMb(book, lang.tr)} MB
+						</a>
+					{/if}
+					<a class="shelf-link" href="/course/{data.card.id}/book2/{book.level}">{t('Look inside')}</a>
 				</li>
 			{/each}
 		</ul>
@@ -310,7 +335,7 @@
 
 	<!-- Literature: the first annotated classic, free as a PDF. The shelf
 	     itself is /literature; this offer shows its first book. -->
-	{#if kafka}
+	{#if kafka && !lang.tr}
 		<section id="literature" class="book-offer lit" aria-labelledby="lit-offer-title">
 			<a class="book-pic" href="/literature" tabindex="-1" aria-hidden="true">
 				<img src={kafka.cover} alt="" width="640" height="1024" loading="lazy" />
@@ -346,16 +371,16 @@
 
 	<section class="block faq-block">
 		<header class="block-head">
-			<p class="kicker">FAQ</p>
-			<h2>Good to know</h2>
+			<p class="kicker">{t('FAQ')}</p>
+			<h2>{t('Good to know')}</h2>
 		</header>
 		<dl class="faq">
-			{#each FAQ as item (item.q)}
+			{#each FAQ as item (item.id)}
 				<div>
 					<dt>{item.q}</dt>
 					<dd>
-						{#if item.q.startsWith('How is AI')}
-							{item.a.replace(' More on the About page.', '')} <a href="/about#ai">More on the About page.</a>
+						{#if item.id.startsWith('How is AI')}
+							{item.a.replace(' ' + t('More on the About page.'), '')} <a href="/about#ai">{t('More on the About page.')}</a>
 						{:else}
 							{item.a}
 						{/if}
@@ -380,10 +405,10 @@
 	{/if}
 
 	<section class="closing">
-		<h2>Your first German lesson takes five minutes.</h2>
-		<p>No account, no download, nothing to pay. Just open it and start.</p>
+		<h2>{t('Your first German lesson takes five minutes.')}</h2>
+		<p>{t('No account, no download, nothing to pay. Just open it and start.')}</p>
 		<a class="primary light" href={startHref}>
-			{returning ? 'Continue learning' : 'Start learning German'}
+			{returning ? t('Continue learning') : t('Start learning German')}
 			<Icon name="arrowRight" size="1.05em" />
 		</a>
 	</section>

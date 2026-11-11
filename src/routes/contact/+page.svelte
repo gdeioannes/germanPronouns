@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// Contact: reveals the author's email only after a tiny arithmetic check.
 	// The address is never in the served markup — it is stored as character
 	// codes and assembled in the browser once the check passes, so harvesting
@@ -56,16 +57,16 @@
 </script>
 
 <Seo
-	title="Contact Language Quiz: questions, mistakes and ideas"
+	title={t('Contact Language Quiz: questions, mistakes and ideas')}
 	jsonLd={[
 		{
 			'@context': 'https://schema.org',
 			'@type': 'ContactPage',
-			name: 'Contact Language Quiz',
+			name: t('Contact Language Quiz'),
 			url: absoluteUrl('/contact'),
 			publisher: ORGANIZATION,
 			// No email here: the page only reveals it after a human check.
-			mainEntity: { '@type': 'Person', name: 'GDI', jobTitle: 'Independent developer and course author' }
+			mainEntity: { '@type': 'Person', name: 'GDI', jobTitle: t('Independent developer and course author') }
 		},
 		breadcrumbLd([
 			{ name: 'Home', path: '/' },
@@ -82,30 +83,27 @@
 	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 	<h1>Contact</h1>
 	<p class="lede">
-		Found a mistake, something confusing, or something missing? I genuinely
-		want to hear it — the app has grown out of exactly that kind of
-		feedback. There is no form and no tracking: you get my email address and
-		write from your own inbox.
+		{t('Found a mistake, something confusing, or something missing? I genuinely want to hear it — the app has grown out of exactly that kind of feedback. There is no form and no tracking: you get my email address and write from your own inbox.')}
 	</p>
 
 	{#if email}
 		<section class="reveal">
-			<p class="thanks">Thank you — definitely human. Here you go:</p>
+			<p class="thanks">{t('Thank you — definitely human. Here you go:')}</p>
 			<p class="address">
 				<a href="mailto:{email}">{email}</a>
 			</p>
 			<button type="button" class="copy" onclick={copy}>
-				{copied ? 'Copied!' : 'Copy address'}
+				{copied ? t('Copied!') : t('Copy address')}
 			</button>
 		</section>
 	{:else}
 		<section class="gate">
 			<p>
-				One quick check first, so address-harvesting bots leave empty-handed:
+				{t('One quick check first, so address-harvesting bots leave empty-handed:')}
 			</p>
 			<form onsubmit={check}>
 				<label for="human-check" class="question">
-					What is <strong class="tnum">{a} + {b}</strong>?
+					{t('What is')} <strong class="tnum">{a} + {b}</strong>?
 				</label>
 				<div class="row">
 					<input
@@ -116,11 +114,11 @@
 						bind:value={answer}
 						required
 					/>
-					<button type="submit">Show the address</button>
+					<button type="submit">{t('Show the address')}</button>
 				</div>
 				{#if wrong}
 					<p class="miss" role="alert">
-						Not quite — let's try a fresh one.
+						{t('Not quite — let\'s try a fresh one.')}
 					</p>
 				{/if}
 			</form>

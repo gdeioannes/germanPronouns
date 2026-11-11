@@ -6,6 +6,7 @@
 import type { FillBlankQuiz, QuizSentence } from '$lib/content/types';
 import { BLANK, canonicalGapAnswer, gapCount } from './answers';
 import type { VerbForm } from './words';
+import { lang } from '$lib/i18n/lang.svelte';
 
 /**
  * The question pool. An authored bank is used as-is; a template-driven quiz
@@ -48,6 +49,18 @@ const IRREGULAR_PLURAL: Record<string, string> = { man: 'men', woman: 'women', c
  */
 function englishLine(template: string | undefined, english: string): string | undefined {
 	if (!template) return undefined;
+	// Turkish mode: the template and the noun come Turkish from the overlay.
+	// Turkish has "bir" for a/an and no plural after a number or "çok", so the
+	// noun goes in bare.
+	if (lang.tr) {
+		// "bir" goes before the noun itself, after its adjective: yeni bir masa.
+		const withBir = english.includes(' ') ? english.replace(/(\S+)$/, 'bir $1') : `bir ${english}`;
+		return template
+			.replace('{a} {subject}', withBir)
+			.replace('{a}', 'bir')
+			.replace('{pl}', english)
+			.replace('{subject}', english);
+	}
 	const head = english.split(' ').pop() ?? english;
 	const plural = IRREGULAR_PLURAL[head] ? english.replace(/\S+$/, IRREGULAR_PLURAL[head]) : `${english}s`;
 	return template

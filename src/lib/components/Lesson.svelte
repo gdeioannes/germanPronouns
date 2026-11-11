@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t, tn } from '$lib/i18n/t';
 	// The study notes as a lesson (see domain/lesson): one idea per screen,
 	// a question after each rule, the words to hear, the mistakes to spot, and
 	// a cheat sheet to finish on. It takes the exercise's place on the page —
@@ -85,7 +86,7 @@
 		announce(
 			right
 				? [{ text: 'Richtig!', lang: locale }, ...(check.why ? [{ text: check.why }] : [])]
-				: [{ text: `Not quite — it's` }, { text: check.answer, lang: check.germanOptions ? locale : undefined }, ...(check.why ? [{ text: check.why }] : [])]
+				: [{ text: t('Not quite — it\'s') }, { text: check.answer, lang: check.germanOptions ? locale : undefined }, ...(check.why ? [{ text: check.why }] : [])]
 		);
 		// The options just went disabled; focus moves on to the feedback.
 		const group = (event.currentTarget as HTMLElement).closest('.options');
@@ -103,10 +104,10 @@
 	const TABLE_OPEN_ROWS = 6;
 
 	const KIND_LABEL: Record<string, string> = {
-		rule: 'Rule',
-		warning: 'Watch out',
+		rule: t('Rule'),
+		warning: t('Watch out'),
 		mnemonic: 'Memory trick',
-		exam: 'In the exam'
+		exam: t('In the exam')
 	};
 </script>
 
@@ -133,14 +134,14 @@
 			<div class="page" data-kind={s.kind}>
 				{#if s.kind === 'hook'}
 					<p class="eyebrow">
-						Lesson · {ruleCount} {ruleCount === 1 ? 'rule' : 'rules'} · about {minutes} min
+						{tn(ruleCount, 'Lesson · {n} rule · about {min} min', 'Lesson · {n} rules · about {min} min', { min: minutes })}
 					</p>
 					<h2 class="hook">{@render prose(s.hook)}</h2>
 
 					{#if s.recall}
 						<dl class="recall">
-							<div><dt>You already know</dt><dd>{@render prose(s.recall.known)}</dd></div>
-							<div><dt>New today</dt><dd>{@render prose(s.recall.today)}</dd></div>
+							<div><dt>{t('You already know')}</dt><dd>{@render prose(s.recall.known)}</dd></div>
+							<div><dt>{t('New today')}</dt><dd>{@render prose(s.recall.today)}</dd></div>
 						</dl>
 					{/if}
 
@@ -158,7 +159,7 @@
 
 					{#if s.more}
 						<details class="more">
-							<summary>Why this matters <Icon name="chevronDown" size="0.9em" /></summary>
+							<summary>{t('Why this matters')} <Icon name="chevronDown" size="0.9em" /></summary>
 							<p>{@render prose(s.more)}</p>
 						</details>
 					{/if}
@@ -170,16 +171,16 @@
 
 					<div class="actions">
 						<button type="button" class="btn" onclick={() => (index = 1)}>
-							Start the lesson <Icon name="arrowRight" size="1em" />
+							{t('Start the lesson')} <Icon name="arrowRight" size="1em" />
 						</button>
-						<button type="button" class="btn-quiet" onclick={onPractise}>I know this — practise now</button>
+						<button type="button" class="btn-quiet" onclick={onPractise}>{t('I know this — practise now')}</button>
 					</div>
 				{:else if s.kind === 'rule'}
 					{@const kind = s.tip.kind ?? 'rule'}
 					{@const ruleEn = germanNotes ? tipEnglish(s.tip) : []}
 					<div class="rule-top">
 						<p class="eyebrow" data-tone={kind}>
-							{KIND_LABEL[kind] ?? 'Rule'} · {s.number} of {s.of}
+							{KIND_LABEL[kind] ?? t('Rule')} · {s.number} of {s.of}
 						</p>
 						{#if ruleEn.length}<EnglishToggle bind:open={openEnglish[`rule${i}`]} />{/if}
 					</div>
@@ -220,7 +221,7 @@
 					{#if c.listen}
 						<button type="button" class="listen" onclick={() => say(c.listen!)}>
 							<Icon name="volume" size="1.4em" />
-							<span>Play</span>
+							<span>{t('Play')}</span>
 						</button>
 					{/if}
 
@@ -230,7 +231,7 @@
 						class:stack={c.options.some((o) => o.length > 14)}
 						style="--cols:{c.options.length === 4 ? 2 : c.options.length}"
 						role="group"
-						aria-label="Answers"
+						aria-label={t('Answers')}
 					>
 						{#each c.options as option, o (o)}
 							<button
@@ -252,7 +253,7 @@
 
 					{#if answer !== undefined}
 						<div class="feedback" class:ok={answer === c.answer} tabindex="-1" data-focus-target>
-							<p class="verdict">{#if answer === c.answer}<span lang={locale}>Richtig!</span>{:else}Not quite — it's <span lang={c.germanOptions ? locale : undefined}>{c.answer}</span>.{/if}</p>
+							<p class="verdict">{#if answer === c.answer}<span lang={locale}>Richtig!</span>{:else}{t('Not quite — it’s')} <span lang={c.germanOptions ? locale : undefined}>{c.answer}</span>.{/if}</p>
 							{#if c.why}<p class="why">{@render prose(c.why)}</p>{/if}
 							{#if germanNotes && c.whyEn}
 								<div class="en-row"><EnglishToggle bind:open={openEnglish[`why${i}`]} /></div>
@@ -260,14 +261,14 @@
 							{/if}
 							{#if i < steps.length - 1}
 								<button type="button" class="btn" onclick={() => (index = i + 1)}>
-									Continue <Icon name="arrowRight" size="1em" />
+									{t('Continue')} <Icon name="arrowRight" size="1em" />
 								</button>
 							{/if}
 						</div>
 					{/if}
 				{:else if s.kind === 'words'}
-					<p class="eyebrow">Words · tap to hear</p>
-					<h2>The words you need</h2>
+					<p class="eyebrow">{t('Words · tap to hear')}</p>
+					<h2>{t('The words you need')}</h2>
 					<ul class="words">
 						{#each s.words as w, k (k)}
 							<li>
@@ -287,27 +288,27 @@
 					</ul>
 					{#if deckHref}
 						<a class="practise-link" href={deckHref}>
-							<Icon name="cards" size="1em" /> Practise these words as flashcards
+							<Icon name="cards" size="1em" /> {t('Practise these words as flashcards')}
 						</a>
 					{/if}
 				{:else if s.kind === 'context'}
 					<p class="eyebrow">In context</p>
-					<h2>Hear it in a real exchange</h2>
+					<h2>{t('Hear it in a real exchange')}</h2>
 					<div class="context">
-						<SpeakButton text={speakable(s.context.de)} {locale} label="Play the exchange" />
+						<SpeakButton text={speakable(s.context.de)} {locale} label={t('Play the exchange')} />
 						<p class="de" lang={locale}>{@render german(s.context.de, s.context.focus)}</p>
 					</div>
 					<button type="button" class="reveal" aria-expanded={showEnglish} onclick={() => (showEnglish = !showEnglish)}>
-						{showEnglish ? 'Hide' : 'Show'} the English
+						{showEnglish ? t('Hide the English') : t('Show the English')}
 					</button>
 					<!-- Hidden by CSS, not removed: the translation stays in the page. -->
 					<p class="context-en" class:shown={showEnglish}>{s.context.en}</p>
 				{:else if s.kind === 'recap'}
-					<p class="eyebrow">Cheat sheet</p>
-					<h2>What to take with you</h2>
+					<p class="eyebrow">{t('Cheat sheet')}</p>
+					<h2>{t('What to take with you')}</h2>
 					{#if checks.length && answeredCount}
 						<p class="score">
-							<strong class="tnum">{rightCount} / {checks.length}</strong> checks right{rightCount === checks.length ? ' — you are ready.' : '. The exercise will lock it in.'}
+							<strong class="tnum">{rightCount} / {checks.length}</strong> {rightCount === checks.length ? t('checks right — you are ready.') : t('checks right. The exercise will lock it in.')}
 						</p>
 					{/if}
 					<ul class="points">
@@ -318,7 +319,7 @@
 
 					{#if s.remember.length}
 						<div class="remember">
-							<p class="mini-head"><Icon name="bolt" size="0.95em" /> How to remember it</p>
+							<p class="mini-head"><Icon name="bolt" size="0.95em" /> {t('How to remember it')}</p>
 							<ul>
 								{#each s.remember as aid, a (a)}<li>{@render prose(aid)}</li>{/each}
 							</ul>
@@ -333,7 +334,7 @@
 						<!-- A short table is shown; a long one folds, so the way on
 						     stays on screen. Folded, it is still in the page. -->
 						<details class="table-wrap" open={s.table.rows.length <= TABLE_OPEN_ROWS} use:fitTable={s.table}>
-							<summary class="mini-head">{s.table.caption ?? "The full table"} · {s.table.rows.length} rows <Icon name="chevronDown" size="0.95em" /></summary>
+							<summary class="mini-head">{s.table.caption ?? t('The full table')} · {t('{n} rows', { n: s.table.rows.length })} <Icon name="chevronDown" size="0.95em" /></summary>
 							<table>
 								<thead><tr>{#each s.table.columns as col, c (c)}<th scope="col">{col}</th>{/each}</tr></thead>
 								<tbody>
@@ -347,7 +348,7 @@
 						</details>
 					{:else if s.derived}
 						<details class="table-wrap" open={s.derived.rows.length <= TABLE_OPEN_ROWS} use:fitTable={s.derived}>
-							<summary class="mini-head">The full table · {s.derived.rows.length} rows <Icon name="chevronDown" size="0.95em" /></summary>
+							<summary class="mini-head">{t('The full table')} · {t('{n} rows', { n: s.derived.rows.length })} <Icon name="chevronDown" size="0.95em" /></summary>
 							<table>
 								<thead>
 									<tr>

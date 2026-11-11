@@ -6,6 +6,8 @@
 // start, so Word library → Nouns → Word library → back still lands there.
 // Kept in sessionStorage so a reload mid-trip remembers it.
 
+import { t } from '$lib/i18n/t';
+
 const SIDE_TRIPS = [
 	/^\/words(\/|$)/,
 	/^\/stories\/?$/,
@@ -56,7 +58,7 @@ export function noteVisit(pathname: string, search = ''): void {
 /** The arrow's label: "Home", "Your deck", or a plain "Back" for any other page. */
 export function returnLabel(path: string): string {
 	const bare = path.split(/[?#]/)[0];
-	if (bare === '/' || bare === '') return 'Home';
-	if (/^\/course\/[^/]+\/?$/.test(bare)) return 'Your deck';
-	return 'Back';
+	if (bare === '/' || bare === '') return t('Home');
+	if (/^\/course\/[^/]+\/?$/.test(bare)) return t('Your deck');
+	return t('Back');
 }

@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-11",
+    title: "German for Turkish speakers: Türkçe açıklamalı Almanca",
+    items: [
+      "The site now speaks Turkish too: pick Türkçe in the new language picker on the home page (or in Settings), and menus, buttons, help and the About page are all in Turkish.",
+      "Levels A1.1 to A2.2 are fully in Turkish: every lesson, explanation, hint and exercise, rewritten for Turkish speakers rather than translated word for word — the accusative compared with Turkish -i, the dative with -e, and German sounds spelled in Turkish letters.",
+      "The four A1–A2 books have Turkish editions, as free PDFs with their own covers, and tapping any German word shows its meaning in Turkish.",
+      "In Turkish, the site shows only what is already in Turkish, so you never land on an English page by surprise. The English site is unchanged.",
+    ],
+    highlight: true,
+  },
+  {
+    date: "2026-11-11",
     title: "Your data, in your hands",
     items: [
       "Settings has a new Your data section: Download my data saves everything the site stores about you as one file — your progress in this browser and, if you are signed in, your synced progress, account details and forum posts.",

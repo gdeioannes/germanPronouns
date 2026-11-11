@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The number board — the first quiz's game, played instead of its typed
 	// drill. Hear a number, tap it, watch it pop off the board; then read
 	// them; then write three. Easy first, every answer answered with sound
@@ -133,7 +134,7 @@
 			react(true, cell, run);
 			// Reading: the sound joins the spelling the moment it is got right.
 			if (stage === 'read') say(n.word);
-			announce('Right:', n.word, locale);
+			announce(t('Right:'), n.word, locale);
 			later(stage === 'read' ? 900 : 650, advance);
 		} else {
 			run = 0;
@@ -141,10 +142,10 @@
 			shakes[n.digit] = (shakes[n.digit] ?? 0) + 1;
 			react(false, cell);
 			if (stage === 'hear') {
-				announce('Not that one. Listen again.');
+				announce(t('Not that one. Listen again.'));
 				later(450, () => say(target!.word));
 			} else {
-				announce(`Not ${n.digit}. Try again.`);
+				announce(t('Not {digit}. Try again.', { digit: n.digit }));
 			}
 		}
 	}
@@ -159,12 +160,12 @@
 		react(correct, writeEl, correct ? ++run : 0);
 		if (correct) {
 			writeBurst += 1;
-			announce('Right:', target.word, locale);
+			announce(t('Right:'), target.word, locale);
 		} else {
 			run = 0;
 			writeMiss += 1;
 			typed = target.word;
-			announce('Almost. It is spelt:', target.word, locale);
+			announce(t('Almost. It is spelt:'), target.word, locale);
 		}
 		say(target.word);
 		later(correct ? 1100 : 2000, advance);
@@ -182,29 +183,29 @@
 	}
 
 	const STAGE_COPY = {
-		hear: { step: 'Hear it', ask: 'Which number did you hear?' },
-		read: { step: 'Read it', ask: 'Tap this number' },
-		write: { step: 'Write it', ask: 'Type the word' }
+		hear: { step: t('Hear it'), ask: t('Which number did you hear?') },
+		read: { step: t('Read it'), ask: t('Tap this number') },
+		write: { step: t('Write it'), ask: t('Type the word') }
 	} as const;
 </script>
 
 <div class="board-quiz">
 	{#if phase === 'intro'}
 		<section class="card intro">
-			<p class="eyebrow">Your first German</p>
-			<h2>Hear it. Tap it.</h2>
+			<p class="eyebrow">{t('Your first German')}</p>
+			<h2>{t('Hear it. Tap it.')}</h2>
 			<p class="lead">
-				You'll hear a German number — tap it on the board. Then read a few, then write three.
+				{t('You\'ll hear a German number — tap it on the board. Then read a few, then write three.')}
 			</p>
-			<p class="meta"><Icon name="volume" size="1em" /> Sound on · 20 quick taps · about 2 minutes</p>
+			<p class="meta"><Icon name="volume" size="1em" /> {t('Sound on · 20 quick taps · about 2 minutes')}</p>
 			<button type="button" class="btn start" onclick={begin}>
-				Start <Icon name="arrowRight" size="1em" />
+				{t('Start')} <Icon name="arrowRight" size="1em" />
 			</button>
 		</section>
 	{:else if phase === 'done'}
 		<section class="card finale">
 			<p class="eyebrow">Geschafft!</p>
-			<h2>You can count to ten in German.</h2>
+			<h2>{t('You can count to ten in German.')}</h2>
 			<ul class="words" lang={locale}>
 				{#each numbers as n (n.digit)}
 					<li>
@@ -215,14 +216,14 @@
 					</li>
 				{/each}
 			</ul>
-			<p class="meta">Tap any number to hear it again.</p>
+			<p class="meta">{t('Tap any number to hear it again.')}</p>
 			<div class="actions">
 				{#if onContinue}
 					<button type="button" class="btn" onclick={onContinue}>
 						Now use them <Icon name="arrowRight" size="1em" />
 					</button>
 				{/if}
-				<button type="button" class="btn btn-ghost" onclick={playAgain}>Play again</button>
+				<button type="button" class="btn btn-ghost" onclick={playAgain}>{t('Play again')}</button>
 			</div>
 		</section>
 	{:else}
@@ -252,14 +253,14 @@
 			<section class="card break">
 				{#if stage === 'hear'}
 					<p class="big" aria-hidden="true">🎉</p>
-					<h2>Board cleared!</h2>
-					<p class="lead">You understood all eleven numbers by ear. Now let's read them.</p>
+					<h2>{t('Board cleared!')}</h2>
+					<p class="lead">{t('You understood all eleven numbers by ear. Now let\'s read them.')}</p>
 					<button type="button" class="btn" onclick={nextStage}>
 						Read them <Icon name="arrowRight" size="1em" />
 					</button>
 				{:else}
 					<p class="big" aria-hidden="true">⭐</p>
-					<h2>Six for six!</h2>
+					<h2>{t('Six for six!')}</h2>
 					<p class="lead">Last step: write three numbers. They're shown — just copy them.</p>
 					<button type="button" class="btn" onclick={nextStage}>
 						Write three <Icon name="arrowRight" size="1em" />
@@ -286,27 +287,27 @@
 						autocapitalize="off"
 						spellcheck="false"
 						enterkeyhint="go"
-						placeholder="type it here"
+						placeholder={t('type it here')}
 					/>
 				</label>
 				<p class="verdict" aria-hidden="true">
 					{#if verdict === 'right'}Perfekt!{:else if verdict === 'wrong'}Almost — this is how it's spelt.{/if}
 				</p>
-				<button type="submit" class="btn" disabled={locked || !typed.trim()}>Check</button>
+				<button type="submit" class="btn" disabled={locked || !typed.trim()}>{t('Check')}</button>
 			</form>
 		{:else if target}
 			<section class="play">
 				<div class="cue">
 					<p class="ask">{STAGE_COPY[stage].ask}</p>
 					{#if stage === 'hear'}
-						<button type="button" class="listen" onclick={() => say(target!.word)} aria-label="Listen again">
+						<button type="button" class="listen" onclick={() => say(target!.word)} aria-label={t('Listen again')}>
 							<Icon name="volume" size="1.6em" />
 						</button>
 						{#if showWord}
 							<p class="word" lang={locale}>{target.word}</p>
 						{:else}
 							<button type="button" class="reveal" onclick={() => (showWord = true)}>
-								Can't hear it? Show the word
+								{t('Can\'t hear it? Show the word')}
 							</button>
 						{/if}
 					{:else}
@@ -314,7 +315,7 @@
 					{/if}
 				</div>
 
-				<div class="board" role="group" aria-label="Number board">
+				<div class="board" role="group" aria-label={t('Number board')}>
 					{#each keypad as n (n.digit)}
 						{@const isGone = gone.includes(n.digit)}
 						<div class="cell" class:wide={n.digit === '10'}>

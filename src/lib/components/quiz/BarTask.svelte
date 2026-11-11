@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// "Order the round" — friends shout a number over the music, you show it to
 	// the bartender on your fingers, German style (see domain/barTask). The
 	// bartender says back what you showed, so a wrong order is heard as well
@@ -97,7 +98,7 @@
 			react(false, stageEl);
 		}
 		announce([
-			{ text: 'The bartender:' },
+			{ text: t('The bartender:') },
 			{ text: reply?.de ?? '', lang: locale },
 			...(caption ? [{ text: caption }] : [])
 		]);
@@ -137,36 +138,36 @@
 			{#if noScene}
 				<p class="big" aria-hidden="true">🍺🎶</p>
 			{:else}
-				<img class="scene" src="/img/story/task_bar_round.webp" alt="A crowded bar; the bartender cups a hand to his ear over the music." use:imageGuard={() => (noScene = true)} />
+				<img class="scene" src="/img/story/task_bar_round.webp" alt={t('A crowded bar; the bartender cups a hand to his ear over the music.')} use:imageGuard={() => (noScene = true)} />
 			{/if}
 			<p class="story">{task.intro}</p>
 			<div class="culture">
-				<p class="tip-title">How Germans count</p>
+				<p class="tip-title">{t('How Germans count')}</p>
 				<p>{task.culture}</p>
 				<div class="demo"><Hands count={2} onChange={() => {}} disabled /></div>
-				<p class="small">This is <span lang={locale}>zwei</span> (2).</p>
+				<p class="small">{t('This is')} <span lang={locale}>zwei</span> (2).</p>
 			</div>
 			<button type="button" class="btn start" onclick={start}>
-				<Icon name="volume" size="1.05em" /> To the bar
+				<Icon name="volume" size="1.05em" /> {t('To the bar')}
 			</button>
 		</section>
 	{:else if phase === 'done'}
 		<section class="card finale">
 			<p class="big" aria-hidden="true">🍻</p>
 			<h2>Prost!</h2>
-			<p class="lead">Ten beers, ordered without a word of English. You count like a German now.</p>
-			<button type="button" class="btn btn-ghost" onclick={onBack}>Back to the tasks</button>
+			<p class="lead">{t('Ten beers, ordered without a word of English. You count like a German now.')}</p>
+			<button type="button" class="btn btn-ghost" onclick={onBack}>{t('Back to the tasks')}</button>
 		</section>
 	{:else}
 		<div class="status">
-			<span>Round {r + 1} of {rounds.length}</span>
+			<span>{t('Round {i} of {n}', { i: r + 1, n: rounds.length })}</span>
 			<span>{round.clip.name} shout:</span>
 		</div>
 
 		<div class="listen">
 			<ClipControls id={round.clip.audio} text={round.clip.de} {locale} label="Hear them again" />
 			<button type="button" class="toggle" aria-pressed={showText} onclick={() => (showText = !showText)}>
-				{showText ? 'Hide' : 'Show'} what they say
+				{showText ? t('Hide what they say') : t('Show what they say')}
 			</button>
 		</div>
 		{#if showText}
@@ -182,13 +183,13 @@
 				disabled={phase !== 'order'}
 			/>
 			<p class="showing tnum" aria-live="off">
-				You're showing <strong>{count}</strong>{#if count}&nbsp;· <strong lang={locale}>{NUMBER_WORDS[count]}</strong>{/if}
+				{t('You\'re showing')} <strong>{count}</strong>{#if count}&nbsp;· <strong lang={locale}>{NUMBER_WORDS[count]}</strong>{/if}
 			</p>
 		</div>
 
 		{#if phase === 'order'}
 			<button type="button" class="btn order" disabled={count === 0} onclick={order}>
-				🍺 Show the bartender
+				{t('🍺 Show the bartender')}
 			</button>
 		{:else}
 			<section class="card served" class:wrong={outcome === 'wrong'}>
@@ -197,14 +198,14 @@
 					<p class="who">{reply.name}</p>
 					<p class="bubble"><EmojiText text={reply.de} lang={locale} /></p>
 					<p class="en">{reply.en}</p>
-					<ClipControls id={reply.audio} text={reply.de} {locale} label="Listen" />
+					<ClipControls id={reply.audio} text={reply.de} {locale} label={t('Listen')} />
 				{/if}
 				{#if caption}<p class="caption">{caption}</p>{/if}
 				{#if heard}
 					{#if outcome === 'wrong'}
-						<button type="button" class="btn" onclick={tryAgain}>Try again</button>
+						<button type="button" class="btn" onclick={tryAgain}>{t('Try again')}</button>
 					{:else}
-						<button type="button" class="btn" onclick={nextRound}>Next round <Icon name="arrowRight" size="1em" /></button>
+						<button type="button" class="btn" onclick={nextRound}>{t('Next round')} <Icon name="arrowRight" size="1em" /></button>
 					{/if}
 				{/if}
 			</section>

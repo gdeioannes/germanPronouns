@@ -1,4 +1,5 @@
 <script lang="ts" module>
+	import { t } from '$lib/i18n/t';
 	import type { Quiz } from '$lib/content/types';
 	import EnglishLine from '$lib/components/EnglishLine.svelte';
 	import EnglishToggle from '$lib/components/EnglishToggle.svelte';
@@ -141,7 +142,7 @@
 				<!-- 5 · How to remember it (shown before the table: the aid is what
 				     makes the table stick). -->
 				{#if help?.remember?.length}
-					<h4 class="section-head">How to remember it</h4>
+					<h4 class="section-head">{t('How to remember it')}</h4>
 					<ul class="remember">
 						{#each help.remember as aid, a (a)}
 							<li>{aid}</li>
@@ -210,7 +211,7 @@
 				     collection for text-based quizzes — article first, because that
 				     is the half a learner forgets. -->
 				{#if help?.vocab?.length}
-					<h4 class="section-head">Words you need</h4>
+					<h4 class="section-head">{t('Words you need')}</h4>
 					<ul class="vocab">
 						{#each help.vocab as word, w (w)}
 							<li>
@@ -223,11 +224,11 @@
 					</ul>
 					{#if deckHref}
 						<a class="practise" href={deckHref}>
-							<Icon name="cards" size="1em" /> Practise these words as flashcards
+							<Icon name="cards" size="1em" /> {t('Practise these words as flashcards')}
 						</a>
 					{/if}
 				{:else if derivedVocab.length > 0}
-					<h4 class="section-head">Words in this text</h4>
+					<h4 class="section-head">{t('Words in this text')}</h4>
 					<ul class="vocab">
 						{#each derivedVocab as word (word.noun)}
 							<li>
@@ -251,7 +252,7 @@
 
 				<!-- Common mistakes -->
 				{#if help?.mistakes?.length}
-					<h4 class="section-head">Mistakes English speakers make</h4>
+					<h4 class="section-head">{t('Mistakes English speakers make')}</h4>
 					<ul class="mistakes">
 						{#each help.mistakes as m, i (i)}
 							<li>

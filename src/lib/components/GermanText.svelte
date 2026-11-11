@@ -1,4 +1,5 @@
 <script module lang="ts">
+	import { t } from '$lib/i18n/t';
 	// One panel on the whole page at a time. Each sentence is its own instance
 	// and only knows about its own words, so without this a learner tapping
 	// through a passage left a trail of open panels behind them — the
@@ -8,6 +9,7 @@
 </script>
 
 <script lang="ts">
+	import { lang } from '$lib/i18n/lang.svelte';
 	// German text with its words recognised: tap any one of them for the English.
 	//
 	// This began as the noun colouring ported from the Dart quiz page, and nouns
@@ -97,7 +99,7 @@
 			owner = me;
 			announce([
 				{ text: headlineFor(info), lang: 'de-DE' },
-				{ text: `: ${info.entry.en}`, lang: 'en' }
+				...(info.entry.en ? [{ text: `: ${info.entry.en}`, lang: lang.current }] : [])
 			]);
 		}
 	}
@@ -157,11 +159,13 @@
 						<span class="head" style={colour ? `color:${colour}` : undefined}
 							>{headlineFor(part.info)}</span
 						>
-						<SpeakButton text={entry.de} locale="de-DE" label="Listen to {entry.de}" />
+						<SpeakButton text={entry.de} locale="de-DE" label={t('Listen to {word}', { word: entry.de })} />
 					</span>
-					{#if POS_LABELS[entry.pos]}<span class="pos" lang="en">{POS_LABELS[entry.pos]}</span>{/if}
-					<span class="meaning" lang="en">{entry.en}</span>
-					{#if href}<a class="more" {href} lang="en">Full entry</a>{/if}
+					{#if POS_LABELS[entry.pos]}<span class="pos" lang={lang.current}>{t(POS_LABELS[entry.pos])}</span>{/if}
+					<!-- Turkish mode: a word with no Turkish gloss yet shows its German facts alone. -->
+					{#if entry.en}<span class="meaning" lang={lang.current}>{entry.en}</span>{/if}
+					<!-- The word pages are English-only: no link in Turkish mode. -->
+					{#if href && !lang.tr}<a class="more" {href} lang="en">{t('Full entry')}</a>{/if}
 				</span>
 			{/if}</span
 		>{part.tail ?? ''}</span>{:else}{part.text}{/if}{/each}

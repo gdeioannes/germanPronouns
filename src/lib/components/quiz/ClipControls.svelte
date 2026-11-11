@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// Play / pause / resume, and replay from the start, for one recorded line.
 	// Every spoken line in the number tasks gets these two buttons, so nothing
 	// a learner hears is ever one-shot.
@@ -9,7 +10,7 @@
 		id,
 		text,
 		locale,
-		label = 'Listen',
+		label = t('Listen'),
 		dark = false
 	}: {
 		/** The clip: static/audio/story/<id>.mp3. */
@@ -30,13 +31,13 @@
 <div class="clip" class:dark role="group" aria-label="Audio">
 	<button type="button" class="main" onclick={() => toggleClip(id, { text, locale })}>
 		<Icon name={state === 'playing' ? 'pause' : 'play'} size="1em" />
-		{state === 'playing' ? 'Pause' : state === 'paused' ? 'Resume' : label}
+		{state === 'playing' ? t('Pause') : state === 'paused' ? 'Resume' : label}
 	</button>
 	<button
 		type="button"
 		class="again"
-		aria-label="Replay from the start"
-		title="Replay from the start"
+		aria-label={t('Replay from the start')}
+		title={t('Replay from the start')}
 		onclick={() => playClip(id, { text, locale })}
 	>
 		<Icon name="repeat" size="1em" />

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The progress panel: what the ring beside the deck chip opens. The ring
 	// shows one number — the current sub-level — and this is the rest: the
 	// whole course, accuracy, medals, every sub-level and exercise type, and
@@ -38,8 +39,8 @@
 		const left = current.total - current.done;
 		if (left === 0) return `${current.level} is done. Pick the next level in your deck to keep going.`;
 		if (current.done / current.total >= ALMOST_THROUGH)
-			return `Almost through ${current.level} — ${left} to go.`;
-		if (current.done === 0) return `Your first ${current.level} exercise is waiting in the deck.`;
+			return t('Almost through {level} — {left} to go.', { level: current.level, left });
+		if (current.done === 0) return t('Your first {level} exercise is waiting in the deck.', { level: current.level });
 		return `${left} exercises left at ${current.level}.`;
 	});
 
@@ -60,9 +61,9 @@
 	const capital = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
 </script>
 
-<Sheet bind:open title="Your progress" id="progress-panel">
+<Sheet bind:open title={t('Your progress')} id="progress-panel">
 	{#if current}
-		<section class="hero" aria-label="Current level">
+		<section class="hero" aria-label={t('Current level')}>
 			<svg class="big-ring" viewBox="0 0 40 40" aria-hidden="true">
 				<circle class="track" cx="20" cy="20" r={R} />
 				<circle
@@ -75,11 +76,11 @@
 				/>
 			</svg>
 			<div class="hero-text">
-				<p class="eyebrow-sm">Now at <strong class="tnum">{current.level}</strong></p>
+				<p class="eyebrow-sm">{t('Now at')} <strong class="tnum">{current.level}</strong></p>
 				<p class="hero-title">{levelName}</p>
 				<p class="hero-num tnum">
 					{current.done > 0 && levelPct === 0 ? '<1' : levelPct}<span>%</span>
-					<small>{current.done} of {current.total} done</small>
+					<small>{t('{done} of {total} done', { done: current.done, total: current.total })}</small>
 				</p>
 			</div>
 		</section>
@@ -88,7 +89,7 @@
 
 	<div class="tiles">
 		<div class="tile">
-			<span class="tile-label">Whole course</span>
+			<span class="tile-label">{t('Whole course')}</span>
 			<span class="tile-value tnum">{stats.course.done > 0 && percentOf(stats.course) === 0 ? '<1' : percentOf(stats.course)}%</span>
 			<span class="tile-sub tnum">{stats.course.done} / {stats.course.total} exercises</span>
 		</div>
@@ -100,7 +101,7 @@
 			</span>
 		</div>
 		<div class="tile">
-			<span class="tile-label">Answers given</span>
+			<span class="tile-label">{t('Answers given')}</span>
 			<span class="tile-value tnum">{stats.answers.toLocaleString('en')}</span>
 			<span class="tile-sub tnum">
 				{stats.playedThisWeek} exercise{stats.playedThisWeek === 1 ? '' : 's'} this week
@@ -109,7 +110,7 @@
 		<div class="tile">
 			<!-- The whole-course tile counts an exercise once it is passed; this
 			     one counts how much of every medal is won (gold = all of it). -->
-			<span class="tile-label">Medals won</span>
+			<span class="tile-label">{t('Medals won')}</span>
 			<span class="tile-value tnum" title="{medalTotal} medal{medalTotal === 1 ? '' : 's'}; gold counts three times bronze">{stats.medalSteps.done > 0 && percentOf(stats.medalSteps) === 0 ? '<1' : percentOf(stats.medalSteps)}%</span>
 			<span class="medals tnum">
 				<span title="Gold"><RibbonBadge tier="gold" width={11} /> {stats.medals.gold}</span>
@@ -120,7 +121,7 @@
 	</div>
 
 	{#if fresh}
-		<p class="note">Finish your first exercise and this panel fills in: accuracy, medals, your strong topics and the ones to work on.</p>
+		<p class="note">{t('Finish your first exercise and this panel fills in: accuracy, medals, your strong topics and the ones to work on.')}</p>
 	{:else}
 		<ul class="facts">
 			{#if lastPlayed}
@@ -141,7 +142,7 @@
 		<div class="topics">
 			{#if stats.strengths.length}
 				<section>
-					<h3>Going well</h3>
+					<h3>{t('Going well')}</h3>
 					<ul>
 						{#each stats.strengths as t (t.topic)}
 							<li><span>{capital(t.label)}</span> <strong class="tnum good">{pct(t.accuracy)}</strong></li>
@@ -151,7 +152,7 @@
 			{/if}
 			{#if stats.weakSpots.length}
 				<section>
-					<h3>Worth another go</h3>
+					<h3>{t('Worth another go')}</h3>
 					<ul>
 						{#each stats.weakSpots as t (t.topic)}
 							<li><span>{capital(t.label)}</span> <strong class="tnum">{pct(t.accuracy)}</strong></li>
@@ -162,7 +163,7 @@
 		</div>
 	{/if}
 
-	<h3 class="section">Levels</h3>
+	<h3 class="section">{t('Levels')}</h3>
 	<ul class="bars">
 		{#each stats.levels as l (l.level)}
 			{@const p = percentOf(l)}
@@ -174,7 +175,7 @@
 		{/each}
 	</ul>
 
-	<h3 class="section">By exercise type</h3>
+	<h3 class="section">{t('By exercise type')}</h3>
 	<ul class="bars types">
 		{#each stats.types as t (t.type)}
 			{@const p = percentOf(t)}
@@ -195,12 +196,12 @@
 	<!-- Last, and deliberately here: this panel is the page about the learner's
 	     progress, so it is the honest place to say where that progress lives. -->
 	{#if account.available}
-		<h3 class="section">Keep it safe</h3>
+		<h3 class="section">{t('Keep it safe')}</h3>
 		<AccountCard heading={false} />
 	{/if}
 
 	{#snippet footer()}
-		<button type="button" class="close-btn" onclick={() => (open = false)}>Back to the deck</button>
+		<button type="button" class="close-btn" onclick={() => (open = false)}>{t('Back to the deck')}</button>
 	{/snippet}
 </Sheet>
 

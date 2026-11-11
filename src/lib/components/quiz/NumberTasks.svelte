@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The first quiz: the number board first (hear, read, write all eleven —
 	// that is what completes the quiz), then a menu of small real-life jobs to
 	// use the numbers in, each ticked when done and open to replay. The board
@@ -48,8 +49,8 @@
 	const TASKS: TaskCard[] = [
 		{
 			id: 'round',
-			title: 'Order the round',
-			blurb: 'A loud bar, a thirsty crowd, German fingers. New orders every night.',
+			title: t('Order the round'),
+			blurb: t('A loud bar, a thirsty crowd, German fingers. New orders every night.'),
 			time: '≈ 1 min',
 			image: '/img/story/task_bar_round.webp',
 			emoji: '🍺',
@@ -65,8 +66,8 @@
 		},
 		{
 			id: 'call',
-			title: 'Call Kim after the party',
-			blurb: 'A smudged number on your hand, a hangover and 3% battery.',
+			title: t('Call Kim after the party'),
+			blurb: t('A smudged number on your hand, a hangover and 3% battery.'),
 			time: '≈ 1 min',
 			image: '/img/story/task_call_hand.webp',
 			emoji: '📱'
@@ -154,7 +155,7 @@
 	{:else}
 		<header class="head">
 			<h2>Now use them</h2>
-			<p>You can count to ten. Three nights where that matters. Do any, in any order, as often as you like.</p>
+			<p>{t('You can count to ten. Three nights where that matters. Do any, in any order, as often as you like.')}</p>
 		</header>
 		<ul class="cards">
 			{#each TASKS as task (task.id)}
@@ -180,9 +181,9 @@
 							<span class="blurb">{task.blurb}</span>
 							<span class="meta">
 								{#if task.soon}
-									<Icon name="lock" size="0.9em" /> Coming soon
+									<Icon name="lock" size="0.9em" /> {t('Coming soon')}
 								{:else}
-									{#if done.includes(task.id)}<span class="tick"><Icon name="check" size="0.9em" /> Done</span>{:else if task.first}<span class="badge">Start here</span>{/if}
+									{#if done.includes(task.id)}<span class="tick"><Icon name="check" size="0.9em" /> {t('Done')}</span>{:else if task.first}<span class="badge">{t('Start here')}</span>{/if}
 									{task.time}
 								{/if}
 							</span>
@@ -192,7 +193,7 @@
 			{/each}
 		</ul>
 		<button type="button" class="again" onclick={() => (open = 'board')}>
-			<Icon name="volume" size="0.95em" /> Play the number board again
+			<Icon name="volume" size="0.95em" /> {t('Play the number board again')}
 		</button>
 	{/if}
 </div>

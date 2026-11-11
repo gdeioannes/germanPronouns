@@ -3,6 +3,7 @@
 //   node tool/gen-book2.mjs A1.1 --web     static/books/v2/<id>_<stem>.pdf, the free download (web photos)
 //   node tool/gen-book2.mjs A1.1           …_print.pdf, the KDP interior (print originals, local only)
 //   node tool/gen-book2.mjs A1.1 --cover --pages 131   …_cover.pdf, the KDP wrap cover
+//   node tool/gen-book2.mjs A1.1 --web --tr   …_tr.pdf, the Turkish edition (Turkish mode, A1–A2)
 // Options: --url http://localhost:5173, --course de_cert_a1, --out <file>.
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -28,7 +29,9 @@ const browser = await puppeteer.launch({ executablePath: chrome, headless: true 
 const page = await browser.newPage();
 // Wide enough that the preview's narrow-screen zoom stays off while the pages are fitted.
 await page.setViewport({ width: 1400, height: 1000 });
-const query = [coverMode ? `cover&spine=${spine}` : '', web ? '' : 'hd'].filter(Boolean).join('&');
+// --tr: the Turkish edition, printed from the page in Turkish mode.
+const tr = args.includes('--tr');
+const query = [coverMode ? `cover&spine=${spine}` : '', web ? '' : 'hd', tr ? 'lang=tr' : ''].filter(Boolean).join('&');
 await page.goto(`${base}/course/${courseId}/book2/${level}${query ? `?${query}` : ''}`, { waitUntil: 'load', timeout: 120_000 });
 // The page reads its query in the browser; wait until it has.
 await page.waitForSelector('main[data-ready="true"]', { timeout: 60_000 });
@@ -48,6 +51,6 @@ const pdf = coverMode
 	: await page.pdf({ format: 'A4', printBackground: true, timeout: 300_000 });
 await browser.close();
 mkdirSync(`${root}static/books/v2`, { recursive: true });
-const out = flag('--out', `${root}static/books/v2/${courseId}_${level.toLowerCase().replace('.', '_')}${coverMode ? '_cover' : web ? '' : '_print'}.pdf`);
+const out = flag('--out', `${root}static/books/v2/${courseId}_${level.toLowerCase().replace('.', '_')}${coverMode ? '_cover' : web ? '' : '_print'}${tr ? '_tr' : ''}.pdf`);
 writeFileSync(out, pdf);
 console.log(`${out}  ${Math.round(pdf.length / 1024)} kB`);

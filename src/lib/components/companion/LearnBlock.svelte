@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// One teaching block on a companion's left page: a grid of tiles, a
 	// word-building table, the backwards-number diagram, pairs, a box.
 	// Everything is drawn for paper — rules and outlines rather than fills,
@@ -26,8 +27,8 @@
 		<div class="fl-q">
 			<p class="fl-ask">{@html rich(n.q)}</p>
 			<div class="fl-branches">
-				<div class="fl-branch"><span class="fl-yn">{german ? 'ja' : 'yes'}</span>{@render flowNode(n.yes)}</div>
-				<div class="fl-branch"><span class="fl-yn">{german ? 'nein' : 'no'}</span>{@render flowNode(n.no)}</div>
+				<div class="fl-branch"><span class="fl-yn">{german ? 'ja' : t('yes')}</span>{@render flowNode(n.yes)}</div>
+				<div class="fl-branch"><span class="fl-yn">{german ? 'nein' : t('no')}</span>{@render flowNode(n.no)}</div>
 			</div>
 		</div>
 	{:else}

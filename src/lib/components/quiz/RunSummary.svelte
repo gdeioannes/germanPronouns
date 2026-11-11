@@ -1,4 +1,9 @@
 <script lang="ts">
+	import { boldNumbers } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
+	/** A medal name, translated and lower-cased for the middle of a sentence. */
+	const low = (tier: string) => t(tier).toLocaleLowerCase(lang.current);
+	import { t } from '$lib/i18n/t';
 	// The card a drill ends on: how the run went, where the streak stands,
 	// and the slips worth another look. The run is over whatever the score —
 	// that is the point of it — and the exercise is marked either way: a done
@@ -60,34 +65,34 @@
 	/** A sentence missed twice (it came back round) is listed once. */
 	const slips = $derived([...new Set(missed)]);
 	const title = $derived(
-		right === total ? 'Every one right!' : passed ? 'Exercise done.' : 'Not this time — try again.'
+		right === total ? t('Every one right!') : passed ? t('Exercise done.') : t('Not this time — try again.')
 	);
 </script>
 
 <section class="summary" in:pop aria-live="polite">
-	<p class="eyebrow">{passed ? 'Exercise done' : 'Run finished'}</p>
+	<p class="eyebrow">{passed ? t('Exercise done') : t('Run finished')}</p>
 	<h2>{title}</h2>
 	{#if !passed}
-		<p class="need">The exercise is marked for a retry — {RUN_PASS_MARK} of {total} right earns the tick. The run is on record, and the streak stands.</p>
+		<p class="need">{t('The exercise is marked for a retry — {pass} of {total} right earns the tick. The run is on record, and the streak stands.', { pass: RUN_PASS_MARK, total })}</p>
 	{/if}
 
 	<dl class="score">
 		<div>
-			<dt>Right</dt>
-			<dd class="tnum">{right} <span class="of">of {total}</span></dd>
+			<dt>{t('Right')}</dt>
+			<dd class="tnum">{right} <span class="of">{t('of {total}', { total })}</span></dd>
 		</div>
 		<div>
-			<dt>Best streak this run</dt>
+			<dt>{t('Best streak this run')}</dt>
 			<dd class="tnum">{bestInRun}</dd>
 		</div>
 		<div>
-			<dt>Medal</dt>
+			<dt>{t('Medal')}</dt>
 			<dd>
 				{#if medal}
 					<RibbonBadge tier={medal} width={13} animate={earned !== null} />
-					{TIER_LABELS[medal]}
+					{t(TIER_LABELS[medal])}
 				{:else}
-					<span class="none">none yet</span>
+					<span class="none">{t('none yet')}</span>
 				{/if}
 			</dd>
 		</div>
@@ -96,7 +101,7 @@
 	{#if earned}
 		<p class="medal-line">
 			<Icon name="flame" size="1em" />
-			You earned the {TIER_LABELS[earned].toLowerCase()} medal in this run.
+			{t('You earned the {tier} medal in this run.', { tier: low(TIER_LABELS[earned]) })}
 		</p>
 	{/if}
 
@@ -106,21 +111,20 @@
 			<div class="climb">
 				<p>
 					<RibbonBadge tier={ladder.up.tier} width={12} />
-					<span><strong>{TIER_LABELS[ladder.up.tier]} is next:</strong> {ladder.up.hint}</span>
+					<span><strong>{t('{tier} is next:', { tier: t(TIER_LABELS[ladder.up.tier]) })}</strong> {ladder.up.hint}</span>
 				</p>
 			</div>
 		{:else if ladder.earned}
 			<p class="streak-line">
-				Gold is yours: you write them from memory. Come back now and then to keep them fresh.
+				{t('Gold is yours: you write them from memory. Come back now and then to keep them fresh.')}
 			</p>
 		{:else if !ladder.counting}
 			<p class="streak-line">
-				A run on just some of the words practises them; the medals are for passing the whole deck.
+				{t('A run on just some of the words practises them; the medals are for passing the whole deck.')}
 			</p>
 		{:else}
 			<p class="streak-line">
-				<strong class="tnum">{ladder.at}</strong> right on {ladder.label} in one run earns
-				{TIER_LABELS[ladder.tier].toLowerCase()} — this run had <strong class="tnum">{ladder.right}</strong>.
+				{@html boldNumbers(t('{at} right on {step} in one run earns {tier} — this run had {right}.', { at: ladder.at, step: ladder.label, tier: low(TIER_LABELS[ladder.tier]), right: ladder.right }))}
 			</p>
 		{/if}
 	{:else if medalRule}
@@ -128,13 +132,13 @@
 	{:else}
 		<p class="streak-line">
 			{#if streak > 0 && next}
-				Your streak stands at <strong class="tnum">{streak}</strong> — <strong class="tnum">{next.at - streak}</strong> more in a row for {TIER_LABELS[next.tier].toLowerCase()}. It carries on into the next run.
+				{@html boldNumbers(t('Your streak stands at {streak} — {more} more in a row for {tier}. It carries on into the next run.', { streak, more: next.at - streak, tier: low(TIER_LABELS[next.tier]) }))}
 			{:else if streak > 0}
-				Your streak stands at <strong class="tnum">{streak}</strong>. Gold is yours; the flame just keeps burning.
+				{@html boldNumbers(t('Your streak stands at {streak}. Gold is yours; the flame just keeps burning.', { streak }))}
 			{:else if next}
-				The streak starts fresh: <strong class="tnum">{next.at}</strong> in a row earns {TIER_LABELS[next.tier].toLowerCase()}.
+				{@html boldNumbers(t('The streak starts fresh: {at} in a row earns {tier}.', { at: next.at, tier: low(TIER_LABELS[next.tier]) }))}
 			{:else}
-				Gold is yours. The next run is for the sentences themselves.
+				{t('Gold is yours. The next run is for the sentences themselves.')}
 			{/if}
 		</p>
 	{/if}
@@ -142,7 +146,7 @@
 	{#if slips.length}
 		<!-- The slips, kept: they are what the next run is for. -->
 		<div class="missed">
-			<p class="missed-head">Worth another look</p>
+			<p class="missed-head">{t('Worth another look')}</p>
 			<ul lang={locale}>
 				{#each slips as text (text)}
 					<li>{text}</li>
@@ -152,9 +156,9 @@
 	{/if}
 
 	{#if ladder?.earned && ladder.up}
-		<p class="note">Try for {TIER_LABELS[ladder.up.tier].toLowerCase()} and a fresh run starts on {ladder.up.label}.</p>
+		<p class="note">{t('Try for {tier} and a fresh run starts on {step}.', { tier: low(TIER_LABELS[ladder.up.tier]), step: ladder.up.label })}</p>
 	{:else}
-		<p class="note">Try again and the bar starts fresh{ladder || medalRule ? '.' : '; your streak carries on.'}</p>
+		<p class="note">{ladder || medalRule ? t('Try again and the bar starts fresh.') : t('Try again and the bar starts fresh; your streak carries on.')}</p>
 	{/if}
 </section>
 

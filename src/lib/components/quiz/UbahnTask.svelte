@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// "Last U-Bahn home" — 2 a.m., an announcement names the platform, you run
 	// to the right sign. The signs pair the answer with its sound-alikes
 	// (zwei/drei, sechs/sieben, vier/fünf), and the platform keeps changing,
@@ -86,7 +87,7 @@
 			burst += 1;
 			react(true, sign, run);
 			phase = 'made';
-			announce(`Platform ${platform}. You made it.`);
+			announce(t('Platform {platform}. You made it.', { platform }));
 			await sleep(1100);
 			if (!alive) return;
 			if (r === rounds.length - 1) {
@@ -110,7 +111,7 @@
 			react(false, sign);
 			caption = task.wrong[jokes++ % task.wrong.length];
 			phase = 'missed';
-			announce(`Wrong platform. ${caption}`);
+			announce(t('Wrong platform. {caption}', { caption }));
 		}
 	}
 
@@ -127,30 +128,30 @@
 			{#if noScene}
 				<p class="big" aria-hidden="true">🚇🌙</p>
 			{:else}
-				<img class="scene" src="/img/story/task_ubahn_night.webp" alt="An empty U-Bahn platform at night, a train's headlights in the tunnel." use:imageGuard={() => (noScene = true)} />
+				<img class="scene" src="/img/story/task_ubahn_night.webp" alt={t('An empty U-Bahn platform at night, a train\'s headlights in the tunnel.')} use:imageGuard={() => (noScene = true)} />
 			{/if}
 			<p class="story">{task.intro}</p>
 			<button type="button" class="btn start" onclick={start}>
-				<Icon name="volume" size="1.05em" /> Listen to the announcement
+				<Icon name="volume" size="1.05em" /> {t('Listen to the announcement')}
 			</button>
 		</section>
 	{:else if phase === 'done'}
 		<section class="card finale">
 			<p class="big" aria-hidden="true">🚇🏠</p>
 			<h2>Zurückbleiben, bitte!</h2>
-			<p class="lead">The doors close behind you. {rounds.length} platforms, all caught by ear. You're going home.</p>
-			<button type="button" class="btn btn-ghost" onclick={onBack}>Back to the tasks</button>
+			<p class="lead">{t('The doors close behind you. {n} platforms, all caught by ear. You’re going home.', { n: rounds.length })}</p>
+			<button type="button" class="btn btn-ghost" onclick={onBack}>{t('Back to the tasks')}</button>
 		</section>
 	{:else}
 		<div class="status">
-			<span>Train {r + 1} of {rounds.length} · to Pankow</span>
+			<span>{t('Train {i} of {n} · to Pankow', { i: r + 1, n: rounds.length })}</span>
 			<span class="clock tnum">{clock}</span>
 		</div>
 
 		<div class="listen">
 			<ClipControls id={round.clip.audio} text={round.clip.de} {locale} label="Announcement" />
 			<button type="button" class="toggle" aria-pressed={showText} onclick={() => (showText = !showText)}>
-				{showText ? 'Hide' : 'Show'} what it says
+				{showText ? t('Hide what it says') : t('Show what it says')}
 			</button>
 		</div>
 		{#if showText}
@@ -159,7 +160,7 @@
 
 		<!-- The first trains' signs spell the number out, to match against what
 		     you hear; the last ones are by ear alone. -->
-		<p class="ask">{spelled ? 'Which platform? Run!' : 'No help now: by ear only. Run!'}</p>
+		<p class="ask">{spelled ? t('Which platform? Run!') : t('No help now: by ear only. Run!')}</p>
 		<div class="signs" bind:this={signsEl} role="group" aria-label="Platforms">
 			{#each round.options as platform (r + ':' + platform)}
 				<div class="cell">
@@ -187,11 +188,11 @@
 		{#if phase === 'missed'}
 			<section class="card missed">
 				<p class="caption">{caption}</p>
-				<button type="button" class="btn" onclick={tryAgain}>Listen again</button>
+				<button type="button" class="btn" onclick={tryAgain}>{t('Listen again')}</button>
 			</section>
 		{:else if phase === 'made' || phase === 'leaving'}
 			<p class="made">
-				{phase === 'leaving' ? 'The train is in! 🚇' : `Gleis ${round.answer}! ✓`}
+				{phase === 'leaving' ? t('The train is in! 🚇') : `Gleis ${round.answer}! ✓`}
 			</p>
 		{/if}
 	{/if}

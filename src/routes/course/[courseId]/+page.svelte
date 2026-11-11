@@ -32,12 +32,18 @@
 	import type { PageData } from './$types';
 	import { track } from '$lib/services/analytics';
 	import { BOOKS } from '$lib/content/books';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { levelInTurkish } from '$lib/i18n/available';
 
 	// Each level's book (Book v2): opens the book to read, with download and print there.
 	const levelBook = (level: string) => BOOKS.find((b) => b.level === level) ?? null;
 
 	let { data }: { data: PageData } = $props();
-	const course = $derived(data.course);
+	// Turkish mode deals and lists only the levels that exist in Turkish (A1–A2).
+	const course = $derived(
+		lang.tr ? { ...data.course, quizzes: data.course.quizzes.filter((q) => levelInTurkish(q.level)) } : data.course
+	);
 
 	// Loading runs on mount, not in an $effect: hydrateStats both reads and
 	// writes the per-quiz stats state, so inside an effect each quiz it loaded
@@ -129,7 +135,7 @@
 	     sits beside the deck chip, and everything else lives in the top bar. -->
 	{#snippet heading()}
 		<!-- Kept for screen readers and search, not shown: the deck needs no title. -->
-		<h1 class="sr-only">{course.name}</h1>
+		<h1 class="sr-only">{t(course.name)}</h1>
 	{/snippet}
 
 	{#snippet ring()}
@@ -138,8 +144,8 @@
 		     the full picture. -->
 		<button type="button" class="progress" class:started={(current?.done ?? 0) > 0}
 			aria-haspopup="dialog" aria-controls="progress-panel" onclick={() => (panelOpen = true)}
-			aria-label="{current ? levelLine(current) : ''}. {percent}% complete, {current?.done ?? 0} of {current?.total ?? 0}. Open your progress"
-			title="Your progress">
+			aria-label={t('{line}. {percent}% complete, {done} of {total}. Open your progress', { line: current ? levelLine(current) : '', percent, done: current?.done ?? 0, total: current?.total ?? 0 })}
+			title={t('Your progress')}>
 			<span class="pbar" aria-hidden="true"><span style="width:{sweep.current}%"></span></span>
 			<span class="done tnum">{current ? levelLine(current) : ''}</span>
 		</button>
@@ -152,10 +158,10 @@
 		</header>
 		<p class="finished">
 			<Icon name="trophy" size="1.2em" />
-			Every exercise in this course is complete.
+			{lang.tr ? t('Every exercise in Turkish is complete.') : 'Every exercise in this course is complete.'}
 		</p>
 		<button type="button" class="browse-btn" onclick={() => (browseOpen = true)}>
-			<Icon name="menu" size="1em" /> All {totals.total} exercises
+			<Icon name="menu" size="1em" /> {t('All {n} exercises', { n: totals.total })}
 		</button>
 	{:else}
 		<SwipeDeck {course} {facts} photos={data.photos} bind:level={pickedLevel} title={heading} aside={ring}
@@ -174,16 +180,16 @@
 <!-- Browsing is the second way in: the whole ladder in a panel, so the deck
      keeps the screen. The panel stays in the DOM while closed, so the
      prerendered page still links every exercise. -->
-<Sheet bind:open={browseOpen} title="Exercise library" id="all-exercises">
+<Sheet bind:open={browseOpen} title={t('Exercise library')} id="all-exercises">
 		{#if resume}
 			<a class="resume" href="/course/{course.id}/quiz/{resume.id}">
 				<span class="resume-icon"><Icon name={QUIZ_TYPE_ICONS[resume.type]} size="1.35em" /></span>
 				<span class="resume-body">
 					<span class="resume-label">
-						{totals.done === 0 ? 'First in order' : 'Next in order'}
+						{totals.done === 0 ? t('First in order') : t('Next in order')}
 					</span>
 					<span class="resume-title" lang={course.learnLocale}>{resume.title}</span>
-					<span class="resume-meta">{resume.level} · {typeLabel(resume.type)}</span>
+					<span class="resume-meta">{resume.level} · {t(typeLabel(resume.type))}</span>
 				</span>
 				<Icon name="arrowRight" size="1.2em" class="resume-go" />
 			</a>
@@ -191,6 +197,7 @@
 
 		<!-- Paper practice: a sheet of chosen exercises (the whole course, what is
 		     finished, or the weak spots). The books are the printed course. -->
+		{#if !lang.tr}
 		<a class="worksheet" href="/course/{course.id}/worksheet">
 			<Icon name="printer" size="1.2em" />
 			<span>
@@ -199,8 +206,9 @@
 			</span>
 			<Icon name="arrowRight" size="1.1em" />
 		</a>
+		{/if}
 
-	<h2 class="by-level">By level</h2>
+	<h2 class="by-level">{t('By level')}</h2>
 	<ol class="levels">
 		{#each ladder as level (level.id)}
 			<li class:complete={level.complete}>
@@ -212,9 +220,9 @@
 							<a
 								class="level-pdf"
 								href="/course/{course.id}/book2/{book.level}"
-								aria-label="Read the {book.level} book online"
+								aria-label={t('Read the {level} book online', { level: book.level })}
 							>
-								<Icon name="book" size="0.95em" /> Book
+								<Icon name="book" size="0.95em" /> {t('Book')}
 							</a>
 						{/if}
 						<span class="tnum">{level.doneCount} / {level.quizzes.length}</span>

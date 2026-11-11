@@ -16,6 +16,7 @@
 
 import { browser, dev } from '$app/environment';
 import { env } from '$env/dynamic/public';
+import { lang } from '$lib/i18n/lang.svelte';
 
 // The free plan has a monthly event quota, so the rule for adding an event is:
 // one per decision a person makes (start, finish, download, post, share, sign
@@ -334,6 +335,9 @@ export function track(name: string, props: Record<string, string | number | bool
 		props: {
 			...(attribution ??= resolveAttribution()),
 			...(tenure ??= resolveTenure()),
+			// The language the site is used in (not the browser's), so every
+			// event can be split English / Turkish.
+			ui_lang: lang.current,
 			...props
 		}
 	});

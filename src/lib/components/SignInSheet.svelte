@@ -7,6 +7,7 @@
 	import AccountCard from '$lib/components/AccountCard.svelte';
 	import { account } from '$lib/state/account.svelte';
 	import { signInPanel } from '$lib/state/signin.svelte';
+	import { lang } from '$lib/i18n/lang.svelte';
 
 	// The pathname alone at prerender time (the query string is off limits
 	// there, and unknown anyway); the full address once in the browser.
@@ -15,7 +16,8 @@
 	);
 </script>
 
-{#if account.available}
+<!-- Signing in is English-only, so Turkish mode has no sign-in sheet. -->
+{#if account.available && !lang.tr}
 	<Sheet bind:open={signInPanel.open} title={account.signedIn ? 'Your account' : 'Sign in'} id="sign-in-sheet">
 		<p class="why">
 			Everything works without an account. Signing in backs your progress

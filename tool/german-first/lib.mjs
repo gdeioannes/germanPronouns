@@ -17,7 +17,7 @@ export const words = (s) => (s.match(/\S+/g) ?? []).length;
 
 /** Every word the course's German uses: a word outside it, in a book string, may be English. */
 let vocabulary;
-function germanWords() {
+export function germanWords() {
 	if (vocabulary) return vocabulary;
 	vocabulary = new Set();
 	const add = (t) => {
@@ -38,7 +38,7 @@ function germanWords() {
 	return vocabulary;
 }
 /** A word in this string that no German text in the course has ever used. */
-const unknownWord = (s) => {
+export const unknownWord = (s) => {
 	const known = germanWords();
 	return (s.replace(/\*[^*]*\*/g, ' ').match(/\p{L}{3,}/gu) ?? []).some((w, i) => {
 		const lower = w.toLowerCase();

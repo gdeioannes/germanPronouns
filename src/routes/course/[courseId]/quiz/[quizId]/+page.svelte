@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The quiz page. Dispatches on `quiz.type` to the right renderer — the
 	// Svelte equivalent of the Dart DbQuizLoader's kind switch.
 	//
@@ -55,9 +56,21 @@
 	import { track } from '$lib/services/analytics';
 	import { onMount, tick, untrack } from 'svelte';
 	import type { PageData } from './$types';
+	import { inLang, inLangQuiz, trGloss } from '$lib/i18n/content.svelte';
+	import { lang } from '$lib/i18n/lang.svelte';
 
 	let { data }: { data: PageData } = $props();
-	const { course, quiz, next, previous, related, vocab, position, levelCount, levelTitle, deck } = $derived(data);
+	const { course, next, previous, related, position, levelCount, levelTitle, deck } = $derived(data);
+	// In Turkish mode the exercise and its word list come through the level's
+	// Turkish overlay (English content stays the source).
+	const quiz = $derived(inLangQuiz(data.quiz));
+	// The word list comes from the shared noun collection (English meanings):
+	// in Turkish each meaning is the Turkish gloss, else the level's overlay.
+	const vocab = $derived(
+		lang.tr
+			? data.vocab?.map((v) => ({ ...v, english: trGloss(v.noun, 'noun') ?? inLang(v.english, data.quiz.level) }))
+			: data.vocab
+	);
 
 	/**
 	 * "?from=<quizId>" opens the deck on one exercise's words. Read after
@@ -87,7 +100,8 @@
 	// "Report a problem": the exercise tells the page which question is up,
 	// and the panel files it on the forum with that already written in. The
 	// button only shows when the build has a Firebase project to post to.
-	const canReport = cloudConfigured();
+	// Reports go to the forum, which is English-only: not offered in Turkish mode.
+	const canReport = $derived(cloudConfigured() && !lang.tr);
 	let reportOpen = $state(false);
 	let question = $state<QuestionRef | null>(null);
 	const reportTarget = $derived<ReportTarget>({
@@ -309,7 +323,7 @@
 			quiz.storageKeyPrefix,
 			Array.from({ length: total }, (_, i) => ({ correct: i < correct }))
 		);
-		if (passed) void completeScored(scoreMedal(correct, total, 2 / 3), `${correct} of ${total} right`);
+		if (passed) void completeScored(scoreMedal(correct, total, 2 / 3), t('{correct} of {total} right', { correct, total }));
 	}
 
 	/**
@@ -344,7 +358,7 @@
 		doneDismissed = false;
 		if (passed) {
 			markGoodRun();
-			await award(medal, `Score ${score}`);
+			await award(medal, t('Score {score}', { score }));
 		} else playSound('complete');
 	}
 
@@ -368,7 +382,7 @@
 	});
 
 	/** What the finish bar says the exercise was marked as. */
-	const markedAs = $derived(ribbon === 'retry' ? 'Marked for another go.' : 'Marked complete.');
+	const markedAs = $derived(ribbon === 'retry' ? t('Marked for another go.') : t('Marked complete.'));
 
 	// Finishing never navigates on its own, and Enter is NOT a shortcut out:
 	// the quizzes use Enter to skip to the next question, so a learner still
@@ -388,7 +402,7 @@
 
 <div class="screen" class:with-done={finished && !doneDismissed}>
 	<header class="top">
-		<a class="back" href="/course/{course.id}" aria-label="Back to your deck" title="Back to your deck">
+		<a class="back" href="/course/{course.id}" aria-label={t('Back to your deck')} title={t('Back to your deck')}>
 			<Icon name="arrowLeft" size="1.15em" />
 		</a>
 
@@ -398,7 +412,7 @@
 
 		<div class="title">
 			<p class="where tnum">
-				{#if quiz.level}{quiz.level}{#if position}{` · ${position} of ${levelCount}`}{/if}{:else}{quiz.type}{/if}
+				{#if quiz.level}{quiz.level}{#if position}{` · ${t('{i} of {n}', { i: position, n: levelCount })}`}{/if}{:else}{quiz.type}{/if}
 			</p>
 			<h1 lang={course.learnLocale}>{quiz.title}</h1>
 		</div>
@@ -418,15 +432,15 @@
 					role="switch"
 					aria-checked={!learning}
 					aria-label="Practise mode"
-					title={learning ? 'Switch to the exercise' : 'Switch to the lesson'}
+					title={learning ? t('Switch to the exercise') : t('Switch to the lesson')}
 					onclick={() => (learning ? practise() : (mode = 'learn'))}
 				>
 					<span class="side" class:on={learning}>
-						<Icon name="book" size="1em" /><span class="side-label">Learn</span>
+						<Icon name="book" size="1em" /><span class="side-label">{t('Learn')}</span>
 					</span>
 					<span class="knob" aria-hidden="true"></span>
 					<span class="side" class:on={!learning}>
-						<Icon name="pen" size="1em" /><span class="side-label">Practise</span>
+						<Icon name="pen" size="1em" /><span class="side-label">{t('Practise')}</span>
 					</span>
 				</button>
 			{:else if hasNotes}
@@ -439,7 +453,7 @@
 					onclick={() => (notesOpen = true)}
 				>
 					<Icon name="book" size="1.1em" />
-					<span>Notes</span>
+					<span>{t('Notes')}</span>
 				</button>
 			{/if}
 			{#if canReport}
@@ -449,12 +463,12 @@
 					aria-haspopup="dialog"
 					aria-expanded={reportOpen}
 					aria-controls="report-{quiz.id}"
-					aria-label="Report a problem"
-					title="Report a problem with this exercise"
+					aria-label={t('Report a problem')}
+					title={t('Report a problem with this exercise')}
 					onclick={() => (reportOpen = true)}
 				>
 					<Icon name="flag" size="1.1em" />
-					<span class="tool-label">Report</span>
+					<span class="tool-label">{t('Report')}</span>
 				</button>
 			{/if}
 			<button
@@ -463,11 +477,11 @@
 				aria-haspopup="dialog"
 				aria-expanded={moreOpen}
 				aria-controls="more-{quiz.id}"
-				aria-label="More"
+				aria-label={t('More')}
 				onclick={() => (moreOpen = true)}
 			>
 				<Icon name="menu" size="1.1em" />
-				<span class="tool-label">More</span>
+				<span class="tool-label">{t('More')}</span>
 			</button>
 		</div>
 	</header>
@@ -475,7 +489,7 @@
 	{#if quiz.status === 'placeholder'}
 		<!-- The content is real and complete; the drill behind it is the
 		     minimum. Said plainly so nobody mistakes thin for finished. -->
-		<p class="preview">Preview — the explanation is complete, the exercise is still being expanded.</p>
+		<p class="preview">{t('Preview — the explanation is complete, the exercise is still being expanded.')}</p>
 	{/if}
 
 	<main class="stage">
@@ -537,8 +551,8 @@
 				{quiz}
 				courseId={course.id}
 				learnLocale={course.learnLocale}
-				uiLang={course.uiLang}
-				onFinish={(passed, score, medal) => passed && completeScored(medal, `Score ${score}`)}
+				uiLang={lang.tr ? 'tr' : course.uiLang}
+				onFinish={(passed, score, medal) => passed && completeScored(medal, t('Score {score}', { score }))}
 			/>
 		{:else if quiz.type === 'writing'}
 			<!-- A saved correction ends the attempt whatever the score: the learner
@@ -548,7 +562,7 @@
 				{quiz}
 				courseId={course.id}
 				learnLocale={course.learnLocale}
-				uiLang={course.uiLang}
+				uiLang={lang.tr ? 'tr' : course.uiLang}
 				onFinish={writingFinished}
 			/>
 		{:else if quiz.type === 'vocabulary'}
@@ -565,16 +579,16 @@
 		{:else if quiz.type === 'suchbild' && cards && roomDeck}
 			<div class="cards-bar">
 				<button type="button" class="btn btn-ghost" onclick={() => showCards(false)}>
-					<Icon name="arrowLeft" size="1em" /> Back to the picture
+					<Icon name="arrowLeft" size="1em" /> {t('Back to the picture')}
 				</button>
 				{#if cardsDone}
 					{#if cardsOffer}
 						<button type="button" class="btn" onclick={cardsOffer.go}>
-							<RibbonBadge tier={cardsOffer.tier} width={11} /> Try for {TIER_LABELS[cardsOffer.tier].toLowerCase()}
+							<RibbonBadge tier={cardsOffer.tier} width={11} /> {t('Try for {medal}', { medal: t(TIER_LABELS[cardsOffer.tier]).toLocaleLowerCase(lang.current) })}
 						</button>
 					{:else}
 						<button type="button" class="btn" onclick={cardsAgain}>
-							<Icon name="repeat" size="1em" /> Another round
+							<Icon name="repeat" size="1em" /> {t('Another round')}
 						</button>
 					{/if}
 				{/if}
@@ -612,8 +626,8 @@
 	<aside class="done" transition:fly={{ y: 40, duration: 320, easing: cubicOut }}>
 		<p class="done-line">
 			<Icon name="check" size="1.15em" />
-			<span><strong>Finished.</strong> {markedAs}</span>
-			<button type="button" class="done-close" aria-label="Hide" onclick={() => (doneDismissed = true)}>
+			<span><strong>{t('Finished.')}</strong> {markedAs}</span>
+			<button type="button" class="done-close" aria-label={t('Hide')} onclick={() => (doneDismissed = true)}>
 				<Icon name="close" size="1em" />
 			</button>
 		</p>
@@ -622,18 +636,18 @@
 			{#if climbOffer}
 				<!-- A medal won: the first way on is the next one up, not the same again. -->
 				<button type="button" class="btn" onclick={climbOffer.go}>
-					<RibbonBadge tier={climbOffer.tier} width={11} /> Try for {TIER_LABELS[climbOffer.tier].toLowerCase()}
+					<RibbonBadge tier={climbOffer.tier} width={11} /> {t('Try for {medal}', { medal: t(TIER_LABELS[climbOffer.tier]).toLocaleLowerCase(lang.current) })}
 				</button>
 			{:else}
 				<button type="button" class="btn" class:btn-ghost={ribbon !== 'retry'} onclick={tryAgain}>
-					<Icon name="repeat" size="1em" /> Try again
+					<Icon name="repeat" size="1em" /> {t('Try again')}
 				</button>
 			{/if}
-			<a class="btn" class:btn-ghost={ribbon === 'retry' || !!climbOffer} href={nextHref} title={next ? topicOf(next.title) : 'Back to your deck'}>
-				Next quiz <Icon name="arrowRight" size="1em" />
+			<a class="btn" class:btn-ghost={ribbon === 'retry' || !!climbOffer} href={nextHref} title={next ? topicOf(next.title) : t('Back to your deck')}>
+				{t('Next quiz')} <Icon name="arrowRight" size="1em" />
 			</a>
 			<a class="btn btn-ghost" href={homeHref}>
-				<Icon name="cards" size="1em" /> Deal me another card
+				<Icon name="cards" size="1em" /> {t('Deal me another card')}
 			</a>
 		</div>
 	</aside>
@@ -642,40 +656,40 @@
 		type="button"
 		class="done-pill"
 		transition:fly={{ y: 20, duration: 240, easing: cubicOut }}
-		aria-label="Show the finished bar: try again, next quiz or your deck"
+		aria-label={t('Show the finished bar: try again, next quiz or your deck')}
 		onclick={() => (doneDismissed = false)}
 	>
 		<Icon name="check" size="1em" />
-		<span>Finished</span>
+		<span>{t('Finished')}</span>
 		<Icon name="chevronDown" size="0.9em" />
 	</button>
 {/if}
 
 {#if hasNotes && !lessonSteps}
-	<Sheet bind:open={notesOpen} title="Study notes" id="notes-{quiz.id}">
+	<Sheet bind:open={notesOpen} title={t('Study notes')} id="notes-{quiz.id}">
 		<HelpMemory {quiz} locale={course.learnLocale} {vocab} {deckHref} />
 		{#snippet footer()}
 			<button type="button" class="btn to-exercise" onclick={() => (notesOpen = false)}>
-				Start the exercise <Icon name="arrowRight" size="1em" />
+				{t('Start the exercise')} <Icon name="arrowRight" size="1em" />
 			</button>
 		{/snippet}
 	</Sheet>
 {/if}
 
-<Sheet bind:open={moreOpen} title="More" id="more-{quiz.id}">
+<Sheet bind:open={moreOpen} title={t('More')} id="more-{quiz.id}">
 	<!-- Plain links to the neighbours, always in the page: they are how a
 	     reader (and a crawler) moves through the course without the course
 	     page. -->
-	<nav class="pager" aria-label="More exercises">
+	<nav class="pager" aria-label={t('More exercises')}>
 		{#if previous}
 			<a href="/course/{course.id}/quiz/{previous.id}" rel="prev">
-				<small>Previous</small>
+				<small>{t('Previous')}</small>
 				<span><Icon name="arrowLeft" size="1em" /> <span lang={course.learnLocale}>{topicOf(previous.title)}</span></span>
 			</a>
 		{/if}
 		{#if next}
 			<a class="to-next" href="/course/{course.id}/quiz/{next.id}" rel="next">
-				<small>Next</small>
+				<small>{t('Next')}</small>
 				<span><span lang={course.learnLocale}>{topicOf(next.title)}</span> <Icon name="arrowRight" size="1em" /></span>
 			</a>
 		{/if}
@@ -686,16 +700,16 @@
 	     learner. Next and the deck are already the cards above and "Your deck". -->
 	<div class="shortcuts">
 		<button type="button" onclick={() => { moreOpen = false; tryAgain(); }}>
-			<Icon name="repeat" size="1.05em" /> {finished ? 'Try again' : 'Start over'}
+			<Icon name="repeat" size="1.05em" /> {finished ? t('Try again') : t('Start over')}
 		</button>
-		<a href="/course/{course.id}"><Icon name="cards" size="1.05em" /> Your deck</a>
+		<a href="/course/{course.id}"><Icon name="cards" size="1.05em" /> {t('Your deck')}</a>
 		{#if quiz.level}
 			<a href={levelPath}><Icon name="book" size="1.05em" /> {levelTitle ?? quiz.level}</a>
 		{/if}
-		<a href="/settings" rel="nofollow"><Icon name="settings" size="1.05em" /> Settings</a>
+		<a href="/settings" rel="nofollow"><Icon name="settings" size="1.05em" /> {t('Settings')}</a>
 		{#if canReport}
 			<button type="button" onclick={() => { moreOpen = false; reportOpen = true; }}>
-				<Icon name="flag" size="1.05em" /> Report a problem
+				<Icon name="flag" size="1.05em" /> {t('Report a problem')}
 			</button>
 		{/if}
 		<a href="/forum"><Icon name="forum" size="1.05em" /> Forum</a>
@@ -705,7 +719,7 @@
 		<!-- The nearest exercises in the same level: a reader who came in from
 		     a search has somewhere to go besides forward and back. -->
 		<section class="related" aria-labelledby="related-heading">
-			<h2 id="related-heading">More at {levelTitle ?? quiz.level}</h2>
+			<h2 id="related-heading">{t('More at {level}', { level: levelTitle ?? quiz.level ?? '' })}</h2>
 			<ul>
 				{#each related as r (r.id)}
 					<li>
@@ -716,13 +730,13 @@
 					</li>
 				{/each}
 			</ul>
-			{#if quiz.level}<p><a href={levelPath}>Every {quiz.level} exercise <Icon name="arrowRight" size="1em" /></a></p>{/if}
+			{#if quiz.level}<p><a href={levelPath}>{t('Every {level} exercise', { level: quiz.level })} <Icon name="arrowRight" size="1em" /></a></p>{/if}
 		</section>
 	{/if}
 
 	{#if data.photoCredit}
 		<!-- The exercise's photo, as its licence asks (Wikimedia Commons). -->
-		<p class="photo-credit">Photo: {data.photoCredit}, Wikimedia Commons</p>
+		<p class="photo-credit">{t('Photo: {credit}, Wikimedia Commons', { credit: data.photoCredit })}</p>
 	{/if}
 
 	<SiteFooter />
@@ -731,7 +745,7 @@
 {#if canReport}
 	<!-- Filed from here rather than on the forum page, so the exercise and the
 	     question on screen are already written in. -->
-	<Sheet bind:open={reportOpen} title="Report a problem" id="report-{quiz.id}">
+	<Sheet bind:open={reportOpen} title={t('Report a problem')} id="report-{quiz.id}">
 		<ReportPanel target={reportTarget} open={reportOpen} />
 	</Sheet>
 {/if}

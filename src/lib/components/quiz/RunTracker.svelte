@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { t } from '$lib/i18n/t';
 	// The bar over a drill: a chevron track, one step per answer of the run,
 	// each step carrying its German number word — eins, zwei, drei … zehn —
 	// so even the progress bar teaches something. A step turns green for a
@@ -45,16 +47,16 @@
 	const next = $derived(nextMedal(streak));
 </script>
 
-<section class="tracker" class:bar-only={!showStreak} aria-label="Your run">
+<section class="tracker" class:bar-only={!showStreak} aria-label={t('Your run')}>
 	<div class="run">
 		<div class="run-top">
-			<span class="eyebrow tnum">Question {Math.min(answered + 1, total)} of {total} <span class="now-word" lang="de">· {nowWord}</span></span>
+			<span class="eyebrow tnum">{t('Question {i} of {n}', { i: Math.min(answered + 1, total), n: total })} <span class="now-word" lang="de">· {nowWord}</span></span>
 			{#if aside}{@render aside()}{/if}
 		</div>
 		<div
 			class="bar"
 			role="progressbar"
-			aria-label="Run progress"
+			aria-label={t('Run progress')}
 			aria-valuemin={0}
 			aria-valuemax={total}
 			aria-valuenow={answered}
@@ -78,19 +80,19 @@
 	<div class="streak">
 		<span class="flame" class:hot={streak > 0} data-heat={heat(streak)}><Icon name="flame" size="1.1em" /></span>
 		<span class="value tnum" use:bumpOn={streak}>{streak}</span>
-		<span class="label">in a row</span>
+		<span class="label">{t('in a row')}</span>
 	</div>
 
 	<!-- Where the streak is heading: the medal it earns next, or that it has them all. -->
 	<span class="next tnum">
 		{#if next}
-			{next.at - streak} more for {TIER_LABELS[next.tier].toLowerCase()}
+			{t('{n} more for {tier}', { n: next.at - streak, tier: t(TIER_LABELS[next.tier]).toLocaleLowerCase(lang.current) })}
 		{:else}
-			Gold — keep it burning
+			{t('Gold — keep it burning')}
 		{/if}
 	</span>
 
-	<span class="best tnum" title="Your best streak here">
+	<span class="best tnum" title={t('Your best streak here')}>
 		{#if medal}<RibbonBadge tier={medal} width={11} />{/if}
 		Best {best}
 	</span>

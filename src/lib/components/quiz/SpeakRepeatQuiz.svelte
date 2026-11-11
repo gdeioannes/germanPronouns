@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	// Listen and repeat. Speech recognition is *optional* by design: it is
 	// Chrome-leaning on the web and absent in some browsers entirely, so the
@@ -79,7 +80,7 @@
 				announce([
 					{ text: 'Heard:' },
 					{ text: result.transcript, lang: locale },
-					{ text: matched ? '— close enough.' : '— try once more.' }
+					{ text: matched ? t('— close enough.') : t('— try once more.') }
 				]);
 			});
 		} catch {
@@ -132,12 +133,12 @@
 			<Icon name="trophy" size="1.1em" /> All {total} phrases practised.
 		</p>
 		<button class="btn" onclick={restart}>
-			<Icon name="repeat" size="1em" /> Go again
+			<Icon name="repeat" size="1em" /> {t('Go again')}
 		</button>
 	</section>
 {:else if phrase}
 	<section class="card" use:freshen={index} in:rise>
-		<p class="eyebrow counter tnum">Phrase {index + 1} of {total}</p>
+		<p class="eyebrow counter tnum">{t('Phrase {i} of {n}', { i: index + 1, n: total })}</p>
 
 		<p class="phrase" lang={locale}>
 			<GermanText text={phrase.text} />
@@ -149,7 +150,7 @@
 
 		<div class="controls">
 			<button class="chip" onclick={() => tts.speak(phrase.text, { locale })}>
-				<Icon name="play" size="0.95em" /> Hear it
+				<Icon name="play" size="0.95em" /> {t('Hear it')}
 			</button>
 			<button class="chip" onclick={() => tts.speak(phrase.text, { locale, rate: 0.6 })}>
 				<Icon name="slow" size="0.95em" /> Slower
@@ -157,7 +158,7 @@
 			{#if micAvailable}
 				<button type="button" class="chip mic" class:listening onclick={listen} aria-disabled={listening}>
 					<Icon name="mic" size="0.95em" />
-					{listening ? 'Listening…' : 'Say it'}
+					{listening ? t('Listening…') : t('Say it')}
 				</button>
 			{/if}
 		</div>
@@ -167,15 +168,14 @@
 				<span class="eyebrow">Heard</span>
 				<em>{heard}</em>
 				{#if matched === true}
-					<span class="ok"><Icon name="check" size="0.95em" /> close enough</span>
+					<span class="ok"><Icon name="check" size="0.95em" /> {t('close enough')}</span>
 				{:else if matched === false}
-					<span class="off"><Icon name="close" size="0.95em" /> try once more</span>
+					<span class="off"><Icon name="close" size="0.95em" /> {t('try once more')}</span>
 				{/if}
 			</p>
 		{:else if !micAvailable}
 			<p class="no-mic">
-				Speech recognition isn't available in this browser — say the phrase out
-				loud and move on when you're happy with it.
+				{t('Speech recognition isn\'t available in this browser — say the phrase out loud and move on when you\'re happy with it.')}
 			</p>
 		{/if}
 

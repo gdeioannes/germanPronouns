@@ -1,3 +1,4 @@
+import { t } from '$lib/i18n/t';
 // The study companion: a level's printed book written for paper, not printed
 // from the app. Where the workbook (domain/workbook) lays every quiz out in
 // the app's own order, the companion is authored: one topic per two-page
@@ -343,7 +344,7 @@ export function answersOf(ex: Exercise): { answers: KeyEntry['answers']; note?: 
 		case 'sort':
 			return { answers: ex.columns.map((c, col) => ({ q: c, a: ex.words.filter((_, i) => ex.answers[i] === col).join(', ') })) };
 		case 'colour':
-			return { answers: [], note: 'Check your picture against each sentence.' };
+			return { answers: [], note: t('Check your picture against each sentence.') };
 		case 'gaps':
 			return { answers: ex.items.filter((i) => i.answer).map((i) => ({ a: i.answer! })), note: ex.note };
 		case 'clocks':

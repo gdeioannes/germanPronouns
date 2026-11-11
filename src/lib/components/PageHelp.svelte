@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The "?" button: opens a short explanation of the screen it sits on, from
 	// content/pageHelp. The top bar shows it for its page; the screens without
 	// a top bar (a chat, Ja oder Nein?) put it in their own header. With no
@@ -6,10 +7,13 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import Sheet from '$lib/components/Sheet.svelte';
 	import { PAGE_HELP } from '$lib/content/pageHelp';
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { routeInTurkish } from '$lib/i18n/available';
 
 	let { topic, tone = 'muted' }: { topic: string | null | undefined; tone?: 'muted' | 'light' } = $props();
 
-	const help = $derived(topic ? PAGE_HELP[topic] : undefined);
+	// Turkish mode: help only for the screens that exist in Turkish.
+	const help = $derived(topic && (!lang.tr || routeInTurkish(topic)) ? PAGE_HELP[topic] : undefined);
 	let open = $state(false);
 	/** The pictures load the first time the panel opens (they pull in the game rules). */
 	const visuals = $derived(open ? import('$lib/components/help/HelpVisual.svelte') : null);
@@ -31,26 +35,26 @@
 		class:light={tone === 'light'}
 		aria-haspopup="dialog"
 		aria-controls="page-help"
-		aria-label="Help: {help.title}"
-		title="How this works"
+		aria-label={t('Help: {title}', { title: t(help.title) })}
+		title={t('How this works')}
 		onclick={() => (open = true)}
 	>
 		<Icon name="help" size="1.15em" />
 	</button>
 	<div use:toBody>
-	<Sheet bind:open title={help.title} id="page-help">
+	<Sheet bind:open title={t(help.title)} id="page-help">
 		<div class="help">
-			<p class="intro">{help.intro}</p>
+			<p class="intro">{t(help.intro)}</p>
 			{#each help.items as item (item.title)}
 				<section>
-					<h3>{item.title}</h3>
-					<p>{item.text}</p>
+					<h3>{t(item.title)}</h3>
+					<p>{t(item.text)}</p>
 					{#if item.visual && visuals}
 						{#await visuals then V}<V.default kind={item.visual} />{/await}
 					{/if}
 					{#if item.list?.length}
 						<ul>
-							{#each item.list as line (line)}<li>{line}</li>{/each}
+							{#each item.list as line (line)}<li>{t(line)}</li>{/each}
 						</ul>
 					{/if}
 				</section>

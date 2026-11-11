@@ -1,3 +1,4 @@
+import { t } from '$lib/i18n/t';
 // Grading a dictation line.
 //
 // The old check was all-or-nothing: one missing umlaut, one comma, one typo
@@ -200,22 +201,22 @@ export function gradeDictation(
 
 /** What each band is called on screen. */
 export const BAND_LABELS: Record<DictationBand, string> = {
-	perfect: 'Word for word',
-	close: 'Nearly — a slip or two',
-	partial: 'Half of it',
-	off: 'Not this one'
+	perfect: t('Word for word'),
+	close: t('Nearly — a slip or two'),
+	partial: t('Half of it'),
+	off: t('Not this one')
 };
 
 /** A line on what to make of the result. */
 export function bandNote(band: DictationBand): string {
 	switch (band) {
 		case 'perfect':
-			return 'Every word, exactly as read.';
+			return t('Every word, exactly as read.');
 		case 'close':
-			return 'Counts as right — the marks show the spelling to fix.';
+			return t('Counts as right — the marks show the spelling to fix.');
 		case 'partial':
-			return 'You caught the shape of it. The words in red are the ones to listen for.';
+			return t('You caught the shape of it. The words in red are the ones to listen for.');
 		case 'off':
-			return 'Play it once more, slower, before you move on.';
+			return t('Play it once more, slower, before you move on.');
 	}
 }

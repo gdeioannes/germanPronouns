@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The writing exercise. The learner writes the text here, inside a
 	// character bound, and the app renders a prompt that CARRIES that text to
 	// their own AI for correction. What comes back is the same delimited report
@@ -73,7 +74,7 @@
 	let saved = $state<number | null>(null);
 	let remembered = $state<SpeakingFix[]>([]);
 	let index = $state(0);
-	const labels = ['Write', 'Copy', 'Correct', 'Score'];
+	const labels = ['Write', t('Copy'), t('Correct'), t('Score')];
 
 	// The page is reused from one exercise to the next: start it over.
 	$effect(() => {
@@ -172,9 +173,9 @@
 			run: () => insert(key),
 			kind: 'letter' as const
 		})),
-		{ text: 'F', label: 'Bold', run: () => emphasise(BOLD), kind: 'bold' as const },
-		{ text: 'K', label: 'Italic', run: () => emphasise(ITALIC), kind: 'italic' as const },
-		{ text: 'Punkt', label: 'Start a bullet point', run: bullet, kind: 'wide' as const }
+		{ text: 'F', label: t('Bold'), run: () => emphasise(BOLD), kind: 'bold' as const },
+		{ text: 'K', label: t('Italic'), run: () => emphasise(ITALIC), kind: 'italic' as const },
+		{ text: 'Punkt', label: t('Start a bullet point'), run: bullet, kind: 'wide' as const }
 	];
 
 	/** Which key in the strip currently holds the toolbar's single tab stop. */
@@ -351,7 +352,7 @@
 					onclick={() => (brief = !brief)}
 				>
 					<span class="step tnum">1</span>
-					<span class="brief-title">{brief ? 'Write your text' : 'The task'}</span>
+					<span class="brief-title">{brief ? t('Write your text') : t('The task')}</span>
 					<span class="brief-peek">{brief ? '' : quiz.writing.topic}</span>
 					<Icon name={brief ? 'chevronDown' : 'chevronRight'} size="0.9em" />
 				</button>
@@ -382,7 +383,7 @@
 					<div
 						class="tools"
 						role="toolbar"
-						aria-label="Writing tools"
+						aria-label={t('Writing tools')}
 						aria-controls="writing-box"
 						tabindex="-1"
 						onkeydown={onToolKey}
@@ -405,8 +406,8 @@
 							class="key grow"
 							onclick={() => (expanded = !expanded)}
 							tabindex="-1"
-							aria-label={expanded ? 'Leave full screen' : 'Write full screen'}
-							title={expanded ? 'Leave full screen' : 'Write full screen'}
+							aria-label={expanded ? t('Leave full screen') : t('Write full screen')}
+							title={expanded ? t('Leave full screen') : t('Write full screen')}
 						>
 							<Icon name={expanded ? 'close' : 'pen'} size="0.9em" />
 						</button>
@@ -422,7 +423,7 @@
 						contenteditable="true"
 						role="textbox"
 						aria-multiline="true"
-						aria-label="Your text"
+						aria-label={t('Your text')}
 						aria-describedby="writing-count"
 						data-placeholder="Schreib hier, auf Deutsch …"
 						spellcheck="false"
@@ -443,11 +444,11 @@
 					>
 						<span class="n tnum">{chars}</span>
 						{#if fit === 'short'}
-							<span>of {bounds.min} characters — keep going</span>
+							<span>{t('of {min} characters — keep going', { min: bounds.min })}</span>
 						{:else if fit === 'over'}
-							<span>characters — {bounds.max} is the limit, trim it a little</span>
+							<span>{t('characters — {max} is the limit, trim it a little', { max: bounds.max })}</span>
 						{:else}
-							<span>characters, within {bounds.min}–{bounds.max}</span>
+							<span>{t('characters, within {min}–{max}', { min: bounds.min, max: bounds.max })}</span>
 						{/if}
 						<span class="words tnum">{words} {words === 1 ? 'word' : 'words'}</span>
 					</p>
@@ -455,61 +456,59 @@
 
 				<button class="btn" onclick={() => (index = 1)} disabled={!ready}>
 					<Icon name="arrowRight" size="1em" />
-					{ready ? 'Done writing' : 'Finish your text first'}
+					{ready ? t('Done writing') : t('Finish your text first')}
 				</button>
 			</section>
 		{:else if i === 1}
 			<section class="card fill">
-				<h3><span class="step tnum">2</span> Copy the correction request</h3>
+				<h3><span class="step tnum">2</span> {t('Copy the correction request')}</h3>
 				<p class="lede">
-					This carries your own text. Paste it into your AI assistant and it will
-					correct what you wrote, then give you a score and a short list of fixes.
+					{t('This carries your own text. Paste it into your AI assistant and it will correct what you wrote, then give you a score and a short list of fixes.')}
 				</p>
 				<pre class="prompt">{prompt}</pre>
 				<button class="btn" onclick={copy} disabled={!ready}>
 					<Icon name={copied ? 'check' : 'copy'} size="1em" />
-					{copied ? 'Copied' : 'Copy the request'}
+					{copied ? t('Copied') : t('Copy the request')}
 				</button>
 			</section>
 		{:else if i === 2}
 			<section class="card center">
-				<h3><span class="step tnum">3</span> Open your assistant</h3>
+				<h3><span class="step tnum">3</span> {t('Open your assistant')}</h3>
 				<div class="ai-links">
 					{#each AI_ASSISTANTS as ai (ai.name)}
 						<a href={assistantHref(ai, userAgent)} target="_blank" rel="noopener">
 							<span class="ai-name">{ai.name}</span>
-							<span class="ai-hint">Opens in a new tab</span>
+							<span class="ai-hint">{t('Opens in a new tab')}</span>
 							<Icon name="external" size="0.9em" />
 						</a>
 					{/each}
 				</div>
 				<p class="note">
 					{copied
-						? 'The request is already on your clipboard — just paste it. No voice needed.'
-						: 'Copy the request first (one step back), then paste it into your assistant.'}
+						? t('The request is already on your clipboard — just paste it. No voice needed.')
+						: t('Copy the request first (one step back), then paste it into your assistant.')}
 				</p>
 				<button class="btn btn-ghost" onclick={() => (index = 3)}>
-					I have my correction <Icon name="arrowRight" size="1em" />
+					{t('I have my correction')} <Icon name="arrowRight" size="1em" />
 				</button>
 			</section>
 		{:else}
 			<section class="card fill">
-				<h3><span class="step tnum">4</span> Bring the correction back</h3>
+				<h3><span class="step tnum">4</span> {t('Bring the correction back')}</h3>
 				<p class="lede">
-					Paste the whole report. The <code>SCORE=</code> line is read
-					automatically, and the fixes are saved as your next things to work on.
+					{t('Paste the whole report. The')} <code>SCORE=</code> {t('line is read automatically, and the fixes are saved as your next things to work on.')}
 				</p>
 				<textarea
 					bind:value={report}
-					aria-label="The AI's correction report, or your score"
+					aria-label={t('The AI\'s correction report, or your score')}
 					rows="5"
-					placeholder="Paste the report, or type the score"
+					placeholder={t('Paste the report, or type the score')}
 				></textarea>
 
 				{#if saved === null}
 					<button class="btn" onclick={save} disabled={score === null}>
 						<Icon name="check" size="1em" />
-						{score === null ? 'Enter a score to save' : `Save ${score} / 100`}
+						{score === null ? t('Enter a score to save') : `Save ${score} / 100`}
 					</button>
 				{:else}
 					<div class="result" class:pass={saved >= passScore} in:pop>
@@ -522,7 +521,7 @@
 							<p class="medal"><Icon name="trophy" size="1.05em" /> {medal} medal</p>
 						{:else}
 							<p class="medal">
-								No medal yet. Your text is kept — tap Try again below to mend it.
+								{t('No medal yet. Your text is kept — tap Try again below to mend it.')}
 							</p>
 						{/if}
 					</div>
@@ -531,7 +530,7 @@
 						<!-- The reason the exercise exists: a short list to carry into the
 						     next one. Also replayed into later prompts as PERSONAL FOCUS. -->
 						<div class="focus" in:pop>
-							<h4><Icon name="pen" size="1em" /> Work on these next time</h4>
+							<h4><Icon name="pen" size="1em" /> {t('Work on these next time')}</h4>
 							<ol>
 								{#each remembered as fix, n (n)}
 									<li>
@@ -543,12 +542,10 @@
 								{/each}
 							</ol>
 							<p class="note">
-								Saved. Your next speaking or writing exercise will quietly bring
-								one or two of them back.
+								{t('Saved. Your next speaking or writing exercise will quietly bring one or two of them back.')}
 							</p>
 							<p class="note">
-								Try again below brings your own text back, so you can mend these
-								four and send it round once more.
+								{t('Try again below brings your own text back, so you can mend these four and send it round once more.')}
 							</p>
 						</div>
 					{/if}

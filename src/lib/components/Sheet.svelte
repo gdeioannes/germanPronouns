@@ -52,6 +52,7 @@
 			open = false;
 		}
 	}
+	import { t } from '$lib/i18n/t';
 </script>
 
 <svelte:window onkeydown={onKey} />
@@ -76,7 +77,7 @@
 		<header class="bar">
 			<span class="grip" aria-hidden="true"></span>
 			<h2 id="{id}-title">{title}</h2>
-			<button type="button" class="close" aria-label="Close" onclick={() => (open = false)}>
+			<button type="button" class="close" aria-label={t('Close')} onclick={() => (open = false)}>
 				<Icon name="close" size="1.1em" />
 			</button>
 		</header>

@@ -14,6 +14,12 @@
 	import Announcer from '$lib/components/Announcer.svelte';
 	import MergePanel from '$lib/components/MergePanel.svelte';
 	import SignInSheet from '$lib/components/SignInSheet.svelte';
+	import NotInTurkish from '$lib/components/NotInTurkish.svelte';
+	import { onMount } from 'svelte';
+	import { lang, startLang } from '$lib/i18n/lang.svelte';
+	import { levelInTurkish, routeInTurkish } from '$lib/i18n/available';
+	import { t } from '$lib/i18n/t';
+	import { loadTurkish } from '$lib/i18n/content.svelte';
 	// Self-hosted fonts: no third-party request blocks the first paint, and the
 	// files ship from the same origin as the page.
 	import '@fontsource-variable/inter';
@@ -24,7 +30,33 @@
 	import serifUrl from '@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2?url';
 	import '../app.css';
 
-	let { children } = $props();
+	let { children, data } = $props();
+
+	// The learner's language (English or Turkish), applied after hydration.
+	// In Turkish, once the page's overlay is in, the page is mounted afresh
+	// (still hidden): hydration patches text written through t(), but not
+	// {@html} or text that differs in structure, so a fresh render is the one
+	// sure way the first screen is all Turkish.
+	let remount = $state(0);
+	onMount(
+		() =>
+			void startLang(async () => {
+				await loadTurkish(pageLevel);
+				remount++;
+			})
+	);
+
+	// Turkish mode shows only what exists in Turkish: any other page gives way
+	// to a short note with the way back.
+	// A level-bound page (a level, an exercise, a book) also needs its level.
+	const pageLevel = $derived(
+		page.params.levelId ?? (page.data as { quiz?: { level?: string } }).quiz?.level ?? null
+	);
+	const hiddenInTurkish = $derived(
+		lang.tr &&
+			page.status < 400 &&
+			(!routeInTurkish(page.route.id) || (pageLevel !== null && !levelInTurkish(pageLevel)))
+	);
 
 	// Each page renders its own <main>; the skip link finds whichever one is
 	// showing and hands it focus, so the next Tab starts inside the content.
@@ -117,17 +149,21 @@
 	<meta name="theme-color" content="#1F3A5F" />
 </svelte:head>
 
-<a class="skip-link" href="#main" onclick={skipToMain}>Skip to content</a>
+<a class="skip-link" href="#main" onclick={skipToMain}>{t('Skip to content')}</a>
 
 <!-- Fallback for browsers without view transitions: fades the new page in so
      a client-side navigation reads as a change of content rather than a
      flash. Off where view transitions already animate the swap. -->
-{#key page.url.pathname}
+{#key `${page.url.pathname}|${remount}`}
 	<!-- id="main" is the skip link's target, so it lands even before JavaScript
 	     runs (and the prerenderer can check the link); with JavaScript, focus
 	     goes to the page's own <main>. -->
 	<div id="main" in:fade={{ duration: viewTransitions ? 0 : 220, easing: cubicOut }}>
-		{@render children()}
+		{#if hiddenInTurkish}
+			<NotInTurkish courseHref={data.site.courseHref} />
+		{:else}
+			{@render children()}
+		{/if}
 	</div>
 {/key}
 

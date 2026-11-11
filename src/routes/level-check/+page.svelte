@@ -14,6 +14,8 @@
 	import { WORD_CHECK_LOG, parseLog, type CheckLogEntry } from '$lib/domain/wordCheck';
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
 
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
 
@@ -62,13 +64,14 @@
 	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 
 	<header>
-		<h1>Your level</h1>
+		<h1>{t('Your level')}</h1>
 		<p class="lede">
-			Find out where you stand, whenever you like. Nothing here is marked or
-			counted: it tells you your level and sets up your deck to match.
+			{t('Find out where you stand, whenever you like. Nothing here is marked or counted: it tells you your level and sets up your deck to match.')}
 		</p>
 	</header>
 
+	<!-- The word check reaches C2 and is English-only: Turkish mode offers the placement test alone. -->
+	{#if !lang.tr}
 	<a class="check card" href="/level-check/words">
 		<span class="disc" aria-hidden="true"><Icon name="words" size="1.5em" /></span>
 		<span class="body">
@@ -112,14 +115,15 @@
 			{/if}
 		{/if}
 	</section>
+	{/if}
 
 	<a class="check card" href="/level-check/test">
 		<span class="disc" aria-hidden="true"><Icon name="compass" size="1.5em" /></span>
 		<span class="body">
-			<span class="eyebrow">Placement test · about 10 minutes</span>
-			<strong class="name">Which level should I start at?</strong>
-			<span class="what">Words, grammar, reading and listening, each part adapting as you go. You get the sub-level to start at, and one tap sets your deck there.</span>
-			<span class="go">Take the test <Icon name="arrowRight" size="1em" /></span>
+			<span class="eyebrow">{t('Placement test · about 10 minutes')}</span>
+			<strong class="name">{t('Which level should I start at?')}</strong>
+			<span class="what">{t('Words, grammar, reading and listening, each part adapting as you go. You get the sub-level to start at, and one tap sets your deck there.')}</span>
+			<span class="go">{t('Take the test')} <Icon name="arrowRight" size="1em" /></span>
 		</span>
 	</a>
 </main>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	// The flashcard deck. A real card: English on the front, and whatever the
 	// mode — flip and rate yourself, pick it from four, or write the German —
@@ -62,9 +64,9 @@
 	type Mode = 'write' | 'choose' | 'flip';
 	/** The ladder, easiest first: the step's index is its medal's. */
 	const STEPS: { id: Mode; label: string; hint: string }[] = [
-		{ id: 'flip', label: 'Remember', hint: 'turn the card and say whether you knew it.' },
-		{ id: 'choose', label: 'Choose', hint: 'pick the German from four.' },
-		{ id: 'write', label: 'Write', hint: 'write the article and the noun yourself.' }
+		{ id: 'flip', label: t('Remember'), hint: t('turn the card and say whether you knew it.') },
+		{ id: 'choose', label: t('Choose'), hint: t('pick the German from four.') },
+		{ id: 'write', label: t('Write'), hint: t('write the article and the noun yourself.') }
 	];
 
 	const ARTICLE_GENDER: Record<string, 'm' | 'f' | 'n'> = { der: 'm', die: 'f', das: 'n' };
@@ -271,7 +273,7 @@
 		const passed = runPassed(right, RUN_LENGTH);
 		onRunFinished(passed);
 		announce(
-			`Run finished: ${right} of ${RUN_LENGTH} right — ${passed ? 'exercise done' : 'not this time'}. Your streak is ${streak}.`
+			t('Run finished: {right} of {n} right — {result}. Your streak is {streak}.', { right, n: RUN_LENGTH, result: passed ? t('exercise done') : t('not this time'), streak })
 		);
 	}
 
@@ -349,7 +351,7 @@
 		// medal — a stamp and a fanfare the effects layer hides — is said here.
 		const medal = medalWon ? run.announcement(medalWon) : '';
 		announce([
-			{ text: correct ? 'Correct.' : 'Not quite. It is:' },
+			{ text: correct ? t('Correct.') : t('Not quite. It is:') },
 			{ text: target, lang: locale },
 			...(medal ? [{ text: medal }] : [])
 		]);
@@ -410,7 +412,7 @@
 
 	const fieldSize = $derived(Math.max(answer.length + 1, target.length, 8));
 	const kindLabel = $derived(
-		current?.kind === 'noun' ? 'Noun · with article' : current?.kind === 'name' ? 'Name' : 'Word'
+		current?.kind === 'noun' ? t('Noun · with article') : current?.kind === 'name' ? 'Name' : 'Word'
 	);
 	/** The card's picture, and whether it asks the question by itself. */
 	const picture = $derived(current?.image ? `/img/${current.image}.webp` : null);
@@ -436,10 +438,10 @@
 			aria-pressed={weakOnly}
 			disabled={locked || (weakCount === 0 && !weakOnly)}
 			title={weakCount === 0
-				? 'Nothing to repeat — a missed word lands here'
+				? t('Nothing to repeat — a missed word lands here')
 				: weakOnly
-					? 'Back to the whole deck'
-					: 'Deal only the words you have missed'}
+					? t('Back to the whole deck')
+					: t('Deal only the words you have missed')}
 			onclick={toggleWeak}
 		>
 			<Icon name="repeat" size="1.05em" />
@@ -447,7 +449,7 @@
 				<span class="weak-label">All clear</span>
 			{:else}
 				<span class="count tnum" use:bumpOn={weakCount}>{weakCount}</span>
-				<span class="weak-label">{weakOnly ? 'repeating' : 'to repeat'}</span>
+				<span class="weak-label">{weakOnly ? 'repeating' : t('to repeat')}</span>
 			{/if}
 		</button>
 	</MedalLadder>
@@ -463,8 +465,8 @@
 
 {#if sourceOnly}
 	<p class="scope">
-		Practising the words of one exercise ({pool.length} cards).
-		<button type="button" class="btn-quiet" onclick={clearSource}>Whole level</button>
+		{t('Practising the words of one exercise ({n} cards).', { n: pool.length })}
+		<button type="button" class="btn-quiet" onclick={clearSource}>{t('Whole level')}</button>
 	</p>
 {/if}
 
@@ -522,7 +524,7 @@
 								readonly={locked}
 								size={fieldSize}
 								lang={locale}
-								aria-label="The German word"
+								aria-label={t('The German word')}
 								aria-invalid={verdict === 'wrong' ? 'true' : undefined}
 								placeholder={current.kind === 'noun' ? 'der / die / das …' : '…'}
 								autocomplete="off"
@@ -530,12 +532,12 @@
 								autocorrect="off"
 								spellcheck="false"
 							/>
-							<button type="button" class="go" aria-label="Check" onclick={submitWritten}>
+							<button type="button" class="go" aria-label={t('Check')} onclick={submitWritten}>
 								<Icon name="arrowRight" size="1.1em" />
 							</button>
 						</p>
 						<p class="nudge">
-							{current.kind === 'noun' ? 'Type the article too, then Enter.' : 'Type the German, then Enter.'}
+							{current.kind === 'noun' ? t('Type the article too, then Enter.') : t('Type the German, then Enter.')}
 						</p>
 					{:else if mode === 'choose'}
 						<div class="options">
@@ -552,7 +554,7 @@
 					{:else}
 						<button type="button" class="turn" onclick={() => (peeking = true)}>
 							<Icon name="repeat" size="1.1em" />
-							Turn the card
+							{t('Turn the card')}
 						</button>
 					{/if}
 				</div>
@@ -585,7 +587,7 @@
 					{/if}
 
 					{#if verdict === 'right'}
-						<p class="verdict right"><Icon name="check" size="1.05em" /> Correct</p>
+						<p class="verdict right"><Icon name="check" size="1.05em" /> {t('Correct')}</p>
 					{:else if verdict === 'wrong'}
 						<p class="verdict wrong">
 							<Icon name="close" size="1.05em" />
@@ -596,19 +598,19 @@
 							{:else if mode === 'choose' && chosen}
 								You chose <s lang={locale}>{chosen}</s>
 							{:else}
-								Not yet — it comes back in a moment.
+								{t('Not yet — it comes back in a moment.')}
 							{/if}
 						</p>
 						{#if rule}
 							<!-- The ending rule, so the miss teaches the next noun too. -->
-							<p class="rule" lang="en">
+							<p class="rule" lang={lang.current}>
 								{#if rule.follows}
 									Tip: words ending in <strong lang={locale}>-{rule.ending}</strong> are {rule.how}
 									<strong lang={locale} style="color:{ruleColor}">{rule.article}</strong>.
 								{:else}
 									Careful: words ending in <strong lang={locale}>-{rule.ending}</strong> are {rule.how}
 									<strong lang={locale} style="color:{ruleColor}">{rule.article}</strong>, but
-									<strong lang={locale}>{rule.noun}</strong> is an exception.
+									<strong lang={locale}>{rule.noun}</strong> {t('is an exception.')}
 								{/if}
 							</p>
 						{/if}
@@ -628,7 +630,7 @@
 								{/if}
 								{#if repeatNote.kind === 'step'}
 									{repeatNote.streak} of {repeatNote.need} — {repeatNote.need - repeatNote.streak === 1
-										? 'one more clears it'
+										? t('one more clears it')
 										: `${repeatNote.need - repeatNote.streak} more clear it`}
 								{:else if repeatNote.need === 1}
 									On your repeat list — get it right once to clear it
@@ -640,15 +642,15 @@
 					{/if}
 					{#if locked && progress.answerRevealMode === 'manual'}
 						<button type="button" class="btn next-card" disabled={!skip} onclick={() => skip?.()}>
-							Next card <Icon name="arrowRight" size="1em" />
+							{t('Next card')} <Icon name="arrowRight" size="1em" />
 						</button>
 					{:else if peeking && !locked}
 						<div class="rate">
 							<button type="button" class="btn rate-no" onclick={() => rate(false)}>
-								<Icon name="close" size="1em" /> Didn't know it
+								<Icon name="close" size="1em" /> {t('Didn\'t know it')}
 							</button>
 							<button type="button" class="btn rate-yes" onclick={() => rate(true)}>
-								<Icon name="check" size="1em" /> Knew it
+								<Icon name="check" size="1em" /> {t('Knew it')}
 							</button>
 						</div>
 					{/if}
@@ -658,7 +660,7 @@
 		{/key}
 	</div>
 {:else}
-	<p class="empty">This deck has no cards yet.</p>
+	<p class="empty">{t('This deck has no cards yet.')}</p>
 {/if}
 
 <style>

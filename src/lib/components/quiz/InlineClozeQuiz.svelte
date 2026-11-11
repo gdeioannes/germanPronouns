@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	import GermanText from '../GermanText.svelte';
 	// The "big text" cloze: a whole passage with inline blanks typed in place.
@@ -119,9 +121,9 @@
 
 	/** The ladder, easiest first: the step's index is its medal's. */
 	const STEPS = [
-		{ label: 'Choose', hint: 'pick each gap from four.' },
-		{ label: 'Type', hint: 'type each gap, with its hint.' },
-		{ label: 'No help', hint: 'type each gap from its bare word, with no grammar note.' }
+		{ label: t('Choose'), hint: t('pick each gap from four.') },
+		{ label: t('Type'), hint: t('type each gap, with its hint.') },
+		{ label: t('No help'), hint: t('type each gap from its bare word, with no grammar note.') }
 	];
 	const run = new LadderRun(untrack(() => quiz.storageKeyPrefix), STEPS);
 	$effect(() => {
@@ -159,7 +161,7 @@
 			return;
 		}
 		const gaps = blanks.map((b) => quiz.inlineBlanks[b]?.answer).filter(Boolean).join(', ');
-		onQuestion?.({ number: index + 1, total: pages.length, text: gaps ? `Gaps: ${gaps}` : 'Page' });
+		onQuestion?.({ number: index + 1, total: pages.length, text: gaps ? `Gaps: ${gaps}` : t('Page') });
 	});
 
 	/** False until a saved spot has been looked for, so a fresh start never overwrites it. */
@@ -213,7 +215,7 @@
 	const count = $derived(pages.length + 1);
 	const labels = $derived([
 		...pages.map((_, i) => (pages.length > 1 ? `Text ${i + 1}` : 'Text')),
-		'Check'
+		t('Check')
 	]);
 	const marks = $derived<StepMark[]>([
 		...pageBlanks.map((blanks): StepMark => {
@@ -244,10 +246,10 @@
 		);
 		onFinish(passed, correctCount, total);
 		announce(
-			`${correctCount} of ${total} correct. ${passed ? 'Passed.' : 'Not quite yet: two thirds right passes.'}`
+			t('{n} of {total} correct', { n: correctCount, total }) + '. ' + (passed ? t('Passed.') : t('Not quite yet: two thirds right passes.'))
 		);
 		// After the page's own finish, so the medal's stamp is the one that shows.
-		if (stepPassed) void run.pass(`${correctCount} of ${total} on ${STEPS[run.step].label}`);
+		if (stepPassed) void run.pass(t("{n} of {total} on {step}", { n: correctCount, total, step: STEPS[run.step].label }));
 		void tick().then(() => resultEl?.focus({ preventScroll: true }));
 	}
 
@@ -305,10 +307,10 @@
 				{/if}
 				<header>
 					<h2>{quiz.passageTitle}</h2>
-					<SpeakButton text={quiz.passage} {locale} label="Play the passage" />
+					<SpeakButton text={quiz.passage} {locale} label={t('Play the passage')} />
 					{#if quiz.passageTranslation}
 						<button type="button" class="reading-chip" onclick={() => (showTranslation = true)}>
-							Translation
+							{t('Translation')}
 						</button>
 					{/if}
 				</header>
@@ -349,7 +351,7 @@
 								/>
 								{/if}
 								{#if checked && !results[part.blank]}
-									<span class="fix"><span class="sr-only" lang="en">Correct answer: </span>{blank.answer}</span>
+									<span class="fix"><span class="sr-only" lang={lang.current}>{t('Correct answer:')} </span>{blank.answer}</span>
 								{/if}
 								{#if !checked && blank.hint && run.step === 1}
 									<span class="hint" id="{quiz.id}-hint-{part.blank}">{blank.hint}</span>
@@ -369,10 +371,10 @@
 					<Burst trigger={passed ? 1 : 0} count={26} />
 					<p class="reading-verdict" class:pass={passed} in:pop={{ from: 0.9 }}>
 						<Icon name={passed ? 'trophy' : 'close'} size="1.3em" />
-						<span class="tnum">{correctCount} of {total} correct</span>
+						<span class="tnum">{t('{n} of {total} correct', { n: correctCount, total })}</span>
 					</p>
 					<p class="reading-sub">
-						{passed ? 'Passed — well done.' : 'Not quite yet: two thirds right passes.'}
+						{passed ? t('Passed — well done.') : t('Not quite yet: two thirds right passes.')}
 					</p>
 					{#if up !== null}
 						<!-- This step's medal is won: the next one up, one tap away. -->
@@ -390,18 +392,18 @@
 						</div>
 					{:else if !stepPassed}
 						<p class="reading-sub">
-							{Math.ceil(PASS_SHARE * total)} of {total} right on {STEPS[run.step].label} earns its medal.
+							{t('{n} of {total} right on {step} earns its medal.', { n: Math.ceil(PASS_SHARE * total), total, step: t(STEPS[run.step].label) })}
 						</p>
 					{/if}
 					<div class="actions">
 						{#if !passed || !stepPassed}
 							<button type="button" class="btn" class:btn-ghost={up !== null} onclick={retry}>
-								<Icon name="repeat" size="1em" /> Try again
+								<Icon name="repeat" size="1em" /> {t('Try again')}
 							</button>
 						{/if}
 						{#if misses.length}
 							<button type="button" class="btn btn-ghost" onclick={() => (showCorrected = true)}>
-								<Icon name="book" size="1em" /> Read the corrected text
+								<Icon name="book" size="1em" /> {t('Read the corrected text')}
 							</button>
 						{/if}
 					</div>
@@ -411,17 +413,17 @@
 						     and why — so a bad score is something to learn from. It is part
 						     of the page, not a box of its own: one scrollbar, not two. -->
 						<section class="review" aria-labelledby="{quiz.id}-review">
-							<h3 class="review-title" id="{quiz.id}-review">Your mistakes ({misses.length})</h3>
+							<h3 class="review-title" id="{quiz.id}-review">{t('Your mistakes ({n})', { n: misses.length })}</h3>
 							<ol class="misses">
 								{#each misses as miss (miss.index)}
 									<li class="miss">
 										<p class="miss-line" lang={locale}>
 											{miss.before}
-											{#if miss.given}<s class="given"><span class="sr-only" lang="en">You wrote: </span>{miss.given}</s>{:else}<span class="given empty" lang="en">empty</span>{/if}
-											<strong class="answer"><span class="sr-only" lang="en">Correct: </span>{miss.answer}</strong>{miss.after}
+											{#if miss.given}<s class="given"><span class="sr-only" lang={lang.current}>{t('You wrote:')} </span>{miss.given}</s>{:else}<span class="given empty" lang={lang.current}>empty</span>{/if}
+											<strong class="answer"><span class="sr-only" lang={lang.current}>{t('Correct:')} </span>{miss.answer}</strong>{miss.after}
 										</p>
 										{#if miss.why}
-											<p class="miss-why" lang="en">{miss.why}</p>
+											<p class="miss-why" lang={lang.current}>{miss.why}</p>
 										{:else if miss.hint}
 											<p class="miss-why">{miss.hint}</p>
 										{/if}
@@ -431,14 +433,14 @@
 						</section>
 					{/if}
 				{:else}
-					<p class="reading-verdict neutral tnum">{filledCount} of {total} gaps filled</p>
+					<p class="reading-verdict neutral tnum">{t('{n} of {total} gaps filled', { n: filledCount, total })}</p>
 					<!-- Checkable at any point: an empty gap simply counts as wrong
 					     and gets its correction like any other miss. -->
 					<button type="button" class="btn" onclick={check}>
-						<Icon name="check" size="1em" /> Check the text
+						<Icon name="check" size="1em" /> {t('Check the text')}
 					</button>
 					{#if !allFilled}
-						<p class="reading-sub">Empty gaps count as wrong — you'll see their answers.</p>
+						<p class="reading-sub">{t('Empty gaps count as wrong — you\'ll see their answers.')}</p>
 					{/if}
 				{/if}
 			</div>
@@ -448,9 +450,9 @@
 </div>
 
 <!-- The whole text the right way, the gaps that were missed marked. -->
-<Sheet bind:open={showCorrected} title="The corrected text" id="corrected-{quiz.id}">
+<Sheet bind:open={showCorrected} title={t('The corrected text')} id="corrected-{quiz.id}">
 	<div class="corrected-head">
-		<SpeakButton text={quiz.passage} {locale} label="Play the corrected text" />
+		<SpeakButton text={quiz.passage} {locale} label={t('Play the corrected text')} />
 	</div>
 	<p class="corrected" lang={locale}>{#each parts as part, i (i)}{#if 'text' in part}{part.text}{:else}<strong
 				class="filled"
@@ -459,7 +461,7 @@
 </Sheet>
 
 {#if quiz.passageTranslation}
-	<Sheet bind:open={showTranslation} title="Translation" id="translation-{quiz.id}">
+	<Sheet bind:open={showTranslation} title={t('Translation')} id="translation-{quiz.id}">
 		<p class="reading-translation">{quiz.passageTranslation}</p>
 	</Sheet>
 {/if}

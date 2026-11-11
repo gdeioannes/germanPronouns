@@ -10,7 +10,7 @@
 	import PracticeReminder from '$lib/components/PracticeReminder.svelte';
 	import { rise } from '$lib/motion';
 	import { playSound } from '$lib/services/sounds';
-	import { forgetFirstSeen } from '$lib/services/analytics';
+	import { forgetFirstSeen, track } from '$lib/services/analytics';
 	import { catalog } from '$lib/content';
 
 	/** The old whole-level printed book is withdrawn; flip back on with the new A1 book. */
@@ -25,6 +25,7 @@
 	import type { PopulatedCourse } from '$lib/content/types';
 	import { lang, setLang, type UiLang } from '$lib/i18n/lang.svelte';
 	import { t } from '$lib/i18n/t';
+	import { levelInTurkish } from '$lib/i18n/available';
 
 	let course = $state<PopulatedCourse | null>(null);
 	let confirmingReset = $state(false);
@@ -47,7 +48,7 @@
 		try {
 			const data = await collectMyData(account.userId);
 			downloadJson(data, `my-data-${new Date().toISOString().slice(0, 10)}.json`);
-			announce('Your data is downloading.');
+			announce(t('Your data is downloading.'));
 		} catch (cause) {
 			console.error('[my data]', cause);
 			exportError = account.signedIn
@@ -80,7 +81,7 @@
 		await progress.reset();
 		forgetFirstSeen();
 		confirmingReset = false;
-		message = 'Progress cleared. Every score, streak and medal is gone.';
+		message = t('Progress cleared. Every score, streak and medal is gone.');
 		announce(message);
 	}
 </script>
@@ -89,7 +90,7 @@
 
 <main class="page">
 	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
-	<h1>Settings</h1>
+	<h1>{t('Settings')}</h1>
 
 	{#if message}
 		<p class="message" in:rise>
@@ -115,7 +116,11 @@
 					lang={code}
 					aria-checked={lang.current === code}
 					tabindex={lang.current === code ? 0 : -1}
-					onclick={() => setLang(code as UiLang)}
+					onclick={() => {
+						if (code === lang.current) return;
+						track('language_picked', { from: lang.current, to: code, where: 'settings' });
+						setLang(code as UiLang);
+					}}
 				>
 					{label}
 				</button>
@@ -124,7 +129,7 @@
 	</section>
 
 	<section class="card">
-		<h2>Answer checking</h2>
+		<h2>{t('Answer checking')}</h2>
 		<label class="row">
 			<input
 				type="checkbox"
@@ -132,17 +137,15 @@
 				onchange={(e) => progress.setRelaxedCorrection(e.currentTarget.checked)}
 			/>
 			<span>
-				<strong>Relaxed correction</strong>
+				<strong>{t('Relaxed correction')}</strong>
 				<small>
-					On by default: an answer still counts when it's only missing an
-					umlaut, an accent, or punctuation like a full stop or apostrophe —
-					your keyboard shouldn't decide whether you know the German. The
-					correct spelling is still written into the gap afterwards. Turn this
-					off to be marked on the exact spelling.
+					{t("On by default: an answer still counts when it's only missing an umlaut, an accent, or punctuation like a full stop or apostrophe — your keyboard shouldn't decide whether you know the German. The correct spelling is still written into the gap afterwards. Turn this off to be marked on the exact spelling.")}
 				</small>
 			</span>
 		</label>
 
+		<!-- B1 and up only, so not in Turkish mode. -->
+		{#if !lang.tr}
 		<label class="row">
 			<input
 				type="checkbox"
@@ -157,6 +160,7 @@
 				</small>
 			</span>
 		</label>
+		{/if}
 
 		<label class="row">
 			<input
@@ -165,14 +169,9 @@
 				onchange={(e) => progress.setWordHelp(e.currentTarget.checked)}
 			/>
 			<span>
-				<strong>Word help</strong>
+				<strong>{t('Word help')}</strong>
 				<small>
-					Lets you tap any German word for its English meaning — verbs in
-					whatever form the sentence uses them, prepositions, the little
-					words that make a sentence hard to read. Nouns are also coloured
-					by gender — blue der, red die, green das — and show their article
-					and plural. The same switch sits on the exercise itself, so you
-					can turn it off mid-quiz when you'd rather be tested than helped.
+					{t("Lets you tap any German word for its English meaning — verbs in whatever form the sentence uses them, prepositions, the little words that make a sentence hard to read. Nouns are also coloured by gender — blue der, red die, green das — and show their article and plural. The same switch sits on the exercise itself, so you can turn it off mid-quiz when you'd rather be tested than helped.")}
 				</small>
 			</span>
 		</label>
@@ -184,14 +183,14 @@
 				onchange={(e) => progress.setShowFirstLetterHint(e.currentTarget.checked)}
 			/>
 			<span>
-				<strong>Show the first letter</strong>
-				<small>Starts every fill-in answer off for you.</small>
+				<strong>{t('Show the first letter')}</strong>
+				<small>{t('Starts every fill-in answer off for you.')}</small>
 			</span>
 		</label>
 	</section>
 
 	<section class="card">
-		<h2>Voice</h2>
+		<h2>{t('Voice')}</h2>
 		<label class="row">
 			<input
 				type="checkbox"
@@ -199,19 +198,16 @@
 				onchange={(e) => progress.setVoiceOfflineOnly(e.currentTarget.checked)}
 			/>
 			<span>
-				<strong>Use this device's voice only</strong>
+				<strong>{t("Use this device's voice only")}</strong>
 				<small>
-					Sentences are normally read by a neural voice through our audio
-					service, which sounds far closer to a native speaker. Tick this to
-					keep every sentence on your device instead — the built-in voice is
-					more robotic, but nothing is sent anywhere.
+					{t('Sentences are normally read by a neural voice through our audio service, which sounds far closer to a native speaker. Tick this to keep every sentence on your device instead — the built-in voice is more robotic, but nothing is sent anywhere.')}
 				</small>
 			</span>
 		</label>
 	</section>
 
 	<section class="card">
-		<h2>Effects</h2>
+		<h2>{t('Effects')}</h2>
 		<label class="row">
 			<input
 				type="checkbox"
@@ -219,11 +215,9 @@
 				onchange={(e) => progress.setMuted(e.currentTarget.checked)}
 			/>
 			<span>
-				<strong>Mute the app</strong>
+				<strong>{t('Mute the app')}</strong>
 				<small>
-					Silences everything: the sound effects and the voice that reads
-					German aloud. Listening and dictation exercises need that voice, so
-					unmute before you do one of those.
+					{t('Silences everything: the sound effects and the voice that reads German aloud. Listening and dictation exercises need that voice, so unmute before you do one of those.')}
 				</small>
 			</span>
 		</label>
@@ -239,12 +233,9 @@
 				}}
 			/>
 			<span>
-				<strong>Sound effects</strong>
+				<strong>{t('Sound effects')}</strong>
 				<small>
-					A chime for a right answer — climbing higher as your streak grows —
-					a soft low note for a miss, and a little fanfare when you finish.
-					Separate from the calm setting below, so you can have one without
-					the other.
+					{t('A chime for a right answer — climbing higher as your streak grows — a soft low note for a miss, and a little fanfare when you finish. Separate from the calm setting below, so you can have one without the other.')}
 				</small>
 			</span>
 		</label>
@@ -256,13 +247,9 @@
 				onchange={(e) => progress.setCalmEffects(e.currentTarget.checked)}
 			/>
 			<span>
-				<strong>Calm effects</strong>
+				<strong>{t('Calm effects')}</strong>
 				<small>
-					Turns off the flashy extras: confetti, the words of praise that pop
-					up after a right answer, the coloured glow at the screen edges, the
-					shake after a miss and the flickering streak flame. Right and wrong
-					are still shown in the answer itself. Your device's "reduce motion"
-					setting does the same.
+					{t('Turns off the flashy extras: confetti, the words of praise that pop up after a right answer, the coloured glow at the screen edges, the shake after a miss and the flickering streak flame. Right and wrong are still shown in the answer itself. Your device’s “reduce motion” setting does the same.')}
 				</small>
 			</span>
 		</label>
@@ -274,12 +261,9 @@
 				onchange={(e) => progress.setShowTranscripts(e.currentTarget.checked)}
 			/>
 			<span>
-				<strong>Show the text in listening exercises</strong>
+				<strong>{t('Show the text in listening exercises')}</strong>
 				<small>
-					For when you can't hear the audio: dictations and listening
-					exercises get a "Show the text" button, so you can read what is
-					said instead of hearing it. The picture hunt's Listen step shows
-					its word written.
+					{t('For when you can’t hear the audio: dictations and listening exercises get a “Show the text” button, so you can read what is said instead of hearing it. The picture hunt’s Listen step shows its word written.')}
 				</small>
 			</span>
 		</label>
@@ -291,17 +275,16 @@
 				onchange={(e) => progress.setAutoSpeak(e.currentTarget.checked)}
 			/>
 			<span>
-				<strong>Say questions and answers aloud</strong>
+				<strong>{t('Say questions and answers aloud')}</strong>
 				<small>
-					The voice reads the German question as it appears and the answer
-					after you check. Turn it off if you use a screen reader, so two
-					voices don't talk at once. The play buttons still work, and a
-					question you can only hear is still said.
+					{t('The voice reads the German question as it appears and the answer after you check. Turn it off if you use a screen reader, so two voices don’t talk at once. The play buttons still work, and a question you can only hear is still said.')}
 				</small>
 			</span>
 		</label>
 	</section>
 
+	<!-- The deck deals no surprises in Turkish mode. -->
+	{#if !lang.tr}
 	<section class="card">
 		<h2>Surprises</h2>
 		<label class="row">
@@ -321,17 +304,15 @@
 			</span>
 		</label>
 	</section>
+	{/if}
 
 	<section class="card">
-		<h2>Answer reveal</h2>
+		<h2>{t('Answer reveal')}</h2>
 		<p class="lede">
-			After you answer, the correct spelling is written into the gap — green
-			when you had it, red when you didn't. This is how long it stays before
-			the next question. <strong>Wait for me</strong> never moves on by
-			itself: press Next or Enter when you're ready.
+			{t('After you answer, the correct spelling is written into the gap — green when you had it, red when you didn’t. This is how long it stays before the next question. “Wait for me” never moves on by itself: press Next or Enter when you’re ready.')}
 		</p>
-		<div class="segmented" role="radiogroup" aria-label="Answer reveal speed" use:radioKeys>
-			{#each [['quick', 'Quick'], ['normal', 'Normal'], ['slow', 'Slow'], ['manual', 'Wait for me']] as [mode, label] (mode)}
+		<div class="segmented" role="radiogroup" aria-label={t('Answer reveal speed')} use:radioKeys>
+			{#each [['quick', t('Quick')], ['normal', t('Normal')], ['slow', t('Slow')], ['manual', t('Wait for me')]] as [mode, label] (mode)}
 				<button
 					type="button"
 					role="radio"
@@ -346,17 +327,16 @@
 	</section>
 
 	<section class="card">
-		<h2>Start where you like</h2>
+		<h2>{t('Start where you like')}</h2>
 		<p class="lede">
-			Every level is open from the start — nothing has to be unlocked. Already
-			speak some German? Jump straight in at your level.
+			{t('Every level is open from the start — nothing has to be unlocked. Already speak some German? Jump straight in at your level.')}
 		</p>
 		<ul class="levels">
 			{#each ladder as level (level.id)}
-				{#if level.quizzes.length > 0}
+				{#if level.quizzes.length > 0 && (!lang.tr || levelInTurkish(level.level))}
 					<li>
 						<span>{level.title}</span>
-						<a href="/course/{course?.id}/quiz/{level.quizzes[0].id}">Start here</a>
+						<a href="/course/{course?.id}/quiz/{level.quizzes[0].id}">{t('Start here')}</a>
 					</li>
 				{/if}
 			{/each}
@@ -383,7 +363,7 @@
 	</section>
 	{/if}
 
-	{#if account.available}
+	{#if account.available && !lang.tr}
 		<section class="card">
 			<h2>Save your progress</h2>
 			<AccountCard heading={false} />
@@ -391,8 +371,11 @@
 	{/if}
 
 	<section class="card" id="your-data">
-		<h2>Your data</h2>
+		<h2>{t('Your data')}</h2>
 		<p class="lede">
+			{#if lang.tr}
+				{t('Download everything this site stores about you as one file: your progress and settings in this browser.')}
+			{:else}
 			Download everything this site stores about you as one file:
 			{#if account.signedIn}
 				your progress in this browser and in the cloud, your account details, and your forum
@@ -400,14 +383,18 @@
 			{:else}
 				your progress and settings in this browser (without an account, that is all there is).
 			{/if}
+			{/if}
 		</p>
 		<button class="btn-quiet" onclick={downloadMyData} disabled={exporting}>
 			<Icon name="download" size="1em" />
-			{exporting ? 'Collecting…' : 'Download my data'}
+			{exporting ? t('Collecting…') : t('Download my data')}
 		</button>
 		{#if exportError}<p class="error" role="alert">{exportError}</p>{/if}
 
-		{#if account.close === 'relink'}
+		<!-- Account management is English-only, like signing in. -->
+		{#if lang.tr}
+			<!-- nothing: Turkish mode has no account screens -->
+		{:else if account.close === 'relink'}
 			<div class="closing" role="status">
 				<p>
 					<strong>Almost done.</strong> Everything stored in the cloud is deleted. To remove your
@@ -454,7 +441,13 @@
 	</section>
 
 	<section class="card">
-		<h2>Privacy</h2>
+		<h2>{t('Privacy')}</h2>
+		{#if lang.tr}
+			<p class="lede">
+				{t('This site uses no cookies and collects no personal data. Anonymous usage statistics (which pages are visited, and whether a visit comes from a search engine or a shared link) are gathered without any identifier, via Aptabase in the EU. The only thing kept on your device for statistics is the date of your first visit, so we can tell new visitors from returning ones in aggregate. Your learning progress stays in this browser and never leaves it. The full privacy notice (in English) names every service involved:')}
+				<a href="/legal">{t('privacy notice')}</a>
+			</p>
+		{:else}
 		<p class="lede">
 			This site uses no cookies and collects no personal data. Anonymous usage
 			statistics (which pages are visited, and whether a visit comes from a
@@ -467,22 +460,22 @@
 			email address and your own scores. The full <a href="/legal">privacy notice</a>
 			names every service involved.
 		</p>
+		{/if}
 	</section>
 
 	<section class="card danger">
-		<h2>Start over</h2>
+		<h2>{t('Start over')}</h2>
 		<p class="lede">
-			Clears every score, streak and medal in this browser. This cannot be
-			undone.
+			{t('Clears every score, streak and medal in this browser. This cannot be undone.')}
 		</p>
 		{#if confirmingReset}
 			<button class="danger-btn" onclick={resetEverything}>
-				<Icon name="trash" size="1em" /> Yes, delete my progress
+				<Icon name="trash" size="1em" /> {t('Yes, delete my progress')}
 			</button>
-			<button class="btn-quiet" onclick={() => (confirmingReset = false)}>Cancel</button>
+			<button class="btn-quiet" onclick={() => (confirmingReset = false)}>{t('Cancel')}</button>
 		{:else}
 			<button class="danger-btn" onclick={() => (confirmingReset = true)}>
-				<Icon name="trash" size="1em" /> Delete all progress
+				<Icon name="trash" size="1em" /> {t('Delete all progress')}
 			</button>
 		{/if}
 	</section>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// "Your book": one line on the course home, once the reader has opened a
 	// chapter of the printed book in the app (a page code, or the chapter
 	// link). It leads back to that chapter, at the part they were on.
@@ -21,10 +22,10 @@
 	<a class="strip" href="{courseHref}/book2/{place.level}/{place.chapter}{place.part ? `#${place.part}` : ''}">
 		<Icon name="book" size="1.1em" />
 		<span>
-			<b>Your book · {place.level}</b>
+			<b>{t('Your book · {level}', { level: place.level })}</b>
 			<span lang="de">Kapitel {place.n}: {place.title}</span>
 		</span>
-		<span class="go">Continue <Icon name="arrowRight" size="1em" /></span>
+		<span class="go">{t('Continue')} <Icon name="arrowRight" size="1em" /></span>
 	</a>
 {/if}
 

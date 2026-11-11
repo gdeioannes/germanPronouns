@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	// Reading and listening share a shape: a passage plus multiple-choice
 	// questions. The only difference is whether the passage is shown or heard —
@@ -153,9 +154,9 @@
 		Array.from({ length: count }, (_, i) => {
 			const page = pageAt(i);
 			if (page >= 0) return pages.length > 1 ? `Text ${page + 1}` : 'Text';
-			if (i < lead) return 'Listen';
+			if (i < lead) return t('Listen');
 			if (i < checkIndex) return `Question ${i - lead + 1}`;
-			return 'Check';
+			return t('Check');
 		})
 	);
 
@@ -227,7 +228,7 @@
 		clearSpot(quiz.storageKeyPrefix);
 		onFinish(passed, correctCount, questionCount);
 		announce(
-			`${correctCount} of ${questionCount} correct. ${passed ? 'Passed.' : 'Not quite yet: two thirds right passes.'}`
+			t('{n} of {total} correct', { n: correctCount, total: questionCount }) + '. ' + (passed ? t('Passed.') : t('Not quite yet: two thirds right passes.'))
 		);
 		void tick().then(() => resultEl?.focus({ preventScroll: true }));
 	}
@@ -252,10 +253,10 @@
 				{/if}
 				<header>
 					<h2>{quiz.passageTitle}</h2>
-					<SpeakButton text={spoken} {locale} label="Play the passage" />
+					<SpeakButton text={spoken} {locale} label={t('Play the passage')} />
 					{#if transcript && quiz.passageTranslation}
 						<button type="button" class="reading-chip" onclick={() => (showTranslation = true)}>
-							Translation
+							{t('Translation')}
 						</button>
 					{/if}
 				</header>
@@ -263,7 +264,7 @@
 				{#if page >= 0}
 					<p class="text" lang={locale}><GermanText text={pages[page]} /></p>
 					{#if page < pages.length - 1}
-						<p class="more">Continues on the next page <Icon name="arrowRight" size="0.95em" /></p>
+						<p class="more">{t('Continues on the next page')} <Icon name="arrowRight" size="0.95em" /></p>
 					{/if}
 				{:else}
 					<div class="listen">
@@ -276,15 +277,14 @@
 						{/if}
 						<div class="transport">
 							<button type="button" class="btn" onclick={() => tts.speak(spoken, { locale })}>
-								<Icon name="play" size="1em" /> Play
+								<Icon name="play" size="1em" /> {t('Play')}
 							</button>
 							<button type="button" class="btn btn-ghost" onclick={() => tts.speak(spoken, { locale, rate: 0.75 })}>
 								<Icon name="slow" size="1em" /> Slower
 							</button>
 						</div>
 						<p class="hidden-note">
-							Press play and listen as many times as you like — the transcript appears
-							once you check your answers.
+							{t('Press play and listen as many times as you like — the transcript appears once you check your answers.')}
 						</p>
 						{#if progress.showTranscripts}
 							<button
@@ -294,14 +294,14 @@
 								aria-controls="transcript-{quiz.id}"
 								onclick={() => (peek = !peek)}
 							>
-								<Icon name="book" size="1em" /> {peek ? 'Hide the text' : 'Show the text'}
+								<Icon name="book" size="1em" /> {peek ? t('Hide the text') : t('Show the text')}
 							</button>
 							{#if peek}
 								<p class="peek-text" id="transcript-{quiz.id}" lang={locale}><GermanText text={spoken} /></p>
 							{/if}
 						{/if}
 						<button type="button" class="btn-quiet to-questions" onclick={() => (index = 1)}>
-							To the questions <Icon name="arrowRight" size="1em" />
+							{t('To the questions')} <Icon name="arrowRight" size="1em" />
 						</button>
 					</div>
 				{/if}
@@ -312,10 +312,10 @@
 			{@const answer = chosen[qi]}
 			<div class="question" class:en={english}>
 				<div class="q-top">
-					<p class="q-count eyebrow tnum">Question {qi + 1} of {questionCount}</p>
+					<p class="q-count eyebrow tnum">{t('Question {i} of {n}', { i: qi + 1, n: questionCount })}</p>
 					{#if question.questionTranslation || shown[qi].translations}
 						<button type="button" class="reading-chip" aria-pressed={english} onclick={() => (english = !english)}>
-							{english ? 'Hide English' : 'Show English'}
+							{english ? t('Hide English') : t('Show English')}
 						</button>
 					{/if}
 				</div>
@@ -353,9 +353,9 @@
 							</span>
 							<span class="option-text">
 								{#if checked && isCorrect}
-									<span class="sr-only">Correct answer:</span>
+									<span class="sr-only">{t('Correct answer:')}</span>
 								{:else if checked && isChosen}
-									<span class="sr-only">Your answer, wrong:</span>
+									<span class="sr-only">{t('Your answer, wrong:')}</span>
 								{/if}
 								<span lang={locale}>{option}</span>
 								{#if shown[qi].translations?.[oi]}
@@ -379,24 +379,24 @@
 					<Burst trigger={passed ? 1 : 0} count={26} />
 					<p class="reading-verdict" class:pass={passed} in:pop={{ from: 0.9 }}>
 						<Icon name={passed ? 'trophy' : 'close'} size="1.3em" />
-						<span class="tnum">{correctCount} of {questionCount} correct</span>
+						<span class="tnum">{t('{n} of {total} correct', { n: correctCount, total: questionCount })}</span>
 					</p>
 					<p class="reading-sub">
-						{passed ? 'Passed — well done.' : 'Not quite yet: two thirds right passes.'}
-						Go back through the questions to see why each answer is right.
+						{passed ? t('Passed — well done.') : t('Not quite yet: two thirds right passes.')}
+						{t('Go back through the questions to see why each answer is right.')}
 					</p>
 					{#if mode === 'listen'}
 						<button type="button" class="btn btn-ghost" onclick={() => (index = checkIndex + 1)}>
-							<Icon name="book" size="1em" /> Read the transcript
+							<Icon name="book" size="1em" /> {t('Read the transcript')}
 						</button>
 					{/if}
 					{#if !passed}
 						<button type="button" class="btn" onclick={retry}>
-							<Icon name="repeat" size="1em" /> Try again
+							<Icon name="repeat" size="1em" /> {t('Try again')}
 						</button>
 					{/if}
 				{:else}
-					<p class="reading-verdict tnum neutral">{answeredCount} of {questionCount} answered</p>
+					<p class="reading-verdict tnum neutral">{t('{n} of {total} answered', { n: answeredCount, total: questionCount })}</p>
 					<div class="jump">
 						{#each quiz.questions as _, qi (qi)}
 							<button
@@ -404,7 +404,7 @@
 								class="jump-to tnum"
 								class:done={chosen[qi] !== null}
 								onclick={() => (index = lead + qi)}
-								aria-label="Question {qi + 1}{chosen[qi] === null ? ', unanswered' : ''}"
+								aria-label={t('Question {i}', { i: qi + 1 }) + (chosen[qi] === null ? t(', unanswered') : '')}
 							>{qi + 1}</button>
 						{/each}
 					</div>
@@ -413,7 +413,7 @@
 						<Icon name="check" size="1em" /> Check answers
 					</button>
 					{#if !answered}
-						<p class="reading-sub">Unanswered questions count as wrong.</p>
+						<p class="reading-sub">{t('Unanswered questions count as wrong.')}</p>
 					{/if}
 				{/if}
 			</div>
@@ -423,7 +423,7 @@
 </div>
 
 {#if quiz.passageTranslation}
-	<Sheet bind:open={showTranslation} title="Translation" id="translation-{quiz.id}">
+	<Sheet bind:open={showTranslation} title={t('Translation')} id="translation-{quiz.id}">
 		<p class="reading-translation">{quiz.passageTranslation}</p>
 	</Sheet>
 {/if}

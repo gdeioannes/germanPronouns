@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	// The picture hunt (Suchbild), the flashcard deck's twin: one room, and a
 	// run of "Wo ist der Heizkörper?" — tap it in the picture. Every find
@@ -84,9 +86,9 @@
 	type Mode = 'find' | 'name' | 'listen';
 	/** The ladder, easiest first: the step's index is its medal's. */
 	const STEPS: { id: Mode; label: string; hint: string }[] = [
-		{ id: 'find', label: 'Read', hint: 'find what the question names.' },
-		{ id: 'name', label: 'Article', hint: 'find it, then choose der, die or das.' },
-		{ id: 'listen', label: 'Listen', hint: 'hear the noun, find it, then write it with its article.' }
+		{ id: 'find', label: t('Read'), hint: t('find what the question names.') },
+		{ id: 'name', label: t('Article'), hint: t('find it, then choose der, die or das.') },
+		{ id: 'listen', label: t('Listen'), hint: t('hear the noun, find it, then write it with its article.') }
 	];
 	const ARTICLES = ['der', 'die', 'das'] as const;
 	/** Misses on one question before the right object is shown. */
@@ -232,13 +234,13 @@
 	function sayPrompt(spot: SuchbildSpot) {
 		void speakQuestion(spot, true);
 		if (mode === 'listen') {
-			announce('Listen, find it in the picture, then write it.');
+			announce(t('Listen, find it in the picture, then write it.'));
 			return;
 		}
 		announce(
 			mode === 'find'
 				? [{ text: `Wo ist ${full(spot)}?`, lang: locale }]
-				: [{ text: 'Find' }, { text: spot.de, lang: locale }, { text: ', then choose its article.' }]
+				: [{ text: 'Find' }, { text: spot.de, lang: locale }, { text: t(', then choose its article.') }]
 		);
 	}
 
@@ -260,7 +262,7 @@
 		const spoken = await tts.speak(asking === 'find' ? `Wo ist ${full(spot)}?` : spot.de, { locale });
 		if (spot !== current || asking !== 'listen') return;
 		silent = !spoken;
-		if (silent) announce([{ text: 'No voice is available, so the word is written:' }, { text: spot.de, lang: locale }]);
+		if (silent) announce([{ text: t('No voice is available, so the word is written:') }, { text: spot.de, lang: locale }]);
 	}
 
 	onMount(() => {
@@ -324,7 +326,7 @@
 		const passed = runPassed(right, RUN_LENGTH);
 		onRunFinished(passed);
 		announce(
-			`Run finished: ${right} of ${RUN_LENGTH} right — ${passed ? 'exercise done' : 'not this time'}. Your streak is ${streak}.`
+			t('Run finished: {right} of {n} right — {result}. Your streak is {streak}.', { right, n: RUN_LENGTH, result: passed ? t('exercise done') : t('not this time'), streak })
 		);
 	}
 
@@ -342,18 +344,18 @@
 			}
 			const left = MAX_MISSES - misses;
 			announce([
-				{ text: 'Not that one. That is' },
+				{ text: t('Not that one. That is') },
 				{ text: full(spot), lang: locale },
 				{ text: `— keep looking, ${left} ${left === 1 ? 'try' : 'tries'} left.` }
 			]);
 		} else if (mode === 'name') {
 			tappedWrong = null;
 			phase = 'article';
-			announce('Found it. Now the article: der, die or das?');
+			announce(t('Found it. Now the article: der, die or das?'));
 		} else if (mode === 'listen') {
 			tappedWrong = null;
 			phase = 'write';
-			announce('Found it. Now write it, with its article.');
+			announce(t('Found it. Now write it, with its article.'));
 			queueMicrotask(() => writeEl?.focus());
 		} else {
 			tappedWrong = null;
@@ -550,14 +552,14 @@
 		announce([
 			{
 				text: correct
-					? 'Correct.'
+					? t('Correct.')
 					: mark === 'half'
-						? 'Found on a later try: half a point. It is:'
+						? t('Found on a later try: half a point. It is:')
 						: shown
-						? `Three misses. It is shown now:`
+						? t('Three misses. It is shown now:')
 						: misses > 0 && !chosenArticle
-							? 'Found, but not on the first try. It is:'
-							: 'Not quite. It is:'
+							? t('Found, but not on the first try. It is:')
+							: t('Not quite. It is:')
 			},
 			{ text: full(spot), lang: locale },
 			...(medal ? [{ text: medal }] : [])
@@ -634,11 +636,11 @@
 			onpick={setStep}
 		>
 			{#if onCards}
-				<button type="button" class="extra" onclick={onCards} title="Practise this room's words as flip cards">
+				<button type="button" class="extra" onclick={onCards} title={t('Practise this room\'s words as flip cards')}>
 					<Icon name="cards" size="1.05em" /><span class="extra-label">Cards</span>
 				</button>
 			{/if}
-			<button type="button" class="extra end" onclick={() => (touring = true)} aria-label="How to play" title="How to play">
+			<button type="button" class="extra end" onclick={() => (touring = true)} aria-label={t('How to play')} title={t('How to play')}>
 				<Icon name="help" size="1.05em" />
 			</button>
 		</MedalLadder>
@@ -668,10 +670,10 @@
 		<div class="ask-top">
 			<p class="prompt-label">
 				{mode === 'find'
-					? 'Tap it in the picture'
+					? t('Tap it in the picture')
 					: mode === 'name'
-						? 'Tap it, then its article'
-						: 'Listen, tap it, then write it'}
+						? t('Tap it, then its article')
+						: t('Listen, tap it, then write it')}
 			</p>
 			<span class="count tnum">{found.length} / {quiz.spots.length} found</span>
 		</div>
@@ -681,7 +683,7 @@
 				<span class="article">{current.article}</span>
 				{current.de}
 				<SpeakButton text={full(current)} {locale} />
-				<span class="en" lang="en">{current.en}</span>
+				<span class="en" lang={lang.current}>{current.en}</span>
 			</p>
 		{:else if mode === 'find'}
 			<p class="q" lang={locale}>
@@ -702,20 +704,20 @@
 				<button
 					type="button"
 					class="hear"
-					lang="en"
+					lang={lang.current}
 					onclick={() => current && speakQuestion(current)}
 				>
-					<Icon name="volume" size="1.1em" /> Listen again
+					<Icon name="volume" size="1.1em" /> {t('Listen again')}
 				</button>
 				{#if silent}
 					<!-- Nothing could speak it: the written question stands in. -->
-					<span class="muted">{current.de} <span lang="en">(no voice available)</span></span>
+					<span class="muted">{current.de} <span lang={lang.current}>(no voice available)</span></span>
 				{:else if progress.showTranscripts}
 					<!-- "Show the text in listening exercises": for a learner who
 					     can't hear it, the noun (never the article) is written. -->
-					<span class="muted">{current.de} <span lang="en">(the word you hear)</span></span>
+					<span class="muted">{current.de} <span lang={lang.current}>{t('(the word you hear)')}</span></span>
 				{:else}
-					<span class="muted" lang="en">Which thing did you hear?</span>
+					<span class="muted" lang={lang.current}>{t('Which thing did you hear?')}</span>
 				{/if}
 			</p>
 		{/if}
@@ -741,7 +743,7 @@
 					bind:this={writeEl}
 					bind:value={written}
 					lang={locale}
-					aria-label="Write it, with its article"
+					aria-label={t('Write it, with its article')}
 					placeholder="der / die / das …"
 					autocomplete="off"
 					autocapitalize="off"
@@ -749,14 +751,14 @@
 					spellcheck="false"
 					enterkeyhint="go"
 				/>
-				<button type="submit" class="go" aria-label="Check" disabled={!written.trim()}>
+				<button type="submit" class="go" aria-label={t('Check')} disabled={!written.trim()}>
 					<Icon name="arrowRight" size="1.05em" />
 				</button>
 			</form>
 		{:else if verdict === 'right'}
 			<p class="verdict right"><Icon name="check" size="1em" /> Richtig!</p>
 		{:else if verdict === 'half'}
-			<p class="verdict half"><Icon name="check" size="1em" /> Found on try {misses + 1}: half a point.</p>
+			<p class="verdict half"><Icon name="check" size="1em" /> {t('Found on try {n}: half a point.', { n: misses + 1 })}</p>
 		{:else if verdict === 'wrong'}
 			<p class="verdict wrong">
 				<Icon name="close" size="1em" />
@@ -765,11 +767,11 @@
 				{:else if chosenArticle && chosenArticle !== current.article}
 					Found it — but it's <strong lang={locale}>{current.article}</strong>, not <s lang={locale}>{chosenArticle}</s>.
 				{:else if missingArticle}
-					Right word — with its article: <strong lang={locale}>{full(current)}</strong>.
+					{t('Right word — with its article:')} <strong lang={locale}>{full(current)}</strong>.
 				{:else if written.trim()}
-					Found it — it's written <strong lang={locale}>{full(current)}</strong>, not <s lang={locale}>{written}</s>.
+					{t('Found it — it’s written')} <strong lang={locale}>{full(current)}</strong>, {t('not')} <s lang={locale}>{written}</s>.
 				{:else}
-					Not quite.
+					{t('Not quite.')}
 				{/if}
 			</p>
 			{#if articleRule}
@@ -781,21 +783,21 @@
 					{:else}
 						Careful: words ending in <strong lang={locale}>-{articleRule.ending}</strong> are
 						{articleRule.how} <strong lang={locale}>{articleRule.article}</strong>, but
-						<strong lang={locale}>{articleRule.noun}</strong> is an exception.
+						<strong lang={locale}>{articleRule.noun}</strong> {t('is an exception.')}
 					{/if}
 				</p>
 			{/if}
 		{:else if tappedWrong}
 			<p class="nudge miss">
-				Not that one — that's <span lang={locale}>{full(tappedWrong)}</span>. Keep looking
+				{t('Not that one — that\'s')} <span lang={locale}>{full(tappedWrong)}</span>. Keep looking
 				({MAX_MISSES - misses} {MAX_MISSES - misses === 1 ? 'try' : 'tries'} left).
 			</p>
 		{:else if blank}
-			{#key blank}<p class="nudge">Nothing to find there — try another spot.</p>{/key}
+			{#key blank}<p class="nudge">{t('Nothing to find there — try another spot.')}</p>{/key}
 		{/if}
 		{#if locked && progress.answerRevealMode === 'manual'}
 			<button type="button" class="btn next" disabled={!skip} onclick={() => skip?.()}>
-				Next <Icon name="arrowRight" size="1em" />
+				{t('Next')} <Icon name="arrowRight" size="1em" />
 			</button>
 		{/if}
 		</div>
@@ -876,10 +878,10 @@
 		</div>
 		<div class="zoom">
 			{#if zoom > 1}
-				<button type="button" onclick={() => zoomButton(0)} aria-label="Show the whole picture" title="Show the whole picture">1×</button>
+				<button type="button" onclick={() => zoomButton(0)} aria-label={t('Show the whole picture')} title={t('Show the whole picture')}>1×</button>
 			{/if}
-			<button type="button" onclick={() => zoomButton(-0.75)} disabled={zoom <= 1} aria-label="Zoom out" title="Zoom out">−</button>
-			<button type="button" onclick={() => zoomButton(0.75)} disabled={zoom >= MAX_ZOOM} aria-label="Zoom in" title="Zoom in (or pinch)">+</button>
+			<button type="button" onclick={() => zoomButton(-0.75)} disabled={zoom <= 1} aria-label={t('Zoom out')} title={t('Zoom out')}>−</button>
+			<button type="button" onclick={() => zoomButton(0.75)} disabled={zoom >= MAX_ZOOM} aria-label="Zoom in" title={t('Zoom in (or pinch)')}>+</button>
 		</div>
 	</div>
 	</div>

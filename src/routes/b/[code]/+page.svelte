@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// Where a printed QR code lands. The code is permanent; this page sends the
 	// reader to wherever the code points today, and says so, so a reader whose
 	// phone blocked the redirect still has a link to tap.
@@ -11,20 +12,20 @@
 </script>
 
 <svelte:head>
-	<title>From the book</title>
+	<title>{t('From the book')}</title>
 	<meta name="robots" content="noindex" />
 	{#if data.target}<meta http-equiv="refresh" content="0;url={data.target}" />{/if}
 </svelte:head>
 
 <main class="land">
 	{#if data.target}
-		<p class="eyebrow">From the book · {data.code}</p>
-		<h1>One moment …</h1>
-		<p>If nothing happens, <a href={data.target}>tap here</a>.</p>
+		<p class="eyebrow">{t('From the book · {code}', { code: data.code })}</p>
+		<h1>{t('One moment …')}</h1>
+		<p>{t('If nothing happens,')} <a href={data.target}>{t('tap here')}</a>.</p>
 	{:else}
-		<p class="eyebrow">From the book · {data.code}</p>
-		<h1>This code is not in use yet</h1>
-		<p>It may be from a newer printing than this site knows. <a href="/">Go to the start page</a> and pick your level there.</p>
+		<p class="eyebrow">{t('From the book · {code}', { code: data.code })}</p>
+		<h1>{t('This code is not in use yet')}</h1>
+		<p>{t('It may be from a newer printing than this site knows.')} <a href="/">{t('Go to the start page')}</a> {t('and pick your level there.')}</p>
 	{/if}
 </main>
 

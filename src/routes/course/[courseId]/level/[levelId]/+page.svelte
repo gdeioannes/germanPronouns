@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import { absoluteUrl, breadcrumbLd, clip, shareImage, titleWithSite, topicOf } from '$lib/seo';
@@ -16,9 +17,12 @@
 	import { onMount } from 'svelte';
 	import { progress } from '$lib/state/progress.svelte';
 	import type { PageData } from './$types';
+	import { inLang } from '$lib/i18n/content.svelte';
 
 	let { data }: { data: PageData } = $props();
-	const { course, level, title, module, quizzes, previous, next } = $derived(data);
+	const { course, level, title, quizzes, previous, next } = $derived(data);
+	// The syllabus card through the level's Turkish overlay (text map).
+	const module = $derived(inLang(data.module, data.level));
 
 	onMount(async () => {
 		if (!progress.loaded) await progress.load();
@@ -73,19 +77,19 @@
 <SiteNav courseHref="/course/{course.id}" compact />
 
 <main class="page-wide">
-	<a class="back-link" href="/course/{course.id}"><Icon name="arrowLeft" size="1em" /> {course.name}</a>
+	<a class="back-link" href="/course/{course.id}"><Icon name="arrowLeft" size="1em" /> {t(course.name)}</a>
 
 	<header class="head">
-		<p class="eyebrow">{level} · Syllabus</p>
+		<p class="eyebrow">{level} · {t('Syllabus')}</p>
 		<h1>{title}{#if module?.subtitle}<span class="sub"> · {module.subtitle}</span>{/if}</h1>
-		<p class="count tnum">{done} / {quizzes.length} exercises done</p>
+		<p class="count tnum">{t('{done} / {n} exercises done', { done, n: quizzes.length })}</p>
 	</header>
 
 	{#if module && (module.canDo.length || module.themes.length)}
 		<section class="two">
 			{#if module.canDo.length}
 				<div>
-					<h2>After this level you can</h2>
+					<h2>{t('After this level you can')}</h2>
 					<ul>
 						{#each module.canDo as item (item)}<li>{item}</li>{/each}
 					</ul>
@@ -93,7 +97,7 @@
 			{/if}
 			{#if module.themes.length}
 				<div>
-					<h2>Themes</h2>
+					<h2>{t('Themes')}</h2>
 					<ul>
 						{#each module.themes as item (item)}<li>{item}</li>{/each}
 					</ul>
@@ -103,15 +107,14 @@
 	{/if}
 
 	{#if module?.structures.length}
-		<h2>What it teaches</h2>
+		<h2>{t('What it teaches')}</h2>
 		<p class="lede">
-			Each line is a structure the official syllabus requires at this level, and the
-			exercises that teach it.
+			{t('Each line is a structure the official syllabus requires at this level, and the exercises that teach it.')}
 		</p>
 		<div class="table-wrap">
 			<table class="structures">
 				<thead>
-					<tr><th>Structure</th><th>Official level</th><th>Exercises</th></tr>
+					<tr><th>{t('Structure')}</th><th>{t('Official level')}</th><th>{t('Exercises')}</th></tr>
 				</thead>
 				<tbody>
 					{#each module.structures as s (s.id)}
@@ -134,7 +137,7 @@
 	{/if}
 
 	{#if module?.exam?.length}
-		<h2>Towards a certificate</h2>
+		<h2>{t('Towards a certificate')}</h2>
 		<ul class="exam">
 			{#each (Array.isArray(module.exam) ? module.exam : [module.exam]) as item (item)}<li>{item}</li>{/each}
 		</ul>
@@ -142,7 +145,7 @@
 
 	<OfflineSave {level} />
 
-	<h2>The exercises</h2>
+	<h2>{t('The exercises')}</h2>
 	<ol class="quizzes">
 		{#each quizzes as quiz (quiz.id)}
 			{@const ribbon = progress.loaded

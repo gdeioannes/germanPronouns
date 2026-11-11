@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { labelLang, t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	// The fill-in-the-blank engine — most of the course's exercises. Played
 	// in runs of RUN_LENGTH answers: the bar only fills, finishing a run marks
@@ -75,9 +76,9 @@
 
 	/** The ladder, easiest first: the step's index is its medal's. */
 	const STEPS = [
-		{ label: 'Choose', hint: 'pick the answer from four.' },
-		{ label: 'Type', hint: 'type it, with the word in brackets to help.' },
-		{ label: 'No help', hint: 'type it with no brackets and no hint, on the harder sentences.' }
+		{ label: t('Choose'), hint: t('pick the answer from four.') },
+		{ label: t('Type'), hint: t('type it, with the word in brackets to help.') },
+		{ label: t('No help'), hint: t('type it with no brackets and no hint, on the harder sentences.') }
 	];
 	const run = new LadderRun(untrack(() => quiz.storageKeyPrefix), STEPS);
 	/** The step in play: 0 choose, 1 type, 2 no help. */
@@ -238,7 +239,7 @@
 	function place(tile: Tile) {
 		if (locked || built.includes(tile.id)) return;
 		setBuilt([...built, tile.id]);
-		announce('Your sentence:', answers[0], locale);
+		announce(t('Your sentence:'), answers[0], locale);
 		const free = bankEls.find((el, i) => el && !built.includes(bank[i].id));
 		(free ?? checkEl)?.focus();
 	}
@@ -246,7 +247,7 @@
 	function unplace(id: number) {
 		if (locked) return;
 		setBuilt(built.filter((b) => b !== id));
-		announce(built.length ? 'Your sentence:' : 'Gap empty.', built.length ? answers[0] : '', locale);
+		announce(built.length ? t('Your sentence:') : 'Gap empty.', built.length ? answers[0] : '', locale);
 	}
 
 	/**
@@ -433,7 +434,7 @@
 		const passed = runPassed(right, RUN_LENGTH);
 		onRunFinished(passed);
 		announce(
-			`Run finished: ${right} of ${RUN_LENGTH} right — ${passed ? 'exercise done' : 'not this time'}. Your streak is ${streak}.`
+			t('Run finished: {right} of {n} right — {result}. Your streak is {streak}.', { right, n: RUN_LENGTH, result: passed ? t('exercise done') : t('not this time'), streak })
 		);
 	}
 
@@ -521,10 +522,10 @@
 		// One announcement per answer: a second call replaces the first, so a
 		// medal is said inside it rather than after it.
 		const medal = medalWon ? ` ${run.announcement(medalWon)}` : '';
-		if (correct) announce(`Correct.${medal}`);
+		if (correct) announce(t('Correct.{medal}', { medal }));
 		else
 			announce([
-				{ text: 'Not quite. The answer is:' },
+				{ text: t('Not quite. The answer is:') },
 				{ text: filledSentence(current.sentence, canonical), lang: locale },
 				...(missWhy ? [{ text: missWhy.text, lang: missWhy.german ? locale : undefined }] : []),
 				...(medal ? [{ text: medal }] : [])
@@ -666,19 +667,19 @@
 			class="word-help"
 			aria-pressed={progress.wordHelp}
 			title={progress.wordHelp
-				? 'Turn word help off'
-				: 'Tap any word for its meaning, and colour the nouns by gender'}
+				? t('Turn word help off')
+				: t('Tap any word for its meaning, and colour the nouns by gender')}
 			onclick={() => progress.setWordHelp(!progress.wordHelp)}
 		>
 			<Icon name="book" size="1em" />
-			<span>Word help</span>
+			<span>{t('Word help')}</span>
 		</button>
 		{/if}
 
 		<!-- A generated drill's category label is its answer key ("können → konnte"):
 		     with no help it goes, as the cue does. -->
 		{#if !(step === 2 && generated)}
-			<p class="prompt-label">{current.categoryLabel}</p>
+			<p class="prompt-label" lang={labelLang(current.categoryLabel)}>{current.categoryLabel}</p>
 		{/if}
 		{#if subject}
 			<p class="subject">{subject}</p>
@@ -693,13 +694,13 @@
 						class:wrong={verdict === 'wrong'}
 						class:empty={!locked && !built.length}
 						role="group"
-						aria-label="Your sentence"
+						aria-label={t('Your sentence')}
 						>{#if locked}{answers[0]}{:else if built.length}{#each built as id (id)}<button
 									type="button"
 									class="tile placed"
 									onclick={() => unplace(id)}
 									aria-label="{tileText(id)}, take back">{tileText(id)}</button
-								>{/each}{:else}<span class="placeholder">tap the words below</span>{/if}</span
+								>{/each}{:else}<span class="placeholder">{t('tap the words below')}</span>{/if}</span
 					>{:else if i < gaps}<span
 						class="slot"
 						><input
@@ -713,7 +714,7 @@
 							aria-invalid={verdict === 'wrong' ? 'true' : undefined}
 							size={fieldSize(i)}
 							lang={locale}
-							aria-label={gaps > 1 ? `Your answer, gap ${i + 1}` : 'Your answer'}
+							aria-label={gaps > 1 ? t('Your answer, gap {i}', { i: i + 1 }) : t('Your answer')}
 							enterkeyhint={i < gaps - 1 ? 'next' : 'go'}
 							autocomplete="off"
 							autocapitalize="off"
@@ -744,7 +745,7 @@
 		{#if tiled}
 			<!-- The tiles keep their places once used, so the bank never reflows
 			     under the thumb. -->
-			<div class="bank" role="group" aria-label="Words to place" lang={locale}>
+			<div class="bank" role="group" aria-label={t('Words to place')} lang={locale}>
 				{#each bank as tile, i (tile.id)}
 					<button
 						type="button"
@@ -779,14 +780,14 @@
 			{#if verdict === 'right' && fixes.length}
 				<Icon name="check" size="1.05em" />
 				<span>
-					Correct — mind the spelling:
+					{t('Correct — mind the spelling:')}
 					{#each fixes as fix, i (i)}{#if i},
 						{/if}<s class="slip">{fix.typed}</s> → <strong lang={locale}>{fix.proper}</strong>{/each}
 				</span>
 			{:else if verdict === 'right'}
 				<Icon name="check" size="1.05em" /> Correct
 			{:else if verdict === 'wrong'}
-				<Icon name="close" size="1.05em" /> The answer is written in
+				<Icon name="close" size="1.05em" /> {t('The answer is written in')}
 			{:else if current.hint && step < 2}
 				{current.hint}
 			{:else}
@@ -795,18 +796,18 @@
 		</p>
 		{#if locked}
 			<button type="button" class="act next" disabled={!skip} onpointerdown={holdFocus} onclick={() => skip?.()}>
-				Next <Icon name="arrowRight" size="1em" />
+				{t('Next')} <Icon name="arrowRight" size="1em" />
 			</button>
 		{:else if !choosing}
 			<button type="button" class="act" bind:this={checkEl} disabled={!filled} onpointerdown={holdFocus} onclick={checkTap}>
-				Check
+				{t('Check')}
 			</button>
 		{/if}
 		</div>
 	</section>
 
 {:else}
-	<p class="empty">This quiz has no questions yet.</p>
+	<p class="empty">{t('This quiz has no questions yet.')}</p>
 {/if}
 
 <style>

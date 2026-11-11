@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// A chapter of the printed book, in the app. Each page code in the book
 	// lands here at its own part (#lesen, #uebungen-1 …): the words as
 	// flashcards, the reading spoken line by line, and every exercise of the
@@ -26,9 +27,11 @@
 		type PartId
 	} from '$lib/domain/bookStudy';
 	import type { PageData } from './$types';
+	import { inLangChapter } from '$lib/i18n/content.svelte';
 
 	let { data }: { data: PageData } = $props();
-	const c = $derived(data.chapter);
+	// In Turkish the chapter comes through its level's overlay.
+	const c = $derived(inLangChapter(data.chapter, data.level));
 	const german = $derived(!!c.german);
 	const english = $derived(!hidesEnglish(data.level));
 	const parts = $derived(chapterParts(c));
@@ -114,20 +117,20 @@
 	<a class="back" href={bookHref}><Icon name="arrowLeft" size="1em" /> {data.bookTitle} {data.level}</a>
 
 	<header class="top">
-		<p class="eyebrow">{german ? 'Kapitel' : 'Chapter'} {c.n} {german ? 'von' : 'of'} {data.count} · {c.world}</p>
+		<p class="eyebrow">{german ? `Kapitel ${c.n} von ${data.count}` : t('Chapter {n} of {count}', { n: c.n, count: data.count })} · <span lang="de">{c.world}</span></p>
 		<h1 lang="de">{c.title}</h1>
 		<p class="sub">
 			{german
 				? 'Das Kapitel aus deinem Buch, in der App: Wortkarten, der Text zum Hören und jede Übung zum Prüfen.'
-				: 'This chapter of your book, in the app: the words as cards, the text read aloud, and every exercise to check.'}
+				: t('This chapter of your book, in the app: the words as cards, the text read aloud, and every exercise to check.')}
 		</p>
 		<p class="progress">
 			<span class="bar"><span style:width="{total ? (checkedCount / total) * 100 : 0}%"></span></span>
-			{checkedCount} / {total} {german ? 'Übungen geprüft' : 'exercises checked'}
+			{checkedCount} / {total} {german ? 'Übungen geprüft' : t('exercises checked')}
 		</p>
 	</header>
 
-	<nav class="chips" aria-label={german ? 'Teile des Kapitels' : 'Parts of the chapter'}>
+	<nav class="chips" aria-label={german ? 'Teile des Kapitels' : t('Parts of the chapter')}>
 		{#each parts as p (p.id)}
 			{#if p.id === 'woerter' || p.exercises.length}
 				<a href="#{p.id}">{partTitle[p.id]}</a>
@@ -136,7 +139,7 @@
 	</nav>
 
 	<section id="woerter" class="part">
-		<h2>{german ? 'Wortkarten' : 'Word cards'}</h2>
+		<h2>{german ? 'Wortkarten' : t('Word cards')}</h2>
 		<WordCards {words} level={data.level} {german} />
 	</section>
 
@@ -144,7 +147,7 @@
 		<h2 lang="de">Lesen · {c.reading.title}</h2>
 		<button type="button" class="play" onclick={readAll} aria-pressed={reading}>
 			<Icon name={reading ? 'volumeOff' : 'volume'} size="1.1em" />
-			{reading ? (german ? 'Stopp' : 'Stop') : german ? 'Alles hören' : 'Listen to it all'}
+			{reading ? (german ? 'Stopp' : t('Stop')) : german ? 'Alles hören' : t('Listen to it all')}
 		</button>
 		<div class="dialogue" lang="de">
 			{#each c.reading.lines as l, j (j)}
@@ -156,7 +159,7 @@
 			{/each}
 		</div>
 		{#if english}
-			<details class="en"><summary>English</summary><p>{c.reading.en}</p></details>
+			<details class="en"><summary>{t('English')}</summary><p>{c.reading.en}</p></details>
 		{/if}
 		{#each parts.find((p) => p.id === 'lesen')?.exercises ?? [] as e (e.key)}
 			<CheckExercise ex={e.ex} n={e.n} {german} saved={checks[e.key] ?? null} onchecked={(s) => onchecked(e.key, s)} />
@@ -191,7 +194,7 @@
 		{@const part = parts.find((p) => p.id === id)}
 		{#if part?.exercises.length}
 			<section {id} class="part">
-				<h2 lang="de">Übungen · {pi + 1} {german ? 'von' : 'of'} 2</h2>
+				<h2 lang="de">Übungen · {pi + 1} {german ? 'von' : t('of')} 2</h2>
 				{#each part.exercises as e (e.key)}
 					<CheckExercise ex={e.ex} n={e.n} {german} saved={checks[e.key] ?? null} onchecked={(s) => onchecked(e.key, s)} />
 				{/each}
@@ -200,16 +203,16 @@
 	{/each}
 
 	<section class="part more">
-		<h2>{german ? 'Mehr in der App' : 'More in the app'}</h2>
+		<h2>{german ? 'Mehr in der App' : t('More in the app')}</h2>
 		<ul>
 			{#if data.more.quiz}
-				<li><a href="{courseHref}/quiz/{data.more.quiz.id}"><b>{german ? 'Üben' : 'Practise'}</b> <span lang="de">{data.more.quiz.title}</span> <Icon name="arrowRight" size="1em" /></a></li>
+				<li><a href="{courseHref}/quiz/{data.more.quiz.id}"><b>{german ? 'Üben' : t('Practise')}</b> <span lang="de">{data.more.quiz.title}</span> <Icon name="arrowRight" size="1em" /></a></li>
 			{/if}
 			{#if data.more.listen}
-				<li><a href="/play/{data.more.listen.id}"><b>{german ? 'Hören' : 'Listen'}</b> <span lang="de">{data.more.listen.title}</span> <Icon name="arrowRight" size="1em" /></a></li>
+				<li><a href="/play/{data.more.listen.id}"><b>{german ? 'Hören' : t('Listen')}</b> <span lang="de">{data.more.listen.title}</span> <Icon name="arrowRight" size="1em" /></a></li>
 			{/if}
 			{#if data.more.speak}
-				<li><a href="{courseHref}/quiz/{data.more.speak.id}"><b>{german ? 'Sprechen' : 'Speak'}</b> <span lang="de">{data.more.speak.title}</span> <Icon name="arrowRight" size="1em" /></a></li>
+				<li><a href="{courseHref}/quiz/{data.more.speak.id}"><b>{german ? 'Sprechen' : t('Speak')}</b> <span lang="de">{data.more.speak.title}</span> <Icon name="arrowRight" size="1em" /></a></li>
 			{/if}
 		</ul>
 		<nav class="pager">

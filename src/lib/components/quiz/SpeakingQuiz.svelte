@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The AI-handoff speaking exercise: render a prompt, the learner runs it in
 	// their own assistant in voice mode, then pastes the report back. The app
 	// reads the SCORE= line, awards the medal and banks the FIX: corrections.
@@ -53,7 +54,7 @@
 	/** The report's FIX: lines, shown with the score — not only banked. */
 	let remembered = $state<SpeakingFix[]>([]);
 	let index = $state(0);
-	const labels = ['Copy', 'Talk', 'Score'];
+	const labels = [t('Copy'), 'Talk', t('Score')];
 
 	// The page is reused from one speaking quiz to the next: start it over.
 	$effect(() => {
@@ -79,16 +80,16 @@
 	 * The prompt itself is machine text they copy past; this is the brief.
 	 */
 	const MODE_LABELS: Record<string, string> = {
-		conversation: 'A free conversation',
-		interview: 'An interview, one question at a time',
+		conversation: t('A free conversation'),
+		interview: t('An interview, one question at a time'),
 		roleplay: 'A roleplay',
-		storytelling: 'You tell a story',
-		vocabDrill: 'A vocabulary drill',
-		translationDrill: 'A translation drill',
-		wordGame: 'A word game',
-		listenRetell: 'Listen, then retell',
-		readingQa: 'Read a passage, then answer questions',
-		readingGen: 'Read a passage, then answer questions'
+		storytelling: t('You tell a story'),
+		vocabDrill: t('A vocabulary drill'),
+		translationDrill: t('A translation drill'),
+		wordGame: t('A word game'),
+		listenRetell: t('Listen, then retell'),
+		readingQa: t('Read a passage, then answer questions'),
+		readingGen: t('Read a passage, then answer questions')
 	};
 	const brief = $derived.by(() => {
 		const e = quiz.speaking;
@@ -96,10 +97,10 @@
 		const scene =
 			typeof e.material === 'string' ? e.material.match(/^(?:Scene|Game|Story beats|The message)[^\n]*/)?.[0] : undefined;
 		const shape = [
-			e.scaffolded ? 'the tutor teaches first, unscored' : null,
-			e.describePicture && quiz.image ? 'you describe the picture to start' : null,
-			`at least ${session.minExchanges} answers`,
-			`about ${session.durationMinutes} minutes`
+			e.scaffolded ? t('the tutor teaches first, unscored') : null,
+			e.describePicture && quiz.image ? t('you describe the picture to start') : null,
+			t('at least {minExchanges} answers', { minExchanges: session.minExchanges }),
+			t('about {durationMinutes} minutes', { durationMinutes: session.durationMinutes })
 		].filter(Boolean);
 		return { what, scene, shape: shape.join(' · '), points: e.practisePoints };
 	});
@@ -183,18 +184,16 @@
 	{#snippet step(i)}
 		{#if i === 0}
 			<section class="card fill">
-				<h3><span class="step tnum">1</span> Copy the exercise</h3>
+				<h3><span class="step tnum">1</span> {t('Copy the exercise')}</h3>
 				<p class="lede">
-					This exercise runs in your own AI assistant, in voice mode — about
-					{session.durationMinutes} minutes. Copy the prompt, paste it there, and
-					follow its instructions.
+					{t('This exercise runs in your own AI assistant, in voice mode — about {min} minutes. Copy the prompt, paste it there, and follow its instructions.', { min: session.durationMinutes })}
 				</p>
 				{#if quiz.image && quiz.speaking.describePicture}
 					<!-- The picture the session opens with: the tutor cannot see it, the
 					     prompt tells it what is there, and the learner describes it. -->
 					<figure class="scene">
 						<img src="/img/{quiz.image}.webp" alt={quiz.imageDescription} width="1024" height="768" />
-						<figcaption>Start by describing this picture — your assistant will ask you to.</figcaption>
+						<figcaption>{t('Start by describing this picture — your assistant will ask you to.')}</figcaption>
 					</figure>
 				{/if}
 				<!-- The brief: the prompt below is for the assistant, this is for the learner. -->
@@ -205,55 +204,55 @@
 					</p>
 					<p class="brief-shape">{brief.shape}</p>
 					<p class="brief-points">
-						<span class="brief-label">The tutor listens for:</span>
+						<span class="brief-label">{t('The tutor listens for:')}</span>
 						{brief.points.join(' · ')}
 					</p>
 				</div>
 				<pre class="prompt">{prompt}</pre>
 				<button class="btn" onclick={copy}>
 					<Icon name={copied ? 'check' : 'copy'} size="1em" />
-					{copied ? 'Copied' : 'Copy the prompt'}
+					{copied ? t('Copied') : t('Copy the prompt')}
 				</button>
 			</section>
 		{:else if i === 1}
 			<section class="card center">
-				<h3><span class="step tnum">2</span> Open your assistant</h3>
+				<h3><span class="step tnum">2</span> {t('Open your assistant')}</h3>
 				<div class="ai-links">
 					{#each AI_ASSISTANTS as ai (ai.name)}
 						<a href={assistantHref(ai, userAgent)} target="_blank" rel="noopener">
 							<span class="ai-name">{ai.name}</span>
-							<span class="ai-hint">Opens in a new tab</span>
+							<span class="ai-hint">{t('Opens in a new tab')}</span>
 							<Icon name="external" size="0.9em" />
 						</a>
 					{/each}
 				</div>
 				<p class="note">
 					{copied
-						? 'The prompt is already on your clipboard — just paste it, switch to voice, and talk.'
-						: 'Copy the prompt first (one step back), then paste it into your assistant.'}
+						? t('The prompt is already on your clipboard — just paste it, switch to voice, and talk.')
+						: t('Copy the prompt first (one step back), then paste it into your assistant.')}
 				</p>
 				<button class="btn btn-ghost" onclick={() => (index = 2)}>
-					I have my score <Icon name="arrowRight" size="1em" />
+					{t('I have my score')} <Icon name="arrowRight" size="1em" />
 				</button>
 			</section>
 		{:else}
 			<section class="card fill">
-				<h3><span class="step tnum">3</span> Bring the score back</h3>
+				<h3><span class="step tnum">3</span> {t('Bring the score back')}</h3>
 				<p class="lede">
-					Paste the whole report the AI gives you (or just the number). The
-					<code>SCORE=</code> line is read automatically.
+					{t('Paste the whole report the AI gives you (or just the number). The')}
+					<code>SCORE=</code> {t('line is read automatically.')}
 				</p>
 				<textarea
 					bind:value={report}
-					aria-label="The AI's report, or your score"
+					aria-label={t('The AI\'s report, or your score')}
 					rows="5"
-					placeholder="Paste the report, or type the score"
+					placeholder={t('Paste the report, or type the score')}
 				></textarea>
 
 				{#if saved === null}
 					<button class="btn" onclick={save} disabled={score === null}>
 						<Icon name="check" size="1em" />
-						{score === null ? 'Enter a score to save' : `Save ${score} / 100`}
+						{score === null ? t('Enter a score to save') : `Save ${score} / 100`}
 					</button>
 				{:else}
 					<div class="result" class:pass={saved >= session.passScore} in:pop>
@@ -267,7 +266,7 @@
 								<Icon name="trophy" size="1.05em" /> {medal} medal
 							</p>
 						{:else}
-							<p class="medal">No medal yet — run it again when you're ready.</p>
+							<p class="medal">{t('No medal yet — run it again when you\'re ready.')}</p>
 						{/if}
 					</div>
 
@@ -275,7 +274,7 @@
 						<!-- The corrections, in the open: what went wrong, the right way,
 						     and the tutor's reason — not only banked for later prompts. -->
 						<div class="focus" in:pop>
-							<h4><Icon name="pen" size="1em" /> Work on these next time</h4>
+							<h4><Icon name="pen" size="1em" /> {t('Work on these next time')}</h4>
 							<ol>
 								{#each remembered as fix, n (n)}
 									<li>
@@ -287,8 +286,7 @@
 								{/each}
 							</ol>
 							<p class="note">
-								Saved. Your next speaking or writing exercise will quietly bring
-								one or two of them back.
+								{t('Saved. Your next speaking or writing exercise will quietly bring one or two of them back.')}
 							</p>
 						</div>
 					{/if}

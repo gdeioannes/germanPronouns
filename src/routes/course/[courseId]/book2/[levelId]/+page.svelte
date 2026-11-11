@@ -6,9 +6,24 @@
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { page } from '$app/state';
 	import type { PageData } from './$types';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { inLangBookFront, inLangChapter } from '$lib/i18n/content.svelte';
+	import { BOOKS, bookPdf, hasTurkishPdf } from '$lib/content/books';
 
 	import { onMount } from 'svelte';
 	let { data }: { data: PageData } = $props();
+	// In Turkish the book comes through its level's overlay: the explanations,
+	// the word meanings and the translations change; the German stays.
+	const book = $derived(
+		lang.tr
+			? {
+					...inLangBookFront(data.book, data.book.level),
+					chapters: data.book.chapters.map((c) => inLangChapter(c, data.book.level))
+				}
+			: data.book
+	);
+	const entry = $derived(BOOKS.find((b) => b.level === data.book.level));
 	// ?cover prints the wraparound cover sheet, ?spine=7.5 its spine width, and
 	// ?hd the print originals (tool/gen-book2.mjs). Read in the browser: the
 	// page is prerendered, so the query string does not exist at build time.
@@ -20,7 +35,7 @@
 	// wherever the trip started (home or the deck), like any side trip.
 	let fromBooks = $state(false);
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
-	const back = $derived(fromBooks ? { href: '/books', label: 'The books' } : { href: returnTo.path, label: returnLabel(returnTo.path) });
+	const back = $derived(fromBooks ? { href: '/books', label: t('The books') } : { href: returnTo.path, label: returnLabel(returnTo.path) });
 	onMount(() => {
 		const q = new URLSearchParams(window.location.search);
 		fromBooks = q.get('from') === 'books';
@@ -45,17 +60,20 @@
 	{#if !cover}
 		<div class="dl-bar">
 			<a class="back-link" href={back.href}><Icon name="arrowLeft" size="1em" /> {back.label}</a>
-			<span><strong>{data.book.title}</strong> · {data.book.subtitle} · {data.book.chapters.length} chapters</span>
+			<span><strong>{book.title}</strong> · {book.subtitle} · {t('{n} chapters', { n: book.chapters.length })}</span>
 			<!-- The page is the book, laid out on A4 for print: the browser prints it as it is. -->
 			<button type="button" class="btn print" onclick={() => window.print()}>
-				<Icon name="printer" size="1em" /> Print
+				<Icon name="printer" size="1em" /> {t('Print')}
 			</button>
-			<a class="btn" href="/books/v2/{data.book.courseId}_{data.book.level.toLowerCase().replace('.', '_')}.pdf" download>
-				<Icon name="download" size="1em" /> Download the PDF
-			</a>
+			<!-- Turkish: the Turkish edition's PDF once it is printed; until then printing the page is the way. -->
+			{#if !lang.tr || (entry && hasTurkishPdf(entry))}
+				<a class="btn" href={entry ? bookPdf(entry, lang.tr) : `/books/v2/${data.book.courseId}_${data.book.level.toLowerCase().replace('.', '_')}.pdf`} download>
+					<Icon name="download" size="1em" /> {t('Download the PDF')}
+				</a>
+			{/if}
 		</div>
 	{/if}
-	<Book2 book={data.book} credits={data.credits} qr={data.qr} pages={data.pages} siteQr={data.siteQr} {cover} spineMm={spine} {hd} />
+	<Book2 {book} credits={data.credits} qr={data.qr} pages={data.pages} siteQr={data.siteQr} {cover} spineMm={spine} {hd} />
 </main>
 
 <style>

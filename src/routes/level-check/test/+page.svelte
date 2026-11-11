@@ -52,11 +52,25 @@
 		type PassageItem
 	} from '$lib/domain/placement';
 	import type { PageData } from './$types';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { levelInTurkish } from '$lib/i18n/available';
+	import { inLang } from '$lib/i18n/content.svelte';
 
 	let { data }: { data: PageData } = $props();
 	const courseHref = $derived(page.data.site?.courseHref ?? `/course/${data.courseId}`);
-	const levels = $derived(data.bank.levels);
-	const wordLevels = $derived(bankLevels(data.words));
+	// In Turkish the test only places within A1–A2, and its sentences and
+	// questions come through each level's Turkish overlay.
+	const inTr = (l: string) => !lang.tr || levelInTurkish(l);
+	const levels = $derived(data.bank.levels.filter(inTr));
+	const wordLevels = $derived(bankLevels(data.words).filter(inTr));
+	const perLevel = <T,>(rec: Record<string, T>) =>
+		Object.fromEntries(Object.entries(rec).map(([l, v]) => [l, inLang(v, l)])) as Record<string, T>;
+	const bank = $derived(
+		lang.tr
+			? { ...data.bank, grammar: perLevel(data.bank.grammar), reading: perLevel(data.bank.reading), listening: perLevel(data.bank.listening) }
+			: data.bank
+	);
 
 	type Phase = 'intro' | 'words' | 'grammar' | 'reading' | 'listening' | 'result';
 	let phase = $state<Phase>('intro');
@@ -137,7 +151,7 @@
 		const level = nextLevel(wordLevels, screens);
 		if (level) {
 			screens = [...screens, buildScreen(data.words, level, shownWords(screens))];
-			announce(`${screens.at(-1)!.items.length} new words.`);
+			announce(t('{n} new words.', { n: screens.at(-1)!.items.length }));
 			return focusTop();
 		}
 		const result = checkResult(wordLevels, screens);
@@ -158,7 +172,7 @@
 
 	function drawItem() {
 		const level = nextGrammarLevel(levels, wordsLevel ?? levels[1], answers);
-		const pool = data.bank.grammar[level] ?? [];
+		const pool = bank.grammar[level] ?? [];
 		const fresh = pool.filter((i) => !used.has(i.sentence));
 		const pick = shuffle(fresh.length ? fresh : pool)[0];
 		used.add(pick.sentence);
@@ -208,7 +222,7 @@
 	const MAX_PLAYS = 3;
 
 	function startText(kind: 'reading' | 'listening') {
-		text = (kind === 'reading' ? data.bank.reading : data.bank.listening)[gLevel] ?? null;
+		text = (kind === 'reading' ? bank.reading : bank.listening)[gLevel] ?? null;
 		picks = text ? text.questions.map(() => null) : [];
 		plays = 0;
 		phase = kind;
@@ -308,7 +322,7 @@
 			track('placement_done', { level, words: wordsLevel ?? '', grammar: gLevel, reading: reading[0], listening: listening[0] });
 			celebrate(`${level}!`);
 		}
-		announce(`Your level: ${level}.`);
+		announce(t('Your level: {level}.', { level }));
 		void focusTop();
 	}
 
@@ -360,39 +374,39 @@
 			aria-valuenow={Math.round(progress * 100)}
 			aria-valuemin="0"
 			aria-valuemax="100"
-			aria-label="Test progress"
+			aria-label={t('Test progress')}
 		>
-			<span>Hovering around <b class="tnum">{hoverLevel}</b></span>
-			<span>{PARTS[partIndex].label} · part {partIndex + 1} of 4 · about {minutesLeft} min left</span>
+			<span>{t('Hovering around')} <b class="tnum">{hoverLevel}</b></span>
+			<span>{t('{part} · part {i} of 4 · about {min} min left', { part: t(PARTS[partIndex].label), i: partIndex + 1, min: minutesLeft })}</span>
 		</p>
 	{/if}
 
 	{#if interlude}
 		<button type="button" class="interlude" onclick={() => onInterludeEnd()} in:fade={{ duration: 150 }}>
-			<span class="done"><Icon name="check" size="1.1em" /> {interlude.done}</span>
-			<span class="up-next">Next: {interlude.next}</span>
-			<span class="tap-hint">tap to continue</span>
+			<span class="done"><Icon name="check" size="1.1em" /> {t(interlude.done)}</span>
+			<span class="up-next">{t('Next: {part}', { part: t(interlude.next) })}</span>
+			<span class="tap-hint">{t('tap to continue')}</span>
 		</button>
 	{:else if phase === 'intro'}
 		<div in:fly={{ y: 16, duration: dur() }}>
-			<p class="eyebrow">Placement test · about 10 minutes</p>
-			<h1 tabindex="-1" data-focus>Find your level</h1>
-			<p class="lede">Four short parts, each a little harder when you do well and easier when you don't. At the end you get your level, and the course starts you there.</p>
+			<p class="eyebrow">{t('Placement test · about 10 minutes')}</p>
+			<h1 tabindex="-1" data-focus>{t('Find your level')}</h1>
+			<p class="lede">{t("Four short parts, each a little harder when you do well and easier when you don't. At the end you get your level, and the course starts you there.")}</p>
 			<ol class="intro-parts">
-				<li><strong>Words</strong> Tap the German words you know. Some are made up: leave those.</li>
-				<li><strong>Grammar</strong> Twelve sentences with a gap. Pick the word that fits.</li>
-				<li><strong>Reading</strong> One short text and three questions.</li>
-				<li><strong>Listening</strong> One recording, up to three plays, three questions.</li>
+				<li><strong>{t('Words')}</strong> {t('Tap the German words you know. Some are made up: leave those.')}</li>
+				<li><strong>{t('Grammar')}</strong> {t('Twelve sentences with a gap. Pick the word that fits.')}</li>
+				<li><strong>{t('Reading')}</strong> {t('One short text and three questions.')}</li>
+				<li><strong>{t('Listening')}</strong> {t('One recording, up to three plays, three questions.')}</li>
 			</ol>
-			<p class="small">Not sure? Choose <em>I don’t know</em> rather than guessing: a lucky guess puts you on a level that is too hard. Nothing is marked, and you can skip out at any point and pick a level yourself.</p>
-			<button type="button" class="btn" onclick={start}>Start the test <Icon name="arrowRight" size="1em" /></button>
+			<p class="small">{t('Not sure? Choose “I don’t know” rather than guessing: a lucky guess puts you on a level that is too hard. Nothing is marked, and you can skip out at any point and pick a level yourself.')}</p>
+			<button type="button" class="btn" onclick={start}>{t('Start the test')} <Icon name="arrowRight" size="1em" /></button>
 		</div>
 	{:else if phase === 'words' && screen}
 		{#key screens.length}
 			<div class="qcard" in:fly={{ x: 28, duration: dur() }}>
-				<span class="count tnum">screen {screens.length}</span>
-				<p class="eyebrow">Tap the words you know</p>
-				<p class="small">Only the ones you are sure about. Some of these words do not exist.</p>
+				<span class="count tnum">{t('screen {n}', { n: screens.length })}</span>
+				<p class="eyebrow">{t('Tap the words you know')}</p>
+				<p class="small">{t('Only the ones you are sure about. Some of these words do not exist.')}</p>
 				<ul class="chips">
 					{#each screen.items as w (w.de)}
 						<li>
@@ -403,24 +417,24 @@
 			</div>
 		{/key}
 		<div class="actions">
-			<button type="button" class="btn" onclick={nextWords}>Next <Icon name="arrowRight" size="1em" /></button>
+			<button type="button" class="btn" onclick={nextWords}>{t('Next')} <Icon name="arrowRight" size="1em" /></button>
 		</div>
 	{:else if phase === 'grammar' && item}
 		{#key answers.length}
 			<div class="qcard" in:fly={{ x: 28, duration: dur() }}>
 				<span class="count tnum">{answers.length + 1} / {GRAMMAR_ITEMS}</span>
-				<p class="eyebrow">Fill the gap</p>
+				<p class="eyebrow">{t('Fill the gap')}</p>
 				<p class="sentence" lang="de" tabindex="-1" data-focus>
-					{parts(item.sentence)[0]}<span class="gap" aria-label="gap">&nbsp;</span>{parts(item.sentence)[1]}
+					{parts(item.sentence)[0]}<span class="gap" aria-label={t('gap')}>&nbsp;</span>{parts(item.sentence)[1]}
 				</p>
 				{#if item.english}<p class="english">{item.english}</p>{/if}
-				<QuizChoices choices={item.options} locale="de" selected={picked} idk="I don’t know" onpick={answerGrammar} />
+				<QuizChoices choices={item.options} locale="de" selected={picked} idk={t('I don’t know')} onpick={answerGrammar} />
 			</div>
 		{/key}
 	{:else if (phase === 'reading' || phase === 'listening') && text}
 		{#key phase}
 			<div class="qcard" in:fly={{ x: 28, duration: dur() }}>
-				<p class="eyebrow">{phase === 'reading' ? 'Read the text' : 'Listen to the recording'}</p>
+				<p class="eyebrow">{phase === 'reading' ? t('Read the text') : t('Listen to the recording')}</p>
 				<h1 class="q" lang="de" tabindex="-1" data-focus>{text.title}</h1>
 				{#if phase === 'reading'}
 					<div class="passage" lang="de">
@@ -430,16 +444,16 @@
 					<div class="player">
 						<button type="button" class="btn" onclick={play} disabled={playing || plays >= MAX_PLAYS}>
 							{#if playing}
-								<span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Playing…
+								<span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span> {t('Playing…')}
 							{:else}
 								<Icon name="headphones" size="1em" />
-								{plays === 0 ? 'Play the recording' : 'Play again'}
+								{plays === 0 ? t('Play the recording') : t('Play again')}
 							{/if}
 						</button>
-						<span class="plays" aria-label="{MAX_PLAYS - plays} of {MAX_PLAYS} plays left">
+						<span class="plays" aria-label={t('{n} of {max} plays left', { n: MAX_PLAYS - plays, max: MAX_PLAYS })}>
 							{#each Array(MAX_PLAYS) as _, i (i)}<i class="dot" class:used={i < plays}></i>{/each}
 						</span>
-						<p class="small">Listen first, then answer. The text is not shown: that is the test.</p>
+						<p class="small">{t('Listen first, then answer. The text is not shown: that is the test.')}</p>
 					</div>
 				{/if}
 				<ol class="questions">
@@ -453,7 +467,7 @@
 								locale="de"
 								label={q.question}
 								selected={picks[qi] === null ? undefined : picks[qi] === -1 ? null : q.options[picks[qi]!]}
-								idk="I don’t know"
+								idk={t('I don’t know')}
 								onpick={(o) => pick(qi, o === null ? -1 : q.options.indexOf(o))}
 							/>
 						</li>
@@ -463,24 +477,24 @@
 		{/key}
 		<div class="actions">
 			<button type="button" class="btn" disabled={picks.some((p) => p === null)} onclick={finishText}>
-				{phase === 'reading' ? 'Next: listening' : 'See my level'} <Icon name="arrowRight" size="1em" />
+				{phase === 'reading' ? t('Next: listening') : t('See my level')} <Icon name="arrowRight" size="1em" />
 			</button>
 		</div>
 	{:else if phase === 'result'}
 		<div in:fly={{ y: 20, duration: dur() }}>
-			<p class="eyebrow">{skipped ? 'Our best guess so far' : 'Your result'}</p>
+			<p class="eyebrow">{skipped ? t('Our best guess so far') : t('Your result')}</p>
 			<h1 tabindex="-1" data-focus class="reveal">
-				{skipped ? 'Maybe' : 'Start at'} <span class="lv">{level}</span>
+				{skipped ? t('Maybe') : t('Start at')} <span class="lv">{level}</span>
 			</h1>
 			<p class="lede">
 				{#if skipped}
-					You skipped part of the test, so this is rough. Pick the level that feels right: nothing is locked.
+					{t('You skipped part of the test, so this is rough. Pick the level that feels right: nothing is locked.')}
 				{:else}
-					{LEVEL_MEANING[level] ?? ''}
+					{t(LEVEL_MEANING[level] ?? '')}
 				{/if}
 			</p>
 			<dl class="parts">
-				{#each [{ dt: 'Words', dd: wordsLevel ?? '–' }, { dt: 'Grammar', dd: skipped && !answers.length ? '–' : gLevel }, { dt: 'Reading', dd: reading[1] ? `${reading[0]} of ${reading[1]}` : '–' }, { dt: 'Listening', dd: listening[1] ? `${listening[0]} of ${listening[1]}` : '–' }] as part, i (part.dt)}
+				{#each [{ dt: t('Words'), dd: wordsLevel ?? '–' }, { dt: t('Grammar'), dd: skipped && !answers.length ? '–' : gLevel }, { dt: t('Reading'), dd: reading[1] ? t('{a} of {b}', { a: reading[0], b: reading[1] }) : '–' }, { dt: t('Listening'), dd: listening[1] ? t('{a} of {b}', { a: listening[0], b: listening[1] }) : '–' }] as part, i (part.dt)}
 				<div in:fly={{ y: 12, duration: dur(), delay: dur() ? 150 + i * 90 : 0 }}>
 					<dt>{part.dt}</dt>
 					<dd>{part.dd}</dd>
@@ -488,9 +502,9 @@
 				{/each}
 			</dl>
 			<p class="small">
-				{skipped ? 'Each step is one sub-level higher.' : 'Feel it is too easy or too hard? Pick another level: you can change it any time in your deck.'}
+				{skipped ? t('Each step is one sub-level higher.') : t('Feel it is too easy or too hard? Pick another level: you can change it any time in your deck.')}
 			</p>
-			<div class="levels" role="radiogroup" aria-label="Level to start at">
+			<div class="levels" role="radiogroup" aria-label={t('Level to start at')}>
 				{#each levels as lv, i (lv)}
 					<button type="button" class="lv-btn tnum" role="radio" aria-checked={chosen === lv} onclick={() => (chosen = lv)}>
 						{lv}
@@ -498,11 +512,11 @@
 					</button>
 				{/each}
 			</div>
-			<p class="meaning small">{LEVEL_MEANING[chosen] ?? ''}</p>
+			<p class="meaning small">{t(LEVEL_MEANING[chosen] ?? '')}</p>
 			<div class="actions">
-				<button type="button" class="btn" onclick={startHere}>Start learning at {chosen} <Icon name="arrowRight" size="1em" /></button>
+				<button type="button" class="btn" onclick={startHere}>{t('Start learning at {level}', { level: chosen })} <Icon name="arrowRight" size="1em" /></button>
 			</div>
-			<p class="small"><button type="button" class="btn-quiet" onclick={start}>Take the {skipped ? 'full test' : 'test again'}</button></p>
+			<p class="small"><button type="button" class="btn-quiet" onclick={start}>{skipped ? t('Take the full test') : t('Take the test again')}</button></p>
 		</div>
 	{/if}
 
@@ -519,8 +533,8 @@
 			</svg>
 		</div>
 		<p class="skip-row small">
-			In a hurry?
-			<button type="button" class="btn-quiet" onclick={skipToResult}>Skip the rest and pick your level</button>
+			{t('In a hurry?')}
+			<button type="button" class="btn-quiet" onclick={skipToResult}>{t('Skip the rest and pick your level')}</button>
 		</p>
 	{/if}
 </main>

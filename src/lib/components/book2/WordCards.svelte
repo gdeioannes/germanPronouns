@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// A chapter's words as flashcards, spaced over days (domain/bookStudy):
 	// the picture and the English first, then the German with its article and
 	// plural, spoken. "I knew it" sends a word further away each time; "not
@@ -66,7 +67,7 @@
 
 <div class="cards">
 	<p class="meta">
-		{words.length} {german ? 'Wörter' : 'words'} · {learnt} {german ? 'sitzen schon' : 'learnt'}
+		{german ? `${words.length} Wörter · ${learnt} sitzen schon` : t('{n} words · {learnt} learnt', { n: words.length, learnt })}
 	</p>
 	{#if !loaded}
 		<div class="card"></div>
@@ -85,20 +86,20 @@
 		</div>
 		<div class="actions">
 			{#if !shown}
-				<button type="button" class="btn" onclick={show}>{german ? 'Zeigen' : 'Show the German'}</button>
+				<button type="button" class="btn" onclick={show}>{german ? 'Zeigen' : t('Show the German')}</button>
 			{:else}
-				<button type="button" class="btn ghost" onclick={() => answer(false)}>{german ? 'Noch nicht' : 'Not yet'}</button>
-				<button type="button" class="btn" onclick={() => answer(true)}><Icon name="check" size="1em" stroke={2.5} /> {german ? 'Wusste ich' : 'I knew it'}</button>
+				<button type="button" class="btn ghost" onclick={() => answer(false)}>{german ? 'Noch nicht' : t('Not yet')}</button>
+				<button type="button" class="btn" onclick={() => answer(true)}><Icon name="check" size="1em" stroke={2.5} /> {german ? 'Wusste ich' : t('I knew it')}</button>
 			{/if}
 		</div>
-		<p class="left">{queue.length} {german ? 'Karten noch' : 'cards to go'}</p>
+		<p class="left">{queue.length} {german ? 'Karten noch' : t('cards to go')}</p>
 	{:else}
 		<div class="card done">
-			<p class="en">{doneToday ? (german ? `${doneToday} Wörter für heute. Gut gemacht.` : `${doneToday} words for today. Well done.`) : german ? 'Heute ist kein Wort fällig.' : 'No words are due today.'}</p>
-			<p class="pl">{german ? 'Die Karten kommen wieder, wenn du sie fast vergessen hast.' : 'The cards come back just before you would forget them.'}</p>
+			<p class="en">{doneToday ? (german ? `${doneToday} Wörter für heute. Gut gemacht.` : `${doneToday} words for today. Well done.`) : german ? 'Heute ist kein Wort fällig.' : t('No words are due today.')}</p>
+			<p class="pl">{german ? 'Die Karten kommen wieder, wenn du sie fast vergessen hast.' : t('The cards come back just before you would forget them.')}</p>
 		</div>
 		<div class="actions">
-			<button type="button" class="btn ghost" onclick={allAgain}>{german ? 'Trotzdem üben' : 'Practise anyway'}</button>
+			<button type="button" class="btn ghost" onclick={allAgain}>{german ? 'Trotzdem üben' : t('Practise anyway')}</button>
 		</div>
 	{/if}
 </div>

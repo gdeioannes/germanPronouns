@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// Pictures for the "?" help panels. "anatomy" is a real screenshot of the
 	// deck (tool/gen-help-shots.mjs) with numbered markers measured from the
 	// page; the diagrams are drawn from the same settings the deck deals with
@@ -17,44 +18,44 @@
 	const ANATOMIES: Record<string, { shot: keyof typeof shots; alt: string; legend: Legend }> = {
 		anatomy: {
 			shot: 'deck-anatomy',
-			alt: 'The deck: the pace and level chip, the progress ring, the top card and the three buttons under it.',
+			alt: t('The deck: the pace and level chip, the progress ring, the top card and the three buttons under it.'),
 			legend: {
-				1: { title: 'Pace and level', text: 'How the deck deals. Tap to change.' },
-				2: { title: 'Progress ring', text: 'How much of this level you have done.' },
-				3: { title: 'Why this card', text: 'Continue, Learn next, Practise, Review, Something new…' },
-				4: { title: 'Card count', text: 'Where you are in this hand.' },
-				5: { title: 'Skip', text: 'Or swipe left: not now.' },
-				6: { title: 'Exercise library', text: 'Every exercise, to choose yourself.' },
+				1: { title: t('Pace and level'), text: t('How the deck deals. Tap to change.') },
+				2: { title: t('Progress ring'), text: t('How much of this level you have done.') },
+				3: { title: t('Why this card'), text: 'Continue, Learn next, Practise, Review, Something new…' },
+				4: { title: t('Card count'), text: t('Where you are in this hand.') },
+				5: { title: t('Skip'), text: t('Or swipe left: not now.') },
+				6: { title: t('Exercise library'), text: t('Every exercise, to choose yourself.') },
 				7: { title: "Let's go", text: 'Or swipe right: open the exercise.' },
-				8: { title: 'Level and type', text: 'Which level the exercise is from, and what kind it is.' }
+				8: { title: t('Level and type'), text: t('Which level the exercise is from, and what kind it is.') }
 			}
 		},
 		'contacts-anatomy': {
 			shot: 'contacts-anatomy',
-			alt: 'The Schreib mir! page: a contact who liked you, a chat still open, and new characters to write to.',
+			alt: t('The Schreib mir! page: a contact who liked you, a chat still open, and new characters to write to.'),
 			legend: {
-				1: { title: 'Likes so far', text: 'How many characters like you, out of all of them.' },
-				2: { title: 'Level chips', text: 'Filter the whole list by level.' },
-				3: { title: 'A contact', text: 'Someone who liked you. Tap to read your chat again.' },
-				4: { title: 'What they know', text: 'The things you told them in the chat.' },
-				5: { title: 'Their voice note', text: 'Arrives the Sunday after your chat.' },
-				6: { title: 'Weiter', text: 'Carry on a chat you started.' },
-				7: { title: 'Schreib!', text: 'Start a chat with someone new.' }
+				1: { title: 'Likes so far', text: t('How many characters like you, out of all of them.') },
+				2: { title: 'Level chips', text: t('Filter the whole list by level.') },
+				3: { title: 'A contact', text: t('Someone who liked you. Tap to read your chat again.') },
+				4: { title: t('What they know'), text: t('The things you told them in the chat.') },
+				5: { title: t('Their voice note'), text: t('Arrives the Sunday after your chat.') },
+				6: { title: 'Weiter', text: t('Carry on a chat you started.') },
+				7: { title: 'Schreib!', text: t('Start a chat with someone new.') }
 			}
 		},
 		'chat-anatomy': {
 			shot: 'chat-anatomy',
-			alt: 'A Schreib mir! chat with Lena: the interest hearts, the goal, her messages and a photo, a sentence with its score and the correction, and the word tiles.',
+			alt: t('A Schreib mir! chat with Lena: the interest hearts, the goal, her messages and a photo, a sentence with its score and the correction, and the word tiles.'),
 			legend: {
-				1: { title: 'Interest', text: 'The hearts. Good answers raise them; at zero you are deleted.' },
-				2: { title: 'Goal', text: 'What you are trying to get. One chance.' },
-				3: { title: 'Messages and photos', text: 'The speaker reads a message aloud, EN shows it in English, and a photo opens big.' },
-				4: { title: 'Your score', text: 'How well your sentence was built. Tap it for the details.' },
-				5: { title: 'Ah, du meinst', text: 'They understood you, and say it back the right way, with the fix highlighted.' },
-				6: { title: 'Your sentence', text: 'Tap a word to take it back. The line under it shows how it reads.' },
-				7: { title: 'Word tiles', text: 'Tap to add a word.' },
-				8: { title: '. and ?', text: 'End a sentence and start another, or make it a question.' },
-				9: { title: 'Send', text: 'Off it goes. No take-backs.' }
+				1: { title: 'Interest', text: t('The hearts. Good answers raise them; at zero you are deleted.') },
+				2: { title: 'Goal', text: t('What you are trying to get. One chance.') },
+				3: { title: t('Messages and photos'), text: t('The speaker reads a message aloud, EN shows it in English, and a photo opens big.') },
+				4: { title: t('Your score'), text: t('How well your sentence was built. Tap it for the details.') },
+				5: { title: 'Ah, du meinst', text: t('They understood you, and say it back the right way, with the fix highlighted.') },
+				6: { title: t('Your sentence'), text: t('Tap a word to take it back. The line under it shows how it reads.') },
+				7: { title: t('Word tiles'), text: t('Tap to add a word.') },
+				8: { title: '. and ?', text: t('End a sentence and start another, or make it a question.') },
+				9: { title: t('Send'), text: t('Off it goes. No take-backs.') }
 			}
 		}
 	};
@@ -81,7 +82,7 @@
 	const stops = [
 		{ day: R.shaky, label: 'Shaky', tone: 'repair' },
 		{ day: R.bronze, label: 'Bronze', tone: 'bronze' },
-		{ day: R.silver, label: 'Silver · reading, listening, speaking', tone: 'silver' },
+		{ day: R.silver, label: t('Silver · reading, listening, speaking'), tone: 'silver' },
 		{ day: R.gold, label: 'Gold', tone: 'gold' }
 	];
 	const pct = (n: number) => Math.round(n * 100);
@@ -89,7 +90,7 @@
 	const KINDS = [
 		{ icon: '🔀', label: 'Ja oder Nein?' },
 		{ icon: '🧱', label: 'Wortblöcke' },
-		{ icon: '📏', label: 'Word check' }
+		{ icon: '📏', label: t('Word check') }
 	];
 </script>
 
@@ -108,15 +109,15 @@
 		</ol>
 	</figure>
 {:else if kind === 'swipe'}
-	<figure class="swipe" aria-label="Swipe the card left to skip it, right to open it.">
+	<figure class="swipe" aria-label={t('Swipe the card left to skip it, right to open it.')}>
 		<div class="lane">
-			<span class="dir no" aria-hidden="true">← Skip<small>not now</small></span>
+			<span class="dir no" aria-hidden="true">← Skip<small>{t('not now')}</small></span>
 			<span class="mini-card" aria-hidden="true">
-				<span class="mc-label">Learn next</span>
+				<span class="mc-label">{t('Learn next')}</span>
 				<span class="mc-title"></span>
 				<span class="mc-line"></span>
 			</span>
-			<span class="dir yes" aria-hidden="true">Let's go →<small>open it</small></span>
+			<span class="dir yes" aria-hidden="true">{t('Let\'s go →')}<small>{t('open it')}</small></span>
 		</div>
 	</figure>
 {:else if kind === 'mix'}
@@ -124,7 +125,7 @@
 		<div class="mix-key" aria-hidden="true">
 			<span><i class="sq repair"></i> Repair</span>
 			<span><i class="sq fresh"></i> New</span>
-			<span><i class="sq next"></i> Next steps</span>
+			<span><i class="sq next"></i> {t('Next steps')}</span>
 		</div>
 		{#each mix as m (m.id)}
 			<div class="mix-row">
@@ -133,7 +134,7 @@
 					{#each squares(m) as s, i (i)}<i class="sq {s}"></i>{/each}
 				</span>
 				<span class="sr-only">{m.repair} repair, {m.fresh} new, {m.next} next steps out of {DEFAULT_SIZE}.</span>
-				<span class="spread" aria-hidden="true" title="New cards by level: two back to two ahead">
+				<span class="spread" aria-hidden="true" title={t('New cards by level: two back to two ahead')}>
 					{#each m.spread as w, i (i)}
 						<span class="bar-col"><i style:height="{Math.max(w > 0 ? 8 : 0, pct(w))}%" class:own={i === 2}></i></span>
 					{/each}
@@ -148,7 +149,7 @@
 {:else if kind === 'review'}
 	<figure class="review">
 		<div class="track" aria-hidden="true">
-			<span class="day0">Finished</span>
+			<span class="day0">{t('Finished')}</span>
 			{#each stops as s (s.label)}
 				<span class="stop {s.tone}" style:left="{(s.day / MAX_DAY) * 100}%">
 					<i></i>
@@ -164,10 +165,10 @@
 	</figure>
 {:else if kind === 'lifecycle'}
 	<figure class="flow life">
-		<div class="state"><span class="tag new">Schreib!</span><span><strong>Neu.</strong> You have not written to them yet.</span></div>
-		<div class="arrow" aria-hidden="true">↓ <small>you start the chat</small></div>
-		<div class="state"><span class="tag go">Weiter</span><span><strong>Offen.</strong> The chat is running. Leave and come back any time.</span></div>
-		<div class="arrow" aria-hidden="true">↓ <small>the chat ends</small></div>
+		<div class="state"><span class="tag new">Schreib!</span><span><strong>Neu.</strong> {t('You have not written to them yet.')}</span></div>
+		<div class="arrow" aria-hidden="true">↓ <small>{t('you start the chat')}</small></div>
+		<div class="state"><span class="tag go">Weiter</span><span><strong>Offen.</strong> {t('The chat is running. Leave and come back any time.')}</span></div>
+		<div class="arrow" aria-hidden="true">↓ <small>{t('the chat ends')}</small></div>
 		<div class="ends">
 			<span class="end win"><b>❤️ Mag dich</b><small>{WIN_AT} or more hearts at the end. A contact, and a voice note on Sunday.</small></span>
 			<span class="end mid"><b>🤝 No like</b><small>{PARTIAL_AT} to {WIN_AT - 1} hearts at the end. Back to Neu, to try again.</small></span>
@@ -176,13 +177,13 @@
 	</figure>
 {:else if kind === 'interest'}
 	<figure class="flow interest">
-		<p class="flow-head"><strong>Each sentence you send</strong> gets a score out of 100:</p>
+		<p class="flow-head"><strong>{t('Each sentence you send')}</strong> {t('gets a score out of 100:')}</p>
 		<div class="bands">
-			<span class="band top"><b>100</b><small>Perfect. A good answer earns an extra ❤ on top.</small></span>
-			<span class="band ok"><b>{UNDERSTOOD_AT} to 99</b><small>Understood. They answer, and say it back right: „Ah, du meinst…“</small></span>
-			<span class="band bad"><b>Under {UNDERSTOOD_AT}</b><small>„Hä?“ They could not follow: one ❤ less.</small></span>
+			<span class="band top"><b>100</b><small>{t('Perfect. A good answer earns an extra ❤ on top.')}</small></span>
+			<span class="band ok"><b>{UNDERSTOOD_AT} to 99</b><small>{t('Understood. They answer, and say it back right: „Ah, du meinst…“')}</small></span>
+			<span class="band bad"><b>Under {UNDERSTOOD_AT}</b><small>{t('„Hä?“ They could not follow: one ❤ less.')}</small></span>
 		</div>
-		<p class="flow-head"><strong>What you say counts too.</strong> An answer they like adds hearts, one that annoys them takes some away, and one that misses the question costs a heart.</p>
+		<p class="flow-head"><strong>{t('What you say counts too.')}</strong> {t('An answer they like adds hearts, one that annoys them takes some away, and one that misses the question costs a heart.')}</p>
 		<div class="meter-scale" aria-hidden="true">
 			{#each Array(MAX_INTEREST + 1) as _, i (i)}
 				<span class="cell" class:lost={i < PARTIAL_AT} class:mid={i >= PARTIAL_AT && i < WIN_AT} class:win={i >= WIN_AT} class:start={i === START_INTEREST}>{i}</span>
@@ -201,17 +202,17 @@
 	<figure class="flow">
 		<div class="step">
 			<span class="step-n">1</span>
-			<span><strong>A new hand is dealt.</strong> One roll: does a surprise come?</span>
+			<span><strong>{t('A new hand is dealt.')}</strong> {t('One roll: does a surprise come?')}</span>
 		</div>
 		<div class="odds" aria-hidden="false">
 			<span class="odd"><b>{pct(SURPRISE_CHANCE)}%</b> usually</span>
-			<span class="odd boost"><b>{pct(SURPRISE_BOOST_CHANCE)}%</b> after a passed run</span>
-			<span class="odd sure"><b>100%</b> your very first</span>
+			<span class="odd boost"><b>{pct(SURPRISE_BOOST_CHANCE)}%</b> {t('after a passed run')}</span>
+			<span class="odd sure"><b>100%</b> {t('your very first')}</span>
 		</div>
 		<div class="arrow" aria-hidden="true">↓</div>
 		<div class="step">
 			<span class="step-n">2</span>
-			<span><strong>One kind is picked</strong> from those that have something for you:</span>
+			<span><strong>{t('One kind is picked')}</strong> {t('from those that have something for you:')}</span>
 		</div>
 		<div class="kinds">
 			{#each KINDS as k (k.label)}<span class="kind"><span aria-hidden="true">{k.icon}</span> {k.label}</span>{/each}
@@ -219,7 +220,7 @@
 		<div class="arrow" aria-hidden="true">↓</div>
 		<div class="step">
 			<span class="step-n">3</span>
-			<span><strong>It goes near the top</strong> of the hand. Never more than one.</span>
+			<span><strong>{t('It goes near the top')}</strong> {t('of the hand. Never more than one.')}</span>
 		</div>
 		<div class="hand" aria-hidden="true">
 			<i></i><i class="surprise">★</i><i></i><i></i><i></i><i></i>

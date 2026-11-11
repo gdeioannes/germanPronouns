@@ -1,4 +1,5 @@
 <script lang="ts" module>
+	import { t } from '$lib/i18n/t';
 	export type StepMark = 'done' | 'right' | 'wrong' | null;
 
 	/** What a dot's colour says, for a screen reader. */
@@ -130,7 +131,7 @@
 		onpointercancel={() => (tracking = false)}
 		role="group"
 		aria-roledescription="carousel"
-		aria-label="Exercise sections"
+		aria-label={t('Exercise sections')}
 	>
 		{#each { length: count } as _, i (i)}
 			<section
@@ -151,7 +152,7 @@
 	</div>
 
 	<nav class="rail" aria-label="Sections">
-		<button type="button" class="arrow" onclick={() => go(index - 1)} disabled={index === 0} aria-label="Previous section">
+		<button type="button" class="arrow" onclick={() => go(index - 1)} disabled={index === 0} aria-label={t('Previous section')}>
 			<Icon name="arrowLeft" size="1.1em" />
 		</button>
 
@@ -175,7 +176,7 @@
 			</div>
 		</div>
 
-		<button type="button" class="arrow next" onclick={() => go(index + 1)} disabled={index === count - 1} aria-label="Next section">
+		<button type="button" class="arrow next" onclick={() => go(index + 1)} disabled={index === count - 1} aria-label={t('Next section')}>
 			<Icon name="arrowRight" size="1.1em" />
 		</button>
 	</nav>

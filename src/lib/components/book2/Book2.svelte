@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	import { hidesEnglish } from '$lib/domain/germanFirst';
 	// Book v2: one chapter = nine A4 sheets (docs/book_v2_plan.md §3). The
 	// companion's LearnBlock and ExerciseBlock draw the grammar and the
@@ -52,12 +53,12 @@
 	const keyPage = $derived(firstPage(book.chapters.length));
 	/** From B1 the rules are in German: the words they use, with their English, once. */
 	const GRAMMAR_WORDS = [
-		['das Nomen', 'noun'], ['das Verb', 'verb'], ['das Adjektiv', 'adjective'], ['der Artikel', 'article'],
+		['das Nomen', 'noun'], [t('das Verb'), 'verb'], ['das Adjektiv', 'adjective'], ['der Artikel', 'article'],
 		['das Pronomen', 'pronoun'], ['die Präposition', 'preposition'], ['die Endung', 'ending'],
-		['der Singular', 'singular'], ['der Plural', 'plural'], ['maskulin, feminin, neutral', 'masculine, feminine, neuter'],
+		['der Singular', 'singular'], ['der Plural', 'plural'], ['maskulin, feminin, neutral', t('masculine, feminine, neuter')],
 		['der Nominativ (wer?)', 'nominative'], ['der Akkusativ (wen?)', 'accusative'], ['der Dativ (wem?)', 'dative'], ['der Genitiv (wessen?)', 'genitive'],
 		['der Infinitiv', 'infinitive'], ['das Präsens', 'present'], ['das Perfekt', 'perfect'], ['das Präteritum', 'simple past'], ['das Partizip', 'participle'],
-		['der Satz', 'sentence'], ['der Hauptsatz', 'main clause'], ['der Nebensatz', 'subordinate clause'], ['der Relativsatz', 'relative clause'],
+		['der Satz', 'sentence'], ['der Hauptsatz', 'main clause'], ['der Nebensatz', t('subordinate clause')], ['der Relativsatz', t('relative clause')],
 		['das Subjekt', 'subject'], ['das Objekt', 'object'], ['der Komparativ', 'comparative'], ['der Superlativ', 'superlative'],
 		['trennbar', 'separable'], ['reflexiv', 'reflexive']
 	];
@@ -67,7 +68,7 @@
 	const article = (de: string) => /^(der|die|das) /.exec(de)?.[1] ?? '';
 	const bare = (de: string) => de.replace(/^(der|die|das) /, '');
 	/** "die Äpfel" prints whole; "-n" prints as the ending; "–" as nothing. */
-	const plural = (pl?: string) => (!pl || pl === '' ? '' : pl === '–' ? (hidesEnglish(book.level) ? 'kein Plural' : 'no plural') : pl.startsWith('-') || pl.startsWith('¨') ? `pl. ${pl}` : pl);
+	const plural = (pl?: string) => (!pl || pl === '' ? '' : pl === '–' ? (hidesEnglish(book.level) ? 'kein Plural' : t('no plural')) : pl.startsWith('-') || pl.startsWith('¨') ? `pl. ${pl}` : pl);
 	const split = <T,>(xs: T[], n: number): [T[], T[]] => [xs.slice(0, n), xs.slice(n)];
 
 	// The covers. The front is the market panorama's right half, the crop the
@@ -186,7 +187,7 @@
 				if (r) report.push(`page ${i + 1}: ${r.plate ? `word panel ${r.plate} mm, ` : ''}${Math.round(r.zoom * 100)}%${r.over ? `, still ${r.over} mm over` : ''}`);
 			});
 			el.querySelectorAll<HTMLElement>('section.page.words').forEach((page, i) => {
-				if (placeWordsCode(page) === null) report.push(`words page ${i + 1}: the code touches a label in every corner`);
+				if (placeWordsCode(page) === null) report.push(t('words page {i}: the code touches a label in every corner', { i: i + 1 }));
 			});
 			(window as unknown as { __bookFit?: string[] }).__bookFit = report;
 			document.documentElement.dataset.bookFit = 'done';
@@ -210,7 +211,7 @@
 {#snippet foot(page: number, c: Chapter)}
 	<footer class="foot">
 		<span class="tnum">{page}</span>
-		<span><b>{c.n}</b> · {c.title} · <i>{c.world}</i></span>
+		<span><b>{c.n}</b> · <span lang="de">{c.title}</span> · <i lang="de">{c.world}</i></span>
 	</footer>
 {/snippet}
 
@@ -225,7 +226,7 @@
 
 {#snippet filler(prompt: string, german = false)}
 	<div class="fill">
-		<p class="eyebrow">{german ? 'Schreib mit!' : 'Schreib mit! · your turn'}</p>
+		<p class="eyebrow">{german ? 'Schreib mit!' : t('Schreib mit! · your turn')}</p>
 		<p class="fill-prompt">{prompt}</p>
 		<div class="fill-lines"></div>
 	</div>
@@ -245,7 +246,7 @@
 		<div class="fc-shade"></div>
 		<header class="fc-brand">
 			<img src="/icons/Icon-192.png" alt="" />
-			<span><b>Language Quiz</b> · German for English speakers</span>
+			<span><b>{t('Language Quiz')}</b> {t('· German for English speakers')}</span>
 		</header>
 		{#each coverPins as l (l.de)}
 			{@const a = article(l.de)}
@@ -258,10 +259,10 @@
 			</div>
 		{/each}
 		<div class="fc-plate">
-			<div class="fc-badge"><b>{book.level}</b><span>{book.cover?.badge ?? 'for complete beginners'}</span></div>
+			<div class="fc-badge"><b>{book.level}</b><span>{book.cover?.badge ?? t('for complete beginners')}</span></div>
 			<h1 lang="de">{book.title.replace(/\s*[A-C]\d\.\d$/, '')}</h1>
 			<p class="fc-sub" lang="de">{book.subtitle}</p>
-			<p class="fc-blurb">German in {book.chapters.length} real places: the words pinned on the things, a story in each place, and the grammar the story needs.</p>
+			<p class="fc-blurb">{t('German in {n} real places: the words pinned on the things, a story in each place, and the grammar the story needs.', { n: book.chapters.length })}</p>
 			<p class="fc-route" lang="de">{#each coverCities as city, i (city)}{#if i}<i>·</i>{/if}<span class="nb">{city}</span> {/each}</p>
 			<p class="fc-site">languagequiz.org</p>
 		</div>
@@ -271,8 +272,8 @@
 {#snippet backCover()}
 	<div class="bc">
 		<p class="bc-kicker">{book.title} · {book.subtitle}</p>
-		<h2>German, one place at a time.</h2>
-		<p class="bc-lede">{book.cover?.lede ?? 'A Späti at midnight. A market in Munich. A flat in Prenzlauer Berg, Sunday cake at Oma’s, the fish market at five in the morning. Twelve chapters, twelve real places, and the German you need in each of them.'}</p>
+		<h2>{t('German, one place at a time.')}</h2>
+		<p class="bc-lede">{book.cover?.lede ?? t('A Späti at midnight. A market in Munich. A flat in Prenzlauer Berg, Sunday cake at Oma’s, the fish market at five in the morning. Twelve chapters, twelve real places, and the German you need in each of them.')}</p>
 		<ol class="bc-places">
 			{#each book.chapters as ch (ch.id)}
 				<li>
@@ -283,20 +284,20 @@
 			{/each}
 		</ol>
 		<div class="bc-can">
-			<p class="bc-can-title">After this book you can</p>
+			<p class="bc-can-title">{t('After this book you can')}</p>
 			<ul>
 				{#each book.chapters as ch (ch.id)}{#if ch.canDo[0]}<li>{ch.canDo[0]}</li>{/if}{/each}
 			</ul>
 		</div>
 		<div class="bc-points">
-			<p><b>Words first.</b> Every chapter opens on a photograph with the words pinned to the things, so the first German you learn is what you can see.</p>
-			<p><b>Real German.</b> {book.cover?.real ?? 'A price board, a doorbell, a menu, a form at the Bürgeramt'}: the texts Germany actually prints, photographed and read.</p>
-			<p><b>Paper and phone.</b> Write in the book. Scan a code and the chapter is read aloud, a tutor talks with you, or the exercise opens in the app.</p>
-			<p><b>Free.</b> The whole course, A1 to C2, is free at languagequiz.org. This book is its paper half.</p>
+			<p><b>{t('Words first.')}</b> {t('Every chapter opens on a photograph with the words pinned to the things, so the first German you learn is what you can see.')}</p>
+			<p><b>{t('Real German.')}</b> {book.cover?.real ?? t('A price board, a doorbell, a menu, a form at the Bürgeramt')}: {t('the texts Germany actually prints, photographed and read.')}</p>
+			<p><b>{t('Paper and phone.')}</b> {t('Write in the book. Scan a code and the chapter is read aloud, a tutor talks with you, or the exercise opens in the app.')}</p>
+			<p><b>Free.</b> {t('The whole course, A1 to C2, is free at languagequiz.org. This book is its paper half.')}</p>
 		</div>
 		<footer class="bc-foot">
-			{#if siteQr}<a class="bc-qr" href="https://languagequiz.org" aria-label="languagequiz.org">{@html siteQr}</a>{/if}
-			<span class="bc-site"><img src="/icons/Icon-192.png" alt="" /><span><b>languagequiz.org</b><br />Start free, at your level.</span></span>
+			{#if siteQr}<a class="bc-qr" href="https://languagequiz.org" aria-label=languagequiz.org>{@html siteQr}</a>{/if}
+			<span class="bc-site"><img src="/icons/Icon-192.png" alt="" /><span><b>languagequiz.org</b><br />{t('Start free, at your level.')}</span></span>
 		</footer>
 	</div>
 {/snippet}
@@ -353,30 +354,30 @@
 		</div>
 		{:else}
 		<header class="head small">
-			<p class="eyebrow">Before you start</p>
-			<h2>How this book works</h2>
+			<p class="eyebrow">{t('Before you start')}</p>
+			<h2>{t('How this book works')}</h2>
 		</header>
 		<div class="how-cols">
 			<div>
-				<p>Every chapter is one place: {book.cover?.places ?? 'a market in Munich, a Späti at midnight, a flat in Berlin, the Bürgeramt'}. The place gives you the words, the words carry the story, and the story carries the grammar. You never learn a rule before you have met it in a sentence.</p>
-				<p>The chapters all have the same ten pages, so you always know where you are:</p>
+				<p>{t('Every chapter is one place:')} {book.cover?.places ?? t('a market in Munich, a Späti at midnight, a flat in Berlin, the Bürgeramt')}. {t('The place gives you the words, the words carry the story, and the story carries the grammar. You never learn a rule before you have met it in a sentence.')}</p>
+				<p>{t('The chapters all have the same ten pages, so you always know where you are:')}</p>
 				<ol class="pages">
-					<li><b>The photo.</b> A real place, with the words pinned on the things.</li>
-					<li><b>Words first.</b> The rest of the chapter's words, with pictures. Cover the English, test yourself.</li>
-					<li><b>Reading.</b> Maya, Lena and Max in the situation.{#if hidesEnglish(book.level)} Try it in German: there is no translation here.{:else} The English is underneath, small.{/if}</li>
-					<li><b>Grammar, twice.</b> Two pages, two rules, a Mini-Check at the foot of each.</li>
-					<li><b>Reading the real thing.</b> A photographed sign, menu, form or board, as Germany prints it.</li>
-					<li><b>Practice, two pages.</b> Write in the book. The answers are at the back, not on the page.</li>
-					<li><b>Listen, speak, I can.</b> The QR codes, and the four things you can now do.</li>
-					<li><b>The picture dictionary.</b> Every pictured word of the chapter on one page.</li>
+					<li><b>{t('The photo.')}</b> {t('A real place, with the words pinned on the things.')}</li>
+					<li><b>{t('Words first.')}</b> {t('The rest of the chapter\'s words, with pictures. Cover the English, test yourself.')}</li>
+					<li><b>{t('Reading.')}</b> {t('Maya, Lena and Max in the situation.')}{#if hidesEnglish(book.level)} Try it in German: there is no translation here.{:else} {t('The English is underneath, small.')}{/if}</li>
+					<li><b>{t('Grammar, twice.')}</b> {t('Two pages, two rules, a Mini-Check at the foot of each.')}</li>
+					<li><b>{t('Reading the real thing.')}</b> {t('A photographed sign, menu, form or board, as Germany prints it.')}</li>
+					<li><b>{t('Practice, two pages.')}</b> {t('Write in the book. The answers are at the back, not on the page.')}</li>
+					<li><b>{t('Listen, speak, I can.')}</b> {t('The QR codes, and the four things you can now do.')}</li>
+					<li><b>{t('The picture dictionary.')}</b> {t('Every pictured word of the chapter on one page.')}</li>
 				</ol>
 			</div>
 			<div>
-				<p><b>Work with a pencil.</b> Say every German word out loud as you write it. The ruled lines at the foot of a page are yours: the sentences you want to keep, the mistakes you made twice.</p>
-				<p><b>The codes.</b> Every page you write on has a small code at the top. Finish the page, scan the code with your phone, and the app checks your answers against the key. On the words page it turns the words into flashcards; on the reading page it reads the text aloud. The bigger codes at the end of a chapter play its audio, start the tutor, or open more practice, and each has an address under it to type into a browser if the camera will not read it. In the PDF, every code is a link.</p>
-				<p><b>Wusstest du?</b> The box at the foot of a page is a fact about Germany, not grammar. Skip it or read it; it is there because the place deserved it.</p>
-				<p><b>Three colours.</b> Blue words are <b class="art der">der</b>, red words <b class="art die">die</b>, green words <b class="art das">das</b>, in every list and table. Buy three pencils.</p>
-				<p class="name">This book belongs to <span></span></p>
+				<p><b>{t('Work with a pencil.')}</b> {t('Say every German word out loud as you write it. The ruled lines at the foot of a page are yours: the sentences you want to keep, the mistakes you made twice.')}</p>
+				<p><b>{t('The codes.')}</b> {t('Every page you write on has a small code at the top. Finish the page, scan the code with your phone, and the app checks your answers against the key. On the words page it turns the words into flashcards; on the reading page it reads the text aloud. The bigger codes at the end of a chapter play its audio, start the tutor, or open more practice, and each has an address under it to type into a browser if the camera will not read it. In the PDF, every code is a link.')}</p>
+				<p><b>Wusstest du?</b> {t('The box at the foot of a page is a fact about Germany, not grammar. Skip it or read it; it is there because the place deserved it.')}</p>
+				<p><b>Three colours.</b> {t('Blue words are')} <b class="art der">der</b>{t(', red words')} <b class="art die">die</b>{t(', green words')} <b class="art das">das</b>{t(', in every list and table. Buy three pencils.')}</p>
+				<p class="name">{t('This book belongs to')} <span></span></p>
 			</div>
 		</div>
 		{/if}
@@ -387,17 +388,17 @@
 	<section class="page right contents">
 		<header class="head small">
 			<p class="eyebrow">{book.level}</p>
-			<h2>{hidesEnglish(book.level) ? 'Inhalt' : 'Contents'}</h2>
+			<h2>{hidesEnglish(book.level) ? 'Inhalt' : t('Contents')}</h2>
 		</header>
 		<ol class="toc">
 			{#each book.chapters as c, i (c.id)}
 				<li data-accent={c.accent}>
 					<span class="no">{c.n}</span>
-					<span class="t"><b lang="de">{c.title}</b> <small>{c.subtitle}</small><i>{c.world}</i></span>
+					<span class="t"><b lang="de">{c.title}</b> <small>{c.subtitle}</small><i lang="de">{c.world}</i></span>
 					<span class="pg tnum">{firstPage(i)}</span>
 				</li>
 			{/each}
-			<li class="key-line"><span class="no">✓</span><span class="t">{#if hidesEnglish(book.level)}<b>Lösungen</b> <small>und Bildnachweise</small>{:else}<b>Answers</b> <small>and the picture credits</small>{/if}</span><span class="pg tnum">{keyPage}</span></li>
+			<li class="key-line"><span class="no">✓</span><span class="t">{#if hidesEnglish(book.level)}<b>Lösungen</b> <small>und Bildnachweise</small>{:else}<b>{t('Answers')}</b> <small>{t('and the picture credits')}</small>{/if}</span><span class="pg tnum">{keyPage}</span></li>
 		</ol>
 		<footer class="foot"><span class="tnum">3</span><span>{book.title} · {book.subtitle}</span></footer>
 	</section>
@@ -417,14 +418,14 @@
 				<div class="plate-cols">
 					<div>
 						<h2 lang="de">{c.title}</h2>
-						<p class="world">{c.world}</p>
+						<p class="world" lang="de">{c.world}</p>
 						<p class="cap" lang="de">{c.opener.caption}</p>
 					</div>
 					<ol class="qs" lang="de">
 						{#each c.opener.questions as q (q)}<li>{q}</li>{/each}
 					</ol>
 				</div>
-				<p class="strip-title">{c.words.more ?? (c.german ? 'Auch hier' : 'Auch hier · also here')}</p>
+				<p class="strip-title">{c.words.more ?? (c.german ? 'Auch hier' : t('Auch hier · also here'))}</p>
 				<!-- Pictured words as tiles; the rest (verbs, adjectives, abstract
 				     nouns) as a tidy list under them, so the tiles have no holes. -->
 				<ul class="grid">
@@ -455,7 +456,7 @@
 		<!-- 2 · Words first: the right half of the panorama, the words pinned onto it -->
 		<section class="page {side(p + 1)} words" data-accent={c.accent}>
 			<img class="bleed pano right" src="{photoBase}/{c.opener.photo}.jpg" alt="" />
-			<p class="eyebrow onphoto">{c.german ? 'Wörter zuerst' : 'Wörter zuerst · words first'}</p>
+			<p class="eyebrow onphoto">{c.german ? 'Wörter zuerst' : t('Wörter zuerst · words first')}</p>
 			{@render pageCode(c, 'woerter', 'Wortkarten')}
 			{#each c.opener.labels ?? [] as l (l.de)}
 				{@const a = article(l.de)}
@@ -474,7 +475,7 @@
 		<section class="page {side(p + 2)} reading" class:coded={pages[c.id]?.lesen} data-accent={c.accent}>
 			{@render pageCode(c, 'lesen', 'Hören, prüfen')}
 			<header class="head small">
-				<p class="eyebrow">{c.german ? 'Lesen' : 'Lesen · reading'}</p>
+				<p class="eyebrow">{c.german ? 'Lesen' : t('Lesen · reading')}</p>
 				<h2 lang="de">{c.reading.title}</h2>
 			</header>
 			<p class="intro">{c.reading.intro}</p>
@@ -491,11 +492,11 @@
 					{#each c.reading.photos as ph (ph.photo)}{@render photo(ph.photo, ph.caption, 'small')}{/each}
 				</div>
 			</div>
-			{#if !hidesEnglish(book.level)}<p class="en"><b>English</b> · {c.reading.en}</p>{/if}
+			{#if !hidesEnglish(book.level)}<p class="en"><b>{t('English')}</b> · {c.reading.en}</p>{/if}
 			<div class="flow">
 				{#each c.reading.tasks as ex, e (e)}<ExerciseBlock {ex} n={e + 1} german={c.german} />{/each}
 			</div>
-			{@render filler(c.german ? 'Schreib die zwei Sätze aus dem Text ab, die du dir merken möchtest. Schreib dann einen eigenen Satz in der gleichen Form.' : 'Copy the two sentences of the text you want to remember, then write one of your own in the same shape.', c.german)}
+			{@render filler(c.german ? 'Schreib die zwei Sätze aus dem Text ab, die du dir merken möchtest. Schreib dann einen eigenen Satz in der gleichen Form.' : t('Copy the two sentences of the text you want to remember, then write one of your own in the same shape.'), c.german)}
 			{@render fact(c.reading.fact)}
 			{@render foot(p + 2, c)}
 		</section>
@@ -505,7 +506,7 @@
 			<section class="page {side(p + 3 + gi)} grammar" class:coded={pages[c.id]?.[`grammatik-${gi + 1}`]} data-accent={c.accent}>
 				{#if g.check}{@render pageCode(c, `grammatik-${gi + 1}`, 'Prüfen')}{/if}
 				<header class="head small">
-					<p class="eyebrow">Grammatik · {gi + 1} {c.german ? 'von' : 'of'} {c.grammar.length}</p>
+					<p class="eyebrow"><span lang="de">Grammatik</span> · {gi + 1} {c.german ? 'von' : t('of')} {c.grammar.length}</p>
 					<h2 lang="de">{g.heading}</h2>
 					{#if g.subheading}<p class="sub">{g.subheading}</p>{/if}
 				</header>
@@ -514,7 +515,7 @@
 					{#each g.blocks as block, b (b)}<LearnBlock {block} german={c.german} />{/each}
 					{#if g.check}<div class="check"><ExerciseBlock ex={g.check} n={gi + 1} german={c.german} /></div>{/if}
 				</div>
-				{@render filler(c.german ? 'Schreib drei eigene Sätze mit der Regel von dieser Seite. Benutze Wörter von der Wörterseite.' : 'Write three sentences of your own with the rule of this page. Use words from the word page.', c.german)}
+				{@render filler(c.german ? 'Schreib drei eigene Sätze mit der Regel von dieser Seite. Benutze Wörter von der Wörterseite.' : t('Write three sentences of your own with the rule of this page. Use words from the word page.'), c.german)}
 				{@render fact(g.fact)}
 				{@render foot(p + 3 + gi, c)}
 			</section>
@@ -524,7 +525,7 @@
 		<section class="page {side(p + 5)} document" class:coded={pages[c.id]?.alltag} data-accent={c.accent}>
 			{@render pageCode(c, 'alltag', 'Prüfen')}
 			<header class="head small">
-				<p class="eyebrow">{c.german ? 'Lesen im Alltag' : 'Lesen im Alltag · reading the real thing'}</p>
+				<p class="eyebrow">{c.german ? 'Lesen im Alltag' : t('Lesen im Alltag · reading the real thing')}</p>
 				<h2 lang="de">{c.document.caption}</h2>
 			</header>
 			{@render photo(c.document.photo, '', c.document.tall ? 'wide tall' : 'wide')}
@@ -532,7 +533,7 @@
 			<div class="flow">
 				{#each c.document.tasks as ex, e (e)}<ExerciseBlock {ex} n={e + 1} german={c.german} />{/each}
 			</div>
-			{@render filler(c.german ? 'Schreib jedes deutsche Wort auf, das du auf dem Foto lesen kannst, bei Nomen mit Artikel.' : 'Write down every German word you can read on the photo, with its article if it is a noun.', c.german)}
+			{@render filler(c.german ? 'Schreib jedes deutsche Wort auf, das du auf dem Foto lesen kannst, bei Nomen mit Artikel.' : t('Write down every German word you can read on the photo, with its article if it is a noun.'), c.german)}
 			{@render fact(c.document.fact)}
 			{@render foot(p + 5, c)}
 		</section>
@@ -542,13 +543,13 @@
 			<section class="page {side(p + 6 + pi)} practise" class:coded={pages[c.id]?.[`uebungen-${pi + 1}`]} data-accent={c.accent}>
 				{@render pageCode(c, `uebungen-${pi + 1}`, 'Prüfen')}
 				<header class="head small">
-					<p class="eyebrow">{c.german ? `Übungen · ${pi + 1} von 2` : `Übungen · practise ${pi + 1} of 2`}</p>
+					<p class="eyebrow">{c.german ? `Übungen · ${pi + 1} von 2` : t('Übungen · practise {pi} of 2', { pi: pi + 1 })}</p>
 					<h2 lang="de">{c.title}</h2>
 				</header>
 				<div class="flow">
 					{#each exs as ex, e (e)}<ExerciseBlock {ex} n={pi * prac1.length + e + 1} listen={qr[c.id]?.listen ?? null} german={c.german} />{/each}
 				</div>
-				{@render filler(c.german ? (pi === 0 ? 'Such dir fünf Wörter aus diesem Kapitel aus und schreib mit jedem einen Satz.' : 'Schreib auf, was auf diesen Seiten falsch war, und schreib es dann richtig.') : (pi === 0 ? 'Pick five words from this chapter and write one sentence with each.' : 'Write what you got wrong on these two pages, correctly, once each.'), c.german)}
+				{@render filler(c.german ? (pi === 0 ? 'Such dir fünf Wörter aus diesem Kapitel aus und schreib mit jedem einen Satz.' : 'Schreib auf, was auf diesen Seiten falsch war, und schreib es dann richtig.') : (pi === 0 ? t('Pick five words from this chapter and write one sentence with each.') : t('Write what you got wrong on these two pages, correctly, once each.')), c.german)}
 				{@render foot(p + 6 + pi, c)}
 			</section>
 		{/each}
@@ -562,34 +563,34 @@
 			<div class="codes">
 				{#if qr[c.id]?.listen}
 					<div class="code">
-						<a class="code-qr" href={qr[c.id].listen!.url} aria-label="Open this code">{@html qr[c.id].listen!.svg}</a>
-						<div><b>Hören</b><p>{c.listen?.intro ?? 'Every recording of this chapter. Scan, listen, and do the Listen exercise again with your eyes closed.'}</p><a class="code-url" href={qr[c.id].listen!.url}>{shortUrl(qr[c.id].listen!.url)}</a></div>
+						<a class="code-qr" href={qr[c.id].listen!.url} aria-label={t('Open this code')}>{@html qr[c.id].listen!.svg}</a>
+						<div><b>Hören</b><p>{c.listen?.intro ?? t('Every recording of this chapter. Scan, listen, and do the Listen exercise again with your eyes closed.')}</p><a class="code-url" href={qr[c.id].listen!.url}>{shortUrl(qr[c.id].listen!.url)}</a></div>
 					</div>
 				{/if}
 				{#if qr[c.id]?.speak}
 					<div class="code">
-						<a class="code-qr" href={qr[c.id].speak!.url} aria-label="Open this code">{@html qr[c.id].speak!.svg}</a>
-						<div><b>Sprechen</b><p>{c.speak?.intro ?? 'Open the code and speak with the tutor.'}</p><a class="code-url" href={qr[c.id].speak!.url}>{shortUrl(qr[c.id].speak!.url)}</a></div>
+						<a class="code-qr" href={qr[c.id].speak!.url} aria-label={t('Open this code')}>{@html qr[c.id].speak!.svg}</a>
+						<div><b>Sprechen</b><p>{c.speak?.intro ?? t('Open the code and speak with the tutor.')}</p><a class="code-url" href={qr[c.id].speak!.url}>{shortUrl(qr[c.id].speak!.url)}</a></div>
 					</div>
 				{/if}
 				{#if qr[c.id]?.app}
 					<div class="code">
-						<a class="code-qr" href={qr[c.id].app!.url} aria-label="Open this code">{@html qr[c.id].app!.svg}</a>
-						<div><b>In der App</b><p>{c.german ? 'Die Übung zu diesem Kapitel, sofort korrigiert, mit Medaillen.' : "The chapter's exercise with instant correction and the medal ladder."}</p><a class="code-url" href={qr[c.id].app!.url}>{shortUrl(qr[c.id].app!.url)}</a></div>
+						<a class="code-qr" href={qr[c.id].app!.url} aria-label={t('Open this code')}>{@html qr[c.id].app!.svg}</a>
+						<div><b>In der App</b><p>{c.german ? 'Die Übung zu diesem Kapitel, sofort korrigiert, mit Medaillen.' : t("The chapter's exercise with instant correction and the medal ladder.")}</p><a class="code-url" href={qr[c.id].app!.url}>{shortUrl(qr[c.id].app!.url)}</a></div>
 					</div>
 				{/if}
 			</div>
 			<div class="cando">
-				<p class="eyebrow">{c.german ? 'Ich kann …' : 'Ich kann … · I can'}</p>
+				<p class="eyebrow">{c.german ? 'Ich kann …' : t('Ich kann … · I can')}</p>
 				<ul>
 					{#each c.canDo as line (line)}<li><span class="box"></span>{line}</li>{/each}
 				</ul>
 			</div>
 			<div class="next">
-				<p>{c.german ? `Fertig? Hak ab, was du kannst. Prüf jede Seite mit ihrem Code oder mit den Lösungen auf Seite ${keyPage}. Kreise ein, was falsch war, und übe es in einer Woche noch einmal.` : `Done? Tick what you can. Check each page with its code, or with the answers on page ${keyPage}. Circle what you got wrong and come back to it in a week.`}</p>
-				{#if pages[c.id]?.woerter}<p class="chapter-url">{c.german ? 'Das ganze Kapitel in der App' : 'The whole chapter in the app'}: <a href={pages[c.id]!.woerter!.url}>{shortUrl(pages[c.id]!.woerter!.url)}</a></p>{/if}
+				<p>{c.german ? t('Fertig? Hak ab, was du kannst. Prüf jede Seite mit ihrem Code oder mit den Lösungen auf Seite {keyPage}. Kreise ein, was falsch war, und übe es in einer Woche noch einmal.', { keyPage }) : t('Done? Tick what you can. Check each page with its code, or with the answers on page {keyPage}. Circle what you got wrong and come back to it in a week.', { keyPage })}</p>
+				{#if pages[c.id]?.woerter}<p class="chapter-url">{c.german ? 'Das ganze Kapitel in der App' : t('The whole chapter in the app')}: <a href={pages[c.id]!.woerter!.url}>{shortUrl(pages[c.id]!.woerter!.url)}</a></p>{/if}
 			</div>
-			<p class="eyebrow notes-title">{c.german ? 'Meine Notizen' : 'Meine Notizen · my notes'}</p>
+			<p class="eyebrow notes-title">{c.german ? 'Meine Notizen' : t('Meine Notizen · my notes')}</p>
 			<div class="fill"><div class="fill-lines"></div></div>
 			{@render foot(p + 8, c)}
 		</section>
@@ -597,10 +598,10 @@
 		<!-- 10 · The chapter's picture dictionary -->
 		<section class="page {side(p + 9)} dict" data-accent={c.accent}>
 			<header class="head small">
-				<p class="eyebrow">{c.german ? 'Bildwörterbuch' : 'Bildwörterbuch · picture dictionary'}</p>
+				<p class="eyebrow">{c.german ? 'Bildwörterbuch' : t('Bildwörterbuch · picture dictionary')}</p>
 				<h2 lang="de">{c.title}</h2>
 			</header>
-			<p class="intro">{c.german ? 'Alle Wörter mit Bild aus diesem Kapitel auf einer Seite. Deck die Wörter zu und sag sie zu den Bildern. Deck die Bilder zu und zeichne sie zu den Wörtern.' : 'Every pictured word of this chapter on one page. Cover the words, say them from the pictures; cover the pictures, draw them from the words.'}</p>
+			<p class="intro">{c.german ? 'Alle Wörter mit Bild aus diesem Kapitel auf einer Seite. Deck die Wörter zu und sag sie zu den Bildern. Deck die Bilder zu und zeichne sie zu den Wörtern.' : t('Every pictured word of this chapter on one page. Cover the words, say them from the pictures; cover the pictures, draw them from the words.')}</p>
 			<ul class="grid big">
 				{#each picturedWords(c).slice(0, 35) as w (w.de)}
 					{@const a = article(w.de)}
@@ -620,8 +621,8 @@
 	{#each keyPages as chunk, k (k)}
 		<section class="page {side(keyPage + k)} key">
 			<header class="head small">
-				<p class="eyebrow">{hidesEnglish(book.level) ? 'Lösungen' : 'Lösungen · the key'}</p>
-				<h2>{hidesEnglish(book.level) ? (chunk.length ? `Lösungen · ${k + 1} von ${keyPages.length - 1}` : 'Bildnachweise') : chunk.length ? `Answers · ${k + 1} of ${keyPages.length - 1}` : 'Picture credits'}</h2>
+				<p class="eyebrow">{hidesEnglish(book.level) ? 'Lösungen' : t('Lösungen · the key')}</p>
+				<h2>{hidesEnglish(book.level) ? (chunk.length ? `Lösungen · ${k + 1} von ${keyPages.length - 1}` : 'Bildnachweise') : chunk.length ? t('Answers · {k} of {keyPages}', { k: k + 1, keyPages: keyPages.length - 1 }) : t('Picture credits')}</h2>
 			</header>
 			<div class="keycols">
 				{#each chunk as c (c.id)}
@@ -646,7 +647,7 @@
 					{#each [...new Set(book.chapters.flatMap((c) => [c.opener.photo, ...c.reading.photos.map((x) => x.photo), ...c.grammar.flatMap((g) => (g.photo ? [g.photo.photo] : [])), c.document.photo]))] as id (id)}
 						{#if credits[id]}<p>{credits[id].title} — {credits[id].author}, {credits[id].license}, Wikimedia Commons.</p>{/if}
 					{/each}
-					<p>Word pictures and diagrams: Language Quiz.</p>
+					<p>{t('Word pictures and diagrams: Language Quiz.')}</p>
 				</div>
 			{/if}
 			<footer class="foot"><span class="tnum">{keyPage + k}</span><span>{book.title} · {book.subtitle}</span></footer>
