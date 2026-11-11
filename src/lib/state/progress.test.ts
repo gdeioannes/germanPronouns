@@ -214,6 +214,26 @@ describe('the streak and its medals', () => {
 	});
 });
 
+describe('what the learner did on one question', () => {
+	const prefix = 'a1_1_fill_';
+
+	it('files a verdict under the question and reads it back, newest last', async () => {
+		installStorage();
+		await progress.load();
+		expect(await progress.verdictsFor(prefix, 'q1')).toEqual([]);
+
+		await progress.recordAnswer(prefix, false, 'Dativ', 'q1');
+		await progress.recordAnswer(prefix, true, 'Dativ', 'q1');
+		await progress.recordAnswer(prefix, true, 'Dativ', 'q2');
+
+		expect((await progress.verdictsFor(prefix, 'q1')).map((v) => v.c)).toEqual([false, true]);
+		expect((await progress.verdictsFor(prefix, 'q2')).map((v) => v.c)).toEqual([true]);
+		// An answer with no key — a quiz kind that hasn't opted in — leaves the record alone.
+		await progress.recordAnswer(prefix, true);
+		expect(await progress.verdictsFor(prefix, 'q1')).toHaveLength(2);
+	});
+});
+
 describe('finishing a run', () => {
 	it('marks a weak run as finished with a retry mark, and a passed one as done', async () => {
 		installStorage();

@@ -17,6 +17,8 @@
 	// listen for again marked in the line. One missing comma no longer wipes
 	// out an otherwise heard sentence.
 	import Burst from '../Burst.svelte';
+	import HistoryDots from './HistoryDots.svelte';
+	import { questionKey, type Verdict } from '$lib/domain/questionHistory';
 	import { inDialog } from './keys';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SpeakButton from '../SpeakButton.svelte';
@@ -95,6 +97,21 @@
 	let cardEl = $state<HTMLElement>();
 	let missKey = $state(0);
 	let inputEl = $state<HTMLInputElement>();
+
+	/** Past verdicts on the line now playing; empty until loaded or when new. */
+	let verdicts = $state<Verdict[]>([]);
+	$effect(() => {
+		const text = item?.text;
+		verdicts = [];
+		if (!text) return;
+		let live = true;
+		void untrack(() => progress.verdictsFor(quiz.storageKeyPrefix, questionKey(text))).then((v) => {
+			if (live) verdicts = v;
+		});
+		return () => {
+			live = false;
+		};
+	});
 	/** The line shown before answering — only offered with "Show transcripts" on. */
 	let peek = $state(false);
 	/** Bumped per line so the card freshens even when a line comes back round. */
@@ -156,7 +173,12 @@
 		);
 		grade = result;
 
-		const stats = await progress.recordAnswer(quiz.storageKeyPrefix, result.right);
+		const stats = await progress.recordAnswer(
+			quiz.storageKeyPrefix,
+			result.right,
+			undefined,
+			questionKey(item.text)
+		);
 		const lapCompleted = result.right && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
 		best = stats.bestStreakAbsolute;
@@ -317,6 +339,7 @@
 					<Icon name="book" size="0.95em" /> {peek ? t('Hide the text') : t('Show the text')}
 				</button>
 			{/if}
+			<HistoryDots {verdicts} />
 		</div>
 
 		{#if peek && grade === null}
@@ -398,8 +421,14 @@
 	.controls {
 		position: relative;
 		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
 		gap: 0.6rem;
 		margin-bottom: 1.1rem;
+	}
+	/* The dots keep to the right end of the chip row, on their own line if it wraps. */
+	.controls > :global(.dots) {
+		margin-left: auto;
 	}
 
 	/* A compact pill for the transport controls, sized off the button base. */

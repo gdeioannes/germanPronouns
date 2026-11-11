@@ -1033,6 +1033,11 @@ export const TR: Record<string, string> = {
 		"Doğru.{medal}",
 	"Not quite. The answer is:":
 		"Tam değil. Doğru cevap:",
+	// The dots in the card's corner: how this very question went before.
+	"Seen once before: {list}": "Daha önce bir kez görüldü: {list}",
+	"Seen {n} times before: {list}": "Daha önce {n} kez görüldü: {list}",
+	"right": "doğru",
+	"wrong": "yanlış",
 	"Turn word help off":
 		"Kelime yardımını kapat",
 	"Tap any word for its meaning, and colour the nouns by gender":

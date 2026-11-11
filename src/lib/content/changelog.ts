@@ -17,6 +17,15 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-11",
+    title: "How did this one go last time?",
+    items: [
+      "Fill-in and dictation cards now carry a small row of dots in the corner: one dot for each earlier time you met that very sentence, green for right, red for wrong, newest on the right. A sentence you have never seen shows nothing.",
+      "So before you answer, you can see whether this is one you keep getting right or one that keeps catching you, and slow down instead of guessing.",
+      "Up to six past answers are kept per sentence, and they travel with your synced progress between devices.",
+    ],
+  },
+  {
+    date: "2026-11-11",
     title: "German for Turkish speakers: Türkçe açıklamalı Almanca",
     items: [
       "The site now speaks Turkish too: pick Türkçe in the new language picker on the home page (or in Settings), and menus, buttons, help and the About page are all in Turkish.",

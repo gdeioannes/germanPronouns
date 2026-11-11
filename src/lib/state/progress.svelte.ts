@@ -21,6 +21,12 @@ import {
 	type QuizMark,
 	type RibbonTier
 } from '$lib/domain/progress';
+import {
+	parseQuestionHistory,
+	withVerdict,
+	type QuestionHistory,
+	type Verdict
+} from '$lib/domain/questionHistory';
 import { applyCalmEffects } from '$lib/motion/fx.svelte';
 import { setAutoSpeak, setMuted } from '$lib/services/mute';
 import { setSoundEffects } from '$lib/services/sounds';
@@ -519,6 +525,27 @@ class ProgressStore {
 	}
 
 	/**
+	 * The last few verdicts on one question of a quiz, oldest first — empty
+	 * when the learner has never answered it. Backs the dots on the card.
+	 */
+	async verdictsFor(prefix: string, questionKey: string): Promise<Verdict[]> {
+		const history = await this.questionHistory(prefix);
+		return history[questionKey] ?? [];
+	}
+
+	private async questionHistory(prefix: string): Promise<QuestionHistory> {
+		return parseQuestionHistory(await this.readJson(quizStatsKeys(prefix).questionHistory));
+	}
+
+	private async recordVerdict(prefix: string, questionKey: string, correct: boolean): Promise<void> {
+		const history = await this.questionHistory(prefix);
+		await storage.set(
+			quizStatsKeys(prefix).questionHistory,
+			JSON.stringify(withVerdict(history, questionKey, correct))
+		);
+	}
+
+	/**
 	 * Logs a checked passage — a big text's gaps, a reading's questions — into
 	 * the answer history, so its misses rank weak spots and review like a
 	 * drill's. The streak is left alone: a passage earns its medal by score.
@@ -536,14 +563,18 @@ class ProgressStore {
 	 * Records one answer and returns the updated stats. A right answer grows
 	 * the streak; a miss starts it again at zero — it costs nothing else. The
 	 * answer that lands the streak exactly on a medal boundary reports the
-	 * medal in `earned`, so the quiz can celebrate the crossing.
+	 * medal in `earned`, so the quiz can celebrate the crossing. With a
+	 * `questionKey` the verdict is also filed under that question, for the
+	 * dots that show how the learner has done on it before.
 	 */
 	async recordAnswer(
 		prefix: string,
 		correct: boolean,
-		categoryLabel?: string
+		categoryLabel?: string,
+		questionKey?: string
 	): Promise<AnswerResult> {
 		await this.recordHistory(prefix, correct, categoryLabel);
+		if (questionKey) await this.recordVerdict(prefix, questionKey, correct);
 		const current = await this.statsFor(prefix);
 		const streak = correct ? current.streak + 1 : 0;
 		const next: QuizStats = {

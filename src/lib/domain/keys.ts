@@ -87,6 +87,8 @@ export function quizStatsKeys(prefix: string) {
 	return {
 		answerHistory: `${prefix}quiz_answer_history`,
 		mistakesByCase: `${prefix}quiz_mistakes_by_case`,
+		/** Web-only. Per question (keyed by a hash of its text): the last few verdicts, for the dots on the card. */
+		questionHistory: `${prefix}quiz_question_history`,
 		score: `${prefix}quiz_score`,
 		streak: `${prefix}quiz_streak`,
 		/** Legacy: the lives a streak once had. Written by the old builds; nothing reads it now. */

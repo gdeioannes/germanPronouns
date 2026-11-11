@@ -11,6 +11,7 @@
 // worksheet thought the learner could do nothing right.
 
 import { quizStatsKeys } from './keys';
+import { mergeQuestionHistory, parseQuestionHistory } from './questionHistory';
 import { LOG_LIMIT as WORD_CHECK_LOG_LIMIT, WORD_CHECK_LOG } from './wordCheck';
 import {
 	betterMedal,
@@ -67,6 +68,7 @@ const SUFFIX = (() => {
 		answerHistory: k.answerHistory,
 		runLog: k.runLog,
 		mistakes: k.mistakesByCase,
+		questionHistory: k.questionHistory,
 		score: k.score,
 		bestStreakAbsolute: k.bestStreakAbsolute,
 		lastPlayed: k.lastPlayed,
@@ -199,6 +201,11 @@ function mergeValue(
 	// The level checks taken on either device, every one kept for the history.
 	if (key === WORD_CHECK_LOG) return mergeTimeline(local, remote, WORD_CHECK_LOG_LIMIT);
 	if (key.endsWith(SUFFIX.mistakes)) return mergeMistakes(local, remote);
+	if (key.endsWith(SUFFIX.questionHistory)) {
+		return JSON.stringify(
+			mergeQuestionHistory(parseQuestionHistory(parseJson(local)), parseQuestionHistory(parseJson(remote)))
+		);
+	}
 	if (key.endsWith(SUFFIX.ladder)) return mergeLadder(local, remote);
 	if (key.endsWith(SUFFIX.scoreMedal)) {
 		return betterMedal(parseMedal(local), parseMedal(remote)) ?? local;

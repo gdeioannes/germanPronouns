@@ -50,6 +50,8 @@
 	import { react, shakeOn } from '$lib/motion/fx.svelte';
 	import RunSummary from './RunSummary.svelte';
 	import RunTracker from './RunTracker.svelte';
+	import HistoryDots from './HistoryDots.svelte';
+	import { questionKey, type Verdict } from '$lib/domain/questionHistory';
 	import type { FillBlankQuiz, QuizSentence } from '$lib/content/types';
 
 	let {
@@ -458,6 +460,21 @@
 		}
 	}
 
+	/** Past verdicts on the sentence now showing; empty until loaded or when new. */
+	let verdicts = $state<Verdict[]>([]);
+	$effect(() => {
+		const sentence = current?.sentence;
+		verdicts = [];
+		if (!sentence) return;
+		let live = true;
+		void untrack(() => progress.verdictsFor(quiz.storageKeyPrefix, questionKey(sentence))).then((v) => {
+			if (live) verdicts = v;
+		});
+		return () => {
+			live = false;
+		};
+	});
+
 	async function submit() {
 		if (!current || locked || answers.some((a) => !a.trim())) return;
 
@@ -472,7 +489,8 @@
 		const stats = await progress.recordAnswer(
 			quiz.storageKeyPrefix,
 			correct,
-			current.categoryLabel
+			current.categoryLabel,
+			questionKey(current.sentence)
 		);
 		const lapCompleted = correct && stats.streak > 0 && stats.streak % STREAK_LAP_SIZE === 0;
 		streak = stats.streak;
@@ -661,6 +679,8 @@
 		<!-- The word-help switch sits with the sentence it changes, not away in
 		     settings where the Dart build hid it. The no-help step has none:
 		     a noun's colour is its gender, which would answer the gap. -->
+		<div class="corner">
+			<HistoryDots {verdicts} />
 		{#if step !== 2}
 		<button
 			type="button"
@@ -675,6 +695,7 @@
 			<span>{t('Word help')}</span>
 		</button>
 		{/if}
+		</div>
 
 		<!-- A generated drill's category label is its answer key ("können → konnte"):
 		     with no help it goes, as the cue does. -->
@@ -819,9 +840,18 @@
 		background: var(--surface);
 	}
 
+	/* The card's top-right corner: the history dots and the word-help switch,
+	   floated as one so the label and sentence wrap under them, never beneath. */
+	.corner {
+		float: right;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+		margin: 0 0 0.4rem 0.75rem;
+	}
+
 	/* Quiet until wanted: it is a preference, not part of the exercise. */
 	.word-help {
-		float: right;
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
