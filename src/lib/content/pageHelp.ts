@@ -386,7 +386,7 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 		items: [
 			{
 				title: 'Reading and posting',
-				text: 'Anyone can read. Sign in to start a topic or reply. When someone answers one of your topics, a dot appears on the Menu button.'
+				text: 'Anyone can read. Sign in to start a topic or reply. The forum is under About in the menu. When someone answers one of your topics, a dot appears on About (on a phone, on the Menu button).'
 			},
 			{
 				title: 'From an exercise',

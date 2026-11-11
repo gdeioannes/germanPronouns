@@ -9,6 +9,8 @@
 	import { onMount } from 'svelte';
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { account } from '$lib/state/account.svelte';
+	import { openSignIn } from '$lib/state/signin.svelte';
 
 	type Card = 'levels' | 'fix' | 'books' | 'voice' | 'open';
 
@@ -214,7 +216,16 @@
 						<p class="eyebrow">{s.kicker}</p>
 						{#if i === 0}<h1>{s.title}</h1>{:else}<h2>{s.title}</h2>{/if}
 						<!-- The action comes first, right under the headline, not after the reading. -->
-						<a class="btn" href={s.cta?.href ?? startHref} tabindex={i === index ? 0 : -1}>{s.cta?.label ?? (returning ? 'Keep learning' : 'Start learning German')} <Icon name="arrowRight" size="1em" /></a>
+						<div class="actions">
+							<a class="btn" href={s.cta?.href ?? startHref} tabindex={i === index ? 0 : -1}>{s.cta?.label ?? (returning ? 'Keep learning' : 'Start learning German')} <Icon name="arrowRight" size="1em" /></a>
+							<!-- Slide one only: the way back in for someone already learning elsewhere. -->
+							{#if i === 0 && account.available && !account.signedIn}
+								<p class="have-account">
+									Already learning on another device?
+									<button type="button" onclick={openSignIn} tabindex={i === index ? 0 : -1}>Sign in</button>
+								</p>
+							{/if}
+						</div>
 						<p class="lede">{s.text}</p>
 						{#if s.card === 'levels'}
 							<ul class="card levels" aria-label="The twelve levels">
@@ -492,6 +503,42 @@
 		text-decoration: none;
 		box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.6);
 		margin: 0 0 1.1rem;
+	}
+
+	/* The start button with, on slide one, the sign-in for returning learners beside it. */
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0 1.25rem;
+		margin: 0 0 1.1rem;
+	}
+
+	.actions .btn {
+		margin: 0;
+	}
+
+	.have-account {
+		margin: 0.6rem 0;
+		font-size: 0.95rem;
+		color: #fff;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+	}
+
+	.have-account button {
+		padding: 0;
+		border: 0;
+		background: none;
+		color: #fff;
+		font: inherit;
+		font-weight: 700;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		cursor: pointer;
+	}
+
+	.have-account button:hover {
+		text-decoration-thickness: 2px;
 	}
 
 	.pin {

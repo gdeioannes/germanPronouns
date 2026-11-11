@@ -125,8 +125,8 @@
 	<a class="level-link" href="/level-check"><Icon name="star" size="1em" /> Your level</a>
 {/snippet}
 
-<!-- The forum is a root link, not a dropdown entry: it is where a learner goes
-     to say something is wrong, and the dot is how they learn it was answered. -->
+<!-- The forum lives under About; its dot (a reply to your topic) also shows
+     on the About button, so a learner still sees they were answered. -->
 {#snippet forumLink()}
 	<a class="forum-link" href="/forum" aria-label={forum.unread.length ? 'Forum — new replies to your topics' : undefined}>
 		<Icon name="forum" size="1em" /> Forum
@@ -146,6 +146,7 @@
 		What's new
 		{#if whatsNew.unseen}<span class="dot inline" aria-hidden="true"></span>{/if}
 	</a>
+	{@render forumLink()}
 	<a href="/contact">Contact</a>
 {/snippet}
 
@@ -208,7 +209,6 @@
 	<div class="menu-links">
 		<div class="root-row">
 			{@render levelCheckLink()}
-			{@render forumLink()}
 			<a href="/settings" rel="nofollow"><Icon name="settings" size="1em" /> Settings</a>
 			{@render signIn()}
 		</div>
@@ -268,8 +268,7 @@
 				<nav class="wide" aria-label="Main">
 					{@render levelCheckLink()}
 					{@render drop('library', 'Library', libraryLinks)}
-					{@render drop('about', 'About', aboutLinks, false, whatsNew.unseen)}
-					{@render forumLink()}
+					{@render drop('about', 'About', aboutLinks, false, whatsNew.unseen || forum.unread.length > 0)}
 					{@render signIn()}
 					{@render cta()}
 				</nav>

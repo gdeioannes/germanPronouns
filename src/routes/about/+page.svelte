@@ -284,7 +284,8 @@
 			my personal site, where my other projects live. If something is wrong,
 			confusing or missing, <strong class="key">I genuinely want to know</strong>: the app has grown
 			out of exactly that kind of feedback. <a href="/contact">Write to me</a> —
-			every message gets read.
+			every message gets read — or ask in the <a href="/forum">forum</a>, where
+			other learners can see the answer too.
 		</p>
 	</section>
 </main>

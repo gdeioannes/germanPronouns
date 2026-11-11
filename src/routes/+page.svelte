@@ -12,8 +12,6 @@
 	import StoreEditions from '$lib/components/StoreEditions.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import HeroCarousel from '$lib/components/HeroCarousel.svelte';
-	import { account } from '$lib/state/account.svelte';
-	import { openSignIn } from '$lib/state/signin.svelte';
 	import { progress } from '$lib/state/progress.svelte';
 	import { afterNavigate, goto } from '$app/navigation';
 	import { onMount } from 'svelte';
@@ -198,13 +196,6 @@
 <HeroCarousel {startHref} {returning} />
 
 <main>
-	{#if account.available && !account.signedIn}
-		<p class="have-account">
-			Already learning on another device?
-			<button type="button" onclick={openSignIn}>Sign in</button>
-		</p>
-	{/if}
-
 	<section id="how" class="block">
 		<header class="block-head">
 			<p class="kicker">How it works</p>
@@ -405,25 +396,6 @@
 		max-width: 72rem;
 		margin: 0 auto;
 		padding: 2rem 1.25rem 0;
-	}
-
-	.have-account {
-		margin: 0 0 0;
-		text-align: center;
-		font-size: var(--step--1);
-		color: var(--ink-muted);
-	}
-
-	.have-account button {
-		padding: 0;
-		border: 0;
-		background: none;
-		color: var(--accent-ink);
-		font: inherit;
-		font-weight: 700;
-		text-decoration: underline;
-		text-underline-offset: 2px;
-		cursor: pointer;
 	}
 
 	/* -- how it works: three equal cards --------------------------------- */
