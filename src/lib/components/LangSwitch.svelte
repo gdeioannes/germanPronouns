@@ -50,6 +50,15 @@
 		items[(at + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length]?.focus();
 	}
 
+	// Tabbing out of the menu closes it. Only when focus lands somewhere else:
+	// Safari (iPhone, iPad, Mac) gives a tapped button no focus, so a tap on
+	// an option blurs the menu with nowhere to go, and closing then would
+	// remove the option before its click arrives. Taps outside close it below.
+	function onFocusOut(e: FocusEvent) {
+		const to = e.relatedTarget as Node | null;
+		if (to && !root.contains(to)) open = false;
+	}
+
 	function onOutside(e: PointerEvent) {
 		if (open && root && !root.contains(e.target as Node)) open = false;
 	}
@@ -58,7 +67,7 @@
 <svelte:window onpointerdown={onOutside} />
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<div class="lang-picker" bind:this={root} onkeydown={onKey} onfocusout={(e) => !root.contains(e.relatedTarget as Node) && (open = false)}>
+<div class="lang-picker" bind:this={root} onkeydown={onKey} onfocusout={onFocusOut}>
 	<button
 		type="button"
 		class="trigger"
