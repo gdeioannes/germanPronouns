@@ -111,7 +111,7 @@
 	}
 	.swatch-text code {
 		color: var(--ink-muted);
-		margin-left: 0.35rem;
+		margin-inline-start: 0.35rem;
 	}
 	.swatch-text span {
 		color: var(--ink-muted);

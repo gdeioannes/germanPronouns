@@ -1,12 +1,15 @@
 #!/usr/bin/env node
-// Appends the translator's interface strings (tool/turkish/ui/tr.json,
-// { English: Türkçe }) to src/lib/i18n/tr.ts, skipping keys tr.ts already has
-// and any whose {placeholders} do not match. Then delete ui/tr.json.
+// Appends the translator's interface strings (tool/turkish/ui/<lang>.json,
+// { English: translation }) to src/lib/i18n/<lang>.ts, skipping keys it already
+// has and any whose {placeholders} do not match. Then delete ui/<lang>.json.
+//   node tool/turkish/ui-merge.mjs [--lang ar]
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 
-const path = 'src/lib/i18n/tr.ts';
+const langAt = process.argv.indexOf('--lang');
+const LANG = langAt >= 0 ? process.argv[langAt + 1] : 'tr';
+const path = `src/lib/i18n/${LANG}.ts`;
 const src = readFileSync(path, 'utf8');
-const incoming = JSON.parse(readFileSync('tool/turkish/ui/tr.json', 'utf8'));
+const incoming = JSON.parse(readFileSync(`tool/turkish/ui/${LANG}.json`, 'utf8'));
 const holes = (s) => (s.match(/\{\w+\}/g) ?? []).sort().join(' ');
 const lines = [];
 let skipped = 0;

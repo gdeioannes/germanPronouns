@@ -60,5 +60,5 @@
 	.grid a:hover { background: var(--surface-alt); }
 	.term { font-weight: 600; }
 	.third { color: var(--ink-muted); font-size: var(--step--1); }
-	.gloss { margin-left: auto; color: var(--ink-muted); font-size: var(--step--1); }
+	.gloss { margin-inline-start: auto; color: var(--ink-muted); font-size: var(--step--1); }
 </style>

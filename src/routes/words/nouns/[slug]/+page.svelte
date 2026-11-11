@@ -192,10 +192,10 @@
 	dt { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); }
 	dd { margin: 0.2rem 0 0; }
 	h2 { margin: 2rem 0 0.5rem; font-size: var(--step-1); }
-	.example { display: flex; align-items: center; gap: 0.6rem; margin: 0; padding: 0.9rem 1rem; border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: var(--radius-sm); }
+	.example { display: flex; align-items: center; gap: 0.6rem; margin: 0; padding: 0.9rem 1rem; border-inline-start: 4px solid var(--accent); background: var(--accent-soft); border-radius: var(--radius-sm); }
 	.table-wrap { overflow-x: auto; }
 	table { border-collapse: collapse; width: 100%; }
-	th, td { padding: 0.5rem 0.7rem; text-align: left; border-bottom: 1px solid var(--line); }
+	th, td { padding: 0.5rem 0.7rem; text-align: start; border-bottom: 1px solid var(--line); }
 	thead th { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); }
 	tbody th { font-weight: 600; color: var(--ink-muted); white-space: nowrap; }
 	.quizzes, .related { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.2rem; }

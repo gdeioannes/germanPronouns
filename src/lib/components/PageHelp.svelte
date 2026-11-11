@@ -8,12 +8,12 @@
 	import Sheet from '$lib/components/Sheet.svelte';
 	import { PAGE_HELP } from '$lib/content/pageHelp';
 	import { lang } from '$lib/i18n/lang.svelte';
-	import { routeInTurkish } from '$lib/i18n/available';
+	import { routeTranslated } from '$lib/i18n/available';
 
 	let { topic, tone = 'muted' }: { topic: string | null | undefined; tone?: 'muted' | 'light' } = $props();
 
 	// Turkish mode: help only for the screens that exist in Turkish.
-	const help = $derived(topic && (!lang.tr || routeInTurkish(topic)) ? PAGE_HELP[topic] : undefined);
+	const help = $derived(topic && (!lang.limited || routeTranslated(topic)) ? PAGE_HELP[topic] : undefined);
 	let open = $state(false);
 	/** The pictures load the first time the panel opens (they pull in the game rules). */
 	const visuals = $derived(open ? import('$lib/components/help/HelpVisual.svelte') : null);
@@ -106,7 +106,7 @@
 	}
 	ul {
 		margin: 0.4rem 0 0;
-		padding-left: 1.1rem;
+		padding-inline-start: 1.1rem;
 		color: var(--ink-muted);
 		font-size: var(--step--1);
 		line-height: 1.5;

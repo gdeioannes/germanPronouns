@@ -39,13 +39,13 @@
 
 	// Day names in the learner's language, from the browser (2024-01-01 was a Monday).
 	const dayName = (i: number, style: 'short' | 'long') =>
-		lang.tr ? new Date(2024, 0, 1 + i).toLocaleDateString('tr', { weekday: style }) : style === 'short' ? WEEKDAYS[i].short : WEEKDAYS[i].long;
+		lang.limited ? new Date(2024, 0, 1 + i).toLocaleDateString(lang.locale, { weekday: style }) : style === 'short' ? WEEKDAYS[i].short : WEEKDAYS[i].long;
 
 	/** "Monday, Wednesday and Friday at 19:00" — the plan in words, for the summary line. */
 	const summary = $derived.by(() => {
 		const names = WEEKDAYS.flatMap((w, i) => (days.includes(w.code) ? [dayName(i, 'long')] : []));
 		if (names.length === 7) return t('Every day at {time}', { time });
-		const list = new Intl.ListFormat(lang.current, { type: 'conjunction' }).format(names);
+		const list = new Intl.ListFormat(lang.locale, { type: 'conjunction' }).format(names);
 		return t('{days} at {time}, {minutes} minutes', { days: list, time, minutes });
 	});
 

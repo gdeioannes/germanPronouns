@@ -950,7 +950,7 @@
 		display: flex;
 		gap: 0.2rem;
 		color: var(--accent-ink);
-		margin-right: 0.25rem;
+		margin-inline-end: 0.25rem;
 	}
 	.mic {
 		display: grid;
@@ -1191,7 +1191,7 @@
 	}
 	.story :global(.banter-reply) {
 		background: var(--accent-soft);
-		border-left: 3px solid var(--accent);
+		border-inline-start: 3px solid var(--accent);
 		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 		padding: 0.6rem 0.9rem;
 		max-width: 100%;
@@ -1257,7 +1257,7 @@
 		border-radius: 999px;
 		padding: 0.45rem 1rem;
 		cursor: pointer;
-		text-align: left;
+		text-align: start;
 	}
 	.story :global(.opts) {
 		display: grid;
@@ -1272,10 +1272,10 @@
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
-		text-align: left;
+		text-align: start;
 		background: var(--surface);
 		border: 1.5px solid var(--line-strong);
-		border-left: 4px solid var(--line-strong);
+		border-inline-start: 4px solid var(--line-strong);
 		border-radius: var(--radius-sm);
 		padding: 0.7rem 1rem 0.7rem 0.8rem;
 		cursor: pointer;
@@ -1299,12 +1299,12 @@
 	.story :global(.opt:hover) {
 		transform: translateX(3px);
 		border-color: var(--accent);
-		border-left-color: var(--accent);
+		border-inline-start-color: var(--accent);
 		box-shadow: 0 4px 12px rgb(31 58 95 / 0.12);
 	}
 	.story :global(.opt.right) {
 		border-color: var(--right);
-		border-left-color: var(--right);
+		border-inline-start-color: var(--right);
 		background: var(--right-bg);
 	}
 	.story :global(.opt.right::before) {
@@ -1314,7 +1314,7 @@
 	}
 	.story :global(.opt.wrong) {
 		border-color: var(--wrong);
-		border-left-color: var(--wrong);
+		border-inline-start-color: var(--wrong);
 		background: var(--wrong-bg);
 		animation: opt-shake 300ms ease;
 	}
@@ -1334,7 +1334,7 @@
 	.story :global(.passage) {
 		background: #fffaf0;
 		border: 1px solid #e3d6bd;
-		border-left: 3px solid rgb(201 104 59 / 0.5);
+		border-inline-start: 3px solid rgb(201 104 59 / 0.5);
 		box-shadow: 0 6px 16px rgb(31 58 95 / 0.1);
 		font-family: 'Segoe Print', 'Bradley Hand', 'Comic Sans MS', cursive;
 		color: #1f3a5f;
@@ -1432,7 +1432,7 @@
 	}
 	.cluecard {
 		background: var(--right-bg);
-		border-left: 3px solid var(--right);
+		border-inline-start: 3px solid var(--right);
 		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 		padding: 0.75rem 1rem;
 	}
@@ -1446,7 +1446,7 @@
 	}
 	.cluecard ul {
 		margin: 0;
-		padding-left: 1.1rem;
+		padding-inline-start: 1.1rem;
 	}
 	.leads {
 		display: grid;
@@ -1473,7 +1473,7 @@
 	.lead > .lead-text {
 		padding: 0.5rem 0.7rem;
 		font-weight: 600;
-		text-align: left;
+		text-align: start;
 	}
 	.lead.done {
 		opacity: 0.6;
@@ -1501,7 +1501,7 @@
 	.lead-text {
 		display: grid;
 		gap: 0.1rem;
-		text-align: left;
+		text-align: start;
 	}
 	.lead-sub,
 	.lead-clue {
@@ -1517,7 +1517,7 @@
 	   empty space — never over the question, the answers or the hub title. */
 	.maya-moment {
 		position: fixed;
-		left: 0.75rem;
+		inset-inline-start: 0.75rem;
 		bottom: 0.75rem;
 		z-index: 30;
 		display: flex;
@@ -1574,7 +1574,7 @@
 	}
 	.notebook {
 		position: fixed;
-		right: 1rem;
+		inset-inline-end: 1rem;
 		top: 4rem;
 		z-index: 10;
 		background: var(--surface);
@@ -1593,7 +1593,7 @@
 	}
 	.notebook ul {
 		margin: 0;
-		padding-left: 1.1rem;
+		padding-inline-start: 1.1rem;
 		max-height: 14rem;
 		overflow: auto;
 	}
@@ -1640,7 +1640,7 @@
 	/* The series shelf under the cover: one row per episode, this one marked. */
 	.episodes {
 		margin-top: 1.6rem;
-		text-align: left;
+		text-align: start;
 	}
 	.episodes-head {
 		margin: 0 0 0.4rem;

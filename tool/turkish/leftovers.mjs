@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-// What still reads as English in Turkish mode: applies each level's overlay to
+// What still reads as English in a second language (--lang ar; Turkish by default): applies each level's overlay to
 // its exercises (as the app does) and lists strings with English words left.
 //   node tool/turkish/leftovers.mjs [a1_1 …]
-import { LEVELS, COURSE, levelName, readJson } from './lib.mjs';
+import { LANG, LEVELS, COURSE, levelName, plainArgs, readJson } from './lib.mjs';
 
 const EN = /(?<!\p{L})(the|and|with|your|you|this|that|these|from|is|are|was|were|what|which|who|when|where|it|its|not|for|of|to)(?!\p{L})/giu;
 const parse = (p) => [...p.matchAll(/\[("(?:[^"\\]|\\.)*")\]|\[(\d+)\]|([^.[\]]+)/g)].map((m) => (m[1] ? JSON.parse(m[1]) : m[2] ? Number(m[2]) : m[3]));
 const bundle = readJson(`assets/content/courses/${COURSE}.json`);
-for (const level of process.argv.slice(2).length ? process.argv.slice(2) : LEVELS) {
-	const overlay = readJson(`assets/content/tr/${COURSE}/${level}.json`);
+for (const level of plainArgs().length ? plainArgs() : LEVELS) {
+	const overlay = readJson(`assets/content/${LANG}/${COURSE}/${level}.json`);
 	let hits = 0;
 	for (const quiz of bundle.quizzes.filter((q) => q.level === levelName(level))) {
 		const q = structuredClone(quiz);

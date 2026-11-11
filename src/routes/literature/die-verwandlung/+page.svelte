@@ -261,7 +261,7 @@
 	td {
 		padding: 0.35rem 1.2rem 0.35rem 0;
 		border-bottom: 1px solid var(--line);
-		text-align: left;
+		text-align: start;
 	}
 
 	th {

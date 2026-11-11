@@ -201,7 +201,7 @@
 {#snippet pageCode(c: Chapter, part: string, label: string)}
 	{@const code = pages[c.id]?.[part]}
 	{#if code}
-		<a class="page-code" href={code.url} aria-label="{label} – open this page in the app">
+		<a class="page-code" href={code.url} aria-label={t('{label} – open this page in the app', { label })}>
 			{@html code.svg}
 			<span>{label}</span>
 		</a>
@@ -712,17 +712,17 @@
 		position: absolute;
 		top: 40mm;
 		bottom: 40mm;
-		right: 0;
+		inset-inline-end: 0;
 		width: 3mm;
 		background: var(--accent);
 	}
-	.page.left::before { right: auto; left: 0; }
+	.page.left::before { inset-inline-end: auto; left: 0; }
 
 	.foot {
 		position: absolute;
 		bottom: 9mm;
-		left: 22mm;
-		right: 18mm;
+		inset-inline-start: 22mm;
+		inset-inline-end: 18mm;
 		display: flex;
 		justify-content: space-between;
 		align-items: baseline;
@@ -732,7 +732,7 @@
 		color: var(--muted);
 	}
 	.foot .tnum { order: 2; font-size: 9pt; font-weight: 800; color: var(--navy); }
-	.left .foot { left: 18mm; right: 22mm; }
+	.left .foot { inset-inline-start: 18mm; right: 22mm; }
 	.left .foot .tnum { order: 0; }
 
 	.eyebrow {
@@ -755,7 +755,7 @@
 	.page-code {
 		position: absolute;
 		top: 11mm;
-		right: 18mm;
+		inset-inline-end: 18mm;
 		z-index: 2;
 		display: flex;
 		flex-direction: column;
@@ -764,10 +764,10 @@
 		color: var(--muted);
 		text-decoration: none;
 	}
-	.left .page-code { right: 22mm; }
+	.left .page-code { inset-inline-end: 22mm; }
 	.page-code :global(svg) { display: block; width: 15mm; height: 15mm; }
 	.page-code span { margin-top: 0.3mm; font-size: 5.5pt; font-weight: 700; line-height: 1.15; text-align: center; letter-spacing: 0.02em; white-space: nowrap; }
-	.coded .head.small, .coded > .intro { padding-right: 20mm; }
+	.coded .head.small, .coded > .intro { padding-inline-end: 20mm; }
 	/* The page's content starts below the code, so a floated photo never covers its label. */
 	.grammar.coded .head.small, .document.coded .head.small { min-height: 19mm; box-sizing: border-box; }
 	.chapter-url { margin: 1.5mm 0 0; font-size: 8pt; color: var(--muted); }
@@ -804,8 +804,8 @@
 	.half { position: relative; overflow: hidden; }
 	.backhalf { background: var(--navy); }
 	.trim { position: absolute; top: var(--bleed); width: 210mm; height: 297mm; }
-	.backhalf .trim { left: var(--bleed); }
-	.fronthalf .trim { left: 0; }
+	.backhalf .trim { inset-inline-start: var(--bleed); }
+	.fronthalf .trim { inset-inline-start: 0; }
 
 	.fc { position: absolute; inset: 0; overflow: hidden; }
 	.half .fc { overflow: visible; }
@@ -819,17 +819,17 @@
 	.fc .pin .de { font-size: 11pt; }
 	.fc .pin .meta { font-size: 7.5pt; }
 	.fc-plate { position: absolute; left: 0; right: 0; bottom: 0; height: 96mm; box-sizing: border-box; padding: 13mm 18mm 0 18mm; background: var(--paper); border-top: 3mm solid var(--accent); }
-	.half .fc-plate { bottom: calc(-1 * var(--bleed)); height: calc(96mm + var(--bleed)); padding-right: calc(18mm + var(--bleed)); }
+	.half .fc-plate { bottom: calc(-1 * var(--bleed)); height: calc(96mm + var(--bleed)); padding-inline-end: calc(18mm + var(--bleed)); }
 	.fc h1 { margin: 0; font-family: var(--serif); font-size: 66pt; line-height: 0.95; letter-spacing: -0.01em; color: var(--navy); }
 	.fc-sub { margin: 1.5mm 0 0; font-family: var(--serif); font-size: 26pt; font-style: italic; line-height: 1.1; color: var(--accent); }
 	.fc-blurb { margin: 6mm 0 0; max-width: 125mm; font-size: 10.5pt; line-height: 1.45; color: var(--ink); }
 	.fc-route { margin: 6mm 0 0; padding-top: 3mm; border-top: 0.3mm solid var(--rule); font-size: 8.5pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
 	.fc-route i { margin: 0 2.2mm; font-style: normal; color: var(--accent); }
 	.fc-site { position: absolute; right: 18mm; bottom: 10mm; margin: 0; font-size: 9pt; font-weight: 800; color: var(--navy); }
-	.half .fc-site { right: calc(18mm + var(--bleed)); bottom: calc(10mm + var(--bleed)); }
+	.half .fc-site { inset-inline-end: calc(18mm + var(--bleed)); bottom: calc(10mm + var(--bleed)); }
 	/* The level as a sticker on the panel's edge. */
 	.fc-badge { position: absolute; right: 16mm; top: -24mm; width: 40mm; height: 40mm; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1mm; background: var(--accent-ink); color: #fff; transform: rotate(-8deg); box-shadow: 0 2mm 6mm rgb(0 0 0 / 0.3); border: 1.2mm solid var(--paper); text-align: center; }
-	.half .fc-badge { right: calc(16mm + var(--bleed)); }
+	.half .fc-badge { inset-inline-end: calc(16mm + var(--bleed)); }
 	.fc-route .nb { white-space: nowrap; }
 	.fc-badge b { font-family: var(--serif); font-size: 30pt; line-height: 1; }
 	.fc-badge span { max-width: 28mm; font-size: 7pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.2; }
@@ -847,7 +847,7 @@
 	.bc-can { margin-top: 5mm; padding: 4mm 0 3mm; border-top: 0.3mm solid rgb(255 255 255 / 0.25); border-bottom: 0.3mm solid rgb(255 255 255 / 0.25); }
 	.bc-can-title { margin: 0 0 2mm; font-size: 8pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #e9a27c; }
 	.bc-can ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 8mm; font-size: 8.8pt; line-height: 1.35; color: #f3eee6; }
-	.bc-can li { position: relative; padding-left: 4.5mm; margin-bottom: 1.2mm; break-inside: avoid; }
+	.bc-can li { position: relative; padding-inline-start: 4.5mm; margin-bottom: 1.2mm; break-inside: avoid; }
 	.bc-can li::before { content: '✓'; position: absolute; left: 0; color: #e9a27c; font-weight: 800; }
 	.bc-points { margin-top: 5mm; columns: 2; column-gap: 8mm; font-size: 9pt; line-height: 1.45; color: #e6e0d6; }
 	.bc-points p { margin: 0 0 2.8mm; break-inside: avoid; }
@@ -864,7 +864,7 @@
 	.cover h1 { margin: 2mm 0 0; font-family: var(--serif); font-size: 52pt; line-height: 1; color: var(--navy); }
 	.how-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; font-size: 9.5pt; line-height: 1.45; }
 	.how-cols p { margin: 0 0 2.5mm; }
-	.pages { margin: 0 0 3mm; padding-left: 5mm; }
+	.pages { margin: 0 0 3mm; padding-inline-start: 5mm; }
 	.pages li { margin-bottom: 1.2mm; }
 	.name { margin-top: 8mm !important; font-family: var(--serif); font-size: 12pt; color: var(--navy); }
 	.name span { display: inline-block; width: 60mm; border-bottom: 0.3mm solid var(--navy); }
@@ -874,7 +874,7 @@
 	.toc .t b { font-family: var(--serif); font-size: 13pt; color: var(--navy); }
 	.toc .t small { display: block; font-size: 8.5pt; color: var(--muted); }
 	.toc .t i { display: block; font-size: 7.5pt; font-style: normal; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink); margin-top: 0.5mm; }
-	.toc .pg { text-align: right; font-weight: 800; color: var(--navy); }
+	.toc .pg { text-align: end; font-weight: 800; color: var(--navy); }
 	.toc .key-line .no { color: var(--navy); }
 
 	/* -- words first --------------------------------------------------------- */
@@ -889,12 +889,12 @@
 	.pin .meta { font-size: 6.6pt; color: var(--muted); }
 	.strip { position: absolute; left: 10mm; right: 14mm; bottom: 16mm; padding: 3.5mm 4mm 3mm; background: rgb(251 248 243 / 0.95); border-radius: 2mm; box-shadow: 0 2mm 8mm rgb(0 0 0 / 0.2); }
 	.strip-title { margin: 0 0 1.2mm; padding-top: 1.5mm; border-top: 0.3mm solid var(--accent); font-size: 7.5pt; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); }
-	.words .foot { left: 10mm; right: 14mm; border-top: 0; color: transparent; }
+	.words .foot { inset-inline-start: 10mm; right: 14mm; border-top: 0; color: transparent; }
 	.words .foot .tnum { color: #fff; }
 	.plate-cols { display: grid; grid-template-columns: 1.3fr 1fr; gap: 6mm; align-items: end; margin-bottom: 2.5mm; }
 	.phrases { list-style: none; margin: 0; padding: 0; font-size: 8.5pt; line-height: 1.3; columns: 1; }
 	.phrases .en { color: var(--muted); font-size: 7.5pt; }
-	.phrases li { border-left: 0.4mm solid var(--accent); padding-left: 2mm; margin-bottom: 0.6mm; }
+	.phrases li { border-inline-start: 0.4mm solid var(--accent); padding-inline-start: 2mm; margin-bottom: 0.6mm; }
 	.grid {
 		list-style: none;
 		margin: 0;
@@ -929,7 +929,7 @@
 	.art.die { color: var(--die); }
 	.art.das { color: var(--das); }
 	.verbs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5mm 4mm; font-size: 8.5pt; }
-	.verbs li { display: flex; flex-direction: column; border-left: 0.4mm solid var(--accent); padding-left: 2mm; }
+	.verbs li { display: flex; flex-direction: column; border-inline-start: 0.4mm solid var(--accent); padding-inline-start: 2mm; }
 	.verbs .en { color: var(--muted); font-size: 7.5pt; }
 
 	/* -- opener ------------------------------------------------------------- */
@@ -937,12 +937,12 @@
 	.opener::before { display: none; }
 	/* The panorama: one photo across the spread, each page showing its half. */
 	.bleed.pano { position: absolute; top: 0; height: 297mm; width: 420mm; object-fit: cover; }
-	.bleed.pano.left { left: 0; }
-	.bleed.pano.right { left: -210mm; }
+	.bleed.pano.left { inset-inline-start: 0; }
+	.bleed.pano.right { inset-inline-start: -210mm; }
 	.opener .bleed { height: 297mm; clip-path: inset(0 0 var(--plate, 126mm) 0); }
 	.opener .plate {
 		position: absolute;
-		left: 0; right: 0; bottom: 0;
+		inset-inline-start: 0; right: 0; bottom: 0;
 		height: var(--plate, 126mm);
 		padding: 5mm 22mm 5mm 18mm;
 		background: var(--paper);
@@ -952,7 +952,7 @@
 	.opener h2 { font-size: 26pt; }
 	.opener .world { margin: 0.5mm 0 2mm; font-size: 9pt; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-ink); }
 	.opener .cap { margin: 0; font-family: var(--serif); font-size: 10.5pt; color: var(--ink); }
-	.qs { margin: 0; padding-left: 5mm; font-size: 10pt; }
+	.qs { margin: 0; padding-inline-start: 5mm; font-size: 10pt; }
 	.qs li { margin-bottom: 0.8mm; }
 	.fact.onplate { position: absolute; right: 22mm; bottom: 8mm; width: 56mm; margin: 0; }
 
@@ -976,7 +976,7 @@
 	.photo.wide { margin-bottom: 3mm; }
 	/* A portrait document (a menu, a timetable): the whole sheet, not a crop. */
 	.photo.wide.tall img { aspect-ratio: auto; object-fit: contain; width: auto; height: auto; max-width: 100%; max-height: 128mm; margin: 0 auto; }
-	.photo.float { float: right; width: 66mm; margin: 0 0 3mm 4mm; }
+	.photo.float { float: inline-end; width: 66mm; margin: 0 0 3mm 4mm; }
 	.flow.with-photo { display: block; }
 	.flow.with-photo > :global(*) { margin-bottom: 3mm; }
 
@@ -991,7 +991,7 @@
 		margin-top: 3mm;
 		padding: 2.5mm 3.5mm;
 		background: var(--accent-tint);
-		border-left: 1mm solid var(--accent);
+		border-inline-start: 1mm solid var(--accent);
 		border-radius: 0 1.5mm 1.5mm 0;
 		font-size: 8.5pt;
 		line-height: 1.35;
@@ -1064,7 +1064,7 @@
 	}
 	.terms dd {
 		margin: 0;
-		text-align: right;
+		text-align: end;
 		opacity: 0.75;
 	}
 </style>

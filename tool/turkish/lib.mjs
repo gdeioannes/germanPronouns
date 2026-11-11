@@ -6,6 +6,17 @@ import { englishWords, unknownWord, words } from '../german-first/lib.mjs';
 
 export { words };
 export const COURSE = 'de_cert_a1';
+
+/**
+ * The second language the tools work on: `--lang ar` (Turkish when left out).
+ * Its sources live in tool/turkish/<lang>/, its overlays in assets/content/<lang>/.
+ */
+const langAt = process.argv.indexOf('--lang');
+export const LANG = langAt >= 0 ? process.argv[langAt + 1] : 'tr';
+if (!/^[a-z]{2}$/.test(LANG)) throw new Error(`--lang needs a two-letter code, got "${LANG}"`);
+/** The command's arguments without flags and without the --lang value. */
+export const plainArgs = () =>
+	process.argv.slice(2).filter((a, i, all) => !a.startsWith('--') && all[i - 1] !== '--lang');
 export const LEVELS = ['a1_1', 'a1_2', 'a2_1', 'a2_2'];
 export const levelName = (id) => id.toUpperCase().replace('_', '.');
 export const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));

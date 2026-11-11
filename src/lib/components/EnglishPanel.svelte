@@ -11,7 +11,7 @@
 	.panel {
 		margin: 0.6rem 0;
 		padding: 0.6rem 0.8rem;
-		border-left: 3px solid var(--line-strong);
+		border-inline-start: 3px solid var(--line-strong);
 		color: var(--ink-muted);
 		font-size: var(--step--1);
 		line-height: 1.5;

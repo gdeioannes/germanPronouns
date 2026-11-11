@@ -17,7 +17,7 @@
 </script>
 
 <!-- Signing in is English-only, so Turkish mode has no sign-in sheet. -->
-{#if account.available && !lang.tr}
+{#if account.available && !lang.limited}
 	<Sheet bind:open={signInPanel.open} title={account.signedIn ? 'Your account' : 'Sign in'} id="sign-in-sheet">
 		<p class="why">
 			Everything works without an account. Signing in backs your progress

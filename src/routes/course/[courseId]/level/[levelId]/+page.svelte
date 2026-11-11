@@ -81,7 +81,7 @@
 
 	<header class="head">
 		<p class="eyebrow">{level} · {t('Syllabus')}</p>
-		<h1>{title}{#if module?.subtitle}<span class="sub"> · {module.subtitle}</span>{/if}</h1>
+		<h1><bdi>{title}</bdi>{#if module?.subtitle}<span class="sub"> · <bdi>{module.subtitle}</bdi></span>{/if}</h1>
 		<p class="count tnum">{t('{done} / {n} exercises done', { done, n: quizzes.length })}</p>
 	</header>
 
@@ -186,12 +186,12 @@
 
 	.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem 2rem; }
 	.two h2 { margin-top: 1rem; }
-	.two ul, .exam { margin: 0; padding-left: 1.2rem; }
+	.two ul, .exam { margin: 0; padding-inline-start: 1.2rem; }
 	.two li, .exam li { margin-bottom: 0.3rem; }
 
 	.table-wrap { overflow-x: auto; }
 	.structures { border-collapse: collapse; width: 100%; font-size: var(--step--1); }
-	.structures th, .structures td { padding: 0.5rem 0.7rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+	.structures th, .structures td { padding: 0.5rem 0.7rem; text-align: start; border-bottom: 1px solid var(--line); vertical-align: top; }
 	.structures thead th { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); }
 	.official { white-space: nowrap; color: var(--ink-muted); }
 	.uncovered td { color: var(--ink-muted); }

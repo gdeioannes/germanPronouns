@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
 	// "Save this level for offline" on a level's page: one button, a progress
 	// bar while it downloads, and the date it was last saved.
 	import { onMount } from 'svelte';
@@ -54,7 +55,7 @@
 		}
 	}
 
-	const when = $derived(savedAt ? new Date(savedAt).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) : '');
+	const when = $derived(savedAt ? new Date(savedAt).toLocaleDateString(lang.limited ? lang.locale : undefined, { day: 'numeric', month: 'short' }) : '');
 </script>
 
 {#if supported}

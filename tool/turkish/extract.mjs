@@ -3,13 +3,13 @@
 //   tool/turkish/en/<level>/app/<quiz id>.json      { path: English }
 //   tool/turkish/en/<level>/book/<chapter id>.json  { path: English }
 //   tool/turkish/en/<level>/book/_front.json
-// The translator writes tool/turkish/tr/<level>/... with the same names and
-// keys. Prints what has no Turkish yet (resumable).
-//   node tool/turkish/extract.mjs [a1_1 ...]
+// The translator writes tool/turkish/<lang>/<level>/... with the same names and
+// keys. Prints what has no translation yet (resumable).
+//   node tool/turkish/extract.mjs [a1_1 ...] [--lang ar]
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
-import { COURSE, LEVELS, bookFrontStrings, chapterStrings, levelName, quizStrings, readJson, words } from './lib.mjs';
+import { COURSE, LANG, LEVELS, bookFrontStrings, chapterStrings, levelName, plainArgs, quizStrings, readJson, words } from './lib.mjs';
 
-const levels = process.argv.slice(2).length ? process.argv.slice(2) : LEVELS;
+const levels = plainArgs().length ? plainArgs() : LEVELS;
 const dir = 'tool/turkish';
 const bundle = readJson(`assets/content/courses/${COURSE}.json`);
 
@@ -20,7 +20,7 @@ for (const level of levels) {
 		if (!Object.keys(strings).length) return;
 		mkdirSync(`${dir}/en/${level}/${kind}`, { recursive: true });
 		writeFileSync(`${dir}/en/${level}/${kind}/${id}.json`, JSON.stringify(strings, null, 1));
-		if (!existsSync(`${dir}/tr/${level}/${kind}/${id}.json`)) {
+		if (!existsSync(`${dir}/${LANG}/${level}/${kind}/${id}.json`)) {
 			pending[kind].push(id);
 			size[kind] += Object.values(strings).reduce((n, s) => n + words(s), 0);
 		}
@@ -38,5 +38,5 @@ for (const level of levels) {
 		save('book', '_front', bookFrontStrings(book));
 		for (const c of book.chapters) save('book', c.id, chapterStrings(c));
 	}
-	console.log(`${level}: app ${pending.app.length} left, ${size.app} words | book ${pending.book.length} left, ${size.book} words`);
+	console.log(`${LANG} ${level}: app ${pending.app.length} left, ${size.app} words | book ${pending.book.length} left, ${size.book} words`);
 }

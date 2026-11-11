@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Folds tool/turkish/tr/<level>/ into the overlays the app reads:
-//   assets/content/tr/de_cert_a1/<level>.json
+// Folds tool/turkish/<lang>/<level>/ into the overlays the app reads:
+//   assets/content/<lang>/de_cert_a1/<level>.json   (--lang ar; Turkish by default)
 //   {
 //     "quizzes":  { <quiz id>:    { <path>: [English, Türkçe] } },   exact, by path
 //     "chapters": { <chapter id>: { <path>: [English, Türkçe] } },   the book
@@ -13,7 +13,7 @@
 //   node tool/turkish/build.mjs [a1_1 ...]        build
 //   node tool/turkish/build.mjs a1_1 --check      validate and report only
 import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
-import { COURSE, LEVELS, readJson } from './lib.mjs';
+import { COURSE, LANG, LEVELS, plainArgs, readJson } from './lib.mjs';
 // English words in a Turkish line (a sign of an untranslated string). Letter-
 // aware, so "ağrıyor" is not the English "a", and Turkish "on" (ten) is left out.
 const EN_WORD = /(?<!\p{L})(the|a|an|is|are|was|were|be|you|your|with|and|or|of|to|this|that|these|for|not|it|its|when|means?|from|by|at|in|as|but|if|then|after|before|here|has|have|can|one|two|word|verb|noun)(?!\p{L})/giu;
@@ -21,7 +21,7 @@ const englishWords = (s) => (s.replace(/\*[^*]*\*/g, ' ').match(EN_WORD) ?? []).
 
 const args = process.argv.slice(2);
 const check = args.includes('--check');
-const levels = args.filter((a) => !a.startsWith('--'));
+const levels = plainArgs();
 const dir = 'tool/turkish';
 const tokens = (s) => [...s.matchAll(/\{\{?\w+\}?\}|_{3,}/g)].map((m) => m[0]).sort().join(' ');
 
@@ -40,7 +40,7 @@ for (const level of levels.length ? levels : LEVELS) {
 			const id = `${kind}/${f.slice(0, -5)}`;
 			const en = readJson(`${enDir}/${f}`);
 			coverage.total += Object.keys(en).length;
-			const trPath = `${dir}/tr/${level}/${kind}/${f}`;
+			const trPath = `${dir}/${LANG}/${level}/${kind}/${f}`;
 			if (!existsSync(trPath)) continue;
 			let tr;
 			try {
@@ -93,7 +93,7 @@ for (const level of levels.length ? levels : LEVELS) {
 		}
 	}
 	const pct = coverage.total ? Math.round((coverage.have / coverage.total) * 100) : 0;
-	console.log(`${level}: ${coverage.have}/${coverage.total} strings (${pct}%), ${Object.keys(overlay).length} text entries (${variants} with variants), ${errors.length} errors, ${flags.length} flags`);
+	console.log(`${LANG} ${level}: ${coverage.have}/${coverage.total} strings (${pct}%), ${Object.keys(overlay).length} text entries (${variants} with variants), ${errors.length} errors, ${flags.length} flags`);
 	for (const e of errors) console.log('  ERROR', e);
 	for (const f of flags.slice(0, 40)) console.log('  flag ', f);
 	if (flags.length > 40) console.log(`  … ${flags.length - 40} more flags`);
@@ -102,8 +102,8 @@ for (const level of levels.length ? levels : LEVELS) {
 		continue;
 	}
 	if (!check && Object.keys(overlay).length) {
-		mkdirSync(`assets/content/tr/${COURSE}`, { recursive: true });
-		writeFileSync(`assets/content/tr/${COURSE}/${level}.json`, JSON.stringify({ ...exact, text: overlay }) + '\n');
+		mkdirSync(`assets/content/${LANG}/${COURSE}`, { recursive: true });
+		writeFileSync(`assets/content/${LANG}/${COURSE}/${level}.json`, JSON.stringify({ ...exact, text: overlay }) + '\n');
 	}
 }
 process.exit(failed ? 1 : 0);

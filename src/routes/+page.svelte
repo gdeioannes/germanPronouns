@@ -17,10 +17,10 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { LITERATURE, bookRequestHref } from '$lib/content/literature';
-	import { BOOKS, bookCover, bookMb, bookPdf, hasTurkishPdf } from '$lib/content/books';
+	import { BOOKS, bookCover, bookMb, bookPdf, hasLocalPdf } from '$lib/content/books';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
-	import { levelInTurkish } from '$lib/i18n/available';
+	import { levelTranslated } from '$lib/i18n/available';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { track } from '$lib/services/analytics';
 	import type { PageData } from './$types';
@@ -34,12 +34,12 @@
 	// past the offer does not count.
 	// The whole shelf, A1.1 included: one free PDF per level (Book v2).
 	// In Turkish only the A1–A2 books, and Kafka (English notes) not at all.
-	const SHELF = $derived(lang.tr ? BOOKS.filter((b) => levelInTurkish(b.level)) : BOOKS);
+	const SHELF = $derived(lang.limited ? BOOKS.filter((b) => levelTranslated(b.level)) : BOOKS);
 	const firstBook = BOOKS[0];
 
 	const OFFERS = $derived([
-		{ id: 'book', title: lang.tr ? t('The books, A1 to A2') : 'The books, A1 to C2', note: t('free PDFs') },
-		...(kafka && !lang.tr ? [{ id: 'literature', title: 'Kafka in German', note: 'free PDF' }] : [])
+		{ id: 'book', title: lang.limited ? t('The books, A1 to A2') : 'The books, A1 to C2', note: t('free PDFs') },
+		...(kafka && !lang.limited ? [{ id: 'literature', title: 'Kafka in German', note: 'free PDF' }] : [])
 	]);
 	let seen = $state<string[] | null>(null);
 	const labels = $derived(seen ? OFFERS.filter((o) => !seen!.includes(o.id)) : []);
@@ -165,15 +165,15 @@
 	const FAQ_TR_SWAP: Record<string, string> = {
 		'Do I need an account?': 'No. Your progress is saved in your own browser, with nothing to sign up for.',
 		'I already speak some German — must I start at A1?':
-			'No. Nothing is locked: pick the level that matches you from the four sub-levels in Turkish (A1.1 to A2.2) and start there.',
+			'No. Nothing is locked: pick the level that matches you from the four sub-levels in your language (A1.1 to A2.2) and start there.',
 		'Does it prepare me for an exam?':
-			'In Turkish the course covers A1 and A2 of the CEFR scale and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.'
+			'In your language the course covers A1 and A2 of the CEFR scale and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.'
 	};
 	const FAQ = $derived(
 		FAQ_EN.map((item) => ({
 			id: item.q,
 			q: t(item.q),
-			a: t(lang.tr ? (FAQ_TR_SWAP[item.q] ?? item.a) : item.a, { n: data.subLevelCount })
+			a: t(lang.limited ? (FAQ_TR_SWAP[item.q] ?? item.a) : item.a, { n: data.subLevelCount })
 		}))
 	);
 	const faqEn = $derived(FAQ_EN.map((item) => ({ q: item.q, a: item.a.replace('{n}', String(data.subLevelCount)) })));
@@ -257,7 +257,7 @@
 	{#if !SHOW_TEST_COPY}
 	<section id="book" class="book-offer" aria-labelledby="book-offer-title">
 		<a class="book-pic" href="/course/{data.card.id}/book2/A1.1" tabindex="-1" aria-hidden="true">
-			<img src={bookCover(firstBook, lang.tr)} alt="" width="640" height="905" loading="lazy" />
+			<img src={bookCover(firstBook, lang.current)} alt="" width="640" height="905" loading="lazy" />
 		</a>
 		<div class="book-copy">
 			<p class="kicker">{t('New · the book · free PDF')}</p>
@@ -266,28 +266,28 @@
 				{t('Twelve chapters, each one a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. A code on every page opens that chapter in the app: check your answers, learn the words as flashcards, hear the texts. 131 pages.')}
 			</p>
 			<!-- Turkish: the Turkish edition once it is printed; until then no download. -->
-			{#if !lang.tr || hasTurkishPdf(firstBook)}
-				<a class="primary" href={bookPdf(firstBook, lang.tr)} download onclick={() => track('book_download', { book: 'A1.1', from: 'home' })}>
-					<Icon name="download" size="1.05em" /> {t('Download the PDF · {mb} MB', { mb: bookMb(firstBook, lang.tr) })}
+			{#if !lang.limited || hasLocalPdf(firstBook, lang.current)}
+				<a class="primary" href={bookPdf(firstBook, lang.current)} download onclick={() => track('book_download', { book: 'A1.1', from: 'home' })}>
+					<Icon name="download" size="1.05em" /> {t('Download the PDF · {mb} MB', { mb: bookMb(firstBook, lang.current) })}
 				</a>
 			{/if}
 			<a class="book-preview" href="/course/{data.card.id}/book2/A1.1">{t('Look inside first')}</a>
 		</div>
 	</section>
 	<section class="book-shelf" aria-labelledby="book-shelf-title">
-		<h2 id="book-shelf-title">{lang.tr ? t('The four books, A1.1 to A2.2') : 'All twelve books, A1.1 to C2.2'}</h2>
+		<h2 id="book-shelf-title">{lang.limited ? t('The four books, A1.1 to A2.2') : 'All twelve books, A1.1 to C2.2'}</h2>
 		<p>{t('Each one has twelve new places, twelve stories and real German documents. All free, 131 pages each.')}</p>
 		<ul>
 			{#each SHELF as book (book.level)}
 				<li>
 					<a class="shelf-pic" href="/course/{data.card.id}/book2/{book.level}" tabindex="-1" aria-hidden="true">
-						<img src={bookCover(book, lang.tr)} alt="" width="640" height="905" loading="lazy" />
+						<img src={bookCover(book, lang.current)} alt="" width="640" height="905" loading="lazy" />
 					</a>
 					<strong lang="de">Deutsch {book.level}</strong>
 					<span class="shelf-sub" lang="de">{book.sub}</span>
-					{#if !lang.tr || hasTurkishPdf(book)}
-						<a class="shelf-link" href={bookPdf(book, lang.tr)} download onclick={() => track('book_download', { book: book.level, from: 'home' })}>
-							<Icon name="download" size="1em" /> PDF · {bookMb(book, lang.tr)} MB
+					{#if !lang.limited || hasLocalPdf(book, lang.current)}
+						<a class="shelf-link" href={bookPdf(book, lang.current)} download onclick={() => track('book_download', { book: book.level, from: 'home' })}>
+							<Icon name="download" size="1em" /> PDF · {bookMb(book, lang.current)} MB
 						</a>
 					{/if}
 					<a class="shelf-link" href="/course/{data.card.id}/book2/{book.level}">{t('Look inside')}</a>
@@ -335,7 +335,7 @@
 
 	<!-- Literature: the first annotated classic, free as a PDF. The shelf
 	     itself is /literature; this offer shows its first book. -->
-	{#if kafka && !lang.tr}
+	{#if kafka && !lang.limited}
 		<section id="literature" class="book-offer lit" aria-labelledby="lit-offer-title">
 			<a class="book-pic" href="/literature" tabindex="-1" aria-hidden="true">
 				<img src={kafka.cover} alt="" width="640" height="1024" loading="lazy" />
@@ -475,7 +475,7 @@
 	.how .num {
 		position: absolute;
 		top: 1rem;
-		left: 1rem;
+		inset-inline-start: 1rem;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -575,7 +575,7 @@
 		}
 		.how .num {
 			top: 0.5rem;
-			left: 0.5rem;
+			inset-inline-start: 0.5rem;
 			width: 1.5rem;
 			height: 1.5rem;
 			font-size: 0.75rem;
@@ -695,7 +695,7 @@
 	.book-stamp {
 		position: absolute;
 		top: 0.9rem;
-		right: -0.9rem;
+		inset-inline-end: -0.9rem;
 		padding: 0.3rem 0.7rem;
 		border-radius: 999px;
 		background: var(--accent-ink);
@@ -711,7 +711,7 @@
 	/* The fixed label: a small pill in the corner, out of the way of the text. */
 	.book-tags {
 		position: fixed;
-		right: 1rem;
+		inset-inline-end: 1rem;
 		bottom: 1rem;
 		z-index: 5;
 		display: flex;
@@ -984,7 +984,7 @@
 	}
 	.book-preview {
 		display: inline-block;
-		margin-left: 1rem;
+		margin-inline-start: 1rem;
 		font-size: var(--step--1);
 	}
 

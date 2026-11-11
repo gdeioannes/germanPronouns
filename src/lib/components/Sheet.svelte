@@ -125,7 +125,7 @@
 	.panel {
 		position: absolute;
 		top: 0;
-		right: 0;
+		inset-inline-end: 0;
 		bottom: 0;
 		display: flex;
 		flex-direction: column;
@@ -196,7 +196,7 @@
 	@media (max-width: 36rem) {
 		.panel {
 			top: auto;
-			left: 0;
+			inset-inline-start: 0;
 			width: 100%;
 			max-height: 92dvh;
 			border-radius: var(--radius) var(--radius) 0 0;
@@ -216,7 +216,7 @@
 			left: 50%;
 			width: 2.6rem;
 			height: 0.3rem;
-			margin-left: -1.3rem;
+			margin-inline-start: -1.3rem;
 			border-radius: 999px;
 			background: var(--line-strong);
 		}

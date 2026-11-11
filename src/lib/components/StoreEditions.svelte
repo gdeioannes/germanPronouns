@@ -46,7 +46,7 @@
 		border: 1.5px dashed var(--accent);
 		border-radius: var(--radius);
 		background: var(--surface);
-		text-align: left;
+		text-align: start;
 	}
 
 	.mark {

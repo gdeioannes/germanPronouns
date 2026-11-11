@@ -177,7 +177,7 @@
 	/** Flips once after mount in Turkish, so the tip's {@html} is made again in Turkish. */
 	let tipLang = $state(false);
 	$effect(() => {
-		tipLang = lang.tr;
+		tipLang = lang.limited;
 	});
 
 	// The tip card is there only while the deck is not ready. A full page load
@@ -330,7 +330,7 @@
 		// Settings. One roll says whether a surprise comes, and then one kind is
 		// drawn among those with something to offer (domain/surprise).
 		// Turkish mode: the surprises (games, the word check) are English-only.
-		if (progress.surprises && !lang.tr) {
+		if (progress.surprises && !lang.limited) {
 			const candidates: SurpriseCandidate<() => DeckCard>[] = [
 				{ kind: 'play', card: skipped.includes(JA_NEIN_CARD_ID) ? null : playCard },
 				{ kind: 'check', card: checkDue(checkLog) && !skipped.includes(CHECK_CARD_ID) ? checkCard : null },
@@ -835,7 +835,8 @@
 							</svg>
 						</div>
 						<p class="coach-title">{t('Swipe the card')}</p>
-						<p class="coach-ways">
+						<!-- Left skips, right starts, in Arabic too: the swipe is physical. -->
+						<p class="coach-ways" dir="ltr">
 							<span class="coach-way skip"><Icon name="arrowLeft" size="1em" stroke={2.25} /> {t('Skip it')}</span>
 							<span class="coach-way go">{t('Start it')} <Icon name="arrowRight" size="1em" stroke={2.25} /></span>
 						</p>
@@ -893,7 +894,8 @@
 		{/if}
 	</div>
 
-	<div class="controls" aria-hidden={!top}>
+	<!-- Skip on the left, go on the right, like the swipe, also right to left. -->
+	<div class="controls" dir="ltr" aria-hidden={!top}>
 		<button
 			type="button"
 			class="ctl no"
@@ -1028,8 +1030,8 @@
 	}
 
 	.chip-level {
-		padding-left: 0.45rem;
-		border-left: 1px solid var(--line-strong);
+		padding-inline-start: 0.45rem;
+		border-inline-start: 1px solid var(--line-strong);
 		font-weight: 800;
 	}
 
@@ -1128,7 +1130,7 @@
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;
-		text-align: left;
+		text-align: start;
 		cursor: pointer;
 		transition:
 			border-color var(--fast) var(--ease-out),
@@ -1200,7 +1202,7 @@
 	.lv.auto {
 		display: block;
 		width: 100%;
-		text-align: left;
+		text-align: start;
 		border-radius: var(--radius-sm);
 		padding: 0.6rem 0.9rem;
 	}
@@ -1300,7 +1302,7 @@
 	.started-badge {
 		position: absolute;
 		top: 1rem;
-		left: 1rem;
+		inset-inline-start: 1rem;
 		z-index: 1;
 		pointer-events: none;
 	}
@@ -1522,7 +1524,7 @@
 	.intro-pin {
 		position: absolute;
 		top: 0.8rem;
-		right: 0.8rem;
+		inset-inline-end: 0.8rem;
 		z-index: 2;
 		display: inline-flex;
 		align-items: center;
@@ -1543,8 +1545,8 @@
 	.intro-foot {
 		position: absolute;
 		bottom: 1.15rem;
-		left: 0;
-		right: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1618,7 +1620,7 @@
 	/* The wait, as a thin bar along the bottom edge. */
 	.intro-bar {
 		position: absolute;
-		left: 0;
+		inset-inline-start: 0;
 		bottom: 0;
 		height: 3px;
 		width: 100%;
@@ -1705,6 +1707,7 @@
 		transition: transform var(--fast) var(--ease-out);
 	}
 
+	/* Physical, like the swipe itself: right means go, in every language. */
 	.stamp.no {
 		right: 1.4rem;
 		color: var(--wrong);
@@ -1953,7 +1956,7 @@
 	/* The label says what you will do; the kind row then only counts. */
 	.look {
 		position: absolute;
-		left: 0.75rem;
+		inset-inline-start: 0.75rem;
 		top: 0.75rem;
 		display: inline-flex;
 		align-items: center;
@@ -1976,13 +1979,13 @@
 
 	.credit {
 		position: absolute;
-		left: 40%;
-		right: 0.5rem;
+		inset-inline-start: 40%;
+		inset-inline-end: 0.5rem;
 		bottom: 0.3rem;
 		overflow: hidden;
 		font-size: 0.6rem;
 		color: rgb(255 255 255 / 0.9);
-		text-align: right;
+		text-align: end;
 		text-overflow: ellipsis;
 		text-shadow: 0 1px 2px rgb(0 0 0 / 0.8);
 		white-space: nowrap;
@@ -2119,7 +2122,7 @@
 		top: 0.45rem;
 		width: 2.4rem;
 		height: 2.4rem;
-		margin-left: -1.2rem;
+		margin-inline-start: -1.2rem;
 		color: var(--heading);
 		filter: drop-shadow(0 4px 8px rgb(0 0 0 / 0.2));
 		animation: coach-sweep 3s ease-in-out infinite;
@@ -2354,12 +2357,12 @@
 
 	.play-sky .blob.a {
 		top: -6rem;
-		left: -4rem;
+		inset-inline-start: -4rem;
 		background: radial-gradient(circle, #ff4d6d, transparent 65%);
 	}
 
 	.play-sky .blob.b {
-		right: -5rem;
+		inset-inline-end: -5rem;
 		top: -3rem;
 		background: radial-gradient(circle, #4cc9f0, transparent 65%);
 		animation-duration: 11s;
@@ -2367,7 +2370,7 @@
 	}
 
 	.play-sky .blob.c {
-		left: 30%;
+		inset-inline-start: 30%;
 		bottom: -9rem;
 		background: radial-gradient(circle, #ffb347, transparent 65%);
 		animation-duration: 13s;
@@ -2395,13 +2398,13 @@
 	}
 
 	.play-sky .pstamp.nein {
-		left: 1.2rem;
+		inset-inline-start: 1.2rem;
 		color: var(--wrong);
 		transform: rotate(-12deg);
 	}
 
 	.play-sky .pstamp.ja {
-		right: 1.2rem;
+		inset-inline-end: 1.2rem;
 		color: var(--right);
 		transform: rotate(12deg);
 	}
@@ -2447,31 +2450,31 @@
 	}
 
 	.play-sky .e1 {
-		left: 8%;
+		inset-inline-start: 8%;
 		bottom: 22%;
 	}
 	.play-sky .e2 {
-		left: 24%;
+		inset-inline-start: 24%;
 		bottom: 8%;
 		animation-delay: -1s;
 	}
 	.play-sky .e3 {
-		right: 8%;
+		inset-inline-end: 8%;
 		bottom: 24%;
 		animation-delay: -2s;
 	}
 	.play-sky .e4 {
-		right: 24%;
+		inset-inline-end: 24%;
 		bottom: 8%;
 		animation-delay: -3s;
 	}
 	.play-sky .e5 {
-		left: 44%;
+		inset-inline-start: 44%;
 		top: 44%;
 		animation-delay: -1.5s;
 	}
 	.play-sky .e6 {
-		right: 40%;
+		inset-inline-end: 40%;
 		top: 38%;
 		font-size: 1.1rem;
 		animation-delay: -2.5s;

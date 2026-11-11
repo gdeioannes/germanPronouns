@@ -11,18 +11,26 @@
 				if (localStorage.getItem('calm_effects') === 'true')
 					document.documentElement.dataset.effects = 'calm';
 			} catch (e) {}
-			// Turkish: the page is prerendered in English and switches right
-			// after hydration, so a Turkish visitor's page stays hidden until
-			// then (never longer than 1.5 s). Mirrors lang.svelte.ts pickLang.
+			// A second language (Turkish, Arabic): the page is prerendered in
+			// English and switches right after hydration, so such a visitor's
+			// page stays hidden until then (never longer than 1.5 s). Arabic
+			// also turns the page right to left. Mirrors lang.svelte.ts pickLang.
 			try {
+				var L = ['en', 'tr', 'ar'];
 				var q = new URLSearchParams(location.search).get('lang');
 				var s = localStorage.getItem('ui_lang');
-				var b = (navigator.languages || [navigator.language]).some(function (l) {
-					return /^tr/i.test(l);
-				});
-				if (q === 'tr' || (q !== 'en' && (s === 'tr' || (!s && b)))) {
-					document.documentElement.dataset.uiLang = 'tr';
-					document.documentElement.lang = 'tr';
+				var l = L.indexOf(q) >= 0 ? q : L.indexOf(s) >= 0 ? s : null;
+				if (!l) {
+					var bl = navigator.languages || [navigator.language];
+					for (var i = 0; i < bl.length && !l; i++) {
+						var c = String(bl[i]).slice(0, 2).toLowerCase();
+						if (L.indexOf(c) >= 0) l = c;
+					}
+				}
+				if (l && l !== 'en') {
+					document.documentElement.dataset.uiLang = l;
+					document.documentElement.lang = l;
+					if (l === 'ar') document.documentElement.dir = 'rtl';
 					setTimeout(function () {
 						document.documentElement.dataset.langReady = '1';
 					}, 1500);
@@ -30,7 +38,7 @@
 			} catch (e) {}
 		</script>
 		<style>
-			html[data-ui-lang='tr']:not([data-lang-ready]) body {
+			html[data-ui-lang]:not([data-ui-lang='en']):not([data-lang-ready]) body {
 				visibility: hidden;
 			}
 		</style>

@@ -81,7 +81,7 @@
 		line-height: 1.15;
 		overflow: hidden;
 		pointer-events: none;
-		text-align: left;
+		text-align: start;
 	}
 	.first {
 		font-weight: 800;

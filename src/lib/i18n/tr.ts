@@ -10,8 +10,8 @@
 export const TR: Record<string, string> = {
 	// ── Shell, navigation, footer ────────────────────────────
 	'Skip to content': 'İçeriğe geç',
-	'This page is not in Turkish yet': 'Bu sayfa henüz Türkçe değil',
-	'In Turkish, the course covers levels A1 and A2. This part of the site is only in English for now.':
+	'This page is not in your language yet': 'Bu sayfa henüz Türkçe değil',
+	'In your language, the course covers levels A1 and A2. This part of the site is only in English for now.':
 		'Türkçe kurs A1 ve A2 seviyelerini kapsıyor. Sitenin bu bölümü şimdilik yalnızca İngilizce.',
 	'Back to the course': 'Kursa dön',
 	'Show it in English': 'İngilizce göster',
@@ -44,13 +44,13 @@ export const TR: Record<string, string> = {
 	'Legal & privacy': 'Yasal bilgiler ve gizlilik',
 
 	// ── Settings ─────────────────────────────────────────────
-	'The language the site explains German in. In Turkish, levels A1 and A2 are available.':
-		'Sitenin Almancayı hangi dilde anlattığı. Türkçede A1 ve A2 seviyeleri var.',
+	'The language the site explains German in. In Turkish and Arabic, levels A1 and A2 are available.':
+		'Sitenin Almancayı hangi dilde anlattığı. Türkçe ve Arapçada A1 ve A2 seviyeleri var.',
 
 	// ── Home page ────────────────────────────────────────────
 	'Friends at an outdoor café on a summer evening in Berlin-Kreuzberg':
 		'Berlin-Kreuzberg’de bir yaz akşamı, açık hava kafesinde arkadaşlar',
-	'German for Turkish speakers · A1 to A2': 'Türkçe konuşanlar için Almanca · A1’den A2’ye',
+	'German explained in your language · A1 to A2': 'Türkçe konuşanlar için Almanca · A1’den A2’ye',
 	'Learn German. Live better in Germany.': 'Almanca öğren. Almanya’da daha rahat yaşa.',
 	'The German you need for the café, the flat, the doctor and the neighbours.':
 		'Kafede, evde, doktorda ve komşularla ihtiyacın olan Almanca.',
@@ -58,7 +58,7 @@ export const TR: Record<string, string> = {
 	café: 'kafe',
 	friends: 'arkadaşlar',
 	'Blue beach chairs on the Baltic beach at Rostock': 'Rostock’ta Baltık kıyısında mavi plaj koltukları',
-	'Four levels in Turkish, all open': 'Türkçe dört seviye, hepsi açık',
+	'Four levels in your language, all open': 'Türkçe dört seviye, hepsi açık',
 	'Start at your level.': 'Kendi seviyenden başla.',
 	'From your first Hallo to A2. A short check tells you where to begin, and you can move up or back whenever you like.':
 		'İlk Hallo’ndan A2’ye kadar. Kısa bir test nereden başlayacağını söyler; istediğin zaman ileri ya da geri gidebilirsin.',
@@ -145,13 +145,13 @@ export const TR: Record<string, string> = {
 	'No. If you want your progress on more than one device, sign in with just your email address — no password, nothing else asked.':
 		'Hayır. İlerlemeni birden fazla cihazda istiyorsan yalnızca e-posta adresinle giriş yap: şifre yok, başka bir şey sorulmaz.',
 	'I already speak some German — must I start at A1?': 'Biraz Almanca biliyorum, A1’den mi başlamalıyım?',
-	'No. Nothing is locked: pick the level that matches you from the four sub-levels in Turkish (A1.1 to A2.2) and start there.':
+	'No. Nothing is locked: pick the level that matches you from the four sub-levels in your language (A1.1 to A2.2) and start there.':
 		'Hayır. Hiçbir şey kilitli değil: Türkçedeki dört alt seviyeden (A1.1–A2.2) sana uyanı seç ve oradan başla.',
 	'Does it work on my phone?': 'Telefonumda çalışır mı?',
 	'Yes. It is a website, so it runs in any browser on a phone, tablet or computer, with nothing to install.':
 		'Evet. Bir web sitesi olduğu için telefonda, tablette ya da bilgisayarda her tarayıcıda çalışır, bir şey kurman gerekmez.',
 	'Does it prepare me for an exam?': 'Beni bir sınava hazırlar mı?',
-	'In Turkish the course covers A1 and A2 of the CEFR scale and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.':
+	'In your language the course covers A1 and A2 of the CEFR scale and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.':
 		'Türkçe kurs, Avrupa Dilleri Ortak Çerçevesi’nin (CEFR) A1 ve A2 seviyelerini ve sınavların ölçtüğü becerileri kapsar: okuma, dinleme, yazma ve konuşma. Language Quiz bağımsız bir çalışma aracıdır ve hiçbir sınav kurumuyla bağlantısı yoktur.',
 	'How is AI used?': 'Yapay zekâ nasıl kullanılıyor?',
 	'Illustrations and the audio voices are generated; the lessons and exercises are written and checked by a person. Nothing you do is sent to an AI. More on the About page.':
@@ -160,7 +160,7 @@ export const TR: Record<string, string> = {
 	// ── Start ────────────────────────────────────────────────
 	'Before your first card': 'İlk kartından önce',
 	'Where do you start?': 'Nereden başlıyorsun?',
-	'In Turkish the course runs from your first Hallo to A2. Start where you are, not at the beginning by default.':
+	'In your language the course runs from your first Hallo to A2. Start where you are, not at the beginning by default.':
 		'Türkçe kurs ilk Hallo’ndan A2’ye kadar gider. Bulunduğun yerden başla, illa en baştan değil.',
 	'I’m new to German': 'Almancada yeniyim',
 	'Start with the very first lesson: numbers, hello, your name.': 'En baştaki dersle başla: sayılar, merhaba, adın.',
@@ -249,7 +249,7 @@ export const TR: Record<string, string> = {
 	'{line}. {percent}% complete, {done} of {total}. Open your progress':
 		'{line}. %{percent} tamamlandı, {total} alıştırmadan {done}. İlerlemeni aç',
 	'Your progress': 'İlerlemen',
-	'Every exercise in Turkish is complete.': 'Türkçedeki bütün alıştırmaları bitirdin.',
+	'Every exercise in your language is complete.': 'Türkçedeki bütün alıştırmaları bitirdin.',
 	'All {n} exercises': '{n} alıştırmanın hepsi',
 	'Exercise library': 'Alıştırma kitaplığı',
 	'First in order': 'Sıradaki ilk alıştırma',
@@ -1824,7 +1824,7 @@ export const TR: Record<string, string> = {
 		"A1’den C2’ye Almanca ders kitapları, ücretsiz PDF",
 	"Books":
 		"Kitaplar",
-	"One book per level, four in Turkish (A1.1 to A2.2). Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.":
+	"One book per level, four in your language (A1.1 to A2.2). Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.":
 		"Her seviye için bir kitap, Türkçe dört tane (A1.1’den A2.2’ye). Her birinde on iki bölüm var, her bölüm Almanya’da gerçek bir yer: önce kelimeler, bir fotoğraf, bir hikâye, iki kural, gerçek bir belge ve alıştırmalar. Sesler bir QR kod uzağında. Hepsi ücretsiz, her biri {pages} sayfa.",
 	"Contact Language Quiz: questions, mistakes and ideas":
 		"Language Quiz ile iletişim: sorular, hatalar ve fikirler",
@@ -2286,4 +2286,16 @@ export const TR: Record<string, string> = {
 		'Hayır. İlerlemen kendi tarayıcında kaydedilir; üye olman gerekmez.',
 	'A walker and a dachshund with a suitcase set off along stepping stones labelled A1 to C2, up a gentle hill towards the sun.':
 		'Bir yürüyüşçü ve bavullu bir sosis köpeği, A1’den C2’ye kadar etiketli basamak taşları boyunca, güneşe doğru hafif bir tepeye yola çıkıyor.',
+	// ── Screen-reader labels (lessons, gaps, book page codes) ──
+	'{label} – open this page in the app': '{label}: bu sayfayı uygulamada aç',
+	'Open the recording': 'Kaydı aç',
+	'In context': 'Bağlam içinde',
+	'Type what you hear, line {i} of {n}': 'Duyduğunu yaz, satır {i} / {n}',
+	'Gap {i} of {n}': 'Boşluk {i} / {n}',
+	'{n} more clear it': '{n} doğru daha ve listeden çıkar',
+	'On your repeat list — get it right once to clear it': 'Tekrar listende: bir kez doğru yaparsan listeden çıkar',
+	'On your repeat list — {n} right in a row clear it': 'Tekrar listende: art arda {n} doğru yaparsan listeden çıkar',
+	'In Germany': 'Almanya’da',
+	'Tip': 'İpucu',
+	'Column for {w}': '{w} için sütun',
 };

@@ -1134,7 +1134,7 @@
 	}
 
 	.q .en {
-		margin-left: 0.4rem;
+		margin-inline-start: 0.4rem;
 		font-family: Inter, sans-serif;
 		font-size: var(--step--1);
 		font-weight: 500;
@@ -1275,7 +1275,7 @@
 
 	.zoom {
 		position: absolute;
-		right: 0.5rem;
+		inset-inline-end: 0.5rem;
 		bottom: 0.5rem;
 		z-index: 2;
 		display: flex;

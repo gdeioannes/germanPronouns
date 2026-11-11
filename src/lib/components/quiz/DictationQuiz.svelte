@@ -355,7 +355,7 @@
 			enterkeyhint="go"
 			readonly={grade !== null}
 			aria-invalid={grade && !grade.right ? 'true' : undefined}
-			aria-label="Type what you hear, line {Math.min(answered + 1, RUN_LENGTH)} of {RUN_LENGTH}"
+			aria-label={t('Type what you hear, line {i} of {n}', { i: Math.min(answered + 1, RUN_LENGTH), n: RUN_LENGTH })}
 			placeholder={t('Type what you hear')}
 			lang={locale}
 			autocomplete="off"
@@ -428,7 +428,7 @@
 	}
 	/* The dots keep to the right end of the chip row, on their own line if it wraps. */
 	.controls > :global(.dots) {
-		margin-left: auto;
+		margin-inline-start: auto;
 	}
 
 	/* A compact pill for the transport controls, sized off the button base. */
@@ -498,7 +498,7 @@
 	}
 
 	.score {
-		margin-left: auto;
+		margin-inline-start: auto;
 		font-size: var(--step--1);
 		font-weight: 800;
 		font-variant-numeric: tabular-nums;
@@ -548,7 +548,7 @@
 
 	/* What they actually typed, small, right where the slip is. */
 	.was {
-		margin-left: 0.2rem;
+		margin-inline-start: 0.2rem;
 		font-family: inherit;
 		font-size: 0.68em;
 		font-weight: 600;

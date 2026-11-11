@@ -115,9 +115,9 @@
 	.sets { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0 2rem; }
 	h2 { margin: 1.5rem 0 0.4rem; font-size: var(--step-0); }
 	table { border-collapse: collapse; width: 100%; }
-	th, td { padding: 0.35rem 0.6rem; text-align: left; border-bottom: 1px solid var(--line); }
+	th, td { padding: 0.35rem 0.6rem; text-align: start; border-bottom: 1px solid var(--line); }
 	tbody th { font-weight: 600; color: var(--ink-muted); white-space: nowrap; width: 5.5rem; }
-	.say { width: 2.5rem; text-align: right; }
+	.say { width: 2.5rem; text-align: end; }
 	.related { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: 0.2rem; }
 	.related a { display: flex; gap: 0.4rem; align-items: baseline; padding: 0.35rem 0.5rem; border-radius: var(--radius-sm); color: inherit; text-decoration: none; }
 	.related a:hover { background: var(--surface-alt); }

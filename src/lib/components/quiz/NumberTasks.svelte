@@ -237,7 +237,7 @@
 		background: var(--surface);
 		color: inherit;
 		font: inherit;
-		text-align: left;
+		text-align: start;
 		cursor: pointer;
 		transition:
 			transform var(--fast) var(--ease-out),

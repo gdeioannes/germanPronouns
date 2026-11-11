@@ -180,7 +180,7 @@
 					{@const ruleEn = germanNotes ? tipEnglish(s.tip) : []}
 					<div class="rule-top">
 						<p class="eyebrow" data-tone={kind}>
-							{KIND_LABEL[kind] ?? t('Rule')} · {s.number} of {s.of}
+							{KIND_LABEL[kind] ?? t('Rule')} · {t('{i} of {n}', { i: s.number, n: s.of })}
 						</p>
 						{#if ruleEn.length}<EnglishToggle bind:open={openEnglish[`rule${i}`]} />{/if}
 					</div>
@@ -292,7 +292,7 @@
 						</a>
 					{/if}
 				{:else if s.kind === 'context'}
-					<p class="eyebrow">In context</p>
+					<p class="eyebrow">{t('In context')}</p>
 					<h2>{t('Hear it in a real exchange')}</h2>
 					<div class="context">
 						<SpeakButton text={speakable(s.context.de)} {locale} label={t('Play the exchange')} />
@@ -699,7 +699,7 @@
 
 	.options.stack .option {
 		justify-content: space-between;
-		text-align: left;
+		text-align: start;
 	}
 
 	.option {
@@ -760,14 +760,14 @@
 		gap: 0.45rem;
 		justify-items: start;
 		padding: 0.9rem 1rem;
-		border-left: 4px solid var(--wrong);
+		border-inline-start: 4px solid var(--wrong);
 		border-radius: 0 var(--radius-sm, 10px) var(--radius-sm, 10px) 0;
 		background: var(--wrong-bg);
 		animation: rise var(--medium, 220ms) var(--ease-out);
 	}
 
 	.feedback.ok {
-		border-left-color: var(--right);
+		border-inline-start-color: var(--right);
 		background: var(--right-bg);
 	}
 
@@ -815,10 +815,10 @@
 		width: 100%;
 		padding: 0.6rem 0.75rem;
 		border: 1px solid var(--line);
-		border-left: 4px solid var(--g, var(--navy));
+		border-inline-start: 4px solid var(--g, var(--navy));
 		border-radius: var(--radius-sm, 10px);
 		background: var(--surface);
-		text-align: left;
+		text-align: start;
 		font: inherit;
 		cursor: pointer;
 		transition:
@@ -859,7 +859,7 @@
 	}
 
 	.article {
-		margin-right: 0.3ch;
+		margin-inline-end: 0.3ch;
 		font-weight: 400;
 		opacity: 0.85;
 	}
@@ -977,14 +977,14 @@
 
 	.remember {
 		padding: 0.8rem 0.95rem;
-		border-left: 3px solid var(--ochre);
+		border-inline-start: 3px solid var(--ochre);
 		border-radius: 0 var(--radius-sm, 10px) var(--radius-sm, 10px) 0;
 		background: var(--surface-alt);
 	}
 
 	.remember ul {
 		margin: 0;
-		padding-left: 1.1rem;
+		padding-inline-start: 1.1rem;
 		font-size: var(--step--1);
 		line-height: 1.5;
 	}
@@ -1023,7 +1023,7 @@
 	th,
 	td {
 		padding: 0.4rem 0.7rem;
-		text-align: left;
+		text-align: start;
 		border-bottom: 1px solid var(--line);
 		white-space: nowrap;
 	}

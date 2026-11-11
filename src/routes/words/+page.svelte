@@ -312,7 +312,7 @@
 		min-height: 6.5rem;
 		padding: 0.9rem 1rem 0.9rem 1.1rem;
 		border: 1px solid var(--line-strong);
-		border-left: 5px solid #a33a63;
+		border-inline-start: 5px solid #a33a63;
 		border-radius: var(--radius-sm);
 		background: var(--surface);
 		color: inherit;
@@ -329,7 +329,7 @@
 	}
 
 	.deck.soon {
-		border-left-color: var(--outline);
+		border-inline-start-color: var(--outline);
 		background: var(--surface-alt);
 		color: var(--ink-muted);
 		box-shadow: none;
@@ -522,7 +522,7 @@
 	}
 
 	.gloss {
-		margin-left: auto;
+		margin-inline-start: auto;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
 	}

@@ -629,13 +629,13 @@
 									</span>
 								{/if}
 								{#if repeatNote.kind === 'step'}
-									{repeatNote.streak} of {repeatNote.need} — {repeatNote.need - repeatNote.streak === 1
+									{t('{i} of {n}', { i: repeatNote.streak, n: repeatNote.need })} — {repeatNote.need - repeatNote.streak === 1
 										? t('one more clears it')
-										: `${repeatNote.need - repeatNote.streak} more clear it`}
+										: t('{n} more clear it', { n: repeatNote.need - repeatNote.streak })}
 								{:else if repeatNote.need === 1}
-									On your repeat list — get it right once to clear it
+									{t('On your repeat list — get it right once to clear it')}
 								{:else}
-									On your repeat list — {repeatNote.need} right in a row clear it
+									{t('On your repeat list — {n} right in a row clear it', { n: repeatNote.need })}
 								{/if}
 							{/if}
 						</p>
@@ -836,8 +836,8 @@
 	.label {
 		position: absolute;
 		top: 1.25rem;
-		left: 1.5rem;
-		right: 1.5rem;
+		inset-inline-start: 1.5rem;
+		inset-inline-end: 1.5rem;
 		margin: 0;
 		font-size: 0.72rem;
 		font-weight: 700;

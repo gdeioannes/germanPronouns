@@ -535,7 +535,7 @@
 		max-height: 12rem;
 		overflow-y: auto;
 		margin: 0;
-		text-align: left;
+		text-align: start;
 	}
 
 	.hidden-note {
@@ -602,7 +602,7 @@
 		border-radius: var(--radius-sm);
 		background: var(--surface);
 		font: inherit;
-		text-align: left;
+		text-align: start;
 		cursor: pointer;
 		transition:
 			border-color var(--fast) var(--ease-out),
@@ -690,7 +690,7 @@
 		align-items: flex-start;
 		gap: 0.45rem;
 		margin: 0.75rem 0 0;
-		padding-left: 0.2rem;
+		padding-inline-start: 0.2rem;
 		max-width: var(--measure);
 		color: var(--ink-muted);
 		font-size: var(--step--1);

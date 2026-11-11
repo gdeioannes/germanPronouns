@@ -519,12 +519,12 @@
 
 	.blob.a {
 		top: -20vmax;
-		left: -15vmax;
+		inset-inline-start: -15vmax;
 		background: radial-gradient(circle at 40% 40%, hsl(calc(var(--hue) + 40) 95% 60%), transparent 65%);
 	}
 
 	.blob.b {
-		right: -20vmax;
+		inset-inline-end: -20vmax;
 		top: 10vmax;
 		background: radial-gradient(circle at 60% 50%, hsl(calc(var(--hue) + 140) 95% 55%), transparent 65%);
 		animation-duration: 23s;
@@ -532,7 +532,7 @@
 	}
 
 	.blob.c {
-		left: 10vmax;
+		inset-inline-start: 10vmax;
 		bottom: -30vmax;
 		background: radial-gradient(circle at 50% 40%, hsl(calc(var(--hue) + 260) 95% 58%), transparent 65%);
 		animation-duration: 27s;
@@ -752,8 +752,8 @@
 	.count {
 		position: absolute;
 		top: 1rem;
-		left: 0;
-		right: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
 		margin: 0;
 		font-size: var(--step--1);
 		font-weight: 600;
@@ -794,13 +794,13 @@
 	}
 
 	.stamp.nein {
-		right: 1.2rem;
+		inset-inline-end: 1.2rem;
 		color: var(--wrong);
 		transform: rotate(12deg);
 	}
 
 	.stamp.ja {
-		left: 1.2rem;
+		inset-inline-start: 1.2rem;
 		color: var(--right);
 		transform: rotate(-12deg);
 	}
@@ -1182,7 +1182,7 @@
 	.profile {
 		margin: 0.45rem 0 0;
 		color: var(--ink);
-		text-align: left;
+		text-align: start;
 	}
 
 	/* -- the mix: one stacked bar and its legend ------------------------------ */
@@ -1229,8 +1229,8 @@
 	.pintip {
 		width: 0;
 		height: 0;
-		border-left: 0.3rem solid transparent;
-		border-right: 0.3rem solid transparent;
+		border-inline-start: 0.3rem solid transparent;
+		border-inline-end: 0.3rem solid transparent;
 		border-top: 0.35rem solid var(--seg);
 	}
 
@@ -1306,18 +1306,18 @@
 		list-style: none;
 		font-size: 0.74rem;
 		color: var(--ink);
-		text-align: left;
+		text-align: start;
 	}
 
 	.stats li {
 		position: relative;
-		padding-left: 0.9rem;
+		padding-inline-start: 0.9rem;
 	}
 
 	.stats li::before {
 		content: '';
 		position: absolute;
-		left: 0.1rem;
+		inset-inline-start: 0.1rem;
 		top: 0.45em;
 		width: 0.4rem;
 		height: 0.4rem;

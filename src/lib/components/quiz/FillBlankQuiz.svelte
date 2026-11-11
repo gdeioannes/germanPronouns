@@ -843,7 +843,7 @@
 	/* The card's top-right corner: the history dots and the word-help switch,
 	   floated as one so the label and sentence wrap under them, never beneath. */
 	.corner {
-		float: right;
+		float: inline-end;
 		display: inline-flex;
 		align-items: center;
 		gap: 0.6rem;

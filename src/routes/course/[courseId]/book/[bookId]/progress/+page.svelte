@@ -122,7 +122,7 @@
 		line-height: 1.55;
 	}
 	.switch a {
-		margin-right: 0.6rem;
+		margin-inline-end: 0.6rem;
 		font-weight: 700;
 	}
 	.count {

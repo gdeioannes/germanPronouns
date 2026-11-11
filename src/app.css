@@ -224,7 +224,7 @@ a:hover {
 .skip-link {
 	position: fixed;
 	top: 0.5rem;
-	left: 0.5rem;
+	inset-inline-start: 0.5rem;
 	z-index: 1000;
 	padding: 0.55rem 1rem;
 	border-radius: 999px;
@@ -309,7 +309,7 @@ input[type='number'] {
 }
 
 .reading-chip {
-	margin-left: auto;
+	margin-inline-start: auto;
 	padding: 0.3rem 0.75rem;
 	border: 1px solid var(--line-strong);
 	border-radius: 999px;

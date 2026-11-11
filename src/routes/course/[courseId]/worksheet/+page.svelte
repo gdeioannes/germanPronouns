@@ -508,7 +508,7 @@
 		display: inline-block;
 		width: 3mm;
 		height: 3mm;
-		margin-right: 1.2mm;
+		margin-inline-end: 1.2mm;
 		border: 1px solid var(--ink);
 		border-radius: 0.6mm;
 		vertical-align: -0.3mm;
@@ -569,7 +569,7 @@
 	}
 
 	.block h3 .lvl {
-		margin-right: 0.6em;
+		margin-inline-end: 0.6em;
 		color: var(--accent-ink);
 		font-family: Inter, system-ui, sans-serif;
 		font-size: 7.5pt;
@@ -594,7 +594,7 @@
 
 	.items {
 		margin: 0;
-		padding-left: 1.6rem;
+		padding-inline-start: 1.6rem;
 	}
 
 	.items li {
@@ -607,12 +607,12 @@
 		display: grid;
 		grid-template-columns: 78% 1fr;
 		gap: 0.75rem;
-		border-right: 0;
+		border-inline-end: 0;
 	}
 
 	.folded .side-answer {
-		border-left: 1px dashed var(--line-strong);
-		padding-left: 0.7rem;
+		border-inline-start: 1px dashed var(--line-strong);
+		padding-inline-start: 0.7rem;
 		color: var(--ink-muted);
 		font-size: 0.9em;
 	}
@@ -733,7 +733,7 @@
 
 	.help-points {
 		margin: 0.35rem 0 0;
-		padding-left: 1.1rem;
+		padding-inline-start: 1.1rem;
 	}
 
 	.help-points li::marker {
@@ -755,7 +755,7 @@
 	.help-table th,
 	.help-table td {
 		padding: 0.18rem 0.45rem;
-		text-align: left;
+		text-align: start;
 		border: 1px solid var(--line);
 	}
 

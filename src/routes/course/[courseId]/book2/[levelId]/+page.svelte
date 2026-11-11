@@ -9,14 +9,14 @@
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { inLangBookFront, inLangChapter } from '$lib/i18n/content.svelte';
-	import { BOOKS, bookPdf, hasTurkishPdf } from '$lib/content/books';
+	import { BOOKS, bookPdf, hasLocalPdf } from '$lib/content/books';
 
 	import { onMount } from 'svelte';
 	let { data }: { data: PageData } = $props();
 	// In Turkish the book comes through its level's overlay: the explanations,
 	// the word meanings and the translations change; the German stays.
 	const book = $derived(
-		lang.tr
+		lang.limited
 			? {
 					...inLangBookFront(data.book, data.book.level),
 					chapters: data.book.chapters.map((c) => inLangChapter(c, data.book.level))
@@ -66,8 +66,8 @@
 				<Icon name="printer" size="1em" /> {t('Print')}
 			</button>
 			<!-- Turkish: the Turkish edition's PDF once it is printed; until then printing the page is the way. -->
-			{#if !lang.tr || (entry && hasTurkishPdf(entry))}
-				<a class="btn" href={entry ? bookPdf(entry, lang.tr) : `/books/v2/${data.book.courseId}_${data.book.level.toLowerCase().replace('.', '_')}.pdf`} download>
+			{#if !lang.limited || (entry && hasLocalPdf(entry, lang.current))}
+				<a class="btn" href={entry ? bookPdf(entry, lang.current) : `/books/v2/${data.book.courseId}_${data.book.level.toLowerCase().replace('.', '_')}.pdf`} download>
 					<Icon name="download" size="1em" /> {t('Download the PDF')}
 				</a>
 			{/if}
@@ -88,7 +88,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
-		margin-right: auto;
+		margin-inline-end: auto;
 		color: var(--accent-ink);
 		font-weight: 700;
 		text-decoration: none;

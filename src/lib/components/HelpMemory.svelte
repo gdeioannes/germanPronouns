@@ -243,7 +243,7 @@
 
 				<!-- 6 · In context, with audio: hear it before you drill it. -->
 				{#if help?.context}
-					<h4 class="section-head">In context</h4>
+					<h4 class="section-head">{t('In context')}</h4>
 					<div class="context">
 						<p class="de" lang={locale}><GermanText text={help.context.de} /> <SpeakButton text={speakable(help.context.de)} {locale} /></p>
 						<p class="en"><EnglishLine text={help.context.en} level={quiz.level} /></p>
@@ -299,21 +299,21 @@
 	.tip {
 		padding: 0.75rem 0.9rem;
 		margin-bottom: 0.6rem;
-		border-left: 3px solid var(--accent);
+		border-inline-start: 3px solid var(--accent);
 		border-radius: 0 8px 8px 0;
 		background: var(--surface-alt);
 	}
 
 	.tip[data-kind='warning'] {
-		border-left-color: var(--wrong);
+		border-inline-start-color: var(--wrong);
 	}
 
 	.tip[data-kind='mnemonic'] {
-		border-left-color: var(--ochre, #b8860b);
+		border-inline-start-color: var(--ochre, #b8860b);
 	}
 
 	.tip[data-kind='exam'] {
-		border-left-color: var(--forest, #3f7d4e);
+		border-inline-start-color: var(--forest, #3f7d4e);
 	}
 
 	.tip h4 {
@@ -341,8 +341,8 @@
 	.examples li {
 		display: grid;
 		gap: 0.1rem;
-		padding-left: 0.6rem;
-		border-left: 2px solid var(--line-strong);
+		padding-inline-start: 0.6rem;
+		border-inline-start: 2px solid var(--line-strong);
 	}
 
 	.de {
@@ -393,7 +393,7 @@
 	th,
 	td {
 		padding: 0.4rem 0.7rem;
-		text-align: left;
+		text-align: start;
 		border-bottom: 1px solid var(--line);
 		white-space: nowrap;
 	}
@@ -422,7 +422,7 @@
 	}
 
 	.article {
-		margin-right: 0.35ch;
+		margin-inline-end: 0.35ch;
 		font-weight: 500;
 		opacity: 0.85;
 	}

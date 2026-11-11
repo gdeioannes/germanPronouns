@@ -556,7 +556,7 @@ Why it should be looked at: `
 	}
 
 	.post .x {
-		margin-left: auto;
+		margin-inline-start: auto;
 	}
 
 	.write {

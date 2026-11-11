@@ -54,20 +54,20 @@
 	import type { PageData } from './$types';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
-	import { levelInTurkish } from '$lib/i18n/available';
+	import { levelTranslated } from '$lib/i18n/available';
 	import { inLang } from '$lib/i18n/content.svelte';
 
 	let { data }: { data: PageData } = $props();
 	const courseHref = $derived(page.data.site?.courseHref ?? `/course/${data.courseId}`);
 	// In Turkish the test only places within A1–A2, and its sentences and
 	// questions come through each level's Turkish overlay.
-	const inTr = (l: string) => !lang.tr || levelInTurkish(l);
+	const inTr = (l: string) => !lang.limited || levelTranslated(l);
 	const levels = $derived(data.bank.levels.filter(inTr));
 	const wordLevels = $derived(bankLevels(data.words).filter(inTr));
 	const perLevel = <T,>(rec: Record<string, T>) =>
 		Object.fromEntries(Object.entries(rec).map(([l, v]) => [l, inLang(v, l)])) as Record<string, T>;
 	const bank = $derived(
-		lang.tr
+		lang.limited
 			? { ...data.bank, grammar: perLevel(data.bank.grammar), reading: perLevel(data.bank.reading), listening: perLevel(data.bank.listening) }
 			: data.bank
 	);
@@ -597,8 +597,8 @@
 	.track {
 		position: absolute;
 		top: 50%;
-		right: 7px;
-		left: 7px;
+		inset-inline-end: 7px;
+		inset-inline-start: 7px;
 		height: 3px;
 		border-radius: 999px;
 		background: var(--line);
@@ -719,7 +719,7 @@
 	.count {
 		position: absolute;
 		top: 0.9rem;
-		right: 1.1rem;
+		inset-inline-end: 1.1rem;
 		font-size: var(--step--1);
 		font-weight: 700;
 		color: var(--ink-muted);
@@ -729,7 +729,7 @@
 		display: grid;
 		gap: 0.6rem;
 		margin: 1rem 0;
-		padding-left: 1.2rem;
+		padding-inline-start: 1.2rem;
 	}
 
 	.intro-parts strong {
@@ -822,7 +822,7 @@
 	.passage {
 		margin: 0.5rem 0 1.5rem;
 		padding: 1rem 1.2rem;
-		border-left: 3px solid var(--accent);
+		border-inline-start: 3px solid var(--accent);
 		background: var(--surface-alt);
 		line-height: 1.6;
 	}
@@ -911,7 +911,7 @@
 		display: grid;
 		gap: 1.2rem;
 		margin: 0 0 0.4rem;
-		padding-left: 1.2rem;
+		padding-inline-start: 1.2rem;
 	}
 
 	.question {

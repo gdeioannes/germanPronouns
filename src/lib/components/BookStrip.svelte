@@ -58,7 +58,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.3rem;
-		margin-left: auto;
+		margin-inline-start: auto;
 		color: var(--accent-ink);
 		font-weight: 700;
 	}

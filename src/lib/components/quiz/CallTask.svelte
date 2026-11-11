@@ -686,7 +686,7 @@
 		background: rgb(255 255 255 / 0.88);
 		color: #1b1f27;
 		font: inherit;
-		text-align: left;
+		text-align: start;
 		cursor: pointer;
 		animation: arrive 500ms var(--ease-spring) both;
 	}
@@ -772,7 +772,7 @@
 	}
 
 	.live-hangup {
-		margin-left: auto;
+		margin-inline-start: auto;
 		width: 2.2rem;
 		height: 2.2rem;
 		border: 0;

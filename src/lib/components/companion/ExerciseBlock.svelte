@@ -23,7 +23,7 @@
 		</div>
 		{#if ex.listen && listen}
 			<figure class="qr">
-				{#if listen.url}<a href={listen.url} aria-label="Open the recording">{@html listen.svg}</a>{:else}{@html listen.svg}{/if}
+				{#if listen.url}<a href={listen.url} aria-label={t('Open the recording')}>{@html listen.svg}</a>{:else}{@html listen.svg}{/if}
 				<figcaption>{german ? 'Hören' : t('Listen')}<br /><span>{listen.url ? listen.url.replace(/^https?:\/\//, '') : listen.code}</span></figcaption>
 			</figure>
 		{/if}
@@ -267,7 +267,7 @@
 	.match ol:first-child li {
 		font-weight: 800;
 		color: var(--navy);
-		text-align: right;
+		text-align: end;
 	}
 
 	.dot {
@@ -318,7 +318,7 @@
 
 	.hole {
 		position: absolute;
-		left: 1.6mm;
+		inset-inline-start: 1.6mm;
 		top: 50%;
 		width: 1.6mm;
 		height: 1.6mm;
@@ -404,7 +404,7 @@
 		display: grid;
 		grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
 		gap: 0 6mm;
-		margin-left: 9mm;
+		margin-inline-start: 9mm;
 	}
 
 	.sort div {

@@ -385,7 +385,7 @@
 		width: 100%;
 		margin: 0 0 0.8rem;
 		padding: 0.7rem 0.95rem;
-		border-left: 3px solid var(--accent);
+		border-inline-start: 3px solid var(--accent);
 		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 		background: var(--surface-alt);
 		font-size: var(--step--1);
@@ -506,7 +506,7 @@
 			padding: 1.25rem 1.3rem 1.15rem;
 			border-radius: var(--radius);
 			background: var(--bg);
-			text-align: left;
+			text-align: start;
 			box-shadow: 0 1px 0 var(--line);
 		}
 
@@ -518,7 +518,7 @@
 		.ai-links a :global(svg) {
 			position: absolute;
 			top: 1.15rem;
-			right: 1.15rem;
+			inset-inline-end: 1.15rem;
 			color: var(--ink-muted);
 			transition: color var(--fast) var(--ease-out);
 		}
@@ -619,7 +619,7 @@
 	}
 
 	.grade {
-		margin-left: auto;
+		margin-inline-start: auto;
 		font-family: 'Inter Variable', 'Inter', sans-serif;
 		font-size: 0.34em;
 		font-weight: 700;
@@ -658,7 +658,7 @@
 
 	.focus ol {
 		margin: 0;
-		padding-left: 1.3rem;
+		padding-inline-start: 1.3rem;
 		display: grid;
 		gap: 0.4rem;
 	}

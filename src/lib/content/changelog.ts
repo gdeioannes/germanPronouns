@@ -17,6 +17,26 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-11",
+    title: "Turkish and Arabic: every exercise opens, every answer stays German",
+    items: [
+      "Some A1–A2 exercises did not open in Turkish (and Arabic) when you tapped or swiped their card: they open now.",
+      "A few German answers that look like English words, such as \"bin\" and \"hat\", were shown translated as if they meant a rubbish bin or a hat. They are German again, in the exercises and in the Turkish and Arabic books.",
+      "In Arabic, the card's swipe hint and buttons now match the swipe: skip on the left, start on the right.",
+    ],
+  },
+  {
+    date: "2026-11-11",
+    title: "German for Arabic speakers: الألمانية بشرح عربي",
+    items: [
+      "The site now speaks Arabic too: pick العربية in the language picker on the home page (or in Settings), and the whole site turns right to left, with menus, buttons, help and the About page in Arabic.",
+      "Levels A1.1 to A2.2 are fully in Arabic: every lesson, explanation, hint and exercise, written for Arabic speakers. The German cases are compared with Arabic i'rab, the articles with «ال», and German sounds are spelled in Arabic letters.",
+      "The four A1–A2 books have Arabic editions, as free PDFs with their own covers, and tapping any German word shows its meaning in Arabic.",
+      "German always reads left to right inside the Arabic, so every full stop and question mark stays where German puts it.",
+    ],
+    highlight: true,
+  },
+  {
+    date: "2026-11-11",
     title: "How did this one go last time?",
     items: [
       "Fill-in and dictation cards now carry a small row of dots in the corner: one dot for each earlier time you met that very sentence, green for right, red for wrong, newest on the right. A sentence you have never seen shows nothing.",

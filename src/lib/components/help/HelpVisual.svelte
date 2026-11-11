@@ -455,7 +455,7 @@
 	}
 	.day0 {
 		position: absolute;
-		left: 0;
+		inset-inline-start: 0;
 		bottom: -1.5rem;
 		font-size: 0.68rem;
 		font-weight: 700;
@@ -540,7 +540,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.35rem;
-		padding-left: 1.8rem;
+		padding-inline-start: 1.8rem;
 	}
 	.odd,
 	.kind {
@@ -561,7 +561,7 @@
 		color: var(--terracotta);
 	}
 	.arrow {
-		padding-left: 0.35rem;
+		padding-inline-start: 0.35rem;
 		color: var(--ink-muted);
 		line-height: 1;
 	}
@@ -586,7 +586,7 @@
 		background: #3f7d46;
 	}
 	.arrow small {
-		margin-left: 0.3rem;
+		margin-inline-start: 0.3rem;
 		font-size: 0.72rem;
 	}
 	.ends,
@@ -600,7 +600,7 @@
 		padding: 0.4rem 0.6rem;
 		border-radius: var(--radius-sm);
 		background: var(--surface);
-		border-left: 4px solid var(--line-strong);
+		border-inline-start: 4px solid var(--line-strong);
 	}
 	.end b,
 	.band b {
@@ -612,15 +612,15 @@
 	}
 	.end.win,
 	.band.top {
-		border-left-color: #c2364a;
+		border-inline-start-color: #c2364a;
 	}
 	.end.mid,
 	.band.ok {
-		border-left-color: #d9a441;
+		border-inline-start-color: #d9a441;
 	}
 	.end.lost,
 	.band.bad {
-		border-left-color: #8a8f99;
+		border-inline-start-color: #8a8f99;
 	}
 	.flow-head {
 		margin: 0;
@@ -663,7 +663,7 @@
 	.hand {
 		display: flex;
 		gap: 0.3rem;
-		padding-left: 1.8rem;
+		padding-inline-start: 1.8rem;
 	}
 	.hand i {
 		display: grid;

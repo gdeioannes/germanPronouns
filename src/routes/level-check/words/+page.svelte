@@ -380,7 +380,7 @@
 		width: 2.4rem;
 		height: 2.4rem;
 		flex: none;
-		margin-left: -0.4rem;
+		margin-inline-start: -0.4rem;
 		border-radius: 50%;
 		color: var(--ink-muted);
 	}
@@ -686,7 +686,7 @@
 	}
 
 	.bars .pct {
-		text-align: right;
+		text-align: end;
 		color: var(--ink-muted);
 	}
 
@@ -725,7 +725,7 @@
 	}
 
 	.legend .key.light {
-		margin-left: 0.6rem;
+		margin-inline-start: 0.6rem;
 		background: color-mix(in srgb, var(--forest) 35%, var(--surface));
 	}
 
@@ -827,7 +827,7 @@
 		display: grid;
 		gap: 0.1rem;
 		padding: 0.55rem 0.75rem;
-		text-align: left;
+		text-align: start;
 	}
 
 	.pace-btn small {

@@ -22,13 +22,13 @@
 	import type { PageData } from './$types';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
-	import { levelInTurkish } from '$lib/i18n/available';
+	import { levelTranslated } from '$lib/i18n/available';
 
 	let { data }: { data: PageData } = $props();
 	const courseHref = $derived(page.data.site?.courseHref ?? `/course/${data.courseId}`);
 	// In Turkish only the levels that exist in Turkish (A1–A2).
 	const levels = $derived<{ level: string; title: string }[]>(
-		(page.data.site?.levels ?? []).filter((l: { level: string }) => !lang.tr || levelInTurkish(l.level))
+		(page.data.site?.levels ?? []).filter((l: { level: string }) => !lang.limited || levelTranslated(l.level))
 	);
 	const name = (title: string) =>
 		title
@@ -106,8 +106,8 @@
 		<p class="eyebrow">{t('Before your first card')}</p>
 		<h1>{t('Where do you start?')}</h1>
 		<p class="lede">
-			{#if lang.tr}
-				{t('In Turkish the course runs from your first Hallo to A2. Start where you are, not at the beginning by default.')}
+			{#if lang.limited}
+				{t('In your language the course runs from your first Hallo to A2. Start where you are, not at the beginning by default.')}
 			{:else}
 				The course runs from your first <em lang="de">Hallo</em> to C2. Start where you are, not at the beginning by default.
 			{/if}
@@ -156,7 +156,7 @@
 			<span class="disc" aria-hidden="true"><Icon name="trophy" size="1.4em" /></span>
 			<span class="body">
 				<strong>{t('I know my level')}</strong>
-				<span>{lang.tr ? t('Pick it from the four sub-levels, A1.1 to A2.2.') : 'Pick it from the twelve sub-levels, A1.1 to C2.2.'}</span>
+				<span>{lang.limited ? t('Pick it from the four sub-levels, A1.1 to A2.2.') : 'Pick it from the twelve sub-levels, A1.1 to C2.2.'}</span>
 			</span>
 			<span class="chev" class:flip={picking}><Icon name="chevronDown" size="1.1em" /></span>
 		</button>
@@ -244,7 +244,7 @@
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;
-		text-align: left;
+		text-align: start;
 		text-decoration: none;
 		cursor: pointer;
 		transition:
@@ -354,7 +354,7 @@
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;
-		text-align: left;
+		text-align: start;
 		cursor: pointer;
 		transition:
 			transform 0.12s ease,

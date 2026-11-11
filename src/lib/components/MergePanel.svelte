@@ -214,7 +214,7 @@
 	.choices button {
 		display: block;
 		width: 100%;
-		text-align: left;
+		text-align: start;
 	}
 
 	.label {

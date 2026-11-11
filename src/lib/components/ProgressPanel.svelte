@@ -277,7 +277,7 @@
 	}
 
 	.hero-num small {
-		margin-left: 0.5rem;
+		margin-inline-start: 0.5rem;
 		font-family: 'Inter Variable', 'Inter', system-ui, sans-serif;
 		font-size: var(--step--1);
 		font-weight: 600;
@@ -472,7 +472,7 @@
 	}
 
 	.bar-num {
-		text-align: right;
+		text-align: end;
 		color: var(--ink-muted);
 		white-space: nowrap;
 	}

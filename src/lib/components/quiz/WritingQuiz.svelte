@@ -597,7 +597,7 @@
 
 	/* A little air between the letters and the emphasis pair. */
 	.key.bold {
-		margin-left: 0.45rem;
+		margin-inline-start: 0.45rem;
 	}
 
 	.card.center .btn {
@@ -639,7 +639,7 @@
 		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-0);
 		font-weight: 600;
-		text-align: left;
+		text-align: start;
 		cursor: pointer;
 	}
 
@@ -662,7 +662,7 @@
 
 	.brief-toggle :global(svg) {
 		flex: none;
-		margin-left: auto;
+		margin-inline-start: auto;
 		color: var(--ink-muted);
 	}
 
@@ -679,7 +679,7 @@
 
 	.points {
 		margin: 0 0 0.6rem;
-		padding-left: 1.1rem;
+		padding-inline-start: 1.1rem;
 		color: var(--ink-muted);
 		font-size: var(--step--1);
 		line-height: 1.45;
@@ -771,7 +771,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.3rem;
-		margin-left: auto;
+		margin-inline-start: auto;
 		font-family: inherit;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
@@ -889,7 +889,7 @@
 	}
 
 	.count .words {
-		margin-left: auto;
+		margin-inline-start: auto;
 	}
 
 	.count.over,
@@ -931,7 +931,7 @@
 	}
 
 	.ai-hint {
-		margin-left: auto;
+		margin-inline-start: auto;
 		font-size: var(--step--2);
 		color: var(--ink-muted);
 	}
@@ -1006,7 +1006,7 @@
 
 	.focus ol {
 		margin: 0;
-		padding-left: 1.3rem;
+		padding-inline-start: 1.3rem;
 		display: grid;
 		gap: 0.4rem;
 	}

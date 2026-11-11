@@ -112,7 +112,7 @@
 	}
 	.cando ul {
 		margin: 1mm 0 0;
-		padding-left: 4mm;
+		padding-inline-start: 4mm;
 		opacity: 0.85;
 	}
 	.site {
@@ -146,7 +146,7 @@
 	}
 	.barcode {
 		position: absolute;
-		right: calc(var(--bleed) + 10mm);
+		inset-inline-end: calc(var(--bleed) + 10mm);
 		bottom: calc(var(--bleed) + 10mm);
 		width: 50.8mm;
 		height: 30.5mm;
@@ -175,8 +175,8 @@
 	}
 	.front .hero {
 		position: absolute;
-		left: 0;
-		right: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
 		bottom: 0;
 		width: 100%;
 		height: 58%;

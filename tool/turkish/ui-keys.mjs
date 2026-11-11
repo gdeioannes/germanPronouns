@@ -1,16 +1,21 @@
 #!/usr/bin/env node
-// Lists every interface string given to t() / tn() that tr.ts has no Turkish for.
+// Lists every interface string given to t() / tn() that the language's table
+// (src/lib/i18n/<lang>.ts) has no translation for. --lang ar; Turkish by default.
 //   node tool/turkish/ui-keys.mjs           missing keys, as lines ready to paste into tr.ts
 //   node tool/turkish/ui-keys.mjs --unused  keys in tr.ts nothing uses any more
+//   node tool/turkish/ui-keys.mjs --json    missing keys → tool/turkish/ui/en.json, for the translator
 import { mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+
+const langAt = process.argv.indexOf('--lang');
+const LANG = langAt >= 0 ? process.argv[langAt + 1] : 'tr';
 
 const files = [];
 (function walk(d) {
 	for (const f of readdirSync(d)) {
 		const p = join(d, f);
 		if (statSync(p).isDirectory()) walk(p);
-		else if (/\.(svelte|ts)$/.test(f) && !/\.test\.ts$/.test(f) && !/i18n[\\/]tr\.ts$/.test(p)) files.push(p);
+		else if (/\.(svelte|ts)$/.test(f) && !/\.test\.ts$/.test(f) && !/i18n[\\/](tr|ar)\.ts$/.test(p)) files.push(p);
 	}
 })('src');
 
@@ -48,7 +53,7 @@ for (const f of files) {
 		}
 	});
 }
-const trSrc = readFileSync('src/lib/i18n/tr.ts', 'utf8');
+const trSrc = readFileSync(`src/lib/i18n/${LANG}.ts`, 'utf8');
 const have = new Set();
 for (const m of trSrc.matchAll(new RegExp(String.raw`^\s*` + lit(1) + String.raw`\s*:`, 'gm'))) have.add(unescape(m[2], m[1]));
 // Keys Prettier leaves unquoted (About: '…').

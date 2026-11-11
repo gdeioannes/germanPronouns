@@ -49,10 +49,19 @@ const IRREGULAR_PLURAL: Record<string, string> = { man: 'men', woman: 'women', c
  */
 function englishLine(template: string | undefined, english: string): string | undefined {
 	if (!template) return undefined;
-	// Turkish mode: the template and the noun come Turkish from the overlay.
-	// Turkish has "bir" for a/an and no plural after a number or "çok", so the
-	// noun goes in bare.
+	// Arabic: the template and the noun come Arabic from the overlay. Arabic
+	// has no word for a/an (an indefinite noun is just the bare noun), and the
+	// templates are written so the bare noun fits after a number too.
+	if (lang.ar) {
+		return template
+			.replace(/\{a\}\s*/g, '')
+			.replace('{pl}', english)
+			.replace('{subject}', english);
+	}
 	if (lang.tr) {
+		// Turkish: the template and the noun come Turkish from the overlay.
+		// Turkish has "bir" for a/an and no plural after a number or "çok", so
+		// the noun goes in bare.
 		// "bir" goes before the noun itself, after its adjective: yeni bir masa.
 		const withBir = english.includes(' ') ? english.replace(/(\S+)$/, 'bir $1') : `bir ${english}`;
 		return template

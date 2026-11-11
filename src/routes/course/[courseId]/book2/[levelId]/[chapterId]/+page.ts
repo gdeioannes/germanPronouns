@@ -2,10 +2,10 @@
 // book never opens in English and switches under the reader.
 import { browser } from '$app/environment';
 import { lang } from '$lib/i18n/lang.svelte';
-import { loadTurkish } from '$lib/i18n/content.svelte';
+import { loadOverlay } from '$lib/i18n/content.svelte';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ data, params }) => {
-	if (browser && lang.tr) await loadTurkish(params.levelId);
+	if (browser && lang.limited) await loadOverlay(params.levelId);
 	return data;
 };

@@ -187,7 +187,7 @@
 		background: var(--surface);
 		border: 1.5px solid var(--line-strong);
 		border-bottom-left-radius: 0.25rem;
-		padding-right: 4.6rem;
+		padding-inline-end: 4.6rem;
 	}
 	.maya-says {
 		justify-self: end;
@@ -212,7 +212,7 @@
 	.tools {
 		position: absolute;
 		top: 0.45rem;
-		right: 0.5rem;
+		inset-inline-end: 0.5rem;
 		display: flex;
 		gap: 0.25rem;
 	}
@@ -239,7 +239,7 @@
 		display: grid;
 		gap: 0.1rem;
 		background: var(--right-bg);
-		border-left: 3px solid var(--right);
+		border-inline-start: 3px solid var(--right);
 		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 		padding: 0.45rem 0.8rem;
 		font-size: var(--step--1);

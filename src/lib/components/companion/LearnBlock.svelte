@@ -305,7 +305,7 @@
 	</section>
 {:else if block.kind === 'box'}
 	<aside class="box {block.tone}" class:has-image={block.image}>
-		<p class="label">{block.label ?? (german ? (block.tone === 'watch' ? 'Achtung' : block.tone === 'culture' ? 'In Deutschland' : 'Tipp') : block.tone === 'watch' ? 'Watch out' : block.tone === 'culture' ? 'In Germany' : 'Tip')}</p>
+		<p class="label">{block.label ?? (german ? (block.tone === 'watch' ? 'Achtung' : block.tone === 'culture' ? 'In Deutschland' : 'Tipp') : block.tone === 'watch' ? t('Watch out') : block.tone === 'culture' ? t('In Germany') : t('Tip'))}</p>
 		<h3 class="box-title">{block.title}</h3>
 		<p>{@html rich(block.text)}</p>
 		{#if block.image}<img src="/img/{block.image}.webp" alt="" width="1024" height="1024" />{/if}
@@ -429,7 +429,7 @@
 	}
 
 	.part + .part {
-		margin-left: 0.8mm;
+		margin-inline-start: 0.8mm;
 	}
 
 	.part.suffix {
@@ -550,7 +550,7 @@
 	}
 
 	.flip-ex small {
-		margin-left: 2mm;
+		margin-inline-start: 2mm;
 		font-size: 8pt;
 		color: var(--muted);
 	}
@@ -568,7 +568,7 @@
 	.pairs dt {
 		font-weight: 800;
 		color: var(--navy);
-		text-align: right;
+		text-align: end;
 	}
 
 	.pairs dd {
@@ -588,7 +588,7 @@
 		font-size: 7.5pt;
 		font-weight: 800;
 		letter-spacing: 0.06em;
-		text-align: left;
+		text-align: start;
 		text-transform: uppercase;
 		color: var(--accent);
 	}
@@ -710,7 +710,7 @@
 		top: -1.6mm;
 		left: 50%;
 		height: 1.6mm;
-		border-left: 0.3mm solid var(--navy);
+		border-inline-start: 0.3mm solid var(--navy);
 	}
 
 	.fl-branch {
@@ -727,7 +727,7 @@
 		top: 0;
 		left: 50%;
 		height: 4.5mm;
-		border-left: 0.3mm solid var(--navy);
+		border-inline-start: 0.3mm solid var(--navy);
 	}
 
 	.fl-branch::after {
@@ -739,11 +739,11 @@
 
 	.fl-branch:first-child::after {
 		left: 50%;
-		right: -1.5mm;
+		inset-inline-end: -1.5mm;
 	}
 
 	.fl-branch:last-child::after {
-		left: -1.5mm;
+		inset-inline-start: -1.5mm;
 		right: 50%;
 	}
 
@@ -830,7 +830,7 @@
 		align-self: stretch;
 		margin: 1.4mm 0;
 		border: 0.3mm solid var(--navy);
-		border-left: 0;
+		border-inline-start: 0;
 		border-radius: 0 1.2mm 1.2mm 0;
 	}
 
@@ -897,15 +897,15 @@
 	.ar-line::after {
 		content: '';
 		position: absolute;
-		right: -0.4mm;
+		inset-inline-end: -0.4mm;
 		bottom: -1.3mm;
 		border: 1.1mm solid transparent;
-		border-left: 1.8mm solid var(--navy);
-		border-right: 0;
+		border-inline-start: 1.8mm solid var(--navy);
+		border-inline-end: 0;
 	}
 
 	.ar-en {
-		padding-left: 2.5mm;
+		padding-inline-start: 2.5mm;
 		font-size: 8.5pt;
 		color: var(--muted);
 	}
@@ -1149,7 +1149,7 @@
 
 	.slot-en {
 		align-self: center;
-		padding-left: 1.5mm;
+		padding-inline-start: 1.5mm;
 		font-size: 8.5pt;
 		color: var(--muted);
 	}
@@ -1186,7 +1186,7 @@
 	.box {
 		position: relative;
 		padding: 2.6mm 3.5mm 3mm 4mm;
-		border-left: 1.2mm solid var(--tone);
+		border-inline-start: 1.2mm solid var(--tone);
 		background: var(--tone-tint);
 		break-inside: avoid;
 	}
@@ -1207,7 +1207,7 @@
 	}
 
 	.box.has-image {
-		padding-right: 26mm;
+		padding-inline-end: 26mm;
 	}
 
 	.label {
@@ -1235,7 +1235,7 @@
 
 	.box img {
 		position: absolute;
-		right: 2mm;
+		inset-inline-end: 2mm;
 		top: 50%;
 		width: 23mm;
 		height: auto;

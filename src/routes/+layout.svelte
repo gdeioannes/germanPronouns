@@ -14,12 +14,13 @@
 	import Announcer from '$lib/components/Announcer.svelte';
 	import MergePanel from '$lib/components/MergePanel.svelte';
 	import SignInSheet from '$lib/components/SignInSheet.svelte';
-	import NotInTurkish from '$lib/components/NotInTurkish.svelte';
+	import NotInLanguage from '$lib/components/NotInLanguage.svelte';
 	import { onMount } from 'svelte';
 	import { lang, startLang } from '$lib/i18n/lang.svelte';
-	import { levelInTurkish, routeInTurkish } from '$lib/i18n/available';
+	import { levelTranslated, routeTranslated } from '$lib/i18n/available';
 	import { t } from '$lib/i18n/t';
-	import { loadTurkish } from '$lib/i18n/content.svelte';
+	import { loadOverlay } from '$lib/i18n/content.svelte';
+	import { autoBidi } from '$lib/i18n/bidi';
 	// Self-hosted fonts: no third-party request blocks the first paint, and the
 	// files ship from the same origin as the page.
 	import '@fontsource-variable/inter';
@@ -29,33 +30,41 @@
 	import interUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 	import serifUrl from '@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2?url';
 	import '../app.css';
+	// Arabic letters (joined to the same font families) and right-to-left rules.
+	import '$lib/i18n/arabic.css';
 
 	let { children, data } = $props();
 
-	// The learner's language (English or Turkish), applied after hydration.
-	// In Turkish, once the page's overlay is in, the page is mounted afresh
-	// (still hidden): hydration patches text written through t(), but not
-	// {@html} or text that differs in structure, so a fresh render is the one
-	// sure way the first screen is all Turkish.
+	// The learner's language (English, Turkish or Arabic), applied after
+	// hydration. In a second language, once the page's overlay is in, the page
+	// is mounted afresh (still hidden): hydration patches text written through
+	// t(), but not {@html} or text that differs in structure, so a fresh render
+	// is the one sure way the first screen is all translated.
 	let remount = $state(0);
 	onMount(
 		() =>
 			void startLang(async () => {
-				await loadTurkish(pageLevel);
+				await loadOverlay(pageLevel);
 				remount++;
 			})
 	);
 
-	// Turkish mode shows only what exists in Turkish: any other page gives way
+	// Right to left (Arabic): German text keeps running left to right.
+	$effect(() => {
+		if (!lang.rtl) return;
+		return autoBidi(document.body);
+	});
+
+	// A second language shows only what exists in it: any other page gives way
 	// to a short note with the way back.
 	// A level-bound page (a level, an exercise, a book) also needs its level.
 	const pageLevel = $derived(
 		page.params.levelId ?? (page.data as { quiz?: { level?: string } }).quiz?.level ?? null
 	);
-	const hiddenInTurkish = $derived(
-		lang.tr &&
+	const hiddenInLanguage = $derived(
+		lang.limited &&
 			page.status < 400 &&
-			(!routeInTurkish(page.route.id) || (pageLevel !== null && !levelInTurkish(pageLevel)))
+			(!routeTranslated(page.route.id) || (pageLevel !== null && !levelTranslated(pageLevel)))
 	);
 
 	// Each page renders its own <main>; the skip link finds whichever one is
@@ -159,8 +168,8 @@
 	     runs (and the prerenderer can check the link); with JavaScript, focus
 	     goes to the page's own <main>. -->
 	<div id="main" in:fade={{ duration: viewTransitions ? 0 : 220, easing: cubicOut }}>
-		{#if hiddenInTurkish}
-			<NotInTurkish courseHref={data.site.courseHref} />
+		{#if hiddenInLanguage}
+			<NotInLanguage courseHref={data.site.courseHref} />
 		{:else}
 			{@render children()}
 		{/if}

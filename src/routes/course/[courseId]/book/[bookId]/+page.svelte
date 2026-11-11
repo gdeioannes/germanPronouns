@@ -13,8 +13,8 @@
 	const pageStyle = $derived(
 		`<style>
 @page { size: 8.5in 11in; margin: 20mm 13mm 25mm 13mm; @bottom-center { content: counter(page) "\\A \\A "; white-space: pre; line-height: 5mm; font: 800 8.5pt Inter, sans-serif; color: #1f3a5f; } @top-left { content: url(${data.mark}) "  languagequiz.org"; font: 700 7pt Inter, sans-serif; color: #1f3a5f; padding-top: 12mm; white-space: pre; } }
-@page :left { margin-left: 13mm; margin-right: 17mm; }
-@page :right { margin-left: 17mm; margin-right: 13mm; }
+@page :left { margin-inline-start: 13mm; margin-inline-end: 17mm; }
+@page :right { margin-inline-start: 17mm; margin-inline-end: 13mm; }
 @page front { @bottom-center { content: none; } @top-left { content: none; } }
 @page advert { margin: 0; @bottom-center { content: none; } @top-left { content: none; } }
 @page part1 { @top-right { padding-top: 12mm; font: 600 7pt Inter, sans-serif; color: #6e6458; content: "${partHead(0)}"; } }
@@ -665,14 +665,14 @@
 		line-height: 1.5;
 	}
 	.steps {
-		padding-left: 4.5mm;
+		padding-inline-start: 4.5mm;
 		margin: 0;
 	}
 	.steps li {
 		margin-bottom: 2mm;
 	}
 	.legend-list {
-		padding-left: 4mm;
+		padding-inline-start: 4mm;
 		margin: 0;
 	}
 	.book-qr {
@@ -723,7 +723,7 @@
 	.toc td {
 		padding: 0.7mm 1.5mm;
 		border-bottom: 0.2mm solid var(--line);
-		text-align: left;
+		text-align: start;
 		vertical-align: middle;
 	}
 	.toc thead th {
@@ -784,7 +784,7 @@
 		margin-top: 1.2mm;
 		font-size: 7.5pt;
 		color: var(--ink-muted);
-		text-align: right;
+		text-align: end;
 	}
 	.intro-de {
 		margin: 5mm 0 1.5mm;
@@ -826,7 +826,7 @@
 	.ch-units .tnum {
 		font-weight: 700;
 		color: var(--navy);
-		margin-right: 1.5mm;
+		margin-inline-end: 1.5mm;
 	}
 	.ch-units small {
 		color: var(--ink-muted);
@@ -842,7 +842,7 @@
 		object-fit: cover;
 		border-radius: 1mm;
 		vertical-align: middle;
-		margin-right: 2.5mm;
+		margin-inline-end: 2.5mm;
 	}
 	.toc-chapter b {
 		color: var(--navy);
@@ -871,14 +871,14 @@
 	.cando {
 		margin-top: 4mm;
 		padding: 4mm 5mm;
-		border-left: 1mm solid var(--navy);
+		border-inline-start: 1mm solid var(--navy);
 		background: var(--cream);
 		width: 100%;
 		box-sizing: border-box;
 	}
 	.cando ul {
 		margin: 1.5mm 0 0;
-		padding-left: 4.5mm;
+		padding-inline-start: 4.5mm;
 		font-size: 10pt;
 		line-height: 1.5;
 	}
@@ -983,12 +983,12 @@
 		color: var(--ink-muted);
 	}
 	.answers strong {
-		margin-right: 2mm;
+		margin-inline-end: 2mm;
 		color: var(--navy);
 	}
 	.a {
 		display: inline-block;
-		margin-right: 3mm;
+		margin-inline-end: 3mm;
 	}
 
 	/* -- back matter ------------------------------------------------------ */
@@ -1039,7 +1039,7 @@
 	.audio td {
 		padding: 0.8mm 1.5mm;
 		border-bottom: 0.2mm solid var(--line);
-		text-align: left;
+		text-align: start;
 	}
 	.appendix thead th,
 	.audio thead th {
@@ -1055,7 +1055,7 @@
 		font-size: 9pt;
 	}
 	caption {
-		text-align: left;
+		text-align: start;
 		font-size: 7pt;
 		color: var(--ink-muted);
 		padding-bottom: 0.8mm;

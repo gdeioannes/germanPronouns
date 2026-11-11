@@ -169,7 +169,7 @@
 		align-items: center;
 		background: var(--surface);
 		border: 1px solid var(--line);
-		border-left: 4px solid var(--cast-accent, var(--accent));
+		border-inline-start: 4px solid var(--cast-accent, var(--accent));
 		border-radius: var(--radius-sm);
 		overflow: hidden;
 		text-decoration: none;
@@ -199,7 +199,7 @@
 	}
 	.voice-btn {
 		position: absolute;
-		right: 0.6rem;
+		inset-inline-end: 0.6rem;
 		bottom: 0.6rem;
 		width: 2.4rem;
 		height: 2.4rem;

@@ -144,7 +144,7 @@
 				inert={i !== index}
 				aria-hidden={i !== index}
 				aria-roledescription="slide"
-				aria-label="{i + 1} of {count}{labels[i] ? `: ${labels[i]}` : ''}"
+				aria-label={t('{i} of {n}', { i: i + 1, n: count }) + (labels[i] ? `: ${t(labels[i])}` : '')}
 			>
 				{@render step(i)}
 			</section>

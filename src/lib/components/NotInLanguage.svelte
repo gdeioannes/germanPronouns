@@ -11,8 +11,8 @@
 <SiteNav {courseHref} compact />
 
 <main class="not-tr">
-	<h1>{t('This page is not in Turkish yet')}</h1>
-	<p>{t('In Turkish, the course covers levels A1 and A2. This part of the site is only in English for now.')}</p>
+	<h1>{t('This page is not in your language yet')}</h1>
+	<p>{t('In your language, the course covers levels A1 and A2. This part of the site is only in English for now.')}</p>
 	<div class="actions">
 		<a class="primary" href={courseHref}>{t('Back to the course')}</a>
 		<button type="button" onclick={() => setLang('en')}>{t('Show it in English')}</button>

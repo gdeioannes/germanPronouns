@@ -681,7 +681,7 @@
 	}
 	.score {
 		position: absolute;
-		right: 0.45rem;
+		inset-inline-end: 0.45rem;
 		bottom: 0.25rem;
 		padding: 0 0.4rem;
 		border: none;
@@ -701,7 +701,7 @@
 	}
 	.deductions {
 		margin: 0.4rem 0 0;
-		padding-left: 1rem;
+		padding-inline-start: 1rem;
 		font-size: var(--step--1);
 		color: var(--ink);
 	}
@@ -710,7 +710,7 @@
 	}
 	.quote {
 		background: #fbf1dc;
-		border-left: 3px solid var(--ochre);
+		border-inline-start: 3px solid var(--ochre);
 	}
 	.quote-head {
 		display: block;
@@ -807,7 +807,7 @@
 	}
 	.preview {
 		margin: 0;
-		padding-left: 0.6rem;
+		padding-inline-start: 0.6rem;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
 	}
@@ -937,7 +937,7 @@
 	.close {
 		position: fixed;
 		top: 0.8rem;
-		right: 0.8rem;
+		inset-inline-end: 0.8rem;
 		display: grid;
 		place-items: center;
 		width: 2.6rem;

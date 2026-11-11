@@ -451,7 +451,7 @@
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		color: var(--ink-muted);
-		text-align: left;
+		text-align: start;
 		padding: 0 0.4rem;
 		white-space: nowrap;
 	}
@@ -510,7 +510,7 @@
 		width: 1.6rem;
 		height: 0.95rem;
 		vertical-align: -0.12rem;
-		margin-right: 0.25rem;
+		margin-inline-end: 0.25rem;
 		fill: var(--navy);
 		opacity: 0.75;
 	}
@@ -536,8 +536,8 @@
 	}
 	.t-axis {
 		position: absolute;
-		left: 0;
-		right: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
 		top: 1.6rem;
 		height: 2px;
 		background: var(--navy);
@@ -545,16 +545,16 @@
 	.t-axis::after {
 		content: '';
 		position: absolute;
-		right: -2px;
+		inset-inline-end: -2px;
 		top: -5px;
 		border: 6px solid transparent;
-		border-left: 9px solid var(--navy);
-		border-right: 0;
+		border-inline-start: 9px solid var(--navy);
+		border-inline-end: 0;
 	}
 	.t-end {
 		position: absolute;
 		top: -1.5rem;
-		left: 0;
+		inset-inline-start: 0;
 		font-size: 0.68rem;
 		font-weight: 800;
 		letter-spacing: 0.06em;
@@ -562,8 +562,8 @@
 		color: var(--ink-muted);
 	}
 	.t-end.future {
-		left: auto;
-		right: 0;
+		inset-inline-start: auto;
+		inset-inline-end: 0;
 	}
 	.t-now {
 		position: absolute;
@@ -593,7 +593,7 @@
 	.t-dot {
 		width: 13px;
 		height: 13px;
-		margin-left: -6px;
+		margin-inline-start: -6px;
 		border-radius: 50%;
 		background: var(--accent);
 		border: 2px solid var(--surface);
@@ -619,7 +619,7 @@
 		grid-column: 1;
 		grid-row: var(--r);
 		justify-self: start;
-		margin-left: var(--x);
+		margin-inline-start: var(--x);
 		transform: translateX(-50%);
 		position: relative;
 		/* Upper rows sit above the connectors of the rows below them. */
@@ -639,12 +639,12 @@
 	.t-label.edge-l {
 		transform: none;
 		justify-items: start;
-		text-align: left;
+		text-align: start;
 	}
 	.t-label.edge-r {
 		transform: translateX(-100%);
 		justify-items: end;
-		text-align: right;
+		text-align: end;
 	}
 	.t-label b {
 		font-family: var(--serif, inherit);
@@ -664,11 +664,11 @@
 		z-index: -1;
 	}
 	.t-label.edge-l::after {
-		left: 0.15rem;
+		inset-inline-start: 0.15rem;
 	}
 	.t-label.edge-r::after {
-		left: auto;
-		right: 0.15rem;
+		inset-inline-start: auto;
+		inset-inline-end: 0.15rem;
 	}
 
 	/* Too narrow for labels side by side: every label gets a row of its own,
@@ -689,17 +689,17 @@
 		}
 		.t-label.edge-l {
 			justify-items: start;
-			text-align: left;
+			text-align: start;
 		}
 		.t-label.edge-r {
 			justify-items: end;
-			text-align: right;
+			text-align: end;
 		}
 		.t-label::after,
 		.t-label.edge-l::after,
 		.t-label.edge-r::after {
-			left: var(--x);
-			right: auto;
+			inset-inline-start: var(--x);
+			inset-inline-end: auto;
 		}
 	}
 
@@ -770,7 +770,7 @@
 		margin: 0.35rem 0 0 0.9rem;
 		padding: 0 0 0 0.8rem;
 		list-style: none;
-		border-left: 2px solid var(--line-strong);
+		border-inline-start: 2px solid var(--line-strong);
 		display: grid;
 		gap: 0.45rem;
 	}
@@ -826,7 +826,7 @@
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
 		color: var(--ink-muted);
-		text-align: left;
+		text-align: start;
 		padding: 0 0.4rem 0.3rem;
 	}
 	.pairs td {
@@ -1150,8 +1150,8 @@
 	.textmap li {
 		display: grid;
 		gap: 0.15rem;
-		padding-left: 0.7rem;
-		border-left: 3px solid var(--accent);
+		padding-inline-start: 0.7rem;
+		border-inline-start: 3px solid var(--accent);
 	}
 	.tm-label {
 		font-size: 0.68rem;

@@ -34,7 +34,7 @@
 	import { BOOKS } from '$lib/content/books';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
-	import { levelInTurkish } from '$lib/i18n/available';
+	import { levelTranslated } from '$lib/i18n/available';
 
 	// Each level's book (Book v2): opens the book to read, with download and print there.
 	const levelBook = (level: string) => BOOKS.find((b) => b.level === level) ?? null;
@@ -42,7 +42,7 @@
 	let { data }: { data: PageData } = $props();
 	// Turkish mode deals and lists only the levels that exist in Turkish (A1–A2).
 	const course = $derived(
-		lang.tr ? { ...data.course, quizzes: data.course.quizzes.filter((q) => levelInTurkish(q.level)) } : data.course
+		lang.limited ? { ...data.course, quizzes: data.course.quizzes.filter((q) => levelTranslated(q.level)) } : data.course
 	);
 
 	// Loading runs on mount, not in an $effect: hydrateStats both reads and
@@ -158,7 +158,7 @@
 		</header>
 		<p class="finished">
 			<Icon name="trophy" size="1.2em" />
-			{lang.tr ? t('Every exercise in Turkish is complete.') : 'Every exercise in this course is complete.'}
+			{lang.limited ? t('Every exercise in your language is complete.') : 'Every exercise in this course is complete.'}
 		</p>
 		<button type="button" class="browse-btn" onclick={() => (browseOpen = true)}>
 			<Icon name="menu" size="1em" /> {t('All {n} exercises', { n: totals.total })}
@@ -197,7 +197,7 @@
 
 		<!-- Paper practice: a sheet of chosen exercises (the whole course, what is
 		     finished, or the weak spots). The books are the printed course. -->
-		{#if !lang.tr}
+		{#if !lang.limited}
 		<a class="worksheet" href="/course/{course.id}/worksheet">
 			<Icon name="printer" size="1.2em" />
 			<span>
@@ -523,7 +523,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.25rem;
-		margin-right: 0.5rem;
+		margin-inline-end: 0.5rem;
 		padding: 0.15rem 0.55rem;
 		border: 1px solid var(--line-strong);
 		border-radius: 6px;

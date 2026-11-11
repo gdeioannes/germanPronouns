@@ -198,7 +198,7 @@ export function strengths(
 function strengthReason(topic: string, m: TopicMastery, fresh: number): string {
 	const percent = Math.round((1 - m.mistakeRate) * 100);
 	// Topic names are English ids, so Turkish says "this topic" instead.
-	if (lang.tr)
+	if (lang.limited)
 		return fresh > 0
 			? t("You're {percent}% right on this topic — this takes it somewhere new.", { percent })
 			: t("You're {percent}% right on this topic. Ride that: it makes this one easy to start.", { percent });

@@ -213,7 +213,7 @@
 		border-radius: var(--radius);
 		background: var(--surface);
 		font: inherit;
-		text-align: left;
+		text-align: start;
 		cursor: pointer;
 	}
 
@@ -275,7 +275,7 @@
 	td {
 		padding: 0.45rem 0.5rem;
 		border-bottom: 1px solid var(--line);
-		text-align: left;
+		text-align: start;
 		vertical-align: top;
 	}
 
@@ -286,7 +286,7 @@
 
 	.bad {
 		display: inline-block;
-		margin-left: 0.4rem;
+		margin-inline-start: 0.4rem;
 		padding: 0 0.4rem;
 		border-radius: 999px;
 		background: var(--wrong-bg);

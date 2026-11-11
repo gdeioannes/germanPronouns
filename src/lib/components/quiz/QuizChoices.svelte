@@ -89,7 +89,7 @@
 		font-size: var(--step-0);
 		font-weight: 600;
 		color: var(--ink);
-		text-align: left;
+		text-align: start;
 		cursor: pointer;
 		transition:
 			border-color var(--fast) var(--ease-out),

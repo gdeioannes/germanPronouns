@@ -1986,7 +1986,7 @@
 	}
 
 	.row.sub .dotq:first-of-type {
-		margin-left: 2px;
+		margin-inline-start: 2px;
 	}
 
 	.back {
@@ -2048,13 +2048,13 @@
 
 	/* A local score's medal: a small ribbon ahead of the five letters. */
 	.nm :global(.ribbon) {
-		margin-right: 0.3rem;
+		margin-inline-end: 0.3rem;
 		vertical-align: -2px;
 	}
 
 	.medal-now {
 		display: inline-flex;
-		margin-right: -0.15rem;
+		margin-inline-end: -0.15rem;
 	}
 
 	/* The medal picker: three equal choices, the chosen one inked. */
@@ -2080,7 +2080,7 @@
 		background: var(--surface);
 		color: var(--ink);
 		font: inherit;
-		text-align: left;
+		text-align: start;
 		cursor: pointer;
 	}
 
@@ -2341,7 +2341,7 @@
 	.badge {
 		position: absolute;
 		top: 2px;
-		right: 2px;
+		inset-inline-end: 2px;
 		z-index: 2;
 		display: grid;
 		place-items: center;
@@ -2487,8 +2487,8 @@
 	/* -- overlays ------------------------------------------------------------------ */
 	.linefx {
 		position: absolute;
-		right: 0;
-		left: 0;
+		inset-inline-end: 0;
+		inset-inline-start: 0;
 		z-index: 5;
 		background: linear-gradient(90deg, transparent, rgb(169 128 42 / 0.6), rgb(224 164 88 / 0.7), rgb(169 128 42 / 0.6), transparent);
 		animation: line-flash 0.85s ease forwards;
@@ -2685,7 +2685,7 @@
 	.bctl .uses {
 		position: absolute;
 		top: 1px;
-		right: 1px;
+		inset-inline-end: 1px;
 		display: grid;
 		place-items: center;
 		min-width: 0.8rem;
@@ -2701,9 +2701,9 @@
 
 	.art-ask {
 		position: absolute;
-		right: 0;
+		inset-inline-end: 0;
 		bottom: 0;
-		left: 0;
+		inset-inline-start: 0;
 		z-index: 10;
 		display: flex;
 		gap: 0.5rem;
@@ -2947,7 +2947,7 @@
 		width: 2.2ch;
 		color: var(--ink-muted);
 		font-weight: 700;
-		text-align: right;
+		text-align: end;
 	}
 
 	.nm {
@@ -3067,7 +3067,7 @@
 		place-items: center;
 		width: 1.6rem;
 		height: 1.6rem;
-		margin-right: 0.15rem;
+		margin-inline-end: 0.15rem;
 		border-radius: 50%;
 		background: rgb(169 128 42 / 0.15);
 		color: var(--ochre-ink, #836215);
@@ -3216,7 +3216,7 @@
 	.d-block.badged b {
 		position: absolute;
 		top: -6px;
-		right: -8px;
+		inset-inline-end: -8px;
 		padding: 0 3px;
 		border-radius: 999px;
 		background: var(--heading);
@@ -3343,7 +3343,7 @@
 	}
 
 	.d-cap.t {
-		margin-left: 0.4rem;
+		margin-inline-start: 0.4rem;
 		width: 1.4rem;
 		border-radius: 4px 4px 0 0;
 		background: var(--accent);

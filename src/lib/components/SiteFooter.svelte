@@ -38,7 +38,7 @@
 			<h2>{t('Learn')}</h2>
 			<a href={courseHref}>{t('The course')}</a>
 			<a href="/level-check">{t('Your level')}</a>
-			{#if !lang.tr}
+			{#if !lang.limited}
 				<a href="/words">Word library</a>
 				<a href="/words/nouns">German nouns</a>
 				<a href="/words/verbs">German verbs</a>
@@ -47,13 +47,13 @@
 		<div class="group">
 			<h2>{t('Read')}</h2>
 			<a href="/books">{t('The books')}</a>
-			{#if !lang.tr}
+			{#if !lang.limited}
 				<a href="/literature">Literature</a>
 				<a href="/stories">Stories</a>
 			{/if}
 		</div>
 		<!-- Turkish mode: the games are English-only for now. -->
-		{#if !lang.tr}
+		{#if !lang.limited}
 		<div class="group">
 			<h2>Play</h2>
 			<a href="/play/schreib-mir" lang="de">Schreib mir!</a>
@@ -65,7 +65,7 @@
 			<h2>{t('Site')}</h2>
 			<a href="/about">{t('About')}</a>
 			<a href="/about#accessibility">{t('Accessibility')}</a>
-			{#if !lang.tr}
+			{#if !lang.limited}
 				<a href="/changelog">What's new</a>
 				<a href="/forum">Forum</a>
 			{/if}

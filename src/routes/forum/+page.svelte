@@ -435,7 +435,7 @@
 	}
 	.rules ul {
 		margin: 0.6rem 0 0;
-		padding-left: 1.2rem;
+		padding-inline-start: 1.2rem;
 		display: grid;
 		gap: 0.35rem;
 	}

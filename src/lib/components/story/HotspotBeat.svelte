@@ -195,7 +195,7 @@
 	.paper {
 		background: #fffaf0 repeating-linear-gradient(transparent 0 1.55em, rgb(143 179 201 / 0.45) 1.55em calc(1.55em + 1px));
 		border: 1px solid #e3d6bd;
-		border-left: 3px solid rgb(201 104 59 / 0.5);
+		border-inline-start: 3px solid rgb(201 104 59 / 0.5);
 		border-radius: 4px;
 		box-shadow: 0 6px 16px rgb(31 58 95 / 0.12);
 		padding: 0.6rem 1rem 0.5rem;

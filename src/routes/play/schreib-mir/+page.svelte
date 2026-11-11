@@ -236,7 +236,7 @@
 	}
 	.tally {
 		display: inline-block;
-		margin-left: 0.2rem;
+		margin-inline-start: 0.2rem;
 		padding: 0 0.45rem;
 		border-radius: 999px;
 		background: var(--paper-mid);
@@ -280,7 +280,7 @@
 		color: var(--heading);
 	}
 	h2 .n {
-		margin-left: 0.3rem;
+		margin-inline-start: 0.3rem;
 		padding: 0 0.45rem;
 		border-radius: 999px;
 		background: var(--paper-mid);
@@ -320,7 +320,7 @@
 		color: var(--heading);
 	}
 	.lvl {
-		margin-left: 0.2rem;
+		margin-inline-start: 0.2rem;
 		padding: 0.05rem 0.4rem;
 		border-radius: 999px;
 		background: var(--paper-mid);

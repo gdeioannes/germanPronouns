@@ -7,12 +7,10 @@
 	// as arriving with it).
 	import { lang, setLang, type UiLang } from '$lib/i18n/lang.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { LANG_OPTIONS, LANGUAGE_LABEL } from '$lib/i18n/languages';
 	import { track } from '$lib/services/analytics';
 
-	const OPTIONS: { code: UiLang; name: string; note: string }[] = [
-		{ code: 'en', name: 'English', note: 'German explained in English · A1–C2' },
-		{ code: 'tr', name: 'Türkçe', note: 'Türkçe açıklamalı Almanca · A1–A2' }
-	];
+	const OPTIONS = LANG_OPTIONS;
 
 	let open = $state(false);
 	let root: HTMLElement;
@@ -74,22 +72,23 @@
 		bind:this={button}
 		aria-haspopup="menu"
 		aria-expanded={open}
-		aria-label="Language / Dil: {current.name}"
+		aria-label="{LANGUAGE_LABEL}: {current.name}"
 		onclick={toggle}
 	>
 		<Icon name="globe" size="1.1em" />
-		<span lang={current.code}>{current.name}</span>
+		<span lang={current.code} dir={current.dir}>{current.name}</span>
 		<Icon name="chevronDown" size="0.9em" class={open ? 'up' : ''} />
 	</button>
 
 	{#if open}
-		<div class="menu" role="menu" aria-label="Language / Dil">
+		<div class="menu" role="menu" aria-label={LANGUAGE_LABEL}>
 			{#each OPTIONS as o (o.code)}
 				<button
 					type="button"
 					role="menuitemradio"
 					aria-checked={o.code === lang.current}
 					lang={o.code}
+					dir={o.dir}
 					onclick={() => pick(o.code)}
 				>
 					<span class="text">
@@ -136,7 +135,7 @@
 	.menu {
 		position: absolute;
 		top: calc(100% + 0.4rem);
-		right: 0;
+		inset-inline-end: 0;
 		z-index: 10;
 		display: grid;
 		gap: 0.15rem;
@@ -158,7 +157,7 @@
 		background: transparent;
 		color: #1d2330;
 		font: inherit;
-		text-align: left;
+		text-align: start;
 		cursor: pointer;
 	}
 

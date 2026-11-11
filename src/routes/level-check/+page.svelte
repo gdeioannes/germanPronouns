@@ -71,7 +71,7 @@
 	</header>
 
 	<!-- The word check reaches C2 and is English-only: Turkish mode offers the placement test alone. -->
-	{#if !lang.tr}
+	{#if !lang.limited}
 	<a class="check card" href="/level-check/words">
 		<span class="disc" aria-hidden="true"><Icon name="words" size="1.5em" /></span>
 		<span class="body">
@@ -250,7 +250,7 @@
 	}
 
 	.rows .diff {
-		text-align: right;
+		text-align: end;
 		color: var(--ink-muted);
 	}
 

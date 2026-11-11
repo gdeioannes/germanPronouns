@@ -1,0 +1,78 @@
+/*
+ * Arabic: letters and right to left.
+ *
+ * Fonts. Inter and Source Serif 4 have no Arabic letters, and 56 components
+ * name those families in their own font stacks. So the Arabic faces join the
+ * same family names, limited to the Arabic block by unicode-range: every
+ * stack gets Arabic letters, Latin text keeps its fonts, and the files only
+ * download on a page that shows Arabic.
+ *   Inter Variable          + Noto Sans Arabic  (body, interface)
+ *   Source Serif 4 Variable + Noto Naskh Arabic (headings)
+ */
+@font-face {
+	font-family: 'Inter Variable';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 100 900;
+	/* Noto's Arabic sits small beside Latin at the same size. */
+	size-adjust: 108%;
+	src: url('../../../node_modules/@fontsource-variable/noto-sans-arabic/files/noto-sans-arabic-arabic-wght-normal.woff2')
+		format('woff2-variations');
+	unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E,
+		U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+@font-face {
+	font-family: 'Source Serif 4 Variable';
+	font-style: normal;
+	font-display: swap;
+	/* The same range as Source Serif's own faces (and Inter's above): a browser
+	   picks faces by weight before it looks at unicode-range, so a narrower
+	   range would win for headings and leave their Latin letters to Georgia. */
+	font-weight: 200 900;
+	size-adjust: 108%;
+	src: url('../../../node_modules/@fontsource-variable/noto-naskh-arabic/files/noto-naskh-arabic-arabic-wght-normal.woff2')
+		format('woff2-variations');
+	unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E,
+		U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+/*
+ * Right to left. The layout itself flips through logical properties
+ * (margin-inline-start, inset-inline-end …); these are the rest.
+ */
+
+/* Arabic letters join; any letter-spacing tears the words apart. */
+:root[lang='ar'] body,
+:root[lang='ar'] body * {
+	letter-spacing: 0 !important;
+}
+
+/* Arabic needs a little more line height than Latin. */
+:root[lang='ar'] body {
+	line-height: 1.7;
+}
+
+/*
+ * German always runs left to right inside an Arabic page, so its full stops,
+ * question marks and quotes stay where German puts them. Isolated, so the
+ * Arabic around it keeps its own order.
+ */
+:root[dir='rtl'] [lang='de'] {
+	direction: ltr;
+	unicode-bidi: isolate;
+}
+
+/*
+ * Pure-German text that bidi.ts turned left to right: headings and labels
+ * stay aligned with the Arabic page around them; running German text reads
+ * from the left, as German does.
+ */
+:root[dir='rtl'] :is(h1, h2, h3, h4, h5, h6, label, summary, figcaption, dt, th, button)[data-auto-ltr] {
+	text-align: right;
+}
+
+/* An arrow that means "forward" or "back" points the other way. */
+.icon.flip:dir(rtl) {
+	transform: scaleX(-1);
+}

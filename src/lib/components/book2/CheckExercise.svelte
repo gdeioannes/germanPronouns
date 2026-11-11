@@ -158,7 +158,7 @@
 			{#each ex.words as w, i (i)}
 				<li>
 					<span class="line"><span class="prompt">{w}</span>
-						<span class="options" role="radiogroup" aria-label="Column for {w}">
+						<span class="options" role="radiogroup" aria-label={t('Column for {w}', { w })}>
 							{#each ex.columns as col, j (j)}
 								<button type="button" role="radio" aria-checked={answers[i] === String(j)} class:picked={answers[i] === String(j)} disabled={!!results} onclick={() => (answers[i] = String(j))}>{col}</button>
 							{/each}

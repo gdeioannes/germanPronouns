@@ -205,7 +205,7 @@
 	.actions {
 		display: flex;
 		gap: 0.6rem;
-		margin-left: auto;
+		margin-inline-start: auto;
 	}
 
 	.actions button,
@@ -404,7 +404,7 @@
 	}
 
 	.contents small {
-		margin-left: auto;
+		margin-inline-start: auto;
 		flex: none;
 		font-size: 7pt;
 		color: var(--ink-muted);
@@ -492,7 +492,7 @@
 	.pic-grid .n {
 		position: absolute;
 		top: 2mm;
-		left: 2mm;
+		inset-inline-start: 2mm;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -534,13 +534,13 @@
 	}
 
 	.answers strong {
-		margin-right: 2mm;
+		margin-inline-end: 2mm;
 		color: var(--navy);
 	}
 
 	.a {
 		display: inline-block;
-		margin-right: 3mm;
+		margin-inline-end: 3mm;
 	}
 
 	.a .tnum {

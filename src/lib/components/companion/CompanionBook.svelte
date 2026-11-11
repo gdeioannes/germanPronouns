@@ -371,8 +371,8 @@
 	.foot {
 		position: absolute;
 		bottom: 9mm;
-		left: 24mm;
-		right: 17mm;
+		inset-inline-start: 24mm;
+		inset-inline-end: 17mm;
 		display: flex;
 		justify-content: space-between;
 		align-items: baseline;
@@ -390,8 +390,8 @@
 	}
 
 	.left .foot {
-		left: 17mm;
-		right: 24mm;
+		inset-inline-start: 17mm;
+		inset-inline-end: 24mm;
 	}
 
 	.left .foot .tnum {
@@ -633,7 +633,7 @@
 	}
 
 	.contents .t small {
-		margin-left: 2mm;
+		margin-inline-start: 2mm;
 		font-size: 8.5pt;
 		color: var(--muted);
 	}
@@ -753,7 +753,7 @@
 	}
 
 	.can-do small {
-		margin-left: 1mm;
+		margin-inline-start: 1mm;
 		font-size: 8pt;
 		color: var(--muted);
 	}

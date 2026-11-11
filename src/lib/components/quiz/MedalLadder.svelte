@@ -216,7 +216,7 @@
 	/* The landing: sparks in the metal thrown out from the slot. */
 	.sparks {
 		position: absolute;
-		left: calc(0.7rem + 5px);
+		inset-inline-start: calc(0.7rem + 5px);
 		top: 50%;
 		pointer-events: none;
 	}
@@ -263,7 +263,7 @@
 			letter-spacing: 0.01em;
 		}
 		.sparks {
-			left: calc(0.5rem + 5px);
+			inset-inline-start: calc(0.5rem + 5px);
 		}
 	}
 </style>

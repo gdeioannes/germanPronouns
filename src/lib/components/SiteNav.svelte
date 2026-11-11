@@ -110,9 +110,9 @@
      use; the phone list gets its own headings instead. -->
 {#snippet libraryLinks()}
 	<!-- Turkish mode lists only what exists in Turkish (i18n/available). -->
-	{#if !lang.tr}<a href="/words"><Icon name="words" size="1em" /> Word library</a>{/if}
+	{#if !lang.limited}<a href="/words"><Icon name="words" size="1em" /> Word library</a>{/if}
 	<a href="/books"><Icon name="book" size="1em" /> {t('The books')}</a>
-	{#if !lang.tr}
+	{#if !lang.limited}
 		<a href="{courseHref}/worksheet"><Icon name="printer" size="1em" /> Printable sheets</a>
 		<a href="/literature"><Icon name="book" size="1em" /> Literature</a>
 		<!-- The games, story mode among them: there for whoever wants to play,
@@ -133,7 +133,7 @@
 <!-- The forum lives under About; its dot (a reply to your topic) also shows
      on the About button, so a learner still sees they were answered. -->
 {#snippet forumLink()}
-	{#if !lang.tr}
+	{#if !lang.limited}
 	<a class="forum-link" href="/forum" aria-label={forum.unread.length ? 'Forum — new replies to your topics' : undefined}>
 		<Icon name="forum" size="1em" /> Forum
 		{#if forum.unread.length}<span class="dot inline" aria-hidden="true"></span>{/if}
@@ -145,7 +145,7 @@
      repeat the button it hangs from. -->
 {#snippet aboutLinks(aboutLabel = t('About'))}
 	<a href="/about">{aboutLabel}</a>
-	{#if !lang.tr}
+	{#if !lang.limited}
 	<a
 		class="news-row"
 		href="/changelog"
@@ -163,7 +163,7 @@
      part of the link's job, but a learner who has one should not have to
      hunt for it in settings. Signed in, it becomes the account itself. -->
 {#snippet signIn()}
-	{#if account.available && !lang.tr}
+	{#if account.available && !lang.limited}
 		<button type="button" class="sign-in" aria-haspopup="dialog" aria-controls="sign-in-sheet" onclick={openSignIn}>
 			<Icon name="cloud" size="1em" />
 			{#if account.signedIn}
@@ -234,7 +234,7 @@
 	<button
 		type="button"
 		class="menu"
-		aria-label={!lang.tr && (whatsNew.unseen || forum.unread.length) ? `${t('Menu')} — ${t('new updates')}` : t('Menu')}
+		aria-label={!lang.limited && (whatsNew.unseen || forum.unread.length) ? `${t('Menu')} — ${t('new updates')}` : t('Menu')}
 		bind:this={menuButton}
 		aria-expanded={open}
 		aria-controls="site-menu"
@@ -242,7 +242,7 @@
 	>
 		<Icon name={open ? 'close' : 'menu'} size="1.1em" />
 		<span>{t('Menu')}</span>
-		{#if !lang.tr && (whatsNew.unseen || forum.unread.length) && !open}<span class="dot" aria-hidden="true"></span>{/if}
+		{#if !lang.limited && (whatsNew.unseen || forum.unread.length) && !open}<span class="dot" aria-hidden="true"></span>{/if}
 	</button>
 {/snippet}
 
@@ -252,7 +252,7 @@
 			{@render brand()}
 			<!-- The places people jump to most sit in the bar as icons; the
 			     rest are one tap away under Menu. -->
-			{#if !lang.tr}
+			{#if !lang.limited}
 				<a class="icon-link" href="/words" aria-label="Word library" title="Word library">
 					<Icon name="words" size="1.15em" />
 				</a>
@@ -279,7 +279,7 @@
 				<nav class="wide" aria-label={t('Main')}>
 					{@render levelCheckLink()}
 					{@render drop('library', t('Library'), libraryLinks)}
-					{@render drop('about', t('About'), aboutLinks, false, (whatsNew.unseen || forum.unread.length > 0) && !lang.tr)}
+					{@render drop('about', t('About'), aboutLinks, false, (whatsNew.unseen || forum.unread.length > 0) && !lang.limited)}
 					{@render signIn()}
 					{@render cta()}
 				</nav>
@@ -503,13 +503,13 @@
 
 	.drop-btn .dot {
 		top: -0.15rem;
-		right: -0.6rem;
+		inset-inline-end: -0.6rem;
 	}
 
 	.drop-panel {
 		position: absolute;
 		top: calc(100% + 0.7rem);
-		left: -0.75rem;
+		inset-inline-start: -0.75rem;
 		z-index: 60;
 		display: flex;
 		flex-direction: column;
@@ -555,7 +555,7 @@
 	.dot {
 		position: absolute;
 		top: 0.3rem;
-		right: 0.3rem;
+		inset-inline-end: 0.3rem;
 		width: 0.55rem;
 		height: 0.55rem;
 		border-radius: 50%;
@@ -616,7 +616,7 @@
 	.mini .brand {
 		gap: 0.45rem;
 		font-size: var(--step--1);
-		margin-right: auto;
+		margin-inline-end: auto;
 	}
 
 	/* The slim bar runs the mark a size down, so the brand does not out-weigh
@@ -649,7 +649,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		margin-left: 0.25rem;
+		margin-inline-start: 0.25rem;
 		padding: 0.4rem 0.8rem;
 		border: 1px solid var(--line);
 		border-radius: 6px;
@@ -663,7 +663,7 @@
 
 	.menu .dot {
 		top: -0.1rem;
-		right: -0.1rem;
+		inset-inline-end: -0.1rem;
 	}
 
 	.menu:hover {

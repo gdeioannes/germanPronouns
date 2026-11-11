@@ -289,7 +289,7 @@
 
 	.missed ul {
 		margin: 0;
-		padding-left: 1.1rem;
+		padding-inline-start: 1.1rem;
 		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
 		font-size: var(--step-0);
 		font-weight: 600;

@@ -111,7 +111,7 @@
 		position: absolute;
 		top: 0.6rem;
 		bottom: 0.6rem;
-		left: 0.3rem;
+		inset-inline-start: 0.3rem;
 		width: 2px;
 		background: var(--line);
 	}
@@ -130,7 +130,7 @@
 		content: '';
 		position: absolute;
 		top: 1.75rem;
-		left: -1.4rem;
+		inset-inline-start: -1.4rem;
 		width: 10px;
 		height: 10px;
 		transform: translateX(-4px);
@@ -163,7 +163,7 @@
 
 	.release ul {
 		margin: 0;
-		padding-left: 1.1rem;
+		padding-inline-start: 1.1rem;
 	}
 
 	.release ul li {
@@ -173,13 +173,13 @@
 
 	@media (max-width: 36rem) {
 		.timeline {
-			padding-left: 1.1rem;
+			padding-inline-start: 1.1rem;
 		}
 		.release {
 			padding: 1.1rem 1.2rem;
 		}
 		.release::before {
-			left: -1.1rem;
+			inset-inline-start: -1.1rem;
 		}
 	}
 </style>

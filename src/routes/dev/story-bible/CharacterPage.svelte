@@ -96,7 +96,7 @@
 		gap: 1.75rem;
 		align-items: center;
 		background: var(--cast-accent-soft);
-		border-left: 6px solid var(--cast-accent);
+		border-inline-start: 6px solid var(--cast-accent);
 		border-radius: var(--radius);
 		overflow: hidden;
 	}

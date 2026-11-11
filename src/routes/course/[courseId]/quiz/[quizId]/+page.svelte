@@ -56,7 +56,7 @@
 	import { track } from '$lib/services/analytics';
 	import { onMount, tick, untrack } from 'svelte';
 	import type { PageData } from './$types';
-	import { inLang, inLangQuiz, trGloss } from '$lib/i18n/content.svelte';
+	import { inLang, inLangQuiz, localGloss } from '$lib/i18n/content.svelte';
 	import { lang } from '$lib/i18n/lang.svelte';
 
 	let { data }: { data: PageData } = $props();
@@ -67,8 +67,8 @@
 	// The word list comes from the shared noun collection (English meanings):
 	// in Turkish each meaning is the Turkish gloss, else the level's overlay.
 	const vocab = $derived(
-		lang.tr
-			? data.vocab?.map((v) => ({ ...v, english: trGloss(v.noun, 'noun') ?? inLang(v.english, data.quiz.level) }))
+		lang.limited
+			? data.vocab?.map((v) => ({ ...v, english: localGloss(v.noun, 'noun') ?? inLang(v.english, data.quiz.level) }))
 			: data.vocab
 	);
 
@@ -101,7 +101,7 @@
 	// and the panel files it on the forum with that already written in. The
 	// button only shows when the build has a Firebase project to post to.
 	// Reports go to the forum, which is English-only: not offered in Turkish mode.
-	const canReport = $derived(cloudConfigured() && !lang.tr);
+	const canReport = $derived(cloudConfigured() && !lang.limited);
 	let reportOpen = $state(false);
 	let question = $state<QuestionRef | null>(null);
 	const reportTarget = $derived<ReportTarget>({
@@ -412,7 +412,7 @@
 
 		<div class="title">
 			<p class="where tnum">
-				{#if quiz.level}{quiz.level}{#if position}{` · ${t('{i} of {n}', { i: position, n: levelCount })}`}{/if}{:else}{quiz.type}{/if}
+				{#if quiz.level}<bdi>{quiz.level}</bdi>{#if position}{' · '}<bdi>{t('{i} of {n}', { i: position, n: levelCount })}</bdi>{/if}{:else}{quiz.type}{/if}
 			</p>
 			<h1 lang={course.learnLocale}>{quiz.title}</h1>
 		</div>
@@ -551,7 +551,7 @@
 				{quiz}
 				courseId={course.id}
 				learnLocale={course.learnLocale}
-				uiLang={lang.tr ? 'tr' : course.uiLang}
+				uiLang={lang.local ?? course.uiLang}
 				onFinish={(passed, score, medal) => passed && completeScored(medal, t('Score {score}', { score }))}
 			/>
 		{:else if quiz.type === 'writing'}
@@ -562,7 +562,7 @@
 				{quiz}
 				courseId={course.id}
 				learnLocale={course.learnLocale}
-				uiLang={lang.tr ? 'tr' : course.uiLang}
+				uiLang={lang.local ?? course.uiLang}
 				onFinish={writingFinished}
 			/>
 		{:else if quiz.type === 'vocabulary'}
@@ -778,7 +778,7 @@
 		width: 2.4rem;
 		height: 2.4rem;
 		flex: none;
-		margin-left: -0.4rem;
+		margin-inline-start: -0.4rem;
 		border-radius: 50%;
 		color: var(--ink-muted);
 		transition:
@@ -914,7 +914,7 @@
 		position: absolute;
 		top: 0.2rem;
 		bottom: 0.2rem;
-		left: 0.2rem;
+		inset-inline-start: 0.2rem;
 		width: calc(50% - 0.2rem);
 		border-radius: 4px;
 		background: var(--navy);
@@ -1052,7 +1052,7 @@
 
 	.done-close {
 		display: inline-flex;
-		margin-left: auto;
+		margin-inline-start: auto;
 		padding: 0.3rem;
 		border: 0;
 		border-radius: 50%;
@@ -1071,7 +1071,7 @@
 	/* The folded bar: one pill in the corner, out of the answers' way. */
 	.done-pill {
 		position: fixed;
-		right: calc(0.9rem + env(safe-area-inset-right));
+		inset-inline-end: calc(0.9rem + env(safe-area-inset-right));
 		bottom: calc(0.9rem + env(safe-area-inset-bottom));
 		z-index: 60;
 		display: inline-flex;
@@ -1141,7 +1141,7 @@
 
 	.pager .to-next {
 		grid-column: 2;
-		text-align: right;
+		text-align: end;
 		align-items: flex-end;
 	}
 

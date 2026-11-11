@@ -151,7 +151,7 @@
 		position: relative;
 		display: flex;
 		height: 1.65rem;
-		padding-right: 0;
+		padding-inline-end: 0;
 		overflow: hidden;
 		border-radius: 999px;
 	}
@@ -163,7 +163,7 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		margin-right: calc(var(--arrow) * -1 + 1px);
+		margin-inline-end: calc(var(--arrow) * -1 + 1px);
 		padding: 0 calc(var(--arrow) + 0.15rem) 0 calc(var(--arrow) + 0.3rem);
 		background: var(--paper-highest, var(--surface-alt));
 		box-shadow: inset 0 0 0 1px var(--line);
@@ -189,12 +189,12 @@
 	/* The first step has a flat start; the last a flat end. */
 	.step:first-child {
 		clip-path: polygon(0 0, calc(100% - var(--arrow)) 0, 100% 50%, calc(100% - var(--arrow)) 100%, 0 100%);
-		padding-left: 0.45rem;
+		padding-inline-start: 0.45rem;
 	}
 
 	.step:last-child {
-		margin-right: 0;
-		padding-right: 0.6rem;
+		margin-inline-end: 0;
+		padding-inline-end: 0.6rem;
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, var(--arrow) 50%);
 	}
 

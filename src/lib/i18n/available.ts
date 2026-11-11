@@ -1,23 +1,25 @@
-// What exists in Turkish. In Turkish mode everything else is hidden: menus
-// drop it, and opening it directly shows a short "not in Turkish yet" note.
+// What exists in the second languages (Turkish, Arabic). In one of them
+// everything else is hidden: menus drop it, and opening it directly shows a
+// short "not in your language yet" note. Every second language covers the
+// same part of the site.
 
-/** The sub-levels whose lessons, exercises and books are in Turkish. */
-export const TR_LEVELS = ['A1.1', 'A1.2', 'A2.1', 'A2.2'] as const;
+/** The sub-levels whose lessons, exercises and books are in the second languages. */
+export const LOCAL_LEVELS = ['A1.1', 'A1.2', 'A2.1', 'A2.2'] as const;
 
 /** Level ids as routes and file names use them ("a1_1"). */
-export const TR_LEVEL_IDS = TR_LEVELS.map((l) => l.toLowerCase().replace('.', '_'));
+export const LOCAL_LEVEL_IDS = LOCAL_LEVELS.map((l) => l.toLowerCase().replace('.', '_'));
 
-export function levelInTurkish(level: string | null | undefined): boolean {
+export function levelTranslated(level: string | null | undefined): boolean {
 	if (!level) return false;
 	const norm = level.toUpperCase().replace('_', '.');
-	return (TR_LEVELS as readonly string[]).includes(norm);
+	return (LOCAL_LEVELS as readonly string[]).includes(norm);
 }
 
 /**
- * Route ids (SvelteKit's `page.route.id`) that are in Turkish. A route not
- * here is hidden in Turkish mode. Level-bound routes also check their level.
+ * Route ids (SvelteKit's `page.route.id`) that are translated. A route not
+ * here is hidden in a second language. Level-bound routes also check their level.
  */
-export const TR_ROUTES = new Set<string>([
+export const LOCAL_ROUTES = new Set<string>([
 	'/',
 	'/start',
 	'/settings',
@@ -37,6 +39,6 @@ export const TR_ROUTES = new Set<string>([
 	'/b/[code]'
 ]);
 
-export function routeInTurkish(routeId: string | null | undefined): boolean {
-	return !!routeId && TR_ROUTES.has(routeId);
+export function routeTranslated(routeId: string | null | undefined): boolean {
+	return !!routeId && LOCAL_ROUTES.has(routeId);
 }

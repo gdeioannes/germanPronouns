@@ -25,7 +25,8 @@
 	import type { PopulatedCourse } from '$lib/content/types';
 	import { lang, setLang, type UiLang } from '$lib/i18n/lang.svelte';
 	import { t } from '$lib/i18n/t';
-	import { levelInTurkish } from '$lib/i18n/available';
+	import { LANG_OPTIONS, LANGUAGE_LABEL } from '$lib/i18n/languages';
+	import { levelTranslated } from '$lib/i18n/available';
 
 	let course = $state<PopulatedCourse | null>(null);
 	let confirmingReset = $state(false);
@@ -104,16 +105,17 @@
 	<!-- Both names are shown in their own language, so whoever is lost in the
 	     other one can still find theirs. -->
 	<section class="card">
-		<h2 lang="en">Language <span class="alt" lang="tr">· Dil</span></h2>
+		<h2><bdi lang="en">Language</bdi> <span class="alt">· <bdi lang="tr">Dil</bdi> · <bdi lang="ar">اللغة</bdi></span></h2>
 		<p class="lede">
-			{t('The language the site explains German in. In Turkish, levels A1 and A2 are available.')}
+			{t('The language the site explains German in. In Turkish and Arabic, levels A1 and A2 are available.')}
 		</p>
-		<div class="segmented" role="radiogroup" aria-label="Language / Dil" use:radioKeys>
-			{#each [['en', 'English'], ['tr', 'Türkçe']] as [code, label] (code)}
+		<div class="segmented" role="radiogroup" aria-label={LANGUAGE_LABEL} use:radioKeys>
+			{#each LANG_OPTIONS as { code, name: label, dir } (code)}
 				<button
 					type="button"
 					role="radio"
 					lang={code}
+					{dir}
 					aria-checked={lang.current === code}
 					tabindex={lang.current === code ? 0 : -1}
 					onclick={() => {
@@ -145,7 +147,7 @@
 		</label>
 
 		<!-- B1 and up only, so not in Turkish mode. -->
-		{#if !lang.tr}
+		{#if !lang.limited}
 		<label class="row">
 			<input
 				type="checkbox"
@@ -284,7 +286,7 @@
 	</section>
 
 	<!-- The deck deals no surprises in Turkish mode. -->
-	{#if !lang.tr}
+	{#if !lang.limited}
 	<section class="card">
 		<h2>Surprises</h2>
 		<label class="row">
@@ -333,7 +335,7 @@
 		</p>
 		<ul class="levels">
 			{#each ladder as level (level.id)}
-				{#if level.quizzes.length > 0 && (!lang.tr || levelInTurkish(level.level))}
+				{#if level.quizzes.length > 0 && (!lang.limited || levelTranslated(level.level))}
 					<li>
 						<span>{level.title}</span>
 						<a href="/course/{course?.id}/quiz/{level.quizzes[0].id}">{t('Start here')}</a>
@@ -363,7 +365,7 @@
 	</section>
 	{/if}
 
-	{#if account.available && !lang.tr}
+	{#if account.available && !lang.limited}
 		<section class="card">
 			<h2>Save your progress</h2>
 			<AccountCard heading={false} />
@@ -373,7 +375,7 @@
 	<section class="card" id="your-data">
 		<h2>{t('Your data')}</h2>
 		<p class="lede">
-			{#if lang.tr}
+			{#if lang.limited}
 				{t('Download everything this site stores about you as one file: your progress and settings in this browser.')}
 			{:else}
 			Download everything this site stores about you as one file:
@@ -392,7 +394,7 @@
 		{#if exportError}<p class="error" role="alert">{exportError}</p>{/if}
 
 		<!-- Account management is English-only, like signing in. -->
-		{#if lang.tr}
+		{#if lang.limited}
 			<!-- nothing: Turkish mode has no account screens -->
 		{:else if account.close === 'relink'}
 			<div class="closing" role="status">
@@ -442,7 +444,7 @@
 
 	<section class="card">
 		<h2>{t('Privacy')}</h2>
-		{#if lang.tr}
+		{#if lang.limited}
 			<p class="lede">
 				{t('This site uses no cookies and collects no personal data. Anonymous usage statistics (which pages are visited, and whether a visit comes from a search engine or a shared link) are gathered without any identifier, via Aptabase in the EU. The only thing kept on your device for statistics is the date of your first visit, so we can tell new visitors from returning ones in aggregate. Your learning progress stays in this browser and never leaves it. The full privacy notice (in English) names every service involved:')}
 				<a href="/legal">{t('privacy notice')}</a>

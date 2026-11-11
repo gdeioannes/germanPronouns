@@ -37,7 +37,7 @@
 </script>
 
 <!-- Turkish mode hides signing in (English-only). -->
-{#if account.available && !account.signedIn && !dismissed && !lang.tr}
+{#if account.available && !account.signedIn && !dismissed && !lang.limited}
 	<aside class="strip">
 		<Icon name="cloud" size="1.1em" />
 		<p>

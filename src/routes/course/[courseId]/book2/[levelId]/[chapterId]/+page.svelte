@@ -342,7 +342,7 @@
 	}
 
 	.dialogue b {
-		margin-right: 0.35rem;
+		margin-inline-end: 0.35rem;
 		color: var(--heading);
 	}
 
@@ -382,7 +382,7 @@
 	}
 
 	.more li a :global(.icon) {
-		margin-left: auto;
+		margin-inline-start: auto;
 		color: var(--accent-ink);
 	}
 

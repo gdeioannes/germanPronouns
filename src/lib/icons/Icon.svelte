@@ -24,10 +24,13 @@
 	} = $props();
 
 	const spec = $derived(icons[name]);
+	// Arrows that mean forward or back mirror in a right-to-left page (Arabic).
+	const DIRECTIONAL = new Set<IconName>(['arrowLeft', 'arrowRight', 'chevronRight']);
 </script>
 
 <svg
 	class="icon {klass}"
+	class:flip={DIRECTIONAL.has(name)}
 	width={size}
 	height={size}
 	viewBox="0 0 24 24"

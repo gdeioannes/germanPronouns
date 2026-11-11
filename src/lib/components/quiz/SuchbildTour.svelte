@@ -265,7 +265,7 @@
 
 	.chips {
 		position: absolute;
-		right: 0.4rem;
+		inset-inline-end: 0.4rem;
 		bottom: 0.4rem;
 		display: flex;
 		gap: 0.25rem;

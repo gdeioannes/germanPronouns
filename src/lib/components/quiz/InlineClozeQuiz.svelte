@@ -326,7 +326,7 @@
 										disabled={checked}
 										class:right={checked && results[part.blank]}
 										class:wrong={checked && !results[part.blank]}
-										aria-label="Gap {part.blank + 1} of {total}"
+										aria-label={t('Gap {i} of {n}', { i: part.blank + 1, n: total })}
 									>
 										<option value="" disabled>…</option>
 										{#each choices[part.blank] as option (option)}
@@ -343,7 +343,7 @@
 									class:wrong={checked && !results[part.blank]}
 									aria-invalid={checked && !results[part.blank] ? 'true' : undefined}
 									size={Math.max(blank.answer.length, 4)}
-									aria-label="Gap {part.blank + 1} of {total}"
+									aria-label={t('Gap {i} of {n}', { i: part.blank + 1, n: total })}
 									aria-describedby={!checked && ((blank.hint && run.step === 1) || (blank.cue && run.step === 2)) ? `${quiz.id}-hint-${part.blank}` : undefined}
 									autocomplete="off"
 									autocapitalize="off"
@@ -545,7 +545,7 @@
 
 	.review {
 		width: min(100%, 36rem);
-		text-align: left;
+		text-align: start;
 		border: 1px solid var(--line);
 		border-radius: var(--radius-sm);
 		background: var(--surface);

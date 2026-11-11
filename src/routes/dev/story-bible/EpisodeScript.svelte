@@ -386,7 +386,7 @@
 	}
 	th,
 	td {
-		text-align: left;
+		text-align: start;
 		padding: 0.45rem 0.9rem 0.45rem 0;
 		border-bottom: 1px solid var(--line);
 		font-variant-numeric: tabular-nums;
@@ -418,7 +418,7 @@
 		letter-spacing: 0.06em;
 		border-radius: 999px;
 		padding: 0.2rem 0.6rem;
-		margin-left: 0.6rem;
+		margin-inline-start: 0.6rem;
 		vertical-align: middle;
 	}
 	.badge.lead {
@@ -432,22 +432,22 @@
 	.beat {
 		background: var(--surface);
 		border: 1px solid var(--line);
-		border-left: 3px solid var(--line-strong);
+		border-inline-start: 3px solid var(--line-strong);
 		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 		padding: 0.75rem 1rem;
 		margin-bottom: 0.75rem;
 		max-width: 56rem;
 	}
 	.beat.critical {
-		border-left-color: var(--wrong);
+		border-inline-start-color: var(--wrong);
 	}
 	.beat.cluecard {
-		border-left-color: var(--forest);
+		border-inline-start-color: var(--forest);
 		background: #f2f6f1;
 	}
 	ul.entries {
 		margin: 0.25rem 0;
-		padding-left: 1.2rem;
+		padding-inline-start: 1.2rem;
 		font-size: var(--step--1);
 	}
 	.study {
@@ -456,7 +456,7 @@
 		margin: -0.5rem 0 0.75rem;
 	}
 	.beat.micro {
-		border-left-color: var(--ochre);
+		border-inline-start-color: var(--ochre);
 		background: #fdfaf2;
 	}
 	.beat-head {
@@ -529,7 +529,7 @@
 	}
 	ul.options {
 		margin: 0.25rem 0 0.25rem;
-		padding-left: 1.2rem;
+		padding-inline-start: 1.2rem;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
 	}

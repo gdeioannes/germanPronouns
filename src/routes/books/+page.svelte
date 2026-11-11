@@ -8,16 +8,16 @@
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
-	import { BOOKS, BOOK_PAGES, bookCover, bookMb, bookPdf, bookReadHref, hasTurkishPdf } from '$lib/content/books';
+	import { BOOKS, BOOK_PAGES, bookCover, bookMb, bookPdf, bookReadHref, hasLocalPdf } from '$lib/content/books';
 	import { lang } from '$lib/i18n/lang.svelte';
-	import { levelInTurkish } from '$lib/i18n/available';
+	import { levelTranslated } from '$lib/i18n/available';
 	import { track } from '$lib/services/analytics';
 	import { breadcrumbLd, itemListLd } from '$lib/seo';
 	import { page } from '$app/state';
 
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
 	// Turkish mode: the four A-level books, in their Turkish edition.
-	const shelf = $derived(lang.tr ? BOOKS.filter((b) => levelInTurkish(b.level)) : BOOKS);
+	const shelf = $derived(lang.limited ? BOOKS.filter((b) => levelTranslated(b.level)) : BOOKS);
 </script>
 
 <Seo
@@ -38,8 +38,8 @@
 	<header>
 		<h1>{t('The books')}</h1>
 		<p class="lede">
-			{#if lang.tr}
-				{t('One book per level, four in Turkish (A1.1 to A2.2). Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.', { pages: BOOK_PAGES })}
+			{#if lang.limited}
+				{t('One book per level, four in your language (A1.1 to A2.2). Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.', { pages: BOOK_PAGES })}
 			{:else}
 			One book per level, twelve in all. Each has twelve chapters, each chapter a real place in
 			Germany: words first, a photo, a story, two rules, a real document, and the practice. The
@@ -52,21 +52,21 @@
 		{#each shelf as book (book.level)}
 			<li class="book" id={book.file}>
 				<a class="cover-link" href={bookReadHref(courseHref, book, 'books')} tabindex="-1" aria-hidden="true">
-					<img class="cover" src={bookCover(book, lang.tr)} alt="" width="640" height="905" loading="lazy" />
+					<img class="cover" src={bookCover(book, lang.current)} alt="" width="640" height="905" loading="lazy" />
 				</a>
 				<div class="text">
 					<p class="where">{book.level}</p>
 					<h2 lang="de">Deutsch {book.level} · {book.sub}</h2>
 					<div class="actions">
 						<a class="primary" href={bookReadHref(courseHref, book, 'books')}><Icon name="book" size="1.05em" /> {t('Read online')}</a>
-						{#if !lang.tr || hasTurkishPdf(book)}
+						{#if !lang.limited || hasLocalPdf(book, lang.current)}
 							<a
 								class="secondary"
-								href={bookPdf(book, lang.tr)}
+								href={bookPdf(book, lang.current)}
 								download
 								onclick={() => track('book_download', { book: book.level, from: 'books' })}
 							>
-								<Icon name="download" size="1.05em" /> PDF · {bookMb(book, lang.tr)} MB
+								<Icon name="download" size="1.05em" /> PDF · {bookMb(book, lang.current)} MB
 							</a>
 						{/if}
 					</div>

@@ -123,8 +123,8 @@
 	.line::before {
 		content: '';
 		position: absolute;
-		left: 1rem;
-		right: 1rem;
+		inset-inline-start: 1rem;
+		inset-inline-end: 1rem;
 		top: calc(0.8rem + 0.55rem);
 		height: 4px;
 		background: #d9a441;

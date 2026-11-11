@@ -585,7 +585,7 @@
 	}
 
 	.part small {
-		margin-left: auto;
+		margin-inline-start: auto;
 		font-family: Inter, system-ui, sans-serif;
 		font-size: 8pt;
 		font-weight: 600;
@@ -613,8 +613,8 @@
 	}
 
 	.rule {
-		padding-left: 3.5mm;
-		border-left: 1mm solid var(--accent);
+		padding-inline-start: 3.5mm;
+		border-inline-start: 1mm solid var(--accent);
 	}
 
 	.rule > * + * {
@@ -632,13 +632,13 @@
 	}
 
 	.rule[data-tone='warning'] {
-		border-left-color: var(--wrong);
+		border-inline-start-color: var(--wrong);
 	}
 	.rule[data-tone='warning'] .tone {
 		color: var(--wrong);
 	}
 	.rule[data-tone='mnemonic'] {
-		border-left-color: var(--ochre);
+		border-inline-start-color: var(--ochre);
 	}
 	.rule[data-tone='mnemonic'] .tone {
 		color: var(--ochre);
@@ -721,7 +721,7 @@
 		gap: 0.3mm;
 		padding: 1.8mm 2.4mm;
 		border: 0.25mm solid var(--line-strong);
-		border-left: 1.1mm solid var(--g, var(--line-strong));
+		border-inline-start: 1.1mm solid var(--g, var(--line-strong));
 		border-radius: 1.6mm;
 		break-inside: avoid;
 	}
@@ -731,7 +731,7 @@
 	}
 
 	.words.pics li {
-		border-left-width: 0.25mm;
+		border-inline-start-width: 0.25mm;
 		border-bottom: 1.1mm solid var(--g, var(--line-strong));
 		background: var(--cream);
 		text-align: center;
@@ -938,7 +938,7 @@
 
 	.remember {
 		margin: 0;
-		padding-left: 4mm;
+		padding-inline-start: 4mm;
 		font-size: 9pt;
 	}
 
@@ -960,7 +960,7 @@
 	}
 
 	caption {
-		text-align: left;
+		text-align: start;
 		font-size: 7.5pt;
 		font-weight: 700;
 		color: var(--ink-muted);
@@ -970,7 +970,7 @@
 	th,
 	td {
 		padding: 0.9mm 2mm;
-		text-align: left;
+		text-align: start;
 		border-bottom: 0.2mm solid var(--line-strong);
 	}
 
@@ -1068,13 +1068,13 @@
 	}
 
 	.answers strong {
-		margin-right: 2mm;
+		margin-inline-end: 2mm;
 		color: var(--navy);
 	}
 
 	.a {
 		display: inline-block;
-		margin-right: 3mm;
+		margin-inline-end: 3mm;
 	}
 
 	.a .tnum {
@@ -1232,7 +1232,7 @@
 	}
 	.task {
 		padding: 3mm 4mm;
-		border-left: 1mm solid var(--navy);
+		border-inline-start: 1mm solid var(--navy);
 		background: var(--cream);
 		break-inside: avoid;
 	}
@@ -1270,7 +1270,7 @@
 	}
 	.plain {
 		margin: 1mm 0 0;
-		padding-left: 4mm;
+		padding-inline-start: 4mm;
 		font-size: 9pt;
 	}
 	.selfcheck {
@@ -1328,14 +1328,14 @@
 		gap: 0.2mm;
 		padding: 1.4mm 2mm;
 		border: 0.25mm solid var(--line-strong);
-		border-left: 1.1mm solid var(--g, var(--line-strong));
+		border-inline-start: 1.1mm solid var(--g, var(--line-strong));
 		border-radius: 1.6mm;
 		break-inside: avoid;
 	}
 	.deck li.pic {
 		text-align: center;
 		background: var(--cream);
-		border-left-width: 0.25mm;
+		border-inline-start-width: 0.25mm;
 		border-bottom: 1.1mm solid var(--g, var(--line-strong));
 	}
 	.deck li img {

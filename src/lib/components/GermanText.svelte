@@ -165,7 +165,7 @@
 					<!-- Turkish mode: a word with no Turkish gloss yet shows its German facts alone. -->
 					{#if entry.en}<span class="meaning" lang={lang.current}>{entry.en}</span>{/if}
 					<!-- The word pages are English-only: no link in Turkish mode. -->
-					{#if href && !lang.tr}<a class="more" {href} lang="en">{t('Full entry')}</a>{/if}
+					{#if href && !lang.limited}<a class="more" {href} lang="en">{t('Full entry')}</a>{/if}
 				</span>
 			{/if}</span
 		>{part.tail ?? ''}</span>{:else}{part.text}{/if}{/each}
@@ -240,7 +240,7 @@
 		font-size: 0.8rem;
 		font-weight: 400;
 		line-height: 1.35;
-		text-align: left;
+		text-align: start;
 		white-space: normal;
 	}
 

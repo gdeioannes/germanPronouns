@@ -273,7 +273,7 @@
 	}
 	.badge {
 		position: absolute;
-		right: -0.3rem;
+		inset-inline-end: -0.3rem;
 		bottom: -0.1rem;
 		font-size: 2rem;
 		animation: pop 700ms 350ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) both;
@@ -335,7 +335,7 @@
 	}
 	.contact,
 	.unlock {
-		text-align: left;
+		text-align: start;
 		margin: 0 0 0.8rem;
 		padding: 0.8rem 0.9rem;
 		border-radius: var(--radius-sm);
@@ -409,7 +409,7 @@
 		font-size: var(--step--1);
 	}
 	details {
-		text-align: left;
+		text-align: start;
 		margin: 0 0 0.6rem;
 		font-size: var(--step--1);
 	}
@@ -422,7 +422,7 @@
 	.lows ul,
 	.recap ol {
 		margin: 0.3rem 0 0;
-		padding-left: 1.2rem;
+		padding-inline-start: 1.2rem;
 		display: grid;
 		gap: 0.45rem;
 	}
@@ -436,7 +436,7 @@
 	}
 	.pill {
 		display: inline-block;
-		margin-left: 0.3rem;
+		margin-inline-start: 0.3rem;
 		padding: 0 0.45rem;
 		border-radius: 999px;
 		font-size: 0.75rem;
@@ -452,7 +452,7 @@
 	}
 	.vn.last {
 		margin: 0 0 0.9rem;
-		text-align: left;
+		text-align: start;
 	}
 	.vn {
 		margin-top: 0.7rem;

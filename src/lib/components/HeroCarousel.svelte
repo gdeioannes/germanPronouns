@@ -45,7 +45,7 @@
 			alt: t('Friends at an outdoor café on a summer evening in Berlin-Kreuzberg'),
 			focus: '60% 60%',
 			place: 'Bergmannstraße, Berlin',
-			kicker: lang.tr ? t('German for Turkish speakers · A1 to A2') : 'German for English speakers · A1 to C2',
+			kicker: lang.limited ? t('German explained in your language · A1 to A2') : 'German for English speakers · A1 to C2',
 			title: t('Learn German. Live better in Germany.'),
 			text: t('The German you need for the café, the flat, the doctor and the neighbours.'),
 			pins: [
@@ -60,9 +60,9 @@
 			alt: t('Blue beach chairs on the Baltic beach at Rostock'),
 			focus: '50% 60%',
 			place: 'Warnemünde, Ostsee',
-			kicker: lang.tr ? t('Four levels in Turkish, all open') : 'Twelve levels, all open',
+			kicker: lang.limited ? t('Four levels in your language, all open') : 'Twelve levels, all open',
 			title: t('Start at your level.'),
-			text: lang.tr
+			text: lang.limited
 				? t('From your first Hallo to A2. A short check tells you where to begin, and you can move up or back whenever you like.')
 				: 'From your first Hallo to C2. A short check tells you where to begin, and you can move up or back whenever you like.',
 			card: 'levels',
@@ -88,7 +88,7 @@
 			place: 'Rathaus, Düsseldorf',
 			kicker: t('On paper too'),
 			title: t('A book for every level.'),
-			text: lang.tr
+			text: lang.limited
 				? t('Four books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.')
 				: 'Twelve books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.',
 			card: 'books',
@@ -120,10 +120,10 @@
 	]);
 
 	const ALL_LEVELS = ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1', 'B2.2', 'C1.1', 'C1.2', 'C2.1', 'C2.2'];
-	const LEVELS = $derived(lang.tr ? ALL_LEVELS.slice(0, 4) : ALL_LEVELS);
+	const LEVELS = $derived(lang.limited ? ALL_LEVELS.slice(0, 4) : ALL_LEVELS);
 	/** The level the example card marks as "your level". */
-	const YOU = $derived(lang.tr ? 'A2.1' : 'B1.1');
-	const COVERS = $derived(lang.tr ? ['a1-1', 'a1-2', 'a2-2'] : ['a1-1', 'b1-1', 'c2-2']);
+	const YOU = $derived(lang.limited ? 'A2.1' : 'B1.1');
+	const COVERS = $derived(lang.limited ? ['a1-1', 'a1-2', 'a2-2'] : ['a1-1', 'b1-1', 'c2-2']);
 
 	let { startHref = '/start', returning = false }: { startHref?: string; returning?: boolean } = $props();
 
@@ -195,7 +195,9 @@
 </script>
 
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-<section class="carousel" aria-roledescription="carousel" aria-label={t('Life in Germany')} onkeydown={onKey}>
+<!-- The photos keep their left-to-right layout in Arabic too: the word pins
+     are placed on each photo for words on the left. Only the text turns. -->
+<section class="carousel" dir="ltr" aria-roledescription="carousel" aria-label={t('Life in Germany')} onkeydown={onKey}>
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div
 		class="track"
@@ -224,14 +226,14 @@
 				{#each s.pins ?? [] as p (p.w)}
 					<span class="pin" style:left="{p.x}%" style:top="{p.y}%" lang="de"><span><b class={p.a}>{p.a}</b> {p.w}</span><small lang={lang.current}>{p.en}</small></span>
 				{/each}
-					<div class="copy">
+					<div class="copy" dir={lang.dir}>
 						<p class="eyebrow">{s.kicker}</p>
 						{#if i === 0}<h1>{s.title}</h1>{:else}<h2>{s.title}</h2>{/if}
 						<!-- The action comes first, right under the headline, not after the reading. -->
 						<div class="actions">
 							<a class="btn" href={s.cta?.href ?? startHref} tabindex={i === index ? 0 : -1}>{s.cta?.label ?? (returning ? t('Keep learning') : t('Start learning German'))} <Icon name="arrowRight" size="1em" /></a>
 							<!-- Slide one only: the way back in for someone already learning elsewhere. -->
-							{#if i === 0 && account.available && !account.signedIn && !lang.tr}
+							{#if i === 0 && account.available && !account.signedIn && !lang.limited}
 								<p class="have-account">
 									{t('Already learning on another device?')}
 									<button type="button" onclick={openSignIn} tabindex={i === index ? 0 : -1}>{t('Sign in')}</button>
@@ -240,7 +242,7 @@
 						</div>
 						<p class="lede">{s.text}</p>
 						{#if s.card === 'levels'}
-							<ul class="card levels" aria-label={lang.tr ? t('The four levels') : 'The twelve levels'}>
+							<ul class="card levels" aria-label={lang.limited ? t('The four levels') : 'The twelve levels'}>
 								{#each LEVELS as l (l)}<li class:you={l === YOU}>{l}{#if l === YOU}<small>{t('your level')}</small>{/if}</li>{/each}
 							</ul>
 						{:else if s.card === 'fix'}
@@ -251,7 +253,7 @@
 							</div>
 						{:else if s.card === 'books'}
 							<div class="card books">
-								<span class="covers">{#each COVERS as c (c)}<img src={lang.tr ? bookCover(BOOKS.find((b) => b.cover === c)!, true) : `/img/book-${c}-front.webp`} alt="" loading="lazy" />{/each}</span>
+								<span class="covers">{#each COVERS as c (c)}<img src={lang.limited ? bookCover(BOOKS.find((b) => b.cover === c)!, lang.current) : `/img/book-${c}-front.webp`} alt="" loading="lazy" />{/each}</span>
 								<span class="steps"><b>{t('Scan a page')}</b> → {t('checked · read aloud · flashcards')}</span>
 							</div>
 						{:else if s.card === 'voice'}
@@ -344,6 +346,7 @@
 		background: linear-gradient(90deg, rgba(20, 22, 26, 0.7) 0%, rgba(20, 22, 26, 0.38) 38%, rgba(20, 22, 26, 0) 62%);
 	}
 
+
 	.copy {
 		position: relative;
 		width: 100%;
@@ -351,6 +354,15 @@
 		margin: 0 auto;
 		padding: 2rem 5.5rem 5rem;
 		color: #fff;
+	}
+
+	/* Arabic: the words keep to the photo's left, as in English (the pins are
+	   placed around them), in a column of their own that reads right to left.
+	   On a phone the words sit under the photo, so this is wide screens only. */
+	@media (min-width: 52.01rem) {
+		.copy:dir(rtl) {
+			padding-inline-start: max(5.5rem, calc(100% - 5.5rem - 34rem));
+		}
 	}
 
 	.copy h1,
@@ -468,13 +480,13 @@
 	.covers img {
 		width: 2.6rem;
 		height: auto;
-		margin-right: -0.7rem;
+		margin-inline-end: -0.7rem;
 		border-radius: 2px;
 		box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.5);
 	}
 
 	.steps {
-		margin-left: 0.6rem;
+		margin-inline-start: 0.6rem;
 		font-size: 0.92rem;
 	}
 
@@ -591,7 +603,7 @@
 
 	.credit {
 		position: absolute;
-		right: 0.75rem;
+		inset-inline-end: 0.75rem;
 		bottom: 0.5rem;
 		margin: 0;
 		font-size: 0.68rem;
@@ -623,17 +635,17 @@
 	}
 
 	.prev {
-		left: 1rem;
+		inset-inline-start: 1rem;
 	}
 
 	.next {
-		right: 1rem;
+		inset-inline-end: 1rem;
 	}
 
 	.lang {
 		position: absolute;
 		top: 1rem;
-		right: 1rem;
+		inset-inline-end: 1rem;
 		z-index: 3;
 	}
 
@@ -668,7 +680,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.3rem;
-		margin-left: 0.4rem;
+		margin-inline-start: 0.4rem;
 		color: #fff;
 		font-size: 0.8rem;
 		font-weight: 600;
@@ -709,10 +721,10 @@
 			background: rgb(255 255 255 / 0.85);
 		}
 		.prev {
-			left: 0.6rem;
+			inset-inline-start: 0.6rem;
 		}
 		.next {
-			right: 0.6rem;
+			inset-inline-end: 0.6rem;
 		}
 		.dots {
 			top: 16.6rem;
@@ -725,12 +737,12 @@
 		.credit {
 			top: 0.5rem;
 			bottom: auto;
-			right: 0.6rem;
+			inset-inline-end: 0.6rem;
 		}
 		/* Under the credit line, which runs along the photo's top edge here. */
 		.lang {
 			top: 2rem;
-			right: 0.6rem;
+			inset-inline-end: 0.6rem;
 		}
 	}
 </style>

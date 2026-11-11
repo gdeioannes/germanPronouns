@@ -141,7 +141,7 @@
 
 	.text ul {
 		margin: 0.4rem 0 1.2rem;
-		padding-left: 1.2rem;
+		padding-inline-start: 1.2rem;
 		line-height: 1.6;
 	}
 

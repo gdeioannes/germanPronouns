@@ -224,7 +224,7 @@
 	}
 
 	.notes ol {
-		padding-left: 1.4rem;
+		padding-inline-start: 1.4rem;
 	}
 
 	.notes li {
