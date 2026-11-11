@@ -21,7 +21,7 @@
 		email: 'gdeioannes@gmail.com'
 	};
 
-	const UPDATED = '2026-10-25';
+	const UPDATED = '2026-11-11';
 </script>
 
 <Seo
@@ -81,7 +81,7 @@
 		<h2>Privacy notice <span class="de" lang="de">(Datenschutzerklärung)</span></h2>
 		<p>
 			The controller in the sense of the General Data Protection Regulation (GDPR) is the person
-			named in the imprint above. Last updated: <time datetime={UPDATED}>25 October 2026</time>.
+			named in the imprint above. Last updated: <time datetime={UPDATED}>11 November 2026</time>.
 		</p>
 
 		<h3>1. What the site itself stores</h3>
@@ -126,9 +126,12 @@
 			standard contractual clauses. What is stored: your email address, a technical user ID, the
 			time of sign-in, and your learning progress (which exercises you finished and your scores).
 			Legal basis: Art.&nbsp;6(1)(b) GDPR, providing the sync you asked for. Signing out under
-			<a href="/settings">Settings</a> stops the backup but keeps the data for your next visit; to
-			have your account and everything stored with it deleted, write to the address in the imprint
-			and it is removed within a few days.
+			<a href="/settings">Settings</a> stops the backup but keeps the data for your next visit.
+			Under <a href="/settings#your-data">Settings → Your data</a> you can close the account
+			yourself at any time: that deletes your synced progress, your forum name, topics, replies and
+			likes, and your sign-in address, straight away. (Likes given before 11 November 2026 can't
+			be found automatically; write to us and we remove them.) You can also write to the address
+			in the imprint and we delete it for you within a few days.
 		</p>
 
 		<h3>5. Spoken audio (text-to-speech)</h3>
@@ -178,7 +181,9 @@
 			processing (Art.&nbsp;18), to data portability (Art.&nbsp;20), and to object to processing
 			based on legitimate interest (Art.&nbsp;21). You also have the right to complain to a
 			supervisory authority; in Germany, the data-protection authority of your federal state.
-			Write to the address in the imprint for any of these.
+			<a href="/settings#your-data">Settings → Your data</a> lets you download everything stored
+			about you as one file (Art.&nbsp;15 and 20) and close your account (Art.&nbsp;17) without
+			writing to anyone. Write to the address in the imprint for any of the others.
 		</p>
 	</section>
 </main>

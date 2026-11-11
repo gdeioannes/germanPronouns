@@ -77,13 +77,23 @@ service cloud.firestore {
           && request.resource.data.replyCount == resource.data.replyCount + 1
           && request.resource.data.lastReplyBy == request.auth.uid
           && text(request.resource.data.lastReplyName, 40))
+        // The last replier deleting their reply (or their account): clears their
+        // own name from the "last reply by" line, nothing else.
+        || (resource.data.lastReplyBy == request.auth.uid
+          && changedOnly(['lastReplyBy', 'lastReplyName'])
+          && request.resource.data.lastReplyBy == null
+          && request.resource.data.lastReplyName == null)
         // Anyone liking.
         || likeBump(/databases/$(database)/documents/forum_threads/$(threadId)/likes/$(request.auth.uid))
       );
 
+      // The topic's author may clear its likes too: closing an account removes
+      // the topic with everything under it, and children go before the parent.
       match /likes/{uid} {
         allow read: if true;
-        allow create, delete: if signedIn() && request.auth.uid == uid;
+        allow create: if signedIn() && request.auth.uid == uid;
+        allow delete: if signedIn() && (request.auth.uid == uid
+          || get(/databases/$(database)/documents/forum_threads/$(threadId)).data.authorUid == request.auth.uid);
       }
 
       allow delete: if signedIn() && (resource.data.authorUid == request.auth.uid || isAdmin());
@@ -101,13 +111,29 @@ service cloud.firestore {
             && text(request.resource.data.body, 4000))
           || likeBump(/databases/$(database)/documents/forum_threads/$(threadId)/posts/$(postId)/likes/$(request.auth.uid))
         );
-        allow delete: if signedIn() && (resource.data.authorUid == request.auth.uid || isAdmin());
+        // The reply's author, a moderator, or the topic's author (clearing out
+        // their own topic when they close their account).
+        allow delete: if signedIn() && (resource.data.authorUid == request.auth.uid
+          || isAdmin()
+          || get(/databases/$(database)/documents/forum_threads/$(threadId)).data.authorUid == request.auth.uid);
 
         match /likes/{uid} {
           allow read: if true;
-          allow create, delete: if signedIn() && request.auth.uid == uid;
+          allow create: if signedIn() && request.auth.uid == uid;
+          allow delete: if signedIn() && (request.auth.uid == uid
+            || get(/databases/$(database)/documents/forum_threads/$(threadId)/posts/$(postId)).data.authorUid == request.auth.uid
+            || get(/databases/$(database)/documents/forum_threads/$(threadId)).data.authorUid == request.auth.uid);
         }
       }
+    }
+
+    // Collection-group reads, for "download / delete my data": every reply and
+    // every like a learner left, wherever it sits. Both are public anyway.
+    match /{path=**}/posts/{postId} {
+      allow read: if true;
+    }
+    match /{path=**}/likes/{likeId} {
+      allow read: if true;
     }
 
     // The learner's posting name and which replies they have read: theirs alone.

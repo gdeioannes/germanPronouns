@@ -20,8 +20,11 @@
 	import { progress, type AnswerRevealMode } from '$lib/state/progress.svelte';
 	import AccountCard from '$lib/components/AccountCard.svelte';
 	import { account } from '$lib/state/account.svelte';
+	import { collectMyData, downloadJson } from '$lib/services/myData';
 	import { announce, radioKeys } from '$lib/a11y.svelte';
 	import type { PopulatedCourse } from '$lib/content/types';
+	import { lang, setLang, type UiLang } from '$lib/i18n/lang.svelte';
+	import { t } from '$lib/i18n/t';
 
 	let course = $state<PopulatedCourse | null>(null);
 	let confirmingReset = $state(false);
@@ -35,6 +38,43 @@
 	});
 
 	const ladder = $derived(course ? buildLadder(course, () => false) : []);
+
+	let exporting = $state(false);
+	let exportError = $state('');
+	async function downloadMyData() {
+		exporting = true;
+		exportError = '';
+		try {
+			const data = await collectMyData(account.userId);
+			downloadJson(data, `my-data-${new Date().toISOString().slice(0, 10)}.json`);
+			announce('Your data is downloading.');
+		} catch (cause) {
+			console.error('[my data]', cause);
+			exportError = account.signedIn
+				? "Couldn't reach your account just now. Check your connection and try again."
+				: 'Something went wrong. Please try again.';
+		} finally {
+			exporting = false;
+		}
+	}
+
+	let confirmingClose = $state(false);
+	let closeTyped = $state('');
+	let wipeLocal = $state(false);
+	let closeError = $state('');
+	async function closeAccount() {
+		closeError = '';
+		const ok = await account.closeAccount(wipeLocal);
+		if (!ok) closeError = account.error ?? 'Something went wrong. Please try again.';
+		confirmingClose = false;
+		closeTyped = '';
+		if (ok && account.close === 'closed') {
+			message = wipeLocal
+				? 'Your account is closed and everything is deleted, here and in the cloud.'
+				: 'Your account is closed and everything in the cloud is deleted. Your progress in this browser is still here.';
+			announce(message);
+		}
+	}
 
 	async function resetEverything() {
 		await progress.reset();
@@ -59,6 +99,29 @@
 	{/if}
 
 	<PracticeReminder />
+
+	<!-- Both names are shown in their own language, so whoever is lost in the
+	     other one can still find theirs. -->
+	<section class="card">
+		<h2 lang="en">Language <span class="alt" lang="tr">· Dil</span></h2>
+		<p class="lede">
+			{t('The language the site explains German in. In Turkish, levels A1 and A2 are available.')}
+		</p>
+		<div class="segmented" role="radiogroup" aria-label="Language / Dil" use:radioKeys>
+			{#each [['en', 'English'], ['tr', 'Türkçe']] as [code, label] (code)}
+				<button
+					type="button"
+					role="radio"
+					lang={code}
+					aria-checked={lang.current === code}
+					tabindex={lang.current === code ? 0 : -1}
+					onclick={() => setLang(code as UiLang)}
+				>
+					{label}
+				</button>
+			{/each}
+		</div>
+	</section>
 
 	<section class="card">
 		<h2>Answer checking</h2>
@@ -327,6 +390,69 @@
 		</section>
 	{/if}
 
+	<section class="card" id="your-data">
+		<h2>Your data</h2>
+		<p class="lede">
+			Download everything this site stores about you as one file:
+			{#if account.signedIn}
+				your progress in this browser and in the cloud, your account details, and your forum
+				topics, replies and likes.
+			{:else}
+				your progress and settings in this browser (without an account, that is all there is).
+			{/if}
+		</p>
+		<button class="btn-quiet" onclick={downloadMyData} disabled={exporting}>
+			<Icon name="download" size="1em" />
+			{exporting ? 'Collecting…' : 'Download my data'}
+		</button>
+		{#if exportError}<p class="error" role="alert">{exportError}</p>{/if}
+
+		{#if account.close === 'relink'}
+			<div class="closing" role="status">
+				<p>
+					<strong>Almost done.</strong> Everything stored in the cloud is deleted. To remove your
+					sign-in address too, open the link we just emailed you — that finishes closing the
+					account.
+				</p>
+				<button class="btn-quiet" onclick={() => account.cancelClose()}>Leave it for now</button>
+			</div>
+		{:else if account.signedIn}
+			<h3>Close your account</h3>
+			<p class="lede">
+				Deletes your synced progress, your forum name, every topic you started (with its
+				replies), every reply and like you left, and your sign-in address. This cannot be
+				undone.
+			</p>
+			{#if confirmingClose}
+				<label class="row">
+					<input type="checkbox" bind:checked={wipeLocal} />
+					<span>
+						Also delete my progress in this browser
+						<small>Otherwise it stays here, as after signing out.</small>
+					</span>
+				</label>
+				<label class="confirm">
+					Type <strong>delete</strong> to confirm
+					<input type="text" bind:value={closeTyped} autocomplete="off" spellcheck="false" />
+				</label>
+				<button
+					class="danger-btn"
+					onclick={closeAccount}
+					disabled={closeTyped.trim().toLowerCase() !== 'delete' || account.close === 'closing'}
+				>
+					<Icon name="trash" size="1em" />
+					{account.close === 'closing' ? 'Deleting…' : 'Close my account'}
+				</button>
+				<button class="btn-quiet" onclick={() => ((confirmingClose = false), (closeTyped = ''))}>Cancel</button>
+			{:else}
+				<button class="danger-btn" onclick={() => (confirmingClose = true)}>
+					<Icon name="trash" size="1em" /> Close my account…
+				</button>
+			{/if}
+			{#if closeError}<p class="error" role="alert">{closeError}</p>{/if}
+		{/if}
+	</section>
+
 	<section class="card">
 		<h2>Privacy</h2>
 		<p class="lede">
@@ -525,7 +651,62 @@
 		transition: transform var(--fast) var(--ease-out);
 	}
 
+	.danger-btn:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		transform: none;
+	}
+
+	h3 {
+		margin: 1.4rem 0 0.4rem;
+		padding-top: 1.1rem;
+		border-top: 1px solid var(--line);
+		font-size: var(--step-0);
+	}
+
+	.error {
+		margin: 0.6rem 0 0;
+		color: var(--wrong);
+		font-size: var(--step--1);
+	}
+
+	.closing {
+		margin-top: 1.2rem;
+		padding: 0.9rem 1.05rem;
+		border: 1px solid var(--line-strong);
+		border-radius: var(--radius-sm);
+		background: var(--surface-alt);
+		font-size: var(--step--1);
+	}
+
+	.closing p {
+		margin: 0 0 0.7rem;
+	}
+
+	.confirm {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.6rem;
+		margin: 0.4rem 0 1rem;
+		font-size: var(--step--1);
+	}
+
+	.confirm input {
+		width: 8rem;
+		padding: 0.4rem 0.6rem;
+		border: 1px solid var(--line-strong);
+		border-radius: 6px;
+		background: var(--surface);
+		color: var(--ink);
+		font: inherit;
+	}
+
 	.danger-btn:hover {
 		transform: translateY(-1px);
+	}
+	.alt {
+		font-weight: 400;
+		color: var(--ink-muted);
 	}
 </style>

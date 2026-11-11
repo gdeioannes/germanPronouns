@@ -22,6 +22,7 @@ import {
 } from '$lib/domain/sync-merge';
 import { track } from '$lib/services/analytics';
 import { cloudConfigured, fetchRemote, firebase, pushRemote } from '$lib/services/firebase';
+import { eraseCloudData } from '$lib/services/myData';
 import { observeStorage, readBlob, storage, writeBlob } from '$lib/services/storage';
 import { progress } from '$lib/state/progress.svelte';
 
@@ -29,6 +30,13 @@ import { progress } from '$lib/state/progress.svelte';
 const PUSH_DEBOUNCE = 4000;
 
 export type SyncState = 'idle' | 'syncing' | 'synced' | 'error';
+
+/**
+ * Closing an account. `relink` = the cloud data is gone, but Firebase wants a
+ * fresh sign-in before it removes the sign-in record itself; a link is on its
+ * way and opening it finishes. `closed` = nothing of the account is left.
+ */
+export type CloseState = 'idle' | 'closing' | 'relink' | 'closed';
 
 /** What the learner picked when asked about two devices' progress. */
 export type MergeChoice = 'merge' | 'local' | 'remote';
@@ -67,6 +75,7 @@ class AccountStore {
 	error = $state<string | null>(null);
 	/** Set while the two-device question is on screen; null the rest of the time. */
 	pending = $state<MergeDecision | null>(null);
+	close = $state<CloseState>('idle');
 	/** Mirrors `uid`, for the UI; `signedIn` reads this. */
 	private active = $state(false);
 
@@ -104,6 +113,7 @@ class AccountStore {
 		const wasSignedIn = (await storage.get(SettingsKeys.accountActive)) === '1';
 		this.linkSent = Boolean(await storage.get(SettingsKeys.accountEmailForLink));
 		this.lastSyncedAt = Number(await storage.get(SettingsKeys.accountLastSync)) || null;
+		if (await storage.get(SettingsKeys.accountClosingUid)) this.close = 'relink';
 		if (!wasSignedIn) return;
 
 		try {
@@ -217,6 +227,109 @@ class AccountStore {
 		}
 	}
 
+	/**
+	 * Closes the account for good: erases every cloud document that belongs to
+	 * the learner, then the sign-in record. `wipeLocal` also clears this
+	 * browser; otherwise the progress here stays, as it would after signing out.
+	 */
+	async closeAccount(wipeLocal: boolean): Promise<boolean> {
+		const uid = this.uid;
+		if (!uid) return false;
+		this.close = 'closing';
+		this.error = null;
+		// No push may recreate users/{uid} behind the erase.
+		if (this.pushTimer) clearTimeout(this.pushTimer);
+		this.pushTimer = null;
+		this.dirty = false;
+		await storage.set(SettingsKeys.accountClosingUid, uid);
+		try {
+			await eraseCloudData(uid);
+		} catch (cause) {
+			await storage.remove(SettingsKeys.accountClosingUid);
+			this.error = describe(cause);
+			this.close = 'idle';
+			return false;
+		}
+		if (wipeLocal) await this.wipeThisBrowser();
+		const { auth, authApi } = await firebase();
+		const user = auth.currentUser;
+		try {
+			if (user) await authApi.deleteUser(user);
+		} catch (cause) {
+			if ((cause as { code?: string } | null)?.code !== 'auth/requires-recent-login') {
+				this.error = describe(cause);
+				this.close = 'idle';
+				return false;
+			}
+			// Signed in too long ago for Firebase to delete the record. The data
+			// is already gone; one fresh sign-in finishes it (see onUser).
+			const email = this.email;
+			await this.signOutLocally(auth, authApi);
+			if (email) await this.sendLink(email, '/settings');
+			this.close = 'relink';
+			return true;
+		}
+		await this.signOutLocally(auth, authApi);
+		await storage.remove(SettingsKeys.accountClosingUid);
+		this.close = 'closed';
+		return true;
+	}
+
+	/** The second half of `closeAccount`, after the fresh sign-in. */
+	private async finishClose(): Promise<void> {
+		this.close = 'closing';
+		try {
+			const { auth, authApi } = await firebase();
+			const user = auth.currentUser;
+			// A sync may have slipped through on another tab; erase again, it's idempotent.
+			if (user) {
+				await eraseCloudData(user.uid).catch(() => {});
+				await authApi.deleteUser(user);
+			}
+			await this.signOutLocally(auth, authApi);
+			await storage.remove(SettingsKeys.accountClosingUid);
+			this.close = 'closed';
+		} catch (cause) {
+			this.error = describe(cause);
+			this.close = 'relink';
+		}
+	}
+
+	/** Gives up on a half-finished close (the learner changed their mind about the link). */
+	async cancelClose(): Promise<void> {
+		await storage.remove(SettingsKeys.accountClosingUid);
+		this.close = 'idle';
+	}
+
+	private async signOutLocally(
+		auth: import('firebase/auth').Auth,
+		authApi: typeof import('firebase/auth')
+	): Promise<void> {
+		await authApi.signOut(auth).catch(() => {});
+		this.uid = null;
+		this.active = false;
+		this.email = null;
+		this.sync = 'idle';
+		this.pending = null;
+		this.offered = null;
+		this.lastSyncedAt = null;
+		for (const key of [
+			SettingsKeys.accountActive,
+			SettingsKeys.accountLastSync,
+			SettingsKeys.accountMergedUid
+		]) {
+			await storage.remove(key);
+		}
+	}
+
+	/** Every key this site wrote in this browser, except the close bookkeeping. */
+	private async wipeThisBrowser(): Promise<void> {
+		for (const key of await storage.keys()) {
+			if (key !== SettingsKeys.accountClosingUid) await storage.remove(key);
+		}
+		await progress.load();
+	}
+
 	/** Reconciles now, on the learner's say-so. */
 	async syncNow(): Promise<void> {
 		if (!this.uid || this.pending) return;
@@ -235,6 +348,12 @@ class AccountStore {
 			return;
 		}
 		if (this.uid === uid) return;
+		// Back from the link sent to finish closing this account: delete the
+		// sign-in record now, and never sync progress up for it again.
+		if ((await storage.get(SettingsKeys.accountClosingUid)) === uid) {
+			await this.finishClose();
+			return;
+		}
 		this.uid = uid;
 		this.active = true;
 		this.email = email;
@@ -357,7 +476,7 @@ class AccountStore {
 	async flush(): Promise<void> {
 		// An unanswered merge question means the cloud copy is still one of the
 		// two choices on screen. Pushing over it now would answer it for them.
-		if (!this.uid || !this.dirty || this.pending) return;
+		if (!this.uid || !this.dirty || this.pending || this.close === 'closing') return;
 		// Two pushes at once would race over `updatedAt`; the second waits.
 		this.pushing = (this.pushing ?? Promise.resolve()).then(async () => {
 			if (!this.uid || !this.dirty) return;

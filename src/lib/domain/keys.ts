@@ -66,7 +66,14 @@ export const SettingsKeys = {
 	 */
 	accountMergedUid: 'account_merged_uid',
 	/** "1" once the learner has waved away the sign-in strip on the course home. */
-	accountStripDismissed: 'account_strip_dismissed'
+	accountStripDismissed: 'account_strip_dismissed',
+	/**
+	 * The uid of an account being closed whose cloud data is already erased but
+	 * whose sign-in record needs one more fresh sign-in to remove (Firebase
+	 * only deletes a recently signed-in user). The next sign-in as that uid
+	 * finishes the job instead of syncing progress back up.
+	 */
+	accountClosingUid: 'account_closing_uid'
 } as const;
 
 /**

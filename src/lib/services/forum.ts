@@ -199,7 +199,9 @@ export async function setLike(threadId: string, postId: string | null, uid: stri
 	const { db, storeApi: s } = await firebase();
 	const { parent, like } = likeRefs(s, db, threadId, postId, uid);
 	const batch = s.writeBatch(db);
-	if (liked) batch.set(like, { at: Date.now() });
+	// `uid` repeats the document id so "delete my account" can find every like
+	// with one collection-group query (a query can't match on a document id).
+	if (liked) batch.set(like, { at: Date.now(), uid });
 	else batch.delete(like);
 	batch.update(parent, { likeCount: s.increment(liked ? 1 : -1) });
 	await batch.commit();

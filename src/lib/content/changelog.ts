@@ -16,6 +16,14 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-11",
+    title: "Your data, in your hands",
+    items: [
+      "Settings has a new Your data section: Download my data saves everything the site stores about you as one file — your progress in this browser and, if you are signed in, your synced progress, account details and forum posts.",
+      "Signed in, you can now close your account yourself: it deletes your synced progress, your forum name, topics, replies and likes, and your sign-in address, without writing to anyone. Your progress in this browser stays unless you tick the box to delete it too.",
+    ],
+  },
+  {
     date: "2026-11-10",
     title: "Your level, offline and out loud",
     items: [
