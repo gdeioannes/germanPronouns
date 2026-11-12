@@ -92,7 +92,9 @@
 			'ipt>try{var s=localStorage,go=false;for(var i=0;i<s.length&&!go;i++){var k=s.key(i)||"";' +
 			'if(/quiz_answer_history$/.test(k))go=true;' +
 			'else if(/_completed_quizzes$/.test(k)){try{var v=JSON.parse(s.getItem(k));go=Array.isArray(v)&&v.length>0}catch(e){}}}' +
-			`if(go&&location.pathname==="/")location.replace(${JSON.stringify(courseHref)}+location.search+location.hash)}catch(e){}</scr` +
+			// The Turkish and Arabic front pages (/tr, /ar) go to the course in their language.
+			"var p=location.pathname,m=p===\"/tr\"||p===\"/ar\"?p:\"\";" +
+			`if(go&&(location.pathname==="/"||m))location.replace(m+${JSON.stringify(courseHref)}+location.search+location.hash)}catch(e){}</scr` +
 			'ipt>'
 	);
 	let returning = $state(false);
@@ -204,11 +206,11 @@
 </svelte:head>
 
 <Seo
-	title="Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz"
-	description="Learn German from English with {data.total} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up."
+	title={t('Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz')}
+	description={t('Learn German from English with {n} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up.', { n: lang.limited ? data.localTotal : data.total })}
 	path="/"
-	ogTitle="Language Quiz — Swipe your way to German, free"
-	ogDescription="A German course for English speakers living in Germany or moving there: five-minute cards with lessons, quizzes and picture hunts, every sentence spoken, and a book for every level linked to the app. A1 to C2, no account."
+	ogTitle={t('Language Quiz — Swipe your way to German, free')}
+	ogDescription={t('A German course for English speakers living in Germany or moving there: five-minute cards with lessons, quizzes and picture hunts, every sentence spoken, and a book for every level linked to the app. A1 to C2, no account.')}
 	jsonLd={[websiteLd(), jsonLd, faqLd]}
 />
 

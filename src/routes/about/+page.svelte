@@ -9,13 +9,14 @@
 	import { absoluteUrl } from '$lib/seo';
 	import { page } from '$app/state';
 	import { lang } from '$lib/i18n/lang.svelte';
+	import { t } from '$lib/i18n/t';
 
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
 </script>
 
 <Seo
-	title="About Language Quiz: a free German course by a learner"
-	description="The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads."
+	title={t('About Language Quiz: a free German course by a learner')}
+	description={t('The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads.')}
 	path="/about"
 	jsonLd={[
 		{

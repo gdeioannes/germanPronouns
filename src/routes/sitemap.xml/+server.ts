@@ -1,6 +1,7 @@
 import { MATCH_CHATS } from '$lib/domain/matchChat';
 import { courses, loadCourse } from '$lib/content';
 import { SITE_URL } from '$lib/seo';
+import { localPages, PREFIX_LANGS, withLang } from '$lib/i18n/paths';
 import { coursePaths, DICTIONARY_PATH, lastModified, SHARED_WORD_PATHS } from '$lib/server/lastmod';
 import { nouns, verbs } from '$lib/server/words';
 import { wordSlug } from '$lib/domain/words';
@@ -84,16 +85,30 @@ export const GET: RequestHandler = async () => {
 		urls.push({ loc: `/words/verbs/${wordSlug(v.verb)}`, lastmod: wordsDate, priority: '0.5' });
 	}
 
-	const entries = urls
+	// The Turkish and Arabic twins (/tr/…, /ar/…) of the A1–A2 pages. Each of
+	// the three lists all three, so a search engine shows each reader theirs.
+	const course = await loadCourse(courses[0].id);
+	const twinned = new Set(localPages(course.id, course.quizzes).filter((p) => p !== '/settings'));
+	const langLinks = (bare: string) =>
+		[['en', bare], ...PREFIX_LANGS.map((l) => [l, withLang(l, bare)]), ['x-default', bare]]
+			.map(([l, path]) => `\n    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE_URL}${path}"/>`)
+			.join('');
+	const all = urls.flatMap((u) =>
+		twinned.has(u.loc)
+			? [u, ...PREFIX_LANGS.map((l) => ({ ...u, loc: withLang(l, u.loc) }))].map((v) => ({ ...v, bare: u.loc as string | null }))
+			: [{ ...u, bare: null as string | null }]
+	);
+
+	const entries = all
 		.map(
 			(u) =>
-				`  <url>\n    <loc>${SITE_URL}${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <priority>${u.priority}</priority>\n  </url>`
+				`  <url>\n    <loc>${SITE_URL}${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <priority>${u.priority}</priority>${u.bare ? langLinks(u.bare) : ''}\n  </url>`
 		)
 		.join('\n');
 
 	const body =
 		'<?xml version="1.0" encoding="UTF-8"?>\n' +
-		'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+		'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
 		entries +
 		'\n</urlset>';
 

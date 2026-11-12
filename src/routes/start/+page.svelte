@@ -66,7 +66,7 @@
 
 <Seo
 	title="{t('Where do you start?')} | Language Quiz"
-	description="New to German, or not? Start at the beginning, take a ten-minute placement test, or pick your level from A1 to C2."
+	description={t('New to German, or not? Start at the beginning, take a ten-minute placement test, or pick your level from A1 to C2.')}
 	path="/start"
 />
 

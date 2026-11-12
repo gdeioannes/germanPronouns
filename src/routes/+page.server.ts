@@ -8,6 +8,7 @@
 // and pull the whole course bundle in just to count its quizzes.
 
 import { catalog, courseCard, loadCourse } from '$lib/content';
+import { levelTranslated } from '$lib/i18n/available';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
@@ -29,6 +30,8 @@ export const load: PageServerLoad = async () => {
 		card,
 		firstQuizId: course.quizzes[0]?.id,
 		total: course.quizzes.length,
+		// What the Turkish and Arabic pages count: A1–A2.
+		localTotal: course.quizzes.filter((q) => levelTranslated(q.level)).length,
 		counts,
 		levels: letters,
 		subLevelCount: subLevels.length

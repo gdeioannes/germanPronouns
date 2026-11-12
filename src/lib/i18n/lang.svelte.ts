@@ -2,7 +2,8 @@
 // of the second languages (Turkish, Arabic) that cover A1–A2. German is what
 // is being learnt and never changes.
 //
-// Pages are prerendered in English. In the browser the language is known as
+// Pages are prerendered in English, and the translated ones again under
+// their language's prefix (/tr/…, /ar/…, see paths.ts). In the browser the language is known as
 // soon as this module loads, before hydration: Svelte 5 patches dynamic text
 // that differs from the prerendered HTML while it hydrates (set_text compares
 // with the node's value), so everything said through t() comes up translated.
@@ -16,6 +17,7 @@
 
 import { browser } from '$app/environment';
 import { tick } from 'svelte';
+import { pathLang } from './paths';
 
 export type UiLang = 'en' | 'tr' | 'ar';
 /** A second language: part of the site, A1–A2, translated by overlay. */
@@ -71,10 +73,12 @@ function stored(): UiLang | null {
 }
 
 /**
- * The language for this visit: ?lang= in the address, a saved choice, then
- * the first of the browser's languages the site speaks.
+ * The language for this visit: the address's prefix (/tr/…, /ar/…), ?lang=,
+ * a saved choice, then the first of the browser's languages the site speaks.
  */
-export function pickLang(search: string, saved: UiLang | null, browserLangs: readonly string[]): UiLang {
+export function pickLang(search: string, saved: UiLang | null, browserLangs: readonly string[], pathname = '/'): UiLang {
+	const prefixed = pathLang(pathname);
+	if (prefixed) return prefixed;
 	const asked = new URLSearchParams(search).get('lang');
 	if (isUiLang(asked)) return asked;
 	if (saved) return saved;
@@ -107,7 +111,7 @@ export async function startLang(prepare?: () => Promise<void>) {
 	// An explicit ?lang= is a choice; the browser's language is only a guess
 	// until the learner picks one, but it is kept so the next visit does not
 	// flip if the browser changes.
-	if (new URLSearchParams(location.search).get('lang') || !stored()) save(l);
+	if (pathLang(location.pathname) || new URLSearchParams(location.search).get('lang') || !stored()) save(l);
 	if (l !== 'en' && prepare) {
 		try {
 			await prepare();
@@ -135,7 +139,16 @@ export function setLang(l: UiLang) {
 	if (browser) void applyToDocument(l);
 }
 
+/**
+ * Prerendering: each page is built in the language of its address. Called by
+ * hooks.server.ts before every page (pages are built one at a time).
+ */
+export function serverLang(l: UiLang) {
+	lang.current = l;
+	lang.ready = true;
+}
+
 // The language is decided before anything renders (see the top of the file).
 if (browser) {
-	lang.current = pickLang(location.search, stored(), navigator.languages ?? [navigator.language]);
+	lang.current = pickLang(location.search, stored(), navigator.languages ?? [navigator.language], location.pathname);
 }

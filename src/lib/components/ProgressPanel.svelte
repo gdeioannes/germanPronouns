@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
 	// The progress panel: what the ring beside the deck chip opens. The ring
 	// shows one number — the current sub-level — and this is the rest: the
 	// whole course, accuracy, medals, every sub-level and exercise type, and
@@ -195,7 +196,8 @@
 
 	<!-- Last, and deliberately here: this panel is the page about the learner's
 	     progress, so it is the honest place to say where that progress lives. -->
-	{#if account.available}
+	<!-- Signing in is English-only: hidden in Turkish and Arabic, as in Settings. -->
+	{#if account.available && !lang.limited}
 		<h3 class="section">{t('Keep it safe')}</h3>
 		<AccountCard heading={false} />
 	{/if}

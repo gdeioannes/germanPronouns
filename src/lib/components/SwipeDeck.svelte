@@ -57,6 +57,8 @@
 	import { checkDue, parseLog, WORD_CHECK_LOG, type CheckLogEntry } from '$lib/domain/wordCheck';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
+	import { pathLang, withLang } from '$lib/i18n/paths';
+	import { page } from '$app/state';
 	import { progress } from '$lib/state/progress.svelte';
 	import type { QuizFacts } from '$lib/domain/recommend';
 	import type { CourseSummary } from '$lib/content/types';
@@ -477,7 +479,9 @@
 		}
 		if (isWortCard(card)) return WORT_PATH;
 		if (isCheckCard(card)) return CHECK_PATH;
-		return storyCardHref(card) ?? `/course/${course.id}/quiz/${card.quiz.id}`;
+		// On a /tr/ or /ar/ address the exercise opens at its own twin, so the
+		// address stays in the language (and shares as such).
+		return storyCardHref(card) ?? withLang(pathLang(page.url.pathname), `/course/${course.id}/quiz/${card.quiz.id}`);
 	}
 
 	function onDown(event: PointerEvent) {

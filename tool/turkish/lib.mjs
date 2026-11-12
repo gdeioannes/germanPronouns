@@ -136,6 +136,12 @@ export function quizStrings(quiz) {
 	for (const [p, s, k] of leaves(rest)) if (wanted(k, s)) out[p] = s;
 	completeChoices(rest, out);
 	completeTables(rest, out);
+	// A rule's title is short and often has no word that gives its English
+	// away ("Time words", "Answer every point"): every one goes to the
+	// translator, who leaves the German ones ("um · am · im") as they are.
+	(rest.help?.tips ?? []).forEach((tip, i) => {
+		if (typeof tip?.title === 'string' && tip.title.trim()) out[`help.tips[${i}].title`] = tip.title;
+	});
 	if (title && englishWords(title) >= 1) out.title = title;
 	return out;
 }

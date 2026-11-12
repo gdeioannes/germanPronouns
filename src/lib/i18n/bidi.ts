@@ -108,3 +108,11 @@ export function isolateLatin(s: string): string {
 		return `${FSI}${run}${PDI}`;
 	});
 }
+
+/** The direction marks isolateLatin adds (and LRM/RLM), as a pattern. */
+const MARKS = new RegExp(`[${String.fromCharCode(0x2066)}-${String.fromCharCode(0x2069, 0x200e, 0x200f)}]`, 'g');
+
+/** Text without its invisible direction marks: for a search result or a share card. */
+export function stripBidi(s: string): string {
+	return s.replace(MARKS, '');
+}

@@ -53,7 +53,7 @@
 
 <!-- Outside the strip's own `#if`, so dismissing the strip while the sheet is
      open doesn't tear the sheet out from under the learner. -->
-{#if account.available}
+{#if account.available && !lang.limited}
 	<Sheet bind:open={signInOpen} title="Save your progress" id="sign-in-panel">
 		<AccountCard heading={false} />
 		{#snippet footer()}

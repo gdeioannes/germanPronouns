@@ -1,12 +1,25 @@
 import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
+import { localPages, PREFIX_LANGS, withLang } from './src/lib/i18n/paths';
 
 // The content bundles: typed JSON, one per course, plus the shared noun and
 // verb collections. Aliased rather than imported by relative path so a route
 // five folders deep still says `$content/...`.
 const content = fileURLToPath(new URL('./assets/content', import.meta.url));
+
+// The Turkish and Arabic pages (/tr/…, /ar/…): the same routes, prerendered
+// once more in each language. Listed here because nothing in the English
+// site links to them by a path the prerender crawler follows.
+const catalog = JSON.parse(readFileSync(`${content}/catalog.json`, 'utf8')) as { defaultCourseId: string };
+const bundle = JSON.parse(readFileSync(`${content}/courses/${catalog.defaultCourseId}.json`, 'utf8')) as {
+	quizzes: { id: string; level?: string | null }[];
+};
+const localEntries = PREFIX_LANGS.flatMap((l): `/${string}`[] =>
+	localPages(catalog.defaultCourseId, bundle.quizzes).map((path) => withLang(l, path) as `/${string}`)
+);
 
 export default defineConfig({
 	resolve: { alias: { $content: content } },
@@ -42,7 +55,8 @@ export default defineConfig({
 
 			// Fully static output: every route is prerendered to real HTML at build
 			// time and served from GitHub Pages, so crawlers see the content itself.
-			adapter: adapter({ fallback: '404.html' })
+			adapter: adapter({ fallback: '404.html' }),
+			prerender: { entries: ['*', ...localEntries] }
 		})
 	]
 });

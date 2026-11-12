@@ -27,6 +27,9 @@
 	import { t } from '$lib/i18n/t';
 	import { LANG_OPTIONS, LANGUAGE_LABEL } from '$lib/i18n/languages';
 	import { levelTranslated } from '$lib/i18n/available';
+	import { addressIn, pathLang } from '$lib/i18n/paths';
+	import { page } from '$app/state';
+	import { goto } from '$app/navigation';
 
 	let course = $state<PopulatedCourse | null>(null);
 	let confirmingReset = $state(false);
@@ -122,6 +125,8 @@
 						if (code === lang.current) return;
 						track('language_picked', { from: lang.current, to: code, where: 'settings' });
 						setLang(code as UiLang);
+						// On a /tr/ or /ar/ address, the page moves to its twin in the new language.
+						if (pathLang(page.url.pathname)) void goto(addressIn(code, page.url.pathname), { replaceState: true, noScroll: true, keepFocus: true });
 					}}
 				>
 					{label}

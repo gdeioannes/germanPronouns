@@ -16,6 +16,16 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-12",
+    title: "Turkish and Arabic pages search engines can find",
+    items: [
+      "Every A1–A2 page now has its own Turkish address under /tr/ and its own Arabic address under /ar/, already written in that language, so someone searching in Turkish or Arabic can land straight on a lesson in their language.",
+      "Each page tells search engines about its English, Turkish and Arabic versions, so each reader is shown theirs.",
+      "Opening such an address sets the site to that language, and the language picker takes you to the same page in the language you choose. Links inside the site keep you on those addresses.",
+      "Some leftover English in Turkish and Arabic is translated now: the \"In progress\" badge, the medal hints, the section names and 65 rule titles in the lessons.",
+    ],
+  },
+  {
     date: "2026-11-11",
     title: "Turkish and Arabic: every exercise opens, every answer stays German",
     items: [

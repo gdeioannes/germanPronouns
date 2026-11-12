@@ -219,9 +219,9 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 		if (tip.check && tip.check.options.includes(tip.check.answer)) {
 			steps.push({
 				kind: 'check',
-				label: 'Quick check',
+				label: t('Quick check'),
 				check: {
-					eyebrow: 'Quick check',
+					eyebrow: t('Quick check'),
 					question: tip.check.q,
 					options: seededShuffle(tip.check.options, `${quiz.id}:${i}`),
 					answer: tip.check.answer,
@@ -242,7 +242,7 @@ export function buildLesson(quiz: Quiz, derivedVocab?: VocabEntry[]): LessonStep
 	}
 
 	// 4 · The structure in a real exchange.
-	if (help.context) steps.push({ kind: 'context', label: 'In context', context: help.context });
+	if (help.context) steps.push({ kind: 'context', label: t('In context'), context: help.context });
 
 	// 5 · The mistakes English speakers make, as "which one is right?".
 	(help.mistakes ?? []).forEach((m, i) => {

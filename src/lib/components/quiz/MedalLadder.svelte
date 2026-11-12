@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The medal ladder over a drill, kept as quiet as the mode switch it
 	// replaced: three ways of answering, easiest first. Each pill carries a
 	// slot for its medal — an outline until it is won, the metal after. On
@@ -73,7 +74,7 @@
 	}
 </script>
 
-<div class="ladder" class:wide={children} role="group" aria-label="Cards">
+<div class="ladder" class:wide={children} role="group" aria-label={t('Cards')}>
 	{#each steps as step, i (step.label)}
 		{@const tier = LADDER_TIERS[i]}
 		{@const won = ladderStepEarned(record, i)}
@@ -87,8 +88,10 @@
 			style:--metal={TIER_COLORS[tier]}
 			aria-pressed={i === active}
 			aria-label="{step.label}: {step.hint} {won
-				? `${TIER_LABELS[tier]} medal earned.`
-				: `${LADDER_PASS} right in a run earns ${TIER_LABELS[tier].toLowerCase()}${i === active && counting ? `; ${right} so far` : ''}.`}"
+				? t('{tier} medal earned.', { tier: t(TIER_LABELS[tier]) })
+				: i === active && counting
+					? t('{n} right in a run earns {tier}; {right} so far.', { n: LADDER_PASS, tier: t(TIER_LABELS[tier]).toLowerCase(), right })
+					: t('{n} right in a run earns {tier}.', { n: LADDER_PASS, tier: t(TIER_LABELS[tier]).toLowerCase() })}"
 			title={step.hint}
 			{disabled}
 			onclick={() => onpick(i)}

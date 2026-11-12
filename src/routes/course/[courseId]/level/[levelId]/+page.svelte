@@ -2,7 +2,7 @@
 	import { t } from '$lib/i18n/t';
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
-	import { absoluteUrl, breadcrumbLd, clip, shareImage, titleWithSite, topicOf } from '$lib/seo';
+	import { absoluteUrl, breadcrumbLd, clip, localLevelSeo, shareImage, titleWithSite, topicOf } from '$lib/seo';
 	// A sub-level's syllabus: what it teaches, against what official source,
 	// and which exercise covers each item. The learner-facing version of the
 	// content master plan's module table — the page to check "have I covered
@@ -23,6 +23,8 @@
 	const { course, level, title, quizzes, previous, next } = $derived(data);
 	// The syllabus card through the level's Turkish overlay (text map).
 	const module = $derived(inLang(data.module, data.level));
+	// Turkish and Arabic search wording (null in English).
+	const localSeo = $derived(localLevelSeo(module?.title ?? topicOf(title), level, module?.canDo, quizzes.length));
 
 	onMount(async () => {
 		if (!progress.loaded) await progress.load();
@@ -47,10 +49,11 @@
 </script>
 
 <Seo
-	title={titleWithSite(`${module?.title ?? topicOf(title)} (${level}) – German exercises`)}
-	description={clip(
-		`German ${level}: ${module?.canDo?.slice(0, 2).join('; ') ?? title}. ${quizzes.length} free exercises mapped to the official ${level.slice(0, 2)} syllabus.`
-	)}
+	title={localSeo?.title ?? titleWithSite(`${module?.title ?? topicOf(title)} (${level}) – German exercises`)}
+	description={localSeo?.description ??
+		clip(
+			`German ${level}: ${module?.canDo?.slice(0, 2).join('; ') ?? title}. ${quizzes.length} free exercises mapped to the official ${level.slice(0, 2)} syllabus.`
+		)}
 	path="/course/{course.id}/level/{level}"
 	image={shareImage('level', level)}
 	imageAlt="German {level}: {module?.title ?? title}"

@@ -2298,4 +2298,55 @@ export const TR: Record<string, string> = {
 	'In Germany': 'Almanya’da',
 	'Tip': 'İpucu',
 	'Column for {w}': '{w} için sütun',
+	// Search titles and descriptions (the /tr/ and /ar/ pages)
+	"Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz":
+		"Almanca Öğren: Türkçe Açıklamalı Ücretsiz Kurs, A1–A2 | Language Quiz",
+	"Learn German from English with {n} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up.":
+		"Türkçe konu anlatımıyla Almanca öğren: A1 ve A2 için {n} kısa ders ve alıştırma, her cümle sesli, ücretsiz PDF kitaplar. Üyelik yok.",
+	"Language Quiz — Swipe your way to German, free":
+		"Language Quiz — Türkçe açıklamalı Almanca, ücretsiz",
+	"A German course for English speakers living in Germany or moving there: five-minute cards with lessons, quizzes and picture hunts, every sentence spoken, and a book for every level linked to the app. A1 to C2, no account.":
+		"Almanya’da yaşayan ya da Almanya’ya taşınan Türkçe konuşanlar için Almanca kursu: beş dakikalık kartlarla dersler ve alıştırmalar, her cümle sesli, her seviye için uygulamaya bağlı bir kitap. A1–A2, hesap gerekmez.",
+	"The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads.":
+		"Language Quiz’in hikâyesi: Almanya’da yaşayan bir öğrencinin, klasik kurslarda zorlananlar için hazırladığı ücretsiz ve erişilebilir Almanca kursu. Hesap yok, reklam yok.",
+	"Twelve German books, one per level from A1.1 to C2.2: real places, stories, real documents and practice, 131 pages each. Read them online or download the free PDF.":
+		"A1.1’den A2.2’ye dört Almanca kitap, Türkçe açıklamalı: gerçek yerler, hikâyeler, gerçek belgeler ve alıştırmalar. Ücretsiz PDF olarak indir.",
+	"Get in touch with the person behind Language Quiz: feedback, corrections, questions. One quick human check, then the email address.":
+		"Language Quiz’i hazırlayan kişiyle iletişime geç: görüş, düzeltme, soru. Kısa bir doğrulama, ardından e-posta adresi.",
+	"German A1–A2: {n} free exercises with audio | Language Quiz":
+		"Almanca A1–A2: {n} ücretsiz sesli alıştırma, Türkçe açıklamalı | Language Quiz",
+	"Free German exercises A1 to A2 with audio: grammar, reading, listening, dictation and speaking, {n} in all. No sign-up.":
+		"Türkçe açıklamalı ücretsiz Almanca A1–A2 alıştırmaları: dil bilgisi, okuma, dinleme, dikte ve konuşma, toplam {n} alıştırma, her cümle sesli. Üyelik yok.",
+	"What is my German level? Free word check | Language Quiz":
+		"Almanca seviyem ne? Ücretsiz kelime testi | Language Quiz",
+	"Find your German level from A1 to C2 in about two minutes: tap the words you know, see about how many German words you know, and where to start learning.":
+		"Almanca seviyeni yaklaşık iki dakikada bul: bildiğin kelimelere dokun, kaç Almanca kelime bildiğini ve nereden başlayacağını gör.",
+	"German placement test: find your level | Language Quiz":
+		"Almanca seviye tespit sınavı: seviyeni bul | Language Quiz",
+	"A free ten-minute German placement test from A1 to C2: words, grammar, reading and listening, and the level to start learning at.":
+		"On dakikalık ücretsiz Almanca seviye testi: kelime, dil bilgisi, okuma ve dinleme; sonunda hangi seviyeden başlayacağını öğren.",
+	"New to German, or not? Start at the beginning, take a ten-minute placement test, or pick your level from A1 to C2.":
+		"Almancaya yeni mi başlıyorsun? Baştan başla, on dakikalık seviye testini çöz ya da A1 ile A2 arasında seviyeni seç.",
+	"In progress":
+		"Devam ediyor",
+	"Cards":
+		"Kartlar",
+	"{tier} medal earned.":
+		"{tier} madalya kazanıldı.",
+	"{n} right in a run earns {tier}; {right} so far.":
+		"Bir turda {n} doğru {tier} kazandırır; şimdiye kadar {right}.",
+	"{n} right in a run earns {tier}.":
+		"Bir turda {n} doğru {tier} kazandırır.",
+	"Sections":
+		"Bölümler",
+	"Section {i}":
+		"Bölüm {i}",
+	"Quick check":
+		"Hızlı kontrol",
+	", done":
+		", tamamlandı",
+	", right":
+		", doğru",
+	", wrong":
+		", yanlış",
 };

@@ -73,7 +73,7 @@
 			{ name: 'Contact', path: '/contact' }
 		])
 	]}
-	description="Get in touch with the person behind Language Quiz: feedback, corrections, questions. One quick human check, then the email address."
+	description={t('Get in touch with the person behind Language Quiz: feedback, corrections, questions. One quick human check, then the email address.')}
 	path="/contact"
 />
 
@@ -81,7 +81,7 @@
 
 <main class="page">
 	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
-	<h1>Contact</h1>
+	<h1>{t('Contact')}</h1>
 	<p class="lede">
 		{t('Found a mistake, something confusing, or something missing? I genuinely want to hear it — the app has grown out of exactly that kind of feedback. There is no form and no tracking: you get my email address and write from your own inbox.')}
 	</p>

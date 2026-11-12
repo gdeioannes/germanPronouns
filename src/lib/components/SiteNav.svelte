@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { stripLang } from '$lib/i18n/paths';
 	// The site's top bar: brand + main links. The landing page shows it in
 	// full. The course pages pass `compact`: a slim sticky bar — logo on the
 	// left, a Menu button on the right that drops the links down — which slips
@@ -31,9 +32,9 @@
 	let { courseHref, compact = false }: { courseHref: string; compact?: boolean } = $props();
 
 	// Inside the course "Open the course" would point at where you already are.
-	const inCourse = $derived(
-		page.url.pathname === courseHref || page.url.pathname.startsWith(`${courseHref}/`)
-	);
+	// (A /tr/ or /ar/ address is the same page.)
+	const bare = $derived(stripLang(page.url.pathname));
+	const inCourse = $derived(bare === courseHref || bare.startsWith(`${courseHref}/`));
 
 	// The twelve levels used to be a menu here too; learners tapped them instead
 	// of starting the course, so they live in the footer and on /start now.

@@ -3,6 +3,7 @@
 // image and the title shape can never drift between routes.
 
 import type { Quiz, QuizType } from '$lib/content/types';
+import { lang, type LocalLang } from '$lib/i18n/lang.svelte';
 
 export const SITE_URL = 'https://languagequiz.org';
 export const SITE_NAME = 'Language Quiz';
@@ -11,16 +12,14 @@ export const DEFAULT_IMAGE_ALT =
 	'Language Quiz - learn German free, A1 to C2, with audio';
 
 /**
- * The language of the interface. Every page is in English today; the
- * plumbing (html lang, og:locale, hreflang) reads this one table so a
- * translated set of routes only has to add a row.
+ * The languages pages are written in. English is the bare site; the Turkish
+ * and Arabic twins of the A1–A2 pages live under /tr/ and /ar/.
  */
 export const DEFAULT_LANG = 'en';
 export const LOCALES: Record<string, { ogLocale: string }> = {
 	en: { ogLocale: 'en_GB' },
-	de: { ogLocale: 'de_DE' },
-	es: { ogLocale: 'es_ES' },
-	zh: { ogLocale: 'zh_CN' }
+	tr: { ogLocale: 'tr_TR' },
+	ar: { ogLocale: 'ar_AR' }
 };
 
 /** One translated twin of a page, for its hreflang link. */
@@ -99,6 +98,63 @@ const RESOURCE_TYPE: Record<QuizType, string> = {
 };
 
 /**
+ * Search wording for the Turkish and Arabic pages. Written as people search
+ * in each language, not translated word for word: Turkish learners look for
+ * "konu anlatımı" (a topic explained), Arabic ones for «شرح» and «تمارين».
+ * Each kind already names German, so a title reads "<topic> – <kind> A1".
+ */
+const LOCAL_SEO: Record<
+	LocalLang,
+	{ kind: Record<QuizType, string>; german: string; free: string; level: string; levelLine: (level: string, n: number) => string }
+> = {
+	tr: {
+		kind: {
+			fillBlank: 'Almanca konu anlatımı ve alıştırma',
+			reading: 'Almanca okuma alıştırması',
+			listening: 'Almanca dinleme alıştırması',
+			dictation: 'Almanca dikte',
+			speakRepeat: 'Almanca telaffuz alıştırması',
+			speaking: 'Almanca konuşma alıştırması',
+			writing: 'Almanca yazma alıştırması',
+			vocabulary: 'Almanca kelime kartları',
+			suchbild: 'resimli Almanca kelime oyunu'
+		},
+		german: 'Almanca',
+		free: 'Türkçe açıklamalı, kurallar, örnekler ve seslendirmeyle, ücretsiz.',
+		level: 'Almanca konu anlatımı ve alıştırmalar',
+		levelLine: (level, n) => `Türkçe açıklamalı ${n} ücretsiz Almanca ${level} alıştırması, her cümle sesli.`
+	},
+	ar: {
+		kind: {
+			fillBlank: 'شرح وتمارين اللغة الألمانية',
+			reading: 'تمرين قراءة بالألمانية',
+			listening: 'تمرين استماع بالألمانية',
+			dictation: 'إملاء بالألمانية',
+			speakRepeat: 'تمرين نطق ألماني',
+			speaking: 'تمرين محادثة بالألمانية',
+			writing: 'تمرين كتابة بالألمانية',
+			vocabulary: 'بطاقات مفردات ألمانية',
+			suchbild: 'لعبة مفردات ألمانية بالصور'
+		},
+		german: 'الألمانية',
+		free: 'بشرح عربي، مع القواعد والأمثلة والصوت، مجانًا.',
+		level: 'شرح وتمارين اللغة الألمانية',
+		levelLine: (level, n) => `${n} تمرينًا مجانيًا في الألمانية ${level} بشرح عربي، وكل جملة مسموعة.`
+	}
+};
+
+/** The level page's title and description in a second language, or null in English. */
+export function localLevelSeo(title: string, level: string, canDo: string[] | undefined, n: number) {
+	const l = lang.local;
+	if (!l) return null;
+	const words = LOCAL_SEO[l];
+	return {
+		title: titleWithSite(`${title} (${level}) – ${words.level}`),
+		description: clip(`${canDo?.length ? `${level}: ${canDo.slice(0, 2).join(l === 'ar' ? '؛ ' : '; ')}. ` : ''}${words.levelLine(level, n)}`)
+	};
+}
+
+/**
  * A page title with the site name appended when it still fits: a result
  * shows about 60 characters, and what people searched for comes first.
  */
@@ -113,6 +169,13 @@ export function titleWithSite(title: string, max = 65): string {
  */
 export function quizTitle(quiz: Quiz): string {
 	const topic = topicOf(quiz.title);
+	const local = lang.local;
+	if (local) {
+		const level = quiz.type === 'vocabulary' ? (quiz.level ?? '') : cefrOf(quiz.level);
+		const kind = `${LOCAL_SEO[local].kind[quiz.type]} ${level}`.trim();
+		const fits = [`${topic} – ${kind} | ${SITE_NAME}`, `${topic} – ${kind}`, `${topic} – ${LOCAL_SEO[local].german} ${level}`];
+		return fits.find((t) => t.length <= 70) ?? fits[fits.length - 1];
+	}
 	// There is a deck per sub-level, all called "Wortschatz": the sub-level is
 	// what keeps the A1.1 and A1.2 decks from sharing one title.
 	const level = quiz.type === 'vocabulary' ? (quiz.level ?? '') : cefrOf(quiz.level);
@@ -134,6 +197,13 @@ export function quizTitle(quiz: Quiz): string {
 export function quizDescription(quiz: Quiz): string {
 	const intro = quiz.help?.intro;
 	const cefr = cefrOf(quiz.level);
+	const local = lang.local;
+	if (local) {
+		const opening = intro ? `${cefr}: ${lead(intro, 150)}` : `${LOCAL_SEO[local].kind[quiz.type]} ${cefr}: ${topicOf(quiz.title)}.`;
+		if (opening.length >= 100) return clip(opening);
+		const padded = `${opening} ${LOCAL_SEO[local].free}`.replace(/\s+/g, ' ');
+		return padded.length <= 155 ? padded : clip(opening);
+	}
 	if (intro) {
 		const opening = `${cefr}: ${lead(intro, 150)}`;
 		// One short sentence is too thin for a result snippet: say what the page offers.
@@ -178,7 +248,7 @@ export function websiteLd() {
 		'@type': 'WebSite',
 		name: SITE_NAME,
 		url: SITE_URL,
-		inLanguage: DEFAULT_LANG,
+		inLanguage: lang.current,
 		publisher: ORGANIZATION
 	};
 }
@@ -233,8 +303,8 @@ export function courseLd(course: { id: string; name: string; tagline: string }, 
 		name: course.name,
 		description: course.tagline,
 		url: absoluteUrl(`/course/${course.id}`),
-		educationalLevel: 'CEFR A1–C2',
-		inLanguage: DEFAULT_LANG,
+		educationalLevel: lang.limited ? 'CEFR A1–A2' : 'CEFR A1–C2',
+		inLanguage: lang.current,
 		teaches: 'German',
 		isAccessibleForFree: true,
 		provider: ORGANIZATION,
@@ -262,7 +332,7 @@ export function learningResourceLd(quiz: Quiz, path: string, courseName: string,
 		name: topicOf(quiz.title),
 		description: quizDescription(quiz),
 		url: absoluteUrl(path),
-		inLanguage: ['en', 'de'],
+		inLanguage: [lang.current, 'de'],
 		learningResourceType: RESOURCE_TYPE[quiz.type],
 		educationalLevel: cefr ? `CEFR ${cefr}` : undefined,
 		teaches: topicOf(quiz.title),

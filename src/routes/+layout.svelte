@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
+	import { beforeNavigate, goto, onNavigate } from '$app/navigation';
+	import { hasTwin, pathLang, withLang } from '$lib/i18n/paths';
 	import { page } from '$app/state';
 	import { cubicOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
@@ -48,6 +49,19 @@
 				remount++;
 			})
 	);
+
+	// In Turkish or Arabic, a page that has its own address in the language
+	// (/tr/…, /ar/…) is opened there, wherever the link came from: the address
+	// then says the language, and a shared link opens in it. The back button
+	// is left alone.
+	beforeNavigate((nav) => {
+		const l = lang.local;
+		const to = nav.to?.url;
+		if (!l || !to || nav.type === 'popstate' || nav.type === 'leave' || to.origin !== location.origin) return;
+		if (pathLang(to.pathname) || !hasTwin(to.pathname)) return;
+		nav.cancel();
+		void goto(withLang(l, to.pathname) + to.search + to.hash);
+	});
 
 	// Right to left (Arabic): German text keeps running left to right.
 	$effect(() => {

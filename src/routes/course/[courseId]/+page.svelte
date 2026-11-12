@@ -112,8 +112,12 @@
 </script>
 
 <Seo
-	title="{course.name}: {course.quizzes.length} free exercises with audio | Language Quiz"
-	description={clip(`${course.tagline}. ${course.quizzes.length} free interactive German exercises — grammar, reading, listening, dictation and speaking, with audio. No sign-up.`)}
+	title={lang.limited
+		? t('German A1–A2: {n} free exercises with audio | Language Quiz', { n: course.quizzes.length })
+		: `${course.name}: ${course.quizzes.length} free exercises with audio | Language Quiz`}
+	description={lang.limited
+		? t('Free German exercises A1 to A2 with audio: grammar, reading, listening, dictation and speaking, {n} in all. No sign-up.', { n: course.quizzes.length })
+		: clip(`${course.tagline}. ${course.quizzes.length} free interactive German exercises — grammar, reading, listening, dictation and speaking, with audio. No sign-up.`)}
 	path="/course/{course.id}"
 	jsonLd={[
 		breadcrumbLd([

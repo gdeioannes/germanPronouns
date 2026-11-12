@@ -344,8 +344,8 @@
 </script>
 
 <Seo
-	title="German placement test: find your level | Language Quiz"
-	description="A free ten-minute German placement test from A1 to C2: words, grammar, reading and listening, and the level to start learning at."
+	title={t('German placement test: find your level | Language Quiz')}
+	description={t('A free ten-minute German placement test from A1 to C2: words, grammar, reading and listening, and the level to start learning at.')}
 	path="/level-check/test"
 	jsonLd={[breadcrumbLd([{ name: 'Home', path: '/' }, { name: 'Your level', path: '/level-check' }, { name: 'Placement test', path: '/level-check/test' }])]}
 />

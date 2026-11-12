@@ -3,6 +3,7 @@
 	export type StepMark = 'done' | 'right' | 'wrong' | null;
 
 	/** What a dot's colour says, for a screen reader. */
+	// English keys; said through t() where they are used.
 	const MARK_SPOKEN: Record<string, string> = { done: ', done', right: ', right', wrong: ', wrong' };
 </script>
 
@@ -151,14 +152,14 @@
 		{/each}
 	</div>
 
-	<nav class="rail" aria-label="Sections">
+	<nav class="rail" aria-label={t('Sections')}>
 		<button type="button" class="arrow" onclick={() => go(index - 1)} disabled={index === 0} aria-label={t('Previous section')}>
 			<Icon name="arrowLeft" size="1.1em" />
 		</button>
 
 		<div class="middle">
 			<span class="counter tnum">
-				<strong>{index + 1}</strong> / {count}{#if labels[index]}<span class="label">{` · ${labels[index]}`}</span>{/if}
+				<strong>{index + 1}</strong> / {count}{#if labels[index]}<span class="label">{` · ${t(labels[index])}`}</span>{/if}
 			</span>
 			<div class="dots">
 				{#each { length: count } as _, i (i)}
@@ -168,9 +169,9 @@
 						class:current={i === index}
 						data-mark={marks[i] ?? ''}
 						onclick={() => go(i)}
-						aria-label="Section {i + 1}{labels[i] ? `: ${labels[i]}` : ''}{MARK_SPOKEN[marks[i] ?? ''] ?? ''}"
+						aria-label={t('Section {i}', { i: i + 1 }) + (labels[i] ? `: ${t(labels[i])}` : '') + (MARK_SPOKEN[marks[i] ?? ''] ? t(MARK_SPOKEN[marks[i] ?? '']) : '')}
 						aria-current={i === index ? 'step' : undefined}
-						title={labels[i]}
+						title={labels[i] ? t(labels[i]) : undefined}
 					></button>
 				{/each}
 			</div>

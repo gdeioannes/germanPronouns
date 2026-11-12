@@ -9,6 +9,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import { LANG_OPTIONS, LANGUAGE_LABEL } from '$lib/i18n/languages';
 	import { track } from '$lib/services/analytics';
+	import { addressIn } from '$lib/i18n/paths';
 
 	const OPTIONS = LANG_OPTIONS;
 
@@ -23,9 +24,11 @@
 		// Sent with keepalive, so it survives the reload just below.
 		track('language_picked', { from: lang.current, to: code, where: 'home' });
 		setLang(code);
-		// A ?lang= in the address would win over the saved choice on reload.
+		// A ?lang= in the address would win over the saved choice on reload, and
+		// the page has its own address in each language (/tr/…, /ar/…).
 		const url = new URL(location.href);
 		url.searchParams.delete('lang');
+		url.pathname = addressIn(code, url.pathname);
 		location.replace(url);
 	}
 

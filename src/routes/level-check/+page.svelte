@@ -41,8 +41,8 @@
 </script>
 
 <Seo
-	title="What is my German level? Free word check | Language Quiz"
-	description="Find your German level from A1 to C2 in about two minutes: tap the words you know, see about how many German words you know, and where to start learning."
+	title={t('What is my German level? Free word check | Language Quiz')}
+	description={t('Find your German level from A1 to C2 in about two minutes: tap the words you know, see about how many German words you know, and where to start learning.')}
 	path="/level-check"
 	jsonLd={[
 		{

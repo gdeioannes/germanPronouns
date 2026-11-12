@@ -16,7 +16,7 @@
 // level's text map, keyed by the English itself. German is never a key.
 
 import { lang, type LocalLang } from './lang.svelte';
-import { levelTranslated } from './available';
+import { LOCAL_LEVELS, levelTranslated } from './available';
 import { isolateLatin } from './bidi';
 
 type Pairs = Record<string, [string, string]>;
@@ -220,4 +220,13 @@ export function localGloss(de: string, pos: string): string | null {
 	if (!l) return null;
 	if (!glossaries[l] && !glossaryPending.has(l)) void loadGlossary(l);
 	return glossaries[l]?.[`${de}|${pos}`] ?? null;
+}
+
+/**
+ * Everything a page in a second language may need, loaded before it renders:
+ * the four A1–A2 overlays and the word meanings. For prerendering the /tr/
+ * and /ar/ pages (hooks.server.ts), so their HTML is translated throughout.
+ */
+export async function preloadLanguage(l: LocalLang): Promise<void> {
+	await Promise.all([...LOCAL_LEVELS.map((level) => load(l, level)), loadGlossary(l)]);
 }

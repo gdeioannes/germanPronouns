@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/i18n/t';
 	// The "started, not finished" marker: a half-filled dot, with or without
 	// its label. Sits where a finished exercise shows its medal ribbon, so the
 	// two read as one scale — nothing, half, done.
@@ -9,9 +10,9 @@
 	} = $props();
 </script>
 
-<span class="in-progress" class:bare={!label} class:float title="In progress">
+<span class="in-progress" class:bare={!label} class:float title={t('In progress')}>
 	<span class="dot" aria-hidden="true"></span>
-	{#if label}In progress{:else}<span class="sr-only">In progress</span>{/if}
+	{#if label}{t('In progress')}{:else}<span class="sr-only">{t('In progress')}</span>{/if}
 </span>
 
 <style>

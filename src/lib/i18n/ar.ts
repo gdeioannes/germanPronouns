@@ -2583,4 +2583,55 @@ export const AR: Record<string, string> = {
 		"فصل",
 	"No. Your progress is saved in your own browser, with nothing to sign up for.":
 		"لا. يُحفظ تقدمك في متصفحك أنت، ولا شيء تحتاج أن تسجّل فيه.",
+	// Search titles and descriptions (the /tr/ and /ar/ pages)
+	"Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz":
+		"تعلم اللغة الألمانية بالعربي: دورة مجانية من A1 إلى A2 | Language Quiz",
+	"Learn German from English with {n} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up.":
+		"تعلّم الألمانية بشرح عربي: {n} درسًا وتمرينًا قصيرًا للمستويين A1 وA2، كل جملة مسموعة، وكتب PDF مجانية. بدون تسجيل.",
+	"Language Quiz — Swipe your way to German, free":
+		"Language Quiz — الألمانية بشرح عربي، مجانًا",
+	"A German course for English speakers living in Germany or moving there: five-minute cards with lessons, quizzes and picture hunts, every sentence spoken, and a book for every level linked to the app. A1 to C2, no account.":
+		"دورة ألمانية للناطقين بالعربية في ألمانيا أو القادمين إليها: بطاقات من خمس دقائق فيها دروس وتمارين، كل جملة مسموعة، وكتاب لكل مستوى مرتبط بالتطبيق. من A1 إلى A2، بدون حساب.",
+	"The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads.":
+		"قصة Language Quiz: دورة ألمانية مجانية وسهلة الاستخدام أعدّها متعلّم يعيش في ألمانيا لمن يجدون صعوبة في الدورات التقليدية. بدون حساب وبدون إعلانات.",
+	"Twelve German books, one per level from A1.1 to C2.2: real places, stories, real documents and practice, 131 pages each. Read them online or download the free PDF.":
+		"أربعة كتب ألمانية من A1.1 إلى A2.2 بشرح عربي: أماكن حقيقية وقصص ووثائق حقيقية وتمارين. حمّلها مجانًا بصيغة PDF.",
+	"Get in touch with the person behind Language Quiz: feedback, corrections, questions. One quick human check, then the email address.":
+		"تواصل مع صاحب Language Quiz: ملاحظات وتصحيحات وأسئلة. تحقّق سريع من أنك إنسان، ثم يظهر عنوان البريد الإلكتروني.",
+	"German A1–A2: {n} free exercises with audio | Language Quiz":
+		"الألمانية A1–A2: {n} تمرينًا مجانيًا بالصوت وبشرح عربي | Language Quiz",
+	"Free German exercises A1 to A2 with audio: grammar, reading, listening, dictation and speaking, {n} in all. No sign-up.":
+		"تمارين ألمانية مجانية من A1 إلى A2 بشرح عربي: قواعد وقراءة واستماع وإملاء ومحادثة، {n} تمرينًا في المجموع، وكل جملة مسموعة. بدون تسجيل.",
+	"What is my German level? Free word check | Language Quiz":
+		"ما مستواي في الألمانية؟ اختبار كلمات مجاني | Language Quiz",
+	"Find your German level from A1 to C2 in about two minutes: tap the words you know, see about how many German words you know, and where to start learning.":
+		"اعرف مستواك في الألمانية في دقيقتين تقريبًا: اضغط على الكلمات التي تعرفها، لترى كم كلمة ألمانية تعرف ومن أين تبدأ.",
+	"German placement test: find your level | Language Quiz":
+		"اختبار تحديد المستوى في الألمانية: اعرف مستواك | Language Quiz",
+	"A free ten-minute German placement test from A1 to C2: words, grammar, reading and listening, and the level to start learning at.":
+		"اختبار مجاني لتحديد مستواك في الألمانية في عشر دقائق: مفردات وقواعد وقراءة واستماع، ثم المستوى الذي تبدأ منه.",
+	"New to German, or not? Start at the beginning, take a ten-minute placement test, or pick your level from A1 to C2.":
+		"هل أنت جديد على الألمانية؟ ابدأ من البداية، أو خذ اختبار تحديد المستوى في عشر دقائق، أو اختر مستواك بين A1 وA2.",
+	"In progress":
+		"قيد التقدّم",
+	"Cards":
+		"البطاقات",
+	"{tier} medal earned.":
+		"حصلت على ميدالية {tier}.",
+	"{n} right in a run earns {tier}; {right} so far.":
+		"{n} إجابات صحيحة في جولة واحدة تمنحك {tier}؛ حتى الآن {right}.",
+	"{n} right in a run earns {tier}.":
+		"{n} إجابات صحيحة في جولة واحدة تمنحك {tier}.",
+	"Sections":
+		"الأقسام",
+	"Section {i}":
+		"القسم {i}",
+	"Quick check":
+		"تحقّق سريع",
+	", done":
+		"، تم",
+	", right":
+		"، صحيح",
+	", wrong":
+		"، خطأ",
 };

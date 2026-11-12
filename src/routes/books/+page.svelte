@@ -22,7 +22,7 @@
 
 <Seo
 	title={t('German textbooks A1 to C2, free PDF')}
-	description="Twelve German books, one per level from A1.1 to C2.2: real places, stories, real documents and practice, 131 pages each. Read them online or download the free PDF."
+	description={t('Twelve German books, one per level from A1.1 to C2.2: real places, stories, real documents and practice, 131 pages each. Read them online or download the free PDF.')}
 	path="/books"
 	jsonLd={[
 		itemListLd(t('The books'), BOOKS.map((b) => ({ name: `Deutsch ${b.level} · ${b.sub}`, path: `/books#${b.file}` }))),

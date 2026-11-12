@@ -19,7 +19,9 @@
 				var L = ['en', 'tr', 'ar'];
 				var q = new URLSearchParams(location.search).get('lang');
 				var s = localStorage.getItem('ui_lang');
-				var l = L.indexOf(q) >= 0 ? q : L.indexOf(s) >= 0 ? s : null;
+				// A /tr/ or /ar/ address names its language outright.
+				var pm = location.pathname.match(/^\/(tr|ar)(?=\/|$)/);
+				var l = pm ? pm[1] : L.indexOf(q) >= 0 ? q : L.indexOf(s) >= 0 ? s : null;
 				if (!l) {
 					var bl = navigator.languages || [navigator.language];
 					for (var i = 0; i < bl.length && !l; i++) {

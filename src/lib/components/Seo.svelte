@@ -3,6 +3,13 @@
 	// canonical URL (the same form the sitemap lists), the social card, the
 	// language links, and any structured data. One component so no route can
 	// ship without them.
+	//
+	// Pages pass their bare path; the language comes from the address. A
+	// page with Turkish and Arabic twins (/tr/…, /ar/…) links all three.
+	import { page } from '$app/state';
+	import { levelTranslated } from '$lib/i18n/available';
+	import { stripBidi } from '$lib/i18n/bidi';
+	import { PREFIX_LANGS, PREFIX_ROUTES, pathLang, withLang } from '$lib/i18n/paths';
 	import {
 		DEFAULT_IMAGE,
 		DEFAULT_IMAGE_ALT,
@@ -24,8 +31,8 @@
 		image = DEFAULT_IMAGE,
 		imageAlt = DEFAULT_IMAGE_ALT,
 		noindex = false,
-		lang = DEFAULT_LANG,
-		alternates = [],
+		lang: langProp,
+		alternates: alternatesProp,
 		jsonLd = []
 	}: {
 		title: string;
@@ -47,18 +54,38 @@
 		jsonLd?: object[];
 	} = $props();
 
-	const url = $derived(absoluteUrl(path));
-	// A safety net: a result cuts a longer description mid-word anyway.
-	const desc = $derived(clip(description, 160));
+	// The page's language is its address's; its own path carries the prefix.
+	const pre = $derived(pathLang(page.url.pathname));
+	const lang = $derived(langProp ?? pre ?? DEFAULT_LANG);
+	const here = $derived(withLang(pre, path));
+	// A level-bound page (a level, an exercise) has twins only for A1–A2.
+	const pageLevel = $derived(page.params.levelId ?? (page.data as { quiz?: { level?: string } }).quiz?.level ?? null);
+	const twinned = $derived(
+		!!page.route.id && PREFIX_ROUTES.has(page.route.id) && (pageLevel === null || levelTranslated(pageLevel))
+	);
+	const alternates = $derived<Alternate[]>(
+		alternatesProp ??
+			(twinned
+				? [{ lang: DEFAULT_LANG, path }, ...PREFIX_LANGS.map((l) => ({ lang: l, path: withLang(l, path) }))].filter(
+						(a) => a.lang !== lang
+					)
+				: [])
+	);
+	const url = $derived(absoluteUrl(here));
+	// Arabic text carries invisible direction marks around its German (bidi.ts):
+	// right for the page, noise in a search result.
+	const plain = stripBidi;
+	const desc = $derived(plain(clip(description, 160)));
+	const shownTitle = $derived(plain(title));
 	const ogLocale = $derived(LOCALES[lang]?.ogLocale ?? LOCALES[DEFAULT_LANG].ogLocale);
 	// hreflang is reciprocal: the page lists itself along with its twins, and
 	// x-default names the version a reader of no listed language should get.
 	const langLinks = $derived(
 		alternates.length
 			? [
-					{ lang, path },
+					{ lang, path: here },
 					...alternates,
-					{ lang: 'x-default', path: [{ lang, path }, ...alternates].find((a) => a.lang === DEFAULT_LANG)?.path ?? path }
+					{ lang: 'x-default', path: [{ lang, path: here }, ...alternates].find((a) => a.lang === DEFAULT_LANG)?.path ?? here }
 				]
 			: []
 	);
@@ -69,7 +96,7 @@
 </script>
 
 <svelte:head>
-	<title>{title}</title>
+	<title>{shownTitle}</title>
 	<meta name="description" content={desc} />
 	{#if noindex}
 		<meta name="robots" content="noindex" />
@@ -86,8 +113,8 @@
 	<meta property="og:type" content={type} />
 	<meta property="og:url" content={url} />
 	<meta property="og:site_name" content={SITE_NAME} />
-	<meta property="og:title" content={ogTitle ?? title} />
-	<meta property="og:description" content={ogDescription ?? desc} />
+	<meta property="og:title" content={plain(ogTitle ?? title)} />
+	<meta property="og:description" content={ogDescription ? plain(ogDescription) : desc} />
 	<meta property="og:image" content={image} />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
@@ -99,8 +126,8 @@
 		{/if}
 	{/each}
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={ogTitle ?? title} />
-	<meta name="twitter:description" content={ogDescription ?? desc} />
+	<meta name="twitter:title" content={plain(ogTitle ?? title)} />
+	<meta name="twitter:description" content={ogDescription ? plain(ogDescription) : desc} />
 	<meta name="twitter:image" content={image} />
 	<meta name="twitter:image:alt" content={imageAlt} />
 
