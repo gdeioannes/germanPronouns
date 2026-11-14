@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "B2.2: eight new texts, in the app and in the book",
+    items: [
+      "Five new reading texts of about 500 words: the Krefeld insect study, the Wadden Sea, two discoveries made by accident (X-rays and penicillin), the return of the wolves, and the bottle deposit that missed its own goal.",
+      "Three new listening exercises with several voices: a town planner's talk on heat in cities, an interview with a sleep researcher about starting school later, and a public meeting on dimming the street lights.",
+      "The facts are real and were checked; the talk, the interview and the meeting are invented scenes about real debates. Six texts show a free-licence photo of their subject, with credit.",
+      "The B2.2 word deck grew from 304 to 438 cards, each new card with a sentence from its text, and the B2.2 book gained the \"Mehr lesen und hören\" section with all eight texts, their questions and the answers.",
+    ],
+  },
+  {
+    date: "2026-11-15",
     title: "B2.1: the new texts in the book and in the word deck",
     items: [
       "The B2.1 book has a new section, \"Mehr lesen und hören\": the eight new texts on paper, each with its questions, a code that plays the recording, and the answers in the key. The PDF grew from 131 to 147 pages.",

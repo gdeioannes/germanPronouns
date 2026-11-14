@@ -10794,6 +10794,62 @@
 			"target": "quest_b2_1_hoeren_gemeinderat",
 			"note": "B2.1 Hören: Im Gemeinderat",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "b22-85",
+			"kind": "quiz",
+			"target": "quest_b2_2_lesen_insekten",
+			"note": "B2.2 Lesen: Die Studie aus Krefeld",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b22-86",
+			"kind": "quiz",
+			"target": "quest_b2_2_lesen_wattenmeer",
+			"note": "B2.2 Lesen: Das Wattenmeer",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b22-87",
+			"kind": "quiz",
+			"target": "quest_b2_2_lesen_zufall",
+			"note": "B2.2 Lesen: Entdeckt aus Versehen",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b22-88",
+			"kind": "quiz",
+			"target": "quest_b2_2_lesen_woelfe",
+			"note": "B2.2 Lesen: Die Rückkehr der Wölfe",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b22-89",
+			"kind": "quiz",
+			"target": "quest_b2_2_lesen_pfand",
+			"note": "B2.2 Lesen: 25 Cent",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b22-90",
+			"kind": "quiz",
+			"target": "quest_b2_2_hoeren_hitze",
+			"note": "B2.2 Hören: Die heiße Stadt",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b22-91",
+			"kind": "quiz",
+			"target": "quest_b2_2_hoeren_schulbeginn",
+			"note": "B2.2 Hören: Schule um neun?",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b22-92",
+			"kind": "quiz",
+			"target": "quest_b2_2_hoeren_nacht",
+			"note": "B2.2 Hören: Licht aus?",
+			"since": "2026-11-15"
 		}
 	]
 }
