@@ -103,6 +103,35 @@ export interface Book2 {
 		places?: string;
 	};
 	chapters: Chapter[];
+	/**
+	 * "Mehr lesen und hören": ids of the level's longer reading and listening
+	 * exercises, printed after the last chapter, two pages each. The text and
+	 * its questions come from the course bundle, so the app and the paper
+	 * cannot drift apart.
+	 */
+	extras?: string[];
+}
+
+/** One extra text as the book prints it (resolved from the bundle by the page's load). */
+export interface BookExtra {
+	id: string;
+	kind: 'reading' | 'listening';
+	title: string;
+	/** Paragraphs separated by a blank line; a dialogue has one "Name: line" per line. */
+	passage: string;
+	questions: { question: string; options: string[]; correct: number }[];
+	/** /img/photo/web/<photo>.jpg, credited in _photos.json. */
+	photo: string | null;
+	/** /img/<image>.webp, when the text has a drawn scene and no photo. */
+	image: string | null;
+	/** The printed code that opens the exercise in the app. */
+	code: { svg: string; code: string; url: string } | null;
+}
+
+/** Splits a dialogue line into its speaker and what is said. */
+export function speakerLine(line: string): { who: string; de: string } {
+	const m = /^([^\n:]{1,32}):\s*(.*)$/.exec(line);
+	return m ? { who: m[1], de: m[2] } : { who: '', de: line };
 }
 
 export interface PhotoCredit {

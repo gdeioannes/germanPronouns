@@ -273,6 +273,7 @@ function add(raw, sourceQuizId) {
 	if (plural) card.plural = plural;
 	if (note) card.note = note;
 	if (also?.length) card.also = also;
+	if (raw.example) card.example = raw.example;
 	cards.set(key, card);
 }
 

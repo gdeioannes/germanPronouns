@@ -16,6 +16,14 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-15",
+    title: "B2.1: the new texts in the book and in the word deck",
+    items: [
+      "The B2.1 book has a new section, \"Mehr lesen und hören\": the eight new texts on paper, each with its questions, a code that plays the recording, and the answers in the key. The PDF grew from 131 to 147 pages.",
+      "The B2.1 word deck grew from 383 to 513 cards with the words of the new texts, and each new card shows the sentence from the text it came from on its back.",
+    ],
+  },
+  {
     date: "2026-11-14",
     title: "B2.1: eight new texts to read and to listen to",
     items: [

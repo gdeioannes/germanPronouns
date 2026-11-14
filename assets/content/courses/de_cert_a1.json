@@ -73727,7 +73727,6 @@
           "why": "The am …-sten top form is the Superlativ."
         }
       ],
-      "image": "card_grammar_a2_2",
       "storageKeyPrefix": "quest_a2_2_grammatikwoerter_",
       "help": {
         "hook": "Learn the two dozen words Germans use to talk about German, and a rule written in German stops looking like a wall.",
@@ -73895,7 +73894,8 @@
       },
       "covers": [
         "a2.grammar-words"
-      ]
+      ],
+      "image": "card_grammar_a2_2"
     },
     {
       "id": "quest_a2_2_suchbild_kinderzimmer",
@@ -121398,7 +121398,112 @@
         "examEn": "Reports on society and the environment, with questions on details and on the author's stance, are a typical reading text in the B2 exam.",
         "hook": "130 Einwohner, ein eigenes Stromnetz und ein Strompreis, über den das Dorf selbst entscheidet: Lies, wie Feldheim das geschafft hat.",
         "hookEn": "130 residents, a grid of their own and an electricity price the village sets itself: read how Feldheim did it.",
-        "german": true
+        "german": true,
+        "vocab": [
+          {
+            "de": "Ortsteil",
+            "article": "der",
+            "plural": "-e",
+            "en": "district (of a town)",
+            "example": "Feldheim ist ein Ortsteil von Treuenbrietzen."
+          },
+          {
+            "de": "Windrad",
+            "article": "das",
+            "plural": "¨-er",
+            "en": "wind turbine",
+            "example": "Wer die Windräder sieht, profitiert auch von ihnen."
+          },
+          {
+            "de": "Biogasanlage",
+            "article": "die",
+            "plural": "-n",
+            "en": "biogas plant",
+            "example": "Die Biogasanlage liefert Strom und Wärme."
+          },
+          {
+            "de": "Gülle",
+            "article": "die",
+            "en": "slurry, liquid manure",
+            "example": "Die Anlage wird mit Gülle und Mais betrieben."
+          },
+          {
+            "de": "Netzbetreiber",
+            "article": "der",
+            "plural": "-",
+            "en": "grid operator",
+            "example": "Der Netzbetreiber wollte sein Netz nicht verkaufen."
+          },
+          {
+            "de": "Fördermittel",
+            "article": "die",
+            "plural": "(Pl.)",
+            "en": "subsidies, funding",
+            "example": "Den Rest finanzierten Fördermittel und Kredite."
+          },
+          {
+            "de": "Bruchteil",
+            "article": "der",
+            "plural": "-e",
+            "en": "fraction",
+            "example": "Das Dorf braucht nur einen Bruchteil des Stroms."
+          },
+          {
+            "de": "Ertrag",
+            "article": "der",
+            "plural": "¨-e",
+            "en": "return, yield",
+            "example": "Die Menschen werden am Ertrag beteiligt."
+          },
+          {
+            "de": "Akzeptanz",
+            "article": "die",
+            "en": "acceptance",
+            "example": "Akzeptanz entsteht dort, wo Menschen beteiligt werden."
+          },
+          {
+            "de": "Speicher",
+            "article": "der",
+            "plural": "-",
+            "en": "storage (unit)",
+            "example": "Am Dorfrand steht ein großer Batteriespeicher."
+          },
+          {
+            "de": "erzeugen",
+            "en": "to generate, produce",
+            "example": "Der Strom wird vor der Haustür erzeugt."
+          },
+          {
+            "de": "einspeisen",
+            "en": "to feed in (to the grid)",
+            "example": "Der größte Teil wird ins öffentliche Netz eingespeist."
+          },
+          {
+            "de": "beziehen",
+            "en": "to obtain, get (supplies)",
+            "example": "Die Bewohner wollten den Strom direkt beziehen."
+          },
+          {
+            "de": "verpachten",
+            "en": "to lease out",
+            "example": "Die Landwirte verpachteten ihre Flächen gern."
+          },
+          {
+            "de": "einweihen",
+            "en": "to inaugurate",
+            "example": "Im Oktober 2010 wurde das Netz eingeweiht."
+          },
+          {
+            "de": "sich beteiligen an",
+            "en": "to take part in, take a share in",
+            "example": "Jeder Haushalt konnte sich an dem Netz beteiligen."
+          },
+          {
+            "de": "einwenden",
+            "en": "to object",
+            "example": "Kritiker wenden ein, das Dorf sei zu klein."
+          }
+        ]
       },
       "category": "Society",
       "passageTitle": "Das Dorf, dem sein Strom gehört",
@@ -121536,8 +121641,8 @@
         "b2.indirect-speech",
         "b2.lassen"
       ],
-      "image": "quest_b2_1_lesen_feldheim",
-      "storageKeyPrefix": "quest_b2_1_lesen_feldheim_"
+      "storageKeyPrefix": "quest_b2_1_lesen_feldheim_",
+      "image": "quest_b2_1_lesen_feldheim"
     },
     {
       "type": "fillBlank",
@@ -124681,7 +124786,105 @@
         "examEn": "Radio discussions with two guests, and questions on who holds which view, are a typical listening text in the B2 exam.",
         "hook": "Zwei Studien, zwei Zahlen, ein alter Streit: Hör zu, warum sich Deutschland beim Tempolimit nicht einig wird.",
         "hookEn": "Two studies, two figures, one old argument: listen to why Germany cannot agree on a speed limit.",
-        "german": true
+        "german": true,
+        "vocab": [
+          {
+            "de": "Tempolimit",
+            "article": "das",
+            "plural": "-s",
+            "en": "speed limit",
+            "example": "Die Mehrheit ist für ein Tempolimit."
+          },
+          {
+            "de": "Höchstgeschwindigkeit",
+            "article": "die",
+            "plural": "-en",
+            "en": "maximum speed",
+            "example": "Auf der Autobahn gilt keine Höchstgeschwindigkeit."
+          },
+          {
+            "de": "Verkehrsforscherin",
+            "article": "die",
+            "plural": "-nen",
+            "en": "transport researcher (f.)",
+            "example": "Die Verkehrsforscherin nennt zwei Gründe."
+          },
+          {
+            "de": "Abschnitt",
+            "article": "der",
+            "plural": "-e",
+            "en": "section, stretch",
+            "example": "Auf diesem Abschnitt gilt bereits ein Limit."
+          },
+          {
+            "de": "Spurwechsel",
+            "article": "der",
+            "plural": "-",
+            "en": "lane change",
+            "example": "Bei Tempo 200 wird jeder Spurwechsel gefährlich."
+          },
+          {
+            "de": "Landstraße",
+            "article": "die",
+            "plural": "-n",
+            "en": "country road",
+            "example": "Die meisten Unfälle passieren auf Landstraßen."
+          },
+          {
+            "de": "Vorschrift",
+            "article": "die",
+            "plural": "-en",
+            "en": "rule, regulation",
+            "example": "Was spricht gegen eine Vorschrift?"
+          },
+          {
+            "de": "Kompromiss",
+            "article": "der",
+            "plural": "-e",
+            "en": "compromise",
+            "example": "Tempo 130 wäre ein möglicher Kompromiss."
+          },
+          {
+            "de": "ausstoßen",
+            "en": "to emit",
+            "example": "Der Verkehr stößt viel CO2 aus."
+          },
+          {
+            "de": "einsparen",
+            "en": "to save (resources)",
+            "example": "So würden Millionen Tonnen CO2 eingespart."
+          },
+          {
+            "de": "berücksichtigen",
+            "en": "to take into account",
+            "example": "Die Studie berücksichtigt auch den Umstieg auf die Bahn."
+          },
+          {
+            "de": "umsteigen auf",
+            "en": "to switch to",
+            "example": "Manche Menschen steigen dann auf die Bahn um."
+          },
+          {
+            "de": "sich aussprechen für",
+            "en": "to come out in favour of",
+            "example": "Sie spricht sich für ein Limit aus."
+          },
+          {
+            "de": "zweifeln an",
+            "en": "to doubt",
+            "example": "Genau daran zweifle ich."
+          },
+          {
+            "de": "im Gegenzug",
+            "en": "in return",
+            "example": "Im Gegenzug sollen die Strecken ausgebaut werden."
+          },
+          {
+            "de": "ohnehin",
+            "en": "anyway, in any case",
+            "example": "Die meisten fahren ohnehin nicht schneller."
+          }
+        ]
       },
       "category": "Society",
       "passageTitle": "Radiogespräch: Tempolimit auf der Autobahn?",
@@ -124842,8 +125045,8 @@
         "b2.verbs-prepositions",
         "b2.argument-redemittel"
       ],
-      "image": "quest_b2_1_hoeren_tempolimit",
-      "storageKeyPrefix": "quest_b2_1_hoeren_tempolimit_"
+      "storageKeyPrefix": "quest_b2_1_hoeren_tempolimit_",
+      "image": "quest_b2_1_hoeren_tempolimit"
     },
     {
       "type": "speaking",
@@ -126925,7 +127128,110 @@
         "examEn": "Factual texts where you have to recognise how statements connect are a typical reading text in the B2 exam.",
         "hook": "Eine Stadt sperrt 1999 ihr Zentrum für Autos. Mehr als zwanzig Jahre später kann man nachsehen, was passiert ist.",
         "hookEn": "In 1999 a city closes its centre to cars. More than twenty years later you can look at what happened.",
-        "german": true
+        "german": true,
+        "vocab": [
+          {
+            "de": "Durchgangsverkehr",
+            "article": "der",
+            "en": "through traffic",
+            "example": "Das Zentrum ist für den Durchgangsverkehr gesperrt."
+          },
+          {
+            "de": "Fußgängerzone",
+            "article": "die",
+            "plural": "-n",
+            "en": "pedestrian zone",
+            "example": "Die ganze Altstadt wurde zur Fußgängerzone."
+          },
+          {
+            "de": "Einzelhandel",
+            "article": "der",
+            "en": "retail trade",
+            "example": "Manche fürchten den Tod des Einzelhandels."
+          },
+          {
+            "de": "Gehweg",
+            "article": "der",
+            "plural": "-e",
+            "en": "pavement, footpath",
+            "example": "Die Stadt ließ die Gehwege verbreitern."
+          },
+          {
+            "de": "Umweg",
+            "article": "der",
+            "plural": "-e",
+            "en": "detour",
+            "example": "Einige ärgern sich über längere Umwege."
+          },
+          {
+            "de": "Lieferwagen",
+            "article": "der",
+            "plural": "-",
+            "en": "delivery van",
+            "example": "Lieferwagen dürfen weiterhin ins Zentrum."
+          },
+          {
+            "de": "Anwohner",
+            "article": "der",
+            "plural": "-",
+            "en": "resident (of a street)",
+            "example": "Anwohner dürfen zu ihren Garagen fahren."
+          },
+          {
+            "de": "Stadtplaner",
+            "article": "der",
+            "plural": "-",
+            "en": "urban planner",
+            "example": "Stadtplaner aus ganz Europa reisen an."
+          },
+          {
+            "de": "Einwand",
+            "article": "der",
+            "plural": "¨-e",
+            "en": "objection",
+            "example": "Auf solche Einwände antwortet er mit einer Frage."
+          },
+          {
+            "de": "sperren",
+            "en": "to close, block",
+            "example": "Die Straße ist für Autos gesperrt."
+          },
+          {
+            "de": "abschaffen",
+            "en": "to abolish",
+            "example": "Abgeschafft wurde das Parken an der Straße."
+          },
+          {
+            "de": "zurücklegen",
+            "en": "to cover (a distance)",
+            "example": "Die meisten Wege werden zu Fuß zurückgelegt."
+          },
+          {
+            "de": "übertragen",
+            "en": "to transfer, apply elsewhere",
+            "example": "Lässt sich das Modell übertragen?"
+          },
+          {
+            "de": "umsetzbar",
+            "en": "feasible",
+            "example": "In einer Millionenstadt wäre der Plan kaum umsetzbar."
+          },
+          {
+            "de": "umstritten",
+            "en": "disputed, controversial",
+            "example": "Ob das überall funktioniert, ist umstritten."
+          },
+          {
+            "de": "stattdessen",
+            "en": "instead",
+            "example": "Stattdessen entstanden Parkplätze am Stadtrand."
+          },
+          {
+            "de": "folglich",
+            "en": "consequently",
+            "example": "Die Stadt ist klein; folglich sind die Wege kurz."
+          }
+        ]
       },
       "category": "Society",
       "passageTitle": "Pontevedra: Die Stadt, die die Autos hinausbat",
@@ -127081,8 +127387,8 @@
         "b2.connectors-adverbial",
         "b2.participle-adjective"
       ],
-      "image": "quest_b2_1_lesen_pontevedra",
-      "storageKeyPrefix": "quest_b2_1_lesen_pontevedra_"
+      "storageKeyPrefix": "quest_b2_1_lesen_pontevedra_",
+      "image": "quest_b2_1_lesen_pontevedra"
     },
     {
       "id": "quest_b2_1_mittelfeld",
@@ -129425,7 +129731,106 @@
         "examEn": "Texts that set out both sides of a political question are a typical reading text in the B2 exam.",
         "hook": "Mit 16 darf man in Deutschland das Europaparlament wählen, aber nicht den Bundestag. Lies, wie es dazu kam und was dafür und dagegen spricht.",
         "hookEn": "At 16 you may vote for the European Parliament in Germany, but not for the Bundestag. Read how that came about and what speaks for and against it.",
-        "german": true
+        "german": true,
+        "vocab": [
+          {
+            "de": "Wahlalter",
+            "article": "das",
+            "en": "voting age",
+            "example": "Der Bundestag hat das Wahlalter gesenkt."
+          },
+          {
+            "de": "Wahlberechtigte",
+            "article": "der/die",
+            "plural": "-n",
+            "en": "person entitled to vote",
+            "example": "Mehr als die Hälfte der Wahlberechtigten ist über fünfzig."
+          },
+          {
+            "de": "Wahlbeteiligung",
+            "article": "die",
+            "en": "turnout",
+            "example": "Die Wahlbeteiligung der Jüngsten war nicht niedriger."
+          },
+          {
+            "de": "Erstwähler",
+            "article": "der",
+            "plural": "-",
+            "en": "first-time voter",
+            "example": "Viele Erstwähler wählten kleine Parteien."
+          },
+          {
+            "de": "Grundgesetz",
+            "article": "das",
+            "en": "Basic Law (German constitution)",
+            "example": "Das Wahlalter steht im Grundgesetz."
+          },
+          {
+            "de": "Zweidrittelmehrheit",
+            "article": "die",
+            "plural": "-en",
+            "en": "two-thirds majority",
+            "example": "Für die Änderung fehlte die Zweidrittelmehrheit."
+          },
+          {
+            "de": "Volljährigkeit",
+            "article": "die",
+            "en": "legal adulthood",
+            "example": "Mit 18 erreicht man die Volljährigkeit."
+          },
+          {
+            "de": "Reife",
+            "article": "die",
+            "en": "maturity",
+            "example": "Niemand prüft die Reife älterer Wähler."
+          },
+          {
+            "de": "Jahrgang",
+            "article": "der",
+            "plural": "¨-e",
+            "en": "year group, cohort",
+            "example": "Zwei zusätzliche Jahrgänge ändern wenig."
+          },
+          {
+            "de": "Senkung",
+            "article": "die",
+            "plural": "-en",
+            "en": "lowering, reduction",
+            "example": "Schon vor der Senkung auf 18 gab es Warnungen."
+          },
+          {
+            "de": "Stimme",
+            "article": "die",
+            "plural": "-n",
+            "en": "vote; voice",
+            "example": "Sie gaben zum ersten Mal ihre Stimme ab."
+          },
+          {
+            "de": "mitbestimmen",
+            "en": "to have a say",
+            "example": "Die Jungen sollen mitbestimmen dürfen."
+          },
+          {
+            "de": "zustande kommen",
+            "en": "to come about, be achieved",
+            "example": "Die Mehrheit kam nicht zustande."
+          },
+          {
+            "de": "widerlegen",
+            "en": "to disprove, refute",
+            "example": "Die Wahl hat diese Annahme widerlegt."
+          },
+          {
+            "de": "sich verrechnen",
+            "en": "to miscalculate",
+            "example": "Wer auf einen Vorteil hoffte, hat sich verrechnet."
+          },
+          {
+            "de": "einheitlich",
+            "en": "uniform",
+            "example": "Die Jungen sind keine einheitliche Gruppe."
+          }
+        ]
       },
       "category": "Society",
       "passageTitle": "Alt genug für Europa, zu jung für Berlin?",
@@ -129581,8 +129986,8 @@
         "b2.causal-nominal",
         "b2.temporal-nominal"
       ],
-      "image": "quest_b2_1_lesen_wahlalter",
-      "storageKeyPrefix": "quest_b2_1_lesen_wahlalter_"
+      "storageKeyPrefix": "quest_b2_1_lesen_wahlalter_",
+      "image": "quest_b2_1_lesen_wahlalter"
     },
     {
       "id": "quest_b2_1_dass_infinitiv",
@@ -131012,7 +131417,105 @@
         "examEn": "Interviews with one person, and questions on reasons, attitude and details, are a typical listening text in the B2 exam.",
         "hook": "Sie hat nicht kandidiert und wurde trotzdem gewählt. Hör zu, warum eine 26-Jährige jetzt ein Dorf leitet.",
         "hookEn": "She did not stand and was elected anyway. Listen to why a 26-year-old now runs a village.",
-        "german": true
+        "german": true,
+        "vocab": [
+          {
+            "de": "Ehrenamt",
+            "article": "das",
+            "plural": "¨-er",
+            "en": "honorary office, voluntary post",
+            "example": "Das Amt ist ein Ehrenamt."
+          },
+          {
+            "de": "Stimmzettel",
+            "article": "der",
+            "plural": "-",
+            "en": "ballot paper",
+            "example": "Kein Name stand auf dem Stimmzettel."
+          },
+          {
+            "de": "Gemeinderat",
+            "article": "der",
+            "plural": "¨-e",
+            "en": "municipal council",
+            "example": "Der Gemeinderat tagt an ihren freien Abenden."
+          },
+          {
+            "de": "Sprechstunde",
+            "article": "die",
+            "plural": "-n",
+            "en": "surgery hour, office hour",
+            "example": "Ihre Sprechstunde ist samstags nach dem Markt."
+          },
+          {
+            "de": "Aufwandsentschädigung",
+            "article": "die",
+            "plural": "-en",
+            "en": "expense allowance",
+            "example": "Sie bekommt nur eine kleine Aufwandsentschädigung."
+          },
+          {
+            "de": "Schichtdienst",
+            "article": "der",
+            "plural": "-e",
+            "en": "shift work",
+            "example": "Das passt schlecht zum Schichtdienst im Krankenhaus."
+          },
+          {
+            "de": "Nachfolger",
+            "article": "der",
+            "plural": "-",
+            "en": "successor",
+            "example": "Für den Arzt gibt es keinen Nachfolger."
+          },
+          {
+            "de": "Scherz",
+            "article": "der",
+            "plural": "-e",
+            "en": "joke",
+            "example": "Ich dachte zuerst, er mache einen Scherz."
+          },
+          {
+            "de": "kandidieren",
+            "en": "to stand for election",
+            "example": "Sie hat nicht kandidiert."
+          },
+          {
+            "de": "ablehnen",
+            "en": "to decline, refuse",
+            "example": "Sie hätte die Wahl ablehnen können."
+          },
+          {
+            "de": "überreden",
+            "en": "to persuade",
+            "example": "Dann habe ich mich überreden lassen."
+          },
+          {
+            "de": "schimpfen",
+            "en": "to complain, grumble",
+            "example": "Alle schimpfen, und keiner macht etwas."
+          },
+          {
+            "de": "einrichten",
+            "en": "to set up",
+            "example": "Sie will eine gemeinsame Praxis einrichten."
+          },
+          {
+            "de": "die Wahl annehmen",
+            "en": "to accept the election",
+            "example": "Ich habe mich entschieden, die Wahl anzunehmen."
+          },
+          {
+            "de": "ernst nehmen",
+            "en": "to take seriously",
+            "example": "Inzwischen wird sie ernst genommen."
+          },
+          {
+            "de": "in Rente gehen",
+            "en": "to retire",
+            "example": "Der Arzt geht nächstes Jahr in Rente."
+          }
+        ]
       },
       "category": "Society",
       "passageTitle": "Interview: Gewählt, ohne zu kandidieren",
@@ -131172,8 +131675,8 @@
         "b2.lassen",
         "b2.dass-infinitive"
       ],
-      "image": "quest_b2_1_hoeren_buergermeisterin",
-      "storageKeyPrefix": "quest_b2_1_hoeren_buergermeisterin_"
+      "storageKeyPrefix": "quest_b2_1_hoeren_buergermeisterin_",
+      "image": "quest_b2_1_hoeren_buergermeisterin"
     },
     {
       "id": "quest_b2_1_nachsilben_genus",
@@ -134415,7 +134918,112 @@
         "examEn": "Conversations with several speakers, where you have to match proposals to people, are a typical listening text in the B2 exam.",
         "hook": "Das Freibad ist undicht, die Kasse ist leer, und heute Abend wird abgestimmt. Hör zu, welche drei Vorschläge es gibt und welcher gewinnt.",
         "hookEn": "The open-air pool leaks, the coffers are empty, and tonight there is a vote. Listen to the three proposals and to which one wins.",
-        "german": true
+        "german": true,
+        "vocab": [
+          {
+            "de": "Freibad",
+            "article": "das",
+            "plural": "¨-er",
+            "en": "open-air pool",
+            "example": "Das Freibad soll geschlossen werden."
+          },
+          {
+            "de": "Becken",
+            "article": "das",
+            "plural": "-",
+            "en": "basin, pool",
+            "example": "Das Becken ist undicht."
+          },
+          {
+            "de": "Tagesordnung",
+            "article": "die",
+            "plural": "-en",
+            "en": "agenda",
+            "example": "Wir kommen zu Punkt vier der Tagesordnung."
+          },
+          {
+            "de": "Gutachten",
+            "article": "das",
+            "plural": "-",
+            "en": "expert report",
+            "example": "Nach dem Gutachten muss saniert werden."
+          },
+          {
+            "de": "Zuschuss",
+            "article": "der",
+            "plural": "¨-e",
+            "en": "grant, subsidy",
+            "example": "Vom Land kann ein Zuschuss beantragt werden."
+          },
+          {
+            "de": "Antrag",
+            "article": "der",
+            "plural": "¨-e",
+            "en": "application; motion",
+            "example": "Der Antrag muss bis Jahresende gestellt werden."
+          },
+          {
+            "de": "Freiwillige",
+            "article": "der/die",
+            "plural": "-n",
+            "en": "volunteer",
+            "example": "Vierzig Freiwillige haben zugesagt."
+          },
+          {
+            "de": "Gegenstimme",
+            "article": "die",
+            "plural": "-n",
+            "en": "vote against",
+            "example": "Es gab nur eine Gegenstimme."
+          },
+          {
+            "de": "Betrieb",
+            "article": "der",
+            "plural": "-e",
+            "en": "running, operation; business",
+            "example": "Ein Verein übernimmt den Betrieb."
+          },
+          {
+            "de": "undicht",
+            "en": "leaky",
+            "example": "Das Becken ist seit Jahren undicht."
+          },
+          {
+            "de": "sanieren",
+            "en": "to renovate, refurbish",
+            "example": "Das Bad muss vollständig saniert werden."
+          },
+          {
+            "de": "zuständig für",
+            "en": "responsible for",
+            "example": "Herr Kraus ist für die Finanzen zuständig."
+          },
+          {
+            "de": "widersprechen",
+            "en": "to disagree, contradict",
+            "example": "Dem möchte ich widersprechen."
+          },
+          {
+            "de": "bestreiten",
+            "en": "to dispute, deny",
+            "example": "Das bestreite ich nicht."
+          },
+          {
+            "de": "abstimmen über",
+            "en": "to vote on",
+            "example": "Jetzt wird über den Vorschlag abgestimmt."
+          },
+          {
+            "de": "zusagen",
+            "en": "to agree, promise to come",
+            "example": "Vierzig Mitglieder haben schon zugesagt."
+          },
+          {
+            "de": "die Kosten tragen",
+            "en": "to bear the costs",
+            "example": "Die Stadt kann die Kosten nicht allein tragen."
+          }
+        ]
       },
       "category": "Society",
       "passageTitle": "Gemeinderatssitzung: Was wird aus dem Freibad?",
@@ -134577,8 +135185,8 @@
         "b2.modal-passive",
         "b2.subjectless-passive"
       ],
-      "image": "quest_b2_1_hoeren_gemeinderat",
-      "storageKeyPrefix": "quest_b2_1_hoeren_gemeinderat_"
+      "storageKeyPrefix": "quest_b2_1_hoeren_gemeinderat_",
+      "image": "quest_b2_1_hoeren_gemeinderat"
     },
     {
       "type": "listening",
@@ -135289,7 +135897,116 @@
         "examEn": "Background texts on political procedures, with questions on process, result and criticism, are a typical reading text in the B2 exam.",
         "hook": "160 Menschen, vom Zufall bestimmt, beraten das Parlament. Lies, wie das Los funktioniert und was aus ihren Vorschlägen wurde.",
         "hookEn": "160 people, picked by chance, advise parliament. Read how the lottery works and what became of their proposals.",
-        "german": true
+        "german": true,
+        "vocab": [
+          {
+            "de": "Bürgerrat",
+            "article": "der",
+            "plural": "¨-e",
+            "en": "citizens' assembly",
+            "example": "Der Bundestag hat einen Bürgerrat eingesetzt."
+          },
+          {
+            "de": "Los",
+            "article": "das",
+            "plural": "-e",
+            "en": "lot (drawing lots)",
+            "example": "Im alten Athen entschied oft das Los."
+          },
+          {
+            "de": "Gremium",
+            "article": "das",
+            "plural": "Gremien",
+            "en": "body, committee",
+            "example": "Ein Gremium, das niemand gewählt hat."
+          },
+          {
+            "de": "Empfehlung",
+            "article": "die",
+            "plural": "-en",
+            "en": "recommendation",
+            "example": "Dem Parlament wurden neun Empfehlungen übergeben."
+          },
+          {
+            "de": "Verfahren",
+            "article": "das",
+            "plural": "-",
+            "en": "procedure",
+            "example": "Das Verfahren ist aufwendig."
+          },
+          {
+            "de": "Fachleute",
+            "article": "die",
+            "plural": "(Pl.)",
+            "en": "experts",
+            "example": "Die Gruppe hörte Fachleute an."
+          },
+          {
+            "de": "Volksabstimmung",
+            "article": "die",
+            "plural": "-en",
+            "en": "referendum",
+            "example": "Die Volksabstimmung fand 2018 statt."
+          },
+          {
+            "de": "Verdruss",
+            "article": "der",
+            "en": "disenchantment, annoyance",
+            "example": "Der Verdruss an der Politik wächst."
+          },
+          {
+            "de": "Bildungsabschluss",
+            "article": "der",
+            "plural": "¨-e",
+            "en": "educational qualification",
+            "example": "Auch der Bildungsabschluss wurde berücksichtigt."
+          },
+          {
+            "de": "auslosen",
+            "en": "to draw by lot",
+            "example": "Die Mitglieder sind ausgelost worden."
+          },
+          {
+            "de": "einsetzen",
+            "en": "to set up, appoint",
+            "example": "Das Parlament setzt ein Gremium ein."
+          },
+          {
+            "de": "abbilden",
+            "en": "to mirror, represent",
+            "example": "Die Gruppe soll die Bevölkerung abbilden."
+          },
+          {
+            "de": "umsetzen",
+            "en": "to implement",
+            "example": "Bisher ist kaum etwas umgesetzt worden."
+          },
+          {
+            "de": "beraten über",
+            "en": "to deliberate on",
+            "example": "Die Versammlung hat über die Frage beraten."
+          },
+          {
+            "de": "scheitern an",
+            "en": "to fail at",
+            "example": "Daran war die Politik lange gescheitert."
+          },
+          {
+            "de": "verbindlich",
+            "en": "binding",
+            "example": "Die Empfehlungen sind nicht verbindlich."
+          },
+          {
+            "de": "aufwendig",
+            "en": "elaborate, costly",
+            "example": "Das Verfahren ist aufwendiger als gedacht."
+          },
+          {
+            "de": "folgenlos",
+            "en": "without consequences",
+            "example": "Die Arbeit darf nicht folgenlos bleiben."
+          }
+        ]
       },
       "category": "Society",
       "passageTitle": "Regieren per Los: Der erste Bürgerrat des Bundestages",
@@ -135445,8 +136162,8 @@
         "b2.passive-perfekt",
         "b2.society-vocabulary"
       ],
-      "image": "quest_b2_1_lesen_buergerrat",
-      "storageKeyPrefix": "quest_b2_1_lesen_buergerrat_"
+      "storageKeyPrefix": "quest_b2_1_lesen_buergerrat_",
+      "image": "quest_b2_1_lesen_buergerrat"
     },
     {
       "type": "reading",
@@ -136622,7 +137339,109 @@
         "examEn": "Several short opinion texts on one topic, where you match statements to people, are a typical reading text in the B2 exam.",
         "hook": "Soll jeder ein Jahr für die Gemeinschaft arbeiten müssen? Ein früherer Zivildienstleistender sagt Ja, eine Abiturientin antwortet ihm.",
         "hookEn": "Should everyone have to work for the community for a year? A former civilian-service worker says yes, and a school leaver answers him.",
-        "german": true
+        "german": true,
+        "vocab": [
+          {
+            "de": "Pflicht",
+            "article": "die",
+            "plural": "-en",
+            "en": "duty, obligation",
+            "example": "Mit einem guten Angebot bräuchte man keine Pflicht."
+          },
+          {
+            "de": "Zivildienst",
+            "article": "der",
+            "en": "civilian service",
+            "example": "Er hat Zivildienst in einem Altenheim geleistet."
+          },
+          {
+            "de": "Wehrpflicht",
+            "article": "die",
+            "en": "conscription",
+            "example": "Die Wehrpflicht wurde 2011 ausgesetzt."
+          },
+          {
+            "de": "Zusammenhalt",
+            "article": "der",
+            "en": "cohesion",
+            "example": "Der Zusammenhalt der Gesellschaft ist wichtig."
+          },
+          {
+            "de": "Zuschrift",
+            "article": "die",
+            "plural": "-en",
+            "en": "letter (to a newspaper)",
+            "example": "Uns erreichten viele Zuschriften."
+          },
+          {
+            "de": "Pflegeheim",
+            "article": "das",
+            "plural": "-e",
+            "en": "care home",
+            "example": "Im Pflegeheim fehlen helfende Hände."
+          },
+          {
+            "de": "Hilfsbereitschaft",
+            "article": "die",
+            "en": "willingness to help",
+            "example": "Hilfsbereitschaft lässt sich nicht verordnen."
+          },
+          {
+            "de": "Taschengeld",
+            "article": "das",
+            "en": "pocket money",
+            "example": "Sie bekommen dafür nur ein Taschengeld."
+          },
+          {
+            "de": "Last",
+            "article": "die",
+            "plural": "-en",
+            "en": "burden",
+            "example": "Wer nicht helfen will, ist eine Last."
+          },
+          {
+            "de": "Schluss",
+            "article": "der",
+            "plural": "¨-e",
+            "en": "conclusion; end",
+            "example": "Er zieht daraus den falschen Schluss."
+          },
+          {
+            "de": "einen Dienst leisten",
+            "en": "to do a service",
+            "example": "Jeder soll einmal einen Dienst leisten."
+          },
+          {
+            "de": "verordnen",
+            "en": "to prescribe, decree",
+            "example": "Hilfe kann man nicht verordnen."
+          },
+          {
+            "de": "bezweifeln",
+            "en": "to doubt",
+            "example": "Ich bezweifle, dass das funktioniert."
+          },
+          {
+            "de": "verzichten auf",
+            "en": "to do without, give up",
+            "example": "Meine Generation hat auf vieles verzichtet."
+          },
+          {
+            "de": "versäumen",
+            "en": "to miss (out on)",
+            "example": "Wer ein Jahr später studiert, hat nichts versäumt."
+          },
+          {
+            "de": "freiwillig",
+            "en": "voluntary, voluntarily",
+            "example": "Ich mache dieses Jahr freiwillig."
+          },
+          {
+            "de": "jemandem recht geben",
+            "en": "to agree that someone is right",
+            "example": "In einem Punkt gebe ich ihm recht."
+          }
+        ]
       },
       "category": "Media",
       "passageTitle": "Leserbriefe: Ein Pflichtjahr für alle?",
@@ -136778,8 +137597,8 @@
         "b2.stellungnahme-redemittel",
         "b2.argument-redemittel"
       ],
-      "image": "quest_b2_1_lesen_pflichtjahr",
-      "storageKeyPrefix": "quest_b2_1_lesen_pflichtjahr_"
+      "storageKeyPrefix": "quest_b2_1_lesen_pflichtjahr_",
+      "image": "quest_b2_1_lesen_pflichtjahr"
     },
     {
       "type": "speaking",
@@ -139680,6 +140499,144 @@
           "imageHint": true
         },
         {
+          "de": "Ortsteil",
+          "en": "district (of a town)",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "article": "der",
+          "plural": "-e",
+          "example": "Feldheim ist ein Ortsteil von Treuenbrietzen."
+        },
+        {
+          "de": "Windrad",
+          "en": "wind turbine",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "article": "das",
+          "plural": "¨-er",
+          "example": "Wer die Windräder sieht, profitiert auch von ihnen.",
+          "image": "windrad"
+        },
+        {
+          "de": "Biogasanlage",
+          "en": "biogas plant",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "article": "die",
+          "plural": "-n",
+          "example": "Die Biogasanlage liefert Strom und Wärme."
+        },
+        {
+          "de": "Gülle",
+          "en": "slurry, liquid manure",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "article": "die",
+          "example": "Die Anlage wird mit Gülle und Mais betrieben."
+        },
+        {
+          "de": "Netzbetreiber",
+          "en": "grid operator",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "article": "der",
+          "plural": "-",
+          "example": "Der Netzbetreiber wollte sein Netz nicht verkaufen."
+        },
+        {
+          "de": "Fördermittel",
+          "en": "subsidies, funding",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "article": "die",
+          "plural": "(Pl.)",
+          "example": "Den Rest finanzierten Fördermittel und Kredite."
+        },
+        {
+          "de": "Bruchteil",
+          "en": "fraction",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "article": "der",
+          "plural": "-e",
+          "example": "Das Dorf braucht nur einen Bruchteil des Stroms."
+        },
+        {
+          "de": "Ertrag",
+          "en": "return, yield",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Die Menschen werden am Ertrag beteiligt."
+        },
+        {
+          "de": "Akzeptanz",
+          "en": "acceptance",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "article": "die",
+          "example": "Akzeptanz entsteht dort, wo Menschen beteiligt werden."
+        },
+        {
+          "de": "Speicher",
+          "en": "storage (unit)",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "article": "der",
+          "plural": "-",
+          "example": "Am Dorfrand steht ein großer Batteriespeicher."
+        },
+        {
+          "de": "erzeugen",
+          "en": "to generate, produce",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "example": "Der Strom wird vor der Haustür erzeugt."
+        },
+        {
+          "de": "einspeisen",
+          "en": "to feed in (to the grid)",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "example": "Der größte Teil wird ins öffentliche Netz eingespeist."
+        },
+        {
+          "de": "beziehen",
+          "en": "to obtain, get (supplies)",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "example": "Die Bewohner wollten den Strom direkt beziehen."
+        },
+        {
+          "de": "verpachten",
+          "en": "to lease out",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "example": "Die Landwirte verpachteten ihre Flächen gern."
+        },
+        {
+          "de": "einweihen",
+          "en": "to inaugurate",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "example": "Im Oktober 2010 wurde das Netz eingeweiht."
+        },
+        {
+          "de": "sich beteiligen an",
+          "en": "to take part in, take a share in",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "example": "Jeder Haushalt konnte sich an dem Netz beteiligen."
+        },
+        {
+          "de": "einwenden",
+          "en": "to object",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_feldheim",
+          "example": "Kritiker wenden ein, das Dorf sei zu klein."
+        },
+        {
           "de": "muss gelöst werden",
           "en": "must be solved",
           "kind": "word",
@@ -140281,6 +141238,134 @@
           "article": "die"
         },
         {
+          "de": "Tempolimit",
+          "en": "speed limit",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "article": "das",
+          "plural": "-s",
+          "example": "Die Mehrheit ist für ein Tempolimit."
+        },
+        {
+          "de": "Höchstgeschwindigkeit",
+          "en": "maximum speed",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "article": "die",
+          "plural": "-en",
+          "example": "Auf der Autobahn gilt keine Höchstgeschwindigkeit."
+        },
+        {
+          "de": "Verkehrsforscherin",
+          "en": "transport researcher (f.)",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "article": "die",
+          "plural": "-nen",
+          "example": "Die Verkehrsforscherin nennt zwei Gründe."
+        },
+        {
+          "de": "Abschnitt",
+          "en": "section, stretch",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "article": "der",
+          "plural": "-e",
+          "example": "Auf diesem Abschnitt gilt bereits ein Limit."
+        },
+        {
+          "de": "Spurwechsel",
+          "en": "lane change",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "article": "der",
+          "plural": "-",
+          "example": "Bei Tempo 200 wird jeder Spurwechsel gefährlich."
+        },
+        {
+          "de": "Landstraße",
+          "en": "country road",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "article": "die",
+          "plural": "-n",
+          "example": "Die meisten Unfälle passieren auf Landstraßen."
+        },
+        {
+          "de": "Vorschrift",
+          "en": "rule, regulation",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "article": "die",
+          "plural": "-en",
+          "example": "Was spricht gegen eine Vorschrift?"
+        },
+        {
+          "de": "Kompromiss",
+          "en": "compromise",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "article": "der",
+          "plural": "-e",
+          "example": "Tempo 130 wäre ein möglicher Kompromiss."
+        },
+        {
+          "de": "ausstoßen",
+          "en": "to emit",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "example": "Der Verkehr stößt viel CO2 aus."
+        },
+        {
+          "de": "einsparen",
+          "en": "to save (resources)",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "example": "So würden Millionen Tonnen CO2 eingespart."
+        },
+        {
+          "de": "berücksichtigen",
+          "en": "to take into account",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "example": "Die Studie berücksichtigt auch den Umstieg auf die Bahn."
+        },
+        {
+          "de": "umsteigen auf",
+          "en": "to switch to",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "example": "Manche Menschen steigen dann auf die Bahn um."
+        },
+        {
+          "de": "sich aussprechen für",
+          "en": "to come out in favour of",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "example": "Sie spricht sich für ein Limit aus."
+        },
+        {
+          "de": "zweifeln an",
+          "en": "to doubt",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "example": "Genau daran zweifle ich."
+        },
+        {
+          "de": "im Gegenzug",
+          "en": "in return",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "example": "Im Gegenzug sollen die Strecken ausgebaut werden."
+        },
+        {
+          "de": "ohnehin",
+          "en": "anyway, in any case",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_tempolimit",
+          "example": "Die meisten fahren ohnehin nicht schneller."
+        },
+        {
           "de": "Antrag",
           "en": "application",
           "kind": "noun",
@@ -140475,6 +141560,127 @@
           "en": "meanwhile",
           "kind": "word",
           "sourceQuizId": "quest_b2_1_konnektoren"
+        },
+        {
+          "de": "Durchgangsverkehr",
+          "en": "through traffic",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "article": "der",
+          "example": "Das Zentrum ist für den Durchgangsverkehr gesperrt."
+        },
+        {
+          "de": "Fußgängerzone",
+          "en": "pedestrian zone",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "article": "die",
+          "plural": "-n",
+          "example": "Die ganze Altstadt wurde zur Fußgängerzone."
+        },
+        {
+          "de": "Einzelhandel",
+          "en": "retail trade",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "article": "der",
+          "example": "Manche fürchten den Tod des Einzelhandels."
+        },
+        {
+          "de": "Gehweg",
+          "en": "pavement, footpath",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "article": "der",
+          "plural": "-e",
+          "example": "Die Stadt ließ die Gehwege verbreitern."
+        },
+        {
+          "de": "Umweg",
+          "en": "detour",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "article": "der",
+          "plural": "-e",
+          "example": "Einige ärgern sich über längere Umwege."
+        },
+        {
+          "de": "Lieferwagen",
+          "en": "delivery van",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "article": "der",
+          "plural": "-",
+          "example": "Lieferwagen dürfen weiterhin ins Zentrum."
+        },
+        {
+          "de": "Anwohner",
+          "en": "resident (of a street)",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "article": "der",
+          "plural": "-",
+          "example": "Anwohner dürfen zu ihren Garagen fahren."
+        },
+        {
+          "de": "Stadtplaner",
+          "en": "urban planner",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "article": "der",
+          "plural": "-",
+          "example": "Stadtplaner aus ganz Europa reisen an."
+        },
+        {
+          "de": "Einwand",
+          "en": "objection",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Auf solche Einwände antwortet er mit einer Frage."
+        },
+        {
+          "de": "sperren",
+          "en": "to close, block",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "example": "Die Straße ist für Autos gesperrt."
+        },
+        {
+          "de": "abschaffen",
+          "en": "to abolish",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "example": "Abgeschafft wurde das Parken an der Straße."
+        },
+        {
+          "de": "zurücklegen",
+          "en": "to cover (a distance)",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "example": "Die meisten Wege werden zu Fuß zurückgelegt."
+        },
+        {
+          "de": "übertragen",
+          "en": "to transfer, apply elsewhere",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "example": "Lässt sich das Modell übertragen?"
+        },
+        {
+          "de": "umsetzbar",
+          "en": "feasible",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "example": "In einer Millionenstadt wäre der Plan kaum umsetzbar."
+        },
+        {
+          "de": "umstritten",
+          "en": "disputed, controversial",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pontevedra",
+          "example": "Ob das überall funktioniert, ist umstritten."
         },
         {
           "de": "Mittelfeld",
@@ -140713,6 +141919,144 @@
           "imageHint": true
         },
         {
+          "de": "Wahlalter",
+          "en": "voting age",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "das",
+          "example": "Der Bundestag hat das Wahlalter gesenkt."
+        },
+        {
+          "de": "Wahlberechtigte",
+          "en": "person entitled to vote",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "der",
+          "plural": "-n",
+          "example": "Mehr als die Hälfte der Wahlberechtigten ist über fünfzig."
+        },
+        {
+          "de": "Wahlberechtigte",
+          "en": "person entitled to vote",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "die",
+          "plural": "-n",
+          "example": "Mehr als die Hälfte der Wahlberechtigten ist über fünfzig."
+        },
+        {
+          "de": "Wahlbeteiligung",
+          "en": "turnout",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "die",
+          "example": "Die Wahlbeteiligung der Jüngsten war nicht niedriger."
+        },
+        {
+          "de": "Erstwähler",
+          "en": "first-time voter",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "der",
+          "plural": "-",
+          "example": "Viele Erstwähler wählten kleine Parteien."
+        },
+        {
+          "de": "Grundgesetz",
+          "en": "Basic Law (German constitution)",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "das",
+          "example": "Das Wahlalter steht im Grundgesetz."
+        },
+        {
+          "de": "Zweidrittelmehrheit",
+          "en": "two-thirds majority",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "die",
+          "plural": "-en",
+          "example": "Für die Änderung fehlte die Zweidrittelmehrheit."
+        },
+        {
+          "de": "Volljährigkeit",
+          "en": "legal adulthood",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "die",
+          "example": "Mit 18 erreicht man die Volljährigkeit."
+        },
+        {
+          "de": "Reife",
+          "en": "maturity",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "die",
+          "example": "Niemand prüft die Reife älterer Wähler."
+        },
+        {
+          "de": "Jahrgang",
+          "en": "year group, cohort",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Zwei zusätzliche Jahrgänge ändern wenig."
+        },
+        {
+          "de": "Senkung",
+          "en": "lowering, reduction",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "die",
+          "plural": "-en",
+          "example": "Schon vor der Senkung auf 18 gab es Warnungen."
+        },
+        {
+          "de": "Stimme",
+          "en": "vote; voice",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "article": "die",
+          "plural": "-n",
+          "example": "Sie gaben zum ersten Mal ihre Stimme ab."
+        },
+        {
+          "de": "mitbestimmen",
+          "en": "to have a say",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "example": "Die Jungen sollen mitbestimmen dürfen."
+        },
+        {
+          "de": "zustande kommen",
+          "en": "to come about, be achieved",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "example": "Die Mehrheit kam nicht zustande."
+        },
+        {
+          "de": "widerlegen",
+          "en": "to disprove, refute",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "example": "Die Wahl hat diese Annahme widerlegt."
+        },
+        {
+          "de": "sich verrechnen",
+          "en": "to miscalculate",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "example": "Wer auf einen Vorteil hoffte, hat sich verrechnet."
+        },
+        {
+          "de": "einheitlich",
+          "en": "uniform",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_wahlalter",
+          "example": "Die Jungen sind keine einheitliche Gruppe."
+        },
+        {
           "de": "hoffen",
           "en": "to hope",
           "kind": "word",
@@ -140814,6 +142158,134 @@
           "kind": "noun",
           "sourceQuizId": "quest_b2_1_lassen",
           "article": "der"
+        },
+        {
+          "de": "Ehrenamt",
+          "en": "honorary office, voluntary post",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "article": "das",
+          "plural": "¨-er",
+          "example": "Das Amt ist ein Ehrenamt."
+        },
+        {
+          "de": "Stimmzettel",
+          "en": "ballot paper",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "article": "der",
+          "plural": "-",
+          "example": "Kein Name stand auf dem Stimmzettel."
+        },
+        {
+          "de": "Gemeinderat",
+          "en": "municipal council",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Der Gemeinderat tagt an ihren freien Abenden."
+        },
+        {
+          "de": "Sprechstunde",
+          "en": "surgery hour, office hour",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "article": "die",
+          "plural": "-n",
+          "example": "Ihre Sprechstunde ist samstags nach dem Markt."
+        },
+        {
+          "de": "Aufwandsentschädigung",
+          "en": "expense allowance",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "article": "die",
+          "plural": "-en",
+          "example": "Sie bekommt nur eine kleine Aufwandsentschädigung."
+        },
+        {
+          "de": "Schichtdienst",
+          "en": "shift work",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "article": "der",
+          "plural": "-e",
+          "example": "Das passt schlecht zum Schichtdienst im Krankenhaus."
+        },
+        {
+          "de": "Nachfolger",
+          "en": "successor",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "article": "der",
+          "plural": "-",
+          "example": "Für den Arzt gibt es keinen Nachfolger."
+        },
+        {
+          "de": "Scherz",
+          "en": "joke",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "article": "der",
+          "plural": "-e",
+          "example": "Ich dachte zuerst, er mache einen Scherz."
+        },
+        {
+          "de": "kandidieren",
+          "en": "to stand for election",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "example": "Sie hat nicht kandidiert."
+        },
+        {
+          "de": "ablehnen",
+          "en": "to decline, refuse",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "example": "Sie hätte die Wahl ablehnen können."
+        },
+        {
+          "de": "überreden",
+          "en": "to persuade",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "example": "Dann habe ich mich überreden lassen."
+        },
+        {
+          "de": "schimpfen",
+          "en": "to complain, grumble",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "example": "Alle schimpfen, und keiner macht etwas."
+        },
+        {
+          "de": "einrichten",
+          "en": "to set up",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "example": "Sie will eine gemeinsame Praxis einrichten."
+        },
+        {
+          "de": "die Wahl annehmen",
+          "en": "to accept the election",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "example": "Ich habe mich entschieden, die Wahl anzunehmen."
+        },
+        {
+          "de": "ernst nehmen",
+          "en": "to take seriously",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "example": "Inzwischen wird sie ernst genommen."
+        },
+        {
+          "de": "in Rente gehen",
+          "en": "to retire",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_buergermeisterin",
+          "example": "Der Arzt geht nächstes Jahr in Rente."
         },
         {
           "de": "Journalist",
@@ -141122,6 +142594,272 @@
           "image": "schild"
         },
         {
+          "de": "Freibad",
+          "en": "open-air pool",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "article": "das",
+          "plural": "¨-er",
+          "example": "Das Freibad soll geschlossen werden."
+        },
+        {
+          "de": "Becken",
+          "en": "basin, pool",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "article": "das",
+          "plural": "-",
+          "example": "Das Becken ist undicht."
+        },
+        {
+          "de": "Tagesordnung",
+          "en": "agenda",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "article": "die",
+          "plural": "-en",
+          "example": "Wir kommen zu Punkt vier der Tagesordnung."
+        },
+        {
+          "de": "Gutachten",
+          "en": "expert report",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "article": "das",
+          "plural": "-",
+          "example": "Nach dem Gutachten muss saniert werden."
+        },
+        {
+          "de": "Zuschuss",
+          "en": "grant, subsidy",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Vom Land kann ein Zuschuss beantragt werden."
+        },
+        {
+          "de": "Freiwillige",
+          "en": "volunteer",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "article": "der",
+          "plural": "-n",
+          "example": "Vierzig Freiwillige haben zugesagt."
+        },
+        {
+          "de": "Freiwillige",
+          "en": "volunteer",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "article": "die",
+          "plural": "-n",
+          "example": "Vierzig Freiwillige haben zugesagt."
+        },
+        {
+          "de": "Gegenstimme",
+          "en": "vote against",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "article": "die",
+          "plural": "-n",
+          "example": "Es gab nur eine Gegenstimme."
+        },
+        {
+          "de": "Betrieb",
+          "en": "running, operation; business",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "article": "der",
+          "plural": "-e",
+          "example": "Ein Verein übernimmt den Betrieb."
+        },
+        {
+          "de": "undicht",
+          "en": "leaky",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "example": "Das Becken ist seit Jahren undicht."
+        },
+        {
+          "de": "sanieren",
+          "en": "to renovate, refurbish",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "example": "Das Bad muss vollständig saniert werden."
+        },
+        {
+          "de": "zuständig für",
+          "en": "responsible for",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "example": "Herr Kraus ist für die Finanzen zuständig."
+        },
+        {
+          "de": "bestreiten",
+          "en": "to dispute, deny",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "example": "Das bestreite ich nicht."
+        },
+        {
+          "de": "zusagen",
+          "en": "to agree, promise to come",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "example": "Vierzig Mitglieder haben schon zugesagt."
+        },
+        {
+          "de": "die Kosten tragen",
+          "en": "to bear the costs",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_hoeren_gemeinderat",
+          "example": "Die Stadt kann die Kosten nicht allein tragen."
+        },
+        {
+          "de": "Bürgerrat",
+          "en": "citizens' assembly",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Der Bundestag hat einen Bürgerrat eingesetzt."
+        },
+        {
+          "de": "Los",
+          "en": "lot (drawing lots)",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "article": "das",
+          "plural": "-e",
+          "example": "Im alten Athen entschied oft das Los."
+        },
+        {
+          "de": "Gremium",
+          "en": "body, committee",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "article": "das",
+          "plural": "Gremien",
+          "example": "Ein Gremium, das niemand gewählt hat."
+        },
+        {
+          "de": "Empfehlung",
+          "en": "recommendation",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "article": "die",
+          "plural": "-en",
+          "example": "Dem Parlament wurden neun Empfehlungen übergeben."
+        },
+        {
+          "de": "Verfahren",
+          "en": "procedure",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "article": "das",
+          "plural": "-",
+          "example": "Das Verfahren ist aufwendig."
+        },
+        {
+          "de": "Fachleute",
+          "en": "experts",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "article": "die",
+          "plural": "(Pl.)",
+          "example": "Die Gruppe hörte Fachleute an."
+        },
+        {
+          "de": "Volksabstimmung",
+          "en": "referendum",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "article": "die",
+          "plural": "-en",
+          "example": "Die Volksabstimmung fand 2018 statt."
+        },
+        {
+          "de": "Verdruss",
+          "en": "disenchantment, annoyance",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "article": "der",
+          "example": "Der Verdruss an der Politik wächst."
+        },
+        {
+          "de": "Bildungsabschluss",
+          "en": "educational qualification",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Auch der Bildungsabschluss wurde berücksichtigt."
+        },
+        {
+          "de": "auslosen",
+          "en": "to draw by lot",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "example": "Die Mitglieder sind ausgelost worden."
+        },
+        {
+          "de": "einsetzen",
+          "en": "to set up, appoint",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "example": "Das Parlament setzt ein Gremium ein."
+        },
+        {
+          "de": "abbilden",
+          "en": "to mirror, represent",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "example": "Die Gruppe soll die Bevölkerung abbilden."
+        },
+        {
+          "de": "umsetzen",
+          "en": "to implement",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "example": "Bisher ist kaum etwas umgesetzt worden."
+        },
+        {
+          "de": "beraten über",
+          "en": "to deliberate on",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "example": "Die Versammlung hat über die Frage beraten."
+        },
+        {
+          "de": "scheitern an",
+          "en": "to fail at",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "example": "Daran war die Politik lange gescheitert."
+        },
+        {
+          "de": "verbindlich",
+          "en": "binding",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "example": "Die Empfehlungen sind nicht verbindlich."
+        },
+        {
+          "de": "aufwendig",
+          "en": "elaborate, costly",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "example": "Das Verfahren ist aufwendiger als gedacht."
+        },
+        {
+          "de": "folgenlos",
+          "en": "without consequences",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_buergerrat",
+          "example": "Die Arbeit darf nicht folgenlos bleiben."
+        },
+        {
           "de": "Stellungnahme",
           "en": "statement of position",
           "kind": "noun",
@@ -141144,12 +142882,6 @@
           "sourceQuizId": "quest_b2_1_stellungnahme",
           "article": "der",
           "plural": "-beiträge"
-        },
-        {
-          "de": "einwenden",
-          "en": "to object",
-          "kind": "word",
-          "sourceQuizId": "quest_b2_1_stellungnahme"
         },
         {
           "de": "vorschlagen",
@@ -141248,6 +142980,140 @@
           "en": "cite figures",
           "kind": "word",
           "sourceQuizId": "quest_b2_1_stellungnahme"
+        },
+        {
+          "de": "Pflicht",
+          "en": "duty, obligation",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "article": "die",
+          "plural": "-en",
+          "example": "Mit einem guten Angebot bräuchte man keine Pflicht."
+        },
+        {
+          "de": "Zivildienst",
+          "en": "civilian service",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "article": "der",
+          "example": "Er hat Zivildienst in einem Altenheim geleistet."
+        },
+        {
+          "de": "Wehrpflicht",
+          "en": "conscription",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "article": "die",
+          "example": "Die Wehrpflicht wurde 2011 ausgesetzt."
+        },
+        {
+          "de": "Zusammenhalt",
+          "en": "cohesion",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "article": "der",
+          "example": "Der Zusammenhalt der Gesellschaft ist wichtig."
+        },
+        {
+          "de": "Zuschrift",
+          "en": "letter (to a newspaper)",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "article": "die",
+          "plural": "-en",
+          "example": "Uns erreichten viele Zuschriften."
+        },
+        {
+          "de": "Pflegeheim",
+          "en": "care home",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "article": "das",
+          "plural": "-e",
+          "example": "Im Pflegeheim fehlen helfende Hände."
+        },
+        {
+          "de": "Hilfsbereitschaft",
+          "en": "willingness to help",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "article": "die",
+          "example": "Hilfsbereitschaft lässt sich nicht verordnen."
+        },
+        {
+          "de": "Taschengeld",
+          "en": "pocket money",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "article": "das",
+          "example": "Sie bekommen dafür nur ein Taschengeld."
+        },
+        {
+          "de": "Last",
+          "en": "burden",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "article": "die",
+          "plural": "-en",
+          "example": "Wer nicht helfen will, ist eine Last."
+        },
+        {
+          "de": "Schluss",
+          "en": "conclusion; end",
+          "kind": "noun",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Er zieht daraus den falschen Schluss."
+        },
+        {
+          "de": "einen Dienst leisten",
+          "en": "to do a service",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "example": "Jeder soll einmal einen Dienst leisten."
+        },
+        {
+          "de": "verordnen",
+          "en": "to prescribe, decree",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "example": "Hilfe kann man nicht verordnen."
+        },
+        {
+          "de": "bezweifeln",
+          "en": "to doubt",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "example": "Ich bezweifle, dass das funktioniert."
+        },
+        {
+          "de": "verzichten auf",
+          "en": "to do without, give up",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "example": "Meine Generation hat auf vieles verzichtet."
+        },
+        {
+          "de": "versäumen",
+          "en": "to miss (out on)",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "example": "Wer ein Jahr später studiert, hat nichts versäumt."
+        },
+        {
+          "de": "freiwillig",
+          "en": "voluntary, voluntarily",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "example": "Ich mache dieses Jahr freiwillig."
+        },
+        {
+          "de": "jemandem recht geben",
+          "en": "to agree that someone is right",
+          "kind": "word",
+          "sourceQuizId": "quest_b2_1_lesen_pflichtjahr",
+          "example": "In einem Punkt gebe ich ihm recht."
         },
         {
           "de": "Standpunkt",

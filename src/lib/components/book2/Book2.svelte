@@ -8,7 +8,7 @@
 	import ExerciseBlock from '$lib/components/companion/ExerciseBlock.svelte';
 	import LearnBlock from '$lib/components/companion/LearnBlock.svelte';
 	import { rich } from '$lib/domain/companion';
-	import { chapterKey, picturedWords, practiseOf, type Book2, type Chapter, type PhotoCredit } from '$lib/domain/book2';
+	import { chapterKey, picturedWords, practiseOf, speakerLine, type Book2, type BookExtra, type Chapter, type PhotoCredit } from '$lib/domain/book2';
 
 	interface Qr {
 		svg: string;
@@ -23,6 +23,7 @@
 		credits,
 		qr,
 		pages = {},
+		extras = [],
 		cover = false,
 		spineMm = 7.4,
 		hd = false,
@@ -41,6 +42,8 @@
 		qr: Record<string, { app: Qr | null; listen: Qr | null; speak: Qr | null }>;
 		/** Per chapter id and page part: the small code that opens that part in the app (domain/bookStudy). */
 		pages?: Record<string, Partial<Record<string, Qr | null>>>;
+		/** "Mehr lesen und hören": the level's longer texts, two pages each, after the last chapter. */
+		extras?: BookExtra[];
 	} = $props();
 
 	/** Nine content pages and a notes page, so every chapter opens on a left-hand page. */
@@ -50,7 +53,10 @@
 	const FRONT = 3;
 	const firstPage = (i: number) => FRONT + 1 + i * PAGES;
 	const side = (p: number) => (p % 2 === 0 ? 'left' : 'right');
-	const keyPage = $derived(firstPage(book.chapters.length));
+	/** The extra texts start where the chapters end, on a left-hand page: text left, questions right. */
+	const extrasPage = $derived(firstPage(book.chapters.length));
+	const keyPage = $derived(extrasPage + extras.length * 2);
+	const LETTERS = 'abcd';
 	/** From B1 the rules are in German: the words they use, with their English, once. */
 	const GRAMMAR_WORDS = [
 		['das Nomen', 'noun'], [t('das Verb'), 'verb'], ['das Adjektiv', 'adjective'], ['der Artikel', 'article'],
@@ -232,6 +238,19 @@
 	</div>
 {/snippet}
 
+{#snippet mcq(x: BookExtra)}
+	<ol class="mcq" lang="de">
+		{#each x.questions as q, j (j)}
+			<li>
+				<p class="q"><b>{j + 1}</b> {q.question}</p>
+				<ul>
+					{#each q.options as o, k (k)}<li><span class="box"></span><i>{LETTERS[k]}</i> {o}</li>{/each}
+				</ul>
+			</li>
+		{/each}
+	</ol>
+{/snippet}
+
 {#snippet photo(id: string, caption: string, cls = '')}
 	<figure class="photo {cls}">
 		<img src="{photoBase}/{id}.jpg" alt="" />
@@ -398,6 +417,9 @@
 					<span class="pg tnum">{firstPage(i)}</span>
 				</li>
 			{/each}
+			{#if extras.length}
+				<li class="key-line"><span class="no">+</span><span class="t"><b lang="de">Mehr lesen und hören</b> <small lang="de">{extras.length} längere Texte mit Fragen</small></span><span class="pg tnum">{extrasPage}</span></li>
+			{/if}
 			<li class="key-line"><span class="no">✓</span><span class="t">{#if hidesEnglish(book.level)}<b>Lösungen</b> <small>und Bildnachweise</small>{:else}<b>{t('Answers')}</b> <small>{t('and the picture credits')}</small>{/if}</span><span class="pg tnum">{keyPage}</span></li>
 		</ol>
 		<footer class="foot"><span class="tnum">3</span><span>{book.title} · {book.subtitle}</span></footer>
@@ -617,6 +639,62 @@
 		</section>
 	{/each}
 
+	<!-- Mehr lesen und hören: the level's longer texts. Left page the text (or,
+	     for a listening, the questions beside the code that plays it), right
+	     page the questions (or the text to read afterwards). -->
+	{#each extras as x, i (x.id)}
+		{@const p = extrasPage + i * 2}
+		{@const listening = x.kind === 'listening'}
+		<section class="page {side(p)} extra" class:coded={!!x.code}>
+			{#if x.code}
+				<a class="page-code" href={x.code.url}>
+					{@html x.code.svg}
+					<span>{listening ? 'Hören' : 'Hören, prüfen'}</span>
+				</a>
+			{/if}
+			<header class="head small">
+				<p class="eyebrow">{listening ? 'Mehr hören' : 'Mehr lesen'} · {i + 1}</p>
+				<h2 lang="de">{x.title}</h2>
+			</header>
+			{#if x.photo}
+				<figure class="photo band">
+					<img src="{photoBase}/{x.photo}.jpg" alt="" />
+				</figure>
+			{:else if x.image}
+				<figure class="photo band drawn"><img src="/img/{x.image}.webp" alt="" /></figure>
+			{/if}
+			{#if listening}
+				<p class="intro" lang="de">Lies zuerst die Fragen. Scanne dann den Code und hör den Text zweimal. Kreuze beim zweiten Hören an. Den Text zum Nachlesen findest du auf der nächsten Seite.</p>
+				{@render mcq(x)}
+			{:else}
+				<div class="extra-text" lang="de">
+					{#each x.passage.split(/\n{2,}/) as para, j (j)}<p class:short={para.length < 60}>{para}</p>{/each}
+				</div>
+			{/if}
+			<footer class="foot"><span class="tnum">{p}</span><span lang="de">Mehr lesen und hören · <i>{x.title}</i></span></footer>
+		</section>
+		<section class="page {side(p + 1)} extra">
+			<header class="head small">
+				<p class="eyebrow">{listening ? 'Zum Nachlesen' : 'Fragen zum Text'}</p>
+				<h2 lang="de">{x.title}</h2>
+			</header>
+			{#if listening}
+				<p class="intro" lang="de">Lies den Text erst, nachdem du ihn gehört hast. Unterstreiche, was du beim Hören nicht verstanden hast.</p>
+				<div class="extra-text talk" lang="de">
+					{#each x.passage.split(/\n+/) as line, j (j)}
+						{@const l = speakerLine(line)}
+						<p>{#if l.who}<b>{l.who}</b> {/if}{l.de}</p>
+					{/each}
+				</div>
+			{:else}
+				<p class="intro" lang="de">Kreuze an. Zu jeder Frage passt genau eine Antwort. Such die Stelle im Text und unterstreiche sie.</p>
+				{@render mcq(x)}
+				{@render filler('Fass den Text in drei Sätzen zusammen. Schreib dann einen Satz dazu, was du selbst darüber denkst.', true)}
+			{/if}
+			<footer class="foot"><span class="tnum">{p + 1}</span><span lang="de">Mehr lesen und hören · <i>{x.title}</i></span></footer>
+		</section>
+	{/each}
+
 	<!-- Key and credits -->
 	{#each keyPages as chunk, k (k)}
 		<section class="page {side(keyPage + k)} key">
@@ -641,10 +719,18 @@
 					</section>
 				{/each}
 			</div>
+			{#if k === keyPages.length - 1 && extras.length}
+				<div class="extra-key" lang="de">
+					<p class="eyebrow">Mehr lesen und hören · Lösungen</p>
+					{#each extras as x, i (x.id)}
+						<p><b>{i + 1}</b> <em>{x.title}</em> · {#each x.questions as q, j (j)}{#if j}&ensp;·&ensp;{/if}{j + 1}&nbsp;<strong>{LETTERS[q.correct]}</strong>{/each}</p>
+					{/each}
+				</div>
+			{/if}
 			{#if k === keyPages.length - 1}
 				<div class="credits full">
 					<p class="eyebrow">Die Fotos · picture credits</p>
-					{#each [...new Set(book.chapters.flatMap((c) => [c.opener.photo, ...c.reading.photos.map((x) => x.photo), ...c.grammar.flatMap((g) => (g.photo ? [g.photo.photo] : [])), c.document.photo]))] as id (id)}
+					{#each [...new Set([...book.chapters.flatMap((c) => [c.opener.photo, ...c.reading.photos.map((x) => x.photo), ...c.grammar.flatMap((g) => (g.photo ? [g.photo.photo] : [])), c.document.photo]), ...extras.flatMap((x) => (x.photo ? [x.photo] : []))])] as id (id)}
 						{#if credits[id]}<p>{credits[id].title} — {credits[id].author}, {credits[id].license}, Wikimedia Commons.</p>{/if}
 					{/each}
 					<p>{t('Word pictures and diagrams: Language Quiz.')}</p>
@@ -974,6 +1060,27 @@
 	.photo.small img { aspect-ratio: 4 / 3; object-fit: cover; }
 	.photo.wide img { aspect-ratio: 3 / 2; object-fit: cover; max-height: 94mm; }
 	.photo.wide { margin-bottom: 3mm; }
+
+	/* Mehr lesen und hören: a long text set in two columns under a low photo. */
+	.photo.band { margin-bottom: 4mm; }
+	.photo.band img { aspect-ratio: 3 / 1; object-fit: cover; }
+	.photo.band.drawn img { aspect-ratio: 3 / 1; object-fit: contain; background: #fbf5e6; }
+	.extra-text { columns: 2; column-gap: 7mm; font-family: var(--serif); font-size: 9.6pt; line-height: 1.36; hyphens: auto; }
+	.extra-text p { margin: 0 0 2.2mm; }
+	.extra-text p.short { font-family: var(--sans); font-size: 8.6pt; font-weight: 700; color: var(--navy); break-after: avoid; }
+	.extra-text.talk p { margin-bottom: 1.8mm; }
+	.extra-text.talk b { font-family: var(--sans); font-size: 7.6pt; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-ink); }
+	.mcq { list-style: none; margin: 0 0 3mm; padding: 0; columns: 2; column-gap: 7mm; font-size: 8.8pt; line-height: 1.3; }
+	.mcq > li { break-inside: avoid; margin: 0 0 3mm; }
+	.mcq .q { margin: 0 0 1mm; font-weight: 700; color: var(--navy); }
+	.mcq .q b { display: inline-block; min-width: 4mm; color: var(--accent-ink); }
+	.mcq ul { list-style: none; margin: 0; padding: 0; }
+	.mcq ul li { display: grid; grid-template-columns: 3.4mm 3mm 1fr; gap: 1.2mm; align-items: baseline; margin: 0 0 0.6mm; }
+	.mcq .box { width: 2.8mm; height: 2.8mm; border: 0.3mm solid var(--navy); border-radius: 0.5mm; transform: translateY(0.5mm); }
+	.mcq i { font-style: normal; font-weight: 700; color: var(--muted); }
+	.extra-key { margin: 0 0 5mm; font-size: 8.5pt; line-height: 1.45; }
+	.extra-key p { margin: 0.6mm 0; }
+	.extra-key .eyebrow { margin-bottom: 1.5mm; }
 	/* A portrait document (a menu, a timetable): the whole sheet, not a crop. */
 	.photo.wide.tall img { aspect-ratio: auto; object-fit: contain; width: auto; height: auto; max-width: 100%; max-height: 128mm; margin: 0 auto; }
 	.photo.float { float: inline-end; width: 66mm; margin: 0 0 3mm 4mm; }

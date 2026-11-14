@@ -153,7 +153,15 @@ function linkImages() {
 				.prompt.replace(/^scene:\s*/, '')
 				.replace(/,\s*wide empty paper margins[^,]*$/, '');
 		for (const quiz of bundle.quizzes ?? []) {
-			let scene = sceneOf(quiz) ?? sharedOf(quiz);
+			// A passage whose scene is a photograph (tool/build-deck-photos.mjs cuts
+			// it from the exercise's own photo) has no manifest entry. It keeps its
+			// picture, but is never lent to a speaking task: a photo has no prompt
+			// to describe it with.
+			const photoOf = (q) =>
+				(q.type === 'reading' || q.type === 'listening') && !byId.has(q.id) && existsSync(join(OUT_DIR, `${q.id}.webp`))
+					? q.id
+					: null;
+			let scene = sceneOf(quiz) ?? photoOf(quiz) ?? sharedOf(quiz);
 			// A writing task has nothing of its own to show either, so it borrows
 			// the level's reading scene: a text on a page is the right picture for it.
 			if (!scene && (quiz.type === 'speaking' || quiz.type === 'writing')) {

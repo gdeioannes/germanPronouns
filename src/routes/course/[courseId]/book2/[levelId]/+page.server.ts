@@ -3,7 +3,7 @@ import registry from '$content/booklinks.json';
 import { courses, loadCourse } from '$lib/content';
 import type { BookLinkRegistry, LinkKind } from '$lib/domain/booklinks';
 import { codeUrl } from '$lib/domain/booklinks';
-import { loadBook2, photoCredits } from '$lib/domain/book2';
+import { loadBook2, photoCredits, type BookExtra } from '$lib/domain/book2';
 import { qrSvg } from '$lib/server/qr';
 import { PART_IDS, type PartId } from '$lib/domain/bookStudy';
 import type { EntryGenerator, PageServerLoad } from './$types';
@@ -37,5 +37,25 @@ export const load: PageServerLoad = async ({ params }) => {
 		pages[c.id] = {};
 		for (const part of PART_IDS) pages[c.id][part] = await code('chapter', `${book.level}/${c.id}/${part}`);
 	}
-	return { book, credits: photoCredits(params.courseId), qr, pages, siteQr: await qrSvg('https://languagequiz.org') };
+	// "Mehr lesen und hören": the level's longer texts, printed from the bundle.
+	const credits = photoCredits(params.courseId);
+	const extras: BookExtra[] = [];
+	if (book.extras?.length) {
+		const course = await loadCourse(params.courseId);
+		for (const id of book.extras) {
+			const q = course.quizzes.find((x) => x.id === id);
+			if (!q || (q.type !== 'reading' && q.type !== 'listening') || !('questions' in q) || !q.questions?.length) continue;
+			extras.push({
+				id,
+				kind: q.type,
+				title: q.passageTitle,
+				passage: q.passage,
+				questions: q.questions.map((x) => ({ question: x.question, options: x.options, correct: x.correctIndex })),
+				photo: credits[id] ? id : null,
+				image: q.image ?? null,
+				code: await code('quiz', id)
+			});
+		}
+	}
+	return { book, credits, qr, pages, extras, siteQr: await qrSvg('https://languagequiz.org') };
 };

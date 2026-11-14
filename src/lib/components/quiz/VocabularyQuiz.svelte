@@ -580,6 +580,9 @@
 					{#if current.plural}
 						<p class="plural" lang={locale}>Plural: <strong>{current.plural}</strong></p>
 					{/if}
+					{#if current.example}
+						<p class="example" lang={locale}>{current.example}</p>
+					{/if}
 					{#if current.note || current.also?.length}
 						<p class="plural" lang={locale}>
 							{#if current.note}<strong>{current.note}</strong>{/if}{#if current.note && current.also?.length} · {/if}{#if current.also?.length}also: <strong>{current.also.join(', ')}</strong>{/if}
@@ -1085,6 +1088,16 @@
 	}
 
 	.plural strong {
+		color: var(--ink);
+	}
+
+	/* The word in a sentence from the text it was met in. */
+	.example {
+		margin: 0.6rem 0 0;
+		max-width: 28ch;
+		font-size: var(--step-0);
+		font-style: italic;
+		line-height: 1.35;
 		color: var(--ink);
 	}
 

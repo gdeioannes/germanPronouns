@@ -268,6 +268,8 @@ export interface HelpVocab {
 	article?: string;
 	plural?: string;
 	en: string;
+	/** A short German sentence using the word, shown on the back of its flashcard. */
+	example?: string;
 }
 
 export interface HelpMistake {
@@ -635,6 +637,8 @@ export interface VocabCard {
 	note?: string;
 	/** Synonyms the write mode also accepts, in their full form ("ungehalten", "die Position"). */
 	also?: string[];
+	/** A short German sentence using the word, from the text it was met in. */
+	example?: string;
 	/** The quiz whose Help Memory this word came from. */
 	sourceQuizId: string;
 	/**
