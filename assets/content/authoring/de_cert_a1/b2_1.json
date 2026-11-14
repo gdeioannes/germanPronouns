@@ -11116,5 +11116,2317 @@
         }
       ]
     }
+  },
+  {
+    "id": "quest_b2_1_lesen_feldheim",
+    "after": "quest_b2_1_konj1_vergangenheit",
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Das Dorf mit dem eigenen Stromnetz",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "level": "B2.1",
+      "help": {
+        "intro": "Eine Reportage von etwa 520 Wörtern über Feldheim, ein Dorf in Brandenburg, das sich selbst mit Strom und Wärme versorgt. Der Text erzählt zuerst, wie es dazu kam, und fragt dann, was man daraus lernen kann. So ist eine Reportage oft gebaut: ein Ort, eine Geschichte in Schritten, Stimmen von Beteiligten, ein Einwand, eine Deutung am Schluss. Achte auf zwei Dinge. Erstens gibt der Text wieder, was andere sagen, ohne sich festzulegen: Bewohner berichten, das Projekt habe mehr verändert als die Stromrechnung; Kritiker wenden ein, Feldheim lasse sich nicht kopieren. Das ist der Konjunktiv I der indirekten Rede, den du gerade geübt hast. Zweitens tun die Feldheimer vieles nicht selbst, sie lassen es tun: Sie ließen ein eigenes Netz verlegen. Die Fragen wollen wissen, wer was gesagt hat, warum etwas geschah und was der Autor am Ende daraus schließt.",
+        "introEn": "A report of about 520 words on Feldheim, a village in Brandenburg that supplies its own electricity and heat. The text first tells how that came about and then asks what can be learned from it. A report is often built this way: a place, a story in steps, voices of the people involved, an objection, an interpretation at the end. Watch two things. First, the text passes on what others say without committing itself: Bewohner berichten, das Projekt habe mehr verändert als die Stromrechnung; Kritiker wenden ein, Feldheim lasse sich nicht kopieren. That is the Konjunktiv I of reported speech you have just practised. Second, the villagers do not do everything themselves, they have it done: Sie ließen ein eigenes Netz verlegen. The questions ask who said what, why something happened and what the author concludes.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Wer sagt das? Stimmen im Text erkennen",
+            "text": "Ein Bericht trennt Tatsachen von Aussagen. Tatsachen stehen im Indikativ: Im Oktober 2010 wurde das Netz eingeweiht. Aussagen anderer stehen im Konjunktiv I: Kritiker wenden ein, das Dorf sei klein und habe viel Wind. Signalwörter für eine fremde Stimme: berichten, einwenden, heißt es, nach Medienberichten, laut.",
+            "examples": [
+              {
+                "de": "Bewohner berichten, das Projekt habe mehr verändert als die Stromrechnung.",
+                "en": "Residents report that the project has changed more than the electricity bill.",
+                "focus": [
+                  "berichten",
+                  "habe"
+                ]
+              },
+              {
+                "de": "Kritiker wenden allerdings ein, Feldheim lasse sich nicht einfach kopieren.",
+                "en": "Critics object, however, that Feldheim cannot simply be copied.",
+                "focus": [
+                  "wenden",
+                  "ein",
+                  "lasse"
+                ]
+              }
+            ],
+            "check": {
+              "q": "„Das Dorf sei klein und habe viel Platz.“ Wessen Meinung ist das im Text?",
+              "options": [
+                "die der Kritiker",
+                "die des Autors",
+                "die der Bewohner"
+              ],
+              "answer": "die der Kritiker",
+              "why": "sei und habe sind Konjunktiv I: Der Autor gibt wieder, was die Kritiker sagen, und macht es sich nicht zu eigen.",
+              "whyEn": "sei and habe are Konjunktiv I: the author passes on what the critics say without making it his own."
+            },
+            "visual": {
+              "kind": "moves",
+              "moves": [
+                {
+                  "label": "Ort",
+                  "de": [
+                    "Wer von Berlin aus … fährt, erreicht ein Dorf"
+                  ]
+                },
+                {
+                  "label": "Geschichte",
+                  "de": [
+                    "Die Geschichte begann …"
+                  ]
+                },
+                {
+                  "label": "Stimmen",
+                  "de": [
+                    "Bewohner berichten, …"
+                  ]
+                },
+                {
+                  "label": "Einwand",
+                  "de": [
+                    "Kritiker wenden ein, …"
+                  ]
+                },
+                {
+                  "label": "Deutung",
+                  "de": [
+                    "Vielleicht liegt die eigentliche Lehre …"
+                  ]
+                }
+              ]
+            },
+            "en": {
+              "title": "Who is saying this? Spotting the voices in a text",
+              "text": "A report separates facts from statements. Facts are in the indicative: Im Oktober 2010 wurde das Netz eingeweiht. What others say is in Konjunktiv I: Kritiker wenden ein, das Dorf sei klein und habe viel Wind. Signal words for someone else's voice: berichten, einwenden, heißt es, nach Medienberichten, laut."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Wörter der Energie: erzeugen, einspeisen, beziehen, versorgen",
+            "text": "Strom erzeugen (herstellen) · Strom ins Netz einspeisen (hineingeben) · Strom beziehen (bekommen, kaufen) · ein Dorf mit Strom versorgen (ihm geben, was es braucht) · eine Fläche verpachten (gegen Geld zur Nutzung überlassen) · sich an etwas beteiligen (mitmachen, oft mit Geld).",
+            "examples": [
+              {
+                "de": "Der weitaus größte Teil des Stroms wird ins öffentliche Netz eingespeist.",
+                "en": "By far the largest part of the electricity is fed into the public grid.",
+                "focus": [
+                  "eingespeist"
+                ]
+              },
+              {
+                "de": "Die Landwirte verpachteten ihre Flächen gern.",
+                "en": "The farmers were happy to lease out their land.",
+                "focus": [
+                  "verpachteten"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Die Dorfbewohner wollten den Strom direkt ____, statt ihn teuer zu kaufen.",
+              "options": [
+                "beziehen",
+                "einspeisen",
+                "verpachten"
+              ],
+              "answer": "beziehen",
+              "why": "Strom beziehen heißt ihn bekommen. Einspeisen ist die Gegenrichtung: Strom ins Netz geben.",
+              "whyEn": "Strom beziehen means to receive it. Einspeisen is the opposite direction: feeding power into the grid."
+            },
+            "en": {
+              "title": "Energy words: erzeugen, einspeisen, beziehen, versorgen",
+              "text": "Strom erzeugen (to generate) · Strom ins Netz einspeisen (to feed into the grid) · Strom beziehen (to obtain, buy) · ein Dorf mit Strom versorgen (to supply) · eine Fläche verpachten (to lease out land) · sich an etwas beteiligen (to take a share in, often with money)."
+            }
+          }
+        ],
+        "remember": [
+          "Indikativ = Tatsache, Konjunktiv I = jemand sagt es.",
+          "erzeugen → einspeisen → beziehen: der Weg des Stroms.",
+          "lassen + Infinitiv: Sie ließen ein Netz verlegen (jemand anders hat es gebaut)."
+        ],
+        "rememberEn": [
+          "Indicative = fact, Konjunktiv I = someone says so.",
+          "erzeugen → einspeisen → beziehen: the path of the electricity.",
+          "lassen + infinitive: Sie ließen ein Netz verlegen (someone else built it)."
+        ],
+        "exam": "Reportagen über Gesellschaft und Umwelt mit Fragen zu Details und zur Haltung des Autors sind ein typischer Lesetext in der B2-Prüfung.",
+        "examEn": "Reports on society and the environment, with questions on details and on the author's stance, are a typical reading text in the B2 exam.",
+        "hook": "130 Einwohner, ein eigenes Stromnetz und ein Strompreis, über den das Dorf selbst entscheidet: Lies, wie Feldheim das geschafft hat.",
+        "hookEn": "130 residents, a grid of their own and an electricity price the village sets itself: read how Feldheim did it.",
+        "german": true
+      },
+      "category": "Society",
+      "passageTitle": "Das Dorf, dem sein Strom gehört",
+      "passage": "Wer von Berlin aus etwa achtzig Kilometer nach Südwesten fährt, erreicht ein Dorf, das auf den ersten Blick nichts Besonderes hat: eine Straße, ein paar Dutzend Häuser, rundherum Felder. Feldheim, ein Ortsteil der Kleinstadt Treuenbrietzen in Brandenburg, hat rund 130 Einwohner. Trotzdem reisen Besuchergruppen aus aller Welt hierher. Sie wollen sehen, was es sonst kaum irgendwo gibt: ein Dorf, das sich vollständig selbst mit Strom und Wärme versorgt – über Leitungen, die ihm selbst gehören.\n\nDie Geschichte begann Mitte der Neunzigerjahre, als ein junger Unternehmer die ersten Windräder auf den Feldern rund um das Dorf aufstellen ließ. Der Wind weht hier kräftig, und die Landwirte verpachteten ihre Flächen gern. Mit den Jahren wuchs der Windpark auf Dutzende Anlagen. Später kam eine Biogasanlage hinzu, die mit Gülle und Mais aus der örtlichen Landwirtschaft betrieben wird und neben Strom auch Wärme liefert.\n\nDoch der Strom, der vor der Haustür erzeugt wurde, floss ins öffentliche Netz, und die Feldheimer zahlten dafür denselben Preis wie alle anderen. Sie wollten ihn direkt beziehen. Der Netzbetreiber lehnte es jedoch ab, dem Dorf sein Netz zu verkaufen oder zu verpachten. Also trafen die Feldheimer eine ungewöhnliche Entscheidung: Sie ließen ein eigenes Strom- und Wärmenetz verlegen, parallel zum alten. Jeder Haushalt, der sich beteiligen wollte, zahlte 3.000 Euro; den Rest finanzierten das Unternehmen, Fördermittel und Kredite. Im Oktober 2010 wurde das Netz eingeweiht.\n\nSeitdem gehört die Versorgung einer Gesellschaft, an der die Haushalte, die Stadt und örtliche Betriebe beteiligt sind. Über den Preis entscheiden die Feldheimer selbst. Nach Medienberichten zahlen sie seit Jahren rund zwölf Cent pro Kilowattstunde, während der Durchschnitt in Deutschland zuletzt bei etwa vierzig Cent lag. Als die Energiepreise 2022 überall im Land stark stiegen, blieb der Preis im Dorf stabil.\n\nBewohner berichten, das Projekt habe mehr verändert als die Stromrechnung. Man habe gelernt, gemeinsam zu entscheiden, heißt es im Dorf, und es seien Arbeitsplätze entstanden. Kritiker wenden allerdings ein, Feldheim lasse sich nicht einfach kopieren. Das Dorf sei klein, es habe viel Platz und viel Wind, und ohne Fördergelder wäre das zweite Netz kaum bezahlbar gewesen. Tatsächlich braucht das Dorf nur einen Bruchteil des Stroms, den seine Anlagen erzeugen; der weitaus größte Teil wird nach wie vor ins öffentliche Netz eingespeist.\n\nInzwischen ist das Dorf selbst zu einer Art Schule geworden. In einem ehemaligen Gasthof ist ein Informationszentrum eingerichtet worden, in dem Schulklassen, Bürgermeister und Delegationen aus dem Ausland erfahren, wie die Versorgung funktioniert. Am Dorfrand steht außerdem seit 2015 ein großer Batteriespeicher. Er gleicht aus, was Wind und Sonne nicht können: Er nimmt Strom auf, wenn zu viel erzeugt wird, und gibt ihn ab, wenn das Netz ihn braucht. Für die Feldheimer ist all das längst Alltag geworden.\n\nVielleicht liegt die eigentliche Lehre deshalb nicht in der Technik. In vielen Gemeinden wird gegen neue Windräder protestiert, weil die Anwohner den Lärm und den veränderten Blick ertragen müssen, während der Gewinn an andere geht. In Feldheim ist es umgekehrt: Wer die Windräder sieht, profitiert auch von ihnen. Akzeptanz, so zeigt das Beispiel, entsteht dort, wo die Menschen beteiligt werden – und zwar nicht nur an den Entscheidungen, sondern auch am Ertrag.",
+      "passageTranslation": "Anyone who drives about eighty kilometres south-west from Berlin reaches a village that at first sight is nothing special: one street, a few dozen houses, fields all around. Feldheim, a district of the small town of Treuenbrietzen in Brandenburg, has around 130 inhabitants. Even so, groups of visitors travel here from all over the world. They want to see something that exists almost nowhere else: a village that supplies itself entirely with electricity and heat – through lines that it owns itself.\n\nThe story began in the mid-nineties, when a young entrepreneur had the first wind turbines put up in the fields around the village. The wind blows strongly here, and the farmers were happy to lease out their land. Over the years the wind farm grew to dozens of turbines. Later a biogas plant was added, which runs on slurry and maize from local farming and supplies heat as well as electricity.\n\nBut the electricity generated on the doorstep flowed into the public grid, and the people of Feldheim paid the same price for it as everyone else. They wanted to obtain it directly. The grid operator, however, refused to sell or lease its grid to the village. So the people of Feldheim took an unusual decision: they had their own electricity and heating network laid, parallel to the old one. Every household that wanted to take part paid 3,000 euros; the rest was financed by the company, subsidies and loans. In October 2010 the network was inaugurated.\n\nSince then the supply has belonged to a company in which the households, the town and local businesses hold shares. The people of Feldheim decide on the price themselves. According to media reports they have for years paid around twelve cents per kilowatt hour, while the average in Germany was most recently about forty cents. When energy prices rose sharply all over the country in 2022, the price in the village stayed stable.\n\nResidents report that the project has changed more than the electricity bill. People have learned to decide together, they say in the village, and jobs have been created. Critics object, however, that Feldheim cannot simply be copied. The village is small, they say, it has a lot of space and a lot of wind, and without subsidies the second network would hardly have been affordable. In fact the village needs only a fraction of the electricity its plants generate; by far the largest part is still fed into the public grid.\n\nIn the meantime the village itself has become a kind of school. An information centre has been set up in a former inn, where school classes, mayors and delegations from abroad find out how the supply works. On the edge of the village there has also been a large battery storage unit since 2015. It balances out what wind and sun cannot: it takes in electricity when too much is generated and releases it when the grid needs it. For the people of Feldheim all this has long since become everyday life.\n\nPerhaps the real lesson therefore does not lie in the technology. In many municipalities people protest against new wind turbines because the residents have to put up with the noise and the changed view while the profit goes to others. In Feldheim it is the other way round: whoever sees the turbines also benefits from them. Acceptance, the example shows, arises where people are given a share – not only in the decisions but also in the returns.",
+      "questions": [
+        {
+          "question": "Warum reisen Besuchergruppen nach Feldheim?",
+          "options": [
+            "weil das Dorf besonders alt und schön ist",
+            "weil es sich selbst mit Strom und Wärme versorgt",
+            "weil dort der größte Windpark Europas gebaut werden soll",
+            "weil man dort kostenlos Strom bekommt"
+          ],
+          "correctIndex": 1,
+          "explanation": "„Sie wollen sehen, was es sonst kaum irgendwo gibt: ein Dorf, das sich vollständig selbst mit Strom und Wärme versorgt.“ Auf den ersten Blick hat das Dorf „nichts Besonderes“.",
+          "questionTranslation": "Why do groups of visitors travel to Feldheim?",
+          "optionsTranslation": [
+            "because the village is especially old and beautiful",
+            "because it supplies itself with electricity and heat",
+            "because Europe's largest wind farm is to be built there",
+            "because you get electricity for free there"
+          ]
+        },
+        {
+          "question": "Womit wird die Biogasanlage betrieben?",
+          "options": [
+            "mit Gülle und Mais aus der Umgebung",
+            "mit Holz aus den Wäldern Brandenburgs",
+            "mit Abfällen aus Berlin",
+            "mit dem Strom der Windräder"
+          ],
+          "correctIndex": 0,
+          "explanation": "„… eine Biogasanlage …, die mit Gülle und Mais aus der örtlichen Landwirtschaft betrieben wird.“",
+          "questionTranslation": "What is the biogas plant run on?",
+          "optionsTranslation": [
+            "slurry and maize from the surrounding area",
+            "wood from Brandenburg's forests",
+            "waste from Berlin",
+            "the electricity from the wind turbines"
+          ]
+        },
+        {
+          "question": "Warum bauten die Feldheimer ein zweites Netz?",
+          "options": [
+            "Das alte Netz war zu schwach für den wachsenden Windpark.",
+            "Die Stadt Treuenbrietzen hatte es so verlangt.",
+            "Der Netzbetreiber wollte sein Netz nicht abgeben.",
+            "Das alte Netz war im Winter oft ausgefallen."
+          ],
+          "correctIndex": 2,
+          "explanation": "„Der Netzbetreiber lehnte es jedoch ab, dem Dorf sein Netz zu verkaufen oder zu verpachten. Also … ließen (sie) ein eigenes Strom- und Wärmenetz verlegen.“",
+          "questionTranslation": "Why did the people of Feldheim build a second network?",
+          "optionsTranslation": [
+            "The old grid was too weak for the growing wind farm.",
+            "The town of Treuenbrietzen had demanded it.",
+            "The grid operator would not give up its grid.",
+            "The old grid had often failed in winter."
+          ]
+        },
+        {
+          "question": "Wie wurde das neue Netz bezahlt?",
+          "options": [
+            "allein durch das Unternehmen",
+            "vollständig aus Steuergeldern des Landes Brandenburg",
+            "durch Spenden der Besucher",
+            "von Haushalten, Firma, Förderung und Krediten"
+          ],
+          "correctIndex": 3,
+          "explanation": "„Jeder Haushalt, der sich beteiligen wollte, zahlte 3.000 Euro; den Rest finanzierten das Unternehmen, Fördermittel und Kredite.“",
+          "questionTranslation": "How was the new network paid for?",
+          "optionsTranslation": [
+            "by the company alone",
+            "entirely from tax money from the state of Brandenburg",
+            "by donations from visitors",
+            "by households, the company, subsidies and loans"
+          ]
+        },
+        {
+          "question": "Was geschah im Dorf, als 2022 die Energiepreise stiegen?",
+          "options": [
+            "Der Preis blieb stabil.",
+            "Der Preis verdoppelte sich.",
+            "Das Dorf verkaufte sein Netz.",
+            "Viele Bewohner zogen weg."
+          ],
+          "correctIndex": 0,
+          "explanation": "„Als die Energiepreise 2022 überall im Land stark stiegen, blieb der Preis im Dorf stabil.“",
+          "questionTranslation": "What happened in the village when energy prices rose in 2022?",
+          "optionsTranslation": [
+            "The price stayed stable.",
+            "The price doubled.",
+            "The village sold its network.",
+            "Many residents moved away."
+          ]
+        },
+        {
+          "question": "Was wenden die Kritiker ein?",
+          "options": [
+            "Die Windräder seien zu laut für die Bewohner des Dorfes.",
+            "Das Modell lasse sich nicht einfach übertragen.",
+            "Der Strom im Dorf sei in Wahrheit teurer.",
+            "Die Biogasanlage schade der Landwirtschaft."
+          ],
+          "correctIndex": 1,
+          "explanation": "„Kritiker wenden allerdings ein, Feldheim lasse sich nicht einfach kopieren. Das Dorf sei klein, es habe viel Platz und viel Wind …“",
+          "questionTranslation": "What do the critics object?",
+          "optionsTranslation": [
+            "The turbines are too loud for the residents of the village.",
+            "The model cannot simply be transferred.",
+            "Electricity in the village is in truth more expensive.",
+            "The biogas plant harms farming."
+          ]
+        },
+        {
+          "question": "Worin sieht der Autor am Ende die eigentliche Lehre?",
+          "options": [
+            "Kleine Dörfer brauchen kein öffentliches Netz.",
+            "Windräder gehören grundsätzlich nicht in die Nähe von Wohnhäusern.",
+            "Akzeptanz entsteht, wenn Menschen am Ertrag beteiligt sind.",
+            "Technik löst die Probleme der Energieversorgung."
+          ],
+          "correctIndex": 2,
+          "explanation": "„Akzeptanz … entsteht dort, wo die Menschen beteiligt werden – und zwar nicht nur an den Entscheidungen, sondern auch am Ertrag.“ Die Lehre liege gerade „nicht in der Technik“.",
+          "questionTranslation": "Where does the author see the real lesson at the end?",
+          "optionsTranslation": [
+            "Small villages do not need a public grid.",
+            "Wind turbines fundamentally do not belong near homes.",
+            "Acceptance arises when people share in the returns.",
+            "Technology solves the problems of energy supply."
+          ]
+        }
+      ],
+      "covers": [
+        "b2.indirect-speech",
+        "b2.lassen"
+      ],
+      "image": "quest_b2_1_lesen_feldheim"
+    }
+  },
+  {
+    "id": "quest_b2_1_hoeren_tempolimit",
+    "after": "quest_b2_1_nomen_praep",
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Streit ums Tempolimit",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "level": "B2.1",
+      "help": {
+        "intro": "Ein Radiogespräch von etwa drei Minuten über eine Frage, die in Deutschland seit Jahrzehnten gestellt wird: Soll auf der Autobahn eine Höchstgeschwindigkeit gelten? Eine Moderatorin, eine Verkehrsforscherin und ein Vertreter eines Autofahrerverbands. Beide Gäste nennen Zahlen aus echten Studien, und genau darum geht der Streit: Die eine Studie rechnet mit Tempo 120 und kommt auf eine große Ersparnis, die andere rechnet mit Tempo 130 und kommt auf eine kleine. Höre deshalb nicht nur auf die Zahl, sondern darauf, wozu sie gehört. Achte außerdem auf die Verben mit fester Präposition, mit denen man in einer Diskussion Stellung nimmt: sich für etwas aussprechen, auf etwas hinweisen, von etwas abhängen, an etwas zweifeln, sich auf etwas einigen. Am Schluss fragt die Moderatorin, worin sich beide einig sind. Diese Stelle ist leise, aber wichtig.",
+        "introEn": "A radio conversation of about three minutes on a question that has been asked in Germany for decades: should there be a maximum speed on the motorway? A presenter, a transport researcher and a representative of a drivers' association. Both guests quote figures from real studies, and that is what the argument is about: one study assumes 120 km/h and finds a large saving, the other assumes 130 km/h and finds a small one. So do not listen only for the number, listen for what it belongs to. Also watch the verbs with a fixed preposition that people use to take a position in a discussion: sich für etwas aussprechen, auf etwas hinweisen, von etwas abhängen, an etwas zweifeln, sich auf etwas einigen. At the end the presenter asks what the two agree on. That passage is quiet but important.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Zahl + wozu sie gehört",
+            "text": "In einer Diskussion mit Zahlen notierst du nie die Zahl allein. Schreib drei Dinge mit: wie viel, wovon, unter welcher Bedingung. 6,7 Millionen Tonnen · CO2 pro Jahr · bei Tempo 120. Die falschen Antworten benutzen oft die richtige Zahl mit der falschen Bedingung.",
+            "examples": [
+              {
+                "de": "Bei Tempo 120 würden nach dieser Rechnung rund 6,7 Millionen Tonnen CO2 im Jahr eingespart.",
+                "en": "At 120 km/h, according to this calculation, around 6.7 million tonnes of CO2 a year would be saved.",
+                "focus": [
+                  "Tempo 120",
+                  "6,7 Millionen Tonnen"
+                ]
+              },
+              {
+                "de": "Auf etwa siebzig Prozent des Netzes gilt kein festes Limit.",
+                "en": "On about seventy per cent of the network no fixed limit applies.",
+                "focus": [
+                  "siebzig Prozent",
+                  "kein festes Limit"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Du hörst: „Bei Tempo 130 wären es nur ein bis zwei Millionen Tonnen.“ Was gehört in deine Notiz?",
+              "options": [
+                "130 → 1–2 Mio. t",
+                "nur 1–2 Mio.",
+                "Tempo 130"
+              ],
+              "answer": "130 → 1–2 Mio. t",
+              "why": "Die Zahl ist nur mit ihrer Bedingung etwas wert: ein bis zwei Millionen Tonnen gelten für Tempo 130, nicht für 120.",
+              "whyEn": "The figure is only worth something with its condition: one to two million tonnes holds for 130 km/h, not for 120."
+            },
+            "en": {
+              "title": "A number and what it belongs to",
+              "text": "In a discussion with figures, never note the number alone. Write down three things: how much, of what, under what condition. 6.7 million tonnes · CO2 per year · at 120 km/h. Wrong answers often use the right number with the wrong condition."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Stellung nehmen: Verb + Präposition",
+            "text": "sich aussprechen für / gegen + Akk · hinweisen auf + Akk · abhängen von + Dat · zweifeln an + Dat · sich einigen auf + Akk · es geht um + Akk. Mit einem Satz dahinter kommt das da-Wort: Ich zweifle daran, dass …; Es hängt davon ab, ob …",
+            "examples": [
+              {
+                "de": "Ich möchte darauf hinweisen, dass beide Studien verschiedene Dinge messen.",
+                "en": "I would like to point out that the two studies measure different things.",
+                "focus": [
+                  "darauf",
+                  "hinweisen"
+                ]
+              },
+              {
+                "de": "Wie viel man spart, hängt davon ab, wie schnell die Leute heute wirklich fahren.",
+                "en": "How much is saved depends on how fast people really drive today.",
+                "focus": [
+                  "hängt",
+                  "davon",
+                  "ab"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Die Mehrheit spricht sich in Umfragen ____ ein Tempolimit aus.",
+              "options": [
+                "für",
+                "auf",
+                "an"
+              ],
+              "answer": "für",
+              "why": "sich für etwas aussprechen: sagen, dass man es will. Das Gegenteil ist sich gegen etwas aussprechen.",
+              "whyEn": "sich für etwas aussprechen: to come out in favour of something. The opposite is sich gegen etwas aussprechen."
+            },
+            "visual": {
+              "kind": "moves",
+              "moves": [
+                {
+                  "label": "Position",
+                  "de": [
+                    "Ich spreche mich für … aus"
+                  ]
+                },
+                {
+                  "label": "Beleg",
+                  "de": [
+                    "Ich weise auf die Studie … hin"
+                  ]
+                },
+                {
+                  "label": "Zweifel",
+                  "de": [
+                    "Ich zweifle daran, dass …"
+                  ]
+                },
+                {
+                  "label": "Einigung",
+                  "de": [
+                    "Wir einigen uns darauf, dass …"
+                  ]
+                }
+              ]
+            },
+            "en": {
+              "title": "Taking a position: verb + preposition",
+              "text": "sich aussprechen für / gegen + acc · hinweisen auf + acc · abhängen von + dat · zweifeln an + dat · sich einigen auf + acc · es geht um + acc. With a clause after it you need the da-word: Ich zweifle daran, dass …; Es hängt davon ab, ob …"
+            }
+          }
+        ],
+        "remember": [
+          "Zahl, wovon, unter welcher Bedingung: immer alle drei.",
+          "sich aussprechen für, hinweisen auf, abhängen von, zweifeln an, sich einigen auf."
+        ],
+        "rememberEn": [
+          "Number, of what, under what condition: always all three.",
+          "sich aussprechen für, hinweisen auf, abhängen von, zweifeln an, sich einigen auf."
+        ],
+        "exam": "Radiodiskussionen mit zwei Gästen und Fragen dazu, wer welche Meinung vertritt, sind ein typischer Hörtext in der B2-Prüfung.",
+        "examEn": "Radio discussions with two guests, and questions on who holds which view, are a typical listening text in the B2 exam.",
+        "hook": "Zwei Studien, zwei Zahlen, ein alter Streit: Hör zu, warum sich Deutschland beim Tempolimit nicht einig wird.",
+        "hookEn": "Two studies, two figures, one old argument: listen to why Germany cannot agree on a speed limit.",
+        "german": true
+      },
+      "category": "Society",
+      "passageTitle": "Radiogespräch: Tempolimit auf der Autobahn?",
+      "speakers": {
+        "Moderatorin": "female",
+        "Frau Dr. Sommer": "female",
+        "Herr Vogt": "male"
+      },
+      "passage": "Moderatorin: Guten Abend. Deutschland gehört zu den ganz wenigen Ländern ohne allgemeines Tempolimit auf der Autobahn. Empfohlen werden 130 Kilometer pro Stunde, vorgeschrieben sind sie nicht. Über diese Frage wird seit Jahrzehnten gestritten. Bei mir sind die Verkehrsforscherin Frau Dr. Sommer und Herr Vogt von einem Autofahrerverband. Frau Sommer, Sie sprechen sich für ein Limit aus. Warum?\nFrau Dr. Sommer: Aus zwei Gründen: Klima und Sicherheit. Das Umweltbundesamt hat 2023 berechnet, was ein Limit von 120 bringen würde. Nach dieser Rechnung würden rund 6,7 Millionen Tonnen CO2 im Jahr eingespart. Und das sofort und fast ohne Kosten. Man muss nur Schilder aufstellen.\nHerr Vogt: Da möchte ich auf eine andere Zahl hinweisen. Eine Studie im Auftrag des Verkehrsministeriums kommt bei Tempo 130 auf nur ein bis zwei Millionen Tonnen. Das ist ein Bruchteil dessen, was der Verkehr insgesamt ausstößt.\nFrau Dr. Sommer: Die beiden Studien messen verschiedene Dinge, Herr Vogt. Ihre rechnet mit 130 und zählt nur den direkten Effekt der Geschwindigkeit. Die andere rechnet mit 120 und berücksichtigt auch, dass manche Menschen dann auf die Bahn umsteigen oder eine kürzere Strecke wählen.\nHerr Vogt: Genau daran zweifle ich. Ob jemand wegen zehn Minuten längerer Fahrzeit das Auto stehen lässt, weiß niemand. Und vergessen Sie nicht: Auf etwa dreißig Prozent des Netzes gilt bereits ein Limit, dauerhaft oder zeitweise. Die meisten fahren ohnehin nicht schneller als 130.\nModeratorin: Wenn die meisten ohnehin nicht schneller fahren, was spricht dann gegen eine Vorschrift?\nHerr Vogt: Dass man Erwachsenen etwas zutrauen sollte. Die Autobahnen sind unsere sichersten Straßen. Die meisten tödlichen Unfälle passieren auf Landstraßen, nicht auf der Autobahn.\nFrau Dr. Sommer: Das stimmt, aber es ist kein Argument gegen ein Limit. Auf Abschnitten, auf denen eines eingeführt wurde, sind die schweren Unfälle deutlich zurückgegangen. Entscheidend ist der Unterschied zwischen den Geschwindigkeiten. Wenn einer 200 fährt und der andere 110, wird jeder Spurwechsel gefährlich.\nModeratorin: Herr Vogt, in Umfragen spricht sich inzwischen eine Mehrheit für ein Tempolimit aus. Beeindruckt Sie das?\nHerr Vogt: Es kommt darauf an, wie man fragt. Bei 130 sagen viele Ja, bei 120 schon deutlich weniger. Ich könnte mit 130 leben, wenn im Gegenzug die Strecken ausgebaut würden, auf denen ständig Stau ist.\nFrau Dr. Sommer: Darauf könnten wir uns vielleicht sogar einigen. Mir wäre 120 lieber, aber 130 wäre besser als nichts.\nModeratorin: Halten wir fest: Sie sind sich über die Zahlen nicht einig, wohl aber darüber, dass 130 ein möglicher Kompromiss wäre. Ich danke Ihnen beiden.",
+      "passageTranslation": "Presenter: Good evening. Germany is one of the very few countries without a general speed limit on the motorway. 130 kilometres per hour is recommended but not required. This question has been argued over for decades. With me are the transport researcher Dr Sommer and Mr Vogt from a drivers' association. Ms Sommer, you are in favour of a limit. Why?\nDr Sommer: For two reasons: climate and safety. In 2023 the Federal Environment Agency calculated what a limit of 120 would achieve. According to that calculation, around 6.7 million tonnes of CO2 a year would be saved. And that immediately and at almost no cost. You only have to put up signs.\nMr Vogt: I would like to point to a different figure there. A study commissioned by the transport ministry arrives at only one to two million tonnes for 130. That is a fraction of what traffic emits in total.\nDr Sommer: The two studies measure different things, Mr Vogt. Yours assumes 130 and counts only the direct effect of speed. The other assumes 120 and also takes into account that some people will then switch to the train or choose a shorter route.\nMr Vogt: That is exactly what I doubt. Whether anyone leaves the car at home because of a ten-minute longer journey, nobody knows. And do not forget: on about thirty per cent of the network a limit already applies, permanently or part of the time. Most people do not drive faster than 130 anyway.\nPresenter: If most people do not drive faster anyway, what is the argument against a rule?\nMr Vogt: That adults should be trusted with something. The motorways are our safest roads. Most fatal accidents happen on country roads, not on the motorway.\nDr Sommer: That is true, but it is not an argument against a limit. On sections where one was introduced, serious accidents fell markedly. What matters is the difference between speeds. When one person is doing 200 and the other 110, every lane change becomes dangerous.\nPresenter: Mr Vogt, in surveys a majority now comes out in favour of a speed limit. Does that impress you?\nMr Vogt: It depends on how you ask. At 130 many say yes, at 120 clearly fewer. I could live with 130 if, in return, the stretches where there are constant traffic jams were widened.\nDr Sommer: We might even be able to agree on that. I would prefer 120, but 130 would be better than nothing.\nPresenter: Let us note: you do not agree on the figures, but you do agree that 130 would be a possible compromise. Thank you both.",
+      "questions": [
+        {
+          "question": "Was gilt heute auf deutschen Autobahnen?",
+          "options": [
+            "Tempo 130 ist überall vorgeschrieben.",
+            "Tempo 130 wird nur empfohlen.",
+            "Tempo 120 gilt auf allen Strecken.",
+            "Es gibt nirgends ein Tempolimit."
+          ],
+          "correctIndex": 1,
+          "explanation": "Moderatorin: „Empfohlen werden 130 Kilometer pro Stunde, vorgeschrieben sind sie nicht.“ Auf einem Teil des Netzes gilt aber bereits ein Limit.",
+          "questionTranslation": "What applies on German motorways today?",
+          "optionsTranslation": [
+            "130 km/h is compulsory everywhere.",
+            "130 km/h is only recommended.",
+            "120 km/h applies on all stretches.",
+            "There is no speed limit anywhere."
+          ]
+        },
+        {
+          "question": "Welche zwei Gründe nennt Frau Dr. Sommer für ein Limit?",
+          "options": [
+            "Lärm und Kosten",
+            "Stau und Benzinpreis",
+            "Klima und Sicherheit",
+            "Umfragen und Gerechtigkeit"
+          ],
+          "correctIndex": 2,
+          "explanation": "Frau Dr. Sommer: „Aus zwei Gründen: Klima und Sicherheit.“",
+          "questionTranslation": "Which two reasons does Dr Sommer give for a limit?",
+          "optionsTranslation": [
+            "noise and costs",
+            "traffic jams and the price of petrol",
+            "climate and safety",
+            "surveys and fairness"
+          ]
+        },
+        {
+          "question": "Wofür gilt die Zahl von 6,7 Millionen Tonnen CO2?",
+          "options": [
+            "für ein Limit von 120 km/h",
+            "für ein Limit von 130 km/h",
+            "für den gesamten Verkehr",
+            "für alle Landstraßen"
+          ],
+          "correctIndex": 0,
+          "explanation": "Frau Dr. Sommer: „… was ein Limit von 120 bringen würde. Nach dieser Rechnung würden rund 6,7 Millionen Tonnen CO2 im Jahr eingespart.“ Die Zahl für 130 nennt Herr Vogt: ein bis zwei Millionen.",
+          "questionTranslation": "What does the figure of 6.7 million tonnes of CO2 apply to?",
+          "optionsTranslation": [
+            "a limit of 120 km/h",
+            "a limit of 130 km/h",
+            "all traffic",
+            "all country roads"
+          ]
+        },
+        {
+          "question": "Warum kommen die beiden Studien zu so verschiedenen Ergebnissen?",
+          "options": [
+            "Eine der beiden ist veraltet.",
+            "Sie untersuchen verschiedene Länder.",
+            "Eine wurde von einem Autofahrerverband bezahlt.",
+            "Sie rechnen mit verschiedenen Annahmen."
+          ],
+          "correctIndex": 3,
+          "explanation": "Frau Dr. Sommer: „Ihre rechnet mit 130 und zählt nur den direkten Effekt … Die andere rechnet mit 120 und berücksichtigt auch, dass manche Menschen dann auf die Bahn umsteigen …“",
+          "questionTranslation": "Why do the two studies reach such different results?",
+          "optionsTranslation": [
+            "One of the two is out of date.",
+            "They look at different countries.",
+            "One was paid for by a drivers' association.",
+            "They calculate with different assumptions."
+          ]
+        },
+        {
+          "question": "Woran zweifelt Herr Vogt?",
+          "options": [
+            "daran, dass Autobahnen sicher sind",
+            "daran, dass Menschen wegen eines Limits umsteigen",
+            "daran, dass es auf Landstraßen mehr tödliche Unfälle gibt",
+            "daran, dass Schilder billig sind"
+          ],
+          "correctIndex": 1,
+          "explanation": "Herr Vogt: „Genau daran zweifle ich. Ob jemand wegen zehn Minuten längerer Fahrzeit das Auto stehen lässt, weiß niemand.“",
+          "questionTranslation": "What does Mr Vogt doubt?",
+          "optionsTranslation": [
+            "that motorways are safe",
+            "that people will switch because of a limit",
+            "that there are more fatal accidents on country roads",
+            "that signs are cheap"
+          ]
+        },
+        {
+          "question": "Was ist für Frau Dr. Sommer bei der Sicherheit entscheidend?",
+          "options": [
+            "der Unterschied zwischen den Geschwindigkeiten",
+            "die Zahl der Fahrspuren auf den einzelnen Abschnitten",
+            "das Alter der Fahrer",
+            "der Zustand der Straßen"
+          ],
+          "correctIndex": 0,
+          "explanation": "Frau Dr. Sommer: „Entscheidend ist der Unterschied zwischen den Geschwindigkeiten. Wenn einer 200 fährt und der andere 110, wird jeder Spurwechsel gefährlich.“",
+          "questionTranslation": "What is decisive for safety, according to Dr Sommer?",
+          "optionsTranslation": [
+            "the difference between speeds",
+            "the number of lanes on the individual sections",
+            "the age of the drivers",
+            "the condition of the roads"
+          ]
+        },
+        {
+          "question": "Unter welcher Bedingung könnte Herr Vogt mit Tempo 130 leben?",
+          "options": [
+            "wenn das Benzin billiger würde",
+            "wenn das Limit nur nachts gälte",
+            "wenn Staustrecken ausgebaut würden",
+            "wenn eine neue Studie es ausdrücklich empfähle"
+          ],
+          "correctIndex": 2,
+          "explanation": "Herr Vogt: „Ich könnte mit 130 leben, wenn im Gegenzug die Strecken ausgebaut würden, auf denen ständig Stau ist.“",
+          "questionTranslation": "On what condition could Mr Vogt live with 130 km/h?",
+          "optionsTranslation": [
+            "if petrol became cheaper",
+            "if the limit applied only at night",
+            "if congested stretches were widened",
+            "if a new study expressly recommended it"
+          ]
+        },
+        {
+          "question": "Worüber sind sich die beiden Gäste am Ende einig?",
+          "options": [
+            "dass die Zahlen des Umweltbundesamts stimmen",
+            "dass Tempo 120 die beste Lösung wäre",
+            "dass man nichts ändern sollte",
+            "dass Tempo 130 ein Kompromiss sein könnte"
+          ],
+          "correctIndex": 3,
+          "explanation": "Moderatorin: „Sie sind sich über die Zahlen nicht einig, wohl aber darüber, dass 130 ein möglicher Kompromiss wäre.“",
+          "questionTranslation": "What do the two guests agree on at the end?",
+          "optionsTranslation": [
+            "that the Federal Environment Agency's figures are right",
+            "that 120 km/h would be the best solution",
+            "that nothing should be changed",
+            "that 130 km/h could be a compromise"
+          ]
+        }
+      ],
+      "covers": [
+        "b2.verbs-prepositions",
+        "b2.argument-redemittel"
+      ],
+      "image": "quest_b2_1_hoeren_tempolimit"
+    }
+  },
+  {
+    "id": "quest_b2_1_lesen_pontevedra",
+    "after": "quest_b2_1_konnektoren",
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Die Stadt ohne Autos",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "level": "B2.1",
+      "help": {
+        "intro": "Ein Bericht von etwa 510 Wörtern über Pontevedra, eine Stadt im Nordwesten Spaniens, die ihre Innenstadt 1999 für den Durchgangsverkehr gesperrt hat. Viele Städte reden darüber, diese hat es getan, und man kann nach mehr als zwanzig Jahren nachsehen, was daraus geworden ist. Der Text ist als Gegenüberstellung gebaut: erst die Lage vorher, dann die Maßnahme, dann die Folgen, dann die Grenzen des Beispiels. Getragen wird er von Konnektoren, die du gerade geübt hast. Sie zeigen, wie zwei Sätze zusammenhängen: allerdings und dennoch für den Gegensatz, folglich und daher für die Folge, zudem für einen weiteren Punkt, stattdessen für den Ersatz. Wer diese Wörter liest, weiß schon, in welche Richtung der nächste Satz geht. Mehrere Fragen prüfen genau das: nicht, was im Satz steht, sondern wie er zum vorigen steht.",
+        "introEn": "A report of about 510 words on Pontevedra, a city in north-west Spain that closed its centre to through traffic in 1999. Many cities talk about it; this one did it, and after more than twenty years you can look at what came of it. The text is built as a comparison: first the situation before, then the measure, then the consequences, then the limits of the example. It is carried by the connectors you have just practised. They show how two sentences hang together: allerdings and dennoch for contrast, folglich and daher for consequence, zudem for a further point, stattdessen for a replacement. Whoever reads these words already knows which way the next sentence will go. Several questions test exactly that: not what the sentence says, but how it stands to the one before.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Konnektoren lesen wie Verkehrsschilder",
+            "text": "allerdings / jedoch / dennoch → jetzt kommt ein Gegensatz oder eine Einschränkung. folglich / daher / deshalb → jetzt kommt die Folge. zudem / außerdem → noch ein Punkt in dieselbe Richtung. stattdessen → etwas tritt an die Stelle von etwas anderem. Alle stehen im Hauptsatz, das Verb bleibt auf Position 2.",
+            "examples": [
+              {
+                "de": "Die Händler fürchteten um ihre Kunden. Dennoch setzte der Bürgermeister den Plan um.",
+                "en": "The shopkeepers feared for their customers. Nevertheless the mayor carried out the plan.",
+                "focus": [
+                  "Dennoch"
+                ]
+              },
+              {
+                "de": "Parkplätze im Zentrum wurden abgeschafft; stattdessen entstanden kostenlose Parkplätze am Stadtrand.",
+                "en": "Parking spaces in the centre were abolished; instead, free car parks were created on the edge of town.",
+                "focus": [
+                  "stattdessen"
+                ]
+              }
+            ],
+            "check": {
+              "q": "„Die Stadt ist klein. ____ lässt sich das Modell nicht einfach auf eine Millionenstadt übertragen.“",
+              "options": [
+                "Folglich",
+                "Dennoch",
+                "Zudem"
+              ],
+              "answer": "Folglich",
+              "why": "Der zweite Satz ist die Folge des ersten: klein, also nicht einfach übertragbar. Dennoch würde einen Gegensatz ankündigen.",
+              "whyEn": "The second sentence is the consequence of the first: small, therefore not simply transferable. Dennoch would announce a contrast."
+            },
+            "visual": {
+              "kind": "moves",
+              "moves": [
+                {
+                  "label": "Vorher",
+                  "de": [
+                    "Noch in den Neunzigerjahren …"
+                  ]
+                },
+                {
+                  "label": "Maßnahme",
+                  "de": [
+                    "Innerhalb eines Monats …"
+                  ]
+                },
+                {
+                  "label": "Folgen",
+                  "de": [
+                    "Folglich … / Zudem …"
+                  ]
+                },
+                {
+                  "label": "Grenzen",
+                  "de": [
+                    "Allerdings …"
+                  ]
+                }
+              ]
+            },
+            "en": {
+              "title": "Read connectors like road signs",
+              "text": "allerdings / jedoch / dennoch → a contrast or a limitation is coming. folglich / daher / deshalb → the consequence is coming. zudem / außerdem → one more point in the same direction. stattdessen → one thing takes the place of another. All of them stand in a main clause, and the verb stays in position 2."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Partizipien vor dem Nomen: die verstopfte Straße",
+            "text": "Ein Bericht spart Nebensätze, indem er das Partizip vor das Nomen stellt. Partizip II = schon geschehen: die gesperrte Straße (die gesperrt wurde), die verstopfte Innenstadt. Partizip I = geschieht gerade: spielende Kinder (die spielen), der wachsende Verkehr.",
+            "examples": [
+              {
+                "de": "Auf den früher zugeparkten Plätzen stehen heute Tische und Bänke.",
+                "en": "On the squares that used to be full of parked cars there are tables and benches today.",
+                "focus": [
+                  "zugeparkten"
+                ]
+              },
+              {
+                "de": "Man sieht spielende Kinder, wo früher Autos im Stau standen.",
+                "en": "You see children playing where cars used to stand in traffic jams.",
+                "focus": [
+                  "spielende"
+                ]
+              }
+            ],
+            "check": {
+              "q": "die Zone, die den Verkehr beruhigt hat und nun ruhig ist → die verkehrs____ Zone",
+              "options": [
+                "beruhigte",
+                "beruhigende",
+                "beruhigen"
+              ],
+              "answer": "beruhigte",
+              "why": "Der Verkehr wurde dort beruhigt, das ist abgeschlossen: Partizip II, die verkehrsberuhigte Zone.",
+              "whyEn": "Traffic was calmed there, the action is complete: Partizip II, die verkehrsberuhigte Zone."
+            },
+            "en": {
+              "title": "Participles before the noun: die verstopfte Straße",
+              "text": "A report saves subordinate clauses by putting the participle before the noun. Partizip II = already happened: die gesperrte Straße (which was closed), die verstopfte Innenstadt. Partizip I = happening now: spielende Kinder (who are playing), der wachsende Verkehr."
+            }
+          }
+        ],
+        "remember": [
+          "dennoch = Gegensatz, folglich = Folge, zudem = noch ein Punkt, stattdessen = Ersatz.",
+          "Partizip II: schon geschehen (gesperrt). Partizip I: geschieht gerade (spielend)."
+        ],
+        "rememberEn": [
+          "dennoch = contrast, folglich = consequence, zudem = one more point, stattdessen = replacement.",
+          "Partizip II: already happened (gesperrt). Partizip I: happening now (spielend)."
+        ],
+        "exam": "Sachtexte, bei denen man erkennen muss, wie Aussagen zusammenhängen, sind ein typischer Lesetext in der B2-Prüfung.",
+        "examEn": "Factual texts where you have to recognise how statements connect are a typical reading text in the B2 exam.",
+        "hook": "Eine Stadt sperrt 1999 ihr Zentrum für Autos. Mehr als zwanzig Jahre später kann man nachsehen, was passiert ist.",
+        "hookEn": "In 1999 a city closes its centre to cars. More than twenty years later you can look at what happened.",
+        "german": true
+      },
+      "category": "Society",
+      "passageTitle": "Pontevedra: Die Stadt, die die Autos hinausbat",
+      "passage": "Über autofreie Innenstädte wird in vielen Ländern gestritten, meist mit Vermutungen: Die einen erwarten ein Paradies, die anderen den Tod des Einzelhandels. Dabei gibt es eine Stadt, in der man einfach nachsehen kann. Pontevedra, eine Stadt mit rund 80.000 Einwohnern in Galicien im Nordwesten Spaniens, hat ihr Zentrum bereits 1999 für den Durchgangsverkehr gesperrt.\n\nNoch in den Neunzigerjahren galt die Stadt als Problemfall. Durch die engen Straßen der Altstadt schoben sich täglich Zehntausende Autos, die Plätze waren zugeparkt, die Luft war schlecht. Junge Familien zogen weg, Geschäfte schlossen. Als der Arzt Miguel Anxo Fernández Lores 1999 Bürgermeister wurde, handelte er schnell: Innerhalb eines Monats wurde die gesamte historische Mitte zur Fußgängerzone erklärt. Später kamen weitere Viertel hinzu.\n\nVerboten wurde das Auto allerdings nie ganz. Anwohner dürfen zu ihren Garagen fahren, Lieferwagen und Rettungsdienste kommen weiterhin hinein, wenn auch nur langsam. Abgeschafft wurde etwas anderes: das Parken an der Straße und das Durchfahren. Wer früher quer durch das Zentrum fuhr, um Zeit zu sparen, muss heute außen herum. Stattdessen entstanden am Rand der Innenstadt mehr als tausend kostenlose Parkplätze, von denen aus man in wenigen Minuten zu Fuß im Zentrum ist. Zudem ließ die Stadt Gehwege verbreitern, Ampeln abbauen und einen Plan drucken, der Entfernungen nicht in Kilometern, sondern in Gehminuten angibt.\n\nDie Händler hatten zunächst heftig protestiert, denn sie fürchteten um ihre Kunden. Die Zahlen sprechen jedoch eine andere Sprache. Nach Angaben der Stadt ist der CO2-Ausstoß im Zentrum um etwa zwei Drittel gesunken. Mehr als zwei Drittel aller Wege werden zu Fuß oder mit dem Rad zurückgelegt. In den verkehrsberuhigten Zonen ist seit mehr als einem Jahrzehnt niemand mehr im Straßenverkehr ums Leben gekommen. Und während viele Städte der Region Einwohner verlieren, ist Pontevedra gewachsen; vor allem Familien mit Kindern sind zugezogen. Der Bürgermeister wurde seitdem mehrmals wiedergewählt.\n\nFolglich reisen heute Stadtplaner aus ganz Europa an, um das Modell zu studieren. Ob es sich übertragen lässt, ist dennoch umstritten. Pontevedra ist kompakt; fast alles liegt weniger als eine halbe Stunde Fußweg auseinander. In einer Millionenstadt mit langen Arbeitswegen wäre derselbe Plan kaum umsetzbar, zumindest nicht ohne ein dichtes Netz von Bussen und Bahnen. Auch gibt es Bewohner, die sich über längere Umwege mit dem Auto ärgern.\n\nAm deutlichsten zeigt sich der Wandel an den Kindern. Viele gehen ohne Begleitung der Eltern zur Schule, was in den meisten europäischen Städten selten geworden ist. Händler und Freiwillige entlang der Schulwege achten darauf, dass sie sicher ankommen. Dahinter steht ein einfacher Gedanke der Stadtplanung: Eine Stadt, in der ein achtjähriges Kind allein unterwegs sein kann, ist auch für eine Achtzigjährige sicher und damit für alle anderen ebenfalls. Internationale Organisationen haben Pontevedra dafür mehrfach ausgezeichnet.\n\nLores selbst antwortet auf solche Einwände mit einer Frage, die seither oft zitiert wird: Wem gehört eigentlich der öffentliche Raum? Es sei nicht seine Aufgabe als Bürgermeister, jedem einen Parkplatz zu besorgen, sagt er. Wer eine Kuh oder einen Kühlschrank kaufe, frage ja auch nicht die Stadt, wo er sie hinstellen solle. Man muss diese Ansicht nicht teilen. Aber die Stadt zeigt, dass die Frage sich lohnt.",
+      "passageTranslation": "Car-free city centres are argued about in many countries, mostly with guesses: some expect a paradise, others the death of the retail trade. Yet there is a city where you can simply go and look. Pontevedra, a city of around 80,000 inhabitants in Galicia in north-west Spain, closed its centre to through traffic as early as 1999.\n\nAs late as the nineties the city was regarded as a problem case. Tens of thousands of cars pushed through the narrow streets of the old town every day, the squares were full of parked cars, the air was bad. Young families moved away, shops closed. When the doctor Miguel Anxo Fernández Lores became mayor in 1999, he acted quickly: within a month the entire historic centre was declared a pedestrian zone. Further districts were added later.\n\nThe car was never banned entirely, however. Residents may drive to their garages, delivery vans and emergency services still come in, if only slowly. What was abolished was something else: parking in the street and driving through. Anyone who used to drive straight across the centre to save time now has to go round the outside. Instead, more than a thousand free parking spaces were created on the edge of the centre, from which you can walk into the centre in a few minutes. In addition, the city had pavements widened, traffic lights removed and a map printed that gives distances not in kilometres but in minutes on foot.\n\nThe shopkeepers had protested fiercely at first, because they feared for their customers. The figures, however, tell a different story. According to the city, CO2 emissions in the centre have fallen by about two thirds. More than two thirds of all journeys are made on foot or by bike. In the traffic-calmed zones nobody has died in road traffic for more than a decade. And while many cities in the region are losing inhabitants, Pontevedra has grown; families with children above all have moved in. The mayor has been re-elected several times since.\n\nAs a result, urban planners from all over Europe travel there today to study the model. Whether it can be transferred is nevertheless disputed. Pontevedra is compact; almost everything is less than half an hour's walk apart. In a city of a million with long commutes the same plan would hardly be feasible, at least not without a dense network of buses and trains. There are also residents who are annoyed by longer detours in the car.\n\nThe change shows most clearly in the children. Many walk to school without their parents, which has become rare in most European cities. Shopkeepers and volunteers along the school routes make sure they arrive safely. Behind this is a simple idea in urban planning: a city in which an eight-year-old child can be out alone is also safe for an eighty-year-old woman, and so for everyone else as well. International organisations have given Pontevedra several awards for this.\n\nLores himself answers such objections with a question that has often been quoted since: who does public space actually belong to? It is not his job as mayor to find everyone a parking space, he says. After all, anyone who buys a cow or a fridge does not ask the city where to put them. You do not have to share this view. But the city shows that the question is worth asking.",
+      "questions": [
+        {
+          "question": "Was kritisiert der Autor am Streit über autofreie Innenstädte?",
+          "options": [
+            "Er werde nur in Spanien geführt.",
+            "Er werde meist mit Vermutungen geführt.",
+            "Er komme zwanzig Jahre zu spät.",
+            "Er werde fast nur von Händlern und Autofahrern geführt."
+          ],
+          "correctIndex": 1,
+          "explanation": "„Über autofreie Innenstädte wird in vielen Ländern gestritten, meist mit Vermutungen … Dabei gibt es eine Stadt, in der man einfach nachsehen kann.“",
+          "questionTranslation": "What does the author criticise about the argument over car-free centres?",
+          "optionsTranslation": [
+            "It is held only in Spain.",
+            "It is mostly conducted with guesses.",
+            "It comes twenty years too late.",
+            "It is conducted almost only by shopkeepers and drivers."
+          ]
+        },
+        {
+          "question": "Wie war die Lage in Pontevedra in den Neunzigerjahren?",
+          "options": [
+            "Die Stadt wuchs schneller als geplant.",
+            "Die Altstadt war bereits seit Jahren Fußgängerzone.",
+            "Es gab kaum Autos, aber viele Busse.",
+            "Familien zogen weg und Geschäfte schlossen."
+          ],
+          "correctIndex": 3,
+          "explanation": "„… die Plätze waren zugeparkt, die Luft war schlecht. Junge Familien zogen weg, Geschäfte schlossen.“",
+          "questionTranslation": "What was the situation in Pontevedra in the nineties?",
+          "optionsTranslation": [
+            "The city was growing faster than planned.",
+            "The old town had already been a pedestrian zone for years.",
+            "There were hardly any cars but many buses.",
+            "Families were moving away and shops were closing."
+          ]
+        },
+        {
+          "question": "Was wurde im Zentrum tatsächlich abgeschafft?",
+          "options": [
+            "das Parken an der Straße und das Durchfahren",
+            "jede Art von Fahrzeug, auch Lieferwagen und Rettungsdienste",
+            "die Garagen der Anwohner",
+            "alle Parkplätze der Stadt"
+          ],
+          "correctIndex": 0,
+          "explanation": "„Verboten wurde das Auto allerdings nie ganz … Abgeschafft wurde etwas anderes: das Parken an der Straße und das Durchfahren.“",
+          "questionTranslation": "What was actually abolished in the centre?",
+          "optionsTranslation": [
+            "parking in the street and driving through",
+            "every kind of vehicle, including delivery vans and emergency services",
+            "the residents' garages",
+            "all of the city's parking spaces"
+          ]
+        },
+        {
+          "question": "Was bekamen die Autofahrer stattdessen?",
+          "options": [
+            "eine neue Schnellstraße quer durch die Altstadt",
+            "günstige Monatskarten für den Bus",
+            "kostenlose Parkplätze am Rand der Innenstadt",
+            "eine Entschädigung von der Stadt"
+          ],
+          "correctIndex": 2,
+          "explanation": "„Stattdessen entstanden am Rand der Innenstadt mehr als tausend kostenlose Parkplätze, von denen aus man in wenigen Minuten zu Fuß im Zentrum ist.“",
+          "questionTranslation": "What did drivers get instead?",
+          "optionsTranslation": [
+            "a new expressway straight through the old town",
+            "cheap monthly bus passes",
+            "free parking spaces on the edge of the centre",
+            "compensation from the city"
+          ]
+        },
+        {
+          "question": "Was bedeutet der Satz „Die Zahlen sprechen jedoch eine andere Sprache“?",
+          "options": [
+            "Die Zahlen sind schwer zu verstehen.",
+            "Die Befürchtung der Händler hat sich nicht bestätigt.",
+            "Die Zahlen stammen aus dem Ausland.",
+            "Die Händler hatten mit ihrer Sorge von Anfang an recht."
+          ],
+          "correctIndex": 1,
+          "explanation": "Der Satz folgt auf den Protest der Händler, und jedoch kündigt den Gegensatz an: Die Ergebnisse widersprechen ihrer Sorge. Danach heißt es, die Stadt sei gewachsen.",
+          "questionTranslation": "What does the sentence 'Die Zahlen sprechen jedoch eine andere Sprache' mean?",
+          "optionsTranslation": [
+            "The figures are hard to understand.",
+            "The shopkeepers' fear was not borne out.",
+            "The figures come from abroad.",
+            "The shopkeepers were right to worry from the start."
+          ]
+        },
+        {
+          "question": "Warum ist umstritten, ob sich das Modell übertragen lässt?",
+          "options": [
+            "weil der Bürgermeister es nicht erlaubt",
+            "weil Spanien andere Gesetze hat",
+            "weil die Stadt dabei viel Geld verloren hat",
+            "weil Pontevedra klein und kompakt ist"
+          ],
+          "correctIndex": 3,
+          "explanation": "„Pontevedra ist kompakt; fast alles liegt weniger als eine halbe Stunde Fußweg auseinander. In einer Millionenstadt mit langen Arbeitswegen wäre derselbe Plan kaum umsetzbar …“",
+          "questionTranslation": "Why is it disputed whether the model can be transferred?",
+          "optionsTranslation": [
+            "because the mayor does not allow it",
+            "because Spain has different laws",
+            "because the city lost a lot of money doing it",
+            "because Pontevedra is small and compact"
+          ]
+        },
+        {
+          "question": "Wozu dient der Vergleich mit dem Kühlschrank?",
+          "options": [
+            "Er zeigt, dass private Dinge keinen Anspruch auf öffentlichen Raum haben.",
+            "Er zeigt, dass Autos heute zu teuer geworden sind.",
+            "Er zeigt, dass Pontevedra zu wenig Wohnraum hat.",
+            "Er zeigt, dass der Bürgermeister die Einwände seiner Kritiker nicht ernst nimmt."
+          ],
+          "correctIndex": 0,
+          "explanation": "„Wer eine Kuh oder einen Kühlschrank kaufe, frage ja auch nicht die Stadt, wo er sie hinstellen solle.“ Der Vergleich gehört zur Frage: Wem gehört der öffentliche Raum?",
+          "questionTranslation": "What is the comparison with the fridge for?",
+          "optionsTranslation": [
+            "It shows that private things have no claim to public space.",
+            "It shows that cars have become too expensive.",
+            "It shows that Pontevedra has too little housing.",
+            "It shows that the mayor does not take his critics' objections seriously."
+          ]
+        },
+        {
+          "question": "Wie steht der Autor am Ende zur Ansicht des Bürgermeisters?",
+          "options": [
+            "Er lehnt sie als übertrieben ab.",
+            "Er übernimmt sie ohne Einschränkung.",
+            "Er hält die Frage für berechtigt, ohne sich festzulegen.",
+            "Er hält sie nur unter den besonderen Bedingungen Spaniens für gültig."
+          ],
+          "correctIndex": 2,
+          "explanation": "„Man muss diese Ansicht nicht teilen. Aber die Stadt zeigt, dass die Frage sich lohnt.“",
+          "questionTranslation": "What is the author's attitude to the mayor's view at the end?",
+          "optionsTranslation": [
+            "He rejects it as exaggerated.",
+            "He adopts it without reservation.",
+            "He thinks the question is legitimate without committing himself.",
+            "He thinks it is valid only under Spain's particular conditions."
+          ]
+        }
+      ],
+      "covers": [
+        "b2.connectors-adverbial",
+        "b2.participle-adjective"
+      ],
+      "image": "quest_b2_1_lesen_pontevedra"
+    }
+  },
+  {
+    "id": "quest_b2_1_lesen_wahlalter",
+    "after": "quest_b2_1_temporal_nominal",
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Wählen mit 16",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "level": "B2.1",
+      "help": {
+        "intro": "Ein Hintergrundtext von etwa 510 Wörtern zur Frage, ab welchem Alter man wählen dürfen soll. In Deutschland ist die Antwort nicht einheitlich: Bei der Europawahl 2024 durften Sechzehnjährige zum ersten Mal bundesweit abstimmen, bei der Bundestagswahl müssen sie weiter warten. Der Text stellt beide Seiten dar und wertet erst am Ende. Sprachlich ist er im Nominalstil geschrieben, wie er in Zeitungen und Sachtexten üblich ist: Statt eines Nebensatzes steht eine Präposition mit Nomen. Weil die Bevölkerung altert, wird zu wegen der alternden Bevölkerung. Nachdem das Wahlalter gesenkt worden war, wird zu nach der Senkung des Wahlalters. Diese Umformung hast du gerade in beide Richtungen geübt. Hier liest du sie im Zusammenhang. Wenn dir ein Satz zu dicht vorkommt, mach aus dem Nomen wieder ein Verb, dann wird er sofort klar.",
+        "introEn": "A background text of about 510 words on the question of the age from which people should be allowed to vote. In Germany the answer is not uniform: in the 2024 European election sixteen-year-olds were allowed to vote nationwide for the first time, while for the Bundestag election they still have to wait. The text presents both sides and gives a judgement only at the end. It is written in the nominal style that is usual in newspapers and factual texts: instead of a subordinate clause there is a preposition with a noun. Weil die Bevölkerung altert becomes wegen der alternden Bevölkerung. Nachdem das Wahlalter gesenkt worden war becomes nach der Senkung des Wahlalters. You have just practised this conversion in both directions. Here you read it in context. If a sentence seems too dense, turn the noun back into a verb and it becomes clear at once.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Dichte Sätze auflösen: Nomen → Verb",
+            "text": "Der Nominalstil packt einen ganzen Satz in eine Wortgruppe. Zum Verstehen gehst du den Weg zurück. wegen + Gen → weil: wegen der alternden Bevölkerung = weil die Bevölkerung altert. nach + Dat → nachdem: nach der Senkung = nachdem man gesenkt hatte. seit + Dat → seit(dem): seit der Reform = seitdem reformiert wurde. bei + Dat → wenn / als: bei der Europawahl = als man das Europaparlament wählte.",
+            "examples": [
+              {
+                "de": "Wegen der alternden Bevölkerung verschiebt sich das Gewicht der Stimmen.",
+                "en": "Because of the ageing population the weight of the votes is shifting.",
+                "focus": [
+                  "Wegen",
+                  "alternden Bevölkerung"
+                ]
+              },
+              {
+                "de": "Nach der Senkung des Wahlalters stieg das politische Interesse der Jugendlichen.",
+                "en": "After the voting age was lowered, young people's interest in politics rose.",
+                "focus": [
+                  "Nach",
+                  "Senkung"
+                ]
+              }
+            ],
+            "check": {
+              "q": "„Seit der Einführung des Wahlrechts ab 16 …“ Wie heißt das als Nebensatz?",
+              "options": [
+                "Seitdem das Wahlrecht ab 16 eingeführt wurde, …",
+                "Weil das Wahlrecht ab 16 eingeführt wurde, …",
+                "Bevor das Wahlrecht ab 16 eingeführt wurde, …"
+              ],
+              "answer": "Seitdem das Wahlrecht ab 16 eingeführt wurde, …",
+              "why": "seit + Dativ wird zu seitdem + Nebensatz. Aus dem Nomen Einführung wird wieder das Verb einführen.",
+              "whyEn": "seit + dative becomes seitdem + subordinate clause. The noun Einführung turns back into the verb einführen."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Nominal",
+              "right": "Verbal",
+              "rows": [
+                {
+                  "a": "wegen der alternden Bevölkerung",
+                  "b": "weil die Bevölkerung altert"
+                },
+                {
+                  "a": "nach der Senkung",
+                  "b": "nachdem man gesenkt hatte"
+                },
+                {
+                  "a": "seit der Reform",
+                  "b": "seitdem reformiert wurde"
+                },
+                {
+                  "a": "bei der Wahl",
+                  "b": "als gewählt wurde"
+                }
+              ]
+            },
+            "en": {
+              "title": "Unpacking dense sentences: noun → verb",
+              "text": "The nominal style packs a whole clause into a word group. To understand it, go back the other way. wegen + gen → weil: wegen der alternden Bevölkerung = weil die Bevölkerung altert. nach + dat → nachdem: nach der Senkung = nachdem man gesenkt hatte. seit + dat → seit(dem): seit der Reform = seitdem reformiert wurde. bei + dat → wenn / als: bei der Europawahl = als man das Europaparlament wählte."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Wörter der Wahl",
+            "text": "das Wahlalter (ab wann man wählen darf) · wahlberechtigt sein (wählen dürfen) · die Wahlbeteiligung (wie viele wirklich wählen) · seine Stimme abgeben (wählen) · das Wahlalter senken (niedriger machen) · die Volljährigkeit (mit 18 ist man volljährig) · das Grundgesetz ändern (dafür braucht man zwei Drittel der Stimmen im Parlament).",
+            "examples": [
+              {
+                "de": "Mehr als die Hälfte der Wahlberechtigten ist älter als fünfzig.",
+                "en": "More than half of those entitled to vote are older than fifty.",
+                "focus": [
+                  "Wahlberechtigten"
+                ]
+              },
+              {
+                "de": "Die Wahlbeteiligung der Sechzehnjährigen war nicht niedriger als die der übrigen Erstwähler.",
+                "en": "Turnout among sixteen-year-olds was no lower than among other first-time voters.",
+                "focus": [
+                  "Wahlbeteiligung",
+                  "Erstwähler"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Wie viele Menschen tatsächlich zur Wahl gehen, nennt man die ____.",
+              "options": [
+                "Wahlbeteiligung",
+                "Wahlberechtigung",
+                "Volljährigkeit"
+              ],
+              "answer": "Wahlbeteiligung",
+              "why": "sich beteiligen heißt mitmachen: Die Wahlbeteiligung zählt, wer wirklich gewählt hat. Die Wahlberechtigung sagt nur, wer dürfte.",
+              "whyEn": "sich beteiligen means to take part: Wahlbeteiligung counts who actually voted. Wahlberechtigung only says who would be allowed to."
+            },
+            "en": {
+              "title": "Election words",
+              "text": "das Wahlalter (voting age) · wahlberechtigt sein (to be entitled to vote) · die Wahlbeteiligung (turnout) · seine Stimme abgeben (to cast one's vote) · das Wahlalter senken (to lower the voting age) · die Volljährigkeit (legal adulthood, at 18) · das Grundgesetz ändern (to amend the constitution, which takes two thirds of the votes in parliament)."
+            }
+          }
+        ],
+        "remember": [
+          "wegen → weil, nach → nachdem, seit → seitdem, bei → als / wenn.",
+          "wahlberechtigt = darf wählen; Wahlbeteiligung = wie viele es wirklich tun."
+        ],
+        "rememberEn": [
+          "wegen → weil, nach → nachdem, seit → seitdem, bei → als / wenn.",
+          "wahlberechtigt = may vote; Wahlbeteiligung = how many actually do."
+        ],
+        "exam": "Texte, die zu einer politischen Frage beide Seiten darstellen, sind ein typischer Lesetext in der B2-Prüfung.",
+        "examEn": "Texts that set out both sides of a political question are a typical reading text in the B2 exam.",
+        "hook": "Mit 16 darf man in Deutschland das Europaparlament wählen, aber nicht den Bundestag. Lies, wie es dazu kam und was dafür und dagegen spricht.",
+        "hookEn": "At 16 you may vote for the European Parliament in Germany, but not for the Bundestag. Read how that came about and what speaks for and against it.",
+        "german": true
+      },
+      "category": "Society",
+      "passageTitle": "Alt genug für Europa, zu jung für Berlin?",
+      "passage": "Am 9. Juni 2024 gaben in Deutschland zum ersten Mal Sechzehn- und Siebzehnjährige bei einer bundesweiten Wahl ihre Stimme ab. Der Bundestag hatte das Wahlalter für die Europawahl Ende 2022 von 18 auf 16 Jahre gesenkt. Für die Bundestagswahl gilt dagegen weiterhin: Wählen darf, wer 18 ist. Dieselbe Schülerin, die über das Europäische Parlament mitentscheiden durfte, muss bei der Wahl des eigenen Parlaments zusehen.\n\nDer Grund für diesen Unterschied ist juristisch. Das Wahlalter für den Bundestag steht im Grundgesetz, und für dessen Änderung ist eine Mehrheit von zwei Dritteln nötig. Sie kam bisher nicht zustande. Das Gesetz zur Europawahl ließ sich dagegen mit einfacher Mehrheit ändern. Neu ist die Debatte nicht: Bis 1970 lag das Wahlalter bei 21 Jahren, und schon vor der damaligen Senkung auf 18 wurde vor unreifen Wählern gewarnt.\n\nDie Befürworter eines niedrigeren Wahlalters argumentieren vor allem mit der Zukunft. Entscheidungen über Klima, Renten und Schulden beträfen die Jungen am längsten, also müssten sie auch mitbestimmen dürfen. Hinzu kommt ein demografisches Argument: Wegen der alternden Bevölkerung ist inzwischen mehr als die Hälfte der Wahlberechtigten älter als fünfzig. Aufgrund dieses Übergewichts, so die Befürworter, richteten sich Parteien immer stärker nach den Interessen der Älteren. Sie verweisen außerdem auf Österreich, wo seit 2007 bei allen Wahlen ab 16 gewählt wird. Untersuchungen deuten darauf hin, dass die Wahlbeteiligung der Jüngsten dort nicht niedriger ist als die der übrigen Erstwähler und dass ihr Interesse an Politik seit der Reform gestiegen ist.\n\nDie Gegner halten dagegen, dass Rechte und Pflichten zusammengehören. Erst bei Erreichen der Volljährigkeit darf man ohne Zustimmung der Eltern Verträge schließen, und vor Gericht gelten für Jugendliche besondere Regeln. Wer mit 16 noch nicht für einen Handyvertrag unterschreiben dürfe, solle auch nicht über die Regierung entscheiden. Mangels Lebenserfahrung seien Jugendliche zudem leichter zu beeinflussen, etwa durch soziale Medien.\n\nBeide Seiten haben Schwächen. Wer mit fehlender Reife argumentiert, müsste erklären, warum niemand die Reife älterer Wähler prüft. Und die Grenze von 18 Jahren ist weniger fest, als sie scheint: Mit 14 darf man seine Religion selbst wählen, schon vor dem 18. Geburtstag einer Partei beitreten, mit 17 mit Erlaubnis der Eltern Soldat werden. Umgekehrt löst ein niedrigeres Wahlalter das demografische Problem nicht, denn zwei zusätzliche Jahrgänge verändern die Mehrheiten kaum.\n\nDie Europawahl 2024 hat zudem eine Annahme widerlegt, die beide Lager teilten. Viele hatten erwartet, dass junge Wähler vor allem grüne und linke Parteien stärken würden; die einen hofften darauf, die anderen fürchteten es. Tatsächlich verteilten die Wähler unter 25 ihre Stimmen über das ganze Spektrum, von konservativ bis weit rechts, und auffallend oft wählten sie kleine Parteien. Die Grünen verloren in dieser Altersgruppe besonders stark. Wer das Wahlalter senken oder beibehalten will, weil er sich davon einen Vorteil für die eigene Seite verspricht, hat sich also verrechnet. Die Jungen sind keine einheitliche Gruppe.\n\nVielleicht ist die wichtigere Frage deshalb nicht, ob Sechzehnjährige wählen dürfen, sondern ob sie darauf vorbereitet werden. In Österreich wurde zusammen mit der Reform der Politikunterricht ausgebaut. Ein Wahlrecht ohne politische Bildung wäre ein Geschenk, mit dem niemand etwas anfangen kann.",
+      "passageTranslation": "On 9 June 2024, sixteen- and seventeen-year-olds in Germany cast their votes in a nationwide election for the first time. At the end of 2022 the Bundestag had lowered the voting age for the European election from 18 to 16. For the Bundestag election, by contrast, the rule remains: you may vote if you are 18. The same schoolgirl who was allowed to help decide on the European Parliament has to look on when her own parliament is elected.\n\nThe reason for this difference is a legal one. The voting age for the Bundestag is in the constitution, and changing that requires a two-thirds majority. So far it has not been reached. The law on the European election, by contrast, could be changed with a simple majority. The debate is not new: until 1970 the voting age was 21, and even before it was lowered to 18 at that time there were warnings about immature voters.\n\nThe supporters of a lower voting age argue above all with the future. Decisions about climate, pensions and debt affect the young for longest, so they should also be allowed to have a say. There is a demographic argument as well: because of the ageing population, more than half of those entitled to vote are now older than fifty. Because of this preponderance, say the supporters, parties are guided more and more by the interests of older people. They also point to Austria, where people have voted from 16 in all elections since 2007. Studies suggest that turnout among the youngest there is no lower than among other first-time voters and that their interest in politics has risen since the reform.\n\nThe opponents counter that rights and duties belong together. Only on reaching the age of majority may you sign contracts without your parents' consent, and in court special rules apply to young people. Anyone who at 16 is not yet allowed to sign a mobile phone contract should not decide on the government either. For lack of life experience, young people are moreover easier to influence, for instance through social media.\n\nBoth sides have weaknesses. Anyone who argues with a lack of maturity would have to explain why nobody tests the maturity of older voters. And the limit of 18 is less firm than it seems: at 14 you may choose your religion yourself, join a party before your 18th birthday, at 17 become a soldier with your parents' permission. Conversely, a lower voting age does not solve the demographic problem, because two additional year groups hardly change the majorities.\n\nThe 2024 European election also disproved an assumption that both camps shared. Many had expected young voters to strengthen green and left-wing parties above all; some hoped for it, others feared it. In fact voters under 25 spread their votes across the whole spectrum, from conservative to far right, and strikingly often they chose small parties. The Greens lost especially heavily in this age group. So anyone who wants to lower or keep the voting age because they expect an advantage for their own side has miscalculated. The young are not a uniform group.\n\nPerhaps the more important question is therefore not whether sixteen-year-olds may vote but whether they are prepared for it. In Austria, civic education in schools was expanded together with the reform. A right to vote without political education would be a gift that nobody can do anything with.",
+      "questions": [
+        {
+          "question": "Was war am 9. Juni 2024 neu?",
+          "options": [
+            "Sechzehnjährige wählten erstmals bundesweit mit.",
+            "Das Wahlalter für den Bundestag wurde auf 16 gesenkt.",
+            "Österreich führte das Wahlrecht ab 16 ein.",
+            "Das Grundgesetz wurde geändert."
+          ],
+          "correctIndex": 0,
+          "explanation": "„Am 9. Juni 2024 gaben in Deutschland zum ersten Mal Sechzehn- und Siebzehnjährige bei einer bundesweiten Wahl ihre Stimme ab.“ Es war die Europawahl.",
+          "questionTranslation": "What was new on 9 June 2024?",
+          "optionsTranslation": [
+            "Sixteen-year-olds voted nationwide for the first time.",
+            "The voting age for the Bundestag was lowered to 16.",
+            "Austria introduced voting from 16.",
+            "The constitution was amended."
+          ]
+        },
+        {
+          "question": "Warum gilt für die Bundestagswahl weiter das Alter von 18?",
+          "options": [
+            "weil die Jugendlichen es selbst so wollten",
+            "weil das Europäische Parlament es verlangt",
+            "weil die nötige Zweidrittelmehrheit fehlte",
+            "weil ein Gericht die Senkung verboten hat"
+          ],
+          "correctIndex": 2,
+          "explanation": "„Das Wahlalter für den Bundestag steht im Grundgesetz, und für dessen Änderung ist eine Mehrheit von zwei Dritteln nötig. Sie kam bisher nicht zustande.“",
+          "questionTranslation": "Why does the age of 18 still apply to the Bundestag election?",
+          "optionsTranslation": [
+            "because young people themselves wanted it that way",
+            "because the European Parliament requires it",
+            "because the necessary two-thirds majority was lacking",
+            "because a court prohibited the lowering"
+          ]
+        },
+        {
+          "question": "Was zeigt der Hinweis auf das Jahr 1970?",
+          "options": [
+            "Damals durften Sechzehnjährige schon wählen.",
+            "Ähnliche Warnungen gab es schon früher.",
+            "Seit damals wurde nichts mehr geändert.",
+            "Die Senkung auf 18 war ein Fehler."
+          ],
+          "correctIndex": 1,
+          "explanation": "„Neu ist die Debatte nicht: Bis 1970 lag das Wahlalter bei 21 Jahren, und schon vor der damaligen Senkung auf 18 wurde vor unreifen Wählern gewarnt.“",
+          "questionTranslation": "What does the reference to the year 1970 show?",
+          "optionsTranslation": [
+            "Sixteen-year-olds could already vote then.",
+            "There were similar warnings earlier too.",
+            "Nothing has been changed since then.",
+            "Lowering it to 18 was a mistake."
+          ]
+        },
+        {
+          "question": "Was ist das demografische Argument der Befürworter?",
+          "options": [
+            "Es gibt immer mehr junge Wähler.",
+            "Ältere Menschen gehen seltener wählen.",
+            "Jugendliche sind politisch besser informiert als früher.",
+            "Die Mehrheit der Wahlberechtigten ist über fünfzig."
+          ],
+          "correctIndex": 3,
+          "explanation": "„Wegen der alternden Bevölkerung ist inzwischen mehr als die Hälfte der Wahlberechtigten älter als fünfzig.“ Deshalb richteten sich Parteien nach den Älteren.",
+          "questionTranslation": "What is the supporters' demographic argument?",
+          "optionsTranslation": [
+            "There are more and more young voters.",
+            "Older people vote less often.",
+            "Young people are politically better informed than before.",
+            "The majority of those entitled to vote are over fifty."
+          ]
+        },
+        {
+          "question": "Was legen die Untersuchungen aus Österreich nahe?",
+          "options": [
+            "Die Jüngsten wählen nicht seltener als andere Erstwähler.",
+            "Die Jüngsten wählen fast nie.",
+            "Die Reform wurde wieder abgeschafft.",
+            "Die Jüngsten wählen meist dieselbe Partei wie ihre Eltern."
+          ],
+          "correctIndex": 0,
+          "explanation": "„Untersuchungen deuten darauf hin, dass die Wahlbeteiligung der Jüngsten dort nicht niedriger ist als die der übrigen Erstwähler …“",
+          "questionTranslation": "What do the studies from Austria suggest?",
+          "optionsTranslation": [
+            "The youngest vote no less often than other first-time voters.",
+            "The youngest almost never vote.",
+            "The reform was abolished again.",
+            "The youngest mostly vote for the same party as their parents."
+          ]
+        },
+        {
+          "question": "Welches Hauptargument haben die Gegner?",
+          "options": [
+            "Wahlen seien für Schulen zu teuer.",
+            "Jugendliche hätten kein Interesse an Politik.",
+            "Rechte und Pflichten gehörten zusammen.",
+            "Europa sei wichtiger als der Bundestag."
+          ],
+          "correctIndex": 2,
+          "explanation": "„Die Gegner halten dagegen, dass Rechte und Pflichten zusammengehören.“ Als Beispiel nennen sie Verträge, die man erst mit 18 allein schließen darf.",
+          "questionTranslation": "What is the opponents' main argument?",
+          "optionsTranslation": [
+            "Elections are too expensive for schools.",
+            "Young people have no interest in politics.",
+            "Rights and duties belong together.",
+            "Europe is more important than the Bundestag."
+          ]
+        },
+        {
+          "question": "Welche Schwäche sieht der Autor im Argument der Befürworter?",
+          "options": [
+            "Jugendliche wollten gar nicht wählen.",
+            "Zwei Jahrgänge mehr ändern die Mehrheiten kaum.",
+            "Österreich sei mit Deutschland nicht vergleichbar.",
+            "Die Zahlen zur Bevölkerung seien falsch."
+          ],
+          "correctIndex": 1,
+          "explanation": "„Umgekehrt löst ein niedrigeres Wahlalter das demografische Problem nicht, denn zwei zusätzliche Jahrgänge verändern die Mehrheiten kaum.“",
+          "questionTranslation": "What weakness does the author see in the supporters' argument?",
+          "optionsTranslation": [
+            "Young people do not want to vote at all.",
+            "Two more year groups hardly change the majorities.",
+            "Austria cannot be compared with Germany.",
+            "The population figures are wrong."
+          ]
+        },
+        {
+          "question": "Was hält der Autor am Ende für die wichtigere Frage?",
+          "options": [
+            "ob das Wahlalter auf 14 sinken sollte",
+            "ob auch ältere Wähler auf ihre Reife geprüft werden sollten",
+            "ob Europa das Wahlalter festlegen darf",
+            "ob Jugendliche auf das Wählen vorbereitet werden"
+          ],
+          "correctIndex": 3,
+          "explanation": "„Vielleicht ist die wichtigere Frage deshalb nicht, ob Sechzehnjährige wählen dürfen, sondern ob sie darauf vorbereitet werden.“",
+          "questionTranslation": "What does the author consider the more important question at the end?",
+          "optionsTranslation": [
+            "whether the voting age should fall to 14",
+            "whether older voters too should be tested for maturity",
+            "whether Europe may set the voting age",
+            "whether young people are prepared for voting"
+          ]
+        }
+      ],
+      "covers": [
+        "b2.causal-nominal",
+        "b2.temporal-nominal"
+      ],
+      "image": "quest_b2_1_lesen_wahlalter"
+    }
+  },
+  {
+    "id": "quest_b2_1_hoeren_buergermeisterin",
+    "after": "quest_b2_1_lassen",
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Bürgermeisterin mit 26",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "level": "B2.1",
+      "help": {
+        "intro": "Ein Radiointerview von etwa drei Minuten mit einer erfundenen Person, hinter der ein echtes Problem steht: In vielen kleinen Gemeinden findet sich niemand mehr, der Bürgermeister werden will. Das Amt ist dort ein Ehrenamt, man macht es neben dem Beruf und bekommt nur eine kleine Entschädigung. Frau Albers ist 26, arbeitet als Krankenpflegerin und wurde gewählt, obwohl sie gar nicht kandidiert hatte. Im Gespräch erzählt sie, wie das kam, was sie überrascht hat und was sie ändern will. Zwei Dinge aus den letzten Übungen hörst du hier ständig. Erstens lassen: Sie hat sich überreden lassen, sie hat die Haltestelle reparieren lassen, manches lässt sich nicht ändern. Zweitens den Wechsel zwischen dass-Satz und Infinitiv mit zu: Ich habe mich entschieden, die Wahl anzunehmen; ich hoffe, dass andere nachkommen. Höre darauf, wer jeweils etwas tut.",
+        "introEn": "A radio interview of about three minutes with an invented person who stands for a real problem: in many small municipalities nobody can be found any more who wants to be mayor. The office there is an honorary one, done alongside a job for only a small allowance. Ms Albers is 26, works as a nurse and was elected although she had not stood at all. In the conversation she tells how that came about, what surprised her and what she wants to change. You hear two things from the last exercises all the time here. First, lassen: she let herself be persuaded, she had the bus stop repaired, some things cannot be changed. Second, the switch between a dass-clause and an infinitive with zu: Ich habe mich entschieden, die Wahl anzunehmen; ich hoffe, dass andere nachkommen. Listen for who is doing what in each case.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Dreimal lassen: Wer handelt?",
+            "text": "etwas machen lassen = jemand anders tut es für mich: Wir haben die Haltestelle reparieren lassen. sich überreden lassen = ich erlaube es, dass andere etwas mit mir tun. Das lässt sich (nicht) ändern = man kann es (nicht) ändern. Bei allen dreien steht der Infinitiv am Ende, im Perfekt lassen statt gelassen.",
+            "examples": [
+              {
+                "de": "Ich habe mich überreden lassen, und ich bereue es nicht.",
+                "en": "I let myself be persuaded, and I do not regret it.",
+                "focus": [
+                  "überreden",
+                  "lassen"
+                ]
+              },
+              {
+                "de": "Dass das Geld knapp ist, lässt sich nicht ändern.",
+                "en": "The fact that money is tight cannot be changed.",
+                "focus": [
+                  "lässt",
+                  "sich",
+                  "ändern"
+                ]
+              }
+            ],
+            "check": {
+              "q": "„Wir haben die Haltestelle reparieren lassen.“ Wer hat repariert?",
+              "options": [
+                "eine Firma, im Auftrag der Gemeinde",
+                "die Bürgermeisterin selbst",
+                "niemand, sie ist noch kaputt"
+              ],
+              "answer": "eine Firma, im Auftrag der Gemeinde",
+              "why": "etwas machen lassen heißt, dass man den Auftrag gibt und jemand anders die Arbeit tut.",
+              "whyEn": "etwas machen lassen means you give the order and someone else does the work."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Mit lassen",
+              "right": "Bedeutung",
+              "rows": [
+                {
+                  "a": "Wir lassen die Haltestelle reparieren.",
+                  "b": "Eine Firma repariert sie für uns."
+                },
+                {
+                  "a": "Ich habe mich überreden lassen.",
+                  "b": "Andere haben mich überredet."
+                },
+                {
+                  "a": "Das lässt sich nicht ändern.",
+                  "b": "Man kann es nicht ändern."
+                }
+              ]
+            },
+            "en": {
+              "title": "Three kinds of lassen: who acts?",
+              "text": "etwas machen lassen = someone else does it for me: Wir haben die Haltestelle reparieren lassen. sich überreden lassen = I allow others to do something with me. Das lässt sich (nicht) ändern = it can (not) be changed. In all three the infinitive goes to the end, and the Perfekt uses lassen instead of gelassen."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Ein Ehrenamt: die Wörter dazu",
+            "text": "das Ehrenamt (eine Aufgabe ohne Gehalt) · ehrenamtlich arbeiten · kandidieren (sich zur Wahl stellen) · die Wahl annehmen (Ja sagen, nachdem man gewählt wurde) · der Gemeinderat (das gewählte Gremium eines Ortes) · die Sprechstunde (feste Zeit für Fragen der Bürger) · die Aufwandsentschädigung (ein kleiner Betrag für die Mühe).",
+            "examples": [
+              {
+                "de": "Ich habe nicht kandidiert, aber ich habe die Wahl angenommen.",
+                "en": "I did not stand, but I accepted the election.",
+                "focus": [
+                  "kandidiert",
+                  "angenommen"
+                ]
+              },
+              {
+                "de": "Das Amt ist ein Ehrenamt; ich bekomme nur eine kleine Aufwandsentschädigung.",
+                "en": "The office is an honorary one; I only get a small expense allowance.",
+                "focus": [
+                  "Ehrenamt",
+                  "Aufwandsentschädigung"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Wer eine Aufgabe ohne Gehalt übernimmt, arbeitet ____.",
+              "options": [
+                "ehrenamtlich",
+                "hauptberuflich",
+                "amtlich"
+              ],
+              "answer": "ehrenamtlich",
+              "why": "Ein Ehrenamt macht man neben dem Beruf und ohne Gehalt. Hauptberuflich ist das Gegenteil.",
+              "whyEn": "An Ehrenamt is done alongside a job and without a salary. Hauptberuflich is the opposite."
+            },
+            "en": {
+              "title": "An honorary office: the words for it",
+              "text": "das Ehrenamt (an unpaid office) · ehrenamtlich arbeiten (to work as a volunteer) · kandidieren (to stand for election) · die Wahl annehmen (to accept election) · der Gemeinderat (the municipal council) · die Sprechstunde (a fixed time for citizens' questions) · die Aufwandsentschädigung (a small expense allowance)."
+            }
+          }
+        ],
+        "remember": [
+          "machen lassen = ein anderer tut es; sich … lassen = man erlaubt es; lässt sich … = man kann.",
+          "kandidieren → gewählt werden → die Wahl annehmen."
+        ],
+        "rememberEn": [
+          "machen lassen = someone else does it; sich … lassen = you allow it; lässt sich … = it can be done.",
+          "kandidieren → gewählt werden → die Wahl annehmen."
+        ],
+        "exam": "Interviews mit einer Person und Fragen zu Gründen, Haltung und Details sind ein typischer Hörtext in der B2-Prüfung.",
+        "examEn": "Interviews with one person, and questions on reasons, attitude and details, are a typical listening text in the B2 exam.",
+        "hook": "Sie hat nicht kandidiert und wurde trotzdem gewählt. Hör zu, warum eine 26-Jährige jetzt ein Dorf leitet.",
+        "hookEn": "She did not stand and was elected anyway. Listen to why a 26-year-old now runs a village.",
+        "german": true
+      },
+      "category": "Society",
+      "passageTitle": "Interview: Gewählt, ohne zu kandidieren",
+      "speakers": {
+        "Moderator": "male",
+        "Frau Albers": "female"
+      },
+      "passage": "Moderator: In vielen kleinen Gemeinden findet sich niemand mehr, der Bürgermeister werden will. Im Dorf Kleinhagen mit seinen 400 Einwohnern stand im Frühjahr kein einziger Name auf dem Stimmzettel. Gewählt wurde trotzdem: Jana Albers, 26 Jahre alt, Krankenpflegerin. Frau Albers, wie wird man Bürgermeisterin, ohne zu kandidieren?\nFrau Albers: Bei uns darf man in so einem Fall einen Namen auf den Stimmzettel schreiben. Ein paar Leute aus dem Sportverein hatten sich abgesprochen, und am Abend der Wahl rief mich der alte Bürgermeister an und sagte, ich hätte 61 Prozent. Ich dachte zuerst, er mache einen Scherz.\nModerator: Sie hätten ablehnen können.\nFrau Albers: Ja, und ich habe eine Woche lang überlegt. Dann habe ich mich überreden lassen. Meine Großmutter hat gesagt: Wenn alle nur schimpfen und keiner etwas macht, braucht sich niemand zu wundern. Also habe ich mich entschieden, die Wahl anzunehmen.\nModerator: Das Amt ist ein Ehrenamt. Wie passt das zu Schichtdienst im Krankenhaus?\nFrau Albers: Schlecht, ehrlich gesagt. Ich bekomme eine kleine Aufwandsentschädigung, aber es sind zehn bis fünfzehn Stunden in der Woche. Die Sitzungen des Gemeinderats lasse ich deshalb auf meine freien Abende legen, und meine Sprechstunde ist samstags nach dem Markt.\nModerator: Was hat Sie am meisten überrascht?\nFrau Albers: Wie wenig man entscheiden darf. Ich hatte gedacht, eine Bürgermeisterin bestimmt, was passiert. In Wirklichkeit ist fast alles durch Vorschriften oder durch fehlendes Geld festgelegt. Das lässt sich nicht ändern. Aber im Kleinen geht mehr, als man glaubt. Wir haben die Bushaltestelle reparieren lassen, die seit drei Jahren kaputt war. Das hat 900 Euro gekostet und zwei Anrufe.\nModerator: Und im Großen?\nFrau Albers: Der Arzt im Nachbarort geht nächstes Jahr in Rente, und es gibt keinen Nachfolger. Ich versuche, mit vier anderen Gemeinden zusammen eine Praxis einzurichten, in der sich junge Ärzte anstellen lassen können, statt alles allein zu bezahlen. Ob das klappt, weiß ich nicht.\nModerator: Werden Sie von den Älteren im Gemeinderat ernst genommen?\nFrau Albers: Inzwischen ja. Am Anfang hat mir ein Kollege geraten, erst einmal zwei Jahre zuzuhören. Ich habe geantwortet, dass ich nur für fünf gewählt bin. Seitdem verstehen wir uns gut.\nModerator: Würden Sie anderen in Ihrem Alter dazu raten?\nFrau Albers: Ich würde ihnen raten, sich wenigstens fragen zu lassen. Die meisten in meinem Alter sind nie gefragt worden. Ich hoffe, dass sich das ändert. Bei der nächsten Wahl möchte ich allerdings richtig kandidieren, mit meinem Namen auf dem Zettel.",
+      "passageTranslation": "Presenter: In many small municipalities nobody can be found any more who wants to be mayor. In the village of Kleinhagen, with its 400 inhabitants, there was not a single name on the ballot paper this spring. Someone was elected all the same: Jana Albers, 26 years old, a nurse. Ms Albers, how do you become mayor without standing?\nMs Albers: Where we live, in a case like that you are allowed to write a name on the ballot paper. A few people from the sports club had agreed among themselves, and on election night the old mayor rang me and said I had 61 per cent. At first I thought he was joking.\nPresenter: You could have declined.\nMs Albers: Yes, and I thought about it for a week. Then I let myself be persuaded. My grandmother said: if everyone only complains and nobody does anything, nobody need be surprised. So I decided to accept the election.\nPresenter: The office is an honorary one. How does that fit with shift work in a hospital?\nMs Albers: Badly, to be honest. I get a small expense allowance, but it is ten to fifteen hours a week. So I have the council meetings put on my free evenings, and my surgery hour is on Saturdays after the market.\nPresenter: What surprised you most?\nMs Albers: How little you are allowed to decide. I had thought a mayor determines what happens. In reality almost everything is fixed by regulations or by a lack of money. That cannot be changed. But on a small scale more is possible than you think. We had the bus stop repaired, which had been broken for three years. That cost 900 euros and two phone calls.\nPresenter: And on a large scale?\nMs Albers: The doctor in the next village is retiring next year, and there is no successor. I am trying, together with four other municipalities, to set up a practice where young doctors can be employed instead of paying for everything alone. Whether that works out, I do not know.\nPresenter: Are you taken seriously by the older members of the council?\nMs Albers: By now, yes. At the beginning a colleague advised me to just listen for two years first. I answered that I have only been elected for five. Since then we have got on well.\nPresenter: Would you advise others of your age to do it?\nMs Albers: I would advise them at least to let themselves be asked. Most people my age have never been asked. I hope that changes. At the next election, though, I would like to stand properly, with my name on the paper.",
+      "questions": [
+        {
+          "question": "Wie wurde Frau Albers Bürgermeisterin?",
+          "options": [
+            "Sie gewann gegen zwei andere Kandidaten.",
+            "Der alte Bürgermeister bestimmte sie.",
+            "Wähler schrieben ihren Namen auf den Stimmzettel.",
+            "Der Gemeinderat wählte sie in einer geheimen Sitzung."
+          ],
+          "correctIndex": 2,
+          "explanation": "Frau Albers: „Bei uns darf man in so einem Fall einen Namen auf den Stimmzettel schreiben. Ein paar Leute aus dem Sportverein hatten sich abgesprochen …“",
+          "questionTranslation": "How did Ms Albers become mayor?",
+          "optionsTranslation": [
+            "She won against two other candidates.",
+            "The old mayor appointed her.",
+            "Voters wrote her name on the ballot paper.",
+            "The council elected her at a closed meeting."
+          ]
+        },
+        {
+          "question": "Wie reagierte sie zuerst auf den Anruf am Wahlabend?",
+          "options": [
+            "Sie hielt die Nachricht für einen Scherz.",
+            "Sie sagte sofort zu.",
+            "Sie lehnte sofort ab.",
+            "Sie ärgerte sich über die Leute vom Sportverein."
+          ],
+          "correctIndex": 0,
+          "explanation": "Frau Albers: „Ich dachte zuerst, er mache einen Scherz.“",
+          "questionTranslation": "How did she first react to the call on election night?",
+          "optionsTranslation": [
+            "She thought the news was a joke.",
+            "She said yes at once.",
+            "She declined at once.",
+            "She was annoyed with the people from the sports club."
+          ]
+        },
+        {
+          "question": "Was gab den Ausschlag für ihre Entscheidung?",
+          "options": [
+            "die Höhe der Aufwandsentschädigung",
+            "ein Satz ihrer Großmutter",
+            "der Wunsch des Krankenhauses",
+            "ein Versprechen des Gemeinderats"
+          ],
+          "correctIndex": 1,
+          "explanation": "Frau Albers: „Meine Großmutter hat gesagt: Wenn alle nur schimpfen und keiner etwas macht, braucht sich niemand zu wundern. Also habe ich mich entschieden, die Wahl anzunehmen.“",
+          "questionTranslation": "What tipped the balance in her decision?",
+          "optionsTranslation": [
+            "the size of the expense allowance",
+            "something her grandmother said",
+            "the hospital's wish",
+            "a promise from the council"
+          ]
+        },
+        {
+          "question": "Wie verbindet sie das Amt mit ihrem Beruf?",
+          "options": [
+            "Sie hat ihre Stelle im Krankenhaus aufgegeben.",
+            "Sie arbeitet nur noch am Wochenende.",
+            "Ein Kollege vertritt sie bei den Sitzungen.",
+            "Die Sitzungen liegen auf ihren freien Abenden."
+          ],
+          "correctIndex": 3,
+          "explanation": "Frau Albers: „Die Sitzungen des Gemeinderats lasse ich deshalb auf meine freien Abende legen, und meine Sprechstunde ist samstags nach dem Markt.“",
+          "questionTranslation": "How does she combine the office with her job?",
+          "optionsTranslation": [
+            "She has given up her job at the hospital.",
+            "She now works only at weekends.",
+            "A colleague stands in for her at the meetings.",
+            "The meetings are held on her free evenings."
+          ]
+        },
+        {
+          "question": "Was hat sie am meisten überrascht?",
+          "options": [
+            "wie wenig sie entscheiden darf",
+            "wie viel Geld die Gemeinde hat",
+            "wie unfreundlich die Bürger sind",
+            "wie selten der Gemeinderat tagt"
+          ],
+          "correctIndex": 0,
+          "explanation": "Frau Albers: „Wie wenig man entscheiden darf … In Wirklichkeit ist fast alles durch Vorschriften oder durch fehlendes Geld festgelegt.“",
+          "questionTranslation": "What surprised her most?",
+          "optionsTranslation": [
+            "how little she is allowed to decide",
+            "how much money the municipality has",
+            "how unfriendly the citizens are",
+            "how rarely the council meets"
+          ]
+        },
+        {
+          "question": "Was plant sie wegen des Arztes im Nachbarort?",
+          "options": [
+            "Sie will ihn überreden, länger zu arbeiten.",
+            "Sie will einen Bus zum Krankenhaus in der Stadt einrichten.",
+            "Sie will mit anderen Gemeinden eine Praxis gründen.",
+            "Sie will selbst Sprechstunden anbieten."
+          ],
+          "correctIndex": 2,
+          "explanation": "Frau Albers: „Ich versuche, mit vier anderen Gemeinden zusammen eine Praxis einzurichten, in der sich junge Ärzte anstellen lassen können …“",
+          "questionTranslation": "What is she planning because of the doctor in the next village?",
+          "optionsTranslation": [
+            "She wants to persuade him to work longer.",
+            "She wants to set up a bus to the hospital in town.",
+            "She wants to found a practice with other municipalities.",
+            "She wants to offer consultations herself."
+          ]
+        },
+        {
+          "question": "Was meinte sie mit der Antwort, sie sei „nur für fünf gewählt“?",
+          "options": [
+            "Sie will nach fünf Jahren aufhören.",
+            "Sie hat keine zwei Jahre Zeit, nur zuzuhören.",
+            "Sie vertritt nur fünf der Mitglieder des Gemeinderats.",
+            "Sie hält fünf Jahre für zu lang."
+          ],
+          "correctIndex": 1,
+          "explanation": "Der Kollege riet ihr, „erst einmal zwei Jahre zuzuhören“. Ihre Antwort heißt: Bei nur fünf Jahren Amtszeit wären zwei Jahre ohne eigenes Handeln zu viel.",
+          "questionTranslation": "What did she mean by answering that she was 'only elected for five'?",
+          "optionsTranslation": [
+            "She wants to stop after five years.",
+            "She does not have two years to spend only listening.",
+            "She represents only five of the members of the council.",
+            "She thinks five years is too long."
+          ]
+        },
+        {
+          "question": "Was rät sie Menschen in ihrem Alter?",
+          "options": [
+            "sich lieber auf den Beruf zu konzentrieren",
+            "erst mit vierzig in die Politik zu gehen",
+            "in eine größere Stadt zu ziehen",
+            "sich wenigstens fragen zu lassen"
+          ],
+          "correctIndex": 3,
+          "explanation": "Frau Albers: „Ich würde ihnen raten, sich wenigstens fragen zu lassen. Die meisten in meinem Alter sind nie gefragt worden.“",
+          "questionTranslation": "What does she advise people of her age?",
+          "optionsTranslation": [
+            "to concentrate on their job instead",
+            "not to go into politics until forty",
+            "to move to a bigger city",
+            "at least to let themselves be asked"
+          ]
+        }
+      ],
+      "covers": [
+        "b2.lassen",
+        "b2.dass-infinitive"
+      ],
+      "image": "quest_b2_1_hoeren_buergermeisterin"
+    }
+  },
+  {
+    "id": "quest_b2_1_hoeren_gemeinderat",
+    "after": "quest_b2_1_passiv_subjektlos",
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Im Gemeinderat",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "level": "B2.1",
+      "help": {
+        "intro": "Ein Ausschnitt von etwa drei Minuten aus einer erfundenen Sitzung des Gemeinderats. Es geht um das Freibad der Stadt: Das Becken ist undicht, die Technik ist fünfzig Jahre alt, und die Stadt muss entscheiden, ob sie saniert oder schließt. So klingt Politik dort, wo sie die meisten Menschen wirklich betrifft, und so klingt auch ihre Sprache. In Sitzungen wird selten gesagt, wer etwas tun soll. Man sagt, was getan werden muss: Das Becken muss saniert werden; die Kosten können nicht allein getragen werden. Und man sagt, was geschieht, ohne überhaupt ein Subjekt zu nennen: Darüber wird seit Jahren gestritten; heute wird abgestimmt. Beide Formen hast du gerade geübt. Höre außerdem auf die drei Vorschläge, die auf dem Tisch liegen, und darauf, wer welchen vertritt. Am Ende wird abgestimmt, und das Ergebnis ist nicht das, was am Anfang erwartet wurde.",
+        "introEn": "An extract of about three minutes from an invented meeting of a town council. It is about the town's open-air pool: the basin leaks, the equipment is fifty years old, and the town has to decide whether to renovate or close. This is what politics sounds like where it really affects most people, and this is what its language sounds like too. In meetings people rarely say who is to do something. They say what has to be done: Das Becken muss saniert werden; die Kosten können nicht allein getragen werden. And they say what is happening without naming a subject at all: Darüber wird seit Jahren gestritten; heute wird abgestimmt. You have just practised both forms. Also listen for the three proposals on the table and for who backs which. At the end there is a vote, and the result is not what was expected at the beginning.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Was getan werden muss: Passiv mit Modalverb",
+            "text": "Modalverb auf Position 2, Partizip II + werden am Ende: Das Becken muss saniert werden. Die Kosten können nicht allein getragen werden. Im Nebensatz steht das Modalverb ganz hinten: …, dass das Bad geschlossen werden soll. Wer handelt, bleibt offen. Genau das ist in einer Sitzung oft gewollt.",
+            "examples": [
+              {
+                "de": "Das Becken muss spätestens im nächsten Jahr saniert werden.",
+                "en": "The basin has to be renovated next year at the latest.",
+                "focus": [
+                  "muss",
+                  "saniert",
+                  "werden"
+                ]
+              },
+              {
+                "de": "Ich bin dagegen, dass das Bad geschlossen werden soll.",
+                "en": "I am against the pool being closed.",
+                "focus": [
+                  "geschlossen",
+                  "werden",
+                  "soll"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Die Entscheidung ____ heute getroffen ____.",
+              "options": [
+                "muss … werden",
+                "muss … worden",
+                "wird … müssen"
+              ],
+              "answer": "muss … werden",
+              "why": "Passiv mit Modalverb: Modalverb auf Position 2, am Ende Partizip II + werden. Also: muss getroffen werden.",
+              "whyEn": "Passive with a modal verb: modal in position 2, Partizip II + werden at the end. So: muss getroffen werden."
+            },
+            "en": {
+              "title": "What has to be done: passive with a modal verb",
+              "text": "Modal verb in position 2, Partizip II + werden at the end: Das Becken muss saniert werden. Die Kosten können nicht allein getragen werden. In a subordinate clause the modal goes right to the end: …, dass das Bad geschlossen werden soll. Who acts stays open. In a meeting that is often exactly what is wanted."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Passiv ohne Subjekt: Es wird abgestimmt",
+            "text": "Wenn nur die Handlung zählt, braucht das Passiv gar kein Subjekt. Am Satzanfang steht es als Platzhalter: Es wird abgestimmt. Steht etwas anderes vorn, fällt es weg: Heute wird abgestimmt. Darüber wird seit Jahren gestritten. Im Sommer wird dort jeden Tag geschwommen.",
+            "examples": [
+              {
+                "de": "Über das Freibad wird in dieser Stadt seit Jahren gestritten.",
+                "en": "People in this town have been arguing about the open-air pool for years.",
+                "focus": [
+                  "wird",
+                  "gestritten"
+                ]
+              },
+              {
+                "de": "Jetzt wird abgestimmt. Wer dafür ist, hebt bitte die Hand.",
+                "en": "Now there will be a vote. Those in favour, please raise your hand.",
+                "focus": [
+                  "wird",
+                  "abgestimmt"
+                ]
+              }
+            ],
+            "check": {
+              "q": "____ wird seit einer Stunde diskutiert, aber nichts entschieden.",
+              "options": [
+                "Es",
+                "Man",
+                "Sie"
+              ],
+              "answer": "Es",
+              "why": "Das Passiv ohne Subjekt braucht am Satzanfang den Platzhalter es. Man wäre Aktiv: Man diskutiert.",
+              "whyEn": "The subjectless passive needs the placeholder es at the start of the sentence. Man would be active: Man diskutiert."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Aktiv",
+              "right": "Passiv ohne Subjekt",
+              "rows": [
+                {
+                  "a": "Man stimmt heute ab.",
+                  "b": "Heute wird abgestimmt."
+                },
+                {
+                  "a": "Man streitet seit Jahren darüber.",
+                  "b": "Darüber wird seit Jahren gestritten."
+                },
+                {
+                  "a": "Man schwimmt dort jeden Tag.",
+                  "b": "Es wird dort jeden Tag geschwommen."
+                }
+              ]
+            },
+            "en": {
+              "title": "Passive without a subject: Es wird abgestimmt",
+              "text": "When only the action counts, the passive needs no subject at all. At the start of the sentence es stands in as a placeholder: Es wird abgestimmt. If something else comes first, it drops out: Heute wird abgestimmt. Darüber wird seit Jahren gestritten. Im Sommer wird dort jeden Tag geschwommen."
+            }
+          }
+        ],
+        "remember": [
+          "muss saniert werden: Modalverb + Partizip II + werden.",
+          "Es wird abgestimmt → Heute wird abgestimmt: es fällt weg, wenn etwas anderes vorn steht."
+        ],
+        "rememberEn": [
+          "muss saniert werden: modal verb + Partizip II + werden.",
+          "Es wird abgestimmt → Heute wird abgestimmt: es drops out when something else comes first."
+        ],
+        "exam": "Gespräche mit mehreren Sprechern, in denen man Vorschläge den Personen zuordnen muss, sind ein typischer Hörtext in der B2-Prüfung.",
+        "examEn": "Conversations with several speakers, where you have to match proposals to people, are a typical listening text in the B2 exam.",
+        "hook": "Das Freibad ist undicht, die Kasse ist leer, und heute Abend wird abgestimmt. Hör zu, welche drei Vorschläge es gibt und welcher gewinnt.",
+        "hookEn": "The open-air pool leaks, the coffers are empty, and tonight there is a vote. Listen to the three proposals and to which one wins.",
+        "german": true
+      },
+      "category": "Society",
+      "passageTitle": "Gemeinderatssitzung: Was wird aus dem Freibad?",
+      "speakers": {
+        "Vorsitzende": "female",
+        "Herr Kraus": "male",
+        "Frau Demir": "female",
+        "Herr Lindner": "male"
+      },
+      "passage": "Vorsitzende: Wir kommen zu Punkt vier der Tagesordnung, dem Freibad. Darüber wird in dieser Stadt seit Jahren gestritten, und heute muss endlich entschieden werden. Herr Kraus, Sie sind für die Finanzen zuständig. Bitte.\nHerr Kraus: Danke. Die Lage ist einfach und unangenehm. Das Becken ist undicht, wir verlieren jeden Tag mehrere tausend Liter Wasser. Die Technik stammt aus den Siebzigerjahren. Nach dem Gutachten muss das Bad vollständig saniert werden, und das kostet 3,2 Millionen Euro. Diese Summe kann von der Stadt nicht allein getragen werden. Ich schlage deshalb vor, das Bad nach diesem Sommer zu schließen.\nFrau Demir: Dem möchte ich widersprechen. In diesem Bad haben drei Generationen schwimmen gelernt. Wenn es geschlossen wird, ist das nächste zwanzig Kilometer entfernt, und es fährt kein Bus dorthin. Schon heute können viele Kinder am Ende der Grundschule nicht sicher schwimmen. Ein Schwimmbad ist kein Luxus.\nHerr Kraus: Das bestreite ich nicht, Frau Demir. Aber dann sagen Sie mir bitte, woher das Geld kommen soll. Es kann nicht ausgegeben werden, was nicht da ist.\nFrau Demir: Vom Land kann ein Zuschuss beantragt werden, der bis zur Hälfte der Kosten deckt. Der Antrag muss allerdings bis Ende des Jahres gestellt werden.\nHerr Kraus: Bleiben 1,6 Millionen. Die haben wir auch nicht.\nVorsitzende: Herr Lindner, Sie hatten sich gemeldet.\nHerr Lindner: Ja. Ich möchte einen dritten Weg vorschlagen. In unserer Nachbarstadt wurde das Bad vor fünf Jahren an einen Verein übergeben. Dort wird seitdem von Freiwilligen kassiert, geputzt und der Rasen gemäht. Die Stadt zahlt nur noch das Wasser und die Technik. Die Kosten sind um ein Drittel gesunken, und das Bad ist voller als früher. Außerdem könnte das Becken verkleinert werden. Wir brauchen keine fünfzig Meter. Fünfundzwanzig würden genügen, und die Sanierung wäre etwa eine Million billiger.\nFrau Demir: Damit könnte ich leben, wenn das Becken für Kinder erhalten bleibt.\nHerr Kraus: Ein kleineres Becken, ein Zuschuss vom Land und ein Verein, der den Betrieb übernimmt: Dann blieben für die Stadt etwa 1,1 Millionen Euro, verteilt auf mehrere Jahre. Das ließe sich darstellen. Aber nur, wenn sich wirklich genug Freiwillige finden. Ohne sie wird nichts daraus.\nHerr Lindner: Dem Schwimmverein gehören 300 Mitglieder an. Es wurde bereits gefragt, und vierzig haben zugesagt.\nVorsitzende: Dann wird jetzt abgestimmt, und zwar über den Vorschlag von Herrn Lindner: Sanierung mit kleinerem Becken, Antrag beim Land, Übergabe des Betriebs an einen Verein. Wer dafür ist, hebt bitte die Hand. Danke. Gegenstimmen? Eine. Damit ist der Vorschlag mit elf zu eins Stimmen angenommen. Der Antrag beim Land wird noch in diesem Monat gestellt.",
+      "passageTranslation": "Chair: We come to item four on the agenda, the open-air pool. It has been argued about in this town for years, and today a decision finally has to be made. Mr Kraus, you are responsible for finances. Please.\nMr Kraus: Thank you. The situation is simple and unpleasant. The basin leaks; we lose several thousand litres of water every day. The equipment dates from the seventies. According to the expert report the pool has to be completely renovated, and that costs 3.2 million euros. The town cannot bear this sum alone. I therefore propose closing the pool after this summer.\nMs Demir: I would like to disagree with that. Three generations learned to swim in this pool. If it is closed, the nearest one is twenty kilometres away, and no bus goes there. Even today many children cannot swim safely at the end of primary school. A swimming pool is not a luxury.\nMr Kraus: I do not dispute that, Ms Demir. But then please tell me where the money is to come from. What is not there cannot be spent.\nMs Demir: A grant can be applied for from the state that covers up to half the costs. The application does, however, have to be made by the end of the year.\nMr Kraus: That leaves 1.6 million. We do not have that either.\nChair: Mr Lindner, you had asked to speak.\nMr Lindner: Yes. I would like to propose a third way. In our neighbouring town the pool was handed over to an association five years ago. Since then volunteers have taken the money, done the cleaning and mown the lawn there. The town now pays only for the water and the equipment. Costs have fallen by a third, and the pool is fuller than before. In addition, the basin could be made smaller. We do not need fifty metres. Twenty-five would be enough, and the renovation would be about a million cheaper.\nMs Demir: I could live with that if the children's pool is kept.\nMr Kraus: A smaller basin, a grant from the state and an association that takes over the running: then about 1.1 million euros would be left for the town, spread over several years. That would be manageable. But only if enough volunteers really are found. Without them nothing will come of it.\nMr Lindner: The swimming club has 300 members. They have already been asked, and forty have agreed.\nChair: Then we will now vote, on Mr Lindner's proposal: renovation with a smaller basin, application to the state, handing the running over to an association. Those in favour, please raise your hand. Thank you. Votes against? One. The proposal is thus adopted by eleven votes to one. The application to the state will be made this month.",
+      "questions": [
+        {
+          "question": "Warum muss das Freibad saniert werden?",
+          "options": [
+            "Das Becken ist undicht und die Technik veraltet.",
+            "Es ist für die wachsende Stadt längst zu klein geworden.",
+            "Das Land verlangt neue Umkleiden.",
+            "Es kommen zu wenige Besucher."
+          ],
+          "correctIndex": 0,
+          "explanation": "Herr Kraus: „Das Becken ist undicht … Die Technik stammt aus den Siebzigerjahren. Nach dem Gutachten muss das Bad vollständig saniert werden.“",
+          "questionTranslation": "Why does the open-air pool have to be renovated?",
+          "optionsTranslation": [
+            "The basin leaks and the equipment is outdated.",
+            "It has long since become too small for the growing town.",
+            "The state requires new changing rooms.",
+            "Too few visitors come."
+          ]
+        },
+        {
+          "question": "Was schlägt Herr Kraus zunächst vor?",
+          "options": [
+            "die Eintrittspreise zu verdoppeln",
+            "das Bad an eine Firma zu verkaufen",
+            "die Sanierung um zehn Jahre zu verschieben",
+            "das Bad nach dem Sommer zu schließen"
+          ],
+          "correctIndex": 3,
+          "explanation": "Herr Kraus: „Diese Summe kann von der Stadt nicht allein getragen werden. Ich schlage deshalb vor, das Bad nach diesem Sommer zu schließen.“",
+          "questionTranslation": "What does Mr Kraus propose at first?",
+          "optionsTranslation": [
+            "doubling the entrance fees",
+            "selling the pool to a company",
+            "postponing the renovation by ten years",
+            "closing the pool after the summer"
+          ]
+        },
+        {
+          "question": "Welches Argument bringt Frau Demir gegen die Schließung?",
+          "options": [
+            "Die Stadt verdiene jeden Sommer gut an dem Bad.",
+            "Viele Kinder könnten nicht sicher schwimmen.",
+            "Das Gutachten sei fehlerhaft.",
+            "Das Bad stehe unter Denkmalschutz."
+          ],
+          "correctIndex": 1,
+          "explanation": "Frau Demir: „Schon heute können viele Kinder am Ende der Grundschule nicht sicher schwimmen. Ein Schwimmbad ist kein Luxus.“ Außerdem sei das nächste Bad zwanzig Kilometer entfernt.",
+          "questionTranslation": "What argument does Ms Demir bring against closing?",
+          "optionsTranslation": [
+            "The town earns well from the pool every summer.",
+            "Many children cannot swim safely.",
+            "The expert report is flawed.",
+            "The pool is a listed building."
+          ]
+        },
+        {
+          "question": "Was sagt Frau Demir über den Zuschuss vom Land?",
+          "options": [
+            "Er deckt die gesamten Kosten.",
+            "Er wurde bereits abgelehnt.",
+            "Er muss bis Jahresende beantragt werden.",
+            "Er gilt nur für Hallenbäder, nicht für Freibäder."
+          ],
+          "correctIndex": 2,
+          "explanation": "Frau Demir: „Vom Land kann ein Zuschuss beantragt werden, der bis zur Hälfte der Kosten deckt. Der Antrag muss allerdings bis Ende des Jahres gestellt werden.“",
+          "questionTranslation": "What does Ms Demir say about the grant from the state?",
+          "optionsTranslation": [
+            "It covers the entire cost.",
+            "It has already been refused.",
+            "It has to be applied for by the end of the year.",
+            "It applies only to indoor pools, not to open-air ones."
+          ]
+        },
+        {
+          "question": "Was berichtet Herr Lindner aus der Nachbarstadt?",
+          "options": [
+            "Dort betreibt ein Verein das Bad mit Freiwilligen.",
+            "Dort wurde das Bad geschlossen.",
+            "Dort hat das Land die gesamte Sanierung allein bezahlt.",
+            "Dort ist das Bad seitdem leerer."
+          ],
+          "correctIndex": 0,
+          "explanation": "Herr Lindner: „In unserer Nachbarstadt wurde das Bad vor fünf Jahren an einen Verein übergeben. Dort wird seitdem von Freiwilligen kassiert, geputzt und der Rasen gemäht.“",
+          "questionTranslation": "What does Mr Lindner report from the neighbouring town?",
+          "optionsTranslation": [
+            "An association runs the pool there with volunteers.",
+            "The pool was closed there.",
+            "The state paid for the entire renovation alone there.",
+            "The pool has been emptier there since."
+          ]
+        },
+        {
+          "question": "Wie will Herr Lindner die Sanierung billiger machen?",
+          "options": [
+            "durch den Verzicht auf neue Technik",
+            "durch höhere Eintrittspreise",
+            "durch ein kleineres Becken",
+            "durch eine kürzere Saison"
+          ],
+          "correctIndex": 2,
+          "explanation": "Herr Lindner: „Außerdem könnte das Becken verkleinert werden … Fünfundzwanzig würden genügen, und die Sanierung wäre etwa eine Million billiger.“",
+          "questionTranslation": "How does Mr Lindner want to make the renovation cheaper?",
+          "optionsTranslation": [
+            "by doing without new equipment",
+            "by higher entrance fees",
+            "by a smaller basin",
+            "by a shorter season"
+          ]
+        },
+        {
+          "question": "Unter welcher Bedingung stimmt Herr Kraus dem Plan zu?",
+          "options": [
+            "wenn das Becken fünfzig Meter behält",
+            "wenn sich genug Freiwillige finden",
+            "wenn das Land alle Kosten trägt",
+            "wenn die Abstimmung verschoben wird"
+          ],
+          "correctIndex": 1,
+          "explanation": "Herr Kraus: „Das ließe sich darstellen. Aber nur, wenn sich wirklich genug Freiwillige finden. Ohne sie wird nichts daraus.“",
+          "questionTranslation": "On what condition does Mr Kraus agree to the plan?",
+          "optionsTranslation": [
+            "if the basin keeps its fifty metres",
+            "if enough volunteers are found",
+            "if the state bears all the costs",
+            "if the vote is postponed"
+          ]
+        },
+        {
+          "question": "Wie endet die Abstimmung?",
+          "options": [
+            "Die Schließung nach dem Sommer wird beschlossen.",
+            "Die Entscheidung wird vertagt.",
+            "Es gibt ein Unentschieden.",
+            "Der dritte Vorschlag wird angenommen."
+          ],
+          "correctIndex": 3,
+          "explanation": "Vorsitzende: „Damit ist der Vorschlag mit elf zu eins Stimmen angenommen.“ Abgestimmt wurde über den Vorschlag von Herrn Lindner.",
+          "questionTranslation": "How does the vote end?",
+          "optionsTranslation": [
+            "Closure after the summer is decided.",
+            "The decision is adjourned.",
+            "There is a tie.",
+            "The third proposal is adopted."
+          ]
+        }
+      ],
+      "covers": [
+        "b2.modal-passive",
+        "b2.subjectless-passive"
+      ],
+      "image": "quest_b2_1_hoeren_gemeinderat"
+    }
+  },
+  {
+    "id": "quest_b2_1_lesen_buergerrat",
+    "after": "quest_b2_1_sprechen_argument",
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Politik per Los",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "level": "B2.1",
+      "help": {
+        "intro": "Ein Hintergrundtext von etwa 500 Wörtern über ein Experiment der deutschen Politik: 160 Menschen, die niemand gewählt hat, sind ausgelost worden, um dem Parlament Empfehlungen zu geben. So ein Gremium heißt Bürgerrat. Der Text erklärt, wie das Los funktioniert, was dabei herauskam und warum die einen darin die Zukunft der Demokratie sehen und die anderen eine teure Übung ohne Folgen. Sprachlich begegnet dir vor allem das Passiv im Perfekt, das berichtet, was bereits getan worden ist: Die Mitglieder sind ausgelost worden; die Empfehlungen sind übergeben worden; umgesetzt worden ist bisher wenig. Dazu kommen die Wörter, mit denen man über Politik spricht: ein Gremium einsetzen, eine Empfehlung abgeben, einen Vorschlag umsetzen, die Bevölkerung abbilden. Die Fragen wollen wissen, wie die Auswahl ablief, was beschlossen wurde und welche Einwände es gibt.",
+        "introEn": "A background text of about 500 words on an experiment in German politics: 160 people whom nobody elected were drawn by lot to give parliament recommendations. A body like this is called a Bürgerrat, a citizens' assembly. The text explains how the lottery works, what came out of it and why some see in it the future of democracy and others an expensive exercise without consequences. In language terms you mostly meet the Perfekt passive, which reports what has already been done: Die Mitglieder sind ausgelost worden; die Empfehlungen sind übergeben worden; umgesetzt worden ist bisher wenig. Then there are the words used to talk about politics: ein Gremium einsetzen, eine Empfehlung abgeben, einen Vorschlag umsetzen, die Bevölkerung abbilden. The questions ask how the selection went, what was decided and what objections there are.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Was schon getan worden ist: Passiv Perfekt",
+            "text": "sein + Partizip II + worden: Die Mitglieder sind ausgelost worden. Der Bürgerrat ist vom Bundestag eingesetzt worden. Achtung: worden, nicht geworden. Geworden gehört zu werden als Vollverb: Sie ist Ärztin geworden. Der Handelnde steht, wenn überhaupt, mit von + Dativ.",
+            "examples": [
+              {
+                "de": "Die 160 Mitglieder sind nicht gewählt, sondern ausgelost worden.",
+                "en": "The 160 members were not elected but drawn by lot.",
+                "focus": [
+                  "sind",
+                  "ausgelost",
+                  "worden"
+                ]
+              },
+              {
+                "de": "Von den neun Empfehlungen ist bisher kaum eine umgesetzt worden.",
+                "en": "Of the nine recommendations hardly any has been implemented so far.",
+                "focus": [
+                  "ist",
+                  "umgesetzt",
+                  "worden"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Die Empfehlungen ____ im Januar 2024 an den Bundestag übergeben ____.",
+              "options": [
+                "sind … worden",
+                "sind … geworden",
+                "haben … worden"
+              ],
+              "answer": "sind … worden",
+              "why": "Passiv Perfekt: sein + Partizip II + worden. Geworden steht nur, wenn werden das Vollverb ist.",
+              "whyEn": "Perfekt passive: sein + Partizip II + worden. Geworden is used only when werden is the main verb."
+            },
+            "en": {
+              "title": "What has already been done: the Perfekt passive",
+              "text": "sein + Partizip II + worden: Die Mitglieder sind ausgelost worden. Der Bürgerrat ist vom Bundestag eingesetzt worden. Careful: worden, not geworden. Geworden belongs to werden as a main verb: Sie ist Ärztin geworden. The doer, if named at all, takes von + dative."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Wörter der Mitbestimmung",
+            "text": "auslosen (durch Zufall bestimmen) · das Los (der Zufall entscheidet) · ein Gremium einsetzen (eine Gruppe mit einer Aufgabe schaffen) · eine Empfehlung abgeben (einen Rat geben, der nicht bindet) · etwas umsetzen (aus dem Plan Wirklichkeit machen) · die Bevölkerung abbilden (so zusammengesetzt sein wie alle) · verbindlich (man muss sich daran halten).",
+            "examples": [
+              {
+                "de": "Die Gruppe sollte die Bevölkerung im Kleinen abbilden.",
+                "en": "The group was meant to mirror the population in miniature.",
+                "focus": [
+                  "abbilden"
+                ]
+              },
+              {
+                "de": "Die Empfehlungen eines Bürgerrats sind für das Parlament nicht verbindlich.",
+                "en": "A citizens' assembly's recommendations are not binding on parliament.",
+                "focus": [
+                  "verbindlich"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ein Vorschlag, an den sich das Parlament nicht halten muss, ist nicht ____.",
+              "options": [
+                "verbindlich",
+                "verständlich",
+                "verantwortlich"
+              ],
+              "answer": "verbindlich",
+              "why": "verbindlich heißt: Es bindet, man muss es tun. Eine Empfehlung ist das gerade nicht.",
+              "whyEn": "verbindlich means it binds, you have to do it. A recommendation is precisely not that."
+            },
+            "visual": {
+              "kind": "moves",
+              "moves": [
+                {
+                  "label": "Einladen",
+                  "de": [
+                    "rund 20.000 Briefe"
+                  ]
+                },
+                {
+                  "label": "Auslosen",
+                  "de": [
+                    "160 Mitglieder"
+                  ]
+                },
+                {
+                  "label": "Beraten",
+                  "de": [
+                    "mit Fachleuten, in kleinen Gruppen"
+                  ]
+                },
+                {
+                  "label": "Empfehlen",
+                  "de": [
+                    "neun Empfehlungen"
+                  ]
+                },
+                {
+                  "label": "Umsetzen?",
+                  "de": [
+                    "Das Parlament entscheidet"
+                  ]
+                }
+              ]
+            },
+            "en": {
+              "title": "Words of participation",
+              "text": "auslosen (to draw by lot) · das Los (the lot, chance decides) · ein Gremium einsetzen (to set up a body) · eine Empfehlung abgeben (to make a recommendation, which does not bind) · etwas umsetzen (to implement) · die Bevölkerung abbilden (to mirror the population) · verbindlich (binding)."
+            }
+          }
+        ],
+        "remember": [
+          "sein + Partizip II + worden: ist eingesetzt worden, sind ausgelost worden.",
+          "empfehlen ist nicht entscheiden: Eine Empfehlung ist nicht verbindlich."
+        ],
+        "rememberEn": [
+          "sein + Partizip II + worden: ist eingesetzt worden, sind ausgelost worden.",
+          "Recommending is not deciding: a recommendation is not binding."
+        ],
+        "exam": "Hintergrundtexte über politische Verfahren mit Fragen zu Ablauf, Ergebnis und Kritik sind ein typischer Lesetext in der B2-Prüfung.",
+        "examEn": "Background texts on political procedures, with questions on process, result and criticism, are a typical reading text in the B2 exam.",
+        "hook": "160 Menschen, vom Zufall bestimmt, beraten das Parlament. Lies, wie das Los funktioniert und was aus ihren Vorschlägen wurde.",
+        "hookEn": "160 people, picked by chance, advise parliament. Read how the lottery works and what became of their proposals.",
+        "german": true
+      },
+      "category": "Society",
+      "passageTitle": "Regieren per Los: Der erste Bürgerrat des Bundestages",
+      "passage": "Im Herbst 2023 trafen sich in Berlin 160 Menschen, die einander nie zuvor gesehen hatten: junge Leute in der Ausbildung ebenso wie Rentnerinnen und Rentner, Menschen aus Großstädten ebenso wie aus Dörfern. Keiner von ihnen war in ein Amt gewählt worden, keiner hatte sich beworben. Sie waren ausgelost worden. Der Bundestag hatte zum ersten Mal in seiner Geschichte einen Bürgerrat eingesetzt, und seine Aufgabe lautete: Was soll der Staat beim Thema Ernährung tun und was nicht?\n\nDas Verfahren ist aufwendiger, als das Wort Los vermuten lässt. Zunächst wurden rund 20.000 Briefe an zufällig ausgewählte Einwohner in zufällig ausgewählten Gemeinden verschickt. Mehr als 2.000 Menschen antworteten, dass sie teilnehmen würden. Aus ihnen wurden die 160 so gezogen, dass die Gruppe die Bevölkerung im Kleinen abbildet: nach Alter, Geschlecht, Bundesland, Größe des Wohnorts und Bildungsabschluss. Weil es um Ernährung ging, wurde sogar darauf geachtet, dass der Anteil der Vegetarier stimmt.\n\nÜber mehrere Monate hinweg hörte die Gruppe Fachleute an, diskutierte in kleinen Runden und stimmte schließlich ab. Im Januar 2024 sind dem Parlament neun Empfehlungen übergeben worden. An erster Stelle stand ein kostenloses Mittagessen für alle Kinder in Kitas und Schulen. Außerdem sollten Supermärkte verpflichtet werden, noch essbare Lebensmittel weiterzugeben, statt sie wegzuwerfen, und für Energydrinks wurde eine Altersgrenze gefordert.\n\nDie Idee ist alt. Im antiken Athen wurden die meisten Ämter durch das Los vergeben, weil man Wahlen misstraute: Gewählt werde, wer reich, bekannt oder ein guter Redner sei. In jüngerer Zeit hat vor allem Irland Aufsehen erregt. Dort hat eine ausgeloste Versammlung über Fragen beraten, an denen die Politik jahrzehntelang gescheitert war, und ihre Vorschläge sind später in Volksabstimmungen angenommen worden.\n\nDas irische Beispiel wird oft genannt, weil es so unwahrscheinlich war. In dem lange streng katholischen Land galt eines der strengsten Abtreibungsverbote Europas, und keine Regierung wagte, daran zu rühren. 2016 wurden 99 zufällig ausgewählte Bürgerinnen und Bürger unter dem Vorsitz einer Richterin beauftragt, die Frage zu beraten. Sie hörten Ärztinnen, Juristen und betroffene Frauen an und empfahlen mit klarer Mehrheit, das Verbot zu lockern. 2018 stimmten in der Volksabstimmung rund zwei Drittel der Wähler dafür. Viele Beobachter meinen, erst die Versammlung habe gezeigt, dass die Bevölkerung weiter war als ihre Politiker.\n\nDie Befürworter sehen darin ein Mittel gegen den Verdruss an der Politik. Ausgeloste müssten nicht wiedergewählt werden, sie seien keiner Partei verpflichtet und könnten deshalb unbequeme Kompromisse schließen. Wer Zeit habe, sich zu informieren, entscheide zudem anders als jemand, der in einer Umfrage spontan antworte.\n\nDie Kritiker halten das für eine Illusion. Ein Gremium, das niemand gewählt habe, könne auch niemand abwählen. Entscheidend sei außerdem, wer die Fachleute aussuche und die Fragen formuliere, denn damit werde das Ergebnis gelenkt. Der wichtigste Einwand ist jedoch ein praktischer: Die Empfehlungen sind nicht verbindlich. Im Bundestag ist über sie debattiert worden, umgesetzt worden ist bisher kaum etwas.\n\nGenau darin liegt das Risiko. Ein Bürgerrat, dessen Arbeit folgenlos bleibt, heilt den Verdruss nicht, sondern vergrößert ihn. Wer Menschen um Rat bittet, muss ihnen wenigstens erklären, warum er ihn nicht befolgt.",
+      "passageTranslation": "In autumn 2023, 160 people who had never seen one another before met in Berlin: young people in training as well as pensioners, people from big cities as well as from villages. None of them had been elected to an office, none had applied. They had been drawn by lot. For the first time in its history the Bundestag had set up a citizens' assembly, and its task was: what should the state do about food and nutrition, and what not?\n\nThe procedure is more elaborate than the word lottery suggests. First, around 20,000 letters were sent to randomly selected residents in randomly selected municipalities. More than 2,000 people replied that they would take part. From them the 160 were drawn in such a way that the group mirrors the population in miniature: by age, sex, federal state, size of home town and level of education. Because the subject was food, care was even taken that the proportion of vegetarians was right.\n\nOver several months the group listened to experts, discussed in small rounds and finally voted. In January 2024 nine recommendations were handed to parliament. In first place was a free lunch for all children in nurseries and schools. In addition, supermarkets were to be obliged to pass on food that is still edible instead of throwing it away, and an age limit was demanded for energy drinks.\n\nThe idea is old. In ancient Athens most offices were filled by lot because people distrusted elections: the one who gets elected, it was said, is whoever is rich, well known or a good speaker. More recently Ireland above all has attracted attention. There an assembly drawn by lot deliberated on questions at which politics had failed for decades, and its proposals were later adopted in referendums.\n\nThe Irish example is often cited because it was so unlikely. In this long strictly Catholic country one of the strictest abortion bans in Europe was in force, and no government dared to touch it. In 2016, 99 randomly selected citizens, chaired by a judge, were asked to deliberate on the question. They listened to doctors, lawyers and women affected and recommended by a clear majority that the ban be relaxed. In 2018 around two thirds of voters backed this in the referendum. Many observers think it took the assembly to show that the population was further ahead than its politicians.\n\nThe supporters see in it a remedy for disenchantment with politics. Those drawn by lot do not have to be re-elected, they say, they are bound to no party and can therefore make uncomfortable compromises. Besides, someone who has time to inform themselves decides differently from someone who answers spontaneously in a survey.\n\nThe critics consider that an illusion. A body that nobody elected, they say, cannot be voted out by anybody either. What also matters is who chooses the experts and frames the questions, because that steers the result. The most important objection, however, is a practical one: the recommendations are not binding. They have been debated in the Bundestag; so far hardly anything has been implemented.\n\nThat is exactly where the risk lies. A citizens' assembly whose work remains without consequences does not cure the disenchantment but increases it. Whoever asks people for advice must at least explain to them why he is not following it.",
+      "questions": [
+        {
+          "question": "Was hatten die 160 Menschen gemeinsam?",
+          "options": [
+            "Sie waren alle Fachleute für Ernährung.",
+            "Sie waren durch das Los bestimmt worden.",
+            "Sie waren Mitglieder des Bundestages.",
+            "Sie hatten sich um die Aufgabe beworben."
+          ],
+          "correctIndex": 1,
+          "explanation": "„Keiner von ihnen war in ein Amt gewählt worden, keiner hatte sich beworben. Sie waren ausgelost worden.“",
+          "questionTranslation": "What did the 160 people have in common?",
+          "optionsTranslation": [
+            "They were all experts on nutrition.",
+            "They had been chosen by lot.",
+            "They were members of the Bundestag.",
+            "They had applied for the task."
+          ]
+        },
+        {
+          "question": "Warum ist das Verfahren aufwendiger, als das Wort Los vermuten lässt?",
+          "options": [
+            "weil jeder Teilnehmer eine Prüfung ablegen musste",
+            "weil die Parteien die Mitglieder vorschlugen",
+            "weil das Los dreimal wiederholt werden musste",
+            "weil die Gruppe die Bevölkerung abbilden sollte"
+          ],
+          "correctIndex": 3,
+          "explanation": "„Aus ihnen wurden die 160 so gezogen, dass die Gruppe die Bevölkerung im Kleinen abbildet: nach Alter, Geschlecht, Bundesland, Größe des Wohnorts und Bildungsabschluss.“",
+          "questionTranslation": "Why is the procedure more elaborate than the word lottery suggests?",
+          "optionsTranslation": [
+            "because every participant had to pass a test",
+            "because the parties proposed the members",
+            "because the draw had to be repeated three times",
+            "because the group was meant to mirror the population"
+          ]
+        },
+        {
+          "question": "Welche Empfehlung stand an erster Stelle?",
+          "options": [
+            "ein kostenloses Mittagessen für alle Kinder",
+            "eine Altersgrenze für den Kauf von Energydrinks",
+            "ein Verbot von Fleisch in Schulen",
+            "niedrigere Preise in Supermärkten"
+          ],
+          "correctIndex": 0,
+          "explanation": "„An erster Stelle stand ein kostenloses Mittagessen für alle Kinder in Kitas und Schulen.“ Die Altersgrenze für Energydrinks war eine weitere Forderung.",
+          "questionTranslation": "Which recommendation came first?",
+          "optionsTranslation": [
+            "a free lunch for all children",
+            "an age limit for buying energy drinks",
+            "a ban on meat in schools",
+            "lower prices in supermarkets"
+          ]
+        },
+        {
+          "question": "Warum wurden im antiken Athen Ämter verlost?",
+          "options": [
+            "weil es zu wenige Bewerber gab",
+            "weil Wahlen zu teuer waren",
+            "weil man Wahlen misstraute",
+            "weil die Götter es so verlangten"
+          ],
+          "correctIndex": 2,
+          "explanation": "„… weil man Wahlen misstraute: Gewählt werde, wer reich, bekannt oder ein guter Redner sei.“",
+          "questionTranslation": "Why were offices drawn by lot in ancient Athens?",
+          "optionsTranslation": [
+            "because there were too few applicants",
+            "because elections were too expensive",
+            "because elections were distrusted",
+            "because the gods demanded it"
+          ]
+        },
+        {
+          "question": "Wozu dient das Beispiel Irland?",
+          "options": [
+            "Es zeigt, dass das Verfahren zu Ergebnissen führen kann.",
+            "Es zeigt, dass Bürgerräte nur in kleinen Ländern möglich sind.",
+            "Es zeigt, dass das Los zu Streit in der Bevölkerung führt.",
+            "Es zeigt, dass Volksabstimmungen überflüssig geworden sind."
+          ],
+          "correctIndex": 0,
+          "explanation": "„Dort hat eine ausgeloste Versammlung über Fragen beraten, an denen die Politik jahrzehntelang gescheitert war, und ihre Vorschläge sind später in Volksabstimmungen angenommen worden.“",
+          "questionTranslation": "What is the example of Ireland for?",
+          "optionsTranslation": [
+            "It shows that the procedure can lead to results.",
+            "It shows that citizens' assemblies are possible only in small countries.",
+            "It shows that the lottery leads to conflict among the population.",
+            "It shows that referendums have become superfluous."
+          ]
+        },
+        {
+          "question": "Welchen Vorteil sehen die Befürworter bei Ausgelosten?",
+          "options": [
+            "Sie kennen sich besser aus als Politiker.",
+            "Sie arbeiten schneller als ein Parlament.",
+            "Sie kosten den Staat kein Geld.",
+            "Sie müssen nicht wiedergewählt werden."
+          ],
+          "correctIndex": 3,
+          "explanation": "„Ausgeloste müssten nicht wiedergewählt werden, sie seien keiner Partei verpflichtet und könnten deshalb unbequeme Kompromisse schließen.“",
+          "questionTranslation": "What advantage do the supporters see in people drawn by lot?",
+          "optionsTranslation": [
+            "They know more than politicians.",
+            "They work faster than a parliament.",
+            "They cost the state no money.",
+            "They do not have to be re-elected."
+          ]
+        },
+        {
+          "question": "Was ist nach dem Text der wichtigste Einwand der Kritiker?",
+          "options": [
+            "Die Mitglieder seien zu jung.",
+            "Das Verfahren dauere zu lange.",
+            "Die Empfehlungen seien nicht verbindlich.",
+            "Das Thema Ernährung sei für ein Parlament unwichtig."
+          ],
+          "correctIndex": 2,
+          "explanation": "„Der wichtigste Einwand ist jedoch ein praktischer: Die Empfehlungen sind nicht verbindlich.“",
+          "questionTranslation": "According to the text, what is the critics' most important objection?",
+          "optionsTranslation": [
+            "The members are too young.",
+            "The procedure takes too long.",
+            "The recommendations are not binding.",
+            "The subject of food is unimportant for a parliament."
+          ]
+        },
+        {
+          "question": "Welches Risiko nennt der Autor am Schluss?",
+          "options": [
+            "Bürgerräte könnten das Parlament ersetzen.",
+            "Folgenlose Bürgerräte könnten den Verdruss vergrößern.",
+            "Ausgeloste könnten bestochen werden.",
+            "Die Fachleute könnten sich künftig weigern mitzuarbeiten."
+          ],
+          "correctIndex": 1,
+          "explanation": "„Ein Bürgerrat, dessen Arbeit folgenlos bleibt, heilt den Verdruss nicht, sondern vergrößert ihn.“",
+          "questionTranslation": "What risk does the author name at the end?",
+          "optionsTranslation": [
+            "Citizens' assemblies could replace parliament.",
+            "Assemblies without consequences could increase the disenchantment.",
+            "People drawn by lot could be bribed.",
+            "The experts could refuse to cooperate in future."
+          ]
+        }
+      ],
+      "covers": [
+        "b2.passive-perfekt",
+        "b2.society-vocabulary"
+      ],
+      "image": "quest_b2_1_lesen_buergerrat"
+    }
+  },
+  {
+    "id": "quest_b2_1_lesen_pflichtjahr",
+    "after": "quest_b2_1_stellungnahme",
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Zwei Leserbriefe",
+      "promptLabel": "Frage",
+      "subjectsLabel": "Fragen",
+      "subjectColumnLabel": "Frage",
+      "level": "B2.1",
+      "help": {
+        "intro": "Zwei erfundene Leserbriefe von zusammen etwa 460 Wörtern zu einer echten Debatte. 2022 hat der Bundespräsident vorgeschlagen, dass alle Menschen in Deutschland einmal im Leben eine Zeit lang für die Gemeinschaft arbeiten sollen, zum Beispiel in einem Pflegeheim, bei der Feuerwehr oder im Umweltschutz. Seitdem wird über eine solche Pflichtzeit gestritten. Der erste Brief kommt von einem Mann, der früher selbst Zivildienst geleistet hat und dafür ist. Der zweite antwortet ihm: Eine Abiturientin widerspricht, und zwar nicht in allem. Genau das macht den Text interessant. Lies ihn als Gespräch: Welches Argument des ersten Briefes greift der zweite auf? Wo gibt die Schreiberin ihm recht, wo nicht, und was schlägt sie stattdessen vor? Die Wendungen kennst du aus der letzten Übung, hier siehst du sie in Aktion: Dem stimme ich zu; allerdings; ich bezweifle, dass; dagegen spricht; stattdessen schlage ich vor.",
+        "introEn": "Two invented letters to the editor, about 460 words together, on a real debate. In 2022 the German Federal President proposed that everyone in Germany should work for the community for a period once in their life, for example in a care home, with the fire brigade or in environmental protection. Since then there has been an argument about such a compulsory period. The first letter comes from a man who once did civilian service himself and is in favour. The second answers him: a school leaver disagrees, though not on everything. That is exactly what makes the text interesting. Read it as a conversation: which argument of the first letter does the second take up? Where does the writer agree with him, where not, and what does she propose instead? You know the phrases from the last exercise; here you see them in action: Dem stimme ich zu; allerdings; ich bezweifle, dass; dagegen spricht; stattdessen schlage ich vor.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Antworten heißt aufgreifen",
+            "text": "Ein guter Widerspruch nennt zuerst, worauf er antwortet, gibt dann zu, was stimmt, und setzt erst danach den eigenen Punkt. Aufgreifen: Herr K. schreibt, … · Zugestehen: Darin gebe ich ihm recht. / Das mag stimmen. · Widersprechen: Allerdings … / Ich bezweifle, dass … / Dagegen spricht, dass … · Eigener Vorschlag: Stattdessen schlage ich vor, …",
+            "examples": [
+              {
+                "de": "Darin gebe ich ihm recht. Allerdings zieht er daraus den falschen Schluss.",
+                "en": "On that I agree with him. However, he draws the wrong conclusion from it.",
+                "focus": [
+                  "gebe",
+                  "recht",
+                  "Allerdings"
+                ]
+              },
+              {
+                "de": "Ich bezweifle, dass man Hilfsbereitschaft verordnen kann.",
+                "en": "I doubt that willingness to help can be prescribed.",
+                "focus": [
+                  "bezweifle",
+                  "dass"
+                ]
+              }
+            ],
+            "check": {
+              "q": "„Das mag stimmen, aber …“ Was tut die Schreiberin mit diesem Satz?",
+              "options": [
+                "Sie gesteht etwas zu und widerspricht dann.",
+                "Sie stimmt vollständig zu.",
+                "Sie macht einen eigenen Vorschlag."
+              ],
+              "answer": "Sie gesteht etwas zu und widerspricht dann.",
+              "why": "Das mag stimmen räumt einen Punkt ein, aber kündigt den Einwand an. Erst zugestehen, dann widersprechen.",
+              "whyEn": "Das mag stimmen concedes a point, aber announces the objection. Concede first, then disagree."
+            },
+            "visual": {
+              "kind": "moves",
+              "moves": [
+                {
+                  "label": "Aufgreifen",
+                  "de": [
+                    "Herr K. schreibt, …"
+                  ]
+                },
+                {
+                  "label": "Zugestehen",
+                  "de": [
+                    "Darin gebe ich ihm recht."
+                  ]
+                },
+                {
+                  "label": "Widersprechen",
+                  "de": [
+                    "Allerdings …",
+                    "Ich bezweifle, dass …"
+                  ]
+                },
+                {
+                  "label": "Vorschlagen",
+                  "de": [
+                    "Stattdessen schlage ich vor, …"
+                  ]
+                }
+              ]
+            },
+            "en": {
+              "title": "To answer is to take up",
+              "text": "A good rebuttal first names what it is answering, then admits what is right, and only then makes its own point. Taking up: Herr K. schreibt, … · Conceding: Darin gebe ich ihm recht. / Das mag stimmen. · Disagreeing: Allerdings … / Ich bezweifle, dass … / Dagegen spricht, dass … · Own proposal: Stattdessen schlage ich vor, …"
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Pflicht und Freiwilligkeit: die Wörter",
+            "text": "die Pflicht (man muss) · freiwillig (man will) · der Zivildienst (früher: Dienst im Sozialen statt beim Militär) · die Wehrpflicht (Pflicht zum Militärdienst, in Deutschland seit 2011 ausgesetzt) · einen Dienst leisten · jemanden zu etwas verpflichten · der Zusammenhalt (dass eine Gesellschaft zusammenbleibt) · das Taschengeld (ein kleiner Betrag statt eines Lohns).",
+            "examples": [
+              {
+                "de": "Ich habe 1989 zwanzig Monate Zivildienst in einem Altenheim geleistet.",
+                "en": "In 1989 I did twenty months of civilian service in an old people's home.",
+                "focus": [
+                  "Zivildienst",
+                  "geleistet"
+                ]
+              },
+              {
+                "de": "Wer jemanden zu einem Dienst verpflichtet, muss ihn auch anständig bezahlen.",
+                "en": "Whoever obliges someone to do a service must also pay them decently.",
+                "focus": [
+                  "verpflichtet"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Was man tut, weil man es selbst will, tut man ____.",
+              "options": [
+                "freiwillig",
+                "verpflichtend",
+                "zwangsweise"
+              ],
+              "answer": "freiwillig",
+              "why": "frei + willig: aus freiem Willen. Das Gegenteil ist verpflichtend oder unter Zwang.",
+              "whyEn": "frei + willig: of one's own free will. The opposite is verpflichtend or under compulsion."
+            },
+            "en": {
+              "title": "Duty and voluntariness: the words",
+              "text": "die Pflicht (duty, you must) · freiwillig (voluntary) · der Zivildienst (formerly: community service instead of military service) · die Wehrpflicht (conscription, suspended in Germany since 2011) · einen Dienst leisten (to do a service) · jemanden zu etwas verpflichten (to oblige someone) · der Zusammenhalt (social cohesion) · das Taschengeld (pocket money instead of a wage)."
+            }
+          }
+        ],
+        "remember": [
+          "Aufgreifen, zugestehen, widersprechen, vorschlagen: in dieser Reihenfolge.",
+          "Darin gebe ich ihm recht. Allerdings … Stattdessen schlage ich vor, …"
+        ],
+        "rememberEn": [
+          "Take up, concede, disagree, propose: in that order.",
+          "Darin gebe ich ihm recht. Allerdings … Stattdessen schlage ich vor, …"
+        ],
+        "exam": "Mehrere kurze Meinungstexte zu einem Thema, bei denen man Aussagen den Personen zuordnet, sind ein typischer Lesetext in der B2-Prüfung.",
+        "examEn": "Several short opinion texts on one topic, where you match statements to people, are a typical reading text in the B2 exam.",
+        "hook": "Soll jeder ein Jahr für die Gemeinschaft arbeiten müssen? Ein früherer Zivildienstleistender sagt Ja, eine Abiturientin antwortet ihm.",
+        "hookEn": "Should everyone have to work for the community for a year? A former civilian-service worker says yes, and a school leaver answers him.",
+        "german": true
+      },
+      "category": "Media",
+      "passageTitle": "Leserbriefe: Ein Pflichtjahr für alle?",
+      "passage": "Zu unserem Artikel „Ein Jahr für die Gemeinschaft?“ erreichten uns viele Zuschriften. Wir drucken zwei davon.\n\nEin Jahr, das mir nicht geschadet hat\n\nSehr geehrte Redaktion,\n\nseit der Bundespräsident 2022 eine soziale Pflichtzeit vorgeschlagen hat, lese ich immer wieder, das sei ein Angriff auf die Freiheit. Ich kann darüber nur den Kopf schütteln. 1989 habe ich zwanzig Monate Zivildienst in einem Altenheim geleistet. Ich wollte damals nicht dorthin, das gebe ich zu. Aber ich habe dort mehr gelernt als in den dreizehn Schuljahren davor: zuzuhören, geduldig zu sein und Menschen zu waschen, die mein Großvater hätten sein können.\n\nSeit die Wehrpflicht 2011 ausgesetzt wurde, gibt es auch den Zivildienst nicht mehr, und den Heimen fehlen seitdem Tausende helfende Hände. Zugleich leben wir immer mehr nebeneinander her. Der Sohn des Arztes und die Tochter der Verkäuferin begegnen sich nicht mehr. Ein gemeinsames Jahr würde das ändern. Je früher es kommt, desto besser.\n\nMan wird einwenden, ein Jahr sei für junge Menschen viel Zeit. Aber was verliert man eigentlich? Wer mit 19 statt mit 18 ein Studium beginnt, hat mit 67 nichts versäumt. Gewonnen hat er dagegen die Erfahrung, gebraucht zu werden, und zwar von Menschen, die ihm sonst nie begegnet wären. Ich kenne niemanden aus meiner Zivildienstzeit, der diese Monate heute für verloren hält. Einige sind danach in der Pflege geblieben.\n\nDieter Kroll, Kassel\n\nHelfen ja, zwingen nein\n\nSehr geehrte Redaktion,\n\nHerr Kroll schreibt, er habe im Zivildienst mehr gelernt als in der Schule. Das glaube ich ihm gern, und in einem Punkt gebe ich ihm recht: Unsere Gesellschaft braucht mehr Orte, an denen sich Menschen aus verschiedenen Welten begegnen. Allerdings zieht er daraus den falschen Schluss.\n\nErstens bezweifle ich, dass man Hilfsbereitschaft verordnen kann. Wer gegen seinen Willen in einem Pflegeheim steht, ist für die Bewohner keine Hilfe, sondern eine Last. Pflege ist ein Beruf, den man drei Jahre lang lernt. Dagegen spricht außerdem, dass ungelernte Pflichtkräfte die Löhne derer drücken würden, die diese Arbeit professionell machen.\n\nZweitens trifft die Pflicht wieder nur die Jungen. Meine Generation hat in der Pandemie auf vieles verzichtet, um die Älteren zu schützen, und sie wird die Schulden und die Klimafolgen von heute bezahlen. Wenn der Zusammenhalt so wichtig ist, warum soll dann nicht auch ein Fünfzigjähriger ein Jahr lang dienen?\n\nStattdessen schlage ich vor, die freiwilligen Dienste endlich attraktiv zu machen. Schon heute bewerben sich für ein Freiwilliges Soziales Jahr mehr junge Leute, als es Plätze gibt, obwohl sie dafür nur ein Taschengeld bekommen, von dem niemand leben kann. Mit einem anständigen Lohn, einer kostenlosen Fahrkarte und einem Vorteil bei der Bewerbung um einen Studienplatz bräuchte man keine Pflicht. Ich selbst beginne im September ein solches Jahr in einer Werkstatt für Menschen mit Behinderung. Freiwillig.\n\nMira Yıldız, Göttingen",
+      "passageTranslation": "We received many letters in response to our article “A year for the community?”. We are printing two of them.\n\nA year that did me no harm\n\nDear Editors,\n\nSince the Federal President proposed a compulsory period of social service in 2022, I keep reading that this is an attack on freedom. I can only shake my head at that. In 1989 I did twenty months of civilian service in an old people's home. I did not want to go there at the time, I admit. But I learned more there than in the thirteen school years before: to listen, to be patient, and to wash people who could have been my grandfather.\n\nSince conscription was suspended in 2011 there has been no civilian service either, and the homes have been short of thousands of helping hands ever since. At the same time we increasingly live side by side without meeting. The doctor's son and the shop assistant's daughter no longer come across each other. A shared year would change that. The sooner it comes, the better.\n\nPeople will object that a year is a lot of time for young people. But what do you actually lose? Someone who starts university at 19 instead of 18 has missed nothing by the age of 67. What they have gained, on the other hand, is the experience of being needed, and by people they would otherwise never have met. I know nobody from my time in civilian service who today considers those months lost. Some stayed in care work afterwards.\n\nDieter Kroll, Kassel\n\nHelping yes, forcing no\n\nDear Editors,\n\nMr Kroll writes that he learned more in civilian service than at school. I am happy to believe him, and on one point I agree with him: our society needs more places where people from different worlds meet. However, he draws the wrong conclusion from this.\n\nFirst, I doubt that willingness to help can be prescribed. Someone standing in a care home against their will is not a help to the residents but a burden. Nursing is a profession that takes three years to learn. A further argument against is that untrained compulsory workers would push down the wages of those who do this work professionally.\n\nSecond, the duty once again falls only on the young. My generation gave up a great deal in the pandemic to protect older people, and it will pay for today's debts and climate consequences. If cohesion is so important, why should a fifty-year-old not serve for a year as well?\n\nInstead I propose finally making the voluntary services attractive. Even today more young people apply for a voluntary social year than there are places, although they get only pocket money for it that nobody can live on. With a decent wage, a free travel pass and an advantage when applying for a university place, no compulsion would be needed. I myself am starting such a year in September in a workshop for people with disabilities. Voluntarily.\n\nMira Yıldız, Göttingen",
+      "questions": [
+        {
+          "question": "Worauf reagieren beide Briefe?",
+          "options": [
+            "auf eine Rede im Bundestag",
+            "auf einen Artikel der Zeitung",
+            "auf ein neues Gesetz",
+            "auf eine Umfrage unter Schülern"
+          ],
+          "correctIndex": 1,
+          "explanation": "„Zu unserem Artikel „Ein Jahr für die Gemeinschaft?“ erreichten uns viele Zuschriften. Wir drucken zwei davon.“",
+          "questionTranslation": "What are both letters reacting to?",
+          "optionsTranslation": [
+            "a speech in the Bundestag",
+            "an article in the newspaper",
+            "a new law",
+            "a survey among pupils"
+          ]
+        },
+        {
+          "question": "Was gibt Herr Kroll über seinen Zivildienst zu?",
+          "options": [
+            "dass er ihn damals nicht machen wollte",
+            "dass er ihn nach wenigen Monaten abgebrochen hat",
+            "dass er dort nichts gelernt hat",
+            "dass er dafür gut bezahlt wurde"
+          ],
+          "correctIndex": 0,
+          "explanation": "„Ich wollte damals nicht dorthin, das gebe ich zu. Aber ich habe dort mehr gelernt als in den dreizehn Schuljahren davor.“",
+          "questionTranslation": "What does Mr Kroll admit about his civilian service?",
+          "optionsTranslation": [
+            "that he did not want to do it at the time",
+            "that he broke it off after a few months",
+            "that he learned nothing there",
+            "that he was well paid for it"
+          ]
+        },
+        {
+          "question": "Welches gesellschaftliche Problem sieht Herr Kroll?",
+          "options": [
+            "Die Schule dauere zu lange.",
+            "Die Wehrpflicht solle so schnell wie möglich zurückkommen.",
+            "Junge Leute seien zu ungeduldig.",
+            "Verschiedene Gruppen begegneten sich nicht mehr."
+          ],
+          "correctIndex": 3,
+          "explanation": "„Zugleich leben wir immer mehr nebeneinander her. Der Sohn des Arztes und die Tochter der Verkäuferin begegnen sich nicht mehr.“",
+          "questionTranslation": "What social problem does Mr Kroll see?",
+          "optionsTranslation": [
+            "School lasts too long.",
+            "Conscription should come back as quickly as possible.",
+            "Young people are too impatient.",
+            "Different groups no longer meet each other."
+          ]
+        },
+        {
+          "question": "In welchem Punkt gibt Frau Yıldız Herrn Kroll recht?",
+          "options": [
+            "Eine Pflicht schade niemandem.",
+            "Der Zivildienst solle wieder eingeführt werden.",
+            "Es brauche mehr Orte der Begegnung.",
+            "Die Schule bereite schlecht auf das Leben vor."
+          ],
+          "correctIndex": 2,
+          "explanation": "„… in einem Punkt gebe ich ihm recht: Unsere Gesellschaft braucht mehr Orte, an denen sich Menschen aus verschiedenen Welten begegnen. Allerdings zieht er daraus den falschen Schluss.“",
+          "questionTranslation": "On which point does Ms Yıldız agree with Mr Kroll?",
+          "optionsTranslation": [
+            "A duty harms nobody.",
+            "Civilian service should be reintroduced.",
+            "More places of encounter are needed.",
+            "School prepares people badly for life."
+          ]
+        },
+        {
+          "question": "Warum hält sie Pflichtkräfte in der Pflege für problematisch?",
+          "options": [
+            "Sie seien keine Hilfe und drückten die Löhne.",
+            "Sie seien zu jung für diese Arbeit.",
+            "Sie würden den Heimen auf Dauer zu teuer werden.",
+            "Sie nähmen Studienplätze weg."
+          ],
+          "correctIndex": 0,
+          "explanation": "„Wer gegen seinen Willen in einem Pflegeheim steht, ist für die Bewohner keine Hilfe, sondern eine Last … dass ungelernte Pflichtkräfte die Löhne derer drücken würden, die diese Arbeit professionell machen.“",
+          "questionTranslation": "Why does she consider compulsory workers in care a problem?",
+          "optionsTranslation": [
+            "They are no help and push wages down.",
+            "They are too young for this work.",
+            "They would become too expensive for the homes in the long run.",
+            "They take away university places."
+          ]
+        },
+        {
+          "question": "Was will sie mit der Frage nach dem Fünfzigjährigen sagen?",
+          "options": [
+            "Ältere seien für soziale Arbeit besser geeignet.",
+            "Eine Pflicht nur für Junge sei ungerecht.",
+            "Fünfzigjährige hätten mehr Zeit.",
+            "Herr Kroll solle noch einmal dienen."
+          ],
+          "correctIndex": 1,
+          "explanation": "„Zweitens trifft die Pflicht wieder nur die Jungen … Wenn der Zusammenhalt so wichtig ist, warum soll dann nicht auch ein Fünfzigjähriger ein Jahr lang dienen?“",
+          "questionTranslation": "What does she mean by the question about the fifty-year-old?",
+          "optionsTranslation": [
+            "Older people are better suited to social work.",
+            "A duty for the young only is unfair.",
+            "Fifty-year-olds have more time.",
+            "Mr Kroll should serve once more."
+          ]
+        },
+        {
+          "question": "Was schlägt Frau Yıldız stattdessen vor?",
+          "options": [
+            "die Wehrpflicht wieder einzuführen",
+            "das Pflichtjahr auf sechs Monate zu kürzen",
+            "die Pflegeausbildung zu verkürzen",
+            "freiwillige Dienste attraktiver zu machen"
+          ],
+          "correctIndex": 3,
+          "explanation": "„Stattdessen schlage ich vor, die freiwilligen Dienste endlich attraktiv zu machen … Mit einem anständigen Lohn, einer kostenlosen Fahrkarte und einem Vorteil bei der Bewerbung um einen Studienplatz bräuchte man keine Pflicht.“",
+          "questionTranslation": "What does Ms Yıldız propose instead?",
+          "optionsTranslation": [
+            "reintroducing conscription",
+            "cutting the compulsory year to six months",
+            "shortening nursing training",
+            "making voluntary services more attractive"
+          ]
+        },
+        {
+          "question": "Welche Wirkung hat das letzte Wort ihres Briefes, „Freiwillig“?",
+          "options": [
+            "Es zeigt, dass sie ihre Entscheidung inzwischen bereut.",
+            "Es bittet Herrn Kroll um Verständnis.",
+            "Es belegt ihr Argument mit dem eigenen Beispiel.",
+            "Es kündigt einen weiteren Brief an."
+          ],
+          "correctIndex": 2,
+          "explanation": "Sie beginnt selbst einen solchen Dienst, ohne dazu gezwungen zu sein. Das einzelne Wort am Schluss zeigt: Hilfsbereitschaft braucht keine Pflicht.",
+          "questionTranslation": "What effect does the last word of her letter, 'Freiwillig', have?",
+          "optionsTranslation": [
+            "It shows that she has since come to regret her decision.",
+            "It asks Mr Kroll for understanding.",
+            "It backs her argument with her own example.",
+            "It announces a further letter."
+          ]
+        }
+      ],
+      "covers": [
+        "b2.stellungnahme-redemittel",
+        "b2.argument-redemittel"
+      ],
+      "image": "quest_b2_1_lesen_pflichtjahr"
+    }
   }
 ]

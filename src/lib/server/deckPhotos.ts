@@ -26,9 +26,14 @@ export function deckPhotos(courseId: string, quizzes: Pick<QuizSummary, 'id' | '
 		const of = (photo: string): CardPhoto => ({ photo, credit: credit(photo) });
 		const named = new Map<string, CardPhoto>();
 		for (const c of book.chapters) for (const q of [c.quiz, c.listenQuiz, c.speakQuiz]) if (q) named.set(q, of(c.opener.photo));
-		quizzes
-			.filter((q) => q.level === level)
-			.forEach((q, i) => (out[q.id] = named.get(q.id) ?? of(book.chapters[i % book.chapters.length].opener.photo)));
+		// An exercise with a photo of its own (a credit filed under the exercise
+		// id) shows that one, so a text about a place shows the place. Those are
+		// left out of the count, so adding one does not shift every card after it.
+		let i = 0;
+		for (const q of quizzes.filter((q) => q.level === level)) {
+			if (credits[q.id]) out[q.id] = of(q.id);
+			else out[q.id] = named.get(q.id) ?? of(book.chapters[i++ % book.chapters.length].opener.photo);
+		}
 	}
 	return out;
 }

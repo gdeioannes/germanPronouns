@@ -16,6 +16,17 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-14",
+    title: "B2.1: eight new texts to read and to listen to",
+    items: [
+      "B2.1 has five new reading texts of about 500 words each, nearly twice as long as the ones before: a village that owns its own power grid, a Spanish city that closed its centre to cars in 1999, voting at 16, a citizens' assembly drawn by lot, and two readers' letters that answer each other.",
+      "Three new listening exercises with several voices: a radio debate about a speed limit on the motorway, an interview with a 26-year-old village mayor, and a town council deciding what happens to its open-air pool.",
+      "The facts in these texts are real and were checked. The interview, the council meeting and the letters are invented scenes about real debates.",
+      "Each new text shows a photo of its subject, with the photographer's credit.",
+      "Every question explains its answer, and the answer options are evened out so the longest one no longer gives the answer away.",
+    ],
+  },
+  {
     date: "2026-11-12",
     title: "Turkish and Arabic pages search engines can find",
     items: [

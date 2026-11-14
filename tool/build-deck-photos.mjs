@@ -33,6 +33,12 @@ for (const f of readdirSync(BOOKS).filter((f) => /^[abc]\d_\d\.json$/.test(f))) 
 	for (const c of JSON.parse(readFileSync(BOOKS + f, 'utf8')).chapters) photos.add(c.opener.photo);
 }
 
+// An exercise's own photo: a credit filed under the exercise id
+// (node tool/commons-pick.mjs take "<File:…>" <quizId> de_cert_a1). It is also
+// cut to the exercise's scene picture, static/img/<quizId>.webp.
+const own = new Set(Object.keys(JSON.parse(readFileSync(BOOKS + '_photos.json', 'utf8'))).filter((id) => id.startsWith('quest_')));
+for (const id of own) photos.add(id);
+
 let made = 0;
 for (const photo of photos) {
 	const out = `${OUT}${photo}.webp`;
@@ -46,6 +52,9 @@ for (const photo of photos) {
 		img = sharp(await img.extract({ left: Math.round(m.width * 0.12), top: Math.round(m.height * 0.3), width: Math.round(m.width * 0.76), height: Math.round(m.height * 0.62) }).toBuffer());
 	}
 	await lift(warm(img), photo).resize(1000).webp({ quality: 76 }).toFile(out);
+	if (own.has(photo)) {
+		await warm(sharp(readFileSync(src))).resize(512, 384, { fit: 'cover' }).webp({ quality: 78 }).toFile(`${root}static/img/${photo}.webp`);
+	}
 	made++;
 }
 console.log(`${photos.size} chapter photos, ${made} written to static/img/deck/`);
