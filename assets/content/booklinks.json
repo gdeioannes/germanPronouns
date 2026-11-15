@@ -11130,6 +11130,62 @@
 			"target": "quest_a1_1_hoeren_wo",
 			"note": "A1.1 Hören: Wo ist mein Schlüssel?",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "a12-85",
+			"kind": "quiz",
+			"target": "quest_a1_2_lesen_brot",
+			"note": "A1.2 Lesen: Dreitausend Brote",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a12-86",
+			"kind": "quiz",
+			"target": "quest_a1_2_lesen_pfand",
+			"note": "A1.2 Lesen: Wirf die Flasche nicht weg!",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a12-87",
+			"kind": "quiz",
+			"target": "quest_a1_2_lesen_muenster",
+			"note": "A1.2 Lesen: Die Stadt der Fahrräder",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a12-88",
+			"kind": "quiz",
+			"target": "quest_a1_2_lesen_sonntag",
+			"note": "A1.2 Lesen: Sonntag ist Sonntag",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a12-89",
+			"kind": "quiz",
+			"target": "quest_a1_2_lesen_mauer",
+			"note": "A1.2 Lesen: Die Nacht, in der die Mauer fiel",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a12-90",
+			"kind": "quiz",
+			"target": "quest_a1_2_hoeren_arzt",
+			"note": "A1.2 Hören: Beim Arzt",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a12-91",
+			"kind": "quiz",
+			"target": "quest_a1_2_hoeren_geburtstag",
+			"note": "A1.2 Hören: Kommst du zu meiner Party?",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a12-92",
+			"kind": "quiz",
+			"target": "quest_a1_2_hoeren_baecker",
+			"note": "A1.2 Hören: Um drei Uhr aufstehen",
+			"since": "2026-11-15"
 		}
 	]
 }

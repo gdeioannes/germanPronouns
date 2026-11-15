@@ -9154,5 +9154,2639 @@
         }
       ]
     }
+  },
+  {
+    "id": "quest_a1_2_lesen_brot",
+    "after": "quest_a1_2_einkaufen_mengen",
+    "help": {
+      "vocab": [
+        {
+          "de": "Brotsorte",
+          "en": "kind of bread",
+          "example": "In Deutschland gibt es mehr als dreitausend Brotsorten.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Bäcker",
+          "en": "baker",
+          "example": "Die Bäcker haben ein Brotregister.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Rezept",
+          "en": "recipe",
+          "example": "Dort steht jedes Brot mit Namen und Rezept.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Roggen",
+          "en": "rye",
+          "example": "Deutschland hat viel Roggen und Weizen.",
+          "article": "der"
+        },
+        {
+          "de": "Weizen",
+          "en": "wheat",
+          "example": "Das Mischbrot ist aus Roggen und Weizen.",
+          "article": "der"
+        },
+        {
+          "de": "Brötchen",
+          "en": "roll",
+          "example": "Ein Brötchen ist ein kleines Brot.",
+          "article": "das",
+          "plural": "-"
+        },
+        {
+          "de": "Marmelade",
+          "en": "jam",
+          "example": "Am Morgen essen sie Brötchen mit Butter und Marmelade.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Wurst",
+          "en": "sausage, cold meat",
+          "example": "Am Abend essen viele Familien Brot mit Käse und Wurst.",
+          "article": "die",
+          "plural": "¨-e"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Dreitausend Brote",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.2",
+      "help": {
+        "intro": "A short text of about 150 words about German bread: there are more than three thousand kinds, the bakers keep a register of them, and since 2014 German bread culture is on the national list of cultural heritage. The text also tells you how to buy bread in a bakery without embarrassment: what a Brötchen is, why it has ten names, and what to say at the counter. The facts are real and were checked. You need what you have just learnt: quantities (ein Kilo, fünfhundert Gramm, ein Stück, eine Scheibe, ein halbes Brot) and the accusative after kaufen, möchten and nehmen (Ich nehme einen Laib, ein Brötchen, eine Brezel). Read for the gist first, then find one number or one word per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Quantities at the bakery",
+            "text": "ein Kilo Brot, fünfhundert Gramm Vollkornbrot, ein halbes Brot (half a loaf), ein ganzes Brot, ein Stück Kuchen, eine Scheibe Brot (a slice), zwei Brötchen, ein Laib (a loaf). After a quantity the noun has no article: ein Kilo Brot, not ein Kilo das Brot. Prices: das Kilo kostet, das Stück kostet.",
+            "examples": [
+              {
+                "de": "Ich möchte ein halbes Brot und vier Brötchen, bitte.",
+                "en": "I would like half a loaf and four rolls, please.",
+                "focus": [
+                  "ein halbes Brot",
+                  "vier Brötchen"
+                ]
+              },
+              {
+                "de": "Das Vollkornbrot kostet drei Euro fünfzig das Kilo.",
+                "en": "The wholemeal bread costs three euros fifty a kilo.",
+                "focus": [
+                  "das Kilo"
+                ]
+              }
+            ],
+            "check": {
+              "q": "A slice of bread is:",
+              "options": [
+                "eine Scheibe Brot",
+                "ein Stück Brot",
+                "ein Laib Brot"
+              ],
+              "answer": "eine Scheibe Brot",
+              "why": "Scheibe = slice. Stück = piece (cake), Laib = whole loaf."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Quantity",
+              "right": "Meaning",
+              "rows": [
+                {
+                  "a": "ein Laib",
+                  "b": "a whole loaf"
+                },
+                {
+                  "a": "ein halbes Brot",
+                  "b": "half a loaf"
+                },
+                {
+                  "a": "eine Scheibe",
+                  "b": "a slice"
+                },
+                {
+                  "a": "fünfhundert Gramm",
+                  "b": "500 g"
+                },
+                {
+                  "a": "ein Stück Kuchen",
+                  "b": "a piece of cake"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Accusative after kaufen, nehmen, möchten",
+            "text": "What you buy is the direct object and takes the accusative: der Laib → Ich kaufe einen Laib. das Brötchen → Ich nehme ein Brötchen. die Brezel → Ich möchte eine Brezel. Only masculine changes: der/ein → den/einen. Feminine, neuter and plural look like the nominative.",
+            "examples": [
+              {
+                "de": "Ich nehme einen Laib Roggenbrot und eine Brezel.",
+                "en": "I will take a loaf of rye bread and a pretzel.",
+                "focus": [
+                  "einen Laib",
+                  "eine Brezel"
+                ]
+              },
+              {
+                "de": "Hast du das Brot? Nein, ich kaufe es später.",
+                "en": "Do you have the bread? No, I will buy it later.",
+                "focus": [
+                  "das Brot",
+                  "es"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich möchte ____ Kuchen, bitte. (der Kuchen)",
+              "options": [
+                "einen",
+                "ein",
+                "eine"
+              ],
+              "answer": "einen",
+              "why": "der Kuchen is masculine; in the accusative ein becomes einen."
+            }
+          }
+        ],
+        "remember": [
+          "ein Laib, ein halbes Brot, eine Scheibe, fünfhundert Gramm, ein Stück Kuchen: no article after a quantity.",
+          "Masculine accusative: Ich nehme einen Laib, den Kuchen."
+        ],
+        "exam": "Short texts about food and shopping with quantities, prices and multiple-choice questions are a typical reading task at this level.",
+        "hook": "More than three thousand kinds of bread, a register to keep track of them, and ten names for one roll. Read why bread is so serious in Germany."
+      },
+      "category": "Food",
+      "passageTitle": "Dreitausend Brote",
+      "passage": "In Deutschland gibt es mehr als dreitausend Brotsorten. Das ist Weltrekord! Die Bäcker haben ein Brotregister: Dort steht jedes Brot mit Namen und Rezept. Seit 2014 ist die deutsche Brotkultur offiziell Kulturerbe.\n\nWarum so viele Brote? Deutschland hat viel Roggen und Weizen, und jede Region hat ihr eigenes Brot. Im Norden isst man dunkles Brot, im Süden Brezeln und Weißbrot. Das wichtigste Brot ist das Mischbrot aus Roggen und Weizen.\n\nIn der Bäckerei kauft man ein ganzes Brot oder ein halbes Brot. Ein Kilo Brot kostet etwa drei bis fünf Euro. Viele Leute kaufen auch Brötchen. Ein Brötchen ist ein kleines Brot. Aber Achtung: Das Wort ist in jeder Region anders! In Berlin sagt man Schrippe, in Bayern Semmel, in Hamburg Rundstück, in Schwaben Weckle. Alle meinen das gleiche kleine Brot.\n\nDie Deutschen essen viel Brot: etwa fünfzig Kilo pro Person im Jahr. Am Morgen essen sie Brötchen mit Butter und Marmelade. Am Abend essen viele Familien Brot mit Käse und Wurst. Das heißt Abendbrot.",
+      "passageTranslation": "In Germany there are more than three thousand kinds of bread. That is a world record! The bakers have a bread register: every bread is listed there with its name and recipe. Since 2014 German bread culture is officially cultural heritage.\n\nWhy so many breads? Germany has a lot of rye and wheat, and every region has its own bread. In the north people eat dark bread, in the south pretzels and white bread. The most important bread is the mixed bread made from rye and wheat.\n\nIn the bakery you buy a whole loaf or half a loaf. A kilo of bread costs about three to five euros. Many people also buy rolls. A Brötchen is a small bread. But careful: the word is different in every region! In Berlin people say Schrippe, in Bavaria Semmel, in Hamburg Rundstück, in Swabia Weckle. All mean the same small bread.\n\nGermans eat a lot of bread: about fifty kilos per person a year. In the morning they eat rolls with butter and jam. In the evening many families eat bread with cheese and cold meat. That is called Abendbrot, evening bread.",
+      "questions": [
+        {
+          "question": "Wie viele Brotsorten gibt es in Deutschland?",
+          "options": [
+            "mehr als dreihundert",
+            "mehr als dreitausend",
+            "etwa fünfzig",
+            "genau 2014"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"In Deutschland gibt es mehr als dreitausend Brotsorten.\"",
+          "questionTranslation": "How many kinds of bread are there in Germany?",
+          "optionsTranslation": [
+            "more than three hundred",
+            "more than three thousand",
+            "about fifty",
+            "exactly 2014"
+          ]
+        },
+        {
+          "question": "Was ist das Brotregister?",
+          "options": [
+            "eine große, alte Bäckerei in Berlin mit vielen Broten im Fenster",
+            "eine Liste mit allen Broten, Namen und Rezepten",
+            "ein Brot aus Roggen",
+            "ein Preis für Bäcker"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Bäcker haben ein Brotregister: Dort steht jedes Brot mit Namen und Rezept.\"",
+          "questionTranslation": "What is the bread register?",
+          "optionsTranslation": [
+            "a big old bakery in Berlin with many breads in the window",
+            "a list of all breads with names and recipes",
+            "a rye bread",
+            "a prize for bakers"
+          ]
+        },
+        {
+          "question": "Was isst man im Süden?",
+          "options": [
+            "dunkles Brot aus Roggen mit Butter und Käse",
+            "Brezeln und Weißbrot",
+            "nur Brötchen",
+            "Abendbrot"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Im Norden isst man dunkles Brot, im Süden Brezeln und Weißbrot.\"",
+          "questionTranslation": "What do people eat in the south?",
+          "optionsTranslation": [
+            "dark rye bread with butter and cheese",
+            "pretzels and white bread",
+            "only rolls",
+            "evening bread"
+          ]
+        },
+        {
+          "question": "Was kostet ein Kilo Brot etwa?",
+          "options": [
+            "fünfzig Euro",
+            "drei bis fünf Euro",
+            "dreitausend Euro",
+            "fünfzig Cent für ein ganzes Brot"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ein Kilo Brot kostet etwa drei bis fünf Euro.\" Fifty kilos is how much a person eats per year.",
+          "questionTranslation": "About how much does a kilo of bread cost?",
+          "optionsTranslation": [
+            "fifty euros",
+            "three to five euros",
+            "three thousand euros",
+            "fifty cents for a whole loaf"
+          ]
+        },
+        {
+          "question": "Wie heißt das Brötchen in Bayern?",
+          "options": [
+            "Schrippe",
+            "Rundstück",
+            "Semmel",
+            "Weckle"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"In Berlin sagt man Schrippe, in Bayern Semmel, in Hamburg Rundstück, in Schwaben Weckle.\"",
+          "questionTranslation": "What is the roll called in Bavaria?",
+          "optionsTranslation": [
+            "Schrippe",
+            "Rundstück",
+            "Semmel",
+            "Weckle"
+          ]
+        },
+        {
+          "question": "Schrippe, Semmel, Rundstück, Weckle: Was ist richtig?",
+          "options": [
+            "Das sind vier verschiedene Brote.",
+            "Das sind vier Wörter für das gleiche kleine Brot.",
+            "Das sind vier Bäckereien in vier verschiedenen Städten in Deutschland.",
+            "Das sind vier Regionen."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Alle meinen das gleiche kleine Brot.\"",
+          "questionTranslation": "Schrippe, Semmel, Rundstück, Weckle: what is correct?",
+          "optionsTranslation": [
+            "They are four different breads.",
+            "They are four words for the same small bread.",
+            "They are four bakeries in four different towns in Germany.",
+            "They are four regions."
+          ]
+        },
+        {
+          "question": "Wie viel Brot isst eine Person pro Jahr?",
+          "options": [
+            "etwa fünf Kilo",
+            "etwa fünfzig Kilo",
+            "etwa fünfhundert Gramm",
+            "etwa dreitausend Kilo"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… etwa fünfzig Kilo pro Person im Jahr.\"",
+          "questionTranslation": "How much bread does a person eat per year?",
+          "optionsTranslation": [
+            "about five kilos",
+            "about fifty kilos",
+            "about five hundred grams",
+            "about three thousand kilos"
+          ]
+        },
+        {
+          "question": "Was ist Abendbrot?",
+          "options": [
+            "ein Brot aus dem Süden",
+            "Brot mit Käse und Wurst am Abend",
+            "Brötchen mit Marmelade am Morgen",
+            "ein Brot für Kinder"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Am Abend essen viele Familien Brot mit Käse und Wurst. Das heißt Abendbrot.\"",
+          "questionTranslation": "What is Abendbrot?",
+          "optionsTranslation": [
+            "a bread from the south",
+            "bread with cheese and cold meat in the evening",
+            "rolls with jam in the morning",
+            "a bread for children"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.quantities",
+        "a1.accusative-articles"
+      ],
+      "image": "quest_a1_2_lesen_brot"
+    }
+  },
+  {
+    "id": "quest_a1_2_lesen_pfand",
+    "after": "quest_a1_2_imperativ",
+    "help": {
+      "vocab": [
+        {
+          "de": "Pfand",
+          "en": "deposit (on bottles)",
+          "example": "Die 25 Cent sind Pfand.",
+          "article": "das"
+        },
+        {
+          "de": "Flasche",
+          "en": "bottle",
+          "example": "Du kaufst eine Flasche Wasser.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Dose",
+          "en": "can",
+          "example": "Dosen haben 25 Cent Pfand.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Automat",
+          "en": "machine",
+          "example": "Dort steht ein Pfandautomat.",
+          "article": "der",
+          "plural": "-en"
+        },
+        {
+          "de": "Etikett",
+          "en": "label",
+          "example": "Der Automat liest das Etikett.",
+          "article": "das",
+          "plural": "-en"
+        },
+        {
+          "de": "Bon",
+          "en": "receipt, voucher",
+          "example": "Der Automat gibt dir einen Bon.",
+          "article": "der",
+          "plural": "-s"
+        },
+        {
+          "de": "Mülleimer",
+          "en": "rubbish bin",
+          "example": "Viele stellen die Flaschen neben den Mülleimer.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "sammeln",
+          "en": "to collect",
+          "example": "Sie sammeln Flaschen."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Wirf die Flasche nicht weg!",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.2",
+      "help": {
+        "intro": "A short text of about 150 words about a German habit that confuses every visitor: the Pfand. On most bottles and cans you pay 25 cents extra, and you get the money back when you return the bottle to a machine in the supermarket. The text explains how it works, since when, what the two kinds of Pfand are, and why you see people collecting bottles in parks. The facts are real and were checked. You need what you have just learnt: the imperative for du and Sie (Wirf nicht weg! Bringen Sie die Flasche zurück!), the accusative (die Flasche, den Bon, das Geld) and nicht / kein for negation. Read for the gist first, then take each question to one sentence of the text.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Imperative: du and Sie",
+            "text": "du form: take the du present, drop -st and du: du wirfst → Wirf! du bringst → Bring! du gibst → Gib! du nimmst → Nimm! Separable verbs split: Bring die Flasche zurück! Wirf sie nicht weg! Sie form: verb first, then Sie: Bringen Sie die Flasche zurück! Werfen Sie sie nicht weg! Plural ihr: Bringt die Flaschen zurück! A friendly bitte softens it: Gib mir bitte den Bon.",
+            "examples": [
+              {
+                "de": "Wirf die Flasche nicht weg! Bring sie zurück und hol das Geld.",
+                "en": "Do not throw the bottle away! Bring it back and get the money.",
+                "focus": [
+                  "Wirf",
+                  "weg",
+                  "Bring",
+                  "zurück",
+                  "hol"
+                ]
+              },
+              {
+                "de": "Drücken Sie den grünen Knopf und nehmen Sie den Bon.",
+                "en": "Press the green button and take the receipt.",
+                "focus": [
+                  "Drücken Sie",
+                  "nehmen Sie"
+                ]
+              }
+            ],
+            "check": {
+              "q": "du gibst → the imperative is:",
+              "options": [
+                "Gib!",
+                "Gebe!",
+                "Gibst!"
+              ],
+              "answer": "Gib!",
+              "why": "Drop -st and du from du gibst: Gib! Verbs with e → i keep the i."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "du-form",
+              "right": "Imperative",
+              "rows": [
+                {
+                  "a": "du wirfst",
+                  "b": "Wirf!"
+                },
+                {
+                  "a": "du bringst … zurück",
+                  "b": "Bring … zurück!"
+                },
+                {
+                  "a": "du nimmst",
+                  "b": "Nimm!"
+                },
+                {
+                  "a": "du gibst",
+                  "b": "Gib!"
+                },
+                {
+                  "a": "Sie drücken",
+                  "b": "Drücken Sie!"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "nicht or kein?",
+            "text": "kein negates a noun with ein or no article: Das ist kein Müll. Ich habe keine Flasche. nicht negates everything else: a verb, an adjective, a place, a noun with der/die/das: Wirf die Flasche nicht weg. Das Pfand ist nicht teuer. Die Flasche ist nicht im Automaten.",
+            "examples": [
+              {
+                "de": "Die Flasche ist kein Müll. Sie ist Geld.",
+                "en": "The bottle is not rubbish. It is money.",
+                "focus": [
+                  "kein Müll"
+                ]
+              },
+              {
+                "de": "Der Automat nimmt die Flasche nicht? Dann ist das Etikett kaputt.",
+                "en": "The machine does not take the bottle? Then the label is damaged.",
+                "focus": [
+                  "nicht"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich habe ____ Bon.",
+              "options": [
+                "keinen",
+                "nicht",
+                "kein"
+              ],
+              "answer": "keinen",
+              "why": "A noun with ein (der Bon, einen Bon) is negated with kein, here accusative masculine: keinen."
+            }
+          }
+        ],
+        "remember": [
+          "Imperative du: Wirf! Bring … zurück! Nimm! Gib!  Sie: Bringen Sie …!",
+          "kein + noun (kein Müll, keinen Bon); nicht for everything else (nicht weg, nicht teuer)."
+        ],
+        "exam": "Short practical texts with instructions in the imperative and multiple-choice questions are a typical reading task at this level.",
+        "hook": "In Germany an empty bottle is worth 25 cents, and a machine gives you the money. Read how the Pfand works and why people collect bottles in the park."
+      },
+      "category": "Daily Life",
+      "passageTitle": "Wirf die Flasche nicht weg!",
+      "passage": "Du kaufst in Deutschland eine Flasche Wasser. Sie kostet einen Euro. Aber an der Kasse bezahlst du einen Euro fünfundzwanzig. Warum? Die 25 Cent sind Pfand. Du bekommst das Geld zurück, wenn du die Flasche zurückbringst.\n\nSo funktioniert es: Trink das Wasser. Wirf die Flasche nicht weg! Bring sie in einen Supermarkt. Dort steht ein Pfandautomat. Stell die Flasche in den Automaten. Der Automat liest das Etikett und gibt dir einen Bon. Mit dem Bon gehst du zur Kasse und bekommst dein Geld.\n\nDas Pfand gibt es seit 2003. Es gibt zwei Arten: Einwegflaschen aus dünnem Plastik und Dosen haben 25 Cent Pfand. Mehrwegflaschen aus Glas oder dickem Plastik haben nur 8 oder 15 Cent. Diese Flaschen werden gewaschen und bis zu fünfzig Mal neu gefüllt.\n\nDarum siehst du in Parks oft Menschen mit großen Taschen. Sie sammeln Flaschen. Zehn Flaschen sind zwei Euro fünfzig. Viele Leute stellen ihre leeren Flaschen deshalb neben den Mülleimer, nicht hinein. Das ist kein Müll. Das ist Geld.",
+      "passageTranslation": "You buy a bottle of water in Germany. It costs one euro. But at the checkout you pay one euro twenty-five. Why? The 25 cents are deposit. You get the money back when you bring the bottle back.\n\nThis is how it works: drink the water. Do not throw the bottle away! Bring it to a supermarket. There stands a deposit machine. Put the bottle into the machine. The machine reads the label and gives you a receipt. With the receipt you go to the checkout and get your money.\n\nThe deposit has existed since 2003. There are two kinds: single-use bottles of thin plastic and cans carry 25 cents deposit. Reusable bottles of glass or thick plastic carry only 8 or 15 cents. These bottles are washed and refilled up to fifty times.\n\nThat is why you often see people with big bags in parks. They collect bottles. Ten bottles are two euros fifty. Many people therefore put their empty bottles next to the bin, not in it. That is not rubbish. That is money.",
+      "questions": [
+        {
+          "question": "Die Flasche Wasser kostet einen Euro. Was bezahlt man an der Kasse?",
+          "options": [
+            "einen Euro",
+            "einen Euro fünfundzwanzig",
+            "fünfundzwanzig Cent",
+            "zwei Euro fünfzig mit dem Pfand für die Flasche"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Aber an der Kasse bezahlst du einen Euro fünfundzwanzig. Warum? Die 25 Cent sind Pfand.\"",
+          "questionTranslation": "The bottle of water costs one euro. What do you pay at the checkout?",
+          "optionsTranslation": [
+            "one euro",
+            "one euro twenty-five",
+            "twenty-five cents",
+            "two euros fifty with the deposit for the bottle"
+          ]
+        },
+        {
+          "question": "„Wirf die Flasche nicht weg!“ Welche Form ist das?",
+          "options": [
+            "Imperativ, du-Form, trennbares Verb wegwerfen",
+            "Frage",
+            "Imperativ, Sie-Form, höflich: Werfen Sie die Flasche nicht weg",
+            "Präsens, er-Form"
+          ],
+          "correctIndex": 0,
+          "explanation": "du wirfst weg → Wirf … weg! The separable verb wegwerfen splits, and nicht stands before weg.",
+          "questionTranslation": "'Do not throw the bottle away!' Which form is that?",
+          "optionsTranslation": [
+            "imperative, du form, separable verb wegwerfen",
+            "question",
+            "imperative, Sie form, polite: Werfen Sie die Flasche nicht weg",
+            "present, er form"
+          ]
+        },
+        {
+          "question": "Was macht der Pfandautomat?",
+          "options": [
+            "Er wäscht die Flasche.",
+            "Er gibt dir das Wasser zurück.",
+            "Er liest das Etikett und gibt dir einen Bon.",
+            "Er gibt dir direkt das Geld in die Hand, ohne Bon und ohne Kasse."
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Der Automat liest das Etikett und gibt dir einen Bon. Mit dem Bon gehst du zur Kasse und bekommst dein Geld.\"",
+          "questionTranslation": "What does the deposit machine do?",
+          "optionsTranslation": [
+            "It washes the bottle.",
+            "It gives you the water back.",
+            "It reads the label and gives you a receipt.",
+            "It gives you the money directly in your hand, without receipt and without checkout."
+          ]
+        },
+        {
+          "question": "Seit wann gibt es das Pfand?",
+          "options": [
+            "seit 2003",
+            "seit 2013",
+            "seit 1925",
+            "seit 2030"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Das Pfand gibt es seit 2003.\"",
+          "questionTranslation": "Since when has the deposit existed?",
+          "optionsTranslation": [
+            "since 2003",
+            "since 2013",
+            "since 1925",
+            "since 2030"
+          ]
+        },
+        {
+          "question": "Wie viel Pfand hat eine Dose?",
+          "options": [
+            "8 Cent",
+            "15 Cent",
+            "25 Cent",
+            "kein Pfand"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Einwegflaschen aus dünnem Plastik und Dosen haben 25 Cent Pfand.\"",
+          "questionTranslation": "How much deposit does a can carry?",
+          "optionsTranslation": [
+            "8 cents",
+            "15 cents",
+            "25 cents",
+            "no deposit"
+          ]
+        },
+        {
+          "question": "Was passiert mit Mehrwegflaschen?",
+          "options": [
+            "Sie werden weggeworfen.",
+            "Sie werden gewaschen und bis zu fünfzig Mal neu gefüllt.",
+            "Sie kosten 25 Cent Pfand und werden danach weggeworfen.",
+            "Sie bleiben im Automaten."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Diese Flaschen werden gewaschen und bis zu fünfzig Mal neu gefüllt.\"",
+          "questionTranslation": "What happens to reusable bottles?",
+          "optionsTranslation": [
+            "They are thrown away.",
+            "They are washed and refilled up to fifty times.",
+            "They carry 25 cents deposit and are thrown away afterwards.",
+            "They stay in the machine."
+          ]
+        },
+        {
+          "question": "Warum sieht man in Parks Menschen mit großen Taschen?",
+          "options": [
+            "Sie kaufen Wasser.",
+            "Sie sammeln Flaschen für das Pfand.",
+            "Sie bringen den Müll aus dem Park weg und bekommen dafür Geld von der Stadt.",
+            "Sie verkaufen Taschen."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie sammeln Flaschen. Zehn Flaschen sind zwei Euro fünfzig.\"",
+          "questionTranslation": "Why do you see people with big bags in parks?",
+          "optionsTranslation": [
+            "They buy water.",
+            "They collect bottles for the deposit.",
+            "They take the rubbish out of the park and get money from the city for it.",
+            "They sell bags."
+          ]
+        },
+        {
+          "question": "„Das ist kein Müll. Das ist Geld.“ Warum kein und nicht nicht?",
+          "options": [
+            "weil Müll ein Nomen ohne Artikel ist",
+            "weil der Satz eine Frage ist und Fragen immer kein brauchen",
+            "weil Geld teuer ist",
+            "weil kein immer am Satzende steht"
+          ],
+          "correctIndex": 0,
+          "explanation": "A noun without an article (Müll) is negated with kein; nicht would be used for verbs, adjectives or nouns with der/die/das.",
+          "questionTranslation": "'That is not rubbish. That is money.' Why kein and not nicht?",
+          "optionsTranslation": [
+            "because Müll is a noun without an article",
+            "because the sentence is a question and questions always need kein",
+            "because money is expensive",
+            "because kein always stands at the end of the sentence"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.imperative",
+        "a1.negation"
+      ],
+      "image": "quest_a1_2_lesen_pfand"
+    }
+  },
+  {
+    "id": "quest_a1_2_lesen_muenster",
+    "after": "quest_a1_2_wohin",
+    "help": {
+      "vocab": [
+        {
+          "de": "Fahrrad",
+          "en": "bicycle",
+          "example": "Münster hat mehr Fahrräder als Menschen.",
+          "article": "das",
+          "plural": "¨-er"
+        },
+        {
+          "de": "Einwohner",
+          "en": "inhabitant",
+          "example": "Die Stadt hat etwa 320.000 Einwohner.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Parkhaus",
+          "en": "multi-storey car park",
+          "example": "Die Radstation ist ein Parkhaus nur für Fahrräder.",
+          "article": "das",
+          "plural": "¨-er"
+        },
+        {
+          "de": "Fußgänger",
+          "en": "pedestrian",
+          "example": "Hier fahren nur Fahrräder und Fußgänger.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Schloss",
+          "en": "lock",
+          "example": "Man muss ein gutes Schloss haben.",
+          "article": "das",
+          "plural": "¨-er"
+        },
+        {
+          "de": "mieten",
+          "en": "to rent",
+          "example": "Man kann ein Rad mieten."
+        },
+        {
+          "de": "reparieren",
+          "en": "to repair",
+          "example": "Man kann das Rad reparieren lassen."
+        },
+        {
+          "de": "aufpassen",
+          "en": "to be careful, watch out",
+          "example": "Man muss aber aufpassen."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Die Stadt der Fahrräder",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.2",
+      "help": {
+        "intro": "A short text of about 150 words about Münster, the German city with more bicycles than people: about 320,000 inhabitants and about half a million bikes. The text tells you where the people of Münster ride (to work, to the university, to the market), what the Radstation at the station is, where a bike can park for 3,300 bikes, and what a Leeze is. The facts are real and were checked. You need what you have just learnt: Wohin? with nach, zu and in (zur Arbeit, in die Stadt, nach Hause) and the modal verbs können, müssen, wollen, dürfen (Man darf hier nicht parken. Man kann das Rad reparieren lassen). Read for the gist first, then find one place or one number per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Wohin? nach, zu, in",
+            "text": "Wohin? asks for the direction. nach for cities, countries and nach Hause: nach Münster, nach Hause. zu for people, shops and institutions, with dative: zur Arbeit (zu der), zum Bahnhof (zu dem), zum Arzt, zur Uni. in for buildings and places you enter, with accusative: in die Stadt, in den Park, ins Kino (in das). Remember the pair: Wo? in der Stadt (dative) but Wohin? in die Stadt (accusative).",
+            "examples": [
+              {
+                "de": "Morgens fahren die Leute zur Arbeit, zur Uni oder in die Stadt.",
+                "en": "In the morning people ride to work, to university or into town.",
+                "focus": [
+                  "zur Arbeit",
+                  "zur Uni",
+                  "in die Stadt"
+                ]
+              },
+              {
+                "de": "Am Abend fahren alle wieder nach Hause.",
+                "en": "In the evening everyone rides home again.",
+                "focus": [
+                  "nach Hause"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich fahre ____ Bahnhof.",
+              "options": [
+                "zum",
+                "nach",
+                "in der"
+              ],
+              "answer": "zum",
+              "why": "zu + der Bahnhof → zum Bahnhof. nach is for cities, in der is Wo?, not Wohin?."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Wohin?",
+              "right": "Example",
+              "rows": [
+                {
+                  "a": "nach + city / Hause",
+                  "b": "nach Münster, nach Hause"
+                },
+                {
+                  "a": "zu + person / place (dative)",
+                  "b": "zur Arbeit, zum Bahnhof, zum Arzt"
+                },
+                {
+                  "a": "in + building (accusative)",
+                  "b": "in die Stadt, ins Kino, in den Park"
+                },
+                {
+                  "a": "Wo? (dative) vs Wohin? (accusative)",
+                  "b": "in der Stadt / in die Stadt"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Modal verbs: können, müssen, dürfen, wollen",
+            "text": "The modal verb takes position 2, the main verb goes to the end in the infinitive: Man kann das Rad hier parken. Man muss das Rad abschließen. Man darf hier nicht fahren (not allowed). Ich will ein Rad kaufen (want). Forms: ich kann / du kannst / er kann; ich muss / er muss; ich darf / er darf; ich will / er will. man takes the er form.",
+            "examples": [
+              {
+                "de": "In der Radstation kann man das Fahrrad parken und reparieren lassen.",
+                "en": "In the Radstation you can park the bike and have it repaired.",
+                "focus": [
+                  "kann",
+                  "parken",
+                  "reparieren lassen"
+                ]
+              },
+              {
+                "de": "Auf der Promenade dürfen Autos nicht fahren. Hier müssen sie draußen bleiben.",
+                "en": "On the Promenade cars may not drive. Here they must stay outside.",
+                "focus": [
+                  "dürfen",
+                  "fahren",
+                  "müssen",
+                  "bleiben"
+                ]
+              }
+            ],
+            "check": {
+              "q": "'Not allowed' is:",
+              "options": [
+                "Man darf hier nicht parken.",
+                "Man kann hier nicht parken.",
+                "Man muss hier nicht parken."
+              ],
+              "answer": "Man darf hier nicht parken.",
+              "why": "nicht dürfen = not allowed. nicht können = not able, nicht müssen = not necessary."
+            }
+          }
+        ],
+        "remember": [
+          "Wohin? nach Hause / nach Münster; zur Arbeit, zum Bahnhof; in die Stadt, ins Kino.",
+          "Modal verb in position 2, infinitive at the end: Man kann hier parken. Man darf hier nicht fahren."
+        ],
+        "exam": "Short texts about a city and getting around, with directions and multiple-choice questions, are a typical reading task at this level.",
+        "hook": "A city with more bicycles than people, a bike garage for 3,300 bikes and a ring road where cars are not allowed. Read how Münster rides."
+      },
+      "category": "Cities",
+      "passageTitle": "Die Stadt der Fahrräder",
+      "passage": "Münster liegt im Westen von Deutschland. Die Stadt hat etwa dreihundertzwanzigtausend Einwohner und etwa fünfhunderttausend Fahrräder. Das sind mehr Fahrräder als Menschen! In Münster sagt man nicht Fahrrad, man sagt Leeze.\n\nJeden Morgen fahren die Leute mit dem Rad zur Arbeit, zur Uni oder in die Stadt. Fast jeder Zweite fährt Rad, auch im Winter und im Regen. Die Studenten fahren zur Universität, die Kinder zur Schule, die Eltern zum Supermarkt. Am Abend fahren alle nach Hause.\n\nAm Hauptbahnhof steht die Radstation. Das ist ein Parkhaus nur für Fahrräder. Dort kann man dreitausenddreihundert Räder parken. Man kann das Rad auch reparieren lassen, waschen lassen oder ein Rad mieten.\n\nUm die Altstadt läuft die Promenade. Das ist ein grüner Ring, viereinhalb Kilometer lang. Hier dürfen keine Autos fahren, nur Fahrräder und Fußgänger. Man muss aber aufpassen: Hier fahren sehr viele Räder sehr schnell!\n\nWer in Münster wohnt, braucht kein Auto. Aber er muss ein gutes Schloss haben: Jedes Jahr werden viele Räder gestohlen.",
+      "passageTranslation": "Münster lies in the west of Germany. The city has about three hundred and twenty thousand inhabitants and about five hundred thousand bicycles. That is more bicycles than people! In Münster people do not say Fahrrad, they say Leeze.\n\nEvery morning people ride their bikes to work, to university or into town. Almost every second person rides a bike, even in winter and in the rain. The students ride to the university, the children to school, the parents to the supermarket. In the evening everyone rides home.\n\nAt the main station stands the Radstation. That is a car park only for bicycles. You can park three thousand three hundred bikes there. You can also have your bike repaired, have it washed or rent a bike.\n\nAround the old town runs the Promenade. That is a green ring, four and a half kilometres long. No cars may drive here, only bicycles and pedestrians. But you must be careful: very many bikes ride very fast here!\n\nWhoever lives in Münster needs no car. But they must have a good lock: every year many bikes are stolen.",
+      "questions": [
+        {
+          "question": "Wie viele Fahrräder hat Münster etwa?",
+          "options": [
+            "dreihundertzwanzigtausend",
+            "fünfhunderttausend",
+            "dreitausenddreihundert",
+            "fünfzigtausend"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… etwa dreihundertzwanzigtausend Einwohner und etwa fünfhunderttausend Fahrräder.\"",
+          "questionTranslation": "About how many bicycles does Münster have?",
+          "optionsTranslation": [
+            "three hundred and twenty thousand",
+            "five hundred thousand",
+            "three thousand three hundred",
+            "fifty thousand"
+          ]
+        },
+        {
+          "question": "Was ist eine Leeze?",
+          "options": [
+            "eine lange Straße in Münster, auf der nur Fahrräder fahren",
+            "das Wort für Fahrrad in Münster",
+            "ein Parkhaus",
+            "ein Schloss"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"In Münster sagt man nicht Fahrrad, man sagt Leeze.\"",
+          "questionTranslation": "What is a Leeze?",
+          "optionsTranslation": [
+            "a long street in Münster on which only bicycles ride",
+            "the word for bicycle in Münster",
+            "a car park",
+            "a lock"
+          ]
+        },
+        {
+          "question": "Wohin fahren die Kinder am Morgen?",
+          "options": [
+            "zur Arbeit",
+            "zum Supermarkt",
+            "zur Schule",
+            "nach Hause"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Die Studenten fahren zur Universität, die Kinder zur Schule, die Eltern zum Supermarkt.\"",
+          "questionTranslation": "Where do the children ride in the morning?",
+          "optionsTranslation": [
+            "to work",
+            "to the supermarket",
+            "to school",
+            "home"
+          ]
+        },
+        {
+          "question": "„Am Abend fahren alle nach Hause.“ Warum nach und nicht zu?",
+          "options": [
+            "weil nach Hause eine feste Wendung ist, wie nach Berlin",
+            "weil Haus ein Gebäude ist und Gebäude immer nach nehmen",
+            "weil es Abend ist",
+            "weil alle Plural ist"
+          ],
+          "correctIndex": 0,
+          "explanation": "nach Hause is a fixed phrase for going home, like nach + city.",
+          "questionTranslation": "'In the evening everyone rides home.' Why nach and not zu?",
+          "optionsTranslation": [
+            "because nach Hause is a fixed phrase, like nach Berlin",
+            "because Haus is a building and buildings always take nach",
+            "because it is evening",
+            "because alle is plural"
+          ]
+        },
+        {
+          "question": "Was ist die Radstation?",
+          "options": [
+            "ein Bahnhof für Züge",
+            "ein Parkhaus nur für Fahrräder am Hauptbahnhof",
+            "ein großes Geschäft für Autos und Fahrräder am Hauptbahnhof",
+            "eine Brücke"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Am Hauptbahnhof steht die Radstation. Das ist ein Parkhaus nur für Fahrräder.\"",
+          "questionTranslation": "What is the Radstation?",
+          "optionsTranslation": [
+            "a station for trains",
+            "a car park only for bicycles at the main station",
+            "a big shop for cars and bicycles at the main station",
+            "a bridge"
+          ]
+        },
+        {
+          "question": "Was kann man in der Radstation NICHT machen?",
+          "options": [
+            "das Rad parken",
+            "das Rad reparieren lassen",
+            "ein Rad mieten",
+            "ein Auto parken"
+          ],
+          "correctIndex": 3,
+          "explanation": "The Radstation is only for bikes: park, repair, wash, rent. No cars.",
+          "questionTranslation": "What can you NOT do in the Radstation?",
+          "optionsTranslation": [
+            "park the bike",
+            "have the bike repaired",
+            "rent a bike",
+            "park a car"
+          ]
+        },
+        {
+          "question": "Wer darf auf der Promenade fahren?",
+          "options": [
+            "nur Autos",
+            "Fahrräder und Fußgänger, keine Autos",
+            "nur Busse und Taxis, aber keine privaten Autos",
+            "niemand"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Hier dürfen keine Autos fahren, nur Fahrräder und Fußgänger.\"",
+          "questionTranslation": "Who may ride on the Promenade?",
+          "optionsTranslation": [
+            "only cars",
+            "bicycles and pedestrians, no cars",
+            "only buses and taxis, but no private cars",
+            "nobody"
+          ]
+        },
+        {
+          "question": "Was muss man in Münster haben, und warum?",
+          "options": [
+            "ein Auto, weil die Stadt groß ist",
+            "ein gutes Schloss, weil viele Räder gestohlen werden",
+            "einen Regenschirm, weil es in Münster sehr oft und sehr lange regnet",
+            "eine Monatskarte für den Bus"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Aber er muss ein gutes Schloss haben: Jedes Jahr werden viele Räder gestohlen.\"",
+          "questionTranslation": "What must you have in Münster, and why?",
+          "optionsTranslation": [
+            "a car, because the city is big",
+            "a good lock, because many bikes are stolen",
+            "an umbrella, because it rains very often and very long in Münster",
+            "a monthly bus ticket"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.wohin",
+        "a1.modal-verbs"
+      ],
+      "image": "quest_a1_2_lesen_muenster"
+    }
+  },
+  {
+    "id": "quest_a1_2_lesen_sonntag",
+    "after": "quest_a1_2_wann_praepositionen",
+    "help": {
+      "vocab": [
+        {
+          "de": "Geschäft",
+          "en": "shop",
+          "example": "Alle Geschäfte sind geschlossen.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Gesetz",
+          "en": "law",
+          "example": "Das ist Gesetz.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Ruhetag",
+          "en": "day of rest",
+          "example": "Der Sonntag ist ein Ruhetag.",
+          "article": "der",
+          "plural": "-e"
+        },
+        {
+          "de": "Nachbar",
+          "en": "neighbour",
+          "example": "Die Nachbarn hören alles!",
+          "article": "der",
+          "plural": "-n"
+        },
+        {
+          "de": "Feiertag",
+          "en": "public holiday",
+          "example": "Es gibt auch Feiertage.",
+          "article": "der",
+          "plural": "-e"
+        },
+        {
+          "de": "Tankstelle",
+          "en": "petrol station",
+          "example": "Nur die Bäckerei und die Tankstelle sind offen.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "geschlossen",
+          "en": "closed",
+          "example": "Der Supermarkt ist geschlossen."
+        },
+        {
+          "de": "spazieren gehen",
+          "en": "to go for a walk",
+          "example": "Sie gehen spazieren oder machen eine Radtour."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Sonntag ist Sonntag",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.2",
+      "help": {
+        "intro": "A short text of about 150 words about the German Sunday, which surprises every newcomer: the shops are closed, the law says so, you may not mow the lawn or drill a hole, and at four o'clock the whole country eats cake. The text also explains the one public holiday Germany shares as a nation, 3 October, and why it is on that date. The facts are real and were checked. You need what you have just learnt: the days and months (am Sonntag, im Oktober, am 3. Oktober), the time prepositions am, im, um and von … bis, and negation with nicht and kein (Die Geschäfte sind nicht offen. Es gibt keinen Lärm). Read for the gist, then find one day, time or rule per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "am, im, um, von … bis",
+            "text": "am + day or date: am Sonntag, am Wochenende, am 3. Oktober (read: am dritten Oktober). im + month or season: im Oktober, im Winter. um + clock time: um sechzehn Uhr, um vier. von … bis for a span: von Montag bis Samstag, von neun bis zwanzig Uhr. No preposition with years: 1990, nicht im 1990.",
+            "examples": [
+              {
+                "de": "Am Sonntag sind die Geschäfte geschlossen, von Montag bis Samstag sind sie offen.",
+                "en": "On Sunday the shops are closed, from Monday to Saturday they are open.",
+                "focus": [
+                  "Am Sonntag",
+                  "von Montag bis Samstag"
+                ]
+              },
+              {
+                "de": "Am 3. Oktober feiert Deutschland, seit 1990.",
+                "en": "On 3 October Germany celebrates, since 1990.",
+                "focus": [
+                  "Am 3. Oktober",
+                  "seit 1990"
+                ]
+              }
+            ],
+            "check": {
+              "q": "____ Oktober ist es oft noch warm.",
+              "options": [
+                "Im",
+                "Am",
+                "Um"
+              ],
+              "answer": "Im",
+              "why": "Months take im. Days and dates take am, clock times um."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Preposition",
+              "right": "Used for",
+              "rows": [
+                {
+                  "a": "am",
+                  "b": "day, date: am Sonntag, am 3. Oktober"
+                },
+                {
+                  "a": "im",
+                  "b": "month, season: im Oktober, im Winter"
+                },
+                {
+                  "a": "um",
+                  "b": "clock time: um 16 Uhr"
+                },
+                {
+                  "a": "von … bis",
+                  "b": "span: von Montag bis Samstag"
+                },
+                {
+                  "a": "seit",
+                  "b": "since: seit 1990"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Saying what is not allowed",
+            "text": "Rules in German often come as sentences with nicht or kein: Man darf nicht Rasen mähen. Es gibt keine Post. Die Geschäfte haben nicht geöffnet. Also with verboten (forbidden): Bohren ist am Sonntag verboten. And with Ruhe (quiet): Sonntagsruhe = Sunday quiet, Mittagsruhe = midday quiet, Nachtruhe = night quiet.",
+            "examples": [
+              {
+                "de": "Am Sonntag darf man nicht bohren und nicht Rasen mähen. Es ist Sonntagsruhe.",
+                "en": "On Sunday you may not drill and not mow the lawn. It is Sunday quiet.",
+                "focus": [
+                  "nicht bohren",
+                  "nicht Rasen mähen",
+                  "Sonntagsruhe"
+                ]
+              },
+              {
+                "de": "Es gibt keinen Lärm und keine Post. Nur die Bäckerei ist am Morgen offen.",
+                "en": "There is no noise and no post. Only the bakery is open in the morning.",
+                "focus": [
+                  "keinen Lärm",
+                  "keine Post"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Am Sonntag gibt es ____ Post.",
+              "options": [
+                "keine",
+                "nicht",
+                "kein"
+              ],
+              "answer": "keine",
+              "why": "die Post is a noun without article here, feminine: keine Post."
+            }
+          }
+        ],
+        "remember": [
+          "am Sonntag, am 3. Oktober; im Oktober; um 16 Uhr; von Montag bis Samstag; seit 1990.",
+          "Rules: Man darf nicht …; es gibt keinen Lärm; Sonntagsruhe."
+        ],
+        "exam": "Short texts about customs, opening hours and holidays with multiple-choice questions are a typical reading task at this level.",
+        "hook": "No shops, no drilling, no lawnmower, but cake at four: read why the German Sunday is so quiet and what happens on 3 October."
+      },
+      "category": "Daily Life",
+      "passageTitle": "Sonntag ist Sonntag",
+      "passage": "Du bist neu in Deutschland. Es ist Sonntag, und du brauchst Milch. Du gehst zum Supermarkt. Aber der Supermarkt ist geschlossen. Alle Geschäfte sind geschlossen! Nur die Bäckerei ist am Morgen für drei Stunden offen, und die Tankstelle.\n\nDas ist Gesetz. Von Montag bis Samstag sind die Geschäfte offen, oft von sieben bis zweiundzwanzig Uhr. Am Sonntag nicht. Der Sonntag ist ein Ruhetag. Man darf auch nicht bohren, nicht Rasen mähen und keine laute Musik machen. Das heißt Sonntagsruhe. Die Nachbarn hören alles!\n\nWas machen die Deutschen am Sonntag? Sie schlafen lange, frühstücken lange, gehen spazieren oder machen eine Radtour. Um sechzehn Uhr gibt es Kaffee und Kuchen. Das ist fast ein Ritual.\n\nEs gibt auch Feiertage. Der wichtigste ist der 3. Oktober, der Tag der Deutschen Einheit. An diesem Tag im Jahr 1990 wurden Ost- und Westdeutschland wieder ein Land. Seit 1990 feiert Deutschland jedes Jahr am 3. Oktober. Dann sind die Geschäfte auch geschlossen, egal, welcher Wochentag es ist.",
+      "passageTranslation": "You are new in Germany. It is Sunday, and you need milk. You go to the supermarket. But the supermarket is closed. All shops are closed! Only the bakery is open for three hours in the morning, and the petrol station.\n\nThat is the law. From Monday to Saturday the shops are open, often from seven to ten in the evening. Not on Sunday. Sunday is a day of rest. You may also not drill, not mow the lawn and not make loud music. That is called Sunday quiet. The neighbours hear everything!\n\nWhat do Germans do on Sunday? They sleep late, have a long breakfast, go for a walk or make a bike tour. At four o'clock there is coffee and cake. That is almost a ritual.\n\nThere are also public holidays. The most important is 3 October, the Day of German Unity. On that day in 1990 East and West Germany became one country again. Since 1990 Germany celebrates every year on 3 October. Then the shops are closed too, no matter which day of the week it is.",
+      "questions": [
+        {
+          "question": "Was ist am Sonntag offen?",
+          "options": [
+            "alle Supermärkte",
+            "nur die Bäckerei am Morgen und die Tankstelle",
+            "nichts",
+            "nur die kleinen Geschäfte in der Stadt, nicht die Supermärkte"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Nur die Bäckerei ist am Morgen für drei Stunden offen, und die Tankstelle.\"",
+          "questionTranslation": "What is open on Sunday?",
+          "optionsTranslation": [
+            "all supermarkets",
+            "only the bakery in the morning and the petrol station",
+            "nothing",
+            "only the small shops in town, not the supermarkets"
+          ]
+        },
+        {
+          "question": "Wann sind die Geschäfte offen?",
+          "options": [
+            "von Montag bis Sonntag",
+            "von Montag bis Samstag, oft von sieben bis zweiundzwanzig Uhr",
+            "nur am Samstag von sieben bis zweiundzwanzig Uhr und sonst nie",
+            "jeden Tag um sechzehn Uhr"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Von Montag bis Samstag sind die Geschäfte offen, oft von sieben bis zweiundzwanzig Uhr. Am Sonntag nicht.\"",
+          "questionTranslation": "When are the shops open?",
+          "optionsTranslation": [
+            "from Monday to Sunday",
+            "from Monday to Saturday, often from seven to ten in the evening",
+            "only on Saturday from seven to ten in the evening and never otherwise",
+            "every day at four o'clock"
+          ]
+        },
+        {
+          "question": "Was darf man am Sonntag NICHT machen?",
+          "options": [
+            "spazieren gehen oder eine Radtour machen",
+            "lange schlafen",
+            "bohren und Rasen mähen",
+            "Kuchen essen"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Man darf auch nicht bohren, nicht Rasen mähen und keine laute Musik machen.\"",
+          "questionTranslation": "What may you NOT do on Sunday?",
+          "optionsTranslation": [
+            "go for a walk or make a bike tour",
+            "sleep late",
+            "drill and mow the lawn",
+            "eat cake"
+          ]
+        },
+        {
+          "question": "Was ist Sonntagsruhe?",
+          "options": [
+            "ein langes Frühstück mit der ganzen Familie am Sonntag",
+            "die Regel: keinen Lärm am Sonntag",
+            "ein Feiertag im Oktober",
+            "Kaffee und Kuchen um vier"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Man darf auch nicht bohren … und keine laute Musik machen. Das heißt Sonntagsruhe.\"",
+          "questionTranslation": "What is Sonntagsruhe?",
+          "optionsTranslation": [
+            "a long breakfast with the whole family on Sunday",
+            "the rule: no noise on Sunday",
+            "a holiday in October",
+            "coffee and cake at four"
+          ]
+        },
+        {
+          "question": "Um wie viel Uhr gibt es Kaffee und Kuchen?",
+          "options": [
+            "um sieben Uhr",
+            "um zwölf Uhr",
+            "um sechzehn Uhr",
+            "um zweiundzwanzig Uhr"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Um sechzehn Uhr gibt es Kaffee und Kuchen. Das ist fast ein Ritual.\"",
+          "questionTranslation": "At what time is there coffee and cake?",
+          "optionsTranslation": [
+            "at seven o'clock",
+            "at twelve o'clock",
+            "at four in the afternoon",
+            "at ten in the evening"
+          ]
+        },
+        {
+          "question": "Was ist der 3. Oktober?",
+          "options": [
+            "der erste Sonntag im Oktober, an dem alle Geschäfte offen sind",
+            "der Tag der Deutschen Einheit",
+            "ein Markttag",
+            "der Geburtstag von Berlin"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Der wichtigste ist der 3. Oktober, der Tag der Deutschen Einheit.\"",
+          "questionTranslation": "What is 3 October?",
+          "optionsTranslation": [
+            "the first Sunday in October, on which all shops are open",
+            "the Day of German Unity",
+            "a market day",
+            "Berlin's birthday"
+          ]
+        },
+        {
+          "question": "Seit wann feiert Deutschland am 3. Oktober?",
+          "options": [
+            "seit 1949",
+            "seit 1989",
+            "seit 1990",
+            "seit 2003"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Seit 1990 feiert Deutschland jedes Jahr am 3. Oktober.\"",
+          "questionTranslation": "Since when has Germany celebrated on 3 October?",
+          "optionsTranslation": [
+            "since 1949",
+            "since 1989",
+            "since 1990",
+            "since 2003"
+          ]
+        },
+        {
+          "question": "Der 3. Oktober ist ein Dienstag. Sind die Geschäfte offen?",
+          "options": [
+            "Ja, weil Dienstag kein Sonntag ist und die Geschäfte dann normal offen haben.",
+            "Nein, an einem Feiertag sind sie geschlossen, egal, welcher Wochentag.",
+            "Nur am Morgen.",
+            "Nur die Supermärkte."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Dann sind die Geschäfte auch geschlossen, egal, welcher Wochentag es ist.\"",
+          "questionTranslation": "3 October is a Tuesday. Are the shops open?",
+          "optionsTranslation": [
+            "Yes, because Tuesday is not Sunday and the shops are then open as normal.",
+            "No, on a public holiday they are closed, no matter which weekday.",
+            "Only in the morning.",
+            "Only the supermarkets."
+          ]
+        }
+      ],
+      "covers": [
+        "a1.calendar",
+        "a1.wann-prepositions"
+      ],
+      "image": "quest_a1_2_lesen_sonntag"
+    }
+  },
+  {
+    "id": "quest_a1_2_lesen_mauer",
+    "after": "quest_a1_2_war_hatte",
+    "help": {
+      "vocab": [
+        {
+          "de": "Mauer",
+          "en": "wall",
+          "example": "In der Mitte war die Mauer.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Grenze",
+          "en": "border",
+          "example": "Familien hatten plötzlich eine Grenze in der Mitte.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Regierung",
+          "en": "government",
+          "example": "Die Regierung hat die Mauer gebaut.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Soldat",
+          "en": "soldier",
+          "example": "Um 23 Uhr haben die Soldaten die Tore geöffnet.",
+          "article": "der",
+          "plural": "-en"
+        },
+        {
+          "de": "Tor",
+          "en": "gate",
+          "example": "Die Soldaten haben die Tore geöffnet.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Volk",
+          "en": "people, nation",
+          "example": "Wir sind das Volk!",
+          "article": "das",
+          "plural": "¨-er"
+        },
+        {
+          "de": "demonstrieren",
+          "en": "to demonstrate",
+          "example": "Sie haben demonstriert."
+        },
+        {
+          "de": "plötzlich",
+          "en": "suddenly",
+          "example": "Familien hatten plötzlich eine Grenze."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Die Nacht, in der die Mauer fiel",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.2",
+      "help": {
+        "intro": "A short text of about 150 words about the most important night in recent German history: 9 November 1989, when the Berlin Wall opened after 28 years. The text tells you what the Wall was, how long it was, why it was built, what happened on that evening and what you can still see of it today. All facts are real and were checked. You need what you have just learnt: war and hatte for the past (Die Mauer war 155 Kilometer lang. Berlin hatte zwei Teile.) and your first Perfekt forms (Die Menschen haben gefeiert. Sie sind über die Grenze gegangen). Read for the gist first, then find one number, one date or one event per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "war and hatte: the past of sein and haben",
+            "text": "sein → war: ich war, du warst, er/sie war, wir waren, sie waren. haben → hatte: ich hatte, du hattest, er/sie hatte, wir hatten, sie hatten. These two are the first past forms you need; everything else at this level uses the Perfekt. Die Mauer war 155 Kilometer lang. Berlin hatte zwei Teile. Die Menschen waren glücklich.",
+            "examples": [
+              {
+                "de": "Die Mauer war 28 Jahre lang da. Berlin hatte eine Grenze in der Mitte.",
+                "en": "The Wall was there for 28 years. Berlin had a border in the middle.",
+                "focus": [
+                  "war",
+                  "hatte"
+                ]
+              },
+              {
+                "de": "Am Abend waren Tausende Menschen an der Grenze. Sie hatten keine Angst mehr.",
+                "en": "In the evening thousands of people were at the border. They had no fear any more.",
+                "focus": [
+                  "waren",
+                  "hatten"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Wir ____ gestern in Berlin.",
+              "options": [
+                "waren",
+                "war",
+                "hatten"
+              ],
+              "answer": "waren",
+              "why": "wir takes waren; war is ich/er; hatten would mean 'had'."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "sein → war",
+              "right": "haben → hatte",
+              "rows": [
+                {
+                  "a": "ich war",
+                  "b": "ich hatte"
+                },
+                {
+                  "a": "du warst",
+                  "b": "du hattest"
+                },
+                {
+                  "a": "er / sie war",
+                  "b": "er / sie hatte"
+                },
+                {
+                  "a": "wir / sie waren",
+                  "b": "wir / sie hatten"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Perfekt: haben or sein + ge-…",
+            "text": "The Perfekt tells what happened: haben/sein in position 2, the participle at the end. Most verbs take haben: Die Menschen haben gefeiert, getanzt, gesungen. Verbs of movement take sein: Sie sind gegangen, gefahren, gekommen. Regular participles: ge- + stem + -t (gefeiert, getanzt, geöffnet). Irregular ones you learn as words: gegangen, gekommen, gesungen, gefallen.",
+            "examples": [
+              {
+                "de": "Am 9. November 1989 haben die Grenzsoldaten die Tore geöffnet.",
+                "en": "On 9 November 1989 the border soldiers opened the gates.",
+                "focus": [
+                  "haben",
+                  "geöffnet"
+                ]
+              },
+              {
+                "de": "Tausende sind in dieser Nacht nach West-Berlin gegangen.",
+                "en": "Thousands went to West Berlin that night.",
+                "focus": [
+                  "sind",
+                  "gegangen"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Die Menschen ____ auf der Mauer getanzt.",
+              "options": [
+                "haben",
+                "sind",
+                "waren"
+              ],
+              "answer": "haben",
+              "why": "tanzen is not a verb of movement from A to B; it takes haben: haben getanzt."
+            }
+          }
+        ],
+        "remember": [
+          "war / waren, hatte / hatten: the past of sein and haben.",
+          "Perfekt: haben + gefeiert, geöffnet; sein + gegangen, gekommen (movement)."
+        ],
+        "exam": "Short texts about a historical event with dates, numbers and multiple-choice questions are a typical reading task at this level.",
+        "hook": "For 28 years a wall ran through a city. Then, one evening in November, it opened. Read what happened in that night."
+      },
+      "category": "History",
+      "passageTitle": "Die Nacht, in der die Mauer fiel",
+      "passage": "Von 1961 bis 1989 war Berlin eine Stadt mit zwei Teilen: West-Berlin und Ost-Berlin. In der Mitte war die Mauer. Sie war 155 Kilometer lang und fast vier Meter hoch. Die Regierung von Ost-Deutschland hat die Mauer im August 1961 gebaut. Die Menschen im Osten durften nicht in den Westen.\n\nFamilien hatten plötzlich eine Grenze in der Mitte. Eine Oma wohnte im Osten, ihre Enkel im Westen. 28 Jahre lang war das so.\n\nIm Herbst 1989 waren viele Menschen im Osten auf der Straße. Sie haben demonstriert und gerufen: „Wir sind das Volk!“ Am Abend des 9. November 1989 hat ein Politiker im Fernsehen gesagt: Die Grenze ist offen. Tausende Menschen sind sofort zur Mauer gegangen. Um 23 Uhr haben die Soldaten die Tore geöffnet. Die Menschen haben gelacht, geweint, getanzt und auf der Mauer gesessen. Es war eine große Party.\n\nEin Jahr später, am 3. Oktober 1990, war Deutschland wieder ein Land. Heute siehst du die Mauer nur noch an wenigen Orten. Ein Teil steht an der Spree: die East Side Gallery, 1,3 Kilometer lang, mit vielen Bildern.",
+      "passageTranslation": "From 1961 to 1989 Berlin was a city with two parts: West Berlin and East Berlin. In the middle was the Wall. It was 155 kilometres long and almost four metres high. The government of East Germany built the Wall in August 1961. The people in the East were not allowed into the West.\n\nFamilies suddenly had a border in the middle. A grandmother lived in the East, her grandchildren in the West. For 28 years it was like that.\n\nIn autumn 1989 many people in the East were on the streets. They demonstrated and shouted: 'We are the people!' On the evening of 9 November 1989 a politician said on television: the border is open. Thousands of people went straight to the Wall. At 11 pm the soldiers opened the gates. People laughed, cried, danced and sat on the Wall. It was a big party.\n\nA year later, on 3 October 1990, Germany was one country again. Today you see the Wall only in a few places. One part stands by the Spree: the East Side Gallery, 1.3 kilometres long, with many pictures.",
+      "questions": [
+        {
+          "question": "Wie lang war die Mauer?",
+          "options": [
+            "fünfzehn Kilometer",
+            "155 Kilometer",
+            "1,3 Kilometer",
+            "vier Kilometer"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie war 155 Kilometer lang und fast vier Meter hoch.\" 1.3 km is the East Side Gallery today.",
+          "questionTranslation": "How long was the Wall?",
+          "optionsTranslation": [
+            "fifteen kilometres",
+            "155 kilometres",
+            "1.3 kilometres",
+            "four kilometres"
+          ]
+        },
+        {
+          "question": "Wann hat Ost-Deutschland die Mauer gebaut?",
+          "options": [
+            "im August 1961",
+            "im November 1989",
+            "im Oktober 1990",
+            "im Herbst 1989"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Die Regierung von Ost-Deutschland hat die Mauer im August 1961 gebaut.\"",
+          "questionTranslation": "When did East Germany build the Wall?",
+          "optionsTranslation": [
+            "in August 1961",
+            "in November 1989",
+            "in October 1990",
+            "in autumn 1989"
+          ]
+        },
+        {
+          "question": "„Familien hatten plötzlich eine Grenze in der Mitte.“ Welche Form ist hatten?",
+          "options": [
+            "Präsens von haben für wir und sie, wie wir haben",
+            "Vergangenheit von haben, Plural",
+            "Vergangenheit von sein",
+            "Imperativ"
+          ],
+          "correctIndex": 1,
+          "explanation": "hatten = past of haben for wir/sie (Familien). The past of sein would be waren.",
+          "questionTranslation": "'Families suddenly had a border in the middle.' Which form is hatten?",
+          "optionsTranslation": [
+            "present of haben for wir and sie, like wir haben",
+            "past of haben, plural",
+            "past of sein",
+            "imperative"
+          ]
+        },
+        {
+          "question": "Wie lange war die Mauer da?",
+          "options": [
+            "acht Jahre",
+            "achtzehn Jahre, von 1971 bis 1989",
+            "achtundzwanzig Jahre",
+            "achtzig Jahre"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"28 Jahre lang war das so.\" 1961 to 1989.",
+          "questionTranslation": "How long was the Wall there?",
+          "optionsTranslation": [
+            "eight years",
+            "eighteen years, from 1971 to 1989",
+            "twenty-eight years",
+            "eighty years"
+          ]
+        },
+        {
+          "question": "Was haben die Menschen im Herbst 1989 gerufen?",
+          "options": [
+            "„Die Grenze ist offen!“",
+            "„Wir sind das Volk!“",
+            "„Berlin ist eine Stadt!“",
+            "„Es ist eine Party!“"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie haben demonstriert und gerufen: ‚Wir sind das Volk!‘\"",
+          "questionTranslation": "What did the people shout in autumn 1989?",
+          "optionsTranslation": [
+            "'The border is open!'",
+            "'We are the people!'",
+            "'Berlin is one city!'",
+            "'It is a party!'"
+          ]
+        },
+        {
+          "question": "Was ist am 9. November 1989 um 23 Uhr passiert?",
+          "options": [
+            "Die Regierung hat die Mauer gebaut.",
+            "Die Soldaten haben die Tore geöffnet.",
+            "Deutschland war wieder ein Land.",
+            "Ein Politiker hat im Fernsehen gesprochen."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Um 23 Uhr haben die Soldaten die Tore geöffnet.\" The politician spoke earlier that evening.",
+          "questionTranslation": "What happened on 9 November 1989 at 11 pm?",
+          "optionsTranslation": [
+            "The government built the Wall.",
+            "The soldiers opened the gates.",
+            "Germany was one country again.",
+            "A politician spoke on television."
+          ]
+        },
+        {
+          "question": "„Tausende Menschen sind sofort zur Mauer gegangen.“ Warum sind und nicht haben?",
+          "options": [
+            "weil gehen eine Bewegung ist",
+            "weil Menschen Plural ist und der Plural immer sein nimmt",
+            "weil es sofort passiert ist",
+            "weil die Mauer groß ist"
+          ],
+          "correctIndex": 0,
+          "explanation": "Verbs of movement from one place to another (gehen, kommen, fahren) take sein in the Perfekt.",
+          "questionTranslation": "'Thousands of people went straight to the Wall.' Why sind and not haben?",
+          "optionsTranslation": [
+            "because gehen is movement",
+            "because Menschen is plural and the plural always takes sein",
+            "because it happened immediately",
+            "because the Wall is big"
+          ]
+        },
+        {
+          "question": "Was ist die East Side Gallery?",
+          "options": [
+            "ein großes Museum in West-Berlin mit Bildern von der Mauer",
+            "ein Teil der Mauer an der Spree mit vielen Bildern",
+            "ein Tor in der Mauer",
+            "eine Party am 9. November"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ein Teil steht an der Spree: die East Side Gallery, 1,3 Kilometer lang, mit vielen Bildern.\"",
+          "questionTranslation": "What is the East Side Gallery?",
+          "optionsTranslation": [
+            "a big museum in West Berlin with pictures of the Wall",
+            "a part of the Wall by the Spree with many pictures",
+            "a gate in the Wall",
+            "a party on 9 November"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.war-hatte",
+        "a1.perfekt-intro"
+      ],
+      "image": "quest_a1_2_lesen_mauer"
+    }
+  },
+  {
+    "id": "quest_a1_2_hoeren_arzt",
+    "after": "quest_a1_2_koerper",
+    "help": {
+      "vocab": [
+        {
+          "de": "Termin",
+          "en": "appointment",
+          "example": "Haben Sie einen Termin?",
+          "article": "der",
+          "plural": "-e"
+        },
+        {
+          "de": "Versichertenkarte",
+          "en": "health insurance card",
+          "example": "Haben Sie Ihre Versichertenkarte?",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Wartezimmer",
+          "en": "waiting room",
+          "example": "Bitte nehmen Sie im Wartezimmer Platz.",
+          "article": "das",
+          "plural": "-"
+        },
+        {
+          "de": "Fieber",
+          "en": "fever",
+          "example": "Haben Sie Fieber?",
+          "article": "das"
+        },
+        {
+          "de": "Husten",
+          "en": "cough",
+          "example": "Ich habe Husten.",
+          "article": "der"
+        },
+        {
+          "de": "Erkältung",
+          "en": "cold (illness)",
+          "example": "Das ist eine Erkältung mit Fieber.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Rezept",
+          "en": "prescription",
+          "example": "Ich gebe Ihnen ein Rezept.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Apotheke",
+          "en": "pharmacy",
+          "example": "Die Apotheke ist gleich nebenan.",
+          "article": "die",
+          "plural": "-n"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Beim Arzt",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.2",
+      "help": {
+        "intro": "A scene of about one and a half minutes in a doctor's practice: a patient has a headache and a sore throat, the receptionist asks for his insurance card, and the doctor asks what hurts, since when, and whether he has a fever. At the end there is a Krankschreibung, the sick note every German employee knows. The scene is invented; the procedure is the real one in a German practice. You hear what you have just learnt: the body (der Kopf, der Hals, der Bauch, die Ohren), the pattern Mein Kopf tut weh / Meine Ohren tun weh, the possessives (mein, Ihr, Ihre), and the modal verbs müssen and dürfen in the doctor's advice. Listen once for the whole scene, then once for each symptom and each instruction.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Saying what hurts",
+            "text": "X tut weh = X hurts; plural: X tun weh. Mein Kopf tut weh. Mein Hals tut weh. Meine Ohren tun weh. Or with Schmerzen: Ich habe Kopfschmerzen, Halsschmerzen, Bauchschmerzen. Fever: Ich habe Fieber, 38,5 (achtunddreißig fünf). Other useful lines: Mir ist schlecht (I feel sick), Ich bin müde, Ich habe Husten (cough), Ich habe Schnupfen (a cold).",
+            "examples": [
+              {
+                "de": "Mein Kopf tut weh, und mein Hals tut auch weh.",
+                "en": "My head hurts, and my throat hurts too.",
+                "focus": [
+                  "tut weh",
+                  "tut",
+                  "weh"
+                ]
+              },
+              {
+                "de": "Haben Sie Fieber? Ja, achtunddreißig fünf.",
+                "en": "Do you have a fever? Yes, 38.5.",
+                "focus": [
+                  "Fieber",
+                  "achtunddreißig fünf"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Meine Ohren ____ weh.",
+              "options": [
+                "tun",
+                "tut",
+                "tue"
+              ],
+              "answer": "tun",
+              "why": "Ohren is plural, so the verb is plural: tun weh."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Body part",
+              "right": "It hurts",
+              "rows": [
+                {
+                  "a": "der Kopf",
+                  "b": "Mein Kopf tut weh. / Ich habe Kopfschmerzen."
+                },
+                {
+                  "a": "der Hals",
+                  "b": "Mein Hals tut weh. / Halsschmerzen"
+                },
+                {
+                  "a": "der Bauch",
+                  "b": "Mein Bauch tut weh. / Bauchschmerzen"
+                },
+                {
+                  "a": "die Ohren (plural)",
+                  "b": "Meine Ohren tun weh."
+                },
+                {
+                  "a": "das Fieber",
+                  "b": "Ich habe Fieber."
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Possessives: mein, Ihr, Ihre",
+            "text": "mein (my) and Ihr (your, polite) take the same endings as ein: mein Kopf (der), mein Fieber (das), meine Hand (die), meine Ohren (plural). Ihre Versichertenkarte (die Karte), Ihr Name (der Name), Ihre Hände (plural). In the accusative masculine: meinen Kopf, Ihren Namen. Capital I for the polite Ihr, small i for ihr = her/their.",
+            "examples": [
+              {
+                "de": "Haben Sie Ihre Versichertenkarte? Ja, hier ist meine Karte.",
+                "en": "Do you have your insurance card? Yes, here is my card.",
+                "focus": [
+                  "Ihre",
+                  "meine"
+                ]
+              },
+              {
+                "de": "Öffnen Sie bitte Ihren Mund. Ihr Hals ist rot.",
+                "en": "Please open your mouth. Your throat is red.",
+                "focus": [
+                  "Ihren Mund",
+                  "Ihr Hals"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Wie ist ____ Name? (polite, der Name)",
+              "options": [
+                "Ihr",
+                "Ihre",
+                "mein"
+              ],
+              "answer": "Ihr",
+              "why": "der Name is masculine nominative: Ihr Name. Ihre would be feminine or plural."
+            }
+          }
+        ],
+        "remember": [
+          "Mein Kopf tut weh, meine Ohren tun weh; Ich habe Kopfschmerzen / Fieber / Husten.",
+          "mein / Ihr like ein: mein Kopf, meine Hand, Ihre Karte, Ihren Mund (accusative)."
+        ],
+        "exam": "Short scenes at the doctor's with symptoms and instructions are a typical listening task at this level.",
+        "hook": "Headache, sore throat, 38.5 fever: listen to a visit to a German doctor, from the insurance card to the sick note."
+      },
+      "category": "Health",
+      "speakers": {
+        "Empfang": "female",
+        "Patient": "male",
+        "Ärztin": "female"
+      },
+      "passageTitle": "Szene: Beim Arzt",
+      "passage": "Empfang: Guten Morgen. Haben Sie einen Termin?\nPatient: Nein, aber ich bin krank. Mein Kopf tut weh, und mein Hals tut auch weh.\nEmpfang: Kein Problem. Wie ist Ihr Name?\nPatient: David Okafor.\nEmpfang: Haben Sie Ihre Versichertenkarte?\nPatient: Ja, hier ist meine Karte.\nEmpfang: Danke. Bitte nehmen Sie im Wartezimmer Platz. Es dauert etwa zwanzig Minuten.\nÄrztin: Herr Okafor? Kommen Sie bitte. Was fehlt Ihnen?\nPatient: Mein Kopf tut weh, mein Hals tut weh, und ich bin sehr müde.\nÄrztin: Seit wann?\nPatient: Seit Montag. Also seit drei Tagen.\nÄrztin: Haben Sie Fieber?\nPatient: Ja, heute Morgen achtunddreißig fünf.\nÄrztin: Öffnen Sie bitte Ihren Mund. Ja, Ihr Hals ist sehr rot. Tun die Ohren auch weh?\nPatient: Nein, meine Ohren sind okay. Aber ich habe Husten.\nÄrztin: Das ist eine Erkältung mit Fieber. Sie müssen viel trinken, Tee oder Wasser, und viel schlafen. Sie dürfen drei Tage nicht arbeiten. Ich schreibe Sie krank.\nPatient: Brauche ich Medikamente?\nÄrztin: Ich gebe Ihnen ein Rezept für Tabletten gegen die Halsschmerzen. Nehmen Sie eine Tablette am Morgen und eine am Abend. Die Apotheke ist gleich nebenan.\nPatient: Danke. Und die Krankschreibung?\nÄrztin: Die bekommen Sie am Empfang. Sie geht automatisch an Ihre Krankenkasse. Für Ihren Chef bekommen Sie ein Papier. Gute Besserung, Herr Okafor!\nPatient: Vielen Dank. Auf Wiedersehen.",
+      "passageTranslation": "Reception: Good morning. Do you have an appointment?\nPatient: No, but I am ill. My head hurts, and my throat hurts too.\nReception: No problem. What is your name?\nPatient: David Okafor.\nReception: Do you have your insurance card?\nPatient: Yes, here is my card.\nReception: Thank you. Please take a seat in the waiting room. It will take about twenty minutes.\nDoctor: Mr Okafor? Come in, please. What is wrong?\nPatient: My head hurts, my throat hurts, and I am very tired.\nDoctor: Since when?\nPatient: Since Monday. So for three days.\nDoctor: Do you have a fever?\nPatient: Yes, this morning 38.5.\nDoctor: Please open your mouth. Yes, your throat is very red. Do your ears hurt too?\nPatient: No, my ears are okay. But I have a cough.\nDoctor: That is a cold with fever. You must drink a lot, tea or water, and sleep a lot. You may not work for three days. I am writing you off sick.\nPatient: Do I need medicine?\nDoctor: I am giving you a prescription for tablets against the sore throat. Take one tablet in the morning and one in the evening. The pharmacy is right next door.\nPatient: Thank you. And the sick note?\nDoctor: You get that at reception. It goes automatically to your health insurance. For your boss you get a paper. Get well soon, Mr Okafor!\nPatient: Thank you very much. Goodbye.",
+      "questions": [
+        {
+          "question": "Was tut dem Patienten weh?",
+          "options": [
+            "der Kopf und der Hals",
+            "der Bauch und die Ohren",
+            "die Hand und der Fuß",
+            "nur der Kopf"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Mein Kopf tut weh, und mein Hals tut auch weh.\"",
+          "questionTranslation": "What hurts the patient?",
+          "optionsTranslation": [
+            "the head and the throat",
+            "the stomach and the ears",
+            "the hand and the foot",
+            "only the head"
+          ]
+        },
+        {
+          "question": "Was möchte der Empfang sehen?",
+          "options": [
+            "den Pass oder den Personalausweis",
+            "die Versichertenkarte",
+            "das Rezept",
+            "die Krankschreibung"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Haben Sie Ihre Versichertenkarte? Ja, hier ist meine Karte.\"",
+          "questionTranslation": "What does the reception want to see?",
+          "optionsTranslation": [
+            "the passport or the identity card",
+            "the insurance card",
+            "the prescription",
+            "the sick note"
+          ]
+        },
+        {
+          "question": "Wie lange muss der Patient im Wartezimmer warten?",
+          "options": [
+            "etwa zwei Minuten",
+            "etwa zwanzig Minuten",
+            "etwa drei Tage",
+            "er muss nicht warten"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Bitte nehmen Sie im Wartezimmer Platz. Es dauert etwa zwanzig Minuten.\"",
+          "questionTranslation": "How long must the patient wait in the waiting room?",
+          "optionsTranslation": [
+            "about two minutes",
+            "about twenty minutes",
+            "about three days",
+            "he does not have to wait"
+          ]
+        },
+        {
+          "question": "Seit wann ist der Patient krank?",
+          "options": [
+            "seit heute Morgen",
+            "seit Montag, also seit drei Tagen",
+            "seit einer Woche, also seit dem letzten Mittwoch",
+            "seit zwanzig Minuten"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Seit wann? Seit Montag. Also seit drei Tagen.\"",
+          "questionTranslation": "Since when has the patient been ill?",
+          "optionsTranslation": [
+            "since this morning",
+            "since Monday, so for three days",
+            "for a week, so since last Wednesday",
+            "for twenty minutes"
+          ]
+        },
+        {
+          "question": "„Meine Ohren sind okay.“ Warum meine und nicht mein?",
+          "options": [
+            "weil Ohren Plural ist",
+            "weil Ohr feminin ist",
+            "weil der Patient höflich ist",
+            "weil es ein Akkusativ ist"
+          ],
+          "correctIndex": 0,
+          "explanation": "Possessives take -e in the plural: meine Ohren. das Ohr itself is neuter (mein Ohr).",
+          "questionTranslation": "'My ears are okay.' Why meine and not mein?",
+          "optionsTranslation": [
+            "because Ohren is plural",
+            "because Ohr is feminine",
+            "because the patient is polite",
+            "because it is an accusative"
+          ]
+        },
+        {
+          "question": "Was muss der Patient machen?",
+          "options": [
+            "viel arbeiten und wenig schlafen",
+            "viel trinken und viel schlafen",
+            "zum Zahnarzt gehen",
+            "drei Tage nichts essen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie müssen viel trinken, Tee oder Wasser, und viel schlafen.\"",
+          "questionTranslation": "What must the patient do?",
+          "optionsTranslation": [
+            "work a lot and sleep little",
+            "drink a lot and sleep a lot",
+            "go to the dentist",
+            "eat nothing for three days"
+          ]
+        },
+        {
+          "question": "„Sie dürfen drei Tage nicht arbeiten.“ Was bedeutet das?",
+          "options": [
+            "Er kann nicht arbeiten, weil er zurzeit keine Arbeit und keinen Chef hat.",
+            "Er soll nicht arbeiten; die Ärztin erlaubt es nicht.",
+            "Er muss drei Tage arbeiten.",
+            "Er will nicht arbeiten."
+          ],
+          "correctIndex": 1,
+          "explanation": "nicht dürfen = not allowed. The doctor forbids work for three days and writes him off sick.",
+          "questionTranslation": "'You may not work for three days.' What does that mean?",
+          "optionsTranslation": [
+            "He cannot work because he currently has no job and no boss.",
+            "He should not work; the doctor does not allow it.",
+            "He must work for three days.",
+            "He does not want to work."
+          ]
+        },
+        {
+          "question": "Wie oft nimmt der Patient die Tabletten?",
+          "options": [
+            "eine am Morgen und eine am Abend",
+            "drei am Tag, morgens, mittags und abends",
+            "eine pro Woche",
+            "nur bei Fieber"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Nehmen Sie eine Tablette am Morgen und eine am Abend.\"",
+          "questionTranslation": "How often does the patient take the tablets?",
+          "optionsTranslation": [
+            "one in the morning and one in the evening",
+            "three a day, morning, noon and evening",
+            "one a week",
+            "only with fever"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.body",
+        "a1.possessives"
+      ],
+      "image": "quest_a1_2_hoeren_arzt"
+    }
+  },
+  {
+    "id": "quest_a1_2_hoeren_geburtstag",
+    "after": "quest_a1_2_pronomen_akk",
+    "help": {
+      "vocab": [
+        {
+          "de": "Geburtstag",
+          "en": "birthday",
+          "example": "Ich habe am Samstag Geburtstag.",
+          "article": "der",
+          "plural": "-e"
+        },
+        {
+          "de": "Party",
+          "en": "party",
+          "example": "Kommst du zu meiner Party?",
+          "article": "die",
+          "plural": "-s"
+        },
+        {
+          "de": "Geschenk",
+          "en": "present",
+          "example": "Und ein Geschenk?",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Kollege",
+          "en": "colleague",
+          "example": "Ich bringe für meine Kollegen einen Kuchen.",
+          "article": "der",
+          "plural": "-n"
+        },
+        {
+          "de": "Büro",
+          "en": "office",
+          "example": "Ich bringe einen Kuchen ins Büro.",
+          "article": "das",
+          "plural": "-s"
+        },
+        {
+          "de": "einladen",
+          "en": "to invite",
+          "example": "Ich lade dich ein."
+        },
+        {
+          "de": "abholen",
+          "en": "to pick up",
+          "example": "Kannst du mich abholen?"
+        },
+        {
+          "de": "gratulieren",
+          "en": "to congratulate",
+          "example": "Gratuliere mir am Samstag."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Kommst du zu meiner Party?",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.2",
+      "help": {
+        "intro": "A phone call of about one and a half minutes: Elif invites her friend Ben to her birthday party and they sort out the when, the where, the present and who picks up whom. On the way you learn two German birthday rules that surprise foreigners: you never congratulate before the day, and the birthday person brings the cake to work, not the colleagues. The scene is invented; the customs are real. You hear what you have just learnt: the accusative pronouns (Ich lade dich ein. Holst du mich ab? Ich kenne sie nicht) and separable verbs in a sentence (einladen, abholen, mitbringen, anrufen, anfangen: Ich hole dich um sieben ab). Listen once for the whole call, then once for the times and the tasks.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "mich, dich, ihn, sie, uns, euch",
+            "text": "The accusative pronouns are the object of the verb: Ich lade dich ein (I invite you). Holst du mich ab? (Do you pick me up?). Ich kenne ihn nicht (I do not know him). Wir sehen euch am Samstag (we see you all). Kennst du sie? (her / them). Only ich → mich, du → dich, er → ihn change their form; sie, es, uns, euch, Sie stay the same.",
+            "examples": [
+              {
+                "de": "Ich lade dich zu meiner Party ein. Kannst du mich um sieben abholen?",
+                "en": "I invite you to my party. Can you pick me up at seven?",
+                "focus": [
+                  "dich",
+                  "mich"
+                ]
+              },
+              {
+                "de": "Kennst du Jonas? Nein, ich kenne ihn nicht. Aber ich kenne sie, seine Schwester.",
+                "en": "Do you know Jonas? No, I do not know him. But I know her, his sister.",
+                "focus": [
+                  "ihn",
+                  "sie"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich rufe ____ morgen an. (du)",
+              "options": [
+                "dich",
+                "du",
+                "dir"
+              ],
+              "answer": "dich",
+              "why": "anrufen takes the accusative: ich rufe dich an."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Subject",
+              "right": "Object (accusative)",
+              "rows": [
+                {
+                  "a": "ich",
+                  "b": "mich"
+                },
+                {
+                  "a": "du",
+                  "b": "dich"
+                },
+                {
+                  "a": "er",
+                  "b": "ihn"
+                },
+                {
+                  "a": "sie / es",
+                  "b": "sie / es"
+                },
+                {
+                  "a": "wir / ihr / Sie",
+                  "b": "uns / euch / Sie"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Separable verbs in the sentence",
+            "text": "einladen, abholen, mitbringen, anrufen, anfangen, aufräumen: in a normal sentence the prefix goes to the end: Ich lade dich ein. Ich hole dich ab. Die Party fängt um acht an. Bring einen Salat mit! With a modal verb the whole verb stays together at the end: Kannst du mich abholen? Ich muss noch aufräumen. The stress is always on the prefix: EINladen, ABholen.",
+            "examples": [
+              {
+                "de": "Die Party fängt um acht an. Ich hole dich um halb acht ab.",
+                "en": "The party starts at eight. I pick you up at half past seven.",
+                "focus": [
+                  "fängt",
+                  "an",
+                  "hole",
+                  "ab"
+                ]
+              },
+              {
+                "de": "Kannst du einen Salat mitbringen? Ich muss noch aufräumen.",
+                "en": "Can you bring a salad? I still have to tidy up.",
+                "focus": [
+                  "mitbringen",
+                  "aufräumen"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Wann ____ die Party ____? (anfangen)",
+              "options": [
+                "fängt … an",
+                "anfängt …",
+                "fangt … an"
+              ],
+              "answer": "fängt … an",
+              "why": "anfangen is separable and has a vowel change: die Party fängt … an."
+            }
+          }
+        ],
+        "remember": [
+          "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht: mich, dich, ihn change; sie, uns, euch stay.",
+          "Separable verbs: prefix at the end (Ich hole dich ab), together after a modal (Kannst du mich abholen?)."
+        ],
+        "exam": "Short phone calls with invitations, times and arrangements are a typical listening task at this level.",
+        "hook": "A birthday invitation, a cake rule nobody told you, and the question who picks up whom at half past seven. Listen in."
+      },
+      "category": "Daily Life",
+      "speakers": {
+        "Elif": "female",
+        "Ben": "male"
+      },
+      "passageTitle": "Telefonat: Kommst du zu meiner Party?",
+      "passage": "Elif: Hallo Ben, hier ist Elif!\nBen: Hallo Elif! Wie geht es dir?\nElif: Gut! Ich habe am Samstag Geburtstag und mache eine Party. Ich lade dich ein. Kommst du?\nBen: Natürlich komme ich! Herzlichen Glückwunsch!\nElif: Nein, nein, noch nicht! In Deutschland gratuliert man nicht vor dem Geburtstag. Das bringt Unglück. Gratuliere mir am Samstag.\nBen: Oh, okay. Dann gratuliere ich dir am Samstag. Wann fängt die Party an?\nElif: Um acht Uhr, bei mir zu Hause. Kannst du mich vielleicht vorher abholen? Ich hole den Kuchen bei der Bäckerei ab, und er ist sehr groß.\nBen: Klar. Ich hole dich um halb sieben ab. Wo ist die Bäckerei?\nElif: In der Gartenstraße, neben der Post. Ich rufe dich am Samstag um sechs an.\nBen: Gut. Soll ich etwas mitbringen?\nElif: Ja, bring bitte einen Salat mit. Und Musik! Du hast gute Musik.\nBen: Mache ich. Und ein Geschenk?\nElif: Du musst nichts kaufen. Aber wenn du willst: Ich lese gern. Ein Buch ist super.\nBen: Kommt Jonas auch?\nElif: Ja, ich lade ihn auch ein. Und seine Schwester. Kennst du sie?\nBen: Nein, ich kenne sie nicht. Aber das ist okay.\nElif: Ach, und noch etwas: Am Montag bringe ich für meine Kollegen einen Kuchen ins Büro. In Deutschland macht das die Person, die Geburtstag hat. Nicht die Kollegen! Also backe ich am Sonntag.\nBen: Zwei Kuchen in einer Woche. Du bist ein Glückspilz. Bis Samstag, Elif!\nElif: Bis Samstag! Und vergiss den Salat nicht!",
+      "passageTranslation": "Elif: Hello Ben, it is Elif!\nBen: Hello Elif! How are you?\nElif: Good! It is my birthday on Saturday and I am having a party. I invite you. Are you coming?\nBen: Of course I am coming! Happy birthday!\nElif: No, no, not yet! In Germany you do not congratulate before the birthday. It brings bad luck. Congratulate me on Saturday.\nBen: Oh, okay. Then I will congratulate you on Saturday. When does the party start?\nElif: At eight o'clock, at my place. Could you perhaps pick me up beforehand? I am picking up the cake at the bakery, and it is very big.\nBen: Sure. I will pick you up at half past six. Where is the bakery?\nElif: In Gartenstraße, next to the post office. I will call you on Saturday at six.\nBen: Good. Should I bring something?\nElif: Yes, please bring a salad. And music! You have good music.\nBen: Will do. And a present?\nElif: You do not have to buy anything. But if you want: I like reading. A book is great.\nBen: Is Jonas coming too?\nElif: Yes, I am inviting him too. And his sister. Do you know her?\nBen: No, I do not know her. But that is okay.\nElif: Oh, and one more thing: on Monday I am bringing a cake to the office for my colleagues. In Germany the person who has the birthday does that. Not the colleagues! So I am baking on Sunday.\nBen: Two cakes in one week. You are a lucky one. See you Saturday, Elif!\nElif: See you Saturday! And do not forget the salad!",
+      "questions": [
+        {
+          "question": "Wann hat Elif Geburtstag?",
+          "options": [
+            "am Sonntag",
+            "am Samstag",
+            "am Montag",
+            "heute"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ich habe am Samstag Geburtstag und mache eine Party.\"",
+          "questionTranslation": "When is Elif's birthday?",
+          "optionsTranslation": [
+            "on Sunday",
+            "on Saturday",
+            "on Monday",
+            "today"
+          ]
+        },
+        {
+          "question": "Warum sagt Elif „Nein, nein, noch nicht!“?",
+          "options": [
+            "Ben soll nicht zur Party kommen.",
+            "In Deutschland gratuliert man nicht vor dem Geburtstag.",
+            "Die Party ist noch nicht fertig, Elif muss noch den Kuchen holen.",
+            "Ben hat den falschen Tag."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"In Deutschland gratuliert man nicht vor dem Geburtstag. Das bringt Unglück.\"",
+          "questionTranslation": "Why does Elif say 'No, no, not yet!'?",
+          "optionsTranslation": [
+            "Ben should not come to the party.",
+            "In Germany you do not congratulate before the birthday.",
+            "The party is not ready yet, Elif still has to fetch the cake.",
+            "Ben has the wrong day."
+          ]
+        },
+        {
+          "question": "„Ich lade dich ein.“ Welche zwei Dinge siehst du in diesem Satz?",
+          "options": [
+            "Akkusativ-Pronomen dich und trennbares Verb einladen",
+            "Dativ-Pronomen dir und ein Modalverb am Satzende",
+            "Imperativ und Plural",
+            "Possessiv und Perfekt"
+          ],
+          "correctIndex": 0,
+          "explanation": "dich is the accusative of du; ein… laden is separable, the prefix ein goes to the end.",
+          "questionTranslation": "'I invite you.' Which two things do you see in this sentence?",
+          "optionsTranslation": [
+            "accusative pronoun dich and separable verb einladen",
+            "dative pronoun dir and a modal verb at the end of the sentence",
+            "imperative and plural",
+            "possessive and perfect"
+          ]
+        },
+        {
+          "question": "Wann holt Ben Elif ab, und wann fängt die Party an?",
+          "options": [
+            "um sechs; um sieben",
+            "um halb sieben; um acht",
+            "um acht; um halb sieben",
+            "um sieben; um neun"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Wann fängt die Party an? Um acht Uhr … Ich hole dich um halb sieben ab.\" Six o'clock is when Elif will call.",
+          "questionTranslation": "When does Ben pick Elif up, and when does the party start?",
+          "optionsTranslation": [
+            "at six; at seven",
+            "at half past six; at eight",
+            "at eight; at half past six",
+            "at seven; at nine"
+          ]
+        },
+        {
+          "question": "Was soll Ben mitbringen?",
+          "options": [
+            "einen Kuchen und ein Buch",
+            "einen Salat und Musik",
+            "Getränke und Blumen",
+            "nichts"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ja, bring bitte einen Salat mit. Und Musik!\"",
+          "questionTranslation": "What should Ben bring?",
+          "optionsTranslation": [
+            "a cake and a book",
+            "a salad and music",
+            "drinks and flowers",
+            "nothing"
+          ]
+        },
+        {
+          "question": "„Ich lade ihn auch ein. Und seine Schwester. Kennst du sie?“ Wer ist ihn, wer ist sie?",
+          "options": [
+            "ihn = Jonas, sie = seine Schwester",
+            "ihn = Ben, der Freund, sie = Elif, die Gastgeberin",
+            "ihn = der Kuchen, sie = die Party",
+            "ihn = Jonas, sie = die Kollegen"
+          ],
+          "correctIndex": 0,
+          "explanation": "ihn (accusative of er) refers to Jonas; sie (her) to his sister.",
+          "questionTranslation": "'I am inviting him too. And his sister. Do you know her?' Who is ihn, who is sie?",
+          "optionsTranslation": [
+            "ihn = Jonas, sie = his sister",
+            "ihn = Ben, the friend, sie = Elif, the host",
+            "ihn = the cake, sie = the party",
+            "ihn = Jonas, sie = the colleagues"
+          ]
+        },
+        {
+          "question": "Wer bringt in Deutschland den Kuchen ins Büro?",
+          "options": [
+            "die Kollegen, die zusammen Geld sammeln",
+            "der Chef",
+            "die Person, die Geburtstag hat",
+            "die Bäckerei"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"In Deutschland macht das die Person, die Geburtstag hat. Nicht die Kollegen!\"",
+          "questionTranslation": "Who brings the cake to the office in Germany?",
+          "optionsTranslation": [
+            "the colleagues, who collect money together",
+            "the boss",
+            "the person who has the birthday",
+            "the bakery"
+          ]
+        },
+        {
+          "question": "Was macht Elif am Sonntag?",
+          "options": [
+            "Sie feiert die Party.",
+            "Sie backt einen Kuchen für die Kollegen.",
+            "Sie holt den Kuchen bei der Bäckerei ab.",
+            "Sie ruft Ben an."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Am Montag bringe ich für meine Kollegen einen Kuchen ins Büro … Also backe ich am Sonntag.\"",
+          "questionTranslation": "What does Elif do on Sunday?",
+          "optionsTranslation": [
+            "She celebrates the party.",
+            "She bakes a cake for the colleagues.",
+            "She picks up the cake at the bakery.",
+            "She calls Ben."
+          ]
+        }
+      ],
+      "covers": [
+        "a1.accusative-pronouns",
+        "a1.separable-verbs"
+      ],
+      "image": "quest_a1_2_hoeren_geburtstag"
+    }
+  },
+  {
+    "id": "quest_a1_2_hoeren_baecker",
+    "after": "quest_a1_2_satzbau",
+    "help": {
+      "vocab": [
+        {
+          "de": "Wecker",
+          "en": "alarm clock",
+          "example": "Um drei Uhr klingelt der Wecker.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Backstube",
+          "en": "bakehouse",
+          "example": "Um halb vier bin ich in der Backstube.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Ofen",
+          "en": "oven",
+          "example": "Zuerst mache ich den Ofen an.",
+          "article": "der",
+          "plural": "¨-"
+        },
+        {
+          "de": "Teig",
+          "en": "dough",
+          "example": "Dann knete ich den Teig.",
+          "article": "der",
+          "plural": "-e"
+        },
+        {
+          "de": "Laden",
+          "en": "shop",
+          "example": "Um sechs machen wir den Laden auf.",
+          "article": "der",
+          "plural": "¨-"
+        },
+        {
+          "de": "aufstehen",
+          "en": "to get up",
+          "example": "Um drei Uhr aufstehen ist hart."
+        },
+        {
+          "de": "aufmachen",
+          "en": "to open",
+          "example": "Meine Frau macht den Laden auf."
+        },
+        {
+          "de": "zumachen",
+          "en": "to close",
+          "example": "Um achtzehn Uhr machen wir zu."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Um drei Uhr aufstehen",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.2",
+      "help": {
+        "intro": "A radio interview of about one and a half minutes with a baker: he gets up at three in the morning, bakes four hundred rolls before you wake up, and has his evening at six. He explains why the bread tastes different in every town, what the hardest hour of his day is and why there are fewer and fewer bakeries like his. The baker is an invented person; the working hours and the numbers are the real ones of the trade. You hear what you have just learnt: times (um drei Uhr, um halb vier, von vier bis acht), separable verbs in a day's routine (aufstehen, anfangen, aufmachen, zumachen, einschlafen) and the connectors und, aber, dann, deshalb that join his sentences. Listen once for the whole day, then once for each time.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "The day in times and separable verbs",
+            "text": "Um drei Uhr stehe ich auf (aufstehen). Um halb vier fange ich an (anfangen). Um sechs machen wir auf (aufmachen = to open). Um achtzehn Uhr machen wir zu (zumachen = to close). Um neun schlafe ich ein (einschlafen). The prefix goes to the end; the time usually comes first and pushes the verb into position 2: Um drei Uhr stehe ich auf. Clock times: halb vier = 3:30, Viertel nach vier = 4:15, Viertel vor fünf = 4:45.",
+            "examples": [
+              {
+                "de": "Um drei Uhr stehe ich auf, um halb vier fange ich an.",
+                "en": "At three o'clock I get up, at half past three I start.",
+                "focus": [
+                  "Um drei Uhr",
+                  "stehe",
+                  "auf",
+                  "halb vier",
+                  "fange",
+                  "an"
+                ]
+              },
+              {
+                "de": "Um sechs machen wir den Laden auf, um achtzehn Uhr machen wir zu.",
+                "en": "At six we open the shop, at six in the evening we close.",
+                "focus": [
+                  "machen",
+                  "auf",
+                  "machen",
+                  "zu"
+                ]
+              }
+            ],
+            "check": {
+              "q": "halb vier is:",
+              "options": [
+                "3:30",
+                "4:30",
+                "3:45"
+              ],
+              "answer": "3:30",
+              "why": "halb vier = half of the way to four = 3:30."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Time",
+              "right": "Separable verb",
+              "rows": [
+                {
+                  "a": "um 3:00",
+                  "b": "stehe ich auf (aufstehen)"
+                },
+                {
+                  "a": "um 3:30 (halb vier)",
+                  "b": "fange ich an (anfangen)"
+                },
+                {
+                  "a": "um 6:00",
+                  "b": "machen wir auf (aufmachen)"
+                },
+                {
+                  "a": "um 18:00",
+                  "b": "machen wir zu (zumachen)"
+                },
+                {
+                  "a": "um 21:00",
+                  "b": "schlafe ich ein (einschlafen)"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Joining sentences: und, aber, dann, deshalb",
+            "text": "und (and) and aber (but) join two sentences without changing the word order: Ich stehe früh auf, aber ich bin nicht müde. dann (then) and deshalb (that is why) take position 1 and push the verb to position 2: Dann fange ich an. Deshalb gibt es weniger Bäckereien. Also zuerst (first), danach (after that), später (later) work like dann.",
+            "examples": [
+              {
+                "de": "Zuerst mache ich den Ofen an, dann knete ich den Teig, danach forme ich die Brötchen.",
+                "en": "First I switch on the oven, then I knead the dough, after that I shape the rolls.",
+                "focus": [
+                  "Zuerst",
+                  "dann",
+                  "danach"
+                ]
+              },
+              {
+                "de": "Die Arbeit ist hart, deshalb finden wir kaum Lehrlinge.",
+                "en": "The work is hard, that is why we hardly find apprentices.",
+                "focus": [
+                  "deshalb",
+                  "finden"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich bin müde, ____ gehe ich früh ins Bett.",
+              "options": [
+                "deshalb",
+                "aber",
+                "und"
+              ],
+              "answer": "deshalb",
+              "why": "deshalb = that is why; it gives the consequence and takes position 1 with the verb right after it."
+            }
+          }
+        ],
+        "remember": [
+          "Um drei Uhr stehe ich auf; um sechs machen wir auf; um achtzehn Uhr machen wir zu.",
+          "und / aber keep the word order; dann / deshalb / danach take position 1, verb in position 2."
+        ],
+        "exam": "Short interviews about a person's day with times and routines are a typical listening task at this level.",
+        "hook": "Three in the morning, four hundred rolls before sunrise, and bed at nine: listen to a baker's day, hour by hour."
+      },
+      "category": "Work",
+      "speakers": {
+        "Reporterin": "female",
+        "Bäcker": "male"
+      },
+      "passageTitle": "Interview: Um drei Uhr aufstehen",
+      "passage": "Reporterin: Herr Lang, Sie sind Bäcker in Bamberg. Wann beginnt Ihr Tag?\nBäcker: Um drei Uhr. Da klingelt der Wecker. Um halb vier bin ich in der Backstube und fange an.\nReporterin: Was machen Sie zuerst?\nBäcker: Zuerst mache ich den Ofen an. Dann knete ich den Teig für die Brötchen. Danach forme ich die Brötchen, etwa vierhundert Stück. Um fünf Uhr kommen die ersten Brote in den Ofen.\nReporterin: Und wann machen Sie den Laden auf?\nBäcker: Um sechs Uhr. Meine Frau macht den Laden auf, und ich backe weiter. Von sechs bis acht ist es sehr voll. Alle wollen frische Brötchen zum Frühstück.\nReporterin: Was ist die schwerste Stunde?\nBäcker: Die erste. Um drei Uhr aufstehen ist hart, auch nach dreißig Jahren. Aber dann ist es ruhig in der Backstube, nur ich und der Ofen. Das mag ich.\nReporterin: Warum schmeckt Ihr Brot anders als das Brot im Supermarkt?\nBäcker: Der Teig braucht Zeit. Mein Teig ruht zwölf Stunden, im Supermarkt oft nur eine. Und jede Stadt hat ihr eigenes Rezept. Deshalb schmeckt das Brot in Bamberg anders als in Hamburg.\nReporterin: Wie viele Bäckereien gibt es noch in Deutschland?\nBäcker: Etwa neuntausend. Vor dreißig Jahren waren es doppelt so viele. Die Arbeit ist hart und die Nacht ist lang, deshalb finden wir kaum junge Leute.\nReporterin: Und wann endet Ihr Tag?\nBäcker: Um dreizehn Uhr bin ich fertig mit Backen. Dann schlafe ich zwei Stunden. Um achtzehn Uhr machen wir den Laden zu, wir essen zusammen, und um neun Uhr schlafe ich ein. Um drei Uhr klingelt wieder der Wecker.",
+      "passageTranslation": "Reporter: Mr Lang, you are a baker in Bamberg. When does your day begin?\nBaker: At three o'clock. That is when the alarm rings. At half past three I am in the bakehouse and start.\nReporter: What do you do first?\nBaker: First I switch on the oven. Then I knead the dough for the rolls. After that I shape the rolls, about four hundred. At five o'clock the first loaves go into the oven.\nReporter: And when do you open the shop?\nBaker: At six o'clock. My wife opens the shop, and I keep baking. From six to eight it is very busy. Everyone wants fresh rolls for breakfast.\nReporter: What is the hardest hour?\nBaker: The first. Getting up at three is hard, even after thirty years. But then it is quiet in the bakehouse, only me and the oven. I like that.\nReporter: Why does your bread taste different from the bread in the supermarket?\nBaker: The dough needs time. My dough rests twelve hours, in the supermarket often only one. And every town has its own recipe. That is why the bread in Bamberg tastes different from Hamburg.\nReporter: How many bakeries are there still in Germany?\nBaker: About nine thousand. Thirty years ago there were twice as many. The work is hard and the night is long, that is why we hardly find young people.\nReporter: And when does your day end?\nBaker: At one o'clock I am finished baking. Then I sleep for two hours. At six in the evening we close the shop, we eat together, and at nine I fall asleep. At three the alarm rings again.",
+      "questions": [
+        {
+          "question": "Um wie viel Uhr steht der Bäcker auf?",
+          "options": [
+            "um drei Uhr",
+            "um halb vier",
+            "um fünf Uhr",
+            "um sechs Uhr"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Um drei Uhr. Da klingelt der Wecker.\" At half past three he starts work.",
+          "questionTranslation": "At what time does the baker get up?",
+          "optionsTranslation": [
+            "at three o'clock",
+            "at half past three",
+            "at five o'clock",
+            "at six o'clock"
+          ]
+        },
+        {
+          "question": "Was macht er zuerst in der Backstube?",
+          "options": [
+            "Er formt die Brötchen.",
+            "Er macht den Ofen an.",
+            "Er macht den Laden auf.",
+            "Er schläft zwei Stunden."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Zuerst mache ich den Ofen an. Dann knete ich den Teig …\"",
+          "questionTranslation": "What does he do first in the bakehouse?",
+          "optionsTranslation": [
+            "He shapes the rolls.",
+            "He switches on the oven.",
+            "He opens the shop.",
+            "He sleeps for two hours."
+          ]
+        },
+        {
+          "question": "Wie viele Brötchen formt er?",
+          "options": [
+            "etwa vierzig",
+            "etwa vierhundert",
+            "etwa viertausend",
+            "etwa neuntausend"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Danach forme ich die Brötchen, etwa vierhundert Stück.\"",
+          "questionTranslation": "How many rolls does he shape?",
+          "optionsTranslation": [
+            "about forty",
+            "about four hundred",
+            "about four thousand",
+            "about nine thousand"
+          ]
+        },
+        {
+          "question": "„Um sechs Uhr. Meine Frau macht den Laden auf.“ Welches Verb ist das?",
+          "options": [
+            "machen",
+            "aufmachen, trennbar: öffnen",
+            "zumachen, trennbar: den Laden am Abend schließen",
+            "anmachen"
+          ],
+          "correctIndex": 1,
+          "explanation": "auf … machen = aufmachen (to open); the prefix auf stands at the end.",
+          "questionTranslation": "'At six o'clock. My wife opens the shop.' Which verb is that?",
+          "optionsTranslation": [
+            "machen",
+            "aufmachen, separable: to open",
+            "zumachen, separable: to close the shop in the evening",
+            "anmachen"
+          ]
+        },
+        {
+          "question": "Wann ist es im Laden sehr voll?",
+          "options": [
+            "von drei bis fünf Uhr am Morgen",
+            "von sechs bis acht",
+            "um dreizehn Uhr",
+            "am Abend"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Von sechs bis acht ist es sehr voll. Alle wollen frische Brötchen zum Frühstück.\"",
+          "questionTranslation": "When is the shop very busy?",
+          "optionsTranslation": [
+            "from three to five in the morning",
+            "from six to eight",
+            "at one o'clock",
+            "in the evening"
+          ]
+        },
+        {
+          "question": "Warum schmeckt sein Brot anders als im Supermarkt?",
+          "options": [
+            "weil er mehr Salz nimmt",
+            "weil sein Teig zwölf Stunden ruht und jede Stadt ihr eigenes Rezept hat",
+            "weil er um drei Uhr aufsteht und schon um fünf Uhr die ersten Brote backt",
+            "weil der Ofen alt ist"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Mein Teig ruht zwölf Stunden, im Supermarkt oft nur eine. Und jede Stadt hat ihr eigenes Rezept.\"",
+          "questionTranslation": "Why does his bread taste different from the supermarket?",
+          "optionsTranslation": [
+            "because he uses more salt",
+            "because his dough rests twelve hours and every town has its own recipe",
+            "because he gets up at three and bakes the first loaves at five already",
+            "because the oven is old"
+          ]
+        },
+        {
+          "question": "„Die Arbeit ist hart und die Nacht ist lang, deshalb finden wir kaum junge Leute.“ Was zeigt deshalb?",
+          "options": [
+            "einen Gegensatz zwischen der Arbeit und der Nacht",
+            "die Folge: darum gibt es kaum junge Leute",
+            "eine Zeit",
+            "eine Frage"
+          ],
+          "correctIndex": 1,
+          "explanation": "deshalb = that is why; it introduces the consequence of the hard work and takes position 1, verb in position 2 (finden wir).",
+          "questionTranslation": "'The work is hard and the night is long, that is why we hardly find young people.' What does deshalb show?",
+          "optionsTranslation": [
+            "a contrast between the work and the night",
+            "the consequence: that is why there are hardly any young people",
+            "a time",
+            "a question"
+          ]
+        },
+        {
+          "question": "Wann schläft der Bäcker ein?",
+          "options": [
+            "um dreizehn Uhr",
+            "um achtzehn Uhr, direkt nach dem Laden",
+            "um neun Uhr abends",
+            "um drei Uhr"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"… und um neun Uhr schlafe ich ein. Um drei Uhr klingelt wieder der Wecker.\"",
+          "questionTranslation": "When does the baker fall asleep?",
+          "optionsTranslation": [
+            "at one o'clock",
+            "at six in the evening, right after the shop",
+            "at nine in the evening",
+            "at three o'clock"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.time",
+        "a1.separable-verbs"
+      ],
+      "image": "quest_a1_2_hoeren_baecker"
+    }
   }
 ]
