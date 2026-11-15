@@ -11018,6 +11018,62 @@
 			"target": "quest_c2_1_hoeren_karlsruhe",
 			"note": "C2.1 Hören: Die Richter in Rot",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "c22-85",
+			"kind": "quiz",
+			"target": "quest_c2_2_lesen_reform",
+			"note": "C2.2 Lesen: Der Streit um das scharfe S",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c22-86",
+			"kind": "quiz",
+			"target": "quest_c2_2_lesen_arendt",
+			"note": "C2.2 Lesen: Die Banalität des Bösen",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c22-87",
+			"kind": "quiz",
+			"target": "quest_c2_2_lesen_dach",
+			"note": "C2.2 Lesen: Dreiundzwanzig Wörter für Europa",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c22-88",
+			"kind": "quiz",
+			"target": "quest_c2_2_lesen_unwort",
+			"note": "C2.2 Lesen: Das Unwort",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c22-89",
+			"kind": "quiz",
+			"target": "quest_c2_2_lesen_fremdwort",
+			"note": "C2.2 Lesen: Die Männer, die den Bahnsteig erfanden",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c22-90",
+			"kind": "quiz",
+			"target": "quest_c2_2_hoeren_amtsdeutsch",
+			"note": "C2.2 Hören: Der Bescheid, den niemand versteht",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c22-91",
+			"kind": "quiz",
+			"target": "quest_c2_2_hoeren_dolmetscher",
+			"note": "C2.2 Hören: Warten auf das Verb",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c22-92",
+			"kind": "quiz",
+			"target": "quest_c2_2_hoeren_kleist",
+			"note": "C2.2 Hören: Denken beim Reden",
+			"since": "2026-11-15"
 		}
 	]
 }

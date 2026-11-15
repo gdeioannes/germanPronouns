@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "C2.2: eight new texts, in the app and in the book",
+    items: [
+      "Five essays of about 750 words on language and thought: the ten-year fight over the spelling reform, Hannah Arendt and the banality of evil, the 23 Austrian words written into a European treaty, the non-word of the year, and the purists who invented Bahnsteig and Abteil.",
+      "Three new listening exercises: a feature on the official notice nobody understands, a conversation with an interpreter who waits for the German verb, and a radio essay on Kleist's thinking while speaking.",
+      "The facts are real and were checked; the advice-centre scene and the interpreter are invented. All eight texts show a free-licence photo of their subject, with credit.",
+      "The C2.2 word deck grew from 364 to 423 cards, each new card with a sentence from its text, and the C2.2 book gained the \"Mehr lesen und hören\" section with all eight texts. With this, every level from B2.1 to C2.2 has its eight new texts.",
+    ],
+  },
+  {
+    date: "2026-11-15",
     title: "C2.1: eight new texts, in the app and in the book",
     items: [
       "Five essays of about 750 words on economy and law: the year 1923 when money weighed nothing, the sixty-billion ruling that shook a government, the Wirecard billions that never existed, the world market leaders nobody knows, and Kafka's man from the country before the law.",
