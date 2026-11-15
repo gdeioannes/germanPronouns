@@ -11298,6 +11298,62 @@
 			"target": "quest_a2_2_hoeren_wohnung",
 			"note": "A2.2 Hören: Die Wohnungsbesichtigung",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "b11-85",
+			"kind": "quiz",
+			"target": "quest_b1_1_lesen_viertage",
+			"note": "B1.1 Lesen: Vier Tage arbeiten, fünf bezahlt",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b11-86",
+			"kind": "quiz",
+			"target": "quest_b1_1_lesen_verein",
+			"note": "B1.1 Lesen: Das Land der Vereine",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b11-87",
+			"kind": "quiz",
+			"target": "quest_b1_1_lesen_ausbildung",
+			"note": "B1.1 Lesen: Lernen im Betrieb",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b11-88",
+			"kind": "quiz",
+			"target": "quest_b1_1_lesen_grundeinkommen",
+			"note": "B1.1 Lesen: 1.200 Euro, drei Jahre, keine Fragen",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b11-89",
+			"kind": "quiz",
+			"target": "quest_b1_1_lesen_kleingarten",
+			"note": "B1.1 Lesen: Ein Drittel Gemüse, Pflicht",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b11-90",
+			"kind": "quiz",
+			"target": "quest_b1_1_hoeren_fachkraft",
+			"note": "B1.1 Hören: Warum ich geblieben bin",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b11-91",
+			"kind": "quiz",
+			"target": "quest_b1_1_hoeren_urlaub",
+			"note": "B1.1 Hören: Könnten Sie mir sagen, ob …?",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b11-92",
+			"kind": "quiz",
+			"target": "quest_b1_1_hoeren_elternzeit",
+			"note": "B1.1 Hören: Ich werde zu Hause bleiben",
+			"since": "2026-11-15"
 		}
 	]
 }

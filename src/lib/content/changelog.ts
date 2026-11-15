@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "B1.1: eight new texts, in the app and in the book",
+    items: [
+      "Five readings of about 350 words with real facts: the German four-day-week experiment of 2024, the country of 600,000 clubs, dual vocational training, the basic-income pilot with 122 people, and the allotment garden with its own federal law.",
+      "Three new listening pieces: an interview with an electrician from Seville who stayed, a phone call with HR about holiday entitlement, and a feature on parental leave.",
+      "The facts are real and were checked; the interview, the phone call and the father in the feature are invented. Every text shows a free-licence photo of its subject, with credit. Help is in German first, with English behind the button.",
+      "The B1.1 word deck grew from 286 to 346 cards, each new card with a sentence from its text, and the B1.1 book gained the \"Mehr lesen und hören\" section with all eight texts.",
+    ],
+  },
+  {
+    date: "2026-11-15",
     title: "A2.2: eight new texts, in the app and in the book",
     items: [
       "Five readings of about 200 words with real facts: how beer is brewed under a law from 1516, how the Brothers Grimm collected their tales, Dirndl and Lederhose, renting a flat in Germany, and the citizenship test.",
