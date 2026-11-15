@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "C1.1: eight new texts, in the app and in the book",
+    items: [
+      "Five essays of about 750 words: where the Grimms' tales really came from, the Humboldt myth, the replication crisis in psychology, whether you think differently in German, and how a word gets into the dictionary.",
+      "Three new listening exercises: a lecture on Gutenberg and his trial, a talk on the spelling reform and the fight over the ß, and a panel taking stock of 25 years of bachelor's degrees.",
+      "The facts are real and were checked; the lecture, the talk and the panel are invented scenes. Four texts show a free-licence photo of their subject, with credit.",
+      "The C1.1 word deck grew from 274 to 407 cards, each new card with a sentence from its text, and the C1.1 book gained the \"Mehr lesen und hören\" section with all eight texts.",
+    ],
+  },
+  {
+    date: "2026-11-15",
     title: "B2.2: eight new texts, in the app and in the book",
     items: [
       "Five new reading texts of about 500 words: the Krefeld insect study, the Wadden Sea, two discoveries made by accident (X-rays and penicillin), the return of the wolves, and the bottle deposit that missed its own goal.",

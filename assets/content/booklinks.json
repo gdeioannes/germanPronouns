@@ -10850,6 +10850,62 @@
 			"target": "quest_b2_2_hoeren_nacht",
 			"note": "B2.2 Hören: Licht aus?",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "c11-85",
+			"kind": "quiz",
+			"target": "quest_c1_1_lesen_grimm",
+			"note": "C1.1 Lesen: Woher die Märchen kamen",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c11-86",
+			"kind": "quiz",
+			"target": "quest_c1_1_lesen_humboldt",
+			"note": "C1.1 Lesen: Der Mythos Humboldt",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c11-87",
+			"kind": "quiz",
+			"target": "quest_c1_1_lesen_replikation",
+			"note": "C1.1 Lesen: Die Krise der Wiederholung",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c11-88",
+			"kind": "quiz",
+			"target": "quest_c1_1_lesen_sprache",
+			"note": "C1.1 Lesen: Denkt man auf Deutsch anders?",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c11-89",
+			"kind": "quiz",
+			"target": "quest_c1_1_lesen_duden",
+			"note": "C1.1 Lesen: Wie ein Wort ins Wörterbuch kommt",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c11-90",
+			"kind": "quiz",
+			"target": "quest_c1_1_hoeren_gutenberg",
+			"note": "C1.1 Hören: Vorlesung über Gutenberg",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c11-91",
+			"kind": "quiz",
+			"target": "quest_c1_1_hoeren_rechtschreibung",
+			"note": "C1.1 Hören: Der Streit ums ß",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c11-92",
+			"kind": "quiz",
+			"target": "quest_c1_1_hoeren_bologna",
+			"note": "C1.1 Hören: 25 Jahre Bachelor",
+			"since": "2026-11-15"
 		}
 	]
 }
