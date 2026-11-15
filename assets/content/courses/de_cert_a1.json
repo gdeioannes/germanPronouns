@@ -45546,6 +45546,324 @@
       "image": "card_grammar_a2_1"
     },
     {
+      "id": "quest_a2_1_lesen_adler",
+      "type": "reading",
+      "title": "Lesen: Der Adler fährt",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.1",
+      "help": {
+        "intro": "A text of about 200 words about the day the first railway in Germany ran: 7 December 1835, from Nürnberg to Fürth, six kilometres in nine minutes, with a locomotive called Adler that came from England together with its driver, who earned more than the mayor. The text tells what people feared, who rode along, and what became of the little railway. All facts are real and were checked. You read it in the past, the way Germans tell stories: Perfekt with haben for most verbs (hat gebaut, hat gekostet, haben gewartet) and with sein for movement and change (ist gefahren, ist gekommen, sind eingestiegen, ist geblieben). Read for the story first, then find one date, number or person per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Perfekt with sein: movement and change",
+            "text": "sein + participle for verbs of movement from A to B (fahren, kommen, gehen, fliegen, laufen, einsteigen, ankommen) and for change of state (werden, aufstehen, einschlafen, sterben), plus sein and bleiben themselves: Der Zug ist gefahren. Die Lokomotive ist aus England gekommen. Die Leute sind eingestiegen. Alles ist gut geblieben. Everything else takes haben: Der Zug hat neun Minuten gebraucht. Die Leute haben Angst gehabt.",
+            "examples": [
+              {
+                "de": "Der Adler ist am 7. Dezember 1835 zum ersten Mal gefahren und nach neun Minuten in Fürth angekommen.",
+                "en": "The Adler ran for the first time on 7 December 1835 and arrived in Fürth after nine minutes.",
+                "focus": [
+                  "ist",
+                  "gefahren",
+                  "angekommen"
+                ]
+              },
+              {
+                "de": "Zweihundert Menschen sind eingestiegen, und niemand ist krank geworden.",
+                "en": "Two hundred people got on, and nobody fell ill.",
+                "focus": [
+                  "sind eingestiegen",
+                  "ist",
+                  "geworden"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Der Lokführer ____ aus England gekommen.",
+              "options": [
+                "ist",
+                "hat",
+                "war"
+              ],
+              "answer": "ist",
+              "why": "kommen is movement from A to B: sein + gekommen."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "sein + …",
+              "right": "haben + …",
+              "rows": [
+                {
+                  "a": "ist gefahren, gekommen, angekommen",
+                  "b": "hat gebaut, gekauft, bezahlt"
+                },
+                {
+                  "a": "sind eingestiegen, ausgestiegen",
+                  "b": "haben gewartet, gehabt, gesehen"
+                },
+                {
+                  "a": "ist geworden, geblieben, gewesen",
+                  "b": "hat gekostet, gedauert, gebraucht"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Irregular participles in this text",
+            "text": "fahren → gefahren, kommen → gekommen, bleiben → geblieben, werden → geworden, steigen → gestiegen (eingestiegen), sehen → gesehen, bringen → gebracht, denken → gedacht, haben → gehabt, sein → gewesen. Separable verbs put ge- in the middle: ein-ge-stiegen, an-ge-kommen. Verbs on -ieren have no ge-: transportiert, passiert.",
+            "examples": [
+              {
+                "de": "Viele Leute haben gedacht: Das ist gefährlich! Aber nichts ist passiert.",
+                "en": "Many people thought: that is dangerous! But nothing happened.",
+                "focus": [
+                  "gedacht",
+                  "passiert"
+                ]
+              },
+              {
+                "de": "Die Lokomotive hat man in Teilen nach Nürnberg gebracht.",
+                "en": "The locomotive was brought to Nürnberg in parts.",
+                "focus": [
+                  "gebracht"
+                ]
+              }
+            ],
+            "check": {
+              "q": "The participle of einsteigen is:",
+              "options": [
+                "eingestiegen",
+                "geeinstiegen",
+                "einsteigt"
+              ],
+              "answer": "eingestiegen",
+              "why": "Separable verb: prefix + ge + stem: ein-ge-stiegen."
+            }
+          }
+        ],
+        "remember": [
+          "sein for movement and change: ist gefahren, gekommen, angekommen, geworden, geblieben.",
+          "haben for the rest: hat gebaut, gekostet, gedauert; -ieren without ge-: passiert."
+        ],
+        "exam": "Short historical texts told in the Perfekt with dates and numbers are a typical reading task at this level.",
+        "hook": "Six kilometres in nine minutes, a locomotive from England and a driver who earned more than the mayor: read about the first train in Germany.",
+        "vocab": [
+          {
+            "de": "Eisenbahn",
+            "en": "railway",
+            "example": "Die erste Eisenbahn in Deutschland ist 1835 gefahren.",
+            "article": "die",
+            "plural": "-en"
+          },
+          {
+            "de": "Lokomotive",
+            "en": "locomotive",
+            "example": "Die Lokomotive hat den Namen Adler bekommen.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Strecke",
+            "en": "line, route",
+            "example": "Die Strecke war nur sechs Kilometer lang.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Lokführer",
+            "en": "train driver",
+            "example": "Der Lokführer ist aus England gekommen.",
+            "article": "der",
+            "plural": "-"
+          },
+          {
+            "de": "Kutsche",
+            "en": "carriage, coach",
+            "example": "Mit der Kutsche hat man über eine Stunde gebraucht.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Fass",
+            "en": "barrel",
+            "example": "Die erste Fracht waren zwei Fässer Bier.",
+            "article": "das",
+            "plural": "¨-er"
+          },
+          {
+            "de": "Nachbau",
+            "en": "replica",
+            "example": "Heute steht ein Nachbau im Verkehrsmuseum.",
+            "article": "der",
+            "plural": "-ten"
+          },
+          {
+            "de": "verdienen",
+            "en": "to earn",
+            "example": "Er hat mehr verdient als der Bürgermeister."
+          }
+        ]
+      },
+      "category": "History",
+      "passageTitle": "Der Adler fährt",
+      "passage": "Am 7. Dezember 1835 ist in Nürnberg etwas Neues passiert: Die erste Eisenbahn in Deutschland ist gefahren. Die Strecke war nur sechs Kilometer lang, von Nürnberg nach Fürth. Die Fahrt hat neun Minuten gedauert. Mit der Kutsche hat man vorher über eine Stunde gebraucht.\n\nDie Lokomotive hat den Namen Adler bekommen. Sie ist aus England gekommen, von der Firma Stephenson in Newcastle. Man hat sie in Teilen mit dem Schiff und mit Pferdewagen nach Nürnberg gebracht. Auch der Lokführer ist aus England gekommen: William Wilson. Er hat 1.500 Gulden im Jahr verdient, mehr als der Bürgermeister! Er hat zwanzig Jahre in Nürnberg gearbeitet und ist nie nach England zurückgefahren.\n\nViele Menschen haben Angst gehabt. Ärzte haben gesagt: Bei 35 Kilometern pro Stunde wird man krank! Die Kühe geben keine Milch mehr! Aber am 7. Dezember sind zweihundert Leute eingestiegen, Musik hat gespielt, und alles ist gut gegangen. Niemand ist krank geworden.\n\nDie kleine Bahn hat Geld verdient. Im ersten Jahr sind 450.000 Menschen mitgefahren. Aber sie hat nicht nur Menschen transportiert: Die erste Fracht in der Geschichte der deutschen Eisenbahn waren zwei Fässer Bier.\n\nDer Adler ist bis 1857 gefahren. Dann hat man ihn verkauft. Heute steht ein Nachbau im Verkehrsmuseum in Nürnberg. Er fährt noch, an besonderen Tagen, langsam und mit viel Rauch.",
+      "passageTranslation": "On 7 December 1835 something new happened in Nürnberg: the first railway in Germany ran. The line was only six kilometres long, from Nürnberg to Fürth. The journey took nine minutes. By carriage people had needed over an hour before.\n\nThe locomotive was given the name Adler, eagle. It came from England, from the Stephenson company in Newcastle. It was brought to Nürnberg in parts by ship and horse cart. The driver came from England too: William Wilson. He earned 1,500 guilders a year, more than the mayor! He worked twenty years in Nürnberg and never went back to England.\n\nMany people were afraid. Doctors said: at 35 kilometres per hour you get ill! The cows stop giving milk! But on 7 December two hundred people got on, music played, and everything went well. Nobody fell ill.\n\nThe little railway made money. In the first year 450,000 people rode along. But it did not transport only people: the first freight in the history of German railways was two barrels of beer.\n\nThe Adler ran until 1857. Then it was sold. Today a replica stands in the transport museum in Nürnberg. It still runs, on special days, slowly and with a lot of smoke.",
+      "questions": [
+        {
+          "question": "Wie lang war die erste Strecke, und wie lange hat die Fahrt gedauert?",
+          "options": [
+            "sechs Kilometer, neun Minuten",
+            "neun Kilometer, sechs Minuten",
+            "sechzig Kilometer, eine Stunde",
+            "sechs Kilometer, eine Stunde"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Die Strecke war nur sechs Kilometer lang … Die Fahrt hat neun Minuten gedauert.\"",
+          "questionTranslation": "How long was the first line, and how long did the journey take?",
+          "optionsTranslation": [
+            "six kilometres, nine minutes",
+            "nine kilometres, six minutes",
+            "sixty kilometres, one hour",
+            "six kilometres, one hour"
+          ]
+        },
+        {
+          "question": "Woher ist die Lokomotive gekommen?",
+          "options": [
+            "aus Nürnberg",
+            "aus England",
+            "aus Frankreich",
+            "aus Fürth"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie ist aus England gekommen, von der Firma Stephenson in Newcastle.\"",
+          "questionTranslation": "Where did the locomotive come from?",
+          "optionsTranslation": [
+            "from Nürnberg",
+            "from England",
+            "from France",
+            "from Fürth"
+          ]
+        },
+        {
+          "question": "„Sie ist aus England gekommen.“ Warum ist und nicht hat?",
+          "options": [
+            "weil kommen eine Bewegung von A nach B ist",
+            "weil die Lokomotive feminin ist und feminine Nomen im Perfekt sein nehmen",
+            "weil England ein Land ist",
+            "weil der Satz kurz ist"
+          ],
+          "correctIndex": 0,
+          "explanation": "Verbs of movement from one place to another take sein in the Perfekt: ist gekommen.",
+          "questionTranslation": "'It came from England.' Why ist and not hat?",
+          "optionsTranslation": [
+            "because kommen is movement from A to B",
+            "because the locomotive is feminine and feminine nouns take sein in the perfect",
+            "because England is a country",
+            "because the sentence is short"
+          ]
+        },
+        {
+          "question": "Was ist über William Wilson richtig?",
+          "options": [
+            "Er war der Bürgermeister von Nürnberg.",
+            "Er hat mehr verdient als der Bürgermeister und ist zwanzig Jahre geblieben.",
+            "Er ist nach einem Jahr mit der Lokomotive nach England zurückgefahren und nie wiedergekommen.",
+            "Er hat die Lokomotive gebaut."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Er hat 1.500 Gulden im Jahr verdient, mehr als der Bürgermeister! Er hat zwanzig Jahre in Nürnberg gearbeitet und ist nie nach England zurückgefahren.\"",
+          "questionTranslation": "What is correct about William Wilson?",
+          "optionsTranslation": [
+            "He was the mayor of Nürnberg.",
+            "He earned more than the mayor and stayed twenty years.",
+            "He went back to England with the locomotive after one year and never returned.",
+            "He built the locomotive."
+          ]
+        },
+        {
+          "question": "Was haben die Ärzte gesagt?",
+          "options": [
+            "Die Bahn ist zu langsam.",
+            "Bei 35 Kilometern pro Stunde wird man krank.",
+            "Die Bahn ist gut für die Gesundheit, besonders für alte Menschen und Kinder.",
+            "Die Kühe geben mehr Milch."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ärzte haben gesagt: Bei 35 Kilometern pro Stunde wird man krank! Die Kühe geben keine Milch mehr!\"",
+          "questionTranslation": "What did the doctors say?",
+          "optionsTranslation": [
+            "The railway is too slow.",
+            "At 35 kilometres per hour you get ill.",
+            "The railway is good for health, especially for old people and children.",
+            "The cows give more milk."
+          ]
+        },
+        {
+          "question": "Was war die erste Fracht der deutschen Eisenbahn?",
+          "options": [
+            "zweihundert Menschen",
+            "Milch aus Fürth",
+            "zwei Fässer Bier",
+            "Teile einer Lokomotive"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Die erste Fracht in der Geschichte der deutschen Eisenbahn waren zwei Fässer Bier.\"",
+          "questionTranslation": "What was the first freight of the German railways?",
+          "optionsTranslation": [
+            "two hundred people",
+            "milk from Fürth",
+            "two barrels of beer",
+            "parts of a locomotive"
+          ]
+        },
+        {
+          "question": "Wie viele Menschen sind im ersten Jahr mitgefahren?",
+          "options": [
+            "zweihundert",
+            "1.500",
+            "45.000",
+            "450.000"
+          ],
+          "correctIndex": 3,
+          "explanation": "\"Im ersten Jahr sind 450.000 Menschen mitgefahren.\" Two hundred rode on the first day.",
+          "questionTranslation": "How many people rode along in the first year?",
+          "optionsTranslation": [
+            "two hundred",
+            "1,500",
+            "45,000",
+            "450,000"
+          ]
+        },
+        {
+          "question": "Wo kann man den Adler heute sehen?",
+          "options": [
+            "in Newcastle",
+            "als Nachbau im Verkehrsmuseum in Nürnberg",
+            "am Bahnhof in Fürth, wo er jeden Sonntag für Touristen fährt",
+            "nirgends, er ist verkauft"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Heute steht ein Nachbau im Verkehrsmuseum in Nürnberg. Er fährt noch, an besonderen Tagen …\"",
+          "questionTranslation": "Where can you see the Adler today?",
+          "optionsTranslation": [
+            "in Newcastle",
+            "as a replica in the transport museum in Nürnberg",
+            "at the station in Fürth, where it runs for tourists every Sunday",
+            "nowhere, it was sold"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.perfekt-sein",
+        "a2.perfekt-haben"
+      ],
+      "storageKeyPrefix": "quest_a2_1_lesen_adler_",
+      "image": "quest_a2_1_lesen_adler"
+    },
+    {
       "type": "speakRepeat",
       "id": "quest_a2_1_sprechen_wochenende",
       "title": "Sprechen: Mein Wochenende",
@@ -48192,6 +48510,338 @@
       "image": "card_grammar_a2_1"
     },
     {
+      "id": "quest_a2_1_lesen_dom",
+      "type": "reading",
+      "title": "Lesen: 632 Jahre Baustelle",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.1",
+      "help": {
+        "intro": "A text of about 200 words about the building that took longest to finish in Germany: Cologne Cathedral. Work began in 1248, stopped for three hundred years with a crane standing on the unfinished tower, and ended in 1880, 632 years after the first stone. For four years it was the tallest building in the world; it survived the war while the city around it fell; and today there is a saying that the world ends when the cathedral is finished, because the repairs never stop. All facts are real and were checked. You read it with the time prepositions you have just learnt: seit (since), vor (ago), nach (after), für (for a period), über (over, more than), bis (until), von … bis, and the past with war, hatte and Perfekt. Read for the story first, then find the dates.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "seit, vor, nach, für, über, bis",
+            "text": "seit + dative: since / for a time that still goes on: seit 1880, seit 150 Jahren (for 150 years, and still). vor + dative: ago: vor 800 Jahren (800 years ago). nach + dative: after: nach dem Krieg, nach 632 Jahren. für + accusative: for a planned period: für vier Jahre. über + accusative: more than: über 600 Jahre. bis: until: bis 1880; von 1248 bis 1880. Careful: seit is for things still true (Der Dom steht seit 1880), vor for a finished moment (Der Bau hat vor 800 Jahren begonnen).",
+            "examples": [
+              {
+                "de": "Der Bau hat vor fast 800 Jahren begonnen und über 600 Jahre gedauert; seit 1880 ist der Dom fertig.",
+                "en": "Construction began almost 800 years ago and took over 600 years; since 1880 the cathedral has been finished.",
+                "focus": [
+                  "vor fast 800 Jahren",
+                  "über 600 Jahre",
+                  "seit 1880"
+                ]
+              },
+              {
+                "de": "Von 1880 bis 1884, also für vier Jahre, war der Dom das höchste Gebäude der Welt.",
+                "en": "From 1880 to 1884, so for four years, the cathedral was the tallest building in the world.",
+                "focus": [
+                  "Von 1880 bis 1884",
+                  "für vier Jahre"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Der Dom steht ____ 1880. (and still stands)",
+              "options": [
+                "seit",
+                "vor",
+                "für"
+              ],
+              "answer": "seit",
+              "why": "A state that began in the past and continues takes seit: seit 1880."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Preposition",
+              "right": "Meaning, example",
+              "rows": [
+                {
+                  "a": "seit + Dat.",
+                  "b": "since / for (still going): seit 1880, seit 150 Jahren"
+                },
+                {
+                  "a": "vor + Dat.",
+                  "b": "ago: vor 800 Jahren"
+                },
+                {
+                  "a": "nach + Dat.",
+                  "b": "after: nach dem Krieg"
+                },
+                {
+                  "a": "für + Akk.",
+                  "b": "for (a period): für vier Jahre"
+                },
+                {
+                  "a": "über + Akk.",
+                  "b": "more than: über 600 Jahre"
+                },
+                {
+                  "a": "von … bis",
+                  "b": "from … to: von 1248 bis 1880"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Telling history: war, hatte, Perfekt",
+            "text": "Facts in the past: war and hatte for states (Der Dom war 157 Meter hoch. Die Stadt hatte kein Geld), the Perfekt for events (Man hat 1248 angefangen. Der Krieg hat die Stadt zerstört. Der Dom ist stehen geblieben). Passive-like facts often use man: Man hat den Dom 1880 fertig gebaut.",
+            "examples": [
+              {
+                "de": "Im Krieg hat man die Stadt zerstört, aber der Dom ist stehen geblieben.",
+                "en": "In the war the city was destroyed, but the cathedral remained standing.",
+                "focus": [
+                  "hat",
+                  "zerstört",
+                  "ist",
+                  "stehen geblieben"
+                ]
+              },
+              {
+                "de": "Dreihundert Jahre lang war der Dom eine Baustelle, und die Stadt hatte kein Geld.",
+                "en": "For three hundred years the cathedral was a building site, and the city had no money.",
+                "focus": [
+                  "war",
+                  "hatte"
+                ]
+              }
+            ],
+            "check": {
+              "q": "1880 ____ man den Dom fertig gebaut.",
+              "options": [
+                "hat",
+                "ist",
+                "war"
+              ],
+              "answer": "hat",
+              "why": "bauen takes haben in the Perfekt: man hat … gebaut."
+            }
+          }
+        ],
+        "remember": [
+          "seit 1880 (still), vor 800 Jahren (ago), nach dem Krieg, für vier Jahre, über 600 Jahre, von … bis.",
+          "History: war / hatte for states, Perfekt for events; man hat … gebaut."
+        ],
+        "exam": "Short texts about a famous building or place with dates and time expressions are a typical reading task at this level.",
+        "hook": "They started in 1248 and finished in 1880, with a crane standing on the tower for three hundred years. Read the story of Cologne Cathedral, the longest building site in Germany.",
+        "vocab": [
+          {
+            "de": "Dom",
+            "en": "cathedral",
+            "example": "Der Kölner Dom ist das berühmteste Gebäude in Köln.",
+            "article": "der",
+            "plural": "-e"
+          },
+          {
+            "de": "Gebäude",
+            "en": "building",
+            "example": "Kein anderes Gebäude hat so lange gedauert.",
+            "article": "das",
+            "plural": "-"
+          },
+          {
+            "de": "Besucher",
+            "en": "visitor",
+            "example": "Jedes Jahr kommen über sechs Millionen Besucher.",
+            "article": "der",
+            "plural": "-"
+          },
+          {
+            "de": "Turm",
+            "en": "tower",
+            "example": "Auf dem halben Turm stand ein Holzkran.",
+            "article": "der",
+            "plural": "¨-e"
+          },
+          {
+            "de": "Kran",
+            "en": "crane",
+            "example": "Der Kran ist dort 300 Jahre geblieben.",
+            "article": "der",
+            "plural": "¨-e"
+          },
+          {
+            "de": "Bombe",
+            "en": "bomb",
+            "example": "Der Dom hat vierzehn Bomben bekommen.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Steinmetz",
+            "en": "stonemason",
+            "example": "Seit 1880 arbeiten jeden Tag Steinmetze am Dom.",
+            "article": "der",
+            "plural": "-e"
+          },
+          {
+            "de": "zerstören",
+            "en": "to destroy",
+            "example": "Bomben haben die Stadt fast ganz zerstört."
+          }
+        ]
+      },
+      "category": "Culture",
+      "passageTitle": "632 Jahre Baustelle",
+      "passage": "Der Kölner Dom ist das berühmteste Gebäude in Köln. Jedes Jahr kommen über sechs Millionen Besucher. Aber kein anderes Gebäude in Deutschland hat so lange gedauert: 632 Jahre.\n\nDer Bau hat im Jahr 1248 begonnen. Die Menschen wollten die größte Kirche der Welt bauen. Aber nach etwa 300 Jahren, um 1530, hatte die Stadt kein Geld mehr. Die Arbeit ist einfach stehen geblieben. Auf dem halben Turm stand ein großer Holzkran, und er ist dort 300 Jahre geblieben! Für die Kölner war der Kran ein Teil der Stadt. Kinder haben ihn gezeichnet, Maler haben ihn gemalt.\n\nErst 1842 hat man weitergebaut. Jetzt hatte man neue Technik, und ganz Deutschland hat Geld gegeben. Am 15. Oktober 1880 war der Dom fertig: 157 Meter hoch. Von 1880 bis 1884, also für vier Jahre, war er das höchste Gebäude der Welt. Dann hat Washington ein höheres Monument gebaut.\n\nIm Zweiten Weltkrieg haben Bomben die Stadt Köln fast ganz zerstört. Der Dom hat vierzehn Bomben bekommen, aber er ist stehen geblieben. Nach dem Krieg war er lange das einzige große Gebäude zwischen den Ruinen.\n\nSeit 1880 arbeiten jeden Tag Steinmetze am Dom. Der Stein wird alt, der Regen macht ihn kaputt, und man muss immer etwas reparieren. In Köln sagt man deshalb: Wenn der Dom fertig ist, geht die Welt unter.",
+      "passageTranslation": "Cologne Cathedral is the most famous building in Cologne. Every year over six million visitors come. But no other building in Germany took so long: 632 years.\n\nConstruction began in the year 1248. People wanted to build the biggest church in the world. But after about 300 years, around 1530, the city had no more money. The work simply stopped. On the half-built tower stood a big wooden crane, and it stayed there 300 years! For the people of Cologne the crane was part of the city. Children drew it, painters painted it.\n\nOnly in 1842 did building resume. Now there was new technology, and all of Germany gave money. On 15 October 1880 the cathedral was finished: 157 metres high. From 1880 to 1884, so for four years, it was the tallest building in the world. Then Washington built a higher monument.\n\nIn the Second World War bombs destroyed the city of Cologne almost completely. The cathedral was hit by fourteen bombs, but it remained standing. After the war it was for a long time the only big building among the ruins.\n\nSince 1880 stonemasons have worked on the cathedral every day. The stone gets old, the rain damages it, and something always has to be repaired. In Cologne people therefore say: when the cathedral is finished, the world ends.",
+      "questions": [
+        {
+          "question": "Wie lange hat der Bau des Doms gedauert?",
+          "options": [
+            "300 Jahre",
+            "632 Jahre",
+            "157 Jahre",
+            "42 Jahre"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… kein anderes Gebäude in Deutschland hat so lange gedauert: 632 Jahre.\" 1248 to 1880.",
+          "questionTranslation": "How long did the building of the cathedral take?",
+          "optionsTranslation": [
+            "300 years",
+            "632 years",
+            "157 years",
+            "42 years"
+          ]
+        },
+        {
+          "question": "Warum ist die Arbeit um 1530 stehen geblieben?",
+          "options": [
+            "weil ein großer Krieg begonnen hat und alle Männer Soldaten wurden",
+            "weil die Stadt kein Geld mehr hatte",
+            "weil der Kran kaputt war",
+            "weil der Dom fertig war"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Aber nach etwa 300 Jahren, um 1530, hatte die Stadt kein Geld mehr. Die Arbeit ist einfach stehen geblieben.\"",
+          "questionTranslation": "Why did the work stop around 1530?",
+          "optionsTranslation": [
+            "because a big war began and all the men became soldiers",
+            "because the city had no more money",
+            "because the crane was broken",
+            "because the cathedral was finished"
+          ]
+        },
+        {
+          "question": "Was war 300 Jahre lang auf dem halben Turm?",
+          "options": [
+            "eine große Glocke aus Bronze",
+            "ein großer Holzkran",
+            "ein Baum",
+            "eine Fahne"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Auf dem halben Turm stand ein großer Holzkran, und er ist dort 300 Jahre geblieben!\"",
+          "questionTranslation": "What stood on the half-built tower for 300 years?",
+          "optionsTranslation": [
+            "a big bronze bell",
+            "a big wooden crane",
+            "a tree",
+            "a flag"
+          ]
+        },
+        {
+          "question": "„Von 1880 bis 1884, also für vier Jahre, war er das höchste Gebäude der Welt.“ Welche Präposition zeigt eine geplante Dauer?",
+          "options": [
+            "für",
+            "von",
+            "bis",
+            "seit"
+          ],
+          "correctIndex": 0,
+          "explanation": "für + accusative gives a period: für vier Jahre. von … bis gives the start and end points.",
+          "questionTranslation": "'From 1880 to 1884, so for four years, it was the tallest building in the world.' Which preposition shows a period?",
+          "optionsTranslation": [
+            "für",
+            "von",
+            "bis",
+            "seit"
+          ]
+        },
+        {
+          "question": "Was ist 1884 passiert?",
+          "options": [
+            "Der Dom ist fertig geworden.",
+            "Washington hat ein höheres Monument gebaut.",
+            "Der Zweite Weltkrieg hat begonnen und die Arbeit am Dom gestoppt.",
+            "Der Kran ist weggekommen."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Von 1880 bis 1884 … war er das höchste Gebäude der Welt. Dann hat Washington ein höheres Monument gebaut.\"",
+          "questionTranslation": "What happened in 1884?",
+          "optionsTranslation": [
+            "The cathedral was finished.",
+            "Washington built a higher monument.",
+            "The Second World War began and stopped the work on the cathedral.",
+            "The crane was removed."
+          ]
+        },
+        {
+          "question": "Was ist im Zweiten Weltkrieg mit dem Dom passiert?",
+          "options": [
+            "Er ist ganz zerstört worden, und man hat ihn nach dem Krieg neu gebaut.",
+            "Er hat vierzehn Bomben bekommen, ist aber stehen geblieben.",
+            "Nichts, keine Bombe hat ihn getroffen.",
+            "Man hat ihn abgebaut."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Der Dom hat vierzehn Bomben bekommen, aber er ist stehen geblieben.\"",
+          "questionTranslation": "What happened to the cathedral in the Second World War?",
+          "optionsTranslation": [
+            "It was completely destroyed and rebuilt after the war.",
+            "It was hit by fourteen bombs but remained standing.",
+            "Nothing, no bomb hit it.",
+            "It was taken down."
+          ]
+        },
+        {
+          "question": "„Seit 1880 arbeiten jeden Tag Steinmetze am Dom.“ Was sagt seit hier?",
+          "options": [
+            "Die Arbeit hat 1880 begonnen und geht bis heute weiter.",
+            "Die Arbeit war 1880 fertig, und seitdem arbeitet niemand mehr am Dom.",
+            "Die Arbeit beginnt 1880 noch einmal.",
+            "Die Arbeit hat vor 1880 aufgehört."
+          ],
+          "correctIndex": 0,
+          "explanation": "seit marks a period that began in the past and still continues: since 1880 and still today.",
+          "questionTranslation": "'Since 1880 stonemasons have worked on the cathedral every day.' What does seit say here?",
+          "optionsTranslation": [
+            "The work began in 1880 and continues to this day.",
+            "The work was finished in 1880, and since then nobody works on the cathedral any more.",
+            "The work starts again in 1880.",
+            "The work stopped before 1880."
+          ]
+        },
+        {
+          "question": "Was meint der Satz „Wenn der Dom fertig ist, geht die Welt unter“?",
+          "options": [
+            "Der Dom ist gefährlich.",
+            "Der Dom wird nie fertig, weil man immer reparieren muss.",
+            "Der Dom ist bald fertig, und dann feiert die ganze Stadt ein großes Fest.",
+            "Die Welt endet 1880."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Der Stein wird alt, der Regen macht ihn kaputt, und man muss immer etwas reparieren. In Köln sagt man deshalb …\": the repairs never end, so the cathedral is never finished.",
+          "questionTranslation": "What does the sentence 'When the cathedral is finished, the world ends' mean?",
+          "optionsTranslation": [
+            "The cathedral is dangerous.",
+            "The cathedral will never be finished because something always needs repairing.",
+            "The cathedral will soon be finished, and then the whole city celebrates a big festival.",
+            "The world ends in 1880."
+          ]
+        }
+      ],
+      "covers": [
+        "a2.temporal-prepositions-2",
+        "a2.war-hatte"
+      ],
+      "storageKeyPrefix": "quest_a2_1_lesen_dom_",
+      "image": "quest_a2_1_lesen_dom"
+    },
+    {
       "id": "quest_a2_1_woher_wo_wohin",
       "type": "fillBlank",
       "title": "Woher? Wo? Wohin?",
@@ -49012,6 +49662,331 @@
       "image": "card_grammar_a2_1"
     },
     {
+      "id": "quest_a2_1_lesen_urlaub",
+      "type": "reading",
+      "title": "Lesen: Wohin fahren die Deutschen?",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.1",
+      "help": {
+        "intro": "A text of about 200 words about the Germans on holiday: they are among the travel champions of the world, with about thirty days of holiday a year; most of them still spend their main holiday in their own country, by the Baltic Sea or in Bavaria; abroad the favourites are Spain, Italy and Austria; and a certain Spanish island is jokingly called the seventeenth federal state. The text also explains the Strandkorb, the German beach chair, and the towel on the sun lounger at six in the morning. The facts are real and were checked. You read what you have just learnt: Woher? Wo? Wohin? with the right prepositions and cases (nach Spanien, an die Ostsee, in den Bergen, auf Mallorca, aus Deutschland) and the dative prepositions (mit dem Auto, bei der Familie, zu Hause). Read for the gist first, then find one place or number per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Woher? Wo? Wohin? with places",
+            "text": "Wohin? (direction, accusative with in/an/auf): nach Spanien, nach Italien (countries without article); in die Berge, in die Türkei; an die Ostsee, ans Meer; auf die Insel, auf Mallorca (no article). Wo? (place, dative): in Spanien, in den Bergen, an der Ostsee, am Meer, auf der Insel, auf Mallorca, zu Hause. Woher? (origin): aus Deutschland, aus den Bergen, von der Ostsee, vom Meer, von Mallorca. Pairs to remember: an die Ostsee / an der Ostsee, in die Berge / in den Bergen.",
+            "examples": [
+              {
+                "de": "Viele fahren an die Ostsee oder in die Berge; dort, an der Ostsee und in den Bergen, bleiben sie zwei Wochen.",
+                "en": "Many go to the Baltic Sea or to the mountains; there, by the Baltic Sea and in the mountains, they stay two weeks.",
+                "focus": [
+                  "an die Ostsee",
+                  "in die Berge",
+                  "an der Ostsee",
+                  "in den Bergen"
+                ]
+              },
+              {
+                "de": "Woher kommen die Touristen auf Mallorca? Die meisten kommen aus Deutschland.",
+                "en": "Where do the tourists on Mallorca come from? Most come from Germany.",
+                "focus": [
+                  "Woher",
+                  "auf Mallorca",
+                  "aus Deutschland"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Wir fahren im Sommer ____ Ostsee.",
+              "options": [
+                "an die",
+                "an der",
+                "nach der"
+              ],
+              "answer": "an die",
+              "why": "Wohin? with an takes the accusative: an die Ostsee. an der Ostsee is Wo?."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Wohin? (Akk.)",
+              "right": "Wo? (Dat.)",
+              "rows": [
+                {
+                  "a": "an die Ostsee, ans Meer",
+                  "b": "an der Ostsee, am Meer"
+                },
+                {
+                  "a": "in die Berge, in die Türkei",
+                  "b": "in den Bergen, in der Türkei"
+                },
+                {
+                  "a": "auf die Insel, auf Mallorca",
+                  "b": "auf der Insel, auf Mallorca"
+                },
+                {
+                  "a": "nach Spanien, nach Hause",
+                  "b": "in Spanien, zu Hause"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Dative prepositions on holiday",
+            "text": "mit, nach, bei, seit, von, zu, aus always take the dative: mit dem Auto, mit der Bahn, mit dem Flugzeug; bei der Familie, bei Freunden; nach dem Frühstück; von der Arbeit; zu Hause, zum Strand (zu dem), zur Insel (zu der); aus dem Norden. Short forms: zum, zur, vom, beim.",
+            "examples": [
+              {
+                "de": "Die meisten fahren mit dem Auto, viele fliegen mit dem Flugzeug, und manche bleiben bei der Familie zu Hause.",
+                "en": "Most go by car, many fly by plane, and some stay at home with the family.",
+                "focus": [
+                  "mit dem Auto",
+                  "mit dem Flugzeug",
+                  "bei der Familie"
+                ]
+              },
+              {
+                "de": "Nach dem Frühstück gehen alle zum Strand, aber die Liege ist seit sechs Uhr besetzt.",
+                "en": "After breakfast everyone goes to the beach, but the sun lounger has been taken since six o'clock.",
+                "focus": [
+                  "Nach dem Frühstück",
+                  "zum Strand",
+                  "seit sechs Uhr"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Wir fahren ____ Zug nach Italien. (der Zug)",
+              "options": [
+                "mit dem",
+                "mit den",
+                "mit der"
+              ],
+              "answer": "mit dem",
+              "why": "mit takes the dative; der Zug → dem Zug."
+            }
+          }
+        ],
+        "remember": [
+          "Wohin? an die Ostsee, in die Berge, nach Spanien, auf Mallorca; Wo? an der Ostsee, in den Bergen, in Spanien, auf Mallorca.",
+          "mit, nach, bei, seit, von, zu, aus + dative: mit dem Auto, bei der Familie, zum Strand."
+        ],
+        "exam": "Short texts about travel and holidays with places and numbers are a typical reading task at this level.",
+        "hook": "Thirty days of holiday, a towel on the sun lounger at six in the morning and an island that Germans call their seventeenth state: read where the Germans go.",
+        "vocab": [
+          {
+            "de": "Urlaub",
+            "en": "holiday",
+            "example": "Die Deutschen haben viel Urlaub.",
+            "article": "der",
+            "plural": "-e"
+          },
+          {
+            "de": "Ausland",
+            "en": "abroad, foreign countries",
+            "example": "Im Ausland ist Spanien die Nummer eins.",
+            "article": "das"
+          },
+          {
+            "de": "Reiseland",
+            "en": "travel destination (country)",
+            "example": "Das beliebteste Reiseland ist Deutschland selbst.",
+            "article": "das",
+            "plural": "¨-er"
+          },
+          {
+            "de": "Strandkorb",
+            "en": "roofed beach chair",
+            "example": "An der Ostsee sitzen sie im Strandkorb.",
+            "article": "der",
+            "plural": "¨-e"
+          },
+          {
+            "de": "Insel",
+            "en": "island",
+            "example": "Jedes Jahr fliegen fünf Millionen Deutsche auf die Insel.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Handtuch",
+            "en": "towel",
+            "example": "Sie legen ein Handtuch auf die Liege.",
+            "article": "das",
+            "plural": "¨-er"
+          },
+          {
+            "de": "Liege",
+            "en": "sun lounger",
+            "example": "Die Liege ist jetzt besetzt.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "beliebt",
+            "en": "popular",
+            "example": "Das beliebteste Reiseland ist Deutschland."
+          }
+        ]
+      },
+      "category": "Travel",
+      "passageTitle": "Wohin fahren die Deutschen?",
+      "passage": "Die Deutschen haben viel Urlaub: etwa dreißig Tage im Jahr, plus die Feiertage. Und sie reisen gern. Nur die Chinesen und die Amerikaner geben im Ausland mehr Geld aus als die Deutschen.\n\nWohin fahren sie? Die Antwort überrascht viele: Das beliebteste Reiseland ist Deutschland selbst. Fast jeder dritte Deutsche macht den großen Urlaub im eigenen Land. Am liebsten fahren sie an die Ostsee, an die Nordsee oder in die Berge nach Bayern. An der Ostsee sitzen sie dann im Strandkorb. Das ist ein Korb aus Holz mit einem Dach, für zwei Personen, gegen Wind und Sonne. Ihn gibt es nur in Deutschland, seit 1882.\n\nIm Ausland ist Spanien die Nummer eins, dann kommen Italien und die Türkei, danach Österreich und Griechenland. Auf Mallorca sind die Deutschen so viele, dass man die Insel „das siebzehnte Bundesland“ nennt. Jedes Jahr fliegen etwa fünf Millionen Deutsche auf die Insel. Die meisten kommen aus Nordrhein-Westfalen und aus Bayern.\n\nWie reisen sie? Mit dem Auto fahren die meisten, besonders nach Italien und Österreich. Mit dem Flugzeug fliegen sie nach Spanien und in die Türkei. Mit der Bahn fahren nur wenige.\n\nUnd es gibt ein berühmtes Klischee: Deutsche Touristen stehen im Hotel um sechs Uhr auf und legen ein Handtuch auf die Liege am Pool. Dann gehen sie wieder schlafen. Die Liege ist jetzt besetzt. Stimmt das? Fragen Sie am Pool.",
+      "passageTranslation": "Germans have a lot of holiday: about thirty days a year, plus the public holidays. And they like travelling. Only the Chinese and the Americans spend more money abroad than the Germans.\n\nWhere do they go? The answer surprises many: the most popular destination is Germany itself. Almost every third German spends the main holiday in their own country. Most of all they go to the Baltic Sea, to the North Sea or to the mountains in Bavaria. By the Baltic they then sit in a Strandkorb. That is a basket of wood with a roof, for two people, against wind and sun. It exists only in Germany, since 1882.\n\nAbroad, Spain is number one, then come Italy and Turkey, after that Austria and Greece. On Mallorca there are so many Germans that the island is called 'the seventeenth federal state'. Every year about five million Germans fly to the island. Most come from North Rhine-Westphalia and from Bavaria.\n\nHow do they travel? Most go by car, especially to Italy and Austria. By plane they fly to Spain and Turkey. Only a few go by train.\n\nAnd there is a famous cliché: German tourists get up at six in the hotel and put a towel on the sun lounger by the pool. Then they go back to sleep. The lounger is now taken. Is it true? Ask at the pool.",
+      "questions": [
+        {
+          "question": "Wie viel Urlaub haben die Deutschen etwa?",
+          "options": [
+            "dreizehn Tage im Jahr",
+            "dreißig Tage im Jahr plus Feiertage",
+            "drei Wochen im Sommer",
+            "sechs Wochen im Sommer plus alle Feiertage im Winter"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Deutschen haben viel Urlaub: etwa dreißig Tage im Jahr, plus die Feiertage.\"",
+          "questionTranslation": "About how much holiday do Germans have?",
+          "optionsTranslation": [
+            "thirteen days a year",
+            "thirty days a year plus public holidays",
+            "three weeks in summer",
+            "six weeks in summer plus all public holidays in winter"
+          ]
+        },
+        {
+          "question": "Was ist das beliebteste Reiseland der Deutschen?",
+          "options": [
+            "Spanien, besonders die Insel Mallorca",
+            "Italien",
+            "Deutschland selbst",
+            "die Türkei"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Das beliebteste Reiseland ist Deutschland selbst. Fast jeder dritte Deutsche macht den großen Urlaub im eigenen Land.\"",
+          "questionTranslation": "What is the Germans' most popular destination?",
+          "optionsTranslation": [
+            "Spain, especially the island of Mallorca",
+            "Italy",
+            "Germany itself",
+            "Turkey"
+          ]
+        },
+        {
+          "question": "„Am liebsten fahren sie an die Ostsee.“ Welche Frage passt, und welcher Fall ist das?",
+          "options": [
+            "Wohin? Akkusativ",
+            "Wo? Dativ, weil sie dort bleiben",
+            "Woher? Dativ",
+            "Wann? Akkusativ"
+          ],
+          "correctIndex": 0,
+          "explanation": "fahren + direction = Wohin?; an + accusative: an die Ostsee. Wo? would be an der Ostsee.",
+          "questionTranslation": "'Most of all they go to the Baltic Sea.' Which question fits, and which case is it?",
+          "optionsTranslation": [
+            "Wohin? accusative",
+            "Wo? dative, because they stay there",
+            "Woher? dative",
+            "Wann? accusative"
+          ]
+        },
+        {
+          "question": "Was ist ein Strandkorb?",
+          "options": [
+            "ein Korb für Fische",
+            "ein Korb aus Holz mit Dach, für zwei Personen, gegen Wind und Sonne",
+            "ein kleines Boot",
+            "ein kleines Hotel direkt am Strand mit Blick auf das Meer"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Das ist ein Korb aus Holz mit einem Dach, für zwei Personen, gegen Wind und Sonne. Ihn gibt es nur in Deutschland, seit 1882.\"",
+          "questionTranslation": "What is a Strandkorb?",
+          "optionsTranslation": [
+            "a basket for fish",
+            "a wooden basket with a roof, for two people, against wind and sun",
+            "a small boat",
+            "a small hotel right on the beach with a view of the sea"
+          ]
+        },
+        {
+          "question": "Welches Land im Ausland ist die Nummer eins?",
+          "options": [
+            "Italien",
+            "Österreich",
+            "Spanien",
+            "Griechenland"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Im Ausland ist Spanien die Nummer eins, dann kommen Italien und die Türkei …\"",
+          "questionTranslation": "Which country abroad is number one?",
+          "optionsTranslation": [
+            "Italy",
+            "Austria",
+            "Spain",
+            "Greece"
+          ]
+        },
+        {
+          "question": "Warum nennt man Mallorca „das siebzehnte Bundesland“?",
+          "options": [
+            "weil die Insel seit 1990 offiziell zu Deutschland gehört",
+            "weil dort so viele Deutsche Urlaub machen",
+            "weil man dort Deutsch spricht",
+            "weil die Insel siebzehn Städte hat"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Auf Mallorca sind die Deutschen so viele, dass man die Insel ‚das siebzehnte Bundesland‘ nennt.\" Germany has sixteen states.",
+          "questionTranslation": "Why is Mallorca called 'the seventeenth federal state'?",
+          "optionsTranslation": [
+            "because the island has officially belonged to Germany since 1990",
+            "because so many Germans holiday there",
+            "because German is spoken there",
+            "because the island has seventeen towns"
+          ]
+        },
+        {
+          "question": "Wie reisen die meisten nach Italien und Österreich?",
+          "options": [
+            "mit dem Flugzeug",
+            "mit der Bahn",
+            "mit dem Auto",
+            "mit dem Schiff"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Mit dem Auto fahren die meisten, besonders nach Italien und Österreich.\"",
+          "questionTranslation": "How do most travel to Italy and Austria?",
+          "optionsTranslation": [
+            "by plane",
+            "by train",
+            "by car",
+            "by ship"
+          ]
+        },
+        {
+          "question": "Was ist das Klischee über deutsche Touristen?",
+          "options": [
+            "Sie schlafen bis zwölf Uhr.",
+            "Sie legen um sechs Uhr ein Handtuch auf die Liege und gehen wieder schlafen.",
+            "Sie schwimmen jeden Morgen um sechs Uhr.",
+            "Sie frühstücken jeden Morgen um sechs Uhr am Pool und schwimmen danach."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Deutsche Touristen stehen im Hotel um sechs Uhr auf und legen ein Handtuch auf die Liege am Pool. Dann gehen sie wieder schlafen.\"",
+          "questionTranslation": "What is the cliché about German tourists?",
+          "optionsTranslation": [
+            "They sleep until twelve.",
+            "They put a towel on the sun lounger at six and go back to sleep.",
+            "They swim every morning at six.",
+            "They have breakfast by the pool every morning at six and swim afterwards."
+          ]
+        }
+      ],
+      "covers": [
+        "a2.woher-wo-wohin",
+        "a2.dative-prepositions"
+      ],
+      "storageKeyPrefix": "quest_a2_1_lesen_urlaub_",
+      "image": "quest_a2_1_lesen_urlaub"
+    },
+    {
       "type": "fillBlank",
       "id": "quest_a2_1_pronomen_dativ",
       "title": "Personalpronomen im Dativ",
@@ -49752,6 +50727,337 @@
       "image": "card_grammar_a2_1"
     },
     {
+      "id": "quest_a2_1_hoeren_weg",
+      "type": "listening",
+      "title": "Hören: Entschuldigung, wie komme ich …?",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.1",
+      "help": {
+        "intro": "Two short street scenes of about two minutes in all: a tourist in Heidelberg asks the way to the castle, gets a long answer and a tip about the funicular; then a man asks a woman for the station and finds out that the bus is faster than walking. The scenes are invented; the places in Heidelberg are real. You hear what you have just learnt: asking the way (Wie komme ich zum …? Können Sie mir helfen?), the directions (geradeaus, links, rechts, die zweite Straße, bis zur Kreuzung, gegenüber, an der Ampel) and the dative pronouns (mir, Ihnen, ihm, ihr: Ich zeige es Ihnen. Das hilft mir). Listen once for each scene as a whole, then once for the turns.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Directions",
+            "text": "geradeaus (straight on), links / rechts (left / right), nach links abbiegen (turn left), die erste / zweite Straße rechts, bis zur Kreuzung (to the crossroads), bis zur Ampel (to the traffic lights), über die Brücke (over the bridge), an der Kirche vorbei (past the church), gegenüber (opposite), neben, hinter, auf der linken Seite. Distances: fünf Minuten zu Fuß, zwei Haltestellen, zweihundert Meter. Asking: Wie komme ich zum Bahnhof / zur Altstadt / zum Schloss? Ist es weit?",
+            "examples": [
+              {
+                "de": "Gehen Sie geradeaus bis zur Kreuzung, dann links, und das Schloss ist auf der rechten Seite.",
+                "en": "Go straight on to the crossroads, then left, and the castle is on the right-hand side.",
+                "focus": [
+                  "geradeaus",
+                  "bis zur Kreuzung",
+                  "links",
+                  "auf der rechten Seite"
+                ]
+              },
+              {
+                "de": "Nehmen Sie die zweite Straße rechts und gehen Sie an der Kirche vorbei; der Bahnhof ist gegenüber.",
+                "en": "Take the second street on the right and go past the church; the station is opposite.",
+                "focus": [
+                  "die zweite Straße rechts",
+                  "an der Kirche vorbei",
+                  "gegenüber"
+                ]
+              }
+            ],
+            "check": {
+              "q": "'Turn left' is:",
+              "options": [
+                "Biegen Sie links ab.",
+                "Gehen Sie geradeaus.",
+                "Gehen Sie vorbei."
+              ],
+              "answer": "Biegen Sie links ab.",
+              "why": "abbiegen = to turn; geradeaus = straight; vorbei = past."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "German",
+              "right": "English",
+              "rows": [
+                {
+                  "a": "geradeaus",
+                  "b": "straight on"
+                },
+                {
+                  "a": "links / rechts abbiegen",
+                  "b": "turn left / right"
+                },
+                {
+                  "a": "bis zur Kreuzung / Ampel",
+                  "b": "to the crossroads / lights"
+                },
+                {
+                  "a": "an … vorbei",
+                  "b": "past …"
+                },
+                {
+                  "a": "gegenüber",
+                  "b": "opposite"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Dative pronouns: mir, dir, Ihnen, ihm, ihr",
+            "text": "Some verbs take the person in the dative: helfen (Können Sie mir helfen?), zeigen (Ich zeige es Ihnen), sagen (Sagen Sie mir …), danken (Ich danke Ihnen), gefallen (Heidelberg gefällt mir), gehören, glauben. Forms: ich → mir, du → dir, er → ihm, sie → ihr, Sie → Ihnen, wir → uns, ihr → euch. Also after dative prepositions: mit mir, bei ihr, zu ihm.",
+            "examples": [
+              {
+                "de": "Entschuldigung, können Sie mir helfen? Natürlich, ich zeige es Ihnen auf der Karte.",
+                "en": "Excuse me, can you help me? Of course, I will show it to you on the map.",
+                "focus": [
+                  "mir",
+                  "Ihnen"
+                ]
+              },
+              {
+                "de": "Fragen Sie den Mann dort, ihm gehört das Café. Er sagt es Ihnen genau.",
+                "en": "Ask the man there, the café belongs to him. He will tell you exactly.",
+                "focus": [
+                  "ihm",
+                  "Ihnen"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Vielen Dank, Sie haben ____ sehr geholfen. (ich)",
+              "options": [
+                "mir",
+                "mich",
+                "ich"
+              ],
+              "answer": "mir",
+              "why": "helfen takes the dative: Sie haben mir geholfen."
+            }
+          }
+        ],
+        "remember": [
+          "geradeaus, links, rechts, bis zur Kreuzung, an … vorbei, gegenüber; Wie komme ich zum / zur …?",
+          "helfen, zeigen, sagen, danken, gefallen + dative: mir, dir, ihm, ihr, Ihnen."
+        ],
+        "exam": "Short street scenes in which someone asks the way and gets directions are a typical listening task at this level.",
+        "hook": "Straight on, second left, past the church, or just take the funicular: listen to two people asking the way in Heidelberg.",
+        "vocab": [
+          {
+            "de": "Schloss",
+            "en": "castle, palace",
+            "example": "Wie komme ich zum Schloss?",
+            "article": "das",
+            "plural": "¨-er"
+          },
+          {
+            "de": "Marktplatz",
+            "en": "market square",
+            "example": "Dann kommen Sie zum Marktplatz.",
+            "article": "der",
+            "plural": "¨-e"
+          },
+          {
+            "de": "Bergbahn",
+            "en": "funicular, mountain railway",
+            "example": "Die Bergbahn fährt alle zehn Minuten.",
+            "article": "die",
+            "plural": "-en"
+          },
+          {
+            "de": "Eintritt",
+            "en": "entry, admission",
+            "example": "Der Eintritt ins Schloss ist dabei.",
+            "article": "der",
+            "plural": "-e"
+          },
+          {
+            "de": "Haltestelle",
+            "en": "stop (bus, tram)",
+            "example": "Die Haltestelle ist dort gegenüber.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Linie",
+            "en": "line (bus route)",
+            "example": "Die Linie 33 fährt direkt zum Bahnhof.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "geradeaus",
+            "en": "straight on",
+            "example": "Sie gehen hier geradeaus."
+          },
+          {
+            "de": "steil",
+            "en": "steep",
+            "example": "Es ist steil."
+          }
+        ]
+      },
+      "category": "Travel",
+      "speakers": {
+        "Touristin": "female",
+        "Mann": "male",
+        "Frau": "female"
+      },
+      "passageTitle": "Szenen: Entschuldigung, wie komme ich …?",
+      "passage": "Touristin: Entschuldigung, können Sie mir helfen? Wie komme ich zum Schloss?\nMann: Zum Schloss? Gern. Sie gehen hier geradeaus, die Hauptstraße entlang, etwa zehn Minuten. Dann kommen Sie zum Marktplatz mit der großen Kirche.\nTouristin: Zum Marktplatz, gut.\nMann: Am Marktplatz gehen Sie an der Kirche vorbei und dann rechts in die Burgstraße. Die Straße geht den Berg hinauf, bis zum Schloss. Das dauert noch einmal zwanzig Minuten, und es ist steil.\nTouristin: Oh. Dreißig Minuten und ein Berg.\nMann: Ich gebe Ihnen einen Tipp: Am Kornmarkt, direkt neben dem Marktplatz, ist die Bergbahn. Sie fährt alle zehn Minuten zum Schloss hinauf, in zwei Minuten. Das Ticket kostet neun Euro, und der Eintritt ins Schloss ist dabei.\nTouristin: Das ist super. Also: geradeaus bis zum Marktplatz, dann zum Kornmarkt, und mit der Bergbahn.\nMann: Genau. Und von oben sehen Sie die ganze Stadt und den Fluss. Das gefällt Ihnen bestimmt.\nTouristin: Vielen Dank, Sie haben mir sehr geholfen!\nMann: Gern geschehen. Schönen Tag!\nMann: Entschuldigung, ich habe eine Frage. Ist der Hauptbahnhof weit von hier?\nFrau: Zu Fuß ja, etwa vierzig Minuten. Der Bahnhof ist nicht in der Altstadt.\nMann: Vierzig Minuten? Mein Zug fährt in einer halben Stunde.\nFrau: Dann nehmen Sie den Bus. Die Haltestelle ist dort gegenüber, vor der Apotheke. Die Linie 33 fährt direkt zum Bahnhof, zwölf Minuten.\nMann: Linie 33, gegenüber vor der Apotheke. Wo kaufe ich das Ticket?\nFrau: Im Bus, beim Fahrer. Oder mit dem Handy. Zwei Euro.\nMann: Danke Ihnen! Sie haben mir den Tag gerettet.\nFrau: Schnell, da kommt er schon!",
+      "passageTranslation": "Tourist: Excuse me, can you help me? How do I get to the castle?\nMan: To the castle? Gladly. You go straight on here, along the Hauptstraße, about ten minutes. Then you come to the market square with the big church.\nTourist: To the market square, good.\nMan: At the market square you go past the church and then right into Burgstraße. The street goes up the hill, to the castle. That takes another twenty minutes, and it is steep.\nTourist: Oh. Thirty minutes and a hill.\nMan: I will give you a tip: at the Kornmarkt, right next to the market square, is the funicular. It goes up to the castle every ten minutes, in two minutes. The ticket costs nine euros, and entry to the castle is included.\nTourist: That is great. So: straight on to the market square, then to the Kornmarkt, and by funicular.\nMan: Exactly. And from the top you see the whole town and the river. You will certainly like that.\nTourist: Thank you very much, you have helped me a lot!\nMan: You are welcome. Have a nice day!\nMan: Excuse me, I have a question. Is the main station far from here?\nWoman: On foot, yes, about forty minutes. The station is not in the old town.\nMan: Forty minutes? My train leaves in half an hour.\nWoman: Then take the bus. The stop is over there opposite, in front of the pharmacy. Line 33 goes directly to the station, twelve minutes.\nMan: Line 33, opposite in front of the pharmacy. Where do I buy the ticket?\nWoman: On the bus, from the driver. Or with your phone. Two euros.\nMan: Thank you! You have saved my day.\nWoman: Quick, here it comes already!",
+      "questions": [
+        {
+          "question": "Wohin möchte die Touristin?",
+          "options": [
+            "zum Bahnhof",
+            "zum Schloss",
+            "zur Apotheke",
+            "zum Fluss"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Wie komme ich zum Schloss?\"",
+          "questionTranslation": "Where does the tourist want to go?",
+          "optionsTranslation": [
+            "to the station",
+            "to the castle",
+            "to the pharmacy",
+            "to the river"
+          ]
+        },
+        {
+          "question": "Wie kommt man zu Fuß vom Marktplatz zum Schloss?",
+          "options": [
+            "links in die Hauptstraße, zehn Minuten",
+            "an der Kirche vorbei, rechts in die Burgstraße, den Berg hinauf",
+            "über die alte Brücke und dann immer geradeaus bis zum Fluss",
+            "mit dem Bus Linie 33"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Am Marktplatz gehen Sie an der Kirche vorbei und dann rechts in die Burgstraße. Die Straße geht den Berg hinauf, bis zum Schloss.\"",
+          "questionTranslation": "How do you get on foot from the market square to the castle?",
+          "optionsTranslation": [
+            "left into Hauptstraße, ten minutes",
+            "past the church, right into Burgstraße, up the hill",
+            "over the old bridge and then always straight on to the river",
+            "by bus line 33"
+          ]
+        },
+        {
+          "question": "Welchen Tipp gibt der Mann?",
+          "options": [
+            "ein Taxi vom Marktplatz zum Schloss nehmen",
+            "die Bergbahn am Kornmarkt nehmen",
+            "morgen wiederkommen",
+            "die Kirche besuchen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ich gebe Ihnen einen Tipp: Am Kornmarkt, direkt neben dem Marktplatz, ist die Bergbahn.\"",
+          "questionTranslation": "What tip does the man give?",
+          "optionsTranslation": [
+            "take a taxi from the market square to the castle",
+            "take the funicular at the Kornmarkt",
+            "come back tomorrow",
+            "visit the church"
+          ]
+        },
+        {
+          "question": "Was kostet die Bergbahn, und was ist dabei?",
+          "options": [
+            "zwei Euro, nur die Fahrt",
+            "neun Euro, der Eintritt ins Schloss ist dabei",
+            "zehn Euro, ein Kaffee ist dabei",
+            "neun Euro für die Fahrt, der Eintritt ins Schloss kostet extra"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Das Ticket kostet neun Euro, und der Eintritt ins Schloss ist dabei.\"",
+          "questionTranslation": "What does the funicular cost, and what is included?",
+          "optionsTranslation": [
+            "two euros, only the ride",
+            "nine euros, entry to the castle is included",
+            "ten euros, a coffee is included",
+            "nine euros for the ride, entry to the castle costs extra"
+          ]
+        },
+        {
+          "question": "„Sie haben mir sehr geholfen!“ Warum mir?",
+          "options": [
+            "weil helfen den Dativ braucht",
+            "weil mir Akkusativ ist",
+            "weil die Touristin höflich ist",
+            "weil es ein Perfekt ist"
+          ],
+          "correctIndex": 0,
+          "explanation": "helfen takes the person in the dative: ich → mir.",
+          "questionTranslation": "'You have helped me a lot!' Why mir?",
+          "optionsTranslation": [
+            "because helfen takes the dative",
+            "because mir is accusative",
+            "because the tourist is polite",
+            "because it is a perfect tense"
+          ]
+        },
+        {
+          "question": "Warum geht der Mann in der zweiten Szene nicht zu Fuß zum Bahnhof?",
+          "options": [
+            "weil es regnet",
+            "weil der Bahnhof vierzig Minuten weit ist und sein Zug in dreißig Minuten fährt",
+            "weil er die Altstadt nicht kennt und Angst hat, sich zu verlaufen",
+            "weil der Bus kostenlos ist"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Zu Fuß ja, etwa vierzig Minuten … Mein Zug fährt in einer halben Stunde.\"",
+          "questionTranslation": "Why does the man in the second scene not walk to the station?",
+          "optionsTranslation": [
+            "because it is raining",
+            "because the station is forty minutes away and his train leaves in thirty",
+            "because he does not know the old town and is afraid of getting lost",
+            "because the bus is free"
+          ]
+        },
+        {
+          "question": "Wo ist die Bushaltestelle?",
+          "options": [
+            "hinter der Kirche",
+            "gegenüber, vor der Apotheke",
+            "am Kornmarkt",
+            "neben dem Bahnhof, hinter der großen Kirche"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Haltestelle ist dort gegenüber, vor der Apotheke.\"",
+          "questionTranslation": "Where is the bus stop?",
+          "optionsTranslation": [
+            "behind the church",
+            "opposite, in front of the pharmacy",
+            "at the Kornmarkt",
+            "next to the station, behind the big church"
+          ]
+        },
+        {
+          "question": "Wie lange fährt die Linie 33 zum Bahnhof, und was kostet das Ticket?",
+          "options": [
+            "zwölf Minuten, zwei Euro",
+            "vierzig Minuten, neun Euro",
+            "zwei Minuten, zwölf Euro",
+            "zwanzig Minuten, zwei Euro"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Die Linie 33 fährt direkt zum Bahnhof, zwölf Minuten … Zwei Euro.\"",
+          "questionTranslation": "How long does line 33 take to the station, and what does the ticket cost?",
+          "optionsTranslation": [
+            "twelve minutes, two euros",
+            "forty minutes, nine euros",
+            "two minutes, twelve euros",
+            "twenty minutes, two euros"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.directions",
+        "a2.dative-pronouns"
+      ],
+      "storageKeyPrefix": "quest_a2_1_hoeren_weg_",
+      "image": "quest_a2_1_hoeren_weg"
+    },
+    {
       "id": "quest_a2_1_dativ_akkusativ",
       "type": "fillBlank",
       "title": "Wem? Was? — Verben mit Dativ und Akkusativ",
@@ -50426,6 +51732,330 @@
         "a2.dative-articles"
       ],
       "image": "quest_a2_1_dativ_akkusativ"
+    },
+    {
+      "id": "quest_a2_1_hoeren_geschenk",
+      "type": "listening",
+      "title": "Hören: Ein Geschenk für Oma",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.1",
+      "help": {
+        "intro": "A scene of about two minutes in a small shop: Leon is looking for a present for his grandmother's eightieth birthday, the shop assistant shows him scarves, gloves and a book, and they settle on which one, what colour and whether it should be wrapped. The scene is invented. You hear what you have just learnt: verbs with two objects and their order (Ich schenke ihr einen Schal: person in the dative first, thing in the accusative; with two pronouns the accusative comes first: Ich zeige ihn Ihnen), and the question words welcher? dieser? (Welchen Schal nehmen Sie? Diesen hier). Listen once for the whole scene, then once for the choices: which present, which colour, what price.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Wem? Was? Two objects in one sentence",
+            "text": "geben, schenken, zeigen, bringen, empfehlen, kaufen take a person (dative) and a thing (accusative). Order with nouns: person first, then thing: Ich schenke meiner Oma einen Schal. Ich zeige Ihnen die Handschuhe. If the thing is a pronoun, it comes first: Ich zeige sie Ihnen. Ich schenke ihn ihr. If only the person is a pronoun, it stays first: Ich schenke ihr einen Schal.",
+            "examples": [
+              {
+                "de": "Ich schenke meiner Oma einen Schal. Ich schenke ihr einen Schal. Ich schenke ihn ihr.",
+                "en": "I give my grandma a scarf. I give her a scarf. I give it to her.",
+                "focus": [
+                  "meiner Oma einen Schal",
+                  "ihr einen Schal",
+                  "ihn ihr"
+                ]
+              },
+              {
+                "de": "Können Sie mir die Handschuhe zeigen? Natürlich, ich zeige sie Ihnen.",
+                "en": "Can you show me the gloves? Of course, I will show them to you.",
+                "focus": [
+                  "mir die Handschuhe",
+                  "sie Ihnen"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich kaufe ____ ein Buch. (meine Schwester)",
+              "options": [
+                "meiner Schwester",
+                "meine Schwester",
+                "meinen Schwester"
+              ],
+              "answer": "meiner Schwester",
+              "why": "The person is in the dative: die Schwester → meiner Schwester; the book is the accusative object."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Order",
+              "right": "Example",
+              "rows": [
+                {
+                  "a": "noun + noun: Dat. then Akk.",
+                  "b": "Ich schenke meiner Oma einen Schal."
+                },
+                {
+                  "a": "pronoun + noun: Dat. then Akk.",
+                  "b": "Ich schenke ihr einen Schal."
+                },
+                {
+                  "a": "pronoun + pronoun: Akk. then Dat.",
+                  "b": "Ich schenke ihn ihr."
+                },
+                {
+                  "a": "question",
+                  "b": "Wem schenkst du was?"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "welcher? dieser!",
+            "text": "welcher asks which one, dieser answers this one; both take the endings of der/die/das: Welcher Schal? Dieser. Welche Farbe? Diese. Welches Buch? Dieses. Accusative masculine: Welchen Schal nehmen Sie? Diesen hier. Dative: Mit welcher Farbe? Mit dieser. Plural: Welche Handschuhe? Diese.",
+            "examples": [
+              {
+                "de": "Welchen Schal nehmen Sie, den blauen oder den grünen? Diesen hier, den grünen.",
+                "en": "Which scarf will you take, the blue or the green one? This one here, the green one.",
+                "focus": [
+                  "Welchen",
+                  "Diesen"
+                ]
+              },
+              {
+                "de": "Welche Größe hat Ihre Oma? Diese Handschuhe sind Größe sieben.",
+                "en": "What size is your grandma? These gloves are size seven.",
+                "focus": [
+                  "Welche",
+                  "Diese"
+                ]
+              }
+            ],
+            "check": {
+              "q": "____ Buch möchten Sie? (das Buch)",
+              "options": [
+                "Welches",
+                "Welcher",
+                "Welchen"
+              ],
+              "answer": "Welches",
+              "why": "das Buch is neuter: welches Buch, dieses Buch."
+            }
+          }
+        ],
+        "remember": [
+          "Ich schenke ihr einen Schal (Dat. then Akk.); Ich schenke ihn ihr (two pronouns: Akk. first).",
+          "Welcher Schal? Dieser. Welchen Schal? Diesen. Welches Buch? Dieses."
+        ],
+        "exam": "Short shop scenes in which someone chooses and buys a present are a typical listening task at this level.",
+        "hook": "A scarf, gloves or a book, and in which colour? Listen to Leon choosing a present for his grandmother's eightieth birthday.",
+        "vocab": [
+          {
+            "de": "Schal",
+            "en": "scarf",
+            "example": "Welchen Schal empfehlen Sie mir?",
+            "article": "der",
+            "plural": "-s"
+          },
+          {
+            "de": "Handschuh",
+            "en": "glove",
+            "example": "Hier sind Handschuhe aus Leder.",
+            "article": "der",
+            "plural": "-e"
+          },
+          {
+            "de": "Wolle",
+            "en": "wool",
+            "example": "Die Schals sind aus Wolle.",
+            "article": "die"
+          },
+          {
+            "de": "Leder",
+            "en": "leather",
+            "example": "Handschuhe aus Leder",
+            "article": "das"
+          },
+          {
+            "de": "Gutschein",
+            "en": "voucher",
+            "example": "Ich gebe Ihnen einen Gutschein.",
+            "article": "der",
+            "plural": "-e"
+          },
+          {
+            "de": "Buchhandlung",
+            "en": "bookshop",
+            "example": "Ein Gutschein für die Buchhandlung nebenan.",
+            "article": "die",
+            "plural": "-en"
+          },
+          {
+            "de": "Schleife",
+            "en": "bow (ribbon)",
+            "example": "Meine Oma mag Schleifen.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "einpacken",
+            "en": "to wrap, pack",
+            "example": "Soll ich den Schal als Geschenk einpacken?"
+          }
+        ]
+      },
+      "category": "Shopping",
+      "speakers": {
+        "Verkäuferin": "female",
+        "Leon": "male"
+      },
+      "passageTitle": "Szene: Ein Geschenk für Oma",
+      "passage": "Verkäuferin: Guten Tag! Kann ich Ihnen helfen?\nLeon: Ja, gern. Ich suche ein Geschenk für meine Oma. Sie wird am Sonntag achtzig.\nVerkäuferin: Achtzig, wie schön! Was mag Ihre Oma denn?\nLeon: Sie geht jeden Tag spazieren, auch im Winter. Und sie liest viel.\nVerkäuferin: Dann habe ich zwei Ideen. Ich zeige sie Ihnen. Hier sind Schals aus Wolle, sehr warm. Und hier sind Handschuhe aus Leder.\nLeon: Die Schals sind schön. Welchen Schal empfehlen Sie mir?\nVerkäuferin: Diesen hier, den grünen. Grün steht älteren Damen gut. Oder diesen blauen, der ist etwas dünner.\nLeon: Ich glaube, ich schenke ihr den grünen. Was kostet er?\nVerkäuferin: Neununddreißig Euro. Und die Handschuhe? Welche Größe hat Ihre Oma?\nLeon: Das weiß ich nicht. Ihre Hände sind klein.\nVerkäuferin: Dann lieber kein Risiko. Ein Buch vielleicht? Welche Bücher liest sie?\nLeon: Krimis. Aber sie hat schon alle.\nVerkäuferin: Dann gebe ich Ihnen einen Gutschein für die Buchhandlung nebenan. Damit kauft sie sich selbst einen neuen Krimi.\nLeon: Gute Idee. Also den Schal und einen Gutschein über zwanzig Euro.\nVerkäuferin: Soll ich Ihnen den Schal als Geschenk einpacken?\nLeon: Ja, bitte. Mit einer Schleife. Meine Oma mag Schleifen.\nVerkäuferin: Welches Papier? Dieses rote oder dieses goldene?\nLeon: Das goldene. Achtzig ist ja fast Gold.\nVerkäuferin: Sehr gern. Das macht zusammen neunundfünfzig Euro. Und sagen Sie Ihrer Oma herzlichen Glückwunsch von mir!\nLeon: Das sage ich ihr. Vielen Dank!",
+      "passageTranslation": "Shop assistant: Good day! Can I help you?\nLeon: Yes, please. I am looking for a present for my grandma. She turns eighty on Sunday.\nShop assistant: Eighty, how lovely! What does your grandma like?\nLeon: She goes for a walk every day, even in winter. And she reads a lot.\nShop assistant: Then I have two ideas. I will show them to you. Here are scarves made of wool, very warm. And here are gloves made of leather.\nLeon: The scarves are nice. Which scarf do you recommend to me?\nShop assistant: This one here, the green one. Green suits older ladies. Or this blue one, it is a bit thinner.\nLeon: I think I will give her the green one. What does it cost?\nShop assistant: Thirty-nine euros. And the gloves? What size is your grandma?\nLeon: I do not know. Her hands are small.\nShop assistant: Then better no risk. A book perhaps? Which books does she read?\nLeon: Crime novels. But she already has them all.\nShop assistant: Then I will give you a voucher for the bookshop next door. With that she buys herself a new crime novel.\nLeon: Good idea. So the scarf and a voucher for twenty euros.\nShop assistant: Shall I wrap the scarf for you as a present?\nLeon: Yes, please. With a bow. My grandma likes bows.\nShop assistant: Which paper? This red one or this gold one?\nLeon: The gold one. Eighty is almost gold, after all.\nShop assistant: With pleasure. That is fifty-nine euros all together. And give your grandma my best wishes!\nLeon: I will tell her. Thank you very much!",
+      "questions": [
+        {
+          "question": "Für wen sucht Leon ein Geschenk, und warum?",
+          "options": [
+            "für seine Mutter, zum Muttertag",
+            "für seine Oma, sie wird achtzig",
+            "für seine Schwester, zur Hochzeit",
+            "für seine Oma, zu Weihnachten"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ich suche ein Geschenk für meine Oma. Sie wird am Sonntag achtzig.\"",
+          "questionTranslation": "Who is Leon looking for a present for, and why?",
+          "optionsTranslation": [
+            "for his mother, for Mother's Day",
+            "for his grandma, she turns eighty",
+            "for his sister, for the wedding",
+            "for his grandma, for Christmas"
+          ]
+        },
+        {
+          "question": "„Ich zeige sie Ihnen.“ Was ist sie, was ist Ihnen?",
+          "options": [
+            "sie = die zwei Ideen (Akkusativ), Ihnen = Leon (Dativ)",
+            "sie = die Oma (Akkusativ), Ihnen = die Verkäuferin (Dativ)",
+            "sie = die Verkäuferin, Ihnen = die Ideen",
+            "sie = Leon, Ihnen = die Oma"
+          ],
+          "correctIndex": 0,
+          "explanation": "Two pronouns: the thing (sie = die Ideen, accusative) comes first, the person (Ihnen = Leon, dative) second.",
+          "questionTranslation": "'I will show them to you.' What is sie, what is Ihnen?",
+          "optionsTranslation": [
+            "sie = the two ideas (accusative), Ihnen = Leon (dative)",
+            "sie = the grandma (accusative), Ihnen = the shop assistant (dative)",
+            "sie = the shop assistant, Ihnen = the ideas",
+            "sie = Leon, Ihnen = the grandma"
+          ]
+        },
+        {
+          "question": "Welchen Schal empfiehlt die Verkäuferin, und warum?",
+          "options": [
+            "den blauen, weil er dünner ist und im Frühling besser passt",
+            "den grünen, weil Grün älteren Damen gut steht",
+            "den roten, weil er billig ist",
+            "den goldenen, weil Oma achtzig wird"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Diesen hier, den grünen. Grün steht älteren Damen gut.\"",
+          "questionTranslation": "Which scarf does the shop assistant recommend, and why?",
+          "optionsTranslation": [
+            "the blue one, because it is thinner and suits spring better",
+            "the green one, because green suits older ladies",
+            "the red one, because it is cheap",
+            "the gold one, because grandma turns eighty"
+          ]
+        },
+        {
+          "question": "Warum kauft Leon keine Handschuhe?",
+          "options": [
+            "Sie sind zu teuer.",
+            "Er kennt die Größe seiner Oma nicht.",
+            "Seine Oma hat schon viele Handschuhe aus Leder und Wolle.",
+            "Es gibt keine aus Leder."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Welche Größe hat Ihre Oma? Das weiß ich nicht … Dann lieber kein Risiko.\"",
+          "questionTranslation": "Why does Leon not buy gloves?",
+          "optionsTranslation": [
+            "They are too expensive.",
+            "He does not know his grandma's size.",
+            "His grandma already has many gloves of leather and wool.",
+            "There are none made of leather."
+          ]
+        },
+        {
+          "question": "Warum ist ein Buch keine gute Idee?",
+          "options": [
+            "Die Oma liest nicht gern.",
+            "Die Oma hat schon alle Krimis.",
+            "Die Buchhandlung ist geschlossen.",
+            "Bücher sind zu schwer."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Krimis. Aber sie hat schon alle.\"",
+          "questionTranslation": "Why is a book not a good idea?",
+          "optionsTranslation": [
+            "Grandma does not like reading.",
+            "Grandma already has all the crime novels.",
+            "The bookshop is closed.",
+            "Books are too heavy."
+          ]
+        },
+        {
+          "question": "Was kauft Leon am Ende?",
+          "options": [
+            "den grünen Schal und einen Gutschein über zwanzig Euro",
+            "den blauen Schal, die Handschuhe und einen Krimi aus der Buchhandlung",
+            "einen Krimi und eine Schleife",
+            "nur den Gutschein"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Also den Schal und einen Gutschein über zwanzig Euro.\"",
+          "questionTranslation": "What does Leon buy in the end?",
+          "optionsTranslation": [
+            "the green scarf and a voucher for twenty euros",
+            "the blue scarf, the gloves and a crime novel from the bookshop",
+            "a crime novel and a bow",
+            "only the voucher"
+          ]
+        },
+        {
+          "question": "„Welches Papier? Dieses rote oder dieses goldene?“ Warum welches und dieses?",
+          "options": [
+            "weil Papier neutrum ist (das Papier)",
+            "weil Papier Plural ist",
+            "weil es ein Akkusativ maskulin ist, wie welchen Schal",
+            "weil die Verkäuferin höflich ist"
+          ],
+          "correctIndex": 0,
+          "explanation": "das Papier is neuter: welches Papier, dieses Papier.",
+          "questionTranslation": "'Which paper? This red one or this gold one?' Why welches and dieses?",
+          "optionsTranslation": [
+            "because Papier is neuter (das Papier)",
+            "because Papier is plural",
+            "because it is accusative masculine, like welchen Schal",
+            "because the shop assistant is polite"
+          ]
+        },
+        {
+          "question": "Wie viel bezahlt Leon zusammen?",
+          "options": [
+            "neununddreißig Euro",
+            "zwanzig Euro",
+            "neunundfünfzig Euro",
+            "achtzig Euro"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Das macht zusammen neunundfünfzig Euro.\" 39 + 20.",
+          "questionTranslation": "How much does Leon pay all together?",
+          "optionsTranslation": [
+            "thirty-nine euros",
+            "twenty euros",
+            "fifty-nine euros",
+            "eighty euros"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.dative-accusative-order",
+        "a2.welcher-dieser"
+      ],
+      "storageKeyPrefix": "quest_a2_1_hoeren_geschenk_",
+      "image": "quest_a2_1_hoeren_geschenk"
     },
     {
       "type": "reading",
@@ -52000,6 +53630,333 @@
         ]
       },
       "image": "card_grammar_a2_1"
+    },
+    {
+      "id": "quest_a2_1_lesen_bertha",
+      "type": "reading",
+      "title": "Lesen: Bertha fährt los",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.1",
+      "help": {
+        "intro": "A text of about 200 words about the first long car journey in history, and the woman who made it: in August 1888 Bertha Benz took her husband's car without asking him, drove with her two sons from Mannheim to Pforzheim, 106 kilometres, repaired the car on the way with a hat pin and a garter, and bought fuel at a pharmacy, which is why that pharmacy is called the first petrol station in the world. All facts are real and were checked. You read it in the past: the modal verbs in the Präteritum (sie wollte, sie musste, sie konnte, sie durfte nicht), war and hatte, and the Perfekt with haben (hat repariert, hat gekauft, hat geschickt). Read for the story first, then look for one problem and one solution per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Modal verbs in the past",
+            "text": "In stories the modal verbs use the Präteritum, not the Perfekt: wollen → wollte (wanted), müssen → musste (had to), können → konnte (could), dürfen → durfte (was allowed), sollen → sollte, mögen → mochte. No umlaut! Endings like haben: ich musste, du musstest, er musste, wir mussten, sie mussten. The main verb stays at the end: Sie musste den Wagen reparieren.",
+            "examples": [
+              {
+                "de": "Bertha wollte ihre Mutter besuchen, aber sie durfte das Auto nicht nehmen.",
+                "en": "Bertha wanted to visit her mother, but she was not allowed to take the car.",
+                "focus": [
+                  "wollte",
+                  "durfte"
+                ]
+              },
+              {
+                "de": "Der Wagen konnte keine Berge fahren; die Söhne mussten schieben.",
+                "en": "The car could not climb hills; the sons had to push.",
+                "focus": [
+                  "konnte",
+                  "mussten"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Sie ____ Benzin kaufen, aber es gab keine Tankstelle. (müssen, Präteritum)",
+              "options": [
+                "musste",
+                "müsste",
+                "hat gemusst"
+              ],
+              "answer": "musste",
+              "why": "Präteritum of müssen: musste, without umlaut. müsste is a different form (would have to)."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Präsens",
+              "right": "Präteritum",
+              "rows": [
+                {
+                  "a": "ich will",
+                  "b": "ich wollte"
+                },
+                {
+                  "a": "ich muss",
+                  "b": "ich musste"
+                },
+                {
+                  "a": "ich kann",
+                  "b": "ich konnte"
+                },
+                {
+                  "a": "ich darf",
+                  "b": "ich durfte"
+                },
+                {
+                  "a": "ich soll / mag",
+                  "b": "ich sollte / mochte"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Telling a story: Präteritum and Perfekt together",
+            "text": "German stories mix two pasts: war, hatte and the modals in the Präteritum (Es war heiß. Sie hatte zwei Söhne. Sie musste tanken.), everything else in the Perfekt (Sie hat getankt. Sie ist weitergefahren). Time words hold the story together: zuerst, dann, danach, später, am Abend, am Ende.",
+            "examples": [
+              {
+                "de": "Zuerst war alles gut. Dann hatte der Wagen kein Benzin mehr, und Bertha musste in die Apotheke gehen.",
+                "en": "At first everything was fine. Then the car had no more fuel, and Bertha had to go to the pharmacy.",
+                "focus": [
+                  "war",
+                  "hatte",
+                  "musste"
+                ]
+              },
+              {
+                "de": "Am Abend ist sie in Pforzheim angekommen und hat ihrem Mann ein Telegramm geschickt.",
+                "en": "In the evening she arrived in Pforzheim and sent her husband a telegram.",
+                "focus": [
+                  "ist",
+                  "angekommen",
+                  "hat",
+                  "geschickt"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which form is right in a story: 'The car was slow'?",
+              "options": [
+                "Der Wagen war langsam.",
+                "Der Wagen ist langsam gewesen.",
+                "Der Wagen hatte langsam."
+              ],
+              "answer": "Der Wagen war langsam.",
+              "why": "sein in the past is war; ist gewesen is possible but stories use war."
+            }
+          }
+        ],
+        "remember": [
+          "wollte, musste, konnte, durfte, sollte, mochte: no umlaut, main verb at the end.",
+          "Stories: war, hatte, modals in Präteritum; the other verbs in Perfekt."
+        ],
+        "exam": "Short biographical stories in the past with multiple-choice questions are a typical reading task at this level.",
+        "hook": "She took the car without asking, drove 106 kilometres with her two sons and fixed the engine with a hat pin. Read about Bertha Benz, 1888.",
+        "vocab": [
+          {
+            "de": "Fahrt",
+            "en": "journey, drive",
+            "example": "Die Fahrt war nicht leicht.",
+            "article": "die",
+            "plural": "-en"
+          },
+          {
+            "de": "Benzin",
+            "en": "petrol",
+            "example": "Dann war das Benzin leer.",
+            "article": "das"
+          },
+          {
+            "de": "Tankstelle",
+            "en": "petrol station",
+            "example": "Tankstellen gab es nicht.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Apotheke",
+            "en": "pharmacy",
+            "example": "Bertha musste in die Apotheke gehen.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Bremse",
+            "en": "brake",
+            "example": "Die Bremse hat nicht mehr funktioniert.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Hutnadel",
+            "en": "hat pin",
+            "example": "Bertha hat die Leitung mit ihrer Hutnadel sauber gemacht.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Zettel",
+            "en": "note, slip of paper",
+            "example": "Carl hat nur einen Zettel gefunden.",
+            "article": "der",
+            "plural": "-"
+          },
+          {
+            "de": "schieben",
+            "en": "to push",
+            "example": "An den Bergen mussten die Söhne schieben."
+          }
+        ]
+      },
+      "category": "History",
+      "passageTitle": "Bertha fährt los",
+      "passage": "Im August 1888 war es früh am Morgen in Mannheim. Carl Benz hat noch geschlafen. Seine Frau Bertha hatte eine Idee: Sie wollte mit dem neuen Auto zu ihrer Mutter nach Pforzheim fahren, 106 Kilometer. Carl hatte das Auto gebaut, aber er wollte es niemandem zeigen. Er hatte Angst: Was sagen die Leute?\n\nBertha hat nicht gefragt. Sie hat ihre Söhne Eugen (15) und Richard (14) geweckt, und die drei sind losgefahren. Carl hat nur einen Zettel gefunden: Wir fahren zu Oma.\n\nDie Fahrt war nicht leicht. Das Auto konnte nur 16 Kilometer pro Stunde fahren. An den Bergen mussten die Söhne schieben. Dann war das Benzin leer. Tankstellen gab es nicht! Bertha musste in die Apotheke in Wiesloch gehen und dort Ligroin kaufen, ein Reinigungsmittel. Diese Apotheke heißt heute „die erste Tankstelle der Welt“.\n\nDann war die Benzinleitung verstopft. Bertha hat sie mit ihrer Hutnadel sauber gemacht. Ein Kabel war kaputt, und sie hat es mit ihrem Strumpfband repariert. Die Bremse hat nicht mehr funktioniert, und ein Schuhmacher musste Leder auf die Bremse machen. Das war die erste Bremsbelag-Reparatur der Geschichte.\n\nAm Abend sind die drei in Pforzheim angekommen. Bertha hat Carl ein Telegramm geschickt: Wir sind gut da. Die Zeitungen haben über die Fahrt geschrieben, und plötzlich wollten alle das Auto sehen. Carl Benz hat später gesagt: Ohne Bertha gibt es kein Auto.",
+      "passageTranslation": "In August 1888 it was early morning in Mannheim. Carl Benz was still asleep. His wife Bertha had an idea: she wanted to drive to her mother in Pforzheim with the new car, 106 kilometres. Carl had built the car, but he did not want to show it to anyone. He was afraid: what will people say?\n\nBertha did not ask. She woke her sons Eugen (15) and Richard (14), and the three set off. Carl only found a note: We are driving to Grandma.\n\nThe journey was not easy. The car could only drive 16 kilometres per hour. On the hills the sons had to push. Then the fuel ran out. There were no petrol stations! Bertha had to go to the pharmacy in Wiesloch and buy Ligroin there, a cleaning agent. That pharmacy is today called 'the first petrol station in the world'.\n\nThen the fuel line was blocked. Bertha cleaned it with her hat pin. A cable was broken, and she repaired it with her garter. The brake stopped working, and a shoemaker had to put leather on the brake. That was the first brake-lining repair in history.\n\nIn the evening the three arrived in Pforzheim. Bertha sent Carl a telegram: We are safely here. The newspapers wrote about the journey, and suddenly everyone wanted to see the car. Carl Benz later said: without Bertha there is no car.",
+      "questions": [
+        {
+          "question": "Was wollte Bertha?",
+          "options": [
+            "das Auto verkaufen",
+            "mit dem Auto zu ihrer Mutter nach Pforzheim fahren",
+            "Carl in Pforzheim besuchen, der dort eine neue Fabrik gebaut hatte",
+            "ein neues Auto bauen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie wollte mit dem neuen Auto zu ihrer Mutter nach Pforzheim fahren, 106 Kilometer.\"",
+          "questionTranslation": "What did Bertha want?",
+          "optionsTranslation": [
+            "to sell the car",
+            "to drive to her mother in Pforzheim with the car",
+            "to visit Carl in Pforzheim, who had built a new factory there",
+            "to build a new car"
+          ]
+        },
+        {
+          "question": "Warum wollte Carl das Auto niemandem zeigen?",
+          "options": [
+            "weil es noch nicht fertig war und die Bremse nicht funktioniert hat",
+            "weil er Angst hatte, was die Leute sagen",
+            "weil es zu teuer war",
+            "weil Bertha es verboten hatte"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… aber er wollte es niemandem zeigen. Er hatte Angst: Was sagen die Leute?\"",
+          "questionTranslation": "Why did Carl not want to show the car to anyone?",
+          "optionsTranslation": [
+            "because it was not finished yet and the brake did not work",
+            "because he was afraid of what people would say",
+            "because it was too expensive",
+            "because Bertha had forbidden it"
+          ]
+        },
+        {
+          "question": "„An den Bergen mussten die Söhne schieben.“ Welche Form ist mussten?",
+          "options": [
+            "Präsens von müssen",
+            "Präteritum von müssen, Plural",
+            "Perfekt von müssen mit dem Hilfsverb haben",
+            "Imperativ"
+          ],
+          "correctIndex": 1,
+          "explanation": "mussten = Präteritum of müssen for wir/sie (die Söhne), no umlaut, main verb schieben at the end.",
+          "questionTranslation": "'On the hills the sons had to push.' Which form is mussten?",
+          "optionsTranslation": [
+            "present of müssen",
+            "Präteritum of müssen, plural",
+            "perfect of müssen with the auxiliary haben",
+            "imperative"
+          ]
+        },
+        {
+          "question": "Warum heißt die Apotheke in Wiesloch „die erste Tankstelle der Welt“?",
+          "options": [
+            "weil Bertha dort Ligroin als Benzin gekauft hat",
+            "weil Carl Benz dort als junger Mann gearbeitet und das erste Benzin gemischt hat",
+            "weil sie heute Benzin verkauft",
+            "weil das Auto dort gebaut wurde"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Bertha musste in die Apotheke in Wiesloch gehen und dort Ligroin kaufen … Diese Apotheke heißt heute ‚die erste Tankstelle der Welt‘.\"",
+          "questionTranslation": "Why is the pharmacy in Wiesloch called 'the first petrol station in the world'?",
+          "optionsTranslation": [
+            "because Bertha bought Ligroin there as fuel",
+            "because Carl Benz worked there as a young man and mixed the first petrol",
+            "because it sells petrol today",
+            "because the car was built there"
+          ]
+        },
+        {
+          "question": "Womit hat Bertha die Benzinleitung sauber gemacht?",
+          "options": [
+            "mit ihrem Strumpfband",
+            "mit ihrer Hutnadel",
+            "mit Leder",
+            "mit Wasser"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Dann war die Benzinleitung verstopft. Bertha hat sie mit ihrer Hutnadel sauber gemacht.\" The garter fixed the cable.",
+          "questionTranslation": "What did Bertha clean the fuel line with?",
+          "optionsTranslation": [
+            "with her garter",
+            "with her hat pin",
+            "with leather",
+            "with water"
+          ]
+        },
+        {
+          "question": "Was musste ein Schuhmacher machen?",
+          "options": [
+            "neue Schuhe für die Söhne machen",
+            "Leder auf die Bremse machen",
+            "das Kabel reparieren",
+            "Benzin verkaufen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Bremse hat nicht mehr funktioniert, und ein Schuhmacher musste Leder auf die Bremse machen.\"",
+          "questionTranslation": "What did a shoemaker have to do?",
+          "optionsTranslation": [
+            "make new shoes for the sons",
+            "put leather on the brake",
+            "repair the cable",
+            "sell fuel"
+          ]
+        },
+        {
+          "question": "Was hat Bertha am Abend gemacht?",
+          "options": [
+            "Sie ist nach Mannheim zurückgefahren.",
+            "Sie hat Carl ein Telegramm geschickt.",
+            "Sie hat das Auto verkauft.",
+            "Sie hat mit der Zeitung gesprochen."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Am Abend sind die drei in Pforzheim angekommen. Bertha hat Carl ein Telegramm geschickt: Wir sind gut da.\"",
+          "questionTranslation": "What did Bertha do in the evening?",
+          "optionsTranslation": [
+            "She drove back to Mannheim.",
+            "She sent Carl a telegram.",
+            "She sold the car.",
+            "She talked to the newspaper."
+          ]
+        },
+        {
+          "question": "Was war das Ergebnis der Fahrt?",
+          "options": [
+            "Carl war böse und hat das Auto verkauft.",
+            "Die Zeitungen haben berichtet, und alle wollten das Auto sehen.",
+            "Niemand hat von der Fahrt erfahren, weil Bertha und die Söhne nichts erzählt haben.",
+            "Bertha durfte nie wieder fahren."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Zeitungen haben über die Fahrt geschrieben, und plötzlich wollten alle das Auto sehen.\"",
+          "questionTranslation": "What was the result of the journey?",
+          "optionsTranslation": [
+            "Carl was angry and sold the car.",
+            "The newspapers reported, and everyone wanted to see the car.",
+            "Nobody heard of the journey because Bertha and the sons told nobody.",
+            "Bertha was never allowed to drive again."
+          ]
+        }
+      ],
+      "covers": [
+        "a2.modal-praeteritum",
+        "a2.past-narration"
+      ],
+      "storageKeyPrefix": "quest_a2_1_lesen_bertha_",
+      "image": "quest_a2_1_lesen_bertha"
     },
     {
       "type": "reading",
@@ -54127,6 +56084,326 @@
       ],
       "strictDiacritics": true,
       "image": "card_grammar_a2_1"
+    },
+    {
+      "id": "quest_a2_1_lesen_wetter",
+      "type": "reading",
+      "title": "Lesen: Heißer, kälter, nasser",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.1",
+      "help": {
+        "intro": "A text of about 200 words about the German weather in records: the hottest day ever measured (41.2 degrees, in 2019), the coldest place (a small lake in the Alps where it reached minus 45.9), the sunniest city, the rainiest region and the mountain where snow lies seven months a year. It also explains why Germans talk about the weather so much and what Aprilwetter means. All facts are real and were checked. You read what you have just learnt: the weather words (es regnet, es schneit, die Sonne scheint, bewölkt, der Grad) and the comparative (heißer als, kälter als, am wärmsten, mehr als, so viel wie). Read for the gist first, then find one number or one place per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Comparing: -er als, am -sten",
+            "text": "Comparative: adjective + -er + als: Freiburg ist wärmer als Hamburg. Short adjectives with a, o, u take an umlaut: warm → wärmer, kalt → kälter, groß → größer, jung → jünger. Irregular: gut → besser, viel → mehr, gern → lieber, hoch → höher. Superlative: am + -sten: am wärmsten, am kältesten, am meisten, am höchsten. Equal: so warm wie, genauso viel wie.",
+            "examples": [
+              {
+                "de": "Im Süden ist es wärmer als im Norden, aber am Meer regnet es weniger als in den Alpen.",
+                "en": "In the south it is warmer than in the north, but by the sea it rains less than in the Alps.",
+                "focus": [
+                  "wärmer als",
+                  "weniger als"
+                ]
+              },
+              {
+                "de": "Am kältesten war es am Funtensee: minus 45,9 Grad.",
+                "en": "It was coldest at the Funtensee: minus 45.9 degrees.",
+                "focus": [
+                  "Am kältesten"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Der Juli ist ____ als der Mai. (warm)",
+              "options": [
+                "wärmer",
+                "warmer",
+                "mehr warm"
+              ],
+              "answer": "wärmer",
+              "why": "warm takes an umlaut in the comparative: wärmer als."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Adjective",
+              "right": "Comparative / Superlative",
+              "rows": [
+                {
+                  "a": "warm",
+                  "b": "wärmer / am wärmsten"
+                },
+                {
+                  "a": "kalt",
+                  "b": "kälter / am kältesten"
+                },
+                {
+                  "a": "hoch",
+                  "b": "höher / am höchsten"
+                },
+                {
+                  "a": "viel",
+                  "b": "mehr / am meisten"
+                },
+                {
+                  "a": "gut",
+                  "b": "besser / am besten"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Weather words",
+            "text": "Es regnet (it rains), es schneit (it snows), die Sonne scheint, es ist bewölkt (cloudy), es ist windig, es ist neblig (foggy), es gewittert (there is a thunderstorm). Temperatures: 20 Grad, minus 5 Grad, plus 30 Grad. Nouns: der Regen, der Schnee, die Sonne, die Wolke, der Wind, der Nebel, das Gewitter, die Hitze (heat), die Kälte (cold). Aprilwetter: sun, rain, snow and sun again in one day; Germans use it for anything that changes all the time.",
+            "examples": [
+              {
+                "de": "Im April scheint die Sonne, dann regnet es, dann schneit es, und dann scheint wieder die Sonne.",
+                "en": "In April the sun shines, then it rains, then it snows, and then the sun shines again.",
+                "focus": [
+                  "scheint",
+                  "regnet",
+                  "schneit"
+                ]
+              },
+              {
+                "de": "Auf der Zugspitze liegt sieben Monate im Jahr Schnee.",
+                "en": "On the Zugspitze snow lies seven months a year.",
+                "focus": [
+                  "Schnee"
+                ]
+              }
+            ],
+            "check": {
+              "q": "'It is cloudy' is:",
+              "options": [
+                "Es ist bewölkt.",
+                "Es ist neblig.",
+                "Es gewittert."
+              ],
+              "answer": "Es ist bewölkt.",
+              "why": "bewölkt = cloudy (Wolke = cloud); neblig = foggy; es gewittert = thunderstorm."
+            }
+          }
+        ],
+        "remember": [
+          "wärmer als, kälter als, am wärmsten, am meisten; so warm wie.",
+          "Es regnet, es schneit, die Sonne scheint, bewölkt, neblig; 20 Grad, minus 5 Grad."
+        ],
+        "exam": "Short factual texts about weather and climate with numbers and comparisons are a typical reading task at this level.",
+        "hook": "41.2 degrees in the north, minus 45.9 in a mountain lake, snow for seven months: read Germany's weather records and why everyone here talks about the weather.",
+        "vocab": [
+          {
+            "de": "Wetter",
+            "en": "weather",
+            "example": "Die Deutschen sprechen gern über das Wetter.",
+            "article": "das"
+          },
+          {
+            "de": "Klima",
+            "en": "climate",
+            "example": "Das Klima ist mild.",
+            "article": "das"
+          },
+          {
+            "de": "Grad",
+            "en": "degree",
+            "example": "Im Sommer sind es 20 bis 25 Grad.",
+            "article": "der",
+            "plural": "-"
+          },
+          {
+            "de": "Rekord",
+            "en": "record",
+            "example": "Es gibt Rekorde.",
+            "article": "der",
+            "plural": "-e"
+          },
+          {
+            "de": "Sonnenstunde",
+            "en": "hour of sunshine",
+            "example": "Rügen hat fast 2.000 Sonnenstunden im Jahr.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Regen",
+            "en": "rain",
+            "example": "Am meisten Regen fällt in den Alpen.",
+            "article": "der"
+          },
+          {
+            "de": "Schnee",
+            "en": "snow",
+            "example": "Auf der Zugspitze liegt sieben Monate Schnee.",
+            "article": "der"
+          },
+          {
+            "de": "messen",
+            "en": "to measure",
+            "example": "Man hat 41,2 Grad gemessen."
+          }
+        ]
+      },
+      "category": "Nature",
+      "passageTitle": "Heißer, kälter, nasser",
+      "passage": "Die Deutschen sprechen gern über das Wetter. Kein Wunder: Es ändert sich oft. Im April scheint die Sonne, dann regnet es, dann schneit es, und am Nachmittag scheint wieder die Sonne. Das nennt man Aprilwetter.\n\nDas Klima ist mild. Im Sommer sind es meistens 20 bis 25 Grad, im Winter zwischen minus 5 und plus 5 Grad. Aber es gibt Rekorde. Der heißeste Tag war am 25. Juli 2019: In Duisburg und in Tönisvorst, beide im Westen, hat man 41,2 Grad gemessen. Vorher war es noch nie so heiß in Deutschland.\n\nDer kälteste Ort ist der Funtensee in den Alpen, ein kleiner See in einem Tal. Dort war es im Dezember 2001 minus 45,9 Grad. Das ist kälter als in Moskau und so kalt wie in Sibirien! Der See liegt in einer Mulde, und die kalte Luft kann nicht weg.\n\nAm wärmsten ist es im Südwesten, in Freiburg und am Oberrhein. Am meisten Sonne hat die Insel Rügen in der Ostsee: fast 2.000 Sonnenstunden im Jahr. Am meisten Regen fällt in den Alpen. Hamburg hat schlechten Ruf, aber dort regnet es weniger als in München, nur öfter.\n\nDer höchste Berg ist die Zugspitze, 2.962 Meter. Oben liegt sieben Monate im Jahr Schnee, und im Sommer ist es dort kälter als im Winter in Hamburg.",
+      "passageTranslation": "Germans like talking about the weather. No wonder: it changes often. In April the sun shines, then it rains, then it snows, and in the afternoon the sun shines again. That is called Aprilwetter, April weather.\n\nThe climate is mild. In summer it is mostly 20 to 25 degrees, in winter between minus 5 and plus 5 degrees. But there are records. The hottest day was on 25 July 2019: in Duisburg and in Tönisvorst, both in the west, 41.2 degrees were measured. Before that it had never been so hot in Germany.\n\nThe coldest place is the Funtensee in the Alps, a small lake in a valley. There it was minus 45.9 degrees in December 2001. That is colder than in Moscow and as cold as in Siberia! The lake lies in a hollow, and the cold air cannot escape.\n\nIt is warmest in the south-west, in Freiburg and on the Upper Rhine. The island of Rügen in the Baltic Sea has the most sun: almost 2,000 hours of sunshine a year. The most rain falls in the Alps. Hamburg has a bad reputation, but it rains less there than in Munich, only more often.\n\nThe highest mountain is the Zugspitze, 2,962 metres. On top snow lies seven months a year, and in summer it is colder there than in winter in Hamburg.",
+      "questions": [
+        {
+          "question": "Was ist Aprilwetter?",
+          "options": [
+            "Wetter, das sich an einem Tag oft ändert",
+            "sehr heißes Wetter",
+            "Wetter, das es nur im April gibt und in keinem anderen Monat",
+            "ein Regen ohne Ende"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Im April scheint die Sonne, dann regnet es, dann schneit es, und am Nachmittag scheint wieder die Sonne. Das nennt man Aprilwetter.\"",
+          "questionTranslation": "What is Aprilwetter?",
+          "optionsTranslation": [
+            "weather that changes often in one day",
+            "very hot weather",
+            "weather that exists only in April and in no other month",
+            "endless rain"
+          ]
+        },
+        {
+          "question": "Wann war der heißeste Tag, und wie heiß war es?",
+          "options": [
+            "im Dezember 2001, 45,9 Grad",
+            "am 25. Juli 2019, 41,2 Grad",
+            "am 25. Juli 2019, 25 Grad",
+            "im Sommer 2001, 41,2 Grad"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Der heißeste Tag war am 25. Juli 2019: … 41,2 Grad gemessen.\"",
+          "questionTranslation": "When was the hottest day, and how hot was it?",
+          "optionsTranslation": [
+            "in December 2001, 45.9 degrees",
+            "on 25 July 2019, 41.2 degrees",
+            "on 25 July 2019, 25 degrees",
+            "in summer 2001, 41.2 degrees"
+          ]
+        },
+        {
+          "question": "„Das ist kälter als in Moskau und so kalt wie in Sibirien!“ Was ist richtig?",
+          "options": [
+            "Der Funtensee ist wärmer als Moskau.",
+            "Der Funtensee ist kälter als Moskau und genauso kalt wie Sibirien.",
+            "Moskau ist kälter als Sibirien, aber wärmer als der Funtensee in den Alpen.",
+            "Sibirien ist wärmer als der Funtensee."
+          ],
+          "correctIndex": 1,
+          "explanation": "kälter als = colder than; so kalt wie = as cold as.",
+          "questionTranslation": "'That is colder than in Moscow and as cold as in Siberia!' What is correct?",
+          "optionsTranslation": [
+            "The Funtensee is warmer than Moscow.",
+            "The Funtensee is colder than Moscow and just as cold as Siberia.",
+            "Moscow is colder than Siberia but warmer than the Funtensee in the Alps.",
+            "Siberia is warmer than the Funtensee."
+          ]
+        },
+        {
+          "question": "Warum ist es am Funtensee so kalt?",
+          "options": [
+            "weil er sehr hoch liegt",
+            "weil er in einer Mulde liegt und die kalte Luft nicht weg kann",
+            "weil es dort das ganze Jahr schneit und die Sonne nie scheint",
+            "weil er in Sibirien liegt"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Der See liegt in einer Mulde, und die kalte Luft kann nicht weg.\"",
+          "questionTranslation": "Why is it so cold at the Funtensee?",
+          "optionsTranslation": [
+            "because it lies very high",
+            "because it lies in a hollow and the cold air cannot escape",
+            "because it snows there all year and the sun never shines",
+            "because it lies in Siberia"
+          ]
+        },
+        {
+          "question": "Wo ist es am wärmsten?",
+          "options": [
+            "in Hamburg",
+            "auf Rügen",
+            "im Südwesten, in Freiburg und am Oberrhein",
+            "auf der Zugspitze, dem höchsten Berg in Deutschland"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Am wärmsten ist es im Südwesten, in Freiburg und am Oberrhein.\"",
+          "questionTranslation": "Where is it warmest?",
+          "optionsTranslation": [
+            "in Hamburg",
+            "on Rügen",
+            "in the south-west, in Freiburg and on the Upper Rhine",
+            "on the Zugspitze, the highest mountain in Germany"
+          ]
+        },
+        {
+          "question": "Welcher Ort hat am meisten Sonne?",
+          "options": [
+            "Freiburg",
+            "die Insel Rügen",
+            "die Alpen, weil sie so hoch sind",
+            "München"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Am meisten Sonne hat die Insel Rügen in der Ostsee: fast 2.000 Sonnenstunden im Jahr.\"",
+          "questionTranslation": "Which place has the most sun?",
+          "optionsTranslation": [
+            "Freiburg",
+            "the island of Rügen",
+            "the Alps, because they are so high",
+            "Munich"
+          ]
+        },
+        {
+          "question": "Was ist über Hamburg richtig?",
+          "options": [
+            "In Hamburg regnet es mehr als in München und auch öfter als in den Alpen.",
+            "In Hamburg regnet es weniger als in München, aber öfter.",
+            "In Hamburg regnet es nie.",
+            "Hamburg ist die sonnigste Stadt."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Hamburg hat schlechten Ruf, aber dort regnet es weniger als in München, nur öfter.\"",
+          "questionTranslation": "What is correct about Hamburg?",
+          "optionsTranslation": [
+            "In Hamburg it rains more than in Munich and also more often than in the Alps.",
+            "In Hamburg it rains less than in Munich, but more often.",
+            "In Hamburg it never rains.",
+            "Hamburg is the sunniest city."
+          ]
+        },
+        {
+          "question": "Wie hoch ist die Zugspitze, und wie lange liegt dort Schnee?",
+          "options": [
+            "2.962 Meter, sieben Monate",
+            "2.000 Meter, zwölf Monate",
+            "2.962 Meter, zwei Monate",
+            "1.962 Meter, sieben Wochen"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Der höchste Berg ist die Zugspitze, 2.962 Meter. Oben liegt sieben Monate im Jahr Schnee …\"",
+          "questionTranslation": "How high is the Zugspitze, and how long does snow lie there?",
+          "optionsTranslation": [
+            "2,962 metres, seven months",
+            "2,000 metres, twelve months",
+            "2,962 metres, two months",
+            "1,962 metres, seven weeks"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.weather",
+        "a2.comparative"
+      ],
+      "storageKeyPrefix": "quest_a2_1_lesen_wetter_",
+      "image": "quest_a2_1_lesen_wetter"
     },
     {
       "id": "quest_a2_1_welcher_dieser",
@@ -56521,6 +58798,333 @@
       "image": "card_grammar_a2_1"
     },
     {
+      "id": "quest_a2_1_hoeren_ankunft",
+      "type": "listening",
+      "title": "Hören: Mein erster Tag in Deutschland",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.1",
+      "help": {
+        "intro": "A radio interview of about two minutes: Amira, a nurse from Jordan, tells how she arrived in Frankfurt three years ago with two suitcases and almost no German, how nobody picked her up, how someone helped her at the station anyway, and what she would tell someone arriving today. The person is invented; the details of arriving in Germany are the ordinary ones. You hear what you have just learnt: war and hatte for the past (Es war kalt. Ich hatte Angst), the Perfekt for events, and the indefinite pronouns (man, jemand, niemand, etwas, nichts, alle, alles: Niemand hat mich abgeholt. Jemand hat mir geholfen. Ich habe nichts verstanden). Listen once for the story, then once for who did what.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "man, jemand, niemand, etwas, nichts, alle, alles",
+            "text": "man = people in general, one (Man sagt, man braucht Geduld); jemand = someone (Jemand hat mir geholfen); niemand = nobody (Niemand hat mich abgeholt); etwas = something (Ich habe etwas gegessen); nichts = nothing (Ich habe nichts verstanden); alle = everybody, all (Alle waren freundlich); alles = everything (Alles war neu). They take the er/sie/es verb form, except alle (plural). Accusative: jemanden, niemanden; dative: jemandem, niemandem (often jemand/niemand in speech).",
+            "examples": [
+              {
+                "de": "Niemand hat mich abgeholt, aber jemand hat mir am Bahnhof geholfen.",
+                "en": "Nobody picked me up, but someone helped me at the station.",
+                "focus": [
+                  "Niemand",
+                  "jemand"
+                ]
+              },
+              {
+                "de": "Am ersten Tag habe ich nichts verstanden; heute verstehe ich fast alles.",
+                "en": "On the first day I understood nothing; today I understand almost everything.",
+                "focus": [
+                  "nichts",
+                  "alles"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich habe ____ gefragt, aber ____ hat geantwortet. (someone / nobody)",
+              "options": [
+                "jemanden … niemand",
+                "niemand … jemanden",
+                "etwas … nichts"
+              ],
+              "answer": "jemanden … niemand",
+              "why": "jemanden (accusative object of fragen), then niemand as the subject of the second clause."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Pronoun",
+              "right": "Meaning",
+              "rows": [
+                {
+                  "a": "man",
+                  "b": "people, one"
+                },
+                {
+                  "a": "jemand / niemand",
+                  "b": "someone / nobody"
+                },
+                {
+                  "a": "etwas / nichts",
+                  "b": "something / nothing"
+                },
+                {
+                  "a": "alle / alles",
+                  "b": "everybody / everything"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "war, hatte and the Perfekt in a story",
+            "text": "States and feelings: war and hatte (Es war Dezember. Es war kalt. Ich hatte zwei Koffer. Ich hatte Angst). Events: Perfekt (Ich bin angekommen. Ich habe gewartet. Eine Frau hat mich gefragt). Modal verbs: Präteritum (Ich konnte kein Deutsch. Ich wollte weinen. Ich musste eine Stunde warten). Together they make a story: Es war kalt, ich hatte Angst, und dann hat jemand gefragt: Kann ich helfen?",
+            "examples": [
+              {
+                "de": "Es war Dezember, es war kalt, und ich hatte zwei Koffer und zwanzig Wörter Deutsch.",
+                "en": "It was December, it was cold, and I had two suitcases and twenty words of German.",
+                "focus": [
+                  "war",
+                  "war",
+                  "hatte"
+                ]
+              },
+              {
+                "de": "Ich konnte die Durchsage nicht verstehen, also habe ich eine Frau gefragt.",
+                "en": "I could not understand the announcement, so I asked a woman.",
+                "focus": [
+                  "konnte",
+                  "habe",
+                  "gefragt"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich ____ sehr müde, und ich ____ Hunger.",
+              "options": [
+                "war … hatte",
+                "hatte … war",
+                "bin … habe"
+              ],
+              "answer": "war … hatte",
+              "why": "sein → war (tired), haben → hatte (hunger)."
+            }
+          }
+        ],
+        "remember": [
+          "man, jemand, niemand, etwas, nichts, alle, alles; jemanden / niemanden in the accusative.",
+          "Story: war / hatte for states, Perfekt for events, konnte / musste / wollte for the modals."
+        ],
+        "exam": "Short interviews in which someone tells a personal story in the past are a typical listening task at this level.",
+        "hook": "Two suitcases, twenty words of German and nobody at the station: listen to Amira's first day in Germany and what she would tell you today.",
+        "vocab": [
+          {
+            "de": "Flughafen",
+            "en": "airport",
+            "example": "Ich habe eine Stunde am Flughafen gewartet.",
+            "article": "der",
+            "plural": "¨-"
+          },
+          {
+            "de": "Koffer",
+            "en": "suitcase",
+            "example": "Ich hatte zwei Koffer.",
+            "article": "der",
+            "plural": "-"
+          },
+          {
+            "de": "Durchsage",
+            "en": "announcement",
+            "example": "Die Durchsagen waren zu schnell.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "Gleis",
+            "en": "platform, track",
+            "example": "Sie hat mich zum Gleis gebracht.",
+            "article": "das",
+            "plural": "-e"
+          },
+          {
+            "de": "Zugbegleiter",
+            "en": "conductor",
+            "example": "Sie hat dem Zugbegleiter etwas gesagt.",
+            "article": "der",
+            "plural": "-"
+          },
+          {
+            "de": "Missverständnis",
+            "en": "misunderstanding",
+            "example": "Es gab ein Missverständnis.",
+            "article": "das",
+            "plural": "-se"
+          },
+          {
+            "de": "Fachsprache",
+            "en": "technical language",
+            "example": "Im Krankenhaus hat man viel Fachsprache.",
+            "article": "die",
+            "plural": "-n"
+          },
+          {
+            "de": "geduldig",
+            "en": "patient",
+            "example": "Alle waren geduldig."
+          }
+        ]
+      },
+      "category": "People",
+      "speakers": {
+        "Reporter": "male",
+        "Amira": "female"
+      },
+      "passageTitle": "Interview: Mein erster Tag in Deutschland",
+      "passage": "Reporter: Amira, du bist vor drei Jahren nach Deutschland gekommen. Erzähl uns von deinem ersten Tag.\nAmira: Das war der 3. Dezember. Ich bin am Abend in Frankfurt angekommen, mit dem Flugzeug aus Amman. Es war kalt, minus zwei Grad, und ich hatte nur eine dünne Jacke. Ich hatte zwei Koffer und vielleicht zwanzig Wörter Deutsch: Hallo, danke, bitte, Entschuldigung.\nReporter: Hat dich jemand abgeholt?\nAmira: Nein, niemand. Das Krankenhaus wollte jemanden schicken, aber es gab ein Missverständnis. Ich habe eine Stunde am Flughafen gewartet. Dann habe ich gedacht: Ich muss selbst zum Bahnhof.\nReporter: Und wie war das am Bahnhof?\nAmira: Schrecklich. Alles war laut, alle hatten es eilig, und ich habe nichts verstanden. Die Durchsagen waren zu schnell. Ich wollte eigentlich weinen.\nReporter: Was hast du gemacht?\nAmira: Ich habe jemanden gefragt. Eine ältere Frau. Ich habe gesagt: Entschuldigung, Kassel? Und sie hat alles verstanden. Sie hat mir das Ticket am Automaten gekauft, sie hat mich zum Gleis gebracht, und sie hat dem Zugbegleiter gesagt: Diese Frau muss in Kassel aussteigen. Sie hat sogar gewartet, bis der Zug gefahren ist.\nReporter: Hast du sie wiedergesehen?\nAmira: Leider nie. Ich weiß nicht einmal ihren Namen. Aber ich denke oft an sie. Als ich in Kassel angekommen bin, war es Mitternacht, und mein Kollege hat am Bahnhof gestanden. Mit einem Schild und mit einem Tee.\nReporter: Was war in den ersten Wochen am schwersten?\nAmira: Die Sprache. Im Krankenhaus hat man viel Fachsprache. Und niemand hat Zeit. Aber alle waren geduldig. Nach einem Jahr konnte ich alles verstehen, nach zwei Jahren habe ich die Prüfung gemacht.\nReporter: Was sagst du jemandem, der heute ankommt?\nAmira: Frag. Frag jemanden, immer. Die Deutschen sehen ernst aus, aber fast alle helfen, wenn man fragt. Und kauf dir eine warme Jacke. Vor dem Flug.",
+      "passageTranslation": "Reporter: Amira, you came to Germany three years ago. Tell us about your first day.\nAmira: That was 3 December. I arrived in Frankfurt in the evening, by plane from Amman. It was cold, minus two degrees, and I only had a thin jacket. I had two suitcases and maybe twenty words of German: hello, thanks, please, excuse me.\nReporter: Did someone pick you up?\nAmira: No, nobody. The hospital wanted to send someone, but there was a misunderstanding. I waited an hour at the airport. Then I thought: I have to get to the station myself.\nReporter: And what was it like at the station?\nAmira: Terrible. Everything was loud, everyone was in a hurry, and I understood nothing. The announcements were too fast. I actually wanted to cry.\nReporter: What did you do?\nAmira: I asked someone. An older woman. I said: Excuse me, Kassel? And she understood everything. She bought me the ticket at the machine, she took me to the platform, and she told the conductor: this woman must get off in Kassel. She even waited until the train had left.\nReporter: Did you see her again?\nAmira: Sadly never. I do not even know her name. But I often think of her. When I arrived in Kassel it was midnight, and my colleague was standing at the station. With a sign and with a tea.\nReporter: What was hardest in the first weeks?\nAmira: The language. In the hospital there is a lot of technical language. And nobody has time. But everyone was patient. After a year I could understand everything, after two years I took the exam.\nReporter: What do you say to someone arriving today?\nAmira: Ask. Ask someone, always. Germans look serious, but almost all help if you ask. And buy yourself a warm jacket. Before the flight.",
+      "questions": [
+        {
+          "question": "Wann und wo ist Amira angekommen?",
+          "options": [
+            "am 3. Dezember in Kassel, mit dem Zug aus Frankfurt am Abend",
+            "am 3. Dezember in Frankfurt, mit dem Flugzeug",
+            "im Sommer in Frankfurt, mit dem Bus",
+            "am 3. Dezember in Amman"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Das war der 3. Dezember. Ich bin am Abend in Frankfurt angekommen, mit dem Flugzeug aus Amman.\"",
+          "questionTranslation": "When and where did Amira arrive?",
+          "optionsTranslation": [
+            "on 3 December in Kassel, by train from Frankfurt in the evening",
+            "on 3 December in Frankfurt, by plane",
+            "in summer in Frankfurt, by bus",
+            "on 3 December in Amman"
+          ]
+        },
+        {
+          "question": "„Es war kalt, und ich hatte nur eine dünne Jacke.“ Welche Formen sind war und hatte?",
+          "options": [
+            "Präteritum von sein und haben",
+            "Perfekt von sein und haben, mit Partizip",
+            "Präsens",
+            "Konjunktiv"
+          ],
+          "correctIndex": 0,
+          "explanation": "war = past of sein, hatte = past of haben; stories use them for states.",
+          "questionTranslation": "'It was cold, and I only had a thin jacket.' Which forms are war and hatte?",
+          "optionsTranslation": [
+            "Präteritum of sein and haben",
+            "perfect of sein and haben, with participle",
+            "present",
+            "subjunctive"
+          ]
+        },
+        {
+          "question": "Wer hat Amira am Flughafen abgeholt?",
+          "options": [
+            "ein Kollege aus dem Krankenhaus",
+            "eine ältere Frau",
+            "niemand",
+            "der Zugbegleiter"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Hat dich jemand abgeholt? Nein, niemand … es gab ein Missverständnis.\"",
+          "questionTranslation": "Who picked Amira up at the airport?",
+          "optionsTranslation": [
+            "a colleague from the hospital",
+            "an older woman",
+            "nobody",
+            "the conductor"
+          ]
+        },
+        {
+          "question": "Wie war es am Bahnhof?",
+          "options": [
+            "ruhig und einfach",
+            "laut, alle hatten es eilig, und Amira hat nichts verstanden",
+            "leer und dunkel, niemand war da, und alle Geschäfte waren geschlossen",
+            "warm und freundlich"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Schrecklich. Alles war laut, alle hatten es eilig, und ich habe nichts verstanden.\"",
+          "questionTranslation": "What was it like at the station?",
+          "optionsTranslation": [
+            "quiet and easy",
+            "loud, everyone was in a hurry, and Amira understood nothing",
+            "empty and dark, nobody was there, and all shops were closed",
+            "warm and friendly"
+          ]
+        },
+        {
+          "question": "„Ich habe jemanden gefragt.“ Warum jemanden und nicht jemand?",
+          "options": [
+            "weil es Akkusativ ist: Wen habe ich gefragt?",
+            "weil es Plural ist",
+            "weil die Frau alt war",
+            "weil es Dativ ist: Wem habe ich geholfen?"
+          ],
+          "correctIndex": 0,
+          "explanation": "fragen takes the accusative: jemand → jemanden.",
+          "questionTranslation": "'I asked someone.' Why jemanden and not jemand?",
+          "optionsTranslation": [
+            "because it is accusative: whom did I ask?",
+            "because it is plural",
+            "because the woman was old",
+            "because it is dative: whom did I help?"
+          ]
+        },
+        {
+          "question": "Was hat die ältere Frau NICHT gemacht?",
+          "options": [
+            "das Ticket am Automaten gekauft",
+            "Amira zum Gleis gebracht",
+            "mit dem Zugbegleiter gesprochen",
+            "Amira nach Kassel begleitet"
+          ],
+          "correctIndex": 3,
+          "explanation": "She bought the ticket, took her to the platform, spoke to the conductor and waited until the train left; she did not travel to Kassel.",
+          "questionTranslation": "What did the older woman NOT do?",
+          "optionsTranslation": [
+            "buy the ticket at the machine",
+            "take Amira to the platform",
+            "speak to the conductor",
+            "accompany Amira to Kassel"
+          ]
+        },
+        {
+          "question": "Was war in den ersten Wochen am schwersten?",
+          "options": [
+            "das Wetter",
+            "die Sprache, besonders die Fachsprache im Krankenhaus",
+            "das Essen",
+            "die Kollegen, die nie Zeit hatten und immer eilig waren"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Sprache. Im Krankenhaus hat man viel Fachsprache.\"",
+          "questionTranslation": "What was hardest in the first weeks?",
+          "optionsTranslation": [
+            "the weather",
+            "the language, especially the technical language in the hospital",
+            "the food",
+            "the colleagues, who never had time and were always in a hurry"
+          ]
+        },
+        {
+          "question": "Was rät Amira jemandem, der heute ankommt?",
+          "options": [
+            "niemanden fragen und alles allein machen",
+            "immer jemanden fragen und eine warme Jacke kaufen",
+            "nicht im Dezember kommen, weil es dann zu kalt und zu dunkel ist",
+            "zuerst die Prüfung machen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Frag. Frag jemanden, immer … Und kauf dir eine warme Jacke. Vor dem Flug.\"",
+          "questionTranslation": "What does Amira advise someone arriving today?",
+          "optionsTranslation": [
+            "ask nobody and do everything alone",
+            "always ask someone and buy a warm jacket",
+            "not to come in December because it is too cold and too dark then",
+            "take the exam first"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.indefinite-pronouns",
+        "a2.war-hatte"
+      ],
+      "storageKeyPrefix": "quest_a2_1_hoeren_ankunft_",
+      "image": "quest_a2_1_hoeren_ankunft"
+    },
+    {
       "id": "quest_a2_1_wortschatz",
       "type": "vocabulary",
       "title": "Wortschatz",
@@ -56746,6 +59350,77 @@
           "note": "umgezogen"
         },
         {
+          "de": "Eisenbahn",
+          "en": "railway",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_adler",
+          "article": "die",
+          "plural": "-en",
+          "example": "Die erste Eisenbahn in Deutschland ist 1835 gefahren."
+        },
+        {
+          "de": "Lokomotive",
+          "en": "locomotive",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_adler",
+          "article": "die",
+          "plural": "-n",
+          "example": "Die Lokomotive hat den Namen Adler bekommen."
+        },
+        {
+          "de": "Strecke",
+          "en": "line, route",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_adler",
+          "article": "die",
+          "plural": "-n",
+          "example": "Die Strecke war nur sechs Kilometer lang."
+        },
+        {
+          "de": "Lokführer",
+          "en": "train driver",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_adler",
+          "article": "der",
+          "plural": "-",
+          "example": "Der Lokführer ist aus England gekommen."
+        },
+        {
+          "de": "Kutsche",
+          "en": "carriage, coach",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_adler",
+          "article": "die",
+          "plural": "-n",
+          "example": "Mit der Kutsche hat man über eine Stunde gebraucht."
+        },
+        {
+          "de": "Fass",
+          "en": "barrel",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_adler",
+          "article": "das",
+          "plural": "¨-er",
+          "example": "Die erste Fracht waren zwei Fässer Bier.",
+          "image": "fass"
+        },
+        {
+          "de": "Nachbau",
+          "en": "replica",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_adler",
+          "article": "der",
+          "plural": "-ten",
+          "example": "Heute steht ein Nachbau im Verkehrsmuseum."
+        },
+        {
+          "de": "verdienen",
+          "en": "to earn",
+          "kind": "word",
+          "sourceQuizId": "quest_a2_1_lesen_adler",
+          "example": "Er hat mehr verdient als der Bürgermeister."
+        },
+        {
           "de": "geben",
           "en": "to give (wem? was?)",
           "kind": "word",
@@ -56940,6 +59615,79 @@
           "sourceQuizId": "quest_a2_1_temporal_2"
         },
         {
+          "de": "Dom",
+          "en": "cathedral",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_dom",
+          "article": "der",
+          "plural": "-e",
+          "example": "Der Kölner Dom ist das berühmteste Gebäude in Köln.",
+          "image": "dom"
+        },
+        {
+          "de": "Gebäude",
+          "en": "building",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_dom",
+          "article": "das",
+          "plural": "-",
+          "example": "Kein anderes Gebäude hat so lange gedauert."
+        },
+        {
+          "de": "Besucher",
+          "en": "visitor",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_dom",
+          "article": "der",
+          "plural": "-",
+          "example": "Jedes Jahr kommen über sechs Millionen Besucher."
+        },
+        {
+          "de": "Turm",
+          "en": "tower",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_dom",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Auf dem halben Turm stand ein Holzkran.",
+          "image": "turm"
+        },
+        {
+          "de": "Kran",
+          "en": "crane",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_dom",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Der Kran ist dort 300 Jahre geblieben.",
+          "image": "kran"
+        },
+        {
+          "de": "Bombe",
+          "en": "bomb",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_dom",
+          "article": "die",
+          "plural": "-n",
+          "example": "Der Dom hat vierzehn Bomben bekommen."
+        },
+        {
+          "de": "Steinmetz",
+          "en": "stonemason",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_dom",
+          "article": "der",
+          "plural": "-e",
+          "example": "Seit 1880 arbeiten jeden Tag Steinmetze am Dom."
+        },
+        {
+          "de": "zerstören",
+          "en": "to destroy",
+          "kind": "word",
+          "sourceQuizId": "quest_a2_1_lesen_dom",
+          "example": "Bomben haben die Stadt fast ganz zerstört."
+        },
+        {
           "de": "woher?",
           "en": "where from?",
           "kind": "word",
@@ -57102,6 +59850,78 @@
           "image": "bahnhof"
         },
         {
+          "de": "Urlaub",
+          "en": "holiday",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_urlaub",
+          "article": "der",
+          "plural": "-e",
+          "example": "Die Deutschen haben viel Urlaub.",
+          "image": "urlaub"
+        },
+        {
+          "de": "Ausland",
+          "en": "abroad, foreign countries",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_urlaub",
+          "article": "das",
+          "example": "Im Ausland ist Spanien die Nummer eins."
+        },
+        {
+          "de": "Reiseland",
+          "en": "travel destination (country)",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_urlaub",
+          "article": "das",
+          "plural": "¨-er",
+          "example": "Das beliebteste Reiseland ist Deutschland selbst."
+        },
+        {
+          "de": "Strandkorb",
+          "en": "roofed beach chair",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_urlaub",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "An der Ostsee sitzen sie im Strandkorb."
+        },
+        {
+          "de": "Insel",
+          "en": "island",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_urlaub",
+          "article": "die",
+          "plural": "-n",
+          "example": "Jedes Jahr fliegen fünf Millionen Deutsche auf die Insel.",
+          "image": "insel"
+        },
+        {
+          "de": "Handtuch",
+          "en": "towel",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_urlaub",
+          "article": "das",
+          "plural": "¨-er",
+          "example": "Sie legen ein Handtuch auf die Liege.",
+          "image": "handtuch"
+        },
+        {
+          "de": "Liege",
+          "en": "sun lounger",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_urlaub",
+          "article": "die",
+          "plural": "-n",
+          "example": "Die Liege ist jetzt besetzt."
+        },
+        {
+          "de": "beliebt",
+          "en": "popular",
+          "kind": "word",
+          "sourceQuizId": "quest_a2_1_lesen_urlaub",
+          "example": "Das beliebteste Reiseland ist Deutschland."
+        },
+        {
           "de": "mir",
           "en": "to me",
           "kind": "word",
@@ -57150,6 +59970,77 @@
           "sourceQuizId": "quest_a2_1_pronomen_dativ"
         },
         {
+          "de": "Schloss",
+          "en": "castle, palace",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_weg",
+          "article": "das",
+          "plural": "¨-er",
+          "example": "Wie komme ich zum Schloss?"
+        },
+        {
+          "de": "Marktplatz",
+          "en": "market square",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_weg",
+          "article": "der",
+          "plural": "¨-e",
+          "example": "Dann kommen Sie zum Marktplatz."
+        },
+        {
+          "de": "Bergbahn",
+          "en": "funicular, mountain railway",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_weg",
+          "article": "die",
+          "plural": "-en",
+          "example": "Die Bergbahn fährt alle zehn Minuten."
+        },
+        {
+          "de": "Eintritt",
+          "en": "entry, admission",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_weg",
+          "article": "der",
+          "plural": "-e",
+          "example": "Der Eintritt ins Schloss ist dabei.",
+          "image": "eintritt",
+          "imageHint": true
+        },
+        {
+          "de": "Haltestelle",
+          "en": "stop (bus, tram)",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_weg",
+          "article": "die",
+          "plural": "-n",
+          "example": "Die Haltestelle ist dort gegenüber.",
+          "image": "haltestelle"
+        },
+        {
+          "de": "Linie",
+          "en": "line (bus route)",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_weg",
+          "article": "die",
+          "plural": "-n",
+          "example": "Die Linie 33 fährt direkt zum Bahnhof."
+        },
+        {
+          "de": "geradeaus",
+          "en": "straight on",
+          "kind": "word",
+          "sourceQuizId": "quest_a2_1_hoeren_weg",
+          "example": "Sie gehen hier geradeaus."
+        },
+        {
+          "de": "steil",
+          "en": "steep",
+          "kind": "word",
+          "sourceQuizId": "quest_a2_1_hoeren_weg",
+          "example": "Es ist steil."
+        },
+        {
           "de": "schenken",
           "en": "to give as a present",
           "kind": "word",
@@ -57184,6 +60075,77 @@
           "en": "to wish",
           "kind": "word",
           "sourceQuizId": "quest_a2_1_dativ_akkusativ"
+        },
+        {
+          "de": "Schal",
+          "en": "scarf",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_geschenk",
+          "article": "der",
+          "plural": "-s",
+          "example": "Welchen Schal empfehlen Sie mir?"
+        },
+        {
+          "de": "Handschuh",
+          "en": "glove",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_geschenk",
+          "article": "der",
+          "plural": "-e",
+          "example": "Hier sind Handschuhe aus Leder."
+        },
+        {
+          "de": "Wolle",
+          "en": "wool",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_geschenk",
+          "article": "die",
+          "plural": "—",
+          "example": "Die Schals sind aus Wolle."
+        },
+        {
+          "de": "Leder",
+          "en": "leather",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_geschenk",
+          "article": "das",
+          "plural": "-",
+          "example": "Handschuhe aus Leder"
+        },
+        {
+          "de": "Gutschein",
+          "en": "voucher",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_geschenk",
+          "article": "der",
+          "plural": "-e",
+          "example": "Ich gebe Ihnen einen Gutschein."
+        },
+        {
+          "de": "Buchhandlung",
+          "en": "bookshop",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_geschenk",
+          "article": "die",
+          "plural": "-en",
+          "example": "Ein Gutschein für die Buchhandlung nebenan.",
+          "image": "buchhandlung"
+        },
+        {
+          "de": "Schleife",
+          "en": "bow (ribbon)",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_geschenk",
+          "article": "die",
+          "plural": "-n",
+          "example": "Meine Oma mag Schleifen."
+        },
+        {
+          "de": "einpacken",
+          "en": "to wrap, pack",
+          "kind": "word",
+          "sourceQuizId": "quest_a2_1_hoeren_geschenk",
+          "example": "Soll ich den Schal als Geschenk einpacken?"
         },
         {
           "de": "gestern",
@@ -57419,6 +60381,67 @@
           "sourceQuizId": "quest_a2_1_modal_praeteritum"
         },
         {
+          "de": "Fahrt",
+          "en": "journey, drive",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_bertha",
+          "article": "die",
+          "plural": "-en",
+          "example": "Die Fahrt war nicht leicht."
+        },
+        {
+          "de": "Benzin",
+          "en": "petrol",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_bertha",
+          "article": "das",
+          "example": "Dann war das Benzin leer."
+        },
+        {
+          "de": "Tankstelle",
+          "en": "petrol station",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_bertha",
+          "article": "die",
+          "plural": "-n",
+          "example": "Tankstellen gab es nicht."
+        },
+        {
+          "de": "Bremse",
+          "en": "brake",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_bertha",
+          "article": "die",
+          "plural": "-n",
+          "example": "Die Bremse hat nicht mehr funktioniert."
+        },
+        {
+          "de": "Hutnadel",
+          "en": "hat pin",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_bertha",
+          "article": "die",
+          "plural": "-n",
+          "example": "Bertha hat die Leitung mit ihrer Hutnadel sauber gemacht."
+        },
+        {
+          "de": "Zettel",
+          "en": "note, slip of paper",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_bertha",
+          "article": "der",
+          "plural": "-",
+          "example": "Carl hat nur einen Zettel gefunden.",
+          "image": "zettel"
+        },
+        {
+          "de": "schieben",
+          "en": "to push",
+          "kind": "word",
+          "sourceQuizId": "quest_a2_1_lesen_bertha",
+          "example": "An den Bergen mussten die Söhne schieben."
+        },
+        {
           "de": "es regnet",
           "en": "it's raining",
           "kind": "word",
@@ -57565,6 +60588,58 @@
           "en": "slow",
           "kind": "word",
           "sourceQuizId": "quest_a2_1_komparativ"
+        },
+        {
+          "de": "Klima",
+          "en": "climate",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_wetter",
+          "article": "das",
+          "example": "Das Klima ist mild."
+        },
+        {
+          "de": "Rekord",
+          "en": "record",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_wetter",
+          "article": "der",
+          "plural": "-e",
+          "example": "Es gibt Rekorde."
+        },
+        {
+          "de": "Sonnenstunde",
+          "en": "hour of sunshine",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_wetter",
+          "article": "die",
+          "plural": "-n",
+          "example": "Rügen hat fast 2.000 Sonnenstunden im Jahr."
+        },
+        {
+          "de": "Regen",
+          "en": "rain",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_wetter",
+          "article": "der",
+          "plural": "—",
+          "example": "Am meisten Regen fällt in den Alpen.",
+          "image": "regen"
+        },
+        {
+          "de": "Schnee",
+          "en": "snow",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_lesen_wetter",
+          "article": "der",
+          "plural": "—",
+          "example": "Auf der Zugspitze liegt sieben Monate Schnee."
+        },
+        {
+          "de": "messen",
+          "en": "to measure",
+          "kind": "word",
+          "sourceQuizId": "quest_a2_1_lesen_wetter",
+          "example": "Man hat 41,2 Grad gemessen."
         },
         {
           "de": "welcher",
@@ -57773,6 +60848,78 @@
           "sourceQuizId": "quest_a2_1_indefinitpronomen",
           "article": "der",
           "image": "muell"
+        },
+        {
+          "de": "Flughafen",
+          "en": "airport",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_ankunft",
+          "article": "der",
+          "plural": "¨-",
+          "example": "Ich habe eine Stunde am Flughafen gewartet.",
+          "image": "flughafen"
+        },
+        {
+          "de": "Koffer",
+          "en": "suitcase",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_ankunft",
+          "article": "der",
+          "plural": "-",
+          "example": "Ich hatte zwei Koffer.",
+          "image": "koffer"
+        },
+        {
+          "de": "Durchsage",
+          "en": "announcement",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_ankunft",
+          "article": "die",
+          "plural": "-n",
+          "example": "Die Durchsagen waren zu schnell."
+        },
+        {
+          "de": "Gleis",
+          "en": "platform, track",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_ankunft",
+          "article": "das",
+          "plural": "-e",
+          "example": "Sie hat mich zum Gleis gebracht."
+        },
+        {
+          "de": "Zugbegleiter",
+          "en": "conductor",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_ankunft",
+          "article": "der",
+          "plural": "-",
+          "example": "Sie hat dem Zugbegleiter etwas gesagt."
+        },
+        {
+          "de": "Missverständnis",
+          "en": "misunderstanding",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_ankunft",
+          "article": "das",
+          "plural": "-se",
+          "example": "Es gab ein Missverständnis."
+        },
+        {
+          "de": "Fachsprache",
+          "en": "technical language",
+          "kind": "noun",
+          "sourceQuizId": "quest_a2_1_hoeren_ankunft",
+          "article": "die",
+          "plural": "-n",
+          "example": "Im Krankenhaus hat man viel Fachsprache."
+        },
+        {
+          "de": "geduldig",
+          "en": "patient",
+          "kind": "word",
+          "sourceQuizId": "quest_a2_1_hoeren_ankunft",
+          "example": "Alle waren geduldig."
         },
         {
           "de": "Waschmaschine",
@@ -58048,14 +61195,6 @@
           "plural": "Züge"
         },
         {
-          "de": "Gleis",
-          "en": "track",
-          "kind": "noun",
-          "sourceQuizId": "quest_a2_1_suchbild_bahnhof",
-          "article": "das",
-          "plural": "-e"
-        },
-        {
           "de": "Signal",
           "en": "railway signal",
           "kind": "noun",
@@ -58227,15 +61366,6 @@
           "sourceQuizId": "quest_a2_1_suchbild_bahnhof",
           "article": "der",
           "plural": "-"
-        },
-        {
-          "de": "Koffer",
-          "en": "suitcase",
-          "kind": "noun",
-          "sourceQuizId": "quest_a2_1_suchbild_bahnhof",
-          "article": "der",
-          "plural": "-",
-          "image": "koffer"
         },
         {
           "de": "Hund",

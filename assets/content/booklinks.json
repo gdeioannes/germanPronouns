@@ -11186,6 +11186,62 @@
 			"target": "quest_a1_2_hoeren_baecker",
 			"note": "A1.2 Hören: Um drei Uhr aufstehen",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "a21-85",
+			"kind": "quiz",
+			"target": "quest_a2_1_lesen_adler",
+			"note": "A2.1 Lesen: Der Adler fährt",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a21-86",
+			"kind": "quiz",
+			"target": "quest_a2_1_lesen_bertha",
+			"note": "A2.1 Lesen: Bertha fährt los",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a21-87",
+			"kind": "quiz",
+			"target": "quest_a2_1_lesen_wetter",
+			"note": "A2.1 Lesen: Heißer, kälter, nasser",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a21-88",
+			"kind": "quiz",
+			"target": "quest_a2_1_lesen_dom",
+			"note": "A2.1 Lesen: 632 Jahre Baustelle",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a21-89",
+			"kind": "quiz",
+			"target": "quest_a2_1_lesen_urlaub",
+			"note": "A2.1 Lesen: Wohin fahren die Deutschen?",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a21-90",
+			"kind": "quiz",
+			"target": "quest_a2_1_hoeren_weg",
+			"note": "A2.1 Hören: Entschuldigung, wie komme ich …?",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a21-91",
+			"kind": "quiz",
+			"target": "quest_a2_1_hoeren_geschenk",
+			"note": "A2.1 Hören: Ein Geschenk für Oma",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a21-92",
+			"kind": "quiz",
+			"target": "quest_a2_1_hoeren_ankunft",
+			"note": "A2.1 Hören: Mein erster Tag in Deutschland",
+			"since": "2026-11-15"
 		}
 	]
 }
