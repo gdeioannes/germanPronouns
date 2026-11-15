@@ -10962,6 +10962,62 @@
 			"target": "quest_c1_2_hoeren_traeume",
 			"note": "C1.2 Hören: Der Abend, an dem das Radio Angst machte",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "c21-85",
+			"kind": "quiz",
+			"target": "quest_c2_1_lesen_inflation",
+			"note": "C2.1 Lesen: Das Jahr, in dem Geld nichts wog",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c21-86",
+			"kind": "quiz",
+			"target": "quest_c2_1_lesen_urteil",
+			"note": "C2.1 Lesen: Sechzig Milliarden und ein Satz",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c21-87",
+			"kind": "quiz",
+			"target": "quest_c2_1_lesen_wirecard",
+			"note": "C2.1 Lesen: Die Milliarden, die es nie gab",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c21-88",
+			"kind": "quiz",
+			"target": "quest_c2_1_lesen_champions",
+			"note": "C2.1 Lesen: Die Weltmarktführer, die niemand kennt",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c21-89",
+			"kind": "quiz",
+			"target": "quest_c2_1_lesen_kafka",
+			"note": "C2.1 Lesen: Der Mann vom Lande und das Gesetz",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c21-90",
+			"kind": "quiz",
+			"target": "quest_c2_1_hoeren_mitbestimmung",
+			"note": "C2.1 Hören: Die Arbeiter im Aufsichtsrat",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c21-91",
+			"kind": "quiz",
+			"target": "quest_c2_1_hoeren_plaedoyer",
+			"note": "C2.1 Hören: Das Plädoyer",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c21-92",
+			"kind": "quiz",
+			"target": "quest_c2_1_hoeren_karlsruhe",
+			"note": "C2.1 Hören: Die Richter in Rot",
+			"since": "2026-11-15"
 		}
 	]
 }
