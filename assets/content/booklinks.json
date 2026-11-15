@@ -11242,6 +11242,62 @@
 			"target": "quest_a2_1_hoeren_ankunft",
 			"note": "A2.1 Hören: Mein erster Tag in Deutschland",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "a22-85",
+			"kind": "quiz",
+			"target": "quest_a2_2_lesen_bier",
+			"note": "A2.2 Lesen: Wasser, Gerste, Hopfen",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a22-86",
+			"kind": "quiz",
+			"target": "quest_a2_2_lesen_grimm",
+			"note": "A2.2 Lesen: Es war einmal",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a22-87",
+			"kind": "quiz",
+			"target": "quest_a2_2_lesen_tracht",
+			"note": "A2.2 Lesen: Dirndl und Lederhose",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a22-88",
+			"kind": "quiz",
+			"target": "quest_a2_2_lesen_wohnen",
+			"note": "A2.2 Lesen: Kalt, warm und Kaution",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a22-89",
+			"kind": "quiz",
+			"target": "quest_a2_2_lesen_test",
+			"note": "A2.2 Lesen: Wissen Sie, wie viele Bundesländer …?",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a22-90",
+			"kind": "quiz",
+			"target": "quest_a2_2_hoeren_apotheke",
+			"note": "A2.2 Hören: Sie sollten das ernst nehmen",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a22-91",
+			"kind": "quiz",
+			"target": "quest_a2_2_hoeren_werbinich",
+			"note": "A2.2 Hören: Wer bin ich?",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a22-92",
+			"kind": "quiz",
+			"target": "quest_a2_2_hoeren_wohnung",
+			"note": "A2.2 Hören: Die Wohnungsbesichtigung",
+			"since": "2026-11-15"
 		}
 	]
 }

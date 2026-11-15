@@ -39,6 +39,26 @@ const NOT_NOUNS = new Set(['Sie', 'Ihr', 'Ihnen', 'Ihre', 'Ihren', 'Ihrem', 'Ihr
  * Spain"), and labels that are not vocabulary at all.
  */
 const OVERRIDES = {
+	// Grammar terms from the A2.2 Grammatikwörter rows (labelled in English, no article in the row).
+	Nomen: { article: 'das', plural: '-' },
+	Verb: { article: 'das', plural: '-en' },
+	Adjektiv: { article: 'das', plural: '-e' },
+	Pronomen: { article: 'das', plural: '-' },
+	Präposition: { article: 'die', plural: '-en' },
+	Endung: { article: 'die', plural: '-en' },
+	Singular: { article: 'der', plural: '-e' },
+	Plural: { article: 'der', plural: '-e' },
+	Infinitiv: { article: 'der', plural: '-e' },
+	Präsens: { article: 'das' },
+	Perfekt: { article: 'das' },
+	Präteritum: { article: 'das' },
+	Partizip: { article: 'das', plural: '-ien' },
+	Hauptsatz: { article: 'der', plural: '¨-e' },
+	Nebensatz: { article: 'der', plural: '¨-e' },
+	Subjekt: { article: 'das', plural: '-e' },
+	Objekt: { article: 'das', plural: '-e' },
+	Komparativ: { article: 'der', plural: '-e' },
+	Superlativ: { article: 'der', plural: '-e' },
 	Zuhause: { article: 'das' },
 	Neugier: { article: 'die' },
 	Forderung: { article: 'die', plural: '-en' },

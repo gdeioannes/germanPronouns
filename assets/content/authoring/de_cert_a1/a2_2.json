@@ -10460,5 +10460,2629 @@
         }
       ]
     }
+  },
+  {
+    "id": "quest_a2_2_lesen_bier",
+    "after": "quest_a2_2_passiv_intro",
+    "help": {
+      "vocab": [
+        {
+          "de": "Gesetz",
+          "en": "law",
+          "example": "Das Reinheitsgebot ist das älteste Lebensmittelgesetz der Welt.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Gerste",
+          "en": "barley",
+          "example": "Bier darf nur aus Wasser, Gerste und Hopfen gebraut werden.",
+          "article": "die"
+        },
+        {
+          "de": "Hopfen",
+          "en": "hops",
+          "example": "Der Hopfen macht das Bier bitter.",
+          "article": "der"
+        },
+        {
+          "de": "Hefe",
+          "en": "yeast",
+          "example": "Die Hefe stand nicht im Gesetz.",
+          "article": "die"
+        },
+        {
+          "de": "Zutat",
+          "en": "ingredient",
+          "example": "Heute sind vier Zutaten erlaubt.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Brauerei",
+          "en": "brewery",
+          "example": "In Deutschland gibt es etwa 1.500 Brauereien.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Fass",
+          "en": "barrel",
+          "example": "Das Bier wird in Fässer gefüllt.",
+          "article": "das",
+          "plural": "¨-er"
+        },
+        {
+          "de": "brauen",
+          "en": "to brew",
+          "example": "Wie wird Bier gebraut?"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Wasser, Gerste, Hopfen",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.2",
+      "help": {
+        "intro": "A text of about 200 words about German beer and the oldest food law still in force: in 1516 two Bavarian dukes ordered that beer may be brewed only from water, barley and hops, and the rule still shapes what is in a German glass today. The text tells how beer is brewed, how many breweries there are, why the Oktoberfest started as a wedding, and how much is drunk there. All facts are real and were checked. You read what you have just learnt: the passive in the present (Das Bier wird gebraut. Hopfen wird hinzugefügt. Das Gesetz wird eingehalten) and the superlative (das älteste Gesetz, die meisten Brauereien, am liebsten). Read for the gist first, then find one number or one step per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Passive: wird + participle",
+            "text": "The passive says what is done, without saying who does it: Das Bier wird gebraut (the beer is brewed). Plural: Die Flaschen werden gefüllt. The participle is the Perfekt participle: brauen → gebraut, füllen → gefüllt, trinken → getrunken, hinzufügen → hinzugefügt. With a modal: Das Bier muss gekühlt werden. Who does it, if you want to say: von + dative: Das Bier wird von den Brauern gekocht. Use the passive for processes, recipes and rules.",
+            "examples": [
+              {
+                "de": "Zuerst wird die Gerste in Wasser gelegt, dann wird sie getrocknet und gemahlen.",
+                "en": "First the barley is put in water, then it is dried and ground.",
+                "focus": [
+                  "wird",
+                  "gelegt",
+                  "wird",
+                  "getrocknet",
+                  "gemahlen"
+                ]
+              },
+              {
+                "de": "Auf dem Oktoberfest werden sieben Millionen Liter Bier getrunken.",
+                "en": "At the Oktoberfest seven million litres of beer are drunk.",
+                "focus": [
+                  "werden",
+                  "getrunken"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Das Bier ____ in Fässer ____. (füllen)",
+              "options": [
+                "wird … gefüllt",
+                "ist … gefüllt",
+                "hat … gefüllt"
+              ],
+              "answer": "wird … gefüllt",
+              "why": "Present passive: wird + participle gefüllt."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Active",
+              "right": "Passive",
+              "rows": [
+                {
+                  "a": "Der Brauer kocht das Bier.",
+                  "b": "Das Bier wird gekocht."
+                },
+                {
+                  "a": "Man fügt Hopfen hinzu.",
+                  "b": "Hopfen wird hinzugefügt."
+                },
+                {
+                  "a": "Man füllt die Flaschen.",
+                  "b": "Die Flaschen werden gefüllt."
+                },
+                {
+                  "a": "Man trinkt sieben Millionen Liter.",
+                  "b": "Sieben Millionen Liter werden getrunken."
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Superlative before a noun",
+            "text": "Before a noun the superlative takes an adjective ending: das älteste Gesetz, die größte Brauerei, die meisten Brauereien, der beliebteste Stil, das bekannteste Fest. Without a noun: am ältesten, am meisten, am liebsten. Irregular: gut → am besten, viel → am meisten, gern → am liebsten, groß → am größten, hoch → am höchsten.",
+            "examples": [
+              {
+                "de": "Das Reinheitsgebot ist das älteste Lebensmittelgesetz der Welt, das noch gilt.",
+                "en": "The purity law is the oldest food law in the world still in force.",
+                "focus": [
+                  "das älteste Lebensmittelgesetz"
+                ]
+              },
+              {
+                "de": "Die Deutschen trinken am liebsten Pils; die meisten Brauereien stehen in Bayern.",
+                "en": "Germans like Pils best; most breweries are in Bavaria.",
+                "focus": [
+                  "am liebsten",
+                  "die meisten Brauereien"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Das Oktoberfest ist ____ Volksfest der Welt. (groß)",
+              "options": [
+                "das größte",
+                "das grösste",
+                "am größten"
+              ],
+              "answer": "das größte",
+              "why": "Before a noun: das größte Volksfest (with ß and umlaut); am größten stands alone."
+            }
+          }
+        ],
+        "remember": [
+          "Passive: wird / werden + participle: Das Bier wird gebraut, die Flaschen werden gefüllt.",
+          "Superlative before a noun: das älteste Gesetz, die meisten Brauereien; alone: am liebsten, am meisten."
+        ],
+        "exam": "Short factual texts about a product or a tradition, written with passive forms and comparisons, are a typical reading task at this level.",
+        "hook": "Only water, barley and hops, by a law from 1516 that still applies: read how German beer is brewed and why the Oktoberfest began as a wedding."
+      },
+      "category": "Culture",
+      "passageTitle": "Wasser, Gerste, Hopfen",
+      "passage": "Am 23. April 1516 haben zwei bayerische Herzöge in Ingolstadt ein Gesetz gemacht: Bier darf nur aus Wasser, Gerste und Hopfen gebraut werden. Das ist das Reinheitsgebot, das älteste Lebensmittelgesetz der Welt, das noch heute gilt. Die Hefe stand nicht im Gesetz, denn man kannte sie noch nicht. Heute sind vier Zutaten erlaubt: Wasser, Malz, Hopfen und Hefe.\n\nWie wird Bier gebraut? Zuerst wird die Gerste in Wasser gelegt, dann getrocknet. So wird aus Gerste Malz. Das Malz wird gemahlen und mit heißem Wasser gekocht. Dann wird Hopfen hinzugefügt; er macht das Bier bitter. Am Ende wird Hefe dazugegeben, und das Bier muss einige Wochen ruhen. Danach wird es in Fässer und Flaschen gefüllt.\n\nIn Deutschland gibt es etwa 1.500 Brauereien und über 7.000 verschiedene Biere. Die meisten Brauereien stehen in Bayern. Am liebsten trinken die Deutschen Pils. Aber sie trinken immer weniger: etwa 90 Liter pro Person im Jahr. Vor dreißig Jahren waren es 140.\n\nDas bekannteste Fest ist das Oktoberfest in München. Es hat 1810 als Hochzeitsfest begonnen: Prinz Ludwig hat Prinzessin Therese geheiratet, und die ganze Stadt wurde eingeladen. Heute kommen jedes Jahr etwa sechs Millionen Besucher. Sie trinken rund sieben Millionen Liter Bier, aus Gläsern mit einem Liter. Das Glas heißt Maß, und eine Maß kostet heute über fünfzehn Euro.",
+      "passageTranslation": "On 23 April 1516 two Bavarian dukes made a law in Ingolstadt: beer may be brewed only from water, barley and hops. That is the Reinheitsgebot, the purity law, the oldest food law in the world still in force today. Yeast was not in the law, because it was not yet known. Today four ingredients are allowed: water, malt, hops and yeast.\n\nHow is beer brewed? First the barley is put in water, then dried. That turns barley into malt. The malt is ground and boiled with hot water. Then hops are added; they make the beer bitter. At the end yeast is added, and the beer must rest for some weeks. After that it is filled into barrels and bottles.\n\nIn Germany there are about 1,500 breweries and over 7,000 different beers. Most breweries are in Bavaria. Germans like Pils best. But they drink less and less: about 90 litres per person a year. Thirty years ago it was 140.\n\nThe best-known festival is the Oktoberfest in Munich. It began in 1810 as a wedding celebration: Prince Ludwig married Princess Therese, and the whole city was invited. Today about six million visitors come every year. They drink around seven million litres of beer, from glasses holding one litre. The glass is called a Maß, and a Maß costs over fifteen euros today.",
+      "questions": [
+        {
+          "question": "Was sagt das Reinheitsgebot von 1516?",
+          "options": [
+            "Bier darf nur in Bayern gebraut werden.",
+            "Bier darf nur aus Wasser, Gerste und Hopfen gebraut werden.",
+            "Bier muss aus genau vier Zutaten gebraut werden: Wasser, Malz, Hopfen und Hefe.",
+            "Bier darf nur im April gebraut werden."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Bier darf nur aus Wasser, Gerste und Hopfen gebraut werden.\"",
+          "questionTranslation": "What does the purity law of 1516 say?",
+          "optionsTranslation": [
+            "Beer may be brewed only in Bavaria.",
+            "Beer may be brewed only from water, barley and hops.",
+            "Beer must be brewed from exactly four ingredients: water, malt, hops and yeast.",
+            "Beer may be brewed only in April."
+          ]
+        },
+        {
+          "question": "Warum stand die Hefe nicht im Gesetz?",
+          "options": [
+            "weil sie verboten war",
+            "weil man sie 1516 noch nicht kannte",
+            "weil sie zu teuer war",
+            "weil sie das Bier bitter macht und die Herzöge das nicht wollten"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Hefe stand nicht im Gesetz, denn man kannte sie noch nicht.\"",
+          "questionTranslation": "Why was yeast not in the law?",
+          "optionsTranslation": [
+            "because it was forbidden",
+            "because it was not yet known in 1516",
+            "because it was too expensive",
+            "because it makes the beer bitter and the dukes did not want that"
+          ]
+        },
+        {
+          "question": "„Zuerst wird die Gerste in Wasser gelegt.“ Welche Form ist das?",
+          "options": [
+            "Passiv Präsens: wird + Partizip",
+            "Perfekt mit sein, wie ist gefahren",
+            "Futur",
+            "Imperativ"
+          ],
+          "correctIndex": 0,
+          "explanation": "wird + gelegt = present passive; the barley is put in water, nobody says by whom.",
+          "questionTranslation": "'First the barley is put in water.' Which form is that?",
+          "optionsTranslation": [
+            "present passive: wird + participle",
+            "perfect with sein, like ist gefahren",
+            "future",
+            "imperative"
+          ]
+        },
+        {
+          "question": "Was macht der Hopfen?",
+          "options": [
+            "Er macht das Bier süß.",
+            "Er macht das Bier bitter.",
+            "Er macht das Bier dunkel.",
+            "Er macht aus Gerste Malz."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Dann wird Hopfen hinzugefügt; er macht das Bier bitter.\"",
+          "questionTranslation": "What do the hops do?",
+          "optionsTranslation": [
+            "They make the beer sweet.",
+            "They make the beer bitter.",
+            "They make the beer dark.",
+            "They turn barley into malt."
+          ]
+        },
+        {
+          "question": "Wie viele Brauereien gibt es etwa in Deutschland?",
+          "options": [
+            "etwa 150",
+            "etwa 1.500",
+            "etwa 7.000",
+            "etwa 15.000"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"In Deutschland gibt es etwa 1.500 Brauereien und über 7.000 verschiedene Biere.\"",
+          "questionTranslation": "About how many breweries are there in Germany?",
+          "optionsTranslation": [
+            "about 150",
+            "about 1,500",
+            "about 7,000",
+            "about 15,000"
+          ]
+        },
+        {
+          "question": "Wie hat sich der Bierkonsum verändert?",
+          "options": [
+            "Er ist gestiegen: von 90 auf 140 Liter pro Person und Jahr.",
+            "Er ist gesunken: von 140 auf etwa 90 Liter pro Person.",
+            "Er ist gleich geblieben.",
+            "Er ist auf sieben Millionen Liter gestiegen."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Aber sie trinken immer weniger: etwa 90 Liter pro Person im Jahr. Vor dreißig Jahren waren es 140.\"",
+          "questionTranslation": "How has beer consumption changed?",
+          "optionsTranslation": [
+            "It has risen: from 90 to 140 litres per person and year.",
+            "It has fallen: from 140 to about 90 litres per person.",
+            "It has stayed the same.",
+            "It has risen to seven million litres."
+          ]
+        },
+        {
+          "question": "Wie hat das Oktoberfest begonnen?",
+          "options": [
+            "als Bierfest der Brauereien",
+            "als Hochzeitsfest von Prinz Ludwig und Prinzessin Therese 1810",
+            "als Markt für Gerste und Hopfen, auf dem die Bauern ihr Bier verkauften",
+            "als Fest für das Reinheitsgebot"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Es hat 1810 als Hochzeitsfest begonnen: Prinz Ludwig hat Prinzessin Therese geheiratet, und die ganze Stadt wurde eingeladen.\"",
+          "questionTranslation": "How did the Oktoberfest begin?",
+          "optionsTranslation": [
+            "as a beer festival of the breweries",
+            "as the wedding celebration of Prince Ludwig and Princess Therese in 1810",
+            "as a market for barley and hops where the farmers sold their beer",
+            "as a festival for the purity law"
+          ]
+        },
+        {
+          "question": "Was ist eine Maß?",
+          "options": [
+            "ein kleines Bierglas",
+            "ein Glas mit einem Liter Bier",
+            "ein Fass",
+            "ein dunkles Bier aus Bayern, das nur im Oktober gebraut wird"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… aus Gläsern mit einem Liter. Das Glas heißt Maß …\"",
+          "questionTranslation": "What is a Maß?",
+          "optionsTranslation": [
+            "a small beer glass",
+            "a glass holding one litre of beer",
+            "a barrel",
+            "a dark beer from Bavaria that is brewed only in October"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.passive-intro",
+        "a2.superlative"
+      ],
+      "image": "quest_a2_2_lesen_bier"
+    }
+  },
+  {
+    "id": "quest_a2_2_lesen_grimm",
+    "after": "quest_a2_2_praeteritum_intro",
+    "help": {
+      "vocab": [
+        {
+          "de": "Märchen",
+          "en": "fairy tale",
+          "example": "Jedes Kind kennt diese Märchen.",
+          "article": "das",
+          "plural": "-"
+        },
+        {
+          "de": "Bibliothek",
+          "en": "library",
+          "example": "Sie arbeiteten in einer Bibliothek.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Ausgabe",
+          "en": "edition",
+          "example": "Die letzte Ausgabe erschien 1857.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Fußnote",
+          "en": "footnote",
+          "example": "Das Buch hatte lange Fußnoten.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Statue",
+          "en": "statue",
+          "example": "Die Bremer Stadtmusikanten stehen als Statue in Bremen.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "grausam",
+          "en": "cruel",
+          "example": "Die Geschichten waren oft grausam."
+        },
+        {
+          "de": "sammeln",
+          "en": "to collect",
+          "example": "Die Brüder Grimm haben die Märchen gesammelt."
+        },
+        {
+          "de": "erscheinen",
+          "en": "to appear, be published",
+          "example": "Das erste Buch erschien 1812."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Es war einmal",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.2",
+      "help": {
+        "intro": "A text of about 200 words about the two brothers who collected the fairy tales the whole world knows: Jacob and Wilhelm Grimm. They did not invent Hansel and Gretel or Little Red Riding Hood; they wrote down what people told them, published the first book in 1812, and the final edition of 1857 has 200 tales translated into more than 160 languages. The text also tells which woman told them the most stories, why the first edition was not for children, and where the German Fairy Tale Route runs. All facts are real and were checked. You read it in the Präteritum, the tense of fairy tales and written stories (sie lebten, sie sammelten, sie schrieben, es war einmal), and with your first relative clauses (die Frau, die ihnen die Märchen erzählte; das Buch, das 1812 erschien). Read for the story first, then find one name, number or place per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Präteritum: the tense of written stories",
+            "text": "Regular verbs: stem + -te: sie lebten, sie sammelten, sie arbeiteten, er erzählte, sie wohnte. Irregular verbs change the vowel: schreiben → schrieb, kommen → kam, gehen → ging, geben → gab, finden → fand, sterben → starb, erscheinen → erschien. The most common: war, hatte, wurde, gab (es gab), konnte, musste, wollte. Every fairy tale begins with Es war einmal (once upon a time) and ends with Und wenn sie nicht gestorben sind, dann leben sie noch heute.",
+            "examples": [
+              {
+                "de": "Die Brüder lebten in Kassel, sammelten Märchen und schrieben sie auf.",
+                "en": "The brothers lived in Kassel, collected fairy tales and wrote them down.",
+                "focus": [
+                  "lebten",
+                  "sammelten",
+                  "schrieben"
+                ]
+              },
+              {
+                "de": "Das erste Buch erschien 1812 und hatte 86 Märchen.",
+                "en": "The first book appeared in 1812 and had 86 tales.",
+                "focus": [
+                  "erschien",
+                  "hatte"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Präteritum of schreiben (er):",
+              "options": [
+                "schrieb",
+                "schreibte",
+                "geschrieben"
+              ],
+              "answer": "schrieb",
+              "why": "schreiben is irregular: schrieb. geschrieben is the participle."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Infinitive",
+              "right": "Präteritum",
+              "rows": [
+                {
+                  "a": "leben, sammeln (regular)",
+                  "b": "lebte, sammelte"
+                },
+                {
+                  "a": "schreiben",
+                  "b": "schrieb"
+                },
+                {
+                  "a": "kommen / gehen",
+                  "b": "kam / ging"
+                },
+                {
+                  "a": "geben / finden",
+                  "b": "gab / fand"
+                },
+                {
+                  "a": "sterben / erscheinen",
+                  "b": "starb / erschien"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Relative clauses: der, die, das",
+            "text": "A relative clause gives more information about a noun; it starts with der, die or das (like the article) and puts the verb at the end: die Frau, die ihnen Märchen erzählte; das Buch, das 1812 erschien; der Bruder, der die Sprache erforschte. Accusative: den for masculine: der Wolf, den der Jäger fand. Plural: die: die Märchen, die alle kennen. Commas before and after the clause.",
+            "examples": [
+              {
+                "de": "Dorothea Viehmann war die Frau, die den Brüdern die meisten Märchen erzählte.",
+                "en": "Dorothea Viehmann was the woman who told the brothers the most tales.",
+                "focus": [
+                  "die",
+                  "erzählte"
+                ]
+              },
+              {
+                "de": "Die Märchenstraße ist eine Straße, die von Hanau bis Bremen führt.",
+                "en": "The Fairy Tale Route is a road that leads from Hanau to Bremen.",
+                "focus": [
+                  "die",
+                  "führt"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Das Buch, ____ 1857 erschien, hatte 200 Märchen.",
+              "options": [
+                "das",
+                "der",
+                "die"
+              ],
+              "answer": "das",
+              "why": "das Buch is neuter, so the relative pronoun is das."
+            }
+          }
+        ],
+        "remember": [
+          "Präteritum: lebte, sammelte (regular); schrieb, kam, gab, erschien (irregular); Es war einmal.",
+          "Relative clause: die Frau, die …; das Buch, das …; der Wolf, den …; verb at the end."
+        ],
+        "exam": "Short texts about famous people and books, written in the Präteritum, are a typical reading task at this level.",
+        "hook": "Two brothers, one old woman with a basket of stories, and a book translated into 160 languages: read how Hansel, Gretel and Little Red Riding Hood were written down."
+      },
+      "category": "Literature",
+      "passageTitle": "Es war einmal",
+      "passage": "Hänsel und Gretel, Rotkäppchen, Schneewittchen, Aschenputtel: Jedes Kind auf der Welt kennt diese Märchen. Aber wer hat sie geschrieben? Niemand. Die Brüder Jacob und Wilhelm Grimm haben sie gesammelt.\n\nJacob wurde 1785 in Hanau geboren, Wilhelm 1786. Als junge Männer lebten sie in Kassel und arbeiteten in einer Bibliothek. Sie interessierten sich für die alte deutsche Sprache. Darum sammelten sie Geschichten, die die Menschen seit hundert Jahren erzählten, aber nie aufschrieben. Die Brüder gingen nicht durch die Dörfer. Die Menschen kamen zu ihnen. Die wichtigste war Dorothea Viehmann, eine Frau, die auf dem Markt in Kassel Gemüse verkaufte. Sie erzählte ihnen über vierzig Märchen.\n\nDas erste Buch erschien 1812 und hieß „Kinder- und Hausmärchen“. Es hatte 86 Märchen und war nicht für Kinder: Die Geschichten waren oft grausam, und das Buch hatte lange Fußnoten. Wilhelm änderte die Texte in den nächsten Jahren. Er machte sie kürzer, schöner und weniger brutal. Die letzte Ausgabe erschien 1857 und hatte 200 Märchen.\n\nHeute gibt es die Märchen in mehr als 160 Sprachen. Nur die Bibel ist in mehr Sprachen übersetzt. Seit 2005 gehören die Bücher zum Weltdokumentenerbe der UNESCO.\n\nWer die Orte sehen will, fährt die Deutsche Märchenstraße: 600 Kilometer von Hanau bis Bremen, wo die Bremer Stadtmusikanten als Statue stehen. Und in Kassel steht ein Museum, das Grimmwelt heißt.",
+      "passageTranslation": "Hansel and Gretel, Little Red Riding Hood, Snow White, Cinderella: every child in the world knows these fairy tales. But who wrote them? Nobody. The brothers Jacob and Wilhelm Grimm collected them.\n\nJacob was born in Hanau in 1785, Wilhelm in 1786. As young men they lived in Kassel and worked in a library. They were interested in the old German language. That is why they collected stories that people had been telling for a hundred years but never wrote down. The brothers did not go through the villages. People came to them. The most important was Dorothea Viehmann, a woman who sold vegetables at the market in Kassel. She told them over forty tales.\n\nThe first book appeared in 1812 and was called 'Children's and Household Tales'. It had 86 tales and was not for children: the stories were often cruel, and the book had long footnotes. Wilhelm changed the texts in the following years. He made them shorter, more beautiful and less brutal. The last edition appeared in 1857 and had 200 tales.\n\nToday the tales exist in more than 160 languages. Only the Bible is translated into more languages. Since 2005 the books belong to UNESCO's Memory of the World.\n\nWhoever wants to see the places drives the German Fairy Tale Route: 600 kilometres from Hanau to Bremen, where the Town Musicians of Bremen stand as a statue. And in Kassel there is a museum called Grimmwelt.",
+      "questions": [
+        {
+          "question": "Wer hat Hänsel und Gretel geschrieben?",
+          "options": [
+            "Jacob Grimm",
+            "Wilhelm Grimm",
+            "Niemand; die Brüder Grimm haben die Märchen gesammelt.",
+            "Dorothea Viehmann, die Frau vom Markt in Kassel, hat sie geschrieben."
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Aber wer hat sie geschrieben? Niemand. Die Brüder Jacob und Wilhelm Grimm haben sie gesammelt.\"",
+          "questionTranslation": "Who wrote Hansel and Gretel?",
+          "optionsTranslation": [
+            "Jacob Grimm",
+            "Wilhelm Grimm",
+            "Nobody; the Brothers Grimm collected the tales.",
+            "Dorothea Viehmann, the woman from the market in Kassel, wrote them."
+          ]
+        },
+        {
+          "question": "„Als junge Männer lebten sie in Kassel und arbeiteten in einer Bibliothek.“ Welche Zeitform ist das?",
+          "options": [
+            "Präsens",
+            "Präteritum, regelmäßige Verben mit -te",
+            "Perfekt mit haben und sein, wie haben gelebt",
+            "Passiv"
+          ],
+          "correctIndex": 1,
+          "explanation": "lebten, arbeiteten = Präteritum of regular verbs (leben, arbeiten) with -te and the plural ending -n.",
+          "questionTranslation": "'As young men they lived in Kassel and worked in a library.' Which tense is that?",
+          "optionsTranslation": [
+            "present",
+            "Präteritum, regular verbs with -te",
+            "perfect with haben and sein, like haben gelebt",
+            "passive"
+          ]
+        },
+        {
+          "question": "Wie haben die Brüder die Märchen gesammelt?",
+          "options": [
+            "Sie sind durch die Dörfer gegangen.",
+            "Die Menschen kamen zu ihnen und erzählten.",
+            "Sie haben alte Bücher aus der Bibliothek in Kassel kopiert.",
+            "Sie haben die Märchen erfunden."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Brüder gingen nicht durch die Dörfer. Die Menschen kamen zu ihnen.\"",
+          "questionTranslation": "How did the brothers collect the tales?",
+          "optionsTranslation": [
+            "They went through the villages.",
+            "People came to them and told stories.",
+            "They copied old books from the library in Kassel.",
+            "They invented the tales."
+          ]
+        },
+        {
+          "question": "„Dorothea Viehmann, eine Frau, die auf dem Markt in Kassel Gemüse verkaufte.“ Was ist die?",
+          "options": [
+            "der Artikel von Frau",
+            "ein Relativpronomen; es beginnt den Relativsatz",
+            "ein Plural",
+            "ein Personalpronomen für sie, also für Dorothea Viehmann selbst"
+          ],
+          "correctIndex": 1,
+          "explanation": "die starts the relative clause about die Frau; the verb verkaufte stands at the end.",
+          "questionTranslation": "'Dorothea Viehmann, a woman who sold vegetables at the market in Kassel.' What is die?",
+          "optionsTranslation": [
+            "the article of Frau",
+            "a relative pronoun; it starts the relative clause",
+            "a plural",
+            "a personal pronoun for she, so for Dorothea Viehmann herself"
+          ]
+        },
+        {
+          "question": "Warum war das erste Buch nicht für Kinder?",
+          "options": [
+            "weil es zu teuer war",
+            "weil die Geschichten oft grausam waren und das Buch lange Fußnoten hatte",
+            "weil es nur 86 Seiten hatte und die Kinder mehr lesen wollten",
+            "weil es auf Latein war"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Es hatte 86 Märchen und war nicht für Kinder: Die Geschichten waren oft grausam, und das Buch hatte lange Fußnoten.\"",
+          "questionTranslation": "Why was the first book not for children?",
+          "optionsTranslation": [
+            "because it was too expensive",
+            "because the stories were often cruel and the book had long footnotes",
+            "because it had only 86 pages and the children wanted to read more",
+            "because it was in Latin"
+          ]
+        },
+        {
+          "question": "Was machte Wilhelm mit den Texten?",
+          "options": [
+            "Er machte sie länger und brutaler.",
+            "Er machte sie kürzer, schöner und weniger brutal.",
+            "Er übersetzte sie ins Englische und verkaufte sie in London.",
+            "Er verkaufte sie auf dem Markt."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Wilhelm änderte die Texte in den nächsten Jahren. Er machte sie kürzer, schöner und weniger brutal.\"",
+          "questionTranslation": "What did Wilhelm do with the texts?",
+          "optionsTranslation": [
+            "He made them longer and more brutal.",
+            "He made them shorter, more beautiful and less brutal.",
+            "He translated them into English and sold them in London.",
+            "He sold them at the market."
+          ]
+        },
+        {
+          "question": "In wie viele Sprachen sind die Märchen übersetzt?",
+          "options": [
+            "in 86",
+            "in mehr als 160",
+            "in 200, so viele wie Märchen",
+            "in 600"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Heute gibt es die Märchen in mehr als 160 Sprachen. Nur die Bibel ist in mehr Sprachen übersetzt.\"",
+          "questionTranslation": "Into how many languages are the tales translated?",
+          "optionsTranslation": [
+            "into 86",
+            "into more than 160",
+            "into 200, as many as the tales",
+            "into 600"
+          ]
+        },
+        {
+          "question": "Was ist die Deutsche Märchenstraße?",
+          "options": [
+            "eine Straße in Kassel",
+            "eine Route von 600 Kilometern von Hanau bis Bremen",
+            "ein großes Museum in Hanau mit allen Märchen der Brüder Grimm",
+            "ein Buch mit 200 Märchen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… fährt die Deutsche Märchenstraße: 600 Kilometer von Hanau bis Bremen …\"",
+          "questionTranslation": "What is the German Fairy Tale Route?",
+          "optionsTranslation": [
+            "a street in Kassel",
+            "a route of 600 kilometres from Hanau to Bremen",
+            "a big museum in Hanau with all the tales of the Brothers Grimm",
+            "a book with 200 tales"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.praeteritum-intro",
+        "a2.relative-intro"
+      ],
+      "image": "quest_a2_2_lesen_grimm"
+    }
+  },
+  {
+    "id": "quest_a2_2_lesen_tracht",
+    "after": "quest_a2_2_kleidung",
+    "help": {
+      "vocab": [
+        {
+          "de": "Tracht",
+          "en": "traditional costume",
+          "example": "Dirndl und Lederhose sind die Tracht aus Bayern.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Schürze",
+          "en": "apron",
+          "example": "Die Schürze hat ein Geheimnis: die Schleife.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Rock",
+          "en": "skirt",
+          "example": "ein weiter Rock",
+          "article": "der",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Oberteil",
+          "en": "top, bodice",
+          "example": "ein enges Oberteil",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Strumpf",
+          "en": "sock, stocking",
+          "example": "Man trägt sie mit langen Strümpfen.",
+          "article": "der",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Magd",
+          "en": "maid (farm servant)",
+          "example": "Es war die Arbeitskleidung der Mägde.",
+          "article": "die",
+          "plural": "¨-e"
+        },
+        {
+          "de": "handgemacht",
+          "en": "handmade",
+          "example": "Eine gute Lederhose ist handgemacht."
+        },
+        {
+          "de": "kariert",
+          "en": "checked (pattern)",
+          "example": "ein kariertes Hemd"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Dirndl und Lederhose",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.2",
+      "help": {
+        "intro": "A text of about 200 words about the clothes the world thinks all Germans wear, and that most Germans never wear: Dirndl and Lederhose. The text explains where they come from, that the Dirndl was a maid's working dress before city people made it fashion, what the position of the apron bow secretly tells, and what a good Lederhose costs today. All facts are real and were checked. You read what you have just learnt: the clothing words (das Kleid, die Hose, die Schürze, das Hemd, die Schuhe) and your first adjective endings before a noun (ein weißes Hemd, eine kurze Lederhose, die bunte Schürze, der rote Stoff). Read for the gist first, then find one piece of clothing or one rule per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Adjective endings: first meeting",
+            "text": "Before a noun the adjective gets an ending. After der/die/das: -e in the nominative: der rote Stoff, die bunte Schürze, das weiße Hemd, die braunen Schuhe (plural -en). After ein/eine/ein the adjective shows the gender: ein roter Stoff, eine bunte Schürze, ein weißes Hemd. In the accusative the masculine changes: den roten Stoff, einen roten Stoff; the rest stays. Rule of thumb at this level: after der/die/das → -e, after ein → -er / -e / -es.",
+            "examples": [
+              {
+                "de": "Das Dirndl hat ein weißes Hemd, ein enges Oberteil, einen weiten Rock und eine bunte Schürze.",
+                "en": "The Dirndl has a white blouse, a tight bodice, a wide skirt and a colourful apron.",
+                "focus": [
+                  "ein weißes Hemd",
+                  "ein enges Oberteil",
+                  "einen weiten Rock",
+                  "eine bunte Schürze"
+                ]
+              },
+              {
+                "de": "Die kurze Lederhose ist aus braunem Leder, die langen Strümpfe sind aus Wolle.",
+                "en": "The short leather trousers are of brown leather, the long socks are of wool.",
+                "focus": [
+                  "Die kurze Lederhose",
+                  "die langen Strümpfe"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Er trägt ____ Hemd. (ein, weiß; das Hemd)",
+              "options": [
+                "ein weißes",
+                "ein weiße",
+                "ein weißer"
+              ],
+              "answer": "ein weißes",
+              "why": "das Hemd is neuter; after ein the adjective shows it: ein weißes Hemd."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "After der / die / das",
+              "right": "After ein / eine / ein",
+              "rows": [
+                {
+                  "a": "der rote Stoff",
+                  "b": "ein roter Stoff"
+                },
+                {
+                  "a": "die bunte Schürze",
+                  "b": "eine bunte Schürze"
+                },
+                {
+                  "a": "das weiße Hemd",
+                  "b": "ein weißes Hemd"
+                },
+                {
+                  "a": "die braunen Schuhe (plural)",
+                  "b": "braune Schuhe"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Clothing words",
+            "text": "das Kleid (dress), der Rock (skirt), die Bluse / das Hemd (blouse / shirt), die Hose (trousers; singular in German!), die Schürze (apron), die Schuhe, die Strümpfe (socks, stockings), der Hut (hat), die Jacke, der Stoff (fabric), das Leder, die Wolle, die Baumwolle (cotton). Verbs: tragen (to wear: er trägt), anziehen (to put on), passen (to fit: Die Hose passt mir), stehen + dative (to suit: Das Kleid steht dir).",
+            "examples": [
+              {
+                "de": "Die Hose passt, aber die Jacke steht dir nicht.",
+                "en": "The trousers fit, but the jacket does not suit you.",
+                "focus": [
+                  "passt",
+                  "steht dir"
+                ]
+              },
+              {
+                "de": "Auf dem Oktoberfest tragen viele Frauen ein Dirndl und viele Männer eine Lederhose.",
+                "en": "At the Oktoberfest many women wear a Dirndl and many men leather trousers.",
+                "focus": [
+                  "tragen",
+                  "ein Dirndl",
+                  "eine Lederhose"
+                ]
+              }
+            ],
+            "check": {
+              "q": "'The trousers are too short' is:",
+              "options": [
+                "Die Hose ist zu kurz.",
+                "Die Hosen sind zu kurz.",
+                "Der Hose ist zu kurz."
+              ],
+              "answer": "Die Hose ist zu kurz.",
+              "why": "die Hose is singular in German for one pair of trousers."
+            }
+          }
+        ],
+        "remember": [
+          "der rote Stoff / ein roter Stoff, die bunte Schürze / eine bunte Schürze, das weiße Hemd / ein weißes Hemd.",
+          "die Hose (singular), die Schürze, der Rock, das Hemd; tragen, passen, stehen + dative."
+        ],
+        "exam": "Short texts about clothes and traditions with descriptions and multiple-choice questions are a typical reading task at this level.",
+        "hook": "A maid's working dress that became fashion, a bow that tells whether you are single, and trousers for a thousand euros: read about Dirndl and Lederhose."
+      },
+      "category": "Culture",
+      "passageTitle": "Dirndl und Lederhose",
+      "passage": "Viele Menschen denken: Die Deutschen tragen Dirndl und Lederhose. Das stimmt nicht. Die meisten Deutschen tragen so etwas nie. Dirndl und Lederhose sind die Tracht aus Bayern und Österreich, und man sieht sie vor allem auf dem Oktoberfest und auf Volksfesten im Süden.\n\nDas Dirndl war früher kein schönes Kleid. Es war die Arbeitskleidung der Mägde auf dem Land: ein weißes Hemd, ein enges Oberteil, ein weiter Rock und eine Schürze gegen den Schmutz. Das Wort Dirndl bedeutet im Dialekt einfach „Mädchen“. Um 1870 kamen reiche Leute aus den Städten in die Berge und fanden das Kleid hübsch. So wurde aus der Arbeitskleidung Mode.\n\nDie Schürze hat ein Geheimnis: die Schleife. Ist die Schleife links, ist die Frau frei. Ist sie rechts, ist die Frau verheiratet oder hat einen Freund. Eine Schleife in der Mitte trägt ein Mädchen, eine Schleife hinten eine Witwe. Viele Besucherinnen auf dem Oktoberfest kennen die Regel nicht und senden falsche Signale.\n\nDie Lederhose war die Hose der Bauern und Jäger: kurz oder bis zum Knie, aus dickem Leder, das sehr lange hält. Man trägt sie mit einem karierten Hemd, langen Strümpfen und festen Schuhen. Eine gute Lederhose ist handgemacht und kostet oft über tausend Euro. Dafür hält sie ein Leben lang, und viele Männer tragen die alte Hose ihres Großvaters.",
+      "passageTranslation": "Many people think: Germans wear Dirndl and Lederhose. That is not true. Most Germans never wear anything like it. Dirndl and Lederhose are the traditional dress of Bavaria and Austria, and you see them above all at the Oktoberfest and at folk festivals in the south.\n\nThe Dirndl was not a pretty dress in the past. It was the working clothing of maids in the countryside: a white blouse, a tight bodice, a wide skirt and an apron against the dirt. The word Dirndl simply means 'girl' in dialect. Around 1870 rich people from the cities came to the mountains and found the dress pretty. So the working clothes became fashion.\n\nThe apron has a secret: the bow. If the bow is on the left, the woman is single. If it is on the right, the woman is married or has a boyfriend. A girl wears a bow in the middle, a widow a bow at the back. Many visitors at the Oktoberfest do not know the rule and send the wrong signals.\n\nThe Lederhose was the trousers of farmers and hunters: short or to the knee, of thick leather that lasts very long. You wear them with a checked shirt, long socks and sturdy shoes. A good Lederhose is handmade and often costs over a thousand euros. In return it lasts a lifetime, and many men wear their grandfather's old trousers.",
+      "questions": [
+        {
+          "question": "Tragen die meisten Deutschen Dirndl und Lederhose?",
+          "options": [
+            "Ja, jeden Tag.",
+            "Nein, es ist die Tracht aus Bayern und Österreich, vor allem für Volksfeste.",
+            "Nur im Norden, an der Nordsee und an der Ostsee, trägt man sie.",
+            "Nur Kinder."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die meisten Deutschen tragen so etwas nie. Dirndl und Lederhose sind die Tracht aus Bayern und Österreich …\"",
+          "questionTranslation": "Do most Germans wear Dirndl and Lederhose?",
+          "optionsTranslation": [
+            "Yes, every day.",
+            "No, it is the traditional dress of Bavaria and Austria, mainly for folk festivals.",
+            "Only in the north, by the North Sea and the Baltic, are they worn.",
+            "Only children."
+          ]
+        },
+        {
+          "question": "Was war das Dirndl früher?",
+          "options": [
+            "ein teures Ballkleid für reiche Frauen aus den Städten",
+            "die Arbeitskleidung der Mägde auf dem Land",
+            "ein Kleid für die Kirche",
+            "eine Uniform"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Es war die Arbeitskleidung der Mägde auf dem Land …\"",
+          "questionTranslation": "What was the Dirndl in the past?",
+          "optionsTranslation": [
+            "an expensive ball gown for rich women from the cities",
+            "the working clothing of maids in the countryside",
+            "a dress for church",
+            "a uniform"
+          ]
+        },
+        {
+          "question": "„ein weißes Hemd, ein enges Oberteil, ein weiter Rock“: Warum weißes, enges, aber weiter?",
+          "options": [
+            "weil Hemd und Oberteil neutrum sind und Rock maskulin",
+            "weil weiß und eng Farben sind und weit keine Farbe ist",
+            "weil Rock Plural ist",
+            "weil es ein Akkusativ ist"
+          ],
+          "correctIndex": 0,
+          "explanation": "After ein the adjective shows the gender: das Hemd / das Oberteil → -es, der Rock → -er.",
+          "questionTranslation": "'a white blouse, a tight bodice, a wide skirt': why weißes, enges, but weiter?",
+          "optionsTranslation": [
+            "because Hemd and Oberteil are neuter and Rock is masculine",
+            "because white and tight are colours and wide is not a colour",
+            "because Rock is plural",
+            "because it is accusative"
+          ]
+        },
+        {
+          "question": "Wie wurde aus der Arbeitskleidung Mode?",
+          "options": [
+            "Die Mägde haben das Kleid verkauft.",
+            "Reiche Leute aus den Städten fanden das Kleid um 1870 hübsch.",
+            "Das Oktoberfest hat es zur Pflicht gemacht.",
+            "Ein Designer aus München hat es 1970 für das Oktoberfest neu erfunden."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Um 1870 kamen reiche Leute aus den Städten in die Berge und fanden das Kleid hübsch. So wurde aus der Arbeitskleidung Mode.\"",
+          "questionTranslation": "How did the working clothes become fashion?",
+          "optionsTranslation": [
+            "The maids sold the dress.",
+            "Rich people from the cities found the dress pretty around 1870.",
+            "The Oktoberfest made it compulsory.",
+            "A designer from Munich reinvented it in 1970 for the Oktoberfest."
+          ]
+        },
+        {
+          "question": "Die Schleife ist rechts. Was bedeutet das?",
+          "options": [
+            "Die Frau ist frei.",
+            "Die Frau ist verheiratet oder hat einen Freund.",
+            "Die Frau ist eine Witwe und möchte nicht angesprochen werden.",
+            "Die Frau ist ein Mädchen."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ist sie rechts, ist die Frau verheiratet oder hat einen Freund.\" Left = single, middle = girl, back = widow.",
+          "questionTranslation": "The bow is on the right. What does that mean?",
+          "optionsTranslation": [
+            "The woman is single.",
+            "The woman is married or has a boyfriend.",
+            "The woman is a widow and does not want to be approached.",
+            "The woman is a girl."
+          ]
+        },
+        {
+          "question": "Wer hat früher die Lederhose getragen?",
+          "options": [
+            "Bauern und Jäger",
+            "Könige und Prinzen",
+            "Soldaten",
+            "Mägde"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Die Lederhose war die Hose der Bauern und Jäger …\"",
+          "questionTranslation": "Who wore the Lederhose in the past?",
+          "optionsTranslation": [
+            "farmers and hunters",
+            "kings and princes",
+            "soldiers",
+            "maids"
+          ]
+        },
+        {
+          "question": "Womit trägt man die Lederhose?",
+          "options": [
+            "mit einem weißen Kleid und einer Schürze",
+            "mit einem karierten Hemd, langen Strümpfen und festen Schuhen",
+            "mit Sandalen und einem T-Shirt",
+            "mit einer Krawatte, einem Hut und schwarzen Lederschuhen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Man trägt sie mit einem karierten Hemd, langen Strümpfen und festen Schuhen.\"",
+          "questionTranslation": "What do you wear the Lederhose with?",
+          "optionsTranslation": [
+            "with a white dress and an apron",
+            "with a checked shirt, long socks and sturdy shoes",
+            "with sandals and a T-shirt",
+            "with a tie, a hat and black leather shoes"
+          ]
+        },
+        {
+          "question": "Warum tragen viele Männer die Lederhose ihres Großvaters?",
+          "options": [
+            "weil neue Hosen verboten sind",
+            "weil eine gute Lederhose ein Leben lang hält",
+            "weil sie billig ist",
+            "weil sie aus Baumwolle ist und man sie leicht waschen kann"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Dafür hält sie ein Leben lang, und viele Männer tragen die alte Hose ihres Großvaters.\"",
+          "questionTranslation": "Why do many men wear their grandfather's Lederhose?",
+          "optionsTranslation": [
+            "because new trousers are forbidden",
+            "because a good Lederhose lasts a lifetime",
+            "because it is cheap",
+            "because it is made of cotton and can be washed easily"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.clothing",
+        "a2.adjective-intro"
+      ],
+      "image": "quest_a2_2_lesen_tracht"
+    }
+  },
+  {
+    "id": "quest_a2_2_lesen_wohnen",
+    "after": "quest_a2_2_wenn_deshalb",
+    "help": {
+      "vocab": [
+        {
+          "de": "Mietwohnung",
+          "en": "rented flat",
+          "example": "Die Hälfte wohnt in einer Mietwohnung.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Mieter",
+          "en": "tenant",
+          "example": "Die Küche gehört dem alten Mieter.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Vermieter",
+          "en": "landlord",
+          "example": "Wer laut ist, bekommt Post vom Vermieter.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Kaution",
+          "en": "deposit",
+          "example": "Man muss eine Kaution zahlen.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Nebenkosten",
+          "en": "extra costs, utilities",
+          "example": "Dazu kommen die Nebenkosten.",
+          "article": "die"
+        },
+        {
+          "de": "Wohngemeinschaft",
+          "en": "shared flat",
+          "example": "Studenten wohnen oft in einer Wohngemeinschaft.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "anmelden",
+          "en": "to register",
+          "example": "Man muss sich beim Bürgeramt anmelden."
+        },
+        {
+          "de": "ausziehen",
+          "en": "to move out",
+          "example": "Das Geld bekommt man zurück, wenn man auszieht."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Kalt, warm und Kaution",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.2",
+      "help": {
+        "intro": "A text of about 200 words about renting a flat in Germany, the country with the most tenants in Europe: about half of all Germans rent, in Berlin more than eighty per cent. The text explains the words every newcomer meets in an advert (Kaltmiete, Warmmiete, Nebenkosten, Kaution, WG), why a German kitchen sometimes leaves with the old tenant, why you must register at the town hall within two weeks and why the quiet hours matter. All facts are real and were checked. You read what you have just learnt: weil and dass with the verb at the end (… weil die Miete hoch ist; Viele wissen nicht, dass die Küche fehlt), and wenn … (dann) and deshalb for conditions and consequences. Read for the gist first, then find one term or one rule per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "weil and dass: verb at the end",
+            "text": "weil (because) and dass (that) start a subordinate clause; the verb goes to the end: Viele Deutsche mieten, weil Häuser teuer sind. Man muss wissen, dass die Küche oft fehlt. With a modal verb, the modal is last: …, dass man sich anmelden muss. With the Perfekt, haben/sein is last: …, weil der Mieter die Küche mitgenommen hat. Comma before weil and dass.",
+            "examples": [
+              {
+                "de": "Viele Deutsche mieten ein Leben lang, weil Häuser und Wohnungen sehr teuer sind.",
+                "en": "Many Germans rent all their life because houses and flats are very expensive.",
+                "focus": [
+                  "weil",
+                  "sind"
+                ]
+              },
+              {
+                "de": "Neue Mieter sind oft überrascht, dass die Wohnung keine Küche hat.",
+                "en": "New tenants are often surprised that the flat has no kitchen.",
+                "focus": [
+                  "dass",
+                  "hat"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Ich suche eine WG, weil ich nicht viel Geld ____.",
+              "options": [
+                "habe",
+                "ich habe",
+                "habe ich"
+              ],
+              "answer": "habe",
+              "why": "After weil the verb stands at the end of the clause: … weil ich nicht viel Geld habe."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "wenn … dann, deshalb",
+            "text": "wenn (if, when) starts a subordinate clause with the verb at the end; the main clause can start with dann and puts its verb first: Wenn man umzieht, (dann) muss man sich anmelden. deshalb (that is why) gives the consequence and takes position 1 in a main clause, verb in position 2: Die Mieten sind hoch, deshalb wohnen viele in einer WG. Same meaning, two directions: weil gives the reason, deshalb the result.",
+            "examples": [
+              {
+                "de": "Wenn man eine Wohnung mietet, muss man meistens drei Monatsmieten Kaution zahlen.",
+                "en": "If you rent a flat, you usually have to pay three months' rent as deposit.",
+                "focus": [
+                  "Wenn",
+                  "mietet",
+                  "muss"
+                ]
+              },
+              {
+                "de": "Die Wohnungen in Berlin sind teuer, deshalb wohnen viele junge Leute in einer WG.",
+                "en": "Flats in Berlin are expensive, that is why many young people live in a shared flat.",
+                "focus": [
+                  "deshalb",
+                  "wohnen"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Die Miete ist hoch, ____ suche ich eine kleinere Wohnung.",
+              "options": [
+                "deshalb",
+                "weil",
+                "dass"
+              ],
+              "answer": "deshalb",
+              "why": "The second clause is the consequence: deshalb (that is why) with the verb right after it."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Reason → result",
+              "right": "Example",
+              "rows": [
+                {
+                  "a": "weil (reason, verb at end)",
+                  "b": "Viele mieten, weil Häuser teuer sind."
+                },
+                {
+                  "a": "deshalb (result, verb 2nd)",
+                  "b": "Häuser sind teuer, deshalb mieten viele."
+                },
+                {
+                  "a": "wenn … (dann)",
+                  "b": "Wenn man umzieht, muss man sich anmelden."
+                },
+                {
+                  "a": "dass",
+                  "b": "Man weiß nicht, dass die Küche fehlt."
+                }
+              ]
+            }
+          }
+        ],
+        "remember": [
+          "weil / dass / wenn: verb at the end of the clause; deshalb: verb in position 2.",
+          "Kaltmiete + Nebenkosten = Warmmiete; Kaution = up to three months' rent; WG = shared flat."
+        ],
+        "exam": "Short practical texts about housing with explanations of terms and multiple-choice questions are a typical reading task at this level.",
+        "hook": "Cold rent, warm rent, three months' deposit and a kitchen that leaves with the old tenant: read how renting works in Germany."
+      },
+      "category": "Home",
+      "passageTitle": "Kalt, warm und Kaution",
+      "passage": "In Deutschland wohnt etwa die Hälfte der Menschen in einer Mietwohnung. Das ist mehr als in jedem anderen Land in Europa. In Berlin sind es sogar über achtzig Prozent. Viele Deutsche mieten ein Leben lang, weil Häuser und Wohnungen sehr teuer sind und weil Mieter gute Rechte haben.\n\nWer eine Wohnung sucht, muss ein paar Wörter kennen. Die Kaltmiete ist der Preis für die Wohnung. Dazu kommen die Nebenkosten: Heizung, Wasser, Müll, Hausmeister. Kaltmiete plus Nebenkosten ist die Warmmiete. Strom und Internet bezahlt man extra. Und man muss eine Kaution zahlen, meistens drei Kaltmieten. Das Geld bekommt man zurück, wenn man auszieht und die Wohnung in Ordnung ist.\n\nEine Überraschung für viele Ausländer: Oft hat die Wohnung keine Küche! Die Küche gehört dem alten Mieter, und er nimmt sie mit. Manchmal kann man sie ihm abkaufen.\n\nWenn man umzieht, muss man sich innerhalb von zwei Wochen beim Bürgeramt anmelden. Das ist Pflicht. Ohne die Anmeldung bekommt man kein Bankkonto und keinen Handyvertrag.\n\nJunge Leute und Studenten wohnen oft in einer WG, einer Wohngemeinschaft. Jeder hat ein Zimmer, und Küche und Bad teilt man. Das ist billiger, deshalb ist die WG in Großstädten sehr beliebt.\n\nUnd noch eine Regel: Von 22 bis 6 Uhr ist Nachtruhe, von 13 bis 15 Uhr oft Mittagsruhe. Wer dann laut ist, bekommt Post vom Vermieter.",
+      "passageTranslation": "In Germany about half the people live in a rented flat. That is more than in any other country in Europe. In Berlin it is even over eighty per cent. Many Germans rent all their life, because houses and flats are very expensive and because tenants have good rights.\n\nWhoever looks for a flat must know a few words. The Kaltmiete, cold rent, is the price for the flat. Added to it are the Nebenkosten, extra costs: heating, water, rubbish, caretaker. Cold rent plus extra costs is the Warmmiete, warm rent. Electricity and internet you pay separately. And you must pay a Kaution, a deposit, usually three cold rents. You get the money back when you move out and the flat is in order.\n\nA surprise for many foreigners: often the flat has no kitchen! The kitchen belongs to the old tenant, and he takes it with him. Sometimes you can buy it from him.\n\nWhen you move, you must register at the citizens' office within two weeks. That is compulsory. Without the registration you get no bank account and no mobile contract.\n\nYoung people and students often live in a WG, a shared flat. Everyone has a room, and kitchen and bathroom are shared. That is cheaper, which is why the WG is very popular in big cities.\n\nAnd one more rule: from 10 pm to 6 am it is night quiet, from 1 to 3 pm often midday quiet. Whoever is loud then gets a letter from the landlord.",
+      "questions": [
+        {
+          "question": "Wie viele Menschen in Deutschland wohnen in einer Mietwohnung?",
+          "options": [
+            "etwa zwanzig Prozent",
+            "etwa die Hälfte, in Berlin über achtzig Prozent",
+            "fast alle, außer den Menschen auf dem Land",
+            "nur Studenten"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"In Deutschland wohnt etwa die Hälfte der Menschen in einer Mietwohnung … In Berlin sind es sogar über achtzig Prozent.\"",
+          "questionTranslation": "How many people in Germany live in a rented flat?",
+          "optionsTranslation": [
+            "about twenty per cent",
+            "about half, in Berlin over eighty per cent",
+            "almost all, except the people in the countryside",
+            "only students"
+          ]
+        },
+        {
+          "question": "„Viele Deutsche mieten ein Leben lang, weil Häuser und Wohnungen sehr teuer sind.“ Wo steht das Verb im weil-Satz?",
+          "options": [
+            "am Anfang",
+            "an zweiter Stelle",
+            "am Ende",
+            "es gibt kein Verb"
+          ],
+          "correctIndex": 2,
+          "explanation": "After weil the verb (sind) goes to the end of the clause.",
+          "questionTranslation": "'Many Germans rent all their life because houses and flats are very expensive.' Where is the verb in the weil clause?",
+          "optionsTranslation": [
+            "at the beginning",
+            "in second position",
+            "at the end",
+            "there is no verb"
+          ]
+        },
+        {
+          "question": "Was ist die Warmmiete?",
+          "options": [
+            "die Miete im Winter",
+            "Kaltmiete plus Nebenkosten wie Heizung und Wasser",
+            "die Miete mit Strom, Internet und allen anderen Kosten",
+            "die Kaution"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Kaltmiete plus Nebenkosten ist die Warmmiete. Strom und Internet bezahlt man extra.\"",
+          "questionTranslation": "What is the Warmmiete?",
+          "optionsTranslation": [
+            "the rent in winter",
+            "cold rent plus extra costs like heating and water",
+            "the rent including electricity, internet and all other costs",
+            "the deposit"
+          ]
+        },
+        {
+          "question": "Wie hoch ist die Kaution meistens, und wann bekommt man sie zurück?",
+          "options": [
+            "eine Monatsmiete; nach einem Jahr",
+            "drei Kaltmieten; wenn man auszieht und die Wohnung in Ordnung ist",
+            "drei Warmmieten; man bekommt sie nie zurück",
+            "zehn Prozent; sofort"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"… eine Kaution zahlen, meistens drei Kaltmieten. Das Geld bekommt man zurück, wenn man auszieht und die Wohnung in Ordnung ist.\"",
+          "questionTranslation": "How high is the deposit usually, and when do you get it back?",
+          "optionsTranslation": [
+            "one month's rent; after a year",
+            "three cold rents; when you move out and the flat is in order",
+            "three warm rents; you never get it back",
+            "ten per cent; immediately"
+          ]
+        },
+        {
+          "question": "Warum hat die Wohnung oft keine Küche?",
+          "options": [
+            "weil Küchen in Deutschland verboten sind",
+            "weil die Küche dem alten Mieter gehört und er sie mitnimmt",
+            "weil man in Deutschland nicht kocht",
+            "weil der Vermieter sie verkauft, bevor der neue Mieter kommt"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Küche gehört dem alten Mieter, und er nimmt sie mit. Manchmal kann man sie ihm abkaufen.\"",
+          "questionTranslation": "Why does the flat often have no kitchen?",
+          "optionsTranslation": [
+            "because kitchens are forbidden in Germany",
+            "because the kitchen belongs to the old tenant and he takes it",
+            "because people do not cook in Germany",
+            "because the landlord sells it before the new tenant comes"
+          ]
+        },
+        {
+          "question": "„Wenn man umzieht, muss man sich innerhalb von zwei Wochen beim Bürgeramt anmelden.“ Was passiert ohne Anmeldung?",
+          "options": [
+            "Man bekommt keine Kaution zurück.",
+            "Man bekommt kein Bankkonto und keinen Handyvertrag.",
+            "Man muss sofort wieder ausziehen und die Kaution bezahlen.",
+            "Nichts."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ohne die Anmeldung bekommt man kein Bankkonto und keinen Handyvertrag.\"",
+          "questionTranslation": "'When you move, you must register at the citizens' office within two weeks.' What happens without registration?",
+          "optionsTranslation": [
+            "You do not get the deposit back.",
+            "You get no bank account and no mobile contract.",
+            "You have to move out again immediately and pay the deposit.",
+            "Nothing."
+          ]
+        },
+        {
+          "question": "„Das ist billiger, deshalb ist die WG in Großstädten sehr beliebt.“ Was drückt deshalb aus?",
+          "options": [
+            "einen Grund",
+            "eine Folge",
+            "eine Bedingung",
+            "eine Zeit"
+          ],
+          "correctIndex": 1,
+          "explanation": "deshalb introduces the consequence (that is why); the reason is in the clause before (billiger).",
+          "questionTranslation": "'That is cheaper, that is why the WG is very popular in big cities.' What does deshalb express?",
+          "optionsTranslation": [
+            "a reason",
+            "a consequence",
+            "a condition",
+            "a time"
+          ]
+        },
+        {
+          "question": "Wann ist Nachtruhe?",
+          "options": [
+            "von 13 bis 15 Uhr",
+            "von 22 bis 6 Uhr",
+            "von 20 bis 8 Uhr",
+            "am Sonntag"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Von 22 bis 6 Uhr ist Nachtruhe, von 13 bis 15 Uhr oft Mittagsruhe.\"",
+          "questionTranslation": "When is night quiet?",
+          "optionsTranslation": [
+            "from 1 to 3 pm",
+            "from 10 pm to 6 am",
+            "from 8 pm to 8 am",
+            "on Sunday"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.weil-dass",
+        "a2.wenn-deshalb"
+      ],
+      "image": "quest_a2_2_lesen_wohnen"
+    }
+  },
+  {
+    "id": "quest_a2_2_lesen_test",
+    "after": "quest_a2_2_indirekte_fragen",
+    "help": {
+      "vocab": [
+        {
+          "de": "Einbürgerung",
+          "en": "naturalisation",
+          "example": "Der Einbürgerungstest gibt es seit 2008.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Pass",
+          "en": "passport",
+          "example": "Wer einen deutschen Pass möchte, muss einen Test machen.",
+          "article": "der",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Bundesland",
+          "en": "federal state",
+          "example": "Deutschland hat 16 Bundesländer.",
+          "article": "das",
+          "plural": "¨-er"
+        },
+        {
+          "de": "Grundgesetz",
+          "en": "Basic Law (German constitution)",
+          "example": "Das Grundgesetz wurde 1949 geschrieben.",
+          "article": "das"
+        },
+        {
+          "de": "Niveau",
+          "en": "level",
+          "example": "Man muss Deutsch auf einem mittleren Niveau können.",
+          "article": "das",
+          "plural": "-s"
+        },
+        {
+          "de": "ankreuzen",
+          "en": "to tick (a box)",
+          "example": "Man muss die richtige Antwort ankreuzen."
+        },
+        {
+          "de": "bestehen",
+          "en": "to pass (a test)",
+          "example": "Über 90 Prozent bestehen den Test."
+        },
+        {
+          "de": "durchfallen",
+          "en": "to fail (a test)",
+          "example": "Viele Deutsche würden durchfallen."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Wissen Sie, wie viele Bundesländer …?",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.2",
+      "help": {
+        "intro": "A text of about 200 words about the test that a million people have taken: the Einbürgerungstest, the test for German citizenship. Since 2008 everyone who wants a German passport answers 33 questions in 60 minutes, drawn from a pool of 310; 17 right answers are enough, and more than nine out of ten pass. The text tells what is asked, what else you need for the passport, and why many Germans themselves would fail. All facts are real and were checked. You read what you have just learnt: indirect questions with ob and with question words (Wissen Sie, ob …? Man fragt, wie viele Bundesländer Deutschland hat), where the verb goes to the end, and the grammar words you meet in every exercise (die Frage, die Antwort, richtig, falsch, der Satz, das Beispiel). Read for the gist first, then find one number or one rule per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Indirect questions: ob and W-words",
+            "text": "A question inside a sentence sends its verb to the end. Yes/no question → ob: Hat Deutschland 16 Bundesländer? → Wissen Sie, ob Deutschland 16 Bundesländer hat? W-question → keep the W-word: Wie viele Bundesländer hat Deutschland? → Man fragt, wie viele Bundesländer Deutschland hat. Typical openers: Wissen Sie, …? Können Sie mir sagen, …? Ich möchte wissen, …. Im Test steht, …. Comma before ob and the W-word.",
+            "examples": [
+              {
+                "de": "Im Test steht zum Beispiel, wann die Mauer gefallen ist und wer den Bundestag wählt.",
+                "en": "The test asks, for example, when the Wall fell and who elects the Bundestag.",
+                "focus": [
+                  "wann",
+                  "gefallen ist",
+                  "wer",
+                  "wählt"
+                ]
+              },
+              {
+                "de": "Viele wollen wissen, ob der Test schwer ist. Die Antwort: Über neunzig Prozent bestehen ihn.",
+                "en": "Many want to know whether the test is hard. The answer: over ninety per cent pass it.",
+                "focus": [
+                  "ob",
+                  "ist"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Direct: Kostet der Test Geld? Indirect: Ich möchte wissen, ____.",
+              "options": [
+                "ob der Test Geld kostet",
+                "ob kostet der Test Geld",
+                "kostet der Test Geld"
+              ],
+              "answer": "ob der Test Geld kostet",
+              "why": "Yes/no question → ob + clause with the verb at the end."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Direct",
+              "right": "Indirect (verb at end)",
+              "rows": [
+                {
+                  "a": "Hat Deutschland 16 Länder?",
+                  "b": "…, ob Deutschland 16 Länder hat."
+                },
+                {
+                  "a": "Wie viele Fragen gibt es?",
+                  "b": "…, wie viele Fragen es gibt."
+                },
+                {
+                  "a": "Wann ist die Mauer gefallen?",
+                  "b": "…, wann die Mauer gefallen ist."
+                },
+                {
+                  "a": "Wer wählt den Bundestag?",
+                  "b": "…, wer den Bundestag wählt."
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Grammar words you meet in quizzes",
+            "text": "die Frage / die Antwort (question / answer), richtig / falsch (right / wrong), der Satz (sentence), das Wort (word), das Beispiel (example), die Lücke (gap), ankreuzen (to tick), bestehen (to pass: den Test bestehen), durchfallen (to fail), die Prüfung (test, examination), die Punkte (points), die Zeit: 60 Minuten Zeit haben. Also: Mehrfachauswahl = multiple choice, vier Antworten, eine ist richtig.",
+            "examples": [
+              {
+                "de": "Jede Frage hat vier Antworten, und nur eine ist richtig. Man muss sie ankreuzen.",
+                "en": "Every question has four answers, and only one is right. You have to tick it.",
+                "focus": [
+                  "Frage",
+                  "Antworten",
+                  "richtig",
+                  "ankreuzen"
+                ]
+              },
+              {
+                "de": "Mit siebzehn richtigen Antworten hat man den Test bestanden.",
+                "en": "With seventeen right answers you have passed the test.",
+                "focus": [
+                  "richtigen Antworten",
+                  "bestanden"
+                ]
+              }
+            ],
+            "check": {
+              "q": "'To fail the test' is:",
+              "options": [
+                "durch den Test fallen",
+                "den Test bestehen",
+                "den Test ankreuzen"
+              ],
+              "answer": "durch den Test fallen",
+              "why": "durchfallen = to fail; bestehen = to pass; ankreuzen = to tick."
+            }
+          }
+        ],
+        "remember": [
+          "Indirect question: ob for yes/no, W-word for the rest, verb at the end: Wissen Sie, ob … hat?",
+          "Frage, Antwort, richtig, falsch, ankreuzen, bestehen, durchfallen."
+        ],
+        "exam": "Short informative texts about procedures and rules, with indirect questions, are a typical reading task at this level.",
+        "hook": "33 questions, 60 minutes, 17 right answers, and most Germans would not pass: read about the citizenship test."
+      },
+      "category": "Society",
+      "passageTitle": "Wissen Sie, wie viele Bundesländer …?",
+      "passage": "Wer einen deutschen Pass möchte, muss einen Test machen: den Einbürgerungstest. Es gibt ihn seit 2008, und mehr als eine Million Menschen haben ihn schon gemacht.\n\nSo funktioniert er: Es gibt 310 Fragen. Im Test bekommt man 33 davon, mit vier Antworten pro Frage. Nur eine Antwort ist richtig, und man muss sie ankreuzen. Man hat 60 Minuten Zeit. Mit 17 richtigen Antworten hat man bestanden. Der Test kostet 25 Euro.\n\nWas fragt man? Zum Beispiel, wie viele Bundesländer Deutschland hat (16), wann die Mauer gefallen ist (1989), wer den Bundestag wählt (die Bürger ab 18) oder ob man in Deutschland seine Religion frei wählen darf (ja). Drei Fragen sind nur über das Bundesland, in dem man wohnt. Viele fragen, ob der Test schwer ist. Die Antwort: Über 90 Prozent bestehen ihn. Es gibt im Internet alle 310 Fragen zum Üben.\n\nAber der Test ist nur ein Teil. Man muss auch Deutsch können, mindestens auf einem mittleren Niveau, und meistens fünf Jahre in Deutschland leben. Man muss sein eigenes Geld verdienen und darf keine Probleme mit der Polizei haben.\n\nEine Zeitung hat einmal Deutsche gefragt, ob sie den Test bestehen. Viele wussten nicht, wie viele Bundesländer es gibt, oder wann das Grundgesetz geschrieben wurde (1949). Das Ergebnis: Viele Deutsche würden durchfallen.",
+      "passageTranslation": "Whoever wants a German passport must take a test: the naturalisation test. It has existed since 2008, and more than a million people have already taken it.\n\nThis is how it works: there are 310 questions. In the test you get 33 of them, with four answers per question. Only one answer is right, and you have to tick it. You have 60 minutes. With 17 right answers you have passed. The test costs 25 euros.\n\nWhat is asked? For example, how many federal states Germany has (16), when the Wall fell (1989), who elects the Bundestag (citizens from 18) or whether you may choose your religion freely in Germany (yes). Three questions are only about the federal state in which you live. Many ask whether the test is hard. The answer: over 90 per cent pass it. All 310 questions are on the internet for practice.\n\nBut the test is only one part. You must also know German, at least at an intermediate level, and usually have lived in Germany for five years. You must earn your own money and may not have problems with the police.\n\nA newspaper once asked Germans whether they would pass the test. Many did not know how many federal states there are, or when the constitution was written (1949). The result: many Germans would fail.",
+      "questions": [
+        {
+          "question": "Wer muss den Einbürgerungstest machen?",
+          "options": [
+            "alle Schüler in Deutschland",
+            "Menschen, die einen deutschen Pass möchten",
+            "alle Ausländer, die länger als ein Jahr in Deutschland leben",
+            "Deutsche, die ins Ausland gehen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Wer einen deutschen Pass möchte, muss einen Test machen: den Einbürgerungstest.\"",
+          "questionTranslation": "Who has to take the naturalisation test?",
+          "optionsTranslation": [
+            "all pupils in Germany",
+            "people who want a German passport",
+            "all foreigners who live in Germany for more than a year",
+            "Germans who go abroad"
+          ]
+        },
+        {
+          "question": "Wie viele Fragen bekommt man im Test, und wie viele muss man richtig haben?",
+          "options": [
+            "310 Fragen, 17 richtig",
+            "33 Fragen, 17 richtig",
+            "33 Fragen, 33 richtig",
+            "60 Fragen, 25 richtig"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Im Test bekommt man 33 davon … Mit 17 richtigen Antworten hat man bestanden.\" 310 is the pool, 60 the minutes, 25 the euros.",
+          "questionTranslation": "How many questions do you get in the test, and how many must be right?",
+          "optionsTranslation": [
+            "310 questions, 17 right",
+            "33 questions, 17 right",
+            "33 questions, 33 right",
+            "60 questions, 25 right"
+          ]
+        },
+        {
+          "question": "„… wie viele Bundesländer Deutschland hat.“ Welche Form ist das?",
+          "options": [
+            "eine direkte Frage",
+            "eine indirekte Frage mit W-Wort, Verb am Ende",
+            "ein Relativsatz mit dem Relativpronomen wie",
+            "ein Imperativ"
+          ],
+          "correctIndex": 1,
+          "explanation": "The W-word wie viele starts an indirect question; the verb hat moves to the end.",
+          "questionTranslation": "'… how many federal states Germany has.' Which form is that?",
+          "optionsTranslation": [
+            "a direct question",
+            "an indirect question with a W-word, verb at the end",
+            "a relative clause with the relative pronoun wie",
+            "an imperative"
+          ]
+        },
+        {
+          "question": "Darf man in Deutschland seine Religion frei wählen?",
+          "options": [
+            "Ja.",
+            "Nein.",
+            "Nur ab 18.",
+            "Das steht nicht im Text."
+          ],
+          "correctIndex": 0,
+          "explanation": "\"… oder ob man in Deutschland seine Religion frei wählen darf (ja).\"",
+          "questionTranslation": "May you choose your religion freely in Germany?",
+          "optionsTranslation": [
+            "Yes.",
+            "No.",
+            "Only from 18.",
+            "The text does not say."
+          ]
+        },
+        {
+          "question": "„Viele fragen, ob der Test schwer ist.“ Wie lautet die direkte Frage?",
+          "options": [
+            "Ist der Test schwer?",
+            "Wie schwer ist der Test?",
+            "Warum ist der Test schwer?",
+            "Der Test ist schwer."
+          ],
+          "correctIndex": 0,
+          "explanation": "ob stands for a yes/no question: Ist der Test schwer?",
+          "questionTranslation": "'Many ask whether the test is hard.' What is the direct question?",
+          "optionsTranslation": [
+            "Is the test hard?",
+            "How hard is the test?",
+            "Why is the test hard?",
+            "The test is hard."
+          ]
+        },
+        {
+          "question": "Wie viele Menschen bestehen den Test?",
+          "options": [
+            "etwa die Hälfte",
+            "über 90 Prozent",
+            "nur 17 Prozent",
+            "alle"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Antwort: Über 90 Prozent bestehen ihn.\"",
+          "questionTranslation": "How many people pass the test?",
+          "optionsTranslation": [
+            "about half",
+            "over 90 per cent",
+            "only 17 per cent",
+            "everyone"
+          ]
+        },
+        {
+          "question": "Was braucht man außer dem Test noch für den Pass?",
+          "options": [
+            "nur 25 Euro",
+            "Deutsch auf mittlerem Niveau, meistens fünf Jahre in Deutschland, eigenes Geld, keine Probleme mit der Polizei",
+            "einen deutschen Ehepartner und zwei Zeugen, die für einen sprechen",
+            "ein Haus in Deutschland"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Man muss auch Deutsch können … meistens fünf Jahre in Deutschland leben. Man muss sein eigenes Geld verdienen und darf keine Probleme mit der Polizei haben.\"",
+          "questionTranslation": "What else do you need for the passport besides the test?",
+          "optionsTranslation": [
+            "only 25 euros",
+            "German at intermediate level, usually five years in Germany, your own income, no problems with the police",
+            "a German spouse and two witnesses who speak for you",
+            "a house in Germany"
+          ]
+        },
+        {
+          "question": "Was hat die Zeitung herausgefunden?",
+          "options": [
+            "Alle Deutschen bestehen den Test leicht, weil sie die Antworten in der Schule gelernt haben.",
+            "Viele Deutsche würden durchfallen, weil sie zum Beispiel die Zahl der Bundesländer nicht wissen.",
+            "Der Test ist zu leicht.",
+            "Die Fragen sind falsch."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Viele wussten nicht, wie viele Bundesländer es gibt … Das Ergebnis: Viele Deutsche würden durchfallen.\"",
+          "questionTranslation": "What did the newspaper find out?",
+          "optionsTranslation": [
+            "All Germans pass the test easily because they learnt the answers at school.",
+            "Many Germans would fail because, for example, they do not know the number of federal states.",
+            "The test is too easy.",
+            "The questions are wrong."
+          ]
+        }
+      ],
+      "covers": [
+        "a2.indirect-questions",
+        "a2.grammar-words"
+      ],
+      "image": "quest_a2_2_lesen_test"
+    }
+  },
+  {
+    "id": "quest_a2_2_hoeren_apotheke",
+    "after": "quest_a2_2_koennte_sollte",
+    "help": {
+      "vocab": [
+        {
+          "de": "Medikament",
+          "en": "medicine",
+          "example": "Die starken Medikamente sind rezeptpflichtig.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Hustensaft",
+          "en": "cough syrup",
+          "example": "Ich gebe Ihnen einen Hustensaft.",
+          "article": "der",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Nebenwirkung",
+          "en": "side effect",
+          "example": "Hat der Saft Nebenwirkungen?",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Packungsbeilage",
+          "en": "leaflet (in medicine box)",
+          "example": "Lesen Sie die Packungsbeilage.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Honig",
+          "en": "honey",
+          "example": "Trinken Sie warmen Tee mit Honig.",
+          "article": "der"
+        },
+        {
+          "de": "rezeptfrei",
+          "en": "over the counter",
+          "example": "Der Hustensaft ist rezeptfrei."
+        },
+        {
+          "de": "rezeptpflichtig",
+          "en": "prescription only",
+          "example": "Die starken Medikamente sind rezeptpflichtig."
+        },
+        {
+          "de": "beruhigen",
+          "en": "to calm",
+          "example": "Der Saft beruhigt den Husten."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Sie sollten das ernst nehmen",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.2",
+      "help": {
+        "intro": "A scene of about two minutes in a German pharmacy: a customer has had a cough for two weeks and wants something strong, the pharmacist asks questions, explains the difference between prescription medicines and the ones you can simply buy, gives careful advice and in the end sends him to the doctor. The scene is invented; the rules it describes are real: in Germany you buy medicines only in a pharmacy, many need a prescription, and the pharmacy must advise you. You hear what you have just learnt: advice and suggestions with sollte and könnte (Sie sollten zum Arzt gehen. Sie könnten Tee trinken), and the health words (der Husten, die Erkältung, die Tablette, der Saft, das Rezept, die Nebenwirkung). Listen once for the whole scene, then once for each piece of advice.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "sollte and könnte: advice without an order",
+            "text": "sollte (should) gives advice: Sie sollten zum Arzt gehen. Du solltest mehr schlafen. könnte (could) makes a suggestion: Sie könnten einen Tee trinken. Wir könnten morgen anrufen. Both are softer than müssen (must) and the imperative. Forms: ich sollte / könnte, du solltest / könntest, er sollte / könnte, wir sollten / könnten, Sie sollten / könnten. The main verb stays at the end in the infinitive. Other soft forms: An Ihrer Stelle würde ich … (in your place I would), Es wäre gut, wenn … (it would be good if).",
+            "examples": [
+              {
+                "de": "Sie sollten das ernst nehmen und zum Arzt gehen. Bis dahin könnten Sie einen Hustensaft nehmen.",
+                "en": "You should take this seriously and go to the doctor. Until then you could take a cough syrup.",
+                "focus": [
+                  "sollten",
+                  "nehmen",
+                  "gehen",
+                  "könnten"
+                ]
+              },
+              {
+                "de": "An Ihrer Stelle würde ich heute nicht mehr arbeiten.",
+                "en": "In your place I would not work any more today.",
+                "focus": [
+                  "An Ihrer Stelle würde ich"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Advice, polite: 'You should drink more water.'",
+              "options": [
+                "Sie sollten mehr Wasser trinken.",
+                "Sie müssen mehr Wasser trinken.",
+                "Trinken Sie mehr Wasser!"
+              ],
+              "answer": "Sie sollten mehr Wasser trinken.",
+              "why": "sollte is the soft advice form; müssen and the imperative are stronger."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Strength",
+              "right": "Form",
+              "rows": [
+                {
+                  "a": "suggestion",
+                  "b": "Sie könnten einen Tee trinken."
+                },
+                {
+                  "a": "advice",
+                  "b": "Sie sollten zum Arzt gehen."
+                },
+                {
+                  "a": "in your place",
+                  "b": "An Ihrer Stelle würde ich …"
+                },
+                {
+                  "a": "necessity",
+                  "b": "Sie müssen zum Arzt gehen."
+                },
+                {
+                  "a": "order",
+                  "b": "Gehen Sie zum Arzt!"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Words at the pharmacy",
+            "text": "die Apotheke (pharmacy, the only place for medicines), das Medikament (medicine), die Tablette, der Saft (syrup), die Tropfen (drops), die Salbe (ointment), das Rezept (prescription: rezeptpflichtig = prescription only, rezeptfrei = over the counter), die Nebenwirkung (side effect), die Packungsbeilage (leaflet), der Husten (cough), der Schnupfen (cold, runny nose), die Erkältung, das Fieber, die Halsschmerzen. Verbs: einnehmen (to take a medicine), wirken (to work, take effect), verschreiben (to prescribe).",
+            "examples": [
+              {
+                "de": "Dieses Medikament ist rezeptpflichtig; dafür müssen Sie zum Arzt. Der Hustensaft ist rezeptfrei.",
+                "en": "This medicine is prescription only; for that you have to go to the doctor. The cough syrup is over the counter.",
+                "focus": [
+                  "rezeptpflichtig",
+                  "rezeptfrei"
+                ]
+              },
+              {
+                "de": "Nehmen Sie den Saft dreimal täglich ein. Lesen Sie die Packungsbeilage wegen der Nebenwirkungen.",
+                "en": "Take the syrup three times a day. Read the leaflet because of the side effects.",
+                "focus": [
+                  "Nehmen",
+                  "ein",
+                  "Packungsbeilage",
+                  "Nebenwirkungen"
+                ]
+              }
+            ],
+            "check": {
+              "q": "rezeptfrei means:",
+              "options": [
+                "you can buy it without a prescription",
+                "the prescription is free",
+                "it has no side effects"
+              ],
+              "answer": "you can buy it without a prescription",
+              "why": "rezeptfrei = free of prescription, over the counter."
+            }
+          }
+        ],
+        "remember": [
+          "Sie sollten … (advice), Sie könnten … (suggestion), An Ihrer Stelle würde ich …; verb at the end.",
+          "rezeptpflichtig / rezeptfrei, Nebenwirkung, Packungsbeilage, einnehmen, Husten, Erkältung."
+        ],
+        "exam": "Short scenes at a pharmacy or doctor's with advice and recommendations are a typical listening task at this level.",
+        "hook": "Two weeks of coughing, a wish for something strong, and a pharmacist who says: you should take this seriously. Listen to the advice."
+      },
+      "category": "Health",
+      "speakers": {
+        "Apothekerin": "female",
+        "Kunde": "male"
+      },
+      "passageTitle": "Szene: Sie sollten das ernst nehmen",
+      "passage": "Apothekerin: Guten Tag, was kann ich für Sie tun?\nKunde: Guten Tag. Ich brauche etwas gegen Husten. Etwas Starkes, bitte.\nApothekerin: Seit wann haben Sie den Husten?\nKunde: Seit zwei Wochen. Zuerst hatte ich eine Erkältung, die ist weg, aber der Husten bleibt. Besonders nachts.\nApothekerin: Zwei Wochen sind lang. Haben Sie Fieber?\nKunde: Nein. Aber ich bin müde, und mein Hals tut weh vom Husten.\nApothekerin: Ich gebe Ihnen gern einen Hustensaft, der ist rezeptfrei. Aber ehrlich gesagt: Sie sollten das ernst nehmen. Zwei Wochen Husten ohne Fieber, das sollte ein Arzt anhören.\nKunde: Ich habe keine Zeit für den Arzt. Haben Sie nicht etwas Stärkeres?\nApothekerin: Die starken Medikamente sind rezeptpflichtig. Die darf ich ohne Rezept nicht verkaufen, auch wenn ich möchte. Das ist Gesetz.\nKunde: Hm. Und was kann ich bis dahin tun?\nApothekerin: Sie könnten diesen Saft nehmen, dreimal täglich einen Löffel. Er beruhigt den Husten, besonders nachts. Sie sollten viel trinken, warmen Tee mit Honig. Und Sie könnten abends das Fenster im Schlafzimmer öffnen; trockene Luft macht den Husten schlimmer.\nKunde: Hat der Saft Nebenwirkungen?\nApothekerin: Er kann müde machen. Deshalb sollten Sie nach dem Saft nicht Auto fahren. Alles andere steht in der Packungsbeilage. Lesen Sie sie bitte.\nKunde: Gut. Was kostet er?\nApothekerin: Acht Euro neunzig. Und noch etwas: An Ihrer Stelle würde ich morgen früh beim Arzt anrufen. Um acht Uhr, da bekommt man am ehesten einen Termin.\nKunde: Okay, Sie haben gewonnen. Ich rufe morgen an.\nApothekerin: Gute Besserung!",
+      "passageTranslation": "Pharmacist: Good day, what can I do for you?\nCustomer: Good day. I need something for a cough. Something strong, please.\nPharmacist: Since when have you had the cough?\nCustomer: For two weeks. First I had a cold, that has gone, but the cough stays. Especially at night.\nPharmacist: Two weeks is long. Do you have a fever?\nCustomer: No. But I am tired, and my throat hurts from coughing.\nPharmacist: I will gladly give you a cough syrup, that is over the counter. But honestly: you should take this seriously. Two weeks of coughing without fever, a doctor should listen to that.\nCustomer: I have no time for the doctor. Do you not have something stronger?\nPharmacist: The strong medicines are prescription only. I may not sell them without a prescription, even if I wanted to. That is the law.\nCustomer: Hm. And what can I do until then?\nPharmacist: You could take this syrup, one spoon three times a day. It calms the cough, especially at night. You should drink a lot, warm tea with honey. And you could open the bedroom window in the evening; dry air makes the cough worse.\nCustomer: Does the syrup have side effects?\nPharmacist: It can make you tired. That is why you should not drive after the syrup. Everything else is in the leaflet. Please read it.\nCustomer: Good. What does it cost?\nPharmacist: Eight euros ninety. And one more thing: in your place I would call the doctor tomorrow morning. At eight o'clock, that is when you most likely get an appointment.\nCustomer: Okay, you win. I will call tomorrow.\nPharmacist: Get well soon!",
+      "questions": [
+        {
+          "question": "Seit wann hat der Kunde Husten?",
+          "options": [
+            "seit zwei Tagen",
+            "seit zwei Wochen",
+            "seit heute Nacht",
+            "seit zwei Monaten"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Seit zwei Wochen. Zuerst hatte ich eine Erkältung, die ist weg, aber der Husten bleibt.\"",
+          "questionTranslation": "Since when has the customer had a cough?",
+          "optionsTranslation": [
+            "for two days",
+            "for two weeks",
+            "since last night",
+            "for two months"
+          ]
+        },
+        {
+          "question": "„Sie sollten das ernst nehmen.“ Was ist das?",
+          "options": [
+            "ein strenger Befehl der Apothekerin",
+            "ein höflicher Rat",
+            "eine Frage",
+            "ein Verbot"
+          ],
+          "correctIndex": 1,
+          "explanation": "sollte + infinitive is the soft advice form, weaker than müssen or an imperative.",
+          "questionTranslation": "'You should take this seriously.' What is that?",
+          "optionsTranslation": [
+            "a strict order from the pharmacist",
+            "polite advice",
+            "a question",
+            "a ban"
+          ]
+        },
+        {
+          "question": "Warum verkauft die Apothekerin kein starkes Medikament?",
+          "options": [
+            "weil sie keins hat",
+            "weil starke Medikamente rezeptpflichtig sind und sie das Gesetz einhalten muss",
+            "weil der Kunde nicht genug Geld für ein starkes Medikament hat",
+            "weil der Husten nicht schlimm ist"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die starken Medikamente sind rezeptpflichtig. Die darf ich ohne Rezept nicht verkaufen … Das ist Gesetz.\"",
+          "questionTranslation": "Why does the pharmacist not sell a strong medicine?",
+          "optionsTranslation": [
+            "because she has none",
+            "because strong medicines are prescription only and she must obey the law",
+            "because the customer does not have enough money for a strong medicine",
+            "because the cough is not bad"
+          ]
+        },
+        {
+          "question": "Wie oft soll der Kunde den Saft nehmen?",
+          "options": [
+            "einmal am Tag",
+            "dreimal täglich einen Löffel",
+            "nur nachts, direkt vor dem Schlafen",
+            "jede Stunde"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie könnten diesen Saft nehmen, dreimal täglich einen Löffel.\"",
+          "questionTranslation": "How often should the customer take the syrup?",
+          "optionsTranslation": [
+            "once a day",
+            "one spoon three times a day",
+            "only at night, directly before sleeping",
+            "every hour"
+          ]
+        },
+        {
+          "question": "Was könnte der Kunde abends tun, und warum?",
+          "options": [
+            "das Fenster öffnen, weil trockene Luft den Husten schlimmer macht",
+            "Sport machen, weil Bewegung gesund ist und den Husten vertreibt",
+            "Kaffee trinken, weil er müde ist",
+            "die Heizung aufdrehen, weil es kalt ist"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Und Sie könnten abends das Fenster im Schlafzimmer öffnen; trockene Luft macht den Husten schlimmer.\"",
+          "questionTranslation": "What could the customer do in the evening, and why?",
+          "optionsTranslation": [
+            "open the window, because dry air makes the cough worse",
+            "do sport, because exercise is healthy and drives the cough away",
+            "drink coffee, because he is tired",
+            "turn up the heating, because it is cold"
+          ]
+        },
+        {
+          "question": "Welche Nebenwirkung hat der Saft, und was folgt daraus?",
+          "options": [
+            "Er macht Fieber; man soll im Bett bleiben und viel schlafen.",
+            "Er macht müde; man soll danach nicht Auto fahren.",
+            "Er macht Hunger; man soll viel essen.",
+            "Er hat keine Nebenwirkungen."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Er kann müde machen. Deshalb sollten Sie nach dem Saft nicht Auto fahren.\"",
+          "questionTranslation": "What side effect does the syrup have, and what follows from it?",
+          "optionsTranslation": [
+            "It causes fever; you should stay in bed and sleep a lot.",
+            "It makes you tired; you should not drive afterwards.",
+            "It makes you hungry; you should eat a lot.",
+            "It has no side effects."
+          ]
+        },
+        {
+          "question": "„An Ihrer Stelle würde ich morgen früh beim Arzt anrufen.“ Was bedeutet das?",
+          "options": [
+            "Die Apothekerin ruft morgen früh selbst den Arzt an und macht einen Termin.",
+            "Die Apothekerin rät: Wenn ich Sie wäre, würde ich den Arzt anrufen.",
+            "Der Kunde muss sofort zum Arzt.",
+            "Der Arzt ruft morgen an."
+          ],
+          "correctIndex": 1,
+          "explanation": "An Ihrer Stelle würde ich … = in your place I would …: a polite way of giving advice.",
+          "questionTranslation": "'In your place I would call the doctor tomorrow morning.' What does that mean?",
+          "optionsTranslation": [
+            "The pharmacist herself calls the doctor tomorrow morning and makes an appointment.",
+            "The pharmacist advises: if I were you, I would call the doctor.",
+            "The customer must go to the doctor immediately.",
+            "The doctor calls tomorrow."
+          ]
+        },
+        {
+          "question": "Was macht der Kunde am Ende?",
+          "options": [
+            "Er kauft das starke Medikament.",
+            "Er geht ohne Saft nach Hause, weil er kein Rezept hat.",
+            "Er nimmt den Saft und will morgen den Arzt anrufen.",
+            "Er geht sofort zum Arzt."
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Okay, Sie haben gewonnen. Ich rufe morgen an.\" He buys the syrup for 8.90 and will call the doctor.",
+          "questionTranslation": "What does the customer do in the end?",
+          "optionsTranslation": [
+            "He buys the strong medicine.",
+            "He goes home without syrup because he has no prescription.",
+            "He takes the syrup and will call the doctor tomorrow.",
+            "He goes to the doctor immediately."
+          ]
+        }
+      ],
+      "covers": [
+        "a2.koennte-sollte",
+        "a2.health"
+      ],
+      "image": "quest_a2_2_hoeren_apotheke"
+    }
+  },
+  {
+    "id": "quest_a2_2_hoeren_werbinich",
+    "after": "quest_a2_2_reflexiv",
+    "help": {
+      "vocab": [
+        {
+          "de": "Schnurrbart",
+          "en": "moustache",
+          "example": "Er hat wilde, weiße Haare und einen Schnurrbart.",
+          "article": "der",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Pullover",
+          "en": "jumper, sweater",
+          "example": "Er trägt alte Pullover.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Geige",
+          "en": "violin",
+          "example": "Er spielt gern Geige.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Stimme",
+          "en": "voice",
+          "example": "Sie hat eine tiefe Stimme.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Schauspielerin",
+          "en": "actress",
+          "example": "Sie ist eine Schauspielerin aus Berlin.",
+          "article": "die",
+          "plural": "-nen"
+        },
+        {
+          "de": "Skandal",
+          "en": "scandal",
+          "example": "Hosen und Frack, das ist damals ein Skandal.",
+          "article": "der",
+          "plural": "-e"
+        },
+        {
+          "de": "neugierig",
+          "en": "curious",
+          "example": "Ich bin nur leidenschaftlich neugierig."
+        },
+        {
+          "de": "sich weigern",
+          "en": "to refuse",
+          "example": "Sie weigert sich, zurückzukommen."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Wer bin ich?",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.2",
+      "help": {
+        "intro": "A radio quiz of about two minutes: the host describes two famous people from German history, step by step, from appearance to character to life, and a listener on the phone has to guess who they are. The first is a man with wild white hair who did not like socks and changed physics; the second is a woman from Berlin who became a film star in Hollywood and refused to come home. The quiz is invented; the facts about the two people are real and were checked. You hear what you have just learnt: describing people (Er hat lange, weiße Haare. Sie ist groß und schlank. Er ist freundlich, aber ein bisschen chaotisch) and reflexive verbs (sich interessieren für, sich erinnern an, sich freuen über, sich ärgern, sich kämmen). Listen once for the whole quiz, then once for each clue.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Describing a person",
+            "text": "Appearance: Er ist groß / klein, schlank / kräftig. Sie hat lange, blonde Haare und blaue Augen. Er trägt eine Brille, einen Schnurrbart (moustache), einen Hut. Age: Er ist etwa fünfzig. Character: freundlich, ruhig, lustig, ernst, chaotisch, mutig (brave), stur (stubborn), klug (clever). Comparisons help: Sie sieht aus wie …; Er wirkt (seems) müde. Adjective after sein: no ending; before a noun: with ending (lange Haare, ein weißer Schnurrbart).",
+            "examples": [
+              {
+                "de": "Er hat wilde, weiße Haare und einen Schnurrbart, trägt alte Pullover und sieht immer ein bisschen chaotisch aus.",
+                "en": "He has wild white hair and a moustache, wears old jumpers and always looks a little chaotic.",
+                "focus": [
+                  "wilde, weiße Haare",
+                  "einen Schnurrbart",
+                  "chaotisch"
+                ]
+              },
+              {
+                "de": "Sie ist groß und schlank, hat blonde Haare und eine tiefe Stimme; sie wirkt kühl, aber sie ist sehr mutig.",
+                "en": "She is tall and slim, has blonde hair and a deep voice; she seems cool, but she is very brave.",
+                "focus": [
+                  "groß und schlank",
+                  "blonde Haare",
+                  "tiefe Stimme",
+                  "mutig"
+                ]
+              }
+            ],
+            "check": {
+              "q": "'He wears glasses' is:",
+              "options": [
+                "Er trägt eine Brille.",
+                "Er hat Brillen.",
+                "Er ist eine Brille."
+              ],
+              "answer": "Er trägt eine Brille.",
+              "why": "tragen = to wear; eine Brille is singular for one pair of glasses."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Topic",
+              "right": "Phrases",
+              "rows": [
+                {
+                  "a": "size",
+                  "b": "groß, klein, schlank, kräftig"
+                },
+                {
+                  "a": "hair, eyes",
+                  "b": "lange / kurze / weiße Haare, blaue Augen"
+                },
+                {
+                  "a": "wears",
+                  "b": "eine Brille, einen Hut, alte Pullover"
+                },
+                {
+                  "a": "character",
+                  "b": "freundlich, klug, mutig, stur, chaotisch"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Reflexive verbs",
+            "text": "Some verbs come with mich / dich / sich / uns / euch: sich interessieren für (to be interested in), sich erinnern an (to remember), sich freuen über / auf (to be glad about / look forward to), sich ärgern über (to be annoyed about), sich kämmen (to comb one's hair), sich konzentrieren auf, sich verlieben in (to fall in love with), sich weigern (to refuse). Forms: ich interessiere mich, du interessierst dich, er/sie interessiert sich, wir interessieren uns, ihr interessiert euch, sie/Sie interessieren sich. With the Perfekt: Sie hat sich geweigert.",
+            "examples": [
+              {
+                "de": "Er interessierte sich nur für Physik und kämmte sich nie.",
+                "en": "He was interested only in physics and never combed his hair.",
+                "focus": [
+                  "interessierte sich",
+                  "kämmte sich"
+                ]
+              },
+              {
+                "de": "Sie hat sich geweigert, nach Deutschland zurückzukommen, und die Deutschen haben sich darüber geärgert.",
+                "en": "She refused to come back to Germany, and the Germans were annoyed about it.",
+                "focus": [
+                  "hat sich geweigert",
+                  "haben sich darüber geärgert"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Wir ____ ____ an die alten Filme. (sich erinnern)",
+              "options": [
+                "erinnern uns",
+                "erinnern sich",
+                "erinnern wir"
+              ],
+              "answer": "erinnern uns",
+              "why": "wir takes the reflexive pronoun uns: wir erinnern uns."
+            }
+          }
+        ],
+        "remember": [
+          "Er hat weiße Haare, trägt eine Brille, ist klug und chaotisch; adjective after sein without ending.",
+          "sich interessieren für, sich erinnern an, sich freuen über, sich ärgern über, sich weigern: mich, dich, sich, uns, euch."
+        ],
+        "exam": "Quiz shows or interviews in which a person is described and has to be recognised are a typical listening task at this level.",
+        "hook": "Wild white hair and no socks; a deep voice and a refusal to come home: listen to two famous Germans being described and guess who they are."
+      },
+      "category": "People",
+      "speakers": {
+        "Moderator": "male",
+        "Hörerin": "female"
+      },
+      "passageTitle": "Radioquiz: Wer bin ich?",
+      "passage": "Moderator: Willkommen bei „Wer bin ich?“. Am Telefon ist Frau Kaya aus Hannover. Ich beschreibe eine berühmte Person, und Sie raten. Bereit?\nHörerin: Bereit!\nModerator: Erste Person. Es ist ein Mann. Er ist nicht sehr groß, hat wilde, weiße Haare und einen Schnurrbart. Er trägt alte Pullover und zieht nie Socken an, auch nicht zu wichtigen Terminen. Er sieht immer ein bisschen chaotisch aus.\nHörerin: Hm, ein Künstler?\nModerator: Nein. Er interessiert sich für Physik, schon als Kind. In der Schule ist er gut, aber er ärgert sich über die strengen Lehrer. Später arbeitet er in einem Büro in Bern und schreibt nebenbei Texte, die die Physik komplett verändern. Er spielt gern Geige und segelt gern, aber er kann nicht schwimmen.\nHörerin: Weiße Haare, Physik, Geige … Das ist Albert Einstein!\nModerator: Richtig! Geboren 1879 in Ulm. 1921 bekommt er den Nobelpreis, 1933 verlässt er Deutschland für immer und lebt in den USA. Er sagt: Ich habe keine besondere Begabung, ich bin nur leidenschaftlich neugierig. Zweite Person. Es ist eine Frau. Sie ist groß und schlank, hat blonde Haare, lange Beine und eine tiefe Stimme. Sie trägt oft Hosen und einen Frack, das ist damals ein Skandal.\nHörerin: Eine Schauspielerin?\nModerator: Ja. Sie kommt aus Berlin, aus Schöneberg. 1930 geht sie nach Hollywood und wird ein Weltstar. Sie weigert sich, in der Nazizeit nach Deutschland zurückzukommen, und singt stattdessen für die amerikanischen Soldaten. Viele Deutsche ärgern sich jahrelang darüber. Sie erinnert sich ihr Leben lang an Berlin und singt: Ich hab noch einen Koffer in Berlin.\nHörerin: Das ist Marlene Dietrich!\nModerator: Wieder richtig! Geboren 1901, gestorben 1992 in Paris. Begraben ist sie in Berlin, in Schöneberg, nicht weit von ihrem Geburtshaus. Frau Kaya, Sie haben zwei von zwei. Herzlichen Glückwunsch, Sie gewinnen die Bücher der Woche!\nHörerin: Ich freue mich sehr! Danke!",
+      "passageTranslation": "Host: Welcome to 'Who am I?'. On the phone is Ms Kaya from Hannover. I describe a famous person, and you guess. Ready?\nListener: Ready!\nHost: First person. It is a man. He is not very tall, has wild white hair and a moustache. He wears old jumpers and never puts on socks, not even for important appointments. He always looks a little chaotic.\nListener: Hm, an artist?\nHost: No. He is interested in physics, already as a child. At school he is good, but he gets annoyed about the strict teachers. Later he works in an office in Bern and on the side writes texts that change physics completely. He likes playing the violin and sailing, but he cannot swim.\nListener: White hair, physics, violin … That is Albert Einstein!\nHost: Right! Born 1879 in Ulm. In 1921 he gets the Nobel Prize, in 1933 he leaves Germany for ever and lives in the USA. He says: I have no special talent, I am only passionately curious. Second person. It is a woman. She is tall and slim, has blonde hair, long legs and a deep voice. She often wears trousers and a tailcoat, which is a scandal at the time.\nListener: An actress?\nHost: Yes. She comes from Berlin, from Schöneberg. In 1930 she goes to Hollywood and becomes a world star. She refuses to come back to Germany in the Nazi era and sings instead for the American soldiers. Many Germans are annoyed about it for years. All her life she remembers Berlin and sings: I still have a suitcase in Berlin.\nListener: That is Marlene Dietrich!\nHost: Right again! Born 1901, died 1992 in Paris. She is buried in Berlin, in Schöneberg, not far from the house where she was born. Ms Kaya, you have two out of two. Congratulations, you win the books of the week!\nListener: I am very happy! Thank you!",
+      "questions": [
+        {
+          "question": "Wie sieht die erste Person aus?",
+          "options": [
+            "groß, kurze schwarze Haare, ein dunkler Anzug und eine Krawatte",
+            "nicht sehr groß, wilde weiße Haare, Schnurrbart, alte Pullover",
+            "klein, Brille, Hut",
+            "groß und schlank, blonde Haare"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Er ist nicht sehr groß, hat wilde, weiße Haare und einen Schnurrbart. Er trägt alte Pullover …\"",
+          "questionTranslation": "What does the first person look like?",
+          "optionsTranslation": [
+            "tall, short black hair, a dark suit and a tie",
+            "not very tall, wild white hair, moustache, old jumpers",
+            "small, glasses, hat",
+            "tall and slim, blonde hair"
+          ]
+        },
+        {
+          "question": "„Er interessiert sich für Physik.“ Welches Wort zeigt das reflexive Verb?",
+          "options": [
+            "sich",
+            "für",
+            "er",
+            "Physik"
+          ],
+          "correctIndex": 0,
+          "explanation": "sich interessieren für is reflexive; sich is the reflexive pronoun for er.",
+          "questionTranslation": "'He is interested in physics.' Which word shows the reflexive verb?",
+          "optionsTranslation": [
+            "sich",
+            "für",
+            "er",
+            "Physik"
+          ]
+        },
+        {
+          "question": "Was kann Einstein laut Moderator NICHT?",
+          "options": [
+            "Geige spielen",
+            "segeln",
+            "schwimmen",
+            "rechnen"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Er spielt gern Geige und segelt gern, aber er kann nicht schwimmen.\"",
+          "questionTranslation": "What can Einstein NOT do, according to the host?",
+          "optionsTranslation": [
+            "play the violin",
+            "sail",
+            "swim",
+            "calculate"
+          ]
+        },
+        {
+          "question": "Wann hat Einstein Deutschland verlassen?",
+          "options": [
+            "1879",
+            "1921",
+            "1933",
+            "1901"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"1921 bekommt er den Nobelpreis, 1933 verlässt er Deutschland für immer …\"",
+          "questionTranslation": "When did Einstein leave Germany?",
+          "optionsTranslation": [
+            "1879",
+            "1921",
+            "1933",
+            "1901"
+          ]
+        },
+        {
+          "question": "Was war an der zweiten Person damals ein Skandal?",
+          "options": [
+            "ihre tiefe Stimme, die viele Leute für die eines Mannes hielten",
+            "dass sie oft Hosen und einen Frack trug",
+            "dass sie aus Berlin kam",
+            "dass sie blonde Haare hatte"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie trägt oft Hosen und einen Frack, das ist damals ein Skandal.\"",
+          "questionTranslation": "What about the second person was a scandal at the time?",
+          "optionsTranslation": [
+            "her deep voice, which many people took for a man’s",
+            "that she often wore trousers and a tailcoat",
+            "that she came from Berlin",
+            "that she had blonde hair"
+          ]
+        },
+        {
+          "question": "„Sie weigert sich, in der Nazizeit nach Deutschland zurückzukommen.“ Was bedeutet sich weigern?",
+          "options": [
+            "sich freuen",
+            "nein sagen, etwas nicht tun wollen",
+            "sich an etwas erinnern und davon erzählen",
+            "sich beeilen"
+          ],
+          "correctIndex": 1,
+          "explanation": "sich weigern = to refuse. She did not come back and sang for the American soldiers instead.",
+          "questionTranslation": "'She refuses to come back to Germany in the Nazi era.' What does sich weigern mean?",
+          "optionsTranslation": [
+            "to be glad",
+            "to say no, not to want to do something",
+            "to remember something and tell about it",
+            "to hurry"
+          ]
+        },
+        {
+          "question": "Worüber haben sich viele Deutsche jahrelang geärgert?",
+          "options": [
+            "über ihre Filme, die in Deutschland verboten waren",
+            "über ihre Hosen",
+            "dass sie nicht zurückkam und für die amerikanischen Soldaten sang",
+            "dass sie in Paris gestorben ist"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Sie weigert sich … zurückzukommen, und singt stattdessen für die amerikanischen Soldaten. Viele Deutsche ärgern sich jahrelang darüber.\"",
+          "questionTranslation": "What were many Germans annoyed about for years?",
+          "optionsTranslation": [
+            "about her films, which were banned in Germany",
+            "about her trousers",
+            "that she did not come back and sang for the American soldiers",
+            "that she died in Paris"
+          ]
+        },
+        {
+          "question": "Wo ist Marlene Dietrich begraben?",
+          "options": [
+            "in Paris",
+            "in Hollywood, neben vielen anderen Stars",
+            "in Berlin-Schöneberg",
+            "in Hannover"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Begraben ist sie in Berlin, in Schöneberg, nicht weit von ihrem Geburtshaus.\" She died in Paris.",
+          "questionTranslation": "Where is Marlene Dietrich buried?",
+          "optionsTranslation": [
+            "in Paris",
+            "in Hollywood, next to many other stars",
+            "in Berlin-Schöneberg",
+            "in Hannover"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.people-description",
+        "a2.reflexive"
+      ],
+      "image": "quest_a2_2_hoeren_werbinich"
+    }
+  },
+  {
+    "id": "quest_a2_2_hoeren_wohnung",
+    "after": "quest_a2_2_verben_praep_intro",
+    "help": {
+      "vocab": [
+        {
+          "de": "Besichtigung",
+          "en": "viewing",
+          "example": "Die Wohnungsbesichtigung ist um 18 Uhr.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Quadratmeter",
+          "en": "square metre",
+          "example": "Die Wohnung hat 58 Quadratmeter.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Aufzug",
+          "en": "lift, elevator",
+          "example": "Dritter Stock, ohne Aufzug.",
+          "article": "der",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Balkon",
+          "en": "balcony",
+          "example": "Hier ist das Wohnzimmer mit Balkon.",
+          "article": "der",
+          "plural": "-e"
+        },
+        {
+          "de": "Gehaltsabrechnung",
+          "en": "pay slip",
+          "example": "Ich brauche die letzten drei Gehaltsabrechnungen.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Haustier",
+          "en": "pet",
+          "example": "Haben Sie Haustiere?",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Transporter",
+          "en": "van",
+          "example": "Wir ziehen mit einem Transporter nach Leipzig.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "sich kümmern um",
+          "en": "to take care of",
+          "example": "Darum kümmere ich mich."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Die Wohnungsbesichtigung",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A2.2",
+      "help": {
+        "intro": "A scene of about two minutes at a flat viewing in Leipzig: a young couple looks at a two-room flat, the landlady explains rent, extra costs and the missing kitchen, and the couple has to decide quickly because twelve other people want the flat too. The scene is invented; the numbers and customs are typical for a German city. You hear what you have just learnt: verbs with a fixed preposition (sich interessieren für, warten auf, sich kümmern um, denken an, sich freuen auf, fragen nach) with their question words (Worauf? Wofür?) and answers (darauf, dafür), and the word order of time, manner and place (Wir ziehen im März mit einem Transporter nach Leipzig: wann, wie, wo). Listen once for the whole scene, then once for the numbers.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Verbs with a fixed preposition",
+            "text": "Many verbs always come with the same preposition: sich interessieren für (+ Akk.), warten auf (+ Akk.), sich freuen auf (+ Akk., future) / über (+ Akk., now), sich kümmern um (+ Akk.), denken an (+ Akk.), fragen nach (+ Dat.), sprechen mit (+ Dat.) / über (+ Akk.), sich bewerben um (+ Akk.). Asking about a thing: wo + preposition: Wofür interessieren Sie sich? Worauf warten Sie? (wor- before a vowel). Answering with a thing: da + preposition: Dafür. Darauf. For people: für wen? auf wen?",
+            "examples": [
+              {
+                "de": "Wofür interessieren Sie sich? Für die Zweizimmerwohnung im dritten Stock. Wir warten schon lange darauf.",
+                "en": "What are you interested in? In the two-room flat on the third floor. We have been waiting for it a long time.",
+                "focus": [
+                  "Wofür",
+                  "interessieren Sie sich",
+                  "Für",
+                  "warten",
+                  "darauf"
+                ]
+              },
+              {
+                "de": "Wer kümmert sich um den Garten? Darum kümmert sich der Hausmeister.",
+                "en": "Who looks after the garden? The caretaker looks after that.",
+                "focus": [
+                  "kümmert sich um",
+                  "Darum"
+                ]
+              }
+            ],
+            "check": {
+              "q": "____ warten Sie? Auf die Antwort der Vermieterin.",
+              "options": [
+                "Worauf",
+                "Wofür",
+                "Woran"
+              ],
+              "answer": "Worauf",
+              "why": "warten auf → the question word is worauf (wo + r + auf before a vowel)."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Verb + preposition",
+              "right": "Question / answer",
+              "rows": [
+                {
+                  "a": "sich interessieren für",
+                  "b": "Wofür? Dafür."
+                },
+                {
+                  "a": "warten auf, sich freuen auf",
+                  "b": "Worauf? Darauf."
+                },
+                {
+                  "a": "sich kümmern um",
+                  "b": "Worum? Darum."
+                },
+                {
+                  "a": "denken an",
+                  "b": "Woran? Daran."
+                },
+                {
+                  "a": "fragen nach",
+                  "b": "Wonach? Danach."
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Wann? Wie? Wo? in that order",
+            "text": "When a sentence has several pieces of information, German likes this order: time (wann), then manner / reason (wie, warum), then place (wo, wohin): Wir ziehen im März mit einem Transporter nach Leipzig. Sie kommen morgen mit dem Zug zur Besichtigung. If you put the time first, the verb follows it: Im März ziehen wir mit einem Transporter nach Leipzig. Short rule: te-ka-mo-lo (temporal, kausal, modal, lokal).",
+            "examples": [
+              {
+                "de": "Wir können ab dem 1. März wegen der Arbeit mit dem ganzen Hausstand nach Leipzig ziehen.",
+                "en": "We can move to Leipzig with the whole household from 1 March because of the job.",
+                "focus": [
+                  "ab dem 1. März",
+                  "wegen der Arbeit",
+                  "mit dem ganzen Hausstand",
+                  "nach Leipzig"
+                ]
+              },
+              {
+                "de": "Die Vermieterin ruft Sie heute Abend per Telefon zu Hause an.",
+                "en": "The landlady will call you at home by phone this evening.",
+                "focus": [
+                  "heute Abend",
+                  "per Telefon",
+                  "zu Hause"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which order is right?",
+              "options": [
+                "Wir fahren morgen mit dem Auto nach Leipzig.",
+                "Wir fahren nach Leipzig mit dem Auto morgen.",
+                "Wir fahren mit dem Auto nach Leipzig morgen."
+              ],
+              "answer": "Wir fahren morgen mit dem Auto nach Leipzig.",
+              "why": "Time (morgen), manner (mit dem Auto), place (nach Leipzig)."
+            }
+          }
+        ],
+        "remember": [
+          "sich interessieren für → wofür? dafür; warten auf → worauf? darauf; sich kümmern um → worum? darum.",
+          "Order: wann, wie, wo: Wir ziehen im März mit einem Transporter nach Leipzig."
+        ],
+        "exam": "Short scenes at a flat viewing or with a landlord, with numbers and conditions, are a typical listening task at this level.",
+        "hook": "Two rooms, third floor, no kitchen, twelve other people interested: listen to a flat viewing and find out what the couple decides."
+      },
+      "category": "Home",
+      "speakers": {
+        "Vermieterin": "female",
+        "Nora": "female",
+        "Tim": "male"
+      },
+      "passageTitle": "Szene: Die Wohnungsbesichtigung",
+      "passage": "Vermieterin: Guten Abend, kommen Sie herein. Sie sind Frau Brandt und Herr Özil?\nNora: Ja, genau. Danke, dass wir so schnell kommen konnten. Wir interessieren uns sehr für die Wohnung.\nVermieterin: Das freut mich. Also: zwei Zimmer, 58 Quadratmeter, dritter Stock, ohne Aufzug. Hier ist das Wohnzimmer mit Balkon, dort das Schlafzimmer, Bad mit Fenster, und hier die Küche.\nTim: Die Küche ist leer?\nVermieterin: Ja, die Küche gehört dem alten Mieter. Er zieht Ende Februar aus. Wenn Sie möchten, können Sie ihn danach fragen, ob er sie verkauft. Er will, glaube ich, 800 Euro.\nNora: Und was kostet die Wohnung?\nVermieterin: 690 Euro kalt. Dazu kommen 180 Euro Nebenkosten für Heizung, Wasser und Müll, also 870 warm. Strom und Internet zahlen Sie selbst. Die Kaution sind drei Kaltmieten, 2.070 Euro.\nTim: Ab wann ist die Wohnung frei?\nVermieterin: Ab dem 1. März. Worauf warten Sie denn noch, wenn ich fragen darf? Sie wohnen jetzt in Dresden?\nNora: Ja. Tim fängt am 15. März in Leipzig eine neue Arbeit an. Deshalb möchten wir im März mit einem Transporter nach Leipzig ziehen.\nVermieterin: Das passt. Wer kümmert sich bei Ihnen um den Papierkram? Ich brauche die letzten drei Gehaltsabrechnungen, eine Bestätigung vom alten Vermieter, dass Sie die Miete immer bezahlt haben, und Ihre Ausweise.\nTim: Darum kümmere ich mich. Ich kann Ihnen alles morgen per E-Mail schicken.\nVermieterin: Gut. Ich sage es Ihnen ehrlich: Nach Ihnen kommen heute noch zwölf Leute. Ich entscheide am Freitag und rufe dann an.\nNora: Verstehen wir. Wir freuen uns sehr auf die Wohnung. Der Balkon ist perfekt.\nVermieterin: Noch eine Frage: Haben Sie Haustiere?\nTim: Eine Katze.\nVermieterin: Eine Katze ist in Ordnung. Ein Hund wäre schwieriger. Dann bis Freitag!",
+      "passageTranslation": "Landlady: Good evening, come in. You are Ms Brandt and Mr Özil?\nNora: Yes, exactly. Thank you for letting us come so quickly. We are very interested in the flat.\nLandlady: I am glad. So: two rooms, 58 square metres, third floor, no lift. Here is the living room with balcony, there the bedroom, bathroom with window, and here the kitchen.\nTim: The kitchen is empty?\nLandlady: Yes, the kitchen belongs to the old tenant. He moves out at the end of February. If you like, you can ask him afterwards whether he will sell it. He wants, I think, 800 euros.\nNora: And what does the flat cost?\nLandlady: 690 euros cold. On top of that 180 euros extra costs for heating, water and rubbish, so 870 warm. Electricity and internet you pay yourselves. The deposit is three cold rents, 2,070 euros.\nTim: From when is the flat free?\nLandlady: From 1 March. What are you waiting for, if I may ask? You live in Dresden now?\nNora: Yes. Tim starts a new job in Leipzig on 15 March. That is why we would like to move to Leipzig in March with a van.\nLandlady: That fits. Who takes care of the paperwork with you? I need the last three pay slips, a confirmation from the old landlord that you always paid the rent, and your ID cards.\nTim: I will take care of that. I can send you everything by e-mail tomorrow.\nLandlady: Good. I will tell you honestly: after you, twelve more people are coming today. I decide on Friday and then call.\nNora: We understand. We are really looking forward to the flat. The balcony is perfect.\nLandlady: One more question: do you have pets?\nTim: A cat.\nLandlady: A cat is fine. A dog would be more difficult. Then until Friday!",
+      "questions": [
+        {
+          "question": "Wie groß ist die Wohnung, und in welchem Stock liegt sie?",
+          "options": [
+            "zwei Zimmer, 58 Quadratmeter, dritter Stock ohne Aufzug",
+            "drei Zimmer, 85 Quadratmeter, erster Stock mit Aufzug und Garten",
+            "zwei Zimmer, 58 Quadratmeter, Erdgeschoss",
+            "ein Zimmer, 38 Quadratmeter, dritter Stock mit Aufzug"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Also: zwei Zimmer, 58 Quadratmeter, dritter Stock, ohne Aufzug.\"",
+          "questionTranslation": "How big is the flat, and on which floor is it?",
+          "optionsTranslation": [
+            "two rooms, 58 square metres, third floor without lift",
+            "three rooms, 85 square metres, first floor with lift and garden",
+            "two rooms, 58 square metres, ground floor",
+            "one room, 38 square metres, third floor with lift"
+          ]
+        },
+        {
+          "question": "Warum ist die Küche leer?",
+          "options": [
+            "Die Wohnung hatte nie eine Küche.",
+            "Die Küche gehört dem alten Mieter, der Ende Februar auszieht.",
+            "Die Vermieterin hat sie verkauft.",
+            "Die Küche wird gerade renoviert und ist Ende Februar fertig."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ja, die Küche gehört dem alten Mieter. Er zieht Ende Februar aus.\"",
+          "questionTranslation": "Why is the kitchen empty?",
+          "optionsTranslation": [
+            "The flat never had a kitchen.",
+            "The kitchen belongs to the old tenant, who moves out at the end of February.",
+            "The landlady sold it.",
+            "The kitchen is being renovated and will be finished at the end of February."
+          ]
+        },
+        {
+          "question": "Wie hoch ist die Warmmiete?",
+          "options": [
+            "690 Euro",
+            "180 Euro",
+            "870 Euro",
+            "2.070 Euro"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"690 Euro kalt. Dazu kommen 180 Euro Nebenkosten …, also 870 warm.\" 2,070 is the deposit.",
+          "questionTranslation": "How high is the warm rent?",
+          "optionsTranslation": [
+            "690 euros",
+            "180 euros",
+            "870 euros",
+            "2,070 euros"
+          ]
+        },
+        {
+          "question": "„Worauf warten Sie denn noch?“ Zu welchem Verb gehört worauf?",
+          "options": [
+            "warten auf",
+            "sich interessieren für",
+            "sich kümmern um",
+            "fragen nach"
+          ],
+          "correctIndex": 0,
+          "explanation": "warten auf + accusative; the question word is worauf.",
+          "questionTranslation": "'What are you still waiting for?' Which verb does worauf belong to?",
+          "optionsTranslation": [
+            "warten auf",
+            "sich interessieren für",
+            "sich kümmern um",
+            "fragen nach"
+          ]
+        },
+        {
+          "question": "„Wir möchten im März mit einem Transporter nach Leipzig ziehen.“ Welche Reihenfolge haben die Angaben?",
+          "options": [
+            "Ort, Zeit, Art",
+            "Zeit, Art, Ort",
+            "Art, Ort, Zeit",
+            "Zeit, Ort, Art"
+          ],
+          "correctIndex": 1,
+          "explanation": "im März (time), mit einem Transporter (manner), nach Leipzig (place): wann, wie, wo.",
+          "questionTranslation": "'We would like to move to Leipzig in March with a van.' What is the order of the details?",
+          "optionsTranslation": [
+            "place, time, manner",
+            "time, manner, place",
+            "manner, place, time",
+            "time, place, manner"
+          ]
+        },
+        {
+          "question": "Welche Unterlagen braucht die Vermieterin?",
+          "options": [
+            "nur die Ausweise",
+            "drei Gehaltsabrechnungen, eine Bestätigung vom alten Vermieter und die Ausweise",
+            "ein Foto, einen Lebenslauf und einen Brief vom Arbeitgeber",
+            "einen Brief vom Arbeitgeber und 800 Euro"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ich brauche die letzten drei Gehaltsabrechnungen, eine Bestätigung vom alten Vermieter … und Ihre Ausweise.\"",
+          "questionTranslation": "Which documents does the landlady need?",
+          "optionsTranslation": [
+            "only the ID cards",
+            "three pay slips, a confirmation from the old landlord and the ID cards",
+            "a photo, a CV and a letter from the employer",
+            "a letter from the employer and 800 euros"
+          ]
+        },
+        {
+          "question": "„Darum kümmere ich mich.“ Worauf bezieht sich darum?",
+          "options": [
+            "auf den Papierkram",
+            "auf die Katze und die anderen Haustiere",
+            "auf den Balkon",
+            "auf die Küche"
+          ],
+          "correctIndex": 0,
+          "explanation": "The landlady asked: Wer kümmert sich bei Ihnen um den Papierkram? darum = um den Papierkram.",
+          "questionTranslation": "'I will take care of that.' What does darum refer to?",
+          "optionsTranslation": [
+            "to the paperwork",
+            "to the cat and the other pets",
+            "to the balcony",
+            "to the kitchen"
+          ]
+        },
+        {
+          "question": "Wann entscheidet die Vermieterin, und was ist das Problem?",
+          "options": [
+            "sofort; es gibt kein Problem",
+            "am Freitag; zwölf andere Leute wollen die Wohnung auch",
+            "Ende Februar; die Küche fehlt noch und der alte Mieter ist noch da",
+            "am 15. März; Tim hat noch keine Arbeit"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Nach Ihnen kommen heute noch zwölf Leute. Ich entscheide am Freitag und rufe dann an.\"",
+          "questionTranslation": "When does the landlady decide, and what is the problem?",
+          "optionsTranslation": [
+            "immediately; there is no problem",
+            "on Friday; twelve other people want the flat too",
+            "end of February; the kitchen is still missing and the old tenant is still there",
+            "on 15 March; Tim has no job yet"
+          ]
+        }
+      ],
+      "covers": [
+        "a2.verbs-with-prepositions",
+        "a2.tekamolo"
+      ],
+      "image": "quest_a2_2_hoeren_wohnung"
+    }
   }
 ]

@@ -27,9 +27,7 @@
  "help.tips[1].examples[0].en": "Where is the old man? I don't see the old man.",
  "help.tips[1].examples[1].en": "The new house is beautiful. I'm buying the new table.",
  "help.tips[1].check.q": "Ich nehme den ____ Mantel. (blau)",
- "help.tips[1].check.options[0]": "blauen",
  "help.tips[1].check.options[2]": "blauer",
- "help.tips[1].check.answer": "blauen",
  "help.tips[1].check.why": "After der/die/das the adjective takes -e, but a masculine object (den) makes it -en.",
  "help.tips[2].title": "One strong signal",
  "help.tips[2].text": "Either the article shows the gender (der/die/das → adjective takes -e) or the adjective must (ein → adjective takes -er/-e/-es). Never both, never neither. This one idea is the whole adjective-ending system in miniature.",
@@ -67,5 +65,7 @@
  "englishTemplates.ein … (Akk): Ich habe …[0]": "I have {a} {subject}.",
  "englishTemplates.ein … (Akk): Ich habe …[1]": "I see {a} {subject}.",
  "englishTemplates.der … (Nom): Wo ist …?[0]": "Where is the {subject}?",
- "help.tips[1].check.options[1]": "blaue"
+ "help.tips[1].check.options[0]": "blauen",
+ "help.tips[1].check.options[1]": "blaue",
+ "help.tips[1].check.answer": "blauen"
 }
