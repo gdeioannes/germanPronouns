@@ -10906,6 +10906,62 @@
 			"target": "quest_c1_1_hoeren_bologna",
 			"note": "C1.1 Hören: 25 Jahre Bachelor",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "c12-85",
+			"kind": "quiz",
+			"target": "quest_c1_2_lesen_bauhaus",
+			"note": "C1.2 Lesen: Vierzehn Jahre Bauhaus",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c12-86",
+			"kind": "quiz",
+			"target": "quest_c1_2_lesen_benin",
+			"note": "C1.2 Lesen: Wem gehören die Bronzen?",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c12-87",
+			"kind": "quiz",
+			"target": "quest_c1_2_lesen_tatort",
+			"note": "C1.2 Lesen: Sonntag, 20.15 Uhr",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c12-88",
+			"kind": "quiz",
+			"target": "quest_c1_2_lesen_anglizismen",
+			"note": "C1.2 Lesen: Der Untergang, der nie kommt",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c12-89",
+			"kind": "quiz",
+			"target": "quest_c1_2_lesen_kino",
+			"note": "C1.2 Lesen: Das Kino nach dem Streaming",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c12-90",
+			"kind": "quiz",
+			"target": "quest_c1_2_hoeren_tagebuecher",
+			"note": "C1.2 Hören: Die gefälschten Tagebücher",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c12-91",
+			"kind": "quiz",
+			"target": "quest_c1_2_hoeren_uebersetzerin",
+			"note": "C1.2 Hören: Die Unsichtbare",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "c12-92",
+			"kind": "quiz",
+			"target": "quest_c1_2_hoeren_traeume",
+			"note": "C1.2 Hören: Der Abend, an dem das Radio Angst machte",
+			"since": "2026-11-15"
 		}
 	]
 }

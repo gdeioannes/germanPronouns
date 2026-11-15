@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "C1.2: eight new texts, in the app and in the book",
+    items: [
+      "Five essays of about 700 words: fourteen years of Bauhaus, who the Benin Bronzes belong to, the Sunday-evening crime ritual, the eternal fear of English words, and the cinema after streaming.",
+      "Three new listening exercises: a feature on the forged diaries of 1983, an interview with a literary translator, and a feature on the radio play that frightened a country in 1951.",
+      "The facts are real and were checked; the interview and the features are invented scenes. Three texts show a free-licence photo of their subject, with credit.",
+      "The C1.2 word deck grew from 263 to 417 cards, each new card with a sentence from its text, and the C1.2 book gained the \"Mehr lesen und hören\" section with all eight texts.",
+    ],
+  },
+  {
+    date: "2026-11-15",
     title: "C1.1: eight new texts, in the app and in the book",
     items: [
       "Five essays of about 750 words: where the Grimms' tales really came from, the Humboldt myth, the replication crisis in psychology, whether you think differently in German, and how a word gets into the dictionary.",

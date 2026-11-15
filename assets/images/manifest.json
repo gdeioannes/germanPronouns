@@ -1728,6 +1728,31 @@
 			"aspect": "4:3"
 		},
 		{
+			"id": "quest_c1_2_lesen_tatort",
+			"prompt": "scene: a cosy pub interior on a Sunday evening, a crowd of people on bar stools all facing a television on the wall that shows a detective and a car at night, beer glasses, a chalkboard sign with the time 20:15, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_lesen_anglizismen",
+			"prompt": "scene: a large open dictionary on a desk with small paper slips sticking out, a quill and a laptop side by side, a window behind, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_hoeren_tagebuecher",
+			"prompt": "scene: a 1980s newsroom with typewriters and a crowd of photographers, an editor holding up a plain black notebook with a small metal monogram, flashbulbs, no symbols or flags anywhere, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_hoeren_uebersetzerin",
+			"prompt": "scene: a woman at a desk between two tall stacks of books, one open book in each language with a lamp, a cat on the windowsill, a radio microphone on a stand in the corner, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
+			"id": "quest_c1_2_hoeren_traeume",
+			"prompt": "scene: a 1950s kitchen at night, a family of three gathered around a large wooden tube radio with a glowing dial, their faces lit by the dial, a window with dark sky, wide empty paper margins around the whole scene",
+			"aspect": "4:3"
+		},
+		{
 			"id": "quest_c1_1_lesen_replikation",
 			"prompt": "scene: two identical small laboratory benches side by side, a researcher at each repeating the same experiment with beakers and a laptop, one screen showing a rising chart and the other a flat line, wide empty paper margins around the whole scene",
 			"aspect": "4:3"
