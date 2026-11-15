@@ -168,7 +168,9 @@ async function worker() {
 		try {
 			const mp3 = cast
 				? await recordDialogue(item.dialogue, locale, cast)
-				: encodeMp3(trimSilence(readWav(await generate(text, locale))));
+				: Buffer.byteLength(text, 'utf8') > LONG_TEXT_BYTES
+					? await recordLong(text, locale)
+					: encodeMp3(trimSilence(readWav(await generate(text, locale))));
 			writeFileSync(join(OUT_DIR, file), mp3);
 			files[text] = file;
 			// Saved per clip, so an interrupted run keeps what it recorded.
@@ -195,13 +197,34 @@ function castVoices(lines) {
 	return cast;
 }
 
-/** Each line in its speaker's voice, joined with a short pause, as one MP3. */
-async function recordDialogue(lines, locale, cast) {
+/**
+ * Chirp refuses an input over 5,000 bytes. A long reading passage (the C1
+ * essays run to ~5,100) is recorded paragraph by paragraph, in the one voice,
+ * and joined with a paragraph pause, so one clip still answers the text.
+ */
+const LONG_TEXT_BYTES = 4500;
+const PARAGRAPH_GAP = 0.7;
+async function recordLong(text, locale) {
+	const chunks = [];
+	let current = '';
+	for (const para of text.split(/\n{2,}/)) {
+		const next = current ? `${current}\n\n${para}` : para;
+		if (current && Buffer.byteLength(next, 'utf8') > LONG_TEXT_BYTES) {
+			chunks.push(current);
+			current = para;
+		} else current = next;
+	}
+	if (current) chunks.push(current);
+	if (chunks.some((c) => Buffer.byteLength(c, 'utf8') > 5000)) throw new Error('a single paragraph is over 5,000 bytes');
 	const parts = [];
-	for (const line of lines)
-		parts.push(trimSilence(readWav(await generate(line.text, locale, cast.get(line.speaker)))));
+	for (const chunk of chunks) parts.push(trimSilence(readWav(await generate(chunk, locale))));
+	return encodeMp3(joinParts(parts, PARAGRAPH_GAP));
+}
+
+/** Clips end to end with a pause between them, as one waveform. */
+function joinParts(parts, gapSeconds) {
 	const rate = parts[0].rate;
-	const gap = Math.round(rate * TURN_GAP);
+	const gap = Math.round(rate * gapSeconds);
 	const total = parts.reduce((n, p) => n + p.samples.length, 0) + gap * (parts.length - 1);
 	const samples = new Int16Array(total);
 	let at = 0;
@@ -210,7 +233,15 @@ async function recordDialogue(lines, locale, cast) {
 		samples.set(p.samples, at);
 		at += p.samples.length;
 	}
-	return encodeMp3({ rate, samples });
+	return { rate, samples };
+}
+
+/** Each line in its speaker's voice, joined with a short pause, as one MP3. */
+async function recordDialogue(lines, locale, cast) {
+	const parts = [];
+	for (const line of lines)
+		parts.push(trimSilence(readWav(await generate(line.text, locale, cast.get(line.speaker)))));
+	return encodeMp3(joinParts(parts, TURN_GAP));
 }
 
 /**
