@@ -159,7 +159,8 @@ export function chapterStrings(chapter) {
 /** The book's own lines outside the chapters (title, subtitle, front matter). */
 export function bookFrontStrings(book) {
 	const out = {};
-	const { chapters, _comment, names, ...rest } = book;
+	// `extras` lists exercise ids (the "Mehr lesen und hören" texts), not prose.
+	const { chapters, _comment, names, extras, ...rest } = book;
 	for (const [p, s, k] of leaves(rest)) if (wanted(k, s)) out[p] = s;
 	return out;
 }
