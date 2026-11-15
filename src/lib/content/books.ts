@@ -23,7 +23,7 @@ export interface BookEntry {
 }
 
 export const BOOKS: BookEntry[] = [
-	{ level: 'A1.1', file: 'a1_1', cover: 'a1-1', sub: 'Erste Schritte', mb: 37, local: { tr: 37, ar: 40 } },
+	{ level: 'A1.1', file: 'a1_1', cover: 'a1-1', sub: 'Erste Schritte', mb: 39, local: { tr: 39, ar: 42 } },
 	{ level: 'A1.2', file: 'a1_2', cover: 'a1-2', sub: 'Im Alltag', mb: 34, local: { tr: 35, ar: 37 } },
 	{ level: 'A2.1', file: 'a2_1', cover: 'a2-1', sub: 'Erlebnisse', mb: 31, local: { tr: 31, ar: 33 } },
 	{ level: 'A2.2', file: 'a2_2', cover: 'a2-2', sub: 'Beschreiben & Planen', mb: 34, local: { tr: 34, ar: 36 } },

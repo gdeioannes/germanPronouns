@@ -8360,5 +8360,2647 @@
         }
       ]
     }
+  },
+  {
+    "id": "quest_a1_1_lesen_hamburg",
+    "after": "quest_a1_1_zahlen3",
+    "help": {
+      "vocab": [
+        {
+          "de": "Stadt",
+          "en": "city, town",
+          "example": "Hamburg ist eine Stadt im Norden.",
+          "article": "die",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Fluss",
+          "en": "river",
+          "example": "Die Elbe ist ein Fluss.",
+          "article": "der",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Brücke",
+          "en": "bridge",
+          "example": "Hamburg hat etwa zweitausendfünfhundert Brücken.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Hafen",
+          "en": "harbour, port",
+          "example": "Der Hafen ist das Herz von Hamburg.",
+          "article": "der",
+          "plural": "¨-"
+        },
+        {
+          "de": "Schiff",
+          "en": "ship",
+          "example": "Jedes Jahr kommen etwa achttausend Schiffe.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Million",
+          "en": "million",
+          "example": "In Hamburg wohnen fast zwei Millionen Menschen.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Wasser",
+          "en": "water",
+          "example": "Hamburg hat sehr viel Wasser.",
+          "article": "das"
+        },
+        {
+          "de": "hoch",
+          "en": "high, tall",
+          "example": "Die Elbphilharmonie ist 110 Meter hoch."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Hamburg in Zahlen",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.1",
+      "help": {
+        "intro": "A short text of about 120 words with real facts about Hamburg, told in numbers: how many people live there, how many bridges the city has (more than Venice and Amsterdam together), how old the harbour is and what the river is called. All numbers are real and were checked. You need only what you have learnt: numbers up to a million written as words, Hamburg hat / Hamburg ist, and the question words Wie viele? (how many), Wie alt? (how old), Wo? (where). Read the text once for the gist, then take each question and find the number it asks for.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Big numbers in words",
+            "text": "Hundred = hundert, thousand = tausend, million = eine Million (plural: zwei Millionen). German writes a number as one long word up to a million: zweitausendfünfhundert (2,500). Years are read in hundreds: 1189 = elfhundertneunundachtzig. Watch the order in two-digit numbers: 89 = neunundachtzig, nine-and-eighty.",
+            "examples": [
+              {
+                "de": "Hamburg hat fast zwei Millionen Einwohner.",
+                "en": "Hamburg has almost two million inhabitants.",
+                "focus": [
+                  "zwei Millionen"
+                ]
+              },
+              {
+                "de": "Die Stadt hat etwa zweitausendfünfhundert Brücken.",
+                "en": "The city has about two thousand five hundred bridges.",
+                "focus": [
+                  "zweitausendfünfhundert"
+                ]
+              }
+            ],
+            "check": {
+              "q": "What is neunundachtzig?",
+              "options": [
+                "89",
+                "98",
+                "9089"
+              ],
+              "answer": "89",
+              "why": "neun-und-achtzig = nine and eighty = 89. German says the ones before the tens."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Number",
+              "right": "German",
+              "rows": [
+                {
+                  "a": "100",
+                  "b": "hundert"
+                },
+                {
+                  "a": "1.000",
+                  "b": "tausend"
+                },
+                {
+                  "a": "2.500",
+                  "b": "zweitausendfünfhundert"
+                },
+                {
+                  "a": "1.000.000",
+                  "b": "eine Million"
+                },
+                {
+                  "a": "1189 (year)",
+                  "b": "elfhundertneunundachtzig"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Wie viele? Wie alt? Wo?",
+            "text": "Wie viele Brücken hat Hamburg? asks for a number of things. Wie alt ist der Hafen? asks for an age. Wo liegt Hamburg? asks for a place and gets an answer with in or an: in Norddeutschland, an der Elbe. Find the question word first, then hunt for that kind of answer in the text.",
+            "examples": [
+              {
+                "de": "Wo liegt Hamburg? Hamburg liegt im Norden von Deutschland, an der Elbe.",
+                "en": "Where is Hamburg? Hamburg lies in the north of Germany, on the Elbe.",
+                "focus": [
+                  "Wo",
+                  "im Norden",
+                  "an der Elbe"
+                ]
+              },
+              {
+                "de": "Wie alt ist der Hafen? Der Hafen ist über achthundert Jahre alt.",
+                "en": "How old is the harbour? The harbour is over eight hundred years old.",
+                "focus": [
+                  "Wie alt",
+                  "achthundert Jahre alt"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which question asks for a place?",
+              "options": [
+                "Wo liegt die Stadt?",
+                "Wie viele Brücken gibt es?",
+                "Wie alt ist der Hafen?"
+              ],
+              "answer": "Wo liegt die Stadt?",
+              "why": "Wo = where. Wie viele asks for a number, wie alt for an age."
+            }
+          }
+        ],
+        "remember": [
+          "hundert, tausend, eine Million / zwei Millionen; ones before tens: neunundachtzig = 89.",
+          "Wo? = place (in, an), Wie viele? = how many, Wie alt? = how old."
+        ],
+        "exam": "Short factual texts with numbers and multiple-choice questions are a typical reading task at this level, and exactly what a city guide or a poster looks like.",
+        "hook": "Almost two million people, two and a half thousand bridges, a harbour older than eight hundred years. Read Hamburg in numbers."
+      },
+      "category": "Cities",
+      "passageTitle": "Hamburg in Zahlen",
+      "passage": "Hamburg ist eine Stadt im Norden von Deutschland. Die Stadt liegt an der Elbe. Die Elbe ist ein Fluss. Er ist über tausend Kilometer lang und kommt aus Tschechien.\n\nIn Hamburg wohnen fast zwei Millionen Menschen. Hamburg ist die zweitgrößte Stadt in Deutschland. Nur Berlin ist größer.\n\nHamburg hat sehr viel Wasser: die Elbe, die Alster und viele Kanäle. Darum hat die Stadt auch sehr viele Brücken: etwa zweitausendfünfhundert! Das sind mehr Brücken als in Venedig und Amsterdam zusammen.\n\nDer Hafen ist das Herz von Hamburg. Er ist sehr alt: Der Hafen hat Geburtstag am 7. Mai 1189. Er ist also über achthundert Jahre alt. Heute ist der Hamburger Hafen der größte Hafen in Deutschland. Jedes Jahr kommen etwa achttausend Schiffe.\n\nHamburg hat auch ein berühmtes Konzerthaus: die Elbphilharmonie. Sie ist 110 Meter hoch und steht direkt am Wasser. Von oben sieht man den Hafen, die Elbe und die ganze Stadt.",
+      "passageTranslation": "Hamburg is a city in the north of Germany. The city lies on the Elbe. The Elbe is a river. It is over a thousand kilometres long and comes from the Czech Republic.\n\nAlmost two million people live in Hamburg. Hamburg is the second-largest city in Germany. Only Berlin is bigger.\n\nHamburg has a lot of water: the Elbe, the Alster and many canals. That is why the city also has very many bridges: about two thousand five hundred! That is more bridges than in Venice and Amsterdam together.\n\nThe harbour is the heart of Hamburg. It is very old: the harbour has its birthday on 7 May 1189. So it is over eight hundred years old. Today the port of Hamburg is the biggest port in Germany. Every year about eight thousand ships come.\n\nHamburg also has a famous concert hall: the Elbphilharmonie. It is 110 metres high and stands right by the water. From the top you see the harbour, the Elbe and the whole city.",
+      "questions": [
+        {
+          "question": "Wo liegt Hamburg?",
+          "options": [
+            "im Süden von Deutschland",
+            "im Norden von Deutschland, an der Elbe",
+            "in Tschechien",
+            "an der Alster in Berlin"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Hamburg ist eine Stadt im Norden von Deutschland. Die Stadt liegt an der Elbe.\"",
+          "questionTranslation": "Where is Hamburg?",
+          "optionsTranslation": [
+            "in the south of Germany",
+            "in the north of Germany, on the Elbe",
+            "in the Czech Republic",
+            "on the Alster in Berlin"
+          ]
+        },
+        {
+          "question": "Wie viele Menschen wohnen in Hamburg?",
+          "options": [
+            "fast zwei Millionen",
+            "fast zwei Milliarden",
+            "etwa zweitausendfünfhundert",
+            "etwa achttausend"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"In Hamburg wohnen fast zwei Millionen Menschen.\" 2,500 is the number of bridges, 8,000 the ships.",
+          "questionTranslation": "How many people live in Hamburg?",
+          "optionsTranslation": [
+            "almost two million",
+            "almost two billion",
+            "about two thousand five hundred",
+            "about eight thousand"
+          ]
+        },
+        {
+          "question": "Welche Stadt in Deutschland ist größer als Hamburg?",
+          "options": [
+            "München",
+            "Venedig",
+            "Berlin",
+            "keine Stadt"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Hamburg ist die zweitgrößte Stadt in Deutschland. Nur Berlin ist größer.\"",
+          "questionTranslation": "Which city in Germany is bigger than Hamburg?",
+          "optionsTranslation": [
+            "Munich",
+            "Venice",
+            "Berlin",
+            "no city"
+          ]
+        },
+        {
+          "question": "Warum hat Hamburg so viele Brücken?",
+          "options": [
+            "weil die Stadt sehr alt ist",
+            "weil die Stadt sehr viel Wasser hat: Flüsse und Kanäle",
+            "weil Hamburg größer ist als Berlin",
+            "weil jedes Jahr sehr viele Schiffe in den Hafen kommen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Hamburg hat sehr viel Wasser: die Elbe, die Alster und viele Kanäle. Darum hat die Stadt auch sehr viele Brücken.\" Darum = that is why.",
+          "questionTranslation": "Why does Hamburg have so many bridges?",
+          "optionsTranslation": [
+            "because the city is very old",
+            "because the city has a lot of water: rivers and canals",
+            "because Hamburg is bigger than Berlin",
+            "because very many ships come into the harbour every year"
+          ]
+        },
+        {
+          "question": "Wie viele Brücken hat Hamburg etwa?",
+          "options": [
+            "zweihundertfünfzig",
+            "zweitausendfünfhundert",
+            "fünfundzwanzigtausend",
+            "achthundert"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"etwa zweitausendfünfhundert\" = about 2,500. Listen for tausend in the middle of the word.",
+          "questionTranslation": "About how many bridges does Hamburg have?",
+          "optionsTranslation": [
+            "two hundred and fifty",
+            "two thousand five hundred",
+            "twenty-five thousand",
+            "eight hundred"
+          ]
+        },
+        {
+          "question": "Wann hat der Hafen Geburtstag?",
+          "options": [
+            "am 7. Mai 1189",
+            "am 7. März 1989",
+            "am 17. Mai 1189",
+            "am 7. Mai 2017"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Der Hafen hat Geburtstag am 7. Mai 1189.\" That is why he is over 800 years old.",
+          "questionTranslation": "When is the harbour's birthday?",
+          "optionsTranslation": [
+            "on 7 May 1189",
+            "on 7 March 1989",
+            "on 17 May 1189",
+            "on 7 May 2017"
+          ]
+        },
+        {
+          "question": "Was ist die Elbphilharmonie?",
+          "options": [
+            "ein Schiff im Hafen",
+            "eine Brücke über die Elbe",
+            "ein Konzerthaus am Wasser",
+            "ein Fluss in Hamburg"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Hamburg hat auch ein berühmtes Konzerthaus: die Elbphilharmonie.\"",
+          "questionTranslation": "What is the Elbphilharmonie?",
+          "optionsTranslation": [
+            "a ship in the harbour",
+            "a bridge over the Elbe",
+            "a concert hall by the water",
+            "a river in Hamburg"
+          ]
+        },
+        {
+          "question": "Wie hoch ist die Elbphilharmonie?",
+          "options": [
+            "elf Meter",
+            "hundertzehn Meter",
+            "tausend Meter",
+            "achthundert Meter"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie ist 110 Meter hoch\" = hundertzehn Meter.",
+          "questionTranslation": "How high is the Elbphilharmonie?",
+          "optionsTranslation": [
+            "eleven metres",
+            "one hundred and ten metres",
+            "a thousand metres",
+            "eight hundred metres"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.numbers",
+        "a1.wo-prepositions"
+      ],
+      "image": "quest_a1_1_lesen_hamburg"
+    }
+  },
+  {
+    "id": "quest_a1_1_lesen_mueller",
+    "after": "quest_a1_1_wortbildung",
+    "help": {
+      "vocab": [
+        {
+          "de": "Familienname",
+          "en": "family name, surname",
+          "example": "Müller ist der häufigste Familienname in Deutschland.",
+          "article": "der",
+          "plural": "-n"
+        },
+        {
+          "de": "Vorname",
+          "en": "first name",
+          "example": "Vor siebenhundert Jahren haben die Menschen nur einen Vornamen.",
+          "article": "der",
+          "plural": "-n"
+        },
+        {
+          "de": "Beruf",
+          "en": "job, profession",
+          "example": "Der Beruf wird der Name.",
+          "article": "der",
+          "plural": "-e"
+        },
+        {
+          "de": "Mühle",
+          "en": "mill",
+          "example": "Der Müller arbeitet in der Mühle.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Mehl",
+          "en": "flour",
+          "example": "Der Müller macht Mehl.",
+          "article": "das"
+        },
+        {
+          "de": "Dorf",
+          "en": "village",
+          "example": "In einem Dorf gibt es zwei Männer mit dem Namen Hans.",
+          "article": "das",
+          "plural": "¨-er"
+        },
+        {
+          "de": "Kleidung",
+          "en": "clothes, clothing",
+          "example": "Der Schneider macht Kleidung.",
+          "article": "die"
+        },
+        {
+          "de": "häufig",
+          "en": "common, frequent",
+          "example": "Müller ist der häufigste Name."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Warum so viele Müller?",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.1",
+      "help": {
+        "intro": "A short text of about 130 words about German family names: Müller is the most common one, and it simply means miller, the man who makes flour. Schmidt is the smith, Schneider the tailor, Fischer the fisherman, Weber the weaver, Meyer the farm manager, Bäcker the baker. Most German surnames are old job titles, and the text explains why, with real numbers. You need what you have just learnt: job words and their feminine forms with -in (der Bäcker, die Bäckerin), simple compounds (Familienname = Familie + Name) and the verbs heißen, sein and machen. The questions ask what a name means and how many people carry it.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Names that are jobs",
+            "text": "Müller = miller (Mühle = mill, Mehl = flour). Schmidt / Schmitt / Schmid = smith. Schneider = tailor (schneiden = to cut). Fischer = fisherman. Weber = weaver. Bäcker = baker. Koch = cook. Many German families got their name from the job of a man about seven hundred years ago. The job word is masculine; the woman gets -in: der Müller, die Müllerin; der Bäcker, die Bäckerin.",
+            "examples": [
+              {
+                "de": "Der Müller macht Mehl. Frau Müller ist aber Lehrerin.",
+                "en": "The miller makes flour. Ms Müller, however, is a teacher.",
+                "focus": [
+                  "Müller",
+                  "Mehl",
+                  "Lehrerin"
+                ]
+              },
+              {
+                "de": "Herr Fischer ist kein Fischer. Er ist Arzt.",
+                "en": "Mr Fischer is not a fisherman. He is a doctor.",
+                "focus": [
+                  "Fischer",
+                  "Arzt"
+                ]
+              }
+            ],
+            "check": {
+              "q": "What does the name Schneider mean?",
+              "options": [
+                "tailor",
+                "baker",
+                "smith"
+              ],
+              "answer": "tailor",
+              "why": "schneiden = to cut; the Schneider cuts cloth and makes clothes."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Name",
+              "right": "Old job",
+              "rows": [
+                {
+                  "a": "Müller",
+                  "b": "miller (Mehl, Mühle)"
+                },
+                {
+                  "a": "Schmidt",
+                  "b": "smith"
+                },
+                {
+                  "a": "Schneider",
+                  "b": "tailor"
+                },
+                {
+                  "a": "Fischer",
+                  "b": "fisherman"
+                },
+                {
+                  "a": "Weber",
+                  "b": "weaver"
+                },
+                {
+                  "a": "Bäcker",
+                  "b": "baker"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Words built from two words",
+            "text": "German glues words together. The last part says what it is; the first part says which kind: Familienname = Familie + Name (family name), Vorname = vor + Name (first name), Hausnummer = Haus + Nummer. The last word gives the article: der Name, so der Familienname; die Nummer, so die Hausnummer.",
+            "examples": [
+              {
+                "de": "Mein Vorname ist Anna, mein Familienname ist Müller.",
+                "en": "My first name is Anna, my family name is Müller.",
+                "focus": [
+                  "Vorname",
+                  "Familienname"
+                ]
+              },
+              {
+                "de": "Der Name ist alt, aber die Berufe sind neu.",
+                "en": "The name is old, but the jobs are new.",
+                "focus": [
+                  "Name",
+                  "Berufe"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Familienname: which part gives the article?",
+              "options": [
+                "Name (der Name → der Familienname)",
+                "Familie (die Familie → die Familienname)",
+                "neither"
+              ],
+              "answer": "Name (der Name → der Familienname)",
+              "why": "The last part of a compound decides the article."
+            }
+          }
+        ],
+        "remember": [
+          "Müller, Schmidt, Schneider, Fischer, Weber, Bäcker: old jobs that became names.",
+          "Compound = last part gives the meaning and the article: der Familienname, die Hausnummer."
+        ],
+        "exam": "Short texts about names, jobs and families with multiple-choice questions are a typical reading task at this level.",
+        "hook": "Why do so many Germans have the same name, and what does it mean? Read the story behind Müller, Schmidt and Schneider."
+      },
+      "category": "People",
+      "passageTitle": "Warum so viele Müller?",
+      "passage": "In Deutschland heißen sehr viele Menschen Müller. Mehr als siebenhunderttausend! Müller ist der häufigste Familienname in Deutschland. Auf Platz zwei steht Schmidt, auf Platz drei Schneider. Dann kommen Fischer, Weber und Meyer.\n\nWarum? Die Namen sind alt. Vor etwa siebenhundert Jahren haben die Menschen nur einen Vornamen: Hans, Peter, Anna. Aber in einem Dorf gibt es zwei oder drei Männer mit dem Namen Hans. Was macht man? Man sagt: Hans, der Müller. Hans, der Schmied. Hans, der Fischer. Der Beruf wird der Name.\n\nDer Müller arbeitet in der Mühle und macht Mehl. Der Schmied macht Dinge aus Eisen. Der Schneider macht Kleidung. Der Weber macht Stoff. Der Fischer fängt Fische. Der Bäcker backt Brot.\n\nHeute ist Herr Müller vielleicht Arzt, und Frau Fischer ist Lehrerin. Der Name ist alt, aber der Beruf ist neu.",
+      "passageTranslation": "In Germany very many people are called Müller. More than seven hundred thousand! Müller is the most common family name in Germany. In second place is Schmidt, in third Schneider. Then come Fischer, Weber and Meyer.\n\nWhy? The names are old. About seven hundred years ago people have only a first name: Hans, Peter, Anna. But in a village there are two or three men with the name Hans. What do you do? You say: Hans the miller. Hans the smith. Hans the fisherman. The job becomes the name.\n\nThe miller works in the mill and makes flour. The smith makes things from iron. The tailor makes clothes. The weaver makes cloth. The fisherman catches fish. The baker bakes bread.\n\nToday Mr Müller is perhaps a doctor, and Ms Fischer is a teacher. The name is old, but the job is new.",
+      "questions": [
+        {
+          "question": "Wie viele Menschen in Deutschland heißen Müller?",
+          "options": [
+            "mehr als siebentausend",
+            "mehr als siebenhunderttausend",
+            "mehr als siebzig Millionen",
+            "etwa siebenhundert"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Mehr als siebenhunderttausend!\" = more than 700,000.",
+          "questionTranslation": "How many people in Germany are called Müller?",
+          "optionsTranslation": [
+            "more than seven thousand",
+            "more than seven hundred thousand",
+            "more than seventy million",
+            "about seven hundred"
+          ]
+        },
+        {
+          "question": "Welcher Name steht auf Platz zwei?",
+          "options": [
+            "Schneider",
+            "Fischer",
+            "Schmidt",
+            "Meyer"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Auf Platz zwei steht Schmidt, auf Platz drei Schneider.\"",
+          "questionTranslation": "Which name is in second place?",
+          "optionsTranslation": [
+            "Schneider",
+            "Fischer",
+            "Schmidt",
+            "Meyer"
+          ]
+        },
+        {
+          "question": "Was haben die Menschen vor siebenhundert Jahren?",
+          "options": [
+            "nur einen Vornamen",
+            "nur einen Familiennamen",
+            "zwei Familiennamen",
+            "keinen Namen"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Vor etwa siebenhundert Jahren haben die Menschen nur einen Vornamen: Hans, Peter, Anna.\"",
+          "questionTranslation": "What do people have seven hundred years ago?",
+          "optionsTranslation": [
+            "only a first name",
+            "only a family name",
+            "two family names",
+            "no name"
+          ]
+        },
+        {
+          "question": "Warum sagt man „Hans, der Müller“?",
+          "options": [
+            "weil Hans sehr reich ist",
+            "weil es im Dorf mehrere Männer mit dem Namen Hans gibt",
+            "weil Hans kein Mehl hat",
+            "weil Müller ein schöner und sehr alter Name für Männer ist"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Aber in einem Dorf gibt es zwei oder drei Männer mit dem Namen Hans. Was macht man? Man sagt: Hans, der Müller.\"",
+          "questionTranslation": "Why does one say 'Hans the miller'?",
+          "optionsTranslation": [
+            "because Hans is very rich",
+            "because there are several men called Hans in the village",
+            "because Hans has no flour",
+            "because Müller is a beautiful and very old name for men"
+          ]
+        },
+        {
+          "question": "Was macht der Müller?",
+          "options": [
+            "Er macht Kleidung.",
+            "Er macht Mehl in der Mühle.",
+            "Er fängt Fische.",
+            "Er backt Brot."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Der Müller arbeitet in der Mühle und macht Mehl.\"",
+          "questionTranslation": "What does the miller do?",
+          "optionsTranslation": [
+            "He makes clothes.",
+            "He makes flour in the mill.",
+            "He catches fish.",
+            "He bakes bread."
+          ]
+        },
+        {
+          "question": "Wer macht Dinge aus Eisen?",
+          "options": [
+            "der Weber",
+            "der Schneider",
+            "der Schmied",
+            "der Bäcker"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Der Schmied macht Dinge aus Eisen.\" The family name is Schmidt, the job is Schmied.",
+          "questionTranslation": "Who makes things from iron?",
+          "optionsTranslation": [
+            "the weaver",
+            "the tailor",
+            "the smith",
+            "the baker"
+          ]
+        },
+        {
+          "question": "Was ist Frau Fischer heute?",
+          "options": [
+            "Fischerin",
+            "Ärztin",
+            "Lehrerin",
+            "Müllerin"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"… und Frau Fischer ist Lehrerin.\" Lehrerin = female teacher (Lehrer + -in).",
+          "questionTranslation": "What is Ms Fischer today?",
+          "optionsTranslation": [
+            "a fisherwoman",
+            "a doctor",
+            "a teacher",
+            "a miller"
+          ]
+        },
+        {
+          "question": "Was sagt der letzte Satz?",
+          "options": [
+            "Die Namen sind neu, die Berufe sind alt.",
+            "Die Namen sind alt, die Berufe sind neu.",
+            "Alle Müller sind Müller.",
+            "Herr Müller hat keinen Beruf."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Der Name ist alt, aber der Beruf ist neu.\"",
+          "questionTranslation": "What does the last sentence say?",
+          "optionsTranslation": [
+            "The names are new, the jobs are old.",
+            "The names are old, the jobs are new.",
+            "All Müllers are millers.",
+            "Mr Müller has no job."
+          ]
+        }
+      ],
+      "covers": [
+        "a1.word-formation-basic",
+        "a1.family-people"
+      ],
+      "image": "quest_a1_1_lesen_mueller"
+    }
+  },
+  {
+    "id": "quest_a1_1_lesen_laender",
+    "after": "quest_a1_1_laender",
+    "help": {
+      "vocab": [
+        {
+          "de": "Land",
+          "en": "country",
+          "example": "Deutsch spricht man in vier Ländern.",
+          "article": "das",
+          "plural": "¨-er"
+        },
+        {
+          "de": "Sprache",
+          "en": "language",
+          "example": "Die Schweiz hat vier Sprachen.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Hauptstadt",
+          "en": "capital city",
+          "example": "Die Hauptstadt ist Bern.",
+          "article": "die",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Prozent",
+          "en": "per cent",
+          "example": "Etwa sechzig Prozent sprechen Deutsch.",
+          "article": "das",
+          "plural": "-"
+        },
+        {
+          "de": "Flughafen",
+          "en": "airport",
+          "example": "Liechtenstein hat keinen Flughafen.",
+          "article": "der",
+          "plural": "¨-"
+        },
+        {
+          "de": "Autobahn",
+          "en": "motorway",
+          "example": "Das Land hat keine Autobahn.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "zwischen",
+          "en": "between",
+          "example": "Liechtenstein liegt zwischen der Schweiz und Österreich."
+        },
+        {
+          "de": "besonders",
+          "en": "special, especially",
+          "example": "Die Schweiz ist besonders."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Vier Länder, eine Sprache",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.1",
+      "help": {
+        "intro": "A short text of about 130 words about the countries where German is spoken: Germany, Austria, Switzerland and little Liechtenstein, plus a surprise about Switzerland, which has four national languages and no language called Swiss. All facts are real and were checked. You need what you have just learnt: country names (most without article, but die Schweiz), the verbs sprechen, wohnen, kommen aus and liegen, and the languages Deutsch, Französisch, Italienisch. Read for the gist first, then answer each question from one sentence.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Countries with and without an article",
+            "text": "Most countries have no article: Deutschland, Österreich, Liechtenstein, Frankreich, Italien. A few are feminine and take die: die Schweiz, die Türkei, die Ukraine. After aus and in, die becomes der: aus der Schweiz, in der Schweiz; but aus Österreich, in Österreich. The language is usually the country word with -isch: Französisch, Italienisch; Deutsch has no -isch.",
+            "examples": [
+              {
+                "de": "Lukas kommt aus der Schweiz und wohnt jetzt in Österreich.",
+                "en": "Lukas comes from Switzerland and now lives in Austria.",
+                "focus": [
+                  "aus der Schweiz",
+                  "in Österreich"
+                ]
+              },
+              {
+                "de": "In Liechtenstein spricht man Deutsch, in Genf Französisch.",
+                "en": "In Liechtenstein people speak German, in Geneva French.",
+                "focus": [
+                  "Deutsch",
+                  "Französisch"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which is correct?",
+              "options": [
+                "Sie kommt aus der Schweiz.",
+                "Sie kommt aus Schweiz.",
+                "Sie kommt aus die Schweiz."
+              ],
+              "answer": "Sie kommt aus der Schweiz.",
+              "why": "Schweiz takes die; after aus it becomes der."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Country",
+              "right": "from / in",
+              "rows": [
+                {
+                  "a": "Deutschland",
+                  "b": "aus Deutschland, in Deutschland"
+                },
+                {
+                  "a": "Österreich",
+                  "b": "aus Österreich, in Österreich"
+                },
+                {
+                  "a": "die Schweiz",
+                  "b": "aus der Schweiz, in der Schweiz"
+                },
+                {
+                  "a": "Liechtenstein",
+                  "b": "aus Liechtenstein, in Liechtenstein"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "man = people in general",
+            "text": "In der Schweiz spricht man vier Sprachen: man means people, one, you in general. It takes the er/sie/es form of the verb: man spricht, man sagt, man wohnt. Very common in texts about countries and customs.",
+            "examples": [
+              {
+                "de": "In Österreich sagt man Grüß Gott, in Hamburg sagt man Moin.",
+                "en": "In Austria people say Grüß Gott, in Hamburg people say Moin.",
+                "focus": [
+                  "sagt man",
+                  "sagt man"
+                ]
+              },
+              {
+                "de": "Wie sagt man danke auf Französisch? Merci.",
+                "en": "How do you say thank you in French? Merci.",
+                "focus": [
+                  "sagt man"
+                ]
+              }
+            ],
+            "check": {
+              "q": "In der Schweiz ____ man Deutsch, Französisch, Italienisch und Rätoromanisch.",
+              "options": [
+                "spricht",
+                "sprechen",
+                "sprichst"
+              ],
+              "answer": "spricht",
+              "why": "man takes the er/sie/es form: man spricht."
+            }
+          }
+        ],
+        "remember": [
+          "die Schweiz: aus der Schweiz, in der Schweiz; other countries without article.",
+          "man spricht / man sagt = people speak / people say."
+        ],
+        "exam": "Short factual texts about countries and languages with multiple-choice questions are a typical reading task at this level.",
+        "hook": "Four countries speak German, and one of them has four languages but no language of its own. Read which, and who is the smallest."
+      },
+      "category": "Countries",
+      "passageTitle": "Vier Länder, eine Sprache",
+      "passage": "Deutsch spricht man in vier Ländern in Europa: in Deutschland, in Österreich, in der Schweiz und in Liechtenstein.\n\nDeutschland ist groß. Hier wohnen etwa vierundachtzig Millionen Menschen. Die Hauptstadt ist Berlin. Österreich ist kleiner. Dort wohnen etwa neun Millionen Menschen. Die Hauptstadt ist Wien.\n\nDie Schweiz ist besonders. Sie hat vier Sprachen: Deutsch, Französisch, Italienisch und Rätoromanisch. Etwa sechzig Prozent sprechen Deutsch. In Genf spricht man Französisch, in Lugano Italienisch. Eine Sprache „Schweizerisch“ gibt es nicht! Die Hauptstadt ist Bern, aber die größte Stadt ist Zürich.\n\nLiechtenstein ist sehr klein. Es liegt zwischen der Schweiz und Österreich. Dort wohnen nur vierzigtausend Menschen. Das Land hat keinen Flughafen und keine Autobahn. Die Hauptstadt heißt Vaduz.\n\nIn Basel gibt es einen besonderen Ort: das Dreiländereck. Hier treffen sich Deutschland, Frankreich und die Schweiz. Man steht in einem Land und sieht zwei andere.",
+      "passageTranslation": "German is spoken in four countries in Europe: in Germany, in Austria, in Switzerland and in Liechtenstein.\n\nGermany is big. About eighty-four million people live here. The capital is Berlin. Austria is smaller. About nine million people live there. The capital is Vienna.\n\nSwitzerland is special. It has four languages: German, French, Italian and Romansh. About sixty per cent speak German. In Geneva people speak French, in Lugano Italian. A language called 'Swiss' does not exist! The capital is Bern, but the biggest city is Zurich.\n\nLiechtenstein is very small. It lies between Switzerland and Austria. Only forty thousand people live there. The country has no airport and no motorway. The capital is called Vaduz.\n\nIn Basel there is a special place: the three-country corner. Here Germany, France and Switzerland meet. You stand in one country and see two others.",
+      "questions": [
+        {
+          "question": "In wie vielen Ländern spricht man Deutsch?",
+          "options": [
+            "in zwei",
+            "in drei",
+            "in vier",
+            "in sechzig"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Deutsch spricht man in vier Ländern in Europa.\"",
+          "questionTranslation": "In how many countries is German spoken?",
+          "optionsTranslation": [
+            "in two",
+            "in three",
+            "in four",
+            "in sixty"
+          ]
+        },
+        {
+          "question": "Wie viele Menschen wohnen in Österreich?",
+          "options": [
+            "etwa neun Millionen",
+            "etwa vierundachtzig Millionen",
+            "etwa vierzigtausend",
+            "etwa neuntausend"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Österreich ist kleiner. Dort wohnen etwa neun Millionen Menschen.\"",
+          "questionTranslation": "How many people live in Austria?",
+          "optionsTranslation": [
+            "about nine million",
+            "about eighty-four million",
+            "about forty thousand",
+            "about nine thousand"
+          ]
+        },
+        {
+          "question": "Welche Sprache spricht man in Lugano?",
+          "options": [
+            "Deutsch",
+            "Französisch",
+            "Italienisch",
+            "Rätoromanisch"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"In Genf spricht man Französisch, in Lugano Italienisch.\"",
+          "questionTranslation": "Which language is spoken in Lugano?",
+          "optionsTranslation": [
+            "German",
+            "French",
+            "Italian",
+            "Romansh"
+          ]
+        },
+        {
+          "question": "Gibt es eine Sprache „Schweizerisch“?",
+          "options": [
+            "Ja, in Bern.",
+            "Ja, sechzig Prozent sprechen Schweizerisch.",
+            "Nein, die Schweiz hat vier andere Sprachen.",
+            "Nur in Zürich."
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Eine Sprache ‚Schweizerisch‘ gibt es nicht!\" The four languages are German, French, Italian and Romansh.",
+          "questionTranslation": "Is there a language called 'Swiss'?",
+          "optionsTranslation": [
+            "Yes, in Bern.",
+            "Yes, sixty per cent speak Swiss.",
+            "No, Switzerland has four other languages.",
+            "Only in Zurich."
+          ]
+        },
+        {
+          "question": "Was ist die Hauptstadt der Schweiz?",
+          "options": [
+            "Zürich",
+            "Genf",
+            "Bern",
+            "Basel"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Die Hauptstadt ist Bern, aber die größte Stadt ist Zürich.\"",
+          "questionTranslation": "What is the capital of Switzerland?",
+          "optionsTranslation": [
+            "Zurich",
+            "Geneva",
+            "Bern",
+            "Basel"
+          ]
+        },
+        {
+          "question": "Wo liegt Liechtenstein?",
+          "options": [
+            "zwischen Deutschland und Frankreich",
+            "zwischen der Schweiz und Österreich",
+            "in der Schweiz",
+            "an der Elbe"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Es liegt zwischen der Schweiz und Österreich.\"",
+          "questionTranslation": "Where is Liechtenstein?",
+          "optionsTranslation": [
+            "between Germany and France",
+            "between Switzerland and Austria",
+            "in Switzerland",
+            "on the Elbe"
+          ]
+        },
+        {
+          "question": "Was hat Liechtenstein nicht?",
+          "options": [
+            "eine Hauptstadt",
+            "einen Flughafen und eine Autobahn",
+            "Menschen",
+            "eine Sprache"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Das Land hat keinen Flughafen und keine Autobahn.\"",
+          "questionTranslation": "What does Liechtenstein not have?",
+          "optionsTranslation": [
+            "a capital",
+            "an airport and a motorway",
+            "people",
+            "a language"
+          ]
+        },
+        {
+          "question": "Welche drei Länder treffen sich am Dreiländereck in Basel?",
+          "options": [
+            "Deutschland, Österreich und die Schweiz",
+            "Deutschland, Frankreich und die Schweiz",
+            "Österreich, Liechtenstein und die Schweiz",
+            "Frankreich, Italien und die Schweiz"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Hier treffen sich Deutschland, Frankreich und die Schweiz.\"",
+          "questionTranslation": "Which three countries meet at the three-country corner in Basel?",
+          "optionsTranslation": [
+            "Germany, Austria and Switzerland",
+            "Germany, France and Switzerland",
+            "Austria, Liechtenstein and Switzerland",
+            "France, Italy and Switzerland"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.countries",
+        "a1.articles-nom"
+      ],
+      "image": "quest_a1_1_lesen_laender"
+    }
+  },
+  {
+    "id": "quest_a1_1_lesen_flaggen",
+    "after": "quest_a1_1_farben",
+    "help": {
+      "vocab": [
+        {
+          "de": "Flagge",
+          "en": "flag",
+          "example": "Die Flagge von Deutschland hat drei Streifen.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Streifen",
+          "en": "stripe",
+          "example": "Die Flagge hat drei Streifen.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Kreuz",
+          "en": "cross",
+          "example": "Die Flagge der Schweiz ist rot mit einem weißen Kreuz.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Geschichte",
+          "en": "story, history",
+          "example": "Die Geschichte sagt: Ein Herzog kämpft im Jahr 1191.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Hemd",
+          "en": "shirt",
+          "example": "Sein weißes Hemd wird rot.",
+          "article": "das",
+          "plural": "-en"
+        },
+        {
+          "de": "Mitte",
+          "en": "middle",
+          "example": "Nur der Gürtel in der Mitte bleibt weiß.",
+          "article": "die"
+        },
+        {
+          "de": "Quadrat",
+          "en": "square",
+          "example": "Nur zwei Flaggen sind Quadrate.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "Welt",
+          "en": "world",
+          "example": "Sie ist eine der ältesten Flaggen der Welt.",
+          "article": "die",
+          "plural": "-en"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Drei Flaggen, drei Geschichten",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.1",
+      "help": {
+        "intro": "A short text of about 130 words about the flags of Germany, Austria and Switzerland: which colours they have, how old they are, and two surprises: the Austrian flag is one of the oldest in the world, and the Swiss flag is square, which only one other flag in the world is. All facts are real and were checked. You need what you have just learnt: the colours (schwarz, rot, gold, weiß), the articles in the nominative (die Flagge, das Kreuz, der Streifen) and the plural of nouns (die Flaggen, die Farben, die Streifen). Read the text once for the gist, then look for one colour or one number per question.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Colours as adjectives after sein",
+            "text": "After ist / sind the colour has no ending: Die Flagge ist rot. Das Kreuz ist weiß. Die Streifen sind schwarz, rot und gold. Colour words are written small, except in a name: das Rote Kreuz. Gold is a colour here (not gelb): Schwarz-Rot-Gold is the German flag's name.",
+            "examples": [
+              {
+                "de": "Die deutsche Flagge ist schwarz, rot und gold.",
+                "en": "The German flag is black, red and gold.",
+                "focus": [
+                  "schwarz",
+                  "rot",
+                  "gold"
+                ]
+              },
+              {
+                "de": "Das Kreuz ist weiß, die Flagge ist rot.",
+                "en": "The cross is white, the flag is red.",
+                "focus": [
+                  "weiß",
+                  "rot"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Which sentence is correct?",
+              "options": [
+                "Die Flagge ist rot.",
+                "Die Flagge ist rote.",
+                "Die Flagge ist Rot."
+              ],
+              "answer": "Die Flagge ist rot.",
+              "why": "After ist the colour has no ending and is written small."
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Plurals you meet here",
+            "text": "die Flagge → die Flaggen (-n), die Farbe → die Farben, der Streifen → die Streifen (no change), das Land → die Länder (¨-er), das Kreuz → die Kreuze (-e), das Jahr → die Jahre. In the plural every noun takes die. Watch for the number in front: drei Streifen, zwei Farben, achthundert Jahre.",
+            "examples": [
+              {
+                "de": "Die Flagge hat drei Streifen und drei Farben.",
+                "en": "The flag has three stripes and three colours.",
+                "focus": [
+                  "Streifen",
+                  "Farben"
+                ]
+              },
+              {
+                "de": "Die Flagge ist über achthundert Jahre alt.",
+                "en": "The flag is over eight hundred years old.",
+                "focus": [
+                  "Jahre"
+                ]
+              }
+            ],
+            "check": {
+              "q": "What is the plural of das Land?",
+              "options": [
+                "die Länder",
+                "die Lande",
+                "die Landen"
+              ],
+              "answer": "die Länder",
+              "why": "Land takes umlaut + -er: Länder. Plural article is always die."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Singular",
+              "right": "Plural",
+              "rows": [
+                {
+                  "a": "die Flagge",
+                  "b": "die Flaggen"
+                },
+                {
+                  "a": "die Farbe",
+                  "b": "die Farben"
+                },
+                {
+                  "a": "der Streifen",
+                  "b": "die Streifen"
+                },
+                {
+                  "a": "das Land",
+                  "b": "die Länder"
+                },
+                {
+                  "a": "das Kreuz",
+                  "b": "die Kreuze"
+                }
+              ]
+            }
+          }
+        ],
+        "remember": [
+          "Colours after ist/sind have no ending: Die Flagge ist rot und weiß.",
+          "Plural always die: die Flaggen, die Farben, die Streifen, die Länder."
+        ],
+        "exam": "Short descriptive texts with colours, numbers and multiple-choice questions are a typical reading task at this level.",
+        "hook": "One flag is older than eight hundred years, one is square, and one is called Black-Red-Gold. Read the stories of three flags."
+      },
+      "category": "Countries",
+      "passageTitle": "Drei Flaggen, drei Geschichten",
+      "passage": "Die Flagge von Deutschland hat drei Streifen: schwarz, rot und gold. Man sagt „Schwarz-Rot-Gold“. Die Farben sind alt, aber die Flagge ist jung: Sie ist die Flagge von Deutschland seit 1949. Gold ist hier eine Farbe, nicht gelb!\n\nDie Flagge von Österreich hat auch drei Streifen: rot, weiß, rot. Sie ist eine der ältesten Flaggen der Welt. Die Geschichte sagt: Ein Herzog kämpft im Jahr 1191. Sein weißes Hemd wird rot von Blut. Nur der Gürtel in der Mitte bleibt weiß. Das ist die Flagge: rot, weiß, rot.\n\nDie Flagge der Schweiz ist rot mit einem weißen Kreuz. Sie ist besonders: Sie ist quadratisch! Fast alle Flaggen der Welt sind Rechtecke. Nur zwei sind Quadrate: die Flagge der Schweiz und die Flagge des Vatikans. Und noch etwas: Das Rote Kreuz kommt aus der Schweiz. Sein Zeichen ist die Schweizer Flagge mit anderen Farben, ein rotes Kreuz auf weißem Grund.",
+      "passageTranslation": "The flag of Germany has three stripes: black, red and gold. People say 'Black-Red-Gold'. The colours are old, but the flag is young: it has been the flag of Germany since 1949. Gold is a colour here, not yellow!\n\nThe flag of Austria also has three stripes: red, white, red. It is one of the oldest flags in the world. The story says: a duke fights in the year 1191. His white shirt turns red with blood. Only the belt in the middle stays white. That is the flag: red, white, red.\n\nThe flag of Switzerland is red with a white cross. It is special: it is square! Almost all flags in the world are rectangles. Only two are squares: the flag of Switzerland and the flag of the Vatican. And one more thing: the Red Cross comes from Switzerland. Its sign is the Swiss flag with the colours swapped, a red cross on a white ground.",
+      "questions": [
+        {
+          "question": "Welche Farben hat die Flagge von Deutschland?",
+          "options": [
+            "schwarz, rot und gelb",
+            "schwarz, rot und gold",
+            "rot, weiß, rot",
+            "rot und weiß"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"schwarz, rot und gold. Man sagt ‚Schwarz-Rot-Gold‘ … Gold ist hier eine Farbe, nicht gelb!\"",
+          "questionTranslation": "Which colours does the flag of Germany have?",
+          "optionsTranslation": [
+            "black, red and yellow",
+            "black, red and gold",
+            "red, white, red",
+            "red and white"
+          ]
+        },
+        {
+          "question": "Seit wann ist Schwarz-Rot-Gold die Flagge von Deutschland?",
+          "options": [
+            "seit 1191",
+            "seit 1949",
+            "seit 1994",
+            "seit 1919"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie ist die Flagge von Deutschland seit 1949.\"",
+          "questionTranslation": "Since when has Black-Red-Gold been the flag of Germany?",
+          "optionsTranslation": [
+            "since 1191",
+            "since 1949",
+            "since 1994",
+            "since 1919"
+          ]
+        },
+        {
+          "question": "Wie viele Streifen hat die Flagge von Österreich?",
+          "options": [
+            "zwei",
+            "drei",
+            "vier",
+            "einen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Die Flagge von Österreich hat auch drei Streifen: rot, weiß, rot.\"",
+          "questionTranslation": "How many stripes does the flag of Austria have?",
+          "optionsTranslation": [
+            "two",
+            "three",
+            "four",
+            "one"
+          ]
+        },
+        {
+          "question": "Was bleibt in der Geschichte vom Herzog weiß?",
+          "options": [
+            "sein Hemd",
+            "sein Pferd",
+            "der Gürtel in der Mitte",
+            "seine Hände"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Sein weißes Hemd wird rot von Blut. Nur der Gürtel in der Mitte bleibt weiß.\"",
+          "questionTranslation": "What stays white in the story of the duke?",
+          "optionsTranslation": [
+            "his shirt",
+            "his horse",
+            "the belt in the middle",
+            "his hands"
+          ]
+        },
+        {
+          "question": "Welche Flagge ist eine der ältesten der Welt?",
+          "options": [
+            "die Flagge von Deutschland",
+            "die Flagge von Österreich",
+            "die Flagge der Schweiz",
+            "die Flagge des Vatikans"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sie [die Flagge von Österreich] ist eine der ältesten Flaggen der Welt.\"",
+          "questionTranslation": "Which flag is one of the oldest in the world?",
+          "optionsTranslation": [
+            "the flag of Germany",
+            "the flag of Austria",
+            "the flag of Switzerland",
+            "the flag of the Vatican"
+          ]
+        },
+        {
+          "question": "Was ist besonders an der Flagge der Schweiz?",
+          "options": [
+            "Sie ist quadratisch.",
+            "Sie hat drei Streifen.",
+            "Sie ist sehr jung.",
+            "Sie ist gold."
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Sie ist besonders: Sie ist quadratisch! Fast alle Flaggen der Welt sind Rechtecke.\"",
+          "questionTranslation": "What is special about the flag of Switzerland?",
+          "optionsTranslation": [
+            "It is square.",
+            "It has three stripes.",
+            "It is very young.",
+            "It is gold."
+          ]
+        },
+        {
+          "question": "Welche Farben hat die Flagge der Schweiz?",
+          "options": [
+            "rot mit einem weißen Kreuz",
+            "weiß mit einem roten Kreuz",
+            "rot, weiß, rot",
+            "schwarz und weiß"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Die Flagge der Schweiz ist rot mit einem weißen Kreuz.\" White with a red cross is the Red Cross sign.",
+          "questionTranslation": "Which colours does the flag of Switzerland have?",
+          "optionsTranslation": [
+            "red with a white cross",
+            "white with a red cross",
+            "red, white, red",
+            "black and white"
+          ]
+        },
+        {
+          "question": "Woher kommt das Rote Kreuz?",
+          "options": [
+            "aus Deutschland",
+            "aus Österreich",
+            "aus der Schweiz",
+            "aus dem Vatikan"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Das Rote Kreuz kommt aus der Schweiz. Sein Zeichen ist die Schweizer Flagge mit anderen Farben.\"",
+          "questionTranslation": "Where does the Red Cross come from?",
+          "optionsTranslation": [
+            "from Germany",
+            "from Austria",
+            "from Switzerland",
+            "from the Vatican"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.colours",
+        "a1.plural"
+      ],
+      "image": "quest_a1_1_lesen_flaggen"
+    }
+  },
+  {
+    "id": "quest_a1_1_lesen_fischmarkt",
+    "after": "quest_a1_1_plural",
+    "help": {
+      "vocab": [
+        {
+          "de": "Markt",
+          "en": "market",
+          "example": "Der Markt ist jeden Sonntag offen.",
+          "article": "der",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Verkäufer",
+          "en": "seller, shop assistant",
+          "example": "Die Verkäufer rufen laut.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Tüte",
+          "en": "bag",
+          "example": "Sie werfen die Bananen in eine Tüte.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Obst",
+          "en": "fruit",
+          "example": "Es gibt Obst und Gemüse.",
+          "article": "das"
+        },
+        {
+          "de": "Gemüse",
+          "en": "vegetables",
+          "example": "Es gibt Obst und Gemüse.",
+          "article": "das"
+        },
+        {
+          "de": "Blume",
+          "en": "flower",
+          "example": "Es gibt auch Blumen.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "laut",
+          "en": "loud",
+          "example": "Am Hafen ist es laut."
+        },
+        {
+          "de": "offen",
+          "en": "open",
+          "example": "Er ist jeden Sonntag offen."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "reading",
+      "title": "Lesen: Sonntag, fünf Uhr, Fischmarkt",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.1",
+      "help": {
+        "intro": "A short text of about 130 words about the strangest market in Germany: the Hamburg fish market, which opens every Sunday at five in the morning, has done so since 1703, and where the sellers shout their prices and throw bananas and eels into bags. The facts are real and were checked. You need what you have just learnt: plural forms of food words (Fische, Bananen, Äpfel, Blumen), the articles in the nominative, numbers and prices (zehn Euro, fünf Uhr), and the question words Wann? (when), Was? (what), Wer? (who). Read for the gist first, then answer each question from one sentence of the text.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Plurals at the market",
+            "text": "der Fisch → die Fische, der Apfel → die Äpfel, die Banane → die Bananen, die Blume → die Blumen, der Aal → die Aale, die Tüte → die Tüten, der Euro → stays Euro after a number (zehn Euro), die Uhr → fünf Uhr (time, no plural). Many feminine nouns take -n or -en; many masculine nouns take -e, sometimes with umlaut (Äpfel).",
+            "examples": [
+              {
+                "de": "Zehn Bananen, fünf Äpfel und drei Fische in einer Tüte.",
+                "en": "Ten bananas, five apples and three fish in one bag.",
+                "focus": [
+                  "Bananen",
+                  "Äpfel",
+                  "Fische"
+                ]
+              },
+              {
+                "de": "Die Tüte kostet nur zehn Euro!",
+                "en": "The bag costs only ten euros!",
+                "focus": [
+                  "zehn Euro"
+                ]
+              }
+            ],
+            "check": {
+              "q": "What is the plural of der Apfel?",
+              "options": [
+                "die Äpfel",
+                "die Apfels",
+                "die Apfeln"
+              ],
+              "answer": "die Äpfel",
+              "why": "Apfel takes an umlaut and no ending: Äpfel."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Singular",
+              "right": "Plural",
+              "rows": [
+                {
+                  "a": "der Fisch",
+                  "b": "die Fische"
+                },
+                {
+                  "a": "der Apfel",
+                  "b": "die Äpfel"
+                },
+                {
+                  "a": "die Banane",
+                  "b": "die Bananen"
+                },
+                {
+                  "a": "die Blume",
+                  "b": "die Blumen"
+                },
+                {
+                  "a": "die Tüte",
+                  "b": "die Tüten"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Wann? Um wie viel Uhr?",
+            "text": "Wann? asks for a time or a day: am Sonntag, um fünf Uhr, seit 1703. Um fünf Uhr = at five o'clock; von fünf bis halb zehn = from five to half past nine (halb zehn is 9:30, half before ten!). Seit = since: seit 1703, seit dreihundert Jahren.",
+            "examples": [
+              {
+                "de": "Der Markt beginnt um fünf Uhr und endet um halb zehn.",
+                "en": "The market starts at five o'clock and ends at half past nine.",
+                "focus": [
+                  "um fünf Uhr",
+                  "halb zehn"
+                ]
+              },
+              {
+                "de": "Den Fischmarkt gibt es seit 1703.",
+                "en": "The fish market has existed since 1703.",
+                "focus": [
+                  "seit 1703"
+                ]
+              }
+            ],
+            "check": {
+              "q": "halb zehn is:",
+              "options": [
+                "9:30",
+                "10:30",
+                "5:00"
+              ],
+              "answer": "9:30",
+              "why": "halb zehn = half (on the way) to ten = 9:30. Careful: not half past ten."
+            }
+          }
+        ],
+        "remember": [
+          "Plurals: Fische, Äpfel, Bananen, Blumen, Tüten; zehn Euro stays Euro.",
+          "um fünf Uhr = at five; halb zehn = 9:30; seit 1703 = since 1703."
+        ],
+        "exam": "Short texts about markets, shopping and times with multiple-choice questions are a typical reading task at this level.",
+        "hook": "Sunday, five in the morning, and thousands of people buy fish, bananas and flowers while the sellers shout. Read about Hamburg's wildest market."
+      },
+      "category": "Daily Life",
+      "passageTitle": "Sonntag, fünf Uhr, Fischmarkt",
+      "passage": "Es ist Sonntag, fünf Uhr am Morgen. In Hamburg schlafen fast alle Menschen. Aber am Hafen ist es laut. Hier ist der Fischmarkt.\n\nDen Fischmarkt gibt es seit 1703. Das ist über dreihundert Jahre! Er ist jeden Sonntag offen, von fünf Uhr bis halb zehn. Im Winter beginnt er um sieben Uhr.\n\nWas gibt es hier? Natürlich Fische: Aale, Lachs und Krabben. Aber auch Obst und Gemüse, Blumen, Käse, Brot und Kleidung. Die Verkäufer rufen laut: „Zehn Bananen, zwei Ananas und fünf Kiwis, alles zusammen nur zehn Euro!“ Sie werfen die Bananen in eine Tüte. Die Leute lachen und kaufen.\n\nDer berühmteste Verkäufer heißt Aale-Dieter. Er verkauft seit über fünfzig Jahren Aale auf dem Fischmarkt. Er ruft sehr laut und macht viele Witze.\n\nViele Leute kommen direkt von der Party. Sie tanzen noch ein bisschen in der Fischauktionshalle, trinken Kaffee und essen ein Fischbrötchen. Dann gehen sie nach Hause und schlafen.",
+      "passageTranslation": "It is Sunday, five o'clock in the morning. In Hamburg almost everyone is asleep. But at the harbour it is loud. Here is the fish market.\n\nThe fish market has existed since 1703. That is over three hundred years! It is open every Sunday, from five o'clock to half past nine. In winter it starts at seven o'clock.\n\nWhat is there here? Fish, of course: eels, salmon and prawns. But also fruit and vegetables, flowers, cheese, bread and clothes. The sellers shout loudly: 'Ten bananas, two pineapples and five kiwis, all together only ten euros!' They throw the bananas into a bag. The people laugh and buy.\n\nThe most famous seller is called Aale-Dieter. He has sold eels at the fish market for over fifty years. He shouts very loudly and makes many jokes.\n\nMany people come straight from the party. They dance a little more in the fish auction hall, drink coffee and eat a fish roll. Then they go home and sleep.",
+      "questions": [
+        {
+          "question": "Wann ist der Fischmarkt offen?",
+          "options": [
+            "jeden Tag um fünf Uhr",
+            "jeden Sonntag von fünf Uhr bis halb zehn",
+            "jeden Samstag am Abend von fünf bis halb zehn",
+            "nur im Winter"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Er ist jeden Sonntag offen, von fünf Uhr bis halb zehn.\"",
+          "questionTranslation": "When is the fish market open?",
+          "optionsTranslation": [
+            "every day at five o'clock",
+            "every Sunday from five o'clock to half past nine",
+            "every Saturday evening from five to half past nine",
+            "only in winter"
+          ]
+        },
+        {
+          "question": "Seit wann gibt es den Fischmarkt?",
+          "options": [
+            "seit 1703",
+            "seit 1930",
+            "seit 1973",
+            "seit fünfzig Jahren"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Den Fischmarkt gibt es seit 1703. Das ist über dreihundert Jahre!\"",
+          "questionTranslation": "Since when has the fish market existed?",
+          "optionsTranslation": [
+            "since 1703",
+            "since 1930",
+            "since 1973",
+            "for fifty years"
+          ]
+        },
+        {
+          "question": "Um wie viel Uhr beginnt der Markt im Winter?",
+          "options": [
+            "um fünf Uhr",
+            "um halb zehn",
+            "um sieben Uhr",
+            "um zehn Uhr"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Im Winter beginnt er um sieben Uhr.\"",
+          "questionTranslation": "At what time does the market start in winter?",
+          "optionsTranslation": [
+            "at five o'clock",
+            "at half past nine",
+            "at seven o'clock",
+            "at ten o'clock"
+          ]
+        },
+        {
+          "question": "Was gibt es auf dem Fischmarkt NICHT?",
+          "options": [
+            "Fische",
+            "Blumen",
+            "Kleidung",
+            "Autos"
+          ],
+          "correctIndex": 3,
+          "explanation": "The text lists fish, fruit and vegetables, flowers, cheese, bread and clothes. No cars.",
+          "questionTranslation": "What is there NOT at the fish market?",
+          "optionsTranslation": [
+            "fish",
+            "flowers",
+            "clothes",
+            "cars"
+          ]
+        },
+        {
+          "question": "Was kostet die Tüte mit zehn Bananen, zwei Ananas und fünf Kiwis?",
+          "options": [
+            "zwei Euro",
+            "fünf Euro",
+            "zehn Euro",
+            "siebzehn Euro"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"… alles zusammen nur zehn Euro!\"",
+          "questionTranslation": "What does the bag with ten bananas, two pineapples and five kiwis cost?",
+          "optionsTranslation": [
+            "two euros",
+            "five euros",
+            "ten euros",
+            "seventeen euros"
+          ]
+        },
+        {
+          "question": "Wer ist Aale-Dieter?",
+          "options": [
+            "ein Fisch",
+            "ein berühmter Verkäufer",
+            "ein Hafen in Hamburg",
+            "ein Café am Markt"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Der berühmteste Verkäufer heißt Aale-Dieter. Er verkauft seit über fünfzig Jahren Aale …\"",
+          "questionTranslation": "Who is Aale-Dieter?",
+          "optionsTranslation": [
+            "a fish",
+            "a famous seller",
+            "a harbour in Hamburg",
+            "a café at the market"
+          ]
+        },
+        {
+          "question": "Was macht Aale-Dieter?",
+          "options": [
+            "Er verkauft Blumen und Brot und ist sehr leise und freundlich.",
+            "Er verkauft Aale, ruft laut und macht Witze.",
+            "Er kauft Bananen.",
+            "Er tanzt in der Halle."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Er verkauft … Aale … Er ruft sehr laut und macht viele Witze.\"",
+          "questionTranslation": "What does Aale-Dieter do?",
+          "optionsTranslation": [
+            "He sells flowers and bread and is very quiet and friendly.",
+            "He sells eels, shouts loudly and makes jokes.",
+            "He buys bananas.",
+            "He dances in the hall."
+          ]
+        },
+        {
+          "question": "Was machen die Leute von der Party am Ende?",
+          "options": [
+            "Sie arbeiten auf dem Markt.",
+            "Sie fahren nach Berlin.",
+            "Sie gehen nach Hause und schlafen.",
+            "Sie kaufen Fische für Aale-Dieter."
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Dann gehen sie nach Hause und schlafen.\"",
+          "questionTranslation": "What do the people from the party do at the end?",
+          "optionsTranslation": [
+            "They work at the market.",
+            "They drive to Berlin.",
+            "They go home and sleep.",
+            "They buy fish for Aale-Dieter."
+          ]
+        }
+      ],
+      "covers": [
+        "a1.plural",
+        "a1.numbers"
+      ],
+      "image": "quest_a1_1_lesen_fischmarkt"
+    }
+  },
+  {
+    "id": "quest_a1_1_hoeren_buchstabieren",
+    "after": "quest_a1_1_alphabet",
+    "help": {
+      "vocab": [
+        {
+          "de": "Buchstabe",
+          "en": "letter (of the alphabet)",
+          "example": "Der Buchstabe B, wie Berta.",
+          "article": "der",
+          "plural": "-n"
+        },
+        {
+          "de": "Zimmer",
+          "en": "room",
+          "example": "Ich möchte ein Zimmer reservieren.",
+          "article": "das",
+          "plural": "-"
+        },
+        {
+          "de": "Doppelzimmer",
+          "en": "double room",
+          "example": "Ein Doppelzimmer, bitte.",
+          "article": "das",
+          "plural": "-"
+        },
+        {
+          "de": "Nacht",
+          "en": "night",
+          "example": "Für zwei Nächte, bitte.",
+          "article": "die",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Adresse",
+          "en": "address",
+          "example": "Und Ihre Adresse?",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Postleitzahl",
+          "en": "postcode",
+          "example": "Die Postleitzahl ist 79098.",
+          "article": "die",
+          "plural": "-en"
+        },
+        {
+          "de": "Frühstück",
+          "en": "breakfast",
+          "example": "Neunzig Euro pro Nacht, mit Frühstück.",
+          "article": "das",
+          "plural": "-e"
+        },
+        {
+          "de": "buchstabieren",
+          "en": "to spell",
+          "example": "Können Sie das buchstabieren?"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: A wie Anton",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.1",
+      "help": {
+        "intro": "A phone call of about one and a half minutes: a guest books a hotel room in Konstanz and has to spell her name, her e-mail address and her street. The receptionist uses the German spelling alphabet, the one every German knows from the phone: A wie Anton, B wie Berta, C wie Cäsar, and so on. The scene is invented; the spelling words are the real ones used in Germany. You hear what you have just learnt: the letters of the alphabet, numbers in a phone number, and the questions Wie heißen Sie? Wie schreibt man das? Wie ist Ihre Telefonnummer? Listen once for the whole call, then once more for each spelled word.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "The German spelling alphabet",
+            "text": "On the phone Germans say a letter and a name: A wie Anton, B wie Berta, C wie Cäsar, D wie Dora, E wie Emil, F wie Friedrich, G wie Gustav, H wie Heinrich, I wie Ida, J wie Julius, K wie Kaufmann, L wie Ludwig, M wie Martha, N wie Nordpol, O wie Otto, P wie Paula, Q wie Quelle, R wie Richard, S wie Samuel (or Siegfried), T wie Theodor, U wie Ulrich, V wie Viktor, W wie Wilhelm, X wie Xanthippe, Y wie Ypsilon, Z wie Zacharias. Umlauts: Ä wie Ärger, Ö wie Ökonom, Ü wie Übermut; ß = Eszett or scharfes S.",
+            "examples": [
+              {
+                "de": "Mein Name ist Kolb: K wie Kaufmann, O wie Otto, L wie Ludwig, B wie Berta.",
+                "en": "My name is Kolb: K as in Kaufmann, O as in Otto, L as in Ludwig, B as in Berta.",
+                "focus": [
+                  "Kaufmann",
+                  "Otto",
+                  "Ludwig",
+                  "Berta"
+                ]
+              },
+              {
+                "de": "Wie schreibt man das, mit V wie Viktor oder mit W wie Wilhelm?",
+                "en": "How do you write that, with V as in Viktor or with W as in Wilhelm?",
+                "focus": [
+                  "Viktor",
+                  "Wilhelm"
+                ]
+              }
+            ],
+            "check": {
+              "q": "D wie Dora, O wie Otto, R wie Richard, N wie Nordpol spells:",
+              "options": [
+                "Dorn",
+                "Dorm",
+                "Born"
+              ],
+              "answer": "Dorn",
+              "why": "D-O-R-N. Nordpol stands for N."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Letter",
+              "right": "Spelling word",
+              "rows": [
+                {
+                  "a": "A / B / C",
+                  "b": "Anton / Berta / Cäsar"
+                },
+                {
+                  "a": "D / E / F",
+                  "b": "Dora / Emil / Friedrich"
+                },
+                {
+                  "a": "K / L / M",
+                  "b": "Kaufmann / Ludwig / Martha"
+                },
+                {
+                  "a": "N / O / P",
+                  "b": "Nordpol / Otto / Paula"
+                },
+                {
+                  "a": "V / W",
+                  "b": "Viktor / Wilhelm"
+                },
+                {
+                  "a": "Ä / Ö / Ü",
+                  "b": "Ärger / Ökonom / Übermut"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Letters that trip you up",
+            "text": "E is said eh, I is ih, A is ah: the opposite of English. V sounds like fau, W like veh. Y is Ypsilon, Z is tsett. J is yot. In e-mail addresses: @ = at (said the English way), . = Punkt, - = Bindestrich, _ = Unterstrich. Phone numbers are read in single digits or in pairs: null sieben fünf drei eins = 07531.",
+            "examples": [
+              {
+                "de": "Die Adresse ist lena Punkt kolb at mail Punkt de.",
+                "en": "The address is lena dot kolb at mail dot de.",
+                "focus": [
+                  "Punkt",
+                  "at",
+                  "Punkt"
+                ]
+              },
+              {
+                "de": "Die Vorwahl ist null sieben fünf drei eins.",
+                "en": "The area code is zero seven five three one.",
+                "focus": [
+                  "null sieben fünf drei eins"
+                ]
+              }
+            ],
+            "check": {
+              "q": "A German says the letter 'eh'. Which letter is it?",
+              "options": [
+                "E",
+                "A",
+                "I"
+              ],
+              "answer": "E",
+              "why": "German E = eh, German A = ah, German I = ih."
+            }
+          }
+        ],
+        "remember": [
+          "A wie Anton, B wie Berta, K wie Kaufmann, N wie Nordpol, V wie Viktor, W wie Wilhelm.",
+          "E = eh, I = ih, A = ah; @ = at, . = Punkt."
+        ],
+        "exam": "Short phone calls in which a name or an address is spelled are a typical listening task at this level, and exactly what happens at every hotel desk and hotline.",
+        "hook": "K wie Kaufmann, O wie Otto, L wie Ludwig, B wie Berta: listen to a hotel booking and write down the name, the e-mail and the street."
+      },
+      "category": "Daily Life",
+      "speakers": {
+        "Rezeption": "male",
+        "Gast": "female"
+      },
+      "passageTitle": "Telefonat: A wie Anton",
+      "passage": "Rezeption: Hotel Seeblick Konstanz, guten Tag, mein Name ist Berger.\nGast: Guten Tag. Ich möchte ein Zimmer reservieren, bitte. Für zwei Nächte, am Freitag und Samstag.\nRezeption: Gern. Ein Einzelzimmer oder ein Doppelzimmer?\nGast: Ein Doppelzimmer, bitte.\nRezeption: Gut. Wie heißen Sie, bitte?\nGast: Lena Kolb.\nRezeption: Kolb? Wie schreibt man das?\nGast: K wie Kaufmann, O wie Otto, L wie Ludwig, B wie Berta. Kolb.\nRezeption: K, O, L, B. Danke. Und der Vorname ist Lena, L, E, N, A?\nGast: Ja, genau.\nRezeption: Haben Sie eine E-Mail-Adresse?\nGast: Ja. Lena Punkt Kolb at mail Punkt de. Alles klein.\nRezeption: Lena Punkt Kolb at mail Punkt de. Und Ihre Adresse?\nGast: Weberstraße 14, in Freiburg. Weber mit W wie Wilhelm, E, B wie Berta, E, R. Straße mit scharfem S.\nRezeption: Weberstraße 14, Freiburg. Und die Postleitzahl?\nGast: 79098. Sieben, neun, null, neun, acht.\nRezeption: Danke. Und eine Telefonnummer?\nGast: Null eins sieben sechs, zwei vier, acht acht, drei eins.\nRezeption: Null eins sieben sechs, vierundzwanzig, achtundachtzig, einunddreißig. Gut. Das Doppelzimmer kostet neunzig Euro pro Nacht, mit Frühstück.\nGast: Neunzig Euro, gut. Vielen Dank!\nRezeption: Danke, Frau Kolb. Bis Freitag!",
+      "passageTranslation": "Reception: Hotel Seeblick Konstanz, good day, my name is Berger.\nGuest: Good day. I would like to book a room, please. For two nights, Friday and Saturday.\nReception: Certainly. A single room or a double room?\nGuest: A double room, please.\nReception: Good. What is your name, please?\nGuest: Lena Kolb.\nReception: Kolb? How do you spell that?\nGuest: K as in Kaufmann, O as in Otto, L as in Ludwig, B as in Berta. Kolb.\nReception: K, O, L, B. Thank you. And the first name is Lena, L, E, N, A?\nGuest: Yes, exactly.\nReception: Do you have an e-mail address?\nGuest: Yes. Lena dot Kolb at mail dot de. All lower case.\nReception: Lena dot Kolb at mail dot de. And your address?\nGuest: Weberstraße 14, in Freiburg. Weber with W as in Wilhelm, E, B as in Berta, E, R. Straße with sharp S.\nReception: Weberstraße 14, Freiburg. And the postcode?\nGuest: 79098. Seven, nine, zero, nine, eight.\nReception: Thank you. And a telephone number?\nGuest: Zero one seven six, two four, eight eight, three one.\nReception: Zero one seven six, twenty-four, eighty-eight, thirty-one. Good. The double room costs ninety euros per night, with breakfast.\nGuest: Ninety euros, good. Thank you very much!\nReception: Thank you, Ms Kolb. See you Friday!",
+      "questions": [
+        {
+          "question": "Was möchte die Frau?",
+          "options": [
+            "ein Einzelzimmer für eine Nacht",
+            "ein Doppelzimmer für zwei Nächte",
+            "ein Frühstück am Freitag",
+            "eine Telefonnummer"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ich möchte ein Zimmer reservieren … Für zwei Nächte … Ein Doppelzimmer, bitte.\"",
+          "questionTranslation": "What does the woman want?",
+          "optionsTranslation": [
+            "a single room for one night",
+            "a double room for two nights",
+            "breakfast on Friday",
+            "a telephone number"
+          ]
+        },
+        {
+          "question": "Wie schreibt man den Familiennamen der Frau?",
+          "options": [
+            "K-O-L-B",
+            "K-O-L-P",
+            "C-O-L-B",
+            "K-O-H-L"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"K wie Kaufmann, O wie Otto, L wie Ludwig, B wie Berta. Kolb.\"",
+          "questionTranslation": "How do you spell the woman's family name?",
+          "optionsTranslation": [
+            "K-O-L-B",
+            "K-O-L-P",
+            "C-O-L-B",
+            "K-O-H-L"
+          ]
+        },
+        {
+          "question": "„B wie Berta“: Was bedeutet das?",
+          "options": [
+            "Die Frau heißt Berta.",
+            "Der Buchstabe B, mit dem Beispielwort Berta",
+            "Das Hotel heißt Berta.",
+            "B ist der zweite Vorname."
+          ],
+          "correctIndex": 1,
+          "explanation": "wie + a name is the German spelling alphabet: B wie Berta = the letter B, as in Berta.",
+          "questionTranslation": "'B wie Berta': what does that mean?",
+          "optionsTranslation": [
+            "The woman is called Berta.",
+            "The letter B, with the example word Berta",
+            "The hotel is called Berta.",
+            "B is the middle name."
+          ]
+        },
+        {
+          "question": "Wie ist die E-Mail-Adresse?",
+          "options": [
+            "lena-kolb@mail.de",
+            "lena.kolb@mail.de",
+            "lena_kolb@mail.com",
+            "kolb.lena@mail.de"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Lena Punkt Kolb at mail Punkt de.\" Punkt = dot.",
+          "questionTranslation": "What is the e-mail address?",
+          "optionsTranslation": [
+            "lena-kolb@mail.de",
+            "lena.kolb@mail.de",
+            "lena_kolb@mail.com",
+            "kolb.lena@mail.de"
+          ]
+        },
+        {
+          "question": "Wo wohnt Frau Kolb?",
+          "options": [
+            "in Konstanz, Weberstraße 14",
+            "in Freiburg, Weberstraße 14",
+            "in Freiburg, Weberstraße 40",
+            "in Freiburg, Wilhelmstraße 14"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Weberstraße 14, in Freiburg.\" Konstanz is where the hotel is.",
+          "questionTranslation": "Where does Ms Kolb live?",
+          "optionsTranslation": [
+            "in Konstanz, Weberstraße 14",
+            "in Freiburg, Weberstraße 14",
+            "in Freiburg, Weberstraße 40",
+            "in Freiburg, Wilhelmstraße 14"
+          ]
+        },
+        {
+          "question": "Wie ist die Postleitzahl?",
+          "options": [
+            "79089",
+            "79098",
+            "70998",
+            "97098"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"79098. Sieben, neun, null, neun, acht.\"",
+          "questionTranslation": "What is the postcode?",
+          "optionsTranslation": [
+            "79089",
+            "79098",
+            "70998",
+            "97098"
+          ]
+        },
+        {
+          "question": "Wie ist die Telefonnummer?",
+          "options": [
+            "0176 24 88 31",
+            "0176 42 88 13",
+            "0167 24 88 31",
+            "0176 24 38 81"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Null eins sieben sechs, zwei vier, acht acht, drei eins.\" The receptionist repeats it in pairs: vierundzwanzig, achtundachtzig, einunddreißig.",
+          "questionTranslation": "What is the telephone number?",
+          "optionsTranslation": [
+            "0176 24 88 31",
+            "0176 42 88 13",
+            "0167 24 88 31",
+            "0176 24 38 81"
+          ]
+        },
+        {
+          "question": "Was kostet das Zimmer pro Nacht?",
+          "options": [
+            "neunzehn Euro ohne Frühstück",
+            "neunzig Euro mit Frühstück",
+            "neunzig Euro ohne Frühstück",
+            "neunundneunzig Euro"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Das Doppelzimmer kostet neunzig Euro pro Nacht, mit Frühstück.\"",
+          "questionTranslation": "What does the room cost per night?",
+          "optionsTranslation": [
+            "nineteen euros without breakfast",
+            "ninety euros with breakfast",
+            "ninety euros without breakfast",
+            "ninety-nine euros"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.alphabet",
+        "a1.statement-question"
+      ],
+      "image": "quest_a1_1_hoeren_buchstabieren"
+    }
+  },
+  {
+    "id": "quest_a1_1_hoeren_cafe",
+    "after": "quest_a1_1_sein_haben",
+    "help": {
+      "vocab": [
+        {
+          "de": "Kaffeehaus",
+          "en": "coffee house",
+          "example": "Das Kaffeehaus ist seit 1876 hier.",
+          "article": "das",
+          "plural": "¨-er"
+        },
+        {
+          "de": "Kellner",
+          "en": "waiter",
+          "example": "Der Kellner bringt die Melange.",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Tisch",
+          "en": "table",
+          "example": "Haben Sie einen Tisch am Fenster?",
+          "article": "der",
+          "plural": "-e"
+        },
+        {
+          "de": "Fenster",
+          "en": "window",
+          "example": "Ein Tisch am Fenster, bitte.",
+          "article": "das",
+          "plural": "-"
+        },
+        {
+          "de": "Milch",
+          "en": "milk",
+          "example": "Melange ist Kaffee mit Milch.",
+          "article": "die"
+        },
+        {
+          "de": "Kuchen",
+          "en": "cake",
+          "example": "Haben Sie auch Kuchen?",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Hunger",
+          "en": "hunger",
+          "example": "Ich habe Hunger.",
+          "article": "der"
+        },
+        {
+          "de": "gratis",
+          "en": "free of charge",
+          "example": "Das Wasser ist gratis."
+        }
+      ]
+    },
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Im Kaffeehaus",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.1",
+      "help": {
+        "intro": "A scene of about one and a half minutes in a Vienna coffee house: two friends order, and the waiter explains the famous Viennese coffee names, Melange, Einspänner, kleiner Brauner, which even Germans do not know. The scene is invented; the coffee names and the coffee-house customs are real, and since 2011 the Viennese coffee house is on the UNESCO list of cultural heritage. You hear what you have just learnt: sein and haben in all persons (ich bin, wir sind, haben Sie, ich habe), numbers and prices (vier Euro zwanzig), and the polite ich möchte / ich nehme. Listen once for the whole scene, then once for each order and each price.",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "sein and haben at the table",
+            "text": "sein: ich bin, du bist, er/sie ist, wir sind, ihr seid, sie/Sie sind. haben: ich habe, du hast, er/sie hat, wir haben, ihr habt, sie/Sie haben. In a café you hear: Haben Sie Tee? (Do you have tea?), Wir sind zu zweit (there are two of us), Ich habe Hunger (I am hungry: German has hunger), Das ist eine Melange (that is a Melange), Sind Sie fertig? (are you ready?).",
+            "examples": [
+              {
+                "de": "Haben Sie auch Kuchen? Ja, wir haben Apfelstrudel und Sachertorte.",
+                "en": "Do you also have cake? Yes, we have apple strudel and Sacher cake.",
+                "focus": [
+                  "Haben Sie",
+                  "wir haben"
+                ]
+              },
+              {
+                "de": "Ich habe Durst, und du bist müde. Wir sind im richtigen Haus.",
+                "en": "I am thirsty, and you are tired. We are in the right house.",
+                "focus": [
+                  "habe",
+                  "bist",
+                  "sind"
+                ]
+              }
+            ],
+            "check": {
+              "q": "____ Sie einen Tisch für zwei?",
+              "options": [
+                "Haben",
+                "Sind",
+                "Hat"
+              ],
+              "answer": "Haben",
+              "why": "Do you have a table for two? Sie takes haben; hat is for er/sie."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "sein",
+              "right": "haben",
+              "rows": [
+                {
+                  "a": "ich bin",
+                  "b": "ich habe"
+                },
+                {
+                  "a": "du bist",
+                  "b": "du hast"
+                },
+                {
+                  "a": "er / sie ist",
+                  "b": "er / sie hat"
+                },
+                {
+                  "a": "wir sind",
+                  "b": "wir haben"
+                },
+                {
+                  "a": "Sie sind",
+                  "b": "Sie haben"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Vienna's coffee words",
+            "text": "Melange = coffee with frothed milk, the classic. Kleiner / großer Brauner = a small or large espresso with a little milk on the side. Einspänner = black coffee in a glass with a mountain of whipped cream (named after the one-horse carriage). Verlängerter = espresso with extra hot water. Every coffee comes with a glass of water on a silver tray. Prices: vier Euro zwanzig = 4.20; you say Euro and then the cents, no comma word.",
+            "examples": [
+              {
+                "de": "Eine Melange, bitte. Das macht vier Euro zwanzig.",
+                "en": "One Melange, please. That is four euros twenty.",
+                "focus": [
+                  "Melange",
+                  "vier Euro zwanzig"
+                ]
+              },
+              {
+                "de": "Ein Einspänner ist Kaffee mit viel Schlagobers. Schlagobers ist das Wiener Wort für Schlagsahne.",
+                "en": "An Einspänner is coffee with a lot of whipped cream. Schlagobers is the Viennese word for whipped cream.",
+                "focus": [
+                  "Einspänner",
+                  "Schlagobers"
+                ]
+              }
+            ],
+            "check": {
+              "q": "What is a Melange?",
+              "options": [
+                "coffee with frothed milk",
+                "black coffee with whipped cream",
+                "tea with milk"
+              ],
+              "answer": "coffee with frothed milk",
+              "why": "The Melange is the classic Viennese coffee with milk foam; the Einspänner has whipped cream."
+            }
+          }
+        ],
+        "remember": [
+          "Haben Sie …? Wir sind zu zweit. Ich habe Hunger. Das ist / das sind …",
+          "Melange = coffee with milk foam, Einspänner = black coffee with whipped cream; vier Euro zwanzig = 4.20."
+        ],
+        "exam": "Short scenes in a café or restaurant with orders and prices are a typical listening task at this level.",
+        "hook": "Melange, Einspänner, kleiner Brauner: listen to two friends in a Vienna coffee house and find out who orders what, and what it costs."
+      },
+      "category": "Daily Life",
+      "speakers": {
+        "Kellner": "male",
+        "Mia": "female",
+        "Tom": "male"
+      },
+      "passageTitle": "Szene: Im Kaffeehaus",
+      "passage": "Kellner: Grüß Gott! Sind Sie zu zweit?\nMia: Ja, wir sind zu zweit. Haben Sie einen Tisch am Fenster?\nKellner: Natürlich. Bitte, hier. Was möchten Sie trinken?\nMia: Ich möchte einen Kaffee. Haben Sie Cappuccino?\nKellner: Wir sind in Wien! Hier heißt das Melange. Das ist Kaffee mit Milch und Milchschaum.\nMia: Gut, dann eine Melange, bitte.\nTom: Und was ist ein Einspänner?\nKellner: Ein Einspänner ist ein schwarzer Kaffee im Glas, mit viel Schlagobers. Schlagobers ist Schlagsahne.\nTom: Das klingt gut. Ich nehme einen Einspänner.\nKellner: Sehr gern. Möchten Sie auch etwas essen?\nTom: Ja, ich habe Hunger. Haben Sie Apfelstrudel?\nKellner: Ja, Apfelstrudel haben wir. Und Sachertorte.\nMia: Ein Stück Sachertorte für mich, bitte.\nTom: Und ein Apfelstrudel für mich.\nKellner: Also: eine Melange, ein Einspänner, eine Sachertorte, ein Apfelstrudel. Das Wasser ist gratis.\nMia: Danke! Wie viel kostet das alles?\nKellner: Die Melange kostet vier Euro zwanzig, der Einspänner fünf Euro, die Sachertorte fünf Euro fünfzig und der Apfelstrudel vier Euro achtzig. Zusammen neunzehn Euro fünfzig.\nTom: Das ist okay. Wir sind im Urlaub!\nKellner: Dann willkommen in Wien. Das Kaffeehaus ist seit 1876 hier. Sie haben Zeit, bleiben Sie, so lange Sie möchten.",
+      "passageTranslation": "Waiter: Grüß Gott! Are there two of you?\nMia: Yes, there are two of us. Do you have a table by the window?\nWaiter: Of course. Please, here. What would you like to drink?\nMia: I would like a coffee. Do you have cappuccino?\nWaiter: We are in Vienna! Here it is called Melange. That is coffee with milk and milk foam.\nMia: Good, then a Melange, please.\nTom: And what is an Einspänner?\nWaiter: An Einspänner is a black coffee in a glass, with a lot of Schlagobers. Schlagobers is whipped cream.\nTom: That sounds good. I will take an Einspänner.\nWaiter: With pleasure. Would you also like something to eat?\nTom: Yes, I am hungry. Do you have apple strudel?\nWaiter: Yes, we have apple strudel. And Sacher cake.\nMia: A piece of Sacher cake for me, please.\nTom: And an apple strudel for me.\nWaiter: So: one Melange, one Einspänner, one Sacher cake, one apple strudel. The water is free.\nMia: Thank you! How much does it all cost?\nWaiter: The Melange costs four euros twenty, the Einspänner five euros, the Sacher cake five euros fifty and the apple strudel four euros eighty. Together nineteen euros fifty.\nTom: That is okay. We are on holiday!\nWaiter: Then welcome to Vienna. The coffee house has been here since 1876. You have time, stay as long as you like.",
+      "questions": [
+        {
+          "question": "Wie viele Personen sind am Tisch?",
+          "options": [
+            "eine",
+            "zwei",
+            "drei",
+            "vier"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Sind Sie zu zweit? Ja, wir sind zu zweit.\" zu zweit = two of us.",
+          "questionTranslation": "How many people are at the table?",
+          "optionsTranslation": [
+            "one",
+            "two",
+            "three",
+            "four"
+          ]
+        },
+        {
+          "question": "Was ist eine Melange?",
+          "options": [
+            "Tee mit Zitrone",
+            "Kaffee mit Milch und Milchschaum",
+            "schwarzer Kaffee mit Schlagsahne",
+            "ein Stück Kuchen"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Hier heißt das Melange. Das ist Kaffee mit Milch und Milchschaum.\"",
+          "questionTranslation": "What is a Melange?",
+          "optionsTranslation": [
+            "tea with lemon",
+            "coffee with milk and milk foam",
+            "black coffee with whipped cream",
+            "a piece of cake"
+          ]
+        },
+        {
+          "question": "Was trinkt Tom?",
+          "options": [
+            "eine Melange",
+            "einen Cappuccino",
+            "einen Einspänner",
+            "ein Wasser"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Das klingt gut. Ich nehme einen Einspänner.\"",
+          "questionTranslation": "What does Tom drink?",
+          "optionsTranslation": [
+            "a Melange",
+            "a cappuccino",
+            "an Einspänner",
+            "a water"
+          ]
+        },
+        {
+          "question": "Was ist Schlagobers?",
+          "options": [
+            "Milchschaum",
+            "Schlagsahne",
+            "ein Glas Wasser",
+            "Apfelstrudel"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Schlagobers ist Schlagsahne.\" The Viennese word for whipped cream.",
+          "questionTranslation": "What is Schlagobers?",
+          "optionsTranslation": [
+            "milk foam",
+            "whipped cream",
+            "a glass of water",
+            "apple strudel"
+          ]
+        },
+        {
+          "question": "„Ich habe Hunger.“ Wer sagt das, und was isst die Person?",
+          "options": [
+            "Mia; sie isst Sachertorte.",
+            "Tom; er isst Apfelstrudel.",
+            "der Kellner; er isst nichts.",
+            "Mia; sie isst Apfelstrudel."
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Tom: Ja, ich habe Hunger. Haben Sie Apfelstrudel? … Und ein Apfelstrudel für mich.\"",
+          "questionTranslation": "'I am hungry.' Who says that, and what does the person eat?",
+          "optionsTranslation": [
+            "Mia; she eats Sacher cake.",
+            "Tom; he eats apple strudel.",
+            "the waiter; he eats nothing.",
+            "Mia; she eats apple strudel."
+          ]
+        },
+        {
+          "question": "Was kostet die Sachertorte?",
+          "options": [
+            "vier Euro zwanzig",
+            "fünf Euro",
+            "fünf Euro fünfzig",
+            "vier Euro achtzig"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"… die Sachertorte fünf Euro fünfzig …\"",
+          "questionTranslation": "What does the Sacher cake cost?",
+          "optionsTranslation": [
+            "four euros twenty",
+            "five euros",
+            "five euros fifty",
+            "four euros eighty"
+          ]
+        },
+        {
+          "question": "Wie viel kostet alles zusammen?",
+          "options": [
+            "neun Euro fünfzig",
+            "neunzehn Euro fünfzig",
+            "neunzig Euro fünfzig",
+            "fünfzehn Euro neunzig"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Zusammen neunzehn Euro fünfzig.\" 4.20 + 5.00 + 5.50 + 4.80 = 19.50.",
+          "questionTranslation": "How much does everything cost together?",
+          "optionsTranslation": [
+            "nine euros fifty",
+            "nineteen euros fifty",
+            "ninety euros fifty",
+            "fifteen euros ninety"
+          ]
+        },
+        {
+          "question": "Was ist gratis?",
+          "options": [
+            "der Kuchen",
+            "das Wasser",
+            "die Melange",
+            "der Tisch am Fenster"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Das Wasser ist gratis.\" In Vienna every coffee comes with a glass of water.",
+          "questionTranslation": "What is free?",
+          "optionsTranslation": [
+            "the cake",
+            "the water",
+            "the Melange",
+            "the table by the window"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.sein-haben",
+        "a1.numbers"
+      ],
+      "image": "quest_a1_1_hoeren_cafe"
+    }
+  },
+  {
+    "id": "quest_a1_1_hoeren_wo",
+    "after": "quest_a1_1_wo_praepositionen",
+    "help": {
+      "vocab": [
+        {
+          "de": "Schlüssel",
+          "en": "key",
+          "example": "Wo ist mein Schlüssel?",
+          "article": "der",
+          "plural": "-"
+        },
+        {
+          "de": "Handy",
+          "en": "mobile phone",
+          "example": "Siehst du mein Handy?",
+          "article": "das",
+          "plural": "-s"
+        },
+        {
+          "de": "Brille",
+          "en": "glasses",
+          "example": "Deine Brille ist auf deinem Kopf.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Tasche",
+          "en": "bag",
+          "example": "Die Tasche ist hinter der Tür.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Flur",
+          "en": "hall, corridor",
+          "example": "Die Tasche ist im Flur.",
+          "article": "der",
+          "plural": "-e"
+        },
+        {
+          "de": "Jacke",
+          "en": "jacket",
+          "example": "Deine Jacke ist auf dem Stuhl.",
+          "article": "die",
+          "plural": "-n"
+        },
+        {
+          "de": "Stuhl",
+          "en": "chair",
+          "example": "Sie ist auf dem Stuhl.",
+          "article": "der",
+          "plural": "¨-e"
+        },
+        {
+          "de": "Regenschirm",
+          "en": "umbrella",
+          "example": "Zwischen den Schuhen und dem Regenschirm.",
+          "article": "der",
+          "plural": "-e"
+        }
+      ]
+    },
+    "quiz": {
+      "type": "listening",
+      "title": "Hören: Wo ist mein Schlüssel?",
+      "promptLabel": "Question",
+      "subjectsLabel": "Questions",
+      "subjectColumnLabel": "Question",
+      "level": "A1.1",
+      "help": {
+        "intro": "A scene of about one and a half minutes in a flat on a Monday morning: Jonas is late and cannot find his key, his phone, his glasses or his bag, and his flatmate Sara tells him where everything is. The scene is invented. You hear what you have just learnt: Wo ist …? with the answers in, auf, unter, neben, hinter, vor + the dative (auf dem Tisch, in der Küche, unter dem Sofa), and verbs with a vowel change (du siehst, er sieht, du nimmst, er isst). Listen once for the whole scene, then once per object: where is it in the end?",
+        "tips": [
+          {
+            "kind": "rule",
+            "title": "Wo? + dative",
+            "text": "The question Wo? (where) gets an answer with a preposition and the dative: der Tisch → auf dem Tisch; das Sofa → unter dem Sofa; die Küche → in der Küche; die Tasche → in der Tasche. In short: der and das become dem, die becomes der. in dem is usually im: im Bad, im Kühlschrank. The prepositions: in (in), auf (on top of), unter (under), neben (next to), hinter (behind), vor (in front of), zwischen (between).",
+            "examples": [
+              {
+                "de": "Wo ist der Schlüssel? Er liegt auf dem Tisch, neben der Zeitung.",
+                "en": "Where is the key? It is lying on the table, next to the newspaper.",
+                "focus": [
+                  "auf dem Tisch",
+                  "neben der Zeitung"
+                ]
+              },
+              {
+                "de": "Wo ist die Brille? Sie ist im Bad, vor dem Spiegel.",
+                "en": "Where are the glasses? They are in the bathroom, in front of the mirror.",
+                "focus": [
+                  "im Bad",
+                  "vor dem Spiegel"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Wo ist das Handy? Es ist ____ Sofa.",
+              "options": [
+                "unter dem",
+                "unter das",
+                "unter der"
+              ],
+              "answer": "unter dem",
+              "why": "Wo? takes the dative; das Sofa → dem Sofa."
+            },
+            "visual": {
+              "kind": "pairs",
+              "left": "Nominative",
+              "right": "Wo? (dative)",
+              "rows": [
+                {
+                  "a": "der Tisch",
+                  "b": "auf dem Tisch"
+                },
+                {
+                  "a": "das Sofa",
+                  "b": "unter dem Sofa"
+                },
+                {
+                  "a": "das Bad",
+                  "b": "im Bad"
+                },
+                {
+                  "a": "die Küche",
+                  "b": "in der Küche"
+                },
+                {
+                  "a": "die Tasche",
+                  "b": "in der Tasche"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "rule",
+            "title": "Verbs that change their vowel",
+            "text": "Some verbs change e → ie / i or a → ä only for du and er/sie/es: sehen: ich sehe, du siehst, er sieht. nehmen: ich nehme, du nimmst, er nimmt. essen: ich esse, du isst, er isst. fahren: ich fahre, du fährst, er fährt. schlafen: du schläfst, er schläft. The wir, ihr and sie forms keep the normal vowel: wir sehen, ihr nehmt.",
+            "examples": [
+              {
+                "de": "Siehst du meine Brille? Nein, ich sehe sie nicht.",
+                "en": "Do you see my glasses? No, I do not see them.",
+                "focus": [
+                  "Siehst",
+                  "sehe"
+                ]
+              },
+              {
+                "de": "Du nimmst den Bus um acht, und er fährt um acht Uhr fünf.",
+                "en": "You take the bus at eight, and it leaves at five past eight.",
+                "focus": [
+                  "nimmst",
+                  "fährt"
+                ]
+              }
+            ],
+            "check": {
+              "q": "Er ____ (essen) sein Brot im Bus.",
+              "options": [
+                "isst",
+                "esst",
+                "ißt"
+              ],
+              "answer": "isst",
+              "why": "essen changes e → i for du and er: er isst (spelled with ss since the reform)."
+            }
+          }
+        ],
+        "remember": [
+          "Wo? → dative: auf dem Tisch, unter dem Sofa, in der Küche, im Bad.",
+          "du siehst / er sieht, du nimmst / er nimmt, du isst / er isst, er fährt."
+        ],
+        "exam": "Short everyday scenes in which you have to hear where things are are a typical listening task at this level.",
+        "hook": "Monday, 7:50, and Jonas cannot find his key, his phone or his glasses. Listen to where everything really is."
+      },
+      "category": "Home",
+      "speakers": {
+        "Jonas": "male",
+        "Sara": "female"
+      },
+      "passageTitle": "Szene: Wo ist mein Schlüssel?",
+      "passage": "Jonas: Sara! Es ist zehn vor acht! Wo ist mein Schlüssel?\nSara: Guten Morgen, Jonas. Dein Schlüssel ist in der Küche, auf dem Tisch. Neben der Kaffeetasse.\nJonas: Ah, ja. Danke. Und mein Handy? Siehst du mein Handy?\nSara: Nein, ich sehe es nicht. Ist es im Bad?\nJonas: Nein, im Bad ist es nicht.\nSara: Dann ist es unter dem Sofa. Dein Handy ist immer unter dem Sofa.\nJonas: Ja! Hier ist es. Unter dem Sofa. Und meine Brille?\nSara: Jonas, deine Brille ist auf deinem Kopf.\nJonas: Oh. Okay. Und meine Tasche?\nSara: Die Tasche ist hinter der Tür, im Flur. Zwischen den Schuhen und dem Regenschirm.\nJonas: Hinter der Tür. Gut. Habe ich alles? Schlüssel, Handy, Brille, Tasche.\nSara: Du nimmst den Bus um acht?\nJonas: Ja, der Bus fährt um acht Uhr fünf.\nSara: Dann hast du noch zehn Minuten. Isst du noch ein Brot?\nJonas: Nein, ich esse im Bus. Tschüss, Sara! Danke!\nSara: Jonas! Deine Jacke! Sie ist hier, vor dir, auf dem Stuhl!\nJonas: Oh nein. Danke. Jetzt habe ich wirklich alles. Bis heute Abend!",
+      "passageTranslation": "Jonas: Sara! It is ten to eight! Where is my key?\nSara: Good morning, Jonas. Your key is in the kitchen, on the table. Next to the coffee cup.\nJonas: Ah, yes. Thanks. And my phone? Do you see my phone?\nSara: No, I do not see it. Is it in the bathroom?\nJonas: No, it is not in the bathroom.\nSara: Then it is under the sofa. Your phone is always under the sofa.\nJonas: Yes! Here it is. Under the sofa. And my glasses?\nSara: Jonas, your glasses are on your head.\nJonas: Oh. Okay. And my bag?\nSara: The bag is behind the door, in the hall. Between the shoes and the umbrella.\nJonas: Behind the door. Good. Do I have everything? Key, phone, glasses, bag.\nSara: You are taking the bus at eight?\nJonas: Yes, the bus leaves at five past eight.\nSara: Then you still have ten minutes. Are you eating a sandwich?\nJonas: No, I will eat on the bus. Bye, Sara! Thanks!\nSara: Jonas! Your jacket! It is here, in front of you, on the chair!\nJonas: Oh no. Thanks. Now I really have everything. See you tonight!",
+      "questions": [
+        {
+          "question": "Wie spät ist es am Anfang?",
+          "options": [
+            "acht Uhr",
+            "zehn vor acht",
+            "zehn nach acht",
+            "acht Uhr fünf"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Es ist zehn vor acht!\" = 7:50.",
+          "questionTranslation": "What time is it at the beginning?",
+          "optionsTranslation": [
+            "eight o'clock",
+            "ten to eight",
+            "ten past eight",
+            "five past eight"
+          ]
+        },
+        {
+          "question": "Wo ist der Schlüssel?",
+          "options": [
+            "unter dem Sofa",
+            "im Bad",
+            "in der Küche, auf dem Tisch",
+            "hinter der Tür im Flur, neben den Schuhen"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Dein Schlüssel ist in der Küche, auf dem Tisch. Neben der Kaffeetasse.\"",
+          "questionTranslation": "Where is the key?",
+          "optionsTranslation": [
+            "under the sofa",
+            "in the bathroom",
+            "in the kitchen, on the table",
+            "behind the door in the hall, next to the shoes"
+          ]
+        },
+        {
+          "question": "Wo ist das Handy?",
+          "options": [
+            "im Bad",
+            "unter dem Sofa",
+            "auf dem Tisch",
+            "in der Tasche hinter der Tür"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Dann ist es unter dem Sofa … Ja! Hier ist es. Unter dem Sofa.\" The bathroom was Sara's first guess.",
+          "questionTranslation": "Where is the phone?",
+          "optionsTranslation": [
+            "in the bathroom",
+            "under the sofa",
+            "on the table",
+            "in the bag behind the door"
+          ]
+        },
+        {
+          "question": "Wo ist die Brille?",
+          "options": [
+            "auf dem Kopf von Jonas",
+            "im Bad vor dem Spiegel",
+            "neben der Kaffeetasse",
+            "auf dem Stuhl"
+          ],
+          "correctIndex": 0,
+          "explanation": "\"Jonas, deine Brille ist auf deinem Kopf.\"",
+          "questionTranslation": "Where are the glasses?",
+          "optionsTranslation": [
+            "on Jonas's head",
+            "in the bathroom in front of the mirror",
+            "next to the coffee cup",
+            "on the chair"
+          ]
+        },
+        {
+          "question": "Wo ist die Tasche?",
+          "options": [
+            "in der Küche",
+            "unter dem Sofa im Wohnzimmer",
+            "hinter der Tür im Flur",
+            "im Bus"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Die Tasche ist hinter der Tür, im Flur. Zwischen den Schuhen und dem Regenschirm.\"",
+          "questionTranslation": "Where is the bag?",
+          "optionsTranslation": [
+            "in the kitchen",
+            "under the sofa in the living room",
+            "behind the door in the hall",
+            "on the bus"
+          ]
+        },
+        {
+          "question": "„Siehst du mein Handy?“ Welche Form ist das?",
+          "options": [
+            "sehen, du-Form, mit Vokalwechsel e → ie",
+            "sehen, ich-Form",
+            "sein, du-Form",
+            "sehen, wir-Form"
+          ],
+          "correctIndex": 0,
+          "explanation": "sehen → du siehst: the e becomes ie for du and er/sie/es.",
+          "questionTranslation": "'Do you see my phone?' Which form is that?",
+          "optionsTranslation": [
+            "sehen, du form, with vowel change e → ie",
+            "sehen, ich form",
+            "sein, du form",
+            "sehen, wir form"
+          ]
+        },
+        {
+          "question": "Wann fährt der Bus?",
+          "options": [
+            "um acht Uhr",
+            "um acht Uhr fünf",
+            "um zehn vor acht",
+            "um acht Uhr fünfzehn"
+          ],
+          "correctIndex": 1,
+          "explanation": "\"Ja, der Bus fährt um acht Uhr fünf.\"",
+          "questionTranslation": "When does the bus leave?",
+          "optionsTranslation": [
+            "at eight o'clock",
+            "at five past eight",
+            "at ten to eight",
+            "at a quarter past eight"
+          ]
+        },
+        {
+          "question": "Was vergisst Jonas am Ende fast?",
+          "options": [
+            "seinen Schlüssel",
+            "sein Brot",
+            "seine Jacke auf dem Stuhl",
+            "seine Schuhe und seinen Regenschirm im Flur"
+          ],
+          "correctIndex": 2,
+          "explanation": "\"Jonas! Deine Jacke! Sie ist hier, vor dir, auf dem Stuhl!\"",
+          "questionTranslation": "What does Jonas almost forget at the end?",
+          "optionsTranslation": [
+            "his key",
+            "his sandwich",
+            "his jacket on the chair",
+            "his shoes and his umbrella in the hall"
+          ]
+        }
+      ],
+      "covers": [
+        "a1.wo-prepositions",
+        "a1.vowel-change"
+      ],
+      "image": "quest_a1_1_hoeren_wo"
+    }
   }
 ]

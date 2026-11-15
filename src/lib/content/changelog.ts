@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "A1.1: eight new texts, in the app and in the book",
+    items: [
+      "Five short readings of about 130 words with real facts: Hamburg in numbers, why so many Germans are called Müller, the four German-speaking countries, three flags and their stories, and the Sunday fish market at five in the morning.",
+      "Three new listening scenes: a hotel booking spelled with A wie Anton, two friends in a Vienna coffee house, and a Monday morning hunt for a lost key.",
+      "The facts are real and were checked; the three scenes are invented. Every text shows a free-licence photo of its subject, with credit.",
+      "The A1.1 word deck grew from 302 to 347 cards, each new card with a sentence from its text, and the A1.1 book, in all three editions, gained the \"Mehr lesen und hören\" section with all eight texts.",
+    ],
+  },
+  {
+    date: "2026-11-15",
     title: "C2.2: eight new texts, in the app and in the book",
     items: [
       "Five essays of about 750 words on language and thought: the ten-year fight over the spelling reform, Hannah Arendt and the banality of evil, the 23 Austrian words written into a European treaty, the non-word of the year, and the purists who invented Bahnsteig and Abteil.",

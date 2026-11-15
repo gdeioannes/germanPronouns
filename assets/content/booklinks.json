@@ -11074,6 +11074,62 @@
 			"target": "quest_c2_2_hoeren_kleist",
 			"note": "C2.2 Hören: Denken beim Reden",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "a11-85",
+			"kind": "quiz",
+			"target": "quest_a1_1_lesen_hamburg",
+			"note": "A1.1 Lesen: Hamburg in Zahlen",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a11-86",
+			"kind": "quiz",
+			"target": "quest_a1_1_lesen_mueller",
+			"note": "A1.1 Lesen: Warum so viele Müller?",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a11-87",
+			"kind": "quiz",
+			"target": "quest_a1_1_lesen_laender",
+			"note": "A1.1 Lesen: Vier Länder, eine Sprache",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a11-88",
+			"kind": "quiz",
+			"target": "quest_a1_1_lesen_flaggen",
+			"note": "A1.1 Lesen: Drei Flaggen, drei Geschichten",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a11-89",
+			"kind": "quiz",
+			"target": "quest_a1_1_lesen_fischmarkt",
+			"note": "A1.1 Lesen: Sonntag, fünf Uhr, Fischmarkt",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a11-90",
+			"kind": "quiz",
+			"target": "quest_a1_1_hoeren_buchstabieren",
+			"note": "A1.1 Hören: A wie Anton",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a11-91",
+			"kind": "quiz",
+			"target": "quest_a1_1_hoeren_cafe",
+			"note": "A1.1 Hören: Im Kaffeehaus",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "a11-92",
+			"kind": "quiz",
+			"target": "quest_a1_1_hoeren_wo",
+			"note": "A1.1 Hören: Wo ist mein Schlüssel?",
+			"since": "2026-11-15"
 		}
 	]
 }
