@@ -78,6 +78,10 @@ const VOICE = 'Kore';
 const VOICES = { female: ['Kore', 'Leda', 'Aoede', 'Zephyr'], male: ['Charon', 'Puck', 'Orus', 'Fenrir'] };
 /** The pause between two speakers' lines, in seconds. */
 const TURN_GAP = 0.45;
+/** A text over this many bytes is recorded paragraph by paragraph (recordLong); Chirp's limit is 5,000. */
+const LONG_TEXT_BYTES = 4500;
+/** The pause between two paragraphs of a long text, in seconds. */
+const PARAGRAPH_GAP = 0.7;
 /**
  * What to send the engine for a text it will not read as written. The clip
  * is still filed under the original text. Keep the spoken words identical —
@@ -202,8 +206,6 @@ function castVoices(lines) {
  * essays run to ~5,100) is recorded paragraph by paragraph, in the one voice,
  * and joined with a paragraph pause, so one clip still answers the text.
  */
-const LONG_TEXT_BYTES = 4500;
-const PARAGRAPH_GAP = 0.7;
 async function recordLong(text, locale) {
 	const chunks = [];
 	let current = '';
