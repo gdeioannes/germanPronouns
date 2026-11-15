@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "B1.2: eight new texts, in the app and in the book",
+    items: [
+      "Five readings of about 350 words with real facts: the Meistertrunk legend of Rothenburg and what the records say, the Elbe flood of 2002 in Dresden, Robert Koch and the tuberculosis bacterium, the airship Hindenburg, and how Germany learned to separate its waste.",
+      "Three new listening pieces: a missed train on the morning of a job interview, an intern who deleted a folder on the server, and a radio feature on the invention of the MP3 in Erlangen.",
+      "The facts are real and were checked; the two friends, the intern and the radio speakers are invented. Every text shows a free-licence photo of its subject, with credit. Help is in German first, with English behind the button.",
+      "The B1.2 word deck grew from 321 to 380 cards, each new card with a sentence from its text, and the B1.2 book gained the \"Mehr lesen und hören\" section with all eight texts. With this, every level from A1.1 to C2.2 has its eight new texts: 96 texts in all.",
+    ],
+  },
+  {
+    date: "2026-11-15",
     title: "B1.1: eight new texts, in the app and in the book",
     items: [
       "Five readings of about 350 words with real facts: the German four-day-week experiment of 2024, the country of 600,000 clubs, dual vocational training, the basic-income pilot with 122 people, and the allotment garden with its own federal law.",

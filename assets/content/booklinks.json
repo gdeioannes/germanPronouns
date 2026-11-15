@@ -11354,6 +11354,62 @@
 			"target": "quest_b1_1_hoeren_elternzeit",
 			"note": "B1.1 Hören: Ich werde zu Hause bleiben",
 			"since": "2026-11-15"
+		},
+		{
+			"code": "b12-85",
+			"kind": "quiz",
+			"target": "quest_b1_2_lesen_meistertrunk",
+			"note": "B1.2 Lesen: Der Meistertrunk",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b12-86",
+			"kind": "quiz",
+			"target": "quest_b1_2_lesen_hochwasser",
+			"note": "B1.2 Lesen: Die Nacht, in der Dresden Sandsäcke füllte",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b12-87",
+			"kind": "quiz",
+			"target": "quest_b1_2_lesen_koch",
+			"note": "B1.2 Lesen: Der Landarzt und die Bakterien",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b12-88",
+			"kind": "quiz",
+			"target": "quest_b1_2_lesen_hindenburg",
+			"note": "B1.2 Lesen: Das Hotel am Himmel",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b12-89",
+			"kind": "quiz",
+			"target": "quest_b1_2_lesen_muell",
+			"note": "B1.2 Lesen: Fünf Tonnen und ein grüner Punkt",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b12-90",
+			"kind": "quiz",
+			"target": "quest_b1_2_hoeren_zug",
+			"note": "B1.2 Hören: Hätte ich doch den früheren Zug genommen!",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b12-91",
+			"kind": "quiz",
+			"target": "quest_b1_2_hoeren_praktikant",
+			"note": "B1.2 Hören: Der neue Praktikant",
+			"since": "2026-11-15"
+		},
+		{
+			"code": "b12-92",
+			"kind": "quiz",
+			"target": "quest_b1_2_hoeren_mp3",
+			"note": "B1.2 Hören: Drei Buchstaben aus Erlangen",
+			"since": "2026-11-15"
 		}
 	]
 }
