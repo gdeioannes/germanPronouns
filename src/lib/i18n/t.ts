@@ -8,10 +8,11 @@
 import { lang, type LocalLang } from './lang.svelte';
 import { TR } from './tr';
 import { AR } from './ar';
+import { UK } from './uk';
 import { isolateLatin } from './bidi';
 
 /** Interface strings per second language, keyed by the English. */
-export const STRINGS: Record<LocalLang, Record<string, string>> = { tr: TR, ar: AR };
+export const STRINGS: Record<LocalLang, Record<string, string>> = { tr: TR, ar: AR, uk: UK };
 
 /** What is shown: Arabic with its German runs isolated (bidi.ts), made once on first use. */
 let shownAr: Record<string, string> | null = null;
@@ -63,5 +64,7 @@ export function boldNumbers(text: string): string {
 export function labelLang(label: string | null | undefined): 'de' | undefined {
 	if (!label || !lang.limited) return undefined;
 	if (lang.ar) return /[\u0600-\u06FF]/.test(label) ? undefined : 'de';
+	// Ukrainian: a label without Cyrillic letters is German.
+	if (lang.uk) return /[\u0400-\u04FF]/.test(label) ? undefined : 'de';
 	return /[çğışÇĞİŞ]/.test(label) ? undefined : 'de';
 }

@@ -19,7 +19,8 @@ export const DEFAULT_LANG = 'en';
 export const LOCALES: Record<string, { ogLocale: string }> = {
 	en: { ogLocale: 'en_GB' },
 	tr: { ogLocale: 'tr_TR' },
-	ar: { ogLocale: 'ar_AR' }
+	ar: { ogLocale: 'ar_AR' },
+	uk: { ogLocale: 'uk_UA' }
 };
 
 /** One translated twin of a page, for its hreflang link. */
@@ -140,6 +141,23 @@ const LOCAL_SEO: Record<
 		free: 'بشرح عربي، مع القواعد والأمثلة والصوت، مجانًا.',
 		level: 'شرح وتمارين اللغة الألمانية',
 		levelLine: (level, n) => `${n} تمرينًا مجانيًا في الألمانية ${level} بشرح عربي، وكل جملة مسموعة.`
+	},
+	uk: {
+		kind: {
+			fillBlank: 'німецька граматика: пояснення і вправи',
+			reading: 'вправа з читання німецькою',
+			listening: 'вправа з аудіювання німецькою',
+			dictation: 'диктант німецькою',
+			speakRepeat: 'вправа з вимови німецькою',
+			speaking: 'вправа з говоріння німецькою',
+			writing: 'вправа з письма німецькою',
+			vocabulary: 'картки з німецькими словами',
+			suchbild: 'гра з німецькими словами в картинках'
+		},
+		german: 'німецька',
+		free: 'З поясненнями українською, правилами, прикладами й аудіо, безкоштовно.',
+		level: 'німецька мова: пояснення і вправи',
+		levelLine: (level, n) => `${n} безкоштовних вправ з німецької ${level} з поясненнями українською, кожне речення з аудіо.`
 	}
 };
 

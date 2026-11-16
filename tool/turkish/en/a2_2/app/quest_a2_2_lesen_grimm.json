@@ -25,12 +25,10 @@
  "help.vocab[4].en": "statue",
  "help.vocab[5].en": "cruel",
  "help.vocab[6].en": "to collect",
- "help.vocab[6].example": "Die Brüder Grimm haben die Märchen gesammelt.",
  "help.vocab[7].en": "to appear, be published",
  "category": "Literature",
  "passageTranslation": "Hansel and Gretel, Little Red Riding Hood, Snow White, Cinderella: every child in the world knows these fairy tales. But who wrote them? Nobody. The brothers Jacob and Wilhelm Grimm collected them.\n\nJacob was born in Hanau in 1785, Wilhelm in 1786. As young men they lived in Kassel and worked in a library. They were interested in the old German language. That is why they collected stories that people had been telling for a hundred years but never wrote down. The brothers did not go through the villages. People came to them. The most important was Dorothea Viehmann, a woman who sold vegetables at the market in Kassel. She told them over forty tales.\n\nThe first book appeared in 1812 and was called 'Children's and Household Tales'. It had 86 tales and was not for children: the stories were often cruel, and the book had long footnotes. Wilhelm changed the texts in the following years. He made them shorter, more beautiful and less brutal. The last edition appeared in 1857 and had 200 tales.\n\nToday the tales exist in more than 160 languages. Only the Bible is translated into more languages. Since 2005 the books belong to UNESCO's Memory of the World.\n\nWhoever wants to see the places drives the German Fairy Tale Route: 600 kilometres from Hanau to Bremen, where the Town Musicians of Bremen stand as a statue. And in Kassel there is a museum called Grimmwelt.",
  "questions[0].options[0]": "Jacob Grimm",
- "questions[0].options[2]": "Niemand; die Brüder Grimm haben die Märchen gesammelt.",
  "questions[0].explanation": "\"Aber wer hat sie geschrieben? Niemand. Die Brüder Jacob und Wilhelm Grimm haben sie gesammelt.\"",
  "questions[0].questionTranslation": "Who wrote Hansel and Gretel?",
  "questions[0].optionsTranslation[0]": "Jacob Grimm",
@@ -43,7 +41,6 @@
  "questions[1].optionsTranslation[1]": "Präteritum, regular verbs with -te",
  "questions[1].optionsTranslation[2]": "perfect with haben and sein, like haben gelebt",
  "questions[1].optionsTranslation[3]": "passive",
- "questions[2].options[2]": "Sie haben alte Bücher aus der Bibliothek in Kassel kopiert.",
  "questions[2].explanation": "\"Die Brüder gingen nicht durch die Dörfer. Die Menschen kamen zu ihnen.\"",
  "questions[2].questionTranslation": "How did the brothers collect the tales?",
  "questions[2].optionsTranslation[0]": "They went through the villages.",
@@ -88,8 +85,6 @@
  "help.tips[0].check.options[2]": "geschrieben",
  "help.tips[0].check.answer": "schrieb",
  "questions[0].options[1]": "Wilhelm Grimm",
- "questions[0].options[3]": "Dorothea Viehmann, die Frau vom Markt in Kassel, hat sie geschrieben.",
- "questions[2].options[0]": "Sie sind durch die Dörfer gegangen.",
- "questions[2].options[1]": "Die Menschen kamen zu ihnen und erzählten.",
- "questions[2].options[3]": "Sie haben die Märchen erfunden."
+ "questions[0].options[2]": "Niemand; die Brüder Grimm haben die Märchen gesammelt.",
+ "questions[0].options[3]": "Dorothea Viehmann, die Frau vom Markt in Kassel, hat sie geschrieben."
 }

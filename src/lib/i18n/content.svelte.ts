@@ -27,7 +27,7 @@ interface Overlay {
 	text: Record<string, string>;
 }
 
-const files = import.meta.glob<{ default: Overlay }>(['$content/tr/de_cert_a1/*.json', '$content/ar/de_cert_a1/*.json']);
+const files = import.meta.glob<{ default: Overlay }>(['$content/tr/de_cert_a1/*.json', '$content/ar/de_cert_a1/*.json', '$content/uk/de_cert_a1/*.json']);
 
 /** Loaded overlays by "<lang>/<level id>" ("ar/a1_1"); absent until fetched. */
 const maps = $state<Record<string, Overlay>>({});
@@ -196,7 +196,8 @@ export function inLangText(s: string, level: string | null | undefined): string 
 // noun collection read their meaning from here in a second language.
 const glossFiles = import.meta.glob<{ default: Record<string, string> }>([
 	'$content/tr/dictionary.de.json',
-	'$content/ar/dictionary.de.json'
+	'$content/ar/dictionary.de.json',
+	'$content/uk/dictionary.de.json'
 ]);
 const glossaries = $state<Partial<Record<LocalLang, Record<string, string>>>>({});
 const glossaryPending = new Set<LocalLang>();

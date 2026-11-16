@@ -12,12 +12,12 @@
 
 import { LOCAL_LEVELS } from './available';
 
-export const PREFIX_LANGS = ['tr', 'ar'] as const;
+export const PREFIX_LANGS = ['tr', 'ar', 'uk'] as const;
 export type PrefixLang = (typeof PREFIX_LANGS)[number];
 
 /** "/tr/about" → "tr"; a path with no language prefix → null. */
 export function pathLang(pathname: string): PrefixLang | null {
-	const m = pathname.match(/^\/(tr|ar)(?=\/|$)/);
+	const m = pathname.match(/^\/(tr|ar|uk)(?=\/|$)/);
 	return m ? (m[1] as PrefixLang) : null;
 }
 

@@ -15,7 +15,7 @@ const files = [];
 	for (const f of readdirSync(d)) {
 		const p = join(d, f);
 		if (statSync(p).isDirectory()) walk(p);
-		else if (/\.(svelte|ts)$/.test(f) && !/\.test\.ts$/.test(f) && !/i18n[\\/](tr|ar)\.ts$/.test(p)) files.push(p);
+		else if (/\.(svelte|ts)$/.test(f) && !/\.test\.ts$/.test(f) && !/i18n[\\/](tr|ar|uk)\.ts$/.test(p)) files.push(p);
 	}
 })('src');
 

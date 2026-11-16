@@ -1,9 +1,9 @@
 // The language the site speaks to the learner: English (the default), or one
-// of the second languages (Turkish, Arabic) that cover A1–A2. German is what
+// of the second languages (Turkish, Arabic, Ukrainian) that cover A1–A2. German is what
 // is being learnt and never changes.
 //
 // Pages are prerendered in English, and the translated ones again under
-// their language's prefix (/tr/…, /ar/…, see paths.ts). In the browser the language is known as
+// their language's prefix (/tr/…, /ar/…, /uk/…, see paths.ts). In the browser the language is known as
 // soon as this module loads, before hydration: Svelte 5 patches dynamic text
 // that differs from the prerendered HTML while it hydrates (set_text compares
 // with the node's value), so everything said through t() comes up translated.
@@ -19,11 +19,11 @@ import { browser } from '$app/environment';
 import { tick } from 'svelte';
 import { pathLang } from './paths';
 
-export type UiLang = 'en' | 'tr' | 'ar';
+export type UiLang = 'en' | 'tr' | 'ar' | 'uk';
 /** A second language: part of the site, A1–A2, translated by overlay. */
 export type LocalLang = Exclude<UiLang, 'en'>;
-export const UI_LANGS: UiLang[] = ['en', 'tr', 'ar'];
-export const LOCAL_LANGS: LocalLang[] = ['tr', 'ar'];
+export const UI_LANGS: UiLang[] = ['en', 'tr', 'ar', 'uk'];
+export const LOCAL_LANGS: LocalLang[] = ['tr', 'ar', 'uk'];
 /** Languages written right to left. */
 export const RTL_LANGS: readonly UiLang[] = ['ar'];
 /** Also read verbatim by the script in app.html. Device-local: never synced. */
@@ -40,6 +40,9 @@ class Lang {
 	}
 	get ar() {
 		return this.current === 'ar';
+	}
+	get uk() {
+		return this.current === 'uk';
 	}
 	/** A second language is on: only the translated part of the site shows. */
 	get limited() {

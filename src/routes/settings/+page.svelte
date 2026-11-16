@@ -108,9 +108,9 @@
 	<!-- Both names are shown in their own language, so whoever is lost in the
 	     other one can still find theirs. -->
 	<section class="card">
-		<h2><bdi lang="en">Language</bdi> <span class="alt">· <bdi lang="tr">Dil</bdi> · <bdi lang="ar">اللغة</bdi></span></h2>
+		<h2><bdi lang="en">Language</bdi> <span class="alt">· <bdi lang="tr">Dil</bdi> · <bdi lang="ar">اللغة</bdi> · <bdi lang="uk">Мова</bdi></span></h2>
 		<p class="lede">
-			{t('The language the site explains German in. In Turkish and Arabic, levels A1 and A2 are available.')}
+			{t('The language the site explains German in. In Turkish, Arabic and Ukrainian, levels A1 and A2 are available.')}
 		</p>
 		<div class="segmented" role="radiogroup" aria-label={LANGUAGE_LABEL} use:radioKeys>
 			{#each LANG_OPTIONS as { code, name: label, dir } (code)}

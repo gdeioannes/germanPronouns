@@ -52,7 +52,9 @@ function englishLine(template: string | undefined, english: string): string | un
 	// Arabic: the template and the noun come Arabic from the overlay. Arabic
 	// has no word for a/an (an indefinite noun is just the bare noun), and the
 	// templates are written so the bare noun fits after a number too.
-	if (lang.ar) {
+	// Ukrainian likewise has no articles; its templates are written so the
+	// noun stands in the nominative (no number before it).
+	if (lang.ar || lang.uk) {
 		return template
 			.replace(/\{a\}\s*/g, '')
 			.replace('{pl}', english)

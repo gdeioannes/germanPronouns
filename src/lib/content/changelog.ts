@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-16",
+    title: "German for Ukrainian speakers: німецька з поясненнями українською",
+    highlight: true,
+    items: [
+      "The site now speaks Ukrainian too: pick Українська in the language picker on the home page (or in Settings), and menus, buttons, help and the About page come up in Ukrainian.",
+      "Levels A1.1 to A2.2 are fully in Ukrainian, with every lesson, explanation, hint and exercise written for Ukrainian speakers. The German cases are compared with the Ukrainian ones, du and Sie with ти and Ви, and German sounds are spelled in Ukrainian letters.",
+      "The four A1–A2 books have Ukrainian editions, as free PDFs with their own covers, and tapping any German word shows its meaning in Ukrainian.",
+      "Every A1–A2 page also has its own Ukrainian address under /uk/, so someone searching in Ukrainian can land straight on a lesson.",
+    ],
+  },
+  {
+    date: "2026-11-16",
     title: "The \"Your book\" line can be closed",
     items: [
       "The \"Your book\" shortcut on the course home used to stay forever once you had opened a chapter of the printed book in the app. It now has a × that hides it; opening a chapter again brings it back for that chapter.",

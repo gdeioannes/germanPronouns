@@ -15,8 +15,9 @@ export interface LangOption {
 export const LANG_OPTIONS: LangOption[] = [
 	{ code: 'en', name: 'English', note: 'German explained in English · A1–C2', dir: 'ltr' },
 	{ code: 'tr', name: 'Türkçe', note: 'Türkçe açıklamalı Almanca · A1–A2', dir: 'ltr' },
-	{ code: 'ar', name: 'العربية', note: 'الألمانية بشرح عربي · A1–A2', dir: 'rtl' }
+	{ code: 'ar', name: 'العربية', note: 'الألمانية بشرح عربي · A1–A2', dir: 'rtl' },
+	{ code: 'uk', name: 'Українська', note: 'Німецька з поясненнями українською · A1–A2', dir: 'ltr' }
 ];
 
 /** "Language" in every offered language, for the pickers' labels. */
-export const LANGUAGE_LABEL = 'Language / Dil / اللغة';
+export const LANGUAGE_LABEL = 'Language / Dil / اللغة / Мова';

@@ -2144,8 +2144,8 @@ export const AR: Record<string, string> = {
 		"بياناتك قيد التنزيل.",
 	"Progress cleared. Every score, streak and medal is gone.":
 		"مُسح التقدّم. ذهبت كل الدرجات والسلاسل والميداليات.",
-	"The language the site explains German in. In Turkish and Arabic, levels A1 and A2 are available.":
-		"اللغة التي يشرح بها الموقع الألمانية. بالتركية والعربية يتوفر المستويان A1 وA2.",
+	"The language the site explains German in. In Turkish, Arabic and Ukrainian, levels A1 and A2 are available.":
+		"اللغة التي يشرح بها الموقع الألمانية. بالتركية والعربية والأوكرانية يتوفر المستويان A1 وA2.",
 	"Answer checking":
 		"تصحيح الإجابات",
 	"Relaxed correction":

@@ -24,7 +24,7 @@ for (const [en, tr] of Object.entries(incoming)) {
 }
 const end = src.lastIndexOf('};');
 const before = src.slice(0, end).replace(/\s*$/, '');
-const out = `${before}${before.endsWith(',') ? '' : ','}\n\n\t// ── Added by tool/turkish/ui-merge.mjs ───────────────────\n${lines.join('\n')}\n};\n`;
+const out = `${before}${before.endsWith(',') || before.endsWith('{') ? '' : ','}\n\n\t// ── Added by tool/turkish/ui-merge.mjs ───────────────────\n${lines.join('\n')}\n};\n`;
 writeFileSync(path, out);
 console.log(`${lines.length} added, ${skipped} skipped`);
 if (!existsSync('tool/turkish/ui/en.json')) process.exit(0);
