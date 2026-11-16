@@ -2244,6 +2244,8 @@ export const TR: Record<string, string> = {
 	// ── Added by tool/turkish/ui-merge.mjs ───────────────────
 	"Your book · {level}":
 		"Kitabın · {level}",
+	"Hide this":
+		"Bunu gizle",
 	"Saving failed. Check your connection and try again.":
 		"Kaydedilemedi. Bağlantını kontrol edip tekrar dene.",
 	"Study without a connection":

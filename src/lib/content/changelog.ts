@@ -16,6 +16,13 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-16",
+    title: "The \"Your book\" line can be closed",
+    items: [
+      "The \"Your book\" shortcut on the course home used to stay forever once you had opened a chapter of the printed book in the app. It now has a × that hides it; opening a chapter again brings it back for that chapter.",
+    ],
+  },
+  {
     date: "2026-11-15",
     title: "B1.2: eight new texts, in the app and in the book",
     items: [

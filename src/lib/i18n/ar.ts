@@ -220,6 +220,8 @@ export const AR: Record<string, string> = {
 		"تمرّن على أي حال",
 	"Your book · {level}":
 		"كتابك · {level}",
+	"Hide this":
+		"إخفاء هذا",
 	"Continue":
 		"تابع",
 	"Open the recording":
