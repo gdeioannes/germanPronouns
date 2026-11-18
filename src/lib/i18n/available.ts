@@ -35,6 +35,8 @@ export const LOCAL_ROUTES = new Set<string>([
 	'/course/[courseId]/quiz/[quizId]',
 	'/course/[courseId]/book2/[levelId]',
 	'/course/[courseId]/book2/[levelId]/[chapterId]',
+	// A book page's quiz list (the App side of a page code).
+	'/course/[courseId]/book2/[levelId]/[chapterId]/app/[part]',
 	'/books',
 	'/b/[code]'
 ]);

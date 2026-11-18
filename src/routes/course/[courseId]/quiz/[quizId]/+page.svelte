@@ -58,6 +58,9 @@
 	import type { PageData } from './$types';
 	import { inLang, inLangQuiz, localGloss } from '$lib/i18n/content.svelte';
 	import { lang } from '$lib/i18n/lang.svelte';
+	import { BOOK_PARAM, listQuizHref, loadList, placeInList, type QuizList } from '$lib/state/bookOpen';
+	import { page } from '$app/state';
+	import { browser } from '$app/environment';
 
 	let { data }: { data: PageData } = $props();
 	const { course, next, previous, related, position, levelCount, levelTitle, deck } = $derived(data);
@@ -362,7 +365,30 @@
 		} else playSound('complete');
 	}
 
-	const nextHref = $derived(next ? `/course/${course.id}/quiz/${next.id}` : `/course/${course.id}`);
+	// Opened from a book page's quiz list (state/bookOpen): "Next" follows that
+	// list, and its end leads back to the list.
+	// The page's list is then this quiz's deck: back, previous and next all
+	// stay inside it.
+	let bookList = $state<QuizList | null>(null);
+	$effect(() => {
+		// Client only: a prerendered page has no query string.
+		bookList = browser && page.url.searchParams.has(BOOK_PARAM) ? loadList() : null;
+	});
+	const inList = $derived(placeInList(bookList, data.quiz.id));
+	const listHref = (id: string) => listQuizHref(course.id, id);
+	const nextHref = $derived(
+		inList
+			? inList.next
+				? listHref(inList.next.id)
+				: inList.list.href
+			: next
+				? `/course/${course.id}/quiz/${next.id}`
+				: `/course/${course.id}`
+	);
+	const nextLabel = $derived(inList ? (inList.next ? t('Next on this page') : t('Back to the page')) : t('Next quiz'));
+	const nextTitle = $derived(inList?.next ? inList.next.title : next ? topicOf(next.title) : t('Back to your deck'));
+	const backHref = $derived(inList ? inList.list.href : `/course/${course.id}`);
+	const backLabel = $derived(inList ? t('Back to the page') : t('Back to your deck'));
 	/** Back to the swipe deck for the next card. */
 	const homeHref = $derived(`/course/${course.id}`);
 	/** The kinds whose medal is the attempt's score: the same exercise again is the way up. */
@@ -402,7 +428,7 @@
 
 <div class="screen" class:with-done={finished && !doneDismissed}>
 	<header class="top">
-		<a class="back" href="/course/{course.id}" aria-label={t('Back to your deck')} title={t('Back to your deck')}>
+		<a class="back" href={backHref} aria-label={backLabel} title={backLabel}>
 			<Icon name="arrowLeft" size="1.15em" />
 		</a>
 
@@ -412,7 +438,8 @@
 
 		<div class="title">
 			<p class="where tnum">
-				{#if quiz.level}<bdi>{quiz.level}</bdi>{#if position}{' · '}<bdi>{t('{i} of {n}', { i: position, n: levelCount })}</bdi>{/if}{:else}{quiz.type}{/if}
+				{#if inList}<bdi>{inList.list.label}</bdi>{' · '}<bdi>{t('{i} of {n}', { i: inList.n, n: inList.list.quizzes.length })}</bdi>
+				{:else if quiz.level}<bdi>{quiz.level}</bdi>{#if position}{' · '}<bdi>{t('{i} of {n}', { i: position, n: levelCount })}</bdi>{/if}{:else}{quiz.type}{/if}
 			</p>
 			<h1 lang={course.learnLocale}>{quiz.title}</h1>
 		</div>
@@ -643,12 +670,18 @@
 					<Icon name="repeat" size="1em" /> {t('Try again')}
 				</button>
 			{/if}
-			<a class="btn" class:btn-ghost={ribbon === 'retry' || !!climbOffer} href={nextHref} title={next ? topicOf(next.title) : t('Back to your deck')}>
-				{t('Next quiz')} <Icon name="arrowRight" size="1em" />
+			<a class="btn" class:btn-ghost={ribbon === 'retry' || !!climbOffer} href={nextHref} title={nextTitle}>
+				{nextLabel} <Icon name="arrowRight" size="1em" />
 			</a>
-			<a class="btn btn-ghost" href={homeHref}>
-				<Icon name="cards" size="1em" /> {t('Deal me another card')}
-			</a>
+			{#if inList}
+				<a class="btn btn-ghost" href={inList.list.href}>
+					<Icon name="book" size="1em" /> {inList.list.label}
+				</a>
+			{:else}
+				<a class="btn btn-ghost" href={homeHref}>
+					<Icon name="cards" size="1em" /> {t('Deal me another card')}
+				</a>
+			{/if}
 		</div>
 	</aside>
 {:else if finished}
@@ -681,13 +714,31 @@
 	     reader (and a crawler) moves through the course without the course
 	     page. -->
 	<nav class="pager" aria-label={t('More exercises')}>
-		{#if previous}
+		{#if inList}
+			{#if inList.prev}
+				<a href={listHref(inList.prev.id)} rel="prev">
+					<small>{t('Previous on this page')}</small>
+					<span><Icon name="arrowLeft" size="1em" /> <span lang={course.learnLocale}>{inList.prev.title}</span></span>
+				</a>
+			{:else}
+				<a href={inList.list.href}>
+					<small>{t('Back to the page')}</small>
+					<span><Icon name="arrowLeft" size="1em" /> {inList.list.label}</span>
+				</a>
+			{/if}
+			{#if inList.next}
+				<a class="to-next" href={listHref(inList.next.id)} rel="next">
+					<small>{t('Next on this page')}</small>
+					<span><span lang={course.learnLocale}>{inList.next.title}</span> <Icon name="arrowRight" size="1em" /></span>
+				</a>
+			{/if}
+		{:else if previous}
 			<a href="/course/{course.id}/quiz/{previous.id}" rel="prev">
 				<small>{t('Previous')}</small>
 				<span><Icon name="arrowLeft" size="1em" /> <span lang={course.learnLocale}>{topicOf(previous.title)}</span></span>
 			</a>
 		{/if}
-		{#if next}
+		{#if next && !inList}
 			<a class="to-next" href="/course/{course.id}/quiz/{next.id}" rel="next">
 				<small>{t('Next')}</small>
 				<span><span lang={course.learnLocale}>{topicOf(next.title)}</span> <Icon name="arrowRight" size="1em" /></span>

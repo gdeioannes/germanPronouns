@@ -23,10 +23,10 @@ export interface BookEntry {
 }
 
 export const BOOKS: BookEntry[] = [
-	{ level: 'A1.1', file: 'a1_1', cover: 'a1-1', sub: 'Erste Schritte', mb: 39, local: { tr: 39, ar: 42, uk: 42 } },
-	{ level: 'A1.2', file: 'a1_2', cover: 'a1-2', sub: 'Im Alltag', mb: 36, local: { tr: 37, ar: 39, uk: 39 } },
-	{ level: 'A2.1', file: 'a2_1', cover: 'a2-1', sub: 'Erlebnisse', mb: 33, local: { tr: 33, ar: 35, uk: 35 } },
-	{ level: 'A2.2', file: 'a2_2', cover: 'a2-2', sub: 'Beschreiben & Planen', mb: 35, local: { tr: 35, ar: 38, uk: 38 } },
+	{ level: 'A1.1', file: 'a1_1', cover: 'a1-1', sub: 'Erste Schritte', mb: 39, local: { tr: 40, ar: 42, uk: 40 } },
+	{ level: 'A1.2', file: 'a1_2', cover: 'a1-2', sub: 'Im Alltag', mb: 37, local: { tr: 37, ar: 39, uk: 38 } },
+	{ level: 'A2.1', file: 'a2_1', cover: 'a2-1', sub: 'Erlebnisse', mb: 33, local: { tr: 33, ar: 36, uk: 34 } },
+	{ level: 'A2.2', file: 'a2_2', cover: 'a2-2', sub: 'Beschreiben & Planen', mb: 35, local: { tr: 36, ar: 38, uk: 37 } },
 	{ level: 'B1.1', file: 'b1_1', cover: 'b1-1', sub: 'Meinungen & Wünsche', mb: 32 },
 	{ level: 'B1.2', file: 'b1_2', cover: 'b1-2', sub: 'Erzählen & Begründen', mb: 34 },
 	{ level: 'B2.1', file: 'b2_1', cover: 'b2-1', sub: 'Berichten & Argumentieren', mb: 30 },
@@ -34,7 +34,7 @@ export const BOOKS: BookEntry[] = [
 	{ level: 'C1.1', file: 'c1_1', cover: 'c1-1', sub: 'Verdichten & Verbinden', mb: 30 },
 	{ level: 'C1.2', file: 'c1_2', cover: 'c1-2', sub: 'Andeuten & Formulieren', mb: 30 },
 	{ level: 'C2.1', file: 'c2_1', cover: 'c2-1', sub: 'Stil & Register', mb: 27 },
-	{ level: 'C2.2', file: 'c2_2', cover: 'c2-2', sub: 'Zwischen den Zeilen', mb: 27 }
+	{ level: 'C2.2', file: 'c2_2', cover: 'c2-2', sub: 'Zwischen den Zeilen', mb: 26 }
 ];
 
 /** Every book is the same length. */

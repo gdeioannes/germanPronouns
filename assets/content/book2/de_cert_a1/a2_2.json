@@ -27,6 +27,72 @@
 			"quiz": "quest_a2_2_wechsel_wo",
 			"listenQuiz": "quest_a2_2_sprechen_zimmer",
 			"speakQuiz": "quest_a2_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_suchbild_kinderzimmer",
+						"for": "Die Möbel",
+						"note": "A child’s room: find each thing when the app names it."
+					},
+					{
+						"quiz": "quest_a2_2_sprechen_zimmer",
+						"for": "Die Wohnung",
+						"note": "Describe a room out loud: hear each sentence, then say it."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_bigtext_zimmer",
+						"for": "Wohin mit dem Sofa?",
+						"note": "A whole room in one text with 12 gaps: dem or den?"
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_wechsel_wo",
+						"for": "Wo? Nichts bewegt sich",
+						"note": "Wo? Nothing moves: dem and der after the place words."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_wechsel_wohin",
+						"for": "Wohin? Es bewegt sich",
+						"note": "Wohin? It moves: den, die, das after the place words."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_sprechen_kurzcheck",
+						"for": "Wo oder wohin?",
+						"note": "A short spoken check on wo and wohin with your own AI assistant."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_wechsel_wo",
+						"for": "Übung 2 · dem, der or den?",
+						"note": "More wo sentences, checked as you type."
+					},
+					{
+						"quiz": "quest_a2_2_wechsel_wohin",
+						"for": "Übung 4 · den, die or das?",
+						"note": "More wohin sentences, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_sprechen_zimmer",
+						"for": "Übung 6 · Tidy up!",
+						"note": "Say where things are and where they go, out loud."
+					},
+					{
+						"quiz": "quest_a2_2_suchbild_kinderzimmer",
+						"for": "Übung 8 · Bilder-Check",
+						"note": "Find the things in the child’s room picture."
+					}
+				]
+			},
 			"words": {
 				"intro": "Germans move house with friends, a hired van and a crate of beer. Nobody has ever got a sofa up an old staircase without an argument about which way round it goes.",
 				"more": "Auch beim Umzug · also on moving day",
@@ -1243,6 +1309,67 @@
 			"quiz": "quest_a2_2_reflexiv",
 			"listenQuiz": "quest_a2_2_hoeren_verabredung",
 			"speakQuiz": "quest_a2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_reflexiv",
+						"for": "Die Verabredung",
+						"note": "sich treffen, sich freuen: the verbs with mich and sich."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_hoeren_verabredung",
+						"for": "Worauf wartest du?",
+						"note": "Jan asks Lisa about Saturday: listen and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_reflexiv",
+						"for": "Ich freue mich",
+						"note": "mich, dich, sich: every person, with instant correction."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_verben_praep_intro",
+						"for": "Worauf wartest du?",
+						"note": "warten auf, sich freuen über: the verb and its little word."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_verben_praep_intro",
+						"for": "Worauf freust du dich?",
+						"note": "worauf? darauf! The question and the answer word."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_reflexiv",
+						"for": "Übung 1 · mich, dich, sich …",
+						"note": "More reflexive verbs, checked as you type."
+					},
+					{
+						"quiz": "quest_a2_2_verben_praep_intro",
+						"for": "Übung 4 · The little word",
+						"note": "More verbs with their little word."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_hoeren_verabredung",
+						"for": "Übung 7 · Jan ruft an",
+						"note": "Jan’s call again, in the app."
+					},
+					{
+						"quiz": "quest_a2_2_sprechen_dialog",
+						"for": "Übung 6 · Your answers",
+						"note": "Describe and make plans with your own AI assistant, out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "Dresden burned in 1945, and its Frauenkirche lay in ruins for fifty years. Today people meet in front of it, a little too early, and look nervously at their phones.",
 				"more": "Auch in Dresden · also in Dresden",
@@ -2482,6 +2609,72 @@
 			"quiz": "quest_a2_2_weil",
 			"listenQuiz": "quest_a2_2_diktat_alltag",
 			"speakQuiz": "quest_a2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_weil",
+						"for": "Warum?",
+						"note": "weil sends the verb to the end: give the reason."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_lesen_wohnen",
+						"for": "Weil es nur zwei Minuten dauert",
+						"note": "Renting in Germany, warm and cold rent, deposit: read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_weil",
+						"for": "weil und dass",
+						"note": "The kick: the verb goes to the end after weil."
+					},
+					{
+						"quiz": "quest_a2_2_dass",
+						"for": "weil und dass",
+						"note": "Ich glaube, dass …: the verb at the end again."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_wenn_deshalb",
+						"for": "wenn und deshalb",
+						"note": "Verb, comma, verb: wenn and deshalb in sentences."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_dass",
+						"for": "Das Schild sagt, dass …",
+						"note": "More dass sentences, checked as you type."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_weil",
+						"for": "Übung 1 · Kick the verb",
+						"note": "More weil sentences, checked as you type."
+					},
+					{
+						"quiz": "quest_a2_2_hoeren_verabredung",
+						"for": "Übung 3 · Jan’s message",
+						"note": "Jan’s message about Saturday: listen and answer."
+					},
+					{
+						"quiz": "quest_a2_2_wenn_deshalb",
+						"for": "Übung 4 · Wenn …",
+						"note": "More wenn and deshalb."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_diktat_alltag",
+						"for": "Übung 7 · Your plans",
+						"note": "A dictation with weil and dass: hear it, write it."
+					}
+				]
+			},
 			"words": {
 				"intro": "A campsite in Bavaria: a lake, a mountain, a very strict man with a rake, and a tent that was meant to take two minutes to put up.",
 				"more": "Auch am See · also by the lake",
@@ -3577,6 +3770,57 @@
 			"quiz": "quest_a2_2_indirekte_fragen",
 			"listenQuiz": "quest_a2_2_lesen_formular",
 			"speakQuiz": "quest_a2_2_sprechen_person",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_indirekte_fragen",
+						"for": "Fragen",
+						"note": "Wissen Sie, ob …? Können Sie mir sagen, wo …? The polite question."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_lesen_test",
+						"for": "Können Sie mir sagen, ob Goethe da ist?",
+						"note": "The citizenship test: read about it and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_indirekte_fragen",
+						"for": "Ob oder ein W-Wort?",
+						"note": "ob or a question word, then the verb last."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_indirekte_fragen",
+						"for": "Wie sagt man das höflich?",
+						"note": "From short to polite: wrap each question."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_lesen_formular",
+						"for": "Bitte beachten Sie!",
+						"note": "A course registration form: read it and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_indirekte_fragen",
+						"for": "Übung 2 · Wrap it",
+						"note": "More polite questions, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_sprechen_person",
+						"for": "Übung 4 · Say it in German",
+						"note": "Describe people out loud: hear each sentence, then say it."
+					}
+				]
+			},
 			"words": {
 				"intro": "Goethe lived here, Schiller too, and the Bauhaus began here. The tourist office in Weimar has heard every question, and it answers them in the politest German in Thuringia.",
 				"more": "Auch in Weimar · also in Weimar",
@@ -4486,6 +4730,72 @@
 			"quiz": "quest_a2_2_gesundheit",
 			"listenQuiz": "quest_a2_2_lesen_arzt",
 			"speakQuiz": "quest_a2_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_gesundheit",
+						"for": "Die Gesundheit",
+						"note": "Fieber, Husten, Rezept: health in sentences."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_hoeren_apotheke",
+						"for": "Sie sollten sich ausruhen",
+						"note": "At the pharmacy: listen to the advice and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_gesundheit",
+						"for": "Beim Arzt",
+						"note": "From the doctor to the pharmacy, sentence by sentence."
+					},
+					{
+						"quiz": "quest_a2_2_lesen_arzt",
+						"for": "You say — the doctor says",
+						"note": "Herr Berger at the doctor’s: read and answer 6 questions."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_koennte_sollte",
+						"for": "Du solltest …",
+						"note": "könnte for a suggestion, sollte for advice."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_hoeren_apotheke",
+						"for": "Wer hat heute offen?",
+						"note": "Advice at the pharmacy counter: listen and answer."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_lesen_arzt",
+						"for": "Übung 1 · Herr Berger at the doctor’s",
+						"note": "Herr Berger’s visit as a text: read and answer."
+					},
+					{
+						"quiz": "quest_a2_2_koennte_sollte",
+						"for": "Übung 3 · könnte or sollte?",
+						"note": "More advice, checked as you type."
+					},
+					{
+						"quiz": "quest_a2_2_imperativ",
+						"for": "Übung 4 · Friendly orders",
+						"note": "Nimm, nehmt, nehmen Sie: the order for each person."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_sprechen_kurzcheck",
+						"for": "Übung 5 · Give advice",
+						"note": "A short spoken check with your own AI assistant."
+					}
+				]
+			},
 			"words": {
 				"intro": "In Germany a doctor can prescribe you three weeks at a spa town, the *Kur*. In Baden-Baden the water is hot, the casino is close, and the patients have never been so well dressed.",
 				"more": "Auch zur Kur · also at the spa",
@@ -5565,6 +5875,62 @@
 			"quiz": "quest_a2_2_kleidung",
 			"listenQuiz": "quest_a2_2_suchbild_kinderzimmer",
 			"speakQuiz": "quest_a2_2_sprechen_person",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_kleidung",
+						"for": "Die Kleidung",
+						"note": "Clothes and shopping in sentences."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_lesen_tracht",
+						"for": "Links oder rechts?",
+						"note": "Dirndl and Lederhose: read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_adjektiv_intro",
+						"for": "Nach ein: Das Adjektiv zeigt es",
+						"note": "ein neuer Rock, eine blaue Bluse: the ending after ein."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_adjektiv_intro",
+						"for": "Nach der, die, das: nur -e",
+						"note": "der neue Rock: just -e after the article."
+					},
+					{
+						"quiz": "quest_a2_2_kleidung",
+						"for": "In the shop",
+						"note": "Clothes and the shop, a second round."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_lesen_tracht",
+						"for": "Was gibt es hier?",
+						"note": "What Germans really wear: read and answer."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_adjektiv_intro",
+						"for": "Übung 2 · After ein",
+						"note": "More adjective endings, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_sprechen_person",
+						"for": "Übung 5 · Dein Outfit",
+						"note": "Describe clothes and people out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "At Munich’s Oktoberfest half the city dresses as a farmer from 1890. The rules are strict, the prices are high, and the side the bow is tied on says whether you are single.",
 				"more": "Auch in München · also in Munich",
@@ -6543,6 +6909,57 @@
 			"quiz": "quest_a2_2_relativ_intro",
 			"listenQuiz": "quest_a2_2_lesen_email",
 			"speakQuiz": "quest_a2_2_sprechen_person",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_hoeren_werbinich",
+						"for": "Wie sieht er aus?",
+						"note": "A radio quiz: a person is described. Listen and answer 8 questions."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_relativ_intro",
+						"for": "Die Frau, die alles sieht",
+						"note": "der, die, das, den: the relative word, sentence by sentence."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_relativ_intro",
+						"for": "Das gleiche Wort wie der Artikel",
+						"note": "The same word as the article: build each sentence."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_relativ_intro",
+						"for": "Wer oder wen?",
+						"note": "der or den? Does it, or is it done to?"
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_sprechen_person",
+						"for": "Der Dieb, der …",
+						"note": "Describe a person out loud: hear each sentence, then say it."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_relativ_intro",
+						"for": "Übung 2 · One sentence",
+						"note": "More relative sentences, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_hoeren_werbinich",
+						"for": "Übung 5 · Wie sieht er aus?",
+						"note": "Who is it? The radio quiz again, in the app."
+					}
+				]
+			},
 			"words": {
 				"intro": "Every Sunday at 8:15 p.m. about ten million Germans watch the same crime show, and on Monday they discuss who did it. So the words for a police report are common property.",
 				"more": "Auch im Krimi · also in a crime story",
@@ -7465,6 +7882,57 @@
 			"quiz": "quest_a2_2_praeteritum_intro",
 			"listenQuiz": "quest_a2_2_lesen_email",
 			"speakQuiz": "quest_a2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_praeteritum_intro",
+						"for": "Das erzählt man",
+						"note": "lebte, ging, sagte: the story past."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_lesen_grimm",
+						"for": "Der Rattenfänger, Teil 2",
+						"note": "The Brothers Grimm and their tales: read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_praeteritum_intro",
+						"for": "-te und ein neuer Vokal",
+						"note": "machte, kam, ging: -te or a new vowel."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_lesen_grimm",
+						"for": "Ein kleines Märchen",
+						"note": "Es war einmal: a real text in the story past."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_lesen_grimm",
+						"for": "Dein Märchen",
+						"note": "Where the fairy tales come from: read and answer."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_praeteritum_intro",
+						"for": "Übung 2 · Write the past",
+						"note": "More story past forms, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_sprechen_dialog",
+						"for": "Übung 4 · Tell it like a story",
+						"note": "Describe and tell out loud with your own AI assistant."
+					}
+				]
+			},
 			"words": {
 				"intro": "The German Fairy Tale Road runs 600 km from Hanau to Bremen. In Hameln a man in a colourful coat still leads the children out of town, every Sunday in summer, at twelve.",
 				"more": "Auch im Märchen · also in a fairy tale",
@@ -8413,6 +8881,57 @@
 			"quiz": "quest_a2_2_passiv_intro",
 			"listenQuiz": "quest_a2_2_diktat_alltag",
 			"speakQuiz": "quest_a2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_passiv_intro",
+						"for": "Was wird gemacht?",
+						"note": "Das Bier wird gebraut: what gets done."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_lesen_bier",
+						"for": "Hier wird nicht gefragt",
+						"note": "Water, barley, hops: the purity law of 1516. Read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_passiv_intro",
+						"for": "Das wird gemacht",
+						"note": "werden + past form: build each sentence."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_passiv_intro",
+						"for": "Auf Schildern",
+						"note": "Hier wird nicht geraucht: the passive on signs."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_lesen_bier",
+						"for": "Das Augsburger „Reinheitsgebot“",
+						"note": "The purity law as a story: read and answer."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_passiv_intro",
+						"for": "Übung 1 · wird or werden?",
+						"note": "More passive sentences, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_diktat_alltag",
+						"for": "Übung 5 · Say it another way",
+						"note": "A dictation that describes things: hear it, write it."
+					}
+				]
+			},
 			"words": {
 				"intro": "Bamberg has a dozen breweries for 80,000 people, and one of its beers tastes of smoked ham. A brewery tour is a free grammar lesson, as every step of the process is told in the passive.",
 				"more": "Auch in der Brauerei · also at the brewery",
@@ -9284,6 +9803,57 @@
 			"quiz": "quest_a2_2_superlativ",
 			"listenQuiz": "quest_a2_2_sprechen_person",
 			"speakQuiz": "quest_a2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_superlativ",
+						"for": "Der Beste",
+						"note": "am höchsten, der beste: the top step."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_lesen_bier",
+						"for": "Der höchste Kaffee",
+						"note": "The oldest food law in the world: read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_superlativ",
+						"for": "am schnellsten",
+						"note": "Three steps: schnell, schneller, am schnellsten."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_superlativ",
+						"for": "Der, die, das …-ste",
+						"note": "der höchste Berg: the superlative before a noun."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_sprechen_person",
+						"for": "Am …-sten",
+						"note": "Describe people out loud: hear each sentence, then say it."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_superlativ",
+						"for": "Übung 1 · am …-sten",
+						"note": "More superlatives, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_sprechen_dialog",
+						"for": "Übung 5 · Was passt?",
+						"note": "Describe and compare out loud with your own AI assistant."
+					}
+				]
+			},
 			"words": {
 				"intro": "At 2,962 metres, the Zugspitze is the highest point in Germany. You can reach it by train, then cable car, then a few steps, and you can buy a beer at the top.",
 				"more": "Auch auf dem Berg · also up the mountain",
@@ -10200,6 +10770,62 @@
 			"quiz": "quest_a2_2_wortbildung",
 			"listenQuiz": "quest_a2_2_lesen_formular",
 			"speakQuiz": "quest_a2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_wortbildung",
+						"for": "Wörter bauen",
+						"note": "-er, -ung, un-, -los, -bar: build new words."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_grammatikwoerter",
+						"for": "Das längste Wort",
+						"note": "Nomen, Verb, Adjektiv: the words for grammar itself."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_wortbildung",
+						"for": "Wörter bauen",
+						"note": "der Lehrer, die Zeitung: the ending tells you the article."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_tekamolo",
+						"for": "Wann? Wie? Wo?",
+						"note": "When, how, where: put the parts in order."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_lesen_formular",
+						"for": "Wo treffen wir uns?",
+						"note": "A registration form at the adult education centre: read and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_wortbildung",
+						"for": "Übung 1 · Build the word",
+						"note": "More words to build, checked as you type."
+					},
+					{
+						"quiz": "quest_a2_2_tekamolo",
+						"for": "Übung 4 · Put it in order",
+						"note": "More sentences to put in order."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_tekamolo",
+						"for": "Übung 5 · Time first",
+						"note": "Start with the time, then the verb."
+					}
+				]
+			},
 			"words": {
 				"intro": "In Frankfurt, every October, the whole publishing world comes to the biggest book fair on earth. In a quiet library you can see what they all make of the German language.",
 				"more": "Auch in der Bibliothek · also in the library",
@@ -11341,6 +11967,62 @@
 			"quiz": "quest_a2_2_genitiv_s_datum",
 			"listenQuiz": "quest_a2_2_lesen_email",
 			"speakQuiz": "quest_a2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_2_wortschatz",
+						"for": "Das Auto",
+						"note": "Every word of A2.2 as flashcards: a good look back before B1."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_2_lesen_email",
+						"for": "Lieber Max, sehr geehrter Herr Bell",
+						"note": "An e-mail to Tom: read it and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_2_genitiv_s_datum",
+						"for": "Wessen? und das Datum",
+						"note": "Annas Auto, der 3. Oktober: whose, and the date."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_2_schreiben_email",
+						"for": "Eine E-Mail",
+						"note": "The building blocks of an e-mail: greeting, reason, goodbye."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_2_lesen_formular",
+						"for": "Formular",
+						"note": "A form to fill in: read it and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_2_genitiv_s_datum",
+						"for": "Übung 1 · Whose?",
+						"note": "More whose and dates, checked as you type."
+					},
+					{
+						"quiz": "quest_a2_2_schreiben_einladung",
+						"for": "Übung 3 · Your e-mail",
+						"note": "Write a plan for a friend and let your AI assistant check it."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_2_schreiben_email",
+						"for": "Übung 5 · Zwei Briefe",
+						"note": "To a friend, to an office: the right phrases for each."
+					}
+				]
+			},
 			"words": {
 				"intro": "In Germany, cars are nearly a family member. There are car towns, car museums and a pick-up tower in Wolfsburg, and a car must have its own papers before it may leave the house.",
 				"more": "Auch beim Auto · also with the car",

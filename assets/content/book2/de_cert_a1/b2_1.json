@@ -27,6 +27,62 @@
 			"quiz": "quest_b2_1_konj1",
 			"listenQuiz": "quest_b2_1_hoeren_nachrichten",
 			"speakQuiz": "quest_b2_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_gesellschaft",
+						"for": "Die Politik",
+						"note": "Regierung, Gesetz, Opposition: die Wörter der Nachrichten in Sätzen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_hoeren_nachrichten",
+						"for": "Der Sprecher sagte",
+						"note": "Kurznachrichten im Radio: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_gesellschaft",
+						"for": "Die Wörter der Nachrichten",
+						"note": "Der Staat und seine Verben, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_konj1",
+						"for": "Er sagt, er sei krank",
+						"note": "sei, habe, komme: der Konjunktiv I für die indirekte Rede."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_bigtext_presse",
+						"for": "Wie im Fernsehen",
+						"note": "Eine Pressekonferenz als Text mit 10 Lücken: alles in indirekter Rede."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_hoeren_nachrichten",
+						"for": "Übung 2 · Die Nachrichten",
+						"note": "Die Kurznachrichten noch einmal, in der App."
+					},
+					{
+						"quiz": "quest_b2_1_konj1",
+						"for": "Übung 4 · Gib es wieder",
+						"note": "Noch mehr indirekte Rede, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_sprechen_kurzcheck",
+						"for": "Übung 5 · In der Zeitung",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten: indirekte Rede und mehr."
+					}
+				]
+			},
 			"words": {
 				"intro": "Jeden Abend um acht sagt im deutschen Fernsehen eine sehr ernste Person der Nation, was jemand anders gesagt hat. Dafür hat Deutsch eine eigene Verbform. So ist der Sprecher nie schuld.",
 				"more": "Auch in den Nachrichten",
@@ -1223,6 +1279,67 @@
 			"quiz": "quest_b2_1_konj1_vergangenheit",
 			"listenQuiz": "quest_b2_1_hoeren_debatte",
 			"speakQuiz": "quest_b2_1_sprechen_verteidigen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_hoeren_debatte",
+						"for": "Der Streit",
+						"note": "Eine Debatte über die autofreie Innenstadt: Hör zu und beantworte 7 Fragen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_konj1_vergangenheit",
+						"for": "Müller gegen Müller",
+						"note": "Er sagte, er habe … gesehen: die Vergangenheit in indirekter Rede."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_konj1_vergangenheit",
+						"for": "Habe oder sei + -t",
+						"note": "habe oder sei plus Partizip, Fragen und Bitten: sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_indirekt_fragen",
+						"for": "Ich frage mich, ob das stimmt",
+						"note": "ob oder ein W-Wort, das Verb am Ende."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_lesen_feldheim",
+						"for": "Indirekt",
+						"note": "Ein Dorf, dem sein Strom gehört: Lies und beantworte 7 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_konj1_vergangenheit",
+						"for": "Übung 1 · Vergangenes wiedergeben",
+						"note": "Noch mehr Vergangenheit in indirekter Rede."
+					},
+					{
+						"quiz": "quest_b2_1_hoeren_debatte",
+						"for": "Übung 3 · Gehört?",
+						"note": "Die Debatte noch einmal, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_indirekt_fragen",
+						"for": "Übung 5 · Höflich fragen",
+						"note": "Noch mehr indirekte Fragen."
+					},
+					{
+						"quiz": "quest_b2_1_sprechen_verteidigen",
+						"for": "Übung 6 · Indirekt",
+						"note": "Eine Meinung verteidigen, laut: Hör zu und sprich nach."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutsche gehen wegen Dingen vor Gericht, die andere über den Zaun klären. Eine Hecke, ein Grill, ein Hahn: Das Amtsgericht hört alle an, in schwarzer Robe, mit großer Sorgfalt.",
 				"more": "Auch vor Gericht",
@@ -2338,6 +2455,62 @@
 			"quiz": "quest_b2_1_verben_praep",
 			"listenQuiz": "quest_b2_1_lesen_leserbrief",
 			"speakQuiz": "quest_b2_1_sprechen_argument",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_verben_praep",
+						"for": "Wofür?",
+						"note": "sich freuen auf, denken an: das Verb und seine Präposition."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_lesen_leserbrief",
+						"for": "Tagesordnungspunkt 7",
+						"note": "Ein Leserbrief: zu wenig Grün in der Stadt. Lies und beantworte 7 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_verben_praep",
+						"for": "Ich freue mich darauf",
+						"note": "Die Präposition und da(r)-, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_adjektive_praep",
+						"for": "Stolz auf, zufrieden mit",
+						"note": "stolz auf, zufrieden mit: das Adjektiv und seine Präposition."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_verben_praep",
+						"for": "Das kleine Wort",
+						"note": "Noch mehr Verben mit Präposition."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_verben_praep",
+						"for": "Übung 1 · Die Präposition",
+						"note": "Noch mehr Präpositionen nach dem Verb."
+					},
+					{
+						"quiz": "quest_b2_1_adjektive_praep",
+						"for": "Übung 4 · Die Präposition",
+						"note": "Noch mehr Adjektive mit Präposition."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_sprechen_argument",
+						"for": "Übung 5 · Über dich",
+						"note": "Ein Argument präsentieren, laut: Hör zu und sprich nach."
+					}
+				]
+			},
 			"words": {
 				"intro": "Ein deutscher Elternabend findet auf winzigen Stühlen statt. Dreißig Erwachsene diskutieren zwei Stunden über einen Schulausflug, dann fragt jemand nach den Broten. Das ist deutsche Demokratie in reinster Form.",
 				"more": "Auch beim Elternabend",
@@ -3453,6 +3626,67 @@
 			"quiz": "quest_b2_1_nomen_praep",
 			"listenQuiz": "quest_b2_1_hoeren_debatte",
 			"speakQuiz": "quest_b2_1_sprechen_argument",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_nomen_praep",
+						"for": "Die Sprache des Protests",
+						"note": "die Kritik an, die Angst vor: das Nomen und seine Präposition."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_hoeren_tempolimit",
+						"for": "Rettet die Bank!",
+						"note": "Streit ums Tempolimit im Radio: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_nomen_praep",
+						"for": "Die Kritik an der Regierung",
+						"note": "Vom Verb zum Nomen: Die Präposition kann wechseln."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_kausal_nominal",
+						"for": "Wegen des Regens, nach dem Essen",
+						"note": "weil … oder wegen …: vom Satz zur Nominalgruppe."
+					},
+					{
+						"quiz": "quest_b2_1_temporal_nominal",
+						"for": "Wegen des Regens, nach dem Essen",
+						"note": "nachdem … oder nach …: die Zeit, nominal."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_lesen_wahlalter",
+						"for": "Mach ein Verb daraus",
+						"note": "Wählen mit 16: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_nomen_praep",
+						"for": "Übung 1 · Die Präposition",
+						"note": "Noch mehr Nomen mit Präposition, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_kausal_nominal",
+						"for": "Übung 6 · Sag es kürzer",
+						"note": "Noch mehr Sätze, nominal und kurz."
+					},
+					{
+						"quiz": "quest_b2_1_temporal_nominal",
+						"for": "Übung 5 · Kürzer",
+						"note": "Noch mehr Zeitangaben, nominal."
+					}
+				]
+			},
 			"words": {
 				"intro": "Du willst eine Umgehungsstraße, ein Windrad oder einen Supermarkt stoppen? Dann gründest du eine *Bürgerinitiative*. Mit Vorsitz, Banner und sehr langem Brief. Oft gewinnt sie.",
 				"more": "Auch bei der Demo",
@@ -4573,6 +4807,67 @@
 			"quiz": "quest_b2_1_modalpassiv",
 			"listenQuiz": "quest_b2_1_lesen_homeoffice",
 			"speakQuiz": "quest_b2_1_sprechen_verteidigen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_suchbild_baustelle",
+						"for": "Die Baustelle",
+						"note": "Eine Baustelle im Bild: Finde jedes Ding, das die App nennt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_modalpassiv",
+						"for": "Die Eröffnung",
+						"note": "muss gebaut werden: das Passiv mit Modalverb."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_modalpassiv",
+						"for": "Das muss gelöst werden",
+						"note": "Ein Block, drei Zeiten: sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_passiv_perfekt",
+						"for": "Ist gebaut worden",
+						"note": "ist … worden: das Passiv im Perfekt."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_hoeren_gemeinderat",
+						"for": "Mach es zum Passiv",
+						"note": "Im Gemeinderat: Was wird aus dem Freibad? Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_modalpassiv",
+						"for": "Übung 1 · Das Modalverb",
+						"note": "Noch mehr Modalpassiv."
+					},
+					{
+						"quiz": "quest_b2_1_passiv_perfekt",
+						"for": "Übung 5 · ist … worden",
+						"note": "Noch mehr Passiv Perfekt."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_lesen_homeoffice",
+						"for": "Übung 7 · Ein Leserbrief",
+						"note": "Homeoffice, Fluch oder Segen? Lies und beantworte 7 Fragen."
+					},
+					{
+						"quiz": "quest_b2_1_lesen_buergerrat",
+						"for": "Übung 8 · Finde den Fehler",
+						"note": "Politik per Los: der erste Bürgerrat. Lies und beantworte 8 Fragen."
+					}
+				]
+			},
 			"words": {
 				"intro": "Berlins neuer Flughafen sollte 2011 öffnen. Er öffnete 2020. Neun Jahre fuhren leere Züge zu seinem Bahnhof, damit die Luft frisch blieb, und Deutsch bekam einen Satz: *Das muss noch geprüft werden.*",
 				"more": "Auch auf der Baustelle",
@@ -5776,6 +6071,57 @@
 			"quiz": "quest_b2_1_passiv_subjektlos",
 			"listenQuiz": "quest_b2_1_sprechen_argument",
 			"speakQuiz": "quest_b2_1_sprechen_verteidigen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_passiv_subjektlos",
+						"for": "Hier wird …",
+						"note": "Hier wird getanzt: das Passiv ohne Subjekt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_hoeren_gemeinderat",
+						"for": "Heute nicht",
+						"note": "Eine Sitzung im Gemeinderat: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_passiv_subjektlos",
+						"for": "Hier wird getanzt",
+						"note": "es auf Platz eins, und nur dort: sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_zustandspassiv",
+						"for": "Wird oder ist?",
+						"note": "wird geöffnet oder ist geöffnet? Handlung oder Zustand."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_passiv_subjektlos",
+						"for": "Hier wird nicht …",
+						"note": "Noch mehr Sätze ohne Subjekt, wie auf Schildern."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_passiv_subjektlos",
+						"for": "Übung 1 · es oder nicht?",
+						"note": "Noch mehr subjektloses Passiv."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_zustandspassiv",
+						"for": "Übung 5 · Handlung oder Zustand?",
+						"note": "Noch mehr wird oder ist, sofort korrigiert."
+					}
+				]
+			},
 			"words": {
 				"intro": "In Berlin ist eine Clubtür ernste Philosophie. Du stehst drei Stunden an, dann schaut dich jemand mit Gesichtstattoos zwei Sekunden an. Niemand weiß, warum. Drinnen gibt es keine Fotos.",
 				"more": "Auch im Club",
@@ -6887,6 +7233,57 @@
 			"quiz": "quest_b2_1_lassen",
 			"listenQuiz": "quest_b2_1_suchbild_baustelle",
 			"speakQuiz": "quest_b2_1_sprechen_verteidigen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_lassen",
+						"for": "Handwerker",
+						"note": "Ich lasse das Auto reparieren: lassen in Sätzen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_hoeren_buergermeisterin",
+						"for": "Die rote Plakette",
+						"note": "Bürgermeisterin mit 26, gewählt ohne Kandidatur: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_lassen",
+						"for": "Vier Aufgaben von lassen",
+						"note": "Die vier Aufgaben und der Doppelinfinitiv."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_brauchen_zu",
+						"for": "Du brauchst nicht zu kommen",
+						"note": "nicht brauchen zu, nur brauchen zu: sofort korrigiert."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_suchbild_baustelle",
+						"for": "Machen lassen",
+						"note": "Die Baustelle im Bild: Finde jedes Ding."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_lassen",
+						"for": "Übung 1 · lassen",
+						"note": "Noch mehr lassen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_brauchen_zu",
+						"for": "Übung 5 · brauchen + zu",
+						"note": "Noch mehr brauchen + zu."
+					}
+				]
+			},
 			"words": {
 				"intro": "Alle zwei Jahre muss jedes deutsche Auto zum TÜV. Dort schaut ein ruhiger Mensch im Overall darunter und gibt ihm eine bunte Plakette oder beendet deinen Sommer.",
 				"more": "Auch in der Werkstatt",
@@ -8010,6 +8407,57 @@
 			"quiz": "quest_b2_1_partizip_adj",
 			"listenQuiz": "quest_b2_1_lesen_leserbrief",
 			"speakQuiz": "quest_b2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_partizip_adj",
+						"for": "Die Wörter des Amts",
+						"note": "der beigefügte Bescheid: das Partizip als Adjektiv."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_partizip_adj",
+						"for": "Der in der Anlage beigefügte Bescheid",
+						"note": "Relativsatz oder Attribut: auf- und zuklappen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_partizip_adj",
+						"for": "Auf- und zuklappen",
+						"note": "-end oder ge-, und die Endung: sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_nachsilben_genus",
+						"for": "Die Endung verrät das Genus",
+						"note": "-ung, -heit, -ismus: Die Nachsilbe sagt den Artikel."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_lesen_leserbrief",
+						"for": "Aufmachen",
+						"note": "Ein formeller Brief an die Redaktion: Lies und beantworte 7 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_partizip_adj",
+						"for": "Übung 1 · Mit Endung",
+						"note": "Noch mehr Partizipien als Adjektiv."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_nachsilben_genus",
+						"for": "Übung 5 · der, die oder das?",
+						"note": "Noch mehr Nachsilben und ihr Artikel."
+					}
+				]
+			},
 			"words": {
 				"intro": "Ein Brief vom Finanzamt hat sein eigenes Deutsch. Ganze Nebensätze stehen zusammengeklappt vor dem Nomen, und das Nomen kommt erst am Ende. Dann erfährst du: Du schuldest 14 Euro.",
 				"more": "Auch im Finanzamt",
@@ -9182,6 +9630,67 @@
 			"quiz": "quest_b2_1_mittelfeld",
 			"listenQuiz": "quest_b2_1_hoeren_nachrichten",
 			"speakQuiz": "quest_b2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_mittelfeld",
+						"for": "Die Fahrt",
+						"note": "Te – Ka – Mo – Lo: die Reihenfolge in der Mitte des Satzes."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_hoeren_nachrichten",
+						"for": "Der Mann auf 54",
+						"note": "Kurznachrichten im Radio: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_mittelfeld",
+						"for": "Te – Ka – Mo – Lo",
+						"note": "Zeit, Grund, Art, Ort, und wo nicht steht."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_dass_infinitiv",
+						"for": "Dass oder zu?",
+						"note": "dass-Satz oder Infinitiv mit zu: sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b2_1_infinitivsaetze",
+						"for": "Wo zu steht",
+						"note": "um … zu, ohne … zu, statt … zu oder dass?"
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_dass_infinitiv",
+						"for": "Dass oder zu?",
+						"note": "Noch mehr dass oder zu."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_mittelfeld",
+						"for": "Übung 1 · Bring es in Ordnung",
+						"note": "Noch mehr Satzordnung, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b2_1_dass_infinitiv",
+						"for": "Übung 4 · zu oder dass?",
+						"note": "Noch mehr zu oder dass."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_infinitivsaetze",
+						"for": "Übung 5 · um, damit, ohne",
+						"note": "Noch mehr Infinitivsätze."
+					}
+				]
+			},
 			"words": {
 				"intro": "Millionen Deutsche verlassen zum Arbeiten ihre Stadt. Darum steigen jeden Morgen um 6:42 dieselben Leute in denselben Wagen, sitzen auf denselben Plätzen und sprechen nie.",
 				"more": "Auch im Berufsverkehr",
@@ -10251,6 +10760,62 @@
 			"quiz": "quest_b2_1_konnektoren",
 			"listenQuiz": "quest_b2_1_lesen_homeoffice",
 			"speakQuiz": "quest_b2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_konnektoren",
+						"for": "Das Argument",
+						"note": "trotzdem, deshalb, außerdem: die Verbindungswörter."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_lesen_homeoffice",
+						"for": "Du bist stumm",
+						"note": "Homeoffice, Fluch oder Segen? Lies und beantworte 7 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_konnektoren",
+						"for": "Verbindungswort, dann das Verb",
+						"note": "Die Familien und ihre Zwillinge, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_diktat_argument",
+						"for": "Ein Argument bauen",
+						"note": "Ein Argument als Diktat: Hör zu und schreib."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_lesen_pontevedra",
+						"for": "Früher und heute",
+						"note": "Pontevedra, die Stadt ohne Autos: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_konnektoren",
+						"for": "Übung 1 · Welches Verbindungswort?",
+						"note": "Noch mehr Konnektoren."
+					},
+					{
+						"quiz": "quest_b2_1_lesen_homeoffice",
+						"for": "Übung 2 · Im Homeoffice",
+						"note": "Pro und Contra Homeoffice, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_sprechen_dialog",
+						"for": "Übung 5 · Sag es anders",
+						"note": "Argumentieren, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "2020 ging das ganze Land zum Arbeiten nach Hause. Deutsche entdeckten: Ein Meeting geht auch mit Katze. Manche kamen nie zurück, und manche Chefs können es immer noch nicht glauben.",
 				"more": "Auch im Homeoffice",
@@ -11375,6 +11940,62 @@
 			"quiz": "quest_b2_1_stellungnahme",
 			"listenQuiz": "quest_b2_1_hoeren_debatte",
 			"speakQuiz": "quest_b2_1_sprechen_argument",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_lesen_feldheim",
+						"for": "Die Energie",
+						"note": "Feldheim, das Dorf mit dem eigenen Stromnetz: Lies und beantworte 7 Fragen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_lesen_pflichtjahr",
+						"for": "Ein Leserbrief",
+						"note": "Zwei Leserbriefe zum Pflichtjahr: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_stellungnahme",
+						"for": "Meiner Ansicht nach",
+						"note": "Die Wendungen der Stellungnahme und ihre Grammatik."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_je_desto",
+						"for": "Je mehr, desto besser",
+						"note": "je … desto, je … umso: zwei Sätze, zwei Plätze."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_schreiben_stellungnahme",
+						"for": "Deine Stellungnahme",
+						"note": "Schreib deine Stellungnahme und lass sie von deinem KI-Assistenten prüfen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_stellungnahme",
+						"for": "Übung 1 · Die Wendungen",
+						"note": "Noch mehr Wendungen, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b2_1_hoeren_debatte",
+						"for": "Übung 2 · Eine Debatte im Radio",
+						"note": "Eine Debatte zum Hören: Hör zu und beantworte 7 Fragen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_je_desto",
+						"for": "Übung 5 · Je … desto",
+						"note": "Noch mehr je … desto."
+					}
+				]
+			},
 			"words": {
 				"intro": "In der Lausitz hat ein riesiger Tagebau ganze Dörfer gefressen. Anderswo, neben Windparks, schreiben Leute lange Briefe über die Aussicht. Energie ist das eine Thema, zu dem jeder Deutsche eine Position hat, schriftlich.",
 				"more": "Auch beim Klima",
@@ -12371,6 +12992,62 @@
 			"quiz": "quest_b2_1_schreiben_stellungnahme",
 			"listenQuiz": "quest_b2_1_lesen_homeoffice",
 			"speakQuiz": "quest_b2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_1_wortschatz",
+						"for": "Das Gespräch",
+						"note": "Alle Wörter von B2.1 als Karteikarten: ein guter Rückblick vor B2.2."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_1_sprechen_verteidigen",
+						"for": "Lassen Sie mich ausreden",
+						"note": "Eine Meinung verteidigen, laut: Hör zu und sprich nach."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_1_sprechen_argument",
+						"for": "Was sagt man im Gespräch?",
+						"note": "Ein Argument präsentieren, laut."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_1_bigtext_presse",
+						"for": "Noch einmal alles",
+						"note": "Die Pressekonferenz: ein Text mit 10 Lücken, alles noch einmal."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_1_lesen_buergerrat",
+						"for": "Sieben Stimmen, kurz",
+						"note": "Politik per Los: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_1_schreiben_stellungnahme",
+						"for": "Übung 3 · Deine Stellungnahme",
+						"note": "Deine Stellungnahme, geprüft von deinem KI-Assistenten."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_1_konj1",
+						"for": "Übung 4 · Was hat sie gesagt?",
+						"note": "Indirekte Rede: eine letzte Runde."
+					},
+					{
+						"quiz": "quest_b2_1_sprechen_dialog",
+						"for": "Übung 5 · Auf Deutsch",
+						"note": "Argumentieren, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Eine deutsche Talkshow hat einen runden Tisch, fünf Gäste, eine Moderation, die alle ausreden lässt, und ein Wort für den Moment, in dem das niemand tut: *Streitkultur*. Das gilt als gut.",
 				"more": "Auch im Studio",

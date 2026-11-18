@@ -181,9 +181,14 @@
 </section>
 
 <style>
+	/* One exercise as a card of paper: number, title, the items in tidy
+	   rows (prompt | answer), and the check at the foot. */
 	.ex {
-		padding: 1.1rem 0 1.4rem;
-		border-top: 1px solid var(--line);
+		padding: 1.2rem 1.25rem 1.3rem;
+		border: 1px solid var(--line);
+		border-radius: 16px;
+		background: var(--surface);
+		box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
 	}
 
 	header {
@@ -197,10 +202,10 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 1.8rem;
-		height: 1.8rem;
-		border-radius: 4px;
-		background: var(--heading);
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		background: var(--accent-ink);
 		color: #fff;
 		font-weight: 800;
 		font-size: 0.9rem;
@@ -208,7 +213,8 @@
 
 	h3 {
 		margin: 0;
-		font-size: 1.05rem;
+		font-size: 1.15rem;
+		line-height: 1.25;
 		color: var(--heading);
 	}
 
@@ -219,8 +225,8 @@
 	}
 
 	.score {
-		padding: 0.15rem 0.5rem;
-		border-radius: 4px;
+		padding: 0.2rem 0.65rem;
+		border-radius: 999px;
 		background: var(--wrong-bg);
 		color: var(--wrong);
 		font-weight: 800;
@@ -247,10 +253,17 @@
 
 	.items {
 		display: grid;
-		gap: 0.7rem;
-		margin: 1rem 0;
+		gap: 0;
+		margin: 1rem 0 1.1rem;
 		padding: 0;
 		list-style: none;
+	}
+	.items > li {
+		padding: 0.6rem 0;
+		border-bottom: 1px dashed var(--line);
+	}
+	.items > li:last-child {
+		border-bottom: 0;
 	}
 
 	.items li {
@@ -259,15 +272,21 @@
 		gap: 0.3rem;
 	}
 
+	/* Prompt and answer side by side in one column grid, so every row lines up. */
 	label {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.4rem 0.75rem;
+		display: grid;
+		grid-template-columns: minmax(7rem, 13rem) minmax(0, 20rem);
+		gap: 0.4rem 1rem;
 		align-items: center;
+	}
+	@media (max-width: 30rem) {
+		label {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.prompt {
-		min-width: 8rem;
+		font-weight: 600;
 	}
 
 	.line {
@@ -277,17 +296,19 @@
 
 	input,
 	select {
-		min-height: 2.4rem;
-		padding: 0.3rem 0.6rem;
-		border: 1px solid var(--line-strong);
-		border-radius: 6px;
-		background: var(--surface);
+		min-height: 2.5rem;
+		padding: 0.3rem 0.75rem;
+		border: 1.5px solid var(--line-strong);
+		border-radius: 10px;
+		background: var(--bg);
 		color: var(--ink);
 		font: inherit;
 	}
 
-	label input {
-		flex: 1 1 12rem;
+	label input,
+	label select {
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	input.gap {
@@ -327,11 +348,14 @@
 		min-height: 2.2rem;
 		padding: 0.2rem 0.7rem;
 		border: 1px solid var(--line-strong);
-		border-radius: 6px;
-		background: var(--surface);
+		border-radius: 999px;
+		background: var(--bg);
 		color: var(--ink);
 		font: inherit;
 		cursor: pointer;
+	}
+	.options button:hover:not(:disabled) {
+		border-color: var(--heading);
 	}
 
 	.options button.picked {
@@ -395,7 +419,7 @@
 		min-height: 2.75rem;
 		padding: 0 1.4rem;
 		border: 2px solid var(--accent-ink);
-		border-radius: 8px;
+		border-radius: 999px;
 		background: var(--accent-ink);
 		color: #fff;
 		font: inherit;

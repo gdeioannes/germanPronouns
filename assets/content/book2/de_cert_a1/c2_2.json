@@ -27,6 +27,62 @@
 			"quiz": "quest_c2_2_philosophie",
 			"listenQuiz": "quest_c2_2_lesen_essay",
 			"speakQuiz": "quest_c2_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_philosophie",
+						"for": "Die Begriffe",
+						"note": "Pflicht, Neigung, Vernunft: die Begriffe der Philosophie in Sätzen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_lesen_arendt",
+						"for": "Du sollst",
+						"note": "Hannah Arendt und die Banalität des Bösen: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_philosophie",
+						"for": "Pflicht oder Neigung?",
+						"note": "Das genaue Wort der Philosophie, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_fokus",
+						"for": "Ausgerechnet heute",
+						"note": "ausgerechnet, selbst, sogar: Wortstellung und Fokus."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_lesen_essay",
+						"for": "Einfach gesagt",
+						"note": "Über das Vergessen: ein Essay. Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_philosophie",
+						"for": "Übung 1 · Das richtige Wort",
+						"note": "Noch mehr Begriffe."
+					},
+					{
+						"quiz": "quest_c2_2_fokus",
+						"for": "Übung 4 · Das Fokuswort",
+						"note": "Noch mehr Fokus."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_sprechen_kurzcheck",
+						"for": "Übung 6 · Nach vorn damit",
+						"note": "Ein kurzer Sprech-Check zu Andeutung und Ironie mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Die Deutschen haben ein Wort für das Gefühl, tun zu müssen, was man nicht will. Sie haben auch Kant, der 800 Seiten darüber schrieb. Ein *philosophisches Café* lässt dich dienstags bei Kuchen über ihn reden. Danach gehst du heim und bringst den Müll nicht raus.",
 				"more": "Auch im Café",
@@ -978,6 +1034,62 @@
 			"quiz": "quest_c2_2_anspielung",
 			"listenQuiz": "quest_c2_2_hoeren_lesung",
 			"speakQuiz": "quest_c2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_anspielung",
+						"for": "Was man nicht sagt",
+						"note": "Es ist schon spät: was der Satz sagt, was er tut."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_hoeren_lesung",
+						"for": "Der letzte Gast",
+						"note": "Eine Lesung: Der Koffer. Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_anspielung",
+						"for": "Was es sagt, was es tut",
+						"note": "Anspielung und Implikatur, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_wortspiel",
+						"for": "Die Steuer, das Steuer",
+						"note": "Ein Wort, zwei Bedeutungen: Wortspiel und Mehrdeutigkeit."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_lesen_unwort",
+						"for": "Was es tut",
+						"note": "Das Unwort: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_anspielung",
+						"for": "Übung 1 · Was es tut",
+						"note": "Noch mehr Andeutungen."
+					},
+					{
+						"quiz": "quest_c2_2_hoeren_lesung",
+						"for": "Übung 2 · Das Fenster um neun",
+						"note": "Die Lesung noch einmal, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_wortspiel",
+						"for": "Übung 5 · der, die oder das?",
+						"note": "Noch mehr Mehrdeutigkeit."
+					}
+				]
+			},
 			"words": {
 				"intro": "Kein deutscher Gastgeber sagte je: *Geht jetzt bitte heim*. Es gibt einen Code: *Es ist schon spät*. *Morgen muss ich früh raus*. Jemand holt die Mäntel. Auf dieser Stufe liest du ihn. Darunter bleibst du, bis man dich mit den Resten heimschickt.",
 				"more": "Auch beim Abendessen",
@@ -1918,6 +2030,62 @@
 			"quiz": "quest_c2_2_paraphrase",
 			"listenQuiz": "quest_c2_2_lesen_essay",
 			"speakQuiz": "quest_c2_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_paraphrase",
+						"for": "Mit Gewicht",
+						"note": "in Angriff nehmen statt anfangen: dasselbe, mit mehr Gewicht."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_paraphrase",
+						"for": "Das Loch",
+						"note": "Paraphrase und Variation: Satz für Satz."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_paraphrase",
+						"for": "Mit Gewicht",
+						"note": "Eine Stufe höher sagen, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_redewendungen",
+						"for": "Unter den Teppich",
+						"note": "etwas unter den Teppich kehren: Redewendungen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_lesen_essay",
+						"for": "Mit Gewicht, ohne Gewicht",
+						"note": "Über das Vergessen: ein Essay. Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_paraphrase",
+						"for": "Übung 1 · Eine Stufe höher",
+						"note": "Noch mehr Paraphrase."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_redewendungen",
+						"for": "Übung 7 · Über dich",
+						"note": "Noch mehr Redewendungen."
+					},
+					{
+						"quiz": "quest_c2_2_sprechen_kurzcheck",
+						"for": "Übung 6 · Finde den Fehler",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "In einem deutschen Rathaus tut niemand je etwas. Sie *nehmen es in Angriff*, *bringen es auf den Weg* und *setzen es um*. Ein Schlagloch beschäftigt sie jahrelang. Es kommt in einer Rede vor und bekommt seine eigene Arbeitsgruppe.",
 				"more": "Auch auf der Straße",
@@ -2853,6 +3021,57 @@
 			"quiz": "quest_c2_2_fremdwoerter",
 			"listenQuiz": "quest_c2_2_hoeren_fachvortrag",
 			"speakQuiz": "quest_c2_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_fremdwoerter",
+						"for": "Die Fremdwörter",
+						"note": "de facto, eruieren, obsolet: Fremdwörter und Latinismen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_lesen_fremdwort",
+						"for": "Synergien",
+						"note": "Die Männer, die den Bahnsteig erfanden: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_fremdwoerter",
+						"for": "De facto, eruieren, obsolet",
+						"note": "Latein mit deutscher Grammatik, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_hoeren_fachvortrag",
+						"for": "Im Klartext",
+						"note": "Ein Fachvortrag über das Gedächtnis: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_lesen_fremdwort",
+						"for": "Von rechts",
+						"note": "Woher die deutschen Ersatzwörter kamen: der Text noch einmal."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_fremdwoerter",
+						"for": "Übung 1 · Latein, deutsche Grammatik",
+						"note": "Noch mehr Fremdwörter."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_sprechen_kurzcheck",
+						"for": "Übung 5 · Im Klartext",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Gebildetes Deutsch hatte schon immer eine Schwäche für das Fremdwort. Erst Latein, dann Französisch, heute Englisch. Ein Berater bringt einen ganzen Satz fertig, in dem nur *der* und *und* deutsch sind. Dieses Kapitel ist dein Schutz.",
 				"more": "Auch bei der Beratung",
@@ -3757,6 +3976,62 @@
 			"quiz": "quest_c2_2_wissenschaftssprache",
 			"listenQuiz": "quest_c2_2_hoeren_fachvortrag",
 			"speakQuiz": "quest_c2_2_sprechen_analyse",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_wissenschaftssprache",
+						"for": "Die Forschung",
+						"note": "Es ist davon auszugehen: die Wendungen der Wissenschaft."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_bigtext_lesen",
+						"for": "Die teilnehmende Beobachtung",
+						"note": "Zum Wert des Lesens: ein ganzer Text mit 11 Lücken."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_wissenschaftssprache",
+						"for": "Davon ist auszugehen",
+						"note": "Die akademische Wendung, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_praepositionen_schriftsprache",
+						"for": "Kraft, binnen, vorbehaltlich",
+						"note": "kraft, binnen, vorbehaltlich: die Präpositionen der Schriftsprache."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_diktat_wissenschaft",
+						"for": "Schriftsprache",
+						"note": "Wissenschaftssprache als Diktat: Hör zu und schreib."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_hoeren_fachvortrag",
+						"for": "Übung 2 · Eine Vorlesung übers Gedächtnis",
+						"note": "Das Gedächtnis, Archiv oder Erzähler? Hör zu und beantworte 8 Fragen."
+					},
+					{
+						"quiz": "quest_c2_2_praepositionen_schriftsprache",
+						"for": "Übung 4 · Die Schriftpräposition",
+						"note": "Noch mehr Schriftpräpositionen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_nominalstil",
+						"for": "Übung 6 · Pack es aus",
+						"note": "Den Nominalstil verdichten und auflösen."
+					}
+				]
+			},
 			"words": {
 				"intro": "Die deutsche Forschung sagt nicht *Ich glaube*. Dafür gibt es eine Passivform: *Es ist davon auszugehen*. Sie sagt auch nicht *wegen*. Sie hat *aufgrund*, *kraft* und *mangels*. Ganze Karrieren beruhen auf Aufsätzen, in denen niemand irgendetwas tut.",
 				"more": "Auch im Institut",
@@ -4709,6 +4984,62 @@
 			"quiz": "quest_c2_2_behoerdensprache",
 			"listenQuiz": "quest_c2_2_lesen_amtliches_schreiben",
 			"speakQuiz": "quest_c2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_behoerdensprache",
+						"for": "Das Amtsdeutsch",
+						"note": "Amtsdeutsch übersetzen: Satz für Satz."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_lesen_amtliches_schreiben",
+						"for": "Drei Minuten",
+						"note": "Eine Anhörung im Bußgeldverfahren: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_nominalstil",
+						"for": "Nach Auswertung der Daten",
+						"note": "Verdichten und auflösen, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_behoerdensprache",
+						"for": "Ist zu entrichten",
+						"note": "ist zu entrichten, hat zu erfolgen: die Behördensprache."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_hoeren_amtsdeutsch",
+						"for": "Einfach gesagt",
+						"note": "Der Bescheid, den niemand versteht: ein Feature. Hör zu, 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_nominalstil",
+						"for": "Übung 1 · Pack es ein",
+						"note": "Noch mehr Nominalstil."
+					},
+					{
+						"quiz": "quest_c2_2_behoerdensprache",
+						"for": "Übung 4 · In schlichtem Deutsch",
+						"note": "Noch mehr Amtsdeutsch."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_lesen_amtliches_schreiben",
+						"for": "Übung 5 · Der Parkbrief",
+						"note": "Das amtliche Schreiben noch einmal, in der App."
+					}
+				]
+			},
 			"words": {
 				"intro": "Ein deutscher Strafzettel ist ein kleines Meisterwerk. Er kennt Minute, Straße, Paragraf und Betrag, und er kennt den Unterschied zwischen Verwarnung und Geldbuße. Ihm genügt ein einziger Satz, und darin kommt kein Mensch vor.",
 				"more": "Auch beim Parken",
@@ -5654,6 +5985,62 @@
 			"quiz": "quest_c2_2_appositionen",
 			"listenQuiz": "quest_c2_2_suchbild_antiquitaeten",
 			"speakQuiz": "quest_c2_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_suchbild_antiquitaeten",
+						"for": "Im Laden",
+						"note": "Ein Antiquitätenladen im Bild: Finde jedes Ding, das die App nennt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_modalverben_system",
+						"for": "Die blaue Tasse",
+						"note": "Er soll es gewusst haben: das ganze System der Modalverben."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_appositionen",
+						"for": "Mit Dr. Weber, der Leiterin",
+						"note": "Kasus, Komma, Titel: Appositionen, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_modalverben_system",
+						"for": "Er soll es gewusst haben",
+						"note": "Vermutung oder Pflicht? Die Modalverben im Ganzen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_hoeren_dolmetscher",
+						"for": "Wie sicher?",
+						"note": "Warten auf das Verb: ein Gespräch übers Dolmetschen. Hör zu, 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_appositionen",
+						"for": "Übung 1 · Derselbe Fall",
+						"note": "Noch mehr Appositionen."
+					},
+					{
+						"quiz": "quest_c2_2_modalverben_system",
+						"for": "Übung 4 · Das Modalverb",
+						"note": "Noch mehr Modalverben."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_sprechen_kurzcheck",
+						"for": "Übung 7 · Auf Deutsch",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Das Gewerbe eines Antiquitätenhändlers steckt in einer grammatischen Form. Dieser Stuhl *soll* einem Herzog gehört haben. Er *dürfte* von etwa 1780 sein. Er *kann* echt sein, und er *muss* bis Freitag weg. Mehr zum Grad deiner Sicherheit brauchst du nie.",
 				"more": "Auch im Antiquitätenladen",
@@ -6570,6 +6957,62 @@
 			"quiz": "quest_c2_2_passiv_meisterschaft",
 			"listenQuiz": "quest_c2_2_suchbild_hafen",
 			"speakQuiz": "quest_c2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_suchbild_hafen",
+						"for": "Im Hafen",
+						"note": "Ein Hafen im Bild: Finde jedes Ding, das die App nennt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_passiv_meisterschaft",
+						"for": "Der Schrank",
+						"note": "Ohne Täter: Vorgangs-, Zustandspassiv und Ersatzformen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_passiv_meisterschaft",
+						"for": "Das lässt sich lösen",
+						"note": "Die richtige Passivform, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_adverbialsaetze_umformen",
+						"for": "Kaum war er da",
+						"note": "Hauptsatz, Nebensatz, Infinitiv: Adverbialsätze umformen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_hoeren_amtsdeutsch",
+						"for": "Ohne Täter",
+						"note": "Der Bescheid, den niemand versteht: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_passiv_meisterschaft",
+						"for": "Übung 1 · Die richtige Form",
+						"note": "Noch mehr Passiv."
+					},
+					{
+						"quiz": "quest_c2_2_adverbialsaetze_umformen",
+						"for": "Übung 4 · Die andere Form",
+						"note": "Noch mehr Umformungen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_sprechen_dialog",
+						"for": "Übung 7 · Drei Formen",
+						"note": "Meisterschaft, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Im Hamburger Hafen verliert niemand einen Container. *Ein Container ist abhandengekommen*. Fehler *wurden gemacht*. Das Deutsche hat viele Wege, das zu sagen, und jeder achtet genau darauf, wer angerufen werden sollte.",
 				"more": "Auch im Hafen",
@@ -7489,6 +7932,62 @@
 			"quiz": "quest_c2_2_schreiben_eroerterung",
 			"listenQuiz": "quest_c2_2_sprechen_streitgespraech",
 			"speakQuiz": "quest_c2_2_sprechen_streitgespraech",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_sprechen_streitgespraech",
+						"for": "Die Debatte",
+						"note": "Ein Streitgespräch, laut: Hör zu und sprich nach."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_hoeren_kleist",
+						"for": "Der lange Satz",
+						"note": "Kleist, Denken beim Reden: ein Radioessay. Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_sprechen_streitgespraech",
+						"for": "Da irren Sie sich gewaltig",
+						"note": "Widersprechen, höflich und hart, laut."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_schreiben_eroerterung",
+						"for": "Der gewichtigste Einwand",
+						"note": "Schreib eine Erörterung und lass sie von deinem KI-Assistenten prüfen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_lesen_essay",
+						"for": "Zugegeben",
+						"note": "Über das Vergessen: ein Essay. Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_hoeren_capstone",
+						"for": "Übung 2 · Eine Runde über Arbeit",
+						"note": "Arbeit nach der Automatisierung: eine Podiumsdiskussion. Hör zu, 8 Fragen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_lesen_essay",
+						"for": "Übung 5 · Ein Essay übers Vergessen",
+						"note": "Der Essay noch einmal, in der App."
+					},
+					{
+						"quiz": "quest_c2_2_schreiben_eroerterung",
+						"for": "Übung 7 · Gib ihr den Rahmen",
+						"note": "Deine Erörterung, geprüft von deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Der deutsche Schulaufsatz heißt *Erörterung*. Er hat These, Antithese und Synthese, und ganze Generationen wurden danach benotet. Das bleibt fürs Leben. Frag einen Deutschen nach dem Mittagessen, und du bekommst Argumente dafür, Argumente dagegen und ein Fazit.",
 				"more": "Auch beim Streit",
@@ -8393,6 +8892,57 @@
 			"quiz": "quest_c2_2_dach_varianten",
 			"listenQuiz": "quest_c2_2_hoeren_lesung",
 			"speakQuiz": "quest_c2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_dach_varianten",
+						"for": "Drei Länder",
+						"note": "Marille, Jänner, Velo: Deutsch in Österreich und der Schweiz."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_lesen_dach",
+						"for": "Mit Zinsen",
+						"note": "Dreiundzwanzig Wörter für Europa: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_dach_varianten",
+						"for": "Drei Länder, ein Ding",
+						"note": "Ein Ding, drei Wörter, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_dach_varianten",
+						"for": "Dasselbe Wort, etwas anderes",
+						"note": "Dasselbe Wort, etwas anderes in Wien oder Zürich."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_lesen_dach",
+						"for": "Auf Deutsch aus Deutschland",
+						"note": "Die österreichischen Wörter in der EU: der Text noch einmal."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_dach_varianten",
+						"for": "Übung 1 · Österreich oder Schweiz",
+						"note": "Noch mehr Varianten."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_hoeren_lesung",
+						"for": "Übung 5 · Finde den Fehler",
+						"note": "Eine Lesung: Der Koffer. Hör zu und beantworte 8 Fragen."
+					}
+				]
+			},
 			"words": {
 				"intro": "Du hast Deutsch gelernt, nun fährst du nach Wien und bestellst eine Aprikose und einen Kaffee. Man versteht dich nicht oder tut so. Es gibt drei Standarddeutsch: das deutsche, das österreichische und das schweizerische. Keines davon ist das richtige.",
 				"more": "Auch im Kaffeehaus",
@@ -9280,6 +9830,62 @@
 			"quiz": "quest_c2_2_rezension_redemittel",
 			"listenQuiz": "quest_c2_2_lesen_lyrik",
 			"speakQuiz": "quest_c2_2_sprechen_analyse",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_rezension_redemittel",
+						"for": "Die Kritik",
+						"note": "Lässt sich als Warnung deuten: die Redemittel von Rezension und Interpretation."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_lesen_capstone",
+						"for": "Die Besprechung",
+						"note": "Das offene Fenster: eine Erzählung zum Deuten. Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_rezension_redemittel",
+						"for": "Lässt sich als … deuten",
+						"note": "Die Wendung der Kritik, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_lesen_lyrik",
+						"for": "Zwei Ameisen",
+						"note": "Ringelnatz und Morgenstern: zwei Gedichte und ein Kommentar. 8 Fragen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_sprechen_analyse",
+						"for": "Eine Rezension",
+						"note": "Eine Analyse vortragen, laut: Hör zu und sprich nach."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_hoeren_lesung",
+						"for": "Übung 2 · Der Koffer",
+						"note": "Die Lesung zum Hören: Der Koffer."
+					},
+					{
+						"quiz": "quest_c2_2_lesen_lyrik",
+						"for": "Übung 4 · Zwei Gedichte",
+						"note": "Die zwei Gedichte, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_rezension_redemittel",
+						"for": "Übung 6 · Deine Interpretation",
+						"note": "Noch mehr Redemittel der Interpretation."
+					}
+				]
+			},
 			"words": {
 				"intro": "Die deutsche Literaturkritik hat für alles ein Wort und wenig Geduld. Eine Rezension im Feuilleton kann eine Karriere machen oder beenden. Und irgendwo auf derselben Seite steht ein kurzes Gedicht mit einer Ameise, und daran erinnern sich alle.",
 				"more": "Auch in der Buchhandlung",
@@ -10213,6 +10819,57 @@
 			"quiz": "quest_c2_2_wortschatz",
 			"listenQuiz": "quest_c2_2_hoeren_capstone",
 			"speakQuiz": "quest_c2_2_sprechen_analyse",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_2_wortschatz",
+						"for": "Die letzten Wörter",
+						"note": "Alle Wörter von C2.2 als Karteikarten: der Rückblick auf das ganze Buch."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_2_hoeren_capstone",
+						"for": "Heft 19",
+						"note": "Arbeit nach der Automatisierung: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_2_anspielung",
+						"for": "Du oder Sie",
+						"note": "Was gesagt wird und was gemeint ist: eine letzte Runde."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_2_bigtext_lesen",
+						"for": "Noch einmal alles",
+						"note": "Zum Wert des Lesens: ein Text mit 11 Lücken, alles noch einmal."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_2_lesen_capstone",
+						"for": "Zwischen den Zeilen",
+						"note": "Das offene Fenster: zwischen den Zeilen lesen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_2_paraphrase",
+						"for": "Übung 2 · Einfacher",
+						"note": "Paraphrase: eine letzte Runde."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_2_sprechen_dialog",
+						"for": "Übung 5 · Der letzte Satz",
+						"note": "Meisterschaft, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Du hast jetzt ein Deutsch, das tut, was du verlangst. Du erreichst eine Richterin, einen Bürgermeister, einen Nachbarn. Du liest das Kleingedruckte und lässt Dinge ungesagt. Nur eines bleibt zu lernen: ein sehr kurzes Wort, und in diesem letzten Kapitel benutzt es endlich jemand.",
 				"more": "Auch bei der Feier",

@@ -28,6 +28,62 @@
 			"quiz": "quest_c1_2_kultur",
 			"listenQuiz": "quest_c1_2_lesen_kolumne",
 			"speakQuiz": "quest_c1_2_sprechen_abschwaechen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_kultur",
+						"for": "Die Kritik",
+						"note": "gewagt, bemerkenswert, beliebig: die Wörter der Kunstkritik in Sätzen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_lesen_kolumne",
+						"for": "Ein gewagtes Werk",
+						"note": "Die Kunst des Wartens: eine Kolumne. Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_kultur",
+						"for": "Besser als interessant",
+						"note": "Das genaue Wort statt „interessant“, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_sprechen_abschwaechen",
+						"for": "Gelinde gesagt",
+						"note": "Andeuten und abschwächen, laut: Hör zu und sprich nach."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_lesen_experten",
+						"for": "Mit Verb",
+						"note": "Sollen Museen ihren Eintritt abschaffen? Ordne die Meinungen zu."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_lesen_experten",
+						"for": "Übung 2 · Museen gratis?",
+						"note": "Expertenmeinungen zum freien Eintritt, in der App."
+					},
+					{
+						"quiz": "quest_c1_2_kultur",
+						"for": "Übung 1 · Das genaue Wort",
+						"note": "Noch mehr Kulturwortschatz."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_sprechen_abschwaechen",
+						"for": "Übung 6 · Schwäche es ab",
+						"note": "Noch mehr Abschwächungen, laut."
+					}
+				]
+			},
 			"words": {
 				"intro": "Auf einer deutschen Vernissage gibt es warmen Weißwein, eine Rede, der niemand folgt, und eine Frage: Was sagst du dem Künstler über sein Bild, das dir nicht gefällt?",
 				"more": "Auch in der Galerie",
@@ -1129,6 +1185,62 @@
 			"quiz": "quest_c1_2_modal_vermutung",
 			"listenQuiz": "quest_c1_2_hoeren_hoerspiel",
 			"speakQuiz": "quest_c1_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_modal_vermutung",
+						"for": "Wie sicher?",
+						"note": "muss, dürfte, könnte: von sicher bis unmöglich."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_hoeren_hoerspiel",
+						"for": "20:40 Uhr",
+						"note": "Ein Hörspiel: Der späte Gast. Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_modal_vermutung",
+						"for": "Von sicher bis unmöglich",
+						"note": "Die Modalverben der Vermutung, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_konj2_kritik",
+						"for": "Das hätte vermieden werden können",
+						"note": "Kritik und Empfehlung im Nachhinein: der Verbblock."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_bigtext_nachbar",
+						"for": "Wie sicher?",
+						"note": "Der geheimnisvolle Nachbar: ein ganzer Text voller Vermutungen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_modal_vermutung",
+						"for": "Übung 1 · Wie sicher?",
+						"note": "Noch mehr Vermutungen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_konj2_kritik",
+						"for": "Übung 5 · Der Verbblock",
+						"note": "Noch mehr Kritik im Konjunktiv II."
+					},
+					{
+						"quiz": "quest_c1_2_sprechen_kurzcheck",
+						"for": "Übung 6 · Erst Kritik, dann Empfehlung",
+						"note": "Ein kurzer Sprech-Check zu den Modalverben mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Sonntag, 20:15 Uhr. Um 20:40 weiß halb Deutschland, wer es war, und sagt es in Stufen: könnte, muss, kann nicht. Die beste Grammatikübung im Fernsehen.",
 				"more": "Auch im Krimi",
@@ -2245,6 +2357,62 @@
 			"quiz": "quest_c1_2_modal_hoerensagen",
 			"listenQuiz": "quest_c1_2_hoeren_reportage",
 			"speakQuiz": "quest_c1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_modal_hoerensagen",
+						"for": "Das Gerücht",
+						"note": "soll gestohlen worden sein: was man gehört hat."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_hoeren_tagebuecher",
+						"for": "Der Kuchenklau",
+						"note": "Die gefälschten Hitler-Tagebücher, April 1983: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_modal_hoerensagen",
+						"for": "Soll und will",
+						"note": "Er soll, er will: Hörensagen und Behauptung."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_konjunktiv1_indirekte_rede",
+						"for": "So heißt es, sie seien …",
+						"note": "Der Konjunktiv I in der Presse, sofort korrigiert."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_lesen_benin",
+						"for": "Wer sagt das?",
+						"note": "Wem gehören die Benin-Bronzen? Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_modal_hoerensagen",
+						"for": "Übung 1 · soll oder will?",
+						"note": "Noch mehr soll und will."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_konjunktiv1_indirekte_rede",
+						"for": "Übung 5 · Indirekte Rede",
+						"note": "Noch mehr indirekte Rede."
+					},
+					{
+						"quiz": "quest_c1_2_hoeren_reportage",
+						"for": "Übung 6 · Ein Samstag im Nordviertel",
+						"note": "Eine Reportage zum Hören: Hör zu und beantworte 8 Fragen."
+					}
+				]
+			},
 			"words": {
 				"intro": "Am deutschen Kiosk liegt ein Boulevardblatt, dessen Schlagzeile man von der anderen Straßenseite liest, daneben ein seriöses Blatt, bei dem das nicht geht. Beide halten auf ihre Art Abstand zum Erzählten.",
 				"more": "Auch am Kiosk",
@@ -3336,6 +3504,67 @@
 			"quiz": "quest_c1_2_modalpartikeln",
 			"listenQuiz": "quest_c1_2_sprechen_ironie",
 			"speakQuiz": "quest_c1_2_sprechen_ironie",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_redewendungen",
+						"for": "Der Ton",
+						"note": "auf die lange Bank schieben: Redewendungen in Sätzen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_lesen_tatort",
+						"for": "Sehr witzig",
+						"note": "Sonntag, 20.15 Uhr: ein Land sieht fern. Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_sprechen_ironie",
+						"for": "Lob oder Ironie?",
+						"note": "Ironie und Betonung, laut: Hör zu und sprich nach."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_redewendungen",
+						"for": "Auf die lange Bank",
+						"note": "Die Redewendung und ihr Bild, sofort korrigiert."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_modalpartikeln",
+						"for": "Mit Ton",
+						"note": "ja, doch, halt, eben: die Partikeln, die den Ton machen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_modalpartikeln",
+						"for": "Übung 1 · Welche Partikel?",
+						"note": "Noch mehr Modalpartikeln."
+					},
+					{
+						"quiz": "quest_c1_2_sprechen_ironie",
+						"for": "Übung 2 · Ernst oder nicht?",
+						"note": "Ernst oder ironisch? Hör den Ton und sprich nach."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_redewendungen",
+						"for": "Übung 7 · Sag es mit einer Redewendung",
+						"note": "Noch mehr Redewendungen."
+					},
+					{
+						"quiz": "quest_c1_2_diktat_idiom",
+						"for": "Übung 6 · Gehört?",
+						"note": "Nuancen als Diktat: Hör zu und schreib."
+					}
+				]
+			},
 			"words": {
 				"intro": "Den Deutschen sagt man nach, sie hätten keinen Humor. Zum Gegenbeweis haben sie eine ganze Theaterform, das *Kabarett*: Ein Mann im dunklen Anzug erklärt das Rentensystem, bis das Publikum weint.",
 				"more": "Auch im Kabarett",
@@ -4461,6 +4690,67 @@
 			"quiz": "quest_c1_2_wortbildung_vor",
 			"listenQuiz": "quest_c1_2_lesen_experten",
 			"speakQuiz": "quest_c1_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_wortbildung_vor",
+						"for": "Die Vorsilben",
+						"note": "be-, ver-, ent-, er-, zer-: was die Vorsilbe aus dem Verb macht."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_praefixe",
+						"for": "Die dritte Prüfung",
+						"note": "umfahren oder umfahren? Trennbar oder untrennbar."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_wortbildung_vor",
+						"for": "Be-, ver-, ent-, er-, zer-",
+						"note": "Die Vorsilben, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_praefixe",
+						"for": "Gleich geschrieben, zwei Verben",
+						"note": "Gleich geschrieben, anders betont: Satz für Satz."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_lesen_anglizismen",
+						"for": "Vorsilben",
+						"note": "Der Untergang, der nie kommt: Anglizismen im Deutschen. 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_wortbildung_vor",
+						"for": "Übung 1 · Bau das Verb",
+						"note": "Noch mehr Vorsilben."
+					},
+					{
+						"quiz": "quest_c1_2_praefixe",
+						"for": "Übung 2 · ge- oder nicht?",
+						"note": "Noch mehr trennbare und untrennbare Verben."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_hoeren_traeume",
+						"for": "Übung 5 · Welches Partizip?",
+						"note": "Der Abend, an dem das Radio Angst machte: Hör zu und beantworte 8 Fragen."
+					},
+					{
+						"quiz": "quest_c1_2_sprechen_kurzcheck",
+						"for": "Übung 7 · Übersetze",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Ein deutscher Führerschein kostet einige Tausend Euro, dauert Monate und ist ein Initiationsritus. Dazu enthält er eine berühmte Grammatikfalle: *umfahren* heißt um etwas herumfahren oder es überfahren.",
 				"more": "Auch in der Fahrschule",
@@ -5613,6 +5903,62 @@
 			"quiz": "quest_c1_2_numerus_gender",
 			"listenQuiz": "quest_c1_2_hoeren_interview_stimmt",
 			"speakQuiz": "quest_c1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_numerus_gender",
+						"for": "Wörter für alle",
+						"note": "Studierende, Lehrkräfte: Numerus und genderneutrale Wörter."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_hoeren_interview_stimmt",
+						"for": "Die E-Mail an alle",
+						"note": "Ein Interview zum Hitzeschutz: stimmt, stimmt nicht, nicht gesagt?"
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_wortbildung_nach",
+						"for": "Die Durchführbarkeit",
+						"note": "-heit, -keit, -ung, -schaft: die Nachsilben."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_numerus_gender",
+						"for": "Nur Plural, nur Singular",
+						"note": "die Eltern, das Obst: nur Plural, nur Singular."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_lesen_anglizismen",
+						"for": "Andere Formen",
+						"note": "Wie sich das Deutsche verändert: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_wortbildung_nach",
+						"for": "Übung 1 · Bau das Wort",
+						"note": "Noch mehr Nachsilben."
+					},
+					{
+						"quiz": "quest_c1_2_numerus_gender",
+						"for": "Übung 5 · Einer oder viele?",
+						"note": "Noch mehr Numerus."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_sprechen_dialog",
+						"for": "Übung 8 · Wörter für alle",
+						"note": "Nuancieren, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Kein Thema füllt Sonntagsessen, Radio-Anrufsendung und Leserbriefseite so wie die Endung eines Wortes. Darf man noch *Studenten* sagen? Soll man *Studierende* sagen? Man hat sich schon wegen weniger zerstritten, und vielleicht fragt man dich.",
 				"more": "Auch an der Uni",
@@ -6782,6 +7128,62 @@
 			"quiz": "quest_c1_2_relativ_advanced",
 			"listenQuiz": "quest_c1_2_lesen_experten",
 			"speakQuiz": "quest_c1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_kohaesion",
+						"for": "Der Text",
+						"note": "ein solcher, dieser, jener: Wörter, die den Text verbinden."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_lesen_bauhaus",
+						"for": "Der Antrag",
+						"note": "Vierzehn Jahre Bauhaus: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_relativ_advanced",
+						"for": "Mit deren Hilfe",
+						"note": "mit deren Hilfe, wofür, was: Relativsätze für Fortgeschrittene."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_kohaesion",
+						"for": "Ein solcher Schritt",
+						"note": "Zurückverweisen, ohne zu wiederholen, sofort korrigiert."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_lesen_experten",
+						"for": "Verbinden",
+						"note": "Expertenmeinungen zuordnen: Wer sagt was?"
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_relativ_advanced",
+						"for": "Übung 1 · Welches Relativwort?",
+						"note": "Noch mehr Relativsätze."
+					},
+					{
+						"quiz": "quest_c1_2_kohaesion",
+						"for": "Übung 4 · Zurückverweisen",
+						"note": "Noch mehr Textkohäsion."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_sprechen_dialog",
+						"for": "Übung 5 · Nicht wiederholen",
+						"note": "Nuancieren, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Ein *Stammtisch* ist der Tisch in der Kneipe, an dem seit vierzig Jahren dieselben Leute sitzen, unter einem Schild. Hier wird jede Frage geklärt, jeden Donnerstag gleich, und nie folgt etwas daraus.",
 				"more": "Auch am Stammtisch",
@@ -7846,6 +8248,62 @@
 			"quiz": "quest_c1_2_umformung_1",
 			"listenQuiz": "quest_c1_2_diktat_idiom",
 			"speakQuiz": "quest_c1_2_sprechen_abschwaechen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_umformung_1",
+						"for": "Die Sprache",
+						"note": "Relativsatz oder Partizip, Aktiv oder Passiv: umformulieren."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_lesen_kino",
+						"for": "Drei Fassungen",
+						"note": "Das Kino nach dem Streaming: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_umformung_1",
+						"for": "Eine Regel, drei Grammatiken",
+						"note": "Dasselbe in drei Grammatiken, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_schreiben_nominalstil",
+						"for": "Wegen fehlender Unterlagen",
+						"note": "Ein Bericht im Nominalstil: Satz für Satz."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_diktat_idiom",
+						"for": "Drei Grammatiken",
+						"note": "Nuancen als Diktat: Hör zu und schreib."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_umformung_1",
+						"for": "Übung 1 · Anders gesagt",
+						"note": "Noch mehr Umformungen."
+					},
+					{
+						"quiz": "quest_c1_2_schreiben_nominalstil",
+						"for": "Übung 4 · Nominal",
+						"note": "Noch mehr Nominalstil."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_sprechen_abschwaechen",
+						"for": "Übung 6 · Sag es im Berichtsstil",
+						"note": "Andeuten und abschwächen, laut."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutschland hat für fast alles ein Formular, und eins für das, wofür es keins gibt. Heimisch ist, wer einen Satz in drei Grammatiken liest und weiß: Alle heißen „bis Freitag zahlen“.",
 				"more": "Auch im Amt",
@@ -8896,6 +9354,62 @@
 			"quiz": "quest_c1_2_register_formell",
 			"listenQuiz": "quest_c1_2_suchbild_redaktion",
 			"speakQuiz": "quest_c1_2_sprechen_abschwaechen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_register_formell",
+						"for": "Der Ton",
+						"note": "Vom Chat zur E-Mail: informell wird formell."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_hoeren_uebersetzerin",
+						"for": "Die Gruppe",
+						"note": "Die Unsichtbare: ein Interview mit einer Übersetzerin. Hör zu, 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_register_formell",
+						"for": "Vom Chat zur E-Mail",
+						"note": "Das Register wechseln, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_schreiben_forum_beschwerde",
+						"for": "Beitrag und Beschwerde",
+						"note": "Forumsbeitrag und formelle Beschwerde: die Wendungen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_schreiben_forumsbeitrag",
+						"for": "Für die Gruppe",
+						"note": "Schreib deinen eigenen Forumsbeitrag und lass ihn von deinem KI-Assistenten prüfen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_register_formell",
+						"for": "Übung 1 · Mach es förmlich",
+						"note": "Noch mehr formelle Sätze."
+					},
+					{
+						"quiz": "quest_c1_2_schreiben_forum_beschwerde",
+						"for": "Übung 5 · Die Wendungen",
+						"note": "Noch mehr Wendungen für Beitrag und Beschwerde."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_suchbild_redaktion",
+						"for": "Übung 9 · Bilder-Check",
+						"note": "Eine Redaktion im Bild: Finde jedes Ding, das die App nennt."
+					}
+				]
+			},
 			"words": {
 				"intro": "Jedes deutsche Mietshaus hat eine Chatgruppe, gegründet wegen der Pakete. Nach sechs Monaten hat sie Regeln, eine Splittergruppe und einen sehr förmlichen Brief wegen eines Rads.",
 				"more": "Auch im Haus",
@@ -10002,6 +10516,62 @@
 			"quiz": "quest_c1_2_redemittel_vortrag",
 			"listenQuiz": "quest_c1_2_hoeren_reportage",
 			"speakQuiz": "quest_c1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_redemittel_vortrag",
+						"for": "Die Rede",
+						"note": "Dies dürfte darauf zurückzuführen sein: die Wendungen für Vortrag und Stellungnahme."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_hoeren_reportage",
+						"for": "Die siebte Rede",
+						"note": "Samstags im Nordviertel: eine Reportage. Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_redemittel_vortrag",
+						"for": "Drei Sätze",
+						"note": "Einleiten, belegen, folgern: sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_sprechen_abschwaechen",
+						"for": "Ohne Folien",
+						"note": "Frei sprechen und abschwächen, laut."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_lesen_kolumne",
+						"for": "Einfacher",
+						"note": "Die Kunst des Wartens: eine Kolumne. Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_redemittel_vortrag",
+						"for": "Übung 1 · Die Wendung",
+						"note": "Noch mehr Redemittel."
+					},
+					{
+						"quiz": "quest_c1_2_hoeren_interview_stimmt",
+						"for": "Übung 2 · Hitze in der Stadt",
+						"note": "Hitzeschutz in der Stadt: stimmt, stimmt nicht, nicht gesagt?"
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_sprechen_dialog",
+						"for": "Übung 4 · Dein Standpunkt",
+						"note": "Nuancieren, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Kein deutscher Anlass ohne Rede. Die 750-Jahr-Feier einer Stadt hat sieben davon, bevor irgendwer gegessen hat. Jede beginnt mit dem Dank an den Vorredner, und jede ist pünktlich.",
 				"more": "Auch beim Festakt",
@@ -10989,6 +11559,57 @@
 			"quiz": "quest_c1_2_lesen_literatur",
 			"listenQuiz": "quest_c1_2_lesen_literatur",
 			"speakQuiz": "quest_c1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_suchbild_flughafen",
+						"for": "Die Lesung",
+						"note": "Ein Flughafen im Bild: Finde jedes Ding, das die App nennt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_lesen_literatur",
+						"for": "Der Brief",
+						"note": "Ein literarischer Text: Der Brief. Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_umformung_1",
+						"for": "Das Bild übersetzen",
+						"note": "Relativsatz oder Partizip: dasselbe Bild, andere Grammatik."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_wortbildung_nach",
+						"for": "Die Wörter der Literatur",
+						"note": "Nachsilben in der Sprache der Literatur."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_lesen_literatur",
+						"for": "Einfach gesagt",
+						"note": "Der Brief, noch einmal gelesen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_hoeren_hoerspiel",
+						"for": "Übung 2 · Es klopft um Mitternacht",
+						"note": "Der späte Gast: ein Hörspiel. Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_redewendungen",
+						"for": "Übung 5 · Was bedeutet das?",
+						"note": "Redewendungen und ihre Bedeutung."
+					}
+				]
+			},
 			"words": {
 				"intro": "Jede deutsche Stadt hat ein *Literaturhaus* oder wenigstens eine Lesung hinten in der Buchhandlung. Ein Glas Wasser, eine Lampe, ein Autor. Das Publikum ist ungewöhnlich kritisch, und alle haben es gelesen.",
 				"more": "Auch bei der Lesung",
@@ -12017,6 +12638,57 @@
 			"quiz": "quest_c1_2_wortschatz",
 			"listenQuiz": "quest_c1_2_diktat_idiom",
 			"speakQuiz": "quest_c1_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_2_wortschatz",
+						"for": "Die Worte",
+						"note": "Alle Wörter von C1.2 als Karteikarten: ein guter Rückblick vor C2."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_2_register_formell",
+						"for": "Glück auf",
+						"note": "Welches Register passt? Eine letzte Runde."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_2_sprechen_abschwaechen",
+						"for": "Die richtige Stärke",
+						"note": "Die richtige Stärke finden, laut."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_2_bigtext_nachbar",
+						"for": "Noch einmal alles",
+						"note": "Der geheimnisvolle Nachbar: ein ganzer Text, alles noch einmal."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_2_diktat_idiom",
+						"for": "Die richtige Stärke",
+						"note": "Nuancen als Diktat: Hör zu und schreib."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_2_modal_vermutung",
+						"for": "Übung 2 · Wie sicher?",
+						"note": "Vermutungen: eine letzte Runde."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_2_sprechen_kurzcheck",
+						"for": "Übung 4 · Das ganze Buch",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Es gibt eine Situation, in der alle Deutschsprachigen jedes Wort sorgfältig wählen und alle Angst haben, es falsch zu machen. Sie dauert etwa zehn Minuten, im schwarzen Mantel, und dann gibt es Kaffee und Kuchen.",
 				"more": "Auch dabei",

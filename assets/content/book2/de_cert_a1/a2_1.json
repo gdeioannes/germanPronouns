@@ -27,6 +27,67 @@
 			"quiz": "quest_a2_1_perfekt_haben",
 			"listenQuiz": "quest_a2_1_diktat_perfekt",
 			"speakQuiz": "quest_a2_1_sprechen_wochenende",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_perfekt_haben",
+						"for": "Am Sonntag",
+						"note": "What did you do on Sunday? The past form with haben, sentence by sentence."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_lesen_hamburg",
+						"for": "Nichts Besonderes",
+						"note": "A family weekend in Hamburg, told in the Perfekt: read and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_perfekt_haben",
+						"for": "Die Klammer im Perfekt",
+						"note": "habe … gemacht: the bracket, with instant correction."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_perfekt_haben",
+						"for": "ge- in der Mitte",
+						"note": "gekauft, eingekauft, besucht: where the ge- goes."
+					},
+					{
+						"quiz": "quest_a2_1_diktat_perfekt",
+						"for": "Twelve to know by heart",
+						"note": "Sentences in the Perfekt read aloud: hear them and write them down."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_lesen_adler",
+						"for": "Du warst im Museum",
+						"note": "The first German railway, 1835: read and answer 8 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_perfekt_haben",
+						"for": "Übung 1 · The past form",
+						"note": "More past forms, checked as you type."
+					},
+					{
+						"quiz": "quest_a2_1_perfekt_sein",
+						"for": "Übung 2 · Sort them",
+						"note": "The verbs that take sein: a first look."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_sprechen_wochenende",
+						"for": "Übung 5 · Your yesterday",
+						"note": "Your weekend out loud: hear each sentence, then say it."
+					}
+				]
+			},
 			"words": {
 				"intro": "In Germany the weekend ends on Monday morning, at the coffee machine, when everyone asks the same question and nobody tells the truth.",
 				"more": "Auch am Wochenende · also at the weekend",
@@ -1071,6 +1132,67 @@
 			"quiz": "quest_a2_1_perfekt_sein",
 			"listenQuiz": "quest_a2_1_hoeren_reise",
 			"speakQuiz": "quest_a2_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_perfekt_sein",
+						"for": "Die Reise",
+						"note": "gefahren, geflogen, angekommen: the trip with sein."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_hoeren_reise",
+						"for": "Der halbe Zug",
+						"note": "Sofia tells you about her train trip to Italy: listen and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_perfekt_sein",
+						"for": "haben oder sein?",
+						"note": "bin or habe? Choose, then write the past form."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_perfekt_sein",
+						"for": "Ich bin losgefahren",
+						"note": "losgefahren, angekommen: the split verbs in the Perfekt."
+					},
+					{
+						"quiz": "quest_a2_1_lesen_adler",
+						"for": "A trip in four sentences",
+						"note": "The first train in Germany, told in the Perfekt: read and answer 8 questions."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_lesen_urlaub",
+						"for": "Am Strand",
+						"note": "Where Germans go on holiday: read and answer 8 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_perfekt_sein",
+						"for": "Übung 2 · haben or sein?",
+						"note": "More haben or sein, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_hoeren_reise",
+						"for": "Übung 4 · Sofias Reise",
+						"note": "Sofia’s trip again, in the app: listen and answer."
+					},
+					{
+						"quiz": "quest_a2_1_sprechen_kurzcheck",
+						"for": "Übung 5 · Your trip",
+						"note": "A short spoken check on the Perfekt with your own AI assistant."
+					}
+				]
+			},
 			"words": {
 				"intro": "The Baltic coast is where Germany goes on holiday: white piers, chalk cliffs, and a wicker beach chair you rent by the day.",
 				"more": "Auch an der Ostsee · also on the Baltic",
@@ -2078,6 +2200,62 @@
 			"quiz": "quest_a2_1_war_hatte",
 			"listenQuiz": "quest_a2_1_lesen_emma",
 			"speakQuiz": "quest_a2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_war_hatte",
+						"for": "Früher",
+						"note": "war and hatte: how things were."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_lesen_emma",
+						"for": "Die hatte ich auch",
+						"note": "Emma’s first week in Germany: read and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_war_hatte",
+						"for": "war, hatte",
+						"note": "The short past of sein and haben, every person."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_modal_praeteritum",
+						"for": "konnte, musste, durfte, wollte",
+						"note": "The helper verbs in the past, sentence by sentence."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_lesen_bertha",
+						"for": "Ein Zeugnis aus dem Jahr 1949",
+						"note": "Bertha Benz drives off in 1888: read and answer 8 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_war_hatte",
+						"for": "Übung 1 · war or hatte",
+						"note": "More war and hatte, checked as you type."
+					},
+					{
+						"quiz": "quest_a2_1_modal_praeteritum",
+						"for": "Übung 2 · The helpers in the past",
+						"note": "konnte, musste, durfte, wollte: a second round."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_sprechen_dialog",
+						"for": "Übung 4 · As a child",
+						"note": "Talk about things you did with your own AI assistant, out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "Nuremberg has been the capital of German toys for five hundred years. Its toy museum is full of grown-ups saying: I had that one.",
 				"more": "Auch im Museum · also in the museum",
@@ -3054,6 +3232,62 @@
 			"quiz": "quest_a2_1_dativ_artikel",
 			"listenQuiz": "quest_a2_1_sprechen_wochenende",
 			"speakQuiz": "quest_a2_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_dativ_artikel",
+						"for": "Verloren",
+						"note": "dem Mann, der Frau, den Kindern: who it belongs to."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_hoeren_geschenk",
+						"for": "Wem gehört der Schirm?",
+						"note": "Leon buys a present for his grandma: listen and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_dativ_artikel",
+						"for": "dem, der, den",
+						"note": "The dative articles, with instant correction."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_dativ_akkusativ",
+						"for": "Verben mit wem?",
+						"note": "Wem? Was? The verbs with a person and a thing."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_dativ_artikel",
+						"for": "Wem?",
+						"note": "More dem, der, den in short sentences."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_dativ_artikel",
+						"for": "Übung 1 · dem, der or den?",
+						"note": "More dative articles, checked as you type."
+					},
+					{
+						"quiz": "quest_a2_1_dativ_akkusativ",
+						"for": "Übung 3 · Who gets what?",
+						"note": "Who gets what: the person and the thing."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_sprechen_kurzcheck",
+						"for": "Übung 5 · Was passt?",
+						"note": "A short spoken check on the Perfekt with your own AI assistant."
+					}
+				]
+			},
 			"words": {
 				"intro": "Every German town has a Fundbüro. Everything you ever lost on a tram is on its shelves, labelled and dated, and someone there would like to give it back.",
 				"more": "Auch im Fundbüro · also at the lost property office",
@@ -4085,6 +4319,57 @@
 			"quiz": "quest_a2_1_dativ_praep",
 			"listenQuiz": "quest_a2_1_sprechen_weg",
 			"speakQuiz": "quest_a2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_dativ_praep",
+						"for": "Die Radtour",
+						"note": "mit dem Rad, aus der Schweiz, zum See: the dative words."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_lesen_urlaub",
+						"for": "Drei Länder, ein Reifen",
+						"note": "Where Germans spend their holidays: read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_dativ_praep",
+						"for": "aus, bei, mit, nach, seit, von, zu",
+						"note": "The seven little words, and dem, der, den after them."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_dativ_praep",
+						"for": "zum, zur, beim, vom",
+						"note": "zu dem becomes zum: the short forms in sentences."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_sprechen_weg",
+						"for": "An der Fähre",
+						"note": "Asking the way out loud: hear each question, then say it."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_dativ_praep",
+						"for": "Übung 1 · Which little word?",
+						"note": "More dative prepositions, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_sprechen_dialog",
+						"for": "Übung 4 · About you",
+						"note": "Talk about your trips with your own AI assistant, out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "Lake Constance touches three countries. There is a ferry, a cycle path around all of it, and a passport moment you may not notice.",
 				"more": "Auch am See · also by the lake",
@@ -5057,6 +5342,57 @@
 			"quiz": "quest_a2_1_pronomen_dativ",
 			"listenQuiz": "quest_a2_1_sprechen_wochenende",
 			"speakQuiz": "quest_a2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_pronomen_dativ",
+						"for": "Die Kleidung",
+						"note": "Das steht dir gut: mir, dir, ihm in the shop."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_hoeren_geschenk",
+						"for": "Das steht Ihnen sehr gut",
+						"note": "In a shop: Leon looks for a present. Listen and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_pronomen_dativ",
+						"for": "mir, dir, ihm, ihr",
+						"note": "The dative pronouns, every person."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_pronomen_dativ",
+						"for": "Es gefällt mir",
+						"note": "gefallen, passen, stehen: the thing does it to you."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_komparativ",
+						"for": "Was kostet es jetzt?",
+						"note": "billiger, teurer, besser: compare prices and things."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_pronomen_dativ",
+						"for": "Übung 2 · mich or mir?",
+						"note": "More mir and dir, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_sprechen_dialog",
+						"for": "Übung 5 · What you like",
+						"note": "Talk about what you like with your own AI assistant, out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "The big department store is where Germans try things on and ask each other a question in the dative. The answer is always yes, until you get home.",
 				"more": "Auch im Kaufhaus · also in the department store",
@@ -6110,6 +6446,57 @@
 			"quiz": "quest_a2_1_dativ_akkusativ",
 			"listenQuiz": "quest_a2_1_suchbild_badezimmer",
 			"speakQuiz": "quest_a2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_hoeren_geschenk",
+						"for": "Geschenke",
+						"note": "A present for Grandma: listen and answer 8 questions."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_dativ_akkusativ",
+						"for": "Der Schal",
+						"note": "Who gives whom what? Sentences with a person and a thing."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_dativ_akkusativ",
+						"for": "Wer zuerst?",
+						"note": "Person first, thing second: build each sentence."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_dativ_akkusativ",
+						"for": "Ich gebe es dir",
+						"note": "When the thing is a pronoun, it goes first."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_schreiben_wochenende",
+						"for": "Dein Brief",
+						"note": "Write your own e-mail to a friend and let your AI assistant check it."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_dativ_akkusativ",
+						"for": "Übung 3 · Which order?",
+						"note": "More person-and-thing sentences, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_hoeren_geschenk",
+						"for": "Übung 4 · A present",
+						"note": "The present for Grandma again, in the app."
+					}
+				]
+			},
 			"words": {
 				"intro": "In Nuremberg the Christmas market opens with an angel on a balcony. Then comes the serious business: who gets what, and how to hide what you got last year.",
 				"more": "Auch zu Weihnachten · also at Christmas",
@@ -7058,6 +7445,57 @@
 			"quiz": "quest_a2_1_woher_wo_wohin",
 			"listenQuiz": "quest_a2_1_sprechen_weg",
 			"speakQuiz": "quest_a2_1_sprechen_weg",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_woher_wo_wohin",
+						"for": "Der Weg",
+						"note": "aus dem, in dem, in den: from, at, to."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_hoeren_weg",
+						"for": "Sie können es nicht verfehlen",
+						"note": "Tourists ask the way to the castle: listen and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_woher_wo_wohin",
+						"for": "Drei Fragen, drei Sets",
+						"note": "Woher? Wo? Wohin? The right set of little words."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_sprechen_weg",
+						"for": "Wie komme ich zum Bahnhof?",
+						"note": "Ask the way out loud: hear each phrase, then say it."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_hoeren_weg",
+						"for": "Wie komme ich …?",
+						"note": "Directions you only hear: listen and answer."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_woher_wo_wohin",
+						"for": "Übung 1 · Woher, wo or wohin?",
+						"note": "More from, at and to, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_sprechen_weg",
+						"for": "Übung 5 · Der Weg",
+						"note": "Say the way out loud after the recording."
+					}
+				]
+			},
 			"words": {
 				"intro": "Heidelberg has a ruined castle, a very old bridge, and one long main street. It is impossible to get lost here, and tourists manage it daily.",
 				"more": "Auch in der Stadt · also in town",
@@ -8067,6 +8505,57 @@
 			"quiz": "quest_a2_1_temporal_2",
 			"listenQuiz": "quest_a2_1_lesen_hamburg",
 			"speakQuiz": "quest_a2_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_temporal_2",
+						"for": "Die Zeit",
+						"note": "seit, vor, für, in: when and how long."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_lesen_dom",
+						"for": "Vor vierzig Jahren",
+						"note": "Cologne Cathedral, 632 years in the building: read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_temporal_2",
+						"for": "Vorher, jetzt, später",
+						"note": "Before, now, later: the right little word for each time."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_temporal_2",
+						"for": "Das extra -n",
+						"note": "vor drei Jahren, seit zwei Tagen: the extra -n."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_lesen_dom",
+						"for": "Eine Tafel an der Brücke",
+						"note": "Dates and spans of time in a real history: read and answer."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_temporal_2",
+						"for": "Übung 3 · seit or für?",
+						"note": "More time words, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_sprechen_kurzcheck",
+						"for": "Übung 6 · Your timeline",
+						"note": "A short spoken check with your own AI assistant: things you have done."
+					}
+				]
+			},
 			"words": {
 				"intro": "The East Side Gallery is 1.3 kilometres of the Berlin Wall, painted by artists in 1990. It is the longest open-air gallery in the world, and the best timeline in Germany.",
 				"more": "Auch an der Mauer · also at the Wall",
@@ -8996,6 +9485,62 @@
 			"quiz": "quest_a2_1_wetter",
 			"listenQuiz": "quest_a2_1_hoeren_wetter",
 			"speakQuiz": "quest_a2_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_wetter",
+						"for": "Das Wetter",
+						"note": "Es regnet, es ist sonnig: the weather in sentences."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_lesen_wetter",
+						"for": "Das ist kein Regen",
+						"note": "Hotter, colder, wetter: Germans and their weather. Read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_wetter",
+						"for": "Es regnet, es ist kalt",
+						"note": "What the weather does, sentence by sentence."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_komparativ",
+						"for": "Zehn Grad und es wird kälter",
+						"note": "kälter, wärmer, besser: compare."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_hoeren_wetter",
+						"for": "Das Wetter heute",
+						"note": "A weather report on the radio: listen and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_hoeren_wetter",
+						"for": "Übung 2 · The weather report",
+						"note": "The weather report again, in the app."
+					},
+					{
+						"quiz": "quest_a2_1_komparativ",
+						"for": "Übung 3 · Getting warmer",
+						"note": "More comparisons, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_wetter",
+						"for": "Übung 4 · Your weather",
+						"note": "The weather words: a second round."
+					}
+				]
+			},
 			"words": {
 				"intro": "On the North Sea coast the sea goes away twice a day, and people walk out across the mud. The weather comes in faster than the tide, and the tide comes in fast.",
 				"more": "Auch im Watt · also on the mudflats",
@@ -9931,6 +10476,62 @@
 			"quiz": "quest_a2_1_komparativ",
 			"listenQuiz": "quest_a2_1_suchbild_bahnhof",
 			"speakQuiz": "quest_a2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_suchbild_bahnhof",
+						"for": "Wie?",
+						"note": "A station picture: find each thing when the app names it."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_komparativ",
+						"for": "Höher als Köln",
+						"note": "höher als, so hoch wie: compare, sentence by sentence."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_komparativ",
+						"for": "größer als",
+						"note": "-er, and sometimes the dots: every comparative."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_welcher_dieser",
+						"for": "Welcher? Dieser!",
+						"note": "welcher, dieser, and mein in the dative."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_lesen_wetter",
+						"for": "Was ist billiger?",
+						"note": "Comparisons in a real text about the weather: read and answer."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_komparativ",
+						"for": "Übung 2 · als or wie?",
+						"note": "More als and wie, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_welcher_dieser",
+						"for": "Übung 5 · welch- and dies-",
+						"note": "More welcher and dieser."
+					},
+					{
+						"quiz": "quest_a2_1_suchbild_bahnhof",
+						"for": "Übung 8 · Bilder-Check",
+						"note": "Find the station things in the picture."
+					}
+				]
+			},
 			"words": {
 				"intro": "Ulm has the tallest church tower in the world. Cologne has the larger cathedral. Each town can tell you exactly why it is better, and has been doing so since 1890.",
 				"more": "Auch in Ulm · also in Ulm",
@@ -11176,6 +11777,67 @@
 			"quiz": "quest_a2_1_schreiben_wochenende",
 			"listenQuiz": "quest_a2_1_lesen_hamburg",
 			"speakQuiz": "quest_a2_1_sprechen_wochenende",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a2_1_wortschatz",
+						"for": "Der Hafen",
+						"note": "Every word of A2.1 as flashcards: a good look back before A2.2."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a2_1_hoeren_ankunft",
+						"for": "An alle",
+						"note": "Amira’s first day in Germany: listen and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a2_1_schreiben_wochenende",
+						"for": "An e-mail to a friend",
+						"note": "Write your own e-mail about your weekend and let your AI assistant check it."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a2_1_indefinitpronomen",
+						"for": "man, jemand, nichts",
+						"note": "man, jemand, niemand, etwas, nichts, alle in sentences."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a2_1_bigtext_wochenende",
+						"for": "Deine E-Mail",
+						"note": "A weekend at Grandma’s, one text with 12 gaps."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a2_1_hoeren_reise",
+						"for": "Übung 1 · Sofia’s trip",
+						"note": "Sofia’s trip again, in the app."
+					},
+					{
+						"quiz": "quest_a2_1_schreiben_wochenende",
+						"for": "Übung 3 · Your e-mail",
+						"note": "Your e-mail, checked by your AI assistant."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a2_1_indefinitpronomen",
+						"for": "Übung 6 · alle or alles?",
+						"note": "More man, jemand, nichts, checked as you type."
+					},
+					{
+						"quiz": "quest_a2_1_sprechen_dialog",
+						"for": "Übung 7 · Say the opposite",
+						"note": "Talk about what you did with your own AI assistant, out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "A weekend in Hamburg: a harbour you can see from a tourist boat, a concert hall on top of a warehouse, and an e-mail you will one day wish you had read twice.",
 				"more": "Auch in Hamburg · also in Hamburg",

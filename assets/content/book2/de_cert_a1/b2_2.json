@@ -27,6 +27,67 @@
 			"quiz": "quest_b2_2_umwelt",
 			"listenQuiz": "quest_b2_2_lesen_klima",
 			"speakQuiz": "quest_b2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_umwelt",
+						"for": "Die Wissenschaft",
+						"note": "Studie, Ursache, Folge: Wissenschaft und Umwelt in Sätzen."
+					},
+					{
+						"quiz": "quest_b2_2_suchbild_labor",
+						"for": "Die Wissenschaft",
+						"note": "Ein Labor im Bild: Finde jedes Ding, das die App nennt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_lesen_insekten",
+						"for": "Die Studie",
+						"note": "Drei Viertel weniger Insekten: die Studie aus Krefeld. Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_umwelt",
+						"for": "Ursache und Folge",
+						"note": "Ursache und Folge in Sätzen, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_verweiswoerter",
+						"for": "Wörter, die zurückzeigen",
+						"note": "dies, damit, deshalb: Wörter, die einen Text zusammenhalten."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_lesen_klima",
+						"for": "Mit Rückverweis",
+						"note": "Was jeder Einzelne tun kann: Lies und beantworte 7 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_lesen_klima",
+						"for": "Übung 2 · Wer kann das Klima retten?",
+						"note": "Der Text zum Klima, in der App."
+					},
+					{
+						"quiz": "quest_b2_2_verweiswoerter",
+						"for": "Übung 4 · Zurückzeigen",
+						"note": "Noch mehr Verweiswörter, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_sprechen_dialog",
+						"for": "Übung 5 · Mach einen Text daraus",
+						"note": "Differenzieren, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutsche Forscher verbringen ganze Winter auf einem Schiff im arktischen Eis und erklären danach den Nachbarn, warum der Sommer heiß ist. Wissenschaft ist hier öffentlicher Streit.",
 				"more": "Auch in der Forschung",
@@ -1210,6 +1271,67 @@
 			"quiz": "quest_b2_2_irreal",
 			"listenQuiz": "quest_b2_2_diktat_irreal",
 			"speakQuiz": "quest_b2_2_sprechen_hypothese",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_konj2_gegenwart",
+						"for": "Wenn …",
+						"note": "hätte, wäre, käme, würde: der Konjunktiv II der Gegenwart."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_bigtext_chancen",
+						"for": "Rot oder Schwarz",
+						"note": "Verpasste Chancen: ein ganzer Text mit 12 Lücken."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_irreal",
+						"for": "Wenn ich reich wäre",
+						"note": "Irreale Bedingungen, auch ohne wenn: sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_als_ob",
+						"for": "Als ob",
+						"note": "Er tut, als ob er reich wäre: irreale Vergleiche."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_sprechen_hypothese",
+						"for": "Wenn das Gerät …",
+						"note": "Hypothesen und Bedauern, laut: Hör zu und sprich nach."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_konj2_gegenwart",
+						"for": "Übung 1 · Jetzt",
+						"note": "Noch mehr Konjunktiv der Gegenwart."
+					},
+					{
+						"quiz": "quest_b2_2_konj2_verg",
+						"for": "Übung 2 · Früher",
+						"note": "hätte gemacht, wäre gegangen: die Vergangenheit."
+					},
+					{
+						"quiz": "quest_b2_2_als_ob",
+						"for": "Übung 4 · als ob",
+						"note": "Noch mehr als ob."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_diktat_irreal",
+						"for": "Übung 5 · Ohne ob",
+						"note": "Hypothesen als Diktat: Hör zu und schreib."
+					}
+				]
+			},
 			"words": {
 				"intro": "Dostojewski verlor an den Tischen in Wiesbaden alles. Das Casino hat noch die Kronleuchter und eine Kleiderordnung, und jeder darf herausfinden, was er mit dem Geld getan hätte.",
 				"more": "Auch in der Spielbank",
@@ -2306,6 +2428,67 @@
 			"quiz": "quest_b2_2_konj2_verg",
 			"listenQuiz": "quest_b2_2_hoeren_fachinterview",
 			"speakQuiz": "quest_b2_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_konj2_verg",
+						"for": "Was wäre besser gewesen?",
+						"note": "hätte, wäre plus Partizip: was besser gewesen wäre."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_lesen_zufall",
+						"for": "Am Gipfelkreuz",
+						"note": "Entdeckt aus Versehen: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_konj2_verg",
+						"for": "Du hättest anrufen sollen",
+						"note": "hättest … sollen: der Vorwurf mit Modalverb."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_futur2",
+						"for": "Er wird den Zug verpasst haben",
+						"note": "wird … haben: Vermutungen über Vergangenes."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_sprechen_hypothese",
+						"for": "Du hättest …",
+						"note": "Bedauern laut sagen: Hör zu und sprich nach."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_konj2_verg",
+						"for": "Übung 1 · hätte oder wäre?",
+						"note": "Noch mehr Konjunktiv der Vergangenheit."
+					},
+					{
+						"quiz": "quest_b2_2_hoeren_fachinterview",
+						"for": "Übung 2 · Gehört?",
+						"note": "Ein Fachinterview über Ernährung: Hör zu und beantworte 7 Fragen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_futur2",
+						"for": "Übung 6 · Keine Sorge",
+						"note": "Noch mehr Futur II, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b2_2_sprechen_kurzcheck",
+						"for": "Übung 5 · Jetzt oder früher?",
+						"note": "Ein kurzer Sprech-Check zur irrealen Vergangenheit mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Eine Alpenhütte hat ein Regelbuch, einen Ofen und ein Zimmer mit zwanzig Schnarchern. Hier sucht dich die *Bergwacht*, und sie sagt dir freundlich, was du hättest tun sollen.",
 				"more": "Auch auf dem Berg",
@@ -3438,6 +3621,62 @@
 			"quiz": "quest_b2_2_sollen_subjektiv",
 			"listenQuiz": "quest_b2_2_lesen_textergaenzung",
 			"speakQuiz": "quest_b2_2_sprechen_einraeumen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_sollen_subjektiv",
+						"for": "Das Gerücht",
+						"note": "Er soll reich sein: was man sagt, aber nicht weiß."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_hoeren_schulbeginn",
+						"for": "Der Neue",
+						"note": "Sollte die Schule später beginnen? Hör das Interview und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_sollen_subjektiv",
+						"for": "Er soll reich sein",
+						"note": "soll oder will? Gerücht oder Behauptung."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_modalpartikeln",
+						"for": "Das ist halt so",
+						"note": "halt, eben, ja, doch: die kleinen Wörter, die den Ton machen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_futur1_vermutung",
+						"for": "Man sagt …",
+						"note": "Er wird wohl krank sein: Vermutungen über jetzt."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_sollen_subjektiv",
+						"for": "Übung 1 · soll oder will?",
+						"note": "Noch mehr subjektives sollen."
+					},
+					{
+						"quiz": "quest_b2_2_hoeren_fachinterview",
+						"for": "Übung 2 · Frag die Ärztin",
+						"note": "Ein Interview mit einer Fachfrau: Hör zu und beantworte 7 Fragen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_modalpartikeln",
+						"for": "Übung 5 · Welches kleine Wort?",
+						"note": "Noch mehr Modalpartikeln, sofort korrigiert."
+					}
+				]
+			},
 			"words": {
 				"intro": "In einem Eifeldorf gibt es einen *Dorfplatz*, eine Bäckerei und eine Bank. Alles Wissenswerte ist dort vor dem Mittagessen bekannt, und das meiste stimmt sogar.",
 				"more": "Auch im Dorf",
@@ -4588,6 +4827,62 @@
 			"quiz": "quest_b2_2_genitiv_praep",
 			"listenQuiz": "quest_b2_2_lesen_klima",
 			"speakQuiz": "quest_b2_2_sprechen_einraeumen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_genitiv_praep",
+						"for": "Amtsdeutsch",
+						"note": "aufgrund, infolge, mangels: die Präpositionen der Ämter."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_lesen_wattenmeer",
+						"for": "Eine Mitteilung der Stadt",
+						"note": "Das Wattenmeer, wo das Meer zweimal am Tag verschwindet: 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_genitiv_praep",
+						"for": "Aufgrund des Wetters",
+						"note": "Die Genitivpräpositionen, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_nominalisierung_intro",
+						"for": "Der Lauf, das Laufen",
+						"note": "Vom Verb zum Nomen: die sechs Typen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_hoeren_hitze",
+						"for": "Auf gut Deutsch",
+						"note": "Ein Vortrag: Warum kühlt die Stadt nachts nicht ab? Hör zu, 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_genitiv_praep",
+						"for": "Übung 2 · Der Genitiv",
+						"note": "Noch mehr Genitivpräpositionen."
+					},
+					{
+						"quiz": "quest_b2_2_nominalisierung_intro",
+						"for": "Übung 5 · Bilde ein Nomen",
+						"note": "Noch mehr Nominalisierung."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_sprechen_einraeumen",
+						"for": "Übung 8 · Nenne die Person",
+						"note": "Einräumen und widersprechen, laut: Hör zu und sprich nach."
+					}
+				]
+			},
 			"words": {
 				"intro": "Nach einem Sturm sagt eine deutsche Stadt nicht, ein Baum sei umgefallen. Sie sagt: *Infolge des Sturmtiefs kam es zu Beeinträchtigungen des Straßenverkehrs.* Bald liest du das, ohne zu zucken.",
 				"more": "Auch beim Sturm",
@@ -5811,6 +6106,67 @@
 			"quiz": "quest_b2_2_konditional_nominal",
 			"listenQuiz": "quest_b2_2_lesen_rezension",
 			"speakQuiz": "quest_b2_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_fvg",
+						"for": "Die Sprache",
+						"note": "eine Entscheidung treffen, in Kraft treten: die Funktionsverbgefüge."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_konditional_nominal",
+						"for": "Schadensmeldung",
+						"note": "wenn es regnet oder bei Regen: kürzer, nominal."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_konditional_nominal",
+						"for": "Bei Regen, durch Sparen",
+						"note": "Bedingung, nominal: sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b2_2_konsekutiv_modal_nominal",
+						"for": "Bei Regen, durch Sparen",
+						"note": "indem … oder durch …: Mittel und Folge, nominal."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_fvg",
+						"for": "Eine Entscheidung treffen",
+						"note": "Nomen und Verb, die zusammengehören."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_lesen_pfand",
+						"for": "Das Wort dazu",
+						"note": "25 Cent: das Pfand, das sein Ziel verfehlte. Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_konditional_nominal",
+						"for": "Übung 1 · Kürzer",
+						"note": "Noch mehr nominale Bedingungen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_fvg",
+						"for": "Übung 5 · Das Funktionsverb",
+						"note": "Noch mehr Funktionsverbgefüge."
+					},
+					{
+						"quiz": "quest_b2_2_sprechen_kurzcheck",
+						"for": "Übung 7 · Finde den Fehler",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutsche versichern mehr als fast alle: ihre Zähne, ihre Rechtsstreite, sogar ihre Fahrräder. Einmal im Leben füllst du ein Schadensformular aus und wirst danach beurteilt, wie gut du einen Kochtopf beschreibst.",
 				"more": "Auch bei der Versicherung",
@@ -6924,6 +7280,62 @@
 			"quiz": "quest_b2_2_partizip_attribut",
 			"listenQuiz": "quest_b2_2_suchbild",
 			"speakQuiz": "quest_b2_2_sprechen_einraeumen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_passiversatz_intro",
+						"for": "Geht das?",
+						"note": "lösbar, lässt sich lösen, ist zu lösen: Passiv ohne werden."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_partizip_attribut",
+						"for": "Die Brücke",
+						"note": "die seit Jahren geplante Brücke: das erweiterte Attribut."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_partizip_attribut",
+						"for": "Die geplanten Maßnahmen",
+						"note": "Falten und auffalten: sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_passiversatz_intro",
+						"for": "Das lässt sich lösen",
+						"note": "-bar, sich lassen, sein + zu: Satz für Satz."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_hoeren_nacht",
+						"for": "Es lässt sich …",
+						"note": "Sollen die Laternen nachts aus? Eine Bürgerversammlung: Hör zu, 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_partizip_attribut",
+						"for": "Übung 1 · Partizip + Endung",
+						"note": "Noch mehr Partizipialattribute."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_passiversatz_intro",
+						"for": "Übung 6 · Mit sich lassen",
+						"note": "Noch mehr Passiversatz, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b2_2_suchbild",
+						"for": "Übung 8 · Bilder-Check",
+						"note": "Eine Öko-Wohnung im Bild: Finde jedes Ding."
+					}
+				]
+			},
 			"words": {
 				"intro": "In Papenburg, weit im Binnenland, baut eine Werft die größten Kreuzfahrtschiffe der Welt. Jedes ist zu groß für den Fluss. Also wird er gestaut, ausgebaggert und gesperrt, und die ganze Region schaut zu.",
 				"more": "Auch auf der Werft",
@@ -8026,6 +8438,62 @@
 			"quiz": "quest_b2_2_adjektivbildung",
 			"listenQuiz": "quest_b2_2_hoeren_vortrag",
 			"speakQuiz": "quest_b2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_adjektivbildung",
+						"for": "Wie ist das?",
+						"note": "-lich, -ig, -isch, -bar, -los, -reich: Adjektive bilden."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_hoeren_vortrag",
+						"for": "Alles, was Sie wissen müssen",
+						"note": "Ein Vortrag über Schlaf: Hör zu und beantworte 7 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_adjektivbildung",
+						"for": "Sinnvoll oder sinnlos?",
+						"note": "Die richtige Endung für jedes Adjektiv."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_relativ_wer_was",
+						"for": "Wer gut schläft, lernt besser",
+						"note": "wer, was, wo: Relativsätze ohne Nomen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_relativ_wer_was",
+						"for": "Wer …",
+						"note": "Noch mehr Relativsätze mit wer und was."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_adjektivbildung",
+						"for": "Übung 1 · Welche Endung?",
+						"note": "Noch mehr Adjektivbildung."
+					},
+					{
+						"quiz": "quest_b2_2_relativ_wer_was",
+						"for": "Übung 4 · Welches Relativwort?",
+						"note": "Noch mehr wer, was, wo."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_hoeren_vortrag",
+						"for": "Übung 5 · Ein Vortrag über Schlaf",
+						"note": "Der Vortrag noch einmal, in der App."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutsche Kliniken haben Schlaflabore: Dort wirst du verkabelt und gefilmt und sollst natürlich schlafen. Das ist recht sinnvoll und völlig hoffnungslos.",
 				"more": "Auch im Schlaflabor",
@@ -9282,6 +9750,62 @@
 			"quiz": "quest_b2_2_konzessiv",
 			"listenQuiz": "quest_b2_2_lesen_rezension",
 			"speakQuiz": "quest_b2_2_sprechen_einraeumen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_lesen_rezension",
+						"for": "Die Kritik",
+						"note": "Eine Buchrezension: Lies und beantworte 7 Fragen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_konzessiv",
+						"for": "Die Rezension",
+						"note": "obwohl, zwar … aber, so … auch: Konzessivsätze."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_konzessiv",
+						"for": "So teuer es auch war",
+						"note": "Einräumen, mit der richtigen Satzform."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_adversativ",
+						"for": "Der Süden dagegen ist trocken",
+						"note": "während, dagegen, im Gegensatz zu: der Gegensatz."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_lesen_woelfe",
+						"for": "Obwohl, trotzdem, so … auch",
+						"note": "Die Rückkehr der Wölfe: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_konzessiv",
+						"for": "Übung 1 · Welches Wort?",
+						"note": "Noch mehr Konzessivsätze."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_adversativ",
+						"for": "Übung 5 · Welches Wort?",
+						"note": "Noch mehr Gegensätze."
+					},
+					{
+						"quiz": "quest_b2_2_lesen_rezension",
+						"for": "Übung 6 · Eine Rezension",
+						"note": "Die Rezension noch einmal, in der App."
+					}
+				]
+			},
 			"words": {
 				"intro": "Jeden Frühling gehört ganz Leipzig dem Buch. Tausende lesen in Straßenbahndepots und Bädern vor, und ein Kritiker urteilt so sorgfältig wie bei einer Steuererklärung.",
 				"more": "Auch auf der Buchmesse",
@@ -10488,6 +11012,62 @@
 			"quiz": "quest_b2_2_indefinit",
 			"listenQuiz": "quest_b2_2_suchbild_labor",
 			"speakQuiz": "quest_b2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_indefinit",
+						"for": "Wer?",
+						"note": "jemand, niemand, einer, welche: die Indefinitpronomen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_indefinit",
+						"for": "Der Toaster",
+						"note": "Einer, keine, welche: Satz für Satz."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_indefinit",
+						"for": "Jemand und niemand",
+						"note": "jemand, niemand, irgendwer: sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_passiversatz_intro",
+						"for": "Selbst reparieren",
+						"note": "lässt sich reparieren, ist zu reparieren."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_lesen_textergaenzung",
+						"for": "Einer, keins, welche",
+						"note": "Regionale Produkte: ein Text mit Lücken zum Ergänzen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_indefinit",
+						"for": "Übung 2 · Einer, keiner, welche",
+						"note": "Noch mehr Indefinitpronomen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_suchbild_labor",
+						"for": "Übung 7 · Bilder-Check",
+						"note": "Ein Labor im Bild: Finde jedes Ding."
+					},
+					{
+						"quiz": "quest_b2_2_sprechen_dialog",
+						"for": "Übung 6 · Dein Toaster",
+						"note": "Differenzieren, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "In einem *Repair Café* reparieren Ingenieure im Ruhestand gratis deinen Toaster und erklären dir genau, wer ihn gebaut hat und warum er kaputt ist. Eine große deutsche Institution, und den Kuchen bringst du mit.",
 				"more": "Auch im Repair Café",
@@ -11527,6 +12107,57 @@
 			"quiz": "quest_b2_2_schreiben_beschwerde",
 			"listenQuiz": "quest_b2_2_lesen_textergaenzung",
 			"speakQuiz": "quest_b2_2_sprechen_einraeumen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_relativ_dessen_deren",
+						"for": "Der Brief",
+						"note": "dessen, deren, mit dem: der Relativsatz im formellen Brief."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_lesen_textergaenzung",
+						"for": "Sehr geehrter Herr Kunze",
+						"note": "Sprachbausteine: Ergänze den Text."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_schreiben_beschwerde",
+						"for": "Die Form einer Beschwerde",
+						"note": "Schreib deine Beschwerde und lass sie von deinem KI-Assistenten prüfen."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_sprechen_einraeumen",
+						"for": "Sich einräumen, dann drängen",
+						"note": "Einräumen und widersprechen, laut."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_konzessiv",
+						"for": "Ein Mängelbrief",
+						"note": "trotz, obwohl, zwar … aber: eine letzte Runde."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_schreiben_beschwerde",
+						"for": "Übung 3 · Deine Beschwerde",
+						"note": "Deine Beschwerde, geprüft von deinem KI-Assistenten."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_relativ_dessen_deren",
+						"for": "Übung 5 · Schreib es formell",
+						"note": "Noch mehr dessen und deren."
+					}
+				]
+			},
 			"words": {
 				"intro": "Halb Deutschland mietet, hat also einen Vermieter und muss einen Brief über eine Heizung schreiben. Das Mietrecht ist streng, und ein guter Brief in der richtigen Form kann einen Vermieter Geld kosten.",
 				"more": "Auch im Mietshaus",
@@ -12477,6 +13108,62 @@
 			"quiz": "quest_b2_2_wortschatz",
 			"listenQuiz": "quest_b2_2_hoeren_fachinterview",
 			"speakQuiz": "quest_b2_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b2_2_wortschatz",
+						"for": "Die Debatte",
+						"note": "Alle Wörter von B2.2 als Karteikarten: ein guter Rückblick vor C1."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b2_2_hoeren_fachinterview",
+						"for": "Der Sonntagsbraten",
+						"note": "Ein Interview über Ernährung: Hör zu und beantworte 7 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b2_2_adversativ",
+						"for": "Abwägen",
+						"note": "Einerseits, andererseits: der Gegensatz."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b2_2_bigtext_chancen",
+						"for": "Noch einmal alles",
+						"note": "Verpasste Chancen: ein Text mit 12 Lücken, alles noch einmal."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b2_2_lesen_klima",
+						"for": "Und du?",
+						"note": "Was jeder Einzelne tun kann: Lies und beantworte 7 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b2_2_sollen_subjektiv",
+						"for": "Übung 1 · Das soll so sein",
+						"note": "Subjektives sollen: eine letzte Runde."
+					},
+					{
+						"quiz": "quest_b2_2_partizip_attribut",
+						"for": "Übung 2 · Falte es zusammen",
+						"note": "Partizipialattribute: eine letzte Runde."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b2_2_sprechen_dialog",
+						"for": "Übung 5 · Deine Meinung",
+						"note": "Differenzieren, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutschland hat in jedem Dorf einen Metzger und einen Regierungsbericht über Fleisch. Am Familientisch, sonntags, beim Braten, treffen beide aufeinander. Jeder hat eine Studie gelesen.",
 				"more": "Auch am Tisch",

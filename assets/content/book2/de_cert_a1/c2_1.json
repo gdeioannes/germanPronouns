@@ -28,6 +28,62 @@
 			"quiz": "quest_c2_1_wirtschaft",
 			"listenQuiz": "quest_c2_1_diktat_register",
 			"speakQuiz": "quest_c2_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_wirtschaft",
+						"for": "Recht und Geld",
+						"note": "Einspruch, Umsatz, Rendite: Wirtschaft und Recht in Sätzen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_hoeren_plaedoyer",
+						"for": "Vierzehn Euro zwanzig",
+						"note": "Das Plädoyer der Verteidigung: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_wirtschaft",
+						"for": "Einspruch einlegen",
+						"note": "Das Nomen und sein festes Verb in der Rechtssprache, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_register",
+						"for": "Kriegen, bekommen, erhalten",
+						"note": "Von umgangssprachlich bis förmlich: die richtige Stufe."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_hoeren_karlsruhe",
+						"for": "Drei Stufen",
+						"note": "Die Richter in Rot: ein Gespräch über das Verfassungsgericht. Hör zu, 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_wirtschaft",
+						"for": "Übung 2 · Umsatz, Gewinn oder Rendite?",
+						"note": "Noch mehr Wirtschaftswortschatz."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_register",
+						"for": "Übung 5 · Eine Stufe höher",
+						"note": "Noch mehr Registerwechsel."
+					},
+					{
+						"quiz": "quest_c2_1_diktat_register",
+						"for": "Übung 6 · Gehört?",
+						"note": "Register und Stil als Diktat: Hör zu und schreib."
+					}
+				]
+			},
 			"words": {
 				"intro": "Ein deutsches Amtsgericht ist ruhig, holzgetäfelt und fast leer. Man zerrt den Nachbarn wegen kleinster Beträge dorthin, aus Prinzip. Jedes Wort wird hier abgewogen: Zu Hause *kriegst* du einen Brief, vor Gericht *erhältst* du ihn.",
 				"more": "Auch vor Gericht",
@@ -984,6 +1040,62 @@
 			"quiz": "quest_c2_1_kollokationen",
 			"listenQuiz": "quest_c2_1_hoeren_feature",
 			"speakQuiz": "quest_c2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_kollokationen",
+						"for": "Was zusammengehört",
+						"note": "eine herbe Niederlage, eine Frage stellen: Wörter, die zusammengehören."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_hoeren_feature",
+						"for": "Null zu neun",
+						"note": "Ein Feature: Die Stunde vor dem Morgen. Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_kollokationen",
+						"for": "Das Nomen wählt sein Verb",
+						"note": "Das feste Verb zum Nomen, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_komparation_advanced",
+						"for": "Eine der größten Städte Europas",
+						"note": "einer der größten, bei weitem, je … umso: Steigerung für Fortgeschrittene."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_lesen_champions",
+						"for": "Was gehört zusammen?",
+						"note": "Die Weltmarktführer, die niemand kennt: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_kollokationen",
+						"for": "Übung 1 · Das feste Verb",
+						"note": "Noch mehr Kollokationen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_komparation_advanced",
+						"for": "Übung 5 · Der Grad",
+						"note": "Noch mehr Komparation."
+					},
+					{
+						"quiz": "quest_c2_1_sprechen_dialog",
+						"for": "Übung 7 · Auf Deutsch",
+						"note": "Stilsicherheit, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Nasser Sonntag, elfte Liga: Vierzig Menschen und ein Hund sehen ein Spiel. Am Montag berichtet das Lokalblatt im Ton eines Staatsbegräbnisses. Eine Niederlage ist nie bloß groß. Sie ist *herb*, *bitter* oder *empfindlich*.",
 				"more": "Auch auf dem Platz",
@@ -1923,6 +2035,62 @@
 			"quiz": "quest_c2_1_konnotation",
 			"listenQuiz": "quest_c2_1_lesen_artikel",
 			"speakQuiz": "quest_c2_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_konnotation",
+						"for": "Warm und kalt",
+						"note": "sparsam oder geizig? Die Konnotation eines Wortes."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_lesen_wirecard",
+						"for": "Zu unserer Zufriedenheit",
+						"note": "Die Milliarden, die es nie gab: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_konnotation",
+						"for": "Sparsam oder geizig?",
+						"note": "Warm, neutral, kalt: das richtige Wort, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_abtoenung",
+						"for": "Durchaus nicht",
+						"note": "durchaus, keineswegs, geradezu: abtönen und abstufen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_lesen_artikel",
+						"for": "Warm oder kalt?",
+						"note": "Die Rückkehr der Langsamkeit: ein Zeitungsartikel. 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_konnotation",
+						"for": "Übung 1 · Warm oder kalt?",
+						"note": "Noch mehr Konnotation."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_abtoenung",
+						"for": "Übung 5 · Abstufen",
+						"note": "Noch mehr Abtönung."
+					},
+					{
+						"quiz": "quest_c2_1_sprechen_kurzcheck",
+						"for": "Übung 7 · Sag es mit einem Wort",
+						"note": "Ein kurzer Sprech-Check zum Register mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Wer in Deutschland eine Stelle verlässt, hat Anspruch auf ein Zeugnis. Es muss per Gesetz freundlich sein. So entstand eine Geheimsprache, in der jedes nette Wort ein Urteil ist. *Er war stets bemüht* heißt: immer versucht, nie geschafft.",
 				"more": "Auch im Büro",
@@ -2879,6 +3047,57 @@
 			"quiz": "quest_c2_1_sprichwoerter",
 			"listenQuiz": "quest_c2_1_diktat_register",
 			"speakQuiz": "quest_c2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_sprichwoerter",
+						"for": "Die Sprichwörter",
+						"note": "Wer im Glashaus sitzt …: die Sprichwörter in Sätzen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_sprichwoerter",
+						"for": "Eins fünfundzwanzig",
+						"note": "Das ganze Sprichwort und was es meint."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_sprichwoerter",
+						"for": "Das ganze Sprichwort",
+						"note": "Beende das Sprichwort, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_konj2_nuancen",
+						"for": "Um ein Haar",
+						"note": "Um ein Haar wäre …: die Nuancen des Konjunktivs II."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_diktat_register",
+						"for": "Mit Konjunktiv",
+						"note": "Register und Stil als Diktat: Hör zu und schreib."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_sprichwoerter",
+						"for": "Übung 1 · Beende das Sprichwort",
+						"note": "Noch mehr Sprichwörter."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_konj2_nuancen",
+						"for": "Übung 5 · Die Verbform",
+						"note": "Noch mehr Konjunktiv-Nuancen."
+					}
+				]
+			},
 			"words": {
 				"intro": "Rund eine Million deutscher Familien hat einen Kleingarten. Die Hecke hat eine gesetzliche Höhe, der Rasen einen gesetzlichen Anteil, die Zwerge eine lange, umstrittene Geschichte. Nachbarn reden hier seit Generationen in Sprichwörtern: streiten, ohne etwas zu sagen.",
 				"more": "Auch im Garten",
@@ -3786,6 +4005,62 @@
 			"quiz": "quest_c2_1_valenz",
 			"listenQuiz": "quest_c2_1_hoeren_feature",
 			"speakQuiz": "quest_c2_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_valenz",
+						"for": "Die Versammlung",
+						"note": "Das bedarf einer Erklärung: Verben und ihre Ergänzungen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_lesen_urteil",
+						"for": "Tagesordnungspunkt 7",
+						"note": "Sechzig Milliarden und ein Satz: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_valenz",
+						"for": "Der Opfer gedenken",
+						"note": "Der Fall, den das Verb verlangt, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_konnektoren_nuancen",
+						"for": "Indes, wiewohl, mithin",
+						"note": "indes, wiewohl, zumal, gleichwohl, mithin."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_hoeren_plaedoyer",
+						"for": "Mit Genitiv",
+						"note": "Ein Plädoyer zum Hören: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_valenz",
+						"for": "Übung 1 · Der Fall, den das Verb verlangt",
+						"note": "Noch mehr Valenz."
+					},
+					{
+						"quiz": "quest_c2_1_konnektoren_nuancen",
+						"for": "Übung 4 · Welches Verbindungswort?",
+						"note": "Noch mehr Konnektoren."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_sprechen_kurzcheck",
+						"for": "Übung 7 · Sag es anders",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Drei Deutsche in einem Raum, heißt es, gründen einen Verein und ernennen dann einen Kassenwart. Die Jahresversammlung hat Tagesordnung, Protokoll und Kassenprüfung. Sie ist auch der letzte Ort in Deutschland, an dem der Genitiv noch Alltag ist.",
 				"more": "Auch im Verein",
@@ -4713,6 +4988,62 @@
 			"quiz": "quest_c2_1_komposita",
 			"listenQuiz": "quest_c2_1_lesen_artikel",
 			"speakQuiz": "quest_c2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_komposita",
+						"for": "Lange Wörter",
+						"note": "Geschwindigkeitsbegrenzung: Komposita bilden und verstehen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_lesen_inflation",
+						"for": "Das Spiel",
+						"note": "Das Jahr, in dem Geld nichts wog: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_komposita",
+						"for": "Von rechts lesen",
+						"note": "Von rechts lesen, die Fuge finden: sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_adjektivbildung",
+						"for": "Glaubwürdig, termingerecht",
+						"note": "-haft, -mäßig, -artig, -fähig, -würdig, -gerecht."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_lesen_artikel",
+						"for": "Von rechts",
+						"note": "Die Rückkehr der Langsamkeit: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_komposita",
+						"for": "Übung 1 · Bau das Wort",
+						"note": "Noch mehr Komposita."
+					},
+					{
+						"quiz": "quest_c2_1_adjektivbildung",
+						"for": "Übung 4 · Welche Nachsilbe?",
+						"note": "Noch mehr Adjektivbildung."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_sprechen_dialog",
+						"for": "Übung 7 · Auf Deutsch",
+						"note": "Stilsicherheit, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Ein langes deutsches Wort ist nicht schwer: Es ist ein kurzer Satz ohne Leerzeichen. Von rechts gelesen, erklärt es sich selbst. Nirgends übt man das besser als auf der Autobahn, wo die Schilder mit 130 Kilometern pro Stunde heranfliegen.",
 				"more": "Auch auf der Autobahn",
@@ -5698,6 +6029,67 @@
 			"quiz": "quest_c2_1_praefixe_semantik",
 			"listenQuiz": "quest_c2_1_suchbild_tischlerei",
 			"speakQuiz": "quest_c2_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_suchbild_tischlerei",
+						"for": "In der Tischlerei",
+						"note": "Eine Tischlerei im Bild: Finde jedes Ding, das die App nennt."
+					},
+					{
+						"quiz": "quest_c2_1_praefixe_semantik",
+						"for": "Die Vorsilben",
+						"note": "ver-, zer-, er-, ent-, be-, über-: was die Vorsilbe bedeutet."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_praefixe_semantik",
+						"for": "Zwölf Euro",
+						"note": "sich verschreiben, verrechnen: das ver- des Fehlers."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_praefixe_semantik",
+						"for": "Sich verrechnen, ersteigern, entkalken",
+						"note": "Die Bedeutung jeder Vorsilbe, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_umformung_2",
+						"for": "Am Vortag, tags darauf",
+						"note": "Direkt oder indirekt, Konnektor oder Präposition: umformulieren."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_umformung_2",
+						"for": "Am Vortag",
+						"note": "Noch mehr Umformungen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_praefixe_semantik",
+						"for": "Übung 1 · Mit Vorsilbe",
+						"note": "Noch mehr Vorsilben."
+					},
+					{
+						"quiz": "quest_c2_1_umformung_2",
+						"for": "Übung 4 · Umformulieren",
+						"note": "Noch mehr Umformungen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_suchbild_tischlerei",
+						"for": "Übung 8 · Bilder-Check",
+						"note": "Die Tischlerei im Bild: Finde jedes Ding."
+					}
+				]
+			},
 			"words": {
 				"intro": "Das Deutsche hat ein Wörtchen, das jede Handlung zum Fehler macht: *ver-*. Du *schreibst*, und dann *verschreibst du dich*. Du *rechnest*, und du *verrechnest dich*. Lern das, und du kannst erklären, wie du zu einem Schrank kamst.",
 				"more": "Auch in der Werkstatt",
@@ -6623,6 +7015,62 @@
 			"quiz": "quest_c2_1_konj1_lit",
 			"listenQuiz": "quest_c2_1_suchbild_bauernhof",
 			"speakQuiz": "quest_c2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_suchbild_bauernhof",
+						"for": "Auf dem Hof",
+						"note": "Ein Bauernhof im Bild: Finde jedes Ding, das die App nennt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_konj1_lit",
+						"for": "Die Kuh hört Mozart",
+						"note": "So der Landwirt: der Konjunktiv I im Journalismus."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_konj1_lit",
+						"for": "So Wendt",
+						"note": "Berichten, ohne sich festzulegen, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_bigtext_vorstand",
+						"for": "Laut, zufolge, wie er betont",
+						"note": "Aus der Vorstandssitzung: ein Bericht mit 12 Lücken."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_lesen_wirecard",
+						"for": "So die Werbung",
+						"note": "Die Milliarden, die es nie gab: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_konj1_lit",
+						"for": "Übung 1 · Berichte es",
+						"note": "Noch mehr Konjunktiv I."
+					},
+					{
+						"quiz": "quest_c2_1_lesen_artikel",
+						"for": "Übung 2 · Langsamkeit",
+						"note": "Die Rückkehr der Langsamkeit, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_hoeren_mitbestimmung",
+						"for": "Übung 5 · Wer lehnt wohin?",
+						"note": "Die Arbeiter im Aufsichtsrat: ein Feature. Hör zu, 8 Fragen."
+					}
+				]
+			},
 			"words": {
 				"intro": "In einer guten deutschen Reportage weißt du genau, wer was behauptet, ohne ein einziges *sagte er*. Das erledigt der Konjunktiv I, und *so Wendt* schlüpft zwischen die Kommas. So steht ein Reporter neben einer Behauptung, ohne sie anzufassen.",
 				"more": "Auch auf dem Hof",
@@ -7479,6 +7927,62 @@
 			"quiz": "quest_c2_1_stilmittel",
 			"listenQuiz": "quest_c2_1_sprechen_rede",
 			"speakQuiz": "quest_c2_1_sprechen_rede",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_sprechen_rede",
+						"for": "Die Rede",
+						"note": "Eine Rede halten, laut: Hör zu und sprich nach."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_lesen_kafka",
+						"for": "Der Trauzeuge",
+						"note": "Kafka: Der Mann vom Lande und das Gesetz. Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_stilmittel",
+						"for": "Name und Wirkung",
+						"note": "Metapher, Anapher, Klimax: Name und Wirkung."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_sprechen_rede",
+						"for": "Der Ring",
+						"note": "Die Rede bauen, laut."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_stilmittel",
+						"for": "Was ist das?",
+						"note": "Noch mehr Stilmittel, sofort korrigiert."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_hoeren_feature",
+						"for": "Übung 2 · Die Stadt vor Sonnenaufgang",
+						"note": "Die Stunde vor dem Morgen: ein Feature. Hör zu, 8 Fragen."
+					},
+					{
+						"quiz": "quest_c2_1_stilmittel",
+						"for": "Übung 4 · Das Stilmittel",
+						"note": "Noch mehr Rhetorik."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_sprechen_rede",
+						"for": "Übung 7 · Mach eine Rede daraus",
+						"note": "Deine Rede, laut geübt."
+					}
+				]
+			},
 			"words": {
 				"intro": "Auf einer deutschen Hochzeit hält immer jemand eine Rede. Sie beginnt vielleicht im Standesamt und zieht sich durchs Essen. Es gibt eine Zeitung von den Freunden und ein Spiel mit einer Säge. Eine Rede hat einen Aufbau, eine Metapher ihre Risiken.",
 				"more": "Auch auf der Hochzeit",
@@ -8397,6 +8901,57 @@
 			"quiz": "quest_c2_1_abtoenung",
 			"listenQuiz": "quest_c2_1_sprechen_moderieren",
 			"speakQuiz": "quest_c2_1_sprechen_moderieren",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_sprechen_moderieren",
+						"for": "Moderieren",
+						"note": "Moderieren, laut: Hör zu und sprich nach."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_hoeren_karlsruhe",
+						"for": "Die Runde",
+						"note": "Ein Gespräch über die Richter in Rot: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_sprechen_moderieren",
+						"for": "Name, kurze Frage, Stopp",
+						"note": "Eine Runde steuern, laut."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_abtoenung",
+						"for": "Ich nehme das mal so mit",
+						"note": "Abtönung: was die kleinen Wörter wirklich sagen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_register",
+						"for": "Kurz gefragt",
+						"note": "Formell und umgangssprachlich: eine Runde Register."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_hoeren_mitbestimmung",
+						"for": "Übung 2 · Eine Runde im Radio",
+						"note": "Die Arbeiter im Aufsichtsrat: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_abtoenung",
+						"for": "Übung 5 · Was bedeutet das wirklich?",
+						"note": "Noch mehr Abtönung."
+					}
+				]
+			},
 			"words": {
 				"intro": "Die Deutschen lieben die *Talkshow*, auch wenn sie die ganze Woche darüber klagen. Fünf Gäste im Halbkreis, eine Stunde, eine Frage, die niemand beantworten kann. Die eigentliche Arbeit macht die Person in der Mitte: Sie hat etwa drei Sätze und stoppt damit die Leute.",
 				"more": "Auch im Studio",
@@ -9303,6 +9858,57 @@
 			"quiz": "quest_c2_1_schreiben_register",
 			"listenQuiz": "quest_c2_1_hoeren_satire",
 			"speakQuiz": "quest_c2_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_register",
+						"for": "Das Amtsdeutsch",
+						"note": "Amtsdeutsch und Alltagssprache: das Register wechseln."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_hoeren_satire",
+						"for": "Medienbruchfrei",
+						"note": "Die digitale Stadt: eine Glosse. Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_hoeren_satire",
+						"for": "Lob, dann die Tatsache",
+						"note": "Die Glosse noch einmal: Wo ist die Satire?"
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_konnotation",
+						"for": "Zeitnah",
+						"note": "zeitnah, kundenfreundlich: was das Wort wirklich heißt."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_schreiben_register",
+						"for": "Lob und Tatsache",
+						"note": "Schreib dasselbe zweimal, in zwei Registern, und lass es prüfen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_hoeren_satire",
+						"for": "Übung 1 · Stadt direkt",
+						"note": "Die Glosse zum Hören, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_schreiben_register",
+						"for": "Übung 5 · Wörtlich nehmen",
+						"note": "Zweimal dasselbe, geprüft von deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutsche Ämter gehörten zu den letzten der Welt, die das Faxgerät aufgaben, und manche haben es nicht getan. Jede Stadt verspricht nun eine digitale Zukunft. Dafür gibt es ein Formular, persönlich abzuholen. Die deutsche Satire hatte es nie so leicht.",
 				"more": "Auch im Bürgeramt",
@@ -10155,6 +10761,57 @@
 			"quiz": "quest_c2_1_lesen_kurzgeschichte",
 			"listenQuiz": "quest_c2_1_lesen_kurzgeschichte",
 			"speakQuiz": "quest_c2_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c2_1_wortschatz",
+						"for": "Die Kurzgeschichte",
+						"note": "Alle Wörter von C2.1 als Karteikarten: ein guter Rückblick vor C2.2."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c2_1_lesen_kurzgeschichte",
+						"for": "Die blaue Tasse",
+						"note": "Die Kurzgeschichte in der App: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c2_1_lesen_kafka",
+						"for": "Dem Gegenstand folgen",
+						"note": "Kafka, Vor dem Gesetz: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c2_1_stilmittel",
+						"for": "Was man weglässt",
+						"note": "Stilmittel: eine letzte Runde."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c2_1_diktat_register",
+						"for": "Zwei Zeilen",
+						"note": "Register und Stil als Diktat: Hör zu und schreib."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c2_1_lesen_kurzgeschichte",
+						"for": "Übung 1 · Brenners Dienstag",
+						"note": "Die blaue Tasse, noch einmal gelesen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c2_1_sprechen_kurzcheck",
+						"for": "Übung 5 · Deine Geschichte",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Die deutsche Kurzgeschichte hat klare Regeln, und sie wuchs aus den Trümmern von 1945. Fang abrupt an. Nenne keine Gefühle. Lass das Ende weg. Das ist das Gegenteil von allem, was du in diesem Buch getan hast, und alles, was du gelernt hast, macht es möglich.",
 				"more": "Auch in der Küche",

@@ -28,6 +28,67 @@
 			"quiz": "quest_b1_1_arbeit",
 			"listenQuiz": "quest_b1_1_hoeren_interview",
 			"speakQuiz": "quest_b1_1_sprechen_bitten",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_arbeit",
+						"for": "Die Bewerbung",
+						"note": "Stelle, Gehalt, Vertrag: die Wörter der Arbeitswelt in Sätzen."
+					},
+					{
+						"quiz": "quest_b1_1_suchbild_buero",
+						"for": "Im Büro",
+						"note": "Ein Büro im Bild: Finde jedes Ding, das die App nennt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_hoeren_interview",
+						"for": "Ihre größte Schwäche",
+						"note": "Ein Vorstellungsgespräch zum Hören: Frau Wagner bei Herrn Brandt. 6 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_arbeit",
+						"for": "Von der Anzeige zum Vertrag",
+						"note": "Von der Anzeige bis zum Vertrag: Wort für Wort, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_sprechen_bitten",
+						"for": "Im Vorstellungsgespräch",
+						"note": "Höfliche Bitten laut: Hör jeden Satz und sprich ihn nach."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_lesen_viertage",
+						"for": "Wichtig für die Bewerbung",
+						"note": "Vier Tage arbeiten, fünf bezahlt: Lies den Text und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_arbeit",
+						"for": "Übung 1 · Die Jobsuche",
+						"note": "Noch mehr Sätze zur Arbeit, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b1_1_hoeren_interview",
+						"for": "Übung 2 · Das Gespräch",
+						"note": "Das Vorstellungsgespräch noch einmal, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_lesen_arbeit",
+						"for": "Übung 5 · Mein Lebenslauf",
+						"note": "Arbeiten von zu Hause, Traum oder Problem? Lies und beantworte 6 Fragen."
+					}
+				]
+			},
 			"words": {
 				"intro": "Frankfurt nennt sich Mainhattan. In den Türmen sitzen viele, die eine deutsche Bewerbung geschickt haben: Foto, unterschriebener Lebenslauf, jedes Zeugnis seit der Schule.",
 				"more": "Auch im Büro",
@@ -1044,6 +1105,62 @@
 			"quiz": "quest_b1_1_adj_bestimmt",
 			"listenQuiz": "quest_b1_1_sprechen_meinung",
 			"speakQuiz": "quest_b1_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_adj_bestimmt",
+						"for": "Im Garten",
+						"note": "der rote Zwerg, die alte Laube: die Endung nach der, die, das."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_lesen_kleingarten",
+						"for": "Der rote Zwerg",
+						"note": "Kleingärten in Deutschland, mit Regeln: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_adj_bestimmt",
+						"for": "Der große Mann",
+						"note": "Das -e-Fenster: -e oder -en nach dem bestimmten Artikel."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_adj_unbestimmt",
+						"for": "Ein großer Mann",
+						"note": "Die drei Reparaturen nach ein: -er, -es, -es."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_bigtext_wohnung",
+						"for": "Die Endungen von damals",
+						"note": "Ein ganzer Text mit 12 Lücken: alle Adjektivendungen auf einmal."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_adj_bestimmt",
+						"for": "Übung 1 · -e oder -en?",
+						"note": "Noch mehr Endungen nach der, die, das, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_adj_unbestimmt",
+						"for": "Übung 5 · Repariert oder nicht?",
+						"note": "Noch mehr Endungen nach ein, eine, kein."
+					},
+					{
+						"quiz": "quest_b1_1_sprechen_kurzcheck",
+						"for": "Übung 6 · Finde den Fehler",
+						"note": "Ein kurzer Sprech-Check mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Eine Million Deutsche mieten einen kleinen Garten am Rand der Stadt, mit einer kleinen Laube, einer kleinen Flagge und einem sehr langen Buch voller Regeln: Wie hoch darf die Hecke sein?",
 				"more": "Auch im Garten",
@@ -2173,6 +2290,62 @@
 			"quiz": "quest_b1_1_adj_nullartikel",
 			"listenQuiz": "quest_b1_1_sprechen_bitten",
 			"speakQuiz": "quest_b1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_adj_nullartikel",
+						"for": "Wie schmeckt es?",
+						"note": "frisches Brot, heller Kaffee: die Endung ohne Artikel."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_adj_nullartikel",
+						"for": "Ein helles Brot, bitte",
+						"note": "Ohne Artikel: Die Endung zeigt das Geschlecht. Satz für Satz."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_adj_nullartikel",
+						"for": "Frisches Brot",
+						"note": "d- weg, Rest ankleben: die Endungen ohne Artikel."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_adj_komparativ",
+						"for": "Die größere Wohnung",
+						"note": "die größere Wohnung, das beste Brot: zwei Endungen hintereinander."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_sprechen_bitten",
+						"for": "Schreib die Anzeige",
+						"note": "Höfliche Bitten an der Theke laut: Hör und sprich nach."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_adj_nullartikel",
+						"for": "Übung 1 · Die Endung",
+						"note": "Noch mehr Endungen ohne Artikel, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b1_1_adj_komparativ",
+						"for": "Übung 4 · -er oder -st",
+						"note": "Komparativ und Superlativ vor dem Nomen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_bigtext_wohnung",
+						"for": "Übung 5 · Vergleiche die Wohnungen",
+						"note": "Eine neue Wohnung, ein Text mit 12 Lücken."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutschland hat mehr Brotsorten als jedes andere Land, und ein Register als Beweis. In der Bäckerei steht *frisches Brot* auf dem Schild, ganz ohne Artikel. In Wohnungsanzeigen auch.",
 				"more": "Auch in der Bäckerei",
@@ -3306,6 +3479,62 @@
 			"quiz": "quest_b1_1_adjektive_als_nomen",
 			"listenQuiz": "quest_b1_1_hoeren_umfrage",
 			"speakQuiz": "quest_b1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_adjektive_als_nomen",
+						"for": "Menschen und mehr",
+						"note": "der Deutsche, die Angestellte, etwas Neues: Adjektive als Nomen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_hoeren_umfrage",
+						"for": "Etwas Neues",
+						"note": "Eine Radio-Umfrage zur Freizeit: Hör zu und beantworte 6 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_adjektive_als_nomen",
+						"for": "Die Deutschen, etwas Neues",
+						"note": "Ein unsichtbares Nomen: die richtige Endung."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_es",
+						"for": "Es lohnt sich",
+						"note": "es gibt, es geht, es lohnt sich: die festen Sätze mit es."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_es",
+						"for": "Es …",
+						"note": "Noch mehr Sätze mit es, sofort korrigiert."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_adjektive_als_nomen",
+						"for": "Übung 1 · Mach ein Nomen daraus",
+						"note": "Noch mehr Adjektive als Nomen."
+					},
+					{
+						"quiz": "quest_b1_1_es",
+						"for": "Übung 4 · Der feste Satz",
+						"note": "es gibt, es geht um: Satz für Satz."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_sprechen_meinung",
+						"for": "Übung 5 · Was sagst du?",
+						"note": "Deine Meinung laut sagen: Hör jeden Satz und sprich ihn nach."
+					}
+				]
+			},
 			"words": {
 				"intro": "Am 31. Dezember schauen Deutsche einen englischen Schwarz-Weiß-Sketch, den in England niemand kennt. Dann machen sie einen kleinen Krieg auf der Straße und wünschen sich *alles Gute*.",
 				"more": "Auch an Silvester",
@@ -4423,6 +4652,62 @@
 			"quiz": "quest_b1_1_konj2_wuerde",
 			"listenQuiz": "quest_b1_1_sprechen_bitten",
 			"speakQuiz": "quest_b1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_sprechen_bitten",
+						"for": "Im Hotel",
+						"note": "Höfliche Bitten an der Rezeption, laut: Hör und sprich nach."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_konj2_wuerde",
+						"for": "Zimmer mit Meerblick",
+						"note": "Ich würde gern …: würde + Verb am Ende, Satz für Satz."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_konj2_wuerde",
+						"for": "Ich würde gern",
+						"note": "würde und das Verb am Ende, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_konj2_haette",
+						"for": "Würde oder ein Wort?",
+						"note": "hätte, wäre, könnte statt würde: die kurzen Formen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_diktat_konjunktiv",
+						"for": "An der Rezeption",
+						"note": "Wünsche und Bitten zum Hören: Schreib jeden Satz auf."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_konj2_wuerde",
+						"for": "Übung 1 · würde",
+						"note": "Noch mehr Sätze mit würde."
+					},
+					{
+						"quiz": "quest_b1_1_hoeren_urlaub",
+						"for": "Übung 2 · Was möchten sie gern?",
+						"note": "Yasmin fragt höflich nach: Hör das Telefonat und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_sprechen_bitten",
+						"for": "Übung 5 · Auf Deutsch",
+						"note": "Höflich bitten und beschweren, laut."
+					}
+				]
+			},
 			"words": {
 				"intro": "Auf Sylt lassen sich reiche Deutsche den Wind um die Nase wehen. Es gibt Reetdächer, Austern und Hotelgäste, die ziemlich genau wissen, was besser wäre.",
 				"more": "Auch im Hotel",
@@ -5377,6 +5662,62 @@
 			"quiz": "quest_b1_1_konj2_haette",
 			"listenQuiz": "quest_b1_1_diktat_konjunktiv",
 			"speakQuiz": "quest_b1_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_konj2_haette",
+						"for": "Der Traum",
+						"note": "Wenn ich König wäre …: hätte, wäre, könnte."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_lesen_grundeinkommen",
+						"for": "172 Tage",
+						"note": "1.200 Euro im Monat, ohne Fragen: Was wäre, wenn? Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_konj2_haette",
+						"for": "Zwei Punkte",
+						"note": "Präteritum plus zwei Punkte: hätte, wäre, könnte."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_konj2_wuerde",
+						"for": "Wenn … dann …",
+						"note": "Wenn ich Zeit hätte, würde ich …: der ganze Satz."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_lesen_grundeinkommen",
+						"for": "Wenn …",
+						"note": "Ein Experiment mit Grundeinkommen: Lies den Text."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_konj2_haette",
+						"for": "Übung 1 · Zwei Punkte",
+						"note": "Noch mehr Konjunktiv II, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_diktat_konjunktiv",
+						"for": "Übung 5 · Was wäre, wenn …?",
+						"note": "Ein Diktat mit Wünschen: Hör zu und schreib."
+					},
+					{
+						"quiz": "quest_b1_1_sprechen_kurzcheck",
+						"for": "Übung 4 · Finde den Fehler",
+						"note": "Ein kurzer Sprech-Check zum Konjunktiv II mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Ludwig II. von Bayern hat sein Leben und sein ganzes Geld für Schlösser aus seinen Lieblingsopern ausgegeben. Im berühmtesten hat er insgesamt 172 Tage gelebt.",
 				"more": "Auch im Schloss",
@@ -6280,6 +6621,57 @@
 			"quiz": "quest_b1_1_futur",
 			"listenQuiz": "quest_b1_1_lesen_arbeit",
 			"speakQuiz": "quest_b1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_futur",
+						"for": "Die Zukunft",
+						"note": "Ich werde …: das Futur in Sätzen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_hoeren_elternzeit",
+						"for": "Sie werden eine Reise machen",
+						"note": "Jonas geht in Elternzeit: Hör das Feature und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_futur",
+						"for": "Welches Werden?",
+						"note": "werden + Infinitiv: Satz für Satz, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_futur",
+						"for": "Versprechen und vermuten",
+						"note": "Ich werde kommen. Er wird krank sein. Versprechen und Vermutung."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_hoeren_elternzeit",
+						"for": "Welches Werden?",
+						"note": "Pläne für die Zukunft zum Hören: Hör zu und beantworte."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_futur",
+						"for": "Übung 1 · werden",
+						"note": "Noch mehr Futur, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_sprechen_dialog",
+						"for": "Übung 5 · Auf Deutsch",
+						"note": "Meinungen und Wünsche laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Jeden Herbst feiert Stuttgart das zweitgrößte Bierfest der Welt, mit Riesenrad, gebrannten Mandeln und einer Frau in einem kleinen Zelt, die dir sagt, was passieren wird.",
 				"more": "Auch auf der Kirmes",
@@ -7191,6 +7583,62 @@
 			"quiz": "quest_b1_1_relativ",
 			"listenQuiz": "quest_b1_1_hoeren_umfrage",
 			"speakQuiz": "quest_b1_1_sprechen_meinung",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_lesen_verein",
+						"for": "Der Verein",
+						"note": "Das Land der Vereine: Lies und beantworte 8 Fragen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_relativ",
+						"for": "Die Sitzung",
+						"note": "der, die, das, den: der Relativsatz, Satz für Satz."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_relativ_praep",
+						"for": "Der Kollege, mit dem …",
+						"note": "mit dem, für die, in dem: die Präposition kommt zuerst."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_verben_praep",
+						"for": "Worauf? Darauf! Auf wen?",
+						"note": "warten auf, sich kümmern um: worauf? darauf!"
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_lesen_verein",
+						"for": "Der Verein, in dem …",
+						"note": "Vom Schützenverein bis zum Chor: Lies den Text."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_relativ",
+						"for": "Übung 1 · Welches Wort?",
+						"note": "Noch mehr Relativsätze, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b1_1_relativ_praep",
+						"for": "Übung 2 · Mit Präposition",
+						"note": "Noch mehr Relativsätze mit Präposition."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_verben_praep",
+						"for": "Übung 6 · Ding oder Person?",
+						"note": "darauf oder auf ihn? Noch mehr Verben mit Präposition."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutschland hat etwa 600.000 eingetragene Vereine. Drei Deutsche an einem Tisch gründen einen, schreiben die Satzung und wählen einen Kassenwart, bevor der Kaffee kalt ist.",
 				"more": "Auch im Verein",
@@ -8354,6 +8802,57 @@
 			"quiz": "quest_b1_1_genitiv",
 			"listenQuiz": "quest_b1_1_lesen_studium",
 			"speakQuiz": "quest_b1_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_genitiv",
+						"for": "Warum?",
+						"note": "wegen des Wetters, trotz des Regens: der Genitiv."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_lesen_studium",
+						"for": "Wegen Umbau",
+						"note": "Ein Jahr im Ausland studieren: Lies und beantworte 6 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_genitiv",
+						"for": "Wessen?",
+						"note": "des Mannes, der Frau: die vierte Zeile, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_genitiv",
+						"for": "Wegen, trotz, während",
+						"note": "Die Präpositionen mit Genitiv in Sätzen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_lesen_kleingarten",
+						"for": "Wegen der Baustelle",
+						"note": "Regeln im Kleingarten, mit Genitiv: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_genitiv",
+						"for": "Übung 2 · Wegen, während",
+						"note": "Noch mehr Genitiv, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_sprechen_kurzcheck",
+						"for": "Übung 4 · Sag es anders",
+						"note": "Ein kurzer Sprech-Check mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Geh durch eine deutsche Stadt und lies die Türen. *Wegen Krankheit geschlossen. Wegen Umbau geschlossen.* Der Genitiv lebt auf diesen Schildern, und in sehr wenigen Menschen, die darauf bestehen.",
 				"more": "Auch in der Stadt",
@@ -9288,6 +9787,62 @@
 			"quiz": "quest_b1_1_konjunktionen",
 			"listenQuiz": "quest_b1_1_lesen_arbeit",
 			"speakQuiz": "quest_b1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_konjunktionen",
+						"for": "Damals",
+						"note": "als, wenn, obwohl: der Nebensatz."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_hoeren_fachkraft",
+						"for": "Tante Gerda und die Bananen",
+						"note": "Rafael erzählt, warum er geblieben ist: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_konjunktionen",
+						"for": "Als oder wenn?",
+						"note": "Einmal oder jedes Mal? als, wenn, obwohl in Sätzen."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_falls_da_trotzdem",
+						"for": "Falls, da",
+						"note": "falls, da, trotzdem: die richtige Satzform."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_konjunktionen",
+						"for": "Obwohl, als, wenn",
+						"note": "Noch mehr als, wenn, obwohl, sofort korrigiert."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_konjunktionen",
+						"for": "Übung 1 · als, wenn oder obwohl?",
+						"note": "Noch mehr Nebensätze, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b1_1_falls_da_trotzdem",
+						"for": "Übung 2 · Sag es mit trotzdem",
+						"note": "trotzdem, und das Verb kommt sofort."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_sprechen_dialog",
+						"for": "Übung 5 · Welches Wort?",
+						"note": "Erzählen und meinen, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Vierzig Jahre lang ging ein Zaun mitten durch Deutschland. Am Point Alpha in der Rhön kannst du noch auf dem alten Grenzweg gehen, an den Wachtürmen vorbei, mit Menschen, die sich erinnern.",
 				"more": "Auch an der Grenze",
@@ -10332,6 +10887,57 @@
 			"quiz": "quest_b1_1_infinitiv_zu",
 			"listenQuiz": "quest_b1_1_lesen_studium",
 			"speakQuiz": "quest_b1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_infinitiv_zu",
+						"for": "Pläne",
+						"note": "Ich habe vor, … zu …: der Infinitiv mit zu."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_lesen_ausbildung",
+						"for": "Ich habe vor, anzufangen",
+						"note": "Lea macht eine Ausbildung: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_infinitiv_zu",
+						"for": "zu + das Verb",
+						"note": "anzufangen, zu lernen: wo das zu steht."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_infinitiv_zu",
+						"for": "um … zu, ohne … zu",
+						"note": "um … zu, ohne … zu, statt … zu: Satz für Satz."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_lesen_studium",
+						"for": "Ein Aushang an der Universität",
+						"note": "Ein Jahr im Ausland: Lies und beantworte 6 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_infinitiv_zu",
+						"for": "Übung 2 · Mit zu oder ohne?",
+						"note": "Noch mehr Infinitive mit zu, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_sprechen_dialog",
+						"for": "Übung 5 · Auf Deutsch",
+						"note": "Über Pläne und Wünsche sprechen, laut, mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "In Göttingen muss jeder neue Doktor auf den Brunnen klettern und das Gänsemädchen aus Bronze auf die Wange küssen. Offiziell ist das verboten. Darum machen sie es mit Polizeibegleitung.",
 				"more": "Auch an der Uni",
@@ -11242,6 +11848,57 @@
 			"quiz": "quest_b1_1_email_redemittel",
 			"listenQuiz": "quest_b1_1_sprechen_meinung",
 			"speakQuiz": "quest_b1_1_sprechen_meinung",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_1_wortschatz",
+						"for": "Die Politik",
+						"note": "Alle Wörter von B1.1 als Karteikarten: ein guter Rückblick vor B1.2."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_1_email_redemittel",
+						"for": "An die Abgeordnete",
+						"note": "Anrede, Bitte, Gruß: die Bausteine der formellen E-Mail."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_1_email_redemittel",
+						"for": "Zwei Rahmen",
+						"note": "Formell oder informell: der richtige Rahmen."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_1_indirekte_fragen",
+						"for": "Eine höfliche Frage",
+						"note": "Können Sie mir sagen, ob …? Die Frage im Satz."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_1_sprechen_meinung",
+						"for": "Deine Meinung",
+						"note": "Deine Meinung laut: Hör jeden Satz und sprich ihn nach."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_1_indirekte_fragen",
+						"for": "Übung 2 · Höflich fragen",
+						"note": "Noch mehr indirekte Fragen, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_1_schreiben_email",
+						"for": "Übung 5 · Ein Brief an die Stadt",
+						"note": "Schreib deine eigene formelle E-Mail und lass sie von deinem KI-Assistenten prüfen."
+					}
+				]
+			},
 			"words": {
 				"intro": "Du kannst in die Glaskuppel vom Reichstag gehen und auf die Leute schauen, die das Land regieren. Und du kannst ihnen schreiben. Sie müssen antworten, mehr oder weniger.",
 				"more": "Auch im Bundestag",

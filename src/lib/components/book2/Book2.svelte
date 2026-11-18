@@ -7,6 +7,8 @@
 	// full-bleed opener, the reading, the document, the chapter end, the key.
 	import ExerciseBlock from '$lib/components/companion/ExerciseBlock.svelte';
 	import LearnBlock from '$lib/components/companion/LearnBlock.svelte';
+	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import { SITE_URL } from '$lib/seo';
 	import { rich } from '$lib/domain/companion';
 	import { chapterKey, picturedWords, practiseOf, speakerLine, type Book2, type BookExtra, type Chapter, type PhotoCredit } from '$lib/domain/book2';
 
@@ -175,6 +177,24 @@
 		return null;
 	}
 
+	// Testing the book anywhere but the live site (the dev server, a preview):
+	// a click on a code stays on this server, so its new pages can be tried.
+	// Only the links change, never the printed QR images; and not for the PDF
+	// printer, which runs as an automated browser (navigator.webdriver).
+	// On screen every code opens in a new tab, so the book stays open at the
+	// page the reader was on (a long page whose fit pass resizes it after
+	// load, so "back" would not find the place again).
+	$effect(() => {
+		const el = root;
+		if (!el) return;
+		const rewrite = location.origin !== SITE_URL && !navigator.webdriver;
+		el.querySelectorAll<HTMLAnchorElement>(`a[href^="${SITE_URL}/"]`).forEach((a) => {
+			if (rewrite) a.href = location.origin + a.href.slice(SITE_URL.length);
+			a.target = '_blank';
+			a.rel = 'noopener';
+		});
+	});
+
 	$effect(() => {
 		const el = root;
 		if (!el) return;
@@ -212,6 +232,45 @@
 			<span>{label}</span>
 		</a>
 	{/if}
+{/snippet}
+
+<!-- The page challenge, at the foot of each practice page that has a quiz
+     list in the app (Chapter.appQuizzes): win gold in the page's app
+     quizzes, tick them off here. No code of its own: the page code at the
+     top is the one door (Book or App). -->
+{#snippet challenge(c: Chapter, part: string)}
+	{@const ticks = c.appQuizzes?.[part]?.length ?? 0}
+	{@const code = pages[c.id]?.[part]}
+	{#if ticks && code}
+		<div class="app-challenge">
+			<span class="medal" aria-hidden="true"><RibbonBadge tier="gold" width={30} /></span>
+			<div>
+				<b lang="de">Seiten-Challenge: Gold auf dieser Seite</b>
+				<p>{c.german ? 'Fertig auf Papier? Scann den Code oben auf dieser Seite und wähl App: dieselben Übungen als kurze Quizze. Hol in jedem Gold und hak es hier ab.' : t('Done on paper? Scan the code at the top of this page and choose App: the same exercises as short quizzes. Win gold in each one and tick it off here.')}</p>
+				<p class="ticks">{#each Array(ticks) as _, k (k)}<i>{k + 1}</i>{/each}</p>
+			</div>
+			<a class="app-up" href={code.url}><span aria-hidden="true">↑</span>{c.german ? 'Code oben' : t('Code at the top')}<b><span class="phone" aria-hidden="true"></span>App</b></a>
+		</div>
+	{/if}
+{/snippet}
+
+<!-- The app, told once: it is this book as short quizzes, reached through
+     any page code (App) or the site, where the deck deals from the book's
+     level. A picture of the switch and a quiz card, no code of its own. -->
+{#snippet appPitch(de: boolean)}
+	<div class="app-pitch">
+		<span class="app-tag"><span class="phone" aria-hidden="true"></span>{de ? 'Die App zum Buch' : t('The app · die App')}</span>
+		<b class="big">{de ? 'Dein Buch als kurze Quizze.' : t('Your book, as short quizzes.')}</b>
+		<p>
+			{de
+				? 'Jede Seite dieses Buches gibt es auch in der App: dieselben Wörter, dieselbe Grammatik, dieselben Leute, in kleinen Quizzen. Jede Antwort wird sofort korrigiert, und du gewinnst Medaillen. Scann einen Seiten-Code und wähl App. Oder öffne languagequiz.org: Der Stapel dort wählt jeden Tag Quizze aus deinem Niveau.'
+				: t('Every page of this book is also in the app: the same words, the same grammar, the same people, cut into small quizzes. Every answer is corrected at once, and you win medals. Scan a page code and choose App. Or open languagequiz.org, where a deck of cards picks quizzes from your book’s level every day.')}
+		</p>
+		<div class="demo" aria-hidden="true">
+			<span class="switch"><span>{de ? 'Buch' : t('Book')}</span><span class="on">App</span></span>
+			<span class="card">Wie <i>heißt</i> du? <small>✓ {de ? 'Richtig!' : t('Right!')}</small></span>
+		</div>
+	</div>
 {/snippet}
 
 {#snippet foot(page: number, c: Chapter)}
@@ -357,12 +416,13 @@
 					<li><b>Hören, sprechen, ich kann.</b> Die QR-Codes und was du jetzt kannst.</li>
 					<li><b>Bildwörterbuch.</b> Alle Wörter mit Bild auf einer Seite.</li>
 				</ol>
-				<p><b>Die Codes.</b> Oben auf jeder Seite mit Übungen steht ein kleiner Code. Bist du mit der Seite fertig, scann ihn mit dem Handy: Die App prüft deine Antworten. Auf der Wörterseite macht er aus den Wörtern Wortkarten, auf der Leseseite liest er dir den Text vor. Die großen Codes am Ende des Kapitels haben eine Adresse darunter. Die kannst du auch in den Browser eintippen.</p>
+				<p><b>Die Codes.</b> Oben auf jeder Seite mit Übungen steht ein kleiner Code. Scann ihn und wähl Buch oder App. Buch zeigt die Seite im Web: Sie prüft deine Antworten, macht aus den Wörtern Wortkarten und liest dir den Text vor. App zeigt dieselbe Seite als kurze Quizze. Deine Wahl wird gespeichert, wechseln kannst du immer. Die großen Codes am Ende des Kapitels haben eine Adresse darunter. Die kannst du auch in den Browser eintippen.</p>
 				<p><b>Regeln auf Englisch.</b> Alle Erklärungen sind hier auf Deutsch. In der App steht bei jeder Regel ein Knopf „English“. Dort findest du sie auch auf Englisch.</p>
 				<p><b>Drei Farben.</b> <b class="art der">der</b> ist blau, <b class="art die">die</b> ist rot, <b class="art das">das</b> ist grün.</p>
 				<p class="name">Dieses Buch gehört <span></span></p>
 			</div>
 			<div>
+				{@render appPitch(true)}
 				<p><b>Die Grammatikwörter</b></p>
 				<dl class="terms">
 					{#each GRAMMAR_WORDS as [de, en] (de)}
@@ -392,8 +452,9 @@
 				</ol>
 			</div>
 			<div>
+				{@render appPitch(false)}
 				<p><b>{t('Work with a pencil.')}</b> {t('Say every German word out loud as you write it. The ruled lines at the foot of a page are yours: the sentences you want to keep, the mistakes you made twice.')}</p>
-				<p><b>{t('The codes.')}</b> {t('Every page you write on has a small code at the top. Finish the page, scan the code with your phone, and the app checks your answers against the key. On the words page it turns the words into flashcards; on the reading page it reads the text aloud. The bigger codes at the end of a chapter play its audio, start the tutor, or open more practice, and each has an address under it to type into a browser if the camera will not read it. In the PDF, every code is a link.')}</p>
+				<p><b>{t('The codes.')}</b> {t('Every page you write on has a small code at the top. Scan it and choose Book or App. Book shows the page on the web: it checks your answers against the key, turns the words into flashcards and reads the text aloud. App shows the same page as short quizzes. Your choice is remembered, and you can switch at any time. The bigger codes at the end of a chapter play its audio or start the tutor, each with an address to type into a browser. In the PDF, every code is a link.')}</p>
 				<p><b>Wusstest du?</b> {t('The box at the foot of a page is a fact about Germany, not grammar. Skip it or read it; it is there because the place deserved it.')}</p>
 				<p><b>Three colours.</b> {t('Blue words are')} <b class="art der">der</b>{t(', red words')} <b class="art die">die</b>{t(', green words')} <b class="art das">das</b>{t(', in every list and table. Buy three pencils.')}</p>
 				<p class="name">{t('This book belongs to')} <span></span></p>
@@ -571,6 +632,7 @@
 				<div class="flow">
 					{#each exs as ex, e (e)}<ExerciseBlock {ex} n={pi * prac1.length + e + 1} listen={qr[c.id]?.listen ?? null} german={c.german} />{/each}
 				</div>
+				{@render challenge(c, `uebungen-${pi + 1}`)}
 				{@render filler(c.german ? (pi === 0 ? 'Such dir fünf Wörter aus diesem Kapitel aus und schreib mit jedem einen Satz.' : 'Schreib auf, was auf diesen Seiten falsch war, und schreib es dann richtig.') : (pi === 0 ? t('Pick five words from this chapter and write one sentence with each.') : t('Write what you got wrong on these two pages, correctly, once each.')), c.german)}
 				{@render foot(p + 6 + pi, c)}
 			</section>
@@ -610,6 +672,7 @@
 			</div>
 			<div class="next">
 				<p>{c.german ? t('Fertig? Hak ab, was du kannst. Prüf jede Seite mit ihrem Code oder mit den Lösungen auf Seite {keyPage}. Kreise ein, was falsch war, und übe es in einer Woche noch einmal.', { keyPage }) : t('Done? Tick what you can. Check each page with its code, or with the answers on page {keyPage}. Circle what you got wrong and come back to it in a week.', { keyPage })}</p>
+				<p class="app-line"><span class="phone" aria-hidden="true"></span>{c.german ? 'Alle Übungen dieses Kapitels gibt es auch als kurze Quizze in der App: Scann einen Seiten-Code und wähl App.' : t('Every exercise of this chapter is also a short quiz in the app: scan any page code and choose App.')}</p>
 				{#if pages[c.id]?.woerter}<p class="chapter-url">{c.german ? 'Das ganze Kapitel in der App' : t('The whole chapter in the app')}: <a href={pages[c.id]!.woerter!.url}>{shortUrl(pages[c.id]!.woerter!.url)}</a></p>{/if}
 			</div>
 			<p class="eyebrow notes-title">{c.german ? 'Meine Notizen' : t('Meine Notizen · my notes')}</p>
@@ -1173,5 +1236,196 @@
 		margin: 0;
 		text-align: end;
 		opacity: 0.75;
+	}
+
+	/* ---- The app on the printed page: navy, the phone mark. The page code is
+	   the one door into it; nothing here has a code of its own. ---- */
+	.phone {
+		display: inline-block;
+		position: relative;
+		flex: none;
+		width: 2mm;
+		height: 3.1mm;
+		margin-inline-end: 1.2mm;
+		border: 0.35mm solid currentColor;
+		border-radius: 0.5mm;
+		box-sizing: border-box;
+		vertical-align: -0.4mm;
+	}
+	.phone::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		bottom: 0.25mm;
+		width: 0.5mm;
+		height: 0.3mm;
+		margin-left: -0.25mm;
+		background: currentColor;
+	}
+	.app-tag {
+		font-size: 6.5pt;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: #c9d6e8;
+	}
+	.app-challenge {
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr) auto;
+		gap: 3.5mm;
+		align-items: center;
+		margin-top: 3mm;
+		padding: 2.5mm 3.5mm;
+		border: 0.5mm solid var(--navy);
+		border-radius: 3mm;
+		background: #fff;
+		break-inside: avoid;
+	}
+	/* The app's own gold ribbon: the medal a learner wins there. */
+	.app-challenge .medal {
+		display: flex;
+		align-self: start;
+		width: 8mm;
+	}
+	.app-challenge .medal :global(svg) {
+		width: 8mm;
+		height: auto;
+	}
+	.app-challenge b {
+		font-family: var(--serif);
+		font-size: 11pt;
+		color: var(--navy);
+	}
+	.app-challenge p {
+		margin: 0.5mm 0 0;
+		font-size: 8pt;
+		color: var(--muted);
+	}
+	/* One box per app exercise on the page, numbered as the page's list numbers them. */
+	.app-challenge .ticks {
+		display: flex;
+		gap: 2.5mm;
+		margin-top: 2mm;
+	}
+	.app-challenge .ticks i {
+		display: grid;
+		place-items: end start;
+		width: 6mm;
+		height: 6mm;
+		padding: 0 0 0.4mm 0.8mm;
+		box-sizing: border-box;
+		border: 0.4mm solid var(--navy);
+		border-radius: 1mm;
+		font-style: normal;
+		font-size: 6pt;
+		font-weight: 800;
+		color: var(--navy);
+	}
+	.app-up {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5mm;
+		padding: 1.5mm 2.5mm;
+		border-radius: 2mm;
+		background: var(--navy);
+		color: #fff;
+		font-size: 7pt;
+		font-weight: 700;
+		text-decoration: none;
+		text-align: center;
+		white-space: nowrap;
+	}
+	.app-up > span {
+		font-size: 13pt;
+		line-height: 1;
+	}
+	.app-challenge .app-up b {
+		font-family: var(--sans);
+		font-size: 9pt;
+		color: #fff;
+	}
+
+	/* The app's pitch on the how-it-works page: the book as quizzes. */
+	.app-pitch {
+		margin: 0 0 3mm;
+		padding: 3mm 3.5mm;
+		border-radius: 2.5mm;
+		background: var(--navy);
+		color: #fff;
+	}
+	.app-pitch .app-tag {
+		display: block;
+		margin-bottom: 1mm;
+	}
+	.app-pitch b.big {
+		display: block;
+		margin-bottom: 1mm;
+		font-family: var(--serif);
+		font-size: 12pt;
+		line-height: 1.15;
+	}
+	.app-pitch p {
+		margin: 0 0 1.5mm !important;
+		font-size: 8.5pt;
+		line-height: 1.4;
+		color: #dbe4f0;
+	}
+	.app-pitch .demo {
+		display: flex;
+		align-items: center;
+		gap: 2.5mm;
+		margin-top: 2mm;
+	}
+	.app-pitch .switch {
+		display: inline-flex;
+		padding: 0.6mm;
+		border-radius: 99mm;
+		background: rgb(255 255 255 / 0.18);
+		font-size: 7.5pt;
+		font-weight: 700;
+	}
+	.app-pitch .switch span {
+		padding: 0.8mm 2.5mm;
+		border-radius: 99mm;
+	}
+	.app-pitch .switch span.on {
+		background: #fff;
+		color: var(--navy);
+	}
+	.app-pitch .card {
+		flex: 1;
+		padding: 1.5mm 2mm;
+		border-radius: 1.5mm;
+		background: #fff;
+		color: var(--ink);
+		font-size: 7.5pt;
+	}
+	.app-pitch .card i {
+		font-style: normal;
+		display: inline-block;
+		padding: 0 1.5mm;
+		margin: 0 0.5mm;
+		border-bottom: 0.4mm solid var(--navy);
+		color: var(--navy);
+		font-weight: 800;
+	}
+	.app-pitch .card small {
+		display: block;
+		color: #2f7d4f;
+		font-weight: 700;
+	}
+
+	/* One line about the app on a chapter's end page. */
+	.app-line {
+		display: flex;
+		align-items: center;
+		gap: 1.5mm;
+		margin: 2mm 0 0 !important;
+		padding: 1.5mm 2.5mm;
+		border-radius: 1.5mm;
+		background: #e8eef6;
+		color: var(--navy);
+		font-size: 8.5pt;
 	}
 </style>

@@ -35,6 +35,17 @@ export interface GrammarPage {
 	fact?: string;
 }
 
+/** One quiz on a book page's app list, tied to the thing on the page it practises. */
+export interface AppQuizPick {
+	quiz: string;
+	/** What on the page it belongs to: "Übung 3 · Max stellt sich vor", "Who is who". */
+	for: string;
+	/** What the learner does in it, said for this page. */
+	note: string;
+	/** A chapter photo (/img/photo/web/<photo>.jpg) when the quiz's own picture is a shared one. */
+	photo?: string;
+}
+
 export interface Chapter {
 	/** The chapter is written in German: the page labels drop their English too. */
 	german?: boolean;
@@ -47,6 +58,12 @@ export interface Chapter {
 	quiz?: string;
 	listenQuiz?: string;
 	speakQuiz?: string;
+	/**
+	 * The app's quizzes for each page of the chapter, by part id, in the
+	 * order the page's quiz list shows them. A page code's "App" side opens
+	 * that list.
+	 */
+	appQuizzes?: Partial<Record<string, AppQuizPick[]>>;
 	words: {
 		intro: string;
 		groups: { title: string; items: WordItem[] }[];

@@ -2638,4 +2638,72 @@ export const UK: Record<string, string> = {
 		", правильно",
 	", wrong":
 		", неправильно",
+	// Book | App: the page codes, the quiz list of a book page, the app in the printed book
+	"Done on paper? Scan the code at the top of this page and choose App: the same exercises as short quizzes. Win gold in each one and tick it off here.":
+		"Готово на папері? Відскануй код угорі цієї сторінки й обери «Застосунок»: ті самі вправи як короткі квізи. Здобудь золото в кожному й познач тут.",
+	"Code at the top":
+		"Код угорі",
+	"The app · die App":
+		"Застосунок · die App",
+	"Your book, as short quizzes.":
+		"Твоя книжка — короткими квізами.",
+	"Every page of this book is also in the app: the same words, the same grammar, the same people, cut into small quizzes. Every answer is corrected at once, and you win medals. Scan a page code and choose App. Or open languagequiz.org, where a deck of cards picks quizzes from your book’s level every day.":
+		"Кожна сторінка цієї книжки є і в застосунку: ті самі слова, та сама граматика, ті самі люди, поділені на маленькі квізи. Кожну відповідь одразу перевіряють, і ти здобуваєш медалі. Відскануй код сторінки й обери «Застосунок». Або відкрий languagequiz.org: там колода карток щодня добирає квізи з рівня твоєї книжки.",
+	"Right!":
+		"Правильно!",
+	"Every page you write on has a small code at the top. Scan it and choose Book or App. Book shows the page on the web: it checks your answers against the key, turns the words into flashcards and reads the text aloud. App shows the same page as short quizzes. Your choice is remembered, and you can switch at any time. The bigger codes at the end of a chapter play its audio or start the tutor, each with an address to type into a browser. In the PDF, every code is a link.":
+		"Угорі кожної сторінки, на якій ти пишеш, є маленький код. Відскануй його й обери «Книжка» або «Застосунок». «Книжка» показує сторінку в інтернеті: перевіряє відповіді за ключем, робить зі слів картки й читає текст уголос. «Застосунок» показує ту саму сторінку як короткі квізи. Вибір запам’ятовується, змінити його можна будь-коли. Великі коди в кінці розділу вмикають аудіо або тьютора; під кожним є адреса, яку можна ввести в браузері. У PDF кожен код — це посилання.",
+	"Every exercise of this chapter is also a short quiz in the app: scan any page code and choose App.":
+		"Кожна вправа цього розділу є і як короткий квіз у застосунку: відскануй будь-який код сторінки й обери «Застосунок».",
+	"Book or app":
+		"Книжка чи застосунок",
+	"How do you want to go on?":
+		"Як ти хочеш продовжити?",
+	"This page on the web: check it, hear it, word cards":
+		"Ця сторінка в інтернеті: перевірити, послухати, картки слів",
+	"The app exercises for this page, with pictures and medals":
+		"Вправи застосунку до цієї сторінки, з картинками й медалями",
+	"Your choice is remembered for the next code. You can switch at the top of every page.":
+		"Вибір запам’ятовується для наступного коду. Змінити можна вгорі кожної сторінки.",
+	"This chapter of your book: the words as cards, the text read aloud, and every exercise to check.":
+		"Цей розділ твоєї книжки: слова як картки, текст уголос і кожна вправа для перевірки.",
+	"Page · Words":
+		"Сторінка · Слова",
+	"Page · Reading":
+		"Сторінка · Читання",
+	"Page · Everyday reading":
+		"Сторінка · Читання в побуті",
+	"Picture hunt":
+		"Пошук на картинці",
+	"of chapter {n}":
+		"розділу {n}",
+	"Pages of this chapter":
+		"Сторінки цього розділу",
+	"{done} of {n} done":
+		"{done} з {n} готово",
+	"Chapter {n}":
+		"Розділ {n}",
+	"Each exercise on this page of your book has its practice in the app. Start with any of them; inside, previous and next stay on this page.":
+		"До кожної вправи на цій сторінці книжки є квіз у застосунку. Починай з будь-якого; всередині «попередній» і «наступний» лишаються на цій сторінці.",
+	"Again":
+		"Ще раз",
+	"Open":
+		"Відкрити",
+	"Next on this page":
+		"Наступний на цій сторінці",
+	"Back to the page":
+		"Назад до сторінки",
+	"Previous on this page":
+		"Попередній на цій сторінці",
+	// How big a quiz is, on a book page's quiz list
+	"{n} sentences":
+		"речень: {n}",
+	"{n} questions":
+		"запитань: {n}",
+	"{n} gaps":
+		"пропусків: {n}",
+	"{n} phrases":
+		"фраз: {n}",
+	"{n} cards":
+		"карток: {n}",
 };

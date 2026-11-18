@@ -16,6 +16,18 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-18",
+    title: "Your book and the app, page by page",
+    highlight: true,
+    items: [
+      "The code at the top of every book page now asks once: Book or App. Book opens the page on the web, where your answers are checked against the key, the words become flashcards and the text is read aloud. App opens the app's quizzes for that very page. Your choice is remembered for the next code, and a Book | App switch at the top lets you change it any time.",
+      "Every page of all twelve books, A1.1 to C2.2, has its own list of app quizzes. Each card says which exercise of the page it goes with and what you do in it, with its picture, its size and your medal once you have won it. From B1 on the lists are in German, like the books.",
+      "Inside a quiz from a page list, the page is your deck: back goes to the page, and previous and next stay on it. Done quizzes turn green, each page tab counts what you have done, and the chapter shows how far along you are in per cent.",
+      "The web version of each chapter got a new look, with the chapter's own photos, the reading as a chat, the word pictures up front and tidier exercise cards.",
+      "The printed books explain the app on page 2, end every chapter with a line about it, and close each practice page with a gold challenge: finish the page on paper, then win gold in its app quizzes and tick them off. All books were printed again, including the Turkish, Arabic and Ukrainian editions.",
+    ],
+  },
+  {
     date: "2026-11-16",
     title: "German for Ukrainian speakers: німецька з поясненнями українською",
     highlight: true,

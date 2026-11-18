@@ -20,6 +20,123 @@
 			"quiz": "quest_a1_1_pronomen",
 			"listenQuiz": "quest_a1_1_hoeren_vorstellung",
 			"speakQuiz": "quest_a1_1_sprechen_vorstellung",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_laender",
+						"for": "Leute · people",
+						"note": "Kanada, Kanadierin, Englisch: the country, the person and the language, in sentences like the ones on your words page.",
+						"photo": "b2_hallo_opener"
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_lesen_dasbinich",
+						"for": "Maya und Lena",
+						"note": "Another short self-introduction, like Maya's. Read it and answer 6 questions about it."
+					},
+					{
+						"quiz": "quest_a1_1_bigtext_dasbinich",
+						"for": "Maya und Lena",
+						"note": "A whole text with 12 gaps: heiße, komme, wohne, bin, everything Maya says, in one go."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_sprechen_vorstellung",
+						"for": "Introduce yourself",
+						"note": "The questions and answers from the table: hear each one, then say it yourself.",
+						"photo": "b2_hallo_kneipe"
+					},
+					{
+						"quiz": "quest_a1_1_pronomen",
+						"for": "Who is who",
+						"note": "ich, du, er, sie, Sie: choose the right one in 19 short sentences.",
+						"photo": "b2_hallo_doener"
+					},
+					{
+						"quiz": "quest_a1_1_praesens",
+						"for": "Mini-Check",
+						"note": "More of the Mini-Check: heiße or heißt, wohnst or wohnen, the verb ending for each person.",
+						"photo": "b2_hallo_ubahn"
+					},
+					{
+						"quiz": "quest_a1_1_sein_haben",
+						"for": "How old are you?",
+						"note": "Wie alt bist du? Ich bin … : bin, bist, ist and the other forms of sein and haben.",
+						"photo": "b2_hallo_klingel"
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_wfragen",
+						"for": "The question words",
+						"note": "wer, was, wo, woher, wie: choose the word that asks for the answer you need.",
+						"photo": "b2_hallo_klingel"
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_diktat_steckbrief",
+						"for": "Wer wohnt hier?",
+						"note": "You hear a sentence about a person (Ich heiße Anna. Ich komme aus England.) and write it down."
+					},
+					{
+						"quiz": "quest_a1_1_schreiben_steckbrief",
+						"for": "Wer wohnt hier?",
+						"note": "Now you: six sentences about yourself, name, age, country, city, language."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_pronomen",
+						"for": "Übung 1 · du or Sie?",
+						"note": "du, Sie, er, sie: choose the pronoun that fits, in 19 sentences.",
+						"photo": "b2_hallo_kneipe"
+					},
+					{
+						"quiz": "quest_a1_1_wfragen",
+						"for": "Übung 2 · Question and answer",
+						"note": "Wie, wo, woher: pick the question word that asks for the answer.",
+						"photo": "b2_hallo_klingel"
+					},
+					{
+						"quiz": "quest_a1_1_hoeren_vorstellung",
+						"for": "Übung 3 · Max stellt sich vor",
+						"note": "The same recording of Max. 6 questions, and the text stays hidden until you want it."
+					},
+					{
+						"quiz": "quest_a1_1_praesens",
+						"for": "Übung 4 · Now say it politely",
+						"note": "heißt or heißen, wohnst or wohnen: the verb ending that goes with du and with Sie.",
+						"photo": "b2_hallo_ubahn"
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_wfragen",
+						"for": "Übung 5 · Which question word?",
+						"note": "18 more questions: which question word does each one need?",
+						"photo": "b2_hallo_klingel"
+					},
+					{
+						"quiz": "quest_a1_1_sein_haben",
+						"for": "Übung 7 · Verb first",
+						"note": "Bist du …? Hast du …? Questions that start with the verb, with sein and haben.",
+						"photo": "b2_hallo_doener"
+					},
+					{
+						"quiz": "quest_a1_1_bigtext_dasbinich",
+						"for": "Übung 8 · Das bin ich",
+						"note": "Like exercise 8, as one long text: 12 gaps in a self-introduction."
+					},
+					{
+						"quiz": "quest_a1_1_sprechen_dialog",
+						"for": "Übung 8 · Das bin ich",
+						"note": "Say it out loud: a short conversation about yourself with your own AI assistant, in voice mode."
+					}
+				]
+			},
 			"words": {
 				"intro": "The words of a first evening in a Berlin Kiez: the people, the places and the things you point at.",
 				"groups": [
@@ -1351,6 +1468,87 @@
 			"quiz": "quest_a1_1_zahlen",
 			"listenQuiz": "quest_a1_1_hoeren_zahlen",
 			"speakQuiz": "quest_a1_1_sprechen_zahlen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_zahlen",
+						"for": "Zahlen · numbers",
+						"note": "Null to zehn on their own first: hear the number, type it, then use it in short sentences."
+					},
+					{
+						"quiz": "quest_a1_1_sprechen_zahlen",
+						"for": "Geld · money",
+						"note": "Prices and numbers out loud: hear each one, then say it yourself."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_hoeren_zahlen",
+						"for": "Mitternacht im Späti",
+						"note": "Prices called out at a market: listen and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_zahlen",
+						"for": "Zahlen 0–20",
+						"note": "The first numbers, one at a time, with instant correction."
+					},
+					{
+						"quiz": "quest_a1_1_zahlen2",
+						"for": "Zahlen 0–20",
+						"note": "Elf to zwanzig: the teens, where -zehn comes last."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_zahlen3",
+						"for": "21–99: say it backwards",
+						"note": "einundzwanzig, zweiundvierzig: the small number first, then the tens."
+					},
+					{
+						"quiz": "quest_a1_1_zahlen_gross",
+						"for": "Zahlen bis 100 und Preise",
+						"note": "Prices with Euro and Cent, as a shop says them."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_lesen_hamburg",
+						"for": "Was gibt es hier?",
+						"note": "Another text full of numbers: read it and answer 8 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_zahlen2",
+						"for": "Übung 1 · Write it in words",
+						"note": "More numbers to write out in words, checked as you type."
+					},
+					{
+						"quiz": "quest_a1_1_zahlen3",
+						"for": "Übung 4 · Sixes and sevens",
+						"note": "sechzig or siebzig? The tens that look alike, in sentences."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_hoeren_zahlen",
+						"for": "Übung 6 · Rechnen auf Deutsch",
+						"note": "Hear the numbers, pick the right one: no text to lean on."
+					},
+					{
+						"quiz": "quest_a1_1_zahlen_gross",
+						"for": "Übung 7 · Prices",
+						"note": "Prices, years and amounts: write them the way Germans say them."
+					},
+					{
+						"quiz": "quest_a1_1_sprechen_zahlen",
+						"for": "Übung 8 · Your numbers",
+						"note": "Say prices and numbers out loud after the recording."
+					}
+				]
+			},
 			"words": {
 				"intro": "The Späti is Berlin's corner shop: open late, everything in small amounts, and every price said aloud.",
 				"more": "Auch im Späti · also in the Späti",
@@ -2653,6 +2851,72 @@
 			"quiz": "quest_a1_1_zahlen_gross",
 			"listenQuiz": "quest_a1_1_hoeren_zahlen",
 			"speakQuiz": "quest_a1_1_sprechen_zahlen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_plural",
+						"for": "Obst und Gemüse",
+						"note": "die Banane, die Bananen: the plural of the market words, with their article."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_lesen_fischmarkt",
+						"for": "Maya kauft ein",
+						"note": "Another market, in Hamburg: read about the Fischmarkt and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_zahlen_gross",
+						"for": "Preise und Mengen",
+						"note": "Euros and cents, Kilo and Gramm: prices written as the stall says them."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_plural",
+						"for": "Plural at the market",
+						"note": "One or many? Choose the plural ending for each word."
+					},
+					{
+						"quiz": "quest_a1_1_artikel",
+						"for": "Ich möchte …",
+						"note": "der, die, das before the plural: the article each word carries."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_lesen_fischmarkt",
+						"for": "Die Schilder",
+						"note": "Prices and plurals on a real market morning. 8 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_zahlen_gross",
+						"for": "Übung 1 · Preise",
+						"note": "More prices to write, corrected the moment you type."
+					},
+					{
+						"quiz": "quest_a1_1_plural",
+						"for": "Übung 3 · Einer oder viele?",
+						"note": "Singular or plural, word by word."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_zahlen_gross",
+						"for": "Übung 8 · Große Zahlen",
+						"note": "Hundreds and thousands: prices, years and amounts."
+					},
+					{
+						"quiz": "quest_a1_1_sprechen_zahlen",
+						"for": "Übung 9 · Sag es auf Deutsch",
+						"note": "Say each price out loud after the recording."
+					}
+				]
+			},
 			"words": {
 				"intro": "Thirty words for one morning at the market. Cover the English, say each German word with its article, then turn the page.",
 				"groups": [
@@ -4020,6 +4284,77 @@
 			"quiz": "quest_a1_1_artikel",
 			"listenQuiz": "quest_a1_1_lesen_dasbinich",
 			"speakQuiz": "quest_a1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_suchbild_wohnzimmer",
+						"for": "Die Möbel",
+						"note": "A living room picture: find the sofa, the lamp, the shelf when the app names them."
+					},
+					{
+						"quiz": "quest_a1_1_artikel",
+						"for": "Die Zimmer",
+						"note": "der, die or das for every room and every piece of furniture."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_lesen_dasbinich",
+						"for": "Lenas Wohnung",
+						"note": "Another short text about a person and a home. Read it and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_artikel",
+						"for": "Three articles",
+						"note": "der, die, das, one word at a time, with the clue each time you miss."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_plural",
+						"for": "Five endings",
+						"note": "The five plural endings, word by word."
+					},
+					{
+						"quiz": "quest_a1_1_wo_praepositionen",
+						"for": "Where is it?",
+						"note": "im Bad, in der Küche: where things are in the flat."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_suchbild_wohnzimmer",
+						"for": "Wo ist was?",
+						"note": "Like the museum room: find each thing in a living room picture."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_artikel",
+						"for": "Übung 2 · Three columns",
+						"note": "More words to sort by article, checked at once."
+					},
+					{
+						"quiz": "quest_a1_1_plural",
+						"for": "Übung 4 · Make it more",
+						"note": "Make each word plural."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_wo_praepositionen",
+						"for": "Übung 6 · Wo ist …?",
+						"note": "Where is it? im, in der, am, in sentences about home."
+					},
+					{
+						"quiz": "quest_a1_1_suchbild_klassenzimmer",
+						"for": "Übung 9 · Bilder-Check",
+						"note": "Another room, a classroom: find the things the app names."
+					}
+				]
+			},
 			"words": {
 				"intro": "A Berlin Altbau: high ceilings, a tiled stove, a courtyard behind the house. The rooms, the furniture and the three articles that come with every word.",
 				"more": "Auch in der Wohnung · also in the flat",
@@ -5361,6 +5696,77 @@
 			"quiz": "quest_a1_1_familie",
 			"listenQuiz": "quest_a1_1_hoeren_vorstellung",
 			"speakQuiz": "quest_a1_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_familie",
+						"for": "Die Familie",
+						"note": "Mutter, Bruder, Oma: the family words in sentences, with their article."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_hoeren_vorstellung",
+						"for": "Omas Geburtstag",
+						"note": "Max talks about himself and his family. Listen, then answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_familie",
+						"for": "Lenas Familie",
+						"note": "mein Bruder, meine Schwester: the family in sentences."
+					},
+					{
+						"quiz": "quest_a1_1_farben",
+						"for": "Farben",
+						"note": "rot, blau, grün: the colours in short sentences."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_sein_haben",
+						"for": "sein and haben",
+						"note": "ich bin, du hast: the two verbs, every person, in sentences."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_wortbildung",
+						"for": "Lies das Telegramm",
+						"note": "Lehrerin, Geburtstag: how German builds new words from old ones."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_familie",
+						"for": "Übung 1 · Lena’s family",
+						"note": "More family sentences, corrected as you type."
+					},
+					{
+						"quiz": "quest_a1_1_sein_haben",
+						"for": "Übung 3 · haben",
+						"note": "haben and sein in every person."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_farben",
+						"for": "Übung 5 · Colour it in",
+						"note": "The colours again, in sentences."
+					},
+					{
+						"quiz": "quest_a1_1_lesen_flaggen",
+						"for": "Übung 5 · Colour it in",
+						"note": "Three flags, three stories: read and answer 8 questions."
+					},
+					{
+						"quiz": "quest_a1_1_sprechen_kurzcheck",
+						"for": "Übung 6 · Meine Familie",
+						"note": "A short spoken check with your own AI assistant: numbers and introducing yourself."
+					}
+				]
+			},
 			"words": {
 				"intro": "Sunday at four: the whole family round one table, a cake in the middle. The people, what is on the table, and the colours.",
 				"more": "Auch am Kaffeetisch · also at the coffee table",
@@ -6473,6 +6879,67 @@
 			"quiz": "quest_a1_1_praesens",
 			"listenQuiz": "quest_a1_1_lesen_dasbinich",
 			"speakQuiz": "quest_a1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_praesens",
+						"for": "Der Tag",
+						"note": "The everyday verbs of the chapter, with the right ending each time."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_lesen_fischmarkt",
+						"for": "Max und der Fischmarkt",
+						"note": "Sunday, five o’clock, Fischmarkt: read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_praesens",
+						"for": "Stem + ending",
+						"note": "ich wohne, du wohnst: stem plus ending, every person."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_vokalwechsel",
+						"for": "du fährst, er isst",
+						"note": "The verbs whose vowel changes with du and er/sie/es."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_lesen_hamburg",
+						"for": "Was machen die Leute?",
+						"note": "Hamburg in numbers: read about the city and answer 8 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_praesens",
+						"for": "Übung 1 · The right ending",
+						"note": "More endings to write, checked the moment you type."
+					},
+					{
+						"quiz": "quest_a1_1_vokalwechsel",
+						"for": "Übung 4 · du changes",
+						"note": "fahren, essen, lesen: the forms that change with du."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_vokalwechsel",
+						"for": "Übung 6 · Which form?",
+						"note": "Choose the right form of the vowel-change verbs."
+					},
+					{
+						"quiz": "quest_a1_1_bigtext_dasbinich",
+						"for": "Übung 7 · Your week",
+						"note": "A whole text with 12 gaps: all the verbs of A1.1 at once."
+					}
+				]
+			},
 			"words": {
 				"intro": "From the fish market at five in the morning to a beer on the Elbe at night. The verbs of a day, and the times of day they belong to.",
 				"more": "Auch in Hamburg · also in Hamburg",
@@ -7660,6 +8127,67 @@
 			"quiz": "quest_a1_1_wo_praepositionen",
 			"listenQuiz": "quest_a1_1_hoeren_zahlen",
 			"speakQuiz": "quest_a1_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_wo_praepositionen",
+						"for": "In der Stadt",
+						"note": "im Kino, in der Bäckerei, am Bahnhof: places in the city."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_hoeren_wo",
+						"for": "Ein Tag in Köln",
+						"note": "Where is my key? Listen and find the places. 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_wo_praepositionen",
+						"for": "im, in der, am, beim",
+						"note": "im, in der, am, beim in sentences, with instant correction."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_wfragen",
+						"for": "Wo? Woher? Wohin?",
+						"note": "wo, woher, wohin and the other question words."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_lesen_hamburg",
+						"for": "Lies den Plan",
+						"note": "Another city in numbers: read about Hamburg and answer 8 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_wo_praepositionen",
+						"for": "Übung 1 · im or in der?",
+						"note": "More places to complete, corrected as you type."
+					},
+					{
+						"quiz": "quest_a1_1_wfragen",
+						"for": "Übung 4 · wo, woher oder wohin?",
+						"note": "The right question word, sentence by sentence."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_hoeren_wo",
+						"for": "Übung 7 · Your day",
+						"note": "Places you only hear: listen and answer."
+					},
+					{
+						"quiz": "quest_a1_1_sprechen_kurzcheck",
+						"for": "Übung 6 · Say it in German",
+						"note": "A short spoken check with your own AI assistant: numbers and introducing yourself."
+					}
+				]
+			},
 			"words": {
 				"intro": "Cologne in one day: the cathedral, the bridge with the padlocks, a tram, a pub with the smallest beer glasses in Germany. The places of a city and how to say you are in them.",
 				"more": "Auch in der Stadt · also in the city",
@@ -8715,6 +9243,67 @@
 			"quiz": "quest_a1_1_laender",
 			"listenQuiz": "quest_a1_1_hoeren_vorstellung",
 			"speakQuiz": "quest_a1_1_sprechen_vorstellung",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_laender",
+						"for": "Länder · countries",
+						"note": "Spanien, Spanisch, Spanierin: country, language and people."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_lesen_laender",
+						"for": "Am Gate B 42",
+						"note": "Four countries, one language: read and answer 8 questions."
+					},
+					{
+						"quiz": "quest_a1_1_hoeren_vorstellung",
+						"for": "Woher?",
+						"note": "Max says where he comes from. Listen and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_laender",
+						"for": "Land, Sprache, Leute",
+						"note": "The country, the language, the people, in sentences."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_wo_praepositionen",
+						"for": "liegen: where a place is",
+						"note": "in, im, am: where a place is."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_lesen_laender",
+						"for": "Lies die Tafel",
+						"note": "Where German is spoken: a text about four countries."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_laender",
+						"for": "Übung 1 · What do they speak?",
+						"note": "More countries and languages, checked as you type."
+					},
+					{
+						"quiz": "quest_a1_1_wortbildung",
+						"for": "Übung 3 · Who is what?",
+						"note": "Spanier, Spanierin: the -in that makes a woman."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_sprechen_vorstellung",
+						"for": "Übung 6 · And you?",
+						"note": "Say where you come from and what you speak, after the recording."
+					}
+				]
+			},
 			"words": {
 				"intro": "Frankfurt airport: the one place in Germany where every language is spoken at once. Countries, languages, nationalities, and the compass.",
 				"more": "Auch am Flughafen · also at the airport",
@@ -9776,6 +10365,62 @@
 			"quiz": "quest_a1_1_alphabet",
 			"listenQuiz": "quest_a1_1_diktat_steckbrief",
 			"speakQuiz": "quest_a1_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_alphabet",
+						"for": "Im Amt",
+						"note": "The letters of German, one by one, as you spell at an office."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_diktat_steckbrief",
+						"for": "Nummer 248",
+						"note": "A form, read aloud: hear each sentence and write it down."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_alphabet",
+						"for": "Das Alphabet",
+						"note": "Every letter of the alphabet, with its German name."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_hoeren_buchstabieren",
+						"for": "A wie Anton",
+						"note": "Names spelt out the German way: listen and write what you hear."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_schreiben_steckbrief",
+						"for": "Dein Formular",
+						"note": "Your own short profile: name, age, country, city."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_alphabet",
+						"for": "Übung 2 · Say it in letters",
+						"note": "More spelling, checked letter by letter."
+					},
+					{
+						"quiz": "quest_a1_1_hoeren_buchstabieren",
+						"for": "Übung 3 · Read the spelling",
+						"note": "Hear a spelling and write the word."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_diktat_steckbrief",
+						"for": "Übung 5 · Am Telefon",
+						"note": "A dictation like a phone call: hear it, write it."
+					}
+				]
+			},
 			"words": {
 				"intro": "Everyone who moves to Germany goes to the Bürgeramt within two weeks: a number, a wait, a form, a stamp. The words of the office, and the alphabet you spell your name with.",
 				"more": "Auch im Amt · also at the office",
@@ -10846,6 +11491,57 @@
 			"quiz": "quest_a1_1_sein_haben",
 			"listenQuiz": "quest_a1_2_hoeren_cafe",
 			"speakQuiz": "quest_a1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_zahlen_gross",
+						"for": "Auf der Karte",
+						"note": "Prices as a menu writes them: Euro and Cent."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_hoeren_cafe",
+						"for": "Zwei Kaffee, eine Torte",
+						"note": "Another café, another order: listen and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_zahlen_gross",
+						"for": "Zusammen oder getrennt?",
+						"note": "Paying the bill: prices in Euro and Cent, written as you hear them."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_sein_haben",
+						"for": "sein and haben",
+						"note": "ich bin, ich habe: the two verbs in every person."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_hoeren_cafe",
+						"for": "Lies die Karte",
+						"note": "A café order you only hear: listen and answer 8 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_sein_haben",
+						"for": "Übung 1 · sein",
+						"note": "More sein and haben, corrected the moment you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_sprechen_dialog",
+						"for": "Übung 7 · And you, today?",
+						"note": "A short conversation about you with your own AI assistant, out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "Café Riquet in Leipzig has served coffee since 1908, under two bronze elephants. The words of a café afternoon: what you order, what you say, what you pay.",
 				"more": "Auch im Café · also in the café",
@@ -11955,6 +12651,62 @@
 			"quiz": "quest_a1_1_wortbildung",
 			"listenQuiz": "quest_a1_1_lesen_dasbinich",
 			"speakQuiz": "quest_a1_1_sprechen_vorstellung",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_wortbildung",
+						"for": "Lange Wörter",
+						"note": "Haus + Tür = Haustür: build long words from short ones."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_lesen_mueller",
+						"for": "Ein Regal für Maya",
+						"note": "Why so many Müllers? Names that are jobs. Read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_wortbildung",
+						"for": "-in macht eine Frau",
+						"note": "Lehrer, Lehrerin: add -in, and mind the dots."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_wortbildung",
+						"for": "Wort + Wort = neues Wort",
+						"note": "Two words, one new word, and the article of the last one."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_lesen_mueller",
+						"for": "Lange Wörter",
+						"note": "Names and jobs in one text: read and answer 8 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_wortbildung",
+						"for": "Übung 2 · Build the word",
+						"note": "More words to build, corrected as you type."
+					},
+					{
+						"quiz": "quest_a1_1_artikel",
+						"for": "Übung 3 · Which article?",
+						"note": "der, die, das: the last word decides."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_sprechen_vorstellung",
+						"for": "Übung 6 · Say it in German",
+						"note": "Short sentences to hear and say yourself."
+					}
+				]
+			},
 			"words": {
 				"intro": "The Baumarkt, the German DIY store, is where the long words live: Gartenschlauch, Waschmaschine, Schraubenzieher. Every one of them is two short words you know.",
 				"more": "Auch im Baumarkt · also at the DIY store",
@@ -12987,6 +13739,92 @@
 			"quiz": "quest_a1_1_wortschatz",
 			"listenQuiz": "quest_a1_1_diktat_steckbrief",
 			"speakQuiz": "quest_a1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_1_wortschatz",
+						"for": "Der Steckbrief",
+						"note": "Every word of A1.1 as flashcards: a good look back before A1.2."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_1_lesen_dasbinich",
+						"for": "Vermisst: Mimi",
+						"note": "A profile like Mimi’s: read it and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_1_bigtext_dasbinich",
+						"for": "Ein Steckbrief, Satz für Satz",
+						"note": "A whole self-introduction with 12 gaps."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_1_praesens",
+						"for": "Die Verben",
+						"note": "Regular verbs, every person: a last round."
+					},
+					{
+						"quiz": "quest_a1_1_sein_haben",
+						"for": "Die Verben",
+						"note": "sein and haben: a last round."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_1_schreiben_steckbrief",
+						"for": "Schreib den Zettel",
+						"note": "Write your own profile, six sentences, and let your AI assistant check it."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_1_vokalwechsel",
+						"for": "Übung 2 · Which form?",
+						"note": "The verbs that change with du and er: a last round."
+					},
+					{
+						"quiz": "quest_a1_1_plural",
+						"for": "Übung 3 · More than one",
+						"note": "Plural endings: a last round."
+					},
+					{
+						"quiz": "quest_a1_1_artikel",
+						"for": "Übung 4 · der, die or das?",
+						"note": "Articles: a last round."
+					},
+					{
+						"quiz": "quest_a1_1_wfragen",
+						"for": "Übung 5 · Ask the question",
+						"note": "The question words: a last round."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_1_pronomen",
+						"for": "Übung 6 · du or Sie?",
+						"note": "ich, du, er, sie, Sie: a last round."
+					},
+					{
+						"quiz": "quest_a1_1_wo_praepositionen",
+						"for": "Übung 7 · Where?",
+						"note": "im, in der, am: a last round."
+					},
+					{
+						"quiz": "quest_a1_1_diktat_steckbrief",
+						"for": "Übung 8 · Mein Steckbrief",
+						"note": "A profile read aloud: hear it and write it down."
+					},
+					{
+						"quiz": "quest_a1_1_sprechen_dialog",
+						"for": "Übung 8 · Mein Steckbrief",
+						"note": "Introduce yourself out loud to your own AI assistant."
+					}
+				]
+			},
 			"words": {
 				"intro": "A Steckbrief is a profile: name, age, home, what you like. The last chapter asks for yours, with every word of the book behind it.",
 				"more": "Auch auf dem Steckbrief · also on the profile",

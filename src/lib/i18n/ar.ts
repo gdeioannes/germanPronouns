@@ -2636,4 +2636,72 @@ export const AR: Record<string, string> = {
 		"، صحيح",
 	", wrong":
 		"، خطأ",
+	// Book | App: the page codes, the quiz list of a book page, the app in the printed book
+	"Done on paper? Scan the code at the top of this page and choose App: the same exercises as short quizzes. Win gold in each one and tick it off here.":
+		"انتهيت على الورق؟ امسح الرمز أعلى هذه الصفحة واختر التطبيق: التمارين نفسها كاختبارات قصيرة. احصل على الذهب في كل واحد وضع علامة هنا.",
+	"Code at the top":
+		"الرمز في الأعلى",
+	"The app · die App":
+		"التطبيق · die App",
+	"Your book, as short quizzes.":
+		"كتابك، كاختبارات قصيرة.",
+	"Every page of this book is also in the app: the same words, the same grammar, the same people, cut into small quizzes. Every answer is corrected at once, and you win medals. Scan a page code and choose App. Or open languagequiz.org, where a deck of cards picks quizzes from your book’s level every day.":
+		"كل صفحة من هذا الكتاب موجودة أيضًا في التطبيق: الكلمات نفسها، القواعد نفسها، الأشخاص أنفسهم، مقسّمة إلى اختبارات صغيرة. تُصحَّح كل إجابة فورًا، وتربح ميداليات. امسح رمز صفحة واختر التطبيق. أو افتح languagequiz.org، حيث تختار مجموعة البطاقات كل يوم اختبارات من مستوى كتابك.",
+	"Right!":
+		"صحيح!",
+	"Every page you write on has a small code at the top. Scan it and choose Book or App. Book shows the page on the web: it checks your answers against the key, turns the words into flashcards and reads the text aloud. App shows the same page as short quizzes. Your choice is remembered, and you can switch at any time. The bigger codes at the end of a chapter play its audio or start the tutor, each with an address to type into a browser. In the PDF, every code is a link.":
+		"في أعلى كل صفحة تكتب فيها رمز صغير. امسحه واختر الكتاب أو التطبيق. الكتاب يعرض الصفحة على الويب: يقارن إجاباتك بالحلول، ويحوّل الكلمات إلى بطاقات، ويقرأ النص بصوت عالٍ. التطبيق يعرض الصفحة نفسها كاختبارات قصيرة. يُحفظ اختيارك، ويمكنك التبديل في أي وقت. الرموز الكبيرة في نهاية الفصل تشغّل الصوت أو تبدأ المعلّم، وتحت كل منها عنوان يمكنك كتابته في المتصفح. في ملف PDF كل رمز رابط.",
+	"Every exercise of this chapter is also a short quiz in the app: scan any page code and choose App.":
+		"كل تمرين في هذا الفصل موجود أيضًا كاختبار قصير في التطبيق: امسح أي رمز صفحة واختر التطبيق.",
+	"Book or app":
+		"الكتاب أو التطبيق",
+	"How do you want to go on?":
+		"كيف تريد أن تتابع؟",
+	"This page on the web: check it, hear it, word cards":
+		"هذه الصفحة على الويب: تحقّق، استمع، بطاقات الكلمات",
+	"The app exercises for this page, with pictures and medals":
+		"تمارين التطبيق لهذه الصفحة، مع صور وميداليات",
+	"Your choice is remembered for the next code. You can switch at the top of every page.":
+		"يُحفظ اختيارك للرمز التالي. يمكنك التبديل في أعلى كل صفحة.",
+	"This chapter of your book: the words as cards, the text read aloud, and every exercise to check.":
+		"هذا الفصل من كتابك: الكلمات كبطاقات، والنص مقروءًا بصوت عالٍ، وكل تمرين للتحقق.",
+	"Page · Words":
+		"صفحة · الكلمات",
+	"Page · Reading":
+		"صفحة · القراءة",
+	"Page · Everyday reading":
+		"صفحة · قراءة يومية",
+	"Picture hunt":
+		"البحث في الصورة",
+	"of chapter {n}":
+		"من الفصل {n}",
+	"Pages of this chapter":
+		"صفحات هذا الفصل",
+	"{done} of {n} done":
+		"{done} من {n} منجزة",
+	"Chapter {n}":
+		"الفصل {n}",
+	"Each exercise on this page of your book has its practice in the app. Start with any of them; inside, previous and next stay on this page.":
+		"لكل تمرين في هذه الصفحة من كتابك تمرين في التطبيق. ابدأ بأيّها شئت؛ وفي الداخل يبقى السابق والتالي في هذه الصفحة.",
+	"Again":
+		"مرة أخرى",
+	"Open":
+		"افتح",
+	"Next on this page":
+		"التالي في هذه الصفحة",
+	"Back to the page":
+		"العودة إلى الصفحة",
+	"Previous on this page":
+		"السابق في هذه الصفحة",
+	// How big a quiz is, on a book page's quiz list
+	"{n} sentences":
+		"{n} جملة",
+	"{n} questions":
+		"{n} سؤالًا",
+	"{n} gaps":
+		"{n} فراغًا",
+	"{n} phrases":
+		"{n} عبارة",
+	"{n} cards":
+		"{n} بطاقة",
 };

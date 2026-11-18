@@ -28,6 +28,67 @@
 			"quiz": "quest_c1_1_bildung",
 			"listenQuiz": "quest_c1_1_hoeren_vorlesung",
 			"speakQuiz": "quest_c1_1_sprechen_darstellen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_bildung",
+						"for": "Die Forschung",
+						"note": "Hypothese, Befund, Stichprobe: die Wörter der Wissenschaft in Sätzen."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_lesen_replikation",
+						"for": "Die Fußnote",
+						"note": "Die Krise der Wiederholung in der Forschung: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_bildung",
+						"for": "Der Forschungszyklus",
+						"note": "Vom Thema zur Veröffentlichung: Wort für Wort, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_hoeren_vorlesung",
+						"for": "Der Autor vertritt die Auffassung",
+						"note": "Eine Vorlesung über Sprache und Denken: Hör zu und beantworte 7 Fragen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_hoeren_bologna",
+						"for": "Aufmachen",
+						"note": "25 Jahre Bachelor: eine Podiumsdiskussion. Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_lesen_wissenschaft",
+						"for": "Übung 2 · Warum Musik uns bewegt",
+						"note": "Warum wir Musik mögen: der Text in der App, mit 7 Fragen."
+					},
+					{
+						"quiz": "quest_c1_1_lesen_saetze_einordnen",
+						"for": "Übung 5 · Aufmerksamkeit, bitte",
+						"note": "Aufmerksamkeit als Währung: Ordne die Sätze in den Text ein."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_schreiben_zusammenfassung",
+						"for": "Übung 6 · Deine Zusammenfassung",
+						"note": "Schreib eine Zusammenfassung und lass sie von deinem KI-Assistenten prüfen."
+					},
+					{
+						"quiz": "quest_c1_1_sprechen_darstellen",
+						"for": "Übung 8 · Wessen Aussage?",
+						"note": "Strukturiert darstellen, laut: Hör zu und sprich nach."
+					}
+				]
+			},
 			"words": {
 				"intro": "An einer deutschen Uni ist der Hörsaal gratis, der Professor Beamter, und Studierende dürfen jahrelang bleiben. Nur einem entkommt niemand: der schriftlichen Zusammenfassung.",
 				"more": "Auch an der Uni",
@@ -1126,6 +1187,62 @@
 			"quiz": "quest_c1_1_nominalisierung",
 			"listenQuiz": "quest_c1_1_diktat_nominalstil",
 			"speakQuiz": "quest_c1_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_nominalisierung",
+						"for": "Die Sprache",
+						"note": "Vom Verb zum Nomen: der Nominalstil der Schriftsprache."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_diktat_nominalstil",
+						"for": "Der Antrag",
+						"note": "Wissenschaftssprache als Diktat: Hör zu und schreib."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_nominalisierung",
+						"for": "Falten",
+						"note": "Den Satz zum Nomen falten, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_verbalisierung",
+						"for": "Entfalten",
+						"note": "Die Nominalgruppe zurück zum Satz entfalten."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_lesen_grimm",
+						"for": "Wer hat was getan?",
+						"note": "Woher die Märchen wirklich kamen: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_nominalisierung",
+						"for": "Übung 1 · Falte es",
+						"note": "Noch mehr Nominalisierung."
+					},
+					{
+						"quiz": "quest_c1_1_verbalisierung",
+						"for": "Übung 2 · Entfalte es",
+						"note": "Noch mehr Verbalisierung."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_sprechen_kurzcheck",
+						"for": "Übung 6 · Sag es mit Nebensatz",
+						"note": "Ein kurzer Sprech-Check zum Nominalstil mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutschland erinnert auf seinen Gehwegen. Kleine Messingsteine, eine leere Bibliothek unter einem Platz, eine Tafel an der Schulwand. Das amtliche Gedenken schreibt in Nomengruppen, und es lohnt sich, sie öffnen zu können.",
 				"more": "Auch in der Stadt",
@@ -2217,6 +2334,57 @@
 			"quiz": "quest_c1_1_genitiv_schriftsprache",
 			"listenQuiz": "quest_c1_1_lesen_sprachbausteine",
 			"speakQuiz": "quest_c1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_genitiv_schriftsprache",
+						"for": "Vertragsdeutsch",
+						"note": "angesichts, hinsichtlich, zwecks: die Präpositionen der Schriftsprache."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_lesen_sprachbausteine",
+						"for": "Paragraph 7",
+						"note": "Schlaf und Gedächtnis: ein Lückentext mit Sprachbausteinen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_genitiv_schriftsprache",
+						"for": "Angesichts der Lage",
+						"note": "Genitivpräpositionen, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_adjektive_praep_kasus",
+						"for": "Sich der Risiken bewusst",
+						"note": "bewusst mit Genitiv, fähig zu: Adjektive und ihr Kasus."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_hoeren_rechtschreibung",
+						"for": "Vertragsdeutsch",
+						"note": "Warum ein Land über das ß stritt: Hör den Vortrag, 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_genitiv_schriftsprache",
+						"for": "Übung 1 · Welche Präposition?",
+						"note": "Noch mehr Präpositionen der Schriftsprache."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_adjektive_praep_kasus",
+						"for": "Übung 5 · Der Kasus",
+						"note": "Noch mehr Adjektive und Nomen mit Kasus und Präposition."
+					}
+				]
+			},
 			"words": {
 				"intro": "Jeder deutsche Vertrag hat seine eigene Sprache, und sie ist älter als die Leute, die unterschreiben. Lerne zwölf Präpositionen, und du liest Mietvertrag, Versicherung und, wenn es sein muss, ein Urteil aus Karlsruhe.",
 				"more": "Auch beim Anwalt",
@@ -3375,6 +3543,62 @@
 			"quiz": "quest_c1_1_sprechen_grafik",
 			"listenQuiz": "quest_c1_1_sprechen_grafik",
 			"speakQuiz": "quest_c1_1_sprechen_grafik",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_sprechen_grafik",
+						"for": "Die Kurve",
+						"note": "Eine Grafik beschreiben, laut: Hör zu und sprich nach."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_sprechen_grafik",
+						"for": "Von, auf, um",
+						"note": "steigen um, fallen auf: Zahlen und Kurven, laut."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_sprechen_grafik",
+						"for": "Von 40 auf 60 Prozent",
+						"note": "Die Wendungen für Grafiken, laut geübt."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_konnektoren",
+						"for": "Zumal es günstig ist",
+						"note": "insofern, sofern, zumal, geschweige denn: sofort korrigiert."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_lesen_humboldt",
+						"for": "Beschreib die Kurve",
+						"note": "Der Mythos Humboldt: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_hoeren_bologna",
+						"for": "Übung 2 · Studierende und Geld",
+						"note": "Eine Podiumsdiskussion zum Studium: Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_konnektoren",
+						"for": "Übung 5 · Welches Wort?",
+						"note": "Noch mehr Konnektoren."
+					},
+					{
+						"quiz": "quest_c1_1_hoeren_podiumsdiskussion",
+						"for": "Übung 6 · Tablets in der Schule",
+						"note": "Eine Diskussion zur Digitalisierung der Schule: Hör zu, 7 Fragen."
+					}
+				]
+			},
 			"words": {
 				"intro": "Vor der Frankfurter Börse stehen Bulle und Bär, drinnen hängt eine sehr große Tafel. Die Deutschen sind berühmte Sparer, und über Geld reden sie am liebsten als Linie, die steigt oder fällt, nicht als Summe.",
 				"more": "Auch an der Börse",
@@ -4550,6 +4774,57 @@
 			"quiz": "quest_c1_1_funktionsverbgefuege",
 			"listenQuiz": "quest_c1_1_hoeren_podiumsdiskussion",
 			"speakQuiz": "quest_c1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_funktionsverbgefuege",
+						"for": "Vorstandsdeutsch",
+						"note": "zur Anwendung kommen, in Betracht ziehen: Funktionsverbgefüge der Fachsprache."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_hoeren_podiumsdiskussion",
+						"for": "Zur Kenntnis genommen",
+						"note": "Eine Diskussionsrunde: Hör zu und beantworte 7 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_funktionsverbgefuege",
+						"for": "Bringen oder kommen?",
+						"note": "zum Abschluss bringen oder kommen? Aktiv und Passiv."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_passiversatz",
+						"for": "Er bekam das Buch geschenkt",
+						"note": "bekommen-Passiv und andere Ersatzformen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_bigtext_hinweise",
+						"for": "Heute",
+						"note": "Hinweise zum neuen Dokumentensystem: ein Text mit 12 Lücken."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_funktionsverbgefuege",
+						"for": "Übung 1 · Das Funktionsverb",
+						"note": "Noch mehr Funktionsverbgefüge."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_passiversatz",
+						"for": "Übung 5 · Bau die Ersatzform",
+						"note": "Noch mehr Passiversatz, sofort korrigiert."
+					}
+				]
+			},
 			"words": {
 				"intro": "Im deutschen Vorstand wird nichts einfach getan. Es wird zum Abschluss gebracht, in Erwägung gezogen, zur Verfügung gestellt. Je länger die Wendung, desto kleiner die Gefahr, dass jemand schuld ist.",
 				"more": "Auch im Konzern",
@@ -5689,6 +5964,62 @@
 			"quiz": "quest_c1_1_partizipialattribute",
 			"listenQuiz": "quest_c1_1_suchbild_krankenhaus",
 			"speakQuiz": "quest_c1_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_suchbild_krankenhaus",
+						"for": "Die Medizin",
+						"note": "Ein Krankenzimmer im Bild: Finde jedes Ding, das die App nennt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_partizipialattribute",
+						"for": "Die Packungsbeilage",
+						"note": "der noch zu prüfende Antrag: erweiterte Partizipialattribute."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_partizipialattribute",
+						"for": "Der noch zu prüfende Antrag",
+						"note": "Auspacken und einpacken, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_bar_lich",
+						"for": "Überschaubar, nachvollziehbar",
+						"note": "-bar oder -lich? Adjektive mit passiver Bedeutung."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_bigtext_hinweise",
+						"for": "Einfach gesagt",
+						"note": "Hinweise in Amtssprache: ein Text mit 12 Lücken."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_partizipialattribute",
+						"for": "Übung 1 · Das Partizip",
+						"note": "Noch mehr Partizipialattribute."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_bar_lich",
+						"for": "Übung 5 · -bar oder -lich?",
+						"note": "Noch mehr -bar und -lich."
+					},
+					{
+						"quiz": "quest_c1_1_sprechen_kurzcheck",
+						"for": "Übung 7 · Ein Wort für einen Satz",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Die Packungsbeilage in jeder Tablettenschachtel ist ein Werk deutscher Prosa. Sie zählt jede mögliche Nebenwirkung auf, bis zu einer von zehntausend, und am Ende scheint die Krankheit fast sicherer.",
 				"more": "Auch in der Klinik",
@@ -6846,6 +7177,62 @@
 			"quiz": "quest_c1_1_attribute",
 			"listenQuiz": "quest_c1_1_hoeren_vortrag_detail",
 			"speakQuiz": "quest_c1_1_sprechen_darstellen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_attribute",
+						"for": "Die Sprache",
+						"note": "Genitiv, Präposition, Apposition: Attribute und ihre Ketten."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_lesen_duden",
+						"for": "Die Büste",
+						"note": "Wie ein Wort ins Wörterbuch kommt: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_attribute",
+						"for": "Den Kopf finden",
+						"note": "Den Kopf der Nominalgruppe finden, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_partizipialsatz",
+						"for": "In Berlin angekommen",
+						"note": "In Berlin angekommen, ging er …: Partizipialsätze."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_hoeren_vortrag_detail",
+						"for": "Den Kopf finden",
+						"note": "Ein Vortrag über die Aufmerksamkeitsökonomie: Hör zu, 7 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_attribute",
+						"for": "Übung 1 · Derselbe Kasus",
+						"note": "Noch mehr Attribute."
+					},
+					{
+						"quiz": "quest_c1_1_hoeren_vortrag_detail",
+						"for": "Übung 2 · Gehört?",
+						"note": "Der Vortrag noch einmal, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_partizipialsatz",
+						"for": "Übung 5 · -end oder ge-?",
+						"note": "Noch mehr Partizipialsätze."
+					}
+				]
+			},
 			"words": {
 				"intro": "Berlins Museumsinsel vereint fünf Museen auf einem Stück Land in der Spree. Die Etiketten sind kleine Meisterwerke: eine ganze Kultur in einem Satz, das Verb irgendwo beim Notausgang.",
 				"more": "Auch im Museum",
@@ -7997,6 +8384,57 @@
 			"quiz": "quest_c1_1_tempuswahl",
 			"listenQuiz": "quest_c1_1_lesen_essay",
 			"speakQuiz": "quest_c1_1_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_tempuswahl",
+						"for": "Erzählen",
+						"note": "Präteritum, Perfekt, Präsens: die richtige Zeit für Erzählung und Bericht."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_hoeren_gutenberg",
+						"for": "Da klopft es",
+						"note": "Eine Vorlesung: Was wir über Gutenberg wissen. Hör zu, 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_tempuswahl",
+						"for": "Eine Geschichte, mehrere Zeiten",
+						"note": "Welche Zeit, wo? Sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_lesen_essay",
+						"for": "Luthers Deutsch",
+						"note": "Über die Langeweile: ein Essay. Lies und beantworte 7 Fragen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_hoeren_gutenberg",
+						"for": "Heutiges Deutsch",
+						"note": "Gutenberg und der Buchdruck: die Vorlesung noch einmal."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_tempuswahl",
+						"for": "Übung 1 · Welche Zeit?",
+						"note": "Noch mehr Tempuswahl."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_sprechen_kurzcheck",
+						"for": "Übung 4 · Erzähl es schriftlich",
+						"note": "Ein kurzer Sprech-Check mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Ein Mönch hat 1517 in Wittenberg vielleicht ein Papier an eine Tür genagelt, vielleicht auch nicht. Sicher ist: Er übersetzte in wenigen Monaten auf einer Burg die Bibel und legte fest, wie geschriebenes Deutsch jahrhundertelang klang.",
 				"more": "Auch in Wittenberg",
@@ -8965,6 +9403,62 @@
 			"quiz": "quest_c1_1_adverbialsaetze",
 			"listenQuiz": "quest_c1_1_hoeren_podiumsdiskussion",
 			"speakQuiz": "quest_c1_1_sprechen_darstellen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_adverbialsaetze",
+						"for": "Wenn und aber",
+						"note": "temporal, kausal, final, konditional: Adverbialsätze im System."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_lesen_sprache",
+						"for": "Falls es funktioniert",
+						"note": "Denkt man auf Deutsch anders? Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_adverbialsaetze",
+						"for": "Drei Spalten",
+						"note": "Nebensatz, Adverb, Nomengruppe: sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_adverbialsaetze_2",
+						"for": "Es kam anders, als wir dachten",
+						"note": "konzessiv, konsekutiv, modal, adversativ, komparativ."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_hoeren_podiumsdiskussion",
+						"for": "Drei Spalten",
+						"note": "Eine Diskussionsrunde: Hör zu und beantworte 7 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_adverbialsaetze",
+						"for": "Übung 1 · Nebensatz, Adverb, Nomengruppe",
+						"note": "Noch mehr Adverbialsätze."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_adverbialsaetze_2",
+						"for": "Übung 5 · Welches Wort?",
+						"note": "Noch mehr Adverbialsätze, Teil II."
+					},
+					{
+						"quiz": "quest_c1_1_sprechen_darstellen",
+						"for": "Übung 6 · Als Nomengruppe",
+						"note": "Strukturiert darstellen, laut."
+					}
+				]
+			},
 			"words": {
 				"intro": "Das MP3 wurde in einem deutschen Institut erfunden. Ebenso Airbag, Düsentriebwerk und Chipkarte. Deutsche erfinden sehr gut und diskutieren dann zehn Jahre, ob der Rest der Welt es haben soll.",
 				"more": "Auch im Institut",
@@ -10021,6 +10515,62 @@
 			"quiz": "quest_c1_1_konjunktionaladverbien",
 			"listenQuiz": "quest_c1_1_lesen_wissenschaft",
 			"speakQuiz": "quest_c1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_konjunktionaladverbien",
+						"for": "Geschriebenes Deutsch",
+						"note": "gleichwohl, folglich, indessen: die Bindewörter der Schriftsprache."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_lesen_wissenschaft",
+						"for": "Glück auf",
+						"note": "Warum wir Musik mögen: Lies und beantworte 7 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_konjunktionaladverbien",
+						"for": "Die Registerleiter",
+						"note": "Vom gesprochenen zum geschriebenen Wort, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_konnektoren_zweiteilig",
+						"for": "Weder hat die Firma reagiert, noch …",
+						"note": "weder … noch, sowohl … als auch: und wo das Verb steht."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_lesen_humboldt",
+						"for": "Das Bindewort",
+						"note": "Der Mythos Humboldt: Lies und beantworte 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_konjunktionaladverbien",
+						"for": "Übung 1 · Welches Wort?",
+						"note": "Noch mehr Konjunktionaladverbien."
+					},
+					{
+						"quiz": "quest_c1_1_lesen_essay",
+						"for": "Übung 2 · Lob der Langeweile",
+						"note": "Über die Langeweile: der Essay in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_konnektoren_zweiteilig",
+						"for": "Übung 5 · Die andere Hälfte",
+						"note": "Noch mehr zweiteilige Konnektoren."
+					}
+				]
+			},
 			"words": {
 				"intro": "Das Ruhrgebiet war 150 Jahre lang Kohle und Stahl. Die letzte Steinkohlezeche schloss 2018. Heute ist eine riesige Zeche in Essen UNESCO-Stätte mit Designmuseum, und jede Familie hier erzählt von einem Großvater unter Tage.",
 				"more": "Auch im Ruhrgebiet",
@@ -11217,6 +11767,57 @@
 			"quiz": "quest_c1_1_sprechen_darstellen",
 			"listenQuiz": "quest_c1_1_sprechen_darstellen",
 			"speakQuiz": "quest_c1_1_sprechen_darstellen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_sprechen_darstellen",
+						"for": "Der Vortrag",
+						"note": "Im Folgenden möchte ich …: einen Vortrag strukturieren, laut."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_lesen_sprache",
+						"for": "Zehn Minuten",
+						"note": "Denkt man auf Deutsch anders? Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_sprechen_darstellen",
+						"for": "Der Plan",
+						"note": "Einleitung, Hauptteil, Schluss: die Wendungen, laut."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_verbalisierung",
+						"for": "Formell und einfach",
+						"note": "Vom Nominalstil zurück zum einfachen Satz."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_hoeren_vorlesung",
+						"for": "Formell, einfach",
+						"note": "Eine Vorlesung über Sprache und Denken: Hör zu, 7 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_hoeren_vortrag_detail",
+						"for": "Übung 2 · Ein Vortrag",
+						"note": "Ein Vortrag mit Detailfragen: Hör zu und beantworte 7 Fragen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_sprechen_dialog",
+						"for": "Übung 4 · Dein eigener Vortrag",
+						"note": "Abstrahieren und darstellen, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Wer Deutscher werden will, braucht einen Test, ein Sprachzertifikat und eine Feier mit Bürgermeister. Maya soll bei ihrer kurz sprechen, vor dem ganzen Rathaus. Man hat ihr gesagt: Halte es einfach.",
 				"more": "Auch im Rathaus",
@@ -12195,6 +12796,57 @@
 			"quiz": "quest_c1_1_wortschatz",
 			"listenQuiz": "quest_c1_1_lesen_saetze_einordnen",
 			"speakQuiz": "quest_c1_1_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_c1_1_wortschatz",
+						"for": "Die Wörter des Buches",
+						"note": "Alle Wörter von C1.1 als Karteikarten: ein guter Rückblick vor C1.2."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_c1_1_lesen_saetze_einordnen",
+						"for": "Andruck",
+						"note": "Aufmerksamkeit als Währung: Ordne die Sätze in den Text ein."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_c1_1_nominalisierung",
+						"for": "Auf und zu",
+						"note": "Falten und entfalten: eine letzte Runde."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_c1_1_schreiben_zusammenfassung",
+						"for": "Das Fazit",
+						"note": "Schreib eine Zusammenfassung und lass sie von deinem KI-Assistenten prüfen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_c1_1_lesen_sprachbausteine",
+						"for": "Kürzen",
+						"note": "Schlaf und Gedächtnis: ein Lückentext mit Sprachbausteinen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_c1_1_verbalisierung",
+						"for": "Übung 2 · Aufmachen",
+						"note": "Entfalten: eine letzte Runde."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_c1_1_sprechen_dialog",
+						"for": "Übung 5 · Deine Kurzmeldung",
+						"note": "Abstrahieren, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Eine deutsche Redaktion in der letzten Stunde vor Redaktionsschluss. Ein Text ist zu lang, einer zu trocken. Jedes Wort hier läuft auf eine Frage hinaus: Geht das kürzer, oder ehrlicher?",
 				"more": "Auch in der Redaktion",

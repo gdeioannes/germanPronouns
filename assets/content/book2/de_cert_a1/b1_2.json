@@ -28,6 +28,67 @@
 			"quiz": "quest_b1_2_technik",
 			"listenQuiz": "quest_b1_2_lesen_technik",
 			"speakQuiz": "quest_b1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_technik",
+						"for": "Die Technik",
+						"note": "hochladen, aufladen, abstürzen: Technik und Medien in Sätzen."
+					},
+					{
+						"quiz": "quest_b1_2_suchbild_garage",
+						"for": "Wenn es kaputt ist",
+						"note": "Eine Garage im Bild: Finde jedes Ding, das die App nennt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_lesen_technik",
+						"for": "Ihr Anruf ist uns wichtig",
+						"note": "Herr Klein und der verlorene Vortrag: Lies und beantworte 6 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_technik",
+						"for": "Hoch und runter",
+						"note": "Die Technikwörter mit ihrem Artikel, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_hoeren_durchsage",
+						"for": "Wenn es nicht geht",
+						"note": "Eine Durchsage am Bahnhof: Hör zu und beantworte 6 Fragen."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_hoeren_mp3",
+						"for": "Mach es modern",
+						"note": "Drei Buchstaben aus Erlangen: die Geschichte der MP3. Hör zu, 8 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_technik",
+						"for": "Übung 1 · Das richtige Wort",
+						"note": "Noch mehr Technikwörter, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b1_2_lesen_technik",
+						"for": "Übung 2 · Ein schlechter Morgen",
+						"note": "Herrn Kleins schlechter Morgen, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_sprechen_dialog",
+						"for": "Übung 5 · Am Telefon",
+						"note": "Erzählen und begründen, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutschland baut sehr gute Maschinen und erklärt sie in sehr langen Anleitungen. Ist etwas kaputt, rufst du eine Hotline an. Eine ruhige Stimme sagt: Mach es aus und wieder an.",
 				"more": "Auch in der Werkstatt",
@@ -1059,6 +1120,67 @@
 			"quiz": "quest_b1_2_praet_reg",
 			"listenQuiz": "quest_b1_2_diktat_praeteritum",
 			"speakQuiz": "quest_b1_2_sprechen_geschichte",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_praet_reg",
+						"for": "Damals",
+						"note": "machte, lernte, wohnte: das Präteritum der regelmäßigen Verben."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_lesen_meistertrunk",
+						"for": "Der große Durst",
+						"note": "Rothenburg 1631 und der Meistertrunk: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_praet_reg",
+						"for": "Stamm + -te",
+						"note": "Verb ohne -en plus -te, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_praet_unreg",
+						"for": "Ging, kam, sah",
+						"note": "Die unregelmäßigen Formen, Verb für Verb."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_bigtext_ritter",
+						"for": "Die Vergangenheit",
+						"note": "Der kleine Ritter: ein ganzer Text mit 12 Lücken im Präteritum."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_praet_reg",
+						"for": "Übung 1 · -te",
+						"note": "Noch mehr regelmäßige Formen."
+					},
+					{
+						"quiz": "quest_b1_2_praet_unreg",
+						"for": "Übung 4 · Das Präteritum",
+						"note": "Noch mehr unregelmäßige Formen."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_diktat_praeteritum",
+						"for": "Übung 5 · Welches Verb?",
+						"note": "Eine kleine Geschichte als Diktat: Hör zu und schreib."
+					},
+					{
+						"quiz": "quest_b1_2_sprechen_geschichte",
+						"for": "Übung 6 · Finde den Fehler",
+						"note": "Eine Geschichte erzählen, laut: Hör jeden Satz und sprich nach."
+					}
+				]
+			},
 			"words": {
 				"intro": "Rothenburg ob der Tauber: So stellt man sich das Mittelalter vor. Die Mauer ist ganz, der Nachtwächter geht um acht los. Laut Legende hat ein Bürgermeister die Stadt mit Trinken gerettet.",
 				"more": "Auch in der Altstadt",
@@ -2227,6 +2349,62 @@
 			"quiz": "quest_b1_2_plusquamperfekt",
 			"listenQuiz": "quest_b1_2_hoeren_durchsage",
 			"speakQuiz": "quest_b1_2_sprechen_geschichte",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_plusquamperfekt",
+						"for": "Vorher und nachher",
+						"note": "hatte gemacht, war gefahren: was vorher war."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_hoeren_zug",
+						"for": "Das Formular",
+						"note": "Mara hat den Zug verpasst: Hör das Gespräch und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_plusquamperfekt",
+						"for": "Zwei Schritte zurück",
+						"note": "hatte oder war plus Partizip, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_temporalsaetze",
+						"for": "Nachdem, bevor, während",
+						"note": "nachdem, bevor, während, seit, bis: das Verb am Ende."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_hoeren_durchsage",
+						"for": "Was war passiert?",
+						"note": "Eine Durchsage zur Verspätung: Hör zu und beantworte 6 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_plusquamperfekt",
+						"for": "Übung 1 · Das Hilfsverb",
+						"note": "Noch mehr Plusquamperfekt."
+					},
+					{
+						"quiz": "quest_b1_2_temporalsaetze",
+						"for": "Übung 4 · Welches Wort?",
+						"note": "Noch mehr Temporalsätze."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_lesen_koch",
+						"for": "Übung 5 · Vorher oder nachher?",
+						"note": "Robert Koch, Landarzt und Forscher: Lies und beantworte 8 Fragen."
+					}
+				]
+			},
 			"words": {
 				"intro": "Am Kölner Bahnhof ist im Westen am meisten los. Du hast vier Minuten zum Umsteigen. Dein Zug ist abgefahren, bevor du ankommst, oder fährt, wenn du weg bist. So oder so gibt es eine Durchsage.",
 				"more": "Auch am Bahnhof",
@@ -3257,6 +3435,72 @@
 			"quiz": "quest_b1_2_passiv",
 			"listenQuiz": "quest_b1_2_lesen_anekdote",
 			"speakQuiz": "quest_b1_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_passiv_praet",
+						"for": "Was wurde gemacht?",
+						"note": "wurde gebaut, wurde gerettet: das Passiv im Präteritum."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_lesen_hochwasser",
+						"for": "Die Zeitung schreibt",
+						"note": "Dresden 2002: die Nacht der Sandsäcke. Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_passiv",
+						"for": "Wird oder wurde?",
+						"note": "Vom Aktiv zum Passiv: wird gemacht."
+					},
+					{
+						"quiz": "quest_b1_2_passiv_praet",
+						"for": "Wird oder wurde?",
+						"note": "wurde gemacht: das Passiv in der Vergangenheit."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_trotz_wegen",
+						"for": "Trotz des Regens",
+						"note": "trotz, wegen, während mit Genitiv, sofort korrigiert."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_lesen_hochwasser",
+						"for": "Mach es zum Passiv",
+						"note": "Die Flut in Dresden, im Passiv erzählt."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_passiv_praet",
+						"for": "Übung 1 · wird oder wurde",
+						"note": "Noch mehr Passiv."
+					},
+					{
+						"quiz": "quest_b1_2_hoeren_durchsage",
+						"for": "Übung 2 · Am Bahnhof",
+						"note": "Die Durchsage am Bahnhof noch einmal, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_trotz_wegen",
+						"for": "Übung 5 · trotz, wegen, während",
+						"note": "Noch mehr Genitiv-Präpositionen."
+					},
+					{
+						"quiz": "quest_b1_2_sprechen_kurzcheck",
+						"for": "Übung 6 · Sag es kürzer",
+						"note": "Ein kurzer Sprech-Check zu Präteritum und Passiv mit deinem KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Passau liegt dort, wo sich drei Flüsse treffen, und alle paar Jahre kommen sie zusammen in die Stadt. Am alten Rathaus stehen die Hochwasser an der Wand, mit Datum, höher als dein Kopf.",
 				"more": "Auch beim Hochwasser",
@@ -4365,6 +4609,72 @@
 			"quiz": "quest_b1_2_passiv_modal_intro",
 			"listenQuiz": "quest_b1_2_hoeren_podcast",
 			"speakQuiz": "quest_b1_2_sprechen_begruenden",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_lesen_muell",
+						"for": "Der Müll",
+						"note": "Fünf Tonnen und ein grüner Punkt: Lies und beantworte 8 Fragen."
+					},
+					{
+						"quiz": "quest_b1_2_suchbild_park",
+						"for": "Die Umwelt",
+						"note": "Ein Park im Bild: Finde jedes Ding, das die App nennt."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_passiv_modal_intro",
+						"for": "Der Joghurtbecher",
+						"note": "Muss getrennt werden: Passiv mit Modalverb."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_passiv_modal_intro",
+						"for": "Muss gemacht werden",
+						"note": "Partizip + werden am Ende, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b1_2_zustandspassiv",
+						"for": "Der Zustand danach",
+						"note": "Die Tür ist geschlossen: wird oder ist?"
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_wortbildung",
+						"for": "Vier Endungen: immer die",
+						"note": "-heit, -keit, -ung, -schaft: immer die."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_lesen_muell",
+						"for": "Der Gelbe Sack",
+						"note": "Mülltrennung in Deutschland: Lies den Text."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_passiv_modal_intro",
+						"for": "Übung 1 · Modalverb + werden",
+						"note": "Noch mehr Passiv mit Modalverb."
+					},
+					{
+						"quiz": "quest_b1_2_zustandspassiv",
+						"for": "Übung 2 · Handlung oder Zustand?",
+						"note": "Noch mehr wird oder ist."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_wortbildung",
+						"for": "Übung 5 · Bau das Wort",
+						"note": "Noch mehr Wörter bauen, sofort korrigiert."
+					}
+				]
+			},
 			"words": {
 				"intro": "In einer deutschen Küche stehen vier Mülleimer. Draußen vielleicht sechs. Dein Nachbar weiß, was in deinem ist. Wirfst du einen Joghurtbecher falsch ein, stellt ihn vielleicht jemand auf deine Fußmatte.",
 				"more": "Auch beim Müll",
@@ -5436,6 +5746,62 @@
 			"quiz": "quest_b1_2_n_deklination",
 			"listenQuiz": "quest_b1_2_hoeren_podcast",
 			"speakQuiz": "quest_b1_2_sprechen_begruenden",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_n_deklination",
+						"for": "Menschen",
+						"note": "den Kollegen, dem Studenten: die Wörter mit -n."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_hoeren_praktikant",
+						"for": "Leserbriefe",
+						"note": "Emre, der neue Praktikant: Hör die Szene und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_n_deklination",
+						"for": "Die wachsen um ein -n",
+						"note": "Ohne -n nur als Subjekt: Satz für Satz."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_relativ_dat",
+						"for": "Dessen, deren",
+						"note": "dem, der, dessen, deren: die ganze Tabelle."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_relativ_dat",
+						"for": "Der Kiosk, dessen …",
+						"note": "Noch mehr Relativsätze mit Dativ und Genitiv."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_n_deklination",
+						"for": "Übung 1 · -n oder nicht?",
+						"note": "Noch mehr n-Deklination, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_relativ_dat",
+						"for": "Übung 5 · Welches Wort?",
+						"note": "Noch mehr dessen und deren."
+					},
+					{
+						"quiz": "quest_b1_2_sprechen_begruenden",
+						"for": "Übung 7 · Ein Satz",
+						"note": "Etwas begründen, laut: Hör jeden Satz und sprich nach."
+					}
+				]
+			},
 			"words": {
 				"intro": "Eine Lokalzeitung machen ein paar müde Leute, die alle kennen. Jeder Journalist schreibt über einen Kollegen, einen Chef, einen Nachbarn und einen Präsidenten, und jedes Wort benimmt sich komisch.",
 				"more": "Auch in der Redaktion",
@@ -6561,6 +6927,67 @@
 			"quiz": "quest_b1_2_damit_umzu",
 			"listenQuiz": "quest_b1_2_hoeren_podcast",
 			"speakQuiz": "quest_b1_2_sprechen_begruenden",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_damit_umzu",
+						"for": "Wozu?",
+						"note": "damit oder um … zu? Das Ziel im Satz."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_hoeren_podcast",
+						"for": "Damit Sie schlafen können",
+						"note": "Ein Podcast über weniger Stress: Hör zu und beantworte 6 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_damit_umzu",
+						"for": "Um … zu oder damit?",
+						"note": "Gleiche Person: um … zu. Andere Person: damit."
+					},
+					{
+						"quiz": "quest_b1_2_infinitiv",
+						"for": "Um … zu oder damit?",
+						"note": "um … zu, ohne … zu, statt … zu, Satz für Satz."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_indem_sodass",
+						"for": "Wie? Mit welcher Folge?",
+						"note": "indem und sodass: wie, und mit welcher Folge."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_sprechen_begruenden",
+						"for": "Wozu?",
+						"note": "Gründe und Ziele laut sagen: Hör und sprich nach."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_damit_umzu",
+						"for": "Übung 1 · Welches Wort?",
+						"note": "Noch mehr damit und um … zu."
+					},
+					{
+						"quiz": "quest_b1_2_hoeren_podcast",
+						"for": "Übung 2 · Weniger Stress",
+						"note": "Der Podcast noch einmal, in der App."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_indem_sodass",
+						"for": "Übung 5 · Warum, wozu?",
+						"note": "Noch mehr indem und sodass."
+					}
+				]
+			},
 			"words": {
 				"intro": "Lena arbeitet nachts auf einer Station im deutschen Krankenhaus: Alles hat ein Formular, einen Zweck und ein sehr frühes Frühstück. Es kommt um halb sieben, damit du dich davon erholen kannst.",
 				"more": "Auch im Krankenhaus",
@@ -7439,6 +7866,57 @@
 			"quiz": "quest_b1_2_konnektoren_zweiteilig",
 			"listenQuiz": "quest_b1_2_lesen_anekdote",
 			"speakQuiz": "quest_b1_2_sprechen_begruenden",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_konnektoren_zweiteilig",
+						"for": "Das Argument",
+						"note": "zwar … aber, sowohl … als auch: die Paare."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_lesen_hindenburg",
+						"for": "Die Karotte",
+						"note": "Das Hotel am Himmel, 1936: Lies und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_konnektoren_zweiteilig",
+						"for": "Sechs Paare",
+						"note": "Sechs zweiteilige Konnektoren, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_konnektoren_zweiteilig",
+						"for": "Je … desto",
+						"note": "je … desto: zwei Stellen fürs Verb."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_sprechen_begruenden",
+						"for": "Dein Argument",
+						"note": "Begründen, laut: Hör jeden Satz und sprich nach."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_konnektoren_zweiteilig",
+						"for": "Übung 1 · Die andere Hälfte",
+						"note": "Noch mehr Paare, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_sprechen_dialog",
+						"for": "Übung 5 · Pro und Contra",
+						"note": "Argumentieren, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutsche streiten gern über Essen: samstags auf dem Markt, mit einer Stofftasche in der Hand. Niemand gewinnt. Aber alle haben einen sehr gut gebauten Satz.",
 				"more": "Auch auf dem Markt",
@@ -8327,6 +8805,57 @@
 			"quiz": "quest_b1_2_irreale_wuensche",
 			"listenQuiz": "quest_b1_2_sprechen_geschichte",
 			"speakQuiz": "quest_b1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_irreale_wuensche",
+						"for": "Was wäre gewesen?",
+						"note": "Hätte ich doch …! Wünsche an die Vergangenheit."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_hoeren_zug",
+						"for": "Polterabend",
+						"note": "Hätte ich doch den früheren Zug genommen! Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_irreale_wuensche",
+						"for": "Hätte ich doch!",
+						"note": "hätte oder wäre plus Partizip, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_partizip_adj_intro",
+						"for": "Das lachende Kind",
+						"note": "das lachende Kind, der gekochte Reis: Partizip als Adjektiv."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_lesen_anekdote",
+						"for": "Hätte ich doch!",
+						"note": "Der ehrliche Finder: Lies und beantworte 6 Fragen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_irreale_wuensche",
+						"for": "Übung 1 · Hätte ich doch!",
+						"note": "Noch mehr irreale Wünsche."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_partizip_adj_intro",
+						"for": "Übung 5 · Gerade oder fertig?",
+						"note": "Partizip I oder II? Noch mehr, sofort korrigiert."
+					}
+				]
+			},
 			"words": {
 				"intro": "Eine deutsche Hochzeit gibt es zweimal: zuerst auf dem Standesamt, per Gesetz, an einem Werktag, in einem Raum mit Pflanze. Die Party kommt später. Dazwischen hast du viel Zeit: Was hast du getan?",
 				"more": "Auch bei der Hochzeit",
@@ -9400,6 +9929,62 @@
 			"quiz": "quest_b1_2_schreiben_geschichte",
 			"listenQuiz": "quest_b1_2_lesen_technik",
 			"speakQuiz": "quest_b1_2_sprechen_geschichte",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_bigtext_ritter",
+						"for": "Die Geschichte",
+						"note": "Der kleine Ritter: ein ganzer Text mit 12 Lücken."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_praet_unreg",
+						"for": "Der schwarze Ritter",
+						"note": "ritt, kam, fiel: die Formen der Ritter-Geschichte."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_sprechen_geschichte",
+						"for": "Die Form einer Geschichte",
+						"note": "Eine Geschichte erzählen, laut: Hör zu und sprich nach."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_praet_misch",
+						"for": "Welche Vergangenheit, wo?",
+						"note": "brachte, dachte, wusste: die Mischverben."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_schreiben_geschichte",
+						"for": "Deine Geschichte",
+						"note": "Schreib, was schiefgegangen ist, und lass es von deinem KI-Assistenten prüfen."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_praet_misch",
+						"for": "Übung 1 · Ab in die Vergangenheit",
+						"note": "Noch mehr Präteritum, sofort korrigiert."
+					},
+					{
+						"quiz": "quest_b1_2_schreiben_geschichte",
+						"for": "Übung 2 · Deine Geschichte",
+						"note": "Deine Geschichte, geprüft von deinem KI-Assistenten."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_lesen_technik",
+						"for": "Übung 5 · Die Geschichte von Herbert",
+						"note": "Ein Missgeschick, im Präteritum erzählt: Lies und beantworte 6 Fragen."
+					}
+				]
+			},
 			"words": {
 				"intro": "Jeden Sommer füllen sich Burghöfe mit Leuten in Kettenhemden. Von Montag bis Freitag sind sie Buchhalter und Zahnärzte. Den Rest der Woche möchten sie „Herr Ritter“ heißen.",
 				"more": "Auch auf der Burg",
@@ -10216,6 +10801,57 @@
 			"quiz": "quest_b1_2_modalpartikeln_intro",
 			"listenQuiz": "quest_b1_2_sprechen_begruenden",
 			"speakQuiz": "quest_b1_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_modalpartikeln_intro",
+						"for": "Kleine Wörter",
+						"note": "denn, doch, ja, mal: die kleinen Wörter."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_hoeren_zug",
+						"for": "Faust, ohne Hose",
+						"note": "Ben und Mara: ein Gespräch voller kleiner Wörter. Hör zu und beantworte 8 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_modalpartikeln_intro",
+						"for": "In der Mitte, nie betont",
+						"note": "Was jedes kleine Wort dazugibt, sofort korrigiert."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_sprechen_begruenden",
+						"for": "Was sagt man im Foyer?",
+						"note": "Deine Meinung, freundlich und begründet, laut."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_modalpartikeln_intro",
+						"for": "Das ist ja …",
+						"note": "Noch mehr ja, doch, eigentlich."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_modalpartikeln_intro",
+						"for": "Übung 1 · Welches kleine Wort?",
+						"note": "Noch mehr Modalpartikeln, sofort korrigiert."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_sprechen_kurzcheck",
+						"for": "Übung 5 · Im Chat",
+						"note": "Ein kurzer Sprech-Check mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "Deutschland hat über hundert öffentlich finanzierte Theater, und vom Publikum erwartet man eine Meinung. Ein Theaterabend ist ein Kontaktsport, im Sitzen.",
 				"more": "Auch im Theater",
@@ -11271,6 +11907,62 @@
 			"quiz": "quest_b1_2_wortschatz",
 			"listenQuiz": "quest_b1_2_diktat_praeteritum",
 			"speakQuiz": "quest_b1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_b1_2_wortschatz",
+						"for": "Der Abschied",
+						"note": "Alle Wörter von B1.2 als Karteikarten: ein guter Rückblick vor B2."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_b1_2_lesen_anekdote",
+						"for": "Zum Bahnhof",
+						"note": "Eine wahre Anekdote in allen Vergangenheiten: Lies und beantworte 6 Fragen."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_b1_2_diktat_praeteritum",
+						"for": "Alle Vergangenheiten",
+						"note": "Eine kleine Geschichte als Diktat: Hör zu und schreib."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_b1_2_irreale_wuensche",
+						"for": "Was wäre, wenn …?",
+						"note": "Jetzt oder damals: der Konjunktiv der Vergangenheit."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_b1_2_praet_unreg",
+						"for": "Ein Lebenslauf von 1980",
+						"note": "Die unregelmäßigen Formen: eine letzte Runde."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_b1_2_plusquamperfekt",
+						"for": "Übung 2 · Welche Vergangenheit?",
+						"note": "Das Plusquamperfekt: eine letzte Runde."
+					},
+					{
+						"quiz": "quest_b1_2_irreale_wuensche",
+						"for": "Übung 3 · Was wäre gewesen?",
+						"note": "Hätte, wäre: eine letzte Runde."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_b1_2_sprechen_dialog",
+						"for": "Übung 5 · Dein Brief an Maya",
+						"note": "Erzählen und begründen, laut, mit deinem eigenen KI-Assistenten."
+					}
+				]
+			},
 			"words": {
 				"intro": "In Deutschland endet die Schule mit einem Papier, dem Abitur. Dein Leben lang können Leute nach deiner Note fragen. Maya lebt jetzt lange genug hier: Sie bewirbt sich um etwas, das so ein Papier braucht.",
 				"more": "Auch zum Abschied",

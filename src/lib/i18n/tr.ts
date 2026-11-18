@@ -2351,4 +2351,72 @@ export const TR: Record<string, string> = {
 		", doğru",
 	", wrong":
 		", yanlış",
+	// Book | App: the page codes, the quiz list of a book page, the app in the printed book
+	"Done on paper? Scan the code at the top of this page and choose App: the same exercises as short quizzes. Win gold in each one and tick it off here.":
+		"Kâğıtta bitirdin mi? Bu sayfanın üstündeki kodu tara ve Uygulama’yı seç: aynı alıştırmalar kısa testler olarak. Her birinde altın kazan ve burada işaretle.",
+	"Code at the top":
+		"Üstteki kod",
+	"The app · die App":
+		"Uygulama · die App",
+	"Your book, as short quizzes.":
+		"Kitabın, kısa testler olarak.",
+	"Every page of this book is also in the app: the same words, the same grammar, the same people, cut into small quizzes. Every answer is corrected at once, and you win medals. Scan a page code and choose App. Or open languagequiz.org, where a deck of cards picks quizzes from your book’s level every day.":
+		"Bu kitabın her sayfası uygulamada da var: aynı kelimeler, aynı dilbilgisi, aynı kişiler, küçük testlere bölünmüş. Her cevap anında düzeltilir ve madalya kazanırsın. Bir sayfa kodunu tara ve Uygulama’yı seç. Ya da languagequiz.org’u aç: oradaki kart destesi her gün kitabının seviyesinden testler seçer.",
+	"Right!":
+		"Doğru!",
+	"Every page you write on has a small code at the top. Scan it and choose Book or App. Book shows the page on the web: it checks your answers against the key, turns the words into flashcards and reads the text aloud. App shows the same page as short quizzes. Your choice is remembered, and you can switch at any time. The bigger codes at the end of a chapter play its audio or start the tutor, each with an address to type into a browser. In the PDF, every code is a link.":
+		"Yazdığın her sayfanın üstünde küçük bir kod var. Tara ve Kitap ya da Uygulama’yı seç. Kitap sayfayı web’de gösterir: cevaplarını anahtarla karşılaştırır, kelimeleri kelime kartlarına çevirir ve metni sesli okur. Uygulama aynı sayfayı kısa testler olarak gösterir. Seçimin hatırlanır, istediğin zaman değiştirebilirsin. Bölüm sonundaki büyük kodlar sesi çalar ya da öğretmeni başlatır; her birinin altında tarayıcıya yazabileceğin bir adres var. PDF’te her kod bir bağlantıdır.",
+	"Every exercise of this chapter is also a short quiz in the app: scan any page code and choose App.":
+		"Bu bölümün her alıştırması uygulamada kısa bir test olarak da var: herhangi bir sayfa kodunu tara ve Uygulama’yı seç.",
+	"Book or app":
+		"Kitap ya da uygulama",
+	"How do you want to go on?":
+		"Nasıl devam etmek istersin?",
+	"This page on the web: check it, hear it, word cards":
+		"Bu sayfa web’de: kontrol et, dinle, kelime kartları",
+	"The app exercises for this page, with pictures and medals":
+		"Bu sayfanın uygulama alıştırmaları, resimler ve madalyalarla",
+	"Your choice is remembered for the next code. You can switch at the top of every page.":
+		"Seçimin bir sonraki kod için hatırlanır. Her sayfanın üstünden değiştirebilirsin.",
+	"This chapter of your book: the words as cards, the text read aloud, and every exercise to check.":
+		"Kitabının bu bölümü: kelimeler kart olarak, metin sesli, her alıştırma kontrol için.",
+	"Page · Words":
+		"Sayfa · Kelimeler",
+	"Page · Reading":
+		"Sayfa · Okuma",
+	"Page · Everyday reading":
+		"Sayfa · Gündelik okuma",
+	"Picture hunt":
+		"Resimde ara",
+	"of chapter {n}":
+		"{n}. bölümün",
+	"Pages of this chapter":
+		"Bu bölümün sayfaları",
+	"{done} of {n} done":
+		"{n} testten {done} tamam",
+	"Chapter {n}":
+		"{n}. bölüm",
+	"Each exercise on this page of your book has its practice in the app. Start with any of them; inside, previous and next stay on this page.":
+		"Kitabının bu sayfasındaki her alıştırmanın uygulamada bir testi var. İstediğinden başla; içeride önceki ve sonraki bu sayfada kalır.",
+	"Again":
+		"Tekrar",
+	"Open":
+		"Aç",
+	"Next on this page":
+		"Bu sayfada sonraki",
+	"Back to the page":
+		"Sayfaya dön",
+	"Previous on this page":
+		"Bu sayfada önceki",
+	// How big a quiz is, on a book page's quiz list
+	"{n} sentences":
+		"{n} cümle",
+	"{n} questions":
+		"{n} soru",
+	"{n} gaps":
+		"{n} boşluk",
+	"{n} phrases":
+		"{n} ifade",
+	"{n} cards":
+		"{n} kart",
 };

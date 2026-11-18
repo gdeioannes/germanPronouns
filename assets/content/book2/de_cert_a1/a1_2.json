@@ -29,6 +29,72 @@
 			"quiz": "quest_a1_2_akkusativ",
 			"listenQuiz": "quest_a1_2_suchbild_supermarkt",
 			"speakQuiz": "quest_a1_2_sprechen_einkaufen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_suchbild_supermarkt",
+						"for": "Im Supermarkt",
+						"note": "A supermarket picture: find each thing when the app names it."
+					},
+					{
+						"quiz": "quest_a1_2_einkaufen_mengen",
+						"for": "Wie viel?",
+						"note": "eine Flasche, ein Kilo, 200 Gramm: amounts and prices in sentences."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_lesen_brot",
+						"for": "Ein Euro für den Wagen",
+						"note": "Three thousand loaves a night: read about a bakery and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_akkusativ",
+						"for": "den, einen",
+						"note": "der becomes den, ein becomes einen: the object, sentence by sentence."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_negation",
+						"for": "kein und nicht",
+						"note": "kein or nicht? Turn yes into no, with instant correction."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_einkaufen_mengen",
+						"for": "Lies den Bon",
+						"note": "Amounts and prices like on a receipt, written as you say them."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_akkusativ",
+						"for": "Übung 1 · the",
+						"note": "More den, die, das after a verb, checked as you type."
+					},
+					{
+						"quiz": "quest_a1_2_negation",
+						"for": "Übung 4 · kein or nicht?",
+						"note": "More sentences to turn into no."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_sprechen_einkaufen",
+						"for": "Übung 7 · At the market",
+						"note": "Shopping phrases out loud: hear each one, then say it."
+					},
+					{
+						"quiz": "quest_a1_2_suchbild_supermarkt",
+						"for": "Übung 9 · Bilder-Check",
+						"note": "Find the shop things in the supermarket picture."
+					}
+				]
+			},
 			"words": {
 				"intro": "The weekly shop: a coin for the cart, your own bag, and a cashier faster than you can pack.",
 				"more": "Auch im Supermarkt · also in the supermarket",
@@ -1446,6 +1512,72 @@
 			"quiz": "quest_a1_2_possessiv",
 			"listenQuiz": "quest_a1_2_lesen_anzeigen",
 			"speakQuiz": "quest_a1_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_possessiv",
+						"for": "Meine Sachen",
+						"note": "mein, dein, sein: whose thing is it?"
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_lesen_anzeigen",
+						"for": "Mein Käse, dein Käse",
+						"note": "Notes and signs from everyday life: read them and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_possessiv",
+						"for": "mein, dein, unser",
+						"note": "One word for each owner, with the right ending."
+					},
+					{
+						"quiz": "quest_a1_2_possessiv_plural",
+						"for": "mein, dein, unser",
+						"note": "unser, euer, Ihr: the owners in the plural."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_pronomen_akk",
+						"for": "mich, dich, ihn",
+						"note": "mich, dich, ihn, sie, es: who it happens to."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_lesen_anzeigen",
+						"for": "Lies das Schild",
+						"note": "More signs and small ads: read and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_possessiv",
+						"for": "Übung 1 · mein or meine?",
+						"note": "More owners, corrected as you type."
+					},
+					{
+						"quiz": "quest_a1_2_possessiv_plural",
+						"for": "Übung 4 · My people",
+						"note": "unser, euer, Ihr in sentences."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_pronomen_akk",
+						"for": "Übung 6 · ihn, sie or es?",
+						"note": "Say it shorter: the pronoun for the thing."
+					},
+					{
+						"quiz": "quest_a1_2_sprechen_kurzcheck",
+						"for": "Übung 8 · Your people",
+						"note": "A short spoken check with your own AI assistant: den, einen, mein, dein."
+					}
+				]
+			},
 			"words": {
 				"intro": "A WG is a flat shared by people who are not family: one kitchen, one fridge, and a name on every cheese.",
 				"more": "Auch in der WG · also in the shared flat",
@@ -2739,6 +2871,62 @@
 			"quiz": "quest_a1_2_modalverben",
 			"listenQuiz": "quest_a1_2_sprechen_alltag",
 			"speakQuiz": "quest_a1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_modalverben",
+						"for": "Was kannst du?",
+						"note": "kann, muss, will: say what you can and must do."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_modalverben",
+						"for": "Was kannst du nicht?",
+						"note": "The five helpers in sentences like the ones in the text."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_modalverben",
+						"for": "Fünf kleine Helfer",
+						"note": "ich kann, er kann: every helper in every person."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_satzbau",
+						"for": "Die Klammer",
+						"note": "The verb in second place, the rest at the end: build the sentence."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_lesen_anzeigen",
+						"for": "Was darf man hier?",
+						"note": "Signs that say what you may and may not do: read and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_modalverben",
+						"for": "Übung 1 · The right form",
+						"note": "More helper verbs, checked as you type."
+					},
+					{
+						"quiz": "quest_a1_2_satzbau",
+						"for": "Übung 2 · Build the bracket",
+						"note": "Put each word in its place."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_sprechen_dialog",
+						"for": "Übung 6 · Dein Kurs",
+						"note": "Talk about your day and what you can do with your own AI assistant, out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "Almost every German town has a Volkshochschule: evening classes in everything from Italian to pottery, for little money.",
 				"more": "Auch im Kurs · also on the course",
@@ -3853,6 +4041,67 @@
 			"quiz": "quest_a1_2_uhrzeit",
 			"listenQuiz": "quest_a1_2_hoeren_bahnhof",
 			"speakQuiz": "quest_a1_2_sprechen_alltag",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_hoeren_bahnhof",
+						"for": "Am Bahnhof",
+						"note": "A station announcement: listen and answer 6 questions."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_uhrzeit",
+						"for": "Halb zehn",
+						"note": "halb zehn, Viertel nach acht: the time, as people say it."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_uhrzeit",
+						"for": "Around the clock",
+						"note": "Every way of saying the time, with instant correction."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_sprechen_alltag",
+						"for": "Um wie viel Uhr?",
+						"note": "Times and your day out loud: hear each phrase, then say it."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_hoeren_bahnhof",
+						"for": "Wann fährt mein Zug?",
+						"note": "Departures you only hear: listen to the announcement."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_uhrzeit",
+						"for": "Übung 1 · What time is it?",
+						"note": "More clocks to read, checked as you type."
+					},
+					{
+						"quiz": "quest_a1_2_hoeren_termine",
+						"for": "Übung 4 · Die Durchsage",
+						"note": "Times and dates in a voice message: listen and answer."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_hoeren_baecker",
+						"for": "Übung 5 · Your day",
+						"note": "A baker gets up at three: listen to the day and answer 8 questions."
+					},
+					{
+						"quiz": "quest_a1_2_sprechen_alltag",
+						"for": "Übung 6 · Say it in German",
+						"note": "Say the times out loud after the recording."
+					}
+				]
+			},
 			"words": {
 				"intro": "The station is the best clock lesson in Germany: every board, every announcement and every late train is a time to read.",
 				"more": "Auch am Bahnhof · also at the station",
@@ -4809,6 +5058,67 @@
 			"quiz": "quest_a1_2_datum",
 			"listenQuiz": "quest_a1_2_hoeren_termine",
 			"speakQuiz": "quest_a1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_datum",
+						"for": "Das Jahr",
+						"note": "Montag to Sonntag, Januar to Dezember, in sentences."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_lesen_sonntag",
+						"for": "Am ersten Mai",
+						"note": "Why Sunday is still Sunday in Germany: read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_wann_praepositionen",
+						"for": "um, am, im",
+						"note": "um acht, am Montag, im Mai: which little word goes with which time."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_datum",
+						"for": "Der erste, am ersten",
+						"note": "Dates as Germans say and write them."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_lesen_reise",
+						"for": "Lies den Plan",
+						"note": "A small trip with days and times: read and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_wann_praepositionen",
+						"for": "Übung 2 · um, am or im?",
+						"note": "More times to complete, checked as you type."
+					},
+					{
+						"quiz": "quest_a1_2_hoeren_termine",
+						"for": "Übung 3 · Anna calls Tom",
+						"note": "Anna’s message to Tom about the cinema: listen and answer 6 questions."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_datum",
+						"for": "Übung 5 · Your year",
+						"note": "Days, months and dates: a second round."
+					},
+					{
+						"quiz": "quest_a1_2_sprechen_dialog",
+						"for": "Übung 5 · Your year",
+						"note": "Talk about your week and your year with your own AI assistant, out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "The German year on one sheet of paper: birthdays, holidays that differ by state, and the day before everything closes.",
 				"more": "Auch im Kalender · also on the calendar",
@@ -5915,6 +6225,67 @@
 			"quiz": "quest_a1_2_trennbare",
 			"listenQuiz": "quest_a1_2_diktat_meintag",
 			"speakQuiz": "quest_a1_2_sprechen_alltag",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_trennbare",
+						"for": "Der Tag",
+						"note": "aufstehen, einkaufen, fernsehen: the day in verbs that split."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_bigtext_meintag",
+						"for": "Frau Huber weiß alles",
+						"note": "A whole day in one text with 12 gaps."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_trennbare",
+						"for": "Zwei Teile, ein Verb",
+						"note": "The front part goes to the end: build each sentence."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_diktat_meintag",
+						"for": "Lenas Tag",
+						"note": "A day read aloud: hear each sentence and write it down."
+					},
+					{
+						"quiz": "quest_a1_2_hoeren_baecker",
+						"for": "Mein Tag, von früh bis spät",
+						"note": "A baker’s day from three in the morning: listen and answer 8 questions."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_lesen_anzeigen",
+						"for": "Wann macht das Jugendzentrum auf?",
+						"note": "Opening times and signs: read and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_trennbare",
+						"for": "Übung 1 · Split it",
+						"note": "More split verbs, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_diktat_meintag",
+						"for": "Übung 5 · Your day",
+						"note": "A dictation about one day: hear it, write it."
+					},
+					{
+						"quiz": "quest_a1_2_sprechen_alltag",
+						"for": "Übung 5 · Your day",
+						"note": "Say your day out loud after the recording."
+					}
+				]
+			},
 			"words": {
 				"intro": "A Berlin Hinterhof is a courtyard behind the street: bikes, bins, a chestnut tree and forty windows looking at each other.",
 				"more": "Auch im Hof · also in the courtyard",
@@ -6999,6 +7370,67 @@
 			"quiz": "quest_a1_2_wohin",
 			"listenQuiz": "quest_a1_2_hoeren_bahnhof",
 			"speakQuiz": "quest_a1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_wohin",
+						"for": "Unterwegs",
+						"note": "nach Berlin, zum Bahnhof, in die Stadt: where you are going."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_lesen_muenster",
+						"for": "Ein schwarzes Fahrrad",
+						"note": "Münster, the city of bicycles: read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_praepositionen",
+						"for": "für, ohne, durch, gegen, um",
+						"note": "The five little words, and den after them."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_wohin",
+						"for": "nach, in, zu",
+						"note": "nach, in or zu: the right one for each place."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_hoeren_bahnhof",
+						"for": "Ein Fahrplan",
+						"note": "Departures announced at the station: listen and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_praepositionen",
+						"for": "Übung 2 · Which little word?",
+						"note": "More für, ohne, durch, checked as you type."
+					},
+					{
+						"quiz": "quest_a1_2_wohin",
+						"for": "Übung 4 · nach, ins or zum?",
+						"note": "More places to go to."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_hoeren_bahnhof",
+						"for": "Übung 6 · At the station",
+						"note": "The station announcement again, in the app."
+					},
+					{
+						"quiz": "quest_a1_2_lesen_muenster",
+						"for": "Übung 8 · Your way",
+						"note": "How a whole city goes by bike: read and answer."
+					}
+				]
+			},
 			"words": {
 				"intro": "Münster is the bicycle capital of Germany: a green ring around the old town, no cars on it, and more bikes than people.",
 				"more": "Auch unterwegs · also on the way",
@@ -8228,6 +8660,72 @@
 			"quiz": "quest_a1_2_hoeflich",
 			"listenQuiz": "quest_a1_2_hoeren_cafe",
 			"speakQuiz": "quest_a1_2_sprechen_einkaufen",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_hoeflich",
+						"for": "Im Restaurant",
+						"note": "Ich hätte gern, ich möchte: order politely."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_lesen_cafe",
+						"for": "Ein kleines Bier",
+						"note": "A new café opens: read and answer 6 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_hoeflich",
+						"for": "Ich hätte gern …",
+						"note": "The polite chunks, sentence by sentence."
+					},
+					{
+						"quiz": "quest_a1_2_sprechen_einkaufen",
+						"for": "At the table",
+						"note": "Order out loud: hear each phrase, then say it."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_dativ_pronomen_intro",
+						"for": "mir, dir, Ihnen",
+						"note": "Schmeckt es dir? Gefällt es Ihnen? mir, dir, Ihnen in sentences."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_hoeren_cafe",
+						"for": "Ich hätte gern …",
+						"note": "An order in a café: listen and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_hoeflich",
+						"for": "Übung 1 · Say it politely",
+						"note": "More polite orders, checked as you type."
+					},
+					{
+						"quiz": "quest_a1_2_hoeren_cafe",
+						"for": "Übung 4 · Ein Gast im Café",
+						"note": "The café order again: listen and answer."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_dativ_pronomen_intro",
+						"for": "Übung 5 · Your order",
+						"note": "mir, dir, Ihnen: a second round."
+					},
+					{
+						"quiz": "quest_a1_2_sprechen_einkaufen",
+						"for": "Übung 6 · Say it in German",
+						"note": "Shopping and ordering phrases out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "Long tables under chestnut trees, one-litre mugs, and a rule that surprises everyone: you may bring your own food.",
 				"more": "Auch im Biergarten · also in the beer garden",
@@ -9227,6 +9725,62 @@
 			"quiz": "quest_a1_2_koerper",
 			"listenQuiz": "quest_a1_2_hoeren_termine",
 			"speakQuiz": "quest_a1_2_sprechen_kurzcheck",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_koerper",
+						"for": "Der Körper",
+						"note": "der Kopf, der Bauch, die Hand: the body in sentences."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_hoeren_arzt",
+						"for": "Drei Maß",
+						"note": "At the doctor’s: listen to the visit and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_koerper",
+						"for": "Was tut weh?",
+						"note": "Mein Kopf tut weh: the body and what hurts."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_modalverben",
+						"for": "Sie müssen im Bett bleiben",
+						"note": "müssen, dürfen, sollen: the doctor’s orders as helper verbs."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_hoeren_termine",
+						"for": "Wann kann ich kommen?",
+						"note": "Anna leaves a voice message with a day and a time: listen and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_koerper",
+						"for": "Übung 2 · tut or tun?",
+						"note": "More body sentences, checked as you type."
+					},
+					{
+						"quiz": "quest_a1_2_possessiv",
+						"for": "Übung 3 · mein or meine?",
+						"note": "mein Kopf, meine Hand: whose body part."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_hoeren_arzt",
+						"for": "Übung 5 · Beim Arzt",
+						"note": "The doctor’s visit again: listen and answer."
+					}
+				]
+			},
 			"words": {
 				"intro": "A waiting room where everyone says hello, a doctor who asks how long, and a pharmacy with a red A you can see from far away.",
 				"more": "Auch in der Praxis · also at the surgery",
@@ -10386,6 +10940,67 @@
 			"quiz": "quest_a1_2_perfekt_intro",
 			"listenQuiz": "quest_a1_2_lesen_reise",
 			"speakQuiz": "quest_a1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_war_hatte",
+						"for": "Die Zeit davor",
+						"note": "war and hatte: yesterday in two verbs."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_lesen_mauer",
+						"for": "Lieber Karl!",
+						"note": "The night the Wall fell: read and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_war_hatte",
+						"for": "war und hatte",
+						"note": "ich war, du hattest: every person, with instant correction."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_perfekt_intro",
+						"for": "Ich habe gespielt",
+						"note": "habe gespielt, bin gefahren: the first past forms."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_lesen_reise",
+						"for": "Eine Postkarte von früher",
+						"note": "A small trip, told afterwards: read and answer 6 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_war_hatte",
+						"for": "Übung 3 · war or hatte?",
+						"note": "More war and hatte, checked as you type."
+					},
+					{
+						"quiz": "quest_a1_2_perfekt_intro",
+						"for": "Übung 5 · haben or sein?",
+						"note": "habe or bin? The past form, sentence by sentence."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_lesen_mauer",
+						"for": "Übung 6 · Yesterday",
+						"note": "A real night in 1989, told with war and hatte."
+					},
+					{
+						"quiz": "quest_a1_2_sprechen_dialog",
+						"for": "Übung 7 · Your weekend",
+						"note": "Talk about your days with your own AI assistant, out loud."
+					}
+				]
+			},
 			"words": {
 				"intro": "Every Sunday in Berlin's Mauerpark, old things find new owners: radios, cameras, records, and boxes of other people's postcards.",
 				"more": "Auch auf dem Flohmarkt · also at the flea market",
@@ -11737,6 +12352,62 @@
 			"quiz": "quest_a1_2_imperativ",
 			"listenQuiz": "quest_a1_2_suchbild_kueche",
 			"speakQuiz": "quest_a1_2_sprechen_alltag",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_suchbild_kueche",
+						"for": "In der Küche",
+						"note": "A kitchen picture: find each thing when the app names it."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_lesen_pfand",
+						"for": "Mit oder ohne?",
+						"note": "Don’t throw the bottle away! Read about Pfand and answer 8 questions."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_imperativ",
+						"for": "Komm! Kommt! Kommen Sie!",
+						"note": "One verb, three people: the order for each."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_satzbau",
+						"for": "Zuerst, dann, zum Schluss",
+						"note": "dann counts as place 1: the verb comes right after it."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_lesen_pfand",
+						"for": "Eine Hausordnung",
+						"note": "More rules: read about Pfand and answer 8 questions."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_imperativ",
+						"for": "Übung 2 · Three people",
+						"note": "More orders, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_imperativ",
+						"for": "Übung 6 · Make it an order",
+						"note": "Turn each sentence into an order."
+					},
+					{
+						"quiz": "quest_a1_2_suchbild_kueche",
+						"for": "Übung 7 · Bilder-Check",
+						"note": "Find the kitchen things in the picture."
+					}
+				]
+			},
 			"words": {
 				"intro": "Germany is divided on one question: potato salad with mayonnaise, or without. Recipes, washing machines and grandmothers all speak in orders.",
 				"more": "Auch in der Küche · also in the kitchen",
@@ -12904,6 +13575,62 @@
 			"quiz": "quest_a1_2_satzbau",
 			"listenQuiz": "quest_a1_2_hoeren_termine",
 			"speakQuiz": "quest_a1_2_sprechen_dialog",
+			"appQuizzes": {
+				"woerter": [
+					{
+						"quiz": "quest_a1_2_wortschatz",
+						"for": "Am Handy",
+						"note": "Every word of A1.2 as flashcards: a good look back before A2."
+					}
+				],
+				"lesen": [
+					{
+						"quiz": "quest_a1_2_schreiben_absage",
+						"for": "Leider nicht",
+						"note": "Write your own short message saying no, and let your AI assistant check it."
+					}
+				],
+				"grammatik-1": [
+					{
+						"quiz": "quest_a1_2_satzbau",
+						"for": "und, oder, aber, denn",
+						"note": "The joining words, and where the verb goes after them."
+					}
+				],
+				"grammatik-2": [
+					{
+						"quiz": "quest_a1_2_schreiben_absage",
+						"for": "Leider kann ich nicht",
+						"note": "Invite, answer, say no politely: write it yourself."
+					}
+				],
+				"alltag": [
+					{
+						"quiz": "quest_a1_2_hoeren_termine",
+						"for": "Wann kommt die Post?",
+						"note": "Anna’s voice message about Saturday: listen for the day and the time."
+					}
+				],
+				"uebungen-1": [
+					{
+						"quiz": "quest_a1_2_satzbau",
+						"for": "Übung 2 · und, oder, aber or denn?",
+						"note": "More joining words, checked as you type."
+					}
+				],
+				"uebungen-2": [
+					{
+						"quiz": "quest_a1_2_schreiben_absage",
+						"for": "Übung 5 · Sag ab!",
+						"note": "Your own message saying no, checked by your AI assistant."
+					},
+					{
+						"quiz": "quest_a1_2_sprechen_dialog",
+						"for": "Übung 6 · Your reasons",
+						"note": "Talk about your day and your week out loud with your own AI assistant."
+					}
+				]
+			},
 			"words": {
 				"intro": "Yellow post boxes, the postcard rack, and a phone full of messages. The German you write is short, friendly and has a fixed way to begin and end.",
 				"more": "Auch bei der Post · also at the post office",
