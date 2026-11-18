@@ -52,3 +52,7 @@ static/img/photo/b2[bc][12]*_*.jpg
 static/img/photo/quest_*.jpg
 # KDP interior prints
 static/books/v2/*_print.pdf
+# Print originals before tool/upscale-print.mjs enlarged them.
+static/img/photo/orig/
+# KDP upload folder (tool/kdp-package.mjs): large PDFs, rebuilt from the content.
+/kdp/

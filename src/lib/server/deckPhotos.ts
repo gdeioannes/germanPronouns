@@ -5,6 +5,7 @@
 // copies tool/build-deck-photos.mjs writes to static/img/deck/.
 import { loadBook2, photoCredits } from '$lib/domain/book2';
 import type { QuizSummary } from '$lib/content/types';
+import { creditShort } from '$lib/domain/credits';
 
 export interface CardPhoto {
 	/** /img/deck/<photo>.webp */
@@ -15,10 +16,8 @@ export interface CardPhoto {
 
 export function deckPhotos(courseId: string, quizzes: Pick<QuizSummary, 'id' | 'level'>[]): Record<string, CardPhoto> {
 	const credits = photoCredits(courseId);
-	const credit = (photo: string) => {
-		const c = credits[photo];
-		return c ? `${c.author.replace(/\s*\(talk\).*$/, '').trim()}, ${c.license}` : '';
-	};
+	// The licence's credit, from Commons' own data (domain/credits); the full line is on /credits.
+	const credit = (photo: string) => creditShort(photo) ?? '';
 	const out: Record<string, CardPhoto> = {};
 	for (const level of new Set(quizzes.map((q) => q.level ?? ''))) {
 		const book = level ? loadBook2(courseId, level) : null;

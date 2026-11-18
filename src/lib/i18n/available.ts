@@ -25,6 +25,7 @@ export const LOCAL_ROUTES = new Set<string>([
 	'/settings',
 	'/about',
 	'/legal',
+	'/credits',
 	'/contact',
 	// Not /signin: the sign-in emails and panels are English-only, so Turkish
 	// mode hides signing in (a signed-in learner keeps syncing in the background).

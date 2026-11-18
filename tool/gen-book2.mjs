@@ -15,13 +15,14 @@ const flag = (n, d) => (args.includes(n) ? args[args.indexOf(n) + 1] : d);
 const level = args.find((a) => /^[ABC][12]\.[12]$/.test(a)) ?? 'A1.1';
 const courseId = flag('--course', 'de_cert_a1');
 const base = flag('--url', 'http://localhost:5173');
-// --cover: the wraparound print cover (back + spine + front, 3 mm bleed). KDP white
-// paper: 0.0572 mm per page, so --pages sets the spine.
+// --cover: the wraparound print cover (back + spine + front, KDP's 0.125 in = 3.175 mm
+// bleed). Spine: 0.0572 mm per page on KDP white or standard-colour paper, 0.0596 mm
+// on premium colour (--paper premium); --pages sets it.
 const coverMode = args.includes('--cover');
 // --web: the download edition, with the 1400 px photo copies (~20 MB instead of ~100).
 const web = args.includes('--web');
 const pages = Number(flag('--pages', 130));
-const spine = Math.round(pages * 0.0572 * 10) / 10;
+const spine = Math.round(pages * (flag('--paper', 'standard') === 'premium' ? 0.0596 : 0.0572) * 100) / 100;
 const chrome = [process.env.CHROME_PATH, 'C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', '/usr/bin/google-chrome'].find((p) => p && existsSync(p));
 if (!chrome) throw new Error('No Chrome or Edge found — set CHROME_PATH.');
 
@@ -47,7 +48,7 @@ await page.evaluate(async () => {
 	await Promise.all([...document.images].map((img) => (img.complete ? null : new Promise((r) => { img.addEventListener('load', r, { once: true }); img.addEventListener('error', r, { once: true }); }))));
 });
 const pdf = coverMode
-	? await page.pdf({ width: `${420 + spine + 6}mm`, height: '303mm', printBackground: true, timeout: 300_000 })
+	? await page.pdf({ width: `${420 + spine + 6.35}mm`, height: '303.35mm', printBackground: true, timeout: 300_000 })
 	: await page.pdf({ format: 'A4', printBackground: true, timeout: 300_000 });
 await browser.close();
 mkdirSync(`${root}static/books/v2`, { recursive: true });

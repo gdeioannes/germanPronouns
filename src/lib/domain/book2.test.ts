@@ -6,6 +6,9 @@ import { answersOf, wordsIn } from './companion';
 // Book v2 (docs/book_v2_plan.md): every chapter has its ten pages' worth of
 // content, every photo is on disk and credited, every exercise has its answer.
 const credits = photoCredits('de_cert_a1');
+// Pictures this project made itself (documents typeset by tool/make-documents.mjs) need no credit.
+import own from '../../../assets/rights/own.json';
+const ours = (file: string) => own.files.some((o) => new RegExp(o.pattern).test(file));
 
 // Every book file: a1_2.json is A1.2.
 const levels = readdirSync('assets/content/book2/de_cert_a1').filter((f) => /^[abc]\d_\d\.json$/.test(f)).map((f) => f.slice(0, -5).toUpperCase().replace('_', '.'));
@@ -36,7 +39,7 @@ describe(`book v2 ${level}`, () => {
 			it('prints only photos on disk, each credited', () => {
 				for (const id of photosOf(c)) {
 					expect(existsSync(`static/img/photo/web/${id}.jpg`), id).toBe(true);
-					expect(credits[id], `credit for ${id}`).toBeTruthy();
+					expect(credits[id] || ours(`static/img/photo/web/${id}.jpg`), `credit for ${id}`).toBeTruthy();
 				}
 			});
 

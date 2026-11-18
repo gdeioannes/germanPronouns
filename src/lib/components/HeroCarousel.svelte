@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { creditShort } from '$lib/domain/credits';
 	// The front page's hero: a carousel the visitor moves (swipe, arrows, dots,
 	// keyboard; never by itself). Slide one is the message on the Bergmannstraße
 	// photo, the page's only h1; the others each show one thing the course gives
@@ -34,6 +35,8 @@
 		cta?: { label: string; href: string };
 		pins?: { a: 'der' | 'die' | 'das'; w: string; en: string; x: number; y: number }[];
 		credit: string;
+		/** The Commons photo the slide shows (its full credit is on /credits). */
+		photo: string;
 	}
 
 	// Slide one says why; the others say what the course gives you, each on a
@@ -53,7 +56,8 @@
 				{ a: 'das', w: 'Café', en: t('café'), x: 80, y: 44 },
 				{ a: 'die', w: 'Freunde', en: t('friends'), x: 66, y: 70 }
 			],
-			credit: 'JoachimKohler-HB, CC BY-SA 4.0'
+			photo: 'b2_hallo_opener',
+			credit: creditShort('b2_hallo_opener') ?? ''
 		},
 		{
 			img: 'ostsee',
@@ -67,7 +71,8 @@
 				: 'From your first Hallo to C2. A short check tells you where to begin, and you can move up or back whenever you like.',
 			card: 'levels',
 			cta: { label: t('Find my level'), href: '/level-check/test' },
-			credit: 'Bundesanstalt für Wasserbau, CC BY 2.0'
+			photo: 'b2a21_ostsee_opener',
+			credit: creditShort('b2a21_ostsee_opener') ?? ''
 		},
 		{
 			img: 'markt',
@@ -79,13 +84,14 @@
 			text: t('Short lessons, then practice. A wrong answer is never just red: you see the right one and why.'),
 			card: 'fix',
 			cta: { label: t('Try an exercise'), href: '/course/de_cert_a1/quiz/quest_a1_1_artikel' },
-			credit: 'Henning Schlottmann, CC BY-SA 4.0'
+			photo: 'b2_markt_opener',
+			credit: creditShort('b2_markt_opener') ?? ''
 		},
 		{
 			img: 'hochzeit',
-			alt: t('A wedding party with balloons outside Düsseldorf city hall'),
+			alt: t('The old registry office in Bad Honnef, a half-timbered house'),
 			focus: '50% 60%',
-			place: 'Rathaus, Düsseldorf',
+			place: 'Altes Standesamt, Bad Honnef',
 			kicker: t('On paper too'),
 			title: t('A book for every level.'),
 			text: lang.limited
@@ -93,7 +99,8 @@
 				: 'Twelve books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.',
 			card: 'books',
 			cta: { label: t('See the books'), href: '/books' },
-			credit: 'Kürschner, CC0'
+			photo: 'b2b12_hochzeit_opener',
+			credit: creditShort('b2b12_hochzeit_opener') ?? ''
 		},
 		{
 			img: 'oktoberfest',
@@ -104,7 +111,8 @@
 			title: t('Hear it. Say it.'),
 			text: t('Every sentence read aloud, as often as you need, and speaking practice in every chapter.'),
 			card: 'voice',
-			credit: 'Jordiferrer, CC BY-SA 3.0'
+			photo: 'b2a22_tracht_opener',
+			credit: creditShort('b2a22_tracht_opener') ?? ''
 		},
 		{
 			img: 'chiemsee',
@@ -115,7 +123,8 @@
 			title: t('Open to everyone.'),
 			text: t('Five minutes a day or a whole Sunday. Skip what you know, repeat what you don’t.'),
 			card: 'open',
-			credit: 'SimonWaldherr, CC BY-SA 4.0'
+			photo: 'b2a22_camping_opener',
+			credit: creditShort('b2a22_camping_opener') ?? ''
 		}
 	]);
 
@@ -269,7 +278,7 @@
 							</ul>
 						{/if}
 					</div>
-				<p class="credit">{s.place} · {s.credit}</p>
+				<p class="credit">{s.place} · <a href="/credits#{s.photo}">{s.credit}</a></p>
 			</div>
 		{/each}
 	</div>

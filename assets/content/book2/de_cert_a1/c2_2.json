@@ -14,7 +14,7 @@
 		"chapter": "wien",
 		"badge": "after C2.1",
 		"lede": "A pothole under nature protection. A guest who won’t go, a consultant in a lift, a yellow envelope, a cup worth four marks. The great debate on the long sentence, a café in Vienna, and at last a stair in the Hofstraße, where someone says the shortest thing in German. The last book.",
-		"real": "Kant’s starry sky, a leaflet of January 1945, a waybill from 1756, a certificate from 1958",
+		"real": "Kant’s starry sky, a job reference in code, a waybill from 1756, a certificate from 1958",
 		"places": "Kant’s tomb, the port of Hamburg, the Bundestag, a coffee house in Vienna"
 	},
 	"chapters": [
@@ -1948,52 +1948,52 @@
 			},
 			"document": {
 				"photo": "b2c22_anspielung_doc",
-				"caption": "Ein Flugblatt, Meseritz, Januar 1945",
+				"caption": "Ein Arbeitszeugnis, Hamburg 2019",
 				"tall": true,
-				"intro": "Noch eine Art, zwischen den Zeilen zu lesen: ein echtes Flugblatt eines NS-Kreisleiters aus den letzten Kriegsmonaten. Er sagt, es gebe keinen Grund zur Sorge. Lies, was er über die Gerüchte schreibt. Frag dich dann, wozu man so etwas drucken muss.",
-				"fact": "Bald darauf erreichte die Rote Armee Meseritz, und die deutsche Bevölkerung floh oder wurde vertrieben. Heute heißt die Stadt Międzyrzecz und liegt in Polen. Wer das Blatt richtig las, wusste genau, was zu tun war, und der letzte Satz sagte, was es kosten würde.",
+				"intro": "Noch eine Art, zwischen den Zeilen zu lesen: das Arbeitszeugnis. Es muss wohlwollend sein, also sagt es nie offen etwas Schlechtes. Darum gibt es einen Code, den jede Personalabteilung lesen kann. Lies, was über Herrn Kessler steht (Firma und Person sind erfunden), und frag dich, was davon wirklich ein Lob ist.",
+				"fact": "Jeder Arbeitnehmer hat ein Recht auf ein schriftliches Zeugnis, und es muss zugleich wahr und wohlwollend sein. Aus diesem Widerspruch entstand die Zeugnissprache: „stets zu unserer vollsten Zufriedenheit“ ist eine Eins, „zu unserer Zufriedenheit“ eine Vier. Und was fehlt, sagt oft am meisten: Hier fehlen die Kollegen und der Chef.",
 				"tasks": [
 					{
-						"title": "Lies das Blatt",
-						"instruction": "Kreise ein, was auf dem Blatt steht.",
+						"title": "Lies das Zeugnis",
+						"instruction": "Kreise ein, was im Zeugnis steht.",
 						"kind": "circle",
 						"cols": 1,
 						"items": [
 							{
-								"before": "Es richtet sich an",
+								"before": "Herr Kessler arbeitete im",
 								"options": [
-									"die Bevölkerung",
-									"die Soldaten"
+									"Einkauf",
+									"Verkauf"
 								],
 								"after": ".",
-								"answer": "die Bevölkerung"
+								"answer": "Einkauf"
 							},
 							{
-								"before": "Die Unruhe ist",
+								"before": "Er war in der Firma",
 								"options": [
-									"besonders unter den Frauen",
-									"nur in Berlin"
+									"gut vier Jahre",
+									"knapp zwei Jahre"
 								],
 								"after": ".",
-								"answer": "besonders unter den Frauen"
+								"answer": "gut vier Jahre"
 							},
 							{
-								"before": "Er sagt, die Gerüchte sind",
+								"before": "Stets zufrieden war man mit seiner",
 								"options": [
-									"falsch",
-									"richtig"
+									"Pünktlichkeit",
+									"Leistung"
 								],
 								"after": ".",
-								"answer": "falsch"
+								"answer": "Pünktlichkeit"
 							},
 							{
-								"before": "Der Befehl zur Räumung kommt",
+								"before": "Er verlässt die Firma",
 								"options": [
-									"nur von ihm",
-									"von den Frauen"
+									"auf eigenen Wunsch",
+									"wegen einer Kündigung"
 								],
 								"after": ".",
-								"answer": "nur von ihm"
+								"answer": "auf eigenen Wunsch"
 							}
 						]
 					},
@@ -2004,16 +2004,16 @@
 						"cols": 1,
 						"items": [
 							{
-								"prompt": "Die verbreiteten Gerüchte sind falsch.",
-								"answer": "Alle reden schon von der Flucht."
+								"prompt": "Er hat sich stets bemüht, die Aufgaben zu erledigen.",
+								"answer": "Er hat die Aufgaben nicht geschafft."
 							},
 							{
-								"prompt": "Wer türmt, entzieht sich der Fürsorge der Partei.",
-								"answer": "Wer flieht, wird bestraft."
+								"prompt": "Durch seine Geselligkeit trug er zur Verbesserung des Betriebsklimas bei.",
+								"answer": "Er hat bei der Arbeit getrunken."
 							},
 							{
-								"prompt": "Ich muss erwarten, dass Sie mir vertrauen.",
-								"answer": "Niemand vertraut mir mehr."
+								"prompt": "Wir wünschen ihm alles Gute, vor allem Gesundheit.",
+								"answer": "Er war oft krank."
 							}
 						]
 					}
@@ -8685,11 +8685,11 @@
 				"photos": [
 					{
 						"photo": "b2c22_streit_a",
-						"caption": "Ein Debattierclub: Einerseits, andererseits."
+						"caption": "Der Raum für den Debattierclub: Einerseits, andererseits."
 					},
 					{
 						"photo": "b2c22_streit_b",
-						"caption": "Am Pult: noch vier Minuten."
+						"caption": "Die Stühle im Halbkreis: noch vier Minuten."
 					}
 				],
 				"lines": [

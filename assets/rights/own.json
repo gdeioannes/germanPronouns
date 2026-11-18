@@ -1,0 +1,95 @@
+{
+	"_comment": "Pictures this project made itself, by path pattern (tool/rights-audit.mjs). Each says how it was made; one composed from other pictures names them in `from` (Commons photo ids from the _photos.json files), and their credits apply.",
+	"files": [
+		{
+			"pattern": "^static/favicon\\.(svg|png)$",
+			"note": "The site logo, a vector drawing made for this project."
+		},
+		{
+			"pattern": "^static/icons/",
+			"note": "App icons rendered from the site logo."
+		},
+		{
+			"pattern": "^static/book-mark\\.png$",
+			"note": "The book mark, rendered from the site logo."
+		},
+		{
+			"pattern": "^static/og/",
+			"note": "Share cards drawn in code by tool/og-images.mjs (text and colours only, no photos)."
+		},
+		{
+			"pattern": "^static/img/help/",
+			"note": "Screenshots of this app, for the in-app help."
+		},
+		{
+			"pattern": "^static/img/story/maya_pose_clue\\.webp$",
+			"note": "Made with Google's Gemini image model, a pose of the story character Maya (assets/images/story_manifest.json, maya_ref_clue)."
+		},
+		{
+			"pattern": "^static/img/book-[a-c]\\d(-\\d)?-front(-(tr|ar|uk))?\\.webp$",
+			"note": "Book cover images, composed by this project from the book's own credited Commons photos and its own typography."
+		},
+		{
+			"pattern": "^static/img/book-kafka-front\\.webp$",
+			"note": "Cover of the Kafka reader: a door drawn in code (SVG, tool/kafka-cover.py) and this project's typography."
+		},
+		{
+			"pattern": "^static/books/de_cert_a1_a1_cover\\.jpg$",
+			"note": "Cover of the retired whole-A1 book, composed by this project from credited Commons photos and its own typography."
+		},
+		{
+			"pattern": "^static/img/deck/bahnhof-1200\\.webp$",
+			"note": "Photo for the About page, warm-graded and cropped.",
+			"from": "b2a12_bahn_opener"
+		},
+		{
+			"pattern": "^static/img/deck/baumarkt-1200\\.webp$",
+			"note": "Warm-graded, cropped copy.",
+			"from": "b2_woerter_innen"
+		},
+		{
+			"pattern": "^static/img/deck/hamburg-1200\\.webp$",
+			"note": "Warm-graded, cropped copy.",
+			"from": "b2a21_hamburg_opener"
+		},
+		{
+			"pattern": "^static/img/deck/ubahn-1200\\.webp$",
+			"note": "Warm-graded, cropped copy.",
+			"from": "b2_hallo_ubahn"
+		},
+		{
+			"pattern": "^static/img/hero/bergmannstrasse-",
+			"note": "Home page photo, warm-graded and cropped.",
+			"from": "b2_hallo_opener"
+		},
+		{
+			"pattern": "^static/img/hero/ostsee-",
+			"note": "Home page photo, warm-graded and cropped.",
+			"from": "b2a21_ostsee_opener"
+		},
+		{
+			"pattern": "^static/img/hero/markt-",
+			"note": "Home page photo, warm-graded and cropped.",
+			"from": "b2_markt_opener"
+		},
+		{
+			"pattern": "^static/img/hero/hochzeit-",
+			"note": "Home page photo, warm-graded and cropped.",
+			"from": "b2b12_hochzeit_opener"
+		},
+		{
+			"pattern": "^static/img/hero/oktoberfest-",
+			"note": "Home page photo, warm-graded and cropped.",
+			"from": "b2a22_tracht_opener"
+		},
+		{
+			"pattern": "^static/img/hero/chiemsee-",
+			"note": "Home page photo, warm-graded and cropped.",
+			"from": "b2a22_camping_opener"
+		},
+		{
+			"pattern": "^static/img/photo/(web/)?(b2a12_woche_plan|b2a22_verabredung_kino|b2b11_bewerbung_anzeige|b2b12_abschied_cv|b2b21_interview_plakat|b2b22_forschung_zettel|b2c22_anspielung_doc)\\.jpg$",
+			"note": "Documents typeset for the books by tool/make-documents.mjs (timetable, cinema listing, job advert, CV, poster, flyer, job reference); people, firms and schools in them are made up."
+		}
+	]
+}

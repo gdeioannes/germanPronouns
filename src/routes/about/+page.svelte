@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { creditShort } from '$lib/domain/credits';
 	// About: the project's story and the person behind it. Prose lives right
 	// here — it changes rarely and has no reason to be data.
 	import Seo from '$lib/components/Seo.svelte';
@@ -80,6 +81,7 @@
 			</div>
 			<figure>
 				<img src="/img/deck/bahnhof-1200.webp" alt="Kalabalık bir Alman tren istasyonu" width="512" height="384" fetchpriority="high" />
+			<figcaption class="photo-credit"><a href="/credits#b2a12_bahn_opener">{creditShort('b2a12_bahn_opener')}</a></figcaption>
 			</figure>
 			<p>
 				Her kararı birkaç ilke belirliyor. <strong class="key">Öğrenmek, sınanmaktan önemlidir</strong>: hiçbir
@@ -213,6 +215,7 @@
 			</div>
 			<figure>
 				<img src="/img/deck/bahnhof-1200.webp" alt="قاعة محطة قطارات ألمانية مزدحمة" width="512" height="384" fetchpriority="high" />
+			<figcaption class="photo-credit"><a href="/credits#b2a12_bahn_opener">{creditShort('b2a12_bahn_opener')}</a></figcaption>
 			</figure>
 			<p>
 				بعض القناعات تحدد كل قرار. <strong class="key">التعلّم أهم من الاختبار</strong>: لا شيء مقفل، وكل
@@ -345,6 +348,7 @@
 			</div>
 			<figure>
 				<img src="/img/deck/bahnhof-1200.webp" alt="Людний зал німецького вокзалу" width="512" height="384" fetchpriority="high" />
+			<figcaption class="photo-credit"><a href="/credits#b2a12_bahn_opener">{creditShort('b2a12_bahn_opener')}</a></figcaption>
 			</figure>
 			<p>
 				Кожне рішення визначають кілька переконань. <strong class="key">Навчання важливіше за перевірку</strong>:
@@ -489,6 +493,7 @@
 				height="384"
 				fetchpriority="high"
 			/>
+		<figcaption class="photo-credit"><a href="/credits#b2a12_bahn_opener">{creditShort('b2a12_bahn_opener')}</a></figcaption>
 		</figure>
 		<p>
 			A few convictions shape every decision. <strong class="key">Learning beats testing</strong>, so
@@ -832,5 +837,12 @@
 		.split img {
 			aspect-ratio: 16 / 9;
 		}
+	}
+	.photo-credit {
+		margin-top: 0.3rem;
+		font-size: 0.72rem;
+	}
+	.photo-credit a {
+		color: var(--ink-muted);
 	}
 </style>

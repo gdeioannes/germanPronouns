@@ -108,8 +108,8 @@ export const UK: Record<string, string> = {
 		"Короткі уроки, потім практика. Неправильна відповідь ніколи не буває просто червоною: ти бачиш правильну і чому.",
 	"Try an exercise":
 		"Спробувати вправу",
-	"A wedding party with balloons outside Düsseldorf city hall":
-		"Весільна компанія з повітряними кульками біля ратуші Дюссельдорфа",
+	"The old registry office in Bad Honnef, a half-timbered house":
+		"Старий РАЦС у Бад-Гоннефі, фахверковий будинок",
 	"On paper too":
 		"І на папері",
 	"A book for every level.":
@@ -2706,4 +2706,7 @@ export const UK: Record<string, string> = {
 		"фраз: {n}",
 	"{n} cards":
 		"карток: {n}",
+	// The book's picture credits
+	"Word pictures: made with AI (Google Gemini) for Language Quiz. Diagrams and design: Language Quiz.":
+		"Картинки до слів: створено за допомогою ШІ (Google Gemini) для Language Quiz. Схеми й дизайн: Language Quiz.",
 };

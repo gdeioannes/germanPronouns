@@ -71,6 +71,7 @@
 			{/if}
 			<a href="/contact">{t('Contact')}</a>
 			<a href="/legal">{t('Legal & privacy')}</a>
+			<a href="/credits">{t('Picture credits')}</a>
 			<a href="/settings" rel="nofollow">{t('Settings')}</a>
 		</div>
 	</nav>

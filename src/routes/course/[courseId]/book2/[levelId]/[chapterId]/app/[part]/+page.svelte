@@ -186,6 +186,7 @@
 					<span class="pic">
 						{#if quiz.image}<img src={quiz.image} alt="" loading={i < 2 ? 'eager' : 'lazy'} />{/if}
 						{#if isDone(mark)}<span class="n ok" aria-hidden="true"><Icon name="check" size="1em" /></span>{:else}<span class="n">{i + 1}</span>{/if}
+						{#if quiz.credit}<span class="pcredit">{quiz.credit.text}</span>{/if}
 					</span>
 					<span class="body">
 						<span class="for"><Icon name="book" size="0.95em" /> <span>{forOf(quiz)}</span></span>
@@ -411,6 +412,20 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+	/* The photo's licence credit (full line on /credits). */
+	.pcredit {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		padding: 0.15rem 0.35rem;
+		background: rgb(0 0 0 / 0.55);
+		color: #fff;
+		font-size: 0.6rem;
+		line-height: 1.25;
+		overflow-wrap: anywhere;
 	}
 	.n {
 		position: absolute;

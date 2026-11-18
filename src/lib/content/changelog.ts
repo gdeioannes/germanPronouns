@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-18",
+    title: "Every picture checked, every photographer named",
+    items: [
+      "We looked at every photo in the books and the app again. Forty-three were swapped for new ones: photos where a private person is the main subject, posters and pictures made by someone else, and a few whose photographer could not be named. Captions changed where the new photo shows something else.",
+      "Seven documents in the books are now set by us instead of photographed: the timetable in A1.2, the cinema listing in A2.2, the job advert in B1.1, the CV in B1.2, the poster in B2.1, the flyer in B2.2, and in C2.2 a job reference written in the famous code of German references (\"stets bemüht\"), with new exercises. The exercises on the others stay the same.",
+      "Every photo now names its photographer exactly as they ask, with the licence and a link. A new page, Picture credits, lists them all, and each short credit under a photo links to it.",
+      "The books and the credits page say what was made with AI: the word pictures (Google Gemini) and, with our editing, the texts (Anthropic Claude).",
+      "The printed books have an imprint on page 2, and the photos that print across two pages are sharper.",
+    ],
+  },
+  {
+    date: "2026-11-18",
     title: "Easier to find, easier to use",
     items: [
       "Search titles that were too long for a results page are shorter now, among them some Turkish and Ukrainian pages and the A2 exercise on man, jemand and niemand, so the full title shows in a search result. The \"Where do you start?\" page now tells search engines what it is.",

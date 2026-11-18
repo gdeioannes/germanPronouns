@@ -422,8 +422,8 @@ export const AR: Record<string, string> = {
 		"دروس قصيرة، ثم تمرين. الإجابة الخاطئة ليست مجرد لون أحمر: ترى الإجابة الصحيحة وسببها.",
 	"Try an exercise":
 		"جرّب تمرينًا",
-	"A wedding party with balloons outside Düsseldorf city hall":
-		"حفل زفاف مع بالونات أمام مبنى بلدية Düsseldorf",
+	"The old registry office in Bad Honnef, a half-timbered house":
+		"مكتب الزواج القديم في Bad Honnef، بيت بهيكل خشبي",
 	"On paper too":
 		"على الورق أيضًا",
 	"A book for every level.":
@@ -2704,4 +2704,7 @@ export const AR: Record<string, string> = {
 		"{n} عبارة",
 	"{n} cards":
 		"{n} بطاقة",
+	// The book's picture credits
+	"Word pictures: made with AI (Google Gemini) for Language Quiz. Diagrams and design: Language Quiz.":
+		"صور الكلمات: صُنعت بالذكاء الاصطناعي (Google Gemini) لصالح Language Quiz. الرسوم التوضيحية والتصميم: Language Quiz.",
 };

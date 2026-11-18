@@ -49,7 +49,7 @@
 <Seo title="{data.book.title} · {data.book.subtitle} — book preview" description="A preview of the printed book, chapter by chapter." path="/course/{data.book.courseId}/book2/{data.book.level}" noindex />
 
 <svelte:head>
-	{@html cover ? `<style>@page { size: ${420 + spine + 6}mm 303mm; margin: 0; }</style>` : '<style>@page { size: A4; margin: 0; }</style>'}
+	{@html cover ? `<style>@page { size: ${420 + spine + 6.35}mm 303.35mm; margin: 0; }</style>` : '<style>@page { size: A4; margin: 0; }</style>'}
 </svelte:head>
 
 {#if !cover}

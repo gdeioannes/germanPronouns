@@ -69,7 +69,7 @@ export const TR: Record<string, string> = {
 	'Short lessons, then practice. A wrong answer is never just red: you see the right one and why.':
 		'Kısa dersler, ardından alıştırma. Yanlış bir cevap asla sadece kırmızı değildir: doğrusunu ve nedenini görürsün.',
 	'Try an exercise': 'Bir alıştırma dene',
-	'A wedding party with balloons outside Düsseldorf city hall': 'Düsseldorf belediye binasının önünde balonlu bir düğün grubu',
+	'The old registry office in Bad Honnef, a half-timbered house': 'Bad Honnef’teki eski nikâh dairesi, yarı ahşap bir ev',
 	'On paper too': 'Kâğıt üzerinde de',
 	'A book for every level.': 'Her seviye için bir kitap.',
 	'Four books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.':
@@ -2419,4 +2419,7 @@ export const TR: Record<string, string> = {
 		"{n} ifade",
 	"{n} cards":
 		"{n} kart",
+	// The book's picture credits
+	"Word pictures: made with AI (Google Gemini) for Language Quiz. Diagrams and design: Language Quiz.":
+		"Kelime resimleri: Language Quiz için yapay zekâ ile yapıldı (Google Gemini). Diyagramlar ve tasarım: Language Quiz.",
 };

@@ -11,15 +11,9 @@
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { breadcrumbLd } from '$lib/seo';
 	import { page } from '$app/state';
+	import { OPERATOR } from '$lib/operator';
 
-	/** Fill these in before the page goes live; the notice renders them as-is. */
-	const OPERATOR = {
-		name: 'Gabriel De Ioannes',
-		street: '[Street and number]',
-		city: '[Postcode and city]',
-		country: 'Germany',
-		email: 'gdeioannes@gmail.com'
-	};
+	// The operator's name and address live in $lib/operator (the books print them too).
 
 	const UPDATED = '2026-11-11';
 </script>

@@ -30,6 +30,7 @@
 	import { inLangChapter } from '$lib/i18n/content.svelte';
 	import BookAppSwitch from '$lib/components/book2/BookAppSwitch.svelte';
 	import { appListHref } from '$lib/state/bookOpen';
+	import { creditShort } from '$lib/domain/credits';
 
 	let { data }: { data: PageData } = $props();
 	// In Turkish the chapter comes through its level's overlay.
@@ -168,6 +169,7 @@
 			<span class="kicker">{kicker}</span>
 			<h2 lang="de">{title}</h2>
 			{#if photo}<p class="caption" lang="de">{photo.caption}</p>{/if}
+			{#if photo && creditShort(photo.photo)}<a class="pcredit" href="/credits#{photo.photo}">{creditShort(photo.photo)}</a>{/if}
 		</div>
 		{#if partStats[id]?.n}
 			<span class="page-score" class:full={partStats[id].done === partStats[id].n}>
@@ -190,6 +192,7 @@
 <main>
 <div class="hero">
 	<img class="hero-img" src="/img/photo/web/{c.opener.photo}.jpg" alt={c.opener.caption ?? ''} />
+	{#if creditShort(c.opener.photo)}<a class="hero-credit" href="/credits#{c.opener.photo}">{creditShort(c.opener.photo)}</a>{/if}
 	<div class="hero-shade"></div>
 	<div class="hero-in">
 		<a class="back" href={bookHref}><Icon name="arrowLeft" size="1em" /> {data.bookTitle}</a>
@@ -291,7 +294,7 @@
 			{@render pageHead('alltag', german ? 'Seite · Lesen im Alltag' : t('Page · Everyday reading'), c.document.caption, null)}
 			<figure class="doc">
 				<img src="/img/photo/web/{c.document.photo}.jpg" alt={c.document.caption} loading="lazy" />
-				<figcaption>{@html rich(c.document.intro)}</figcaption>
+				<figcaption>{@html rich(c.document.intro)}{#if creditShort(c.document.photo)}<a class="doc-credit" href="/credits#{c.document.photo}">{creditShort(c.document.photo)}</a>{/if}</figcaption>
 			</figure>
 			{#each parts.find((p) => p.id === 'alltag')!.exercises as e (e.key)}
 				<CheckExercise ex={e.ex} n={e.n} {german} saved={checks[e.key] ?? null} onchecked={(s) => onchecked(e.key, s)} />
@@ -344,6 +347,31 @@
 		color: #fff;
 		overflow: hidden;
 		background: var(--navy);
+	}
+	/* The photos' licence credits; the full lines are on /credits. */
+	.hero-credit {
+		position: absolute;
+		right: 0.6rem;
+		bottom: 0.4rem;
+		z-index: 2;
+		font-size: 0.65rem;
+		color: rgb(255 255 255 / 0.8);
+		text-decoration: none;
+	}
+	.pcredit {
+		position: relative;
+		z-index: 2;
+		display: block;
+		margin-top: 0.3rem;
+		font-size: 0.65rem;
+		color: rgb(255 255 255 / 0.8);
+		text-decoration: none;
+	}
+	.doc-credit {
+		display: block;
+		margin-top: 0.4rem;
+		font-size: 0.72rem;
+		color: var(--ink-muted);
 	}
 	.hero-img {
 		position: absolute;

@@ -9,6 +9,8 @@
 	import LearnBlock from '$lib/components/companion/LearnBlock.svelte';
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
 	import { SITE_URL } from '$lib/seo';
+	import { creditLine } from '$lib/domain/credits';
+	import { OPERATOR } from '$lib/operator';
 	import { rich } from '$lib/domain/companion';
 	import { chapterKey, picturedWords, practiseOf, speakerLine, type Book2, type BookExtra, type Chapter, type PhotoCredit } from '$lib/domain/book2';
 
@@ -33,7 +35,7 @@
 	}: {
 		book: Book2;
 		credits: Record<string, PhotoCredit>;
-		/** Only the wraparound print cover: back, spine, front on one sheet with 3 mm bleed. */
+		/** Only the wraparound print cover: back, spine, front on one sheet with 3.175 mm (0.125 in) bleed. */
 		cover?: boolean;
 		spineMm?: number;
 		/** Print originals (local only, gitignored); otherwise the 1400 px web copies. */
@@ -273,6 +275,15 @@
 	</div>
 {/snippet}
 
+{#snippet imprint()}
+	<!-- German press law wants the publisher's name and address in every printed book. -->
+	<div class="imprint" lang="de">
+		<p><b>Impressum</b> · © {new Date().getFullYear()} {OPERATOR.name}. Alle Rechte vorbehalten, mit Ausnahme der Fotos, die unter ihren eigenen Lizenzen stehen (Bildnachweise hinten im Buch).</p>
+		<p>Herausgeber: {OPERATOR.name}, {OPERATOR.street}, {OPERATOR.city}, {OPERATOR.country === 'Germany' ? 'Deutschland' : OPERATOR.country} · {OPERATOR.email} · languagequiz.org</p>
+		<p>Texte und Übungen: Language Quiz, geschrieben mit KI-Unterstützung (Anthropic Claude). Abgebildete Dokumente wie Stundenplan, Anzeige oder Zeugnis sind, wo nicht anders genannt, für dieses Buch gesetzt; Personen und Firmen darin sind erfunden. Language Quiz ist unabhängig und nicht mit einem Prüfungsanbieter verbunden.</p>
+	</div>
+{/snippet}
+
 {#snippet foot(page: number, c: Chapter)}
 	<footer class="foot">
 		<span class="tnum">{page}</span>
@@ -431,6 +442,7 @@
 				</dl>
 			</div>
 		</div>
+		{@render imprint()}
 		{:else}
 		<header class="head small">
 			<p class="eyebrow">{t('Before you start')}</p>
@@ -460,6 +472,7 @@
 				<p class="name">{t('This book belongs to')} <span></span></p>
 			</div>
 		</div>
+		{@render imprint()}
 		{/if}
 		<footer class="foot"><span class="tnum">2</span><span>{book.title} · {book.subtitle}</span></footer>
 	</section>
@@ -794,10 +807,12 @@
 				<div class="credits full">
 					<p class="eyebrow">Die Fotos · picture credits</p>
 					{#each [...new Set([...book.chapters.flatMap((c) => [c.opener.photo, ...c.reading.photos.map((x) => x.photo), ...c.grammar.flatMap((g) => (g.photo ? [g.photo.photo] : [])), c.document.photo]), ...extras.flatMap((x) => (x.photo ? [x.photo] : []))])] as id (id)}
-						{#if credits[id]}<p>{credits[id].title} — {credits[id].author}, {credits[id].license}, Wikimedia Commons.</p>{/if}
+						{@const line = creditLine(id, hidesEnglish(book.level))}
+						{#if line}<p><span lang="de">{credits[id]?.title.replace(/\.[a-z]+$/i, '').replace(/_/g, ' ')}</span>: {line}.</p>{/if}
 					{/each}
-					<p>{t('Word pictures and diagrams: Language Quiz.')}</p>
+					<p>{hidesEnglish(book.level) ? 'Wortbilder: mit KI erstellt (Google Gemini) für Language Quiz. Diagramme und Gestaltung: Language Quiz.' : t('Word pictures: made with AI (Google Gemini) for Language Quiz. Diagrams and design: Language Quiz.')}</p>
 				</div>
+
 			{/if}
 			<footer class="foot"><span class="tnum">{keyPage + k}</span><span>{book.title} · {book.subtitle}</span></footer>
 		</section>
@@ -916,12 +931,12 @@
 		text-decoration: none;
 	}
 	.left .page-code { inset-inline-end: 22mm; }
-	.page-code :global(svg) { display: block; width: 15mm; height: 15mm; }
-	.page-code span { margin-top: 0.3mm; font-size: 5.5pt; font-weight: 700; line-height: 1.15; text-align: center; letter-spacing: 0.02em; white-space: nowrap; }
 	/* Right to left the code moves to the other top corner, so it takes that
 	   side's margin: the gutter's 22 mm on a right page, the outer 18 mm on a left. */
 	.page-code:dir(rtl) { inset-inline-end: 22mm; }
 	.left .page-code:dir(rtl) { inset-inline-end: 18mm; }
+	.page-code :global(svg) { display: block; width: 15mm; height: 15mm; }
+	.page-code span { margin-top: 0.3mm; font-size: 5.5pt; font-weight: 700; line-height: 1.15; text-align: center; letter-spacing: 0.02em; white-space: nowrap; }
 	.coded .head.small, .coded > .intro { padding-inline-end: 20mm; }
 	/* The page's content starts below the code, so a floated photo never covers its label. */
 	.grammar.coded .head.small, .document.coded .head.small { min-height: 19mm; box-sizing: border-box; }
@@ -942,8 +957,8 @@
 	.intro { margin: 0 0 3mm; font-size: 10pt; color: var(--muted); max-width: 150mm; }
 	.flow { display: flex; flex-direction: column; gap: 3mm; }
 
-	/* -- the print wrap: back + spine + front, 3 mm bleed all round ------------- */
-	.sheet { --bleed: 3mm; position: relative; display: grid; grid-template-columns: calc(210mm + var(--bleed)) var(--spine) calc(210mm + var(--bleed)); width: calc(420mm + var(--spine) + 2 * var(--bleed)); height: calc(297mm + 2 * var(--bleed)); background: var(--accent); overflow: hidden; }
+	/* -- the print wrap: back + spine + front, KDP's 3.175 mm bleed all round ------------- */
+	.sheet { --bleed: 3.175mm; position: relative; display: grid; grid-template-columns: calc(210mm + var(--bleed)) var(--spine) calc(210mm + var(--bleed)); width: calc(420mm + var(--spine) + 2 * var(--bleed)); height: calc(297mm + 2 * var(--bleed)); background: var(--accent); overflow: hidden; }
 	.spine { display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: calc(10mm + var(--bleed)) 0; background: var(--accent); color: #fff; writing-mode: vertical-rl; }
 	.spine span { font-family: var(--serif); font-size: 11pt; font-weight: 700; }
 	.spine b { font-size: 7pt; letter-spacing: 0.08em; }
@@ -1038,10 +1053,10 @@
 	.words .eyebrow.onphoto { position: absolute; top: 8mm; inset-inline-start: 10mm; padding: 1mm 2.5mm; background: var(--navy); color: #fff; border-radius: 1mm; }
 	.pin { position: absolute; display: flex; align-items: center; gap: 1.2mm; transform: translate(-1.6mm, -50%); }
 	.pin.left { flex-direction: row-reverse; transform: translate(calc(-100% + 1.6mm), -50%); }
-	.pin .dot { width: 3.2mm; height: 3.2mm; border-radius: 50%; background: var(--accent); border: 0.5mm solid #fff; box-shadow: 0 0 0 0.3mm var(--navy); flex: none; }
-	.pin .tag { display: flex; flex-direction: column; padding: 1mm 2.2mm 1.2mm; background: rgb(255 255 255 / 0.93); border-radius: 1.2mm; box-shadow: 0 0.6mm 2mm rgb(0 0 0 / 0.28); line-height: 1.15; white-space: nowrap; }
 	.pin:dir(rtl) { flex-direction: row-reverse; }
 	.pin.left:dir(rtl) { flex-direction: row; }
+	.pin .dot { width: 3.2mm; height: 3.2mm; border-radius: 50%; background: var(--accent); border: 0.5mm solid #fff; box-shadow: 0 0 0 0.3mm var(--navy); flex: none; }
+	.pin .tag { display: flex; flex-direction: column; padding: 1mm 2.2mm 1.2mm; background: rgb(255 255 255 / 0.93); border-radius: 1.2mm; box-shadow: 0 0.6mm 2mm rgb(0 0 0 / 0.28); line-height: 1.15; white-space: nowrap; }
 	.pin .de { font-size: 9.5pt; font-weight: 800; color: var(--navy); }
 	.pin .meta { font-size: 6.6pt; color: var(--muted); }
 	.strip { position: absolute; left: 10mm; right: 14mm; bottom: 16mm; padding: 3.5mm 4mm 3mm; background: rgb(251 248 243 / 0.95); border-radius: 2mm; box-shadow: 0 2mm 8mm rgb(0 0 0 / 0.2); }
@@ -1219,6 +1234,8 @@
 	.credits { margin-top: auto; margin-bottom: 11mm; font-size: 7pt; color: var(--muted); line-height: 1.3; }
 	.credits.full { margin-top: 0; columns: 2; column-gap: 6mm; }
 	.credits p { margin: 0.5mm 0; }
+	.imprint { margin-top: auto; padding-top: 2mm; border-top: 0.3mm solid var(--rule, #ddd); font-size: 6.5pt; color: var(--muted); line-height: 1.3; }
+	.imprint p { margin: 0.4mm 0; }
 
 	@media print {
 		.book2 { display: block; padding: 0; }

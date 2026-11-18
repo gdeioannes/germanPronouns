@@ -2,6 +2,7 @@ import { error } from '@sveltejs/kit';
 import { courses, loadCourse } from '$lib/content';
 import { loadBook2 } from '$lib/domain/book2';
 import type { Quiz } from '$lib/content/types';
+import { creditShort } from '$lib/domain/credits';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
 // The "App" side of one printed page: the app's quizzes for that page, each
@@ -72,7 +73,9 @@ export const load: PageServerLoad = async ({ params }) => {
 		if (!q) return [];
 		const photo = p.photo ?? (!q.image || shared.has(q.image) ? chapterPhotos[nextPhoto++ % chapterPhotos.length] : null);
 		const image = photo ? `/img/photo/web/${photo}.jpg` : `/img/${q.image}.webp`;
-		return [{ at, id: q.id, title: q.title, type: q.type, storageKeyPrefix: q.storageKeyPrefix, image, for: p.for, note: p.note, size: size(q) }];
+		// A Commons photo (a chapter photo, or the quiz's own picture filed under a credit) carries its credit.
+		const creditId = photo ?? (q.image && creditShort(q.image) ? q.image : null);
+		return [{ at, id: q.id, title: q.title, type: q.type, storageKeyPrefix: q.storageKeyPrefix, image, credit: creditId ? { id: creditId, text: creditShort(creditId)! } : null, for: p.for, note: p.note, size: size(q) }];
 	});
 	// Every page of the chapter that has a list: all of them come with the
 	// page, so the tabs switch without loading anything.
