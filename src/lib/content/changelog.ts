@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-18",
+    title: "Read the book on screen like a book",
+    items: [
+      "The web version of each book has a toolbar: one page at a time, or two pages side by side as the printed book opens, with the cover on its own. A + and − zoom from 25 to 300 per cent, Fit width fills the screen across, and Fit page shows a whole page, or a whole pair of pages, at once. Your choice is remembered.",
+      "Zooming or changing the view keeps the spot you were reading where it is, and the pages grow or shrink around it in a short, smooth zoom.",
+      "When the book is bigger than the screen, the mouse pointer becomes a hand and you can drag the book around. A drag never opens a page code by accident.",
+      "On a phone the book pages were squeezed to a narrower sheet than the printed one and a few lines ran past the foot of the page; both are fixed, and the pages on screen are now laid out exactly as in the PDF.",
+    ],
+  },
+  {
+    date: "2026-11-18",
     title: "Every picture checked, every photographer named",
     items: [
       "We looked at every photo in the books and the app again. Forty-three were swapped for new ones: photos where a private person is the main subject, posters and pictures made by someone else, and a few whose photographer could not be named. Captions changed where the new photo shows something else.",

@@ -2422,4 +2422,17 @@ export const TR: Record<string, string> = {
 	// The book's picture credits
 	"Word pictures: made with AI (Google Gemini) for Language Quiz. Diagrams and design: Language Quiz.":
 		"Kelime resimleri: Language Quiz için yapay zekâ ile yapıldı (Google Gemini). Diyagramlar ve tasarım: Language Quiz.",
+	// The online book's page view
+	"Page view":
+		"Sayfa görünümü",
+	"One page":
+		"Tek sayfa",
+	"Two pages":
+		"İki sayfa",
+	"Zoom in":
+		"Yakınlaştır",
+	"Fit width":
+		"Genişliğe sığdır",
+	"Fit page":
+		"Sayfaya sığdır",
 };

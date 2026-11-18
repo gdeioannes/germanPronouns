@@ -2707,4 +2707,17 @@ export const AR: Record<string, string> = {
 	// The book's picture credits
 	"Word pictures: made with AI (Google Gemini) for Language Quiz. Diagrams and design: Language Quiz.":
 		"صور الكلمات: صُنعت بالذكاء الاصطناعي (Google Gemini) لصالح Language Quiz. الرسوم التوضيحية والتصميم: Language Quiz.",
+	// The online book's page view
+	"Page view":
+		"عرض الصفحات",
+	"One page":
+		"صفحة واحدة",
+	"Two pages":
+		"صفحتان",
+	"Zoom in":
+		"تكبير",
+	"Fit width":
+		"ملاءمة العرض",
+	"Fit page":
+		"ملاءمة الصفحة",
 };

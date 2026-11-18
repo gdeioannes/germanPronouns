@@ -12,6 +12,7 @@
 	import { creditLine } from '$lib/domain/credits';
 	import { OPERATOR } from '$lib/operator';
 	import { rich } from '$lib/domain/companion';
+	import { untrack } from 'svelte';
 	import { chapterKey, picturedWords, practiseOf, speakerLine, type Book2, type BookExtra, type Chapter, type PhotoCredit } from '$lib/domain/book2';
 
 	interface Qr {
@@ -31,7 +32,9 @@
 		cover = false,
 		spineMm = 7.4,
 		hd = false,
-		siteQr = ''
+		siteQr = '',
+		spread = false,
+		scale = 1
 	}: {
 		book: Book2;
 		credits: Record<string, PhotoCredit>;
@@ -48,6 +51,10 @@
 		pages?: Record<string, Partial<Record<string, Qr | null>>>;
 		/** "Mehr lesen und hören": the level's longer texts, two pages each, after the last chapter. */
 		extras?: BookExtra[];
+		/** On screen: facing pages side by side, the cover alone on the right as in the printed book. */
+		spread?: boolean;
+		/** On screen: the whole book's zoom (1 = A4 at its real size). Print is always 1. */
+		scale?: number;
 	} = $props();
 
 	/** Nine content pages and a notes page, so every chapter opens on a left-hand page. */
@@ -209,6 +216,11 @@
 				)
 			);
 			if (gone) return;
+			// Measured at full size: under the viewer's zoom (0.45 on a phone)
+			// the fit pass measured other sizes and shrank other pages
+			// than the PDF. One synchronous pass, so nothing paints
+			// at 100% in between.
+			el.style.zoom = '1';
 			const report: string[] = [];
 			el.querySelectorAll<HTMLElement>('section.page').forEach((page, i) => {
 				const r = fitPage(page);
@@ -217,6 +229,7 @@
 			el.querySelectorAll<HTMLElement>('section.page.words').forEach((page, i) => {
 				if (placeWordsCode(page) === null) report.push(t('words page {i}: the code touches a label in every corner', { i: i + 1 }));
 			});
+			el.style.zoom = cover ? '' : String(untrack(() => scale));
 			(window as unknown as { __bookFit?: string[] }).__bookFit = report;
 			document.documentElement.dataset.bookFit = 'done';
 		})();
@@ -391,7 +404,7 @@
 	</div>
 {/snippet}
 
-<div class="book2" class:wrap={cover} bind:this={root}>
+<div class="book2" class:wrap={cover} class:spread={spread && !cover} style:zoom={cover ? null : scale} bind:this={root}>
 {#if cover}
 	{@const front = coverChapter}
 	<section class="sheet" style:--spine="{spineMm}mm" data-accent={front.accent}>
@@ -849,7 +862,17 @@
 		line-height: 1.4;
 		-webkit-print-color-adjust: exact;
 		print-color-adjust: exact;
+		/* A phone must not blow the type up in a zoomed-out page (it overflowed the fitted pages). */
+		-webkit-text-size-adjust: 100%;
+		text-size-adjust: 100%;
 	}
+	/* Wider than the screen when zoomed in: start at the left edge, never cut it off. */
+	.book2 { justify-content: safe center; }
+	/* Facing pages: a left page in the first column, a right page in the second.
+	   The cover (a right page) stands alone, then two by two, as the book opens. */
+	.book2.spread { grid-template-columns: 210mm 210mm; column-gap: 0; }
+	.book2.spread > .page.left { grid-column: 1; }
+	.book2.spread > .page.right { grid-column: 2; }
 
 	[data-accent='terracotta'] { --accent: #c9683b; --accent-tint: #fbefe8; --accent-ink: #a24c26; }
 	[data-accent='mustard'] { --accent: #b9842a; --accent-tint: #fbf3df; --accent-ink: #836215; }
@@ -862,6 +885,9 @@
 		display: flex;
 		flex-direction: column;
 		width: 210mm;
+		/* app.css's .page (the app's 46rem column) must not narrow the sheet to 195 mm. */
+		max-width: none;
+		margin: 0;
 		height: 297mm;
 		overflow: hidden;
 		padding: 14mm 18mm 18mm 22mm;
@@ -1238,12 +1264,11 @@
 	.imprint p { margin: 0.4mm 0; }
 
 	@media print {
-		.book2 { display: block; padding: 0; }
+		.book2 { display: block; padding: 0; zoom: 1 !important; }
 		.page { box-shadow: none; break-after: page; }
 		.page:last-child { break-after: auto; }
 		:global(.skip-link) { display: none; }
 	}
-	@media screen and (max-width: 222mm) { .book2 { zoom: 0.45; } }
 	.terms {
 		margin: 0;
 		font-size: 8.6pt;

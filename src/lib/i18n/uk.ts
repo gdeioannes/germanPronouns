@@ -2709,4 +2709,17 @@ export const UK: Record<string, string> = {
 	// The book's picture credits
 	"Word pictures: made with AI (Google Gemini) for Language Quiz. Diagrams and design: Language Quiz.":
 		"Картинки до слів: створено за допомогою ШІ (Google Gemini) для Language Quiz. Схеми й дизайн: Language Quiz.",
+	// The online book's page view
+	"Page view":
+		"Вигляд сторінок",
+	"One page":
+		"Одна сторінка",
+	"Two pages":
+		"Дві сторінки",
+	"Zoom in":
+		"Збільшити",
+	"Fit width":
+		"За шириною",
+	"Fit page":
+		"Уся сторінка",
 };
