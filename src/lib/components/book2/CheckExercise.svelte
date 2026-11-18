@@ -24,6 +24,9 @@
 		saved?: { right: number; total: number } | null;
 		onchecked?: (score: { right: number; total: number }) => void;
 	} = $props();
+	// The heading's id: unique on the page and free of spaces (aria-labelledby
+	// reads a space as a list of ids, and titles repeat between pages).
+	const uid = $props.id();
 
 	let answers = $state<Answers>({});
 	let results = $state<ItemResult[] | null>(null);
@@ -76,11 +79,11 @@
 	{/if}
 {/snippet}
 
-<section class="ex" aria-labelledby="ex-{n}-{ex.title}">
+<section class="ex" aria-labelledby="{uid}-title">
 	<header>
 		<span class="n">{n}</span>
 		<div>
-			<h3 id="ex-{n}-{ex.title}" lang="de">{ex.title}</h3>
+			<h3 id="{uid}-title" lang="de">{ex.title}</h3>
 			<p class="how">{@html rich(ex.instruction)}</p>
 		</div>
 		{#if score}
@@ -314,6 +317,13 @@
 	input.gap {
 		width: 9rem;
 		max-width: 100%;
+	}
+
+	/* A browser's default text box is about 20 characters wide: beside a
+	   picture on a 320px phone it ran off the page. */
+	.tag input {
+		width: min(14rem, 100%);
+		box-sizing: border-box;
 	}
 
 	input:focus-visible,

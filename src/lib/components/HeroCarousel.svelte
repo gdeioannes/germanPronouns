@@ -655,25 +655,41 @@
 		bottom: 2rem;
 		z-index: 2;
 		display: flex;
-		gap: 0.5rem;
 		align-items: center;
 		transform: translateX(-50%);
 	}
 
+	/* The button is a 24px tap target (WCAG 2.5.8); the small pill is drawn
+	   inside it, so the dots look as before. */
 	.dots button {
+		display: grid;
+		place-items: center;
+		min-width: 1.5rem;
+		height: 1.5rem;
+		padding: 0 0.2rem;
+		border: 0;
+		background: none;
+		cursor: pointer;
+	}
+
+	.dots button::before {
+		content: '';
 		width: 0.65rem;
 		height: 0.65rem;
-		padding: 0;
-		border: 0;
 		border-radius: 999px;
 		background: rgba(255, 255, 255, 0.55);
-		cursor: pointer;
 		transition: width 200ms ease;
 	}
 
-	.dots button.on {
+	.dots button.on::before {
 		width: 1.8rem;
 		background: #fff;
+	}
+
+	.dots button:focus-visible {
+		outline: 2px solid #fff;
+		outline-offset: 0;
+		border-radius: 999px;
 	}
 
 	.hint {
@@ -685,7 +701,7 @@
 		font-size: 0.8rem;
 		font-weight: 600;
 		/* Solid-enough backing: white text needs 4.5:1 whatever photo is behind. */
-		background: rgba(0, 0, 0, 0.6);
+		background: rgba(0, 0, 0, 0.72);
 		padding: 0.15rem 0.55rem;
 		border-radius: 999px;
 	}
@@ -730,9 +746,24 @@
 			top: 16.6rem;
 			bottom: auto;
 			white-space: nowrap;
-			padding: 0.3rem 0.7rem;
+			/* Centred by margins, not left: 50%, so the row may use the full
+			   width; a long hint ("Daha fazlası için kaydır") then wraps inside
+			   the pill only when even that is too narrow (320px). */
+			left: 0;
+			right: 0;
+			width: fit-content;
+			margin-inline: auto;
+			transform: none;
+			max-width: calc(100% - 1.5rem);
+			box-sizing: border-box;
+			padding: 0.1rem 0.5rem;
 			border-radius: 999px;
 			background: rgb(0 0 0 / 0.35);
+		}
+		.hint {
+			min-width: 0;
+			white-space: normal;
+			line-height: 1.15;
 		}
 		.credit {
 			top: 0.5rem;

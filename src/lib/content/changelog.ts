@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-18",
+    title: "Easier to find, easier to use",
+    items: [
+      "Search titles that were too long for a results page are shorter now, among them some Turkish and Ukrainian pages and the A2 exercise on man, jemand and niemand, so the full title shows in a search result. The \"Where do you start?\" page now tells search engines what it is.",
+      "The little dots under the photos on the home page are now big enough to tap with a thumb, and the language button and the \"Swipe for more\" label on the photos are darker, so their white text is easy to read on any picture.",
+      "On a narrow phone nothing runs off the side of the screen any more: the home page in Turkish, the picture exercises in the web version of the books, the word lists and the dictionary all fit.",
+      "Screen readers now read each exercise in the web version of the books by its title. Before, most exercises were announced without a name. The page tabs of the app quiz lists read the page and how many quizzes you have done, and the chapter pages have a clearer layout for screen readers.",
+      "The button on the \"not in your language yet\" notice has a deeper colour, so its white text is easy to read.",
+    ],
+  },
+  {
+    date: "2026-11-18",
     title: "Arabic, right to left all the way",
     items: [
       "In Arabic, things now move the way the page reads. The study notes and the More panel slide in from the left edge instead of sweeping across the screen, lesson steps and pages slide in from the side you read towards, and a new question comes in from the right direction.",

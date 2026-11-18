@@ -118,7 +118,8 @@
 		padding: 0.45rem 0.75rem;
 		border: 1px solid rgb(255 255 255 / 0.35);
 		border-radius: 999px;
-		background: rgb(20 22 26 / 0.55);
+		/* Dark enough for 4.5:1 white text over the brightest part of a photo. */
+		background: rgb(20 22 26 / 0.7);
 		backdrop-filter: blur(6px);
 		color: #fff;
 		font: inherit;
@@ -128,7 +129,7 @@
 	}
 
 	.trigger:hover {
-		background: rgb(20 22 26 / 0.7);
+		background: rgb(20 22 26 / 0.8);
 	}
 
 	.trigger :global(.up) {

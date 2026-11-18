@@ -53,7 +53,7 @@
 		cursor: pointer;
 	}
 	.actions .primary {
-		background: var(--accent);
+		background: var(--accent-ink);
 		border-color: var(--accent);
 		color: #fff;
 	}

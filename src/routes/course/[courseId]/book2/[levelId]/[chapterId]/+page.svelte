@@ -148,7 +148,7 @@
 
 	/** Who speaks in the reading, in order of first line: the first sits left, the second right. */
 	const speakers = $derived([...new Set(c.reading.lines.map((l) => l.who).filter(Boolean))] as string[]);
-	const WHO_COLOURS = ['#a24c26', '#1f5aa6', '#2f7d4f', '#836215'];
+	const WHO_COLOURS = ['#a24c26', '#1f5aa6', '#2a7247', '#836215'];
 	const whoColor = (who?: string) => (who ? WHO_COLOURS[speakers.indexOf(who) % WHO_COLOURS.length] : 'var(--ink-muted)');
 
 	/** Checked exercises per part, for the tabs. */
@@ -187,7 +187,8 @@
 
 <SiteNav {courseHref} />
 
-<header class="hero">
+<main>
+<div class="hero">
 	<img class="hero-img" src="/img/photo/web/{c.opener.photo}.jpg" alt={c.opener.caption ?? ''} />
 	<div class="hero-shade"></div>
 	<div class="hero-in">
@@ -204,7 +205,7 @@
 			<span class="tnum" dir="ltr">{checkedCount} / {total}</span> {german ? 'Übungen geprüft' : t('exercises checked')}
 		</p>
 	</div>
-</header>
+</div>
 
 <div class="stick">
 	<div class="stick-in">
@@ -224,7 +225,7 @@
 	</div>
 </div>
 
-<main>
+<div class="page-body">
 	<section id="woerter" class="part">
 		{@render pageHead('woerter', german ? 'Seite · Wörter' : t('Page · Words'), german ? 'Wortkarten' : 'Wörter zuerst', null)}
 		{#if pictureWords.length}
@@ -328,6 +329,7 @@
 			{#if data.next}<a href={chapterHref(data.next.id)}><span lang="de">{data.next.title}</span> <Icon name="arrowRight" size="1em" /></a>{/if}
 		</nav>
 	</section>
+</div>
 </main>
 
 <style>
@@ -479,7 +481,7 @@
 		color: var(--right);
 	}
 
-	main {
+	.page-body {
 		max-width: 48rem;
 		margin: 0 auto;
 		padding: 0.5rem 1rem 4rem;

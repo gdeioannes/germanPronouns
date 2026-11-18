@@ -198,11 +198,15 @@
 		border-bottom: 1px solid var(--line);
 	}
 
+	/* Wraps, and breaks a word like "neunzehnhundertsechsundzwanzig", so a
+	   320px phone never scrolls sideways. */
 	dt {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		gap: 0.4rem;
 		font-weight: 800;
+		overflow-wrap: anywhere;
 	}
 
 	.pos {

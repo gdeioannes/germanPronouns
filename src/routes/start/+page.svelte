@@ -8,6 +8,7 @@
 	// app: a small scene, cards that arrive one after the other, and a beat of
 	// acknowledgment when a way is chosen before the page moves on.
 	import Seo from '$lib/components/Seo.svelte';
+	import { absoluteUrl, breadcrumbLd, ORGANIZATION } from '$lib/seo';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { page } from '$app/state';
@@ -68,6 +69,17 @@
 	title="{t('Where do you start?')} | Language Quiz"
 	description={t('New to German, or not? Start at the beginning, take a ten-minute placement test, or pick your level from A1 to C2.')}
 	path="/start"
+	jsonLd={[
+		{
+			'@context': 'https://schema.org',
+			'@type': 'WebPage',
+			name: t('Where do you start?'),
+			url: absoluteUrl('/start'),
+			isAccessibleForFree: true,
+			publisher: ORGANIZATION
+		},
+		breadcrumbLd([{ name: 'Home', path: '/' }, { name: t('Where do you start?'), path: '/start' }])
+	]}
 />
 
 <SiteNav {courseHref} />

@@ -1931,7 +1931,7 @@ export const UK: Record<string, string> = {
 	"{n} left":
 		"Залишилося: {n}",
 	"About Language Quiz: a free German course by a learner":
-		"Про Language Quiz: безкоштовний курс німецької від людини, яка сама її вчить",
+		"Про Language Quiz: безкоштовний курс німецької від учня",
 	"About Language Quiz":
 		"Про Language Quiz",
 	"The story and mission of Language Quiz: a free, privacy-first and accessible German course from A1 to C2 that adapts to different styles of learning.":
@@ -2607,7 +2607,7 @@ export const UK: Record<string, string> = {
 	"Free German exercises A1 to A2 with audio: grammar, reading, listening, dictation and speaking, {n} in all. No sign-up.":
 		"Безкоштовні вправи з німецької від A1 до A2 з аудіо: граматика, читання, слухання, диктант і говоріння, усього {n}. Без реєстрації.",
 	"What is my German level? Free word check | Language Quiz":
-		"Який у мене рівень німецької? Безкоштовна перевірка слів | Language Quiz",
+		"Який у мене рівень німецької? Безкоштовна перевірка слів",
 	"Find your German level from A1 to C2 in about two minutes: tap the words you know, see about how many German words you know, and where to start learning.":
 		"Визнач свій рівень німецької від A1 до C2 приблизно за дві хвилини: торкайся слів, які знаєш, дізнайся, скільки приблизно німецьких слів знаєш, і з чого почати навчання.",
 	"German placement test: find your level | Language Quiz":

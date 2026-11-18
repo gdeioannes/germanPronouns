@@ -472,12 +472,13 @@
 		list-style: none;
 		display: grid;
 		gap: 0.4rem;
-		grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
 		align-items: start;
 	}
 
 	.word {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: baseline;
 		gap: 0.45rem;
 		width: 100%;

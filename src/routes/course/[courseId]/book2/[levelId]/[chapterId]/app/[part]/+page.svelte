@@ -136,6 +136,7 @@
 
 <SiteNav courseHref="/course/{data.courseId}" />
 
+<main>
 <div class="stick">
 	<div class="stick-in">
 		<div class="stick-row">
@@ -154,19 +155,19 @@
 					class:full={st.done === st.n}
 					class:started={st.done > 0 && st.done < st.n}
 					aria-current={p === part ? 'page' : undefined}
-					aria-label="{PART_TITLE[p] ?? p}, {g(`${st.done} von ${st.n} geschafft`, t('{done} of {n} done', { done: st.done, n: st.n }))}"
 					onclick={(e) => showPage(p, e)}
 				>
 					{#if st.done === st.n}<Icon name="check" size="0.95em" />{/if}
 					{PART_TITLE[p] ?? p}
-					<span class="tab-count tnum">{st.done}/{st.n}</span>
+					<span class="tab-count tnum" aria-hidden="true">{st.done}/{st.n}</span>
+					<span class="sr-only">, {g(`${st.done} von ${st.n} geschafft`, t('{done} of {n} done', { done: st.done, n: st.n }))}</span>
 				</a>
 			{/each}
 		</nav>
 	</div>
 </div>
 
-<main>
+<div class="page-body">
 	<header class="top">
 		<p class="eyebrow">{data.bookTitle} · {g(`Kapitel ${data.chapter.n}`, t('Chapter {n}', { n: data.chapter.n }))} · <span lang="de">{data.chapter.title}</span></p>
 		<h1 lang="de">{pageTitle}</h1>
@@ -207,6 +208,7 @@
 			</li>
 		{/each}
 	</ol>
+</div>
 </main>
 
 <style>
@@ -314,7 +316,7 @@
 		border-color: var(--right);
 	}
 
-	main {
+	.page-body {
 		max-width: 46rem;
 		margin: 0 auto;
 		padding: 1.25rem 1rem 4rem;

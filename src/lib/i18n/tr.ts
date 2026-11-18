@@ -1635,7 +1635,7 @@ export const TR: Record<string, string> = {
 	"{n} left":
 		"{n} kaldı",
 	"About Language Quiz: a free German course by a learner":
-		"Language Quiz hakkında: bir öğrencinin hazırladığı ücretsiz Almanca kursu",
+		"Language Quiz hakkında: bir öğrencinin ücretsiz Almanca kursu",
 	"About Language Quiz":
 		"Language Quiz hakkında",
 	"The story and mission of Language Quiz: a free, privacy-first and accessible German course from A1 to C2 that adapts to different styles of learning.":
@@ -2316,7 +2316,7 @@ export const TR: Record<string, string> = {
 	"Get in touch with the person behind Language Quiz: feedback, corrections, questions. One quick human check, then the email address.":
 		"Language Quiz’i hazırlayan kişiyle iletişime geç: görüş, düzeltme, soru. Kısa bir doğrulama, ardından e-posta adresi.",
 	"German A1–A2: {n} free exercises with audio | Language Quiz":
-		"Almanca A1–A2: {n} ücretsiz sesli alıştırma, Türkçe açıklamalı | Language Quiz",
+		"Almanca A1–A2: {n} ücretsiz sesli alıştırma, Türkçe açıklamalı",
 	"Free German exercises A1 to A2 with audio: grammar, reading, listening, dictation and speaking, {n} in all. No sign-up.":
 		"Türkçe açıklamalı ücretsiz Almanca A1–A2 alıştırmaları: dil bilgisi, okuma, dinleme, dikte ve konuşma, toplam {n} alıştırma, her cümle sesli. Üyelik yok.",
 	"What is my German level? Free word check | Language Quiz":

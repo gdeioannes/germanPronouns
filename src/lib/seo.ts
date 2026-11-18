@@ -191,8 +191,9 @@ export function quizTitle(quiz: Quiz): string {
 	if (local) {
 		const level = quiz.type === 'vocabulary' ? (quiz.level ?? '') : cefrOf(quiz.level);
 		const kind = `${LOCAL_SEO[local].kind[quiz.type]} ${level}`.trim();
-		const fits = [`${topic} – ${kind} | ${SITE_NAME}`, `${topic} – ${kind}`, `${topic} – ${LOCAL_SEO[local].german} ${level}`];
-		return fits.find((t) => t.length <= 70) ?? fits[fits.length - 1];
+		const german = `${LOCAL_SEO[local].german} ${level}`.trim();
+		const fits = [`${topic} – ${kind} | ${SITE_NAME}`, `${topic} – ${kind}`, `${topic} – ${german}`];
+		return fits.find((t) => t.length <= 70) ?? shortenTopic(topic, german);
 	}
 	// There is a deck per sub-level, all called "Wortschatz": the sub-level is
 	// what keeps the A1.1 and A1.2 decks from sharing one title.
@@ -201,10 +202,14 @@ export function quizTitle(quiz: Quiz): string {
 	const kind = `${german} ${KIND_LABEL[quiz.type]}`;
 	// Longest first; a long topic sheds the site name, then the kind.
 	const fits = [`${topic} – ${kind} | ${SITE_NAME}`, `${topic} – ${kind}`, `${topic} – ${german}`];
-	const fit = fits.find((t) => t.length <= 70);
-	if (fit) return fit;
-	// A topic too long on its own ("Adverbialsätze II: konzessiv, konsekutiv, …")
-	// keeps its head and as much of its list as fits, cut at a comma or space.
+	return fits.find((t) => t.length <= 70) ?? shortenTopic(topic, german);
+}
+
+/**
+ * A topic too long on its own ("Adverbialsätze II: konzessiv, konsekutiv, …")
+ * keeps its head and as much of its list as fits, cut at a comma or space.
+ */
+function shortenTopic(topic: string, german: string): string {
 	const room = 70 - ` – ${german}`.length - 1;
 	const cut = topic.slice(0, room);
 	const at = Math.max(cut.lastIndexOf(','), cut.lastIndexOf(' '));
