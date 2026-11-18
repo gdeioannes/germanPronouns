@@ -79,6 +79,21 @@ export function register(registry: BookLinkRegistry, kind: LinkKind, target: str
 	return code;
 }
 
+/**
+ * `href` tagged as a visit from the book, so the usage statistics attribute
+ * the whole visit to source "book", campaign = the code (services/analytics
+ * reads these tags). The tag is added on the site, at /b/<code>, so the
+ * printed QR never changes and books already sold are counted too. A scan and
+ * a typed code open the same address, so this means "came from the book".
+ * Any #part stays at the end, where the browser needs it.
+ */
+export function fromBookHref(href: string, code: string): string {
+	const [path, hash] = href.split('#');
+	const sep = path.includes('?') ? '&' : '?';
+	const tags = `utm_source=book&utm_medium=code&utm_campaign=${encodeURIComponent(code)}`;
+	return `${path}${sep}${tags}${hash ? `#${hash}` : ''}`;
+}
+
 export function findLink(registry: BookLinkRegistry, code: string): BookLink | undefined {
 	return registry.links.find((l) => l.code === code.toLowerCase());
 }

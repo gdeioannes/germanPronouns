@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { beforeNavigate, goto, onNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate, goto, onNavigate, replaceState } from '$app/navigation';
 	import { hasTwin, pathLang, withLang } from '$lib/i18n/paths';
 	import { page } from '$app/state';
 	import { cubicOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 	import { navDirection, prefersReducedMotion } from '$lib/motion';
-	import { trackScreenView } from '$lib/services/analytics';
+	import { takeCampaignTags, trackScreenView } from '$lib/services/analytics';
 	import { account } from '$lib/state/account.svelte';
 	import { forum } from '$lib/state/forum.svelte';
 	import { tts } from '$lib/services/speech';
@@ -115,6 +115,23 @@
 	// is why there is no consent banner to show.
 	$effect(() => {
 		trackScreenView(page.url.pathname);
+	});
+
+	// A visit tagged with utm_* (a printed book's code, a campaign link) is read
+	// once, then the tags leave the address bar: a link copied from there and
+	// shared would otherwise count as another visit from the same source.
+	// The router only counts as running once the first load has settled, so
+	// the address is cleaned a tick after the navigation, not during it.
+	afterNavigate(() => {
+		const clean = takeCampaignTags();
+		if (!clean) return;
+		setTimeout(() => {
+			try {
+				replaceState(clean, page.state);
+			} catch {
+				// The router was not ready: the tags stay visible, nothing breaks.
+			}
+		});
 	});
 
 	// Remembers the last non-menu page, so a menu page's back arrow returns

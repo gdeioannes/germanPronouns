@@ -20,7 +20,12 @@
 		image?: string;
 	}
 
-	let { words, level, german = false }: { words: Word[]; level: string; german?: boolean } = $props();
+	let {
+		words,
+		level,
+		german = false,
+		onused
+	}: { words: Word[]; level: string; german?: boolean; /** A card was turned (usage statistics). */ onused?: () => void } = $props();
 
 	/** A sitting is short: a handful of cards is what a phone break holds. */
 	const SITTING = 15;
@@ -45,6 +50,7 @@
 
 	function show() {
 		shown = true;
+		onused?.();
 		if (card) void tts.speak(forSpeech(card.de), { locale: 'de-DE' });
 	}
 

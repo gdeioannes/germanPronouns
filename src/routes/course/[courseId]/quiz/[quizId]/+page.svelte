@@ -157,7 +157,15 @@
 		if (id === notesCheckedFor) return;
 		notesCheckedFor = id;
 		// Paired with quiz_completed: the gap between them is the drop-off.
-		untrack(() => track('quiz_started', { course: course.id, quiz: id, type: quiz.type }));
+		// `from: 'book'` when opened from a book page's quiz list (its `?book` flag).
+		untrack(() =>
+			track('quiz_started', {
+				course: course.id,
+				quiz: id,
+				type: quiz.type,
+				...(browser && page.url.searchParams.has(BOOK_PARAM) ? { from: 'book' } : {})
+			})
+		);
 		notesOpen = false;
 		moreOpen = false;
 		reportOpen = false;

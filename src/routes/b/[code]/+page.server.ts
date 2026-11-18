@@ -1,5 +1,5 @@
 import registry from '$content/booklinks.json';
-import { findLink, resolveLink, type BookLinkRegistry } from '$lib/domain/booklinks';
+import { findLink, fromBookHref, resolveLink, type BookLinkRegistry } from '$lib/domain/booklinks';
 import { loadBook2 } from '$lib/domain/book2';
 import { appListHref } from '$lib/state/bookOpen';
 import { redirect } from '@sveltejs/kit';
@@ -16,8 +16,10 @@ export const load: PageServerLoad = ({ params }) => {
 	if (!link) return { code: params.code, target: null, app: null, german: false };
 	// A page redirect, not a server one: the site is static, so the HTML itself
 	// sends the reader on. The page also shows the link, for a slow phone.
-	const target = resolveLink(link);
-	if (link.kind === 'url') redirect(302, target);
+	// External links (kind 'url') go out untagged: their sites are not ours.
+	if (link.kind === 'url') redirect(302, resolveLink(link));
+	// Tagged, so the visit counts as "from the book" in the usage statistics.
+	const target = fromBookHref(resolveLink(link), params.code);
 	// A book page whose chapter lists app quizzes for it: the code offers Book
 	// or App (state/bookOpen), and remembers the answer.
 	let app: string | null = null;
@@ -25,7 +27,7 @@ export const load: PageServerLoad = ({ params }) => {
 	if (link.kind === 'chapter') {
 		const [level, chapter, part] = link.target.split('/');
 		const c = loadBook2('de_cert_a1', level)?.chapters.find((x) => x.id === chapter);
-		if (part && c?.appQuizzes?.[part]?.length) app = appListHref('de_cert_a1', level, chapter, part);
+		if (part && c?.appQuizzes?.[part]?.length) app = fromBookHref(appListHref('de_cert_a1', level, chapter, part), params.code);
 		german = !!c?.german;
 	}
 	return { code: params.code, target, kind: link.kind, app, german };

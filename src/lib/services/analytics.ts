@@ -187,6 +187,11 @@ function resolveAttribution(): Attribution {
 	try {
 		const params = new URLSearchParams(location.search);
 
+		// 0. A printed book's code page (/b/<code>, where the Book or App choice
+		//    is asked): its own events belong to the book too.
+		const bookCode = /^\/b\/([^/]+)/.exec(location.pathname)?.[1];
+		if (bookCode) return { source: 'book', channel: 'campaign', medium: 'code', campaign: cleanParam(bookCode) };
+
 		// 1. Explicit tagging beats everything.
 		const utm = cleanParam(params.get('utm_source')) || cleanParam(params.get('ref'));
 		if (utm) {
@@ -225,6 +230,40 @@ function resolveAttribution(): Attribution {
 
 /** Resolved lazily on the first event, when location/referrer are final. */
 let attribution: Attribution | null = null;
+
+// Visits from the printed books arrive tagged utm_source=book, campaign = the
+// page code (domain/booklinks fromBookHref, added at /b/<code>), so they are
+// attributed like any campaign link above.
+
+/**
+ * Reads this visit's source now, then returns the address without the utm_*
+ * tags (or null when there were none), so a link copied from the address bar
+ * and sent to a friend does not count as a second book visit.
+ */
+export function takeCampaignTags(): string | null {
+	if (!browser) return null;
+	attribution ??= resolveAttribution();
+	const url = new URL(location.href);
+	const tags = [...url.searchParams.keys()].filter((k) => k.startsWith('utm_'));
+	if (!tags.length) return null;
+	for (const k of tags) url.searchParams.delete(k);
+	return url.pathname + url.search + url.hash;
+}
+
+/** Book page actions already reported in this page load. */
+const bookUses = new Set<string>();
+
+/**
+ * Someone used a book page on the web: checked an exercise, played the
+ * reading, or practised its word cards. One event per action per chapter per
+ * page load, so a learner checking ten exercises costs one event, not ten.
+ */
+export function trackBookUse(level: string, chapter: string, action: 'check' | 'listen' | 'cards'): void {
+	const key = `${level}/${chapter}/${action}`;
+	if (bookUses.has(key)) return;
+	bookUses.add(key);
+	track('book_page_used', { level, chapter, action });
+}
 
 // ---------------------------------------------------------------------------
 // New vs returning, within the EU audience-measurement exemption (CNIL/TTDSG):

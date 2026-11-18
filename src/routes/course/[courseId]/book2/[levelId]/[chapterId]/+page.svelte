@@ -13,6 +13,7 @@
 	import WordCards from '$lib/components/book2/WordCards.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { storage } from '$lib/services/storage';
+	import { trackBookUse } from '$lib/services/analytics';
 	import { tts } from '$lib/services/speech';
 	import { rich, plain } from '$lib/domain/companion';
 	import { hidesEnglish } from '$lib/domain/germanFirst';
@@ -87,6 +88,7 @@
 	});
 
 	async function onchecked(key: string, score: { right: number; total: number }) {
+		trackBookUse(data.level, c.id, 'check');
 		checks = { ...checks, [key]: { ...score, at: Date.now() } };
 		await storage.set(checksKey(data.level, c.id), JSON.stringify(checks));
 	}
@@ -100,6 +102,7 @@
 			return;
 		}
 		reading = true;
+		trackBookUse(data.level, c.id, 'listen');
 		for (const line of c.reading.lines) {
 			if (!reading) break;
 			await tts.speak(plain(line.de), { locale: 'de-DE' });
@@ -243,7 +246,7 @@
 			</ul>
 		{/if}
 		<div class="sheet">
-			<WordCards {words} level={data.level} {german} />
+			<WordCards {words} level={data.level} {german} onused={() => trackBookUse(data.level, c.id, 'cards')} />
 		</div>
 	</section>
 
