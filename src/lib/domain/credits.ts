@@ -36,7 +36,7 @@ export interface Credit {
 }
 
 const data = commons as Record<string, CommonsEntry>;
-const decisions = (review as { photos: Record<string, { decision: string; credit?: string }> }).photos;
+const decisions = (review as { photos: Record<string, { decision: string; credit?: string; file?: string }> }).photos;
 
 /** Commons signatures and user-page leftovers out of a name ("( talk ) 16:14, 12 November 2021 (UTC)"). */
 function cleanName(s: string): string {

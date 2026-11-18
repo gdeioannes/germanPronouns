@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 // @ts-nocheck: a command-line tool in plain JavaScript; the tests import it as is.
 // The rights audit: every picture the site and the books ship, matched to where
 // it comes from and under which terms (docs/rights_audit.md explains the policy).
