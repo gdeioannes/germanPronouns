@@ -861,17 +861,19 @@
 		position: absolute;
 		top: 40mm;
 		bottom: 40mm;
-		inset-inline-end: 0;
+		right: 0;
 		width: 3mm;
 		background: var(--accent);
 	}
-	.page.left::before { inset-inline-end: auto; left: 0; }
+	.page.left::before { right: auto; left: 0; }
 
 	.foot {
 		position: absolute;
 		bottom: 9mm;
-		inset-inline-start: 22mm;
-		inset-inline-end: 18mm;
+		left: 22mm;
+		right: 18mm;
+		/* The folio sits on the outer edge whatever the language. */
+		direction: ltr;
 		display: flex;
 		justify-content: space-between;
 		align-items: baseline;
@@ -881,7 +883,7 @@
 		color: var(--muted);
 	}
 	.foot .tnum { order: 2; font-size: 9pt; font-weight: 800; color: var(--navy); }
-	.left .foot { inset-inline-start: 18mm; right: 22mm; }
+	.left .foot { left: 18mm; right: 22mm; }
 	.left .foot .tnum { order: 0; }
 
 	.eyebrow {
@@ -916,6 +918,10 @@
 	.left .page-code { inset-inline-end: 22mm; }
 	.page-code :global(svg) { display: block; width: 15mm; height: 15mm; }
 	.page-code span { margin-top: 0.3mm; font-size: 5.5pt; font-weight: 700; line-height: 1.15; text-align: center; letter-spacing: 0.02em; white-space: nowrap; }
+	/* Right to left the code moves to the other top corner, so it takes that
+	   side's margin: the gutter's 22 mm on a right page, the outer 18 mm on a left. */
+	.page-code:dir(rtl) { inset-inline-end: 22mm; }
+	.left .page-code:dir(rtl) { inset-inline-end: 18mm; }
 	.coded .head.small, .coded > .intro { padding-inline-end: 20mm; }
 	/* The page's content starts below the code, so a floated photo never covers its label. */
 	.grammar.coded .head.small, .document.coded .head.small { min-height: 19mm; box-sizing: border-box; }
@@ -953,8 +959,8 @@
 	.half { position: relative; overflow: hidden; }
 	.backhalf { background: var(--navy); }
 	.trim { position: absolute; top: var(--bleed); width: 210mm; height: 297mm; }
-	.backhalf .trim { inset-inline-start: var(--bleed); }
-	.fronthalf .trim { inset-inline-start: 0; }
+	.backhalf .trim { left: var(--bleed); }
+	.fronthalf .trim { left: 0; }
 
 	.fc { position: absolute; inset: 0; overflow: hidden; }
 	.half .fc { overflow: visible; }
@@ -968,17 +974,17 @@
 	.fc .pin .de { font-size: 11pt; }
 	.fc .pin .meta { font-size: 7.5pt; }
 	.fc-plate { position: absolute; left: 0; right: 0; bottom: 0; height: 96mm; box-sizing: border-box; padding: 13mm 18mm 0 18mm; background: var(--paper); border-top: 3mm solid var(--accent); }
-	.half .fc-plate { bottom: calc(-1 * var(--bleed)); height: calc(96mm + var(--bleed)); padding-inline-end: calc(18mm + var(--bleed)); }
+	.half .fc-plate { bottom: calc(-1 * var(--bleed)); height: calc(96mm + var(--bleed)); padding-right: calc(18mm + var(--bleed)); }
 	.fc h1 { margin: 0; font-family: var(--serif); font-size: 66pt; line-height: 0.95; letter-spacing: -0.01em; color: var(--navy); }
 	.fc-sub { margin: 1.5mm 0 0; font-family: var(--serif); font-size: 26pt; font-style: italic; line-height: 1.1; color: var(--accent); }
 	.fc-blurb { margin: 6mm 0 0; max-width: 125mm; font-size: 10.5pt; line-height: 1.45; color: var(--ink); }
 	.fc-route { margin: 6mm 0 0; padding-top: 3mm; border-top: 0.3mm solid var(--rule); font-size: 8.5pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
 	.fc-route i { margin: 0 2.2mm; font-style: normal; color: var(--accent); }
 	.fc-site { position: absolute; right: 18mm; bottom: 10mm; margin: 0; font-size: 9pt; font-weight: 800; color: var(--navy); }
-	.half .fc-site { inset-inline-end: calc(18mm + var(--bleed)); bottom: calc(10mm + var(--bleed)); }
+	.half .fc-site { right: calc(18mm + var(--bleed)); bottom: calc(10mm + var(--bleed)); }
 	/* The level as a sticker on the panel's edge. */
 	.fc-badge { position: absolute; right: 16mm; top: -24mm; width: 40mm; height: 40mm; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1mm; background: var(--accent-ink); color: #fff; transform: rotate(-8deg); box-shadow: 0 2mm 6mm rgb(0 0 0 / 0.3); border: 1.2mm solid var(--paper); text-align: center; }
-	.half .fc-badge { inset-inline-end: calc(16mm + var(--bleed)); }
+	.half .fc-badge { right: calc(16mm + var(--bleed)); }
 	.fc-route .nb { white-space: nowrap; }
 	.fc-badge b { font-family: var(--serif); font-size: 30pt; line-height: 1; }
 	.fc-badge span { max-width: 28mm; font-size: 7pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.2; }
@@ -997,7 +1003,7 @@
 	.bc-can-title { margin: 0 0 2mm; font-size: 8pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #e9a27c; }
 	.bc-can ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 8mm; font-size: 8.8pt; line-height: 1.35; color: #f3eee6; }
 	.bc-can li { position: relative; padding-inline-start: 4.5mm; margin-bottom: 1.2mm; break-inside: avoid; }
-	.bc-can li::before { content: '✓'; position: absolute; left: 0; color: #e9a27c; font-weight: 800; }
+	.bc-can li::before { content: '✓'; position: absolute; inset-inline-start: 0; color: #e9a27c; font-weight: 800; }
 	.bc-points { margin-top: 5mm; columns: 2; column-gap: 8mm; font-size: 9pt; line-height: 1.45; color: #e6e0d6; }
 	.bc-points p { margin: 0 0 2.8mm; break-inside: avoid; }
 	.bc-points b { color: #fff; }
@@ -1029,16 +1035,18 @@
 	/* -- words first --------------------------------------------------------- */
 	.words { padding: 0; }
 	.words::before { display: none; }
-	.words .eyebrow.onphoto { position: absolute; top: 8mm; left: 10mm; padding: 1mm 2.5mm; background: var(--navy); color: #fff; border-radius: 1mm; }
+	.words .eyebrow.onphoto { position: absolute; top: 8mm; inset-inline-start: 10mm; padding: 1mm 2.5mm; background: var(--navy); color: #fff; border-radius: 1mm; }
 	.pin { position: absolute; display: flex; align-items: center; gap: 1.2mm; transform: translate(-1.6mm, -50%); }
 	.pin.left { flex-direction: row-reverse; transform: translate(calc(-100% + 1.6mm), -50%); }
 	.pin .dot { width: 3.2mm; height: 3.2mm; border-radius: 50%; background: var(--accent); border: 0.5mm solid #fff; box-shadow: 0 0 0 0.3mm var(--navy); flex: none; }
 	.pin .tag { display: flex; flex-direction: column; padding: 1mm 2.2mm 1.2mm; background: rgb(255 255 255 / 0.93); border-radius: 1.2mm; box-shadow: 0 0.6mm 2mm rgb(0 0 0 / 0.28); line-height: 1.15; white-space: nowrap; }
+	.pin:dir(rtl) { flex-direction: row-reverse; }
+	.pin.left:dir(rtl) { flex-direction: row; }
 	.pin .de { font-size: 9.5pt; font-weight: 800; color: var(--navy); }
 	.pin .meta { font-size: 6.6pt; color: var(--muted); }
 	.strip { position: absolute; left: 10mm; right: 14mm; bottom: 16mm; padding: 3.5mm 4mm 3mm; background: rgb(251 248 243 / 0.95); border-radius: 2mm; box-shadow: 0 2mm 8mm rgb(0 0 0 / 0.2); }
 	.strip-title { margin: 0 0 1.2mm; padding-top: 1.5mm; border-top: 0.3mm solid var(--accent); font-size: 7.5pt; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); }
-	.words .foot { inset-inline-start: 10mm; right: 14mm; border-top: 0; color: transparent; }
+	.words .foot { left: 10mm; right: 14mm; border-top: 0; color: transparent; }
 	.words .foot .tnum { color: #fff; }
 	.plate-cols { display: grid; grid-template-columns: 1.3fr 1fr; gap: 6mm; align-items: end; margin-bottom: 2.5mm; }
 	.phrases { list-style: none; margin: 0; padding: 0; font-size: 8.5pt; line-height: 1.3; columns: 1; }
@@ -1086,12 +1094,12 @@
 	.opener::before { display: none; }
 	/* The panorama: one photo across the spread, each page showing its half. */
 	.bleed.pano { position: absolute; top: 0; height: 297mm; width: 420mm; object-fit: cover; }
-	.bleed.pano.left { inset-inline-start: 0; }
-	.bleed.pano.right { inset-inline-start: -210mm; }
+	.bleed.pano.left { left: 0; }
+	.bleed.pano.right { left: -210mm; }
 	.opener .bleed { height: 297mm; clip-path: inset(0 0 var(--plate, 126mm) 0); }
 	.opener .plate {
 		position: absolute;
-		inset-inline-start: 0; right: 0; bottom: 0;
+		left: 0; right: 0; bottom: 0;
 		height: var(--plate, 126mm);
 		padding: 5mm 22mm 5mm 18mm;
 		background: var(--paper);
@@ -1146,7 +1154,7 @@
 	.extra-key .eyebrow { margin-bottom: 1.5mm; }
 	/* A portrait document (a menu, a timetable): the whole sheet, not a crop. */
 	.photo.wide.tall img { aspect-ratio: auto; object-fit: contain; width: auto; height: auto; max-width: 100%; max-height: 128mm; margin: 0 auto; }
-	.photo.float { float: inline-end; width: 66mm; margin: 0 0 3mm 4mm; }
+	.photo.float { float: inline-end; width: 66mm; margin-block: 0 3mm; margin-inline: 4mm 0; }
 	.flow.with-photo { display: block; }
 	.flow.with-photo > :global(*) { margin-bottom: 3mm; }
 
@@ -1162,7 +1170,9 @@
 		padding: 2.5mm 3.5mm;
 		background: var(--accent-tint);
 		border-inline-start: 1mm solid var(--accent);
-		border-radius: 0 1.5mm 1.5mm 0;
+		border-radius: 1.5mm;
+		border-start-start-radius: 0;
+		border-end-start-radius: 0;
 		font-size: 8.5pt;
 		line-height: 1.35;
 		margin-bottom: 11mm;
@@ -1312,7 +1322,8 @@
 		place-items: end start;
 		width: 6mm;
 		height: 6mm;
-		padding: 0 0 0.4mm 0.8mm;
+		padding-block-end: 0.4mm;
+		padding-inline-start: 0.8mm;
 		box-sizing: border-box;
 		border: 0.4mm solid var(--navy);
 		border-radius: 1mm;

@@ -668,13 +668,15 @@
 	.bubble {
 		max-width: 85%;
 		padding: 0.55rem 0.85rem;
-		border-radius: 14px 14px 14px 4px;
+		border-radius: 14px;
+		border-end-start-radius: 4px;
 		background: color-mix(in srgb, var(--who) 10%, var(--surface));
 		border: 1px solid color-mix(in srgb, var(--who) 30%, transparent);
 	}
 	.bubble.right {
 		align-self: flex-end;
-		border-radius: 14px 14px 4px 14px;
+		border-radius: 14px;
+		border-end-end-radius: 4px;
 	}
 	.bubble b {
 		display: block;

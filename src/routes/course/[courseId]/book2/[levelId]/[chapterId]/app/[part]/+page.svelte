@@ -474,7 +474,8 @@
 	.go {
 		display: flex;
 		align-items: center;
-		padding: 0 1rem 0 0.25rem;
+		padding-block: 0;
+		padding-inline: 0.25rem 1rem;
 	}
 	.start {
 		display: inline-flex;
@@ -534,7 +535,8 @@
 		gap: 0.55em;
 		min-height: 2.6rem;
 		box-sizing: border-box;
-		padding: 0.5em 1.25em 0.5em 1.05em;
+		padding-block: 0.5em;
+		padding-inline: 1.05em 1.25em;
 		border-radius: 999px;
 		line-height: 1;
 		background: var(--right);

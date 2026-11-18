@@ -60,7 +60,7 @@
 	{#if !cover}
 		<div class="dl-bar">
 			<a class="back-link" href={back.href}><Icon name="arrowLeft" size="1em" /> {back.label}</a>
-			<span><strong>{book.title}</strong> · {book.subtitle} · {t('{n} chapters', { n: book.chapters.length })}</span>
+			<span><strong lang="de">{book.title}</strong> · <span lang="de">{book.subtitle}</span> · <span>{t('{n} chapters', { n: book.chapters.length })}</span></span>
 			<!-- The page is the book, laid out on A4 for print: the browser prints it as it is. -->
 			<button type="button" class="btn print" onclick={() => window.print()}>
 				<Icon name="printer" size="1em" /> {t('Print')}

@@ -36,6 +36,7 @@ export const changelog: ChangelogEntry[] = [
       "Counts read the right way round: \"1 / 16\" no longer shows as \"16 / 1\" in lessons, chapters, the progress panel and the level check.",
       "The timelines in the lessons (seit, vor, für …) run left to right as one picture, as in the German, instead of putting the past on the future side.",
       "Smaller things: the German label above a sentence sits on the right like the rest of the page, the word under \"Question 1 of 10\" has its dot on the correct side, chat bubbles have their tail on the speaker's side, the grip on the phone panel is centred, and boxes, badges and cards keep their inner spacing on the correct side.",
+      "The Arabic books: each chapter's opening photo runs across both pages as one picture again, with the words pinned on the right things, page numbers and the coloured edge tab sit on the outer edge of the page, and the title bar above the book keeps \"12 chapters\" in one piece.",
     ],
   },
   {
