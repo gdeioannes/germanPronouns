@@ -151,7 +151,7 @@
 		<div class="track" aria-hidden="true">
 			<span class="day0">{t('Finished')}</span>
 			{#each stops as s (s.label)}
-				<span class="stop {s.tone}" style:left="{(s.day / MAX_DAY) * 100}%">
+				<span class="stop {s.tone}" style:inset-inline-start="{(s.day / MAX_DAY) * 100}%">
 					<i></i>
 					<b>{s.day === 1 ? '1 day' : `${s.day} days`}</b>
 					<small>{s.label}</small>
@@ -450,7 +450,8 @@
 	.track {
 		position: relative;
 		height: 5.2rem;
-		margin: 0 1.2rem 1.4rem 0.4rem;
+		margin-block: 0 1.4rem;
+		margin-inline: 0.4rem 1.2rem;
 		border-bottom: 3px solid var(--line-strong);
 	}
 	.day0 {
@@ -460,14 +461,14 @@
 		font-size: 0.68rem;
 		font-weight: 700;
 		color: var(--ink-muted);
-		transform: translateX(-30%);
+		transform: translateX(calc(-30% * var(--flip)));
 	}
 	.stop {
 		position: absolute;
 		bottom: -0.45rem;
 		display: grid;
 		justify-items: center;
-		transform: translateX(-50%);
+		transform: translateX(calc(-50% * var(--flip)));
 		text-align: center;
 		width: 4.5rem;
 	}

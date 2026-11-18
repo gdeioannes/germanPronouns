@@ -395,7 +395,8 @@
 	.bubble {
 		margin: 0;
 		padding: 0.6rem 0.9rem;
-		border-radius: 1rem 1rem 1rem 0.3rem;
+		border-radius: 1rem;
+		border-end-start-radius: 0.3rem;
 		background: var(--surface-alt);
 		font-size: var(--step-1);
 		font-weight: 600;

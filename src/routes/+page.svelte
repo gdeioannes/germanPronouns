@@ -551,7 +551,7 @@
 	}
 
 	.try:hover :global(.icon) {
-		transform: translateX(3px);
+		transform: translateX(calc(3px * var(--flip)));
 	}
 
 	/* Phone: one card per row, laid sideways — the picture on the left, the
@@ -565,7 +565,8 @@
 			grid-template-columns: 38% minmax(0, 1fr);
 			column-gap: 0.9rem;
 			align-items: center;
-			padding: 0 0.9rem 0 0;
+			padding-block: 0;
+			padding-inline: 0 0.9rem;
 			border-radius: var(--radius);
 		}
 		.how-pic {
@@ -638,7 +639,7 @@
 	}
 
 	.primary:hover :global(.icon) {
-		transform: translateX(3px);
+		transform: translateX(calc(3px * var(--flip)));
 	}
 
 	/* On navy the terracotta reads a step brighter, with a warm glow — but
@@ -732,7 +733,8 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
-		padding: 0.55rem 0.9rem 0.55rem 0.75rem;
+		padding-block: 0.55rem;
+		padding-inline: 0.75rem 0.9rem;
 		border-radius: 6px;
 		background: var(--navy);
 		color: #fff;

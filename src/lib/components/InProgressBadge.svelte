@@ -21,7 +21,8 @@
 		align-items: center;
 		gap: 0.35rem;
 		flex: none;
-		padding: 0.15rem 0.6rem 0.15rem 0.45rem;
+		padding-block: 0.15rem;
+		padding-inline: 0.45rem 0.6rem;
 		border-radius: 999px;
 		background: var(--accent-ink);
 		color: #fff;
@@ -37,7 +38,8 @@
 	}
 
 	.in-progress.float {
-		padding: 0.3rem 0.8rem 0.3rem 0.6rem;
+		padding-block: 0.3rem;
+		padding-inline: 0.6rem 0.8rem;
 		font-size: 0.8rem;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;

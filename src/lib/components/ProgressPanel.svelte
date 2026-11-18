@@ -171,7 +171,7 @@
 			<li class:current={l.level === current?.level} class:complete={l.total > 0 && l.done === l.total}>
 				<span class="bar-name tnum">{l.level}</span>
 				<span class="bar" style="--p:{p}%" aria-hidden="true"><span></span></span>
-				<span class="bar-num tnum">{l.done} / {l.total}</span>
+				<span class="bar-num tnum" dir="ltr">{l.done} / {l.total}</span>
 			</li>
 		{/each}
 	</ul>
@@ -189,7 +189,7 @@
 					</span>
 				</span>
 				<span class="bar" style="--p:{p}%" aria-hidden="true"><span></span></span>
-				<span class="bar-num tnum">{t.done} / {t.total}</span>
+				<span class="bar-num tnum" dir="ltr">{t.done} / {t.total}</span>
 			</li>
 		{/each}
 	</ul>

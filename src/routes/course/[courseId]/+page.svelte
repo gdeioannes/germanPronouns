@@ -229,7 +229,7 @@
 								<Icon name="book" size="0.95em" /> {t('Book')}
 							</a>
 						{/if}
-						<span class="tnum">{level.doneCount} / {level.quizzes.length}</span>
+						<span class="tnum" dir="ltr">{level.doneCount} / {level.quizzes.length}</span>
 						{#if level.complete}<Icon name="check" size="1em" />{/if}
 					</span>
 				</header>
@@ -337,7 +337,8 @@
 		flex-direction: column;
 		align-items: flex-end;
 		gap: 0.35rem;
-		margin: -0.35rem -0.5rem -0.35rem 0;
+		margin-block: -0.35rem;
+		margin-inline: 0 -0.5rem;
 		padding: 0.35rem 0.5rem;
 		border: 1px solid transparent;
 		border-radius: 6px;
@@ -444,7 +445,7 @@
 	}
 
 	.resume:hover :global(.resume-go) {
-		transform: translateX(4px);
+		transform: translateX(calc(4px * var(--flip)));
 	}
 
 	.finished {
@@ -568,7 +569,7 @@
 
 	.quizzes a:hover {
 		background: var(--surface-alt);
-		transform: translateX(3px);
+		transform: translateX(calc(3px * var(--flip)));
 	}
 
 	.title {

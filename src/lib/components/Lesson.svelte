@@ -308,7 +308,7 @@
 					<h2>{t('What to take with you')}</h2>
 					{#if checks.length && answeredCount}
 						<p class="score">
-							<strong class="tnum">{rightCount} / {checks.length}</strong> {rightCount === checks.length ? t('checks right — you are ready.') : t('checks right. The exercise will lock it in.')}
+							<strong class="tnum" dir="ltr">{rightCount} / {checks.length}</strong> {rightCount === checks.length ? t('checks right — you are ready.') : t('checks right. The exercise will lock it in.')}
 						</p>
 					{/if}
 					<ul class="points">

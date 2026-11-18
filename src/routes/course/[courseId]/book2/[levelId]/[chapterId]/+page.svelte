@@ -201,7 +201,7 @@
 		</p>
 		<p class="progress">
 			<span class="bar"><span style:width="{total ? (checkedCount / total) * 100 : 0}%"></span></span>
-			<span class="tnum">{checkedCount} / {total}</span> {german ? 'Übungen geprüft' : t('exercises checked')}
+			<span class="tnum" dir="ltr">{checkedCount} / {total}</span> {german ? 'Übungen geprüft' : t('exercises checked')}
 		</p>
 	</div>
 </header>

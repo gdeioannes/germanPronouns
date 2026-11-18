@@ -98,6 +98,16 @@
 	box-sizing: border-box;
 }
 
+/* Which way "forward" points along a line: 1 left to right, -1 in a right-to-left
+   page (Arabic). Sideways motion multiplies by it — calc(20px * var(--flip)) —
+   so slides, nudges and drawers move with the reading direction. */
+:root {
+	--flip: 1;
+}
+:root[dir='rtl'] {
+	--flip: -1;
+}
+
 html {
 	-webkit-text-size-adjust: 100%;
 	scroll-behavior: smooth;
@@ -553,25 +563,25 @@ input[type='number'] {
 @keyframes vt-out-left {
 	to {
 		opacity: 0;
-		transform: translateX(-20px);
+		transform: translateX(calc(-20px * var(--flip)));
 	}
 }
 @keyframes vt-in-right {
 	from {
 		opacity: 0;
-		transform: translateX(20px);
+		transform: translateX(calc(20px * var(--flip)));
 	}
 }
 @keyframes vt-out-right {
 	to {
 		opacity: 0;
-		transform: translateX(20px);
+		transform: translateX(calc(20px * var(--flip)));
 	}
 }
 @keyframes vt-in-left {
 	from {
 		opacity: 0;
-		transform: translateX(-20px);
+		transform: translateX(calc(-20px * var(--flip)));
 	}
 }
 

@@ -849,7 +849,8 @@
 		max-width: 88%;
 		margin: 0;
 		padding: 0.5rem 0.7rem;
-		border-radius: 1rem 1rem 1rem 0.3rem;
+		border-radius: 1rem;
+		border-end-start-radius: 0.3rem;
 		background: #fff;
 		box-shadow: 0 1px 1px rgb(0 0 0 / 0.08);
 	}

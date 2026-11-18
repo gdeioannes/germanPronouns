@@ -847,7 +847,8 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.6rem;
-		margin: 0 0 0.4rem 0.75rem;
+		margin-block: 0 0.4rem;
+		margin-inline: 0.75rem 0;
 	}
 
 	/* Quiet until wanted: it is a preference, not part of the exercise. */
@@ -1048,6 +1049,12 @@
 		margin: 0.5rem 0 0;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
+	}
+
+	/* A German label in a right-to-left page runs left to right (lang="de")
+	   but sits at the page's start edge, like the Arabic around it. */
+	.prompt-label:dir(rtl) {
+		text-align: right;
 	}
 
 	.ladder-row {

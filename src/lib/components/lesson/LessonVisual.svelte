@@ -191,7 +191,9 @@
 		<!-- Wide: labels hang under their marks, one grid row per label row, so a
 		     label that wraps pushes the next row down instead of running into it.
 		     Narrow: every label gets a row of its own, still under its mark. -->
-		<div class="timeline">
+		<!-- Time runs left to right in every language, Arabic too: the marks are
+		     placed physically and the axis labels follow, so it is one picture. -->
+		<div class="timeline" dir="ltr">
 			<div class="t-track">
 				<div class="t-axis">
 					<span class="t-end">{visual.axis?.start ?? 'past'}</span>
@@ -434,7 +436,8 @@
 	}
 	.b-en {
 		grid-column: 1 / -1;
-		margin: -0.1rem 0 0.35rem 0.3rem;
+		margin-block: -0.1rem 0.35rem;
+		margin-inline: 0.3rem 0;
 		font-size: var(--step--1);
 		color: var(--ink-muted);
 	}
@@ -767,8 +770,10 @@
 		font-weight: 700;
 	}
 	.branches {
-		margin: 0.35rem 0 0 0.9rem;
-		padding: 0 0 0 0.8rem;
+		margin-block: 0.35rem 0;
+		margin-inline: 0.9rem 0;
+		padding-block: 0;
+		padding-inline: 0.8rem 0;
 		list-style: none;
 		border-inline-start: 2px solid var(--line-strong);
 		display: grid;

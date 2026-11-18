@@ -612,7 +612,7 @@
 
 	.option:hover:not(:disabled) {
 		border-color: var(--accent);
-		transform: translateX(2px);
+		transform: translateX(calc(2px * var(--flip)));
 	}
 
 	/* A/B/C in a circle, swapped for a tick or cross once checked — so the

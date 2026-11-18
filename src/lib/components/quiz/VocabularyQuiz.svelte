@@ -683,9 +683,12 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0 0.95rem 0 0.75rem;
+		padding-block: 0;
+		padding-inline: 0.75rem 0.95rem;
 		border: 0;
-		border-radius: 0 999px 999px 0;
+		border-radius: 0;
+		border-start-end-radius: 999px;
+		border-end-end-radius: 999px;
 		background: none;
 		white-space: nowrap;
 		color: var(--heading);
@@ -1184,7 +1187,8 @@
 			display: none;
 		}
 		.weak {
-			padding: 0 0.7rem 0 0.5rem;
+			padding-block: 0;
+			padding-inline: 0.5rem 0.7rem;
 		}
 		.face {
 			padding: 2.6rem 1.1rem 1.6rem;

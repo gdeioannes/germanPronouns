@@ -1965,7 +1965,7 @@ export const AR: Record<string, string> = {
 	"Syllabus":
 		"المنهج",
 	"{done} / {n} exercises done":
-		"أُنجز {done} / {n} تمرين",
+		"أُنجز {done} من {n} تمرين",
 	"After this level you can":
 		"بعد هذا المستوى تستطيع",
 	"Themes":

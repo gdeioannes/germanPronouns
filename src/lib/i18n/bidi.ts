@@ -12,10 +12,13 @@
 const ARABIC = /[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]/;
 const LETTER = /\p{L}/u;
 const MARK = 'data-auto-ltr';
+/** Numbers set against each other ("3 / 10", "12:30"): in a right-to-left
+ *  line the bidi algorithm would swap them ("10 / 3"), so they count too. */
+const RATIO = /\d\s*[/:–-]\s*\d/;
 
-/** An element holding text of its own (a direct text node with a letter). */
+/** An element holding text of its own (a direct text node with a letter or a digit). */
 function ownsText(el: Element): boolean {
-	for (const n of el.childNodes) if (n.nodeType === 3 && LETTER.test(n.nodeValue ?? '')) return true;
+	for (const n of el.childNodes) if (n.nodeType === 3 && /[\p{L}\d]/u.test(n.nodeValue ?? '')) return true;
 	return false;
 }
 
@@ -25,7 +28,7 @@ function check(el: Element) {
 	const display = getComputedStyle(el).display;
 	const flowing = !/flex|grid/.test(display);
 	const text = el.textContent ?? '';
-	const latinOnly = flowing && LETTER.test(text) && !ARABIC.test(text);
+	const latinOnly = flowing && (LETTER.test(text) || RATIO.test(text)) && !ARABIC.test(text);
 	if (latinOnly && !el.hasAttribute('dir')) {
 		el.setAttribute('dir', 'ltr');
 		el.setAttribute(MARK, '');

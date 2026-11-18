@@ -403,7 +403,7 @@
 		</div>
 	{:else if phase === 'words' && screen}
 		{#key screens.length}
-			<div class="qcard" in:fly={{ x: 28, duration: dur() }}>
+			<div class="qcard" in:fly={{ x: lang.rtl ? -28 : 28, duration: dur() }}>
 				<span class="count tnum">{t('screen {n}', { n: screens.length })}</span>
 				<p class="eyebrow">{t('Tap the words you know')}</p>
 				<p class="small">{t('Only the ones you are sure about. Some of these words do not exist.')}</p>
@@ -421,8 +421,8 @@
 		</div>
 	{:else if phase === 'grammar' && item}
 		{#key answers.length}
-			<div class="qcard" in:fly={{ x: 28, duration: dur() }}>
-				<span class="count tnum">{answers.length + 1} / {GRAMMAR_ITEMS}</span>
+			<div class="qcard" in:fly={{ x: lang.rtl ? -28 : 28, duration: dur() }}>
+				<span class="count tnum" dir="ltr">{answers.length + 1} / {GRAMMAR_ITEMS}</span>
 				<p class="eyebrow">{t('Fill the gap')}</p>
 				<p class="sentence" lang="de" tabindex="-1" data-focus>
 					{parts(item.sentence)[0]}<span class="gap" aria-label={t('gap')}>&nbsp;</span>{parts(item.sentence)[1]}
@@ -433,7 +433,7 @@
 		{/key}
 	{:else if (phase === 'reading' || phase === 'listening') && text}
 		{#key phase}
-			<div class="qcard" in:fly={{ x: 28, duration: dur() }}>
+			<div class="qcard" in:fly={{ x: lang.rtl ? -28 : 28, duration: dur() }}>
 				<p class="eyebrow">{phase === 'reading' ? t('Read the text') : t('Listen to the recording')}</p>
 				<h1 class="q" lang="de" tabindex="-1" data-focus>{text.title}</h1>
 				{#if phase === 'reading'}

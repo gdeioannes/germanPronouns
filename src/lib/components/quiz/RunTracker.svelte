@@ -50,7 +50,7 @@
 <section class="tracker" class:bar-only={!showStreak} aria-label={t('Your run')}>
 	<div class="run">
 		<div class="run-top">
-			<span class="eyebrow tnum">{t('Question {i} of {n}', { i: Math.min(answered + 1, total), n: total })} <span class="now-word" lang="de">· {nowWord}</span></span>
+			<span class="eyebrow tnum">{t('Question {i} of {n}', { i: Math.min(answered + 1, total), n: total })} <span class="now-word">· <span lang="de">{nowWord}</span></span></span>
 			{#if aside}{@render aside()}{/if}
 		</div>
 		<div

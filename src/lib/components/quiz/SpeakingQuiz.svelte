@@ -386,7 +386,9 @@
 		margin: 0 0 0.8rem;
 		padding: 0.7rem 0.95rem;
 		border-inline-start: 3px solid var(--accent);
-		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+		border-radius: 0;
+		border-start-end-radius: var(--radius-sm);
+		border-end-end-radius: var(--radius-sm);
 		background: var(--surface-alt);
 		font-size: var(--step--1);
 		line-height: 1.5;

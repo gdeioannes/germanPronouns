@@ -49,7 +49,7 @@
 		{#if data.books.length > 1}
 			<p class="switch">Other books: {#each data.books.filter((b) => b !== book.id) as b (b)}<a href="/course/{data.courseId}/book/{b}/progress">{b}</a>{/each}</p>
 		{/if}
-		<p class="count"><strong class="tnum">{doneCount} / {total.length}</strong> units done</p>
+		<p class="count"><strong class="tnum" dir="ltr">{doneCount} / {total.length}</strong> units done</p>
 	</header>
 
 	{#each book.parts as part (part.n)}

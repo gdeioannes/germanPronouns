@@ -300,7 +300,9 @@
 		padding: 0.75rem 0.9rem;
 		margin-bottom: 0.6rem;
 		border-inline-start: 3px solid var(--accent);
-		border-radius: 0 8px 8px 0;
+		border-radius: 0;
+		border-start-end-radius: 8px;
+		border-end-end-radius: 8px;
 		background: var(--surface-alt);
 	}
 
@@ -367,7 +369,8 @@
 
 	.remember {
 		margin: 0;
-		padding: 0 0 0 1.1rem;
+		padding-block: 0;
+		padding-inline: 1.1rem 0;
 		font-size: var(--step--1);
 		color: var(--ink);
 	}

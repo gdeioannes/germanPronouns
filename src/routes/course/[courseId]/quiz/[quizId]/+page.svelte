@@ -973,7 +973,7 @@
 	}
 
 	.mode-switch[aria-checked='true'] .knob {
-		transform: translateX(100%);
+		transform: translateX(calc(100% * var(--flip)));
 	}
 
 	@media (prefers-reduced-motion: reduce) {

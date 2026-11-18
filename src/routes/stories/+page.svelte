@@ -102,7 +102,8 @@
 	.text {
 		display: grid;
 		gap: 0.15rem;
-		padding: 0.8rem 1rem 0.8rem 0;
+		padding-block: 0.8rem;
+		padding-inline: 0 1rem;
 	}
 
 	.where {

@@ -113,7 +113,7 @@ export function freshen(node: HTMLElement, key: unknown) {
 			if (prefersReducedMotion() || typeof node.animate !== 'function') return;
 			node.animate(
 				[
-					{ opacity: 0, transform: 'translateX(14px)' },
+					{ opacity: 0, transform: `translateX(${document.documentElement.dir === 'rtl' ? -14 : 14}px)` },
 					{ opacity: 1, transform: 'none' }
 				],
 				{ duration: DURATION.slow, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' }

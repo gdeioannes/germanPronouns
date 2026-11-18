@@ -144,7 +144,8 @@
 	.divider {
 		flex: none;
 		width: 1px;
-		margin: 0.35rem 0.25rem 0.35rem auto;
+		margin-block: 0.35rem;
+		margin-inline: auto 0.25rem;
 		background: var(--line-strong);
 	}
 
@@ -153,7 +154,8 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		padding: 0.38rem 0.85rem 0.38rem 0.7rem;
+		padding-block: 0.38rem;
+		padding-inline: 0.7rem 0.85rem;
 		border: 1px solid transparent;
 		border-radius: 999px;
 		background: none;
@@ -190,13 +192,15 @@
 	}
 
 	.step:first-child {
-		border-radius: 999px 0 0 999px;
+		border-start-start-radius: 999px;
+		border-end-start-radius: 999px;
 	}
 
 	/* The top step is rounded on its right too, even with more controls
 	   after the divider: the ladder's own end. */
 	.step.last {
-		border-radius: 0 999px 999px 0;
+		border-start-end-radius: 999px;
+		border-end-end-radius: 999px;
 	}
 
 	.slot {
@@ -262,7 +266,8 @@
 	@media (max-width: 36rem) {
 		.step {
 			gap: 0.3rem;
-			padding: 0.34rem 0.6rem 0.34rem 0.5rem;
+			padding-block: 0.34rem;
+			padding-inline: 0.5rem 0.6rem;
 			letter-spacing: 0.01em;
 		}
 		.sparks {

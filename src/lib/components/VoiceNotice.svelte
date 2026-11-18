@@ -69,7 +69,8 @@
 		align-items: flex-start;
 		gap: 0.65rem;
 		max-width: 30rem;
-		padding: 0.75rem 0.6rem 0.75rem 0.9rem;
+		padding-block: 0.75rem;
+		padding-inline: 0.9rem 0.6rem;
 		border: 1px solid var(--line-strong);
 		border-radius: var(--radius);
 		background: var(--surface);

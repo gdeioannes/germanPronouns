@@ -48,7 +48,8 @@
 		gap: 0.4rem;
 		max-width: 46rem;
 		margin: 1.25rem auto 0;
-		padding: 0.7rem 0.6rem 0.7rem 1rem;
+		padding-block: 0.7rem;
+		padding-inline: 1rem 0.6rem;
 		border: 1px solid var(--line);
 		border-radius: var(--radius);
 		background: var(--surface);

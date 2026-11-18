@@ -17,6 +17,18 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-18",
+    title: "Arabic, right to left all the way",
+    items: [
+      "In Arabic, things now move the way the page reads. The study notes and the More panel slide in from the left edge instead of sweeping across the screen, lesson steps and pages slide in from the side you read towards, and a new question comes in from the right direction.",
+      "The Learn | Practise switch no longer jumps out of its frame in Arabic, and the Choose / Type / No help bar is rounded at both ends again.",
+      "Arrows on buttons kept pointing the wrong way while the mouse was over them; now they stay turned the Arabic way.",
+      "Counts read the right way round: \"1 / 16\" no longer shows as \"16 / 1\" in lessons, chapters, the progress panel and the level check.",
+      "The timelines in the lessons (seit, vor, für …) run left to right as one picture, as in the German, instead of putting the past on the future side.",
+      "Smaller things: the German label above a sentence sits on the right like the rest of the page, the word under \"Question 1 of 10\" has its dot on the correct side, chat bubbles have their tail on the speaker's side, the grip on the phone panel is centred, and boxes, badges and cards keep their inner spacing on the correct side.",
+    ],
+  },
+  {
+    date: "2026-11-18",
     title: "Your book and the app, page by page",
     highlight: true,
     items: [

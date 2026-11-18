@@ -310,7 +310,8 @@
 			'weak go';
 		gap: 0.15rem 0.6rem;
 		min-height: 6.5rem;
-		padding: 0.9rem 1rem 0.9rem 1.1rem;
+		padding-block: 0.9rem;
+		padding-inline: 1.1rem 1rem;
 		border: 1px solid var(--line-strong);
 		border-inline-start: 5px solid #a33a63;
 		border-radius: var(--radius-sm);
@@ -502,7 +503,8 @@
 		height: 2.4rem;
 		flex: none;
 		align-self: center;
-		margin: -0.25rem 0.1rem -0.25rem -0.2rem;
+		margin-block: -0.25rem;
+		margin-inline: -0.2rem 0.1rem;
 		border-radius: 50%;
 		background: #fbf5e4;
 		object-fit: cover;

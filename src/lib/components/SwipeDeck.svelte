@@ -1007,7 +1007,8 @@
 		align-items: center;
 		gap: 0.4rem;
 		max-width: 100%;
-		padding: 0.35rem 0.75rem 0.35rem 0.6rem;
+		padding-block: 0.35rem;
+		padding-inline: 0.6rem 0.75rem;
 		border: 1px solid color-mix(in srgb, var(--pace) 35%, var(--line));
 		border-radius: 999px;
 		background: color-mix(in srgb, var(--pace) 8%, var(--surface));
@@ -2126,7 +2127,7 @@
 		top: 0.45rem;
 		width: 2.4rem;
 		height: 2.4rem;
-		margin-inline-start: -1.2rem;
+		margin-left: -1.2rem;
 		color: var(--heading);
 		filter: drop-shadow(0 4px 8px rgb(0 0 0 / 0.2));
 		animation: coach-sweep 3s ease-in-out infinite;

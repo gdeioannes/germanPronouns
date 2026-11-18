@@ -102,7 +102,8 @@
 	.timeline {
 		position: relative;
 		margin: 0;
-		padding: 0 0 0 1.4rem;
+		padding-block: 0;
+		padding-inline: 1.4rem 0;
 		list-style: none;
 	}
 
@@ -133,7 +134,7 @@
 		inset-inline-start: -1.4rem;
 		width: 10px;
 		height: 10px;
-		transform: translateX(-4px);
+		transform: translateX(calc(-4px * var(--flip)));
 		border-radius: 50%;
 		background: var(--ink-muted);
 		border: 2px solid var(--bg);

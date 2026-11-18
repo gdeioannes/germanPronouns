@@ -131,8 +131,8 @@
 		flex-direction: column;
 		width: min(34rem, 100%);
 		background: var(--surface);
-		box-shadow: -18px 0 48px -24px rgb(20 32 52 / 0.45);
-		transform: translateX(104%);
+		box-shadow: calc(-18px * var(--flip)) 0 48px -24px rgb(20 32 52 / 0.45);
+		transform: translateX(calc(104% * var(--flip)));
 		transition: transform var(--slow) var(--ease-out);
 		outline: none;
 	}
@@ -145,7 +145,8 @@
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
-		padding: 0.85rem 1rem 0.85rem 1.25rem;
+		padding-block: 0.85rem;
+		padding-inline: 1.25rem 1rem;
 		border-bottom: 1px solid var(--line);
 	}
 
@@ -216,7 +217,7 @@
 			left: 50%;
 			width: 2.6rem;
 			height: 0.3rem;
-			margin-inline-start: -1.3rem;
+			margin-left: -1.3rem;
 			border-radius: 999px;
 			background: var(--line-strong);
 		}

@@ -159,7 +159,7 @@
 
 		<div class="middle">
 			<span class="counter tnum">
-				<strong>{index + 1}</strong> / {count}{#if labels[index]}<span class="label">{` · ${t(labels[index])}`}</span>{/if}
+				<span dir="ltr"><strong>{index + 1}</strong> / {count}</span>{#if labels[index]}<span class="label">{` · ${t(labels[index])}`}</span>{/if}
 			</span>
 			<div class="dots">
 				{#each { length: count } as _, i (i)}
@@ -228,11 +228,11 @@
 	}
 
 	.step.before {
-		transform: translateX(-2.5rem) scale(0.985);
+		transform: translateX(calc(-2.5rem * var(--flip))) scale(0.985);
 	}
 
 	.step.after {
-		transform: translateX(2.5rem) scale(0.985);
+		transform: translateX(calc(2.5rem * var(--flip))) scale(0.985);
 	}
 
 	.rail {

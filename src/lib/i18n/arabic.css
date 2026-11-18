@@ -73,6 +73,8 @@
 }
 
 /* An arrow that means "forward" or "back" points the other way. */
+/* The independent scale property, not transform: a hover nudge sets transform
+   and would otherwise turn the arrow back round. */
 .icon.flip:dir(rtl) {
-	transform: scaleX(-1);
+	scale: -1 1;
 }
