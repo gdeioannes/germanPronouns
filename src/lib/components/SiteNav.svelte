@@ -23,6 +23,7 @@
 	import { forum } from '$lib/state/forum.svelte';
 	import { account } from '$lib/state/account.svelte';
 	import { openSignIn } from '$lib/state/signin.svelte';
+	import { feedback } from '$lib/state/feedback.svelte';
 	import PageHelp from '$lib/components/PageHelp.svelte';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
@@ -93,6 +94,12 @@
 		if (next && !(event.currentTarget as HTMLElement).contains(next)) dropdown = null;
 	}
 
+	function openFeedback() {
+		open = false;
+		dropdown = null;
+		feedback.openFromMenu();
+	}
+
 	function toggle(menu: Menu) {
 		dropdown = dropdown === menu ? null : menu;
 	}
@@ -160,6 +167,18 @@
 	<a href="/contact">{t('Contact')}</a>
 {/snippet}
 
+<!-- Rate the site, any time: opens the feedback panel (FeedbackCard). Always
+     in the bar — a star and a word in the full bar, the star alone in the slim
+     one — and in the phone menu. Styled exactly like Sign in beside it. -->
+{#snippet feedbackLink()}
+	{#if feedback.available && !lang.limited}
+		<button type="button" class="sign-in" aria-haspopup="dialog" aria-controls="feedback-panel" onclick={openFeedback}>
+			<Icon name="star" size="1em" />
+			<span class="sign-in-label">Feedback</span>
+		</button>
+	{/if}
+{/snippet}
+
 <!-- Sign in, in plain sight: the course needs no account, and saying so is
      part of the link's job, but a learner who has one should not have to
      hunt for it in settings. Signed in, it becomes the account itself. -->
@@ -221,6 +240,7 @@
 			{@render levelCheckLink()}
 			<a href="/settings" rel="nofollow"><Icon name="settings" size="1em" /> {t('Settings')}</a>
 			{@render signIn()}
+			{@render feedbackLink()}
 		</div>
 		<p class="group-head">{t('Library')}</p>
 		{@render libraryLinks()}
@@ -260,6 +280,7 @@
 			{/if}
 			<!-- "?": how this screen works (content/pageHelp), on pages that have an entry. -->
 			<PageHelp topic={page.route.id} />
+			{@render feedbackLink()}
 			{@render signIn()}
 			{@render menuButtonSnippet()}
 		</div>
@@ -281,6 +302,7 @@
 					{@render levelCheckLink()}
 					{@render drop('library', t('Library'), libraryLinks)}
 					{@render drop('about', t('About'), aboutLinks, false, (whatsNew.unseen || forum.unread.length > 0) && !lang.limited)}
+					{@render feedbackLink()}
 					{@render signIn()}
 					{@render cta()}
 				</nav>

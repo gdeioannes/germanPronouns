@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { feedback } from '$lib/state/feedback.svelte';
 	import { t } from '$lib/i18n/t';
 	// The books: all twelve levels in one list, each with "Read online" and the
 	// free PDF. The list itself lives in content/books, shared with the home
@@ -14,10 +15,19 @@
 	import { track } from '$lib/services/analytics';
 	import { breadcrumbLd, itemListLd } from '$lib/seo';
 	import { page } from '$app/state';
+	import { onMount } from 'svelte';
+	import { listBookQuotes, type BookQuote } from '$lib/services/feedback';
 
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
 	// Turkish mode: the four A-level books, in their Turkish edition.
 	const shelf = $derived(lang.limited ? BOOKS.filter((b) => levelTranslated(b.level)) : BOOKS);
+
+	// What readers say: quotes they allowed and the owner published from
+	// /backoffice. Loaded in the browser; with none, the section is not there.
+	let quotes = $state<BookQuote[]>([]);
+	onMount(() => {
+		if (!lang.limited) void listBookQuotes(6).then((q) => (quotes = q.filter((x) => x.text)));
+	});
 </script>
 
 <Seo
@@ -64,7 +74,10 @@
 								class="secondary"
 								href={bookPdf(book, lang.current)}
 								download
-								onclick={() => track('book_download', { book: book.level, from: 'books' })}
+								onclick={() => {
+									track('book_download', { book: book.level, from: 'books' });
+									feedback.askAudience(book.level);
+								}}
 							>
 								<Icon name="download" size="1.05em" /> PDF · {bookMb(book, lang.current)} MB
 							</a>
@@ -74,11 +87,65 @@
 			</li>
 		{/each}
 	</ol>
+
+	{#if quotes.length}
+		<section class="quotes" aria-labelledby="quotes-head">
+			<h2 id="quotes-head">What readers say</h2>
+			<ul>
+				{#each quotes as q (q.id)}
+					<li>
+						<blockquote>{q.text}</blockquote>
+						<p class="by">— {q.name || 'a reader'}{q.book ? `, book ${q.book}` : ''}</p>
+					</li>
+				{/each}
+			</ul>
+		</section>
+	{/if}
 </main>
 
 <SiteFooter />
 
 <style>
+	.quotes {
+		margin-top: 2.5rem;
+	}
+
+	.quotes h2 {
+		margin: 0 0 1rem;
+		font-size: var(--step-2);
+	}
+
+	.quotes ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+		gap: 1rem;
+	}
+
+	.quotes li {
+		padding: 1rem 1.2rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: var(--surface);
+	}
+
+	.quotes blockquote {
+		margin: 0;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: var(--step-1);
+		line-height: 1.4;
+		color: var(--heading);
+		overflow-wrap: anywhere;
+	}
+
+	.quotes .by {
+		margin: 0.6rem 0 0;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
 	.shelf {
 		list-style: none;
 		margin: 1.5rem 0 0;

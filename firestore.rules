@@ -150,6 +150,89 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // -- site feedback -----------------------------------------------------------
+    // The site owner: a site_owners/{uid} document, created by hand in the
+    // console (any content, e.g. { role: "owner" }). Separate from forum
+    // moderators on purpose: only the owner reads the feedback.
+    function isSiteOwner() {
+      return signedIn() && exists(/databases/$(database)/documents/site_owners/$(request.auth.uid));
+    }
+
+    function feedbackText(value) {
+      return value is string && value.size() <= 2000;
+    }
+
+    match /site_owners/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+    function shortText(value, max) {
+      return value is string && value.size() <= max;
+    }
+
+    // Anyone adds an answer, no login: stars 1–5, optional texts, where it was
+    // given (the site card, the menu, a printed book's code). Nobody but the
+    // owner reads or deletes. The browser that made an answer may add its
+    // texts once, within the hour (it alone knows the random id: the stars
+    // are saved on the tap, the texts follow).
+    match /feedback/{id} {
+      allow read, delete: if isSiteOwner();
+      allow create: if request.resource.data.keys().hasOnly(['rating', 'comment', 'wish', 'mistake', 'quote', 'name', 'quoteOk', 'page', 'source', 'book', 'code', 'lang', 'at'])
+        && request.resource.data.keys().hasAll(['rating', 'comment', 'wish', 'mistake', 'quote', 'name', 'quoteOk', 'page', 'source', 'book', 'code', 'lang', 'at'])
+        && request.resource.data.rating is int
+        && request.resource.data.rating >= 1
+        && request.resource.data.rating <= 5
+        && feedbackText(request.resource.data.comment)
+        && feedbackText(request.resource.data.wish)
+        && feedbackText(request.resource.data.mistake)
+        && shortText(request.resource.data.quote, 400)
+        && shortText(request.resource.data.name, 40)
+        && request.resource.data.quoteOk is bool
+        && text(request.resource.data.page, 200)
+        && request.resource.data.source in ['ask', 'menu', 'book']
+        && shortText(request.resource.data.book, 10)
+        && shortText(request.resource.data.code, 40)
+        && text(request.resource.data.lang, 5)
+        && request.resource.data.at is int;
+      allow update: if changedOnly(['comment', 'wish', 'mistake', 'quote', 'name', 'quoteOk'])
+        && resource.data.comment == ''
+        && resource.data.wish == ''
+        && resource.data.mistake == ''
+        && resource.data.quote == ''
+        && feedbackText(request.resource.data.comment)
+        && feedbackText(request.resource.data.wish)
+        && feedbackText(request.resource.data.mistake)
+        && shortText(request.resource.data.quote, 400)
+        && shortText(request.resource.data.name, 40)
+        && request.resource.data.quoteOk is bool
+        && request.time.toMillis() - resource.data.at < 3600000;
+    }
+
+    // "Who is this book for?" at a PDF download. Same pattern: anyone adds,
+    // the school or course may follow once within the hour, only the owner
+    // reads or deletes.
+    match /book_audience/{id} {
+      allow read, delete: if isSiteOwner();
+      allow create: if request.resource.data.keys().hasOnly(['who', 'school', 'book', 'lang', 'at'])
+        && request.resource.data.who in ['me', 'class', 'child', 'other']
+        && request.resource.data.school == ''
+        && shortText(request.resource.data.book, 10)
+        && text(request.resource.data.lang, 5)
+        && request.resource.data.at is int;
+      allow update: if changedOnly(['school'])
+        && resource.data.school == ''
+        && text(request.resource.data.school, 200)
+        && request.time.toMillis() - resource.data.at < 3600000;
+    }
+
+    // Quotes the owner published from the inbox (the reader ticked "you may
+    // quote me"): everyone reads them on /books, only the owner writes.
+    match /book_quotes/{id} {
+      allow read: if true;
+      allow write: if isSiteOwner();
+    }
+
     // -- Wortblöcke world Bestenliste ----------------------------------------
     // The arcade way: everyone reads the board, anyone may append ONE score
     // with a five-letter name — no login, like the cabinets. Shape-checked,

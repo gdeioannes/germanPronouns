@@ -16,6 +16,8 @@
 	import MergePanel from '$lib/components/MergePanel.svelte';
 	import SignInSheet from '$lib/components/SignInSheet.svelte';
 	import NotInLanguage from '$lib/components/NotInLanguage.svelte';
+	import FeedbackCard from '$lib/components/FeedbackCard.svelte';
+	import { feedback } from '$lib/state/feedback.svelte';
 	import { onMount } from 'svelte';
 	import { lang, startLang } from '$lib/i18n/lang.svelte';
 	import { levelTranslated, routeTranslated } from '$lib/i18n/available';
@@ -123,6 +125,10 @@
 	// The router only counts as running once the first load has settled, so
 	// the address is cleaned a tick after the navigation, not during it.
 	afterNavigate(() => {
+		// A visit from a printed book's code: the book question may ask later.
+		if (page.url.searchParams.get('utm_source') === 'book') {
+			feedback.noteBookVisit(page.url.searchParams.get('utm_campaign') ?? '');
+		}
 		const clean = takeCampaignTags();
 		if (!clean) return;
 		setTimeout(() => {
@@ -133,6 +139,9 @@
 			}
 		});
 	});
+
+	// Counts real use for the feedback card (five minutes before it may ask).
+	onMount(() => feedback.start());
 
 	// Remembers the last non-menu page, so a menu page's back arrow returns
 	// there (home or the deck) rather than always home.
@@ -213,4 +222,5 @@
      progress meet. Silent every other time. -->
 <MergePanel />
 <SignInSheet />
+<FeedbackCard />
 <Announcer />

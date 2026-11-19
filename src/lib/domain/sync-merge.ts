@@ -40,7 +40,7 @@ const RUN_LOG_LIMIT = 50;
 const DEVICE_LOCAL = new Set(['last_page', 'last_content_id', 'last_noun_progression_key']);
 
 /** Prefixes of device-local keys (analytics, service-worker bookkeeping). */
-const DEVICE_LOCAL_PREFIXES = ['aptabase', 'analytics_', 'sveltekit:', 'account_'];
+const DEVICE_LOCAL_PREFIXES = ['aptabase', 'analytics_', 'sveltekit:', 'account_', 'feedback_'];
 
 /**
  * Characters Firestore refuses in a map field name. A storage key is only ever

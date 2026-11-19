@@ -25,6 +25,25 @@ export const changelog: ChangelogEntry[] = [
     ],
   },
   {
+    date: "2026-11-19",
+    title: "Your say on the books",
+    items: [
+      "When you download a book, a small card asks who it is for: you, your class, your child or someone else. One tap, and the download goes on as usual. If you teach a class, you can tell us your school or course too.",
+      "When you scan a code in a printed book and work on that page, a card asks how the book is going, once per book. If something isn't right, you can tell us what's missing or report a mistake. We already know which page you came from, so you only say what's wrong.",
+      "Happy with a book? Share it with a friend in one tap, and if you like, write a sentence about it. With your permission, we may show it on the books page under \"What readers say\".",
+    ],
+  },
+  {
+    date: "2026-11-19",
+    title: "Tell us how you like the site",
+    items: [
+      "After a while of practice, at the end of a good run, a small card in the corner asks how you like the site. One tap on the stars and it's done, and the × closes it. It never covers the exercise.",
+      "If something isn't working for you, a low rating opens two short boxes: what didn't work, and what would help you learn German better. Both are optional and anonymous, and no login is needed.",
+      "The card doesn't nag. After a rating it waits a week before asking again. After a close it waits until the next day, and after three closes in a row it stays away for a month.",
+      "Want to say something now? The new Feedback button with the star in the top bar is always there.",
+    ],
+  },
+  {
     date: "2026-11-18",
     title: "Read the book on screen like a book",
     items: [

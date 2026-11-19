@@ -61,6 +61,7 @@
 	import { BOOK_PARAM, listQuizHref, loadList, placeInList, type QuizList } from '$lib/state/bookOpen';
 	import { page } from '$app/state';
 	import { browser } from '$app/environment';
+	import { feedback } from '$lib/state/feedback.svelte';
 
 	let { data }: { data: PageData } = $props();
 	const { course, next, previous, related, position, levelCount, levelTitle, deck } = $derived(data);
@@ -305,6 +306,7 @@
 		if (finished) return;
 		await markDone();
 		celebrate();
+		feedback.moment(quiz.level ?? '');
 	}
 
 	/**
@@ -323,6 +325,7 @@
 		if (finished) return;
 		await markDone();
 		await award(medal, line);
+		feedback.moment(quiz.level ?? '');
 	}
 
 	/**
@@ -350,6 +353,8 @@
 		else playSound('complete');
 		// A good run makes a surprise in the next hand more likely (domain/surprise).
 		if (passed) markGoodRun();
+		// …and is the moment the feedback card may ask (state/feedback).
+		if (passed) feedback.moment(quiz.level ?? '');
 	}
 
 	/**

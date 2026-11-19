@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { feedback } from '$lib/state/feedback.svelte';
 	import { t } from '$lib/i18n/t';
 	// A chapter of the printed book, in the app. Each page code in the book
 	// lands here at its own part (#lesen, #uebungen-1 …): the words as
@@ -89,6 +90,7 @@
 
 	async function onchecked(key: string, score: { right: number; total: number }) {
 		trackBookUse(data.level, c.id, 'check');
+		feedback.moment(data.level);
 		checks = { ...checks, [key]: { ...score, at: Date.now() } };
 		await storage.set(checksKey(data.level, c.id), JSON.stringify(checks));
 	}
@@ -103,6 +105,7 @@
 		}
 		reading = true;
 		trackBookUse(data.level, c.id, 'listen');
+		feedback.moment(data.level);
 		for (const line of c.reading.lines) {
 			if (!reading) break;
 			await tts.speak(plain(line.de), { locale: 'de-DE' });
@@ -246,7 +249,10 @@
 			</ul>
 		{/if}
 		<div class="sheet">
-			<WordCards {words} level={data.level} {german} onused={() => trackBookUse(data.level, c.id, 'cards')} />
+			<WordCards {words} level={data.level} {german} onused={() => {
+				trackBookUse(data.level, c.id, 'cards');
+				feedback.moment(data.level);
+			}} />
 		</div>
 	</section>
 
