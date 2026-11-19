@@ -2435,4 +2435,8 @@ export const TR: Record<string, string> = {
 		"Genişliğe sığdır",
 	"Fit page":
 		"Sayfaya sığdır",
+	"Previous page":
+		"Önceki sayfa",
+	"Next page":
+		"Sonraki sayfa",
 };

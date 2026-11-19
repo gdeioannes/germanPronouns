@@ -2720,4 +2720,8 @@ export const AR: Record<string, string> = {
 		"ملاءمة العرض",
 	"Fit page":
 		"ملاءمة الصفحة",
+	"Previous page":
+		"الصفحة السابقة",
+	"Next page":
+		"الصفحة التالية",
 };

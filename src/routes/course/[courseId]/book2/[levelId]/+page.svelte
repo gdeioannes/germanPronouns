@@ -181,6 +181,73 @@
 		try { localStorage.setItem(FIT_KEY, to); } catch { /* private mode */ }
 	}
 
+	// The page box: which page the reader is on (the page at a third of the
+	// screen under the bar; in two-page view the left one of the pair), and a
+	// field to type another page into, with a step back and forward.
+	let pageNow = $state(1);
+	let pageCount = $state(0);
+	let pageDraft = $state('1');
+	let pageEditing = $state(false);
+	const bookPages = () => (viewer ? [...viewer.querySelectorAll<HTMLElement>('.book2 > .page')] : []);
+	function readPage() {
+		const pages = bookPages();
+		pageCount = pages.length;
+		if (!pages.length) return;
+		const top = bar?.getBoundingClientRect().bottom ?? 0;
+		const y = top + (window.innerHeight - top) / 3;
+		let best = Infinity;
+		let left = Infinity;
+		let at = 0;
+		for (let i = 0; i < pages.length; i++) {
+			const r = pages[i].getBoundingClientRect();
+			if (r.top - y > best + 1) break; // the pages run top to bottom: the rest are further away
+			const d = Math.max(r.top - y, 0, y - r.bottom);
+			if (d < best - 0.5 || (Math.abs(d - best) <= 0.5 && r.left < left)) { best = d; left = r.left; at = i; }
+		}
+		pageNow = at + 1;
+		if (!pageEditing) pageDraft = String(pageNow);
+	}
+	let pageFrame = 0;
+	function queuePage() {
+		if (cover || pageFrame) return;
+		pageFrame = requestAnimationFrame(() => { pageFrame = 0; readPage(); });
+	}
+	// A new zoom or view moves the pages: read again once laid out, and after the zoom has played.
+	$effect(() => {
+		void scale; void spread; void ready; void book;
+		queuePage();
+		const late = setTimeout(queuePage, 400);
+		return () => clearTimeout(late);
+	});
+	/** Brings page n to the top of the screen, under the bar. */
+	function goToPage(n: number) {
+		const pages = bookPages();
+		if (!pages.length || !Number.isFinite(n) || !viewer) return;
+		const to = Math.min(pages.length, Math.max(1, Math.round(n)));
+		const el = pages[to - 1];
+		viewer.getAnimations().forEach((a) => a.finish());
+		jumpBy(el.getBoundingClientRect().top - (bar?.getBoundingClientRect().bottom ?? 0) - 12);
+		// Zoomed in past the screen's width: the page's left edge into view.
+		const r = el.getBoundingClientRect();
+		const v = viewer.getBoundingClientRect();
+		if (r.left < v.left || r.right > v.left + viewer.clientWidth) viewer.scrollLeft += r.left - v.left - 16;
+		pageNow = to;
+		pageDraft = String(to);
+		if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) viewer.animate([{ opacity: 0.4 }, { opacity: 1 }], { duration: 200, easing: 'ease-out' });
+	}
+	/** One page on, or back; in two-page view one pair (the cover stands alone). */
+	function stepPage(dir: 1 | -1) {
+		const n = pageNow;
+		if (!spread) return goToPage(n + dir);
+		const even = n - (n % 2);
+		goToPage(dir > 0 ? (n < 2 ? 2 : even + 2) : n <= 3 ? 1 : even - 2);
+	}
+	function submitPage() {
+		const n = parseInt(pageDraft, 10);
+		if (Number.isFinite(n)) goToPage(n);
+		else pageDraft = String(pageNow);
+	}
+
 	// The hand: zoomed past Fit, a mouse drag moves the book, sideways inside
 	// the viewer and up and down the page. Touch already pans with a finger.
 	// A drag that moved is not a click, so it never opens a page code.
@@ -221,7 +288,7 @@
 
 <Seo title="{data.book.title} · {data.book.subtitle} — book preview" description="A preview of the printed book, chapter by chapter." path="/course/{data.book.courseId}/book2/{data.book.level}" noindex />
 
-<svelte:window bind:innerHeight />
+<svelte:window bind:innerHeight onscroll={queuePage} onresize={queuePage} />
 
 <svelte:head>
 	{@html cover ? `<style>@page { size: ${420 + spine + 6.35}mm 303.35mm; margin: 0; }</style>` : '<style>@page { size: A4; margin: 0; }</style>'}
@@ -265,6 +332,31 @@
 					<span class="lbl">{t('Fit page')}</span>
 				</button>
 			</div>
+			{#if pageCount}
+				<form class="seg pager" role="group" aria-label={t('Page')} onsubmit={(e) => { e.preventDefault(); submitPage(); }}>
+					<button type="button" aria-label={t('Previous page')} title={t('Previous page')} disabled={pageNow <= 1} onclick={() => stepPage(-1)}>
+						<svg viewBox="0 0 20 16" aria-hidden="true"><path d="M12.5 3l-5 5 5 5" /></svg>
+					</button>
+					<label class="pg-box">
+						<span class="sr-only">{t('Page')}</span>
+						<input
+							type="text"
+							inputmode="numeric"
+							enterkeyhint="go"
+							autocomplete="off"
+							size="3"
+							bind:value={pageDraft}
+							onfocus={(e) => { pageEditing = true; e.currentTarget.select(); }}
+							onblur={() => { pageEditing = false; pageDraft = String(pageNow); }}
+							onkeydown={(e) => { if (e.key === 'Escape') { pageDraft = String(pageNow); e.currentTarget.blur(); } }}
+						/>
+						<span class="of">/ {pageCount}</span>
+					</label>
+					<button type="button" aria-label={t('Next page')} title={t('Next page')} disabled={pageNow >= pageCount} onclick={() => stepPage(1)}>
+						<svg viewBox="0 0 20 16" aria-hidden="true"><path d="M7.5 3l5 5-5 5" /></svg>
+					</button>
+				</form>
+			{/if}
 			<span class="grow"></span>
 			<!-- The page is the book, laid out on A4 for print: the browser prints it as it is. -->
 			<button type="button" class="btn print" title={t('Print')} onclick={() => window.print()}>
@@ -285,6 +377,7 @@
 		class:dragging
 		bind:this={viewer}
 		bind:clientWidth={viewerWidth}
+		onscroll={queuePage}
 		onpointerdown={panStart}
 		onpointermove={panMove}
 		onpointerup={panEnd}
@@ -335,6 +428,16 @@
 		border-bottom: 1px solid var(--line, #ddd);
 	}
 	.grow { flex: 1; }
+	/* Nothing in the bar ever squeezes (text broke over two lines, cut off): too
+	   little room and the bar takes a second row instead. */
+	.dl-bar { flex-wrap: wrap; row-gap: 0.35rem; }
+	.dl-bar > * { flex-shrink: 0; }
+	.dl-bar .grow { flex-shrink: 1; }
+	.seg button { white-space: nowrap; }
+	/* A medium screen: the view and fit buttons as icons (their names stay in the tooltip). */
+	@media (max-width: 1240px) {
+		.seg .lbl { display: none; }
+	}
 	.dl-bar .btn { min-height: 40px; padding-block: 0.35rem; padding-inline: 0.8rem; gap: 0.4rem; white-space: nowrap; }
 
 	.seg {
@@ -366,6 +469,21 @@
 	.seg svg { width: 1.25em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.5; }
 	.zoom button:not(.fit) { padding: 0; font-size: 1.2rem; }
 	.zoom .fit + .fit { border-inline-start: 1px solid var(--line, #ddd); }
+	.pager button { padding: 0; }
+	/* The paper runs left to right in every language (the Arabic books too): back on the left, on to the right. */
+	.pager { direction: ltr; }
+	.pg-box { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0 0.5rem; border-inline: 1px solid var(--line, #ddd); min-height: 40px; font-size: 0.85rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+	.pg-box input {
+		width: 3.2em;
+		padding: 0.2rem 0.3rem;
+		border: 1px solid var(--line-strong, #bbb);
+		border-radius: 6px;
+		background: var(--surface, #fff);
+		color: var(--ink);
+		font: inherit;
+		text-align: center;
+	}
+	.pg-box .of { color: var(--muted, #666); white-space: nowrap; }
 	.pct { min-width: 3.2em; text-align: center; font-size: 0.85rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 
 	/* The book scrolls sideways on its own when zoomed past the screen. */
@@ -384,6 +502,37 @@
 		.dl-bar { padding-inline: 0.5rem; gap: 0.35rem; }
 		.dl-bar .btn { padding-inline: 0.6rem; }
 		.seg button { padding: 0 0.55rem; }
+		.pager button { padding: 0; }
+		.pg-box { padding: 0 0.35rem; }
+	}
+
+	/* A phone: the bar is one row of icons (view, zoom, print, download), and
+	   the page box floats at the foot of the screen, under the thumb. */
+	@media (max-width: 560px) {
+		.dl-bar { gap: 0.3rem; padding-block: 0.35rem; }
+		.seg button { min-width: 36px; min-height: 36px; padding: 0; }
+		.pct { min-width: 2.7em; font-size: 0.8rem; }
+		.dl-bar .btn { min-width: 36px; min-height: 36px; padding: 0; justify-content: center; }
+		.pager {
+			position: fixed;
+			left: 50%;
+			bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+			transform: translateX(-50%);
+			z-index: 5;
+			box-shadow: 0 4px 18px rgb(0 0 0 / 0.18);
+		}
+		.pager button { min-width: 44px; min-height: 44px; }
+		.pg-box { min-height: 44px; font-size: 0.95rem; }
+		/* 16 px: a smaller field makes iPhone zoom the whole page on focus. */
+		.pg-box input { font-size: 16px; width: 2.8em; }
+		/* The last page scrolls clear of the floating box. */
+		main { padding-bottom: 76px; }
+		.title-row { padding-block: 0; font-size: 0.9rem; }
+		.back-link { min-height: 36px; }
+	}
+	/* A small phone: one row still, so Print goes (nobody prints from one; the PDF stays). */
+	@media (max-width: 420px) {
+		.dl-bar .btn.print { display: none; }
 	}
 
 	.btn.print {

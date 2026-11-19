@@ -2722,4 +2722,8 @@ export const UK: Record<string, string> = {
 		"За шириною",
 	"Fit page":
 		"Уся сторінка",
+	"Previous page":
+		"Попередня сторінка",
+	"Next page":
+		"Наступна сторінка",
 };

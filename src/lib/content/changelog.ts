@@ -16,6 +16,15 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-19",
+    title: "Find your page in the book",
+    items: [
+      "The bar above the book on screen now shows the page you are on, out of all the pages. Type another page number and press Enter to jump straight there, or use the arrows to turn one page (or one pair of pages) at a time.",
+      "On a phone the bar is one tidy row of icons, and the page box floats at the foot of the screen, right under your thumb.",
+      "On a smaller screen the buttons no longer squeeze together and cut off their names.",
+    ],
+  },
+  {
     date: "2026-11-18",
     title: "Read the book on screen like a book",
     items: [
