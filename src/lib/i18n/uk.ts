@@ -2726,4 +2726,12 @@ export const UK: Record<string, string> = {
 		"Попередня сторінка",
 	"Next page":
 		"Наступна сторінка",
+	"Arcade · free word game":
+		"Аркада · безкоштовна гра зі словами",
+	"Match the word. Name the article. Turn the row gold.":
+		"Знайди значення. Назви артикль. Зроби ряд золотим.",
+	"Play Wortblöcke":
+		"Грати у Wortblöcke",
+	"No sign-up":
+		"Без реєстрації",
 };

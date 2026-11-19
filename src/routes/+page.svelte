@@ -24,6 +24,7 @@
 	import { levelTranslated } from '$lib/i18n/available';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { track } from '$lib/services/analytics';
+	import WortArcade from '$lib/components/WortArcade.svelte';
 	import type { PageData } from './$types';
 
 	const kafka = LITERATURE[0];
@@ -371,6 +372,9 @@
 			</div>
 		</section>
 	{/if}
+
+	<!-- The word game: an arcade cabinet that plays itself (WortArcade). -->
+	<WortArcade />
 
 	<section class="block faq-block">
 		<header class="block-head">

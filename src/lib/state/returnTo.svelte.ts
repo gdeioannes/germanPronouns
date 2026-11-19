@@ -15,6 +15,7 @@ const SIDE_TRIPS = [
 	/^\/books\/?$/,
 	/^\/level-check(\/|$)/,
 	/^\/play\/schreib-mir(\/|$)/,
+	/^\/play\/wortbloecke(\/|$)/,
 	/^\/settings\/?$/,
 	/^\/about\/?$/,
 	/^\/contact\/?$/,

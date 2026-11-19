@@ -2724,4 +2724,12 @@ export const AR: Record<string, string> = {
 		"الصفحة السابقة",
 	"Next page":
 		"الصفحة التالية",
+	"Arcade · free word game":
+		"أركيد · لعبة كلمات مجانية",
+	"Match the word. Name the article. Turn the row gold.":
+		"طابق الكلمة. اذكر أداة التعريف. حوّل الصف إلى ذهب.",
+	"Play Wortblöcke":
+		"العب Wortblöcke",
+	"No sign-up":
+		"بدون تسجيل",
 };

@@ -2439,4 +2439,12 @@ export const TR: Record<string, string> = {
 		"Önceki sayfa",
 	"Next page":
 		"Sonraki sayfa",
+	"Arcade · free word game":
+		"Arcade · ücretsiz kelime oyunu",
+	"Match the word. Name the article. Turn the row gold.":
+		"Kelimeyi eşleştir. Artikelini söyle. Satırı altına çevir.",
+	"Play Wortblöcke":
+		"Wortblöcke oyna",
+	"No sign-up":
+		"Üyelik gerekmez",
 };

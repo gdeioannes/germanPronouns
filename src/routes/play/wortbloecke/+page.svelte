@@ -16,6 +16,9 @@
 	import { fetchWorldScores, submitWorldScore, worldBoardAvailable } from '$lib/services/wortScores';
 	import { breadcrumbLd } from '$lib/seo';
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
+	import WortRing from '$lib/components/WortRing.svelte';
+	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
+	import { RING_SIZE, ringChoices, type Article } from '$lib/domain/wortRing';
 	import { TIER_LABELS } from '$lib/domain/progress';
 	import {
 		canFit,
@@ -358,6 +361,8 @@
 	const PAD = 12;
 	/** How far a handle may reach into the mat before it slides inward. */
 	const EXT = 8;
+	/** The top bar's height: the start screen sits below it, so Back stays in reach. */
+	let topH = $state(0);
 	let zoneW = $state(0);
 	let zoneH = $state(0);
 	const cs = $derived(
@@ -1108,6 +1113,101 @@
 		dragTarget = null;
 	}
 
+	// -- ring controls: the marking menu (domain/wortRing) ---------------------------
+	// An option beside the tray: press a block, slide to its meaning, slide on to
+	// the article, let go. The tray stays for stars and keyboard play.
+	const CONTROLS_KEY = 'wortbloecke_controls';
+	let controls = $state<'tray' | 'ring'>('tray');
+	let ring = $state<{
+		x: number;
+		y: number;
+		blockId: number;
+		options: { key: string; label: string }[] | null;
+		center: string;
+	} | null>(null);
+
+	function toggleControls() {
+		controls = controls === 'tray' ? 'ring' : 'tray';
+		ring = null;
+		playSound(controls === 'ring' ? 'up' : 'down');
+		announce(controls === 'ring' ? 'Ring controls: press a word and slide.' : 'Tray controls.');
+		try {
+			localStorage.setItem(CONTROLS_KEY, controls);
+		} catch {
+			/* no storage: the pick holds for this visit */
+		}
+	}
+
+	/** A press on a block, ring controls: the same checks as a tap, then the ring. */
+	function ringDown(e: PointerEvent, b: Block) {
+		if (controls !== 'ring' || e.button > 0 || ring) return;
+		if (phase !== 'play' || pending || b.clearing || b.fizzle) return;
+		// An armed star still reveals; the ring is not needed for that.
+		if (hintMode) return tapBlock(b);
+		closeLesson();
+		const ch = setOf(b);
+		if ((activeCh && ch !== activeCh) || doneOf(b)) return buzz(b);
+		e.preventDefault();
+		selected = null;
+		grabbedId = b.id;
+		playSound('up');
+		sayDe(b.word.de);
+		if (b.hinted) {
+			floatAt(b, `${spoken(b.word)} = ${b.word.en}`, 'big ' + (b.word.art ? artClass(b.word.art) : 'muted'), -1.1);
+			teach(b.word);
+		}
+		// Every word opens on its meanings, a missed one too: the stroke is
+		// always meaning → article, so the hand learns one gesture.
+		// The meanings: this word's, plus the nearest words' — the ones the eye mixes up.
+		const pool = blocks.filter((x) => !x.clearing && !x.fizzle && !x.done && chipWord(x.word.de));
+		const choices = ringChoices(b, pool, RING_SIZE[medal]);
+		ring = {
+			x: e.clientX,
+			y: e.clientY,
+			blockId: b.id,
+			options: choices.map((x) => ({ key: x.word.de, label: x.word.en })),
+			center: ''
+		};
+	}
+
+	/** A meaning picked in the ring: the very same match as tapping its chip. */
+	function ringMeaning(de: string): boolean {
+		const id = ring?.blockId;
+		const b = blocks.find((x) => x.id === id);
+		if (!b) {
+			ring = null;
+			return false;
+		}
+		grabbedId = b.id;
+		tapChip(de);
+		if (pending?.id === b.id) return true; // a noun: on to the article
+		ring = null;
+		return false;
+	}
+
+	/** The ★ seat: spend the tray's first star on the pressed word, like arming
+	 *  a star and tapping it. The ring closes; the next press answers. */
+	function ringStar() {
+		const id = ring?.blockId;
+		const b = blocks.find((x) => x.id === id);
+		const star = chips.find(isStar);
+		ring = null;
+		if (!b || !star) return;
+		hintMode = star;
+		useHint(b);
+	}
+
+	function ringArticle(art: Article) {
+		ring = null;
+		answerArticle(art);
+	}
+
+	/** Put away: a free article question goes with it, a wagered one stays on the strip. */
+	function ringDismiss() {
+		ring = null;
+		if (pending && pendingFree) cancelArticle();
+	}
+
 	// -- boot ----------------------------------------------------------------------------
 	// Boot reads run ONCE. (As an $effect this read its own freshly written
 	// `scores`, which re-triggers the effect forever in Svelte 5.)
@@ -1120,6 +1220,7 @@
 		window.addEventListener('pagehide', saveGame);
 		try {
 			rulesSeen = localStorage.getItem(RULES_KEY) === '1';
+			if (localStorage.getItem(CONTROLS_KEY) === 'ring') controls = 'ring';
 			book = parseWordBook(localStorage.getItem(WORDS_KEY));
 			const savedMedal = localStorage.getItem(MEDAL_KEY);
 			if (isMedal(savedMedal)) medal = savedMedal;
@@ -1407,12 +1508,12 @@
 />
 
 <main class="wort">
-	<header class="top">
+	<header class="top" bind:offsetHeight={topH}>
 		<div class="row">
 			<!-- Back steps out one level: a game returns to the medal screen,
 			     the medal screen returns to the deck. -->
 			{#if phase === 'intro'}
-				<a class="back" href={DECK} aria-label="Back to your deck"><Icon name="arrowLeft" size="1em" /> <span class="bt">Back</span></a>
+				<a class="back" href={returnTo.path} aria-label={returnLabel(returnTo.path)}><Icon name="arrowLeft" size="1em" /> <span class="bt">Back</span></a>
 			{:else}
 				<button type="button" class="back" onclick={again} aria-label="Back to the medal choice"><Icon name="arrowLeft" size="1em" /> <span class="bt">Back</span></button>
 			{/if}
@@ -1425,6 +1526,16 @@
 			</button>
 			<button type="button" class="say" title="Bestenliste" aria-label="Bestenliste" onclick={openBoard}>
 				<Icon name="trophy" size="1.05em" />
+			</button>
+			<button
+				type="button"
+				class="say"
+				aria-pressed={controls === 'ring'}
+				title={controls === 'ring' ? 'Ring controls on: press a word and slide' : 'Ring controls: press a word and slide'}
+				aria-label="Ring controls"
+				onclick={toggleControls}
+			>
+				<Icon name="compass" size="1.05em" />
 			</button>
 			<button type="button" class="say" title="How to play" aria-label="How to play" onclick={() => (showRules = true)}>
 				<Icon name="help" size="1.05em" />
@@ -1452,6 +1563,7 @@
 			class="board"
 			class:danger
 			class:golden={runOn}
+			class:ringmode={controls === 'ring'}
 			style="width: {grid.cols * cs + PAD * 2}px; height: {grid.rows * cs + PAD * 2}px; --cs: {cs}px"
 		>
 			<!-- The grid sits on a mat: handles and badges reach into the
@@ -1479,7 +1591,12 @@
 					data-block={b.id}
 					lang="de"
 					aria-label={spoken(b.word)}
-					onclick={() => tapBlock(b)}
+					onclick={(e) => {
+						// Ring controls answer on the press; a keyboard click (detail 0) still taps.
+						if (controls === 'ring' && e.detail > 0) return;
+						tapBlock(b);
+					}}
+					onpointerdown={(e) => ringDown(e, b)}
 				>
 					{#each b.word.de as ch, i (i)}<span class="sq">{ch}</span>{/each}
 					{#if b.word.art}
@@ -1543,7 +1660,7 @@
 			</div>
 
 
-			{#if pending}
+			{#if pending && !ring}
 				<div class="art-ask">
 					<p lang="de"><b>{pending.word.de}</b>:</p>
 					<div class="arts">
@@ -1690,6 +1807,22 @@
 		</div>
 	</div>
 
+	{#if ring && phase === 'play'}
+		{#key ring}
+			<WortRing
+				x={ring.x}
+				y={ring.y}
+				options={ring.options}
+				center={ring.center}
+				stars={chips.filter(isStar).length}
+				onstar={ringStar}
+				onmeaning={ringMeaning}
+				onarticle={ringArticle}
+				ondismiss={ringDismiss}
+			/>
+		{/key}
+	{/if}
+
 	{#if drag}
 		{@const gw = chipWord(drag.de)}
 		{#if gw}
@@ -1745,6 +1878,16 @@
 							<span class="d-spark">✨</span>
 						</span>
 						<span>Fill a row in <strong>one color</strong>: the row AND everything connected in that color turns golden (the odd color out stays plain). Match one golden word to start the run — then clear them ALL in a row. One miss loses the whole set; all right pays the jackpot. Before you start, the gold follows the board: a word that loses touch with its line drops out again, and a same-color word that comes to touch the gold joins in.</span>
+					</li>
+					<li>
+						<span class="demo" aria-hidden="true">
+							<span class="d-block"><i>T</i><i>ü</i><i>r</i></span>
+							<span class="d-sep">↗</span>
+							<span class="d-chip">door</span>
+							<span class="d-sep">↙</span>
+							<span class="d-art die on">die</span>
+						</span>
+						<span><strong>Ring controls</strong> (the compass button at the top): press a block and its possible meanings open around your finger. Slide to the meaning, keep sliding to the article — <em>der</em> up, <em>das</em> lower right, <em>die</em> lower left — and let go. With a star in hand, the ★ waits straight down: flick to it to see the word. Tapping works too.</span>
 					</li>
 					<li>
 						<span class="demo" aria-hidden="true">
@@ -1874,7 +2017,7 @@
 	{/snippet}
 
 	{#if phase === 'intro'}
-		<div class="intro">
+		<div class="intro" style="top: calc({topH}px + 0.95rem)">
 			<section class="intro-card">
 				<div class="intro-art" aria-hidden="true">
 					<span class="irow"><span class="isq" style="background: {ARTICLE_COLORS.der}">H</span><span class="isq" style="background: {ARTICLE_COLORS.der}">a</span><span class="isq" style="background: {ARTICLE_COLORS.der}">u</span><span class="isq" style="background: {ARTICLE_COLORS.der}">s</span><span class="isq" style="background: {ARTICLE_COLORS.das}">r</span><span class="isq" style="background: {ARTICLE_COLORS.das}">o</span><span class="isq" style="background: {ARTICLE_COLORS.das}">t</span></span>
@@ -2697,6 +2840,13 @@
 		font-size: 0.52rem;
 		font-weight: 800;
 		box-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+	}
+
+	/* Ring controls: a press-and-slide on a block must not scroll or zoom. */
+	.board.ringmode .block {
+		touch-action: none;
+		user-select: none;
+		-webkit-touch-callout: none;
 	}
 
 	.art-ask {
@@ -3590,17 +3740,20 @@
 	}
 
 	/* -- the title card ---------------------------------------------------------------- */
+	/* Below the top bar (top set inline from its height), so Back and the
+	   buttons stay in reach; scrolls when the card is taller than the screen. */
 	.intro {
 		position: absolute;
 		inset: 0;
 		z-index: 50;
-		display: grid;
-		place-items: center;
-		padding: 1rem;
+		display: flex;
+		overflow-y: auto;
+		padding: 0 1rem 1rem;
 		background: var(--bg);
 	}
 
 	.intro-card {
+		margin: auto;
 		max-width: 23rem;
 		padding: 1.5rem 1.5rem 1.3rem;
 		border: 1px solid var(--line);

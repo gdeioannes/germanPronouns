@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-19",
+    title: "Wortblöcke: press, slide, answer",
+    items: [
+      "New ring controls in Wortblöcke: tap the compass at the top to switch them on. Press a word and its possible meanings open in a ring around your finger. Slide to the meaning, keep sliding to the article (der up, das lower right, die lower left) and let go. One stroke, no searching in the tray. Tapping works too.",
+      "Got a hint star? It waits in the ring straight down: flick to it to see and hear the word.",
+      "The game's start screen no longer hides the top bar, so Back is always in reach, and Back now takes you to where you came from: home or your deck.",
+      "Wortblöcke has its own place on the home page, with a little board that plays by itself and the best score so far.",
+    ],
+  },
+  {
+    date: "2026-11-19",
     title: "Find your page in the book",
     items: [
       "The bar above the book on screen now shows the page you are on, out of all the pages. Type another page number and press Enter to jump straight there, or use the arrows to turn one page (or one pair of pages) at a time.",
