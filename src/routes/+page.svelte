@@ -271,7 +271,7 @@
 			</p>
 			<!-- Turkish: the Turkish edition once it is printed; until then no download. -->
 			{#if !lang.limited || hasLocalPdf(firstBook, lang.current)}
-				<a class="primary" href={bookPdf(firstBook, lang.current)} download onclick={() => { track('book_download', { book: 'A1.1', from: 'home' }); feedback.askAudience('A1.1'); }}>
+				<a class="primary" href={bookPdf(firstBook, lang.current)} download onclick={(e) => { track('book_download', { book: 'A1.1', from: 'home' }); feedback.beforeDownload(e, { href: bookPdf(firstBook, lang.current), book: 'A1.1' }); }}>
 					<Icon name="download" size="1.05em" /> {t('Download the PDF · {mb} MB', { mb: bookMb(firstBook, lang.current) })}
 				</a>
 			{/if}
@@ -290,7 +290,7 @@
 					<strong lang="de">Deutsch {book.level}</strong>
 					<span class="shelf-sub" lang="de">{book.sub}</span>
 					{#if !lang.limited || hasLocalPdf(book, lang.current)}
-						<a class="shelf-link" href={bookPdf(book, lang.current)} download onclick={() => { track('book_download', { book: book.level, from: 'home' }); feedback.askAudience(book.level); }}>
+						<a class="shelf-link" href={bookPdf(book, lang.current)} download onclick={(e) => { track('book_download', { book: book.level, from: 'home' }); feedback.beforeDownload(e, { href: bookPdf(book, lang.current), book: book.level }); }}>
 							<Icon name="download" size="1em" /> PDF · {bookMb(book, lang.current)} MB
 						</a>
 					{/if}
@@ -328,7 +328,7 @@
 			<div class="book-dl">
 				<p class="kicker">New · free PDF</p>
 				<p><strong>Deutsch A1.1 · Erste Schritte</strong>, the new book: twelve chapters, each one a real place in Germany, with photos, stories and the practice. 131 pages.</p>
-				<a class="primary" href="/books/v2/de_cert_a1_a1_1.pdf" download onclick={() => { track('book_download', { book: 'A1.1', from: 'home' }); feedback.askAudience('A1.1'); }}>
+				<a class="primary" href="/books/v2/de_cert_a1_a1_1.pdf" download onclick={(e) => { track('book_download', { book: 'A1.1', from: 'home' }); feedback.beforeDownload(e, { href: '/books/v2/de_cert_a1_a1_1.pdf', book: 'A1.1' }); }}>
 					<Icon name="download" size="1.05em" /> Download the PDF · {BOOKS[0].mb} MB
 				</a>
 				<a class="book-preview" href="/course/{data.card.id}/book2/A1.1">Look inside first</a>
@@ -358,7 +358,10 @@
 						class="primary"
 						href={kafka.pdf.href}
 						download="{kafka.author} - {kafka.title}.pdf"
-						onclick={() => track('literature_download', { book: kafka.id, from: 'home' })}
+						onclick={(e) => {
+							track('literature_download', { book: kafka.id, from: 'home' });
+							feedback.beforeDownload(e, { href: kafka.pdf.href, filename: `${kafka.author} - ${kafka.title}.pdf`, book: 'Kafka' });
+						}}
 					>
 						<Icon name="download" size="1.05em" /> Download the free PDF
 					</a>

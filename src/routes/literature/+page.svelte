@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { feedback } from '$lib/state/feedback.svelte';
 	// Literature: classics in the original German, each annotated for English
 	// speakers and free as a PDF. The list lives in content/literature.
 	import Seo from '$lib/components/Seo.svelte';
@@ -60,7 +61,10 @@
 							class={book.read ? 'secondary' : 'primary'}
 							href={book.pdf.href}
 							download="{book.author} - {book.title}.pdf"
-							onclick={() => track('literature_download', { book: book.id })}
+							onclick={(e) => {
+								track('literature_download', { book: book.id });
+								feedback.beforeDownload(e, { href: book.pdf.href, filename: `${book.author} - ${book.title}.pdf`, book: 'Kafka' });
+							}}
 						>
 							<Icon name="download" size="1.05em" /> Download the free PDF
 						</a>

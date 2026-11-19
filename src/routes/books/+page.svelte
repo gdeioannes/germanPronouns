@@ -74,9 +74,9 @@
 								class="secondary"
 								href={bookPdf(book, lang.current)}
 								download
-								onclick={() => {
+								onclick={(e) => {
 									track('book_download', { book: book.level, from: 'books' });
-									feedback.askAudience(book.level);
+									feedback.beforeDownload(e, { href: bookPdf(book, lang.current), book: book.level });
 								}}
 							>
 								<Icon name="download" size="1.05em" /> PDF · {bookMb(book, lang.current)} MB

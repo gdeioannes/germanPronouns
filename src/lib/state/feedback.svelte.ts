@@ -5,12 +5,16 @@
 // The card has three kinds:
 //   'site'      "How do you like the site so far?" — asks by itself at a
 //               good moment (`moment()`), if the rules allow;
-//   'audience'  "Your book is downloading. Who is it for?" — at a PDF
-//               download (`askAudience()`), at every download;
 //   'book'      "How is the A1.1 book going?" — on a visit that came from a
 //               printed book's code (`noteBookVisit()`), once the reader did
 //               something there (`moment(level)`), once per book.
 // And the menu's Feedback link opens the panel any time (`openFromMenu()`).
+//
+// Every PDF button goes through `beforeDownload()`: instead of downloading
+// at once it opens the download panel — "Who is this book for?" and a
+// "Start the download" button. One tap on an answer starts the download too;
+// answering is never required. (Owner's call, 2026-11-19.) Without
+// JavaScript, Firebase or in a second language, the link just downloads.
 //
 // The records are device-local (the `feedback_` prefix is never synced) and
 // written with plain localStorage, so the timer's tick does not wake the
@@ -69,7 +73,16 @@ const writeSite = (r: AskRecord) => writeRaw(SITE_KEY, r);
 const readBooks = (): BookRecord => parseBookRecord(readRaw(BOOK_KEY));
 const writeBooks = (r: BookRecord) => writeRaw(BOOK_KEY, r);
 
-export type CardKind = 'site' | 'audience' | 'book';
+export type CardKind = 'site' | 'book';
+
+/** A PDF the download panel is about to start. */
+export interface DownloadInfo {
+	href: string;
+	/** The file name to save as, or undefined for the server's. */
+	filename?: string;
+	/** The book ("A1.1", "Kafka"), saved with the answer. */
+	book: string;
+}
 
 /**
  * What the panel is for: after a low site rating, a wish after a high one,
@@ -88,11 +101,16 @@ class FeedbackStore {
 	mode = $state<PanelMode>('menu');
 	/** The stars given (1–5), 0 for none yet. */
 	rating = $state(0);
-	/** The book the card is about ("A1.1"), for 'audience' and 'book'. */
+	/** The book the card is about ("A1.1"), for 'book'. */
 	book = $state('');
 	/** The printed code this visit came from, or "". */
 	code = $state('');
-	/** After "My class": the card shows the optional school line. */
+	/** The download panel, and the PDF it is about. */
+	dlOpen = $state(false);
+	dl = $state<DownloadInfo | null>(null);
+	/** The reader answered "Who is it for?" (the download started with it). */
+	dlAnswered = $state(false);
+	/** After "My class": the panel shows the optional school line. */
 	askSchool = $state(false);
 	sending = $state(false);
 	failed = $state(false);
@@ -170,18 +188,42 @@ class FeedbackStore {
 		}, MOMENT_DELAY_MS);
 	}
 
-	/** A PDF download began: "Who is this book for?" — every time. */
-	askAudience(level: string): void {
-		// Every download asks (the PDF is free; each answer is about that book).
-		// A card still open from an earlier download gives way to this one; an
-		// open panel (someone writing) is never interrupted.
-		if (!this.available || lang.limited || this.panel) return;
+	/**
+	 * A PDF button was pressed: open the download panel instead of
+	 * downloading at once. Left alone (the link downloads by itself) without
+	 * Firebase, in a second language, or for a ctrl/cmd/middle click.
+	 */
+	beforeDownload(event: MouseEvent, info: DownloadInfo): void {
+		if (!this.available || lang.limited) return;
+		if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+		event.preventDefault();
+		this.card = false;
+		this.panel = false;
+		this.dl = info;
+		this.dlAnswered = false;
+		this.askSchool = false;
+		this.audienceId = null;
+		this.dlOpen = true;
 		this.askedThisLoad = true;
-		this.reset();
-		this.kind = 'audience';
-		this.book = level;
-		this.card = true;
-		track('feedback_asked', { kind: 'audience', book: level });
+		track('feedback_asked', { kind: 'audience', book: info.book });
+	}
+
+	/** Starts the PDF the panel is about (the same file the button linked to). */
+	startDownload(): void {
+		const info = this.dl;
+		if (!info) return;
+		const a = document.createElement('a');
+		a.href = info.href;
+		a.download = info.filename ?? '';
+		document.body.append(a);
+		a.click();
+		a.remove();
+	}
+
+	/** "Start the download" without answering: the panel's own link did it. */
+	skippedQuestion(): void {
+		track('book_audience_skipped', { book: this.dl?.book ?? '' });
+		this.dlOpen = false;
 	}
 
 	/** The menu's Feedback link: the panel, with the stars, any time. */
@@ -196,16 +238,17 @@ class FeedbackStore {
 
 	/** One of Me / My class / My child / Someone else. */
 	async pickAudience(who: Audience): Promise<void> {
-		track('book_audience', { who, book: this.book });
-		if (who === 'class') this.askSchool = true;
-		else this.thanked = true;
-		this.audienceId = await submitAudience(who, this.book, lang.current);
+		const book = this.dl?.book ?? '';
+		track('book_audience', { who, book });
+		this.dlAnswered = true;
+		this.askSchool = who === 'class';
+		this.startDownload();
+		this.audienceId = await submitAudience(who, book, lang.current);
 	}
 
 	/** The optional school or course after "My class". */
 	async sendSchool(school: string): Promise<void> {
 		this.askSchool = false;
-		this.thanked = true;
 		if (!school.trim() || !this.audienceId) return;
 		track('book_audience_school');
 		await addAudienceSchool(this.audienceId, school);

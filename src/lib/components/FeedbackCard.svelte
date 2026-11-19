@@ -40,11 +40,7 @@
 	let hover = $state(0);
 
 	const cardTitle = $derived(
-		feedback.kind === 'audience'
-			? 'Your book is downloading. Who is it for?'
-			: feedback.kind === 'book'
-				? `How is the ${feedback.book} book going?`
-				: 'How do you like the site so far?'
+		feedback.kind === 'book' ? `How is the ${feedback.book} book going?` : 'How do you like the site so far?'
 	);
 
 	const panelTitle = $derived(
@@ -95,6 +91,11 @@
 		school = '';
 	}
 
+	// The download panel opens fresh: an empty school line.
+	$effect(() => {
+		if (feedback.dlOpen) school = '';
+	});
+
 	const dur = () => (prefersReducedMotion() ? 0 : 220);
 </script>
 
@@ -115,9 +116,7 @@
 				<p id="feedback-card-title" class="title thanks" lang="de">Danke schön!</p>
 				{@render closeButton(() => (feedback.card = false))}
 			</div>
-			{#if feedback.kind === 'audience'}
-				<p class="sub">That helps us make the books for the right people. <span lang="de">Viel Spaß mit dem Buch!</span></p>
-			{:else if feedback.kind === 'book'}
+			{#if feedback.kind === 'book'}
 				<p class="sub">
 					{feedback.sent
 						? 'We read every message. Mistakes you report get fixed in the next edition.'
@@ -146,32 +145,12 @@
 					</button>
 				{/if}
 			{/if}
-		{:else if feedback.kind === 'audience' && feedback.askSchool}
-			<div class="head">
-				<p id="feedback-card-title" class="title">Which school or course?</p>
-				{@render closeButton(() => void feedback.sendSchool(''))}
-			</div>
-			<form class="school" onsubmit={sendSchool}>
-				<label class="sub" for="feedback-school">Optional. It tells us where the books are used.</label>
-				<input id="feedback-school" type="text" maxlength={SCHOOL_MAX} autocomplete="organization" bind:value={school} />
-				<div class="row">
-					<button type="submit" class="pill solid">{school.trim() ? 'Send' : 'Skip'}</button>
-				</div>
-			</form>
 		{:else}
 			<div class="head">
 				<p id="feedback-card-title" class="title">{cardTitle}</p>
 				{@render closeButton(() => feedback.dismiss())}
 			</div>
-			{#if feedback.kind === 'audience'}
-				<p class="sub">One tap. It helps us make the books better.</p>
-				<div class="who">
-					{#each WHO as w (w.id)}
-						<button type="button" class="pill" onclick={() => void feedback.pickAudience(w.id)}>{w.label}</button>
-					{/each}
-				</div>
-			{:else}
-				<p class="sub">
+			<p class="sub">
 					{feedback.kind === 'book'
 						? 'One tap. It helps us make the next books better.'
 						: "One tap. It's made by one person, and your rating really helps."}
@@ -193,10 +172,54 @@
 					{/each}
 				</div>
 				<div class="ends" aria-hidden="true"><span>Not good</span><span>Love it</span></div>
-			{/if}
 		{/if}
 	</aside>
 {/if}
+
+<!-- Every PDF button opens this first: the question, and the download one
+     tap away whether they answer or not. -->
+<Sheet bind:open={feedback.dlOpen} title="Your free PDF" id="download-panel">
+	{#if feedback.dl}
+		<div class="dl">
+			{#if !feedback.dlAnswered}
+				<p class="dl-q">Who is this book for?</p>
+				<p class="sub">One tap, and your download starts. It helps us make the books better.</p>
+				<div class="who">
+					{#each WHO as w (w.id)}
+						<button type="button" class="pill" onclick={() => void feedback.pickAudience(w.id)}>{w.label}</button>
+					{/each}
+				</div>
+				<p class="or"><span>or</span></p>
+				<a
+					class="send"
+					href={feedback.dl.href}
+					download={feedback.dl.filename ?? ''}
+					onclick={() => feedback.skippedQuestion()}
+				>
+					<Icon name="download" size="1.05em" /> Start the download
+				</a>
+				<p class="note">Answering is optional. The PDF is free either way.</p>
+			{:else}
+				<p class="dl-q thanks" lang="de">Danke schön!</p>
+				<p class="sub">Your download has started. <span lang="de">Viel Spaß mit dem Buch!</span></p>
+				{#if feedback.askSchool}
+					<form class="school" onsubmit={sendSchool}>
+						<label for="feedback-school">Which school or course? <span class="opt">(optional — it tells us where the books are used)</span></label>
+						<input id="feedback-school" type="text" maxlength={SCHOOL_MAX} autocomplete="organization" bind:value={school} />
+						<div class="row">
+							<button type="submit" class="pill solid">Send</button>
+						</div>
+					</form>
+				{:else}
+					<button type="button" class="pill" onclick={() => (feedback.dlOpen = false)}>Back to the page</button>
+				{/if}
+				<p class="note">
+					Nothing happening? <a href={feedback.dl.href} download={feedback.dl.filename ?? ''}>Start the download here</a>.
+				</p>
+			{/if}
+		</div>
+	{/if}
+</Sheet>
 
 <Sheet bind:open={feedback.panel} title={panelTitle} id="feedback-panel">
 	<form class="form" onsubmit={submit}>
@@ -490,6 +513,69 @@
 		text-decoration: underline;
 		text-align: start;
 		cursor: pointer;
+	}
+
+	.dl {
+		display: flex;
+		flex-direction: column;
+		gap: 0.7rem;
+	}
+
+	.dl-q {
+		margin: 0;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-weight: 600;
+		font-size: var(--step-2);
+		color: var(--heading);
+	}
+
+	.dl-q.thanks {
+		color: var(--right);
+	}
+
+	.dl .sub {
+		margin: 0;
+		font-size: 0.95rem;
+	}
+
+	.dl .send {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		text-decoration: none;
+	}
+
+	.or {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin: 0.3rem 0 0;
+		color: var(--ink-muted);
+		font-size: 0.85rem;
+	}
+
+	.or::before,
+	.or::after {
+		content: '';
+		flex: 1;
+		border-top: 1px solid var(--line);
+	}
+
+	.school {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.school label {
+		font-weight: 600;
+		line-height: 1.4;
+	}
+
+	.dl .note a {
+		color: var(--accent-ink);
+		font-weight: 600;
 	}
 
 	.form {

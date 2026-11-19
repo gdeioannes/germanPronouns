@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { feedback } from '$lib/state/feedback.svelte';
 	// Die Verwandlung read online: the twelve stages, the 1917 spelling guide,
 	// and the PDF for those who would rather print it. Same stages as the book.
 	import Seo from '$lib/components/Seo.svelte';
@@ -64,7 +65,10 @@
 					class="ghost"
 					href={book.pdf.href}
 					download="{book.author} - {book.title}.pdf"
-					onclick={() => track('literature_download', { book: book.id, from: 'reader' })}
+					onclick={(e) => {
+						track('literature_download', { book: book.id, from: 'reader' });
+						feedback.beforeDownload(e, { href: book.pdf.href, filename: `${book.author} - ${book.title}.pdf`, book: 'Kafka' });
+					}}
 				>
 					<Icon name="download" size="1em" /> PDF to print ({book.pdf.pages} pages)
 				</a>

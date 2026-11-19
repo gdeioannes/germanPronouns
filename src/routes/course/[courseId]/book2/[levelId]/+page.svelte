@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { feedback } from '$lib/state/feedback.svelte';
+	import { track } from '$lib/services/analytics';
 	import Seo from '$lib/components/Seo.svelte';
 	import Book2 from '$lib/components/book2/Book2.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
@@ -24,6 +26,9 @@
 			: data.book
 	);
 	const entry = $derived(BOOKS.find((b) => b.level === data.book.level));
+	const pdfHref = $derived(
+		entry ? bookPdf(entry, lang.current) : `/books/v2/${data.book.courseId}_${data.book.level.toLowerCase().replace('.', '_')}.pdf`
+	);
 	// ?cover prints the wraparound cover sheet, ?spine=7.5 its spine width, and
 	// ?hd the print originals (tool/gen-book2.mjs). Read in the browser: the
 	// page is prerendered, so the query string does not exist at build time.
@@ -364,7 +369,16 @@
 			</button>
 			<!-- Turkish: the Turkish edition's PDF once it is printed; until then printing the page is the way. -->
 			{#if !lang.limited || (entry && hasLocalPdf(entry, lang.current))}
-				<a class="btn" title={t('Download the PDF')} href={entry ? bookPdf(entry, lang.current) : `/books/v2/${data.book.courseId}_${data.book.level.toLowerCase().replace('.', '_')}.pdf`} download>
+				<a
+					class="btn"
+					title={t('Download the PDF')}
+					href={pdfHref}
+					download
+					onclick={(e) => {
+						track('book_download', { book: data.book.level, from: 'reader' });
+						feedback.beforeDownload(e, { href: pdfHref, book: data.book.level });
+					}}
+				>
 					<Icon name="download" size="1em" /> <span class="lbl">{t('Download the PDF')}</span>
 				</a>
 			{/if}

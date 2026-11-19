@@ -38,7 +38,7 @@ export const changelog: ChangelogEntry[] = [
     date: "2026-11-19",
     title: "Your say on the books",
     items: [
-      "When you download a book, a small card asks who it is for: you, your class, your child or someone else. One tap, and the download goes on as usual. If you teach a class, you can tell us your school or course too.",
+      "When you press Download on a book, a small panel asks who it is for: you, your class, your child or someone else. One tap on an answer starts the download, or press Start the download and skip the question. If you teach a class, you can tell us your school or course too.",
       "When you scan a code in a printed book and work on that page, a card asks how the book is going, once per book. If something isn't right, you can tell us what's missing or report a mistake. We already know which page you came from, so you only say what's wrong.",
       "Happy with a book? Share it with a friend in one tap, and if you like, write a sentence about it. With your permission, we may show it on the books page under \"What readers say\".",
     ],
