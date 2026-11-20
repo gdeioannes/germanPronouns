@@ -14,7 +14,7 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import HeroCarousel from '$lib/components/HeroCarousel.svelte';
 	import { progress } from '$lib/state/progress.svelte';
-	import { afterNavigate, goto } from '$app/navigation';
+	import { afterNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { LITERATURE, bookRequestHref } from '$lib/content/literature';
@@ -77,34 +77,12 @@
 	// whose deck deals the next exercise from what they have done. The
 	// prerendered HTML keeps the A1 link for first visits and crawlers.
 	//
-	// And a learner who opens the site again lands straight in their deck: the
-	// front page is for newcomers. Only on arrival (a typed address, a bookmark,
-	// a link from elsewhere); the logo or Home link from inside the app still
-	// shows this page.
-	//
-	// The jump happens in the page head, before anything renders: progress is
-	// plain localStorage, so a few lines can check it while the HTML is still
-	// being parsed and replace the page with the course at once, instead of
-	// loading the whole front page and the app first. It mirrors
-	// progress.hasAnyProgress(). Only a full page load runs it, which is what
-	// "arrival" means; the logo or Home link inside the app navigates without
-	// reloading, so the front page still shows. The query string goes along so
-	// campaign tags reach the analytics on the course page.
-	const arrivalJump = $derived(
-		'<scr' +
-			'ipt>try{var s=localStorage,go=false;for(var i=0;i<s.length&&!go;i++){var k=s.key(i)||"";' +
-			'if(/quiz_answer_history$/.test(k))go=true;' +
-			'else if(/_completed_quizzes$/.test(k)){try{var v=JSON.parse(s.getItem(k));go=Array.isArray(v)&&v.length>0}catch(e){}}}' +
-			// The Turkish and Arabic front pages (/tr, /ar) go to the course in their language.
-			"var p=location.pathname,m=p===\"/tr\"||p===\"/ar\"?p:\"\";" +
-			`if(go&&(location.pathname==="/"||m))location.replace(m+${JSON.stringify(courseHref)}+location.search+location.hash)}catch(e){}</scr` +
-			'ipt>'
-	);
+	// The front page always shows, returning learner or not: it used to jump
+	// a returning learner straight into the course on arrival, and that was
+	// switched off on request (2026-11-20). "Continue learning" is one tap.
 	let returning = $state(false);
-	afterNavigate(async ({ from }) => {
+	afterNavigate(async () => {
 		returning = await progress.hasAnyProgress();
-		// Fallback only: the head script has normally left this page already.
-		if (returning && from === null) void goto(courseHref, { replaceState: true });
 	});
 	// A newcomer chooses where to start first (/start): new to German, find my
 	// level, or pick it. Everyone used to land in A1.1 without knowing they could.
@@ -202,11 +180,6 @@
 		})
 	);
 </script>
-
-<svelte:head>
-	<!-- Returning learner: straight to the deck, before this page renders. -->
-	{@html arrivalJump}
-</svelte:head>
 
 <Seo
 	title={t('Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz')}

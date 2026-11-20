@@ -65,6 +65,8 @@ export const OPEN_ROUTES = new Set<string>([
 	'/words/verbs',
 	'/words/verbs/[slug]',
 	'/literature',
+	'/german-faq',
+	'/german-faq/[slug]',
 	'/literature/die-verwandlung',
 	'/literature/die-verwandlung/[stage]',
 	'/stories',

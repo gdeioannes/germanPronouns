@@ -42,6 +42,7 @@
 				<a href="/words">Word library</a>
 				<a href="/words/nouns">German nouns</a>
 				<a href="/words/verbs">German verbs</a>
+				<a href="/german-faq">German FAQ</a>
 			{/if}
 		</div>
 		<div class="group">

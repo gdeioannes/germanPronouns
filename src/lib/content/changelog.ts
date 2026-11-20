@@ -17,6 +17,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-20",
+    title: "German FAQ: 36 questions everyone asks",
+    items: [
+      "New in the Library menu: the German FAQ. Why are all nouns capitalized? Der, die or das? Why is the verb at the end? Why does halb drei mean 2:30? Thirty-six questions, each with a short answer, a full explanation with tables and examples, and the exercises that practise it.",
+      "Each answer also points to what else helps on the site: the noun and verb library, the verb pages, the games, the level pages and the books.",
+      "A search box finds a question by any word in it, with or without umlauts: madchen finds Mädchen.",
+      "The home page no longer jumps straight into the course when you come back. Continue learning is one tap away.",
+    ],
+  },
+  {
+    date: "2026-11-20",
     title: "B1 to C1.1 explained in Ukrainian on request",
     items: [
       "In Ukrainian, the button under the German explanations now opens Ukrainian instead of English from B1.1 to C1.1: every rule, example, check and why, and the word meanings. C1.2 to C2.2 follow.",

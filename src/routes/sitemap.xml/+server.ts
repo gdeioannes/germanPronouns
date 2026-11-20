@@ -6,6 +6,7 @@ import { coursePaths, DICTIONARY_PATH, lastModified, SHARED_WORD_PATHS } from '$
 import { nouns, verbs } from '$lib/server/words';
 import { wordSlug } from '$lib/domain/words';
 import { LITERATURE } from '$lib/content/literature';
+import { GERMAN_FAQ } from '$lib/content/germanFaq';
 import { kafkaStages } from '$lib/server/kafka';
 import type { RequestHandler } from './$types';
 
@@ -40,6 +41,11 @@ export const GET: RequestHandler = async () => {
 		{ loc: '/words/verbs', lastmod: wordsDate, priority: '0.7' },
 		{ loc: '/words/dictionary', lastmod: lastModified(DICTIONARY_PATH), priority: '0.7' }
 	];
+
+	// German FAQ: one page per question people search about German.
+	const faqDate = lastModified('src/lib/content/germanFaq.ts');
+	urls.push({ loc: '/german-faq', lastmod: faqDate, priority: '0.7' });
+	for (const f of GERMAN_FAQ) urls.push({ loc: `/german-faq/${f.slug}`, lastmod: faqDate, priority: '0.7' });
 
 	// The annotated editions themselves: a search engine indexes a PDF's text,
 	// so "Die Verwandlung with English notes" can land straight on the book.
