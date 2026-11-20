@@ -18,7 +18,7 @@
 	import RibbonBadge from '$lib/components/RibbonBadge.svelte';
 	import WortRing from '$lib/components/WortRing.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
-	import { RING_SIZE, ringChoices, type Article } from '$lib/domain/wortRing';
+	import { RING_SIZE, ringChoices, seededRandom, type Article } from '$lib/domain/wortRing';
 	import { TIER_LABELS } from '$lib/domain/progress';
 	import {
 		canFit,
@@ -1118,6 +1118,10 @@
 	// the article, let go. The tray stays for stars and keyboard play.
 	const CONTROLS_KEY = 'wortbloecke_controls';
 	let controls = $state<'tray' | 'ring'>('tray');
+	/** Shuffles each word's ring the same way for a whole game. */
+	let ringSeed = Math.floor(Math.random() * 1e9);
+	/** With ring controls the tray holds only the stars: the ring has the words. */
+	const trayChips = $derived(controls === 'ring' ? chips.filter(isStar) : chips);
 	let ring = $state<{
 		x: number;
 		y: number;
@@ -1160,7 +1164,9 @@
 		// always meaning → article, so the hand learns one gesture.
 		// The meanings: this word's, plus the nearest words' — the ones the eye mixes up.
 		const pool = blocks.filter((x) => !x.clearing && !x.fizzle && !x.done && chipWord(x.word.de));
-		const choices = ringChoices(b, pool, RING_SIZE[medal]);
+		// Seeded by the block (and this game): pressing the same word again
+		// shows the same arrangement; a new game shuffles afresh.
+		const choices = ringChoices(b, pool, RING_SIZE[medal], seededRandom(ringSeed + b.id * 7919));
 		ring = {
 			x: e.clientX,
 			y: e.clientY,
@@ -1444,6 +1450,7 @@
 
 	function beginGame() {
 		phase = 'play';
+		ringSeed = Math.floor(Math.random() * 1e9);
 		track('wortbloecke_start', { medal });
 		// Deal quietly, then check once: a line on the opening board counts,
 		// but only as one line, not once per card dealt.
@@ -1766,11 +1773,11 @@
 			{:else if goldBar}
 				<p class="tray-label gold">{goldBar}</p>
 			{:else}
-				<p class="tray-label">Find the German for…</p>
+				<p class="tray-label">{controls === 'ring' ? 'Press a word and slide to its meaning' : 'Find the German for…'}</p>
 			{/if}
 		</div>
-		<div class="tray" class:dense={chips.length > 8} class:packed={chips.length > 12}>
-			{#each chips as de (de)}
+		<div class="tray" class:dense={trayChips.length > 8} class:packed={trayChips.length > 12}>
+			{#each trayChips as de (de)}
 				{#if isStar(de)}
 					<button
 						type="button"

@@ -17,6 +17,15 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-20",
+    title: "Wortblöcke: a tidier ring",
+    items: [
+      "The meanings in the ring no longer overlap. They sit on fixed points like a compass: labels on the right grow to the right, labels on the left grow to the left, the star stays at the bottom.",
+      "Five meanings per word on bronze, seven on silver and gold. A word keeps the same arrangement for the whole game, so pressing it again shows the same ring.",
+      "While the ring is open the board dims a little, so the meanings are easy to read. With ring controls on, the tray shows only your stars.",
+    ],
+  },
+  {
+    date: "2026-11-20",
     title: "Downloads start right away",
     items: [
       "Only your first book download asks who the book is for. Every download after that starts at once.",

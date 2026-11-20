@@ -1,21 +1,23 @@
 <script lang="ts">
-	// The marking menu for Wortblöcke (rules in domain/wortRing): opened by a
-	// press on a block. Stroke: slide to a meaning (crossing the ring commits
-	// it), then on to an article, let go. A release with nothing picked leaves
-	// the ring open for plain taps; a tap anywhere else puts it away.
+	// The marking menu for Wortblöcke (rules and layout in domain/wortRing):
+	// opened by a press on a block. Stroke: slide toward a meaning (going far
+	// enough commits it), then on toward an article, let go. Picking is by
+	// direction from where the finger went down, so the labels may sit a
+	// little apart from it (centred on a narrow phone). A release with nothing
+	// picked leaves the menu open for plain taps; a tap elsewhere puts it away.
 	import { onMount } from 'svelte';
 	import { ARTICLE_COLORS } from '$lib/domain/wortbloecke';
 	import {
-		ART_DIRS,
-		ART_R,
 		ARTICLES,
-		RING_R,
-		STAR_ANGLE,
-		clampCenter,
-		meaningAngles,
+		ART_SLOTS,
+		COMMIT_R,
+		SLOTS,
+		STAR_SLOT,
+		meaningSlots,
 		pickSeat,
-		polar,
-		type Article
+		placeCenter,
+		type Article,
+		type Slot
 	} from '$lib/domain/wortRing';
 
 	interface Option {
@@ -38,15 +40,15 @@
 		/** Where the press landed (client px). */
 		x: number;
 		y: number;
-		/** The meanings, or null to open straight on the article ring. */
+		/** The meanings, or null to open straight on the articles. */
 		options: Option[] | null;
-		/** The label in the middle of the article ring when it opens first. */
+		/** The label in the middle of the articles when they open first. */
 		center?: string;
 		/** The pointer is still down: a stroke may follow. */
 		pressing?: boolean;
 		/** Hint stars in hand: with any, a ★ seat sits straight down. */
 		stars?: number;
-		/** A meaning was chosen. True: a noun, open the article ring here. */
+		/** A meaning was chosen. True: a noun, open the articles. */
 		onmeaning: (key: string) => boolean;
 		onarticle: (art: Article) => void;
 		/** The ★ seat was chosen: spend a star on this word. */
@@ -54,13 +56,19 @@
 		ondismiss: () => void;
 	} = $props();
 
-	// The props seed the ring once; from then on it lives its own gesture.
+	// The props seed the menu once; from then on it lives its own gesture.
 	/* svelte-ignore state_referenced_locally */
-	const start = clampCenter(x, y, window.innerWidth, window.innerHeight);
+	const first = placeCenter(x, y, window.innerWidth, window.innerHeight);
 	/* svelte-ignore state_referenced_locally */
 	let stage = $state<'meaning' | 'article'>(options ? 'meaning' : 'article');
-	let cx = $state(start[0]);
-	let cy = $state(start[1]);
+	/** Where the labels are drawn round. */
+	let cx = $state(first[0]);
+	let cy = $state(first[1]);
+	/** Where the stroke is measured from: the press, then the commit point. */
+	/* svelte-ignore state_referenced_locally */
+	let ox = x;
+	/* svelte-ignore state_referenced_locally */
+	let oy = y;
 	/* svelte-ignore state_referenced_locally */
 	let down = $state(pressing);
 	/* svelte-ignore state_referenced_locally */
@@ -73,54 +81,64 @@
 	const opts = options ?? [];
 	/* svelte-ignore state_referenced_locally */
 	const hasStar = stars > 0 && Boolean(onstar);
-	const angles = meaningAngles(opts.length, hasStar);
-	/** Every seat in the meaning ring; the star, when there is one, is last. */
-	const seats = hasStar ? [...angles, STAR_ANGLE] : angles;
-	const STAR_SEAT = opts.length;
-	const artAngles = ARTICLES.map((a) => ART_DIRS[a]);
+	const slots = meaningSlots(opts.length).map((k) => SLOTS[k]);
+	/** Every seat; the star, when there is one, is last. */
+	const seats: Slot[] = hasStar ? [...slots, SLOTS[STAR_SLOT]] : slots;
+	const STAR_SEAT = slots.length;
+	const artSeats = ARTICLES.map((a) => ART_SLOTS[a]);
 
-	function toArticles(at: [number, number], text: string) {
-		const [ax, ay] = clampCenter(at[0], at[1], window.innerWidth, window.innerHeight, ART_R, 40, 24);
+	const place = (s: Slot) => `left: ${cx + s.dx}px; top: ${cy + s.dy}px`;
+
+	function toArticles(px: number, py: number, text: string) {
+		const [ax, ay] = placeCenter(px, py, window.innerWidth, window.innerHeight, 130, 90);
 		stage = 'article';
 		cx = ax;
 		cy = ay;
+		ox = px;
+		oy = py;
 		label = text;
 		hot = null;
 	}
 
-	function chooseMeaning(i: number) {
+	function chooseMeaning(i: number, px: number, py: number) {
 		if (i === STAR_SEAT) return onstar?.();
 		const o = opts[i];
-		const at = polar(cx, cy, angles[i], RING_R);
-		if (onmeaning(o.key)) toArticles(at, o.label);
+		if (onmeaning(o.key)) toArticles(px, py, o.label);
 	}
 
 	function move(e: PointerEvent) {
 		if (!down) return;
 		trail = [...trail.slice(-60), [e.clientX, e.clientY]];
-		const dx = e.clientX - cx;
-		const dy = e.clientY - cy;
-		if (Math.hypot(dx, dy) > 22) moved = true;
+		const dx = e.clientX - ox;
+		const dy = e.clientY - oy;
+		const far = Math.hypot(dx, dy);
+		if (far > 22) moved = true;
 		if (stage === 'meaning') {
-			hot = pickSeat(dx, dy, seats);
-			// Crossing the ring commits the meaning: the stroke flows on.
-			if (hot !== null && Math.hypot(dx, dy) > RING_R * 0.8) {
-				chooseMeaning(hot);
+			hot = pickSeat(dx, dy, seats.map((s) => s.angle));
+			// Far enough toward a meaning commits it: the stroke flows on.
+			if (hot !== null && far > COMMIT_R) {
+				chooseMeaning(hot, e.clientX, e.clientY);
 				moved = false;
 			}
 		} else {
-			hot = pickSeat(dx, dy, artAngles);
+			hot = pickSeat(dx, dy, artSeats.map((s) => s.angle));
 		}
 	}
 
-	function up() {
+	function up(e: PointerEvent) {
 		if (!down) return;
 		down = false;
-		if (stage === 'meaning' && hot !== null && moved) return chooseMeaning(hot);
+		if (stage === 'meaning' && hot !== null && moved) return chooseMeaning(hot, e.clientX, e.clientY);
 		if (stage === 'article' && hot !== null) return onarticle(ARTICLES[hot]);
-		// A plain press: the ring stays for tapping.
+		// A plain press: the menu stays for tapping.
 		hot = null;
 		trail = [];
+	}
+
+	/** A tap on a meaning: the articles open round the middle. */
+	function tapMeaning(i: number) {
+		if (down) return;
+		chooseMeaning(i, cx, cy);
 	}
 
 	function outside(e: PointerEvent) {
@@ -134,7 +152,7 @@
 	}
 
 	onMount(() => {
-		trail = [[cx, cy]];
+		trail = [[ox, oy]];
 		window.addEventListener('pointermove', move);
 		window.addEventListener('pointerup', up);
 		window.addEventListener('pointercancel', up);
@@ -159,39 +177,36 @@
 	<span class="hub" style="left: {cx}px; top: {cy}px" aria-hidden="true"></span>
 	{#if stage === 'meaning'}
 		{#each opts as o, i (o.key)}
-			{@const p = polar(cx, cy, angles[i], RING_R)}
 			<button
 				type="button"
-				class="seat"
+				class="seat {slots[i].anchor}"
 				class:on={hot === i}
 				data-seat
-				style="left: {p[0]}px; top: {p[1]}px"
-				onclick={() => !down && chooseMeaning(i)}
+				style={place(slots[i])}
+				onclick={() => tapMeaning(i)}
 			>{o.label}</button>
 		{/each}
 		{#if hasStar}
-			{@const p = polar(cx, cy, STAR_ANGLE, RING_R)}
 			<button
 				type="button"
-				class="seat star"
+				class="seat star center"
 				class:on={hot === STAR_SEAT}
 				data-seat
 				aria-label="Hint star: show this word ({stars} left)"
-				style="left: {p[0]}px; top: {p[1]}px"
+				style={place(SLOTS[STAR_SLOT])}
 				onclick={() => !down && onstar?.()}
 			>★ {stars}</button>
 		{/if}
 	{:else}
-		<span class="seat mid" style="left: {cx}px; top: {cy}px">{label}</span>
+		<span class="seat mid center" style="left: {cx}px; top: {cy}px">{label}</span>
 		{#each ARTICLES as a, i (a)}
-			{@const p = polar(cx, cy, ART_DIRS[a], ART_R)}
 			<button
 				type="button"
-				class="seat art"
+				class="seat art {ART_SLOTS[a].anchor}"
 				class:on={hot === i}
 				data-seat
 				lang="de"
-				style="left: {p[0]}px; top: {p[1]}px; --ac: {ARTICLE_COLORS[a]}"
+				style="{place(ART_SLOTS[a])}; --ac: {ARTICLE_COLORS[a]}"
 				onclick={() => !down && onarticle(a)}
 			>{a}</button>
 		{/each}
@@ -199,11 +214,20 @@
 </div>
 
 <style>
+	/* The board dims behind the menu, so the meanings read clearly. */
 	.wring {
 		position: fixed;
 		inset: 0;
 		z-index: 30;
 		pointer-events: none;
+		background: rgb(16 21 31 / 0.38);
+		animation: dim var(--fast) var(--ease-out);
+	}
+
+	@keyframes dim {
+		from {
+			background: rgb(16 21 31 / 0);
+		}
 	}
 
 	.trail {
@@ -216,11 +240,11 @@
 
 	.trail polyline {
 		fill: none;
-		stroke: var(--accent);
+		stroke: #fff;
 		stroke-width: 3;
 		stroke-linecap: round;
 		stroke-linejoin: round;
-		opacity: 0.6;
+		opacity: 0.55;
 	}
 
 	.hub {
@@ -228,33 +252,47 @@
 		width: 14px;
 		height: 14px;
 		border-radius: 50%;
-		background: var(--heading);
+		background: #fff;
 		transform: translate(-50%, -50%);
-		box-shadow: 0 0 0 5px rgb(31 58 95 / 0.18);
+		box-shadow: 0 0 0 5px rgb(255 255 255 / 0.25);
 	}
 
+	/* A label's anchor edge sits on its slot: centred at top and bottom,
+	   growing outward on the right and on the left (Maya's layout). */
 	.seat {
+		--tx: -50%;
 		position: absolute;
-		transform: translate(-50%, -50%);
+		max-width: calc(50vw - 3.2rem);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		transform: translate(var(--tx), -50%);
 		pointer-events: auto;
 		padding: 0.45rem 0.75rem;
 		border: none;
 		border-radius: var(--radius-sm);
-		background: var(--heading);
-		color: #fff;
+		background: var(--surface);
+		color: var(--heading);
 		font: inherit;
 		font-weight: 700;
-		font-size: 0.95rem;
+		font-size: 0.92rem;
 		white-space: nowrap;
-		box-shadow: 0 6px 16px rgb(0 0 0 / 0.22);
+		box-shadow: 0 6px 16px rgb(0 0 0 / 0.28);
 		cursor: pointer;
 		transition: transform var(--fast) var(--ease-out);
 		animation: seat-in var(--medium) var(--ease-spring);
 		touch-action: none;
 	}
 
+	.seat.start {
+		--tx: 0%;
+	}
+
+	.seat.end {
+		--tx: -100%;
+	}
+
 	.seat.on {
-		transform: translate(-50%, -50%) scale(1.14);
+		transform: translate(var(--tx), -50%) scale(1.1);
 		outline: 3px solid var(--accent);
 		outline-offset: 1px;
 	}
@@ -262,11 +300,15 @@
 	.seat.art {
 		min-width: 3.4em;
 		background: var(--ac);
-		box-shadow: inset 0 -3px 0 rgb(0 0 0 / 0.2), 0 6px 16px rgb(0 0 0 / 0.22);
+		color: #fff;
+		text-align: center;
+		box-shadow:
+			inset 0 -3px 0 rgb(0 0 0 / 0.2),
+			0 6px 16px rgb(0 0 0 / 0.28);
 	}
 
 	.seat.art.on {
-		outline-color: var(--heading);
+		outline-color: #fff;
 	}
 
 	.seat.star {
@@ -276,19 +318,19 @@
 
 	.seat.mid {
 		pointer-events: none;
-		background: var(--surface);
-		color: var(--heading);
-		border: 1.5px solid var(--heading);
+		background: var(--heading);
+		color: #fff;
 	}
 
 	@keyframes seat-in {
 		from {
 			opacity: 0;
-			transform: translate(-50%, -50%) scale(0.6);
+			transform: translate(var(--tx), -50%) scale(0.7);
 		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
+		.wring,
 		.seat {
 			animation: none;
 			transition: none;
